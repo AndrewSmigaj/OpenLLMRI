@@ -10,6 +10,84 @@ The user reviews entries and either acts on them, dismisses them, or files them.
 
 ---
 
+## 2026-05-09 — Findings/research-doc scaffolding is missing; everything ends up dumped in one folder
+
+**Scope**: `docs/research/StudiesByClaude/`, `docs/scratchpad/`, possibly a new `docs/paper-prep/` directory.
+
+The user can't navigate the existing findings docs because the structure is "everything in one folder with names I picked in the moment, depending on which direction I kneejerked." Mixed in `docs/research/StudiesByClaude/`:
+- Per-probe-version findings (`suicide_letter_temporal_v1_findings.md`, `_v2`, `_v3`)
+- Cross-probe-family rollups (`family_c_engagement_findings.md`, `basin_projection_extension_findings.md`)
+- Consolidated reports (`suicide_letter_consolidated_report.md`)
+- Paper drafts (`paper1_lens_and_trajectory.md`, `paper2_basin_signatures_modes.md`, `paper_draft_basin_signatures.md`)
+- Other studies' findings (`lying_*`, `mode_separability_*`, `help_*`)
+- One-off taxonomies (`probe_cheat_sheet.md`)
+- Ideation files (`scaffold_study_ideas.md`)
+- Authoring trackers (`*_authoring_tracker.md`)
+
+Plus parallel content in `docs/scratchpad/` (capture chain logs, basin-projection JSONs, categorizer scripts, plot scripts, intermediate analyses) — different folder based on which direction I "kneejerked," not on a coherent classification.
+
+What the user actually needs:
+1. **A "current paper" folder** where I keep, in one place, the running outline + section drafts + figures + tables for the paper that's actively being written. Right now paper-relevant material is scattered across findings docs, scratchpad analyses, and the consolidated report.
+2. **A clear taxonomy for findings docs** by probe family: `suicide_letter/`, `polysemy/`, `lying/`, `help/`, `mode_separability/`. Each subfolder owns its per-version findings + the rollup. The probe_cheat_sheet stays at the top as the index.
+3. **A "paper insights" running ledger** — short, append-only entries when I notice something worth folding into the paper (a phrasing, a comparison, a phenomenon worth flagging). Currently I either embed these in findings docs (and they get lost) or write them in chat (and they evaporate).
+4. **Scratchpad discipline**: scratchpad is for in-progress work that's not yet ready for findings. It should NOT be the place where I leave the "real" analysis (which has happened: `paper_protocol_basin_points.json` is the canonical Family-B-with-cache-on basin trajectory data and lives in scratchpad).
+
+The user has been writing findings + analysis for a while and the accumulated mess makes it hard to navigate when starting a paper-writing session. This is blocking — they're saying "we haven't built the scaffolding for you yet so you keep track of what we are working on better and keep track of insights and findings for a paper we are working on."
+
+Concrete next session: design the directory layout, move existing files to it (with `git mv` so history is preserved), update cross-references, and adopt a discipline of "every new finding goes in the right place, and every paper-relevant insight goes in the insights ledger as I notice it."
+
+---
+
+## 2026-05-09 — `/server`, `/temporal`, and skill-side runbook gaps
+
+**Scope**: `.claude/skills/server/SKILL.md`, `.claude/skills/temporal/SKILL.md`, possibly `.claude/skills/probe/SKILL.md`.
+
+I keep tripping over the same operational mistakes when running long captures. The skills don't currently encode the operational knowledge that would prevent them. Things I've done wrong this session that are pure operator errors, not analysis errors:
+
+1. **Tried to fire a temporal capture while another was running.** No skill check for "is the temporal lock held right now?" — I just blasted curl. The `/temporal` skill should have an OP that says "before firing, GET status; only fire if busy=false; otherwise wait/back off." Currently the skill assumes captures are short and serial-fire works.
+2. **Picked `--max-time` for chain curls out of intuition** (3600s "feels right"). No data-driven heuristic. The skill should specify: "look up the worst-case wall-clock for the same protocol-shape from prior `temporal_runs.json` entries and set max-time to ≥ 1.5×. If no prior data, run one smoke and use 1.5× of that."
+3. **Started fresh chain scripts in `docs/scratchpad/` over and over** (`paper_protocol_chain.sh`, `paper_protocol_with_gen_chain.sh`, `polysemy_temporal_chain.sh`, `polysemy_capture_chain.sh`, `family_c_capture_chain.sh`...). Each reinvents the wheel: lock checks, timeout policy, log format, recovery. The `/temporal` skill should provide ONE canonical chain script (maybe as a documented template or actual `.sh` artifact in the skill dir) that handles: status polling, generous timeouts, TSV log, orphan-session recovery.
+4. **Restarted backend without checking what was loaded** several times. The `/server` skill OP-1 status check exists but I didn't run it before restarts. Skill should say "always run OP-1 before OP-2" with the rationale that an in-flight capture is silently lost on restart.
+5. **Manually patched the chain log TSV** to recover orphan sessions. Should be a reusable `recover_orphan_sessions.py` script in the skill or service that scans `data/lake/_sessions/*.json` for "active" state, cross-references with `temporal_runs.json`, and rewrites the chain log accordingly.
+6. **Background-process pattern leaks ghost processes across sessions.** I've been calling Bash with `run_in_background: true` AND including `nohup … &` inside the command. The outer bash exits immediately (Claude task slot shows "completed"), and the `nohup`'d work runs detached — untrackable by Claude's `TaskOutput`, invisible to my own status checks, and surviving across Claude session boundaries. Today (2026-05-09) `ps -ef` shows two `-bash` shells dated 2026-04-26 still alive — leftovers from sessions weeks ago that I started and never cleaned up. The pattern is: start a chain → it completes → outer bash exits → I move on → the inner process either finishes invisibly or hangs forever, in either case nothing tells me. Recommendations:
+   - **For chain scripts and one-off long-running work**: use `bash chain.sh` (no `nohup`, no `&`) with `run_in_background: true`. Claude can then poll `TaskOutput`, see real completion, and the user gets honest status.
+   - **For uvicorn (genuinely needs to outlive Claude)**: keep the `nohup … &` pattern but the `/server` skill should specify "after launching, capture the PID and write it to a known file like `/tmp/openllmri_backend.pid` so subsequent OP-2 stops can verify they killed the right process and so old shells can be detected and cleaned."
+   - **End-of-session cleanup**: skill or hook that does `ps -ef | grep -E "uvicorn|chain.sh|paper_protocol" | grep -v grep` and prompts on anything older than the current session start time. This would have caught the Apr 26 ghost shells the first time they outlived their session.
+   - **Stop calling `nohup … &` inside `run_in_background: true`** — the two are doing redundant detachment and the result is a ghost process I lose track of. Pick one or the other based on whether the work needs to outlive Claude.
+7. **Monitor / `until ... do sleep N; done` loops orphan themselves silently.** Six such loops were running in this VM today, started over the past 3 days via the `Monitor` tool: each waiting for a backend ping, a smoke-test result file, or a model-load readiness signal. Each one's grep condition either matched once and the loop didn't notice, or never matched at all. None terminated; all six showed up in the user's Claude Code sidebar as "(running)" tasks while I had no awareness of them, and the bash processes were hidden in `ps -ef` under `sleep 5`/`sleep 10` children. Recommendations:
+   - **Use `Monitor` only with conditions that are KNOWN to fire** within a finite window (e.g. a file appears, a one-shot log line shows up).
+   - **Add a max-iteration guard to every until-loop**: `until cond; do sleep 5; ((i++)); [[ $i -gt 60 ]] && break; done`. 5 min worst-case beats forever.
+   - **Auto-cleanup hook**: a session-start or session-end hook that scans `ps -ef --user $USER` for processes parented by the current claude PID with etime > 1h, lists them, and offers to kill anything that isn't the backend / evennia / browser. Would have caught these on day-2 instead of day-3.
+   - **Monitor wrapper that registers PIDs**: every Monitor call appends its bash PID to `/tmp/claude_monitors.txt` so a `kill_all_my_monitors` operation is one command.
+
+The throughline: I tend to write one-off scripts and pull operational numbers (timeouts, polling intervals) from intuition rather than from prior data. The skills exist to encode that operational knowledge so I don't redo the discovery each session. Worth a session to harden the `/server` and `/temporal` skill OPs.
+
+---
+
+## 2026-05-09 — temporal-capture chain reliability gaps surfaced under generation load
+
+**Scope**: `/temporal` skill, `backend/src/api/routers/temporal.py`, capture-chain shell scripts under `docs/scratchpad/`.
+
+While running paper-protocol replication with `generate_output: true`, the chain hit a class of failure that should be designed out, not patched per-script:
+
+1. **`curl --max-time` race with server-side capture.** Per-session wall-clock with generation is highly variable (35–71 min depending on whether outputs reach `assistantfinal` before `max_new_tokens=256`). When curl times out *before* the server finishes, the server keeps running (correct — work isn't lost), but the global `_temporal_capture_busy` lock stays held until the server completes. The next curl in the chain immediately fails with `"A temporal capture is already in progress"`, and a naive `for`-loop chain blasts through every remaining iteration in seconds, all marked failed. Recovery requires waiting for the server to finish, then re-firing only the truly-missing sessions.
+
+2. **No "wait for lock to release" affordance.** The temporal-capture endpoint either runs (lock free) or returns 503 (lock held). A chain script has to choose between (a) using a curl timeout long enough to guarantee server completion (overestimates cost; wastes time on early-finishing sessions) or (b) polling the lock state between fires (no endpoint exists for this today).
+
+3. **Generation-with-cache-on per-step cost is the dominant time sink.** ~1–2 min per probe at long cumulative context (40 sentences ≈ 1000 tokens), driven by 256-token decode at growing context length. A 40-probe ordering with generation runs 35–70 min. An expanding-protocol chain (10 orderings × 2 directions = 20 sessions per probe family) is ~12–20 hours.
+
+**Concrete recommendations**:
+
+- **Add a `/api/experiments/temporal-capture/status` endpoint** that returns `{busy: bool, current_session_id: str | None, current_position: int | None}`. Chain scripts can poll this between fires instead of guessing curl timeouts.
+- **Update `/temporal` skill** with a "chain captures" subsection that specifies the recovery pattern (poll status; only fire when busy=false; verify orphan sessions on disk; use `--max-time` ≥ 1.5× expected per-session wall-clock).
+- **Consider replacing the global busy-flag with a per-session queue** so multiple captures can be queued and processed sequentially without curl needing to know about server-side state. A 503 reply on already-busy is a "design for the wrong consumer" choice — the temporal endpoint is exclusively driven by chain scripts and the agent, neither of which benefits from explicit failure on busy.
+- **Document expected wall-clock** in the `/temporal` skill for `generate_output=true` at expanding-protocol scale, so future runs aren't planned at 1× speed.
+- **Capture a per-session timing histogram** in `temporal_runs.json` so future chain scripts can predict their own timeout needs from prior runs.
+
+This entry is a follow-up filed because we hit it mid-paper-protocol run and need the chain reliable before scaling up. Today's workaround is "manually patch the TSV after curl timeouts and re-fire missing sessions" — works but is exactly the kind of thing skills should encode.
+
+---
+
 ## 2026-05-06 — Paper rewrite: drop "alignment failure" framing; settled by v1+v2+v3
 
 **Scope**: `paper/main.tex` and the `geometry-of-alignment-failure` paper that's already been posted.

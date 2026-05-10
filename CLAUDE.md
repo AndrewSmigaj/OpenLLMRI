@@ -171,6 +171,13 @@ TEMPORAL FLOW: expanding context window → basin axis projection → lag measur
 ### 11a. No quick fixes, no prototype shortcuts
 This is a portfolio project and open-source software. Do not patch around bad design with caller-side workarounds. Do not hardcode study-specific vocabulary (scenario types, target-word choices, axis labels) inside reusable components — take them as props. Do not bump magic numbers in a component to "fix" a caller's problem — fix the caller's prop or make the value a proper parameter. When a design issue is found, raise it and fix the design; do not paper over it.
 
+### 11b. Commit + push cadence — batch, don't blast
+- **Don't `git add` / `commit` / `push` after every single edit.** Each push prompts the user for approval and breaks their flow. Bundle related changes into ONE commit per significant unit of work.
+- **A "significant unit of work" is one of:** a feature shipped end-to-end, a refactor phase complete and verified, a multi-file bug fix, an analysis pass with its findings doc, or a deliberate checkpoint the user requested.
+- **NOT a unit of work:** every file edit, every script tweak, every tiny fix, every "let me just commit this small thing" impulse. Those accumulate locally and ship as part of the next significant batch.
+- **Push only after the user signals to or after the work-unit is genuinely shippable.** "Add and commit this" doesn't mean "and also push" unless the user said so explicitly.
+- **One exception:** if the user explicitly says "commit and push", do it once. Don't take that as standing authorization for the rest of the session.
+
 ### 12. Uncertainty Assessment
 - **Never jump straight to implementation** — assess uncertainty first. Run `/cdd` for the structured procedure, or do a quick inline assessment for smaller tasks.
 - **New work needs a plan** — if the task involves more than a single targeted edit, write a plan and get approval before proceeding. Modifying scaffolding, architecture, or multi-file changes always require a plan.
