@@ -6,16 +6,4 @@ ord	dir	run_id	new_session	probes	regime_boundary	status
 2	block_ba	temporal_e39104c5	session_bcd9aaf6	40	20	ok
 2	block_ab	temporal_6298b66c	session_88bcbe3b	40	20	ok
 3	block_ba	temporal_0a2a35e8	session_8ffd7031	40	20	ok
-3	block_ab	ERR	ERR	?	?	err
-4	block_ba	ERR	ERR	?	?	err
-4	block_ab	ERR	ERR	?	?	err
-5	block_ba	ERR	ERR	?	?	err
-5	block_ab	ERR	ERR	?	?	err
-6	block_ba	ERR	ERR	?	?	err
-6	block_ab	ERR	ERR	?	?	err
-7	block_ba	ERR	ERR	?	?	err
-7	block_ab	ERR	ERR	?	?	err
-8	block_ba	ERR	ERR	?	?	err
-8	block_ab	ERR	ERR	?	?	err
-9	block_ba	ERR	ERR	?	?	err
-9	block_ab	ERR	ERR	?	?	err
+3	block_ab	temporal_paper_gen_suicide_ord3_block_ab	session_3c758704	40	20	ok_recovered
