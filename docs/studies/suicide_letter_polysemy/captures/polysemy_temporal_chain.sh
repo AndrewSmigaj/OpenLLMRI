@@ -4,7 +4,7 @@
 
 set -u
 
-LOG=docs/scratchpad/polysemy_temporal_log.tsv
+LOG=docs/studies/suicide_letter_polysemy/captures/polysemy_temporal_log.tsv
 [ -f "$LOG" ] || printf "ord\tdir\tsequence_config\trun_id\tnew_session\tprobes\tregime_boundary\tstatus\n" > "$LOG"
 
 # Polysemy basin study + schema

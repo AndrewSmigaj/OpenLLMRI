@@ -12,13 +12,13 @@
 #     foreground bash invocation under run_in_background=true; we let
 #     curl block sequentially through all 12 fires.
 #
-# LOG: docs/scratchpad/paper_protocol_with_gen_log.tsv
+# LOG: docs/studies/suicide_letter_polysemy/captures/paper_protocol_with_gen_log.tsv
 # Idempotent: skips any (ord, dir) pair already recorded with status=ok
 # (or ok_smoke / ok_recovered).
 
 set -u
 
-LOG=docs/scratchpad/paper_protocol_with_gen_log.tsv
+LOG=docs/studies/suicide_letter_polysemy/captures/paper_protocol_with_gen_log.tsv
 [ -f "$LOG" ] || printf "ord\tdir\trun_id\tnew_session\tprobes\tregime_boundary\tstatus\n" > "$LOG"
 
 fire() {

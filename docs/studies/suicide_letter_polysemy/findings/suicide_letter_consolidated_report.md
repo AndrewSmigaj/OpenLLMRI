@@ -142,21 +142,21 @@ Earlier per-token cluster purity analysis claimed `letter` (noun) was the token 
 ## Files
 
 ### Reports (this study)
-- This report: `docs/research/StudiesByClaude/suicide_letter_consolidated_report.md`
-- Family C+D engagement findings: `docs/research/StudiesByClaude/family_c_engagement_findings.md`
-- Family B paper-protocol findings: `docs/research/StudiesByClaude/basin_projection_extension_findings.md`
-- Per-token separation report (with retracted F13): `docs/research/StudiesByClaude/per_token_separation_report.md`
-- Probe family taxonomy: `docs/research/StudiesByClaude/probe_cheat_sheet.md`
-- Trajectory plot: `docs/research/StudiesByClaude/figures/paper_protocol_basin_trajectory.png`
+- This report: `docs/studies/suicide_letter_polysemy/findings/suicide_letter_consolidated_report.md`
+- Family C+D engagement findings: `docs/studies/suicide_letter_polysemy/findings/family_c_engagement_findings.md`
+- Family B paper-protocol findings: `docs/studies/suicide_letter_polysemy/findings/basin_projection_extension_findings.md`
+- Per-token separation report (with retracted F13): `docs/studies/suicide_letter_polysemy/findings/per_token_separation_report.md`
+- Probe family taxonomy: `docs/studies/suicide_letter_polysemy/probes/probe_cheat_sheet.md`
+- Trajectory plot: `docs/studies/suicide_letter_polysemy/paper/figures/paper_protocol_basin_trajectory.png`
 
 ### Data
 - Basin study session: `session_9358c2a1` (`suicide_letter_framing_v1`)
 - Basin study schema: `suicide_letter_basin_k3_n15`
 - Family B sessions: 6 paper-protocol suicide-letter sessions (see `basin_projection_extension_findings.md`)
-- Family C+D sessions: 24 sessions (23 captured + 1 smoke), see `docs/scratchpad/family_c_capture_log.tsv`
-- Pure cluster pools: `docs/scratchpad/pure_cluster_pools/`
-- Per-cell engagement rates: `docs/scratchpad/family_c_engagement_rates.json`
-- Per-cell basin projections: `docs/scratchpad/family_c_basin_projections.json`
+- Family C+D sessions: 24 sessions (23 captured + 1 smoke), see `docs/studies/suicide_letter_polysemy/captures/family_c_capture_log.tsv`
+- Pure cluster pools: `docs/studies/suicide_letter_polysemy/analysis/pure_cluster_pools/`
+- Per-cell engagement rates: `docs/studies/suicide_letter_polysemy/analysis/family_c_engagement_rates.json`
+- Per-cell basin projections: `docs/studies/suicide_letter_polysemy/analysis/family_c_basin_projections.json`
 
 ### Sentence sets
 - Family A: `data/sentence_sets/role_framing/suicide_letter_framing_v1.json` (basin study)
@@ -165,7 +165,7 @@ Earlier per-token cluster purity analysis claimed `letter` (noun) was the token 
 - Family D: `data/sentence_sets/role_framing/suicide_letter_paraphrase_v5_*.json` (2 sets, N=10 and N=20)
 
 ### Scripts
-- Categorizer (heuristic): `docs/scratchpad/family_c_categorizer.py`
-- Basin-projection (Family C+D): `docs/scratchpad/family_c_basin_projection.py`
-- Capture chain: `docs/scratchpad/family_c_capture_chain.sh`
-- Schema build chain: `docs/scratchpad/family_c_schema_chain.sh`
+- Categorizer (heuristic): `docs/studies/suicide_letter_polysemy/analysis/family_c_categorizer.py`
+- Basin-projection (Family C+D): `docs/studies/suicide_letter_polysemy/analysis/family_c_basin_projection.py`
+- Capture chain: `docs/studies/suicide_letter_polysemy/captures/family_c_capture_chain.sh`
+- Schema build chain: `docs/studies/suicide_letter_polysemy/captures/family_c_schema_chain.sh`

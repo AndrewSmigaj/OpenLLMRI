@@ -109,7 +109,7 @@ The lexical token "letter" doesn't carry the decision signal; the position right
 
 ## Final report
 
-`docs/research/StudiesByClaude/per_token_separation_report.md` consolidates these findings into the headline four-condition picture for the paper rewrite. Three separable findings:
+`docs/studies/suicide_letter_polysemy/findings/per_token_separation_report.md` consolidates these findings into the headline four-condition picture for the paper rewrite. Three separable findings:
 
 1. (Single-sentence) `want`-token L23 cleanly separates fic from real (V≈0.91, supporting paper's V=0.554).
 2. (v1, suicide-content cumulative) `want`-token L23 collapses to V≈0.07 — content saturation. Behavior remains uniformly refusing.

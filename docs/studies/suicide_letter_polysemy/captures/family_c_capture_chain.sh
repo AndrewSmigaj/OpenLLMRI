@@ -4,7 +4,7 @@
 
 set -u
 
-LOG=docs/scratchpad/family_c_capture_log.tsv
+LOG=docs/studies/suicide_letter_polysemy/captures/family_c_capture_log.tsv
 mkdir -p "$(dirname "$LOG")"
 [ -f "$LOG" ] || printf "set_name\tsession_id\ttotal_probes\tstatus\n" > "$LOG"
 

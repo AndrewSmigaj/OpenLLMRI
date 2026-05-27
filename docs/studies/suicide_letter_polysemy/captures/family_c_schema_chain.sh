@@ -4,7 +4,7 @@
 
 set -u
 
-LOG=docs/scratchpad/family_c_schema_log.tsv
+LOG=docs/studies/suicide_letter_polysemy/captures/family_c_schema_log.tsv
 [ -f "$LOG" ] || printf "session_id\tschema\tstatus\n" > "$LOG"
 
 # session_id : schema_short_name (will be suffixed _k3_n15)

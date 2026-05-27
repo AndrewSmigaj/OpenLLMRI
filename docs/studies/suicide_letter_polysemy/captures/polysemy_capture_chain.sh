@@ -4,7 +4,7 @@
 
 set -u
 
-LOG=docs/scratchpad/polysemy_capture_log.tsv
+LOG=docs/studies/suicide_letter_polysemy/captures/polysemy_capture_log.tsv
 [ -f "$LOG" ] || printf "set_name\tsession_id\ttotal_probes\tstatus\n" > "$LOG"
 
 SETS=()

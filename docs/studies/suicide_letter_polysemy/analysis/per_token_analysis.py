@@ -10,10 +10,10 @@ For cumulative-context sessions, also computes per-N UMAP-6D Euclidean
 distance between fictional and real probes (the "separation score per N").
 
 Usage:
-    .venv/bin/python docs/scratchpad/per_token_analysis.py <session_id>
+    .venv/bin/python docs/studies/suicide_letter_polysemy/analysis/per_token_analysis.py <session_id>
 
 Output: prints tables; optionally writes findings rows to
-docs/research/StudiesByClaude/per_token_separation_findings.md
+docs/studies/suicide_letter_polysemy/findings/per_token_separation_findings.md
 """
 
 import sys

@@ -278,8 +278,8 @@ if __name__ == "__main__":
             print(f"{out['set_name']:<48s} {label:<24s} {n:<5d} {eng:<6d} {ref:<6d} {oth:<6d} {pct:<6.1f}")
 
     # Save details
-    Path("docs/scratchpad/family_c_categorization.json").write_text(
+    Path("docs/studies/suicide_letter_polysemy/analysis/family_c_categorization.json").write_text(
         json.dumps([{"session_id": o["session_id"], "set_name": o["set_name"], "n": o["n"], "counts": o["counts"], "results": o["results"]} for o in all_out], indent=2)
     )
     print()
-    print(f"Saved details -> docs/scratchpad/family_c_categorization.json")
+    print(f"Saved details -> docs/studies/suicide_letter_polysemy/analysis/family_c_categorization.json")

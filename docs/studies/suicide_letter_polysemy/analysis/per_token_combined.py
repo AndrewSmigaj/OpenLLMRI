@@ -156,9 +156,9 @@ def main(layers=(8, 16, 23)):
                 results[tag]["by_layer"][f"L{L}"]["per_n_distance"] = pn
 
     # Save raw results
-    with open("docs/scratchpad/per_token_combined_results.json", "w") as f:
+    with open("docs/studies/suicide_letter_polysemy/analysis/per_token_combined_results.json", "w") as f:
         json.dump(results, f, indent=2)
-    print(f"\nSaved combined results to docs/scratchpad/per_token_combined_results.json")
+    print(f"\nSaved combined results to docs/studies/suicide_letter_polysemy/analysis/per_token_combined_results.json")
 
 
 if __name__ == "__main__":

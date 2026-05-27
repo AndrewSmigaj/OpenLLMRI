@@ -5,7 +5,7 @@
 
 set -u
 
-LOG=docs/scratchpad/paper_protocol_log.tsv
+LOG=docs/studies/suicide_letter_polysemy/captures/paper_protocol_log.tsv
 [ -f "$LOG" ] || printf "family\tord\tdir\trun_id\tnew_session\tprobes\tregime_boundary\tstatus\n" > "$LOG"
 
 fire_one() {

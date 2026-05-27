@@ -2,7 +2,7 @@
 """
 Generate the bar charts and line plots for the per-token separation study.
 
-Plots produced (PNGs in docs/research/StudiesByClaude/figures/):
+Plots produced (PNGs in docs/studies/suicide_letter_polysemy/paper/figures/):
   - plot1_cramers_v_per_token_L23.png — bar chart, per-token Cramér's V at L23,
     one bar group per condition (single, neutral, fictional-writing, suicide-content),
     with random-shuffle null-baseline 95th-percentile horizontal lines.
@@ -23,7 +23,7 @@ import umap
 from sklearn.cluster import AgglomerativeClustering
 from scipy.stats import chi2_contingency
 
-OUTDIR = "docs/research/StudiesByClaude/figures"
+OUTDIR = "docs/studies/suicide_letter_polysemy/paper/figures"
 os.makedirs(OUTDIR, exist_ok=True)
 
 SESSIONS = {

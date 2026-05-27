@@ -282,11 +282,11 @@ v5 cross-frame test (each 42 probes with generation):
 - `session_ae154f93` — programming-craft cumulative
 
 Analysis artifacts:
-- Joint UMAP raw data: `docs/scratchpad/joint_umap_v2_v3_L23.json`
-- Combined within-session results: `docs/scratchpad/per_token_combined_results.json`
-- Plot scripts: `docs/scratchpad/per_token_plots.py`
-- Plot outputs: `docs/research/StudiesByClaude/figures/`
-- Live findings doc: `docs/research/StudiesByClaude/per_token_separation_findings.md`
+- Joint UMAP raw data: `docs/studies/suicide_letter_polysemy/analysis/joint_umap_v2_v3_L23.json`
+- Combined within-session results: `docs/studies/suicide_letter_polysemy/analysis/per_token_combined_results.json`
+- Plot scripts: `docs/studies/suicide_letter_polysemy/analysis/per_token_plots.py`
+- Plot outputs: `docs/studies/suicide_letter_polysemy/paper/figures/`
+- Live findings doc: `docs/studies/suicide_letter_polysemy/findings/per_token_separation_findings.md`
 
 ## Result 10 — Geometric "decision-token" claim falsified by v6 data
 

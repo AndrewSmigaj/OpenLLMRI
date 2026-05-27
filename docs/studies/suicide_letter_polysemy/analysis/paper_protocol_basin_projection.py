@@ -79,7 +79,7 @@ def analyze_family(name: str, source_sid: str, schema: str,
         return (rel @ axis_unit) / axis_len  # 0 = A basin, 1 = B basin
 
     # Load chain log for this family
-    log = pd.read_csv("docs/scratchpad/paper_protocol_log.tsv", sep="\t")
+    log = pd.read_csv("docs/studies/suicide_letter_polysemy/captures/paper_protocol_log.tsv", sep="\t")
     fam_rows = log[session_log_filter(log)]
     print(f"  found {len(fam_rows)} sessions in chain log")
 
@@ -135,7 +135,7 @@ def main():
     all_results.extend(pts)
 
     # Save raw points
-    out_json = "docs/scratchpad/paper_protocol_basin_points.json"
+    out_json = "docs/studies/suicide_letter_polysemy/analysis/paper_protocol_basin_points.json"
     Path(out_json).write_text(json.dumps(all_results, indent=2))
     print(f"\nSaved {len(all_results)} points -> {out_json}")
 

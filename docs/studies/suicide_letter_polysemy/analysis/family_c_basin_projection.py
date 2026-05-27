@@ -152,7 +152,7 @@ def main():
             rows.append({"set": name, "label": label, "n": len(g), "mean_proj": mean, "std_proj": std})
 
     # Save
-    out = Path("docs/scratchpad/family_c_basin_projections.json")
+    out = Path("docs/studies/suicide_letter_polysemy/analysis/family_c_basin_projections.json")
     out.write_text(json.dumps(rows, indent=2))
     print(f"\nSaved -> {out}")
 

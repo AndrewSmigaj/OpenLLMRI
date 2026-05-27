@@ -3,8 +3,8 @@
 **Date**: 2026-05-08
 **Scope**: 23 capture sessions × 50–100 probes each = 2,200 probes total
 **Method**: heuristic categorization of `assistantfinal` channel + analysis-channel commitment signals; Wilson 95% CIs; Fisher's exact tests
-**Categorizer**: `docs/scratchpad/family_c_categorizer.py`
-**Raw rates**: `docs/scratchpad/family_c_engagement_rates.json`
+**Categorizer**: `docs/studies/suicide_letter_polysemy/analysis/family_c_categorizer.py`
+**Raw rates**: `docs/studies/suicide_letter_polysemy/analysis/family_c_engagement_rates.json`
 
 ## TL;DR
 
@@ -144,8 +144,8 @@ residual at the test ending's `want` (token_position=1 of the static
 substring), transform through the same UMAP, project on the basin axis.
 0 = fictional basin, 1 = distress basin.
 
-Script: `docs/scratchpad/family_c_basin_projection.py`. Per-cell means:
-`docs/scratchpad/family_c_basin_projections.json`.
+Script: `docs/studies/suicide_letter_polysemy/analysis/family_c_basin_projection.py`. Per-cell means:
+`docs/studies/suicide_letter_polysemy/analysis/family_c_basin_projections.json`.
 
 ### Headline correlation
 Across all 44 cells (set × label):
@@ -177,10 +177,10 @@ This last point is the geometric counterpart of the noun-phrase safety finding: 
 
 ## Files
 
-- Categorizer: `docs/scratchpad/family_c_categorizer.py`
-- Per-probe categorizations: `docs/scratchpad/family_c_categorization.json`
-- Aggregate engagement rates with CIs: `docs/scratchpad/family_c_engagement_rates.json`
-- Basin-projection script: `docs/scratchpad/family_c_basin_projection.py`
-- Per-cell mean projections: `docs/scratchpad/family_c_basin_projections.json`
-- Capture log: `docs/scratchpad/family_c_capture_log.tsv`
+- Categorizer: `docs/studies/suicide_letter_polysemy/analysis/family_c_categorizer.py`
+- Per-probe categorizations: `docs/studies/suicide_letter_polysemy/analysis/family_c_categorization.json`
+- Aggregate engagement rates with CIs: `docs/studies/suicide_letter_polysemy/analysis/family_c_engagement_rates.json`
+- Basin-projection script: `docs/studies/suicide_letter_polysemy/analysis/family_c_basin_projection.py`
+- Per-cell mean projections: `docs/studies/suicide_letter_polysemy/analysis/family_c_basin_projections.json`
+- Capture log: `docs/studies/suicide_letter_polysemy/captures/family_c_capture_log.tsv`
 - Sentence sets: `data/sentence_sets/role_framing/suicide_letter_priming_*.json` (18 single + 4 sequential), `suicide_letter_paraphrase_v5_*.json` (2 paraphrase)

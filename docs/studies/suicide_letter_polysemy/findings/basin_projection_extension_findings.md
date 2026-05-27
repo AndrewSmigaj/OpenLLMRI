@@ -119,7 +119,7 @@ UMAP fit and don't align with the re-fit space.
 Both findings hold across 3 random orderings; SDs mostly 0.0-0.3.
 
 **Trajectory plot:**
-`docs/research/StudiesByClaude/figures/paper_protocol_basin_trajectory.png`
+`docs/studies/suicide_letter_polysemy/paper/figures/paper_protocol_basin_trajectory.png`
 
 ## What's next
 
@@ -134,8 +134,8 @@ Both findings hold across 3 random orderings; SDs mostly 0.0-0.3.
 
 ## Key files
 
-- This notes doc: `docs/research/StudiesByClaude/basin_projection_extension_findings.md`
-- Earlier per-token report: `docs/research/StudiesByClaude/per_token_separation_report.md`
-- Earlier per-token findings: `docs/research/StudiesByClaude/per_token_separation_findings.md`
-- Plots: `docs/research/StudiesByClaude/figures/plot{1..4}_*.png`
-- Analysis scripts: `docs/scratchpad/per_token_combined.py`, `docs/scratchpad/per_token_plots.py`
+- This notes doc: `docs/studies/suicide_letter_polysemy/findings/basin_projection_extension_findings.md`
+- Earlier per-token report: `docs/studies/suicide_letter_polysemy/findings/per_token_separation_report.md`
+- Earlier per-token findings: `docs/studies/suicide_letter_polysemy/findings/per_token_separation_findings.md`
+- Plots: `docs/studies/suicide_letter_polysemy/paper/figures/plot{1..4}_*.png`
+- Analysis scripts: `docs/studies/suicide_letter_polysemy/analysis/per_token_combined.py`, `docs/studies/suicide_letter_polysemy/analysis/per_token_plots.py`
