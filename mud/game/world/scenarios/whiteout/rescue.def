@@ -1,0 +1,8 @@
+# rescue.def — the Whiteout rescue graph (DR-16, §37-39). Authored in roadmap P5.
+#
+# Additive confidence: confidence = Σ weight·value, capped at 1; rescued = weather_window AND
+# confidence ≥ threshold; monotonic & always-reachable. Channels (beacon/radio/landmark/visual/smoke/
+# stay) draw on DISTINCT scarce resources so route choice is real and total warmth failure doesn't kill
+# every route at once. ≥4 winning combinations; no single required path.
+#
+# (Format finalized with the rescue system in P5; this is a reserved placeholder.)

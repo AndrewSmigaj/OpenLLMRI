@@ -1,0 +1,8 @@
+#!/bin/sh
+# Pre-commit gate: the host-fast pure-core boundary/determinism + no-raw-writes lints (DR-10/DR-12).
+# Stdlib only, milliseconds. Enable once per clone with:
+#     git config core.hooksPath .githooks
+set -e
+ROOT="$(git rev-parse --show-toplevel)"
+python3 "$ROOT/tools/lints/check_pure_core.py"
+python3 "$ROOT/tools/lints/check_no_raw_writes.py"
