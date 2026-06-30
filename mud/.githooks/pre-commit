@@ -6,4 +6,5 @@ set -e
 ROOT="$(git rev-parse --show-toplevel)"
 python3 "$ROOT/tools/lints/check_pure_core.py"
 python3 "$ROOT/tools/lints/check_no_raw_writes.py"
+python3 "$ROOT/tools/lints/check_no_raw_output.py"
 python3 "$ROOT/tools/lints/check_docs.py"

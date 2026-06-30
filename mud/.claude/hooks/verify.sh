@@ -10,5 +10,6 @@ cd "${CLAUDE_PROJECT_DIR:-.}"
 
 python3 tools/lints/check_pure_core.py
 python3 tools/lints/check_no_raw_writes.py
+python3 tools/lints/check_no_raw_output.py
 python3 tools/lints/check_docs.py
 docker compose config -q

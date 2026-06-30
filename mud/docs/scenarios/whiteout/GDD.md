@@ -225,23 +225,27 @@ unresolved / 0 conservation violations / rescue reachable.** This proves *resolu
 solvability*; **quality** (does it read well?) is curated + playtested, not automated.
 
 ## §42. Build plan — vertical slice first  *(improvement #5)*
-1. **Slice (single-player, one room, ~5 objects, ~25 materials, ~15 operations):** the operation×
-   material core + conservation ledger + the deterministic parser + the §26 tiers + redirect +
-   wall-sensor + ~50 hand-curated signature responses + a stub radio rescue. **No perception zones, no
-   multiplayer, no clock complexity, no weather.**
+1. **Slice (co-op multiplayer, one shared room, ~5 objects, ~25 materials, ~15 operations):** the
+   operation×material core + conservation ledger + the deterministic parser + the §26 tiers + redirect +
+   wall-sensor + ~50 hand-curated signature responses + a stub radio rescue, with **2–3 players co-op in
+   one shared room** (all game output through the message **propagator** seam — trivially "everyone in
+   the room" for now) and a **basic running clock** (world-time + cold ticks). **Built behind seams**
+   (propagator for all output; `WorldView.reachable/in_zone` for reach; the logical clock; run-tagging)
+   so the deferred systems drop in without refactoring. **Defer:** the graded perception zones, the full
+   activity scheduler, instanced-run lifecycle, authored interdependence, weather.
 2. Materials/operations breadth + property tests + the fuzz harness.
 3. Perception/zones (§10–15). 4. Running real-time clock + activity scheduler (timed tasks). 5. Rescue
    confidence + distinct-resource routes + authored radio/beacon/pilot. 6. Instanced synchronous co-op
    multiplayer + the graded propagator + co-op interdependence. 7. Weather arc (+ optional recap story).
 
-**Slice success test:** a new player, no manual, 15 minutes in the cabin — comes away saying *the
-world felt alive and reactive*, **zero** "you can't do that", and at least one delighted *"I can't
-believe that worked / that it told me why."* Pass → layer the rest; fail → the depth is tedium,
-rethink first.
+**Slice success test:** a couple of friends, no manual, ~15 minutes **co-op** in the cabin — come away
+saying *the world felt alive and reactive* (and *fun to poke at together*), **zero** "you can't do
+that", and at least one delighted *"I can't believe that worked / that it told me why."* Pass → layer
+the rest; fail → the depth is tedium, rethink first.
 
 ## §46. Scope & non-goals (v1)
 **In:** the slice → the layered build, one dense scene, additive rescue. **Out (v1):** procedural
-variants; the §46 density numbers (cut); perception/multiplayer/weather *until the slice proves fun*;
+variants; the §46 density numbers (cut); the graded perception zones / instanced lifecycle / weather *until the slice proves fun*;
 **any runtime LLM.**
 
 ## §49. Bottom line

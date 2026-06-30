@@ -94,7 +94,7 @@ physics literature). All raised confidence; none reversed a decision (overall �
 | DR-19 | Test strategy | Tier-1 pure pytest + Tier-2 Evennia integration; property tests for invariants |
 | DR-20 | Observability | a per-resolution decision trace (tier hit, ledger result, events) |
 | DR-21 | Module/file layout | `world/sim` pure core, `game/` shell, `world/scenarios` content, build tools |
-| DR-22 | Vertical slice | single-player, one room, the §22 subset; no clock/perception/multiplayer |
+| DR-22 | Vertical slice | **co-op** in one shared room + a basic running clock, the §22 subset; built behind seams (propagator, WorldView, logical clock, run-tag); defer perception zones / full scheduler / instances / interdependence |
 
 ---
 
@@ -370,8 +370,8 @@ rendered per observer by perception band × loudness × weather. Reachability ga
   (DR-12):** the wall-clock only decides *when* a tick fires; *what* a tick does is a pure, deterministic
   function of `(state, dt)` with every draw from the seeded RNG — so the fuzzer/replay drive **logical**
   ticks directly (no real clock) and stay byte-reproducible. The old "event-driven + clock-liveness rule"
-  is **retired** (a running clock is live by construction). The **slice needs no clock** (single-player,
-  turn-by-turn).
+  is **retired** (a running clock is live by construction). The **slice gets the *basic* version** (a
+  running clock: world-time advances + cold ticks); the full activity scheduler is deferred (DR-22).
 - **Activity scheduler:** a long action returns `duration_minutes`; the shell registers an **Activity**
   persisted to **Attributes** (not `.ndb`, so it survives `@reload` — IM9) on a global heartbeat/own
   Script; each step accrues progress, emits tick feedback, routes degraded messages, and keeps **partial
@@ -461,22 +461,41 @@ game/tests/{sim,integration}/     # the two tiers
 action; the pure core never touches Evennia objects.
 
 ## 13. The vertical slice architecture (DR-22 — build this first)
-A reduced subset proving *try-anything → resolves → feels alive*:
+A reduced subset proving *try-anything → resolves → feels alive* — **as co-op**, because Whiteout is a
+MUD on Evennia (multiplayer is the premise, and Evennia gives shared rooms/sessions nearly free; the
+single-threaded reactor serializes commands, so shared-object mutation can't race).
 - **In:** `contracts`, `materials` (~25, golden table), `operations/interpreter` + ~15 operations,
   `resolver` (tiers 1/3/5 only — authored-special for the radio stub, op×material, redirect),
   `conservation/ledger` + sink, `parser`, `effects/apply`, `narrator` templates + ~50 curated signature
   responses, the wall-sensor, ~5 objects (seat, multitool, fire-makings, radio stub, pilot), a stub
-  rescue. Single-player. Tier-1 tests + a small fuzz run.
-- **Out:** perception/zones (DR-13), clock/scheduler (DR-14), instances/multiplayer (DR-15), weather,
-  the full rescue graph. (Reachability in the slice = "everything in the one room".)
-- **Success test (from the GDD):** new player, no manual, 15 min — "the world felt alive", zero "you
-  can't do that", one delighted "I can't believe that worked." Pass → layer DR-13/14/15/16.
+  rescue. **2–3 players co-op in one shared room.** A **basic running clock** (world-time + cold ticks).
+  Tier-1 tests + a small fuzz run + a 2-session integration test.
+- **Built behind seams — this is what makes the deferred systems clean extensions, not refactors:**
+  - **All game output goes through the message propagator** (`Event` → per-observer render); the slice's
+    propagator is trivially "render the same line to everyone in the room." **No raw `msg`/`msg_contents`
+    for game events** — enforced by a lint (mirrors the no-raw-writes gate). Adding the overlapping
+    perception zones (DR-13) later = swap that one implementation; commands/resolver/narrator untouched.
+  - **Reachability/visibility go through `WorldView.reachable()`/`in_zone()`**; the slice returns
+    "everything in the one room." Adding zones = change the WorldView builder only.
+  - **The clock is the deterministic logical clock** (DR-14); real-time is a pacing layer. Basic now,
+    full scheduler later — same `tick(state, dt)`.
+  - **Run state is tagged with a `run_id` from day one** (one run in the slice); instanced co-op (DR-15)
+    later = lifecycle/GC code, not a data-model migration.
+- **Out (deferred, behind the seams above):** the graded perception zones (DR-13), the full activity
+  scheduler (DR-14), instanced-run lifecycle (DR-15), authored co-op interdependence, weather, the full
+  rescue graph.
+- **Success test (from the GDD):** a couple of friends, no manual, ~15 min co-op — "the world felt alive
+  (and fun to poke at together)", zero "you can't do that", one delighted "I can't believe that worked."
+  Pass → layer DR-13 / DR-14(full) / DR-15 / DR-16.
 
 ## 14. Deferred-in-the-slice (decided, not open)
-- **Clock model** (DR-14) and **session/instance shape** (DR-15) are **decided and locked** — a
-  continuously running real-time clock and instanced, synchronous co-op (GDD §9). They are simply **not
-  built in the slice** (single-player, turn-by-turn); they land in the post-slice phases. *Deferred ≠
-  undecided.*
+- **Clock** (DR-14) and **sessions** (DR-15) are **decided and locked** — a continuously running
+  real-time clock and instanced, synchronous co-op (GDD §9). The slice ships their **basic** form (a
+  running clock; one shared co-op room with run-tagging); the **full** versions (the activity scheduler;
+  instanced-run lifecycle + GC + interdependence) land post-slice, **behind the §13 seams** so adding
+  them is extension, not refactor. *Deferred ≠ undecided, and deferred ≠ fragile.*
+- **Overlapping perception zones** (DR-13) are deferred but **critical**; the propagator seam (§13) is
+  exactly what keeps them a clean drop-in rather than a rewrite.
 - **Bot-player** (`agent/`) is an orthogonal external client (build/test tool), not part of the engine.
 
 ---

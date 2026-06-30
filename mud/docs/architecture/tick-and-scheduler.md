@@ -3,8 +3,8 @@
 > **Status: canonical (LOCKED).** This is Whiteout's clock: a **continuously running real-time clock**
 > — the decided model (GDD §9 / DR-14). Game time advances on its own at a fixed real→game pace; it is
 > never advanced by player actions or chat, and no one can stall or yank it. Event-/turn-based time was
-> considered and **rejected** as clunky for multiplayer. The single-player vertical slice needs no clock
-> at all; this lands in the post-slice clock phase.
+> considered and **rejected** as clunky for multiplayer. The vertical slice ships the **basic** clock
+> (world-time + cold ticks); the full activity scheduler lands in the post-slice clock phase (P4).
 
 Design §9 (multiplayer time and activity ticks) realized on Evennia. The clock
 and scheduler *rules* are pure functions in

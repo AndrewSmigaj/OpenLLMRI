@@ -41,7 +41,7 @@ EXCLUDE_FILES = {
 ALLOW = ("reject", "retire", "remov", "archiv", "supersed", "stale", "pre-v4", "deprecat",
          "legacy", "historical", "former", "replaced", "instead of", "rather than", "no longer",
          "not authoritative", "old ", "older", "previous", "we said no", "used to", "build-time",
-         "build time")
+         "build time", "forbid", "regress", "this gate", "doc-consistency")
 
 PATTERNS = [
     (re.compile(r"\bmass_kg\b"), "stale field name — the contract is `mass_g` (integer grams), DR-11"),

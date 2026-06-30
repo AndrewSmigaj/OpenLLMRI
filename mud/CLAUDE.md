@@ -90,7 +90,7 @@ entrypoint word-splits args, so Make commands with quoted args use `--entrypoint
   decisions register DR-01…DR-22). `overview.md` / `perception-model.md` / `tick-and-scheduler.md` /
   `llm-integration.md` / `testing.md` are focused views kept consistent with it.
 - `docs/scenarios/whiteout/roadmap.md` — the **slice-first waterfall** build order (P0…P7; P1 = the
-  single-player vertical slice → the fun gate).
+  co-op vertical slice → the fun gate).
 - `docs/guides/` — authoring guides (objects, actions, workflows).
 - `game/world/sim/contracts.py` — the **frozen** dataclasses every `sim` module speaks.
 - `docs/investigation/**` + `docs/architecture/review/**` — historical record (how decisions were

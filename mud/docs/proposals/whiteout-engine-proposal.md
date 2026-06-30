@@ -62,7 +62,7 @@ way to honestly answer "smart players can always progress" (Q3).
 
 ## 5. Build the one-room ontology slice first
 **Your §42 build order starts with the tick engine and perception** — the hardest systems and the least
-able to prove the game is fun. The improvement: build a **single-player, one-room vertical slice of the
+able to prove the game is fun. The improvement: build a **co-op, one-room vertical slice of the
 ontology first** (the chair + a few objects + the operation/material core + the deterministic parser +
 the conservation ledger + ~50 curated signature responses), and **playtest it.** *Why:* the make-or-
 break is whether pre-authored, validated responses *feel alive*; that's empirical, and this slice is

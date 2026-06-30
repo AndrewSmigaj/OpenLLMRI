@@ -53,5 +53,6 @@ system") plus **multiple authored scenarios**. Whiteout is the first scenario.
 ## Current focus
 Design is FINAL (GDD + architecture v4) and the repo is scaffolded: the pure `world/sim` tree with a
 **frozen `contracts.py`** + interface stubs (no behavior), mechanized gates, and a baseline commit.
-Next is the roadmap's **P1 — the single-player vertical slice → the fun gate** (the slice is
-single-player; multiplayer/clock come later, P4/P6). See `docs/scenarios/whiteout/roadmap.md`.
+Next is the roadmap's **P1 — the co-op vertical slice → the fun gate**: 2–3 players in one shared room +
+a basic running clock, built behind seams; the heavy perception/instance machinery comes later. See
+`docs/scenarios/whiteout/roadmap.md`.

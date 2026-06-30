@@ -49,9 +49,11 @@ delight; only a playtest can.
 - Interaction logic sound / improved: **~76%**
 
 ## The recommended next move
-**Build the single-player vertical slice and playtest it:** one room, ~5 objects, ~25 materials, ~15
+**Build the co-op vertical slice and playtest it:** one shared room, ~5 objects, ~25 materials, ~15
 operations, the conservation ledger, the deterministic parser + redirect + wall-sensor, ~50 curated
-signature responses, a stub radio rescue. *No perception zones, no multiplayer, no clock complexity.*
+signature responses, a stub radio rescue, **2–3 players co-op (output via the propagator seam) + a basic
+running clock**. *Defer the graded perception zones, instanced lifecycle, full scheduler, weather —
+behind seams.*
 **Success test:** a new player, no manual, 15 minutes — *"the world felt alive,"* zero "you can't do
 that," one delighted "I can't believe that worked." Pass → layer the rest; fail → rethink before
 building more.

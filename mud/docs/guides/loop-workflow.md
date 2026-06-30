@@ -66,7 +66,7 @@ action family, one workflow stage. End an iteration only when the gate is green.
 
 ## Concrete example (one iteration)
 
-1. **Anchor:** roadmap P1 = "the single-player vertical slice → the fun gate" (the GDD slice success test).
+1. **Anchor:** roadmap P1 = "the co-op vertical slice → the fun gate" (the GDD slice success test).
 2. **Author:** add `scenarios/whiteout/objects/aircraft_seat.py` as an
    `ObjectPacket` with parts that dismantle several ways, each output first-class
    with uses or explicit non-uses.

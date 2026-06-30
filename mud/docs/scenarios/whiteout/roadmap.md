@@ -20,12 +20,12 @@
 | Phase | Name | Builds | Exit gate (go/no-go) |
 |---|---|---|---|
 | **P0** | Repo prep + locked contracts | DR-21 tree · `contracts.py` · CI gates | `world.sim` imports with no Evennia; gates green; contracts **frozen** |
-| **P1** | **Vertical slice (single-player)** | op×material core · ledger · taught parser · resolver · narrator | **FUN GATE** — "the world felt alive"; **0** "you can't do that" |
+| **P1** | **Vertical slice (co-op)** | op×material core · ledger · taught parser · resolver · narrator · **shared-room co-op + basic clock**, behind seams | **FUN GATE** — "alive & fun together"; **0** "you can't do that" |
 | **P2** | Ontology breadth + coverage | full material/operation matrix · property tests · fuzz · bake | matrix complete; ≥10k fuzz, 0 unresolved / 0 conservation violations |
 | **P3** | Perception & zones (§10–15) | `space/*` · per-observer rendering · propagator | crossing the scene fades detail through perception bands |
-| **P4** | Running real-time clock + scheduler | `systems/{clock,scheduler}` · heartbeat Script | clock runs continuously & can't be stalled; activities accrue on ticks; `@reload`-durable |
+| **P4** | Full activity scheduler (basic clock ships in P1) | `systems/scheduler` + the durable Activity model | long activities accrue on ticks, interrupt-safe, `@reload`-durable |
 | **P5** | Survival systems + rescue | `systems/{fire,warmth,water,shelter,injury,rescue}` · radio FSM · pilot | survive the night ≥3 warmth strategies; rescue reachable ≥4 ways; radio ≥3 paths; pilot death never softlocks |
-| **P6** | Instanced synchronous co-op | instance lifecycle · multi-player propagator · interdependence | 2+ players in one run on the shared clock; ≥1 real interdependence; clean reset/GC |
+| **P6** | Instanced runs + co-op interdependence (basic co-op ships in P1) | instance lifecycle/GC · authored interdependence | many instanced runs reset/GC cleanly; ≥1 real interdependence |
 | **P7** | Weather arc + ending | `systems/weather` · recap generator | storm arc escalates on the clock; recap reads true; §47 end-to-end run plays |
 
 ---
@@ -57,7 +57,7 @@ the stubbed tree.
 `make verify` green (config + lint gates + suite); **contracts reviewed and FROZEN** — later changes need
 an explicit contract-change note.
 
-## P1 — Vertical slice (single-player, one room) — THE FUN GATE
+## P1 — Vertical slice (co-op, one shared room) — THE FUN GATE
 **Goal.** Prove **try-anything → resolves → feels alive** on the smallest real subset. The make-or-break.
 **Depends on.** P0.
 **Deliverables** (fill bodies behind P0 contracts):
@@ -76,19 +76,25 @@ an explicit contract-change note.
 - `effects.py` + the shell **`apply()`** (the single atomic, ledger-gated writer); `narrator.py` + **~50
   curated signature responses**; **~5 objects** (seat, multitool, fire-makings, radio stub, pilot body);
   a stub rescue.
-- Single-player; reachability = "everything in the one room"; **no clock, no zones, no multiplayer, no
-  weather.**
+- **Co-op: 2–3 players in one shared room.** All game output routed through the **message propagator**
+  seam (trivially "everyone in the room" now; **no raw `msg`/`msg_contents` for game events** — a lint
+  enforces it). Reachability via `WorldView.reachable()` (returns "everything in the one room"). Objects
+  **tagged with a `run_id`** (one run for now).
+- A **basic running clock** (world-time advances + cold ticks) on a heartbeat Script; the *full* activity
+  scheduler is deferred. **Defer (behind the seams above, so they're clean extensions — not refactors):**
+  perception zones, instanced-run lifecycle, interdependence, weather.
 **Tests.** Tier-1 pure pytest (operation interpreter, ledger balances, resolver tiers, redirect ranking);
 a small seeded fuzz run (every attempt resolves; 0 conservation violations); the **seeded-replay
-determinism** property; **golden-master narration snapshots** (narration↔Effect).
+determinism** property; **golden-master narration snapshots** (narration↔Effect); a **Tier-2 2-session
+integration test** (two players act on the shared room; each sees the other via the propagator).
 **Exit gate — TWO gates:**
 - **Mechanical:** 0 unresolved attempts in the slice fuzz; ledger balances on every transform; replay is
-  byte-identical; the boundary/no-raw-write/determinism lints are green.
-- **FUN GATE (the real go/no-go).** The GDD slice success test: a new player, no manual, **15 minutes** in
-  the cabin, comes away saying *the world felt alive and reactive*, **zero** "you can't do that," and **≥1
-  delighted** "I can't believe that worked / that it told me why." **Pass → P2. Fail → the depth is
-  tedium; stop and rethink the core before building any breadth.** (A real milestone review, not a rubber
-  stamp.)
+  byte-identical; the boundary / no-raw-write / **no-raw-output (propagator)** / determinism lints green.
+- **FUN GATE (the real go/no-go).** The GDD slice success test: **a couple of friends**, no manual, **~15
+  minutes** co-op in the cabin, come away saying *the world felt alive and reactive* (and *fun to poke at
+  together*), **zero** "you can't do that," and **≥1 delighted** "I can't believe that worked / that it
+  told me why." **Pass → P2. Fail → the depth is tedium; stop and rethink the core before building any
+  breadth.** (A real milestone review, not a rubber stamp.)
 
 ## P2 — Ontology breadth + coverage
 **Goal.** Scale from "fun on a few" to "complete and trustworthy" across the full operation×material space.
@@ -115,14 +121,14 @@ observer by perception band × loudness × weather-stub.
 **Exit gate.** Crossing the scene fades camp through perception bands; one action's Event is perceived
 differently by near vs far observers; manipulation is blocked beyond reach.
 
-## P4 — Running real-time clock + activity scheduler (LOCKED model)
-**Goal.** Time moves. The **continuously running real-time clock** + the activity scheduler for timed
-tasks.
-**Depends on.** P3 (events/propagator for tick feedback).
+## P4 — Full activity scheduler (+ clock hardening) — LOCKED clock model
+**Goal.** The **basic running clock shipped in P1** (world-time + cold ticks). P4 adds the **full activity
+scheduler** for timed tasks (durable across `@reload`, partial progress) and hardens the clock.
+**Depends on.** P1 (the basic clock), P3 (events/propagator for tick feedback).
 **Deliverables.**
-- `systems/clock.py` — a **continuously running real-time clock**: fixed real→game pace (a tunable
-  constant, ~10–20 real-sec per game-minute); a **deterministic logical clock under the hood** (time is an
-  input); **no modes, no planning freeze, no fast-forward**; nobody can stall or yank it.
+- `systems/clock.py` — harden the P1 clock: the **continuously running real-time clock** at a fixed
+  real→game pace (~10–20 real-sec per game-minute); a **deterministic logical clock under the hood**
+  (time is an input); **no modes, no planning freeze, no fast-forward**; nobody can stall or yank it.
 - `systems/scheduler.py` — a long action = an **Activity** persisted to Attributes (survives `@reload`),
   accrues progress per tick, emits tick feedback, routes degraded messages, keeps **partial progress** on
   interrupt; `events.INTERRUPT_SIGNALS` break a pending activity (the running clock itself never stops);
@@ -158,10 +164,11 @@ check** (no spend/burn into an unwinnable state).
 via **≥4 distinct combinations**; no single object required for all endings; the radio puzzle solvable ≥3
 ways; the pilot's death never softlocks.
 
-## P6 — Instanced synchronous co-op multiplayer (LOCKED model)
-**Goal.** A small party plays one crash **together, online at once**, to resolution, then the instance
-resets.
-**Depends on.** P3 (propagator), P4 (the shared running clock), P5 (full scenario).
+## P6 — Instanced runs + co-op interdependence (LOCKED model)
+**Goal.** **Basic shared-room co-op shipped in P1.** P6 makes it **instanced** (many parties, each its own
+run that resets) and adds **first-class co-op interdependence**.
+**Depends on.** P1 (basic co-op + run-tagging), P3 (the graded propagator), P4 (the full scheduler/clock),
+P5 (full scenario).
 **Deliverables.** The **instance lifecycle** (spawn from a prototype set, tag `run_id`, persist in
 Postgres, reset by deleting tagged objects via `search_object_by_tag`, a reaper Script sweeping tag-
 orphans — the **EvAdventure dungeon-contrib** pattern); concurrent action handling on the shared running
