@@ -1,36 +1,59 @@
 """world.sim.effects — Effect constructors + the canonical effect kinds (DR-10).
 
-Effects are the ONLY state-mutation instruction. The shell's `apply()` (in game/typeclasses — the
-imperative shell, NOT here) is the single ENFORCED writer: atomic (transaction.atomic), ledger-gated,
-updating the Attribute AND its Tag mirror together; a lint forbids raw obj.db.x= / .attributes.add /
-.tags.add anywhere else. This module is pure: it only CONSTRUCTS Effects; it never applies them.
+Effects are the ONLY state-mutation instruction. The shell's `apply(effects, world)` (in
+game/typeclasses/apply.py — the imperative shell, NOT here) is the single ENFORCED writer: atomic
+(transaction.atomic), ledger-gated, Attribute + Tag mirror together, `reset_cache()` on rollback. This
+module is pure: it only CONSTRUCTS Effects; it never applies them.
 """
 from __future__ import annotations
 
 from typing import Protocol
 
-from world.sim.contracts import ActionResult, Effect, EffectKind  # noqa: F401
+from world.sim.contracts import Effect, EffectKind
 
 
 class Applier(Protocol):
-    """The shell-side writer contract — implemented in game/typeclasses (the imperative shell), NOT
-    in world/sim. Documented here so the boundary is explicit and lint-checkable:
+    """The shell-side single writer contract (implemented in game/typeclasses/apply.py, NOT in
+    world/sim). Documented here so the boundary is explicit and lint-checkable:
 
-        apply(result: ActionResult) -> None   # ledger-gated, atomic; the ONLY writer (DR-10).
+        apply(effects: list[Effect], world) -> None   # ledger-gated, atomic; the ONLY writer (DR-10).
     """
-    def apply(self, result: ActionResult) -> None: ...
+    def apply(self, effects, world) -> None: ...
 
 
 def set_attr(target_id: str, key: str, value) -> Effect:
-    """Construct a SET_ATTR effect. (Constructors are wired in roadmap P1.)"""
-    raise NotImplementedError("effects.set_attr — roadmap P1")
+    """Set a payload attribute on an entity (absolute)."""
+    return Effect(EffectKind.SET_ATTR, target_id, {"key": key, "value": value})
+
+
+def adjust_attr(target_id: str, key: str, delta) -> Effect:
+    """Adjust a numeric attribute by `delta` (relative)."""
+    return Effect(EffectKind.ADJUST_ATTR, target_id, {"key": key, "delta": delta})
+
+
+def create_object(template: str, sim_id: str, args: "dict | None" = None) -> Effect:
+    """Mint a derived object (e.g. a removed part becoming a loose object). `sim_id` is the
+    DETERMINISTIC new id (D3/DR-12); `args` carries the conserved state (material, mass_g,
+    temperature_c, provenance, …) so the ledger balances."""
+    return Effect(EffectKind.CREATE_OBJECT, sim_id, {"template": template, **(args or {})})
 
 
 def remove_part(target_id: str, part_id: str) -> Effect:
-    """Construct a REMOVE_PART effect (its mass must be balanced by the ledger, DR-11). Roadmap P1."""
-    raise NotImplementedError("effects.remove_part — roadmap P1")
+    """Remove a part from a composite object (its mass must be balanced by a paired CREATE_OBJECT/
+    CONSUME in the same apply())."""
+    return Effect(EffectKind.REMOVE_PART, target_id, {"part_id": part_id})
 
 
-def create_object(template_id: str, from_part: str | None = None) -> Effect:
-    """Construct a CREATE_OBJECT effect for a derived object, conserving state/mass. Roadmap P1."""
-    raise NotImplementedError("effects.create_object — roadmap P1")
+def consume(target_id: str, mass_g: "int | None" = None) -> Effect:
+    """Consume an object (or `mass_g` of it) — e.g. fuel burned; the consumed mass goes to the sink."""
+    return Effect(EffectKind.CONSUME, target_id, {"mass_g": mass_g})
+
+
+def move_zone(target_id: str, zone: str) -> Effect:
+    """Move an entity to a zone (perception/space, P3; the effect kind exists now for the seam)."""
+    return Effect(EffectKind.MOVE_ZONE, target_id, {"zone": zone})
+
+
+def set_owner(target_id: str, owner: "str | None") -> Effect:
+    """Set or clear an entity's owner/provenance."""
+    return Effect(EffectKind.SET_OWNER, target_id, {"owner": owner})
