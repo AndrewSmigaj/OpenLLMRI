@@ -1,5 +1,11 @@
 # Validation Rules
 
+> **⚠️ Being revised (pre-v4).** Predates the finalized architecture; some specifics (module paths,
+> field names, the §N numbering) are stale. **Authoritative:**
+> [`../architecture/implementation-architecture.md`](../architecture/implementation-architecture.md)
+> (§44 lands in `world/sim/validation`) + [GDD §44](../scenarios/whiteout/GDD.md). A proper rewrite
+> lands with roadmap P2 — use the *intent*, not the stale details.
+
 The design §44 validation checklist, as an actionable gate. It runs as
 **content-lint** over authored scenario content — **not at runtime** — via
 `make validate` (and `make verify`).

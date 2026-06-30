@@ -22,7 +22,7 @@ with pluggable implementations to be added under `brains/`:
 
 | Brain | Purpose |
 |-------|---------|
-| `ScriptedBrain` | deterministic, zero-dependency — fuzz / playtest (design §42 Pass 10) |
+| `ScriptedBrain` | deterministic, zero-dependency — drives the solvability fuzz / playtest (roadmap P2) |
 | `TorchBrain` | the user's OSS-20B weights via torch — **the data-collection target** |
 | `ClaudeBrain` | lets Claude play the MUD, for testing |
 

@@ -71,10 +71,10 @@ the action, so a `ScriptedBrain` run is still usable data.
 ## Where it fits
 
 - It is **external**: no synchronous inference ever runs in Evennia's reactor.
-- Server-side LLM seams (intent fallback, narration) are a *separate, later*
-  effort ([../architecture/llm-integration.md](../architecture/llm-integration.md));
-  this harness is the first LLM work (roadmap Pass 10 uses `ScriptedBrain` for the
-  fuzzing pass — [roadmap](../scenarios/whiteout/roadmap.md)).
+- There is **no runtime LLM** — the LLM is a build-time authoring tool only
+  ([../architecture/llm-integration.md](../architecture/llm-integration.md)). This harness is a
+  *client* (an AI that plays the MUD like a human); its `ScriptedBrain` drives the solvability fuzz
+  (roadmap P2 — [roadmap](../scenarios/whiteout/roadmap.md)).
 
 ## Related
 

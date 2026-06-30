@@ -5,6 +5,14 @@ How to add a new **action family** — the generic verbs (`cut`, `examine`, `say
 Design §27 / §43.2 → the [`ActionFamilyPacket`](../../game/world/sim/contracts.py)
 dataclass.
 
+> **⚠️ Being revised (pre-v4).** This guide predates the finalized architecture and still uses the old
+> module names (`actions/families/`), the old `ActionAttempt` shape, and a 6-tier ladder. **Authoritative:**
+> [`../architecture/implementation-architecture.md`](../architecture/implementation-architecture.md) —
+> DR-08 taught grammar → `ActionAttempt{verb,X,relation,Y,tool}`; DR-09 tiers
+> authored→object→**operation×material**→generic→redirect; operations live in `world/sim/operations` +
+> `world/sim/resolver`, **not** `actions/`. A proper rewrite lands with roadmap P1 — use the *intent*
+> below, not the stale specifics.
+
 > The whole point (§2, §26): the player survives by **understanding the world**,
 > not by guessing the author's verb-object pair. A family encodes *how a verb
 > interacts with materials and parts*, so one `cut` cuts fabric, webbing and foam
@@ -14,11 +22,10 @@ dataclass.
 
 Actions are **two-stage** (fixes design §26):
 
-- **Stage A — the Evennia command shell.** Parses free text into a structured
-  [`ActionAttempt`](../../game/world/sim/contracts.py)
-  (`actor`/`action`/`target`/`tool`/`method`/`manner`/`desired_result`/
-  `time_budget_minutes`). Unusual phrasing may use an optional LLM fallback via
-  `CMD_NOMATCH` — but only to *produce the struct*.
+- **Stage A — the Evennia command shell.** Parses the **taught grammar**
+  `VERB X [RELATION Y] [WITH Z]` (GDD §25a) into a structured
+  [`ActionAttempt`](../../game/world/sim/contracts.py) `{actor, verb, X, relation, Y, tool, raw}`.
+  **No runtime LLM** — unknown phrasing yields a help nudge that teaches the format (DR-02/DR-08).
 - **Stage B — the pure resolver** in
   [`world/sim/actions`](../../game/world/sim/). Resolves the `ActionAttempt`
   deterministically and returns an `ActionResult`.

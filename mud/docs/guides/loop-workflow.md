@@ -25,9 +25,9 @@ Re-read the ground truth *before* each work session so the loop returns to a
 fixed point when it drifts:
 
 - [`../../VISION.md`](../../VISION.md) — the non-negotiables.
-- The scenario design — e.g. [`../scenarios/whiteout/design.md`](../scenarios/whiteout/design.md)
+- The authoritative design — [`../scenarios/whiteout/GDD.md`](../scenarios/whiteout/GDD.md)
   (cite sections as "§N") — and the [roadmap](../scenarios/whiteout/roadmap.md)
-  for *which pass* you're in.
+  for *which phase (P0–P7)* you're in.
 
 ### 2. Author
 
@@ -66,7 +66,7 @@ action family, one workflow stage. End an iteration only when the gate is green.
 
 ## Concrete example (one iteration)
 
-1. **Anchor:** roadmap Pass 5 = "first deep object: the aircraft seat" (§22, §42.5).
+1. **Anchor:** roadmap P1 = "the single-player vertical slice → the fun gate" (the GDD slice success test).
 2. **Author:** add `scenarios/whiteout/objects/aircraft_seat.py` as an
    `ObjectPacket` with parts that dismantle several ways, each output first-class
    with uses or explicit non-uses.

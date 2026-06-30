@@ -1,5 +1,11 @@
 # Authoring Objects
 
+> **⚠️ Being revised (pre-v4).** Predates the finalized architecture; some specifics (module paths,
+> field names like `mass_kg` → `mass_g`, the §N tier numbering) are stale. **Authoritative:**
+> [`../architecture/implementation-architecture.md`](../architecture/implementation-architecture.md) +
+> [GDD](../scenarios/whiteout/GDD.md). A proper rewrite lands with roadmap P1 — use the *intent*, not
+> the stale details.
+
 How to author one in-world object, from the design §43.1 **Object Authoring
 Packet** to the [`ObjectPacket`](../../game/world/sim/contracts.py) dataclass the
 engine and the §44 validator consume.

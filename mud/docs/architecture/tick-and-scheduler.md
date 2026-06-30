@@ -85,7 +85,7 @@ player's *current activity* is interrupted.**
 
 - **Multiplayer-fair.** Progress lives on ticks, not in a single player's
   command, so no one's long action steals time from others (§9.1).
-- **Testable.** `clock.tick` and `scheduler.advance` are pure: roadmap Pass 1's
+- **Testable.** `clock.tick` and `scheduler.advance` are pure: roadmap P4's
   acceptance test (90-minute task doesn't jump the clock; another player keeps
   acting; progress + interrupt + partial progress) runs as fast pytest with no DB
   and no Evennia boot. See [testing.md](testing.md).
@@ -93,5 +93,5 @@ player's *current activity* is interrupted.**
 ## Related
 
 - [overview.md](overview.md) · [perception-model.md](perception-model.md)
-- Roadmap **Pass 1** is the first implementation milestone
+- Roadmap **P4** is the clock/scheduler milestone
   ([roadmap](../scenarios/whiteout/roadmap.md)).

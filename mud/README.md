@@ -42,7 +42,7 @@ GPU. See `agent/README.md`.
 
 ## Read more
 - [`VISION.md`](VISION.md) — what we're building and the non-negotiables.
-- [`docs/scenarios/whiteout/design.md`](docs/scenarios/whiteout/design.md) — the full design.
+- [`docs/scenarios/whiteout/GDD.md`](docs/scenarios/whiteout/GDD.md) — the authoritative game design (FINAL). (`design.md` beside it is the archived original seed.)
 - [`docs/scenarios/whiteout/roadmap.md`](docs/scenarios/whiteout/roadmap.md) — the build order.
 - [`docs/`](docs/) — architecture overview and authoring guides.
 - [`CLAUDE.md`](CLAUDE.md) — orientation for Claude Code working in this repo.

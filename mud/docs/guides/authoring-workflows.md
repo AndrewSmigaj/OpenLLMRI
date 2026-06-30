@@ -1,5 +1,11 @@
 # Authoring Workflows
 
+> **⚠️ Being revised (pre-v4).** Predates the finalized architecture; some specifics (module paths,
+> field names, the §N tier numbering) are stale. **Authoritative:**
+> [`../architecture/implementation-architecture.md`](../architecture/implementation-architecture.md) +
+> [GDD](../scenarios/whiteout/GDD.md). A proper rewrite lands with roadmap P1 — use the *intent*, not
+> the stale details.
+
 How to author a **goal-level workflow** — a survival objective with *multiple*
 clue and solution paths, not a single recipe. Design §30 / §43.3 →
 [`WorkflowPacket`](../../game/world/sim/contracts.py).

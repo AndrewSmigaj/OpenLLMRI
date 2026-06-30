@@ -22,7 +22,7 @@ help:
 	@echo "  load-scenario  load a scenario (SCENARIO=smoketest)"
 	@echo "  test           run the pure sim/ unit tests in Docker (no DB)"
 	@echo "  test-host      run the pure tests + gates on the HOST (no Docker; fast loop)"
-	@echo "  lint           run the pure-core boundary/determinism + no-raw-writes gates (host)"
+	@echo "  lint           run the host gates: pure-core boundary/determinism + no-raw-writes + doc-consistency"
 	@echo "  test-int       run the Evennia integration tests"
 	@echo "  validate       run the content-lint (SCENARIO=smoketest)"
 	@echo "  bake           compile authored scenario sources to baked runtime data"
@@ -87,6 +87,7 @@ test:
 lint:
 	python3 tools/lints/check_pure_core.py
 	python3 tools/lints/check_no_raw_writes.py
+	python3 tools/lints/check_docs.py
 
 # Host-fast pure tests + gates (no Docker). The full pure suite also runs in Docker
 # via `make test`; this is the tight inner loop when host python has pytest.

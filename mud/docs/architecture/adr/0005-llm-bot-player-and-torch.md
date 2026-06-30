@@ -1,7 +1,11 @@
 # ADR-0005: LLM as an external bot-player (torch on host), not an in-scenario NPC
 
-- **Status:** Accepted
+- **Status:** Accepted (amended post-v4 — see note)
 - **Date:** 2026-06
+
+> **Amendment (post-v4):** runtime is now 100% deterministic. The "server-side LLM seams" / "Stage-A
+> LLM help" mentioned below are **retired** — the LLM is a **build-time authoring tool only** (GDD §41 /
+> DR-02). The core decision (the LLM is an external bot-*player*, never an NPC) stands unchanged.
 
 ## Context
 
@@ -31,9 +35,9 @@ The LLM character is an **external bot-*player* harness**, not an authored NPC.
   fuzzing pass).
 - It is the **torch data-collection boundary**: logs `(observation, action)`
   pairs as JSONL.
-- **No synchronous model inference ever runs inside the reactor.** Any server-side
-  LLM seams (§41 intent-fallback, narration enrichment) are async/external and
-  are **later** work than this harness (see [roadmap](../../scenarios/whiteout/roadmap.md)).
+- **No model inference ever runs during play.** Runtime is 100% deterministic; the LLM is a
+  **build-time authoring tool only** (GDD §41 / DR-02). The earlier idea of runtime "intent-fallback"
+  or narration LLM seams is **retired** — nothing model-driven runs in or beside the reactor at play.
 
 ## Consequences
 
@@ -41,9 +45,9 @@ The LLM character is an **external bot-*player* harness**, not an authored NPC.
   is a *player* that happens to be a model. Authored characters (the pilot) stay
   scripted.
 - **§41 holds structurally.** A bot-player only sends the same commands a human
-  could; it cannot invent state or bypass deterministic resolution. The
-  two-stage action pipeline keeps even server-side LLM help in Stage A only —
-  shaping an `ActionAttempt`, never resolving it. See
+  could; it cannot invent state or bypass deterministic resolution. Both stages of
+  the action pipeline are **deterministic** (no runtime LLM): a bot-player's text is parsed by the
+  same taught grammar as a human's, then resolved deterministically. See
   [../llm-integration.md](../llm-integration.md).
 - **The reactor stays responsive** — inference is off-process (host) or async.
 - **Cost:** the host needs Python + torch + GPU + weights to run `TorchBrain`;

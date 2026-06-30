@@ -24,7 +24,7 @@ Steps:
 
 4. **Write a stub `ObjectPacket`** following §43.1, with the fields present and `TODO`
    placeholders to fill in: `id`, `name`, `aliases`, `category`, `description`, `scene`,
-   `zone`, `mass_kg`, `parts` (each `Part` with `material`, `Attachment`,
+   `zone`, `mass_g`, `parts` (each `Part` with `material`, `attachment`,
    `outputs_when_removed`), `materials`, `affordances`, **both** `survival_uses` and
    `non_survival_uses`, `failure_modes`, and `tests` (success / failure / conservation /
    silly / perception cases per §44 and §45). Rules stay pure — this packet is data; never

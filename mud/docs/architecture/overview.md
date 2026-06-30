@@ -1,6 +1,11 @@
 # Architecture Overview
 
-How the Whiteout *design* (`../scenarios/whiteout/design.md`) is realized on
+> **Status: focused view.** The authoritative architecture is
+> [`implementation-architecture.md`](implementation-architecture.md) (v4/FINAL, decisions register
+> DR-01…DR-22) — defer to it on any conflict, and see its §11 for the full module layout. The
+> authoritative *design* is [`../scenarios/whiteout/GDD.md`](../scenarios/whiteout/GDD.md).
+
+How the Whiteout *design* (`../scenarios/whiteout/GDD.md`) is realized on
 **Evennia 6.0.0** (Python 3.13, Django 6.0.6, PostgreSQL 16), and where every
 system lives in the repo.
 
@@ -35,7 +40,7 @@ Evennia (shell)                     world.sim (pure core)
   route  ◄──Event list───
 ```
 
-## System map: design.md → Evennia
+## System map: GDD.md → Evennia
 
 | Design system (§) | Evennia mechanism (shell) | Pure core (`world/sim`) |
 |---|---|---|

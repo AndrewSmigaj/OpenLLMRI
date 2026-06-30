@@ -119,5 +119,5 @@ broken single-scene perception.
 - [overview.md](overview.md) — where this sits in the whole.
 - [tick-and-scheduler.md](tick-and-scheduler.md) — perception-routed *tick*
   messages while work progresses.
-- Roadmap Pass 2 implements the full band-shifting and propagator
+- Roadmap P3 implements perception/zones — the full band-shifting and propagator
   ([roadmap](../scenarios/whiteout/roadmap.md)).

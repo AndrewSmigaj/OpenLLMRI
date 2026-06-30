@@ -33,7 +33,7 @@ make stated guarantees *enforced*):
 Six refinements from `review/40-research-notes.md` (Evennia source + Inform 7/TADS/PDDL/qualitative-
 physics literature). All raised confidence; none reversed a decision (overall ≈81 → ≈84/100):
 1. **Conserved quantities are REAL numbers, not ordinals (DR-11/DR-04 — the one correction).** Ordinals
-   can't carry a balance. **Mass is real `mass_kg`, integer-quantized** (kills float drift, à la
+   can't carry a balance. **Mass is a real integer count of grams (`mass_g: int`)** (kills float drift, à la
    Factorio/ONI); **ordinals are used only for intensive properties/gates**; **energy is a gate, not an
    ordinal balance.**
 2. **Specificity dispatcher (DR-05).** Rule *precedence* is where declarative systems leak (Inform 7
@@ -151,8 +151,8 @@ has numbers. ~25 materials for the first scene.
 **Intensive (ordinal) vs extensive (real) — v3 correction (DR-04/DR-11).** A material's `props` are
 **intensive** properties (resistances, burnability, insulation) — these are the **ordinal** values, used
 only as *gates and rank-relations*, never summed. **Conserved extensive quantities — mass above all —
-are real numbers, integer-quantized** (e.g. grams as ints) and live on `EntityState.mass_kg` /
-`Part.mass_kg`, **not** as ordinals. Outcomes are driven by **rank relations and graded gaps** between
+are real **integer grams** and live on `EntityState.mass_g` /
+`Part.mass_g` (ints — no float mass), **not** as ordinals. Outcomes are driven by **rank relations and graded gaps** between
 intensive properties (e.g. `tool.edge − target.cut_resistance`), not by arithmetic on ordinals
 (measurement theory: ordinals don't support true addition/distance). This split is what lets the ledger
 balance (real mass) while authoring stays fast (ordinal properties).
@@ -202,15 +202,15 @@ Cheap by default; behavior derives from operations over materials.
 class EntityState:               # the snapshot the pure core sees (mirrors an Evennia Object)
     id: str; name: str
     materials: list[str]
-    parts: list[Part]            # Part{id, material, mass_kg, attachment, outputs_when_removed}
+    parts: list[Part]            # Part{id, material, mass_g, attachment, outputs_when_removed}
     tags: list[str]
-    mass_kg: float
+    mass_g: int                  # extensive: integer grams (DR-11)
     state: dict                  # temperature_c, wetness, contamination{}, damage, ...
     provenance: list[str]        # design §24: where it came from
     owner: str | None
 ```
 Removing a part yields a **first-class derived object** built from the part's `outputs_when_removed`,
-with conserved state and mass (`Part.mass_kg` lets the ledger balance the removal, DR-11). Puzzle-
+with conserved state and mass (`Part.mass_g` lets the ledger balance the removal, DR-11). Puzzle-
 critical objects (radio/beacon/pilot) additionally carry an authored packet (a small state machine +
 clue/solution paths); they are the documented exception.
 

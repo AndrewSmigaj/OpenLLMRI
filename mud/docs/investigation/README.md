@@ -1,5 +1,8 @@
 # Investigation scratchpad
 
+> **Historical record — NOT authoritative.** Read this only to understand *why* the design is shaped
+> as it is. Current truth = `docs/scenarios/whiteout/GDD.md` + `docs/architecture/implementation-architecture.md`.
+
 Working notes for the pre-build design investigation of **Whiteout** (see the plan in
 `docs/scenarios/whiteout/design.md` = the original AI seed). These are *little reports* —
 evidence and reasoning, not polished docs. The polished output is the GDD

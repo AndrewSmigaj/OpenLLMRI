@@ -51,10 +51,12 @@ For every lens applied, write one card:
    **Stay inside the vision (step 2):** if a lens uncovers a real problem whose only fix would change
    the vision or a locked decision, do **not** recommend changing it. Instead either (a) reframe it as
    a **risk-within-the-vision** — mitigations that keep the decision intact — or (b) mark it
-   **"outside scope — vision-level"** and surface it as a neutral *flag for the user to decide*, never
-   as a recommendation to build something else. (E.g. "event-based time would be simpler" against a
-   locked real-time clock → reframe to "here's how to make real-time robust," not "switch to
-   event-based.")
+   **"outside scope — vision-level"** and surface it **once** as a clearly-flagged option *for the user
+   to decide* — give the strongest version of the argument, then **defer to their call and don't
+   re-raise it**. A strong, ideally *new* argument raised once is welcome; *relitigating* a decision the
+   user has already reaffirmed is the thing to avoid — and never abandon the vision wholesale for "build
+   something else". (E.g. "event-based time would be simpler" against a locked real-time clock → reframe
+   to "here's how to make real-time robust"; you may flag the trade-off once, but don't keep pushing it.)
 5. **Group docs.** Collect cards into one file per library (or one combined file).
 6. **Cross-lens synthesis.** Write a short doc listing where lenses **conflict** (e.g. a "feel
    boundless" lens vs a "density won't scale" lens) — each conflict names the seam where an
