@@ -114,3 +114,23 @@ class TestSlice(EvenniaTest):
         assert all(o.db.sim_id != "bottle" for o in self.room1.contents), "the bottle is gone"
         shards = [o for o in self.room1.contents if str(o.db.sim_id).startswith("bottle:shard")]
         assert len(shards) == 3 and sum(o.db.mass_g for o in shards) == 500
+
+    def test_real_scenario_loads_and_new_verbs_work_end_to_end(self):
+        """Runs the ACTUAL build.build() (17 objects) and drives new verbs through the command path — the
+        automated equivalent of the load-scenario smoke, and a regression guard on the scenario itself."""
+        from world.scenarios.whiteout import build as scenario
+        room = scenario.build()
+        self.char1.location = room
+        sims = {o.db.sim_id for o in room.contents}
+        assert {"seat", "multitool", "tinder", "lighter", "ice", "snowdrift", "bottle", "wire",
+                "paracord", "blanket", "manual", "canteen", "jerrycan", "jacket", "chocolate",
+                "pilot"} <= sims, "the enriched crash cabin should have loaded"
+
+        with mock.patch.object(self.char1, "msg"):
+            self.char1.execute_cmd("light the tinder with the lighter")
+            self.char1.execute_cmd("melt the ice with the lighter")
+            self.char1.execute_cmd("break the bottle")
+        tinder = next(o for o in room.contents if o.db.sim_id == "tinder")
+        assert (tinder.db.state or {}).get("lit") is True
+        assert any(o.db.sim_id == "ice:melt:loose" and o.db.mass_g == 600 for o in room.contents)
+        assert sum(1 for o in room.contents if str(o.db.sim_id).startswith("bottle:shard")) == 3

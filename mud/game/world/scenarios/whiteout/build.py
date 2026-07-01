@@ -1,4 +1,4 @@
-"""Whiteout slice scenario loader — creates the cabin + the ~5 objects (P1.9).
+"""Whiteout slice scenario loader — creates the crash cabin + ~16 objects (P1.9 + slice enrichment).
 
 Run: `make load-scenario SCENARIO=whiteout` (→ evennia shell -c 'from world.scenarios.whiteout.build
 import build; build()'). Each object is tagged run_id=slice and carries the db schema the WorldView

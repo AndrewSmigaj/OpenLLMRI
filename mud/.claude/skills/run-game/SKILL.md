@@ -55,17 +55,26 @@ want two characters in the same room:
 3. Connect a **second** session as the bot/second account (`AGENT_ACCOUNT`), `@tel` it to the same
    room. Now each player perceives the other via the propagator.
 
-## Live smoke (the P1.11 sequence)
-Once two characters are in the cabin, exercise the systemic slice:
+## Live smoke (the enriched slice — 14 verbs, 16 objects)
+Once two characters are in the cabin, exercise the systemic world. The verbs: **examine, cut, tear, pry,
+break, bend, burn, light, melt, pour, tie, wrap, drink, eat** (each with synonyms, e.g. `saw`/`rip`/`smash`).
 
 ```
-examine seat                              # lists parts WITH ids (cover/cushion/belt/bolt) + ident "11B"
+examine seat                              # parts WITH ids (cover/cushion/belt/bolt) + ident "11B"
 cut the cover off the seat with the multitool   # frees the stitched cover -> a 200g loose-fabric object
-pry the latch                             # leverage vs a clipped attachment
-burn the tinder with the lighter          # needs a flame; leaves ash + smoke to the sink
+tear the manual                           # paper tears into strips (no tool); tough things redirect -> cut
+break the bottle                          # glass shatters into 3 shards (mass conserved); metal is too tough
+bend the wire                             # ductile -> takes a shape; steel is too stiff
+light the tinder with the lighter         # starts a fire (lit=True) — distinct from burn
+melt the ice                              # off the fire you just lit -> water (ice grams -> water grams)
+pour the canteen on the fire              # water douses it (lit=False); pouring on a thing wets it
+tie the paracord to the seat              # cordage -> a knot; wrap the blanket around the pilot -> warmth
+drink the water   /   eat the chocolate   # the survival payoff
+examine the wire                          # shows the state you set: "bent out of true", "tied off", "alight"...
 ```
 Correct behavior: the actor gets first-person narration; the **other** character sees the propagated
-event; state (Attributes) changes and mass conserves; unknown verbs teach the grammar (not "Huh?").
+event; state (Attributes) changes and mass conserves; `examine` reflects what you did; unknown verbs teach
+the grammar (not "Huh?"). Emergent chains are the point — *light the tinder → melt snow off it → drink*.
 
 ## Restart / logs / shell
 ```sh
