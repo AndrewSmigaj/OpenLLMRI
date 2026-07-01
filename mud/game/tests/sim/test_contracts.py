@@ -45,7 +45,8 @@ def test_interrupt_signals_subset_of_event_kinds():
 
 
 def test_key_signatures_are_stubs_until_implemented():
-    # parse (P1.5) is the last unimplemented core seam; resolve/check/operations/narrator are implemented.
-    from world.sim.parser import parse
+    # The whole P1 pure pipeline is implemented; the operation DSL interpreter (evaluate) stays a stub
+    # until P2 (functions-first, D1) — guard that it hasn't been silently half-built.
+    from world.sim.operations.interpreter import evaluate
     with pytest.raises(NotImplementedError):
-        parse("x", None, None)
+        evaluate(None, None, None)

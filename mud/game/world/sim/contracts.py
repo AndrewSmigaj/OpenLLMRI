@@ -167,6 +167,35 @@ class ParseError:
     nudge: str = ""
 
 
+# --- Parser I/O additions (contract change, P1.5 — additive; no existing field changed) ---
+
+@dataclass(frozen=True)
+class Reachable:
+    """A parser-input descriptor: everything the parser needs to MATCH a typed noun to an entity/part.
+    The shell builds one per reachable entity (from EntityState + the Evennia object's aliases), so the
+    frozen EntityState stays lean while the parser gets aliases/ident/part-labels."""
+    id: str
+    name: str
+    aliases: tuple[str, ...] = ()
+    ident: str = ""                                # short player designator, e.g. "11B"
+    parts: tuple[tuple[str, str], ...] = ()         # (part_id, part_label) pairs
+
+
+@dataclass(frozen=True)
+class DisambigOption:
+    """One option in a Disambiguation."""
+    label: str      # human-readable, e.g. "aircraft seat 11B's cover"
+    ref: str        # the token the player re-issues to pick it, e.g. "11b cover"
+
+
+@dataclass(frozen=True)
+class Disambiguation:
+    """Returned by parse() when a noun matches multiple things (user refinement). The shell prints
+    'Which <term>? Options: …' and the player re-issues with an option's `ref`."""
+    term: str
+    options: tuple[DisambigOption, ...]
+
+
 # ---------------------------------------------------------------------------
 # Effects & Events (DR-10)
 # ---------------------------------------------------------------------------
