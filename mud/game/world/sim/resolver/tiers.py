@@ -1,23 +1,38 @@
-"""world.sim.resolver.tiers — the §26 resolution tiers (DR-09). Pure.
+"""world.sim.resolver.tiers — the §26 resolution tiers (DR-09, D1). Pure.
 
-resolve(attempt, world) walks tiers in order and returns the first hit; EVERYTHING resolves (success /
-partial / informative redirect). Specificity dispatch (DR-05): most-specific rule wins, ties broken by
-declared integer priority — never file order.
+resolve() walks the tiers and returns the FIRST that produces a result; EVERYTHING resolves (SUCCESS /
+PARTIAL / informative REDIRECT — never a hard "you can't do that"). Tier 3 is **verb→handler dispatch**
+(functions-first, D1); the (verb, relation, material_of_X, material_of_Y) index is P2 (`resolver/index.py`
+stays a stub).
 
-    1 authored-special    (puzzle-critical object rule, e.g. the radio FSM)
-    2 object-rule         (rare per-object override)
-    3 operation×material  (THE WORKHORSE — index keyed (verb, relation, material_of_X, material_of_Y))
-    4 generic-physics     (mass/temperature/containment defaults)
-    5 informative-redirect (ranked by smallest unmet-precondition gap; same target first; cap 2-3)
+  tier 1  authored-special    a per-object authored rule (e.g. the radio FSM), passed in `authored`
+  tier 3  operation×material  handler_for(verb)(attempt, world, materials) -> ActionResult | None
+  tier 5  informative redirect  generic_redirect(...)  (coarse plausible-verbs, D2)
 
-Unhandled-but-sensible attempts log to the wall-sensor for build-time authoring (DR-18). The resolver is
-pure: it reads `world` (snapshots) and returns Effects/Events — it never writes.
+A tier-5 result carries tier="redirect:generic" — the shell records that as a wall-sensor gap (P1.7).
 """
 from __future__ import annotations
 
-from world.sim.contracts import ActionAttempt, ActionResult, WorldView  # noqa: F401
+from world.sim.contracts import ActionResult
+from world.sim.operations.registry import handler_for
+from world.sim.resolver.redirect import generic_redirect
 
 
-def resolve(attempt: ActionAttempt, world: WorldView) -> ActionResult:
-    """Resolve a parsed attempt to an ActionResult. Implemented in roadmap P1. See resolver/README.md."""
-    raise NotImplementedError("resolver.resolve — roadmap P1")
+def resolve(attempt, world, materials, authored=None) -> ActionResult:
+    # tier 1 — authored-special (a per-object rule, e.g. the radio stub)
+    if authored and attempt.X is not None:
+        rule = authored.get(attempt.X.entity_id)
+        if rule is not None:
+            r = rule(attempt, world, materials)
+            if r is not None:
+                return r
+
+    # tier 3 — operation × material (verb → handler)
+    handler = handler_for(attempt.verb)
+    if handler is not None:
+        r = handler(attempt, world, materials)
+        if r is not None:
+            return r
+
+    # tier 5 — informative redirect (never a flat refusal)
+    return generic_redirect(attempt, world, materials)
