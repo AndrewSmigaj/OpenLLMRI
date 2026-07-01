@@ -5,7 +5,7 @@ from world.sim import narrator
 from world.sim.conservation.ledger import check
 from world.sim.contracts import ActionAttempt, EffectKind, EntityState, NounRef, Resolution
 from world.sim.materials import load_materials
-from world.sim.operations.handlers import drink, tie, wrap
+from world.sim.operations.handlers import drink, eat, examine, tie, wrap
 
 MATS = load_materials(MATERIAL_TABLE)
 
@@ -128,3 +128,32 @@ def test_drink_non_potable_not_applicable():
     w = FakeWorld([_frame()])
     a = ActionAttempt(actor="p", verb="drink", X=NounRef("frame"))
     assert drink.resolve_drink(a, w, MATS) is None
+
+
+# --- eat ---------------------------------------------------------------------
+
+def test_eat_edible_ration_conserves():
+    w = FakeWorld([EntityState(id="bar", name="chocolate bar", materials=["chocolate"], mass_g=100)])
+    a = ActionAttempt(actor="p", verb="eat", X=NounRef("bar"))
+    r = eat.resolve_eat(a, w, MATS)
+    assert r.resolution == Resolution.SUCCESS and r.effects[0].kind == EffectKind.CONSUME
+    _conserves(w, r)
+
+
+def test_eat_inedible_not_applicable():
+    w = FakeWorld([_frame()])
+    a = ActionAttempt(actor="p", verb="eat", X=NounRef("frame"))
+    assert eat.resolve_eat(a, w, MATS) is None
+
+
+# --- examine legibility (players must SEE the systemic states the verbs set) ---
+
+def test_examine_reports_the_new_state_flags():
+    ent = EntityState(id="thing", name="thing", materials=["copper_wire"], mass_g=50,
+                      state={"lit": True, "wet": True, "insulated": True, "shape": "bent",
+                             "secured": True})
+    w = FakeWorld([ent])
+    a = ActionAttempt(actor="p", verb="examine", X=NounRef("thing"))
+    said = examine.resolve_examine(a, w, MATS).narration.lower()
+    for token in ("alight", "soaked", "bundled", "bent", "tied"):
+        assert token in said, f"examine should surface {token!r}"

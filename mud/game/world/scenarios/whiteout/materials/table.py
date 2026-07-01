@@ -119,4 +119,8 @@ MATERIAL_TABLE = {
                   "burnability": "very_low", "rigidity": "high"},
         "tags": ("organic", "rigid"),
     },
+    "chocolate": {  # an emergency ration — the food half of the survival loop
+        "props": {"edibility": "high", "burnability": "low", "ignition_difficulty": "high"},
+        "tags": ("edible", "food", "soft"),
+    },
 }

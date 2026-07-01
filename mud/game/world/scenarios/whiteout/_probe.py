@@ -52,12 +52,14 @@ def probe_world():
         EntityState(id="manual", name="flight manual", materials=["paper"], mass_g=300),
         EntityState(id="jerrycan", name="jerry can", materials=["fuel"], mass_g=3000),
         EntityState(id="plank", name="plank", materials=["wood"], mass_g=600),
+        EntityState(id="chocolate", name="chocolate bar", materials=["chocolate"], mass_g=100),
         EntityState(id="pilot", name="the pilot", materials=["flesh"], mass_g=78000, state={"dead": True}),
     ])
 
 
 _TARGETS = ["seat", "multitool", "tinder", "pool", "canteen", "ice", "snow", "wire", "bottle",
-            "paracord", "blanket", "manual", "jerrycan", "campfire", "plank", "pilot", "ghost"]
+            "paracord", "blanket", "manual", "jerrycan", "campfire", "plank", "chocolate", "pilot",
+            "ghost"]
 _PARTS = [("seat", "cover"), ("seat", "latch"), ("seat", "bolt")]
 _TOOLS = [None, "multitool", "lighter"]
 _LIQUIDS_CORDS_WRAPS = ["pool", "canteen", "paracord", "wire", "blanket"]

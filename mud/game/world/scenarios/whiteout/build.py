@@ -87,4 +87,7 @@ def build():
     _mk("flight jacket", ["jacket", "coat"],
         [("sim_id", "jacket"), ("materials", ["leather"]), ("mass_g", 1200)], room)
 
+    _mk("chocolate bar", ["chocolate", "bar", "ration"],
+        [("sim_id", "chocolate"), ("materials", ["chocolate"]), ("mass_g", 100)], room)
+
     return room

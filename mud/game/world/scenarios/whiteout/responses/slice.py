@@ -61,6 +61,9 @@ RESPONSES = {
     "drink.slake": "You drink the {target} down; cold and clean, it eases the thirst.",
     "drink.risky": "You force down the {target}. It's brackish — better than nothing, you hope.",
     "drink.frozen": "You can't drink the {target} frozen — melt it to water first.",
+    # eat ---------------------------------------------------------------------
+    "eat.eat": "You eat the {target}; it's something, and the gnaw of hunger eases a little.",
+    "eat.meagre": "You get the {target} down. Precious few calories, but every one counts.",
     # generic -----------------------------------------------------------------
     "__fallback__": "Something shifts, but not the way you meant.",
 }

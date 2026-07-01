@@ -36,13 +36,27 @@ def resolve_examine(attempt, world, materials, detail: str = "full"):
 
 
 def _condition(ent) -> str:
+    """A short read of the systemic state flags the operations set — so a player can SEE what they did
+    (lit it, doused it, wrapped it, bent it, tied it). Legibility is what makes the world feel reactive."""
     st = ent.state or {}
     bits = []
-    if st.get("wetness"):
-        bits.append("damp")
+    if st.get("lit"):
+        bits.append("alight")
+    if st.get("wet") or st.get("wetness"):
+        bits.append("soaked")
+    if st.get("insulated"):
+        bits.append("bundled for warmth")
+    elif st.get("wrapped"):
+        bits.append("wrapped up")
+    if st.get("shape") == "bent":
+        bits.append("bent out of true")
+    if st.get("secured") or st.get("tied_to"):
+        bits.append("tied off")
     if st.get("damage"):
-        bits.append("damaged")
+        bits.append("battered")
+    if st.get("dead"):
+        bits.append("lifeless")
     t = st.get("temperature_c")
     if isinstance(t, (int, float)) and not isinstance(t, bool) and t <= 0:
         bits.append("frost-stiff")
-    return ("It looks " + ", ".join(bits) + ".") if bits else ""
+    return ("It's " + ", ".join(bits) + ".") if bits else ""

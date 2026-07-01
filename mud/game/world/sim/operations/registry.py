@@ -9,8 +9,8 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Callable
 
-from world.sim.operations.handlers import (bend, break_op, burn, cut, drink, examine, light, melt, pour,
-                                           pry, tear, tie, wrap)
+from world.sim.operations.handlers import (bend, break_op, burn, cut, drink, eat, examine, light, melt,
+                                           pour, pry, tear, tie, wrap)
 
 
 @dataclass(frozen=True)
@@ -47,6 +47,8 @@ OPERATIONS: dict[str, Op] = {
                applies_to=("fabric", "flexible", "insulating")),
     "drink": Op("drink", drink.VERBS, drink.resolve_drink,
                 applies_to=("liquid", "potable")),
+    "eat": Op("eat", eat.VERBS, eat.resolve_eat,
+              applies_to=("edible", "food")),
     "examine": Op("examine", examine.VERBS, examine.resolve_examine),
 }
 
