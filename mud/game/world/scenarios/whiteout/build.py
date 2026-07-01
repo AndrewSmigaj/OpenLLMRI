@@ -19,7 +19,8 @@ def _mk(key, aliases, attrs, location):
 
 
 def build():
-    room = evennia.create_object(_ROOM, key="crash cabin")
+    room = evennia.create_object(_ROOM, key="crash cabin", tags=_TAGS,
+                                 attributes=[("world_time", 0)])
     room.db.desc = ("The crushed cabin of a downed light plane. Frost creeps across bent aluminium; "
                     "torn seats and scattered kit lie where the impact flung them.")
     room.db.seed = 1

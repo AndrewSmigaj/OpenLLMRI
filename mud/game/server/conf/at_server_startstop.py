@@ -30,7 +30,10 @@ def at_server_start():
     This is called every time the server starts up, regardless of
     how it was shut down.
     """
-    pass
+    # Whiteout: ensure the world-clock heartbeat exists (persistent; DR-14).
+    from evennia import create_script, search_script
+    if not search_script("whiteout_heartbeat"):
+        create_script("typeclasses.heartbeat.HeartbeatScript")
 
 
 def at_server_stop():

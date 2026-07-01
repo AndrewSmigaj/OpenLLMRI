@@ -67,3 +67,10 @@ class TestSlice(EvenniaTest):
             self.char1.execute_cmd("examine seat")
         said = self._said(m1)
         assert "cover" in said and "bolt" in said and "11b" in said
+
+    def test_clock_advances_via_the_shell(self):
+        from typeclasses.apply import advance_clock
+        advance_clock(self.room1, 5)
+        assert self.room1.db.world_time == 5
+        advance_clock(self.room1, 3)
+        assert self.room1.db.world_time == 8   # deterministic, cumulative

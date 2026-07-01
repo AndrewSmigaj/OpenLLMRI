@@ -1,15 +1,15 @@
 """world.sim.systems.clock — the continuously running real-time clock (DR-14, GDD §9). Pure.
 
-LOCKED model: game time advances on its own at a fixed real→game pace (a tunable constant, ~10-20
-real-seconds per game-minute). **NO modes, no planning freeze, no fast-forward**; nobody can stall or
-yank it. Under the hood it is a deterministic LOGICAL clock — time is an INPUT — so the wall-clock only
-decides WHEN a tick fires while `tick(dt, ...)` is a pure function of (state, dt); the fuzzer/replay
-drive logical ticks directly and stay byte-reproducible (DR-12). Built in roadmap P4.
+LOCKED model: time advances on its own at a fixed real→game pace; **no modes, no planning freeze, no
+fast-forward**; nobody can stall it. A deterministic LOGICAL clock — the wall-clock (the heartbeat
+Script) decides WHEN a tick fires; WHAT a tick does is this pure function of (state, dt), so the
+fuzzer/replay can drive logical ticks reproducibly (DR-12). P1 is minimal: advance world-time; the
+placeholder exposure tick emits nothing consequential (real warmth/fire/cold-death is P5).
 """
 from __future__ import annotations
 
 
-def tick(dt: int, world_time: int):
-    """Advance the logical clock by `dt` game-minutes; return (new_world_time, due_events). A pure
-    function of (state, dt) — no `random`/`time`/wall-clock. Implemented in roadmap P4."""
-    raise NotImplementedError("systems.clock.tick — roadmap P4")
+def tick(dt, world_time):
+    """Advance the logical clock by `dt` game-minutes. Returns (new_world_time, events). Deterministic
+    — no random/time/wall-clock."""
+    return int(world_time) + int(dt), ()

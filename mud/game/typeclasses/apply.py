@@ -15,6 +15,7 @@ from django.db import transaction
 
 from world.sim.conservation.ledger import EnvironmentSink, check
 from world.sim.contracts import EffectKind
+from world.sim.systems import clock
 
 _DERIVED_TYPECLASS = "typeclasses.objects.Object"
 
@@ -28,6 +29,14 @@ def get_sink(room):
     if room.ndb.sink is None:
         room.ndb.sink = EnvironmentSink()
     return room.ndb.sink
+
+
+def advance_clock(room, dt):
+    """Advance a room's running clock by `dt` game-minutes via the pure logical clock (DR-14 seam).
+    Returns due events. The Attribute write stays in this allowlisted single-writer module."""
+    new_time, events = clock.tick(dt, int(room.db.world_time or 0))
+    room.db.world_time = new_time
+    return events
 
 
 def apply(effects, world, sink=None):
