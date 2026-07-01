@@ -34,6 +34,16 @@ user's model weights + GPU and is never containerized.
 | `make shell` | Evennia/Django shell |
 | `make agent` | run the scripted bot from the host against a running server |
 
+**Skills over these:** use the **`run-game`** skill to boot / load a scenario / smoke the live
+server, and the **`run-tests`** skill to run and interpret the checks (which layer to run when).
+The test strategy is documented in [docs/architecture/testing.md](docs/architecture/testing.md).
+
+**One-time dev setup** (per clone): `cp .env.example .env`, then
+`git config core.hooksPath .githooks` to enable the pre-commit gate (runs the 4 host-fast lints
+before each commit). **Auto-checks:** every push to GitHub runs the gates + Tier-1 + Tier-2 via
+[`.github/workflows/ci.yml`](.github/workflows/ci.yml) — a green ✓ / red ✗ per commit. The Docker
+image is pinned by digest (`docker/evennia/Dockerfile`) so local, CI and any clone build identically.
+
 ## Repo map  (the full module layout lives in ONE place: architecture §11 / DR-21)
 - `game/` — the **Evennia shell**: typeclasses, commands, settings. Owns state (Postgres
   Attributes) and IO. Marshals `world.sim.contracts` dataclasses and applies Effects via `apply()`
@@ -48,7 +58,8 @@ user's model weights + GPU and is never containerized.
 - `agent/` — the **bot harness** (host-side; scripted + torch brains; a *client*, not the engine).
 - `scripts/` — host helpers (e.g. `create_superuser.py`).
 - `docs/` — design, roadmap, architecture, authoring guides (authoritative sources: see Pointers).
-- `.claude/` — this tooling (skills, agents, commands, hooks).
+- `.claude/` — this tooling: **skills** (`run-game`, `run-tests`, lenses, ontology, fuzz), agents,
+  commands, hooks. Reach for `run-game` to operate the server and `run-tests` for the checks.
 
 ## Hard rules (LOCKED — do not relitigate; see VISION.md / GDD §0b / the architecture DRs)
 - **`world/sim` imports no Evennia/Django — functional core, imperative shell.** Rules are

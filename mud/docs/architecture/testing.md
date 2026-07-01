@@ -1,7 +1,28 @@
 # Testing
 
-Whiteout has **two test tiers**, and the functional-core boundary
-([overview.md](overview.md)) is precisely what makes the fast tier possible.
+Whiteout's checks come in **layers, fast → slow**, and the functional-core boundary
+([overview.md](overview.md)) is precisely what makes the fast layers possible. Day to day you
+drive them through the **`run-tests`** skill (`.claude/skills/run-tests/`); this doc is the
+authoritative record of *what each layer proves* and *when to run what*.
+
+| Layer | Command | Proves |
+|---|---|---|
+| 4 structural gates (host-fast) | `make lint` | the functional-core boundary + determinism, the single `apply()` writer, the single output path (propagator), doc-consistency |
+| Tier 1 — pure unit | `make test-host` (host) / `make test` (Docker) | the pure `world/sim` engine: materials, conservation, resolver, parser, clock |
+| Tier 2 — Evennia integration | `make test-int` | the shell: Attribute↔`EntityState` marshalling, commands, the propagator, the heartbeat Script |
+| Solvability fuzz | `make fuzz` | every attempt resolves + every effect conserves mass; seeded-replay is byte-identical |
+
+### When to run what
+| Moment | Runs | Command |
+|---|---|---|
+| Editing (inner loop) | gates + Tier-1 pure | `make test-host` |
+| On Stop (auto, wired) | 4 gates + compose config | `.claude/hooks/verify.sh` |
+| Before each local commit | 4 gates | `.githooks/pre-commit` — enable once: `git config core.hooksPath .githooks` |
+| Before a push / full local pass | gates + compose + Tier-1 | `make verify` |
+| Shell / integration check | Tier-2 Evennia | `make test-int` |
+| Every GitHub push | all of the above | `.github/workflows/ci.yml` (auto) |
+
+The two detailed tiers follow.
 
 ## Tier 1 — Fast pure tests (`make test`)
 
@@ -49,24 +70,27 @@ deliberately cannot reach.
 | Concern | Tier 1 (pure) | Tier 2 (integration) |
 |---|---|---|
 | Material / cutting / conservation rules | ✅ | |
-| Perception bands, direction, sound | ✅ | |
-| Clock tick, scheduler, activity interrupts | ✅ | |
 | Action resolution tiers (§26 minus LLM) | ✅ | |
+| Basic clock tick (P1) | ✅ | |
 | Attribute ↔ `EntityState` marshalling | | ✅ |
 | Command parsing & reachability gate | | ✅ |
 | Heartbeat Script & message propagator | | ✅ |
+| Perception bands / direction / sound | ✅ *(roadmap P5+, not built yet)* | |
+| Scheduler / activity interrupts | ✅ *(roadmap P5+, not built yet)* | |
 | Content lint (authored packets) | see below | |
 
 ## Content validation is not a test tier
 
 The §44 validation checklist runs as **content-lint**, not as runtime or as a
-unit test: `make validate` (and `make verify`, which adds a compose config check
-plus `make test`). It checks authored scenario content — solution-path counts,
+unit test: `make validate` checks authored scenario content — solution-path counts,
 conservation, perception routing, tick feedback, etc. See
-[../guides/validation-rules.md](../guides/validation-rules.md).
+[../guides/validation-rules.md](../guides/validation-rules.md). It is **engine-stage
+(roadmap)** — a stub today — so it is not yet wired into `make verify`.
+
+`make verify` is the full local gate to run before a push:
 
 ```
-make verify      # docker compose config -q  +  make test  +  make validate
+make verify      # make lint  +  docker compose config -q  +  make test
 ```
 
 ## Related
@@ -74,3 +98,6 @@ make verify      # docker compose config -q  +  make test  +  make validate
 - [overview.md](overview.md) — the functional-core boundary that enables Tier 1.
 - [../guides/docker-workflow.md](../guides/docker-workflow.md) — the full command set.
 - [../guides/loop-workflow.md](../guides/loop-workflow.md) — `make verify` in the loop.
+- `.claude/skills/run-tests/` — drive + interpret these checks (which to run when).
+- `.claude/skills/run-game/` — boot + smoke the live server for a manual playtest.
+- `.github/workflows/ci.yml` — the same gates + Tier-1 + Tier-2 run on every GitHub push.
