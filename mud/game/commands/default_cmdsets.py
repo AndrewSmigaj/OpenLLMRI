@@ -31,9 +31,11 @@ class CharacterCmdSet(default_cmds.CharacterCmdSet):
         Populates the cmdset
         """
         super().at_cmdset_creation()
-        #
-        # any commands you add below will overload the default ones.
-        #
+        # Whiteout: the taught-grammar action command (keyed on every operation verb) + the
+        # unmatched-input nudge. (CmdAction's `examine` intentionally overloads the builder examine.)
+        from commands.cmd_act import CmdAction, CmdNoMatch
+        self.add(CmdAction())
+        self.add(CmdNoMatch())
 
 
 class AccountCmdSet(default_cmds.AccountCmdSet):

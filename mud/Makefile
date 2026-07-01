@@ -105,10 +105,9 @@ bake:
 fuzz:
 	python3 tools/fuzz.py $(SCENARIO)
 
-# Integration tests run through Evennia's own test runner (needs a test DB).
+# Integration tests run through Evennia's own test runner (creates a throwaway test DB).
 test-int:
-	@echo "No integration tests yet (see game/tests/README.md)."
-	@echo "Once written, this runs: evennia test --settings settings tests.integration"
+	$(DC) run --rm evennia evennia test --settings settings tests.integration
 
 validate:
 	@echo "Content validation lands with the engine (design §44)."

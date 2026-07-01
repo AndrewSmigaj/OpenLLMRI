@@ -18,7 +18,7 @@ import sys
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 SCAN = [ROOT / "game" / "typeclasses", ROOT / "game" / "commands"]
-ALLOW = set()  # add the apply() single-writer module(s) here when they land (roadmap P1)
+ALLOW = {"game/typeclasses/apply.py"}  # THE effects-centric single writer (DR-10)
 
 # in-place mutators on a SaverList/SaverDict held in a .db/.ndb attribute
 MUTATORS = {"append", "extend", "insert", "pop", "remove", "clear", "update",
