@@ -50,6 +50,17 @@ RESPONSES = {
     "pour.douse": "You upend the {liquid} over the {target}; it hisses, steams, and goes out.",
     "pour.wet": "You pour the {liquid} over the {target}, soaking it through.",
     "pour.no_target": "You tip the {liquid} out — but onto what? (pour X on Y)",
+    # tie ---------------------------------------------------------------------
+    "tie.knot": "You lash the {cord} to the {anchor} and cinch it down — it holds.",
+    "tie.no_anchor": "You loop the {cord}, ready to tie — but to what? (tie X to Y)",
+    # wrap --------------------------------------------------------------------
+    "wrap.wrapped": "You wind the {wrap} around the {target}, snug and secure.",
+    "wrap.insulate": "You bundle the {wrap} around the {target}; it'll hold the warmth in.",
+    "wrap.no_target": "You gather up the {wrap} to wrap — around what? (wrap X around Y)",
+    # drink -------------------------------------------------------------------
+    "drink.slake": "You drink the {target} down; cold and clean, it eases the thirst.",
+    "drink.risky": "You force down the {target}. It's brackish — better than nothing, you hope.",
+    "drink.frozen": "You can't drink the {target} frozen — melt it to water first.",
     # generic -----------------------------------------------------------------
     "__fallback__": "Something shifts, but not the way you meant.",
 }
