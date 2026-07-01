@@ -74,3 +74,43 @@ class TestSlice(EvenniaTest):
         assert self.room1.db.world_time == 5
         advance_clock(self.room1, 3)
         assert self.room1.db.world_time == 8   # deterministic, cumulative
+
+    # --- the enriched operations, through the real command → apply → state path ---
+
+    def _spawn(self, key, sim_id, materials, mass_g, aliases=(), state=None):
+        return create_object("typeclasses.objects.Object", key=key, location=self.room1,
+                             aliases=list(aliases),
+                             attributes=[("sim_id", sim_id), ("materials", materials),
+                                         ("mass_g", mass_g), ("state", state or {})])
+
+    def test_light_sets_the_lit_state(self):
+        tinder = self._spawn("dry grass", "tinder", ["dry_grass"], 40, ["tinder"])
+        self._spawn("lighter", "lighter", ["plastic"], 20, ["lighter"], state={"ignition": True})
+        with mock.patch.object(self.char1, "msg"):
+            self.char1.execute_cmd("light the tinder with the lighter")
+        assert (tinder.db.state or {}).get("lit") is True
+
+    def test_melt_ice_mints_water_conserving_mass(self):
+        self._spawn("chunk of ice", "ice", ["ice"], 600, ["ice"])
+        self._spawn("lighter", "lighter", ["plastic"], 20, ["lighter"], state={"ignition": True})
+        with mock.patch.object(self.char1, "msg"):
+            self.char1.execute_cmd("melt the ice with the lighter")
+        assert all(o.db.sim_id != "ice" for o in self.room1.contents), "the ice should be gone"
+        water = [o for o in self.room1.contents if o.db.sim_id == "ice:melt:loose"]
+        assert len(water) == 1 and water[0].db.mass_g == 600 and water[0].db.materials == ["water"]
+
+    def test_pour_water_douses_a_fire(self):
+        fire = self._spawn("campfire", "fire", ["wood"], 2000, ["campfire", "fire"], state={"lit": True})
+        self._spawn("water", "water", ["water"], 500, ["water"])
+        with mock.patch.object(self.char1, "msg"):
+            self.char1.execute_cmd("pour the water on the campfire")
+        assert (fire.db.state or {}).get("lit") is False, "the fire should be out"
+        assert all(o.db.sim_id != "water" for o in self.room1.contents), "the water is spent"
+
+    def test_break_bottle_shatters_conserving_mass(self):
+        self._spawn("whisky bottle", "bottle", ["glass"], 500, ["bottle"])
+        with mock.patch.object(self.char1, "msg"):
+            self.char1.execute_cmd("break the bottle")
+        assert all(o.db.sim_id != "bottle" for o in self.room1.contents), "the bottle is gone"
+        shards = [o for o in self.room1.contents if str(o.db.sim_id).startswith("bottle:shard")]
+        assert len(shards) == 3 and sum(o.db.mass_g for o in shards) == 500

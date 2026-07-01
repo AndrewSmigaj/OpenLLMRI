@@ -55,4 +55,36 @@ def build():
     _mk("the pilot", ["pilot", "body"],
         [("sim_id", "pilot"), ("materials", ["flesh"]), ("mass_g", 78000), ("state", {"dead": True})], room)
 
+    # --- the salvage: things to cut/tear/break/bend/light/melt/pour/tie/wrap/drink ---
+    _mk("snowdrift", ["snow", "drift"],
+        [("sim_id", "snowdrift"), ("materials", ["snow"]), ("mass_g", 4000)], room)
+
+    _mk("chunk of ice", ["ice", "chunk"],
+        [("sim_id", "ice"), ("materials", ["ice"]), ("mass_g", 600)], room)
+
+    _mk("whisky bottle", ["bottle", "whisky"],
+        [("sim_id", "bottle"), ("materials", ["glass"]), ("mass_g", 500)], room)
+
+    _mk("coil of copper wire", ["wire", "coil"],
+        [("sim_id", "wire"), ("materials", ["copper_wire"]), ("mass_g", 120)], room)
+
+    _mk("length of paracord", ["paracord", "cord", "rope"],
+        [("sim_id", "paracord"), ("materials", ["nylon_webbing"]), ("mass_g", 90)], room)
+
+    _mk("wool blanket", ["blanket", "wool"],
+        [("sim_id", "blanket"), ("materials", ["wool"]), ("mass_g", 700)], room)
+
+    _mk("flight manual", ["manual", "book", "handbook"],
+        [("sim_id", "manual"), ("materials", ["paper"]), ("mass_g", 300)], room)
+
+    _mk("canteen of water", ["canteen", "flask"],
+        [("sim_id", "canteen"), ("materials", ["water"]), ("mass_g", 600),
+         ("state", {"ident": "half-full"})], room)
+
+    _mk("jerry can", ["can", "jerrycan"],
+        [("sim_id", "jerrycan"), ("materials", ["fuel"]), ("mass_g", 3000)], room)
+
+    _mk("flight jacket", ["jacket", "coat"],
+        [("sim_id", "jacket"), ("materials", ["leather"]), ("mass_g", 1200)], room)
+
     return room

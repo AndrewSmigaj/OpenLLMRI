@@ -85,4 +85,38 @@ MATERIAL_TABLE = {
         "props": {"potability": "high", "absorbency": "none"},
         "tags": ("liquid", "extinguisher"),
     },
+    "paper": {  # the flight manual — excellent tinder
+        "props": {"cut_resistance": "very_low", "tear_resistance": "very_low", "bend_resistance": "very_low",
+                  "burnability": "very_high", "ignition_difficulty": "very_low", "smoke_toxicity": "low"},
+        "tags": ("flexible", "flammable", "fuel", "tinder", "paper"),
+    },
+    "cardboard": {
+        "props": {"cut_resistance": "low", "tear_resistance": "low", "bend_resistance": "low",
+                  "burnability": "high", "ignition_difficulty": "med", "rigidity": "very_low"},
+        "tags": ("flexible", "flammable", "fuel"),
+    },
+    "wool": {  # the blanket — warmth, bandages, fuel of last resort
+        "props": {"cut_resistance": "low", "tear_resistance": "med", "burnability": "med",
+                  "ignition_difficulty": "high", "insulation": "high", "absorbency": "high"},
+        "tags": ("fabric", "flexible", "insulating", "flammable"),
+    },
+    "cotton_cloth": {
+        "props": {"cut_resistance": "very_low", "tear_resistance": "low", "burnability": "high",
+                  "ignition_difficulty": "low", "insulation": "low", "absorbency": "high"},
+        "tags": ("fabric", "flexible", "flammable", "absorbent"),
+    },
+    "fuel": {  # avgas from a ruptured line / jerry can — a flammable liquid, NOT drinkable, NOT a douser
+        "props": {"burnability": "extreme", "ignition_difficulty": "very_low", "smoke_toxicity": "high"},
+        "tags": ("liquid", "flammable", "fuel"),
+    },
+    "flesh": {  # the pilot
+        "props": {"cut_resistance": "low", "tear_resistance": "med", "bend_resistance": "low",
+                  "burnability": "low", "ignition_difficulty": "high", "smoke_toxicity": "high"},
+        "tags": ("organic", "soft"),
+    },
+    "bone": {
+        "props": {"cut_resistance": "high", "tear_resistance": "extreme", "bend_resistance": "high",
+                  "burnability": "very_low", "rigidity": "high"},
+        "tags": ("organic", "rigid"),
+    },
 }
