@@ -73,9 +73,8 @@ logs:
 # Loads a scenario once one exists. When you author world/scenarios/<name>/build.py,
 # the loader call below becomes live (it's the documented invocation).
 load-scenario:
-	@echo "No scenarios built yet (SCENARIO=$(SCENARIO))."
-	@echo "See docs/guides/adding-a-scenario.md and game/world/scenarios/README.md."
-	@echo "Once built, this runs: evennia shell -c 'from world.scenarios.$(SCENARIO).build import build; build()'"
+	@echo "from world.scenarios.$(SCENARIO).build import build; build(); print('loaded scenario: $(SCENARIO)')" \
+		| $(DC) run --rm -T --entrypoint evennia evennia shell
 
 # Pure unit tests: no Postgres, no Evennia boot. Tolerates 'no tests collected' (exit 5).
 test:
