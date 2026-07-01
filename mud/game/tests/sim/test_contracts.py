@@ -45,9 +45,10 @@ def test_interrupt_signals_subset_of_event_kinds():
 
 
 def test_key_signatures_are_stubs_until_implemented():
-    from world.sim.conservation import check
+    # parse (P1.5) and resolve (P1.4) are still stubs; check() is implemented (P1.3), narrator/materials/
+    # effects/operations are implemented — this guards the *remaining* unimplemented seams.
     from world.sim.parser import parse
     from world.sim.resolver import resolve
-    for fn, args in [(parse, ("x", None, None)), (resolve, (None, None)), (check, (None, None))]:
+    for fn, args in [(parse, ("x", None, None)), (resolve, (None, None))]:
         with pytest.raises(NotImplementedError):
             fn(*args)
