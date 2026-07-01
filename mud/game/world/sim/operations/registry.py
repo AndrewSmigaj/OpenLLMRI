@@ -9,7 +9,8 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Callable
 
-from world.sim.operations.handlers import bend, break_op, burn, cut, examine, pry, tear
+from world.sim.operations.handlers import (bend, break_op, burn, cut, examine, light, melt, pour, pry,
+                                           tear)
 
 
 @dataclass(frozen=True)
@@ -28,6 +29,12 @@ OPERATIONS: dict[str, Op] = {
                applies_to=("fabric", "flexible", "paper", "stitched", "tied")),
     "burn": Op("burn", burn.VERBS, burn.resolve_burn,
                applies_to=("flammable", "fuel", "tinder", "fabric")),
+    "light": Op("light", light.VERBS, light.resolve_light,
+                applies_to=("flammable", "tinder", "fuel")),
+    "melt": Op("melt", melt.VERBS, melt.resolve_melt,
+               applies_to=("frozen_water", "cold", "ice")),
+    "pour": Op("pour", pour.VERBS, pour.resolve_pour, relations=("on", "into", "onto"),
+               applies_to=("liquid",)),
     "pry": Op("pry", pry.VERBS, pry.resolve_pry, relations=("off", "from", "open"),
               applies_to=("bolted", "wedged", "clipped", "metal", "rigid")),
     "break": Op("break", break_op.VERBS, break_op.resolve_break,

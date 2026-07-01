@@ -70,3 +70,31 @@ def name_of(ref, world):
 def derived_id(parent_id: str, tag: str) -> str:
     """A DETERMINISTIC id for an object minted from `parent_id` (DR-12; never uuid/dbref)."""
     return f"{parent_id}:{tag}:loose"
+
+
+def has_ignition(ref, world) -> bool:
+    """True if `ref` provides a flame/spark (a lit or ignition state/tag). Bare hands don't. Shared by
+    light/melt (and mirrors burn's own check)."""
+    ent, _ = resolve_ref(ref, world)
+    if ent is None:
+        return False
+    st = ent.state or {}
+    return bool(st.get("lit") or st.get("ignition")) or "ignition" in ent.tags or "lit" in ent.tags
+
+
+def heat_source_available(attempt, world) -> bool:
+    """True if there's usable heat: the tool provides a flame, OR anything reachable is lit/burning (so
+    'light the tinder, then melt snow off its warmth' works without holding the flame)."""
+    if has_ignition(attempt.tool, world):
+        return True
+    for sid in world.reachable(getattr(attempt, "actor", "") or ""):
+        e = world.get(sid)
+        if e is not None and (has_ignition_state(e)):
+            return True
+    return False
+
+
+def has_ignition_state(ent) -> bool:
+    """True if an EntityState is itself a flame/heat source (lit/ignition)."""
+    st = ent.state or {}
+    return bool(st.get("lit") or st.get("ignition")) or "ignition" in ent.tags or "lit" in ent.tags

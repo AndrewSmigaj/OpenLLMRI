@@ -37,6 +37,19 @@ RESPONSES = {
     # bend --------------------------------------------------------------------
     "bend.shaped": "You work the {target} back and forth until it takes a new bend.",
     "bend.too_stiff": "The {target} won't give — far too stiff to bend by hand.",
+    # light -------------------------------------------------------------------
+    "light.lit": "The {target} catches with a small eager flame — a fire, at last.",
+    "light.no_spark": "You've no way to spark the {target} alight. You need a flame.",
+    "light.already": "The {target} is already lit.",
+    "light.wont_catch": "You coax it, but the {target} just won't take a flame.",
+    # melt --------------------------------------------------------------------
+    "melt.water": "The {target} softens, slumps, and runs to clear meltwater.",
+    "melt.no_heat": "The {target} stays frozen solid — you'll need a heat source.",
+    "melt.composite": "You can't melt the whole {target} down like that.",
+    # pour --------------------------------------------------------------------
+    "pour.douse": "You upend the {liquid} over the {target}; it hisses, steams, and goes out.",
+    "pour.wet": "You pour the {liquid} over the {target}, soaking it through.",
+    "pour.no_target": "You tip the {liquid} out — but onto what? (pour X on Y)",
     # generic -----------------------------------------------------------------
     "__fallback__": "Something shifts, but not the way you meant.",
 }
