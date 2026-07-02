@@ -41,8 +41,10 @@ brain). It runs on the **host**, not in Docker — the torch brain needs your mo
 GPU. See `agent/README.md`.
 
 ## Read more
+- [`docs/README.md`](docs/README.md) — **the doc map** (what's authoritative, where things live). Start here.
+- [`BACKLOG.md`](BACKLOG.md) — what's active / next / parked (Now / Next / Later).
 - [`VISION.md`](VISION.md) — what we're building and the non-negotiables.
 - [`docs/scenarios/whiteout/GDD.md`](docs/scenarios/whiteout/GDD.md) — the authoritative game design (FINAL). (`design.md` beside it is the archived original seed.)
-- [`docs/scenarios/whiteout/roadmap.md`](docs/scenarios/whiteout/roadmap.md) — the build order.
-- [`docs/`](docs/) — architecture overview and authoring guides.
+- [`docs/scenarios/whiteout/roadmap.md`](docs/scenarios/whiteout/roadmap.md) — the strategic build order (P0–P7).
+- [`docs/`](docs/) — architecture and authoring guides.
 - [`CLAUDE.md`](CLAUDE.md) — orientation for Claude Code working in this repo.

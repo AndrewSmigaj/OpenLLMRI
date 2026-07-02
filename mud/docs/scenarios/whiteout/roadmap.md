@@ -11,16 +11,21 @@
 > running real-time clock**; sessions are **instanced, synchronous co-op runs**; input is the **taught
 > grammar** `VERB X [RELATION Y] [WITH Z]` (GDD §25a).
 >
-> **Doctrine.** Prove the core is *fun* before building breadth. Each phase has an **exit gate**; the next
+> **Doctrine.** Get the core *right* — the systemic mechanism works and the interaction *feels* right on the
+> smallest real subset — before building breadth. (Fun is a **continuous design judgment** we make
+> throughout, not a test the slice must pass.) Each phase has an **exit gate**; the next
 > phase does not start until its gate passes. All rules are pure `game/world/sim/**` (Tier-1 tested
 > without booting Evennia); the shell is thin. The empirical "joints" (the operation-DSL boundary, energy
 > fidelity, fun-tuning) are deferred to where they're *proved* — P1 — not guessed up front.
+
+> **This is the strategic arc.** What's actively being worked on now lives in
+> [`../../../BACKLOG.md`](../../../BACKLOG.md) (Now / Next / Later).
 
 ## Phase overview
 | Phase | Name | Builds | Exit gate (go/no-go) |
 |---|---|---|---|
 | **P0** | Repo prep + locked contracts | DR-21 tree · `contracts.py` · CI gates | `world.sim` imports with no Evennia; gates green; contracts **frozen** |
-| **P1** | **Vertical slice (co-op)** | op×material core · ledger · taught parser · resolver · narrator · **shared-room co-op + basic clock**, behind seams | **FUN GATE** — "alive & fun together"; **0** "you can't do that" |
+| **P1** | **Vertical slice (co-op)** | op×material core · ledger · taught parser · resolver · narrator · **shared-room co-op + basic clock**, behind seams | mechanism resolves everything + conserves; the interaction/format feels right (our call) |
 | **P2** | Ontology breadth + coverage | full material/operation matrix · property tests · fuzz · bake | matrix complete; ≥10k fuzz, 0 unresolved / 0 conservation violations |
 | **P3** | Perception & zones (§10–15) | `space/*` · per-observer rendering · propagator | crossing the scene fades detail through perception bands |
 | **P4** | Full activity scheduler (basic clock ships in P1) | `systems/scheduler` + the durable Activity model | long activities accrue on ticks, interrupt-safe, `@reload`-durable |
@@ -57,8 +62,9 @@ the stubbed tree.
 `make verify` green (config + lint gates + suite); **contracts reviewed and FROZEN** — later changes need
 an explicit contract-change note.
 
-## P1 — Vertical slice (co-op, one shared room) — THE FUN GATE
-**Goal.** Prove **try-anything → resolves → feels alive** on the smallest real subset. The make-or-break.
+## P1 — Vertical slice (co-op, one shared room)
+**Goal.** Prove **try-anything → resolves → feels alive** on the smallest real subset — get the mechanism
+and the interaction *shape* right before building breadth.
 **Depends on.** P0.
 **Deliverables** (fill bodies behind P0 contracts):
 - `materials.py` + **~25 hand-curated golden materials** (intensive ordinal props; real integer-gram
@@ -87,14 +93,16 @@ an explicit contract-change note.
 a small seeded fuzz run (every attempt resolves; 0 conservation violations); the **seeded-replay
 determinism** property; **golden-master narration snapshots** (narration↔Effect); a **Tier-2 2-session
 integration test** (two players act on the shared room; each sees the other via the propagator).
-**Exit gate — TWO gates:**
+**Exit gate:**
 - **Mechanical:** 0 unresolved attempts in the slice fuzz; ledger balances on every transform; replay is
   byte-identical; the boundary / no-raw-write / **no-raw-output (propagator)** / determinism lints green.
-- **FUN GATE (the real go/no-go).** The GDD slice success test: **a couple of friends**, no manual, **~15
-  minutes** co-op in the cabin, come away saying *the world felt alive and reactive* (and *fun to poke at
-  together*), **zero** "you can't do that," and **≥1 delighted** "I can't believe that worked / that it
-  told me why." **Pass → P2. Fail → the depth is tedium; stop and rethink the core before building any
-  breadth.** (A real milestone review, not a rubber stamp.)
+- **Feasibility + format (our call):** the systemic mechanism resolves *everything* tried and conserves,
+  and the interaction/presentation is in a shape we like — proving the core is buildable, consistent, and
+  extensible behind the seams, so breadth is worth investing in.
+
+*Fun is a **continuous design judgment** we hold throughout — "are we designing toward something fun?" —
+not a functional test the slice must pass, and not a friends-playtest (friends see the finished game). We
+keep checking it as depth accumulates.*
 
 ## P2 — Ontology breadth + coverage
 **Goal.** Scale from "fun on a few" to "complete and trustworthy" across the full operation×material space.

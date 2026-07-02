@@ -238,14 +238,16 @@ solvability*; **quality** (does it read well?) is curated + playtested, not auto
    confidence + distinct-resource routes + authored radio/beacon/pilot. 6. Instanced synchronous co-op
    multiplayer + the graded propagator + co-op interdependence. 7. Weather arc (+ optional recap story).
 
-**Slice success test:** a couple of friends, no manual, ~15 minutes **co-op** in the cabin — come away
-saying *the world felt alive and reactive* (and *fun to poke at together*), **zero** "you can't do
-that", and at least one delighted *"I can't believe that worked / that it told me why."* Pass → layer
-the rest; fail → the depth is tedium, rethink first.
+**Slice success test:** the systemic core resolves *everything* tried and conserves, and the interaction —
+*try-anything → it resolves → it feels alive and reactive*, **zero** "you can't do that", the occasional
+delighted *"I can't believe that worked / that it told me why"* — is in a shape we like, so it's worth
+layering the rest. This is *our* design judgment (friends see the finished game, not the slice). **Fun is
+a continuous design judgment held throughout — "are we designing toward something fun?" — not a test the
+slice must pass;** we keep checking it as depth accumulates.
 
 ## §46. Scope & non-goals (v1)
 **In:** the slice → the layered build, one dense scene, additive rescue. **Out (v1):** procedural
-variants; the §46 density numbers (cut); the graded perception zones / instanced lifecycle / weather *until the slice proves fun*;
+variants; the §46 density numbers (cut); the graded perception zones / instanced lifecycle / weather *until the core is proven on the slice*;
 **any runtime LLM.**
 
 ## §49. Bottom line
@@ -255,7 +257,8 @@ world-model text systems (SHRDLU → Infocom → MUDs → simulationist IF) were
 (generate-then-validate), which is exactly where this design puts them. See
 `docs/investigation/research/lineage-and-the-llm-unlock.md`. The make-or-break is **fun**, and it's
 **empirical**: it rests on the bet that pre-authored, validated responses read as *specific and witty*.
-**Confidence in the plan-to-find-out ~90%; in the game-being-fun ~50%** until the slice is playtested.
+**Confidence in the plan-to-find-out ~90%; in the game-being-fun ~50%** — a bet judged as we build toward
+depth, not certifiable on a thin slice.
 Full reasoning: `docs/investigation/certainty-assessment.md` and `scope-and-risk-register.md`. (Note:
 removing runtime LLM retires the determinism/latency/mis-parse risks those docs raised — the picture
 is now better.)

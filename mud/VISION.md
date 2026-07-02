@@ -51,8 +51,10 @@ system") plus **multiple authored scenarios**. Whiteout is the first scenario.
   templates; the §44 validator must pass. See `docs/guides/`.
 
 ## Current focus
-Design is FINAL (GDD + architecture v4) and the repo is scaffolded: the pure `world/sim` tree with a
-**frozen `contracts.py`** + interface stubs (no behavior), mechanized gates, and a baseline commit.
-Next is the roadmap's **P1 — the co-op vertical slice → the fun gate**: 2–3 players in one shared room +
-a basic running clock, built behind seams; the heavy perception/instance machinery comes later. See
-`docs/scenarios/whiteout/roadmap.md`.
+Design is FINAL (GDD + architecture v4) and **P0–P1 are built**: the frozen contracts, the pure
+`world/sim` engine (operations×materials, ledger, taught-grammar parser, resolver, narrator), the thin
+Evennia shell (WorldView → `apply()` → propagator), and the enriched co-op slice — 14 verbs, 16
+objects, live on the running clock. Current work: **finishing the item-interaction slice** until the
+interaction format feels right — the active list is [`BACKLOG.md`](BACKLOG.md) (Now / Next / Later).
+*Fun is a continuous design judgment held throughout, not a test a thin slice must pass* (friends see
+the finished game). The strategic arc onward (P2–P7): `docs/scenarios/whiteout/roadmap.md`.

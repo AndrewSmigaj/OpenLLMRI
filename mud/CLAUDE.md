@@ -7,6 +7,12 @@ scenarios; Whiteout is the first.
 
 This file is a pointer hub. Don't put design detail here — point to the docs.
 
+## How we work  (design-first; full loop in [docs/process.md](docs/process.md))
+Iterate a design in a scratchpad → **promote the decision into the authoritative docs** → *then* implement
+behind a seam → verify (`make verify` + tests, and see it run) → commit docs+code together. **Waterfall on
+design, agile on implementation; one thing at a time.** Active / next / parked work: [`BACKLOG.md`](BACKLOG.md).
+The doc map (what's authoritative vs scratchpad): [`docs/README.md`](docs/README.md).
+
 ## Stack
 Evennia 6.0.0 · Python 3.13 · Django 6.0.6 · PostgreSQL 16.
 **Everything runs via Docker.** Ports: 4000 telnet · 4001 website · 4002 websocket.
@@ -83,7 +89,8 @@ image is pinned by digest (`docker/evennia/Dockerfile`) so local, CI and any clo
   changes — if narration says it happened, an Effect made it happen. (DR-11)
 - **Author from the §43 packets and pass `make validate` (GDD §44).** The validator is a hard gate
   at load / CI / `make verify`.
-- **Read first before authoring or coding:** `VISION.md`, then the authoritative spec for the task
+- **Read first before authoring or coding:** the doc map (`docs/README.md`) + how we work
+  (`docs/process.md`); then `VISION.md` and the authoritative spec for the task
   (`docs/scenarios/whiteout/GDD.md` for design · `docs/architecture/implementation-architecture.md`
   for architecture), the relevant `docs/scenarios/whiteout/roadmap.md` phase, and `docs/guides/`.
 
@@ -93,6 +100,9 @@ Evennia's `createsuperuser` loops without a TTY. Account #1 is created over a pt
 entrypoint word-splits args, so Make commands with quoted args use `--entrypoint`.
 
 ## Pointers (authoritative sources — check these before coding; don't trust memory)
+- [`docs/README.md`](docs/README.md) — **the doc map**: what's authoritative vs scratchpad, where things
+  live, where new docs go. Start here.
+- [`BACKLOG.md`](BACKLOG.md) — the single Now / Next / Later list (active work + parked ideas).
 - `VISION.md` — the anchor: what we build + the locked non-negotiables.
 - `docs/scenarios/whiteout/GDD.md` — **the authoritative game design** (FINAL; §N anchors; §0a
   improvements + §0b locked decisions). `design.md` beside it is the **archived original seed — not

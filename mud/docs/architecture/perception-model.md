@@ -1,5 +1,9 @@
 # Perception Model
 
+> **Status: forward-looking design — NOT yet built (roadmap P3).** The `space/*` modules are stubs and the
+> `PerceptionBand` / `PerceptionResult` contracts referenced here are not yet in `contracts.py`. This doc is
+> the P3 design target, not a description of current code. See [`../../BACKLOG.md`](../../BACKLOG.md).
+
 Design §10–15 (space, direction, perception, sound) realized on Evennia. The
 pure side lives in [`game/world/sim/space/`](../../game/world/sim/space/); the
 shell side is the Room/Character `return_appearance` and a message propagator.
