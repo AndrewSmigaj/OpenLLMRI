@@ -97,7 +97,7 @@ class CmdAction(Command):
 
     def func(self):
         _PENDING.pop(self.caller.id, None)         # any fresh command supersedes a pending menu
-        line = f"{self.cmdstring} {self.args}".strip()
+        line = " ".join(f"{self.cmdstring} {self.args}".split())   # normalized — menus echo this line
         _run_action(self.caller, line)
 
 
