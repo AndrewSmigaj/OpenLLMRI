@@ -186,12 +186,19 @@ class DisambigOption:
     """One option in a Disambiguation."""
     label: str      # human-readable, e.g. "aircraft seat 11B's cover"
     ref: str        # the token the player re-issues to pick it, e.g. "11b cover"
+    # (contract change, slice-fix — ADDITIVE; defaults preserve the prior shape.) The concrete
+    # identity behind the option, so the shell's numbered menu binds a pick by entity — immune to
+    # reordering, and identical objects (three "glass shard"s) stay distinguishable.
+    entity_id: str = ""             # the Reachable.id this option denotes
+    part_id: Optional[str] = None   # set when the ambiguity is over parts
 
 
 @dataclass(frozen=True)
 class Disambiguation:
-    """Returned by parse() when a noun matches multiple things (user refinement). The shell prints
-    'Which <term>? Options: …' and the player re-issues with an option's `ref`."""
+    """Returned by parse() when a noun matches multiple things (user refinement). The shell prints a
+    NUMBERED menu; the player's number re-runs the WHOLE original line via parse(..., bindings={term:
+    (entity_id, part_id)}) — so RELATION/Y/WITH survive the pick by construction. (Distinctly-named
+    options can still be re-issued by `ref`.)"""
     term: str
     options: tuple[DisambigOption, ...]
 

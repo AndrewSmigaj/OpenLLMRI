@@ -35,6 +35,13 @@ def test_contract_surface_present():
     fields = ActionAttempt.__dataclass_fields__
     for slot in ("actor", "verb", "X", "relation", "Y", "tool", "raw"):
         assert slot in fields, f"ActionAttempt missing {slot!r}"
+    # the disambiguation surface (P1.5 + the slice-fix ADDITIVE fields: a numbered-menu pick binds
+    # by concrete identity; defaults keep the prior shape valid)
+    from world.sim.contracts import Disambiguation, DisambigOption, Reachable  # noqa: F401
+    dfields = DisambigOption.__dataclass_fields__
+    for slot in ("label", "ref", "entity_id", "part_id"):
+        assert slot in dfields, f"DisambigOption missing {slot!r}"
+    assert DisambigOption(label="x", ref="x").entity_id == ""      # additive defaults hold
 
 
 def test_interrupt_signals_subset_of_event_kinds():

@@ -6,10 +6,9 @@ Now item at a time**; deferred-but-designed items are two-line stubs linking to 
 
 ## Now  (work-in-progress limit: 1)
 - **Finish the item-interaction slice** — get the verbs / materials / transforms into "a format we like"
-  (iterate until it feels right). Active sub-item:
-  - **Disambiguation + naming + bare-hands fix** — a numbered menu to pick among identical objects; real
-    derived names ("glass shard", not "shard glass"); the pick preserves the whole command; fix the "The
-    your bare hands…" narration. *(Live bug; item-interaction, not perception.)*
+  (iterate until it feels right). The disambiguation + naming + bare-hands fix **shipped** (Slice fix
+  M1–M3, 2026-07-02; DR-08a). Next sub-item is Andrew's call — natural candidate: **fragment
+  affordances** (parked in Later, below).
 
 ## Next
 - **Presentation / perception evolution** — scene-as-prose room look + state-conditioned object appearance +
@@ -30,6 +29,10 @@ Now item at a time**; deferred-but-designed items are two-line stubs linking to 
 - **Build-time authoring pipeline** — draft the appearance/content library, validate, and bake.
 - **Multi-zone perception** — the overlapping-zones / perception-bands system (roadmap P3).
 - **A shippable Mudlet client package** — mapper feed, GUI gauges, auto-install.
+- **Fragment affordances** — minted fragments carry no tool capabilities: a glass shard has no `edge`
+  state (`_shatter` sets only material/mass/provenance), so "cut X with shard" counts as bare hands.
+  The improvised-glass-knife loop wants a material→affordance rule for derived objects — a small
+  design decision first, then trivial to implement. *(Found during the 2026-07 slice-fix certainty audit.)*
 - **Lenses skill rework** — right-size the lens libraries (currently overkill for routine checks; the
   `certainty` skill — draft in [`docs/proposals/certainty-skill-draft.md`](docs/proposals/certainty-skill-draft.md) —
   covers the pre-implementation gate).

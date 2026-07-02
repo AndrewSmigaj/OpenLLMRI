@@ -116,6 +116,46 @@ class TestSlice(EvenniaTest):
         assert len(shards) == 3 and sum(o.db.mass_g for o in shards) == 500
         assert all(o.key == "glass shard" for o in shards), "derived names read material-first"
 
+    # --- the numbered disambiguation menu (slice-fix M3) ---
+
+    def test_numbered_menu_pick_runs_the_original_command(self):
+        self._spawn("whisky bottle", "bottle", ["glass"], 500, ["bottle"])
+        with mock.patch.object(self.char1, "msg") as m1:
+            self.char1.execute_cmd("break the bottle")
+            self.char1.execute_cmd("examine shard")           # 3 identical "glass shard"s
+        said = self._said(m1)
+        assert "which shard" in said and "1." in said and "3." in said, "expected a numbered menu"
+        with mock.patch.object(self.char1, "msg") as m2:
+            self.char1.execute_cmd("2")                        # the pick re-runs 'examine shard'
+        said2 = self._said(m2)
+        assert "which shard" not in said2 and "glass" in said2, "the pick should run examine, not re-menu"
+
+    def test_pick_preserves_the_with_tool(self):
+        self._spawn("whisky bottle", "bottle", ["glass"], 500, ["bottle"])
+        with mock.patch.object(self.char1, "msg"):
+            self.char1.execute_cmd("break the bottle")
+            self.char1.execute_cmd("cut shard with multitool")  # ambiguous X + a WITH tool
+        with mock.patch.object(self.char1, "msg") as m:
+            self.char1.execute_cmd("2")
+        assert "multitool" in self._said(m), "the WITH slot must survive the numbered pick"
+
+    def test_stale_menu_pick_degrades_cleanly(self):
+        self._spawn("whisky bottle", "bottle", ["glass"], 500, ["bottle"])
+        with mock.patch.object(self.char1, "msg"):
+            self.char1.execute_cmd("break the bottle")
+            self.char1.execute_cmd("examine shard")
+        for o in list(self.room1.contents):                    # the world moves on mid-menu
+            if str(o.db.sim_id).startswith("bottle:shard"):
+                o.delete()
+        with mock.patch.object(self.char1, "msg") as m:
+            self.char1.execute_cmd("2")                        # must answer, never crash
+        assert self._said(m), "a stale pick should get an informative answer"
+
+    def test_number_without_menu_teaches_the_grammar(self):
+        with mock.patch.object(self.char1, "msg") as m:
+            self.char1.execute_cmd("2")
+        assert "verb" in self._said(m) or "examine" in self._said(m)
+
     def test_real_scenario_loads_and_new_verbs_work_end_to_end(self):
         """Runs the ACTUAL build.build() (17 objects) and drives new verbs through the command path — the
         automated equivalent of the load-scenario smoke, and a regression guard on the scenario itself."""

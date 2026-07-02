@@ -11,6 +11,9 @@ TINDER = Reachable(id="tinder", name="dry grass", aliases=("tinder", "grass"))
 BOOK = Reachable(id="book", name="old book", parts=(("cover", "cover"),))
 REACH = [SEAT, MULTITOOL, LIGHTER, TINDER]
 
+# three IDENTICAL derived objects (same name, no ident) — the numbered-menu case
+SHARDS = [Reachable(id=f"bottle:shard{i}:loose", name="glass shard") for i in range(3)]
+
 
 def _p(text, reach=REACH):
     return parse(text, VERB_TO_OP, reach)
@@ -65,10 +68,46 @@ def test_disambiguation_lists_options():
     assert isinstance(d, Disambiguation) and d.term == "cover"
     labels = " | ".join(o.label for o in d.options)
     assert "11B" in labels and "book" in labels
+    # each option carries its concrete identity (the menu binds by entity, not by label)
+    assert {o.entity_id for o in d.options} == {"seat", "book"}
+    assert all(o.part_id == "cover" for o in d.options)
     # each option's ref re-parses to a concrete part
     for o in d.options:
         a = parse(f"cut {o.ref}", VERB_TO_OP, [SEAT, BOOK])
         assert isinstance(a, ActionAttempt) and a.X.part_id == "cover"
+
+
+def test_identical_objects_disambiguate_with_distinct_entity_ids():
+    d = parse("examine shard", VERB_TO_OP, SHARDS + [MULTITOOL])
+    assert isinstance(d, Disambiguation) and d.term == "shard"
+    ids = [o.entity_id for o in d.options]
+    assert len(ids) == 3 and len(set(ids)) == 3        # identical labels, distinct identities
+    assert all(o.part_id is None for o in d.options)
+
+
+def test_binding_pins_the_ambiguous_slot():
+    a = parse("examine shard", VERB_TO_OP, SHARDS,
+              bindings={"shard": ("bottle:shard1:loose", None)})
+    assert isinstance(a, ActionAttempt) and a.X.entity_id == "bottle:shard1:loose"
+
+
+def test_binding_preserves_tool_and_relation():
+    a = parse("cut shard with multitool", VERB_TO_OP, SHARDS + [MULTITOOL],
+              bindings={"shard": ("bottle:shard2:loose", None)})
+    assert isinstance(a, ActionAttempt)
+    assert a.X.entity_id == "bottle:shard2:loose" and a.tool.entity_id == "multitool"
+
+
+def test_binding_pins_an_ambiguous_part():
+    a = parse("cut cover", VERB_TO_OP, [SEAT, BOOK], bindings={"cover": ("book", "cover")})
+    assert isinstance(a, ActionAttempt)
+    assert a.X.entity_id == "book" and a.X.part_id == "cover"
+
+
+def test_stale_binding_falls_back_safely():
+    # the picked entity is gone → the binding is ignored, a fresh menu comes back (never an error)
+    d = parse("examine shard", VERB_TO_OP, SHARDS, bindings={"shard": ("gone:id", None)})
+    assert isinstance(d, Disambiguation) and len(d.options) == 3
 
 
 def test_unknown_verb_is_a_teaching_nudge():

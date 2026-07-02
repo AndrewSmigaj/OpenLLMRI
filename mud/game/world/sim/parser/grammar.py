@@ -6,6 +6,11 @@ ident + parts). Returns `ActionAttempt | ParseError(nudge) | Disambiguation` (th
 `with`=`using` synonyms, object/part identifiers, and the disambiguation list). Unknown input never
 hard-fails — a ParseError carries a teaching nudge. An unresolved noun becomes `X=None`, which the
 resolver turns into an informative redirect (so "everything resolves").
+
+`bindings` (optional): `{term: (entity_id, part_id)}` — a numbered-menu pick. On a multi-hit for
+`term`, the bound LIVE hit wins; a stale binding (its entity no longer among the hits) is ignored and
+falls through to a fresh Disambiguation / lone survivor / None — never an error. Plain input data;
+parse stays pure.
 """
 from __future__ import annotations
 
@@ -16,7 +21,7 @@ _NUDGE = ("Try:  VERB thing [RELATION thing] [WITH tool]  —  e.g. 'cut the cov
           "multitool'. Use 'examine <thing>' to see what you can name.")
 
 
-def parse(text, vocab, reachable):
+def parse(text, vocab, reachable, bindings=None):
     raw = (text or "").strip()
     toks = _tokenize(raw)
     if not toks:
@@ -29,14 +34,14 @@ def parse(text, vocab, reachable):
     main, tool_words = _split_on(toks[1:], TOOL_KEYWORDS)
     x_words, relation, y_words = _split_relation(main)
 
-    y_ref = _resolve(y_words, reachable)
+    y_ref = _resolve(y_words, reachable, bindings=bindings)
     if isinstance(y_ref, Disambiguation):
         return y_ref
     owner_hint = y_ref.entity_id if (relation == "off" and isinstance(y_ref, NounRef)) else None
-    x_ref = _resolve(x_words, reachable, owner_hint=owner_hint)
+    x_ref = _resolve(x_words, reachable, owner_hint=owner_hint, bindings=bindings)
     if isinstance(x_ref, Disambiguation):
         return x_ref
-    tool_ref = _resolve(tool_words, reachable)
+    tool_ref = _resolve(tool_words, reachable, bindings=bindings)
     if isinstance(tool_ref, Disambiguation):
         return tool_ref
 
@@ -70,14 +75,14 @@ def _split_relation(words):
 
 # --- noun resolution ---------------------------------------------------------
 
-def _resolve(words, reachable, owner_hint=None):
+def _resolve(words, reachable, owner_hint=None, bindings=None):
     words = [w for w in (words or []) if w not in ARTICLES]
     if not words:
         return None
 
     owner_ws, part_ws = _split_possessive(words)          # "seat's cover" / "cover of seat"
     if owner_ws is not None:
-        ent = _match_entity(owner_ws, reachable)
+        ent = _match_entity(owner_ws, reachable, bindings)
         if not isinstance(ent, NounRef):
             return ent
         return _part_of(ent.entity_id, part_ws, reachable)
@@ -86,16 +91,16 @@ def _resolve(words, reachable, owner_hint=None):
         return _part_of(owner_hint, words, reachable)
 
     for k in range(len(words) - 1, 0, -1):               # "OWNER PART" e.g. "11b cover", "old book cover"
-        head = _match_entity(words[:k], reachable)
+        head = _match_entity(words[:k], reachable, bindings)
         if isinstance(head, NounRef):
             p = _part_of(head.entity_id, words[k:], reachable)
             if isinstance(p, NounRef):
                 return p
 
-    ent = _match_entity(words, reachable)                 # whole phrase as an entity
+    ent = _match_entity(words, reachable, bindings)       # whole phrase as an entity
     if ent is not None:
         return ent
-    return _match_part_anywhere(words, reachable)          # a part label across all entities
+    return _match_part_anywhere(words, reachable, bindings)  # a part label across all entities
 
 
 def _split_possessive(words):
@@ -108,7 +113,7 @@ def _split_possessive(words):
     return None, None
 
 
-def _match_entity(words, reachable):
+def _match_entity(words, reachable, bindings=None):
     phrase = " ".join(words)
     hits, seen = [], set()
     for r in reachable or []:
@@ -123,6 +128,11 @@ def _match_entity(words, reachable):
         return None
     if len(hits) == 1:
         return NounRef(hits[0].id)
+    bound = (bindings or {}).get(phrase)                  # a menu pick pins the tie — LIVE hits only
+    if bound:
+        for h in hits:
+            if h.id == bound[0]:
+                return NounRef(h.id)
     return _disambig(phrase, [(h, None) for h in hits])
 
 
@@ -138,7 +148,7 @@ def _part_of(entity_id, part_words, reachable):
     return None
 
 
-def _match_part_anywhere(words, reachable):
+def _match_part_anywhere(words, reachable, bindings=None):
     phrase = " ".join(words)
     hits = []
     for r in reachable or []:
@@ -150,6 +160,11 @@ def _match_part_anywhere(words, reachable):
     if len(hits) == 1:
         r, pid, _ = hits[0]
         return NounRef(r.id, pid)
+    bound = (bindings or {}).get(phrase)                  # a menu pick pins the tie — LIVE hits only
+    if bound:
+        for r, pid, _label in hits:
+            if r.id == bound[0] and (bound[1] is None or pid == bound[1]):
+                return NounRef(r.id, pid)
     return _disambig(phrase, [(r, (pid, label)) for r, pid, label in hits])
 
 
@@ -159,10 +174,11 @@ def _disambig(term, entries):
         who = r.name + (f" {r.ident}" if r.ident else "")
         key = (r.ident or r.name).lower()
         if part is None:
-            opts.append(DisambigOption(label=who, ref=key))
+            opts.append(DisambigOption(label=who, ref=key, entity_id=r.id))
         else:
             pid, plabel = part
-            opts.append(DisambigOption(label=f"{who}'s {plabel}", ref=f"{key} {plabel.lower()}"))
+            opts.append(DisambigOption(label=f"{who}'s {plabel}", ref=f"{key} {plabel.lower()}",
+                                       entity_id=r.id, part_id=pid))
     return Disambiguation(term=term, options=tuple(opts))
 
 

@@ -247,6 +247,22 @@ against …`, `tie … between …`), rather than single-target-only commands. U
 nudge showing the format (never a hard error). Richness comes from *rule coverage* and the **generative**
 operation×material engine — not parser cleverness or an enumerated command list.
 
+> **DR-08a (appended, slice-fix 2026-07) — the numbered disambiguation menu.** A multi-hit noun returns
+> `Disambiguation{term, options}`; each `DisambigOption` now carries its concrete `entity_id`/`part_id`
+> (**ADDITIVE** contract change — defaults preserve the prior shape; locked in `test_contracts.py`). The
+> shell prints a **numbered menu** and parks it as ephemeral UI state (a module-level pending map in
+> `cmd_act.py`, deliberately NOT an Attribute — DR-10's single-writer rule guards *world* state; a menu
+> is a question, not a fact). A bare number (caught by the deterministic unmatched-input command,
+> `CmdNoMatch` in `cmd_act.py` — digits match no verb; NO LLM anywhere near it, DR-02 holds) re-runs the
+> **whole original raw line** through `parse(..., bindings={term: (entity_id, part_id)})` — the pick
+> pins that slot on re-parse, so RELATION/Y/WITH survive **by construction**, and identical objects
+> ("glass shard" ×3) are picked by identity, immune to reordering. A **stale** pick (its entity no
+> longer among the live hits) is ignored and degrades to a fresh menu / the lone survivor / `X=None` →
+> the informative redirect — never an error ("ambiguity prompts a clarification, never a flat refusal",
+> GDD §25a). Accepted edges: a future command literally named "2" would shadow a pick; the same term
+> ambiguous in two slots pins both to one entity (bindings are per-term and ephemeral — per-slot keys
+> are a safe later upgrade); `@reload` clears pending menus.
+
 ### DR-09 Resolver (`resolve(attempt, world) -> ActionResult`, pure)
 ```
 resolve(attempt, world):
