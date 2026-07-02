@@ -262,6 +262,16 @@ operation×material engine — not parser cleverness or an enumerated command li
 > GDD §25a). Accepted edges: a future command literally named "2" would shadow a pick; the same term
 > ambiguous in two slots pins both to one entity (bindings are per-term and ephemeral — per-slot keys
 > are a safe later upgrade); `@reload` clears pending menus.
+>
+> **(appended, stock-items 2026-07)** Stock `get`/`drop` share the numbered menu: thin subclasses
+> (`game/commands/cmd_items.py`) pre-flight a quiet search — a true multimatch (not a leading-count
+> stack of identical keys) shows the same menu; single/none/stacked defer to stock behavior
+> untouched. A pick re-issues the original command using the manager's stable, id-ordered `name-N`
+> ordinal recomputed at pick time (`#dbref` re-issue rejected — Builder-gated in the pinned
+> Evennia), so picks are reorder-immune and a stale pick degrades to an informative message or a
+> fresh menu. The pending map gains a `kind` discriminator dispatched by the unmatched-input
+> command (`CmdNoMatch`); one pending menu per caller — **the latest question wins**. `give` is
+> deferred until a third use case.
 
 ### DR-09 Resolver (`resolve(attempt, world) -> ActionResult`, pure)
 ```

@@ -39,8 +39,8 @@ _PENDING: dict = {}
 
 
 def _show_menu(caller, line, disambig, bindings):
-    _PENDING[caller.id] = {"raw": line, "term": disambig.term, "options": disambig.options,
-                           "bindings": dict(bindings or {})}
+    _PENDING[caller.id] = {"kind": "sim", "raw": line, "term": disambig.term,
+                           "options": disambig.options, "bindings": dict(bindings or {})}
     opts = "\n".join(f"  {i}. {o.label}" for i, o in enumerate(disambig.options, 1))
     caller.msg(f"Which {disambig.term} do you mean?\n{opts}\n"
                f"Type a number to choose — I'll redo '{line}' with your pick. (Or rephrase.)")
@@ -115,6 +115,10 @@ class CmdNoMatch(Command):
             n = int(arg)
             if 1 <= n <= len(pend["options"]):
                 _PENDING.pop(caller.id, None)
+                if pend.get("kind") == "stock":              # a stock get/drop menu (cmd_items)
+                    from commands.cmd_items import stock_pick
+                    stock_pick(caller, pend, n)
+                    return
                 o = pend["options"][n - 1]
                 bindings = dict(pend["bindings"])
                 bindings[pend["term"]] = (o.entity_id, o.part_id)

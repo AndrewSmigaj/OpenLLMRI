@@ -36,6 +36,11 @@ class CharacterCmdSet(default_cmds.CharacterCmdSet):
         from commands.cmd_act import CmdAction, CmdNoMatch
         self.add(CmdAction())
         self.add(CmdNoMatch())
+        # Whiteout: stock get/drop share the DR-08a numbered disambiguation menu (same-key add
+        # after super() replaces the stock commands).
+        from commands.cmd_items import CmdDrop, CmdGet
+        self.add(CmdGet())
+        self.add(CmdDrop())
 
 
 class AccountCmdSet(default_cmds.AccountCmdSet):
