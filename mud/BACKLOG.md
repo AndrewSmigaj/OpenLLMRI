@@ -12,9 +12,9 @@ Now item at a time**; deferred-but-designed items are two-line stubs linking to 
 
 ## Next
 - **Presentation / perception evolution** — scene-as-prose room look + state-conditioned object appearance +
-  the look-tree + prominence/salience. Orthogonal to item-interaction. The design was iterated in-session
-  and **not saved as a doc** — redraft in a scratchpad when picked up, then promote to an authoritative
-  design doc.
+  salience weighting + the unified look-at/examine renderer. Orthogonal to item-interaction. **Design
+  redrafted**: [`docs/investigation/presentation.md`](docs/investigation/presentation.md)
+  (scratchpad) — awaiting Andrew's review; promote to an authoritative doc, then implement.
 - **Mudlet integration write-up** — the research pass is done (findings gathered); writing them up into
   [`docs/client/mudlet-research.md`](docs/client/mudlet-research.md) (currently a skeleton) + a brainstorm
   doc with a proposed Whiteout Mudlet setup are pending.
