@@ -55,15 +55,17 @@ def _world():
 
 def setup_module(_):
     narrator.load_responses({
-        "cut.free": "You work the {tool} through the {target}'s {part}; it comes free — {output}.",
-        "cut.too_dull": "The {tool} just skates off the {target}.",
+        # {tool} arrives PRE-ARTICLED via tool_phrase(): "the multitool" / "your bare hands".
+        # Templates never write their own article before it; verbs on {tool} are number-invariant.
+        "cut.free": "You work {tool} through the {target}'s {part}; it comes free — {output}.",
+        "cut.too_dull": "You press hard, but {tool} won't bite into the {target}.",
         "cut.slash_fixed": "You slash the {part}, but it's {attachment} — you'd need to unbolt it.",
         "cut.divide": "You cut the {target} into two pieces.",
         "burn.success": "The {target} catches and burns down to ash, {smoke} curling up.",
         "burn.no_flame": "You've nothing to light the {target} with.",
         "burn.wont_catch": "The {target} refuses to catch.",
-        "pry.free": "You lever the {tool} under the {part} and it pops free — {output}.",
-        "pry.no_leverage": "The {tool} can't shift the {part}; you need more leverage.",
+        "pry.free": "You lever {tool} under the {part} and it pops free — {output}.",
+        "pry.no_leverage": "You strain, but {tool} can't shift the {part}; you need more leverage.",
         "__fallback__": "It gives way.",
     })
 
@@ -92,6 +94,18 @@ def test_cut_cuttable_but_bolted_slashes_not_frees():
     r = cut.resolve_cut(a, _world(), MATS)
     assert r.resolution == Resolution.REDIRECT and r.tier == "op:cut:slash_fixed"
     assert "unbolt" in r.narration
+
+
+def test_tool_phrase_is_grammatical_for_bare_hands_and_named_tools():
+    # bare hands (no WITH clause): plural-safe phrase, never "the your bare hands"
+    a = ActionAttempt(actor="p", verb="cut", X=NounRef("seat", "cover"))
+    r = cut.resolve_cut(a, _world(), MATS)
+    assert r.tier == "op:cut:too_dull"
+    assert "your bare hands" in r.narration and "the your" not in r.narration
+    # a named tool arrives pre-articled: "the multitool"
+    b = ActionAttempt(actor="p", verb="cut", X=NounRef("seat", "bolt"), tool=NounRef("multitool"))
+    r2 = cut.resolve_cut(b, _world(), MATS)
+    assert r2.tier == "op:cut:too_dull" and "the multitool" in r2.narration
 
 
 def test_cut_liquid_not_applicable():

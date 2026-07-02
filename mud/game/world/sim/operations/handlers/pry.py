@@ -9,8 +9,8 @@ from __future__ import annotations
 
 from world.sim import effects, narrator
 from world.sim.contracts import ActionResult, Event, EventKind, Resolution
-from world.sim.operations._helpers import (PRYABLE_ATTACH, capability, derived_id, name_of,
-                                           resolve_ref)
+from world.sim.operations._helpers import (PRYABLE_ATTACH, capability, derived_id, resolve_ref,
+                                           tool_phrase)
 
 VERBS = ("pry", "lever", "wrench", "force")
 _SLACK = 0.1
@@ -28,7 +28,7 @@ def resolve_pry(attempt, world, materials):
 
     hold = _ATTACH_DIFFICULTY.get(part.attachment, 0.5)
     leverage = capability(attempt.tool, world, "leverage")
-    tool = name_of(attempt.tool, world) or "your bare hands"
+    tool = tool_phrase(attempt.tool, world)
 
     if leverage < hold - _SLACK:
         return ActionResult(Resolution.REDIRECT, tier="op:pry:no_leverage",

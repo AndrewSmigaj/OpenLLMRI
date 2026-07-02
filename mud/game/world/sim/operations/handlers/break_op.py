@@ -14,7 +14,8 @@ from __future__ import annotations
 
 from world.sim import effects, narrator
 from world.sim.contracts import ActionResult, Event, EventKind, Resolution
-from world.sim.operations._helpers import capability, derived_id, material_of, name_of, prop, resolve_ref
+from world.sim.operations._helpers import (capability, derived_id, material_of, prop, resolve_ref,
+                                           tool_phrase)
 
 VERBS = ("break", "smash", "snap", "shatter")
 _HAND_FORCE = 0.4
@@ -51,7 +52,7 @@ def resolve_break(attempt, world, materials):
 
     force = _HAND_FORCE + capability(attempt.tool, world, "leverage") * 0.6
     if force < rigidity - _SLACK:
-        tool = name_of(attempt.tool, world) or "your bare hands"
+        tool = tool_phrase(attempt.tool, world)
         return ActionResult(Resolution.REDIRECT, tier="op:break:no_force",
                             narration=narrator.narrate("break.no_force", {"target": target, "tool": tool}))
     return _shatter(ent, part, "piece", 2, loud=0.5, tier="op:break:snap",

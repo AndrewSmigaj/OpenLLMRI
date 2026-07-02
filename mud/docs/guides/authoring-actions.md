@@ -125,6 +125,11 @@ The same function cuts fabric, webbing and foam differently because the
   `synthetic_fabric_strip`) — the shell derives the display key via `replace("_", " ")`, so the
   order IS the player-facing name ("glass shard", never "shard glass"). Authored
   `outputs_when_removed` ids follow the same reads-naturally rule (`loose_fabric` → "loose fabric").
+- **`{tool}` arrives pre-articled** via `_helpers.tool_phrase()` — "the multitool" / "your bare
+  hands". Templates must never write an article before `{tool}`, never start a sentence with it,
+  and any verb governed by `{tool}` must be number-invariant (modals: *won't*, *can't*) — "your
+  bare hands" is plural.
+
 ## Related
 
 - [authoring-objects.md](authoring-objects.md) — the materials/parts `cut` reads.

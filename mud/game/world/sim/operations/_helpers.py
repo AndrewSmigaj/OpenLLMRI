@@ -67,6 +67,13 @@ def name_of(ref, world):
     return ent.name if ent else None
 
 
+def tool_phrase(ref, world):
+    """The pre-articled tool phrase for narration: 'the multitool' / 'your bare hands'. Templates
+    never write their own article before {tool} (see docs/guides/authoring-actions.md)."""
+    name = name_of(ref, world)
+    return f"the {name}" if name else "your bare hands"
+
+
 def derived_id(parent_id: str, tag: str) -> str:
     """A DETERMINISTIC id for an object minted from `parent_id` (DR-12; never uuid/dbref)."""
     return f"{parent_id}:{tag}:loose"

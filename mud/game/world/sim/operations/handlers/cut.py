@@ -12,7 +12,7 @@ from __future__ import annotations
 from world.sim import effects, narrator
 from world.sim.contracts import ActionResult, Event, EventKind, Resolution
 from world.sim.operations._helpers import (CUTTABLE_ATTACH, capability, derived_id, material_of,
-                                           name_of, prop, resolve_ref)
+                                           prop, resolve_ref, tool_phrase)
 
 VERBS = ("cut", "saw", "slice", "sever", "slash")
 _SLACK = 0.1  # a tool slightly under the resistance still bites (graded, not a hard cliff)
@@ -27,7 +27,7 @@ def resolve_cut(attempt, world, materials):
         return None  # nothing cuttable here (e.g. water) → let the resolver redirect
     resistance = prop(mat, "cut_resistance")
     edge = capability(attempt.tool, world, "edge")            # 0.0 = bare hands
-    tool = name_of(attempt.tool, world) or "your bare hands"
+    tool = tool_phrase(attempt.tool, world)
 
     if edge < resistance - _SLACK:
         return ActionResult(
