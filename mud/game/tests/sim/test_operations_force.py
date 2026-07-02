@@ -66,6 +66,9 @@ def test_tear_standalone_fabric_into_strips_conserves():
     assert r.resolution == Resolution.SUCCESS and r.tier == "op:tear:strips"
     masses = [e.args["mass_g"] for e in r.effects if e.kind == EffectKind.CREATE_OBJECT]
     assert sum(masses) == 101 and len(masses) == 2   # split, nothing lost
+    # derived names read material-first ("synthetic fabric strip", never "strip synthetic fabric")
+    templates = [e.args["template"] for e in r.effects if e.kind == EffectKind.CREATE_OBJECT]
+    assert templates == ["synthetic_fabric_strip", "synthetic_fabric_strip"]
     _conserves(w, r)
 
 
@@ -92,6 +95,9 @@ def test_break_brittle_glass_shatters_and_conserves():
     assert r.resolution == Resolution.SUCCESS and r.tier == "op:break:shatter"
     masses = [e.args["mass_g"] for e in r.effects if e.kind == EffectKind.CREATE_OBJECT]
     assert sum(masses) == 400 and len(masses) == 3   # shards sum to the whole
+    # derived names read material-first ("glass shard", never "shard glass")
+    templates = {e.args["template"] for e in r.effects if e.kind == EffectKind.CREATE_OBJECT}
+    assert templates == {"glass_shard"}
     _conserves(w, r)
 
 

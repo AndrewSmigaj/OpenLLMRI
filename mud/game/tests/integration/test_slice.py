@@ -114,6 +114,7 @@ class TestSlice(EvenniaTest):
         assert all(o.db.sim_id != "bottle" for o in self.room1.contents), "the bottle is gone"
         shards = [o for o in self.room1.contents if str(o.db.sim_id).startswith("bottle:shard")]
         assert len(shards) == 3 and sum(o.db.mass_g for o in shards) == 500
+        assert all(o.key == "glass shard" for o in shards), "derived names read material-first"
 
     def test_real_scenario_loads_and_new_verbs_work_end_to_end(self):
         """Runs the ACTUAL build.build() (17 objects) and drives new verbs through the command path — the

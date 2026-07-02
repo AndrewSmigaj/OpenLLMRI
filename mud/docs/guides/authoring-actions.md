@@ -119,6 +119,12 @@ def resolve_cut(attempt: ActionAttempt, world) -> ActionResult:
 The same function cuts fabric, webbing and foam differently because the
 *material* differs — roadmap Pass 4's acceptance test. No per-object cut code.
 
+## Naming & narration rules (slice-fix, 2026-07)
+
+- **Derived template ids compose material-first**: `{material_id}_{fragment_word}` (`glass_shard`,
+  `synthetic_fabric_strip`) — the shell derives the display key via `replace("_", " ")`, so the
+  order IS the player-facing name ("glass shard", never "shard glass"). Authored
+  `outputs_when_removed` ids follow the same reads-naturally rule (`loose_fabric` → "loose fabric").
 ## Related
 
 - [authoring-objects.md](authoring-objects.md) — the materials/parts `cut` reads.

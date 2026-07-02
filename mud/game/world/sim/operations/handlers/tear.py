@@ -58,9 +58,9 @@ def resolve_tear(attempt, world, materials):
     b = ent.mass_g - a
     eff = (
         effects.consume(ent.id),
-        effects.create_object(f"strip_{mat_id}", derived_id(ent.id, "a"),
+        effects.create_object(f"{mat_id}_strip", derived_id(ent.id, "a"),
                               {"material": mat_id, "mass_g": a, "provenance": [f"torn from {ent.id}"]}),
-        effects.create_object(f"strip_{mat_id}", derived_id(ent.id, "b"),
+        effects.create_object(f"{mat_id}_strip", derived_id(ent.id, "b"),
                               {"material": mat_id, "mass_g": b, "provenance": [f"torn from {ent.id}"]}),
     )
     ev = (Event(EventKind.IMPACT, ent.id, loudness=0.2, data={"verb": "tear"}),)

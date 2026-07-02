@@ -66,7 +66,7 @@ def _shatter(ent, part, piece_word, n, loud, tier, template_id, target):
     base = mass // n
     masses = [base] * (n - 1) + [mass - base * (n - 1)]
     remove = effects.remove_part(parent, part.id) if part else effects.consume(parent)
-    made = tuple(effects.create_object(f"{piece_word}_{mat_id}", derived_id(parent, f"{piece_word}{i}"),
+    made = tuple(effects.create_object(f"{mat_id}_{piece_word}", derived_id(parent, f"{piece_word}{i}"),
                                        {"material": mat_id, "mass_g": m, "provenance": [f"broke {parent}"]})
                  for i, m in enumerate(masses))
     ev = (Event(EventKind.IMPACT, parent, loudness=loud, data={"verb": "break"}),)

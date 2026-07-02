@@ -64,9 +64,9 @@ def resolve_cut(attempt, world, materials):
     b = ent.mass_g - a
     eff = (
         effects.consume(ent.id),
-        effects.create_object(f"piece_{mat_id}", derived_id(ent.id, "a"),
+        effects.create_object(f"{mat_id}_piece", derived_id(ent.id, "a"),
                               {"material": mat_id, "mass_g": a, "provenance": [f"cut from {ent.id}"]}),
-        effects.create_object(f"piece_{mat_id}", derived_id(ent.id, "b"),
+        effects.create_object(f"{mat_id}_piece", derived_id(ent.id, "b"),
                               {"material": mat_id, "mass_g": b, "provenance": [f"cut from {ent.id}"]}),
     )
     ev = (Event(EventKind.IMPACT, ent.id, loudness=0.3, data={"verb": "cut"}),)
