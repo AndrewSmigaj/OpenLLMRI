@@ -2,15 +2,17 @@
 
 `pry X [off Y] [with Z]` frees a part held by a PRYABLE attachment if the tool gives enough leverage.
 The resistance is set by the ATTACHMENT (a clip pops easily; a bolt really wants a wrench), not the
-part's material stiffness — the attachment is what holds it. Returns None if X isn't a pryable part →
-the resolver redirects. (Attachment difficulties are tunable content.)
+part's material stiffness — the attachment is what holds it. Pry is the ONLY way to remove a part
+INTACT off a mechanical fastener (cut/tear extract destructively, DR-05a). A non-pryable part gets a
+physical explanation + at most one sibling near-miss (DR-09a); a whole-entity pry returns None → the
+resolver redirects. (Attachment difficulties are tunable content.)
 """
 from __future__ import annotations
 
 from world.sim import effects, narrator
 from world.sim.contracts import ActionResult, Event, EventKind, Resolution
-from world.sim.operations._helpers import (PRYABLE_ATTACH, capability, derived_id, resolve_ref,
-                                           tool_phrase)
+from world.sim.operations._helpers import (PRYABLE_ATTACH, attachment_phrase, capability,
+                                           derived_id, resolve_ref, sibling_hint, tool_phrase)
 
 VERBS = ("pry", "lever", "wrench", "force")
 _SLACK = 0.1
@@ -23,11 +25,26 @@ def resolve_pry(attempt, world, materials):
     ent, part = resolve_ref(attempt.X, world)
     if ent is None:
         return None
-    if part is None or part.attachment not in PRYABLE_ATTACH:
-        return None  # nothing pryable here → let the resolver redirect
+    if part is None:
+        return None  # whole-entity pry → let the resolver redirect
+
+    leverage = capability(attempt.tool, world, "leverage")
+
+    if part.attachment not in PRYABLE_ATTACH:
+        # nothing mechanical to lever against → explain the physics; one near-miss (DR-09a)
+        def can_pry(p):
+            return (p.attachment in PRYABLE_ATTACH
+                    and leverage >= _ATTACH_DIFFICULTY.get(p.attachment, 0.5) - _SLACK)
+        line = narrator.narrate("pry.no_purchase", {"part": part.id,
+                                                    "why": attachment_phrase(part.attachment)})
+        sib = sibling_hint(ent, part, can_pry)
+        if sib:
+            line += " " + narrator.narrate("hint.sibling",
+                                           {"sibling": sib.id,
+                                            "sibling_phrase": attachment_phrase(sib.attachment, "hint")})
+        return ActionResult(Resolution.REDIRECT, tier="op:pry:no_purchase", narration=line)
 
     hold = _ATTACH_DIFFICULTY.get(part.attachment, 0.5)
-    leverage = capability(attempt.tool, world, "leverage")
     tool = tool_phrase(attempt.tool, world)
 
     if leverage < hold - _SLACK:

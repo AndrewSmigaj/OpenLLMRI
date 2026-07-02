@@ -5,6 +5,7 @@ materials table and return Effects/Events.
 """
 from __future__ import annotations
 
+from world.sim import narrator
 from world.sim.contracts import Material
 
 # Attachments a cutting tool can sever → cutting a part on one of these FREES it (D12).
@@ -72,6 +73,31 @@ def tool_phrase(ref, world):
     never write their own article before {tool} (see docs/guides/authoring-actions.md)."""
     name = name_of(ref, world)
     return f"the {name}" if name else "your bare hands"
+
+
+def attachment_phrase(attachment: str, kind: str = "explain") -> str:
+    """A content-tunable physical phrase for an attachment (DR-09a). Voice lives in the scenario
+    responses: `attachment.explain.clipped`, etc. Kinds: `explain` (why the verb failed) ·
+    `residue` (what the wrecked fastener leaves behind) · `hint` (short neutral state for sibling
+    near-misses). Falls back to the kind's `_` entry, then to a literal '{attachment} fast'."""
+    phrase = narrator.get(f"attachment.{kind}.{attachment}")
+    if phrase is not None:
+        return phrase
+    fallback = narrator.get(f"attachment.{kind}._") or "{attachment} fast"
+    return narrator.render(fallback, {"attachment": attachment})
+
+
+def sibling_hint(ent, part, can_do):
+    """The FIRST sibling Part of `ent` (parts order is deterministic) other than `part` for which
+    `can_do(sibling)` is True, else None. At most one, same entity only; `can_do` must close over
+    the held tool so a hint is only offered when the verb genuinely works with what the player
+    has. Callers phrase it naming the PART, never the method (DR-09a)."""
+    for p in ent.parts:
+        if part is not None and p.id == part.id:
+            continue
+        if can_do(p):
+            return p
+    return None
 
 
 def derived_id(parent_id: str, tag: str) -> str:

@@ -119,6 +119,20 @@ def resolve_cut(attempt: ActionAttempt, world) -> ActionResult:
 The same function cuts fabric, webbing and foam differently because the
 *material* differs — roadmap Pass 4's acceptance test. No per-object cut code.
 
+## The attachment decision table (DR-05a — attachment gates HOW, never WHETHER)
+
+For a part whose **material** passes the verb's gate (the material check always comes first):
+
+| verb | severable (stitched/tied/glued/…) | mechanical (clipped/bolted/…) | integral (`fixed`/unknown) |
+|---|---|---|---|
+| cut  | freed intact (`outputs_when_removed`) | **hacked out** as `{material}_scrap` ×3 | refuse + explain + one near-miss |
+| tear | freed intact | **ripped out** as scraps | refuse + explain + near-miss |
+| pry  | refuse + explain + near-miss | freed intact (the ONLY intact route off a fastener) | refuse + explain |
+
+Authors opt a part INTO extractability by naming a real attachment; `fixed` means "moulded into the
+thing". The attachment voice (why it resists, what residue it leaves, the short hint form) lives in
+the scenario responses as `attachment.explain/hint/residue.*` keys.
+
 ## Naming & narration rules (slice-fix, 2026-07)
 
 - **Derived template ids compose material-first**: `{material_id}_{fragment_word}` (`glass_shard`,

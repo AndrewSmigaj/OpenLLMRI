@@ -28,6 +28,12 @@ def render(template: str, state: dict) -> str:
     return str(template).format_map(_SafeDict(state or {}))
 
 
+def get(template_id: str) -> "str | None":
+    """The raw registered template for `template_id`, or None (no fallback) — for content-tunable
+    phrase lookups (e.g. the attachment voice maps, DR-09a)."""
+    return _RESPONSES.get(template_id)
+
+
 def narrate(template_id: str, state: dict) -> str:
     """Render the registered template for `template_id` against `state`. Never blank — falls back to a
     generic line if the template id is missing (a missing template is a build-time content gap to fill,

@@ -9,9 +9,11 @@ RESPONSES = {
     "cut.free": "You work {tool} through the {target}'s {part}; the stitching parts and it comes "
                 "away — a {output}.",
     "cut.divide": "You draw {tool} across the {target}, parting it into two ragged pieces.",
-    "cut.slash_fixed": "You slash at the {part}, scoring it — but it's {attachment} fast and won't come "
-                       "free this way.",
     "cut.too_dull": "You bear down, but {tool} won't bite into the {target}. You'd need a keener edge.",
+    "cut.hack_out": "A blade won't beat what holds the {part}, so you carve around it, hacking it out "
+                    "in ragged pieces — {output}s now. {residue}",
+    "cut.integral": "The blade finds no seam — the {part} is {why}. There's nothing for an edge to "
+                    "part.",
     # burn --------------------------------------------------------------------
     "burn.success": "The {target} catches, curls, and burns down to ash, {smoke} coiling upward.",
     "burn.no_flame": "You've nothing to set the {target} alight with.",
@@ -19,12 +21,16 @@ RESPONSES = {
     # pry ---------------------------------------------------------------------
     "pry.free": "You lever {tool} under the {part} and heave; it pops free — a {output}.",
     "pry.no_leverage": "You strain, but {tool} can't shift the {part}. You need more leverage.",
+    "pry.no_purchase": "You feel for somewhere to lever, but the {part} is {why} — nothing to pry "
+                       "against.",
     # tear --------------------------------------------------------------------
     "tear.free": "You get a grip on the {target}'s {part} and haul; the seams give and it rips away — a "
                  "{output}.",
     "tear.strips": "You worry at the {target} and tear it into long ragged strips.",
     "tear.too_tough": "The {target} holds — too tough to tear with bare hands. A blade might bite.",
-    "tear.attached": "You can't rip the {part} loose; it's {attachment} fast.",
+    "tear.rip_out": "You get both hands into the {part} and haul it out in torn fistfuls — "
+                    "{output}s. {residue}",
+    "tear.integral": "You get a grip, but the {part} is {why} — there's no seam to start a tear.",
     "tear.composite": "The {target} is more than one piece — tear at a specific part.",
     # break -------------------------------------------------------------------
     "break.shatter": "You smash the {target}; it shatters into glittering shards.",
@@ -64,6 +70,21 @@ RESPONSES = {
     # eat ---------------------------------------------------------------------
     "eat.eat": "You eat the {target}; it's something, and the gnaw of hunger eases a little.",
     "eat.meagre": "You get the {target} down. Precious few calories, but every one counts.",
+    # the one-sibling near-miss (names the part, never the method — DR-09a) ----
+    "hint.sibling": "The {sibling}, though, is only {sibling_phrase}.",
+    # attachment voice (DR-09a; content-tunable; '_' = the kind's fallback) ----
+    "attachment.explain.stitched": "hanging by stitching — nothing rigid to get behind",
+    "attachment.explain.clipped": "snapped into its frame — a blade won't pop a clip",
+    "attachment.explain.bolted": "bolted fast — an edge does nothing against a bolt",
+    "attachment.explain.fixed": "part of the thing itself",
+    "attachment.explain._": "{attachment} fast",
+    "attachment.hint.stitched": "held by stitching",
+    "attachment.hint.clipped": "snapped into a frame",
+    "attachment.hint.bolted": "bolted down",
+    "attachment.hint._": "{attachment}",
+    "attachment.residue.clipped": "The crushed clips stay on the frame.",
+    "attachment.residue.bolted": "The bolts stay put, stripped bare.",
+    "attachment.residue._": "Whatever held it stays behind, wrecked.",
     # generic -----------------------------------------------------------------
     "__fallback__": "Something shifts, but not the way you meant.",
 }

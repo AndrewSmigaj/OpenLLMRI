@@ -32,6 +32,9 @@ def _seat():
             Part(id="bolt", material="steel", mass_g=30, attachment="bolted"),
             Part(id="latch", material="aluminum", mass_g=60, attachment="clipped",
                  outputs_when_removed=("loose_latch",)),
+            Part(id="cushion", material="foam", mass_g=800, attachment="clipped",
+                 outputs_when_removed=("loose_foam",)),
+            Part(id="shell", material="plastic", mass_g=400, attachment="fixed"),
         ],
     )
 
@@ -59,8 +62,19 @@ def setup_module(_):
         # Templates never write their own article before it; verbs on {tool} are number-invariant.
         "cut.free": "You work {tool} through the {target}'s {part}; it comes free — {output}.",
         "cut.too_dull": "You press hard, but {tool} won't bite into the {target}.",
-        "cut.slash_fixed": "You slash the {part}, but it's {attachment} — you'd need to unbolt it.",
+        "cut.hack_out": "You hack the {part} out in ragged pieces — {output}s. {residue}",
+        "cut.integral": "No seam — the {part} is {why}.",
         "cut.divide": "You cut the {target} into two pieces.",
+        "pry.no_purchase": "Nothing to lever — the {part} is {why}.",
+        "hint.sibling": "The {sibling}, though, is only {sibling_phrase}.",
+        "attachment.explain.fixed": "part of the thing itself",
+        "attachment.explain.stitched": "hanging by stitching",
+        "attachment.explain._": "{attachment} fast",
+        "attachment.hint.stitched": "held by stitching",
+        "attachment.hint.clipped": "snapped into a frame",
+        "attachment.hint._": "{attachment}",
+        "attachment.residue.clipped": "The crushed clips stay on the frame.",
+        "attachment.residue._": "Whatever held it stays behind, wrecked.",
         "burn.success": "The {target} catches and burns down to ash, {smoke} curling up.",
         "burn.no_flame": "You've nothing to light the {target} with.",
         "burn.wont_catch": "The {target} refuses to catch.",
@@ -89,11 +103,41 @@ def test_cut_steel_bolt_too_dull():
     assert not r.effects
 
 
-def test_cut_cuttable_but_bolted_slashes_not_frees():
+def test_cut_bolted_panel_hacks_out_scraps():
+    # DR-05a: the blade beats the plastic but not the bolts — destructive extraction, not refusal
     a = ActionAttempt(actor="p", verb="cut", X=NounRef("seat", "panel"), tool=NounRef("multitool"))
     r = cut.resolve_cut(a, _world(), MATS)
-    assert r.resolution == Resolution.REDIRECT and r.tier == "op:cut:slash_fixed"
-    assert "unbolt" in r.narration
+    assert r.resolution == Resolution.SUCCESS and r.tier == "op:cut:hack_out"
+    made = [e for e in r.effects if e.kind == EffectKind.CREATE_OBJECT]
+    assert {e.args["template"] for e in made} == {"plastic_scrap"}
+    assert sum(e.args["mass_g"] for e in made) == 120 and len(made) == 3
+
+
+def test_cut_clipped_cushion_hacks_out_scraps_conserving_mass():
+    a = ActionAttempt(actor="p", verb="cut", X=NounRef("seat", "cushion"), tool=NounRef("multitool"))
+    r = cut.resolve_cut(a, _world(), MATS)
+    assert r.resolution == Resolution.SUCCESS and r.tier == "op:cut:hack_out"
+    kinds = [e.kind for e in r.effects]
+    assert EffectKind.REMOVE_PART in kinds and EffectKind.SET_ATTR in kinds  # residue is recorded
+    made = [e for e in r.effects if e.kind == EffectKind.CREATE_OBJECT]
+    assert {e.args["template"] for e in made} == {"foam_scrap"}
+    assert sum(e.args["mass_g"] for e in made) == 800
+    assert "crushed clips" in r.narration
+
+
+def test_cut_fixed_part_explains_integral_and_hints_sibling():
+    a = ActionAttempt(actor="p", verb="cut", X=NounRef("seat", "shell"), tool=NounRef("multitool"))
+    r = cut.resolve_cut(a, _world(), MATS)
+    assert r.resolution == Resolution.REDIRECT and r.tier == "op:cut:integral"
+    assert not r.effects
+    assert "part of the thing itself" in r.narration
+    assert "cover" in r.narration and "held by stitching" in r.narration  # the one near-miss
+
+
+def test_cut_dull_tool_still_too_dull_before_attachment_logic():
+    a = ActionAttempt(actor="p", verb="cut", X=NounRef("seat", "cushion"))  # bare hands, clipped foam
+    r = cut.resolve_cut(a, _world(), MATS)
+    assert r.resolution == Resolution.REDIRECT and r.tier == "op:cut:too_dull"
 
 
 def test_tool_phrase_is_grammatical_for_bare_hands_and_named_tools():
@@ -137,9 +181,29 @@ def test_pry_steel_bolt_no_leverage():
     assert r.resolution == Resolution.REDIRECT and r.tier == "op:pry:no_leverage"
 
 
-def test_pry_non_pryable_not_applicable():
+def test_pry_stitched_cover_explains_no_purchase_and_hints_sibling():
     a = ActionAttempt(actor="p", verb="pry", X=NounRef("seat", "cover"), tool=NounRef("multitool"))
-    assert pry.resolve_pry(a, _world(), MATS) is None  # stitched, not pryable → resolver redirects
+    r = pry.resolve_pry(a, _world(), MATS)
+    assert r.resolution == Resolution.REDIRECT and r.tier == "op:pry:no_purchase"
+    assert "hanging by stitching" in r.narration
+    # leverage 0.5 pops a clip (0.3) but not a bolt (0.8): the hint must be the latch, not the panel
+    assert "latch" in r.narration and "panel" not in r.narration
+
+
+def test_pry_hint_skips_siblings_beyond_the_tool():
+    a = ActionAttempt(actor="p", verb="pry", X=NounRef("seat", "cover"))  # bare hands: leverage 0.0
+    r = pry.resolve_pry(a, _world(), MATS)
+    assert r.tier == "op:pry:no_purchase"
+    assert "though" not in r.narration  # no sibling is feasible bare-handed → no hint at all
+
+
+def test_sibling_hint_first_match_and_none_when_nothing_works():
+    from world.sim.operations._helpers import sibling_hint
+    seat = _seat()
+    cover = seat.parts[0]
+    hit = sibling_hint(seat, cover, lambda p: p.attachment == "clipped")
+    assert hit is not None and hit.id == "latch"  # first clipped sibling in parts order
+    assert sibling_hint(seat, cover, lambda p: False) is None
 
 
 def test_burn_flammable_with_flame():

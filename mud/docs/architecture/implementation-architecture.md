@@ -195,6 +195,32 @@ deterministic: the most-specific rule wins** (authored-special > object > (opera
 generic), **ties broken by a declared integer priority** — never by file/registration order. This makes
 "which rule fired" predictable, traceable (DR-20), and replayable (DR-12).
 
+> **DR-05a (appended, attachment-honesty 2026-07) — destructive extraction.** The D12 cut rule is
+> amended: **a part's attachment gates HOW its material comes free, never WHETHER** (the material
+> gate stays first — a dull blade is still dull). Cut/tear on a part whose material the tool defeats
+> but whose attachment is mechanical (pryable-class) now SUCCEEDS destructively: the part is removed
+> and its full mass minted as `{material}_scrap` ×3 (part-scoped derived ids like
+> `seat:cushion_scrap0:loose`; the ledger balances exactly; a `residue_{part}` state attribute
+> records the wrecked fastener so the aftermath narration is a recorded fact — DR-11). **Pry keeps
+> its exclusive value**: the only intact single-piece removal off a mechanical fastener
+> (`outputs_when_removed`) — intact-vs-scrap matters for later content (insulation area, whole
+> covers); no uses built yet. **`fixed`/unknown attachments stay integral** — refuse-with-
+> explanation; authors opt INTO extractability by naming a real attachment. The old
+> slash-without-effect branches (`cut.slash_fixed`, `tear.attached`) are **retired** — they narrated
+> damage no Effect recorded. `break` intentionally unchanged (extraction defers to cut/tear/pry);
+> destructive-is-slower is future tuning once durations land (P4).
+>
+> **DR-09a (appended, attachment-honesty 2026-07) — explain the physics + one sibling near-miss.**
+> Attachment-mismatch refusals explain WHY in physical terms via a content-tunable phrase map in the
+> scenario responses (`attachment.explain.*` / `attachment.hint.*` / `attachment.residue.*` — Andrew
+> owns the voice; the pure helper `_helpers.attachment_phrase` reads it through `narrator.get`).
+> Handlers may append at most ONE near-miss: the first sibling part of the SAME entity where the
+> attempted verb genuinely works *with the held tool* (`_helpers.sibling_hint`), phrased naming the
+> part and its physical state ("The cover, though, is only held by stitching.") — never the method
+> or tool (name-the-verb-not-the-solution holds). Hints use the short neutral `hint` phrase kind,
+> not the failure explanations. Not a spoiler: `examine` already lists every part's attachment.
+> `generic_redirect` stays coarse by design; its precision upgrade remains P2.
+
 ### DR-06 Objects
 Cheap by default; behavior derives from operations over materials.
 ```python

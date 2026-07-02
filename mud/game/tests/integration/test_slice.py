@@ -24,11 +24,14 @@ class TestSlice(EvenniaTest):
                              "outputs_when_removed": ["loose_fabric"]},
                             {"id": "bolt", "label": "bolt", "material": "steel", "mass_g": 30,
                              "attachment": "bolted"},
+                            {"id": "cushion", "label": "cushion", "material": "foam",
+                             "mass_g": 800, "attachment": "clipped",
+                             "outputs_when_removed": ["loose_foam"]},
                         ])])
         self.tool = create_object(
             "typeclasses.objects.Object", key="multitool", location=self.room1, aliases=["knife"],
             attributes=[("sim_id", "multitool"), ("materials", ["steel"]), ("mass_g", 150),
-                        ("state", {"edge": 0.8})])
+                        ("state", {"edge": 0.8, "leverage": 0.5})])  # mirrors build.py:40-42
 
     def _said(self, m):
         return " ".join(str(c.args[0]) for c in m.call_args_list if c.args).lower()
@@ -115,6 +118,27 @@ class TestSlice(EvenniaTest):
         shards = [o for o in self.room1.contents if str(o.db.sim_id).startswith("bottle:shard")]
         assert len(shards) == 3 and sum(o.db.mass_g for o in shards) == 500
         assert all(o.key == "glass shard" for o in shards), "derived names read material-first"
+
+    # --- attachment honesty (DR-05a / DR-09a) ---
+
+    def test_cut_clipped_cushion_end_to_end_mints_foam_scraps(self):
+        with mock.patch.object(self.char1, "msg") as m:
+            self.char1.execute_cmd("cut the cushion with the multitool")
+        assert all(p["id"] != "cushion" for p in (self.seat.db.parts or [])), "cushion extracted"
+        scraps = [o for o in self.room1.contents
+                  if str(o.db.sim_id).startswith("seat:cushion_scrap")]
+        assert len(scraps) == 3 and sum(o.db.mass_g for o in scraps) == 800
+        assert all(o.key == "foam scrap" for o in scraps)
+        said = self._said(m)
+        assert "foam scrap" in said and "crushed clips" in said
+
+    def test_pry_stitched_cover_explains_the_stitching(self):
+        before = [dict(p) for p in self.seat.db.parts]
+        with mock.patch.object(self.char1, "msg") as m:
+            self.char1.execute_cmd("pry the cover off the seat with the multitool")
+        assert [dict(p) for p in self.seat.db.parts] == before, "an explained refusal changes nothing"
+        said = self._said(m)
+        assert "stitching" in said and "cushion" in said, "explains why + hints the pryable sibling"
 
     # --- the numbered disambiguation menu (slice-fix M3) ---
 

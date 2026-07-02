@@ -6,9 +6,10 @@ Now item at a time**; deferred-but-designed items are two-line stubs linking to 
 
 ## Now  (work-in-progress limit: 1)
 - **Finish the item-interaction slice** — get the verbs / materials / transforms into "a format we like"
-  (iterate until it feels right). The disambiguation + naming + bare-hands fix **shipped** (Slice fix
-  M1–M3, 2026-07-02; DR-08a). Next sub-item is Andrew's call — natural candidate: **fragment
-  affordances** (parked in Later, below).
+  (iterate until it feels right). Shipped so far: disambiguation + naming + bare-hands (M1–M3,
+  DR-08a) · stock get/drop numbered menus (DR-08a append) · **attachment honesty** — destructive
+  extraction + explain-why/near-miss redirects (DR-05a/DR-09a, 2026-07-02). Next sub-item is
+  Andrew's call — natural candidate: **fragment affordances** (Later, below).
 
 ## Next
 - **Presentation / perception evolution** — scene-as-prose room look + state-conditioned object appearance +
@@ -30,9 +31,13 @@ Now item at a time**; deferred-but-designed items are two-line stubs linking to 
 - **Multi-zone perception** — the overlapping-zones / perception-bands system (roadmap P3).
 - **A shippable Mudlet client package** — mapper feed, GUI gauges, auto-install.
 - **Fragment affordances** — minted fragments carry no tool capabilities: a glass shard has no `edge`
-  state (`_shatter` sets only material/mass/provenance), so "cut X with shard" counts as bare hands.
-  The improvised-glass-knife loop wants a material→affordance rule for derived objects — a small
-  design decision first, then trivial to implement. *(Found during the 2026-07 slice-fix certainty audit.)*
+  state (`_shatter` sets only material/mass/provenance), so "cut X with shard" counts as bare hands;
+  the DR-05a `{material}_scrap` objects have the same gap. The improvised-glass-knife loop wants a
+  material→affordance rule for derived objects — a small design decision first, then trivial to
+  implement. *(Found during the 2026-07 slice-fix certainty audit.)*
+- **break derived-id collision (latent)** — `_shatter` ids are `derived_id(parent, f"{piece_word}{i}")`,
+  so breaking two different parts of one entity would collide sim_ids; the DR-05a scrap ids are
+  part-scoped and immune. Give break the part-scoped shape when touched next.
 - **Lenses skill rework** — right-size the lens libraries (currently overkill for routine checks; the
   `certainty` skill — draft in [`docs/proposals/certainty-skill-draft.md`](docs/proposals/certainty-skill-draft.md) —
   covers the pre-implementation gate).

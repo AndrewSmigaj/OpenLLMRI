@@ -9,8 +9,9 @@ from __future__ import annotations
 
 from world.sim import effects, narrator
 from world.sim.contracts import ActionResult, Event, EventKind, Resolution
-from world.sim.operations._helpers import (CUTTABLE_ATTACH, derived_id, material_of, prop,
-                                           resolve_ref)
+from world.sim.operations._helpers import (CUTTABLE_ATTACH, PRYABLE_ATTACH, attachment_phrase,
+                                           derived_id, material_of, prop, resolve_ref,
+                                           sibling_hint)
 
 VERBS = ("tear", "rip", "shred")
 _HAND_FORCE = 0.45   # what bare hands can tear through (fabric/paper), a shade above 'low'
@@ -43,10 +44,42 @@ def resolve_tear(attempt, world, materials):
         return ActionResult(Resolution.SUCCESS, effects=eff, events=ev, tier="op:tear:free",
                             narration=narrator.narrate("tear.free", {"target": ent.name, "part": part.id,
                                                                      "output": output.replace("_", " ")}))
-    if part is not None:  # tearable material but firmly attached → can't free by tearing
-        return ActionResult(Resolution.REDIRECT, tier="op:tear:attached",
-                            narration=narrator.narrate("tear.attached",
-                                                       {"part": part.id, "attachment": part.attachment}))
+    if part is not None and part.attachment in PRYABLE_ATTACH:
+        # destructive extraction (DR-05a): hands beat the material but not the fastener — the
+        # part comes out in torn fistfuls; the wrecked fastener is a recorded residue fact.
+        n = 3
+        base = part.mass_g // n
+        masses = [base] * (n - 1) + [part.mass_g - base * (n - 1)]
+        scrap = f"{part.material}_scrap"
+        eff = (effects.remove_part(ent.id, part.id),
+               effects.set_attr(ent.id, f"residue_{part.id}", part.attachment)) + tuple(
+            effects.create_object(scrap, derived_id(ent.id, f"{part.id}_scrap{i}"),
+                                  {"material": part.material, "mass_g": m,
+                                   "provenance": [f"ripped from {ent.id}"]})
+            for i, m in enumerate(masses))
+        ev = (Event(EventKind.IMPACT, ent.id, loudness=0.3,
+                    data={"verb": "tear", "part": part.id, "destructive": True}),)
+        return ActionResult(Resolution.SUCCESS, effects=eff, events=ev, tier="op:tear:rip_out",
+                            narration=narrator.narrate("tear.rip_out",
+                                                       {"part": part.id, "target": ent.name,
+                                                        "output": scrap.replace("_", " "),
+                                                        "residue": attachment_phrase(part.attachment,
+                                                                                     "residue")}))
+
+    if part is not None:  # integral (fixed/unknown attachment) → explain the physics; one near-miss
+        def can_tear(p):
+            m = materials.get(p.material)
+            return (p.attachment in CUTTABLE_ATTACH and m is not None
+                    and "tear_resistance" in m.props
+                    and prop(m, "tear_resistance") <= _HAND_FORCE + _SLACK)
+        line = narrator.narrate("tear.integral", {"part": part.id,
+                                                  "why": attachment_phrase(part.attachment)})
+        sib = sibling_hint(ent, part, can_tear)
+        if sib:
+            line += " " + narrator.narrate("hint.sibling",
+                                           {"sibling": sib.id,
+                                            "sibling_phrase": attachment_phrase(sib.attachment, "hint")})
+        return ActionResult(Resolution.REDIRECT, tier="op:tear:integral", narration=line)
 
     if ent.parts:  # a composite thing isn't torn as a whole → name a part
         return ActionResult(Resolution.REDIRECT, tier="op:tear:composite",

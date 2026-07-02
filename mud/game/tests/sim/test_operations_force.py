@@ -35,7 +35,9 @@ def _seat():
                        state={"ident": "11B"},
                        parts=[Part("cover", "synthetic_fabric", 200, "stitched", ("loose_fabric",)),
                               Part("belt", "nylon_webbing", 150, "bolted"),
-                              Part("bolt", "steel", 30, "bolted")])
+                              Part("bolt", "steel", 30, "bolted"),
+                              Part("cushion", "foam", 800, "clipped", ("loose_foam",)),
+                              Part("liner", "synthetic_fabric", 100, "fixed")])
 
 
 def _multitool():
@@ -78,6 +80,29 @@ def test_tear_tough_webbing_redirects():
     r = tear.resolve_tear(a, w, MATS)
     assert r.resolution == Resolution.REDIRECT and r.tier == "op:tear:too_tough"
     assert not r.effects
+
+
+def test_tear_clipped_foam_rips_out_scraps_conserving_mass():
+    # DR-05a: bare hands beat the foam but not the clips — destructive extraction, mass conserved
+    w = FakeWorld([_seat()])
+    a = ActionAttempt(actor="p", verb="tear", X=NounRef("seat", "cushion"))
+    r = tear.resolve_tear(a, w, MATS)
+    assert r.resolution == Resolution.SUCCESS and r.tier == "op:tear:rip_out"
+    made = [e for e in r.effects if e.kind == EffectKind.CREATE_OBJECT]
+    assert {e.args["template"] for e in made} == {"foam_scrap"}
+    assert sum(e.args["mass_g"] for e in made) == 800 and len(made) == 3
+    assert "crushed clips" in r.narration
+    _conserves(w, r)
+
+
+def test_tear_fixed_part_explains_integral():
+    w = FakeWorld([_seat()])
+    a = ActionAttempt(actor="p", verb="tear", X=NounRef("seat", "liner"))
+    r = tear.resolve_tear(a, w, MATS)
+    assert r.resolution == Resolution.REDIRECT and r.tier == "op:tear:integral"
+    assert not r.effects
+    assert "part of the thing itself" in r.narration
+    assert "cover" in r.narration  # the tearable stitched sibling gets the one near-miss
 
 
 def test_tear_liquid_not_applicable():
