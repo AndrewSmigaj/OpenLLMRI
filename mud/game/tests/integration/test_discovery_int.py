@@ -119,6 +119,26 @@ class TestDiscovery(EvenniaTest):
         said = self._do("go to the cockpit", "examine the pilot")
         assert "wears" in said and "flight jacket" in said, "the worn layer IS the frisk clue"
 
+    def test_read_the_manual_for_the_guard_frequency(self):
+        said = self._do("go to the cockpit", "read the manual")
+        assert "121.5" in said, "the §38 clue is earned by reading, not listed"
+
+    def test_talking_gets_honest_silence(self):
+        said = self._do("go to the cockpit", "talk to the pilot")
+        assert "nobody will" in said
+        said = self._do("talk to the radio")
+        assert "nothing to say" in said
+
+    def test_look_at_a_zone_gives_its_survey(self):
+        said = self._do("look at the cockpit")
+        assert "shattered instruments" in said, "stock look routes zone nouns to the sim path"
+
+    def test_the_cabin_desc_stays_indoors(self):
+        self._do("go to the rear cabin", "go to the breach")   # arrive-looks captured separately
+        said = self._do("look")
+        assert "you are in the torn tail opening" in said
+        assert "crushed cabin of a downed light plane" not in said
+
     def test_put_it_back(self):
         self._do("search the duffel", "take the socks")
         assert self._carried("socks")

@@ -217,6 +217,12 @@ def _and_list(names) -> str:
     return ", ".join(items[:-1]) + f" and {items[-1]}"
 
 
+def read_text(ent) -> "str | None":
+    """The authored, state-conditioned `read` entry for an entity (None = nothing written)."""
+    entry = _entry(ent)
+    return _pick((entry or {}).get("read"), ent.state) if entry else None
+
+
 def _condition(ent) -> str:
     """A short read of the systemic state flags the operations set — legibility: the player SEES
     what they (or others) did. (Moved here from the examine handler; same flags.)"""

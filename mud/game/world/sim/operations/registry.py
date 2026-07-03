@@ -10,8 +10,8 @@ from dataclasses import dataclass
 from typing import Callable
 
 from world.sim.operations.handlers import (bend, break_op, burn, cut, drink, eat, examine, light, melt,
-                                           move, open_op, pour, pry, search, take, tear, tie, wear,
-                                           wrap)
+                                           move, open_op, pour, pry, read, search, take, talk, tear,
+                                           tie, wear, wrap)
 
 
 @dataclass(frozen=True)
@@ -62,6 +62,9 @@ OPERATIONS: dict[str, Op] = {
     # DR-25 clothing
     "wear": Op("wear", wear.VERBS, wear.resolve_wear),
     "remove": Op("remove", wear.SHED_VERBS, wear.resolve_shed),
+    # authored text + the soft social catch
+    "read": Op("read", read.VERBS, read.resolve_read),
+    "talk": Op("talk", talk.VERBS, talk.resolve_talk, relations=("to",)),
 }
 
 # synonym verb → canonical operation id (feeds the parser's synonym table, P1.5)

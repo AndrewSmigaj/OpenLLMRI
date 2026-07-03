@@ -108,6 +108,12 @@ RESPONSES = {
     "pry.open": "You get {tool} into the seam and heave; the {target} gives with a shriek and "
                 "hangs open.",
     "pour.sealed": "The {target} is capped tight. Open it first.",
+    # read / talk ------------------------------------------------------------------
+    "read.nothing_much": "You leaf through the {target}. Nothing anyone will ever need again.",
+    "talk.air": "You say a few words to the wind. It keeps them.",
+    "talk.dead": "You say it aloud. The {target} doesn't answer; nobody will.",
+    "talk.no_answer": "The {target} doesn't answer.",
+    "talk.inanimate": "The {target} has nothing to say.",
     # wear (DR-25) ----------------------------------------------------------------
     "wear.wear": "You pull on the {target}.",
     "wear.shed": "You take off the {target}.",

@@ -126,6 +126,12 @@ class CmdLook(DefaultCmdLook):
         if self.args.lower().startswith("at "):
             self.args = self.args[3:].strip()
         self.args = _strip_articles(self.args)
-        if self.args and _menu_if_multimatch(self, "around"):
-            return
+        if self.args:
+            if _menu_if_multimatch(self, "around"):
+                return
+            if not _search(self.caller, self.args, "around"):
+                # stock search can't see zone nouns or revealed-container contents — the sim
+                # examine path can (look at X ≡ examine X holds everywhere, DR-23/DR-24)
+                cmd_act._run_action(self.caller, f"examine {self.args}")
+                return
         super().func()

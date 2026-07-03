@@ -56,6 +56,8 @@ class Room(ObjectParent, DefaultRoom):
         if z is None:
             return desc
         lead = f"You are in {z.name}." + (f" {z.look}" if z.look else "")
+        if "exterior" in z.terrain_tags:
+            return lead                    # the cabin's interior desc doesn't follow you outside
         return f"{lead}\n{desc}" if desc else lead
 
     def get_display_characters(self, looker, **kwargs):

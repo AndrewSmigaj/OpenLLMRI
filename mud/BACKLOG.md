@@ -20,6 +20,11 @@ Now item at a time**; deferred-but-designed items are two-line stubs linking to 
   crash site (`zones.py` content — Andrew tunes geography + survey prose), go/approach movement,
   the §14 fading look, band-routed events, the §17 reach gate, zone-aware say/whisper/call/shout.
   **Building out the plane is now authored zone content**, not plumbing.
+- **DR-24 + DR-25 SHIPPED** (2026-07-03 — [`containment.md`](docs/architecture/containment.md),
+  [`clothing-warmth.md`](docs/architecture/clothing-warmth.md)): the scene is containment-first
+  (open/search/dig/take-from/put; the re-stowed crash site; deterministic finds); clothing is a
+  system (wear everything that physically wears; the warmth band on inventory/self-examine);
+  read (the 121.5 manual clue) + the social catch. The world is now DUG THROUGH, not read off.
 - **Mudlet integration write-up** — the research pass is done (findings gathered); writing them up into
   [`docs/client/mudlet-research.md`](docs/client/mudlet-research.md) (currently a skeleton) + a brainstorm
   doc with a proposed Whiteout Mudlet setup are pending.
@@ -35,6 +40,11 @@ Now item at a time**; deferred-but-designed items are two-line stubs linking to 
 - **Perception polish (post-P3)** — `look <direction>` / `scan`; targeted `whisper <player> =`;
   move durations + auto-pathing (P4, the `duration_minutes` seam is plumbed); planar-distance
   banding + finer occlusion; real weather banding (P7 — the `weather=` parameter is the seam).
+- **Containment/clothing v2 (post-DR-24/25)** — a liquid-container model (the jerry can's `sealed`
+  bit is the placeholder; drink-from/pour-into/fill); container capacity; `give`; sit/posture;
+  clothing layering curves + coverage; a `status` command (with P5); leading-count taking
+  ("take 3 branches" — the stock stacking loss recorded in DR-24); cutting a filled container
+  should spill its contents, not orphan them (edge noted in DR-24 review).
 - **A shippable Mudlet client package** — mapper feed, GUI gauges, auto-install.
 - **Fragment affordances** — minted fragments carry no tool capabilities: a glass shard has no `edge`
   state (`_shatter` sets only material/mass/provenance), so "cut X with shard" counts as bare hands;

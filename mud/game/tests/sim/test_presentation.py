@@ -113,6 +113,13 @@ def test_banded_scene_fades_by_distance_and_drops_out_of_sight():
     assert "hidden thing" not in scene, "OUT_OF_SIGHT renders nothing"
 
 
+def test_read_text_is_state_conditioned_content():
+    manual = _ent("manual", "flight manual", materials=("paper",))
+    text = presentation.read_text(manual)
+    assert text and "121.5" in text, "the manual carries the §38 GUARD-frequency clue"
+    assert presentation.read_text(_ent("bottle", "whisky bottle")) is None
+
+
 def test_perceived_none_or_empty_is_the_pre_p3_render():
     ents = [_ent("seat", "aircraft seat"), _ent("bottle", "whisky bottle", materials=("glass",))]
     assert presentation.compose_scene(ents, None) == presentation.compose_scene(ents)
