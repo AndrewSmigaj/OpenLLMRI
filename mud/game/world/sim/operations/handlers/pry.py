@@ -26,6 +26,21 @@ def resolve_pry(attempt, world, materials):
     if ent is None:
         return None
     if part is None:
+        st = ent.state or {}
+        if st.get("jammed"):                       # DR-24: a buckled lid is exactly a pry's job
+            leverage = capability(attempt.tool, world, "leverage")
+            tool = tool_phrase(attempt.tool, world)
+            if leverage >= 0.5 - _SLACK:
+                eff = (effects.set_attr(ent.id, "jammed", False),
+                       effects.set_attr(ent.id, "open", True))
+                ev = (Event(EventKind.IMPACT, ent.id, loudness=0.55, data={"verb": "pry"}),)
+                return ActionResult(Resolution.SUCCESS, effects=eff, events=ev,
+                                    tier="op:pry:open",
+                                    narration=narrator.narrate("pry.open",
+                                                               {"tool": tool, "target": ent.name}))
+            return ActionResult(Resolution.REDIRECT, tier="op:pry:no_leverage",
+                                narration=narrator.narrate("pry.no_leverage",
+                                                           {"tool": tool, "part": ent.name}))
         return None  # whole-entity pry → let the resolver redirect
 
     leverage = capability(attempt.tool, world, "leverage")

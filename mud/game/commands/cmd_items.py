@@ -1,11 +1,11 @@
-"""game.commands.cmd_items — stock get/drop with the DR-08a numbered disambiguation menu.
+"""game.commands.cmd_items — stock drop/look with the DR-08a numbered disambiguation menu.
 
-Thin subclasses of Evennia's CmdGet/CmdDrop: a pre-flight quiet search detects a TRUE multimatch
-(more than one hit that isn't a leading-count stack of identical keys) and shows the same numbered
-menu the taught-grammar commands use; everything else defers to the stock implementation (single
-match, no match, stacked counts). A pick (a bare number, caught by the unmatched-input command)
-re-issues the original command with Evennia's native `name-N` ordinal, recomputed against the
-manager's stable id-ordered search at pick time — so picks are reorder-immune and stale-safe.
+Thin subclasses of Evennia's CmdDrop/CmdLook: a pre-flight quiet search detects a TRUE multimatch
+and shows the same numbered menu the taught-grammar commands use; everything else defers to stock.
+GET LIVES IN THE TAUGHT GRAMMAR now (the `take` op owns get/grab — DR-24; the old CmdGet subclass
+was removed to defuse the CmdSet matchset trap, see containment.md). A pick (a bare number, caught
+by the unmatched-input command) re-issues the original command with Evennia's native `name-N`
+ordinal, recomputed against the manager's stable id-ordered search at pick time.
 `give` is deferred (third use). One pending menu per caller; the latest question wins.
 
 Note: search-lock filtering happens after the manager computes ordinals, so a search-locked object
@@ -13,8 +13,7 @@ could in principle desync the re-issue index — no Whiteout content uses search
 """
 from __future__ import annotations
 
-from evennia.commands.default.general import (CmdDrop as DefaultCmdDrop, CmdGet as DefaultCmdGet,
-                                              CmdLook as DefaultCmdLook)
+from evennia.commands.default.general import CmdDrop as DefaultCmdDrop, CmdLook as DefaultCmdLook
 
 from commands import cmd_act  # shared pending-menu map; import direction: cmd_items -> cmd_act only
 
@@ -65,20 +64,6 @@ def stock_pick(caller, pend, n):
     caller.execute_cmd(f"{pend['cmdstring']} {pend['query']}-{fresh.index(obj) + 1}")
 
 
-def _reach_filter(caller, objs):
-    """DR-13a for stock get: (same-zone objs, a representative far obj or None). Unzoned rooms
-    filter nothing (the one-zone compat rule)."""
-    from typeclasses.worldview import zone_of
-    from world.sim.space import zones as zonemap
-    room = getattr(caller, "location", None)
-    if room is None or not room.db.default_zone or not zonemap.loaded():
-        return objs, None
-    lzone = zone_of(caller, room)
-    same = [o for o in objs if zone_of(o, room) == lzone]
-    far = next((o for o in objs if o not in same), None)
-    return same, far
-
-
 def _menu_if_multimatch(cmd, where):
     """Pre-flight for a stock item command. True if handled (menu shown / too-far answered)."""
     caller = cmd.caller
@@ -86,41 +71,12 @@ def _menu_if_multimatch(cmd, where):
     if not cmd.args:
         return False
     objs = _search(caller, cmd.args, where)
-    if where == "room":                            # the reach gate applies to taking, not dropping
-        same, far = _reach_filter(caller, objs)
-        if not same and far is not None:
-            from typeclasses.worldview import zone_of
-            from world.sim import narrator
-            from world.sim.space import direction, zones as zonemap
-            room = caller.location
-            dphrase = direction.phrase(zone_of(caller, room), zone_of(far, room)) or "some way off"
-            caller.msg(narrator.narrate("reach.too_far",
-                                        {"target": far.key, "direction": dphrase, "verb": "take"}))
-            return True
-        objs = same or objs
-        if len(objs) == 1:
-            # a single in-reach match among far duplicates: stock search would multimatch on the
-            # NAME, so re-issue with the manager's ordinal for exactly this object
-            full = _search(caller, cmd.args, where)
-            if len(full) > 1:
-                caller.execute_cmd(f"{cmd.cmdstring} {cmd.args}-{full.index(objs[0]) + 1}")
-                return True
     if len(objs) <= 1:
         return False
     if getattr(cmd, "number", 0) and len({o.key for o in objs}) == 1:
         return False                                # a leading-count stack — stock handles it
     _show_stock_menu(caller, " ".join(cmd.raw_string.split()), cmd.cmdstring, cmd.args, where, objs)
     return True
-
-
-class CmdGet(DefaultCmdGet):
-    __doc__ = DefaultCmdGet.__doc__
-
-    def func(self):
-        self.args = _strip_articles(self.args)
-        if _menu_if_multimatch(self, "room"):
-            return
-        super().func()
 
 
 class CmdDrop(DefaultCmdDrop):

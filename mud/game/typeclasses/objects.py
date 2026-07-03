@@ -236,6 +236,13 @@ class Object(ObjectParent, DefaultObject):
                                          "verb": "inspect"})
         return presentation.describe(to_entity_state(self))
 
+    def at_pre_drop(self, dropper, **kwargs):
+        """DR-25: worn things don't fall off — take them off first (read-only refusal)."""
+        if (self.db.state or {}).get("worn_by"):
+            dropper.msg("You're wearing it — take it off first.")
+            return False
+        return super().at_pre_drop(dropper, **kwargs)
+
     def at_drop(self, dropper, **kwargs):
         """DR-13a zone sync: a dropped object lands in the dropper's zone — through the single
         writer (stock get/drop move via Evennia containment, not Effects, so without this a

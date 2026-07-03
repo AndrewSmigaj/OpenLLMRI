@@ -36,11 +36,13 @@ class CharacterCmdSet(default_cmds.CharacterCmdSet):
         from commands.cmd_act import CmdAction, CmdNoMatch
         self.add(CmdAction())
         self.add(CmdNoMatch())
-        # Whiteout: stock get/drop/look share the DR-08a numbered disambiguation menu (same-key
-        # add after super() replaces the stock commands); look also strips 'at' (look at X ≡
-        # examine X, DR-23).
-        from commands.cmd_items import CmdDrop, CmdGet, CmdLook
-        self.add(CmdGet())
+        # Whiteout: stock drop/look share the DR-08a numbered disambiguation menu (same-key add
+        # after super() replaces the stock commands); look also strips 'at' (look at X ≡ examine
+        # X, DR-23). GET IS GONE: the taught `take` op owns get/grab (DR-24) — CmdAction (added
+        # above) replaced stock CmdGet at add-time, and adding a get-aliased command AFTER it
+        # would delete the ENTIRE taught set (Evennia de-dupes by key/alias INTERSECTION — the
+        # matchset trap; see containment.md).
+        from commands.cmd_items import CmdDrop, CmdLook
         self.add(CmdDrop())
         self.add(CmdLook())
         # Whiteout: zone-aware speech — say/whisper/call/shout as SPEECH events through the

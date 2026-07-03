@@ -58,12 +58,14 @@ class TestStockMenus(EvenniaTest):
         assert len(self._carried()) == 1
         assert len([o for o in self.room1.contents if o.key == "glass shard"]) == 1
 
-    def test_get_with_leading_count_still_stacks(self):
-        self._spawn_shards(3)
+    def test_taught_commands_survive_the_get_handover(self):
+        # DR-24 matchset-trap guard: if the CmdSet ever de-dupes CmdAction away, every taught
+        # verb dies at once — this canary asserts `cut` still resolves through the sim pipeline.
         with mock.patch.object(self.char1, "msg") as m:
-            self.char1.execute_cmd("get 3 shard")
-        assert "which shard" not in self._said(m), "a count of identical things must not menu"
-        assert len(self._carried()) == 3
+            self.char1.execute_cmd("cut the phantom")
+        said = self._said(m)
+        assert "not available" not in said
+        assert "you don't see that here" in said     # the taught no-target redirect answered
 
     def test_stock_pick_after_world_change_degrades_cleanly(self):
         shards = self._spawn_shards(3)

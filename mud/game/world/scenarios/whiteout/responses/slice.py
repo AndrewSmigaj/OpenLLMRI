@@ -70,6 +70,44 @@ RESPONSES = {
     # eat ---------------------------------------------------------------------
     "eat.eat": "You eat the {target}; it's something, and the gnaw of hunger eases a little.",
     "eat.meagre": "You get the {target} down. Precious few calories, but every one counts.",
+    # take / put (DR-24) ---------------------------------------------------------
+    "take.take": "You take the {target}.",
+    "take.from": "You fish the {target} out of the {container}.",
+    "take.already": "You're already carrying the {target}.",
+    "take.self": "You pat yourself down. Still here.",
+    "take.attached": "The {part} is still {why} — nothing comes away in your hand.",
+    "take.fixed": "The {target} is going nowhere — it's part of the wreck.",
+    "take.too_heavy": "You get your arms under the {target} and think better of it — dead weight, "
+                      "and a lot of it.",
+    "take.worn_self": "You're wearing the {target} — take it off first.",
+    "take.worn_other": "{wearer} is wearing the {target}.",
+    "take.strip_dead": "You work the {target} free of him. He doesn't mind. You mind enough for "
+                       "both of you.",
+    "put.into": "You stow the {target} in the {dest}.",
+    "put.not_held": "You'd need the {target} in hand first.",
+    "put.worn": "You're wearing the {target}.",
+    "put.not_container": "The {dest} won't hold things.",
+    "put.shut": "The {dest} is shut.",
+    "put.where": "Put the {target} where? (put X in Y)",
+    # open / close / search / dig (DR-24) -----------------------------------------
+    "open.open": "You open the {target}.",
+    "open.already": "The {target} is already open.",
+    "open.jammed": "The {target} is buckled in its track — fingers won't shift it. Something to "
+                   "lever might.",
+    "open.unseal": "You crack the {target}'s cap loose.",
+    "close.close": "You close the {target}.",
+    "close.already": "The {target} is already shut.",
+    "search.found": "You go through the {target}: {finds}.",
+    "search.nothing": "You go through the {target} — nothing worth keeping.",
+    "search.again": "Nothing else — you've been through the {target} already.",
+    "search.shut": "The {target} is shut. Open it first.",
+    "dig.found": "You burrow into the {target}, snow packing your sleeves: {finds}.",
+    "dig.nothing_there": "You dig through the {target} and find only more snow.",
+    "dig.again": "You've already turned the {target} over.",
+    "dig.nothing": "There's nothing to dig here — the {target} isn't snow.",
+    "pry.open": "You get {tool} into the seam and heave; the {target} gives with a shriek and "
+                "hangs open.",
+    "pour.sealed": "The {target} is capped tight. Open it first.",
     # reach (DR-13a: the §17 too-far answers) ------------------------------------
     "reach.too_far": "You can see the {target} {direction}, but it is too far away to {verb} from "
                      "here.",

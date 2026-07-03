@@ -22,6 +22,9 @@ def resolve_pour(attempt, world, materials):
     mat = material_of(attempt.X, world, materials)
     if mat is None or "liquid" not in mat.tags:
         return None  # not a pourable liquid → resolver redirects
+    if (ent.state or {}).get("sealed"):            # DR-24: a capped can pours nothing
+        return ActionResult(Resolution.REDIRECT, tier="op:pour:sealed",
+                            narration=narrator.narrate("pour.sealed", {"target": ent.name}))
 
     y_ref = attempt.Y[0] if attempt.Y else None
     y_ent, _ = resolve_ref(y_ref, world)
