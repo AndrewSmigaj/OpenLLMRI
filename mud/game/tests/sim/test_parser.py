@@ -14,6 +14,26 @@ REACH = [SEAT, MULTITOOL, LIGHTER, TINDER]
 # three IDENTICAL derived objects (same name, no ident) — the numbered-menu case
 SHARDS = [Reachable(id=f"bottle:shard{i}:loose", name="glass shard") for i in range(3)]
 
+# a zone pseudo-noun (DR-13a: destinations parse like nouns)
+ZONE_COCKPIT = Reachable(id="zone:cockpit", name="the cockpit", aliases=("cockpit", "flight deck"))
+
+
+def test_leading_relation_is_preserved():
+    a = parse("go to the cockpit", VERB_TO_OP, REACH + [ZONE_COCKPIT])
+    assert isinstance(a, ActionAttempt) and a.verb == "move"
+    assert a.X is None and a.relation == "to" and a.Y[0].entity_id == "zone:cockpit"
+
+
+def test_toward_is_a_to_synonym():
+    a = parse("head toward the cockpit", VERB_TO_OP, REACH + [ZONE_COCKPIT])
+    assert isinstance(a, ActionAttempt) and a.relation == "to"
+    assert a.Y[0].entity_id == "zone:cockpit"
+
+
+def test_zone_alias_matches():
+    a = parse("go to the flight deck", VERB_TO_OP, REACH + [ZONE_COCKPIT])
+    assert a.Y[0].entity_id == "zone:cockpit"
+
 
 def _p(text, reach=REACH):
     return parse(text, VERB_TO_OP, reach)

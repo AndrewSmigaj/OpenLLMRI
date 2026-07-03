@@ -20,7 +20,7 @@ from typeclasses.apply import LedgerError, apply, get_sink
 from typeclasses.propagator import propagate
 from typeclasses.worldview import EvenniaWorldView
 from world.scenarios.whiteout import content
-from world.sim.contracts import Disambiguation, ParseError
+from world.sim.contracts import Disambiguation, EffectKind, ParseError
 from world.sim.operations.registry import VERB_TO_OP
 from world.sim.parser import parse
 from world.sim.resolver import resolve
@@ -76,6 +76,11 @@ def _run_action(caller, line, bindings=None):
     if action.narration:
         caller.msg(action.narration)
     propagate(room, action.events, caller)
+
+    actor_id = caller.db.sim_id or caller.key
+    if any(e.kind == EffectKind.MOVE_ZONE and e.target_id == actor_id
+           for e in (action.effects or ())):
+        caller.msg(room.return_appearance(caller))   # arriving prints the survey (MUD convention)
 
 
 class CmdAction(Command):

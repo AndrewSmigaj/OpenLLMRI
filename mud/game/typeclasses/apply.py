@@ -71,12 +71,15 @@ def _apply_one(e, world, touched):
         touched.append(obj)
     elif k == EffectKind.CREATE_OBJECT:
         key = str(e.args.get("template", e.target_id)).replace("_", " ")
+        state = {}
+        if getattr(world, "actor_zone", None):     # minted objects land at the actor's feet (DR-13a)
+            state["zone"] = world.actor_zone
         evennia.create_object(
             _DERIVED_TYPECLASS, key=key, location=world.room,
             attributes=[("sim_id", e.target_id),
                         ("materials", [e.args["material"]] if e.args.get("material") else []),
                         ("mass_g", int(e.args.get("mass_g", 0))),
-                        ("state", {}),
+                        ("state", state),
                         ("provenance", list(e.args.get("provenance", [])))],
             tags=[("slice", "run_id")])
     elif k == EffectKind.CONSUME:
@@ -99,4 +102,11 @@ def _apply_one(e, world, touched):
         obj = world.obj(e.target_id)
         obj.db.owner = e.args.get("owner")
         touched.append(obj)
-    # MOVE_ZONE lands with perception (P3).
+    elif k == EffectKind.MOVE_ZONE:               # DR-13a (was a silent no-op before P3)
+        obj = world.obj(e.target_id)
+        st = dict(obj.db.state or {})
+        st["zone"] = e.args.get("zone")
+        obj.db.state = st
+        obj.tags.clear(category="zone")           # tag mirror, same transaction (DR-07 style)
+        obj.tags.add(str(e.args.get("zone")), category="zone")
+        touched.append(obj)

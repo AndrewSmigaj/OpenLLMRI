@@ -221,3 +221,18 @@ class Object(ObjectParent, DefaultObject):
         from typeclasses.worldview import to_entity_state
         from world.sim import presentation
         return presentation.describe(to_entity_state(self))
+
+    def at_drop(self, dropper, **kwargs):
+        """DR-13a zone sync: a dropped object lands in the dropper's zone — through the single
+        writer (stock get/drop move via Evennia containment, not Effects, so without this a
+        dropped thing would keep a stale zone)."""
+        super().at_drop(dropper, **kwargs)
+        room = getattr(dropper, "location", None)
+        if room is None or not room.db.default_zone:
+            return                                     # unzoned world: nothing to sync
+        from typeclasses.apply import apply as apply_effects
+        from typeclasses.worldview import EvenniaWorldView, zone_of
+        from world.sim import effects
+        world = EvenniaWorldView(room, dropper, seed=(room.db.seed or 0))
+        apply_effects([effects.move_zone(self.db.sim_id or self.key,
+                                         zone_of(dropper, room))], world)

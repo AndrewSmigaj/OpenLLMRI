@@ -10,7 +10,7 @@ from dataclasses import dataclass
 from typing import Callable
 
 from world.sim.operations.handlers import (bend, break_op, burn, cut, drink, eat, examine, light, melt,
-                                           pour, pry, tear, tie, wrap)
+                                           move, pour, pry, tear, tie, wrap)
 
 
 @dataclass(frozen=True)
@@ -50,6 +50,7 @@ OPERATIONS: dict[str, Op] = {
     "eat": Op("eat", eat.VERBS, eat.resolve_eat,
               applies_to=("edible", "food")),
     "examine": Op("examine", examine.VERBS, examine.resolve_examine),
+    "move": Op("move", move.VERBS, move.resolve_move, relations=("to", "into", "on")),
 }
 
 # synonym verb → canonical operation id (feeds the parser's synonym table, P1.5)

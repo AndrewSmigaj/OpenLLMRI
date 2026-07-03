@@ -70,6 +70,12 @@ RESPONSES = {
     # eat ---------------------------------------------------------------------
     "eat.eat": "You eat the {target}; it's something, and the gnaw of hunger eases a little.",
     "eat.meagre": "You get the {target} down. Precious few calories, but every one counts.",
+    # move (DR-13a) -------------------------------------------------------------
+    "move.arrive": "You make your way to {zone}.",
+    "move.already": "You're already in {zone}.",
+    "move.no_route": "You can't get to {zone} directly from here — it's {direction}; {step} is the "
+                     "way through.",
+    "move.orient": "You're in {here}. From here you could reach: {options}.",
     # the one-sibling near-miss (names the part, never the method — DR-09a) ----
     "hint.sibling": "The {sibling}, though, is only {sibling_phrase}.",
     # attachment voice (DR-09a; content-tunable; '_' = the kind's fallback) ----

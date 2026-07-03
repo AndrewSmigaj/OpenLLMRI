@@ -24,9 +24,10 @@ def build():
     room.db.desc = ("The crushed cabin of a downed light plane. Frost creeps across bent aluminium; "
                     "torn seats and scattered kit lie where the impact flung them.")
     room.db.seed = 1
+    room.db.default_zone = "mid_cabin"    # anything unzoned stands here (DR-13a)
 
     _mk("aircraft seat", ["seat"],
-        [("sim_id", "seat"), ("materials", ["steel"]), ("mass_g", 5000), ("state", {"ident": "11B"}),
+        [("sim_id", "seat"), ("materials", ["steel"]), ("mass_g", 5000), ("state", {"zone": "mid_cabin", "ident": "11B"}),
          ("parts", [
              {"id": "cover", "label": "cover", "material": "synthetic_fabric", "mass_g": 200,
               "attachment": "stitched", "outputs_when_removed": ["loose_fabric"]},
@@ -39,55 +40,66 @@ def build():
 
     _mk("multitool", ["tool", "knife"],
         [("sim_id", "multitool"), ("materials", ["steel"]), ("mass_g", 150),
-         ("state", {"edge": 0.8, "leverage": 0.5})], room)
+         ("state", {"zone": "mid_cabin", "edge": 0.8, "leverage": 0.5})], room)
 
     _mk("dry grass", ["tinder", "grass"],
-        [("sim_id", "tinder"), ("materials", ["dry_grass"]), ("mass_g", 40)], room)
+        [("sim_id", "tinder"), ("materials", ["dry_grass"]), ("mass_g", 40),
+         ("state", {"zone": "treeline"})], room)
 
     _mk("lighter", [],
         [("sim_id", "lighter"), ("materials", ["plastic"]), ("mass_g", 20),
-         ("state", {"ignition": True})], room)
+         ("state", {"zone": "mid_cabin", "ignition": True})], room)
 
     _mk("field radio", ["radio"],
         [("sim_id", "radio"), ("materials", ["plastic", "copper_wire"]), ("mass_g", 900),
-         ("state", {"ident": "RT-220", "powered": False})], room)
+         ("state", {"zone": "cockpit", "ident": "RT-220", "powered": False})], room)
 
     _mk("the pilot", ["pilot", "body"],
-        [("sim_id", "pilot"), ("materials", ["flesh"]), ("mass_g", 78000), ("state", {"dead": True})], room)
+        [("sim_id", "pilot"), ("materials", ["flesh"]), ("mass_g", 78000), ("state", {"zone": "cockpit", "dead": True})], room)
 
     # --- the salvage: things to cut/tear/break/bend/light/melt/pour/tie/wrap/drink ---
     _mk("snowdrift", ["snow", "drift"],
-        [("sim_id", "snowdrift"), ("materials", ["snow"]), ("mass_g", 4000)], room)
+        [("sim_id", "snowdrift"), ("materials", ["snow"]), ("mass_g", 4000),
+         ("state", {"zone": "rear_cabin"})], room)
 
     _mk("chunk of ice", ["ice", "chunk"],
-        [("sim_id", "ice"), ("materials", ["ice"]), ("mass_g", 600)], room)
+        [("sim_id", "ice"), ("materials", ["ice"]), ("mass_g", 600),
+         ("state", {"zone": "outside_tail"})], room)
 
     _mk("whisky bottle", ["bottle", "whisky"],
-        [("sim_id", "bottle"), ("materials", ["glass"]), ("mass_g", 500)], room)
+        [("sim_id", "bottle"), ("materials", ["glass"]), ("mass_g", 500),
+         ("state", {"zone": "rear_cabin"})], room)
 
     _mk("coil of copper wire", ["wire", "coil"],
-        [("sim_id", "wire"), ("materials", ["copper_wire"]), ("mass_g", 120)], room)
+        [("sim_id", "wire"), ("materials", ["copper_wire"]), ("mass_g", 120),
+         ("state", {"zone": "outside_nose"})], room)
 
     _mk("length of paracord", ["paracord", "cord", "rope"],
-        [("sim_id", "paracord"), ("materials", ["nylon_webbing"]), ("mass_g", 90)], room)
+        [("sim_id", "paracord"), ("materials", ["nylon_webbing"]), ("mass_g", 90),
+         ("state", {"zone": "outside_tail"})], room)
 
     _mk("wool blanket", ["blanket", "wool"],
-        [("sim_id", "blanket"), ("materials", ["wool"]), ("mass_g", 700)], room)
+        [("sim_id", "blanket"), ("materials", ["wool"]), ("mass_g", 700),
+         ("state", {"zone": "rear_cabin"})], room)
 
     _mk("flight manual", ["manual", "book", "handbook"],
-        [("sim_id", "manual"), ("materials", ["paper"]), ("mass_g", 300)], room)
+        [("sim_id", "manual"), ("materials", ["paper"]), ("mass_g", 300),
+         ("state", {"zone": "cockpit"})], room)
 
     _mk("canteen of water", ["canteen", "flask"],
         [("sim_id", "canteen"), ("materials", ["water"]), ("mass_g", 600),
-         ("state", {"ident": "half-full"})], room)
+         ("state", {"zone": "rear_cabin", "ident": "half-full"})], room)
 
     _mk("jerry can", ["can", "jerrycan"],
-        [("sim_id", "jerrycan"), ("materials", ["fuel"]), ("mass_g", 3000)], room)
+        [("sim_id", "jerrycan"), ("materials", ["fuel"]), ("mass_g", 3000),
+         ("state", {"zone": "outside_tail"})], room)
 
     _mk("flight jacket", ["jacket", "coat"],
-        [("sim_id", "jacket"), ("materials", ["leather"]), ("mass_g", 1200)], room)
+        [("sim_id", "jacket"), ("materials", ["leather"]), ("mass_g", 1200),
+         ("state", {"zone": "mid_cabin"})], room)
 
     _mk("chocolate bar", ["chocolate", "bar", "ration"],
-        [("sim_id", "chocolate"), ("materials", ["chocolate"]), ("mass_g", 100)], room)
+        [("sim_id", "chocolate"), ("materials", ["chocolate"]), ("mass_g", 100),
+         ("state", {"zone": "mid_cabin"})], room)
 
     return room

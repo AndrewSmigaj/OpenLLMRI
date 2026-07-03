@@ -14,7 +14,7 @@ ARTICLES = frozenset({"the", "a", "an", "some", "my", "your", "that", "this"})
 RELATIONS = {
     "off": "off", "from": "off",
     "on": "on", "onto": "on",
-    "to": "to",
+    "to": "to", "toward": "to", "towards": "to",
     "against": "against",
     "between": "between",
     "into": "into", "in": "into",

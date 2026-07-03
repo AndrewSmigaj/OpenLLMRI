@@ -67,8 +67,10 @@ def _split_on(words, keywords):
 
 
 def _split_relation(words):
+    # A relation may be the FIRST token ("go to the cockpit" → X=None, relation, Y=dest) — the
+    # split is strictly information-preserving: pre-P3 such inputs lost the destination entirely.
     for i, w in enumerate(words):
-        if i > 0 and w in RELATIONS:
+        if w in RELATIONS:
             return words[:i], RELATIONS[w], words[i + 1:]
     return words, None, []
 
