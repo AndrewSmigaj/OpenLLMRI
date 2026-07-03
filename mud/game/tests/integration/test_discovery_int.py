@@ -98,6 +98,27 @@ class TestDiscovery(EvenniaTest):
         said = self._do("go to the cockpit", "take the pilot")
         assert "dead weight" in said
 
+    def test_the_wear_loop_and_the_warmth_band(self):
+        said = self._do("go to the rear cabin", "wear the blanket")   # straight off the floor
+        assert "you pull on the wool blanket" in said
+        said = self._do("inventory")
+        assert "wearing: wool blanket" in said
+        said = self._do("go to the mid cabin", "search the duffel", "take the socks",
+                        "wear the socks", "examine me")
+        assert "wool blanket" in said and "wool socks" in said
+        assert "you are" in said                       # the warmth band line
+        look_me = self._do("look at me")
+        exam_me = self._do("examine me")
+        assert look_me == exam_me, "look at me ≡ examine me, byte for byte"
+        said = self._do("drop the blanket")
+        assert "take it off first" in said
+        said = self._do("take off the blanket")
+        assert "you take off the wool blanket" in said
+
+    def test_the_pilot_wears_his_jacket_visibly(self):
+        said = self._do("go to the cockpit", "examine the pilot")
+        assert "wears" in said and "flight jacket" in said, "the worn layer IS the frisk clue"
+
     def test_put_it_back(self):
         self._do("search the duffel", "take the socks")
         assert self._carried("socks")

@@ -42,9 +42,10 @@ class CharacterCmdSet(default_cmds.CharacterCmdSet):
         # above) replaced stock CmdGet at add-time, and adding a get-aliased command AFTER it
         # would delete the ENTIRE taught set (Evennia de-dupes by key/alias INTERSECTION — the
         # matchset trap; see containment.md).
-        from commands.cmd_items import CmdDrop, CmdLook
+        from commands.cmd_items import CmdDrop, CmdInventory, CmdLook
         self.add(CmdDrop())
         self.add(CmdLook())
+        self.add(CmdInventory())     # DR-25: carried/worn split + the warmth band
         # Whiteout: zone-aware speech — say/whisper/call/shout as SPEECH events through the
         # band-routing propagator (DR-13a, §15); replaces the stock room-wide say.
         from commands.cmd_speech import CmdSpeak

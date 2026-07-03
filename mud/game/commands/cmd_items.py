@@ -13,7 +13,9 @@ could in principle desync the re-issue index — no Whiteout content uses search
 """
 from __future__ import annotations
 
-from evennia.commands.default.general import CmdDrop as DefaultCmdDrop, CmdLook as DefaultCmdLook
+from evennia.commands.default.general import (CmdDrop as DefaultCmdDrop,
+                                              CmdInventory as DefaultCmdInventory,
+                                              CmdLook as DefaultCmdLook)
 
 from commands import cmd_act  # shared pending-menu map; import direction: cmd_items -> cmd_act only
 
@@ -87,6 +89,32 @@ class CmdDrop(DefaultCmdDrop):
         if _menu_if_multimatch(self, "inv"):
             return
         super().func()
+
+
+class CmdInventory(DefaultCmdInventory):
+    __doc__ = DefaultCmdInventory.__doc__
+
+    def func(self):
+        """DR-25: carried and worn split, plus the warmth band."""
+        caller = self.caller
+        items = list(caller.contents)
+        if not items:
+            caller.msg("You are not carrying anything.")
+            return
+        from typeclasses.worldview import to_entity_state
+        from world.scenarios.whiteout import content
+        from world.sim.systems import warmth
+        worn_objs = [o for o in items if (o.db.state or {}).get("worn_by")]
+        carried = sorted(o.key for o in items if o not in worn_objs)
+        lines = []
+        if carried:
+            lines.append("You are carrying: " + ", ".join(carried) + ".")
+        if worn_objs:
+            lines.append("Wearing: " + ", ".join(sorted(o.key for o in worn_objs)) + ".")
+        worn_ents = [to_entity_state(o) for o in worn_objs]
+        band = warmth.warmth_band(warmth.clothing_warmth(worn_ents, content.MATERIALS))
+        lines.append(f"You are {band}.")
+        caller.msg("\n".join(lines))
 
 
 class CmdLook(DefaultCmdLook):

@@ -19,5 +19,10 @@ def resolve_examine(attempt, world, materials, detail: str = "full"):
     ent, _ = resolve_ref(attempt.X, world)
     if ent is None:
         return None
-    return ActionResult(Resolution.SUCCESS, narration=presentation.describe(ent),
-                        tier="op:examine")
+    line = presentation.describe(ent)
+    if attempt.X is not None and attempt.X.entity_id == attempt.actor:
+        from world.sim.systems import warmth                     # DR-25: the self-view
+        worn = [e for e in (world.get(i) for i in world.reachable(attempt.actor))
+                if e is not None and (e.state or {}).get("worn_by") == attempt.actor]
+        line = f"{line} {warmth.worn_summary(worn, materials)}"
+    return ActionResult(Resolution.SUCCESS, narration=line, tier="op:examine")

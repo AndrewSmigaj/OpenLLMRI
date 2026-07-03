@@ -108,6 +108,13 @@ RESPONSES = {
     "pry.open": "You get {tool} into the seam and heave; the {target} gives with a shriek and "
                 "hangs open.",
     "pour.sealed": "The {target} is capped tight. Open it first.",
+    # wear (DR-25) ----------------------------------------------------------------
+    "wear.wear": "You pull on the {target}.",
+    "wear.shed": "You take off the {target}.",
+    "wear.already": "You're already wearing the {target}.",
+    "wear.not_worn": "You're not wearing the {target}.",
+    "wear.worn_other": "The {target} is on somebody else's back.",
+    "wear.unwearable": "The {target} won't wear — it doesn't bend around a body.",
     # reach (DR-13a: the §17 too-far answers) ------------------------------------
     "reach.too_far": "You can see the {target} {direction}, but it is too far away to {verb} from "
                      "here.",

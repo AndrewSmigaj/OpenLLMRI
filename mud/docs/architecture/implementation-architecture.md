@@ -97,6 +97,7 @@ physics literature). All raised confidence; none reversed a decision (overall �
 | DR-22 | Vertical slice | **co-op** in one shared room + a basic running clock, the §22 subset; built behind seams (propagator, WorldView, logical clock, run-tag); defer perception zones / full scheduler / instances / interdependence |
 | DR-23 | Presentation | scene-as-prose `look` (salience weights what is VISIBLE — amended by DR-24); `look at X` ≡ `examine X` via ONE pure renderer (`presentation.py`); appearance is state-conditioned scenario content; attachments render physically (DR-09a hint phrases), never as data — full spec: [`presentation.md`](presentation.md) |
 | DR-24 | Containment & discovery | loot lives INSIDE things (Evennia nesting = honest hiding); ONE reveal rule (`open` OR `searched`, recursive through revealed); deterministic finds; `TRANSFER` effect (additive) relocates via hook-free `move_to`; taught `take/get` owns acquisition — full spec: [`containment.md`](containment.md) |
+| DR-25 | Clothing & warmth | wearability DERIVED from materials (never a whitelist); worn = `state["worn_by"]`, stays in inventory; warmth = Σ round(insulation × capped mass) in insulation-grams (intensive×extensive, not ordinal-summing) → banded words on `inventory`/self-examine; unlimited linear layering v1 — full spec: [`clothing-warmth.md`](clothing-warmth.md) |
 
 ---
 
