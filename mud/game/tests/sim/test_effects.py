@@ -25,3 +25,10 @@ def test_consume_move_owner():
     assert effects.consume("rag", 50).args["mass_g"] == 50
     assert effects.move_zone("char", "north").kind == EffectKind.MOVE_ZONE
     assert effects.set_owner("knife", None).args["owner"] is None
+
+
+def test_transfer_effect_shape():
+    from world.sim.contracts import EffectKind
+    from world.sim.effects import transfer
+    e = transfer("socks", "p1")
+    assert e.kind == EffectKind.TRANSFER and e.target_id == "socks" and e.args == {"dest": "p1"}

@@ -35,6 +35,33 @@ def test_zone_alias_matches():
     assert a.Y[0].entity_id == "zone:cockpit"
 
 
+# --- containment parsing (DR-24/DR-25) ----------------------------------------
+
+DUFFEL = Reachable(id="duffel", name="duffel bag", aliases=("duffel", "bag"))
+SOCKS = Reachable(id="socks", name="wool socks", aliases=("socks",))
+JACKET = Reachable(id="jacket", name="flight jacket", aliases=("jacket",))
+
+
+def test_from_container_falls_back_to_entity_keeping_relation():
+    # 'socks' is not a PART of the duffel — the fold falls back to the entity, container kept in Y
+    # (verb-agnostic parser behavior; 'cut' stands in until the take op lands)
+    a = parse("cut the socks from the duffel", VERB_TO_OP, REACH + [DUFFEL, SOCKS])
+    assert isinstance(a, ActionAttempt)
+    assert a.X.entity_id == "socks" and a.relation == "off" and a.Y[0].entity_id == "duffel"
+
+
+def test_bare_verb_off_noun_keeps_y():
+    a = parse("tear off the jacket", VERB_TO_OP, REACH + [JACKET])
+    assert isinstance(a, ActionAttempt)
+    assert a.X is None and a.relation == "off" and a.Y[0].entity_id == "jacket"
+
+
+def test_part_fold_shape_is_unchanged():
+    a = parse("cut the cover off the seat with the multitool", VERB_TO_OP, REACH)
+    assert a.X.entity_id == "seat" and a.X.part_id == "cover"
+    assert a.relation is None and a.Y is None      # the D6 fold keeps its pre-DR-24 shape
+
+
 def _p(text, reach=REACH):
     return parse(text, VERB_TO_OP, reach)
 

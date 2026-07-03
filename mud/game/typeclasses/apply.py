@@ -102,6 +102,12 @@ def _apply_one(e, world, touched):
         obj = world.obj(e.target_id)
         obj.db.owner = e.args.get("owner")
         touched.append(obj)
+    elif k == EffectKind.TRANSFER:                # DR-24: relocate into a container/carrier
+        obj = world.obj(e.target_id)
+        dest = world.obj(e.args.get("dest"))
+        if obj is None or dest is None:
+            raise LedgerError(f"transfer: unknown object ({e.target_id!r} -> {e.args.get('dest')!r})")
+        obj.move_to(dest, quiet=True, move_hooks=False)   # hook-free; containment IS the state
     elif k == EffectKind.MOVE_ZONE:               # DR-13a (was a silent no-op before P3)
         obj = world.obj(e.target_id)
         st = dict(obj.db.state or {})

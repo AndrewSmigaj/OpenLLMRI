@@ -56,8 +56,11 @@ sentences from per-object **scene phrases**:
   by state — e.g. the wire: unbent *"a coil of copper wire glints under the frost near the radio
   rack"*; bent *"a bent length of copper wire lies where someone worked it"*. Selection is a pure
   function of `EntityState` (sim side); composition happens in the shell override.
-- **Salience = weighting, not hiding.** Everything present is mentioned (MUD navigability — you
-  can always find what to type), but salience decides *order and prominence*:
+- **Salience weights what is VISIBLE.** *(AMENDED 2026-07-03 by Andrew — DR-24 supersedes the
+  original "weighting, never hiding" default: contents of unrevealed containers are honestly
+  absent from the scene, the parser and the pool; `open`/`search`/`dig` earn them. See
+  [`containment.md`](containment.md).)* Among the things that ARE visible, salience decides
+  *order and prominence*:
   - **prominent** — leads the prose with its own sentence (the pilot, a lit fire, the radio).
   - **ordinary** — grouped into shared clauses: *"Scattered around the cabin: a whisky bottle, a
     flight manual, a wool blanket."* (grouping still reads like a scene, not a menu — no "You

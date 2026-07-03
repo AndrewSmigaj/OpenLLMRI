@@ -243,6 +243,7 @@ class EffectKind(str, Enum):
     CONSUME = "consume"
     MOVE_ZONE = "move_zone"
     SET_OWNER = "set_owner"
+    TRANSFER = "transfer"    # (contract change, DR-24 — ADDITIVE) relocate into a container/carrier
 
 
 @dataclass(frozen=True)

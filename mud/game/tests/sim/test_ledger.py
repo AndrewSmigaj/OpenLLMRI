@@ -91,3 +91,21 @@ def test_burn_handler_output_balances():
                                         tool=NounRef("lighter")), w, MATS)
     v = check(w, list(r.effects))
     assert v.ok and v.sink_delta["mass_g"] == 40 - int(40 * 0.15)   # 34 to the sink
+
+
+def test_transfer_is_massless():
+    # DR-24: relocation moves matter, it never creates or destroys it
+    from world.sim import effects
+    from world.sim.conservation.ledger import check
+
+    class W:
+        def get(self, i):
+            return None
+        def reachable(self, a):
+            return []
+        def in_zone(self, z):
+            return []
+        seed_state = 0
+
+    v = check(W(), [effects.transfer("socks", "p1")])
+    assert v.ok and v.sink_delta.get("mass_g", 0) == 0

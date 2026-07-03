@@ -37,12 +37,30 @@ def _parts(obj):
             for p in (obj.db.parts or [])]
 
 
+def _revealed(obj) -> bool:
+    """DR-24: a container's contents enter the world only once it is open or searched."""
+    st = obj.db.state or {}
+    return bool(st.get("open") or st.get("searched"))
+
+
 def to_entity_state(obj) -> EntityState:
+    state = dict(obj.db.state or {})
+    # DR-24 marshals (derived, never Effect targets): the physical parent, revealed contents, worn
+    loc = getattr(obj, "location", None)
+    if loc is not None and getattr(loc, "location", None) is not None:      # inside something
+        state["in"] = loc.db.sim_id or loc.key
+    kids = list(getattr(obj, "contents", ()) or ())
+    if kids:
+        state["contents"] = sorted(k.key for k in kids
+                                   if not (k.db.state or {}).get("worn_by"))
+        worn = sorted(k.key for k in kids if (k.db.state or {}).get("worn_by"))
+        if worn:
+            state["worn"] = worn
     return EntityState(
         id=obj.db.sim_id or obj.key, name=obj.key,
         materials=list(obj.db.materials or []), parts=_parts(obj),
         tags=[t for t in obj.tags.all() if t], mass_g=int(obj.db.mass_g or 0),
-        state=dict(obj.db.state or {}), provenance=list(obj.db.provenance or []), owner=obj.db.owner)
+        state=state, provenance=list(obj.db.provenance or []), owner=obj.db.owner)
 
 
 def to_reachable(obj) -> Reachable:
@@ -65,8 +83,20 @@ class EvenniaWorldView:
         pool = list(room.contents) if room else []
         if actor is not None:
             pool += list(actor.contents)          # the actor's inventory is reachable too
-        for obj in pool:
-            self._by_sim[obj.db.sim_id or obj.key] = obj
+        # DR-24 walk: descend into revealed containers (recursively through revealed only), the
+        # actor's own things, and worn layers (a worn jacket is visible on its wearer).
+        seen = set()
+        while pool:
+            obj = pool.pop(0)
+            key = obj.db.sim_id or obj.key
+            if key in seen:
+                continue
+            seen.add(key)
+            self._by_sim[key] = obj
+            if obj is actor or _revealed(obj):
+                pool.extend(obj.contents)
+            else:
+                pool.extend(k for k in obj.contents if (k.db.state or {}).get("worn_by"))
 
     def _zone_of_sim(self, sim_id):
         obj = self._by_sim.get(sim_id)
@@ -106,14 +136,22 @@ class EvenniaWorldView:
         return [sid for sid, o in self._by_sim.items() if zone_of(o, self.room) == zone]
 
     def reachables(self):
-        """The parser's matching set: perception-VISIBLE entities + zone pseudo-nouns (DR-13a)."""
+        """The parser's matching set: perception-VISIBLE entities + zone pseudo-nouns (DR-13a);
+        contents of unrevealed containers never reach it (DR-24 — the pool walk already hid them)."""
         if not self._zoned:
-            return [to_reachable(o) for o in self._by_sim.values()]
+            return [self._as_reachable(o) for o in self._by_sim.values()]
         out = []
         for o in self._by_sim.values():
-            if self._carried(o) or perception.perceive(
+            if o is self.actor or self._carried(o) or perception.perceive(
                     self.actor_zone, zone_of(o, self.room)).visible:
-                out.append(to_reachable(o))
+                out.append(self._as_reachable(o))
         for zid, z in sorted(zonemap.all_zones().items()):
             out.append(Reachable(id=f"zone:{zid}", name=z.name, aliases=z.aliases))
         return out
+
+    def _as_reachable(self, o):
+        r = to_reachable(o)
+        if o is self.actor:                        # "examine me" (DR-25 self-view)
+            return Reachable(id=r.id, name=r.name, aliases=r.aliases + ("me", "self", "myself"),
+                             ident=r.ident, parts=r.parts)
+        return r

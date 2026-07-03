@@ -57,7 +57,7 @@ def check(pre, effects) -> LedgerVerdict:
                 added += delta
             else:
                 removed += -delta
-        # MOVE_ZONE, SET_OWNER, and non-mass SET/ADJUST: no mass change.
+        # MOVE_ZONE, SET_OWNER, TRANSFER, and non-mass SET/ADJUST: no mass change.
 
     if added > removed:
         return LedgerVerdict(False, f"mass created from nothing: +{added}g added vs {removed}g removed")

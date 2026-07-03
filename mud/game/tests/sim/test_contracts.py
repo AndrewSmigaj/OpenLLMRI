@@ -49,6 +49,8 @@ def test_contract_surface_present():
                       "barely_visible", "audible_only", "out_of_sight"], "the §14 ladder, in order"
     r = PerceptionResult(band=PerceptionBand.SAME_ZONE, visible=True, audible=True, reachable=True)
     assert r.direction_phrase == "" and r.distance_m == 0.0        # additive defaults hold
+    # the containment surface (DR-24, ADDITIVE)
+    assert EffectKind.TRANSFER.value == "transfer"
 
 
 def test_interrupt_signals_subset_of_event_kinds():

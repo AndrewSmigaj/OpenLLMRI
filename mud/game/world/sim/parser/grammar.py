@@ -39,6 +39,18 @@ def parse(text, vocab, reachable, bindings=None):
         return y_ref
     owner_hint = y_ref.entity_id if (relation == "off" and isinstance(y_ref, NounRef)) else None
     x_ref = _resolve(x_words, reachable, owner_hint=owner_hint, bindings=bindings)
+    if x_ref is None and owner_hint is not None:
+        # DR-24: not a PART of the owner — maybe a thing INSIDE it ("take socks from duffel").
+        # Strictly additive: pre-P3 this input lost X entirely; keep the container in Y.
+        x_ref = _resolve(x_words, reachable, bindings=bindings)
+        if isinstance(x_ref, Disambiguation):
+            return x_ref
+        X = x_ref if isinstance(x_ref, NounRef) else None
+        Z0 = _resolve(tool_words, reachable, bindings=bindings)
+        if isinstance(Z0, Disambiguation):
+            return Z0
+        return ActionAttempt(actor="", verb=verb, X=X, relation="off", Y=(y_ref,),
+                             tool=Z0 if isinstance(Z0, NounRef) else None, raw=raw)
     if isinstance(x_ref, Disambiguation):
         return x_ref
     tool_ref = _resolve(tool_words, reachable, bindings=bindings)
@@ -48,6 +60,10 @@ def parse(text, vocab, reachable, bindings=None):
     X = x_ref if isinstance(x_ref, NounRef) else None
     Z = tool_ref if isinstance(tool_ref, NounRef) else None
     if relation == "off":                       # 'off'/'from' fold Y into X as the part's owner (D6)
+        if X is None and isinstance(y_ref, NounRef):
+            # DR-25: bare "take off jacket" — nothing bound as X, keep the noun in Y
+            return ActionAttempt(actor="", verb=verb, X=None, relation="off", Y=(y_ref,),
+                                 tool=Z, raw=raw)
         return ActionAttempt(actor="", verb=verb, X=X, relation=None, Y=None, tool=Z, raw=raw)
     Y = (y_ref,) if isinstance(y_ref, NounRef) else None
     return ActionAttempt(actor="", verb=verb, X=X, relation=(relation if Y else None), Y=Y, tool=Z, raw=raw)

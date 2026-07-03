@@ -38,6 +38,12 @@ def create_object(template: str, sim_id: str, args: "dict | None" = None) -> Eff
     return Effect(EffectKind.CREATE_OBJECT, sim_id, {"template": template, **(args or {})})
 
 
+def transfer(target_id: str, dest_id: str) -> Effect:
+    """Relocate an entity into a container or carrier (DR-24). Massless — the thing moves, nothing
+    is created or destroyed; containment/carry state derives from the new physical location."""
+    return Effect(EffectKind.TRANSFER, target_id, {"dest": dest_id})
+
+
 def remove_part(target_id: str, part_id: str) -> Effect:
     """Remove a part from a composite object (its mass must be balanced by a paired CREATE_OBJECT/
     CONSUME in the same apply())."""
