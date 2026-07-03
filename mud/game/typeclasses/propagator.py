@@ -70,8 +70,33 @@ def _render(ev, actor) -> str:
     return f"{who} does something."
 
 
+_WORD_BANDS = {  # §15: how far each voice mode carries actual WORDS (beyond: a blurred voice)
+    "whisper": {PerceptionBand.SAME_ZONE},
+    "say": {PerceptionBand.SAME_ZONE, PerceptionBand.ADJACENT_ZONE},
+    "call": {PerceptionBand.SAME_ZONE, PerceptionBand.ADJACENT_ZONE, PerceptionBand.NEAR_VISIBLE},
+    "shout": {PerceptionBand.SAME_ZONE, PerceptionBand.ADJACENT_ZONE,
+              PerceptionBand.NEAR_VISIBLE, PerceptionBand.DISTANT_VISIBLE},
+}
+
+
+def _render_speech(ev, actor, res) -> "str | None":
+    who = getattr(actor, "key", "someone")
+    mode = (ev.data or {}).get("mode", "say")
+    text = (ev.data or {}).get("text", "")
+    where = res.direction_phrase or "nearby"
+    if res.band is PerceptionBand.SAME_ZONE:
+        return f'{who} {mode}s, "{text}"'
+    if res.audible and res.band in _WORD_BANDS.get(mode, ()):
+        return f'{where[0].upper()}{where[1:]}, {who} {mode}s, "{text}"'
+    if res.audible:
+        return f"A voice carries from somewhere {where}, but the words blur in the wind."
+    return None
+
+
 def _render_band(ev, actor, res) -> "str | None":
     """The §14 graded ladder. Templates `perceive.<band>` may override the fallbacks."""
+    if ev.kind == EventKind.SPEECH:
+        return _render_speech(ev, actor, res)
     band = res.band
     if band is PerceptionBand.OUT_OF_SIGHT:
         return None

@@ -15,6 +15,11 @@ Now item at a time**; deferred-but-designed items are two-line stubs linking to 
 - **Presentation v1 SHIPPED** (2026-07-03, DR-23 — [`docs/architecture/presentation.md`](docs/architecture/presentation.md)):
   scene-as-prose `look`, salience weighting, unified look-at/examine renderer, full appearance
   content for the crash cabin (Andrew tunes the voice in `appearance.py`). **v2 leftovers → Later.**
+- **P3 zones/perception SHIPPED** (2026-07-03, DR-13a, pulled ahead of P2 —
+  [`docs/architecture/perception-model.md`](docs/architecture/perception-model.md)): the 7-zone
+  crash site (`zones.py` content — Andrew tunes geography + survey prose), go/approach movement,
+  the §14 fading look, band-routed events, the §17 reach gate, zone-aware say/whisper/call/shout.
+  **Building out the plane is now authored zone content**, not plumbing.
 - **Mudlet integration write-up** — the research pass is done (findings gathered); writing them up into
   [`docs/client/mudlet-research.md`](docs/client/mudlet-research.md) (currently a skeleton) + a brainstorm
   doc with a proposed Whiteout Mudlet setup are pending.
@@ -27,7 +32,9 @@ Now item at a time**; deferred-but-designed items are two-line stubs linking to 
 - **Colors** — subtle greys for "different" + reserved special-state colors (blood, fire); try it and get
   friends' feedback.
 - **Build-time authoring pipeline** — draft the appearance/content library, validate, and bake.
-- **Multi-zone perception** — the overlapping-zones / perception-bands system (roadmap P3).
+- **Perception polish (post-P3)** — `look <direction>` / `scan`; targeted `whisper <player> =`;
+  move durations + auto-pathing (P4, the `duration_minutes` seam is plumbed); planar-distance
+  banding + finer occlusion; real weather banding (P7 — the `weather=` parameter is the seam).
 - **A shippable Mudlet client package** — mapper feed, GUI gauges, auto-install.
 - **Fragment affordances** — minted fragments carry no tool capabilities: a glass shard has no `edge`
   state (`_shatter` sets only material/mass/provenance), so "cut X with shard" counts as bare hands;

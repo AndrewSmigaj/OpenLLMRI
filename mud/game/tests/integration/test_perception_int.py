@@ -146,3 +146,23 @@ class TestPerceptionExitGates(TestMovement):
             self.char1.execute_cmd("look at the radio")  # cockpit, adjacent — visible, unreachable
         said = self._said(m)
         assert "too far away to inspect" in said and "to the south" in said
+
+    def test_speech_carries_by_mode_and_zone(self):
+        self.char2.location = self.scene
+        with mock.patch.object(self.char2, "msg"):
+            self.char2.execute_cmd("go to the rear cabin")
+        with mock.patch.object(self.char2, "msg") as m:      # say: words carry one zone, framed
+            self.char1.execute_cmd("say I need dry shavings")
+        said = self._said(m)
+        assert 'says, "i need dry shavings"' in said and "to the south" in said
+
+        with mock.patch.object(self.char2, "msg"):
+            self.char2.execute_cmd("go to the breach")
+            self.char2.execute_cmd("go to the treeline")
+        with mock.patch.object(self.char2, "msg") as m2:     # a say dies over three zones
+            self.char1.execute_cmd("say anyone there")
+        assert "anyone there" not in self._said(m2)
+        with mock.patch.object(self.char2, "msg") as m3:     # a shout carries its words that far
+            self.char1.execute_cmd("shout bring the webbing")
+        said3 = self._said(m3)
+        assert 'shouts, "bring the webbing"' in said3 and "to the south" in said3

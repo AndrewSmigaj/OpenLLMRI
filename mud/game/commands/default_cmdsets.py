@@ -43,6 +43,10 @@ class CharacterCmdSet(default_cmds.CharacterCmdSet):
         self.add(CmdGet())
         self.add(CmdDrop())
         self.add(CmdLook())
+        # Whiteout: zone-aware speech — say/whisper/call/shout as SPEECH events through the
+        # band-routing propagator (DR-13a, §15); replaces the stock room-wide say.
+        from commands.cmd_speech import CmdSpeak
+        self.add(CmdSpeak())
 
 
 class AccountCmdSet(default_cmds.AccountCmdSet):
