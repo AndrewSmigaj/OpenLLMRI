@@ -57,6 +57,13 @@ def test_unknown_object_still_renders_via_fallback():
     assert "unmarked crate" in scene
 
 
+def test_fallback_never_double_articles_determined_names():
+    # regression (2026-07-03): an empty-registry login rendered "a the pilot"
+    body = _ent("x1", "the pilot", materials=("flesh",))
+    scene = presentation.compose_scene([body])
+    assert "a the pilot" not in scene and "the pilot" in scene
+
+
 def test_describe_weaves_parts_with_names_and_physical_attachments():
     seat = _ent("seat", "aircraft seat", state={"ident": "11B"},
                 parts=[Part("cover", "synthetic_fabric", 200, "stitched", ("loose_fabric",)),

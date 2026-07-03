@@ -48,7 +48,10 @@ def _salience(entry, state):
 
 
 def _article(phrase: str) -> str:
-    if phrase[:1].lower() in "aeiou":
+    low = phrase.lower()
+    if low.startswith(("the ", "a ", "an ", "some ")):
+        return phrase                     # already determined ("the pilot") — never "a the pilot"
+    if low[:1] in "aeiou":
         return f"an {phrase}"
     return f"a {phrase}"
 

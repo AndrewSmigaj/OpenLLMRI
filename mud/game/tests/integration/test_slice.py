@@ -137,6 +137,17 @@ class TestSlice(EvenniaTest):
         assert "wrenched sideways" in said, "the seat's authored scene phrase should carry the room"
         assert "multitool" in said, "everything present is still mentioned (weighting, not hiding)"
 
+    def test_server_start_loads_the_content_registries(self):
+        # regression (2026-07-03): the login auto-look fired before any command import on a fresh
+        # server, so the appearance registry was empty and look degraded to bare fallbacks.
+        from world.sim import narrator, presentation
+        narrator.load_responses({})
+        presentation.load_appearance({})
+        from server.conf.at_server_startstop import at_server_start
+        at_server_start()
+        assert presentation._APPEARANCE, "at_server_start must load the appearance registry"
+        assert narrator.get("cut.too_dull"), "at_server_start must load the narration templates"
+
     def test_look_at_equals_examine(self):
         with mock.patch.object(self.char1, "msg") as m1:
             self.char1.execute_cmd("look at seat")
