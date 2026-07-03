@@ -100,7 +100,11 @@ APPEARANCE = {
         "salience": "ordinary",
         "scene": [(None, "a flight manual splayed face-down")],
         "examine": [(None, "Three hundred pages of procedures nobody will fly again. Thin, dry "
-                           "paper.")],
+                           "paper. Something is pencilled inside the cover.")],
+        "read": [(None, "Checklists, frequencies, weight tables. The emergency section is "
+                        "dog-eared: signal fires burn better wet-green over a hot core; keep "
+                        "casualties off the ground. Pencilled inside the cover, underlined "
+                        "twice: 'GUARD — 121.5'.")],
     },
     "ice": {
         "salience": "ordinary",
@@ -147,6 +151,110 @@ APPEARANCE = {
         "scene": [(None, "a chocolate bar in a torn wrapper")],
         "examine": [(None, "A travel chocolate bar, frozen board-hard. Calories, whenever you're "
                            "willing to spend them.")],
+    },
+
+    # --- containers & fixtures (DR-24: the scene shows THESE; loot hides inside) ---
+    "bin_fwd": {
+        "salience": "ordinary", "order": 15,
+        "scene": [
+            ({"open": True}, "the forward overhead bin hanging open"),
+            (None, "the forward overhead bin, latched shut"),
+        ],
+        "examine": [
+            ({"open": True}, "The bin hangs on its hinge, latch sprung."),
+            (None, "An overhead stowage bin, still latched. The latch looks willing."),
+        ],
+    },
+    "bin_aft": {
+        "salience": "ordinary", "order": 15,
+        "scene": [
+            ({"open": True}, "the aft overhead bin wrenched open"),
+            (None, "the aft overhead bin, buckled shut in its track"),
+        ],
+        "examine": [
+            ({"open": True}, "Levered open, lip bent where something forced it."),
+            (None, "The impact buckled this bin in its track — the latch turns, but the lid "
+                   "won't lift. A seam runs along the lip."),
+        ],
+    },
+    "panel": {
+        "salience": "ordinary", "order": 25,
+        "scene": [
+            ({"open": True}, "the avionics panel hanging off its screws"),
+            (None, "an avionics panel, crumpled at one corner"),
+        ],
+        "examine": [
+            ({"open": True}, "The panel hangs loose, a nest of dead circuits behind it."),
+            (None, "A crumpled aluminium access panel below the radio cradle. One corner has "
+                   "lifted, just enough to see darkness behind it."),
+        ],
+    },
+    "duffel": {
+        "salience": "ordinary", "order": 20,
+        "scene": [(None, "a duffel bag burst half-open in the aisle")],
+        "examine": [(None, "Somebody's weekend bag, seam split by the impact. Worth going "
+                           "through.")],
+    },
+    "backpack": {
+        "salience": "ordinary",
+        "scene": [(None, "a scuffed backpack")],
+        "examine": [(None, "A day-hiker's pack, straps still cinched. It has weight to it.")],
+    },
+    "firstaid": {
+        "salience": "ordinary",
+        "scene": [(None, "a first-aid kit")],
+        "examine": [
+            ({"open": True}, "The kit lies open, its clips sprung."),
+            (None, "A white clamshell case, red cross scuffed nearly off. Clipped shut."),
+        ],
+    },
+    "seatpocket": {
+        "salience": "subtle",
+        "scene": [(None, "a seatback pocket")],
+        "examine": [(None, "The elastic-topped pocket on the seatback, stretched out of shape.")],
+    },
+    "masks": {
+        "salience": "ordinary", "order": 40,
+        "scene": [(None, "oxygen masks dangling from the sprung ceiling panel")],
+        "examine": [(None, "Yellow cups on rubber tubing, swaying when the wind finds the "
+                           "cabin. The tubing is tied into the drop unit; the cups just clip.")],
+    },
+    "spruce": {
+        "salience": "prominent", "order": 45,
+        "scene": [(None, "The first spruce stands close enough to touch, boughs bent white.")],
+        "examine": [(None, "A young spruce, snow-loaded. A low branch hangs within easy reach; "
+                           "a thicker bough above it would take real cutting.")],
+    },
+    "deadfall branch": {
+        "salience": "ordinary",
+        "aggregate": "Deadfall lies about — {count} good branches under the snow crust",
+        "scene": [(None, "a deadfall branch")],
+        "examine": [(None, "A wind-snapped branch, dry under the bark. Honest firewood.")],
+    },
+    "gloves": {
+        "salience": "ordinary",
+        "scene": [(None, "a pair of leather gloves")],
+        "examine": [(None, "Lined leather work gloves, stiff with cold and worth their weight.")],
+    },
+    "socks": {
+        "salience": "subtle",
+        "scene": [(None, "a pair of wool socks")],
+        "examine": [(None, "Thick wool socks, blessedly dry.")],
+    },
+    "shirt": {
+        "salience": "subtle",
+        "scene": [(None, "a spare shirt")],
+        "examine": [(None, "A cotton shirt, creased from the pack.")],
+    },
+    "bandage": {
+        "salience": "subtle",
+        "scene": [(None, "a bandage roll")],
+        "examine": [(None, "A rolled cotton bandage, still in its paper band.")],
+    },
+    "tape": {
+        "salience": "subtle",
+        "scene": [(None, "a roll of medical tape")],
+        "examine": [(None, "Medical tape. Sticks to anything, including gloves.")],
     },
 
     # --- derived objects (keyed by display NAME; identical deriveds share one entry) ---

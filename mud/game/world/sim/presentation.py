@@ -136,33 +136,39 @@ def _graded_groups(away) -> list:
         where = dphrase or "nearby"
         if band_ix == 0:      # clear (not detailed): noun phrases — a zone away, prominent things
             items = []        # lose their vivid sentence phrasing (§14: detail is a SAME_ZONE gift)
-            for e in ents:
-                entry = _entry(e) or {}
+            for name, group in _by_name(ents):
+                if len(group) > 1:
+                    items.append(f"{_count_word(len(group))} {name}s")
+                    continue
+                entry = _entry(group[0]) or {}
                 if entry.get("salience", "ordinary") == "prominent":
-                    items.append(_article(e.name))
+                    items.append(_article(name))
                 else:
-                    items.append(_pick(entry.get("scene"), e.state) or _article(e.name))
+                    items.append(_pick(entry.get("scene"), group[0].state) or _article(name))
             out.append(_sentence(f"{where[0].upper()}{where[1:]}: {', '.join(items)}"))
-        elif band_ix == 1:    # summarized: bare names
-            names = ", ".join(_dedup([e.name for e in ents]))
-            out.append(f"Farther {where.removeprefix('to the ')}, you can make out {names}.")
+        elif band_ix == 1:    # summarized: articled names, duplicates counted
+            items = [f"{_count_word(len(g))} {n}s" if len(g) > 1 else _article(n)
+                     for n, g in _by_name(ents)]
+            out.append(f"Farther {where.removeprefix('to the ')}, "
+                       f"you can make out {', '.join(items)}.")
         elif band_ix == 2:    # vague: count only
             n = len(ents)
-            out.append(f"Farther {where.removeprefix('to the ')}, "
-                       f"{_count_word(n) if n > 1 else 'something'} "
-                       f"{'shapes' if n > 1 else 'shape'} in the snow, hard to make out.")
+            if n > 1:
+                out.append(f"Farther {where.removeprefix('to the ')}, "
+                           f"{_count_word(n)} shapes in the snow, hard to make out.")
+            else:
+                out.append(f"Farther {where.removeprefix('to the ')}, "
+                           f"a shape in the snow, hard to make out.")
         else:                 # shape or motion
             out.append(f"Something — maybe more — {where}, almost lost in the snow.")
     return out
 
 
-def _dedup(names) -> list:
-    seen, out = set(), []
-    for n in names:
-        if n not in seen:
-            seen.add(n)
-            out.append(n)
-    return out
+def _by_name(ents) -> list:
+    grouped = {}
+    for e in ents:
+        grouped.setdefault(e.name, []).append(e)
+    return sorted(grouped.items())
 
 
 def describe(ent) -> str:
@@ -187,11 +193,28 @@ def describe(ent) -> str:
     cond = _condition(ent)
     if cond:
         lines.append(cond)
+    st = ent.state or {}
+    worn = st.get("worn") or []
+    if worn:
+        lines.append(f"{ent.name[0].upper()}{ent.name[1:]} wears {_and_list(worn)}.")
+    if st.get("open") or st.get("searched"):       # DR-24: revealed contents weave in
+        inside = st.get("contents") or []
+        if inside:
+            lines.append(f"Inside: {_and_list(inside)}.")
+        elif st.get("container"):
+            lines.append("It's empty.")
     if ent.parts:
         woven = "; ".join(f"its {p.id} {attachment_phrase(p.attachment, 'hint')}"
                           for p in ent.parts)
         lines.append(f"You can make out {woven}.")
     return " ".join(lines)
+
+
+def _and_list(names) -> str:
+    items = [_article(n) for n in names]
+    if len(items) == 1:
+        return items[0]
+    return ", ".join(items[:-1]) + f" and {items[-1]}"
 
 
 def _condition(ent) -> str:

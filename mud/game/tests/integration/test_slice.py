@@ -225,13 +225,20 @@ class TestSlice(EvenniaTest):
         from world.scenarios.whiteout import build as scenario
         room = scenario.build()
         self.char1.location = room                   # unzoned char → default zone (mid cabin)
-        sims = {o.db.sim_id for o in room.contents}
+        sims, frontier = set(), list(room.contents)  # DR-24: most loot is NESTED — walk the tree
+        while frontier:
+            o = frontier.pop()
+            sims.add(o.db.sim_id)
+            frontier.extend(o.contents)
         assert {"seat", "multitool", "tinder", "lighter", "ice", "snowdrift", "bottle", "wire",
                 "paracord", "blanket", "manual", "canteen", "jerrycan", "jacket", "chocolate",
                 "pilot"} <= sims, "the enriched crash cabin should have loaded"
 
         with mock.patch.object(self.char1, "msg"):
-            self.char1.execute_cmd("get the lighter")            # mid cabin
+            self.char1.execute_cmd("go to the cockpit")          # DR-24: earn the lighter
+            self.char1.execute_cmd("frisk the pilot")
+            self.char1.execute_cmd("take the lighter")
+            self.char1.execute_cmd("go to the mid cabin")
             self.char1.execute_cmd("go to the rear cabin")
             self.char1.execute_cmd("break the bottle")           # rear cabin
             self.char1.execute_cmd("go to the breach")

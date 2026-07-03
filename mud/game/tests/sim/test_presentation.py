@@ -108,7 +108,7 @@ def test_banded_scene_fades_by_distance_and_drops_out_of_sight():
         {"seat": _pr(B.SAME_ZONE), "wire": _pr(B.NEAR_VISIBLE),
          "radio": _pr(B.DISTANT_VISIBLE, "to the south"), "ghost": _pr(B.OUT_OF_SIGHT)})
     assert "wrenched sideways" in scene, "same-zone keeps the full authored scene phrase"
-    assert "make out coil of copper wire" in scene and "north" in scene
+    assert "make out a coil of copper wire" in scene and "north" in scene
     assert "shape in the snow" in scene and "field radio" not in scene, "distant = vague, unnamed"
     assert "hidden thing" not in scene, "OUT_OF_SIGHT renders nothing"
 

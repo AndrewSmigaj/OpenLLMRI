@@ -9,7 +9,9 @@ from world.sim import narrator
 from world.sim.contracts import Material
 
 # Attachments a cutting tool can sever → cutting a part on one of these FREES it (D12).
-CUTTABLE_ATTACH = frozenset({"stitched", "sewn", "tied", "lashed", "cordage", "glued", "taped"})
+# "grown" (DR-24 content): a live branch on a tree — a blade takes it clean.
+CUTTABLE_ATTACH = frozenset({"stitched", "sewn", "tied", "lashed", "cordage", "glued", "taped",
+                             "grown"})
 # Attachments a prying tool can defeat → prying a part on one of these frees it.
 PRYABLE_ATTACH = frozenset({"bolted", "screwed", "wedged", "nailed", "clipped", "pinned"})
 
