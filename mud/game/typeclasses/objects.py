@@ -216,10 +216,24 @@ class Object(ObjectParent, DefaultObject):
 
     def return_appearance(self, looker, **kwargs):
         """DR-23 unified renderer: `look at X` shows exactly what `examine X` shows — the pure
-        `presentation.describe` over this object's marshalled EntityState (authored
-        state-conditioned prose; parts woven as physical sentences with their names intact)."""
-        from typeclasses.worldview import to_entity_state
-        from world.sim import presentation
+        `presentation.describe` over this object's marshalled EntityState. DR-13a: beyond the
+        looker's zone this is the §17 too-far answer instead (look at ≡ examine holds — the
+        taught-grammar path gets the same line from the resolver's reach gate)."""
+        from typeclasses.worldview import to_entity_state, zone_of
+        from world.sim import narrator, presentation
+        from world.sim.space import direction, perception, zones as zonemap
+        room = getattr(looker, "location", None)
+        if room is not None and room.db.default_zone and zonemap.loaded() \
+                and getattr(self, "location", None) is room:
+            lzone, ozone = zone_of(looker, room), zone_of(self, room)
+            if lzone and ozone and lzone != ozone:
+                res = perception.perceive(lzone, ozone)
+                if not res.visible:
+                    return "You don't see that here."
+                return narrator.narrate("reach.too_far",
+                                        {"target": self.key,
+                                         "direction": direction.phrase(lzone, ozone) or "some way off",
+                                         "verb": "inspect"})
         return presentation.describe(to_entity_state(self))
 
     def at_drop(self, dropper, **kwargs):

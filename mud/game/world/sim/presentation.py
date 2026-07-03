@@ -60,10 +60,25 @@ def _count_word(n: int) -> str:
     return _COUNT_WORDS.get(n, "several")
 
 
-def compose_scene(ents) -> str:
-    """The {things} slot of a room look: prominent sentences, then the ordinary and subtle groups
-    framed as prose. Identical names aggregate (an authored `aggregate` phrase, or a counted item).
-    Deterministic: sorted by (tier, authored order, name)."""
+def compose_scene(ents, perceived=None) -> str:
+    """The {things} slot of a room look. `perceived` (DR-13a, optional) maps entity id →
+    PerceptionResult; None = the one-zone world, exactly the pre-P3 render (locked by test).
+    Same-zone entities render with full salience prose; farther visible bands group into
+    direction-framed graded lines (§14: clear → summarized → vague → shape); OUT_OF_SIGHT and
+    AUDIBLE_ONLY are absent (a static look is visual)."""
+    if perceived is not None:
+        from world.sim.contracts import PerceptionBand
+        same = [e for e in ents
+                if perceived.get(e.id) is None
+                or perceived[e.id].band is PerceptionBand.SAME_ZONE]
+        away = [(e, perceived[e.id]) for e in ents
+                if perceived.get(e.id) is not None
+                and perceived[e.id].band is not PerceptionBand.SAME_ZONE
+                and perceived[e.id].visible]
+        out = [compose_scene(same)] if same else []
+        out.extend(_graded_groups(away))
+        return " ".join(s for s in out if s)
+
     buckets = {t: [] for t in _TIERS}
     by_name = {}
     for ent in ents:
@@ -106,10 +121,54 @@ def _sentence(phrase: str) -> str:
     return phrase if phrase.endswith((".", "!", "?")) else phrase + "."
 
 
+def _graded_groups(away) -> list:
+    """Direction-framed graded lines for visible-but-not-here entities, grouped by
+    (band, direction), deterministic. §14: clear → summarized → vague → shape-or-motion."""
+    from world.sim.contracts import PerceptionBand
+    order = {PerceptionBand.ADJACENT_ZONE: 0, PerceptionBand.NEAR_VISIBLE: 1,
+             PerceptionBand.DISTANT_VISIBLE: 2, PerceptionBand.BARELY_VISIBLE: 3}
+    groups = {}
+    for ent, res in away:
+        groups.setdefault((order.get(res.band, 3), res.direction_phrase), []).append(ent)
+    out = []
+    for (band_ix, dphrase) in sorted(groups):
+        ents = sorted(groups[(band_ix, dphrase)], key=lambda e: e.name)
+        where = dphrase or "nearby"
+        if band_ix == 0:      # clear: scene phrases / articled names
+            items = ", ".join(_pick((_entry(e) or {}).get("scene"), e.state) or _article(e.name)
+                              for e in ents)
+            out.append(_sentence(f"{where[0].upper()}{where[1:]}: {items}"))
+        elif band_ix == 1:    # summarized: bare names
+            names = ", ".join(_dedup([e.name for e in ents]))
+            out.append(f"Farther {where.removeprefix('to the ')}, you can make out {names}.")
+        elif band_ix == 2:    # vague: count only
+            n = len(ents)
+            out.append(f"Farther {where.removeprefix('to the ')}, "
+                       f"{_count_word(n) if n > 1 else 'something'} "
+                       f"{'shapes' if n > 1 else 'shape'} in the snow, hard to make out.")
+        else:                 # shape or motion
+            out.append(f"Something — maybe more — {where}, almost lost in the snow.")
+    return out
+
+
+def _dedup(names) -> list:
+    seen, out = set(), []
+    for n in names:
+        if n not in seen:
+            seen.add(n)
+            out.append(n)
+    return out
+
+
 def describe(ent) -> str:
     """The ONE detailed renderer for `look at X` / `examine X`: authored state-conditioned prose,
     the systemic condition woven in, and parts as physical sentences with their names intact (so
     the player learns what to type) — attachments as phrases, never `(material, attachment)` data."""
+    if "zone" in (ent.tags or []):                 # a zone pseudo-entity: its survey prose
+        from world.sim.space import zones as zonemap
+        z = zonemap.get((ent.state or {}).get("zone"))
+        return f"{ent.name} — {z.look}" if z and z.look else ent.name
+
     ident = (ent.state or {}).get("ident")
     head = ent.name + (f" [{ident}]" if ident else "")
     entry = _entry(ent)

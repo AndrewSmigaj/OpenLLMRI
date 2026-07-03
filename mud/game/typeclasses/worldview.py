@@ -86,9 +86,9 @@ class EvenniaWorldView:
             return None
         ent = to_entity_state(obj)
         z = zone_of(obj, self.room)
-        if z and not ent.state.get("zone"):
-            ent.state["zone"] = z                  # effective zone (carried/default filled in)
-        return ent
+        if z:
+            ent.state["zone"] = z    # the EFFECTIVE zone always wins: a carried thing is wherever
+        return ent                   # its carrier stands, whatever its stale authored zone says
 
     def obj(self, sim_id):
         return self._by_sim.get(sim_id)

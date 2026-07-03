@@ -219,20 +219,25 @@ class TestSlice(EvenniaTest):
         assert "verb" in self._said(m) or "examine" in self._said(m)
 
     def test_real_scenario_loads_and_new_verbs_work_end_to_end(self):
-        """Runs the ACTUAL build.build() (17 objects) and drives new verbs through the command path — the
-        automated equivalent of the load-scenario smoke, and a regression guard on the scenario itself."""
+        """Runs the ACTUAL build.build() (17 objects, ZONED as of P3) and drives verbs through the
+        command path — now WALKING the crash site between them: the automated equivalent of the
+        load-scenario smoke, the scenario regression guard, and an end-to-end P3 exit-gate script."""
         from world.scenarios.whiteout import build as scenario
         room = scenario.build()
-        self.char1.location = room
+        self.char1.location = room                   # unzoned char → default zone (mid cabin)
         sims = {o.db.sim_id for o in room.contents}
         assert {"seat", "multitool", "tinder", "lighter", "ice", "snowdrift", "bottle", "wire",
                 "paracord", "blanket", "manual", "canteen", "jerrycan", "jacket", "chocolate",
                 "pilot"} <= sims, "the enriched crash cabin should have loaded"
 
         with mock.patch.object(self.char1, "msg"):
+            self.char1.execute_cmd("get the lighter")            # mid cabin
+            self.char1.execute_cmd("go to the rear cabin")
+            self.char1.execute_cmd("break the bottle")           # rear cabin
+            self.char1.execute_cmd("go to the breach")
+            self.char1.execute_cmd("melt the ice with the lighter")   # outside the tail
+            self.char1.execute_cmd("go to the treeline")
             self.char1.execute_cmd("light the tinder with the lighter")
-            self.char1.execute_cmd("melt the ice with the lighter")
-            self.char1.execute_cmd("break the bottle")
         tinder = next(o for o in room.contents if o.db.sim_id == "tinder")
         assert (tinder.db.state or {}).get("lit") is True
         assert any(o.db.sim_id == "ice:melt:loose" and o.db.mass_g == 600 for o in room.contents)

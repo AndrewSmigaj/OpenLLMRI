@@ -86,3 +86,34 @@ def test_describe_is_state_conditioned():
 def test_describe_fallback_for_unauthored_objects():
     out = presentation.describe(_ent("y1", "nylon webbing scrap", materials=("nylon_webbing",), mass=50))
     assert "nylon webbing scrap" in out and "nylon webbing" in out and "50" in out
+
+
+# --- banded composition (DR-13a) ----------------------------------------------
+
+def _pr(band, direction="to the north"):
+    from world.sim.contracts import PerceptionBand, PerceptionResult
+    return PerceptionResult(band=band, visible=band is not PerceptionBand.OUT_OF_SIGHT,
+                            audible=False, reachable=band is PerceptionBand.SAME_ZONE,
+                            direction_phrase="" if band is PerceptionBand.SAME_ZONE else direction)
+
+
+def test_banded_scene_fades_by_distance_and_drops_out_of_sight():
+    from world.sim.contracts import PerceptionBand as B
+    seat = _ent("seat", "aircraft seat", state={"ident": "11B"})
+    wire = _ent("wire", "coil of copper wire", materials=("copper_wire",))
+    radio = _ent("radio", "field radio")
+    gone = _ent("ghost", "hidden thing")
+    scene = presentation.compose_scene(
+        [seat, wire, radio, gone],
+        {"seat": _pr(B.SAME_ZONE), "wire": _pr(B.NEAR_VISIBLE),
+         "radio": _pr(B.DISTANT_VISIBLE, "to the south"), "ghost": _pr(B.OUT_OF_SIGHT)})
+    assert "wrenched sideways" in scene, "same-zone keeps the full authored scene phrase"
+    assert "make out coil of copper wire" in scene and "north" in scene
+    assert "shape in the snow" in scene and "field radio" not in scene, "distant = vague, unnamed"
+    assert "hidden thing" not in scene, "OUT_OF_SIGHT renders nothing"
+
+
+def test_perceived_none_or_empty_is_the_pre_p3_render():
+    ents = [_ent("seat", "aircraft seat"), _ent("bottle", "whisky bottle", materials=("glass",))]
+    assert presentation.compose_scene(ents, None) == presentation.compose_scene(ents)
+    assert presentation.compose_scene(ents, {}) == presentation.compose_scene(ents)

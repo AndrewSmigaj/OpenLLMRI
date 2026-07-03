@@ -117,10 +117,13 @@ fuzz corpus** with **0 unresolved, 0 conservation violations, rescue reachable f
 **Exit gate.** Coverage definition met; the bake pipeline produces loadable data; **no silent
 truncation** — the wall-sensor queue is drained or its remainder explicitly logged.
 
-## P3 — Perception & zones (§10–15)
+## P3 — Perception & zones (§10–15) — **SHIPPED v1 (2026-07-03, DR-13a; pulled AHEAD of P2)**
 **Goal.** The single scene becomes a perceptual space: overlapping zones with separate visibility /
 audibility / reachability / direction / detail.
-**Depends on.** P2 (object/material core + events).
+**Depends on.** P2 (object/material core + events). *Reorder note (Andrew's call): P3 was built
+before P2 — building the plane needed space first, and nothing in the zone system needs the full
+material matrix; the P2 breadth now lands inside a zoned world. Exit gate passed as Tier-2 scripts
+(fading detail / one-event-two-perceptions / reach-blocked-then-succeeds).*
 **Deliverables.** `space/{zones,perception,direction,sound}.py` (pure); Room/Character per-observer
 `return_appearance`/`get_display_*(looker)`; reachability gates manipulation (the resolver only binds
 reachable nouns); the **message propagator** (rpsystem `send_emote` pattern) rendering each Event per

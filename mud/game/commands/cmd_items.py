@@ -19,6 +19,19 @@ from evennia.commands.default.general import (CmdDrop as DefaultCmdDrop, CmdGet 
 from commands import cmd_act  # shared pending-menu map; import direction: cmd_items -> cmd_act only
 
 
+_ARTICLES = ("the ", "a ", "an ", "some ")
+
+
+def _strip_articles(args: str) -> str:
+    """The taught grammar ignores articles; the stock item commands must match ('get the ice')."""
+    a = (args or "").strip()
+    low = a.lower()
+    for art in _ARTICLES:
+        if low.startswith(art):
+            return a[len(art):].strip()
+    return a
+
+
 def _search(caller, query, where):
     """The same candidate set at menu time and pick time: room / inventory / both ('around' —
     stock look's default candidates). Quiet, id-ordered (stable), always a list."""
@@ -52,13 +65,46 @@ def stock_pick(caller, pend, n):
     caller.execute_cmd(f"{pend['cmdstring']} {pend['query']}-{fresh.index(obj) + 1}")
 
 
+def _reach_filter(caller, objs):
+    """DR-13a for stock get: (same-zone objs, a representative far obj or None). Unzoned rooms
+    filter nothing (the one-zone compat rule)."""
+    from typeclasses.worldview import zone_of
+    from world.sim.space import zones as zonemap
+    room = getattr(caller, "location", None)
+    if room is None or not room.db.default_zone or not zonemap.loaded():
+        return objs, None
+    lzone = zone_of(caller, room)
+    same = [o for o in objs if zone_of(o, room) == lzone]
+    far = next((o for o in objs if o not in same), None)
+    return same, far
+
+
 def _menu_if_multimatch(cmd, where):
-    """Pre-flight for a stock item command. True if a numbered menu was shown (caller must stop)."""
+    """Pre-flight for a stock item command. True if handled (menu shown / too-far answered)."""
     caller = cmd.caller
     cmd_act._PENDING.pop(caller.id, None)          # any fresh command supersedes a pending menu
     if not cmd.args:
         return False
     objs = _search(caller, cmd.args, where)
+    if where == "room":                            # the reach gate applies to taking, not dropping
+        same, far = _reach_filter(caller, objs)
+        if not same and far is not None:
+            from typeclasses.worldview import zone_of
+            from world.sim import narrator
+            from world.sim.space import direction, zones as zonemap
+            room = caller.location
+            dphrase = direction.phrase(zone_of(caller, room), zone_of(far, room)) or "some way off"
+            caller.msg(narrator.narrate("reach.too_far",
+                                        {"target": far.key, "direction": dphrase, "verb": "take"}))
+            return True
+        objs = same or objs
+        if len(objs) == 1:
+            # a single in-reach match among far duplicates: stock search would multimatch on the
+            # NAME, so re-issue with the manager's ordinal for exactly this object
+            full = _search(caller, cmd.args, where)
+            if len(full) > 1:
+                caller.execute_cmd(f"{cmd.cmdstring} {cmd.args}-{full.index(objs[0]) + 1}")
+                return True
     if len(objs) <= 1:
         return False
     if getattr(cmd, "number", 0) and len({o.key for o in objs}) == 1:
@@ -71,6 +117,7 @@ class CmdGet(DefaultCmdGet):
     __doc__ = DefaultCmdGet.__doc__
 
     def func(self):
+        self.args = _strip_articles(self.args)
         if _menu_if_multimatch(self, "room"):
             return
         super().func()
@@ -80,6 +127,7 @@ class CmdDrop(DefaultCmdDrop):
     __doc__ = DefaultCmdDrop.__doc__
 
     def func(self):
+        self.args = _strip_articles(self.args)
         if _menu_if_multimatch(self, "inv"):
             return
         super().func()
@@ -93,6 +141,7 @@ class CmdLook(DefaultCmdLook):
         self.args = self.args.strip()
         if self.args.lower().startswith("at "):
             self.args = self.args[3:].strip()
+        self.args = _strip_articles(self.args)
         if self.args and _menu_if_multimatch(self, "around"):
             return
         super().func()

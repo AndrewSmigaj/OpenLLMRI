@@ -70,6 +70,10 @@ RESPONSES = {
     # eat ---------------------------------------------------------------------
     "eat.eat": "You eat the {target}; it's something, and the gnaw of hunger eases a little.",
     "eat.meagre": "You get the {target} down. Precious few calories, but every one counts.",
+    # reach (DR-13a: the §17 too-far answers) ------------------------------------
+    "reach.too_far": "You can see the {target} {direction}, but it is too far away to {verb} from "
+                     "here.",
+    "reach.tool_too_far": "The {tool} is {direction}, out of reach.",
     # move (DR-13a) -------------------------------------------------------------
     "move.arrive": "You make your way to {zone}.",
     "move.already": "You're already in {zone}.",
