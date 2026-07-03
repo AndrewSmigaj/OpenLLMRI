@@ -48,3 +48,12 @@ A **Scene = one Evennia Room.** A character's **zone = a position Attribute**
 - A plain `msg_contents` is wrong (it would tell the whole Scene one thing); the
   shell uses a **message propagator** that renders per observer by perception
   band. See [../perception-model.md](../perception-model.md).
+
+## Implementation note (appended 2026-07 — P3 shipped)
+
+Shipped as specified, with one refinement: the reachability tax is paid by a **central resolver
+reach gate** (plus the stock-get pre-flight and `return_appearance`) rather than a per-command
+`ReachabilityMixin` — one choke-point gates every taught verb, including future authored rules.
+Zone storage landed as `state["zone"]` (not a dedicated Attribute); v1 bands are see-edge hops;
+weather is a stubbed parameter until P7. Details: `implementation-architecture.md` DR-13a and
+`perception-model.md` (spec of record).

@@ -406,13 +406,36 @@ redirect: "the blade just skates off — you'd need to unbolt it.")*
 
 ---
 
-## 6. Perception & space (DR-13; deferred past the slice, specified)
+## 6. Perception & space (DR-13; SHIPPED v1 — see DR-13a below)
 Scene = one Evennia Room; a character's **zone** is an Attribute (coords + terrain tags). Per-observer
 rendering overrides `return_appearance`/`get_display_*(looker)` to compute, from the looker's zone:
 visibility/audibility/reachability/direction/detail (pure functions in `world/sim/space`). A **message
 propagator** (built on the rpsystem `send_emote` pattern) replaces plain `msg_contents`: each Event is
 rendered per observer by perception band × loudness × weather. Reachability gates manipulation
 (DR-09 only binds reachable nouns). The single-scene design keeps this O(observers×nearby), cheap.
+
+> **DR-13a (appended, P3 shipped 2026-07) — the v1 realization.** Zone storage: `state["zone"]`
+> on characters AND objects (marshalled free through the existing Attribute schema; precedent:
+> `ident`) with a zone tag mirror written by the `apply()` MOVE_ZONE branch; carried objects track
+> their carrier dynamically; minted objects inherit the actor's zone; a dropped object re-zones
+> through the single writer; a room `default_zone` covers the unassigned. The zone map is
+> loaded-once scenario content (`zones.load_zones` — the narrator/appearance registry pattern):
+> zones carry name/coords/elevation/terrain/aliases/survey-prose + undirected edges flagged
+> `walk`/`see`/`muffle`. **v1 band math = see-edge hops** (0→SAME_ZONE … 4→BARELY_VISIBLE; no
+> path→OUT_OF_SIGHT) + the §15 weather band-steps as a `"clear"`-defaulting parameter (the P7
+> seam); walls are absent see-edges (the v1 occlusion model); planar-distance banding and finer
+> occlusion are the recorded refinement. **The one-zone compat rule:** entities/observers without
+> zone data are SAME_ZONE — a zone-less world is a one-zone world, keeping every pre-P3 fixture
+> and scenario byte-identical. **Moves are single-hop and instant** (durations/auto-pathing = P4;
+> `duration_minutes` already plumbed). **The reachables/reachable split:** the worldview's
+> `reachables()` = the perception-VISIBLE set (+ zone pseudo-nouns so destinations parse);
+> `reachable()` = the manipulable same-zone set; the resolver's central reach gate answers
+> visible-but-far attempts with the §17 "too far to {verb} from here" redirect (excluded from the
+> wall-sensor). The reachability tax is paid by that gate + the stock-get pre-flight +
+> `return_appearance` — no mixin. Muffle edges ship tested but the crash-site map authors none
+> (openings are edges, walls are absences); a closed hatch/door zone makes them real later.
+> The frozen `Event(kind, source_id, loudness, data)` carries perception: the shell derives the
+> source zone from `source_id` (`data["zone"]` optional override).
 
 ## 7. Time & multiplayer (DR-14, DR-15)
 - **Clock (DR-14, LOCKED):** a **continuously running real-time clock** — game time advances on its own

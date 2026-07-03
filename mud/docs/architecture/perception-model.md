@@ -1,47 +1,52 @@
 # Perception Model
 
-> **Status: forward-looking design — NOT yet built (roadmap P3).** The `space/*` modules are stubs and the
-> `PerceptionBand` / `PerceptionResult` contracts referenced here are not yet in `contracts.py`. This doc is
-> the P3 design target, not a description of current code. See [`../../BACKLOG.md`](../../BACKLOG.md).
+> **Status: SPEC OF RECORD — v1 SHIPPED (P3, 2026-07-03; DR-13/DR-13a).** The `space/*` modules
+> are implemented and the `PerceptionBand`/`PerceptionResult` contracts are in `contracts.py`
+> (additive). This doc was reconciled against the shipped code; earlier drift (an unfrozen Event
+> shape, the seed's four-verb look-tree, live weather math) is corrected below.
 
-Design §10–15 (space, direction, perception, sound) realized on Evennia. The
-pure side lives in [`game/world/sim/space/`](../../game/world/sim/space/); the
-shell side is the Room/Character `return_appearance` and a message propagator.
+Design §10–15 (space, direction, perception, sound) realized on Evennia. The pure side lives in
+[`game/world/sim/space/`](../../game/world/sim/space/); the shell side is the Room/Object
+appearance overrides, the resolver's reach gate, and the message propagator.
 
-> Core principle (§10): **do not collapse perception into "room."** Location,
-> visibility, audibility, reachability, direction and detail are *separate*
-> concerns, each distance/weather/occlusion-aware.
+> Core principle (§10): **do not collapse perception into "room."** Location, visibility,
+> audibility, reachability, direction and detail are *separate* concerns.
 
 ## Scene-Room + zone attribute
 
-Whiteout rooms are too chunky and pure coordinates too fiddly, so the model is
-*overlapping perceptual spaces* ([ADR-0004](adr/0004-zone-as-attribute-perception.md)):
+Whiteout rooms are too chunky and pure coordinates too fiddly, so the model is *overlapping
+perceptual spaces* ([ADR-0004](adr/0004-zone-as-attribute-perception.md)):
 
-- A **Scene** (e.g. `wreck_cabin`, `crash_basin`) is **one Evennia Room**.
-- A character's **zone** (e.g. `camp_edge`, `rear_seat_row`) is a **position
-  Attribute on the Character**, *not* a separate room.
-- A [`Zone`](../../game/world/sim/space/zones.py) has planar coordinates
-  (`x`, `y`), `elevation` and `terrain_tags`, so the engine can compute distance
-  bands and relative-direction phrases (§12).
+- A **Scene** (e.g. the crash site) is **one Evennia Room**.
+- An entity's **zone** is `state["zone"]` (marshalled free through the existing Attribute schema;
+  characters and objects alike). Carried objects track their carrier dynamically; a room's
+  `default_zone` covers anything unassigned; minted objects inherit the acting player's zone.
+- A [`Zone`](../../game/world/sim/space/zones.py) has a display name, planar coordinates
+  (`x`, `y`), `elevation`, `terrain_tags`, `aliases`, authored survey prose, and **edges** to
+  other zones with three flags: `walk` (movement), `see` (sightline — a fuselage wall is simply
+  an ABSENT see-edge, which is the v1 occlusion model), `muffle` (sound passes, damped). The zone
+  map is loaded-once scenario content (`zones.load_zones`), like the narration/appearance
+  registries.
 
-Everyone in a Scene therefore shares a single Evennia Room. That is what makes
-intra-scene movement and perception custom rather than free from Evennia's room
-graph — and it creates the reachability tax (below).
+**The one-zone compatibility rule (load-bearing):** an observer or target with NO zone data is
+`SAME_ZONE` — a zone-less world is a one-zone world. Unzoned rooms (all pure-test fixtures, the
+smoketest scenario) behave byte-identically to the pre-P3 engine.
 
-## Two kinds of movement
+## Movement
 
-| Movement | Mechanism | Owner |
-|---|---|---|
-| **Scene transition** (cabin → exterior → forest) | Evennia rooms, exits, `move_to` | Evennia (shell) |
-| **Zone move** (within a Scene) | set the zone Attribute; recompute perception | custom (`space/*`) |
-
-Scene transitions reuse Evennia's battle-tested machinery; intra-scene moves and
-all perception are custom because they no longer correspond to room containment.
+A **zone move** sets the mover's zone via the `MOVE_ZONE` Effect through `apply()` (single-writer)
+and recomputes perception; arriving prints the new zone survey. The taught grammar covers it: the
+`move` operation (verbs go/move/walk/head/approach/climb/enter) takes a zone name (`go to the
+cockpit`), or an entity (`approach the radio` — derives its zone). One walk-edge step per command,
+**instant in v1** — durations and auto-pathing land with the P4 activity scheduler (the
+`duration_minutes` seam is already plumbed). No walk-edge → an informative route redirect naming
+the direction and first step. Scene transitions (a second Scene-Room, e.g. a future ravine) reuse
+Evennia rooms/exits — none exist in the crash-site scenario yet.
 
 ## Perception bands
 
-[`PerceptionBand`](../../game/world/sim/contracts.py) (design §14) grades *how
-clearly* one thing is perceived from an observer's zone:
+[`PerceptionBand`](../../game/world/sim/contracts.py) (design §14) grades *how clearly* one thing
+is perceived from an observer's zone:
 
 | Band | Detail |
 |---|---|
@@ -53,75 +58,62 @@ clearly* one thing is perceived from an observer's zone:
 | `AUDIBLE_ONLY` | sound only |
 | `OUT_OF_SIGHT` | nothing (no message) |
 
-[`perception.py`](../../game/world/sim/space/perception.py) computes the band
-from same/adjacent-zone graph relation, planar distance and **weather
-visibility** (§8): nothing past `weather_visibility_m` is visible at all, so a
-whiteout collapses bands toward `OUT_OF_SIGHT`. Sight and hearing are computed
-separately; reachability is separate again.
+**v1 band math** ([`perception.py`](../../game/world/sim/space/perception.py)): the visual band is
+**see-edge hop count** through the zone graph (0 hops = `SAME_ZONE` … 4 = `BARELY_VISIBLE`; no
+see-path = `OUT_OF_SIGHT`), shifted by the §15 weather band-steps. **Weather is a stub**: every
+caller passes `"clear"` until the P7 weather arc threads real state (the seed's
+`weather_visibility_m` meters model is part of that deferral, with planar-distance banding and
+finer occlusion — recorded in DR-13a). Sight and hearing are computed separately; reachability is
+separate again.
 
-[`PerceptionResult`](../../game/world/sim/contracts.py) bundles the outcome:
-`band`, `visible`, `audible`, `reachable`, `direction_phrase`, `distance_m`.
-Reachability is deliberately a distinct boolean: you can *see* the orange case by
-the bulkhead yet not be able to *manipulate* it (§17).
+[`PerceptionResult`](../../game/world/sim/contracts.py) bundles the outcome: `band`, `visible`,
+`audible`, `reachable`, `direction_phrase`, `distance_m`. Reachability is deliberately a distinct
+boolean: you can *see* the case by the bulkhead yet not *manipulate* it (§17).
 
 ## Direction phrasing
 
-[`direction.py`](../../game/world/sim/space/direction.py) turns a bearing
-(`zones.bearing_deg`) plus elevation delta into natural language (§11–12): the
-8 compass points, plus `upslope`/`downslope`, yielding phrases like *"to the
-southeast and upslope"*. Compass language is used for clarity; landmark-relative
-phrasing (*"back toward camp"*) is layered on by the scenario/shell when the
-character is disoriented or in whiteout — the core only produces the compass
-form.
+[`direction.py`](../../game/world/sim/space/direction.py) turns `zones.bearing_deg` plus the
+elevation delta into the 8 compass points with `upslope`/`downslope` — *"to the southeast and
+upslope"*. Landmark-relative phrasing is scenario/shell layering, later.
 
-`look`, `look south`, `scan cabin`, `examine` (§17) all render from the *actual*
-computed perception: if camp falls out of sight it no longer appears in the main
-description (§13).
+**Rendering follows DR-23's look-tree**: bare `look` = the room survey ("You are in {zone}." +
+zone prose + the scene composed per-band: same-zone full salience prose, then direction-framed
+graded groups; `OUT_OF_SIGHT` absent); `look at X` ≡ `examine X` = the unified `describe()` when
+in reach, the §17 "too far to {verb} from here" answer beyond it. The seed's `look <direction>` /
+`scan` verbs are **deferred** (BACKLOG), not part of v1.
 
 ## Sound & speech propagation
 
-[`sound.py`](../../game/world/sim/space/sound.py) holds the baseline voice-range
-tables and modifier arithmetic (§15):
-
-- Voice modes reach different bands in clear conditions —
-  `whisper` → same zone, `say` → adjacent, `call` → near-visible,
-  `shout` → distant-visible.
-- Weather shifts reach in band-steps: `steady_snow` −1, `heavy_snow` −2,
-  `whiteout` −3. Terrain (fuselage, forest, ravine) and wind modify further.
-- Loudness governs non-speech events too: quiet pocketing of food routes only to
-  someone nearby; a metallic bang, fire flare-up or fuselage shift routes far.
-
-A degraded message is produced per band — *"To the south, Andrew says, …"* one
-zone away; *"A shout comes from somewhere south of you. You cannot make out the
-words."* in whiteout.
+[`sound.py`](../../game/world/sim/space/sound.py): voice modes map to reach — `whisper` → same
+zone, `say` → adjacent, `call` → near, `shout` → distant (§15). Weather shifts reach in
+band-steps (`steady_snow` −1 … `whiteout` −3; stubbed at `"clear"`), clamped so the same zone
+always hears. A muffled edge costs 2 hops. Loudness governs non-speech events identically —
+quiet work carries a zone; shattering glass carries three.
 
 ## The message propagator (replaces `msg_contents`)
 
-A plain Evennia `room.msg_contents("Mara saws at the seatbelt")` would tell
-*everyone in the room* the same thing — wrong here, because the room is a whole
-Scene. Instead the shell runs a **message propagator**: for each observer it
-computes their `PerceptionResult` toward the source and renders the band's text
-form (or nothing for `OUT_OF_SIGHT`). The pure side supplies the inputs —
-`Event` (`actor`, `zone`, `loudness`, `text_same_zone`) plus the per-observer
-band — and the shell sends the per-observer string. See
-[`events.py`](../../game/world/sim/events.py) and
-[`narrator.py`](../../game/world/sim/narrator.py).
+For each observer the shell computes a `PerceptionResult` toward the event's source and renders
+that band's text form (or nothing for `OUT_OF_SIGHT`): full third-person line → direction-framed
+line → "…is working at something." → "A shape shifts {direction}." → sound-only → silence. The
+**frozen** `Event(kind, source_id, loudness, data)` is the carrier: the shell derives the source
+zone by looking `source_id` up in the room (with `data["zone"]` as an optional override) — the
+seed's `Event(actor, zone, text_same_zone)` shape was never frozen and is retired. Voice lives in
+the scenario responses (`perceive.*` templates) with in-code fallbacks.
 
-## The reachability tax (known cost)
+## The reachability tax (known cost, paid)
 
-Because a Scene is one Evennia Room, **Evennia's room containment no longer
-equals "reachable."** Default commands (`get`/`drop`/`look`/`give`, and every
-manipulation verb) must therefore be gated by a reachability check on *every*
-interaction: a **`ReachabilityMixin`** consults the perception layer before the
-verb runs. This is the deliberate tax accepted in
-[ADR-0004](adr/0004-zone-as-attribute-perception.md) — the price of zone-as-
-attribute over one-room-per-zone, which would have multiplied the room count and
-broken single-scene perception.
+Because a Scene is one Evennia Room, **containment no longer equals "reachable."** The tax is paid
+in three places, not a mixin: (1) the **resolver's central reach gate** — any bound X/Y/tool
+outside the actor's zone returns the §17 redirect ("You can see the {target} {direction}, but it
+is too far away to {verb} from here.") before any tier runs, gating every taught verb including
+`examine` and future authored rules; (2) the stock **`get` pre-flight** in the item commands;
+(3) **`return_appearance`** for stock `look at`. The parser still *matches* visible-but-far nouns
+(the worldview's `reachables()` is the perception-visible set; `reachable()` is the manipulable
+same-zone set) — so distant things get honest "too far" answers, never "you don't see that here."
 
 ## Related
 
 - [overview.md](overview.md) — where this sits in the whole.
-- [tick-and-scheduler.md](tick-and-scheduler.md) — perception-routed *tick*
-  messages while work progresses.
-- Roadmap P3 implements perception/zones — the full band-shifting and propagator
-  ([roadmap](../scenarios/whiteout/roadmap.md)).
+- [presentation.md](presentation.md) — DR-23: the prose the bands feed.
+- [tick-and-scheduler.md](tick-and-scheduler.md) — perception-routed *tick* messages (P4).
+- Roadmap P3 (shipped) → the P4 scheduler picks up move durations; P7 the real weather.

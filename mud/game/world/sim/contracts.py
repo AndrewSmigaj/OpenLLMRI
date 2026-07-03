@@ -167,6 +167,34 @@ class ParseError:
     nudge: str = ""
 
 
+# --- Perception additions (contract change, P3/DR-13 — additive; no existing field changed) ---
+
+class PerceptionBand(str, Enum):
+    """The §14 detail ladder (DR-13), most→least perceived. OUT_OF_SIGHT renders nothing.
+    Bands are computed per observer from zone relations (space/perception.py); an entity or
+    observer with NO zone data is treated as SAME_ZONE — a zone-less world is a one-zone world."""
+    SAME_ZONE = "same_zone"                 # detailed
+    ADJACENT_ZONE = "adjacent_zone"         # clear
+    NEAR_VISIBLE = "near_visible"           # summarized
+    DISTANT_VISIBLE = "distant_visible"     # vague
+    BARELY_VISIBLE = "barely_visible"       # shape or motion
+    AUDIBLE_ONLY = "audible_only"           # sound only
+    OUT_OF_SIGHT = "out_of_sight"           # nothing
+
+
+@dataclass(frozen=True)
+class PerceptionResult:
+    """One observer's perception of one source (DR-13): the §14 band plus the SEPARATE axes —
+    visible/audible/reachable are deliberately distinct booleans (you can SEE the case by the
+    bulkhead yet not manipulate it, §17). direction_phrase/distance_m come from zone coords."""
+    band: PerceptionBand
+    visible: bool
+    audible: bool
+    reachable: bool
+    direction_phrase: str = ""
+    distance_m: float = 0.0
+
+
 # --- Parser I/O additions (contract change, P1.5 — additive; no existing field changed) ---
 
 @dataclass(frozen=True)

@@ -42,6 +42,13 @@ def test_contract_surface_present():
     for slot in ("label", "ref", "entity_id", "part_id"):
         assert slot in dfields, f"DisambigOption missing {slot!r}"
     assert DisambigOption(label="x", ref="x").entity_id == ""      # additive defaults hold
+    # the perception surface (P3/DR-13 ADDITIVE additions)
+    from world.sim.contracts import PerceptionBand, PerceptionResult
+    ladder = [b.value for b in PerceptionBand]
+    assert ladder == ["same_zone", "adjacent_zone", "near_visible", "distant_visible",
+                      "barely_visible", "audible_only", "out_of_sight"], "the §14 ladder, in order"
+    r = PerceptionResult(band=PerceptionBand.SAME_ZONE, visible=True, audible=True, reachable=True)
+    assert r.direction_phrase == "" and r.distance_m == 0.0        # additive defaults hold
 
 
 def test_interrupt_signals_subset_of_event_kinds():
