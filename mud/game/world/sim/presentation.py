@@ -134,10 +134,15 @@ def _graded_groups(away) -> list:
     for (band_ix, dphrase) in sorted(groups):
         ents = sorted(groups[(band_ix, dphrase)], key=lambda e: e.name)
         where = dphrase or "nearby"
-        if band_ix == 0:      # clear: scene phrases / articled names
-            items = ", ".join(_pick((_entry(e) or {}).get("scene"), e.state) or _article(e.name)
-                              for e in ents)
-            out.append(_sentence(f"{where[0].upper()}{where[1:]}: {items}"))
+        if band_ix == 0:      # clear (not detailed): noun phrases — a zone away, prominent things
+            items = []        # lose their vivid sentence phrasing (§14: detail is a SAME_ZONE gift)
+            for e in ents:
+                entry = _entry(e) or {}
+                if entry.get("salience", "ordinary") == "prominent":
+                    items.append(_article(e.name))
+                else:
+                    items.append(_pick(entry.get("scene"), e.state) or _article(e.name))
+            out.append(_sentence(f"{where[0].upper()}{where[1:]}: {', '.join(items)}"))
         elif band_ix == 1:    # summarized: bare names
             names = ", ".join(_dedup([e.name for e in ents]))
             out.append(f"Farther {where.removeprefix('to the ')}, you can make out {names}.")
