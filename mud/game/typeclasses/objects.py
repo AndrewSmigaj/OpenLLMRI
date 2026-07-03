@@ -214,4 +214,10 @@ class Object(ObjectParent, DefaultObject):
 
     """
 
-    pass
+    def return_appearance(self, looker, **kwargs):
+        """DR-23 unified renderer: `look at X` shows exactly what `examine X` shows — the pure
+        `presentation.describe` over this object's marshalled EntityState (authored
+        state-conditioned prose; parts woven as physical sentences with their names intact)."""
+        from typeclasses.worldview import to_entity_state
+        from world.sim import presentation
+        return presentation.describe(to_entity_state(self))

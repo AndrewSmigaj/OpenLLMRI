@@ -12,10 +12,9 @@ Now item at a time**; deferred-but-designed items are two-line stubs linking to 
   Andrew's call — natural candidate: **fragment affordances** (Later, below).
 
 ## Next
-- **Presentation / perception evolution** — scene-as-prose room look + state-conditioned object appearance +
-  salience weighting + the unified look-at/examine renderer. Orthogonal to item-interaction. **Design
-  redrafted**: [`docs/investigation/presentation.md`](docs/investigation/presentation.md)
-  (scratchpad) — awaiting Andrew's review; promote to an authoritative doc, then implement.
+- **Presentation v1 SHIPPED** (2026-07-03, DR-23 — [`docs/architecture/presentation.md`](docs/architecture/presentation.md)):
+  scene-as-prose `look`, salience weighting, unified look-at/examine renderer, full appearance
+  content for the crash cabin (Andrew tunes the voice in `appearance.py`). **v2 leftovers → Later.**
 - **Mudlet integration write-up** — the research pass is done (findings gathered); writing them up into
   [`docs/client/mudlet-research.md`](docs/client/mudlet-research.md) (currently a skeleton) + a brainstorm
   doc with a proposed Whiteout Mudlet setup are pending.
@@ -38,6 +37,9 @@ Now item at a time**; deferred-but-designed items are two-line stubs linking to 
 - **break derived-id collision (latent)** — `_shatter` ids are `derived_id(parent, f"{piece_word}{i}")`,
   so breaking two different parts of one entity would collide sim_ids; the DR-05a scrap ids are
   part-scoped and immune. Give break the part-scoped shape when touched next.
+- **Presentation v2** — the deferred DR-23 answers: state-conditioned ROOM desc (fire-lit cabin reads
+  differently), authored hiding (waits for/with P3 perception), per-part examine prose, richer
+  connective frames. Design decisions recorded in `docs/architecture/presentation.md`.
 - **Lenses skill rework** — right-size the lens libraries (currently overkill for routine checks; the
   `certainty` skill — draft in [`docs/proposals/certainty-skill-draft.md`](docs/proposals/certainty-skill-draft.md) —
   covers the pre-implementation gate).

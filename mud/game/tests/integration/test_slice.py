@@ -34,7 +34,15 @@ class TestSlice(EvenniaTest):
                         ("state", {"edge": 0.8, "leverage": 0.5})])  # mirrors build.py:40-42
 
     def _said(self, m):
-        return " ".join(str(c.args[0]) for c in m.call_args_list if c.args).lower()
+        # stock commands (look) send msg(text=(str, {...})) kwarg tuples; sim commands positional str
+        out = []
+        for c in m.call_args_list:
+            t = c.args[0] if c.args else c.kwargs.get("text")
+            if isinstance(t, tuple):
+                t = t[0]
+            if t is not None:
+                out.append(str(t))
+        return " ".join(out).lower()
 
     def _loose(self):
         return [o for o in self.room1.contents if o.db.sim_id == "seat:cover:loose"]
@@ -118,6 +126,25 @@ class TestSlice(EvenniaTest):
         shards = [o for o in self.room1.contents if str(o.db.sim_id).startswith("bottle:shard")]
         assert len(shards) == 3 and sum(o.db.mass_g for o in shards) == 500
         assert all(o.key == "glass shard" for o in shards), "derived names read material-first"
+
+    # --- presentation (DR-23): scene-as-prose + the unified renderer ---
+
+    def test_look_renders_prose_not_a_contents_list(self):
+        with mock.patch.object(self.char1, "msg") as m:
+            self.char1.execute_cmd("look")
+        said = self._said(m)
+        assert "you see:" not in said, "the stock contents list must be gone"
+        assert "wrenched sideways" in said, "the seat's authored scene phrase should carry the room"
+        assert "multitool" in said, "everything present is still mentioned (weighting, not hiding)"
+
+    def test_look_at_equals_examine(self):
+        with mock.patch.object(self.char1, "msg") as m1:
+            self.char1.execute_cmd("look at seat")
+        with mock.patch.object(self.char1, "msg") as m2:
+            self.char1.execute_cmd("examine seat")
+        assert self._said(m1) == self._said(m2), "look at X and examine X are the same renderer"
+        assert "held by stitching" in self._said(m2), "parts weave in as physical prose"
+        assert "(foam" not in self._said(m2), "attachments are never rendered as data"
 
     # --- attachment honesty (DR-05a / DR-09a) ---
 

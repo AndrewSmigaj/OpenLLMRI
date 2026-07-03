@@ -16,7 +16,15 @@ class TestStockMenus(EvenniaTest):
         content.load()
 
     def _said(self, m):
-        return " ".join(str(c.args[0]) for c in m.call_args_list if c.args).lower()
+        # stock commands (look) send msg(text=(str, {...})) kwarg tuples; sim commands positional str
+        out = []
+        for c in m.call_args_list:
+            t = c.args[0] if c.args else c.kwargs.get("text")
+            if isinstance(t, tuple):
+                t = t[0]
+            if t is not None:
+                out.append(str(t))
+        return " ".join(out).lower()
 
     def _spawn_shards(self, n=3, where=None):
         return [create_object("typeclasses.objects.Object", key="glass shard",
@@ -66,6 +74,16 @@ class TestStockMenus(EvenniaTest):
             self.char1.execute_cmd("2")
         assert self._said(m), "a stale pick should get an informative answer, never a traceback"
 
+    def test_look_at_multimatch_menus_and_pick_describes(self):
+        self._spawn_shards(2)
+        with mock.patch.object(self.char1, "msg") as m:
+            self.char1.execute_cmd("look at shard")
+        assert "which shard" in self._said(m), "look shares the numbered menu"
+        with mock.patch.object(self.char1, "msg") as m2:
+            self.char1.execute_cmd("1")
+        said = self._said(m2)
+        assert "glass" in said and "which shard" not in said
+
     def test_stock_menu_supersedes_sim_menu_and_vice_versa(self):
         self._spawn_shards(2)
         with mock.patch.object(self.char1, "msg"):
@@ -81,4 +99,4 @@ class TestStockMenus(EvenniaTest):
             self.char1.execute_cmd("get shard")       # stock menu pending (>1 in room again)
             self.char1.execute_cmd("examine shard")   # sim menu replaces it
             self.char1.execute_cmd("1")
-        assert "made of glass" in self._said(m2), "the pick should answer the sim examine menu"
+        assert "bottle glass" in self._said(m2), "the pick should answer the sim examine menu"

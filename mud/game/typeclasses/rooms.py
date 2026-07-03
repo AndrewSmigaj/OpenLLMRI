@@ -21,4 +21,13 @@ class Room(ObjectParent, DefaultRoom):
     properties and methods available on all Objects.
     """
 
-    pass
+    def get_display_things(self, looker, **kwargs):
+        """DR-23 scene-as-prose: replace the stock 'You see: a, b, c' contents list with composed,
+        salience-weighted prose (pure `presentation.compose_scene` over marshalled EntityStates).
+        Everything present is still mentioned — weighting, never hiding."""
+        from typeclasses.worldview import to_entity_state
+        from world.sim import presentation
+        things = self.filter_visible(self.contents_get(content_type="object"), looker, **kwargs)
+        if not things:
+            return ""
+        return presentation.compose_scene([to_entity_state(o) for o in things])

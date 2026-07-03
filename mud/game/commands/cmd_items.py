@@ -13,9 +13,19 @@ could in principle desync the re-issue index — no Whiteout content uses search
 """
 from __future__ import annotations
 
-from evennia.commands.default.general import CmdDrop as DefaultCmdDrop, CmdGet as DefaultCmdGet
+from evennia.commands.default.general import (CmdDrop as DefaultCmdDrop, CmdGet as DefaultCmdGet,
+                                              CmdLook as DefaultCmdLook)
 
 from commands import cmd_act  # shared pending-menu map; import direction: cmd_items -> cmd_act only
+
+
+def _search(caller, query, where):
+    """The same candidate set at menu time and pick time: room / inventory / both ('around' —
+    stock look's default candidates). Quiet, id-ordered (stable), always a list."""
+    loc = {"room": caller.location, "inv": caller}.get(where)
+    if loc is None:
+        return list(caller.search(query, quiet=True) or [])
+    return list(caller.search(query, location=loc, quiet=True) or [])
 
 
 def _show_stock_menu(caller, raw, cmdstring, query, where, objs):
@@ -32,8 +42,7 @@ def stock_pick(caller, pend, n):
     index recomputed against a fresh id-ordered search (stale-safe — a vanished pick degrades to an
     informative message, or a fresh menu when several still match)."""
     obj, label = pend["options"][n - 1]
-    loc = caller.location if pend["where"] == "room" else caller
-    fresh = list(caller.search(pend["query"], location=loc, quiet=True) or [])
+    fresh = _search(caller, pend["query"], pend["where"])
     if getattr(obj, "pk", None) is None or obj not in fresh:
         caller.msg(f"The {label} isn't there any more.")
         if len(fresh) > 1:
@@ -49,11 +58,10 @@ def _menu_if_multimatch(cmd, where):
     cmd_act._PENDING.pop(caller.id, None)          # any fresh command supersedes a pending menu
     if not cmd.args:
         return False
-    loc = caller.location if where == "room" else caller
-    objs = list(caller.search(cmd.args, location=loc, quiet=True) or [])
+    objs = _search(caller, cmd.args, where)
     if len(objs) <= 1:
         return False
-    if cmd.number and len({o.key for o in objs}) == 1:
+    if getattr(cmd, "number", 0) and len({o.key for o in objs}) == 1:
         return False                                # a leading-count stack — stock handles it
     _show_stock_menu(caller, " ".join(cmd.raw_string.split()), cmd.cmdstring, cmd.args, where, objs)
     return True
@@ -73,5 +81,18 @@ class CmdDrop(DefaultCmdDrop):
 
     def func(self):
         if _menu_if_multimatch(self, "inv"):
+            return
+        super().func()
+
+
+class CmdLook(DefaultCmdLook):
+    __doc__ = DefaultCmdLook.__doc__
+
+    def func(self):
+        # MUD convention (DR-23): `look at X` ≡ `look X` ≡ `examine X` — strip the 'at'.
+        self.args = self.args.strip()
+        if self.args.lower().startswith("at "):
+            self.args = self.args[3:].strip()
+        if self.args and _menu_if_multimatch(self, "around"):
             return
         super().func()

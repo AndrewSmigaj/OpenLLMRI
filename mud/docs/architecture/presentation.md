@@ -1,12 +1,15 @@
-# Presentation design — scene-as-prose, salience, and the unified look/examine
+# Presentation — scene-as-prose, salience, and the unified look/examine (DR-23)
 
-> **Status: SCRATCHPAD — iterating with Andrew.** This is the redraft of the presentation design
-> that was iterated in an earlier session and never saved. Reconstructed from the archived seed
-> (`design.md` §11/§13/§17/§38.2), the game-design lenses (GD3/GD20/GD25), the prior-art research,
-> and Andrew's play-run feedback (2026-07-02). Nothing here is implemented until promoted to an
-> authoritative doc per `docs/process.md`. **Orthogonal to item-interaction** and **NOT** the P3
-> multi-zone perception system (DR-13 stays deferred) — this is what text a player reads inside
-> one zone.
+> **Status: AUTHORITATIVE (promoted 2026-07-03; v1 IMPLEMENTED).** Approved by Andrew with the
+> recommended defaults on the open questions: **three salience tiers** · **identical deriveds
+> aggregate at ≥2** · **no authored hiding in v1** (deferred to the P3 perception work) · **object
+> phrases only** (the room desc stays static in v1) · **moderate property hints** · **frames are a
+> small per-room set** (`_frames`). Implementation: pure `game/world/sim/presentation.py`
+> (composer + `describe`), content in `game/world/scenarios/whiteout/appearance.py` (Andrew-tunable
+> voice), shell seams `Room.get_display_things` / `Object.return_appearance`. Reconstructed from
+> the archived seed (§11/§13/§17/§38.2), lenses GD3/GD20/GD25, and prior-art. **Orthogonal to
+> item-interaction** and **NOT** the P3 multi-zone perception system (DR-13 stays deferred) — this
+> is what text a player reads inside one zone.
 
 ## The problem (what the play run showed)
 
@@ -114,7 +117,7 @@ for the 17 objects + parts + state variants, Andrew rewrites freely.
 - Tests: golden-master scene render for the crash cabin (seeded, deterministic); describe() unit
   tests per state variant; Tier-2 look/examine equality test (`look at seat` == `examine seat`).
 
-## Open questions for Andrew
+## Open questions — RESOLVED 2026-07-03 (answers stamped in the status banner; kept for the record)
 
 1. **Salience tiers**: are three (prominent / ordinary / subtle) right, or two enough?
 2. **Derived-object aggregation**: always aggregate identical deriveds ("broken glass glitters…"),

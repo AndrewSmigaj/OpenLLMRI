@@ -36,11 +36,13 @@ class CharacterCmdSet(default_cmds.CharacterCmdSet):
         from commands.cmd_act import CmdAction, CmdNoMatch
         self.add(CmdAction())
         self.add(CmdNoMatch())
-        # Whiteout: stock get/drop share the DR-08a numbered disambiguation menu (same-key add
-        # after super() replaces the stock commands).
-        from commands.cmd_items import CmdDrop, CmdGet
+        # Whiteout: stock get/drop/look share the DR-08a numbered disambiguation menu (same-key
+        # add after super() replaces the stock commands); look also strips 'at' (look at X ≡
+        # examine X, DR-23).
+        from commands.cmd_items import CmdDrop, CmdGet, CmdLook
         self.add(CmdGet())
         self.add(CmdDrop())
+        self.add(CmdLook())
 
 
 class AccountCmdSet(default_cmds.AccountCmdSet):

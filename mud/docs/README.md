@@ -8,8 +8,9 @@ Where everything lives, what's authoritative, and where new docs go.
 - [`../VISION.md`](../VISION.md) — the anchor: what we build + the locked non-negotiables.
 - [`scenarios/whiteout/GDD.md`](scenarios/whiteout/GDD.md) — the game design (FINAL).
 - [`architecture/`](architecture/) — the architecture. `implementation-architecture.md` is the spine
-  (its **DR-01…DR-22 decision register is our ADR log**); `overview.md` / `perception-model.md` /
-  `tick-and-scheduler.md` / `llm-integration.md` / `testing.md` are focused views kept consistent with it.
+  (its **DR-01…DR-23 decision register is our ADR log**); `overview.md` / `perception-model.md` /
+  `presentation.md` / `tick-and-scheduler.md` / `llm-integration.md` / `testing.md` are focused views
+  kept consistent with it.
 - [`scenarios/whiteout/roadmap.md`](scenarios/whiteout/roadmap.md) — the **strategic** phased build order
   (P0–P7) with exit gates.
 - [`guides/`](guides/) — authoring guides (objects, actions, workflows, validation).
