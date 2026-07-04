@@ -123,4 +123,13 @@ MATERIAL_TABLE = {
         "props": {"edibility": "high", "burnability": "low", "ignition_difficulty": "high"},
         "tags": ("edible", "food", "soft"),
     },
+    "rations": {  # the AS 02.35.110 survival food — dense, dull, life-sustaining (DR-24 content)
+        "props": {"edibility": "high", "burnability": "low", "cut_resistance": "low"},
+        "tags": ("edible", "food"),
+    },
+    "insulation_batting": {  # quilted engine-cover / wall batting — the warmth mother-lode
+        "props": {"insulation": "very_high", "burnability": "high", "ignition_difficulty": "med",
+                  "tear_resistance": "very_low", "cut_resistance": "very_low"},
+        "tags": ("soft", "flexible", "insulating", "flammable"),
+    },
 }

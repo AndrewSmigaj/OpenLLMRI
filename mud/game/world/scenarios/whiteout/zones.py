@@ -30,7 +30,7 @@ ZONE_TABLE = {
     "rear_cabin": {
         "name": "the rear cabin", "x": 0, "y": 4, "elevation": 0,
         "terrain_tags": ["interior"],
-        "aliases": ["rear cabin", "rear", "aft", "back", "tail section"],
+        "aliases": ["rear cabin", "rear", "aft", "back"],   # "tail section" = the SEVERED tail now
         "look": "The hull splits open here; snow sifts through the tear with every gust.",
         "adjacent": {
             "outside_tail": {"walk": True, "see": True},   # the split hull
@@ -60,10 +60,31 @@ ZONE_TABLE = {
         "name": "the torn tail opening", "x": 3, "y": 10, "elevation": 0,
         "terrain_tags": ["exterior", "snow"],
         "aliases": ["outside the tail", "tail outside", "breach", "outside"],
-        "look": "The tail section yawns open onto trampled snow; the treeline stands north.",
+        "look": "The fuselage ends in torn metal here — the tail itself is GONE, and a scar of "
+                "gouged snow runs away northeast.",
         "adjacent": {
             "treeline": {"walk": True, "see": True},
+            "debris_trail": {"walk": True, "see": True},
         },
+    },
+    "debris_trail": {
+        "name": "the debris trail", "x": 20, "y": 22, "elevation": 1,
+        "terrain_tags": ["exterior", "snow", "debris"],
+        "aliases": ["debris trail", "debris", "trail", "crash path", "wreckage"],
+        "look": "Gouged snow and shed metal run in a long scar back the way the plane came. "
+                "Things fell here. The snow has been eating them since.",
+        "adjacent": {
+            "tail_section": {"walk": True, "see": True},
+            "treeline": {"see": True},                    # wreckage glints through the trees
+        },
+    },
+    "tail_section": {
+        "name": "the severed tail section", "x": 45, "y": 30, "elevation": 1,
+        "terrain_tags": ["exterior", "snow", "metal"],
+        "aliases": ["tail section", "severed tail", "broken tail", "the tail"],
+        "look": "The whole empennage lies canted in deep snow, control cables trailing from the "
+                "stump like torn tendons. Whatever rode in the tail rode HERE.",
+        "adjacent": {},
     },
     "treeline": {
         "name": "the treeline", "x": 0, "y": 40, "elevation": 2,

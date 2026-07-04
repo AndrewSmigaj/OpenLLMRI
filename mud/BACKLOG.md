@@ -40,6 +40,13 @@ Now item at a time**; deferred-but-designed items are two-line stubs linking to 
 - **Perception polish (post-P3)** — `look <direction>` / `scan`; targeted `whisper <player> =`;
   move durations + auto-pathing (P4, the `duration_minutes` seam is plumbed); planar-distance
   banding + finer occlusion; real weather banding (P7 — the `weather=` parameter is the seam).
+- **Wire the tier-1 authored-rule seam** — `resolve(authored=…)` exists but cmd_act never passes
+  it; needed for: the hatchet-haft REPAIR loop (tie/tape restores the edge), the match-DRYING
+  loop (wet → dry by a fire), the radio/ELT state machines (§38), flare ignition, the
+  extinguisher. The scattered wreck planted all their furniture; the seam unlocks the mechanics.
+- **Scattered-wreck v2** — a broken satcom/inReach (cruel find + antenna parts); the bins→cargo-net
+  re-fiction (realism skin, same gameplay); wall-batting salvage (tear the headliner); the
+  V. HOLT cabin as a second Scene (the chart plants it); wing fuel drains + the fuel tester.
 - **Containment/clothing v2 (post-DR-24/25)** — a liquid-container model (the jerry can's `sealed`
   bit is the placeholder; drink-from/pour-into/fill); container capacity; `give`; sit/posture;
   clothing layering curves + coverage; a `status` command (with P5); leading-count taking

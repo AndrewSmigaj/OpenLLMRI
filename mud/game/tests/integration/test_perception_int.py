@@ -52,16 +52,16 @@ class TestMovement(EvenniaTest):
 
     def test_minted_scraps_inherit_the_actors_zone(self):
         with mock.patch.object(self.char1, "msg"):
-            self.char1.execute_cmd("search the duffel")      # DR-24: earn the multitool first
+            self.char1.execute_cmd("search the duffel bag")      # DR-24: earn the multitool first
             self.char1.execute_cmd("take the multitool")
-            self.char1.execute_cmd("cut the cushion with the multitool")
+            self.char1.execute_cmd("cut the cushion off 11b with the multitool")
         scraps = [o for o in self.scene.contents
                   if str(o.db.sim_id).startswith("seat:cushion_scrap")]
         assert scraps and all((o.db.state or {}).get("zone") == "mid_cabin" for o in scraps)
 
     def test_dropped_object_syncs_to_the_droppers_zone(self):
         with mock.patch.object(self.char1, "msg"):
-            self.char1.execute_cmd("search the duffel")      # DR-24: earn the multitool first
+            self.char1.execute_cmd("search the duffel bag")      # DR-24: earn the multitool first
             self.char1.execute_cmd("take the multitool")
             self.char1.execute_cmd("go to the rear cabin")
             self.char1.execute_cmd("drop multitool")
@@ -102,19 +102,20 @@ class TestPerceptionExitGates(TestMovement):
 
         with mock.patch.object(self.char1, "msg"):
             self.char1.execute_cmd("go to the treeline")
-        said = self._look()                              # distant: vague, unnamed
-        assert "aircraft seat" not in said and "multitool" not in said
-        assert "shape" in said and "snow" in said
+        said = self._look()                              # distant: vague for the mid cabin
+        assert "wrenched sideways" not in said, "the authored phrase never survives distance"
+        assert "multitool" not in said               # hidden in the duffel AND too far
+        assert "shape" in said and "snow" in said    # the mid-cabin group is 3 hops: shapes only
 
     def test_exit_gate_2_one_event_two_perceptions(self):
         with mock.patch.object(self.char1, "msg"):
-            self.char1.execute_cmd("search the duffel")  # DR-24: earn the multitool first
+            self.char1.execute_cmd("search the duffel bag")  # DR-24: earn the multitool first
             self.char1.execute_cmd("take the multitool")
         self.char2.location = self.scene                 # default zone: mid cabin (with char1)
         with mock.patch.object(self.char2, "msg"):
             self.char2.execute_cmd("go to the rear cabin")
         with mock.patch.object(self.char2, "msg") as m2:
-            self.char1.execute_cmd("cut the cover off the seat with the multitool")
+            self.char1.execute_cmd("cut the cover off 11b with the multitool")
         heard = self._said(m2)                           # adjacent: the full line, direction-framed
         assert "to the south" in heard and "saws at the cover" in heard
 
@@ -122,7 +123,7 @@ class TestPerceptionExitGates(TestMovement):
             self.char2.execute_cmd("go to the breach")
             self.char2.execute_cmd("go to the treeline")
         with mock.patch.object(self.char2, "msg") as m3:
-            self.char1.execute_cmd("cut the cushion with the multitool")
+            self.char1.execute_cmd("cut the cushion off 11b with the multitool")
         heard = self._said(m3)                           # distant: vague, no verb, no target
         assert "cushion" not in heard and "hack" not in heard
         assert "someone is moving" in heard

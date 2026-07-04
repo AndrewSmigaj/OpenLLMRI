@@ -159,6 +159,26 @@ decides where it is now and what shape it's in. Every gate is honest physics:
 Pacing arc this produces: teasers at your feet → bins/bags for workers → expeditions for the
 treasures → the radio/ELT arc as the long game.
 
+## 8c. CURATED v1 — what shipped (2026-07-04; Andrew: "just go for it")
+
+Two new zones: **the debris trail** (NE of the breach — gouged snow, shed metal) and **the severed
+tail section** beyond it (a 4-hop expedition from the cabin). The kit scattered per §8b:
+- *Debris trail*: the **torn survival duffel** (ration tins ×2, fishing kit, headnet, and the
+  **soaked matchbox** — the drying bootstrap, narrated, mechanics later); a **wind-packed drift**
+  hiding the **snapped hatchet** (edge 0.5 — usable choked-up, repairable later) and a flare
+  shell; the **mail sack** (a child's letter you shouldn't read, postal twine); an aluminum sheet.
+- *Tail section*: the **crushed tail cone** (pry) holding the **avgas-soaked sleeping bag**,
+  **snowshoes**, the **cargo net**, and **the ELT** — g-switch fired, ARM lamp pulsing on 121.5,
+  antenna sheared: "screaming into its own throat" (the rescue arc's second device, confirmed);
+  the nailed **freight crate** (pry) with village groceries (coffee, flour).
+- *Cabin/cockpit adds*: the pilot's **flight bag** (flashlight, fuel tester), the **sectional
+  chart** (read: a hand-drawn square three miles east — "V. HOLT — CABIN, WOOD STOVE": the next
+  scene's hook), the still-warm **thermos**, a fire extinguisher, the **tool roll** (duct tape,
+  safety wire, screwdriver) in the fwd bin, the **quilted engine cover** (the warmth prize)
+  behind the aft-bin pry, seat **12C** in the rear row, oil quarts outside.
+- New materials: `rations`, `insulation_batting`. Decisions taken: bins KEPT as fiction (re-skin
+  later if wanted); satcom OMITTED (backlogged); both seats fully parted; ELT = yes.
+
 ## 9. Open questions for Andrew
 
 1. Bins vs. netted cargo bay (realism vs. keeping what's built)?

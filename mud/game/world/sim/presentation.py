@@ -242,6 +242,10 @@ def _condition(ent) -> str:
         bits.append("tied off")
     if st.get("damage"):
         bits.append("battered")
+    if st.get("broken"):
+        bits.append("broken")
+    if st.get("fuel_soaked"):
+        bits.append("reeking of avgas")
     if st.get("dead"):
         bits.append("lifeless")
     t = st.get("temperature_c")

@@ -257,6 +257,231 @@ APPEARANCE = {
         "examine": [(None, "Medical tape. Sticks to anything, including gloves.")],
     },
 
+    # --- the scattered wreck (DR-24 §8b: the crash is the difficulty engine) -----
+    "survivalduffel": {
+        "salience": "prominent", "order": 30,
+        "scene": [(None, "The survival duffel lies split along its seam, half-sunk in the gouged "
+                         "snow — the crash shook it out like a pillowcase.")],
+        "examine": [(None, "The legally-required kit bag, torn open on impact. What stayed inside "
+                           "stayed; the rest is somewhere out there under the white.")],
+    },
+    "drift2": {
+        "salience": "ordinary", "order": 40,
+        "scene": [(None, "a wind-packed drift, its crust dented where something punched in")],
+        "examine": [(None, "Hard-packed snow. Something heavy hit here at speed — the entry hole "
+                           "has already half-healed with blown powder.")],
+    },
+    "hatchet": {
+        "salience": "ordinary",
+        "scene": [(None, "a hatchet, half out of the snow")],
+        "examine": [(None, "A forest hatchet — but the haft is CRACKED through below the head; "
+                           "it twists in the grip. Choked up, it still bites. Lashed and taped, "
+                           "it could be whole again.")],
+    },
+    "matchbox": {
+        "salience": "subtle",
+        "scene": [(None, "a waterproof matchbox")],
+        "examine": [(None, "The irony is complete: the waterproof case cracked, and the strike-"
+                           "anywheres inside drank the snowmelt. Dried out — slowly, by a fire — "
+                           "they might live again.")],
+    },
+    "ration tin": {
+        "salience": "subtle",
+        "aggregate": "{count} olive-drab ration tins, dented but sealed",
+        "scene": [(None, "an olive-drab ration tin")],
+        "examine": [(None, "Dense survival rations, sealed in tin. Dull as a sermon and worth "
+                           "more than gold.")],
+    },
+    "fishingkit": {
+        "salience": "subtle",
+        "scene": [(None, "a pocket fishing kit")],
+        "examine": [(None, "Hooks, split-shot, and eighty feet of line wound on a plastic "
+                           "spool. The creek is out there somewhere under the ice.")],
+    },
+    "headnet": {
+        "salience": "subtle",
+        "scene": [(None, "a mosquito headnet")],
+        "examine": [(None, "Fine summer netting — useless against snow, fine for straining "
+                           "meltwater.")],
+    },
+    "mailsack": {
+        "salience": "ordinary", "order": 35,
+        "scene": [(None, "a grey mail sack, spilled and freezing to the snow")],
+        "examine": [(None, "US MAIL — CHUGIAK LAKE, stencilled and half-drifted. Someone is "
+                           "waiting for all of this.")],
+    },
+    "letters": {
+        "salience": "subtle",
+        "scene": [(None, "a rubber-banded bundle of letters")],
+        "examine": [(None, "Forty-odd envelopes, addresses running in the damp. Paper burns; "
+                           "these would burn like anything else. They would, though, be these.")],
+        "read": [(None, "You shouldn't. You do. A child's pencil, pressed hard: 'DEAR DAD the "
+                        "ice is good and Mr K says my slapshot is a HAZERD. Come home before "
+                        "the river shuts.' You put the bundle down with more care than you "
+                        "picked it up.")],
+    },
+    "twine": {
+        "salience": "subtle",
+        "scene": [(None, "a ball of postal twine")],
+        "examine": [(None, "Rough brown twine, a few hundred feet of it. Knots, snares, "
+                           "lashings.")],
+    },
+    "alusheet": {
+        "salience": "ordinary",
+        "scene": [(None, "a twisted sheet of fuselage skin")],
+        "examine": [(None, "A shed panel of aircraft aluminum, edges bright and mean. A "
+                           "windbreak, a fire-back, a sled for a strong back.")],
+    },
+    "tailcone": {
+        "salience": "prominent", "order": 10,
+        "scene": [
+            ({"open": True}, "The crushed tail cone gapes where it was levered open, its cargo "
+                             "bay finally giving up its dead."),
+            (None, "The tail cone is crushed like paper — the baggage bay is in there, behind "
+                   "buckled aluminum that fingers won't move."),
+        ],
+        "examine": [
+            ({"open": True}, "Pried wide. The lashing points hang empty now."),
+            (None, "The whole aft bay folded in on itself when the tail struck. Through a "
+                   "fist-sized gap you can make out webbing and something quilted. It wants "
+                   "a lever and real anger."),
+        ],
+    },
+    "sleepingbag": {
+        "salience": "ordinary",
+        "scene": [(None, "a rolled sleeping bag, dark-stained")],
+        "examine": [(None, "A heavy wool-lined bag — soaked along one side with avgas from a "
+                           "ruptured line. Warm as a stove; keep it the hell away from one.")],
+    },
+    "snowshoes": {
+        "salience": "ordinary",
+        "scene": [(None, "a pair of trail snowshoes")],
+        "examine": [(None, "Ash frames, webbing decks, leather bindings. The drifts stop being "
+                           "walls the moment these go on.")],
+    },
+    "cargonet": {
+        "salience": "subtle",
+        "scene": [(None, "a cargo net, still lashed to its rings")],
+        "examine": [(None, "Metres of knotted webbing. Cut free, it's cordage beyond counting.")],
+    },
+    "elt": {
+        "salience": "prominent", "order": 20,
+        "scene": [(None, "An orange box rides its bracket in the wreckage, a red lamp pulsing "
+                         "slow as a heartbeat.")],
+        "examine": [(None, "The emergency locator transmitter. The g-switch tripped on impact — "
+                           "ARM light pulsing, faithfully shouting on 121.5 — but its antenna "
+                           "ends two inches up in bright sheared metal. It is screaming into "
+                           "its own throat. It needs a real antenna, and wire enough to reach "
+                           "one.")],
+    },
+    "crate": {
+        "salience": "ordinary", "order": 30,
+        "scene": [
+            ({"open": True}, "the freight crate, lid levered off"),
+            (None, "a freight crate, lid nailed fast and stencilled CHUGIAK LAKE CO-OP"),
+        ],
+        "examine": [
+            ({"open": True}, "Groceries for a village store, riding a lid that's already off."),
+            (None, "Somebody's monthly order, nailed shut for the flight. The lid seam is a "
+                   "lever's invitation.")],
+    },
+    "coffeetin": {
+        "salience": "subtle",
+        "scene": [(None, "a catering tin of coffee")],
+        "examine": [(None, "Three pounds of ground coffee, vacuum-sealed. Morale in a can.")],
+    },
+    "flour": {
+        "salience": "subtle",
+        "scene": [(None, "a sack of flour")],
+        "examine": [(None, "Ten pounds of flour, dry inside its paper. Bannock over a fire, if "
+                           "the fire ever happens.")],
+    },
+    # --- cockpit & cabin additions ------------------------------------------------
+    "flightbag": {
+        "salience": "ordinary",
+        "scene": [(None, "the pilot's leather flight bag, wedged by the rudder pedals")],
+        "examine": [(None, "A working pilot's bag: chart pockets, pen loops, twenty years of "
+                           "wear. Zipped.")],
+    },
+    "flashlight": {
+        "salience": "subtle",
+        "scene": [(None, "an aluminum flashlight")],
+        "examine": [(None, "A heavy D-cell flashlight. The beam is strong now; batteries are a "
+                           "countdown.")],
+    },
+    "fueltester": {
+        "salience": "subtle",
+        "scene": [(None, "a fuel tester cup")],
+        "examine": [(None, "A clear sump cup with a probe pin — made for pulling avgas a "
+                           "swallow at a time. The wing drains would answer to this.")],
+    },
+    "chart": {
+        "salience": "ordinary",
+        "scene": [(None, "a sectional chart, folded to this valley")],
+        "examine": [(None, "The Anchorage sectional, folded and refolded to one creased "
+                           "rectangle of nowhere. There is handwriting on it.")],
+        "read": [(None, "The valley, in the pilot's pencil: the creek winding south, a spot "
+                        "height, and — three miles east, up the feeder stream — a small square "
+                        "drawn by hand, marked 'V. HOLT — CABIN, WOOD STOVE'. Underlined "
+                        "once.")],
+    },
+    "thermos": {
+        "salience": "subtle",
+        "scene": [(None, "a steel thermos, upright against the pedals")],
+        "examine": [(None, "The pilot's thermos. Through the steel, faintly, unbelievably: "
+                           "still warm.")],
+    },
+    "extinguisher": {
+        "salience": "subtle",
+        "scene": [(None, "a small fire extinguisher in its bracket")],
+        "examine": [(None, "A halon bottle, charged, pin seated. The one fire you'll want to "
+                           "stop, someday, in a shelter.")],
+    },
+    "toolroll": {
+        "salience": "subtle",
+        "scene": [(None, "a canvas tool roll")],
+        "examine": [(None, "A mechanic's roll, oil-dark with years. It clinks with competence.")],
+    },
+    "ducttape": {
+        "salience": "subtle",
+        "scene": [(None, "a roll of duct tape")],
+        "examine": [(None, "Half a roll. Out here, that's currency.")],
+    },
+    "safetywire": {
+        "salience": "subtle",
+        "scene": [(None, "a spool of safety wire")],
+        "examine": [(None, "Fine stainless lockwire — metres of it. Binds anything to anything, "
+                           "forever.")],
+    },
+    "screwdriver": {
+        "salience": "subtle",
+        "scene": [(None, "a long flat screwdriver")],
+        "examine": [(None, "A long flat-blade. Half tool, half small crowbar.")],
+    },
+    "enginecover": {
+        "salience": "ordinary",
+        "scene": [(None, "the quilted engine cover, folded fat as a mattress")],
+        "examine": [(None, "The insulated cover the pilot bagged the cowling with at every cold "
+                           "stop — a great quilted blanket built for exactly one job: holding "
+                           "heat against metal all night. It would hold it against a person.")],
+    },
+    "aircraft seat": {    # the second row (12C) — name-keyed; 11B keeps its sim-id entry
+        "salience": "prominent", "order": 32,
+        "scene": [
+            ({"residue_cushion": "clipped"},
+             "Another seat stands half-stripped, clips bared where its cushion went."),
+            (None, "A second passenger seat — 12C on the frame — thrown hard against the hull."),
+        ],
+        "examine": [(None, "Same crash-scarred build as its row-mate: thin cover, thick dry "
+                           "foam, a belt on a bolted anchor.")],
+    },
+    "oil quart": {
+        "salience": "subtle",
+        "aggregate": "{count} quarts of engine oil, rolled against the hull",
+        "scene": [(None, "a quart of engine oil")],
+        "examine": [(None, "Straight-weight aviation oil. Burns filthy and black — which, for "
+                           "a signal, is the entire point.")],
+    },
     # --- derived objects (keyed by display NAME; identical deriveds share one entry) ---
     "glass shard": {
         "salience": "ordinary",

@@ -46,12 +46,12 @@ class TestDiscovery(EvenniaTest):
         self._do("take the kit")
         assert self._carried("firstaid")
 
-        said = self._do("search the duffel")
+        said = self._do("search the duffel bag")
         assert "multitool" in said and "socks" in said and "paracord" in said
-        self._do("take the multitool from the duffel")
+        self._do("take the multitool from the duffel bag")
         assert self._carried("multitool")
 
-        said = self._do("search the seat")
+        said = self._do("search 11b")
         assert "seatback pocket" in said
         said = self._do("search the seatback pocket")
         assert "chocolate" in said
@@ -70,7 +70,7 @@ class TestDiscovery(EvenniaTest):
     def test_pry_the_aft_bin_then_the_backpack_chain(self):
         said = self._do("go to the rear cabin", "open the aft bin")
         assert "lever" in said, "the jammed bin hints at leverage"
-        self._do("go to the mid cabin", "search the duffel", "take the multitool",
+        self._do("go to the mid cabin", "search the duffel bag", "take the multitool",
                  "go to the rear cabin")
         said = self._do("pry the aft bin with the multitool")
         assert "hangs open" in said
@@ -80,7 +80,7 @@ class TestDiscovery(EvenniaTest):
         assert "canteen" in said and "shirt" in said
 
     def test_pry_the_panel_reveals_the_wire(self):
-        self._do("search the duffel", "take the multitool", "go to the cockpit")
+        self._do("search the duffel bag", "take the multitool", "go to the cockpit")
         said = self._do("pry the panel with the multitool")
         assert "hangs open" in said
         self._do("take the wire from the panel")
@@ -93,7 +93,7 @@ class TestDiscovery(EvenniaTest):
         assert self._carried("gloves")
 
     def test_fixed_and_heavy_refuse_honestly(self):
-        said = self._do("take the seat")
+        said = self._do("take 11b")
         assert "part of the wreck" in said
         said = self._do("go to the cockpit", "take the pilot")
         assert "dead weight" in said
@@ -103,7 +103,7 @@ class TestDiscovery(EvenniaTest):
         assert "you pull on the wool blanket" in said
         said = self._do("inventory")
         assert "wearing: wool blanket" in said
-        said = self._do("go to the mid cabin", "search the duffel", "take the socks",
+        said = self._do("go to the mid cabin", "search the duffel bag", "take the socks",
                         "wear the socks", "examine me")
         assert "wool blanket" in said and "wool socks" in said
         assert "you are" in said                       # the warmth band line
@@ -139,9 +139,61 @@ class TestDiscovery(EvenniaTest):
         assert "you are in the torn tail opening" in said
         assert "crushed cabin of a downed light plane" not in said
 
+    # --- the scattered wreck (§8b: the crash is the difficulty engine) ---
+
+    def test_the_tail_is_a_real_expedition(self):
+        with mock.patch.object(self.char1, "msg"):
+            self.char1.execute_cmd("go to the rear cabin")
+            self.char1.execute_cmd("go to the breach")
+            self.char1.execute_cmd("go to the debris trail")
+            self.char1.execute_cmd("go to the tail section")
+        assert (self.char1.db.state or {}).get("zone") == "tail_section"
+
+    def test_the_kit_scattered_and_the_hatchet_is_buried(self):
+        self._do("go to the rear cabin", "go to the breach", "go to the debris trail")
+        said = self._do("search the torn survival duffel")
+        assert "ration tin" in said and "matchbox" in said and "headnet" in said
+        assert "hatchet" not in said, "the hatchet was FLUNG, not bagged (power costs distance)"
+        said = self._do("dig the wind-packed drift")
+        assert "hatchet" in said and "flare" in said
+        self._do("take the hatchet")
+        said = self._do("examine the hatchet")
+        assert "cracked" in said and "broken" in said, "the crash damaged the prize"
+
+    def test_the_soaked_matches_tell_their_bootstrap_story(self):
+        self._do("go to the rear cabin", "go to the breach", "go to the debris trail",
+                 "search the torn survival duffel")
+        said = self._do("examine the matchbox")
+        assert "soaked" in said and "dried" in said
+
+    def test_the_tail_cone_pry_and_the_prizes(self):
+        self._do("search the duffel bag", "take the multitool",
+                 "go to the rear cabin", "go to the breach", "go to the debris trail",
+                 "go to the tail section")
+        said = self._do("open the tail cone")
+        assert "lever" in said
+        said = self._do("pry the tail cone with the multitool")
+        assert "hangs open" in said
+        said = self._do("examine the tail cone")
+        assert "sleeping bag" in said and "snowshoes" in said
+        self._do("take the sleeping bag")
+        said = self._do("wear the sleeping bag")
+        assert "you pull on the sleeping bag" in said
+        said = self._do("examine the emergency locator transmitter")
+        assert "121.5" in said and "sheared" in said, "the ELT tells the rescue arc's story"
+
+    def test_the_paper_tells_stories(self):
+        self._do("go to the rear cabin", "go to the breach", "go to the debris trail",
+                 "search the mail sack")
+        said = self._do("read the letters")
+        assert "slapshot" in said, "the mail is people, not loot"
+        said = self._do("go to the breach", "go to the rear cabin", "go to the mid cabin",
+                        "go to the cockpit", "read the chart")
+        assert "cabin" in said and "wood stove" in said, "the chart plants the next scene"
+
     def test_put_it_back(self):
-        self._do("search the duffel", "take the socks")
+        self._do("search the duffel bag", "take the socks")
         assert self._carried("socks")
-        said = self._do("put the socks in the duffel")
+        said = self._do("put the socks in the duffel bag")
         assert "you stow the wool socks" in said
         assert not self._carried("socks")
