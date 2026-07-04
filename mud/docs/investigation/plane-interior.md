@@ -135,6 +135,30 @@ This single fact justifies the game's entire survival economy without inventing 
   `canvas` (covers/tarp), maybe `down` (sleeping bag) — or map to wool/fabric.
 - **Fiction decision needed**: overhead bins → netted cargo bay + hat shelf + jammed cargo door?
 
+## 8b. Access design — the crash is the difficulty engine (Andrew's check, 2026-07-04)
+
+An intact survival kit = the game solved in one `search`. The principle: **realism supplies the
+inventory; the crash supplies the difficulty.** The law says the kit was ABOARD — the crash
+decides where it is now and what shape it's in. Every gate is honest physics:
+
+- **Distance**: the tail section (kit + ELT) tore off 200 m back up the crash path — an
+  expedition through snow and (P5) a warmth budget; hauling it back costs trips and weight.
+  Implies new zones: a debris trail + the separated tail section (cheap now — zone content).
+- **Wreckage**: crushed tail cone; the bay pinned under shifted freight (unload first); the
+  cargo net frozen into the frame; buckled aluminum wants two people and a lever.
+- **Scatter**: the kit split on impact — contents strung along the debris field; the hatchet is
+  in a drift somewhere off the trail; ration tins rolled; dig/search the crash path.
+- **Damage → loops, not wins**: soaked matches (dry them by a fire you must start another way —
+  a bootstrap puzzle); snapped axe haft (webbing + tape repair); the sleeping bag took avgas
+  (warm, but flammable — choices); the ELT survived but its antenna sheared in the separation —
+  transmitting into nothing; FIXING it is the rescue arc.
+- **The power∝cost rule (authoring curve)**: the more game-solving an item, the farther /
+  deeper / more broken the crash left it. A paperback is at your feet; the hatchet is a hundred
+  meters out under snow with a cracked haft.
+
+Pacing arc this produces: teasers at your feet → bins/bags for workers → expeditions for the
+treasures → the radio/ELT arc as the long game.
+
 ## 9. Open questions for Andrew
 
 1. Bins vs. netted cargo bay (realism vs. keeping what's built)?
