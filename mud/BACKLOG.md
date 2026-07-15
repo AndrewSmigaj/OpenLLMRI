@@ -28,6 +28,11 @@ Now item at a time**; deferred-but-designed items are two-line stubs linking to 
 - **Mudlet integration write-up** — the research pass is done (findings gathered); writing them up into
   [`docs/client/mudlet-research.md`](docs/client/mudlet-research.md) (currently a skeleton) + a brainstorm
   doc with a proposed Whiteout Mudlet setup are pending.
+- **The valley (world design) — AWAITING ANDREW'S REVIEW** (2026-07-15 overnight run,
+  [`docs/investigation/world/`](docs/investigation/world/)): the full outdoor scenario — 11 Scenes /
+  59 zones (map, rooms with authored looks + priced resources + telegraphed hazards, the play report
+  with three assessment passes, and the ~1,150-object census). Design-only; implements nothing.
+  Companion pending decision: **Presentation v3 plan** (`docs/investigation/presentation-v3-plan.md`).
 
 ## Later  (the big boulders — see `roadmap.md` P2–P7 for the strategic detail)
 - **Randomness / dice-rolling for conditions** — decide whether/where to introduce RNG (runtime is
