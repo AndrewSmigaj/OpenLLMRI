@@ -31,6 +31,11 @@ The nine authored zones in `zones.py` stand. The wider world adds only **outward
   NE, and — only if lit — fire or smoke on the lake ice. The climbable spine becomes the
   site's watchtower, which it already wants to be (the antenna stub lives there).
 - `debris_trail` gains a see edge NE to `shear_line` (the scar is one continuous line).
+- **New salvage note (the early sled)**: the engine cowling half-buried at `outside_nose`
+  is a drag-toboggan blank — punch two holes, lash paracord (all hour-1 materials), and
+  hauling gameplay exists from the first fuel ferry. It is slow, tippy, and plows in soft
+  snow (honest limits) — the woodshed's freight sled later arrives as the UPGRADE to a
+  logistics game the party already plays, not as its introduction.
 
 **Exposure**: interiors `broken` (windbreak but unheated), exteriors `open`, fuselage_top
 `brutal` (the wind owns the bare spine).
@@ -149,6 +154,11 @@ exterior, ice, open · *exposure:* brutal
 > Out here there is no *here* — just wind-burnished ice under a skin of driven snow, and
 > more sky than one pair of eyes can be responsible for. Anything standing on this would be
 > visible for miles. So would you.
+**Night/storm look.** *In near-whiteout the flat is the map's most dangerous room:* "White
+above, white below, and the wind erasing the difference. Your own trail is gone within
+plane-lengths. Somewhere is the shore; the wind knows which way it was, if you marked the
+wind." (The design intent authored plainly: after dark or in whiteout, the flat is
+navigable ONLY by wind-bearing, a rigged rope line, or the fire itself as beacon.)
 **Resources & pricing.** *Visibility itself* — the zone's only resource, and the visual
 rescue route's whole foundation. A signal fire out here is seen by any air search on the
 drainage line; a fire out here also fights the wind for its life. Making one work costs
@@ -183,13 +193,22 @@ exterior, ice, thin-ice · *exposure:* open
 > A feeder brook comes in under the ice at the lake's north end, and the lake shows it: the
 > snow cover thins to a stained grey ring, the ice beneath goes dark as bottle glass, and
 > every third footfall out there answers with a drumhead note that no sane animal ignores.
-**Resources & pricing.** None worth the ground. That is the point: the zone is pure hazard
-with three separate telegraphs (stain, dark ice, drum sound), and it exists so ice-reading
-is LEARNED here — where curiosity costs a scare — before the creek and the pond ask harder
-versions of the same question.
+> In along the shore, where the brook actually arrives, a narrow lead stands open against
+> the gravel — real water, moving, close enough to smell — with all that dark glass lying
+> between it and anywhere sensible to stand.
+**Resources & pricing.** *The shore lead*: the NORTH's liquid water — the signal-camp
+party's answer to the riffle, so the lake day has real logistics instead of a fuel-melting
+tax (assessment I-2). Priced exactly as the zone's own curriculum demands: the safe draw is
+the LONG way — around by the grounded shoreline gravel, prone, with a lashed dipper
+(daylight + knowledge that grounded beats short) — while the short way is forty feet of
+drum-note glass. The zone thus graduates from pure tuition to a real trade: the lesson and
+the temptation are the same forty feet.
 **Hazards.** *Thin ice*: proceeding onto the dark ring past the drum warnings = through the
 ice — soaked to the waist, the run-for-your-life clock, gear on the bottom. Never random:
 every step of escalation is announced, and probing (pole, axe tap) reads the danger safely.
+The shore lead's undercut lip is the second, subtler exam: the gravel is safe, the last
+yard of overhanging ice-shelf is not, and the difference is visible to a look that has
+learned anything at all here.
 
 ### `outlet_narrows` — the outlet narrows
 *aliases:* outlet, narrows, south end, lake outlet · *pos:* −700, −350, 0 · *terrain:*
@@ -464,9 +483,9 @@ early.
 > The hill ends in a bald rock knob and the world arrives all at once: the lake a grey
 > coin westward, the wreck a matchstick cross on the white flat, the creek a stitched
 > seam running south through the timber — and there, southeast on a bench above the
-> creek, one right angle in a country with no others. A roof. The wind up here goes
-> through clothing like a decision through a committee, and it is not going to get tired
-> before you do.
+> creek, one right angle in a country with no others. A roof. The wind up here does not
+> gust; it leans, with its whole weight, steadily, like something that has decided, and
+> it is not going to get tired before you do.
 **Resources & pricing.** *The view*: the cabin DISCOVERED (the map's biggest single
 knowledge payout — a bearing, "follow the creek, climb at the pond"), the weather read
 (storm bands visible early — the party that summits knows the afternoon's shape before
@@ -476,6 +495,14 @@ band, and the §38 puzzle's elevation clue becomes physical. Priced in the climb
 the exposure clock (minutes of working time, the look promises the wind wins), and the
 carry (the radio or rigged ELT hauled up the hill — the 12 kg arithmetic suddenly a
 mountaineering question).
+**Storm-phase beat (assessment I-1 — the second climb).** If the party ever raised
+static-voices up here (or rigged the ELT), then mid-afternoon — heavy band, the worst
+possible moment — the handheld crackles ONCE at valley level during a clear pocket:
+"…any traffic… section… the creek…" and dies. The knob suddenly has a late-game price
+tag: a second climb, in weather, against the §14 ladder closing — the northeast's
+risk/reward decision staged exactly when it is priced worst. It is genuinely winnable
+(the krummholz stages it, the clock is honest) and genuinely declinable (the beat adds
+radio confidence, it doesn't gate rescue — GDD: no single required path).
 **Hazards.** The clock IS the hazard. The design guarantee: the knob never kills anyone it
 didn't warn twice on the way up.
 
@@ -511,8 +538,12 @@ serves ignition, ember-craft, or the reading of trees. Four zones.
 > standing dead among them have gone grey and light as paper lanterns.
 **Resources & pricing.** *Dead-standing aspen saplings*: push-over poles — light, straight,
 hand-harvestable (the ONE freely-generous wood, priced in its own softness: burns fast,
-worth little as fuel — honest material math). *The browse sign*: hare country's eastern
-annex — a second snare venue (same knowledge gates as `hare_runs`).
+worth little as fuel — honest material math). *Punk wood*: the grey "paper lantern" snags
+are dry-rotted through — soft punk that takes and HOLDS a coal for hours cupped in a tin:
+the ember-carrier. FIRE BECOMES PORTABLE — the mid-game logistics unlock that changes camp
+math (knowledge: the manual's fire page, or noticing a knocked-open snag smoulder). *The
+browse sign*: a pointer only — the runs here thread back toward `hare_runs`; one snare
+venue per wood is enough, and the fringe's job is poles and punk.
 
 ### `birch_grove` — the birch grove
 *aliases:* birches, grove, paper birch · *pos:* 380, −20, 12 · *terrain:* exterior, trees ·
@@ -527,11 +558,13 @@ and WET (material table: ignition easy even soaked — the storm-proof flame). T
 trunk peels by hand in sheets (the freebie that teaches the resource); standing trunks
 give more and better with a blade (tools), and stripping a full girdle kills the tree —
 the world doesn't punish it, it just stays true (provenance + a scar, and the grove
-remembers in prose). *Punk wood*: the fallen trunk's soft dry-rot interior — the
-ember-carrier (knowledge: a coal cupped in punk travels for hours — FIRE BECOMES
-PORTABLE, the mid-game logistics unlock that changes camp math).
-**Story.** Fire you can carry: the moment the party stops re-solving ignition and starts
-managing flame as a supply line.
+remembers in prose). The grove keeps ONE job — bark, the storm-proof flame — and does it
+in three grades: hand-peeled scrolls (free), blade-cut sheets (tools), and the standing
+trunks' thick jacket (tools + the tree's life). The ember-carrier moved to the aspen
+fringe where punk actually grows (assessment I-6); together the two zones split fire-craft
+cleanly: the fringe carries flame FORWARD, the grove starts it ANYWHERE.
+**Story.** Fire you can carry, fire you can start in the rain: the stand is where the
+party stops re-solving ignition and starts managing flame as a supply line.
 
 ### `chaga_tree` — the chaga birch
 *aliases:* chaga, conk tree, black growth, old birch · *pos:* 430, 40, 15 · *terrain:*
@@ -625,6 +658,11 @@ delight instead of danger.
 > the surface in the cold, and the fresh snow over the stained patches sags, just
 > slightly, like frosting over a soft spot. Under that snow is water, standing on top of
 > good ice, going nowhere, waiting.
+**Night/storm look.** "Dark takes the stains first. What is left is the steam — faint
+grey feathers standing in your light where the bad snow breathes — and the sag underfoot
+arriving a half-second after it would have helped." (Design intent: two of the three
+telegraphs survive darkness; the probe still answers; the night crossing is harder, not
+unfair.)
 **Resources & pricing.** None — the second tuition zone, and the southern map's toll gate.
 *Overflow* is the north's sneakiest hazard (water trapped ATOP solid ice, hidden under
 powder — boots soak with no plunge, no drama, just wet feet a mile from fire).
@@ -809,6 +847,12 @@ blaze ahead (deliberately: the tunnel's see-range IS the blaze interval).
 > secondhand. The wind, for once, is somewhere else entirely; snow stands on every
 > twig, unbothered, in absolute administrative silence. One blaze glimmers behind you.
 > One waits ahead. Between them the world is twelve feet wide.
+**Night/storm look.** "The tunnel does not know about the storm. Snow sifts through the
+mesh overhead in single flakes, one blaze soaks up your light and gives back a wet grey
+gleam, and somewhere above the boughs the wind is tearing the valley apart in another
+country." (Design intent: the corridor's exposure stays `sheltered` at every weather
+band — the trapline is the storm's one open road, and its night prose should feel like
+being indoors in a hallway of the outside.)
 **Resources & pricing.** *Shelter-in-motion*: the corridor is `sheltered` for its whole
 length — the ONLY long move on the map that stays cheap in heavy weather (the
 storm-phase ace, priced in advance: you must have LEARNED the trail while learning was
@@ -877,6 +921,13 @@ zones.
 > squat one there — and a wire runs post-to-post across the yard at knee height,
 > humming very slightly in the wind, going nowhere anyone can see. The whole place
 > has the held-breath tidiness of a room left by someone who expected to be back.
+**Night/storm look.** "The yard at night is shapes and the memory of shapes: the cabin a
+harder black, the cache on its legs against the sky like a wading bird asleep, your own
+trench of tracks the only line the storm hasn't finished arguing with. The door is twenty
+steps of wind away." (Design intent: arrivals AFTER dark — the likeliest case for
+first-time expeditions — get an approach that is findable [the trapline delivers you to
+the gate, the yard is small] but earns its relief; the porch dune by lamplight is the
+night's last honest labor.)
 **Resources & pricing.** *The buried shapes*: a chopping block (the long mound: a
 sawbuck) — infrastructure, not loot; dig to use (sweat, minor). *The dog-run wire*:
 yards of braided cable between posts (unwind: patience + cold fingers) — heavier stock
@@ -1039,5 +1090,24 @@ avgas (climb / fell / rig-catch) · cache (ladder-hunt / shoulder-stand / pole-t
 / pole / chop) · fish (only long chain — but its links each have multiple sources:
 hole [hatchet or axe or maul], rod [willow or stake], bait [three+ sources]) · sled
 runner (stakes/aspen × wire/withes/cord × pitch) · cabin discovery (chart / knob /
-blazes / pilot) · water (riffle / melt / blue ice / water hole) · fire-start
-(lighter / matches-dried / birch bark / chaga-spark / avgas-assist).
+blazes / pilot) · water (riffle / melt / blue ice / shore lead / water hole) ·
+fire-start (lighter / matches-dried / birch bark / chaga-spark / avgas-assist).
+
+### Timed beats as WORLD events (assessment I-4 — never a silent no-op)
+The GDD's 2–3 timed beats must land on every party, wherever it stands:
+- **The search plane (midday band)**: the engine-drone is audible VALLEY-WIDE
+  (AUDIBLE_ONLY at minimum, with direction — "an engine, small and high, west") in
+  every exterior zone and, muffled, inside the wreck and the cabin. Parties on the
+  lake with smoke up get the confidence event; parties elsewhere HEAR their
+  allocation choice cost them, in the moment, with a bearing — the gut-punch teaches
+  only if it is witnessed.
+- **The radio voice (heavy band)**: one valley-level crackle (the knob's second-climb
+  invitation — see `the_knob`) — audible to whoever carries the handheld, wherever
+  they carry it.
+- **The pilot's last lucid line (timing set by the medicine loop)**: delivered
+  wherever HE is — and the design assumes parties may move him (a drag litter of
+  paneling and cord: possible, priced in sweat and gentleness). The line reaches
+  whoever stayed close; care is rewarded with information, absence with silence.
+
+No beat requires standing in the right room; every beat is perceivable from every
+room; the difference in what you can DO about it is the game.
