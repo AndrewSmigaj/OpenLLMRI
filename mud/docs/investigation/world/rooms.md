@@ -197,8 +197,8 @@ exterior, ice, thin-ice · *exposure:* open
 > the gravel — real water, moving, close enough to smell — with all that dark glass lying
 > between it and anywhere sensible to stand.
 **Resources & pricing.** *The shore lead*: the NORTH's liquid water — the signal-camp
-party's answer to the riffle, so the lake day has real logistics instead of a fuel-melting
-tax (assessment I-2). Priced exactly as the zone's own curriculum demands: the safe draw is
+party's answer to the riffle, so the lake day runs real logistics instead of a
+fuel-melting tax. Priced exactly as the zone's own curriculum demands: the safe draw is
 the LONG way — around by the grounded shoreline gravel, prone, with a lashed dipper
 (daylight + knowledge that grounded beats short) — while the short way is forty feet of
 drum-note glass. The zone thus graduates from pure tuition to a real trade: the lesson and
@@ -495,7 +495,7 @@ band, and the §38 puzzle's elevation clue becomes physical. Priced in the climb
 the exposure clock (minutes of working time, the look promises the wind wins), and the
 carry (the radio or rigged ELT hauled up the hill — the 12 kg arithmetic suddenly a
 mountaineering question).
-**Storm-phase beat (assessment I-1 — the second climb).** If the party ever raised
+**Storm-phase beat — the second climb.** If the party ever raised
 static-voices up here (or rigged the ELT), then mid-afternoon — heavy band, the worst
 possible moment — the handheld crackles ONCE at valley level during a clear pocket:
 "…any traffic… section… the creek…" and dies. The knob suddenly has a late-game price
@@ -554,15 +554,13 @@ venue per wood is enough, and the fringe's job is poles and punk.
 > pale scrolls that shiver without wind. One big trunk lies fallen and half-buried, its
 > upturned side peeling in sheets you could read by.
 **Resources & pricing.** *Birch bark*: the north's fire-starter royalty — burns hot, long,
-and WET (material table: ignition easy even soaked — the storm-proof flame). The fallen
-trunk peels by hand in sheets (the freebie that teaches the resource); standing trunks
-give more and better with a blade (tools), and stripping a full girdle kills the tree —
-the world doesn't punish it, it just stays true (provenance + a scar, and the grove
-remembers in prose). The grove keeps ONE job — bark, the storm-proof flame — and does it
-in three grades: hand-peeled scrolls (free), blade-cut sheets (tools), and the standing
-trunks' thick jacket (tools + the tree's life). The ember-carrier moved to the aspen
-fringe where punk actually grows (assessment I-6); together the two zones split fire-craft
-cleanly: the fringe carries flame FORWARD, the grove starts it ANYWHERE.
+and WET (material table: ignition easy even soaked — the storm-proof flame). One job,
+three grades: the fallen trunk peels by hand in scrolls (the freebie that teaches the
+resource); standing trunks give sheets with a blade (tools); and stripping a full girdle
+takes the thick jacket at the price of the tree — the world doesn't punish it, it just
+stays true (provenance, a scar, and the grove remembers in prose). Together with the
+fringe next door the stand splits fire-craft cleanly: the grove starts flame ANYWHERE,
+the fringe carries it FORWARD.
 **Story.** Fire you can carry, fire you can start in the rain: the stand is where the
 party stops re-solving ignition and starts managing flame as a supply line.
 
@@ -964,9 +962,15 @@ interior, wood · *exposure:* sheltered (with the stove lit: the map's ONLY `war
 > outside: still, patient, museum cold. The stove is the argument the whole room is
 > making.
 **Resources & pricing.** *THE STOVE*: shelter's endgame — a contained, chimney-drafted,
-cook-topped fire that turns the storm into weather (fuel still wanted: the shed's
-wood is the other half of the promise; lighting it is the whole fire chain one last
-time, indoors, almost easy — the game's earned victory lap). *The shelf*: flour, salt,
+cook-topped fire that turns the storm into weather. **The pre-paid first move**: the
+kindling box beside it is already split and laid, the shed's
+door-side stack puts the first armload ten steps away, and a strike-anywhere match tin
+sits on the warming shelf — so even a soaked, spent, after-dark arrival can buy heat
+with ONE competent act. Everywhere else the world charges full price; here, and only
+here, the previous owner already paid the opening — because that is literally what a
+bush cabin's laid kindling is FOR, and the design's mercy arrives in character.
+Sustained heat still costs the full chain (the shed, the sawbuck, the night's rounds) —
+the floor is the first hour, not the night. *The shelf*: flour, salt,
 lard, tea, a few tins — real staples (the mouse tax has opened two packets — honest
 attrition); ONE bulged can among the good ones (botulism — the examine-gated poison
 lesson: the manual's food page names the bulge; eating it unexamined is the map's one
@@ -1111,3 +1115,71 @@ The GDD's 2–3 timed beats must land on every party, wherever it stands:
 
 No beat requires standing in the right room; every beat is perceivable from every
 room; the difference in what you can DO about it is the game.
+
+### The aurora (assessment I-11 — night's one gift)
+Once, deep in the storm night, the overcast tears open for a handful of minutes and
+the north gets its wonder-beat back. Authored looks where it matters most:
+- **ice_flat**: "The wind stops arguing long enough to show you why it was worth
+  surviving the day: the whole sky north is a slow green fire, folding and unfolding
+  over the ice like a curtain in a draft only it can feel, bright enough to throw
+  your shadow toward the shore."
+- **the_knob** (for the second-climb party, if any): "From up here the aurora stands
+  over the whole country at once, and the valley answers in grey light — lake, scar,
+  creek-seam, one square roof. For a few minutes the map is free."
+- **dooryard**: "Green light washes the yard and the cache stands against it like a
+  wading bird asleep in a lit river. Somewhere under all that sky, everyone else is
+  seeing this too."
+True to life and load-bearing: clearing skies mean plunging cold — the beauty and the
+temperature drop arrive together, and the design says so in the P5/P7 numbers. The
+beat is also a free co-op event: a split party sees the same sky at the same minutes,
+and the design bets someone says so on the shout channel.
+
+### The manual is the textbook (assessment I-9 — required pages)
+Every knowledge price on the map is backed by an in-game teacher; most cite the
+survival manual. Its read-pages are therefore first-class content, rank-equal with
+zone looks. The required pages and the zone lessons each backs:
+
+| Manual page | Backs (zones/lessons) |
+|---|---|
+| FIRE | squaw wood (hollow), birch bark grades (grove), punk embers (fringe), chaga spark (chaga_tree), wind engineering (ice_flat) |
+| WATER | boil-everything (riffle, shore lead, water hole), blue-ice efficiency (apron, pressure ridge), melt ratios (everywhere) |
+| SHELTER | bough beds + the tree-well bivvy (hollow), snow blocks (ice_flat), the warmth floor (fuselage) |
+| SIGNALS | three-of-anything, smoke color (green=white / rubber=black: forest_edge + gear_gouge), fire placement (ice_flat) |
+| FOOD | forage (tussocks, rose hips, labrador tea), the bulged-can warning (cabin shelf), cleaning game (grouse, marten) |
+| FISHING | pools concentrate fish (confluence), jig craft (willow + kit line) |
+| SAR / ELT | overflights follow drainages (the lake line), 121.5 + antenna + elevation (§38's public half) |
+| EXPOSURE | layer management, sweat debt (porch dune, drifted channel), summit habits (krummholz), wind chill bands |
+Authoring rule: each page is ≤1 read-screen, practical voice, and NEVER exceeds what
+the systems actually honor — the manual may simplify but must not lie.
+
+### Operations the map assumes (assessment I-10 — the implementation bill)
+Each with its zones and its graceful degradation (what the zone still offers if the
+op ships later), so the world can load ahead of its systems with no dead zones:
+
+| Op | Zones that want it | Degrades to |
+|---|---|---|
+| `probe` (one op, many surfaces — the map's signature verb) | drifted_channel, inlet, overflow_bend, logjam, boulder_field, pond margins | examine-prose reads the same tells; hazards stay telegraphed, only the TEST verb is missing |
+| `climb` | wing spruce, chaga_tree, cache, loft ladder, fuselage_top (exists as move) | authored-rule unlocks per site (tier-1 seam); the ≥2-openings audit guarantees a non-climb path everywhere |
+| `throw` | grouse_thicket, ptarmigan bar, chaga knock-down | approach-and-strike resolves as plain tool use at melee range (worse odds, authored) |
+| `drag/haul` | cowling, freight sled, drift log rounds, the pilot's litter | carry-in-trips (the 12 kg limit already enforces the economics) |
+| `set/check snare` | lake_gate_willows, hare_runs, aspen pointer | authored-rule pair on the tier-1 seam; wire + run + hours are the whole state machine |
+| `fish` | confluence_pool | the hole + jig assemble from existing ops (chop, tie); the catch event itself is the seam |
+| `shovel/dig` (exists) | porch dune, tussocks, moose bed, drifted shapes | already live |
+| track persistence + decay | all exterior zones (GDD §8 demands decay anyway) | zones still navigable by landmarks/blazes; only the own-trail handrail waits |
+| exposure drain | every zone's band is authored here | flavor-only until P5; the bands are already worth authoring against |
+| timed-beat scheduler | plane, radio crackle, pilot's line, aurora | P4's activity scheduler; beats are data, not code |
+
+### The world remembers (assessment I-12 — memory states for the appearance registry)
+Every change the prose promises to remember, in one scoping table (state-conditioned
+scene variants per DR-23's registry):
+girdled birch (grove: the stripped column, "the grove remembers") · dam poles pulled
+from the working face (spill slot widens, vent goes quiet, prose registers vandalism)
+· cracked lodge (the wrecked wall, the silence after) · beaver cache chopped (open
+water scar by the lodge) · pried shutter vs. dug door (the cabin's broken eye vs. the
+honest entrance) · cache ladder found/left (the stashed pole-ends gone from under the
+cabin) · woodpile drawn down ("leave the box full" — the note keeps score) · snares
+set (visible loops on the runs; sprung or paying on return) · fires dead on the ice
+(char rings the storm buries by morning) · the drained-down drift log (a gnawed white
+carcass of saw-cuts) · blazes re-cut or wands planted by players (their OWN navigation
+marks persist — the map lets the party leave the country better labeled than they
+found it, which is the Holt ethic, learnable).
