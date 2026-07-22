@@ -76,7 +76,9 @@ first unchecked box instead of redoing partial work.)
     blade); top gap: block/cover the hull breach (the block-the-draft spike)
   - [x] outside_nose — `rooms/outside_nose.md`; first EXTERIOR census (no objects → systemic gaps):
     the wings are the unbuilt fuel source, and exposure/shelter isn't a warmth axis yet
-  - [ ] fuselage_top
+  - [x] fuselage_top — `rooms/fuselage_top.md`; a genuinely special exterior (the ELT antenna-rig
+    puzzle's top anchor — an unbuilt `antenna_base`), worst exposure, the vantage. Calibration folded
+    in: outdoor rooms are traversal, systems > per-room hooks.
   - [ ] outside_tail
   - [ ] debris_trail
   - [ ] tail_section
