@@ -70,8 +70,10 @@ first unchecked box instead of redoing partial work.)
   first as the exemplar template.
   - [x] cockpit — `rooms/cockpit.md`; 13 built entities + elusive census; gaps logged (top recs:
     `smell`/`listen` sense verbs, glass-shard blade from the windscreen, strip-the-body, scenery nouns)
-  - [ ] mid_cabin
-  - [ ] rear_cabin
+  - [x] mid_cabin — `rooms/mid_cabin.md`; the crafting heart (seat parts-machine, tool caches); gaps:
+    `sit`/`rest`, unscrew, treat-wound
+  - [x] rear_cabin — `rooms/rear_cabin.md`; cold+warmth room (indoor snow, engine-cover prize, glass
+    blade); top gap: block/cover the hull breach (the block-the-draft spike)
   - [ ] outside_nose
   - [ ] fuselage_top
   - [ ] outside_tail
