@@ -79,7 +79,8 @@ first unchecked box instead of redoing partial work.)
   - [x] fuselage_top — `rooms/fuselage_top.md`; a genuinely special exterior (the ELT antenna-rig
     puzzle's top anchor — an unbuilt `antenna_base`), worst exposure, the vantage. Calibration folded
     in: outdoor rooms are traversal, systems > per-room hooks.
-  - [ ] outside_tail
+  - [x] outside_tail — `rooms/outside_tail.md`; breach-exit / fuel+ice hub. Censused breadth-first
+    (flat unranked gap list, no crowned "core system") after Andrew's tunnel-vision course-correct.
   - [ ] debris_trail
   - [ ] tail_section
   - [ ] treeline
