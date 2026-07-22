@@ -1,27 +1,29 @@
-"""Whiteout — appearance content (DR-23): scene phrases, examine prose, salience. Tunable content —
-this is Andrew's voice; rewrite freely. Structure per entry (keyed by sim_id, or by display NAME for
-derived objects so identical deriveds share one entry):
+"""Whiteout — appearance content: scene phrases, examine prose, and each object's home space.
+Tunable content — this is Andrew's voice; rewrite freely. Structure per entry (keyed by sim_id, or
+by display NAME for derived objects so identical deriveds share one entry):
 
-    "salience": "prominent" | "ordinary" | "subtle"   (weighting, never hiding)
-    "order":    int (sort within a tier; lower = earlier; default 50)
-    "promote":  [({state-subset}, tier), ...]          (state promotes salience — a lit fire leads)
-    "scene":    [({state-subset} | None, phrase), ...] (first match wins; prominent = a full
-                sentence, ordinary/subtle = a noun phrase for the frame lines)
+    "space":    str   the object's home space within its zone (see spaces.py) — where it renders and
+                where a "look at <space>" finds it. Unset → the zone's default space (a safe fallback).
+    "anchor":   bool  this object DEFINES its space and leads it as its own sentence (the pilot, the
+                radio, seat 11B). Anchors carry a full-sentence `scene`; non-anchors a noun phrase.
+    "scene":    [({state-subset} | None, phrase), ...] (first match wins; anchor = a full sentence,
+                otherwise a noun phrase that drops into the space's frame)
     "aggregate": "..."                                  (N>1 identical: one sentence, {count})
     "examine":  [({state-subset} | None, prose), ...]  (the unified look-at/examine body)
+    "read":     [({state-subset} | None, text), ...]   (authored `read` text, if any)
+    "salience"/"order": retained ONLY for the banded cross-zone view (a zone away, detail is lost and
+                things grade by salience); the same-zone render now orders by SPACE, not by tier.
 
-Anti-spoiler rule (GD20): examine prose hints at PROPERTIES and at most a couple of verbs — never
-the full affordance set; attachments render physically via the DR-09a hint phrases.
+Tell/hide rule (supersedes the DR-23 "weighting, never hiding"): a space describes CHARACTER, not a
+full inventory. Show functional flavor; never leave a load-bearing item lying in the open — the
+puzzle-critical stuff hides INSIDE containers (DR-24), found by open/search/dig, never listed here.
+Anti-spoiler (GD20): examine prose hints at PROPERTIES and at most a couple of verbs.
 """
 
 APPEARANCE = {
-    "_frames": {
-        "ordinary": "The crash left its litter everywhere: {items}.",
-        "subtle": "Half-buried in the mess: {items}.",
-    },
-
-    # --- the anchors (prominent) ---------------------------------------------
+    # --- the anchors -----------------------------------------------------------
     "pilot": {
+        "space": "left_seat", "anchor": True,
         "salience": "prominent", "order": 10,
         "scene": [
             ({"dead": True}, "The pilot lies still against the forward bulkhead."),
@@ -35,12 +37,14 @@ APPEARANCE = {
         ],
     },
     "radio": {
+        "space": "cradle", "anchor": True,
         "salience": "prominent", "order": 20,
         "scene": [(None, "A field radio sits dark in its cradle beside the pilot.")],
         "examine": [(None, "A ruggedized field set, dials frosted over. The power lamp flickers "
                            "when you rock the case — the set seems alive, but deaf.")],
     },
     "seat": {
+        "space": "seat_rows", "anchor": True,
         "salience": "prominent", "order": 30,
         "scene": [
             ({"residue_cushion": "clipped"},
@@ -52,6 +56,7 @@ APPEARANCE = {
                            "of the cover is thin; the foam under it is thick, dense and dry.")],
     },
     "snowdrift": {
+        "space": "rear_rows", "anchor": True,
         "salience": "prominent", "order": 40,
         "scene": [(None, "Snow has drifted in through the split hull, banking white against the "
                          "rear rows.")],
@@ -67,6 +72,7 @@ APPEARANCE = {
                            "holds and the leverage is honest.")],
     },
     "bottle": {
+        "space": "floor",
         "salience": "ordinary",
         "scene": [(None, "an unbroken whisky bottle")],
         "examine": [(None, "A square-shouldered whisky bottle, empty. The glass is heavy — the kind "
@@ -79,24 +85,28 @@ APPEARANCE = {
                            "half-frozen and slow.")],
     },
     "jerrycan": {
+        "space": "hull_side",
         "salience": "ordinary",
         "scene": [(None, "a jerry can on its side")],
         "examine": [(None, "A red jerry can, lying where it rolled. It is not empty, and what's "
                            "inside is not water.")],
     },
     "blanket": {
+        "space": "floor",
         "salience": "ordinary",
         "scene": [(None, "a wool blanket spilled from an overhead bin")],
         "examine": [(None, "Airline wool, scratchy and dense. Warmth, a windbreak, a bandage — "
                            "cloth this heavy is whatever you need it to be.")],
     },
     "jacket": {
+        "space": "left_seat",
         "salience": "ordinary",
         "scene": [(None, "the pilot's spare flight jacket")],
         "examine": [(None, "A lined flight jacket, fleece collar stiff with frost. Someone could "
                            "wear it, or wrap something that matters in it.")],
     },
     "manual": {
+        "space": "floor",
         "salience": "ordinary",
         "scene": [(None, "a flight manual splayed face-down")],
         "examine": [(None, "Three hundred pages of procedures nobody will fly again. Thin, dry "
@@ -107,6 +117,7 @@ APPEARANCE = {
                         "twice: 'GUARD — 121.5'.")],
     },
     "ice": {
+        "space": "the_snow",
         "salience": "ordinary",
         "scene": [(None, "a chunk of ice broken off the wing root")],
         "examine": [(None, "A cloudy slab of ice, dense and clear at the core. Water, if you can "
@@ -155,6 +166,7 @@ APPEARANCE = {
 
     # --- containers & fixtures (DR-24: the scene shows THESE; loot hides inside) ---
     "bin_fwd": {
+        "space": "overhead",
         "salience": "ordinary", "order": 15,
         "scene": [
             ({"open": True}, "the forward overhead bin hanging open"),
@@ -166,6 +178,7 @@ APPEARANCE = {
         ],
     },
     "bin_aft": {
+        "space": "overhead",
         "salience": "ordinary", "order": 15,
         "scene": [
             ({"open": True}, "the aft overhead bin wrenched open"),
@@ -178,6 +191,7 @@ APPEARANCE = {
         ],
     },
     "panel": {
+        "space": "cradle",
         "salience": "ordinary", "order": 25,
         "scene": [
             ({"open": True}, "the avionics panel hanging off its screws"),
@@ -190,6 +204,7 @@ APPEARANCE = {
         ],
     },
     "duffel": {
+        "space": "aisle",
         "salience": "ordinary", "order": 20,
         "scene": [(None, "a duffel bag burst half-open in the aisle")],
         "examine": [(None, "Somebody's weekend bag, seam split by the impact. Worth going "
@@ -214,6 +229,7 @@ APPEARANCE = {
         "examine": [(None, "The elastic-topped pocket on the seatback, stretched out of shape.")],
     },
     "masks": {
+        "space": "overhead",
         "salience": "ordinary", "order": 40,
         "scene": [(None, "oxygen masks dangling from the sprung ceiling panel")],
         "examine": [(None, "Yellow cups on rubber tubing, swaying when the wind finds the "
@@ -398,6 +414,7 @@ APPEARANCE = {
     },
     # --- cockpit & cabin additions ------------------------------------------------
     "flightbag": {
+        "space": "footwell",
         "salience": "ordinary",
         "scene": [(None, "the pilot's leather flight bag, wedged by the rudder pedals")],
         "examine": [(None, "A working pilot's bag: chart pockets, pen loops, twenty years of "
@@ -416,6 +433,7 @@ APPEARANCE = {
                            "swallow at a time. The wing drains would answer to this.")],
     },
     "chart": {
+        "space": "floor",
         "salience": "ordinary",
         "scene": [(None, "a sectional chart, folded to this valley")],
         "examine": [(None, "The Anchorage sectional, folded and refolded to one creased "
@@ -426,12 +444,14 @@ APPEARANCE = {
                         "once.")],
     },
     "thermos": {
+        "space": "footwell",
         "salience": "subtle",
         "scene": [(None, "a steel thermos, upright against the pedals")],
         "examine": [(None, "The pilot's thermos. Through the steel, faintly, unbelievably: "
                            "still warm.")],
     },
     "extinguisher": {
+        "space": "cradle",
         "salience": "subtle",
         "scene": [(None, "a small fire extinguisher in its bracket")],
         "examine": [(None, "A halon bottle, charged, pin seated. The one fire you'll want to "
@@ -459,6 +479,7 @@ APPEARANCE = {
         "examine": [(None, "A long flat-blade. Half tool, half small crowbar.")],
     },
     "enginecover": {
+        "space": "floor",
         "salience": "ordinary",
         "scene": [(None, "the quilted engine cover, folded fat as a mattress")],
         "examine": [(None, "The insulated cover the pilot bagged the cowling with at every cold "
@@ -466,6 +487,7 @@ APPEARANCE = {
                            "heat against metal all night. It would hold it against a person.")],
     },
     "aircraft seat": {    # the second row (12C) — name-keyed; 11B keeps its sim-id entry
+        "space": "rear_rows", "anchor": True,
         "salience": "prominent", "order": 32,
         "scene": [
             ({"residue_cushion": "clipped"},
@@ -476,6 +498,7 @@ APPEARANCE = {
                            "foam, a belt on a bolted anchor.")],
     },
     "oil quart": {
+        "space": "hull_side",
         "salience": "subtle",
         "aggregate": "{count} quarts of engine oil, rolled against the hull",
         "scene": [(None, "a quart of engine oil")],

@@ -39,6 +39,10 @@ class Room(ObjectParent, DefaultRoom):
         if not things:
             return ""
         ents = [to_entity_state(o) for o in things]
+        for ent, obj in zip(ents, things):
+            z = zone_of(obj, self)               # stamp the EFFECTIVE zone → space grouping needs it
+            if z:                                # (mirrors EvenniaWorldView.get; unzoned stays None)
+                ent.state["zone"] = z
         lzone = self._looker_zone(looker)
         if lzone is None:
             return presentation.compose_scene(ents)

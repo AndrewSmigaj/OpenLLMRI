@@ -1,13 +1,18 @@
-"""world.sim.presentation — scene-as-prose composition + the unified thing renderer (DR-23). Pure.
+"""world.sim.presentation — scene-as-prose composition + the unified thing renderer. Pure.
 
-The scene composer turns the room's EntityStates into a few prose sentences — salience-WEIGHTED,
-never a list, never hiding (everything present is mentioned, so the world stays navigable while
-discovery stays intact). `describe()` is the ONE detailed renderer behind both `look at X` and
-`examine X` (they are synonyms by design). Appearance phrases are loaded-once scenario content
-(`load_appearance`, mirroring the narrator's registry): state-conditioned, Andrew-tunable.
-Fallbacks guarantee EVERY object renders — derived scraps included; nothing is ever invisible.
+The scene composer turns a zone's EntityStates into prose built from SPACES (the scene-space model,
+superseding the DR-23 salience-tier list): each object sits in a space (the floor, the footwell,
+overhead), and each space renders as a framed sentence describing POSITION, not history. A space
+describes CHARACTER, never a full inventory — loose things show, but discovery of what is INSIDE
+things stays a `look at` / `search` / `open` (DR-24 containment). Empty spaces render nothing;
+a space names at most `cap` things and absorbs the rest into an overflow phrase. `describe()` is the
+ONE detailed renderer behind both `look at X` and `examine X` (synonyms by design). Appearance
+phrases + the space table are loaded-once scenario content (state-conditioned, Andrew-tunable).
 
-Attachments render physically via the DR-09a hint phrases ("held by stitching"), never as data.
+The banded cross-zone view (DR-13a §14) is a separate concern: a zone away, detail is lost, so those
+still grade by salience into direction-framed lines — detail is a same-zone gift. Fallbacks guarantee
+EVERY object renders (unzoned world / un-authored zone → a plain spaceless render). Attachments
+render physically via the DR-09a hint phrases ("held by stitching"), never as data.
 """
 from __future__ import annotations
 
@@ -15,7 +20,6 @@ from world.sim.operations._helpers import attachment_phrase
 
 _APPEARANCE: dict = {}
 
-_TIERS = ("prominent", "ordinary", "subtle")
 _COUNT_WORDS = {2: "two", 3: "three", 4: "four", 5: "five", 6: "six"}
 
 
@@ -37,14 +41,6 @@ def _pick(variants, state):
         if cond is None or all((state or {}).get(k) == v for k, v in cond.items()):
             return phrase
     return None
-
-
-def _salience(entry, state):
-    base = (entry or {}).get("salience", "ordinary")
-    for cond, tier in (entry or {}).get("promote", ()):
-        if all((state or {}).get(k) == v for k, v in cond.items()):
-            return tier
-    return base
 
 
 def _article(phrase: str) -> str:
@@ -79,42 +75,104 @@ def compose_scene(ents, perceived=None) -> str:
         out.extend(_graded_groups(away))
         return " ".join(s for s in out if s)
 
-    buckets = {t: [] for t in _TIERS}
-    by_name = {}
-    for ent in ents:
-        by_name.setdefault(ent.name, []).append(ent)
+    return _render_zone(ents)
 
-    for name in sorted(by_name):
-        group = by_name[name]
-        ent = group[0]
-        entry = _entry(ent)
-        tier = _salience(entry, ent.state)
-        order = (entry or {}).get("order", 50)
+
+def _render_zone(ents) -> str:
+    """Group same-zone entities into their spaces and render each space as framed prose, in survey
+    order, omitting empties. An unzoned / un-authored zone (no space table) degrades to a plain
+    spaceless render so every object still shows."""
+    from world.sim.space import spaces as spacemap
+    zone = _zone_of(ents)
+    layout = spacemap.for_zone(zone) if zone else ()
+    if not layout:
+        return _render_spaceless(ents)
+    by_space = {}
+    for ent in ents:
+        by_space.setdefault(_space_of(ent, layout), []).append(ent)
+    out = []
+    for sp in layout:                          # already in survey order
+        here = by_space.get(sp.id)
+        if here:                               # an empty space renders NOTHING
+            out.extend(_render_space(sp, here))
+    return " ".join(s for s in out if s)
+
+
+def _zone_of(ents):
+    """The single zone these entities share (a base render is always one zone); None if they carry
+    no zone (the unzoned one-zone world) or disagree — either way, a spaceless render."""
+    zones = {(e.state or {}).get("zone") for e in ents}
+    zones.discard(None)
+    return next(iter(zones)) if len(zones) == 1 else None
+
+
+def _space_of(ent, layout) -> str:
+    """Where an entity sits: an explicit `state['space']` (a player drop), else its appearance home,
+    else the zone's default (or the first space). Always resolves to a space that exists here."""
+    ids = {sp.id for sp in layout}
+    sid = (ent.state or {}).get("space") or (_entry(ent) or {}).get("space")
+    if sid in ids:
+        return sid
+    return next((sp.id for sp in layout if sp.default), layout[0].id)
+
+
+def _render_space(sp, ents) -> list:
+    """One space → its lines. Anchor objects lead as their own sentences (they DEFINE the space —
+    the pilot, the radio); the rest fill the space's frame, capped with an overflow phrase and with
+    number agreement; identical deriveds keep their authored aggregate sentence."""
+    anchors = [e for e in ents if (_entry(e) or {}).get("anchor")]
+    rest = [e for e in ents if not (_entry(e) or {}).get("anchor")]
+    lines = [_sentence(_scene_phrase(a))
+             for a in sorted(anchors, key=lambda e: (_order(e), e.name))]
+    sentences, items = [], []
+    for name, group in _by_name(rest):
+        entry = _entry(group[0])
+        if len(group) > 1 and entry and entry.get("aggregate"):
+            sentences.append(_sentence(entry["aggregate"].format(count=_count_word(len(group)))))
+        elif len(group) > 1:
+            items.append((_order(group[0]), name, f"{_count_word(len(group))} {name}s"))
+        else:
+            items.append((_order(group[0]), name, _scene_phrase(group[0])))
+    if items:
+        phrases = [p for _o, _n, p in sorted(items)]
+        if sp.cap and len(phrases) > sp.cap and sp.overflow:
+            phrases = phrases[:sp.cap] + [sp.overflow]
+        be = "is" if len(phrases) == 1 else "are"
+        lines.append(sp.frame.format(be=be, items=_and_join(phrases)) if sp.frame
+                     else _sentence(_and_join(phrases)))
+    lines.extend(sentences)
+    return lines
+
+
+def _render_spaceless(ents) -> str:
+    """No authored spaces (unzoned one-zone world / un-authored zone): render each object's scene
+    phrase as its own sentence, aggregation-aware, deterministically ordered. No frames, no tiers."""
+    lines = []
+    for name, group in _by_name(ents):
+        entry = _entry(group[0])
         if len(group) > 1 and entry and entry.get("aggregate"):
             phrase = entry["aggregate"].format(count=_count_word(len(group)))
-            buckets[tier].append((order, name, _sentence(phrase), True))
         elif len(group) > 1:
-            buckets[tier].append((order, name, f"{_count_word(len(group))} {name}s", False))
+            phrase = f"{_count_word(len(group))} {name}s"
         else:
-            phrase = _pick((entry or {}).get("scene"), ent.state) or _article(name)
-            buckets[tier].append((order, name, phrase, tier == "prominent"))
+            phrase = _scene_phrase(group[0])
+        lines.append((_order(group[0]), name, _sentence(phrase)))
+    return " ".join(s for _o, _n, s in sorted(lines))
 
-    frames = _APPEARANCE.get("_frames", {})
-    out = []
-    for _order, _name, phrase, _is_sentence in sorted(buckets["prominent"]):
-        out.append(_sentence(phrase))
 
-    for tier, default_frame in (("ordinary", "Scattered around: {items}."),
-                                ("subtle", "Among the debris: {items}.")):
-        sentences, items = [], []
-        for _order, _name, phrase, is_sentence in sorted(buckets[tier]):
-            (sentences if is_sentence else items).append(_sentence(phrase) if is_sentence else phrase)
-        if items:
-            frame = frames.get(tier, default_frame)
-            out.append(frame.format(items=", ".join(items)))
-        out.extend(sentences)
+def _order(ent) -> int:
+    return (_entry(ent) or {}).get("order", 50)
 
-    return " ".join(out)
+
+def _scene_phrase(ent) -> str:
+    return _pick((_entry(ent) or {}).get("scene"), ent.state) or _article(ent.name)
+
+
+def _and_join(parts) -> str:
+    """Join pre-formed phrases with a serial 'and' (no re-articling — the phrases already read)."""
+    if len(parts) == 1:
+        return parts[0]
+    return ", ".join(parts[:-1]) + f" and {parts[-1]}"
 
 
 def _sentence(phrase: str) -> str:

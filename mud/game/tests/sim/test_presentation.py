@@ -1,16 +1,20 @@
-"""Tier-1: the scene-as-prose composer + the unified thing renderer (DR-23). Pure fixtures.
+"""Tier-1: the scene-as-prose composer (the scene-space model) + the unified thing renderer. Pure.
 
 Golden-ish substring asserts (the prose is Andrew-tunable content; tests pin the STRUCTURE:
-salience ordering, weighting-not-hiding, aggregation, state-conditioning, part weaving)."""
+space grouping + survey order, empty-space omission, frame number-agreement, overflow cap,
+aggregation, state-conditioning, part weaving, and the banded cross-zone fade)."""
 from world.scenarios.whiteout.appearance import APPEARANCE
 from world.scenarios.whiteout.responses.slice import RESPONSES
+from world.scenarios.whiteout.spaces import SPACE_TABLE
 from world.sim import narrator, presentation
 from world.sim.contracts import EntityState, Part
+from world.sim.space import spaces
 
 
 def setup_module(_):
     narrator.load_responses(RESPONSES)          # attachment.hint.* phrases for part weaving
     presentation.load_appearance(APPEARANCE)
+    spaces.load_spaces(SPACE_TABLE)
 
 
 def _ent(id, name, state=None, parts=(), materials=("steel",), mass=100):
@@ -18,43 +22,66 @@ def _ent(id, name, state=None, parts=(), materials=("steel",), mass=100):
                        tags=[], mass_g=mass, state=dict(state or {}), provenance=[], owner=None)
 
 
-PILOT = _ent("pilot", "the pilot")
-RADIO = _ent("radio", "field radio")
-WIRE = _ent("wire", "coil of copper wire", materials=("copper_wire",))
-BOTTLE = _ent("bottle", "whisky bottle", materials=("glass",))
-TINDER = _ent("tinder", "dry grass", materials=("dry_grass",))
+def _cockpit(id, name, materials=("steel",), **state):
+    return _ent(id, name, state={"zone": "cockpit", **state}, materials=materials)
 
 
-def test_scene_is_prose_not_a_list():
-    scene = presentation.compose_scene([PILOT, RADIO, WIRE, BOTTLE])
+PILOT = _cockpit("pilot", "the pilot")            # anchor of left_seat
+RADIO = _cockpit("radio", "field radio")          # anchor of cradle
+MANUAL = _cockpit("manual", "flight manual", materials=("paper",))    # a floor object
+CHART = _cockpit("chart", "sectional chart", materials=("paper",))    # a floor object
+
+
+def test_scene_groups_into_spaces_in_survey_order():
+    scene = presentation.compose_scene([MANUAL, RADIO, PILOT])   # deliberately out of order
     assert "You see" not in scene
-    # prominent anchors lead as full sentences, in authored order (pilot before radio)
-    assert scene.index("pilot") < scene.index("radio") < scene.index("whisky")
+    # anchors lead their spaces, spaces in survey order: left_seat(pilot) < cradle(radio) < floor
+    assert scene.index("pilot") < scene.index("field radio") < scene.index("flight manual")
+    assert "Across the cockpit floor is a flight manual" in scene   # frame = position, not history
 
 
-def test_everything_is_mentioned_weighting_not_hiding():
-    scene = presentation.compose_scene([PILOT, RADIO, WIRE, BOTTLE, TINDER])
-    for word in ("pilot", "radio", "copper wire", "whisky", "dry grass"):
-        assert word in scene, f"{word!r} must be mentioned — salience weights, it never hides"
+def test_empty_spaces_render_nothing():
+    scene = presentation.compose_scene([MANUAL])          # only a floor object is present
+    assert "Across the cockpit floor" in scene
+    for gone in ("Below the cradle", "footwell", "seat back"):
+        assert gone not in scene, f"an empty space must render nothing, got {gone!r}"
 
 
-def test_state_promotes_salience_and_switches_the_phrase():
-    lit = _ent("tinder", "dry grass", state={"lit": True}, materials=("dry_grass",))
-    scene = presentation.compose_scene([lit, BOTTLE])
-    assert "fire cracks and spits" in scene
-    assert scene.index("fire") < scene.index("whisky"), "a lit fire is promoted to prominent"
+def test_frame_number_agreement_and_overflow_cap():
+    floor = [_cockpit(f"j{i}", f"crate{i}", space="floor") for i in range(5)]   # cap is 3
+    scene = presentation.compose_scene(floor)
+    assert " are " in scene                                # plural agreement
+    assert "a scatter of smaller debris" in scene          # the overflow absorbs beyond the cap
+    solo = _cockpit("solo", "a lone strut", space="floor")
+    assert " is " in presentation.compose_scene([solo])    # singular agreement
 
 
-def test_identical_deriveds_aggregate_with_authored_phrase():
-    shards = [_ent(f"bottle:shard{i}:loose", "glass shard", materials=("glass",)) for i in range(3)]
+def test_runtime_space_overrides_the_authored_home():
+    # the manual's home is the floor; a player who set it on the seat back renders it THERE
+    moved = _cockpit("manual", "flight manual", materials=("paper",), space="left_seat")
+    scene = presentation.compose_scene([moved])
+    assert "Slung over the seat back beside him is a flight manual" in scene
+    assert "Across the cockpit floor" not in scene
+
+
+def test_scene_phrase_switches_on_state():
+    dead = _cockpit("pilot", "the pilot", dead=True)
+    alive = _cockpit("pilot", "the pilot")
+    assert "lies still against the forward bulkhead" in presentation.compose_scene([dead])
+    assert "breathing shallow and slow" in presentation.compose_scene([alive])
+
+
+def test_identical_deriveds_aggregate_within_a_space():
+    shards = [_cockpit(f"bottle:shard{i}:loose", "glass shard", materials=("glass",), space="floor")
+              for i in range(3)]
     scene = presentation.compose_scene(shards)
     assert "three sharp shards" in scene and scene.count("glass shard") == 0
 
 
-def test_unknown_object_still_renders_via_fallback():
+def test_unknown_object_renders_via_spaceless_fallback():
+    # no zone → the unzoned one-zone render; every object still shows, no frames
     mystery = _ent("x9", "unmarked crate", materials=("wood",))
-    scene = presentation.compose_scene([mystery])
-    assert "unmarked crate" in scene
+    assert "unmarked crate" in presentation.compose_scene([mystery])
 
 
 def test_fallback_never_double_articles_determined_names():
