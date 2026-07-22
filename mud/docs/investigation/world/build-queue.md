@@ -63,9 +63,21 @@ first unchecked box instead of redoing partial work.)
   masks", "dry grass") in the far view, and band-0 "clear" now collapses ANY anchor to its bare name
   (a full-sentence anchor was dropping into a comma list a zone away). All 9 crash rooms now render in
   the space model. Census/gap → box E. Pure (173) + int (67) green.
-- [ ] **E · Census + gap sweep** — every one of the 9 crash rooms has its official
-  `docs/scenarios/whiteout/rooms/<zone>.md` (real-world ontology census → gap-analysis → clear wins
-  applied, rest logged).
+- **E · Census + gap sweep** — each crash room gets its official `docs/scenarios/whiteout/rooms/<zone>.md`:
+  the real-world ontology census (every entity incl. the elusive — air / cold / light / sound / smell;
+  every action & relation with a candidate MUD command, monadic + polyadic) → gap-analysis vs the built
+  room → clear+safe wins applied, the rest logged as recommendations. **~1–2 rooms per firing**; cockpit
+  first as the exemplar template.
+  - [x] cockpit — `rooms/cockpit.md`; 13 built entities + elusive census; gaps logged (top recs:
+    `smell`/`listen` sense verbs, glass-shard blade from the windscreen, strip-the-body, scenery nouns)
+  - [ ] mid_cabin
+  - [ ] rear_cabin
+  - [ ] outside_nose
+  - [ ] fuselage_top
+  - [ ] outside_tail
+  - [ ] debris_trail
+  - [ ] tail_section
+  - [ ] treeline
 - [ ] **F · Verify live + integration** — boot, `look` each of the 9, READ the prose against the
   tell/hide rule; `make verify` (gates + pure + integration) fully green.
 
