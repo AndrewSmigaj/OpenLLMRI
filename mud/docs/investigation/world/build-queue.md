@@ -74,7 +74,8 @@ first unchecked box instead of redoing partial work.)
     `sit`/`rest`, unscrew, treat-wound
   - [x] rear_cabin — `rooms/rear_cabin.md`; cold+warmth room (indoor snow, engine-cover prize, glass
     blade); top gap: block/cover the hull breach (the block-the-draft spike)
-  - [ ] outside_nose
+  - [x] outside_nose — `rooms/outside_nose.md`; first EXTERIOR census (no objects → systemic gaps):
+    the wings are the unbuilt fuel source, and exposure/shelter isn't a warmth axis yet
   - [ ] fuselage_top
   - [ ] outside_tail
   - [ ] debris_trail
