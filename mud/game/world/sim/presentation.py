@@ -125,24 +125,33 @@ def _render_space(sp, ents, uncapped=False) -> list:
     rest = [e for e in ents if not (_entry(e) or {}).get("anchor")]
     lines = [_sentence(_scene_phrase(a))
              for a in sorted(anchors, key=lambda e: (_order(e), e.name))]
-    sentences, items = [], []
+    items = []                                    # (order, name, phrase, plural?)
     for name, group in _by_name(rest):
-        entry = _entry(group[0])
-        if len(group) > 1 and entry and entry.get("aggregate"):
-            sentences.append(_sentence(entry["aggregate"].format(count=_count_word(len(group)))))
-        elif len(group) > 1:
-            items.append((_order(group[0]), name, f"{_count_word(len(group))} {name}s"))
+        n, entry = len(group), _entry(group[0])
+        if n > 1 and entry and entry.get("aggregate"):
+            items.append((_order(group[0]), name, entry["aggregate"].format(count=_count_word(n)), True))
+        elif n > 1:
+            items.append((_order(group[0]), name, f"{_count_word(n)} {_plural(name)}", True))
         else:
-            items.append((_order(group[0]), name, _scene_phrase(group[0])))
+            items.append((_order(group[0]), name, _scene_phrase(group[0]), False))
     if items:
-        phrases = [p for _o, _n, p in sorted(items)]
+        items.sort()
+        phrases = [p for _o, _n, p, _pl in items]
         if not uncapped and sp.cap and len(phrases) > sp.cap and sp.overflow:
             phrases = phrases[:sp.cap] + [sp.overflow]
-        be = "is" if len(phrases) == 1 else "are"
+        be = "is" if (len(phrases) == 1 and not items[0][3]) else "are"    # a lone aggregate is plural
         lines.append(sp.frame.format(be=be, items=_and_join(phrases)) if sp.frame
                      else _sentence(_and_join(phrases)))
-    lines.extend(sentences)
     return lines
+
+
+def _plural(name: str) -> str:
+    """A forgiving plural for the count fallback ('branch'→'branches', not 'branchs')."""
+    if name.endswith(("s", "x", "z", "ch", "sh")):
+        return name + "es"
+    if name.endswith("y") and name[-2:-1].lower() not in "aeiou":
+        return name[:-1] + "ies"
+    return name + "s"
 
 
 def look_space(zone, alias, ents) -> "str | None":
@@ -169,7 +178,7 @@ def _render_spaceless(ents) -> str:
         if len(group) > 1 and entry and entry.get("aggregate"):
             phrase = entry["aggregate"].format(count=_count_word(len(group)))
         elif len(group) > 1:
-            phrase = f"{_count_word(len(group))} {name}s"
+            phrase = f"{_count_word(len(group))} {_plural(name)}"
         else:
             phrase = _scene_phrase(group[0])
         lines.append((_order(group[0]), name, _sentence(phrase)))
@@ -212,7 +221,7 @@ def _graded_groups(away) -> list:
             items = []        # lose their vivid sentence phrasing (§14: detail is a SAME_ZONE gift)
             for name, group in _by_name(ents):
                 if len(group) > 1:
-                    items.append(f"{_count_word(len(group))} {name}s")
+                    items.append(f"{_count_word(len(group))} {_plural(name)}")
                     continue
                 entry = _entry(group[0]) or {}
                 if entry.get("salience", "ordinary") == "prominent":
@@ -221,7 +230,7 @@ def _graded_groups(away) -> list:
                     items.append(_pick(entry.get("scene"), group[0].state) or _article(name))
             out.append(_sentence(f"{where[0].upper()}{where[1:]}: {', '.join(items)}"))
         elif band_ix == 1:    # summarized: articled names, duplicates counted
-            items = [f"{_count_word(len(g))} {n}s" if len(g) > 1 else _article(n)
+            items = [f"{_count_word(len(g))} {_plural(n)}" if len(g) > 1 else _article(n)
                      for n, g in _by_name(ents)]
             out.append(f"Farther {where.removeprefix('to the ')}, "
                        f"you can make out {', '.join(items)}.")

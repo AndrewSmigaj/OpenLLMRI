@@ -72,10 +72,12 @@ def test_scene_phrase_switches_on_state():
 
 
 def test_identical_deriveds_aggregate_within_a_space():
-    shards = [_cockpit(f"bottle:shard{i}:loose", "glass shard", materials=("glass",), space="floor")
-              for i in range(3)]
-    scene = presentation.compose_scene(shards)
-    assert "three sharp shards" in scene and scene.count("glass shard") == 0
+    # two quarts render as one aggregate phrase INSIDE the frame, and a lone aggregate takes 'are'
+    quarts = [_ent(f"oil{i}", "oil quart", materials=("oil",),
+                   state={"zone": "outside_tail", "space": "hull_side"}) for i in range(2)]
+    scene = presentation.compose_scene(quarts)
+    assert "two quarts of engine oil" in scene and scene.count("oil quart") == 0
+    assert "hull are two quarts" in scene, "a lone aggregate is plural — 'are', never 'is'"
 
 
 def test_unknown_object_renders_via_spaceless_fallback():

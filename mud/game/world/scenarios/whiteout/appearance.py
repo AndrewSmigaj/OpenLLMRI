@@ -87,14 +87,14 @@ APPEARANCE = {
     "jerrycan": {
         "space": "hull_side",
         "salience": "ordinary",
-        "scene": [(None, "a jerry can on its side")],
+        "scene": [(None, "a red jerry can")],
         "examine": [(None, "A red jerry can, lying where it rolled. It is not empty, and what's "
                            "inside is not water.")],
     },
     "blanket": {
         "space": "floor",
         "salience": "ordinary",
-        "scene": [(None, "a wool blanket spilled from an overhead bin")],
+        "scene": [(None, "a half-unrolled wool blanket")],
         "examine": [(None, "Airline wool, scratchy and dense. Warmth, a windbreak, a bandage — "
                            "cloth this heavy is whatever you need it to be.")],
     },
@@ -170,7 +170,7 @@ APPEARANCE = {
         "salience": "ordinary", "order": 15,
         "scene": [
             ({"open": True}, "the forward overhead bin hanging open"),
-            (None, "the forward overhead bin, latched shut"),
+            (None, "the latched forward overhead bin"),
         ],
         "examine": [
             ({"open": True}, "The bin hangs on its hinge, latch sprung."),
@@ -182,7 +182,7 @@ APPEARANCE = {
         "salience": "ordinary", "order": 15,
         "scene": [
             ({"open": True}, "the aft overhead bin wrenched open"),
-            (None, "the aft overhead bin, buckled shut in its track"),
+            (None, "the aft overhead bin buckled shut in its track"),
         ],
         "examine": [
             ({"open": True}, "Levered open, lip bent where something forced it."),
@@ -195,7 +195,7 @@ APPEARANCE = {
         "salience": "ordinary", "order": 25,
         "scene": [
             ({"open": True}, "the avionics panel hanging off its screws"),
-            (None, "an avionics panel, crumpled at one corner"),
+            (None, "a crumpled avionics panel"),
         ],
         "examine": [
             ({"open": True}, "The panel hangs loose, a nest of dead circuits behind it."),
@@ -206,7 +206,7 @@ APPEARANCE = {
     "duffel": {
         "space": "aisle",
         "salience": "ordinary", "order": 20,
-        "scene": [(None, "a duffel bag burst half-open in the aisle")],
+        "scene": [(None, "a duffel bag burst half-open")],
         "examine": [(None, "Somebody's weekend bag, seam split by the impact. Worth going "
                            "through.")],
     },
@@ -231,7 +231,7 @@ APPEARANCE = {
     "masks": {
         "space": "overhead",
         "salience": "ordinary", "order": 40,
-        "scene": [(None, "oxygen masks dangling from the sprung ceiling panel")],
+        "scene": [(None, "oxygen masks swaying from a sprung panel")],
         "examine": [(None, "Yellow cups on rubber tubing, swaying when the wind finds the "
                            "cabin. The tubing is tied into the drop unit; the cups just clip.")],
     },
@@ -416,7 +416,7 @@ APPEARANCE = {
     "flightbag": {
         "space": "footwell",
         "salience": "ordinary",
-        "scene": [(None, "the pilot's leather flight bag, wedged by the rudder pedals")],
+        "scene": [(None, "the pilot's worn leather flight bag")],
         "examine": [(None, "A working pilot's bag: chart pockets, pen loops, twenty years of "
                            "wear. Zipped.")],
     },
@@ -435,7 +435,7 @@ APPEARANCE = {
     "chart": {
         "space": "floor",
         "salience": "ordinary",
-        "scene": [(None, "a sectional chart, folded to this valley")],
+        "scene": [(None, "a sectional chart folded to this valley")],
         "examine": [(None, "The Anchorage sectional, folded and refolded to one creased "
                            "rectangle of nowhere. There is handwriting on it.")],
         "read": [(None, "The valley, in the pilot's pencil: the creek winding south, a spot "
@@ -446,7 +446,7 @@ APPEARANCE = {
     "thermos": {
         "space": "footwell",
         "salience": "subtle",
-        "scene": [(None, "a steel thermos, upright against the pedals")],
+        "scene": [(None, "a capped steel thermos")],
         "examine": [(None, "The pilot's thermos. Through the steel, faintly, unbelievably: "
                            "still warm.")],
     },
@@ -481,7 +481,7 @@ APPEARANCE = {
     "enginecover": {
         "space": "floor",
         "salience": "ordinary",
-        "scene": [(None, "the quilted engine cover, folded fat as a mattress")],
+        "scene": [(None, "the quilted engine cover folded thick as a mattress")],
         "examine": [(None, "The insulated cover the pilot bagged the cowling with at every cold "
                            "stop — a great quilted blanket built for exactly one job: holding "
                            "heat against metal all night. It would hold it against a person.")],
@@ -492,7 +492,7 @@ APPEARANCE = {
         "scene": [
             ({"residue_cushion": "clipped"},
              "Another seat stands half-stripped, clips bared where its cushion went."),
-            (None, "A second passenger seat — 12C on the frame — thrown hard against the hull."),
+            (None, "A second passenger seat — 12C on the frame — lies thrown against the hull."),
         ],
         "examine": [(None, "Same crash-scarred build as its row-mate: thin cover, thick dry "
                            "foam, a belt on a bolted anchor.")],
@@ -500,7 +500,7 @@ APPEARANCE = {
     "oil quart": {
         "space": "hull_side",
         "salience": "subtle",
-        "aggregate": "{count} quarts of engine oil, rolled against the hull",
+        "aggregate": "{count} quarts of engine oil",
         "scene": [(None, "a quart of engine oil")],
         "examine": [(None, "Straight-weight aviation oil. Burns filthy and black — which, for "
                            "a signal, is the entire point.")],

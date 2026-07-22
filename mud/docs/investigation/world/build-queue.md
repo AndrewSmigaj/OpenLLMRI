@@ -45,10 +45,16 @@ first unchecked box instead of redoing partial work.)
   `presentation.look_space`) — no parser / examine-op / put-op changes, no new EffectKind. Pure suite
   (172) + integration (67) green. *(Explicit place + a multimatch menu falls back to the default space
   on the numbered pick — the re-issue drops the "on <space>" clause; acceptable, logged.)*
-- [ ] **C · Author the plane's spaces + prose** to the tell/hide rule and READ it (cockpit · mid_cabin
-  · rear_cabin · outside_nose · fuselage_top · outside_tail). Tune scene phrases so every non-anchor
-  phrase is a NOUN PHRASE that sits right inside its frame (kill the lit-fire-as-sentence / old-promote
-  artifacts). Census + gap doc for each.
+- [x] **C · Authored the plane's spaces + prose** to the tell/hide rule and READ the rendered scenes
+  (cockpit · mid_cabin · rear_cabin · outside_nose · fuselage_top · outside_tail, via a scratch render
+  harness). Retuned ~14 scene phrases so every non-anchor phrase is a NOUN PHRASE carrying CHARACTER
+  not position (the frame owns position): stripped baked-in positions, killed comma collisions, fixed
+  "blanket spilled from a bin" (history→character). The read surfaced three composer bugs, now fixed:
+  aggregates render INSIDE the frame ("…are a jerry can and two quarts of engine oil"), a lone
+  aggregate takes "are", and a real pluralizer ("branches", not "branchs"). Census/gap **moved to box
+  E** (it was duplicated across C/D/E). Pure (172) + integration (67) green.
+  *(Deferred — cross-zone BANDED lines only, NOT same-zone prose: "an oxygen masks" (a plural-named
+  single object, mis-articled) and "a dry grass"; fold into box D, which authors those zones, or box F.)*
 - [ ] **D · The rest of the crash cluster** — author spaces + prose for debris_trail · tail_section ·
   treeline (spaceless until now). Census + gap doc for each.
 - [ ] **E · Census + gap sweep** — every one of the 9 crash rooms has its official
