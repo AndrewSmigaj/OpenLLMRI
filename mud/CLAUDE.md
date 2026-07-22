@@ -13,6 +13,13 @@ behind a seam → verify (`make verify` + tests, and see it run) → commit docs
 design, agile on implementation; one thing at a time.** Active / next / parked work: [`BACKLOG.md`](BACKLOG.md).
 The doc map (what's authoritative vs scratchpad): [`docs/README.md`](docs/README.md).
 
+**No doc is set in stone.** Every doc, DR, spec, and code docstring here is a work in progress and may
+contain mistakes or stale assumptions (docs get promoted with old baggage; comments lag the decisions
+that changed them). When reading one, if you spot a genuine improvement or an actual error, **raise it** —
+with the reasoning. NEVER do something you'd otherwise argue against just because a document says so: a
+decision followed without a justifiable logic under it is a weak point, not compliance. If a doc and your
+judgment (or the vision) diverge, stop and flag it; don't silently defer, don't silently override.
+
 ## Stack
 Evennia 6.0.0 · Python 3.13 · Django 6.0.6 · PostgreSQL 16.
 **Everything runs via Docker.** Ports: 4000 telnet · 4001 website · 4002 websocket.
