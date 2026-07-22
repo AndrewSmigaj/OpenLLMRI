@@ -38,9 +38,13 @@ first unchecked box instead of redoing partial work.)
   `rooms.py` effective-zone stamp + appearance `space`/`anchor` on the plane's objects + the stale
   "weighting, never hiding" docstrings cleaned (superseded by DR-24). Pure suite (170) + 4 gates green.
   *(NOT yet: placement/look-at of dropped items = box B; live read + integration = box F.)*
-- [ ] **B · Placement** — the `drop`/`put` space-picker (explicit → default → ask) writing
-  `state['space']` via an Effect, and `look at <space>` (resolve space + overflow aliases; render the
-  space uncapped). Unit + integration tests green.
+- [x] **B · Placement** — `drop` space-picker (explicit `drop X on/in <space>` → default space via
+  `at_drop` → an "ask" listing the zone's spaces when a named place is unknown), writing `state['space']`
+  via a `set_attr` Effect; and `look at <space>` (id/alias + overflow-word match, rendered uncapped).
+  All shell-side (cmd_items + objects.at_drop) calling pure resolvers (`spaces.resolve_space`,
+  `presentation.look_space`) — no parser / examine-op / put-op changes, no new EffectKind. Pure suite
+  (172) + integration (67) green. *(Explicit place + a multimatch menu falls back to the default space
+  on the numbered pick — the re-issue drops the "on <space>" clause; acceptable, logged.)*
 - [ ] **C · Author the plane's spaces + prose** to the tell/hide rule and READ it (cockpit · mid_cabin
   · rear_cabin · outside_nose · fuselage_top · outside_tail). Tune scene phrases so every non-anchor
   phrase is a NOUN PHRASE that sits right inside its frame (kill the lit-fire-as-sentence / old-promote

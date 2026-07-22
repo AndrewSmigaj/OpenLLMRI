@@ -116,10 +116,11 @@ def _space_of(ent, layout) -> str:
     return next((sp.id for sp in layout if sp.default), layout[0].id)
 
 
-def _render_space(sp, ents) -> list:
+def _render_space(sp, ents, uncapped=False) -> list:
     """One space → its lines. Anchor objects lead as their own sentences (they DEFINE the space —
-    the pilot, the radio); the rest fill the space's frame, capped with an overflow phrase and with
-    number agreement; identical deriveds keep their authored aggregate sentence."""
+    the pilot, the radio); the rest fill the space's frame with number agreement; identical deriveds
+    keep their authored aggregate sentence. A room look caps the frame and absorbs the rest into an
+    overflow phrase; `uncapped=True` (the `look at <space>` path) names every thing instead."""
     anchors = [e for e in ents if (_entry(e) or {}).get("anchor")]
     rest = [e for e in ents if not (_entry(e) or {}).get("anchor")]
     lines = [_sentence(_scene_phrase(a))
@@ -135,13 +136,28 @@ def _render_space(sp, ents) -> list:
             items.append((_order(group[0]), name, _scene_phrase(group[0])))
     if items:
         phrases = [p for _o, _n, p in sorted(items)]
-        if sp.cap and len(phrases) > sp.cap and sp.overflow:
+        if not uncapped and sp.cap and len(phrases) > sp.cap and sp.overflow:
             phrases = phrases[:sp.cap] + [sp.overflow]
         be = "is" if len(phrases) == 1 else "are"
         lines.append(sp.frame.format(be=be, items=_and_join(phrases)) if sp.frame
                      else _sentence(_and_join(phrases)))
     lines.extend(sentences)
     return lines
+
+
+def look_space(zone, alias, ents) -> "str | None":
+    """`look at <space>`: the named space rendered UNCAPPED — every loose thing in it, no overflow.
+    None if `alias` names no space in `zone` (the shell then falls through to a normal examine)."""
+    from world.sim.space import spaces as spacemap
+    sid = spacemap.resolve_space(zone, alias)
+    if sid is None:
+        return None
+    sp = spacemap.get(zone, sid)
+    layout = spacemap.for_zone(zone)
+    here = [e for e in ents if _space_of(e, layout) == sid]
+    if not here:
+        return "Nothing catches your eye there."
+    return " ".join(s for s in _render_space(sp, here, uncapped=True) if s)
 
 
 def _render_spaceless(ents) -> str:

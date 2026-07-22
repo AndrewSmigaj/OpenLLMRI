@@ -244,9 +244,10 @@ class Object(ObjectParent, DefaultObject):
         return super().at_pre_drop(dropper, **kwargs)
 
     def at_drop(self, dropper, **kwargs):
-        """DR-13a zone sync: a dropped object lands in the dropper's zone — through the single
-        writer (stock get/drop move via Evennia containment, not Effects, so without this a
-        dropped thing would keep a stale zone)."""
+        """DR-13a zone sync + scene-space landing: a dropped object lands in the dropper's zone and
+        its default space — through the single writer (stock get/drop move via Evennia containment,
+        not Effects, so without this a dropped thing would keep a stale zone / no space). An explicit
+        `drop X on <space>` overrides the space afterwards in CmdDrop."""
         super().at_drop(dropper, **kwargs)
         room = getattr(dropper, "location", None)
         if room is None or not room.db.default_zone:
@@ -254,6 +255,12 @@ class Object(ObjectParent, DefaultObject):
         from typeclasses.apply import apply as apply_effects
         from typeclasses.worldview import EvenniaWorldView, zone_of
         from world.sim import effects
+        from world.sim.space import spaces as spacemap
         world = EvenniaWorldView(room, dropper, seed=(room.db.seed or 0))
-        apply_effects([effects.move_zone(self.db.sim_id or self.key,
-                                         zone_of(dropper, room))], world)
+        zone = zone_of(dropper, room)
+        sim_id = self.db.sim_id or self.key
+        fx = [effects.move_zone(sim_id, zone)]
+        default = spacemap.default_space(zone)
+        if default is not None:
+            fx.append(effects.set_attr(sim_id, "space", default.id))
+        apply_effects(fx, world)

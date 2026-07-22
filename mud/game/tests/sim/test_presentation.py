@@ -151,3 +151,24 @@ def test_perceived_none_or_empty_is_the_pre_p3_render():
     ents = [_ent("seat", "aircraft seat"), _ent("bottle", "whisky bottle", materials=("glass",))]
     assert presentation.compose_scene(ents, None) == presentation.compose_scene(ents)
     assert presentation.compose_scene(ents, {}) == presentation.compose_scene(ents)
+
+
+# --- placement: the drop/look-at-space resolvers (box B) -----------------------
+
+def test_resolve_space_by_id_alias_and_overflow_word():
+    assert spaces.resolve_space("cockpit", "footwell") == "footwell"     # a plain alias
+    assert spaces.resolve_space("cockpit", "cockpit floor") == "floor"   # a multi-word alias
+    assert spaces.resolve_space("cockpit", "debris") == "floor"          # a word from the overflow
+    assert spaces.resolve_space("cockpit", "nonsense") is None
+    assert spaces.resolve_space(None, "floor") is None                   # unzoned → no spaces
+
+
+def test_look_space_lists_every_item_uncapped():
+    floor = [_cockpit(f"j{i}", f"crate{i}", space="floor") for i in range(5)]   # cap is 3
+    capped = presentation.compose_scene(floor)
+    uncapped = presentation.look_space("cockpit", "floor", floor)
+    assert "a scatter of smaller debris" in capped        # the room look absorbs beyond the cap
+    assert "a scatter of smaller debris" not in uncapped   # look-at-space names them all
+    for i in range(5):
+        assert f"crate{i}" in uncapped
+    assert presentation.look_space("cockpit", "not-a-space", floor) is None

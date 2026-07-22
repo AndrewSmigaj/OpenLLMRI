@@ -71,3 +71,23 @@ def default_space(zone) -> "Space | None":
         if sp.default:
             return sp
     return None
+
+
+def resolve_space(zone, phrase) -> "str | None":
+    """The space in `zone` a player means by `phrase`: an id/alias match first, else a distinctive
+    word (>=4 letters) from a space's overflow phrase — so `look at debris` finds the floor whose
+    overflow is "a scatter of smaller debris". None if nothing matches (the caller falls back: a look
+    to a normal examine, a drop to the default space)."""
+    if not zone or not phrase:
+        return None
+    q = phrase.strip().lower()
+    if not q:
+        return None
+    layout = _BY_ZONE.get(zone, ())
+    for sp in layout:
+        if q == sp.id.lower() or any(q == a.lower() for a in sp.aliases):
+            return sp.id
+    for sp in layout:
+        if sp.overflow and q in (w for w in sp.overflow.lower().split() if len(w) >= 4):
+            return sp.id
+    return None

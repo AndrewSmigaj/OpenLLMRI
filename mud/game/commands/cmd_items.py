@@ -81,14 +81,111 @@ def _menu_if_multimatch(cmd, where):
     return True
 
 
+# --- scene-space placement (DR-24 / scene-spaces): drop into a space; look at a space -------------
+_PLACE_RELATIONS = (" onto ", " into ", " on ", " in ")
+
+
+def _current_zone(caller):
+    """The caller's zone, or None in an unzoned world / before zones load."""
+    room = getattr(caller, "location", None)
+    if room is None or not getattr(room.db, "default_zone", None):
+        return None
+    from typeclasses.worldview import zone_of
+    from world.sim.space import zones as zonemap
+    return zone_of(caller, room) if zonemap.loaded() else None
+
+
+def _space_names(zone):
+    """The zone's spaces as a friendly 'the A, the B or the C' (primary aliases), for the drop ask."""
+    from world.sim.space import spaces as spacemap
+    names = [(sp.aliases[0] if sp.aliases else sp.id.replace("_", " "))
+             for sp in spacemap.for_zone(zone)]
+    if not names:
+        return ""
+    if len(names) == 1:
+        return f"the {names[0]}"
+    return "the " + ", the ".join(names[:-1]) + f" or the {names[-1]}"
+
+
+def _split_place(caller, args, zone):
+    """Parse a trailing 'on/in <space>' off a drop → (space_id, object_args, ask_message):
+    a resolved placement → (sid, 'X', None); a place named but unknown here → (None, 'X', an ask
+    listing the spaces); no place named, or the word is part of the object → (None, args, None)."""
+    if not zone:
+        return None, args, None
+    from world.sim.space import spaces as spacemap
+    low = args.lower()
+    for rel in _PLACE_RELATIONS:
+        idx = low.rfind(rel)
+        if idx == -1:
+            continue
+        head, tail = args[:idx].strip(), _strip_articles(args[idx + len(rel):])
+        if not head or not tail or not _search(caller, head, "inv"):
+            continue                               # the word is part of the object name, not a place
+        sid = spacemap.resolve_space(zone, tail)
+        if sid:
+            return sid, head, None
+        names = _space_names(zone)
+        ask = f'There\'s nowhere called "{tail}" here.' + (f" You could set it {names}." if names else "")
+        return None, head, ask
+    return None, args, None
+
+
+def _place_in_space(caller, objs, zone, sid):
+    """Override freshly-dropped objects' space to `sid` via a set_attr Effect, and confirm."""
+    if not objs:
+        return
+    from typeclasses.apply import apply as apply_effects
+    from typeclasses.worldview import EvenniaWorldView
+    from world.sim import effects
+    from world.sim.space import spaces as spacemap
+    room = caller.location
+    world = EvenniaWorldView(room, caller, seed=(getattr(room.db, "seed", 0) or 0))
+    apply_effects([effects.set_attr(o.db.sim_id or o.key, "space", sid) for o in objs], world)
+    sp = spacemap.get(zone, sid)
+    where = sp.aliases[0] if sp and sp.aliases else sid.replace("_", " ")
+    caller.msg(f"You set {', '.join(o.key for o in objs)} down on the {where}.")
+
+
+def _look_space(caller, phrase):
+    """`look at <space>`: render the named space UNCAPPED. True if `phrase` was a space (handled)."""
+    room = getattr(caller, "location", None)
+    zone = _current_zone(caller)
+    if zone is None or room is None:
+        return False
+    from typeclasses.worldview import to_entity_state, zone_of
+    from world.sim import presentation
+    ents = []
+    for o in room.filter_visible(room.contents_get(content_type="object"), caller):
+        if zone_of(o, room) == zone:
+            e = to_entity_state(o)
+            e.state["zone"] = zone
+            ents.append(e)
+    text = presentation.look_space(zone, phrase, ents)
+    if text is None:
+        return False
+    caller.msg(text)
+    return True
+
+
 class CmdDrop(DefaultCmdDrop):
     __doc__ = DefaultCmdDrop.__doc__
 
     def func(self):
         self.args = _strip_articles(self.args)
+        zone = _current_zone(self.caller)
+        sid, obj_args, ask = _split_place(self.caller, self.args, zone)
+        if ask:
+            self.caller.msg(ask)
+            return
+        self.args = obj_args
         if _menu_if_multimatch(self, "inv"):
             return
-        super().func()
+        room = self.caller.location
+        before = set(room.contents) if room else set()
+        super().func()                             # stock drop → at_drop sets zone + default space
+        if sid and room:
+            _place_in_space(self.caller, [o for o in room.contents if o not in before], zone, sid)
 
 
 class CmdInventory(DefaultCmdInventory):
@@ -130,8 +227,11 @@ class CmdLook(DefaultCmdLook):
             if _menu_if_multimatch(self, "around"):
                 return
             if not _search(self.caller, self.args, "around"):
-                # stock search can't see zone nouns or revealed-container contents — the sim
-                # examine path can (look at X ≡ examine X holds everywhere, DR-23/DR-24)
+                # stock search can't see spaces, zone nouns, or revealed-container contents. A space
+                # name renders that space uncapped; else the sim examine path (which sees zone nouns
+                # + revealed contents — look at X ≡ examine X holds everywhere, DR-23/DR-24).
+                if _look_space(self.caller, self.args):
+                    return
                 cmd_act._run_action(self.caller, f"examine {self.args}")
                 return
         super().func()

@@ -67,6 +67,31 @@ class TestMovement(EvenniaTest):
             self.char1.execute_cmd("drop multitool")
         tool = next(o for o in self.scene.contents if o.db.sim_id == "multitool")
         assert (tool.db.state or {}).get("zone") == "rear_cabin"
+        assert (tool.db.state or {}).get("space") == "floor"     # rear_cabin's default space
+
+    def _earn_multitool(self):
+        self.char1.execute_cmd("search the duffel bag")          # DR-24: earn it first
+        self.char1.execute_cmd("take the multitool")
+
+    def test_drop_onto_a_named_space_places_it_there(self):
+        with mock.patch.object(self.char1, "msg") as m:
+            self._earn_multitool()
+            self.char1.execute_cmd("drop multitool on the overhead")   # mid_cabin has 'overhead'
+        tool = next(o for o in self.scene.contents if o.db.sim_id == "multitool")
+        assert (tool.db.state or {}).get("space") == "overhead"
+        assert "overhead" in self._said(m), "the placement is confirmed to the player"
+
+    def test_drop_onto_an_unknown_place_asks_instead_of_dropping(self):
+        with mock.patch.object(self.char1, "msg") as m:
+            self._earn_multitool()
+            self.char1.execute_cmd("drop multitool on the flux capacitor")
+        assert any(o.db.sim_id == "multitool" for o in self.char1.contents), "not dropped"
+        assert "flux capacitor" in self._said(m) and "aisle" in self._said(m), "offers real spaces"
+
+    def test_look_at_a_space_lists_its_contents_uncapped(self):
+        with mock.patch.object(self.char1, "msg") as m:
+            self.char1.execute_cmd("look at the aisle")          # mid_cabin aisle holds the duffel
+        assert "duffel" in self._said(m)
 
     def test_walk_the_breach_to_the_treeline(self):
         with mock.patch.object(self.char1, "msg"):
