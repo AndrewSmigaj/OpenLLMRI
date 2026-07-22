@@ -140,11 +140,12 @@ APPEARANCE = {
                            "hard.")],
     },
     "tinder": {
+        "space": "under_spruces", "mass": True,
         "salience": "subtle",
         "promote": [({"lit": True}, "prominent")],
         "scene": [
-            ({"lit": True}, "A small fire cracks and spits where the dry grass caught."),
-            (None, "a fist of dry grass jammed in a seat rail"),
+            ({"lit": True}, "a knot of grass burning low in the snow"),
+            (None, "a wind-combed fist of dry grass"),
         ],
         "examine": [
             ({"lit": True}, "It burns eager and fast — more flame than fuel. It will want feeding."),
@@ -229,21 +230,23 @@ APPEARANCE = {
         "examine": [(None, "The elastic-topped pocket on the seatback, stretched out of shape.")],
     },
     "masks": {
-        "space": "overhead",
+        "space": "overhead", "mass": True,
         "salience": "ordinary", "order": 40,
         "scene": [(None, "oxygen masks swaying from a sprung panel")],
         "examine": [(None, "Yellow cups on rubber tubing, swaying when the wind finds the "
                            "cabin. The tubing is tied into the drop unit; the cups just clip.")],
     },
     "spruce": {
+        "space": "under_spruces", "anchor": True,
         "salience": "prominent", "order": 45,
         "scene": [(None, "The first spruce stands close enough to touch, boughs bent white.")],
         "examine": [(None, "A young spruce, snow-loaded. A low branch hangs within easy reach; "
                            "a thicker bough above it would take real cutting.")],
     },
     "deadfall branch": {
+        "space": "under_spruces",
         "salience": "ordinary",
-        "aggregate": "Deadfall lies about — {count} good branches under the snow crust",
+        "aggregate": "{count} snow-crusted deadfall branches",
         "scene": [(None, "a deadfall branch")],
         "examine": [(None, "A wind-snapped branch, dry under the bark. Honest firewood.")],
     },
@@ -275,6 +278,7 @@ APPEARANCE = {
 
     # --- the scattered wreck (DR-24 §8b: the crash is the difficulty engine) -----
     "survivalduffel": {
+        "space": "the_scar", "anchor": True,
         "salience": "prominent", "order": 30,
         "scene": [(None, "The survival duffel lies split along its seam, half-sunk in the gouged "
                          "snow — the crash shook it out like a pillowcase.")],
@@ -282,8 +286,9 @@ APPEARANCE = {
                            "stayed; the rest is somewhere out there under the white.")],
     },
     "drift2": {
+        "space": "the_scar",
         "salience": "ordinary", "order": 40,
-        "scene": [(None, "a wind-packed drift, its crust dented where something punched in")],
+        "scene": [(None, "a wind-packed drift with a punched-in crust")],
         "examine": [(None, "Hard-packed snow. Something heavy hit here at speed — the entry hole "
                            "has already half-healed with blown powder.")],
     },
@@ -321,8 +326,9 @@ APPEARANCE = {
                            "meltwater.")],
     },
     "mailsack": {
+        "space": "the_scar", "anchor": True,
         "salience": "ordinary", "order": 35,
-        "scene": [(None, "a grey mail sack, spilled and freezing to the snow")],
+        "scene": [(None, "A grey mail sack has burst across the snow, already freezing down.")],
         "examine": [(None, "US MAIL — CHUGIAK LAKE, stencilled and half-drifted. Someone is "
                            "waiting for all of this.")],
     },
@@ -343,12 +349,14 @@ APPEARANCE = {
                            "lashings.")],
     },
     "alusheet": {
+        "space": "the_scar",
         "salience": "ordinary",
         "scene": [(None, "a twisted sheet of fuselage skin")],
         "examine": [(None, "A shed panel of aircraft aluminum, edges bright and mean. A "
                            "windbreak, a fire-back, a sled for a strong back.")],
     },
     "tailcone": {
+        "space": "the_snow", "anchor": True,
         "salience": "prominent", "order": 10,
         "scene": [
             ({"open": True}, "The crushed tail cone gapes where it was levered open, its cargo "
@@ -370,6 +378,7 @@ APPEARANCE = {
                            "ruptured line. Warm as a stove; keep it the hell away from one.")],
     },
     "snowshoes": {
+        "mass": True,
         "salience": "ordinary",
         "scene": [(None, "a pair of trail snowshoes")],
         "examine": [(None, "Ash frames, webbing decks, leather bindings. The drifts stop being "
@@ -391,10 +400,11 @@ APPEARANCE = {
                            "one.")],
     },
     "crate": {
+        "space": "the_snow", "anchor": True,
         "salience": "ordinary", "order": 30,
         "scene": [
-            ({"open": True}, "the freight crate, lid levered off"),
-            (None, "a freight crate, lid nailed fast and stencilled CHUGIAK LAKE CO-OP"),
+            ({"open": True}, "A freight crate stands open, its lid levered off."),
+            (None, "A nailed freight crate sits half-buried, stencilled CHUGIAK LAKE CO-OP."),
         ],
         "examine": [
             ({"open": True}, "Groceries for a village store, riding a lid that's already off."),

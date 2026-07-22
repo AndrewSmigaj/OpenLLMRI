@@ -174,3 +174,11 @@ def test_look_space_lists_every_item_uncapped():
     for i in range(5):
         assert f"crate{i}" in uncapped
     assert presentation.look_space("cockpit", "not-a-space", floor) is None
+
+
+def test_mass_named_object_takes_no_article_in_the_banded_view():
+    from world.sim.contracts import PerceptionBand as B
+    masks = _ent("masks", "oxygen masks")                 # a plural/mass name, marked `mass`
+    scene = presentation.compose_scene([masks], {"masks": _pr(B.NEAR_VISIBLE)})
+    assert "oxygen masks" in scene
+    assert "an oxygen masks" not in scene and "a oxygen masks" not in scene

@@ -52,6 +52,15 @@ def _article(phrase: str) -> str:
     return f"a {phrase}"
 
 
+def _bare_or_article(ent) -> str:
+    """`_article`, but a mass/plural-named object ('oxygen masks', 'dry grass') marked `mass` in its
+    appearance reads wrong with a/an — bare its name instead ('you can make out oxygen masks')."""
+    entry = _entry(ent)
+    if entry and entry.get("mass"):
+        return ent.name
+    return _article(ent.name)
+
+
 def _count_word(n: int) -> str:
     return _COUNT_WORDS.get(n, "several")
 
@@ -224,13 +233,15 @@ def _graded_groups(away) -> list:
                     items.append(f"{_count_word(len(group))} {_plural(name)}")
                     continue
                 entry = _entry(group[0]) or {}
-                if entry.get("salience", "ordinary") == "prominent":
-                    items.append(_article(name))
+                # an anchor's `scene` is a full SENTENCE (a same-zone lead) — a zone away it must
+                # collapse to its bare name, never drop a sentence into this comma list.
+                if entry.get("salience", "ordinary") == "prominent" or entry.get("anchor"):
+                    items.append(_bare_or_article(group[0]))
                 else:
-                    items.append(_pick(entry.get("scene"), group[0].state) or _article(name))
+                    items.append(_pick(entry.get("scene"), group[0].state) or _bare_or_article(group[0]))
             out.append(_sentence(f"{where[0].upper()}{where[1:]}: {', '.join(items)}"))
         elif band_ix == 1:    # summarized: articled names, duplicates counted
-            items = [f"{_count_word(len(g))} {_plural(n)}" if len(g) > 1 else _article(n)
+            items = [f"{_count_word(len(g))} {_plural(n)}" if len(g) > 1 else _bare_or_article(g[0])
                      for n, g in _by_name(ents)]
             out.append(f"Farther {where.removeprefix('to the ')}, "
                        f"you can make out {', '.join(items)}.")

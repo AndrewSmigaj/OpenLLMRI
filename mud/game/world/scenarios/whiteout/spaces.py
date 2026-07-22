@@ -62,4 +62,20 @@ SPACE_TABLE = {
                       "cap": 3, "overflow": "a scatter of smaller debris",
                       "aliases": ["spine", "the spine", "aluminium", "roof"]},
     },
+    # --- the outer crash cluster: exterior scatter, one ground space each -----------------------
+    "debris_trail": {
+        "the_scar": {"order": 10, "frame": "Strewn down the gouged scar {be} {items}.", "default": True,
+                     "cap": 3, "overflow": "a litter of shed metal",
+                     "aliases": ["scar", "the scar", "trail", "gouged snow", "snow", "ground"]},
+    },
+    "tail_section": {
+        "the_snow": {"order": 10, "frame": "Sunk in the snow around it {be} {items}.", "default": True,
+                     "cap": 3, "overflow": "more shed wreckage",
+                     "aliases": ["snow", "the snow", "ground", "around it", "around"]},
+    },
+    "treeline": {
+        "under_spruces": {"order": 10, "frame": "Under the spruces {be} {items}.", "default": True,
+                          "cap": 3, "overflow": "a tangle of deadfall",
+                          "aliases": ["spruces", "under the spruces", "ground", "snow", "roots"]},
+    },
 }

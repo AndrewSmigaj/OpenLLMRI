@@ -55,8 +55,14 @@ first unchecked box instead of redoing partial work.)
   E** (it was duplicated across C/D/E). Pure (172) + integration (67) green.
   *(Deferred — cross-zone BANDED lines only, NOT same-zone prose: "an oxygen masks" (a plural-named
   single object, mis-articled) and "a dry grass"; fold into box D, which authors those zones, or box F.)*
-- [ ] **D · The rest of the crash cluster** — author spaces + prose for debris_trail · tail_section ·
-  treeline (spaceless until now). Census + gap doc for each.
+- [x] **D · The rest of the crash cluster** — authored a ground space per exterior zone (debris_trail
+  the_scar · tail_section the_snow · treeline under_spruces), the notable containers as full-sentence
+  anchors (survival duffel + mail sack; tail cone + freight crate; the spruce), the scatter in the
+  frame. Fixed a real content bug (treeline dry grass read "jammed in a seat rail" — a cabin phrase
+  outdoors) and folded in the deferred banded nits: a `mass` flag bares plural/mass names ("oxygen
+  masks", "dry grass") in the far view, and band-0 "clear" now collapses ANY anchor to its bare name
+  (a full-sentence anchor was dropping into a comma list a zone away). All 9 crash rooms now render in
+  the space model. Census/gap → box E. Pure (173) + int (67) green.
 - [ ] **E · Census + gap sweep** — every one of the 9 crash rooms has its official
   `docs/scenarios/whiteout/rooms/<zone>.md` (real-world ontology census → gap-analysis → clear wins
   applied, rest logged).
