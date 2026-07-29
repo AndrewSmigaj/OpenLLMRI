@@ -81,9 +81,15 @@ first unchecked box instead of redoing partial work.)
     in: outdoor rooms are traversal, systems > per-room hooks.
   - [x] outside_tail — `rooms/outside_tail.md`; breach-exit / fuel+ice hub. Censused breadth-first
     (flat unranked gap list, no crowned "core system") after Andrew's tunnel-vision course-correct.
-  - [ ] debris_trail
-  - [ ] tail_section
-  - [ ] treeline
+  - [x] debris_trail — `rooms/debris_trail.md`; the scatter (3 search-gated container chains: duffel/
+    drift/mail sack). Load-bearing gaps: the **fire bootstrap** (dry the deliberately-wet matchbox by
+    heat — no dry-by-heat op yet), the **hatchet repair** (lash the snapped haft), the §38 letters.
+  - [x] tail_section — `rooms/tail_section.md`; the expedition cache (two pry-gated jammed containers).
+    Holds the **ELT rescue beacon** (its antenna-mount other half is unbuilt at fuselage_top — the one
+    real cross-room dependency), snowshoes/mobility, the fuel-soaked sleeping bag (warmth-with-a-catch).
+  - [x] treeline — `rooms/treeline.md`; the survival-core supply room + forest gateway (firewood:
+    deadfall + spruce branch/bough; tinder: dry grass; shelter material: boughs). Traversal-calibrated:
+    gaps here are mostly *systems* (shelter, movement, the North Wood is Phase 1), not missing objects.
 - [ ] **F · Verify live + integration** — boot, `look` each of the 9, READ the prose against the
   tell/hide rule; `make verify` (gates + pure + integration) fully green.
 
