@@ -96,6 +96,16 @@ class IntegratedCaptureService:
             layers_to_capture = adapter.layers_range() if adapter else list(range(24))
 
         topology = adapter.topology if adapter else None
+
+        # Prompt-format provenance: label + chat-template hash. Harmony is the only
+        # format in use; the hash detects template upgrades that invalidate calibrations.
+        import hashlib
+        template = getattr(tokenizer, "chat_template", None)
+        prompt_format = (
+            f"harmony@{hashlib.sha256(template.encode()).hexdigest()[:12]}"
+            if template else "unknown"
+        )
+
         self.session_mgr = SessionManager(
             data_lake_path=data_lake_path,
             batch_size=batch_size,
@@ -104,6 +114,7 @@ class IntegratedCaptureService:
             num_experts=topology.num_experts if topology else 0,
             num_layers=topology.num_layers if topology else 0,
             hidden_size=topology.hidden_size if topology else 0,
+            prompt_format=prompt_format,
         )
         self.processor = ProbeProcessor(tokenizer, adapter, layers_to_capture)
         self.orchestrator = CaptureOrchestrator(model, tokenizer, adapter, layers_to_capture)

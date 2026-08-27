@@ -1,0 +1,39 @@
+{
+  "name": "context_shift_smoke_v1",
+  "version": "1.0",
+  "target_word": "tank",
+  "groups": [
+    {
+      "label": "smoke",
+      "description": "3-step cumulative smoke test: aquarium scene context (no target word) + Q1 carrier",
+      "sentences": [
+        {
+          "text": "The morning rush had left the shop floor scattered with delivery boxes near the filtration aisle. What is the meaning of the word tank?",
+          "group": "smoke",
+          "target_word": "tank",
+          "categories": {"position": "1", "carrier_id": "Q1", "scenario_family": "smoke_aquarium", "direction": "none", "sub_arm": "smoke"}
+        },
+        {
+          "text": "The morning rush had left the shop floor scattered with delivery boxes near the filtration aisle. A customer lingered by the pH strips asking which ones suited her angelfish. What is the meaning of the word tank?",
+          "group": "smoke",
+          "target_word": "tank",
+          "categories": {"position": "2", "carrier_id": "Q1", "scenario_family": "smoke_aquarium", "direction": "none", "sub_arm": "smoke"}
+        },
+        {
+          "text": "The morning rush had left the shop floor scattered with delivery boxes near the filtration aisle. A customer lingered by the pH strips asking which ones suited her angelfish. Someone's kid pressed both hands against the acrylic while the guppies scattered. What is the meaning of the word tank?",
+          "group": "smoke",
+          "target_word": "tank",
+          "categories": {"position": "3", "carrier_id": "Q1", "scenario_family": "smoke_aquarium", "direction": "none", "sub_arm": "smoke"}
+        }
+      ]
+    }
+  ],
+  "axes": [{"id": "position", "values": ["1", "2", "3"]}],
+  "output_axes": [],
+  "generate_output": false,
+  "metadata": {
+    "set_type": "assembled",
+    "capture_substring": "What is the meaning of the word tank?",
+    "purpose": "Stage-2 smoke test for the context-shift capture route"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "context_shift_smoke_single_v1",
+  "version": "1.0",
+  "target_word": "tank",
+  "groups": [
+    {
+      "label": "smoke",
+      "description": "Single-step smoke for checkpoint-window and generation-suffix capture variants",
+      "sentences": [
+        {
+          "text": "The morning rush had left the shop floor scattered with delivery boxes near the filtration aisle. A customer lingered by the pH strips asking which ones suited her angelfish. Someone's kid pressed both hands against the acrylic while the guppies scattered. What is the meaning of the word tank?",
+          "group": "smoke",
+          "target_word": "tank",
+          "categories": {"position": "3", "carrier_id": "Q1", "scenario_family": "smoke_aquarium", "direction": "none", "sub_arm": "smoke"}
+        }
+      ]
+    }
+  ],
+  "axes": [{"id": "position", "values": ["3"]}],
+  "output_axes": [],
+  "generate_output": false,
+  "metadata": {
+    "set_type": "assembled",
+    "purpose": "Checkpoint-window + generation-suffix smoke variants (substring passed per request)"
+  }
+}

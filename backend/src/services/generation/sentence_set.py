@@ -65,29 +65,37 @@ def compute_char_span(text: str, target_word: str) -> List[int]:
 
 def validate_sentence(
     entry: SentenceEntry,
-    existing_texts: Optional[set] = None
+    existing_texts: Optional[set] = None,
+    set_type: str = "standard",
 ) -> List[str]:
-    """Validate a single sentence entry. Returns list of error strings (empty = valid)."""
+    """Validate a single sentence entry. Returns list of error strings (empty = valid).
+
+    set_type "pool" (metadata.set_type): context-pool sentences deliberately contain
+    NO target word (the target lives in a fixed carrier appended at assembly time),
+    and assembled cumulative texts legitimately repeat it — skip the target checks.
+    """
     errors = []
 
     word_count = len(entry.text.split())
-    if word_count < 10:
-        errors.append(f"Too few words ({word_count}): {entry.text[:60]}...")
-    if word_count > 30:
-        errors.append(f"Too many words ({word_count}): {entry.text[:60]}...")
+    if set_type != "pool":
+        if word_count < 10:
+            errors.append(f"Too few words ({word_count}): {entry.text[:60]}...")
+        if word_count > 30:
+            errors.append(f"Too many words ({word_count}): {entry.text[:60]}...")
 
     if entry.text and entry.text[-1] not in '.!?"\':):':
         errors.append(f"Missing ending punctuation: {entry.text[:60]}...")
 
-    pattern = r'\b' + re.escape(entry.target_word) + r'\b'
-    matches = list(re.finditer(pattern, entry.text, re.IGNORECASE))
-    if len(matches) == 0:
-        errors.append(f"Target '{entry.target_word}' not found: {entry.text[:60]}...")
-    elif len(matches) > 1:
-        errors.append(
-            f"Target '{entry.target_word}' appears {len(matches)} times: "
-            f"{entry.text[:60]}..."
-        )
+    if set_type != "pool":
+        pattern = r'\b' + re.escape(entry.target_word) + r'\b'
+        matches = list(re.finditer(pattern, entry.text, re.IGNORECASE))
+        if len(matches) == 0:
+            errors.append(f"Target '{entry.target_word}' not found: {entry.text[:60]}...")
+        elif len(matches) > 1:
+            errors.append(
+                f"Target '{entry.target_word}' appears {len(matches)} times: "
+                f"{entry.text[:60]}..."
+            )
 
     if existing_texts is not None and entry.text in existing_texts:
         errors.append(f"Duplicate sentence: {entry.text[:60]}...")
@@ -96,9 +104,17 @@ def validate_sentence(
 
 
 def validate_sentence_set(ss: SentenceSet) -> List[str]:
-    """Validate an entire sentence set. Returns list of error strings."""
+    """Validate an entire sentence set. Returns list of error strings.
+
+    metadata.set_type == "pool" relaxes per-sentence target/word-count checks
+    (see validate_sentence); "assembled" skips word-count and multi-occurrence
+    noise for cumulative texts by treating them as pools too.
+    """
     errors = []
     existing_texts = set()
+    set_type = (ss.metadata or {}).get("set_type", "standard")
+    if set_type == "assembled":
+        set_type = "pool"
 
     for g in ss.groups:
         for i, entry in enumerate(g.sentences):
@@ -113,7 +129,7 @@ def validate_sentence_set(ss: SentenceSet) -> List[str]:
                     f"!= set target '{ss.target_word}'"
                 )
 
-            sentence_errors = validate_sentence(entry, existing_texts)
+            sentence_errors = validate_sentence(entry, existing_texts, set_type=set_type)
             for err in sentence_errors:
                 errors.append(f"{g.label}[{i}]: {err}")
 

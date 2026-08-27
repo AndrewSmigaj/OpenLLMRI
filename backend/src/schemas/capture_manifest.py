@@ -37,6 +37,10 @@ class CaptureManifest:
     target_words: Optional[List[str]] = None  # Multi-word tracking for agent sessions
     experiment_type: Optional[str] = None     # "sentence" or "agent"
 
+    # Prompt-format provenance (v2.1): label + chat-template hash, e.g. "harmony@a1b2c3d4e5f6".
+    # A format change invalidates axis calibrations; this field makes sessions self-describing.
+    prompt_format: Optional[str] = None
+
     @classmethod
     def from_parquet_dict(cls, data: dict) -> 'CaptureManifest':
         """Reconstruct from Parquet dictionary with JSON deserialization."""
@@ -54,6 +58,7 @@ class CaptureManifest:
             hidden_size=data.get('hidden_size', 0),
             target_words=data.get('target_words'),
             experiment_type=data.get('experiment_type'),
+            prompt_format=data.get('prompt_format'),
         )
 
     def to_parquet_dict(self) -> dict:
@@ -72,6 +77,7 @@ class CaptureManifest:
             'hidden_size': self.hidden_size,
             'target_words': self.target_words,
             'experiment_type': self.experiment_type,
+            'prompt_format': self.prompt_format,
         }
 
 
@@ -90,6 +96,7 @@ CAPTURE_MANIFEST_PARQUET_SCHEMA = {
     "hidden_size": "int32",
     "target_words": "list<string>",
     "experiment_type": "string",
+    "prompt_format": "string",
 }
 
 
@@ -106,6 +113,7 @@ def create_capture_manifest(
     hidden_size: int = 0,
     target_words: Optional[List[str]] = None,
     experiment_type: Optional[str] = None,
+    prompt_format: Optional[str] = None,
 ) -> CaptureManifest:
     """Create capture manifest for session tracking."""
     return CaptureManifest(
@@ -122,4 +130,5 @@ def create_capture_manifest(
         hidden_size=hidden_size,
         target_words=target_words,
         experiment_type=experiment_type,
+        prompt_format=prompt_format,
     )

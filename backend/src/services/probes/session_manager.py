@@ -62,6 +62,7 @@ class SessionManager:
         num_experts: int = 0,
         num_layers: int = 0,
         hidden_size: int = 0,
+        prompt_format: Optional[str] = None,
     ):
         self.data_lake_path = data_lake_path
         self.batch_size = batch_size
@@ -70,6 +71,7 @@ class SessionManager:
         self.num_experts = num_experts
         self.num_layers = num_layers
         self.hidden_size = hidden_size
+        self.prompt_format = prompt_format
 
         self.active_sessions: Dict[str, SessionStatus] = {}
         self.sessions_dir = Path(data_lake_path) / "_sessions"
@@ -105,6 +107,7 @@ class SessionManager:
             "layers_captured": self.layers_to_capture,
             "total_pairs": total_probes,
             "model_name": self.model_name,
+            "prompt_format": self.prompt_format,
             "created_at": datetime.now().isoformat(),
             "state": session_status.state.value,
             "experiment_type": "sentence",
@@ -152,6 +155,7 @@ class SessionManager:
             "layers_captured": self.layers_to_capture,
             "total_pairs": 0,
             "model_name": self.model_name,
+            "prompt_format": self.prompt_format,
             "created_at": datetime.now().isoformat(),
             "state": session_status.state.value,
             "experiment_type": "agent",
@@ -258,6 +262,7 @@ class SessionManager:
             num_experts=self.num_experts,
             num_layers=self.num_layers,
             hidden_size=self.hidden_size,
+            prompt_format=self.prompt_format,
         )
 
         session_dir = Path(self.data_lake_path) / session_id

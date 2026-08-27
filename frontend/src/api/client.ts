@@ -313,6 +313,7 @@ class ConceptMriApiClient {
     basin_a_cluster_id: number
     basin_b_cluster_id: number
     basin_layer: number
+    token_position?: number  // semantic capture site; default 1 = target token
   }): Promise<TemporalLagData> {
     return this.request<TemporalLagData>('/experiments/temporal-lag-data', {
       method: 'POST',
