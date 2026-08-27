@@ -1,0 +1,4859 @@
+{
+ "name": "tank_scene_pools_v1",
+ "version": "1.0",
+ "target_word": "tank",
+ "groups": [
+  {
+   "label": "aquarium",
+   "description": "aquarium scene-context pool (no target word)",
+   "sentences": [
+    {
+     "text": "The siphon hose bucked in my hand until gravel dust clouded the bucket like weak tea.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "home_hobbyist"
+     }
+    },
+    {
+     "text": "Every Sunday she tops off the aquarium with dechlorinated water warmed to match the glass.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "home_hobbyist"
+     }
+    },
+    {
+     "text": "Did you unplug the heater before the water line dropped below its coil?",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "home_hobbyist"
+     }
+    },
+    {
+     "text": "Rinse new gravel until the runoff turns clear, or the filter will choke on silt for days.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "home_hobbyist"
+     }
+    },
+    {
+     "text": "By lamplight the neon tetras schooled tighter, a shivering blue thread behind the driftwood.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "home_hobbyist"
+     }
+    },
+    {
+     "text": "Honestly, the sponge filter's bubbling puts me to sleep faster than any white-noise app ever did.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "home_hobbyist"
+     }
+    },
+    {
+     "text": "Ammonia at zero, nitrite at zero, nitrates creeping toward forty \u2014 time for a thirty-percent water change.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "home_hobbyist"
+     }
+    },
+    {
+     "text": "He counted the corydoras twice, then a third time, before finding the missing one dozing inside the ceramic cave.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "home_hobbyist"
+     }
+    },
+    {
+     "text": "A thermometer suctioned crooked to the glass has read 78 degrees, steady, since Tuesday.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "home_hobbyist"
+     }
+    },
+    {
+     "text": "Please note that impeller assemblies should be scrubbed with a dedicated toothbrush, never with household detergents.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "home_hobbyist"
+     }
+    },
+    {
+     "text": "\"Guppies again?\" she sighed, netting the newest batch of fry out of the filter chamber.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "home_hobbyist"
+     }
+    },
+    {
+     "text": "Draped over the couch arm, the airline tubing waited while I hunted for a check valve.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "home_hobbyist"
+     }
+    },
+    {
+     "text": "Water changes go faster now that the python hooks straight to the kitchen faucet.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "home_hobbyist"
+     }
+    },
+    {
+     "text": "At lights-out the betta flares at his own reflection in the darkened glass.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "home_hobbyist"
+     }
+    },
+    {
+     "text": "Old towels first \u2014 I learned that the night four gallons found the carpet.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "home_hobbyist"
+     }
+    },
+    {
+     "text": "We'll cure the new driftwood in a bucket for a week so the tannins don't turn everything amber.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "home_hobbyist"
+     }
+    },
+    {
+     "text": "Condensation fogged the glass lid, and beneath it the amazon swords pearled tiny silver beads of oxygen.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "home_hobbyist"
+     }
+    },
+    {
+     "text": "Test strips lie a little; the liquid kit told a grimmer story about last week's overfeeding.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "home_hobbyist"
+     }
+    },
+    {
+     "text": "You'd think snails were decorative until a hundred of them mob one sinking algae wafer.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "home_hobbyist"
+     }
+    },
+    {
+     "text": "During the blackout he floated hand warmers in a zip bag to keep the fry from chilling.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "home_hobbyist"
+     }
+    },
+    {
+     "text": "Feed sparingly on Fridays; whatever the platies miss will rot beneath the sword plants by morning.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "home_hobbyist"
+     }
+    },
+    {
+     "text": "Overnight the heater's indicator blinked orange, then quit, and by dawn the water had slid to 68 degrees.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "home_hobbyist"
+     }
+    },
+    {
+     "text": "Her evening routine: lights dimmed at nine, a pinch of flakes, ten quiet minutes watching the angelfish drift.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "home_hobbyist"
+     }
+    },
+    {
+     "text": "Was the filter intake supposed to rattle like that, or had a pebble slipped past the guard?",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "home_hobbyist"
+     }
+    },
+    {
+     "text": "Somewhere behind the heater cord, the bristlenose pleco rasped at the glass, leaving faint clean trails through the algae film.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "home_hobbyist"
+     }
+    },
+    {
+     "text": "The ammonia strip turned dark green before she'd even finished dipping it, and the customer's face fell.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "shop_retail"
+     }
+    },
+    {
+     "text": "\"Twist the bag three times, flip the corners, band it tight \u2014 nobody wants a leaker on the drive home.\"",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "shop_retail"
+     }
+    },
+    {
+     "text": "Our sponge filters outsell the hang-on-back models two to one, mostly because breeders clear our shelves every Saturday morning.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "shop_retail"
+     }
+    },
+    {
+     "text": "Do the neon tetras come with any guarantee if they die within a week?",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "shop_retail"
+     }
+    },
+    {
+     "text": "Customers requesting a water analysis must bring at least four ounces of sample in a clean, soap-free container.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "shop_retail"
+     }
+    },
+    {
+     "text": "By noon Marisol had netted forty guppies, rung up three canister filters, and mopped a puddle near the plant display.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "shop_retail"
+     }
+    },
+    {
+     "text": "Betta cups again, stacked crooked on the endcap, half of them gone cloudy overnight.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "shop_retail"
+     }
+    },
+    {
+     "text": "I always tell first-timers to cycle their aquarium for two weeks before buying a single fish.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "shop_retail"
+     }
+    },
+    {
+     "text": "You'll find the airline tubing on aisle three, right between the check valves and the bags of crushed coral.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "shop_retail"
+     }
+    },
+    {
+     "text": "Some kid pressed his whole face against the angelfish display and left a perfect nose print for me to wipe off.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "shop_retail"
+     }
+    },
+    {
+     "text": "Nitrite at two parts per million explains the gasping; do a fifty percent water change tonight and retest tomorrow.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "shop_retail"
+     }
+    },
+    {
+     "text": "Thursday's discus shipment means draining and scrubbing the whole quarantine system after close.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "shop_retail"
+     }
+    },
+    {
+     "text": "Her manager insisted the pothos cuttings drooping into the goldfish aquarium were filtration, not decoration.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "shop_retail"
+     }
+    },
+    {
+     "text": "\"Sorry, we can't sell you a common pleco for that little bowl \u2014 they grow past a foot.\"",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "shop_retail"
+     }
+    },
+    {
+     "text": "Between the hum of air pumps and the trickle of a hundred filters, the shop never really goes quiet.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "shop_retail"
+     }
+    },
+    {
+     "text": "Someone returned a heater claiming it boiled their shrimp, receipt stapled to a damp paper towel.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "shop_retail"
+     }
+    },
+    {
+     "text": "Did anybody restock the frozen bloodworms, or are we telling customers Tuesday again?",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "shop_retail"
+     }
+    },
+    {
+     "text": "Under the actinic lights the cardinal tetras looked electric, and the woman in scrubs bought the whole school.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "shop_retail"
+     }
+    },
+    {
+     "text": "Store policy requires floating every bagged fish for fifteen minutes before release, a step most impulse buyers skip.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "shop_retail"
+     }
+    },
+    {
+     "text": "He bagged the oranda one-handed, puffed the bag with pure oxygen, and spun it shut like he'd done it ten thousand times.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "shop_retail"
+     }
+    },
+    {
+     "text": "Nobody warned the new hire that the snails in the plant bins multiply faster than she can scoop them out.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "shop_retail"
+     }
+    },
+    {
+     "text": "A retiree in a fishing vest studies the pH chart, comparing it against a strip he's already held up to the light twice.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "shop_retail"
+     }
+    },
+    {
+     "text": "We keep the feeder goldfish by the register; impulse math says a dollar fish sells itself.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "shop_retail"
+     }
+    },
+    {
+     "text": "Every Friday the delivery truck idles out back while staff haul in styrofoam boxes sloshing with new arrivals from Florida.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "shop_retail"
+     }
+    },
+    {
+     "text": "\"What's eating holes in these sword plants?\" she asked, holding up a leaf like evidence.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "shop_retail"
+     }
+    },
+    {
+     "text": "Third graders pressed their palms against the acrylic while a sand tiger shark drifted past, close enough to count its gill slits.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "public_aquarium"
+     }
+    },
+    {
+     "text": "\"Feeding demonstration at the kelp forest begins in five minutes,\" crackled the overhead speaker, and the whole hall shifted toward the amphitheater.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "public_aquarium"
+     }
+    },
+    {
+     "text": "Docents at this facility complete forty hours of training before they may lead a school group past the sea otter habitat.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "public_aquarium"
+     }
+    },
+    {
+     "text": "Somebody's lost mitten floated in the touch pool, right between two horseshoe crabs.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "public_aquarium"
+     }
+    },
+    {
+     "text": "The moon jellies pulsed under blue light \u2014 slow, hypnotic \u2014 while toddlers smeared fingerprints across the glass.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "public_aquarium"
+     }
+    },
+    {
+     "text": "Have you ever watched a giant Pacific octopus unscrew a jar to get at its herring breakfast?",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "public_aquarium"
+     }
+    },
+    {
+     "text": "Yesterday our class sketched the green sea turtle, the one missing half a front flipper, for nearly an hour.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "public_aquarium"
+     }
+    },
+    {
+     "text": "Behind the gift-shop register, plush hammerheads outsold the stingray magnets three to one during spring break.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "public_aquarium"
+     }
+    },
+    {
+     "text": "A diver in the big exhibit waved at the crowd, then hand-fed romaine to a grazing school of surgeonfish.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "public_aquarium"
+     }
+    },
+    {
+     "text": "Salinity in the reef habitat is checked hourly and held near thirty-five parts per thousand, the docent explained to nobody in particular.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "public_aquarium"
+     }
+    },
+    {
+     "text": "\"Why won't the eel come out?\" the boy asked, nose flattened against the viewing panel.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "public_aquarium"
+     }
+    },
+    {
+     "text": "Chaperones counted heads twice before letting the fourth graders loose near the penguin colony.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "public_aquarium"
+     }
+    },
+    {
+     "text": "Feeding time draws the biggest crowds; the sharks, oddly, draw the quietest ones.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "public_aquarium"
+     }
+    },
+    {
+     "text": "She had volunteered here eleven years and still paused, every shift, at the floor-to-ceiling window where the rays glided by.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "public_aquarium"
+     }
+    },
+    {
+     "text": "Field-trip worksheets in hand, the students hunted for the wolf eel hiding beneath its rock ledge.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "public_aquarium"
+     }
+    },
+    {
+     "text": "Kelp swayed forty feet above the amphitheater seating, and a sturgeon the size of a canoe cruised through it.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "public_aquarium"
+     }
+    },
+    {
+     "text": "Gift-shop chatter faded as we entered the darkened jellyfish gallery, all hush and drifting light.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "public_aquarium"
+     }
+    },
+    {
+     "text": "According to the placard, the garden eels retreat into the sand whenever a crowd's shadow crosses their exhibit.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "public_aquarium"
+     }
+    },
+    {
+     "text": "Please keep your hands flat when touching the rays, and rinse at the station before rejoining your group.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "public_aquarium"
+     }
+    },
+    {
+     "text": "During the noon demonstration, an aquarist explained how target training keeps the sea lions engaged between meals.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "public_aquarium"
+     }
+    },
+    {
+     "text": "Two docents debated whether the lookdown fish or the lumpsucker got more laughs from visiting kindergartners.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "public_aquarium"
+     }
+    },
+    {
+     "text": "The bus leaves at two, so we sprinted past the seahorse nursery, promising ourselves we'd come back.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "public_aquarium"
+     }
+    },
+    {
+     "text": "Overhead in the acrylic tunnel, a sawfish slid by so slowly that the entire tour group fell silent.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "public_aquarium"
+     }
+    },
+    {
+     "text": "Interactive kiosks near the entrance quiz visitors on plastic pollution before releasing them into the shark gallery.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "public_aquarium"
+     }
+    },
+    {
+     "text": "One kid kept squeaking a toy puffin by the registers until a clerk gently took it away.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "public_aquarium"
+     }
+    },
+    {
+     "text": "The kribensis pair claimed the coconut cave again, fanning eggs before the lights even warmed up.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "breeding_room"
+     }
+    },
+    {
+     "text": "Hardness crept up to 240 ppm overnight \u2014 someone check whether the crushed coral bag split.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "breeding_room"
+     }
+    },
+    {
+     "text": "\"Cull the bent-spine ones now,\" she said, \"or you'll be selling deformities by October.\"",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "breeding_room"
+     }
+    },
+    {
+     "text": "Fry from batch eleven took powdered egg yolk at dawn and again at three.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "breeding_room"
+     }
+    },
+    {
+     "text": "He logs GH and KH in a spiral notebook, one column per shelf, dated in pencil.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "breeding_room"
+     }
+    },
+    {
+     "text": "Under the dim red bulb, the pleco female stayed wedged in her cave for nine days straight.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "breeding_room"
+     }
+    },
+    {
+     "text": "Would the guppy line hold its blue if I stopped pulling the fan-tailed males?",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "breeding_room"
+     }
+    },
+    {
+     "text": "Water changes happen Sundays: twenty percent for growouts, ten for anything still at wriggler stage.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "breeding_room"
+     }
+    },
+    {
+     "text": "Selling thirty juveniles a month barely covers the electric bill for all these heaters.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "breeding_room"
+     }
+    },
+    {
+     "text": "A siphon hose, a brine shrimp hatchery, and a bucket of aged water \u2014 my whole morning, basically.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "breeding_room"
+     }
+    },
+    {
+     "text": "Nobody warned me that angelfish eat their first three clutches before figuring out parenthood.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "breeding_room"
+     }
+    },
+    {
+     "text": "Along all four shelves the sponge filters gurgle softly, a sound she stopped hearing years ago.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "breeding_room"
+     }
+    },
+    {
+     "text": "Batch nine's survival rate hit ninety-two percent once we switched the fry onto microworms.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "breeding_room"
+     }
+    },
+    {
+     "text": "Check the spawning mop tomorrow; the ricefish were chasing hard through it all afternoon.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "breeding_room"
+     }
+    },
+    {
+     "text": "Records indicate the corydoras deposited eggs on the glass within six hours of the cool-water change.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "breeding_room"
+     }
+    },
+    {
+     "text": "Eggs stuck to the heater cord again, which means scraping and praying half survive the move.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "breeding_room"
+     }
+    },
+    {
+     "text": "Every runt gets fed to the bichir; sentiment doesn't pay for fish food.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "breeding_room"
+     }
+    },
+    {
+     "text": "By June the bottom shelf held four hundred fry and I had exactly zero free time.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "breeding_room"
+     }
+    },
+    {
+     "text": "At 6.4 pH the rams finally spawned, after months of stubborn refusal at 7.2.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "breeding_room"
+     }
+    },
+    {
+     "text": "Dim lights keep the wild bettas calm, so we work by headlamp when netting out pairs.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "breeding_room"
+     }
+    },
+    {
+     "text": "Do buyers ever ask about the culls? Never \u2014 they only want the show-quality males.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "breeding_room"
+     }
+    },
+    {
+     "text": "Wrigglers clung to the slate for two days before lifting off in one silver cloud.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "breeding_room"
+     }
+    },
+    {
+     "text": "Her ledger shows which pairings threw long fins and which threw nothing worth keeping.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "breeding_room"
+     }
+    },
+    {
+     "text": "Conditioning took two weeks of blackworms before the female finally plumped up enough to set.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "breeding_room"
+     }
+    },
+    {
+     "text": "I mark each spawning jar's lid with tape: date, pair number, hardness at laying.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "breeding_room"
+     }
+    },
+    {
+     "text": "Dave's zoanthid frags went in the first raffle round, and half the room groaned when the new guy won all three.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "reef_club"
+     }
+    },
+    {
+     "text": "Her refractometer read 1.027, two points above the club's recommended salinity, which sparked twenty minutes of argument near the coffee urn.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "reef_club"
+     }
+    },
+    {
+     "text": "Who brought the montipora with the bleached edge \u2014 was that shipping stress or a lighting burn?",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "reef_club"
+     }
+    },
+    {
+     "text": "Frag swap table by the door, raffle tickets two for five, and Marge guarding the acropora like a dragon.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "reef_club"
+     }
+    },
+    {
+     "text": "The treasurer reported that proceeds from last month's coral auction would fund a PAR meter available for member loan.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "reef_club"
+     }
+    },
+    {
+     "text": "By eight o'clock the show-and-tell slideshow had stalled on Ken's clownfish photo while he explained his sump plumbing in exhausting detail.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "reef_club"
+     }
+    },
+    {
+     "text": "I traded a golf-ball-sized hammer coral for two ricordea and still feel like I fleeced the poor kid.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "reef_club"
+     }
+    },
+    {
+     "text": "You could smell the saltwater in the church basement before you even saw the styrofoam coolers lined up under the folding tables.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "reef_club"
+     }
+    },
+    {
+     "text": "\"Run your blues at forty percent, tops,\" Priya insisted, jabbing at the spectrum chart taped to the whiteboard.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "reef_club"
+     }
+    },
+    {
+     "text": "Someone's phone keeps buzzing during the alkalinity presentation, and the speaker finally pauses mid-sentence to glare.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "reef_club"
+     }
+    },
+    {
+     "text": "Newcomers get a free birdsnest frag at the door; retention, the president claims, has doubled since the policy started.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "reef_club"
+     }
+    },
+    {
+     "text": "Raffle prizes this month: a wavemaker, a bucket of reef salt, and a gift card to the fish store on Route 9.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "reef_club"
+     }
+    },
+    {
+     "text": "Did anyone else notice the torch coral in Lena's photos doubling in size since March?",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "reef_club"
+     }
+    },
+    {
+     "text": "He argued that dosing kalkwasser through a top-off pump beats two-part for small systems, and nobody at his table disagreed.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "reef_club"
+     }
+    },
+    {
+     "text": "Under the rec center's fluorescent lights, the frags in their labeled cups looked gray, nothing like the vendors' glamour shots.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "reef_club"
+     }
+    },
+    {
+     "text": "After the meeting adjourned, three members lingered to debate whether T5 bulbs still outgrow LEDs for sticks.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "reef_club"
+     }
+    },
+    {
+     "text": "Month four of the salinity-probe calibration debate, the secretary noted wearily in the minutes.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "reef_club"
+     }
+    },
+    {
+     "text": "Show-and-tell opened with a macro shot of a bubble-tip anemone splitting, which earned actual applause.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "reef_club"
+     }
+    },
+    {
+     "text": "Bring dip for your new frags, people \u2014 last year's flatworm outbreak started at one of these swaps.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "reef_club"
+     }
+    },
+    {
+     "text": "A teenager in a wetsuit-brand hoodie won the drawing for the doser and immediately asked what a doser was.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "reef_club"
+     }
+    },
+    {
+     "text": "We passed Miguel's phone around the circle, admiring a chalice coral lit purple under actinics.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "reef_club"
+     }
+    },
+    {
+     "text": "Nobody admitted to bringing the aiptasia-riddled rock that ended up on the freebie table.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "reef_club"
+     }
+    },
+    {
+     "text": "Attendance hit forty-two, a club record, mostly because the raffle included a protein skimmer donated by the sponsor.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "reef_club"
+     }
+    },
+    {
+     "text": "Old-timers cluster near the projector arguing photoperiods while the kids in the back trade zoas like baseball cards.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "reef_club"
+     }
+    },
+    {
+     "text": "Half the room wanted Ellen's supplier's name after she claimed the goniopora cost under a hundred dollars.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "reef_club"
+     }
+    },
+    {
+     "text": "Marisol swears Bubbles recognizes her, though Mr. Delgado keeps saying goldfish memory is longer than three seconds, actually.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "classroom"
+     }
+    },
+    {
+     "text": "Per the laminated rota taped beside the aquarium, Thursday feeding duties belong to Table Four, not to whoever arrives first.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "classroom"
+     }
+    },
+    {
+     "text": "\"Who fed Nugget twice?\" Ms. Okafor asked, holding up the flake canister with its lid already loose.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "classroom"
+     }
+    },
+    {
+     "text": "Water temperature logged at 21 degrees Celsius during morning observations; nitrate strips remain in the science cupboard behind the beakers.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "classroom"
+     }
+    },
+    {
+     "text": "I drew Comet's dorsal fin for my science journal today, and Mrs. Pruitt hung it right above the pet corner.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "classroom"
+     }
+    },
+    {
+     "text": "Nobody volunteered to take the goldfish home over spring break until Dev's mom finally texted a reluctant yes.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "classroom"
+     }
+    },
+    {
+     "text": "\"Two pinches, not a fistful, Jayden \u2014 you'll cloud the whole bowl again.\"",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "classroom"
+     }
+    },
+    {
+     "text": "You haven't lived until twenty second-graders argue about whose turn it is to scrub algae off the glass.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "classroom"
+     }
+    },
+    {
+     "text": "During Friday's lesson on habitats, the class measured how quickly Goldie surfaces when the fluorescent lights flick on.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "classroom"
+     }
+    },
+    {
+     "text": "Over the long weekend the filter hummed alone in Room 12, and Principal Vance stopped by twice with the spare key.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "classroom"
+     }
+    },
+    {
+     "text": "A note went home reminding parents that weekend fish-sitting includes the air pump, the dechlorinator drops, and the observation checklist.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "classroom"
+     }
+    },
+    {
+     "text": "Why does Sir Finley only swim clockwise after lunch, and can we graph that for the science fair?",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "classroom"
+     }
+    },
+    {
+     "text": "Day nine: orange one hides behind the plastic castle whenever the recorder plays; possibly coincidence, possibly excellent taste.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "classroom"
+     }
+    },
+    {
+     "text": "Priya insists her weekend shift ended Sunday at noon, so Monday's cloudy water is officially somebody else's problem.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "classroom"
+     }
+    },
+    {
+     "text": "Next week the fourth graders will chart Peach's growth in centimeters against the flake rations recorded on the clipboard.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "classroom"
+     }
+    },
+    {
+     "text": "Honestly, half the class only lines up early on Mondays because whoever's first gets to sprinkle breakfast for Sushi.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "classroom"
+     }
+    },
+    {
+     "text": "The dechlorinated refill bucket sits under the sink, labeled in Sharpie so no substitute teacher pours straight tap water again.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "classroom"
+     }
+    },
+    {
+     "text": "\"He's not dead, he's sleeping,\" Tomas announced, though Ms. Reyes quietly moved the net closer just in case.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "classroom"
+     }
+    },
+    {
+     "text": "When the heater tripped the breaker in January, the whole feeding rota got rewritten around emergency thermometer checks.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "classroom"
+     }
+    },
+    {
+     "text": "We voted seventeen to six to name the new one Lasagna, and Mr. Bright wrote it on the aquarium label in glitter pen.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "classroom"
+     }
+    },
+    {
+     "text": "Gaps in the observation notebook appear every Wednesday, matching Room 12's rotation to the computer lab exactly.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "classroom"
+     }
+    },
+    {
+     "text": "Flakes drifted everywhere while gravel crunched across the counter and one triumphant kindergartner held the net upside down.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "classroom"
+     }
+    },
+    {
+     "text": "Somebody returned the Thanksgiving sign-up sheet with three names crossed out and a suspicious smear of orange marker.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "classroom"
+     }
+    },
+    {
+     "text": "\"Do fish get bored?\" Amara wrote at the top of her hypothesis sheet before recess even started.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "classroom"
+     }
+    },
+    {
+     "text": "Every afternoon the sun slides across the pet corner, and Bubbles follows the bright stripe along the glass, nose to the warmth.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "classroom"
+     }
+    },
+    {
+     "text": "Nitrates were creeping past forty at the dental office, so I doubled the water change and made a note to recheck Thursday.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "maintenance_route"
+     }
+    },
+    {
+     "text": "\"Your clownfish keeps spitting sand at the powerhead,\" the receptionist told me, delighted, before I'd even set down my bucket.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "maintenance_route"
+     }
+    },
+    {
+     "text": "Scrape, rinse, wring \u2014 the magnet cleaner handles most of the glass, but the corners always need the plastic blade.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "maintenance_route"
+     }
+    },
+    {
+     "text": "Between the law firm and the pediatric clinic there's a twenty-minute gap he uses to refill carboys at the shop's RO station.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "maintenance_route"
+     }
+    },
+    {
+     "text": "Why does every lobby aquarium end up positioned in direct afternoon sun?",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "maintenance_route"
+     }
+    },
+    {
+     "text": "Per the service agreement, filter media replacement at the Hartwell building occurs on the second Tuesday of each month.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "maintenance_route"
+     }
+    },
+    {
+     "text": "Inside the van it smells permanently of brine, damp towels, and the vinyl gloves I buy in bulk.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "maintenance_route"
+     }
+    },
+    {
+     "text": "Honestly, the hardest part of this job is parallel parking a van full of sloshing water jugs downtown.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "maintenance_route"
+     }
+    },
+    {
+     "text": "Alkalinity tested at 7.2 dKH, a touch low for the coral display, so I dosed buffer and logged it on the route sheet.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "maintenance_route"
+     }
+    },
+    {
+     "text": "By the time she reached the insurance office, the algae on the back glass had thickened into green felt.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "maintenance_route"
+     }
+    },
+    {
+     "text": "\"Did the yellow one die?\" asked the accountant, and I explained the wrasse was just sleeping under the sand.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "maintenance_route"
+     }
+    },
+    {
+     "text": "You learn to knock before wheeling the cart through a lobby at 7 a.m., because somebody is always mid-meeting behind the glass wall.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "maintenance_route"
+     }
+    },
+    {
+     "text": "He labels each client's spare impellers in zip bags \u2014 Denton Ortho, Riverside Realty, the marina caf\u00e9 \u2014 and sorts them in a milk crate.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "maintenance_route"
+     }
+    },
+    {
+     "text": "At the chiropractor's, the heater had drifted two degrees, so I swapped it rather than trust it another week.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "maintenance_route"
+     }
+    },
+    {
+     "text": "\"Low on frozen mysis again \u2014 remind me to hit the wholesaler before Friday's route.\"",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "maintenance_route"
+     }
+    },
+    {
+     "text": "Every Monday begins the same way: load the siphon hoses, check the test kit expiry dates, coffee, then the freeway.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "maintenance_route"
+     }
+    },
+    {
+     "text": "Who decided a six-foot reef display belonged directly above the bank lobby's only electrical outlet?",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "maintenance_route"
+     }
+    },
+    {
+     "text": "A pH probe left uncalibrated for a month will lie to you politely, which is why mine gets checked every other visit.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "maintenance_route"
+     }
+    },
+    {
+     "text": "Clients receive a laminated card after each visit noting water parameters, livestock condition, and any recommended equipment upgrades.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "maintenance_route"
+     }
+    },
+    {
+     "text": "Meridian Dental's protein skimmer had overflowed onto the carpet, and the office manager greeted me holding a mop and a look.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "maintenance_route"
+     }
+    },
+    {
+     "text": "Traffic on the bypass ate my lunch break, so the seahorse checkup at the day spa slid to Thursday.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "maintenance_route"
+     }
+    },
+    {
+     "text": "Next week I'll drain a third of the cichlid display at the credit union and finally rehome that bullying jewelfish.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "maintenance_route"
+     }
+    },
+    {
+     "text": "She's kneeling behind the reception desk, tracing an airline back to a pump somebody unplugged to charge a phone.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "maintenance_route"
+     }
+    },
+    {
+     "text": "We chatted about his daughter's soccer season while the gravel vacuum churned and the water level dropped inch by inch.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "maintenance_route"
+     }
+    },
+    {
+     "text": "Salt creep had crusted the light fixture like frost, flaking onto my sleeve as I lifted the hood.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "maintenance_route"
+     }
+    },
+    {
+     "text": "The clown loach in QT bay three stopped eating yesterday, and this morning his caudal fin looks ragged at the edges.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "quarantine_vet"
+     }
+    },
+    {
+     "text": "Copper sulfate concentrations must be verified twice daily with a calibrated test kit before any additional dosing occurs.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "quarantine_vet"
+     }
+    },
+    {
+     "text": "\"Count the white spots for me,\" the vet said, \"and tell me whether they've spread past the gill covers.\"",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "quarantine_vet"
+     }
+    },
+    {
+     "text": "Six days into the ich protocol and the spots are finally dropping off the tetras, though the water smells faintly of salt.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "quarantine_vet"
+     }
+    },
+    {
+     "text": "Honestly I nearly cried when the little betta flared at his reflection again \u2014 first sign of life since we started the antibiotics.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "quarantine_vet"
+     }
+    },
+    {
+     "text": "Methylene blue stained everything in the isolation rack a deep cobalt, including my thumbnail and the airline tubing.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "quarantine_vet"
+     }
+    },
+    {
+     "text": "She logged the observation at 7 a.m.: gills pumping fast, angelfish hanging near the sponge filter, fins clamped tight.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "quarantine_vet"
+     }
+    },
+    {
+     "text": "Do I really have to keep him isolated for four full weeks if the fin rot has already cleared up?",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "quarantine_vet"
+     }
+    },
+    {
+     "text": "One level scoop of kanamycin per five gallons, added right after the fifty-percent water change \u2014 never guess the volume.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "quarantine_vet"
+     }
+    },
+    {
+     "text": "By Thursday the ragged tissue on her dorsal fin had begun regrowing, a thin transparent margin the vet called a good sign.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "quarantine_vet"
+     }
+    },
+    {
+     "text": "Nobody warns you how loud a bare-bottom hospital setup gets when the airstone runs full blast at 3 a.m.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "quarantine_vet"
+     }
+    },
+    {
+     "text": "On the phone, the aquatic vet talked me through netting the gourami, her voice low and steady the whole time.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "quarantine_vet"
+     }
+    },
+    {
+     "text": "Fin rot rarely reverses without pristine water; test ammonia daily, because medication breaks down and fouls a small volume fast.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "quarantine_vet"
+     }
+    },
+    {
+     "text": "Those salt-grain specks scattered across the black molly? Classic ichthyophthirius, the parasite every hobbyist learns to dread.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "quarantine_vet"
+     }
+    },
+    {
+     "text": "You raise the heat one degree every twelve hours, watching the thermometer, hoping the cories can handle the climb.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "quarantine_vet"
+     }
+    },
+    {
+     "text": "Observation note, 21:40 \u2014 the discus took two bloodworms, first food accepted since transfer to the ten-gallon hospital setup.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "quarantine_vet"
+     }
+    },
+    {
+     "text": "Wasn't the whole point of the quarantine rack to catch this before it reached my display fish?",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "quarantine_vet"
+     }
+    },
+    {
+     "text": "He measures the praziquantel with a jeweler's scale, muttering that a milligram either way matters at this dosage.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "quarantine_vet"
+     }
+    },
+    {
+     "text": "After the formalin dip, the koi hung motionless near the surface for a terrifying minute, then righted herself and swam.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "quarantine_vet"
+     }
+    },
+    {
+     "text": "My notes from week one read like a fever chart: spots up, appetite down, one tetra lost overnight.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "quarantine_vet"
+     }
+    },
+    {
+     "text": "\"No, don't double the dose,\" she told the panicked caller \u2014 \"scaleless species absorb malachite green far faster than you'd think.\"",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "quarantine_vet"
+     }
+    },
+    {
+     "text": "Each morning I siphon uneaten pellets off the bare glass bottom, checking the waste for stringy white feces that signal internal parasites.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "quarantine_vet"
+     }
+    },
+    {
+     "text": "Down the basement wall, six small vessels hum on the rack, each sponge filter burbling under a lid labeled in grease pencil.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "quarantine_vet"
+     }
+    },
+    {
+     "text": "Three treatment rounds finished, and still she recommended a final salt dip before he could rejoin the community aquarium.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "quarantine_vet"
+     }
+    },
+    {
+     "text": "Frantic, I photographed the lesion under the desk lamp and texted it to the on-call aquatic veterinarian before midnight.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "quarantine_vet"
+     }
+    },
+    {
+     "text": "The judges docked her two points because the hairgrass carpet had lifted near the front glass overnight.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "aquascaping"
+     }
+    },
+    {
+     "text": "Nobody expected the ninety-centimeter iwagumi to beat last year's champion, yet there it sat, first-place ribbon taped to its cabinet.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "aquascaping"
+     }
+    },
+    {
+     "text": "Did you see how he angled that seiryu stone, or was I imagining the forty-five-degree tilt?",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "aquascaping"
+     }
+    },
+    {
+     "text": "Trimming scissors in hand, Marisol leaned over the rimless cube and snipped a single rotala stem that had broken the layout's diagonal line.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "aquascaping"
+     }
+    },
+    {
+     "text": "Photography day means blackout curtains, a rented strobe, and forty minutes of coaxing the rummynose tetras into the golden-ratio zone.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "aquascaping"
+     }
+    },
+    {
+     "text": "Fifteen points ride on hardscape composition alone, which explains why everyone hoards dragon stone like treasure.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "aquascaping"
+     }
+    },
+    {
+     "text": "By noon the convention hall smelled of wet soil and glue, and every competitor was pretending not to study the neighboring entries.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "aquascaping"
+     }
+    },
+    {
+     "text": "His bucephalandra had melted two weeks before judging; he entered anyway.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "aquascaping"
+     }
+    },
+    {
+     "text": "Score sheets came back at four: composition 22, plant health 18, viability 9 \u2014 and the judge's note read simply \"crypts overcrowded.\"",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "aquascaping"
+     }
+    },
+    {
+     "text": "I spent the morning siphoning debris from between the spiderwood branches so nothing would cloud the final photographs.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "aquascaping"
+     }
+    },
+    {
+     "text": "One judge crouched at eye level with the aquarium for a full minute, saying nothing, pencil hovering.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "aquascaping"
+     }
+    },
+    {
+     "text": "Under the display lights the glosso carpet glowed almost lime, and a murmur went through the queue of spectators.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "aquascaping"
+     }
+    },
+    {
+     "text": "Rules state no equipment visible in the submitted photo, so the lily pipes come out and the CO2 line gets clamped for exactly one frame.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "aquascaping"
+     }
+    },
+    {
+     "text": "She kept circling back to the same worry between rounds: had she trimmed the christmas moss too tight?",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "aquascaping"
+     }
+    },
+    {
+     "text": "Competitors traded stories at the coffee urn about carpets that flooded with algae the week before deadline.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "aquascaping"
+     }
+    },
+    {
+     "text": "A dutch-style entry from Osaka stacked red ludwigia against limnophila in terraces so precise they looked machine-cut.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "aquascaping"
+     }
+    },
+    {
+     "text": "Frag the pearlweed, wait three weeks, pray for pearling on judging morning \u2014 the whole hobby in one ritual.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "aquascaping"
+     }
+    },
+    {
+     "text": "Newcomers learn the hard way that a focal point placed dead center costs points on every judge's sheet.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "aquascaping"
+     }
+    },
+    {
+     "text": "Before the judges' walkthrough, an apprentice wiped fingerprints off the front pane with a microfiber cloth, slow as a violin polisher.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "aquascaping"
+     }
+    },
+    {
+     "text": "\"Your negative space carries the whole composition,\" the Belgian judge told him, tapping the empty sand foreground.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "aquascaping"
+     }
+    },
+    {
+     "text": "We hauled buckets down the loading dock at dawn, praying the amano shrimp had survived the drive from Portland.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "aquascaping"
+     }
+    },
+    {
+     "text": "Third place stung less once he saw the winner's manten-stone ridge line up perfectly with its own reflection.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "aquascaping"
+     }
+    },
+    {
+     "text": "Someone's diffuser failed mid-exhibition, and three volunteers with airline tubing performed quiet surgery behind the display curtain.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "aquascaping"
+     }
+    },
+    {
+     "text": "Ten entries, one gold \u2014 and the tiebreaker came down to whose stem plants showed cleaner internodes under the loupe.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "aquascaping"
+     }
+    },
+    {
+     "text": "After the awards, competitors swapped trimming techniques over cold noodles, sketching hardscape ideas on the backs of their scoring sheets.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "aquascaping"
+     }
+    },
+    {
+     "text": "The 45-mil EPDM liner comes in twenty-foot rolls, and we cut it right off the spool while you wait.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "koi_yard"
+     }
+    },
+    {
+     "text": "\"That sanke's worth three hundred easy,\" Marv said, netting the fish so the customer could see the ink-black sumi along its spine.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "koi_yard"
+     }
+    },
+    {
+     "text": "Grading happens every Thursday morning: body conformation first, then skin luster, then pattern edges under the north-facing skylight.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "koi_yard"
+     }
+    },
+    {
+     "text": "Did you measure the drop from your skimmer to the waterfall, or are we guessing on head height again?",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "koi_yard"
+     }
+    },
+    {
+     "text": "By late October the yard smells of wet rubber and cedar shavings, and every pallet holds netting for leaf season.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "koi_yard"
+     }
+    },
+    {
+     "text": "She picked out a butterfly koi with trailing fins the color of weak tea, then asked whether raccoons would eat it.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "koi_yard"
+     }
+    },
+    {
+     "text": "Our pumps are rated in gallons per hour at zero head, so knock off roughly ten percent for every vertical foot.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "koi_yard"
+     }
+    },
+    {
+     "text": "Winterizing kit, aisle three \u2014 de-icer, aerator stone, and the cold-water bacteria that keep working below fifty degrees.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "koi_yard"
+     }
+    },
+    {
+     "text": "A customer once sketched his whole backyard on the back of a receipt while I priced out underlayment by the square foot.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "koi_yard"
+     }
+    },
+    {
+     "text": "Never lift a showa bare-handed; wet the sock net first or you'll scrape the mucus coat clean off.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "koi_yard"
+     }
+    },
+    {
+     "text": "The kohaku in bay six, the one with the stepped hi pattern? Sold this morning to a collector from Dayton.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "koi_yard"
+     }
+    },
+    {
+     "text": "If your pond drops below eighteen inches deep, ice can lock it solid, and the fish have nowhere to hold over.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "koi_yard"
+     }
+    },
+    {
+     "text": "We recommend a bottom drain on anything over two thousand gallons; vacuuming a liner pond by hand gets old fast.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "koi_yard"
+     }
+    },
+    {
+     "text": "Cold rain hammered the display ponds all afternoon, but the tategoi kept circling under the shade cloth as if nothing had changed.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "koi_yard"
+     }
+    },
+    {
+     "text": "Prices climb sharply once a koi passes the twenty-inch mark \u2014 growth potential is proven, not promised.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "koi_yard"
+     }
+    },
+    {
+     "text": "\"Cut feeding to once a day when the water hits sixty,\" she told him, tapping the tub of wheat-germ pellets.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "koi_yard"
+     }
+    },
+    {
+     "text": "Formal grading records list the breeder, spawn year, and certificate number; ours are filed in the office by variety.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "koi_yard"
+     }
+    },
+    {
+     "text": "He kneels at the edge of the sales pool each morning, counting fins breaking the surface before the gates open.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "koi_yard"
+     }
+    },
+    {
+     "text": "Check valve, ball valve, three-way \u2014 which fitting failed on you this time?",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "koi_yard"
+     }
+    },
+    {
+     "text": "The new shipment from Niigata clears quarantine Friday: forty fish, mostly gosanke, a few doitsu mixed in.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "koi_yard"
+     }
+    },
+    {
+     "text": "Underlayment goes down first, then liner, then a ring of flat fieldstone to hide the folded edges.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "koi_yard"
+     }
+    },
+    {
+     "text": "Nobody warns you that a half-finished pond in July becomes a mosquito nursery by August.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "koi_yard"
+     }
+    },
+    {
+     "text": "Last spring we replaced eleven burst check valves for customers who skipped draining their external plumbing before the freeze.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "koi_yard"
+     }
+    },
+    {
+     "text": "What eats a pond's oxygen fastest isn't the fish; it's the rotting leaves you never netted out in November.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "koi_yard"
+     }
+    },
+    {
+     "text": "Twelve dollars a foot for the flexible PVC, and honestly, the rigid stuff fights you around every curve.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "koi_yard"
+     }
+    },
+    {
+     "text": "Around 4 a.m. the chiller compressor kicked on, and half the urchin trays dropped two degrees before anyone noticed.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "wet_lab"
+     }
+    },
+    {
+     "text": "Somebody left the standpipe out of raceway three again, so the sculpins spent the night in six centimeters of water.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "wet_lab"
+     }
+    },
+    {
+     "text": "Priya logs salinity at 31.4 ppt, initials the clipboard, and moves down the flow table to the next spawning tray.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "wet_lab"
+     }
+    },
+    {
+     "text": "Does anyone know why the header line to the fish room is spitting air?",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "wet_lab"
+     }
+    },
+    {
+     "text": "Purple urchins had stripped every scrap of kelp from the mesh cage by morning, ruining the feeding-rate trial before it started.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "wet_lab"
+     }
+    },
+    {
+     "text": "Formally, protocol requires two people present whenever anesthetized rockfish are moved between the surgery bench and the recovery troughs.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "wet_lab"
+     }
+    },
+    {
+     "text": "We calibrated the dissolved-oxygen probe twice; it still read a full milligram low against the Winkler titration.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "wet_lab"
+     }
+    },
+    {
+     "text": "Her thesis lives or dies on whether these thirty juvenile sablefish keep eating through the temperature ramp.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "wet_lab"
+     }
+    },
+    {
+     "text": "A slick of coralline dust coated the sorting sieves, pink as chalk, waiting for someone to rinse them.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "wet_lab"
+     }
+    },
+    {
+     "text": "Check the sump before you leave \u2014 if the float valve sticks again, we'll flood the whole wet lab by midnight.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "wet_lab"
+     }
+    },
+    {
+     "text": "During spawning induction, the potassium chloride injections sent gametes streaming from the urchins within ninety seconds.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "wet_lab"
+     }
+    },
+    {
+     "text": "You learn fast that neoprene gloves do nothing against an urchin spine driven under the thumbnail.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "wet_lab"
+     }
+    },
+    {
+     "text": "At 02:17 the datalogger dropped its Wi-Fi connection, leaving a four-hour gap right through the tidal cycle we needed.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "wet_lab"
+     }
+    },
+    {
+     "text": "Rain hammered the roof while Marcus siphoned detritus from the larval culture jars, one careful pass at a time.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "wet_lab"
+     }
+    },
+    {
+     "text": "Incoming seawater runs through sand filters and a UV unit before it ever touches an experimental animal.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "wet_lab"
+     }
+    },
+    {
+     "text": "Wasn't the flow meter on line two supposed to be replaced last quarter?",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "wet_lab"
+     }
+    },
+    {
+     "text": "Every Friday we scrub biofilm off the standpipes; skip a week and the drains smell like low tide.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "wet_lab"
+     }
+    },
+    {
+     "text": "\"Hand me the turkey baster,\" she said, \"the brine shrimp are clumping in the corner again.\"",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "wet_lab"
+     }
+    },
+    {
+     "text": "Frozen squid thawed in a bucket by the sink, and the whole room smelled of it for hours.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "wet_lab"
+     }
+    },
+    {
+     "text": "By Tuesday the chiller's condenser coils were furred with salt, and inlet temperatures crept toward lethal.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "wet_lab"
+     }
+    },
+    {
+     "text": "Under red headlamps we counted pluteus larvae on the hemocytometer until our eyes burned.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "wet_lab"
+     }
+    },
+    {
+     "text": "If the pH controller drifts overnight, the CO2 solenoid will keep bubbling until the acidification treatment is meaningless.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "wet_lab"
+     }
+    },
+    {
+     "text": "Three flumes, twelve fish per flume, one grad student who hasn't slept since the trial began.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "wet_lab"
+     }
+    },
+    {
+     "text": "Nobody warned me that half of running flatfish experiments is just plumbing: PVC cement, ball valves, teflon tape.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "wet_lab"
+     }
+    },
+    {
+     "text": "The spreadsheet says mortality stayed under five percent, but she recounts the sea stars anyway, twice.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "wet_lab"
+     }
+    },
+    {
+     "text": "Marisol pressed her nose to the glass while her chowder cooled, naming every angelfish after cousins back home.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "restaurant"
+     }
+    },
+    {
+     "text": "After close, Reuben squeegees the fingerprints off the aquarium in slow arcs, radio murmuring behind the host stand.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "restaurant"
+     }
+    },
+    {
+     "text": "\"Is that one dinner?\" the boy asked, and the hostess laughed too quickly.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "restaurant"
+     }
+    },
+    {
+     "text": "Every Tuesday the owner runs a turbidity test; anything above two NTU and he cancels his morning to backwash the filters.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "restaurant"
+     }
+    },
+    {
+     "text": "Waiting parties drift toward the glow the way moths do, menus forgotten under their arms.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "restaurant"
+     }
+    },
+    {
+     "text": "You could tell it was Mr. Okafor's pride: he'd chosen every piece of coral himself, arguing with suppliers over shades of purple.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "restaurant"
+     }
+    },
+    {
+     "text": "Nobody warned the new busser that the lionfish gets fed at nine, right when the lobby crowd is thickest.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "restaurant"
+     }
+    },
+    {
+     "text": "Cloudy again this morning, third time this month, and the owner is already on the phone with the filtration company.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "restaurant"
+     }
+    },
+    {
+     "text": "Between seatings, the ma\u00eetre d' straightens the little brass plaque that names each species for curious diners.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "restaurant"
+     }
+    },
+    {
+     "text": "Did anyone else notice the moray hiding behind the pump intake during the lunch rush?",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "restaurant"
+     }
+    },
+    {
+     "text": "Two hundred gallons of filtered seawater separate the waiting area from the raw bar, and children treat the divide like television.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "restaurant"
+     }
+    },
+    {
+     "text": "By eleven the mop bucket sits abandoned while the whole cleaning crew watches the clownfish sleep.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "restaurant"
+     }
+    },
+    {
+     "text": "I keep telling Dad the wrasse looks thinner, but he insists the light just flattens everything at night.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "restaurant"
+     }
+    },
+    {
+     "text": "Legend among the staff holds that the oldest grouper arrived the same week the restaurant opened, back in 1987.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "restaurant"
+     }
+    },
+    {
+     "text": "Please refrain from tapping on the glass, reads the sign; nobody under four feet tall has ever obeyed it.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "restaurant"
+     }
+    },
+    {
+     "text": "Grease from a hundred small palms fogs the lower panel by Friday night \u2014 every Friday night.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "restaurant"
+     }
+    },
+    {
+     "text": "When the protein skimmer hums off-key, Mr. Okafor hears it from the kitchen and comes out wiping his hands.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "restaurant"
+     }
+    },
+    {
+     "text": "A toddler in a bib waved her spoon at the pufferfish, which drifted over as if summoned.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "restaurant"
+     }
+    },
+    {
+     "text": "Honestly? Half our Yelp photos are of the aquarium, not the food.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "restaurant"
+     }
+    },
+    {
+     "text": "The night porter swears the eel recognizes his flashlight and follows it along the glass like a dog at a fence.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "restaurant"
+     }
+    },
+    {
+     "text": "Water clarity, Mr. Okafor likes to say, is the first course every guest is served.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "restaurant"
+     }
+    },
+    {
+     "text": "She'd been coming here thirty years and still paused at the display before her table, counting the yellow ones.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "restaurant"
+     }
+    },
+    {
+     "text": "Tomorrow the aquarium service arrives at six to replace the UV sterilizer bulb before the first reservation.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "restaurant"
+     }
+    },
+    {
+     "text": "Under the lobby's dimmed chandeliers, the illuminated water throws wobbling blue ribbons across the ceiling tiles.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "restaurant"
+     }
+    },
+    {
+     "text": "Hard to sell the snapper special when its cousin is making eye contact with the customers, the bartender muttered.",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "scene": "restaurant"
+     }
+    }
+   ]
+  },
+  {
+   "label": "vehicle",
+   "description": "vehicle scene-context pool (no target word)",
+   "sentences": [
+    {
+     "text": "The volunteer coaxed decades of grime from a Sherman's drive sprocket with a toothbrush and a rag that used to be his shirt.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "museum"
+     }
+    },
+    {
+     "text": "Did you know this Panzer IV's turret still turns by hand crank if two docents lean into it together?",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "museum"
+     }
+    },
+    {
+     "text": "Accession records indicate the hull was recovered from a Normandy hedgerow in 1961, restored twice, and repainted to its original olive drab.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "museum"
+     }
+    },
+    {
+     "text": "\"Mind the ropes, please \u2014 the tracks were greased this morning and grease travels,\" the curator warned a school group.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "museum"
+     }
+    },
+    {
+     "text": "Honestly, the placard about Kursk gets more foot traffic than the armor itself, which drives the restoration team a little crazy.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "museum"
+     }
+    },
+    {
+     "text": "Every Saturday she polished the same stretch of track link, and every Saturday the same veteran stopped to tell her about El Alamein.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "museum"
+     }
+    },
+    {
+     "text": "Conservators applied a microcrystalline wax to the turret ring, sealing bare steel against the humidity that seeps in whenever the loading dock opens.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "museum"
+     }
+    },
+    {
+     "text": "You can smell the linseed oil before you even round the corner into the armor gallery.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "museum"
+     }
+    },
+    {
+     "text": "Three placards, one battle, zero agreement on how many vehicles actually crossed the ridge at dawn.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "museum"
+     }
+    },
+    {
+     "text": "A retired machinist volunteers on Tuesdays, mostly to keep the idler wheels from seizing, partly to escape his quiet apartment.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "museum"
+     }
+    },
+    {
+     "text": "Why does the Tiger's glacis plate draw crowds while the ambulance half-track beside it sits ignored?",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "museum"
+     }
+    },
+    {
+     "text": "Per the loan agreement with the regimental association, the Churchill's hatches remain sealed and its interior off-limits to photography.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "museum"
+     }
+    },
+    {
+     "text": "Kids press their palms flat against the cold hull until a docent, smiling, taps the no-touching sign for the hundredth time today.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "museum"
+     }
+    },
+    {
+     "text": "\"See that gouge below the turret? Shrapnel,\" the guide said, tapping the placard with his pen.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "museum"
+     }
+    },
+    {
+     "text": "I spent my entire lunch break reading about the Battle of Cambrai and never made it past the first exhibit case.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "museum"
+     }
+    },
+    {
+     "text": "Disassembled, blasted, primed, and rehung \u2014 the suspension bogies came back together in under a week, a crew record.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "museum"
+     }
+    },
+    {
+     "text": "Somewhere behind the Ardennes diorama, a radio loops scratchy period broadcasts at a volume only the security guard seems to notice.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "museum"
+     }
+    },
+    {
+     "text": "Next month the wing will close for a week so riggers can lower the restored turret back onto its race.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "museum"
+     }
+    },
+    {
+     "text": "Grandpa just stood there in front of the Sherman, hat in his hands, not saying a word.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "museum"
+     }
+    },
+    {
+     "text": "Under the fluorescent lights, fresh olive paint on the fenders looks nothing like the faded photographs mounted beside them.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "museum"
+     }
+    },
+    {
+     "text": "Who decided the gift shop should sell chocolate Panzers, and can we talk about it?",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "museum"
+     }
+    },
+    {
+     "text": "By closing time the docents had answered the same question about the Tiger's fuel consumption at least a dozen times.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "museum"
+     }
+    },
+    {
+     "text": "Rivets the size of plums stud the hull of the 1917 Renault, its two-man crew compartment barely bigger than a phone booth.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "museum"
+     }
+    },
+    {
+     "text": "Between school tours, a curator knelt beside the drive wheel, comparing its casting marks against a wartime factory ledger.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "museum"
+     }
+    },
+    {
+     "text": "Nobody warns you how loud the gallery gets when a hundred eighth-graders discover the periscope viewer actually works.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "museum"
+     }
+    },
+    {
+     "text": "Dust boiled off the lead vehicle's tracks as the column wheeled left onto the gunnery lane.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "training_range"
+     }
+    },
+    {
+     "text": "\"Gun up, sabot loaded, identify troops in the open,\" the loader shouted over the intercom crackle.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "training_range"
+     }
+    },
+    {
+     "text": "Sergeant Vela leaned into the instructor's hatch, timing each engagement with a battered stopwatch.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "training_range"
+     }
+    },
+    {
+     "text": "Why the third crew kept overshooting the berm, nobody on the observation tower could explain.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "training_range"
+     }
+    },
+    {
+     "text": "Range control, this is Blue Six \u2014 are we clear to go hot on lane two?",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "training_range"
+     }
+    },
+    {
+     "text": "The 120mm report slammed across the range a full second before the target silhouette folded.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "training_range"
+     }
+    },
+    {
+     "text": "Heat shimmer bent the horizon until the distant hulks looked like they were floating.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "training_range"
+     }
+    },
+    {
+     "text": "I'd fired maybe forty rounds by noon, and my ears rang through doubled-up hearing protection.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "training_range"
+     }
+    },
+    {
+     "text": "Formation looked ragged from the tower: second platoon drifting wide, kicking up its own brown wall.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "training_range"
+     }
+    },
+    {
+     "text": "\"Cease fire, cease fire \u2014 misfire procedures, now,\" barked the master gunner, already sprinting down the catwalk.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "training_range"
+     }
+    },
+    {
+     "text": "Between engagements the crews cracked hatches, gulping air that tasted of diesel and burnt propellant.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "training_range"
+     }
+    },
+    {
+     "text": "A tracer skipped off the hardpan and tumbled, glowing, into the impact area beyond the targets.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "training_range"
+     }
+    },
+    {
+     "text": "On the net, someone's mic stuck open, broadcasting two minutes of turbine whine to the whole company.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "training_range"
+     }
+    },
+    {
+     "text": "Each hull lurched over the ridge in turn, guns stabilized and level while the chassis bucked underneath.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "training_range"
+     }
+    },
+    {
+     "text": "Twelve seconds from target up to steel on steel \u2014 the standard the instructors wanted was under eight.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "training_range"
+     }
+    },
+    {
+     "text": "Every rut sent the gunner's sight picture jittering until the stabilization caught up with the terrain.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "training_range"
+     }
+    },
+    {
+     "text": "Behind the firing line, ammo handlers stack expended casings that still smoke at the mouth.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "training_range"
+     }
+    },
+    {
+     "text": "Nobody warned the new lieutenant how hard the concussion hits when you're standing on the observation berm.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "training_range"
+     }
+    },
+    {
+     "text": "Wind shifted, and suddenly the whole tower crew was chewing grit from lane four's advance.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "training_range"
+     }
+    },
+    {
+     "text": "Crews who lased the wrong target got a red flag and a long afternoon of remedial drills.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "training_range"
+     }
+    },
+    {
+     "text": "Then it was just \"Driver, stop,\" and the world shrank to the reticle.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "training_range"
+     }
+    },
+    {
+     "text": "Column speed held at fifteen kph, per the safety brief, while the guns worked left to right.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "training_range"
+     }
+    },
+    {
+     "text": "It was the coax bursts, not the main gun, that stitched the pop-up silhouettes flat.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "training_range"
+     }
+    },
+    {
+     "text": "After the last run the chief instructor debriefed each crew beside the still-ticking engine decks.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "training_range"
+     }
+    },
+    {
+     "text": "Somewhere behind the smoke, a recovery vehicle idled, waiting for the first thrown track of the day.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "training_range"
+     }
+    },
+    {
+     "text": "Watch the sling angle, Marek\u2014if that turret assembly swings into the jig again, we lose the whole morning.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "assembly_plant"
+     }
+    },
+    {
+     "text": "Quality inspectors rejected fourteen hull plates on Tuesday after ultrasonic testing revealed porosity along the lower weld seams.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "assembly_plant"
+     }
+    },
+    {
+     "text": "By dawn the third shift had ground down every rough seam on the glacis plates, leaving the bay smelling of scorched metal.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "assembly_plant"
+     }
+    },
+    {
+     "text": "Torque each of the sixty-two turret ring bolts to specification, then stamp the checklist before the chassis rolls to paint.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "assembly_plant"
+     }
+    },
+    {
+     "text": "Who signed off on this weld bead\u2014it undercuts the armor plate nearly two millimeters at the corner?",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "assembly_plant"
+     }
+    },
+    {
+     "text": "I've welded hull seams for eleven years, and my hands still shake a little when the crane passes overhead.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "assembly_plant"
+     }
+    },
+    {
+     "text": "Crane four to floor: lowering the turret in thirty seconds, clear the ring.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "assembly_plant"
+     }
+    },
+    {
+     "text": "The shift supervisor taped the rejection slip to the chassis and told nobody to touch it until the metallurgist arrived.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "assembly_plant"
+     }
+    },
+    {
+     "text": "You learn fast on this floor that a dropped washer inside a turret race can cost a week of rework.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "assembly_plant"
+     }
+    },
+    {
+     "text": "Sparks rained off the hull plate while two welders argued, through their visors, about last night's match.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "assembly_plant"
+     }
+    },
+    {
+     "text": "All armored side panels shall be degreased, inspected for lamination defects, and logged before entering the assembly line.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "assembly_plant"
+     }
+    },
+    {
+     "text": "Her ultrasonic probe traced the seam twice; the second pass found the void the first had missed.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "assembly_plant"
+     }
+    },
+    {
+     "text": "Next quarter the plant will add a second overhead crane, so turret drops won't bottleneck the afternoon shift anymore.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "assembly_plant"
+     }
+    },
+    {
+     "text": "Nobody warned the new inspector how loud bay six gets when four welding rigs run at once.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "assembly_plant"
+     }
+    },
+    {
+     "text": "Honestly, half our overtime comes from grinding out sloppy tack welds the day shift leaves behind.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "assembly_plant"
+     }
+    },
+    {
+     "text": "Under the floodlights, the half-finished chassis looked less like a war machine and more like a beached steel whale.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "assembly_plant"
+     }
+    },
+    {
+     "text": "Did anyone recalibrate the torque wrenches after the audit, or are we still guessing on the ring bolts?",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "assembly_plant"
+     }
+    },
+    {
+     "text": "A hairline crack in the mantlet casting sent the whole batch back to the foundry, three weeks of schedule gone.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "assembly_plant"
+     }
+    },
+    {
+     "text": "Rivas steadied the swaying turret with one gloved palm, guiding the crane operator down the last few centimeters.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "assembly_plant"
+     }
+    },
+    {
+     "text": "Every hull that leaves this building carries a small stamped plate with the welder's initials beside the serial number.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "assembly_plant"
+     }
+    },
+    {
+     "text": "When the klaxon sounds, everything stops\u2014welders lift their visors, the crane freezes mid-lift, and the floor goes quiet.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "assembly_plant"
+     }
+    },
+    {
+     "text": "Procedure 41-C requires two inspectors to witness the seating of the turret race before any fasteners are installed.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "assembly_plant"
+     }
+    },
+    {
+     "text": "Third rejection this week on bay two's seams\u2014somebody check that wire feed.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "assembly_plant"
+     }
+    },
+    {
+     "text": "We used to hand-fit the armor skirts with mallets; now a laser gauge tells us within a tenth of a millimeter.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "assembly_plant"
+     }
+    },
+    {
+     "text": "Nine bare chassis sat in line for turret installation, but only one crane operator was scheduled before noon.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "assembly_plant"
+     }
+    },
+    {
+     "text": "Grandpa saluted the Sherman as it clanked past the barbershop, and I swear his hand never shook once.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "parade"
+     }
+    },
+    {
+     "text": "Under the stoplight an M3 half-track idled, its white star freshly stenciled over decades of repainted olive drab.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "parade"
+     }
+    },
+    {
+     "text": "Did you see the turret swing toward the courthouse when the crew waved at the mayor?",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "parade"
+     }
+    },
+    {
+     "text": "Members of VFW Post 214 led the procession down Main Street, trailed by a color guard and two armored personnel carriers on loan from the museum.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "parade"
+     }
+    },
+    {
+     "text": "\"That one's a Stuart,\" the old gunner told his granddaughter, \"and I rode one just like it across Belgium.\"",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "parade"
+     }
+    },
+    {
+     "text": "Diesel smoke drifted over the funnel-cake stand, mixing with powdered sugar until the whole block smelled like 1944 at a county fair.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "parade"
+     }
+    },
+    {
+     "text": "You could feel the tracks through the sidewalk before the vehicle ever rounded the corner by the pharmacy.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "parade"
+     }
+    },
+    {
+     "text": "Flags in every fist, from the hardware store clear down to the savings and loan.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "parade"
+     }
+    },
+    {
+     "text": "A vendor hawks miniature flags at two dollars apiece while the high school band tunes up behind the fire station.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "parade"
+     }
+    },
+    {
+     "text": "Between the honor guard and the antique jeeps came a flatbed carrying three men who had waded ashore at Omaha Beach.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "parade"
+     }
+    },
+    {
+     "text": "Kids scrambled for candy tossed from the turret hatch, ignoring their mothers' shouted warnings about the moving treads.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "parade"
+     }
+    },
+    {
+     "text": "Ninety-one and ramrod straight, the parade marshal refused the golf cart and walked every block of the route.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "parade"
+     }
+    },
+    {
+     "text": "Rain threatened all morning, but by the time the armored column reached Third Street the sun broke through above the courthouse elms.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "parade"
+     }
+    },
+    {
+     "text": "The crowd went quiet as the riderless horse passed; even the vendors stopped calling out.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "parade"
+     }
+    },
+    {
+     "text": "Its Continental radial engine backfired twice near the reviewing stand, startling a pair of police horses.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "parade"
+     }
+    },
+    {
+     "text": "We staked out our spot by the drugstore at seven, thermoses full, lawn chairs sagging, two hours before the first unit stepped off.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "parade"
+     }
+    },
+    {
+     "text": "Who taught those middle-schoolers to march in step like that, arms swinging in perfect time?",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "parade"
+     }
+    },
+    {
+     "text": "A Korean War nurse rode in the lead convertible, waving a gloved hand at people who were not yet born when she shipped out.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "parade"
+     }
+    },
+    {
+     "text": "Steel treads chewed the fresh asphalt on Elm, leaving herringbone scars the city council would grumble about for weeks.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "parade"
+     }
+    },
+    {
+     "text": "According to the program, the M4 on display was pulled from a Normandy field in 1998 and restored by volunteers over eleven years.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "parade"
+     }
+    },
+    {
+     "text": "\"Cover your ears, honey,\" a father said, hoisting his daughter as the howitzer crew readied the ceremonial salute.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "parade"
+     }
+    },
+    {
+     "text": "Behind the drum line, a lone bagpiper played while names were read aloud at the memorial fountain.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "parade"
+     }
+    },
+    {
+     "text": "Popcorn, diesel, brass polish \u2014 the smell of the whole morning, honestly.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "parade"
+     }
+    },
+    {
+     "text": "Somebody's selling commemorative pins near the reviewing stand, and the line already stretches past the hardware store awning.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "parade"
+     }
+    },
+    {
+     "text": "Next year they'll widen the route, the mayor promises, so the half-tracks won't have to squeeze past parked cruisers on Oak.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "parade"
+     }
+    },
+    {
+     "text": "Grandpa flattened the album on the kitchen table and tapped a photo of his Sherman, its turret scrawled with a name nobody could read anymore.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "memoir"
+     }
+    },
+    {
+     "text": "\"That's Kowalski on the hull,\" he said, \"the man who taught me to boil coffee over an engine block.\"",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "memoir"
+     }
+    },
+    {
+     "text": "We leaned closer whenever his voice dropped, because the quiet parts were always about the crew he'd lost outside Aachen.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "memoir"
+     }
+    },
+    {
+     "text": "The memoir's third chapter, read aloud between bites of pie, described repairing a thrown track in freezing mud while shells walked the treeline.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "memoir"
+     }
+    },
+    {
+     "text": "Did anyone else notice how his hands shook when he turned to the page with the burned-out hulls?",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "memoir"
+     }
+    },
+    {
+     "text": "Forty years of silence, and now the whole story spilling out over cold coffee.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "memoir"
+     }
+    },
+    {
+     "text": "Technically, he explained, the seventy-six-millimeter gun could defeat the German armor only from the flank, so his battalion learned to hurry.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "memoir"
+     }
+    },
+    {
+     "text": "My sister kept the tape recorder running under a dish towel so his stories wouldn't vanish like the men in the pictures.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "memoir"
+     }
+    },
+    {
+     "text": "He read the roster of his old crew slowly, pausing after each name as if waiting for someone at the table to answer.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "memoir"
+     }
+    },
+    {
+     "text": "Snapshots of five grinning boys on an armored hull; only one of them made it home to Ohio.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "memoir"
+     }
+    },
+    {
+     "text": "When Grandma refilled his cup, he pointed to a smudged photograph and whispered that the driver's seat still smelled of diesel in his dreams.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "memoir"
+     }
+    },
+    {
+     "text": "You could hear the loader's routine in his cadence \u2014 shell, breech, ready \u2014 even sixty years after his last fight.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "memoir"
+     }
+    },
+    {
+     "text": "Nobody touched the pie while he described the night his platoon crossed the Roer under artillery.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "memoir"
+     }
+    },
+    {
+     "text": "Cracked at the spine, the album fell open to the page where his memoir began, the ink faded but the handwriting steady.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "memoir"
+     }
+    },
+    {
+     "text": "\"Read the part about Sergeant Malone again,\" my cousin begged, elbows on the table, homework forgotten.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "memoir"
+     }
+    },
+    {
+     "text": "He'd been a gunner, he told us, and the periscope's narrow world was all he saw of France.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "memoir"
+     }
+    },
+    {
+     "text": "Every November the ritual repeats: the album comes down from the shelf, the kitchen goes quiet, and the war returns in his careful voice.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "memoir"
+     }
+    },
+    {
+     "text": "Between two pages we found a pressed edelweiss, souvenir from an Austrian village his company liberated in May.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "memoir"
+     }
+    },
+    {
+     "text": "Was it strange, my mother asked him, to sleep inside thirty tons of steel while the world burned?",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "memoir"
+     }
+    },
+    {
+     "text": "Turret markings, bogie wheels, a crooked antenna \u2014 he named every part of the machine in that photograph like an old friend.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "memoir"
+     }
+    },
+    {
+     "text": "His memoir never brags; it just lists the towns, the mud, and the boys who drove through both.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "memoir"
+     }
+    },
+    {
+     "text": "I remember the linoleum sticking to my socks as I stood behind his chair, reading over his shoulder about Normandy hedgerows.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "memoir"
+     }
+    },
+    {
+     "text": "Folded into the back cover, a battalion newsletter still listed reunion dates from 1987.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "memoir"
+     }
+    },
+    {
+     "text": "Sometimes he'd stop mid-sentence, stare at the salt shaker, and we'd wait until the kitchen clock brought him back.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "memoir"
+     }
+    },
+    {
+     "text": "After the last page he closed the album gently, patted its cover twice, and asked who wanted more pie.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "memoir"
+     }
+    },
+    {
+     "text": "The armored column stretched past the burned-out gas station, and our camera crew counted forty vehicles before soldiers waved us back.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "news_report"
+     }
+    },
+    {
+     "text": "Dust from the tracks hangs over Highway 4 like a curtain nobody asked for.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "news_report"
+     }
+    },
+    {
+     "text": "\"Back to you in the studio \u2014 we're hearing outgoing artillery again,\" Marisol shouted over the rotor noise.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "news_report"
+     }
+    },
+    {
+     "text": "Why would a family of five stand this close to a checkpoint that was shelled twice last night?",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "news_report"
+     }
+    },
+    {
+     "text": "Analysts identified the vehicles as tracked self-propelled howitzers, most likely 2S19s, moving north in groups of three.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "news_report"
+     }
+    },
+    {
+     "text": "Honestly, the weirdest part is the ice cream vendor still working the intersection while turrets swivel past him.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "news_report"
+     }
+    },
+    {
+     "text": "By dawn the correspondents had relocated to a rooftop overlooking the bridge, where engineers were laying pontoon sections under sporadic fire.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "news_report"
+     }
+    },
+    {
+     "text": "I counted the seconds between the flash on the ridge and the thud that rattled our satellite truck: eleven.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "news_report"
+     }
+    },
+    {
+     "text": "Checkpoint after checkpoint, each one slower and more suspicious than the last.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "news_report"
+     }
+    },
+    {
+     "text": "You hear the squeal of steel tracks on asphalt long before the first hull crests the overpass.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "news_report"
+     }
+    },
+    {
+     "text": "A correspondent in a flak jacket knelt beside the guardrail, whispering her stand-up while the convoy idled behind her.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "news_report"
+     }
+    },
+    {
+     "text": "Network producers will keep a live feed on the highway overnight, though the army says cameras must stay a kilometer back.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "news_report"
+     }
+    },
+    {
+     "text": "\"They came through at three in the morning,\" the baker said, still in his apron, flour on his hands.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "news_report"
+     }
+    },
+    {
+     "text": "Civilians lined the shoulder in silence; one old man raised two fingers at the passing armor, and nobody could say what he meant.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "news_report"
+     }
+    },
+    {
+     "text": "The uplink kept dropping every time the jamming trucks rolled by, so we filed the package over a landline from the hotel basement.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "news_report"
+     }
+    },
+    {
+     "text": "Smoke from the grain elevator drifted across the studio shot all afternoon.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "news_report"
+     }
+    },
+    {
+     "text": "How long can the checkpoint hold, our anchor asked, and the reporter on the ground simply shrugged into the lens.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "news_report"
+     }
+    },
+    {
+     "text": "Tracer fire stitched the dark behind the correspondent, who never once broke off her sentence.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "news_report"
+     }
+    },
+    {
+     "text": "At the edge of town, a boy on a bicycle races the lead vehicle for a hundred meters, then peels away laughing.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "news_report"
+     }
+    },
+    {
+     "text": "Military police searched our van at the third roadblock, flipping through tapes, holding each cassette up to the light.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "news_report"
+     }
+    },
+    {
+     "text": "Officials declined to confirm how many armored personnel carriers crossed the river, citing operational security, though our footage shows at least nineteen.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "news_report"
+     }
+    },
+    {
+     "text": "So there we were, live on air, when the whole column just stopped \u2014 engines off, hatches open, crews smoking on the road.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "news_report"
+     }
+    },
+    {
+     "text": "Her earpiece crackled with the producer's warning \u2014 mortars inbound \u2014 three seconds before the screen went to color bars.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "news_report"
+     }
+    },
+    {
+     "text": "Refugees heading south squeezed onto the gravel shoulder as the armor rolled north, two rivers refusing to touch.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "news_report"
+     }
+    },
+    {
+     "text": "Tonight's broadcast opened with thermal footage of the convoy fording the shallows below the destroyed bridge.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "news_report"
+     }
+    },
+    {
+     "text": "The Balkenkreuz decal silvered overnight, so she flooded it with Micro Sol and prayed.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "model_bench"
+     }
+    },
+    {
+     "text": "Anyone else find Dragon's instruction sheets actively hostile, or is step twelve just me?",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "model_bench"
+     }
+    },
+    {
+     "text": "I thinned the Vallejo dust wash until it barely tinted the lower hull.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "model_bench"
+     }
+    },
+    {
+     "text": "Under the magnifier lamp, photo-etch grab handles waited in a neat row beside the tweezers.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "model_bench"
+     }
+    },
+    {
+     "text": "\"Your Sherman's tracks sag wrong for a late-production suspension,\" the forum reply began, and it went downhill from there.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "model_bench"
+     }
+    },
+    {
+     "text": "Contest rules require an entry form taped beneath the base \u2014 he learned that at check-in, too late.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "model_bench"
+     }
+    },
+    {
+     "text": "Zimmerit takes patience: score the putty in short vertical rows before it cures, then stop touching it.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "model_bench"
+     }
+    },
+    {
+     "text": "We argued for three pages about whether Dunkelgelb faded toward pink or grey in Normandy sun.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "model_bench"
+     }
+    },
+    {
+     "text": "After priming, mist the turret with hairspray, then chip the winter whitewash back with a stiff damp brush.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "model_bench"
+     }
+    },
+    {
+     "text": "Sprue nippers first, then the sanding stick, and never, ever your fingernails on clear parts.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "model_bench"
+     }
+    },
+    {
+     "text": "Halfway through the camouflage pattern, the airbrush spat a wet blob onto the glacis.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "model_bench"
+     }
+    },
+    {
+     "text": "Did the mud on Eastern Front vehicles really climb that high on the return rollers?",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "model_bench"
+     }
+    },
+    {
+     "text": "Her 1:35 Panzer IV sat masked in silly putty, waiting for its second color.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "model_bench"
+     }
+    },
+    {
+     "text": "Somewhere between the fortieth track link and the fiftieth, his enthusiasm quietly died.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "model_bench"
+     }
+    },
+    {
+     "text": "A judge tipped the diorama toward the light, hunting for glue marks around the towing shackles.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "model_bench"
+     }
+    },
+    {
+     "text": "Pin washes gather where bolts meet plate; wick away the excess with a barely damp brush.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "model_bench"
+     }
+    },
+    {
+     "text": "Honestly, I just wanted one weekend where the compressor didn't wake the baby.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "model_bench"
+     }
+    },
+    {
+     "text": "Fresh filler putty smells like victory, or possibly just like slowly dissolving styrene.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "model_bench"
+     }
+    },
+    {
+     "text": "You'll want gloss varnish down before any decal touches that turret, trust me.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "model_bench"
+     }
+    },
+    {
+     "text": "He measured the antenna mount against a wartime photograph, calipers in one hand, coffee going cold in the other.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "model_bench"
+     }
+    },
+    {
+     "text": "This year's newsletter announced four contest categories: armor, aircraft, figures, and a junior division for builders under sixteen.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "model_bench"
+     }
+    },
+    {
+     "text": "Weathering pigments everywhere \u2014 on the mat, the carpet, somehow inside the paint rack.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "model_bench"
+     }
+    },
+    {
+     "text": "Was the reviewer right that the kit's hull sits two millimeters too narrow?",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "model_bench"
+     }
+    },
+    {
+     "text": "By lamplight the drybrushed edges caught silver, like worn steel.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "model_bench"
+     }
+    },
+    {
+     "text": "Third coat of matte varnish tonight, then the fiddly bits: tools, jerry cans, spare track links on the rear plate.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "model_bench"
+     }
+    },
+    {
+     "text": "The forklift operator wedged a pallet of binders against the stake pocket just as the yardmaster's whistle cut through the diesel haze.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "rail_depot"
+     }
+    },
+    {
+     "text": "\"Chain it at four corners or it walks off the flatcar at the first grade crossing \u2014 simple as that.\"",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "rail_depot"
+     }
+    },
+    {
+     "text": "All tracked vehicles must be secured with grade-eighty chain assemblies inspected within the preceding ninety days, per the movement order.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "rail_depot"
+     }
+    },
+    {
+     "text": "Rain hammered the tarps all night, and by dawn every manifest in the clerk's binder had gone soft at the edges.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "rail_depot"
+     }
+    },
+    {
+     "text": "Hull 214 still sat on the wash rack while its flatcar waited empty, and the railhead NCO was starting to make phone calls.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "rail_depot"
+     }
+    },
+    {
+     "text": "Has anyone verified the axle spread on car eighty-eight, or are we just trusting the stencil?",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "rail_depot"
+     }
+    },
+    {
+     "text": "Torque each binder until the chain barely deflects under a boot heel; anything looser will slap the deck for six hundred miles.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "rail_depot"
+     }
+    },
+    {
+     "text": "We lost forty minutes hunting for shackles that turned out to be buried under a tarp in the third conex.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "rail_depot"
+     }
+    },
+    {
+     "text": "By 0500 the loading ramp was slick with frost, so the ground guides shortened every signal and doubled every pause.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "rail_depot"
+     }
+    },
+    {
+     "text": "The dispatcher's voice crackled over the radio: \"Your window closes at fourteen hundred, loaded or not.\"",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "rail_depot"
+     }
+    },
+    {
+     "text": "Sixteen flatcars, nine hours of daylight, one working overhead crane \u2014 you do the math, sergeant.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "rail_depot"
+     }
+    },
+    {
+     "text": "She walked the train twice, tugging every chain, chalking a slash on each hull she'd cleared.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "rail_depot"
+     }
+    },
+    {
+     "text": "Nobody tells you in school that half of military logistics is arguing with a railroad clerk about tarp dimensions.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "rail_depot"
+     }
+    },
+    {
+     "text": "Before the tie-down crew would touch a shackle, the turret had to be traversed astern and locked.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "rail_depot"
+     }
+    },
+    {
+     "text": "Per depot SOP, drip pans go under every power pack the moment a vehicle is spotted on its flatcar.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "rail_depot"
+     }
+    },
+    {
+     "text": "A gust snatched the tarp off car twelve, and three soldiers chased the flapping canvas down the ballast like it owed them money.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "rail_depot"
+     }
+    },
+    {
+     "text": "Discrepancies between the load plan and the actual vehicle lineup shall be reported to the movement control team prior to release of the train.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "rail_depot"
+     }
+    },
+    {
+     "text": "\"Watch your overhang!\" the ground guide yelled, palms up, as the driver eased the armored hull across the span plates.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "rail_depot"
+     }
+    },
+    {
+     "text": "Grease-pencil numbers on the glacis matched the manifest, but the serial plates told a different story.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "rail_depot"
+     }
+    },
+    {
+     "text": "He'd tied down loads in Bremerhaven, Yermo, and Pusan, and he still checked the chain grade stampings by flashlight every single time.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "rail_depot"
+     }
+    },
+    {
+     "text": "Rail schedules don't care about your maintenance backlog; the locomotive shows at six whether the loads are chained or not.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "rail_depot"
+     }
+    },
+    {
+     "text": "Forklifts shuttled crates of spare track pads between warehouses while the crane crew argued over the lift plan.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "rail_depot"
+     }
+    },
+    {
+     "text": "Why the depot stocked four hundred ratchet binders but only sixty compatible chains was a mystery no supply sergeant could explain.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "rail_depot"
+     }
+    },
+    {
+     "text": "Wooden chock, steel chain, canvas tarp: the whole science of moving thirty tons by rail comes down to friction.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "rail_depot"
+     }
+    },
+    {
+     "text": "After the last shackle was pinned, the loading crew sat on the ramp and watched their week of work roll north into the dark.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "rail_depot"
+     }
+    },
+    {
+     "text": "The colonel flipped to slide fourteen, where the turret upgrade's unit cost had quietly grown from $1.2 million to $1.9 million.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "procurement"
+     }
+    },
+    {
+     "text": "\"Who signed off on the hull kit's weight waiver?\" asked the staffer from Appropriations, not looking up from her binder.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "procurement"
+     }
+    },
+    {
+     "text": "Nobody in the room could explain why the chassis retrofit line item appeared twice in the FY27 justification book.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "procurement"
+     }
+    },
+    {
+     "text": "Contractor briefers love the phrase \"mature technology,\" but the armor package they pitched has never survived a live-fire test.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "procurement"
+     }
+    },
+    {
+     "text": "By Thursday the negotiation had stalled over spare-parts pricing, sixty pages of specification annexes, and one stubborn clause about intellectual property.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "procurement"
+     }
+    },
+    {
+     "text": "We'd been warned the slide deck ran ninety minutes; nobody mentioned the two-hour session on transmission failures.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "procurement"
+     }
+    },
+    {
+     "text": "Amendment 12 shifts risk for the stabilizer software entirely onto the government \u2014 read section 4.3.2 before you initial anything.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "procurement"
+     }
+    },
+    {
+     "text": "Under fluorescent lights in a windowless annex, three engineers argued about whether the composite side plates met the blast requirement.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "procurement"
+     }
+    },
+    {
+     "text": "Have the cost analysts reconciled the contractor's overhead rates with what the audit agency flagged last quarter?",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "procurement"
+     }
+    },
+    {
+     "text": "Her notes from the briefing: turret drive, late; fire-control software, later; explanation, none.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "procurement"
+     }
+    },
+    {
+     "text": "Every armored vehicle in the recapitalization plan needs a new powerpack, and the sole qualified supplier just raised prices eleven percent.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "procurement"
+     }
+    },
+    {
+     "text": "Their lead negotiator kept circling back to \"schedule realism,\" which everyone understood to mean another eight-month slip.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "procurement"
+     }
+    },
+    {
+     "text": "If Congress zeroes the reactive armor line again, the whole upgrade program collapses into a study effort.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "procurement"
+     }
+    },
+    {
+     "text": "Paragraph 3.4.1 of the spec requires the platform to ford 1.2 meters of water; the prototype shorted out at 0.9.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "procurement"
+     }
+    },
+    {
+     "text": "You could hear the staffers flipping pages when the briefer admitted the per-hull integration cost had doubled.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "procurement"
+     }
+    },
+    {
+     "text": "Wasn't the suspension redesign supposed to be funded out of the contractor's own investment account?",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "procurement"
+     }
+    },
+    {
+     "text": "Two decades of deferred maintenance, one aging production line in Ohio, and now a $4 billion bill nobody wants to own.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "procurement"
+     }
+    },
+    {
+     "text": "Off the record, the program manager conceded the armor recapitalization milestone would slip past the election.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "procurement"
+     }
+    },
+    {
+     "text": "During markup, a junior staffer caught a $340 million discrepancy between the budget exhibit and the contractor's certified cost data.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "procurement"
+     }
+    },
+    {
+     "text": "\"Fixed-price means fixed,\" the negotiator said flatly, sliding the redlined specification document back across the table.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "procurement"
+     }
+    },
+    {
+     "text": "Six vendors bid on the sight upgrade; only one could actually deliver thermal optics at the quoted rate.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "procurement"
+     }
+    },
+    {
+     "text": "The company's engineers swear the new track design cuts vibration by thirty percent, though the test range data tells a murkier story.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "procurement"
+     }
+    },
+    {
+     "text": "What the slide deck called \"affordability initiatives\" turned out to be deleting the crew's fire suppression system.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "procurement"
+     }
+    },
+    {
+     "text": "After lunch we walked the congressional staffers through the hull crack photographs, one corroded weld at a time.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "procurement"
+     }
+    },
+    {
+     "text": "Somewhere between the requirements office and the contracting shop, the turret's growth margin quietly shrank from fifteen percent to four.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "procurement"
+     }
+    },
+    {
+     "text": "Two heavies pushing the ridge on B, angle your hull and don't let them catch your lower plate.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "squad_chat"
+     }
+    },
+    {
+     "text": "Why are you still loading high-explosive against a sixty-degree glacis, Marcus?",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "squad_chat"
+     }
+    },
+    {
+     "text": "He tracked me behind the church, so somebody smoke the crossing before I'm cored through the turret ring.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "squad_chat"
+     }
+    },
+    {
+     "text": "The correct play, statistically speaking, is to trade sabot rounds hull-down on the ridge until their arty rotates.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "squad_chat"
+     }
+    },
+    {
+     "text": "Enemy light spotted, K4 bushes, I'm burning him down now, focus fire.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "squad_chat"
+     }
+    },
+    {
+     "text": "Last match you bounced three shells off my mantlet and still blamed the dispersion, remember?",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "squad_chat"
+     }
+    },
+    {
+     "text": "Nobody flank west alone; their destroyer has been camping that hedge since the countdown ended.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "squad_chat"
+     }
+    },
+    {
+     "text": "Does anyone actually run food on this line, or is the fire extinguisher still mandatory with front-mounted fuel?",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "squad_chat"
+     }
+    },
+    {
+     "text": "We baited their whole platoon into the quarry, then Priya's medium clipped the artillery sitting naked at spawn.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "squad_chat"
+     }
+    },
+    {
+     "text": "Gold rounds cost more than my repair bill, but that turret face isn't going through with standard AP.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "squad_chat"
+     }
+    },
+    {
+     "text": "Reset to the rail yard, both of you \u2014 I can hear their tracks squealing on cobblestone from here.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "squad_chat"
+     }
+    },
+    {
+     "text": "At three hundred meters, his upper glacis autobounces anything we carry, so aim for the cupola or the machine-gun port.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "squad_chat"
+     }
+    },
+    {
+     "text": "Bro really sidescraped into a wall, ate two penetrations, and typed noob team in all chat.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "squad_chat"
+     }
+    },
+    {
+     "text": "If the cap ticks past eighty, abandon the brawl and rush back through the vineyard, understood?",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "squad_chat"
+     }
+    },
+    {
+     "text": "I'll wiggle my turret at the corner to bait his shot, then you cross the street on my call.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "squad_chat"
+     }
+    },
+    {
+     "text": "Someone explain why our top-tier heavy is sniping from spawn while three mediums hold the entire city flank.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "squad_chat"
+     }
+    },
+    {
+     "text": "Reloading, four seconds \u2014 hug the rubble and pray his gunner is asleep.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "squad_chat"
+     }
+    },
+    {
+     "text": "You'd think a five-man platoon could hold one bridge, yet here we are, respawning in shame again.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "squad_chat"
+     }
+    },
+    {
+     "text": "Her destroyer's camo rating is absurd; she vanished behind a single bush and deleted half my hitpoints.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "squad_chat"
+     }
+    },
+    {
+     "text": "Ping the mini-map before you dive the valley, because arty has been pre-aiming that ditch all game.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "squad_chat"
+     }
+    },
+    {
+     "text": "Swap the vents for optics on open maps; view range wins more games than a two-percent gun handling buff.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "squad_chat"
+     }
+    },
+    {
+     "text": "Their heavies committed east, which means our light gets a free run at the artillery \u2014 go, go.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "squad_chat"
+     }
+    },
+    {
+     "text": "Honestly, the stock grind on this medium hurts; forty rounds of low-pen AP against angled armor everywhere.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "squad_chat"
+     }
+    },
+    {
+     "text": "Down to two hundred hitpoints, tracks blown, he still reversed onto the cap circle and won us the match.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "squad_chat"
+     }
+    },
+    {
+     "text": "Who queued us into an assault map with three open-topped destroyers and zero armor on the team?",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "squad_chat"
+     }
+    },
+    {
+     "text": "Beneath two meters of plowed clay, the Sherman's glacis plate finally caught the morning light.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "archaeology"
+     }
+    },
+    {
+     "text": "\"Mind the trench edge,\" Marta warned, brushing loam from a rusted drive sprocket.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "archaeology"
+     }
+    },
+    {
+     "text": "Soil samples from stratum IV still smell faintly of diesel, eighty years on.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "archaeology"
+     }
+    },
+    {
+     "text": "Who buries an entire armored hull and tells nobody for three generations?",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "archaeology"
+     }
+    },
+    {
+     "text": "The turret ring, wedged solid with compacted chalk, refused the crane's first pull.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "archaeology"
+     }
+    },
+    {
+     "text": "Volunteers sieved spoil all afternoon and found nothing but shell splinters and a tobacco tin.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "archaeology"
+     }
+    },
+    {
+     "text": "Conservation staff will bathe the recovered tracks in tannic acid before any display date is set.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "archaeology"
+     }
+    },
+    {
+     "text": "Honestly, I expected bones; instead we lifted a periscope housing, intact, glass and all.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "archaeology"
+     }
+    },
+    {
+     "text": "Careful stratigraphy matters more than speed here \u2014 the burn layer above the hull dates the engagement.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "archaeology"
+     }
+    },
+    {
+     "text": "A curator photographed each road wheel in situ, numbering them against the site grid.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "archaeology"
+     }
+    },
+    {
+     "text": "Corrosion had welded the hatch shut, so the team documented the interior with a borescope.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "archaeology"
+     }
+    },
+    {
+     "text": "By Thursday the diggers had exposed the whole engine deck, its louvres packed with river sand.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "archaeology"
+     }
+    },
+    {
+     "text": "Fragments of a crewman's map case emerged from the silt beside the driver's position.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "archaeology"
+     }
+    },
+    {
+     "text": "Did the retreating column scuttle it, or did the flood plain simply swallow the wreck?",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "archaeology"
+     }
+    },
+    {
+     "text": "Rain stopped work at noon; tarpaulins now sag over the half-exposed Panzer like a collapsed tent.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "archaeology"
+     }
+    },
+    {
+     "text": "Under the sponson lay forty-three cartridge cases, each one bagged, labeled, and logged before dark.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "archaeology"
+     }
+    },
+    {
+     "text": "Before the hull travels anywhere, the museum's registrar wants a complete condition report on file.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "archaeology"
+     }
+    },
+    {
+     "text": "Grid square E7 keeps producing buckles, buttons, and one impossibly preserved leather glove.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "archaeology"
+     }
+    },
+    {
+     "text": "You can still read the tactical number stenciled on the armored skirt \u2014 faint white, three digits.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "archaeology"
+     }
+    },
+    {
+     "text": "Deeper down the soil turns anaerobic and blue-grey, which is why any steel survived at all.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "archaeology"
+     }
+    },
+    {
+     "text": "Our conservator argues for humidity-controlled storage; the director wants it shown as found, mud included.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "archaeology"
+     }
+    },
+    {
+     "text": "Two students spent the whole morning drawing the sprocket's tooth profile at full scale.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "archaeology"
+     }
+    },
+    {
+     "text": "Nobody talks much when a personal effect surfaces \u2014 today it was a wedding ring on a chain.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "archaeology"
+     }
+    },
+    {
+     "text": "Lifting straps rated for sixty tonnes arrived by lorry, along with a very nervous insurance assessor.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "archaeology"
+     }
+    },
+    {
+     "text": "After the final metal-detector sweep, the empty trench will be backfilled, surveyed, and returned to barley.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "archaeology"
+     }
+    },
+    {
+     "text": "The prop master wiped diesel off the Sherman's glacis plate before the lens got anywhere near it.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "film_set"
+     }
+    },
+    {
+     "text": "Safety briefing at 0600: nobody walks within three meters of moving tracks, no exceptions, not even the director.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "film_set"
+     }
+    },
+    {
+     "text": "Could someone check whether the turret numbers match yesterday's continuity photos?",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "film_set"
+     }
+    },
+    {
+     "text": "Rain had streaked the fake mud on the hull, so the art department mixed another batch of fuller's earth.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "film_set"
+     }
+    },
+    {
+     "text": "A camera car kept pace with the rolling column, its stabilized arm floating over the lead vehicle's turret.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "film_set"
+     }
+    },
+    {
+     "text": "Actors in crew uniforms lounged on the rear deck between takes, smoking herbal cigarettes the armorer had approved.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "film_set"
+     }
+    },
+    {
+     "text": "\"Cut \u2014 the second Sherman drifted out of frame again,\" the first AD barked into her radio.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "film_set"
+     }
+    },
+    {
+     "text": "Each armored prop carries a fire extinguisher bolted inside the hull, hidden from every camera angle.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "film_set"
+     }
+    },
+    {
+     "text": "Track tension on Vehicle Three was adjusted to spec after the morning safety walk, per the wrangler's checklist.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "film_set"
+     }
+    },
+    {
+     "text": "Who signed off on the pyro charge under the front fender?",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "film_set"
+     }
+    },
+    {
+     "text": "By noon the column had rolled through the village set four times, and the cobblestones were starting to crack.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "film_set"
+     }
+    },
+    {
+     "text": "Continuity flagged a modern valve stem visible on the lead vehicle's road wheel; grips taped over it.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "film_set"
+     }
+    },
+    {
+     "text": "I spent an hour aging the stenciled divisional insignia so it would read as 1944 on camera.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "film_set"
+     }
+    },
+    {
+     "text": "You learn fast that an eighty-year-old gearbox doesn't care about the shooting schedule.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "film_set"
+     }
+    },
+    {
+     "text": "Forty tons of borrowed museum steel, idling patiently between lighting setups.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "film_set"
+     }
+    },
+    {
+     "text": "Stunt rehearsal ran long: six hatch exits before anyone was allowed to touch the ignition.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "film_set"
+     }
+    },
+    {
+     "text": "\"Turret traverse is manual on this one, love, so give me a slow count of five,\" the prop master said.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "film_set"
+     }
+    },
+    {
+     "text": "Video village erupted when the drone shot caught all five vehicles cresting the ridge in perfect echelon.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "film_set"
+     }
+    },
+    {
+     "text": "Production has confirmed that both armored vehicles were rented from a private collector under a strict no-live-fire agreement.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "film_set"
+     }
+    },
+    {
+     "text": "Someone chalked the actor's mark directly onto the hull, and continuity made them photograph it before wiping.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "film_set"
+     }
+    },
+    {
+     "text": "Between setups, the driver \u2014 a retired REME mechanic \u2014 explained the clutch to three fascinated extras.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "film_set"
+     }
+    },
+    {
+     "text": "Tomorrow we'll shoot the river crossing, so the effects team is waterproofing every hull seam tonight.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "film_set"
+     }
+    },
+    {
+     "text": "Does the insert shot need the real tracks turning, or can we fake it with the gimbal rig?",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "film_set"
+     }
+    },
+    {
+     "text": "Her uniform was three sizes too big, standard issue for a background artist playing a loader.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "film_set"
+     }
+    },
+    {
+     "text": "At wrap, the armorer counted every blank round back into its case while the hulls ticked and cooled.",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "scene": "film_set"
+     }
+    }
+   ]
+  }
+ ],
+ "axes": [
+  {
+   "id": "scene",
+   "values": [
+    "home_hobbyist",
+    "shop_retail",
+    "public_aquarium",
+    "breeding_room",
+    "reef_club",
+    "classroom",
+    "maintenance_route",
+    "quarantine_vet",
+    "aquascaping",
+    "koi_yard",
+    "wet_lab",
+    "restaurant",
+    "museum",
+    "training_range",
+    "assembly_plant",
+    "parade",
+    "memoir",
+    "news_report",
+    "model_bench",
+    "rail_depot",
+    "procurement",
+    "squad_chat",
+    "archaeology",
+    "film_set"
+   ]
+  }
+ ],
+ "output_axes": [],
+ "generate_output": false,
+ "metadata": {
+  "set_type": "pool",
+  "generation": "blind subagents, 2026-08-28",
+  "batches_dir": "docs/studies/context_shift/generation/batches",
+  "audit": "pool_audit.py PASS (600 sentences, 24 scenes)",
+  "assembly_rule": "max 1 'nobody warned/warns' sentence per assembled context"
+ }
+}

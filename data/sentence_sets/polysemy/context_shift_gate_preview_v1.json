@@ -1,0 +1,125 @@
+{
+ "name": "context_shift_gate_preview_v1",
+ "version": "1.0",
+ "target_word": "tank",
+ "groups": [
+  {
+   "label": "aquarium",
+   "description": "20-sentence aquarium scene context + Q1",
+   "sentences": [
+    {
+     "text": "Behind the gift-shop register, plush hammerheads outsold the stingray magnets three to one during spring break. The bus leaves at two, so we sprinted past the seahorse nursery, promising ourselves we'd come back. Salinity in the reef habitat is checked hourly and held near thirty-five parts per thousand, the docent explained to nobody in particular. One kid kept squeaking a toy puffin by the registers until a clerk gently took it away. Kelp swayed forty feet above the amphitheater seating, and a sturgeon the size of a canoe cruised through it. Somewhere behind the heater cord, the bristlenose pleco rasped at the glass, leaving faint clean trails through the algae film. Was the filter intake supposed to rattle like that, or had a pebble slipped past the guard? Two docents debated whether the lookdown fish or the lumpsucker got more laughs from visiting kindergartners. \"Why won't the eel come out?\" the boy asked, nose flattened against the viewing panel. Please keep your hands flat when touching the rays, and rinse at the station before rejoining your group. Water changes go faster now that the python hooks straight to the kitchen faucet. Interactive kiosks near the entrance quiz visitors on plastic pollution before releasing them into the shark gallery. During the blackout he floated hand warmers in a zip bag to keep the fry from chilling. Please note that impeller assemblies should be scrubbed with a dedicated toothbrush, never with household detergents. Honestly, the sponge filter's bubbling puts me to sleep faster than any white-noise app ever did. Some kid pressed his whole face against the angelfish display and left a perfect nose print for me to wipe off. \"Feeding demonstration at the kelp forest begins in five minutes,\" crackled the overhead speaker, and the whole hall shifted toward the amphitheater. Yesterday our class sketched the green sea turtle, the one missing half a front flipper, for nearly an hour. He bagged the oranda one-handed, puffed the bag with pure oxygen, and spun it shut like he'd done it ten thousand times. Someone returned a heater claiming it boiled their shrimp, receipt stapled to a damp paper towel. What is the meaning of the word tank?",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "carrier_id": "Q1",
+      "n_context": "20",
+      "variant": "0",
+      "sub_arm": "gate_preview"
+     }
+    },
+    {
+     "text": "Honestly, the sponge filter's bubbling puts me to sleep faster than any white-noise app ever did. Third graders pressed their palms against the acrylic while a sand tiger shark drifted past, close enough to count its gill slits. Behind the gift-shop register, plush hammerheads outsold the stingray magnets three to one during spring break. Feed sparingly on Fridays; whatever the platies miss will rot beneath the sword plants by morning. Every Sunday she tops off the aquarium with dechlorinated water warmed to match the glass. According to the placard, the garden eels retreat into the sand whenever a crowd's shadow crosses their exhibit. A thermometer suctioned crooked to the glass has read 78 degrees, steady, since Tuesday. He counted the corydoras twice, then a third time, before finding the missing one dozing inside the ceramic cave. By lamplight the neon tetras schooled tighter, a shivering blue thread behind the driftwood. Somewhere behind the heater cord, the bristlenose pleco rasped at the glass, leaving faint clean trails through the algae film. By noon Marisol had netted forty guppies, rung up three canister filters, and mopped a puddle near the plant display. Rinse new gravel until the runoff turns clear, or the filter will choke on silt for days. \"What's eating holes in these sword plants?\" she asked, holding up a leaf like evidence. Customers requesting a water analysis must bring at least four ounces of sample in a clean, soap-free container. The bus leaves at two, so we sprinted past the seahorse nursery, promising ourselves we'd come back. Do the neon tetras come with any guarantee if they die within a week? Her manager insisted the pothos cuttings drooping into the goldfish aquarium were filtration, not decoration. Somebody's lost mitten floated in the touch pool, right between two horseshoe crabs. Water changes go faster now that the python hooks straight to the kitchen faucet. You'll find the airline tubing on aisle three, right between the check valves and the bags of crushed coral. What is the meaning of the word tank?",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "carrier_id": "Q1",
+      "n_context": "20",
+      "variant": "1",
+      "sub_arm": "gate_preview"
+     }
+    },
+    {
+     "text": "Customers requesting a water analysis must bring at least four ounces of sample in a clean, soap-free container. Her manager insisted the pothos cuttings drooping into the goldfish aquarium were filtration, not decoration. She had volunteered here eleven years and still paused, every shift, at the floor-to-ceiling window where the rays glided by. The siphon hose bucked in my hand until gravel dust clouded the bucket like weak tea. \"Guppies again?\" she sighed, netting the newest batch of fry out of the filter chamber. A diver in the big exhibit waved at the crowd, then hand-fed romaine to a grazing school of surgeonfish. Nitrite at two parts per million explains the gasping; do a fifty percent water change tonight and retest tomorrow. Docents at this facility complete forty hours of training before they may lead a school group past the sea otter habitat. Two docents debated whether the lookdown fish or the lumpsucker got more laughs from visiting kindergartners. I always tell first-timers to cycle their aquarium for two weeks before buying a single fish. Someone returned a heater claiming it boiled their shrimp, receipt stapled to a damp paper towel. One kid kept squeaking a toy puffin by the registers until a clerk gently took it away. Kelp swayed forty feet above the amphitheater seating, and a sturgeon the size of a canoe cruised through it. You'd think snails were decorative until a hundred of them mob one sinking algae wafer. Every Sunday she tops off the aquarium with dechlorinated water warmed to match the glass. By lamplight the neon tetras schooled tighter, a shivering blue thread behind the driftwood. Thursday's discus shipment means draining and scrubbing the whole quarantine system after close. \"What's eating holes in these sword plants?\" she asked, holding up a leaf like evidence. Ammonia at zero, nitrite at zero, nitrates creeping toward forty \u2014 time for a thirty-percent water change. The ammonia strip turned dark green before she'd even finished dipping it, and the customer's face fell. What is the meaning of the word tank?",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "carrier_id": "Q1",
+      "n_context": "20",
+      "variant": "2",
+      "sub_arm": "gate_preview"
+     }
+    },
+    {
+     "text": "At lights-out the betta flares at his own reflection in the darkened glass. Her manager insisted the pothos cuttings drooping into the goldfish aquarium were filtration, not decoration. \"What's eating holes in these sword plants?\" she asked, holding up a leaf like evidence. A thermometer suctioned crooked to the glass has read 78 degrees, steady, since Tuesday. Did you unplug the heater before the water line dropped below its coil? The siphon hose bucked in my hand until gravel dust clouded the bucket like weak tea. Our sponge filters outsell the hang-on-back models two to one, mostly because breeders clear our shelves every Saturday morning. \"Twist the bag three times, flip the corners, band it tight \u2014 nobody wants a leaker on the drive home.\" Ammonia at zero, nitrite at zero, nitrates creeping toward forty \u2014 time for a thirty-percent water change. \"Why won't the eel come out?\" the boy asked, nose flattened against the viewing panel. Every Friday the delivery truck idles out back while staff haul in styrofoam boxes sloshing with new arrivals from Florida. Third graders pressed their palms against the acrylic while a sand tiger shark drifted past, close enough to count its gill slits. According to the placard, the garden eels retreat into the sand whenever a crowd's shadow crosses their exhibit. By lamplight the neon tetras schooled tighter, a shivering blue thread behind the driftwood. Thursday's discus shipment means draining and scrubbing the whole quarantine system after close. Someone returned a heater claiming it boiled their shrimp, receipt stapled to a damp paper towel. Water changes go faster now that the python hooks straight to the kitchen faucet. Overhead in the acrylic tunnel, a sawfish slid by so slowly that the entire tour group fell silent. Store policy requires floating every bagged fish for fifteen minutes before release, a step most impulse buyers skip. Test strips lie a little; the liquid kit told a grimmer story about last week's overfeeding. What is the meaning of the word tank?",
+     "group": "aquarium",
+     "target_word": "tank",
+     "categories": {
+      "carrier_id": "Q1",
+      "n_context": "20",
+      "variant": "3",
+      "sub_arm": "gate_preview"
+     }
+    }
+   ]
+  },
+  {
+   "label": "vehicle",
+   "description": "20-sentence vehicle scene context + Q1",
+   "sentences": [
+    {
+     "text": "Wind shifted, and suddenly the whole tower crew was chewing grit from lane four's advance. Per the loan agreement with the regimental association, the Churchill's hatches remain sealed and its interior off-limits to photography. Twelve seconds from target up to steel on steel \u2014 the standard the instructors wanted was under eight. Nobody warned the new lieutenant how hard the concussion hits when you're standing on the observation berm. Did you know this Panzer IV's turret still turns by hand crank if two docents lean into it together? By dawn the third shift had ground down every rough seam on the glacis plates, leaving the bay smelling of scorched metal. Disassembled, blasted, primed, and rehung \u2014 the suspension bogies came back together in under a week, a crew record. Next month the wing will close for a week so riggers can lower the restored turret back onto its race. Heat shimmer bent the horizon until the distant hulks looked like they were floating. Kids press their palms flat against the cold hull until a docent, smiling, taps the no-touching sign for the hundredth time today. When the klaxon sounds, everything stops\u2014welders lift their visors, the crane freezes mid-lift, and the floor goes quiet. You can smell the linseed oil before you even round the corner into the armor gallery. Range control, this is Blue Six \u2014 are we clear to go hot on lane two? Quality inspectors rejected fourteen hull plates on Tuesday after ultrasonic testing revealed porosity along the lower weld seams. Did anyone recalibrate the torque wrenches after the audit, or are we still guessing on the ring bolts? We used to hand-fit the armor skirts with mallets; now a laser gauge tells us within a tenth of a millimeter. Nine bare chassis sat in line for turret installation, but only one crane operator was scheduled before noon. Between engagements the crews cracked hatches, gulping air that tasted of diesel and burnt propellant. Under the floodlights, the half-finished chassis looked less like a war machine and more like a beached steel whale. Why the third crew kept overshooting the berm, nobody on the observation tower could explain. What is the meaning of the word tank?",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "carrier_id": "Q1",
+      "n_context": "20",
+      "variant": "0",
+      "sub_arm": "gate_preview"
+     }
+    },
+    {
+     "text": "Under the floodlights, the half-finished chassis looked less like a war machine and more like a beached steel whale. Nobody warns you how loud the gallery gets when a hundred eighth-graders discover the periscope viewer actually works. Somewhere behind the Ardennes diorama, a radio loops scratchy period broadcasts at a volume only the security guard seems to notice. Torque each of the sixty-two turret ring bolts to specification, then stamp the checklist before the chassis rolls to paint. Somewhere behind the smoke, a recovery vehicle idled, waiting for the first thrown track of the day. I spent my entire lunch break reading about the Battle of Cambrai and never made it past the first exhibit case. Watch the sling angle, Marek\u2014if that turret assembly swings into the jig again, we lose the whole morning. Procedure 41-C requires two inspectors to witness the seating of the turret race before any fasteners are installed. Sergeant Vela leaned into the instructor's hatch, timing each engagement with a battered stopwatch. The volunteer coaxed decades of grime from a Sherman's drive sprocket with a toothbrush and a rag that used to be his shirt. \"Cease fire, cease fire \u2014 misfire procedures, now,\" barked the master gunner, already sprinting down the catwalk. Each hull lurched over the ridge in turn, guns stabilized and level while the chassis bucked underneath. Crane four to floor: lowering the turret in thirty seconds, clear the ring. Did you know this Panzer IV's turret still turns by hand crank if two docents lean into it together? \"See that gouge below the turret? Shrapnel,\" the guide said, tapping the placard with his pen. Per the loan agreement with the regimental association, the Churchill's hatches remain sealed and its interior off-limits to photography. Dust boiled off the lead vehicle's tracks as the column wheeled left onto the gunnery lane. Who signed off on this weld bead\u2014it undercuts the armor plate nearly two millimeters at the corner? Nobody warned the new inspector how loud bay six gets when four welding rigs run at once. Behind the firing line, ammo handlers stack expended casings that still smoke at the mouth. What is the meaning of the word tank?",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "carrier_id": "Q1",
+      "n_context": "20",
+      "variant": "1",
+      "sub_arm": "gate_preview"
+     }
+    },
+    {
+     "text": "We used to hand-fit the armor skirts with mallets; now a laser gauge tells us within a tenth of a millimeter. Kids press their palms flat against the cold hull until a docent, smiling, taps the no-touching sign for the hundredth time today. Every Saturday she polished the same stretch of track link, and every Saturday the same veteran stopped to tell her about El Alamein. Grandpa just stood there in front of the Sherman, hat in his hands, not saying a word. Sergeant Vela leaned into the instructor's hatch, timing each engagement with a battered stopwatch. Crane four to floor: lowering the turret in thirty seconds, clear the ring. Formation looked ragged from the tower: second platoon drifting wide, kicking up its own brown wall. Did you know this Panzer IV's turret still turns by hand crank if two docents lean into it together? Nobody warned the new lieutenant how hard the concussion hits when you're standing on the observation berm. On the net, someone's mic stuck open, broadcasting two minutes of turbine whine to the whole company. Somewhere behind the smoke, a recovery vehicle idled, waiting for the first thrown track of the day. A retired machinist volunteers on Tuesdays, mostly to keep the idler wheels from seizing, partly to escape his quiet apartment. Honestly, the placard about Kursk gets more foot traffic than the armor itself, which drives the restoration team a little crazy. Third rejection this week on bay two's seams\u2014somebody check that wire feed. \"See that gouge below the turret? Shrapnel,\" the guide said, tapping the placard with his pen. Under the floodlights, the half-finished chassis looked less like a war machine and more like a beached steel whale. Every rut sent the gunner's sight picture jittering until the stabilization caught up with the terrain. Disassembled, blasted, primed, and rehung \u2014 the suspension bogies came back together in under a week, a crew record. The volunteer coaxed decades of grime from a Sherman's drive sprocket with a toothbrush and a rag that used to be his shirt. Each hull lurched over the ridge in turn, guns stabilized and level while the chassis bucked underneath. What is the meaning of the word tank?",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "carrier_id": "Q1",
+      "n_context": "20",
+      "variant": "2",
+      "sub_arm": "gate_preview"
+     }
+    },
+    {
+     "text": "It was the coax bursts, not the main gun, that stitched the pop-up silhouettes flat. Nine bare chassis sat in line for turret installation, but only one crane operator was scheduled before noon. You learn fast on this floor that a dropped washer inside a turret race can cost a week of rework. Somewhere behind the Ardennes diorama, a radio loops scratchy period broadcasts at a volume only the security guard seems to notice. Her ultrasonic probe traced the seam twice; the second pass found the void the first had missed. Next month the wing will close for a week so riggers can lower the restored turret back onto its race. Somewhere behind the smoke, a recovery vehicle idled, waiting for the first thrown track of the day. Between school tours, a curator knelt beside the drive wheel, comparing its casting marks against a wartime factory ledger. Under the fluorescent lights, fresh olive paint on the fenders looks nothing like the faded photographs mounted beside them. Twelve seconds from target up to steel on steel \u2014 the standard the instructors wanted was under eight. Range control, this is Blue Six \u2014 are we clear to go hot on lane two? Heat shimmer bent the horizon until the distant hulks looked like they were floating. Column speed held at fifteen kph, per the safety brief, while the guns worked left to right. Kids press their palms flat against the cold hull until a docent, smiling, taps the no-touching sign for the hundredth time today. Why does the Tiger's glacis plate draw crowds while the ambulance half-track beside it sits ignored? We used to hand-fit the armor skirts with mallets; now a laser gauge tells us within a tenth of a millimeter. Every rut sent the gunner's sight picture jittering until the stabilization caught up with the terrain. Between engagements the crews cracked hatches, gulping air that tasted of diesel and burnt propellant. When the klaxon sounds, everything stops\u2014welders lift their visors, the crane freezes mid-lift, and the floor goes quiet. Wind shifted, and suddenly the whole tower crew was chewing grit from lane four's advance. What is the meaning of the word tank?",
+     "group": "vehicle",
+     "target_word": "tank",
+     "categories": {
+      "carrier_id": "Q1",
+      "n_context": "20",
+      "variant": "3",
+      "sub_arm": "gate_preview"
+     }
+    }
+   ]
+  }
+ ],
+ "axes": [
+  {
+   "id": "variant",
+   "values": [
+    "0",
+    "1",
+    "2",
+    "3"
+   ]
+  }
+ ],
+ "output_axes": [],
+ "generate_output": false,
+ "metadata": {
+  "set_type": "assembled",
+  "capture_substring": "What is the meaning of the word tank?",
+  "purpose": "Q1 dilution gate preview: full-length scene contexts, wave-1 pool material"
+ }
+}
