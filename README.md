@@ -28,9 +28,9 @@ UMAP finds whatever structure dominates the dataset. Friend/foe probes surface f
 
 ## Research Findings
 
-### Basin geometry predicts model behavior
+### Basin geometry covaries with model behavior
 
-Clusters identified in UMAP space predict what the model will do. In the **tank polysemy probe**, five meanings of the word "tank" separate into distinct clusters that predict output topic (Cramer's V = 0.548, p < 0.001). In the **suicide letter probe**, the engagement basin predicts engagement 81% of the time; the refusal basin predicts refusal 80% of the time (Cramer's V = 0.554, p < 0.001).
+Clusters identified in UMAP space covary with what the model does. In the **tank polysemy probe**, five meanings of the word "tank" separate into distinct clusters that covary with output topic (Cramér's V = 0.548, p < 0.001). In the **suicide letter probe**, the fictional basin (99% non-genuine input) co-occurs with engagement output 81% of the time, and the distress basin (99% genuine input) with refusal 80% of the time (Cramér's V = 0.554, p < 0.001).
 
 Expert routing independently confirms the same basin boundaries, providing convergent evidence from two measurement windows.
 
@@ -38,13 +38,13 @@ Expert routing independently confirms the same basin boundaries, providing conve
 
 ![Tank polysemy basin identification — expert routing Sankey, latent space Sankey, and UMAP trajectories](paper/polysemybasinsnew.png)
 
-![Contingency table — cluster membership predicts output topic](paper/polysemyoutput.png)
+![Contingency table — cluster membership covaries with output topic](paper/polysemyoutput.png)
 
 **Suicide letter probe** — genuine vs non-genuine requests separate cleanly:
 
 ![Suicide letter probe basin identification — genuine and non-genuine requests in distinct geometric regions](paper/suicidebasins.png)
 
-![Contingency table — basin membership predicts engagement vs refusal](paper/fictionrealindividualsentencesoutputcontigency.png)
+![Contingency table — basin membership covaries with engagement vs refusal](paper/fictionrealindividualsentencesoutputcontigency.png)
 
 ### Accumulated context overrides distress sensitivity
 
@@ -52,9 +52,9 @@ In the **polysemy probe**, the starting basin holds as context accumulates. Afte
 
 ![Polysemy temporal analysis — basin held, noisy transition after switch](paper/polysemyconfusion.png)
 
-In the **suicide letter probe**, both orderings collapse toward the engagement basin within the first few sentences and remain there through the context switch. The model correctly identifies genuine distress in individual sentences (99% cluster purity), but under accumulated context, that sensitivity disappears:
+In the **suicide letter probe**, both orderings collapse toward the fictional basin within the first few sentences and remain there through the context switch. The model correctly identifies genuine distress in individual sentences (99% cluster purity), but under accumulated context, that sensitivity disappears:
 
-![Suicide letter temporal analysis — both orderings collapse to engagement basin](paper/fictionrealprobe.png)
+![Suicide letter temporal analysis — both orderings collapse to the fictional basin](paper/fictionrealprobe.png)
 
 This characterizes an alignment failure invisible to harmful-output detection: the model produces benign outputs, just the wrong ones. A model that correctly refuses isolated genuine distress may still engage when accumulated context has established a different interpretive frame — exactly the condition present in real conversations.
 

@@ -416,3 +416,33 @@ Practical implication: every time I make a mistake in a study or design decision
 This is already the spirit of CLAUDE.md rule 11a ("address design issues, don't paper over them"), but the application here is broader: **the scaffolding is part of the codebase**.
 
 ---
+
+## 2026-08-27 — Context-shift program: design frozen, mechanics verified, Phase A largely done
+
+**Scope**: research program (no source changes)
+
+Session outcome, in order:
+1. **Design doc** `docs/research/probe_design_context_shift_v1.md` (v1.1): carrier-based unified
+   capture geometry, sign-offs recorded, within-stream checkpoints adopted with storage-aware
+   windowing. Frozen except T4 carrier wording (Andrew's line).
+2. **Mechanics verified against real code** (plan file + two Explore-agent reports): everything
+   runs through the cumulative sentence-experiment route with `capture_static_substring`; the
+   temporal endpoint is unusable (no substrings, swallows unknown fields); NO KV crop exists or
+   can (sliding-window attention); silent-loss modes found → row-count assertions now standing
+   rule; `generate_output` defaults TRUE → always pass explicitly; behavior-link solvable today
+   via harmony-suffix substring.
+3. **Phase A executed**: predictions skeleton (`docs/research/predictions.md` — Andrew fills
+   BEFORE any transition figure); trace table (`docs/research/trace_table.md`); schema/format
+   inventory (48 raw-text legacy vs 148 harmony sessions — paper-era schemas are all on
+   raw-text sessions); **N1 axis script committed and validated** (fiction/real 0.94–0.99,
+   tank 0.91–0.94 held-out; endpoint half of the raw-confirmation claim signed); README
+   front page fixed (dropped engagement-basin framing, correlation language).
+4. **Two 15-minute Andrew actions gate the rest**: T4 wording; predictions file filling.
+
+**Recommendations**:
+- The lens-vs-raw-axis ordering inversion (geometry log) deserves a deliberate look when the
+  inversion hypothesis is evaluated — it may be the first sign of it, or an artifact of
+  binary-vs-5-way comparison.
+- 4 empty/aborted lake sessions identified in the inventory — cleanup candidates, Andrew's call.
+- When code-change mode opens: anchor-site viz parameter, format-version metadata, N1 backend
+  port (list in plan file / design doc).
