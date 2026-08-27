@@ -67,6 +67,14 @@ interface ProbeExample {
   probe_id: string
   generated_text?: string
   output_category?: string
+  target_char_offset?: number
+  turn_id?: number
+  capture_type?: string
+  step?: number
+  game_text?: string
+  analysis?: string
+  action?: string
+  system_prompt?: string
 }
 
 interface RouteStatistics {
@@ -77,40 +85,22 @@ interface RouteStatistics {
   [key: string]: any
 }
 
-interface FilterConfig {
-  labels?: string[]
-}
-
 interface AnalyzeRoutesRequest {
-  session_id?: string
-  session_ids?: string[]
-  window_layers: number[]
-  filter_config?: FilterConfig
-  top_n_routes: number
-  clustering_schema?: string
-  save_as?: string
+  session_ids: string[]
+  schema_name: string
+  transition_layers: number[]
+  expert_rank?: number
   output_grouping_axes?: string[]
-}
-
-interface ClusteringConfig {
-  reduction_dimensions: number
-  clustering_method: string
-  layer_cluster_counts: Record<number, number>
-  embedding_source?: string
-  reduction_method?: string
-  clustering_dimensions?: number[]
+  top_n_routes?: number
 }
 
 interface AnalyzeClusterRoutesRequest {
-  session_id?: string
-  session_ids?: string[]
-  window_layers: number[]
-  clustering_config: ClusteringConfig
-  filter_config?: FilterConfig
-  top_n_routes: number
-  clustering_schema?: string
-  save_as?: string
+  session_ids: string[]
+  schema_name: string
+  transition_layers: number[]
   output_grouping_axes?: string[]
+  top_n_routes?: number
+  max_examples_per_node?: number
 }
 
 interface SankeyNode {
@@ -245,33 +235,23 @@ interface SentenceExperimentResponse {
   counts: Record<string, number>
 }
 
-// On-demand reduction types
-interface ReductionRequest {
-  session_ids: string[]
-  layers: number[]
-  source?: string
-  method?: string
-  n_components?: number
-}
-
-interface ReductionPoint {
+// Trajectory points (3D UMAP coordinates persisted with each schema)
+interface TrajectoryPoint {
   probe_id: string
-  session_id: string
-  layer: number
   x: number
-  y?: number
-  z?: number
-  coordinates?: number[]
-  target_word: string
+  y: number
+  z: number
   label?: string
-  categories?: Record<string, string>
+  target_word?: string
+  step?: number
+  categories_json?: string
 }
 
-interface ReductionResponse {
-  points: ReductionPoint[]
+interface TrajectoryPointsResponse {
+  schema_name: string
+  sample_size: number
   layers: number[]
-  method: string
-  n_components: number
+  points_by_layer: Record<string, TrajectoryPoint[]>
 }
 
 // Clustering Schema Types
@@ -288,6 +268,11 @@ interface ClusteringSchema {
     [key: string]: any
   }
   windows?: number[][]
+  sample_size?: number
+  filter_config?: any
+  last_occurrence_only?: boolean
+  max_probes?: number | null
+  steps?: number[]
 }
 
 // Export all types
@@ -299,9 +284,7 @@ export type {
   SessionDetailResponse,
   ProbeExample,
   RouteStatistics,
-  FilterConfig,
   AnalyzeRoutesRequest,
-  ClusteringConfig,
   AnalyzeClusterRoutesRequest,
   RouteAnalysisResponse,
   SankeyNode,
@@ -317,8 +300,7 @@ export type {
   TrajectoryResponse,
   SentenceExperimentRequest,
   SentenceExperimentResponse,
-  ReductionRequest,
-  ReductionPoint,
-  ReductionResponse,
+  TrajectoryPoint,
+  TrajectoryPointsResponse,
   ClusteringSchema
 };

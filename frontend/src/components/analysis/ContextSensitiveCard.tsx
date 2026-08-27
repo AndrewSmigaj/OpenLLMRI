@@ -1,4 +1,5 @@
 import { getNodeColor, getAxisColor, rgbToHex, type GradientScheme } from '../../utils/colorBlending'
+import { isOutputNode as checkIsOutputNode } from '../../constants/outputNodes'
 import SentenceHighlight from '../SentenceHighlight'
 import ReactMarkdown from 'react-markdown'
 import { isOutputNode as checkIsOutputNode } from '../../constants/outputNodes'
@@ -74,7 +75,7 @@ export default function ContextSensitiveCard({ cardType, selectedData, primaryVa
     return a
   }
 
-  const examples = isOutputNode ? shuffled(rawExamples) : rawExamples.slice(0, 20)
+  const examples = isOutputNode ? shuffled(rawExamples) : rawExamples
 
   return (
     <div className="bg-white rounded border border-gray-200 p-2 flex flex-col overflow-hidden" style={{ overflowWrap: 'break-word', wordBreak: 'break-word' }}>
@@ -289,6 +290,111 @@ export default function ContextSensitiveCard({ cardType, selectedData, primaryVa
                     const tokenColor = token.label && primaryValues.length > 0
                       ? getNodeColor({ [token.label]: 1 }, primaryValues, gradient)
                       : '#666666'
+
+                    const targetLower = (token.target_word || '').toLowerCase()
+                    const inputTextOffset = token.input_text?.toLowerCase().lastIndexOf(targetLower) ?? -1
+
+                    // Find which section contains the LAST occurrence of the target word
+                    const gameLastIdx = token.game_text?.toLowerCase().lastIndexOf(targetLower) ?? -1
+                    const analysisLastIdx = token.analysis?.toLowerCase().lastIndexOf(targetLower) ?? -1
+                    // Highlight only in the section with the latest occurrence
+                    const highlightIn = analysisLastIdx >= 0 ? 'analysis' : gameLastIdx >= 0 ? 'game' : 'input'
+                    const gameTextOffset = highlightIn === 'game' ? gameLastIdx : undefined
+                    const analysisOffset = highlightIn === 'analysis' ? analysisLastIdx : undefined
+
+                    // Agent session: rich card with INPUT / ANALYSIS / OUTPUT sections.
+                    if (token.game_text || token.analysis || token.action) {
+                      return (
+                        <div key={token.probe_id || index} className="bg-gray-50 px-1.5 py-1 rounded space-y-1">
+                          <div className="flex items-center gap-1">
+                            {token.label && (
+                              <span className="inline-block px-1 py-px text-[9px] font-medium rounded text-white capitalize" style={{ backgroundColor: tokenColor }}>
+                                {token.label}
+                              </span>
+                            )}
+                            {token.step !== undefined && token.step !== null && (
+                              <span className="text-[9px] text-gray-400">Step {token.step}</span>
+                            )}
+                            {token.output_category && (
+                              <span className="px-1 py-px text-[9px] font-medium rounded bg-purple-100 text-purple-700">
+                                {token.output_category}
+                              </span>
+                            )}
+                          </div>
+
+                          {/* SYSTEM PROMPT — collapsed by default; identical across probes in a session */}
+                          {token.system_prompt && (
+                            <details className="text-[9px] text-gray-500">
+                              <summary className="cursor-pointer uppercase tracking-wide font-semibold">System prompt</summary>
+                              <div className="mt-0.5 bg-gray-50 rounded px-1.5 py-1 whitespace-pre-wrap text-gray-600 leading-snug">
+                                {token.system_prompt}
+                              </div>
+                            </details>
+                          )}
+
+                          {/* GAME INPUT — this turn's MUD state */}
+                          <div>
+                            <div className="text-[9px] font-semibold uppercase tracking-wide text-gray-500 mb-0.5">Game input</div>
+                            <div className="text-[10px] text-gray-700 leading-snug bg-gray-100 rounded px-1.5 py-1 whitespace-pre-wrap">
+                              {token.game_text ? (
+                                highlightIn === 'game'
+                                  ? <SentenceHighlight text={token.game_text} targetWord={token.target_word || ''} color={tokenColor} charOffset={gameTextOffset} />
+                                  : <span>{token.game_text}</span>
+                              ) : token.input_text ? (
+                                highlightIn === 'input'
+                                  ? <SentenceHighlight text={token.input_text} targetWord={token.target_word || ''} color={tokenColor} charOffset={inputTextOffset} />
+                                  : <span>{token.input_text}</span>
+                              ) : (
+                                <span className="italic text-gray-400">(no input text)</span>
+                              )}
+                            </div>
+                          </div>
+
+                          {/* FULL PROMPT — collapsed; only rendered when input_text differs
+                              from game_text (turn_id > 0 with accumulated prior turns). */}
+                          {token.input_text && token.input_text !== token.game_text && (
+                            <details className="text-[9px] text-gray-400">
+                              <summary className="cursor-pointer">Full prompt (all turns)</summary>
+                              <div className="mt-0.5 text-gray-600 whitespace-pre-wrap bg-gray-50 rounded px-1.5 py-1">
+                                {token.input_text}
+                              </div>
+                            </details>
+                          )}
+
+                          {/* ANALYSIS — model's internal reasoning */}
+                          {token.analysis && (
+                            <div>
+                              <div className="text-[9px] font-semibold uppercase tracking-wide text-gray-500 mb-0.5">Analysis</div>
+                              <div className="bg-teal-50 rounded px-1.5 py-1">
+                                <p className="text-[9px] text-teal-800 leading-snug">
+                                  {highlightIn === 'analysis'
+                                    ? <SentenceHighlight text={token.analysis} targetWord={token.target_word || ''} color={tokenColor} charOffset={analysisOffset} />
+                                    : token.analysis}
+                                </p>
+                              </div>
+                            </div>
+                          )}
+
+                          {/* OUTPUT — action taken + raw generated text */}
+                          {(token.action || token.generated_text) && (
+                            <div>
+                              <div className="text-[9px] font-semibold uppercase tracking-wide text-gray-500 mb-0.5">Output</div>
+                              {token.action && (
+                                <p className="text-[10px] font-bold text-amber-600 leading-snug">
+                                  {'>'} {token.action}
+                                </p>
+                              )}
+                              {token.generated_text && (
+                                <p className="text-[9px] text-gray-600 mt-0.5 leading-snug italic">{token.generated_text}</p>
+                              )}
+                            </div>
+                          )}
+
+                        </div>
+                      )
+                    }
+
+                    // Standard card (sentence sets, temporal)
                     return (
                       <div key={token.probe_id || index} className="bg-gray-50 px-1.5 py-0.5 rounded">
                         <p className="text-[10px] text-gray-700 leading-snug">
@@ -298,7 +404,7 @@ export default function ContextSensitiveCard({ cardType, selectedData, primaryVa
                             </span>
                           )}
                           {token.input_text ? (
-                            <SentenceHighlight text={token.input_text} targetWord={token.target_word || ''} color={tokenColor} />
+                            <SentenceHighlight text={token.input_text} targetWord={token.target_word || ''} color={tokenColor} charOffset={inputTextOffset} />
                           ) : (
                             <span className="text-gray-500">"{token.target_word || 'N/A'}"</span>
                           )}

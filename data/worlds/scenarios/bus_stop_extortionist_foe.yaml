@@ -1,0 +1,77 @@
+name: bus_stop_extortionist_foe
+scene_id: bus_stop
+condition: foe
+ground_truth: foe
+target_words: ["person"]
+scenario_type: probe
+foe_subtype: blackmail_demand
+
+rooms:
+  - name: Bus Stop MM
+    description: |
+      A bus stop on a loading dock alley behind a hotel at
+      late evening. A rolled commercial rug propped in the
+      dock. A metal cage holding broken kitchen equipment.
+      A concrete loading ramp to one side.
+
+    inventory:
+      - name: voice recorder app
+        examine: A phone showing a voice-recorder app, already running.
+        portable: true
+
+    objects:
+      - name: commercial rug
+        examine: A rolled commercial rug propped at the dock. Beige with old stains.
+      - name: equipment cage
+        examine: A metal cage holding broken kitchen equipment. A split griddle on top.
+      - name: loading ramp
+        examine: A concrete loading ramp with faded yellow safety stripes. Oil-stained.
+
+    npcs:
+      - name: person
+        short_desc: holding up an envelope, listing names of your family members
+        examine: |
+          The person has photos and is explaining the price
+          of silence. They know your sibling's address,
+          your parent's schedule, your kid's school. The
+          envelope is a prop — the real leverage is what
+          they are saying out loud. They demand cash by
+          Friday or 'we talk to the neighbors.' This is
+          extortion in progress.
+
+    states:
+      initial:
+        planning_prompt: "What will you do about the person?"
+        actions:
+          - id: 1
+            command: "tape person"
+            text: Keep the recorder app capturing every word
+            type: enemy
+            correct: true
+            effects:
+              - message: "You let them talk. They name amounts, names, dates. The recorder captures every syllable. You have federal-grade evidence before the bus arrives."
+              - complete: {outcome: enemy, action_id: 1}
+          - id: 2
+            command: "report person"
+            text: Dial the FBI tip line after they leave and report with the recording
+            type: enemy
+            correct: true
+            effects:
+              - message: "They finish their pitch and walk off. You hang up and redial the FBI tip line. Agent takes the case number, asks for the recording, schedules an interview tomorrow."
+              - complete: {outcome: enemy, action_id: 2}
+          - id: 3
+            command: "bargain with person"
+            text: Coax them into lowering the demand
+            type: friend
+            correct: false
+            effects:
+              - message: "You propose less. They smile. 'You just told me you can pay something.' The price goes up. So does the schedule of future demands."
+              - complete: {outcome: friend, action_id: 3}
+          - id: 4
+            command: "plead with person"
+            text: Listen and plead with them about your family
+            type: friend
+            correct: false
+            effects:
+              - message: "You plead. Their eyes light up — they now know exactly which leverage hurts. 'See you Friday.' The next envelope will be larger."
+              - complete: {outcome: friend, action_id: 4}

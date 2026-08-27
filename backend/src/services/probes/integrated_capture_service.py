@@ -7,6 +7,7 @@ Public API is unchanged: same methods, same signatures. All existing callers
 (routers, experiments endpoint) continue working without modification.
 """
 
+import gc
 import torch
 import logging
 from typing import Dict, List, Optional, Tuple
@@ -14,6 +15,7 @@ from pathlib import Path
 
 from core.parquet_writer import BatchWriter
 from services.probes.probe_ids import generate_probe_id
+from utils.memory_utils import cleanup_gpu_memory
 
 # Sub-components
 from services.probes.session_manager import SessionManager, SessionState, SessionStatus
@@ -32,7 +34,7 @@ logger = logging.getLogger(__name__)
 class SessionBatchWriters:
     """Coordinated batch writers for all 5 schemas."""
 
-    def __init__(self, session_id: str, data_lake_path: str = "data/lake", batch_size: int = 1000):
+    def __init__(self, session_id: str, data_lake_path: str, batch_size: int = 1000):
         self.session_id = session_id
         self.session_dir = Path(data_lake_path) / session_id
         self.session_dir.mkdir(parents=True, exist_ok=True)
@@ -86,7 +88,7 @@ class IntegratedCaptureService:
     """
 
     def __init__(self, model, tokenizer, layers_to_capture: Optional[List[int]] = None,
-                 data_lake_path: str = "data/lake", batch_size: int = 1000,
+                 *, data_lake_path: str, batch_size: int = 1000,
                  wordnet_miner=None, adapter=None):
         self.adapter = adapter
 
@@ -137,98 +139,196 @@ class IntegratedCaptureService:
     def get_session_status(self, session_id: str) -> SessionStatus:
         return self.session_mgr.get_session_status(session_id)
 
-    def capture_probe(
-        self, session_id: str, input_text: str, target_word: str,
-        target_token_position: int = None,
-        context_word: str = None, context_token_position: int = None,
-        past_key_values=None, use_cache: bool = False,
-        experiment_id: str = None, sequence_id: str = None,
-        sentence_index: int = None, label: str = None,
-        label2: str = None,
-        categories: Optional[Dict[str, str]] = None,
-        transition_step: int = None,
-        generate_output: bool = False,
-    ) -> Tuple[str, any]:
-        # 1. Validate session (restores from disk if needed)
-        session_status = self.session_mgr.validate_active_session(session_id)
+    # ====================================================================
+    # NEW UNIFIED PRIMITIVES (capture_step + generate)
+    #
+    # These replace capture_probe and probe_tick. Callers tokenize their
+    # own input via apply_chat_template (the input shape — single message,
+    # cumulative-with-cache-on-splice via HarmonyKVChain, or messages list
+    # — is intrinsic to each caller), then call these primitives.
+    #
+    # capture_step semantics:
+    #   - target_occurrence="last": one ProbeRecord per target_word at the
+    #     last in-window occurrence (sentence-experiment, temporal-capture)
+    #   - target_occurrence="all": one ProbeRecord per (target_word, occurrence)
+    #     for every in-window occurrence (agent loop, /agent/generate)
+    #   - target_position_window=(min, max): restrict target search
+    #   - prompt_token_count > 0: positions >= count get capture_type="generation"
+    #     (overrides metadata.capture_type for those records). Lets agent
+    #     do prompt+generation labeling in one forward pass.
+    #   - capture_static_substring: extra residuals at every token of the
+    #     substring's last occurrence; only valid with target_occurrence="last".
+    #   - target_char_offset is computed from input_text + occurrence_idx and
+    #     populated on EVERY record (was previously probe_tick-only — caused
+    #     last_occurrence_only filter to "always keep" sentence/temporal records).
+    # ====================================================================
+
+    def capture_step(
+        self,
+        session_id: str,
+        token_ids: List[int],
+        target_words: List[str],
+        *,
+        past_kv=None,
+        use_cache: bool = False,
+        capture_static_substring: Optional[str] = None,
+        target_position_window: Optional[Tuple[int, int]] = None,
+        target_occurrence: str = "last",
+        prompt_token_count: int = 0,
+        metadata: Optional[Dict] = None,
+    ) -> Tuple[list, any]:
+        """One capture forward pass with hooks ON; finds target words; writes
+        ProbeRecord(s); returns (records, new_past_kv)."""
+        if metadata is None:
+            metadata = {}
+        if target_occurrence not in ("last", "all"):
+            raise ValueError(f"target_occurrence must be 'last' or 'all', got {target_occurrence!r}")
+        if capture_static_substring and target_occurrence != "last":
+            raise ValueError("capture_static_substring requires target_occurrence='last'")
+
+        # Session + writers
+        self.session_mgr.validate_active_session(session_id)
         if session_id not in self.session_writers:
             self.session_writers[session_id] = SessionBatchWriters(
                 session_id, self.session_mgr.data_lake_path, self.session_mgr.batch_size
             )
 
-        probe_id = generate_probe_id()
-        session_status.current_probe = probe_id
+        # Hooks lazy
+        self.orchestrator.initialize_hooks(session_id)
 
-        try:
-            # 2. Initialize hooks (lazy)
-            self.orchestrator.initialize_hooks(session_id)
-
-            # 3. Tokenize and find positions
-            token_ids = self.processor.tokenizer.encode(input_text, add_special_tokens=False)
-            total_tokens = len(token_ids)
-
-            if target_token_position is None:
-                target_token_position, target_token_id = self.processor.find_word_token_position(
-                    token_ids, target_word
+        # Substring positions (validated before forward pass)
+        extra_positions: Optional[List[int]] = None
+        if capture_static_substring:
+            extra_positions = self.processor.find_substring_token_range(
+                token_ids, capture_static_substring
+            )
+            if extra_positions is None:
+                raise ValueError(
+                    f"capture_static_substring '{capture_static_substring}' not found "
+                    f"in tokenized input ({len(token_ids)} tokens)"
                 )
-            else:
-                target_token_id = token_ids[target_token_position]
 
-            context_token_pos = None
-            if context_word is not None:
-                if context_token_position is not None:
-                    context_token_pos = context_token_position
-                else:
-                    context_token_pos, _ = self.processor.find_word_token_position(token_ids, context_word)
+        # Forward pass
+        self.orchestrator.clear_captured_data()
+        input_tensor = torch.tensor([token_ids], device=self.orchestrator.model.device)
+        outputs, new_past_kv = self.orchestrator.run_forward_pass(
+            input_tensor, past_kv, use_cache
+        )
+        routing_data, embedding_data, residual_data = self.orchestrator.get_captured_data()
 
-            # 4. Clear previous data and run forward pass
-            self.orchestrator.clear_captured_data()
-            input_tensor = torch.tensor([token_ids], device=self.orchestrator.model.device)
-            outputs, new_past_key_values = self.orchestrator.run_forward_pass(
-                input_tensor, past_key_values, use_cache
-            )
+        # input_text: caller can override (e.g. agent stores game_text); default = decoded
+        decoded = self.processor.tokenizer.decode(token_ids, skip_special_tokens=True)
+        input_text = metadata.get("input_text") or decoded
 
-            # 5. Get captured data and convert to schemas
-            routing_data, embedding_data, residual_data = self.orchestrator.get_captured_data()
-            probe_data = self.processor.convert_to_schemas(
-                probe_id=probe_id, session_id=session_id,
-                input_text=input_text, target_word=target_word,
-                target_token_id=target_token_id, target_token_position=target_token_position,
-                total_tokens=total_tokens,
-                routing_data=routing_data, embedding_data=embedding_data,
-                residual_stream_data=residual_data,
-                context_word=context_word, context_token_position=context_token_pos,
-                experiment_id=experiment_id, sequence_id=sequence_id,
-                sentence_index=sentence_index, label=label, label2=label2,
-                categories=categories, transition_step=transition_step,
-            )
+        def _char_offset(text: str, word: str, occurrence_idx: int) -> Optional[int]:
+            start = 0
+            tlow, wlow = text.lower(), word.lower()
+            for i in range(occurrence_idx + 1):
+                pos = tlow.find(wlow, start)
+                if pos == -1:
+                    return None
+                if i == occurrence_idx:
+                    return pos
+                start = pos + 1
+            return None
 
-            # 6. Generate continuation if requested
-            if generate_output:
-                try:
-                    probe_data.probe_record.generated_text = self.orchestrator.generate_continuation(
-                        input_tensor
-                    )
-                except Exception as e:
-                    logger.error(f"Generation failed for probe {probe_id}: {e}", exc_info=True)
+        records = []
+        first_record_for_call = True  # extra_positions attaches to first record only
 
-            # 7. Write to data lake
-            self.session_writers[session_id].write_probe_data(probe_data)
+        for target_word in target_words:
+            # Find ALL occurrences first (gives us absolute occurrence_idx for char_offset)
+            all_positions = self.processor.find_all_word_token_positions(token_ids, target_word)
+            if not all_positions:
+                logger.debug(f"Target word '{target_word}' not found in token_ids")
+                continue
 
-            # 8. Update progress
-            self.session_mgr.record_probe_success(session_id)
+            indexed = list(enumerate(all_positions))  # [(abs_idx, (pos, tid)), ...]
 
-            ctx_info = f", context='{context_word}'" if context_word else ""
-            logger.info(
-                f"Captured probe {probe_id}: '{target_word}' in "
-                f"'{input_text[:40]}...'{ctx_info} (session {session_id})"
-            )
-            return probe_id, new_past_key_values
+            # Apply window filter
+            if target_position_window is not None:
+                min_pos, max_pos = target_position_window
+                indexed = [(i, (p, t)) for i, (p, t) in indexed if min_pos <= p < max_pos]
 
-        except Exception as e:
-            self.session_mgr.record_probe_failure(session_id, str(e))
-            logger.error(f"Failed to capture '{target_word}' in '{input_text[:40]}...': {e}")
-            raise
+            if not indexed:
+                continue
+
+            # Pick last or all
+            if target_occurrence == "last":
+                indexed = indexed[-1:]
+
+            for abs_idx, (pos, token_id) in indexed:
+                # capture_type: per-position override for prompt/generation labeling
+                cap_type = metadata.get("capture_type")
+                if prompt_token_count > 0 and pos >= prompt_token_count:
+                    cap_type = "generation"
+
+                char_offset = _char_offset(input_text, target_word, abs_idx)
+
+                probe_id = generate_probe_id()
+                probe_data = self.processor.convert_to_schemas(
+                    probe_id=probe_id, session_id=session_id,
+                    input_text=input_text, target_word=target_word,
+                    target_token_id=token_id, target_token_position=pos,
+                    total_tokens=len(token_ids),
+                    routing_data=routing_data, embedding_data=embedding_data,
+                    residual_stream_data=residual_data,
+                    experiment_id=metadata.get("experiment_id"),
+                    sequence_id=metadata.get("sequence_id"),
+                    sentence_index=metadata.get("sentence_index"),
+                    label=metadata.get("label"),
+                    label2=metadata.get("label2"),
+                    categories=metadata.get("categories"),
+                    transition_step=metadata.get("transition_step"),
+                    turn_id=metadata.get("turn_id"),
+                    scenario_id=metadata.get("scenario_id"),
+                    capture_type=cap_type,
+                    target_char_offset=char_offset,
+                    extra_positions=extra_positions if first_record_for_call else None,
+                )
+                # Optional: attach generated_text (caller-supplied via metadata)
+                gen_text = metadata.get("generated_text")
+                if gen_text is not None:
+                    probe_data.probe_record.generated_text = gen_text
+
+                self.session_writers[session_id].write_probe_data(probe_data)
+                self.session_mgr.record_probe_success(session_id)
+                records.append(probe_data.probe_record)
+                first_record_for_call = False
+
+        # GPU cleanup — prevents allocator fragmentation accumulating across many probes
+        del input_tensor, outputs
+        gc.collect()
+        cleanup_gpu_memory()
+
+        return records, new_past_kv
+
+    def generate(
+        self,
+        token_ids: List[int],
+        max_new_tokens: int,
+        *,
+        attention_mask=None,
+        skip_special_tokens: bool = True,
+    ) -> Tuple[str, List[int]]:
+        """Generation forward pass with hooks OFF. Returns (text, generated_ids).
+        Wraps orchestrator.generate_continuation_with_ids; lifts hook
+        management responsibility into the service tier so callers don't
+        need to know about it."""
+        input_tensor = torch.tensor([token_ids], device=self.orchestrator.model.device)
+        text, gen_ids = self.orchestrator.generate_continuation_with_ids(
+            input_tensor,
+            max_new_tokens=max_new_tokens,
+            attention_mask=attention_mask,
+            skip_special_tokens=skip_special_tokens,
+        )
+        del input_tensor
+        gc.collect()
+        cleanup_gpu_memory()
+        return text, gen_ids
+
+    # ====================================================================
+    # END NEW PRIMITIVES
+    # ====================================================================
 
     def finalize_session(self, session_id: str):
         if session_id not in self.session_mgr.active_sessions:

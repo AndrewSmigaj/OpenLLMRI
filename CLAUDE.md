@@ -1,6 +1,6 @@
-Related: docs/architecturemud.md (if adding phases/skills), docs/PIPELINE.md (if changing pipeline stages), LLMud/VISION.md (if changing project scope)
+Related: docs/SOFTWARE_OVERVIEW.md (read FIRST before any probe design or platform change), docs/RECOMMENDATIONS.md (open improvements — append after each work session), docs/architecturemud.md (if adding phases/skills), docs/PIPELINE.md (if changing pipeline stages), LLMud/VISION.md (if changing project scope)
 
-# Concept MRI — Claude Code Context Engineering Guide
+# Open LLMRI — Claude Code Context Engineering Guide
 
 ## Project Context
 Independent research tool for studying attractor basin dynamics in MoE language models. Uses UMAP projection and hierarchical clustering of residual stream activations to identify stable geometric regions — attractor basins — that predict model behavior before output is generated. Backend (Python FastAPI) captures and analyzes; frontend (React) visualizes. Claude Code is the analysis runtime — it designs probes, runs captures, labels outputs, and generates hypotheses.
@@ -12,17 +12,22 @@ Claude Code uses these guides to execute the full pipeline:
 | Guide | Purpose |
 |-------|---------|
 | `CLAUDE.md` | Project context, architecture rules, change management (this file) |
+| `docs/SOFTWARE_OVERVIEW.md` | **Conceptual anchor** — what the platform is, lens vocabulary, probe authoring rules, anti-patterns. Read before designing a probe or proposing a code change. |
+| `docs/RECOMMENDATIONS.md` | My recommendations to the user — open improvements, observations. Append after each major work session. |
 | `docs/PIPELINE.md` | Full analysis pipeline — orchestration runbook for Claude Code |
 | `docs/PROBES.md` | How to create and run probes via API |
 | `data/sentence_sets/GUIDE.md` | How to design and write sentence set JSON files |
 | `docs/ANALYSIS.md` | Analysis methodology reference (cluster/route data, reports) |
 | `docs/scratchpad/` | Intermediate work products — research, drafts, explorations. Check for context from recent work. |
 
-**Skills** (`.claude/skills/`) are the authoritative operational procedures. Each skill has self-contained, copy-paste-ready commands. Docs provide background and reference. When they conflict, skills win.
+**Skills** (`.claude/skills/`) are the authoritative operational procedures. Each skill has self-contained, copy-paste-ready commands. Docs provide background and reference. When they conflict, skills win. **Before any API call to `/api/agent/*`, invoke the `/agent` skill and copy its curl template. Never construct agent curl commands from memory or from reading schemas.py — the skill templates omit credentials because they default from `.env`.**
 
 | Skill | Purpose |
 |-------|---------|
+| `/setup` | First-time project setup — venv, Evennia, agent account, .env, scenarios |
 | `/server` | Start, stop, check status of backend and frontend |
+| `/agent` | Start, resume, monitor, stop agent scenario sessions — **always use for agent API calls** |
+| `/agent-report` | Generate formatted markdown walkthrough of agent session scenarios — what the LLM saw and how it reasoned |
 | `/probe` | Co-design a new experiment |
 | `/categorize` | Classify model-generated outputs |
 | `/analyze` | Read cluster/route data, write reports and element descriptions |
@@ -128,17 +133,50 @@ TEMPORAL FLOW: expanding context window → basin axis projection → lag measur
 - **Test early** — verify data contracts as soon as possible
 - **Check scratchpad first** — read `docs/scratchpad/` for context from recent conversations before starting new work
 - **Research before change** — read actual code, understand actual state, THEN decide what to change. Never jump to implementation based on pattern matching.
+- **Investigate before proposing** — when something is wrong, read the actual data and code before suggesting fixes. State what you found, what you're certain about, and what you're uncertain about. Never propose a fix with high confidence when you haven't verified the root cause.
 - **Watch for attractor patterns** — over-abstracting, over-engineering for hypothetical requirements, adding error handling for impossible cases, summarizing what you just did. Counter: "what's simplest?" and "is this real or hypothetical?"
 - **Sunk cost awareness** — replace bad code, don't patch around it. We control everything; backward compatibility is unnecessary.
 - **Document sync** — after modifying any file in `docs/` or `LLMud/`, check its `Related:` header. Update anything that drifted. Updating related docs is always in scope — you do not need separate permission.
 - **Session-end review** — at the end of larger sessions, review what approaches worked or didn't and save insights to development feedback memories.
 
+### 10b. Visual Iteration with Playwright MCP
+
+**Frontend-only verification (the common case):**
+- After frontend edits, use `browser_take_screenshot` to see the rendered result before reporting success
+- Use `browser_snapshot` (accessibility tree) for element interaction — faster and more reliable than pixel coordinates
+- Use `browser_take_screenshot` for visual verification — layout, colors, alignment, chart rendering
+- Typical loop: edit → Vite HMR auto-applies → `browser_take_screenshot` → iterate if needed
+- For interactive verification: `browser_snapshot` → `browser_click(ref)` → `browser_take_screenshot`
+- Frontend URL: `http://localhost:5173` (Vite dev server must be running)
+
+**MUD verification (when Claude wants to watch an agent run):**
+- The MUD terminal lives inside the MUDApp page (right pane). Navigate to `http://localhost:5173`, find the terminal `textbox`, type `connect guest` to log in as a read-only observer (no credentials required — Evennia's built-in guest mode).
+- After `connect guest`, you can type `goto Bus Stop N36` (or any other room) to teleport in. Then watch the room's broadcast as the agent loop runs a scenario.
+- The agent's own login uses `EVENNIA_AGENT_USER` / `EVENNIA_AGENT_PASS` from `.env` — never overlap; let Claude observe as guest while the agent runs as `agent`.
+- Built-in MUD verbs (`look`, `examine`, `inventory`, `actions`, `goto`, `say`) produce their own visible broadcast. Scenario-action verbs (`alert bouncer` etc.) are emoted by the agent loop so they're visible too — see `agent_loop.py` BUILTIN_VERBS for the skip-list.
+
 ### 11. CRITICAL: Change Management Rules
+- **NO CODE CHANGES WITHOUT EXPLICIT "can change code" MODE.** Source code (anything under `backend/src/`, `frontend/src/`, `evennia_world/`, top-level scripts, `.claude/skills/`, `.claude/hooks/`, settings files, build/config files) is OFF-LIMITS unless the user has explicitly said something like "you can change code" / "code-change mode on" / "go ahead and modify the code" for the current task. **This rule overrides auto mode.** Auto mode authorizes continuous execution of analysis, captures, probe authoring, and report writing — it does NOT authorize source modification. If a task seems to require a code change and you're not in code-change mode, STOP and ask. The default for source code is read-only.
+- **EXEMPT from the above** — these can be modified freely without code-change-mode authorization:
+  - Probe sets (`data/sentence_sets/**/*.json` and their `.md` guides)
+  - Research/findings docs (`docs/research/**`, `docs/RECOMMENDATIONS.md`, `docs/scratchpad/**`)
+  - Memory files under `~/.claude/projects/.../memory/`
+  - Probe-output categorization and clustering schema artifacts (these are data, not code)
 - **NO aggressive bulk changes** - make small, targeted edits only
 - **ASK before any significant changes** - if changing more than 5 lines or altering design decisions, ask first
-- **Preserve existing work** - NEVER delete functionality to add new features; be additive
+- **Preserve existing work** - NEVER delete functionality to add new features; be additive. If a refactor REQUIRES dropping functionality, list every dropped feature explicitly in the plan and get sign-off on the deletion list. Removing UI controls, dropdowns, knobs, displays, or analysis paths counts — never assume "this is dead because the new design doesn't use it."
 - **Explain changes clearly** - before making edits, explain what will change and why
 - **User must approve** - for any architectural or design changes, get explicit approval
+
+### 11a. No quick fixes, no prototype shortcuts
+This is a portfolio project and open-source software. Do not patch around bad design with caller-side workarounds. Do not hardcode study-specific vocabulary (scenario types, target-word choices, axis labels) inside reusable components — take them as props. Do not bump magic numbers in a component to "fix" a caller's problem — fix the caller's prop or make the value a proper parameter. When a design issue is found, raise it and fix the design; do not paper over it.
+
+### 11b. Commit + push cadence — batch, don't blast
+- **Don't `git add` / `commit` / `push` after every single edit.** Each push prompts the user for approval and breaks their flow. Bundle related changes into ONE commit per significant unit of work.
+- **A "significant unit of work" is one of:** a feature shipped end-to-end, a refactor phase complete and verified, a multi-file bug fix, an analysis pass with its findings doc, or a deliberate checkpoint the user requested.
+- **NOT a unit of work:** every file edit, every script tweak, every tiny fix, every "let me just commit this small thing" impulse. Those accumulate locally and ship as part of the next significant batch.
+- **Push only after the user signals to or after the work-unit is genuinely shippable.** "Add and commit this" doesn't mean "and also push" unless the user said so explicitly.
+- **One exception:** if the user explicitly says "commit and push", do it once. Don't take that as standing authorization for the rest of the session.
 
 ### 12. Uncertainty Assessment
 - **Never jump straight to implementation** — assess uncertainty first. Run `/cdd` for the structured procedure, or do a quick inline assessment for smaller tasks.

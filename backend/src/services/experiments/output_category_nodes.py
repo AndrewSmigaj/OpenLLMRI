@@ -14,8 +14,6 @@ import json
 from schemas.tokens import ProbeRecord
 from services.experiments.route_analysis_common import axis_label
 
-# Single source of truth for the output node name prefix.
-# Used by the builder below and by experiments.py to strip/rebuild output nodes.
 OUTPUT_NODE_PREFIX = "Generated:"
 
 
@@ -33,10 +31,8 @@ def strip_output_prefix(name: str) -> str:
     return name
 
 
-def strip_output_nodes(
-    nodes: List[dict], links: List[dict]
-) -> Tuple[List[dict], List[dict]]:
-    """Remove output-category nodes and their links from a Sankey result."""
+def strip_output_nodes(nodes: list, links: list) -> tuple:
+    """Remove output category nodes and their links from Sankey data."""
     base_nodes = [n for n in nodes if not is_output_node(n["name"])]
     base_links = [l for l in links if not is_output_link(l)]
     return base_nodes, base_links
@@ -162,6 +158,7 @@ def build_output_category_layer(
         # Build example tokens (all records for output nodes)
         example_tokens = []
         for record in records:
+            turn_id = getattr(record, 'turn_id', None)
             example_tokens.append({
                 "target_word": record.target_word,
                 "label": record.label,
@@ -169,6 +166,13 @@ def build_output_category_layer(
                 "probe_id": record.probe_id,
                 "generated_text": getattr(record, 'generated_text', None),
                 "output_category": getattr(record, 'output_category', None),
+                "target_char_offset": getattr(record, 'target_char_offset', None),
+                "turn_id": turn_id,
+                "step": turn_id if turn_id is not None else getattr(record, 'sentence_index', None),
+                "game_text": getattr(record, 'game_text', None),
+                "analysis": getattr(record, 'analysis', None),
+                "action": getattr(record, 'action', None),
+                "system_prompt": getattr(record, 'system_prompt', None),
             })
 
         output_nodes.append({

@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import * as echarts from 'echarts';
 import type { SankeyNode, SankeyLink } from '../../types/api';
-import { getNodeColor, getAxisColor, rgbToHex, getTrafficVisualProperties, type GradientScheme } from '../../utils/colorBlending';
-import { isOutputNode, isOutputLink, stripOutputPrefix, OUTPUT_NODE_PREFIX } from '../../constants/outputNodes';
+import { getNodeColor, getAxisColor, rgbToHex, getTrafficVisualProperties, type GradientScheme, type AmbiguityBlend } from '../../utils/colorBlending';
+import { isOutputNode as checkIsOutputNode, isOutputLink as checkIsOutputLink, stripOutputPrefix, OUTPUT_NODE_PREFIX } from '../../constants/outputNodes';
 
 interface SankeyChartProps {
   nodes: SankeyNode[];
@@ -12,6 +12,7 @@ interface SankeyChartProps {
   secondaryValues?: string[];
   secondaryGradient?: GradientScheme;
   secondaryAxisId?: string;
+  ambiguityBlend?: AmbiguityBlend;
   outputPrimaryValues?: string[];
   outputGradient?: GradientScheme;
   outputSecondaryValues?: string[];
@@ -33,6 +34,7 @@ const SankeyChart: React.FC<SankeyChartProps> = ({
   secondaryValues,
   secondaryGradient = 'yellow-cyan',
   secondaryAxisId,
+  ambiguityBlend,
   outputPrimaryValues,
   outputGradient = 'purple-green',
   outputSecondaryValues,
@@ -86,13 +88,18 @@ const SankeyChart: React.FC<SankeyChartProps> = ({
     chartInstance.current.on('click', handleClick);
 
     // Handle resize — observe container, not just window
+    // Use requestAnimationFrame to avoid resize during ECharts main process
     const handleResize = () => {
-      chartInstance.current?.resize();
+      requestAnimationFrame(() => {
+        chartInstance.current?.resize();
+      });
     };
     window.addEventListener('resize', handleResize);
 
     const resizeObserver = new ResizeObserver(() => {
-      chartInstance.current?.resize();
+      requestAnimationFrame(() => {
+        chartInstance.current?.resize();
+      });
     });
     resizeObserver.observe(chartRef.current);
 
@@ -134,7 +141,7 @@ const SankeyChart: React.FC<SankeyChartProps> = ({
 
     // Build extended values list that includes output categories for "match input" fallback
     const outputCategories = nodes
-      .filter(n => isOutputNode(n.name))
+      .filter(n => checkIsOutputNode(n.name))
       .map(n => stripOutputPrefix(n.name));
     const extendedPrimaryValues = [...primaryValues];
     for (const cat of outputCategories) {
@@ -145,7 +152,7 @@ const SankeyChart: React.FC<SankeyChartProps> = ({
 
     // Prepare node data with colors
     const sankeyNodes = nodes.map(node => {
-      const isOutput = isOutputNode(node.name);
+      const isOutput = checkIsOutputNode(node.name);
 
       let nodeColor: string;
       if (isOutput) {
@@ -163,7 +170,7 @@ const SankeyChart: React.FC<SankeyChartProps> = ({
         // Regular nodes: primary = label_distribution, secondary from axis
         const primaryDist = node.label_distribution || {};
         const secondaryDist = getDistForAxis(node, secondaryAxisId);
-        nodeColor = getNodeColor(primaryDist, primaryValues, gradient, secondaryDist, secondaryValues, secondaryGradient);
+        nodeColor = getNodeColor(primaryDist, primaryValues, gradient, secondaryDist, secondaryValues, secondaryGradient, ambiguityBlend);
       }
 
       return {
@@ -184,10 +191,10 @@ const SankeyChart: React.FC<SankeyChartProps> = ({
     const sankeyLinks = links.map(link => {
       const primaryDist = link.label_distribution || {};
       const secondaryDist = getDistForAxis(link, secondaryAxisId);
-      const isOutLink = isOutputLink(link);
+      const isOutput = checkIsOutputLink(link);
 
       let linkColor: string;
-      if (isOutLink && outputColorAxisId && outputPrimaryValues && outputPrimaryValues.length > 0) {
+      if (isOutput && outputColorAxisId && outputPrimaryValues && outputPrimaryValues.length > 0) {
         const outDist = getDistForAxis(link, outputColorAxisId);
         if (outDist && Object.keys(outDist).length > 0) {
           const outSecDist = outputSecondaryAxisId ? getDistForAxis(link, outputSecondaryAxisId) : undefined;
@@ -199,7 +206,7 @@ const SankeyChart: React.FC<SankeyChartProps> = ({
         }
       } else {
         linkColor = Object.keys(primaryDist).length > 0
-          ? getNodeColor(primaryDist, primaryValues, gradient, secondaryDist, secondaryValues, secondaryGradient)
+          ? getNodeColor(primaryDist, primaryValues, gradient, secondaryDist, secondaryValues, secondaryGradient, ambiguityBlend)
           : '#5470c6';
       }
 
@@ -228,7 +235,7 @@ const SankeyChart: React.FC<SankeyChartProps> = ({
             if (!node) return '';
 
             // Output node tooltip
-            if (isOutputNode(node.name)) {
+            if (checkIsOutputNode(node.name)) {
               const category = stripOutputPrefix(node.name);
               return `
                 <div style="max-width: 300px;">
@@ -272,7 +279,9 @@ const SankeyChart: React.FC<SankeyChartProps> = ({
         emphasis: {
           focus: 'adjacency',
           label: {
-            fontWeight: 'bold'
+            fontWeight: 'bold',
+            fontSize: 11,
+            color: '#1f2937'
           }
         },
         data: sankeyNodes,
@@ -280,16 +289,23 @@ const SankeyChart: React.FC<SankeyChartProps> = ({
         nodeAlign: 'justify',
         nodeGap: 8,
         nodeWidth: nodeWidthProp,
-        layoutIterations: 32,
+        layoutIterations: 0,
         left: '2%',
-        right: '15%',
+        right: '30%',
         top: '2%',
         bottom: '2%',
         label: {
           show: true,
           position: 'right',
-          fontSize: 7,
-          color: '#555'
+          fontSize: 11,
+          color: '#1f2937',
+          // Strip the "Generated:" prefix so output-column labels fit the margin.
+          // (Prefix defined in output_category_nodes.py:17 as "Generated:" — no space.)
+          formatter: (params: any) => {
+            const name = params.name || ''
+            if (name.startsWith('Generated:')) return name.slice('Generated:'.length) + '\naction'
+            return name
+          }
         }
       }],
       animation: true,
@@ -297,7 +313,7 @@ const SankeyChart: React.FC<SankeyChartProps> = ({
     };
 
     chartInstance.current.setOption(option);
-  }, [nodes, links, primaryValues, gradient, secondaryValues, secondaryGradient, secondaryAxisId, outputPrimaryValues, outputGradient, outputSecondaryValues, outputSecondaryGradient, outputSecondaryAxisId, outputColorAxisId]);
+  }, [nodes, links, primaryValues, gradient, secondaryValues, secondaryGradient, secondaryAxisId, ambiguityBlend, outputPrimaryValues, outputGradient, outputSecondaryValues, outputSecondaryGradient, outputSecondaryAxisId, outputColorAxisId]);
 
   return (
     <div

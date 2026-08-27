@@ -8,7 +8,7 @@ interface TemporalAnalysisSectionProps {
   sessionId: string
   clusterRouteData: Record<string, RouteAnalysisResponse | null> | null
   clusteringSchema: string | null
-  selectedRange: string
+  selectedWindow: string
   onScrubberProbeChange?: (probeId: string | null) => void
   onTemporalSessionIds?: (sessionIds: string[]) => void
 }
@@ -17,7 +17,7 @@ export default function TemporalAnalysisSection({
   sessionId,
   clusterRouteData,
   clusteringSchema,
-  selectedRange,
+  selectedWindow,
   onScrubberProbeChange,
   onTemporalSessionIds,
 }: TemporalAnalysisSectionProps) {
@@ -475,7 +475,7 @@ export default function TemporalAnalysisSection({
                     <div className="flex gap-3 text-gray-400">
                       <span>Regime {scrubberPoint.regime}</span>
                       <span>proj = {scrubberPoint.projection.toFixed(3)}</span>
-                      <span className="font-mono">{scrubberPoint.probe_id.slice(0, 8)}</span>
+                      <span className="font-mono">{scrubberPoint.regime} · {scrubberPoint.target_word}</span>
                     </div>
                   </div>
                 )}

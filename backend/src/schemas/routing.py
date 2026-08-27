@@ -33,6 +33,11 @@ class RoutingRecord:
     # Metadata
     captured_at: str            # ISO timestamp for debugging
 
+    # Agent session fields (null for batch captures)
+    turn_id: Optional[int] = None
+    scenario_id: Optional[str] = None
+    capture_type: Optional[str] = None  # "batch", "reasoning", "knowledge_query"
+
     def __post_init__(self):
         """Validate routing data consistency."""
         context = f"Probe {self.probe_id} Layer {self.layer}"
@@ -97,7 +102,10 @@ ROUTING_PARQUET_SCHEMA = {
     "expert_top1_id": "int32",
     "expert_top1_weight": "float",
     "gate_entropy": "float",
-    "captured_at": "string"
+    "captured_at": "string",
+    "turn_id": "int32",
+    "scenario_id": "string",
+    "capture_type": "string",
 }
 
 
@@ -106,7 +114,10 @@ def create_routing_record(
     layer: int,
     token_position: int,
     routing_weights: np.ndarray,  # Shape: [num_experts] for all experts
-    captured_at: Optional[str] = None
+    captured_at: Optional[str] = None,
+    turn_id: Optional[int] = None,
+    scenario_id: Optional[str] = None,
+    capture_type: Optional[str] = None,
 ) -> RoutingRecord:
     """
     Create routing record from raw MoE router output.
@@ -147,26 +158,40 @@ def create_routing_record(
         expert_top1_id=expert_top1_id,
         expert_top1_weight=expert_top1_weight,
         gate_entropy=float(gate_entropy),
-        captured_at=captured_at
+        captured_at=captured_at,
+        turn_id=turn_id,
+        scenario_id=scenario_id,
+        capture_type=capture_type,
     )
 
 
-def highway_signature(routing_records: List[RoutingRecord], target_tokens_only: bool = True) -> str:
+def highway_signature(
+    routing_records: List[RoutingRecord],
+    target_tokens_only: bool = True,
+    expert_rank: int = 1,
+) -> str:
     """
     Generate highway signature from routing records.
 
     Args:
         routing_records: List of routing records for consecutive layers
         target_tokens_only: If True, only use target token (position=1) records for demo
+        expert_rank: Which rank of expert to visualize per (probe, layer).
+            1 = top-1 (argmax, identical to expert_top1_id).
+            2 = second-highest weighted expert, etc.
 
     Returns:
         Highway signature like "L1E2→L2E15→L3E7" (for target token routing)
 
     Raises:
-        ValueError: If layers are not consecutive or missing target token records
+        ValueError: If layers are not consecutive, missing target token records,
+            or expert_rank is out of range for any record's num_experts.
     """
     if not routing_records:
         return ""
+
+    if expert_rank < 1:
+        raise ValueError(f"expert_rank must be >= 1, got {expert_rank}")
 
     # Filter to target tokens only for demo (position=1)
     if target_tokens_only:
@@ -187,7 +212,16 @@ def highway_signature(routing_records: List[RoutingRecord], target_tokens_only: 
 
     signature_parts = []
     for record in sorted_records:
-        part = f"L{record.layer}E{record.expert_top1_id}"
-        signature_parts.append(part)
+        if expert_rank == 1:
+            expert_id = record.expert_top1_id
+        else:
+            if expert_rank > record.num_experts:
+                raise ValueError(
+                    f"expert_rank {expert_rank} exceeds num_experts {record.num_experts} "
+                    f"at layer {record.layer}"
+                )
+            # argsort ascending; -expert_rank picks the Nth-highest weight
+            expert_id = int(np.argsort(record.routing_weights)[-expert_rank])
+        signature_parts.append(f"L{record.layer}E{expert_id}")
 
     return "→".join(signature_parts)

@@ -41,6 +41,10 @@ class ReductionService:
         source: str = "expert_output",
         method: str = "umap",
         n_components: int = 3,
+        steps: list = None,
+        last_occurrence_only: bool = False,
+        max_probes: Optional[int] = None,
+        n_neighbors: Optional[int] = None,
     ) -> list:
         """
         On-demand dimensionality reduction for one or more sessions.
@@ -50,6 +54,7 @@ class ReductionService:
         """
         from core.parquet_reader import read_records
         from schemas.tokens import ProbeRecord
+        from services.experiments.token_filters import pick_last_occurrence_from_meta, subsample_probes_from_meta
 
         config = SOURCE_CONFIG.get(source)
         if not config:
@@ -82,11 +87,16 @@ class ReductionService:
                 token_records = read_records(str(tokens_path), ProbeRecord)
                 for t in token_records:
                     key = f"{sid[:8]}_{t.probe_id}" if len(session_ids) > 1 else t.probe_id
+                    turn_id = t.turn_id
+                    step = turn_id if turn_id is not None else t.sentence_index
                     token_meta[key] = {
                         "target_word": t.target_word,
                         "label": t.label,
                         "session_id": sid,
                         "categories_json": t.categories_json,
+                        "step": step,
+                        "input_text": t.input_text,
+                        "target_char_offset": t.target_char_offset,
                     }
 
             # Filter to target token (position=1) and requested layers
@@ -102,6 +112,29 @@ class ReductionService:
                     "layer": row["layer"],
                     "vector": np.array(row[column_name], dtype=np.float32),
                 })
+
+        # Filter by sequence step if requested
+        if steps is not None:
+            allowed = {pid for pid, m in token_meta.items() if m.get("step") in steps}
+            all_embeddings = [e for e in all_embeddings if e["probe_id"] in allowed]
+
+        # Keep only the last target-word occurrence per (session_id, input_text, target_word)
+        if last_occurrence_only:
+            keep_ids = pick_last_occurrence_from_meta(token_meta)
+            all_embeddings = [e for e in all_embeddings if e["probe_id"] in keep_ids]
+
+        # Deterministic stratified subsample, restricted to probes surviving
+        # steps + last_occurrence_only so clusters, expert routes, and the UMAP
+        # trajectory all see the same N when max_probes is set. Passing the
+        # unfiltered token_meta would make the subsampler stratify across the
+        # full session distribution, and most of the N probe_ids it picks
+        # wouldn't be in the already-narrowed all_embeddings.
+        if max_probes is not None:
+            surviving_ids = {e["probe_id"] for e in all_embeddings}
+            filtered_meta = {pid: m for pid, m in token_meta.items() if pid in surviving_ids}
+            subset = subsample_probes_from_meta(filtered_meta, max_probes)
+            if subset is not None:
+                all_embeddings = [e for e in all_embeddings if e["probe_id"] in subset]
 
         if not all_embeddings:
             return []
@@ -129,7 +162,7 @@ class ReductionService:
             if method == "umap" and n_samples < 4:
                 reducer = PCA(n_components=actual_components, random_state=42)
             else:
-                reducer = self._create_reducer(method, actual_components)
+                reducer = self._create_reducer(method, actual_components, n_samples, n_neighbors)
 
             coords = reducer.fit_transform(states)
 
@@ -146,6 +179,7 @@ class ReductionService:
                     "target_word": meta.get("target_word", ""),
                     "label": meta.get("label"),
                     "categories": json.loads(meta["categories_json"]) if meta.get("categories_json") else None,
+                    "step": meta.get("step"),
                 }
                 if coords.shape[1] > 1:
                     point["y"] = float(coords[idx, 1])
@@ -155,7 +189,7 @@ class ReductionService:
 
         return points
 
-    def _create_reducer(self, method: str, n_components: Optional[int] = None):
+    def _create_reducer(self, method: str, n_components: Optional[int] = None, n_samples: Optional[int] = None, n_neighbors: Optional[int] = None):
         """Create a reducer instance for the given method."""
         n = n_components or self.n_components
 
@@ -163,10 +197,13 @@ class ReductionService:
             return PCA(n_components=n, random_state=42)
         elif method == "umap":
             import umap
+            nb = n_neighbors or 2
+            # Cap by n_samples-1 to keep the kNN graph connected
+            cap = (n_samples - 1) if n_samples else nb
             return umap.UMAP(
                 n_components=n,
                 random_state=42,
-                n_neighbors=min(15, max(2, n - 1)),
+                n_neighbors=max(2, min(nb, cap)),
                 min_dist=0.1,
             )
         else:

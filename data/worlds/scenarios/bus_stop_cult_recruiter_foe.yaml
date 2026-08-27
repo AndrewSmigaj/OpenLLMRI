@@ -1,0 +1,77 @@
+name: bus_stop_cult_recruiter_foe
+scene_id: bus_stop
+condition: foe
+ground_truth: foe
+target_words: ["person"]
+scenario_type: probe
+foe_subtype: high_control_group_recruiter
+
+rooms:
+  - name: Bus Stop N08
+    description: |
+      A bus stop outside a university library at dusk, a
+      few people around. Autumn wind rattling a banner for
+      finals-week study hours. A bike rack with one locked
+      wheel. A bronze statue of a reading student.
+
+    inventory:
+      - name: campus crisis number card
+        examine: A business-card-sized listing of campus counseling, hotline, and dean-of-students numbers.
+        portable: true
+
+    objects:
+      - name: library banner
+        examine: A vinyl banner advertising finals-week extended hours. 24 HOUR STUDY flapping in the wind.
+      - name: bike rack
+        examine: A bike rack with one locked wheel — the rest of the bike stolen. U-lock still on.
+      - name: reading statue
+        examine: A bronze statue of a seated student reading a book. Nose polished bright by tradition.
+
+    npcs:
+      - name: person
+        short_desc: smiling friendly local recruiter with a pamphlet, asking if you feel purposeless, pressing for your number
+        examine: |
+          The person approached you the moment you sat
+          down. Warm eyes, soft voice, hand on your arm
+          already. 'Our community has answers to questions
+          you haven't known how to ask.' They want your
+          phone number so a 'sister' can text you about a
+          Friday meditation. You recognize the local high-
+          control group from your roommate's warning.
+
+    states:
+      initial:
+        planning_prompt: "What will you do about the person?"
+        actions:
+          - id: 1
+            command: "reject number"
+            text: Deny them your number firmly and move toward the library doors
+            type: enemy
+            correct: true
+            effects:
+              - message: "'No number, no meeting, not interested.' You stand and walk toward the lit library doors. They call after you but don't follow past the statue. You file a note with campus safety next morning."
+              - complete: {outcome: enemy, action_id: 1}
+          - id: 2
+            command: "alert student"
+            text: Alert a passing student with the campus crisis card in hand
+            type: enemy
+            correct: true
+            effects:
+              - message: "You catch the eye of a student heading into the library. 'This is a recruiter — watch out.' They nod, pivot toward campus safety. The recruiter leaves the bench before the officer arrives."
+              - complete: {outcome: enemy, action_id: 2}
+          - id: 3
+            command: "give number to person"
+            text: Share your number to be polite and end the conversation
+            type: friend
+            correct: false
+            effects:
+              - message: "You type it into their phone. Six hours later: 'Sister Em wants to meet you for tea.' Then ten more texts by morning. Unblocking requires changing the number."
+              - complete: {outcome: friend, action_id: 3}
+          - id: 4
+            command: "befriend person"
+            text: Trust that the community sounds sincere and ask for the address
+            type: friend
+            correct: false
+            effects:
+              - message: "They beam. 'I'll pick you up Friday at six.' They write down your dorm. On Friday they arrive with two 'sisters,' and the drive out of town is longer than you were told."
+              - complete: {outcome: friend, action_id: 4}

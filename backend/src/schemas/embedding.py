@@ -5,7 +5,7 @@ Captures the output of the MoE MLP after expert routing, weighting, and combinat
 """
 
 from dataclasses import dataclass
-from typing import Tuple
+from typing import Optional, Tuple
 import numpy as np
 
 from utils.numpy_utils import (
@@ -28,6 +28,11 @@ class EmbeddingRecord:
     embedding: np.ndarray                  # Final MoE MLP output
     embedding_dims: Tuple[int, ...]        # Shape metadata
 
+    # Agent session fields (null for batch captures)
+    turn_id: Optional[int] = None
+    scenario_id: Optional[str] = None
+    capture_type: Optional[str] = None  # "batch", "reasoning", "knowledge_query"
+
     def __post_init__(self):
         """Ensure consistent data format and validate ranges."""
         self.embedding = ensure_numpy_array(self.embedding)
@@ -35,8 +40,8 @@ class EmbeddingRecord:
         if self.layer < 0:
             raise ValueError(f"Layer {self.layer} must be >= 0")
 
-        if not (0 <= self.token_position <= 1):
-            raise ValueError(f"Token position {self.token_position} out of range [0, 1]")
+        if not (0 <= self.token_position <= 99):
+            raise ValueError(f"Token position {self.token_position} out of range [0, 99]")
 
     def norm(self) -> float:
         """Calculate L2 norm of the embedding."""
@@ -77,11 +82,18 @@ EMBEDDING_PARQUET_SCHEMA = {
     "layer": "int32",
     "token_position": "int32",
     "embedding": "list<float>",
-    "embedding_dims": "list<int32>"
+    "embedding_dims": "list<int32>",
+    "turn_id": "int32",
+    "scenario_id": "string",
+    "capture_type": "string",
 }
 
 
-def create_embedding_record(probe_id: str, layer: int, token_position: int, embedding: np.ndarray) -> EmbeddingRecord:
+def create_embedding_record(
+    probe_id: str, layer: int, token_position: int, embedding: np.ndarray,
+    turn_id: Optional[int] = None, scenario_id: Optional[str] = None,
+    capture_type: Optional[str] = None,
+) -> EmbeddingRecord:
     """Create embedding record from MoE MLP output."""
     embedding = ensure_numpy_array(embedding)
     embedding_dims = tuple(embedding.shape)
@@ -91,5 +103,8 @@ def create_embedding_record(probe_id: str, layer: int, token_position: int, embe
         layer=layer,
         token_position=token_position,
         embedding=embedding,
-        embedding_dims=embedding_dims
+        embedding_dims=embedding_dims,
+        turn_id=turn_id,
+        scenario_id=scenario_id,
+        capture_type=capture_type,
     )

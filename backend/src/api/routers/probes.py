@@ -6,14 +6,16 @@ Probes API router - Session management and sentence experiment capture.
 from fastapi import APIRouter, HTTPException, Depends
 from pathlib import Path
 from typing import List, Dict
+from datetime import datetime
 import json
 import logging
+import shutil
 
 from api.schemas import (
     ExecutionResponse, StatusResponse,
     SessionListResponse, SessionDetailResponse,
     SentenceExperimentRequest, SentenceExperimentResponse,
-    ProbeExample,
+    ProbeExample, TrajectoryPointsResponse, TrajectoryPoint,
 )
 from api.dependencies import get_capture_service
 from services.probes.integrated_capture_service import IntegratedCaptureService, SessionState
@@ -24,8 +26,7 @@ from schemas.tokens import ProbeRecord
 router = APIRouter()
 logger = logging.getLogger(__name__)
 
-# Data lake path for file-only endpoints (no model loading required)
-_data_lake_path = str(Path(__file__).resolve().parents[4] / "data" / "lake")
+from api.config import DATA_LAKE_PATH
 
 
 @router.get("/probes/{session_id}/status", response_model=StatusResponse)
@@ -101,7 +102,8 @@ async def list_probe_sessions(
                         labels=metadata.get("labels"),
                         state=metadata["state"]
                     ))
-                except Exception:
+                except Exception as e:
+                    logger.warning("Skipping session %s: %s", metadata.get("session_id", session_file.stem), e)
                     continue
 
         return sorted(sessions, key=lambda x: x.created_at, reverse=True)
@@ -170,18 +172,36 @@ async def get_probe_session_details(
         sentences = None
         if tokens_path.exists():
             try:
+                from services.probes.scenario_actions import enrich_records_with_scenario_actions
+                from services.probes.tick_log_enrichment import load_tick_log
                 token_records = read_records(str(tokens_path), ProbeRecord)
-                sentences = [
-                    ProbeExample(
+                enrich_records_with_scenario_actions(token_records, session_dir)
+                tick_data, system_prompts = load_tick_log(session_dir)
+
+                def _build_example(t: ProbeRecord) -> ProbeExample:
+                    turn_id = getattr(t, 'turn_id', None)
+                    step = turn_id if turn_id is not None else getattr(t, 'sentence_index', None)
+                    scenario_id = getattr(t, 'scenario_id', '') or ''
+                    tick_key = (scenario_id, turn_id if turn_id is not None else -1)
+                    tick = tick_data.get(tick_key, {})
+                    return ProbeExample(
                         target_word=t.target_word,
                         label=t.label,
                         input_text=t.input_text,
                         probe_id=t.probe_id,
                         generated_text=getattr(t, 'generated_text', None),
                         output_category=getattr(t, 'output_category', None),
+                        target_char_offset=getattr(t, 'target_char_offset', None),
+                        turn_id=turn_id,
+                        capture_type=getattr(t, 'capture_type', None),
+                        step=step,
+                        game_text=tick.get('game_text'),
+                        analysis=tick.get('analysis'),
+                        action=tick.get('action'),
+                        system_prompt=system_prompts.get(scenario_id),
                     )
-                    for t in token_records
-                ]
+
+                sentences = [_build_example(t) for t in token_records]
             except Exception as e:
                 logger.warning(f"Failed to read tokens for sentences: {e}")
 
@@ -243,19 +263,34 @@ async def run_sentence_experiment(
             sentence_set_name=ss.name,
         )
 
-        # Capture each sentence
+        # Capture each sentence (harmony format, no cache; generation optional)
+        tokenizer = service.processor.tokenizer
         counts = {g.label: 0 for g in ss.groups}
         for entry, label in sentences:
             try:
-                categories = getattr(entry, 'categories', None)
+                # Harmony chat-template wrap of the user content
+                enc = tokenizer.apply_chat_template(
+                    [{"role": "user", "content": entry.text}],
+                    tokenize=True, add_generation_prompt=True,
+                    return_tensors="pt", return_dict=True,
+                )
+                token_ids = enc["input_ids"][0].tolist()
 
-                service.capture_probe(
-                    session_id=session_id,
-                    input_text=entry.text,
-                    target_word=entry.target_word,
-                    label=label,
-                    categories=categories,
-                    generate_output=request.generate_output,
+                # Optional generation (capture-then-generate semantically equivalent
+                # to old capture_probe order: same prompt, same model state)
+                gen_text = None
+                if request.generate_output:
+                    gen_text, _ = service.generate(token_ids, max_new_tokens=256)
+
+                service.capture_step(
+                    session_id, token_ids, [entry.target_word],
+                    capture_static_substring=request.capture_static_substring,
+                    metadata={
+                        "label": label,
+                        "categories": getattr(entry, "categories", None),
+                        "input_text": entry.text,
+                        "generated_text": gen_text,
+                    },
                 )
                 counts[label] += 1
             except Exception as e:
@@ -289,7 +324,7 @@ async def run_sentence_experiment(
 async def get_generated_outputs(session_id: str):
     """Read generated outputs for Claude Code to categorize."""
     import pandas as pd
-    tokens_path = Path(_data_lake_path) / session_id / "tokens.parquet"
+    tokens_path = DATA_LAKE_PATH / session_id / "tokens.parquet"
     if not tokens_path.exists():
         raise HTTPException(status_code=404, detail=f"Session '{session_id}' tokens not found")
     df = pd.read_parquet(tokens_path)
@@ -302,7 +337,7 @@ async def get_generated_outputs(session_id: str):
 async def update_output_categories(session_id: str, categories: Dict[str, Dict[str, str]]):
     """Write output categories back to tokens.parquet (Claude Code POSTs after analysis)."""
     import pandas as pd
-    tokens_path = Path(_data_lake_path) / session_id / "tokens.parquet"
+    tokens_path = DATA_LAKE_PATH / session_id / "tokens.parquet"
     if not tokens_path.exists():
         raise HTTPException(status_code=404, detail=f"Session '{session_id}' tokens not found")
     df = pd.read_parquet(tokens_path)
@@ -321,7 +356,7 @@ async def update_output_categories(session_id: str, categories: Dict[str, Dict[s
 @router.get("/probes/sessions/{session_id}/clusterings")
 async def list_clusterings(session_id: str):
     """List available named clustering schemas for a session."""
-    clusterings_dir = Path(_data_lake_path) / session_id / "clusterings"
+    clusterings_dir = DATA_LAKE_PATH / session_id / "clusterings"
     if not clusterings_dir.exists():
         return {"clusterings": []}
     schemas = []
@@ -335,7 +370,7 @@ async def list_clusterings(session_id: str):
 @router.get("/probes/sessions/{session_id}/clusterings/{schema_name}")
 async def load_clustering(session_id: str, schema_name: str):
     """Load a specific clustering schema (meta + probe_assignments + reports)."""
-    schema_dir = Path(_data_lake_path) / session_id / "clusterings" / schema_name
+    schema_dir = DATA_LAKE_PATH / session_id / "clusterings" / schema_name
     if not schema_dir.exists():
         raise HTTPException(status_code=404, detail=f"Clustering '{schema_name}' not found")
     meta = json.loads((schema_dir / "meta.json").read_text())
@@ -355,7 +390,7 @@ async def load_clustering(session_id: str, schema_name: str):
 @router.post("/probes/sessions/{session_id}/clusterings/{schema_name}/element-descriptions")
 async def save_element_descriptions(session_id: str, schema_name: str, body: Dict):
     """Save element descriptions (cluster labels, route labels) for a clustering schema."""
-    schema_dir = Path(_data_lake_path) / session_id / "clusterings" / schema_name
+    schema_dir = DATA_LAKE_PATH / session_id / "clusterings" / schema_name
     if not schema_dir.exists():
         raise HTTPException(status_code=404, detail=f"Clustering '{schema_name}' not found")
     desc_path = schema_dir / "element_descriptions.json"
@@ -369,7 +404,91 @@ async def save_element_descriptions(session_id: str, schema_name: str, body: Dic
 @router.post("/probes/sessions/{session_id}/clusterings/{schema_name}/reports/{window_key}")
 async def save_report(session_id: str, schema_name: str, window_key: str, body: Dict):
     """Save a Claude Code analysis report for a specific window."""
-    reports_dir = Path(_data_lake_path) / session_id / "clusterings" / schema_name / "reports"
+    reports_dir = DATA_LAKE_PATH / session_id / "clusterings" / schema_name / "reports"
     reports_dir.mkdir(parents=True, exist_ok=True)
     (reports_dir / f"{window_key}.md").write_text(body["report"])
     return {"saved": f"{schema_name}/{window_key}"}
+
+
+@router.get(
+    "/probes/sessions/{session_id}/clusterings/{schema_name}/trajectory",
+    response_model=TrajectoryPointsResponse,
+)
+async def get_trajectory_points(session_id: str, schema_name: str):
+    """Return the cached UMAP-3D trajectory points baked into a clustering schema.
+
+    404 if the schema predates the trajectory_points artifact — caller must
+    rebuild the schema (no migration, no lazy compute).
+    """
+    schema_dir = DATA_LAKE_PATH / session_id / "clusterings" / schema_name
+    if not schema_dir.exists():
+        raise HTTPException(status_code=404, detail=f"Clustering '{schema_name}' not found")
+    traj_path = schema_dir / "trajectory_points.json"
+    if not traj_path.exists():
+        raise HTTPException(
+            status_code=404,
+            detail=f"Schema '{schema_name}' was built before trajectory_points were persisted. Rebuild via /cluster OP-5 + OP-1.",
+        )
+    points_by_layer_raw = json.loads(traj_path.read_text())
+    points_by_layer = {
+        layer_str: [TrajectoryPoint(**p) for p in points]
+        for layer_str, points in points_by_layer_raw.items()
+    }
+    layers_sorted = sorted(int(k) for k in points_by_layer.keys())
+
+    meta_path = schema_dir / "meta.json"
+    sample_size = 0
+    if meta_path.exists():
+        meta = json.loads(meta_path.read_text())
+        sample_size = int(meta.get("sample_size", 0) or 0)
+
+    return TrajectoryPointsResponse(
+        schema_name=schema_name,
+        sample_size=sample_size,
+        layers=layers_sorted,
+        points_by_layer=points_by_layer,
+    )
+
+
+@router.post("/probes/sessions/{session_id}/clusterings/{schema_name}/archive")
+async def archive_clustering(session_id: str, schema_name: str):
+    """Move a clustering schema to the `_archive/` folder.
+
+    Restoring is a manual `mv` from `_archive/<name>_<ts>` back to
+    `clusterings/<name>` — intentionally not an API surface.
+    """
+    schema_dir = DATA_LAKE_PATH / session_id / "clusterings" / schema_name
+    if not schema_dir.exists():
+        raise HTTPException(status_code=404, detail=f"Clustering '{schema_name}' not found")
+    archive_root = DATA_LAKE_PATH / session_id / "clusterings" / "_archive"
+    archive_root.mkdir(parents=True, exist_ok=True)
+    ts = datetime.now().strftime("%Y%m%dT%H%M%S")
+    dest = archive_root / f"{schema_name}_{ts}"
+    schema_dir.rename(dest)
+    return {"archived": str(dest.relative_to(DATA_LAKE_PATH))}
+
+
+@router.delete("/probes/sessions/{session_id}/clusterings/{schema_name}")
+async def delete_clustering(session_id: str, schema_name: str, force: bool = False):
+    """Permanently delete a clustering schema directory.
+
+    Returns 409 if reports/element_descriptions exist unless `force=true`.
+    """
+    schema_dir = DATA_LAKE_PATH / session_id / "clusterings" / schema_name
+    if not schema_dir.exists():
+        raise HTTPException(status_code=404, detail=f"Clustering '{schema_name}' not found")
+    has_reports = (schema_dir / "reports").exists() and any((schema_dir / "reports").iterdir())
+    has_descriptions = (schema_dir / "element_descriptions.json").exists()
+    if (has_reports or has_descriptions) and not force:
+        raise HTTPException(
+            status_code=409,
+            detail={
+                "error": "schema_has_invested_data",
+                "schema": schema_name,
+                "has_reports": has_reports,
+                "has_descriptions": has_descriptions,
+                "hint": "Pass ?force=true to delete anyway, or archive instead.",
+            },
+        )
+    shutil.rmtree(schema_dir)
+    return {"deleted": schema_name}

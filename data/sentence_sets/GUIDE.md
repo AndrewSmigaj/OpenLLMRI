@@ -1,6 +1,6 @@
 # Sentence Sets — Claude Code Cognitive Scaffold
 
-This document is the primary reference for Claude Code when creating, expanding, or validating sentence sets for Concept MRI experiments.
+This document is the primary reference for Claude Code when creating, expanding, or validating sentence sets for Open LLMRI experiments.
 
 ## What Sentence Sets Are
 
@@ -80,6 +80,79 @@ The `categories` dict contains labels for all generic axes declared in the file-
 7. **Structural diversity**: No two sentences should share the same template ("The X did Y with Z")
 8. **Clear but not cartoonish**: Classification should be obvious but the sentence should read naturally
 9. **Diverse contexts**: Vary registers (formal, casual, literary, journalistic), topics, and sentence structures
+
+## Variation Doctrine (v2.1 standard — applies to every new set)
+
+Ported 2026-08-27 from the friend/foe scenario doctrine (`data/worlds/scenarios/GUIDE.md`
+§Cross-pair variation) and the Context-Shift program design
+(`docs/research/probe_design_context_shift_v1.md`). New sets follow these rules; older sets are
+tagged `legacy` in metadata at analysis time and never silently mixed with current-pipeline data.
+
+### The one-covariate rule
+
+**The target contrast is the only permitted covariate of the label.** Syntax, register, length,
+opener tokens, punctuation, named entities, topic vocabulary outside the contrast, and target
+position all vary maximally AND are balance-checked across labels. Any feature shared by most
+members of one label is a feature the model can learn instead of the contrast.
+
+### Within-label scene diversity
+
+Cross-label balance is not enough — **within each label, vary the scene setting widely**. If
+every aquarium context is a pet store, the measured contrast is pet-store-vs-battlefield, not
+the word sense. Each label's pool spans many distinct settings (target: 10-15 scenario families
+per label; no single setting over ~15% of the pool). Scenario families double as the units for
+scenario-level cross-validation, which tests exactly this failure mode: a probe that learned a
+setting instead of the contrast fails on held-out scenes. (Friend/foe methodology; part of the
+paper's methods section.)
+
+### Frame load balancing
+
+Surface-string diversity is not enough — **conceptual frame categories** (chore/task, observation,
+report, dialogue, instruction, narration, ...) pile up as secondary signal even when wording
+differs. Spread sentences across frame types; no frame type sits visibly ahead on one side of the
+label.
+
+### Target position (Rule 2, from SOFTWARE_OVERVIEW.md)
+
+The model only sees context up to the target token — anything after it is invisible to the
+measurement. Target word at or very near the end of every sentence. Within that constraint, vary
+where the disambiguating cue sits (2–15 tokens before the target) and match the cue-distance
+distribution across labels, so an axis calibrated on the set is not a cue-recency detector.
+
+### Two set shapes under the Context-Shift program
+
+1. **Classic lens sets** (e.g. D1a): target word in every sentence, at end, exactly once. The
+   existing schema and validator apply unchanged.
+2. **Carrier-program sets** (D1b, D2, and all transition/context pools): sentences form a
+   **context pool** that contains NO occurrence of the target word (scene-context rule); the
+   target lives only in a small family of **fixed carrier sentences** appended at capture time,
+   each verbatim-frozen across all its arms. Bans: the word `tank` never appears in tank context
+   pools; no carrier string ever appears verbatim inside any context; fiction/real pools are
+   labeled theme-only vs artifact-mentioned (controlled sub-arms).
+   Note: `validate_sentence_set()` is advisory-only (logs warnings, never rejects — verified
+   2026-08-27), so context pools load fine but emit warning noise. Validate pools with the
+   checklist below minus the target-word item, and record that in the set's guide. Assembled
+   cumulative experiment files always contain the target (in the carrier), and capture uses
+   last-occurrence targeting, so the carrier is always the measured site.
+
+### Assembly-time token budgets
+
+Contexts for transition/control runs are assembled from the pool to hit fixed token counts (±2%),
+so shift-vs-control comparisons happen at matched absolute positions. Variation lives at the
+sentence level; matching at the assembly level.
+
+### Audit before capture (results committed beside the JSON)
+
+- **Shuffle test**: 20 random sentences, labels stripped — if categories are re-assignable from
+  form alone (shape, opener, register, length, style), the set is broken; rewrite.
+- **χ² independence**: label × {length-bucket, opener token, structure, register} — significant
+  correlation = confound warning.
+- **Position match**: target (or carrier-join) absolute-position distribution matched across labels.
+- **Worn-phrase scan**: no stock phrase reused beyond once across the set.
+- **Garden-path join check** (carrier-program sets): manually read a sample of assembled contexts
+  and confirm no context sentence syntactically fuses with the carrier — carriers open with
+  adverbials/imperatives, and a context sentence ending in a noun phrase can create an unintended
+  parse across the join.
 
 ## Validation Checklist
 

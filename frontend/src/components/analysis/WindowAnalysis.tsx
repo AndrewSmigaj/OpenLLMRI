@@ -3,20 +3,7 @@ import jStat from 'jStat'
 import ReactMarkdown from 'react-markdown'
 import { getAxisColor, rgbToHex, type GradientScheme } from '../../utils/colorBlending'
 import { isOutputNode, isOutputLink, stripOutputPrefix, OUTPUT_NODE_PREFIX } from '../../constants/outputNodes'
-
-interface SankeyNode {
-  name: string
-  id: string
-  layer: number
-  token_count: number
-  label_distribution?: Record<string, number>
-}
-
-interface SankeyLink {
-  source: string
-  target: string
-  value: number
-}
+import type { SankeyNode, SankeyLink } from '../../types/api'
 
 interface WindowAnalysisProps {
   routeData: {
@@ -52,7 +39,7 @@ function computeContingency(nodes: SankeyNode[], links: SankeyLink[]): Contingen
 
   // Source nodes = unique sources of output links
   const sourceNames = [...new Set(outLinks.map(l => l.source))]
-  const outcomeLabels = outNodes.map(n => stripOutputPrefix(n.name))
+  const outcomeLabels = [...new Set(outNodes.map(n => stripOutputPrefix(n.name)))]
 
   // Build contingency table
   const table = sourceNames.map(src => {
@@ -157,7 +144,7 @@ export default function WindowAnalysis({ routeData, windowLabel, report, selecte
             <th className="text-left text-gray-500 py-0.5 pr-1">Cluster</th>
             <th className="text-left text-gray-500 py-0.5 px-1">Input</th>
             {result.outcomeLabels.map(label => (
-              <th key={label} className="text-right text-gray-500 py-0.5 px-1 capitalize">{label}</th>
+              <th key={label} className="text-right text-gray-500 py-0.5 px-1 capitalize">{label} action</th>
             ))}
             <th className="text-right text-gray-400 py-0.5 pl-1">n</th>
           </tr>

@@ -1,21 +1,21 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import SankeyChart from './SankeyChart'
-import type { RouteAnalysisResponse, ClusteringConfig } from '../../types/api'
-import type { GradientScheme } from '../../utils/colorBlending'
-import type { FilterState } from '../WordFilterPanel'
+import type { RouteAnalysisResponse } from '../../types/api'
+import type { GradientScheme, AmbiguityBlend } from '../../utils/colorBlending'
 import { apiClient } from '../../api/client'
-import { LAYER_RANGES } from '../../constants/layerRanges'
+import { LAYER_WINDOWS } from '../../constants/layerWindows'
 import { isOutputNode, isOutputLink } from '../../constants/outputNodes'
 
 interface MultiSankeyViewProps {
   sessionIds: string[]
   sessionData: any
-  filterState: FilterState
+  schemaName: string
   primaryValues: string[]
   gradient?: GradientScheme
   secondaryValues?: string[]
   secondaryGradient?: GradientScheme
   secondaryAxisId?: string
+  ambiguityBlend?: AmbiguityBlend
   outputPrimaryValues?: string[]
   outputGradient?: GradientScheme
   outputSecondaryValues?: string[]
@@ -25,14 +25,13 @@ interface MultiSankeyViewProps {
   outputGroupingAxes?: string[]
   showAllRoutes: boolean
   topRoutes: number
-  selectedRange?: string
-  onRangeChange?: (range: string) => void
+  selectedWindow?: string
+  onWindowChange?: (windowId: string) => void
   onNodeClick?: (nodeData: any) => void
   onLinkClick?: (linkData: any) => void
   onRouteDataLoaded?: (routeDataMap: Record<string, RouteAnalysisResponse | null>) => void
   mode?: 'expert' | 'cluster'
-  clusteringConfig?: ClusteringConfig
-  clusteringSchema?: string
+  expertRank?: number | null
   manualTrigger?: boolean
   onAnalysisReady?: (runAnalysis: () => void) => void
 }
@@ -41,12 +40,13 @@ interface MultiSankeyViewProps {
 export default function MultiSankeyView({
   sessionIds,
   sessionData,
-  filterState,
+  schemaName,
   primaryValues,
   gradient,
   secondaryValues,
   secondaryGradient,
   secondaryAxisId,
+  ambiguityBlend,
   outputPrimaryValues,
   outputGradient,
   outputSecondaryValues,
@@ -56,14 +56,13 @@ export default function MultiSankeyView({
   outputGroupingAxes,
   showAllRoutes,
   topRoutes,
-  selectedRange = 'range1',
-  onRangeChange,
+  selectedWindow = 'w0',
+  onWindowChange,
   onNodeClick,
   onLinkClick,
   onRouteDataLoaded,
   mode = 'expert',
-  clusteringConfig,
-  clusteringSchema,
+  expertRank,
   manualTrigger = false,
   onAnalysisReady
 }: MultiSankeyViewProps) {
@@ -71,10 +70,10 @@ export default function MultiSankeyView({
   const [loadingMap, setLoadingMap] = useState<Record<string, boolean>>({})
   const [errorMap, setErrorMap] = useState<Record<string, string | null>>({})
 
-  const currentRange = LAYER_RANGES[selectedRange as keyof typeof LAYER_RANGES]
+  const currentWindow = LAYER_WINDOWS[selectedWindow as keyof typeof LAYER_WINDOWS]
 
-  const loadAllWindows = useCallback(async () => {
-    if (!sessionIds || sessionIds.length === 0 || !sessionData || !currentRange) {
+  const loadAllTransitions = useCallback(async () => {
+    if (!sessionIds || sessionIds.length === 0 || !sessionData || !currentWindow || !schemaName) {
       setRouteDataMap({})
       return
     }
@@ -82,96 +81,159 @@ export default function MultiSankeyView({
     const newRouteDataMap: Record<string, RouteAnalysisResponse | null> = {}
     const newErrorMap: Record<string, string | null> = {}
 
-    currentRange.windows.forEach(window => {
-      newLoadingMap[window.id] = true
+    currentWindow.transitions.forEach(transition => {
+      newLoadingMap[transition.id] = true
     })
     setLoadingMap(newLoadingMap)
 
-    const promises = currentRange.windows.map(async (window) => {
+    const promises = currentWindow.transitions.map(async (transition) => {
       try {
-        const filterConfig = convertFilterState(filterState)
-        const request = {
+        const baseRequest = {
           session_ids: sessionIds,
-          window_layers: window.layers,
-          filter_config: filterConfig,
+          schema_name: schemaName,
+          transition_layers: transition.layers,
           top_n_routes: showAllRoutes ? 1000 : topRoutes,
           ...(outputGroupingAxes ? { output_grouping_axes: outputGroupingAxes } : {}),
         }
-        const response = mode === 'cluster' && clusteringConfig
-          ? await apiClient.analyzeClusterRoutes({
-              ...request,
-              clustering_config: clusteringConfig,
-              ...(clusteringSchema ? { clustering_schema: clusteringSchema } : {})
-            })
+        const response = mode === 'cluster'
+          ? await apiClient.analyzeClusterRoutes(baseRequest)
           : await apiClient.analyzeRoutes({
-              ...request,
-              ...(clusteringSchema ? { clustering_schema: clusteringSchema } : {})
+              ...baseRequest,
+              ...(expertRank ? { expert_rank: expertRank } : {})
             })
-        newRouteDataMap[window.id] = response
-        newErrorMap[window.id] = null
+        newRouteDataMap[transition.id] = response
+        newErrorMap[transition.id] = null
       } catch (err) {
-        console.error(`Failed to load routes for ${window.id}:`, err)
-        newErrorMap[window.id] = err instanceof Error ? err.message : 'Failed to load'
-        newRouteDataMap[window.id] = null
+        console.error(`Failed to load routes for ${transition.id}:`, err)
+        newErrorMap[transition.id] = err instanceof Error ? err.message : 'Failed to load'
+        newRouteDataMap[transition.id] = null
       } finally {
-        newLoadingMap[window.id] = false
+        newLoadingMap[transition.id] = false
       }
     })
 
     await Promise.all(promises)
+
+    // --- Barycenter cross-transition node ordering (forward sweep L→R) ---
+    // Propagate vertical positions across transitions so the same cluster
+    // keeps consistent placement, minimizing link crossings.
+    let prevRightOrder: Map<string, number> | null = null
+
+    for (const transition of currentWindow.transitions) {
+      const data = newRouteDataMap[transition.id]
+      if (!data) {
+        prevRightOrder = null
+        continue
+      }
+
+      const leftLayer = Math.min(...transition.layers)
+      const rightLayer = Math.max(...transition.layers)
+
+      const getLayer = (name: string): number | null => {
+        const m = name.match(/^L(\d+)\//)
+        return m ? parseInt(m[1], 10) : null
+      }
+
+      const leftNodes: typeof data.nodes = []
+      const rightNodes: typeof data.nodes = []
+      const otherNodes: typeof data.nodes = []
+
+      for (const node of data.nodes) {
+        const layer = getLayer(node.name)
+        if (layer === leftLayer) leftNodes.push(node)
+        else if (layer === rightLayer) rightNodes.push(node)
+        else otherNodes.push(node)
+      }
+
+      // Left column: inherit previous transition's right ordering, or sort by size
+      if (prevRightOrder && prevRightOrder.size > 0) {
+        leftNodes.sort((a, b) =>
+          (prevRightOrder!.get(a.name) ?? Infinity) - (prevRightOrder!.get(b.name) ?? Infinity)
+        )
+      } else {
+        leftNodes.sort((a, b) => (b.token_count || 0) - (a.token_count || 0))
+      }
+
+      // Build left position index
+      const leftPos = new Map<string, number>()
+      leftNodes.forEach((n, i) => leftPos.set(n.name, i))
+
+      // Compute barycenter for each right node
+      const bary = new Map<string, number>()
+      for (const node of rightNodes) {
+        let wSum = 0, wTotal = 0
+        for (const link of data.links) {
+          if (link.target === node.name && leftPos.has(link.source)) {
+            wSum += link.value * leftPos.get(link.source)!
+            wTotal += link.value
+          }
+        }
+        bary.set(node.name, wTotal > 0 ? wSum / wTotal : Infinity)
+      }
+
+      // Sort right column by barycenter
+      rightNodes.sort((a, b) => (bary.get(a.name) ?? Infinity) - (bary.get(b.name) ?? Infinity))
+
+      // Store right order for next transition's left column
+      prevRightOrder = new Map()
+      rightNodes.forEach((n, i) => prevRightOrder!.set(n.name, i))
+
+      // Reassemble nodes in sorted order
+      data.nodes = [...leftNodes, ...rightNodes, ...otherNodes]
+    }
 
     setRouteDataMap(newRouteDataMap)
     setErrorMap(newErrorMap)
     setLoadingMap(newLoadingMap)
 
     onRouteDataLoaded?.(newRouteDataMap)
-  }, [sessionIds, sessionData, selectedRange, filterState, showAllRoutes, topRoutes, mode, clusteringConfig, clusteringSchema, outputGroupingAxes, onRouteDataLoaded])
+  }, [sessionIds, sessionData, selectedWindow, schemaName, showAllRoutes, topRoutes, mode, outputGroupingAxes, expertRank, onRouteDataLoaded])
 
   React.useEffect(() => {
     if (onAnalysisReady) {
-      onAnalysisReady(loadAllWindows)
+      onAnalysisReady(loadAllTransitions)
     }
-  }, [onAnalysisReady, loadAllWindows])
+  }, [onAnalysisReady, loadAllTransitions])
 
   useEffect(() => {
     if (manualTrigger) {
       return
     }
 
-    loadAllWindows()
-  }, [loadAllWindows, manualTrigger])
+    loadAllTransitions()
+  }, [loadAllTransitions, manualTrigger])
 
   return (
     <div className="space-y-1">
-      {/* Compact layer range selector */}
+      {/* Compact window selector */}
       <div className="flex items-center gap-2">
         <select
-          value={selectedRange}
-          onChange={(e) => onRangeChange?.(e.target.value)}
+          value={selectedWindow}
+          onChange={(e) => onWindowChange?.(e.target.value)}
           className="px-1.5 py-0.5 border border-gray-300 rounded text-[10px] focus:outline-none focus:ring-1 focus:ring-blue-500"
         >
-          {Object.entries(LAYER_RANGES).map(([key, range]) => (
+          {Object.entries(LAYER_WINDOWS).map(([key, window]) => (
             <option key={key} value={key}>
-              {range.label}
+              {window.label}
             </option>
           ))}
         </select>
-        {currentRange.windows.map(w => (
-          <span key={w.id} className="text-[9px] text-gray-400">{w.label}</span>
+        {currentWindow.transitions.map(t => (
+          <span key={t.id} className="text-[9px] text-gray-400">{t.label}</span>
         ))}
       </div>
 
       {/* 6 Sankey Charts + Output Chart */}
       <div className="flex gap-0">
-        {/* 6 layer windows */}
+        {/* 6 layer transitions */}
         <div className="flex-1 grid grid-cols-6 gap-0">
-        {currentRange.windows.map((window) => {
-          const routeData = routeDataMap[window.id]
-          const loading = loadingMap[window.id]
-          const error = errorMap[window.id]
+        {currentWindow.transitions.map((transition) => {
+          const routeData = routeDataMap[transition.id]
+          const loading = loadingMap[transition.id]
+          const error = errorMap[transition.id]
 
           return (
-            <div key={window.id} className="bg-white">
+            <div key={transition.id} className="bg-white">
               <div className="p-0" style={{ height: '200px' }}>
                 {loading ? (
                   <div className="flex items-center justify-center h-full">
@@ -195,21 +257,22 @@ export default function MultiSankeyView({
                     secondaryValues={secondaryValues}
                     secondaryGradient={secondaryGradient}
                     secondaryAxisId={secondaryAxisId}
+                    ambiguityBlend={ambiguityBlend}
                     outputPrimaryValues={outputPrimaryValues}
                     outputGradient={outputGradient}
                     outputSecondaryValues={outputSecondaryValues}
                     outputSecondaryGradient={outputSecondaryGradient}
                     outputSecondaryAxisId={outputSecondaryAxisId}
                     outputColorAxisId={outputColorAxisId}
-                    onNodeClick={(nodeId, nodeData) => {
+                    onNodeClick={(_nodeId, nodeData) => {
                       if (onNodeClick) {
-                        const enrichedData = {
+                        const enrichedData: any = {
                           ...nodeData,
                           population: nodeData.token_count,
                           coverage: Math.round((nodeData.token_count / routeData.statistics.total_probes) * 100),
                           _fullData: nodeData,
                           _totalProbes: routeData.statistics.total_probes,
-                          _window: window.label
+                          _window: transition.label
                         }
 
                         if (mode === 'cluster') {
@@ -233,7 +296,7 @@ export default function MultiSankeyView({
                           _fullData: linkData,
                           _routeInfo: routeInfo,
                           _totalProbes: routeData.statistics.total_probes,
-                          _window: window.label
+                          _window: transition.label
                         })
                       }
                     }}
@@ -250,10 +313,10 @@ export default function MultiSankeyView({
         })}
         </div>
 
-        {/* 7th chart: output category mapping from last window */}
+        {/* 7th chart: output category mapping from last transition */}
         {(() => {
-          const lastWindow = currentRange.windows[currentRange.windows.length - 1]
-          const lastData = routeDataMap[lastWindow?.id]
+          const lastTransition = currentWindow.transitions[currentWindow.transitions.length - 1]
+          const lastData = routeDataMap[lastTransition?.id]
           if (!lastData) return null
           const outputNodes = lastData.nodes.filter(n => isOutputNode(n.name))
           if (outputNodes.length === 0) return null
@@ -262,7 +325,7 @@ export default function MultiSankeyView({
           const sourceNames = new Set(outputLinks.map(l => l.source))
           const sourceNodes = lastData.nodes.filter(n => sourceNames.has(n.name))
           return (
-            <div className="bg-white flex-shrink-0" style={{ width: '120px' }}>
+            <div className="bg-white flex-shrink-0" style={{ width: '240px' }}>
               <div className="p-0" style={{ height: '200px' }}>
                 <SankeyChart
                   nodes={[...sourceNodes, ...outputNodes]}
@@ -272,6 +335,7 @@ export default function MultiSankeyView({
                   secondaryValues={secondaryValues}
                   secondaryGradient={secondaryGradient}
                   secondaryAxisId={secondaryAxisId}
+                  ambiguityBlend={ambiguityBlend}
                   outputPrimaryValues={outputPrimaryValues}
                   outputGradient={outputGradient}
                   outputSecondaryValues={outputSecondaryValues}
@@ -279,7 +343,7 @@ export default function MultiSankeyView({
                   outputSecondaryAxisId={outputSecondaryAxisId}
                   outputColorAxisId={outputColorAxisId}
                   nodeWidth={14}
-                  onNodeClick={(nodeId, nodeData) => {
+                  onNodeClick={(_nodeId, nodeData) => {
                     if (onNodeClick) {
                       onNodeClick({
                         ...nodeData,
@@ -287,7 +351,7 @@ export default function MultiSankeyView({
                         coverage: Math.round((nodeData.token_count / lastData.statistics.total_probes) * 100),
                         _fullData: nodeData,
                         _totalProbes: lastData.statistics.total_probes,
-                        _window: lastWindow.label
+                        _window: lastTransition.label
                       })
                     }
                   }}
@@ -300,7 +364,7 @@ export default function MultiSankeyView({
                         coverage: Math.round((linkData.value / lastData.statistics.total_probes) * 100),
                         _fullData: linkData,
                         _totalProbes: lastData.statistics.total_probes,
-                        _window: lastWindow.label
+                        _window: lastTransition.label
                       })
                     }
                   }}
@@ -313,15 +377,4 @@ export default function MultiSankeyView({
       </div>
     </div>
   )
-}
-
-// Convert FilterState to API FilterConfig
-function convertFilterState(filterState: FilterState): any {
-  const filterConfig: any = {}
-
-  if (filterState.labels?.size > 0) {
-    filterConfig.labels = Array.from(filterState.labels)
-  }
-
-  return Object.keys(filterConfig).length > 0 ? filterConfig : undefined
 }

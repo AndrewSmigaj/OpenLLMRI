@@ -3,7 +3,9 @@
 Simple Pydantic schemas for API requests/responses.
 """
 
-from pydantic import BaseModel
+import os
+
+from pydantic import BaseModel, Field
 from typing import List, Dict, Any, Optional
 
 
@@ -62,6 +64,7 @@ class ReductionPoint(BaseModel):
     target_word: str
     label: Optional[str] = None
     categories: Optional[Dict[str, str]] = None
+    step: Optional[int] = None
 
 
 class ExecutionResponse(BaseModel):
@@ -107,18 +110,6 @@ class FilterConfig(BaseModel):
     labels: Optional[List[str]] = None
 
 
-class AnalyzeRoutesRequest(BaseModel):
-    """Request to analyze expert routes for a session."""
-    session_id: Optional[str] = None
-    session_ids: Optional[List[str]] = None
-    window_layers: List[int]
-    filter_config: Optional[FilterConfig] = None
-    top_n_routes: int = 20
-    clustering_schema: Optional[str] = None  # Load from named schema (skip computation)
-    save_as: Optional[str] = None            # Compute AND save result under this name
-    output_grouping_axes: Optional[List[str]] = None  # Dynamic output node grouping
-
-
 class ClusteringConfig(BaseModel):
     """Configuration for clustering analysis."""
     reduction_dimensions: int = 128
@@ -127,20 +118,47 @@ class ClusteringConfig(BaseModel):
     embedding_source: str = "expert_output"  # "expert_output" or "residual_stream"
     reduction_method: str = "pca"  # "pca" or "umap"
     clustering_dimensions: Optional[List[int]] = None  # 0-indexed dim subset; None = all
+    n_neighbors: Optional[int] = None  # UMAP n_neighbors; None = 15
 
 
-class AnalyzeClusterRoutesRequest(BaseModel):
-    """Request to analyze cluster routes for a session."""
-    session_id: Optional[str] = None
-    session_ids: Optional[List[str]] = None
-    window_layers: List[int]
-    clustering_config: Optional[ClusteringConfig] = None  # Required unless clustering_schema resolves config from meta.json
-    filter_config: Optional[FilterConfig] = None
+# --- Schema build/load requests ---
+# Build is atomic: one call writes cluster + expert routes (ranks 1/2/3) for all
+# windows under a new schema directory. Load endpoints read cached artifacts.
+
+class LoadClusteringRequest(BaseModel):
+    """Load a cached cluster-route transition from a schema. Filters baked in at build."""
+    session_ids: List[str]
+    schema_name: str
+    transition_layers: List[int]
+    output_grouping_axes: Optional[List[str]] = None
     top_n_routes: int = 20
-    clustering_schema: Optional[str] = None  # Load from named schema (skip computation)
-    save_as: Optional[str] = None            # Compute AND save result under this name
-    output_grouping_axes: Optional[List[str]] = None  # Dynamic output node grouping
-    max_examples_per_node: Optional[int] = None  # Cap examples per node/link; None = all
+    max_examples_per_node: Optional[int] = None
+
+
+class LoadExpertRoutesRequest(BaseModel):
+    """Load a cached expert-route transition from a schema. Filters baked in at build."""
+    session_ids: List[str]
+    schema_name: str
+    transition_layers: List[int]
+    expert_rank: int = Field(1, ge=1, le=3)
+    output_grouping_axes: Optional[List[str]] = None
+    top_n_routes: int = 20
+
+
+class BuildSchemaRequest(BaseModel):
+    """Build a full clustering schema atomically. Always builds all 4 fixed
+    windows × 6 transitions × {cluster, expert ranks 1/2/3}. The schema
+    directory is the unit of work — succeeds entirely or fails entirely."""
+    session_id: str
+    save_as: str
+    clustering_config: ClusteringConfig
+    filter_config: Optional[FilterConfig] = None
+    steps: Optional[List[int]] = None
+    last_occurrence_only: bool = False
+    max_probes: Optional[int] = None
+    output_grouping_axes: Optional[List[str]] = None
+    top_n_routes: int = 20
+    max_examples_per_node: Optional[int] = None
 
 
 class ProbeExample(BaseModel):
@@ -151,6 +169,14 @@ class ProbeExample(BaseModel):
     probe_id: str
     generated_text: Optional[str] = None
     output_category: Optional[str] = None
+    target_char_offset: Optional[int] = None
+    turn_id: Optional[int] = None
+    capture_type: Optional[str] = None
+    step: Optional[int] = None
+    game_text: Optional[str] = None
+    analysis: Optional[str] = None
+    action: Optional[str] = None
+    system_prompt: Optional[str] = None
 
 # Resolve forward reference in SessionDetailResponse
 SessionDetailResponse.model_rebuild()
@@ -302,6 +328,11 @@ class SentenceExperimentRequest(BaseModel):
     session_name: Optional[str] = None
     layers: Optional[List[int]] = None  # defaults to adapter's layer list
     generate_output: bool = True  # generate continuation text for each probe
+    capture_static_substring: Optional[str] = None
+    # When set, residuals + routing + embeddings are also stored at every token
+    # position of the LAST occurrence of this substring in each probe's tokenized
+    # input (semantic positions 2, 3, ... in addition to target=1). Enables
+    # per-token separation analysis without re-engineering the capture pipeline.
 
 
 class SentenceExperimentResponse(BaseModel):
@@ -313,23 +344,26 @@ class SentenceExperimentResponse(BaseModel):
     counts: Dict[str, int]
 
 
-# --- On-Demand Reduction Schemas ---
+# --- Trajectory Points (cached UMAP-3D from a clustering schema) ---
 
-class ReductionRequest(BaseModel):
-    """Request for on-demand PCA/UMAP reduction."""
-    session_ids: List[str]
+class TrajectoryPoint(BaseModel):
+    """A single 3D-reduced point baked into a clustering schema."""
+    probe_id: str
+    x: float
+    y: float
+    z: float
+    label: Optional[str] = None
+    target_word: Optional[str] = None
+    step: Optional[int] = None
+    categories_json: Optional[str] = None
+
+
+class TrajectoryPointsResponse(BaseModel):
+    """All cached trajectory points for a clustering schema, keyed by layer."""
+    schema_name: str
+    sample_size: int
     layers: List[int]
-    source: str = "expert_output"  # "expert_output" or "residual_stream"
-    method: str = "umap"           # "pca" or "umap"
-    n_components: int = 3
-
-
-class ReductionResponse(BaseModel):
-    """Response from on-demand reduction."""
-    points: List[ReductionPoint]
-    layers: List[int]
-    method: str
-    n_components: int
+    points_by_layer: Dict[str, List[TrajectoryPoint]]
 
 
 # --- Scaffold Step Schemas ---
@@ -357,21 +391,23 @@ class ScaffoldStepResponse(BaseModel):
 # --- Temporal Capture Schemas ---
 
 class TemporalCaptureRequest(BaseModel):
-    """Request to run a temporal basin transition experiment."""
+    """Request to run a temporal basin transition experiment.
+
+    Always uses harmony chat-template + KV-cache reuse (verified to produce
+    residuals identical to no-cache within fp16 precision, much faster).
+    """
     session_id: str
     basin_a_cluster_id: int
     basin_b_cluster_id: int
     basin_layer: int
+    clustering_schema: str  # Required — schema_dir/probe_assignments.json is the only source
     sentences_per_block: int = 20
-    processing_mode: str = "expanding_cache_on"  # expanding_cache_off, expanding_cache_on, single_cache_on
     sequence_config: str = "block_ab"  # block_ab, block_ba, block_aba
-    clustering_schema: Optional[str] = None  # Named schema to read assignments from
     layers: Optional[List[int]] = None
     run_label: Optional[str] = None
-    generate_output: bool = True  # generate continuation text for each probe
-    custom_sentences: Optional[List[str]] = None  # Override basin selection with explicit word/sentence list
-    custom_target_word: Optional[str] = None  # Target word for custom sentences (e.g. "tank")
-    custom_regime_boundary: Optional[int] = None  # Explicit regime boundary for replay (bypasses auto-detection)
+    generate_output: bool = False  # rare for temporal protocol; off by default
+    custom_sentences: Optional[List[str]] = None  # Word-by-word or joke experiments
+    custom_target_word: Optional[str] = None  # Override target_word for custom_sentences
 
 
 class TemporalCaptureResponse(BaseModel):
@@ -380,7 +416,6 @@ class TemporalCaptureResponse(BaseModel):
     new_session_id: str
     sequence_positions: int
     regime_boundary: int
-    processing_mode: str
     basin_a_sentences: int
     basin_b_sentences: int
 
@@ -412,5 +447,67 @@ class TemporalLagDataResponse(BaseModel):
     points: List[TemporalLagPoint]
     regime_boundary: int
     processing_mode: str
-    temporal_run_id: str
-    basin_separation: float    # L2 distance between centroids
+
+
+# --- Agent session schemas ---
+# CLAUDE: Do NOT pass evennia_username or evennia_password in curl calls.
+# They default from .env via load_dotenv() in main.py. Use the /agent skill
+# OP-1/OP-1B curl templates which omit credentials entirely.
+
+class AgentStartRequest(BaseModel):
+    """Request to start a new agent capture session."""
+    session_name: str
+    scenario_id: str
+    target_words: List[str]
+    bootstrap_session_id: str = ""
+    agent_name: str = "agent"
+    capture_type_config: Optional[List[str]] = None
+    auto_start: bool = False
+    system_prompt: Optional[str] = None
+    evennia_username: str = os.environ.get("EVENNIA_AGENT_USER", "agent")  # from .env — do NOT override
+    evennia_password: str = os.environ.get("EVENNIA_AGENT_PASS", "")  # from .env — do NOT override
+    scenario_list: Optional[List[str]] = None
+
+
+class AgentResumeRequest(BaseModel):
+    """Resume an existing agent session with additional scenarios."""
+    session_id: str
+    scenario_list: List[str]
+    system_prompt: Optional[str] = None
+    evennia_username: str = os.environ.get("EVENNIA_AGENT_USER", "agent")  # from .env — do NOT override
+    evennia_password: str = os.environ.get("EVENNIA_AGENT_PASS", "")  # from .env — do NOT override
+
+
+class AgentStartResponse(BaseModel):
+    """Response from starting an agent session."""
+    session_id: str
+    session_name: str
+    target_words: List[str]
+    scenario_id: str
+
+class AgentStopRequest(BaseModel):
+    """Request to stop an agent session."""
+    session_id: str
+
+class AgentStopResponse(BaseModel):
+    """Response from stopping an agent session."""
+    session_id: str
+    state: str
+    total_turns: int
+
+class AgentGenerateRequest(BaseModel):
+    """Request for a single agent generate tick."""
+    session_id: str
+    prompt: str
+    target_words: List[str]
+    knowledge_probe: Optional[str] = None
+    max_new_tokens: int = 200
+
+class AgentGenerateResponse(BaseModel):
+    """Response from an agent generate tick."""
+    analysis: str
+    action: str
+    capture_id: str
+    generated_text: str
+    turn_id: int
+    knowledge_capture_id: Optional[str] = None

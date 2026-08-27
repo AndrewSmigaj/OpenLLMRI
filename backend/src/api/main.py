@@ -3,13 +3,28 @@
 FastAPI server for Concept MRI - MoE interpretability through Concept Trajectory Analysis.
 """
 
+from pathlib import Path
+from dotenv import load_dotenv
+
+# Load .env from project root BEFORE importing anything that reads env vars
+# at module-import time. `api.schemas.AgentStartRequest` evaluates
+# `os.environ.get("EVENNIA_AGENT_PASS", "")` as a Pydantic field default at
+# import time, so the dotenv load must happen before the router imports
+# below. Without this, the backend can't authenticate as the agent unless
+# the launching shell manually exported the env vars.
+_PROJECT_ROOT = Path(__file__).resolve().parents[3]
+load_dotenv(_PROJECT_ROOT / ".env")
+
 from contextlib import asynccontextmanager
 import logging
 import time
+
+logging.basicConfig(level=logging.INFO, format="%(asctime)s %(name)s %(levelname)s %(message)s")
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import torch
-from api.routers import probes, experiments, generation, prompts
+from api.routers import probes, routes, clustering, insights, temporal, generation, prompts, agent
 from api.dependencies import initialize_capture_service, is_model_loaded, get_loading_status
 
 logger = logging.getLogger(__name__)
@@ -36,9 +51,13 @@ app.add_middleware(
 
 # Include routers
 app.include_router(probes.router, prefix="/api")
-app.include_router(experiments.router, prefix="/api")
+app.include_router(routes.router, prefix="/api")
+app.include_router(clustering.router, prefix="/api")
+app.include_router(insights.router, prefix="/api")
+app.include_router(temporal.router, prefix="/api")
 app.include_router(generation.router, prefix="/api")
 app.include_router(prompts.router, prefix="/api")
+app.include_router(agent.router, prefix="/api")
 
 @app.get("/")
 async def root():

@@ -18,6 +18,7 @@ from services.experiments.route_analysis_common import (
     axis_label, generate_specialization, analyze_top_routes,
     compute_available_axes, build_sankey_links,
 )
+from services.experiments.token_filters import pick_last_occurrence, subsample_probes
 
 
 class ExpertRouteAnalysisService:
@@ -32,8 +33,12 @@ class ExpertRouteAnalysisService:
         session_ids: Optional[List[str]] = None,
         window_layers: List[int] = None,
         filter_config: Optional[Dict[str, Any]] = None,
+        steps: Optional[List[int]] = None,
         top_n_routes: int = 20,
         output_grouping_axes: Optional[List[str]] = None,
+        expert_rank: int = 1,
+        last_occurrence_only: bool = False,
+        max_probes: Optional[int] = None,
     ) -> Dict[str, Any]:
         """Analyze expert routes for one or more capture sessions within specified window."""
         ids = session_ids or ([session_id] if session_id else [])
@@ -47,7 +52,30 @@ class ExpertRouteAnalysisService:
                 routing_records, token_records, filter_config
             )
 
-        routes = self._extract_target_routes(routing_records, token_records, window_layers)
+        # Filter by sequence step (turn_id or sentence_index)
+        if steps:
+            step_probe_ids = set()
+            for t in token_records:
+                step = t.turn_id if t.turn_id is not None else t.sentence_index
+                if step in steps:
+                    step_probe_ids.add(t.probe_id)
+            routing_records = [r for r in routing_records if r.probe_id in step_probe_ids]
+            token_records = [t for t in token_records if t.probe_id in step_probe_ids]
+
+        # Keep only the last target-word occurrence per (session_id, input_text, target_word)
+        if last_occurrence_only:
+            keep_ids = pick_last_occurrence(token_records)
+            routing_records = [r for r in routing_records if r.probe_id in keep_ids]
+            token_records = [t for t in token_records if t.probe_id in keep_ids]
+
+        # Deterministic stratified subsample (applied after last_occurrence_only
+        # so we pick a representative N of the collapsed set).
+        subset = subsample_probes(token_records, max_probes)
+        if subset is not None:
+            routing_records = [r for r in routing_records if r.probe_id in subset]
+            token_records = [t for t in token_records if t.probe_id in subset]
+
+        routes = self._extract_target_routes(routing_records, token_records, window_layers, expert_rank=expert_rank)
 
         top_routes_data = analyze_top_routes(routes, top_n_routes)
 
@@ -150,7 +178,7 @@ class ExpertRouteAnalysisService:
             "layer": layer,
             "expert_id": expert_id,
             "node_name": f"L{layer}E{expert_id}",
-            "tokens": expert_tokens[:20],
+            "tokens": expert_tokens,
             "total_tokens": len(expert_tokens),
             "usage_rate": usage_rate,
             "avg_confidence": float(np.mean(confidence_scores)) if confidence_scores else 0,
@@ -174,6 +202,10 @@ class ExpertRouteAnalysisService:
 
         tokens_path = session_path / "tokens.parquet"
         token_records = read_records(str(tokens_path), ProbeRecord)
+        from services.probes.scenario_actions import enrich_records_with_scenario_actions
+        from services.probes.tick_log_enrichment import enrich_records_with_tick_log
+        enrich_records_with_scenario_actions(token_records, session_path)
+        enrich_records_with_tick_log(token_records, session_path)
 
         manifest = None
         manifest_path = session_path / "capture_manifest.parquet"
@@ -249,7 +281,8 @@ class ExpertRouteAnalysisService:
         self,
         routing_records: List[RoutingRecord],
         token_records: List[ProbeRecord],
-        window_layers: List[int]
+        window_layers: List[int],
+        expert_rank: int = 1,
     ) -> Dict[str, Dict]:
         """Extract expert routes for target tokens within specified window layers."""
         routing_by_probe = defaultdict(list)
@@ -276,7 +309,7 @@ class ExpertRouteAnalysisService:
             target_routing.sort(key=lambda r: r.layer)
 
             try:
-                signature = highway_signature(target_routing, target_tokens_only=True)
+                signature = highway_signature(target_routing, target_tokens_only=True, expert_rank=expert_rank)
             except ValueError:
                 continue
 
@@ -339,15 +372,22 @@ class ExpertRouteAnalysisService:
                             cats = json.loads(token_record.categories_json)
                             for axis_id, value in cats.items():
                                 expert_category_counts[part][axis_id][value] += 1
-                        if len(expert_example_tokens[part]) < 10:
-                            expert_example_tokens[part].append({
-                                "target_word": token_record.target_word,
-                                "label": token_record.label,
-                                "input_text": token_record.input_text,
-                                "probe_id": probe_id,
-                                "generated_text": getattr(token_record, 'generated_text', None),
-                                "output_category": getattr(token_record, 'output_category', None),
-                            })
+                        turn_id = getattr(token_record, 'turn_id', None)
+                        expert_example_tokens[part].append({
+                            "target_word": token_record.target_word,
+                            "label": token_record.label,
+                            "input_text": token_record.input_text,
+                            "probe_id": probe_id,
+                            "generated_text": getattr(token_record, 'generated_text', None),
+                            "output_category": getattr(token_record, 'output_category', None),
+                            "target_char_offset": getattr(token_record, 'target_char_offset', None),
+                            "turn_id": turn_id,
+                            "step": turn_id if turn_id is not None else getattr(token_record, 'sentence_index', None),
+                            "game_text": getattr(token_record, 'game_text', None),
+                            "analysis": getattr(token_record, 'analysis', None),
+                            "action": getattr(token_record, 'action', None),
+                            "system_prompt": getattr(token_record, 'system_prompt', None),
+                        })
 
             for i in range(len(parts) - 1):
                 transitions[parts[i]][parts[i + 1]] += route_info["count"]
