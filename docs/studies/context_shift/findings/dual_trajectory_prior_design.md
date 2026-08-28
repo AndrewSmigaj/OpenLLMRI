@@ -14,7 +14,7 @@ the same qualitative story on both probes. The lens was not hallucinating struct
 below is now visible in the un-reduced activation space.
 
 **Tank polysemy:**
-- Clean basin hold pre-shift in both directions, both instruments.
+- Clean pre-shift stability of the starting reading in both directions, both instruments.
 - Rapid crossing at the shift (~2–4 sentences).
 - **Incomplete consolidation post-shift on the raw axis**: A→B settles around +0.5–0.6 (endpoint
   = +1), B→A around −1.0 with wider bands than pre-shift. The lens-level "less snug" finding now

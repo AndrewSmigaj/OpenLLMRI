@@ -19,9 +19,9 @@ world, sharpened by stratification.
   reading is; that location moves smoothly through the middle. No endpoint pile-up (contra
   passage), no third mode (contra metastable middle).
 - L23 agrees: all bands unimodal (min dip p = 0.11), packet wider (sd ≈ 0.9–1.2) and slower.
-- Combined with D4: the picture is stable attractor-like ENDPOINT regions under consistent
-  evidence, but transition paths that are continuous drifts — not punctuated hops between
-  basins — and that do not complete within 20 sentences.
+- Combined with D4: endpoint readings are STABLE under consistent evidence, while transition
+  paths move through the in-between continuously at the population level and do not complete
+  within 20 sentences. (No dynamical-systems commitment implied — see terminology note below.)
 
 ## P2 (window context tokens): the documented cross-token caveat is confirmed empirically
 All post-shift window-token distributions sit at mean ≈ −1.7 regardless of checkpoint,
@@ -58,3 +58,17 @@ The population-level statistics stand; the world-assignment is SOFTENED.
   unimodal packet" description applies to the population mean, not to every run.
 - Coheres with the integrator reframe in `tank_d3_first_results.md`: a recency-weighted
   evidence integrator with per-run noise produces exactly this signature.
+
+
+---
+## TERMINOLOGY NOTE (2026-08-28)
+
+Program doctrine (Research Plan v2): attractor-basin language is DROPPED. The framework under
+study is metastable states — whether the in-between is a learned, habitable state; a passage;
+or an off-manifold artifact — with instruments signing their own claims. Earlier phrasing in
+this file ("attractor-like", "hops between basins") slipped back into the legacy paper's
+vocabulary and is retracted; "basin" appears in this study's artifacts only inside legacy
+schema/session names. The observables here (occupancy distributions, stability under
+consistent evidence, integration dynamics) make no commitment to basin geometry. The
+off-manifold vs learned-structure question is adjudicated by the ROUTER observable
+(entropy/top-1 patterns through transitions), reported separately.
