@@ -1,1 +1,4 @@
 set	session	probes	status
+fr_s1_calibration_v1	session_5247081b	600	ok
+fr_s2_calibration_v1	session_589557e1	300	ok
+fr_s3_calibration_v1	session_c913da46	300	ok
