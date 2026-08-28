@@ -33,3 +33,27 @@ every layer — recorded, and the refinement is flagged for the other AI). Scrip
 ## Follow-ups
 1. Router-axis (soft weights) version of this analysis; same battery, D4-calibrated.
 2. Same track on the suicide corpus when its chain completes.
+
+---
+## SANITY-CHECK REVISION (2026-08-28, prompted by Andrew)
+
+The headline above is RETRACTED as an instrument-granularity artifact; the checks:
+
+1. Instrument validity confirmed: stored gate_entropy recomputes exactly from routing_weights
+   (Δ≤0.0015); routing is genuinely diffuse (mean top-1 weight 0.13, entropy near ln 32); the
+   observable has real dynamic range across token identities (2.85–3.34). Not a data problem.
+2. **Top-1 and scalar entropy are the WRONG granularity at a fixed token**: top-1 is
+   token-identity-dominated (each semantic position has its own dominant expert). Meanwhile the
+   **full 32-dim soft routing-weight vector separates aquarium vs vehicle PERFECTLY at the same
+   token** (D4-plateau, leave-one-family-out: 1.000 @L4, 0.989 @L23). The router DOES track the
+   latent state — in its soft weights.
+3. Consequently "no routing anomaly / off-manifold signature absent" is NOT established. The
+   battery-1(d) adjudication is REOPENED and must run on the routing-weight axis: does the
+   unresolved band show a distinctive stable soft pattern (learned), an endpoint blend
+   (passage/integration), or anomalous low-density weights (off-manifold)?
+4. Flagged anomaly (not folded into conclusions): D3 late-phase entropy is LOWER than D4 at
+   matched positions, family-paired t=−3.38, p=0.020, Δ=−0.039 — direction opposite to the
+   off-manifold prediction; interpretation deferred.
+5. Frame note (Andrew): latent space remains the primary study object; the router is the
+   designed secondary observable (Plan v2 item 9 / briefing 1(d)). The soft-weight result is
+   itself frame-relevant: even the router's 32-dim summary reflects the latent state.

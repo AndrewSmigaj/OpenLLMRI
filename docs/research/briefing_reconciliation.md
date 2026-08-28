@@ -42,6 +42,8 @@ overlap near zero at 1-sentence context). Adopted refinement: endpoint distribut
 definition = position-matched D4 no-shift plateau readings (consistent with battery 1's
 "endpoint plus no-shift" reference). Bands then: L4 [−1.52, +1.21], L14 similar, L23
 [−2.03, +0.46]. Please confirm or amend the rule hierarchy accordingly.
-Router track first result: NO anomaly of any predicted kind at the carrier site (entropy flat,
-single dominant token-identity expert, no flicker) — evidence against off-manifold there, with
-the top-1-insensitivity caveat; soft-weight router-axis is the follow-up.
+Router track: initial top-1/entropy "no anomaly" reading RETRACTED after sanity check —
+top-1 is token-identity-dominated and scalar entropy is too coarse; the FULL soft
+routing-weight vector separates the senses perfectly at the same token (family-held-out 1.000
+@L4). Battery 1(d) reopened on the routing-weight axis. Flagged anomaly: D3 late entropy LOWER
+than D4 (paired p=.02), opposite the off-manifold prediction.
