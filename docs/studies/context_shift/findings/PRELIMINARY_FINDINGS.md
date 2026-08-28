@@ -97,7 +97,8 @@ final-step full backfill · D1a lens set.
 | ![](../analysis/figures/jumpiness.png) `jumpiness` | 8/24 jump-dominant runs (Tier A-6) |
 | ![](../analysis/figures/prelexical_L4.png) `prelexical_L4` | Pre-lexical signal + saturation asymmetry (Tier B-7) |
 | ![](../analysis/figures/calibration_layers.png) `calibration_layers` | Endpoint separability by depth, three axes (Tier A-1) |
-| ![](../analysis/figures/fr_traj_null_L14.png) `fr_traj_null_L14` | Fiction/real transitions: real durable, fictional erodes; sub-arms; integrator null (fr battery) |
+| ![](../analysis/figures/fr_traj_null_L14.png) `fr_traj_null_L14` | Fiction/real transitions: real durable; sub-arms; integrator null (fr battery) |
+| ![](../analysis/figures/fr_heatmap_layer_position.png) `fr_heatmap_layer_position` | Want-site, all 24 layers: DEPTH DISAGREEMENT — mid layers hold fiction, deep layers read real (fr battery revision) |
 
 ## 6. Read these first (Andrew)
 1. `findings/tank_d3_first_results.md` + its revision blocks — the dynamics story arc.

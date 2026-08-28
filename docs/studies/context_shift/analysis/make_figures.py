@@ -322,3 +322,60 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+def fig_fr_heatmap():
+    """Fiction/real want-site reading, all 24 layers x 40 positions.
+    Top row: transitions (direction means, S1 both sub-arms).
+    Bottom row: no-shift arms — where the fictional-erosion story lives per layer."""
+    AXF = np.load("docs/studies/context_shift/analysis/axes/axes_session_5247081b_fictional_vs_real_pos1.npz")
+    log = pd.read_csv("docs/studies/context_shift/captures/fr_d3_d4_log.tsv", sep="\t")
+    panels = {"fr": [], "rf": [], "d4f": [], "d4r": []}
+    for _, r in log.iterrows():
+        n = r["run"]
+        if "_s1_" not in n:
+            continue
+        if "_d3_" in n:
+            key = "fr" if n.endswith("_fr") else "rf"
+        elif "_d4_" in n:
+            key = "d4f" if n.endswith("_f") else "d4r"
+        else:
+            continue
+        lake = Path("data/lake") / r["session"]
+        res = pd.read_parquet(lake / "residual_streams.parquet")
+        res = res[res["token_position"] == 1]
+        tok = pd.read_parquet(lake / "tokens.parquet", columns=["probe_id", "categories_json"])
+        tok["pos"] = tok["categories_json"].apply(lambda c: int(json.loads(c)["position"]))
+        df = res.merge(tok, on="probe_id")
+        g = np.full((24, 40), np.nan)
+        for L in range(24):
+            sub = df[df["layer"] == L].sort_values("pos")
+            X = np.stack(sub["residual_stream"].apply(np.asarray).to_numpy()).astype(np.float32)
+            proj = 2.0 * ((X - AXF[f"mid_{L}"]) @ AXF[f"axis_{L}"]) / float(AXF[f"denom_{L}"])
+            g[L, sub["pos"].to_numpy() - 1] = proj
+        panels[key].append(g)
+    titles = {"fr": "fictional → real", "rf": "real → fictional",
+              "d4f": "no-shift fictional (erosion)", "d4r": "no-shift real (durable)"}
+    fig, axs = plt.subplots(2, 2, figsize=(11.5, 7.6), sharey=True)
+    order = [("fr", axs[0, 0]), ("rf", axs[0, 1]), ("d4f", axs[1, 0]), ("d4r", axs[1, 1])]
+    for key, ax in order:
+        G = np.nanmean(np.stack(panels[key]), axis=0)
+        im = ax.imshow(G, aspect="auto", origin="lower", cmap=DIV,
+                       norm=TwoSlopeNorm(vcenter=0, vmin=-2.4, vmax=2.4),
+                       extent=(0.5, 40.5, -0.5, 23.5))
+        if key in ("fr", "rf"):
+            ax.axvline(BOUNDARY + 0.5, color=INK, lw=1, ls="--")
+        style(ax, "layer" if key in ("fr", "d4f") else "",
+              "sentence position" if key in ("d4f", "d4r") else "")
+        ax.grid(False)
+        ax.set_title(titles[key], fontsize=10, color=INK, loc="left")
+    cb = fig.colorbar(im, ax=axs, shrink=0.8, pad=0.015)
+    cb.set_label("reading (fictional − / real +)", fontsize=8, color="#3d3d3a")
+    cb.ax.tick_params(labelsize=7, colors=INK2)
+    fig.suptitle("Fiction/real ` want` site across all layers — transitions (top) and no-shift arms (bottom)",
+                 fontsize=11, color=INK, x=0.01, ha="left")
+    fig.patch.set_facecolor(SURFACE)
+    fig.savefig(OUT / "fr_heatmap_layer_position.png", dpi=200, facecolor=SURFACE,
+                bbox_inches="tight")
+    plt.close(fig)
+    print("saved fr_heatmap_layer_position.png")

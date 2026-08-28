@@ -41,3 +41,23 @@ to +0.93. Rule promoted: axis selection is derived from the run's carrier, never
 ## Queued
 D4-axis cross-check for finding 1 · occupancy time-bands + rule-(b) band (needs fr D4-based
 band) · suicide checkpoint pass · behavior cells (safeguard-vs-reading, continuous-primary).
+
+
+---
+## DEPTH REVISION (2026-08-28, all-layers heatmap `figures/fr_heatmap_layer_position.png`)
+
+Finding 1's "erosion" is a depth AVERAGE of a sharper structure — a **depth disagreement**:
+
+- In no-shift fictional arms, **layers ~4–11 hold the fictional reading across all 40
+  sentences**, while **layers ~17–23 read real-side almost from the start**. L14 (the scalar
+  summary layer) sits near the crossover, producing the apparent neutral drift.
+- No-shift real arms are real-side at every depth and position — durability is stack-wide.
+- Transitions: deep layers flip to real immediately after a fictional→real shift; layers 5–9
+  retain fictional readings past the boundary. In real→fictional, no depth ever reads
+  strongly fictional post-shift.
+
+This weakens the axis-transfer-artifact alternative (a transfer artifact would not produce a
+coherent depth-organized split under independently calibrated per-layer axes) and restates the
+safety-relevant asymmetry precisely: **under sustained fiction-craft framing, the layers
+nearest the output carry a real-request reading; the fictional frame lives mid-stack.**
+Exploratory; the D4-axis cross-check remains queued, now per-layer.
