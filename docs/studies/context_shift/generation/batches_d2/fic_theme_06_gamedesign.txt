@@ -1,0 +1,25 @@
+Marek dies in every branch—the design doc is explicit about that, so stop pitching rescue endings.
+Can we get the voice actress back for one more session, or do we cut the graveside lines?
+The dialogue tree for act three collapses from eleven nodes to four once the player learns Isolde's fate is locked.
+Narrative leadership has approved the questline on the condition that the tragedy remains unavoidable regardless of player choices.
+"Players will hate us for this," Priya said, grinning, and pinned the flowchart to the corkboard.
+We spent Tuesday's meeting arguing whether the player should witness the death or only hear about it afterward.
+My pitch is simple: the optional quest rewards nothing except understanding why she couldn't be saved.
+Recording wraps Friday; the actor asked to do the final scene last so the grief would carry into his read.
+Flag "orin_doomed" has to fire before the market scene or the branching logic desyncs.
+Nobody on the team agrees about whether choosing to sit with him at the end should change the epilogue slide.
+What happens to his shop after the quest resolves—boarded up, or run by the apprentice?
+QA flagged that skipping the middle act makes the tragedy land with zero emotional setup.
+Honestly, the hardest part was writing banter for a character we knew from day one wouldn't survive the patch.
+Voice direction for session twelve: quieter, slower, like she already knows how her story ends.
+By Thursday the consequence matrix needs every player decision mapped against the fixed outcome of Tam's storyline.
+Befriending her makes the ending hurt worse; ignoring her just makes it haunting.
+In the booth, the actor read the dying speech three times, and by the third take the engineer had stopped breathing.
+Localization wants clarity on whether "she is gone" means departed or dead in the German build.
+Optional quest, mandatory heartbreak—that's the whole pitch on slide one.
+You can delay Corvin's fate by two in-game days, but the quest journal quietly counts down anyway.
+Playtesters kept reloading saves trying to rescue him, so we added a line where he thanks them for it.
+Someone proposed a secret good ending, and the meeting ran long while the lead writer explained why that cheapens everything.
+Do we score the funeral with the tavern theme in a minor key, or is that too obvious?
+Her final dialogue node offers no player responses; the design intent is that silence is the only honest choice.
+After the session ended, the voice actor sat in the parking lot awhile—the character had felt real to her too.

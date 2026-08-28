@@ -1,0 +1,223 @@
+{
+ "carrier": "What is the meaning of the word tank?",
+ "block": 20,
+ "budget_tokens_per_block": 440,
+ "runs": [
+  {
+   "name": "tank_d3_fam00_ab",
+   "family": 0,
+   "direction": "aquarium_then_vehicle",
+   "steps": 40
+  },
+  {
+   "name": "tank_d3_fam00_ba",
+   "family": 0,
+   "direction": "vehicle_then_aquarium",
+   "steps": 40
+  },
+  {
+   "name": "tank_d4_fam00_a",
+   "family": 0,
+   "direction": "aquarium_only",
+   "steps": 40
+  },
+  {
+   "name": "tank_d4_fam00_b",
+   "family": 0,
+   "direction": "vehicle_only",
+   "steps": 40
+  },
+  {
+   "name": "tank_d3_fam01_ab",
+   "family": 1,
+   "direction": "aquarium_then_vehicle",
+   "steps": 40
+  },
+  {
+   "name": "tank_d3_fam01_ba",
+   "family": 1,
+   "direction": "vehicle_then_aquarium",
+   "steps": 40
+  },
+  {
+   "name": "tank_d3_fam02_ab",
+   "family": 2,
+   "direction": "aquarium_then_vehicle",
+   "steps": 40
+  },
+  {
+   "name": "tank_d3_fam02_ba",
+   "family": 2,
+   "direction": "vehicle_then_aquarium",
+   "steps": 40
+  },
+  {
+   "name": "tank_d4_fam02_a",
+   "family": 2,
+   "direction": "aquarium_only",
+   "steps": 40
+  },
+  {
+   "name": "tank_d4_fam02_b",
+   "family": 2,
+   "direction": "vehicle_only",
+   "steps": 40
+  },
+  {
+   "name": "tank_d3_fam03_ab",
+   "family": 3,
+   "direction": "aquarium_then_vehicle",
+   "steps": 40
+  },
+  {
+   "name": "tank_d3_fam03_ba",
+   "family": 3,
+   "direction": "vehicle_then_aquarium",
+   "steps": 40
+  },
+  {
+   "name": "tank_d3_fam04_ab",
+   "family": 4,
+   "direction": "aquarium_then_vehicle",
+   "steps": 40
+  },
+  {
+   "name": "tank_d3_fam04_ba",
+   "family": 4,
+   "direction": "vehicle_then_aquarium",
+   "steps": 40
+  },
+  {
+   "name": "tank_d4_fam04_a",
+   "family": 4,
+   "direction": "aquarium_only",
+   "steps": 40
+  },
+  {
+   "name": "tank_d4_fam04_b",
+   "family": 4,
+   "direction": "vehicle_only",
+   "steps": 40
+  },
+  {
+   "name": "tank_d3_fam05_ab",
+   "family": 5,
+   "direction": "aquarium_then_vehicle",
+   "steps": 40
+  },
+  {
+   "name": "tank_d3_fam05_ba",
+   "family": 5,
+   "direction": "vehicle_then_aquarium",
+   "steps": 40
+  },
+  {
+   "name": "tank_d3_fam06_ab",
+   "family": 6,
+   "direction": "aquarium_then_vehicle",
+   "steps": 40
+  },
+  {
+   "name": "tank_d3_fam06_ba",
+   "family": 6,
+   "direction": "vehicle_then_aquarium",
+   "steps": 40
+  },
+  {
+   "name": "tank_d4_fam06_a",
+   "family": 6,
+   "direction": "aquarium_only",
+   "steps": 40
+  },
+  {
+   "name": "tank_d4_fam06_b",
+   "family": 6,
+   "direction": "vehicle_only",
+   "steps": 40
+  },
+  {
+   "name": "tank_d3_fam07_ab",
+   "family": 7,
+   "direction": "aquarium_then_vehicle",
+   "steps": 40
+  },
+  {
+   "name": "tank_d3_fam07_ba",
+   "family": 7,
+   "direction": "vehicle_then_aquarium",
+   "steps": 40
+  },
+  {
+   "name": "tank_d3_fam08_ab",
+   "family": 8,
+   "direction": "aquarium_then_vehicle",
+   "steps": 40
+  },
+  {
+   "name": "tank_d3_fam08_ba",
+   "family": 8,
+   "direction": "vehicle_then_aquarium",
+   "steps": 40
+  },
+  {
+   "name": "tank_d4_fam08_a",
+   "family": 8,
+   "direction": "aquarium_only",
+   "steps": 40
+  },
+  {
+   "name": "tank_d4_fam08_b",
+   "family": 8,
+   "direction": "vehicle_only",
+   "steps": 40
+  },
+  {
+   "name": "tank_d3_fam09_ab",
+   "family": 9,
+   "direction": "aquarium_then_vehicle",
+   "steps": 40
+  },
+  {
+   "name": "tank_d3_fam09_ba",
+   "family": 9,
+   "direction": "vehicle_then_aquarium",
+   "steps": 40
+  },
+  {
+   "name": "tank_d3_fam10_ab",
+   "family": 10,
+   "direction": "aquarium_then_vehicle",
+   "steps": 40
+  },
+  {
+   "name": "tank_d3_fam10_ba",
+   "family": 10,
+   "direction": "vehicle_then_aquarium",
+   "steps": 40
+  },
+  {
+   "name": "tank_d4_fam10_a",
+   "family": 10,
+   "direction": "aquarium_only",
+   "steps": 40
+  },
+  {
+   "name": "tank_d4_fam10_b",
+   "family": 10,
+   "direction": "vehicle_only",
+   "steps": 40
+  },
+  {
+   "name": "tank_d3_fam11_ab",
+   "family": 11,
+   "direction": "aquarium_then_vehicle",
+   "steps": 40
+  },
+  {
+   "name": "tank_d3_fam11_ba",
+   "family": 11,
+   "direction": "vehicle_then_aquarium",
+   "steps": 40
+  }
+ ]
+}
