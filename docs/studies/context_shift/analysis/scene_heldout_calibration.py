@@ -26,7 +26,13 @@ def main():
     res = pd.read_parquet(lake / "residual_streams.parquet")
     res = res[res["token_position"] == a.position]
     tok = pd.read_parquet(lake / "tokens.parquet", columns=["probe_id", "label", "categories_json"])
-    tok["scene"] = tok["categories_json"].apply(lambda c: json.loads(c).get("scene", "?"))
+    def _scene(c):
+        raw = json.loads(c).get("scene", "?")
+        # canonicalize: batch-file naming drift gave the same setting two names in two
+        # sub-arms (e.g. 01_novelist vs 01_novelist_editor). Scene id = first two tokens.
+        parts = raw.split("_")
+        return "_".join(parts[:2]) if len(parts) >= 2 else raw
+    tok["scene"] = tok["categories_json"].apply(_scene)
     df = res.merge(tok, on="probe_id")
     df = df[df["label"].isin([a.label_a, a.label_b])]
 

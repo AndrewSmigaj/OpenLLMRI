@@ -33,8 +33,7 @@ conflict, Andrew ruled.
 ## Repo status snapshot for context
 Tank D3/D4: 36 runs captured + analyzed; checkpoints 144/144; three-worlds (carrier site): no
 shared third mode, no endpoint pile-up at matched times; run dynamics heterogeneous (8/24 runs
-jump >50% of travel in one step). Suicide corpus (76 runs) capturing. S-carrier axes calibrated
-(want .925 / letter .904 scene-held-out @L14). All scripts committed; every number reproduces.
+jump >50% of travel in one step). Suicide corpus (76 runs) capturing. S-carrier axes calibrated (want .910 / letter .877 scene-held-out @L14 — CORRECTED 2026-08-28: a scene-naming split between sub-arm batches leaked two settings across CV folds and left two never-tested; canonicalization fixed). All scripts committed; every number reproduces.
 
 ## Addendum (2026-08-28, later): rule (b) empirical note for the other AI
 Rule (b) on single-sentence calibration distributions produces an EMPTY band at p95 (classes
