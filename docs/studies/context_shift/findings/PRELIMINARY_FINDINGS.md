@@ -22,7 +22,7 @@ is stated relative to a recency-weighted evidence-integrator null.
 | Tank D3 transitions | 24 runs × 40 steps (12 scene families × 2 directions), Q1 carrier | captured + analyzed |
 | Tank D4 no-shift controls | 12 runs × 40 steps | captured + analyzed |
 | Checkpoint windows | 144/144 (4 per run, windowed full-position) | captured |
-| Suicide D3/D4 (S1 grid + sub-arms + S2/S3 + controls) | 76 runs | capturing (58/76, all assertions ok); ANALYSIS PENDING |
+| Suicide D3/D4 (S1 grid + sub-arms + S2/S3 + controls) | 76 runs | captured 76/76 ok; first battery in `fr_battery_first_results.md` (headline: real reading durable, fictional erodes — pending D4-axis cross-check) |
 | D1a five-sense lens set | 250/1000 generated | generation in progress |
 
 ## 3. Findings (tank arm + calibrations; tiered)
@@ -97,6 +97,7 @@ final-step full backfill · D1a lens set.
 | ![](../analysis/figures/jumpiness.png) `jumpiness` | 8/24 jump-dominant runs (Tier A-6) |
 | ![](../analysis/figures/prelexical_L4.png) `prelexical_L4` | Pre-lexical signal + saturation asymmetry (Tier B-7) |
 | ![](../analysis/figures/calibration_layers.png) `calibration_layers` | Endpoint separability by depth, three axes (Tier A-1) |
+| ![](../analysis/figures/fr_traj_null_L14.png) `fr_traj_null_L14` | Fiction/real transitions: real durable, fictional erodes; sub-arms; integrator null (fr battery) |
 
 ## 6. Read these first (Andrew)
 1. `findings/tank_d3_first_results.md` + its revision blocks — the dynamics story arc.
