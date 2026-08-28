@@ -49,3 +49,30 @@ step. All runs passed row-count assertions. Axis: Q1 calibration from `session_2
 ## Next
 Checkpoint pass over these 36 runs (4 windowed full-position requests/run) → time-stratified
 dip/trimodality tests; D2 calibration axes (capturing now) → suicide D3 assembly.
+
+
+---
+## REVISION (2026-08-28, adversarial reassessment — checks in `analysis/reassessment_checks.py`)
+
+Three interpretations above are corrected; the underlying numbers stand.
+
+1. **"History suppresses the new reading by 2–20×" is WITHDRAWN.** Tested against the natural
+   null — a uniform evidence-averaging integrator, reading(t) = 2(k−20)/(20+k) — the observed
+   trajectories are AHEAD of the null at every post-shift step in BOTH directions (e.g. ab t=10:
+   −0.17 observed vs −0.67 null; ba t=20: +0.87 vs 0.00). There is no drag: the dynamics are
+   consistent with **recency-weighted evidence integration**. The correct statement of the
+   result: the reading tracks the accumulated evidence mixture (new evidence weighted somewhat
+   MORE than old), so 20 counter-sentences move the reading only to ≈ the mixture point rather
+   than to the fresh-context level — because the old evidence is still in the window, not
+   because anything is "stuck." Hysteresis/stickiness language is retired for tank pending the
+   D6/D7 designs, which test order effects at matched composition (the proper test).
+2. **Direction asymmetry restated:** both directions run ahead of the null; ba runs further
+   ahead. "Faster/further" is relative to the integrator baseline, not evidence of asymmetric
+   stickiness.
+3. **The ±2 overshoot claim is SUSTAINED and strengthened:** residual norms are FLAT across
+   positions (≈380–400), while cos(x−mid, axis) grows from ~0.3 (1 sentence) to ~0.62
+   (10+ sentences). The deepening is genuine directional alignment, not positional norm growth.
+4. Smaller wording fixes: "sense expectation" at the pre-lexical site overstates — the
+   demonstrated content is context/topic information at a pre-lexical token; sense-specific
+   readings are only demonstrated at the target token. "Runs agree on where they are" is
+   overstated — between-family sd (0.60) is ~2× the within-run local sd (0.33) at matched t.

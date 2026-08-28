@@ -37,3 +37,24 @@ readings; the per-step carrier population provides exactly that.)
 - Tank arm only; suicide D3 (capturing now) gets the same analysis, and the plan's inversion
   hypothesis predicts the two probes may differ exactly here.
 - L4/L23 shown; full layer scan pending.
+
+
+---
+## REVISION (2026-08-28, adversarial reassessment)
+
+The population-level statistics stand; the world-assignment is SOFTENED.
+
+- Per-run jumpiness check: 8/24 D3 runs have a single post-shift step covering >50% of their
+  total travel (mean max-step/travel = 0.46; within-run local sd 0.33, so ~1.0-unit single-step
+  moves are ~3σ events, not noise). Run-level dynamics are HETEROGENEOUS: some runs drift, a
+  substantial minority jump at dispersed times.
+- Between-family sd at matched t (0.60) ≈ 2× within-run sd — the band distributions mix real
+  family dispersion, and each band's n=60 carries only ~12 independent runs. Dip power at that
+  effective n cannot separate "all runs drift together" from "runs jump at dispersed times."
+- Honest verdict, revised: **no evidence of a shared metastable third mode, and no endpoint
+  pile-up at matched times** (both firm, and both still exclude the strong metastable-middle
+  world at the carrier site). Between "graded drift" and "dispersed-time passage" the
+  population test is not decisive; run-level evidence shows a MIX of both. The "traveling
+  unimodal packet" description applies to the population mean, not to every run.
+- Coheres with the integrator reframe in `tank_d3_first_results.md`: a recency-weighted
+  evidence integrator with per-run noise produces exactly this signature.
