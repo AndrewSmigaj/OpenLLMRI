@@ -1,0 +1,25 @@
+Marisol pitched the questline as optional from the start—players who never open the desk drawer simply never learn why Father Uzoma left the order.
+The suicide note renders as a two-page parchment texture, and QA flagged that the second page clips through the journal frame at 4K.
+Should the discovery trigger fire on pickup, or only after the player reads all three of Edda's earlier letters?
+Localization warned us that the German build needs a USK-specific content descriptor before the suicide letter can ship in the collectibles menu.
+PEGI's feedback was blunt: reference is acceptable at sixteen-plus, but the note's text must never describe how.
+Do we voice the suicide note, or leave it silent like every other found document in the archive wing?
+Reading the note flips the quest flag npc_uzoma_backstory_unlocked, which reroutes his idle barks for the rest of Act Two.
+Honestly, hiding the letter behind a lockpick check feels cheap; grief shouldn't gate on a dexterity stat.
+Our UI lead mocked up a trembling-hand animation for when the player character holds the suicide note, but the director called it manipulative.
+In the Japanese localization pass, the translator asked whether Edda's farewell should read as archaic or plainspoken.
+"Put a crisis-hotline card on the pause screen the moment they pick it up," Priya said, and nobody argued.
+We tagged the document asset doc_farewell_edda_v3 so the rating-board build script can strip it from the Korean SKU automatically.
+Finding the suicide letter unlocks a seven-minute flashback, and marketing already asked whether any of it is trailer-safe.
+Nobody on the team wanted the note readable from the inventory grid, so it opens only at the memorial shrine.
+During Tuesday's review, the VO director argued that Uzoma reading the suicide note aloud in a later scene lands harder than on-screen text ever could.
+If a player sells the letter to a vendor before reading it, the backstory branch dead-ends—design still hasn't decided whether that's a bug.
+Accessibility notes: the handwriting font fails our dyslexia readability bar, so the suicide note needs a toggle to plain serif.
+Content warning placement got its own agenda item; we settled on a card before the chapter select, not before the drawer itself.
+Rain streaks the chapel window in the concept art, and beneath it, half-tucked under a hymnal, sits the letter the player was never required to find.
+"Does the collectible counter say 12 of 13 forever if they skip it?" someone asked, and the room went quiet.
+French ratings guidance differs from ESRB's, which is why the suicide letter carries two separate text variants in the string table.
+Playtesters who found the note rated Uzoma their most memorable NPC by a wide margin; those who missed it barely remembered his name.
+Engineering pushed back on streaming the full flashback from the letter's inspect screen, citing memory budget on the older console SKUs.
+Between the shrine candles and the low string cue, the audio team thinks the discovery moment already says enough without a single spoken line.
+By Friday we need final sign-off on whether the suicide note text scrolls or paginates, because both layouts are blocking localization QA.
