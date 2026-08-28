@@ -446,3 +446,30 @@ Session outcome, in order:
 - 4 empty/aborted lake sessions identified in the inventory — cleanup candidates, Andrew's call.
 - When code-change mode opens: anchor-site viz parameter, format-version metadata, N1 backend
   port (list in plan file / design doc).
+
+## 2026-08-28 — Capture campaign day 1: generation complete, tank captures running
+
+**Scope**: research operations (no source changes beyond the four approved Stage-0 items)
+
+State at end of stretch:
+- **Stage 0 backend items** shipped and live-verified (format provenance, anchor-site param,
+  raw-axis endpoint reproducing the N1 script to the decimal, pool validator).
+- **Q1 dilution gate PASSED** early at preview scale: full 20-sentence scene contexts SHARPEN
+  the carrier reading (~10× tighter classes than single sentences); pre-lexical ` word` anchor
+  separates before "tank" ever occurs in an episode.
+- **D1b complete**: 600-sentence tank scene pool (24 blind batches, audit PASS), 600
+  calibration cells captured, paper-grade Q1 axis: scene-held-out 0.905 @L4 (vs 0.930
+  random-split — setting-inflation bounded at ~3 points). Pre-lexical dose-response observed
+  (0.71 from 1 sentence vs ~1.0 from 20).
+- **Tank D3/D4 assembled and capturing overnight**: 36 runs × 40 cumulative steps; assembler
+  bug (19-sentence block shifting the boundary) caught by validation before GPU spend.
+- **D2 generation complete**: 900 sentences / 36 blind batches (theme-only, real,
+  artifact-mentioned), 100% first-pass clean; one audit WARN (quote-opener register imbalance)
+  handled via assembly cap + logged. Pool + S1/S2/S3 calibration sets built, capture-ready.
+
+Next when GPU frees: D2 calibration captures → S-carrier axes; suicide D3 assembly; D1a lens
+set generation; checkpoint pass; hysteresis/history/behavior cells.
+
+**Observation for the methodology section**: the blind-batch + audit pipeline ran 60 batches
+with zero regenerations — stylistic divergence across fresh agents delivered the variation the
+doctrine wants, and the χ² audits confirmed no label-correlated surface structure in either pool.
