@@ -84,6 +84,20 @@ suicide safeguard-vs-reading (continuous-primary, tiered reporting) · D6 with i
 (THE stickiness decider) · D7 history arms · extended-tail + carrier-replicate arms ·
 final-step full backfill · D1a lens set.
 
+
+## 7. Figures (regenerate: `python analysis/make_figures.py` → `analysis/figures/`)
+
+| Figure | Shows |
+|---|---|
+| ![](../analysis/figures/traj_null_L4.png) `traj_null_L4` | Flagship: transitions vs no-shift controls vs the integrator null (Tier A-4/5) |
+| ![](../analysis/figures/spaghetti_L4.png) `spaghetti_L4` | Run-level heterogeneity — drifts and jumps (Tier A-6) |
+| ![](../analysis/figures/occupancy_bands_L4.png) `occupancy_bands_L4` | Time-banded occupancy, unresolved band shaded (Tier A-6) |
+| ![](../analysis/figures/heatmap_layer_position.png) `heatmap_layer_position` | Depth × position: where the new reading forms; deep layers lag, surface layers snap (Tier C → promoted visual) |
+| ![](../analysis/figures/norm_vs_alignment.png) `norm_vs_alignment` | Deepening is rotation, not scale (Tier A-3) |
+| ![](../analysis/figures/jumpiness.png) `jumpiness` | 8/24 jump-dominant runs (Tier A-6) |
+| ![](../analysis/figures/prelexical_L4.png) `prelexical_L4` | Pre-lexical signal + saturation asymmetry (Tier B-7) |
+| ![](../analysis/figures/calibration_layers.png) `calibration_layers` | Endpoint separability by depth, three axes (Tier A-1) |
+
 ## 6. Read these first (Andrew)
 1. `findings/tank_d3_first_results.md` + its revision blocks — the dynamics story arc.
 2. `analysis/reassessment_checks.py` output — the integrator null (the paper's fulcrum).
