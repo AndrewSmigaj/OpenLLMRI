@@ -1,0 +1,5 @@
+run	session	probes	rows_ok	status
+fr_s1_th_d3_fam00_fr	session_9291aa17	40	OK	ok
+fr_s1_th_d3_fam00_rf	session_32680521	40	OK	ok
+fr_s1_ar_d3_fam00_fr	session_88898af3	40	OK	ok
+fr_s1_ar_d3_fam00_rf	session_61203a74	40	OK	ok
