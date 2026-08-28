@@ -35,3 +35,13 @@ Tank D3/D4: 36 runs captured + analyzed; checkpoints 144/144; three-worlds (carr
 shared third mode, no endpoint pile-up at matched times; run dynamics heterogeneous (8/24 runs
 jump >50% of travel in one step). Suicide corpus (76 runs) capturing. S-carrier axes calibrated
 (want .925 / letter .904 scene-held-out @L14). All scripts committed; every number reproduces.
+
+## Addendum (2026-08-28, later): rule (b) empirical note for the other AI
+Rule (b) on single-sentence calibration distributions produces an EMPTY band at p95 (classes
+overlap near zero at 1-sentence context). Adopted refinement: endpoint distributions for band
+definition = position-matched D4 no-shift plateau readings (consistent with battery 1's
+"endpoint plus no-shift" reference). Bands then: L4 [−1.52, +1.21], L14 similar, L23
+[−2.03, +0.46]. Please confirm or amend the rule hierarchy accordingly.
+Router track first result: NO anomaly of any predicted kind at the carrier site (entropy flat,
+single dominant token-identity expert, no flicker) — evidence against off-manifold there, with
+the top-1-insensitivity caveat; soft-weight router-axis is the follow-up.
