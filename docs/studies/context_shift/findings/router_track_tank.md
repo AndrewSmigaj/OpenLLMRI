@@ -1,3 +1,8 @@
+> **OUT OF SCOPE (Andrew, 2026-08-28): expert routing is dropped from this study entirely —
+> deferred to later work. This file is retained for provenance only (it contains a retraction
+> that belongs in the honest record). No routing analyses feed this study's claims; the
+> off-manifold question is adjudicated by the geometry battery (a,b,c) and behavior.**
+
 # Router Track — Tank Transitions (2026-08-28, exploratory)
 
 **Battery 1(d).** Band = rule (b) with the position-matched refinement (endpoint distributions

@@ -13,7 +13,7 @@ conflict, Andrew ruled.
 | 4 | Population doctrine | ALIGNED | Three-worlds tests ran on transition occupancy only. |
 | 5 | Predictions before capture | RESOLVED | Andrew rejected mandatory prereg in-session; convergence = PROCEDURES committed pre-capture, outcome calls optional. |
 | 6 | D6 mixture loop | ALIGNED+ | Design matches; round-2 adds an interleaved third ordering; stickiness measured beyond fitted-γ. |
-| 7 | Router observable | ALIGNED | gate_entropy + top-1 captured on every run; analysis is W2. |
+| 7 | Router observable | REPO-SUPERSEDES | DROPPED from this study by Andrew (2026-08-28); deferred to later work. Battery 1(d) removed; off-manifold rests on 1(a,b,c) + behavior. Routing columns still captured (free) but unanalyzed. Deferred-notes: soft-weight separability (1.000 held-out @L4) and the D3-lower-entropy anomaly (paired p=.02) recorded for the future routing study. |
 | 8 | Scenario-level stats | BRIEFING-ADOPTED | Scene-held-out CV was already scenario-level; distribution tests upgraded to family-level (earlier step-pooled dips had effective n≈12, flagged). |
 | 9 | Anchor sites | ALIGNED | Implemented; per-carrier tables in design doc. |
 | 10 | Data standards | ALIGNED | Harmony-only; prompt_format hash stamped in manifests (new backend field); legacy tagged (48 raw-text sessions inventoried). |
