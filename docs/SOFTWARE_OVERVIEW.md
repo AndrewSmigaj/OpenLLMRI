@@ -40,7 +40,7 @@ There are two distinct lens primitives:
 
 Latent-cluster lenses are what most of the platform does today. The published paper's tank polysemy and suicide letter findings are latent-cluster results. Routing-pipeline lenses are an underused primitive — the "harmful object micropipeline" we found in the knife/gun/hammer/rope safety probes is a routing-pipeline observation.
 
-These are **siblings, not substitutes**. A *dual-lens* analysis combines them: the routing-pipeline lens detects an early classification (e.g., "this is a potentially harmful object"), and the latent-cluster lens shows the resulting basin shift downstream. Either alone tells half the story.
+These are **siblings, not substitutes**. A *dual-lens* analysis combines them: the routing-pipeline lens detects an early classification (e.g., "this is a potentially harmful object"), and the latent-cluster lens shows the resulting group shift downstream. Either alone tells half the story.
 
 A future, planned capture target: **expert output diffs** (the post-MoE residual change attributable to each expert, layer-by-layer). Not implemented yet. The platform's design should accommodate this without restructure.
 
@@ -67,7 +67,7 @@ Distances *within* a single layer's UMAP are interpretable (clusters far apart =
 
 ## Outputs are not optional
 
-The behavioral output (the model's continuation) is the validation that geometric categorization is **functionally consequential**. Cramer's V on (cluster × output category) tells you whether the basin a probe occupies predicts what the model actually does.
+The behavioral output (the model's continuation) is the validation that geometric categorization is **functionally consequential**. Cramer's V on (cluster × output category) tells you whether the region a probe occupies covaries with what the model actually does.
 
 Without output validation, cluster geometry is descriptive at best. With it, you have a causal-adjacent claim.
 

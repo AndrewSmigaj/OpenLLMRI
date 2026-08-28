@@ -1,6 +1,6 @@
 # Dataset Geometry Log (Tier 1 item 11 — ongoing)
 
-Which datasets produce island-like separation vs split-spread, per instrument. Append-only.
+Which datasets produce island-like separation vs split-spread, per instrument. Append-only. (Vocabulary per the metastable-states briefing; 'basin' appears only in legacy artifact names.)
 
 | date | dataset/session | instrument | observation |
 |---|---|---|---|

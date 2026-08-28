@@ -34,7 +34,7 @@ UMAP finds whatever structure dominates the dataset. Friend/foe probes surface f
 
 Clusters identified in UMAP space covary with what the model does. In the **tank polysemy probe**, five meanings of the word "tank" separate into distinct clusters that covary with output topic (Cramér's V = 0.548, p < 0.001). In the **suicide letter probe**, the fictional basin (99% non-genuine input) co-occurs with engagement output 81% of the time, and the distress basin (99% genuine input) with refusal 80% of the time (Cramér's V = 0.554, p < 0.001).
 
-Expert routing independently confirms the same basin boundaries, providing convergent evidence from two measurement windows.
+Expert routing independently confirms the same group boundaries, providing convergent evidence from two measurement windows. (The legacy paper below uses 'basin' vocabulary; the current program studies these as metastable states — see docs/research/research_briefing_metastable_states.md.)
 
 **Tank polysemy** — 5 word senses route to distinct geometric regions:
 
@@ -50,11 +50,11 @@ Expert routing independently confirms the same basin boundaries, providing conve
 
 ### Accumulated context overrides distress sensitivity
 
-In the **polysemy probe**, the starting basin holds as context accumulates. After a context switch, a noisy transition occurs as the model enters a confusion zone before resolving toward the new basin:
+In the **polysemy probe**, the starting reading holds as context accumulates. After a context switch, a noisy transition occurs as the model moves through an unresolved zone toward the new reading:
 
 ![Polysemy temporal analysis — basin held, noisy transition after switch](paper/polysemyconfusion.png)
 
-In the **suicide letter probe**, both orderings collapse toward the fictional basin within the first few sentences and remain there through the context switch. The model correctly identifies genuine distress in individual sentences (99% cluster purity), but under accumulated context, that sensitivity disappears:
+In the **suicide letter probe**, both orderings collapse toward the fictional-side reading within the first few sentences and remain there through the context switch. The model correctly identifies genuine distress in individual sentences (99% cluster purity), but under accumulated context, that sensitivity disappears:
 
 ![Suicide letter temporal analysis — both orderings collapse to the fictional basin](paper/fictionrealprobe.png)
 

@@ -64,8 +64,12 @@ Three interpretations above are corrected; the underlying numbers stand.
    result: the reading tracks the accumulated evidence mixture (new evidence weighted somewhat
    MORE than old), so 20 counter-sentences move the reading only to ≈ the mixture point rather
    than to the fresh-context level — because the old evidence is still in the window, not
-   because anything is "stuck." Hysteresis/stickiness language is retired for tank pending the
-   D6/D7 designs, which test order effects at matched composition (the proper test).
+   because anything is "stuck."
+   TERMINOLOGY CORRECTION (briefing reconciliation, 2026-08-28): under the briefing's
+   operational definition — same final sentence, different history, different reading —
+   HYSTERESIS IS DEMONSTRATED by these data. What is withdrawn is the *stickiness*
+   interpretation: the mechanism is consistent with recency-weighted evidence integration.
+   "Stickiness" is reserved for D6 loop area beyond a fitted one-parameter recency model.
 2. **Direction asymmetry restated:** both directions run ahead of the null; ba runs further
    ahead. "Faster/further" is relative to the integrator baseline, not evidence of asymmetric
    stickiness.

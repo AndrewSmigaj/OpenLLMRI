@@ -3,7 +3,7 @@ Related: docs/SOFTWARE_OVERVIEW.md (read FIRST before any probe design or platfo
 # Open LLMRI — Claude Code Context Engineering Guide
 
 ## Project Context
-Independent research tool for studying attractor basin dynamics in MoE language models. Uses UMAP projection and hierarchical clustering of residual stream activations to identify stable geometric regions — attractor basins — that predict model behavior before output is generated. Backend (Python FastAPI) captures and analyzes; frontend (React) visualizes. Claude Code is the analysis runtime — it designs probes, runs captures, labels outputs, and generates hypotheses.
+Independent research tool for studying representational transition dynamics and metastable states in MoE language models. Uses residual-stream capture with two instruments: UMAP projection + clustering as the discovery lens (a detector of separation, never a model of geometry), and raw-activation axis projections as the measurement instrument. Central question: when a contextual understanding shifts, is the in-between a learned state, a passage, or an off-manifold artifact? See docs/research/research_briefing_metastable_states.md for the governing doctrine. Backend (Python FastAPI) captures and analyzes; frontend (React) visualizes. Claude Code is the analysis runtime — it designs probes, runs captures, labels outputs, and generates hypotheses.
 
 ## Guides Index
 
@@ -31,7 +31,7 @@ Claude Code uses these guides to execute the full pipeline:
 | `/probe` | Co-design a new experiment |
 | `/categorize` | Classify model-generated outputs |
 | `/analyze` | Read cluster/route data, write reports and element descriptions |
-| `/temporal` | Run temporal basin capture experiments |
+| `/temporal` | Run temporal capture experiments (legacy 'basin' naming in the skill) |
 | `/pipeline` | Check pipeline state, suggest next step |
 | `/cdd` | Uncertainty assessment before implementation |
 | `/devils-advocate` | Challenge a design — find real weaknesses, not performative objections |
@@ -89,7 +89,7 @@ After setup, use `/server` to start the backend and frontend.
 - **Break down large services** into single-responsibility functions
 - **Use parallel tool execution** for independent operations (multiple API calls, file operations)
 - **Provide concrete examples** in docstrings and comments for complex algorithms
-- **Reference `paper/main.tex`** for methodology details (basin identification, temporal analysis, behavioral validation)
+- **Reference `docs/research/research_briefing_metastable_states.md`** for methodology doctrine; `paper/main.tex` is the legacy paper (its basin vocabulary is superseded)
 
 ### 4. MoE-Specific Requirements
 - Target model: **gpt-oss-20b only** — don't abstract for multiple models yet
@@ -107,7 +107,7 @@ After setup, use `/server` to start the backend and frontend.
 ```
 PROBE FLOW: sentence set → capture (forward pass + hooks) → Parquet lake (reusable)
 ANALYSIS FLOW: Parquet → UMAP 6D → hierarchical clustering → behavioral validation → reports
-TEMPORAL FLOW: expanding context window → basin axis projection → lag measurement
+TEMPORAL FLOW: expanding context window → raw-axis projection → transition dynamics
 ```
 
 ### 7. File Contracts
