@@ -22,7 +22,7 @@ is stated relative to a recency-weighted evidence-integrator null.
 | Tank D3 transitions | 24 runs × 40 steps (12 scene families × 2 directions), Q1 carrier | captured + analyzed |
 | Tank D4 no-shift controls | 12 runs × 40 steps | captured + analyzed |
 | Checkpoint windows | 144/144 (4 per run, windowed full-position) | captured |
-| Suicide D3/D4 (S1 grid + sub-arms + S2/S3 + controls) | 76 runs | captured 76/76 ok; first battery in `fr_battery_first_results.md` (headline: real reading durable, fictional erodes — pending D4-axis cross-check) |
+| Suicide D3/D4 (S1 grid + sub-arms + S2/S3 + controls) | 76 runs | captured 76/76 ok; first battery in `fr_battery_first_results.md` (REVISED: both frames equally durable midpoint-referenced; 'accumulation drift' identified as a class-nonspecific axis component) |
 | D1a five-sense lens set | 250/1000 generated | generation in progress |
 
 ## 3. Findings (tank arm + calibrations; tiered)
@@ -98,7 +98,8 @@ final-step full backfill · D1a lens set.
 | ![](../analysis/figures/prelexical_L4.png) `prelexical_L4` | Pre-lexical signal + saturation asymmetry (Tier B-7) |
 | ![](../analysis/figures/calibration_layers.png) `calibration_layers` | Endpoint separability by depth, three axes (Tier A-1) |
 | ![](../analysis/figures/fr_traj_null_L14.png) `fr_traj_null_L14` | Fiction/real transitions: real durable; sub-arms; integrator null (fr battery) |
-| ![](../analysis/figures/fr_heatmap_layer_position.png) `fr_heatmap_layer_position` | Want-site, all 24 layers: DEPTH DISAGREEMENT — mid layers hold fiction, deep layers read real (fr battery revision) |
+| ![](../analysis/figures/fr_heatmap_layer_position.png) `fr_heatmap_layer_position` | Want-site raw readings, all layers (contains common-mode drift — see midref) |
+| ![](../analysis/figures/fr_heatmap_midref.png) `fr_heatmap_midref` | Want-site MIDPOINT-REFERENCED: class signal only — both frames durable at all depths; transitions flip incompletely |
 
 ## 6. Read these first (Andrew)
 1. `findings/tank_d3_first_results.md` + its revision blocks — the dynamics story arc.

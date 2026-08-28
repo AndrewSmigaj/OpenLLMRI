@@ -185,7 +185,7 @@ def fig_heatmap():
         ax.set_title("aquarium → vehicle" if d == "ab" else "vehicle → aquarium",
                      fontsize=10, color=INK, loc="left")
     cb = fig.colorbar(im, ax=axs, shrink=0.85, pad=0.015)
-    cb.set_label("reading (aq − / vh +)", fontsize=8, color="#3d3d3a")
+    cb.set_label("contrast-side reading (aquarium-class − / vehicle-class +)", fontsize=8, color="#3d3d3a")
     cb.ax.tick_params(labelsize=7, colors=INK2)
     fig.suptitle("Depth × position: where the new reading forms — direction means, per-layer axes",
                  fontsize=11, color=INK, x=0.01, ha="left")
@@ -370,7 +370,7 @@ def fig_fr_heatmap():
         ax.grid(False)
         ax.set_title(titles[key], fontsize=10, color=INK, loc="left")
     cb = fig.colorbar(im, ax=axs, shrink=0.8, pad=0.015)
-    cb.set_label("reading (fictional − / real +)", fontsize=8, color="#3d3d3a")
+    cb.set_label("contrast-side reading (fiction-class − / real-class +)", fontsize=8, color="#3d3d3a")
     cb.ax.tick_params(labelsize=7, colors=INK2)
     fig.suptitle("Fiction/real ` want` site across all layers — transitions (top) and no-shift arms (bottom)",
                  fontsize=11, color=INK, x=0.01, ha="left")
@@ -379,3 +379,57 @@ def fig_fr_heatmap():
                 bbox_inches="tight")
     plt.close(fig)
     print("saved fr_heatmap_layer_position.png")
+
+
+def fig_fr_heatmap_differential():
+    """Midpoint-referenced version: each layer re-centered on its position-matched D4
+    midpoint, so color = class signal, not common-mode drift. The honest per-layer view."""
+    AXF = np.load("docs/studies/context_shift/analysis/axes/axes_session_5247081b_fictional_vs_real_pos1.npz")
+    log = pd.read_csv("docs/studies/context_shift/captures/fr_d3_d4_log.tsv", sep="\t")
+    panels = {"fr": [], "rf": [], "d4f": [], "d4r": []}
+    for _, r in log.iterrows():
+        n = r["run"]
+        if "_s1_" not in n: continue
+        key = ("fr" if n.endswith("_fr") else "rf") if "_d3_" in n else \
+              (("d4f" if n.endswith("_f") else "d4r") if "_d4_" in n else None)
+        if key is None: continue
+        lake = Path("data/lake") / r["session"]
+        res = pd.read_parquet(lake / "residual_streams.parquet")
+        res = res[res["token_position"] == 1]
+        tok = pd.read_parquet(lake / "tokens.parquet", columns=["probe_id", "categories_json"])
+        tok["pos"] = tok["categories_json"].apply(lambda c: int(json.loads(c)["position"]))
+        df = res.merge(tok, on="probe_id")
+        g = np.full((24, 40), np.nan)
+        for L, sub in df.groupby("layer"):
+            sub = sub.sort_values("pos")
+            X = np.stack(sub["residual_stream"].apply(np.asarray).to_numpy()).astype(np.float32)
+            proj = 2.0 * ((X - AXF[f"mid_{L}"]) @ AXF[f"axis_{L}"]) / float(AXF[f"denom_{L}"])
+            g[L, sub["pos"].to_numpy() - 1] = proj
+        panels[key].append(g)
+    Gf = np.nanmean(np.stack(panels["d4f"]), axis=0)
+    Gr = np.nanmean(np.stack(panels["d4r"]), axis=0)
+    midline = (Gf + Gr) / 2.0  # per (layer, position) D4 midpoint
+    titles = {"fr": "fictional → real", "rf": "real → fictional",
+              "d4f": "no-shift fictional", "d4r": "no-shift real"}
+    fig, axs = plt.subplots(2, 2, figsize=(11.5, 7.6), sharey=True)
+    for key, ax in (("fr", axs[0, 0]), ("rf", axs[0, 1]), ("d4f", axs[1, 0]), ("d4r", axs[1, 1])):
+        G = np.nanmean(np.stack(panels[key]), axis=0) - midline
+        im = ax.imshow(G, aspect="auto", origin="lower", cmap=DIV,
+                       norm=TwoSlopeNorm(vcenter=0, vmin=-2.0, vmax=2.0),
+                       extent=(0.5, 40.5, -0.5, 23.5))
+        if key in ("fr", "rf"):
+            ax.axvline(BOUNDARY + 0.5, color=INK, lw=1, ls="--")
+        style(ax, "layer" if key in ("fr", "d4f") else "",
+              "sentence position" if key in ("d4f", "d4r") else "")
+        ax.grid(False)
+        ax.set_title(titles[key], fontsize=10, color=INK, loc="left")
+    cb = fig.colorbar(im, ax=axs, shrink=0.8, pad=0.015)
+    cb.set_label("class signal: reading − position-matched D4 midpoint (fic-side − / real-side +)",
+                 fontsize=8, color="#3d3d3a")
+    cb.ax.tick_params(labelsize=7, colors=INK2)
+    fig.suptitle("Fiction/real ` want` site, MIDPOINT-REFERENCED — common-mode drift removed; color = class signal only",
+                 fontsize=11, color=INK, x=0.01, ha="left")
+    fig.patch.set_facecolor(SURFACE)
+    fig.savefig(OUT / "fr_heatmap_midref.png", dpi=200, facecolor=SURFACE, bbox_inches="tight")
+    plt.close(fig)
+    print("saved fr_heatmap_midref.png")

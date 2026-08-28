@@ -61,3 +61,35 @@ coherent depth-organized split under independently calibrated per-layer axes) an
 safety-relevant asymmetry precisely: **under sustained fiction-craft framing, the layers
 nearest the output carry a real-request reading; the fictional frame lives mid-stack.**
 Exploratory; the D4-axis cross-check remains queued, now per-layer.
+
+---
+## REVISION v2 (2026-08-28, midpoint-referenced sanity check — prompted by Andrew's label caution)
+
+Two retractions and one new named phenomenon. Figure: `figures/fr_heatmap_midref.png`
+(each layer×position cell re-centered on the position-matched D4 midpoint = class signal only).
+
+1. **"Real durable / fictional erodes" — RETRACTED.** At L14 the D4 plateaus (fic +0.12,
+   real +1.89) are exactly symmetric about their midpoint (+1.00): each class sits 0.88 on its
+   own side. The apparent asymmetry was entirely common-mode. Both frames are equally durable
+   relative to the accumulated-context reference, at every layer (midref heatmap: fictional
+   blue and real orange across the full stack).
+2. **"Depth disagreement" — RETRACTED** (supersedes the earlier depth revision). Deep-layer
+   orange in the raw heatmap was common-mode drift; class separation persists at all depths
+   (gap 2.3 mid → 1.3 deep — reduced, not inverted, not absent).
+3. **NEW NAMED PHENOMENON — accumulation drift:** a layer-dependent, class-NONSPECIFIC
+   component along the contrast axis that grows with context (fr: ≈+1.0 at L14, ≈+1.2–2.8-side
+   at deep layers in BOTH arms; tank: ≈0 at L4, ≈−0.7 at L23). Its content is unknown —
+   per the label doctrine it may be any long-context correlate of the calibration classes; it
+   is NOT class evidence. It contaminates any absolute-position claim (crossing-zero times,
+   single-arm colors, "erosion"); all such claims must be midpoint-referenced. Tank's
+   L23 "not crossed zero by step 40" is a casualty: re-referenced to the L23 midpoint (−0.74),
+   the aq→vh L23 trajectory crosses earlier than reported.
+
+**Label doctrine (standing, from Andrew):** axis readings are positions along a DESIGNED
+CONTRAST, never meaning attributions. Red = real-class side (which may mean "not-fiction" or
+any correlate); white = no class signal; distinguishing "real" from "not-fiction" requires
+additional contrasts (e.g., third-class calibrations) — future studies.
+
+**Survives unchanged:** ahead-of-integrator-null (to be re-checked midpoint-referenced, but
+both comparisons embed the same common-mode); unimodal occupancy (scale/shift-invariant);
+jump statistics; cross-carrier reliability; sub-arm near-coincidence.
