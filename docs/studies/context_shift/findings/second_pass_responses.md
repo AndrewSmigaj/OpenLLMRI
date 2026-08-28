@@ -195,8 +195,8 @@ cannot produce this signed pattern; "fast partial + persistent residual" is the 
 description.
 
 (b) **Residual gap (position-matched D4 destination level minus run plateau, midref,
-family-clustered bootstrap 95% CI):** tank →+ +2.16 [1.86, 2.46]; tank →− +1.15
-[0.82, 1.44]; fr →+ +0.38 [0.28, 0.50]; fr →− +0.35 [0.11, 0.59]. All four exclude zero:
+family-clustered bootstrap 95% CI):** tank →+ +2.16 [1.87, 2.44]; tank →− +1.15
+[0.82, 1.45]; fr →+ +0.38 [0.28, 0.49]; fr →− +0.35 [0.11, 0.58]. All four exclude zero:
 the persistent residual is real in both probes. Note the eyeballed fr residuals in the
 review (0.45/0.4) were read off the raw figure containing common-mode drift; the midref
 values are 0.38/0.35 — close, by coincidence of L14's drift geometry.

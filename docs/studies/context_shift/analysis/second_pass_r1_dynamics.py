@@ -175,7 +175,7 @@ def battery(tag, d4a, d4b, d3, dest_fn, fam_fn, rng):
     for d in ("+", "-"):
         sub = df[df.dest == d]
         gaps = sub.groupby("fam").resid_gap.mean()
-        boots = [gaps.sample(len(gaps), replace=True, random_state=None).mean() for _ in range(2000)]
+        boots = [gaps.sample(len(gaps), replace=True, random_state=1000 + b).mean() for b in range(2000)]
         lo, hi = np.percentile(boots, [2.5, 97.5])
         print(f"  dest {d}: gap {sub.resid_gap.mean():+.2f} [family-boot CI {lo:+.2f}, {hi:+.2f}] "
               f"(n_runs={len(sub)}, n_fam={sub.fam.nunique()})")
