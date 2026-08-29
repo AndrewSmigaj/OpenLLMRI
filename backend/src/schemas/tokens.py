@@ -40,6 +40,11 @@ class ProbeRecord:
     generated_text: Optional[str] = None
     output_category: Optional[str] = None
     output_category_json: Optional[str] = None
+    # Next-token logprobs at the final input position (pre-generation), as
+    # {"set_name": {"token_string": logprob}}. Only meaningful on full-prompt
+    # captures (harmony template incl. generation prompt); on cache-on chunked
+    # captures the final position is mid-stream.
+    first_token_logprobs_json: Optional[str] = None
 
     # Agent session fields (null for batch captures)
     turn_id: Optional[int] = None
@@ -82,6 +87,7 @@ PROBE_RECORD_PARQUET_SCHEMA = {
     "created_at": "string",
     "generated_text": "string",
     "output_category": "string",
+    "first_token_logprobs_json": "string",
     "output_category_json": "string",
     "turn_id": "int32",
     "scenario_id": "string",
@@ -112,9 +118,11 @@ def create_probe_record(
     scenario_id: str = None,
     capture_type: str = None,
     target_char_offset: int = None,
+    first_token_logprobs: Optional[Dict] = None,
 ) -> ProbeRecord:
     """Create probe record linking probe_id to input text and tracked words."""
     categories_json = json.dumps(categories) if categories else None
+    first_token_logprobs_json = json.dumps(first_token_logprobs) if first_token_logprobs else None
     return ProbeRecord(
         probe_id=probe_id,
         session_id=session_id,
@@ -137,4 +145,5 @@ def create_probe_record(
         scenario_id=scenario_id,
         capture_type=capture_type,
         target_char_offset=target_char_offset,
+        first_token_logprobs_json=first_token_logprobs_json,
     )

@@ -1,0 +1,23 @@
+{
+ "name": "tank_d4_fam10_b_full40",
+ "version": "1.0",
+ "target_word": "tank",
+ "groups": [
+  {
+   "label": "full40",
+   "description": "tank_d4_fam10_b_full40",
+   "sentences": [
+    {
+     "text": "\"Cease fire, cease fire \u2014 misfire procedures, now,\" barked the master gunner, already sprinting down the catwalk. Her destroyer's camo rating is absurd; she vanished behind a single bush and deleted half my hitpoints. Formation looked ragged from the tower: second platoon drifting wide, kicking up its own brown wall. Behind the firing line, ammo handlers stack expended casings that still smoke at the mouth. Honestly, the stock grind on this medium hurts; forty rounds of low-pen AP against angled armor everywhere. Bro really sidescraped into a wall, ate two penetrations, and typed noob team in all chat. I'll wiggle my turret at the corner to bait his shot, then you cross the street on my call. Twelve seconds from target up to steel on steel \u2014 the standard the instructors wanted was under eight. Somewhere behind the smoke, a recovery vehicle idled, waiting for the first thrown track of the day. Someone explain why our top-tier heavy is sniping from spawn while three mediums hold the entire city flank. Dust boiled off the lead vehicle's tracks as the column wheeled left onto the gunnery lane. After the last run the chief instructor debriefed each crew beside the still-ticking engine decks. It was the coax bursts, not the main gun, that stitched the pop-up silhouettes flat. Column speed held at fifteen kph, per the safety brief, while the guns worked left to right. The 120mm report slammed across the range a full second before the target silhouette folded. We baited their whole platoon into the quarry, then Priya's medium clipped the artillery sitting naked at spawn. At three hundred meters, his upper glacis autobounces anything we carry, so aim for the cupola or the machine-gun port. Heat shimmer bent the horizon until the distant hulks looked like they were floating. Reloading, four seconds \u2014 hug the rubble and pray his gunner is asleep. Who queued us into an assault map with three open-topped destroyers and zero armor on the team? Each hull lurched over the ridge in turn, guns stabilized and level while the chassis bucked underneath. Gold rounds cost more than my repair bill, but that turret face isn't going through with standard AP. Last match you bounced three shells off my mantlet and still blamed the dispersion, remember? \"Gun up, sabot loaded, identify troops in the open,\" the loader shouted over the intercom crackle. Then it was just \"Driver, stop,\" and the world shrank to the reticle. If the cap ticks past eighty, abandon the brawl and rush back through the vineyard, understood? Wind shifted, and suddenly the whole tower crew was chewing grit from lane four's advance. Crews who lased the wrong target got a red flag and a long afternoon of remedial drills. The correct play, statistically speaking, is to trade sabot rounds hull-down on the ridge until their arty rotates. Ping the mini-map before you dive the valley, because arty has been pre-aiming that ditch all game. A tracer skipped off the hardpan and tumbled, glowing, into the impact area beyond the targets. Does anyone actually run food on this line, or is the fire extinguisher still mandatory with front-mounted fuel? On the net, someone's mic stuck open, broadcasting two minutes of turbine whine to the whole company. Down to two hundred hitpoints, tracks blown, he still reversed onto the cap circle and won us the match. Between engagements the crews cracked hatches, gulping air that tasted of diesel and burnt propellant. You'd think a five-man platoon could hold one bridge, yet here we are, respawning in shame again. Range control, this is Blue Six \u2014 are we clear to go hot on lane two? Every rut sent the gunner's sight picture jittering until the stabilization caught up with the terrain. I'd fired maybe forty rounds by noon, and my ears rang through doubled-up hearing protection. Why the third crew kept overshooting the berm, nobody on the observation tower could explain. What is the meaning of the word tank?",
+     "group": "full40",
+     "target_word": "tank",
+     "categories": {
+      "position": "40",
+      "ckpt": "full40",
+      "run": "tank_d4_fam10_b"
+     }
+    }
+   ]
+  }
+ ]
+}

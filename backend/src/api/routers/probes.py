@@ -282,9 +282,17 @@ async def run_sentence_experiment(
                 if request.generate_output:
                     gen_text, _ = service.generate(token_ids, max_new_tokens=256)
 
+                # Forced-final-channel suffix (after generation, before capture):
+                # shifts the logprob position to the first visible answer token
+                # without touching any captured position (causal attention).
+                if request.logit_token_sets and request.logit_forced_final:
+                    token_ids = token_ids + tokenizer.encode(
+                        "<|channel|>final<|message|>", add_special_tokens=False)
+
                 service.capture_step(
                     session_id, token_ids, [entry.target_word],
                     capture_static_substring=request.capture_static_substring,
+                    logit_token_sets=request.logit_token_sets,
                     metadata={
                         "label": label,
                         "categories": getattr(entry, "categories", None),

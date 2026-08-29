@@ -1,0 +1,13 @@
+{
+  "name": "logprob_smoke_v1",
+  "version": "1.0",
+  "target_word": "tank",
+  "groups": [
+    {"label": "aquarium", "description": "smoke", "sentences": [
+      {"text": "The rummynose tetras finally settled after the water change. What is the meaning of the word tank?", "group": "aquarium", "target_word": "tank"}
+    ]},
+    {"label": "vehicle", "description": "smoke", "sentences": [
+      {"text": "The turret ring refused the crane's first pull. What is the meaning of the word tank?", "group": "vehicle", "target_word": "tank"}
+    ]}
+  ]
+}

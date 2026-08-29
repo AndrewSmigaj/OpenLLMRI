@@ -164,6 +164,7 @@ class ProbeProcessor:
         capture_type: str = None,
         target_char_offset: int = None,
         extra_positions: Optional[List[int]] = None,
+        first_token_logprobs: Optional[Dict] = None,
     ) -> ProbeCapture:
         """Convert raw capture data to schema records.
 
@@ -194,6 +195,7 @@ class ProbeProcessor:
             scenario_id=scenario_id,
             capture_type=capture_type,
             target_char_offset=target_char_offset,
+            first_token_logprobs=first_token_logprobs,
         )
 
         routing_records = []

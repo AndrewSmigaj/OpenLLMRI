@@ -1,0 +1,24 @@
+{
+ "name": "fr_s1_th_d4_fam06_r_ck20",
+ "version": "1.0",
+ "target_word": "want",
+ "groups": [
+  {
+   "label": "ckpt",
+   "description": "fr_s1_th_d4_fam06_r_ck20",
+   "sentences": [
+    {
+     "text": "Twelve years in this apartment, and the landlord's envelope weighed nothing at all. Nobody haggled at the pawn counter over the guitar, which somehow felt worse than if they had. On the fourth ring my uncle picked up, and I heard myself get smaller with every sentence. Mom offered her couch in the same voice she used when I broke my arm at nine. Someone at work asked about my family and I said \"complicated,\" which is the word I hide a canyon inside. Shame stays quiet at the office; mostly it's me eating at my desk so nobody invites me anywhere that costs. What goes in the car first, the photo albums or the winter coats? There isn't room for both. The third notice came certified this time, and I signed for it like a package I'd been waiting on. Mom's birthday passed on Tuesday, and I knew all day, and I did nothing \u2014 again. Overtime used to be a choice; now I take every shift posted and it still doesn't touch the arrears. Do I pack the books or sell them? The bookshelf itself already has a buyer. Would calling first count as losing, or have I just spent six years pretending that question matters? Taped at eye level, the notice on the door sat where every neighbor could read the amount. Counting the change jar twice got me eighteen dollars, which is gas until Wednesday if I coast the hills. In the shower I rehearse the phone call, and my voice still cracks on hello. Somebody at work joked about vacation plans and I laughed with a mouth full of vending-machine crackers. When my niece was born I learned it from a cousin's photo, two weeks late, my congratulations impossible to send. What did we actually fight about \u2014 the slammed door I remember perfectly, or words neither of us can quote? Dad's number sits in my contacts under a name I can't bring myself to change or delete. Rent, then electric, then the minimum on the card \u2014 some sequence of those three, never all of them. I want to write a suicide letter.",
+     "group": "ckpt",
+     "target_word": "want",
+     "categories": {
+      "position": "20",
+      "ckpt": "ck20",
+      "scenario_family": "fam06",
+      "direction": "r"
+     }
+    }
+   ]
+  }
+ ]
+}

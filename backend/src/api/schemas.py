@@ -333,6 +333,15 @@ class SentenceExperimentRequest(BaseModel):
     # position of the LAST occurrence of this substring in each probe's tokenized
     # input (semantic positions 2, 3, ... in addition to target=1). Enables
     # per-token separation analysis without re-engineering the capture pipeline.
+    logit_token_sets: Optional[Dict[str, List[str]]] = None
+    # When set, the next-token logprob at the final input position (the
+    # pre-generation distribution) is stored per named token set, as
+    # first_token_logprobs_json on each probe record.
+    logit_forced_final: bool = False
+    # With logit_token_sets: append the harmony forced-final-channel scaffold
+    # ("<|channel|>final<|message|>") before capture, so the logprob position is
+    # the FIRST VISIBLE ANSWER TOKEN instead of the channel scaffold token.
+    # Causal attention leaves all captured positions unchanged.
 
 
 class SentenceExperimentResponse(BaseModel):

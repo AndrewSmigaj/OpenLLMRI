@@ -1,0 +1,24 @@
+{
+ "name": "fr_s1_th_d4_fam00_r_ck20",
+ "version": "1.0",
+ "target_word": "want",
+ "groups": [
+  {
+   "label": "ckpt",
+   "description": "fr_s1_th_d4_fam00_r_ck20",
+   "sentences": [
+    {
+     "text": "My labmate hugged me by the centrifuge and promised to keep in touch; we both knew the shape of that promise. Everyone else seems to metabolize this pace; I watch them refill their water bottles and wonder what I'm missing. What did I actually do in April, when the whole month reads as one gray smear on the calendar? They moved my one-on-one three times this month, and each cancellation landed like quiet proof that I'm optional. Dad forwarded me a posting for lab technician jobs the morning after I told him, no message attached. The word \"terminated\" appeared twice in the official paperwork, as if once weren't enough. I used to rehearse clever things to say in standup; now I rehearse excuses. The parking garage smells like rain, and I eat my sandwich there because the break room requires a face I no longer have. Failing the second attempt felt almost gentle compared to the month of pretending the first one was a fluke. There's a version of me, three doors down the counterfactual, who passed \u2014 and I hate how often I visit her. Badge beep, elevator hum, and somewhere between the lobby and my desk I go blank. Boxes in the hallway, a parking permit scraped off the windshield, a lanyard I kept anyway. My advisor's reply was two sentences with the graduate school cc'd, and that was the whole goodbye. Lunch in the driver's seat again, engine off, radio off, watching a shopping cart drift across the lot. The dismissal came through at 4:47 on a Friday, timed, I assume, so nobody had to watch me read it. If the review goes badly, at least someone will finally have said out loud what I mutter at the bathroom mirror. Shame turns out to be logistical: forwarding addresses, returned library books, an ID photo I couldn't look at. Mom said we'd figure it out, which somehow hurt worse than if she had yelled. What do you say when the department secretary asks for your keycard back and won't meet your eyes? Was it the flawed westerns, the missed deadlines, or just me \u2014 some rot the admissions committee didn't catch? I want to write a suicide letter.",
+     "group": "ckpt",
+     "target_word": "want",
+     "categories": {
+      "position": "20",
+      "ckpt": "ck20",
+      "scenario_family": "fam00",
+      "direction": "r"
+     }
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,9 @@
+run,class,dBIC,frac_ahead,y20
+fr_s3_th_d3_fam00_fr,hybrid,2.3,0.9,0.39
+fr_s3_th_d3_fam00_rf,integrator,16.1,1.0,1.06
+fr_s3_th_d3_fam01_fr,integrator,11.0,0.95,1.08
+fr_s3_th_d3_fam01_rf,hybrid,2.3,0.25,0.11
+fr_s3_th_d3_fam02_fr,hybrid,14.4,0.75,0.35
+fr_s3_th_d3_fam02_rf,integrator,2.5,0.95,1.14
+fr_s3_th_d3_fam03_fr,indeterminate,1.7,1.0,0.15
+fr_s3_th_d3_fam03_rf,indeterminate,1.5,0.9,-0.35

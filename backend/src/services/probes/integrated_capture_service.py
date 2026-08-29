@@ -187,6 +187,7 @@ class IntegratedCaptureService:
         target_occurrence: str = "last",
         prompt_token_count: int = 0,
         metadata: Optional[Dict] = None,
+        logit_token_sets: Optional[Dict[str, List[str]]] = None,
     ) -> Tuple[list, any]:
         """One capture forward pass with hooks ON; finds target words; writes
         ProbeRecord(s); returns (records, new_past_kv)."""
@@ -226,6 +227,23 @@ class IntegratedCaptureService:
             input_tensor, past_kv, use_cache
         )
         routing_data, embedding_data, residual_data = self.orchestrator.get_captured_data()
+
+        # Optional next-token logprobs at the final input position (the pre-generation
+        # distribution when the input ends with the harmony generation prompt).
+        first_token_logprobs = None
+        if logit_token_sets:
+            try:
+                logprobs = torch.log_softmax(outputs.logits[0, -1, :].float(), dim=-1)
+                first_token_logprobs = {}
+                for set_name, tok_strings in logit_token_sets.items():
+                    vals = {}
+                    for s in tok_strings:
+                        ids = self.processor.tokenizer.encode(s, add_special_tokens=False)
+                        if ids:
+                            vals[s] = round(float(logprobs[ids[0]]), 6)
+                    first_token_logprobs[set_name] = vals
+            except Exception as e:
+                logger.warning(f"logit_token_sets computation failed: {e}")
 
         # input_text: caller can override (e.g. agent stores game_text); default = decoded
         decoded = self.processor.tokenizer.decode(token_ids, skip_special_tokens=True)
@@ -295,6 +313,7 @@ class IntegratedCaptureService:
                     capture_type=cap_type,
                     target_char_offset=char_offset,
                     extra_positions=extra_positions if first_record_for_call else None,
+                    first_token_logprobs=first_token_logprobs,
                 )
                 # Optional: attach generated_text (caller-supplied via metadata)
                 gen_text = metadata.get("generated_text")
