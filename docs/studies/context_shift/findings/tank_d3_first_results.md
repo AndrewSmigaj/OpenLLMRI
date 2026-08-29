@@ -1,3 +1,5 @@
+> **Superseded as the findings reference by `FINDINGS_AND_ANALYSIS_v2.md` (2026-08-28); kept as the D3/D4 first-results record. Per-run model selection (v2 A4) rejects pure integration: drift + discrete jump.**
+
 # Tank D3/D4 — First Designed-Corpus Results (2026-08-28, exploratory)
 
 **Data:** 36 runs (12 scene-pair families × 2 directions + 12 no-shift arms), 40 cumulative
@@ -65,14 +67,21 @@ Three interpretations above are corrected; the underlying numbers stand.
    MORE than old), so 20 counter-sentences move the reading only to ≈ the mixture point rather
    than to the fresh-context level — because the old evidence is still in the window, not
    because anything is "stuck."
-   TERMINOLOGY CORRECTION (briefing reconciliation, 2026-08-28): under the briefing's
-   operational definition — same final sentence, different history, different reading —
-   HYSTERESIS IS DEMONSTRATED by these data. What is withdrawn is the *stickiness*
-   interpretation: the mechanism is consistent with recency-weighted evidence integration.
-   "Stickiness" is reserved for D6 loop area beyond a fitted one-parameter recency model.
+   TERMINOLOGY NOTE (revised after second-pass review, 2026-08-29): same-final-input
+   history-dependence is present in these data, but it is exactly what ANY unconverged
+   evidence integrator produces — including the fitted recency null. It is therefore not,
+   by itself, evidence of metastable structure. "Hysteresis" is reserved for the D6 loop
+   protocol; "stickiness" for loop area beyond the fitted one-parameter recency model.
+   What these data add beyond the integrator account is the two-phase structure and the
+   candidate persistent residual (residual-gap analysis, FINDINGS_AND_ANALYSIS_v2 A3),
+   which D6/extended-tail will test.
 2. **Direction asymmetry restated:** both directions run ahead of the null; ba runs further
    ahead. "Faster/further" is relative to the integrator baseline, not evidence of asymmetric
    stickiness.
+   LEAD-NOT-LAG (added 2026-08-29): the motivating safety story predicted readings LAG
+   context; observed is recency-LEAD early plus a persistent residual late. The residual,
+   not a lag, is the candidate carrier of any safety-relevant effect; the suicide-arm
+   behavior cells adjudicate (predictions P5).
 3. **The ±2 overshoot claim is SUSTAINED and strengthened:** residual norms are FLAT across
    positions (≈380–400), while cos(x−mid, axis) grows from ~0.3 (1 sentence) to ~0.62
    (10+ sentences). The deepening is genuine directional alignment, not positional norm growth.

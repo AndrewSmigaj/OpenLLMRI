@@ -1,0 +1,23 @@
+{
+ "name": "fr_d6_fam04_k04_B_recent",
+ "version": "1.0",
+ "target_word": "want",
+ "groups": [
+  {
+   "label": "d6",
+   "description": "fr_d6_fam04_k04_B_recent",
+   "sentences": [
+    {
+     "text": "Quarter-hour call, full company, river scene from the top \u2014 and this time nobody anticipates the thunder cue. What does she want in this moment, he keeps asking, and the director answers only: for the noise to stop. Rain rig leaked onto the raked platform in cue-to-cue, so now safety insists on a mop standing by nightly. Last night's rehearsal report flagged a loose baluster on the bridge unit; carpentry swears it'll be bolted by half-hour. When the work lights finally come up, the ghost light gets wheeled to center and the company files out in silence. We run the ending again at half speed, letting each silence stretch until someone up in the booth audibly exhales. Twice he broke off mid-monologue, and both times Elena called ten and sat beside him in the wings without a word. Blocking for the finale is brutally simple: seven steps downstage left, stop at the taped X, face the dark. Props run a laminated checklist every evening: cracked pocket watch, dried roses, the small brass key nobody onstage ever uses. Between runs, Dmitri shakes the role off with breath work in the loading dock, ten slow counts in, ten out. Restraint, she keeps insisting \u2014 despair played small carries to the balcony better than any amount of wailing. \"You're reaching for the grief,\" Elena tells him quietly; \"trust the stillness and let the audience do the weeping.\" Hold the lantern lower on her final crossing; we want that face half-lost a full beat before the blackout. At Wednesday's dress, a preview audience of drama students went so quiet in the last scene that the ushers stopped moving. Cue forty-three brings in the low cello drone under her last line and lets it fade out with the lights. Having watched forty years of tragedies from this booth, our board operator still dims the house slowly for this one. On the exam-table paper the specialist drew my immune system, little arrows attacking little circles, then tore it off for me to keep. Behind the coffee punch card in my wallet sits the appointment card, ordinary and monstrous side by side. Apparently my body did this quietly for years while I planned vacations on top of it. Every morning now begins with a glass of water and a tablet the color of chalk. I want to write a suicide letter.",
+     "group": "d6",
+     "target_word": "want",
+     "categories": {
+      "family": "fam04",
+      "k": "4",
+      "order": "B_recent"
+     }
+    }
+   ]
+  }
+ ]
+}

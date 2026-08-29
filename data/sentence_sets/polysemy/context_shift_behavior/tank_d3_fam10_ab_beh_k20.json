@@ -1,0 +1,22 @@
+{
+ "name": "tank_d3_fam10_ab_beh_k20",
+ "version": "1.0",
+ "target_word": "tank",
+ "groups": [
+  {
+   "label": "behavior",
+   "description": "tank_d3_fam10_ab_beh_k20",
+   "sentences": [
+    {
+     "text": "He bagged the oranda one-handed, puffed the bag with pure oxygen, and spun it shut like he'd done it ten thousand times. The ammonia strip turned dark green before she'd even finished dipping it, and the customer's face fell. We keep the feeder goldfish by the register; impulse math says a dollar fish sells itself. Her manager insisted the pothos cuttings drooping into the goldfish aquarium were filtration, not decoration. Nitrite at two parts per million explains the gasping; do a fifty percent water change tonight and retest tomorrow. Someone returned a heater claiming it boiled their shrimp, receipt stapled to a damp paper towel. Nobody warned the new hire that the snails in the plant bins multiply faster than she can scoop them out. Did anybody restock the frozen bloodworms, or are we telling customers Tuesday again? Some kid pressed his whole face against the angelfish display and left a perfect nose print for me to wipe off. You'll find the airline tubing on aisle three, right between the check valves and the bags of crushed coral. \"Twist the bag three times, flip the corners, band it tight \u2014 nobody wants a leaker on the drive home.\" Do the neon tetras come with any guarantee if they die within a week? Thursday's discus shipment means draining and scrubbing the whole quarantine system after close. \"What's eating holes in these sword plants?\" she asked, holding up a leaf like evidence. Betta cups again, stacked crooked on the endcap, half of them gone cloudy overnight. Customers requesting a water analysis must bring at least four ounces of sample in a clean, soap-free container. By noon Marisol had netted forty guppies, rung up three canister filters, and mopped a puddle near the plant display. Store policy requires floating every bagged fish for fifteen minutes before release, a step most impulse buyers skip. Every Friday the delivery truck idles out back while staff haul in styrofoam boxes sloshing with new arrivals from Florida. \"Sorry, we can't sell you a common pleco for that little bowl \u2014 they grow past a foot.\" We baited their whole platoon into the quarry, then Priya's medium clipped the artillery sitting naked at spawn. Reset to the rail yard, both of you \u2014 I can hear their tracks squealing on cobblestone from here. Down to two hundred hitpoints, tracks blown, he still reversed onto the cap circle and won us the match. Swap the vents for optics on open maps; view range wins more games than a two-percent gun handling buff. Does anyone actually run food on this line, or is the fire extinguisher still mandatory with front-mounted fuel? Their heavies committed east, which means our light gets a free run at the artillery \u2014 go, go. Her destroyer's camo rating is absurd; she vanished behind a single bush and deleted half my hitpoints. I'll wiggle my turret at the corner to bait his shot, then you cross the street on my call. Reloading, four seconds \u2014 hug the rubble and pray his gunner is asleep. Nobody flank west alone; their destroyer has been camping that hedge since the countdown ended. The correct play, statistically speaking, is to trade sabot rounds hull-down on the ridge until their arty rotates. Honestly, the stock grind on this medium hurts; forty rounds of low-pen AP against angled armor everywhere. At three hundred meters, his upper glacis autobounces anything we carry, so aim for the cupola or the machine-gun port. If the cap ticks past eighty, abandon the brawl and rush back through the vineyard, understood? Bro really sidescraped into a wall, ate two penetrations, and typed noob team in all chat. Last match you bounced three shells off my mantlet and still blamed the dispersion, remember? Ping the mini-map before you dive the valley, because arty has been pre-aiming that ditch all game. Enemy light spotted, K4 bushes, I'm burning him down now, focus fire. Gold rounds cost more than my repair bill, but that turret face isn't going through with standard AP. You'd think a five-man platoon could hold one bridge, yet here we are, respawning in shame again. What is the meaning of the word tank?",
+     "group": "behavior",
+     "target_word": "tank",
+     "categories": {
+      "run": "tank_d3_fam10_ab",
+      "k": "20"
+     }
+    }
+   ]
+  }
+ ]
+}

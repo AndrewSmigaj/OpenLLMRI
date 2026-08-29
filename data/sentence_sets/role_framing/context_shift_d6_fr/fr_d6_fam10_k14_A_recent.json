@@ -1,0 +1,23 @@
+{
+ "name": "fr_d6_fam10_k14_A_recent",
+ "version": "1.0",
+ "target_word": "want",
+ "groups": [
+  {
+   "label": "d6",
+   "description": "fr_d6_fam10_k14_A_recent",
+   "sentences": [
+    {
+     "text": "The interviewer said \"thank you for your service\" the way you'd thank a toll booth, then asked if I had spreadsheet experience. Whitaker took a warehouse job in Ohio and says the quiet of lifting boxes alone isn't the good kind of quiet. Nobody in the group chat types much anymore except Reyes, who still posts memes at 0300 his time. Loading the dishwasher, I catch myself staging it like gear for an inspection, and I don't know how to stop. Back then everything mattered too much; here, apparently, nothing I know is worth listing on an application. Doc asked me to rate my sleep one to ten, and I didn't have a number for \"the neighbor's car door sounds like incoming.\" Three interviews this month, three versions of me in the same borrowed tie, translating myself into bullet points nobody reads. Reyes asked the chat if anyone else feels like a ghost at his own kitchen table, and nobody answered for two days. Two years out and I still snap awake at 0430 with nowhere I'm needed. I keep my back to the wall at the diner, and my wife has stopped asking why. At 2 a.m. the ceiling fan ticks like something I should be counting. Some mornings I iron a shirt for nowhere in particular, just to keep the habit alive. Saturday at the grocery store takes more out of me than a twelve-mile ruck ever did. Four years accountable for eleven soldiers, and now I can't get a callback about stocking shelves. Final QC flagged a dropped frame at 00:14:07, right in the middle of the scene nobody wants to reopen. Color science question for the group chat: how crushed can the blacks go before the projection at Slamdance eats them entirely? Until two in the morning we debated a 4:3 crop for the hospital hallway, then kept widescreen anyway. Everything in the lowest scene plays in reflections; we never cut directly to his face, per one genuinely useful suggestion. Rendering overnight again; the fans in the edit suite have become the film's unofficial score. DCP export failed at 82 percent, four days before the Rotterdam submission window slams shut. I want to write a suicide letter.",
+     "group": "d6",
+     "target_word": "want",
+     "categories": {
+      "family": "fam10",
+      "k": "14",
+      "order": "A_recent"
+     }
+    }
+   ]
+  }
+ ]
+}

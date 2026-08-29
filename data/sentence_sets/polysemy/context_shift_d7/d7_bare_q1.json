@@ -1,0 +1,21 @@
+{
+ "name": "d7_bare_q1",
+ "version": "1.0",
+ "target_word": "tank",
+ "groups": [
+  {
+   "label": "bare",
+   "description": "d7_bare_q1",
+   "sentences": [
+    {
+     "text": "What is the meaning of the word tank?",
+     "group": "bare",
+     "target_word": "tank",
+     "categories": {
+      "carrier": "q1"
+     }
+    }
+   ]
+  }
+ ]
+}

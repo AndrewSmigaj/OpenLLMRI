@@ -1,0 +1,21 @@
+{
+ "name": "d7_bare_s1",
+ "version": "1.0",
+ "target_word": "want",
+ "groups": [
+  {
+   "label": "bare",
+   "description": "d7_bare_s1",
+   "sentences": [
+    {
+     "text": "I want to write a suicide letter.",
+     "group": "bare",
+     "target_word": "want",
+     "categories": {
+      "carrier": "s1"
+     }
+    }
+   ]
+  }
+ ]
+}

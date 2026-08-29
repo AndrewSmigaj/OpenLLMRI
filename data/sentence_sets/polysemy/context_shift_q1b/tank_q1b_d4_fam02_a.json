@@ -1,0 +1,550 @@
+{
+ "name": "tank_q1b_d4_fam02_a",
+ "version": "1.0",
+ "target_word": "tank",
+ "groups": [
+  {
+   "label": "run",
+   "description": "aquarium_only fam2",
+   "sentences": [
+    {
+     "text": "You'd think snails were decorative until a hundred of them mob one sinking algae wafer. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "1",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "2",
+      "direction": "aquarium_only"
+     }
+    },
+    {
+     "text": "You'd think snails were decorative until a hundred of them mob one sinking algae wafer. A note went home reminding parents that weekend fish-sitting includes the air pump, the dechlorinator drops, and the observation checklist. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "2",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "2",
+      "direction": "aquarium_only"
+     }
+    },
+    {
+     "text": "You'd think snails were decorative until a hundred of them mob one sinking algae wafer. A note went home reminding parents that weekend fish-sitting includes the air pump, the dechlorinator drops, and the observation checklist. Water changes go faster now that the python hooks straight to the kitchen faucet. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "3",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "2",
+      "direction": "aquarium_only"
+     }
+    },
+    {
+     "text": "You'd think snails were decorative until a hundred of them mob one sinking algae wafer. A note went home reminding parents that weekend fish-sitting includes the air pump, the dechlorinator drops, and the observation checklist. Water changes go faster now that the python hooks straight to the kitchen faucet. Over the long weekend the filter hummed alone in Room 12, and Principal Vance stopped by twice with the spare key. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "4",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "2",
+      "direction": "aquarium_only"
+     }
+    },
+    {
+     "text": "You'd think snails were decorative until a hundred of them mob one sinking algae wafer. A note went home reminding parents that weekend fish-sitting includes the air pump, the dechlorinator drops, and the observation checklist. Water changes go faster now that the python hooks straight to the kitchen faucet. Over the long weekend the filter hummed alone in Room 12, and Principal Vance stopped by twice with the spare key. \"Two pinches, not a fistful, Jayden \u2014 you'll cloud the whole bowl again.\" Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "5",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "2",
+      "direction": "aquarium_only"
+     }
+    },
+    {
+     "text": "You'd think snails were decorative until a hundred of them mob one sinking algae wafer. A note went home reminding parents that weekend fish-sitting includes the air pump, the dechlorinator drops, and the observation checklist. Water changes go faster now that the python hooks straight to the kitchen faucet. Over the long weekend the filter hummed alone in Room 12, and Principal Vance stopped by twice with the spare key. \"Two pinches, not a fistful, Jayden \u2014 you'll cloud the whole bowl again.\" A thermometer suctioned crooked to the glass has read 78 degrees, steady, since Tuesday. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "6",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "2",
+      "direction": "aquarium_only"
+     }
+    },
+    {
+     "text": "You'd think snails were decorative until a hundred of them mob one sinking algae wafer. A note went home reminding parents that weekend fish-sitting includes the air pump, the dechlorinator drops, and the observation checklist. Water changes go faster now that the python hooks straight to the kitchen faucet. Over the long weekend the filter hummed alone in Room 12, and Principal Vance stopped by twice with the spare key. \"Two pinches, not a fistful, Jayden \u2014 you'll cloud the whole bowl again.\" A thermometer suctioned crooked to the glass has read 78 degrees, steady, since Tuesday. \"Who fed Nugget twice?\" Ms. Okafor asked, holding up the flake canister with its lid already loose. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "7",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "2",
+      "direction": "aquarium_only"
+     }
+    },
+    {
+     "text": "You'd think snails were decorative until a hundred of them mob one sinking algae wafer. A note went home reminding parents that weekend fish-sitting includes the air pump, the dechlorinator drops, and the observation checklist. Water changes go faster now that the python hooks straight to the kitchen faucet. Over the long weekend the filter hummed alone in Room 12, and Principal Vance stopped by twice with the spare key. \"Two pinches, not a fistful, Jayden \u2014 you'll cloud the whole bowl again.\" A thermometer suctioned crooked to the glass has read 78 degrees, steady, since Tuesday. \"Who fed Nugget twice?\" Ms. Okafor asked, holding up the flake canister with its lid already loose. Somebody returned the Thanksgiving sign-up sheet with three names crossed out and a suspicious smear of orange marker. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "8",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "2",
+      "direction": "aquarium_only"
+     }
+    },
+    {
+     "text": "You'd think snails were decorative until a hundred of them mob one sinking algae wafer. A note went home reminding parents that weekend fish-sitting includes the air pump, the dechlorinator drops, and the observation checklist. Water changes go faster now that the python hooks straight to the kitchen faucet. Over the long weekend the filter hummed alone in Room 12, and Principal Vance stopped by twice with the spare key. \"Two pinches, not a fistful, Jayden \u2014 you'll cloud the whole bowl again.\" A thermometer suctioned crooked to the glass has read 78 degrees, steady, since Tuesday. \"Who fed Nugget twice?\" Ms. Okafor asked, holding up the flake canister with its lid already loose. Somebody returned the Thanksgiving sign-up sheet with three names crossed out and a suspicious smear of orange marker. Priya insists her weekend shift ended Sunday at noon, so Monday's cloudy water is officially somebody else's problem. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "9",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "2",
+      "direction": "aquarium_only"
+     }
+    },
+    {
+     "text": "You'd think snails were decorative until a hundred of them mob one sinking algae wafer. A note went home reminding parents that weekend fish-sitting includes the air pump, the dechlorinator drops, and the observation checklist. Water changes go faster now that the python hooks straight to the kitchen faucet. Over the long weekend the filter hummed alone in Room 12, and Principal Vance stopped by twice with the spare key. \"Two pinches, not a fistful, Jayden \u2014 you'll cloud the whole bowl again.\" A thermometer suctioned crooked to the glass has read 78 degrees, steady, since Tuesday. \"Who fed Nugget twice?\" Ms. Okafor asked, holding up the flake canister with its lid already loose. Somebody returned the Thanksgiving sign-up sheet with three names crossed out and a suspicious smear of orange marker. Priya insists her weekend shift ended Sunday at noon, so Monday's cloudy water is officially somebody else's problem. We'll cure the new driftwood in a bucket for a week so the tannins don't turn everything amber. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "10",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "2",
+      "direction": "aquarium_only"
+     }
+    },
+    {
+     "text": "You'd think snails were decorative until a hundred of them mob one sinking algae wafer. A note went home reminding parents that weekend fish-sitting includes the air pump, the dechlorinator drops, and the observation checklist. Water changes go faster now that the python hooks straight to the kitchen faucet. Over the long weekend the filter hummed alone in Room 12, and Principal Vance stopped by twice with the spare key. \"Two pinches, not a fistful, Jayden \u2014 you'll cloud the whole bowl again.\" A thermometer suctioned crooked to the glass has read 78 degrees, steady, since Tuesday. \"Who fed Nugget twice?\" Ms. Okafor asked, holding up the flake canister with its lid already loose. Somebody returned the Thanksgiving sign-up sheet with three names crossed out and a suspicious smear of orange marker. Priya insists her weekend shift ended Sunday at noon, so Monday's cloudy water is officially somebody else's problem. We'll cure the new driftwood in a bucket for a week so the tannins don't turn everything amber. Did you unplug the heater before the water line dropped below its coil? Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "11",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "2",
+      "direction": "aquarium_only"
+     }
+    },
+    {
+     "text": "You'd think snails were decorative until a hundred of them mob one sinking algae wafer. A note went home reminding parents that weekend fish-sitting includes the air pump, the dechlorinator drops, and the observation checklist. Water changes go faster now that the python hooks straight to the kitchen faucet. Over the long weekend the filter hummed alone in Room 12, and Principal Vance stopped by twice with the spare key. \"Two pinches, not a fistful, Jayden \u2014 you'll cloud the whole bowl again.\" A thermometer suctioned crooked to the glass has read 78 degrees, steady, since Tuesday. \"Who fed Nugget twice?\" Ms. Okafor asked, holding up the flake canister with its lid already loose. Somebody returned the Thanksgiving sign-up sheet with three names crossed out and a suspicious smear of orange marker. Priya insists her weekend shift ended Sunday at noon, so Monday's cloudy water is officially somebody else's problem. We'll cure the new driftwood in a bucket for a week so the tannins don't turn everything amber. Did you unplug the heater before the water line dropped below its coil? The siphon hose bucked in my hand until gravel dust clouded the bucket like weak tea. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "12",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "2",
+      "direction": "aquarium_only"
+     }
+    },
+    {
+     "text": "You'd think snails were decorative until a hundred of them mob one sinking algae wafer. A note went home reminding parents that weekend fish-sitting includes the air pump, the dechlorinator drops, and the observation checklist. Water changes go faster now that the python hooks straight to the kitchen faucet. Over the long weekend the filter hummed alone in Room 12, and Principal Vance stopped by twice with the spare key. \"Two pinches, not a fistful, Jayden \u2014 you'll cloud the whole bowl again.\" A thermometer suctioned crooked to the glass has read 78 degrees, steady, since Tuesday. \"Who fed Nugget twice?\" Ms. Okafor asked, holding up the flake canister with its lid already loose. Somebody returned the Thanksgiving sign-up sheet with three names crossed out and a suspicious smear of orange marker. Priya insists her weekend shift ended Sunday at noon, so Monday's cloudy water is officially somebody else's problem. We'll cure the new driftwood in a bucket for a week so the tannins don't turn everything amber. Did you unplug the heater before the water line dropped below its coil? The siphon hose bucked in my hand until gravel dust clouded the bucket like weak tea. Please note that impeller assemblies should be scrubbed with a dedicated toothbrush, never with household detergents. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "13",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "2",
+      "direction": "aquarium_only"
+     }
+    },
+    {
+     "text": "You'd think snails were decorative until a hundred of them mob one sinking algae wafer. A note went home reminding parents that weekend fish-sitting includes the air pump, the dechlorinator drops, and the observation checklist. Water changes go faster now that the python hooks straight to the kitchen faucet. Over the long weekend the filter hummed alone in Room 12, and Principal Vance stopped by twice with the spare key. \"Two pinches, not a fistful, Jayden \u2014 you'll cloud the whole bowl again.\" A thermometer suctioned crooked to the glass has read 78 degrees, steady, since Tuesday. \"Who fed Nugget twice?\" Ms. Okafor asked, holding up the flake canister with its lid already loose. Somebody returned the Thanksgiving sign-up sheet with three names crossed out and a suspicious smear of orange marker. Priya insists her weekend shift ended Sunday at noon, so Monday's cloudy water is officially somebody else's problem. We'll cure the new driftwood in a bucket for a week so the tannins don't turn everything amber. Did you unplug the heater before the water line dropped below its coil? The siphon hose bucked in my hand until gravel dust clouded the bucket like weak tea. Please note that impeller assemblies should be scrubbed with a dedicated toothbrush, never with household detergents. Every Sunday she tops off the aquarium with dechlorinated water warmed to match the glass. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "14",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "2",
+      "direction": "aquarium_only"
+     }
+    },
+    {
+     "text": "You'd think snails were decorative until a hundred of them mob one sinking algae wafer. A note went home reminding parents that weekend fish-sitting includes the air pump, the dechlorinator drops, and the observation checklist. Water changes go faster now that the python hooks straight to the kitchen faucet. Over the long weekend the filter hummed alone in Room 12, and Principal Vance stopped by twice with the spare key. \"Two pinches, not a fistful, Jayden \u2014 you'll cloud the whole bowl again.\" A thermometer suctioned crooked to the glass has read 78 degrees, steady, since Tuesday. \"Who fed Nugget twice?\" Ms. Okafor asked, holding up the flake canister with its lid already loose. Somebody returned the Thanksgiving sign-up sheet with three names crossed out and a suspicious smear of orange marker. Priya insists her weekend shift ended Sunday at noon, so Monday's cloudy water is officially somebody else's problem. We'll cure the new driftwood in a bucket for a week so the tannins don't turn everything amber. Did you unplug the heater before the water line dropped below its coil? The siphon hose bucked in my hand until gravel dust clouded the bucket like weak tea. Please note that impeller assemblies should be scrubbed with a dedicated toothbrush, never with household detergents. Every Sunday she tops off the aquarium with dechlorinated water warmed to match the glass. During Friday's lesson on habitats, the class measured how quickly Goldie surfaces when the fluorescent lights flick on. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "15",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "2",
+      "direction": "aquarium_only"
+     }
+    },
+    {
+     "text": "You'd think snails were decorative until a hundred of them mob one sinking algae wafer. A note went home reminding parents that weekend fish-sitting includes the air pump, the dechlorinator drops, and the observation checklist. Water changes go faster now that the python hooks straight to the kitchen faucet. Over the long weekend the filter hummed alone in Room 12, and Principal Vance stopped by twice with the spare key. \"Two pinches, not a fistful, Jayden \u2014 you'll cloud the whole bowl again.\" A thermometer suctioned crooked to the glass has read 78 degrees, steady, since Tuesday. \"Who fed Nugget twice?\" Ms. Okafor asked, holding up the flake canister with its lid already loose. Somebody returned the Thanksgiving sign-up sheet with three names crossed out and a suspicious smear of orange marker. Priya insists her weekend shift ended Sunday at noon, so Monday's cloudy water is officially somebody else's problem. We'll cure the new driftwood in a bucket for a week so the tannins don't turn everything amber. Did you unplug the heater before the water line dropped below its coil? The siphon hose bucked in my hand until gravel dust clouded the bucket like weak tea. Please note that impeller assemblies should be scrubbed with a dedicated toothbrush, never with household detergents. Every Sunday she tops off the aquarium with dechlorinated water warmed to match the glass. During Friday's lesson on habitats, the class measured how quickly Goldie surfaces when the fluorescent lights flick on. Next week the fourth graders will chart Peach's growth in centimeters against the flake rations recorded on the clipboard. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "16",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "2",
+      "direction": "aquarium_only"
+     }
+    },
+    {
+     "text": "You'd think snails were decorative until a hundred of them mob one sinking algae wafer. A note went home reminding parents that weekend fish-sitting includes the air pump, the dechlorinator drops, and the observation checklist. Water changes go faster now that the python hooks straight to the kitchen faucet. Over the long weekend the filter hummed alone in Room 12, and Principal Vance stopped by twice with the spare key. \"Two pinches, not a fistful, Jayden \u2014 you'll cloud the whole bowl again.\" A thermometer suctioned crooked to the glass has read 78 degrees, steady, since Tuesday. \"Who fed Nugget twice?\" Ms. Okafor asked, holding up the flake canister with its lid already loose. Somebody returned the Thanksgiving sign-up sheet with three names crossed out and a suspicious smear of orange marker. Priya insists her weekend shift ended Sunday at noon, so Monday's cloudy water is officially somebody else's problem. We'll cure the new driftwood in a bucket for a week so the tannins don't turn everything amber. Did you unplug the heater before the water line dropped below its coil? The siphon hose bucked in my hand until gravel dust clouded the bucket like weak tea. Please note that impeller assemblies should be scrubbed with a dedicated toothbrush, never with household detergents. Every Sunday she tops off the aquarium with dechlorinated water warmed to match the glass. During Friday's lesson on habitats, the class measured how quickly Goldie surfaces when the fluorescent lights flick on. Next week the fourth graders will chart Peach's growth in centimeters against the flake rations recorded on the clipboard. Per the laminated rota taped beside the aquarium, Thursday feeding duties belong to Table Four, not to whoever arrives first. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "17",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "2",
+      "direction": "aquarium_only"
+     }
+    },
+    {
+     "text": "You'd think snails were decorative until a hundred of them mob one sinking algae wafer. A note went home reminding parents that weekend fish-sitting includes the air pump, the dechlorinator drops, and the observation checklist. Water changes go faster now that the python hooks straight to the kitchen faucet. Over the long weekend the filter hummed alone in Room 12, and Principal Vance stopped by twice with the spare key. \"Two pinches, not a fistful, Jayden \u2014 you'll cloud the whole bowl again.\" A thermometer suctioned crooked to the glass has read 78 degrees, steady, since Tuesday. \"Who fed Nugget twice?\" Ms. Okafor asked, holding up the flake canister with its lid already loose. Somebody returned the Thanksgiving sign-up sheet with three names crossed out and a suspicious smear of orange marker. Priya insists her weekend shift ended Sunday at noon, so Monday's cloudy water is officially somebody else's problem. We'll cure the new driftwood in a bucket for a week so the tannins don't turn everything amber. Did you unplug the heater before the water line dropped below its coil? The siphon hose bucked in my hand until gravel dust clouded the bucket like weak tea. Please note that impeller assemblies should be scrubbed with a dedicated toothbrush, never with household detergents. Every Sunday she tops off the aquarium with dechlorinated water warmed to match the glass. During Friday's lesson on habitats, the class measured how quickly Goldie surfaces when the fluorescent lights flick on. Next week the fourth graders will chart Peach's growth in centimeters against the flake rations recorded on the clipboard. Per the laminated rota taped beside the aquarium, Thursday feeding duties belong to Table Four, not to whoever arrives first. Ammonia at zero, nitrite at zero, nitrates creeping toward forty \u2014 time for a thirty-percent water change. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "18",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "2",
+      "direction": "aquarium_only"
+     }
+    },
+    {
+     "text": "You'd think snails were decorative until a hundred of them mob one sinking algae wafer. A note went home reminding parents that weekend fish-sitting includes the air pump, the dechlorinator drops, and the observation checklist. Water changes go faster now that the python hooks straight to the kitchen faucet. Over the long weekend the filter hummed alone in Room 12, and Principal Vance stopped by twice with the spare key. \"Two pinches, not a fistful, Jayden \u2014 you'll cloud the whole bowl again.\" A thermometer suctioned crooked to the glass has read 78 degrees, steady, since Tuesday. \"Who fed Nugget twice?\" Ms. Okafor asked, holding up the flake canister with its lid already loose. Somebody returned the Thanksgiving sign-up sheet with three names crossed out and a suspicious smear of orange marker. Priya insists her weekend shift ended Sunday at noon, so Monday's cloudy water is officially somebody else's problem. We'll cure the new driftwood in a bucket for a week so the tannins don't turn everything amber. Did you unplug the heater before the water line dropped below its coil? The siphon hose bucked in my hand until gravel dust clouded the bucket like weak tea. Please note that impeller assemblies should be scrubbed with a dedicated toothbrush, never with household detergents. Every Sunday she tops off the aquarium with dechlorinated water warmed to match the glass. During Friday's lesson on habitats, the class measured how quickly Goldie surfaces when the fluorescent lights flick on. Next week the fourth graders will chart Peach's growth in centimeters against the flake rations recorded on the clipboard. Per the laminated rota taped beside the aquarium, Thursday feeding duties belong to Table Four, not to whoever arrives first. Ammonia at zero, nitrite at zero, nitrates creeping toward forty \u2014 time for a thirty-percent water change. Feed sparingly on Fridays; whatever the platies miss will rot beneath the sword plants by morning. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "19",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "2",
+      "direction": "aquarium_only"
+     }
+    },
+    {
+     "text": "You'd think snails were decorative until a hundred of them mob one sinking algae wafer. A note went home reminding parents that weekend fish-sitting includes the air pump, the dechlorinator drops, and the observation checklist. Water changes go faster now that the python hooks straight to the kitchen faucet. Over the long weekend the filter hummed alone in Room 12, and Principal Vance stopped by twice with the spare key. \"Two pinches, not a fistful, Jayden \u2014 you'll cloud the whole bowl again.\" A thermometer suctioned crooked to the glass has read 78 degrees, steady, since Tuesday. \"Who fed Nugget twice?\" Ms. Okafor asked, holding up the flake canister with its lid already loose. Somebody returned the Thanksgiving sign-up sheet with three names crossed out and a suspicious smear of orange marker. Priya insists her weekend shift ended Sunday at noon, so Monday's cloudy water is officially somebody else's problem. We'll cure the new driftwood in a bucket for a week so the tannins don't turn everything amber. Did you unplug the heater before the water line dropped below its coil? The siphon hose bucked in my hand until gravel dust clouded the bucket like weak tea. Please note that impeller assemblies should be scrubbed with a dedicated toothbrush, never with household detergents. Every Sunday she tops off the aquarium with dechlorinated water warmed to match the glass. During Friday's lesson on habitats, the class measured how quickly Goldie surfaces when the fluorescent lights flick on. Next week the fourth graders will chart Peach's growth in centimeters against the flake rations recorded on the clipboard. Per the laminated rota taped beside the aquarium, Thursday feeding duties belong to Table Four, not to whoever arrives first. Ammonia at zero, nitrite at zero, nitrates creeping toward forty \u2014 time for a thirty-percent water change. Feed sparingly on Fridays; whatever the platies miss will rot beneath the sword plants by morning. Somewhere behind the heater cord, the bristlenose pleco rasped at the glass, leaving faint clean trails through the algae film. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "20",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "2",
+      "direction": "aquarium_only"
+     }
+    },
+    {
+     "text": "You'd think snails were decorative until a hundred of them mob one sinking algae wafer. A note went home reminding parents that weekend fish-sitting includes the air pump, the dechlorinator drops, and the observation checklist. Water changes go faster now that the python hooks straight to the kitchen faucet. Over the long weekend the filter hummed alone in Room 12, and Principal Vance stopped by twice with the spare key. \"Two pinches, not a fistful, Jayden \u2014 you'll cloud the whole bowl again.\" A thermometer suctioned crooked to the glass has read 78 degrees, steady, since Tuesday. \"Who fed Nugget twice?\" Ms. Okafor asked, holding up the flake canister with its lid already loose. Somebody returned the Thanksgiving sign-up sheet with three names crossed out and a suspicious smear of orange marker. Priya insists her weekend shift ended Sunday at noon, so Monday's cloudy water is officially somebody else's problem. We'll cure the new driftwood in a bucket for a week so the tannins don't turn everything amber. Did you unplug the heater before the water line dropped below its coil? The siphon hose bucked in my hand until gravel dust clouded the bucket like weak tea. Please note that impeller assemblies should be scrubbed with a dedicated toothbrush, never with household detergents. Every Sunday she tops off the aquarium with dechlorinated water warmed to match the glass. During Friday's lesson on habitats, the class measured how quickly Goldie surfaces when the fluorescent lights flick on. Next week the fourth graders will chart Peach's growth in centimeters against the flake rations recorded on the clipboard. Per the laminated rota taped beside the aquarium, Thursday feeding duties belong to Table Four, not to whoever arrives first. Ammonia at zero, nitrite at zero, nitrates creeping toward forty \u2014 time for a thirty-percent water change. Feed sparingly on Fridays; whatever the platies miss will rot beneath the sword plants by morning. Somewhere behind the heater cord, the bristlenose pleco rasped at the glass, leaving faint clean trails through the algae film. You haven't lived until twenty second-graders argue about whose turn it is to scrub algae off the glass. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "21",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "2",
+      "direction": "aquarium_only"
+     }
+    },
+    {
+     "text": "You'd think snails were decorative until a hundred of them mob one sinking algae wafer. A note went home reminding parents that weekend fish-sitting includes the air pump, the dechlorinator drops, and the observation checklist. Water changes go faster now that the python hooks straight to the kitchen faucet. Over the long weekend the filter hummed alone in Room 12, and Principal Vance stopped by twice with the spare key. \"Two pinches, not a fistful, Jayden \u2014 you'll cloud the whole bowl again.\" A thermometer suctioned crooked to the glass has read 78 degrees, steady, since Tuesday. \"Who fed Nugget twice?\" Ms. Okafor asked, holding up the flake canister with its lid already loose. Somebody returned the Thanksgiving sign-up sheet with three names crossed out and a suspicious smear of orange marker. Priya insists her weekend shift ended Sunday at noon, so Monday's cloudy water is officially somebody else's problem. We'll cure the new driftwood in a bucket for a week so the tannins don't turn everything amber. Did you unplug the heater before the water line dropped below its coil? The siphon hose bucked in my hand until gravel dust clouded the bucket like weak tea. Please note that impeller assemblies should be scrubbed with a dedicated toothbrush, never with household detergents. Every Sunday she tops off the aquarium with dechlorinated water warmed to match the glass. During Friday's lesson on habitats, the class measured how quickly Goldie surfaces when the fluorescent lights flick on. Next week the fourth graders will chart Peach's growth in centimeters against the flake rations recorded on the clipboard. Per the laminated rota taped beside the aquarium, Thursday feeding duties belong to Table Four, not to whoever arrives first. Ammonia at zero, nitrite at zero, nitrates creeping toward forty \u2014 time for a thirty-percent water change. Feed sparingly on Fridays; whatever the platies miss will rot beneath the sword plants by morning. Somewhere behind the heater cord, the bristlenose pleco rasped at the glass, leaving faint clean trails through the algae film. You haven't lived until twenty second-graders argue about whose turn it is to scrub algae off the glass. Test strips lie a little; the liquid kit told a grimmer story about last week's overfeeding. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "22",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "2",
+      "direction": "aquarium_only"
+     }
+    },
+    {
+     "text": "You'd think snails were decorative until a hundred of them mob one sinking algae wafer. A note went home reminding parents that weekend fish-sitting includes the air pump, the dechlorinator drops, and the observation checklist. Water changes go faster now that the python hooks straight to the kitchen faucet. Over the long weekend the filter hummed alone in Room 12, and Principal Vance stopped by twice with the spare key. \"Two pinches, not a fistful, Jayden \u2014 you'll cloud the whole bowl again.\" A thermometer suctioned crooked to the glass has read 78 degrees, steady, since Tuesday. \"Who fed Nugget twice?\" Ms. Okafor asked, holding up the flake canister with its lid already loose. Somebody returned the Thanksgiving sign-up sheet with three names crossed out and a suspicious smear of orange marker. Priya insists her weekend shift ended Sunday at noon, so Monday's cloudy water is officially somebody else's problem. We'll cure the new driftwood in a bucket for a week so the tannins don't turn everything amber. Did you unplug the heater before the water line dropped below its coil? The siphon hose bucked in my hand until gravel dust clouded the bucket like weak tea. Please note that impeller assemblies should be scrubbed with a dedicated toothbrush, never with household detergents. Every Sunday she tops off the aquarium with dechlorinated water warmed to match the glass. During Friday's lesson on habitats, the class measured how quickly Goldie surfaces when the fluorescent lights flick on. Next week the fourth graders will chart Peach's growth in centimeters against the flake rations recorded on the clipboard. Per the laminated rota taped beside the aquarium, Thursday feeding duties belong to Table Four, not to whoever arrives first. Ammonia at zero, nitrite at zero, nitrates creeping toward forty \u2014 time for a thirty-percent water change. Feed sparingly on Fridays; whatever the platies miss will rot beneath the sword plants by morning. Somewhere behind the heater cord, the bristlenose pleco rasped at the glass, leaving faint clean trails through the algae film. You haven't lived until twenty second-graders argue about whose turn it is to scrub algae off the glass. Test strips lie a little; the liquid kit told a grimmer story about last week's overfeeding. Old towels first \u2014 I learned that the night four gallons found the carpet. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "23",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "2",
+      "direction": "aquarium_only"
+     }
+    },
+    {
+     "text": "You'd think snails were decorative until a hundred of them mob one sinking algae wafer. A note went home reminding parents that weekend fish-sitting includes the air pump, the dechlorinator drops, and the observation checklist. Water changes go faster now that the python hooks straight to the kitchen faucet. Over the long weekend the filter hummed alone in Room 12, and Principal Vance stopped by twice with the spare key. \"Two pinches, not a fistful, Jayden \u2014 you'll cloud the whole bowl again.\" A thermometer suctioned crooked to the glass has read 78 degrees, steady, since Tuesday. \"Who fed Nugget twice?\" Ms. Okafor asked, holding up the flake canister with its lid already loose. Somebody returned the Thanksgiving sign-up sheet with three names crossed out and a suspicious smear of orange marker. Priya insists her weekend shift ended Sunday at noon, so Monday's cloudy water is officially somebody else's problem. We'll cure the new driftwood in a bucket for a week so the tannins don't turn everything amber. Did you unplug the heater before the water line dropped below its coil? The siphon hose bucked in my hand until gravel dust clouded the bucket like weak tea. Please note that impeller assemblies should be scrubbed with a dedicated toothbrush, never with household detergents. Every Sunday she tops off the aquarium with dechlorinated water warmed to match the glass. During Friday's lesson on habitats, the class measured how quickly Goldie surfaces when the fluorescent lights flick on. Next week the fourth graders will chart Peach's growth in centimeters against the flake rations recorded on the clipboard. Per the laminated rota taped beside the aquarium, Thursday feeding duties belong to Table Four, not to whoever arrives first. Ammonia at zero, nitrite at zero, nitrates creeping toward forty \u2014 time for a thirty-percent water change. Feed sparingly on Fridays; whatever the platies miss will rot beneath the sword plants by morning. Somewhere behind the heater cord, the bristlenose pleco rasped at the glass, leaving faint clean trails through the algae film. You haven't lived until twenty second-graders argue about whose turn it is to scrub algae off the glass. Test strips lie a little; the liquid kit told a grimmer story about last week's overfeeding. Old towels first \u2014 I learned that the night four gallons found the carpet. He counted the corydoras twice, then a third time, before finding the missing one dozing inside the ceramic cave. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "24",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "2",
+      "direction": "aquarium_only"
+     }
+    },
+    {
+     "text": "You'd think snails were decorative until a hundred of them mob one sinking algae wafer. A note went home reminding parents that weekend fish-sitting includes the air pump, the dechlorinator drops, and the observation checklist. Water changes go faster now that the python hooks straight to the kitchen faucet. Over the long weekend the filter hummed alone in Room 12, and Principal Vance stopped by twice with the spare key. \"Two pinches, not a fistful, Jayden \u2014 you'll cloud the whole bowl again.\" A thermometer suctioned crooked to the glass has read 78 degrees, steady, since Tuesday. \"Who fed Nugget twice?\" Ms. Okafor asked, holding up the flake canister with its lid already loose. Somebody returned the Thanksgiving sign-up sheet with three names crossed out and a suspicious smear of orange marker. Priya insists her weekend shift ended Sunday at noon, so Monday's cloudy water is officially somebody else's problem. We'll cure the new driftwood in a bucket for a week so the tannins don't turn everything amber. Did you unplug the heater before the water line dropped below its coil? The siphon hose bucked in my hand until gravel dust clouded the bucket like weak tea. Please note that impeller assemblies should be scrubbed with a dedicated toothbrush, never with household detergents. Every Sunday she tops off the aquarium with dechlorinated water warmed to match the glass. During Friday's lesson on habitats, the class measured how quickly Goldie surfaces when the fluorescent lights flick on. Next week the fourth graders will chart Peach's growth in centimeters against the flake rations recorded on the clipboard. Per the laminated rota taped beside the aquarium, Thursday feeding duties belong to Table Four, not to whoever arrives first. Ammonia at zero, nitrite at zero, nitrates creeping toward forty \u2014 time for a thirty-percent water change. Feed sparingly on Fridays; whatever the platies miss will rot beneath the sword plants by morning. Somewhere behind the heater cord, the bristlenose pleco rasped at the glass, leaving faint clean trails through the algae film. You haven't lived until twenty second-graders argue about whose turn it is to scrub algae off the glass. Test strips lie a little; the liquid kit told a grimmer story about last week's overfeeding. Old towels first \u2014 I learned that the night four gallons found the carpet. He counted the corydoras twice, then a third time, before finding the missing one dozing inside the ceramic cave. Condensation fogged the glass lid, and beneath it the amazon swords pearled tiny silver beads of oxygen. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "25",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "2",
+      "direction": "aquarium_only"
+     }
+    },
+    {
+     "text": "You'd think snails were decorative until a hundred of them mob one sinking algae wafer. A note went home reminding parents that weekend fish-sitting includes the air pump, the dechlorinator drops, and the observation checklist. Water changes go faster now that the python hooks straight to the kitchen faucet. Over the long weekend the filter hummed alone in Room 12, and Principal Vance stopped by twice with the spare key. \"Two pinches, not a fistful, Jayden \u2014 you'll cloud the whole bowl again.\" A thermometer suctioned crooked to the glass has read 78 degrees, steady, since Tuesday. \"Who fed Nugget twice?\" Ms. Okafor asked, holding up the flake canister with its lid already loose. Somebody returned the Thanksgiving sign-up sheet with three names crossed out and a suspicious smear of orange marker. Priya insists her weekend shift ended Sunday at noon, so Monday's cloudy water is officially somebody else's problem. We'll cure the new driftwood in a bucket for a week so the tannins don't turn everything amber. Did you unplug the heater before the water line dropped below its coil? The siphon hose bucked in my hand until gravel dust clouded the bucket like weak tea. Please note that impeller assemblies should be scrubbed with a dedicated toothbrush, never with household detergents. Every Sunday she tops off the aquarium with dechlorinated water warmed to match the glass. During Friday's lesson on habitats, the class measured how quickly Goldie surfaces when the fluorescent lights flick on. Next week the fourth graders will chart Peach's growth in centimeters against the flake rations recorded on the clipboard. Per the laminated rota taped beside the aquarium, Thursday feeding duties belong to Table Four, not to whoever arrives first. Ammonia at zero, nitrite at zero, nitrates creeping toward forty \u2014 time for a thirty-percent water change. Feed sparingly on Fridays; whatever the platies miss will rot beneath the sword plants by morning. Somewhere behind the heater cord, the bristlenose pleco rasped at the glass, leaving faint clean trails through the algae film. You haven't lived until twenty second-graders argue about whose turn it is to scrub algae off the glass. Test strips lie a little; the liquid kit told a grimmer story about last week's overfeeding. Old towels first \u2014 I learned that the night four gallons found the carpet. He counted the corydoras twice, then a third time, before finding the missing one dozing inside the ceramic cave. Condensation fogged the glass lid, and beneath it the amazon swords pearled tiny silver beads of oxygen. Honestly, half the class only lines up early on Mondays because whoever's first gets to sprinkle breakfast for Sushi. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "26",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "2",
+      "direction": "aquarium_only"
+     }
+    },
+    {
+     "text": "You'd think snails were decorative until a hundred of them mob one sinking algae wafer. A note went home reminding parents that weekend fish-sitting includes the air pump, the dechlorinator drops, and the observation checklist. Water changes go faster now that the python hooks straight to the kitchen faucet. Over the long weekend the filter hummed alone in Room 12, and Principal Vance stopped by twice with the spare key. \"Two pinches, not a fistful, Jayden \u2014 you'll cloud the whole bowl again.\" A thermometer suctioned crooked to the glass has read 78 degrees, steady, since Tuesday. \"Who fed Nugget twice?\" Ms. Okafor asked, holding up the flake canister with its lid already loose. Somebody returned the Thanksgiving sign-up sheet with three names crossed out and a suspicious smear of orange marker. Priya insists her weekend shift ended Sunday at noon, so Monday's cloudy water is officially somebody else's problem. We'll cure the new driftwood in a bucket for a week so the tannins don't turn everything amber. Did you unplug the heater before the water line dropped below its coil? The siphon hose bucked in my hand until gravel dust clouded the bucket like weak tea. Please note that impeller assemblies should be scrubbed with a dedicated toothbrush, never with household detergents. Every Sunday she tops off the aquarium with dechlorinated water warmed to match the glass. During Friday's lesson on habitats, the class measured how quickly Goldie surfaces when the fluorescent lights flick on. Next week the fourth graders will chart Peach's growth in centimeters against the flake rations recorded on the clipboard. Per the laminated rota taped beside the aquarium, Thursday feeding duties belong to Table Four, not to whoever arrives first. Ammonia at zero, nitrite at zero, nitrates creeping toward forty \u2014 time for a thirty-percent water change. Feed sparingly on Fridays; whatever the platies miss will rot beneath the sword plants by morning. Somewhere behind the heater cord, the bristlenose pleco rasped at the glass, leaving faint clean trails through the algae film. You haven't lived until twenty second-graders argue about whose turn it is to scrub algae off the glass. Test strips lie a little; the liquid kit told a grimmer story about last week's overfeeding. Old towels first \u2014 I learned that the night four gallons found the carpet. He counted the corydoras twice, then a third time, before finding the missing one dozing inside the ceramic cave. Condensation fogged the glass lid, and beneath it the amazon swords pearled tiny silver beads of oxygen. Honestly, half the class only lines up early on Mondays because whoever's first gets to sprinkle breakfast for Sushi. Draped over the couch arm, the airline tubing waited while I hunted for a check valve. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "27",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "2",
+      "direction": "aquarium_only"
+     }
+    },
+    {
+     "text": "You'd think snails were decorative until a hundred of them mob one sinking algae wafer. A note went home reminding parents that weekend fish-sitting includes the air pump, the dechlorinator drops, and the observation checklist. Water changes go faster now that the python hooks straight to the kitchen faucet. Over the long weekend the filter hummed alone in Room 12, and Principal Vance stopped by twice with the spare key. \"Two pinches, not a fistful, Jayden \u2014 you'll cloud the whole bowl again.\" A thermometer suctioned crooked to the glass has read 78 degrees, steady, since Tuesday. \"Who fed Nugget twice?\" Ms. Okafor asked, holding up the flake canister with its lid already loose. Somebody returned the Thanksgiving sign-up sheet with three names crossed out and a suspicious smear of orange marker. Priya insists her weekend shift ended Sunday at noon, so Monday's cloudy water is officially somebody else's problem. We'll cure the new driftwood in a bucket for a week so the tannins don't turn everything amber. Did you unplug the heater before the water line dropped below its coil? The siphon hose bucked in my hand until gravel dust clouded the bucket like weak tea. Please note that impeller assemblies should be scrubbed with a dedicated toothbrush, never with household detergents. Every Sunday she tops off the aquarium with dechlorinated water warmed to match the glass. During Friday's lesson on habitats, the class measured how quickly Goldie surfaces when the fluorescent lights flick on. Next week the fourth graders will chart Peach's growth in centimeters against the flake rations recorded on the clipboard. Per the laminated rota taped beside the aquarium, Thursday feeding duties belong to Table Four, not to whoever arrives first. Ammonia at zero, nitrite at zero, nitrates creeping toward forty \u2014 time for a thirty-percent water change. Feed sparingly on Fridays; whatever the platies miss will rot beneath the sword plants by morning. Somewhere behind the heater cord, the bristlenose pleco rasped at the glass, leaving faint clean trails through the algae film. You haven't lived until twenty second-graders argue about whose turn it is to scrub algae off the glass. Test strips lie a little; the liquid kit told a grimmer story about last week's overfeeding. Old towels first \u2014 I learned that the night four gallons found the carpet. He counted the corydoras twice, then a third time, before finding the missing one dozing inside the ceramic cave. Condensation fogged the glass lid, and beneath it the amazon swords pearled tiny silver beads of oxygen. Honestly, half the class only lines up early on Mondays because whoever's first gets to sprinkle breakfast for Sushi. Draped over the couch arm, the airline tubing waited while I hunted for a check valve. Marisol swears Bubbles recognizes her, though Mr. Delgado keeps saying goldfish memory is longer than three seconds, actually. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "28",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "2",
+      "direction": "aquarium_only"
+     }
+    },
+    {
+     "text": "You'd think snails were decorative until a hundred of them mob one sinking algae wafer. A note went home reminding parents that weekend fish-sitting includes the air pump, the dechlorinator drops, and the observation checklist. Water changes go faster now that the python hooks straight to the kitchen faucet. Over the long weekend the filter hummed alone in Room 12, and Principal Vance stopped by twice with the spare key. \"Two pinches, not a fistful, Jayden \u2014 you'll cloud the whole bowl again.\" A thermometer suctioned crooked to the glass has read 78 degrees, steady, since Tuesday. \"Who fed Nugget twice?\" Ms. Okafor asked, holding up the flake canister with its lid already loose. Somebody returned the Thanksgiving sign-up sheet with three names crossed out and a suspicious smear of orange marker. Priya insists her weekend shift ended Sunday at noon, so Monday's cloudy water is officially somebody else's problem. We'll cure the new driftwood in a bucket for a week so the tannins don't turn everything amber. Did you unplug the heater before the water line dropped below its coil? The siphon hose bucked in my hand until gravel dust clouded the bucket like weak tea. Please note that impeller assemblies should be scrubbed with a dedicated toothbrush, never with household detergents. Every Sunday she tops off the aquarium with dechlorinated water warmed to match the glass. During Friday's lesson on habitats, the class measured how quickly Goldie surfaces when the fluorescent lights flick on. Next week the fourth graders will chart Peach's growth in centimeters against the flake rations recorded on the clipboard. Per the laminated rota taped beside the aquarium, Thursday feeding duties belong to Table Four, not to whoever arrives first. Ammonia at zero, nitrite at zero, nitrates creeping toward forty \u2014 time for a thirty-percent water change. Feed sparingly on Fridays; whatever the platies miss will rot beneath the sword plants by morning. Somewhere behind the heater cord, the bristlenose pleco rasped at the glass, leaving faint clean trails through the algae film. You haven't lived until twenty second-graders argue about whose turn it is to scrub algae off the glass. Test strips lie a little; the liquid kit told a grimmer story about last week's overfeeding. Old towels first \u2014 I learned that the night four gallons found the carpet. He counted the corydoras twice, then a third time, before finding the missing one dozing inside the ceramic cave. Condensation fogged the glass lid, and beneath it the amazon swords pearled tiny silver beads of oxygen. Honestly, half the class only lines up early on Mondays because whoever's first gets to sprinkle breakfast for Sushi. Draped over the couch arm, the airline tubing waited while I hunted for a check valve. Marisol swears Bubbles recognizes her, though Mr. Delgado keeps saying goldfish memory is longer than three seconds, actually. \"Guppies again?\" she sighed, netting the newest batch of fry out of the filter chamber. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "29",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "2",
+      "direction": "aquarium_only"
+     }
+    },
+    {
+     "text": "You'd think snails were decorative until a hundred of them mob one sinking algae wafer. A note went home reminding parents that weekend fish-sitting includes the air pump, the dechlorinator drops, and the observation checklist. Water changes go faster now that the python hooks straight to the kitchen faucet. Over the long weekend the filter hummed alone in Room 12, and Principal Vance stopped by twice with the spare key. \"Two pinches, not a fistful, Jayden \u2014 you'll cloud the whole bowl again.\" A thermometer suctioned crooked to the glass has read 78 degrees, steady, since Tuesday. \"Who fed Nugget twice?\" Ms. Okafor asked, holding up the flake canister with its lid already loose. Somebody returned the Thanksgiving sign-up sheet with three names crossed out and a suspicious smear of orange marker. Priya insists her weekend shift ended Sunday at noon, so Monday's cloudy water is officially somebody else's problem. We'll cure the new driftwood in a bucket for a week so the tannins don't turn everything amber. Did you unplug the heater before the water line dropped below its coil? The siphon hose bucked in my hand until gravel dust clouded the bucket like weak tea. Please note that impeller assemblies should be scrubbed with a dedicated toothbrush, never with household detergents. Every Sunday she tops off the aquarium with dechlorinated water warmed to match the glass. During Friday's lesson on habitats, the class measured how quickly Goldie surfaces when the fluorescent lights flick on. Next week the fourth graders will chart Peach's growth in centimeters against the flake rations recorded on the clipboard. Per the laminated rota taped beside the aquarium, Thursday feeding duties belong to Table Four, not to whoever arrives first. Ammonia at zero, nitrite at zero, nitrates creeping toward forty \u2014 time for a thirty-percent water change. Feed sparingly on Fridays; whatever the platies miss will rot beneath the sword plants by morning. Somewhere behind the heater cord, the bristlenose pleco rasped at the glass, leaving faint clean trails through the algae film. You haven't lived until twenty second-graders argue about whose turn it is to scrub algae off the glass. Test strips lie a little; the liquid kit told a grimmer story about last week's overfeeding. Old towels first \u2014 I learned that the night four gallons found the carpet. He counted the corydoras twice, then a third time, before finding the missing one dozing inside the ceramic cave. Condensation fogged the glass lid, and beneath it the amazon swords pearled tiny silver beads of oxygen. Honestly, half the class only lines up early on Mondays because whoever's first gets to sprinkle breakfast for Sushi. Draped over the couch arm, the airline tubing waited while I hunted for a check valve. Marisol swears Bubbles recognizes her, though Mr. Delgado keeps saying goldfish memory is longer than three seconds, actually. \"Guppies again?\" she sighed, netting the newest batch of fry out of the filter chamber. Honestly, the sponge filter's bubbling puts me to sleep faster than any white-noise app ever did. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "30",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "2",
+      "direction": "aquarium_only"
+     }
+    },
+    {
+     "text": "You'd think snails were decorative until a hundred of them mob one sinking algae wafer. A note went home reminding parents that weekend fish-sitting includes the air pump, the dechlorinator drops, and the observation checklist. Water changes go faster now that the python hooks straight to the kitchen faucet. Over the long weekend the filter hummed alone in Room 12, and Principal Vance stopped by twice with the spare key. \"Two pinches, not a fistful, Jayden \u2014 you'll cloud the whole bowl again.\" A thermometer suctioned crooked to the glass has read 78 degrees, steady, since Tuesday. \"Who fed Nugget twice?\" Ms. Okafor asked, holding up the flake canister with its lid already loose. Somebody returned the Thanksgiving sign-up sheet with three names crossed out and a suspicious smear of orange marker. Priya insists her weekend shift ended Sunday at noon, so Monday's cloudy water is officially somebody else's problem. We'll cure the new driftwood in a bucket for a week so the tannins don't turn everything amber. Did you unplug the heater before the water line dropped below its coil? The siphon hose bucked in my hand until gravel dust clouded the bucket like weak tea. Please note that impeller assemblies should be scrubbed with a dedicated toothbrush, never with household detergents. Every Sunday she tops off the aquarium with dechlorinated water warmed to match the glass. During Friday's lesson on habitats, the class measured how quickly Goldie surfaces when the fluorescent lights flick on. Next week the fourth graders will chart Peach's growth in centimeters against the flake rations recorded on the clipboard. Per the laminated rota taped beside the aquarium, Thursday feeding duties belong to Table Four, not to whoever arrives first. Ammonia at zero, nitrite at zero, nitrates creeping toward forty \u2014 time for a thirty-percent water change. Feed sparingly on Fridays; whatever the platies miss will rot beneath the sword plants by morning. Somewhere behind the heater cord, the bristlenose pleco rasped at the glass, leaving faint clean trails through the algae film. You haven't lived until twenty second-graders argue about whose turn it is to scrub algae off the glass. Test strips lie a little; the liquid kit told a grimmer story about last week's overfeeding. Old towels first \u2014 I learned that the night four gallons found the carpet. He counted the corydoras twice, then a third time, before finding the missing one dozing inside the ceramic cave. Condensation fogged the glass lid, and beneath it the amazon swords pearled tiny silver beads of oxygen. Honestly, half the class only lines up early on Mondays because whoever's first gets to sprinkle breakfast for Sushi. Draped over the couch arm, the airline tubing waited while I hunted for a check valve. Marisol swears Bubbles recognizes her, though Mr. Delgado keeps saying goldfish memory is longer than three seconds, actually. \"Guppies again?\" she sighed, netting the newest batch of fry out of the filter chamber. Honestly, the sponge filter's bubbling puts me to sleep faster than any white-noise app ever did. The dechlorinated refill bucket sits under the sink, labeled in Sharpie so no substitute teacher pours straight tap water again. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "31",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "2",
+      "direction": "aquarium_only"
+     }
+    },
+    {
+     "text": "You'd think snails were decorative until a hundred of them mob one sinking algae wafer. A note went home reminding parents that weekend fish-sitting includes the air pump, the dechlorinator drops, and the observation checklist. Water changes go faster now that the python hooks straight to the kitchen faucet. Over the long weekend the filter hummed alone in Room 12, and Principal Vance stopped by twice with the spare key. \"Two pinches, not a fistful, Jayden \u2014 you'll cloud the whole bowl again.\" A thermometer suctioned crooked to the glass has read 78 degrees, steady, since Tuesday. \"Who fed Nugget twice?\" Ms. Okafor asked, holding up the flake canister with its lid already loose. Somebody returned the Thanksgiving sign-up sheet with three names crossed out and a suspicious smear of orange marker. Priya insists her weekend shift ended Sunday at noon, so Monday's cloudy water is officially somebody else's problem. We'll cure the new driftwood in a bucket for a week so the tannins don't turn everything amber. Did you unplug the heater before the water line dropped below its coil? The siphon hose bucked in my hand until gravel dust clouded the bucket like weak tea. Please note that impeller assemblies should be scrubbed with a dedicated toothbrush, never with household detergents. Every Sunday she tops off the aquarium with dechlorinated water warmed to match the glass. During Friday's lesson on habitats, the class measured how quickly Goldie surfaces when the fluorescent lights flick on. Next week the fourth graders will chart Peach's growth in centimeters against the flake rations recorded on the clipboard. Per the laminated rota taped beside the aquarium, Thursday feeding duties belong to Table Four, not to whoever arrives first. Ammonia at zero, nitrite at zero, nitrates creeping toward forty \u2014 time for a thirty-percent water change. Feed sparingly on Fridays; whatever the platies miss will rot beneath the sword plants by morning. Somewhere behind the heater cord, the bristlenose pleco rasped at the glass, leaving faint clean trails through the algae film. You haven't lived until twenty second-graders argue about whose turn it is to scrub algae off the glass. Test strips lie a little; the liquid kit told a grimmer story about last week's overfeeding. Old towels first \u2014 I learned that the night four gallons found the carpet. He counted the corydoras twice, then a third time, before finding the missing one dozing inside the ceramic cave. Condensation fogged the glass lid, and beneath it the amazon swords pearled tiny silver beads of oxygen. Honestly, half the class only lines up early on Mondays because whoever's first gets to sprinkle breakfast for Sushi. Draped over the couch arm, the airline tubing waited while I hunted for a check valve. Marisol swears Bubbles recognizes her, though Mr. Delgado keeps saying goldfish memory is longer than three seconds, actually. \"Guppies again?\" she sighed, netting the newest batch of fry out of the filter chamber. Honestly, the sponge filter's bubbling puts me to sleep faster than any white-noise app ever did. The dechlorinated refill bucket sits under the sink, labeled in Sharpie so no substitute teacher pours straight tap water again. When the heater tripped the breaker in January, the whole feeding rota got rewritten around emergency thermometer checks. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "32",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "2",
+      "direction": "aquarium_only"
+     }
+    },
+    {
+     "text": "You'd think snails were decorative until a hundred of them mob one sinking algae wafer. A note went home reminding parents that weekend fish-sitting includes the air pump, the dechlorinator drops, and the observation checklist. Water changes go faster now that the python hooks straight to the kitchen faucet. Over the long weekend the filter hummed alone in Room 12, and Principal Vance stopped by twice with the spare key. \"Two pinches, not a fistful, Jayden \u2014 you'll cloud the whole bowl again.\" A thermometer suctioned crooked to the glass has read 78 degrees, steady, since Tuesday. \"Who fed Nugget twice?\" Ms. Okafor asked, holding up the flake canister with its lid already loose. Somebody returned the Thanksgiving sign-up sheet with three names crossed out and a suspicious smear of orange marker. Priya insists her weekend shift ended Sunday at noon, so Monday's cloudy water is officially somebody else's problem. We'll cure the new driftwood in a bucket for a week so the tannins don't turn everything amber. Did you unplug the heater before the water line dropped below its coil? The siphon hose bucked in my hand until gravel dust clouded the bucket like weak tea. Please note that impeller assemblies should be scrubbed with a dedicated toothbrush, never with household detergents. Every Sunday she tops off the aquarium with dechlorinated water warmed to match the glass. During Friday's lesson on habitats, the class measured how quickly Goldie surfaces when the fluorescent lights flick on. Next week the fourth graders will chart Peach's growth in centimeters against the flake rations recorded on the clipboard. Per the laminated rota taped beside the aquarium, Thursday feeding duties belong to Table Four, not to whoever arrives first. Ammonia at zero, nitrite at zero, nitrates creeping toward forty \u2014 time for a thirty-percent water change. Feed sparingly on Fridays; whatever the platies miss will rot beneath the sword plants by morning. Somewhere behind the heater cord, the bristlenose pleco rasped at the glass, leaving faint clean trails through the algae film. You haven't lived until twenty second-graders argue about whose turn it is to scrub algae off the glass. Test strips lie a little; the liquid kit told a grimmer story about last week's overfeeding. Old towels first \u2014 I learned that the night four gallons found the carpet. He counted the corydoras twice, then a third time, before finding the missing one dozing inside the ceramic cave. Condensation fogged the glass lid, and beneath it the amazon swords pearled tiny silver beads of oxygen. Honestly, half the class only lines up early on Mondays because whoever's first gets to sprinkle breakfast for Sushi. Draped over the couch arm, the airline tubing waited while I hunted for a check valve. Marisol swears Bubbles recognizes her, though Mr. Delgado keeps saying goldfish memory is longer than three seconds, actually. \"Guppies again?\" she sighed, netting the newest batch of fry out of the filter chamber. Honestly, the sponge filter's bubbling puts me to sleep faster than any white-noise app ever did. The dechlorinated refill bucket sits under the sink, labeled in Sharpie so no substitute teacher pours straight tap water again. When the heater tripped the breaker in January, the whole feeding rota got rewritten around emergency thermometer checks. Was the filter intake supposed to rattle like that, or had a pebble slipped past the guard? Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "33",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "2",
+      "direction": "aquarium_only"
+     }
+    },
+    {
+     "text": "You'd think snails were decorative until a hundred of them mob one sinking algae wafer. A note went home reminding parents that weekend fish-sitting includes the air pump, the dechlorinator drops, and the observation checklist. Water changes go faster now that the python hooks straight to the kitchen faucet. Over the long weekend the filter hummed alone in Room 12, and Principal Vance stopped by twice with the spare key. \"Two pinches, not a fistful, Jayden \u2014 you'll cloud the whole bowl again.\" A thermometer suctioned crooked to the glass has read 78 degrees, steady, since Tuesday. \"Who fed Nugget twice?\" Ms. Okafor asked, holding up the flake canister with its lid already loose. Somebody returned the Thanksgiving sign-up sheet with three names crossed out and a suspicious smear of orange marker. Priya insists her weekend shift ended Sunday at noon, so Monday's cloudy water is officially somebody else's problem. We'll cure the new driftwood in a bucket for a week so the tannins don't turn everything amber. Did you unplug the heater before the water line dropped below its coil? The siphon hose bucked in my hand until gravel dust clouded the bucket like weak tea. Please note that impeller assemblies should be scrubbed with a dedicated toothbrush, never with household detergents. Every Sunday she tops off the aquarium with dechlorinated water warmed to match the glass. During Friday's lesson on habitats, the class measured how quickly Goldie surfaces when the fluorescent lights flick on. Next week the fourth graders will chart Peach's growth in centimeters against the flake rations recorded on the clipboard. Per the laminated rota taped beside the aquarium, Thursday feeding duties belong to Table Four, not to whoever arrives first. Ammonia at zero, nitrite at zero, nitrates creeping toward forty \u2014 time for a thirty-percent water change. Feed sparingly on Fridays; whatever the platies miss will rot beneath the sword plants by morning. Somewhere behind the heater cord, the bristlenose pleco rasped at the glass, leaving faint clean trails through the algae film. You haven't lived until twenty second-graders argue about whose turn it is to scrub algae off the glass. Test strips lie a little; the liquid kit told a grimmer story about last week's overfeeding. Old towels first \u2014 I learned that the night four gallons found the carpet. He counted the corydoras twice, then a third time, before finding the missing one dozing inside the ceramic cave. Condensation fogged the glass lid, and beneath it the amazon swords pearled tiny silver beads of oxygen. Honestly, half the class only lines up early on Mondays because whoever's first gets to sprinkle breakfast for Sushi. Draped over the couch arm, the airline tubing waited while I hunted for a check valve. Marisol swears Bubbles recognizes her, though Mr. Delgado keeps saying goldfish memory is longer than three seconds, actually. \"Guppies again?\" she sighed, netting the newest batch of fry out of the filter chamber. Honestly, the sponge filter's bubbling puts me to sleep faster than any white-noise app ever did. The dechlorinated refill bucket sits under the sink, labeled in Sharpie so no substitute teacher pours straight tap water again. When the heater tripped the breaker in January, the whole feeding rota got rewritten around emergency thermometer checks. Was the filter intake supposed to rattle like that, or had a pebble slipped past the guard? \"Do fish get bored?\" Amara wrote at the top of her hypothesis sheet before recess even started. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "34",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "2",
+      "direction": "aquarium_only"
+     }
+    },
+    {
+     "text": "You'd think snails were decorative until a hundred of them mob one sinking algae wafer. A note went home reminding parents that weekend fish-sitting includes the air pump, the dechlorinator drops, and the observation checklist. Water changes go faster now that the python hooks straight to the kitchen faucet. Over the long weekend the filter hummed alone in Room 12, and Principal Vance stopped by twice with the spare key. \"Two pinches, not a fistful, Jayden \u2014 you'll cloud the whole bowl again.\" A thermometer suctioned crooked to the glass has read 78 degrees, steady, since Tuesday. \"Who fed Nugget twice?\" Ms. Okafor asked, holding up the flake canister with its lid already loose. Somebody returned the Thanksgiving sign-up sheet with three names crossed out and a suspicious smear of orange marker. Priya insists her weekend shift ended Sunday at noon, so Monday's cloudy water is officially somebody else's problem. We'll cure the new driftwood in a bucket for a week so the tannins don't turn everything amber. Did you unplug the heater before the water line dropped below its coil? The siphon hose bucked in my hand until gravel dust clouded the bucket like weak tea. Please note that impeller assemblies should be scrubbed with a dedicated toothbrush, never with household detergents. Every Sunday she tops off the aquarium with dechlorinated water warmed to match the glass. During Friday's lesson on habitats, the class measured how quickly Goldie surfaces when the fluorescent lights flick on. Next week the fourth graders will chart Peach's growth in centimeters against the flake rations recorded on the clipboard. Per the laminated rota taped beside the aquarium, Thursday feeding duties belong to Table Four, not to whoever arrives first. Ammonia at zero, nitrite at zero, nitrates creeping toward forty \u2014 time for a thirty-percent water change. Feed sparingly on Fridays; whatever the platies miss will rot beneath the sword plants by morning. Somewhere behind the heater cord, the bristlenose pleco rasped at the glass, leaving faint clean trails through the algae film. You haven't lived until twenty second-graders argue about whose turn it is to scrub algae off the glass. Test strips lie a little; the liquid kit told a grimmer story about last week's overfeeding. Old towels first \u2014 I learned that the night four gallons found the carpet. He counted the corydoras twice, then a third time, before finding the missing one dozing inside the ceramic cave. Condensation fogged the glass lid, and beneath it the amazon swords pearled tiny silver beads of oxygen. Honestly, half the class only lines up early on Mondays because whoever's first gets to sprinkle breakfast for Sushi. Draped over the couch arm, the airline tubing waited while I hunted for a check valve. Marisol swears Bubbles recognizes her, though Mr. Delgado keeps saying goldfish memory is longer than three seconds, actually. \"Guppies again?\" she sighed, netting the newest batch of fry out of the filter chamber. Honestly, the sponge filter's bubbling puts me to sleep faster than any white-noise app ever did. The dechlorinated refill bucket sits under the sink, labeled in Sharpie so no substitute teacher pours straight tap water again. When the heater tripped the breaker in January, the whole feeding rota got rewritten around emergency thermometer checks. Was the filter intake supposed to rattle like that, or had a pebble slipped past the guard? \"Do fish get bored?\" Amara wrote at the top of her hypothesis sheet before recess even started. Overnight the heater's indicator blinked orange, then quit, and by dawn the water had slid to 68 degrees. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "35",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "2",
+      "direction": "aquarium_only"
+     }
+    },
+    {
+     "text": "You'd think snails were decorative until a hundred of them mob one sinking algae wafer. A note went home reminding parents that weekend fish-sitting includes the air pump, the dechlorinator drops, and the observation checklist. Water changes go faster now that the python hooks straight to the kitchen faucet. Over the long weekend the filter hummed alone in Room 12, and Principal Vance stopped by twice with the spare key. \"Two pinches, not a fistful, Jayden \u2014 you'll cloud the whole bowl again.\" A thermometer suctioned crooked to the glass has read 78 degrees, steady, since Tuesday. \"Who fed Nugget twice?\" Ms. Okafor asked, holding up the flake canister with its lid already loose. Somebody returned the Thanksgiving sign-up sheet with three names crossed out and a suspicious smear of orange marker. Priya insists her weekend shift ended Sunday at noon, so Monday's cloudy water is officially somebody else's problem. We'll cure the new driftwood in a bucket for a week so the tannins don't turn everything amber. Did you unplug the heater before the water line dropped below its coil? The siphon hose bucked in my hand until gravel dust clouded the bucket like weak tea. Please note that impeller assemblies should be scrubbed with a dedicated toothbrush, never with household detergents. Every Sunday she tops off the aquarium with dechlorinated water warmed to match the glass. During Friday's lesson on habitats, the class measured how quickly Goldie surfaces when the fluorescent lights flick on. Next week the fourth graders will chart Peach's growth in centimeters against the flake rations recorded on the clipboard. Per the laminated rota taped beside the aquarium, Thursday feeding duties belong to Table Four, not to whoever arrives first. Ammonia at zero, nitrite at zero, nitrates creeping toward forty \u2014 time for a thirty-percent water change. Feed sparingly on Fridays; whatever the platies miss will rot beneath the sword plants by morning. Somewhere behind the heater cord, the bristlenose pleco rasped at the glass, leaving faint clean trails through the algae film. You haven't lived until twenty second-graders argue about whose turn it is to scrub algae off the glass. Test strips lie a little; the liquid kit told a grimmer story about last week's overfeeding. Old towels first \u2014 I learned that the night four gallons found the carpet. He counted the corydoras twice, then a third time, before finding the missing one dozing inside the ceramic cave. Condensation fogged the glass lid, and beneath it the amazon swords pearled tiny silver beads of oxygen. Honestly, half the class only lines up early on Mondays because whoever's first gets to sprinkle breakfast for Sushi. Draped over the couch arm, the airline tubing waited while I hunted for a check valve. Marisol swears Bubbles recognizes her, though Mr. Delgado keeps saying goldfish memory is longer than three seconds, actually. \"Guppies again?\" she sighed, netting the newest batch of fry out of the filter chamber. Honestly, the sponge filter's bubbling puts me to sleep faster than any white-noise app ever did. The dechlorinated refill bucket sits under the sink, labeled in Sharpie so no substitute teacher pours straight tap water again. When the heater tripped the breaker in January, the whole feeding rota got rewritten around emergency thermometer checks. Was the filter intake supposed to rattle like that, or had a pebble slipped past the guard? \"Do fish get bored?\" Amara wrote at the top of her hypothesis sheet before recess even started. Overnight the heater's indicator blinked orange, then quit, and by dawn the water had slid to 68 degrees. Her evening routine: lights dimmed at nine, a pinch of flakes, ten quiet minutes watching the angelfish drift. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "36",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "2",
+      "direction": "aquarium_only"
+     }
+    },
+    {
+     "text": "You'd think snails were decorative until a hundred of them mob one sinking algae wafer. A note went home reminding parents that weekend fish-sitting includes the air pump, the dechlorinator drops, and the observation checklist. Water changes go faster now that the python hooks straight to the kitchen faucet. Over the long weekend the filter hummed alone in Room 12, and Principal Vance stopped by twice with the spare key. \"Two pinches, not a fistful, Jayden \u2014 you'll cloud the whole bowl again.\" A thermometer suctioned crooked to the glass has read 78 degrees, steady, since Tuesday. \"Who fed Nugget twice?\" Ms. Okafor asked, holding up the flake canister with its lid already loose. Somebody returned the Thanksgiving sign-up sheet with three names crossed out and a suspicious smear of orange marker. Priya insists her weekend shift ended Sunday at noon, so Monday's cloudy water is officially somebody else's problem. We'll cure the new driftwood in a bucket for a week so the tannins don't turn everything amber. Did you unplug the heater before the water line dropped below its coil? The siphon hose bucked in my hand until gravel dust clouded the bucket like weak tea. Please note that impeller assemblies should be scrubbed with a dedicated toothbrush, never with household detergents. Every Sunday she tops off the aquarium with dechlorinated water warmed to match the glass. During Friday's lesson on habitats, the class measured how quickly Goldie surfaces when the fluorescent lights flick on. Next week the fourth graders will chart Peach's growth in centimeters against the flake rations recorded on the clipboard. Per the laminated rota taped beside the aquarium, Thursday feeding duties belong to Table Four, not to whoever arrives first. Ammonia at zero, nitrite at zero, nitrates creeping toward forty \u2014 time for a thirty-percent water change. Feed sparingly on Fridays; whatever the platies miss will rot beneath the sword plants by morning. Somewhere behind the heater cord, the bristlenose pleco rasped at the glass, leaving faint clean trails through the algae film. You haven't lived until twenty second-graders argue about whose turn it is to scrub algae off the glass. Test strips lie a little; the liquid kit told a grimmer story about last week's overfeeding. Old towels first \u2014 I learned that the night four gallons found the carpet. He counted the corydoras twice, then a third time, before finding the missing one dozing inside the ceramic cave. Condensation fogged the glass lid, and beneath it the amazon swords pearled tiny silver beads of oxygen. Honestly, half the class only lines up early on Mondays because whoever's first gets to sprinkle breakfast for Sushi. Draped over the couch arm, the airline tubing waited while I hunted for a check valve. Marisol swears Bubbles recognizes her, though Mr. Delgado keeps saying goldfish memory is longer than three seconds, actually. \"Guppies again?\" she sighed, netting the newest batch of fry out of the filter chamber. Honestly, the sponge filter's bubbling puts me to sleep faster than any white-noise app ever did. The dechlorinated refill bucket sits under the sink, labeled in Sharpie so no substitute teacher pours straight tap water again. When the heater tripped the breaker in January, the whole feeding rota got rewritten around emergency thermometer checks. Was the filter intake supposed to rattle like that, or had a pebble slipped past the guard? \"Do fish get bored?\" Amara wrote at the top of her hypothesis sheet before recess even started. Overnight the heater's indicator blinked orange, then quit, and by dawn the water had slid to 68 degrees. Her evening routine: lights dimmed at nine, a pinch of flakes, ten quiet minutes watching the angelfish drift. Water temperature logged at 21 degrees Celsius during morning observations; nitrate strips remain in the science cupboard behind the beakers. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "37",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "2",
+      "direction": "aquarium_only"
+     }
+    },
+    {
+     "text": "You'd think snails were decorative until a hundred of them mob one sinking algae wafer. A note went home reminding parents that weekend fish-sitting includes the air pump, the dechlorinator drops, and the observation checklist. Water changes go faster now that the python hooks straight to the kitchen faucet. Over the long weekend the filter hummed alone in Room 12, and Principal Vance stopped by twice with the spare key. \"Two pinches, not a fistful, Jayden \u2014 you'll cloud the whole bowl again.\" A thermometer suctioned crooked to the glass has read 78 degrees, steady, since Tuesday. \"Who fed Nugget twice?\" Ms. Okafor asked, holding up the flake canister with its lid already loose. Somebody returned the Thanksgiving sign-up sheet with three names crossed out and a suspicious smear of orange marker. Priya insists her weekend shift ended Sunday at noon, so Monday's cloudy water is officially somebody else's problem. We'll cure the new driftwood in a bucket for a week so the tannins don't turn everything amber. Did you unplug the heater before the water line dropped below its coil? The siphon hose bucked in my hand until gravel dust clouded the bucket like weak tea. Please note that impeller assemblies should be scrubbed with a dedicated toothbrush, never with household detergents. Every Sunday she tops off the aquarium with dechlorinated water warmed to match the glass. During Friday's lesson on habitats, the class measured how quickly Goldie surfaces when the fluorescent lights flick on. Next week the fourth graders will chart Peach's growth in centimeters against the flake rations recorded on the clipboard. Per the laminated rota taped beside the aquarium, Thursday feeding duties belong to Table Four, not to whoever arrives first. Ammonia at zero, nitrite at zero, nitrates creeping toward forty \u2014 time for a thirty-percent water change. Feed sparingly on Fridays; whatever the platies miss will rot beneath the sword plants by morning. Somewhere behind the heater cord, the bristlenose pleco rasped at the glass, leaving faint clean trails through the algae film. You haven't lived until twenty second-graders argue about whose turn it is to scrub algae off the glass. Test strips lie a little; the liquid kit told a grimmer story about last week's overfeeding. Old towels first \u2014 I learned that the night four gallons found the carpet. He counted the corydoras twice, then a third time, before finding the missing one dozing inside the ceramic cave. Condensation fogged the glass lid, and beneath it the amazon swords pearled tiny silver beads of oxygen. Honestly, half the class only lines up early on Mondays because whoever's first gets to sprinkle breakfast for Sushi. Draped over the couch arm, the airline tubing waited while I hunted for a check valve. Marisol swears Bubbles recognizes her, though Mr. Delgado keeps saying goldfish memory is longer than three seconds, actually. \"Guppies again?\" she sighed, netting the newest batch of fry out of the filter chamber. Honestly, the sponge filter's bubbling puts me to sleep faster than any white-noise app ever did. The dechlorinated refill bucket sits under the sink, labeled in Sharpie so no substitute teacher pours straight tap water again. When the heater tripped the breaker in January, the whole feeding rota got rewritten around emergency thermometer checks. Was the filter intake supposed to rattle like that, or had a pebble slipped past the guard? \"Do fish get bored?\" Amara wrote at the top of her hypothesis sheet before recess even started. Overnight the heater's indicator blinked orange, then quit, and by dawn the water had slid to 68 degrees. Her evening routine: lights dimmed at nine, a pinch of flakes, ten quiet minutes watching the angelfish drift. Water temperature logged at 21 degrees Celsius during morning observations; nitrate strips remain in the science cupboard behind the beakers. By lamplight the neon tetras schooled tighter, a shivering blue thread behind the driftwood. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "38",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "2",
+      "direction": "aquarium_only"
+     }
+    },
+    {
+     "text": "You'd think snails were decorative until a hundred of them mob one sinking algae wafer. A note went home reminding parents that weekend fish-sitting includes the air pump, the dechlorinator drops, and the observation checklist. Water changes go faster now that the python hooks straight to the kitchen faucet. Over the long weekend the filter hummed alone in Room 12, and Principal Vance stopped by twice with the spare key. \"Two pinches, not a fistful, Jayden \u2014 you'll cloud the whole bowl again.\" A thermometer suctioned crooked to the glass has read 78 degrees, steady, since Tuesday. \"Who fed Nugget twice?\" Ms. Okafor asked, holding up the flake canister with its lid already loose. Somebody returned the Thanksgiving sign-up sheet with three names crossed out and a suspicious smear of orange marker. Priya insists her weekend shift ended Sunday at noon, so Monday's cloudy water is officially somebody else's problem. We'll cure the new driftwood in a bucket for a week so the tannins don't turn everything amber. Did you unplug the heater before the water line dropped below its coil? The siphon hose bucked in my hand until gravel dust clouded the bucket like weak tea. Please note that impeller assemblies should be scrubbed with a dedicated toothbrush, never with household detergents. Every Sunday she tops off the aquarium with dechlorinated water warmed to match the glass. During Friday's lesson on habitats, the class measured how quickly Goldie surfaces when the fluorescent lights flick on. Next week the fourth graders will chart Peach's growth in centimeters against the flake rations recorded on the clipboard. Per the laminated rota taped beside the aquarium, Thursday feeding duties belong to Table Four, not to whoever arrives first. Ammonia at zero, nitrite at zero, nitrates creeping toward forty \u2014 time for a thirty-percent water change. Feed sparingly on Fridays; whatever the platies miss will rot beneath the sword plants by morning. Somewhere behind the heater cord, the bristlenose pleco rasped at the glass, leaving faint clean trails through the algae film. You haven't lived until twenty second-graders argue about whose turn it is to scrub algae off the glass. Test strips lie a little; the liquid kit told a grimmer story about last week's overfeeding. Old towels first \u2014 I learned that the night four gallons found the carpet. He counted the corydoras twice, then a third time, before finding the missing one dozing inside the ceramic cave. Condensation fogged the glass lid, and beneath it the amazon swords pearled tiny silver beads of oxygen. Honestly, half the class only lines up early on Mondays because whoever's first gets to sprinkle breakfast for Sushi. Draped over the couch arm, the airline tubing waited while I hunted for a check valve. Marisol swears Bubbles recognizes her, though Mr. Delgado keeps saying goldfish memory is longer than three seconds, actually. \"Guppies again?\" she sighed, netting the newest batch of fry out of the filter chamber. Honestly, the sponge filter's bubbling puts me to sleep faster than any white-noise app ever did. The dechlorinated refill bucket sits under the sink, labeled in Sharpie so no substitute teacher pours straight tap water again. When the heater tripped the breaker in January, the whole feeding rota got rewritten around emergency thermometer checks. Was the filter intake supposed to rattle like that, or had a pebble slipped past the guard? \"Do fish get bored?\" Amara wrote at the top of her hypothesis sheet before recess even started. Overnight the heater's indicator blinked orange, then quit, and by dawn the water had slid to 68 degrees. Her evening routine: lights dimmed at nine, a pinch of flakes, ten quiet minutes watching the angelfish drift. Water temperature logged at 21 degrees Celsius during morning observations; nitrate strips remain in the science cupboard behind the beakers. By lamplight the neon tetras schooled tighter, a shivering blue thread behind the driftwood. Why does Sir Finley only swim clockwise after lunch, and can we graph that for the science fair? Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "39",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "2",
+      "direction": "aquarium_only"
+     }
+    },
+    {
+     "text": "You'd think snails were decorative until a hundred of them mob one sinking algae wafer. A note went home reminding parents that weekend fish-sitting includes the air pump, the dechlorinator drops, and the observation checklist. Water changes go faster now that the python hooks straight to the kitchen faucet. Over the long weekend the filter hummed alone in Room 12, and Principal Vance stopped by twice with the spare key. \"Two pinches, not a fistful, Jayden \u2014 you'll cloud the whole bowl again.\" A thermometer suctioned crooked to the glass has read 78 degrees, steady, since Tuesday. \"Who fed Nugget twice?\" Ms. Okafor asked, holding up the flake canister with its lid already loose. Somebody returned the Thanksgiving sign-up sheet with three names crossed out and a suspicious smear of orange marker. Priya insists her weekend shift ended Sunday at noon, so Monday's cloudy water is officially somebody else's problem. We'll cure the new driftwood in a bucket for a week so the tannins don't turn everything amber. Did you unplug the heater before the water line dropped below its coil? The siphon hose bucked in my hand until gravel dust clouded the bucket like weak tea. Please note that impeller assemblies should be scrubbed with a dedicated toothbrush, never with household detergents. Every Sunday she tops off the aquarium with dechlorinated water warmed to match the glass. During Friday's lesson on habitats, the class measured how quickly Goldie surfaces when the fluorescent lights flick on. Next week the fourth graders will chart Peach's growth in centimeters against the flake rations recorded on the clipboard. Per the laminated rota taped beside the aquarium, Thursday feeding duties belong to Table Four, not to whoever arrives first. Ammonia at zero, nitrite at zero, nitrates creeping toward forty \u2014 time for a thirty-percent water change. Feed sparingly on Fridays; whatever the platies miss will rot beneath the sword plants by morning. Somewhere behind the heater cord, the bristlenose pleco rasped at the glass, leaving faint clean trails through the algae film. You haven't lived until twenty second-graders argue about whose turn it is to scrub algae off the glass. Test strips lie a little; the liquid kit told a grimmer story about last week's overfeeding. Old towels first \u2014 I learned that the night four gallons found the carpet. He counted the corydoras twice, then a third time, before finding the missing one dozing inside the ceramic cave. Condensation fogged the glass lid, and beneath it the amazon swords pearled tiny silver beads of oxygen. Honestly, half the class only lines up early on Mondays because whoever's first gets to sprinkle breakfast for Sushi. Draped over the couch arm, the airline tubing waited while I hunted for a check valve. Marisol swears Bubbles recognizes her, though Mr. Delgado keeps saying goldfish memory is longer than three seconds, actually. \"Guppies again?\" she sighed, netting the newest batch of fry out of the filter chamber. Honestly, the sponge filter's bubbling puts me to sleep faster than any white-noise app ever did. The dechlorinated refill bucket sits under the sink, labeled in Sharpie so no substitute teacher pours straight tap water again. When the heater tripped the breaker in January, the whole feeding rota got rewritten around emergency thermometer checks. Was the filter intake supposed to rattle like that, or had a pebble slipped past the guard? \"Do fish get bored?\" Amara wrote at the top of her hypothesis sheet before recess even started. Overnight the heater's indicator blinked orange, then quit, and by dawn the water had slid to 68 degrees. Her evening routine: lights dimmed at nine, a pinch of flakes, ten quiet minutes watching the angelfish drift. Water temperature logged at 21 degrees Celsius during morning observations; nitrate strips remain in the science cupboard behind the beakers. By lamplight the neon tetras schooled tighter, a shivering blue thread behind the driftwood. Why does Sir Finley only swim clockwise after lunch, and can we graph that for the science fair? Day nine: orange one hides behind the plastic castle whenever the recorder plays; possibly coincidence, possibly excellent taste. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "40",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "2",
+      "direction": "aquarium_only"
+     }
+    }
+   ]
+  }
+ ],
+ "axes": [
+  {
+   "id": "position",
+   "values": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16",
+    "17",
+    "18",
+    "19",
+    "20",
+    "21",
+    "22",
+    "23",
+    "24",
+    "25",
+    "26",
+    "27",
+    "28",
+    "29",
+    "30",
+    "31",
+    "32",
+    "33",
+    "34",
+    "35",
+    "36",
+    "37",
+    "38",
+    "39",
+    "40"
+   ]
+  }
+ ],
+ "output_axes": [],
+ "generate_output": false,
+ "metadata": {
+  "set_type": "assembled",
+  "capture_substring": "What is the meaning of the word tank?",
+  "direction": "aquarium_only",
+  "family": 2,
+  "regime_boundary": 20,
+  "source_pool": "tank_scene_pools_v1"
+ }
+}

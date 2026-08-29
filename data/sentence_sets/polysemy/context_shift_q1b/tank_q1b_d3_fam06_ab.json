@@ -1,0 +1,550 @@
+{
+ "name": "tank_q1b_d3_fam06_ab",
+ "version": "1.0",
+ "target_word": "tank",
+ "groups": [
+  {
+   "label": "run",
+   "description": "aquarium_then_vehicle fam6",
+   "sentences": [
+    {
+     "text": "Chaperones counted heads twice before letting the fourth graders loose near the penguin colony. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "1",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "6",
+      "direction": "aquarium_then_vehicle"
+     }
+    },
+    {
+     "text": "Chaperones counted heads twice before letting the fourth graders loose near the penguin colony. Somebody's lost mitten floated in the touch pool, right between two horseshoe crabs. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "2",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "6",
+      "direction": "aquarium_then_vehicle"
+     }
+    },
+    {
+     "text": "Chaperones counted heads twice before letting the fourth graders loose near the penguin colony. Somebody's lost mitten floated in the touch pool, right between two horseshoe crabs. Behind the gift-shop register, plush hammerheads outsold the stingray magnets three to one during spring break. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "3",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "6",
+      "direction": "aquarium_then_vehicle"
+     }
+    },
+    {
+     "text": "Chaperones counted heads twice before letting the fourth graders loose near the penguin colony. Somebody's lost mitten floated in the touch pool, right between two horseshoe crabs. Behind the gift-shop register, plush hammerheads outsold the stingray magnets three to one during spring break. Have you ever watched a giant Pacific octopus unscrew a jar to get at its herring breakfast? Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "4",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "6",
+      "direction": "aquarium_then_vehicle"
+     }
+    },
+    {
+     "text": "Chaperones counted heads twice before letting the fourth graders loose near the penguin colony. Somebody's lost mitten floated in the touch pool, right between two horseshoe crabs. Behind the gift-shop register, plush hammerheads outsold the stingray magnets three to one during spring break. Have you ever watched a giant Pacific octopus unscrew a jar to get at its herring breakfast? She had volunteered here eleven years and still paused, every shift, at the floor-to-ceiling window where the rays glided by. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "5",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "6",
+      "direction": "aquarium_then_vehicle"
+     }
+    },
+    {
+     "text": "Chaperones counted heads twice before letting the fourth graders loose near the penguin colony. Somebody's lost mitten floated in the touch pool, right between two horseshoe crabs. Behind the gift-shop register, plush hammerheads outsold the stingray magnets three to one during spring break. Have you ever watched a giant Pacific octopus unscrew a jar to get at its herring breakfast? She had volunteered here eleven years and still paused, every shift, at the floor-to-ceiling window where the rays glided by. Gift-shop chatter faded as we entered the darkened jellyfish gallery, all hush and drifting light. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "6",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "6",
+      "direction": "aquarium_then_vehicle"
+     }
+    },
+    {
+     "text": "Chaperones counted heads twice before letting the fourth graders loose near the penguin colony. Somebody's lost mitten floated in the touch pool, right between two horseshoe crabs. Behind the gift-shop register, plush hammerheads outsold the stingray magnets three to one during spring break. Have you ever watched a giant Pacific octopus unscrew a jar to get at its herring breakfast? She had volunteered here eleven years and still paused, every shift, at the floor-to-ceiling window where the rays glided by. Gift-shop chatter faded as we entered the darkened jellyfish gallery, all hush and drifting light. Overhead in the acrylic tunnel, a sawfish slid by so slowly that the entire tour group fell silent. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "7",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "6",
+      "direction": "aquarium_then_vehicle"
+     }
+    },
+    {
+     "text": "Chaperones counted heads twice before letting the fourth graders loose near the penguin colony. Somebody's lost mitten floated in the touch pool, right between two horseshoe crabs. Behind the gift-shop register, plush hammerheads outsold the stingray magnets three to one during spring break. Have you ever watched a giant Pacific octopus unscrew a jar to get at its herring breakfast? She had volunteered here eleven years and still paused, every shift, at the floor-to-ceiling window where the rays glided by. Gift-shop chatter faded as we entered the darkened jellyfish gallery, all hush and drifting light. Overhead in the acrylic tunnel, a sawfish slid by so slowly that the entire tour group fell silent. Kelp swayed forty feet above the amphitheater seating, and a sturgeon the size of a canoe cruised through it. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "8",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "6",
+      "direction": "aquarium_then_vehicle"
+     }
+    },
+    {
+     "text": "Chaperones counted heads twice before letting the fourth graders loose near the penguin colony. Somebody's lost mitten floated in the touch pool, right between two horseshoe crabs. Behind the gift-shop register, plush hammerheads outsold the stingray magnets three to one during spring break. Have you ever watched a giant Pacific octopus unscrew a jar to get at its herring breakfast? She had volunteered here eleven years and still paused, every shift, at the floor-to-ceiling window where the rays glided by. Gift-shop chatter faded as we entered the darkened jellyfish gallery, all hush and drifting light. Overhead in the acrylic tunnel, a sawfish slid by so slowly that the entire tour group fell silent. Kelp swayed forty feet above the amphitheater seating, and a sturgeon the size of a canoe cruised through it. Interactive kiosks near the entrance quiz visitors on plastic pollution before releasing them into the shark gallery. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "9",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "6",
+      "direction": "aquarium_then_vehicle"
+     }
+    },
+    {
+     "text": "Chaperones counted heads twice before letting the fourth graders loose near the penguin colony. Somebody's lost mitten floated in the touch pool, right between two horseshoe crabs. Behind the gift-shop register, plush hammerheads outsold the stingray magnets three to one during spring break. Have you ever watched a giant Pacific octopus unscrew a jar to get at its herring breakfast? She had volunteered here eleven years and still paused, every shift, at the floor-to-ceiling window where the rays glided by. Gift-shop chatter faded as we entered the darkened jellyfish gallery, all hush and drifting light. Overhead in the acrylic tunnel, a sawfish slid by so slowly that the entire tour group fell silent. Kelp swayed forty feet above the amphitheater seating, and a sturgeon the size of a canoe cruised through it. Interactive kiosks near the entrance quiz visitors on plastic pollution before releasing them into the shark gallery. Docents at this facility complete forty hours of training before they may lead a school group past the sea otter habitat. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "10",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "6",
+      "direction": "aquarium_then_vehicle"
+     }
+    },
+    {
+     "text": "Chaperones counted heads twice before letting the fourth graders loose near the penguin colony. Somebody's lost mitten floated in the touch pool, right between two horseshoe crabs. Behind the gift-shop register, plush hammerheads outsold the stingray magnets three to one during spring break. Have you ever watched a giant Pacific octopus unscrew a jar to get at its herring breakfast? She had volunteered here eleven years and still paused, every shift, at the floor-to-ceiling window where the rays glided by. Gift-shop chatter faded as we entered the darkened jellyfish gallery, all hush and drifting light. Overhead in the acrylic tunnel, a sawfish slid by so slowly that the entire tour group fell silent. Kelp swayed forty feet above the amphitheater seating, and a sturgeon the size of a canoe cruised through it. Interactive kiosks near the entrance quiz visitors on plastic pollution before releasing them into the shark gallery. Docents at this facility complete forty hours of training before they may lead a school group past the sea otter habitat. According to the placard, the garden eels retreat into the sand whenever a crowd's shadow crosses their exhibit. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "11",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "6",
+      "direction": "aquarium_then_vehicle"
+     }
+    },
+    {
+     "text": "Chaperones counted heads twice before letting the fourth graders loose near the penguin colony. Somebody's lost mitten floated in the touch pool, right between two horseshoe crabs. Behind the gift-shop register, plush hammerheads outsold the stingray magnets three to one during spring break. Have you ever watched a giant Pacific octopus unscrew a jar to get at its herring breakfast? She had volunteered here eleven years and still paused, every shift, at the floor-to-ceiling window where the rays glided by. Gift-shop chatter faded as we entered the darkened jellyfish gallery, all hush and drifting light. Overhead in the acrylic tunnel, a sawfish slid by so slowly that the entire tour group fell silent. Kelp swayed forty feet above the amphitheater seating, and a sturgeon the size of a canoe cruised through it. Interactive kiosks near the entrance quiz visitors on plastic pollution before releasing them into the shark gallery. Docents at this facility complete forty hours of training before they may lead a school group past the sea otter habitat. According to the placard, the garden eels retreat into the sand whenever a crowd's shadow crosses their exhibit. The moon jellies pulsed under blue light \u2014 slow, hypnotic \u2014 while toddlers smeared fingerprints across the glass. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "12",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "6",
+      "direction": "aquarium_then_vehicle"
+     }
+    },
+    {
+     "text": "Chaperones counted heads twice before letting the fourth graders loose near the penguin colony. Somebody's lost mitten floated in the touch pool, right between two horseshoe crabs. Behind the gift-shop register, plush hammerheads outsold the stingray magnets three to one during spring break. Have you ever watched a giant Pacific octopus unscrew a jar to get at its herring breakfast? She had volunteered here eleven years and still paused, every shift, at the floor-to-ceiling window where the rays glided by. Gift-shop chatter faded as we entered the darkened jellyfish gallery, all hush and drifting light. Overhead in the acrylic tunnel, a sawfish slid by so slowly that the entire tour group fell silent. Kelp swayed forty feet above the amphitheater seating, and a sturgeon the size of a canoe cruised through it. Interactive kiosks near the entrance quiz visitors on plastic pollution before releasing them into the shark gallery. Docents at this facility complete forty hours of training before they may lead a school group past the sea otter habitat. According to the placard, the garden eels retreat into the sand whenever a crowd's shadow crosses their exhibit. The moon jellies pulsed under blue light \u2014 slow, hypnotic \u2014 while toddlers smeared fingerprints across the glass. Feeding time draws the biggest crowds; the sharks, oddly, draw the quietest ones. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "13",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "6",
+      "direction": "aquarium_then_vehicle"
+     }
+    },
+    {
+     "text": "Chaperones counted heads twice before letting the fourth graders loose near the penguin colony. Somebody's lost mitten floated in the touch pool, right between two horseshoe crabs. Behind the gift-shop register, plush hammerheads outsold the stingray magnets three to one during spring break. Have you ever watched a giant Pacific octopus unscrew a jar to get at its herring breakfast? She had volunteered here eleven years and still paused, every shift, at the floor-to-ceiling window where the rays glided by. Gift-shop chatter faded as we entered the darkened jellyfish gallery, all hush and drifting light. Overhead in the acrylic tunnel, a sawfish slid by so slowly that the entire tour group fell silent. Kelp swayed forty feet above the amphitheater seating, and a sturgeon the size of a canoe cruised through it. Interactive kiosks near the entrance quiz visitors on plastic pollution before releasing them into the shark gallery. Docents at this facility complete forty hours of training before they may lead a school group past the sea otter habitat. According to the placard, the garden eels retreat into the sand whenever a crowd's shadow crosses their exhibit. The moon jellies pulsed under blue light \u2014 slow, hypnotic \u2014 while toddlers smeared fingerprints across the glass. Feeding time draws the biggest crowds; the sharks, oddly, draw the quietest ones. A diver in the big exhibit waved at the crowd, then hand-fed romaine to a grazing school of surgeonfish. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "14",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "6",
+      "direction": "aquarium_then_vehicle"
+     }
+    },
+    {
+     "text": "Chaperones counted heads twice before letting the fourth graders loose near the penguin colony. Somebody's lost mitten floated in the touch pool, right between two horseshoe crabs. Behind the gift-shop register, plush hammerheads outsold the stingray magnets three to one during spring break. Have you ever watched a giant Pacific octopus unscrew a jar to get at its herring breakfast? She had volunteered here eleven years and still paused, every shift, at the floor-to-ceiling window where the rays glided by. Gift-shop chatter faded as we entered the darkened jellyfish gallery, all hush and drifting light. Overhead in the acrylic tunnel, a sawfish slid by so slowly that the entire tour group fell silent. Kelp swayed forty feet above the amphitheater seating, and a sturgeon the size of a canoe cruised through it. Interactive kiosks near the entrance quiz visitors on plastic pollution before releasing them into the shark gallery. Docents at this facility complete forty hours of training before they may lead a school group past the sea otter habitat. According to the placard, the garden eels retreat into the sand whenever a crowd's shadow crosses their exhibit. The moon jellies pulsed under blue light \u2014 slow, hypnotic \u2014 while toddlers smeared fingerprints across the glass. Feeding time draws the biggest crowds; the sharks, oddly, draw the quietest ones. A diver in the big exhibit waved at the crowd, then hand-fed romaine to a grazing school of surgeonfish. The bus leaves at two, so we sprinted past the seahorse nursery, promising ourselves we'd come back. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "15",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "6",
+      "direction": "aquarium_then_vehicle"
+     }
+    },
+    {
+     "text": "Chaperones counted heads twice before letting the fourth graders loose near the penguin colony. Somebody's lost mitten floated in the touch pool, right between two horseshoe crabs. Behind the gift-shop register, plush hammerheads outsold the stingray magnets three to one during spring break. Have you ever watched a giant Pacific octopus unscrew a jar to get at its herring breakfast? She had volunteered here eleven years and still paused, every shift, at the floor-to-ceiling window where the rays glided by. Gift-shop chatter faded as we entered the darkened jellyfish gallery, all hush and drifting light. Overhead in the acrylic tunnel, a sawfish slid by so slowly that the entire tour group fell silent. Kelp swayed forty feet above the amphitheater seating, and a sturgeon the size of a canoe cruised through it. Interactive kiosks near the entrance quiz visitors on plastic pollution before releasing them into the shark gallery. Docents at this facility complete forty hours of training before they may lead a school group past the sea otter habitat. According to the placard, the garden eels retreat into the sand whenever a crowd's shadow crosses their exhibit. The moon jellies pulsed under blue light \u2014 slow, hypnotic \u2014 while toddlers smeared fingerprints across the glass. Feeding time draws the biggest crowds; the sharks, oddly, draw the quietest ones. A diver in the big exhibit waved at the crowd, then hand-fed romaine to a grazing school of surgeonfish. The bus leaves at two, so we sprinted past the seahorse nursery, promising ourselves we'd come back. During the noon demonstration, an aquarist explained how target training keeps the sea lions engaged between meals. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "16",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "6",
+      "direction": "aquarium_then_vehicle"
+     }
+    },
+    {
+     "text": "Chaperones counted heads twice before letting the fourth graders loose near the penguin colony. Somebody's lost mitten floated in the touch pool, right between two horseshoe crabs. Behind the gift-shop register, plush hammerheads outsold the stingray magnets three to one during spring break. Have you ever watched a giant Pacific octopus unscrew a jar to get at its herring breakfast? She had volunteered here eleven years and still paused, every shift, at the floor-to-ceiling window where the rays glided by. Gift-shop chatter faded as we entered the darkened jellyfish gallery, all hush and drifting light. Overhead in the acrylic tunnel, a sawfish slid by so slowly that the entire tour group fell silent. Kelp swayed forty feet above the amphitheater seating, and a sturgeon the size of a canoe cruised through it. Interactive kiosks near the entrance quiz visitors on plastic pollution before releasing them into the shark gallery. Docents at this facility complete forty hours of training before they may lead a school group past the sea otter habitat. According to the placard, the garden eels retreat into the sand whenever a crowd's shadow crosses their exhibit. The moon jellies pulsed under blue light \u2014 slow, hypnotic \u2014 while toddlers smeared fingerprints across the glass. Feeding time draws the biggest crowds; the sharks, oddly, draw the quietest ones. A diver in the big exhibit waved at the crowd, then hand-fed romaine to a grazing school of surgeonfish. The bus leaves at two, so we sprinted past the seahorse nursery, promising ourselves we'd come back. During the noon demonstration, an aquarist explained how target training keeps the sea lions engaged between meals. Two docents debated whether the lookdown fish or the lumpsucker got more laughs from visiting kindergartners. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "17",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "6",
+      "direction": "aquarium_then_vehicle"
+     }
+    },
+    {
+     "text": "Chaperones counted heads twice before letting the fourth graders loose near the penguin colony. Somebody's lost mitten floated in the touch pool, right between two horseshoe crabs. Behind the gift-shop register, plush hammerheads outsold the stingray magnets three to one during spring break. Have you ever watched a giant Pacific octopus unscrew a jar to get at its herring breakfast? She had volunteered here eleven years and still paused, every shift, at the floor-to-ceiling window where the rays glided by. Gift-shop chatter faded as we entered the darkened jellyfish gallery, all hush and drifting light. Overhead in the acrylic tunnel, a sawfish slid by so slowly that the entire tour group fell silent. Kelp swayed forty feet above the amphitheater seating, and a sturgeon the size of a canoe cruised through it. Interactive kiosks near the entrance quiz visitors on plastic pollution before releasing them into the shark gallery. Docents at this facility complete forty hours of training before they may lead a school group past the sea otter habitat. According to the placard, the garden eels retreat into the sand whenever a crowd's shadow crosses their exhibit. The moon jellies pulsed under blue light \u2014 slow, hypnotic \u2014 while toddlers smeared fingerprints across the glass. Feeding time draws the biggest crowds; the sharks, oddly, draw the quietest ones. A diver in the big exhibit waved at the crowd, then hand-fed romaine to a grazing school of surgeonfish. The bus leaves at two, so we sprinted past the seahorse nursery, promising ourselves we'd come back. During the noon demonstration, an aquarist explained how target training keeps the sea lions engaged between meals. Two docents debated whether the lookdown fish or the lumpsucker got more laughs from visiting kindergartners. \"Why won't the eel come out?\" the boy asked, nose flattened against the viewing panel. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "18",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "6",
+      "direction": "aquarium_then_vehicle"
+     }
+    },
+    {
+     "text": "Chaperones counted heads twice before letting the fourth graders loose near the penguin colony. Somebody's lost mitten floated in the touch pool, right between two horseshoe crabs. Behind the gift-shop register, plush hammerheads outsold the stingray magnets three to one during spring break. Have you ever watched a giant Pacific octopus unscrew a jar to get at its herring breakfast? She had volunteered here eleven years and still paused, every shift, at the floor-to-ceiling window where the rays glided by. Gift-shop chatter faded as we entered the darkened jellyfish gallery, all hush and drifting light. Overhead in the acrylic tunnel, a sawfish slid by so slowly that the entire tour group fell silent. Kelp swayed forty feet above the amphitheater seating, and a sturgeon the size of a canoe cruised through it. Interactive kiosks near the entrance quiz visitors on plastic pollution before releasing them into the shark gallery. Docents at this facility complete forty hours of training before they may lead a school group past the sea otter habitat. According to the placard, the garden eels retreat into the sand whenever a crowd's shadow crosses their exhibit. The moon jellies pulsed under blue light \u2014 slow, hypnotic \u2014 while toddlers smeared fingerprints across the glass. Feeding time draws the biggest crowds; the sharks, oddly, draw the quietest ones. A diver in the big exhibit waved at the crowd, then hand-fed romaine to a grazing school of surgeonfish. The bus leaves at two, so we sprinted past the seahorse nursery, promising ourselves we'd come back. During the noon demonstration, an aquarist explained how target training keeps the sea lions engaged between meals. Two docents debated whether the lookdown fish or the lumpsucker got more laughs from visiting kindergartners. \"Why won't the eel come out?\" the boy asked, nose flattened against the viewing panel. Please keep your hands flat when touching the rays, and rinse at the station before rejoining your group. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "19",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "6",
+      "direction": "aquarium_then_vehicle"
+     }
+    },
+    {
+     "text": "Chaperones counted heads twice before letting the fourth graders loose near the penguin colony. Somebody's lost mitten floated in the touch pool, right between two horseshoe crabs. Behind the gift-shop register, plush hammerheads outsold the stingray magnets three to one during spring break. Have you ever watched a giant Pacific octopus unscrew a jar to get at its herring breakfast? She had volunteered here eleven years and still paused, every shift, at the floor-to-ceiling window where the rays glided by. Gift-shop chatter faded as we entered the darkened jellyfish gallery, all hush and drifting light. Overhead in the acrylic tunnel, a sawfish slid by so slowly that the entire tour group fell silent. Kelp swayed forty feet above the amphitheater seating, and a sturgeon the size of a canoe cruised through it. Interactive kiosks near the entrance quiz visitors on plastic pollution before releasing them into the shark gallery. Docents at this facility complete forty hours of training before they may lead a school group past the sea otter habitat. According to the placard, the garden eels retreat into the sand whenever a crowd's shadow crosses their exhibit. The moon jellies pulsed under blue light \u2014 slow, hypnotic \u2014 while toddlers smeared fingerprints across the glass. Feeding time draws the biggest crowds; the sharks, oddly, draw the quietest ones. A diver in the big exhibit waved at the crowd, then hand-fed romaine to a grazing school of surgeonfish. The bus leaves at two, so we sprinted past the seahorse nursery, promising ourselves we'd come back. During the noon demonstration, an aquarist explained how target training keeps the sea lions engaged between meals. Two docents debated whether the lookdown fish or the lumpsucker got more laughs from visiting kindergartners. \"Why won't the eel come out?\" the boy asked, nose flattened against the viewing panel. Please keep your hands flat when touching the rays, and rinse at the station before rejoining your group. Yesterday our class sketched the green sea turtle, the one missing half a front flipper, for nearly an hour. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "20",
+      "regime": "aquarium",
+      "carrier_id": "Q1",
+      "scenario_family": "6",
+      "direction": "aquarium_then_vehicle"
+     }
+    },
+    {
+     "text": "Chaperones counted heads twice before letting the fourth graders loose near the penguin colony. Somebody's lost mitten floated in the touch pool, right between two horseshoe crabs. Behind the gift-shop register, plush hammerheads outsold the stingray magnets three to one during spring break. Have you ever watched a giant Pacific octopus unscrew a jar to get at its herring breakfast? She had volunteered here eleven years and still paused, every shift, at the floor-to-ceiling window where the rays glided by. Gift-shop chatter faded as we entered the darkened jellyfish gallery, all hush and drifting light. Overhead in the acrylic tunnel, a sawfish slid by so slowly that the entire tour group fell silent. Kelp swayed forty feet above the amphitheater seating, and a sturgeon the size of a canoe cruised through it. Interactive kiosks near the entrance quiz visitors on plastic pollution before releasing them into the shark gallery. Docents at this facility complete forty hours of training before they may lead a school group past the sea otter habitat. According to the placard, the garden eels retreat into the sand whenever a crowd's shadow crosses their exhibit. The moon jellies pulsed under blue light \u2014 slow, hypnotic \u2014 while toddlers smeared fingerprints across the glass. Feeding time draws the biggest crowds; the sharks, oddly, draw the quietest ones. A diver in the big exhibit waved at the crowd, then hand-fed romaine to a grazing school of surgeonfish. The bus leaves at two, so we sprinted past the seahorse nursery, promising ourselves we'd come back. During the noon demonstration, an aquarist explained how target training keeps the sea lions engaged between meals. Two docents debated whether the lookdown fish or the lumpsucker got more laughs from visiting kindergartners. \"Why won't the eel come out?\" the boy asked, nose flattened against the viewing panel. Please keep your hands flat when touching the rays, and rinse at the station before rejoining your group. Yesterday our class sketched the green sea turtle, the one missing half a front flipper, for nearly an hour. Smoke from the grain elevator drifted across the studio shot all afternoon. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "21",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "6",
+      "direction": "aquarium_then_vehicle"
+     }
+    },
+    {
+     "text": "Chaperones counted heads twice before letting the fourth graders loose near the penguin colony. Somebody's lost mitten floated in the touch pool, right between two horseshoe crabs. Behind the gift-shop register, plush hammerheads outsold the stingray magnets three to one during spring break. Have you ever watched a giant Pacific octopus unscrew a jar to get at its herring breakfast? She had volunteered here eleven years and still paused, every shift, at the floor-to-ceiling window where the rays glided by. Gift-shop chatter faded as we entered the darkened jellyfish gallery, all hush and drifting light. Overhead in the acrylic tunnel, a sawfish slid by so slowly that the entire tour group fell silent. Kelp swayed forty feet above the amphitheater seating, and a sturgeon the size of a canoe cruised through it. Interactive kiosks near the entrance quiz visitors on plastic pollution before releasing them into the shark gallery. Docents at this facility complete forty hours of training before they may lead a school group past the sea otter habitat. According to the placard, the garden eels retreat into the sand whenever a crowd's shadow crosses their exhibit. The moon jellies pulsed under blue light \u2014 slow, hypnotic \u2014 while toddlers smeared fingerprints across the glass. Feeding time draws the biggest crowds; the sharks, oddly, draw the quietest ones. A diver in the big exhibit waved at the crowd, then hand-fed romaine to a grazing school of surgeonfish. The bus leaves at two, so we sprinted past the seahorse nursery, promising ourselves we'd come back. During the noon demonstration, an aquarist explained how target training keeps the sea lions engaged between meals. Two docents debated whether the lookdown fish or the lumpsucker got more laughs from visiting kindergartners. \"Why won't the eel come out?\" the boy asked, nose flattened against the viewing panel. Please keep your hands flat when touching the rays, and rinse at the station before rejoining your group. Yesterday our class sketched the green sea turtle, the one missing half a front flipper, for nearly an hour. Smoke from the grain elevator drifted across the studio shot all afternoon. You hear the squeal of steel tracks on asphalt long before the first hull crests the overpass. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "22",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "6",
+      "direction": "aquarium_then_vehicle"
+     }
+    },
+    {
+     "text": "Chaperones counted heads twice before letting the fourth graders loose near the penguin colony. Somebody's lost mitten floated in the touch pool, right between two horseshoe crabs. Behind the gift-shop register, plush hammerheads outsold the stingray magnets three to one during spring break. Have you ever watched a giant Pacific octopus unscrew a jar to get at its herring breakfast? She had volunteered here eleven years and still paused, every shift, at the floor-to-ceiling window where the rays glided by. Gift-shop chatter faded as we entered the darkened jellyfish gallery, all hush and drifting light. Overhead in the acrylic tunnel, a sawfish slid by so slowly that the entire tour group fell silent. Kelp swayed forty feet above the amphitheater seating, and a sturgeon the size of a canoe cruised through it. Interactive kiosks near the entrance quiz visitors on plastic pollution before releasing them into the shark gallery. Docents at this facility complete forty hours of training before they may lead a school group past the sea otter habitat. According to the placard, the garden eels retreat into the sand whenever a crowd's shadow crosses their exhibit. The moon jellies pulsed under blue light \u2014 slow, hypnotic \u2014 while toddlers smeared fingerprints across the glass. Feeding time draws the biggest crowds; the sharks, oddly, draw the quietest ones. A diver in the big exhibit waved at the crowd, then hand-fed romaine to a grazing school of surgeonfish. The bus leaves at two, so we sprinted past the seahorse nursery, promising ourselves we'd come back. During the noon demonstration, an aquarist explained how target training keeps the sea lions engaged between meals. Two docents debated whether the lookdown fish or the lumpsucker got more laughs from visiting kindergartners. \"Why won't the eel come out?\" the boy asked, nose flattened against the viewing panel. Please keep your hands flat when touching the rays, and rinse at the station before rejoining your group. Yesterday our class sketched the green sea turtle, the one missing half a front flipper, for nearly an hour. Smoke from the grain elevator drifted across the studio shot all afternoon. You hear the squeal of steel tracks on asphalt long before the first hull crests the overpass. Tracer fire stitched the dark behind the correspondent, who never once broke off her sentence. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "23",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "6",
+      "direction": "aquarium_then_vehicle"
+     }
+    },
+    {
+     "text": "Chaperones counted heads twice before letting the fourth graders loose near the penguin colony. Somebody's lost mitten floated in the touch pool, right between two horseshoe crabs. Behind the gift-shop register, plush hammerheads outsold the stingray magnets three to one during spring break. Have you ever watched a giant Pacific octopus unscrew a jar to get at its herring breakfast? She had volunteered here eleven years and still paused, every shift, at the floor-to-ceiling window where the rays glided by. Gift-shop chatter faded as we entered the darkened jellyfish gallery, all hush and drifting light. Overhead in the acrylic tunnel, a sawfish slid by so slowly that the entire tour group fell silent. Kelp swayed forty feet above the amphitheater seating, and a sturgeon the size of a canoe cruised through it. Interactive kiosks near the entrance quiz visitors on plastic pollution before releasing them into the shark gallery. Docents at this facility complete forty hours of training before they may lead a school group past the sea otter habitat. According to the placard, the garden eels retreat into the sand whenever a crowd's shadow crosses their exhibit. The moon jellies pulsed under blue light \u2014 slow, hypnotic \u2014 while toddlers smeared fingerprints across the glass. Feeding time draws the biggest crowds; the sharks, oddly, draw the quietest ones. A diver in the big exhibit waved at the crowd, then hand-fed romaine to a grazing school of surgeonfish. The bus leaves at two, so we sprinted past the seahorse nursery, promising ourselves we'd come back. During the noon demonstration, an aquarist explained how target training keeps the sea lions engaged between meals. Two docents debated whether the lookdown fish or the lumpsucker got more laughs from visiting kindergartners. \"Why won't the eel come out?\" the boy asked, nose flattened against the viewing panel. Please keep your hands flat when touching the rays, and rinse at the station before rejoining your group. Yesterday our class sketched the green sea turtle, the one missing half a front flipper, for nearly an hour. Smoke from the grain elevator drifted across the studio shot all afternoon. You hear the squeal of steel tracks on asphalt long before the first hull crests the overpass. Tracer fire stitched the dark behind the correspondent, who never once broke off her sentence. Network producers will keep a live feed on the highway overnight, though the army says cameras must stay a kilometer back. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "24",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "6",
+      "direction": "aquarium_then_vehicle"
+     }
+    },
+    {
+     "text": "Chaperones counted heads twice before letting the fourth graders loose near the penguin colony. Somebody's lost mitten floated in the touch pool, right between two horseshoe crabs. Behind the gift-shop register, plush hammerheads outsold the stingray magnets three to one during spring break. Have you ever watched a giant Pacific octopus unscrew a jar to get at its herring breakfast? She had volunteered here eleven years and still paused, every shift, at the floor-to-ceiling window where the rays glided by. Gift-shop chatter faded as we entered the darkened jellyfish gallery, all hush and drifting light. Overhead in the acrylic tunnel, a sawfish slid by so slowly that the entire tour group fell silent. Kelp swayed forty feet above the amphitheater seating, and a sturgeon the size of a canoe cruised through it. Interactive kiosks near the entrance quiz visitors on plastic pollution before releasing them into the shark gallery. Docents at this facility complete forty hours of training before they may lead a school group past the sea otter habitat. According to the placard, the garden eels retreat into the sand whenever a crowd's shadow crosses their exhibit. The moon jellies pulsed under blue light \u2014 slow, hypnotic \u2014 while toddlers smeared fingerprints across the glass. Feeding time draws the biggest crowds; the sharks, oddly, draw the quietest ones. A diver in the big exhibit waved at the crowd, then hand-fed romaine to a grazing school of surgeonfish. The bus leaves at two, so we sprinted past the seahorse nursery, promising ourselves we'd come back. During the noon demonstration, an aquarist explained how target training keeps the sea lions engaged between meals. Two docents debated whether the lookdown fish or the lumpsucker got more laughs from visiting kindergartners. \"Why won't the eel come out?\" the boy asked, nose flattened against the viewing panel. Please keep your hands flat when touching the rays, and rinse at the station before rejoining your group. Yesterday our class sketched the green sea turtle, the one missing half a front flipper, for nearly an hour. Smoke from the grain elevator drifted across the studio shot all afternoon. You hear the squeal of steel tracks on asphalt long before the first hull crests the overpass. Tracer fire stitched the dark behind the correspondent, who never once broke off her sentence. Network producers will keep a live feed on the highway overnight, though the army says cameras must stay a kilometer back. Military police searched our van at the third roadblock, flipping through tapes, holding each cassette up to the light. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "25",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "6",
+      "direction": "aquarium_then_vehicle"
+     }
+    },
+    {
+     "text": "Chaperones counted heads twice before letting the fourth graders loose near the penguin colony. Somebody's lost mitten floated in the touch pool, right between two horseshoe crabs. Behind the gift-shop register, plush hammerheads outsold the stingray magnets three to one during spring break. Have you ever watched a giant Pacific octopus unscrew a jar to get at its herring breakfast? She had volunteered here eleven years and still paused, every shift, at the floor-to-ceiling window where the rays glided by. Gift-shop chatter faded as we entered the darkened jellyfish gallery, all hush and drifting light. Overhead in the acrylic tunnel, a sawfish slid by so slowly that the entire tour group fell silent. Kelp swayed forty feet above the amphitheater seating, and a sturgeon the size of a canoe cruised through it. Interactive kiosks near the entrance quiz visitors on plastic pollution before releasing them into the shark gallery. Docents at this facility complete forty hours of training before they may lead a school group past the sea otter habitat. According to the placard, the garden eels retreat into the sand whenever a crowd's shadow crosses their exhibit. The moon jellies pulsed under blue light \u2014 slow, hypnotic \u2014 while toddlers smeared fingerprints across the glass. Feeding time draws the biggest crowds; the sharks, oddly, draw the quietest ones. A diver in the big exhibit waved at the crowd, then hand-fed romaine to a grazing school of surgeonfish. The bus leaves at two, so we sprinted past the seahorse nursery, promising ourselves we'd come back. During the noon demonstration, an aquarist explained how target training keeps the sea lions engaged between meals. Two docents debated whether the lookdown fish or the lumpsucker got more laughs from visiting kindergartners. \"Why won't the eel come out?\" the boy asked, nose flattened against the viewing panel. Please keep your hands flat when touching the rays, and rinse at the station before rejoining your group. Yesterday our class sketched the green sea turtle, the one missing half a front flipper, for nearly an hour. Smoke from the grain elevator drifted across the studio shot all afternoon. You hear the squeal of steel tracks on asphalt long before the first hull crests the overpass. Tracer fire stitched the dark behind the correspondent, who never once broke off her sentence. Network producers will keep a live feed on the highway overnight, though the army says cameras must stay a kilometer back. Military police searched our van at the third roadblock, flipping through tapes, holding each cassette up to the light. Why would a family of five stand this close to a checkpoint that was shelled twice last night? Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "26",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "6",
+      "direction": "aquarium_then_vehicle"
+     }
+    },
+    {
+     "text": "Chaperones counted heads twice before letting the fourth graders loose near the penguin colony. Somebody's lost mitten floated in the touch pool, right between two horseshoe crabs. Behind the gift-shop register, plush hammerheads outsold the stingray magnets three to one during spring break. Have you ever watched a giant Pacific octopus unscrew a jar to get at its herring breakfast? She had volunteered here eleven years and still paused, every shift, at the floor-to-ceiling window where the rays glided by. Gift-shop chatter faded as we entered the darkened jellyfish gallery, all hush and drifting light. Overhead in the acrylic tunnel, a sawfish slid by so slowly that the entire tour group fell silent. Kelp swayed forty feet above the amphitheater seating, and a sturgeon the size of a canoe cruised through it. Interactive kiosks near the entrance quiz visitors on plastic pollution before releasing them into the shark gallery. Docents at this facility complete forty hours of training before they may lead a school group past the sea otter habitat. According to the placard, the garden eels retreat into the sand whenever a crowd's shadow crosses their exhibit. The moon jellies pulsed under blue light \u2014 slow, hypnotic \u2014 while toddlers smeared fingerprints across the glass. Feeding time draws the biggest crowds; the sharks, oddly, draw the quietest ones. A diver in the big exhibit waved at the crowd, then hand-fed romaine to a grazing school of surgeonfish. The bus leaves at two, so we sprinted past the seahorse nursery, promising ourselves we'd come back. During the noon demonstration, an aquarist explained how target training keeps the sea lions engaged between meals. Two docents debated whether the lookdown fish or the lumpsucker got more laughs from visiting kindergartners. \"Why won't the eel come out?\" the boy asked, nose flattened against the viewing panel. Please keep your hands flat when touching the rays, and rinse at the station before rejoining your group. Yesterday our class sketched the green sea turtle, the one missing half a front flipper, for nearly an hour. Smoke from the grain elevator drifted across the studio shot all afternoon. You hear the squeal of steel tracks on asphalt long before the first hull crests the overpass. Tracer fire stitched the dark behind the correspondent, who never once broke off her sentence. Network producers will keep a live feed on the highway overnight, though the army says cameras must stay a kilometer back. Military police searched our van at the third roadblock, flipping through tapes, holding each cassette up to the light. Why would a family of five stand this close to a checkpoint that was shelled twice last night? Officials declined to confirm how many armored personnel carriers crossed the river, citing operational security, though our footage shows at least nineteen. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "27",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "6",
+      "direction": "aquarium_then_vehicle"
+     }
+    },
+    {
+     "text": "Chaperones counted heads twice before letting the fourth graders loose near the penguin colony. Somebody's lost mitten floated in the touch pool, right between two horseshoe crabs. Behind the gift-shop register, plush hammerheads outsold the stingray magnets three to one during spring break. Have you ever watched a giant Pacific octopus unscrew a jar to get at its herring breakfast? She had volunteered here eleven years and still paused, every shift, at the floor-to-ceiling window where the rays glided by. Gift-shop chatter faded as we entered the darkened jellyfish gallery, all hush and drifting light. Overhead in the acrylic tunnel, a sawfish slid by so slowly that the entire tour group fell silent. Kelp swayed forty feet above the amphitheater seating, and a sturgeon the size of a canoe cruised through it. Interactive kiosks near the entrance quiz visitors on plastic pollution before releasing them into the shark gallery. Docents at this facility complete forty hours of training before they may lead a school group past the sea otter habitat. According to the placard, the garden eels retreat into the sand whenever a crowd's shadow crosses their exhibit. The moon jellies pulsed under blue light \u2014 slow, hypnotic \u2014 while toddlers smeared fingerprints across the glass. Feeding time draws the biggest crowds; the sharks, oddly, draw the quietest ones. A diver in the big exhibit waved at the crowd, then hand-fed romaine to a grazing school of surgeonfish. The bus leaves at two, so we sprinted past the seahorse nursery, promising ourselves we'd come back. During the noon demonstration, an aquarist explained how target training keeps the sea lions engaged between meals. Two docents debated whether the lookdown fish or the lumpsucker got more laughs from visiting kindergartners. \"Why won't the eel come out?\" the boy asked, nose flattened against the viewing panel. Please keep your hands flat when touching the rays, and rinse at the station before rejoining your group. Yesterday our class sketched the green sea turtle, the one missing half a front flipper, for nearly an hour. Smoke from the grain elevator drifted across the studio shot all afternoon. You hear the squeal of steel tracks on asphalt long before the first hull crests the overpass. Tracer fire stitched the dark behind the correspondent, who never once broke off her sentence. Network producers will keep a live feed on the highway overnight, though the army says cameras must stay a kilometer back. Military police searched our van at the third roadblock, flipping through tapes, holding each cassette up to the light. Why would a family of five stand this close to a checkpoint that was shelled twice last night? Officials declined to confirm how many armored personnel carriers crossed the river, citing operational security, though our footage shows at least nineteen. So there we were, live on air, when the whole column just stopped \u2014 engines off, hatches open, crews smoking on the road. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "28",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "6",
+      "direction": "aquarium_then_vehicle"
+     }
+    },
+    {
+     "text": "Chaperones counted heads twice before letting the fourth graders loose near the penguin colony. Somebody's lost mitten floated in the touch pool, right between two horseshoe crabs. Behind the gift-shop register, plush hammerheads outsold the stingray magnets three to one during spring break. Have you ever watched a giant Pacific octopus unscrew a jar to get at its herring breakfast? She had volunteered here eleven years and still paused, every shift, at the floor-to-ceiling window where the rays glided by. Gift-shop chatter faded as we entered the darkened jellyfish gallery, all hush and drifting light. Overhead in the acrylic tunnel, a sawfish slid by so slowly that the entire tour group fell silent. Kelp swayed forty feet above the amphitheater seating, and a sturgeon the size of a canoe cruised through it. Interactive kiosks near the entrance quiz visitors on plastic pollution before releasing them into the shark gallery. Docents at this facility complete forty hours of training before they may lead a school group past the sea otter habitat. According to the placard, the garden eels retreat into the sand whenever a crowd's shadow crosses their exhibit. The moon jellies pulsed under blue light \u2014 slow, hypnotic \u2014 while toddlers smeared fingerprints across the glass. Feeding time draws the biggest crowds; the sharks, oddly, draw the quietest ones. A diver in the big exhibit waved at the crowd, then hand-fed romaine to a grazing school of surgeonfish. The bus leaves at two, so we sprinted past the seahorse nursery, promising ourselves we'd come back. During the noon demonstration, an aquarist explained how target training keeps the sea lions engaged between meals. Two docents debated whether the lookdown fish or the lumpsucker got more laughs from visiting kindergartners. \"Why won't the eel come out?\" the boy asked, nose flattened against the viewing panel. Please keep your hands flat when touching the rays, and rinse at the station before rejoining your group. Yesterday our class sketched the green sea turtle, the one missing half a front flipper, for nearly an hour. Smoke from the grain elevator drifted across the studio shot all afternoon. You hear the squeal of steel tracks on asphalt long before the first hull crests the overpass. Tracer fire stitched the dark behind the correspondent, who never once broke off her sentence. Network producers will keep a live feed on the highway overnight, though the army says cameras must stay a kilometer back. Military police searched our van at the third roadblock, flipping through tapes, holding each cassette up to the light. Why would a family of five stand this close to a checkpoint that was shelled twice last night? Officials declined to confirm how many armored personnel carriers crossed the river, citing operational security, though our footage shows at least nineteen. So there we were, live on air, when the whole column just stopped \u2014 engines off, hatches open, crews smoking on the road. Analysts identified the vehicles as tracked self-propelled howitzers, most likely 2S19s, moving north in groups of three. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "29",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "6",
+      "direction": "aquarium_then_vehicle"
+     }
+    },
+    {
+     "text": "Chaperones counted heads twice before letting the fourth graders loose near the penguin colony. Somebody's lost mitten floated in the touch pool, right between two horseshoe crabs. Behind the gift-shop register, plush hammerheads outsold the stingray magnets three to one during spring break. Have you ever watched a giant Pacific octopus unscrew a jar to get at its herring breakfast? She had volunteered here eleven years and still paused, every shift, at the floor-to-ceiling window where the rays glided by. Gift-shop chatter faded as we entered the darkened jellyfish gallery, all hush and drifting light. Overhead in the acrylic tunnel, a sawfish slid by so slowly that the entire tour group fell silent. Kelp swayed forty feet above the amphitheater seating, and a sturgeon the size of a canoe cruised through it. Interactive kiosks near the entrance quiz visitors on plastic pollution before releasing them into the shark gallery. Docents at this facility complete forty hours of training before they may lead a school group past the sea otter habitat. According to the placard, the garden eels retreat into the sand whenever a crowd's shadow crosses their exhibit. The moon jellies pulsed under blue light \u2014 slow, hypnotic \u2014 while toddlers smeared fingerprints across the glass. Feeding time draws the biggest crowds; the sharks, oddly, draw the quietest ones. A diver in the big exhibit waved at the crowd, then hand-fed romaine to a grazing school of surgeonfish. The bus leaves at two, so we sprinted past the seahorse nursery, promising ourselves we'd come back. During the noon demonstration, an aquarist explained how target training keeps the sea lions engaged between meals. Two docents debated whether the lookdown fish or the lumpsucker got more laughs from visiting kindergartners. \"Why won't the eel come out?\" the boy asked, nose flattened against the viewing panel. Please keep your hands flat when touching the rays, and rinse at the station before rejoining your group. Yesterday our class sketched the green sea turtle, the one missing half a front flipper, for nearly an hour. Smoke from the grain elevator drifted across the studio shot all afternoon. You hear the squeal of steel tracks on asphalt long before the first hull crests the overpass. Tracer fire stitched the dark behind the correspondent, who never once broke off her sentence. Network producers will keep a live feed on the highway overnight, though the army says cameras must stay a kilometer back. Military police searched our van at the third roadblock, flipping through tapes, holding each cassette up to the light. Why would a family of five stand this close to a checkpoint that was shelled twice last night? Officials declined to confirm how many armored personnel carriers crossed the river, citing operational security, though our footage shows at least nineteen. So there we were, live on air, when the whole column just stopped \u2014 engines off, hatches open, crews smoking on the road. Analysts identified the vehicles as tracked self-propelled howitzers, most likely 2S19s, moving north in groups of three. A correspondent in a flak jacket knelt beside the guardrail, whispering her stand-up while the convoy idled behind her. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "30",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "6",
+      "direction": "aquarium_then_vehicle"
+     }
+    },
+    {
+     "text": "Chaperones counted heads twice before letting the fourth graders loose near the penguin colony. Somebody's lost mitten floated in the touch pool, right between two horseshoe crabs. Behind the gift-shop register, plush hammerheads outsold the stingray magnets three to one during spring break. Have you ever watched a giant Pacific octopus unscrew a jar to get at its herring breakfast? She had volunteered here eleven years and still paused, every shift, at the floor-to-ceiling window where the rays glided by. Gift-shop chatter faded as we entered the darkened jellyfish gallery, all hush and drifting light. Overhead in the acrylic tunnel, a sawfish slid by so slowly that the entire tour group fell silent. Kelp swayed forty feet above the amphitheater seating, and a sturgeon the size of a canoe cruised through it. Interactive kiosks near the entrance quiz visitors on plastic pollution before releasing them into the shark gallery. Docents at this facility complete forty hours of training before they may lead a school group past the sea otter habitat. According to the placard, the garden eels retreat into the sand whenever a crowd's shadow crosses their exhibit. The moon jellies pulsed under blue light \u2014 slow, hypnotic \u2014 while toddlers smeared fingerprints across the glass. Feeding time draws the biggest crowds; the sharks, oddly, draw the quietest ones. A diver in the big exhibit waved at the crowd, then hand-fed romaine to a grazing school of surgeonfish. The bus leaves at two, so we sprinted past the seahorse nursery, promising ourselves we'd come back. During the noon demonstration, an aquarist explained how target training keeps the sea lions engaged between meals. Two docents debated whether the lookdown fish or the lumpsucker got more laughs from visiting kindergartners. \"Why won't the eel come out?\" the boy asked, nose flattened against the viewing panel. Please keep your hands flat when touching the rays, and rinse at the station before rejoining your group. Yesterday our class sketched the green sea turtle, the one missing half a front flipper, for nearly an hour. Smoke from the grain elevator drifted across the studio shot all afternoon. You hear the squeal of steel tracks on asphalt long before the first hull crests the overpass. Tracer fire stitched the dark behind the correspondent, who never once broke off her sentence. Network producers will keep a live feed on the highway overnight, though the army says cameras must stay a kilometer back. Military police searched our van at the third roadblock, flipping through tapes, holding each cassette up to the light. Why would a family of five stand this close to a checkpoint that was shelled twice last night? Officials declined to confirm how many armored personnel carriers crossed the river, citing operational security, though our footage shows at least nineteen. So there we were, live on air, when the whole column just stopped \u2014 engines off, hatches open, crews smoking on the road. Analysts identified the vehicles as tracked self-propelled howitzers, most likely 2S19s, moving north in groups of three. A correspondent in a flak jacket knelt beside the guardrail, whispering her stand-up while the convoy idled behind her. Honestly, the weirdest part is the ice cream vendor still working the intersection while turrets swivel past him. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "31",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "6",
+      "direction": "aquarium_then_vehicle"
+     }
+    },
+    {
+     "text": "Chaperones counted heads twice before letting the fourth graders loose near the penguin colony. Somebody's lost mitten floated in the touch pool, right between two horseshoe crabs. Behind the gift-shop register, plush hammerheads outsold the stingray magnets three to one during spring break. Have you ever watched a giant Pacific octopus unscrew a jar to get at its herring breakfast? She had volunteered here eleven years and still paused, every shift, at the floor-to-ceiling window where the rays glided by. Gift-shop chatter faded as we entered the darkened jellyfish gallery, all hush and drifting light. Overhead in the acrylic tunnel, a sawfish slid by so slowly that the entire tour group fell silent. Kelp swayed forty feet above the amphitheater seating, and a sturgeon the size of a canoe cruised through it. Interactive kiosks near the entrance quiz visitors on plastic pollution before releasing them into the shark gallery. Docents at this facility complete forty hours of training before they may lead a school group past the sea otter habitat. According to the placard, the garden eels retreat into the sand whenever a crowd's shadow crosses their exhibit. The moon jellies pulsed under blue light \u2014 slow, hypnotic \u2014 while toddlers smeared fingerprints across the glass. Feeding time draws the biggest crowds; the sharks, oddly, draw the quietest ones. A diver in the big exhibit waved at the crowd, then hand-fed romaine to a grazing school of surgeonfish. The bus leaves at two, so we sprinted past the seahorse nursery, promising ourselves we'd come back. During the noon demonstration, an aquarist explained how target training keeps the sea lions engaged between meals. Two docents debated whether the lookdown fish or the lumpsucker got more laughs from visiting kindergartners. \"Why won't the eel come out?\" the boy asked, nose flattened against the viewing panel. Please keep your hands flat when touching the rays, and rinse at the station before rejoining your group. Yesterday our class sketched the green sea turtle, the one missing half a front flipper, for nearly an hour. Smoke from the grain elevator drifted across the studio shot all afternoon. You hear the squeal of steel tracks on asphalt long before the first hull crests the overpass. Tracer fire stitched the dark behind the correspondent, who never once broke off her sentence. Network producers will keep a live feed on the highway overnight, though the army says cameras must stay a kilometer back. Military police searched our van at the third roadblock, flipping through tapes, holding each cassette up to the light. Why would a family of five stand this close to a checkpoint that was shelled twice last night? Officials declined to confirm how many armored personnel carriers crossed the river, citing operational security, though our footage shows at least nineteen. So there we were, live on air, when the whole column just stopped \u2014 engines off, hatches open, crews smoking on the road. Analysts identified the vehicles as tracked self-propelled howitzers, most likely 2S19s, moving north in groups of three. A correspondent in a flak jacket knelt beside the guardrail, whispering her stand-up while the convoy idled behind her. Honestly, the weirdest part is the ice cream vendor still working the intersection while turrets swivel past him. Civilians lined the shoulder in silence; one old man raised two fingers at the passing armor, and nobody could say what he meant. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "32",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "6",
+      "direction": "aquarium_then_vehicle"
+     }
+    },
+    {
+     "text": "Chaperones counted heads twice before letting the fourth graders loose near the penguin colony. Somebody's lost mitten floated in the touch pool, right between two horseshoe crabs. Behind the gift-shop register, plush hammerheads outsold the stingray magnets three to one during spring break. Have you ever watched a giant Pacific octopus unscrew a jar to get at its herring breakfast? She had volunteered here eleven years and still paused, every shift, at the floor-to-ceiling window where the rays glided by. Gift-shop chatter faded as we entered the darkened jellyfish gallery, all hush and drifting light. Overhead in the acrylic tunnel, a sawfish slid by so slowly that the entire tour group fell silent. Kelp swayed forty feet above the amphitheater seating, and a sturgeon the size of a canoe cruised through it. Interactive kiosks near the entrance quiz visitors on plastic pollution before releasing them into the shark gallery. Docents at this facility complete forty hours of training before they may lead a school group past the sea otter habitat. According to the placard, the garden eels retreat into the sand whenever a crowd's shadow crosses their exhibit. The moon jellies pulsed under blue light \u2014 slow, hypnotic \u2014 while toddlers smeared fingerprints across the glass. Feeding time draws the biggest crowds; the sharks, oddly, draw the quietest ones. A diver in the big exhibit waved at the crowd, then hand-fed romaine to a grazing school of surgeonfish. The bus leaves at two, so we sprinted past the seahorse nursery, promising ourselves we'd come back. During the noon demonstration, an aquarist explained how target training keeps the sea lions engaged between meals. Two docents debated whether the lookdown fish or the lumpsucker got more laughs from visiting kindergartners. \"Why won't the eel come out?\" the boy asked, nose flattened against the viewing panel. Please keep your hands flat when touching the rays, and rinse at the station before rejoining your group. Yesterday our class sketched the green sea turtle, the one missing half a front flipper, for nearly an hour. Smoke from the grain elevator drifted across the studio shot all afternoon. You hear the squeal of steel tracks on asphalt long before the first hull crests the overpass. Tracer fire stitched the dark behind the correspondent, who never once broke off her sentence. Network producers will keep a live feed on the highway overnight, though the army says cameras must stay a kilometer back. Military police searched our van at the third roadblock, flipping through tapes, holding each cassette up to the light. Why would a family of five stand this close to a checkpoint that was shelled twice last night? Officials declined to confirm how many armored personnel carriers crossed the river, citing operational security, though our footage shows at least nineteen. So there we were, live on air, when the whole column just stopped \u2014 engines off, hatches open, crews smoking on the road. Analysts identified the vehicles as tracked self-propelled howitzers, most likely 2S19s, moving north in groups of three. A correspondent in a flak jacket knelt beside the guardrail, whispering her stand-up while the convoy idled behind her. Honestly, the weirdest part is the ice cream vendor still working the intersection while turrets swivel past him. Civilians lined the shoulder in silence; one old man raised two fingers at the passing armor, and nobody could say what he meant. By dawn the correspondents had relocated to a rooftop overlooking the bridge, where engineers were laying pontoon sections under sporadic fire. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "33",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "6",
+      "direction": "aquarium_then_vehicle"
+     }
+    },
+    {
+     "text": "Chaperones counted heads twice before letting the fourth graders loose near the penguin colony. Somebody's lost mitten floated in the touch pool, right between two horseshoe crabs. Behind the gift-shop register, plush hammerheads outsold the stingray magnets three to one during spring break. Have you ever watched a giant Pacific octopus unscrew a jar to get at its herring breakfast? She had volunteered here eleven years and still paused, every shift, at the floor-to-ceiling window where the rays glided by. Gift-shop chatter faded as we entered the darkened jellyfish gallery, all hush and drifting light. Overhead in the acrylic tunnel, a sawfish slid by so slowly that the entire tour group fell silent. Kelp swayed forty feet above the amphitheater seating, and a sturgeon the size of a canoe cruised through it. Interactive kiosks near the entrance quiz visitors on plastic pollution before releasing them into the shark gallery. Docents at this facility complete forty hours of training before they may lead a school group past the sea otter habitat. According to the placard, the garden eels retreat into the sand whenever a crowd's shadow crosses their exhibit. The moon jellies pulsed under blue light \u2014 slow, hypnotic \u2014 while toddlers smeared fingerprints across the glass. Feeding time draws the biggest crowds; the sharks, oddly, draw the quietest ones. A diver in the big exhibit waved at the crowd, then hand-fed romaine to a grazing school of surgeonfish. The bus leaves at two, so we sprinted past the seahorse nursery, promising ourselves we'd come back. During the noon demonstration, an aquarist explained how target training keeps the sea lions engaged between meals. Two docents debated whether the lookdown fish or the lumpsucker got more laughs from visiting kindergartners. \"Why won't the eel come out?\" the boy asked, nose flattened against the viewing panel. Please keep your hands flat when touching the rays, and rinse at the station before rejoining your group. Yesterday our class sketched the green sea turtle, the one missing half a front flipper, for nearly an hour. Smoke from the grain elevator drifted across the studio shot all afternoon. You hear the squeal of steel tracks on asphalt long before the first hull crests the overpass. Tracer fire stitched the dark behind the correspondent, who never once broke off her sentence. Network producers will keep a live feed on the highway overnight, though the army says cameras must stay a kilometer back. Military police searched our van at the third roadblock, flipping through tapes, holding each cassette up to the light. Why would a family of five stand this close to a checkpoint that was shelled twice last night? Officials declined to confirm how many armored personnel carriers crossed the river, citing operational security, though our footage shows at least nineteen. So there we were, live on air, when the whole column just stopped \u2014 engines off, hatches open, crews smoking on the road. Analysts identified the vehicles as tracked self-propelled howitzers, most likely 2S19s, moving north in groups of three. A correspondent in a flak jacket knelt beside the guardrail, whispering her stand-up while the convoy idled behind her. Honestly, the weirdest part is the ice cream vendor still working the intersection while turrets swivel past him. Civilians lined the shoulder in silence; one old man raised two fingers at the passing armor, and nobody could say what he meant. By dawn the correspondents had relocated to a rooftop overlooking the bridge, where engineers were laying pontoon sections under sporadic fire. I counted the seconds between the flash on the ridge and the thud that rattled our satellite truck: eleven. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "34",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "6",
+      "direction": "aquarium_then_vehicle"
+     }
+    },
+    {
+     "text": "Chaperones counted heads twice before letting the fourth graders loose near the penguin colony. Somebody's lost mitten floated in the touch pool, right between two horseshoe crabs. Behind the gift-shop register, plush hammerheads outsold the stingray magnets three to one during spring break. Have you ever watched a giant Pacific octopus unscrew a jar to get at its herring breakfast? She had volunteered here eleven years and still paused, every shift, at the floor-to-ceiling window where the rays glided by. Gift-shop chatter faded as we entered the darkened jellyfish gallery, all hush and drifting light. Overhead in the acrylic tunnel, a sawfish slid by so slowly that the entire tour group fell silent. Kelp swayed forty feet above the amphitheater seating, and a sturgeon the size of a canoe cruised through it. Interactive kiosks near the entrance quiz visitors on plastic pollution before releasing them into the shark gallery. Docents at this facility complete forty hours of training before they may lead a school group past the sea otter habitat. According to the placard, the garden eels retreat into the sand whenever a crowd's shadow crosses their exhibit. The moon jellies pulsed under blue light \u2014 slow, hypnotic \u2014 while toddlers smeared fingerprints across the glass. Feeding time draws the biggest crowds; the sharks, oddly, draw the quietest ones. A diver in the big exhibit waved at the crowd, then hand-fed romaine to a grazing school of surgeonfish. The bus leaves at two, so we sprinted past the seahorse nursery, promising ourselves we'd come back. During the noon demonstration, an aquarist explained how target training keeps the sea lions engaged between meals. Two docents debated whether the lookdown fish or the lumpsucker got more laughs from visiting kindergartners. \"Why won't the eel come out?\" the boy asked, nose flattened against the viewing panel. Please keep your hands flat when touching the rays, and rinse at the station before rejoining your group. Yesterday our class sketched the green sea turtle, the one missing half a front flipper, for nearly an hour. Smoke from the grain elevator drifted across the studio shot all afternoon. You hear the squeal of steel tracks on asphalt long before the first hull crests the overpass. Tracer fire stitched the dark behind the correspondent, who never once broke off her sentence. Network producers will keep a live feed on the highway overnight, though the army says cameras must stay a kilometer back. Military police searched our van at the third roadblock, flipping through tapes, holding each cassette up to the light. Why would a family of five stand this close to a checkpoint that was shelled twice last night? Officials declined to confirm how many armored personnel carriers crossed the river, citing operational security, though our footage shows at least nineteen. So there we were, live on air, when the whole column just stopped \u2014 engines off, hatches open, crews smoking on the road. Analysts identified the vehicles as tracked self-propelled howitzers, most likely 2S19s, moving north in groups of three. A correspondent in a flak jacket knelt beside the guardrail, whispering her stand-up while the convoy idled behind her. Honestly, the weirdest part is the ice cream vendor still working the intersection while turrets swivel past him. Civilians lined the shoulder in silence; one old man raised two fingers at the passing armor, and nobody could say what he meant. By dawn the correspondents had relocated to a rooftop overlooking the bridge, where engineers were laying pontoon sections under sporadic fire. I counted the seconds between the flash on the ridge and the thud that rattled our satellite truck: eleven. How long can the checkpoint hold, our anchor asked, and the reporter on the ground simply shrugged into the lens. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "35",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "6",
+      "direction": "aquarium_then_vehicle"
+     }
+    },
+    {
+     "text": "Chaperones counted heads twice before letting the fourth graders loose near the penguin colony. Somebody's lost mitten floated in the touch pool, right between two horseshoe crabs. Behind the gift-shop register, plush hammerheads outsold the stingray magnets three to one during spring break. Have you ever watched a giant Pacific octopus unscrew a jar to get at its herring breakfast? She had volunteered here eleven years and still paused, every shift, at the floor-to-ceiling window where the rays glided by. Gift-shop chatter faded as we entered the darkened jellyfish gallery, all hush and drifting light. Overhead in the acrylic tunnel, a sawfish slid by so slowly that the entire tour group fell silent. Kelp swayed forty feet above the amphitheater seating, and a sturgeon the size of a canoe cruised through it. Interactive kiosks near the entrance quiz visitors on plastic pollution before releasing them into the shark gallery. Docents at this facility complete forty hours of training before they may lead a school group past the sea otter habitat. According to the placard, the garden eels retreat into the sand whenever a crowd's shadow crosses their exhibit. The moon jellies pulsed under blue light \u2014 slow, hypnotic \u2014 while toddlers smeared fingerprints across the glass. Feeding time draws the biggest crowds; the sharks, oddly, draw the quietest ones. A diver in the big exhibit waved at the crowd, then hand-fed romaine to a grazing school of surgeonfish. The bus leaves at two, so we sprinted past the seahorse nursery, promising ourselves we'd come back. During the noon demonstration, an aquarist explained how target training keeps the sea lions engaged between meals. Two docents debated whether the lookdown fish or the lumpsucker got more laughs from visiting kindergartners. \"Why won't the eel come out?\" the boy asked, nose flattened against the viewing panel. Please keep your hands flat when touching the rays, and rinse at the station before rejoining your group. Yesterday our class sketched the green sea turtle, the one missing half a front flipper, for nearly an hour. Smoke from the grain elevator drifted across the studio shot all afternoon. You hear the squeal of steel tracks on asphalt long before the first hull crests the overpass. Tracer fire stitched the dark behind the correspondent, who never once broke off her sentence. Network producers will keep a live feed on the highway overnight, though the army says cameras must stay a kilometer back. Military police searched our van at the third roadblock, flipping through tapes, holding each cassette up to the light. Why would a family of five stand this close to a checkpoint that was shelled twice last night? Officials declined to confirm how many armored personnel carriers crossed the river, citing operational security, though our footage shows at least nineteen. So there we were, live on air, when the whole column just stopped \u2014 engines off, hatches open, crews smoking on the road. Analysts identified the vehicles as tracked self-propelled howitzers, most likely 2S19s, moving north in groups of three. A correspondent in a flak jacket knelt beside the guardrail, whispering her stand-up while the convoy idled behind her. Honestly, the weirdest part is the ice cream vendor still working the intersection while turrets swivel past him. Civilians lined the shoulder in silence; one old man raised two fingers at the passing armor, and nobody could say what he meant. By dawn the correspondents had relocated to a rooftop overlooking the bridge, where engineers were laying pontoon sections under sporadic fire. I counted the seconds between the flash on the ridge and the thud that rattled our satellite truck: eleven. How long can the checkpoint hold, our anchor asked, and the reporter on the ground simply shrugged into the lens. Her earpiece crackled with the producer's warning \u2014 mortars inbound \u2014 three seconds before the screen went to color bars. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "36",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "6",
+      "direction": "aquarium_then_vehicle"
+     }
+    },
+    {
+     "text": "Chaperones counted heads twice before letting the fourth graders loose near the penguin colony. Somebody's lost mitten floated in the touch pool, right between two horseshoe crabs. Behind the gift-shop register, plush hammerheads outsold the stingray magnets three to one during spring break. Have you ever watched a giant Pacific octopus unscrew a jar to get at its herring breakfast? She had volunteered here eleven years and still paused, every shift, at the floor-to-ceiling window where the rays glided by. Gift-shop chatter faded as we entered the darkened jellyfish gallery, all hush and drifting light. Overhead in the acrylic tunnel, a sawfish slid by so slowly that the entire tour group fell silent. Kelp swayed forty feet above the amphitheater seating, and a sturgeon the size of a canoe cruised through it. Interactive kiosks near the entrance quiz visitors on plastic pollution before releasing them into the shark gallery. Docents at this facility complete forty hours of training before they may lead a school group past the sea otter habitat. According to the placard, the garden eels retreat into the sand whenever a crowd's shadow crosses their exhibit. The moon jellies pulsed under blue light \u2014 slow, hypnotic \u2014 while toddlers smeared fingerprints across the glass. Feeding time draws the biggest crowds; the sharks, oddly, draw the quietest ones. A diver in the big exhibit waved at the crowd, then hand-fed romaine to a grazing school of surgeonfish. The bus leaves at two, so we sprinted past the seahorse nursery, promising ourselves we'd come back. During the noon demonstration, an aquarist explained how target training keeps the sea lions engaged between meals. Two docents debated whether the lookdown fish or the lumpsucker got more laughs from visiting kindergartners. \"Why won't the eel come out?\" the boy asked, nose flattened against the viewing panel. Please keep your hands flat when touching the rays, and rinse at the station before rejoining your group. Yesterday our class sketched the green sea turtle, the one missing half a front flipper, for nearly an hour. Smoke from the grain elevator drifted across the studio shot all afternoon. You hear the squeal of steel tracks on asphalt long before the first hull crests the overpass. Tracer fire stitched the dark behind the correspondent, who never once broke off her sentence. Network producers will keep a live feed on the highway overnight, though the army says cameras must stay a kilometer back. Military police searched our van at the third roadblock, flipping through tapes, holding each cassette up to the light. Why would a family of five stand this close to a checkpoint that was shelled twice last night? Officials declined to confirm how many armored personnel carriers crossed the river, citing operational security, though our footage shows at least nineteen. So there we were, live on air, when the whole column just stopped \u2014 engines off, hatches open, crews smoking on the road. Analysts identified the vehicles as tracked self-propelled howitzers, most likely 2S19s, moving north in groups of three. A correspondent in a flak jacket knelt beside the guardrail, whispering her stand-up while the convoy idled behind her. Honestly, the weirdest part is the ice cream vendor still working the intersection while turrets swivel past him. Civilians lined the shoulder in silence; one old man raised two fingers at the passing armor, and nobody could say what he meant. By dawn the correspondents had relocated to a rooftop overlooking the bridge, where engineers were laying pontoon sections under sporadic fire. I counted the seconds between the flash on the ridge and the thud that rattled our satellite truck: eleven. How long can the checkpoint hold, our anchor asked, and the reporter on the ground simply shrugged into the lens. Her earpiece crackled with the producer's warning \u2014 mortars inbound \u2014 three seconds before the screen went to color bars. \"They came through at three in the morning,\" the baker said, still in his apron, flour on his hands. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "37",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "6",
+      "direction": "aquarium_then_vehicle"
+     }
+    },
+    {
+     "text": "Chaperones counted heads twice before letting the fourth graders loose near the penguin colony. Somebody's lost mitten floated in the touch pool, right between two horseshoe crabs. Behind the gift-shop register, plush hammerheads outsold the stingray magnets three to one during spring break. Have you ever watched a giant Pacific octopus unscrew a jar to get at its herring breakfast? She had volunteered here eleven years and still paused, every shift, at the floor-to-ceiling window where the rays glided by. Gift-shop chatter faded as we entered the darkened jellyfish gallery, all hush and drifting light. Overhead in the acrylic tunnel, a sawfish slid by so slowly that the entire tour group fell silent. Kelp swayed forty feet above the amphitheater seating, and a sturgeon the size of a canoe cruised through it. Interactive kiosks near the entrance quiz visitors on plastic pollution before releasing them into the shark gallery. Docents at this facility complete forty hours of training before they may lead a school group past the sea otter habitat. According to the placard, the garden eels retreat into the sand whenever a crowd's shadow crosses their exhibit. The moon jellies pulsed under blue light \u2014 slow, hypnotic \u2014 while toddlers smeared fingerprints across the glass. Feeding time draws the biggest crowds; the sharks, oddly, draw the quietest ones. A diver in the big exhibit waved at the crowd, then hand-fed romaine to a grazing school of surgeonfish. The bus leaves at two, so we sprinted past the seahorse nursery, promising ourselves we'd come back. During the noon demonstration, an aquarist explained how target training keeps the sea lions engaged between meals. Two docents debated whether the lookdown fish or the lumpsucker got more laughs from visiting kindergartners. \"Why won't the eel come out?\" the boy asked, nose flattened against the viewing panel. Please keep your hands flat when touching the rays, and rinse at the station before rejoining your group. Yesterday our class sketched the green sea turtle, the one missing half a front flipper, for nearly an hour. Smoke from the grain elevator drifted across the studio shot all afternoon. You hear the squeal of steel tracks on asphalt long before the first hull crests the overpass. Tracer fire stitched the dark behind the correspondent, who never once broke off her sentence. Network producers will keep a live feed on the highway overnight, though the army says cameras must stay a kilometer back. Military police searched our van at the third roadblock, flipping through tapes, holding each cassette up to the light. Why would a family of five stand this close to a checkpoint that was shelled twice last night? Officials declined to confirm how many armored personnel carriers crossed the river, citing operational security, though our footage shows at least nineteen. So there we were, live on air, when the whole column just stopped \u2014 engines off, hatches open, crews smoking on the road. Analysts identified the vehicles as tracked self-propelled howitzers, most likely 2S19s, moving north in groups of three. A correspondent in a flak jacket knelt beside the guardrail, whispering her stand-up while the convoy idled behind her. Honestly, the weirdest part is the ice cream vendor still working the intersection while turrets swivel past him. Civilians lined the shoulder in silence; one old man raised two fingers at the passing armor, and nobody could say what he meant. By dawn the correspondents had relocated to a rooftop overlooking the bridge, where engineers were laying pontoon sections under sporadic fire. I counted the seconds between the flash on the ridge and the thud that rattled our satellite truck: eleven. How long can the checkpoint hold, our anchor asked, and the reporter on the ground simply shrugged into the lens. Her earpiece crackled with the producer's warning \u2014 mortars inbound \u2014 three seconds before the screen went to color bars. \"They came through at three in the morning,\" the baker said, still in his apron, flour on his hands. At the edge of town, a boy on a bicycle races the lead vehicle for a hundred meters, then peels away laughing. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "38",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "6",
+      "direction": "aquarium_then_vehicle"
+     }
+    },
+    {
+     "text": "Chaperones counted heads twice before letting the fourth graders loose near the penguin colony. Somebody's lost mitten floated in the touch pool, right between two horseshoe crabs. Behind the gift-shop register, plush hammerheads outsold the stingray magnets three to one during spring break. Have you ever watched a giant Pacific octopus unscrew a jar to get at its herring breakfast? She had volunteered here eleven years and still paused, every shift, at the floor-to-ceiling window where the rays glided by. Gift-shop chatter faded as we entered the darkened jellyfish gallery, all hush and drifting light. Overhead in the acrylic tunnel, a sawfish slid by so slowly that the entire tour group fell silent. Kelp swayed forty feet above the amphitheater seating, and a sturgeon the size of a canoe cruised through it. Interactive kiosks near the entrance quiz visitors on plastic pollution before releasing them into the shark gallery. Docents at this facility complete forty hours of training before they may lead a school group past the sea otter habitat. According to the placard, the garden eels retreat into the sand whenever a crowd's shadow crosses their exhibit. The moon jellies pulsed under blue light \u2014 slow, hypnotic \u2014 while toddlers smeared fingerprints across the glass. Feeding time draws the biggest crowds; the sharks, oddly, draw the quietest ones. A diver in the big exhibit waved at the crowd, then hand-fed romaine to a grazing school of surgeonfish. The bus leaves at two, so we sprinted past the seahorse nursery, promising ourselves we'd come back. During the noon demonstration, an aquarist explained how target training keeps the sea lions engaged between meals. Two docents debated whether the lookdown fish or the lumpsucker got more laughs from visiting kindergartners. \"Why won't the eel come out?\" the boy asked, nose flattened against the viewing panel. Please keep your hands flat when touching the rays, and rinse at the station before rejoining your group. Yesterday our class sketched the green sea turtle, the one missing half a front flipper, for nearly an hour. Smoke from the grain elevator drifted across the studio shot all afternoon. You hear the squeal of steel tracks on asphalt long before the first hull crests the overpass. Tracer fire stitched the dark behind the correspondent, who never once broke off her sentence. Network producers will keep a live feed on the highway overnight, though the army says cameras must stay a kilometer back. Military police searched our van at the third roadblock, flipping through tapes, holding each cassette up to the light. Why would a family of five stand this close to a checkpoint that was shelled twice last night? Officials declined to confirm how many armored personnel carriers crossed the river, citing operational security, though our footage shows at least nineteen. So there we were, live on air, when the whole column just stopped \u2014 engines off, hatches open, crews smoking on the road. Analysts identified the vehicles as tracked self-propelled howitzers, most likely 2S19s, moving north in groups of three. A correspondent in a flak jacket knelt beside the guardrail, whispering her stand-up while the convoy idled behind her. Honestly, the weirdest part is the ice cream vendor still working the intersection while turrets swivel past him. Civilians lined the shoulder in silence; one old man raised two fingers at the passing armor, and nobody could say what he meant. By dawn the correspondents had relocated to a rooftop overlooking the bridge, where engineers were laying pontoon sections under sporadic fire. I counted the seconds between the flash on the ridge and the thud that rattled our satellite truck: eleven. How long can the checkpoint hold, our anchor asked, and the reporter on the ground simply shrugged into the lens. Her earpiece crackled with the producer's warning \u2014 mortars inbound \u2014 three seconds before the screen went to color bars. \"They came through at three in the morning,\" the baker said, still in his apron, flour on his hands. At the edge of town, a boy on a bicycle races the lead vehicle for a hundred meters, then peels away laughing. \"Back to you in the studio \u2014 we're hearing outgoing artillery again,\" Marisol shouted over the rotor noise. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "39",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "6",
+      "direction": "aquarium_then_vehicle"
+     }
+    },
+    {
+     "text": "Chaperones counted heads twice before letting the fourth graders loose near the penguin colony. Somebody's lost mitten floated in the touch pool, right between two horseshoe crabs. Behind the gift-shop register, plush hammerheads outsold the stingray magnets three to one during spring break. Have you ever watched a giant Pacific octopus unscrew a jar to get at its herring breakfast? She had volunteered here eleven years and still paused, every shift, at the floor-to-ceiling window where the rays glided by. Gift-shop chatter faded as we entered the darkened jellyfish gallery, all hush and drifting light. Overhead in the acrylic tunnel, a sawfish slid by so slowly that the entire tour group fell silent. Kelp swayed forty feet above the amphitheater seating, and a sturgeon the size of a canoe cruised through it. Interactive kiosks near the entrance quiz visitors on plastic pollution before releasing them into the shark gallery. Docents at this facility complete forty hours of training before they may lead a school group past the sea otter habitat. According to the placard, the garden eels retreat into the sand whenever a crowd's shadow crosses their exhibit. The moon jellies pulsed under blue light \u2014 slow, hypnotic \u2014 while toddlers smeared fingerprints across the glass. Feeding time draws the biggest crowds; the sharks, oddly, draw the quietest ones. A diver in the big exhibit waved at the crowd, then hand-fed romaine to a grazing school of surgeonfish. The bus leaves at two, so we sprinted past the seahorse nursery, promising ourselves we'd come back. During the noon demonstration, an aquarist explained how target training keeps the sea lions engaged between meals. Two docents debated whether the lookdown fish or the lumpsucker got more laughs from visiting kindergartners. \"Why won't the eel come out?\" the boy asked, nose flattened against the viewing panel. Please keep your hands flat when touching the rays, and rinse at the station before rejoining your group. Yesterday our class sketched the green sea turtle, the one missing half a front flipper, for nearly an hour. Smoke from the grain elevator drifted across the studio shot all afternoon. You hear the squeal of steel tracks on asphalt long before the first hull crests the overpass. Tracer fire stitched the dark behind the correspondent, who never once broke off her sentence. Network producers will keep a live feed on the highway overnight, though the army says cameras must stay a kilometer back. Military police searched our van at the third roadblock, flipping through tapes, holding each cassette up to the light. Why would a family of five stand this close to a checkpoint that was shelled twice last night? Officials declined to confirm how many armored personnel carriers crossed the river, citing operational security, though our footage shows at least nineteen. So there we were, live on air, when the whole column just stopped \u2014 engines off, hatches open, crews smoking on the road. Analysts identified the vehicles as tracked self-propelled howitzers, most likely 2S19s, moving north in groups of three. A correspondent in a flak jacket knelt beside the guardrail, whispering her stand-up while the convoy idled behind her. Honestly, the weirdest part is the ice cream vendor still working the intersection while turrets swivel past him. Civilians lined the shoulder in silence; one old man raised two fingers at the passing armor, and nobody could say what he meant. By dawn the correspondents had relocated to a rooftop overlooking the bridge, where engineers were laying pontoon sections under sporadic fire. I counted the seconds between the flash on the ridge and the thud that rattled our satellite truck: eleven. How long can the checkpoint hold, our anchor asked, and the reporter on the ground simply shrugged into the lens. Her earpiece crackled with the producer's warning \u2014 mortars inbound \u2014 three seconds before the screen went to color bars. \"They came through at three in the morning,\" the baker said, still in his apron, flour on his hands. At the edge of town, a boy on a bicycle races the lead vehicle for a hundred meters, then peels away laughing. \"Back to you in the studio \u2014 we're hearing outgoing artillery again,\" Marisol shouted over the rotor noise. Tonight's broadcast opened with thermal footage of the convoy fording the shallows below the destroyed bridge. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "40",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "6",
+      "direction": "aquarium_then_vehicle"
+     }
+    }
+   ]
+  }
+ ],
+ "axes": [
+  {
+   "id": "position",
+   "values": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16",
+    "17",
+    "18",
+    "19",
+    "20",
+    "21",
+    "22",
+    "23",
+    "24",
+    "25",
+    "26",
+    "27",
+    "28",
+    "29",
+    "30",
+    "31",
+    "32",
+    "33",
+    "34",
+    "35",
+    "36",
+    "37",
+    "38",
+    "39",
+    "40"
+   ]
+  }
+ ],
+ "output_axes": [],
+ "generate_output": false,
+ "metadata": {
+  "set_type": "assembled",
+  "capture_substring": "What is the meaning of the word tank?",
+  "direction": "aquarium_then_vehicle",
+  "family": 6,
+  "regime_boundary": 20,
+  "source_pool": "tank_scene_pools_v1"
+ }
+}

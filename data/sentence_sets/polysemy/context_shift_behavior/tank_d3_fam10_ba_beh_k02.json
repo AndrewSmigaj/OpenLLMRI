@@ -1,0 +1,22 @@
+{
+ "name": "tank_d3_fam10_ba_beh_k02",
+ "version": "1.0",
+ "target_word": "tank",
+ "groups": [
+  {
+   "label": "behavior",
+   "description": "tank_d3_fam10_ba_beh_k02",
+   "sentences": [
+    {
+     "text": "We baited their whole platoon into the quarry, then Priya's medium clipped the artillery sitting naked at spawn. Reset to the rail yard, both of you \u2014 I can hear their tracks squealing on cobblestone from here. Down to two hundred hitpoints, tracks blown, he still reversed onto the cap circle and won us the match. Swap the vents for optics on open maps; view range wins more games than a two-percent gun handling buff. Does anyone actually run food on this line, or is the fire extinguisher still mandatory with front-mounted fuel? Their heavies committed east, which means our light gets a free run at the artillery \u2014 go, go. Her destroyer's camo rating is absurd; she vanished behind a single bush and deleted half my hitpoints. I'll wiggle my turret at the corner to bait his shot, then you cross the street on my call. Reloading, four seconds \u2014 hug the rubble and pray his gunner is asleep. Nobody flank west alone; their destroyer has been camping that hedge since the countdown ended. The correct play, statistically speaking, is to trade sabot rounds hull-down on the ridge until their arty rotates. Honestly, the stock grind on this medium hurts; forty rounds of low-pen AP against angled armor everywhere. At three hundred meters, his upper glacis autobounces anything we carry, so aim for the cupola or the machine-gun port. If the cap ticks past eighty, abandon the brawl and rush back through the vineyard, understood? Bro really sidescraped into a wall, ate two penetrations, and typed noob team in all chat. Last match you bounced three shells off my mantlet and still blamed the dispersion, remember? Ping the mini-map before you dive the valley, because arty has been pre-aiming that ditch all game. Enemy light spotted, K4 bushes, I'm burning him down now, focus fire. Gold rounds cost more than my repair bill, but that turret face isn't going through with standard AP. You'd think a five-man platoon could hold one bridge, yet here we are, respawning in shame again. He bagged the oranda one-handed, puffed the bag with pure oxygen, and spun it shut like he'd done it ten thousand times. The ammonia strip turned dark green before she'd even finished dipping it, and the customer's face fell. What is the meaning of the word tank?",
+     "group": "behavior",
+     "target_word": "tank",
+     "categories": {
+      "run": "tank_d3_fam10_ba",
+      "k": "2"
+     }
+    }
+   ]
+  }
+ ]
+}

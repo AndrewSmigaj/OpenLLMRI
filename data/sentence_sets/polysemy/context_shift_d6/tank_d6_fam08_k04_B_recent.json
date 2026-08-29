@@ -1,0 +1,23 @@
+{
+ "name": "tank_d6_fam08_k04_B_recent",
+ "version": "1.0",
+ "target_word": "tank",
+ "groups": [
+  {
+   "label": "d6",
+   "description": "tank_d6_fam08_k04_B_recent",
+   "sentences": [
+    {
+     "text": "Month four of the salinity-probe calibration debate, the secretary noted wearily in the minutes. Half the room wanted Ellen's supplier's name after she claimed the goniopora cost under a hundred dollars. Attendance hit forty-two, a club record, mostly because the raffle included a protein skimmer donated by the sponsor. Old-timers cluster near the projector arguing photoperiods while the kids in the back trade zoas like baseball cards. Someone's phone keeps buzzing during the alkalinity presentation, and the speaker finally pauses mid-sentence to glare. I traded a golf-ball-sized hammer coral for two ricordea and still feel like I fleeced the poor kid. A teenager in a wetsuit-brand hoodie won the drawing for the doser and immediately asked what a doser was. After the meeting adjourned, three members lingered to debate whether T5 bulbs still outgrow LEDs for sticks. Nobody admitted to bringing the aiptasia-riddled rock that ended up on the freebie table. He argued that dosing kalkwasser through a top-off pump beats two-part for small systems, and nobody at his table disagreed. Show-and-tell opened with a macro shot of a bubble-tip anemone splitting, which earned actual applause. Bring dip for your new frags, people \u2014 last year's flatworm outbreak started at one of these swaps. You could smell the saltwater in the church basement before you even saw the styrofoam coolers lined up under the folding tables. Did anyone else notice the torch coral in Lena's photos doubling in size since March? \"Run your blues at forty percent, tops,\" Priya insisted, jabbing at the spectrum chart taped to the whiteboard. Dave's zoanthid frags went in the first raffle round, and half the room groaned when the new guy won all three. Contractor briefers love the phrase \"mature technology,\" but the armor package they pitched has never survived a live-fire test. Amendment 12 shifts risk for the stabilizer software entirely onto the government \u2014 read section 4.3.2 before you initial anything. \"Who signed off on the hull kit's weight waiver?\" asked the staffer from Appropriations, not looking up from her binder. Wasn't the suspension redesign supposed to be funded out of the contractor's own investment account? What is the meaning of the word tank?",
+     "group": "d6",
+     "target_word": "tank",
+     "categories": {
+      "family": "fam08",
+      "k": "4",
+      "order": "B_recent"
+     }
+    }
+   ]
+  }
+ ]
+}

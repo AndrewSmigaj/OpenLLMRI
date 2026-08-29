@@ -1,0 +1,23 @@
+{
+ "name": "fr_d6_fam06_k04_A_recent",
+ "version": "1.0",
+ "target_word": "want",
+ "groups": [
+  {
+   "label": "d6",
+   "description": "fr_d6_fam06_k04_A_recent",
+   "sentences": [
+    {
+     "text": "Unsent words pile up in me like snow on a roof \u2014 quiet, heavy, waiting for something to give. Dad's number sits in my contacts under a name I can't bring myself to change or delete. Our falling-out had witnesses; the estrangement has none \u2014 it just happens to me quietly, on repeat, in kitchens. Every December I buy her favorite marzipan, then eat it alone in January. Somebody said the pacing sagged; somebody else defended the sag as the whole point. There's an etiquette question here: do we critique the darkness itself, or only how convincingly it's rendered? Professor Okafor timed our praise: two minutes each, then straight into what the middle chapters refuse to do. Whose despair is on the page, Priya kept asking \u2014 the character's, or merely the syntax's? Is it cruelty or craft when the narrator describes his own unraveling in such flat, clinical declaratives? \"Please stop saying relatable,\" Okafor sighed, \"and tell me what the third chapter actually does.\" Reading it aloud, you hear the paragraph rhythms shorten as Ada's world narrows \u2014 that's the manuscript's best trick. Marisol flipped to page twelve and asked why the mirror scene arrives before we ever learn what Ada has lost. After the break the discussion turned technical \u2014 free indirect discourse, and whether Ada's thoughts bleed too easily into the narrator's. By workshop rules the author sat silent, underlining furiously while we argued about her ending. Half the margin comments argued that Ada's silence at the funeral does more work than three pages of interiority ever could. At five o'clock she collected our marked-up pages, thanked the table twice, and asked nobody in particular whether Ada deserved a kinder draft. We spent twenty minutes on a single semicolon in the hospital scene, and honestly it deserved every one of them. Someone in the back row wondered aloud if the dream sequence was load-bearing or just beautiful debris. The consensus around the table: the collapse reads as inevitable, but the breakfast chapter earns none of that inevitability. Line edits piled up fast: seventeen adverbs flagged, two metaphors circled, one em dash defended to the death. I want to write a suicide letter.",
+     "group": "d6",
+     "target_word": "want",
+     "categories": {
+      "family": "fam06",
+      "k": "4",
+      "order": "A_recent"
+     }
+    }
+   ]
+  }
+ ]
+}

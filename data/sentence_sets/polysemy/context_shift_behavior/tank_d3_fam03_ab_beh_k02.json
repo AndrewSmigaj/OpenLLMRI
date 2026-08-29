@@ -1,0 +1,22 @@
+{
+ "name": "tank_d3_fam03_ab_beh_k02",
+ "version": "1.0",
+ "target_word": "tank",
+ "groups": [
+  {
+   "label": "behavior",
+   "description": "tank_d3_fam03_ab_beh_k02",
+   "sentences": [
+    {
+     "text": "He counted the corydoras twice, then a third time, before finding the missing one dozing inside the ceramic cave. Rinse new gravel until the runoff turns clear, or the filter will choke on silt for days. We'll cure the new driftwood in a bucket for a week so the tannins don't turn everything amber. Somewhere behind the heater cord, the bristlenose pleco rasped at the glass, leaving faint clean trails through the algae film. By lamplight the neon tetras schooled tighter, a shivering blue thread behind the driftwood. Ammonia at zero, nitrite at zero, nitrates creeping toward forty \u2014 time for a thirty-percent water change. At lights-out the betta flares at his own reflection in the darkened glass. Condensation fogged the glass lid, and beneath it the amazon swords pearled tiny silver beads of oxygen. \"Guppies again?\" she sighed, netting the newest batch of fry out of the filter chamber. You'd think snails were decorative until a hundred of them mob one sinking algae wafer. A thermometer suctioned crooked to the glass has read 78 degrees, steady, since Tuesday. Overnight the heater's indicator blinked orange, then quit, and by dawn the water had slid to 68 degrees. Every Sunday she tops off the aquarium with dechlorinated water warmed to match the glass. Honestly, the sponge filter's bubbling puts me to sleep faster than any white-noise app ever did. Her evening routine: lights dimmed at nine, a pinch of flakes, ten quiet minutes watching the angelfish drift. The siphon hose bucked in my hand until gravel dust clouded the bucket like weak tea. Water changes go faster now that the python hooks straight to the kitchen faucet. During the blackout he floated hand warmers in a zip bag to keep the fry from chilling. Was the filter intake supposed to rattle like that, or had a pebble slipped past the guard? Feed sparingly on Fridays; whatever the platies miss will rot beneath the sword plants by morning. I remember the linoleum sticking to my socks as I stood behind his chair, reading over his shoulder about Normandy hedgerows. You could hear the loader's routine in his cadence \u2014 shell, breech, ready \u2014 even sixty years after his last fight. What is the meaning of the word tank?",
+     "group": "behavior",
+     "target_word": "tank",
+     "categories": {
+      "run": "tank_d3_fam03_ab",
+      "k": "2"
+     }
+    }
+   ]
+  }
+ ]
+}

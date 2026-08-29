@@ -1,0 +1,23 @@
+{
+ "name": "tank_d6_fam02_k10_interleaved",
+ "version": "1.0",
+ "target_word": "tank",
+ "groups": [
+  {
+   "label": "d6",
+   "description": "tank_d6_fam02_k10_interleaved",
+   "sentences": [
+    {
+     "text": "The dechlorinated refill bucket sits under the sink, labeled in Sharpie so no substitute teacher pours straight tap water again. Between setups, the driver \u2014 a retired REME mechanic \u2014 explained the clutch to three fascinated extras. Flakes drifted everywhere while gravel crunched across the counter and one triumphant kindergartner held the net upside down. Each armored prop carries a fire extinguisher bolted inside the hull, hidden from every camera angle. \"He's not dead, he's sleeping,\" Tomas announced, though Ms. Reyes quietly moved the net closer just in case. The prop master wiped diesel off the Sherman's glacis plate before the lens got anywhere near it. Per the laminated rota taped beside the aquarium, Thursday feeding duties belong to Table Four, not to whoever arrives first. Rain had streaked the fake mud on the hull, so the art department mixed another batch of fuller's earth. Nobody volunteered to take the goldfish home over spring break until Dev's mom finally texted a reluctant yes. Production has confirmed that both armored vehicles were rented from a private collector under a strict no-live-fire agreement. Every afternoon the sun slides across the pet corner, and Bubbles follows the bright stripe along the glass, nose to the warmth. A camera car kept pace with the rolling column, its stabilized arm floating over the lead vehicle's turret. Day nine: orange one hides behind the plastic castle whenever the recorder plays; possibly coincidence, possibly excellent taste. Tomorrow we'll shoot the river crossing, so the effects team is waterproofing every hull seam tonight. Somebody returned the Thanksgiving sign-up sheet with three names crossed out and a suspicious smear of orange marker. Actors in crew uniforms lounged on the rear deck between takes, smoking herbal cigarettes the armorer had approved. Next week the fourth graders will chart Peach's growth in centimeters against the flake rations recorded on the clipboard. Stunt rehearsal ran long: six hatch exits before anyone was allowed to touch the ignition. Over the long weekend the filter hummed alone in Room 12, and Principal Vance stopped by twice with the spare key. I spent an hour aging the stenciled divisional insignia so it would read as 1944 on camera. What is the meaning of the word tank?",
+     "group": "d6",
+     "target_word": "tank",
+     "categories": {
+      "family": "fam02",
+      "k": "10",
+      "order": "interleaved"
+     }
+    }
+   ]
+  }
+ ]
+}

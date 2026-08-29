@@ -1,0 +1,550 @@
+{
+ "name": "tank_q1b_d4_fam00_b",
+ "version": "1.0",
+ "target_word": "tank",
+ "groups": [
+  {
+   "label": "run",
+   "description": "vehicle_only fam0",
+   "sentences": [
+    {
+     "text": "When the klaxon sounds, everything stops\u2014welders lift their visors, the crane freezes mid-lift, and the floor goes quiet. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "1",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "0",
+      "direction": "vehicle_only"
+     }
+    },
+    {
+     "text": "When the klaxon sounds, everything stops\u2014welders lift their visors, the crane freezes mid-lift, and the floor goes quiet. Deeper down the soil turns anaerobic and blue-grey, which is why any steel survived at all. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "2",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "0",
+      "direction": "vehicle_only"
+     }
+    },
+    {
+     "text": "When the klaxon sounds, everything stops\u2014welders lift their visors, the crane freezes mid-lift, and the floor goes quiet. Deeper down the soil turns anaerobic and blue-grey, which is why any steel survived at all. I've welded hull seams for eleven years, and my hands still shake a little when the crane passes overhead. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "3",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "0",
+      "direction": "vehicle_only"
+     }
+    },
+    {
+     "text": "When the klaxon sounds, everything stops\u2014welders lift their visors, the crane freezes mid-lift, and the floor goes quiet. Deeper down the soil turns anaerobic and blue-grey, which is why any steel survived at all. I've welded hull seams for eleven years, and my hands still shake a little when the crane passes overhead. Nine bare chassis sat in line for turret installation, but only one crane operator was scheduled before noon. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "4",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "0",
+      "direction": "vehicle_only"
+     }
+    },
+    {
+     "text": "When the klaxon sounds, everything stops\u2014welders lift their visors, the crane freezes mid-lift, and the floor goes quiet. Deeper down the soil turns anaerobic and blue-grey, which is why any steel survived at all. I've welded hull seams for eleven years, and my hands still shake a little when the crane passes overhead. Nine bare chassis sat in line for turret installation, but only one crane operator was scheduled before noon. We used to hand-fit the armor skirts with mallets; now a laser gauge tells us within a tenth of a millimeter. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "5",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "0",
+      "direction": "vehicle_only"
+     }
+    },
+    {
+     "text": "When the klaxon sounds, everything stops\u2014welders lift their visors, the crane freezes mid-lift, and the floor goes quiet. Deeper down the soil turns anaerobic and blue-grey, which is why any steel survived at all. I've welded hull seams for eleven years, and my hands still shake a little when the crane passes overhead. Nine bare chassis sat in line for turret installation, but only one crane operator was scheduled before noon. We used to hand-fit the armor skirts with mallets; now a laser gauge tells us within a tenth of a millimeter. Under the floodlights, the half-finished chassis looked less like a war machine and more like a beached steel whale. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "6",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "0",
+      "direction": "vehicle_only"
+     }
+    },
+    {
+     "text": "When the klaxon sounds, everything stops\u2014welders lift their visors, the crane freezes mid-lift, and the floor goes quiet. Deeper down the soil turns anaerobic and blue-grey, which is why any steel survived at all. I've welded hull seams for eleven years, and my hands still shake a little when the crane passes overhead. Nine bare chassis sat in line for turret installation, but only one crane operator was scheduled before noon. We used to hand-fit the armor skirts with mallets; now a laser gauge tells us within a tenth of a millimeter. Under the floodlights, the half-finished chassis looked less like a war machine and more like a beached steel whale. A hairline crack in the mantlet casting sent the whole batch back to the foundry, three weeks of schedule gone. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "7",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "0",
+      "direction": "vehicle_only"
+     }
+    },
+    {
+     "text": "When the klaxon sounds, everything stops\u2014welders lift their visors, the crane freezes mid-lift, and the floor goes quiet. Deeper down the soil turns anaerobic and blue-grey, which is why any steel survived at all. I've welded hull seams for eleven years, and my hands still shake a little when the crane passes overhead. Nine bare chassis sat in line for turret installation, but only one crane operator was scheduled before noon. We used to hand-fit the armor skirts with mallets; now a laser gauge tells us within a tenth of a millimeter. Under the floodlights, the half-finished chassis looked less like a war machine and more like a beached steel whale. A hairline crack in the mantlet casting sent the whole batch back to the foundry, three weeks of schedule gone. Lifting straps rated for sixty tonnes arrived by lorry, along with a very nervous insurance assessor. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "8",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "0",
+      "direction": "vehicle_only"
+     }
+    },
+    {
+     "text": "When the klaxon sounds, everything stops\u2014welders lift their visors, the crane freezes mid-lift, and the floor goes quiet. Deeper down the soil turns anaerobic and blue-grey, which is why any steel survived at all. I've welded hull seams for eleven years, and my hands still shake a little when the crane passes overhead. Nine bare chassis sat in line for turret installation, but only one crane operator was scheduled before noon. We used to hand-fit the armor skirts with mallets; now a laser gauge tells us within a tenth of a millimeter. Under the floodlights, the half-finished chassis looked less like a war machine and more like a beached steel whale. A hairline crack in the mantlet casting sent the whole batch back to the foundry, three weeks of schedule gone. Lifting straps rated for sixty tonnes arrived by lorry, along with a very nervous insurance assessor. Her ultrasonic probe traced the seam twice; the second pass found the void the first had missed. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "9",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "0",
+      "direction": "vehicle_only"
+     }
+    },
+    {
+     "text": "When the klaxon sounds, everything stops\u2014welders lift their visors, the crane freezes mid-lift, and the floor goes quiet. Deeper down the soil turns anaerobic and blue-grey, which is why any steel survived at all. I've welded hull seams for eleven years, and my hands still shake a little when the crane passes overhead. Nine bare chassis sat in line for turret installation, but only one crane operator was scheduled before noon. We used to hand-fit the armor skirts with mallets; now a laser gauge tells us within a tenth of a millimeter. Under the floodlights, the half-finished chassis looked less like a war machine and more like a beached steel whale. A hairline crack in the mantlet casting sent the whole batch back to the foundry, three weeks of schedule gone. Lifting straps rated for sixty tonnes arrived by lorry, along with a very nervous insurance assessor. Her ultrasonic probe traced the seam twice; the second pass found the void the first had missed. Every hull that leaves this building carries a small stamped plate with the welder's initials beside the serial number. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "10",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "0",
+      "direction": "vehicle_only"
+     }
+    },
+    {
+     "text": "When the klaxon sounds, everything stops\u2014welders lift their visors, the crane freezes mid-lift, and the floor goes quiet. Deeper down the soil turns anaerobic and blue-grey, which is why any steel survived at all. I've welded hull seams for eleven years, and my hands still shake a little when the crane passes overhead. Nine bare chassis sat in line for turret installation, but only one crane operator was scheduled before noon. We used to hand-fit the armor skirts with mallets; now a laser gauge tells us within a tenth of a millimeter. Under the floodlights, the half-finished chassis looked less like a war machine and more like a beached steel whale. A hairline crack in the mantlet casting sent the whole batch back to the foundry, three weeks of schedule gone. Lifting straps rated for sixty tonnes arrived by lorry, along with a very nervous insurance assessor. Her ultrasonic probe traced the seam twice; the second pass found the void the first had missed. Every hull that leaves this building carries a small stamped plate with the welder's initials beside the serial number. You learn fast on this floor that a dropped washer inside a turret race can cost a week of rework. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "11",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "0",
+      "direction": "vehicle_only"
+     }
+    },
+    {
+     "text": "When the klaxon sounds, everything stops\u2014welders lift their visors, the crane freezes mid-lift, and the floor goes quiet. Deeper down the soil turns anaerobic and blue-grey, which is why any steel survived at all. I've welded hull seams for eleven years, and my hands still shake a little when the crane passes overhead. Nine bare chassis sat in line for turret installation, but only one crane operator was scheduled before noon. We used to hand-fit the armor skirts with mallets; now a laser gauge tells us within a tenth of a millimeter. Under the floodlights, the half-finished chassis looked less like a war machine and more like a beached steel whale. A hairline crack in the mantlet casting sent the whole batch back to the foundry, three weeks of schedule gone. Lifting straps rated for sixty tonnes arrived by lorry, along with a very nervous insurance assessor. Her ultrasonic probe traced the seam twice; the second pass found the void the first had missed. Every hull that leaves this building carries a small stamped plate with the welder's initials beside the serial number. You learn fast on this floor that a dropped washer inside a turret race can cost a week of rework. Procedure 41-C requires two inspectors to witness the seating of the turret race before any fasteners are installed. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "12",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "0",
+      "direction": "vehicle_only"
+     }
+    },
+    {
+     "text": "When the klaxon sounds, everything stops\u2014welders lift their visors, the crane freezes mid-lift, and the floor goes quiet. Deeper down the soil turns anaerobic and blue-grey, which is why any steel survived at all. I've welded hull seams for eleven years, and my hands still shake a little when the crane passes overhead. Nine bare chassis sat in line for turret installation, but only one crane operator was scheduled before noon. We used to hand-fit the armor skirts with mallets; now a laser gauge tells us within a tenth of a millimeter. Under the floodlights, the half-finished chassis looked less like a war machine and more like a beached steel whale. A hairline crack in the mantlet casting sent the whole batch back to the foundry, three weeks of schedule gone. Lifting straps rated for sixty tonnes arrived by lorry, along with a very nervous insurance assessor. Her ultrasonic probe traced the seam twice; the second pass found the void the first had missed. Every hull that leaves this building carries a small stamped plate with the welder's initials beside the serial number. You learn fast on this floor that a dropped washer inside a turret race can cost a week of rework. Procedure 41-C requires two inspectors to witness the seating of the turret race before any fasteners are installed. Crane four to floor: lowering the turret in thirty seconds, clear the ring. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "13",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "0",
+      "direction": "vehicle_only"
+     }
+    },
+    {
+     "text": "When the klaxon sounds, everything stops\u2014welders lift their visors, the crane freezes mid-lift, and the floor goes quiet. Deeper down the soil turns anaerobic and blue-grey, which is why any steel survived at all. I've welded hull seams for eleven years, and my hands still shake a little when the crane passes overhead. Nine bare chassis sat in line for turret installation, but only one crane operator was scheduled before noon. We used to hand-fit the armor skirts with mallets; now a laser gauge tells us within a tenth of a millimeter. Under the floodlights, the half-finished chassis looked less like a war machine and more like a beached steel whale. A hairline crack in the mantlet casting sent the whole batch back to the foundry, three weeks of schedule gone. Lifting straps rated for sixty tonnes arrived by lorry, along with a very nervous insurance assessor. Her ultrasonic probe traced the seam twice; the second pass found the void the first had missed. Every hull that leaves this building carries a small stamped plate with the welder's initials beside the serial number. You learn fast on this floor that a dropped washer inside a turret race can cost a week of rework. Procedure 41-C requires two inspectors to witness the seating of the turret race before any fasteners are installed. Crane four to floor: lowering the turret in thirty seconds, clear the ring. Corrosion had welded the hatch shut, so the team documented the interior with a borescope. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "14",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "0",
+      "direction": "vehicle_only"
+     }
+    },
+    {
+     "text": "When the klaxon sounds, everything stops\u2014welders lift their visors, the crane freezes mid-lift, and the floor goes quiet. Deeper down the soil turns anaerobic and blue-grey, which is why any steel survived at all. I've welded hull seams for eleven years, and my hands still shake a little when the crane passes overhead. Nine bare chassis sat in line for turret installation, but only one crane operator was scheduled before noon. We used to hand-fit the armor skirts with mallets; now a laser gauge tells us within a tenth of a millimeter. Under the floodlights, the half-finished chassis looked less like a war machine and more like a beached steel whale. A hairline crack in the mantlet casting sent the whole batch back to the foundry, three weeks of schedule gone. Lifting straps rated for sixty tonnes arrived by lorry, along with a very nervous insurance assessor. Her ultrasonic probe traced the seam twice; the second pass found the void the first had missed. Every hull that leaves this building carries a small stamped plate with the welder's initials beside the serial number. You learn fast on this floor that a dropped washer inside a turret race can cost a week of rework. Procedure 41-C requires two inspectors to witness the seating of the turret race before any fasteners are installed. Crane four to floor: lowering the turret in thirty seconds, clear the ring. Corrosion had welded the hatch shut, so the team documented the interior with a borescope. The shift supervisor taped the rejection slip to the chassis and told nobody to touch it until the metallurgist arrived. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "15",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "0",
+      "direction": "vehicle_only"
+     }
+    },
+    {
+     "text": "When the klaxon sounds, everything stops\u2014welders lift their visors, the crane freezes mid-lift, and the floor goes quiet. Deeper down the soil turns anaerobic and blue-grey, which is why any steel survived at all. I've welded hull seams for eleven years, and my hands still shake a little when the crane passes overhead. Nine bare chassis sat in line for turret installation, but only one crane operator was scheduled before noon. We used to hand-fit the armor skirts with mallets; now a laser gauge tells us within a tenth of a millimeter. Under the floodlights, the half-finished chassis looked less like a war machine and more like a beached steel whale. A hairline crack in the mantlet casting sent the whole batch back to the foundry, three weeks of schedule gone. Lifting straps rated for sixty tonnes arrived by lorry, along with a very nervous insurance assessor. Her ultrasonic probe traced the seam twice; the second pass found the void the first had missed. Every hull that leaves this building carries a small stamped plate with the welder's initials beside the serial number. You learn fast on this floor that a dropped washer inside a turret race can cost a week of rework. Procedure 41-C requires two inspectors to witness the seating of the turret race before any fasteners are installed. Crane four to floor: lowering the turret in thirty seconds, clear the ring. Corrosion had welded the hatch shut, so the team documented the interior with a borescope. The shift supervisor taped the rejection slip to the chassis and told nobody to touch it until the metallurgist arrived. Careful stratigraphy matters more than speed here \u2014 the burn layer above the hull dates the engagement. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "16",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "0",
+      "direction": "vehicle_only"
+     }
+    },
+    {
+     "text": "When the klaxon sounds, everything stops\u2014welders lift their visors, the crane freezes mid-lift, and the floor goes quiet. Deeper down the soil turns anaerobic and blue-grey, which is why any steel survived at all. I've welded hull seams for eleven years, and my hands still shake a little when the crane passes overhead. Nine bare chassis sat in line for turret installation, but only one crane operator was scheduled before noon. We used to hand-fit the armor skirts with mallets; now a laser gauge tells us within a tenth of a millimeter. Under the floodlights, the half-finished chassis looked less like a war machine and more like a beached steel whale. A hairline crack in the mantlet casting sent the whole batch back to the foundry, three weeks of schedule gone. Lifting straps rated for sixty tonnes arrived by lorry, along with a very nervous insurance assessor. Her ultrasonic probe traced the seam twice; the second pass found the void the first had missed. Every hull that leaves this building carries a small stamped plate with the welder's initials beside the serial number. You learn fast on this floor that a dropped washer inside a turret race can cost a week of rework. Procedure 41-C requires two inspectors to witness the seating of the turret race before any fasteners are installed. Crane four to floor: lowering the turret in thirty seconds, clear the ring. Corrosion had welded the hatch shut, so the team documented the interior with a borescope. The shift supervisor taped the rejection slip to the chassis and told nobody to touch it until the metallurgist arrived. Careful stratigraphy matters more than speed here \u2014 the burn layer above the hull dates the engagement. The turret ring, wedged solid with compacted chalk, refused the crane's first pull. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "17",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "0",
+      "direction": "vehicle_only"
+     }
+    },
+    {
+     "text": "When the klaxon sounds, everything stops\u2014welders lift their visors, the crane freezes mid-lift, and the floor goes quiet. Deeper down the soil turns anaerobic and blue-grey, which is why any steel survived at all. I've welded hull seams for eleven years, and my hands still shake a little when the crane passes overhead. Nine bare chassis sat in line for turret installation, but only one crane operator was scheduled before noon. We used to hand-fit the armor skirts with mallets; now a laser gauge tells us within a tenth of a millimeter. Under the floodlights, the half-finished chassis looked less like a war machine and more like a beached steel whale. A hairline crack in the mantlet casting sent the whole batch back to the foundry, three weeks of schedule gone. Lifting straps rated for sixty tonnes arrived by lorry, along with a very nervous insurance assessor. Her ultrasonic probe traced the seam twice; the second pass found the void the first had missed. Every hull that leaves this building carries a small stamped plate with the welder's initials beside the serial number. You learn fast on this floor that a dropped washer inside a turret race can cost a week of rework. Procedure 41-C requires two inspectors to witness the seating of the turret race before any fasteners are installed. Crane four to floor: lowering the turret in thirty seconds, clear the ring. Corrosion had welded the hatch shut, so the team documented the interior with a borescope. The shift supervisor taped the rejection slip to the chassis and told nobody to touch it until the metallurgist arrived. Careful stratigraphy matters more than speed here \u2014 the burn layer above the hull dates the engagement. The turret ring, wedged solid with compacted chalk, refused the crane's first pull. Next quarter the plant will add a second overhead crane, so turret drops won't bottleneck the afternoon shift anymore. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "18",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "0",
+      "direction": "vehicle_only"
+     }
+    },
+    {
+     "text": "When the klaxon sounds, everything stops\u2014welders lift their visors, the crane freezes mid-lift, and the floor goes quiet. Deeper down the soil turns anaerobic and blue-grey, which is why any steel survived at all. I've welded hull seams for eleven years, and my hands still shake a little when the crane passes overhead. Nine bare chassis sat in line for turret installation, but only one crane operator was scheduled before noon. We used to hand-fit the armor skirts with mallets; now a laser gauge tells us within a tenth of a millimeter. Under the floodlights, the half-finished chassis looked less like a war machine and more like a beached steel whale. A hairline crack in the mantlet casting sent the whole batch back to the foundry, three weeks of schedule gone. Lifting straps rated for sixty tonnes arrived by lorry, along with a very nervous insurance assessor. Her ultrasonic probe traced the seam twice; the second pass found the void the first had missed. Every hull that leaves this building carries a small stamped plate with the welder's initials beside the serial number. You learn fast on this floor that a dropped washer inside a turret race can cost a week of rework. Procedure 41-C requires two inspectors to witness the seating of the turret race before any fasteners are installed. Crane four to floor: lowering the turret in thirty seconds, clear the ring. Corrosion had welded the hatch shut, so the team documented the interior with a borescope. The shift supervisor taped the rejection slip to the chassis and told nobody to touch it until the metallurgist arrived. Careful stratigraphy matters more than speed here \u2014 the burn layer above the hull dates the engagement. The turret ring, wedged solid with compacted chalk, refused the crane's first pull. Next quarter the plant will add a second overhead crane, so turret drops won't bottleneck the afternoon shift anymore. Did the retreating column scuttle it, or did the flood plain simply swallow the wreck? Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "19",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "0",
+      "direction": "vehicle_only"
+     }
+    },
+    {
+     "text": "When the klaxon sounds, everything stops\u2014welders lift their visors, the crane freezes mid-lift, and the floor goes quiet. Deeper down the soil turns anaerobic and blue-grey, which is why any steel survived at all. I've welded hull seams for eleven years, and my hands still shake a little when the crane passes overhead. Nine bare chassis sat in line for turret installation, but only one crane operator was scheduled before noon. We used to hand-fit the armor skirts with mallets; now a laser gauge tells us within a tenth of a millimeter. Under the floodlights, the half-finished chassis looked less like a war machine and more like a beached steel whale. A hairline crack in the mantlet casting sent the whole batch back to the foundry, three weeks of schedule gone. Lifting straps rated for sixty tonnes arrived by lorry, along with a very nervous insurance assessor. Her ultrasonic probe traced the seam twice; the second pass found the void the first had missed. Every hull that leaves this building carries a small stamped plate with the welder's initials beside the serial number. You learn fast on this floor that a dropped washer inside a turret race can cost a week of rework. Procedure 41-C requires two inspectors to witness the seating of the turret race before any fasteners are installed. Crane four to floor: lowering the turret in thirty seconds, clear the ring. Corrosion had welded the hatch shut, so the team documented the interior with a borescope. The shift supervisor taped the rejection slip to the chassis and told nobody to touch it until the metallurgist arrived. Careful stratigraphy matters more than speed here \u2014 the burn layer above the hull dates the engagement. The turret ring, wedged solid with compacted chalk, refused the crane's first pull. Next quarter the plant will add a second overhead crane, so turret drops won't bottleneck the afternoon shift anymore. Did the retreating column scuttle it, or did the flood plain simply swallow the wreck? Conservation staff will bathe the recovered tracks in tannic acid before any display date is set. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "20",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "0",
+      "direction": "vehicle_only"
+     }
+    },
+    {
+     "text": "When the klaxon sounds, everything stops\u2014welders lift their visors, the crane freezes mid-lift, and the floor goes quiet. Deeper down the soil turns anaerobic and blue-grey, which is why any steel survived at all. I've welded hull seams for eleven years, and my hands still shake a little when the crane passes overhead. Nine bare chassis sat in line for turret installation, but only one crane operator was scheduled before noon. We used to hand-fit the armor skirts with mallets; now a laser gauge tells us within a tenth of a millimeter. Under the floodlights, the half-finished chassis looked less like a war machine and more like a beached steel whale. A hairline crack in the mantlet casting sent the whole batch back to the foundry, three weeks of schedule gone. Lifting straps rated for sixty tonnes arrived by lorry, along with a very nervous insurance assessor. Her ultrasonic probe traced the seam twice; the second pass found the void the first had missed. Every hull that leaves this building carries a small stamped plate with the welder's initials beside the serial number. You learn fast on this floor that a dropped washer inside a turret race can cost a week of rework. Procedure 41-C requires two inspectors to witness the seating of the turret race before any fasteners are installed. Crane four to floor: lowering the turret in thirty seconds, clear the ring. Corrosion had welded the hatch shut, so the team documented the interior with a borescope. The shift supervisor taped the rejection slip to the chassis and told nobody to touch it until the metallurgist arrived. Careful stratigraphy matters more than speed here \u2014 the burn layer above the hull dates the engagement. The turret ring, wedged solid with compacted chalk, refused the crane's first pull. Next quarter the plant will add a second overhead crane, so turret drops won't bottleneck the afternoon shift anymore. Did the retreating column scuttle it, or did the flood plain simply swallow the wreck? Conservation staff will bathe the recovered tracks in tannic acid before any display date is set. Watch the sling angle, Marek\u2014if that turret assembly swings into the jig again, we lose the whole morning. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "21",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "0",
+      "direction": "vehicle_only"
+     }
+    },
+    {
+     "text": "When the klaxon sounds, everything stops\u2014welders lift their visors, the crane freezes mid-lift, and the floor goes quiet. Deeper down the soil turns anaerobic and blue-grey, which is why any steel survived at all. I've welded hull seams for eleven years, and my hands still shake a little when the crane passes overhead. Nine bare chassis sat in line for turret installation, but only one crane operator was scheduled before noon. We used to hand-fit the armor skirts with mallets; now a laser gauge tells us within a tenth of a millimeter. Under the floodlights, the half-finished chassis looked less like a war machine and more like a beached steel whale. A hairline crack in the mantlet casting sent the whole batch back to the foundry, three weeks of schedule gone. Lifting straps rated for sixty tonnes arrived by lorry, along with a very nervous insurance assessor. Her ultrasonic probe traced the seam twice; the second pass found the void the first had missed. Every hull that leaves this building carries a small stamped plate with the welder's initials beside the serial number. You learn fast on this floor that a dropped washer inside a turret race can cost a week of rework. Procedure 41-C requires two inspectors to witness the seating of the turret race before any fasteners are installed. Crane four to floor: lowering the turret in thirty seconds, clear the ring. Corrosion had welded the hatch shut, so the team documented the interior with a borescope. The shift supervisor taped the rejection slip to the chassis and told nobody to touch it until the metallurgist arrived. Careful stratigraphy matters more than speed here \u2014 the burn layer above the hull dates the engagement. The turret ring, wedged solid with compacted chalk, refused the crane's first pull. Next quarter the plant will add a second overhead crane, so turret drops won't bottleneck the afternoon shift anymore. Did the retreating column scuttle it, or did the flood plain simply swallow the wreck? Conservation staff will bathe the recovered tracks in tannic acid before any display date is set. Watch the sling angle, Marek\u2014if that turret assembly swings into the jig again, we lose the whole morning. Our conservator argues for humidity-controlled storage; the director wants it shown as found, mud included. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "22",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "0",
+      "direction": "vehicle_only"
+     }
+    },
+    {
+     "text": "When the klaxon sounds, everything stops\u2014welders lift their visors, the crane freezes mid-lift, and the floor goes quiet. Deeper down the soil turns anaerobic and blue-grey, which is why any steel survived at all. I've welded hull seams for eleven years, and my hands still shake a little when the crane passes overhead. Nine bare chassis sat in line for turret installation, but only one crane operator was scheduled before noon. We used to hand-fit the armor skirts with mallets; now a laser gauge tells us within a tenth of a millimeter. Under the floodlights, the half-finished chassis looked less like a war machine and more like a beached steel whale. A hairline crack in the mantlet casting sent the whole batch back to the foundry, three weeks of schedule gone. Lifting straps rated for sixty tonnes arrived by lorry, along with a very nervous insurance assessor. Her ultrasonic probe traced the seam twice; the second pass found the void the first had missed. Every hull that leaves this building carries a small stamped plate with the welder's initials beside the serial number. You learn fast on this floor that a dropped washer inside a turret race can cost a week of rework. Procedure 41-C requires two inspectors to witness the seating of the turret race before any fasteners are installed. Crane four to floor: lowering the turret in thirty seconds, clear the ring. Corrosion had welded the hatch shut, so the team documented the interior with a borescope. The shift supervisor taped the rejection slip to the chassis and told nobody to touch it until the metallurgist arrived. Careful stratigraphy matters more than speed here \u2014 the burn layer above the hull dates the engagement. The turret ring, wedged solid with compacted chalk, refused the crane's first pull. Next quarter the plant will add a second overhead crane, so turret drops won't bottleneck the afternoon shift anymore. Did the retreating column scuttle it, or did the flood plain simply swallow the wreck? Conservation staff will bathe the recovered tracks in tannic acid before any display date is set. Watch the sling angle, Marek\u2014if that turret assembly swings into the jig again, we lose the whole morning. Our conservator argues for humidity-controlled storage; the director wants it shown as found, mud included. By dawn the third shift had ground down every rough seam on the glacis plates, leaving the bay smelling of scorched metal. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "23",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "0",
+      "direction": "vehicle_only"
+     }
+    },
+    {
+     "text": "When the klaxon sounds, everything stops\u2014welders lift their visors, the crane freezes mid-lift, and the floor goes quiet. Deeper down the soil turns anaerobic and blue-grey, which is why any steel survived at all. I've welded hull seams for eleven years, and my hands still shake a little when the crane passes overhead. Nine bare chassis sat in line for turret installation, but only one crane operator was scheduled before noon. We used to hand-fit the armor skirts with mallets; now a laser gauge tells us within a tenth of a millimeter. Under the floodlights, the half-finished chassis looked less like a war machine and more like a beached steel whale. A hairline crack in the mantlet casting sent the whole batch back to the foundry, three weeks of schedule gone. Lifting straps rated for sixty tonnes arrived by lorry, along with a very nervous insurance assessor. Her ultrasonic probe traced the seam twice; the second pass found the void the first had missed. Every hull that leaves this building carries a small stamped plate with the welder's initials beside the serial number. You learn fast on this floor that a dropped washer inside a turret race can cost a week of rework. Procedure 41-C requires two inspectors to witness the seating of the turret race before any fasteners are installed. Crane four to floor: lowering the turret in thirty seconds, clear the ring. Corrosion had welded the hatch shut, so the team documented the interior with a borescope. The shift supervisor taped the rejection slip to the chassis and told nobody to touch it until the metallurgist arrived. Careful stratigraphy matters more than speed here \u2014 the burn layer above the hull dates the engagement. The turret ring, wedged solid with compacted chalk, refused the crane's first pull. Next quarter the plant will add a second overhead crane, so turret drops won't bottleneck the afternoon shift anymore. Did the retreating column scuttle it, or did the flood plain simply swallow the wreck? Conservation staff will bathe the recovered tracks in tannic acid before any display date is set. Watch the sling angle, Marek\u2014if that turret assembly swings into the jig again, we lose the whole morning. Our conservator argues for humidity-controlled storage; the director wants it shown as found, mud included. By dawn the third shift had ground down every rough seam on the glacis plates, leaving the bay smelling of scorched metal. Torque each of the sixty-two turret ring bolts to specification, then stamp the checklist before the chassis rolls to paint. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "24",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "0",
+      "direction": "vehicle_only"
+     }
+    },
+    {
+     "text": "When the klaxon sounds, everything stops\u2014welders lift their visors, the crane freezes mid-lift, and the floor goes quiet. Deeper down the soil turns anaerobic and blue-grey, which is why any steel survived at all. I've welded hull seams for eleven years, and my hands still shake a little when the crane passes overhead. Nine bare chassis sat in line for turret installation, but only one crane operator was scheduled before noon. We used to hand-fit the armor skirts with mallets; now a laser gauge tells us within a tenth of a millimeter. Under the floodlights, the half-finished chassis looked less like a war machine and more like a beached steel whale. A hairline crack in the mantlet casting sent the whole batch back to the foundry, three weeks of schedule gone. Lifting straps rated for sixty tonnes arrived by lorry, along with a very nervous insurance assessor. Her ultrasonic probe traced the seam twice; the second pass found the void the first had missed. Every hull that leaves this building carries a small stamped plate with the welder's initials beside the serial number. You learn fast on this floor that a dropped washer inside a turret race can cost a week of rework. Procedure 41-C requires two inspectors to witness the seating of the turret race before any fasteners are installed. Crane four to floor: lowering the turret in thirty seconds, clear the ring. Corrosion had welded the hatch shut, so the team documented the interior with a borescope. The shift supervisor taped the rejection slip to the chassis and told nobody to touch it until the metallurgist arrived. Careful stratigraphy matters more than speed here \u2014 the burn layer above the hull dates the engagement. The turret ring, wedged solid with compacted chalk, refused the crane's first pull. Next quarter the plant will add a second overhead crane, so turret drops won't bottleneck the afternoon shift anymore. Did the retreating column scuttle it, or did the flood plain simply swallow the wreck? Conservation staff will bathe the recovered tracks in tannic acid before any display date is set. Watch the sling angle, Marek\u2014if that turret assembly swings into the jig again, we lose the whole morning. Our conservator argues for humidity-controlled storage; the director wants it shown as found, mud included. By dawn the third shift had ground down every rough seam on the glacis plates, leaving the bay smelling of scorched metal. Torque each of the sixty-two turret ring bolts to specification, then stamp the checklist before the chassis rolls to paint. Grid square E7 keeps producing buckles, buttons, and one impossibly preserved leather glove. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "25",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "0",
+      "direction": "vehicle_only"
+     }
+    },
+    {
+     "text": "When the klaxon sounds, everything stops\u2014welders lift their visors, the crane freezes mid-lift, and the floor goes quiet. Deeper down the soil turns anaerobic and blue-grey, which is why any steel survived at all. I've welded hull seams for eleven years, and my hands still shake a little when the crane passes overhead. Nine bare chassis sat in line for turret installation, but only one crane operator was scheduled before noon. We used to hand-fit the armor skirts with mallets; now a laser gauge tells us within a tenth of a millimeter. Under the floodlights, the half-finished chassis looked less like a war machine and more like a beached steel whale. A hairline crack in the mantlet casting sent the whole batch back to the foundry, three weeks of schedule gone. Lifting straps rated for sixty tonnes arrived by lorry, along with a very nervous insurance assessor. Her ultrasonic probe traced the seam twice; the second pass found the void the first had missed. Every hull that leaves this building carries a small stamped plate with the welder's initials beside the serial number. You learn fast on this floor that a dropped washer inside a turret race can cost a week of rework. Procedure 41-C requires two inspectors to witness the seating of the turret race before any fasteners are installed. Crane four to floor: lowering the turret in thirty seconds, clear the ring. Corrosion had welded the hatch shut, so the team documented the interior with a borescope. The shift supervisor taped the rejection slip to the chassis and told nobody to touch it until the metallurgist arrived. Careful stratigraphy matters more than speed here \u2014 the burn layer above the hull dates the engagement. The turret ring, wedged solid with compacted chalk, refused the crane's first pull. Next quarter the plant will add a second overhead crane, so turret drops won't bottleneck the afternoon shift anymore. Did the retreating column scuttle it, or did the flood plain simply swallow the wreck? Conservation staff will bathe the recovered tracks in tannic acid before any display date is set. Watch the sling angle, Marek\u2014if that turret assembly swings into the jig again, we lose the whole morning. Our conservator argues for humidity-controlled storage; the director wants it shown as found, mud included. By dawn the third shift had ground down every rough seam on the glacis plates, leaving the bay smelling of scorched metal. Torque each of the sixty-two turret ring bolts to specification, then stamp the checklist before the chassis rolls to paint. Grid square E7 keeps producing buckles, buttons, and one impossibly preserved leather glove. Honestly, half our overtime comes from grinding out sloppy tack welds the day shift leaves behind. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "26",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "0",
+      "direction": "vehicle_only"
+     }
+    },
+    {
+     "text": "When the klaxon sounds, everything stops\u2014welders lift their visors, the crane freezes mid-lift, and the floor goes quiet. Deeper down the soil turns anaerobic and blue-grey, which is why any steel survived at all. I've welded hull seams for eleven years, and my hands still shake a little when the crane passes overhead. Nine bare chassis sat in line for turret installation, but only one crane operator was scheduled before noon. We used to hand-fit the armor skirts with mallets; now a laser gauge tells us within a tenth of a millimeter. Under the floodlights, the half-finished chassis looked less like a war machine and more like a beached steel whale. A hairline crack in the mantlet casting sent the whole batch back to the foundry, three weeks of schedule gone. Lifting straps rated for sixty tonnes arrived by lorry, along with a very nervous insurance assessor. Her ultrasonic probe traced the seam twice; the second pass found the void the first had missed. Every hull that leaves this building carries a small stamped plate with the welder's initials beside the serial number. You learn fast on this floor that a dropped washer inside a turret race can cost a week of rework. Procedure 41-C requires two inspectors to witness the seating of the turret race before any fasteners are installed. Crane four to floor: lowering the turret in thirty seconds, clear the ring. Corrosion had welded the hatch shut, so the team documented the interior with a borescope. The shift supervisor taped the rejection slip to the chassis and told nobody to touch it until the metallurgist arrived. Careful stratigraphy matters more than speed here \u2014 the burn layer above the hull dates the engagement. The turret ring, wedged solid with compacted chalk, refused the crane's first pull. Next quarter the plant will add a second overhead crane, so turret drops won't bottleneck the afternoon shift anymore. Did the retreating column scuttle it, or did the flood plain simply swallow the wreck? Conservation staff will bathe the recovered tracks in tannic acid before any display date is set. Watch the sling angle, Marek\u2014if that turret assembly swings into the jig again, we lose the whole morning. Our conservator argues for humidity-controlled storage; the director wants it shown as found, mud included. By dawn the third shift had ground down every rough seam on the glacis plates, leaving the bay smelling of scorched metal. Torque each of the sixty-two turret ring bolts to specification, then stamp the checklist before the chassis rolls to paint. Grid square E7 keeps producing buckles, buttons, and one impossibly preserved leather glove. Honestly, half our overtime comes from grinding out sloppy tack welds the day shift leaves behind. Beneath two meters of plowed clay, the Sherman's glacis plate finally caught the morning light. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "27",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "0",
+      "direction": "vehicle_only"
+     }
+    },
+    {
+     "text": "When the klaxon sounds, everything stops\u2014welders lift their visors, the crane freezes mid-lift, and the floor goes quiet. Deeper down the soil turns anaerobic and blue-grey, which is why any steel survived at all. I've welded hull seams for eleven years, and my hands still shake a little when the crane passes overhead. Nine bare chassis sat in line for turret installation, but only one crane operator was scheduled before noon. We used to hand-fit the armor skirts with mallets; now a laser gauge tells us within a tenth of a millimeter. Under the floodlights, the half-finished chassis looked less like a war machine and more like a beached steel whale. A hairline crack in the mantlet casting sent the whole batch back to the foundry, three weeks of schedule gone. Lifting straps rated for sixty tonnes arrived by lorry, along with a very nervous insurance assessor. Her ultrasonic probe traced the seam twice; the second pass found the void the first had missed. Every hull that leaves this building carries a small stamped plate with the welder's initials beside the serial number. You learn fast on this floor that a dropped washer inside a turret race can cost a week of rework. Procedure 41-C requires two inspectors to witness the seating of the turret race before any fasteners are installed. Crane four to floor: lowering the turret in thirty seconds, clear the ring. Corrosion had welded the hatch shut, so the team documented the interior with a borescope. The shift supervisor taped the rejection slip to the chassis and told nobody to touch it until the metallurgist arrived. Careful stratigraphy matters more than speed here \u2014 the burn layer above the hull dates the engagement. The turret ring, wedged solid with compacted chalk, refused the crane's first pull. Next quarter the plant will add a second overhead crane, so turret drops won't bottleneck the afternoon shift anymore. Did the retreating column scuttle it, or did the flood plain simply swallow the wreck? Conservation staff will bathe the recovered tracks in tannic acid before any display date is set. Watch the sling angle, Marek\u2014if that turret assembly swings into the jig again, we lose the whole morning. Our conservator argues for humidity-controlled storage; the director wants it shown as found, mud included. By dawn the third shift had ground down every rough seam on the glacis plates, leaving the bay smelling of scorched metal. Torque each of the sixty-two turret ring bolts to specification, then stamp the checklist before the chassis rolls to paint. Grid square E7 keeps producing buckles, buttons, and one impossibly preserved leather glove. Honestly, half our overtime comes from grinding out sloppy tack welds the day shift leaves behind. Beneath two meters of plowed clay, the Sherman's glacis plate finally caught the morning light. Honestly, half our overtime comes from grinding out sloppy tack welds the day shift leaves behind. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "28",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "0",
+      "direction": "vehicle_only"
+     }
+    },
+    {
+     "text": "When the klaxon sounds, everything stops\u2014welders lift their visors, the crane freezes mid-lift, and the floor goes quiet. Deeper down the soil turns anaerobic and blue-grey, which is why any steel survived at all. I've welded hull seams for eleven years, and my hands still shake a little when the crane passes overhead. Nine bare chassis sat in line for turret installation, but only one crane operator was scheduled before noon. We used to hand-fit the armor skirts with mallets; now a laser gauge tells us within a tenth of a millimeter. Under the floodlights, the half-finished chassis looked less like a war machine and more like a beached steel whale. A hairline crack in the mantlet casting sent the whole batch back to the foundry, three weeks of schedule gone. Lifting straps rated for sixty tonnes arrived by lorry, along with a very nervous insurance assessor. Her ultrasonic probe traced the seam twice; the second pass found the void the first had missed. Every hull that leaves this building carries a small stamped plate with the welder's initials beside the serial number. You learn fast on this floor that a dropped washer inside a turret race can cost a week of rework. Procedure 41-C requires two inspectors to witness the seating of the turret race before any fasteners are installed. Crane four to floor: lowering the turret in thirty seconds, clear the ring. Corrosion had welded the hatch shut, so the team documented the interior with a borescope. The shift supervisor taped the rejection slip to the chassis and told nobody to touch it until the metallurgist arrived. Careful stratigraphy matters more than speed here \u2014 the burn layer above the hull dates the engagement. The turret ring, wedged solid with compacted chalk, refused the crane's first pull. Next quarter the plant will add a second overhead crane, so turret drops won't bottleneck the afternoon shift anymore. Did the retreating column scuttle it, or did the flood plain simply swallow the wreck? Conservation staff will bathe the recovered tracks in tannic acid before any display date is set. Watch the sling angle, Marek\u2014if that turret assembly swings into the jig again, we lose the whole morning. Our conservator argues for humidity-controlled storage; the director wants it shown as found, mud included. By dawn the third shift had ground down every rough seam on the glacis plates, leaving the bay smelling of scorched metal. Torque each of the sixty-two turret ring bolts to specification, then stamp the checklist before the chassis rolls to paint. Grid square E7 keeps producing buckles, buttons, and one impossibly preserved leather glove. Honestly, half our overtime comes from grinding out sloppy tack welds the day shift leaves behind. Beneath two meters of plowed clay, the Sherman's glacis plate finally caught the morning light. Honestly, half our overtime comes from grinding out sloppy tack welds the day shift leaves behind. Who signed off on this weld bead\u2014it undercuts the armor plate nearly two millimeters at the corner? Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "29",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "0",
+      "direction": "vehicle_only"
+     }
+    },
+    {
+     "text": "When the klaxon sounds, everything stops\u2014welders lift their visors, the crane freezes mid-lift, and the floor goes quiet. Deeper down the soil turns anaerobic and blue-grey, which is why any steel survived at all. I've welded hull seams for eleven years, and my hands still shake a little when the crane passes overhead. Nine bare chassis sat in line for turret installation, but only one crane operator was scheduled before noon. We used to hand-fit the armor skirts with mallets; now a laser gauge tells us within a tenth of a millimeter. Under the floodlights, the half-finished chassis looked less like a war machine and more like a beached steel whale. A hairline crack in the mantlet casting sent the whole batch back to the foundry, three weeks of schedule gone. Lifting straps rated for sixty tonnes arrived by lorry, along with a very nervous insurance assessor. Her ultrasonic probe traced the seam twice; the second pass found the void the first had missed. Every hull that leaves this building carries a small stamped plate with the welder's initials beside the serial number. You learn fast on this floor that a dropped washer inside a turret race can cost a week of rework. Procedure 41-C requires two inspectors to witness the seating of the turret race before any fasteners are installed. Crane four to floor: lowering the turret in thirty seconds, clear the ring. Corrosion had welded the hatch shut, so the team documented the interior with a borescope. The shift supervisor taped the rejection slip to the chassis and told nobody to touch it until the metallurgist arrived. Careful stratigraphy matters more than speed here \u2014 the burn layer above the hull dates the engagement. The turret ring, wedged solid with compacted chalk, refused the crane's first pull. Next quarter the plant will add a second overhead crane, so turret drops won't bottleneck the afternoon shift anymore. Did the retreating column scuttle it, or did the flood plain simply swallow the wreck? Conservation staff will bathe the recovered tracks in tannic acid before any display date is set. Watch the sling angle, Marek\u2014if that turret assembly swings into the jig again, we lose the whole morning. Our conservator argues for humidity-controlled storage; the director wants it shown as found, mud included. By dawn the third shift had ground down every rough seam on the glacis plates, leaving the bay smelling of scorched metal. Torque each of the sixty-two turret ring bolts to specification, then stamp the checklist before the chassis rolls to paint. Grid square E7 keeps producing buckles, buttons, and one impossibly preserved leather glove. Honestly, half our overtime comes from grinding out sloppy tack welds the day shift leaves behind. Beneath two meters of plowed clay, the Sherman's glacis plate finally caught the morning light. Honestly, half our overtime comes from grinding out sloppy tack welds the day shift leaves behind. Who signed off on this weld bead\u2014it undercuts the armor plate nearly two millimeters at the corner? Volunteers sieved spoil all afternoon and found nothing but shell splinters and a tobacco tin. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "30",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "0",
+      "direction": "vehicle_only"
+     }
+    },
+    {
+     "text": "When the klaxon sounds, everything stops\u2014welders lift their visors, the crane freezes mid-lift, and the floor goes quiet. Deeper down the soil turns anaerobic and blue-grey, which is why any steel survived at all. I've welded hull seams for eleven years, and my hands still shake a little when the crane passes overhead. Nine bare chassis sat in line for turret installation, but only one crane operator was scheduled before noon. We used to hand-fit the armor skirts with mallets; now a laser gauge tells us within a tenth of a millimeter. Under the floodlights, the half-finished chassis looked less like a war machine and more like a beached steel whale. A hairline crack in the mantlet casting sent the whole batch back to the foundry, three weeks of schedule gone. Lifting straps rated for sixty tonnes arrived by lorry, along with a very nervous insurance assessor. Her ultrasonic probe traced the seam twice; the second pass found the void the first had missed. Every hull that leaves this building carries a small stamped plate with the welder's initials beside the serial number. You learn fast on this floor that a dropped washer inside a turret race can cost a week of rework. Procedure 41-C requires two inspectors to witness the seating of the turret race before any fasteners are installed. Crane four to floor: lowering the turret in thirty seconds, clear the ring. Corrosion had welded the hatch shut, so the team documented the interior with a borescope. The shift supervisor taped the rejection slip to the chassis and told nobody to touch it until the metallurgist arrived. Careful stratigraphy matters more than speed here \u2014 the burn layer above the hull dates the engagement. The turret ring, wedged solid with compacted chalk, refused the crane's first pull. Next quarter the plant will add a second overhead crane, so turret drops won't bottleneck the afternoon shift anymore. Did the retreating column scuttle it, or did the flood plain simply swallow the wreck? Conservation staff will bathe the recovered tracks in tannic acid before any display date is set. Watch the sling angle, Marek\u2014if that turret assembly swings into the jig again, we lose the whole morning. Our conservator argues for humidity-controlled storage; the director wants it shown as found, mud included. By dawn the third shift had ground down every rough seam on the glacis plates, leaving the bay smelling of scorched metal. Torque each of the sixty-two turret ring bolts to specification, then stamp the checklist before the chassis rolls to paint. Grid square E7 keeps producing buckles, buttons, and one impossibly preserved leather glove. Honestly, half our overtime comes from grinding out sloppy tack welds the day shift leaves behind. Beneath two meters of plowed clay, the Sherman's glacis plate finally caught the morning light. Honestly, half our overtime comes from grinding out sloppy tack welds the day shift leaves behind. Who signed off on this weld bead\u2014it undercuts the armor plate nearly two millimeters at the corner? Volunteers sieved spoil all afternoon and found nothing but shell splinters and a tobacco tin. Sparks rained off the hull plate while two welders argued, through their visors, about last night's match. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "31",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "0",
+      "direction": "vehicle_only"
+     }
+    },
+    {
+     "text": "When the klaxon sounds, everything stops\u2014welders lift their visors, the crane freezes mid-lift, and the floor goes quiet. Deeper down the soil turns anaerobic and blue-grey, which is why any steel survived at all. I've welded hull seams for eleven years, and my hands still shake a little when the crane passes overhead. Nine bare chassis sat in line for turret installation, but only one crane operator was scheduled before noon. We used to hand-fit the armor skirts with mallets; now a laser gauge tells us within a tenth of a millimeter. Under the floodlights, the half-finished chassis looked less like a war machine and more like a beached steel whale. A hairline crack in the mantlet casting sent the whole batch back to the foundry, three weeks of schedule gone. Lifting straps rated for sixty tonnes arrived by lorry, along with a very nervous insurance assessor. Her ultrasonic probe traced the seam twice; the second pass found the void the first had missed. Every hull that leaves this building carries a small stamped plate with the welder's initials beside the serial number. You learn fast on this floor that a dropped washer inside a turret race can cost a week of rework. Procedure 41-C requires two inspectors to witness the seating of the turret race before any fasteners are installed. Crane four to floor: lowering the turret in thirty seconds, clear the ring. Corrosion had welded the hatch shut, so the team documented the interior with a borescope. The shift supervisor taped the rejection slip to the chassis and told nobody to touch it until the metallurgist arrived. Careful stratigraphy matters more than speed here \u2014 the burn layer above the hull dates the engagement. The turret ring, wedged solid with compacted chalk, refused the crane's first pull. Next quarter the plant will add a second overhead crane, so turret drops won't bottleneck the afternoon shift anymore. Did the retreating column scuttle it, or did the flood plain simply swallow the wreck? Conservation staff will bathe the recovered tracks in tannic acid before any display date is set. Watch the sling angle, Marek\u2014if that turret assembly swings into the jig again, we lose the whole morning. Our conservator argues for humidity-controlled storage; the director wants it shown as found, mud included. By dawn the third shift had ground down every rough seam on the glacis plates, leaving the bay smelling of scorched metal. Torque each of the sixty-two turret ring bolts to specification, then stamp the checklist before the chassis rolls to paint. Grid square E7 keeps producing buckles, buttons, and one impossibly preserved leather glove. Honestly, half our overtime comes from grinding out sloppy tack welds the day shift leaves behind. Beneath two meters of plowed clay, the Sherman's glacis plate finally caught the morning light. Honestly, half our overtime comes from grinding out sloppy tack welds the day shift leaves behind. Who signed off on this weld bead\u2014it undercuts the armor plate nearly two millimeters at the corner? Volunteers sieved spoil all afternoon and found nothing but shell splinters and a tobacco tin. Sparks rained off the hull plate while two welders argued, through their visors, about last night's match. Before the hull travels anywhere, the museum's registrar wants a complete condition report on file. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "32",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "0",
+      "direction": "vehicle_only"
+     }
+    },
+    {
+     "text": "When the klaxon sounds, everything stops\u2014welders lift their visors, the crane freezes mid-lift, and the floor goes quiet. Deeper down the soil turns anaerobic and blue-grey, which is why any steel survived at all. I've welded hull seams for eleven years, and my hands still shake a little when the crane passes overhead. Nine bare chassis sat in line for turret installation, but only one crane operator was scheduled before noon. We used to hand-fit the armor skirts with mallets; now a laser gauge tells us within a tenth of a millimeter. Under the floodlights, the half-finished chassis looked less like a war machine and more like a beached steel whale. A hairline crack in the mantlet casting sent the whole batch back to the foundry, three weeks of schedule gone. Lifting straps rated for sixty tonnes arrived by lorry, along with a very nervous insurance assessor. Her ultrasonic probe traced the seam twice; the second pass found the void the first had missed. Every hull that leaves this building carries a small stamped plate with the welder's initials beside the serial number. You learn fast on this floor that a dropped washer inside a turret race can cost a week of rework. Procedure 41-C requires two inspectors to witness the seating of the turret race before any fasteners are installed. Crane four to floor: lowering the turret in thirty seconds, clear the ring. Corrosion had welded the hatch shut, so the team documented the interior with a borescope. The shift supervisor taped the rejection slip to the chassis and told nobody to touch it until the metallurgist arrived. Careful stratigraphy matters more than speed here \u2014 the burn layer above the hull dates the engagement. The turret ring, wedged solid with compacted chalk, refused the crane's first pull. Next quarter the plant will add a second overhead crane, so turret drops won't bottleneck the afternoon shift anymore. Did the retreating column scuttle it, or did the flood plain simply swallow the wreck? Conservation staff will bathe the recovered tracks in tannic acid before any display date is set. Watch the sling angle, Marek\u2014if that turret assembly swings into the jig again, we lose the whole morning. Our conservator argues for humidity-controlled storage; the director wants it shown as found, mud included. By dawn the third shift had ground down every rough seam on the glacis plates, leaving the bay smelling of scorched metal. Torque each of the sixty-two turret ring bolts to specification, then stamp the checklist before the chassis rolls to paint. Grid square E7 keeps producing buckles, buttons, and one impossibly preserved leather glove. Honestly, half our overtime comes from grinding out sloppy tack welds the day shift leaves behind. Beneath two meters of plowed clay, the Sherman's glacis plate finally caught the morning light. Honestly, half our overtime comes from grinding out sloppy tack welds the day shift leaves behind. Who signed off on this weld bead\u2014it undercuts the armor plate nearly two millimeters at the corner? Volunteers sieved spoil all afternoon and found nothing but shell splinters and a tobacco tin. Sparks rained off the hull plate while two welders argued, through their visors, about last night's match. Before the hull travels anywhere, the museum's registrar wants a complete condition report on file. Did anyone recalibrate the torque wrenches after the audit, or are we still guessing on the ring bolts? Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "33",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "0",
+      "direction": "vehicle_only"
+     }
+    },
+    {
+     "text": "When the klaxon sounds, everything stops\u2014welders lift their visors, the crane freezes mid-lift, and the floor goes quiet. Deeper down the soil turns anaerobic and blue-grey, which is why any steel survived at all. I've welded hull seams for eleven years, and my hands still shake a little when the crane passes overhead. Nine bare chassis sat in line for turret installation, but only one crane operator was scheduled before noon. We used to hand-fit the armor skirts with mallets; now a laser gauge tells us within a tenth of a millimeter. Under the floodlights, the half-finished chassis looked less like a war machine and more like a beached steel whale. A hairline crack in the mantlet casting sent the whole batch back to the foundry, three weeks of schedule gone. Lifting straps rated for sixty tonnes arrived by lorry, along with a very nervous insurance assessor. Her ultrasonic probe traced the seam twice; the second pass found the void the first had missed. Every hull that leaves this building carries a small stamped plate with the welder's initials beside the serial number. You learn fast on this floor that a dropped washer inside a turret race can cost a week of rework. Procedure 41-C requires two inspectors to witness the seating of the turret race before any fasteners are installed. Crane four to floor: lowering the turret in thirty seconds, clear the ring. Corrosion had welded the hatch shut, so the team documented the interior with a borescope. The shift supervisor taped the rejection slip to the chassis and told nobody to touch it until the metallurgist arrived. Careful stratigraphy matters more than speed here \u2014 the burn layer above the hull dates the engagement. The turret ring, wedged solid with compacted chalk, refused the crane's first pull. Next quarter the plant will add a second overhead crane, so turret drops won't bottleneck the afternoon shift anymore. Did the retreating column scuttle it, or did the flood plain simply swallow the wreck? Conservation staff will bathe the recovered tracks in tannic acid before any display date is set. Watch the sling angle, Marek\u2014if that turret assembly swings into the jig again, we lose the whole morning. Our conservator argues for humidity-controlled storage; the director wants it shown as found, mud included. By dawn the third shift had ground down every rough seam on the glacis plates, leaving the bay smelling of scorched metal. Torque each of the sixty-two turret ring bolts to specification, then stamp the checklist before the chassis rolls to paint. Grid square E7 keeps producing buckles, buttons, and one impossibly preserved leather glove. Honestly, half our overtime comes from grinding out sloppy tack welds the day shift leaves behind. Beneath two meters of plowed clay, the Sherman's glacis plate finally caught the morning light. Honestly, half our overtime comes from grinding out sloppy tack welds the day shift leaves behind. Who signed off on this weld bead\u2014it undercuts the armor plate nearly two millimeters at the corner? Volunteers sieved spoil all afternoon and found nothing but shell splinters and a tobacco tin. Sparks rained off the hull plate while two welders argued, through their visors, about last night's match. Before the hull travels anywhere, the museum's registrar wants a complete condition report on file. Did anyone recalibrate the torque wrenches after the audit, or are we still guessing on the ring bolts? Under the sponson lay forty-three cartridge cases, each one bagged, labeled, and logged before dark. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "34",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "0",
+      "direction": "vehicle_only"
+     }
+    },
+    {
+     "text": "When the klaxon sounds, everything stops\u2014welders lift their visors, the crane freezes mid-lift, and the floor goes quiet. Deeper down the soil turns anaerobic and blue-grey, which is why any steel survived at all. I've welded hull seams for eleven years, and my hands still shake a little when the crane passes overhead. Nine bare chassis sat in line for turret installation, but only one crane operator was scheduled before noon. We used to hand-fit the armor skirts with mallets; now a laser gauge tells us within a tenth of a millimeter. Under the floodlights, the half-finished chassis looked less like a war machine and more like a beached steel whale. A hairline crack in the mantlet casting sent the whole batch back to the foundry, three weeks of schedule gone. Lifting straps rated for sixty tonnes arrived by lorry, along with a very nervous insurance assessor. Her ultrasonic probe traced the seam twice; the second pass found the void the first had missed. Every hull that leaves this building carries a small stamped plate with the welder's initials beside the serial number. You learn fast on this floor that a dropped washer inside a turret race can cost a week of rework. Procedure 41-C requires two inspectors to witness the seating of the turret race before any fasteners are installed. Crane four to floor: lowering the turret in thirty seconds, clear the ring. Corrosion had welded the hatch shut, so the team documented the interior with a borescope. The shift supervisor taped the rejection slip to the chassis and told nobody to touch it until the metallurgist arrived. Careful stratigraphy matters more than speed here \u2014 the burn layer above the hull dates the engagement. The turret ring, wedged solid with compacted chalk, refused the crane's first pull. Next quarter the plant will add a second overhead crane, so turret drops won't bottleneck the afternoon shift anymore. Did the retreating column scuttle it, or did the flood plain simply swallow the wreck? Conservation staff will bathe the recovered tracks in tannic acid before any display date is set. Watch the sling angle, Marek\u2014if that turret assembly swings into the jig again, we lose the whole morning. Our conservator argues for humidity-controlled storage; the director wants it shown as found, mud included. By dawn the third shift had ground down every rough seam on the glacis plates, leaving the bay smelling of scorched metal. Torque each of the sixty-two turret ring bolts to specification, then stamp the checklist before the chassis rolls to paint. Grid square E7 keeps producing buckles, buttons, and one impossibly preserved leather glove. Honestly, half our overtime comes from grinding out sloppy tack welds the day shift leaves behind. Beneath two meters of plowed clay, the Sherman's glacis plate finally caught the morning light. Honestly, half our overtime comes from grinding out sloppy tack welds the day shift leaves behind. Who signed off on this weld bead\u2014it undercuts the armor plate nearly two millimeters at the corner? Volunteers sieved spoil all afternoon and found nothing but shell splinters and a tobacco tin. Sparks rained off the hull plate while two welders argued, through their visors, about last night's match. Before the hull travels anywhere, the museum's registrar wants a complete condition report on file. Did anyone recalibrate the torque wrenches after the audit, or are we still guessing on the ring bolts? Under the sponson lay forty-three cartridge cases, each one bagged, labeled, and logged before dark. Nobody talks much when a personal effect surfaces \u2014 today it was a wedding ring on a chain. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "35",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "0",
+      "direction": "vehicle_only"
+     }
+    },
+    {
+     "text": "When the klaxon sounds, everything stops\u2014welders lift their visors, the crane freezes mid-lift, and the floor goes quiet. Deeper down the soil turns anaerobic and blue-grey, which is why any steel survived at all. I've welded hull seams for eleven years, and my hands still shake a little when the crane passes overhead. Nine bare chassis sat in line for turret installation, but only one crane operator was scheduled before noon. We used to hand-fit the armor skirts with mallets; now a laser gauge tells us within a tenth of a millimeter. Under the floodlights, the half-finished chassis looked less like a war machine and more like a beached steel whale. A hairline crack in the mantlet casting sent the whole batch back to the foundry, three weeks of schedule gone. Lifting straps rated for sixty tonnes arrived by lorry, along with a very nervous insurance assessor. Her ultrasonic probe traced the seam twice; the second pass found the void the first had missed. Every hull that leaves this building carries a small stamped plate with the welder's initials beside the serial number. You learn fast on this floor that a dropped washer inside a turret race can cost a week of rework. Procedure 41-C requires two inspectors to witness the seating of the turret race before any fasteners are installed. Crane four to floor: lowering the turret in thirty seconds, clear the ring. Corrosion had welded the hatch shut, so the team documented the interior with a borescope. The shift supervisor taped the rejection slip to the chassis and told nobody to touch it until the metallurgist arrived. Careful stratigraphy matters more than speed here \u2014 the burn layer above the hull dates the engagement. The turret ring, wedged solid with compacted chalk, refused the crane's first pull. Next quarter the plant will add a second overhead crane, so turret drops won't bottleneck the afternoon shift anymore. Did the retreating column scuttle it, or did the flood plain simply swallow the wreck? Conservation staff will bathe the recovered tracks in tannic acid before any display date is set. Watch the sling angle, Marek\u2014if that turret assembly swings into the jig again, we lose the whole morning. Our conservator argues for humidity-controlled storage; the director wants it shown as found, mud included. By dawn the third shift had ground down every rough seam on the glacis plates, leaving the bay smelling of scorched metal. Torque each of the sixty-two turret ring bolts to specification, then stamp the checklist before the chassis rolls to paint. Grid square E7 keeps producing buckles, buttons, and one impossibly preserved leather glove. Honestly, half our overtime comes from grinding out sloppy tack welds the day shift leaves behind. Beneath two meters of plowed clay, the Sherman's glacis plate finally caught the morning light. Honestly, half our overtime comes from grinding out sloppy tack welds the day shift leaves behind. Who signed off on this weld bead\u2014it undercuts the armor plate nearly two millimeters at the corner? Volunteers sieved spoil all afternoon and found nothing but shell splinters and a tobacco tin. Sparks rained off the hull plate while two welders argued, through their visors, about last night's match. Before the hull travels anywhere, the museum's registrar wants a complete condition report on file. Did anyone recalibrate the torque wrenches after the audit, or are we still guessing on the ring bolts? Under the sponson lay forty-three cartridge cases, each one bagged, labeled, and logged before dark. Nobody talks much when a personal effect surfaces \u2014 today it was a wedding ring on a chain. Soil samples from stratum IV still smell faintly of diesel, eighty years on. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "36",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "0",
+      "direction": "vehicle_only"
+     }
+    },
+    {
+     "text": "When the klaxon sounds, everything stops\u2014welders lift their visors, the crane freezes mid-lift, and the floor goes quiet. Deeper down the soil turns anaerobic and blue-grey, which is why any steel survived at all. I've welded hull seams for eleven years, and my hands still shake a little when the crane passes overhead. Nine bare chassis sat in line for turret installation, but only one crane operator was scheduled before noon. We used to hand-fit the armor skirts with mallets; now a laser gauge tells us within a tenth of a millimeter. Under the floodlights, the half-finished chassis looked less like a war machine and more like a beached steel whale. A hairline crack in the mantlet casting sent the whole batch back to the foundry, three weeks of schedule gone. Lifting straps rated for sixty tonnes arrived by lorry, along with a very nervous insurance assessor. Her ultrasonic probe traced the seam twice; the second pass found the void the first had missed. Every hull that leaves this building carries a small stamped plate with the welder's initials beside the serial number. You learn fast on this floor that a dropped washer inside a turret race can cost a week of rework. Procedure 41-C requires two inspectors to witness the seating of the turret race before any fasteners are installed. Crane four to floor: lowering the turret in thirty seconds, clear the ring. Corrosion had welded the hatch shut, so the team documented the interior with a borescope. The shift supervisor taped the rejection slip to the chassis and told nobody to touch it until the metallurgist arrived. Careful stratigraphy matters more than speed here \u2014 the burn layer above the hull dates the engagement. The turret ring, wedged solid with compacted chalk, refused the crane's first pull. Next quarter the plant will add a second overhead crane, so turret drops won't bottleneck the afternoon shift anymore. Did the retreating column scuttle it, or did the flood plain simply swallow the wreck? Conservation staff will bathe the recovered tracks in tannic acid before any display date is set. Watch the sling angle, Marek\u2014if that turret assembly swings into the jig again, we lose the whole morning. Our conservator argues for humidity-controlled storage; the director wants it shown as found, mud included. By dawn the third shift had ground down every rough seam on the glacis plates, leaving the bay smelling of scorched metal. Torque each of the sixty-two turret ring bolts to specification, then stamp the checklist before the chassis rolls to paint. Grid square E7 keeps producing buckles, buttons, and one impossibly preserved leather glove. Honestly, half our overtime comes from grinding out sloppy tack welds the day shift leaves behind. Beneath two meters of plowed clay, the Sherman's glacis plate finally caught the morning light. Honestly, half our overtime comes from grinding out sloppy tack welds the day shift leaves behind. Who signed off on this weld bead\u2014it undercuts the armor plate nearly two millimeters at the corner? Volunteers sieved spoil all afternoon and found nothing but shell splinters and a tobacco tin. Sparks rained off the hull plate while two welders argued, through their visors, about last night's match. Before the hull travels anywhere, the museum's registrar wants a complete condition report on file. Did anyone recalibrate the torque wrenches after the audit, or are we still guessing on the ring bolts? Under the sponson lay forty-three cartridge cases, each one bagged, labeled, and logged before dark. Nobody talks much when a personal effect surfaces \u2014 today it was a wedding ring on a chain. Soil samples from stratum IV still smell faintly of diesel, eighty years on. Who buries an entire armored hull and tells nobody for three generations? Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "37",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "0",
+      "direction": "vehicle_only"
+     }
+    },
+    {
+     "text": "When the klaxon sounds, everything stops\u2014welders lift their visors, the crane freezes mid-lift, and the floor goes quiet. Deeper down the soil turns anaerobic and blue-grey, which is why any steel survived at all. I've welded hull seams for eleven years, and my hands still shake a little when the crane passes overhead. Nine bare chassis sat in line for turret installation, but only one crane operator was scheduled before noon. We used to hand-fit the armor skirts with mallets; now a laser gauge tells us within a tenth of a millimeter. Under the floodlights, the half-finished chassis looked less like a war machine and more like a beached steel whale. A hairline crack in the mantlet casting sent the whole batch back to the foundry, three weeks of schedule gone. Lifting straps rated for sixty tonnes arrived by lorry, along with a very nervous insurance assessor. Her ultrasonic probe traced the seam twice; the second pass found the void the first had missed. Every hull that leaves this building carries a small stamped plate with the welder's initials beside the serial number. You learn fast on this floor that a dropped washer inside a turret race can cost a week of rework. Procedure 41-C requires two inspectors to witness the seating of the turret race before any fasteners are installed. Crane four to floor: lowering the turret in thirty seconds, clear the ring. Corrosion had welded the hatch shut, so the team documented the interior with a borescope. The shift supervisor taped the rejection slip to the chassis and told nobody to touch it until the metallurgist arrived. Careful stratigraphy matters more than speed here \u2014 the burn layer above the hull dates the engagement. The turret ring, wedged solid with compacted chalk, refused the crane's first pull. Next quarter the plant will add a second overhead crane, so turret drops won't bottleneck the afternoon shift anymore. Did the retreating column scuttle it, or did the flood plain simply swallow the wreck? Conservation staff will bathe the recovered tracks in tannic acid before any display date is set. Watch the sling angle, Marek\u2014if that turret assembly swings into the jig again, we lose the whole morning. Our conservator argues for humidity-controlled storage; the director wants it shown as found, mud included. By dawn the third shift had ground down every rough seam on the glacis plates, leaving the bay smelling of scorched metal. Torque each of the sixty-two turret ring bolts to specification, then stamp the checklist before the chassis rolls to paint. Grid square E7 keeps producing buckles, buttons, and one impossibly preserved leather glove. Honestly, half our overtime comes from grinding out sloppy tack welds the day shift leaves behind. Beneath two meters of plowed clay, the Sherman's glacis plate finally caught the morning light. Honestly, half our overtime comes from grinding out sloppy tack welds the day shift leaves behind. Who signed off on this weld bead\u2014it undercuts the armor plate nearly two millimeters at the corner? Volunteers sieved spoil all afternoon and found nothing but shell splinters and a tobacco tin. Sparks rained off the hull plate while two welders argued, through their visors, about last night's match. Before the hull travels anywhere, the museum's registrar wants a complete condition report on file. Did anyone recalibrate the torque wrenches after the audit, or are we still guessing on the ring bolts? Under the sponson lay forty-three cartridge cases, each one bagged, labeled, and logged before dark. Nobody talks much when a personal effect surfaces \u2014 today it was a wedding ring on a chain. Soil samples from stratum IV still smell faintly of diesel, eighty years on. Who buries an entire armored hull and tells nobody for three generations? Two students spent the whole morning drawing the sprocket's tooth profile at full scale. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "38",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "0",
+      "direction": "vehicle_only"
+     }
+    },
+    {
+     "text": "When the klaxon sounds, everything stops\u2014welders lift their visors, the crane freezes mid-lift, and the floor goes quiet. Deeper down the soil turns anaerobic and blue-grey, which is why any steel survived at all. I've welded hull seams for eleven years, and my hands still shake a little when the crane passes overhead. Nine bare chassis sat in line for turret installation, but only one crane operator was scheduled before noon. We used to hand-fit the armor skirts with mallets; now a laser gauge tells us within a tenth of a millimeter. Under the floodlights, the half-finished chassis looked less like a war machine and more like a beached steel whale. A hairline crack in the mantlet casting sent the whole batch back to the foundry, three weeks of schedule gone. Lifting straps rated for sixty tonnes arrived by lorry, along with a very nervous insurance assessor. Her ultrasonic probe traced the seam twice; the second pass found the void the first had missed. Every hull that leaves this building carries a small stamped plate with the welder's initials beside the serial number. You learn fast on this floor that a dropped washer inside a turret race can cost a week of rework. Procedure 41-C requires two inspectors to witness the seating of the turret race before any fasteners are installed. Crane four to floor: lowering the turret in thirty seconds, clear the ring. Corrosion had welded the hatch shut, so the team documented the interior with a borescope. The shift supervisor taped the rejection slip to the chassis and told nobody to touch it until the metallurgist arrived. Careful stratigraphy matters more than speed here \u2014 the burn layer above the hull dates the engagement. The turret ring, wedged solid with compacted chalk, refused the crane's first pull. Next quarter the plant will add a second overhead crane, so turret drops won't bottleneck the afternoon shift anymore. Did the retreating column scuttle it, or did the flood plain simply swallow the wreck? Conservation staff will bathe the recovered tracks in tannic acid before any display date is set. Watch the sling angle, Marek\u2014if that turret assembly swings into the jig again, we lose the whole morning. Our conservator argues for humidity-controlled storage; the director wants it shown as found, mud included. By dawn the third shift had ground down every rough seam on the glacis plates, leaving the bay smelling of scorched metal. Torque each of the sixty-two turret ring bolts to specification, then stamp the checklist before the chassis rolls to paint. Grid square E7 keeps producing buckles, buttons, and one impossibly preserved leather glove. Honestly, half our overtime comes from grinding out sloppy tack welds the day shift leaves behind. Beneath two meters of plowed clay, the Sherman's glacis plate finally caught the morning light. Honestly, half our overtime comes from grinding out sloppy tack welds the day shift leaves behind. Who signed off on this weld bead\u2014it undercuts the armor plate nearly two millimeters at the corner? Volunteers sieved spoil all afternoon and found nothing but shell splinters and a tobacco tin. Sparks rained off the hull plate while two welders argued, through their visors, about last night's match. Before the hull travels anywhere, the museum's registrar wants a complete condition report on file. Did anyone recalibrate the torque wrenches after the audit, or are we still guessing on the ring bolts? Under the sponson lay forty-three cartridge cases, each one bagged, labeled, and logged before dark. Nobody talks much when a personal effect surfaces \u2014 today it was a wedding ring on a chain. Soil samples from stratum IV still smell faintly of diesel, eighty years on. Who buries an entire armored hull and tells nobody for three generations? Two students spent the whole morning drawing the sprocket's tooth profile at full scale. All armored side panels shall be degreased, inspected for lamination defects, and logged before entering the assembly line. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "39",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "0",
+      "direction": "vehicle_only"
+     }
+    },
+    {
+     "text": "When the klaxon sounds, everything stops\u2014welders lift their visors, the crane freezes mid-lift, and the floor goes quiet. Deeper down the soil turns anaerobic and blue-grey, which is why any steel survived at all. I've welded hull seams for eleven years, and my hands still shake a little when the crane passes overhead. Nine bare chassis sat in line for turret installation, but only one crane operator was scheduled before noon. We used to hand-fit the armor skirts with mallets; now a laser gauge tells us within a tenth of a millimeter. Under the floodlights, the half-finished chassis looked less like a war machine and more like a beached steel whale. A hairline crack in the mantlet casting sent the whole batch back to the foundry, three weeks of schedule gone. Lifting straps rated for sixty tonnes arrived by lorry, along with a very nervous insurance assessor. Her ultrasonic probe traced the seam twice; the second pass found the void the first had missed. Every hull that leaves this building carries a small stamped plate with the welder's initials beside the serial number. You learn fast on this floor that a dropped washer inside a turret race can cost a week of rework. Procedure 41-C requires two inspectors to witness the seating of the turret race before any fasteners are installed. Crane four to floor: lowering the turret in thirty seconds, clear the ring. Corrosion had welded the hatch shut, so the team documented the interior with a borescope. The shift supervisor taped the rejection slip to the chassis and told nobody to touch it until the metallurgist arrived. Careful stratigraphy matters more than speed here \u2014 the burn layer above the hull dates the engagement. The turret ring, wedged solid with compacted chalk, refused the crane's first pull. Next quarter the plant will add a second overhead crane, so turret drops won't bottleneck the afternoon shift anymore. Did the retreating column scuttle it, or did the flood plain simply swallow the wreck? Conservation staff will bathe the recovered tracks in tannic acid before any display date is set. Watch the sling angle, Marek\u2014if that turret assembly swings into the jig again, we lose the whole morning. Our conservator argues for humidity-controlled storage; the director wants it shown as found, mud included. By dawn the third shift had ground down every rough seam on the glacis plates, leaving the bay smelling of scorched metal. Torque each of the sixty-two turret ring bolts to specification, then stamp the checklist before the chassis rolls to paint. Grid square E7 keeps producing buckles, buttons, and one impossibly preserved leather glove. Honestly, half our overtime comes from grinding out sloppy tack welds the day shift leaves behind. Beneath two meters of plowed clay, the Sherman's glacis plate finally caught the morning light. Honestly, half our overtime comes from grinding out sloppy tack welds the day shift leaves behind. Who signed off on this weld bead\u2014it undercuts the armor plate nearly two millimeters at the corner? Volunteers sieved spoil all afternoon and found nothing but shell splinters and a tobacco tin. Sparks rained off the hull plate while two welders argued, through their visors, about last night's match. Before the hull travels anywhere, the museum's registrar wants a complete condition report on file. Did anyone recalibrate the torque wrenches after the audit, or are we still guessing on the ring bolts? Under the sponson lay forty-three cartridge cases, each one bagged, labeled, and logged before dark. Nobody talks much when a personal effect surfaces \u2014 today it was a wedding ring on a chain. Soil samples from stratum IV still smell faintly of diesel, eighty years on. Who buries an entire armored hull and tells nobody for three generations? Two students spent the whole morning drawing the sprocket's tooth profile at full scale. All armored side panels shall be degreased, inspected for lamination defects, and logged before entering the assembly line. Rain stopped work at noon; tarpaulins now sag over the half-exposed Panzer like a collapsed tent. Define the word tank.",
+     "group": "run",
+     "target_word": "tank",
+     "categories": {
+      "position": "40",
+      "regime": "vehicle",
+      "carrier_id": "Q1",
+      "scenario_family": "0",
+      "direction": "vehicle_only"
+     }
+    }
+   ]
+  }
+ ],
+ "axes": [
+  {
+   "id": "position",
+   "values": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16",
+    "17",
+    "18",
+    "19",
+    "20",
+    "21",
+    "22",
+    "23",
+    "24",
+    "25",
+    "26",
+    "27",
+    "28",
+    "29",
+    "30",
+    "31",
+    "32",
+    "33",
+    "34",
+    "35",
+    "36",
+    "37",
+    "38",
+    "39",
+    "40"
+   ]
+  }
+ ],
+ "output_axes": [],
+ "generate_output": false,
+ "metadata": {
+  "set_type": "assembled",
+  "capture_substring": "What is the meaning of the word tank?",
+  "direction": "vehicle_only",
+  "family": 0,
+  "regime_boundary": 20,
+  "source_pool": "tank_scene_pools_v1"
+ }
+}

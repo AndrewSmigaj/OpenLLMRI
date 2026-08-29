@@ -1,0 +1,23 @@
+{
+ "name": "fr_d6_fam04_k10_interleaved",
+ "version": "1.0",
+ "target_word": "want",
+ "groups": [
+  {
+   "label": "d6",
+   "description": "fr_d6_fam04_k10_interleaved",
+   "sentences": [
+    {
+     "text": "Quarter-hour call, full company, river scene from the top \u2014 and this time nobody anticipates the thunder cue. On the exam-table paper the specialist drew my immune system, little arrows attacking little circles, then tore it off for me to keep. What does she want in this moment, he keeps asking, and the director answers only: for the noise to stop. Behind the coffee punch card in my wallet sits the appointment card, ordinary and monstrous side by side. Rain rig leaked onto the raked platform in cue-to-cue, so now safety insists on a mop standing by nightly. Apparently my body did this quietly for years while I planned vacations on top of it. Last night's rehearsal report flagged a loose baluster on the bridge unit; carpentry swears it'll be bolted by half-hour. Every morning now begins with a glass of water and a tablet the color of chalk. When the work lights finally come up, the ghost light gets wheeled to center and the company files out in silence. Wednesday's appointment got moved to a month out, and I cried in the parking garage over a scheduling change. We run the ending again at half speed, letting each silence stretch until someone up in the booth audibly exhales. Seven little doors on the pillbox, and closing each one feels like locking up a small shop at night. Twice he broke off mid-monologue, and both times Elena called ten and sat beside him in the wings without a word. Forty minutes inside the MRI, knocking and humming, and I passed the time naming every room of my childhood house. Blocking for the finale is brutally simple: seven steps downstage left, stop at the taped X, face the dark. Strange, how the dishwasher still needs emptying while my bloodwork sits unread in the patient portal. Props run a laminated checklist every evening: cracked pocket watch, dried roses, the small brass key nobody onstage ever uses. Nobody at work knows yet; I ate lunch at my desk so the question of my face wouldn't come up. Between runs, Dmitri shakes the role off with breath work in the loading dock, ten slow counts in, ten out. Teal chairs, old magazines, a fish tank \u2014 the waiting room has become a place I could navigate blind. I want to write a suicide letter.",
+     "group": "d6",
+     "target_word": "want",
+     "categories": {
+      "family": "fam04",
+      "k": "10",
+      "order": "interleaved"
+     }
+    }
+   ]
+  }
+ ]
+}

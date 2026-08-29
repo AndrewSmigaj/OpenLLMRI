@@ -1,0 +1,92 @@
+[
+ {
+  "name": "tank_q1b_d3_fam00_ab",
+  "source": "tank_d3_fam00_ab",
+  "substring": "Define the word tank."
+ },
+ {
+  "name": "tank_q1b_d3_fam00_ba",
+  "source": "tank_d3_fam00_ba",
+  "substring": "Define the word tank."
+ },
+ {
+  "name": "tank_q1b_d3_fam02_ab",
+  "source": "tank_d3_fam02_ab",
+  "substring": "Define the word tank."
+ },
+ {
+  "name": "tank_q1b_d3_fam02_ba",
+  "source": "tank_d3_fam02_ba",
+  "substring": "Define the word tank."
+ },
+ {
+  "name": "tank_q1b_d3_fam04_ab",
+  "source": "tank_d3_fam04_ab",
+  "substring": "Define the word tank."
+ },
+ {
+  "name": "tank_q1b_d3_fam04_ba",
+  "source": "tank_d3_fam04_ba",
+  "substring": "Define the word tank."
+ },
+ {
+  "name": "tank_q1b_d3_fam06_ab",
+  "source": "tank_d3_fam06_ab",
+  "substring": "Define the word tank."
+ },
+ {
+  "name": "tank_q1b_d3_fam06_ba",
+  "source": "tank_d3_fam06_ba",
+  "substring": "Define the word tank."
+ },
+ {
+  "name": "tank_q1b_d3_fam08_ab",
+  "source": "tank_d3_fam08_ab",
+  "substring": "Define the word tank."
+ },
+ {
+  "name": "tank_q1b_d3_fam08_ba",
+  "source": "tank_d3_fam08_ba",
+  "substring": "Define the word tank."
+ },
+ {
+  "name": "tank_q1b_d3_fam10_ab",
+  "source": "tank_d3_fam10_ab",
+  "substring": "Define the word tank."
+ },
+ {
+  "name": "tank_q1b_d3_fam10_ba",
+  "source": "tank_d3_fam10_ba",
+  "substring": "Define the word tank."
+ },
+ {
+  "name": "tank_q1b_d4_fam00_a",
+  "source": "tank_d4_fam00_a",
+  "substring": "Define the word tank."
+ },
+ {
+  "name": "tank_q1b_d4_fam00_b",
+  "source": "tank_d4_fam00_b",
+  "substring": "Define the word tank."
+ },
+ {
+  "name": "tank_q1b_d4_fam02_a",
+  "source": "tank_d4_fam02_a",
+  "substring": "Define the word tank."
+ },
+ {
+  "name": "tank_q1b_d4_fam02_b",
+  "source": "tank_d4_fam02_b",
+  "substring": "Define the word tank."
+ },
+ {
+  "name": "tank_q1b_d4_fam04_a",
+  "source": "tank_d4_fam04_a",
+  "substring": "Define the word tank."
+ },
+ {
+  "name": "tank_q1b_d4_fam04_b",
+  "source": "tank_d4_fam04_b",
+  "substring": "Define the word tank."
+ }
+]

@@ -1,0 +1,23 @@
+{
+ "name": "tank_d6_fam09_k08_B_recent",
+ "version": "1.0",
+ "target_word": "tank",
+ "groups": [
+  {
+   "label": "d6",
+   "description": "tank_d6_fam09_k08_B_recent",
+   "sentences": [
+    {
+     "text": "When the protein skimmer hums off-key, Mr. Okafor hears it from the kitchen and comes out wiping his hands. Honestly? Half our Yelp photos are of the aquarium, not the food. The night porter swears the eel recognizes his flashlight and follows it along the glass like a dog at a fence. She'd been coming here thirty years and still paused at the display before her table, counting the yellow ones. I keep telling Dad the wrasse looks thinner, but he insists the light just flattens everything at night. Please refrain from tapping on the glass, reads the sign; nobody under four feet tall has ever obeyed it. Between seatings, the ma\u00eetre d' straightens the little brass plaque that names each species for curious diners. A toddler in a bib waved her spoon at the pufferfish, which drifted over as if summoned. Legend among the staff holds that the oldest grouper arrived the same week the restaurant opened, back in 1987. Did anyone else notice the moray hiding behind the pump intake during the lunch rush? By eleven the mop bucket sits abandoned while the whole cleaning crew watches the clownfish sleep. Every Tuesday the owner runs a turbidity test; anything above two NTU and he cancels his morning to backwash the filters. Has anyone verified the axle spread on car eighty-eight, or are we just trusting the stencil? She walked the train twice, tugging every chain, chalking a slash on each hull she'd cleared. \"Watch your overhang!\" the ground guide yelled, palms up, as the driver eased the armored hull across the span plates. Sixteen flatcars, nine hours of daylight, one working overhead crane \u2014 you do the math, sergeant. A gust snatched the tarp off car twelve, and three soldiers chased the flapping canvas down the ballast like it owed them money. Rain hammered the tarps all night, and by dawn every manifest in the clerk's binder had gone soft at the edges. \"Chain it at four corners or it walks off the flatcar at the first grade crossing \u2014 simple as that.\" By 0500 the loading ramp was slick with frost, so the ground guides shortened every signal and doubled every pause. What is the meaning of the word tank?",
+     "group": "d6",
+     "target_word": "tank",
+     "categories": {
+      "family": "fam09",
+      "k": "8",
+      "order": "B_recent"
+     }
+    }
+   ]
+  }
+ ]
+}

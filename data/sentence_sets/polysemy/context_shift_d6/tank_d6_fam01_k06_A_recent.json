@@ -1,0 +1,23 @@
+{
+ "name": "tank_d6_fam01_k06_A_recent",
+ "version": "1.0",
+ "target_word": "tank",
+ "groups": [
+  {
+   "label": "d6",
+   "description": "tank_d6_fam01_k06_A_recent",
+   "sentences": [
+    {
+     "text": "Honestly, half our overtime comes from grinding out sloppy tack welds the day shift leaves behind. Third rejection this week on bay two's seams\u2014somebody check that wire feed. Her ultrasonic probe traced the seam twice; the second pass found the void the first had missed. Sparks rained off the hull plate while two welders argued, through their visors, about last night's match. Under the floodlights, the half-finished chassis looked less like a war machine and more like a beached steel whale. The shift supervisor taped the rejection slip to the chassis and told nobody to touch it until the metallurgist arrived. Hardness crept up to 240 ppm overnight \u2014 someone check whether the crushed coral bag split. Dim lights keep the wild bettas calm, so we work by headlamp when netting out pairs. Nobody warned me that angelfish eat their first three clutches before figuring out parenthood. I mark each spawning jar's lid with tape: date, pair number, hardness at laying. Eggs stuck to the heater cord again, which means scraping and praying half survive the move. He logs GH and KH in a spiral notebook, one column per shelf, dated in pencil. Every runt gets fed to the bichir; sentiment doesn't pay for fish food. Her ledger shows which pairings threw long fins and which threw nothing worth keeping. Fry from batch eleven took powdered egg yolk at dawn and again at three. Records indicate the corydoras deposited eggs on the glass within six hours of the cool-water change. Water changes happen Sundays: twenty percent for growouts, ten for anything still at wriggler stage. Wrigglers clung to the slate for two days before lifting off in one silver cloud. At 6.4 pH the rams finally spawned, after months of stubborn refusal at 7.2. The kribensis pair claimed the coconut cave again, fanning eggs before the lights even warmed up. What is the meaning of the word tank?",
+     "group": "d6",
+     "target_word": "tank",
+     "categories": {
+      "family": "fam01",
+      "k": "6",
+      "order": "A_recent"
+     }
+    }
+   ]
+  }
+ ]
+}

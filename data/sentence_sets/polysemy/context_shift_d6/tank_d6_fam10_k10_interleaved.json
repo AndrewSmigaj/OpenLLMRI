@@ -1,0 +1,23 @@
+{
+ "name": "tank_d6_fam10_k10_interleaved",
+ "version": "1.0",
+ "target_word": "tank",
+ "groups": [
+  {
+   "label": "d6",
+   "description": "tank_d6_fam10_k10_interleaved",
+   "sentences": [
+    {
+     "text": "He bagged the oranda one-handed, puffed the bag with pure oxygen, and spun it shut like he'd done it ten thousand times. We baited their whole platoon into the quarry, then Priya's medium clipped the artillery sitting naked at spawn. The ammonia strip turned dark green before she'd even finished dipping it, and the customer's face fell. Reset to the rail yard, both of you \u2014 I can hear their tracks squealing on cobblestone from here. We keep the feeder goldfish by the register; impulse math says a dollar fish sells itself. Down to two hundred hitpoints, tracks blown, he still reversed onto the cap circle and won us the match. Her manager insisted the pothos cuttings drooping into the goldfish aquarium were filtration, not decoration. Swap the vents for optics on open maps; view range wins more games than a two-percent gun handling buff. Nitrite at two parts per million explains the gasping; do a fifty percent water change tonight and retest tomorrow. Does anyone actually run food on this line, or is the fire extinguisher still mandatory with front-mounted fuel? Someone returned a heater claiming it boiled their shrimp, receipt stapled to a damp paper towel. Their heavies committed east, which means our light gets a free run at the artillery \u2014 go, go. Nobody warned the new hire that the snails in the plant bins multiply faster than she can scoop them out. Her destroyer's camo rating is absurd; she vanished behind a single bush and deleted half my hitpoints. Did anybody restock the frozen bloodworms, or are we telling customers Tuesday again? I'll wiggle my turret at the corner to bait his shot, then you cross the street on my call. Some kid pressed his whole face against the angelfish display and left a perfect nose print for me to wipe off. Reloading, four seconds \u2014 hug the rubble and pray his gunner is asleep. You'll find the airline tubing on aisle three, right between the check valves and the bags of crushed coral. Nobody flank west alone; their destroyer has been camping that hedge since the countdown ended. What is the meaning of the word tank?",
+     "group": "d6",
+     "target_word": "tank",
+     "categories": {
+      "family": "fam10",
+      "k": "10",
+      "order": "interleaved"
+     }
+    }
+   ]
+  }
+ ]
+}

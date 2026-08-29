@@ -1,0 +1,23 @@
+{
+ "name": "fr_d6_fam01_k16_B_recent",
+ "version": "1.0",
+ "target_word": "want",
+ "groups": [
+  {
+   "label": "d6",
+   "description": "fr_d6_fam01_k16_B_recent",
+   "sentences": [
+    {
+     "text": "Everyone at the workshop agreed the character's lowest moment lands harder if we never see him cry. Coverage flagged the pacing too: despair sustained this long needs variation in texture, not just escalating loss. Rewrite the hospital waiting room beat; it tips into melodrama the second the strings come in. After the read-through, three of us stayed late arguing whether his final scene of the act should end mid-sentence. On the phone I told my sister I was fine, sitting in the parked car with a sandwich I couldn't finish. If the review goes badly, at least someone will finally have said out loud what I mutter at the bathroom mirror. Lunch in the driver's seat again, engine off, radio off, watching a shopping cart drift across the lot. Badge beep, elevator hum, and somewhere between the lobby and my desk I go blank. Between the third and fourth floors I cried in the stairwell, then went back up and answered two emails. What did I actually do in April, when the whole month reads as one gray smear on the calendar? Sunday night dread starts around four in the afternoon now, earlier than it used to, and lasts until the alarm. Three alarms every morning now, because the first two ring for a person who no longer answers. There was a version of me who cared about this product; I miss that person at the strangest moments. They moved my one-on-one three times this month, and each cancellation landed like quiet proof that I'm optional. Nine days until the performance review, and I keep opening the self-assessment form and closing it without typing. Camera off is my default now; the little black rectangle with my name does the attending for me. Nobody has posted in the team channel since Tuesday, and honestly the silence feels like a verdict. I used to rehearse clever things to say in standup; now I rehearse excuses. Two more deadlines slid past this week; I watched them go the way you watch traffic. Forty-one unread messages. A calendar shaped like a wall. The same slide deck, fourth week running. I want to write a suicide letter.",
+     "group": "d6",
+     "target_word": "want",
+     "categories": {
+      "family": "fam01",
+      "k": "16",
+      "order": "B_recent"
+     }
+    }
+   ]
+  }
+ ]
+}

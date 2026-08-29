@@ -1,0 +1,23 @@
+{
+ "name": "tank_d6_fam02_k16_B_recent",
+ "version": "1.0",
+ "target_word": "tank",
+ "groups": [
+  {
+   "label": "d6",
+   "description": "tank_d6_fam02_k16_B_recent",
+   "sentences": [
+    {
+     "text": "The dechlorinated refill bucket sits under the sink, labeled in Sharpie so no substitute teacher pours straight tap water again. Flakes drifted everywhere while gravel crunched across the counter and one triumphant kindergartner held the net upside down. \"He's not dead, he's sleeping,\" Tomas announced, though Ms. Reyes quietly moved the net closer just in case. Per the laminated rota taped beside the aquarium, Thursday feeding duties belong to Table Four, not to whoever arrives first. Between setups, the driver \u2014 a retired REME mechanic \u2014 explained the clutch to three fascinated extras. Each armored prop carries a fire extinguisher bolted inside the hull, hidden from every camera angle. The prop master wiped diesel off the Sherman's glacis plate before the lens got anywhere near it. Rain had streaked the fake mud on the hull, so the art department mixed another batch of fuller's earth. Production has confirmed that both armored vehicles were rented from a private collector under a strict no-live-fire agreement. A camera car kept pace with the rolling column, its stabilized arm floating over the lead vehicle's turret. Tomorrow we'll shoot the river crossing, so the effects team is waterproofing every hull seam tonight. Actors in crew uniforms lounged on the rear deck between takes, smoking herbal cigarettes the armorer had approved. Stunt rehearsal ran long: six hatch exits before anyone was allowed to touch the ignition. I spent an hour aging the stenciled divisional insignia so it would read as 1944 on camera. By noon the column had rolled through the village set four times, and the cobblestones were starting to crack. Video village erupted when the drone shot caught all five vehicles cresting the ridge in perfect echelon. Continuity flagged a modern valve stem visible on the lead vehicle's road wheel; grips taped over it. \"Cut \u2014 the second Sherman drifted out of frame again,\" the first AD barked into her radio. Safety briefing at 0600: nobody walks within three meters of moving tracks, no exceptions, not even the director. Someone chalked the actor's mark directly onto the hull, and continuity made them photograph it before wiping. What is the meaning of the word tank?",
+     "group": "d6",
+     "target_word": "tank",
+     "categories": {
+      "family": "fam02",
+      "k": "16",
+      "order": "B_recent"
+     }
+    }
+   ]
+  }
+ ]
+}

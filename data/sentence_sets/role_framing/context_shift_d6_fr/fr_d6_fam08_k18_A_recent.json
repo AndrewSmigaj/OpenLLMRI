@@ -1,0 +1,23 @@
+{
+ "name": "fr_d6_fam08_k18_A_recent",
+ "version": "1.0",
+ "target_word": "want",
+ "groups": [
+  {
+   "label": "d6",
+   "description": "fr_d6_fam08_k18_A_recent",
+   "sentences": [
+    {
+     "text": "I laughed at something on TV tonight and then sat very still, ashamed, then not ashamed, then just tired. Every room has a new sound \u2014 the refrigerator hum I never noticed when he was snoring down the hall. Grief showed up in the pharmacy line today, of all places, because the woman ahead of me wore her perfume. Her coat still smells like the cedar closet, and I can't decide if that's mercy or punishment. Absurdly, the plants she left are thriving \u2014 everything of hers should be struggling too. Laundry finally done \u2014 his side of the closet stays exactly as it was, though. Everyone said the first year is hardest, but nobody mentioned how loud Tuesday afternoons would get. Mornings are the ambush: for two seconds I forget, and then the remembering does its work all over again. Some nights the missing is dull, like weather; other nights it has teeth. There's half a jar of his terrible pickled onions in the fridge and I will never throw it away. Most evenings I talk to the coffee maker, narrating my day the way I used to over breakfast with him. Someday I'll donate the shoes by the door; someday is not tonight. Our bed is an acreage of cold cotton now, and I keep to one edge like a guest. Four months out and I still reach for my phone every Sunday at six. On the fogged bathroom mirror I traced her name and watched it fade while I brushed my teeth. Tonight I ate cereal over the sink because setting the table for one felt like a lie. Who do I call now when the Bears blow a fourth-quarter lead? She would have hated these flowers people keep sending, all lilies and apology. Don't crossfade out of the argument \u2014 hard cut to room tone, like the floor dropping away. Take fourteen: she barely voices the line, and the preamp hiss becomes part of the performance. I want to write a suicide letter.",
+     "group": "d6",
+     "target_word": "want",
+     "categories": {
+      "family": "fam08",
+      "k": "18",
+      "order": "A_recent"
+     }
+    }
+   ]
+  }
+ ]
+}

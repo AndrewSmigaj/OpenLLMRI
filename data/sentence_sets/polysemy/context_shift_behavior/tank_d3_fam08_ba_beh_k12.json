@@ -1,0 +1,22 @@
+{
+ "name": "tank_d3_fam08_ba_beh_k12",
+ "version": "1.0",
+ "target_word": "tank",
+ "groups": [
+  {
+   "label": "behavior",
+   "description": "tank_d3_fam08_ba_beh_k12",
+   "sentences": [
+    {
+     "text": "Contractor briefers love the phrase \"mature technology,\" but the armor package they pitched has never survived a live-fire test. Amendment 12 shifts risk for the stabilizer software entirely onto the government \u2014 read section 4.3.2 before you initial anything. \"Who signed off on the hull kit's weight waiver?\" asked the staffer from Appropriations, not looking up from her binder. Wasn't the suspension redesign supposed to be funded out of the contractor's own investment account? Six vendors bid on the sight upgrade; only one could actually deliver thermal optics at the quoted rate. Off the record, the program manager conceded the armor recapitalization milestone would slip past the election. Have the cost analysts reconciled the contractor's overhead rates with what the audit agency flagged last quarter? Her notes from the briefing: turret drive, late; fire-control software, later; explanation, none. Every armored vehicle in the recapitalization plan needs a new powerpack, and the sole qualified supplier just raised prices eleven percent. The colonel flipped to slide fourteen, where the turret upgrade's unit cost had quietly grown from $1.2 million to $1.9 million. During markup, a junior staffer caught a $340 million discrepancy between the budget exhibit and the contractor's certified cost data. Nobody in the room could explain why the chassis retrofit line item appeared twice in the FY27 justification book. If Congress zeroes the reactive armor line again, the whole upgrade program collapses into a study effort. We'd been warned the slide deck ran ninety minutes; nobody mentioned the two-hour session on transmission failures. What the slide deck called \"affordability initiatives\" turned out to be deleting the crew's fire suppression system. Two decades of deferred maintenance, one aging production line in Ohio, and now a $4 billion bill nobody wants to own. You could hear the staffers flipping pages when the briefer admitted the per-hull integration cost had doubled. After lunch we walked the congressional staffers through the hull crack photographs, one corroded weld at a time. \"Fixed-price means fixed,\" the negotiator said flatly, sliding the redlined specification document back across the table. The company's engineers swear the new track design cuts vibration by thirty percent, though the test range data tells a murkier story. Month four of the salinity-probe calibration debate, the secretary noted wearily in the minutes. Half the room wanted Ellen's supplier's name after she claimed the goniopora cost under a hundred dollars. Attendance hit forty-two, a club record, mostly because the raffle included a protein skimmer donated by the sponsor. Old-timers cluster near the projector arguing photoperiods while the kids in the back trade zoas like baseball cards. Someone's phone keeps buzzing during the alkalinity presentation, and the speaker finally pauses mid-sentence to glare. I traded a golf-ball-sized hammer coral for two ricordea and still feel like I fleeced the poor kid. A teenager in a wetsuit-brand hoodie won the drawing for the doser and immediately asked what a doser was. After the meeting adjourned, three members lingered to debate whether T5 bulbs still outgrow LEDs for sticks. Nobody admitted to bringing the aiptasia-riddled rock that ended up on the freebie table. He argued that dosing kalkwasser through a top-off pump beats two-part for small systems, and nobody at his table disagreed. Show-and-tell opened with a macro shot of a bubble-tip anemone splitting, which earned actual applause. Bring dip for your new frags, people \u2014 last year's flatworm outbreak started at one of these swaps. What is the meaning of the word tank?",
+     "group": "behavior",
+     "target_word": "tank",
+     "categories": {
+      "run": "tank_d3_fam08_ba",
+      "k": "12"
+     }
+    }
+   ]
+  }
+ ]
+}

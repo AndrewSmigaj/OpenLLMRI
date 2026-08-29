@@ -1,0 +1,23 @@
+{
+ "name": "tank_d6_fam03_k08_A_recent",
+ "version": "1.0",
+ "target_word": "tank",
+ "groups": [
+  {
+   "label": "d6",
+   "description": "tank_d6_fam03_k08_A_recent",
+   "sentences": [
+    {
+     "text": "I remember the linoleum sticking to my socks as I stood behind his chair, reading over his shoulder about Normandy hedgerows. You could hear the loader's routine in his cadence \u2014 shell, breech, ready \u2014 even sixty years after his last fight. Cracked at the spine, the album fell open to the page where his memoir began, the ink faded but the handwriting steady. Snapshots of five grinning boys on an armored hull; only one of them made it home to Ohio. We leaned closer whenever his voice dropped, because the quiet parts were always about the crew he'd lost outside Aachen. After the last page he closed the album gently, patted its cover twice, and asked who wanted more pie. His memoir never brags; it just lists the towns, the mud, and the boys who drove through both. He'd been a gunner, he told us, and the periscope's narrow world was all he saw of France. He counted the corydoras twice, then a third time, before finding the missing one dozing inside the ceramic cave. Rinse new gravel until the runoff turns clear, or the filter will choke on silt for days. We'll cure the new driftwood in a bucket for a week so the tannins don't turn everything amber. Somewhere behind the heater cord, the bristlenose pleco rasped at the glass, leaving faint clean trails through the algae film. By lamplight the neon tetras schooled tighter, a shivering blue thread behind the driftwood. Ammonia at zero, nitrite at zero, nitrates creeping toward forty \u2014 time for a thirty-percent water change. At lights-out the betta flares at his own reflection in the darkened glass. Condensation fogged the glass lid, and beneath it the amazon swords pearled tiny silver beads of oxygen. \"Guppies again?\" she sighed, netting the newest batch of fry out of the filter chamber. You'd think snails were decorative until a hundred of them mob one sinking algae wafer. A thermometer suctioned crooked to the glass has read 78 degrees, steady, since Tuesday. Overnight the heater's indicator blinked orange, then quit, and by dawn the water had slid to 68 degrees. What is the meaning of the word tank?",
+     "group": "d6",
+     "target_word": "tank",
+     "categories": {
+      "family": "fam03",
+      "k": "8",
+      "order": "A_recent"
+     }
+    }
+   ]
+  }
+ ]
+}

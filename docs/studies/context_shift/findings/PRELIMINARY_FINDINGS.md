@@ -1,3 +1,5 @@
+> **SUPERSEDED by `FINDINGS_AND_ANALYSIS_v2.md` (2026-08-28)** — v2 consolidates these findings plus the second-pass corrections (per-run drift+jump verdict, fr dip-power caveat, mid-axis park restatement, overshoot re-reference, axis rotation). This file is kept as the pre-second-pass record; corrections were NOT edited into the body below.
+
 # Preliminary Findings — Metastable-States Study (as of 2026-08-28)
 
 All claims below survived the full sanity pass (`sanity_pass_2026-08-28.md`). Vocabulary and

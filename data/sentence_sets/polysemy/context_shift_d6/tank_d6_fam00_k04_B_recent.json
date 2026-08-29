@@ -1,0 +1,23 @@
+{
+ "name": "tank_d6_fam00_k04_B_recent",
+ "version": "1.0",
+ "target_word": "tank",
+ "groups": [
+  {
+   "label": "d6",
+   "description": "tank_d6_fam00_k04_B_recent",
+   "sentences": [
+    {
+     "text": "I spent the morning siphoning debris from between the spiderwood branches so nothing would cloud the final photographs. After the awards, competitors swapped trimming techniques over cold noodles, sketching hardscape ideas on the backs of their scoring sheets. Newcomers learn the hard way that a focal point placed dead center costs points on every judge's sheet. The judges docked her two points because the hairgrass carpet had lifted near the front glass overnight. By noon the convention hall smelled of wet soil and glue, and every competitor was pretending not to study the neighboring entries. Photography day means blackout curtains, a rented strobe, and forty minutes of coaxing the rummynose tetras into the golden-ratio zone. Nobody expected the ninety-centimeter iwagumi to beat last year's champion, yet there it sat, first-place ribbon taped to its cabinet. We hauled buckets down the loading dock at dawn, praying the amano shrimp had survived the drive from Portland. \"Your negative space carries the whole composition,\" the Belgian judge told him, tapping the empty sand foreground. His bucephalandra had melted two weeks before judging; he entered anyway. Frag the pearlweed, wait three weeks, pray for pearling on judging morning \u2014 the whole hobby in one ritual. A dutch-style entry from Osaka stacked red ludwigia against limnophila in terraces so precise they looked machine-cut. One judge crouched at eye level with the aquarium for a full minute, saying nothing, pencil hovering. Someone's diffuser failed mid-exhibition, and three volunteers with airline tubing performed quiet surgery behind the display curtain. Before the judges' walkthrough, an apprentice wiped fingerprints off the front pane with a microfiber cloth, slow as a violin polisher. Ten entries, one gold \u2014 and the tiebreaker came down to whose stem plants showed cleaner internodes under the loupe. The turret ring, wedged solid with compacted chalk, refused the crane's first pull. Careful stratigraphy matters more than speed here \u2014 the burn layer above the hull dates the engagement. Honestly, I expected bones; instead we lifted a periscope housing, intact, glass and all. Under the sponson lay forty-three cartridge cases, each one bagged, labeled, and logged before dark. What is the meaning of the word tank?",
+     "group": "d6",
+     "target_word": "tank",
+     "categories": {
+      "family": "fam00",
+      "k": "4",
+      "order": "B_recent"
+     }
+    }
+   ]
+  }
+ ]
+}

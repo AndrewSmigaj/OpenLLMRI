@@ -1,0 +1,23 @@
+{
+ "name": "tank_d6_fam03_k16_B_recent",
+ "version": "1.0",
+ "target_word": "tank",
+ "groups": [
+  {
+   "label": "d6",
+   "description": "tank_d6_fam03_k16_B_recent",
+   "sentences": [
+    {
+     "text": "He counted the corydoras twice, then a third time, before finding the missing one dozing inside the ceramic cave. Rinse new gravel until the runoff turns clear, or the filter will choke on silt for days. We'll cure the new driftwood in a bucket for a week so the tannins don't turn everything amber. Somewhere behind the heater cord, the bristlenose pleco rasped at the glass, leaving faint clean trails through the algae film. I remember the linoleum sticking to my socks as I stood behind his chair, reading over his shoulder about Normandy hedgerows. You could hear the loader's routine in his cadence \u2014 shell, breech, ready \u2014 even sixty years after his last fight. Cracked at the spine, the album fell open to the page where his memoir began, the ink faded but the handwriting steady. Snapshots of five grinning boys on an armored hull; only one of them made it home to Ohio. We leaned closer whenever his voice dropped, because the quiet parts were always about the crew he'd lost outside Aachen. After the last page he closed the album gently, patted its cover twice, and asked who wanted more pie. His memoir never brags; it just lists the towns, the mud, and the boys who drove through both. He'd been a gunner, he told us, and the periscope's narrow world was all he saw of France. Nobody touched the pie while he described the night his platoon crossed the Roer under artillery. \"Read the part about Sergeant Malone again,\" my cousin begged, elbows on the table, homework forgotten. Turret markings, bogie wheels, a crooked antenna \u2014 he named every part of the machine in that photograph like an old friend. He read the roster of his old crew slowly, pausing after each name as if waiting for someone at the table to answer. Every November the ritual repeats: the album comes down from the shelf, the kitchen goes quiet, and the war returns in his careful voice. Forty years of silence, and now the whole story spilling out over cold coffee. The memoir's third chapter, read aloud between bites of pie, described repairing a thrown track in freezing mud while shells walked the treeline. Did anyone else notice how his hands shook when he turned to the page with the burned-out hulls? What is the meaning of the word tank?",
+     "group": "d6",
+     "target_word": "tank",
+     "categories": {
+      "family": "fam03",
+      "k": "16",
+      "order": "B_recent"
+     }
+    }
+   ]
+  }
+ ]
+}

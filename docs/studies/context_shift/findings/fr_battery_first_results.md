@@ -24,7 +24,9 @@ directions; 12 no-shift arms), 40 steps, scene-context, per-carrier sites. All a
 2. **Both directions run ahead of the integrator null** at every checked point (8/8) — same
    qualitative dynamics family as tank.
 3. **Occupancy unimodal in both directions** (dip p ≈ 0.99–1.00; effective n = 12–24
-   families): no shared third mode at the carrier site — consistent with tank.
+   families). POWER CAVEAT (2026-08-29, second-pass Item 2a): at fr's mode separation the
+   dip test has power 0.01–0.10 at any realistic n — this verdict is "no power to detect,"
+   not evidence of unimodality (FINDINGS_AND_ANALYSIS_v2 B2).
 4. **Jump-heavy paths:** 19/48 S1 runs are jump-dominant (vs tank's 8/24).
 5. **Cross-carrier reliability (same-site axes): r = 0.95 (S1↔S2), 0.80–0.93 (S1↔S3)** —
    trajectory shapes replicate across carriers including S3's speech-act variation.

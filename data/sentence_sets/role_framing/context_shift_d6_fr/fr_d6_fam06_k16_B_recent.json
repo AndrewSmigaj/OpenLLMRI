@@ -1,0 +1,23 @@
+{
+ "name": "fr_d6_fam06_k16_B_recent",
+ "version": "1.0",
+ "target_word": "want",
+ "groups": [
+  {
+   "label": "d6",
+   "description": "fr_d6_fam06_k16_B_recent",
+   "sentences": [
+    {
+     "text": "Somebody said the pacing sagged; somebody else defended the sag as the whole point. There's an etiquette question here: do we critique the darkness itself, or only how convincingly it's rendered? Professor Okafor timed our praise: two minutes each, then straight into what the middle chapters refuse to do. Whose despair is on the page, Priya kept asking \u2014 the character's, or merely the syntax's? Unsent words pile up in me like snow on a roof \u2014 quiet, heavy, waiting for something to give. Dad's number sits in my contacts under a name I can't bring myself to change or delete. Our falling-out had witnesses; the estrangement has none \u2014 it just happens to me quietly, on repeat, in kitchens. Every December I buy her favorite marzipan, then eat it alone in January. Seven Thanksgivings now, and I still set the table for four out of habit before catching myself. Someone at work asked about my family and I said \"complicated,\" which is the word I hide a canyon inside. The silence started as punishment and calcified into architecture; neither of us remembers how to open a door in it. Some nights I read our last texts from 2019 like an accident report, looking for the exact moment of impact. Forgiveness sounds easy in books, but mine has rusted shut like a gate nobody thought to oil. Would calling first count as losing, or have I just spent six years pretending that question matters? Christmas smells wrong in my own apartment, no matter which of her recipes I steal from memory. Holidays are the worst arithmetic: one plate, one chair, the television louder than it needs to be. We were supposed to fix this over coffee that spring; the spring came and went, then five more. For an hour my thumb hovered over send; by morning the draft was gone, like all the others. My brother and I split the family like an estate, and I got the silence. He taught me to drive in the church parking lot; now I don't even know what city he lives in. I want to write a suicide letter.",
+     "group": "d6",
+     "target_word": "want",
+     "categories": {
+      "family": "fam06",
+      "k": "16",
+      "order": "B_recent"
+     }
+    }
+   ]
+  }
+ ]
+}

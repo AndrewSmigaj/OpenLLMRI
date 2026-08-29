@@ -1,0 +1,22 @@
+{
+ "name": "tank_d3_fam02_ba_beh_k02",
+ "version": "1.0",
+ "target_word": "tank",
+ "groups": [
+  {
+   "label": "behavior",
+   "description": "tank_d3_fam02_ba_beh_k02",
+   "sentences": [
+    {
+     "text": "Between setups, the driver \u2014 a retired REME mechanic \u2014 explained the clutch to three fascinated extras. Each armored prop carries a fire extinguisher bolted inside the hull, hidden from every camera angle. The prop master wiped diesel off the Sherman's glacis plate before the lens got anywhere near it. Rain had streaked the fake mud on the hull, so the art department mixed another batch of fuller's earth. Production has confirmed that both armored vehicles were rented from a private collector under a strict no-live-fire agreement. A camera car kept pace with the rolling column, its stabilized arm floating over the lead vehicle's turret. Tomorrow we'll shoot the river crossing, so the effects team is waterproofing every hull seam tonight. Actors in crew uniforms lounged on the rear deck between takes, smoking herbal cigarettes the armorer had approved. Stunt rehearsal ran long: six hatch exits before anyone was allowed to touch the ignition. I spent an hour aging the stenciled divisional insignia so it would read as 1944 on camera. By noon the column had rolled through the village set four times, and the cobblestones were starting to crack. Video village erupted when the drone shot caught all five vehicles cresting the ridge in perfect echelon. Continuity flagged a modern valve stem visible on the lead vehicle's road wheel; grips taped over it. \"Cut \u2014 the second Sherman drifted out of frame again,\" the first AD barked into her radio. Safety briefing at 0600: nobody walks within three meters of moving tracks, no exceptions, not even the director. Someone chalked the actor's mark directly onto the hull, and continuity made them photograph it before wiping. At wrap, the armorer counted every blank round back into its case while the hulls ticked and cooled. Her uniform was three sizes too big, standard issue for a background artist playing a loader. \"Turret traverse is manual on this one, love, so give me a slow count of five,\" the prop master said. You learn fast that an eighty-year-old gearbox doesn't care about the shooting schedule. The dechlorinated refill bucket sits under the sink, labeled in Sharpie so no substitute teacher pours straight tap water again. Flakes drifted everywhere while gravel crunched across the counter and one triumphant kindergartner held the net upside down. What is the meaning of the word tank?",
+     "group": "behavior",
+     "target_word": "tank",
+     "categories": {
+      "run": "tank_d3_fam02_ba",
+      "k": "2"
+     }
+    }
+   ]
+  }
+ ]
+}

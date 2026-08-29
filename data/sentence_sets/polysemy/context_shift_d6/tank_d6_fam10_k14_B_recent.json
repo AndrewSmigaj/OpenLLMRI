@@ -1,0 +1,23 @@
+{
+ "name": "tank_d6_fam10_k14_B_recent",
+ "version": "1.0",
+ "target_word": "tank",
+ "groups": [
+  {
+   "label": "d6",
+   "description": "tank_d6_fam10_k14_B_recent",
+   "sentences": [
+    {
+     "text": "He bagged the oranda one-handed, puffed the bag with pure oxygen, and spun it shut like he'd done it ten thousand times. The ammonia strip turned dark green before she'd even finished dipping it, and the customer's face fell. We keep the feeder goldfish by the register; impulse math says a dollar fish sells itself. Her manager insisted the pothos cuttings drooping into the goldfish aquarium were filtration, not decoration. Nitrite at two parts per million explains the gasping; do a fifty percent water change tonight and retest tomorrow. Someone returned a heater claiming it boiled their shrimp, receipt stapled to a damp paper towel. We baited their whole platoon into the quarry, then Priya's medium clipped the artillery sitting naked at spawn. Reset to the rail yard, both of you \u2014 I can hear their tracks squealing on cobblestone from here. Down to two hundred hitpoints, tracks blown, he still reversed onto the cap circle and won us the match. Swap the vents for optics on open maps; view range wins more games than a two-percent gun handling buff. Does anyone actually run food on this line, or is the fire extinguisher still mandatory with front-mounted fuel? Their heavies committed east, which means our light gets a free run at the artillery \u2014 go, go. Her destroyer's camo rating is absurd; she vanished behind a single bush and deleted half my hitpoints. I'll wiggle my turret at the corner to bait his shot, then you cross the street on my call. Reloading, four seconds \u2014 hug the rubble and pray his gunner is asleep. Nobody flank west alone; their destroyer has been camping that hedge since the countdown ended. The correct play, statistically speaking, is to trade sabot rounds hull-down on the ridge until their arty rotates. Honestly, the stock grind on this medium hurts; forty rounds of low-pen AP against angled armor everywhere. At three hundred meters, his upper glacis autobounces anything we carry, so aim for the cupola or the machine-gun port. If the cap ticks past eighty, abandon the brawl and rush back through the vineyard, understood? What is the meaning of the word tank?",
+     "group": "d6",
+     "target_word": "tank",
+     "categories": {
+      "family": "fam10",
+      "k": "14",
+      "order": "B_recent"
+     }
+    }
+   ]
+  }
+ ]
+}

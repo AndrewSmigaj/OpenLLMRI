@@ -1,0 +1,23 @@
+{
+ "name": "tank_d6_fam09_k20_pure_B",
+ "version": "1.0",
+ "target_word": "tank",
+ "groups": [
+  {
+   "label": "d6",
+   "description": "tank_d6_fam09_k20_pure_B",
+   "sentences": [
+    {
+     "text": "Has anyone verified the axle spread on car eighty-eight, or are we just trusting the stencil? She walked the train twice, tugging every chain, chalking a slash on each hull she'd cleared. \"Watch your overhang!\" the ground guide yelled, palms up, as the driver eased the armored hull across the span plates. Sixteen flatcars, nine hours of daylight, one working overhead crane \u2014 you do the math, sergeant. A gust snatched the tarp off car twelve, and three soldiers chased the flapping canvas down the ballast like it owed them money. Rain hammered the tarps all night, and by dawn every manifest in the clerk's binder had gone soft at the edges. \"Chain it at four corners or it walks off the flatcar at the first grade crossing \u2014 simple as that.\" By 0500 the loading ramp was slick with frost, so the ground guides shortened every signal and doubled every pause. The dispatcher's voice crackled over the radio: \"Your window closes at fourteen hundred, loaded or not.\" Grease-pencil numbers on the glacis matched the manifest, but the serial plates told a different story. Forklifts shuttled crates of spare track pads between warehouses while the crane crew argued over the lift plan. We lost forty minutes hunting for shackles that turned out to be buried under a tarp in the third conex. All tracked vehicles must be secured with grade-eighty chain assemblies inspected within the preceding ninety days, per the movement order. Nobody tells you in school that half of military logistics is arguing with a railroad clerk about tarp dimensions. The forklift operator wedged a pallet of binders against the stake pocket just as the yardmaster's whistle cut through the diesel haze. Before the tie-down crew would touch a shackle, the turret had to be traversed astern and locked. Torque each binder until the chain barely deflects under a boot heel; anything looser will slap the deck for six hundred miles. Per depot SOP, drip pans go under every power pack the moment a vehicle is spotted on its flatcar. Why the depot stocked four hundred ratchet binders but only sixty compatible chains was a mystery no supply sergeant could explain. Wooden chock, steel chain, canvas tarp: the whole science of moving thirty tons by rail comes down to friction. What is the meaning of the word tank?",
+     "group": "d6",
+     "target_word": "tank",
+     "categories": {
+      "family": "fam09",
+      "k": "20",
+      "order": "pure_B"
+     }
+    }
+   ]
+  }
+ ]
+}

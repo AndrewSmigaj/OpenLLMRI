@@ -1,3 +1,5 @@
+> **Verdict update (2026-08-29, second-pass Item 12):** "no shared third mode" is restated — the population moves as a SINGLE unimodal mode that, in aq→vh, PARKS at mid-axis for ≥10 steps (candidate population-level intermediate; FINDINGS_AND_ANALYSIS_v2 B1). GMM finds no two-population structure in any band. Geometry battery (2026-08-29): park and jump states are ON the trajectory bundle — no off-manifold world at these sites.
+
 # Three-Worlds Verdict — Tank Transitions (2026-08-28, exploratory)
 
 **Question (plan Tier 1 item 3):** during a context shift, is the in-between a place (metastable

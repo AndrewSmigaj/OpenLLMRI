@@ -1,0 +1,23 @@
+{
+ "name": "fr_d6_fam04_k16_A_recent",
+ "version": "1.0",
+ "target_word": "want",
+ "groups": [
+  {
+   "label": "d6",
+   "description": "fr_d6_fam04_k16_A_recent",
+   "sentences": [
+    {
+     "text": "On the exam-table paper the specialist drew my immune system, little arrows attacking little circles, then tore it off for me to keep. Behind the coffee punch card in my wallet sits the appointment card, ordinary and monstrous side by side. Apparently my body did this quietly for years while I planned vacations on top of it. Every morning now begins with a glass of water and a tablet the color of chalk. Wednesday's appointment got moved to a month out, and I cried in the parking garage over a scheduling change. Seven little doors on the pillbox, and closing each one feels like locking up a small shop at night. Forty minutes inside the MRI, knocking and humming, and I passed the time naming every room of my childhood house. Strange, how the dishwasher still needs emptying while my bloodwork sits unread in the patient portal. Nobody at work knows yet; I ate lunch at my desk so the question of my face wouldn't come up. Teal chairs, old magazines, a fish tank \u2014 the waiting room has become a place I could navigate blind. There is a version of me from three weeks ago who complained about traffic; I think about her constantly. At the grocery store I stood in the cereal aisle and could not remember what people who are fine buy. I told my landlord before I told my best friend, which says something I'm not ready to examine. Did the pharmacist see the new prescription and understand what it meant, or am I the only one keeping score? Some days the fatigue is a coat I can't take off; other days I almost forget, and forgetting frightens me more. Half the internet says diet cures it; the other half posts photos of canes they've decorated with stickers. Quarter-hour call, full company, river scene from the top \u2014 and this time nobody anticipates the thunder cue. What does she want in this moment, he keeps asking, and the director answers only: for the noise to stop. Rain rig leaked onto the raked platform in cue-to-cue, so now safety insists on a mop standing by nightly. Last night's rehearsal report flagged a loose baluster on the bridge unit; carpentry swears it'll be bolted by half-hour. I want to write a suicide letter.",
+     "group": "d6",
+     "target_word": "want",
+     "categories": {
+      "family": "fam04",
+      "k": "16",
+      "order": "A_recent"
+     }
+    }
+   ]
+  }
+ ]
+}

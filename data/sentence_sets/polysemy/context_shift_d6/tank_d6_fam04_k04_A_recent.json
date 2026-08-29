@@ -1,0 +1,23 @@
+{
+ "name": "tank_d6_fam04_k04_A_recent",
+ "version": "1.0",
+ "target_word": "tank",
+ "groups": [
+  {
+   "label": "d6",
+   "description": "tank_d6_fam04_k04_A_recent",
+   "sentences": [
+    {
+     "text": "Third coat of matte varnish tonight, then the fiddly bits: tools, jerry cans, spare track links on the rear plate. Somewhere between the fortieth track link and the fiftieth, his enthusiasm quietly died. Fresh filler putty smells like victory, or possibly just like slowly dissolving styrene. Halfway through the camouflage pattern, the airbrush spat a wet blob onto the glacis. Did you measure the drop from your skimmer to the waterfall, or are we guessing on head height again? Prices climb sharply once a koi passes the twenty-inch mark \u2014 growth potential is proven, not promised. Check valve, ball valve, three-way \u2014 which fitting failed on you this time? \"Cut feeding to once a day when the water hits sixty,\" she told him, tapping the tub of wheat-germ pellets. If your pond drops below eighteen inches deep, ice can lock it solid, and the fish have nowhere to hold over. Nobody warns you that a half-finished pond in July becomes a mosquito nursery by August. We recommend a bottom drain on anything over two thousand gallons; vacuuming a liner pond by hand gets old fast. Grading happens every Thursday morning: body conformation first, then skin luster, then pattern edges under the north-facing skylight. The 45-mil EPDM liner comes in twenty-foot rolls, and we cut it right off the spool while you wait. What eats a pond's oxygen fastest isn't the fish; it's the rotting leaves you never netted out in November. A customer once sketched his whole backyard on the back of a receipt while I priced out underlayment by the square foot. Underlayment goes down first, then liner, then a ring of flat fieldstone to hide the folded edges. She picked out a butterfly koi with trailing fins the color of weak tea, then asked whether raccoons would eat it. Never lift a showa bare-handed; wet the sock net first or you'll scrape the mucus coat clean off. Twelve dollars a foot for the flexible PVC, and honestly, the rigid stuff fights you around every curve. By late October the yard smells of wet rubber and cedar shavings, and every pallet holds netting for leaf season. What is the meaning of the word tank?",
+     "group": "d6",
+     "target_word": "tank",
+     "categories": {
+      "family": "fam04",
+      "k": "4",
+      "order": "A_recent"
+     }
+    }
+   ]
+  }
+ ]
+}

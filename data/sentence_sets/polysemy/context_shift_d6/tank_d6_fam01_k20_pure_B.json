@@ -1,0 +1,23 @@
+{
+ "name": "tank_d6_fam01_k20_pure_B",
+ "version": "1.0",
+ "target_word": "tank",
+ "groups": [
+  {
+   "label": "d6",
+   "description": "tank_d6_fam01_k20_pure_B",
+   "sentences": [
+    {
+     "text": "Honestly, half our overtime comes from grinding out sloppy tack welds the day shift leaves behind. Third rejection this week on bay two's seams\u2014somebody check that wire feed. Her ultrasonic probe traced the seam twice; the second pass found the void the first had missed. Sparks rained off the hull plate while two welders argued, through their visors, about last night's match. Under the floodlights, the half-finished chassis looked less like a war machine and more like a beached steel whale. The shift supervisor taped the rejection slip to the chassis and told nobody to touch it until the metallurgist arrived. All armored side panels shall be degreased, inspected for lamination defects, and logged before entering the assembly line. Nine bare chassis sat in line for turret installation, but only one crane operator was scheduled before noon. Quality inspectors rejected fourteen hull plates on Tuesday after ultrasonic testing revealed porosity along the lower weld seams. A hairline crack in the mantlet casting sent the whole batch back to the foundry, three weeks of schedule gone. Watch the sling angle, Marek\u2014if that turret assembly swings into the jig again, we lose the whole morning. Crane four to floor: lowering the turret in thirty seconds, clear the ring. Did anyone recalibrate the torque wrenches after the audit, or are we still guessing on the ring bolts? I've welded hull seams for eleven years, and my hands still shake a little when the crane passes overhead. Who signed off on this weld bead\u2014it undercuts the armor plate nearly two millimeters at the corner? When the klaxon sounds, everything stops\u2014welders lift their visors, the crane freezes mid-lift, and the floor goes quiet. Next quarter the plant will add a second overhead crane, so turret drops won't bottleneck the afternoon shift anymore. Procedure 41-C requires two inspectors to witness the seating of the turret race before any fasteners are installed. Rivas steadied the swaying turret with one gloved palm, guiding the crane operator down the last few centimeters. By dawn the third shift had ground down every rough seam on the glacis plates, leaving the bay smelling of scorched metal. What is the meaning of the word tank?",
+     "group": "d6",
+     "target_word": "tank",
+     "categories": {
+      "family": "fam01",
+      "k": "20",
+      "order": "pure_B"
+     }
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "name": "tank_d6_fam11_k18_B_recent",
+ "version": "1.0",
+ "target_word": "tank",
+ "groups": [
+  {
+   "label": "d6",
+   "description": "tank_d6_fam11_k18_B_recent",
+   "sentences": [
+    {
+     "text": "The spreadsheet says mortality stayed under five percent, but she recounts the sea stars anyway, twice. You learn fast that neoprene gloves do nothing against an urchin spine driven under the thumbnail. Crews who lased the wrong target got a red flag and a long afternoon of remedial drills. Column speed held at fifteen kph, per the safety brief, while the guns worked left to right. A tracer skipped off the hardpan and tumbled, glowing, into the impact area beyond the targets. \"Cease fire, cease fire \u2014 misfire procedures, now,\" barked the master gunner, already sprinting down the catwalk. Every rut sent the gunner's sight picture jittering until the stabilization caught up with the terrain. On the net, someone's mic stuck open, broadcasting two minutes of turbine whine to the whole company. Then it was just \"Driver, stop,\" and the world shrank to the reticle. \"Gun up, sabot loaded, identify troops in the open,\" the loader shouted over the intercom crackle. Between engagements the crews cracked hatches, gulping air that tasted of diesel and burnt propellant. Sergeant Vela leaned into the instructor's hatch, timing each engagement with a battered stopwatch. Each hull lurched over the ridge in turn, guns stabilized and level while the chassis bucked underneath. Twelve seconds from target up to steel on steel \u2014 the standard the instructors wanted was under eight. Somewhere behind the smoke, a recovery vehicle idled, waiting for the first thrown track of the day. I'd fired maybe forty rounds by noon, and my ears rang through doubled-up hearing protection. Range control, this is Blue Six \u2014 are we clear to go hot on lane two? Why the third crew kept overshooting the berm, nobody on the observation tower could explain. After the last run the chief instructor debriefed each crew beside the still-ticking engine decks. It was the coax bursts, not the main gun, that stitched the pop-up silhouettes flat. What is the meaning of the word tank?",
+     "group": "d6",
+     "target_word": "tank",
+     "categories": {
+      "family": "fam11",
+      "k": "18",
+      "order": "B_recent"
+     }
+    }
+   ]
+  }
+ ]
+}

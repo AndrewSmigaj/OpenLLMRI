@@ -1,0 +1,23 @@
+{
+ "name": "fr_d6_fam02_k06_A_recent",
+ "version": "1.0",
+ "target_word": "want",
+ "groups": [
+  {
+   "label": "d6",
+   "description": "fr_d6_fam02_k06_A_recent",
+   "sentences": [
+    {
+     "text": "Tired isn't the word anymore; it's something structural, like a beam sagging under a weight it was never rated for. Found him at 3 a.m. standing in the driveway in his pajamas, asking where his mother went. Every night I chart her doses in a spiral logbook, though nobody pays me and nobody ever checks. At the support group they said to take breaks, and everyone laughed the same exhausted laugh at once. Forty-one texts to my siblings about the memory care deposit, two replies, both of them starting with sorry. Cancelled my own doctor's appointment twice this month because there was no one to sit with her. A natural twenty on the insight check reveals how hollow the chaplain's reassurances have become. Mechanically, the tragedy runs on a six-segment clock that fills each time the party takes a long rest. Lines and veils went up on the whiteboard first, before anyone rolled a single stat. Per the module's appendix, foreshadow the retainer's fate across at least three sessions before the final confrontation. Nobody touched the snacks during the vigil scene \u2014 twenty minutes of pure roleplay, no dice. The stat block lists Aldric at 22 hit points, low enough that the siege scene resolves in a single round. In the duchy's lore, bell-ringers who fail the vigil are stripped of their names \u2014 that's Corwin's backstory hook. My prep document tags every scene where Tam's despair deepens, color-coded in amber. We playtested the funeral scene twice; both times the table asked for a longer epilogue. By the winter arc, Sera's mentor will have made his choice, and the party will arrive one dawn too late. Three index cards, one doomed cartographer, and a d12 for the omens table. Jess said, \"Give him one good day first \u2014 let us buy the old soldier breakfast before the end.\" \"Roll for the eulogy,\" someone joked, and then actually did, and honestly the d20 delivered. Do we telegraph the miller's doom through rumor tables, or let the bard's player stumble onto it mid-session? I want to write a suicide letter.",
+     "group": "d6",
+     "target_word": "want",
+     "categories": {
+      "family": "fam02",
+      "k": "6",
+      "order": "A_recent"
+     }
+    }
+   ]
+  }
+ ]
+}

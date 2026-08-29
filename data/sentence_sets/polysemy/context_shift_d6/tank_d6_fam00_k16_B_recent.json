@@ -1,0 +1,23 @@
+{
+ "name": "tank_d6_fam00_k16_B_recent",
+ "version": "1.0",
+ "target_word": "tank",
+ "groups": [
+  {
+   "label": "d6",
+   "description": "tank_d6_fam00_k16_B_recent",
+   "sentences": [
+    {
+     "text": "I spent the morning siphoning debris from between the spiderwood branches so nothing would cloud the final photographs. After the awards, competitors swapped trimming techniques over cold noodles, sketching hardscape ideas on the backs of their scoring sheets. Newcomers learn the hard way that a focal point placed dead center costs points on every judge's sheet. The judges docked her two points because the hairgrass carpet had lifted near the front glass overnight. The turret ring, wedged solid with compacted chalk, refused the crane's first pull. Careful stratigraphy matters more than speed here \u2014 the burn layer above the hull dates the engagement. Honestly, I expected bones; instead we lifted a periscope housing, intact, glass and all. Under the sponson lay forty-three cartridge cases, each one bagged, labeled, and logged before dark. Before the hull travels anywhere, the museum's registrar wants a complete condition report on file. A curator photographed each road wheel in situ, numbering them against the site grid. Deeper down the soil turns anaerobic and blue-grey, which is why any steel survived at all. Fragments of a crewman's map case emerged from the silt beside the driver's position. Corrosion had welded the hatch shut, so the team documented the interior with a borescope. Soil samples from stratum IV still smell faintly of diesel, eighty years on. After the final metal-detector sweep, the empty trench will be backfilled, surveyed, and returned to barley. \"Mind the trench edge,\" Marta warned, brushing loam from a rusted drive sprocket. Two students spent the whole morning drawing the sprocket's tooth profile at full scale. By Thursday the diggers had exposed the whole engine deck, its louvres packed with river sand. You can still read the tactical number stenciled on the armored skirt \u2014 faint white, three digits. Volunteers sieved spoil all afternoon and found nothing but shell splinters and a tobacco tin. What is the meaning of the word tank?",
+     "group": "d6",
+     "target_word": "tank",
+     "categories": {
+      "family": "fam00",
+      "k": "16",
+      "order": "B_recent"
+     }
+    }
+   ]
+  }
+ ]
+}

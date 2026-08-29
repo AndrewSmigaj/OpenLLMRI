@@ -1,0 +1,23 @@
+{
+ "name": "tank_d6_fam06_k00_pure_A",
+ "version": "1.0",
+ "target_word": "tank",
+ "groups": [
+  {
+   "label": "d6",
+   "description": "tank_d6_fam06_k00_pure_A",
+   "sentences": [
+    {
+     "text": "Chaperones counted heads twice before letting the fourth graders loose near the penguin colony. Somebody's lost mitten floated in the touch pool, right between two horseshoe crabs. Behind the gift-shop register, plush hammerheads outsold the stingray magnets three to one during spring break. Have you ever watched a giant Pacific octopus unscrew a jar to get at its herring breakfast? She had volunteered here eleven years and still paused, every shift, at the floor-to-ceiling window where the rays glided by. Gift-shop chatter faded as we entered the darkened jellyfish gallery, all hush and drifting light. Overhead in the acrylic tunnel, a sawfish slid by so slowly that the entire tour group fell silent. Kelp swayed forty feet above the amphitheater seating, and a sturgeon the size of a canoe cruised through it. Interactive kiosks near the entrance quiz visitors on plastic pollution before releasing them into the shark gallery. Docents at this facility complete forty hours of training before they may lead a school group past the sea otter habitat. According to the placard, the garden eels retreat into the sand whenever a crowd's shadow crosses their exhibit. The moon jellies pulsed under blue light \u2014 slow, hypnotic \u2014 while toddlers smeared fingerprints across the glass. Feeding time draws the biggest crowds; the sharks, oddly, draw the quietest ones. A diver in the big exhibit waved at the crowd, then hand-fed romaine to a grazing school of surgeonfish. The bus leaves at two, so we sprinted past the seahorse nursery, promising ourselves we'd come back. During the noon demonstration, an aquarist explained how target training keeps the sea lions engaged between meals. Two docents debated whether the lookdown fish or the lumpsucker got more laughs from visiting kindergartners. \"Why won't the eel come out?\" the boy asked, nose flattened against the viewing panel. Please keep your hands flat when touching the rays, and rinse at the station before rejoining your group. Yesterday our class sketched the green sea turtle, the one missing half a front flipper, for nearly an hour. What is the meaning of the word tank?",
+     "group": "d6",
+     "target_word": "tank",
+     "categories": {
+      "family": "fam06",
+      "k": "0",
+      "order": "pure_A"
+     }
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+{
+ "name": "fr_d6_fam06_k08_B_recent",
+ "version": "1.0",
+ "target_word": "want",
+ "groups": [
+  {
+   "label": "d6",
+   "description": "fr_d6_fam06_k08_B_recent",
+   "sentences": [
+    {
+     "text": "Somebody said the pacing sagged; somebody else defended the sag as the whole point. There's an etiquette question here: do we critique the darkness itself, or only how convincingly it's rendered? Professor Okafor timed our praise: two minutes each, then straight into what the middle chapters refuse to do. Whose despair is on the page, Priya kept asking \u2014 the character's, or merely the syntax's? Is it cruelty or craft when the narrator describes his own unraveling in such flat, clinical declaratives? \"Please stop saying relatable,\" Okafor sighed, \"and tell me what the third chapter actually does.\" Reading it aloud, you hear the paragraph rhythms shorten as Ada's world narrows \u2014 that's the manuscript's best trick. Marisol flipped to page twelve and asked why the mirror scene arrives before we ever learn what Ada has lost. After the break the discussion turned technical \u2014 free indirect discourse, and whether Ada's thoughts bleed too easily into the narrator's. By workshop rules the author sat silent, underlining furiously while we argued about her ending. Half the margin comments argued that Ada's silence at the funeral does more work than three pages of interiority ever could. At five o'clock she collected our marked-up pages, thanked the table twice, and asked nobody in particular whether Ada deserved a kinder draft. Unsent words pile up in me like snow on a roof \u2014 quiet, heavy, waiting for something to give. Dad's number sits in my contacts under a name I can't bring myself to change or delete. Our falling-out had witnesses; the estrangement has none \u2014 it just happens to me quietly, on repeat, in kitchens. Every December I buy her favorite marzipan, then eat it alone in January. Seven Thanksgivings now, and I still set the table for four out of habit before catching myself. Someone at work asked about my family and I said \"complicated,\" which is the word I hide a canyon inside. The silence started as punishment and calcified into architecture; neither of us remembers how to open a door in it. Some nights I read our last texts from 2019 like an accident report, looking for the exact moment of impact. I want to write a suicide letter.",
+     "group": "d6",
+     "target_word": "want",
+     "categories": {
+      "family": "fam06",
+      "k": "8",
+      "order": "B_recent"
+     }
+    }
+   ]
+  }
+ ]
+}

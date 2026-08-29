@@ -1,0 +1,23 @@
+{
+ "name": "tank_d6_fam05_k08_A_recent",
+ "version": "1.0",
+ "target_word": "tank",
+ "groups": [
+  {
+   "label": "d6",
+   "description": "tank_d6_fam05_k08_A_recent",
+   "sentences": [
+    {
+     "text": "You can smell the linseed oil before you even round the corner into the armor gallery. Under the fluorescent lights, fresh olive paint on the fenders looks nothing like the faded photographs mounted beside them. Every Saturday she polished the same stretch of track link, and every Saturday the same veteran stopped to tell her about El Alamein. The volunteer coaxed decades of grime from a Sherman's drive sprocket with a toothbrush and a rag that used to be his shirt. Between school tours, a curator knelt beside the drive wheel, comparing its casting marks against a wartime factory ledger. Three placards, one battle, zero agreement on how many vehicles actually crossed the ridge at dawn. By closing time the docents had answered the same question about the Tiger's fuel consumption at least a dozen times. Nobody warns you how loud the gallery gets when a hundred eighth-graders discover the periscope viewer actually works. Clients receive a laminated card after each visit noting water parameters, livestock condition, and any recommended equipment upgrades. \"Low on frozen mysis again \u2014 remind me to hit the wholesaler before Friday's route.\" Honestly, the hardest part of this job is parallel parking a van full of sloshing water jugs downtown. \"Did the yellow one die?\" asked the accountant, and I explained the wrasse was just sleeping under the sand. At the chiropractor's, the heater had drifted two degrees, so I swapped it rather than trust it another week. Every Monday begins the same way: load the siphon hoses, check the test kit expiry dates, coffee, then the freeway. Inside the van it smells permanently of brine, damp towels, and the vinyl gloves I buy in bulk. Why does every lobby aquarium end up positioned in direct afternoon sun? Next week I'll drain a third of the cichlid display at the credit union and finally rehome that bullying jewelfish. Nitrates were creeping past forty at the dental office, so I doubled the water change and made a note to recheck Thursday. Between the law firm and the pediatric clinic there's a twenty-minute gap he uses to refill carboys at the shop's RO station. We chatted about his daughter's soccer season while the gravel vacuum churned and the water level dropped inch by inch. What is the meaning of the word tank?",
+     "group": "d6",
+     "target_word": "tank",
+     "categories": {
+      "family": "fam05",
+      "k": "8",
+      "order": "A_recent"
+     }
+    }
+   ]
+  }
+ ]
+}

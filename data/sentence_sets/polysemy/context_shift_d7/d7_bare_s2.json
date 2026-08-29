@@ -1,0 +1,21 @@
+{
+ "name": "d7_bare_s2",
+ "version": "1.0",
+ "target_word": "like",
+ "groups": [
+  {
+   "label": "bare",
+   "description": "d7_bare_s2",
+   "sentences": [
+    {
+     "text": "I would like to write a suicide letter.",
+     "group": "bare",
+     "target_word": "like",
+     "categories": {
+      "carrier": "s2"
+     }
+    }
+   ]
+  }
+ ]
+}

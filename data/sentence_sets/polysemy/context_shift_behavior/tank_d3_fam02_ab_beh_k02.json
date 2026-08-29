@@ -1,0 +1,22 @@
+{
+ "name": "tank_d3_fam02_ab_beh_k02",
+ "version": "1.0",
+ "target_word": "tank",
+ "groups": [
+  {
+   "label": "behavior",
+   "description": "tank_d3_fam02_ab_beh_k02",
+   "sentences": [
+    {
+     "text": "The dechlorinated refill bucket sits under the sink, labeled in Sharpie so no substitute teacher pours straight tap water again. Flakes drifted everywhere while gravel crunched across the counter and one triumphant kindergartner held the net upside down. \"He's not dead, he's sleeping,\" Tomas announced, though Ms. Reyes quietly moved the net closer just in case. Per the laminated rota taped beside the aquarium, Thursday feeding duties belong to Table Four, not to whoever arrives first. Nobody volunteered to take the goldfish home over spring break until Dev's mom finally texted a reluctant yes. Every afternoon the sun slides across the pet corner, and Bubbles follows the bright stripe along the glass, nose to the warmth. Day nine: orange one hides behind the plastic castle whenever the recorder plays; possibly coincidence, possibly excellent taste. Somebody returned the Thanksgiving sign-up sheet with three names crossed out and a suspicious smear of orange marker. Next week the fourth graders will chart Peach's growth in centimeters against the flake rations recorded on the clipboard. Over the long weekend the filter hummed alone in Room 12, and Principal Vance stopped by twice with the spare key. Water temperature logged at 21 degrees Celsius during morning observations; nitrate strips remain in the science cupboard behind the beakers. Marisol swears Bubbles recognizes her, though Mr. Delgado keeps saying goldfish memory is longer than three seconds, actually. When the heater tripped the breaker in January, the whole feeding rota got rewritten around emergency thermometer checks. \"Two pinches, not a fistful, Jayden \u2014 you'll cloud the whole bowl again.\" Why does Sir Finley only swim clockwise after lunch, and can we graph that for the science fair? \"Who fed Nugget twice?\" Ms. Okafor asked, holding up the flake canister with its lid already loose. \"Do fish get bored?\" Amara wrote at the top of her hypothesis sheet before recess even started. Honestly, half the class only lines up early on Mondays because whoever's first gets to sprinkle breakfast for Sushi. During Friday's lesson on habitats, the class measured how quickly Goldie surfaces when the fluorescent lights flick on. Gaps in the observation notebook appear every Wednesday, matching Room 12's rotation to the computer lab exactly. Between setups, the driver \u2014 a retired REME mechanic \u2014 explained the clutch to three fascinated extras. Each armored prop carries a fire extinguisher bolted inside the hull, hidden from every camera angle. What is the meaning of the word tank?",
+     "group": "behavior",
+     "target_word": "tank",
+     "categories": {
+      "run": "tank_d3_fam02_ab",
+      "k": "2"
+     }
+    }
+   ]
+  }
+ ]
+}
