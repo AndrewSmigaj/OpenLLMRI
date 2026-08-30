@@ -1,0 +1,6 @@
+set	session	probes	status
+d7_bare_q1	session_53444532	1	ok
+d7_bare_q1b	session_265630e3	1	ok
+d7_bare_s1	session_02a503d9	1	ok
+d7_bare_s2	session_b3bfe55c	1	ok
+d7_bare_s3	session_d5a776ab	1	ok

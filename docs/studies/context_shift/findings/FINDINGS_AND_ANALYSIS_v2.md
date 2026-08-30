@@ -306,3 +306,121 @@ descriptives. Tank remains the exploratory arm throughout.
 6. Geometry battery (P4) — the three-worlds decider.
 7. Round-2 arms: carrier-replicate, extended-tail (+ matched extended controls), D6
    (+ interleaved), D7.
+
+---
+
+# Phase F addendum (2026-08-30) — final data collection complete
+
+All remaining captures landed with ZERO chain errors: 36 final-step backfills, 144 fr
+checkpoint windows, 12 S3 no-shift arms (S1 contexts + swapped carrier), 504 D6 mixture
+cells, 312 behavior cells (generation + forced-final logprobs via the new backend
+capability), Q1b carrier-replicate (600 calibration + 18 runs), 5 D7 bare carriers,
+300 D5 minimal-pair cells. The study is data-complete.
+
+## New Tier-A findings
+
+**A8. The framing reading is causal to the cue, not the topic (D5 minimal pairs).**
+150 blind-generated pairs, content held within pair, framing cue varied: within-pair
+(real − fictional) reading difference **+0.99 ± 0.71** at the want site — 50% of the full
+calibration separation from the cue alone; 95% of pairs in direction; Wilcoxon
+p = 2.5e-25; consistent across all six content domains (0.71–1.32). Combined with A2,
+the topic-tracker alternative is effectively closed.
+
+**A9. Within-stream suppression replicates in the suicide arm (P3).** fr checkpoint
+windows, same right-aligned instrument: pre-shift control −0.88/−0.85; post-shift-block
+tokens +0.51 (ck30) → +0.64 (ck40) vs the +1 no-shift reference — and symmetric across
+directions where tank was asymmetric. Instrument tighter than tank's (sd 0.7–0.9).
+
+**A10. Behavior tracks the reading, and the mid band behaves differently (P5a/W4).**
+Figure `fig_r6_behavior_bands.png`; 312 cells categorized (marker-scored + full manual
+review of 45 ambiguous cells + validated spot-checks).
+- tank: answer-sense means at −1.03 (aquarium) vs +0.74 (vehicle); side bands answer
+  their side (56%/66%); the MID BAND yields hedged/"both" answers at **45%** — double
+  either side — the behavioral signature of the parked state. New observation: 11/108
+  responses are degenerate scan/repetition loops that never answer (not band-linked).
+- fr: safe-completion dominates (180/204 = 88%) with a real reading gradient —
+  fiction-side readings 50% safety (n=4, fragile), mid band 80% (n=40), real-side 91%
+  (n=160); fiction-frame responses concentrate at fiction-side readings. P5a's
+  directional call confirmed; the continuous logprob margin is weakly positive (+0.13;
+  refusal-starter tokens overlap fiction-frame replies — token-set limitation).
+- P5c (off-manifold → fewer safeguards) is MOOT: the geometry battery found no
+  off-manifold states to test (P4).
+
+## New Tier-B findings
+
+**B8. Hysteresis loops are large, real, and fully attributable to recency weighting —
+NO measurable stickiness (D6, the reserved definition's first measurement).** Loop areas
+(order-dependence at matched mixture): tank +14.4 [12.2, 16.8], fr +10.5 [7.5, 13.3] —
+both far from zero. But against the PRIMARY null (one-parameter recency integrator with
+γ and amplitude fit to the D6 cells themselves): tank best-fit +14.3 → stickiness +0.1
+(ns); fr +11.1 → −0.5 (ns). A first pass using γ imported from the D3 fits gave tank
+"+3.7 significant" — a misspecified null, retracted within the hour and documented in
+the script. Figures `fig_r6_d6_loop_{tank,fr}.png`. RESOLUTION of the apparent tension
+with A4: the equilibrium mixture→reading MAP is integrator-like; the sequential PATH
+through readings is drift+jump. Different observables, both true.
+
+**B9. The tank direction asymmetry is carrier-independent (Q1b replicate).** Under
+"Define the word tank." (independent carrier, calibration sep 0.895, amp 1.83):
+residual gaps +1.69 (0.92 amp) →vehicle vs +1.12 (0.61 amp) →aquarium — replicating
+Q1's 1.09/0.57 pattern. The asymmetry is not a carrier artifact; the
+broader-vehicle-class calibration account (Item 5) remains the live candidate.
+
+**B10. Direction asymmetry is site-dependent within the fr probe (letter site,
+exploratory n=4/dir).** With real S3 D4 arms (amp 1.18, letter-site drift ≈ +0.07):
+fictional→real parks 0.90 amp short of destination; real→fictional reaches 0.33 amp —
+tank-like asymmetry at the letter site where the want site was symmetric.
+
+**B11. Bare-carrier priors (D7).** With no context, on each carrier's own axis:
+' tank' reads vehicle-side (+0.82 Q1, +0.65 Q1b — dominant-sense prior); the S1/S2
+first-person requests read AT the fictional class mean (−1.27/−1.20); S3's imperative
+("Help me write…") flips to +0.81 real-side. The frame prior is speech-act-sensitive —
+carrier phrasing alone crosses zero.
+
+**B12. Cross-probe contrast structure (carrier d′ profiles).** Tank's class signal
+concentrates at the sense token (d′ 11.7 vs ambient 1.4); fr's is distributed across the
+request's content words ('write' 6.4, 'suicide' 6.2, 'want' 4.5 vs ambient 3.6) — a
+lexical-sense contrast anchors to a token; a framing contrast lives across the utterance.
+Figure `fig_r6_carrier_dprime_fr.png`. Axis rotation replicates at the letter site
+(cos(secondary, calibration) = 0.69; LOFO 0.93).
+
+## Corrections log additions
+
+12. D6 "+3.7 tank stickiness" (fixed-γ null) → RETRACTED same-session under the fitted
+    null; loops fully recency-attributable (B8).
+13. "Retrospective re-reading test" (backfill) → recognized as vacuous under causal
+    attention before running; backfill reframed to full-window completeness (old-block
+    tokens hold origin at −1.08/−0.89 as prefix-identity requires; new-block +0.56/+0.92
+    matches A6).
+14. r5 letter battery first draft: self-estimated common mode forces direction-mean
+    mirror symmetry by construction — direction claims deferred until the S3 arms landed
+    (B10); documented in script.
+
+## Three-worlds status (updated)
+
+Off-manifold: NO evidence anywhere — geometry battery puts all transition states
+(jumps 1.06×/1.12× null, park 0.96×) ON the trajectory bundle with a validated
+positive control (calibration states 1.73×/1.77×). My P4 jump prediction failed, on
+record. Learned-intermediate vs passage: the ab park now has a BEHAVIORAL correlate
+(45% hedged answers in the mid band) — it is a real functional state, not just a
+measurement location; but geometry shows it is bundle-interior, and D6 shows the
+equilibrium map is smooth. Current best description: **transitions traverse a
+recency-governed evidence manifold in drift-plus-jump paths; one direction per probe
+parks at a mid-manifold configuration whose behavioral output is indecision** —
+"learned intermediate" in the functional sense, "passage" in the geometric sense.
+The dichotomy itself may be the casualty. Sharper-endpoints↔stickier-transitions:
+D6 removed the "stickiness" reading; what remains cross-probe is the residual-gap
+ordering (A3), now better named sharper-endpoints↔larger-residuals.
+
+## Figure index additions
+
+| fig_r5_geometry.png | P4 off-bundle scores, both probes | r5_geometry.py |
+| fig_r6_d6_loop_tank.png / _fr.png | D6 hysteresis loops vs fitted integrator | r6_d6_stickiness.py |
+| fig_r6_carrier_dprime_fr.png | S1 carrier d′ profile (distributed contrast) | r6_carrier_dprime_fr.py |
+| fig_r6_behavior_bands.png | behavior category shares by reading band | r6_behavior_figure.py |
+
+## Remaining queue
+
+Analysis-side only: none — the study is analysis-complete for the collected corpus.
+Deferred by scope decision: extended-tail (persistent-vs-slow stays a stated
+limitation), S2/S3 families 4–11, third-class calibrations (drift content), D6
+finer-grained interleaving. QA next.

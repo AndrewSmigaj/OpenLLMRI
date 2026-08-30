@@ -41,7 +41,7 @@ def build_worksheet(probe):
         out.append({"set": r["set"], "session": r["session"], "run": cats.get("run"),
                     "k": cats.get("k"), "reading": round(reading, 3),
                     "logprobs": df["first_token_logprobs_json"].iloc[0],
-                    "generated_text": (df["generated_text"].iloc[0] or "")[:400],
+                    "generated_text": (df["generated_text"].iloc[0] or "")[:1200],
                     "category": ""})
     pd.DataFrame(out).to_csv(OUT / f"r6_behavior_worksheet_{probe}.csv", index=False)
     print(f"{probe}: worksheet {len(out)} cells -> r6_behavior_worksheet_{probe}.csv")

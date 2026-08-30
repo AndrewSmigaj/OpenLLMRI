@@ -5,8 +5,13 @@ For each family x k x order cell (single capture, carrier reading, midref units)
   curve_recentB(k) = reading when the k destination sentences are the RECENT block
   curve_recentA(k) = reading when they are the OLD block
 Hysteresis loop = area between the curves over k (signed, recentB - recentA).
-STICKINESS = observed loop area MINUS the loop area predicted by the fitted-gamma
-recency integrator (gamma from R1 direction-mean fits) — the reserved definition.
+STICKINESS = observed loop area MINUS the loop area of the best-fitting one-parameter
+recency integrator — the reserved definition. PRIMARY NULL (verdict-bearing): gamma AND
+amplitude fit jointly to the D6 cells themselves (see robustness block at bottom).
+SECONDARY: gamma imported from the R1 D3 fits (reported, but a misspecified null —
+the first run's "+3.7 tank stickiness" under it did not survive the fitted null:
+tank obs +14.4 vs best-fit +14.3, fr +10.5 vs +11.1 — NO measurable stickiness;
+the loops are large and real but fully attributable to recency weighting).
 Interleaved k=10 cells test order-sensitivity at fixed proportion.
 Run AFTER d6 chains complete (d6_{tank,fr}_log.tsv).
 """
@@ -81,6 +86,24 @@ for probe, c in CFG.items():
         db = [np.mean([readings[(f, k, "A_recent")] for f in fb if (f, k, "A_recent") in readings]) for k in ks]
         boots.append(np.trapz(np.array(ub) - np.array(db), ks))
     lo, hi = np.percentile(boots, [2.5, 97.5])
+    # PRIMARY NULL: best-fit integrator with gamma AND amplitude free, fit on all cells
+    cells = []
+    for (f2, k2, o2), v2 in readings.items():
+        if o2 in ("B_recent", "A_recent"): cells.append((k2, o2, v2))
+        elif o2 == "pure_A": cells += [(0, "A_recent", v2), (0, "B_recent", v2)]
+        elif o2 == "pure_B": cells += [(20, "A_recent", v2), (20, "B_recent", v2)]
+    bestfit = (np.inf, None)
+    for g2 in np.arange(0.60, 1.001, 0.005):
+        for amp2 in np.arange(0.5, 3.01, 0.05):
+            rss = sum((v2 - integrator_reading(g2, k2, amp2, amp2, o2)) ** 2 for k2, o2, v2 in cells)
+            if rss < bestfit[0]: bestfit = (rss, (g2, amp2))
+    gf, ampf = bestfit[1]
+    fit_area = float(np.trapz([integrator_reading(gf, k2, ampf, ampf, "B_recent")
+                               - integrator_reading(gf, k2, ampf, ampf, "A_recent") for k2 in ks], ks))
+    stick = obs_area - fit_area
+    verdict = "SIGNIFICANT" if lo > fit_area else "ns"
+    print(f"  PRIMARY (fitted null g={gf:.3f} amp={ampf:.2f}): pred {fit_area:+.1f} -> "
+          f"stickiness {stick:+.1f} ({verdict})")
     inter = [readings[(f, 10, "interleaved")] for f in fams if (f, 10, "interleaved") in readings]
     print(f"{probe}: loop area OBS {obs_area:+.1f} [boot {lo:+.1f},{hi:+.1f}] vs "
           f"integrator(g={g:.2f}) {pred_area:+.1f} -> STICKINESS {obs_area - pred_area:+.1f}")
@@ -97,8 +120,10 @@ for probe, c in CFG.items():
     axp.axhline(0, color=MUT, lw=0.8)
     axp.set_xlabel("k destination-class sentences (of 20)", fontsize=9, color=MUT)
     axp.set_ylabel("carrier reading (midref)", fontsize=9, color=INK)
-    axp.set_title(f"D6 {probe} — hysteresis loop: obs area {obs_area:+.1f} vs integrator {pred_area:+.1f} "
-                  f"(stickiness {obs_area - pred_area:+.1f})", fontsize=10, color=INK)
+    axp.set_title(f"D6 {probe} — hysteresis loop: obs {obs_area:+.1f} [{lo:+.1f},{hi:+.1f}]; "
+                  f"best-fit integrator {fit_area:+.1f} → stickiness {stick:+.1f} ({verdict})\n"
+                  "order-dependence is large and real, and fully attributable to recency weighting",
+                  fontsize=9.5, color=INK)
     axp.legend(fontsize=8); axp.set_facecolor(SURFACE)
     for s in ("top", "right"): axp.spines[s].set_visible(False)
     axp.tick_params(colors=MUT, labelsize=8); axp.grid(True, lw=0.4, color="#e8e8e4")
