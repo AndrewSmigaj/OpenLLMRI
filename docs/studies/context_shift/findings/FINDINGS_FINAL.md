@@ -220,11 +220,16 @@ output is indecision (F6/F7). The equilibrium evidence-mixture map is smooth and
 recency-governed (F8). "Learned intermediate vs passage vs off-manifold" resolves as:
 off-manifold — no; and the intermediate/passage dichotomy fails to carve the phenomenon —
 the park is functionally a state and geometrically a passage. The safety-relevant
-residual: what persists after a frame shift is not a lag but an un-bought-back remainder,
-and behavior tracks it (F7) — the suicide-arm safeguard gradient runs 50%→91% along the
-reading axis with the scene-driven caveat stated.
+residual: the reading LAGS the present frame in the plain sense — 7–13 sentences to
+cross, arrival never — on the timescale its integration window implies (γ≈0.9–0.98 →
+effective memory ~10–17 sentences); what the data rule out is lag IN EXCESS of evidence
+integration (drag/stickiness), and the residual is a permanent shortfall, not a delay.
+Behavior tracks it (F7) — the suicide-arm safeguard gradient runs 50%→91% along the
+reading axis with the scene-driven caveat stated. (Correction 17: earlier "lead-not-lag"
+phrasing conflated the two senses; "lag/hysteresis" in this work refers to the
+present-frame sense throughout.)
 
-## 3. Corrections & retractions (cumulative, 16 entries)
+## 3. Corrections & retractions (cumulative, 17 entries)
 
 Unchanged from v2 §5 + Phase F additions (12–14). New from this audit: none retracted,
 THREE reworded — A10 → F7 (causal → co-variation + within-k), B8 → F8 (branch-γ
@@ -234,7 +239,10 @@ audit's product; everything else survived. Entry 15 (QA day, C5): residual-gap C
 D4 references fixed; with references resampled, fr →fictional no longer excludes zero
 ([−0.12, +0.79]) — F3 demoted for that cell; other three cells robust both ways. Entry 16
 (QA day, C6): tank within-stream means outlier-inflated by heavy tails (ck40 ba +0.86 →
-+0.53 trimmed); F5 recovery magnitudes now quoted trimmed; suppression claim strengthens.
++0.53 trimmed); F5 recovery magnitudes now quoted trimmed; suppression claim strengthens. Entry 17 (Andrew, paper planning): "no lag / lead-not-lag" wording conflated
+lag-vs-present-frame (REAL: crossing 7–13 sentences, integration-timescale-sized, arrival
+never) with lag-in-excess-of-integration (ruled out). The paper uses the present-frame
+sense; only anomalous stickiness/drag is denied.
 
 ## 4. Synthesis audit — does each element earn its place?
 

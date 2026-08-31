@@ -78,10 +78,13 @@ Three interpretations above are corrected; the underlying numbers stand.
 2. **Direction asymmetry restated:** both directions run ahead of the null; ba runs further
    ahead. "Faster/further" is relative to the integrator baseline, not evidence of asymmetric
    stickiness.
-   LEAD-NOT-LAG (added 2026-08-29): the motivating safety story predicted readings LAG
-   context; observed is recency-LEAD early plus a persistent residual late. The residual,
-   not a lag, is the candidate carrier of any safety-relevant effect; the suicide-arm
-   behavior cells adjudicate (predictions P5).
+   LAG, TWO SENSES (reworded 2026-08-31, correction 17): relative to the PRESENT frame
+   the reading genuinely lags — 7–13 sentences to cross, full arrival never — on the
+   timescale the integration window implies. Relative to an equal-weight evidence
+   integrator it runs slightly AHEAD (mild recency tilt): no drag, no anomalous
+   stickiness. The persistent residual is a shortfall, not a delay. Safety-relevant
+   carriers: the present-frame lag AND the residual; the suicide-arm behavior cells
+   adjudicate (predictions P5).
 3. **The ±2 overshoot claim is SUSTAINED and strengthened:** residual norms are FLAT across
    positions (≈380–400), while cos(x−mid, axis) grows from ~0.3 (1 sentence) to ~0.62
    (10+ sentences). The deepening is genuine directional alignment, not positional norm growth.
