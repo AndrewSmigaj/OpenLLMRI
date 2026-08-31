@@ -5,7 +5,9 @@
 audit: (1) SANITY — alternatives considered explicitly, five of them as new computations
 (`analysis/s7_sanity_checks.py`); (2) SYNTHESIS — every study element judged on whether
 it earns its place or is methodological ornament (§4); ornaments are named as such, not
-silently kept. Framing: metastable states / three worlds; label doctrine throughout
+silently kept. A second adversarial pass (2026-08-31, `s9_adversarial_checks.py` +
+`s9_figures.py`) added three peer-review-hardening checks (all passed; results inline)
+and full figure coverage — every finding now lists its figures. Framing: metastable states / three worlds; label doctrine throughout
 (readings are positions along designed contrasts, never meaning attributions).
 
 **Corpus.** Two probe arms on gpt-oss-20b (24 layers, residual stream, harmony format,
@@ -33,6 +35,7 @@ cos(accumulated-axis, single-sentence-axis): tank 0.78–0.97; **fr declines to
 readings were exactly such an artifact — common-mode drift plus rotation — and were
 retracted; depth claims made on unverified single-sentence axes are invalid by our own
 demonstration. Confidence: high (the finding is largely a validated instrument doctrine).
+**Figures: calibration_layers, fig_r3_axis_rotation, fig_r3_heatmap_secondary_{fr,tank}.**
 
 ### F2. What the axis reads is the frame/sense contrast, not topic vocabulary.
 Evidence (three independent lines): (a) identity-matched carrier tokens — tank's class
@@ -41,12 +44,15 @@ held within pair, framing cue varied: within-pair difference +0.99 = 50% of full
 separation, 95% of 150 pairs in direction, p = 2.5e-25, uniform across six domains;
 (c) the effect is dose-INdependent (r = 0.05 with cue-word count; one cue moves the
 reading as much as four) — categorical frame detection, not cue-lexicon accumulation.
+Hardening (s9): NOT length-driven (fictional versions average +1.8 words but r = 0.02;
+length-matched pairs +1.05) and robust to excluding the 12 lowest-overlap pairs (+0.99).
 Alternatives: the cue words are themselves lexical, so the licensed claim is "reading
 tracks framing cues with content held," not "abstract frame representation"; fr's signal
 is distributed across the request's content words ('write' 6.4, 'suicide' 6.2, 'want'
 4.5 vs ambient 3.6) rather than token-anchored — a framing contrast lives across the
 utterance, and cross-probe d′ comparisons are directional, not quantitative.
 Confidence: high for the discriminations run; wording deliberately modest.
+**Figures: fig_s9_d5_pairs, fig_r2_carrier_dprime, fig_r6_carrier_dprime_fr.**
 
 ### F3. Transitions are two-phase: a fast partial update that leaves a persistent residual.
 Evidence: best single-γ integrator fits underpredict the early rise AND overpredict late
@@ -61,6 +67,7 @@ steps (hybrid fits show shallow nonzero late slopes); stated limitation, extende
 is the decisive arm; (iii) a two-timescale integrator explains the two-phase SHAPE in
 principle — but see F4. Confidence: high for the gap; "persistent" carries the stated
 caveat.
+**Figures: fig_r1_residual_gap, traj_null_L4, fr_traj_null_L14.**
 
 ### F4. The per-run mechanism is drift PLUS discrete jump — and this survives its strongest smooth alternative.
 Evidence: per-run BIC over five models (uniform/fitted-γ integrator, change-point step,
@@ -76,6 +83,7 @@ signature; (ii) jump-step selection is post-hoc max (acknowledged; the sim contr
 the same selection); (iii) single-sentence percentile ≠ in-context strength
 (acknowledged limitation of the event-locked check). Confidence: high; this is the
 study's central mechanistic claim.
+**Figures: fig_s9_model_classes, fig_r1_fit_gallery_tank, fig_s9_fit_gallery_fr.**
 
 ### F5. Within the stream, history suppresses even the new evidence's own token readings.
 Evidence: per-position D4-calibrated window instrument (right-aligned), content and
@@ -88,6 +96,7 @@ token-level recency integration and is not by itself evidence of a distinct mech
 its value is doctrinal (the population testifies, not just the carrier summary) and
 practical (any window-level readout inherits the suppression). Token-level multimodality
 is undetectable at instrument noise (declared). Confidence: high as description.
+**Figures: fig_r2_within_stream, fig_s9_within_stream_fr.**
 
 ### F6. One direction per probe PARKS at a mid-manifold configuration — functionally an intermediate, geometrically a passage.
 Evidence: tank aq→vh occupancy mode stationary at mid-axis for ≥10 steps at ≥2.9 sd
@@ -104,6 +113,7 @@ weak manifold notion — displacement along a low-variance direction could hide 
 high-dimensional noise (stated limitation). Confidence: the phenomenon is solid; its
 INTERPRETATION is the study's headline open question — the learned-intermediate vs
 passage dichotomy itself fails to carve it.
+**Figures: fig_r2_mode_track, fig_r5_geometry, fig_r6_behavior_bands, fig_s9_asymmetry (park replication panel).**
 
 ### F7. Behavior co-varies with the reading — and carries a within-context component at mid-transition; the safety-relevant gradient is real but partly scene-driven.
 Evidence: tank — answer-sense means −1.03/+0.74; side bands answer their side (56%/66%);
@@ -119,6 +129,7 @@ the matched-k analysis is what licenses the stronger (still correlational) wordi
 continuous logprob margin (+0.13) failed as an instrument (refusal-starter tokens overlap
 compliant replies) — categorical evidence carries the finding. Confidence: solid as
 co-variation + the two within-k results; NOT a causal claim.
+**Figures: fig_s9_behavior_matchedk, fig_r6_behavior_bands.**
 
 ### F8. Order-dependence at matched evidence is large, real — and fully attributable to recency weighting. No measurable stickiness.
 Evidence: D6 loop areas tank +14.4 [12.2, 16.8], fr +10.5 [7.5, 13.3] — far from zero
@@ -131,6 +142,7 @@ A first pass using γ imported from D3 gave "+3.7 significant" — retracted wit
 hour as a misspecified null (documented in script). RESOLUTION with F4: the equilibrium
 mixture→reading MAP is integrator-smooth; the sequential PATH is drift+jump — different
 observables, both true. Confidence: high; the retraction cycle is part of the evidence.
+**Figures: fig_r6_d6_loop_tank, fig_r6_d6_loop_fr.**
 
 ### F9. The direction asymmetry is carrier-independent and site-dependent — with a calibration-level candidate cause.
 Evidence: tank gaps 1.09/0.57 amp (Q1) replicate as 0.92/0.61 under Q1b ("Define the
@@ -140,6 +152,7 @@ broader class park harder. Within fr, the want site is symmetric but the letter 
 not (0.90 vs 0.33 amp, n=4/direction — exploratory). Alternatives: Q1b separation is
 in-sample (0.895); the spread account is a correlate, not a demonstrated mechanism.
 Confidence: asymmetry robust; explanation candidate-level.
+**Figures: fig_s9_asymmetry.**
 
 ### F10. No individual off-manifold excursions — but a small, systematic, PERSISTENT displacement off the no-shift manifold: a learned mixed-context marker. (REVISED 2026-08-31 after Andrew's "even a little off manifold is off manifold" challenge.)
 Evidence, two instruments (`s7`/`s8` scripts): (a) per-state — k-NN and PCA-subspace
@@ -154,13 +167,18 @@ occupy, rising over ~5 post-shift steps and persisting undiminished to k=20 — 
 the park. Content probed with D6: pure cells lack it; static mixed cells carry it at
 near-full strength (a mixed-context marker, not requiring a temporal shift); tank's is
 order-insensitive, fr's HALVES under interleaving (partly a coherent-shift-structure
-marker). It does NOT predict behavior at matched k (1 of 8 uncorrected tests at p<.05) —
+marker). Hardening (s9): the marker direction is orthogonal to the class axis (cos +0.015/+0.011
+— not class leakage), and survives held-out direction estimation (direction from half the
+families, magnitude on the other half: 71–76% tank, 87–90% fr of the in-sample value; the
+D6 projection was already a capture-level holdout). It does NOT predict behavior at
+matched k (1 of 8 uncorrected tests at p<.05) —
 the frame-axis reading stays the behavior-relevant coordinate; P5c remains unsupported
 even in this modified form. Alternatives: "topic-diversity feature" is the deflationary
 reading and is partly TRUE (the D6 result) — the honest claim is a learned, persistent
 representation of context heterogeneity/shift-structure, off the no-shift reference
 manifold, invisible to per-state tests because it sits below the individual noise floor.
 Confidence: high (cluster-aware null, two probes, discriminated content).
+**Figures: fig_s9_shift_marker, fig_r5_geometry.**
 
 ---
 
@@ -227,5 +245,8 @@ distributed-vs-anchored contrast) are n=2 hypotheses, not findings.
 fig_r1_fit_gallery_tank · fig_r1_residual_gap · fig_r2_within_stream · fig_r2_mode_track
 · fig_r2_carrier_dprime · fig_r6_carrier_dprime_fr · fig_r3_heatmap_secondary_{fr,tank}
 · fig_r3_axis_rotation · fig_r5_geometry · fig_r6_d6_loop_{tank,fr} ·
-fig_r6_behavior_bands. (Historical: raw/midref fr heatmaps, traj_null, spaghetti,
-occupancy_bands, jumpiness, prelexical, norm_vs_alignment, calibration_layers.)
+fig_r6_behavior_bands · fig_s9_d5_pairs · fig_s9_model_classes · fig_s9_within_stream_fr
+· fig_s9_behavior_matchedk · fig_s9_asymmetry · fig_s9_shift_marker · fig_s9_fit_gallery_fr.
+(Historical/context: raw/midref fr heatmaps, spaghetti, occupancy_bands, jumpiness,
+prelexical, norm_vs_alignment; traj_null_L4/fr_traj_null_L14 and calibration_layers are
+cited as evidence figures above.)
