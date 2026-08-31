@@ -114,6 +114,22 @@ def classify(y, Ap, Am):
     label = order[0] if delta >= 2.0 else "indeterminate"
     return label, bics, delta, g, s, (r1, r2, r3)
 
+def residual_gap(proj, mid, dest, dest_arms):
+    """Position-matched residual gap (QA-extracted; used by battery + fixtures):
+    D4 destination level (positions 36-40, midref, dest-oriented) minus the run's
+    plateau (post-shift k=16-20)."""
+    y = ((np.asarray(proj) - mid) * dest)[20:40]
+    A_dest_t = ((np.asarray(dest_arms).mean(0) - mid) * dest)[35:40].mean()
+    return float(A_dest_t - y[15:20].mean())
+
+
+def family_boot(series_by_fam, nboot=2000, seed0=1000):
+    """Family-clustered bootstrap of the mean (QA-extracted). series_by_fam:
+    pandas Series indexed by family."""
+    return [series_by_fam.sample(len(series_by_fam), replace=True,
+                                 random_state=seed0 + b).mean() for b in range(nboot)]
+
+
 def path_metrics(y):
     d = np.abs(np.diff(y))
     net = abs(y[-1] - y[0])
@@ -139,10 +155,8 @@ def battery(tag, d4a, d4b, d3, dest_fn, fam_fn, rng):
         null = integrator_pred(1.0, Ap, Am)                # uniform null
         label, bics, delta, g, s, rsss = classify(y, Ap, Am)
         pm = path_metrics(y)
-        # position-matched destination D4 level, k=16..20
-        Dmat = (B if dest > 0 else A)
-        A_dest_t = ((Dmat.mean(0) - mid) * dest)[35:40].mean()
-        gap = float(A_dest_t - y[15:20].mean())
+        # position-matched destination D4 level, k=16..20 (extracted function)
+        gap = residual_gap(proj, mid, dest, (B if dest > 0 else A))
         rows.append({"run": name, "fam": fam_fn(name), "dest": "+" if dest > 0 else "-",
                      "frac_ahead": float((y > null).mean()), "mean_lead": float((y - null).mean()),
                      "class": label, "dBIC": round(delta, 1), "gamma": s and round(g, 3),
@@ -175,7 +189,7 @@ def battery(tag, d4a, d4b, d3, dest_fn, fam_fn, rng):
     for d in ("+", "-"):
         sub = df[df.dest == d]
         gaps = sub.groupby("fam").resid_gap.mean()
-        boots = [gaps.sample(len(gaps), replace=True, random_state=1000 + b).mean() for b in range(2000)]
+        boots = family_boot(gaps, nboot=2000, seed0=1000)
         lo, hi = np.percentile(boots, [2.5, 97.5])
         print(f"  dest {d}: gap {sub.resid_gap.mean():+.2f} [family-boot CI {lo:+.2f}, {hi:+.2f}] "
               f"(n_runs={len(sub)}, n_fam={sub.fam.nunique()})")

@@ -172,8 +172,11 @@ spreads = [("aquarium", 0.56, 0.70, BLUE), ("vehicle", 0.83, 0.91, "#7aa8e0"),
 fig, axs = plt.subplots(1, 2, figsize=(11.5, 4.2), facecolor=SURFACE,
                         gridspec_kw={"width_ratios": [2.2, 1]})
 xs = np.arange(len(gaps))
-axs[0].bar(xs, [g[1] for g in gaps], color=[g[2] for g in gaps], width=0.62)
+axs[0].bar(xs, [g[1] for g in gaps], color=[g[2] for g in gaps], width=0.62,
+           hatch=["", "", "", "", "", "", "//", "//"])   # hatched = letter site, n=4/dir
 axs[0].set_xticks(xs); axs[0].set_xticklabels([g[0] for g in gaps], fontsize=7.5)
+axs[0].text(6.5, 1.02, "letter-site D4 amplitude = 1.18 cal units\n(vs want 0.88); hatched bars n=4/dir",
+            ha="center", fontsize=6.5, color=MUT)
 axs[0].set_ylabel("residual gap (fraction of D4 amplitude)", fontsize=8.5, color=INK)
 axs[0].set_title("gaps by carrier/site/direction — asymmetry replicates across carriers (Q1→Q1b)\n"
                  "and is site-dependent within fr (want symmetric, letter not; letter n=4/dir)", fontsize=9, color=INK)

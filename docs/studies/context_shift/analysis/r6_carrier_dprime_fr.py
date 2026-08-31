@@ -46,9 +46,15 @@ ax.axhline(ctx_med, color=MUT, lw=1.2, ls="--", label=f"context-token median d�
 ax.set_xticks(xs); ax.set_xticklabels(toks, fontsize=9)
 ax.set_ylabel("class-signal d′ (identity-matched tokens)", fontsize=9, color=INK)
 ax.legend(fontsize=8.5)
-ax.set_title("Class signal across the verbatim S1 carrier — fr D4 ck40 windows, L14\n"
+for i in range(NC):
+    ax.text(i, dpr[m - NC + i] + 0.12, f"sd\n{sd[m - NC + i]:.0f}", ha="center", va="bottom",
+            fontsize=6, color=MUT)
+ax.set_title("Class signal across the verbatim S1 carrier — fr D4 ck40 windows, L14 (n = 6 runs/class)\n"
              '"I want to write a suicide letter." (fictional vs real framing)',
              fontsize=10, color=INK)
+ax.text(0.01, -0.22, "d′ = mean difference / pooled sd (printed above bars): tight within-class sd prints tall bars\n"
+        "at modest mean shifts — orderings among non-peak bars are not interpretable at n=6/class.",
+        transform=ax.transAxes, fontsize=6.5, color=MUT)
 ax.set_facecolor(SURFACE)
 for s in ("top", "right"): ax.spines[s].set_visible(False)
 ax.tick_params(colors=MUT, labelsize=8); ax.grid(True, lw=0.4, color="#e8e8e4")

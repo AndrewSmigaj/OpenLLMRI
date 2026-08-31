@@ -493,3 +493,9 @@ doctrine wants, and the χ² audits confirmed no label-correlated surface struct
   UMAP figures beyond one discovery-context panel (lens doctrine), routing (dropped).
 - Publish the corrections/retractions log as a paper appendix — 14 entries incl. two
   same-session retractions is a credibility asset, not a liability.
+
+## 2026-08-31 — QA addendum roadmap (post-freeze)
+- Write-site replication: re-derive fr headline quantities at the ' write' site (d' 6.4 >
+  want 4.5) from existing checkpoint windows. Cheap, no capture.
+- Letter-site expansion: families beyond n=4/dir + per-side calibration spreads at the
+  letter site (asymmetry is largest there; spread-candidate untested at that site).

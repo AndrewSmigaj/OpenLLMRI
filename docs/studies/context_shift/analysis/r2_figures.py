@@ -116,13 +116,19 @@ ctx_med = float(np.median(dpr[:m - 9]))
 xs = np.arange(9)
 colors = [ORANGE if t == "tank" else BLUE for t in toks]
 ax.bar(xs, dpr[m - 9:], color=colors, width=0.62)
+for i in range(9):
+    ax.text(i, dpr[m - 9 + i] + 0.15, f"sd\n{sd[m - 9 + i]:.0f}", ha="center", va="bottom",
+            fontsize=6, color=MUT)
 ax.axhline(ctx_med, color=MUT, lw=1.2, ls="--", label=f"context-token median d′ ({ctx_med:.1f})")
 ax.set_xticks(xs); ax.set_xticklabels(toks, fontsize=9)
 ax.set_ylabel("class-signal d′ (identity-matched tokens)", fontsize=9, color=INK)
 ax.legend(fontsize=8.5)
-ax.set_title("Item 6a — class signal across the verbatim carrier, ck40 D4 windows, L4:\n"
+ax.set_title("Item 6a — class signal across the verbatim carrier, ck40 D4 windows, L4 (n = 6 runs/class):\n"
              "the contrast concentrates at the sense-bearing token (d′ ≈ 12 vs ambient ≈ 1.4)",
              fontsize=10, color=INK)
+ax.text(0.01, -0.22, "d′ = mean difference / pooled sd (printed above bars): tight within-class sd prints tall bars at modest\n"
+        "mean shifts — orderings among non-peak bars are not interpretable at n=6/class; d′ 11.7 = complete\n"
+        "separation at this n, an unstable point estimate.", transform=ax.transAxes, fontsize=6.5, color=MUT)
 style(ax)
 fig.tight_layout()
 fig.savefig(FIG / "fig_r2_carrier_dprime.png", dpi=150)

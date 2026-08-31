@@ -93,7 +93,9 @@ for ax, col, ttl in ((axs[0], "gap", "residual gap (calibration units)"),
 fig.suptitle("Item 10b/c — plateau falls short of matched-position no-shift level (family-boot 95% CI)",
              fontsize=10.5, color=INK)
 fig.text(0.01, 0.005, "gap = D4 destination level (positions 36–40, midref) − run plateau (k=16–20). "
-         "Sharper-endpoint probe (tank, amp 2.0) shows larger normalized gaps than fr (amp 0.9).",
+         "Sharper-endpoint probe (tank, amp 2.0) shows larger normalized gaps than fr (amp 0.9).\n"
+         "CIs shown hold D4 references fixed; with reference uncertainty propagated (QA C5), "
+         "fr→fictional widens to [−0.12,+0.79] and no longer excludes zero; other cells robust.",
          fontsize=7, color=MUT)
 fig.tight_layout(rect=[0, 0.03, 1, 0.94])
 fig.savefig(FIG / "fig_r1_residual_gap.png", dpi=150)

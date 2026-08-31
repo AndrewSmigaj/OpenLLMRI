@@ -65,8 +65,12 @@ Evidence: best single-γ integrator fits underpredict the early rise AND overpre
 convergence in 4/4 probe×direction cells; residual gap (plateau vs position-matched
 no-shift level, midpoint-referenced, family-clustered 95% CI) excludes zero in all four:
 tank →vehicle +2.16 [1.87, 2.44] (the plateau parks ON the midpoint), →aquarium +1.15
-[0.82, 1.45]; fr +0.38 [0.28, 0.49] / +0.35 [0.11, 0.58]. Twenty counter-sentences never
-buy back what twenty native sentences build. Alternatives: (i) weaker post-shift
+[0.82, 1.45]; fr →real +0.38 [0.28, 0.49]; fr →fictional +0.35 [0.11, 0.58] under the
+doc's fixed-reference bootstrap — QA correction 15: when D4 reference uncertainty is also
+propagated (6 arm-families resampled per draw), three cells stand and **fr →fictional
+widens to [−0.12, +0.79], no longer excluding zero** — that cell's residual is not
+individually established. Twenty counter-sentences never buy back what twenty native
+sentences build (three of four cells; fr →fictional suggestive only). Alternatives: (i) weaker post-shift
 material — REJECTED by direct check (calibration percentiles of D3-post vs D4 sentences
 match, p = 0.24/0.90); (ii) "persistent" vs "very slow" — undecidable at 20 post-shift
 steps (hybrid fits show shallow nonzero late slopes); stated limitation, extended-tail
@@ -101,6 +105,11 @@ position matched, only history differing. Pre-shift control windows read own cla
 (tank −0.64/−0.76; fr −0.88/−0.85). Post-shift-block tokens — 100% destination-class
 content — read only +0.34..+0.52 (ck30) recovering to +0.52..+0.86 (ck40) against a +1
 reference; recency-graded; replicated across both probes (fr tighter, sd 0.7–0.9).
+QA correction 16: the tank means are heavy-tail sensitive — excluding the 1–5% of tokens
+with |reading|>6 gives ck30 +0.34/+0.37 and ck40 +0.52/+0.53 (the +0.86 was
+outlier-inflated); the suppression claim STRENGTHENS under trimming (further below +1,
+directions symmetric), but recovery magnitudes should be quoted from the trimmed values.
+fr means are not tail-sensitive (no |r|>6 tokens).
 Alternatives: this is DESCRIPTIVE of where window tokens sit — it is consistent with
 token-level recency integration and is not by itself evidence of a distinct mechanism;
 its value is doctrinal (the population testifies, not just the carrier summary) and
@@ -215,13 +224,17 @@ residual: what persists after a frame shift is not a lag but an un-bought-back r
 and behavior tracks it (F7) — the suicide-arm safeguard gradient runs 50%→91% along the
 reading axis with the scene-driven caveat stated.
 
-## 3. Corrections & retractions (cumulative, 14 entries)
+## 3. Corrections & retractions (cumulative, 16 entries)
 
 Unchanged from v2 §5 + Phase F additions (12–14). New from this audit: none retracted,
 THREE reworded — A10 → F7 (causal → co-variation + within-k), B8 → F8 (branch-γ
 asymmetry added), and F10 (Andrew's challenge → the subspace battery found the
 systematic mixed-context marker the k-NN aggregate had missed). The rewordings are the
-audit's product; everything else survived.
+audit's product; everything else survived. Entry 15 (QA day, C5): residual-gap CIs held
+D4 references fixed; with references resampled, fr →fictional no longer excludes zero
+([−0.12, +0.79]) — F3 demoted for that cell; other three cells robust both ways. Entry 16
+(QA day, C6): tank within-stream means outlier-inflated by heavy tails (ck40 ba +0.86 →
++0.53 trimmed); F5 recovery magnitudes now quoted trimmed; suppression claim strengthens.
 
 ## 4. Synthesis audit — does each element earn its place?
 
@@ -251,6 +264,14 @@ audit's product; everything else survived.
 | Raw fr heatmap narrative | superseded twice | historical only |
 
 ## 5. Limitations & deferred
+
+Post-freeze roadmap (QA addendum 2026-08-31; not run, queue only): (R1) write-site
+replication — the fr d′ profile peaks at ' write' (6.4) above the historical ' want'
+site (4.5); checkpoint windows already contain all carrier tokens, so re-deriving the fr
+headline quantities at the ' write' site is a cheap robustness check. (R2) letter-site
+expansion — more families beyond n=4/direction, plus letter-site per-side calibration
+spreads (the spread-candidate cause is untested at the site where the asymmetry is
+largest).
 
 Persistent-vs-slow (extended-tail); S2/S3 families 4–11; third-class calibrations (drift
 content unknown); geometry subspace sensitivity; behavior logprob token sets (redesign);
