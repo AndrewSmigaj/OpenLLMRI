@@ -473,3 +473,23 @@ set generation; checkpoint pass; hysteresis/history/behavior cells.
 **Observation for the methodology section**: the blind-batch + audit pipeline ran 60 batches
 with zero regenerations — stylistic divergence across fresh agents delivered the variation the
 doctrine wants, and the χ² audits confirmed no label-correlated surface structure in either pool.
+
+## 2026-08-31 — Paper-coherence recommendations (pre-QA, Andrew's synthesis-check request)
+- Paper spine: 6 core results (two-phase residual, drift+jump, park, recency-not-stickiness,
+  no off-manifold, behavior link) + methods contributions (axis rotation + accumulation
+  drift doctrine) + validity block (D5, Q1b, sub-arms, cross-carrier, power, sims).
+- Trim from PAPER (keep in repo): crossing-time depth table, D7 bare carriers (one line),
+  volatility, distributed-vs-anchored as a finding (→ methods note), degenerate loops
+  (one line), backfill old-block note, fr occupancy bands.
+- ADD before writing (both close holes in CENTRAL claims, not pattern-matching):
+  1. extended-tail runs (persistent-vs-slow is the caveat on the headline residual);
+  2. A→B→A RETURN arms (classical remanence — our D6 is a composition-order loop, not a
+     swept/return loop; returning evidence either restores the reading or leaves a
+     residual on the far side — either outcome is a strong result).
+  Both need blind top-up generation (~40 extra sentences/class/family for a 6-family
+  subset) + ~1 GPU day combined.
+- Explicitly NOT adding (would be synthesis): multi-seed reruns (greedy forward passes are
+  deterministic — no seed variance exists), a third probe (n=2 is a stated limitation),
+  UMAP figures beyond one discovery-context panel (lens doctrine), routing (dropped).
+- Publish the corrections/retractions log as a paper appendix — 14 entries incl. two
+  same-session retractions is a credibility asset, not a liability.
