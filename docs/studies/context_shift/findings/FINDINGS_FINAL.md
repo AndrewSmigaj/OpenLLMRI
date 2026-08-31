@@ -247,6 +247,12 @@ fig_r1_fit_gallery_tank · fig_r1_residual_gap · fig_r2_within_stream · fig_r2
 · fig_r3_axis_rotation · fig_r5_geometry · fig_r6_d6_loop_{tank,fr} ·
 fig_r6_behavior_bands · fig_s9_d5_pairs · fig_s9_model_classes · fig_s9_within_stream_fr
 · fig_s9_behavior_matchedk · fig_s9_asymmetry · fig_s9_shift_marker · fig_s9_fit_gallery_fr.
-(Historical/context: raw/midref fr heatmaps, spaghetti, occupancy_bands, jumpiness,
-prelexical, norm_vs_alignment; traj_null_L4/fr_traj_null_L14 and calibration_layers are
-cited as evidence figures above.)
+Paper-narrative figures (not superseded — they carry the raw-path and instrument-story
+material an excellent paper needs): spaghetti_L4 (per-run drift-vs-jump heterogeneity,
+F4's raw visual), prelexical_L4 (second-site park replication, F6/F9),
+occupancy_bands_L4 (band occupancy behind F6), heatmap_layer_position +
+fr_heatmap_layer_position + fr_heatmap_midref (the three-generation instrument story:
+naive → drift-removed → rotation-corrected, with fig_r3 secondary versions),
+norm_vs_alignment (accumulation deepens by rotation not scale), jumpiness (raw-metric
+jump dominance). traj_null_L4 / fr_traj_null_L14 and calibration_layers are cited as
+evidence figures above.
