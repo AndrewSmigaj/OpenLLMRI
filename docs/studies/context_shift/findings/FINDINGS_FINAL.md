@@ -67,7 +67,7 @@ steps (hybrid fits show shallow nonzero late slopes); stated limitation, extende
 is the decisive arm; (iii) a two-timescale integrator explains the two-phase SHAPE in
 principle — but see F4. Confidence: high for the gap; "persistent" carries the stated
 caveat.
-**Figures: fig_r1_residual_gap, traj_null_L4, fr_traj_null_L14.**
+**Figures: fig_s9_collapse, fig_r1_residual_gap, traj_null_L4, fr_traj_null_L14.**
 
 ### F4. The per-run mechanism is drift PLUS discrete jump — and this survives its strongest smooth alternative.
 Evidence: per-run BIC over five models (uniform/fitted-γ integrator, change-point step,
@@ -113,7 +113,7 @@ weak manifold notion — displacement along a low-variance direction could hide 
 high-dimensional noise (stated limitation). Confidence: the phenomenon is solid; its
 INTERPRETATION is the study's headline open question — the learned-intermediate vs
 passage dichotomy itself fails to carve it.
-**Figures: fig_r2_mode_track, fig_r5_geometry, fig_r6_behavior_bands, fig_s9_asymmetry (park replication panel).**
+**Figures: fig_s9_collapse (both directions on one axes — the collapse into the in-between zone), fig_r2_mode_track, fig_r5_geometry, fig_r6_behavior_bands, fig_s9_asymmetry (park replication panel).**
 
 ### F7. Behavior co-varies with the reading — and carries a within-context component at mid-transition; the safety-relevant gradient is real but partly scene-driven.
 Evidence: tank — answer-sense means −1.03/+0.74; side bands answer their side (56%/66%);
