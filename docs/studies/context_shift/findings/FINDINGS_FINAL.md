@@ -141,20 +141,34 @@ not (0.90 vs 0.33 amp, n=4/direction — exploratory). Alternatives: Q1b separat
 in-sample (0.895); the spread account is a correlate, not a demonstrated mechanism.
 Confidence: asymmetry robust; explanation candidate-level.
 
-### F10. No off-manifold world — anywhere we looked.
-Evidence: k=3-NN off-bundle scores with validated positive control (calibration states
-1.73×/1.77× null): jumps 1.06×/1.12×, park 0.96×, D4 1.04–1.07× — everything inside the
-null's p95 (~1.25×). My pre-registered jump prediction FAILED (on record); P5c
-(off-manifold → fewer safeguards) is moot for lack of off-manifold states.
-Alternatives: the subspace caveat of F6(iii). Confidence: high within the instrument's
-sensitivity; the caveat is stated, not waved off.
+### F10. No individual off-manifold excursions — but a small, systematic, PERSISTENT displacement off the no-shift manifold: a learned mixed-context marker. (REVISED 2026-08-31 after Andrew's "even a little off manifold is off manifold" challenge.)
+Evidence, two instruments (`s7`/`s8` scripts): (a) per-state — k-NN and PCA-subspace
+residuals (80/90/95% variance) put jumps, park, and all post-shift states inside the
+no-shift null's p95, with both positive controls detected (calibration states 1.9–2.2×;
+position-mismatched pre-shift states flagged at 13–44%). No individual excursions; my
+pre-registered jump prediction failed, on record. (b) SYSTEMATIC — the mean
+out-of-subspace residual of transition states is far outside a family-block bootstrap
+null (tank 18.1 vs p95 7.8; fr 174.5 vs 26.9; p < 0.001 both): a shared displacement of
+**25% (tank) / 38% (fr) of the raw class separation**, in a direction pure contexts never
+occupy, rising over ~5 post-shift steps and persisting undiminished to k=20 — LARGEST at
+the park. Content probed with D6: pure cells lack it; static mixed cells carry it at
+near-full strength (a mixed-context marker, not requiring a temporal shift); tank's is
+order-insensitive, fr's HALVES under interleaving (partly a coherent-shift-structure
+marker). It does NOT predict behavior at matched k (1 of 8 uncorrected tests at p<.05) —
+the frame-axis reading stays the behavior-relevant coordinate; P5c remains unsupported
+even in this modified form. Alternatives: "topic-diversity feature" is the deflationary
+reading and is partly TRUE (the D6 result) — the honest claim is a learned, persistent
+representation of context heterogeneity/shift-structure, off the no-shift reference
+manifold, invisible to per-state tests because it sits below the individual noise floor.
+Confidence: high (cluster-aware null, two probes, discriminated content).
 
 ---
 
 ## 2. What the study now says (three worlds)
 
-The in-between of a contextual shift, in these two probes, is: ON the learned trajectory
-manifold (F10), traversed by drift-plus-discrete-jump paths (F4) whose jumps are
+The in-between of a contextual shift, in these two probes, is: free of individual
+off-manifold excursions yet carrying a persistent, shared displacement off the no-shift
+manifold — a learned mixed-context/shift marker (F10), traversed by drift-plus-discrete-jump paths (F4) whose jumps are
 state-triggered rather than evidence-triggered, leaving a persistent residual of the old
 frame (F3), with one direction per probe parking at a mid-configuration whose behavioral
 output is indecision (F6/F7). The equilibrium evidence-mixture map is smooth and
@@ -168,8 +182,10 @@ reading axis with the scene-driven caveat stated.
 ## 3. Corrections & retractions (cumulative, 14 entries)
 
 Unchanged from v2 §5 + Phase F additions (12–14). New from this audit: none retracted,
-two REWORDED — A10 → F7 (causal → co-variation + within-k), B8 → F8 (branch-γ asymmetry
-added). The two live rewordings are the audit's product; everything else survived.
+THREE reworded — A10 → F7 (causal → co-variation + within-k), B8 → F8 (branch-γ
+asymmetry added), and F10 (Andrew's challenge → the subspace battery found the
+systematic mixed-context marker the k-NN aggregate had missed). The rewordings are the
+audit's product; everything else survived.
 
 ## 4. Synthesis audit — does each element earn its place?
 
