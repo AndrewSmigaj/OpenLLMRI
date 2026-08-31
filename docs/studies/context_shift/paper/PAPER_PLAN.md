@@ -56,21 +56,18 @@ are voice-led. Framing decisions locked 2026-08-31 with Andrew.
 5. **Appendices**: corrections log (all 17); synthesis-audit table; QA report pointer;
    full figure set (paste-20 in main text candidates; other/ as supplementary).
 
-## Title candidates (Andrew picks)
+## Title candidates (Andrew picks) — prefix LOCKED: "Off the Beaten Path:"
+(personally motivated: discordant colony optimization / metastable paradigm exploration;
+DCO itself is blog-only, NOT in the paper)
 
-1. Off the Beaten Path: When a Garden Path Becomes a Pun  ← only if extended-tail runs
-   and shows held incongruity; otherwise it overclaims per decision 2
-1'. Off the Beaten Path: Garden Paths, Long Incongruities, and the States Between
-   Meanings  ← the version honest to current data
-2. Off the Beaten Path: Metastable Meaning States in the Residual Stream of a Language
-   Model
-3. Off the Beaten Path: Resolution, Remanence, and Held Incongruity When Context Shifts
-4. Off the Beaten Path: The In-Between of Meaning Change in a Language Model
-5. Off the Beaten Path: How a Language Model Holds Two Meanings at Once
-6. Off the Beaten Path: Frame Shifts, Parked States, and What Twenty Sentences Can't
-   Buy Back
-7. Off the Beaten Path: Incongruity and Resolution in the Residual Stream
-8. Off the Beaten Path: The Model Stays On It
+1. Off the Beaten Path: Metastable Meaning States in the Residual Stream of a Language Model
+2. Off the Beaten Path: Metastability Without Stickiness in a Language Model's Frame Shifts
+3. Off the Beaten Path: Metastable States of Understanding When Context Shifts
+4. Off the Beaten Path: The Metastable In-Between of Meaning Change in Language Models
+5. Off the Beaten Path: Parked Between Meanings — Metastable States Under Context Shift
+6. Off the Beaten Path: Lag, Residuals, and Metastable States When Context Shifts
+7. Off the Beaten Path: Entering Metastable States of Meaning in a Language Model
+Claude's pick order: 2, 1, 7.
 
 ## Resolved 2026-08-31 (Andrew)
 - Extended-tail / garden-path-vs-pun -> FUTURE WORK (roadmap; freeze holds; no pre-paper
