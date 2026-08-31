@@ -56,18 +56,16 @@ are voice-led. Framing decisions locked 2026-08-31 with Andrew.
 5. **Appendices**: corrections log (all 17); synthesis-audit table; QA report pointer;
    full figure set (paste-20 in main text candidates; other/ as supplementary).
 
-## Title candidates (Andrew picks) — prefix LOCKED: "Off the Beaten Path:"
-(personally motivated: discordant colony optimization / metastable paradigm exploration;
-DCO itself is blog-only, NOT in the paper)
+## TITLE (locked 2026-08-31, Andrew)
 
-1. Off the Beaten Path: Metastable Meaning States in the Residual Stream of a Language Model
-2. Off the Beaten Path: Metastability Without Stickiness in a Language Model's Frame Shifts
-3. Off the Beaten Path: Metastable States of Understanding When Context Shifts
-4. Off the Beaten Path: The Metastable In-Between of Meaning Change in Language Models
-5. Off the Beaten Path: Parked Between Meanings — Metastable States Under Context Shift
-6. Off the Beaten Path: Lag, Residuals, and Metastable States When Context Shifts
-7. Off the Beaten Path: Entering Metastable States of Meaning in a Language Model
-Claude's pick order: 2, 1, 7.
+**Off the Beaten Path: Semantic Metastability in a Large Language Model**
+
+"Semantic metastability" is the paper's coined term — define it operationally on first
+use (a persistent intermediate configuration of a token's contextual reading on the
+path timescale, held between two calibrated interpretations) and use it consistently.
+Singular "a Large Language Model" is the deliberate honesty hedge (one model, n=2 probes).
+(Prefix motivation personal — DCO/metastable paradigm exploration — blog-only, not in
+the paper.)
 
 ## Resolved 2026-08-31 (Andrew)
 - Extended-tail / garden-path-vs-pun -> FUTURE WORK (roadmap; freeze holds; no pre-paper
