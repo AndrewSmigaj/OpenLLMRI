@@ -72,8 +72,18 @@ are voice-led. Framing decisions locked 2026-08-31 with Andrew.
 7. Off the Beaten Path: Incongruity and Resolution in the Residual Stream
 8. Off the Beaten Path: The Model Stays On It
 
+## Resolved 2026-08-31 (Andrew)
+- Extended-tail / garden-path-vs-pun -> FUTURE WORK (roadmap; freeze holds; no pre-paper
+  capture). The paper states it as the framework's named open question.
+- Humor lineage = context and inspiration, NOT the paper's subject. Titles center
+  "metastable"; the paper is not a computational-humor paper (though appropriate for
+  such a venue as a secondary target).
+- Title note: "metastable" is used as the program's operational term (a persistent
+  intermediate configuration on the path timescale); the discussion states plainly that
+  F8 shows no equilibrium bistability — the metastability is a property of the
+  SEQUENTIAL dynamics, not the mixture map. One sentence, defused before a physicist
+  reviewer raises it.
+
 ## Open decisions for Andrew
-- Title pick (note 1 vs 1' interacts with whether extended-tail runs pre-paper).
-- Whether extended-tail (the garden-path-vs-pun discriminator) runs before writing —
-  it upgrades the framework's central question from "open" to "answered" either way.
+- Title pick (candidates below).
 - New tex directory name (fresh, not the legacy paper/).
