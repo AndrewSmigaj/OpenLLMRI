@@ -11,7 +11,11 @@ and full figure coverage — every finding now lists its figures. Framing: metas
 (readings are positions along designed contrasts, never meaning attributions).
 
 **Corpus.** Two probe arms on gpt-oss-20b (24 layers, residual stream, harmony format,
-seed 1): tank (aquarium/vehicle sense; carrier "What is the meaning of the word tank?",
+seed 1). The model runs STOCK — its native top-4-experts-per-token routing, no config
+overrides (`from_pretrained` untouched; verified in `gptoss_adapter.py`); the "K=1/top-1"
+phrase in project docs refers only to the routing-ANALYSIS convention (extracting top-1
+highway signatures from the captured full 32-dim routing weights), and routing analysis
+was dropped from this study entirely. Probes: tank (aquarium/vehicle sense; carrier "What is the meaning of the word tank?",
 ' tank' site, L4) and fiction/real (framing of "I want to write a suicide letter.",
 ' want' site, L14). Per arm: single-sentence calibrations (300/class, scene-held-out
 0.905/0.910), 40-step cumulative transition runs with shift after 20 (tank 24, fr S1 48
@@ -41,7 +45,9 @@ demonstration. Confidence: high (the finding is largely a validated instrument d
 Evidence (three independent lines): (a) identity-matched carrier tokens — tank's class
 signal concentrates at ' tank' (d′ 11.7 vs ambient 1.4); (b) D5 minimal pairs — content
 held within pair, framing cue varied: within-pair difference +0.99 = 50% of full class
-separation, 95% of 150 pairs in direction, p = 2.5e-25, uniform across six domains;
+separation, 95% of 150 pairs in direction (pair-level Wilcoxon p = 2.5e-25;
+domain-clustered — the conservative unit — one-sample t over the 6 domain means:
+t = 12.0, p = 7.2e-05; all 3 generation batches positive, 0.86–1.18);
 (c) the effect is dose-INdependent (r = 0.05 with cue-word count; one cue moves the
 reading as much as four) — categorical frame detection, not cue-lexicon accumulation.
 Hardening (s9): NOT length-driven (fictional versions average +1.8 words but r = 0.02;
@@ -72,12 +78,16 @@ caveat.
 ### F4. The per-run mechanism is drift PLUS discrete jump — and this survives its strongest smooth alternative.
 Evidence: per-run BIC over five models (uniform/fitted-γ integrator, change-point step,
 drift+step hybrid, two-timescale integrator): hybrid wins 11/24 (tank) and 14/48 (fr)
-with the two-timescale model winning ZERO runs. Simulation-calibrated identifiability:
+— for fr, 23/48 runs (48%) are INDETERMINATE at its noise level, so the precise claim is
+"hybrid-dominant among classifiable runs" (tank 11/16, fr 14/25); the two-timescale model
+wins ZERO runs in either probe. Simulation-calibrated identifiability:
 hybrid-truth reads hybrid 13–15/24; two-timescale-truth reads hybrid only 2–3/24 (it
 masquerades as integrator/indeterminate instead) — so observed hybrid dominance cannot
-be produced by any smooth one- or two-timescale integration. Jumps are state-dependent,
-not input-driven: every post-shift sentence matched to its calibration cell (456/456),
-jump-step sentences are median-strength exemplars (percentile 0.50 vs 0.50, p = 0.445).
+be produced by any smooth one- or two-timescale integration. Jumps are not triggered by
+evidence strength: every post-shift sentence matched to its calibration cell (456/456),
+jump-step sentences are median-strength exemplars (percentile 0.50 vs 0.50, p = 0.445) —
+other input triggers (surprisal, syntax, discourse position) are untested, so
+"state-dependent" is the working interpretation, not a demonstrated exclusion.
 Alternatives: (i) two-timescale integration — explicitly tested, cannot produce the
 signature; (ii) jump-step selection is post-hoc max (acknowledged; the sim controls use
 the same selection); (iii) single-sentence percentile ≠ in-context strength
@@ -95,7 +105,9 @@ Alternatives: this is DESCRIPTIVE of where window tokens sit — it is consisten
 token-level recency integration and is not by itself evidence of a distinct mechanism;
 its value is doctrinal (the population testifies, not just the carrier summary) and
 practical (any window-level readout inherits the suppression). Token-level multimodality
-is undetectable at instrument noise (declared). Confidence: high as description.
+is undetectable at instrument noise (declared). Display note: the tank histograms clip
+at ±6 for display only (1.7–3.0% of tokens per checkpoint lie beyond; fr none) — all
+statistics are computed on unclipped values. Confidence: high as description.
 **Figures: fig_r2_within_stream, fig_s9_within_stream_fr.**
 
 ### F6. One direction per probe PARKS at a mid-manifold configuration — functionally an intermediate, geometrically a passage.
@@ -117,12 +129,14 @@ passage dichotomy itself fails to carve it.
 
 ### F7. Behavior co-varies with the reading — and carries a within-context component at mid-transition; the safety-relevant gradient is real but partly scene-driven.
 Evidence: tank — answer-sense means −1.03/+0.74; side bands answer their side (56%/66%);
-mid band 45% hedged. WITHIN matched context composition (fixed k), decided answers have
-larger |reading| at k=6 (p=0.061) and k=12 (p=0.045) — mid-transition, the reading
-predicts decidedness beyond context mixture; at k=2/20 (readings settled) no within-k
-signal. fr — safe-completion dominates (88%); band gradient 50%→80%→91% (origin n=4,
+mid band 45% hedged. WITHIN matched context composition, one theory-motivated pooled test
+(mid-transition cells, k∈{6,12} combined): decided answers have larger |reading| —
+median 0.72 vs 0.38, one-sided p = 0.0138 (the per-k values, p=0.061/0.045, are
+subsumed; at k=2/20, readings settled, no within-k signal — the pattern the pooling
+was predicated on). fr — safe-completion dominates (88%); band gradient 50%→80%→91% (origin n=4,
 fragile); within-k the reading separates fiction-frame from safety responses at k=2
-(−0.06 vs +1.13, p=0.010) but NOT at later k, where response type follows scene family.
+(−0.06 vs +1.13, p=0.010 — one of four k values tested, stated as such) but NOT at
+later k, where response type follows scene family.
 11/108 tank responses are degenerate repetition loops (new observation, not band-linked).
 Alternatives: the band gradient alone would be compatible with context→both causation;
 the matched-k analysis is what licenses the stronger (still correlational) wording. The
@@ -167,7 +181,11 @@ occupy, rising over ~5 post-shift steps and persisting undiminished to k=20 — 
 the park. Content probed with D6: pure cells lack it; static mixed cells carry it at
 near-full strength (a mixed-context marker, not requiring a temporal shift); tank's is
 order-insensitive, fr's HALVES under interleaving (partly a coherent-shift-structure
-marker). Hardening (s9): the marker direction is orthogonal to the class axis (cos +0.015/+0.011
+marker). Hardening (s9): family novelty is refuted the strong way — D6 pure cells from
+families OUTSIDE the 6-family D4 subspace read LOWER on the marker (+1.6%/+3.4% of
+separation) than subspace-family pure cells (+6.7%/+6.0%), opposite the novelty
+prediction, both far below mixed cells (~+27%); the marker direction is orthogonal to
+the class axis (cos +0.015/+0.011
 — not class leakage), and survives held-out direction estimation (direction from half the
 families, magnitude on the other half: 71–76% tank, 87–90% fr of the in-sample value; the
 D6 projection was already a capture-level holdout). It does NOT predict behavior at
@@ -242,7 +260,8 @@ distributed-vs-anchored contrast) are n=2 hypotheses, not findings.
 
 ## 6. Load-bearing figures
 
-fig_r1_fit_gallery_tank · fig_r1_residual_gap · fig_r2_within_stream · fig_r2_mode_track
+**fig_s9_collapse** (recommended opening figure: both probes, both directions, one axes —
+the collapse into the unresolved band with neither side arriving) · fig_r1_fit_gallery_tank · fig_r1_residual_gap · fig_r2_within_stream · fig_r2_mode_track
 · fig_r2_carrier_dprime · fig_r6_carrier_dprime_fr · fig_r3_heatmap_secondary_{fr,tank}
 · fig_r3_axis_rotation · fig_r5_geometry · fig_r6_d6_loop_{tank,fr} ·
 fig_r6_behavior_bands · fig_s9_d5_pairs · fig_s9_model_classes · fig_s9_within_stream_fr
