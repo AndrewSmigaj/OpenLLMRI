@@ -1,3 +1,5 @@
+> **SUPERSEDED as the QA/findings reference by `FINDINGS_FINAL.md` (2026-08-31)** — the final document carries the sanity/synthesis audit (five new checks in `analysis/s7_sanity_checks.py`; two findings reworded: A10→F7, B8→F8). This file remains the fuller technical record.
+
 # Context-Shift Study — Findings & Analysis v2 (2026-08-28)
 
 **What this document is.** The consolidated state of the context-shift study after the
