@@ -238,3 +238,25 @@ def _run_extra():
 
 if __name__ == "__main__":
     _run_extra()
+
+
+def _run_marker_orthogonality():
+    """(viii) paper-drafting verification: the mixed-context marker direction is
+    orthogonal to BOTH class axes — calibration (measured s9: +0.015/+0.011) and
+    secondary accumulated-context (by construction; verified: tank -0.0052, fr -0.0065)."""
+    for tag, log, L, secf, d3k, d4k in (
+        ("tank", C / "tank_d3_d4_log.tsv", 4, "secondary_axis_tank.npz",
+         lambda n: "_d3_" in n, lambda n: "_d4_" in n),
+        ("fr", C / "fr_d3_d4_log.tsv", 14, "secondary_axis_fr.npz",
+         lambda n: "fr_s1_" in n and "_d3_" in n, lambda n: "fr_s1_" in n and "_d4_" in n)):
+        d4 = load_raw(log, L, d4k); d3 = load_raw(log, L, d3k)
+        D4mat = np.concatenate([v[20:40] for v in d4.values()])
+        center, Vk, resid_of = fit_subspace(D4mat, 0.90)
+        allpost = np.concatenate([resid_of(v[20:40]) for v in d3.values()])
+        vdir = allpost.mean(0); vdir /= np.linalg.norm(vdir)
+        sec = np.load(AXD / secf)[f"axis_{L}"]
+        print(f"  {tag}: cos(marker, secondary axis) = {float(vdir @ sec):+.4f}")
+
+
+if __name__ == "__main__":
+    _run_marker_orthogonality()
