@@ -28,35 +28,38 @@ joke, one line, attributed as classic.
    except a small persistent learned marker of mixed context (25–38% of class
    separation), orthogonal to the content contrast.
 8. Coin: "we call this cluster of properties semantic metastability."
-9. Safety close, two sentences: the reading lags the present frame on its integration
-   timescale and retains the residual; safeguard behavior attenuates along the learned
-   frame axis (91%→50% safe-completion) — no exotic inputs required.
+9. Safety close, two sentences (uncertainty-default framing): the model never reports
+   the unresolved state — it answers anyway, and internal mixedness is represented (the
+   marker) but not gated on; safeguards with a trained uncertainty-default hold in the
+   unresolved zone (80% safe-completion mid-band) while behaviors without one silently
+   commit — and safeguard behavior attenuates along the learned frame axis (91%→50%).
 
 ## 1. Introduction (~900 w) — Andrew's voice
-1. [SCOUT] Opening stance, 3–4 sentences: paradigm scouting; leaps sometimes require
-   entering metastable states of understanding — the paper studies exactly such states
-   inside a language model. (One mention of metastable paradigm exploration; DCO
-   absent.)
+1. FAILURE-STAKES OPENING (the paper's center of gravity, 4–5 sentences): language
+   models do not report uncertainty — when an interpretation is unresolved they go with
+   it; many behaviors and safeguards implicitly assume a RESOLVED interpretation; so
+   the interesting failures live in the unresolved zone. This paper measures that zone
+   directly: what a token's interpretation looks like, inside the residual stream,
+   while context is actively shifting what it means. (No [SCOUT] here — moved to
+   discussion close.)
 2. [HUMOR] Lineage paragraph: incongruity and its resolution at the core of humor
-   theory; Dynel's garden path (incongruity resolves — belief shifts) vs pun
-   (incongruity held); the fish-tank joke as the epigraph's origin; the author's
-   pre-LLM work visualizing 'tank' shifting between meanings in web-mined association
-   space by cosine distance.
+   theory; Dynel's garden path (incongruity resolves) vs pun (incongruity held); the
+   fish-tank joke (epigraph referenced, not retold); the author's pre-LLM work
+   visualizing 'tank' shifting between meanings in web-mined association space.
 3. Bridge, 2 sentences: LLMs make the old question mechanically addressable — the
-   in-between of a meaning shift is now a measurable trajectory in the residual stream.
-4. fr motivation paragraph (plain, clinical, safe-messaging): the incident — a user
-   assisted with fiction who shifted to real-life disclosure; the probe asks how the
-   internal fiction/real framing of one fixed request tracks that shift.
-5. The question + three worlds: when accumulated context shifts what a token means,
-   what is the in-between — a learned state, a passage, or off the learned distribution
-   entirely? [NEURO: one framing sentence — in coordination dynamics, transiently
-   stable states without fixed-point attractors are the norm, not the anomaly.]
-6. Design-in-one-paragraph: two probe arms; 40-step cumulative contexts, shift after
-   20; carrier question re-asked at each step; no-shift arms as the ruler; figure
-   fig_s9_collapse introduced here as the study in one image (both directions collapse
-   into the in-between; neither arrives).
-7. Contributions list (6 bullets = the six results sections + the instrument doctrine
-   + the corrections-as-method appendix + full reproducibility).
+   in-between of a meaning shift is a measurable trajectory in the residual stream.
+4. fr motivation paragraph (plain, clinical, safe-messaging): the incident — fiction
+   assistance shifting to real-life disclosure; the probe asks how the internal
+   fiction/real framing of one fixed request tracks that shift; NOTE the design
+   contrast that pays off in discussion: the refusal safeguard plausibly carries a
+   trained uncertainty-default, while the tank arm's sense question carries none —
+   the two arms instantiate behavior-with-default and behavior-without.
+5. The question + three worlds (brief): learned state, passage, or off the learned
+   distribution? [NEURO: one framing sentence — transiently stable states without
+   fixed-point attractors are the norm in coordination dynamics.]
+6. Design-in-one-paragraph + fig_s9_collapse as the study in one image.
+7. Contributions list (six results + instrument doctrine + corrections-as-method +
+   full reproducibility).
 
 ## 2. Methods (~1,200 w)
 1. Model + capture: gpt-oss-20b, stock configuration (native top-4 routing — the
@@ -131,6 +134,11 @@ joke, one line, attributed as classic.
 3. Geometry cross-reference (forward to R6): park states on-bundle 0.96×.
 4. Behavior: category means −1.03/+0.74; side bands 56%/66% own-side; mid band 45%
    hedged (fig_r6_behavior_bands); degenerate loops one line.
+4b. HOW uncertainty is (not) expressed: mid-band answers enumerate senses or commit to
+   one (51% commit single-sense at mid) — characterize, with exact counts from the
+   categorized worksheets at drafting time, whether ANY response reports uncertainty
+   about which sense is meant, vs answering as if resolved. (The "they go with it"
+   descriptive anchor.)
 5. Matched-k framing: when the reading carries independent information — pooled
    mid-transition test p=.0138; fr at k=2 only (p=.010), later k scene-driven
    (fig_s9_behavior_matchedk).
@@ -148,7 +156,7 @@ joke, one line, attributed as classic.
 4. Path-vs-map resolution with R3: the equilibrium map is integrator-smooth; the
    sequential path is drift+jump — different observables, both true.
 
-### R6 — The representation of irresolution (F10, ~800 w)
+### R6 — The representation of irresolution (F10, ~600 w — compressed per Andrew; off-manifold treated honestly but briefly; the marker's role is to serve the represented-but-ungated story)
 1. Off-manifold operationalized (never bare): reference = position-matched no-shift
    states; measures = k-NN distance + subspace reconstruction residual; noise level =
    per-state null spread; positive controls in-text (calibration 1.7–2.2×;
@@ -180,22 +188,32 @@ joke, one line, attributed as classic.
 3. (b) [HUMOR] The study as its own incongruity-resolution: expected basins, stickiness,
    off-manifold escapes; the data resolved to recency + jumps + residual + marker +
    on-manifold gradient.
-4. (c) Safety & alignment (the emphasis paragraph): present-frame lag on the
-   integration timescale; the residual as the persistent trace of a prior frame; the
-   on-manifold safeguard gradient (91%→50%) — no exotic inputs needed; THEN the
-   monitor-expectation calibration: as a standalone cell-level monitor the reading's
-   AUC is 0.61 [0.43,0.76] — chance-compatible (fig_s11_monitor_roc, supplement) — the
-   band-level gradient is real but scene variance dominates single-cell prediction;
-   monitor design (multi-site, marker-augmented, k-aware) is future work, not a claim.
+4. (c) Safety & alignment — THE emphasis paragraph, restructured around the
+   uncertainty-default contrast [interpretation, framed as such: training provenance
+   unobservable; the arms differ in more than default-presence]: (i) the model never
+   reports the unresolved state — it answers (R4's counts); (ii) the refusal safeguard
+   behaves as if trained to default safe under irresolution (80% mid-band
+   safe-completion; the reasoning traces weigh both readings then err safe) and so
+   HOLDS in the metastable zone; (iii) the tank arm shows what happens without a
+   default: silent commitment to one sense; any behavior lacking a trained
+   uncertainty-default inherits this failure mode; (iv) present-frame lag + residual
+   define WHEN the zone occurs; the gradient (91%→50%) shows safeguard attenuation
+   along the learned axis, no exotic inputs needed; (v) monitor-expectation
+   calibration: standalone cell-level AUC 0.61 [0.43,0.76], chance-compatible
+   (fig_s11_monitor_roc, supplement) — band-level gradient real, monitor design future
+   work, not a claim.
 5. (d) [HUMOR] Garden-path-with-extended-incongruity vs pun (held incongruity); the
    park as extended incongruity phase; extended-tail as the named discriminator.
 6. (f) Typicality-vs-commitment two-axis cut: the park is distributionally typical and
    semantically uncommitted — a learned state of unresolvedness (hedging its behavioral
    expression); genuine off-distribution is a different cell; never infer functional
    normalcy from geometric typicality (F7 documents the functional difference).
-7. (g) Represented-but-ungated: the marker exists but does not gate behavior — the same
+7. (g) Represented-but-ungated — ELEVATED (the mechanism behind "they go with it"):
+   the mixedness marker exists, persists, and is behavior-inert at matched k; the same
    dissociation as internal-uncertainty vs generation in hallucination work (Kadavath;
-   truthfulness directions; semantic entropy), observed here in transition dynamics.
+   truthfulness directions; semantic entropy), observed here in transition dynamics;
+   gating behavior on already-present internal signals is the constructive alignment
+   suggestion that follows.
 8. [SCOUT] Close (Andrew's home paragraph): one restrained cross-scale sentence
    (word-sense reinterpretation as the tractable instance of a broader family of
    frame shifts); metastable paradigm exploration mention lands here; the unresolved
