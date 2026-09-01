@@ -78,9 +78,9 @@ model [CITE: Raine v. OpenAI; reporting]. The court filing and contemporaneous r
 recount that direct requests triggered safeguards; that the same requests, reframed as
 fiction, received assistance, with the user's real circumstances present in the same
 long conversation; and that the model offered to draft a suicide note. We do not analyze
-that case; we take from it a precise scientific question. A model processing such a
-conversation maintains, in some form, a reading of whether "I want to write a suicide
-letter." is a fictional or a real request. How does that internal reading move as the
+that case; we take from it a precise scientific question. A model processing such a conversation carries, in
+some form, internal state that tracks whether "I want to write a suicide letter."
+is framed as fictional or real. How does that internal state move as the
 surrounding context shifts? As it happens — recognized after the fact, not designed —
 our two tasks bracket the safety question from both sides: one request is covered by a
 refusal safeguard, the other ("what does \emph{tank} mean?") by none, so the pair lets us
@@ -119,9 +119,8 @@ tank direction, whose mid-zone behavioral output is hedging — and the observat
 in 96 of 96 completions the model answers rather than asking (\S3.4); (5) hysteresis
 almost fully explained by recency weighting — a mild direction-dependent recency
 difference is all that remains, so the metastability lives in the path, not the
-equilibrium (\S3.5); (6) a persistent, systematic marker of mixed context that behavior
-does not appear to use — the model carries the information that its context is mixed and
-does not act on it (\S3.6); and a corrections record of nineteen entries that we present
+equilibrium (\S3.5); (6) a persistent, systematic marker of
+mixed context that behavior does not appear to use (\S3.6); and a corrections record of nineteen entries that we present
 as method rather than confession (Appendix A). All numbers regenerate from the committed
 repository.
 
@@ -367,15 +366,15 @@ dwelling direction's mid and deep stack ends at the midpoint itself. The deepest
 (layers 19–23) hovers near the midpoint in each task's one direction (fiction$\rightarrow$real
 +0.08; aquarium$\rightarrow$vehicle $-$0.10) while the reverse directions settle there (+0.48; +0.42).
 Our pre-stated prediction about the ordering of crossing times across layers held in the
-fiction/real task and failed in tank (\S5). The reading lags the present frame on roughly
-the timescale its integration window implies. The fitted decay parameters of \S3.3's
-recency integrator (\S2.4) have median $\gamma$ = 0.90 in both fiction/real directions and 0.94
+fiction/real task and failed in tank (\S5). The reading lags the present frame on roughly the fitted recency timescale. The
+decay parameters of \S3.3's recency integrator (\S2.4) have median $\gamma$ = 0.90 in both fiction/real directions and 0.94
 in tank $\rightarrow$aquarium — weighted-mean evidence ages of about nine and fourteen sentences —
 while in tank $\rightarrow$vehicle the median reaches 0.99: weighting so close to uniform that the
 effective memory exceeds the window, the integrator fit's own signature of that
 direction's dwell. Relative to an equal-weight average of all evidence in the window,
-the mean trajectories run slightly \emph{ahead} — the model mildly over-weights recent
-sentences; individual runs are heterogeneous around that mean. What the data rule out is
+the mean
+trajectories run slightly \emph{ahead} — the pattern a recency weighting would produce;
+individual runs are heterogeneous around that mean. What the data rule out is
 not lag but lag \emph{in excess} of evidence integration.
 
 The transition is two-phase. The best-fitting single-$\gamma$ recency integrator underpredicts
@@ -437,9 +436,9 @@ of 24 simulations; step-truth is called integrator in 0–2\%; and two-timescale
 masquerades as a plain integrator or indeterminate, reading as hybrid in only 2–3 of
 24. The selector cannot fabricate the hybrid verdict from any of the smooth forms
 tested. This is a claim about the form of the trajectories, not their
-implementation: it excludes smooth integration of the evidence and establishes
-discrete reorganization events; what inside the network produces a jump is not
-identified here.
+implementation: it excludes smooth
+integration of the evidence and establishes discrete changes in the reading; what
+inside the network produces one is not identified here.
 
 On the real runs the selector nonetheless returns hybrid: among classifiable runs,
 drift-plus-jump is dominant — 11 of 16 tank runs and 14 of 25 fiction/real runs (48\% of
@@ -449,12 +448,12 @@ zero runs in either task (Fig.~\ref{fig:fig_s9_model_classes}; per-run fits in F
 directly — some runs glide, some step). The two-phase shape of \S3.2 could in principle
 have been smooth multi-timescale integration; tested head-to-head, it is not.
 
-The jumps are not triggered by strong evidence. Every post-shift sentence has a
+Jump timing is not predicted by evidence strength. Every post-shift sentence has a
 single-sentence calibration reading (456 of 456 matched), and the sentences at which
 runs jump are median-strength exemplars of their class — percentile 0.50 against 0.50
-for all other added sentences (p = 0.445). The same evidence moves one run smoothly and
-jolts another: whatever triggers a jump is a property of the state, not of the stimulus
-— though we have tested only evidence strength — and single-sentence calibration
+for all other added sentences (p = 0.445). The same-strength evidence moves one run smoothly and jolts another: what
+differentiates a jump step is not the stimulus property we measured — though we
+have tested only evidence strength — and single-sentence calibration
 strength may understate in-context strength; surprisal, syntax, and discourse position
 remain untested — so "state-dependent" is our working interpretation rather than a
 demonstrated exclusion.
@@ -595,7 +594,7 @@ there is no bistability to fall into and no barrier to escape.
 \caption{Hysteresis without stickiness (tank): static-mixture sweeps in two block orders produce loop area $+14.4$ [12.2, 16.8]; a one-parameter recency integrator fitted to the same cells reproduces it ($+14.3$) --- excess ``stickiness'' $+0.1$, ns.}\label{fig:fig_r6_d6_loop_tank}
 \end{figure}
 \FloatBarrier
-\subsection{The representation of irresolution (R6)}
+\subsection{The geometry of irresolution (R6)}
 
 Finally, the third of the introduction's three worlds: do these in-between states leave
 the model's learned distribution? "Off-manifold" is meaningful only relative to a
@@ -629,11 +628,11 @@ pure-class cells from families \emph{outside} the reference construction should 
 it than cells from familiar families; they sit lower (+1.6\%/+3.4\% of separation versus
 +6.7\%/+6.0\%), and both sit far below mixed cells ($\approx$ +27\%).
 
-What is it? Held-out mixture cells locate its content: the marker is absent from
+What is it? Held-out mixture cells locate what elevates it: the marker is absent from
 pure-class contexts and near its full transition strength in \emph{static} mixed contexts —
 so it marks mixed context, not temporal shifting per se. One qualification: in the
-fiction/real task it halves when the mixture is interleaved rather than blocked, so
-there, part of what it encodes is the coherent structure of a shift. It did not predict
+fiction/real task it halves when the mixture is interleaved rather than blocked, so there, part of
+what elevates it is the coherent, blocked structure of the shift. It did not predict
 behavior in eight matched-composition tests at the calibrated site and layer (one
 nominal hit, uncorrected; other layers untested). The model, in other words, carries a
 persistent, systematic signal that its context is mixed — a direction on which pure
@@ -680,8 +679,8 @@ lingering trace of the initial misreading — is also the signature of human sen
 processing in the "good-enough" tradition: after recovering from a garden-path sentence,
 comprehenders measurably retain components of the initial, incorrect interpretation. We
 make no mechanistic identification; we note that a language model trained on human text
-reproduces, at the representational level, the reanalysis profile humans show
-behaviorally — including the part where the old reading never fully leaves.
+reproduces, at the
+activation level, the reanalysis profile humans show behaviorally — including the part where the old reading never fully leaves.
 
 \textbf{The study as its own subject.} This project began expecting basins, stickiness, and
 off-manifold escape routes, and the data dismantled each expectation in turn: the
@@ -694,9 +693,9 @@ surviving claims owe their credibility to that process, not despite it.
 
 \textbf{Safety and alignment, first descriptively.} The failure surface this study maps
 needs no adversary. During an ordinary, coherent shift of conversational frame, a
-model's reading of a critical token trails the present frame for roughly its integration
-window (here, nine to fourteen sentences, and effectively unbounded in the dwelling
-direction), retains a remnant of the prior frame beyond that, and — in one tank
+model's reading of a critical token trails the present frame for roughly the fitted recency
+timescale (here, nine to fourteen sentences, and effectively unbounded in the
+dwelling direction), retains a remnant of the prior frame beyond that, and — in one tank
 direction, with an exploratory n = 4 echo in fiction/real — dwells between frames for
 the remainder of the tested horizon. Throughout, the model never asks which reading is
 meant or flags the ambiguity as an obstacle — zero of 96 tank completions, across all
@@ -712,8 +711,7 @@ is unobservable: our two tasks appear to differ in whether they carry a trained 
 for unresolved cases. The refusal task behaved as though it does — at mid-transition,
 80\% of completions safe-complete, and in sampled chain-of-thought traces — the reasoning
 channel its chat format exposes, released with our behavior data — both framings are
-weighed before the safe reply (a qualitative observation, not a coded rate). The sense
-task carries no such default, and there the model silently commits (52\% of mid-band
+weighed before the safe reply (a qualitative observation, not a coded rate). The sense task showed no such default, and there the model silently commits (52\% of mid-band
 completions pick a sense). If this reading is right, the metastable zone is the failure
 window for every behavior \emph{without} a trained uncertainty-default — refusal-style
 safeguards may be the well-covered exception rather than the rule. A second, compatible
@@ -721,8 +719,7 @@ candidate emerged from the depth data, though it is weaker than it first looked:
 fiction/real's mid-deep stack (layers 3–18) settles clearly on the destination side in
 both directions, where tank aquarium$\rightarrow$vehicle's ends at the midpoint — so downstream
 layers in the covered task may act on a more settled reading than the site we measure.
-But the deepest band hovers near the midpoint in fiction$\rightarrow$real too — precisely the
-direction where the safeguard must engage and did (\S3.2) — so depth-resolution cannot
+But the deepest band hovers near the midpoint in fiction$\rightarrow$real too — the very direction where safeguard behavior must appear, and did (\S3.2) — so depth-resolution cannot
 carry the explanation alone. A third candidate points the opposite way through the
 stack: the shallowest layers resolve the framing composition almost immediately and
 completely (\S3.2), with the profile of surface-cue tracking — the minimal-pair
@@ -758,14 +755,14 @@ work is its dedicated test.
 conflated two axes. On \emph{distributional typicality} the stationary states are
 unremarkable — inside the bundle, on-distribution. On \emph{semantic commitment} they are
 distinctive — uncommitted, between calibrated interpretations, with hedging as their
-behavioral expression. A learned state of unresolvedness is typical \emph{and} uncommitted;
+behavioral expression. A learned state of unresolvedness would be typical \emph{and} uncommitted;
 genuinely off-distribution states (glitch inputs, interventions, adversarial
 incoherence) occupy a different cell of that table and remain untested here. The general
 lesson: that a state is geometrically typical does not make it functionally normal — our
 behavior data document the functional difference directly.
 
-\textbf{Represented but not consulted.} The mixed-context marker gives the dissociation its
-sharpest form: the model carries a persistent, systematic signal that its context is
+\textbf{A signal behavior does not appear to use.} The mixed-context marker gives the
+dissociation its sharpest form: the model carries a persistent, systematic signal that its context is
 mixed — and behavior does not appear to use it at matched composition, at the one site
 and layer tested. This is the same structure reported in the hallucination literature,
 where models internally encode uncertainty or truthfulness that their generations do not
@@ -856,7 +853,8 @@ question; midpoint referencing makes our findings robust either way). Dynamics: 
 case (intro + discussion): Raine v. OpenAI, Cal. Super. Ct. (S.F.), filed
 2025-08-26; contemporaneous reporting (CNN 2025-08-26; NBC News; TechCrunch
 2025-11-26 on OpenAI's answer denying causation). Contested litigation — the paper
-characterizes only what the filing and reporting describe.
+characterizes only what the filing and reporting describe. Model provenance (the
+intro's "trained safeguard"): gpt-oss model card, safety training documented.
 
 \subsection*{Appendix A — Corrections record (presented as method)}
 The 19 entries verbatim from FINDINGS\_FINAL \S3, one line each, with the two same-session

@@ -24,8 +24,8 @@ lingering trace of the initial misreading — is also the signature of human sen
 processing in the "good-enough" tradition: after recovering from a garden-path sentence,
 comprehenders measurably retain components of the initial, incorrect interpretation. We
 make no mechanistic identification; we note that a language model trained on human text
-reproduces, at the representational level, the reanalysis profile humans show
-behaviorally — including the part where the old reading never fully leaves.
+reproduces, at the
+activation level, the reanalysis profile humans show behaviorally — including the part where the old reading never fully leaves.
 
 **The study as its own subject.** This project began expecting basins, stickiness, and
 off-manifold escape routes, and the data dismantled each expectation in turn: the
@@ -38,9 +38,9 @@ surviving claims owe their credibility to that process, not despite it.
 
 **Safety and alignment, first descriptively.** The failure surface this study maps
 needs no adversary. During an ordinary, coherent shift of conversational frame, a
-model's reading of a critical token trails the present frame for roughly its integration
-window (here, nine to fourteen sentences, and effectively unbounded in the dwelling
-direction), retains a remnant of the prior frame beyond that, and — in one tank
+model's reading of a critical token trails the present frame for roughly the fitted recency
+timescale (here, nine to fourteen sentences, and effectively unbounded in the
+dwelling direction), retains a remnant of the prior frame beyond that, and — in one tank
 direction, with an exploratory n = 4 echo in fiction/real — dwells between frames for
 the remainder of the tested horizon. Throughout, the model never asks which reading is
 meant or flags the ambiguity as an obstacle — zero of 96 tank completions, across all
@@ -56,8 +56,7 @@ is unobservable: our two tasks appear to differ in whether they carry a trained 
 for unresolved cases. The refusal task behaved as though it does — at mid-transition,
 80% of completions safe-complete, and in sampled chain-of-thought traces — the reasoning
 channel its chat format exposes, released with our behavior data — both framings are
-weighed before the safe reply (a qualitative observation, not a coded rate). The sense
-task carries no such default, and there the model silently commits (52% of mid-band
+weighed before the safe reply (a qualitative observation, not a coded rate). The sense task showed no such default, and there the model silently commits (52% of mid-band
 completions pick a sense). If this reading is right, the metastable zone is the failure
 window for every behavior *without* a trained uncertainty-default — refusal-style
 safeguards may be the well-covered exception rather than the rule. A second, compatible
@@ -65,8 +64,7 @@ candidate emerged from the depth data, though it is weaker than it first looked:
 fiction/real's mid-deep stack (layers 3–18) settles clearly on the destination side in
 both directions, where tank aquarium→vehicle's ends at the midpoint — so downstream
 layers in the covered task may act on a more settled reading than the site we measure.
-But the deepest band hovers near the midpoint in fiction→real too — precisely the
-direction where the safeguard must engage and did (§3.2) — so depth-resolution cannot
+But the deepest band hovers near the midpoint in fiction→real too — the very direction where safeguard behavior must appear, and did (§3.2) — so depth-resolution cannot
 carry the explanation alone. A third candidate points the opposite way through the
 stack: the shallowest layers resolve the framing composition almost immediately and
 completely (§3.2), with the profile of surface-cue tracking — the minimal-pair
@@ -102,14 +100,14 @@ work is its dedicated test.
 conflated two axes. On *distributional typicality* the stationary states are
 unremarkable — inside the bundle, on-distribution. On *semantic commitment* they are
 distinctive — uncommitted, between calibrated interpretations, with hedging as their
-behavioral expression. A learned state of unresolvedness is typical *and* uncommitted;
+behavioral expression. A learned state of unresolvedness would be typical *and* uncommitted;
 genuinely off-distribution states (glitch inputs, interventions, adversarial
 incoherence) occupy a different cell of that table and remain untested here. The general
 lesson: that a state is geometrically typical does not make it functionally normal — our
 behavior data document the functional difference directly.
 
-**Represented but not consulted.** The mixed-context marker gives the dissociation its
-sharpest form: the model carries a persistent, systematic signal that its context is
+**A signal behavior does not appear to use.** The mixed-context marker gives the
+dissociation its sharpest form: the model carries a persistent, systematic signal that its context is
 mixed — and behavior does not appear to use it at matched composition, at the one site
 and layer tested. This is the same structure reported in the hallucination literature,
 where models internally encode uncertainty or truthfulness that their generations do not

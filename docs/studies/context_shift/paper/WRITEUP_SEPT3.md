@@ -81,7 +81,7 @@ against a misspecified null; the fitted null killed it within the hour.) The
 equilibrium evidence→reading map is smooth; the metastability lives in the sequential
 path — states and passages, not bistable wells.
 
-**The representation of irresolution.** No individual state leaves the model's
+**The geometry of irresolution.** No individual state leaves the model's
 activation distribution (with positive controls proving the instruments could tell).
 But the *mean* displacement of transition states off the no-shift subspace is
 unmistakable: a persistent **mixed-context marker** at 25–38% of the class separation (p < 0.001, family-block null), orthogonal to the content contrast,

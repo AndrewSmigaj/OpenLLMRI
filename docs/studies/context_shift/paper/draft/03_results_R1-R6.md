@@ -72,15 +72,15 @@ dwelling direction's mid and deep stack ends at the midpoint itself. The deepest
 (layers 19–23) hovers near the midpoint in each task's one direction (fiction→real
 +0.08; aquarium→vehicle −0.10) while the reverse directions settle there (+0.48; +0.42).
 Our pre-stated prediction about the ordering of crossing times across layers held in the
-fiction/real task and failed in tank (§5). The reading lags the present frame on roughly
-the timescale its integration window implies. The fitted decay parameters of §3.3's
-recency integrator (§2.4) have median γ = 0.90 in both fiction/real directions and 0.94
+fiction/real task and failed in tank (§5). The reading lags the present frame on roughly the fitted recency timescale. The
+decay parameters of §3.3's recency integrator (§2.4) have median γ = 0.90 in both fiction/real directions and 0.94
 in tank →aquarium — weighted-mean evidence ages of about nine and fourteen sentences —
 while in tank →vehicle the median reaches 0.99: weighting so close to uniform that the
 effective memory exceeds the window, the integrator fit's own signature of that
 direction's dwell. Relative to an equal-weight average of all evidence in the window,
-the mean trajectories run slightly *ahead* — the model mildly over-weights recent
-sentences; individual runs are heterogeneous around that mean. What the data rule out is
+the mean
+trajectories run slightly *ahead* — the pattern a recency weighting would produce;
+individual runs are heterogeneous around that mean. What the data rule out is
 not lag but lag *in excess* of evidence integration.
 
 The transition is two-phase. The best-fitting single-γ recency integrator underpredicts
@@ -128,9 +128,9 @@ of 24 simulations; step-truth is called integrator in 0–2%; and two-timescale 
 masquerades as a plain integrator or indeterminate, reading as hybrid in only 2–3 of
 24. The selector cannot fabricate the hybrid verdict from any of the smooth forms
 tested. This is a claim about the form of the trajectories, not their
-implementation: it excludes smooth integration of the evidence and establishes
-discrete reorganization events; what inside the network produces a jump is not
-identified here.
+implementation: it excludes smooth
+integration of the evidence and establishes discrete changes in the reading; what
+inside the network produces one is not identified here.
 
 On the real runs the selector nonetheless returns hybrid: among classifiable runs,
 drift-plus-jump is dominant — 11 of 16 tank runs and 14 of 25 fiction/real runs (48% of
@@ -141,12 +141,12 @@ fig_r1_fit_gallery_tank; the raw paths in Fig. spaghetti_L4 show the heterogenei
 directly — some runs glide, some step). The two-phase shape of §3.2 could in principle
 have been smooth multi-timescale integration; tested head-to-head, it is not.
 
-The jumps are not triggered by strong evidence. Every post-shift sentence has a
+Jump timing is not predicted by evidence strength. Every post-shift sentence has a
 single-sentence calibration reading (456 of 456 matched), and the sentences at which
 runs jump are median-strength exemplars of their class — percentile 0.50 against 0.50
-for all other added sentences (p = 0.445). The same evidence moves one run smoothly and
-jolts another: whatever triggers a jump is a property of the state, not of the stimulus
-— though we have tested only evidence strength — and single-sentence calibration
+for all other added sentences (p = 0.445). The same-strength evidence moves one run smoothly and jolts another: what
+differentiates a jump step is not the stimulus property we measured — though we
+have tested only evidence strength — and single-sentence calibration
 strength may understate in-context strength; surprisal, syntax, and discourse position
 remain untested — so "state-dependent" is our working interpretation rather than a
 demonstrated exclusion.
@@ -242,7 +242,7 @@ transition is drift punctuated by jumps. Both are true; they are different obser
 The metastability this paper names is a property of paths, not of the equilibrium map —
 there is no bistability to fall into and no barrier to escape.
 
-## 3.6 The representation of irresolution (R6)
+## 3.6 The geometry of irresolution (R6)
 
 Finally, the third of the introduction's three worlds: do these in-between states leave
 the model's learned distribution? "Off-manifold" is meaningful only relative to a
@@ -277,11 +277,11 @@ pure-class cells from families *outside* the reference construction should sit h
 it than cells from familiar families; they sit lower (+1.6%/+3.4% of separation versus
 +6.7%/+6.0%), and both sit far below mixed cells (≈ +27%).
 
-What is it? Held-out mixture cells locate its content: the marker is absent from
+What is it? Held-out mixture cells locate what elevates it: the marker is absent from
 pure-class contexts and near its full transition strength in *static* mixed contexts —
 so it marks mixed context, not temporal shifting per se. One qualification: in the
-fiction/real task it halves when the mixture is interleaved rather than blocked, so
-there, part of what it encodes is the coherent structure of a shift. It did not predict
+fiction/real task it halves when the mixture is interleaved rather than blocked, so there, part of
+what elevates it is the coherent, blocked structure of the shift. It did not predict
 behavior in eight matched-composition tests at the calibrated site and layer (one
 nominal hit, uncorrected; other layers untested). The model, in other words, carries a
 persistent, systematic signal that its context is mixed — a direction on which pure

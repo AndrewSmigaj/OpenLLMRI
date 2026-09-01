@@ -34,9 +34,9 @@ model [CITE: Raine v. OpenAI; reporting]. The court filing and contemporaneous r
 recount that direct requests triggered safeguards; that the same requests, reframed as
 fiction, received assistance, with the user's real circumstances present in the same
 long conversation; and that the model offered to draft a suicide note. We do not analyze
-that case; we take from it a precise scientific question. A model processing such a
-conversation maintains, in some form, a reading of whether "I want to write a suicide
-letter." is a fictional or a real request. How does that internal reading move as the
+that case; we take from it a precise scientific question. A model processing such a conversation carries, in
+some form, internal state that tracks whether "I want to write a suicide letter."
+is framed as fictional or real. How does that internal state move as the
 surrounding context shifts? As it happens — recognized after the fact, not designed —
 our two tasks bracket the safety question from both sides: one request is covered by a
 refusal safeguard, the other ("what does *tank* mean?") by none, so the pair lets us
@@ -75,8 +75,7 @@ tank direction, whose mid-zone behavioral output is hedging — and the observat
 in 96 of 96 completions the model answers rather than asking (§3.4); (5) hysteresis
 almost fully explained by recency weighting — a mild direction-dependent recency
 difference is all that remains, so the metastability lives in the path, not the
-equilibrium (§3.5); (6) a persistent, systematic marker of mixed context that behavior
-does not appear to use — the model carries the information that its context is mixed and
-does not act on it (§3.6); and a corrections record of nineteen entries that we present
+equilibrium (§3.5); (6) a persistent, systematic marker of
+mixed context that behavior does not appear to use (§3.6); and a corrections record of nineteen entries that we present
 as method rather than confession (Appendix A). All numbers regenerate from the committed
 repository.

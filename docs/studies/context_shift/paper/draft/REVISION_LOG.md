@@ -512,3 +512,35 @@ jump). §3.3 heading and intro contribution (3) renamed; a status sentence added
 §3.3 stating exactly what the model selection does and does not license; writeup
 heading mirrored. Same overreach family as "state-triggered"/"learned"/"park":
 interpretation-loaded words standing where measured claims should.
+
+---
+
+## Kind audit — rulings applied (2026-09-01, discussed first)
+
+Independent kind-of-claim audit (20 findings) verified item-by-item, then discussed
+with Andrew before any edit. Applied (15): the two signpost headings (§3.6 → "The
+geometry of irresolution"; §4 → "A signal behavior does not appear to use"); intro
+contribution (6) de-escalated (cut "carries the information that"); "encodes" →
+"elevates"; causal denial → predictive ("Jump timing is not predicted by evidence
+strength"); "over-weights" → "the pattern a recency weighting would produce";
+state-attribution → differentiating-property phrasing; "reorganization events" →
+"changes in the reading"; "its integration window" → "the fitted recency timescale"
+(×2); "would be" subjunctive in the typicality taxonomy; "carries no such default"
+→ "showed no such default"; "content" → "what elevates it"; "safeguard must engage"
+→ "safeguard behavior must appear"; "representational level" → "activation level";
+intro's motivating question reworded per Andrew's approval ("internal state that
+tracks whether the request is framed as fictional or real").
+
+Declined with reasons (4): #10 (question-then-operationalization structure is
+correct; §3.6's next sentence already fixes reference/measure/noise); #12 (Andrew's
+argument: gpt-oss safeguards ARE trained, not scaffolding — "deployed" would
+mislead; "trained" kept, model-card anchor added); #16 ("scene-driven" is
+deterministic input causation, the audit's own licensed principle); #20 ("update" is
+time-series idiom, frozen-record vocabulary).
+
+Held: #15 awaiting Andrew's ruling (full before/after shown; the in-between
+language is retained by the fix).
+
+Audit's systematic lesson, logged for the tex pass: compression at the signpost
+layer (headings, lists, topic sentences) strips the licensing devices — check
+summaries run no hotter than the sentences they summarize.
