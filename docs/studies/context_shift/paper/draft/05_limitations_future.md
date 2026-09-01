@@ -17,12 +17,12 @@ Cross-task patterns — the task with the wider endpoint separation also shows t
 remnant gaps; anchored versus distributed contrast structure — are n = 2 observations,
 hypotheses rather than findings.
 
-**The named open question.** Whether the remnant and the park are permanent or
-merely slower than twenty sentences — in the terms of §4, whether any park is a pun
-rather than a long garden path — is decidable by extending the post-shift horizon
-(extended-tail runs) and by shifting evidence back to the original class (A→B→A runs,
-measuring what remains of the second frame). Both are designed and costed; neither has
-run.
+**The named open question.** Whether the remnant — and the dwelling within the
+unresolved zone — are permanent or merely slower than twenty sentences: in the terms of
+§4, whether the dwelling is a pun rather than a long garden path — is decidable by
+extending the post-shift horizon (extended-tail runs) and by shifting evidence back to
+the original class (A→B→A runs, measuring what remains of the second frame). Both are
+designed and costed; neither has run.
 
 **Further deferred work,** in rough order of leverage: replicating the fiction/real
 headline quantities at the ' write' site, where the framing contrast reads most strongly

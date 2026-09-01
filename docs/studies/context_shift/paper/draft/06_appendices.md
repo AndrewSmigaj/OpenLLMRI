@@ -20,12 +20,12 @@ claim): Kadavath et al.; Lin et al. (verbalized confidence); Xiong et al. (calib
 of verbalized confidence); Liu et al. (ambiguity modeling). Internal encoding vs
 expression (grounds Discussion's "represented but not consulted"): Azaria & Mitchell
 (internal state predicts truthfulness); Orgad et al. (models encode more than they
-express). Long-context artifacts: attention sinks (the "is the offset positional?" question;
-midpoint referencing makes our findings robust either way). Dynamics: Sussillo & Barak;
-Kelso; Rabinovich et al.
+express). Long-context artifacts: attention sinks (the "is the offset positional?"
+question; midpoint referencing makes our findings robust either way). Dynamics: Sussillo
+& Barak; Kelso; Rabinovich et al.
 
 ## Appendix A — Corrections record (presented as method)
-The 17 entries verbatim from FINDINGS_FINAL §3, one line each, with the two same-session
+The 18 entries verbatim from FINDINGS_FINAL §3, one line each, with the two same-session
 retractions (D6 stickiness; fr durability) called out; one framing paragraph: every
 claim in this paper survived an explicit attempt to kill it, and these are the ones that
 did not.
@@ -38,12 +38,12 @@ sentence (every element justified or named as ornament — nothing kept silently
 Regeneration audit summary (bit-identical axes; 23-script diff green; seeded bootstraps
 exact); 9/9 fixture suite; sign/boundary/join/shuffle audits; the two logged post-freeze
 additions (s12 response counts, 0/96; s11 monitor ROC, AUC 0.61 [0.43,0.76]); repository
-pointer + regeneration instructions. Terminology map for repository readers: the
-paper's *remnant* is the repository's "residual"; *accumulation offset* is
-"accumulation drift"; *tasks* are the repository's "probes"/"probe arms"; corpus
-directories D3/D4/D5/D6 are the transition, no-shift, minimal-pair, and mixture-sweep
-corpora; the repository's "K=1" label names an analysis convention for a routing
-track this study dropped.
+pointer + regeneration instructions. Terminology map for repository readers: the paper's
+*remnant* is the repository's "residual"; the dwelling within the unresolved zone is the
+repository's "park"; *accumulation offset* is "accumulation drift"; *tasks* are the
+repository's "probes"/"probe arms"; corpus directories D3/D4/D5/D6 are the transition,
+no-shift, minimal-pair, and mixture-sweep corpora; the repository's "K=1" label names an
+analysis convention for a routing track this study dropped.
 
 ## Appendix D — Supplementary figures
 figures/other/ (12): fr fit gallery, fr D6 loop, tank secondary heatmap, matched-k panel

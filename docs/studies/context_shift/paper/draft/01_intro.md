@@ -57,9 +57,9 @@ fixed *carrier* sentence containing the measurement token. Contexts grow one sen
 a time to forty, with the class of the evidence — which sense, or which framing, the
 sentences support — flipping after twenty; the carrier is re-appended at every step, so
 the same token is re-read under steadily shifting context; matched single-class contexts
-provide the reference scale. Figure fig_s9_collapse shows the central result: from either direction, readings
-cross into the in-between zone quickly, and neither ever reaches the opposite
-reference.
+provide the reference scale. Figure fig_s9_collapse shows the central result: from
+either direction, readings cross into the in-between zone quickly, and neither ever
+reaches the opposite reference.
 
 We contribute: (1) a measurement protocol for reading interpretations over accumulating
 context without self-deception — including two instrument artifacts, accumulation offset
@@ -67,11 +67,12 @@ and axis rotation, that we first mistook for findings (§2); (2) the shape of
 reinterpretation — fast and partial, with a remnant of the old interpretation persisting
 to the end of the tested horizon (§3.2); (3) its mechanism: drift plus discrete
 state-triggered jumps, with every smooth integrator rejected head-to-head (§3.3); (4)
-the park — a stable intermediate whose behavioral output is hedging, and the observation
-that in 96 of 96 completions the model answers rather than asking (§3.4); (5) hysteresis
-fully explained by recency weighting — order effects are real but add nothing beyond
-recency, so the metastability lives in the path, not the equilibrium (§3.5); (6) a
-learned, persistent marker of mixed context that does not influence behavior — the model
-represents that its context is mixed and does not act on it (§3.6); and a corrections
-record of seventeen entries that we present as method rather than confession (Appendix
-A). All numbers regenerate from the committed repository.
+the dwelling within the unresolved zone — a stationary intermediate whose behavioral
+output is hedging — and the observation that in 96 of 96 completions the model answers
+rather than asking (§3.4); (5) hysteresis fully explained by recency weighting — order
+effects are real but add nothing beyond recency, so the metastability lives in the path,
+not the equilibrium (§3.5); (6) a learned, persistent marker of mixed context that does
+not influence behavior — the model represents that its context is mixed and does not act
+on it (§3.6); and a corrections record of eighteen entries that we present as method
+rather than confession (Appendix A). All numbers regenerate from the committed
+repository.

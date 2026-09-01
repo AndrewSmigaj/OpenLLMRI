@@ -6,8 +6,8 @@
 
 **In one sentence:** we instrumented what happens *inside* a language model's residual
 stream while accumulating context shifts what a token means — and found a reproducible
-cluster of properties we call **semantic metastability**: fast-but-partial updating, a persistent remnant of the old interpretation, discrete state-triggered jumps, stable
-parked states between meanings, hysteresis fully explained by recency weighting, and a
+cluster of properties we call **semantic metastability**: fast-but-partial updating, a persistent remnant of the old interpretation, discrete state-triggered jumps, extended
+dwelling within the unresolved zone, hysteresis fully explained by recency weighting, and a
 learned marker of mixed context that the model represents but never acts on.
 
 ![Both directions collapse into the in-between zone](fig_s9_collapse.png)
@@ -25,8 +25,8 @@ re-read at every step; token-budget-matched no-shift contexts as the reference; 
 diff-of-means axes with scene-held-out validation (0.905/0.910), midpoint referencing,
 and per-layer rotation-corrected axes. Every number regenerates from committed
 scripts; a 9/9 synthetic-fixture suite and family-level label-shuffle audits guard the
-pipeline; the project's 17-entry corrections record — including two same-session
-retractions — is published as part of the method.
+pipeline; the project's 18-entry corrections record — including two
+same-session retractions — is published as part of the method.
 
 **Instruments and validity.** The axes read the intended contrast, not topic: with
 content held fixed inside 150 minimal pairs, framing cues alone move the reading by
@@ -36,8 +36,9 @@ at the sense-bearing token (d′ 11.7 vs ambient 1.4). Two instrument artifacts 
 its direction at depth) — were caught, retracted where they had fooled us, and turned
 into measurement doctrine.
 
-**The shape of reinterpretation.** Readings lag the present frame in the plain sense —
-7–13 sentences to cross, arrival never — on the timescale the fitted integration
+**The shape of reinterpretation.** Readings lag the present frame in the plain
+sense — per-run median crossings of 4–10 sentences (task × direction), arrival
+never — on the timescale the fitted integration
 window implies (~10–17 sentences). Transitions are two-phase: faster than integration
 early, then a **remnant** of 0.4–1.1× the no-shift reference amplitude (the
 midpoint-to-reference distance) that twenty counter-sentences never remove (three of four conditions robust to reference
@@ -53,8 +54,9 @@ the sentences that precipitate them are median-strength exemplars (p = 0.445). I
 the stream, mixed history suppresses the class reading of even the new evidence's own
 tokens to roughly half their reference.
 
-**Unresolved states and behavior.** In one direction per task the trajectory
-**parks**: stationary at mid-axis for ten-plus steps, far from both references, a
+**Unresolved states and behavior.** In one direction per task the trajectory **dwells**:
+stationary at mid-axis for ten-plus steps, to the end of the measured window, far
+from both references, a
 single population rather than a hidden mixture. Behavior tracks the reading — and in
 the unresolved zone the model *answers anyway*: **zero of 96 completions ask which
 sense is meant or decline pending disambiguation**; 45% hedge by enumerating both

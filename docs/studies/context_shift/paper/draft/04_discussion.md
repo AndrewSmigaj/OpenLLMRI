@@ -11,11 +11,13 @@ neural systems rather than in physics. In coordination dynamics and in the
 winnerless-competition framework — models of sequential transient dynamics in neural
 populations — cognition is described as sequences of transiently stable states that are
 not fixed-point attractors — structured passages through state space in which dwelling
-and moving are not opposites. That is the geometry our data show: the park is functionally a state (stationary for many steps, with its own behavioral signature) and
-geometrically a passage (inside the trajectory bundle, on a smooth equilibrium map). One
-disclaimer: nothing here is equilibrium bistability — the evidence-mixture map is smooth
-(§3.5) — and readers should not import a barrier-crossing picture. Semantic
-metastability, as we use it, is a property of paths.
+and moving are not opposites. That is the geometry the data show: a run that dwells
+mid-transition occupies something functionally state-like (stationary for many steps,
+with its own behavioral signature) yet geometrically a passage (inside the trajectory
+bundle, on a smooth equilibrium map). One disclaimer: nothing here is equilibrium
+bistability — the evidence-mixture map is smooth (§3.5) — and readers should not import
+a barrier-crossing picture. Semantic metastability, as we use it, is a property of
+paths.
 
 **The human parallel.** The signature of §3.2 — fast partial reanalysis that leaves a
 lingering trace of the initial misreading — is also the signature of human sentence
@@ -29,19 +31,18 @@ behaviorally — including the part where the old reading never fully leaves.
 off-manifold escape routes, and the data dismantled each expectation in turn: the
 stickiness died against a properly fitted null within an hour of being announced; the
 off-manifold excursions never appeared; what replaced them — recency dynamics, jumps, a
-remnant, a marker — is stranger and better supported. The arc is
-the one §1 took from humor theory — incongruity, then resolution — replayed in the
-study's own history. We kept the corrections
-record (seventeen entries, Appendix A) in the paper because the surviving claims owe
-their credibility to that process, not despite it.
+remnant, a marker — is stranger and better supported. The arc is the one §1 took from
+humor theory — incongruity, then resolution — replayed in the study's own history. We
+kept the corrections record (eighteen entries, Appendix A) in the paper because the
+surviving claims owe their credibility to that process, not despite it.
 
 **Safety and alignment, first descriptively.** The failure surface this study maps
 needs no adversary. During an ordinary, coherent shift of conversational frame, a
 model's reading of a critical token trails the present frame for roughly its integration
 window (here, ten to seventeen sentences), retains a remnant of the prior frame beyond
-that, and — in one direction per task — parks between frames indefinitely on the tested
-horizon. Throughout that zone the model reports nothing: zero of 96 completions ask for
-disambiguation. And safeguard-relevant behavior tracks the internal reading:
+that, and — in one direction per task — dwells between frames for the remainder of the
+tested horizon. Throughout that zone the model reports nothing: zero of 96 completions
+ask for disambiguation. And safeguard-relevant behavior tracks the internal reading:
 safe-completion rates fall from 91% to 50% as the reading moves along the learned
 fiction/real axis — attenuation reachable by ordinary context, no exotic inputs
 required.
@@ -64,22 +65,22 @@ the mixed-context marker, and per-layer readings — is future work, not a claim
 
 **Garden path or pun.** In Dynel's terms our transition corpus is a slow-motion garden
 path, and most trajectories treat it as one: incongruity, then resolution toward the new
-reading. The park is the interesting case — an *extended incongruity phase*, in which
-the model, asked what the word means, answers like someone explaining a pun: both
-senses, held. Whether any park is a true pun — held incongruity that never resolves — or
-only a long garden path is the persistent-versus-slow question our twenty-sentence
-horizon cannot decide, and the extended-tail experiment named in future work is its
-dedicated test.
+reading. The dwelling runs are the interesting case — an *extended incongruity phase*,
+in which the model, asked what the word means, answers like someone explaining a pun:
+both senses, held. Whether any of them is a true pun — held incongruity that never
+resolves — or only a long garden path is the persistent-versus-slow question our
+twenty-sentence horizon cannot decide, and the extended-tail experiment named in future
+work is its dedicated test.
 
 **Typicality is not commitment.** The three-worlds question dissolved because it
-conflated two axes. On *distributional typicality* the park is unremarkable — inside the
-bundle, on-distribution. On *semantic commitment* it is distinctive — uncommitted,
-between calibrated interpretations, with hedging as its behavioral expression. A learned
-state of unresolvedness is typical *and* uncommitted; genuinely off-distribution states
-(glitch inputs, interventions, adversarial incoherence) occupy a different cell of that
-table and remain untested here. The general lesson: that a state is geometrically
-typical does not make it functionally normal — our behavior data document the functional
-difference directly.
+conflated two axes. On *distributional typicality* the stationary states are
+unremarkable — inside the bundle, on-distribution. On *semantic commitment* they are
+distinctive — uncommitted, between calibrated interpretations, with hedging as their
+behavioral expression. A learned state of unresolvedness is typical *and* uncommitted;
+genuinely off-distribution states (glitch inputs, interventions, adversarial
+incoherence) occupy a different cell of that table and remain untested here. The general
+lesson: that a state is geometrically typical does not make it functionally normal — our
+behavior data document the functional difference directly.
 
 **Represented but not consulted.** The mixed-context marker gives the dissociation its
 sharpest form: the model maintains a persistent, dedicated representation that its
@@ -92,7 +93,7 @@ constructive direction for alignment work — not creating uncertainty signals, 
 behavior on the ones already there.
 
 **Closing.** Word-sense reinterpretation is the tractable laboratory instance of a much
-larger family — frames, personas, tasks, and safety
-postures all shift under accumulating context, and there is no obvious reason the
-metastable structure documented here is unique to word senses. The states are what the title calls them: unresolved. For now, so is
-the question of what a model should do while inside one.
+larger family — frames, personas, tasks, and safety postures all shift under
+accumulating context, and there is no obvious reason the metastable structure documented
+here is unique to word senses. The states are what the title calls them: unresolved. For
+now, so is the question of what a model should do while inside one.

@@ -316,3 +316,34 @@ positions the work against the jailbreak literature); §2.4 "outlived our own
 attempts to kill them" (the corrections-as-method thesis); the bolded 0/96 sentence;
 the simplified title-mirror close. Test applied: a declarative sentence carrying a
 real claim stays; a construction whose only job is drama goes.
+
+---
+
+## Figure-vs-text audit + terminology settlement (2026-09-01, Andrew's challenges)
+
+**Correction 18 (real numerical error, Andrew's catch).** The paper and FINDINGS §2
+said readings "cross within 7–13 sentences"; Andrew eyeballed the fr collapse curves
+crossing at ~4 and asked why the figure didn't match. Recomputed from committed data:
+per-run median crossings tank 10.5/6.0 (1 run never crosses), fiction/real 4.0/5.0
+(2 never); mean-curve crossings 13/8/4/4. The "7–13" matched no headline cell.
+FINDINGS_FINAL §2 corrected + entry 18 appended; the paper now quotes per-cell
+values; all "seventeen-entry" counts updated to eighteen.
+
+**Single-site disclosure + depth structure.** §3.2 now states the collapse figure
+shows each task's calibrated site only (layers 4 and 14) and adds the depth
+paragraph from the B5 record: shallowest fr layers cross in 3–4 sentences (the
+sudden flips visible in the heatmaps), mid-stack at medians 8–13; tank
+aquarium→vehicle crosses at median 13 in every depth band with three deep layers
+never crossing (the dwelling is stack-wide), reverse direction earliest at depth
+(median 6); the half-failed layer-ordering prediction now appears in results, not
+only in limitations.
+
+**Terminology settled (Andrew's ruling, discussed not kneejerked):** no coined noun
+for the stationary phenomenon. The paper says the trajectory "dwells within the
+unresolved zone" (dwell as ordinary English verb), with "the stationary/dwelling
+states" as the natural short form; "park" is gone from the paper (glossary entry
+removed; Appendix C terminology map points repository readers from "park" to the
+descriptive phrase). Horizon bounds applied at every dwelling claim: "on the
+measured horizon, does not leave" (§3.4, with the shallow-late-slope caveat),
+"to the end of the measured window" (abstract), "for the remainder of the tested
+horizon" (discussion).

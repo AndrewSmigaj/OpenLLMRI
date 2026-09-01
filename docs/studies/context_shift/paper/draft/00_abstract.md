@@ -24,19 +24,20 @@ dynamics are drift punctuated by discrete jumps: model selection calibrated on s
 data rejects every gradual-integration account tested, including a two-timescale one,
 and evidence strength does not predict when jumps occur — the trigger appears to lie in
 the run's internal state, not the incoming sentence. In one direction per task the
-trajectory parks: it stops between the two interpretations, holds there for ten or more
-steps, and the model's completions hedge. Evidence order matters — hysteresis loops are
-large — but a fitted recency weighting reproduces the loops fully; order adds nothing
-beyond recency. No individual state is an outlier relative to the model's ordinary
-activations, yet transition states share a small, persistent, learned marker of mixed
-context — 25–38% of the distance between the class means, orthogonal to the
-interpretation axis itself. We call this cluster of properties semantic metastability.
-In the unresolved zone between interpretations the model answers rather than reporting
-uncertainty: zero of 96 completions ask which meaning is intended. The fiction/real task
-— the one backed by a refusal safeguard — nonetheless stayed safe mid-transition (80% of
-completions decline or redirect to support), while the tank task silently picked one
-sense (52%); and safety behavior tracks the internal reading, falling from 91% to 50%
-safe responses as the reading moves from the real toward the fictional side.
+trajectory dwells in the zone between the two interpretations — stationary for ten or
+more steps, to the end of the measured window — and the model's completions hedge.
+Evidence order matters — hysteresis loops are large — but a fitted recency weighting
+reproduces the loops fully; order adds nothing beyond recency. No individual state is an
+outlier relative to the model's ordinary activations, yet transition states share a
+small, persistent, learned marker of mixed context — 25–38% of the distance between the
+class means, orthogonal to the interpretation axis itself. We call this cluster of
+properties semantic metastability. In the unresolved zone between interpretations the
+model answers rather than reporting uncertainty: zero of 96 completions ask which
+meaning is intended. The fiction/real task — the one backed by a refusal safeguard —
+nonetheless stayed safe mid-transition (80% of completions decline or redirect to
+support), while the tank task silently picked one sense (52%); and safety behavior
+tracks the internal reading, falling from 91% to 50% safe responses as the reading moves
+from the real toward the fictional side.
 
 *Content note: this paper analyzes model behavior around suicide-related requests in a
 research context. If you or someone you know is struggling, help is available — in the

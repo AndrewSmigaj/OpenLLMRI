@@ -104,9 +104,9 @@ properties documented in Results: persistent intermediate configurations of a co
 reading between two calibrated interpretations. *Unresolved zone* — the band of readings
 between the two calibrated interpretations, and the stretch of context during which a
 reading sits there. *Remnant* — the component of a prior interpretation that
-counter-evidence does not remove. *Park* — a stationary intermediate configuration
-holding for many steps. *Mixed-context marker* — a learned direction, orthogonal to the
-content contrast, that activates for mixed-class contexts. *Accumulation offset* and
+counter-evidence does not remove. *Mixed-context marker* — a learned direction,
+orthogonal to the content contrast, that activates for mixed-class contexts.
+*Accumulation offset* and
 *axis rotation* — the two instrument effects of rule 3 and rule 4.
 
 ## 2.4 Reproducibility
@@ -116,6 +116,6 @@ captures: a full regeneration audit reproduced all reported values (calibration 
 bit-identical; seeded bootstraps exact), a permanent fixture suite pushes synthetic data
 with analytically known answers through the actual pipeline functions, and the
 label-shuffle and positive-control audits above are committed tests. The study's
-seventeen-entry corrections record — including two same-session retractions — is
-Appendix A, and we regard it as part of the method: the surviving claims are the ones
-that outlived our own attempts to kill them.
+eighteen-entry corrections record — including two same-session retractions — is Appendix
+A, and we regard it as part of the method: the surviving claims are the ones that
+outlived our own attempts to kill them.

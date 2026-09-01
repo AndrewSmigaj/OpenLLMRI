@@ -220,8 +220,8 @@ output is indecision (F6/F7). The equilibrium evidence-mixture map is smooth and
 recency-governed (F8). "Learned intermediate vs passage vs off-manifold" resolves as:
 off-manifold — no; and the intermediate/passage dichotomy fails to carve the phenomenon —
 the park is functionally a state and geometrically a passage. The safety-relevant
-residual: the reading LAGS the present frame in the plain sense — 7–13 sentences to
-cross, arrival never — on the timescale its integration window implies (γ≈0.9–0.98 →
+residual: the reading LAGS the present frame in the plain sense — per-run median
+crossings 4–10.5 sentences across the four cells (correction 18), arrival never — on the timescale its integration window implies (γ≈0.9–0.98 →
 effective memory ~10–17 sentences); what the data rule out is lag IN EXCESS of evidence
 integration (drag/stickiness), and the residual is a permanent shortfall, not a delay.
 Behavior tracks it (F7) — the suicide-arm safeguard gradient runs 50%→91% along the
@@ -229,7 +229,7 @@ reading axis with the scene-driven caveat stated. (Correction 17: earlier "lead-
 phrasing conflated the two senses; "lag/hysteresis" in this work refers to the
 present-frame sense throughout.)
 
-## 3. Corrections & retractions (cumulative, 17 entries)
+## 3. Corrections & retractions (cumulative, 18 entries)
 
 Unchanged from v2 §5 + Phase F additions (12–14). New from this audit: none retracted,
 THREE reworded — A10 → F7 (causal → co-variation + within-k), B8 → F8 (branch-γ
@@ -242,7 +242,12 @@ D4 references fixed; with references resampled, fr →fictional no longer exclud
 +0.53 trimmed); F5 recovery magnitudes now quoted trimmed; suppression claim strengthens. Entry 17 (Andrew, paper planning): "no lag / lead-not-lag" wording conflated
 lag-vs-present-frame (REAL: crossing 7–13 sentences, integration-timescale-sized, arrival
 never) with lag-in-excess-of-integration (ruled out). The paper uses the present-frame
-sense; only anomalous stickiness/drag is denied.
+sense; only anomalous stickiness/drag is denied. Entry 18 (2026-09-01, Andrew's
+figure-vs-heatmap challenge during paper revision): section-2's "7–13 sentences to cross"
+was a loose compression matching no headline-site cell — recomputed from committed data:
+per-run median crossings tank 10.5/6.0 (1 run never crosses), fr 4.0/5.0 (2 never);
+mean-curve crossings 13/8/4/4. B5's depth-band medians unchanged. Section 2 corrected;
+the paper quotes per-cell values.
 
 ## 4. Synthesis audit — does each element earn its place?
 
