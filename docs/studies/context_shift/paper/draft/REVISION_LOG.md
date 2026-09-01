@@ -544,3 +544,21 @@ language is retained by the fix).
 Audit's systematic lesson, logged for the tex pass: compression at the signpost
 layer (headings, lists, topic sentences) strips the licensing devices — check
 summaries run no hotter than the sentences they summarize.
+
+---
+
+## Methods restructure (2026-09-01, Andrew-approved after discussion)
+
+§2.3 now opens with the actual computation: the projection formula
+(r(h) = 2(h − m)·w/|w|², class means at ±1), the projection-not-distance sentence,
+the explicit probe choice (diff-of-means over logistic probe: hyperparameter-free,
+transparent geometry, comparable readout [CITE: mass-mean probing]), and the
+midpoint accuracy rule (moved from §2.4). §2.4 restructured into labeled
+paragraphs — Trajectory models (opening "no regression is involved in the
+instrument; least squares enters only here"), The remnant gap, Uncertainty,
+Behavior. Marks & Tegmark anchor extended for the probing precedent.
+
+Process lesson (Andrew's criticism, valid): coherence/readability passes ran over
+the pre-audit draft; every post-audit addition (§2.4 itself, depth paragraphs,
+candidate accounts) skipped them. Rule going forward: new prose gets a read-through
+before commit, and a hotspot linear re-read is owed now.

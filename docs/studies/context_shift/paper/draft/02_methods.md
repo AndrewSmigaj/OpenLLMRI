@@ -59,11 +59,23 @@ at the family level;
 
 ## 2.3 The instrument, and how not to fool yourself with it
 
-Our measurement axis is deliberately simple: the difference of class means over
-calibration activations, normalized so the two class means read −1 and +1. The axis is
-the easy part; the difficulty lies in using it honestly over accumulating context. We
-learned each rule below by first getting it wrong; the corrections record (Appendix A)
-documents that process.
+Our measurement axis is deliberately simple. For a site (token, layer), we average
+the residual-stream states of the single-sentence calibration corpus by class,
+giving two class means and their difference w. The reading of a state h is its
+position along that axis, rescaled so the class means sit at −1 and +1:
+r(h) = 2(h − m)·w/|w|², where m is the midpoint of the two class means. A reading
+is a signed coordinate between the two calibrated interpretations — a projection,
+not a distance to either class. We use the difference of class means rather than a
+trained classifier such as a logistic probe deliberately: it has no hyperparameters,
+its geometry is transparent, and mean-difference directions read out class structure
+comparably to trained probes [CITE: mass-mean probing]; its adequacy here is checked
+empirically. Classification accuracies use the midpoint rule — a held-out sentence
+is assigned to the class whose mean lies on its side of the midpoint — with splits
+held out at the scene-family level.
+
+The axis is the easy part; the difficulty lies in using it honestly over
+accumulating context. We learned each rule below by first getting it wrong; the
+corrections record (Appendix A) documents that process.
 
 **Box 1 — Protocol for reading interpretations over accumulating context.**
 1. *Calibrate at the same site, same carrier, always.* Projected across token
@@ -115,26 +127,31 @@ pure-class contexts read near zero.
 
 ## 2.4 Analysis methods
 
-All statistics operate on readings as defined above. Classification accuracies use the
-midpoint rule: a held-out sentence is assigned to the class whose calibration mean lies
-on its side of the midpoint, and accuracy is the fraction assigned correctly, with
-splits held out at the scene-family level. Per-run dynamics are fit to each run's twenty
-post-shift readings by least squares over four model forms: a recency-weighted
-integrator — the reading as a weighted average of all evidence so far, each sentence
-weighted γ^age so that recent sentences count more, with the single decay parameter γ
-grid-searched (the uniform, equal-weight integrator is its γ = 1 case and also serves as
-the lead/lag reference); a change-point step (constant level before and after a fitted
-change point; three parameters); a drift-plus-step hybrid (linear trend plus a step at a
-fitted change point; four parameters); and a two-timescale integrator (a mixture of fast
-and slow recency weightings; three parameters). Selection is by BIC over the twenty
-points, declaring a winner only when it leads the runner-up by at least 2, and
-"indeterminate" otherwise; the selector's identifiability is calibrated on synthetic
-runs of known type (§3.3). The remnant gap is the destination reference level (positions
-36–40) minus the run's plateau (post-shift sentences 16–20), both midpoint-referenced.
-Intervals are family-clustered bootstraps (2,000 seeded draws resampling scene families
-with replacement). Completions are categorized by regular-expression scan plus manual
-review of the committed worksheets. Every quantity regenerates from the committed
-analysis scripts.
+**Trajectory models.** No regression is involved in the instrument; least squares
+enters only here. Per-run dynamics are fit to each run's twenty post-shift readings
+by least squares over four model forms: a recency-weighted integrator — the reading
+as a weighted average of all evidence so far, each sentence weighted γ^age so that
+recent sentences count more, with the single decay parameter γ grid-searched (the
+uniform, equal-weight integrator is its γ = 1 case and also serves as the lead/lag
+reference); a change-point step (constant level before and after a fitted change
+point; three parameters); a drift-plus-step hybrid (linear trend plus a step at a
+fitted change point; four parameters); and a two-timescale integrator (a mixture of
+fast and slow recency weightings; three parameters). Selection is by BIC over the
+twenty points, declaring a winner only when it leads the runner-up by at least 2,
+and "indeterminate" otherwise; the selector's identifiability is calibrated on
+synthetic runs of known type (§3.3).
+
+**The remnant gap.** The destination reference level (positions 36–40) minus the
+run's plateau (post-shift sentences 16–20), both midpoint-referenced.
+
+**Uncertainty.** Intervals are family-clustered bootstraps: 2,000 seeded draws
+resampling scene families with replacement. Where a named test appears, its
+clustering unit is stated in place.
+
+**Behavior.** Completions are categorized by regular-expression scan plus manual
+review of the committed worksheets.
+
+Every quantity regenerates from the committed analysis scripts.
 
 ## 2.5 Reproducibility
 
