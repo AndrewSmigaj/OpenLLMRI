@@ -60,12 +60,15 @@ task carries no such default, and there the model silently commits (52% of mid-b
 completions pick a sense). If this reading is right, the metastable zone is the failure window
 for every behavior *without* a trained uncertainty-default — refusal-style
 safeguards may be the well-covered exception rather than the rule. A second,
-compatible candidate emerged from the depth data: in fiction/real the stack itself
-partially resolves — deep layers cross to the destination side (§3.2) — so the
-layers nearest the output may act on a more settled reading than the mid-stack site
-we measure, while in tank, where no deep resolution occurs, the model commits
-anyway. With two tasks this is an observation, not a test, and the exploratory
-per-layer behavior curves (§3.4) are too blunt to separate these accounts. We add one
+compatible candidate emerged from the depth data, though it is weaker than it first
+looked: fiction/real's mid-deep stack (layers 3–18) settles clearly on the
+destination side in both directions, where tank aquarium→vehicle's ends at the
+midpoint — so downstream layers in the covered task may act on a more settled
+reading than the site we measure. But the deepest band hovers near the midpoint in
+fiction→real too — precisely the direction where the safeguard must engage and did
+(§3.2) — so depth-resolution cannot carry the explanation alone. With two tasks
+these are observations, not tests, and the exploratory per-layer behavior curves
+(§3.4) are too blunt to separate the accounts. We add one
 calibration so this section cannot overpromise: as a standalone cell-level monitor, the
 frame reading is not yet usable (AUC 0.61 [0.43, 0.76], chance-compatible; Fig.
 fig_s11_monitor_roc, supplement). The band-level gradient is real; building a usable

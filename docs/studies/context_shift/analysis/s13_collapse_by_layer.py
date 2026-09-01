@@ -57,4 +57,13 @@ fig.suptitle("The collapse view across depth (secondary per-layer axes): sudden,
              "sites are single rows of this progression", fontsize=10.5, color=INK)
 fig.tight_layout(rect=[0, 0, 1, 0.93])
 fig.savefig(FIG / "fig_s13_collapse_layers.png", dpi=150, bbox_inches="tight", facecolor=SURFACE)
+# late-window destination-signed band means (quoted in section 3.2)
+for probe, c in CFG.items():
+    z = np.load(OUT / f"r3_projcache_{probe}.npz", allow_pickle=True)
+    S = {k[2:]: z[k] for k in z.files if k.startswith("S_")}
+    for suf, dest in ((c["dirs"][0], +1), (c["dirs"][1], -1)):
+        M = np.stack([S[n] for n in S if not c["isd4"](n) and n.endswith(suf)]).mean(0) * dest
+        print(f"{probe} {suf} late-window (k16-20) dest-signed band means: "
+              f"L0-2 {M[0:3,35:40].mean():+.2f} | L3-12 {M[3:13,35:40].mean():+.2f} | "
+              f"L13-18 {M[13:19,35:40].mean():+.2f} | L19-23 {M[19:24,35:40].mean():+.2f}")
 print("fig_s13_collapse_layers.png written")
