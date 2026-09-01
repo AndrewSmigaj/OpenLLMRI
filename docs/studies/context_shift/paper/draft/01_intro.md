@@ -39,7 +39,8 @@ some form, internal state that tracks whether "I want to write a suicide letter.
 is framed as fictional or real. How does that internal state move as the
 surrounding context shifts? As it happens — recognized after the fact, not designed —
 our two tasks bracket the safety question from both sides: one request is covered by a
-refusal safeguard, the other ("what does *tank* mean?") by none, so the pair lets us
+refusal safeguard, the other ("What is the
+meaning of the word tank?") by none, so the pair lets us
 watch behavior with and without a trained safeguard. Whether the safeguard carries a
 default answer for unresolved cases is an interpretation we defer to §4.
 
@@ -61,21 +62,27 @@ a time to forty, with the class of the evidence — which sense, or which framin
 sentences support — flipping after twenty; the carrier is re-appended at every step, so
 the same token is re-read under steadily shifting context; matched single-class contexts
 provide the reference scale. Figure fig_s9_collapse shows the central result: from
-either direction, readings cross into the in-between zone quickly and stop short of the
-opposite reference — robustly so in three of four task-by-direction conditions (§3.2).
+either direction, readings cross into the
+in-between zone and stop short of the opposite reference — robustly so in three of
+the four cases (§3.2).
 
-We contribute: (1) a measurement protocol for reading interpretations over accumulating
-context without self-deception — including two instrument artifacts, accumulation offset
-and axis rotation, that we first mistook for findings (§2); (2) the shape of
-reinterpretation — fast and partial, with a remnant of the old interpretation persisting
-to the end of the tested horizon (§3.2); (3) the form of its dynamics —
-drift plus discrete jumps not timed by evidence strength, with the smooth
-integrators tested rejected head-to-head (§3.3); (4) the dwelling within the unresolved zone — a stationary intermediate, in one
-tank direction, whose mid-zone behavioral output is hedging — and the observation that
-in 96 of 96 completions the model answers rather than asking (§3.4); (5) hysteresis
-almost fully explained by recency weighting — a mild direction-dependent recency
-difference is all that remains, so the metastability lives in the path, not the
-equilibrium (§3.5); (6) a persistent, systematic marker of
-mixed context that behavior does not appear to use (§3.6); and a corrections record of nineteen entries that we present
-as method rather than confession (Appendix A). All numbers regenerate from the committed
-repository.
+We contribute:
+
+1. A measurement protocol for reading interpretations over accumulating context,
+   including two instrument artifacts — accumulation offset and axis rotation — that
+   mimic findings (§2).
+2. The shape of reinterpretation: a gradual, partial update whose remnant lingers to
+   the end of the tested horizon (§3.2).
+3. The form of its dynamics: drift plus discrete jumps not timed by evidence
+   strength, with the smooth integrators tested rejected head-to-head (§3.3).
+4. The dwelling within the unresolved zone — a stationary intermediate state in one
+   tank direction, where the model's answers hedge between the senses — and the
+   observation that zero of the 96 completions ask which sense is meant (§3.4).
+5. Hysteresis almost fully explained by recency weighting: a mild
+   direction-dependent recency difference is all that remains, so the metastability
+   lives in the path, not the equilibrium (§3.5).
+6. A persistent, systematic marker of mixed context that behavior does not appear to
+   use (§3.6).
+
+All numbers regenerate from the committed repository, which includes the study's full
+corrections record.

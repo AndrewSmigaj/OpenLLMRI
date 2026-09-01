@@ -562,3 +562,27 @@ Process lesson (Andrew's criticism, valid): coherence/readability passes ran ove
 the pre-audit draft; every post-audit addition (§2.4 itself, depth paragraphs,
 candidate accounts) skipped them. Rule going forward: new prose gets a read-through
 before commit, and a hotspot linear re-read is owed now.
+
+---
+
+## Final revision batch (2026-09-01, applied on Andrew's go-ahead)
+
+Readability: the abstract's long sentences were split and its duplicate 45% removed;
+section 3.2 was re-cut into six short paragraphs; the discussion's interpretation
+paragraph was split into three; the contributions are now a numbered list; smaller
+fixes throughout (the real carrier quoted in the intro, a paragraph break in 3.4,
+one redundant sentence cut in methods).
+
+Register: the paper no longer tells the story of its own mistakes. The section-4
+paragraph about our expectations was deleted; Appendix A now lists only corrections
+that changed printed numbers, with the full record in the repository; Appendix B
+(the synthesis-audit table) was removed from the paper; the remaining disclosures
+(failed prediction, misspecified null, three retracted depth findings) stand as
+single factual sentences where the evidence needs them.
+
+Accuracy of wording: "fast" is gone (the transition is gradual; the two-phase claim
+now says the data sit above the best fit early and below it late); "permanent" in
+the 3.2 heading became "lingering"; the glossary bounds the remnant to the tested
+window; "task-by-direction conditions" and similar constructions are plain English
+now. Appendices renumbered (QA is B, supplementary figures C) with references
+updated. No numbers changed.

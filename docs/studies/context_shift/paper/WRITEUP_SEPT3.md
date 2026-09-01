@@ -6,7 +6,7 @@
 
 **In one sentence:** we instrumented what happens *inside* a language model's residual
 stream while accumulating context shifts what a token means — and found a reproducible
-cluster of properties we call **semantic metastability**: fast-but-partial updating, a persistent remnant of the old
+cluster of properties we call **semantic metastability**: gradual, partial updating, a remnant of the old
 interpretation, discrete jumps not timed by evidence strength, extended dwelling
 within the unresolved zone, hysteresis almost fully explained by recency weighting,
 and a persistent marker of mixed context that behavior does not appear to use.
@@ -44,8 +44,8 @@ into measurement doctrine.
 sense — per-run median crossings of 4–10 sentences (task × direction), arrival
 never — on the timescale the fitted
 integration window implies (median-γ weighted-mean ages ≈9–14 sentences; effectively
-unbounded in the dwelling direction). Transitions are two-phase: faster than integration
-early, then a **remnant** of 0.4–1.1× the no-shift reference amplitude (the
+unbounded in the dwelling direction). Transitions are two-phase: gradual movement
+toward the new interpretation that stops short, and a **remnant** of 0.4–1.1× the no-shift reference amplitude (the
 midpoint-to-reference distance) that twenty counter-sentences never remove (three of four conditions robust to reference
 uncertainty; not explained by weaker material). In the strongest case the plateau sits
 at the class midpoint itself. The direction asymmetry replicates under an independent

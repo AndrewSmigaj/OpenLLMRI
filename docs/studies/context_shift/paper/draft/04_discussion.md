@@ -9,9 +9,10 @@ represented-but-ungated elevated [x]; SCOUT close with one cross-scale sentence 
 **What "metastable" means here.** We anchor the term in the dynamics of biological
 neural systems rather than in physics. In coordination dynamics and in the
 winnerless-competition framework — models of sequential transient dynamics in neural
-populations — cognition is described as sequences of transiently stable states that are
-not fixed-point attractors — structured passages through state space in which dwelling
-and moving are not opposites. That is the geometry the data show: a run that dwells
+populations — cognition is described as
+sequences of transiently stable states that are not fixed-point attractors. These
+are structured passages through state space, in which dwelling and moving are not
+opposites. That is the geometry the data show: a run that dwells
 mid-transition occupies something functionally state-like (stationary for many steps,
 with its own behavioral signature) yet geometrically a passage (inside the trajectory
 bundle, on a smooth equilibrium map). One disclaimer: nothing here is equilibrium
@@ -26,15 +27,6 @@ comprehenders measurably retain components of the initial, incorrect interpretat
 make no mechanistic identification; we note that a language model trained on human text
 reproduces, at the
 activation level, the reanalysis profile humans show behaviorally — including the part where the old reading never fully leaves.
-
-**The study as its own subject.** This project began expecting basins, stickiness, and
-off-manifold escape routes, and the data dismantled each expectation in turn: the
-stickiness died against a properly fitted null within an hour of being announced; the
-off-manifold excursions never appeared; what replaced them — recency dynamics, jumps, a
-remnant, a marker — is stranger and better supported. The arc is the one §1 took from
-humor theory — incongruity, then resolution — replayed in the study's own history. We
-kept the corrections record (nineteen entries, Appendix A) in the paper because the
-surviving claims owe their credibility to that process, not despite it.
 
 **Safety and alignment, first descriptively.** The failure surface this study maps
 needs no adversary. During an ordinary, coherent shift of conversational frame, a
@@ -57,7 +49,9 @@ for unresolved cases. The refusal task behaved as though it does — at mid-tran
 80% of completions safe-complete, and in sampled chain-of-thought traces — the reasoning
 channel its chat format exposes, released with our behavior data — both framings are
 weighed before the safe reply (a qualitative observation, not a coded rate). The sense task showed no such default, and there the model silently commits (52% of mid-band
-completions pick a sense). If this reading is right, the metastable zone is the failure
+completions pick a sense).
+
+If this reading is right, the metastable zone is the failure
 window for every behavior *without* a trained uncertainty-default — refusal-style
 safeguards may be the well-covered exception rather than the rule. A second, compatible
 candidate emerged from the depth data, though it is weaker than it first looked:
@@ -80,8 +74,9 @@ and training provenance is unobservable here. The three accounts are not exclusi
 names the policy, one the downstream state, one the trigger's plausible locus — and none
 is causally established: with two tasks these are observations, and the exploratory
 per-layer curves (§3.4) are too blunt to separate them (shallow readings saturate
-post-shift, leaving that instrument blind exactly where the third account lives). We add
-one calibration so this section cannot overpromise: as a standalone monitor of
+post-shift, leaving that instrument blind exactly where the third account lives).
+
+We add one calibration so this section cannot overpromise: as a standalone monitor of
 individual readings, the frame reading is not yet usable (AUC 0.61 [0.43, 0.76],
 chance-compatible; Fig. fig_s11_monitor_roc, supplement). The band-level gradient is
 real; building a usable monitor — combining several sites, the mixed-context marker, and

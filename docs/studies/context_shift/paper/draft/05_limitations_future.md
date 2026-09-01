@@ -11,8 +11,8 @@ depth progression in which crossing timescales vary systematically (§3.2); no
 single layer is a sufficient readout of the model's state, and behavior is produced
 downstream of all of them. Within the
 study, replication is internal: two task contrasts, three carriers plus a replicate, two
-measurement sites, twelve scene families per class per task. That inventory also records
-what did *not* replicate cleanly, and we state it rather than smooth it: the
+measurement sites, twelve scene families per class per task. That inventory also records what did *not*
+replicate cleanly: the
 real→fictional remnant is suggestive only once reference uncertainty is propagated; the
 letter-site asymmetry rests on four runs per direction; 48% of fiction/real runs are
 indeterminate under per-run model selection; and our pre-stated prediction about the
@@ -41,5 +41,4 @@ context manipulations — colliding frames, mutating them mid-context, deliberat
 incoherent contexts — where genuine off-distribution excursions are most likely, our
 clean block-shifts being the tamest possible case.
 
-The analyses reported here were frozen before drafting; the two post-freeze additions (a
-descriptive response count and the monitor curve) are logged as such in Appendix C.
+The analyses reported here were frozen before drafting; the post-freeze additions are logged as such in Appendix B.

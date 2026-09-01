@@ -57,7 +57,16 @@ abs_body = abs_md.split("## Abstract")[1].split("*Content note:")[0].strip()
 note = "Content note:" + abs_md.split("*Content note:")[1].strip().rstrip("*")
 abs_tex = convert(abs_body); note_tex = convert(note)
 
-intro = convert((D/"01_intro.md").read_text()) + "\n" + figenv("fig_s9_collapse") + "\\FloatBarrier\n"
+def list_enumerate(tex, start, stop):
+    i = tex.find(start); j = tex.find(stop)
+    assert 0 < i < j
+    region = re.sub(r"^\d+\.\s", r"\\item ", tex[i:j], flags=re.M)
+    first = region.find("\\item")
+    region = region[:first] + "\\begin{enumerate}\n" + region[first:] + "\\end{enumerate}\n\n"
+    return tex[:i] + region + tex[j:]
+
+intro = convert((D/"01_intro.md").read_text())
+intro = list_enumerate(intro, "We contribute:", "All numbers regenerate") + "\n" + figenv("fig_s9_collapse") + "\\FloatBarrier\n"
 methods = box_enumerate(convert((D/"02_methods.md").read_text())) + "\\FloatBarrier\n"
 results = convert((D/"03_results_R1-R6.md").read_text())
 # append figures at end of each subsection

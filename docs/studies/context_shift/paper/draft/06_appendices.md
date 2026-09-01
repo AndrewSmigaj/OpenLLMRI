@@ -30,17 +30,13 @@ case (intro + discussion): Raine v. OpenAI, Cal. Super. Ct. (S.F.), filed
 characterizes only what the filing and reporting describe. Model provenance (the
 intro's "trained safeguard"): gpt-oss model card, safety training documented.
 
-## Appendix A — Corrections record (presented as method)
-The 19 entries verbatim from FINDINGS_FINAL §3, one line each, with the two same-session
-retractions (D6 stickiness; fr durability) called out; one framing paragraph: every
-claim in this paper survived an explicit attempt to kill it, and these are the ones that
-did not.
+## Appendix A — Corrections affecting reported values
+One line each for the corrections that changed numbers as printed: the real→fictional
+remnant interval widening to include zero under reference resampling; the trimmed
+within-stream means; the per-run crossing-time medians; the recency-parameter memory
+figures. The complete corrections record is in the repository.
 
-## Appendix B — Synthesis audit
-The earns/borderline/ornament table from FINDINGS_FINAL §4, with its one framing
-sentence (every element justified or named as ornament — nothing kept silently).
-
-## Appendix C — QA and reproducibility
+## Appendix B — QA and reproducibility
 Regeneration audit summary (bit-identical axes; 23-script diff green; seeded bootstraps
 exact); 9/9 fixture suite; sign/boundary/join/shuffle audits; the four logged post-freeze
 additions (s12 response counts, 0/96; s11 monitor ROC, AUC 0.61 [0.43,0.76]; s13
@@ -53,7 +49,7 @@ repository's "probes"/"probe arms"; corpus directories D3/D4/D5/D6 are the trans
 no-shift, minimal-pair, and mixture-sweep corpora; the repository's "K=1" label names an
 analysis convention for a routing track this study dropped.
 
-## Appendix D — Supplementary figures
+## Appendix C — Supplementary figures
 figures/other/ (12): fr fit gallery, fr D6 loop, tank secondary heatmap, matched-k panel
 is MAIN (fig_s9_behavior_matchedk) — supplement gets: raw + midref heatmap generations
 (the instrument story's "before" pictures), prelexical_L4, occupancy_bands_L4,

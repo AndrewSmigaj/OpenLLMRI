@@ -18,30 +18,32 @@ supports. Two tasks: a polysemous word moving between senses (\emph{tank}: aquar
 vehicle), and a fixed request ("I want to write a suicide letter.") moving between
 fictional and real framing. Contexts grow to forty sentences with the evidence class
 flipping after twenty; matched single-class contexts provide a no-shift reference at
-every position. Transitions are two-phase: a fast partial update, then a remnant of the
-prior interpretation that twenty counter-sentences never remove — 0.4–1.1$\times$ the reference
-amplitude (the midpoint-to-reference distance), across the four task $\times$ direction
-conditions; three of the four remain when reference uncertainty is propagated. Among
-classifiable runs, per-run dynamics are dominated by drift punctuated by discrete jumps:
-model selection calibrated on synthetic data rejects every gradual-integration account
-tested, including a two-timescale one, and evidence strength — the one sentence property
+every position. Transitions are two-phase. Readings move toward the new
+interpretation gradually, crossing the midpoint after a median of 4 to 10 sentences
+depending on task and direction; they then stop short, leaving a remnant of the prior
+interpretation that twenty counter-sentences never remove — 0.4–1.1$\times$ the reference
+amplitude (the midpoint-to-reference distance), in both directions of both tasks;
+three of the four hold when reference uncertainty is propagated. Among classifiable
+runs the dominant per-run pattern is drift punctuated by discrete jumps. Model
+selection calibrated on synthetic data rejects every gradual-integration account
+tested, including a two-timescale one. Evidence strength — the one sentence property
 tested — does not predict when jumps occur; state-dependence is our working
 interpretation. In the tank task one direction dwells in the zone between
-interpretations — stationary for ten or more steps, to the end of the measured window —
-with 45\% of mid-zone completions hedging between senses; an exploratory fiction/real
-site (n = 4) shows the same signature. Evidence order matters — hysteresis loops are
-large — but an exponentially recency-weighted average of the evidence, its one decay
-parameter fitted to the data, reproduces the loops almost fully; only a mild
-direction-dependent difference in that parameter remains. No individual state is an
-outlier relative to matched no-shift states, yet transition states share a small,
-persistent marker of mixed context — 25–38\% of the distance between the class means,
-orthogonal to the interpretation axis. We call this cluster of properties semantic
-metastability. The model never asks which meaning is intended — zero of 96 tank
-completions, across all reading bands — and in the unresolved zone it either surfaces
-both senses (45\%) or silently commits to one (52\%). The fiction/real task, covered by a
-refusal safeguard, safe-completed at mid-transition (80\%); safe-completion co-varies
-with the reading, falling from 91\% to 50\% across bands (the fiction-side endpoint at n =
-4, the gradient partly scene-driven).
+interpretations — stationary for ten or more steps, to the end of the measured
+window — and an exploratory fiction/real site (n = 4) shows the same signature.
+Evidence order matters — hysteresis loops are large — but an exponentially
+recency-weighted average of the evidence, its one decay parameter fitted to the data,
+reproduces the loops almost fully; only a mild direction-dependent difference in that
+parameter remains. No individual state is an outlier relative to matched no-shift
+states, yet transition states share a small, persistent marker of mixed context —
+25–38\% of the distance between the class means, orthogonal to the interpretation
+axis. We call this cluster of properties semantic metastability. The model never asks
+which meaning is intended — zero of 96 tank completions, across all reading bands —
+and in the unresolved zone it either surfaces both senses (45\%) or silently commits
+to one (52\%). The fiction/real task, covered by a refusal safeguard, safe-completed
+at mid-transition (80\%); safe-completion co-varies with the reading, falling from 91\%
+to 50\% across bands (the fiction-side endpoint at n = 4, the gradient partly
+scene-driven).
 \end{abstract}
 \begin{center}\begin{minipage}{0.9\linewidth}\small\emph{Content note:this paper analyzes model behavior around suicide-related requests in a
 research context. If you or someone you know is struggling, help is available — in the
@@ -83,7 +85,8 @@ some form, internal state that tracks whether "I want to write a suicide letter.
 is framed as fictional or real. How does that internal state move as the
 surrounding context shifts? As it happens — recognized after the fact, not designed —
 our two tasks bracket the safety question from both sides: one request is covered by a
-refusal safeguard, the other ("what does \emph{tank} mean?") by none, so the pair lets us
+refusal safeguard, the other ("What is the
+meaning of the word tank?") by none, so the pair lets us
 watch behavior with and without a trained safeguard. Whether the safeguard carries a
 default answer for unresolved cases is an interpretation we defer to \S4.
 
@@ -105,24 +108,33 @@ a time to forty, with the class of the evidence — which sense, or which framin
 sentences support — flipping after twenty; the carrier is re-appended at every step, so
 the same token is re-read under steadily shifting context; matched single-class contexts
 provide the reference scale. Figure~\ref{fig:fig_s9_collapse} shows the central result: from
-either direction, readings cross into the in-between zone quickly and stop short of the
-opposite reference — robustly so in three of four task-by-direction conditions (\S3.2).
+either direction, readings cross into the
+in-between zone and stop short of the opposite reference — robustly so in three of
+the four cases (\S3.2).
 
-We contribute: (1) a measurement protocol for reading interpretations over accumulating
-context without self-deception — including two instrument artifacts, accumulation offset
-and axis rotation, that we first mistook for findings (\S2); (2) the shape of
-reinterpretation — fast and partial, with a remnant of the old interpretation persisting
-to the end of the tested horizon (\S3.2); (3) the form of its dynamics —
-drift plus discrete jumps not timed by evidence strength, with the smooth
-integrators tested rejected head-to-head (\S3.3); (4) the dwelling within the unresolved zone — a stationary intermediate, in one
-tank direction, whose mid-zone behavioral output is hedging — and the observation that
-in 96 of 96 completions the model answers rather than asking (\S3.4); (5) hysteresis
-almost fully explained by recency weighting — a mild direction-dependent recency
-difference is all that remains, so the metastability lives in the path, not the
-equilibrium (\S3.5); (6) a persistent, systematic marker of
-mixed context that behavior does not appear to use (\S3.6); and a corrections record of nineteen entries that we present
-as method rather than confession (Appendix A). All numbers regenerate from the committed
-repository.
+We contribute:
+
+\begin{enumerate}
+\item A measurement protocol for reading interpretations over accumulating context,
+   including two instrument artifacts — accumulation offset and axis rotation — that
+   mimic findings (\S2).
+\item The shape of reinterpretation: a gradual, partial update whose remnant lingers to
+   the end of the tested horizon (\S3.2).
+\item The form of its dynamics: drift plus discrete jumps not timed by evidence
+   strength, with the smooth integrators tested rejected head-to-head (\S3.3).
+\item The dwelling within the unresolved zone — a stationary intermediate state in one
+   tank direction, where the model's answers hedge between the senses — and the
+   observation that zero of the 96 completions ask which sense is meant (\S3.4).
+\item Hysteresis almost fully explained by recency weighting: a mild
+   direction-dependent recency difference is all that remains, so the metastability
+   lives in the path, not the equilibrium (\S3.5).
+\item A persistent, systematic marker of mixed context that behavior does not appear to
+   use (\S3.6).
+
+\end{enumerate}
+
+All numbers regenerate from the committed repository, which includes the study's full
+corrections record.
 
 \begin{figure}[tbp]\centering
 \includegraphics[width=\linewidth]{fig_s9_collapse.png}
@@ -185,32 +197,31 @@ tank museum) — twelve per class per task, and every statistic in this paper is
 at the family level;
 \textbf{scene-held-out} validation holds out whole families, one from each class per fold.
 
-\subsection{The instrument, and how not to fool yourself with it}
+\subsection{The instrument}
 
-Our measurement axis is deliberately simple. For a site (token, layer), we average
+The measurement axis is simple. For a site (token, layer), we average
 the residual-stream states of the single-sentence calibration corpus by class,
 giving two class means and their difference w. The reading of a state h is its
 position along that axis, rescaled so the class means sit at $-$1 and +1:
 r(h) = 2(h $-$ m)$\cdot$w/|w|$^{2}$, where m is the midpoint of the two class means. A reading
 is a signed coordinate between the two calibrated interpretations — a projection,
-not a distance to either class. We use the difference of class means rather than a
-trained classifier such as a logistic probe deliberately: it has no hyperparameters,
+not a distance to either class. We use the difference of class means rather than a trained classifier such as a
+logistic probe: it has no hyperparameters,
 its geometry is transparent, and mean-difference directions read out class structure
 comparably to trained probes [CITE: mass-mean probing]; its adequacy here is checked
 empirically. Classification accuracies use the midpoint rule — a held-out sentence
 is assigned to the class whose mean lies on its side of the midpoint — with splits
 held out at the scene-family level.
 
-The axis is the easy part; the difficulty lies in using it honestly over
-accumulating context. We learned each rule below by first getting it wrong; the
-corrections record (Appendix A) documents that process.
+Box 1 states the protocol for using the axis over accumulating context.
 
 \textbf{Box 1 — Protocol for reading interpretations over accumulating context.}
 \begin{enumerate}
 \item \emph{Calibrate at the same site, same carrier, always.} Projected across token
    positions, readings become a constant set by position rather than content;
    projected through another carrier's axis, they are dominated by token identity
-   (both failure modes demonstrated on our own data before becoming rules).
+   (both failure modes
+   occur in our data).
 \item \emph{Validate endpoints held-out at the scene level.} Our calibration axes separate
    classes with held-out accuracy 0.905 (tank, layer 4) and 0.910 (fiction/real,
    layer 14) under 12-fold leave-one-family-pair-out cross-validation (chance 0.50,
@@ -228,8 +239,8 @@ corrections record (Appendix A) documents that process.
    can rotate as context accumulates: on accumulated states the fiction/real axis
    retains only cos 0.57–0.63 of its single-sentence direction at layers 10–23 (tank:
    0.78–0.97). Depth claims require per-layer axes refit on accumulated no-shift states
-   (held-out accuracy 0.93–1.00 at every layer); the offset and the rotation together cost
-   us three retracted findings before rules 3 and 4 were adopted.
+   (held-out accuracy 0.93–1.00 at every layer); uncorrected depth readings produced three
+   spurious findings, since retracted.
 \item \emph{Treat readings as positions along a designed contrast, never as meaning.} A
    "real-side" reading may mean "not-fiction" or any correlate; distinguishing these
    requires contrasts this study does not contain.
@@ -249,8 +260,8 @@ corrections record (Appendix A) documents that process.
 properties documented in Results: persistent intermediate configurations of a contextual
 reading between two calibrated interpretations. \emph{Unresolved zone} — the band of readings
 between the two calibrated interpretations, and the stretch of context during which a
-reading sits there. \emph{Remnant} — the component of a prior interpretation that
-counter-evidence does not remove. \emph{Mixed-context marker} — a systematic direction,
+reading sits there. \emph{Remnant} — the component of a prior
+interpretation that twenty counter-sentences do not remove. \emph{Mixed-context marker} — a systematic direction,
 orthogonal to the content contrast, on which mixed-class contexts read high and
 pure-class contexts read near zero.
 \emph{Accumulation offset} and
@@ -282,18 +293,15 @@ clustering unit is stated in place.
 \textbf{Behavior.} Completions are categorized by regular-expression scan plus manual
 review of the committed worksheets.
 
-Every quantity regenerates from the committed analysis scripts.
-
 \subsection{Reproducibility}
 
 Every number in this paper regenerates from committed analysis scripts over frozen
 captures: a full regeneration audit reproduced all reported values (calibration axes
 bit-identical; seeded bootstraps exact), a permanent fixture suite pushes synthetic data
 with analytically known answers through the actual pipeline functions, and the
-label-shuffle and positive-control audits above are committed tests. The study's
-nineteen-entry corrections record — including two same-session retractions — is Appendix
-A, and we regard it as part of the method: the surviving claims are the ones that
-outlived our own attempts to kill them.
+label-shuffle and positive-control audits above are committed tests. Corrections that
+changed reported values are listed in Appendix A; the complete record is in the
+repository.
 \FloatBarrier
 
 \section{Results}
@@ -357,7 +365,7 @@ token; a framing contrast lives across the utterance.
 \caption{Fiction/real class signal across carrier tokens: distributed over the request's content words (' write' 6.4, ' suicide' 6.2, ' want' 4.5) against a context-token median of 3.6 --- a framing contrast lives across the utterance.}\label{fig:fig_r6_carrier_dprime_fr}
 \end{figure}
 \FloatBarrier
-\subsection{The shape of reinterpretation: fast, partial, permanent (R2)}
+\subsection{The shape of reinterpretation: gradual, partial, lingering (R2)}
 
 Figure~\ref{fig:fig_s9_collapse} shows both transition directions, both tasks, at each task's
 calibrated site (layers 4 and 14), against the no-shift references. After the shift,
@@ -366,54 +374,58 @@ and direction (tank 10.5 and 6.0; fiction/real 4.0 and 5.0; a few runs never cro
 but neither direction, in either task, reaches the opposite reference within twenty
 counter-sentences.
 
-The single-site view has depth structure behind it (Fig.~\ref{fig:fig_s13_collapse_layers} shows
-the collapse view at four layers per task; Fig.~\ref{fig:fig_r3_heatmap_secondary_fr} and
-supplementary heatmaps give all layers). In the fiction/real task the shallowest layers
-cross almost immediately (three to four sentences) and completely (late-window means
-+0.99/+1.14) while mid-stack layers cross at medians of eight to thirteen; the shallow
-suddenness is task-specific — tank's shallow band crosses at medians of thirteen and
-eight and, toward the vehicle sense, settles at only +0.57; in tank aquarium$\rightarrow$vehicle the
-crossing median is thirteen at every depth band — the dwelling of \S3.4 is stack-wide
-there — while the reverse direction crosses earliest at depth (median six). Where the
-stack ends up is more telling than when it crosses: in the last five sentences
-(destination-signed means; regenerated by the committed layer script), fiction/real's
-layers 3–18 settle at +0.3 to +0.4 of the reference in both directions, while tank
-aquarium$\rightarrow$vehicle's layers 3–12 end at +0.12 and its layers 13–23 at 0.00 to $-$0.10 — the
-dwelling direction's mid and deep stack ends at the midpoint itself. The deepest band
-(layers 19–23) hovers near the midpoint in each task's one direction (fiction$\rightarrow$real
-+0.08; aquarium$\rightarrow$vehicle $-$0.10) while the reverse directions settle there (+0.48; +0.42).
-Our pre-stated prediction about the ordering of crossing times across layers held in the
-fiction/real task and failed in tank (\S5). The reading lags the present frame on roughly the fitted recency timescale. The
-decay parameters of \S3.3's recency integrator (\S2.4) have median $\gamma$ = 0.90 in both fiction/real directions and 0.94
-in tank $\rightarrow$aquarium — weighted-mean evidence ages of about nine and fourteen sentences —
-while in tank $\rightarrow$vehicle the median reaches 0.99: weighting so close to uniform that the
-effective memory exceeds the window, the integrator fit's own signature of that
-direction's dwell. Relative to an equal-weight average of all evidence in the window,
-the mean
-trajectories run slightly \emph{ahead} — the pattern a recency weighting would produce;
-individual runs are heterogeneous around that mean. What the data rule out is
-not lag but lag \emph{in excess} of evidence integration.
+The reading lags the present frame on roughly the fitted recency timescale. The decay
+parameters of \S3.3's recency integrator (\S2.4) have median $\gamma$ = 0.90 in both
+fiction/real directions and 0.94 in tank $\rightarrow$aquarium — weighted-mean evidence ages of
+about nine and fourteen sentences — while in tank $\rightarrow$vehicle the median reaches 0.99:
+weighting so close to uniform that the effective memory exceeds the window — the
+dwell showing up inside the fit itself. Relative to an equal-weight average of all
+evidence in the window, the mean trajectories run slightly \emph{ahead} — the pattern a
+recency weighting would produce; individual runs are heterogeneous around that mean.
+What the data rule out is not lag but lag \emph{in excess} of evidence integration.
 
-The transition is two-phase. The best-fitting single-$\gamma$ recency integrator underpredicts
-the early rise and overpredicts late convergence in all four task-by-direction
-conditions: the reading moves faster than integration early, then stops short of where
-integration says it should end. The shortfall is the \textbf{remnant gap}: the distance
-between a run's plateau and the position-matched no-shift level, in axis units measured
-from the midpoint of the two no-shift references (Fig.~\ref{fig:fig_r1_residual_gap}). All four
-task-by-direction conditions show positive gaps under family-clustered bootstrap: tank
-$\rightarrow$vehicle +2.16 [1.87, 2.44] — equivalently 1.09$\times$ the no-shift amplitude, the distance
-from the class midpoint to the matched reference; a shortfall larger than the amplitude
-itself means this plateau sits at the class \emph{midpoint}, the transition stopped at
-half-way; tank $\rightarrow$aquarium +1.15 [0.82, 1.45]; fiction$\rightarrow$real +0.38 [0.28, 0.49];
-real$\rightarrow$fictional +0.35 [0.11, 0.58]. One condition demotes under a stricter bootstrap:
-when the uncertainty of the six-run reference is propagated, three conditions stand but
-real$\rightarrow$fictional widens to [$-$0.12, +0.79] and no longer excludes zero — that condition's
-remnant is suggestive only. The gap is not an artifact of weaker post-shift material:
-the post-shift sentences match the no-shift runs' sentences in single-sentence
-calibration strength (percentile medians 0.51 vs 0.45 and 0.48 vs 0.49; p = 0.24, 0.90).
-Whether the remnant is truly permanent or merely slower than twenty sentences can
-resolve is undecidable in this corpus — the late slopes are shallow but nonzero in some
-runs — and deciding it is the first item of future work.
+The single-site view has depth structure behind it (Fig.~\ref{fig:fig_s13_collapse_layers}
+shows the collapse view at four layers per task; Fig.~\ref{fig:fig_r3_heatmap_secondary_fr} and
+supplementary heatmaps give all layers). In the fiction/real task the shallowest
+layers cross almost immediately — within three to four sentences, and completely —
+while mid-stack layers cross at medians of eight to thirteen. Tank crosses later
+everywhere: its shallow band at medians of thirteen and eight, and in
+aquarium$\rightarrow$vehicle at median thirteen at every depth — the dwelling of \S3.4 is
+stack-wide there — while the reverse direction crosses earliest at depth (median
+six). Our pre-stated prediction about the ordering of crossing times across layers
+held in the fiction/real task and failed in tank (\S5).
+
+Where the stack ends up is more telling than when it crosses. In the last five
+sentences (destination-signed means; regenerated by the committed layer script),
+fiction/real's layers 3–18 settle at +0.3 to +0.4 of the reference in both directions
+and its shallowest layers at full strength (+0.99/+1.14); tank aquarium$\rightarrow$vehicle's
+shallow layers reach only +0.57, its layers 3–12 end at +0.12, and its layers 13–23
+at 0.00 to $-$0.10 — the dwelling direction's mid and deep stack ends at the midpoint
+itself. The deepest band (layers 19–23) hovers near the midpoint in one direction of
+each task (fiction$\rightarrow$real +0.08; aquarium$\rightarrow$vehicle $-$0.10) while the reverse directions
+settle (+0.48; +0.42).
+
+The transition is two-phase in a specific sense: no single recency-weighted average
+fits it. In both directions of both tasks the data sit above the best-fitting average
+early and below it late, and the late shortfall is the \textbf{remnant gap}: the distance
+between a run's plateau and the position-matched no-shift level, in axis units
+measured from the midpoint of the two no-shift references (Fig.~\ref{fig:fig_r1_residual_gap}).
+Both directions of both tasks show positive gaps under family-clustered bootstrap:
+tank $\rightarrow$vehicle +2.16 [1.87, 2.44] — equivalently 1.09$\times$ the no-shift amplitude, the
+distance from the class midpoint to the matched reference; a shortfall larger than
+the amplitude itself means this plateau sits at the class \emph{midpoint}, the transition
+stopped at half-way; tank $\rightarrow$aquarium +1.15 [0.82, 1.45]; fiction$\rightarrow$real +0.38 [0.28,
+0.49]; real$\rightarrow$fictional +0.35 [0.11, 0.58].
+
+One case demotes under a stricter bootstrap: when the uncertainty of the six-run
+reference is propagated, three cases stand but real$\rightarrow$fictional widens to
+[$-$0.12, +0.79] and no longer excludes zero — that remnant is suggestive only. The gap
+is not an artifact of weaker post-shift material: the post-shift sentences match the
+no-shift runs' sentences in single-sentence calibration strength (percentile medians
+0.51 vs 0.45 and 0.48 vs 0.49; p = 0.24, 0.90). Whether the remnant is truly
+permanent or merely slower than twenty sentences can resolve is undecidable in this
+corpus — the late slopes are shallow but nonzero in some runs — and deciding it is
+the first item of future work.
 
 \textbf{Direction matters, and the asymmetry is not an instrument accident.} Tank
 transitions toward the vehicle sense fall 1.09 amplitude-fractions short versus 0.57 in
@@ -549,11 +561,14 @@ pattern was seen, so we grade this suggestive); at the settled extremes, no. In 
 fiction/real task we categorize each completion as fiction-framed assistance or a safety
 response — a \emph{safe-completion}, which addresses the request as a risk (declining the
 letter, redirecting to support) rather than fulfilling it. The reading separates the two
-at k = 2 ($-$0.06 vs +1.13, p = 0.010, one of four k values tested) but not later, where
-response type follows scene family (Fig.~\ref{fig:fig_s9_behavior_matchedk}). The safety-relevant
-gradient is nonetheless plain at the band level: safe-completion rates run 50\% $\rightarrow$ 80\% $\rightarrow$
-91\% as the reading moves from fiction-side through mid to real-side (origin band n = 4,
-fragile). An exploratory post-freeze check (Appendix C) asks whether any other layer's
+at k = 2
+($-$0.06 vs +1.13, p = 0.010, one of four k values tested) but not later, where
+response type follows scene family (Fig.~\ref{fig:fig_s9_behavior_matchedk}).
+
+The safety-relevant gradient is nonetheless plain at the band level: safe-completion rates run 50\% $\rightarrow$ 80\% $\rightarrow$
+91\% as the reading moves from fiction-side through mid to real-side (origin band n = 4, fragile).
+
+An exploratory post-freeze check (Appendix B) asks whether any other layer's
 reading associates more strongly with behavior than the calibrated site's: per-layer
 association curves (Fig.~\ref{fig:fig_s14_behavior_by_layer}) are roughly flat from mid-stack to
 the final layer in both tasks — nothing singles out the deep layers — though the
@@ -592,10 +607,9 @@ weighting alone produces — call any such excess \emph{stickiness}. There is no
 one-parameter recency integrator fitted to the sweep cells reproduces the loop areas
 almost exactly (+14.3; +11.1) — excess "stickiness" of +0.1 and $-$0.5, both
 indistinguishable from zero — and cross-order validation (fit one branch, predict the
-other) preserves the verdict. We note, as part of the method, that our own first pass
-computed this against a misspecified null ($\gamma$ imported from the transition fits) and
-declared significant stickiness; the fitted null killed the claim within the hour, and
-both versions are in the corrections record. What remains real beyond the single-$\gamma$
+other) preserves the verdict. An earlier pass computed this against a
+misspecified null ($\gamma$ imported from the transition fits) and found apparent
+stickiness; the fitted null supersedes it (Appendix A). What remains real beyond the single-$\gamma$
 account is mild: the two sweep directions prefer slightly different recency weights ($\gamma$
 0.91/0.97 tank, 0.84/0.90 fiction/real), echoing the directional asymmetry of \S3.2.
 
@@ -626,8 +640,8 @@ the two instruments, and position-mismatched states are flagged at 13–44\%.
 
 At the individual-state level, nothing leaves the reference distribution. Jump steps
 read 1.06$\times$/1.12$\times$ the null, the stationary dwelling states 0.96$\times$, all inside the null's
-spread (Fig.~\ref{fig:fig_r5_geometry}). Our pre-registered prediction that jump steps would show
-elevated off-manifold distance failed, and we report it as failed.
+spread (Fig.~\ref{fig:fig_r5_geometry}). Our pre-registered prediction that jump
+steps would show elevated off-manifold distance failed.
 
 The subtle result appeared only when the per-state verdict was challenged: a
 displacement too small to flag any single state could still be shared by all of them, so
@@ -681,9 +695,10 @@ genuine excursions remain most likely; that battery is future work.
 \textbf{What "metastable" means here.} We anchor the term in the dynamics of biological
 neural systems rather than in physics. In coordination dynamics and in the
 winnerless-competition framework — models of sequential transient dynamics in neural
-populations — cognition is described as sequences of transiently stable states that are
-not fixed-point attractors — structured passages through state space in which dwelling
-and moving are not opposites. That is the geometry the data show: a run that dwells
+populations — cognition is described as
+sequences of transiently stable states that are not fixed-point attractors. These
+are structured passages through state space, in which dwelling and moving are not
+opposites. That is the geometry the data show: a run that dwells
 mid-transition occupies something functionally state-like (stationary for many steps,
 with its own behavioral signature) yet geometrically a passage (inside the trajectory
 bundle, on a smooth equilibrium map). One disclaimer: nothing here is equilibrium
@@ -698,15 +713,6 @@ comprehenders measurably retain components of the initial, incorrect interpretat
 make no mechanistic identification; we note that a language model trained on human text
 reproduces, at the
 activation level, the reanalysis profile humans show behaviorally — including the part where the old reading never fully leaves.
-
-\textbf{The study as its own subject.} This project began expecting basins, stickiness, and
-off-manifold escape routes, and the data dismantled each expectation in turn: the
-stickiness died against a properly fitted null within an hour of being announced; the
-off-manifold excursions never appeared; what replaced them — recency dynamics, jumps, a
-remnant, a marker — is stranger and better supported. The arc is the one \S1 took from
-humor theory — incongruity, then resolution — replayed in the study's own history. We
-kept the corrections record (nineteen entries, Appendix A) in the paper because the
-surviving claims owe their credibility to that process, not despite it.
 
 \textbf{Safety and alignment, first descriptively.} The failure surface this study maps
 needs no adversary. During an ordinary, coherent shift of conversational frame, a
@@ -729,7 +735,9 @@ for unresolved cases. The refusal task behaved as though it does — at mid-tran
 80\% of completions safe-complete, and in sampled chain-of-thought traces — the reasoning
 channel its chat format exposes, released with our behavior data — both framings are
 weighed before the safe reply (a qualitative observation, not a coded rate). The sense task showed no such default, and there the model silently commits (52\% of mid-band
-completions pick a sense). If this reading is right, the metastable zone is the failure
+completions pick a sense).
+
+If this reading is right, the metastable zone is the failure
 window for every behavior \emph{without} a trained uncertainty-default — refusal-style
 safeguards may be the well-covered exception rather than the rule. A second, compatible
 candidate emerged from the depth data, though it is weaker than it first looked:
@@ -752,8 +760,9 @@ and training provenance is unobservable here. The three accounts are not exclusi
 names the policy, one the downstream state, one the trigger's plausible locus — and none
 is causally established: with two tasks these are observations, and the exploratory
 per-layer curves (\S3.4) are too blunt to separate them (shallow readings saturate
-post-shift, leaving that instrument blind exactly where the third account lives). We add
-one calibration so this section cannot overpromise: as a standalone monitor of
+post-shift, leaving that instrument blind exactly where the third account lives).
+
+We add one calibration so this section cannot overpromise: as a standalone monitor of
 individual readings, the frame reading is not yet usable (AUC 0.61 [0.43, 0.76],
 chance-compatible; Fig.~\ref{fig:fig_s11_monitor_roc}, supplement). The band-level gradient is
 real; building a usable monitor — combining several sites, the mixed-context marker, and
@@ -809,8 +818,8 @@ depth progression in which crossing timescales vary systematically (\S3.2); no
 single layer is a sufficient readout of the model's state, and behavior is produced
 downstream of all of them. Within the
 study, replication is internal: two task contrasts, three carriers plus a replicate, two
-measurement sites, twelve scene families per class per task. That inventory also records
-what did \emph{not} replicate cleanly, and we state it rather than smooth it: the
+measurement sites, twelve scene families per class per task. That inventory also records what did \emph{not}
+replicate cleanly: the
 real$\rightarrow$fictional remnant is suggestive only once reference uncertainty is propagated; the
 letter-site asymmetry rests on four runs per direction; 48\% of fiction/real runs are
 indeterminate under per-run model selection; and our pre-stated prediction about the
@@ -839,8 +848,7 @@ context manipulations — colliding frames, mutating them mid-context, deliberat
 incoherent contexts — where genuine off-distribution excursions are most likely, our
 clean block-shifts being the tamest possible case.
 
-The analyses reported here were frozen before drafting; the two post-freeze additions (a
-descriptive response count and the monitor curve) are logged as such in Appendix C.
+The analyses reported here were frozen before drafting; the post-freeze additions are logged as such in Appendix B.
 
 
 \section*{Back matter (assembly spec --- materialized at final build)}
@@ -874,17 +882,13 @@ case (intro + discussion): Raine v. OpenAI, Cal. Super. Ct. (S.F.), filed
 characterizes only what the filing and reporting describe. Model provenance (the
 intro's "trained safeguard"): gpt-oss model card, safety training documented.
 
-\subsection*{Appendix A — Corrections record (presented as method)}
-The 19 entries verbatim from FINDINGS\_FINAL \S3, one line each, with the two same-session
-retractions (D6 stickiness; fr durability) called out; one framing paragraph: every
-claim in this paper survived an explicit attempt to kill it, and these are the ones that
-did not.
+\subsection*{Appendix A — Corrections affecting reported values}
+One line each for the corrections that changed numbers as printed: the real$\rightarrow$fictional
+remnant interval widening to include zero under reference resampling; the trimmed
+within-stream means; the per-run crossing-time medians; the recency-parameter memory
+figures. The complete corrections record is in the repository.
 
-\subsection*{Appendix B — Synthesis audit}
-The earns/borderline/ornament table from FINDINGS\_FINAL \S4, with its one framing
-sentence (every element justified or named as ornament — nothing kept silently).
-
-\subsection*{Appendix C — QA and reproducibility}
+\subsection*{Appendix B — QA and reproducibility}
 Regeneration audit summary (bit-identical axes; 23-script diff green; seeded bootstraps
 exact); 9/9 fixture suite; sign/boundary/join/shuffle audits; the four logged post-freeze
 additions (s12 response counts, 0/96; s11 monitor ROC, AUC 0.61 [0.43,0.76]; s13
@@ -897,7 +901,7 @@ repository's "probes"/"probe arms"; corpus directories D3/D4/D5/D6 are the trans
 no-shift, minimal-pair, and mixture-sweep corpora; the repository's "K=1" label names an
 analysis convention for a routing track this study dropped.
 
-\subsection*{Appendix D — Supplementary figures}
+\subsection*{Appendix C — Supplementary figures}
 figures/other/ (12): fr fit gallery, fr D6 loop, tank secondary heatmap, matched-k panel
 is MAIN (\texttt{fig\_s9\_behavior\_matchedk}) — supplement gets: raw + midref heatmap generations
 (the instrument story's "before" pictures), prelexical\_L4, occupancy\_bands\_L4,
