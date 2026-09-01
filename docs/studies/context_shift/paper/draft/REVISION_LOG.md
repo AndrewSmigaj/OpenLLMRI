@@ -407,3 +407,16 @@ findings verified by me against the sources; none rejected. Applied:
 
 Auditor's solid-list covered all headline quantities; weakest-claim verdict (the
 91→50 sentence) addressed by fix 1. Number-trace re-audit: unchanged, passes.
+
+---
+
+## Depth-scoping addendum (2026-09-01, Andrew's layer question)
+
+The marker behavior-null and all behavior-link analyses are single-layer (tank L4,
+fr L14; verified in s8_subspace_geometry.py) — now stated in §3.6/§4, with a
+single-layer-readout limitation added to §5. New committed figure
+fig_s13_collapse_layers (s13_collapse_by_layer.py): the collapse view at four
+layers per task — sudden complete flips at fr's shallow layers, partial crossing
+and dwelling at mid/deep layers, tank's dwell visible to L20 — cited from §3.2's
+depth paragraph. Bonus from the r3 battery re-run: tank remnant gaps replicate at
+L4/L8/L12/L16 (0.80–1.09 amp), so the tank dwell is depth-robust.

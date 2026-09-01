@@ -86,8 +86,9 @@ lesson: that a state is geometrically typical does not make it functionally norm
 behavior data document the functional difference directly.
 
 **Represented but not consulted.** The mixed-context marker gives the dissociation its
-sharpest form: the model carries a persistent, systematic signal that its context is
-mixed — and behavior does not appear to use it at matched composition. This is the same
+sharpest form: the model carries a persistent, systematic
+signal that its context is mixed — and behavior does not appear to use it at
+matched composition, at the one site and layer tested. This is the same
 structure reported in the hallucination literature, where models internally encode
 uncertainty or truthfulness that their generations do not respect. Here it appears in
 transition dynamics: an internal signal correlated with the conditions that produce the

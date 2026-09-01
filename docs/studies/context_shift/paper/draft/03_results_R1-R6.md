@@ -55,8 +55,9 @@ and direction (tank 10.5 and 6.0; fiction/real 4.0 and 5.0; a few runs never cro
 but neither direction, in either task, reaches the opposite reference within twenty
 counter-sentences.
 
-The single-site view has depth structure behind it (Fig. fig_r3_heatmap_secondary_fr;
-supplementary heatmaps). In the fiction/real task the shallowest layers cross almost
+The single-site view has depth structure behind it (Fig. fig_s13_collapse_layers
+shows the collapse view at four layers per task; Fig. fig_r3_heatmap_secondary_fr
+and supplementary heatmaps give all layers). In the fiction/real task the shallowest layers cross almost
 immediately (three to four sentences) while mid-stack layers cross at medians of eight
 to thirteen; in tank aquarium→vehicle the crossing median is thirteen at every depth
 band and three deep layers never cross — the dwelling of §3.4 is stack-wide there —
@@ -260,8 +261,9 @@ What is it? Held-out mixture cells locate its content: the marker is absent from
 pure-class contexts and near its full transition strength in *static* mixed contexts —
 so it marks mixed context, not temporal shifting per se. One qualification: in the
 fiction/real task it halves when the mixture is interleaved rather than blocked, so
-there, part of what it encodes is the coherent structure of a shift. It did not predict
-behavior in eight matched-composition tests (one nominal hit, uncorrected). The model,
+there, part of what it encodes is the coherent structure of a shift. It did not predict behavior in eight
+matched-composition tests at the calibrated site and layer (one nominal hit,
+uncorrected; other layers untested). The model,
 in other words, carries a persistent, systematic signal that its context is mixed — a
 direction on which pure contexts sit near zero and mixed contexts near 27% of the class
 separation — and its behavior does not appear to use it. Whether this signal is a

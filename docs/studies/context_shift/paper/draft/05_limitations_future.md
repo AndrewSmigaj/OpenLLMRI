@@ -5,7 +5,11 @@ listed [x]; roadmap items [x]; freeze/corrections pointer [x]. -->
 # 5. Limitations and future work
 
 **One model, stated plainly.** Everything here is measured in one
-20-billion-parameter mixture-of-experts model, with deterministic decoding. Within the
+20-billion-parameter mixture-of-experts model, with deterministic decoding — and
+each dynamics claim at one calibrated site and layer per task, single rows of a
+depth progression in which crossing timescales vary systematically (§3.2); no
+single layer is a sufficient readout of the model's state, and behavior is produced
+downstream of all of them. Within the
 study, replication is internal: two task contrasts, three carriers plus a replicate, two
 measurement sites, twelve scene families per class per task. That inventory also records
 what did *not* replicate cleanly, and we state it rather than smooth it: the

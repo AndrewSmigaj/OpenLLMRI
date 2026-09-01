@@ -53,4 +53,5 @@ analysis convention for a routing track this study dropped.
 figures/other/ (12): fr fit gallery, fr D6 loop, tank secondary heatmap, matched-k panel
 is MAIN (fig_s9_behavior_matchedk) — supplement gets: raw + midref heatmap generations
 (the instrument story's "before" pictures), prelexical_L4, occupancy_bands_L4,
-jumpiness, norm_vs_alignment, calibration_layers, plus fig_s11_monitor_roc.
+jumpiness, norm_vs_alignment, calibration_layers, plus fig_s11_monitor_roc. fig_s13_collapse_layers is MAIN (cited
+in 3.2's depth paragraph; committed script s13_collapse_by_layer.py).
