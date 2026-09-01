@@ -6,8 +6,7 @@
 
 **In one sentence:** we instrumented what happens *inside* a language model's residual
 stream while accumulating context shifts what a token means — and found a reproducible
-cluster of properties we call **semantic metastability**: fast-but-partial updating, a
-persistent residual of the old interpretation, discrete state-triggered jumps, stable
+cluster of properties we call **semantic metastability**: fast-but-partial updating, a persistent remnant of the old interpretation, discrete state-triggered jumps, stable
 parked states between meanings, hysteresis fully explained by recency weighting, and a
 learned marker of mixed context that the model represents but never acts on.
 
@@ -33,16 +32,15 @@ retractions — is published as part of the method.
 content held fixed inside 150 minimal pairs, framing cues alone move the reading by
 half the class separation (95% of pairs in direction; domain-clustered t = 12.0,
 p = 7×10⁻⁵), the effect is dose- and length-independent, and class signal concentrates
-at the sense-bearing token (d′ 11.7 vs ambient 1.4). Two instrument artifacts —
-accumulation drift and axis rotation (the fiction/real axis retains only cos ≈ 0.6 of
+at the sense-bearing token (d′ 11.7 vs ambient 1.4). Two instrument artifacts — accumulation offset and axis rotation (the fiction/real axis retains only cos ≈ 0.6 of
 its direction at depth) — were caught, retracted where they had fooled us, and turned
 into measurement doctrine.
 
 **The shape of reinterpretation.** Readings lag the present frame in the plain sense —
 7–13 sentences to cross, arrival never — on the timescale the fitted integration
 window implies (~10–17 sentences). Transitions are two-phase: faster than integration
-early, then a **residual** of 0.4–1.1× the no-shift reference
-amplitude that twenty counter-sentences never remove (three of four conditions robust to reference
+early, then a **remnant** of 0.4–1.1× the no-shift reference amplitude (the
+midpoint-to-reference distance) that twenty counter-sentences never remove (three of four conditions robust to reference
 uncertainty; not explained by weaker material). In the strongest case the plateau sits
 at the class midpoint itself. The direction asymmetry replicates under an independent
 carrier and has a candidate cause in calibration-level class breadth.

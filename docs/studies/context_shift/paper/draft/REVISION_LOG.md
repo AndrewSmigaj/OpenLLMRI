@@ -210,3 +210,80 @@ and 06 (anchor) as justified above; every other section is flat or smaller.
 The prose was rewrapped to 88 columns in Round 2, so a plain line diff of `draft/`
 vs `draft_v1/` is noisy. Use `git diff --word-diff --no-index draft_v1 draft` (or
 `--word-diff=color`) — that view shows exactly the logged edits and nothing else.
+
+---
+
+## Morning rulings (2026-09-01) — snippet-material audit
+
+Andrew's ruling: the voice snippet was topic orientation only; nothing from it may
+appear as claims about the author or personal material. Full-paper sweep run.
+
+- REMOVED: "spent a year there deliberately" + "or a scientist" (04 closing) — the
+  duration was fabricated by Claude during drafting; proposal 1 resolved by deletion.
+- REMOVED: "the author studied these shifts... cosine distance..." (01) — snippet
+  anecdote had been converted into a formal prior-work claim; paragraph rebridged
+  without biography. Proposal 2 (authorship voice) is moot: no first-person-history
+  claims remain anywhere.
+- STALE COMMENT fixed: 01's header said "Andrew's voice"; now "scientific register."
+- AWAITING RULING: (a) the incident paragraph's "widely reported incident" (01) and
+  WRITEUP's "a real incident" — unsourced by the repo; needs confirmation + citation
+  decision, or reframing; (b) epigraph — approved with title, traditional joke, not
+  biography; (c) closing cross-scale sentence ("what minds — artificial ones
+  included —") — recommend narrowing to "what a model should do."
+- Sweep result otherwise clean: no "one of us", no "(A.S.)", no other personal
+  attributions in 00/02/03/05/06.
+
+---
+
+## Comprehension pass (2026-09-01) — cold-reader-driven rewrite
+
+Method change after Andrew's challenge: two zero-context cold readers (report, never
+author) read the full paper; 80 comprehension defects reported; all addressed or
+consciously declined. The failure they exposed: the overnight reviewer was the
+author, so the paper's structural vocabulary and coinages never read as cryptic.
+
+**Three global renames (terminology only; all numbers unchanged, re-audited):**
+- *residual* (finding) → **remnant**; "reconstruction residual" → "reconstruction
+  error" — kills both collisions with "residual stream".
+- *accumulation drift* → **accumulation offset** — kills the collision with the
+  drift-plus-jumps mechanism (a cold reader genuinely wondered whether the headline
+  finding was our own artifact).
+- count-noun *probe* → **task** — kills the collision with linear probes; "tank
+  task" / "fiction/real task" everywhere.
+- Appendix C now carries a repository↔paper terminology map (repo keeps its names).
+
+**Structural vocabulary now defined before use:** site (token+layer, in §2.1); arm,
+cell, scene family, scene-held-out (new vocabulary paragraph, §2.2); carrier fronted
+in the intro; checkpoint captures, mixture sweeps glossed in place; bands defined in
+§3.4; time bands renamed time bins. The park and the mixed-context marker are now
+christened by explicit naming sentences at their discovery points.
+
+**Units and stats glossed at point of use:** amplitude defined twice (abstract,
+§3.2); remnant-gap units spelled out; held-out numbers labeled as accuracy; the
+±2.9 unit named (across-run standard deviations); slash-pairs labeled (§3.6 carries
+a one-line pairing convention); the drift magnitude given its "half the class
+separation" hand; r = +0.75/−0.86 explained; six domains named; the novelty
+prediction stated before its refutation; 96-vs-108 counts reconciled;
+safe-completion defined; the abstract's four conditions enumerated.
+
+**Insider material removed or translated:** the K=1 parenthetical cut from §2.1
+(now one line in Appendix C); "analysis-channel text"/"behavior worksheets" →
+chain-of-thought text released with behavior data; "conceptual-operator battery" →
+plain description; "blind generation batches" → plain; "remanence" glossed away;
+authoring agents now identified as language-model agents (a fact the paper owed the
+reader); the depth-ordering prediction's content stated ("ordering of crossing
+times across layers"); "instrument doctrine" → "measurement protocol";
+"interpretive irresolution" and "behavior-inert" uncoined.
+
+**Judgment calls:** the closing now restates the title word and is scoped to "a
+model" (the cross-scale "minds" flourish removed — my verdict under the
+best-paper standard, logged for Andrew's review); "even a little off-manifold is
+off-manifold" replaced by the plain statement of the shared-small-displacement
+logic; "Incongruity, then resolution" kept with an anchor to §1. Figure references
+keep placeholder ids until tex (numbering is a tex-time job).
+
+Number-trace re-audit after all edits: identical missing-set to the pre-edit audit
+(section refs, derived 0.4–1.1 range, model dims, hotline number, committed-script
+outputs). Zero number changes.
+
+STILL OPEN (Andrew): the incident paragraph — real, citable public case or not?
