@@ -26,6 +26,7 @@ def convert(text):
     text = re.sub(r"^# (.*)$", r"\\section*{\1}", text, flags=re.M)
     for a, b in UNI: text = text.replace(a, b)
     text = text.replace(r"$\times$10", r"$\times 10$")
+    text = text.replace(r"$\gamma$^age", r"$\gamma^{\mathrm{age}}$")
     text = re.sub(r"\*\*(.+?)\*\*", r"\\textbf{\1}", text, flags=re.S)
     text = re.sub(r"(?<![\w\\])\*(?!\s)(.+?)(?<!\s)\*(?![\w])", r"\\emph{\1}", text)
     # restore placeholders
