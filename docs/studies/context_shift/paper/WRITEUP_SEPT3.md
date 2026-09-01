@@ -28,7 +28,8 @@ re-read at every step; token-budget-matched no-shift contexts as the reference; 
 diff-of-means axes with scene-held-out validation (0.905/0.910), midpoint referencing,
 and per-layer rotation-corrected axes. Every number regenerates from committed
 scripts; a 9/9 synthetic-fixture suite and family-level label-shuffle audits guard the
-pipeline; the project's 18-entry corrections record — including two
+pipeline; the project's 19-entry corrections
+record — including two
 same-session retractions — is published as part of the method.
 
 **Instruments and validity.** The axes read the intended contrast, not topic: with
@@ -41,16 +42,18 @@ into measurement doctrine.
 
 **The shape of reinterpretation.** Readings lag the present frame in the plain
 sense — per-run median crossings of 4–10 sentences (task × direction), arrival
-never — on the timescale the fitted integration
-window implies (~10–17 sentences). Transitions are two-phase: faster than integration
+never — on the timescale the fitted
+integration window implies (median-γ weighted-mean ages ≈9–14 sentences; effectively
+unbounded in the dwelling direction). Transitions are two-phase: faster than integration
 early, then a **remnant** of 0.4–1.1× the no-shift reference amplitude (the
 midpoint-to-reference distance) that twenty counter-sentences never remove (three of four conditions robust to reference
 uncertainty; not explained by weaker material). In the strongest case the plateau sits
 at the class midpoint itself. The direction asymmetry replicates under an independent
 carrier and has a candidate cause in calibration-level class breadth.
 
-**The mechanism.** Per-run model selection over five candidate processes — calibrated
-on synthetic ground truth — rejects every smooth integrator tested, including a two-timescale one (which wins zero runs and cannot mimic the winning signature in simulation). The
+**The mechanism.** Per-run model selection over four fitted model forms (uniform
+weighting the equal-weight case of the first) — calibrated on synthetic ground
+truth — rejects every smooth integrator tested, including a two-timescale one (which wins zero runs and cannot mimic the winning signature in simulation). The
 dominant account among classifiable runs is **drift plus discrete jumps**, and the
 jumps are not timed by evidence strength — precipitating sentences are
 median-strength exemplars (p = 0.445); state-dependence is the working
@@ -67,8 +70,8 @@ pending disambiguation**; 45% hedge by enumerating both
 senses, 52% silently commit to one. The fiction/real task — the one backed by a refusal
 safeguard — held at mid-transition (80% safe-completion), and safe-completion rates run 91%→50% across
 reading bands (fiction-side endpoint n = 4; gradient partly scene-driven) —
-attenuation reachable by ordinary context. As a
-standalone cell-level monitor the reading is not yet usable (AUC 0.61 [0.43, 0.76]);
+attenuation reachable by ordinary context. As a standalone monitor of
+individual readings the reading is not yet usable (AUC 0.61 [0.43, 0.76]);
 the gradient is a band-level fact.
 
 **Order and equilibrium.** Hysteresis loops over static evidence mixtures are large

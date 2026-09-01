@@ -37,23 +37,24 @@ The transition corpus (D3) presents 40-step cumulative contexts with the carrier
 re-appended at each step: twenty sentences of one class, then twenty of the other, the
 target vocabulary absent from every context sentence. Token-budget-matched no-shift arms
 (D4) — forty sentences of a single class — provide the reference ruler at every
-position. Additional corpora serve specific tests: single-sentence calibration cells
+position. Additional corpora serve specific tests: single-sentence calibration sentences
 (300 per class per carrier); checkpoint captures — full recordings of every token's
 activations at designated context lengths, not only the carrier's (144 per task);
 minimal pairs holding content fixed while varying only framing cues (150 pairs); static
 mixture sweeps — twenty-sentence contexts holding a fixed mix of the two classes (252
-cells per task) — for order-dependence; behavior cells with generation enabled (312;
+cells per task) — for order-dependence; behavior prompts with generation enabled (312;
 greedy decoding); and bare-carrier baselines. Context sentences were written by
 language-model authoring agents (separate from the model under study) under a blind
 protocol: an agent received only a contrast specification and diversity rules, never the
 hypotheses. Per-class scene diversity was capped so that no setting dominates a class,
 enabling scene-held-out validation.
 
-Vocabulary used throughout: an **arm** is one condition sequence (a transition arm flips
-class at twenty; a no-shift arm never does); a **cell** is one measured item — one
-context at one length, with its carrier; sentences are authored in **scene families** —
-sets of sentences sharing one concrete setting (a home aquarium, a tank museum) — twelve
-per class per task, and every statistic in this paper is clustered at the family level;
+Vocabulary used throughout: a **run** is one 40-step context sequence (transition runs
+flip class at twenty; no-shift control runs never do); a **cell** is one point of a
+mixture-sweep grid — one class mixture in one block order; sentences are authored in
+**scene families** — sets of sentences sharing one concrete setting (a home aquarium, a
+tank museum) — twelve per class per task, and every statistic in this paper is clustered
+at the family level;
 **scene-held-out** validation holds out whole families, one from each class per fold.
 
 ## 2.3 The instrument, and how not to fool yourself with it
@@ -74,7 +75,7 @@ documents that process.
    layer 14) under 12-fold leave-one-family-pair-out cross-validation (chance 0.50,
    300 per class) — the split that tests whether the axis learned the contrast or a
    setting.
-3. *Reference every absolute claim to position-matched no-shift arms.* Readings
+3. *Reference every absolute claim to position-matched no-shift runs.* Readings
    carry an **accumulation offset**: a class-nonspecific component that grows with
    context — ≈ +1.0 axis units by twenty sentences at the fiction/real site, half
    the class separation on an axis whose class means sit at ±1 (≈ 0 at the tank
@@ -112,13 +113,36 @@ pure-class contexts read near zero.
 *Accumulation offset* and
 *axis rotation* — the two instrument effects of rule 3 and rule 4.
 
-## 2.4 Reproducibility
+## 2.4 Analysis methods
+
+All statistics operate on readings as defined above. Classification accuracies use the
+midpoint rule: a held-out sentence is assigned to the class whose calibration mean lies
+on its side of the midpoint, and accuracy is the fraction assigned correctly, with
+splits held out at the scene-family level. Per-run dynamics are fit to each run's twenty
+post-shift readings by least squares over four model forms: a recency-weighted
+integrator — the reading as a weighted average of all evidence so far, each sentence
+weighted γ^age so that recent sentences count more, with the single decay parameter γ
+grid-searched (the uniform, equal-weight integrator is its γ = 1 case and also serves as
+the lead/lag reference); a change-point step (constant level before and after a fitted
+change point; three parameters); a drift-plus-step hybrid (linear trend plus a step at a
+fitted change point; four parameters); and a two-timescale integrator (a mixture of fast
+and slow recency weightings; three parameters). Selection is by BIC over the twenty
+points, declaring a winner only when it leads the runner-up by at least 2, and
+"indeterminate" otherwise; the selector's identifiability is calibrated on synthetic
+runs of known type (§3.3). The remnant gap is the destination reference level (positions
+36–40) minus the run's plateau (post-shift sentences 16–20), both midpoint-referenced.
+Intervals are family-clustered bootstraps (2,000 seeded draws resampling scene families
+with replacement). Completions are categorized by regular-expression scan plus manual
+review of the committed worksheets. Every quantity regenerates from the committed
+analysis scripts.
+
+## 2.5 Reproducibility
 
 Every number in this paper regenerates from committed analysis scripts over frozen
 captures: a full regeneration audit reproduced all reported values (calibration axes
 bit-identical; seeded bootstraps exact), a permanent fixture suite pushes synthetic data
 with analytically known answers through the actual pipeline functions, and the
 label-shuffle and positive-control audits above are committed tests. The study's
-eighteen-entry corrections record — including two same-session retractions — is Appendix
+nineteen-entry corrections record — including two same-session retractions — is Appendix
 A, and we regard it as part of the method: the surviving claims are the ones that
 outlived our own attempts to kill them.

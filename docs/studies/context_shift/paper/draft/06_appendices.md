@@ -29,7 +29,7 @@ case (intro + discussion): Raine v. OpenAI, Cal. Super. Ct. (S.F.), filed
 characterizes only what the filing and reporting describe.
 
 ## Appendix A — Corrections record (presented as method)
-The 18 entries verbatim from FINDINGS_FINAL §3, one line each, with the two same-session
+The 19 entries verbatim from FINDINGS_FINAL §3, one line each, with the two same-session
 retractions (D6 stickiness; fr durability) called out; one framing paragraph: every
 claim in this paper survived an explicit attempt to kill it, and these are the ones that
 did not.

@@ -221,15 +221,16 @@ recency-governed (F8). "Learned intermediate vs passage vs off-manifold" resolve
 off-manifold — no; and the intermediate/passage dichotomy fails to carve the phenomenon —
 the park is functionally a state and geometrically a passage. The safety-relevant
 residual: the reading LAGS the present frame in the plain sense — per-run median
-crossings 4–10.5 sentences across the four cells (correction 18), arrival never — on the timescale its integration window implies (γ≈0.9–0.98 →
-effective memory ~10–17 sentences); what the data rule out is lag IN EXCESS of evidence
+crossings 4–10.5 sentences across the four cells (correction 18), arrival never — on the timescale its integration window implies (per-run median γ 0.90/0.90/0.94/0.99
+by cell → weighted-mean ages ≈9/9/14 sentences, unbounded for tank→vehicle;
+correction 19); what the data rule out is lag IN EXCESS of evidence
 integration (drag/stickiness), and the residual is a permanent shortfall, not a delay.
 Behavior tracks it (F7) — the suicide-arm safeguard gradient runs 50%→91% along the
 reading axis with the scene-driven caveat stated. (Correction 17: earlier "lead-not-lag"
 phrasing conflated the two senses; "lag/hysteresis" in this work refers to the
 present-frame sense throughout.)
 
-## 3. Corrections & retractions (cumulative, 18 entries)
+## 3. Corrections & retractions (cumulative, 19 entries)
 
 Unchanged from v2 §5 + Phase F additions (12–14). New from this audit: none retracted,
 THREE reworded — A10 → F7 (causal → co-variation + within-k), B8 → F8 (branch-γ
@@ -247,7 +248,12 @@ figure-vs-heatmap challenge during paper revision): section-2's "7–13 sentence
 was a loose compression matching no headline-site cell — recomputed from committed data:
 per-run median crossings tank 10.5/6.0 (1 run never crosses), fr 4.0/5.0 (2 never);
 mean-curve crossings 13/8/4/4. B5's depth-band medians unchanged. Section 2 corrected;
-the paper quotes per-cell values.
+the paper quotes per-cell values. Entry 19 (2026-09-01, methodology review): "γ≈0.9–0.98
+→ effective memory ~10–17 sentences" did not follow from the committed per-run fits
+(r1_model_selection CSVs): cell median γ = 0.897/0.903 (fr), 0.935 (tank ba), 0.985
+(tank ab) → weighted-mean ages γ/(1−γ) ≈ 9/9/14 and ~66 (beyond the window) — the
+near-uniform weighting of tank ab is the integrator's signature of that cell's dwell.
+Both docs and paper now quote per-cell values with the formula stated.
 
 ## 4. Synthesis audit — does each element earn its place?
 

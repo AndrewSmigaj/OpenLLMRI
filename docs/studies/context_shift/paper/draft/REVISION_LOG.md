@@ -476,3 +476,26 @@ vehicle (+0.57). Added to section 3.2's depth paragraph. Andrew's RL-provenance
 conjecture added to c2's early-trigger passage with its rival (pretrained register
 statistics) and the unobservability caveat stated. Coherence note: the safeguarded
 task is the one with the fast shallow detector (n=2, correlational).
+
+---
+
+## Methodology section + terminology + correction 19 (2026-09-01, Andrew)
+
+- New §2.4 Analysis methods: midpoint decision rule for accuracies; the four model
+  forms with the γ^age formula (uniform = γ→1 case, precisiating §3.3's "five
+  models" vs the code's four BICs); BIC/ΔBIC≥2 with indeterminacy; remnant-gap
+  definition; family-clustered bootstrap (2,000 seeded draws); categorization
+  procedure. Reproducibility renumbered §2.5.
+- "Fitted recency" now defined at every use; the abstract glosses it inline.
+- "Arm" eliminated (transition runs vs no-shift arms was one object under two
+  names): everything is a run; the D4s are no-shift control runs.
+- "Cell" had grown three senses; now grid-cells only (mixture sweep). The four
+  task×direction units are "conditions"; behavior units are completions/prompts;
+  calibration items are sentences; "cell-level monitor" → monitor of individual
+  readings.
+- CORRECTION 19: "γ≈0.9–0.98 → effective memory 10–17 sentences" did not follow
+  from the committed fits (r1_model_selection CSVs): per-cell median γ 0.90/0.90
+  (fr), 0.94 (tank→aquarium), 0.985 (tank→vehicle) → weighted-mean ages ≈9/9/14
+  and ~66, beyond the window. The near-uniform γ of the dwelling direction is the
+  integrator fit's own dwell signature — now stated as such in §3.2; c1 updated;
+  FINDINGS §2 + entry 19; writeup mirrored.

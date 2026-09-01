@@ -33,21 +33,22 @@ stickiness died against a properly fitted null within an hour of being announced
 off-manifold excursions never appeared; what replaced them — recency dynamics, jumps, a
 remnant, a marker — is stranger and better supported. The arc is the one §1 took from
 humor theory — incongruity, then resolution — replayed in the study's own history. We
-kept the corrections record (eighteen entries, Appendix A) in the paper because the
+kept the corrections record (nineteen entries, Appendix A) in the paper because the
 surviving claims owe their credibility to that process, not despite it.
 
 **Safety and alignment, first descriptively.** The failure surface this study maps
 needs no adversary. During an ordinary, coherent shift of conversational frame, a
 model's reading of a critical token trails the present frame for roughly its integration
-window (here, ten to seventeen sentences), retains a remnant of the prior frame beyond
-that, and — in one tank direction, with an exploratory n = 4 echo in fiction/real —
-dwells between frames for the remainder of the tested horizon. Throughout, the model
-never asks which reading is meant or flags the ambiguity as an obstacle — zero of 96
-tank completions, across all bands — though 45% of mid-band answers do surface both
-senses. And safeguard-relevant behavior co-varies with the internal reading:
-safe-completion rates fall from 91% to 50% across reading bands (the fiction-side
-endpoint rests on four completions, and the gradient is partly scene-driven — §3.4) —
-attenuation reachable by ordinary context, no exotic inputs required.
+window (here, nine to fourteen sentences, and effectively unbounded in the dwelling
+direction), retains a remnant of the prior frame beyond that, and — in one tank
+direction, with an exploratory n = 4 echo in fiction/real — dwells between frames for
+the remainder of the tested horizon. Throughout, the model never asks which reading is
+meant or flags the ambiguity as an obstacle — zero of 96 tank completions, across all
+bands — though 45% of mid-band answers do surface both senses. And safeguard-relevant
+behavior co-varies with the internal reading: safe-completion rates fall from 91% to 50%
+across reading bands (the fiction-side endpoint rests on four completions, and the
+gradient is partly scene-driven — §3.4) — attenuation reachable by ordinary context, no
+exotic inputs required.
 
 **Then the interpretation, with its caveat stated first.** The following is a post-hoc
 reading of an asymmetry we noticed, not a designed manipulation, and training provenance
@@ -57,37 +58,36 @@ for unresolved cases. The refusal task behaved as though it does — at mid-tran
 channel its chat format exposes, released with our behavior data — both framings are
 weighed before the safe reply (a qualitative observation, not a coded rate). The sense
 task carries no such default, and there the model silently commits (52% of mid-band
-completions pick a sense). If this reading is right, the metastable zone is the failure window
-for every behavior *without* a trained uncertainty-default — refusal-style
-safeguards may be the well-covered exception rather than the rule. A second,
-compatible candidate emerged from the depth data, though it is weaker than it first
-looked: fiction/real's mid-deep stack (layers 3–18) settles clearly on the
-destination side in both directions, where tank aquarium→vehicle's ends at the
-midpoint — so downstream layers in the covered task may act on a more settled
-reading than the site we measure. But the deepest band hovers near the midpoint in
-fiction→real too — precisely the direction where the safeguard must engage and did
-(§3.2) — so depth-resolution cannot carry the explanation alone. A third
-candidate points the opposite way through the stack: the shallowest layers resolve
-the framing composition almost immediately and completely (§3.2), with the profile
-of surface-cue tracking — the minimal-pair discrimination that rules out cue-only
-tracking was run at the calibrated site, not at shallow layers — and a safeguard
-that reads early, from surface content and frame cues, would fire broadly whenever
-the alarming request is present and be suppressed only by a well-established
-fictional frame: the shape of our behavioral data, including its fragile 50%
-fiction-side floor. The fast, complete shallow response is itself fr-specific —
-tank's shallow layers respond later and, in one direction, only partially (§3.2) —
-which is what a trigger sculpted by safety post-training would look like, though
-ordinary register statistics learned in pretraining predict the same asymmetry and
-training provenance is unobservable here. The three accounts are not exclusive — one names the policy,
-one the downstream state, one the trigger's plausible locus — and none is causally
-established: with two tasks these are observations, and the exploratory per-layer
-curves (§3.4) are too blunt to separate them (shallow readings saturate
-post-shift, leaving that instrument blind exactly where the third account lives). We add one
-calibration so this section cannot overpromise: as a standalone cell-level monitor, the
-frame reading is not yet usable (AUC 0.61 [0.43, 0.76], chance-compatible; Fig.
-fig_s11_monitor_roc, supplement). The band-level gradient is real; building a usable
-monitor — combining several sites, the mixed-context marker, and per-layer readings — is
-future work, not a claim.
+completions pick a sense). If this reading is right, the metastable zone is the failure
+window for every behavior *without* a trained uncertainty-default — refusal-style
+safeguards may be the well-covered exception rather than the rule. A second, compatible
+candidate emerged from the depth data, though it is weaker than it first looked:
+fiction/real's mid-deep stack (layers 3–18) settles clearly on the destination side in
+both directions, where tank aquarium→vehicle's ends at the midpoint — so downstream
+layers in the covered task may act on a more settled reading than the site we measure.
+But the deepest band hovers near the midpoint in fiction→real too — precisely the
+direction where the safeguard must engage and did (§3.2) — so depth-resolution cannot
+carry the explanation alone. A third candidate points the opposite way through the
+stack: the shallowest layers resolve the framing composition almost immediately and
+completely (§3.2), with the profile of surface-cue tracking — the minimal-pair
+discrimination that rules out cue-only tracking was run at the calibrated site, not at
+shallow layers — and a safeguard that reads early, from surface content and frame cues,
+would fire broadly whenever the alarming request is present and be suppressed only by a
+well-established fictional frame: the shape of our behavioral data, including its
+fragile 50% fiction-side floor. The fast, complete shallow response is itself
+fr-specific — tank's shallow layers respond later and, in one direction, only partially
+(§3.2) — which is what a trigger sculpted by safety post-training would look like,
+though ordinary register statistics learned in pretraining predict the same asymmetry
+and training provenance is unobservable here. The three accounts are not exclusive — one
+names the policy, one the downstream state, one the trigger's plausible locus — and none
+is causally established: with two tasks these are observations, and the exploratory
+per-layer curves (§3.4) are too blunt to separate them (shallow readings saturate
+post-shift, leaving that instrument blind exactly where the third account lives). We add
+one calibration so this section cannot overpromise: as a standalone monitor of
+individual readings, the frame reading is not yet usable (AUC 0.61 [0.43, 0.76],
+chance-compatible; Fig. fig_s11_monitor_roc, supplement). The band-level gradient is
+real; building a usable monitor — combining several sites, the mixed-context marker, and
+per-layer readings — is future work, not a claim.
 
 **Garden path or pun.** In Dynel's terms our transition corpus is a slow-motion garden
 path, and most trajectories treat it as one: incongruity, then resolution toward the new
@@ -109,20 +109,19 @@ lesson: that a state is geometrically typical does not make it functionally norm
 behavior data document the functional difference directly.
 
 **Represented but not consulted.** The mixed-context marker gives the dissociation its
-sharpest form: the model carries a persistent, systematic
-signal that its context is mixed — and behavior does not appear to use it at
-matched composition, at the one site and layer tested. This is the same
-structure reported in the hallucination literature, where models internally encode
-uncertainty or truthfulness that their generations do not respect. Here it appears in
-transition dynamics: an internal signal correlated with the conditions that produce the
-unresolved zone already exists inside the model, and behavior does not appear to use it
-— whether it could actually flag the zone is untested (the one monitor built, from the
-frame reading, is chance-compatible). The motivating case of §1 reportedly had the same
-structure at system scale — the provider's moderation layer was flagging the user's
-messages for self-harm risk in real time while assistance continued [CITE:
-filing/reporting]. That suggests a constructive direction for alignment work — not
-creating uncertainty signals, but testing whether behavior can be gated on the ones
-already there.
+sharpest form: the model carries a persistent, systematic signal that its context is
+mixed — and behavior does not appear to use it at matched composition, at the one site
+and layer tested. This is the same structure reported in the hallucination literature,
+where models internally encode uncertainty or truthfulness that their generations do not
+respect. Here it appears in transition dynamics: an internal signal correlated with the
+conditions that produce the unresolved zone already exists inside the model, and
+behavior does not appear to use it — whether it could actually flag the zone is untested
+(the one monitor built, from the frame reading, is chance-compatible). The motivating
+case of §1 reportedly had the same structure at system scale — the provider's moderation
+layer was flagging the user's messages for self-harm risk in real time while assistance
+continued [CITE: filing/reporting]. That suggests a constructive direction for alignment
+work — not creating uncertainty signals, but testing whether behavior can be gated on
+the ones already there.
 
 **Closing.** Word-sense reinterpretation is the tractable laboratory instance of a much
 larger family — frames, personas, tasks, and safety postures all shift under

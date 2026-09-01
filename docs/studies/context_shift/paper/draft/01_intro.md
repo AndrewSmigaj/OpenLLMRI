@@ -77,6 +77,6 @@ almost fully explained by recency weighting — a mild direction-dependent recen
 difference is all that remains, so the metastability lives in the path, not the
 equilibrium (§3.5); (6) a persistent, systematic marker of mixed context that behavior
 does not appear to use — the model carries the information that its context is mixed and
-does not act on it (§3.6); and a corrections record of eighteen entries that we present
+does not act on it (§3.6); and a corrections record of nineteen entries that we present
 as method rather than confession (Appendix A). All numbers regenerate from the committed
 repository.
