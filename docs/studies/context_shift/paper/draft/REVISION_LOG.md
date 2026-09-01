@@ -365,3 +365,45 @@ intro paragraph now matches the documented arc and attributes to filing+reportin
 discussion's "represented but not consulted" paragraph as the system-scale
 instance of the same structure. Citation anchors added to 06 for tex time. The
 last open item from the snippet audit is closed.
+
+---
+
+## Independent claims audit (2026-09-01, Andrew-commissioned) — 21/21 verified, all fixed
+
+A fresh agent with no session context audited every claim against both findings
+records, with license to disagree with the records' own confidence labels. All 21
+findings verified by me against the sources; none rejected. Applied:
+
+1. 91→50 safety gradient: abstract/discussion now carry n=4 endpoint +
+   partly-scene-driven caveats; "tracks" → "co-varies with".
+2. Dwelling scoped to tank (fr = n=4 paraphrase-carrier site, exploratory);
+   hedging scoped to tank mid-band; abstract, intro (4), §3.4, §4, writeup.
+3. Marker: "learned/represents/dedicated" → measured wording (systematic signal;
+   pure ≈0 vs mixed ≈27%); the 1-of-8-uncorrected behavior tests now stated; the
+   learned-representation vs input-consequence question explicitly left open;
+   glossary entry updated.
+4. "State-triggered" demoted everywhere to working interpretation (heading, intro,
+   abstract, writeup); single-sentence-percentile limitation added to §3.3.
+5. 0/96 scoped (tank, all bands) and reconciled with the 45% both-answers;
+   "reports nothing" → "never asks or flags the ambiguity."
+6. Intro's safeguard-default reading deferred to §4 instead of "turns out."
+7. Chain-of-thought weighing marked qualitative/unquantified.
+8. "Any smooth mechanism" → "any of the smooth mechanisms tested."
+9. Abstract mechanism claim scoped to classifiable runs.
+10. k∈{6,12} pooling flagged post-hoc, graded suggestive.
+11. "Categorical frame detection" → saturation description.
+12. "Information needed to flag the zone" → correlated signal, zone-flagging
+    untested, monitor chance-compatible; "gating" → "testing whether... can be gated."
+13. "Ordinary activations" → "matched no-shift states."
+14. 3.6 context-token median misattribution FIXED (error introduced by the
+    comprehension pass on 09-01 — my error, caught by the auditor in code).
+15. Intro "neither ever reaches" → three-of-four robustly, window-bounded.
+16. "Dedicated direction the no-shift world never occupies" → near-zero vs ≈27%.
+17. Intro (5) "fully/nothing beyond recency" → "almost fully; mild γ difference."
+18. "Full manual categorization" → regex + manual review of committed worksheet.
+19. Rule 7 "every effect" → "every effect they are run on" + marker's own null.
+20. Q1b replicate flagged in-sample.
+21. Abstract "interpretation/means" tightened to reading/position language.
+
+Auditor's solid-list covered all headline quantities; weakest-claim verdict (the
+91→50 sentence) addressed by fix 1. Number-trace re-audit: unchanged, passes.

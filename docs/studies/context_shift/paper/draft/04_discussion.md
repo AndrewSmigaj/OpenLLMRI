@@ -40,28 +40,31 @@ surviving claims owe their credibility to that process, not despite it.
 needs no adversary. During an ordinary, coherent shift of conversational frame, a
 model's reading of a critical token trails the present frame for roughly its integration
 window (here, ten to seventeen sentences), retains a remnant of the prior frame beyond
-that, and — in one direction per task — dwells between frames for the remainder of the
-tested horizon. Throughout that zone the model reports nothing: zero of 96 completions
-ask for disambiguation. And safeguard-relevant behavior tracks the internal reading:
-safe-completion rates fall from 91% to 50% as the reading moves along the learned
-fiction/real axis — attenuation reachable by ordinary context, no exotic inputs
-required.
+that, and — in one tank direction, with an exploratory n = 4 echo in fiction/real —
+dwells between frames for the remainder of the tested horizon. Throughout, the model
+never asks which reading is meant or flags the ambiguity as an obstacle — zero of 96
+tank completions, across all bands — though 45% of mid-band answers do surface both
+senses. And safeguard-relevant behavior co-varies with the internal reading:
+safe-completion rates fall from 91% to 50% across reading bands (the fiction-side
+endpoint rests on four completions, and the gradient is partly scene-driven — §3.4) —
+attenuation reachable by ordinary context, no exotic inputs required.
 
 **Then the interpretation, with its caveat stated first.** The following is a post-hoc
 reading of an asymmetry we noticed, not a designed manipulation, and training provenance
 is unobservable: our two tasks appear to differ in whether they carry a trained default
 for unresolved cases. The refusal task behaved as though it does — at mid-transition,
-80% of completions safe-complete, and in the model's own chain-of-thought text — the
-reasoning channel its chat format exposes, released with our behavior data — both
-framings are visibly weighed before the safe reply. The sense task carries no such
-default, and there the model silently commits (52% of mid-band completions pick a
-sense). If this reading is right, the metastable zone is the failure window for every
-behavior *without* a trained uncertainty-default — refusal-style safeguards may be the
-well-covered exception rather than the rule. We add one calibration so this section
-cannot overpromise: as a standalone cell-level monitor, the frame reading is not yet
-usable (AUC 0.61 [0.43, 0.76], chance-compatible; Fig. fig_s11_monitor_roc, supplement).
-The band-level gradient is real; building a usable monitor — combining several sites,
-the mixed-context marker, and per-layer readings — is future work, not a claim.
+80% of completions safe-complete, and in sampled chain-of-thought traces — the reasoning
+channel its chat format exposes, released with our behavior data — both framings are
+weighed before the safe reply (a qualitative observation, not a coded rate). The sense
+task carries no such default, and there the model silently commits (52% of mid-band
+completions pick a sense). If this reading is right, the metastable zone is the failure
+window for every behavior *without* a trained uncertainty-default — refusal-style
+safeguards may be the well-covered exception rather than the rule. We add one
+calibration so this section cannot overpromise: as a standalone cell-level monitor, the
+frame reading is not yet usable (AUC 0.61 [0.43, 0.76], chance-compatible; Fig.
+fig_s11_monitor_roc, supplement). The band-level gradient is real; building a usable
+monitor — combining several sites, the mixed-context marker, and per-layer readings — is
+future work, not a claim.
 
 **Garden path or pun.** In Dynel's terms our transition corpus is a slow-motion garden
 path, and most trajectories treat it as one: incongruity, then resolution toward the new
@@ -83,17 +86,19 @@ lesson: that a state is geometrically typical does not make it functionally norm
 behavior data document the functional difference directly.
 
 **Represented but not consulted.** The mixed-context marker gives the dissociation its
-sharpest form: the model maintains a persistent, dedicated representation that its
-context is mixed — and that representation is behavior-inert at matched composition.
-This is the same structure reported in the hallucination literature, where models
-internally encode uncertainty or truthfulness that their generations do not respect.
-Here it appears in transition dynamics: the information needed to flag the
-unresolved zone already exists inside the model; nothing routes it to behavior. The
-motivating case of §1 reportedly had the same structure at system scale — the
-provider's moderation layer was flagging the user's messages for self-harm risk in
-real time while assistance continued [CITE: filing/reporting]. That suggests a
-constructive direction for alignment work — not creating uncertainty signals, but gating
-behavior on the ones already there.
+sharpest form: the model carries a persistent, systematic signal that its context is
+mixed — and behavior does not appear to use it at matched composition. This is the same
+structure reported in the hallucination literature, where models internally encode
+uncertainty or truthfulness that their generations do not respect. Here it appears in
+transition dynamics: an internal signal correlated with the conditions that produce the
+unresolved zone already exists inside the model, and behavior does not appear to use it
+— whether it could actually flag the zone is untested (the one monitor built, from the
+frame reading, is chance-compatible). The motivating case of §1 reportedly had the same
+structure at system scale — the provider's moderation layer was flagging the user's
+messages for self-harm risk in real time while assistance continued [CITE:
+filing/reporting]. That suggests a constructive direction for alignment work — not
+creating uncertainty signals, but testing whether behavior can be gated on the ones
+already there.
 
 **Closing.** Word-sense reinterpretation is the tractable laboratory instance of a much
 larger family — frames, personas, tasks, and safety postures all shift under

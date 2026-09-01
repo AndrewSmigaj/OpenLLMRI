@@ -94,7 +94,9 @@ documents that process.
 6. *Cluster statistics at the family level.* Sentences within a scene family are not
    independent; every interval in this paper is family-clustered.
 7. *Prove the pipeline can fail.* Family-level label shuffles must kill every effect
-   (they do: separations fall to chance, within-pair effects to zero); synthetic
+   they are run on (they do: separations fall to chance, within-pair effects to
+   zero; the mixed-context marker is tested against its own family-block null
+   instead); synthetic
    ground-truth fixtures must recover known answers through the actual pipeline code
    (nine of nine do); positive controls must show each null-result instrument
    detecting real displacement (they do).
@@ -104,8 +106,9 @@ properties documented in Results: persistent intermediate configurations of a co
 reading between two calibrated interpretations. *Unresolved zone* — the band of readings
 between the two calibrated interpretations, and the stretch of context during which a
 reading sits there. *Remnant* — the component of a prior interpretation that
-counter-evidence does not remove. *Mixed-context marker* — a learned direction,
-orthogonal to the content contrast, that activates for mixed-class contexts.
+counter-evidence does not remove. *Mixed-context marker* — a systematic direction,
+orthogonal to the content contrast, on which mixed-class contexts read high and
+pure-class contexts read near zero.
 *Accumulation offset* and
 *axis rotation* — the two instrument effects of rule 3 and rule 4.
 

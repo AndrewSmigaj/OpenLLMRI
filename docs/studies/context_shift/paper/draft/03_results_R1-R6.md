@@ -36,15 +36,15 @@ domains — t(5) = 12.0, p = 7.2×10⁻⁵; positive in each of the three indepe
 generated batches of pairs; Fig. fig_s9_d5_pairs). Third, dose-independence: the effect
 does not scale with the number of framing-cue words (r = 0.05), and is not a length
 artifact (r = 0.02; length-matched pairs +1.05) — one cue moves the reading as far as
-four, the signature of categorical frame detection rather than cue-lexicon accumulation.
+four: the response saturates at a single cue rather than accumulating.
 
 The licensed claim is modest: the reading tracks framing cues with content held fixed —
 not an abstract frame representation. The two tasks also differ instructively in
 contrast structure. Tank's signal anchors to one token; the fiction/real signal is
 spread across the request's content words (' write' 6.4, ' suicide' 6.2, ' want' 4.5,
-against a median of 3.6 for the carrier's other tokens; Fig. fig_r6_carrier_dprime_fr).
-The d′ values are not comparable across tasks, but the shape is: a lexical-sense
-contrast lives at a token; a framing contrast lives across the utterance.
+against a context-token median of 3.6; Fig. fig_r6_carrier_dprime_fr). The d′ values are
+not comparable across tasks, but the shape is: a lexical-sense contrast lives at a
+token; a framing contrast lives across the utterance.
 
 ## 3.2 The shape of reinterpretation: fast, partial, permanent (R2)
 
@@ -94,17 +94,17 @@ future work.
 **Direction matters, and the asymmetry is not an instrument accident.** Tank
 transitions toward the vehicle sense fall 1.09 amplitude-fractions short versus 0.57 in
 the reverse direction; the same pattern replicates under an independent carrier ("Define
-the word tank.": 0.92 vs 0.61) and survives median-based midpoints. Within the
-fiction/real task the asymmetry is site-dependent: symmetric at the ' want' site
-(0.43/0.40) but strongly asymmetric at the ' letter' site of the paraphrase carrier
-"Help me write…" (0.90/0.33 — against that site's own healthy reference amplitude of
-1.18, though at n = 4 per direction, exploratory). A candidate cause exists at the
-calibration level: the vehicle class is intrinsically broader (per-side spread 0.83–0.91
-versus 0.56–0.70 for aquarium, at every layer tested) — transitions *into* the broader
-class stop farther short. We flag this as a correlate, not a demonstrated mechanism
-(Fig. fig_s9_asymmetry).
+the word tank.": 0.92 vs 0.61; the replicate's calibration axis is in-sample, not
+held-out) and survives median-based midpoints. Within the fiction/real task the
+asymmetry is site-dependent: symmetric at the ' want' site (0.43/0.40) but strongly
+asymmetric at the ' letter' site of the paraphrase carrier "Help me write…" (0.90/0.33 —
+against that site's own healthy reference amplitude of 1.18, though at n = 4 per
+direction, exploratory). A candidate cause exists at the calibration level: the vehicle
+class is intrinsically broader (per-side spread 0.83–0.91 versus 0.56–0.70 for aquarium,
+at every layer tested) — transitions *into* the broader class stop farther short. We
+flag this as a correlate, not a demonstrated mechanism (Fig. fig_s9_asymmetry).
 
-## 3.3 The mechanism: drift plus discrete, state-triggered jumps (R3)
+## 3.3 The mechanism: drift plus discrete jumps (R3)
 
 What process produces these trajectories? We fit five models per run to the twenty
 post-shift readings — uniform integrator, fitted-γ recency integrator, change-point
@@ -113,7 +113,8 @@ mixed) — selecting by BIC with an indeterminacy band, and we calibrated the se
 synthetic truth: hybrid-truth is recovered as hybrid in 13–15 of 24 simulations;
 step-truth is called integrator in 0–2%; and two-timescale truth masquerades as a plain
 integrator or indeterminate, reading as hybrid in only 2–3 of
-24. The selector cannot fabricate the hybrid verdict from any smooth mechanism.
+24. The selector cannot fabricate the hybrid verdict from any of the smooth mechanisms
+tested.
 
 On the real runs the selector nonetheless returns hybrid: among classifiable runs,
 drift-plus-jump is dominant — 11 of 16 tank runs and 14 of 25 fiction/real runs (48% of
@@ -129,9 +130,10 @@ single-sentence calibration reading (456 of 456 matched), and the sentences at w
 runs jump are median-strength exemplars of their class — percentile 0.50 against 0.50
 for all other added sentences (p = 0.445). The same evidence moves one run smoothly and
 jolts another: whatever triggers a jump is a property of the state, not of the stimulus
-— though we have tested only evidence strength; surprisal, syntax, and discourse
-position remain untested, so "state-dependent" is our working interpretation rather than
-a demonstrated exclusion.
+— though we have tested only evidence strength — and single-sentence calibration
+strength may understate in-context strength; surprisal, syntax, and discourse position
+remain untested — so "state-dependent" is our working interpretation rather than a
+demonstrated exclusion.
 
 The same process is visible from inside the stream. Using per-position axes calibrated
 from no-shift checkpoint windows — content and position matched, only history differing
@@ -147,21 +149,22 @@ window-level readout inherits the suppression.
 
 ## 3.4 Unresolved states, and what the model does in them (R4)
 
-In one direction per task, the trajectory dwells within the unresolved zone: it becomes
-stationary mid-transition and, on the measured horizon, does not leave. In tank
-aquarium→vehicle transitions, the central tendency of the run distribution is stationary
-at mid-axis for at least ten consecutive steps, ≥2.9 across-run standard deviations from
+In one direction of the tank task — aquarium→vehicle — the trajectory dwells within the
+unresolved zone: it becomes stationary mid-transition and, on the measured horizon, does
+not leave. The central tendency of the run distribution is stationary at mid-axis for at
+least ten consecutive steps, ≥2.9 across-run standard deviations from
 *both* endpoint references, with the spread across runs flat rather than tightening;
 Gaussian-mixture comparison favors a single component in every time bin — one stationary
 population, not a hidden mixture of resolved and unresolved runs (Fig.
-fig_r2_mode_track). The same signature appears at the pre-lexical ' word' site, at the '
-letter' site in the fiction/real task, and under the replicate carrier. "Stationary" is
-bounded by the horizon: whether these runs would ever complete on a longer one is the
-same open question §3.2 leaves for the remnant, and some individual runs retain shallow
-nonzero late slopes. Geometrically, the dwelling states sit squarely inside the
-trajectory bundle — the spread of transition trajectories across runs — at 0.96× the
-null distance (§3.6); functionally, they are a distinct condition, as the model's
-behavior shows.
+fig_r2_mode_track). Within tank, the same signature appears at the pre-lexical ' word'
+site and under the replicate carrier; in the fiction/real task it appears only at the '
+letter' site of the paraphrase carrier, at n = 4 per direction, exploratory.
+"Stationary" is bounded by the horizon: whether these runs would ever complete on a
+longer one is the same open question §3.2 leaves for the remnant, and some individual
+runs retain shallow nonzero late slopes. Geometrically, the dwelling states sit squarely
+inside the trajectory bundle — the spread of transition trajectories across runs — at
+0.96× the null distance (§3.6); functionally, they are a distinct condition, as the
+model's behavior shows.
 
 We generated completions at matched counts of post-shift sentences (k = 2, 6, 12, 20)
 for every run; all behavioral claims in this subsection are correlational. For analysis
@@ -170,16 +173,18 @@ tracks the reading: cells whose readings sit on a side answer that side (56% and
 the two sides), while the mid band answers "both" — enumerating the two senses — in 45%
 of cells, roughly double either side (Fig. fig_r6_behavior_bands). One descriptive fact
 anchors this paper's framing: **not one of the 96 tank responses asks which sense is
-meant or declines to answer pending disambiguation** — zero of 96, by regex scan and by
-full manual categorization. In the unresolved zone the model either enumerates senses
-(45%) or silently commits to one (52% at mid-band); it answers as if resolved. One
-further response class appears across all 108 tank completions (the 96 transition cells
-plus 12 no-shift cells): 11 are degenerate repetition loops, unrelated to reading band.
+meant or declines to answer pending disambiguation** — zero of 96, by regex scan and
+manual review of the committed categorized worksheet. In the unresolved zone the model
+either enumerates senses (45%) or silently commits to one (52% at mid-band); it answers
+as if resolved. One further response class appears across all 108 tank completions (the
+96 transition cells plus 12 no-shift cells): 11 are degenerate repetition loops,
+unrelated to reading band.
 
 When does the reading carry information *beyond* the context composition that drives
 both reading and behavior? At matched composition: mid-transition, yes — pooling k ∈ {6,
 12}, decided answers come from runs with more extreme readings (median
-|reading| 0.72 vs 0.38, one-sided p = 0.0138); at the settled extremes, no. In the
+|reading| 0.72 vs 0.38, one-sided p = 0.0138 — a pooling chosen after the per-depth
+pattern was seen, so we grade this suggestive); at the settled extremes, no. In the
 fiction/real task we categorize each completion as fiction-framed assistance or a safety
 response — a *safe-completion*, which addresses the request as a risk (declining the
 letter, redirecting to support) rather than fulfilling it. The reading separates the two
@@ -255,10 +260,13 @@ What is it? Held-out mixture cells locate its content: the marker is absent from
 pure-class contexts and near its full transition strength in *static* mixed contexts —
 so it marks mixed context, not temporal shifting per se. One qualification: in the
 fiction/real task it halves when the mixture is interleaved rather than blocked, so
-there, part of what it encodes is the coherent structure of a shift. It does not predict
-behavior at matched context composition. The model, in other words, maintains a
-persistent, learned representation that its context is mixed — carried in a dedicated
-direction the no-shift world never occupies — and does not act on it.
+there, part of what it encodes is the coherent structure of a shift. It did not predict
+behavior in eight matched-composition tests (one nominal hit, uncorrected). The model,
+in other words, carries a persistent, systematic signal that its context is mixed — a
+direction on which pure contexts sit near zero and mixed contexts near 27% of the class
+separation — and its behavior does not appear to use it. Whether this signal is a
+learned representation of mixedness or a systematic consequence of heterogeneous input
+is not decided by our measurements.
 
 Three graded senses of "off-distribution" should be kept distinct: exotic natural
 inputs; interventional states (patching, steering); and states of one context regime

@@ -6,9 +6,10 @@
 
 **In one sentence:** we instrumented what happens *inside* a language model's residual
 stream while accumulating context shifts what a token means — and found a reproducible
-cluster of properties we call **semantic metastability**: fast-but-partial updating, a persistent remnant of the old interpretation, discrete state-triggered jumps, extended
-dwelling within the unresolved zone, hysteresis fully explained by recency weighting, and a
-learned marker of mixed context that the model represents but never acts on.
+cluster of properties we call **semantic metastability**: fast-but-partial updating, a persistent remnant of the old
+interpretation, discrete jumps not timed by evidence strength, extended dwelling
+within the unresolved zone, hysteresis almost fully explained by recency weighting,
+and a persistent marker of mixed context that behavior does not appear to use.
 
 ![Both directions collapse into the in-between zone](fig_s9_collapse.png)
 *The central result: both transition directions, both tasks, on one axis. Readings
@@ -49,22 +50,24 @@ at the class midpoint itself. The direction asymmetry replicates under an indepe
 carrier and has a candidate cause in calibration-level class breadth.
 
 **The mechanism.** Per-run model selection over five candidate processes — calibrated
-on synthetic ground truth — rejects every smooth integrator, including a two-timescale
-one (which wins zero runs and cannot mimic the winning signature in simulation). The
-dominant account is **drift plus discrete jumps**, and the jumps are state-triggered:
-the sentences that precipitate them are median-strength exemplars (p = 0.445). Inside
+on synthetic ground truth — rejects every smooth integrator tested, including a two-timescale one (which wins zero runs and cannot mimic the winning signature in simulation). The
+dominant account among classifiable runs is **drift plus discrete jumps**, and the
+jumps are not timed by evidence strength — precipitating sentences are
+median-strength exemplars (p = 0.445); state-dependence is the working
+interpretation. Inside
 the stream, mixed history suppresses the class reading of even the new evidence's own
 tokens to roughly half their reference.
 
-**Unresolved states and behavior.** In one direction per task the trajectory **dwells**:
-stationary at mid-axis for ten-plus steps, to the end of the measured window, far
-from both references, a
-single population rather than a hidden mixture. Behavior tracks the reading — and in
-the unresolved zone the model *answers anyway*: **zero of 96 completions ask which
-sense is meant or decline pending disambiguation**; 45% hedge by enumerating both
+**Unresolved states and behavior.** In one tank direction the trajectory **dwells**: stationary at
+mid-axis for ten-plus steps, to the end of the measured window, far from both
+references, a single population rather than a hidden mixture (an exploratory n = 4
+fiction/real site echoes it). Behavior tracks the reading — and in
+the unresolved zone the model *answers anyway*: **zero of 96 tank completions, across all bands, ask which sense is meant or decline
+pending disambiguation**; 45% hedge by enumerating both
 senses, 52% silently commit to one. The fiction/real task — the one backed by a refusal
-safeguard — held at mid-transition (80% safe-completion), and safe-completion rates run 91%→50% along the
-learned frame axis — safeguard attenuation with no exotic inputs required. As a
+safeguard — held at mid-transition (80% safe-completion), and safe-completion rates run 91%→50% across
+reading bands (fiction-side endpoint n = 4; gradient partly scene-driven) —
+attenuation reachable by ordinary context. As a
 standalone cell-level monitor the reading is not yet usable (AUC 0.61 [0.43, 0.76]);
 the gradient is a band-level fact.
 
@@ -78,11 +81,10 @@ path — states and passages, not bistable wells.
 **The representation of irresolution.** No individual state leaves the model's
 activation distribution (with positive controls proving the instruments could tell).
 But the *mean* displacement of transition states off the no-shift subspace is
-unmistakable: a persistent, learned **mixed-context marker** at 25–38% of the class
-separation (p < 0.001, family-block null), orthogonal to the content contrast,
+unmistakable: a persistent **mixed-context marker** at 25–38% of the class separation (p < 0.001, family-block null), orthogonal to the content contrast,
 present in static mixtures, sensitive to shift structure in the
-fiction/real task — and inert with respect to behavior. The model maintains a dedicated internal representation that its
-context is mixed, and does not consult it when answering.
+fiction/real task — and inert with respect to behavior. The model carries a persistent, systematic signal that its
+context is mixed, and its behavior does not appear to use it.
 
 **Why this matters for safety.** The failure surface this maps is not exotic: in our
 tasks, a model in the unresolved zone reports nothing unprompted, answers as if
