@@ -499,3 +499,16 @@ task is the one with the fast shallow detector (n=2, correlational).
   and ~66, beyond the window. The near-uniform γ of the dwelling direction is the
   integrator fit's own dwell signature — now stated as such in §3.2; c1 updated;
   FINDINGS §2 + entry 19; writeup mirrored.
+
+---
+
+## "Mechanism" demoted to "form of the dynamics" (2026-09-01, Andrew)
+
+Andrew: how is drift-plus-jumps "the mechanism"? It isn't — it is functional-form
+selection at the trajectory level: a simulation-calibrated exclusion of smooth
+integration plus the signature of discrete reorganization events, with no
+implementational content (nothing identifies what inside the network produces a
+jump). §3.3 heading and intro contribution (3) renamed; a status sentence added to
+§3.3 stating exactly what the model selection does and does not license; writeup
+heading mirrored. Same overreach family as "state-triggered"/"learned"/"park":
+interpretation-loaded words standing where measured claims should.

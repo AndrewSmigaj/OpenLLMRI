@@ -51,7 +51,7 @@ uncertainty; not explained by weaker material). In the strongest case the platea
 at the class midpoint itself. The direction asymmetry replicates under an independent
 carrier and has a candidate cause in calibration-level class breadth.
 
-**The mechanism.** Per-run model selection over four fitted model forms (uniform
+**The form of the dynamics.** Per-run model selection over four fitted model forms (uniform
 weighting the equal-weight case of the first) — calibrated on synthetic ground
 truth — rejects every smooth integrator tested, including a two-timescale one (which wins zero runs and cannot mimic the winning signature in simulation). The
 dominant account among classifiable runs is **drift plus discrete jumps**, and the

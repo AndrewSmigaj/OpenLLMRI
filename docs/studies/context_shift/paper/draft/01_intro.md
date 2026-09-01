@@ -68,9 +68,9 @@ We contribute: (1) a measurement protocol for reading interpretations over accum
 context without self-deception — including two instrument artifacts, accumulation offset
 and axis rotation, that we first mistook for findings (§2); (2) the shape of
 reinterpretation — fast and partial, with a remnant of the old interpretation persisting
-to the end of the tested horizon (§3.2); (3) its mechanism — drift plus discrete jumps
-not timed by evidence strength, with the smooth integrators tested rejected head-to-head
-(§3.3); (4) the dwelling within the unresolved zone — a stationary intermediate, in one
+to the end of the tested horizon (§3.2); (3) the form of its dynamics —
+drift plus discrete jumps not timed by evidence strength, with the smooth
+integrators tested rejected head-to-head (§3.3); (4) the dwelling within the unresolved zone — a stationary intermediate, in one
 tank direction, whose mid-zone behavioral output is hedging — and the observation that
 in 96 of 96 completions the model answers rather than asking (§3.4); (5) hysteresis
 almost fully explained by recency weighting — a mild direction-dependent recency

@@ -117,7 +117,7 @@ class is intrinsically broader (per-side spread 0.83–0.91 versus 0.56–0.70 f
 at every layer tested) — transitions *into* the broader class stop farther short. We
 flag this as a correlate, not a demonstrated mechanism (Fig. fig_s9_asymmetry).
 
-## 3.3 The mechanism: drift plus discrete jumps (R3)
+## 3.3 The form of the dynamics: drift plus discrete jumps (R3)
 
 What process produces these trajectories? We fit the four model forms of §2.4 per run to
 the twenty post-shift readings — recency integrator (with the uniform, equal-weight
@@ -126,8 +126,11 @@ two-timescale integrator — selecting by BIC with an indeterminacy band, and we
 calibrated the selector on synthetic truth: hybrid-truth is recovered as hybrid in 13–15
 of 24 simulations; step-truth is called integrator in 0–2%; and two-timescale truth
 masquerades as a plain integrator or indeterminate, reading as hybrid in only 2–3 of
-24. The selector cannot fabricate the hybrid verdict from any of the smooth mechanisms
-tested.
+24. The selector cannot fabricate the hybrid verdict from any of the smooth forms
+tested. This is a claim about the form of the trajectories, not their
+implementation: it excludes smooth integration of the evidence and establishes
+discrete reorganization events; what inside the network produces a jump is not
+identified here.
 
 On the real runs the selector nonetheless returns hybrid: among classifiable runs,
 drift-plus-jump is dominant — 11 of 16 tank runs and 14 of 25 fiction/real runs (48% of

@@ -112,9 +112,9 @@ We contribute: (1) a measurement protocol for reading interpretations over accum
 context without self-deception — including two instrument artifacts, accumulation offset
 and axis rotation, that we first mistook for findings (\S2); (2) the shape of
 reinterpretation — fast and partial, with a remnant of the old interpretation persisting
-to the end of the tested horizon (\S3.2); (3) its mechanism — drift plus discrete jumps
-not timed by evidence strength, with the smooth integrators tested rejected head-to-head
-(\S3.3); (4) the dwelling within the unresolved zone — a stationary intermediate, in one
+to the end of the tested horizon (\S3.2); (3) the form of its dynamics —
+drift plus discrete jumps not timed by evidence strength, with the smooth
+integrators tested rejected head-to-head (\S3.3); (4) the dwelling within the unresolved zone — a stationary intermediate, in one
 tank direction, whose mid-zone behavioral output is hedging — and the observation that
 in 96 of 96 completions the model answers rather than asking (\S3.4); (5) hysteresis
 almost fully explained by recency weighting — a mild direction-dependent recency
@@ -426,7 +426,7 @@ flag this as a correlate, not a demonstrated mechanism (Fig.~\ref{fig:fig_s9_asy
 \caption{Direction asymmetry: transitions into the broader class stop farther short; the pattern replicates under the replicate carrier and appears at the ' letter' site ($n = 4$ per direction, exploratory); per-side calibration spreads differ (vehicle broader than aquarium at every layer tested).}\label{fig:fig_s9_asymmetry}
 \end{figure}
 \FloatBarrier
-\subsection{The mechanism: drift plus discrete jumps (R3)}
+\subsection{The form of the dynamics: drift plus discrete jumps (R3)}
 
 What process produces these trajectories? We fit the four model forms of \S2.4 per run to
 the twenty post-shift readings — recency integrator (with the uniform, equal-weight
@@ -435,8 +435,11 @@ two-timescale integrator — selecting by BIC with an indeterminacy band, and we
 calibrated the selector on synthetic truth: hybrid-truth is recovered as hybrid in 13–15
 of 24 simulations; step-truth is called integrator in 0–2\%; and two-timescale truth
 masquerades as a plain integrator or indeterminate, reading as hybrid in only 2–3 of
-24. The selector cannot fabricate the hybrid verdict from any of the smooth mechanisms
-tested.
+24. The selector cannot fabricate the hybrid verdict from any of the smooth forms
+tested. This is a claim about the form of the trajectories, not their
+implementation: it excludes smooth integration of the evidence and establishes
+discrete reorganization events; what inside the network produces a jump is not
+identified here.
 
 On the real runs the selector nonetheless returns hybrid: among classifiable runs,
 drift-plus-jump is dominant — 11 of 16 tank runs and 14 of 25 fiction/real runs (48\% of
