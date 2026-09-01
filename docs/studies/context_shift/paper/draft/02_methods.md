@@ -8,9 +8,8 @@ FINDINGS_FINAL [x]; QA paragraph [x]. -->
 
 All experiments use gpt-oss-20b, a 20-billion-parameter mixture-of-experts language
 model, run in its stock configuration: we apply no modifications to the model or its
-routing — its native top-4-experts-per-token routing operates untouched (the "K=1"
-phrase in our project tooling refers only to a routing-analysis convention for a track
-this study dropped entirely). Inputs are formatted with the model's chat template and
+routing — its native top-4-experts-per-token routing operates untouched (the "K=1" label in the released
+tooling names an analysis convention for a routing track this study dropped). Inputs are formatted with the model's chat template and
 processed with deterministic greedy forward passes; identical inputs yield identical
 activations. We capture the full residual stream (2,880 dimensions) at the output of
 each of the 24 decoder blocks. Throughout, "the reading at a site" means the residual
@@ -53,7 +52,7 @@ difficult about this study lives not in the axis but in the discipline required 
 it honestly over accumulating context. We learned each rule below by first getting it
 wrong; the paper's corrections record (Appendix A) documents that process.
 
-**Box 1 — Measuring contextual readings without fooling yourself.**
+**Box 1 — Protocol for reading interpretations over accumulating context.**
 1. *Calibrate at the same site, same carrier, always.* Projecting across token positions
    collapses to a positional constant; projecting one carrier's states through another
    carrier's axis is dominated by token identity (both failure modes demonstrated on our
@@ -72,8 +71,8 @@ wrong; the paper's corrections record (Appendix A) documents that process.
    can rotate as context accumulates: on accumulated states the fiction/real axis
    retains only cos 0.57–0.63 of its single-sentence direction at layers 10–23 (tank:
    0.78–0.97). Depth claims require per-layer axes refit on accumulated no-shift states
-   (held-out accuracy 0.93–1.00 at every layer); we retracted three findings of our own
-   before adopting this rule.
+   (held-out accuracy 0.93–1.00 at every layer); drift and rotation together cost
+   us three retracted findings before rules 3 and 4 were adopted.
 5. *Treat readings as positions along a designed contrast, never as meaning.* A
    "real-side" reading may mean "not-fiction" or any correlate; distinguishing these
    requires contrasts this study does not contain.
@@ -85,9 +84,11 @@ wrong; the paper's corrections record (Appendix A) documents that process.
    (nine of nine do); positive controls must show each null-result instrument
    detecting real displacement (they do).
 
-**Glossary.** *Semantic metastability* — the cluster of properties documented in
-Results: persistent intermediate configurations of a contextual reading between two
-calibrated interpretations. *Residual* — the component of a prior interpretation that
+**Glossary.** *Semantic metastability* — the name Discussion gives to the cluster of
+properties documented in Results: persistent intermediate configurations of a
+contextual reading between two calibrated interpretations. *Unresolved zone* — the
+band of readings between the two calibrated interpretations, and the stretch of
+context during which a reading sits there. *Residual* — the component of a prior interpretation that
 counter-evidence does not remove. *Park* — a stationary intermediate configuration
 holding for many steps. *Mixed-context marker* — a learned direction, orthogonal to the
 content contrast, that activates for mixed-class contexts. *Accumulation drift* and

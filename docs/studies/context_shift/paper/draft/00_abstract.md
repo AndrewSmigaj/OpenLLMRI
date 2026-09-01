@@ -18,17 +18,19 @@ followed by a residual of the prior interpretation that twenty counter-sentences
 remove — 0.4–1.1× the class separation, three of four conditions robust to reference
 uncertainty. Per-run dynamics are drift punctuated by discrete jumps; simulation-
 calibrated model selection rejects every smooth integrator tested, including a
-two-timescale one, and the jumps are triggered by the state, not by evidence strength.
+two-timescale one, and evidence strength does not predict when jumps occur — the
+trigger appears to lie in the state of the run.
 In one direction per probe the trajectory parks: a stationary intermediate
 configuration, held for ten or more steps, whose behavioral output is hedging. Order of
 evidence matters — hysteresis loops are large — but is fully explained by fitted
 recency weighting: no measurable stickiness. Everything runs on learned structure: no
-state leaves the model's activation distribution, but transition states carry a small,
+individual state leaves the model's activation distribution, but transition states carry a small,
 persistent, learned marker of mixed context (25–38% of class separation), orthogonal
 to the content contrast. We call this cluster of properties semantic metastability. In
 the unresolved zone the model answers rather than reporting uncertainty — zero of 96
 completions request disambiguation; the refusal task nonetheless held (80%
-safe-completion at mid-transition) while the sense task committed silently, and
+safe-completion at mid-transition) while the sense task committed silently (52% of
+mid-band completions), and
 safeguard behavior attenuates along the learned frame axis (91%→50%).
 
 *Content note: this paper analyzes model behavior around suicide-related requests in a

@@ -18,7 +18,9 @@ jailbreaking; Crescendo-style multi-turn escalation. Psycholinguistics: Christia
 & Ferreira; Slattery et al.; van Schijndel & Linzen. Verbalized uncertainty &
 ambiguity (grounds the intro's scoped claim): Kadavath et al.; Lin et al. (verbalized
 confidence); Xiong et al. (calibration of verbalized confidence); Liu et al.
-(ambiguity modeling). Long-context artifacts:
+(ambiguity modeling). Internal encoding vs expression (grounds Discussion's
+"represented but not consulted"): Azaria & Mitchell (internal state predicts
+truthfulness); Orgad et al. (models encode more than they express). Long-context artifacts:
 attention sinks (the "is drift positional?" question; midpoint referencing makes our
 findings robust either way). Dynamics: Sussillo & Barak; Kelso; Rabinovich et al.
 

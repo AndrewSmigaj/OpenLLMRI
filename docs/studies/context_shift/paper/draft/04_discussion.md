@@ -10,10 +10,9 @@ represented-but-ungated elevated [x]; SCOUT close with one cross-scale sentence 
 neural systems rather than in physics. In coordination dynamics and in the winnerless-
 competition framework, cognition is described as sequences of transiently stable
 states that are not fixed-point attractors — structured passages through state space
-in which dwelling and moving are not opposites. That is precisely the geometry our
-data forced on us: the park is functionally a state (stationary for many steps, with
+in which dwelling and moving are not opposites. That is the geometry our data forced on us: the park is functionally a state (stationary for many steps, with
 its own behavioral signature) and geometrically a passage (inside the trajectory
-bundle, on a smooth equilibrium map). One disclaimer accordingly: nothing here is
+bundle, on a smooth equilibrium map). One disclaimer: nothing here is
 equilibrium bistability — the evidence-mixture map is smooth (§3.5) — and readers
 should not import a barrier-crossing picture. Semantic metastability, as we use it, is
 a property of paths.
@@ -41,7 +40,7 @@ model's reading of a critical token trails the present frame for roughly its
 integration window (here, ten to seventeen sentences), retains a residual of the prior
 frame beyond that, and — in one direction per probe — parks between frames
 indefinitely on the tested horizon. Throughout that zone the model reports nothing:
-zero of ninety-six completions ask for disambiguation. And safeguard-relevant behavior
+zero of 96 completions ask for disambiguation. And safeguard-relevant behavior
 tracks the internal reading: safe-completion rates fall from 91% to 50% as the reading
 moves along the learned fiction/real axis — attenuation reachable by ordinary context,
 no exotic inputs required.
@@ -50,10 +49,11 @@ no exotic inputs required.
 reading of an asymmetry we noticed, not a designed manipulation, and training
 provenance is unobservable: our two tasks appear to differ in whether they carry a
 trained default for unresolved cases. The refusal task behaved as though it does — at
-mid-transition, 80% of completions safe-complete, and the model's reasoning traces
-visibly weigh both framings before erring toward safety. The sense task carries no
+mid-transition, 80% of completions safe-complete, and in the model's own
+analysis-channel text — released with the behavior worksheets — both framings are
+visibly weighed before the safe reply. The sense task carries no
 such default, and there the model silently commits (52% of mid-band completions pick a
-sense). If this reading is right, the metastable zone is precisely the failure window
+sense). If this reading is right, the metastable zone is the failure window
 for every behavior *without* a trained uncertainty-default — refusal-style safeguards
 may be the well-covered exception rather than the rule. We add one calibration so this
 section cannot overpromise: as a standalone cell-level monitor, the frame reading is

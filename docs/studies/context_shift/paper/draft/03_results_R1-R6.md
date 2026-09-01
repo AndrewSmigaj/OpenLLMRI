@@ -42,14 +42,14 @@ The licensed claim is deliberately modest: the reading tracks framing cues with
 content held fixed — not an abstract frame representation. The two probes also differ
 instructively in contrast structure: tank's signal anchors to one token, while the
 fiction/real signal distributes across the request's content words (' write' 6.4,
-' suicide' 6.2, ' want' 4.5 against an ambient 3.6; Fig. fig_r6_carrier_dprime_fr) —
-a lexical-sense contrast lives at a token; a framing contrast lives across the
-utterance. This comparison is directional only.
+' suicide' 6.2, ' want' 4.5 against an ambient 3.6; Fig. fig_r6_carrier_dprime_fr —
+a directional comparison only): a lexical-sense contrast lives at a token; a framing
+contrast lives across the utterance.
 
 ## 3.2 The shape of reinterpretation: fast, partial, permanent (R2)
 
-Figure fig_s9_collapse shows the study in one image: both transition directions, both
-probes, on one axis against the no-shift references. After the shift, readings cross
+Figure fig_s9_collapse shows both transition directions, both probes, on one axis
+against the no-shift references. After the shift, readings cross
 zero within 7–13 sentences — but neither direction, in either probe, reaches the
 opposite reference within twenty counter-sentences. The reading lags the present frame
 in the plain sense: it trails what the conversation has become, on roughly the
@@ -66,11 +66,12 @@ probe-by-direction cells: the reading moves faster than integration early, then 
 short of where integration says it should end. The shortfall is the **residual gap**:
 the distance between a run's plateau and the position-matched no-shift level, in
 midpoint-referenced units (Fig. fig_r1_residual_gap). All four cells show positive
-gaps under family-clustered bootstrap: tank →vehicle +2.16 [1.87, 2.44] — a gap
-exceeding 1.0 in amplitude-normalized units, meaning the plateau sits at the class
-*midpoint* itself, the full transition never even half-completing beyond it; tank
+gaps under family-clustered bootstrap: tank →vehicle +2.16 [1.87, 2.44] —
+equivalently 1.09× the no-shift amplitude, a shortfall larger than the amplitude
+itself, so this plateau sits at the class *midpoint*, the transition never
+half-completing; tank
 →aquarium +1.15 [0.82, 1.45]; fiction→real +0.38 [0.28, 0.49]; real→fictional +0.35
-[0.11, 0.58]. Honesty requires one demotion: when the uncertainty of the six-arm
+[0.11, 0.58]. One cell demotes under a stricter bootstrap: when the uncertainty of the six-arm
 reference is propagated into the bootstrap, three cells stand but real→fictional
 widens to [−0.12, +0.79] and no longer excludes zero — that cell's residual is
 suggestive only. The gap is not an artifact of weaker post-shift material: the
@@ -198,14 +199,15 @@ equilibrium map — there is no bistability to fall into, and nothing needed to 
 
 ## 3.6 The representation of irresolution (R6)
 
-Finally, the geometric question the title poses: do these in-between states leave the
-model's learned distribution? "Off-manifold" is meaningful only relative to a
+Finally, the third of the introduction's three worlds: do these in-between states
+leave the model's learned distribution? "Off-manifold" is meaningful only relative to a
 reference, a measure, and a noise level, so we fix all three: reference — the
 position-matched no-shift states (and the cross-run transition bundle); measures —
 k-nearest-neighbor distance and out-of-subspace reconstruction residual against the
 no-shift PCA subspace; noise level — the held-out self-distances of the reference
-itself. The instruments demonstrably detect displacement: single-sentence calibration
-states read 1.7–2.2× the null (a different context regime, correctly flagged), and
+itself. The instruments demonstrably detect displacement: single-sentence
+calibration states read 1.7–2.2× the null across the two instruments (a different
+context regime, correctly flagged), and
 position-mismatched states are flagged at 13–44%.
 
 At the individual-state level, nothing leaves. Jump steps read 1.06×/1.12× the null,
@@ -213,9 +215,9 @@ parked states 0.96×, all inside the null's spread (Fig. fig_r5_geometry). Our
 pre-registered prediction that jump steps would show elevated off-manifold distance
 failed, and we report it as failed.
 
-The subtle result appeared only when the per-state verdict was challenged — the check
-exists because one of us insisted that *even a little off-manifold is off-manifold*
-[provenance: A.S.]. The *mean* out-of-subspace residual of transition states, against
+The subtle result appeared only when the per-state verdict was challenged, on the
+principle that *even a little off-manifold is off-manifold*, and the mean itself was
+tested. The *mean* out-of-subspace residual of transition states, against
 a family-block bootstrap null, is unmistakably nonzero: a shared displacement equal to
 **25% (tank) and 38% (fiction/real) of the full class separation**, p < 0.001 in both
 probes, rising over the first five post-shift sentences and persisting undiminished to

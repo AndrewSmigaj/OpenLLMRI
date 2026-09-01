@@ -8,8 +8,8 @@ one NEURO sentence [x]; collapse figure [x]; contributions [x]. -->
 Language models can be made to express uncertainty, and sometimes do. What they do
 far less reliably — and in the ninety-six completions we examine here, never — is flag
 *interpretive* irresolution unprompted: the condition in which the words in front of
-them have not yet settled into one reading. When an interpretation is unresolved, the
-model answers anyway — it goes with it. Much of what we ask models to do quietly
+them have not yet settled into one reading.
+Much of what we ask models to do quietly
 assumes the opposite: that by the time a model acts, it has settled what the words in
 front of it mean. Safety behaviors in
 particular often take the form *if the request is X, do Y* — a rule that inherits an
@@ -25,8 +25,8 @@ exclusive understandings form while processing a text, and something must give.
 Dynel's taxonomy separates the garden-path joke — one meaning established, a second
 revealed, belief shifting from one to the other — from the pun, where the incongruity
 is not resolved but held. The joke in our epigraph is the classic garden path built
-on the word "tank." Years before large language models, one of us studied these
-shifts by mining association spaces from the web and watching the word 'tank' move
+on the word "tank." Years before large language models, the author studied these
+shifts by mining association spaces from the web and watching the word *tank* move
 between its meanings, by cosine distance, across the two halves of a garden-path
 joke. What was then a visualization exercise is now a measurement problem with an
 actual substrate: the in-between of a meaning shift is a trajectory in the residual
@@ -67,13 +67,14 @@ reference.
 We contribute: (1) an instrument doctrine for reading interpretations over
 accumulating context without self-deception — including two artifacts, accumulation
 drift and axis rotation, that we first mistook for findings (§2); (2) the shape of
-reinterpretation: fast, partial, permanent-within-range (§3.2); (3) its mechanism:
+reinterpretation — fast and partial, with a residual persisting to the end of the
+tested horizon (§3.2); (3) its mechanism:
 drift plus discrete state-triggered jumps, with every smooth integrator rejected
 head-to-head (§3.3); (4) the park — a stable intermediate whose behavioral output is
 hedging, and the observation that in 96 of 96 completions the model answers rather
 than asking (§3.4); (5) hysteresis fully explained by recency weighting — metastability
 as a property of paths, not equilibria (§3.5); (6) a learned, persistent, behavior-
-inert marker of mixed context — the model represents its own irresolution and does
-not act on it (§3.6); and a corrections record of seventeen entries that we present
+inert marker of mixed context — the model represents that its context is mixed and
+does not act on it (§3.6); and a corrections record of seventeen entries that we present
 as method rather than confession (Appendix A). Every number in this paper regenerates
 from committed code.
