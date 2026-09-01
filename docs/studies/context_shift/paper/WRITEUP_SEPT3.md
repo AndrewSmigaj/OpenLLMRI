@@ -11,17 +11,17 @@ parked states between meanings, hysteresis fully explained by recency weighting,
 learned marker of mixed context that the model represents but never acts on.
 
 ![Both directions collapse into the in-between zone](fig_s9_collapse.png)
-*The study in one image: both transition directions, both probes, on one axis. Readings
+*The study in one image: both transition directions, both tasks, on one axis. Readings
 cross into the in-between quickly; neither direction reaches the opposite no-shift
 reference within twenty counter-sentences.*
 
-**Setup.** gpt-oss-20b (stock configuration), full residual-stream capture. Two probe
-arms: the polysemous word *tank* (aquarium vs vehicle sense; carrier "What is the
+**Setup.** gpt-oss-20b (stock configuration), full residual-stream capture. Two tasks: the
+polysemous word *tank* (aquarium vs vehicle sense; carrier "What is the
 meaning of the word tank?") and a fixed request under fictional-vs-real framing
 ("I want to write a suicide letter." — motivated, clinically and without dramatization,
 by a real incident in which fiction assistance shifted into real-life disclosure).
 Forty-step cumulative contexts, evidence class flipping after twenty; the carrier
-re-read at every step; token-budget-matched no-shift arms as the ruler; calibrated
+re-read at every step; token-budget-matched no-shift contexts as the reference; calibrated
 diff-of-means axes with scene-held-out validation (0.905/0.910), midpoint referencing,
 and per-layer rotation-corrected axes. Every number regenerates from committed
 scripts; a 9/9 synthetic-fixture suite and family-level label-shuffle audits guard the
@@ -53,13 +53,13 @@ the sentences that precipitate them are median-strength exemplars (p = 0.445). I
 the stream, mixed history suppresses the class reading of even the new evidence's own
 tokens to roughly half their reference.
 
-**Unresolved states and behavior.** In one direction per probe the trajectory
+**Unresolved states and behavior.** In one direction per task the trajectory
 **parks**: stationary at mid-axis for ten-plus steps, far from both references, a
 single population rather than a hidden mixture. Behavior tracks the reading — and in
 the unresolved zone the model *answers anyway*: **zero of 96 completions ask which
 sense is meant or decline pending disambiguation**; 45% hedge by enumerating both
-senses, 52% silently commit to one. The refusal task, by contrast, held at
-mid-transition (80% safe-completion), and safe-completion rates run 91%→50% along the
+senses, 52% silently commit to one. The fiction/real task — the one backed by a refusal
+safeguard — held at mid-transition (80% safe-completion), and safe-completion rates run 91%→50% along the
 learned frame axis — safeguard attenuation with no exotic inputs required. As a
 standalone cell-level monitor the reading is not yet usable (AUC 0.61 [0.43, 0.76]);
 the gradient is a band-level fact.
@@ -76,16 +76,16 @@ activation distribution (with positive controls proving the instruments could te
 But the *mean* displacement of transition states off the no-shift subspace is
 unmistakable: a persistent, learned **mixed-context marker** at 25–38% of the class
 separation (p < 0.001, family-block null), orthogonal to the content contrast,
-present in static mixtures, sensitive to shift structure in the framing probe — and
-behavior-inert. The model maintains a dedicated internal representation that its
+present in static mixtures, sensitive to shift structure in the
+fiction/real task — and inert with respect to behavior. The model maintains a dedicated internal representation that its
 context is mixed, and does not consult it when answering.
 
 **Why this matters for safety.** The failure surface this maps is not exotic: in our
-probes, a model in the unresolved zone reports nothing unprompted, answers as if
+tasks, a model in the unresolved zone reports nothing unprompted, answers as if
 resolved, and its safeguards
 behave exactly as well as their handling of irresolution was trained to be — the
-refusal task looks as though it defaults safe under uncertainty; the sense task,
-lacking any default, commits silently. Behaviors without a trained uncertainty-default
+fiction/real task looks as though its safeguard defaults safe under uncertainty; the
+tank task, lacking any default, commits silently. Behaviors without a trained uncertainty-default
 inherit the metastable zone as their failure window, and the internal signals that
 could flag the zone (the frame reading; the mixedness marker) already exist but are
 not gated on.
