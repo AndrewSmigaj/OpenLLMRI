@@ -331,8 +331,12 @@ and supplementary heatmaps give all layers). In the fiction/real task the shallo
 immediately (three to four sentences) while mid-stack layers cross at medians of eight
 to thirteen; in tank aquarium$\rightarrow$vehicle the crossing median is thirteen at every depth
 band and three deep layers never cross — the dwelling of \S3.4 is stack-wide there —
-while the reverse direction crosses earliest at depth (median six). Our pre-stated
-prediction about the ordering of crossing times across layers held in the fiction/real
+while the
+reverse direction crosses earliest at depth (median six). The two tasks differ at
+the top of the stack: fiction/real crosses to the destination side at depth in both
+directions (median eight), while tank aquarium$\rightarrow$vehicle remains on the origin side
+of the midpoint through the final layer — the dwelling reaches the layers nearest
+the output. Our pre-stated prediction about the ordering of crossing times across layers held in the fiction/real
 task and failed in tank (\S5). The reading lags the present frame on roughly the
 timescale its integration window implies: the recency weights fitted in \S3.3 ($\gamma$ $\approx$
 0.9–0.98) correspond to an effective memory of ten to seventeen sentences. Relative to
@@ -382,7 +386,7 @@ flag this as a correlate, not a demonstrated mechanism (Fig.~\ref{fig:fig_s9_asy
 \end{figure}
 \begin{figure}[tbp]\centering
 \includegraphics[width=\linewidth]{fig_s13_collapse_layers.png}
-\caption{The collapse view across depth (per-layer secondary axes; class means $\pm$1, midpoint 0). Shallow fiction/real layers flip suddenly and completely; mid and deep layers cross partially and dwell; tank's dwelling is visible to layer 20. The calibrated sites are single rows of this progression.}\label{fig:fig_s13_collapse_layers}
+\caption{The collapse view across depth (per-layer secondary axes; class means $\pm$1, midpoint 0). Shallow fiction/real layers flip suddenly and completely; mid and deep layers cross partially and dwell; tank aquarium$\rightarrow$vehicle stays on the origin side of the midpoint through the final layer. The calibrated sites are single rows of this progression.}\label{fig:fig_s13_collapse_layers}
 \end{figure}
 \begin{figure}[tbp]\centering
 \includegraphics[width=\linewidth]{fig_s9_asymmetry.png}
@@ -494,10 +498,15 @@ fiction/real task we categorize each completion as fiction-framed assistance or 
 response — a \emph{safe-completion}, which addresses the request as a risk (declining the
 letter, redirecting to support) rather than fulfilling it. The reading separates the two
 at k = 2 ($-$0.06 vs +1.13, p = 0.010, one of four k values tested) but not later, where
-response type follows scene family (Fig.~\ref{fig:fig_s9_behavior_matchedk}). The safety-relevant
-gradient is nonetheless plain at the band level: safe-completion rates run 50\% $\rightarrow$ 80\% $\rightarrow$
-91\% as the reading moves from fiction-side through mid to real-side (origin band n = 4,
-fragile).
+response type follows scene family (Fig.~\ref{fig:fig_s9_behavior_matchedk}). The safety-relevant gradient is nonetheless plain
+at the band level: safe-completion rates run 50\% $\rightarrow$ 80\% $\rightarrow$ 91\% as the reading moves
+from fiction-side through mid to real-side (origin band n = 4, fragile). An
+exploratory post-freeze check (Appendix C) asks whether any other layer's reading
+associates more strongly with behavior than the calibrated site's: per-layer
+association curves (Fig.~\ref{fig:fig_s14_behavior_by_layer}) are roughly flat from mid-stack
+to the final layer in both tasks — nothing singles out the deep layers — though the
+instrument is blunt (band-level, imbalanced outcomes), so this neither establishes
+nor rules out depth-specific behavioral readout.
 
 
 \begin{figure}[tbp]\centering
@@ -511,6 +520,10 @@ fragile).
 \begin{figure}[tbp]\centering
 \includegraphics[width=\linewidth]{fig_s9_behavior_matchedk.png}
 \caption{Behavior at matched context composition: mid-transition, decided answers come from runs with more extreme readings (pooled $k \in \{6,12\}$, graded suggestive); in fiction/real the reading separates response types at $k = 2$ only; safe-completion rates run 50$\rightarrow$80$\rightarrow$91\% across bands (fiction-side endpoint $n = 4$).}\label{fig:fig_s9_behavior_matchedk}
+\end{figure}
+\begin{figure}[tbp]\centering
+\includegraphics[width=\linewidth]{fig_s14_behavior_by_layer.png}
+\caption{EXPLORATORY (post-freeze): reading$\rightarrow$behavior association by layer (rank AUC, family-clustered 95\% bands). Roughly flat from mid-stack to the final layer in both tasks; nothing singles out the deep layers. Blunt instrument: band-level association, imbalanced outcomes.}\label{fig:fig_s14_behavior_by_layer}
 \end{figure}
 \FloatBarrier
 \subsection{Order and equilibrium: hysteresis without stickiness (R5)}
@@ -664,9 +677,15 @@ for unresolved cases. The refusal task behaved as though it does — at mid-tran
 channel its chat format exposes, released with our behavior data — both framings are
 weighed before the safe reply (a qualitative observation, not a coded rate). The sense
 task carries no such default, and there the model silently commits (52\% of mid-band
-completions pick a sense). If this reading is right, the metastable zone is the failure
-window for every behavior \emph{without} a trained uncertainty-default — refusal-style
-safeguards may be the well-covered exception rather than the rule. We add one
+completions pick a sense). If this reading is right, the metastable zone is the failure window
+for every behavior \emph{without} a trained uncertainty-default — refusal-style
+safeguards may be the well-covered exception rather than the rule. A second,
+compatible candidate emerged from the depth data: in fiction/real the stack itself
+partially resolves — deep layers cross to the destination side (\S3.2) — so the
+layers nearest the output may act on a more settled reading than the mid-stack site
+we measure, while in tank, where no deep resolution occurs, the model commits
+anyway. With two tasks this is an observation, not a test, and the exploratory
+per-layer behavior curves (\S3.4) are too blunt to separate these accounts. We add one
 calibration so this section cannot overpromise: as a standalone cell-level monitor, the
 frame reading is not yet usable (AUC 0.61 [0.43, 0.76], chance-compatible; Fig.~\ref{fig:fig_s11_monitor_roc}, supplement). The band-level gradient is real; building a usable
 monitor — combining several sites, the mixed-context marker, and per-layer readings — is
@@ -795,8 +814,10 @@ sentence (every element justified or named as ornament — nothing kept silently
 
 \subsection*{Appendix C — QA and reproducibility}
 Regeneration audit summary (bit-identical axes; 23-script diff green; seeded bootstraps
-exact); 9/9 fixture suite; sign/boundary/join/shuffle audits; the two logged post-freeze
-additions (s12 response counts, 0/96; s11 monitor ROC, AUC 0.61 [0.43,0.76]); repository
+exact); 9/9 fixture suite; sign/boundary/join/shuffle audits; the four logged post-freeze
+additions (s12 response counts, 0/96; s11 monitor ROC, AUC 0.61 [0.43,0.76]; s13
+per-layer collapse panels; s14 exploratory per-layer behavior association — both
+computed from frozen captures via the committed cache); repository
 pointer + regeneration instructions. Terminology map for repository readers: the paper's
 \emph{remnant} is the repository's "residual"; the dwelling within the unresolved zone is the
 repository's "park"; \emph{accumulation offset} is "accumulation drift"; \emph{tasks} are the

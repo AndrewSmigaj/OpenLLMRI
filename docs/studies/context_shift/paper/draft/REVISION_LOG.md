@@ -420,3 +420,19 @@ layers per task — sudden complete flips at fr's shallow layers, partial crossi
 and dwelling at mid/deep layers, tank's dwell visible to L20 — cited from §3.2's
 depth paragraph. Bonus from the r3 battery re-run: tank remnant gaps replicate at
 L4/L8/L12/L16 (0.80–1.09 amp), so the tank dwell is depth-robust.
+
+---
+
+## Per-layer behavior check (2026-09-01, Andrew's depth-resolution hypothesis)
+
+New committed s14_behavior_by_layer.py (post-freeze, exploratory): reading→behavior
+association at every layer, joining the r3 projection cache with the categorized
+behavior worksheets (family-clustered bootstrap). Result: curves roughly flat from
+mid-stack to L23 in both tasks (fr peaks ≈0.69 at L6, ≈0.63 at L14 and L23; tank
+peaks at its own site L4 ≈0.71) — no deep-layer advantage; instrument blunt
+(band-level, imbalanced). The representational half of Andrew's hypothesis is
+confirmed and now in §3.2: fr crosses to the destination side at depth (median 8)
+in both directions while tank aq→vh stays origin-side through L23 — the dwelling
+reaches the output-adjacent layers. Discussion c2 gains the depth-resolution
+account as a second, compatible candidate (n=2, observation not test).
+fig_s13_collapse_layers extended to include L23.

@@ -15,10 +15,10 @@ BLUE, ORANGE, AQUA, INK, MUT = "#2a78d6", "#eb6834", "#1baf7a", "#222222", "#8a8
 SURFACE = "#fcfcfb"
 OUT = Path("docs/studies/context_shift/analysis")
 FIG = OUT / "figures"
-LAYERS = {"tank": [2, 4, 12, 20], "fr": [2, 8, 14, 20]}
+LAYERS = {"tank": [2, 4, 12, 20, 23], "fr": [2, 8, 14, 20, 23]}
 SITE = {"tank": 4, "fr": 14}
 
-fig, axes = plt.subplots(2, 4, figsize=(15.5, 7.6), facecolor=SURFACE, sharex=True)
+fig, axes = plt.subplots(2, 5, figsize=(17.5, 7.2), facecolor=SURFACE, sharex=True)
 for row, (probe, c) in enumerate(CFG.items()):
     z = np.load(OUT / f"r3_projcache_{probe}.npz", allow_pickle=True)
     S = {k[2:]: z[k] for k in z.files if k.startswith("S_")}

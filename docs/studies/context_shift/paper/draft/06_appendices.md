@@ -40,8 +40,10 @@ sentence (every element justified or named as ornament — nothing kept silently
 
 ## Appendix C — QA and reproducibility
 Regeneration audit summary (bit-identical axes; 23-script diff green; seeded bootstraps
-exact); 9/9 fixture suite; sign/boundary/join/shuffle audits; the two logged post-freeze
-additions (s12 response counts, 0/96; s11 monitor ROC, AUC 0.61 [0.43,0.76]); repository
+exact); 9/9 fixture suite; sign/boundary/join/shuffle audits; the four logged post-freeze
+additions (s12 response counts, 0/96; s11 monitor ROC, AUC 0.61 [0.43,0.76]; s13
+per-layer collapse panels; s14 exploratory per-layer behavior association — both
+computed from frozen captures via the committed cache); repository
 pointer + regeneration instructions. Terminology map for repository readers: the paper's
 *remnant* is the repository's "residual"; the dwelling within the unresolved zone is the
 repository's "park"; *accumulation offset* is "accumulation drift"; *tasks* are the

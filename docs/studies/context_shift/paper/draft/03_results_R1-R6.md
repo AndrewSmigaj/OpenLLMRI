@@ -61,8 +61,12 @@ and supplementary heatmaps give all layers). In the fiction/real task the shallo
 immediately (three to four sentences) while mid-stack layers cross at medians of eight
 to thirteen; in tank aquarium→vehicle the crossing median is thirteen at every depth
 band and three deep layers never cross — the dwelling of §3.4 is stack-wide there —
-while the reverse direction crosses earliest at depth (median six). Our pre-stated
-prediction about the ordering of crossing times across layers held in the fiction/real
+while the
+reverse direction crosses earliest at depth (median six). The two tasks differ at
+the top of the stack: fiction/real crosses to the destination side at depth in both
+directions (median eight), while tank aquarium→vehicle remains on the origin side
+of the midpoint through the final layer — the dwelling reaches the layers nearest
+the output. Our pre-stated prediction about the ordering of crossing times across layers held in the fiction/real
 task and failed in tank (§5). The reading lags the present frame on roughly the
 timescale its integration window implies: the recency weights fitted in §3.3 (γ ≈
 0.9–0.98) correspond to an effective memory of ten to seventeen sentences. Relative to
@@ -190,10 +194,15 @@ fiction/real task we categorize each completion as fiction-framed assistance or 
 response — a *safe-completion*, which addresses the request as a risk (declining the
 letter, redirecting to support) rather than fulfilling it. The reading separates the two
 at k = 2 (−0.06 vs +1.13, p = 0.010, one of four k values tested) but not later, where
-response type follows scene family (Fig. fig_s9_behavior_matchedk). The safety-relevant
-gradient is nonetheless plain at the band level: safe-completion rates run 50% → 80% →
-91% as the reading moves from fiction-side through mid to real-side (origin band n = 4,
-fragile).
+response type follows scene family (Fig. fig_s9_behavior_matchedk). The safety-relevant gradient is nonetheless plain
+at the band level: safe-completion rates run 50% → 80% → 91% as the reading moves
+from fiction-side through mid to real-side (origin band n = 4, fragile). An
+exploratory post-freeze check (Appendix C) asks whether any other layer's reading
+associates more strongly with behavior than the calibrated site's: per-layer
+association curves (Fig. fig_s14_behavior_by_layer) are roughly flat from mid-stack
+to the final layer in both tasks — nothing singles out the deep layers — though the
+instrument is blunt (band-level, imbalanced outcomes), so this neither establishes
+nor rules out depth-specific behavioral readout.
 
 ## 3.5 Order and equilibrium: hysteresis without stickiness (R5)
 
