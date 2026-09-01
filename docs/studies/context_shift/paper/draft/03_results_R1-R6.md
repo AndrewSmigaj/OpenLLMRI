@@ -51,9 +51,8 @@ contrast lives at a token; a framing contrast lives across the utterance.
 Figure fig_s9_collapse shows both transition directions, both tasks, on one axis against
 the no-shift references. After the shift, readings cross zero within 7–13 sentences —
 but neither direction, in either task, reaches the opposite reference within twenty
-counter-sentences. The reading lags the present frame in the plain sense: it trails what
-the conversation has become, on roughly the timescale its integration window implies:
-the recency weights fitted in §3.3 (γ ≈ 0.9–0.98) correspond to an effective memory of
+counter-sentences. The reading lags the present frame on roughly the timescale its integration window
+implies: the recency weights fitted in §3.3 (γ ≈ 0.9–0.98) correspond to an effective memory of
 ten to seventeen sentences. Relative to an equal-weight average of all evidence in the
 window, the mean trajectories run slightly *ahead* — the model mildly over-weights
 recent sentences; individual runs are heterogeneous around that mean. What the data rule
@@ -104,8 +103,8 @@ step-truth is called integrator in 0–2%; and two-timescale truth masquerades a
 integrator or indeterminate, reading as hybrid in only 2–3 of
 24. The selector cannot fabricate the hybrid verdict from any smooth mechanism.
 
-The data return that verdict anyway: among classifiable runs, drift-plus-jump is
-dominant — 11 of 16 tank runs and 14 of 25 fiction/real runs (48% of fiction/real runs
+On the real runs the selector nonetheless returns hybrid: among classifiable runs,
+drift-plus-jump is dominant — 11 of 16 tank runs and 14 of 25 fiction/real runs (48% of fiction/real runs
 are indeterminate at that task's noise level, and we state the claim as "hybrid-dominant
 among classifiable runs" accordingly). The two-timescale model wins zero runs in either
 task (Fig. fig_s9_model_classes; per-run fits in Fig. fig_r1_fit_gallery_tank; the raw
@@ -136,7 +135,7 @@ window-level readout inherits the suppression.
 
 ## 3.4 Unresolved states, and what the model does in them (R4)
 
-In one direction per task, the trajectory does not merely travel slowly — it stops. We
+In one direction per task, the trajectory stops rather than traveling slowly. We
 call this state the **park**. In tank aquarium→vehicle transitions, the central tendency
 of the run distribution is stationary at mid-axis for at least ten consecutive steps,
 ≥2.9 across-run standard deviations from *both* endpoint references, with the spread
@@ -153,8 +152,8 @@ for every run; all behavioral claims in this subsection are correlational. For a
 we partition readings into three bands — origin side, middle, destination side. Behavior
 tracks the reading: cells whose readings sit on a side answer that side (56% and 66% for
 the two sides), while the mid band answers "both" — enumerating the two senses — in 45%
-of cells, roughly double either side (Fig. fig_r6_behavior_bands). And here is the
-descriptive fact that anchors this paper's framing: **not one of the 96 tank responses
+of cells, roughly double either side (Fig. fig_r6_behavior_bands). One descriptive fact anchors this paper's framing: **not one of the 96 tank
+responses
 asks which sense is meant or declines to answer pending disambiguation** — zero of 96,
 by regex scan and by full manual categorization. In the unresolved zone the model either
 enumerates senses (45%) or silently commits to one (52% at mid-band); it answers as if
@@ -185,9 +184,8 @@ same mixture read with the destination block recent versus old differs by loop a
 plainly present (Fig. fig_r6_d6_loop_tank).
 
 The reserved question was whether any of that order-dependence exceeds what recency
-weighting alone produces — call any such excess *stickiness*. Answer: there is none. A
-one-parameter recency integrator fitted to the sweep cells reproduces the loop areas
-almost exactly (+14.3; +11.1) — excess "stickiness" of +0.1 and −0.5, both
+weighting alone produces — call any such excess *stickiness*. There is none: a one-parameter recency
+integrator fitted to the sweep cells reproduces the loop areas almost exactly (+14.3; +11.1) — excess "stickiness" of +0.1 and −0.5, both
 indistinguishable from zero — and cross-order validation (fit one branch, predict the
 other) preserves the verdict. We note, as part of the method, that our own first pass
 computed this against a misspecified null (γ imported from the transition fits) and
@@ -201,7 +199,7 @@ This resolves an apparent contradiction with §3.3. The *equilibrium map* from e
 mixture to reading is smooth and integrator-like; the *sequential path* through a
 transition is drift punctuated by jumps. Both are true; they are different observables.
 The metastability this paper names is a property of paths, not of the equilibrium map —
-there is no bistability to fall into, and nothing needed to escape.
+there is no bistability to fall into and no barrier to escape.
 
 ## 3.6 The representation of irresolution (R6)
 
@@ -216,7 +214,8 @@ instruments detect real displacement: single-sentence calibration states — a g
 different context regime, serving as a positive control — read 1.7–2.2× the null across
 the two instruments, and position-mismatched states are flagged at 13–44%.
 
-At the individual-state level, nothing leaves. Jump steps read 1.06×/1.12× the null,
+At the individual-state level, nothing leaves the reference distribution. Jump
+steps read 1.06×/1.12× the null,
 parked states 0.96×, all inside the null's spread (Fig. fig_r5_geometry). Our
 pre-registered prediction that jump steps would show elevated off-manifold distance
 failed, and we report it as failed.

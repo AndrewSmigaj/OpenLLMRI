@@ -11,8 +11,7 @@ neural systems rather than in physics. In coordination dynamics and in the
 winnerless-competition framework — models of sequential transient dynamics in neural
 populations — cognition is described as sequences of transiently stable states that are
 not fixed-point attractors — structured passages through state space in which dwelling
-and moving are not opposites. That is the geometry our data forced on us: the park is
-functionally a state (stationary for many steps, with its own behavioral signature) and
+and moving are not opposites. That is the geometry our data show: the park is functionally a state (stationary for many steps, with its own behavioral signature) and
 geometrically a passage (inside the trajectory bundle, on a smooth equilibrium map). One
 disclaimer: nothing here is equilibrium bistability — the evidence-mixture map is smooth
 (§3.5) — and readers should not import a barrier-crossing picture. Semantic
@@ -30,8 +29,9 @@ behaviorally — including the part where the old reading never fully leaves.
 off-manifold escape routes, and the data dismantled each expectation in turn: the
 stickiness died against a properly fitted null within an hour of being announced; the
 off-manifold excursions never appeared; what replaced them — recency dynamics, jumps, a
-remnant, a marker — is stranger and better supported. Incongruity, then resolution: the
-arc of §1's humor theories, replayed in the study's own history. We kept the corrections
+remnant, a marker — is stranger and better supported. The arc is
+the one §1 took from humor theory — incongruity, then resolution — replayed in the
+study's own history. We kept the corrections
 record (seventeen entries, Appendix A) in the paper because the surviving claims owe
 their credibility to that process, not despite it.
 
@@ -94,6 +94,5 @@ behavior on the ones already there.
 **Closing.** Word-sense reinterpretation is the tractable laboratory instance of a much
 larger family — frames, personas, tasks, and safety
 postures all shift under accumulating context, and there is no obvious reason the
-metastable structure documented here is unique to word senses. The states are what the
-title calls them: unresolved. So, for now, is the question of what a model should do
-while inside one.
+metastable structure documented here is unique to word senses. The states are what the title calls them: unresolved. For now, so is
+the question of what a model should do while inside one.

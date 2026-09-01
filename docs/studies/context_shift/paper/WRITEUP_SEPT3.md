@@ -11,7 +11,7 @@ parked states between meanings, hysteresis fully explained by recency weighting,
 learned marker of mixed context that the model represents but never acts on.
 
 ![Both directions collapse into the in-between zone](fig_s9_collapse.png)
-*The study in one image: both transition directions, both tasks, on one axis. Readings
+*The central result: both transition directions, both tasks, on one axis. Readings
 cross into the in-between quickly; neither direction reaches the opposite no-shift
 reference within twenty counter-sentences.*
 

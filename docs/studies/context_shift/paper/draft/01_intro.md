@@ -57,9 +57,9 @@ fixed *carrier* sentence containing the measurement token. Contexts grow one sen
 a time to forty, with the class of the evidence — which sense, or which framing, the
 sentences support — flipping after twenty; the carrier is re-appended at every step, so
 the same token is re-read under steadily shifting context; matched single-class contexts
-provide the reference scale. Figure fig_s9_collapse is the study in one image: from
-either direction, readings cross into the in-between zone quickly — and neither ever
-reaches the opposite reference.
+provide the reference scale. Figure fig_s9_collapse shows the central result: from either direction, readings
+cross into the in-between zone quickly, and neither ever reaches the opposite
+reference.
 
 We contribute: (1) a measurement protocol for reading interpretations over accumulating
 context without self-deception — including two instrument artifacts, accumulation offset

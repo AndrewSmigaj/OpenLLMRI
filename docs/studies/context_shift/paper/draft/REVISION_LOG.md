@@ -287,3 +287,32 @@ Number-trace re-audit after all edits: identical missing-set to the pre-edit aud
 outputs). Zero number changes.
 
 STILL OPEN (Andrew): the incident paragraph — real, citable public case or not?
+
+---
+
+## Flourish-pattern sweep (2026-09-01, Andrew's "AI rhetorical flourish" ruling)
+
+The named offender ("does not merely travel slowly — it stops") was an instance of
+the "not X — it is Z" reveal pattern from this plan's own tic blacklist; it survived
+because the sweep matched named lexical forms, not the structural pattern, in
+sentences the author-reviewer wrote. Whole family swept (11 fixes):
+
+- Negation-first reveals: park sentence → "stops rather than traveling slowly."
+- Announcement throat-clearing: "And here is the descriptive fact..." → "One
+  descriptive fact anchors this paper's framing:".
+- Verdict theatrics: "The data return that verdict anyway" → "On the real runs the
+  selector nonetheless returns hybrid"; "Answer: there is none." folded into its
+  sentence.
+- Poetic doubling: "it trails what the conversation has become" cut; "the study in
+  one image" → "the central result" (intro + writeup caption); "the geometry our
+  data forced on us" → "the geometry our data show"; "nothing needed to escape" →
+  "no barrier to escape"; "nothing leaves." given its object.
+- Fragments: "Incongruity, then resolution:" recast as a full sentence keeping the
+  §1 tie; closing inversion "So, for now, is..." → "For now, so is...".
+
+KEPT, deliberately (overrule if wrong): the intro's 96-completions hook; "The
+failure surface this study maps needs no adversary" (a claim, not a reveal — it
+positions the work against the jailbreak literature); §2.4 "outlived our own
+attempts to kill them" (the corrections-as-method thesis); the bolded 0/96 sentence;
+the simplified title-mirror close. Test applied: a declarative sentence carrying a
+real claim stays; a construction whose only job is drama goes.
