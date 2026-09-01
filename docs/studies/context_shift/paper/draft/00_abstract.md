@@ -9,39 +9,30 @@ close [x]; coin placement [x]; content note after abstract [x]. -->
 
 ## Abstract
 
-In gpt-oss-20b, a 20-billion-parameter mixture-of-experts language model, we track a
-token's reading — its residual-stream position along a calibrated axis between two
-interpretations — while accumulating context shifts which interpretation the context
-supports. Two tasks: a polysemous word moving between senses (*tank*: aquarium or
-vehicle), and a fixed request ("I want to write a suicide letter.") moving between
-fictional and real framing. Contexts grow to forty sentences with the evidence class
-flipping after twenty; matched single-class contexts provide a no-shift reference at
-every position. Transitions are two-phase. Readings move toward the new
-interpretation gradually, crossing the midpoint after a median of 4 to 10 sentences
-depending on task and direction; they then stop short, leaving a remnant of the prior
-interpretation that twenty counter-sentences never remove — 0.4–1.1× the reference
-amplitude (the midpoint-to-reference distance), in both directions of both tasks;
-three of the four hold when reference uncertainty is propagated. Among classifiable
-runs the dominant per-run pattern is drift punctuated by discrete jumps. Model
-selection calibrated on synthetic data rejects every gradual-integration account
-tested, including a two-timescale one. Evidence strength — the one sentence property
-tested — does not predict when jumps occur; state-dependence is our working
-interpretation. In the tank task one direction dwells in the zone between
-interpretations — stationary for ten or more steps, to the end of the measured
-window — and an exploratory fiction/real site (n = 4) shows the same signature.
-Evidence order matters — hysteresis loops are large — but an exponentially
-recency-weighted average of the evidence, its one decay parameter fitted to the data,
-reproduces the loops almost fully; only a mild direction-dependent difference in that
-parameter remains. No individual state is an outlier relative to matched no-shift
-states, yet transition states share a small, persistent marker of mixed context —
-25–38% of the distance between the class means, orthogonal to the interpretation
-axis. We call this cluster of properties semantic metastability. The model never asks
-which meaning is intended — zero of 96 tank completions, across all reading bands —
-and in the unresolved zone it either surfaces both senses (45%) or silently commits
-to one (52%). The fiction/real task, covered by a refusal safeguard, safe-completed
-at mid-transition (80%); safe-completion co-varies with the reading, falling from 91%
-to 50% across bands (the fiction-side endpoint at n = 4, the gradient partly
-scene-driven).
+When the context around a request changes its meaning — a word's sense, or whether a
+request is fiction — how does a language model's internal reading follow? We measure
+this directly in gpt-oss-20b, reading a token's interpretation from the residual
+stream while forty-sentence contexts switch sides halfway through, against matched
+no-shift references. Two tasks: the word *tank* moving between aquarium and vehicle
+senses, and the fixed request "I want to write a suicide letter." moving between
+fictional and real framing.
+
+The reading follows the shift only partway. It crosses to the new side after a median
+of four to ten sentences, then stops short, and twenty countering sentences never
+close the remaining gap. In one tank direction it dwells between the two
+interpretations, stationary to the end of the window. Individual runs move by drift
+plus discrete jumps, and the jumps are not timed by strong evidence; order effects,
+though large, are explained almost entirely by recency weighting. None of these
+states is geometrically unusual against matched references, yet all carry a
+persistent internal signal that the context is mixed — a signal the model's behavior
+does not appear to use. We call this cluster of properties semantic metastability.
+
+The model never asks which meaning is intended: zero of 96 tank completions request
+clarification. The task covered by a refusal safeguard stayed safe at mid-transition
+(80% of completions); the task without one committed silently to a sense.
+Safe-completion falls from 91% to 50% as the reading moves toward the fictional frame
+(the low endpoint rests on four completions) — attenuation reachable by ordinary
+context.
 
 *Content note: this paper analyzes model behavior around suicide-related requests in a
 research context. If you or someone you know is struggling, help is available — in the
