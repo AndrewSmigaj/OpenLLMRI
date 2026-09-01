@@ -499,3 +499,12 @@ doctrine wants, and the χ² audits confirmed no label-correlated surface struct
   want 4.5) from existing checkpoint windows. Cheap, no capture.
 - Letter-site expansion: families beyond n=4/dir + per-side calibration spreads at the
   letter site (asymmetry is largest there; spread-candidate untested at that site).
+
+## 2026-09-01 — Frame doctrine + two IR-forward homes (chat-side analysis, adopted)
+- Paper: incongruity/resolution = question-frame (intro only); semantic metastability =
+  answer-frame (abstract-after-claims, discussion, subtitle). Title is the synthesis.
+- Companion piece (LinkedIn/blog): incongruity-forward version of the arc — no venue
+  categorization cost there; natural home for thesis-to-paper narrative + DCO.
+- Future second paper: cogsci-facing version where the human good-enough-processing
+  parallel becomes the headline (Christianson & Ferreira as primary audience). Same
+  results, other frame, other field — a second paper, not a fork of this one.
