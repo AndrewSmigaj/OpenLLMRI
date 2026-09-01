@@ -87,8 +87,11 @@ sharpest form: the model maintains a persistent, dedicated representation that i
 context is mixed — and that representation is behavior-inert at matched composition.
 This is the same structure reported in the hallucination literature, where models
 internally encode uncertainty or truthfulness that their generations do not respect.
-Here it appears in transition dynamics: the information needed to flag the unresolved
-zone already exists inside the model; nothing routes it to behavior. That suggests a
+Here it appears in transition dynamics: the information needed to flag the
+unresolved zone already exists inside the model; nothing routes it to behavior. The
+motivating case of §1 reportedly had the same structure at system scale — the
+provider's moderation layer was flagging the user's messages for self-harm risk in
+real time while assistance continued [CITE: filing/reporting]. That suggests a
 constructive direction for alignment work — not creating uncertainty signals, but gating
 behavior on the ones already there.
 

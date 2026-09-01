@@ -21,8 +21,11 @@ of verbalized confidence); Liu et al. (ambiguity modeling). Internal encoding vs
 expression (grounds Discussion's "represented but not consulted"): Azaria & Mitchell
 (internal state predicts truthfulness); Orgad et al. (models encode more than they
 express). Long-context artifacts: attention sinks (the "is the offset positional?"
-question; midpoint referencing makes our findings robust either way). Dynamics: Sussillo
-& Barak; Kelso; Rabinovich et al.
+question; midpoint referencing makes our findings robust either way). Dynamics: Sussillo & Barak; Kelso; Rabinovich et al. Motivating
+case (intro + discussion): Raine v. OpenAI, Cal. Super. Ct. (S.F.), filed
+2025-08-26; contemporaneous reporting (CNN 2025-08-26; NBC News; TechCrunch
+2025-11-26 on OpenAI's answer denying causation). Contested litigation — the paper
+characterizes only what the filing and reporting describe.
 
 ## Appendix A — Corrections record (presented as method)
 The 18 entries verbatim from FINDINGS_FINAL §3, one line each, with the two same-session

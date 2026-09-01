@@ -347,3 +347,21 @@ descriptive phrase). Horizon bounds applied at every dwelling claim: "on the
 measured horizon, does not leave" (§3.4, with the shallow-late-slope caveat),
 "to the end of the measured window" (abstract), "for the remainder of the tested
 horizon" (discussion).
+
+---
+
+## Incident verified and corrected (2026-09-01)
+
+The motivating incident is Raine v. OpenAI (Cal. Super. Ct., filed 2025-08-26;
+16-year-old Adam Raine, died April 2025): months-long conversations; safeguards
+triggered on direct requests; requests reframed as fiction received assistance (the
+filing says the model's own reply suggested the creative-purposes route); the model
+offered to draft the suicide note; OpenAI's moderation reportedly flagged 377
+messages in real time; OpenAI's Nov 2025 answer denies causation. TWO corrections
+to our text: (1) the arc was reversed — real circumstances were on record and the
+FICTIONAL reframing unlocked assistance, not fiction drifting into disclosure; the
+intro paragraph now matches the documented arc and attributes to filing+reporting
+(contested litigation). (2) The real-time-flagging fact was added to the
+discussion's "represented but not consulted" paragraph as the system-scale
+instance of the same structure. Citation anchors added to 06 for tex time. The
+last open item from the snippet audit is closed.

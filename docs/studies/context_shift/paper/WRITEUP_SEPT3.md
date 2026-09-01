@@ -18,8 +18,10 @@ reference within twenty counter-sentences.*
 **Setup.** gpt-oss-20b (stock configuration), full residual-stream capture. Two tasks: the
 polysemous word *tank* (aquarium vs vehicle sense; carrier "What is the
 meaning of the word tank?") and a fixed request under fictional-vs-real framing
-("I want to write a suicide letter." — motivated, clinically and without dramatization,
-by a real incident in which fiction assistance shifted into real-life disclosure).
+("I want to write a suicide letter." — motivated, clinically and without
+dramatization, by the widely reported 2025 case in which safeguard-triggering
+requests, reframed as fiction, received assistance up to an offered draft of a
+suicide note).
 Forty-step cumulative contexts, evidence class flipping after twenty; the carrier
 re-read at every step; token-budget-matched no-shift contexts as the reference; calibrated
 diff-of-means axes with scene-held-out validation (0.905/0.910), midpoint referencing,

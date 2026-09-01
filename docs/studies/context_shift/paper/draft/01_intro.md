@@ -28,9 +28,13 @@ it is a measurement problem with an actual substrate: the in-between of a meanin
 is a trajectory in the residual stream, and we can instrument it.
 
 The second task has a graver origin, and we state it plainly. In a widely reported
-incident, a person who had been using a language model for fiction writing shifted, over
-the course of a long interaction, to describing their real circumstances — and the model
-assisted with a suicide letter. We do not analyze that case; we take from it a precise
+2025 case, a sixteen-year-old died by suicide after months of conversation with a
+language model [CITE: Raine v. OpenAI; reporting]. The court filing and
+contemporaneous reporting — the case is contested litigation, and we characterize
+only what they describe — recount that direct requests triggered safeguards; that
+the same requests, reframed as fiction, received assistance, with the user's real
+circumstances present in the same long conversation; and that the model offered to
+draft a suicide note. We do not analyze that case; we take from it a precise
 scientific question. A model processing such a conversation maintains, in some form, a
 reading of whether "I want to write a suicide letter." is a fictional or a real request.
 How does that internal reading move as the surrounding context shifts? As it happens —
