@@ -8,13 +8,13 @@ FINDINGS_FINAL [x]; QA paragraph [x]. -->
 
 All experiments use gpt-oss-20b, a 20-billion-parameter mixture-of-experts language
 model, run in its stock configuration: we apply no modifications to the model or its
-routing — its native top-4-experts-per-token routing operates untouched (the "K=1" label in the released
-tooling names an analysis convention for a routing track this study dropped). Inputs are formatted with the model's chat template and
-processed with deterministic greedy forward passes; identical inputs yield identical
-activations. We capture the full residual stream (2,880 dimensions) at the output of
-each of the 24 decoder blocks. Throughout, "the reading at a site" means the residual
-stream at one designated token of a fixed carrier sentence, projected onto a calibrated
-axis as described below.
+routing — its native top-4-experts-per-token routing operates untouched (the "K=1" label
+in the released tooling names an analysis convention for a routing track this study
+dropped). Inputs are formatted with the model's chat template and processed with
+deterministic forward passes; identical inputs yield identical activations. We capture
+the full residual stream (2,880 dimensions) at the output of each of the 24 decoder
+blocks. Throughout, "the reading at a site" means the residual stream at one designated
+token of a fixed carrier sentence, projected onto a calibrated axis as described below.
 
 ## 2.2 Probes, carriers, and corpora
 
@@ -25,32 +25,32 @@ at the ' tank' token, with contexts drawn from aquarium-life and armored-vehicle
 pools. The **fiction/real arm** contrasts two framings of one fixed request: the carrier
 is "I want to write a suicide letter.", measured at the ' want' token, with contexts
 drawn from fiction-craft discussion (novel drafts, screenwriting, tabletop campaigns)
-versus real personal circumstance (grief, diagnosis, eviction). Paraphrase carriers
-("I would like to write…", ' like'; "Help me write…", ' letter') support cross-carrier
+versus real personal circumstance (grief, diagnosis, eviction). Paraphrase carriers ("I
+would like to write…", ' like'; "Help me write…", ' letter') support cross-carrier
 checks, and a replicate tank carrier ("Define the word tank.") supports
 carrier-independence checks.
 
 The transition corpus (D3) presents 40-step cumulative contexts with the carrier
 re-appended at each step: twenty sentences of one class, then twenty of the other, the
-target vocabulary absent from every context sentence. Token-budget-matched no-shift
-arms (D4) — forty sentences of a single class — provide the reference ruler at every
+target vocabulary absent from every context sentence. Token-budget-matched no-shift arms
+(D4) — forty sentences of a single class — provide the reference ruler at every
 position. Additional corpora serve specific tests: single-sentence calibration cells
 (300 per class per carrier); checkpoint captures storing every token of designated
 context windows (144 per arm); minimal pairs holding content fixed while varying only
 framing cues (150 pairs); static mixture sweeps for order-dependence (252 cells per
-probe); generation-enabled behavior cells (312); and bare-carrier baselines. Context
-sentences were generated under a blind protocol — authoring agents received only a
-contrast specification and diversity rules, never hypotheses — with per-class scene
-diversity capped so that no setting dominates a class, enabling scene-held-out
-validation.
+probe); generation-enabled behavior cells (312; greedy decoding); and bare-carrier
+baselines. Context sentences were generated under a blind protocol — authoring agents
+received only a contrast specification and diversity rules, never hypotheses — with
+per-class scene diversity capped so that no setting dominates a class, enabling
+scene-held-out validation.
 
 ## 2.3 The instrument, and how not to fool yourself with it
 
 Our measurement axis is deliberately simple: the difference of class means over
-calibration activations, normalized so the two class means read −1 and +1. Everything
-difficult about this study lives not in the axis but in the discipline required to use
-it honestly over accumulating context. We learned each rule below by first getting it
-wrong; the paper's corrections record (Appendix A) documents that process.
+calibration activations, normalized so the two class means read −1 and +1. The axis is
+the easy part; the difficulty lies in using it honestly over accumulating context. We
+learned each rule below by first getting it wrong; the corrections record (Appendix A)
+documents that process.
 
 **Box 1 — Protocol for reading interpretations over accumulating context.**
 1. *Calibrate at the same site, same carrier, always.* Projecting across token positions
@@ -85,10 +85,10 @@ wrong; the paper's corrections record (Appendix A) documents that process.
    detecting real displacement (they do).
 
 **Glossary.** *Semantic metastability* — the name Discussion gives to the cluster of
-properties documented in Results: persistent intermediate configurations of a
-contextual reading between two calibrated interpretations. *Unresolved zone* — the
-band of readings between the two calibrated interpretations, and the stretch of
-context during which a reading sits there. *Residual* — the component of a prior interpretation that
+properties documented in Results: persistent intermediate configurations of a contextual
+reading between two calibrated interpretations. *Unresolved zone* — the band of readings
+between the two calibrated interpretations, and the stretch of context during which a
+reading sits there. *Residual* — the component of a prior interpretation that
 counter-evidence does not remove. *Park* — a stationary intermediate configuration
 holding for many steps. *Mixed-context marker* — a learned direction, orthogonal to the
 content contrast, that activates for mixed-class contexts. *Accumulation drift* and
@@ -98,8 +98,8 @@ content contrast, that activates for mixed-class contexts. *Accumulation drift* 
 
 Every number in this paper regenerates from committed analysis scripts over frozen
 captures: a full regeneration audit reproduced all reported values (calibration axes
-bit-identical; seeded bootstraps exact), a permanent fixture suite pushes synthetic
-data with analytically known answers through the actual pipeline functions, and the
+bit-identical; seeded bootstraps exact), a permanent fixture suite pushes synthetic data
+with analytically known answers through the actual pipeline functions, and the
 label-shuffle and positive-control audits above are committed tests. The study's
 seventeen-entry corrections record — including two same-session retractions — is
 Appendix A, and we regard it as part of the method: the surviving claims are the ones

@@ -41,8 +41,8 @@ into measurement doctrine.
 **The shape of reinterpretation.** Readings lag the present frame in the plain sense —
 7–13 sentences to cross, arrival never — on the timescale the fitted integration
 window implies (~10–17 sentences). Transitions are two-phase: faster than integration
-early, then a **residual** of 0.4–1.1× the class separation that twenty
-counter-sentences never remove (three of four conditions robust to reference
+early, then a **residual** of 0.4–1.1× the no-shift reference
+amplitude that twenty counter-sentences never remove (three of four conditions robust to reference
 uncertainty; not explained by weaker material). In the strongest case the plateau sits
 at the class midpoint itself. The direction asymmetry replicates under an independent
 carrier and has a candidate cause in calibration-level class breadth.
