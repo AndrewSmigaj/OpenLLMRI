@@ -1,4 +1,5 @@
-# OUTLINES — "Unresolved: Semantic Metastability in Language Models When Context Shifts"
+# OUTLINES — "Unresolved: Semantic Metastability in a Language Model Under Context Shift"
+(TITLE FINAL per Andrew, singular)
 
 Per-section ordered bullets: exactly what gets written, in order, with every figure and
 headline number placed, and interpretive-thread placements marked [HUMOR] [NEURO]
@@ -15,8 +16,9 @@ joke, one line, attributed as classic.
    (polysemy arm; fiction/real framing arm — motivated by a real safety incident, named
    neutrally).
 3. Claim 1: transitions are two-phase — fast partial update, then a persistent residual
-   the counter-evidence never buys back (0.6–1.1× the class separation after 20
-   counter-sentences, three of four cells robust to reference uncertainty).
+   the counter-evidence never buys back (0.4–1.1× the class separation after 20
+   counter-sentences; three of four cells robust to reference uncertainty; range covers
+   the frozen normalized gaps 1.09/0.57/0.43, with the 0.40 cell suggestive only).
 4. Claim 2: per-run dynamics are drift plus discrete state-triggered jumps; every smooth
    integrator tested — including two-timescale — is rejected by simulation-calibrated
    model selection.
@@ -28,11 +30,11 @@ joke, one line, attributed as classic.
    except a small persistent learned marker of mixed context (25–38% of class
    separation), orthogonal to the content contrast.
 8. Coin: "we call this cluster of properties semantic metastability."
-9. Safety close, two sentences (uncertainty-default framing): the model never reports
-   the unresolved state — it answers anyway, and internal mixedness is represented (the
-   marker) but not gated on; safeguards with a trained uncertainty-default hold in the
-   unresolved zone (80% safe-completion mid-band) while behaviors without one silently
-   commit — and safeguard behavior attenuates along the learned frame axis (91%→50%).
+9. Safety close, DESCRIPTIVE ONLY (interpretation lives in Discussion 4 with its
+   confound caveat): in the unresolved zone the model answers rather than reporting
+   uncertainty; the refusal task held (80% safe-completion mid-band) while the sense
+   task committed silently; internal mixedness is represented (the marker) but not
+   gated on; safeguard behavior attenuates along the learned frame axis (91%→50%).
 
 ## 1. Introduction (~900 w) — Andrew's voice
 1. FAILURE-STAKES OPENING (the paper's center of gravity, 4–5 sentences): language
@@ -50,10 +52,11 @@ joke, one line, attributed as classic.
    in-between of a meaning shift is a measurable trajectory in the residual stream.
 4. fr motivation paragraph (plain, clinical, safe-messaging): the incident — fiction
    assistance shifting to real-life disclosure; the probe asks how the internal
-   fiction/real framing of one fixed request tracks that shift; NOTE the design
-   contrast that pays off in discussion: the refusal safeguard plausibly carries a
-   trained uncertainty-default, while the tank arm's sense question carries none —
-   the two arms instantiate behavior-with-default and behavior-without.
+   fiction/real framing of one fixed request tracks that shift; NOTE the contrast that
+   pays off in discussion — recognized POST HOC, not designed ("as it happens"): the
+   refusal safeguard behaves as if carrying an uncertainty-default while the sense
+   question carries none; the two arms happen to instantiate behavior-with-default
+   and behavior-without.
 5. The question + three worlds (brief): learned state, passage, or off the learned
    distribution? [NEURO: one framing sentence — transiently stable states without
    fixed-point attractors are the norm in coordination dynamics.]
@@ -134,15 +137,14 @@ joke, one line, attributed as classic.
 3. Geometry cross-reference (forward to R6): park states on-bundle 0.96×.
 4. Behavior: category means −1.03/+0.74; side bands 56%/66% own-side; mid band 45%
    hedged (fig_r6_behavior_bands); degenerate loops one line.
-4b. HOW uncertainty is (not) expressed: mid-band answers enumerate senses or commit to
-   one (51% commit single-sense at mid) — characterize, with exact counts from the
-   categorized worksheets at drafting time, whether ANY response reports uncertainty
-   about which sense is meant, vs answering as if resolved. (The "they go with it"
-   descriptive anchor.)
-5. Matched-k framing: when the reading carries independent information — pooled
+5. HOW uncertainty is (not) expressed: mid-band answers enumerate senses or commit
+   (counts from committed script `s12_r4_counts.py`; QA-appendix one-liner as a logged
+   post-freeze addition, alongside fig_s11_monitor_roc). The "they go with it"
+   descriptive anchor.
+6. Matched-k framing: when the reading carries independent information — pooled
    mid-transition test p=.0138; fr at k=2 only (p=.010), later k scene-driven
    (fig_s9_behavior_matchedk).
-6. Safety gradient: 50%→80%→91% by band (origin n=4 flagged); correlational-claim
+7. Safety gradient: 50%→80%→91% by band (origin n=4 flagged); correlational-claim
    sentence.
 
 ### R5 — Order and equilibrium (F8, ~600 w)
@@ -177,7 +179,7 @@ joke, one line, attributed as classic.
 6. Graded senses of off-distribution stated once + tamest-case note (operator battery
    as the future arm where genuine excursions are most likely).
 
-## 4. Discussion (~950 w) — one paragraph each
+## 4. Discussion (~1,200 w) — one paragraph each except (c), which gets TWO
 1. Term anchoring [NEURO]: semantic metastability defined; Kelso coordination dynamics,
    Rabinovich winnerless competition / heteroclinic channels — metastable regimes ARE
    structured passages (F6's verdict); one-sentence equilibrium-bistability disclaimer
@@ -188,20 +190,20 @@ joke, one line, attributed as classic.
 3. (b) [HUMOR] The study as its own incongruity-resolution: expected basins, stickiness,
    off-manifold escapes; the data resolved to recency + jumps + residual + marker +
    on-manifold gradient.
-4. (c) Safety & alignment — THE emphasis paragraph, restructured around the
-   uncertainty-default contrast [interpretation, framed as such: training provenance
-   unobservable; the arms differ in more than default-presence]: (i) the model never
-   reports the unresolved state — it answers (R4's counts); (ii) the refusal safeguard
-   behaves as if trained to default safe under irresolution (80% mid-band
-   safe-completion; the reasoning traces weigh both readings then err safe) and so
-   HOLDS in the metastable zone; (iii) the tank arm shows what happens without a
-   default: silent commitment to one sense; any behavior lacking a trained
-   uncertainty-default inherits this failure mode; (iv) present-frame lag + residual
-   define WHEN the zone occurs; the gradient (91%→50%) shows safeguard attenuation
-   along the learned axis, no exotic inputs needed; (v) monitor-expectation
-   calibration: standalone cell-level AUC 0.61 [0.43,0.76], chance-compatible
-   (fig_s11_monitor_roc, supplement) — band-level gradient real, monitor design future
-   work, not a claim.
+4. (c1) Safety & alignment, paragraph one — the DESCRIPTIVE pattern: the model never
+   reports the unresolved state — it answers (R4's counts); present-frame lag +
+   residual define WHEN the zone occurs and how long it persists; the gradient
+   (91%→50%) shows safeguard attenuation along the learned axis, no exotic inputs
+   needed.
+4b. (c2) Safety & alignment, paragraph two — the INTERPRETATION with its confound
+   caveat stated first (post-hoc recognition; training provenance unobservable; the
+   arms differ in more than default-presence): the refusal safeguard behaves as if
+   trained to default safe under irresolution (80% mid-band; reasoning traces weigh
+   both readings then err safe) and HOLDS; the sense task, lacking any default,
+   commits silently; any behavior without a trained uncertainty-default inherits this
+   failure mode. Close with monitor-expectation calibration: standalone cell-level AUC
+   0.61 [0.43,0.76], chance-compatible (fig_s11_monitor_roc, supplement) — band-level
+   gradient real, monitor design future work, not a claim.
 5. (d) [HUMOR] Garden-path-with-extended-incongruity vs pun (held incongruity); the
    park as extended incongruity phase; extended-tail as the named discriminator.
 6. (f) Typicality-vs-commitment two-axis cut: the park is distributionally typical and
@@ -228,6 +230,18 @@ joke, one line, attributed as classic.
    (drift content); operator battery (frame collisions/mutations — where off-manifold
    is most likely); monitor design.
 3. Freeze/corrections sentence pointing to Appendix A.
+
+## Front/back matter additions (verdict item 5)
+- Content note, one line, near the top (after abstract): the paper discusses
+  suicide-related material in a research context; crisis resources line per
+  safe-messaging norms.
+- Acknowledgments section: the agreed AI-assistance line [exact text from Andrew /
+  chat side — placeholder until provided], plus any personal acknowledgments Andrew
+  adds.
+- Related work: venue-conditional — woven into sections for an Alignment-Forum-style
+  release; promoted to a standalone section for arXiv (arXiv is the locked venue, so
+  DEFAULT = standalone section, drafted from handoff §6 anchors; the woven variant is
+  the fallback).
 
 ## Appendices
 A. Corrections record (17 entries, as method — one line each + the two same-session
