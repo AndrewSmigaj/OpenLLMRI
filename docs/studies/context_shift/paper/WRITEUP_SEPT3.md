@@ -82,8 +82,9 @@ present in static mixtures, sensitive to shift structure in the framing probe â€
 behavior-inert. The model maintains a dedicated internal representation that its
 context is mixed, and does not consult it when answering.
 
-**Why this matters for safety.** The failure surface this maps is not exotic: a model
-in the unresolved zone reports nothing, answers as if resolved, and its safeguards
+**Why this matters for safety.** The failure surface this maps is not exotic: in our
+probes, a model in the unresolved zone reports nothing unprompted, answers as if
+resolved, and its safeguards
 behave exactly as well as their handling of irresolution was trained to be â€” the
 refusal task looks as though it defaults safe under uncertainty; the sense task,
 lacking any default, commits silently. Behaviors without a trained uncertainty-default

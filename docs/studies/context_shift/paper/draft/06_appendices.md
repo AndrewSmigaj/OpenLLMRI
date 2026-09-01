@@ -15,7 +15,10 @@ cousin of the fiction/real behavior link). In-context dynamics: Xie et al. (ICL 
 implicit Bayesian inference — the standing theory our integrator null speaks to);
 Hendel; Todd (function vectors); Olsson et al. (induction heads). Safety: many-shot
 jailbreaking; Crescendo-style multi-turn escalation. Psycholinguistics: Christianson
-& Ferreira; Slattery et al.; van Schijndel & Linzen. Long-context artifacts:
+& Ferreira; Slattery et al.; van Schijndel & Linzen. Verbalized uncertainty &
+ambiguity (grounds the intro's scoped claim): Kadavath et al.; Lin et al. (verbalized
+confidence); Xiong et al. (calibration of verbalized confidence); Liu et al.
+(ambiguity modeling). Long-context artifacts:
 attention sinks (the "is drift positional?" question; midpoint referencing makes our
 findings robust either way). Dynamics: Sussillo & Barak; Kelso; Rabinovich et al.
 

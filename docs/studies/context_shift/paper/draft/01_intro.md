@@ -5,10 +5,13 @@ one NEURO sentence [x]; collapse figure [x]; contributions [x]. -->
 
 # 1. Introduction
 
-Language models do not say they are uncertain. When the interpretation of what they
-are reading is unresolved, they do not pause, ask, or flag it — they go with it. Much
-of what we ask models to do quietly assumes the opposite: that by the time a model
-acts, it has settled what the words in front of it mean. Safety behaviors in
+Language models can be made to express uncertainty, and sometimes do. What they do
+far less reliably — and in the ninety-six completions we examine here, never — is flag
+*interpretive* irresolution unprompted: the condition in which the words in front of
+them have not yet settled into one reading. When an interpretation is unresolved, the
+model answers anyway — it goes with it. Much of what we ask models to do quietly
+assumes the opposite: that by the time a model acts, it has settled what the words in
+front of it mean. Safety behaviors in
 particular often take the form *if the request is X, do Y* — a rule that inherits an
 unexamined premise, namely that "the request is X" is a resolved fact rather than a
 reading in transit. The interesting failures, we will argue, live in the unresolved
