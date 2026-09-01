@@ -32,8 +32,11 @@ designed and costed; neither has run.
 headline quantities at the ' write' site, where the framing contrast reads most strongly
 (the existing recordings suffice); expanding the letter-site families; calibration sets
 from a third, unrelated class, to identify what the accumulation offset contains;
-monitor construction (multi-site, marker-augmented, depth-aware) against the
-chance-compatible single-site baseline reported above; and a planned suite of harder
+monitor construction
+(multi-site, marker-augmented, depth-aware) against the chance-compatible
+single-site baseline reported above; causal localization of where safeguard
+behavior reads in the stack (patching shallow versus mid-stack states during
+generation — the decisive test for §4's three candidate accounts); and a planned suite of harder
 context manipulations — colliding frames, mutating them mid-context, deliberately
 incoherent contexts — where genuine off-distribution excursions are most likely, our
 clean block-shifts being the tamest possible case.

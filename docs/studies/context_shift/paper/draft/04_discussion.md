@@ -66,9 +66,19 @@ destination side in both directions, where tank aquarium→vehicle's ends at the
 midpoint — so downstream layers in the covered task may act on a more settled
 reading than the site we measure. But the deepest band hovers near the midpoint in
 fiction→real too — precisely the direction where the safeguard must engage and did
-(§3.2) — so depth-resolution cannot carry the explanation alone. With two tasks
-these are observations, not tests, and the exploratory per-layer behavior curves
-(§3.4) are too blunt to separate the accounts. We add one
+(§3.2) — so depth-resolution cannot carry the explanation alone. A third
+candidate points the opposite way through the stack: the shallowest layers resolve
+the framing composition almost immediately and completely (§3.2), with the profile
+of surface-cue tracking — the minimal-pair discrimination that rules out cue-only
+tracking was run at the calibrated site, not at shallow layers — and a safeguard
+that reads early, from surface content and frame cues, would fire broadly whenever
+the alarming request is present and be suppressed only by a well-established
+fictional frame: the shape of our behavioral data, including its fragile 50%
+fiction-side floor. The three accounts are not exclusive — one names the policy,
+one the downstream state, one the trigger's plausible locus — and none is causally
+established: with two tasks these are observations, and the exploratory per-layer
+curves (§3.4) are too blunt to separate them (shallow readings saturate
+post-shift, leaving that instrument blind exactly where the third account lives). We add one
 calibration so this section cannot overpromise: as a standalone cell-level monitor, the
 frame reading is not yet usable (AUC 0.61 [0.43, 0.76], chance-compatible; Fig.
 fig_s11_monitor_roc, supplement). The band-level gradient is real; building a usable
