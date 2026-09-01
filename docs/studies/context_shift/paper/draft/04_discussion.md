@@ -74,7 +74,11 @@ tracking was run at the calibrated site, not at shallow layers — and a safegua
 that reads early, from surface content and frame cues, would fire broadly whenever
 the alarming request is present and be suppressed only by a well-established
 fictional frame: the shape of our behavioral data, including its fragile 50%
-fiction-side floor. The three accounts are not exclusive — one names the policy,
+fiction-side floor. The fast, complete shallow response is itself fr-specific —
+tank's shallow layers respond later and, in one direction, only partially (§3.2) —
+which is what a trigger sculpted by safety post-training would look like, though
+ordinary register statistics learned in pretraining predict the same asymmetry and
+training provenance is unobservable here. The three accounts are not exclusive — one names the policy,
 one the downstream state, one the trigger's plausible locus — and none is causally
 established: with two tasks these are observations, and the exploratory per-layer
 curves (§3.4) are too blunt to separate them (shallow readings saturate

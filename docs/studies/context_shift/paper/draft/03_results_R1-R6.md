@@ -57,9 +57,12 @@ counter-sentences.
 
 The single-site view has depth structure behind it (Fig. fig_s13_collapse_layers
 shows the collapse view at four layers per task; Fig. fig_r3_heatmap_secondary_fr
-and supplementary heatmaps give all layers). In the fiction/real task the shallowest layers cross almost
-immediately (three to four sentences) while mid-stack layers cross at medians of eight
-to thirteen; in tank
+and supplementary heatmaps give all layers). In the fiction/real
+task the shallowest layers cross almost immediately (three to four sentences) and
+completely (late-window means +0.99/+1.14) while mid-stack layers cross at medians
+of eight to thirteen; the shallow suddenness is task-specific — tank's shallow band
+crosses at medians of thirteen and eight and, toward the vehicle sense, settles at
+only +0.57; in tank
 aquarium→vehicle the crossing median is thirteen at every depth band — the dwelling
 of §3.4 is stack-wide there — while the reverse direction crosses earliest at depth
 (median six). Where the stack ends up is more telling than when it crosses: in the

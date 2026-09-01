@@ -465,3 +465,14 @@ hold and the fragile 50% fiction-side floor. Added to c2 as the third,
 non-exclusive candidate (policy / downstream state / trigger locus), with the
 saturation caveat explaining why s14 is blind to it, and patching named in §5 as
 the decisive test.
+
+---
+
+## Shallow-lag observation (2026-09-01, Andrew)
+
+Confirmed: fr's shallow band crosses at medians 3-4 and settles complete
+(+0.99/+1.14); tank's shallow band crosses at 13/8 and settles partial toward
+vehicle (+0.57). Added to section 3.2's depth paragraph. Andrew's RL-provenance
+conjecture added to c2's early-trigger passage with its rival (pretrained register
+statistics) and the unobservability caveat stated. Coherence note: the safeguarded
+task is the one with the fast shallow detector (n=2, correlational).
