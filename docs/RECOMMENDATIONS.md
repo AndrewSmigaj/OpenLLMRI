@@ -508,3 +508,16 @@ doctrine wants, and the χ² audits confirmed no label-correlated surface struct
 - Future second paper: cogsci-facing version where the human good-enough-processing
   parallel becomes the headline (Christianson & Ferreira as primary audience). Same
   results, other frame, other field — a second paper, not a fork of this one.
+
+## 2026-08-31 (overnight) — Multi-lens paper revision
+
+- The overnight multi-lens revision ran both rounds; REVISION_LOG.md in paper/draft/
+  is the audit trail, with 5 substance proposals at the top awaiting a morning ruling.
+- **Highest-value catch: the abstract (and WRITEUP_SEPT3) labeled the residual range
+  "0.4–1.1× the class separation"; the frozen values are amplitude fractions — half
+  the separation. Fixed and artifact republished before the Sept 3 submission.**
+- Recommendation: when a derived range compresses several frozen values, record its
+  unit label in FINDINGS at the moment of derivation — the mislabel survived three
+  review passes because F9 says "amp" and nothing downstream restated the divisor.
+- Recommendation: decide single-vs-multi authorship before tex conversion — "one of
+  us" phrasing and the (A.S.) credit convention hinge on it (proposal 2 in the log).

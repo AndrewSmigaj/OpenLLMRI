@@ -204,3 +204,9 @@ rate the abstract was missing, and the worksheet anchor for the analysis-channel
 claim. The outline-disciplined draft had little fat; cutting further would have meant
 cutting information, which the shrink guard forbids. Growth by section: 02 (glossary)
 and 06 (anchor) as justified above; every other section is flat or smaller.
+
+## Reviewing the diff
+
+The prose was rewrapped to 88 columns in Round 2, so a plain line diff of `draft/`
+vs `draft_v1/` is noisy. Use `git diff --word-diff --no-index draft_v1 draft` (or
+`--word-diff=color`) — that view shows exactly the logged edits and nothing else.
