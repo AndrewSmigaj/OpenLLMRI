@@ -1,8 +1,7 @@
-<!-- Section 4: Discussion. Outline §4 (9 paragraphs; c gets two). Checklist: NEURO
-anchoring + bistability disclaimer [x]; good-enough parallel [x]; incongruity-
-resolution [x]; c1 descriptive / c2 interpretation-with-caveat-first [x]; ROC
-calibration [x]; garden-path-vs-pun [x]; typicality-vs-commitment [x];
-represented-but-ungated elevated [x]; SCOUT close with one cross-scale sentence [x]. -->
+<!-- Section 4: Discussion. Structure pass (2 Sept 2026), grouped: what we found (the
+term; typicality vs commitment) → what it means for safety (descriptive → trained
+default → three candidate accounts, one paragraph each → monitor calibration → the
+unused signal) → connections (human parallel; garden path or pun) → closing. -->
 
 # 4. Discussion
 
@@ -16,17 +15,19 @@ opposites. That is the geometry the data show: a run that dwells
 mid-transition occupies something functionally state-like (stationary for many steps,
 with its own behavioral signature) yet geometrically a passage (inside the trajectory
 bundle, on a smooth equilibrium map). One disclaimer: nothing here is equilibrium
-bistability — the evidence-mixture map is smooth (§3.5) — and readers should not import
+bistability — the evidence-mixture map is smooth (§3.6) — and readers should not import
 a barrier-crossing picture. Semantic metastability, as we use it, is a property of
 paths.
 
-**The human parallel.** The signature of §3.2 — fast partial reanalysis that leaves a
-lingering trace of the initial misreading — is also the signature of human sentence
-processing in the "good-enough" tradition: after recovering from a garden-path sentence,
-comprehenders measurably retain components of the initial, incorrect interpretation. We
-make no mechanistic identification; we note that a language model trained on human text
-reproduces, at the
-activation level, the reanalysis profile humans show behaviorally — including the part where the old reading never fully leaves.
+**Typicality is not commitment.** The three-worlds question dissolved because it
+conflated two axes. On *distributional typicality* the stationary states are
+unremarkable — inside the bundle, on-distribution. On *semantic commitment* they are
+distinctive — uncommitted, between calibrated interpretations, with hedging as their
+behavioral expression. A learned state of unresolvedness would be typical *and* uncommitted;
+genuinely off-distribution states (glitch inputs, interventions, adversarial
+incoherence) occupy a different cell of that table and remain untested here. The general
+lesson: that a state is geometrically typical does not make it functionally normal — our
+behavior data document the functional difference directly.
 
 **Safety and alignment, first descriptively.** The failure surface this study maps
 needs no adversary. During an ordinary, coherent shift of conversational frame, a
@@ -39,67 +40,58 @@ meant or flags the ambiguity as an obstacle — zero of 96 tank completions, acr
 bands — though 45% of mid-band answers do surface both senses. And safeguard-relevant
 behavior co-varies with the internal reading: safe-completion rates fall from 91% to 50%
 across reading bands (the fiction-side endpoint rests on four completions, and the
-gradient is partly scene-driven — §3.4) — attenuation reachable by ordinary context, no
+gradient is partly scene-driven — §3.5) — attenuation reachable by ordinary context, no
 exotic inputs required.
 
-**Then the interpretation, with its caveat stated first.** The following is a post-hoc
+**A trained default for unresolved cases?** The following is a post-hoc
 reading of an asymmetry we noticed, not a designed manipulation, and training provenance
 is unobservable: our two tasks appear to differ in whether they carry a trained default
 for unresolved cases. The refusal task behaved as though it does — at mid-transition,
 80% of completions safe-complete, and in sampled chain-of-thought traces — the reasoning
 channel its chat format exposes, released with our behavior data — both framings are
 weighed before the safe reply (a qualitative observation, not a coded rate). The sense task showed no such default, and there the model silently commits (52% of mid-band
-completions pick a sense).
-
-If this reading is right, the metastable zone is the failure
+completions pick a sense). If this reading is right, the metastable zone is the failure
 window for every behavior *without* a trained uncertainty-default — refusal-style
-safeguards may be the well-covered exception rather than the rule. A second, compatible
-candidate emerged from the depth data, though it is weaker than it first looked:
-fiction/real's mid-deep stack (layers 3–18) settles clearly on the destination side in
-both directions, where tank aquarium→vehicle's ends at the midpoint — so downstream
-layers in the covered task may act on a more settled reading than the site we measure.
-But the deepest band hovers near the midpoint in fiction→real too — the very direction where safeguard behavior must appear, and did (§3.2) — so depth-resolution cannot
-carry the explanation alone. A third candidate points the opposite way through the
-stack: the shallowest layers resolve the framing composition almost immediately and
+safeguards may be the well-covered exception rather than the rule.
+
+**Why the safeguard held: three candidate accounts.** Three accounts could explain why
+the covered task stayed safe at mid-transition, and we cannot yet separate them. They
+are not exclusive — one names the policy, one the downstream state, one the trigger's
+plausible locus — and none is causally established: with two tasks these are
+observations, and the exploratory per-layer curves (§3.5) are too blunt to separate
+them (shallow readings saturate post-shift, leaving that instrument blind exactly
+where the third account lives).
+
+*A trained default.* The first account is the reading above: the covered task carries
+a trained default for unresolved cases, and the uncovered task does not.
+
+*Resolution at depth.* A second, compatible candidate emerged from the depth data,
+though it is weaker than it first looked: fiction/real's mid-deep stack (layers 3–18)
+settles clearly on the destination side in both directions, where tank
+aquarium→vehicle's ends at the midpoint — so downstream layers in the covered task may
+act on a more settled reading than the site we measure. But the deepest band hovers
+near the midpoint in fiction→real too — the very direction where safeguard behavior
+must appear, and did (§3.2) — so depth-resolution cannot carry the explanation alone.
+
+*An early, surface-keyed trigger.* A third candidate points the opposite way through
+the stack: the shallowest layers resolve the framing composition almost immediately and
 completely (§3.2), with the profile of surface-cue tracking — the minimal-pair
 discrimination that rules out cue-only tracking was run at the calibrated site, not at
 shallow layers — and a safeguard that reads early, from surface content and frame cues,
 would fire broadly whenever the alarming request is present and be suppressed only by a
 well-established fictional frame: the shape of our behavioral data, including its
 fragile 50% fiction-side floor. The fast, complete shallow response is itself
-fr-specific — tank's shallow layers respond later and, in one direction, only partially
-(§3.2) — which is what a trigger sculpted by safety post-training would look like,
-though ordinary register statistics learned in pretraining predict the same asymmetry
-and training provenance is unobservable here. The three accounts are not exclusive — one
-names the policy, one the downstream state, one the trigger's plausible locus — and none
-is causally established: with two tasks these are observations, and the exploratory
-per-layer curves (§3.4) are too blunt to separate them (shallow readings saturate
-post-shift, leaving that instrument blind exactly where the third account lives).
+specific to the fiction/real task — tank's shallow layers respond later and, in one
+direction, only partially (§3.2) — which is what a trigger sculpted by safety
+post-training would look like, though ordinary register statistics learned in
+pretraining predict the same asymmetry and training provenance is unobservable here.
+Patching shallow versus mid-stack states during generation is the decisive test (§5).
 
 We add one calibration so this section cannot overpromise: as a standalone monitor of
 individual readings, the frame reading is not yet usable (AUC 0.61 [0.43, 0.76],
-chance-compatible; Fig. fig_s11_monitor_roc, supplement). The band-level gradient is
+chance-compatible; Fig. fig_s11_monitor_roc). The band-level gradient is
 real; building a usable monitor — combining several sites, the mixed-context marker, and
 per-layer readings — is future work, not a claim.
-
-**Garden path or pun.** In Dynel's terms our transition corpus is a slow-motion garden
-path, and most trajectories treat it as one: incongruity, then resolution toward the new
-reading. The dwelling runs are the interesting case — an *extended incongruity phase*,
-in which the model, asked what the word means, answers like someone explaining a pun:
-both senses, held. Whether any of them is a true pun — held incongruity that never
-resolves — or only a long garden path is the persistent-versus-slow question our
-twenty-sentence horizon cannot decide, and the extended-tail experiment named in future
-work is its dedicated test.
-
-**Typicality is not commitment.** The three-worlds question dissolved because it
-conflated two axes. On *distributional typicality* the stationary states are
-unremarkable — inside the bundle, on-distribution. On *semantic commitment* they are
-distinctive — uncommitted, between calibrated interpretations, with hedging as their
-behavioral expression. A learned state of unresolvedness would be typical *and* uncommitted;
-genuinely off-distribution states (glitch inputs, interventions, adversarial
-incoherence) occupy a different cell of that table and remain untested here. The general
-lesson: that a state is geometrically typical does not make it functionally normal — our
-behavior data document the functional difference directly.
 
 **A signal behavior does not appear to use.** The mixed-context marker gives the
 dissociation its sharpest form: the model carries a persistent, systematic signal that its context is
@@ -115,6 +107,23 @@ layer was flagging the user's messages for self-harm risk in real time while ass
 continued [CITE: filing/reporting]. That suggests a constructive direction for alignment
 work — not creating uncertainty signals, but testing whether behavior can be gated on
 the ones already there.
+
+**The human parallel.** The signature of §3.2 — partial reanalysis that leaves a
+lingering trace of the initial misreading — is also the signature of human sentence
+processing in the "good-enough" tradition: after recovering from a garden-path sentence,
+comprehenders measurably retain components of the initial, incorrect interpretation. We
+make no mechanistic identification; we note that a language model trained on human text
+reproduces, at the
+activation level, the reanalysis profile humans show behaviorally — including the part where the old reading never fully leaves.
+
+**Garden path or pun.** In Dynel's terms our transition corpus is a slow-motion garden
+path, and most trajectories treat it as one: incongruity, then resolution toward the new
+reading. The dwelling runs are the interesting case — an *extended incongruity phase*,
+in which the model, asked what the word means, answers like someone explaining a pun:
+both senses, held. Whether any of them is a true pun — held incongruity that never
+resolves — or only a long garden path is the persistent-versus-slow question our
+twenty-sentence horizon cannot decide, and the extended-tail experiment named in future
+work is its dedicated test.
 
 **Closing.** Word-sense reinterpretation is the tractable laboratory instance of a much
 larger family — frames, personas, tasks, and safety postures all shift under

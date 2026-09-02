@@ -12,6 +12,62 @@ UNI = [
     ("&", r"\&"), ("%", r"\%"), ("§", r"\S"), ("#", r"\#"), ("_", r"\_"),
 ]
 
+def _lists(text):
+    """Markdown lists -> enumerate/itemize. A marker line starts a list only at the
+    beginning of a block (after a blank line or heading) or inside a list; indented
+    lines continue the current item; a blank line ends the list unless the next
+    non-blank line is another marker of the same kind."""
+    lines = text.split("\n"); out = []; kind = None; prev_blank = True
+    def close():
+        nonlocal kind
+        if kind: out.append("\\end{%s}" % kind); kind = None
+    for i, ln in enumerate(lines):
+        m_num = re.match(r"^\d+\.\s+(.*)$", ln); m_bul = re.match(r"^[-*]\s+(.*)$", ln)
+        this = "enumerate" if m_num else ("itemize" if m_bul else None)
+        if this and (prev_blank or kind):
+            if kind and kind != this: close()
+            if not kind: out.append("\\begin{%s}" % this); kind = this
+            out.append("\\item " + (m_num or m_bul).group(1)); prev_blank = False; continue
+        if kind:
+            if ln.strip() == "":
+                nxt = next((l for l in lines[i+1:] if l.strip()), "")
+                if re.match(r"^\d+\.\s+", nxt) and kind == "enumerate" or re.match(r"^[-*]\s+", nxt) and kind == "itemize":
+                    prev_blank = True; continue
+                close(); out.append(ln); prev_blank = True; continue
+            if ln.startswith(" "):
+                out.append(ln.strip()); continue
+            close()
+        out.append(ln); prev_blank = (ln.strip() == "" or ln.startswith("#"))
+    close()
+    return "\n".join(out)
+
+def _tables(text):
+    """Pipe tables -> table floats. A paragraph '**Table N.** caption' directly before
+    the table becomes its caption. Structural & and \\ are emitted as placeholders and
+    restored after escaping."""
+    blocks = re.split(r"(\n\s*\n)", text); out = []; i = 0
+    while i < len(blocks):
+        b = blocks[i]
+        rows = [l.strip() for l in b.strip().split("\n")]
+        if rows and all(r.startswith("|") for r in rows) and len(rows) >= 2:
+            cap = ""
+            if len(out) >= 2 and re.match(r"^\*\*Table \d+\.\*\*", out[-2].strip()):
+                cap = re.sub(r"^\*\*Table \d+\.\*\*\s*", "", out[-2].strip()); out[-2] = ""
+            cells = [[c.strip() for c in r.strip("|").split("|")] for r in rows]
+            cells = [r for r in cells if not all(re.fullmatch(r":?-+:?", c or "-") for c in r)]
+            ncol = max(len(r) for r in cells)
+            spec = "l" + "r" * (ncol - 1)
+            body = ["⟦AMP⟧".join(r + [""] * (ncol - len(r))) + "⟦NL⟧" for r in cells]
+            tex = ("\\begin{table}[htbp]\\centering\\small\n"
+                   + (f"\\caption{{{cap}}}\n" if cap else "")
+                   + f"\\begin{{tabular}}{{{spec}}}\n\\toprule\n" + body[0]
+                   + "\n\\midrule\n" + "\n".join(body[1:]) + "\n\\bottomrule\n\\end{tabular}\n\\end{table}")
+            out.append(tex)
+        else:
+            out.append(b)
+        i += 1
+    return "".join(out)
+
 def convert(text):
     text = re.sub(r"<!--.*?-->\n?", "", text, flags=re.S)
     # figure refs -> placeholders (before any escaping)
@@ -25,13 +81,15 @@ def convert(text):
     text = re.sub(r"^## (.*)$", r"\\subsection*{\1}", text, flags=re.M)
     text = re.sub(r"^# (\d+)\. (.*)$", r"\\section{\2}", text, flags=re.M)
     text = re.sub(r"^# (.*)$", r"\\section*{\1}", text, flags=re.M)
+    text = _tables(_lists(text))
     text = re.sub(r'"([^"]*?)"', r"``\1''", text, flags=re.S)  # straight double quotes
     for a, b in UNI: text = text.replace(a, b)
     text = text.replace(r"$\times$10", r"$\times 10$")
     text = text.replace(r"$\gamma$^age", r"$\gamma^{\mathrm{age}}$")
     text = re.sub(r"\*\*(.+?)\*\*", r"\\textbf{\1}", text, flags=re.S)
-    text = re.sub(r"(?<![\w\\])\*(?!\s)(.+?)(?<!\s)\*(?![\w])", r"\\emph{\1}", text)
+    text = re.sub(r"(?<![\w\\])\*(?!\s)([^*]+?)(?<!\s)\*(?![\w])", r"\\emph{\1}", text)  # italics may wrap lines
     # restore placeholders
+    text = text.replace("⟦AMP⟧", " & ").replace("⟦NL⟧", " \\\\")
     text = re.sub(r"⟦N:([^⟧]+)⟧", lambda m: r"\texttt{%s}" % m.group(1), text)
     text = re.sub(r"⟦([^⟧]+)⟧", lambda m: r"\ref{fig:%s}" % m.group(1).replace("\\_", "_"), text)
     return text

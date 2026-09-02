@@ -45,7 +45,7 @@ def strip(text):
     text = re.sub(r"<!--.*?-->", "", text, flags=re.S)
     text = re.sub(r"^#.*$", " ", text, flags=re.M)  # headings
     text = re.sub(r"\b\d{4}-\d\d-\d\d\b", " ", text)  # dates
-    text = re.sub(REF_WORDS + r"[\dA-Z]+(?:\.\d+)?", " ", text)
+    text = re.sub(REF_WORDS + r"[\dA-Z]+(?:\.\d+)?(?:[–-]\d+(?:\.\d+)?)?", " ", text)
     text = re.sub(r"\b(19|20)\d\d\b", " ", text)
     text = re.sub(r"\[CITE[^\]]*\]", " ", text)
     return text

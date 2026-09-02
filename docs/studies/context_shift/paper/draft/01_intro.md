@@ -77,12 +77,12 @@ We contribute:
    strength, with the smooth integrators tested rejected head-to-head (§3.3).
 4. The dwelling within the unresolved zone — a stationary intermediate state in one
    tank direction, where the model's answers hedge between the senses — and the
-   observation that zero of the 96 completions ask which sense is meant (§3.4).
+   observation that zero of the 96 completions ask which sense is meant (§3.4–3.5).
 5. Hysteresis almost fully explained by recency weighting: a mild
    direction-dependent recency difference is all that remains, so the metastability
-   lives in the path, not the equilibrium (§3.5).
+   lives in the path, not the equilibrium (§3.6).
 6. A persistent, systematic marker of mixed context that behavior does not appear to
-   use (§3.6).
+   use (§3.7).
 
 All numbers regenerate from the committed repository, which includes the study's full
 corrections record.

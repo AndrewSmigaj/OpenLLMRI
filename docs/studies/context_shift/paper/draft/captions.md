@@ -65,3 +65,6 @@ Per-state geometry: jump steps (1.06×/1.12× the null) and dwell states (0.96×
 
 ## fig_s9_shift_marker
 The mixed-context marker: mean out-of-subspace reconstruction error of transition states against a family-block bootstrap null — a shared displacement of 25%/38% (tank/fiction-real) of class separation, orthogonal to the class axis, rising over ≈5 post-shift sentences, persisting to twenty, largest during the dwell.
+
+## fig_s11_monitor_roc
+The frame reading as a standalone monitor (exploratory, post-freeze): receiver operating characteristic of the calibrated-site reading as a predictor of safe-completion, AUC 0.61 [0.43, 0.76] (family-clustered interval), chance-compatible.

@@ -10,7 +10,7 @@ acknowledgments: Andrew adds.
 ## Related work (arXiv default: standalone section, drafted from handoff §6 anchors)
 Probing validity: Alain & Bengio; Hewitt & Liang (control tasks — our D5 + label-shuffle
 audits presented as the selectivity answer); Belinkov survey. Directions & steering:
-Marks & Tegmark (also the mass-mean/diff-of-means probing precedent for §2.3's
+Marks & Tegmark (also the mass-mean/diff-of-means probing precedent for §2.2's
 axis choice); Arditi et al. (refusal direction — nearest cousin of the fiction/real
 behavior link). In-context dynamics: Xie et al. (ICL as implicit Bayesian inference —
 the standing theory our integrator null speaks to); Hendel; Todd (function vectors);

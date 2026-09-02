@@ -20,3 +20,6 @@ can be re-run or opened.
 | +0.3 to +0.4 | rounded range of the four fiction/real L3-18 band means above | derived from the s13 values |
 | 0.4–1.1 | remnant gap range in amplitude units | derived from frozen 1.09 / 0.57 / 0.43 / 0.40 (FINDINGS_FINAL) |
 | 0.61 [0.43, 0.76] | monitor ROC AUC | `analysis/s11_monitor_roc.py` output (post-freeze, logged) |
+| [1.70, 2.62], [0.77, 1.48], [0.27, 0.50] | reference-resampled 95% CIs for the three remnant gaps that stand (Table 1) | `findings/qa_bughunt_report_2026-08-31.md`, row C5 (correction 15) |
+| 8, 3, 2, 23, 4, 7 | real-run model-selection counts beyond the hybrid wins (Table 3) | `analysis/s9_figures.py` lines 56–57 (five-model selector; totals in FINDINGS_FINAL F4) |
+| 28, 5, 1, 14; 5, 0, 18, 4, 21; 3, 27, 0, 0, 18 | synthetic-truth confusion counts, 48 runs per truth type (Table 3) | `analysis/s9_figures.py` lines 58–60 (per-task ranges 13–15/24 and 2–3/24 in FINDINGS_FINAL F4) |

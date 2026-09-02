@@ -1,12 +1,11 @@
-<!-- Section 5: Limitations & future work. Outline §5 (3 bullets). Checklist:
-generalization candor + internal-replication inventory [x]; what didn't replicate
-listed [x]; roadmap items [x]; freeze/corrections pointer [x]. -->
+<!-- Section 5: Limitations & future work. Structure pass (2 Sept 2026): first sentence
+split; deferred work as a list. -->
 
 # 5. Limitations and future work
 
 **One model, stated plainly.** Everything here is measured in one
-20-billion-parameter mixture-of-experts model, with deterministic decoding — and
-each dynamics claim at one calibrated site and layer per task, single rows of a
+20-billion-parameter mixture-of-experts model, with deterministic decoding. Each
+dynamics claim is made at one calibrated site and layer per task — single rows of a
 depth progression in which crossing timescales vary systematically (§3.2); no
 single layer is a sufficient readout of the model's state, and behavior is produced
 downstream of all of them. Within the
@@ -28,17 +27,21 @@ extending the post-shift horizon (extended-tail runs) and by shifting evidence b
 the original class (A→B→A runs, measuring what remains of the second frame). Both are
 designed and costed; neither has run.
 
-**Further deferred work,** in rough order of leverage: replicating the fiction/real
-headline quantities at the ' write' site, where the framing contrast reads most strongly
-(the existing recordings suffice); expanding the letter-site families; calibration sets
-from a third, unrelated class, to identify what the accumulation offset contains;
-monitor construction
-(multi-site, marker-augmented, depth-aware) against the chance-compatible
-single-site baseline reported above; causal localization of where safeguard
-behavior reads in the stack (patching shallow versus mid-stack states during
-generation — the decisive test for §4's three candidate accounts); and a planned suite of harder
-context manipulations — colliding frames, mutating them mid-context, deliberately
-incoherent contexts — where genuine off-distribution excursions are most likely, our
-clean block-shifts being the tamest possible case.
+**Further deferred work,** in rough order of leverage:
 
-The analyses reported here were frozen before drafting; the post-freeze additions are logged as such in Appendix B.
+- Replicating the fiction/real headline quantities at the ' write' site, where the
+  framing contrast reads most strongly (the existing recordings suffice).
+- Expanding the letter-site families.
+- Calibration sets from a third, unrelated class, to identify what the accumulation
+  offset contains.
+- Monitor construction (multi-site, marker-augmented, depth-aware) against the
+  chance-compatible single-site baseline reported above.
+- Causal localization of where safeguard behavior reads in the stack: patching shallow
+  versus mid-stack states during generation — the decisive test for §4's three
+  candidate accounts.
+- A planned suite of harder context manipulations — colliding frames, mutating them
+  mid-context, deliberately incoherent contexts — where genuine off-distribution
+  excursions are most likely, our clean block-shifts being the tamest possible case.
+
+The analyses reported here were frozen before drafting; the post-freeze additions are
+logged as such in Appendix B.
