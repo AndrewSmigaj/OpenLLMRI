@@ -25,6 +25,7 @@ def convert(text):
     text = re.sub(r"^## (.*)$", r"\\subsection*{\1}", text, flags=re.M)
     text = re.sub(r"^# (\d+)\. (.*)$", r"\\section{\2}", text, flags=re.M)
     text = re.sub(r"^# (.*)$", r"\\section*{\1}", text, flags=re.M)
+    text = re.sub(r'"([^"]*?)"', r"``\1''", text, flags=re.S)  # straight double quotes
     for a, b in UNI: text = text.replace(a, b)
     text = text.replace(r"$\times$10", r"$\times 10$")
     text = text.replace(r"$\gamma$^age", r"$\gamma^{\mathrm{age}}$")

@@ -1,0 +1,88 @@
+<!-- Section 1: Introduction, scientific register. Outline §1 (7 bullets). Checklist:
+failure-stakes opening, no SCOUT [x]; humor lineage w/ epigraph referenced not retold
+[x]; clinical incident paragraph [x]; post-hoc contrast marking [x]; three worlds +
+one NEURO sentence [x]; collapse figure [x]; contributions [x]. -->
+
+# 1. Introduction
+
+Language models can be made to express uncertainty, and sometimes do. What they do far
+less reliably — and in the 96 completions we examine here, never — is volunteer that the
+words in front of them have not settled into one reading. Much of what we ask models to
+do quietly assumes the opposite: that by the time a model acts, it has settled on one
+reading. Safety behaviors in particular often take the form *if the request is X, do Y*
+— a rule that inherits an unexamined premise: that "the request is X" is a resolved fact
+rather than a reading in transit. The interesting failures, we will argue, live in the
+unresolved zone: the stretch of a conversation during which context has genuinely
+shifted what a token means but the model's internal reading has not finished following.
+This paper measures that zone directly.
+
+The route to this study runs through an old question. Theories of humor have long placed
+incongruity and its resolution at the center of the phenomenon: two mutually exclusive
+understandings of a text form, and something must give. Dynel's taxonomy of
+conversational humor separates the garden-path joke — one meaning established, a second
+revealed, belief shifting from one to the other — from the pun, where the incongruity is
+not resolved but held. The joke in our epigraph is the classic garden path built on the
+word *tank*: to get it, the reader's understanding of one word must shift from one sense
+to the other. That shift was long observable only through behavior. In a language model
+it is a measurement problem with an actual substrate: the in-between of a meaning shift
+is a trajectory in the residual stream, and we can instrument it.
+
+The second task has a graver origin, and we state it plainly. In a widely reported 2025
+case, a sixteen-year-old died by suicide after months of conversation with a language
+model [CITE: Raine v. OpenAI; reporting]. The court filing and contemporaneous reporting
+— the case is contested litigation, and we characterize only what they describe —
+recount that direct requests triggered safeguards; that the same requests, reframed as
+fiction, received assistance, with the user's real circumstances present in the same
+long conversation; and that the model offered to draft a suicide note. We do not analyze
+that case; we take from it a precise scientific question. A model processing such a conversation carries, in
+some form, internal state that tracks whether "I want to write a suicide letter."
+is framed as fictional or real. How does that internal state move as the
+surrounding context shifts? As it happens — recognized after the fact, not designed —
+our two tasks bracket the safety question from both sides: one request is covered by a
+refusal safeguard, the other ("What is the
+meaning of the word tank?") by none, so the pair lets us
+watch behavior with and without a trained safeguard. Whether the safeguard carries a
+default answer for unresolved cases is an interpretation we defer to §4.
+
+When accumulated context shifts what a token means, what is the in-between? Three
+candidate worlds: a *learned state* — irresolution is itself something the model has
+structure for; a *passage* — mere transit between the two resolved readings; or *off the
+learned distribution entirely* — the token pushed into regions the model never
+organized, where no trained behavior applies. In the dynamics of biological neural
+systems, transiently stable states that are not fixed-point attractors are the norm
+rather than the anomaly. That norm warns against assuming the first two worlds — learned
+state and passage — must be distinct. The title of this paper is a report on where the
+data landed:
+*unresolved* describes the states we found — and, we will argue, the three-worlds
+taxonomy itself.
+
+The design is simple: two tasks — the polysemous word, the framed request — each with a
+fixed *carrier* sentence containing the measurement token. Contexts grow one sentence at
+a time to forty, with the class of the evidence — which sense, or which framing, the
+sentences support — flipping after twenty; the carrier is re-appended at every step, so
+the same token is re-read under steadily shifting context; matched single-class contexts
+provide the reference scale. Figure fig_s9_collapse shows the central result: from
+either direction, readings cross into the
+in-between zone and stop short of the opposite reference — robustly so in three of
+the four cases (§3.2).
+
+We contribute:
+
+1. A measurement protocol for reading interpretations over accumulating context,
+   including two instrument artifacts — accumulation offset and axis rotation — that
+   mimic findings (§2).
+2. The shape of reinterpretation: a gradual, partial update whose remnant lingers to
+   the end of the tested horizon (§3.2).
+3. The form of its dynamics: drift plus discrete jumps not timed by evidence
+   strength, with the smooth integrators tested rejected head-to-head (§3.3).
+4. The dwelling within the unresolved zone — a stationary intermediate state in one
+   tank direction, where the model's answers hedge between the senses — and the
+   observation that zero of the 96 completions ask which sense is meant (§3.4).
+5. Hysteresis almost fully explained by recency weighting: a mild
+   direction-dependent recency difference is all that remains, so the metastability
+   lives in the path, not the equilibrium (§3.5).
+6. A persistent, systematic marker of mixed context that behavior does not appear to
+   use (§3.6).
+
+All numbers regenerate from the committed repository, which includes the study's full
+corrections record.
