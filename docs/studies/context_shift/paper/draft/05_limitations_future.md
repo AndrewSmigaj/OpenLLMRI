@@ -1,47 +1,50 @@
-<!-- Section 5: Limitations & future work. Structure pass (2 Sept 2026): first sentence
-split; deferred work as a list. -->
+<!-- Section 5: Limitations and future work. Rewrite step 2 (2 Sept 2026). All claims
+of the previous version retained. -->
 
 # 5. Limitations and future work
 
-**One model, stated plainly.** Everything here is measured in one
-20-billion-parameter mixture-of-experts model, with deterministic decoding. Each
-dynamics claim is made at one calibrated site and layer per task — single rows of a
-depth progression in which crossing timescales vary systematically (§3.2); no
-single layer is a sufficient readout of the model's state, and behavior is produced
-downstream of all of them. Within the
-study, replication is internal: two task contrasts, three carriers plus a replicate, two
-measurement sites, twelve scene families per class per task. That inventory also records what did *not*
-replicate cleanly: the
-real→fictional remnant is suggestive only once reference uncertainty is propagated; the
-letter-site asymmetry rests on four runs per direction; 48% of fiction/real runs are
-indeterminate under per-run model selection; and our pre-stated prediction about the
-ordering of crossing times across layers held in one task and failed in the other.
-Cross-task patterns — the task with the wider endpoint separation also shows the larger
-remnant gaps; anchored versus distributed contrast structure — are n = 2 observations,
-hypotheses rather than findings.
+**One model, stated plainly.** Everything here is measured in one 20-billion-parameter
+mixture-of-experts model, with deterministic decoding. Each dynamics claim is made at
+one calibrated site and layer per task. Those sites are single rows of a depth progression in which crossing times vary
+systematically across layers (§3.2). No single layer
+is a sufficient readout of the model's state, and behavior is produced downstream of
+all of them. Within the study, replication is internal. Its scope, the task contrasts, carriers,
+sites, and scene families, is set out in §2.3.
 
-**The named open question.** Whether the remnant — and the dwelling within the
-unresolved zone — are permanent or merely slower than twenty sentences: in the terms of
-§4, whether the dwelling is a pun rather than a long garden path — is decidable by
-extending the post-shift horizon (extended-tail runs) and by shifting evidence back to
-the original class (A→B→A runs, measuring what remains of the second frame). Both are
-designed and costed; neither has run.
+**What did not replicate cleanly.** The real→fictional remnant is suggestive only
+once reference uncertainty is propagated. The ' letter'-site asymmetry rests on four
+runs per direction. In the fiction/real task, 48% of runs are indeterminate under per-run
+trajectory-model selection. And our pre-registered prediction about the ordering of crossing times across
+layers held in one task and failed in the other.
+
+**Patterns seen on two tasks.** Two further patterns hold across the tasks. With two
+tasks they are observations, so we treat them as hypotheses rather than findings.
+The task with the wider endpoint separation also shows the larger remnant gaps. And
+the two tasks differ in whether their contrast is anchored to one token or spread
+across the utterance.
+
+**The named open question.** Are the remnant and the dwelling permanent, or only
+slower than twenty sentences can resolve? In the terms of §4, is the dwelling a pun
+or a long garden path? Two experiments would decide it. One extends the post-shift
+horizon. The other shifts the evidence back to the original class after the shift
+and measures what remains of the second frame. Both are designed and costed. Neither has run.
 
 **Further deferred work,** in rough order of leverage:
 
-- Replicating the fiction/real headline quantities at the ' write' site, where the
-  framing contrast reads most strongly (the existing recordings suffice).
-- Expanding the letter-site families.
-- Calibration sets from a third, unrelated class, to identify what the accumulation
-  offset contains.
-- Monitor construction (multi-site, marker-augmented, depth-aware) against the
-  chance-compatible single-site baseline reported above.
-- Causal localization of where safeguard behavior reads in the stack: patching shallow
-  versus mid-stack states during generation — the decisive test for §4's three
-  candidate accounts.
-- A planned suite of harder context manipulations — colliding frames, mutating them
-  mid-context, deliberately incoherent contexts — where genuine off-distribution
-  excursions are most likely, our clean block-shifts being the tamest possible case.
+- Replicate the fiction/real headline quantities at the ' write' site, where the
+  framing contrast reads most strongly. The existing recordings suffice.
+- Expand the ' letter'-site families.
+- Build calibration sets from a third, unrelated class, to identify what the
+  accumulation offset contains.
+- Construct a monitor from several sites, the mixed-context marker, and per-layer
+  readings, and test it against the chance-compatible single-site baseline of §4.
+- Localize where safeguard behavior reads in the stack by patching shallow against
+  mid-stack states during generation. This is the decisive test for the three
+  candidate accounts of §4.
+- Run a suite of harder context manipulations: colliding frames, frames that mutate
+  mid-context, and deliberately incoherent contexts. Genuine off-distribution
+  excursions are most likely there. Our clean block shifts are the tamest possible
+  case.
 
-The analyses reported here were frozen before drafting; the post-freeze additions are
-logged as such in Appendix B.
+The analyses reported here were frozen before drafting. The additions made after the
+freeze are logged as such in Appendix B.

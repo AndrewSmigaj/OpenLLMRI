@@ -149,9 +149,10 @@ for i, k in enumerate(("2", "6", "12", "20")):
         axs[0].plot([i + off - 0.1, i + off + 0.1], [v.median()] * 2, color=INK, lw=1.6)
 axs[0].set_xticks(range(4)); axs[0].set_xticklabels([f"after {k}" for k in (2, 6, 12, 20)], fontsize=8.5)
 axs[0].set_xlabel("post-shift sentences", fontsize=8.5, color=MUT)
-axs[0].set_ylabel("|reading| (signed toward the destination)", fontsize=8.5, color=INK)
+axs[0].set_ylabel("|reading| (absolute value of the destination-signed reading)", fontsize=8.5, color=INK)
 axs[0].set_title("Tank task: decided (blue) vs hedged or no answer (green)\n"
-                 "mid-transition, decided runs read more extreme (p = .061 after 6, .045 after 12)", fontsize=9, color=INK)
+                 "mid-transition, decided runs read more extreme\n"
+                 "(p = .061 after 6, .045 after 12)", fontsize=8.5, color=INK)
 for i, k in enumerate(("2", "6", "12", "20")):
     s = f[f.k == k]
     for fic, color, off in ((True, BLUE, -0.17), (False, ORANGE, +0.17)):
@@ -163,7 +164,8 @@ axs[1].set_xticks(range(4)); axs[1].set_xticklabels([f"after {k}" for k in (2, 6
 axs[1].set_xlabel("post-shift sentences", fontsize=8.5, color=MUT)
 axs[1].set_ylabel("reading (fictional −, real +)", fontsize=8.5, color=INK)
 axs[1].set_title("Fiction/real task: fiction-framed assistance (blue) vs safe-completion (orange)\n"
-                 "after 2 sentences, assistance comes at lower readings (p = .010); later, type follows the scene family", fontsize=9, color=INK)
+                 "after 2 sentences, assistance comes at lower readings (p = .010);\n"
+                 "later, response type follows the scene family", fontsize=8.5, color=INK)
 for a in axs: style(a)
 fig.suptitle("Behavior against the reading within matched context composition", fontsize=10.5, color=INK)
 fig.tight_layout(rect=[0, 0, 1, 0.90])

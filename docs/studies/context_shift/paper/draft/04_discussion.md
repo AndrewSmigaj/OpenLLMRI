@@ -26,7 +26,7 @@ unremarkable: inside the bundle, on-distribution. On semantic commitment they ar
 distinctive: uncommitted, between calibrated interpretations, with hedging as their
 behavioral expression. A learned state of unresolvedness would be typical and
 uncommitted at once. That is the profile the stationary states show, which is why the first two worlds of
-§1 were never alternatives. Genuinely off-distribution states, such as glitch inputs,
+§1, a learned state and a passage, were never alternatives. Genuinely off-distribution states, such as glitch inputs,
 interventions, and adversarial incoherence, fall elsewhere on the typicality axis and
 remain untested here. The general lesson is that a state can be geometrically typical
 without being functionally normal. Our behavior data document the functional
@@ -76,8 +76,8 @@ third account below points to.
 carries a trained default for unresolved cases, and the tank task does not.
 
 *Resolution at depth.* The second account emerged from the depth data, and it is
-weaker than it first looked. In the fiction/real task, layers 3 to 18 settle clearly
-on the destination side in both directions, where the tank task from aquarium to
+weaker than it first looked. In the fiction/real task, layers 3 to 18, the two middle bands, settle clearly on
+the destination side in both directions, where the tank task from aquarium to
 vehicle ends at the midpoint (§3.2). Downstream layers in the fiction/real task may
 therefore act on a more settled reading than the site we measure. But the deepest
 layer band hovers near the midpoint in the fictional-to-real direction too, the
@@ -98,8 +98,7 @@ look like. But ordinary register statistics learned in pretraining predict the s
 asymmetry, and training provenance is unobservable here. Patching shallow against
 mid-stack states during generation is the decisive test (§5).
 
-**One limit.** We state it so that this section cannot overpromise. As a standalone
-monitor, predicting each response from its reading alone, the frame reading is not
+**One limit.** As a standalone monitor, predicting each response from its reading alone, the frame reading is not
 yet usable: its AUC is 0.61 [0.43, 0.76], compatible with chance (Fig.
 fig_s11_monitor_roc). The band-level gradient of §3.5 is real. A usable monitor would
 combine several sites, the mixed-context marker, and per-layer readings. Building one

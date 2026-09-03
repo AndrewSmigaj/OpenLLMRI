@@ -21,7 +21,7 @@ the switch we also generate a completion from each context, to set the model's
 behavior beside its reading.
 
 The reading follows the shift only partway. It crosses to the new side after a median
-of four to ten sentences, depending on the task and direction, then stops short of
+of 4 to 10.5 sentences, depending on the task and direction, then stops short of
 where the no-shift reference sits. The twenty sentences after the switch never close
 the remaining gap. In the extreme case, one tank direction, the reading reaches the
 midpoint between the two sides and stays there, stationary to the end of the window.

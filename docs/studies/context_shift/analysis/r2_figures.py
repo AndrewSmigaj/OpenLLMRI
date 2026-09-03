@@ -100,9 +100,9 @@ ax.set_xticks(range(4)); ax.set_xticklabels([b[0] for b in bands])
 ax.set_ylabel("mode of the reading distribution\n(midpoint-referenced, signed toward the destination)", fontsize=9, color=INK)
 ax.set_xlabel("post-shift sentences", fontsize=9, color=MUT)
 ax.legend(fontsize=8.5)
-ax.set_title("Tank task, ' tank' site: mode of the reading distribution by post-shift band (bars: ± 1 sd within the band)\n"
-             "dotted = destination no-shift reference, dashed = origin no-shift reference; aquarium → vehicle dwells at the midpoint",
-             fontsize=10, color=INK)
+ax.set_title("Tank task, ' tank' site: mode of the reading distribution by post-shift band (bars: ± 1 sd)\n"
+             "dotted = destination reference, dashed = origin reference; aquarium → vehicle stays at the midpoint",
+             fontsize=9.5, color=INK)
 style(ax)
 fig.tight_layout()
 fig.savefig(FIG / "fig_r2_mode_track.png", dpi=150)

@@ -762,3 +762,114 @@ exception in Methods and the caption. Metric misses to note: 3.3 and 3.5 exceed 
 number-density target (calibration counts; behavior rates), 3.2's depth paragraph
 counts layer ranges as numbers. Reviewer agents run on Sonnet 5 from this point, at
 Andrew's request.
+
+### Results 3.0–3.1 — closed after three review loops
+Loop 1 (10 fixes): "topical shadow" replaced with the topical vocabulary it meant;
+"discriminations" → "tests"; the minimal-pair task named; the reason d′ is not
+comparable across tasks stated (different layers and baselines; unstable at 6 runs
+per class); the contrast-structure result given its own paragraph; caption fixes
+(dashed line explained; bar annotations explained; "hard_conversation" and missing
+axis labels in the minimal-pairs figure fixed in its script); correction candidate 20
+raised (layer-21 cosine 0.68). Loop 2 (9 fixes): the three tests mapped to their
+tasks; a real minimal pair shown; "content domain" explained; "class-consistently"
+replaced; layer 0's lower accuracies stated (0.88 and 0.73, from the v2 record);
+"spread over several of the request's content words"; the pooled-standard-deviation
+caveat reworded; the heatmap figure scoped to the task it shows. Loop 3 (3 fixes):
+the layer-0 caveat as its own sentence; the tank carrier quoted before its tokens are
+counted; the three tests as parallel paragraphs. Metrics: 16 words per sentence, 9%
+over 35, 2.7 numbers per paragraph (paired task values), semicolons at target.
+
+### Reviewer rounds applied this pass (Sonnet 5 reviewers from here)
+3.2 loop 2 (5 fixes; one declined: a per-band crossing-time table would need new
+per-band medians, which the plan rules out); 3.4–3.5 loop 1 (8 fixes, including the
+"mixed" category counted from the committed worksheet, 3 of 204, and the
+matched-composition figure's per-count tests explained beside the pooled test); 3.6–3.7
+loop 1 (8 fixes, including one name for the family-resampled null, the dwelling
+states' 0.96× uncoupled from a figure that does not show them, and per-task held-out
+retention 73% and 89% from the figure script's constants); Discussion loop 2 (2
+fixes; "runtime monitor" → "standalone monitor" in the figure). Section 5 and the back
+matter drafted: Related work in prose with [CITE] placeholders; Appendix A as four
+one-line corrections; Appendix B as prose with the shuffle-audit values from the QA
+report; Appendix C as a prose list; the terminology map as a bulleted list.
+
+### Results 3.2 — closed after three review loops
+Loop 1 (16 fixes, one declined): depth crossing times stated as measured under
+per-layer axes; layer bands defined before use; "dwelling" glossed at first use; the
+pre-registered prediction stated in full (layers 5–9 later than 10–17, deepest in
+between); depth analyses flagged as post-freeze; sign convention of the fit
+comparison stated ("run ahead ... behind"); the negation-first closing replaced;
+the calibration-strength check scoped to the tank task, where the committed script
+runs it; "not an instrument accident" replaced with what was tested; the ' letter'
+site noted as not fitting the breadth account; the caption's "so" corrected; the
+midpoint arithmetic corrected ("as large as"); crossing values reconciled across
+prose, Table 2, and the Figure 1 caption; Table 3's scale stated; announced-drama
+opener replaced with the question. Loop 2 (5 fixes; one declined: a per-band
+crossing-time table would need new per-band medians): the duplicated midpoint
+sentence cut; "at the midpoint itself" dropped where the value is −0.10; "which §3.4
+calls" → "the dwelling of §3.4"; "values in the caption" replaced with the values.
+Loop 3 (3 fixes): arrows in running prose converted to words (throughout §3 and §4;
+tables and captions keep them); the percentile check split by direction, following
+the committed script's print order (aquarium to vehicle first); the median-midpoint
+check uncoupled from a figure that does not show it and stated from the s13 script's
+output (both tank gaps unchanged). Density flag: the depth paragraphs count layer
+ranges as numbers; justified.
+
+### Discussion — closed after three review loops
+Loop 1 (25 fixes): task names unified (tank task / fiction/real task, "covered" only
+where the safeguard is the point); "mid-transition" → "the middle reading band";
+"metastable zone" → "unresolved zone"; "A calibration" → "One limit"; the three
+accounts introduced in plain words (what training installed, what deeper layers
+see, where the trigger reads); "matched composition" glossed; "the dissociation"
+given its antecedent; negation-first close of the signal paragraph replaced; Dynel
+cited; the monitor figure's clipped third title line removed and its axis relabeled
+"safe-completions flagged"; caption glosses for the positive class and the
+clustering unit. Loop 2 (2 fixes): the meta-sentence opening "One limit" cut;
+"runtime monitor" → "standalone monitor" in the figure. Loop 3 (1 fix, held for
+Andrew): the reviewer reads the closing sentence ("The states are what the title
+calls them: unresolved. For now, so is the question ...") as wordplay out of register
+beside the self-harm case; it is the paper's ending and predates the rewrite, so it
+stands pending Andrew's ruling. Two clarifications applied (the two worlds named;
+"layers 3 to 18, the two middle bands"). Metrics: 16 words per sentence, 2% over 35,
+1.0 numbers per paragraph, no dashes.
+
+### Results 3.4–3.7 — second loops applied
+3.4–3.5 loop 2 (8 fixes): the per-layer figure's legend still carried "fr" and "k in
+6,12", now words; the matched-composition axis label no longer says a magnitude is
+signed; the matched-composition paragraph split so the fiction/real categories get
+their own paragraph; the definition sentence split; the repetition-loop count moved
+out of the "behavior tracks the reading" paragraph; the 0-of-96 count stated once;
+the side-band rates given one per sentence; the carriers back-referenced to §2.3.
+3.6–3.7 loop 2 (10 fixes, one declined): "reserved question" → "open question"; the
+fiction/real loop area left to Table 5; the misspecified-null history compressed to
+one sentence; "single-γ account" → "the one-parameter integrator"; the three
+per-state ratios given one per sentence; the held-out retention stated per task from
+the record (tank 71–76%, fiction/real 87–90%) in place of my derived fold means; the
+marker figure's error bars named; "no bistability to fall into" made plain. Declined:
+moving the marker's 25% and 38% out of prose, since the section's argument turns on
+that value. Table 5's γ column awaits the sanity script's per-order output to label
+which value belongs to which block order.
+Table 5's γ column is now labeled by block order from the committed sanity script's
+cross-order output (fit on destination-first: tank 0.910, fiction/real 0.900; fit on
+destination-last: 0.970, 0.840). The record listed the fiction/real pair as
+"0.84/0.90", the reverse order of the tank pair; the table now orders both rows the
+same way. No value changed.
+
+### Results 3.3 — closed after three review loops
+Loop 1 (14 fixes): scope sentences moved after the real-run result; calibration
+counts in Table 4's units; a classifiable column; "noise level" replaced with the
+count of indeterminate runs; "jump" and the 456 count defined from the committed code
+(largest step carrying more than half the net change; 19 stepped sentences per run
+across 24 runs); "state-dependent" coined properly; the within-stream paragraph's
+opening and its "not merely" close replaced; the gallery caption's three-model
+provenance stated with its tallies; axis labels added to the model-classes and
+within-stream figures. The "0–2%" step-truth figure from the four-model calibration
+was replaced with the five-model count Table 4 carries (3 of 48 called hybrid);
+Andrew to ratify. Loop 2 (5 fixes): "classifiable" defined at first use; the
+denominators bridged; the calibration prose reduced to the two values the argument
+turns on; the "same evidence strength" sentence restored in plain form; "sentences
+that follow a step" disambiguated. Loop 3 (5 fixes, one declined): the five-ratio
+sentence cut to the calibration fact; "drift plus jump" → "the hybrid" for the model;
+why 19 of 20 post-shift sentences enter the jump test; a semicolon split. Declined:
+removing the scene-family numbers from the gallery panels, since they identify the
+experimental units and the caption now says how they are numbered. Density flag:
+calibration counts; justified.

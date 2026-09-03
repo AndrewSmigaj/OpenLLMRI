@@ -116,6 +116,7 @@ for ax, (probe, c) in zip(axes, CFG.items()):
                label=f"positive control: calibration states ({report[probe]['calibration_ctrl']:.1f}×)")
     task_name = {"tank_L4": "Tank task, layer 4", "fr_L14": "Fiction/real task, layer 14"}.get(probe, probe)
     ax.set_title(task_name, fontsize=10, color=INK)
+    ax.set_ylabel("density of states", fontsize=8.5, color=INK)
     ax.set_xlabel("distance to the bundle (3-nearest-neighbor distance / null median)", fontsize=8.5, color=MUT)
     ax.set_facecolor(SURFACE); ax.legend(fontsize=7.5)
     for s in ("top", "right"): ax.spines[s].set_visible(False)

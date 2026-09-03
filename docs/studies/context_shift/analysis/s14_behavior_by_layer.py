@@ -62,15 +62,16 @@ BLUE, ORANGE, INK, MUT, SURFACE = "#2a78d6", "#eb6834", "#222222", "#8a8a86", "#
 fig, axes = plt.subplots(1, 2, figsize=(12.5, 4.4), facecolor=SURFACE, sharey=True)
 x = np.arange(24)
 for (a, lo, hi, n, npos), color, lab in [(fr["all transition cells"], ORANGE,
-        f"fr: reading vs safety-response (n={fr['all transition cells'][3]})")]:
+        f"fiction/real: reading vs response type (n = {fr['all transition cells'][3]})")]:
     axes[0].fill_between(x, lo, hi, color=color, alpha=0.15)
     axes[0].plot(x, a, color=color, lw=2, label=lab)
 axes[0].axvline(14, color=INK, lw=0.8, ls=":"); axes[0].text(14.2, 0.97, "layer 14 (calibrated site)", fontsize=8, color=INK)
 axes[0].set_title("Fiction/real task: per-layer reading against response type", fontsize=10, color=INK)
+KEYNAME = {"mid-transition (k in 6,12)": "mid-transition (after 6 or 12 post-shift sentences)", "all transition cells": "all transition cells"}
 for key, color in [("mid-transition (k in 6,12)", BLUE), ("all transition cells", MUT)]:
     a, lo, hi, n, npos = tank[key]
     axes[1].fill_between(x, lo, hi, color=color, alpha=0.13)
-    axes[1].plot(x, a, color=color, lw=2, label=f"|reading|, decided vs hedged: {key} (n = {n})")
+    axes[1].plot(x, a, color=color, lw=2, label=f"|reading|, decided vs hedged: {KEYNAME[key]} (n = {n})")
 axes[1].axvline(4, color=INK, lw=0.8, ls=":"); axes[1].text(4.2, 0.97, "layer 4 (calibrated site)", fontsize=8, color=INK)
 axes[1].set_title("Tank task: per-layer |reading| against decided vs hedged answers", fontsize=10, color=INK)
 for ax in axes:

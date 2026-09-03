@@ -50,7 +50,7 @@ ax.scatter([fp/(~y).sum()], [tp/y.sum()], color=ORANGE, s=50, zorder=5,
            label=f"reading below {thr}: recall {tp/y.sum():.2f}, FPR {fp/(~y).sum():.2f}")
 ax.set_xlabel("false-positive rate (safe-completions flagged)", fontsize=9, color=MUT)
 ax.set_ylabel("true-positive rate (fiction-frame responses caught)", fontsize=9, color=INK)
-ax.set_title("The frame reading as a runtime monitor:\npredicting fiction-framed responses to the request", fontsize=9.5, color=INK)
+ax.set_title("The frame reading as a standalone monitor:\npredicting fiction-framed responses to the request", fontsize=9.5, color=INK)
 ax.legend(fontsize=8, loc="lower right")
 ax.set_facecolor(SURFACE)
 for s in ("top", "right"): ax.spines[s].set_visible(False)

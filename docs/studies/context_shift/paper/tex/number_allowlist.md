@@ -29,3 +29,9 @@ can be re-run or opened.
 | 0.88, 0.73 | layer-0 held-out accuracy of the per-layer accumulated-context axes (tank; fiction/real) | FINDINGS_AND_ANALYSIS_v2 Gen 3 |
 | 34, 27, 30 | classifiable synthetic runs (48 minus indeterminate) in Table 4 | arithmetic on the s9_figures.py counts |
 | 19 | stepped post-shift sentences per tank run (456 / 24) | `analysis/second_pass_r4_small.py` (consecutive differences over positions 2–20) |
+| [−0.20, +0.21], 0.907, 0.530, +1.66, [−1.42, +1.31] | label-shuffle audit values (minimal-pair permutation band; scene-held-out accuracy real vs permuted; remnant gap real vs permutation band) | `findings/qa_bughunt_report_2026-08-31.md`, row C4 |
+| 23 | analysis scripts covered by the regeneration diff | `findings/qa_bughunt_report_2026-08-31.md` / Appendix B spec ("23-script diff green") |
+| 3, 204 | fiction/real completions categorized "mixed", out of all completions in the behavior worksheet | `analysis/r6_behavior_worksheet_fr_categorized.csv` (category counts) |
+| .061, .045 | per-count matched-composition tests at 6 and 12 post-shift sentences (tank) | `analysis/s9_figures.py` panel title (committed) |
+| 73%, 89% | marker magnitude retained under held-out direction estimation, per task (13.3/18.1; 154.6/174.5) | `analysis/s9_figures.py` panel-3 constants; range over folds 71–90% in FINDINGS_FINAL |
+| 76, 87 | held-out direction estimation per task: tank 71–76%, fiction/real 87–90% | FINDINGS_FINAL (the marker paragraph) |

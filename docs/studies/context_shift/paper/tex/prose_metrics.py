@@ -39,6 +39,7 @@ ABBREV = ("e.g.", "i.e.", "vs.", "cf.", "et al.", "Fig.", "Figs.", "approx.", "n
 
 def paragraphs(text):
     text = re.sub(r"<!--.*?-->", "", text, flags=re.S)
+    text = re.sub(r"\[CITE[^\]]*\]", "", text)  # citation placeholders
     out = []
     for block in re.split(r"\n\s*\n", text):
         lines = [l.strip() for l in block.strip().splitlines() if l.strip()]
