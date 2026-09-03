@@ -294,31 +294,35 @@ and 20 post-shift sentences. All behavioral claims in this subsection are
 correlational. For analysis we partition readings into three bands, the origin side,
 the middle, and the destination side (Fig. fig_r6_behavior_bands).
 
-Behavior tracks the reading. Completions on the origin side answer with the origin sense in 56% of cases. Those
+In the tank task, behavior tracks the reading. Completions on the origin side answer
+with the origin sense in 56% of cases. Those
 on the destination side answer with the destination sense in 66%. The middle band answers "both",
-listing the two senses, in 45% of its completions, roughly double either side. Zero of the 96 tank responses ask which sense is meant or decline to answer pending
-disambiguation, by regular-expression scan and manual review of the committed
-categorization table. In the unresolved zone the model either lists both senses (45%) or silently
-commits to one (52% of middle-band completions). It answers as if resolved.
+listing the two senses, in 45% of its completions, roughly double either side. Zero of the 96 transition-run tank responses ask which sense is meant or decline to
+answer pending disambiguation, by regular-expression scan and manual review of the
+committed categorization table. In the unresolved zone the model either lists both
+senses or silently commits to one (52% of middle-band completions). It answers as if
+resolved.
 
 One further response class appears in the tank task. Eleven completions are
 degenerate repetition loops, unrelated to the reading band. They occur among the
-tank task's 108 completions: 96 from transition runs and 12 from no-shift runs.
+tank task's 108 completions, the 96 from transition runs plus 12 from no-shift runs,
+and they are the "no answer" category of Fig. fig_r6_behavior_bands. None of them is
+a request for clarification.
 
 Does the reading carry information beyond the context composition that drives both
 reading and behavior? We test this at matched composition, comparing completions
 generated after the same number of post-shift sentences (Fig.
 fig_s9_behavior_matchedk). Mid-transition, yes. Pooling the completions at 6 and 12
 post-shift sentences, decided answers come from runs with more extreme readings, with
-a median absolute reading of 0.72 against 0.38 (one-sided p = 0.0138). This pooling
-was chosen after the per-depth pattern was seen, so we grade the result suggestive.
+a median absolute reading of 0.72 against 0.38 (one-sided p = 0.0138). This pooling was chosen after the per-count pattern was seen, so we grade the
+result suggestive.
 At the settled extremes, no.
 
 In the fiction/real task we categorize each completion as fiction-framed assistance
 or a safe-completion. Fiction-framed assistance takes up the fictional frame and
 helps with the letter. A safe-completion addresses the request as a risk, declining
-the letter or redirecting to support. Three of the 204 completions mix the two, all on the real side; the rates
-below count them as neither. The reading separates the two types at 2 post-shift
+the letter or redirecting to support. Three of the 204 completions mix the two, all on the real side. The rates below
+count them as neither. The reading separates the two types at 2 post-shift
 sentences, where the medians are −0.06 and +1.13 (p = 0.010). That is one of four
 post-shift counts tested. Later the
 reading does not separate them, and response type follows the scene family.
@@ -348,9 +352,8 @@ The open question was whether any of that order dependence exceeds what recency
 weighting alone produces. We call any such excess *stickiness*. There is none. A
 one-parameter recency integrator fitted to the sweep cells reproduces the loop areas
 almost exactly, and the excess is indistinguishable from zero in both tasks (Table 5).
-Cross-order validation, fitting one branch and predicting the other, preserves the
-verdict. A null with γ imported from the transition fits, rather than fitted to the sweep
-cells, shows apparent stickiness, and the fitted null supersedes it (Appendix A).
+Cross-order validation preserves the verdict: fitting one branch predicts the other. A null that imports γ from the transition fits instead of fitting it to the sweep
+cells shows apparent stickiness. The fitted null supersedes it (Appendix A).
 What remains beyond the one-parameter integrator is mild. The two sweep
 directions prefer slightly different recency weights, echoing the directional
 asymmetry of §3.2.
@@ -382,12 +385,13 @@ a reference, a measure, and a noise level, so we fix all three. The reference is
 transition bundle, the pooled set of transition-run states across all runs. The
 measures are the distance to the nearest neighbors in the reference and the
 out-of-subspace reconstruction error against the no-shift principal-component
-subspace. The noise level is the held-out self-distance of the reference itself.
+subspace. The noise level, which we call the null, is the held-out self-distance of the
+reference itself.
 Throughout this section, paired values are for the tank and fiction/real tasks in
-that order. The instruments detect real displacement. Single-sentence calibration states, a
-genuinely different context regime that serves as a positive control, read 1.7 to
-2.2 times the null across the two instruments. Position-mismatched states are
-flagged at 13% to 44%.
+that order. The instruments detect real displacement. Single-sentence calibration states read 1.7 to 2.2 times the null across the two
+instruments. They are a genuinely different context regime and serve as a positive
+control. No-shift states compared against the reference of a different position,
+which we call position-mismatched, are flagged as displaced in 13% to 44% of cases.
 
 At the level of individual states, nothing leaves the reference distribution. Jump steps read 1.06 and 1.12 times the null (Fig. fig_r5_geometry). The dwelling
 states read 0.96 times. All three sit inside the null's spread. Our pre-registered
@@ -405,8 +409,8 @@ the direction that carries it the **mixed-context marker**.
 Three checks say what the marker is not (Table 6). It is not class leakage: the
 direction is orthogonal to the single-sentence class axis and, by construction and by
 measurement, to the accumulated-context class axis. It survives held-out direction estimation, in which the direction is estimated on
-half the families and the magnitude measured on the other half: it retains 71% to 76%
-of its in-sample magnitude in the tank task and 87% to 90% in fiction/real. And it is not family
+half the families and the magnitude measured on the other half. It retains 71% to
+76% of its in-sample magnitude in the tank task and 87% to 90% in fiction/real. And it is not family
 novelty. If the marker merely reflected unfamiliar scene families, pure-class cells
 from families outside the reference construction should sit higher on it than cells
 from familiar families. They sit lower, and both sit far below mixed cells.
@@ -425,13 +429,12 @@ separation; the cosine rows measure the marker direction against the two class a
 | Pure-class cells from familiar families | +6.7% | +6.0% |
 | Mixed cells | ≈ +27% | ≈ +27% |
 
-What is it? Held-out mixture cells locate what elevates it. The marker is absent from
-pure-class contexts and near its full transition strength in static mixed contexts,
-so it marks mixed context, not temporal shifting as such. One qualification: in the
+What is it? Held-out mixture cells locate what elevates it. The marker is absent from pure-class contexts. In static mixed contexts it is near
+its full transition strength in the tank task and about 70% of it in fiction/real
+(Table 6), so it marks mixed context, not temporal shifting as such. One qualification: in the
 fiction/real task it halves when the mixture is interleaved rather than blocked, so
-there, part of what elevates it is the coherent, blocked structure of the shift. It
-did not predict behavior in eight matched-composition tests at the calibrated site
-and layer, with one nominal hit, uncorrected; other layers are untested. The model,
+there, part of what elevates it is the coherent, blocked structure of the shift. It did not predict behavior in eight matched-composition tests at the calibrated
+site and layer, with one nominal hit, uncorrected. Other layers are untested. The model,
 in other words, carries a persistent, systematic signal that its context is mixed: a
 direction on which pure contexts sit near zero and mixed contexts near 27% of the
 class separation. Its behavior does not appear to use it. Whether this signal is

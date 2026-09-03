@@ -8,8 +8,8 @@ mixture-of-experts model, with deterministic decoding. Each dynamics claim is ma
 one calibrated site and layer per task. Those sites are single rows of a depth progression in which crossing times vary
 systematically across layers (§3.2). No single layer
 is a sufficient readout of the model's state, and behavior is produced downstream of
-all of them. Within the study, replication is internal. Its scope, the task contrasts, carriers,
-sites, and scene families, is set out in §2.3.
+all of them. Within the study, replication is internal. Its scope is set out in §2.3: the task contrasts, carriers, sites, and scene
+families.
 
 **What did not replicate cleanly.** The real→fictional remnant is suggestive only
 once reference uncertainty is propagated. The ' letter'-site asymmetry rests on four

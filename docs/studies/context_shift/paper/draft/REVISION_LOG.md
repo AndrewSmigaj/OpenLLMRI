@@ -873,3 +873,25 @@ why 19 of 20 post-shift sentences enter the jump test; a semicolon split. Declin
 removing the scene-family numbers from the gallery panels, since they identify the
 experimental units and the caption now says how they are numbered. Density flag:
 calibration counts; justified.
+
+### Results 3.4–3.5 — closed after three review loops
+Loop 3 (6 fixes): the paragraph names the tank task first; the "no answer" category
+of the behavior figure identified as the eleven degenerate repetition loops, none a
+request for clarification; the 96 stated as transition-run responses before the 108
+total appears; "per-depth" → "per-count"; a semicolon split; "share of completions"
+added as the figure's axis label. Density flag on 3.5 (behavior rates); justified.
+
+### Results 3.6–3.7 and back matter — closed after three review loops
+3.6–3.7 loop 3 (7 fixes, one declined): three subject-verb insertions moved out;
+"the null" named as the noise level; "position-mismatched" defined; the held-out
+sentence split; the marker's static-mixture strength stated per task (near full in
+tank, about 70% in fiction/real, from Table 6); a semicolon split. Declined: the
+reviewer read Table 5's fiction/real γ order as a transposition; the committed sanity
+script's cross-order output confirms the table (destination-first 0.90,
+destination-last 0.84), and the inventory was corrected instead. Back matter loop 3
+(6 fixes): the replication scope sentence reordered; the citation appositive made a
+sentence; the regeneration sentence split in three; the per-layer association called
+exploratory; Table 7's columns renamed "Unshuffled"/"Shuffled" and its rows labeled by
+task. Every section now has three reviewer loops recorded except the Abstract and
+Intro (three each, earlier) and Methods (three); Step 3, the whole-paper coherence
+review, is running.

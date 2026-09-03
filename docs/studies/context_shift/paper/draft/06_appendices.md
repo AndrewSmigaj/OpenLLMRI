@@ -54,7 +54,7 @@ claim is measured against a matched no-shift reference at the same position.
 **Human sentence processing.** The good-enough tradition documents that
 comprehenders retain components of an initial misreading after recovering from a
 garden path [CITE: Christianson & Ferreira; Slattery et al.; van Schijndel &
-Linzen], the parallel drawn in §4. Dynel's taxonomy of conversational humor supplies
+Linzen]. This is the parallel drawn in §4. Dynel's taxonomy of conversational humor supplies
 the garden-path and pun distinction of §1 and §4 [CITE: Dynel].
 
 **Metastability in neural dynamics.** Coordination dynamics and the
@@ -95,9 +95,8 @@ the repository.
 ## Appendix B — Quality assurance and reproducibility
 
 **Regeneration.** A full regeneration audit re-ran every committed analysis script
-over the frozen captures and reproduced every reported value. The calibration axes
-regenerated bit-identically, the seeded bootstraps exactly, and the diff over all 23
-scripts was clean.
+over the frozen captures and reproduced every reported value. The calibration axes regenerated bit-identically. The seeded bootstraps regenerated
+exactly. The diff over all 23 scripts was clean.
 
 **Fixtures.** A permanent fixture suite pushes synthetic data with analytically known
 answers through the actual pipeline functions. Nine of nine fixtures recover their
@@ -111,10 +110,12 @@ target token for every carrier. Join audits confirmed that calibration items are
 drawn from the same pools as the context sentences and that held-out folds separate
 by construction. Family-level label shuffles kill every effect they are run on (Table 7).
 
-**Table 7.** Label-shuffle audits. Each effect is recomputed with the class labels shuffled at the scene-family level.
-The shuffled column gives the permutation band or mean.
+**Table 7.** Label-shuffle audits. Each effect is recomputed with the class labels
+shuffled at the scene-family level. The shuffled column gives the permutation band
+or mean. The minimal-pair row is the fiction/real task; the remnant-gap row is the
+tank task, averaged over its two directions.
 
-| Effect | Real | Labels shuffled |
+| Effect | Unshuffled | Shuffled |
 |---|---|---|
 | Minimal-pair shift (axis units) | +0.99 | band [−0.20, +0.21] |
 | Scene-held-out accuracy | 0.907 | 0.530 |
@@ -126,7 +127,7 @@ captures through the committed cache, and each is noted as a post-freeze additio
 where it appears: the tank response counts of §3.5 (zero of 96
 completions ask which sense is meant); the monitor ROC of §4 (AUC 0.61 [0.43,
 0.76]); the per-layer collapse panels of §3.2 (Fig. fig_s13_collapse_layers and
-Table 3); and the per-layer behavior association of §3.5 (Fig.
+Table 3); and the exploratory per-layer behavior association of §3.5 (Fig.
 fig_s14_behavior_by_layer).
 
 **Names used in the repository.** Readers of the repository will meet different

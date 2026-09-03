@@ -38,6 +38,7 @@ for ax, probe, order, colors, ttl in (
     shown = {"origin side": "origin side", "mid band": "middle band", "dest side": "destination side"}
     ax.set_xticklabels([f"{shown[b]}\n(n = {ns.get(b, 0)})" for b in ["origin side", "mid band", "dest side"]], fontsize=8.5)
     ax.set_ylim(0, 1.0); ax.set_title(ttl, fontsize=9.5, color=INK)
+    ax.set_ylabel("share of completions", fontsize=9, color=INK)
     ax.legend(fontsize=7.5, loc="lower right", framealpha=0.95)
     ax.set_facecolor(SURFACE)
     for s in ("top", "right"): ax.spines[s].set_visible(False)

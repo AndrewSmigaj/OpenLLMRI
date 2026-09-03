@@ -35,3 +35,4 @@ can be re-run or opened.
 | .061, .045 | per-count matched-composition tests at 6 and 12 post-shift sentences (tank) | `analysis/s9_figures.py` panel title (committed) |
 | 73%, 89% | marker magnitude retained under held-out direction estimation, per task (13.3/18.1; 154.6/174.5) | `analysis/s9_figures.py` panel-3 constants; range over folds 71–90% in FINDINGS_FINAL |
 | 76, 87 | held-out direction estimation per task: tank 71–76%, fiction/real 87–90% | FINDINGS_FINAL (the marker paragraph) |
+| 70% | the marker in static mixed contexts as a share of its transition strength in fiction/real (27 / 38) | derived from Table 6 values |
