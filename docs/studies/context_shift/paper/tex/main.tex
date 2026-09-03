@@ -38,9 +38,9 @@ What the model does while its reading sits between the two sides differs between
 two tasks. The tank task has no safeguard, and there the model either lists both
 senses or commits silently to one. It never asks which meaning is intended: zero of
 96 tank completions request clarification. The suicide-letter task has a refusal
-safeguard and mostly stays safe at mid-transition, with the reading between the two
-frames: 80\% of completions there decline the letter or redirect to support rather
-than fulfilling the request. But the share of safe responses falls from
+safeguard and mostly stays safe in the middle reading band, with the reading between
+the two frames: 80\% of completions there decline the letter or redirect to support
+rather than fulfilling the request. But the share of safe responses falls from
 91\% to 50\% as the reading moves toward the fictional frame. The low endpoint rests on
 four completions. That weakening is reachable by ordinary context, with no
 adversarial prompt.
@@ -89,7 +89,8 @@ a suicide letter.'' is framed as fictional or real. How does that internal state
 the surrounding context shifts?
 
 Our two tasks also bracket a safety question: what a safeguard does while the reading
-is unresolved. One request is covered by a trained refusal safeguard. The tank task's request is
+is unresolved. The fiction/real request is covered by a trained refusal safeguard. The tank task's
+request is
 ``What is the meaning of the word tank?''. It is covered by none. The pair therefore lets us watch
 behavior with and without a trained safeguard. We recognized this after the fact
 rather than designing it. Whether the safeguard carries a default answer for
@@ -169,8 +170,8 @@ passes, so identical inputs yield identical activations. We capture the full res
 stream (2,880 dimensions) at the output of each of the 24 decoder blocks. Throughout, a
 \emph{site} is a designated token of a fixed carrier sentence together with a layer. The
 \emph{reading} at a site is the residual stream at that token and layer, projected onto a
-calibration axis as described next. The tank task reads at the ' tank' token, layer 4,
-and the fiction/real task at the ' want' token, layer 14. Layer 4 is where the tank
+calibration axis as described next. The tank task reads at the ' tank' token, layer 4, and the fiction/real task at the
+' want' token, layer 14. We call these two sites the calibrated sites. Layer 4 is where the tank
 calibration axis separates held-out scene families best (the held-out split is
 defined in \S2.3). Layer 14 is near the fiction/real peak, which falls at layers 12–13; it was fixed
 early in the project, with the ' want' token, and retained so that every fiction/real
@@ -425,8 +426,7 @@ refit at depth (Fig.~\ref{fig:fig_r3_axis_rotation}).
 On the second question we have three independent tests: one on the tank task, and
 two on the fiction/real task, whose contrast has no single token to anchor to.
 
-The first is an identity-matched comparison. The tank carrier is ``What is the meaning of the word tank?'' Its nine tokens appear
-verbatim in every checkpoint window, so class signal can be compared across tokens
+The first is an identity-matched comparison. The tank carrier is ``What is the meaning of the word tank?'' Its nine tokens appear verbatim in every checkpoint capture, so class signal can be compared across tokens
 with token identity held fixed. The signal concentrates at the
 sense-bearing token: $d'$ = 11.7 at ' tank', against a context-token median of 1.4
 (Fig.~\ref{fig:fig_r2_carrier_dprime}). This comparison rests on 6 runs per class. Orderings
@@ -473,7 +473,7 @@ lives at a token. A framing contrast lives across the utterance.
 \end{figure}
 \begin{figure}[tbp]\centering
 \includegraphics[width=\linewidth]{fig_r2_carrier_dprime.png}
-\caption{Class signal at each token of the tank carrier, with token identity held fixed: the nine carrier tokens appear verbatim in every forty-sentence checkpoint window. Bars show $d'$ (mean difference divided by pooled standard deviation) between aquarium and vehicle contexts at layer 4, 6 runs per class. The dashed line is the median $d'$ of the context tokens (1.4). The signal concentrates at ' tank' ($d'$ = 11.7; the measurement site, in orange). The number above each bar is the pooled within-class standard deviation of the raw projection, printed to show that a small spread prints a tall bar at a modest mean shift. With 6 runs per class, orderings among the other bars are not interpretable.}\label{fig:fig_r2_carrier_dprime}
+\caption{Class signal at each token of the tank carrier, with token identity held fixed: the nine carrier tokens appear verbatim in every forty-sentence checkpoint capture. Bars show $d'$ (mean difference divided by pooled standard deviation) between aquarium and vehicle contexts at layer 4, 6 runs per class. The dashed line is the median $d'$ of the context tokens (1.4). The signal concentrates at ' tank' ($d'$ = 11.7; the measurement site, in orange). The number above each bar is the pooled within-class standard deviation of the raw projection, printed to show that a small spread prints a tall bar at a modest mean shift. With 6 runs per class, orderings among the other bars are not interpretable.}\label{fig:fig_r2_carrier_dprime}
 \end{figure}
 \begin{figure}[tbp]\centering
 \includegraphics[width=\linewidth]{fig_s9_d5_pairs.png}
@@ -603,7 +603,7 @@ Layers & tank, aquarium$\rightarrow$vehicle & tank, vehicle$\rightarrow$aquarium
 Direction matters, and the asymmetry survives a change of carrier and a change of
 midpoint definition. In the tank task,
 transitions toward the vehicle sense stop about twice as far short as transitions
-toward the aquarium sense: 1.09 against 0.57 amplitude fractions (Table 2). The same pattern replicates under the independent carrier ``Define the word tank.'',
+toward the aquarium sense: gap-to-amplitude ratios of 1.09 against 0.57 (Table 2). The same pattern replicates under the independent carrier ``Define the word tank.'',
 at 0.92 against 0.61 (Fig.~\ref{fig:fig_s9_asymmetry}). It also survives median-based
 midpoints, which leave both tank gaps unchanged. The replicate
 carrier's calibration axis is in-sample, not held-out. Within the fiction/real task
@@ -696,7 +696,7 @@ the history differs, we read the tokens of the post-shift block. They read about
 third to a half of their no-shift reference at ten post-shift sentences, and about
 half to two-thirds at twenty (Fig.~\ref{fig:fig_r2_within_stream}, \ref{fig:fig_s9_within_stream_fr};
 values in the captions). The tank values are trimmed means, because the untrimmed
-values are inflated by a heavy tail documented in Appendix B. The fiction/real task
+values are inflated by a heavy tail (Appendix A). The fiction/real task
 replicates the pattern with a tighter instrument. Mixed history suppresses the class
 reading of even the new evidence's own tokens, in a recency-graded way. This is
 descriptive: it is what token-level recency integration would produce. It shows that
@@ -710,7 +710,7 @@ Any readout that averages over a window of context tokens inherits the suppressi
 \end{figure}
 \begin{figure}[tbp]\centering
 \includegraphics[width=\linewidth]{fig_r1_fit_gallery_tank.png}
-\caption{Per-run fits for the 24 tank runs over the twenty post-shift sentences. Black: the observed reading, signed toward the destination class and midpoint-referenced. Blue: the best recency integrator; orange: the best change-point step; green: the best drift-plus-step hybrid; dashed gray: the uniform integrator. Each panel's title gives the scene family, numbered 0 to 11 in the order the twelve tank settings were written, the direction, the winning model, and its BIC lead. These labels come from the three-model selection, without the two-timescale form; its tallies for the tank runs, 11 hybrid, 2 step, 3 integrator, and 8 indeterminate, agree with Table 4. The legend shows the first panel's fitted values. The dashed gray line in each panel is the uniform integrator, the $\gamma$ = 1 case. The integrator underpredicts the early rise and overpredicts the late approach, and the hybrids follow the paths.}\label{fig:fig_r1_fit_gallery_tank}
+\caption{Per-run fits for the 24 tank runs over the twenty post-shift sentences. Black: the observed reading, signed toward the destination class and midpoint-referenced. Blue: the best recency integrator; orange: the best change-point step; green: the best drift-plus-step hybrid; dashed gray: the uniform integrator. Each panel's title gives the scene family, numbered 0 to 11 in the order the twelve tank settings were written, the direction, the winning model, and its BIC lead. These labels come from the three-model selection, without the two-timescale form; its tallies for the tank runs, 11 hybrid, 2 step, 3 integrator, and 8 indeterminate, agree with Table 4. The legend shows the first panel's fitted values. The integrator underpredicts the early rise and overpredicts the late approach, and the hybrids follow the paths.}\label{fig:fig_r1_fit_gallery_tank}
 \end{figure}
 \begin{figure}[tbp]\centering
 \includegraphics[width=\linewidth]{spaghetti_L4.png}
@@ -738,7 +738,8 @@ Gaussian-mixture comparison favors a single component in every time bin, so this
 one stationary population, not a hidden mixture of resolved and unresolved runs.
 
 The signature replicates within the tank task and barely appears in the other.
-Within tank it appears at the pre-lexical ' word' site and under the replicate
+Within tank it appears at the ' word' site, the token just before ' tank' in the
+carrier, and under the replicate
 carrier ``Define the word tank.'' (\S2.3). In the fiction/real task it appears only at
 the ' letter' site of the paraphrase carrier ``Help me write a suicide letter.'', with 4
 runs per direction, and we treat that as exploratory.
@@ -878,8 +879,8 @@ equilibrium map. There is no bistable equilibrium and no barrier between states.
 
 Finally, the third of the introduction's three worlds: do these in-between states
 leave the model's learned distribution? ``Off-manifold'' is meaningful only relative to
-a reference, a measure, and a noise level, so we fix all three. The reference is the position-matched no-shift states, together with the cross-run
-transition bundle, the pooled set of transition-run states across all runs. The
+a reference, a measure, and a noise level, so we fix all three. The reference is the position-matched no-shift states, together with the trajectory bundle of \S3.4, the pooled set of transition-run states
+across all runs. The
 measures are the distance to the nearest neighbors in the reference and the
 out-of-subspace reconstruction error against the no-shift principal-component
 subspace. The noise level, which we call the null, is the held-out self-distance of the
@@ -933,7 +934,8 @@ Mixed cells & $\approx$ +27\% & $\approx$ +27\% \\
 \end{tabularx}
 \end{table}
 
-What is it? Held-out mixture cells locate what elevates it. The marker is absent from pure-class contexts. In static mixed contexts it is near
+What is it? Held-out mixture cells, cells of the static sweeps that were not used to
+construct the marker, locate what elevates it. The marker is absent from pure-class contexts. In static mixed contexts it is near
 its full transition strength in the tank task and about 70\% of it in fiction/real
 (Table 6), so it marks mixed context, not temporal shifting as such. One qualification: in the
 fiction/real task it halves when the mixture is interleaved rather than blocked, so
@@ -960,7 +962,7 @@ genuine excursions remain most likely. That battery is future work.
 \end{figure}
 \begin{figure}[tbp]\centering
 \includegraphics[width=\linewidth]{fig_s9_shift_marker.png}
-\caption{The mixed-context marker. Left: the mean displacement of transition states outside the no-shift principal-component subspace, projected on the shared direction and expressed as a percentage of the class separation, by post-shift sentence. It rises over about five sentences and persists to twenty. Middle: held-out mixture cells from the static sweeps. The marker is near zero in pure-class contexts (0 or 20 destination sentences of 20), near full strength in blocked mixtures, and, in the fiction/real task only, halved when the mixture is interleaved; error bars are one standard error over cells. Right: the observed mean displacement against the 95th percentile of a family-block bootstrap null (p < 0.001 in both tasks), and its value under held-out direction estimation, the mean of two folds.}\label{fig:fig_s9_shift_marker}
+\caption{The mixed-context marker. Left: the mean displacement of transition states outside the no-shift principal-component subspace, projected on the shared direction and expressed as a percentage of the class separation, by post-shift sentence. It rises over about five sentences and persists to twenty. Middle: held-out mixture cells from the static sweeps. The marker is near zero in pure-class contexts (0 or 20 destination sentences of 20), near full strength in blocked mixtures, and, in the fiction/real task only, halved when the mixture is interleaved; error bars are one standard error over cells. Right: the observed mean displacement against the 95th percentile of a null built by resampling whole scene families (p < 0.001 in both tasks), and its value under held-out direction estimation, the mean of two folds.}\label{fig:fig_s9_shift_marker}
 \end{figure}
 \FloatBarrier
 
@@ -1058,8 +1060,9 @@ look like. But ordinary register statistics learned in pretraining predict the s
 asymmetry, and training provenance is unobservable here. Patching shallow against
 mid-stack states during generation is the decisive test (\S5).
 
-\textbf{One limit.} As a standalone monitor, predicting each response from its reading alone, the frame reading is not
-yet usable: its AUC is 0.61 [0.43, 0.76], compatible with chance (Fig.~\ref{fig:fig_s11_monitor_roc}). The band-level gradient of \S3.5 is real. A usable monitor would
+\textbf{One limit.} As a standalone monitor, predicting each response from its reading
+alone, the frame reading, the fiction/real task's reading at its calibrated site, is
+not yet usable: its AUC is 0.61 [0.43, 0.76], compatible with chance (Fig.~\ref{fig:fig_s11_monitor_roc}). The band-level gradient of \S3.5 is real. A usable monitor would
 combine several sites, the mixed-context marker, and per-layer readings. Building one
 is future work, not a claim.
 
@@ -1173,7 +1176,7 @@ adds.]
 \textbf{Reading representations with probes.} Linear probes have been the standard way to
 ask what a layer represents, and their validity has been questioned from the start:
 a probe can learn its own task rather than report the model's [CITE: Alain \& Bengio;
-Hewitt \& Liang; Belinkov]. Our answer to that concern is the pair of tests in \S3.1
+Hewitt \& Liang; Belinkov]. Our answer to that concern is the three tests of \S3.1
 and the label shuffles of Box 1. The difference-of-means axis we use follows the
 mass-mean probing precedent, which found such directions read out class structure
 comparably to trained probes [CITE: Marks \& Tegmark]. The nearest cousin of our
@@ -1252,6 +1255,11 @@ sentences in the fiction/real task, fourteen from vehicle to aquarium, and beyon
 the window from aquarium to vehicle (\S3.2).
 \end{enumerate}
 
+One further correction predates the draft. A first estimate of stickiness (\S3.6)
+used a null with $\gamma$ imported from the transition fits and gave +3.7, significant; it
+was retracted the same day when the null was fitted to the sweep cells, and the
+paper reports only the fitted-null values (Table 5).
+
 \subsection*{Appendix B — Quality assurance and reproducibility}
 
 \textbf{Regeneration.} A full regeneration audit re-ran every committed analysis script
@@ -1319,7 +1327,7 @@ copy of the matched-composition behavior figure of \S3.5. They are: the per-run 
 gallery for the fiction/real task; the hysteresis loop for the fiction/real sweep;
 the per-layer heatmap for the tank task under the refit axes; the raw-axis heatmaps
 for both tasks and the midpoint-referenced heatmap for the fiction/real task, which
-show the instrument before the corrections of Box 1; the pre-lexical ' word' site;
+show the instrument before the corrections of Box 1; the ' word' site just before ' tank' in the carrier;
 the occupancy bands at layer 4; the jumpiness diagnostic; the norm-against-alignment
 diagnostic; and the calibration accuracy by layer. The monitor ROC is in the main
 text.

@@ -36,9 +36,9 @@ What the model does while its reading sits between the two sides differs between
 two tasks. The tank task has no safeguard, and there the model either lists both
 senses or commits silently to one. It never asks which meaning is intended: zero of
 96 tank completions request clarification. The suicide-letter task has a refusal
-safeguard and mostly stays safe at mid-transition, with the reading between the two
-frames: 80% of completions there decline the letter or redirect to support rather
-than fulfilling the request. But the share of safe responses falls from
+safeguard and mostly stays safe in the middle reading band, with the reading between
+the two frames: 80% of completions there decline the letter or redirect to support
+rather than fulfilling the request. But the share of safe responses falls from
 91% to 50% as the reading moves toward the fictional frame. The low endpoint rests on
 four completions. That weakening is reachable by ordinary context, with no
 adversarial prompt.

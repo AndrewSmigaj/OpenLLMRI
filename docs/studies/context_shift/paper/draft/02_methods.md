@@ -17,8 +17,8 @@ passes, so identical inputs yield identical activations. We capture the full res
 stream (2,880 dimensions) at the output of each of the 24 decoder blocks. Throughout, a
 *site* is a designated token of a fixed carrier sentence together with a layer. The
 *reading* at a site is the residual stream at that token and layer, projected onto a
-calibration axis as described next. The tank task reads at the ' tank' token, layer 4,
-and the fiction/real task at the ' want' token, layer 14. Layer 4 is where the tank
+calibration axis as described next. The tank task reads at the ' tank' token, layer 4, and the fiction/real task at the
+' want' token, layer 14. We call these two sites the calibrated sites. Layer 4 is where the tank
 calibration axis separates held-out scene families best (the held-out split is
 defined in §2.3). Layer 14 is near the fiction/real peak, which falls at layers 12–13; it was fixed
 early in the project, with the ' want' token, and retained so that every fiction/real

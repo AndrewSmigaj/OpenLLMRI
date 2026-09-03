@@ -15,7 +15,7 @@ adds.]
 **Reading representations with probes.** Linear probes have been the standard way to
 ask what a layer represents, and their validity has been questioned from the start:
 a probe can learn its own task rather than report the model's [CITE: Alain & Bengio;
-Hewitt & Liang; Belinkov]. Our answer to that concern is the pair of tests in §3.1
+Hewitt & Liang; Belinkov]. Our answer to that concern is the three tests of §3.1
 and the label shuffles of Box 1. The difference-of-means axis we use follows the
 mass-mean probing precedent, which found such directions read out class structure
 comparably to trained probes [CITE: Marks & Tegmark]. The nearest cousin of our
@@ -92,6 +92,11 @@ the repository.
    sentences in the fiction/real task, fourteen from vehicle to aquarium, and beyond
    the window from aquarium to vehicle (§3.2).
 
+One further correction predates the draft. A first estimate of stickiness (§3.6)
+used a null with γ imported from the transition fits and gave +3.7, significant; it
+was retracted the same day when the null was fitted to the sweep cells, and the
+paper reports only the fitted-null values (Table 5).
+
 ## Appendix B — Quality assurance and reproducibility
 
 **Regeneration.** A full regeneration audit re-ran every committed analysis script
@@ -151,7 +156,7 @@ copy of the matched-composition behavior figure of §3.5. They are: the per-run 
 gallery for the fiction/real task; the hysteresis loop for the fiction/real sweep;
 the per-layer heatmap for the tank task under the refit axes; the raw-axis heatmaps
 for both tasks and the midpoint-referenced heatmap for the fiction/real task, which
-show the instrument before the corrections of Box 1; the pre-lexical ' word' site;
+show the instrument before the corrections of Box 1; the ' word' site just before ' tank' in the carrier;
 the occupancy bands at layer 4; the jumpiness diagnostic; the norm-against-alignment
 diagnostic; and the calibration accuracy by layer. The monitor ROC is in the main
 text.

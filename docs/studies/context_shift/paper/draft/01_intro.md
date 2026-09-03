@@ -43,7 +43,8 @@ a suicide letter." is framed as fictional or real. How does that internal state 
 the surrounding context shifts?
 
 Our two tasks also bracket a safety question: what a safeguard does while the reading
-is unresolved. One request is covered by a trained refusal safeguard. The tank task's request is
+is unresolved. The fiction/real request is covered by a trained refusal safeguard. The tank task's
+request is
 "What is the meaning of the word tank?". It is covered by none. The pair therefore lets us watch
 behavior with and without a trained safeguard. We recognized this after the fact
 rather than designing it. Whether the safeguard carries a default answer for

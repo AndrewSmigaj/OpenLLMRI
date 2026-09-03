@@ -895,3 +895,34 @@ exploratory; Table 7's columns renamed "Unshuffled"/"Shuffled" and its rows labe
 task. Every section now has three reviewer loops recorded except the Abstract and
 Intro (three each, earlier) and Methods (three); Step 3, the whole-paper coherence
 review, is running.
+
+## Rewrite, Step 3 — whole-paper coherence pass (3 September 2026)
+
+The cold-reader agent for this pass failed three times on API overload (one Sonnet
+session limit, two 529s), so at Andrew's instruction the pass was done by hand
+without agents: the assembled draft read end to end against the seven checks
+(names, cross-references, arc, repetition, numbers, unresolved terms, register).
+Mechanical sweep: every §, Table, Box, and Appendix reference resolves; no
+repository codenames outside the HTML comments; the key numbers agree across the
+abstract, results, tables, discussion, and appendices. Thirteen fixes: the
+heavy-tail note pointed to Appendix B (it is Appendix A's correction 2); the
+stickiness null correction pointed to Appendix A without being listed there (added
+as a fifth entry, with the retracted +3.7 from the record); "the frame reading",
+"checkpoint window", "pre-lexical", "held-out mixture cells", and "calibrated sites"
+defined at or before first use; "cross-run transition bundle" → the trajectory
+bundle of §3.4; "family-block bootstrap null" in the marker caption → the
+family-resampled null; "pair of tests in §3.1" → three; "amplitude fractions" →
+gap-to-amplitude ratios; a duplicated caption sentence removed; the intro's
+safeguard sentence names the fiction/real request; the abstract's "at
+mid-transition" aligned with "the middle reading band". PDF: 38 pages, zero errors,
+7 tables, 22 figures. Number checks: trace and preservation pass across the draft.
+
+Held for Andrew's ruling: (1) correction candidate 20, the layer-21 rotation cosine
+0.68 outside the record's 0.57–0.63; (2) the "0–2%" step-truth figure replaced by
+the five-model count 3 of 48; (3) the reviewers' note that the paper's closing
+sentence is wordplay beside the self-harm case, and that the epigraph sits close to
+the content note; (4) the title's "Unresolved:" reading as "not settled by the
+authors"; (5) the added seventh contribution (behavior beside the reading in both
+tasks). Metric misses logged as justified: number density in §3 (calibration counts,
+behavior rates, layer ranges) and semicolons in the back matter (serial lists and
+citation brackets).

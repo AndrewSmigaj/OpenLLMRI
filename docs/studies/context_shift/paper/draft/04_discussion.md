@@ -98,8 +98,9 @@ look like. But ordinary register statistics learned in pretraining predict the s
 asymmetry, and training provenance is unobservable here. Patching shallow against
 mid-stack states during generation is the decisive test (§5).
 
-**One limit.** As a standalone monitor, predicting each response from its reading alone, the frame reading is not
-yet usable: its AUC is 0.61 [0.43, 0.76], compatible with chance (Fig.
+**One limit.** As a standalone monitor, predicting each response from its reading
+alone, the frame reading, the fiction/real task's reading at its calibrated site, is
+not yet usable: its AUC is 0.61 [0.43, 0.76], compatible with chance (Fig.
 fig_s11_monitor_roc). The band-level gradient of §3.5 is real. A usable monitor would
 combine several sites, the mixed-context marker, and per-layer readings. Building one
 is future work, not a claim.

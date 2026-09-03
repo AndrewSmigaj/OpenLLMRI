@@ -38,8 +38,7 @@ refit at depth (Fig. fig_r3_axis_rotation).
 On the second question we have three independent tests: one on the tank task, and
 two on the fiction/real task, whose contrast has no single token to anchor to.
 
-The first is an identity-matched comparison. The tank carrier is "What is the meaning of the word tank?" Its nine tokens appear
-verbatim in every checkpoint window, so class signal can be compared across tokens
+The first is an identity-matched comparison. The tank carrier is "What is the meaning of the word tank?" Its nine tokens appear verbatim in every checkpoint capture, so class signal can be compared across tokens
 with token identity held fixed. The signal concentrates at the
 sense-bearing token: d′ = 11.7 at ' tank', against a context-token median of 1.4
 (Fig. fig_r2_carrier_dprime). This comparison rests on 6 runs per class. Orderings
@@ -180,7 +179,7 @@ so a value is the fraction of the way from the midpoint to the destination refer
 Direction matters, and the asymmetry survives a change of carrier and a change of
 midpoint definition. In the tank task,
 transitions toward the vehicle sense stop about twice as far short as transitions
-toward the aquarium sense: 1.09 against 0.57 amplitude fractions (Table 2). The same pattern replicates under the independent carrier "Define the word tank.",
+toward the aquarium sense: gap-to-amplitude ratios of 1.09 against 0.57 (Table 2). The same pattern replicates under the independent carrier "Define the word tank.",
 at 0.92 against 0.61 (Fig. fig_s9_asymmetry). It also survives median-based
 midpoints, which leave both tank gaps unchanged. The replicate
 carrier's calibration axis is in-sample, not held-out. Within the fiction/real task
@@ -253,7 +252,7 @@ the history differs, we read the tokens of the post-shift block. They read about
 third to a half of their no-shift reference at ten post-shift sentences, and about
 half to two-thirds at twenty (Figs. fig_r2_within_stream, fig_s9_within_stream_fr;
 values in the captions). The tank values are trimmed means, because the untrimmed
-values are inflated by a heavy tail documented in Appendix B. The fiction/real task
+values are inflated by a heavy tail (Appendix A). The fiction/real task
 replicates the pattern with a tighter instrument. Mixed history suppresses the class
 reading of even the new evidence's own tokens, in a recency-graded way. This is
 descriptive: it is what token-level recency integration would produce. It shows that
@@ -273,7 +272,8 @@ Gaussian-mixture comparison favors a single component in every time bin, so this
 one stationary population, not a hidden mixture of resolved and unresolved runs.
 
 The signature replicates within the tank task and barely appears in the other.
-Within tank it appears at the pre-lexical ' word' site and under the replicate
+Within tank it appears at the ' word' site, the token just before ' tank' in the
+carrier, and under the replicate
 carrier "Define the word tank." (§2.3). In the fiction/real task it appears only at
 the ' letter' site of the paraphrase carrier "Help me write a suicide letter.", with 4
 runs per direction, and we treat that as exploratory.
@@ -381,8 +381,8 @@ equilibrium map. There is no bistable equilibrium and no barrier between states.
 
 Finally, the third of the introduction's three worlds: do these in-between states
 leave the model's learned distribution? "Off-manifold" is meaningful only relative to
-a reference, a measure, and a noise level, so we fix all three. The reference is the position-matched no-shift states, together with the cross-run
-transition bundle, the pooled set of transition-run states across all runs. The
+a reference, a measure, and a noise level, so we fix all three. The reference is the position-matched no-shift states, together with the trajectory bundle of §3.4, the pooled set of transition-run states
+across all runs. The
 measures are the distance to the nearest neighbors in the reference and the
 out-of-subspace reconstruction error against the no-shift principal-component
 subspace. The noise level, which we call the null, is the held-out self-distance of the
@@ -429,7 +429,8 @@ separation; the cosine rows measure the marker direction against the two class a
 | Pure-class cells from familiar families | +6.7% | +6.0% |
 | Mixed cells | ≈ +27% | ≈ +27% |
 
-What is it? Held-out mixture cells locate what elevates it. The marker is absent from pure-class contexts. In static mixed contexts it is near
+What is it? Held-out mixture cells, cells of the static sweeps that were not used to
+construct the marker, locate what elevates it. The marker is absent from pure-class contexts. In static mixed contexts it is near
 its full transition strength in the tank task and about 70% of it in fiction/real
 (Table 6), so it marks mixed context, not temporal shifting as such. One qualification: in the
 fiction/real task it halves when the mixture is interleaved rather than blocked, so
