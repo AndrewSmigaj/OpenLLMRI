@@ -23,3 +23,9 @@ can be re-run or opened.
 | [1.70, 2.62], [0.77, 1.48], [0.27, 0.50] | reference-resampled 95% CIs for the three remnant gaps that stand (Table 1) | `findings/qa_bughunt_report_2026-08-31.md`, row C5 (correction 15) |
 | 8, 3, 2, 23, 4, 7 | real-run model-selection counts beyond the hybrid wins (Table 3) | `analysis/s9_figures.py` lines 56–57 (five-model selector; totals in FINDINGS_FINAL F4) |
 | 28, 5, 1, 14; 5, 0, 18, 4, 21; 3, 27, 0, 0, 18 | synthetic-truth confusion counts, 48 runs per truth type (Table 3) | `analysis/s9_figures.py` lines 58–60 (per-task ranges 13–15/24 and 2–3/24 in FINDINGS_FINAL F4) |
+| 0.68 | fiction/real axis-rotation cosine at layer 21, the one layer in 10–23 outside the record's 0.57–0.63 | computed from committed axes `analysis/axes/secondary_axis_fr.npz` and the fiction/real calibration axes (cos = 0.681); plotted in fig_r3_axis_rotation; correction candidate 20 pending Andrew's ruling |
+| 0.5 | behavior band half-width (middle band = readings within ±0.5 of the midpoint) | `analysis/r6_behavior_figure.py` and `analysis/s12_r4_counts.py` (abs(r) <= 0.5) |
+| 189, 44, 85 | completion counts in the per-layer behavior association (fiction/real; tank mid-transition; tank all transition cells) | `analysis/s14_behavior_by_layer.py` legend output (post-freeze, logged) |
+| 0.88, 0.73 | layer-0 held-out accuracy of the per-layer accumulated-context axes (tank; fiction/real) | FINDINGS_AND_ANALYSIS_v2 Gen 3 |
+| 34, 27, 30 | classifiable synthetic runs (48 minus indeterminate) in Table 4 | arithmetic on the s9_figures.py counts |
+| 19 | stepped post-shift sentences per tank run (456 / 24) | `analysis/second_pass_r4_small.py` (consecutive differences over positions 2–20) |

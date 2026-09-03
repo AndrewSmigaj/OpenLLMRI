@@ -49,11 +49,10 @@ ax.legend(fontsize=8.5)
 for i in range(NC):
     ax.text(i, dpr[m - NC + i] + 0.12, f"sd\n{sd[m - NC + i]:.0f}", ha="center", va="bottom",
             fontsize=6, color=MUT)
-ax.set_title("Class signal across the verbatim S1 carrier — fr D4 ck40 windows, L14 (n = 6 runs/class)\n"
-             '"I want to write a suicide letter." (fictional vs real framing)',
+ax.set_title("Fiction/real task: class signal at each carrier token\n(layer 14, forty-sentence no-shift windows, 6 runs per class)",
              fontsize=10, color=INK)
 ax.text(0.01, -0.22, "d′ = mean difference / pooled sd (printed above bars): tight within-class sd prints tall bars\n"
-        "at modest mean shifts — orderings among non-peak bars are not interpretable at n=6/class.",
+        "at modest mean shifts — orderings among non-peak bars are not interpretable at 6 runs per class.",
         transform=ax.transAxes, fontsize=6.5, color=MUT)
 ax.set_facecolor(SURFACE)
 for s in ("top", "right"): ax.spines[s].set_visible(False)

@@ -6,6 +6,7 @@ Usage:
     prose_metrics.py --long SECTION.md              also list sentences over 35 words
     prose_metrics.py --dense SECTION.md             also list paragraphs with >2 numbers
     prose_metrics.py --all                          every draft section
+    prose_metrics.py --section "## 3.2" FILE        one subsection only
 
 What counts:
     * Paragraphs are blank-line-separated blocks. Lines inside a block are joined.
@@ -45,13 +46,23 @@ def paragraphs(text):
             continue
         if all(l.startswith("|") for l in lines):
             continue  # table
+        if lines[0].startswith("**Table "):
+            continue  # table caption: reviewed with the table, not gated as prose
         lines = [l for l in lines if not l.startswith("#")]
         if not lines:
             continue
-        para = " ".join(lines)
-        para = re.sub(r"^\s*(?:\d+\.|[-*])\s+", "", para)  # list marker
-        para = re.sub(r"\*\*|(?<!\w)\*|\*(?!\w)", "", para)  # bold/italic markers
-        out.append(para)
+        # split list items into their own paragraphs
+        items, cur = [], []
+        for l in lines:
+            if re.match(r"^(?:\d+\.|[-*])\s+", l) and cur:
+                items.append(cur); cur = []
+            cur.append(l)
+        items.append(cur)
+        for it in items:
+            para = " ".join(it)
+            para = re.sub(r"^\s*(?:\d+\.|[-*])\s+", "", para)  # list marker
+            para = re.sub(r"\*\*|(?<!\w)\*|\*(?!\w)", "", para)  # bold/italic markers
+            out.append(para)
     return out
 
 
@@ -60,7 +71,7 @@ def sentences(para):
     for a in ABBREV:
         p = p.replace(a, a.replace(".", "<DOT>"))
     # split after . ! ? followed by space and an opener (capital, quote, paren, digit)
-    parts = re.split(r"(?<=[.!?])[\"”’)]?\s+(?=[\"“‘(A-Z0-9])", p)
+    parts = re.split(r"(?<=[.!?])[\"”’)]?\s+(?=[\"“‘(A-Z0-9§])", p)
     parts = [s.replace("<DOT>", ".").strip() for s in parts if s.strip()]
     return parts
 
@@ -81,7 +92,8 @@ def measure(text):
     wc = [len(words(s)) for s in sents]
     total_words = sum(wc) or 1
     nums = [count_numbers(p) for p in paras]
-    dashes = text.count("—") + len(re.findall(r"\s--\s", text))
+    body = "\n".join(paras)  # comments, headings, tables excluded
+    dashes = body.count("—") + len(re.findall(r"\s--\s", body))
     return {
         "paragraphs": len(paras),
         "sentences": len(sents),
@@ -93,8 +105,8 @@ def measure(text):
         "max_numbers": max(nums) if nums else 0,
         "pct_paras_le2": 100 * sum(1 for n in nums if n <= 2) / max(len(nums), 1),
         "dashes_per_1000": 1000 * dashes / total_words,
-        "semicolons_per_1000": 1000 * text.count(";") / total_words,
-        "parens_per_1000": 1000 * text.count("(") / total_words,
+        "semicolons_per_1000": 1000 * body.count(";") / total_words,
+        "parens_per_1000": 1000 * body.count("(") / total_words,
         "words_per_paragraph": total_words / max(len(paras), 1),
         "_paras": paras, "_sents": sents, "_wc": wc, "_nums": nums,
     }
@@ -136,9 +148,24 @@ def report(path, m, show_long=False, show_dense=False):
     return not flags
 
 
+def subsection(text, heading):
+    """Return the text from the line starting with `heading` (e.g. "## 3.2") up to the
+    next heading of the same or higher level."""
+    lines = text.split("\n"); level = heading.split(" ")[0]
+    start = next(i for i, l in enumerate(lines) if l.startswith(heading))
+    end = len(lines)
+    for i in range(start + 1, len(lines)):
+        if re.match(r"^#{1,%d} " % len(level), lines[i]):
+            end = i; break
+    return "\n".join(lines[start:end])
+
+
 def main(argv):
     show_long = "--long" in argv
     show_dense = "--dense" in argv
+    sec = None
+    if "--section" in argv:
+        k = argv.index("--section"); sec = argv[k + 1]; argv = argv[:k] + argv[k + 2:]
     files = [a for a in argv if not a.startswith("--")]
     if "--all" in argv:
         here = pathlib.Path(__file__).resolve().parent
@@ -147,7 +174,10 @@ def main(argv):
         print(__doc__); return 2
     ok = True
     for f in files:
-        ok &= report(f, measure(pathlib.Path(f).read_text()), show_long, show_dense)
+        text = pathlib.Path(f).read_text()
+        if sec:
+            text = subsection(text, sec)
+        ok &= report(f + (f"  [{sec}]" if sec else ""), measure(text), show_long, show_dense)
     return 0 if ok else 1
 
 

@@ -111,18 +111,19 @@ for probe, c in CFG.items():
           f"/ A_recent {dn[ks.index(10)]:+.2f}")
     # figure
     fig, axp = plt.subplots(figsize=(7.2, 4.6), facecolor=SURFACE)
-    axp.plot(ks, up, "o-", color=ORANGE, lw=1.8, label="B recent (observed)")
-    axp.plot(ks, dn, "o-", color=BLUE, lw=1.8, label="A recent (observed)")
-    axp.plot(ks, up_pred, "--", color=ORANGE, lw=1.0, alpha=0.6, label="integrator pred")
+    axp.plot(ks, up, "o-", color=ORANGE, lw=1.8, label="destination block last (observed)")
+    axp.plot(ks, dn, "o-", color=BLUE, lw=1.8, label="destination block first (observed)")
+    axp.plot(ks, up_pred, "--", color=ORANGE, lw=1.0, alpha=0.6, label="fitted recency integrator")
     axp.plot(ks, dn_pred, "--", color=BLUE, lw=1.0, alpha=0.6)
     axp.fill_between(ks, dn, up, color=AQUA, alpha=0.12)
-    if inter: axp.scatter([10], [np.mean(inter)], marker="D", s=60, color=AQUA, zorder=5, label="interleaved k=10")
+    if inter: axp.scatter([10], [np.mean(inter)], marker="D", s=60, color=AQUA, zorder=5, label="interleaved, 10 of 20")
     axp.axhline(0, color=MUT, lw=0.8)
-    axp.set_xlabel("k destination-class sentences (of 20)", fontsize=9, color=MUT)
-    axp.set_ylabel("carrier reading (midref)", fontsize=9, color=INK)
-    axp.set_title(f"D6 {probe} — hysteresis loop: obs {obs_area:+.1f} [{lo:+.1f},{hi:+.1f}]; "
-                  f"best-fit integrator {fit_area:+.1f} → stickiness {stick:+.1f} ({verdict})\n"
-                  "order-dependence is large and real, and fully attributable to recency weighting",
+    axp.set_xlabel("destination-class sentences in the context (of 20)", fontsize=9, color=MUT)
+    axp.set_ylabel("carrier reading (midpoint-referenced)", fontsize=9, color=INK)
+    task_name = "Tank task" if probe == "tank" else "Fiction/real task"
+    axp.set_title(f"{task_name}: hysteresis loop in the static mixture sweep\n"
+                  f"observed loop area {obs_area:+.1f} [{lo:+.1f}, {hi:+.1f}]; fitted recency integrator {fit_area:+.1f}; "
+                  f"excess {stick:+.1f} ({verdict})",
                   fontsize=9.5, color=INK)
     axp.legend(fontsize=8); axp.set_facecolor(SURFACE)
     for s in ("top", "right"): axp.spines[s].set_visible(False)

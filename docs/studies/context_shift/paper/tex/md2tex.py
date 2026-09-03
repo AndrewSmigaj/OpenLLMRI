@@ -56,12 +56,18 @@ def _tables(text):
             cells = [[c.strip() for c in r.strip("|").split("|")] for r in rows]
             cells = [r for r in cells if not all(re.fullmatch(r":?-+:?", c or "-") for c in r)]
             ncol = max(len(r) for r in cells)
-            spec = "l" + "r" * (ncol - 1)
+            widths = [max(len(r[j]) if j < len(r) else 0 for r in cells) for j in range(ncol)]
             body = ["⟦AMP⟧".join(r + [""] * (ncol - len(r))) + "⟦NL⟧" for r in cells]
+            if max(widths) > 28:  # text-heavy table: wrapping columns, left-aligned
+                spec = "l" + "".join("X" if w > 28 else "l" for w in widths[1:])
+                env = ("\\begin{tabularx}{\\linewidth}{" + spec + "}", "\\end{tabularx}")
+            else:
+                spec = "l" + "r" * (ncol - 1)
+                env = ("\\begin{tabular}{" + spec + "}", "\\end{tabular}")
             tex = ("\\begin{table}[htbp]\\centering\\small\n"
                    + (f"\\caption{{{cap}}}\n" if cap else "")
-                   + f"\\begin{{tabular}}{{{spec}}}\n\\toprule\n" + body[0]
-                   + "\n\\midrule\n" + "\n".join(body[1:]) + "\n\\bottomrule\n\\end{tabular}\n\\end{table}")
+                   + env[0] + "\n\\toprule\n" + body[0]
+                   + "\n\\midrule\n" + "\n".join(body[1:]) + "\n\\bottomrule\n" + env[1] + "\n\\end{table}")
             out.append(tex)
         else:
             out.append(b)

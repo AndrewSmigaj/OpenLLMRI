@@ -33,19 +33,21 @@ for i, d in enumerate(doms):
     axs[0].scatter(np.full(len(v), i) + rng.normal(0, 0.06, len(v)), v, s=10, color=BLUE, alpha=0.5)
     axs[0].scatter([i], [v.mean()], marker="D", s=45, color=INK, zorder=5)
 axs[0].axhline(0, color=MUT, lw=0.9, ls="--")
-axs[0].set_xticks(range(len(doms))); axs[0].set_xticklabels(doms, fontsize=7, rotation=20)
+axs[0].set_xticks(range(len(doms))); axs[0].set_xticklabels([d.replace("_", " ") for d in doms], fontsize=7, rotation=20)
 axs[0].set_ylabel("within-pair reading diff (real − fictional)", fontsize=8.5, color=INK)
 axs[0].set_title(f"content held, cue varied: +{piv['diff'].mean():.2f} mean,\n"
                  f"{(piv['diff']>0).mean():.0%} of 150 pairs > 0, p=2.5e-25", fontsize=9, color=INK)
 axs[1].hist(piv["diff"], bins=30, color=BLUE, alpha=0.85)
 axs[1].axvline(0, color=MUT, lw=0.9, ls="--"); axs[1].axvline(piv["diff"].mean(), color=ORANGE, lw=1.6)
 axs[1].set_title("distribution of pair effects", fontsize=9, color=INK)
+axs[1].set_xlabel("pair effect (axis units)", fontsize=8.5, color=MUT); axs[1].set_ylabel("pairs", fontsize=8.5, color=INK)
 axs[2].scatter(piv.len_diff, piv["diff"], s=10, color=BLUE, alpha=0.5)
 axs[2].axhline(piv["diff"].mean(), color=ORANGE, lw=1.2)
-axs[2].set_xlabel("word-count diff (fic − real)", fontsize=8.5, color=MUT)
+axs[2].set_xlabel("word-count difference (fictional − real)", fontsize=8.5, color=MUT)
+axs[2].set_ylabel("pair effect (axis units)", fontsize=8.5, color=INK)
 axs[2].set_title("length confound: r = 0.02\n(cue-dose r = 0.05)", fontsize=9, color=INK)
 for a in axs: style(a)
-fig.suptitle("F2 evidence — D5 minimal pairs: the reading tracks framing cues, not content, length, or cue dose", fontsize=10.5, color=INK)
+fig.suptitle("Minimal pairs: the reading tracks framing cues, not content, length, or cue dose", fontsize=10.5, color=INK)
 fig.tight_layout(rect=[0, 0, 1, 0.90])
 fig.savefig(FIG / "fig_s9_d5_pairs.png", dpi=150); plt.close(fig)
 print("1/7 d5_pairs")
@@ -53,12 +55,14 @@ print("1/7 d5_pairs")
 # ============ 2. F4: model classes, real vs simulations ============
 # Values from committed s7_sanity_checks.py output (2026-08-31).
 data = {
-    "tank real (n=24)": {"hybrid": 11, "indeterminate": 8, "integrator": 3, "step": 2, "twoscale": 0},
-    "fr real (n=48)": {"hybrid": 14, "indeterminate": 23, "integrator": 4, "step": 7, "twoscale": 0},
-    "sim: hybrid truth": {"hybrid": 28, "indeterminate": 14, "integrator": 1, "step": 5, "twoscale": 0},
-    "sim: twoscale truth": {"hybrid": 5, "indeterminate": 21, "integrator": 18, "step": 0, "twoscale": 4},
-    "sim: step truth": {"hybrid": 3, "indeterminate": 18, "integrator": 0, "step": 27, "twoscale": 0},
+    "tank runs (24)": {"hybrid": 11, "indeterminate": 8, "integrator": 3, "step": 2, "twoscale": 0},
+    "fiction/real runs (48)": {"hybrid": 14, "indeterminate": 23, "integrator": 4, "step": 7, "twoscale": 0},
+    "synthetic: hybrid truth": {"hybrid": 28, "indeterminate": 14, "integrator": 1, "step": 5, "twoscale": 0},
+    "synthetic: two-timescale truth": {"hybrid": 5, "indeterminate": 21, "integrator": 18, "step": 0, "twoscale": 4},
+    "synthetic: step truth": {"hybrid": 3, "indeterminate": 18, "integrator": 0, "step": 27, "twoscale": 0},
 }
+NAMES = {"hybrid": "drift + step (hybrid)", "step": "step", "integrator": "recency integrator",
+         "twoscale": "two-timescale", "indeterminate": "indeterminate"}
 cats = ["hybrid", "step", "integrator", "twoscale", "indeterminate"]
 colors = {"hybrid": ORANGE, "step": BLUE, "integrator": AQUA, "twoscale": "#8e6bd6", "indeterminate": GRAY}
 fig, ax = plt.subplots(figsize=(9.5, 4.4), facecolor=SURFACE)
@@ -66,14 +70,14 @@ xs = np.arange(len(data))
 bottoms = np.zeros(len(data))
 for c in cats:
     vals = np.array([d.get(c, 0) / sum(d.values()) for d in data.values()])
-    ax.bar(xs, vals, bottom=bottoms, color=colors[c], width=0.62, label=c)
+    ax.bar(xs, vals, bottom=bottoms, color=colors[c], width=0.62, label=NAMES[c])
     for i, (v, b) in enumerate(zip(vals, bottoms)):
         if v > 0.07: ax.text(i, b + v/2, f"{v:.0%}", ha="center", va="center", fontsize=8, color="white")
     bottoms += vals
-ax.set_xticks(xs); ax.set_xticklabels(list(data), fontsize=8)
+ax.set_xticks(xs); ax.set_xticklabels(list(data), fontsize=8); ax.set_ylabel("share of runs", fontsize=9, color=INK)
 ax.legend(fontsize=8, ncol=5, loc="upper center", bbox_to_anchor=(0.5, -0.08))
-ax.set_title("F4 evidence — per-run BIC classes: real runs are hybrid-dominant; neither step truth nor\n"
-             "two-timescale truth reproduces that (sims pooled over both probes' noise/amplitudes)", fontsize=9.5, color=INK)
+ax.set_title("Per-run model selection: real runs are hybrid-dominant; neither step truth nor two-timescale truth\n"
+             "reproduces that (synthetic runs pooled over both tasks' noise levels and amplitudes)", fontsize=9.5, color=INK)
 style(ax)
 fig.tight_layout()
 fig.savefig(FIG / "fig_s9_model_classes.png", dpi=150); plt.close(fig)
@@ -116,11 +120,14 @@ for j, ck in enumerate(("ck20", "ck30", "ck40")):
         ax.hist(np.clip(vals, -6, 6), bins=48, color=BLUE if a_ == "fr" else ORANGE, alpha=0.85)
         for x0 in (-1, +1): ax.axvline(x0, color=INK, lw=0.9, ls="--")
         ax.axvline(float(np.mean(vals)), color=AQUA, lw=1.6)
-        ax.set_title(f"{ck} {a_}  mean {np.mean(vals):+.2f}", fontsize=9, color=INK)
+        ckn = {"ck20": "at 20 sentences", "ck30": "at 30 sentences (10 post-shift)", "ck40": "at 40 sentences (20 post-shift)"}[ck]
+        dirn = {"fr": "fictional → real", "rf": "real → fictional"}[a_]
+        ax.set_title(f"{ckn}, {dirn}: mean {np.mean(vals):+.2f}", fontsize=8.5, color=INK)
         style(ax)
-axes[1, 1].set_xlabel("per-token reading (−1 = origin-arm token mean, +1 = destination-arm token mean)", fontsize=8.5, color=MUT)
-fig.suptitle("F5 evidence (fr replication) — within-stream occupancy, want-site L14: post-shift-block tokens\n"
-             "read only ~half their no-shift reference under mixed history (content and position matched)", fontsize=10, color=INK)
+axes[1, 1].set_xlabel("per-token reading (−1 = mean of the same tokens in origin-class no-shift runs, +1 = mean in destination-class runs)", fontsize=8.5, color=MUT)
+fig.suptitle("Fiction/real task, ' want' site (layer 14): readings of the context tokens themselves, against matched no-shift references\n"
+             "(post-shift-block tokens read about half to two-thirds of their reference under mixed history)", fontsize=10, color=INK)
+axes[0, 0].set_ylabel("tokens", fontsize=8.5, color=INK); axes[1, 0].set_ylabel("tokens", fontsize=8.5, color=INK)
 fig.tight_layout(rect=[0, 0.01, 1, 0.91])
 fig.savefig(FIG / "fig_s9_within_stream_fr.png", dpi=150); plt.close(fig)
 print("3/7 within_stream_fr")
@@ -140,10 +147,11 @@ for i, k in enumerate(("2", "6", "12", "20")):
         axs[0].scatter(np.full(len(v), i + off) + rng.normal(0, 0.04, len(v)), v, s=12,
                        color=color, alpha=0.6)
         axs[0].plot([i + off - 0.1, i + off + 0.1], [v.median()] * 2, color=INK, lw=1.6)
-axs[0].set_xticks(range(4)); axs[0].set_xticklabels([f"k={k}" for k in (2, 6, 12, 20)], fontsize=8.5)
-axs[0].set_ylabel("|reading| (dest-oriented)", fontsize=8.5, color=INK)
-axs[0].set_title("tank: decided (blue) vs hedged/no-answer (green) at matched k\n"
-                 "mid-transition: decided runs read more extreme (k=6 p=.061, k=12 p=.045)", fontsize=9, color=INK)
+axs[0].set_xticks(range(4)); axs[0].set_xticklabels([f"after {k}" for k in (2, 6, 12, 20)], fontsize=8.5)
+axs[0].set_xlabel("post-shift sentences", fontsize=8.5, color=MUT)
+axs[0].set_ylabel("|reading| (signed toward the destination)", fontsize=8.5, color=INK)
+axs[0].set_title("Tank task: decided (blue) vs hedged or no answer (green)\n"
+                 "mid-transition, decided runs read more extreme (p = .061 after 6, .045 after 12)", fontsize=9, color=INK)
 for i, k in enumerate(("2", "6", "12", "20")):
     s = f[f.k == k]
     for fic, color, off in ((True, BLUE, -0.17), (False, ORANGE, +0.17)):
@@ -151,42 +159,43 @@ for i, k in enumerate(("2", "6", "12", "20")):
         axs[1].scatter(np.full(len(v), i + off) + rng.normal(0, 0.04, len(v)), v, s=12,
                        color=color, alpha=0.55)
         if len(v): axs[1].plot([i + off - 0.1, i + off + 0.1], [v.median()] * 2, color=INK, lw=1.6)
-axs[1].set_xticks(range(4)); axs[1].set_xticklabels([f"k={k}" for k in (2, 6, 12, 20)], fontsize=8.5)
-axs[1].set_ylabel("reading (fic − / real +)", fontsize=8.5, color=INK)
-axs[1].set_title("fr: fiction-frame (blue) vs safety (orange) at matched k\n"
-                 "k=2: fiction-frame at lower readings (p=.010); later k: scene-driven", fontsize=9, color=INK)
+axs[1].set_xticks(range(4)); axs[1].set_xticklabels([f"after {k}" for k in (2, 6, 12, 20)], fontsize=8.5)
+axs[1].set_xlabel("post-shift sentences", fontsize=8.5, color=MUT)
+axs[1].set_ylabel("reading (fictional −, real +)", fontsize=8.5, color=INK)
+axs[1].set_title("Fiction/real task: fiction-framed assistance (blue) vs safe-completion (orange)\n"
+                 "after 2 sentences, assistance comes at lower readings (p = .010); later, type follows the scene family", fontsize=9, color=INK)
 for a in axs: style(a)
-fig.suptitle("F7 evidence — behavior vs reading WITHIN matched context composition", fontsize=10.5, color=INK)
+fig.suptitle("Behavior against the reading within matched context composition", fontsize=10.5, color=INK)
 fig.tight_layout(rect=[0, 0, 1, 0.90])
 fig.savefig(FIG / "fig_s9_behavior_matchedk.png", dpi=150); plt.close(fig)
 print("4/7 behavior_matchedk")
 
 # ============ 5. F9: asymmetry across carriers/sites ============
 # Values from committed outputs: R3/r6_post_capture/letter-site check (provenance in findings).
-gaps = [("tank Q1\n→vehicle", 1.09, BLUE), ("tank Q1\n→aquarium", 0.57, BLUE),
-        ("tank Q1b\n→vehicle", 0.92, "#7aa8e0"), ("tank Q1b\n→aquarium", 0.61, "#7aa8e0"),
-        ("fr want\n→real", 0.43, ORANGE), ("fr want\n→fictional", 0.40, ORANGE),
-        ("fr letter\n→real", 0.90, "#f0a175"), ("fr letter\n→fictional", 0.33, "#f0a175")]
+gaps = [("tank\nmain carrier\n→ vehicle", 1.09, BLUE), ("tank\nmain carrier\n→ aquarium", 0.57, BLUE),
+        ("tank\nreplicate carrier\n→ vehicle", 0.92, "#7aa8e0"), ("tank\nreplicate carrier\n→ aquarium", 0.61, "#7aa8e0"),
+        ("fiction/real\n' want' site\n→ real", 0.43, ORANGE), ("fiction/real\n' want' site\n→ fictional", 0.40, ORANGE),
+        ("fiction/real\n' letter' site\n→ real", 0.90, "#f0a175"), ("fiction/real\n' letter' site\n→ fictional", 0.33, "#f0a175")]
 spreads = [("aquarium", 0.56, 0.70, BLUE), ("vehicle", 0.83, 0.91, "#7aa8e0"),
            ("fictional", 0.80, 1.07, ORANGE), ("real", 0.73, 1.05, "#f0a175")]
-fig, axs = plt.subplots(1, 2, figsize=(11.5, 4.2), facecolor=SURFACE,
-                        gridspec_kw={"width_ratios": [2.2, 1]})
+fig, axs = plt.subplots(1, 2, figsize=(13.0, 4.6), facecolor=SURFACE,
+                        gridspec_kw={"width_ratios": [2.4, 1]})
 xs = np.arange(len(gaps))
 axs[0].bar(xs, [g[1] for g in gaps], color=[g[2] for g in gaps], width=0.62,
            hatch=["", "", "", "", "", "", "//", "//"])   # hatched = letter site, n=4/dir
-axs[0].set_xticks(xs); axs[0].set_xticklabels([g[0] for g in gaps], fontsize=7.5)
-axs[0].text(6.5, 1.02, "letter-site D4 amplitude = 1.18 cal units\n(vs want 0.88); hatched bars n=4/dir",
+axs[0].set_xticks(xs); axs[0].set_xticklabels([g[0] for g in gaps], fontsize=7)
+axs[0].text(6.5, 1.02, "' letter' site reference amplitude 1.18\n(' want' site 0.88); hatched: 4 runs per direction",
             ha="center", fontsize=6.5, color=MUT)
-axs[0].set_ylabel("residual gap (fraction of D4 amplitude)", fontsize=8.5, color=INK)
-axs[0].set_title("gaps by carrier/site/direction — asymmetry replicates across carriers (Q1→Q1b)\n"
-                 "and is site-dependent within fr (want symmetric, letter not; letter n=4/dir)", fontsize=9, color=INK)
+axs[0].set_ylabel("remnant gap (fraction of the no-shift amplitude)", fontsize=8.5, color=INK)
+axs[0].set_title("remnant gaps by carrier, site, and direction: the tank asymmetry replicates across carriers;\n"
+                 "in fiction/real it depends on the site (' want' symmetric, ' letter' not)", fontsize=9, color=INK)
 for i, (nm, lo, hi, c) in enumerate(spreads):
     axs[1].plot([i, i], [lo, hi], color=c, lw=6, solid_capstyle="round")
 axs[1].set_xticks(range(4)); axs[1].set_xticklabels([s[0] for s in spreads], fontsize=8)
-axs[1].set_ylabel("per-side calibration sd (range over layers)", fontsize=8.5, color=INK)
-axs[1].set_title("candidate cause: the vehicle class is\nintrinsically broader (tank); fr symmetric", fontsize=9, color=INK)
+axs[1].set_ylabel("per-class calibration spread (sd; range over layers)", fontsize=8.5, color=INK)
+axs[1].set_title("candidate cause: the vehicle class is\nintrinsically broader; the fiction/real classes are alike", fontsize=9, color=INK)
 for a in axs: style(a)
-fig.suptitle("F9 evidence — direction asymmetry: carrier-independent, site-dependent, calibration-spread candidate", fontsize=10, color=INK)
+fig.suptitle("Direction asymmetry: replicates across two carriers, depends on the site, with a calibration-spread candidate cause", fontsize=10, color=INK)
 fig.tight_layout(rect=[0, 0, 1, 0.90])
 fig.savefig(FIG / "fig_s9_asymmetry.png", dpi=150); plt.close(fig)
 print("5/7 asymmetry")
@@ -228,7 +237,7 @@ for probe, log, Lp, d3k, d4k, d6log, color in (
     allpost = np.concatenate(list(post.values()))
     vdir = allpost.mean(0); vdir /= np.linalg.norm(vdir)
     tc = np.array([np.stack([post[n][k] @ vdir for n in d3]).mean(0) for k in range(20)]) / SEP[probe]
-    axs[0].plot(range(1, 21), tc * 100, "o-", color=color, lw=1.7, ms=4, label=probe)
+    axs[0].plot(range(1, 21), tc * 100, "o-", color=color, lw=1.7, ms=4, label="tank task" if probe == "tank" else "fiction/real task")
     # D6 bars
     rows6 = [r for r in csv.DictReader(open(d6log), delimiter="\t") if r["status"] == "ok"]
     g = {"pure": [], "blocked": [], "interleaved": []}
@@ -244,30 +253,30 @@ for probe, log, Lp, d3k, d4k, d6log, color in (
         g[gk].append(float(resid_of(X[0])[0] @ vdir) / SEP[probe] * 100)
     d6bars[probe] = {k: (np.mean(v), np.std(v)/np.sqrt(len(v))) for k, v in g.items()}
 axs[0].axhline(0, color=MUT, lw=0.8)
-axs[0].set_xlabel("post-shift step k", fontsize=8.5, color=MUT)
+axs[0].set_xlabel("post-shift sentences", fontsize=8.5, color=MUT)
 axs[0].set_ylabel("shared component (% of class separation)", fontsize=8.5, color=INK)
 axs[0].legend(fontsize=8.5)
-axs[0].set_title("rises over ~5 steps, persists to k=20", fontsize=9, color=INK)
+axs[0].set_title("rises over about 5 sentences, persists to 20", fontsize=9, color=INK)
 xs = np.arange(3); w = 0.36
 for i, probe in enumerate(("tank", "fr")):
     means = [d6bars[probe][k][0] for k in ("pure", "blocked", "interleaved")]
     errs = [d6bars[probe][k][1] for k in ("pure", "blocked", "interleaved")]
     axs[1].bar(xs + (i - 0.5) * w, means, w, yerr=errs, capsize=3,
-               color=BLUE if probe == "tank" else ORANGE, label=probe)
-axs[1].set_xticks(xs); axs[1].set_xticklabels(["pure\n(k=0/20)", "mixed\nblocked", "interleaved\nk=10"], fontsize=8)
+               color=BLUE if probe == "tank" else ORANGE, label="tank task" if probe == "tank" else "fiction/real task")
+axs[1].set_xticks(xs); axs[1].set_xticklabels(["pure\n(0 or 20 of 20)", "mixed,\nblocked", "interleaved,\n10 of 20"], fontsize=8)
 axs[1].set_ylabel("component (% of separation)", fontsize=8.5, color=INK)
 axs[1].legend(fontsize=8.5)
-axs[1].set_title("D6 holdout: absent in pure contexts; fr's halves\nunder interleaving (shift-structure sensitivity)", fontsize=9, color=INK)
+axs[1].set_title("held-out mixture cells: absent in pure contexts;\nhalved under interleaving in fiction/real", fontsize=9, color=INK)
 # panel 3: null vs observed + held-out validation (values from s8/s9 committed outputs)
-labels = ["tank\nobs", "tank\nheld-out", "tank\nnull p95", "fr\nobs", "fr\nheld-out", "fr\nnull p95"]
+labels = ["tank\nobserved", "tank\nheld-out", "tank\nnull\n(95th pct)", "fiction/real\nobserved", "fiction/real\nheld-out", "fiction/real\nnull\n(95th pct)"]
 vals = [18.1/72*100, 13.3/72*100, 7.8/72*100, 174.5/457*100, 154.6/457*100, 26.9/457*100]
 cols = [BLUE, "#7aa8e0", GRAY, ORANGE, "#f0a175", GRAY]
 axs[2].bar(range(6), vals, color=cols, width=0.62)
-axs[2].set_xticks(range(6)); axs[2].set_xticklabels(labels, fontsize=7.5)
+axs[2].set_xticks(range(6)); axs[2].set_xticklabels(labels, fontsize=7)
 axs[2].set_ylabel("||mean residual|| (% of separation)", fontsize=8.5, color=INK)
-axs[2].set_title("vs family-block null (p<0.001) and\nheld-out direction estimation (mean of 2 folds)", fontsize=9, color=INK)
+axs[2].set_title("against the family-block null (p < 0.001) and\nunder held-out direction estimation (mean of 2 folds)", fontsize=9, color=INK)
 for a in axs: style(a)
-fig.suptitle("F10 evidence — the mixed-context/shift marker: small, systematic, persistent displacement off the no-shift manifold", fontsize=10.5, color=INK)
+fig.suptitle("The mixed-context marker: a small, systematic, persistent displacement off the no-shift subspace", fontsize=10.5, color=INK)
 fig.tight_layout(rect=[0, 0, 1, 0.90])
 fig.savefig(FIG / "fig_s9_shift_marker.png", dpi=150); plt.close(fig)
 print("6/7 shift_marker")

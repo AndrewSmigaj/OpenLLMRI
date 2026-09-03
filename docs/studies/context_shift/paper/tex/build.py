@@ -55,7 +55,7 @@ appx = appx.replace("\\section*{Appendices and back matter (assembly spec)}",
 
 main = r"""\documentclass[11pt]{article}
 \usepackage[margin=1in]{geometry}
-\usepackage{graphicx,amsmath,amssymb,placeins,enumitem,xcolor,microtype,booktabs}
+\usepackage{graphicx,amsmath,amssymb,placeins,enumitem,xcolor,microtype,booktabs,tabularx}
 \usepackage[colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
 \graphicspath{{../../analysis/figures/}{../../analysis/figures/other/}}
 \setlength{\parskip}{2pt}

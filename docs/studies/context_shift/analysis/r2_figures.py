@@ -61,12 +61,15 @@ for j, ck in enumerate(("ck20", "ck30", "ck40")):
         for x0, lab in ((-1, "origin ref"), (+1, "dest ref")):
             ax.axvline(x0, color=INK, lw=0.9, ls="--")
         ax.axvline(float(np.mean(vals)), color=AQUA, lw=1.6)
-        ax.set_title(f"{ck} {a_}  mean {np.mean(vals):+.2f}", fontsize=9, color=INK)
+        ckn = {"ck20": "at 20 sentences", "ck30": "at 30 sentences (10 post-shift)", "ck40": "at 40 sentences (20 post-shift)"}[ck]
+        dirn = {"ab": "aquarium → vehicle", "ba": "vehicle → aquarium"}[a_]
+        ax.set_title(f"{ckn}, {dirn}: mean {np.mean(vals):+.2f}", fontsize=8.5, color=INK)
         style(ax)
-axes[1, 1].set_xlabel("per-token reading (−1 = origin-arm token mean, +1 = destination-arm token mean)",
+axes[1, 1].set_xlabel("per-token reading (−1 = mean of the same tokens in origin-class no-shift runs, +1 = mean in destination-class runs)",
                       fontsize=8.5, color=MUT)
-fig.suptitle("Item 2c — WITHIN-STREAM occupancy, tank L4: window-token readings vs no-shift references\n"
-             "(post-shift-block content matches destination; only history differs — means sit short of +1)",
+axes[0, 0].set_ylabel("tokens", fontsize=8.5, color=INK); axes[1, 0].set_ylabel("tokens", fontsize=8.5, color=INK)
+fig.suptitle("Tank task, layer 4: readings of the context tokens themselves, against no-shift references matched for content and position\n"
+             "(the post-shift block is destination-class content; only the history differs; means sit short of +1)",
              fontsize=10.5, color=INK)
 fig.tight_layout(rect=[0, 0.01, 1, 0.92])
 fig.savefig(FIG / "fig_r2_within_stream.png", dpi=150)
@@ -77,9 +80,9 @@ tag, d4a, d4b, d3, dest_fn, fam_fn = tank_cfg()
 Ar = np.stack(d4a); Br = np.stack(d4b)
 mid = (Ar.mean(0) + Br.mean(0)) / 2.0
 fig, ax = plt.subplots(figsize=(8.4, 4.4), facecolor=SURFACE)
-bands = [("k1-5", 0, 5), ("k6-10", 5, 10), ("k11-15", 10, 15), ("k16-20", 15, 20)]
+bands = [("post-shift 1–5", 0, 5), ("6–10", 5, 10), ("11–15", 10, 15), ("16–20", 15, 20)]
 grid = np.linspace(-3, 3, 601)
-for sign, color, lab in ((+1.0, BLUE, "ab (→+)"), (-1.0, ORANGE, "ba (→−)")):
+for sign, color, lab in ((+1.0, BLUE, "aquarium → vehicle"), (-1.0, ORANGE, "vehicle → aquarium")):
     ys = np.stack([((d3[n] - mid) * sign)[20:40] for n in d3 if dest_fn(n) == sign])
     modes, sds = [], []
     for _, lo, hi in bands:
@@ -94,10 +97,11 @@ for sign, color, lab in ((+1.0, BLUE, "ab (→+)"), (-1.0, ORANGE, "ba (→−)"
     ax.axhline(orig_lv, color=color, lw=1.0, ls="--", alpha=0.5)
 ax.axhline(0, color=MUT, lw=0.8)
 ax.set_xticks(range(4)); ax.set_xticklabels([b[0] for b in bands])
-ax.set_ylabel("mode location (midref, dest-oriented)", fontsize=9, color=INK)
+ax.set_ylabel("mode of the reading distribution\n(midpoint-referenced, signed toward the destination)", fontsize=9, color=INK)
+ax.set_xlabel("post-shift sentences", fontsize=9, color=MUT)
 ax.legend(fontsize=8.5)
-ax.set_title("Item 12a — carrier-site occupancy mode by post-shift band (±1 band sd)\n"
-             "dotted = D4 destination level, dashed = D4 origin level; ab parks at mid-axis",
+ax.set_title("Tank task, ' tank' site: mode of the reading distribution by post-shift band (bars: ± 1 sd within the band)\n"
+             "dotted = destination no-shift reference, dashed = origin no-shift reference; aquarium → vehicle dwells at the midpoint",
              fontsize=10, color=INK)
 style(ax)
 fig.tight_layout()
@@ -123,11 +127,10 @@ ax.axhline(ctx_med, color=MUT, lw=1.2, ls="--", label=f"context-token median d�
 ax.set_xticks(xs); ax.set_xticklabels(toks, fontsize=9)
 ax.set_ylabel("class-signal d′ (identity-matched tokens)", fontsize=9, color=INK)
 ax.legend(fontsize=8.5)
-ax.set_title("Item 6a — class signal across the verbatim carrier, ck40 D4 windows, L4 (n = 6 runs/class):\n"
-             "the contrast concentrates at the sense-bearing token (d′ ≈ 12 vs ambient ≈ 1.4)",
+ax.set_title("Tank task: class signal at each carrier token\n(layer 4, forty-sentence no-shift windows, 6 runs per class)",
              fontsize=10, color=INK)
 ax.text(0.01, -0.22, "d′ = mean difference / pooled sd (printed above bars): tight within-class sd prints tall bars at modest\n"
-        "mean shifts — orderings among non-peak bars are not interpretable at n=6/class; d′ 11.7 = complete\n"
+        "mean shifts — orderings among non-peak bars are not interpretable at 6 runs per class; d′ 11.7 = complete\n"
         "separation at this n, an unstable point estimate.", transform=ax.transAxes, fontsize=6.5, color=MUT)
 style(ax)
 fig.tight_layout()

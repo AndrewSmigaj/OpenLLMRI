@@ -43,18 +43,17 @@ for row, (probe, c) in enumerate(CFG.items()):
         ax.axvline(20.5, color=INK, lw=0.9, ls="--")
         ax.axhline(0, color=MUT, lw=0.6)
         star = " (calibrated site)" if L == SITE[probe] else ""
-        ax.set_title(f"{probe} — layer {L}{star}", fontsize=9.5, color=INK)
+        task_name = "Tank task" if probe == "tank" else "Fiction/real task"
+        ax.set_title(f"{task_name}, layer {L}{star}", fontsize=9.5, color=INK)
         ax.set_facecolor(SURFACE)
         for s in ("top", "right"): ax.spines[s].set_visible(False)
         ax.tick_params(colors=MUT, labelsize=7.5); ax.grid(True, lw=0.35, color="#e8e8e4")
         if row == 1: ax.set_xlabel("sentence position (shift after 20)", fontsize=8.5, color=MUT)
         if col == 0:
-            ax.set_ylabel("secondary-axis reading\n(class means at ±1; 0 = midpoint)",
+            ax.set_ylabel("reading under the layer\'s accumulated-context axis\n(class means at ±1; 0 = midpoint)",
                           fontsize=8.5, color=INK)
             ax.legend(fontsize=7, loc="lower left")
-fig.suptitle("The collapse view across depth (secondary per-layer axes): sudden, complete flips at "
-             "shallow layers;\npartial crossing and dwelling at mid and deep layers — the calibrated "
-             "sites are single rows of this progression", fontsize=10.5, color=INK)
+fig.suptitle("The collapse view across depth: Figure 1 repeated at five layers per task, each under its own accumulated-context axis", fontsize=11, color=INK)
 fig.tight_layout(rect=[0, 0, 1, 0.93])
 fig.savefig(FIG / "fig_s13_collapse_layers.png", dpi=150, bbox_inches="tight", facecolor=SURFACE)
 # late-window destination-signed band means (quoted in section 3.2)

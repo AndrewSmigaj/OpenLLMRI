@@ -655,3 +655,110 @@ No number changed; `number_check.py` trace and preservation both pass.
 - Metrics after this pass (before rewriting): Results 28.7 words per sentence, 30%
   over 35, 5.8 numbers per paragraph; every section still flags on em-dashes and
   semicolons. These are the Step 2 targets.
+
+## Rewrite, Step 2 — section log (2 September 2026)
+
+### Abstract — closed after three review loops
+Review-only pass per plan, adjusted because it flagged on dashes and semicolons.
+Loop 1 (11 fixes, 3 reworded by me against the record): tasks before method; the
+generation of completions added to the method sentences; "countering" and "stops
+short" clarified; the tank dwell related to the crossing; "not timed by strong
+evidence" → "do not coincide with unusually strong evidence" (the record says jump
+sentences are median-strength); "order effects" split; "states" given an antecedent;
+"never asks" scoped to the tank task; "stayed safe" replaced with the 80% and the
+tank behavior stated as "lists both senses or commits silently" (the reviewer's
+version overstated commitment); caveat sentences separated; "attenuation" →
+"weakening ... with no adversarial prompt". Loop 2 (4 fixes): the no-shift reference
+defined before use; "stops halfway" → "reaches the midpoint ... and stays there"
+(the record: the plateau sits at the class midpoint); a topic sentence for the
+behavior paragraph, stated as a contrast between tasks rather than the reviewer's
+causal "depends on the safeguard"; "order" named as the order in which evidence
+arrives. Loop 3 (3 fixes): "no-shift reference" named on first use; "safe" glossed
+with §3.5's definition; "midpoint" kept because the record supports it (inventory
+updated). Reviewer notes for Andrew: the epigraph is a flourish under rule 14 and
+sits close to the content note (keep or drop is his call); the title's "Unresolved:"
+can read as "the authors did not settle this". Metrics: 16.6 words per sentence,
+none over 35, 1.0 numbers per paragraph, dashes 5.0 and semicolons 2.5 per 1,000.
+Number checks pass.
+
+### Introduction — closed after three review loops
+Rewritten in full: context → the two tasks' origins → the safeguard pair → three
+worlds → design → Figure 1 → contributions. Kind-audit item 15 applied ("has a
+measurable correlate"). Loop 1 (12 fixes): Figure 1's green band was not the gap
+between the references but the zone where fewer than 5% of either reference's
+readings fall, so the caption now states that rule; the caption's crossing times
+now use the mean-curve values (fiction/real about 4 sentences, tank 8 to 13); the
+reference lines' colors explained; "in-between zone" → "unresolved zone"; two garden
+paths ("a text form", "which sense or which framing") removed; the 96 completions
+scoped to §3.5 with the distinction between listing both senses and flagging
+ambiguity; "metastable" defined in the three-worlds paragraph; citation markers
+added for Dynel and neural dynamics; contribution 4 split; a seventh contribution
+added for the behavior beside the reading in both tasks, which the reviewer noted
+was missing though the intro's safety framing set it up. Loop 2 (5 fixes): the
+no-shift references named in the text; the figure legend relabeled "core of
+unresolved zone" and both references named in the legend; the caption's scale
+sentence split and corrected ("beyond ±1" holds only for tank); hysteresis and
+recency weighting glossed in contribution 6; the tank request stated as such; a
+sentence added pointing to §4's verdict on the three worlds. Loop 3 (5 fixes): the
+right-panel legend was covering the reference line the reader must check, so both
+legends now sit below the panels; carrier tied to "the task's request"; "steadily
+shifting context" → "as the context grows"; the central-result sentence split and
+the fourth case called suggestive; contribution 6 split. Figure 1 regenerated
+from its committed script with plain panel titles, labeled references and shift
+line, and an axis-unit label; content unchanged. Metrics: 15 words per sentence,
+2% over 35, 0.9 numbers per paragraph, no dashes. Number checks pass.
+
+### Methods — closed after three review loops
+Rewritten in full in the structure-pass order. Loop 1 (17 fixes): sign convention
+stated (aquarium/fictional −1, vehicle/real +1); calibration items pictured (one
+context sentence, then the carrier); readings stated as unbounded; layer choice
+stated (tank peak at 4; fiction/real near its 12–13 peak, fixed early); "capped
+diversity" corrected to capped sentences per family; run counts added (12 per
+direction tank, 24 fiction/real; 6 no-shift per class); "144 captures"; the
+exclusion rule stated from the blind template; Box 1 rules 1, 2, 3, 7 reworded so a
+non-practitioner can picture the failure; the ' like'/' letter' correlations
+attributed; one phrase for level claims; the layer-14 readings' use of the
+calibration axis stated with rule 3's referencing; lead/lag explained; the
+integrator's inputs and single parameter stated from the committed code; the
+remnant gap in one coordinate system; the axis named "calibration axis" throughout.
+Loop 2 (11 fixes): a corpus table (Table 1, which renumbers the results tables to
+2–4); paraphrase carriers quoted in full from the capture script; a step defined;
+block order explained; bare-carrier baselines given their question; rule 2 and rule
+4 retitled ("scene families held out"; "once context has accumulated, at every
+layer"); rule 4's long sentence split and the layer-14 case named; rule 7's
+"null-result instrument" replaced; the unresolved zone's edges named as the no-shift
+references; the remnant gap's sign convention stated. Loop 3 (8 fixes): calibration
+items described at first use; "carrier sentence itself"; the offset's measurement
+(the position-by-position midpoint) and its sharing across the three fiction/real
+carriers stated; the cosine sentence in standard form; axis rotation named in rule
+4 with the reason referencing suffices; rule 7 narrowed to "a real displacement";
+the integrator's per-class level stated as the constant over positions 10–40;
+"scene family" used consistently. Metrics: 15 words per sentence, 1% over 35, 1.6
+numbers per paragraph, no dashes. Number checks pass. Open for Andrew: the reviewer
+asked why the primary fiction/real readings keep the single-sentence axis at layer
+14, where rotation is largest; the text now answers with rule 3's referencing.
+
+### Results and Discussion — drafted, review loops in progress (checkpoint)
+All of §3 (roadmap, 3.1–3.7) and §4 rewritten to the standard with Tables 2–6 as
+containers (Table 1 is the corpus table in Methods). Every cited figure relabeled in
+its committed script (plain titles, no item numbers or codenames, axis labels,
+legends named by class and direction) and regenerated with content unchanged.
+Reviewer rounds so far: 3.1 two loops applied (tests mapped to tasks; a real minimal
+pair shown; layer-0 accuracies added; "spread over several content words"); 3.2 one
+loop applied (depth crossings stated as measured under per-layer axes; layer bands
+defined before use; the pre-registered prediction stated; depth analyses flagged
+exploratory; calibration-strength check scoped to the tank task, where it was run;
+"not an instrument accident" replaced with what was tested; the ' letter' site noted
+as not fitting the breadth account); 3.3 one loop applied (calibration counts in the
+table's units; a classifiable column; "jump" and the 456 count defined from the
+committed code; "0–2%" replaced by the five-model count 3 of 48 step-truth runs
+called hybrid, which is the quantity the argument needs — Andrew to ratify, since it
+retires a number from the older four-model calibration); Discussion one loop applied
+(task names unified; "mid-transition" → "middle reading band"; "A calibration" →
+"One limit"; three accounts introduced in plain words; monitor figure's third title
+line removed). Correction candidate 20: the fiction/real axis-rotation cosine at
+layer 21 is 0.68, outside the record's "0.57–0.63 at layers 10–23"; stated as an
+exception in Methods and the caption. Metric misses to note: 3.3 and 3.5 exceed the
+number-density target (calibration counts; behavior rates), 3.2's depth paragraph
+counts layer ranges as numbers. Reviewer agents run on Sonnet 5 from this point, at
+Andrew's request.

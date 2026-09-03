@@ -29,13 +29,12 @@ for probe, c in CFG.items():
         S, C = proj_all_layers(c["log"], cal, sec, c["filt"])
         np.savez(cache, **{f"S_{k}": v for k, v in S.items()}, **{f"C_{k}": v for k, v in C.items()})
     d1, d2 = c["dirs"]
+    neg, pos = ("aquarium", "vehicle") if probe == "tank" else ("fictional", "real")
     panels = [
-        (f"no-shift {'A' if probe=='tank' else 'fic'}-only",
-         [S[n] for n in S if c["isd4"](n) and not c["plus"](n)]),
-        (f"no-shift {'B' if probe=='tank' else 'real'}-only",
-         [S[n] for n in S if c["isd4"](n) and c["plus"](n)]),
-        (f"transition {d1[1:]}", [S[n] for n in S if not c["isd4"](n) and n.endswith(d1)]),
-        (f"transition {d2[1:]}", [S[n] for n in S if not c["isd4"](n) and n.endswith(d2)]),
+        (f"no-shift, {neg}", [S[n] for n in S if c["isd4"](n) and not c["plus"](n)]),
+        (f"no-shift, {pos}", [S[n] for n in S if c["isd4"](n) and c["plus"](n)]),
+        (f"transition, {neg} → {pos}", [S[n] for n in S if not c["isd4"](n) and n.endswith(d1)]),
+        (f"transition, {pos} → {neg}", [S[n] for n in S if not c["isd4"](n) and n.endswith(d2)]),
     ]
     fig, axes = plt.subplots(1, 4, figsize=(14.5, 4.4), facecolor=SURFACE, sharey=True)
     vmax = 2.0
@@ -50,10 +49,9 @@ for probe, c in CFG.items():
         ax.tick_params(colors=MUT, labelsize=8)
     axes[0].set_ylabel("layer", fontsize=9, color=INK)
     cb = fig.colorbar(im, ax=axes, fraction=0.02, pad=0.01)
-    cb.set_label("secondary-axis reading (±1 = accumulated-band class means)", fontsize=8, color=MUT)
-    site = "tank site L-all" if probe == "tank" else "want site"
-    fig.suptitle(f"Item 17 — {probe} {site}, SECONDARY instrument (position-matched D4-arm axes, "
-                 f"per layer): class signal at every depth; no off-band regime", fontsize=11, color=INK)
+    cb.set_label("reading (±1 = accumulated-context class means)", fontsize=8, color=MUT)
+    task = "Tank task, ' tank' site" if probe == "tank" else "Fiction/real task, ' want' site"
+    fig.suptitle(f"{task}: readings under per-layer accumulated-context axes", fontsize=11, color=INK)
     fig.savefig(FIG / f"fig_r3_heatmap_secondary_{probe}.png", dpi=150,
                 bbox_inches="tight", facecolor=SURFACE)
     plt.close(fig)
@@ -65,13 +63,11 @@ for probe, color in (("tank", BLUE), ("fr", ORANGE)):
     sec = np.load(AXD / f"secondary_axis_{probe}.npz")
     cal = np.load(AXD / CFG[probe]["cal"])
     coss = [float(sec[f"axis_{L}"] @ (cal[f"axis_{L}"] / np.linalg.norm(cal[f"axis_{L}"]))) for L in range(24)]
-    ax.plot(range(24), coss, "o-", color=color, lw=1.6, ms=4, label=probe)
+    ax.plot(range(24), coss, "o-", color=color, lw=1.6, ms=4, label="tank task" if probe == "tank" else "fiction/real task")
 ax.set_ylim(0, 1.05); ax.axhline(1.0, color=MUT, lw=0.7, ls=":")
-ax.set_xlabel("layer", fontsize=9, color=MUT); ax.set_ylabel("cos(secondary, calibration)", fontsize=9, color=INK)
+ax.set_xlabel("layer", fontsize=9, color=MUT); ax.set_ylabel("cosine (accumulated-context axis, calibration axis)", fontsize=9, color=INK)
 ax.legend(fontsize=9)
-ax.set_title("Item 17 — class-direction rotation under accumulation:\n"
-             "tank axis transfers (0.78–0.97); fr rotates at depth (0.57–0.63 for L10–23)",
-             fontsize=10, color=INK)
+ax.set_title("Axis rotation with accumulating context", fontsize=10, color=INK)
 ax.set_facecolor(SURFACE)
 for s in ("top", "right"): ax.spines[s].set_visible(False)
 ax.tick_params(colors=MUT, labelsize=8); ax.grid(True, lw=0.4, color="#e8e8e4")

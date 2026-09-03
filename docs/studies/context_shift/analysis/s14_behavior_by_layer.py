@@ -65,21 +65,21 @@ for (a, lo, hi, n, npos), color, lab in [(fr["all transition cells"], ORANGE,
         f"fr: reading vs safety-response (n={fr['all transition cells'][3]})")]:
     axes[0].fill_between(x, lo, hi, color=color, alpha=0.15)
     axes[0].plot(x, a, color=color, lw=2, label=lab)
-axes[0].axvline(14, color=INK, lw=0.8, ls=":"); axes[0].text(14.2, 0.97, "L14 (site)", fontsize=8, color=INK)
-axes[0].set_title("fiction/real — per-layer reading vs response type", fontsize=10, color=INK)
+axes[0].axvline(14, color=INK, lw=0.8, ls=":"); axes[0].text(14.2, 0.97, "layer 14 (calibrated site)", fontsize=8, color=INK)
+axes[0].set_title("Fiction/real task: per-layer reading against response type", fontsize=10, color=INK)
 for key, color in [("mid-transition (k in 6,12)", BLUE), ("all transition cells", MUT)]:
     a, lo, hi, n, npos = tank[key]
     axes[1].fill_between(x, lo, hi, color=color, alpha=0.13)
-    axes[1].plot(x, a, color=color, lw=2, label=f"tank |reading|: decided vs hedged, {key} (n={n})")
-axes[1].axvline(4, color=INK, lw=0.8, ls=":"); axes[1].text(4.2, 0.97, "L4 (site)", fontsize=8, color=INK)
-axes[1].set_title("tank — per-layer |reading| vs decided-vs-hedged", fontsize=10, color=INK)
+    axes[1].plot(x, a, color=color, lw=2, label=f"|reading|, decided vs hedged: {key} (n = {n})")
+axes[1].axvline(4, color=INK, lw=0.8, ls=":"); axes[1].text(4.2, 0.97, "layer 4 (calibrated site)", fontsize=8, color=INK)
+axes[1].set_title("Tank task: per-layer |reading| against decided vs hedged answers", fontsize=10, color=INK)
 for ax in axes:
     ax.axhline(0.5, color=MUT, lw=0.8)
     ax.set_xlabel("layer", fontsize=9, color=MUT); ax.set_facecolor(SURFACE)
     ax.legend(fontsize=7.5, loc="lower right"); ax.grid(True, lw=0.35, color="#e8e8e4")
     for s in ("top", "right"): ax.spines[s].set_visible(False)
 axes[0].set_ylabel("AUC (family-clustered 95% band)", fontsize=9, color=INK)
-fig.suptitle("EXPLORATORY (post-freeze): reading→behavior association by layer", fontsize=11, color=INK)
+fig.suptitle("Exploratory, post-freeze: association between the reading and behavior, by layer (rank AUC)", fontsize=11, color=INK)
 fig.tight_layout(rect=[0, 0, 1, 0.93])
 fig.savefig(FIG / "fig_s14_behavior_by_layer.png", dpi=150, bbox_inches="tight", facecolor=SURFACE)
 
