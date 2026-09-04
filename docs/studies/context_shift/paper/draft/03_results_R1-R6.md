@@ -14,8 +14,8 @@ We first check the instrument: whether an interpretation can be read out at all,
 whether what we read is the intended contrast (§3.1). We then follow a reading through
 a shift and ask how far it moves and how fast (§3.2), what kind of process moves it
 (§3.3), what a trajectory looks like when it stops between the two interpretations
-(§3.4), and what the model does while there (§3.5). Two boundary tests close the
-section: whether the order of evidence adds anything beyond recency weighting (§3.6),
+(§3.4), and what the model does while there (§3.5), where the behavioral question of §1
+returns. Two boundary tests close the section: whether the order of evidence adds anything beyond recency weighting (§3.6),
 and whether any of these states leaves the model's ordinary geometry (§3.7).
 
 ## 3.1 The instrument reads a real contrast, and reads the right thing
@@ -135,7 +135,8 @@ The stop near the midpoint, the dwelling of §3.4, shows up inside the fit itsel
 evidence in the window, the mean trajectories run slightly ahead, which is the
 pattern a recency weighting would produce, and individual runs are heterogeneous
 around that mean. The crossing delay is no longer than evidence integration predicts. What integration
-does not explain is the late shortfall.
+does not explain is the late shortfall. Whether the path itself is smooth
+integration is a separate question, tested head-to-head in §3.3.
 
 Behind the single-site view there is depth structure. The depth analyses were
 computed after the analysis freeze from the frozen captures and are exploratory
@@ -268,9 +269,8 @@ within the unresolved zone: it becomes stationary mid-transition and, on the mea
 horizon, does not leave. Figure fig_r2_mode_track tracks the mode of the run
 distribution by post-shift band. The mode is stationary at the midpoint for at least
 ten consecutive steps, and it sits at least 2.9 across-run standard deviations from
-both endpoint references. The spread across runs stays flat rather than tightening. A
-Gaussian-mixture comparison favors a single component in every time bin, so this is
-one stationary population, not a hidden mixture of resolved and unresolved runs.
+both endpoint references. The spread across runs stays flat rather than tightening. A one-component fit beats a two-component fit in every time bin, so this is one
+stationary population, not a hidden mixture of resolved and unresolved runs.
 
 The signature replicates within the tank task and barely appears in the other.
 Within tank it appears at the ' word' site, the token just before ' tank' in the
@@ -323,7 +323,14 @@ In the fiction/real task we categorize each completion as fiction-framed assista
 or a safe-completion. Fiction-framed assistance takes up the fictional frame and
 helps with the letter. A safe-completion addresses the request as a risk, declining
 the letter or redirecting to support. Three of the 204 completions mix the two, all on the real side. The rates below
-count them as neither. The reading separates the two types at 2 post-shift
+count them as neither. [PROPOSED] The 256-token generation budget ends inside the
+model's reasoning channel in 120 of the 204 completions, including all 21
+fiction-framed ones, so those categories record the response the reasoning committed
+to rather than an answer the user would have seen (§2.5). None of the 84 completions
+that reach a final answer asks whether the request is fictional or real, and no
+reasoning channel proposes asking it. Two float a clarifying question and drop it in
+the next sentence, and seven safe-completions plan to ask whether the user is safe.
+So the task with a safeguard surfaces the question no more than the tank task does. The reading separates the two types at 2 post-shift
 sentences, where the medians are −0.06 and +1.13 (p = 0.010). That is one of four
 post-shift counts tested. Later the
 reading does not separate them, and response type follows the scene family.
@@ -434,7 +441,9 @@ separation; the cosine rows measure the marker direction against the two class a
 What is it? Held-out mixture cells, cells of the static sweeps that were not used to
 construct the marker, locate what elevates it. The marker is absent from pure-class contexts. In static mixed contexts it is near
 its full transition strength in the tank task and about 70% of it in fiction/real
-(Table 6), so it marks mixed context, not temporal shifting as such. One qualification: in the
+(Table 6), so it marks mixed context, not temporal shifting as such. Those cells were all
+captured on one day, so the separation between pure and mixed cells cannot be a
+capture-day effect (§2.1). One qualification: in the
 fiction/real task it halves when the mixture is interleaved rather than blocked, so
 there, part of what elevates it is the coherent, blocked structure of the shift. It did not predict behavior in eight matched-composition tests at the calibrated
 site and layer, with one nominal hit, uncorrected. Other layers are untested. The model,

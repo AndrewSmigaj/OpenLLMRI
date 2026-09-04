@@ -1,3 +1,6 @@
+# Venue note (4 September 2026): Related work sits in the back matter for the Alignment
+# Forum build. For an arXiv build it moves to a numbered section, after §1 or before §5:
+# change the section order below and the heading level in 06_appendices.md.
 #!/usr/bin/env python3
 """Build main.tex from the draft md sections + figure captions, then run tectonic."""
 import re, pathlib, subprocess, sys

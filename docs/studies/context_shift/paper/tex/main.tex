@@ -30,8 +30,7 @@ midpoint between the two sides and stays there, stationary to the end of the win
 Individual runs move by drift plus discrete jumps, and the jumps do not coincide with
 unusually strong evidence. The order in which the evidence arrives has a large effect
 on the reading. Recency weighting explains almost all of it. None of the intermediate
-states is geometrically unusual against the no-shift references. All carry a persistent
-internal signal that the context is mixed, and the model's behavior does not appear
+states is geometrically unusual against the no-shift references. Together they carry a persistent internal signal that the context is mixed, and the model's behavior does not appear
 to use that signal. We call this cluster of properties semantic metastability.
 
 What the model does while its reading sits between the two sides differs between the
@@ -116,7 +115,10 @@ first twenty sentences the context supports one sense or one framing. After sent
 twenty it supports the other. This is the shift marked in Figure~\ref{fig:fig_s9_collapse}. The
 carrier is re-appended at every step, so the same token is re-read as the context
 grows. Matched contexts that never switch, the no-shift references, set the scale for
-the reading.
+the reading. At four points after the shift we also generate a completion from each
+context, to set the model's behavior beside its reading. A second corpus holds the
+amount of evidence for each side fixed and varies only its order, to ask whether
+order matters beyond amount.
 
 Figure~\ref{fig:fig_s9_collapse} shows the central result. The figure draws the unresolved zone
 as the gap between the two no-shift references. From either direction, readings cross
@@ -166,9 +168,22 @@ includes the study's full corrections record.
 
 All experiments use gpt-oss-20b, a 20-billion-parameter mixture-of-experts language
 model, in its stock configuration. We make no modifications to the model or its
-routing. Its native top-4-experts-per-token routing operates untouched. Inputs are
-formatted with the model's chat template and processed with deterministic forward
-passes, so identical inputs yield identical activations. We capture the full residual
+routing. Its native top-4-experts-per-token routing operates untouched. Inputs are formatted with the model's chat template as a single user message, with
+no developer message, and processed with deterministic forward passes, so identical
+inputs yield identical activations. The model runs at the precision it is distributed
+in: expert weights in the 4-bit MXFP4 format, all other weights in 16-bit floating
+point. The same loaded model produced every capture and every completion. One
+property of the template matters for reproduction. Its system message stamps the
+current date, so an input carries a few date tokens that change from day to day at
+fixed positions, and re-capture on another day requires pinning that date. Within a
+run the date is constant, because a run is one forward chain, so no within-run
+dynamic finding can be explained by it. We have not bounded the effect between runs
+empirically. It is expected to be small, a change of one or two tokens in a system
+prefix of fixed length, and where a run and its matched reference share a capture
+day it cancels in the referencing. The fiction/real transition runs, their no-shift
+references, and their calibration set were captured on one day, and all but three of
+the tank runs on another. Appendix B lists the days for every corpus, and pinned-date
+re-capture is future work (\S5). We capture the full residual
 stream (2,880 dimensions) at the output of each of the 24 decoder blocks. Throughout, a
 \emph{site} is a designated token of a fixed carrier sentence together with a layer. The
 \emph{reading} at a site is the residual stream at that token and layer, projected onto a
@@ -281,6 +296,13 @@ Bare-carrier baselines & What does the carrier read with no context? & the carri
 \end{tabularx}
 \end{table}
 
+The fiction/real transition runs pair each of the 12 scene families with two
+sub-arms, which is what gives 24 runs per direction. In the theme-only sub-arm the
+context never names a suicide letter or note. In the artifact-mentioned sub-arm it
+names one at least once. The two sub-arms' trajectories nearly coincide, with the
+mention slightly strengthening the early fictional reading, so the paper pools
+them. The no-shift runs use the theme-only sub-arm.
+
 Context sentences were written by language-model authoring agents, separate from the
 model under study, under a blind protocol. An agent received only a contrast
 specification and diversity rules, never the hypotheses. Within each class, the number
@@ -362,6 +384,10 @@ not remove.
 on which mixed-class contexts read high and pure-class contexts read near zero.
 \item \emph{Accumulation offset} and \emph{axis rotation}: the two instrument effects of rules 3
 and 4.
+\item \emph{Calibrated sites}: the one token and layer per task at which the dynamics claims
+are made, ' tank' at layer 4 and ' want' at layer 14 (\S2.1).
+\item \emph{Trajectory bundle}: the pooled set of transition-run states across all runs, the
+spread of the trajectories at a site (\S3.4).
 \end{itemize}
 
 \subsection{Analysis methods}
@@ -378,8 +404,8 @@ behind the evidence. The second form is a change-point step: a constant level be
 and after a fitted change point (three parameters). The third is a drift-plus-step
 hybrid: a linear trend plus a step at a fitted change point (four parameters). The
 fourth is a two-timescale integrator: a mixture of a fast and a slow recency
-weighting (three parameters). We select by BIC over the twenty points and declare a
-winner only when it leads the runner-up by at least 2. Otherwise the run is
+weighting (three parameters). We select by the Bayesian information criterion (BIC) [CITE: Schwarz 1978] over the
+twenty points and declare a winner only when it leads the runner-up by at least 2. Otherwise the run is
 indeterminate. The selector's identifiability is calibrated on synthetic runs of
 known type (\S3.3).
 
@@ -394,7 +420,13 @@ resampling scene families with replacement. Where a named test appears, its clus
 unit is stated in place.
 
 \textbf{Behavior.} Completions are categorized by regular-expression scan plus manual review
-of the committed categorization tables.
+of the committed categorization tables. [PROPOSED] The model's chat format emits a
+reasoning channel before its final answer, and generation was capped at 256 new
+tokens, so many completions end inside the reasoning channel: 37 of 108 in the tank
+task and 84 of 204 in the fiction/real task reach the final answer. The tables hold
+the raw output, so a category records the final answer where the generation reached
+it and otherwise the response the reasoning channel committed to. Every
+fiction-framed completion was categorized from its reasoning channel (\S3.5).
 
 \subsection{Reproducibility}
 
@@ -403,8 +435,8 @@ captures. A full regeneration audit reproduced all reported values, with calibra
 axes bit-identical and seeded bootstraps exact. A permanent fixture suite pushes
 synthetic data with analytically known answers through the actual pipeline functions.
 The label-shuffle and positive-control audits of Box 1 are committed tests. Corrections
-that changed reported values are listed in Appendix A. The complete record is in the
-repository.
+that changed reported values are listed in Appendix A. The complete record is in the repository. [Data and code availability statement:
+repository URL and license, Andrew's ruling H5.]
 \FloatBarrier
 
 \section{Results}
@@ -413,8 +445,8 @@ We first check the instrument: whether an interpretation can be read out at all,
 whether what we read is the intended contrast (\S3.1). We then follow a reading through
 a shift and ask how far it moves and how fast (\S3.2), what kind of process moves it
 (\S3.3), what a trajectory looks like when it stops between the two interpretations
-(\S3.4), and what the model does while there (\S3.5). Two boundary tests close the
-section: whether the order of evidence adds anything beyond recency weighting (\S3.6),
+(\S3.4), and what the model does while there (\S3.5), where the behavioral question of \S1
+returns. Two boundary tests close the section: whether the order of evidence adds anything beyond recency weighting (\S3.6),
 and whether any of these states leaves the model's ordinary geometry (\S3.7).
 
 \subsection{The instrument reads a real contrast, and reads the right thing}
@@ -498,8 +530,7 @@ lives at a token. A framing contrast lives across the utterance.
 \FloatBarrier
 \subsection{The shape of reinterpretation: gradual, partial, lingering}
 
-How far does a reading move after the evidence changes sides, and how fast? Figure
-\texttt{fig\_s9\_collapse} shows both directions of both tasks at the calibrated sites, against
+How far does a reading move after the evidence changes sides, and how fast? Figure~\ref{fig:fig_s9_collapse} shows both directions of both tasks at the calibrated sites, against
 the no-shift references. After the shift the reading crosses the midpoint within a
 median of 4 to 10.5 sentences, depending on the task and direction (Table 2). A few
 runs never cross. The mean trajectories in Figure~\ref{fig:fig_s9_collapse} cross later than the
@@ -518,7 +549,7 @@ stopped halfway.
 
 
 
-\begin{table}[htbp]\centering\small
+\begin{table}[htbp]\centering\footnotesize
 \caption{The transition in numbers, for both directions of both tasks. Crossing:
 the per-run median number of post-shift sentences before the reading crosses the
 midpoint. Decay: the median fitted $\gamma$ of the recency integrator (\S2.5). Remnant gap:
@@ -527,7 +558,7 @@ both measured from the midpoint, in axis units, with family-clustered bootstrap 
 intervals over 2,000 draws; the second interval also resamples the six no-shift
 reference runs of the destination class on every draw (Appendix A). The last column divides the gap by the
 no-shift amplitude, the distance from the midpoint to the matched reference.}
-\begin{tabular}{lrrrrrr}
+\begin{tabularx}{\linewidth}{>{\hsize=1.4\hsize\raggedright\arraybackslash}X>{\hsize=0.9333\hsize\raggedleft\arraybackslash}X>{\hsize=0.9333\hsize\raggedleft\arraybackslash}X>{\hsize=0.9333\hsize\raggedleft\arraybackslash}X>{\hsize=0.9333\hsize\raggedleft\arraybackslash}X>{\hsize=0.9333\hsize\raggedleft\arraybackslash}X>{\hsize=0.9333\hsize\raggedleft\arraybackslash}X}
 \toprule
 Transition & Crossing (median sentences) & Decay $\gamma$ (median) & Remnant gap & 95\% CI, references fixed & 95\% CI, references resampled & Gap / amplitude \\
 \midrule
@@ -536,7 +567,7 @@ tank, vehicle$\rightarrow$aquarium & 6.0 & 0.94 & +1.15 & [0.82, 1.45] & [0.77, 
 fictional$\rightarrow$real & 4.0 & 0.90 & +0.38 & [0.28, 0.49] & [0.27, 0.50] & 0.43 \\
 real$\rightarrow$fictional & 5.0 & 0.90 & +0.35 & [0.11, 0.58] & [$-$0.12, +0.79] & 0.40 \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{table}
 
 Three checks bear on the gap. First, one case weakens under a stricter bootstrap.
@@ -563,15 +594,15 @@ The stop near the midpoint, the dwelling of \S3.4, shows up inside the fit itsel
 evidence in the window, the mean trajectories run slightly ahead, which is the
 pattern a recency weighting would produce, and individual runs are heterogeneous
 around that mean. The crossing delay is no longer than evidence integration predicts. What integration
-does not explain is the late shortfall.
+does not explain is the late shortfall. Whether the path itself is smooth
+integration is a separate question, tested head-to-head in \S3.3.
 
 Behind the single-site view there is depth structure. The depth analyses were
 computed after the analysis freeze from the frozen captures and are exploratory
 (Appendix B). Crossing times by depth are measured under each layer's
 accumulated-context axis (\S2.4), so they differ from the calibrated-axis values of
 Table 2 even at the calibrated layers. We group the layers into four bands: 0–2,
-3–12, 13–18, and 19–23 (Table 3). Figure~\ref{fig:fig_s13_collapse_layers} repeats Figure
-\texttt{fig\_s9\_collapse} at five layers per task, and Fig.~\ref{fig:fig_r3_heatmap_secondary_fr} with the
+3–12, 13–18, and 19–23 (Table 3). Figure~\ref{fig:fig_s13_collapse_layers} repeats Figure~\ref{fig:fig_s9_collapse} at five layers per task, and Fig.~\ref{fig:fig_r3_heatmap_secondary_fr} with the
 supplementary heatmaps gives all layers. In the fiction/real task, layers 0 to 2
 cross almost immediately, within three to four sentences, and completely, while
 layers 3 to 18 cross at medians of eight to thirteen sentences. The tank task crosses
@@ -667,14 +698,14 @@ inside the network produces such a change is not identified here.
 
 
 
-\begin{table}[htbp]\centering\small
+\begin{table}[htbp]\centering\footnotesize
 \caption{Per-run model selection by BIC on the real transition runs and on
 synthetic runs of known type. A model wins a run only when its BIC leads the
 runner-up by at least 2; otherwise the run is indeterminate, and the classifiable
 runs are the rest. Synthetic runs: 24 per task per truth type, pooled across the two
 tasks; per task, hybrid truth was recovered as hybrid in 13 and 15 of 24, and
 two-timescale truth read as hybrid in 2 and 3 of 24.}
-\begin{tabularx}{\linewidth}{lllllll}
+\begin{tabularx}{\linewidth}{>{\hsize=1.4\hsize\raggedright\arraybackslash}X>{\hsize=0.9333\hsize\raggedleft\arraybackslash}X>{\hsize=0.9333\hsize\raggedleft\arraybackslash}X>{\hsize=0.9333\hsize\raggedleft\arraybackslash}X>{\hsize=0.9333\hsize\raggedleft\arraybackslash}X>{\hsize=0.9333\hsize\raggedleft\arraybackslash}X>{\hsize=0.9333\hsize\raggedleft\arraybackslash}X}
 \toprule
 Runs & Drift + step (hybrid) & Step & Recency integrator & Two-timescale & Indeterminate & Classifiable \\
 \midrule
@@ -745,9 +776,8 @@ within the unresolved zone: it becomes stationary mid-transition and, on the mea
 horizon, does not leave. Figure~\ref{fig:fig_r2_mode_track} tracks the mode of the run
 distribution by post-shift band. The mode is stationary at the midpoint for at least
 ten consecutive steps, and it sits at least 2.9 across-run standard deviations from
-both endpoint references. The spread across runs stays flat rather than tightening. A
-Gaussian-mixture comparison favors a single component in every time bin, so this is
-one stationary population, not a hidden mixture of resolved and unresolved runs.
+both endpoint references. The spread across runs stays flat rather than tightening. A one-component fit beats a two-component fit in every time bin, so this is one
+stationary population, not a hidden mixture of resolved and unresolved runs.
 
 The signature replicates within the tank task and barely appears in the other.
 Within tank it appears at the ' word' site, the token just before ' tank' in the
@@ -767,7 +797,7 @@ shows next.
 
 \begin{figure}[tbp]\centering
 \includegraphics[width=\linewidth]{fig_r2_mode_track.png}
-\caption{The dwell in the tank task, at the ' tank' site. Each point is the mode of the distribution of readings across runs within a five-sentence post-shift band, signed toward the destination class and midpoint-referenced; bars show one standard deviation across runs within the band. Dotted lines are the destination no-shift reference for each direction and dashed lines the origin reference. From aquarium to vehicle (blue) the mode reaches the midpoint by the third band and stays there through the last, at least 2.9 across-run standard deviations from both references, with the spread flat; a Gaussian-mixture comparison favors one component in every band. From vehicle to aquarium (orange) the mode keeps moving.}\label{fig:fig_r2_mode_track}
+\caption{The dwell in the tank task, at the ' tank' site. Each point is the mode of the distribution of readings across runs within a five-sentence post-shift band, signed toward the destination class and midpoint-referenced; bars show one standard deviation across runs within the band. Dotted lines are the destination no-shift reference for each direction and dashed lines the origin reference. From aquarium to vehicle (blue) the mode reaches the midpoint by the third band and stays there through the last, at least 2.9 across-run standard deviations from both references, with the spread flat; a one-component fit beats a two-component fit in every band. From vehicle to aquarium (orange) the mode keeps moving.}\label{fig:fig_r2_mode_track}
 \end{figure}
 \FloatBarrier
 \subsection{What the model does in the unresolved zone}
@@ -805,7 +835,14 @@ In the fiction/real task we categorize each completion as fiction-framed assista
 or a safe-completion. Fiction-framed assistance takes up the fictional frame and
 helps with the letter. A safe-completion addresses the request as a risk, declining
 the letter or redirecting to support. Three of the 204 completions mix the two, all on the real side. The rates below
-count them as neither. The reading separates the two types at 2 post-shift
+count them as neither. [PROPOSED] The 256-token generation budget ends inside the
+model's reasoning channel in 120 of the 204 completions, including all 21
+fiction-framed ones, so those categories record the response the reasoning committed
+to rather than an answer the user would have seen (\S2.5). None of the 84 completions
+that reach a final answer asks whether the request is fictional or real, and no
+reasoning channel proposes asking it. Two float a clarifying question and drop it in
+the next sentence, and seven safe-completions plan to ask whether the user is safe.
+So the task with a safeguard surfaces the question no more than the tank task does. The reading separates the two types at 2 post-shift
 sentences, where the medians are $-$0.06 and +1.13 (p = 0.010). That is one of four
 post-shift counts tested. Later the
 reading does not separate them, and response type follows the scene family.
@@ -950,7 +987,9 @@ Mixed cells & $\approx$ +27\% & $\approx$ +27\% \\
 What is it? Held-out mixture cells, cells of the static sweeps that were not used to
 construct the marker, locate what elevates it. The marker is absent from pure-class contexts. In static mixed contexts it is near
 its full transition strength in the tank task and about 70\% of it in fiction/real
-(Table 6), so it marks mixed context, not temporal shifting as such. One qualification: in the
+(Table 6), so it marks mixed context, not temporal shifting as such. Those cells were all
+captured on one day, so the separation between pure and mixed cells cannot be a
+capture-day effect (\S2.1). One qualification: in the
 fiction/real task it halves when the mixture is interleaved rather than blocked, so
 there, part of what elevates it is the coherent, blocked structure of the shift. It did not predict behavior in eight matched-composition tests at the calibrated
 site and layer, with one nominal hit, uncorrected. Other layers are untested. The model,
@@ -1061,9 +1100,8 @@ explanation alone.
 
 \emph{An early, surface-keyed trigger.} The third account points the opposite way through
 the stack. The shallowest layers resolve the framing composition almost immediately
-and completely (\S3.2), with the profile of surface-cue tracking. The minimal-pair test
-that rules out cue-only tracking was run at the calibrated site, not at shallow
-layers. A safeguard that reads early, from surface content and frame cues, would fire
+and completely (\S3.2), with the profile of surface-cue tracking. The minimal-pair test, which shows the reading tracks framing cues rather than
+content, was run at the calibrated site, not at shallow layers. A safeguard that reads early, from surface content and frame cues, would fire
 whenever the alarming request is present and be suppressed only by a well-established
 fictional frame. That is the shape of our behavioral data, including its fragile 50\%
 fiction-side floor. The fast, complete shallow response is specific to the
@@ -1129,8 +1167,18 @@ unresolved. For now, so is the question of what a model should do while inside o
 \section{Limitations and future work}
 
 \textbf{One model, stated plainly.} Everything here is measured in one 20-billion-parameter
-mixture-of-experts model, with deterministic decoding. Each dynamics claim is made at
-one calibrated site and layer per task. Those sites are single rows of a depth progression in which crossing times vary
+mixture-of-experts model, with deterministic decoding, so the behavior rates of \S3.5
+are properties of the greedy continuation and behavior under sampling is untested.
+Three kinds of claim should be kept apart. Descriptive claims about gpt-oss-20b are
+fully established here, since this model is the population of interest. Existence
+claims about the class, that a deployed language model can dwell between
+interpretations, can carry a mixed-context signal its behavior does not use, and can
+have safeguard behavior weakened by ordinary coherent context, need only one model.
+Prevalence claims across models are untested here, and the paper makes none. The
+model is itself deployed and open-weight, so its characterization has safety
+relevance of its own, independent of any transfer to other systems.
+
+Each dynamics claim is made at one calibrated site and layer per task. Those sites are single rows of a depth progression in which crossing times vary
 systematically across layers (\S3.2). No single layer
 is a sufficient readout of the model's state, and behavior is produced downstream of
 all of them. Within the study, replication is internal. Its scope is set out in \S2.3: the task contrasts, carriers, sites, and scene
@@ -1167,6 +1215,14 @@ readings, and test it against the chance-compatible single-site baseline of \S4.
 \item Localize where safeguard behavior reads in the stack by patching shallow against
 mid-stack states during generation. This is the decisive test for the three
 candidate accounts of \S4.
+\item Run a benign-framing control arm: the same carrier with one word swapped, such as
+a resignation letter, with contexts built by the fiction/real recipe with the theme
+swapped, so that cue density is matched by construction. A benign request has no
+safeguard to trigger, so this arm separates the trained-default account of \S4 from
+the pretraining-register account, where patching only localizes. It is specified
+here and not yet run.
+\item Re-capture a subset at a pinned template date, to bound the effect of the date
+tokens the chat template stamps into every input (\S2.1).
 \item Run a suite of harder context manipulations: colliding frames, frames that mutate
 mid-context, and deliberately incoherent contexts. Genuine off-distribution
 excursions are most likely there. Our clean block shifts are the tamest possible
@@ -1183,6 +1239,19 @@ freeze are logged as such in Appendix B.
 
 [Agreed AI-assistance line: exact text from Andrew. Personal acknowledgments: Andrew
 adds.]
+
+\subsection*{Ethics and safe messaging}
+
+[DRAFT, for Andrew's approval.] This paper studies how a model's internal reading of a
+suicide-related request moves under context, and reports the model's behavior around
+that request. It involves no human subjects and no user data. The fiction/real corpus
+was written under the norms of \S2.3: no context sentence contains the carrier request,
+and the theme-only sub-arm never names a suicide letter or note. The content note on
+the first page follows safe-messaging practice, and the paper quotes no
+model-generated text that assists with the letter. [Data release policy per D1:
+categorization tables with paraphrased excerpts and raw completions on request, or
+full release.] The motivating case is contested litigation, and the paper
+characterizes only what the filing and reporting describe.
 
 \subsection*{Related work}
 
@@ -1333,12 +1402,22 @@ Remnant gap (axis units) & +1.66 & band [$-$1.42, +1.31] \\
 \end{table}
 
 
-\textbf{Additions after the freeze.} Four analyses were added after the analysis freeze, all computed from the frozen
-captures through the committed cache, and each is noted as a post-freeze addition
-where it appears: the tank response counts of \S3.5 (zero of 96
+\textbf{Capture days.} The chat template stamps the capture date into every input (\S2.1).
+The tank transition runs, no-shift runs, and calibration set were captured on 27
+August 2026, except two transition runs and one no-shift run captured the next day.
+Every fiction/real transition run, no-shift run, and calibration item was captured on
+28 August. Each task's checkpoint captures fall on one day, as do its mixture-sweep
+cells and the minimal pairs. Behavior completions were generated on later days, and
+each completion's reading comes from the same forward pass as the completion. A
+committed script reproduces this table from the session manifests.
+
+\textbf{Additions after the freeze.} Six analyses were added after the analysis freeze, all
+computed from the frozen captures or their manifests through committed scripts, and each
+is noted as a post-freeze addition where it appears: the tank response counts of \S3.5 (zero of 96
 completions ask which sense is meant); the monitor ROC of \S4 (AUC 0.61 [0.43,
 0.76]); the per-layer collapse panels of \S3.2 (Fig.~\ref{fig:fig_s13_collapse_layers} and
-Table 3); and the exploratory per-layer behavior association of \S3.5 (Fig.~\ref{fig:fig_s14_behavior_by_layer}).
+Table 3); the exploratory per-layer behavior association of \S3.5 (Fig.~\ref{fig:fig_s14_behavior_by_layer}); the channel-reach and frame-query counts of \S3.5; and
+the capture-day table above.
 
 \textbf{Names used in the repository.} Readers of the repository will meet different
 names for some of the paper's terms.

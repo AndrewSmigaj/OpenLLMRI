@@ -962,3 +962,113 @@ the intermediate readings; (4) the encoding-versus-expression paragraph adds
 residual-stream signals of context-versus-memory knowledge conflict (Zhao et al.
 2024; reference to confirm) and places the mixed-context marker as conflict within
 the context. All new references are [CITE] placeholders for Andrew to confirm.
+
+## Review-draft proposals batch (4 September 2026)
+
+Applied from the chat-side proposals list against the Sept 4 draft. Items not
+applied are listed at the end with the reason.
+
+**A. Errors.** A1: §4 third-account sentence now says the minimal pairs show the
+reading tracks framing cues rather than content (no longer "rules out cue-only
+tracking"). A2: the two literal "Figure fig_s9_collapse" references were the two
+line-wrapped ones; md2tex now matches "Figure" followed by any whitespace, and the
+PDF has zero literal figure ids. A3: abstract reads "Together they carry a
+persistent internal signal".
+
+**B. Scope.** B1: §5 "One model" paragraph carries the claim trichotomy
+(descriptive / existence / prevalence). B2: sentence that gpt-oss-20b is itself
+deployed and open-weight. B4 (check): §1 says "We do not analyze that case" and
+takes only a question from it; §4 says the case "reportedly had the same structure
+at system scale" (moderation layer, not model internals) — the bridge stays at the
+phenomenon-type level. PASS. B3: ruling for Andrew (model-organism clause).
+
+**C. Content.** C1: benign-framing control arm added to §5 beside the patching
+item, marked as specified and not yet run. Status: no predictions file and no
+captures exist (repository grep: "resignation"/"benign" appear only in unrelated
+sets). C2: §2.3 states the fiction/real sub-arm structure (12 families × 2
+sub-arms = 24 per direction; theme-only never names a suicide letter or note;
+artifact-mentioned names one at least once — definitions from
+specs/scene_families.md) and the frozen record's B6 finding that the sub-arms
+nearly coincide with a slightly stronger early fictional reading under mention;
+no-shift runs are theme-only. C3: new committed script
+analysis/s15_fr_frame_queries.py (post-freeze; Appendix B line) — of the 84
+fiction/real completions that reach a final answer, 0 ask whether the request is
+fictional or real; no reasoning channel proposes asking it; 2 float a clarifying
+question and drop it; 7 safe-completions plan a safety check-in. Manual verdicts
+are keyed by set name inside the script with an assertion on the candidate list.
+
+**E. Checks.** E1 PASS: s7 output (recorded in session transcripts) gives tank
+fit-A(destination first)=0.910 / fit-B(destination last)=0.970 and fr 0.900 /
+0.840; Table 5 "0.91 / 0.97" and "0.90 / 0.84" match; FINDINGS_FINAL lists the fr
+pair in the opposite order from tank, which is a listing inconsistency in the
+record, not in the table. E2 PASS: the complaint alleges the moderation system
+flagged 377 messages for self-harm content and reporting describes real-time
+tracking; the §4 sentence keeps "reportedly". The TechCrunch answer piece is dated
+26 November 2025 ("OpenAI claims teen circumvented safety features…"); NBC News
+(25 Nov) is the primary report of the answer. E3: the four flagged references
+verified — Reif et al. 2019 (NeurIPS) uses "a nearest-neighbor classifier where
+each neighbor is the centroid of a given word sense's BERT-base embeddings"
+(quoted from the PDF); Zhao et al. 2024 = arXiv 2410.16090 "Analysing the Residual
+Stream of Language Models Under Knowledge Conflicts"; Sun et al. 2022 = ICML
+"Out-of-Distribution Detection with Deep Nearest Neighbors"; Eisape et al. 2022 =
+Findings of EMNLP "Probing for Incremental Parse States in Autoregressive Language
+Models". The remaining placeholders were checked from memory only (46 brackets,
+64 individual references); the claim-source match for each is Andrew's to confirm
+at fill time. E4 PASS: caption gives mean-trajectory crossings (4; 8 to 13, matching
+FINDINGS_FINAL "mean-curve crossings 13/8/4/4"), Table 2 gives per-run medians
+(10.5/6.0/4.0/5.0); the caption says "mean reading crosses", the table says
+"per-run median".
+
+**G. Coherence.** G1: intro design paragraph now says completions are generated at
+four points after the shift. G2: same paragraph poses the order-of-evidence
+question. G3: §3 roadmap says the behavioral question of §1 returns in §3.5. G4:
+§3.2 integration passage points forward to the head-to-head test in §3.3. G5:
+skipped — a defined label "plateau window" is an invented term (rule 6). G6: venue
+note added at the head of tex/build.py.
+
+**H. Capture date, precision, channels.** H1 (manifest check, committed as
+analysis/s16_capture_days.py): fr transition runs, no-shift runs, and calibration
+set all on 28 Aug 2026; tank on 27 Aug except tank_d3_fam11 (both directions) and
+tank_d4_fam10_b on 28 Aug; checkpoints one day per task; mixture sweeps one day
+(29 Aug) for both tasks; behavior completions on 29–30 Aug, each reading from the
+completion's own forward pass; minimal pairs 30 Aug. Rendered system message (no
+developer message): "You are ChatGPT, a large language model trained by OpenAI. /
+Knowledge cutoff: 2024-06 / Current date: <YYYY-MM-DD> / Reasoning: medium / #
+Valid channels: analysis, commentary, final…"; 61 tokens for any date; the date
+line tokenizes to the same count for every date tested. Reasoning effort:
+"medium" (template default; the code passes none) for capture and generation
+alike. Disclosure text in §2.1, Appendix B ("Capture days"), and §3.7 (the
+sweep-internal pure-vs-mixed control is within one day). Empirical bound not run
+(Andrew's ruling); pinned-date re-capture added to §5.
+H1(d) — CHANNEL FINDING, [PROPOSED] in §2.5 and §3.5: the raw output begins with
+the reasoning channel; with the 256-token cap only 37 of 108 tank and 84 of 204
+fiction/real completions reach the final channel. All 21 fiction-framed and all 3
+mixed fiction/real completions were categorized from the reasoning channel; the 84
+that reach a final answer are all safe-completions. The worksheets also truncate
+at 1,200 characters. No number changes; the categories' meaning is now stated.
+Andrew to rule on the wording and prominence.
+H2: loader passes dtype=float16 with no quantization config (NF4 was removed on
+15 March 2026, commit 394dd9f, before any capture); the checkpoint's expert
+weights are MXFP4 (config.json quant_method) and a dequantized 20B model cannot
+fit the 16 GB card, so experts ran in MXFP4; captured activations are stored as
+float64 in Parquet. Stated in §2.1. H3: greedy-continuation caveat in §5. H4:
+ethics and safe-messaging statement drafted in the back matter, marked [DRAFT].
+H5: repository is github.com/AndrewSmigaj/OpenLLMRI under Apache-2.0 (LICENSE
+file); placeholder inserted in §2.6 for Andrew's availability sentence.
+
+**I. Readability.** I1: BIC expanded with [CITE: Schwarz 1978]. I2 sweep: "no-shift
+control runs"/"no-shift runs" name the runs and "no-shift references" the levels
+throughout; "park", "accumulation drift", "probe arms" appear only in the Appendix
+B name mapping; "probe" elsewhere names the instrument; no drift found. I3:
+glossary gains "Calibrated sites" and "Trajectory bundle". I4: "a one-component
+fit beats a two-component fit" in §3.4 and the mode-track caption. F2: no
+"pre-lexical" remains anywhere in the draft or captions.
+
+**J.** PDF 40 pages, zero literal figure ids, content note on page 1; Tables 2
+and 4 overflowed the right margin (pre-existing) — converter fixed in this batch.
+Checks: number trace and preservation PASS; prose metrics PASS except the two
+standing justified flags (§3 density; back-matter semicolons).
+
+**Rulings for Andrew:** B3 model-organism clause; D1 release policy; D2
+acknowledgment line; D3 author block; H5 availability sentence; the [PROPOSED]
+channel disclosure wording in §2.5/§3.5; the [DRAFT] ethics statement.

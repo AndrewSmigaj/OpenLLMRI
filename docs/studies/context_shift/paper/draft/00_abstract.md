@@ -28,8 +28,7 @@ midpoint between the two sides and stays there, stationary to the end of the win
 Individual runs move by drift plus discrete jumps, and the jumps do not coincide with
 unusually strong evidence. The order in which the evidence arrives has a large effect
 on the reading. Recency weighting explains almost all of it. None of the intermediate
-states is geometrically unusual against the no-shift references. All carry a persistent
-internal signal that the context is mixed, and the model's behavior does not appear
+states is geometrically unusual against the no-shift references. Together they carry a persistent internal signal that the context is mixed, and the model's behavior does not appear
 to use that signal. We call this cluster of properties semantic metastability.
 
 What the model does while its reading sits between the two sides differs between the

@@ -86,9 +86,8 @@ explanation alone.
 
 *An early, surface-keyed trigger.* The third account points the opposite way through
 the stack. The shallowest layers resolve the framing composition almost immediately
-and completely (§3.2), with the profile of surface-cue tracking. The minimal-pair test
-that rules out cue-only tracking was run at the calibrated site, not at shallow
-layers. A safeguard that reads early, from surface content and frame cues, would fire
+and completely (§3.2), with the profile of surface-cue tracking. The minimal-pair test, which shows the reading tracks framing cues rather than
+content, was run at the calibrated site, not at shallow layers. A safeguard that reads early, from surface content and frame cues, would fire
 whenever the alarming request is present and be suppressed only by a well-established
 fictional frame. That is the shape of our behavioral data, including its fragile 50%
 fiction-side floor. The fast, complete shallow response is specific to the

@@ -10,6 +10,19 @@ the post-freeze log). Acknowledgments placeholder unchanged. -->
 [Agreed AI-assistance line: exact text from Andrew. Personal acknowledgments: Andrew
 adds.]
 
+## Ethics and safe messaging
+
+[DRAFT, for Andrew's approval.] This paper studies how a model's internal reading of a
+suicide-related request moves under context, and reports the model's behavior around
+that request. It involves no human subjects and no user data. The fiction/real corpus
+was written under the norms of §2.3: no context sentence contains the carrier request,
+and the theme-only sub-arm never names a suicide letter or note. The content note on
+the first page follows safe-messaging practice, and the paper quotes no
+model-generated text that assists with the letter. [Data release policy per D1:
+categorization tables with paraphrased excerpts and raw completions on request, or
+full release.] The motivating case is contested litigation, and the paper
+characterizes only what the filing and reporting describe.
+
 ## Related work
 
 **Reading representations with probes.** Linear probes have been the standard way to
@@ -150,13 +163,23 @@ tank task, averaged over its two directions.
 | Remnant gap (axis units) | +1.66 | band [−1.42, +1.31] |
 
 
-**Additions after the freeze.** Four analyses were added after the analysis freeze, all computed from the frozen
-captures through the committed cache, and each is noted as a post-freeze addition
-where it appears: the tank response counts of §3.5 (zero of 96
+**Capture days.** The chat template stamps the capture date into every input (§2.1).
+The tank transition runs, no-shift runs, and calibration set were captured on 27
+August 2026, except two transition runs and one no-shift run captured the next day.
+Every fiction/real transition run, no-shift run, and calibration item was captured on
+28 August. Each task's checkpoint captures fall on one day, as do its mixture-sweep
+cells and the minimal pairs. Behavior completions were generated on later days, and
+each completion's reading comes from the same forward pass as the completion. A
+committed script reproduces this table from the session manifests.
+
+**Additions after the freeze.** Six analyses were added after the analysis freeze, all
+computed from the frozen captures or their manifests through committed scripts, and each
+is noted as a post-freeze addition where it appears: the tank response counts of §3.5 (zero of 96
 completions ask which sense is meant); the monitor ROC of §4 (AUC 0.61 [0.43,
 0.76]); the per-layer collapse panels of §3.2 (Fig. fig_s13_collapse_layers and
-Table 3); and the exploratory per-layer behavior association of §3.5 (Fig.
-fig_s14_behavior_by_layer).
+Table 3); the exploratory per-layer behavior association of §3.5 (Fig.
+fig_s14_behavior_by_layer); the channel-reach and frame-query counts of §3.5; and
+the capture-day table above.
 
 **Names used in the repository.** Readers of the repository will meet different
 names for some of the paper's terms.

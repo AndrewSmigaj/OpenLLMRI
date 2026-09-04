@@ -70,7 +70,10 @@ first twenty sentences the context supports one sense or one framing. After sent
 twenty it supports the other. This is the shift marked in Figure fig_s9_collapse. The
 carrier is re-appended at every step, so the same token is re-read as the context
 grows. Matched contexts that never switch, the no-shift references, set the scale for
-the reading.
+the reading. At four points after the shift we also generate a completion from each
+context, to set the model's behavior beside its reading. A second corpus holds the
+amount of evidence for each side fixed and varies only its order, to ask whether
+order matters beyond amount.
 
 Figure fig_s9_collapse shows the central result. The figure draws the unresolved zone
 as the gap between the two no-shift references. From either direction, readings cross

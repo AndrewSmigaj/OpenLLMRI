@@ -11,9 +11,22 @@ previous version retained. -->
 
 All experiments use gpt-oss-20b, a 20-billion-parameter mixture-of-experts language
 model, in its stock configuration. We make no modifications to the model or its
-routing. Its native top-4-experts-per-token routing operates untouched. Inputs are
-formatted with the model's chat template and processed with deterministic forward
-passes, so identical inputs yield identical activations. We capture the full residual
+routing. Its native top-4-experts-per-token routing operates untouched. Inputs are formatted with the model's chat template as a single user message, with
+no developer message, and processed with deterministic forward passes, so identical
+inputs yield identical activations. The model runs at the precision it is distributed
+in: expert weights in the 4-bit MXFP4 format, all other weights in 16-bit floating
+point. The same loaded model produced every capture and every completion. One
+property of the template matters for reproduction. Its system message stamps the
+current date, so an input carries a few date tokens that change from day to day at
+fixed positions, and re-capture on another day requires pinning that date. Within a
+run the date is constant, because a run is one forward chain, so no within-run
+dynamic finding can be explained by it. We have not bounded the effect between runs
+empirically. It is expected to be small, a change of one or two tokens in a system
+prefix of fixed length, and where a run and its matched reference share a capture
+day it cancels in the referencing. The fiction/real transition runs, their no-shift
+references, and their calibration set were captured on one day, and all but three of
+the tank runs on another. Appendix B lists the days for every corpus, and pinned-date
+re-capture is future work (§5). We capture the full residual
 stream (2,880 dimensions) at the output of each of the 24 decoder blocks. Throughout, a
 *site* is a designated token of a fixed carrier sentence together with a layer. The
 *reading* at a site is the residual stream at that token and layer, projected onto a
@@ -117,6 +130,13 @@ baselines, the carrier alone, complete the set.
 | Behavior prompts | What does the model do? | generation enabled, greedy decoding | 312 completions |
 | Bare-carrier baselines | What does the carrier read with no context? | the carrier alone | — |
 
+The fiction/real transition runs pair each of the 12 scene families with two
+sub-arms, which is what gives 24 runs per direction. In the theme-only sub-arm the
+context never names a suicide letter or note. In the artifact-mentioned sub-arm it
+names one at least once. The two sub-arms' trajectories nearly coincide, with the
+mention slightly strengthening the early fictional reading, so the paper pools
+them. The no-shift runs use the theme-only sub-arm.
+
 Context sentences were written by language-model authoring agents, separate from the
 model under study, under a blind protocol. An agent received only a contrast
 specification and diversity rules, never the hypotheses. Within each class, the number
@@ -195,6 +215,10 @@ Each rule names the way the instrument fails when the rule is broken.
   on which mixed-class contexts read high and pure-class contexts read near zero.
 - *Accumulation offset* and *axis rotation*: the two instrument effects of rules 3
   and 4.
+- *Calibrated sites*: the one token and layer per task at which the dynamics claims
+  are made, ' tank' at layer 4 and ' want' at layer 14 (§2.1).
+- *Trajectory bundle*: the pooled set of transition-run states across all runs, the
+  spread of the trajectories at a site (§3.4).
 
 ## 2.5 Analysis methods
 
@@ -210,8 +234,8 @@ behind the evidence. The second form is a change-point step: a constant level be
 and after a fitted change point (three parameters). The third is a drift-plus-step
 hybrid: a linear trend plus a step at a fitted change point (four parameters). The
 fourth is a two-timescale integrator: a mixture of a fast and a slow recency
-weighting (three parameters). We select by BIC over the twenty points and declare a
-winner only when it leads the runner-up by at least 2. Otherwise the run is
+weighting (three parameters). We select by the Bayesian information criterion (BIC) [CITE: Schwarz 1978] over the
+twenty points and declare a winner only when it leads the runner-up by at least 2. Otherwise the run is
 indeterminate. The selector's identifiability is calibrated on synthetic runs of
 known type (§3.3).
 
@@ -226,7 +250,13 @@ resampling scene families with replacement. Where a named test appears, its clus
 unit is stated in place.
 
 **Behavior.** Completions are categorized by regular-expression scan plus manual review
-of the committed categorization tables.
+of the committed categorization tables. [PROPOSED] The model's chat format emits a
+reasoning channel before its final answer, and generation was capped at 256 new
+tokens, so many completions end inside the reasoning channel: 37 of 108 in the tank
+task and 84 of 204 in the fiction/real task reach the final answer. The tables hold
+the raw output, so a category records the final answer where the generation reached
+it and otherwise the response the reasoning channel committed to. Every
+fiction-framed completion was categorized from its reasoning channel (§3.5).
 
 ## 2.6 Reproducibility
 
@@ -235,5 +265,5 @@ captures. A full regeneration audit reproduced all reported values, with calibra
 axes bit-identical and seeded bootstraps exact. A permanent fixture suite pushes
 synthetic data with analytically known answers through the actual pipeline functions.
 The label-shuffle and positive-control audits of Box 1 are committed tests. Corrections
-that changed reported values are listed in Appendix A. The complete record is in the
-repository.
+that changed reported values are listed in Appendix A. The complete record is in the repository. [Data and code availability statement:
+repository URL and license, Andrew's ruling H5.]

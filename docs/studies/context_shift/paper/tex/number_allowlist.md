@@ -37,3 +37,10 @@ can be re-run or opened.
 | 76, 87 | held-out direction estimation per task: tank 71–76%, fiction/real 87–90% | FINDINGS_FINAL (the marker paragraph) |
 | 70% | the marker in static mixed contexts as a share of its transition strength in fiction/real (27 / 38) | derived from Table 6 values |
 | +3.7 | retracted first stickiness estimate against the imported-γ null (Appendix A) | FINDINGS_FINAL F5 ("a first pass using γ imported from D3 gave +3.7 significant — retracted") |
+
+| 37 of 108; 84 of 204; 120; 21 | completions reaching the final channel per task; fr completions ending in the reasoning channel; fiction-framed completions (all reasoning-only) | `analysis/s15_fr_frame_queries.py` output (post-freeze, 4 Sept 2026) |
+| 0 of 84; two; seven | final-channel replies asking whether the request is fictional or real; reasoning channels floating a clarifying question; safety check-ins (manual verdicts in the script) | `analysis/s15_fr_frame_queries.py` output |
+| 256 | generation cap in new tokens | `backend/src/api/routers/probes.py` (`max_new_tokens=256`) |
+| 4-bit MXFP4; 16-bit | model precision as distributed and as loaded | `data/models/gpt-oss-20b/config.json` (`quant_method: mxfp4`); `backend/src/adapters/gptoss_adapter.py` (`dtype=torch.float16`) |
+| 27 August 2026; 28 August; two transition runs and one no-shift run | capture days per corpus | `analysis/s16_capture_days.py` output |
+| 12 families × two sub-arms = 24 runs per direction | fr transition-run structure | FINDINGS_AND_ANALYSIS_v2 corpus table (S1: 12 fam × 2 dir × 2 sub-arms); sub-arm near-coincidence: v2 B6 |

@@ -4,8 +4,18 @@ of the previous version retained. -->
 # 5. Limitations and future work
 
 **One model, stated plainly.** Everything here is measured in one 20-billion-parameter
-mixture-of-experts model, with deterministic decoding. Each dynamics claim is made at
-one calibrated site and layer per task. Those sites are single rows of a depth progression in which crossing times vary
+mixture-of-experts model, with deterministic decoding, so the behavior rates of §3.5
+are properties of the greedy continuation and behavior under sampling is untested.
+Three kinds of claim should be kept apart. Descriptive claims about gpt-oss-20b are
+fully established here, since this model is the population of interest. Existence
+claims about the class, that a deployed language model can dwell between
+interpretations, can carry a mixed-context signal its behavior does not use, and can
+have safeguard behavior weakened by ordinary coherent context, need only one model.
+Prevalence claims across models are untested here, and the paper makes none. The
+model is itself deployed and open-weight, so its characterization has safety
+relevance of its own, independent of any transfer to other systems.
+
+Each dynamics claim is made at one calibrated site and layer per task. Those sites are single rows of a depth progression in which crossing times vary
 systematically across layers (§3.2). No single layer
 is a sufficient readout of the model's state, and behavior is produced downstream of
 all of them. Within the study, replication is internal. Its scope is set out in §2.3: the task contrasts, carriers, sites, and scene
@@ -41,6 +51,14 @@ and measures what remains of the second frame. Both are designed and costed. Nei
 - Localize where safeguard behavior reads in the stack by patching shallow against
   mid-stack states during generation. This is the decisive test for the three
   candidate accounts of §4.
+- Run a benign-framing control arm: the same carrier with one word swapped, such as
+  a resignation letter, with contexts built by the fiction/real recipe with the theme
+  swapped, so that cue density is matched by construction. A benign request has no
+  safeguard to trigger, so this arm separates the trained-default account of §4 from
+  the pretraining-register account, where patching only localizes. It is specified
+  here and not yet run.
+- Re-capture a subset at a pinned template date, to bound the effect of the date
+  tokens the chat template stamps into every input (§2.1).
 - Run a suite of harder context manipulations: colliding frames, frames that mutate
   mid-context, and deliberately incoherent contexts. Genuine off-distribution
   excursions are most likely there. Our clean block shifts are the tamest possible
