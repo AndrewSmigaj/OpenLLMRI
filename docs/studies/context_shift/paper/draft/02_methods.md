@@ -37,10 +37,17 @@ reading is therefore a signed coordinate on the line through the two calibrated
 interpretations. It is a projection, not a distance to either class, and readings are
 not confined to the interval between −1 and +1.
 
-We use the difference of class means rather than a trained classifier such as a
-logistic probe because it has no hyperparameters, its geometry is transparent, and
-mean-difference directions read out class structure comparably to trained probes
-[CITE: mass-mean probing]. Its adequacy here is checked empirically (§3.1).
+None of this is new. The axis is the difference-of-means probe, called mass-mean
+probing in the interpretability literature, where it was found to read out class
+structure comparably to trained probes [CITE: Marks & Tegmark 2023]. The same
+difference-in-means direction underlies recent steering and refusal-direction work
+[CITE: Rimsky et al. 2024; Arditi et al. 2024], and the midpoint rule is
+nearest-centroid classification [CITE: nearest class mean, e.g. Tibshirani et al.
+2002]. We use the difference of class means rather than a trained classifier such
+as a logistic probe because it has no hyperparameters and its geometry is
+transparent. What is ours is the rescaling to ±1, the referencing of every reading
+to matched no-shift contexts (§2.4), and the use of the axis over accumulating
+context. Its adequacy here is checked empirically (§3.1).
 
 Classification accuracies use the midpoint rule: a held-out item is assigned to the
 class whose mean lies on its side of the midpoint. Splits are held out at the level of

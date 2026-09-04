@@ -190,10 +190,17 @@ reading is therefore a signed coordinate on the line through the two calibrated
 interpretations. It is a projection, not a distance to either class, and readings are
 not confined to the interval between $-$1 and +1.
 
-We use the difference of class means rather than a trained classifier such as a
-logistic probe because it has no hyperparameters, its geometry is transparent, and
-mean-difference directions read out class structure comparably to trained probes
-[CITE: mass-mean probing]. Its adequacy here is checked empirically (\S3.1).
+None of this is new. The axis is the difference-of-means probe, called mass-mean
+probing in the interpretability literature, where it was found to read out class
+structure comparably to trained probes [CITE: Marks \& Tegmark 2023]. The same
+difference-in-means direction underlies recent steering and refusal-direction work
+[CITE: Rimsky et al. 2024; Arditi et al. 2024], and the midpoint rule is
+nearest-centroid classification [CITE: nearest class mean, e.g. Tibshirani et al.
+2002]. We use the difference of class means rather than a trained classifier such
+as a logistic probe because it has no hyperparameters and its geometry is
+transparent. What is ours is the rescaling to $\pm$1, the referencing of every reading
+to matched no-shift contexts (\S2.4), and the use of the axis over accumulating
+context. Its adequacy here is checked empirically (\S3.1).
 
 Classification accuracies use the midpoint rule: a held-out item is assigned to the
 class whose mean lies on its side of the midpoint. Splits are held out at the level of
@@ -427,9 +434,10 @@ On the second question we have three independent tests: one on the tank task, an
 two on the fiction/real task, whose contrast has no single token to anchor to.
 
 The first is an identity-matched comparison. The tank carrier is ``What is the meaning of the word tank?'' Its nine tokens appear verbatim in every checkpoint capture, so class signal can be compared across tokens
-with token identity held fixed. The signal concentrates at the
-sense-bearing token: $d'$ = 11.7 at ' tank', against a context-token median of 1.4
-(Fig.~\ref{fig:fig_r2_carrier_dprime}). This comparison rests on 6 runs per class. Orderings
+with token identity held fixed. We measure the class signal at each token as $d'$, the difference of class means
+divided by the pooled standard deviation, from signal detection theory [CITE: Green
+\& Swets 1966]. The signal concentrates at the sense-bearing token: $d'$ = 11.7 at
+' tank', against a context-token median of 1.4 (Fig.~\ref{fig:fig_r2_carrier_dprime}). This comparison rests on 6 runs per class. Orderings
 among the other tokens are not interpretable at that n. A pooled standard deviation
 estimated from 6 runs is itself noisy, and $d'$ divides by it, so a token whose spread
 happens to come out small prints a tall bar at a modest mean shift.
@@ -880,10 +888,11 @@ equilibrium map. There is no bistable equilibrium and no barrier between states.
 Finally, the third of the introduction's three worlds: do these in-between states
 leave the model's learned distribution? ``Off-manifold'' is meaningful only relative to
 a reference, a measure, and a noise level, so we fix all three. The reference is the position-matched no-shift states, together with the trajectory bundle of \S3.4, the pooled set of transition-run states
-across all runs. The
-measures are the distance to the nearest neighbors in the reference and the
-out-of-subspace reconstruction error against the no-shift principal-component
-subspace. The noise level, which we call the null, is the held-out self-distance of the
+across all runs. The measures are two standard novelty scores: the distance to the nearest neighbors
+in the reference [CITE: k-nearest-neighbor out-of-distribution scoring, e.g. Sun et
+al. 2022] and the reconstruction error of a state against the principal-component
+subspace of the no-shift states [CITE: PCA reconstruction error as a novelty score,
+e.g. Jackson \& Mudholkar 1979]. The noise level, which we call the null, is the held-out self-distance of the
 reference itself.
 Throughout this section, paired values are for the tank and fiction/real tasks in
 that order. The instruments detect real displacement. Single-sentence calibration states read 1.7 to 2.2 times the null across the two
@@ -1177,11 +1186,21 @@ adds.]
 ask what a layer represents, and their validity has been questioned from the start:
 a probe can learn its own task rather than report the model's [CITE: Alain \& Bengio;
 Hewitt \& Liang; Belinkov]. Our answer to that concern is the three tests of \S3.1
-and the label shuffles of Box 1. The difference-of-means axis we use follows the
-mass-mean probing precedent, which found such directions read out class structure
-comparably to trained probes [CITE: Marks \& Tegmark]. The nearest cousin of our
-fiction/real behavior link is the refusal direction, a single direction along which
-refusal behavior can be read and steered [CITE: Arditi et al.].
+and the label shuffles of Box 1. The instrument itself is borrowed. The difference-of-means axis is the mass-mean
+probe [CITE: Marks \& Tegmark 2023], which found such directions read out class
+structure comparably to trained probes; difference directions between two
+conditions go back to word-embedding analyses [CITE: Bolukbasi et al. 2016] and to
+concept activation vectors [CITE: Kim et al. 2018], and rest on the linear
+representation hypothesis [CITE: Park, Choe \& Veitch 2023]. Classifying by the
+nearer class mean is nearest-centroid classification [CITE: Tibshirani et al.
+2002]. The per-token class signal we report is $d'$ from signal detection theory
+[CITE: Green \& Swets 1966]. The two off-distribution scores of \S3.7 are the
+k-nearest-neighbor distance [CITE: Sun et al. 2022; Lee et al. 2018] and the
+principal-component reconstruction error [CITE: Jackson \& Mudholkar 1979]. The
+nearest cousin of our fiction/real behavior link is the refusal direction, a single
+difference-in-means direction along which refusal behavior can be read and steered
+[CITE: Arditi et al. 2024], and the same direction family underlies contrastive
+activation steering [CITE: Rimsky et al. 2024].
 
 \textbf{Dynamics of in-context processing.} The account of in-context learning as
 implicit Bayesian inference is the standing theory our recency-integrator comparison

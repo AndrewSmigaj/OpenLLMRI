@@ -16,11 +16,21 @@ adds.]
 ask what a layer represents, and their validity has been questioned from the start:
 a probe can learn its own task rather than report the model's [CITE: Alain & Bengio;
 Hewitt & Liang; Belinkov]. Our answer to that concern is the three tests of §3.1
-and the label shuffles of Box 1. The difference-of-means axis we use follows the
-mass-mean probing precedent, which found such directions read out class structure
-comparably to trained probes [CITE: Marks & Tegmark]. The nearest cousin of our
-fiction/real behavior link is the refusal direction, a single direction along which
-refusal behavior can be read and steered [CITE: Arditi et al.].
+and the label shuffles of Box 1. The instrument itself is borrowed. The difference-of-means axis is the mass-mean
+probe [CITE: Marks & Tegmark 2023], which found such directions read out class
+structure comparably to trained probes; difference directions between two
+conditions go back to word-embedding analyses [CITE: Bolukbasi et al. 2016] and to
+concept activation vectors [CITE: Kim et al. 2018], and rest on the linear
+representation hypothesis [CITE: Park, Choe & Veitch 2023]. Classifying by the
+nearer class mean is nearest-centroid classification [CITE: Tibshirani et al.
+2002]. The per-token class signal we report is d′ from signal detection theory
+[CITE: Green & Swets 1966]. The two off-distribution scores of §3.7 are the
+k-nearest-neighbor distance [CITE: Sun et al. 2022; Lee et al. 2018] and the
+principal-component reconstruction error [CITE: Jackson & Mudholkar 1979]. The
+nearest cousin of our fiction/real behavior link is the refusal direction, a single
+difference-in-means direction along which refusal behavior can be read and steered
+[CITE: Arditi et al. 2024], and the same direction family underlies contrastive
+activation steering [CITE: Rimsky et al. 2024].
 
 **Dynamics of in-context processing.** The account of in-context learning as
 implicit Bayesian inference is the standing theory our recency-integrator comparison

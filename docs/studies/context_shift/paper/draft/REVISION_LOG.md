@@ -926,3 +926,20 @@ authors"; (5) the added seventh contribution (behavior beside the reading in bot
 tasks). Metric misses logged as justified: number density in §3 (calibration counts,
 behavior rates, layer ranges) and semicolons in the back matter (serial lists and
 citation brackets).
+
+## Method lineage and citations (4 September 2026)
+
+Andrew asked that the paper say plainly what the instrument does and cite the
+methods it borrows. Methods §2.2 now states that the axis is the difference-of-means
+(mass-mean) probe, that the midpoint rule is nearest-centroid classification, and
+that what is ours is the ±1 rescaling, the referencing to matched no-shift contexts,
+and the use of the axis over accumulating context. §3.1 names d′ as the signal
+detection measure; §3.7 names its two novelty scores. Related work's probes
+paragraph carries the lineage with [CITE] placeholders for: Marks & Tegmark 2023
+(mass-mean probing); Rimsky et al. 2024 and Arditi et al. 2024 (difference-in-means
+steering and refusal directions); Bolukbasi et al. 2016 (difference directions in
+word embeddings); Kim et al. 2018 (concept activation vectors); Park, Choe & Veitch
+2023 (linear representation hypothesis); Tibshirani et al. 2002 (nearest-centroid
+classification); Green & Swets 1966 (d′); Sun et al. 2022 and Lee et al. 2018
+(nearest-neighbor and Mahalanobis out-of-distribution scores); Jackson & Mudholkar
+1979 (PCA reconstruction error). Andrew to confirm each reference before filling.

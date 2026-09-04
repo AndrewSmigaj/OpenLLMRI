@@ -39,9 +39,10 @@ On the second question we have three independent tests: one on the tank task, an
 two on the fiction/real task, whose contrast has no single token to anchor to.
 
 The first is an identity-matched comparison. The tank carrier is "What is the meaning of the word tank?" Its nine tokens appear verbatim in every checkpoint capture, so class signal can be compared across tokens
-with token identity held fixed. The signal concentrates at the
-sense-bearing token: d′ = 11.7 at ' tank', against a context-token median of 1.4
-(Fig. fig_r2_carrier_dprime). This comparison rests on 6 runs per class. Orderings
+with token identity held fixed. We measure the class signal at each token as d′, the difference of class means
+divided by the pooled standard deviation, from signal detection theory [CITE: Green
+& Swets 1966]. The signal concentrates at the sense-bearing token: d′ = 11.7 at
+' tank', against a context-token median of 1.4 (Fig. fig_r2_carrier_dprime). This comparison rests on 6 runs per class. Orderings
 among the other tokens are not interpretable at that n. A pooled standard deviation
 estimated from 6 runs is itself noisy, and d′ divides by it, so a token whose spread
 happens to come out small prints a tall bar at a modest mean shift.
@@ -382,10 +383,11 @@ equilibrium map. There is no bistable equilibrium and no barrier between states.
 Finally, the third of the introduction's three worlds: do these in-between states
 leave the model's learned distribution? "Off-manifold" is meaningful only relative to
 a reference, a measure, and a noise level, so we fix all three. The reference is the position-matched no-shift states, together with the trajectory bundle of §3.4, the pooled set of transition-run states
-across all runs. The
-measures are the distance to the nearest neighbors in the reference and the
-out-of-subspace reconstruction error against the no-shift principal-component
-subspace. The noise level, which we call the null, is the held-out self-distance of the
+across all runs. The measures are two standard novelty scores: the distance to the nearest neighbors
+in the reference [CITE: k-nearest-neighbor out-of-distribution scoring, e.g. Sun et
+al. 2022] and the reconstruction error of a state against the principal-component
+subspace of the no-shift states [CITE: PCA reconstruction error as a novelty score,
+e.g. Jackson & Mudholkar 1979]. The noise level, which we call the null, is the held-out self-distance of the
 reference itself.
 Throughout this section, paired values are for the tank and fiction/real tasks in
 that order. The instruments detect real displacement. Single-sentence calibration states read 1.7 to 2.2 times the null across the two
