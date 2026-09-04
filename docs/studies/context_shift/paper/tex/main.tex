@@ -126,9 +126,11 @@ three of the four cases and suggestive in the fourth (\S3.2).
 We contribute:
 
 \begin{enumerate}
-\item A measurement protocol for reading interpretations over accumulating context,
-including two instrument artifacts, accumulation offset and axis rotation, that
-mimic findings (\S2).
+\item A measurement protocol, built from standard difference-of-means probes, for
+following a token's interpretation as context accumulates. It references every
+reading to a matched no-shift context of the same length and handles two
+instrument artifacts, accumulation offset and axis rotation, that mimic findings
+(\S2).
 \item The shape of reinterpretation: a gradual, partial update whose remnant lingers to
 the end of the tested horizon (\S3.2).
 \item The form of its dynamics: drift plus discrete jumps that are not timed by evidence
@@ -1193,9 +1195,12 @@ mass-mean probe [CITE: Marks \& Tegmark 2023], which found such directions read 
 structure comparably to trained probes; difference directions between two
 conditions go back to word-embedding analyses [CITE: Bolukbasi et al. 2016] and to
 concept activation vectors [CITE: Kim et al. 2018], and rest on the linear
-representation hypothesis [CITE: Park, Choe \& Veitch 2023]. Classifying by the
-nearer class mean is nearest-centroid classification [CITE: Tibshirani et al.
-2002]. The per-token class signal we report is $d'$ from signal detection theory
+representation hypothesis [CITE: Park, Choe \& Veitch 2023]. Classifying by the nearer class mean is nearest-centroid classification [CITE:
+Tibshirani et al. 2002], and word senses were read from contextual activations in
+just this way, by nearest sense centroid, in early geometry studies of BERT [CITE:
+Reif et al. 2019]. The rotation of a readout direction across depth (Box 1) is the
+effect that motivates refitting a lens at every layer [CITE: Belrose et al. 2023,
+tuned lens]. The per-token class signal we report is $d'$ from signal detection theory
 [CITE: Green \& Swets 1966]. The two off-distribution scores of \S3.7 are the
 k-nearest-neighbor distance [CITE: Sun et al. 2022; Lee et al. 2018] and the
 principal-component reconstruction error [CITE: Jackson \& Mudholkar 1979]. The
@@ -1209,8 +1214,15 @@ implicit Bayesian inference is the standing theory our recency-integrator compar
 speaks to [CITE: Xie et al.]. Function-vector and task-vector work shows that a
 context's task can be summarized in a direction of the residual stream [CITE:
 Hendel et al.; Todd et al.], and induction heads describe one mechanism by which
-context propagates [CITE: Olsson et al.]. None of these asks what happens while the
-summary is changing, which is the question here.
+context propagates [CITE: Olsson et al.]. Those describe the summary once formed, or the mechanism that forms it. Probes of
+belief state and board state follow a latent state as it updates, on synthetic or
+game data [CITE: Shai et al. 2024; Li et al. 2023], and incremental parse-state
+probes read a syntactic interpretation as words arrive [CITE: Eisape et al. 2022].
+That in-context processing weights recent items more heavily is also established
+[CITE: Zhao et al. 2021; Liu et al. 2023]. Our recency integrator turns that property
+into one fitted timescale. What happens to a natural-language interpretation while
+it is being overturned, and whether the model acts on the intermediate readings, is
+the question here.
 
 \textbf{Long-context safety.} Many-shot jailbreaking and multi-turn escalation attacks
 show that accumulated context can override trained behavior [CITE: many-shot
@@ -1225,8 +1237,11 @@ completions we examined none asked which sense was meant.
 
 \textbf{Internal encoding versus expression.} Models internally encode truthfulness and
 uncertainty that their generations do not respect [CITE: Azaria \& Mitchell; Orgad et
-al.]. The mixed-context marker of \S3.7 is the same structure in a different quantity:
-a signal that is present and, as far as we tested, unused.
+al.]. Residual-stream signals of conflict between the context and stored knowledge
+have also been reported [CITE: Zhao et al. 2024, knowledge conflicts in the residual
+stream]. The mixed-context marker of \S3.7 belongs to this family: a signal, here of
+conflict within the context itself, that is present and, as far as we tested,
+unused.
 
 \textbf{Long-context artifacts.} Attention sinks and related position effects raise the
 question of whether the accumulation offset of Box 1 is positional [CITE: attention

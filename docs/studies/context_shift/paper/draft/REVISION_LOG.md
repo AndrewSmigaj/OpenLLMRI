@@ -943,3 +943,22 @@ word embeddings); Kim et al. 2018 (concept activation vectors); Park, Choe & Vei
 classification); Green & Swets 1966 (d′); Sun et al. 2022 and Lee et al. 2018
 (nearest-neighbor and Mahalanobis out-of-distribution scores); Jackson & Mudholkar
 1979 (PCA reconstruction error). Andrew to confirm each reference before filling.
+
+## Contributions check (4 September 2026)
+
+Andrew asked whether the seven contributions are ours. Verdict: all seven are ours
+as findings and protocol; none claims a borrowed method. Applied on his ruling:
+(1) contribution 1 now says the protocol is built from standard difference-of-means
+probes and names the matched no-shift referencing as part of it; (2) Related work
+probes paragraph adds Reif et al. 2019 (word senses read from BERT activations by
+nearest sense centroid) and Belrose et al. 2023 (depth rotation of readout
+directions, tuned lens); (3) the dynamics paragraph replaces "None of these asks
+what happens while the summary is changing" with the closest prior work: belief-state
+geometry (Shai et al. 2024), Othello board-state probes (Li et al. 2023), incremental
+parse-state probes (Eisape et al. 2022), and recency effects in in-context processing
+(Zhao et al. 2021; Liu et al. 2023), then states the question as the fate of a
+natural-language interpretation while it is overturned and whether the model acts on
+the intermediate readings; (4) the encoding-versus-expression paragraph adds
+residual-stream signals of context-versus-memory knowledge conflict (Zhao et al.
+2024; reference to confirm) and places the mixed-context marker as conflict within
+the context. All new references are [CITE] placeholders for Andrew to confirm.

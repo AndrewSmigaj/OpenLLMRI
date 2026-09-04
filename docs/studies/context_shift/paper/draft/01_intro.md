@@ -79,9 +79,11 @@ three of the four cases and suggestive in the fourth (§3.2).
 
 We contribute:
 
-1. A measurement protocol for reading interpretations over accumulating context,
-   including two instrument artifacts, accumulation offset and axis rotation, that
-   mimic findings (§2).
+1. A measurement protocol, built from standard difference-of-means probes, for
+   following a token's interpretation as context accumulates. It references every
+   reading to a matched no-shift context of the same length and handles two
+   instrument artifacts, accumulation offset and axis rotation, that mimic findings
+   (§2).
 2. The shape of reinterpretation: a gradual, partial update whose remnant lingers to
    the end of the tested horizon (§3.2).
 3. The form of its dynamics: drift plus discrete jumps that are not timed by evidence
