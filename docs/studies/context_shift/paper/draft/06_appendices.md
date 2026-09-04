@@ -197,7 +197,8 @@ names for some of the paper's terms.
 - The repository's "K=1" label names an analysis convention for a routing track this
   study dropped.
 
-Regeneration instructions are in the repository's study README.
+Regeneration instructions are in the study README. [That README does not exist yet;
+Andrew's ruling on writing it.]
 
 ## Appendix C — Supplementary figures
 

@@ -435,10 +435,19 @@ captures. A full regeneration audit reproduced all reported values, with calibra
 axes bit-identical and seeded bootstraps exact. A permanent fixture suite pushes
 synthetic data with analytically known answers through the actual pipeline functions.
 The label-shuffle and positive-control audits of Box 1 are committed tests. Corrections
-that changed reported values are listed in Appendix A. The complete record is in the repository. [DRAFT, for approval.] \textbf{Data and code availability.} The captures, analysis and
-figure scripts, categorization tables, predictions files, and the corrections record
-are in the repository at github.com/AndrewSmigaj/OpenLLMRI, under the Apache-2.0
-license. [Behavior completions and reasoning traces: per the release policy ruling.]
+that changed reported values are listed in Appendix A. The complete record is in the repository. [DRAFT, for approval.] \textbf{Data and code availability.} The study lives in the
+`docs/studies/context\_shift/` directory of the repository at
+github.com/AndrewSmigaj/OpenLLMRI, under the Apache-2.0 license. That directory
+holds the capture chains and their logs, the analysis and figure scripts together
+with the calibration axes, projected readings, model-selection tables, and
+categorization tables they wrote, the findings and corrections record, the
+sentence-generation batches, and this paper's source. The context sentences are
+under `data/sentence\_sets/`. The raw residual-stream captures, 48 GB across 1,299
+sessions, are not in the repository. [Ruling: archived and available on request, or
+deposited at a named location.] Analyses that use only projected readings run from
+the committed caches; those that read raw activations need the captures, and the
+study README lists which. [Behavior completions and reasoning traces: per the
+release policy ruling.]
 \FloatBarrier
 
 \section{Results}
@@ -1442,7 +1451,8 @@ minimal-pair, and mixture-sweep corpora.
 study dropped.
 \end{itemize}
 
-Regeneration instructions are in the repository's study README.
+Regeneration instructions are in the study README. [That README does not exist yet;
+Andrew's ruling on writing it.]
 
 \subsection*{Appendix C — Supplementary figures}
 

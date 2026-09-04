@@ -1081,3 +1081,21 @@ marked [DRAFT, for approval]. B3 clause added to §5 as [PROPOSED], anchored to 
 single-model "biology" work rather than "model organisms" (which in interpretability
 names engineered testbeds). Remaining rulings go to Andrew's chat-side reviewer via a
 self-contained prompt.
+
+## Availability statement corrected (4 September 2026)
+
+Andrew asked whether the statement should point below the repository root. Two
+false claims found on checking: the raw captures are git-ignored (data/lake/*,
+*.parquet), so "captures are in the repository" was untrue — the study's 1,299
+sessions total 48 GB on disk; and the study README that Appendix B cites for
+regeneration instructions does not exist. The [DRAFT] statement now points to
+docs/studies/context_shift/, lists what the directory holds, says the raw captures
+are not in the repository (ruling clause: archived on request / deposited), and
+notes that only the cache-fed analyses regenerate without them. Sixteen of 41
+analysis scripts run from committed caches (among them the Figure 1 collapse
+figure, the fit gallery and remnant-gap figure, the per-layer heatmaps and
+rotation, the collapse-by-layer and behavior-by-layer panels, the behavior bands,
+and the monitor ROC); 25 read raw activations (token-level d′ and within-stream
+readings, minimal pairs, geometry and the mixed-context marker, mixture sweeps,
+the behavior worksheets, and the post-freeze counts). Rulings: capture hosting;
+whether to write the study README (it would carry the script-to-figure map).

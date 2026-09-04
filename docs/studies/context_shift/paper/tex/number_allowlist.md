@@ -44,3 +44,4 @@ can be re-run or opened.
 | 4-bit MXFP4; 16-bit | model precision as distributed and as loaded | `data/models/gpt-oss-20b/config.json` (`quant_method: mxfp4`); `backend/src/adapters/gptoss_adapter.py` (`dtype=torch.float16`) |
 | 27 August 2026; 28 August; two transition runs and one no-shift run | capture days per corpus | `analysis/s16_capture_days.py` output |
 | 12 families × two sub-arms = 24 runs per direction | fr transition-run structure | FINDINGS_AND_ANALYSIS_v2 corpus table (S1: 12 fam × 2 dir × 2 sub-arms); sub-arm near-coincidence: v2 B6 |
+| 48 GB; 1,299 sessions | size and count of the study's raw capture sessions (not in git) | session manifests with prompt_format set, summed on disk (4 Sept 2026) |
