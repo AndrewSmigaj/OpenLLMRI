@@ -37,17 +37,19 @@ reading is therefore a signed coordinate on the line through the two calibrated
 interpretations. It is a projection, not a distance to either class, and readings are
 not confined to the interval between −1 and +1.
 
-None of this is new. The axis is the difference-of-means probe, called mass-mean
-probing in the interpretability literature, where it was found to read out class
-structure comparably to trained probes [CITE: Marks & Tegmark 2023]. The same
-difference-in-means direction underlies recent steering and refusal-direction work
-[CITE: Rimsky et al. 2024; Arditi et al. 2024], and the midpoint rule is
-nearest-centroid classification [CITE: nearest class mean, e.g. Tibshirani et al.
-2002]. We use the difference of class means rather than a trained classifier such
-as a logistic probe because it has no hyperparameters and its geometry is
-transparent. What is ours is the rescaling to ±1, the referencing of every reading
-to matched no-shift contexts (§2.4), and the use of the axis over accumulating
-context. Its adequacy here is checked empirically (§3.1).
+These are established methods. The axis is the difference-of-means probe, known in
+the interpretability literature as mass-mean probing, where such directions were
+found to read out class structure comparably to trained probes [CITE: Marks &
+Tegmark 2023]. The same difference-in-means direction has been used to steer models
+and to locate refusal behavior [CITE: Rimsky et al. 2024; Arditi et al. 2024], and
+the midpoint rule is nearest-centroid classification [CITE: nearest class mean,
+e.g. Tibshirani et al. 2002]. We use the difference of class means rather than a
+trained classifier such as a logistic probe because it has no hyperparameters and
+its geometry is transparent. What this paper adds is the use of the axis over
+accumulating context: the same token is re-read at every step of a growing context,
+each reading is referenced to matched contexts of the same length that never switch
+(§2.4), and the scale is set so that the class means sit at ±1. The axis's adequacy
+for that use is checked empirically (§3.1).
 
 Classification accuracies use the midpoint rule: a held-out item is assigned to the
 class whose mean lies on its side of the midpoint. Splits are held out at the level of

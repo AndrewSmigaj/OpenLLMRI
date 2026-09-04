@@ -16,8 +16,8 @@ adds.]
 ask what a layer represents, and their validity has been questioned from the start:
 a probe can learn its own task rather than report the model's [CITE: Alain & Bengio;
 Hewitt & Liang; Belinkov]. Our answer to that concern is the three tests of §3.1
-and the label shuffles of Box 1. The instrument itself is borrowed. The difference-of-means axis is the mass-mean
-probe [CITE: Marks & Tegmark 2023], which found such directions read out class
+and the label shuffles of Box 1. The instrument assembles established methods. The difference-of-means axis is the
+mass-mean probe [CITE: Marks & Tegmark 2023], which found such directions read out class
 structure comparably to trained probes; difference directions between two
 conditions go back to word-embedding analyses [CITE: Bolukbasi et al. 2016] and to
 concept activation vectors [CITE: Kim et al. 2018], and rest on the linear

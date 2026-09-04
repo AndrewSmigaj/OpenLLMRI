@@ -190,17 +190,19 @@ reading is therefore a signed coordinate on the line through the two calibrated
 interpretations. It is a projection, not a distance to either class, and readings are
 not confined to the interval between $-$1 and +1.
 
-None of this is new. The axis is the difference-of-means probe, called mass-mean
-probing in the interpretability literature, where it was found to read out class
-structure comparably to trained probes [CITE: Marks \& Tegmark 2023]. The same
-difference-in-means direction underlies recent steering and refusal-direction work
-[CITE: Rimsky et al. 2024; Arditi et al. 2024], and the midpoint rule is
-nearest-centroid classification [CITE: nearest class mean, e.g. Tibshirani et al.
-2002]. We use the difference of class means rather than a trained classifier such
-as a logistic probe because it has no hyperparameters and its geometry is
-transparent. What is ours is the rescaling to $\pm$1, the referencing of every reading
-to matched no-shift contexts (\S2.4), and the use of the axis over accumulating
-context. Its adequacy here is checked empirically (\S3.1).
+These are established methods. The axis is the difference-of-means probe, known in
+the interpretability literature as mass-mean probing, where such directions were
+found to read out class structure comparably to trained probes [CITE: Marks \&
+Tegmark 2023]. The same difference-in-means direction has been used to steer models
+and to locate refusal behavior [CITE: Rimsky et al. 2024; Arditi et al. 2024], and
+the midpoint rule is nearest-centroid classification [CITE: nearest class mean,
+e.g. Tibshirani et al. 2002]. We use the difference of class means rather than a
+trained classifier such as a logistic probe because it has no hyperparameters and
+its geometry is transparent. What this paper adds is the use of the axis over
+accumulating context: the same token is re-read at every step of a growing context,
+each reading is referenced to matched contexts of the same length that never switch
+(\S2.4), and the scale is set so that the class means sit at $\pm$1. The axis's adequacy
+for that use is checked empirically (\S3.1).
 
 Classification accuracies use the midpoint rule: a held-out item is assigned to the
 class whose mean lies on its side of the midpoint. Splits are held out at the level of
@@ -1186,8 +1188,8 @@ adds.]
 ask what a layer represents, and their validity has been questioned from the start:
 a probe can learn its own task rather than report the model's [CITE: Alain \& Bengio;
 Hewitt \& Liang; Belinkov]. Our answer to that concern is the three tests of \S3.1
-and the label shuffles of Box 1. The instrument itself is borrowed. The difference-of-means axis is the mass-mean
-probe [CITE: Marks \& Tegmark 2023], which found such directions read out class
+and the label shuffles of Box 1. The instrument assembles established methods. The difference-of-means axis is the
+mass-mean probe [CITE: Marks \& Tegmark 2023], which found such directions read out class
 structure comparably to trained probes; difference directions between two
 conditions go back to word-embedding analyses [CITE: Bolukbasi et al. 2016] and to
 concept activation vectors [CITE: Kim et al. 2018], and rest on the linear
