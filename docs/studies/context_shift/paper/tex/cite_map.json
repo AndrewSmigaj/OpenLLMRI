@@ -1,0 +1,163 @@
+{
+ "Dynel": [
+  "dynel2009"
+ ],
+ "metastability in neural dynamics": [
+  "kelso1995",
+  "rabinovich2008"
+ ],
+ "Raine v. OpenAI; reporting": [
+  "raine2025complaint",
+  "cnn2025",
+  "nbc2025aug"
+ ],
+ "Marks & Tegmark 2023": [
+  "marks2024"
+ ],
+ "Rimsky et al. 2024; Arditi et al. 2024": [
+  "panickssery2024",
+  "arditi2024"
+ ],
+ "nearest class mean, e.g. Tibshirani et al. 2002": {
+  "keys": [
+   "tibshirani2002"
+  ],
+  "pre": "e.g."
+ },
+ "Schwarz 1978": [
+  "schwarz1978"
+ ],
+ "Green & Swets 1966": [
+  "green1966"
+ ],
+ "k-nearest-neighbor out-of-distribution scoring, e.g. Sun et al. 2022": {
+  "keys": [
+   "sun2022"
+  ],
+  "pre": "e.g."
+ },
+ "PCA reconstruction error as a novelty score, e.g. Jackson & Mudholkar 1979": {
+  "keys": [
+   "jackson1979"
+  ],
+  "pre": "e.g."
+ },
+ "internal encoding versus expression": [
+  "azaria2023",
+  "orgad2025"
+ ],
+ "filing/reporting": [
+  "raine2025complaint",
+  "cnn2025"
+ ],
+ "good-enough processing": [
+  "ferreira2002",
+  "christianson2001"
+ ],
+ "Lindsey et al. 2025": [
+  "lindsey2025"
+ ],
+ "Alain & Bengio; Hewitt & Liang; Belinkov": [
+  "alain2016",
+  "hewitt2019",
+  "belinkov2022"
+ ],
+ "Bolukbasi et al. 2016": [
+  "bolukbasi2016"
+ ],
+ "Kim et al. 2018": [
+  "kim2018"
+ ],
+ "Park, Choe & Veitch 2023": [
+  "park2024"
+ ],
+ "Tibshirani et al. 2002": [
+  "tibshirani2002"
+ ],
+ "Reif et al. 2019": [
+  "reif2019"
+ ],
+ "Belrose et al. 2023, tuned lens": [
+  "belrose2023"
+ ],
+ "Sun et al. 2022; Lee et al. 2018": [
+  "sun2022",
+  "lee2018"
+ ],
+ "Jackson & Mudholkar 1979": [
+  "jackson1979"
+ ],
+ "Arditi et al. 2024": [
+  "arditi2024"
+ ],
+ "Rimsky et al. 2024": [
+  "panickssery2024"
+ ],
+ "Xie et al.": [
+  "xie2022"
+ ],
+ "Hendel et al.; Todd et al.": [
+  "hendel2023",
+  "todd2024"
+ ],
+ "Olsson et al.": [
+  "olsson2022"
+ ],
+ "Shai et al. 2024; Li et al. 2023": [
+  "shai2024",
+  "li2023othello"
+ ],
+ "Eisape et al. 2022": [
+  "eisape2022"
+ ],
+ "Zhao et al. 2021; Liu et al. 2023": [
+  "zhao2021",
+  "liu2024lost"
+ ],
+ "many-shot jailbreaking; Crescendo": [
+  "anil2024",
+  "russinovich2025"
+ ],
+ "Kadavath et al.; Lin et al.; Xiong et al.": [
+  "kadavath2022",
+  "lin2022",
+  "xiong2024"
+ ],
+ "Liu et al.": [
+  "liu2023ambiguity"
+ ],
+ "Azaria & Mitchell; Orgad et al.": [
+  "azaria2023",
+  "orgad2025"
+ ],
+ "Zhao et al. 2024, knowledge conflicts in the residual stream": [
+  "zhao2024conflict"
+ ],
+ "attention sinks": [
+  "xiao2024sinks"
+ ],
+ "Christianson & Ferreira; Slattery et al.; van Schijndel & Linzen": [
+  "christianson2001",
+  "slattery2013",
+  "vanschijndel2021"
+ ],
+ "Kelso; Rabinovich et al.; Sussillo & Barak": [
+  "kelso1995",
+  "rabinovich2008",
+  "rabinovich2001",
+  "sussillo2013"
+ ],
+ "filing; CNN, 26 August 2025; NBC News": [
+  "raine2025complaint",
+  "cnn2025",
+  "nbc2025aug"
+ ],
+ "TechCrunch, 26 November 2025": [
+  "openai2025answer",
+  "nbc2025nov",
+  "techcrunch2025"
+ ],
+ "gpt-oss model card": [
+  "openai2025gptoss"
+ ]
+}

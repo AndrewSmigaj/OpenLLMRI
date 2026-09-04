@@ -55,9 +55,11 @@ asymmetry we noticed, not a designed manipulation, and training provenance is
 unobservable. Our two tasks appear to differ in whether they carry a trained default
 for unresolved cases. The covered fiction/real task behaved as though it does. In the middle reading
 band, 80% of its completions safe-complete. In sampled chain-of-thought traces, both
-framings are weighed before the safe reply. These traces are the reasoning channel
-the chat format exposes, and we release them with our behavior data. That is a
-qualitative observation, not a coded rate. The tank task showed no such default.
+framings are weighed before the safe reply. These traces are the reasoning channel the chat format exposes. That is a
+qualitative observation, not a coded rate. We release the categorization tables and
+paraphrased excerpts; raw completions and reasoning traces are available to
+researchers on request, since some contain model-generated text engaging with the
+letter request. The tank task showed no such default.
 There the model silently commits: 52% of middle-band completions pick a sense. If
 this reading is right, the unresolved zone is the failure window for every behavior
 without a trained uncertainty-default, and refusal-style safeguards may be the

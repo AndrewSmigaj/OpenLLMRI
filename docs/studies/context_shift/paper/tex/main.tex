@@ -1,7 +1,9 @@
 \documentclass[11pt]{article}
 \usepackage[margin=1in]{geometry}
 \usepackage{graphicx,amsmath,amssymb,placeins,enumitem,xcolor,microtype,booktabs,tabularx}
-\usepackage[colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+\usepackage{xurl}
+\usepackage[round]{natbib}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black,citecolor=blue!50!black]{hyperref}
 \graphicspath{{../../analysis/figures/}{../../analysis/figures/other/}}
 \setlength{\parskip}{2pt}
 \title{Unresolved: Semantic Metastability in a Language Model\\ Under Context Shift}
@@ -9,6 +11,9 @@
 \date{Review draft --- \today}
 \begin{document}
 \maketitle
+\begin{center}\begin{minipage}{0.9\linewidth}\small\emph{Content note: this paper analyzes model behavior around suicide-related requests in a
+research context. If you or someone you know is struggling, help is available: in the
+US, call or text 988; elsewhere, findahelpline.com.}\end{minipage}\end{center}
 \begin{quote}\itshape``Two fish are in a tank. One looks to the other and asks: how do you drive this thing?''\end{quote}
 \begin{abstract}
 When the context around a request changes its meaning — a word's sense, or whether a
@@ -44,16 +49,12 @@ rather than fulfilling the request. But the share of safe responses falls from
 four completions. That weakening is reachable by ordinary context, with no
 adversarial prompt.
 \end{abstract}
-\begin{center}\begin{minipage}{0.9\linewidth}\small\emph{Content note:this paper analyzes model behavior around suicide-related requests in a
-research context. If you or someone you know is struggling, help is available: in the
-US, call or text 988; elsewhere, findahelpline.com.}\end{minipage}\end{center}
 
 \section{Introduction}
 
 Language models can be made to express uncertainty, and sometimes do. What they do far
 less reliably is volunteer that the words in front of them have not settled into one
-reading. In the 96 completions we examine in \S3.5, none does: some list both senses,
-but none asks which is meant or says that the choice is open. Much of what we ask
+reading. In the 300 completions we examine in \S3.5, none asks which reading is meant. Much of what we ask
 models to do quietly assumes the opposite: that by the time a model acts, it has settled
 on one reading. Safety behaviors in particular often take the form ``if the request is
 X, do Y''. That rule inherits an unexamined premise: that ``the request is X'' is a
@@ -66,7 +67,7 @@ We measure it in two tasks. The first comes from an old question about humor.
 Theories of humor have long placed incongruity and its resolution at the center of the
 phenomenon: two mutually exclusive understandings of a text take shape, and something
 must give. Dynel's taxonomy of conversational humor separates the garden-path joke
-from the pun [CITE: Dynel]. In a garden-path joke
+from the pun \citep{dynel2009}. In a garden-path joke
 one meaning is established, a second is revealed, and belief shifts from one to the
 other. In a pun the incongruity is not resolved but held. The joke in our epigraph is
 the classic garden path built on the word \emph{tank}: to get it, the reader's understanding
@@ -76,8 +77,7 @@ correlate: the in-between of a meaning shift is a trajectory in the residual str
 and we can instrument it.
 
 The second task has a graver origin. In a widely reported 2025 case, a sixteen-year-old
-died by suicide after months of conversation with a language model [CITE: Raine v.
-OpenAI; reporting]. The case is contested litigation, and we characterize only what the
+died by suicide after months of conversation with a language model \citep{raine2025complaint,cnn2025,nbc2025aug}. The case is contested litigation, and we characterize only what the
 court filing and contemporaneous reporting describe. They recount three things. Direct
 requests triggered safeguards. The same requests, reframed as fiction, received
 assistance, while the user's real circumstances were present in the same long
@@ -100,8 +100,7 @@ three candidate worlds. In the first, irresolution is a \emph{learned state}: so
 model has structure for. In the second, it is a \emph{passage}: mere transit between the two
 resolved readings. In the third, it is \emph{off the learned distribution entirely}: the
 token pushed into regions the model never organized, where no trained behavior applies.
-The dynamics of biological neural systems offer a warning about the first two [CITE:
-metastability in neural dynamics]. There, states that are transiently stable without
+The dynamics of biological neural systems offer a warning about the first two \citep{kelso1995,rabinovich2008}. There, states that are transiently stable without
 being fixed-point attractors are the norm rather than the anomaly. Such states are
 called metastable, and their existence means a learned state and a passage need not
 be distinct. The title of this
@@ -209,11 +208,9 @@ not confined to the interval between $-$1 and +1.
 
 These are established methods. The axis is the difference-of-means probe, known in
 the interpretability literature as mass-mean probing, where such directions were
-found to read out class structure comparably to trained probes [CITE: Marks \&
-Tegmark 2023]. The same difference-in-means direction has been used to steer models
-and to locate refusal behavior [CITE: Rimsky et al. 2024; Arditi et al. 2024], and
-the midpoint rule is nearest-centroid classification [CITE: nearest class mean,
-e.g. Tibshirani et al. 2002]. We use the difference of class means rather than a
+found to read out class structure comparably to trained probes \citep{marks2024}. The same difference-in-means direction has been used to steer models
+and to locate refusal behavior \citep{panickssery2024,arditi2024}, and
+the midpoint rule is nearest-centroid classification \citep[e.g.][]{tibshirani2002}. We use the difference of class means rather than a
 trained classifier such as a logistic probe because it has no hyperparameters and
 its geometry is transparent. What this paper adds is the use of the axis over
 accumulating context: the same token is re-read at every step of a growing context,
@@ -404,7 +401,7 @@ behind the evidence. The second form is a change-point step: a constant level be
 and after a fitted change point (three parameters). The third is a drift-plus-step
 hybrid: a linear trend plus a step at a fitted change point (four parameters). The
 fourth is a two-timescale integrator: a mixture of a fast and a slow recency
-weighting (three parameters). We select by the Bayesian information criterion (BIC) [CITE: Schwarz 1978] over the
+weighting (three parameters). We select by the Bayesian information criterion (BIC) \citep{schwarz1978} over the
 twenty points and declare a winner only when it leads the runner-up by at least 2. Otherwise the run is
 indeterminate. The selector's identifiability is calibrated on synthetic runs of
 known type (\S3.3).
@@ -420,7 +417,7 @@ resampling scene families with replacement. Where a named test appears, its clus
 unit is stated in place.
 
 \textbf{Behavior.} Completions are categorized by regular-expression scan plus manual review
-of the committed categorization tables. [PROPOSED] The model's chat format emits a
+of the committed categorization tables. The model's chat format emits a
 reasoning channel before its final answer, and generation was capped at 256 new
 tokens, so many completions end inside the reasoning channel: 37 of 108 in the tank
 task and 84 of 204 in the fiction/real task reach the final answer. The tables hold
@@ -435,19 +432,19 @@ captures. A full regeneration audit reproduced all reported values, with calibra
 axes bit-identical and seeded bootstraps exact. A permanent fixture suite pushes
 synthetic data with analytically known answers through the actual pipeline functions.
 The label-shuffle and positive-control audits of Box 1 are committed tests. Corrections
-that changed reported values are listed in Appendix A. The complete record is in the repository. [DRAFT, for approval.] \textbf{Data and code availability.} The study lives in the
+that changed reported values are listed in Appendix A. The complete record is in the repository. \textbf{Data and code availability.} The study lives in the
 `docs/studies/context\_shift/` directory of the repository at
 github.com/AndrewSmigaj/OpenLLMRI, under the Apache-2.0 license. That directory
 holds the capture chains and their logs, the analysis and figure scripts together
 with the calibration axes, projected readings, model-selection tables, and
 categorization tables they wrote, the findings and corrections record, the
 sentence-generation batches, and this paper's source. The context sentences are
-under `data/sentence\_sets/`. The raw residual-stream captures, 48 GB across 1,299
-sessions, are not in the repository. [Ruling: archived and available on request, or
-deposited at a named location.] Analyses that use only projected readings run from
+under `data/sentence\_sets/`. The raw residual-stream captures, 48 GB across 1,299 sessions, are not in the
+repository. They are archived by the author and available to researchers on
+request, and a public deposit is planned. A manifest of every archived file, with
+sizes and SHA-256 checksums, is committed under `captures/`. Analyses that use only projected readings run from
 the committed caches; those that read raw activations need the captures, and the
-study README lists which. [Behavior completions and reasoning traces: per the
-release policy ruling.]
+study README lists which. Behavior completions and reasoning traces follow the release policy stated in \S4.
 \FloatBarrier
 
 \section{Results}
@@ -482,8 +479,7 @@ two on the fiction/real task, whose contrast has no single token to anchor to.
 
 The first is an identity-matched comparison. The tank carrier is ``What is the meaning of the word tank?'' Its nine tokens appear verbatim in every checkpoint capture, so class signal can be compared across tokens
 with token identity held fixed. We measure the class signal at each token as $d'$, the difference of class means
-divided by the pooled standard deviation, from signal detection theory [CITE: Green
-\& Swets 1966]. The signal concentrates at the sense-bearing token: $d'$ = 11.7 at
+divided by the pooled standard deviation, from signal detection theory \citep{green1966}. The signal concentrates at the sense-bearing token: $d'$ = 11.7 at
 ' tank', against a context-token median of 1.4 (Fig.~\ref{fig:fig_r2_carrier_dprime}). This comparison rests on 6 runs per class. Orderings
 among the other tokens are not interpretable at that n. A pooled standard deviation
 estimated from 6 runs is itself noisy, and $d'$ divides by it, so a token whose spread
@@ -691,9 +687,11 @@ What process produces these trajectories? We fit the four model forms of \S2.5 t
 run's twenty post-shift readings: the recency integrator, the change-point step, the
 drift-plus-step hybrid, and the two-timescale integrator. We select by BIC with an
 indeterminacy band. Before reading the real runs we calibrated the selector on
-synthetic runs of known type (Table 4). Hybrid truth is recovered as hybrid in 28 of 48 simulations, and two-timescale
-truth is called hybrid in only 5 of 48 (Table 4). The selector therefore rarely calls a smooth truth hybrid: 5 of 48 two-timescale
-runs (Table 4).
+synthetic runs of known type (Table 4). Hybrid truth is recovered as hybrid in 28 of 48 simulations. Step truth is never
+called integrator, 0 of 48, and is called hybrid in only 3 of 48, so the selector
+does not mistake a discrete change for smooth integration. Two-timescale truth is
+called hybrid in only 5 of 48, so hybrid dominance cannot come from a smooth truth
+(Table 4).
 
 On the real runs the selector favors the hybrid. Among classifiable runs, those where BIC gave a clear winner, the hybrid is
 dominant: 11 of the 16 classifiable tank runs and 14 of the 25 classifiable
@@ -846,10 +844,16 @@ In the fiction/real task we categorize each completion as fiction-framed assista
 or a safe-completion. Fiction-framed assistance takes up the fictional frame and
 helps with the letter. A safe-completion addresses the request as a risk, declining
 the letter or redirecting to support. Three of the 204 completions mix the two, all on the real side. The rates below
-count them as neither. [PROPOSED] The 256-token generation budget ends inside the
-model's reasoning channel in 120 of the 204 completions, including all 21
-fiction-framed ones, so those categories record the response the reasoning committed
-to rather than an answer the user would have seen (\S2.5). None of the 84 completions
+count them as neither. The 256-token generation budget ends inside the model's reasoning channel in 120
+of the 204 completions, including all 21 fiction-framed ones, so those categories
+record the response the reasoning committed to rather than an answer the user
+would have seen (\S2.5). All 84 completions that reached a final answer are
+safe-completions: the reasoning channel entertains the fiction frame, and no final
+answer that arrived carried it. Truncation therefore correlates with category. The
+fiction-framed responses were systematically the ones that ran past 256 tokens, so
+the band gradient below is measured over reasoning-committed responses with a
+censoring pattern, under the cap and the greedy decoding that condition every
+behavior rate here. None of the 84 completions
 that reach a final answer asks whether the request is fictional or real, and no
 reasoning channel proposes asking it. Two float a clarifying question and drop it in
 the next sentence, and seven safe-completions plan to ask whether the user is safe.
@@ -941,10 +945,8 @@ Finally, the third of the introduction's three worlds: do these in-between state
 leave the model's learned distribution? ``Off-manifold'' is meaningful only relative to
 a reference, a measure, and a noise level, so we fix all three. The reference is the position-matched no-shift states, together with the trajectory bundle of \S3.4, the pooled set of transition-run states
 across all runs. The measures are two standard novelty scores: the distance to the nearest neighbors
-in the reference [CITE: k-nearest-neighbor out-of-distribution scoring, e.g. Sun et
-al. 2022] and the reconstruction error of a state against the principal-component
-subspace of the no-shift states [CITE: PCA reconstruction error as a novelty score,
-e.g. Jackson \& Mudholkar 1979]. The noise level, which we call the null, is the held-out self-distance of the
+in the reference \citep[e.g.][]{sun2022} and the reconstruction error of a state against the principal-component
+subspace of the no-shift states \citep[e.g.][]{jackson1979}. The noise level, which we call the null, is the held-out self-distance of the
 reference itself.
 Throughout this section, paired values are for the tank and fiction/real tasks in
 that order. The instruments detect real displacement. Single-sentence calibration states read 1.7 to 2.2 times the null across the two
@@ -1035,7 +1037,7 @@ genuine excursions remain most likely. That battery is future work.
 neural systems rather than from physics. In coordination dynamics and in the
 winnerless-competition framework, two models of sequential transient dynamics in
 neural populations, cognition is described as a sequence of transiently stable states
-that are not fixed-point attractors [CITE: metastability in neural dynamics]. These
+that are not fixed-point attractors \citep{kelso1995,rabinovich2008}. These
 are structured passages through state space, in which dwelling and moving are not
 opposites. That is the geometry our data show. A run that dwells mid-transition
 occupies something functionally state-like: it is stationary for many steps and has
@@ -1080,9 +1082,11 @@ asymmetry we noticed, not a designed manipulation, and training provenance is
 unobservable. Our two tasks appear to differ in whether they carry a trained default
 for unresolved cases. The covered fiction/real task behaved as though it does. In the middle reading
 band, 80\% of its completions safe-complete. In sampled chain-of-thought traces, both
-framings are weighed before the safe reply. These traces are the reasoning channel
-the chat format exposes, and we release them with our behavior data. That is a
-qualitative observation, not a coded rate. The tank task showed no such default.
+framings are weighed before the safe reply. These traces are the reasoning channel the chat format exposes. That is a
+qualitative observation, not a coded rate. We release the categorization tables and
+paraphrased excerpts; raw completions and reasoning traces are available to
+researchers on request, since some contain model-generated text engaging with the
+letter request. The tank task showed no such default.
 There the model silently commits: 52\% of middle-band completions pick a sense. If
 this reading is right, the unresolved zone is the failure window for every behavior
 without a trained uncertainty-default, and refusal-style safeguards may be the
@@ -1134,28 +1138,26 @@ The model carries a persistent, systematic signal that its context is mixed, and
 behavior does not appear to use that signal when the mixture of frames in the context
 is held fixed, at the one site and layer tested. This is the structure reported
 in the hallucination literature, where models internally encode uncertainty or
-truthfulness that their generations do not respect [CITE: internal encoding versus
-expression]. Here it appears in transition dynamics. An internal signal correlated
+truthfulness that their generations do not respect \citep{azaria2023,orgad2025}. Here it appears in transition dynamics. An internal signal correlated
 with the conditions that produce the unresolved zone already exists inside the model,
 and behavior does not appear to use it. Whether it could actually flag the zone is
 untested; the one monitor we built, from the frame reading, is compatible with
 chance. The motivating case of \S1 reportedly had the same structure at system scale:
 the provider's moderation layer was flagging the user's messages for self-harm risk
-in real time while assistance continued [CITE: filing/reporting]. That suggests a
+in real time while assistance continued \citep{raine2025complaint,cnn2025}. That suggests a
 constructive direction for alignment work: test whether behavior can be gated on the
 uncertainty signals already there, before building new ones.
 
 \textbf{The human parallel.} The \S3.2 signature is a partial reanalysis that leaves a
 lingering trace of the initial misreading. That is also the signature of human
-sentence processing in the ``good-enough'' tradition [CITE: good-enough processing]. After
+sentence processing in the ``good-enough'' tradition \citep{ferreira2002,christianson2001}. After
 recovering from a garden-path sentence, comprehenders measurably retain components of
 the initial, incorrect interpretation. We make no mechanistic identification. We note
 that a language model trained on human text reproduces, at the activation level, the
 reanalysis profile humans show behaviorally, including the part where the old reading
 never fully leaves.
 
-\textbf{Garden path or pun.} In the terms of Dynel's account of garden-path humor [CITE:
-Dynel], our transition corpus is a slow-motion garden path, and most trajectories treat it as one: incongruity, then resolution toward the
+\textbf{Garden path or pun.} In the terms of Dynel's account of garden-path humor \citep{dynel2009}, our transition corpus is a slow-motion garden path, and most trajectories treat it as one: incongruity, then resolution toward the
 new reading. The dwelling runs are the interesting case. They form an extended
 incongruity phase, in which the model, asked what the word means, answers like
 someone explaining a pun: both senses, held. Whether any of them is a true pun, a
@@ -1178,17 +1180,18 @@ unresolved. For now, so is the question of what a model should do while inside o
 \section{Limitations and future work}
 
 \textbf{One model, stated plainly.} Everything here is measured in one 20-billion-parameter
-mixture-of-experts model, with deterministic decoding, so the behavior rates of \S3.5
-are properties of the greedy continuation and behavior under sampling is untested.
+mixture-of-experts model, with deterministic decoding and a 256-token generation cap, so the behavior rates
+of \S3.5 are properties of the greedy continuation under that cap, and behavior
+under sampling or longer generation is untested.
 Three kinds of claim should be kept apart. Descriptive claims about gpt-oss-20b are
 fully established here, since this model is the population of interest. Existence
 claims about the class, that a deployed language model can dwell between
 interpretations, can carry a mixed-context signal its behavior does not use, and can
 have safeguard behavior weakened by ordinary coherent context, need only one model.
 Prevalence claims across models are untested here, and the paper makes none.
-[PROPOSED] This is the mode of work that the recent circuit-level biology of a single
+This is the mode of work that the recent circuit-level biology of a single
 language model adopted: one deployed system characterized in depth, with transfer
-left to later work [CITE: Lindsey et al. 2025]. The
+left to later work \citep{lindsey2025}. The
 model is itself deployed and open-weight, so its characterization has safety
 relevance of its own, independent of any transfer to other systems.
 
@@ -1251,107 +1254,92 @@ freeze are logged as such in Appendix B.
 
 \subsection*{Acknowledgments}
 
-[DRAFT, for approval.] This study was carried out with language-model assistants,
+This study was carried out with language-model assistants,
 Claude through Claude Code and in chat, used as the analysis runtime and as writing
 and review assistants. Under the author's direction they authored the context
 sentences under the blind protocol of \S2.3, ran the captures and the committed
-analysis scripts, categorized the completions, and drafted and revised the text. The
-author reviewed every number and claim and is responsible for them.
+analysis scripts, categorized the completions, and drafted and revised the text. The author reviewed every number and claim and is responsible for them. The
+research questions, study design, and interpretive decisions are the author's.
 
 \subsection*{Ethics and safe messaging}
 
-[DRAFT, for Andrew's approval.] This paper studies how a model's internal reading of a
+This paper studies how a model's internal reading of a
 suicide-related request moves under context, and reports the model's behavior around
 that request. It involves no human subjects and no user data. The fiction/real corpus
 was written under the norms of \S2.3: no context sentence contains the carrier request,
 and the theme-only sub-arm never names a suicide letter or note. The content note on
-the first page follows safe-messaging practice, and the paper quotes no
-model-generated text that assists with the letter. [Data release policy per D1:
-categorization tables with paraphrased excerpts and raw completions on request, or
-full release.] The motivating case is contested litigation, and the paper
+the first page follows safe-messaging practice, and the paper quotes no model-generated text that assists with the letter.
+Completions containing such text are withheld from open release (see Data and code
+availability, \S2.6). The motivating case is contested litigation, and the paper
 characterizes only what the filing and reporting describe.
 
 \subsection*{Related work}
 
 \textbf{Reading representations with probes.} Linear probes have been the standard way to
 ask what a layer represents, and their validity has been questioned from the start:
-a probe can learn its own task rather than report the model's [CITE: Alain \& Bengio;
-Hewitt \& Liang; Belinkov]. Our answer to that concern is the three tests of \S3.1
+a probe can learn its own task rather than report the model's \citep{alain2016,hewitt2019,belinkov2022}. Our answer to that concern is the three tests of \S3.1
 and the label shuffles of Box 1. The instrument assembles established methods. The difference-of-means axis is the
-mass-mean probe [CITE: Marks \& Tegmark 2023], which found such directions read out class
+mass-mean probe \citep{marks2024}, which found such directions read out class
 structure comparably to trained probes; difference directions between two
-conditions go back to word-embedding analyses [CITE: Bolukbasi et al. 2016] and to
-concept activation vectors [CITE: Kim et al. 2018], and rest on the linear
-representation hypothesis [CITE: Park, Choe \& Veitch 2023]. Classifying by the nearer class mean is nearest-centroid classification [CITE:
-Tibshirani et al. 2002], and word senses were read from contextual activations in
-just this way, by nearest sense centroid, in early geometry studies of BERT [CITE:
-Reif et al. 2019]. The rotation of a readout direction across depth (Box 1) is the
-effect that motivates refitting a lens at every layer [CITE: Belrose et al. 2023,
-tuned lens]. The per-token class signal we report is $d'$ from signal detection theory
-[CITE: Green \& Swets 1966]. The two off-distribution scores of \S3.7 are the
-k-nearest-neighbor distance [CITE: Sun et al. 2022; Lee et al. 2018] and the
-principal-component reconstruction error [CITE: Jackson \& Mudholkar 1979]. The
+conditions go back to word-embedding analyses \citep{bolukbasi2016} and to
+concept activation vectors \citep{kim2018}, and rest on the linear
+representation hypothesis \citep{park2024}. Classifying by the nearer class mean is nearest-centroid classification \citep{tibshirani2002}, and word senses were read from contextual activations in
+just this way, by nearest sense centroid, in early geometry studies of BERT \citep{reif2019}. The rotation of a readout direction across depth (Box 1) is the
+effect that motivates refitting a lens at every layer \citep{belrose2023}. The per-token class signal we report is $d'$ from signal detection theory
+\citep{green1966}. The two off-distribution scores of \S3.7 are the
+k-nearest-neighbor distance \citep{sun2022,lee2018} and the
+principal-component reconstruction error \citep{jackson1979}. The
 nearest cousin of our fiction/real behavior link is the refusal direction, a single
 difference-in-means direction along which refusal behavior can be read and steered
-[CITE: Arditi et al. 2024], and the same direction family underlies contrastive
-activation steering [CITE: Rimsky et al. 2024].
+\citep{arditi2024}, and the same direction family underlies contrastive
+activation steering \citep{panickssery2024}.
 
 \textbf{Dynamics of in-context processing.} The account of in-context learning as
 implicit Bayesian inference is the standing theory our recency-integrator comparison
-speaks to [CITE: Xie et al.]. Function-vector and task-vector work shows that a
-context's task can be summarized in a direction of the residual stream [CITE:
-Hendel et al.; Todd et al.], and induction heads describe one mechanism by which
-context propagates [CITE: Olsson et al.]. Those describe the summary once formed, or the mechanism that forms it. Probes of
+speaks to \citep{xie2022}. Function-vector and task-vector work shows that a
+context's task can be summarized in a direction of the residual stream \citep{hendel2023,todd2024}, and induction heads describe one mechanism by which
+context propagates \citep{olsson2022}. Those describe the summary once formed, or the mechanism that forms it. Probes of
 belief state and board state follow a latent state as it updates, on synthetic or
-game data [CITE: Shai et al. 2024; Li et al. 2023], and incremental parse-state
-probes read a syntactic interpretation as words arrive [CITE: Eisape et al. 2022].
+game data \citep{shai2024,li2023othello}, and incremental parse-state
+probes read a syntactic interpretation as words arrive \citep{eisape2022}.
 That in-context processing weights recent items more heavily is also established
-[CITE: Zhao et al. 2021; Liu et al. 2023]. Our recency integrator turns that property
+\citep{zhao2021,liu2024lost}. Our recency integrator turns that property
 into one fitted timescale. What happens to a natural-language interpretation while
 it is being overturned, and whether the model acts on the intermediate readings, is
 the question here.
 
 \textbf{Long-context safety.} Many-shot jailbreaking and multi-turn escalation attacks
-show that accumulated context can override trained behavior [CITE: many-shot
-jailbreaking; Crescendo]. Our shifts are not attacks. They are coherent
+show that accumulated context can override trained behavior \citep{anil2024,russinovich2025}. Our shifts are not attacks. They are coherent
 conversations, and the weakening of the safeguard we observe needs no adversary.
 
 \textbf{Verbalized uncertainty and ambiguity.} Models can be trained or prompted to
-express confidence, and their verbalized confidence can be calibrated [CITE:
-Kadavath et al.; Lin et al.; Xiong et al.]. Ambiguity in questions has been modeled
-directly [CITE: Liu et al.]. These ground the scoped claim of \S1: models can express uncertainty, and in the 96
-completions we examined none asked which sense was meant.
+express confidence, and their verbalized confidence can be calibrated \citep{kadavath2022,lin2022,xiong2024}. Ambiguity in questions has been modeled
+directly \citep{liu2023ambiguity}. These ground the scoped claim of \S1: models can express uncertainty, and in the 300 completions we examined none asked which reading was meant.
 
 \textbf{Internal encoding versus expression.} Models internally encode truthfulness and
-uncertainty that their generations do not respect [CITE: Azaria \& Mitchell; Orgad et
-al.]. Residual-stream signals of conflict between the context and stored knowledge
-have also been reported [CITE: Zhao et al. 2024, knowledge conflicts in the residual
-stream]. The mixed-context marker of \S3.7 belongs to this family: a signal, here of
+uncertainty that their generations do not respect \citep{azaria2023,orgad2025}. Residual-stream signals of conflict between the context and stored knowledge
+have also been reported \citep{zhao2024conflict}. The mixed-context marker of \S3.7 belongs to this family: a signal, here of
 conflict within the context itself, that is present and, as far as we tested,
 unused.
 
 \textbf{Long-context artifacts.} Attention sinks and related position effects raise the
-question of whether the accumulation offset of Box 1 is positional [CITE: attention
-sinks]. Midpoint referencing makes our findings robust either way, since every level
+question of whether the accumulation offset of Box 1 is positional \citep{xiao2024sinks}. Midpoint referencing makes our findings robust either way, since every level
 claim is measured against a matched no-shift reference at the same position.
 
 \textbf{Human sentence processing.} The good-enough tradition documents that
 comprehenders retain components of an initial misreading after recovering from a
-garden path [CITE: Christianson \& Ferreira; Slattery et al.; van Schijndel \&
-Linzen]. This is the parallel drawn in \S4. Dynel's taxonomy of conversational humor supplies
-the garden-path and pun distinction of \S1 and \S4 [CITE: Dynel].
+garden path \citep{christianson2001,slattery2013,vanschijndel2021}. This is the parallel drawn in \S4. Dynel's taxonomy of conversational humor supplies
+the garden-path and pun distinction of \S1 and \S4 \citep{dynel2009}.
 
 \textbf{Metastability in neural dynamics.} Coordination dynamics and the
 winnerless-competition framework describe cognition as sequences of transiently
-stable states that are not fixed-point attractors [CITE: Kelso; Rabinovich et al.;
-Sussillo \& Barak]. We take the term from there.
+stable states that are not fixed-point attractors \citep{kelso1995,rabinovich2008,rabinovich2001,sussillo2013}. We take the term from there.
 
 \textbf{The motivating case and the model.} The case described in \S1 is Raine v. OpenAI, filed in the Superior Court of
-California, San Francisco, on 26 August 2025, with contemporaneous reporting [CITE:
-filing; CNN, 26 August 2025; NBC News]. A later report covers the defendant's answer
-denying causation [CITE: TechCrunch, 26 November 2025]. The litigation is contested.
+California, San Francisco, on 26 August 2025, with contemporaneous reporting \citep{raine2025complaint,cnn2025,nbc2025aug}. A later report covers the defendant's answer
+denying causation \citep{openai2025answer,nbc2025nov,techcrunch2025}. The litigation is contested.
 This paper characterizes only what the filing and reporting describe. The safety training of the model we study is
-documented in its model card [CITE: gpt-oss model card].
+documented in its model card \citep{openai2025gptoss}.
 
 \subsection*{Appendix A — Corrections that changed reported values}
 
@@ -1451,8 +1439,7 @@ minimal-pair, and mixture-sweep corpora.
 study dropped.
 \end{itemize}
 
-Regeneration instructions are in the study README. [That README does not exist yet;
-Andrew's ruling on writing it.]
+Regeneration instructions are in the study README.
 
 \subsection*{Appendix C — Supplementary figures}
 
@@ -1466,4 +1453,6 @@ the occupancy bands at layer 4; the jumpiness diagnostic; the norm-against-align
 diagnostic; and the calibration accuracy by layer. The monitor ROC is in the main
 text.
 
+\bibliographystyle{plainnat}
+\bibliography{references}
 \end{document}

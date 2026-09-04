@@ -1099,3 +1099,47 @@ and the monitor ROC); 25 read raw activations (token-level d′ and within-strea
 readings, minimal pairs, geometry and the mixed-context marker, mixture sweeps,
 the behavior worksheets, and the post-freeze counts). Rulings: capture hosting;
 whether to write the study README (it would carry the script-to-figure map).
+
+## Rulings pass, part 2 (4 September 2026)
+
+Applied from the chat-side reviewer's rulings. (1) D1 = (a); §4 carries the
+supplied release sentence. (2) §3.5 now states, after the channel disclosure, that
+all 84 completions reaching a final answer are safe-completions, that the reasoning
+channel entertains the fiction frame while no arrived answer carried it, and that
+truncation correlates with category so the band gradient is measured over
+reasoning-committed responses with a censoring pattern; §5's caveat names the
+256-token cap beside greedy decoding. (3) Acknowledgment: "The research questions,
+study design, and interpretive decisions are the author's." (4) Availability kept;
+hosting clause filled ("archived by the author and available to researchers on
+request, and a public deposit is planned") and the committed manifest named.
+(5) Ethics: withheld-from-open-release clause added. (6) B3 clause kept. (7a)
+kept. (7b) verified from the record: v2 §A4's "0–2%" was step-truth-called-
+integrator, which the draft had dropped while stating the two-timescale fact
+twice; §3.3 now gives both from the committed five-model simulation (s7 output,
+tallied in s9_figures): step truth → integrator 0 of 48 and → hybrid 3 of 48;
+two-timescale truth → hybrid 5 of 48. (7c) kept. (7d) content note now above the
+epigraph, in the source and the build. (7e, 7f) kept. (8) Intro and Related work
+say 300 completions (96 tank + 204 fiction/real), none asks which reading is meant.
+(9) Bibliography built: tex/references.bib (55 entries), tex/cite_map.json mapping
+each placeholder text to keys, md2tex converts [CITE: …] to natbib \citep at
+build; plainnat, author-year. Verified this session: Crescendo = USENIX Security
+2025, pp. 2421–2440; gpt-oss model card = arXiv:2508.10925; Zhao et al. 2024 =
+arXiv:2410.16090; Raine complaint No. CGC-25-628528, filed 26 Aug 2025
+(courthousenews PDF); OpenAI answer filed 25 Nov 2025 (Ars Technica PDF); CNN 26
+Aug 2025; NBC News 26 Aug 2025 (Yang, Jarrett, Gallagher) and 25 Nov 2025;
+TechCrunch 26 Nov 2025. Not used: Farquhar et al. 2024 (no placeholder fits).
+"Rimsky et al." placeholders resolve to Panickssery et al. 2024 (same work).
+PDF: 44 pages, zero placeholders, zero tags, References on p. 41; tables 2 and 4
+inside the margins; xurl added for breakable URLs.
+
+Also this pass: study README written (docs/studies/context_shift/README.md) with
+the content note, layout, archive facts, environment, regeneration commands,
+cache-vs-captures script split, and the claims→script→figure map; capture
+manifest committed (captures/capture_manifest.csv: 1,299 sessions, 7,794 files,
+47.9 GB, SHA-256 per file; analysis/s17_capture_manifest.py).
+
+OPEN for Andrew: the committed behavior worksheets carry the first 1,200
+characters of every raw completion, including the fiction-framed reasoning
+traces, which contradicts release policy (a) once the repository is public; and
+"paraphrased excerpts" promised in §4 do not exist yet as an artifact. Flagged in
+the README's release-policy section.

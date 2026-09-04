@@ -4,6 +4,10 @@ responses" in place of the term defined in §3.5. Numbers unchanged. -->
 
 # Unresolved: Semantic Metastability in a Language Model Under Context Shift
 
+*Content note: this paper analyzes model behavior around suicide-related requests in a
+research context. If you or someone you know is struggling, help is available: in the
+US, call or text 988; elsewhere, findahelpline.com.*
+
 > *"Two fish are in a tank. One looks to the other and asks: how do you drive this
 > thing?"*
 
@@ -42,6 +46,3 @@ rather than fulfilling the request. But the share of safe responses falls from
 four completions. That weakening is reachable by ordinary context, with no
 adversarial prompt.
 
-*Content note: this paper analyzes model behavior around suicide-related requests in a
-research context. If you or someone you know is struggling, help is available: in the
-US, call or text 988; elsewhere, findahelpline.com.*

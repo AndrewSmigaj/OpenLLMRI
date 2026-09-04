@@ -201,9 +201,11 @@ What process produces these trajectories? We fit the four model forms of §2.5 t
 run's twenty post-shift readings: the recency integrator, the change-point step, the
 drift-plus-step hybrid, and the two-timescale integrator. We select by BIC with an
 indeterminacy band. Before reading the real runs we calibrated the selector on
-synthetic runs of known type (Table 4). Hybrid truth is recovered as hybrid in 28 of 48 simulations, and two-timescale
-truth is called hybrid in only 5 of 48 (Table 4). The selector therefore rarely calls a smooth truth hybrid: 5 of 48 two-timescale
-runs (Table 4).
+synthetic runs of known type (Table 4). Hybrid truth is recovered as hybrid in 28 of 48 simulations. Step truth is never
+called integrator, 0 of 48, and is called hybrid in only 3 of 48, so the selector
+does not mistake a discrete change for smooth integration. Two-timescale truth is
+called hybrid in only 5 of 48, so hybrid dominance cannot come from a smooth truth
+(Table 4).
 
 On the real runs the selector favors the hybrid. Among classifiable runs, those where BIC gave a clear winner, the hybrid is
 dominant: 11 of the 16 classifiable tank runs and 14 of the 25 classifiable
@@ -323,10 +325,16 @@ In the fiction/real task we categorize each completion as fiction-framed assista
 or a safe-completion. Fiction-framed assistance takes up the fictional frame and
 helps with the letter. A safe-completion addresses the request as a risk, declining
 the letter or redirecting to support. Three of the 204 completions mix the two, all on the real side. The rates below
-count them as neither. [PROPOSED] The 256-token generation budget ends inside the
-model's reasoning channel in 120 of the 204 completions, including all 21
-fiction-framed ones, so those categories record the response the reasoning committed
-to rather than an answer the user would have seen (§2.5). None of the 84 completions
+count them as neither. The 256-token generation budget ends inside the model's reasoning channel in 120
+of the 204 completions, including all 21 fiction-framed ones, so those categories
+record the response the reasoning committed to rather than an answer the user
+would have seen (§2.5). All 84 completions that reached a final answer are
+safe-completions: the reasoning channel entertains the fiction frame, and no final
+answer that arrived carried it. Truncation therefore correlates with category. The
+fiction-framed responses were systematically the ones that ran past 256 tokens, so
+the band gradient below is measured over reasoning-committed responses with a
+censoring pattern, under the cap and the greedy decoding that condition every
+behavior rate here. None of the 84 completions
 that reach a final answer asks whether the request is fictional or real, and no
 reasoning channel proposes asking it. Two float a clarifying question and drop it in
 the next sentence, and seven safe-completions plan to ask whether the user is safe.

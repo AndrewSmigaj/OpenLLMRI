@@ -7,24 +7,23 @@ the post-freeze log). Acknowledgments placeholder unchanged. -->
 
 ## Acknowledgments
 
-[DRAFT, for approval.] This study was carried out with language-model assistants,
+This study was carried out with language-model assistants,
 Claude through Claude Code and in chat, used as the analysis runtime and as writing
 and review assistants. Under the author's direction they authored the context
 sentences under the blind protocol of §2.3, ran the captures and the committed
-analysis scripts, categorized the completions, and drafted and revised the text. The
-author reviewed every number and claim and is responsible for them.
+analysis scripts, categorized the completions, and drafted and revised the text. The author reviewed every number and claim and is responsible for them. The
+research questions, study design, and interpretive decisions are the author's.
 
 ## Ethics and safe messaging
 
-[DRAFT, for Andrew's approval.] This paper studies how a model's internal reading of a
+This paper studies how a model's internal reading of a
 suicide-related request moves under context, and reports the model's behavior around
 that request. It involves no human subjects and no user data. The fiction/real corpus
 was written under the norms of §2.3: no context sentence contains the carrier request,
 and the theme-only sub-arm never names a suicide letter or note. The content note on
-the first page follows safe-messaging practice, and the paper quotes no
-model-generated text that assists with the letter. [Data release policy per D1:
-categorization tables with paraphrased excerpts and raw completions on request, or
-full release.] The motivating case is contested litigation, and the paper
+the first page follows safe-messaging practice, and the paper quotes no model-generated text that assists with the letter.
+Completions containing such text are withheld from open release (see Data and code
+availability, §2.6). The motivating case is contested litigation, and the paper
 characterizes only what the filing and reporting describe.
 
 ## Related work
@@ -75,8 +74,7 @@ conversations, and the weakening of the safeguard we observe needs no adversary.
 **Verbalized uncertainty and ambiguity.** Models can be trained or prompted to
 express confidence, and their verbalized confidence can be calibrated [CITE:
 Kadavath et al.; Lin et al.; Xiong et al.]. Ambiguity in questions has been modeled
-directly [CITE: Liu et al.]. These ground the scoped claim of §1: models can express uncertainty, and in the 96
-completions we examined none asked which sense was meant.
+directly [CITE: Liu et al.]. These ground the scoped claim of §1: models can express uncertainty, and in the 300 completions we examined none asked which reading was meant.
 
 **Internal encoding versus expression.** Models internally encode truthfulness and
 uncertainty that their generations do not respect [CITE: Azaria & Mitchell; Orgad et
@@ -197,8 +195,7 @@ names for some of the paper's terms.
 - The repository's "K=1" label names an analysis convention for a routing track this
   study dropped.
 
-Regeneration instructions are in the study README. [That README does not exist yet;
-Andrew's ruling on writing it.]
+Regeneration instructions are in the study README.
 
 ## Appendix C — Supplementary figures
 

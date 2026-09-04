@@ -45,3 +45,4 @@ can be re-run or opened.
 | 27 August 2026; 28 August; two transition runs and one no-shift run | capture days per corpus | `analysis/s16_capture_days.py` output |
 | 12 families × two sub-arms = 24 runs per direction | fr transition-run structure | FINDINGS_AND_ANALYSIS_v2 corpus table (S1: 12 fam × 2 dir × 2 sub-arms); sub-arm near-coincidence: v2 B6 |
 | 48 GB; 1,299 sessions | size and count of the study's raw capture sessions (not in git) | session manifests with prompt_format set, summed on disk (4 Sept 2026) |
+| 300 | completions in which none asks which reading is meant: 96 tank transition completions (s12) + 204 fiction/real completions (s15) | `analysis/s12_r4_counts.py` and `analysis/s15_fr_frame_queries.py` outputs |

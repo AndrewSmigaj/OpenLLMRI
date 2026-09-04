@@ -4,15 +4,16 @@ of the previous version retained. -->
 # 5. Limitations and future work
 
 **One model, stated plainly.** Everything here is measured in one 20-billion-parameter
-mixture-of-experts model, with deterministic decoding, so the behavior rates of §3.5
-are properties of the greedy continuation and behavior under sampling is untested.
+mixture-of-experts model, with deterministic decoding and a 256-token generation cap, so the behavior rates
+of §3.5 are properties of the greedy continuation under that cap, and behavior
+under sampling or longer generation is untested.
 Three kinds of claim should be kept apart. Descriptive claims about gpt-oss-20b are
 fully established here, since this model is the population of interest. Existence
 claims about the class, that a deployed language model can dwell between
 interpretations, can carry a mixed-context signal its behavior does not use, and can
 have safeguard behavior weakened by ordinary coherent context, need only one model.
 Prevalence claims across models are untested here, and the paper makes none.
-[PROPOSED] This is the mode of work that the recent circuit-level biology of a single
+This is the mode of work that the recent circuit-level biology of a single
 language model adopted: one deployed system characterized in depth, with transfer
 left to later work [CITE: Lindsey et al. 2025]. The
 model is itself deployed and open-weight, so its characterization has safety

@@ -34,8 +34,9 @@ def figenv(name):
 
 # abstract pieces
 abs_md = (D/"00_abstract.md").read_text()
-abs_body = abs_md.split("## Abstract")[1].split("*Content note:")[0].strip()
-note = "Content note:" + abs_md.split("*Content note:")[1].strip().rstrip("*")
+note_m = re.search(r"\*Content note:(.*?)\*\n", abs_md, flags=re.S)
+note = "Content note: " + note_m.group(1).strip()
+abs_body = abs_md.replace(note_m.group(0), "").split("## Abstract")[1].strip()
 abs_tex = convert(abs_body); note_tex = convert(note)
 
 intro = convert((D/"01_intro.md").read_text())
@@ -59,7 +60,9 @@ appx = appx.replace("\\section*{Appendices and back matter (assembly spec)}",
 main = r"""\documentclass[11pt]{article}
 \usepackage[margin=1in]{geometry}
 \usepackage{graphicx,amsmath,amssymb,placeins,enumitem,xcolor,microtype,booktabs,tabularx}
-\usepackage[colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+\usepackage{xurl}
+\usepackage[round]{natbib}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black,citecolor=blue!50!black]{hyperref}
 \graphicspath{{../../analysis/figures/}{../../analysis/figures/other/}}
 \setlength{\parskip}{2pt}
 \title{Unresolved: Semantic Metastability in a Language Model\\ Under Context Shift}
@@ -67,12 +70,15 @@ main = r"""\documentclass[11pt]{article}
 \date{Review draft --- \today}
 \begin{document}
 \maketitle
+\begin{center}\begin{minipage}{0.9\linewidth}\small\emph{""" + note_tex + r"""}\end{minipage}\end{center}
 \begin{quote}\itshape``Two fish are in a tank. One looks to the other and asks: how do you drive this thing?''\end{quote}
 \begin{abstract}
 """ + abs_tex + r"""
 \end{abstract}
-\begin{center}\begin{minipage}{0.9\linewidth}\small\emph{""" + note_tex + r"""}\end{minipage}\end{center}
-""" + intro + methods + results + discussion + limits + "\n" + appx + "\n\\end{document}\n"
+""" + intro + methods + results + discussion + limits + "\n" + appx + "\n\\bibliographystyle{plainnat}\n\\bibliography{references}\n\\end{document}\n"
 
 pathlib.Path("main.tex").write_text(main)
 print("main.tex written", len(main), "chars")
+
+import md2tex as _m
+if _m.UNMAPPED: print("UNMAPPED CITATIONS:", sorted(set(_m.UNMAPPED)))

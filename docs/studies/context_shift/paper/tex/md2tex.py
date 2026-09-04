@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 """md -> tex converter for the paper draft sections. Mechanical mappings only."""
-import re, sys, pathlib
+import re, sys, pathlib, json
 
 FIGPAT = r"(?:fig_[a-z0-9_]+|spaghetti_L4|traj_null_L4|fr_traj_null_L14)"
+_CMAP = pathlib.Path(__file__).with_name("cite_map.json")
+CITES = json.loads(_CMAP.read_text()) if _CMAP.exists() else {}
+UNMAPPED = []  # placeholder texts with no entry in cite_map.json (left visible)
 UNI = [
     ("→", r"$\rightarrow$"), ("≥", r"$\geq$"), ("≤", r"$\leq$"), ("≈", r"$\approx$"),
     ("±", r"$\pm$"), ("×", r"$\times$"), ("γ", r"$\gamma$"), ("d′", r"$d'$"),
@@ -90,6 +93,16 @@ def _tables(text):
 
 def convert(text):
     text = re.sub(r"<!--.*?-->\n?", "", text, flags=re.S)
+    # citations: [CITE: text] -> \citep{keys} via cite_map.json (placeholder survives escaping)
+    cites = []
+    def _cite(m):
+        key = " ".join(m.group(1).split()); ent = CITES.get(key)
+        if ent is None:
+            UNMAPPED.append(key); return m.group(0)
+        keys, pre = (ent, "") if isinstance(ent, list) else (ent["keys"], ent.get("pre", ""))
+        cmd = ("\\citep[%s][]{%s}" % (pre, ",".join(keys))) if pre else "\\citep{%s}" % ",".join(keys)
+        cites.append(cmd); return "⟦CITE%d⟧" % (len(cites) - 1)
+    text = re.sub(r"\[CITE:\s*(.*?)\]", _cite, text, flags=re.S)
     # figure refs -> placeholders (before any escaping)
     text = re.sub(r"Figure\s+(" + FIGPAT + ")", lambda m: f"Figure~⟦{m.group(1)}⟧", text)
     text = re.sub(r"Figs?\.\s+(" + FIGPAT + r"(?:,\s*" + FIGPAT + r")*)",
@@ -110,6 +123,7 @@ def convert(text):
     text = re.sub(r"(?<![\w\\])\*(?!\s)([^*]+?)(?<!\s)\*(?![\w])", r"\\emph{\1}", text)  # italics may wrap lines
     # restore placeholders
     text = text.replace("⟦AMP⟧", " & ").replace("⟦NL⟧", " \\\\")
+    text = re.sub(r"⟦CITE(\d+)⟧", lambda m: cites[int(m.group(1))], text)
     text = re.sub(r"⟦N:([^⟧]+)⟧", lambda m: r"\texttt{%s}" % m.group(1), text)
     text = re.sub(r"⟦([^⟧]+)⟧", lambda m: r"\ref{fig:%s}" % m.group(1).replace("\\_", "_"), text)
     return text

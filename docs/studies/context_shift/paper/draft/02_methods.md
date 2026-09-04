@@ -250,7 +250,7 @@ resampling scene families with replacement. Where a named test appears, its clus
 unit is stated in place.
 
 **Behavior.** Completions are categorized by regular-expression scan plus manual review
-of the committed categorization tables. [PROPOSED] The model's chat format emits a
+of the committed categorization tables. The model's chat format emits a
 reasoning channel before its final answer, and generation was capped at 256 new
 tokens, so many completions end inside the reasoning channel: 37 of 108 in the tank
 task and 84 of 204 in the fiction/real task reach the final answer. The tables hold
@@ -265,16 +265,16 @@ captures. A full regeneration audit reproduced all reported values, with calibra
 axes bit-identical and seeded bootstraps exact. A permanent fixture suite pushes
 synthetic data with analytically known answers through the actual pipeline functions.
 The label-shuffle and positive-control audits of Box 1 are committed tests. Corrections
-that changed reported values are listed in Appendix A. The complete record is in the repository. [DRAFT, for approval.] **Data and code availability.** The study lives in the
+that changed reported values are listed in Appendix A. The complete record is in the repository. **Data and code availability.** The study lives in the
 `docs/studies/context_shift/` directory of the repository at
 github.com/AndrewSmigaj/OpenLLMRI, under the Apache-2.0 license. That directory
 holds the capture chains and their logs, the analysis and figure scripts together
 with the calibration axes, projected readings, model-selection tables, and
 categorization tables they wrote, the findings and corrections record, the
 sentence-generation batches, and this paper's source. The context sentences are
-under `data/sentence_sets/`. The raw residual-stream captures, 48 GB across 1,299
-sessions, are not in the repository. [Ruling: archived and available on request, or
-deposited at a named location.] Analyses that use only projected readings run from
+under `data/sentence_sets/`. The raw residual-stream captures, 48 GB across 1,299 sessions, are not in the
+repository. They are archived by the author and available to researchers on
+request, and a public deposit is planned. A manifest of every archived file, with
+sizes and SHA-256 checksums, is committed under `captures/`. Analyses that use only projected readings run from
 the committed caches; those that read raw activations need the captures, and the
-study README lists which. [Behavior completions and reasoning traces: per the
-release policy ruling.]
+study README lists which. Behavior completions and reasoning traces follow the release policy stated in §4.
