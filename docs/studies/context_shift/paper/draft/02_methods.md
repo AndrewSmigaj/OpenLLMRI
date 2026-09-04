@@ -265,5 +265,7 @@ captures. A full regeneration audit reproduced all reported values, with calibra
 axes bit-identical and seeded bootstraps exact. A permanent fixture suite pushes
 synthetic data with analytically known answers through the actual pipeline functions.
 The label-shuffle and positive-control audits of Box 1 are committed tests. Corrections
-that changed reported values are listed in Appendix A. The complete record is in the repository. [Data and code availability statement:
-repository URL and license, Andrew's ruling H5.]
+that changed reported values are listed in Appendix A. The complete record is in the repository. [DRAFT, for approval.] **Data and code availability.** The captures, analysis and
+figure scripts, categorization tables, predictions files, and the corrections record
+are in the repository at github.com/AndrewSmigaj/OpenLLMRI, under the Apache-2.0
+license. [Behavior completions and reasoning traces: per the release policy ruling.]

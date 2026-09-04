@@ -1072,3 +1072,12 @@ standing justified flags (§3 density; back-matter semicolons).
 **Rulings for Andrew:** B3 model-organism clause; D1 release policy; D2
 acknowledgment line; D3 author block; H5 availability sentence; the [PROPOSED]
 channel disclosure wording in §2.5/§3.5; the [DRAFT] ethics statement.
+
+## Rulings pass, part 1 (4 September 2026)
+
+D3 applied: author block "Andrew Smigaj / Independent researcher" (Andrew's
+instruction). D2 acknowledgment line and H5 availability statement drafted in place,
+marked [DRAFT, for approval]. B3 clause added to §5 as [PROPOSED], anchored to the
+single-model "biology" work rather than "model organisms" (which in interpretability
+names engineered testbeds). Remaining rulings go to Andrew's chat-side reviewer via a
+self-contained prompt.

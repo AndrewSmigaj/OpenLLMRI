@@ -63,7 +63,7 @@ main = r"""\documentclass[11pt]{article}
 \graphicspath{{../../analysis/figures/}{../../analysis/figures/other/}}
 \setlength{\parskip}{2pt}
 \title{Unresolved: Semantic Metastability in a Language Model\\ Under Context Shift}
-\author{[author block --- Andrew]}
+\author{Andrew Smigaj\\ Independent researcher}
 \date{Review draft --- \today}
 \begin{document}
 \maketitle

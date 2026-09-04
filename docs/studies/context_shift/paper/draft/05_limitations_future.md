@@ -11,7 +11,10 @@ fully established here, since this model is the population of interest. Existenc
 claims about the class, that a deployed language model can dwell between
 interpretations, can carry a mixed-context signal its behavior does not use, and can
 have safeguard behavior weakened by ordinary coherent context, need only one model.
-Prevalence claims across models are untested here, and the paper makes none. The
+Prevalence claims across models are untested here, and the paper makes none.
+[PROPOSED] This is the mode of work that the recent circuit-level biology of a single
+language model adopted: one deployed system characterized in depth, with transfer
+left to later work [CITE: Lindsey et al. 2025]. The
 model is itself deployed and open-weight, so its characterization has safety
 relevance of its own, independent of any transfer to other systems.
 

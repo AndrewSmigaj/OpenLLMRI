@@ -7,8 +7,12 @@ the post-freeze log). Acknowledgments placeholder unchanged. -->
 
 ## Acknowledgments
 
-[Agreed AI-assistance line: exact text from Andrew. Personal acknowledgments: Andrew
-adds.]
+[DRAFT, for approval.] This study was carried out with language-model assistants,
+Claude through Claude Code and in chat, used as the analysis runtime and as writing
+and review assistants. Under the author's direction they authored the context
+sentences under the blind protocol of §2.3, ran the captures and the committed
+analysis scripts, categorized the completions, and drafted and revised the text. The
+author reviewed every number and claim and is responsible for them.
 
 ## Ethics and safe messaging
 
