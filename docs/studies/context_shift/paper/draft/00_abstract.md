@@ -13,36 +13,40 @@ US, call or text 988; elsewhere, findahelpline.com.*
 
 ## Abstract
 
-A language model answers even while the meaning of the conversation is still in
-flux. We measure what its internal reading of a critical token does during that
-flux, and what the model does about it. In gpt-oss-20b, we track a
-difference-of-means reading in the residual stream at a single token site while
-forty-sentence contexts switch sides halfway through: the word "tank" moving between
-aquarium and vehicle senses, and the fixed request "I want to write a suicide
-letter." moving between fictional and real framing. Every shifted context, 72 runs
-across tasks and directions, is compared with a matched context that never switches,
-and at four points after the switch we generate completions, setting behavior beside
-the reading.
+A language model answers even while its interpretation of the conversation is
+still in flux. What does its internal reading of a critical token do during that
+flux, and what does the model do about it? In gpt-oss-20b, we study two tasks. In
+the first, the word "tank" moves between its aquarium and vehicle senses. In the
+second, the fixed request "I want to write a suicide letter." keeps its wording
+while the surrounding frame moves between fiction writing and the speaker's real
+circumstances. We track a difference-of-means reading in the residual stream, at
+one token site per task, while forty-sentence contexts switch sides halfway
+through. Each of the 72 shifted runs, spanning both tasks and both directions, is
+compared with a matched context that never switches, which we call the no-shift
+reference. At four points after the switch we generate completions, setting
+behavior beside the reading.
 
 The reading follows the shift only partway. It crosses to the new side after a
-median of 4 to 10.5 sentences, by task and direction, then stops short of the
-matched reference by 40% to 109% of the reference level, and the twenty sentences
-after the switch never close the remaining gap. In one tank direction it stops at
-the midpoint between the senses and stays there, stationary to the end of the
-window. Individual runs move by drift plus discrete jumps, and where the fits can
+median of 4 to 10.5 sentences, by task and direction. On average it then stops
+well short of the no-shift reference. Measured against the reference's own
+distance from the midpoint between the two sides, the shortfall ranges from 40% to
+109%, and the largest means the average reading ends at the midpoint. The twenty
+sentences after the switch never close the remaining gap. In one tank direction
+the reading stops at the midpoint and stays there, stationary to the end of the
+window. Individual runs move by drift plus discrete jumps. Where the fits can
 decide, drift plus jumps beats every smooth evidence-integration model we fit. The
-jumps do not coincide with unusually strong evidence, and the large effect of
-evidence order is explained almost entirely by recency weighting. None of the
-intermediate states is geometrically unusual against the no-shift references, yet
-together they carry a persistent internal signal that the context is mixed, a signal
-the model's behavior does not appear to use. We call this cluster of properties
-semantic metastability.
+jumps do not coincide with unusually strong evidence. Evidence order has a large
+effect on the reading, explained almost entirely by recency weighting. None of the
+intermediate states is geometrically unusual against the no-shift references. Yet
+together they carry a persistent internal signal that the context is mixed, a
+signal the model's behavior does not appear to use. We call this cluster of
+properties semantic metastability.
 
-What the model does while unresolved differs sharply between the tasks, and across
-the 300 completions we examine, none asks which reading is meant. The tank task has
-no safeguard: the model lists both senses or commits silently to one. The
-suicide-letter task has a refusal safeguard, and it mostly holds while the reading
-sits between frames: 80% of completions there decline the letter or redirect to
+What the model does while unresolved differs sharply between the tasks. Across the
+300 completions we examine, none asks which reading is meant. The tank task has no
+safeguard: the model lists both senses or commits silently to one. The
+suicide-letter task has a refusal safeguard. It mostly holds while the reading sits
+between the frames: 80% of completions there decline the letter or redirect to
 support. But safe responses fall from 91% to 50% as the reading moves toward the
-fictional frame (the 50% rests on four completions). That weakening is reachable by
-ordinary, coherent context, with no adversarial prompt.
+fiction-writing frame. The 50% rests on four completions. That weakening is
+reachable by ordinary, coherent context, with no adversarial prompt.

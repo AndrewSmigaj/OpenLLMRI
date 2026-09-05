@@ -1159,3 +1159,14 @@ decide, drift plus jumps beats every smooth evidence-integration model we fit" f
 integrator wins 7 of 41 classifiable runs; §3.3 claims dominance, not exclusion).
 Stylistic suggestions are held for Andrew's ruling, not applied. The third paragraph
 updates when the behavior regeneration completes.
+
+## Abstract: Andrew's final text (5 September 2026)
+
+Applied verbatim except one clause. Andrew's text read "the largest means the
+average reading never passes the midpoint at all". The record says otherwise: the
+mean trajectory in that direction (tank, aquarium→vehicle) crosses the midpoint
+after about 13 sentences (Figure 1 caption; per-run median 10.5, Table 2), and the
+late plateau then sits at the midpoint within the interval's precision (gap ratio
+1.09, CI on the ratio spanning 1.0; §3.2 "the transition stopped halfway"). The
+clause now reads "the largest means the average reading ends at the midpoint".
+Reported to Andrew as the single deviation.
