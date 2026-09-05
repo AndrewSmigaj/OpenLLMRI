@@ -1143,3 +1143,19 @@ characters of every raw completion, including the fiction-framed reasoning
 traces, which contradicts release policy (a) once the repository is public; and
 "paraphrased excerpts" promised in §4 do not exist yet as an artifact. Flagged in
 the README's release-policy section.
+
+## Abstract replaced with the approved section K text (5 September 2026)
+
+Andrew found the 1 September opening ("or whether a request is fiction") wrong: the
+task varies the framing of a fixed request, not whether the request is fiction. That
+opening was written in commit c212cac without recorded sign-off. The abstract is now
+the section K text verbatim, with three factual corrections only: "72 runs" for "88
+runs" (88 mixed the main-carrier runs with the paraphrase-carrier runs, eight of
+which have no matched no-shift runs; every headline number comes from the 72); "the
+300 completions we examine" for "all 300 completions in the study" (the study holds
+312; the 12 tank no-shift completions were not scanned); and "where the fits can
+decide, drift plus jumps beats every smooth evidence-integration model we fit" for
+"no smooth evidence-integration model we fit reproduces them" (the recency
+integrator wins 7 of 41 classifiable runs; §3.3 claims dominance, not exclusion).
+Stylistic suggestions are held for Andrew's ruling, not applied. The third paragraph
+updates when the behavior regeneration completes.

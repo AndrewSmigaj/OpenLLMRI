@@ -46,3 +46,5 @@ can be re-run or opened.
 | 12 families × two sub-arms = 24 runs per direction | fr transition-run structure | FINDINGS_AND_ANALYSIS_v2 corpus table (S1: 12 fam × 2 dir × 2 sub-arms); sub-arm near-coincidence: v2 B6 |
 | 48 GB; 1,299 sessions | size and count of the study's raw capture sessions (not in git) | session manifests with prompt_format set, summed on disk (4 Sept 2026) |
 | 300 | completions in which none asks which reading is meant: 96 tank transition completions (s12) + 204 fiction/real completions (s15) | `analysis/s12_r4_counts.py` and `analysis/s15_fr_frame_queries.py` outputs |
+| 72 | transition runs on the main carriers: tank 12 families × 2 directions + fiction/real 12 families × 2 directions × 2 sub-arms (Table 1) | Table 1 sizes; `analysis/s17_capture_manifest.py` corpus counts (24 + 48) |
+| 40% to 109% | remnant gap as a share of the no-shift amplitude, range over the four transitions (1.09, 0.57, 0.43, 0.40) | Table 2 last column |
