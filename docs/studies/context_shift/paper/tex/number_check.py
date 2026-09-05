@@ -35,7 +35,8 @@ FROZEN = PAPER / "draft_v2"
 CAPTIONS = DRAFT / "captions.md"
 ALLOWLIST = HERE / "number_allowlist.md"
 RECORD = [STUDY / "findings" / "FINDINGS_FINAL.md",
-          STUDY / "findings" / "FINDINGS_AND_ANALYSIS_v2.md"]
+          STUDY / "findings" / "FINDINGS_AND_ANALYSIS_v2.md",
+          STUDY / "findings" / "behavior_regeneration_2026-09.md"]  # post-freeze behavior corpus
 
 REF_WORDS = r"(?:§|Section|Sections|Figure|Figures|Fig\.|Figs\.|Table|Tables|Box|Appendix|Item|Items|Rule|rule|Step|step|Round|round|Correction|correction)\s*"
 NUM = re.compile(r"(?<![\w.])[+−-]?(\d[\d,]*(?:\.\d+)?)(?![\w])")

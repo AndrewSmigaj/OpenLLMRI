@@ -159,11 +159,10 @@ released; raw completions and reasoning traces are available to researchers on
 request, since some contain model-generated text engaging with the letter
 request. Completions containing such text are withheld from open release.
 
-[Decision pending: `analysis/r6_behavior_worksheet_*_categorized.csv` currently
-carry the first 1,200 characters of each raw completion in their `generated_text`
-column, including the fiction-framed reasoning traces. Under the policy above that
-column must be replaced by a paraphrase or removed before the repository is
-public, and `s12_r4_counts.py` pointed at the archive instead of the worksheet.]
+The committed behavior worksheets (`analysis/r6_behavior_worksheet_*.csv`) carry
+the reading, logprob sets, and category for every completion but no completion
+text; the full-text versions live with the archived captures. Scripts that scan
+the text (`s12_r4_counts.py`, `s15_fr_frame_queries.py`) read it from the archive.
 
 ## Corrections
 
