@@ -2,6 +2,8 @@
 """Behavior-link figure: category shares by reading band, both probes."""
 import pandas as pd, numpy as np
 import matplotlib
+WS = "_v2"  # behavior worksheet version: "" = frozen 256-token captures, "_v2" = regenerated (Sept 2026)
+
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from pathlib import Path
@@ -19,7 +21,7 @@ for ax, probe, order, colors, ttl in (
     (axes[1], "fr", ["fiction_frame", "mixed", "safety_response"],
      {"fiction_frame": BLUE, "safety_response": ORANGE, "mixed": AQUA},
      "Fiction/real task: response type to the request")):
-    df = pd.read_csv(OUT / f"r6_behavior_worksheet_{probe}_categorized.csv")
+    df = pd.read_csv(OUT / f"r6_behavior_worksheet_{probe}{WS}_categorized.csv")
     df["band"] = pd.cut(df.reading, [-10, -0.5, 0.5, 10], labels=["origin side", "mid band", "dest side"])
     ct = pd.crosstab(df.band, df.category, normalize="index")
     ns = df.band.value_counts()

@@ -9,6 +9,8 @@ import re
 from pathlib import Path
 import numpy as np, pandas as pd
 import matplotlib
+WS = "_v2"  # behavior worksheet version: "" = frozen 256-token captures, "_v2" = regenerated (Sept 2026)
+
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
@@ -50,10 +52,10 @@ def curves(probe, wf, label_fn, value_fn, subsets):
         res[name] = (np.array(layer_auc), np.array(layer_lo), np.array(layer_hi), len(sub), int(sub.y.sum()))
     return res
 
-fr = curves("fr", "r6_behavior_worksheet_fr_categorized.csv",
+fr = curves("fr", f"r6_behavior_worksheet_fr{WS}_categorized.csv",
             {"safety_response": 1, "fiction_frame": 0}.get, lambda v: v,
             {"all transition cells": lambda d: d.k.isin([2, 6, 12, 20])})
-tank = curves("tank", "r6_behavior_worksheet_tank_categorized.csv",
+tank = curves("tank", f"r6_behavior_worksheet_tank{WS}_categorized.csv",
               {"aquarium": 1, "vehicle": 1, "both": 0}.get, abs,
               {"mid-transition (k in 6,12)": lambda d: d.k.isin([6, 12]),
                "all transition cells": lambda d: d.k.isin([2, 6, 12, 20])})

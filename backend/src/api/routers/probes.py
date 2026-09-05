@@ -9,6 +9,7 @@ from typing import List, Dict
 from datetime import datetime
 import json
 import logging
+import re
 import shutil
 
 from api.schemas import (
@@ -269,18 +270,28 @@ async def run_sentence_experiment(
         for entry, label in sentences:
             try:
                 # Harmony chat-template wrap of the user content
-                enc = tokenizer.apply_chat_template(
-                    [{"role": "user", "content": entry.text}],
-                    tokenize=True, add_generation_prompt=True,
-                    return_tensors="pt", return_dict=True,
-                )
-                token_ids = enc["input_ids"][0].tolist()
+                messages = [{"role": "user", "content": entry.text}]
+                if request.pin_date:
+                    # Render as text, pin the template's date line, re-encode. The
+                    # token stream equals the tokenize=True path except for the
+                    # date tokens themselves (verified: same length, same positions).
+                    text = tokenizer.apply_chat_template(
+                        messages, tokenize=False, add_generation_prompt=True)
+                    text = re.sub(r"Current date: \d{4}-\d{2}-\d{2}",
+                                  f"Current date: {request.pin_date}", text)
+                    token_ids = tokenizer.encode(text, add_special_tokens=False)
+                else:
+                    enc = tokenizer.apply_chat_template(
+                        messages, tokenize=True, add_generation_prompt=True,
+                        return_tensors="pt", return_dict=True,
+                    )
+                    token_ids = enc["input_ids"][0].tolist()
 
                 # Optional generation (capture-then-generate semantically equivalent
                 # to old capture_probe order: same prompt, same model state)
                 gen_text = None
                 if request.generate_output:
-                    gen_text, _ = service.generate(token_ids, max_new_tokens=256)
+                    gen_text, _ = service.generate(token_ids, max_new_tokens=request.max_new_tokens)
 
                 # Forced-final-channel suffix (after generation, before capture):
                 # shifts the logprob position to the first visible answer token

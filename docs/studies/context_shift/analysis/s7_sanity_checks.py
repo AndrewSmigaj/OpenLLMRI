@@ -15,6 +15,8 @@ sys.path.insert(0, "docs/studies/context_shift/analysis")
 import numpy as np, pandas as pd
 from pathlib import Path
 from second_pass_r1_dynamics import (tank_cfg, fr_cfg, integrator_pred, fit_integrator,
+WS = "_v2"  # behavior worksheet version: "" = frozen 256-token captures, "_v2" = regenerated (Sept 2026)
+
                                      fit_step, fit_hybrid, bic, K)
 
 rng = np.random.default_rng(21)
@@ -131,7 +133,7 @@ def _run_battery():
     print("\n" + "=" * 78)
     print("S1.3 — behavior vs reading WITHIN matched k (threatens A10 wording)")
     from scipy.stats import mannwhitneyu
-    t = pd.read_csv("docs/studies/context_shift/analysis/r6_behavior_worksheet_tank_categorized.csv")
+    t = pd.read_csv(f"docs/studies/context_shift/analysis/r6_behavior_worksheet_tank{WS}_categorized.csv")
     t = t[t.k != "d4_final"]
     t["decided"] = t.category.isin(["aquarium", "vehicle"])
     t["dest_ans"] = (t.category == "vehicle") == t.set.str.contains("_ab_")   # answered destination sense
@@ -146,7 +148,7 @@ def _run_battery():
             u, pv = mannwhitneyu(np.abs(dec.r_or), np.abs(und.r_or), alternative="greater")
             print(f"  tank k={k}: |reading| decided {np.abs(dec.r_or).median():.2f} (n={len(dec)}) vs "
                   f"undecided {np.abs(und.r_or).median():.2f} (n={len(und)}); MW p={pv:.3f}")
-    f = pd.read_csv("docs/studies/context_shift/analysis/r6_behavior_worksheet_fr_categorized.csv")
+    f = pd.read_csv(f"docs/studies/context_shift/analysis/r6_behavior_worksheet_fr{WS}_categorized.csv")
     f = f[f.k != "d4_final"]
     f["fic"] = f.category == "fiction_frame"
     for k in ("2", "6", "12", "20"):

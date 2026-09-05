@@ -1,0 +1,3 @@
+set	session	probes	has_gen	has_lp	status	cap	pinned_date	reached_final	gen_chars	seconds
+tank_d3_fam00_ab_beh_k02_r1	session_fa0b2bef	1	1	1	ok	2048	2026-08-29	1	2617	283.1
+tank_d3_fam00_ab_beh_k02_r2	session_7c5fe134	1	1	1	ok	2048	2026-08-29	1	2617	264.7

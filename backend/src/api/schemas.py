@@ -342,6 +342,14 @@ class SentenceExperimentRequest(BaseModel):
     # ("<|channel|>final<|message|>") before capture, so the logprob position is
     # the FIRST VISIBLE ANSWER TOKEN instead of the channel scaffold token.
     # Causal attention leaves all captured positions unchanged.
+    max_new_tokens: int = 256
+    # Generation cap for generate_output. The context-shift study's frozen
+    # behavior captures used 256; the regeneration uses 2048.
+    pin_date: Optional[str] = None
+    # ISO date (YYYY-MM-DD). When set, the chat template's "Current date:" line is
+    # rendered with this date instead of today's, so a capture can reproduce a
+    # prior day's input token stream exactly (only the date tokens differ across
+    # days; positions are unchanged).
 
 
 class SentenceExperimentResponse(BaseModel):

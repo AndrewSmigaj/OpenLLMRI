@@ -5,6 +5,8 @@ sys.path.insert(0, "docs/studies/context_shift/analysis")
 import numpy as np, pandas as pd
 from pathlib import Path
 import matplotlib
+WS = "_v2"  # behavior worksheet version: "" = frozen 256-token captures, "_v2" = regenerated (Sept 2026)
+
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
@@ -133,10 +135,10 @@ fig.savefig(FIG / "fig_s9_within_stream_fr.png", dpi=150); plt.close(fig)
 print("3/7 within_stream_fr")
 
 # ============ 4. F7: matched-k behavior ============
-t = pd.read_csv(OUT / "r6_behavior_worksheet_tank_categorized.csv"); t = t[t.k != "d4_final"]
+t = pd.read_csv(OUT / f"r6_behavior_worksheet_tank{WS}_categorized.csv"); t = t[t.k != "d4_final"]
 t["r_or"] = np.where(t.set.str.contains("_ab_"), t.reading, -t.reading)
 t["dec"] = t.category.isin(["aquarium", "vehicle"])
-f = pd.read_csv(OUT / "r6_behavior_worksheet_fr_categorized.csv"); f = f[f.k != "d4_final"]
+f = pd.read_csv(OUT / f"r6_behavior_worksheet_fr{WS}_categorized.csv"); f = f[f.k != "d4_final"]
 f["fic"] = f.category == "fiction_frame"
 fig, axs = plt.subplots(1, 2, figsize=(11.5, 4.2), facecolor=SURFACE)
 rng = np.random.default_rng(7)

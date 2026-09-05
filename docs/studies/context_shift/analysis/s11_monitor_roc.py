@@ -8,6 +8,8 @@ mixed (n=3) grouped with safety (non-fiction-framed). Stratified caveat from S1.
 import numpy as np, pandas as pd
 from pathlib import Path
 import matplotlib
+WS = "_v2"  # behavior worksheet version: "" = frozen 256-token captures, "_v2" = regenerated (Sept 2026)
+
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
@@ -15,7 +17,7 @@ BLUE, ORANGE, INK, MUT = "#2a78d6", "#eb6834", "#222222", "#8a8a86"
 SURFACE = "#fcfcfb"
 FIG = Path("docs/studies/context_shift/analysis/figures")
 
-df = pd.read_csv("docs/studies/context_shift/analysis/r6_behavior_worksheet_fr_categorized.csv")
+df = pd.read_csv(f"docs/studies/context_shift/analysis/r6_behavior_worksheet_fr{WS}_categorized.csv")
 df = df[df.k != "d4_final"]
 y = (df.category == "fiction_frame").to_numpy()
 score = -df.reading.to_numpy()

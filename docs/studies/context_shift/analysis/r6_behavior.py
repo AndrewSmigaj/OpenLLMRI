@@ -15,10 +15,13 @@ from pathlib import Path
 
 C = Path("docs/studies/context_shift/captures")
 OUT = Path("docs/studies/context_shift/analysis")
+VERSION = sys.argv[2] if len(sys.argv) > 2 else "v1"   # "v1" = frozen 256-token captures; "v2" = regenerated
+SUF = "" if VERSION == "v1" else f"_{VERSION}"
+FINAL = "assistantfinal"  # decoded remains of the final-channel scaffold in the raw output
 CFG = {
-    "tank": dict(log=C / "behavior_tank_log.tsv", L=4,
+    "tank": dict(log=C / f"behavior_tank{SUF}_log.tsv", L=4,
                  ax=OUT / "axes/axes_session_29a80932_aquarium_vs_vehicle_pos1.npz"),
-    "fr": dict(log=C / "behavior_fr_log.tsv", L=14,
+    "fr": dict(log=C / f"behavior_fr{SUF}_log.tsv", L=14,
                ax=OUT / "axes/axes_session_5247081b_fictional_vs_real_pos1.npz"),
 }
 
@@ -38,17 +41,26 @@ def build_worksheet(probe):
         X = np.stack(df["residual_stream"].apply(np.asarray).to_numpy()).astype(np.float32)
         reading = float(2.0 * ((X[0] - ax[f"mid_{L}"]) @ ax[f"axis_{L}"]) / float(ax[f"denom_{L}"]))
         cats = json.loads(df["categories_json"].iloc[0])
-        out.append({"set": r["set"], "session": r["session"], "run": cats.get("run"),
-                    "k": cats.get("k"), "reading": round(reading, 3),
-                    "logprobs": df["first_token_logprobs_json"].iloc[0],
-                    "generated_text": (df["generated_text"].iloc[0] or "")[:1200],
-                    "category": ""})
-    pd.DataFrame(out).to_csv(OUT / f"r6_behavior_worksheet_{probe}.csv", index=False)
-    print(f"{probe}: worksheet {len(out)} cells -> r6_behavior_worksheet_{probe}.csv")
+        gen = df["generated_text"].iloc[0] or ""
+        row = {"set": r["set"], "session": r["session"], "run": cats.get("run"),
+               "k": cats.get("k"), "reading": round(reading, 3),
+               "logprobs": df["first_token_logprobs_json"].iloc[0]}
+        if VERSION == "v1":
+            row["generated_text"] = gen[:1200]
+        else:
+            # v2: full raw output, the delivered final answer, and which channel a
+            # category will be read from (final where reached, else reasoning).
+            i = gen.find(FINAL)
+            row.update({"generated_text": gen, "final_text": gen[i + len(FINAL):] if i >= 0 else "",
+                        "reached_final": int(i >= 0), "channel": "final" if i >= 0 else "reasoning"})
+        row["category"] = ""
+        out.append(row)
+    pd.DataFrame(out).to_csv(OUT / f"r6_behavior_worksheet_{probe}{SUF}.csv", index=False)
+    print(f"{probe}: worksheet {len(out)} cells -> r6_behavior_worksheet_{probe}{SUF}.csv")
 
 def stats(probe):
-    df = pd.read_csv(OUT / f"r6_behavior_worksheet_{probe}_categorized.csv")
-    print(f"{probe}: n={len(df)}")
+    df = pd.read_csv(OUT / f"r6_behavior_worksheet_{probe}{SUF}_categorized.csv")
+    print(f"{probe} ({VERSION}): n={len(df)}")
     print(df.groupby("category").reading.describe()[["count", "mean", "std"]].to_string())
     # reading-band rates
     df["band"] = pd.cut(df.reading, [-10, -0.5, 0.5, 10], labels=["origin", "mid", "dest"])

@@ -34,10 +34,14 @@ CORPUS = [
     (r"d7_.*",                              "bare-carrier baseline"),
     (r"context_shift_.*|logprob_smoke_.*",  "smoke / gate check"),
 ]
-def corpus(name):
+def corpus(name, session_name=""):
+    tag = ""
+    for suf, lab in (("_v2", ", regenerated (2,048-token cap, pinned date)"),
+                     ("_datebound", ", date-bound run"), ("_smoke", ", smoke/determinism run")):
+        if suf in session_name: tag = lab; break
     for pat, lab in CORPUS:
-        if re.fullmatch(pat, name): return lab
-    return "other"
+        if re.fullmatch(pat, name): return lab + tag
+    return "other" + tag
 def sha256(path):
     h = hashlib.sha256()
     with open(path, "rb") as f:
@@ -49,11 +53,11 @@ sessions = []
 for f in sorted(glob.glob(str(LAKE / "_sessions" / "session_*.json"))):
     d = json.load(open(f))
     if not d.get("prompt_format"): continue
-    sessions.append((d["session_id"], d.get("sentence_set_name") or "", str(d.get("created_at", ""))[:10], f))
-for sid, name, day, mf in sessions:
+    sessions.append((d["session_id"], d.get("sentence_set_name") or "", str(d.get("created_at", ""))[:10], f, d.get("session_name") or ""))
+for sid, name, day, mf, sname in sessions:
     files = [mf] + sorted(str(p) for p in (LAKE / sid).rglob("*") if p.is_file())
     for p in files:
-        rows.append({"session_id": sid, "sentence_set": name, "corpus": corpus(name), "capture_date": day,
+        rows.append({"session_id": sid, "sentence_set": name, "corpus": corpus(name, sname), "capture_date": day,
                      "file": os.path.relpath(p, LAKE), "bytes": os.path.getsize(p), "sha256": sha256(p)})
 OUT.parent.mkdir(parents=True, exist_ok=True)
 with open(OUT, "w", newline="") as f:
@@ -61,4 +65,4 @@ with open(OUT, "w", newline="") as f:
 tot = sum(r["bytes"] for r in rows)
 print(f"{len(sessions)} sessions, {len(rows)} files, {tot/1e9:.1f} GB -> {OUT}")
 import collections
-for lab, n in sorted(collections.Counter(s[1] and corpus(s[1]) for s in sessions).items()): print(f"  {n:5d}  {lab}")
+for lab, n in sorted(collections.Counter(corpus(s[1], s[4]) for s in sessions).items()): print(f"  {n:5d}  {lab}")

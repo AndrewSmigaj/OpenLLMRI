@@ -14,6 +14,8 @@ import sys, json, csv
 sys.path.insert(0, "docs/studies/context_shift/analysis")
 import numpy as np, pandas as pd
 from pathlib import Path
+WS = "_v2"  # behavior worksheet version: "" = frozen 256-token captures, "_v2" = regenerated (Sept 2026)
+
 
 C = Path("docs/studies/context_shift/captures")
 AXD = Path("docs/studies/context_shift/analysis/axes")
@@ -182,7 +184,7 @@ def _run_extra():
     OUT = Path("docs/studies/context_shift/analysis")
     print("\n" + "=" * 74)
     print("(v) F7 pooled mid-k behavior test (tank, k in {6,12})")
-    t = pd.read_csv(OUT / "r6_behavior_worksheet_tank_categorized.csv")
+    t = pd.read_csv(OUT / f"r6_behavior_worksheet_tank{WS}_categorized.csv")
     t = t[t.k.isin(["6", "12"])]
     r_or = np.abs(np.where(t.set.str.contains("_ab_"), t.reading, -t.reading))
     dec = t.category.isin(["aquarium", "vehicle"]).to_numpy()

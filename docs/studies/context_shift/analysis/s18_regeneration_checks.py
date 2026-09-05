@@ -1,0 +1,101 @@
+#!/usr/bin/env python3
+"""s18 — integrity checks for the regenerated behavior corpus (logged post-freeze).
+
+Modes:
+  determinism LOG          rows of LOG come in pairs <set>_r1 / <set>_r2 (same cell fired
+                           twice with the same pin and cap): compare generated text and
+                           the calibrated-site reading between repeats.
+  extension PROBE [V2LOG]  for every cell in captures/behavior_{PROBE}_log.tsv (frozen)
+                           and its twin in V2LOG (default behavior_{PROBE}_v2_log.tsv):
+                           the frozen text must be a prefix of the regenerated text
+                           (the frozen text was decoded from exactly 256 tokens, so a
+                           trailing U+FFFD from a split multi-byte character is
+                           stripped first); readings must match; count reached-final
+                           and capped cells; report lengths.
+  agreement PROBE          reasoning-channel commitment vs delivered final answer: needs
+                           the v2 categorized worksheet (category = from the final answer)
+                           and the frozen categorized worksheet (category = from the
+                           reasoning channel where the final was not reached).
+"""
+import csv, sys, json, re
+from pathlib import Path
+import numpy as np, pandas as pd
+
+C = Path("docs/studies/context_shift/captures"); A = Path("docs/studies/context_shift/analysis")
+AX = {"tank": (4, A / "axes/axes_session_29a80932_aquarium_vs_vehicle_pos1.npz"),
+      "fr": (14, A / "axes/axes_session_5247081b_fictional_vs_real_pos1.npz")}
+FINAL = "assistantfinal"
+
+def text_of(sid):
+    t = pd.read_parquet(Path("data/lake") / sid / "tokens.parquet", columns=["generated_text"])
+    return t.generated_text.iloc[0] or ""
+
+def reading_of(sid, probe):
+    L, axf = AX[probe]; ax = np.load(axf)
+    res = pd.read_parquet(Path("data/lake") / sid / "residual_streams.parquet")
+    res = res[(res.layer == L) & (res.token_position == 1)]
+    X = np.asarray(res.residual_stream.iloc[0], dtype=np.float64)
+    return float(2.0 * ((X - ax[f"mid_{L}"]) @ ax[f"axis_{L}"]) / float(ax[f"denom_{L}"]))
+
+def rows(log):
+    return [r for r in csv.DictReader(open(log), delimiter="\t") if r["status"] == "ok"]
+
+def n_tokens(text):
+    from transformers import AutoTokenizer
+    tok = AutoTokenizer.from_pretrained("data/models/gpt-oss-20b")
+    return len(tok.encode(text, add_special_tokens=False))
+
+def determinism(log):
+    rs = rows(log); by = {}
+    for r in rs: by.setdefault(r["set"].rsplit("_r", 1)[0], {})[r["set"].rsplit("_r", 1)[1]] = r
+    probe = "fr" if next(iter(by)).startswith("fr_") else "tank"
+    for base, reps in sorted(by.items()):
+        if len(reps) < 2: print(f"  {base}: only one repeat logged"); continue
+        (k1, r1), (k2, r2) = sorted(reps.items())[:2]
+        t1, t2 = text_of(r1["session"]), text_of(r2["session"])
+        v1, v2 = reading_of(r1["session"], probe), reading_of(r2["session"], probe)
+        same_text = t1 == t2
+        ndiff = next((i for i, (a, b) in enumerate(zip(t1, t2)) if a != b), min(len(t1), len(t2)))
+        print(f"  {base}: text identical={same_text} (first differing char {ndiff} of {len(t1)}/{len(t2)}); "
+              f"reading {v1:+.6f} vs {v2:+.6f}, |delta|={abs(v1-v2):.2e}; seconds {r1['seconds']}/{r2['seconds']}")
+
+def extension(probe, v2log=None):
+    frozen = {r["set"]: r for r in rows(C / f"behavior_{probe}_log.tsv")}
+    new = {re.sub(r"_r\d+$", "", r["set"]): r for r in rows(v2log or C / f"behavior_{probe}_v2_log.tsv")}
+    cap = int(next(iter(new.values()))["cap"]) if new else None
+    ok = bad = fin = capped = 0; dr = []; lens = []; bad_list = []; capped_list = []
+    for s, r in sorted(new.items()):
+        if s not in frozen: print(f"  {s}: no frozen twin"); continue
+        old, cur = text_of(frozen[s]["session"]), text_of(r["session"])
+        old_c = old.rstrip("�")
+        if cur.startswith(old_c): ok += 1
+        else:
+            bad += 1; i = next((i for i, (a, b) in enumerate(zip(old_c, cur)) if a != b), min(len(old_c), len(cur)))
+            bad_list.append((s, i, len(old_c), len(cur)))
+        f = FINAL in cur; fin += int(f); lens.append(len(cur))
+        if not f or n_tokens(cur) >= cap - 4: capped += 1; capped_list.append((s, f, len(cur)))
+        dr.append(abs(reading_of(frozen[s]["session"], probe) - reading_of(r["session"], probe)))
+    n = ok + bad
+    print(f"{probe}: {n} regenerated cells; frozen text is a prefix of the new text in {ok}; mismatches {bad}")
+    for s, i, lo, lc in bad_list: print(f"   MISMATCH {s}: first differing char {i} (frozen {lo} chars, new {lc})")
+    print(f"  reached final answer: {fin} of {n}; still capped or unfinished: {capped}")
+    for s, f, l in capped_list: print(f"   capped/unfinished {s}: reached_final={f}, chars={l}")
+    if dr: print(f"  |reading(new) - reading(frozen)|: max {max(dr):.2e}, median {np.median(dr):.2e}")
+    if lens: print(f"  new text length chars: min {min(lens)}, median {int(np.median(lens))}, max {max(lens)}")
+
+def agreement(probe):
+    old = pd.read_csv(A / f"r6_behavior_worksheet_{probe}_categorized.csv")[["set", "category"]].rename(columns={"category": "reasoning_category"})
+    new = pd.read_csv(A / f"r6_behavior_worksheet_{probe}_v2_categorized.csv")
+    m = new.merge(old, on="set", how="left")
+    print(f"{probe}: {len(m)} cells; frozen category (reasoning-committed where the final was not reached) vs v2 category (final answer)")
+    print(pd.crosstab(m.reasoning_category, m.category).to_string())
+    print(f"  agreement: {int((m.reasoning_category == m.category).sum())} of {len(m)}")
+    if probe == "fr":
+        ent = m[(m.reasoning_category == "fiction_frame") & (m.category == "safety_response")]
+        print(f"  reasoning committed to the fiction frame but the delivered answer safe-completes: {len(ent)}")
+
+if __name__ == "__main__":
+    mode = sys.argv[1]
+    if mode == "determinism": determinism(sys.argv[2])
+    elif mode == "extension": extension(sys.argv[2], sys.argv[3] if len(sys.argv) > 3 else None)
+    elif mode == "agreement": agreement(sys.argv[2])

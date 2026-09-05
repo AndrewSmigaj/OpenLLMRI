@@ -12,7 +12,14 @@ from pathlib import Path
 rows = {}
 for f in glob.glob("data/lake/_sessions/session_*.json"):
     d = json.load(open(f))
-    if d.get("prompt_format"): rows[d.get("sentence_set_name") or ""] = str(d.get("created_at", ""))[:10]
+    if not d.get("prompt_format"): continue
+    name = d.get("sentence_set_name") or ""; sname = d.get("session_name") or ""
+    # regenerated / date-bound / smoke sessions reuse the frozen sentence-set name;
+    # key them by the session-name suffix so they never overwrite the frozen entry
+    for suf in ("_v2", "_datebound", "_smoke"):
+        if suf in sname[len("sentence_"):]:
+            name = name + suf + sname.split(suf, 1)[1]; break
+    rows[name] = str(d.get("created_at", ""))[:10]
 
 def days(pattern):
     sel = {n: dt for n, dt in rows.items() if re.fullmatch(pattern, n)}
@@ -33,6 +40,9 @@ CORPORA = [
     ("fr behavior completions",   r"fr_s1_\w+_beh_\w+"),
     ("fr mixture sweep cells",    r"fr_d6_.*"),
     ("fr minimal pairs",          r"fr_d5_.*"),
+    ("tank behavior completions, regenerated", r"tank_d[34]_fam\d+_\w+_beh_\w+_v2"),
+    ("fr behavior completions, regenerated",   r"fr_s1_\w+_beh_\w+_v2"),
+    ("no-shift behavior cells, date-bound run", r"\w+_beh_final_datebound"),
 ]
 print(f"{'corpus':46s} {'n':>4s}  days")
 for name, pat in CORPORA:
