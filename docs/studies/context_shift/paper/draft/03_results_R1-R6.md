@@ -31,7 +31,7 @@ accumulated forty-sentence contexts separate held-out families with accuracy
 0.93–1.00 at every layer from 1 to 23, in both tasks. Layer 0, the embedding output,
 is lower: 0.88 in tank and 0.73 in fiction/real. Under these per-layer
 accumulated-context axes, no-shift runs read on their own class's side at every layer
-(Fig. fig_r3_heatmap_secondary_fr, shown for the fiction/real task). One caveat from Methods
+(Figs. fig_r3_heatmap_secondary_tank, fig_r3_heatmap_secondary_fr). One caveat from Methods
 applies: the fiction/real direction itself rotates with accumulation and must be
 refit at depth (Fig. fig_r3_axis_rotation).
 
@@ -144,8 +144,7 @@ computed after the analysis freeze from the frozen captures and are exploratory
 accumulated-context axis (§2.4), so they differ from the calibrated-axis values of
 Table 2 even at the calibrated layers. We group the layers into four bands: 0–2,
 3–12, 13–18, and 19–23 (Table 3). Figure fig_s13_collapse_layers repeats Figure
-fig_s9_collapse at five layers per task, and Fig. fig_r3_heatmap_secondary_fr with the
-supplementary heatmaps gives all layers. In the fiction/real task, layers 0 to 2
+fig_s9_collapse at five layers per task, and Figs. fig_r3_heatmap_secondary_tank, fig_r3_heatmap_secondary_fr give all layers. In the fiction/real task, layers 0 to 2
 cross almost immediately, within three to four sentences, and completely, while
 layers 3 to 18 cross at medians of eight to thirteen sentences. The tank task crosses
 later everywhere. Its layers 0 to 2 cross at medians of thirteen and eight sentences

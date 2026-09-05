@@ -199,10 +199,10 @@ Regeneration instructions are in the study README.
 
 ## Appendix C — Supplementary figures
 
-Eleven supplementary figures are in the repository's figure directory, alongside a
+Ten supplementary figures are in the repository's figure directory, alongside a
 copy of the matched-composition behavior figure of §3.5. They are: the per-run fit
 gallery for the fiction/real task; the hysteresis loop for the fiction/real sweep;
-the per-layer heatmap for the tank task under the refit axes; the raw-axis heatmaps
+the raw-axis heatmaps
 for both tasks and the midpoint-referenced heatmap for the fiction/real task, which
 show the instrument before the corrections of Box 1; the ' word' site just before ' tank' in the carrier;
 the occupancy bands at layer 4; the jumpiness diagnostic; the norm-against-alignment

@@ -471,7 +471,7 @@ accumulated forty-sentence contexts separate held-out families with accuracy
 0.93–1.00 at every layer from 1 to 23, in both tasks. Layer 0, the embedding output,
 is lower: 0.88 in tank and 0.73 in fiction/real. Under these per-layer
 accumulated-context axes, no-shift runs read on their own class's side at every layer
-(Fig.~\ref{fig:fig_r3_heatmap_secondary_fr}, shown for the fiction/real task). One caveat from Methods
+(Fig.~\ref{fig:fig_r3_heatmap_secondary_tank}, \ref{fig:fig_r3_heatmap_secondary_fr}). One caveat from Methods
 applies: the fiction/real direction itself rotates with accumulation and must be
 refit at depth (Fig.~\ref{fig:fig_r3_axis_rotation}).
 
@@ -516,8 +516,12 @@ lives at a token. A framing contrast lives across the utterance.
 
 
 \begin{figure}[tbp]\centering
+\includegraphics[width=\linewidth]{fig_r3_heatmap_secondary_tank.png}
+\caption{Readings by layer and position in the tank task, under axes refit per layer on accumulated no-shift contexts (class means at $\pm$1, so blue is the aquarium side and red the vehicle side). Left two panels: no-shift runs of each class, 6 runs each. Right two panels: transition runs in each direction, 12 each, with the shift after sentence 20. The dashed line marks sentence 20 in every panel. Every layer carries class signal. From aquarium to vehicle, the readings after the shift stay near the midpoint at every layer below the shallowest (Table 3); from vehicle to aquarium they move partway toward the aquarium side, farthest in the deepest layers.}\label{fig:fig_r3_heatmap_secondary_tank}
+\end{figure}
+\begin{figure}[tbp]\centering
 \includegraphics[width=\linewidth]{fig_r3_heatmap_secondary_fr.png}
-\caption{Readings by layer and position in the fiction/real task, under axes refit per layer on accumulated no-shift contexts (class means at $\pm$1, so blue is the fictional side and red the real side). Left two panels: no-shift runs of each class, 6 runs each. Right two panels: transition runs in each direction, 24 each, with the shift after sentence 20. The dashed line marks sentence 20 in every panel. Every layer carries class signal, and no layer reads outside the range the two no-shift classes span.}\label{fig:fig_r3_heatmap_secondary_fr}
+\caption{The same view for the fiction/real task: readings by layer and position, under axes refit per layer on accumulated no-shift contexts (class means at $\pm$1, so blue is the fictional side and red the real side). Left two panels: no-shift runs of each class, 6 runs each. Right two panels: transition runs in each direction, 24 each, with the shift after sentence 20. The dashed line marks sentence 20 in every panel. Every layer carries class signal, and no layer reads outside the range the two no-shift classes span.}\label{fig:fig_r3_heatmap_secondary_fr}
 \end{figure}
 \begin{figure}[tbp]\centering
 \includegraphics[width=\linewidth]{fig_r3_axis_rotation.png}
@@ -610,8 +614,7 @@ computed after the analysis freeze from the frozen captures and are exploratory
 (Appendix B). Crossing times by depth are measured under each layer's
 accumulated-context axis (\S2.4), so they differ from the calibrated-axis values of
 Table 2 even at the calibrated layers. We group the layers into four bands: 0–2,
-3–12, 13–18, and 19–23 (Table 3). Figure~\ref{fig:fig_s13_collapse_layers} repeats Figure~\ref{fig:fig_s9_collapse} at five layers per task, and Fig.~\ref{fig:fig_r3_heatmap_secondary_fr} with the
-supplementary heatmaps gives all layers. In the fiction/real task, layers 0 to 2
+3–12, 13–18, and 19–23 (Table 3). Figure~\ref{fig:fig_s13_collapse_layers} repeats Figure~\ref{fig:fig_s9_collapse} at five layers per task, and Fig.~\ref{fig:fig_r3_heatmap_secondary_tank}, \ref{fig:fig_r3_heatmap_secondary_fr} give all layers. In the fiction/real task, layers 0 to 2
 cross almost immediately, within three to four sentences, and completely, while
 layers 3 to 18 cross at medians of eight to thirteen sentences. The tank task crosses
 later everywhere. Its layers 0 to 2 cross at medians of thirteen and eight sentences
@@ -1444,10 +1447,10 @@ Regeneration instructions are in the study README.
 
 \subsection*{Appendix C — Supplementary figures}
 
-Eleven supplementary figures are in the repository's figure directory, alongside a
+Ten supplementary figures are in the repository's figure directory, alongside a
 copy of the matched-composition behavior figure of \S3.5. They are: the per-run fit
 gallery for the fiction/real task; the hysteresis loop for the fiction/real sweep;
-the per-layer heatmap for the tank task under the refit axes; the raw-axis heatmaps
+the raw-axis heatmaps
 for both tasks and the midpoint-referenced heatmap for the fiction/real task, which
 show the instrument before the corrections of Box 1; the ' word' site just before ' tank' in the carrier;
 the occupancy bands at layer 4; the jumpiness diagnostic; the norm-against-alignment

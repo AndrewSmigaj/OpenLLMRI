@@ -18,7 +18,7 @@ def load_captions(path=D/"captions.md"):
 CAP = load_captions()
 SEC_FIGS = {
  "intro": ["fig_s9_collapse"],
- "3.1": ["fig_r3_heatmap_secondary_fr","fig_r3_axis_rotation","fig_r2_carrier_dprime","fig_s9_d5_pairs","fig_r6_carrier_dprime_fr"],
+ "3.1": ["fig_r3_heatmap_secondary_tank","fig_r3_heatmap_secondary_fr","fig_r3_axis_rotation","fig_r2_carrier_dprime","fig_s9_d5_pairs","fig_r6_carrier_dprime_fr"],
  "3.2": ["fig_r1_residual_gap","fig_s13_collapse_layers","fig_s9_asymmetry"],
  "3.3": ["fig_s9_model_classes","fig_r1_fit_gallery_tank","spaghetti_L4","fig_r2_within_stream","fig_s9_within_stream_fr"],
  "3.4": ["fig_r2_mode_track"],
