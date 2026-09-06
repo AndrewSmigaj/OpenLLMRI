@@ -40,6 +40,23 @@ def reading_of(sid, probe):
 def rows(log):
     return [r for r in csv.DictReader(open(log), delimiter="\t") if r["status"] == "ok"]
 
+def repetition(text, n=60, step=20):
+    """Share of overlapping n-character shingles that repeat, over the given text.
+    Degenerate loops score high (about 0.5 to 0.9); ordinary prose scores near 0."""
+    sh = [text[i:i + n] for i in range(0, max(0, len(text) - n), step)]
+    return 1 - len(set(sh)) / max(1, len(sh))
+
+def enumeration_loop(text):
+    """Second loop signature: the same sentence frame repeated with a varying noun
+    ("The user might be wanting help with X." ...). Returns the share of the last
+    3,000 characters' sentences that open with the single most common four-word
+    opener; degenerate enumerations score 0.4 and above."""
+    import collections
+    sents = [x.strip() for x in re.split(r"(?<=[.?!])\s+", text[-3000:]) if x.strip()]
+    if len(sents) < 8: return 0.0
+    openers = [" ".join(x.split()[:4]) for x in sents]
+    return collections.Counter(openers).most_common(1)[0][1] / len(sents)
+
 def n_tokens(text):
     from transformers import AutoTokenizer
     tok = AutoTokenizer.from_pretrained("data/models/gpt-oss-20b")
@@ -73,13 +90,17 @@ def extension(probe, v2log=None):
             bad += 1; i = next((i for i, (a, b) in enumerate(zip(old_c, cur)) if a != b), min(len(old_c), len(cur)))
             bad_list.append((s, i, len(old_c), len(cur)))
         f = FINAL in cur; fin += int(f); lens.append(len(cur))
-        if not f or n_tokens(cur) >= cap - 4: capped += 1; capped_list.append((s, f, len(cur)))
+        if not f or n_tokens(cur) >= cap - 4: capped += 1; capped_list.append((s, f, len(cur), max(repetition(cur[-3000:]), enumeration_loop(cur))))
         dr.append(abs(reading_of(frozen[s]["session"], probe) - reading_of(r["session"], probe)))
     n = ok + bad
     print(f"{probe}: {n} regenerated cells; frozen text is a prefix of the new text in {ok}; mismatches {bad}")
     for s, i, lo, lc in bad_list: print(f"   MISMATCH {s}: first differing char {i} (frozen {lo} chars, new {lc})")
     print(f"  reached final answer: {fin} of {n}; still capped or unfinished: {capped}")
-    for s, f, l in capped_list: print(f"   capped/unfinished {s}: reached_final={f}, chars={l}")
+    loops = [x for x in capped_list if x[3] >= 0.3]
+    print(f"  of the capped cells, {len(loops)} score as loops (verbatim repetition >= 30% of shingles, or one sentence frame >= 30% of sentences, over the last 3,000 chars); "
+          f"{len(capped_list) - len(loops)} do not")
+    for s, f, l, rp in capped_list:
+        if rp < 0.3: print(f"   capped but NOT a loop {s}: reached_final={f}, chars={l}, repetition={rp:.2f}")
     if dr: print(f"  |reading(new) - reading(frozen)|: max {max(dr):.2e}, median {np.median(dr):.2e}")
     if lens: print(f"  new text length chars: min {min(lens)}, median {int(np.median(lens))}, max {max(lens)}")
 
