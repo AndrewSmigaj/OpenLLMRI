@@ -344,12 +344,15 @@ answer in four, a safe completion (Fig. fig_r6_behavior_bands, top right).
 
 The reasoning channel tells the other half. Its final commitment matches the
 delivered answer in every one of the 119 cells that answered, so where an answer
-arrives the channel is expressed, not overridden. What the channel commits to
-follows the reading: safe completions in 91% of the real-world side's reasoning,
-82% of the middle band's, and 2 of 4 on the fiction-writing side (Fig.
-fig_r6_behavior_bands, bottom right). The difference between the two panels is
-the loops. Reasoning that commits to fiction-writing assistance loops in 15 of 23
-cells, safety-committed reasoning in 70 of 181 (Fisher exact p = 0.023), and no
+arrives the channel is expressed, not overridden. By band, the channel commits to a safe completion in 91% of the real-world side's
+cells, 82% of the middle band's, and 2 of 4 on the fiction-writing side (Fig.
+fig_r6_behavior_bands, bottom right). Neither reading shows a band difference the
+sample can distinguish from none: for the reasoning channel the family-clustered
+interval on the real-world-minus-middle difference runs from −0.07 to +0.23
+(Fisher p = 0.14), and for delivered answers from −0.07 to +0.18 (p = 0.38). The difference between the two panels is
+the loops. Reasoning that commits to fiction-writing assistance loops in 15 of 23 cells,
+safety-committed reasoning in 70 of 181, a difference of +0.27 with a
+family-clustered interval of +0.16 to +0.38 (Fisher exact p = 0.023), and no
 fiction-writing-committed reasoning ever delivers a safe completion. So the two
 panels bracket what a user would see: delivered answers bound the safe rate from
 above, and the reasoning's commitments, which are what the loops would resolve to

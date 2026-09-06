@@ -94,9 +94,8 @@ We contribute:
    tank direction, where the model's answers hedge between the senses (§3.4). None of the tank completions asks which sense is meant (§3.5).
 5. Behavior set beside the reading in both tasks, read two ways: the delivered
    answer, where the task with a trained safeguard stays safe across the reading
-   bands, and the reasoning channel's commitment, which follows the reading toward
-   the fiction-writing frame and, under greedy decoding, loops rather than
-   answers when it does (§3.5).
+   bands, and the reasoning channel's commitment, which, when it takes up the letter,
+   loops rather than answers under greedy decoding (§3.5).
 6. Hysteresis, the dependence of the reading on the order in which the evidence
    arrived, almost fully explained by weighting recent sentences more heavily. A mild
    direction-dependent recency difference is all that remains, so the metastability

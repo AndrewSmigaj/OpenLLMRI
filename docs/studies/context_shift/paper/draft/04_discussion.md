@@ -43,10 +43,10 @@ per direction.
 
 Behavior inside this window tracks the reading. Throughout, in the tank task, the
 model never asks which reading is meant or flags the ambiguity as an obstacle. That holds in every delivered tank answer. Even so, half of the middle band's
-delivered answers surface both senses. Safeguard behavior, read from delivered
-answers, holds across the reading bands, and read from the reasoning channel's
-commitments it falls from 91% on the real-world side to 82% in the middle band,
-with the fiction-writing side too thin to grade. The two readings differ because
+delivered answers surface both senses. Safeguard behavior, read from delivered answers, holds across the reading bands;
+read from the reasoning channel's commitments it is 91% on the real-world side and
+82% in the middle band, a difference the sample cannot distinguish from none, with
+the fiction-writing side too thin to grade. The two readings differ because
 reasoning that commits to fiction-writing assistance usually loops under greedy
 decoding instead of answering (§3.5).
 

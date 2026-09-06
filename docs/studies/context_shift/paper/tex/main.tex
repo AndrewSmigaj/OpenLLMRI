@@ -47,13 +47,13 @@ properties semantic metastability.
 
 What the model does while unresolved differs sharply between the tasks. Across the
 312 completions we examine, none asks which reading is meant. The tank task has no
-safeguard: the model lists both senses or commits silently to one. The
-suicide-letter task has a refusal safeguard. Read from delivered answers it holds:
-89\% in the middle band and 95\% on the real-world side decline the letter or
-redirect to support. Read from the model's reasoning channel, whose commitment
-follows the reading, it weakens toward the fiction-writing frame, from 91\% to 82\%
-and lower. The two readings differ because reasoning that commits to helping with
-the letter usually loops instead of answering under the greedy decoding used here.
+safeguard: the model lists both senses or commits silently to one. The suicide-letter task has a refusal safeguard. Read from delivered answers it
+holds: 89\% in the middle band and 95\% on the real-world side decline the letter
+or redirect to support. Read from the model's reasoning channel it commits to a
+safe completion in 82\% and 91\%, and neither difference between bands is
+distinguishable from none at this sample size. The two readings differ because
+reasoning that commits to helping with the letter usually loops instead of
+answering under the greedy decoding used here.
 Which reading a user meets, under the sampling the model is deployed with, is the
 question the next experiment answers.
 \end{abstract}
@@ -148,9 +148,8 @@ strength, with the smooth integrators we tested rejected head-to-head (\S3.3).
 tank direction, where the model's answers hedge between the senses (\S3.4). None of the tank completions asks which sense is meant (\S3.5).
 \item Behavior set beside the reading in both tasks, read two ways: the delivered
 answer, where the task with a trained safeguard stays safe across the reading
-bands, and the reasoning channel's commitment, which follows the reading toward
-the fiction-writing frame and, under greedy decoding, loops rather than
-answers when it does (\S3.5).
+bands, and the reasoning channel's commitment, which, when it takes up the letter,
+loops rather than answers under greedy decoding (\S3.5).
 \item Hysteresis, the dependence of the reading on the order in which the evidence
 arrived, almost fully explained by weighting recent sentences more heavily. A mild
 direction-dependent recency difference is all that remains, so the metastability
@@ -881,11 +880,14 @@ answer in four, a safe completion (Fig.~\ref{fig:fig_r6_behavior_bands}, top rig
 
 The reasoning channel tells the other half. Its final commitment matches the
 delivered answer in every one of the 119 cells that answered, so where an answer
-arrives the channel is expressed, not overridden. What the channel commits to
-follows the reading: safe completions in 91\% of the real-world side's reasoning,
-82\% of the middle band's, and 2 of 4 on the fiction-writing side (Fig.~\ref{fig:fig_r6_behavior_bands}, bottom right). The difference between the two panels is
-the loops. Reasoning that commits to fiction-writing assistance loops in 15 of 23
-cells, safety-committed reasoning in 70 of 181 (Fisher exact p = 0.023), and no
+arrives the channel is expressed, not overridden. By band, the channel commits to a safe completion in 91\% of the real-world side's
+cells, 82\% of the middle band's, and 2 of 4 on the fiction-writing side (Fig.~\ref{fig:fig_r6_behavior_bands}, bottom right). Neither reading shows a band difference the
+sample can distinguish from none: for the reasoning channel the family-clustered
+interval on the real-world-minus-middle difference runs from $-$0.07 to +0.23
+(Fisher p = 0.14), and for delivered answers from $-$0.07 to +0.18 (p = 0.38). The difference between the two panels is
+the loops. Reasoning that commits to fiction-writing assistance loops in 15 of 23 cells,
+safety-committed reasoning in 70 of 181, a difference of +0.27 with a
+family-clustered interval of +0.16 to +0.38 (Fisher exact p = 0.023), and no
 fiction-writing-committed reasoning ever delivers a safe completion. So the two
 panels bracket what a user would see: delivered answers bound the safe rate from
 above, and the reasoning's commitments, which are what the loops would resolve to
@@ -1111,10 +1113,10 @@ per direction.
 
 Behavior inside this window tracks the reading. Throughout, in the tank task, the
 model never asks which reading is meant or flags the ambiguity as an obstacle. That holds in every delivered tank answer. Even so, half of the middle band's
-delivered answers surface both senses. Safeguard behavior, read from delivered
-answers, holds across the reading bands, and read from the reasoning channel's
-commitments it falls from 91\% on the real-world side to 82\% in the middle band,
-with the fiction-writing side too thin to grade. The two readings differ because
+delivered answers surface both senses. Safeguard behavior, read from delivered answers, holds across the reading bands;
+read from the reasoning channel's commitments it is 91\% on the real-world side and
+82\% in the middle band, a difference the sample cannot distinguish from none, with
+the fiction-writing side too thin to grade. The two readings differ because
 reasoning that commits to fiction-writing assistance usually loops under greedy
 decoding instead of answering (\S3.5).
 

@@ -130,6 +130,28 @@ def agreement(probe):
                                     delivered=("category", lambda s: (s != "no_answer").sum()), delivered_fiction=("category", lambda s: (s == "fiction_frame").sum()),
                                     delivered_safety=("category", lambda s: (s == "safety_response").sum()), loops=("category", lambda s: (s == "no_answer").sum()))
         print("  by band (reasoning commitment counts all cells; delivered counts answered cells):"); print(g.to_string())
+        # is the middle band less safe than the real-world side? Fisher and a family-clustered bootstrap of the difference
+        new["fam"] = new.set.str.extract(r"_(fam\d+)_")[0]; rng = np.random.default_rng(3)
+        for label, sub, col in (("reasoning commitment", new, new.reasoning_category == "safety_response"),
+                                ("delivered answer (answered cells)", new[new.category != "no_answer"], None)):
+            s = sub.copy(); s["safe"] = (s.reasoning_category == "safety_response") if col is not None else (s.category == "safety_response")
+            m, r = s[s.band == "middle"], s[s.band == "real-world side"]
+            a_, b_, c_, d_ = int(m.safe.sum()), int((~m.safe).sum()), int(r.safe.sum()), int((~r.safe).sum())
+            diffs = []
+            for _ in range(4000):
+                pick = rng.choice(s.fam.unique(), size=s.fam.nunique(), replace=True); q = pd.concat([s[s.fam == x] for x in pick])
+                qm, qr = q[q.band == "middle"], q[q.band == "real-world side"]
+                if len(qm) and len(qr): diffs.append(qr.safe.mean() - qm.safe.mean())
+            lo, hi = np.percentile(diffs, [2.5, 97.5])
+            print(f"  {label}: middle {a_}/{a_+b_} safe vs real-world side {c_}/{c_+d_}; Fisher two-sided p = {fisher_exact([[a_, b_], [c_, d_]])[1]:.2f}; "
+                  f"family-clustered bootstrap of the difference (real-world − middle) {np.mean(diffs):+.3f} [{lo:+.3f}, {hi:+.3f}]")
+        diffs = []
+        for _ in range(4000):
+            pick = rng.choice(new.fam.unique(), size=new.fam.nunique(), replace=True); q = pd.concat([new[new.fam == x] for x in pick])
+            ff = q.reasoning_category.isin(["fiction_frame", "mixed"]); ll = q.category == "no_answer"
+            if ff.sum() and (~ff).sum(): diffs.append(ll[ff].mean() - ll[~ff].mean())
+        lo, hi = np.percentile(diffs, [2.5, 97.5])
+        print(f"  loop-rate difference (fiction-writing-committed − safety-committed), family-clustered bootstrap: {np.mean(diffs):+.3f} [{lo:+.3f}, {hi:+.3f}]")
 
 if __name__ == "__main__":
     mode = sys.argv[1]
