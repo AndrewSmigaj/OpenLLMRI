@@ -1366,3 +1366,9 @@ against the manifest. Findings and changes:
   `fr_battery.py`, `dual_trajectory_figure.py`) still carry "fictional →
   real" titles; those figures are not in the paper and are deferred. Tag
   `paper-v1` moved to this commit.
+- Tables (Andrew: Table 1's Composition column ran together). md2tex wide
+  branch: column shares now follow the body content (floor: 8 characters or
+  the header's longest word plus two) instead of a fixed 1.4 share for the
+  first column; booktabs `\addlinespace` between rows of wrapped tables;
+  hyphenation off inside wide tables (Table 4's "hy-brid", "integra-tor").
+  Tables 1–6 inspected as rendered; overfull ≤ 7.5 pt; 47 pages.

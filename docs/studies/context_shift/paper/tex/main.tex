@@ -276,19 +276,26 @@ baselines, the carrier alone, complete the set.
 
 
 
-\begin{table}[htbp]\centering\footnotesize
+\begin{table}[htbp]\centering\footnotesize\hyphenpenalty=10000\exhyphenpenalty=10000
 \caption{The corpora, the question each answers, and their sizes.}
-\begin{tabularx}{\linewidth}{>{\hsize=1.4\hsize\raggedright\arraybackslash}X>{\hsize=0.8667\hsize\raggedright\arraybackslash}X>{\hsize=0.8667\hsize\raggedright\arraybackslash}X>{\hsize=0.8667\hsize\raggedright\arraybackslash}X}
+\begin{tabularx}{\linewidth}{>{\hsize=0.4293\hsize\raggedright\arraybackslash}X>{\hsize=1.0927\hsize\raggedright\arraybackslash}X>{\hsize=1.2878\hsize\raggedright\arraybackslash}X>{\hsize=1.1902\hsize\raggedright\arraybackslash}X}
 \toprule
 Corpus & Question & Composition & Size \\
 \midrule
 Transition runs & How does a reading move when the evidence changes sides? & 40 steps; twenty sentences of one class, then twenty of the other & 12 runs per direction (tank); 24 per direction (fiction/real) \\
+\addlinespace
 No-shift control runs & What would the reading be with no shift? & 40 sentences of one class, same number of tokens & 6 runs per class per task \\
+\addlinespace
 Calibration items & Where do the two interpretations sit? & one context sentence, then the carrier & 300 per class per carrier \\
+\addlinespace
 Checkpoint captures & What does every token read? & every token's activations at designated context lengths & 144 captures per task \\
+\addlinespace
 Minimal pairs & Does the reading track framing cues rather than content? & content held within the pair, framing cue varied & 150 pairs \\
+\addlinespace
 Static mixture sweeps & Does the order of evidence matter beyond its amount? & twenty-sentence contexts at a fixed class mix, in two block orders & 252 cells per task \\
+\addlinespace
 Behavior prompts & What does the model do? & generation enabled, greedy decoding, 2,048-token cap & 312 completions \\
+\addlinespace
 Bare-carrier baselines & What does the carrier read with no context? & the carrier alone & — \\
 \bottomrule
 \end{tabularx}
@@ -565,7 +572,7 @@ stopped halfway.
 
 
 
-\begin{table}[htbp]\centering\footnotesize
+\begin{table}[htbp]\centering\footnotesize\hyphenpenalty=10000\exhyphenpenalty=10000
 \caption{The transition in numbers, for both directions of both tasks. Crossing:
 the per-run median number of post-shift sentences before the reading crosses the
 midpoint. Decay: the median fitted $\gamma$ of the recency integrator (\S2.5). Remnant gap:
@@ -574,13 +581,16 @@ both measured from the midpoint, in axis units, with family-clustered bootstrap 
 intervals over 2,000 draws; the second interval also resamples the six no-shift
 reference runs of the destination class on every draw (Appendix A). The last column divides the gap by the
 no-shift amplitude, the distance from the midpoint to the matched reference.}
-\begin{tabularx}{\linewidth}{>{\hsize=1.4\hsize\raggedright\arraybackslash}X>{\hsize=0.9333\hsize\raggedleft\arraybackslash}X>{\hsize=0.9333\hsize\raggedleft\arraybackslash}X>{\hsize=0.9333\hsize\raggedleft\arraybackslash}X>{\hsize=0.9333\hsize\raggedleft\arraybackslash}X>{\hsize=0.9333\hsize\raggedleft\arraybackslash}X>{\hsize=0.9333\hsize\raggedleft\arraybackslash}X}
+\begin{tabularx}{\linewidth}{>{\hsize=1.9362\hsize\raggedright\arraybackslash}X>{\hsize=0.8936\hsize\raggedleft\arraybackslash}X>{\hsize=0.7447\hsize\raggedleft\arraybackslash}X>{\hsize=0.6702\hsize\raggedleft\arraybackslash}X>{\hsize=0.8936\hsize\raggedleft\arraybackslash}X>{\hsize=1.0426\hsize\raggedleft\arraybackslash}X>{\hsize=0.8191\hsize\raggedleft\arraybackslash}X}
 \toprule
 Transition & Crossing (median sentences) & Decay $\gamma$ (median) & Remnant gap & 95\% CI, references fixed & 95\% CI, references resampled & Gap / amplitude \\
 \midrule
 tank, aquarium$\rightarrow$vehicle & 10.5 & 0.99 & +2.16 & [1.87, 2.44] & [1.70, 2.62] & 1.09 \\
+\addlinespace
 tank, vehicle$\rightarrow$aquarium & 6.0 & 0.94 & +1.15 & [0.82, 1.45] & [0.77, 1.48] & 0.57 \\
+\addlinespace
 fiction-writing$\rightarrow$real-world & 4.0 & 0.90 & +0.38 & [0.28, 0.49] & [0.27, 0.50] & 0.43 \\
+\addlinespace
 real-world$\rightarrow$fiction-writing & 5.0 & 0.90 & +0.35 & [0.11, 0.58] & [$-$0.12, +0.79] & 0.40 \\
 \bottomrule
 \end{tabularx}
@@ -639,19 +649,22 @@ reverse directions settle partway.
 
 
 
-\begin{table}[htbp]\centering\footnotesize
+\begin{table}[htbp]\centering\footnotesize\hyphenpenalty=10000\exhyphenpenalty=10000
 \caption{Where each layer band ends up: the mean reading over the last five
 post-shift sentences (positions 36–40) under per-layer accumulated-context axes,
 averaged over the layers in each band and signed so that the destination class is
 positive. Under these axes the no-shift references sit at $\pm$1 and the midpoint at 0,
 so a value is the fraction of the way from the midpoint to the destination reference.}
-\begin{tabularx}{\linewidth}{>{\hsize=1.4\hsize\raggedright\arraybackslash}X>{\hsize=0.9000\hsize\raggedleft\arraybackslash}X>{\hsize=0.9000\hsize\raggedleft\arraybackslash}X>{\hsize=0.9000\hsize\raggedleft\arraybackslash}X>{\hsize=0.9000\hsize\raggedleft\arraybackslash}X}
+\begin{tabularx}{\linewidth}{>{\hsize=0.4000\hsize\raggedright\arraybackslash}X>{\hsize=0.9000\hsize\raggedleft\arraybackslash}X>{\hsize=0.9000\hsize\raggedleft\arraybackslash}X>{\hsize=1.4000\hsize\raggedleft\arraybackslash}X>{\hsize=1.4000\hsize\raggedleft\arraybackslash}X}
 \toprule
 Layers & tank, aquarium$\rightarrow$vehicle & tank, vehicle$\rightarrow$aquarium & fiction-writing$\rightarrow$real-world & real-world$\rightarrow$fiction-writing \\
 \midrule
 0–2 & +0.57 & +1.03 & +0.99 & +1.14 \\
+\addlinespace
 3–12 & +0.12 & +0.30 & +0.41 & +0.32 \\
+\addlinespace
 13–18 & 0.00 & +0.38 & +0.41 & +0.33 \\
+\addlinespace
 19–23 & $-$0.10 & +0.42 & +0.08 & +0.48 \\
 \bottomrule
 \end{tabularx}
@@ -714,21 +727,25 @@ inside the network produces such a change is not identified here.
 
 
 
-\begin{table}[htbp]\centering\footnotesize
+\begin{table}[htbp]\centering\footnotesize\hyphenpenalty=10000\exhyphenpenalty=10000
 \caption{Per-run model selection by BIC on the real transition runs and on
 synthetic runs of known type. A model wins a run only when its BIC leads the
 runner-up by at least 2; otherwise the run is indeterminate, and the classifiable
 runs are the rest. Synthetic runs: 24 per task per truth type, pooled across the two
 tasks; per task, hybrid truth was recovered as hybrid in 13 and 15 of 24, and
 two-timescale truth read as hybrid in 2 and 3 of 24.}
-\begin{tabularx}{\linewidth}{>{\hsize=1.4\hsize\raggedright\arraybackslash}X>{\hsize=0.9333\hsize\raggedleft\arraybackslash}X>{\hsize=0.9333\hsize\raggedleft\arraybackslash}X>{\hsize=0.9333\hsize\raggedleft\arraybackslash}X>{\hsize=0.9333\hsize\raggedleft\arraybackslash}X>{\hsize=0.9333\hsize\raggedleft\arraybackslash}X>{\hsize=0.9333\hsize\raggedleft\arraybackslash}X}
+\begin{tabularx}{\linewidth}{>{\hsize=2.2477\hsize\raggedright\arraybackslash}X>{\hsize=0.6422\hsize\raggedleft\arraybackslash}X>{\hsize=0.5138\hsize\raggedleft\arraybackslash}X>{\hsize=0.7706\hsize\raggedleft\arraybackslash}X>{\hsize=0.9633\hsize\raggedleft\arraybackslash}X>{\hsize=0.9633\hsize\raggedleft\arraybackslash}X>{\hsize=0.8991\hsize\raggedleft\arraybackslash}X}
 \toprule
 Runs & Drift + step (hybrid) & Step & Recency integrator & Two-timescale & Indeterminate & Classifiable \\
 \midrule
 tank (24 runs) & 11 & 2 & 3 & 0 & 8 & 16 \\
+\addlinespace
 fiction/real (48 runs) & 14 & 7 & 4 & 0 & 23 & 25 \\
+\addlinespace
 synthetic, hybrid truth (48) & 28 & 5 & 1 & 0 & 14 & 34 \\
+\addlinespace
 synthetic, two-timescale truth (48) & 5 & 0 & 18 & 4 & 21 & 27 \\
+\addlinespace
 synthetic, step truth (48) & 3 & 27 & 0 & 0 & 18 & 30 \\
 \bottomrule
 \end{tabularx}
@@ -935,7 +952,7 @@ asymmetry of \S3.2.
 
 
 
-\begin{table}[htbp]\centering\footnotesize
+\begin{table}[htbp]\centering\footnotesize\hyphenpenalty=10000\exhyphenpenalty=10000
 \caption{Hysteresis in the static mixture sweeps. Loop area is the area between
 the two block-order branches of the sweep, in axis units times sentences, with a
 family-clustered bootstrap 95\% interval. The fitted loop area comes from a
@@ -943,11 +960,12 @@ one-parameter recency integrator fitted to the same cells; the excess is the
 observed area minus the fitted area. The last column gives the recency weight $\gamma$
 fitted separately to each block order, with the destination block placed first or
 last in the context.}
-\begin{tabularx}{\linewidth}{>{\hsize=1.4\hsize\raggedright\arraybackslash}X>{\hsize=0.9000\hsize\raggedleft\arraybackslash}X>{\hsize=0.9000\hsize\raggedleft\arraybackslash}X>{\hsize=0.9000\hsize\raggedright\arraybackslash}X>{\hsize=0.9000\hsize\raggedleft\arraybackslash}X}
+\begin{tabularx}{\linewidth}{>{\hsize=0.7895\hsize\raggedright\arraybackslash}X>{\hsize=1.1842\hsize\raggedleft\arraybackslash}X>{\hsize=0.7895\hsize\raggedleft\arraybackslash}X>{\hsize=1.3816\hsize\raggedright\arraybackslash}X>{\hsize=0.8553\hsize\raggedleft\arraybackslash}X}
 \toprule
 Task & Observed loop area & Fitted integrator loop area & Excess (stickiness) & $\gamma$, destination block first / last \\
 \midrule
 tank & +14.4 [12.2, 16.8] & +14.3 & +0.1, not significant & 0.91 / 0.97 \\
+\addlinespace
 fiction/real & +10.5 [7.5, 13.3] & +11.1 & $-$0.5, not significant & 0.90 / 0.84 \\
 \bottomrule
 \end{tabularx}
@@ -1013,11 +1031,17 @@ separation; the cosine rows measure the marker direction against the two class a
 Quantity & tank & fiction/real \\
 \midrule
 Shared displacement of transition states & 25\% & 38\% \\
+\addlinespace
 Cosine with the single-sentence class axis & +0.015 & +0.011 \\
+\addlinespace
 Cosine with the accumulated-context class axis & $-$0.0052 & $-$0.0065 \\
+\addlinespace
 Retained under held-out direction estimation & 71–76\% & 87–90\% \\
+\addlinespace
 Pure-class cells from families outside the reference construction & +1.6\% & +3.4\% \\
+\addlinespace
 Pure-class cells from familiar families & +6.7\% & +6.0\% \\
+\addlinespace
 Mixed cells & $\approx$ +27\% & $\approx$ +27\% \\
 \bottomrule
 \end{tabularx}
@@ -1408,7 +1432,9 @@ tank task, averaged over its two directions.}
 Effect & Unshuffled & Shuffled \\
 \midrule
 Minimal-pair shift (axis units) & +0.99 & band [$-$0.20, +0.21] \\
+\addlinespace
 Scene-held-out accuracy & 0.907 & 0.530 \\
+\addlinespace
 Remnant gap (axis units) & +1.66 & band [$-$1.42, +1.31] \\
 \bottomrule
 \end{tabularx}

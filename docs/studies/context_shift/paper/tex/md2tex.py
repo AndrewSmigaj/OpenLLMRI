@@ -68,14 +68,20 @@ def _tables(text):
                 # margin; the first column gets 1.4 shares, numeric columns are
                 # right-aligned, headers wrap.
                 NUM = re.compile(r"^[\s\d.,+\-\u2212\u00b1%\[\]/\u2248()\u2014]*$")
-                rest = (ncol - 1.4) / (ncol - 1)
-                cols = ["\\hsize=1.4\\hsize\\raggedright\\arraybackslash"]
-                for j in range(1, ncol):
-                    numeric = all(NUM.match(r[j] if j < len(r) else "") for r in cells[1:])
-                    cols.append(f"\\hsize={rest:.4f}\\hsize" + ("\\raggedleft" if numeric else "\\raggedright") + "\\arraybackslash")
+                # column shares follow the body content width (floor: 8 characters or
+                # the header's longest word), so a short-label column does not take
+                # room from a long-text one; the shares sum to ncol as tabularx requires.
+                w = [max(8, max((len(r[j]) if j < len(r) else 0) for r in cells[1:]),
+                         max(len(t) for t in cells[0][j].split()) + 2 if j < len(cells[0]) and cells[0][j] else 0)
+                     for j in range(ncol)]
+                shares = [x * ncol / sum(w) for x in w]
+                cols = []
+                for j in range(ncol):
+                    numeric = j > 0 and all(NUM.match(r[j] if j < len(r) else "") for r in cells[1:])
+                    cols.append(f"\\hsize={shares[j]:.4f}\\hsize" + ("\\raggedleft" if numeric else "\\raggedright") + "\\arraybackslash")
                 spec = "".join(">{" + c + "}X" for c in cols)
                 env = ("\\begin{tabularx}{\\linewidth}{" + spec + "}", "\\end{tabularx}")
-                size = "\\footnotesize"
+                size = "\\footnotesize\\hyphenpenalty=10000\\exhyphenpenalty=10000"
             elif max(widths) > 28:  # text-heavy table: wrapping columns, left-aligned
                 spec = "l" + "".join("X" if w > 28 else "l" for w in widths[1:])
                 env = ("\\begin{tabularx}{\\linewidth}{" + spec + "}", "\\end{tabularx}")
@@ -85,7 +91,8 @@ def _tables(text):
             tex = ("\\begin{table}[htbp]\\centering" + size + "\n"
                    + (f"\\caption{{{cap}}}\n" if cap else "")
                    + env[0] + "\n\\toprule\n" + body[0]
-                   + "\n\\midrule\n" + "\n".join(body[1:]) + "\n\\bottomrule\n" + env[1] + "\n\\end{table}")
+                   + "\n\\midrule\n" + ("\n\\addlinespace\n" if "tabularx" in env[0] else "\n").join(body[1:])
+                   + "\n\\bottomrule\n" + env[1] + "\n\\end{table}")
             out.append(tex)
         else:
             out.append(b)
