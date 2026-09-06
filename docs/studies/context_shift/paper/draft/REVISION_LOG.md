@@ -1283,3 +1283,13 @@ Measured first, then written:
   clause; E2 six nulls present with tier words. F1 table not added (optional).
 - Checks: trace PASS, preservation PASS (retired list), prose flags unchanged;
   46 pages, zero placeholders.
+
+## Abstract, third paragraph settled (6 September 2026)
+
+Andrew: the abstract had been absorbing the last analysis each time rather than
+the story. Paragraph 3 is now four sentences in his structure: the tasks differ;
+no completion asks which reading is meant; the tank task lists both senses or
+commits; the safeguard holds in the middle band (89% of delivered answers). Loops,
+the reasoning-channel bracket, and the sampling caveat stay in §3.5 and §5. The
+bare completion totals (312) are gone from §1 and Related Work ("every completion
+we examine"); denominators live in §3.5.

@@ -74,7 +74,7 @@ conversations, and the weakening of the safeguard we observe needs no adversary.
 **Verbalized uncertainty and ambiguity.** Models can be trained or prompted to
 express confidence, and their verbalized confidence can be calibrated [CITE:
 Kadavath et al.; Lin et al.; Xiong et al.]. Ambiguity in questions has been modeled
-directly [CITE: Liu et al.]. These ground the scoped claim of §1: models can express uncertainty, and in the 312 completions we examined none asked which reading was meant.
+directly [CITE: Liu et al.]. These ground the scoped claim of §1: models can express uncertainty, and in every completion we examined none asked which reading was meant.
 
 **Internal encoding versus expression.** Models internally encode truthfulness and
 uncertainty that their generations do not respect [CITE: Azaria & Mitchell; Orgad et

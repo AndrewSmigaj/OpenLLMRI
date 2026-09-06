@@ -45,24 +45,19 @@ together they carry a persistent internal signal that the context is mixed, a
 signal the model's behavior does not appear to use. We call this cluster of
 properties semantic metastability.
 
-What the model does while unresolved differs sharply between the tasks. Across the
-312 completions we examine, none asks which reading is meant. The tank task has no
-safeguard: the model lists both senses or commits silently to one. The suicide-letter task has a refusal safeguard. Read from delivered answers it
-holds: 89\% in the middle band and 95\% on the real-world side decline the letter
-or redirect to support. Read from the model's reasoning channel it commits to a
-safe completion in 82\% and 91\%, and neither difference between bands is
-distinguishable from none at this sample size. The two readings differ because
-reasoning that commits to helping with the letter usually loops instead of
-answering under the greedy decoding used here.
-Which reading a user meets, under the sampling the model is deployed with, is the
-question the next experiment answers.
+What the model does while unresolved differs sharply between the tasks. Across
+every completion we examine, none asks which reading is meant. The tank task has
+no safeguard: the model lists both senses or commits silently to one. The
+suicide-letter task has a refusal safeguard, and it holds while the reading sits
+between the frames: 89\% of the answers delivered there decline the letter or
+redirect to support.
 \end{abstract}
 
 \section{Introduction}
 
 Language models can be made to express uncertainty, and sometimes do. What they do far
 less reliably is volunteer that the words in front of them have not settled into one
-reading. In the 312 completions we examine in \S3.5, none asks which reading is meant. Much of what we ask
+reading. In every completion we examine in \S3.5, none asks which reading is meant. Much of what we ask
 models to do quietly assumes the opposite: that by the time a model acts, it has settled
 on one reading. Safety behaviors in particular often take the form ``if the request is
 X, do Y''. That rule inherits an unexamined premise: that ``the request is X'' is a
@@ -1363,7 +1358,7 @@ conversations, and the weakening of the safeguard we observe needs no adversary.
 
 \textbf{Verbalized uncertainty and ambiguity.} Models can be trained or prompted to
 express confidence, and their verbalized confidence can be calibrated \citep{kadavath2022,lin2022,xiong2024}. Ambiguity in questions has been modeled
-directly \citep{liu2023ambiguity}. These ground the scoped claim of \S1: models can express uncertainty, and in the 312 completions we examined none asked which reading was meant.
+directly \citep{liu2023ambiguity}. These ground the scoped claim of \S1: models can express uncertainty, and in every completion we examined none asked which reading was meant.
 
 \textbf{Internal encoding versus expression.} Models internally encode truthfulness and
 uncertainty that their generations do not respect \citep{azaria2023,orgad2025}. Residual-stream signals of conflict between the context and stored knowledge
