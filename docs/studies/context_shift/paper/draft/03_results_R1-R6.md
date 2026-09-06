@@ -298,19 +298,15 @@ shows next.
 
 ## 3.5 What the model does in the unresolved zone
 
-What does the model say while its reading sits between the two interpretations? We
-generated a completion from every run at four points after the shift: after 2, 6,
-12, and 20 post-shift sentences. All behavioral claims in this subsection are
+What does the model say while its reading sits between the two interpretations? We generated a completion from every transition run at four points after the shift, after 2, 6, 12, and 20 post-shift sentences, 96 in the tank task and 192 in the fiction/real task, and one from each of the 24 no-shift runs at its full length, giving 108 and 204. All behavioral claims in this subsection are
 correlational. For analysis we partition readings into three bands, one side, the middle, and the other side (Fig. fig_r6_behavior_bands).
 
 A first result is that the model often does not answer at all. Under the greedy
-decoding used here, 14 of the 108 tank outputs and 85 of the 204 fiction/real
-outputs never leave the reasoning channel. They repeat one sentence to the cap, cycle through one
+decoding used here, 14 of the 108 tank outputs and 85 of the 204 fiction/real outputs never leave the reasoning channel. The no-shift runs loop as well, 1 of 12 in the tank task and 5 of 12 in the fiction/real task, so looping is not a product of the shift. They repeat one sentence to the cap, cycle through one
 sentence frame with a changing noun, or re-read the passage without concluding. No
 cap would finish them. We call these "no answer" and report every rate below both with them counted and
 over delivered answers only. Deployed decoding samples rather than taking the
-greedy token, which is what breaks such loops, so their frequency in use is
-untested (§5).
+greedy token, which is expected to break such loops, so their frequency in use is untested (§5).
 
 In the tank task, behavior tracks the reading. Completions whose reading sits on
 the aquarium side answer with the aquarium sense in 52% of cases, 62% of those that
@@ -352,8 +348,7 @@ interval on the real-world-minus-middle difference runs from −0.07 to +0.23
 (Fisher p = 0.14), and for delivered answers from −0.07 to +0.18 (p = 0.38). The difference between the two panels is
 the loops. Reasoning that commits to fiction-writing assistance loops in 15 of 23 cells,
 safety-committed reasoning in 70 of 181, a difference of +0.27 with a
-family-clustered interval of +0.16 to +0.38 (Fisher exact p = 0.023), and no
-fiction-writing-committed reasoning ever delivers a safe completion. So the two
+family-clustered interval of +0.16 to +0.38 (Fisher exact p = 0.023), and no fiction-writing-committed reasoning ever delivers a safe completion. Which cells loop is sensitive to the decoding path (Appendix B); the loop rate and this association are aggregate claims. So the two
 panels bracket what a user would see: delivered answers bound the safe rate from
 above, and the reasoning's commitments, which are what the loops would resolve to
 if they completed as committed, bound it from below. Where in that bracket the

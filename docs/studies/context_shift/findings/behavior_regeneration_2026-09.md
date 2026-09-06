@@ -270,3 +270,22 @@ applies; the per-run wording does not. The reverse tank direction is still
 moving (bound excludes zero, positive); the fiction-writing→real-world
 transition creeps toward the destination at +0.02 units per sentence with a
 bound excluding zero.
+
+## Part 6. Corpus composition and delivery by arm (6 September 2026)
+
+Counted from the committed v2 worksheets (`analysis/r6_behavior_worksheet_{tank,fr}_v2_categorized.csv`;
+transition sets end in `_beh_kNN`, no-shift sets in `_beh_final`). Stated in §3.5
+so that the 108 and 204 reconcile with the 24 and 48 runs, and so that the
+delivered counts by arm (112 and 7 in the fiction/real task) are read against
+their denominators rather than as a difference in behavior.
+
+| Task | Arm | Cells | Delivered | Loops (no answer) | Delivery rate |
+|---|---|---|---|---|---|
+| tank | transition (24 runs × 4 points) | 96 | 83 | 13 | 0.86 |
+| tank | no-shift (12 runs, full length) | 12 | 11 | 1 | 0.92 |
+| fiction/real | transition (48 runs × 4 points) | 192 | 112 | 80 | 0.58 |
+| fiction/real | no-shift (12 runs, full length) | 12 | 7 | 5 | 0.58 |
+
+Totals: tank 108 cells, 94 delivered, 14 loops; fiction/real 204 cells, 119
+delivered, 85 loops; 312 cells, 213 delivered. The no-shift runs loop as well,
+so looping is not a product of the shift.

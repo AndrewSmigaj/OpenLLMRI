@@ -41,10 +41,7 @@ In one tank direction it dwells between frames for the remainder of the tested
 horizon. The fiction/real task shows an exploratory echo of this, resting on 4 runs
 per direction.
 
-Behavior inside this window tracks the reading. Throughout, in the tank task, the
-model never asks which reading is meant or flags the ambiguity as an obstacle. That holds in every delivered tank answer. Even so, half of the middle band's
-delivered answers surface both senses. Safeguard behavior, read from delivered answers, holds across the reading bands;
-read from the reasoning channel's commitments it is 91% on the real-world side and
+In the tank task, behavior inside this window tracks the reading. Throughout, the model never asks which reading is meant or flags the ambiguity as an obstacle. That holds in every delivered tank answer. Even so, half of the middle band's delivered answers surface both senses. In the fiction/real task it does not: safeguard behavior, read from delivered answers, holds across the reading bands, and read from the reasoning channel's commitments it is 91% on the real-world side and
 82% in the middle band, a difference the sample cannot distinguish from none, with
 the fiction-writing side too thin to grade. The two readings differ because
 reasoning that commits to fiction-writing assistance usually loops under greedy
@@ -103,7 +100,7 @@ mid-stack states during generation is the decisive test (§5).
 alone, the frame reading, the fiction/real task's reading at its calibrated site, is
 not yet usable: its AUC is 0.61 [0.37, 0.81], compatible with chance, with only 8 fiction-writing
 answers among 192 completions (Fig.
-fig_s11_monitor_roc). The band-level gradient of §3.5 is real. A usable monitor would
+fig_s11_monitor_roc). A usable monitor would
 combine several sites, the mixed-context marker, and per-layer readings. Building one
 is future work, not a claim.
 

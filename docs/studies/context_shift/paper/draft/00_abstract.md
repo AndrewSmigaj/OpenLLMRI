@@ -42,8 +42,7 @@ together they carry a persistent internal signal that the context is mixed, a
 signal the model's behavior does not appear to use. We call this cluster of
 properties semantic metastability.
 
-What the model does while unresolved differs sharply between the tasks. Across
-every completion we examine, none asks which reading is meant. The tank task has
+What the model does while unresolved differs sharply between the tasks. Across the answers the model delivered, none asks which reading is meant. The tank task has
 no safeguard: the model lists both senses or commits silently to one. The
 suicide-letter task has a refusal safeguard, and it holds while the reading sits
 between the frames: 89% of the answers delivered there decline the letter or

@@ -68,13 +68,12 @@ the question here.
 
 **Long-context safety.** Many-shot jailbreaking and multi-turn escalation attacks
 show that accumulated context can override trained behavior [CITE: many-shot
-jailbreaking; Crescendo]. Our shifts are not attacks. They are coherent
-conversations, and the weakening of the safeguard we observe needs no adversary.
+jailbreaking; Crescendo]. Our shifts are not attacks. They are coherent conversations, and the fiction-writing assistance the model delivered in a few of them needed no adversary.
 
 **Verbalized uncertainty and ambiguity.** Models can be trained or prompted to
 express confidence, and their verbalized confidence can be calibrated [CITE:
 Kadavath et al.; Lin et al.; Xiong et al.]. Ambiguity in questions has been modeled
-directly [CITE: Liu et al.]. These ground the scoped claim of §1: models can express uncertainty, and in every completion we examined none asked which reading was meant.
+directly [CITE: Liu et al.]. These ground the scoped claim of §1: models can express uncertainty, and none of the answers the model delivered asked which reading was meant.
 
 **Internal encoding versus expression.** Models internally encode truthfulness and
 uncertainty that their generations do not respect [CITE: Azaria & Mitchell; Orgad et

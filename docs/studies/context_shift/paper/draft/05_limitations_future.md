@@ -6,14 +6,12 @@ of the previous version retained. -->
 **One model, stated plainly.** Everything here is measured in one 20-billion-parameter
 mixture-of-experts model, with greedy decoding, so the behavior rates of §3.5 are properties of the greedy
 continuation, and so are the loops that leave many completions without an answer.
-Deployed decoding samples, which breaks such loops; behavior under sampling is
-untested here.
+Deployed decoding samples, which is expected to break such loops; behavior under sampling is untested here.
 Three kinds of claim should be kept apart. Descriptive claims about gpt-oss-20b are established for the tested tasks,
 contexts, sites, and decoding conditions, since this model is the population of
 interest. Existence
 claims about the class, that a deployed language model can dwell between
-interpretations, can carry a mixed-context signal its behavior does not use, and can
-have safeguard behavior weakened by ordinary coherent context, need only one model.
+interpretations, can carry a mixed-context signal its behavior does not use, and can deliver fiction-writing assistance with the letter under ordinary coherent context, with no adversarial prompt, need only one model.
 Prevalence claims across models are untested here, and the paper makes none.
 This is the mode of work that the recent circuit-level biology of a single
 language model adopted: one deployed system characterized in depth, with transfer
@@ -49,7 +47,7 @@ and measures what remains of the second frame. Both are designed and costed. Nei
 
 - Regenerate the behavior completions under sampling at the model's default
   temperature, several draws per cell. The two readings of §3.5 bracket the
-  safeguard's rate; sampling, which breaks the loops, decides where in the
+  safeguard's rate; sampling, which is expected to break the loops, decides where in the
   bracket the deployed model sits.
 - Replicate the fiction/real headline quantities at the ' write' site, where the
   framing contrast reads most strongly. The existing recordings suffice.

@@ -1293,3 +1293,34 @@ commits; the safeguard holds in the middle band (89% of delivered answers). Loop
 the reasoning-channel bracket, and the sampling caveat stay in §3.5 and §5. The
 bare completion totals (312) are gone from §1 and Related Work ("every completion
 we examine"); denominators live in §3.5.
+
+## Deltas 1 and 2 from the final read (6 September 2026)
+
+Reviewer deltas adjudicated with Andrew. Delta 1 item 1 (loops and the bracket
+back into the abstract) refused and then withdrawn; item 2 adopted in words, no
+bare total: "Across the answers the model delivered, none asks which reading is
+meant" (abstract), "Of the answers the model delivers in §3.5" (§1), "none of
+the answers the model delivered" (Related work). Item 3's "112 from transition
+runs, 7 from no-shift runs" replaced, at Andrew's objection that bare arm counts
+imply a phenomenon, by a corpus-composition sentence at the top of §3.5 (96 and
+192 transition cells, 24 no-shift finals, giving 108 and 204) and a clause that
+the no-shift runs loop as well (1 of 12, 5 of 12; addendum Part 6). Item 5's
+optional clause added beside the loop association: per-cell loop identity is
+decoding-sensitive (Appendix B); the rate and the association are aggregate.
+Delta 2 stale-claim sweep (weaken/weakening/gradient/falls from/toward the
+fiction-writing frame): two survivors the reviewer named and two it did not.
+§5 existence claim → "can deliver fiction-writing assistance with the letter
+under ordinary coherent context, with no adversarial prompt"; Related work
+"weakening of the safeguard" → "the fiction-writing assistance the model
+delivered in a few of them needed no adversary"; §4 monitor paragraph "The
+band-level gradient of §3.5 is real." deleted (false after the retraction);
+bands caption "loops, which fall mostly on reasoning that had committed to
+fiction-writing assistance" corrected: 70 of the 85 loops sit on
+safety-committed reasoning, the rate is what is higher (15 of 23 against 70 of
+181). §4 behavior paragraph opener split: tank tracks the reading, fiction/real
+does not (holds across bands). §4 trained-default, three-accounts, and signal
+paragraphs audited against the revised §3.5: no gradient reasoning remains.
+Register: "sampling breaks such loops" stated as fact in three places (§3.5, §5
+twice) with no test or citation → "is expected to break". Not done, post
+turn-in: band-threshold sensitivity (new analysis); the dwelling equivalence
+bound is already in §3.4.

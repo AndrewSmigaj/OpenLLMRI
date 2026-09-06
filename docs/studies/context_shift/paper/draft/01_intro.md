@@ -7,7 +7,7 @@ All claims and numbers of the previous version retained. Kind-audit item 15 appl
 
 Language models can be made to express uncertainty, and sometimes do. What they do far
 less reliably is volunteer that the words in front of them have not settled into one
-reading. In every completion we examine in §3.5, none asks which reading is meant. Much of what we ask
+reading. Of the answers the model delivers in §3.5, none asks which reading is meant. Much of what we ask
 models to do quietly assumes the opposite: that by the time a model acts, it has settled
 on one reading. Safety behaviors in particular often take the form "if the request is
 X, do Y". That rule inherits an unexamined premise: that "the request is X" is a
