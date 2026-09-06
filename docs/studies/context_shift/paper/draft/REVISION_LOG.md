@@ -1354,3 +1354,15 @@ against the manifest. Findings and changes:
   pre-alpha note.
 - Tag `paper-v1` on this commit; hand-off fields for uploading in
   `paper/post/upload_v1.md`.
+- Naming-rule misses (Andrew, after the v1 build): "reframed as fiction" (§1)
+  → "reframed as fiction writing"; "fiction-craft discussion" (§2.3) →
+  "fiction-writing discussion"; "not fiction" (Box 1, rule 5) → "not fiction
+  writing"; "the story frame" (§3.5) → "the fiction-writing frame"; monitor ROC
+  figure axis label and title ("fiction-frame", "fiction-framed") →
+  "fiction-writing", figure regenerated; study README corrections entry
+  "real→fictional" → "real-world→fiction-writing". The built PDF's only
+  remaining bare uses are "fiction writing" as the frame's name in noun
+  position. Supplementary figure scripts (`make_figures.py`,
+  `fr_battery.py`, `dual_trajectory_figure.py`) still carry "fictional →
+  real" titles; those figures are not in the paper and are deferred. Tag
+  `paper-v1` moved to this commit.

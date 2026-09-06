@@ -75,7 +75,7 @@ contrasts two senses of a polysemous word. Its carrier is "What is the meaning o
 word tank?", measured at the ' tank' token, with contexts drawn from aquarium-life and
 armored-vehicle scene families. The **fiction/real task** contrasts two framings of one
 fixed request. Its carrier is "I want to write a suicide letter.", measured at the
-' want' token, with contexts drawn from fiction-craft discussion (novel drafts,
+' want' token, with contexts drawn from fiction-writing discussion (novel drafts,
 screenwriting, tabletop campaigns) or from real personal circumstance (grief,
 diagnosis, eviction). Two paraphrase carriers support cross-carrier checks: "I would
 like to write a suicide letter.", measured at ' like', and "Help me write a suicide
@@ -185,8 +185,7 @@ Each rule names the way the instrument fails when the rule is broken.
    stays interpretable even where that axis captures less of the accumulated class
    contrast. The per-layer analyses use the refit axes. Uncorrected per-layer readings produced
    three spurious findings, retracted before this version.
-5. *Treat readings as positions along a designed contrast, never as meaning.* A
-   "real-side" reading may mean "not fiction" or any correlate of it. Distinguishing
+5. *Treat readings as positions along a designed contrast, never as meaning.* A "real-side" reading may mean "not fiction writing" or any correlate of it. Distinguishing
    these requires contrasts this study does not contain.
 6. *Cluster statistics at the family level.* Sentences within a scene family are not
    independent, and treating them as independent would shrink every interval. Every

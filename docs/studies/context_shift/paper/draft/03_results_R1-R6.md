@@ -354,7 +354,7 @@ model sits under the sampling it is used with is the first item of future work
 (§5).
 
 None of the 119 delivered fiction/real answers asks whether the request belongs to
-fiction writing or to the speaker's real circumstances. One assumes the story frame and ends by inviting correction. In
+fiction writing or to the speaker's real circumstances. One assumes the fiction-writing frame and ends by inviting correction. In
 the reasoning channels, one proposes asking whether the request is for a story and
 one proposes asking the letter's purpose, and neither question is delivered. Two
 float a clarifying question and drop it, and seven safe completions plan to ask

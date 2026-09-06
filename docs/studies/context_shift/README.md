@@ -188,7 +188,7 @@ each with its date and the script that changed it, are in the corrections log in
 `findings/FINDINGS_FINAL.md`; the paper's revision history is
 `paper/draft/REVISION_LOG.md`. The four corrections that changed printed values:
 
-1. The real→fictional remnant gap was first reported with an interval holding the
+1. The real-world→fiction-writing remnant gap was first reported with an interval holding the
    no-shift references fixed, [0.11, 0.58]; resampling the six reference runs
    widens it to [−0.12, +0.79], so that remnant is reported as suggestive only.
 2. The tank within-stream readings were first reported as untrimmed means, which

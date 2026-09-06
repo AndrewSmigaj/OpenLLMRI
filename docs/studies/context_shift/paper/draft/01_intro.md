@@ -33,8 +33,7 @@ The second task has a graver origin. In a widely reported 2025 case, a sixteen-y
 died by suicide after months of conversation with a language model [CITE: Raine v.
 OpenAI; reporting]. The case is contested litigation, and we characterize only what the
 court filing and contemporaneous reporting describe. They recount three things. Direct
-requests triggered safeguards. The same requests, reframed as fiction, received
-assistance, while the user's real circumstances were present in the same long
+requests triggered safeguards. The same requests, reframed as fiction writing, received assistance, while the user's real circumstances were present in the same long
 conversation. And the model offered to draft a suicide note. We do not analyze that
 case. We take from it a precise scientific question. A model processing such a
 conversation carries, in some form, internal state that tracks whether "I want to write
