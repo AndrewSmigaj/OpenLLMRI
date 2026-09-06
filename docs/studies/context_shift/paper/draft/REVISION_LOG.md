@@ -1324,3 +1324,33 @@ Register: "sampling breaks such loops" stated as fact in three places (§3.5, §
 twice) with no test or citation → "is expected to break". Not done, post
 turn-in: band-threshold sensitivity (new analysis); the dwelling equivalence
 bound is already in §3.4.
+
+## Preprint v1 freeze (6 September 2026)
+
+Full read of the paper before posting; every repeated number cross-checked
+across abstract, §1–§5, captions, and appendices, and the capture dates checked
+against the manifest. Findings and changes:
+- Title block: "Review draft — \today" → "Preprint, version 1 — 6 September
+  2026"; contact email added to the author block; PDF title and author
+  metadata set (hypersetup).
+- Release policy moved from §4's trained-default paragraph to §2.6 (Data and
+  code availability), where §2.6, the Ethics section, and the study README had
+  been pointing; the disclosure sentence added there: truncated 256-token
+  outputs (≤1,200 characters) remain in the repository's history (commit
+  408b312); the 2,048-token completions and reasoning traces are withheld.
+  Study README repointed to §2.6 with the same sentence.
+- Back matter reordered: Related work → Ethics → Acknowledgments → Appendices
+  (headings only).
+- Marker-versus-behavior tests re-run on the v2 categories
+  (`analysis/s22_marker_behavior.py`, test form fixed in the docstring before
+  running; addendum Part 7). Result: 0 of 7 defined tests at p < .05 (the
+  eighth has no fiction-writing answer), and the marker does not separate
+  delivered answers from loops. §3.7's two sentences on the un-repeated
+  256-token tests replaced; §4, contribution 7, and the abstract unchanged.
+- Wording: §2.1 "pinned a week later" → "pinned to a day about a week later";
+  tank loop caption "(not shown)" → "(Appendix C)"; §3.4 late-slope clause
+  restated as movement over the ten sentences.
+- Root README: pointer to the paper and the study directory above the
+  pre-alpha note.
+- Tag `paper-v1` on this commit; hand-off fields for uploading in
+  `paper/post/upload_v1.md`.

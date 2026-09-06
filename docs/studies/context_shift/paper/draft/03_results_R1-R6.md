@@ -272,9 +272,7 @@ ten consecutive steps, and it sits at least 2.9 across-run standard deviations f
 both endpoint references. The spread across runs stays flat rather than tightening. A one-component fit beats a two-component fit in every time bin, so this is one
 stationary population, not a hidden mixture of resolved and unresolved runs. The
 stationarity is a property of the population, not of each run. Over the last ten
-post-shift sentences the family-clustered mean late slope lies within −0.040 and
-+0.024 axis units per sentence, under a fifth of the no-shift amplitude across the
-whole window, and the median late reading sits at −0.11, at the midpoint. But
+post-shift sentences the family-clustered mean late slope lies within −0.040 and +0.024 axis units per sentence, so that over those ten sentences the population moves by under a fifth of the no-shift amplitude, and the median late reading sits at −0.11, at the midpoint. But
 individual late slopes range from −0.09 to +0.09 units per sentence, and only 3 of
 the 12 runs are individually flat by a criterion fixed before computing (slope
 within ±0.02 and at least half the window in the middle band). In the reverse
@@ -473,10 +471,7 @@ its full transition strength in the tank task and about 70% of it in fiction/rea
 captured on one day, so the separation between pure and mixed cells cannot be a
 capture-day effect (§2.1). One qualification: in the
 fiction/real task it halves when the mixture is interleaved rather than blocked, so
-there, part of what elevates it is the coherent, blocked structure of the shift. It did not predict behavior in eight matched-composition tests at the calibrated
-site and layer, with one nominal hit, uncorrected. Those tests used the categories of the superseded 256-token pass and were not
-repeated. Other
-layers are untested. The model,
+there, part of what elevates it is the coherent, blocked structure of the shift. It does not predict behavior at matched composition. In eight tests at the calibrated site and layer, one per task and post-shift count, the marker score of the delivered answers does not differ between the outcome classes: none of the seven defined tests reaches p < 0.05 uncorrected, the eighth has no fiction-writing answer to compare, and the score does not separate delivered answers from loops either. The fiction/real tests are underpowered, with 8 fiction-writing answers spread over four counts. Other layers are untested. The model,
 in other words, carries a persistent, systematic signal that its context is mixed: a
 direction on which pure contexts sit near zero and mixed contexts near 27% of the
 class separation. Its behavior does not appear to use it. Whether this signal is

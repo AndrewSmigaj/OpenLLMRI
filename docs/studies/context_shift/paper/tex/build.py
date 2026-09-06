@@ -63,11 +63,12 @@ main = r"""\documentclass[11pt]{article}
 \usepackage{xurl}
 \usepackage[round]{natbib}
 \usepackage[colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black,citecolor=blue!50!black]{hyperref}
+\hypersetup{pdftitle={Unresolved: Semantic Metastability in a Language Model Under Context Shift},pdfauthor={Andrew Smigaj}}
 \graphicspath{{../../analysis/figures/}{../../analysis/figures/other/}}
 \setlength{\parskip}{2pt}
 \title{Unresolved: Semantic Metastability in a Language Model\\ Under Context Shift}
-\author{Andrew Smigaj\\ Independent researcher}
-\date{Review draft --- \today}
+\author{Andrew Smigaj\\ Independent researcher\\ \texttt{smigaja@gmail.com}}
+\date{Preprint, version 1 --- 6 September 2026}
 \begin{document}
 \maketitle
 \begin{center}\begin{minipage}{0.9\linewidth}\small\emph{""" + note_tex + r"""}\end{minipage}\end{center}

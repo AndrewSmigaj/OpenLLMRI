@@ -21,8 +21,7 @@ property of the template matters for reproduction. Its system message stamps the
 current date, so an input carries a few date tokens that change from day to day at
 fixed positions, and re-capture on another day requires pinning that date. Within a
 run the date is constant, because a run is one forward chain, so no within-run
-dynamic finding can be explained by it. Between runs we bounded the effect directly: re-capturing 24 no-shift cells with
-the date pinned a week later moved the calibrated-site reading by at most 0.02 axis
+dynamic finding can be explained by it. Between runs we bounded the effect directly: re-capturing 24 no-shift cells with the date pinned to a day about a week later moved the calibrated-site reading by at most 0.02 axis
 units, under one percent of the class separation (Appendix B), and where a run and
 its matched reference share a capture day even that cancels in the referencing. The fiction/real transition runs, their no-shift
 references, and their calibration set were captured on one day, and all but three of
@@ -283,4 +282,4 @@ repository. They are archived by the author and available to researchers on
 request, and a public deposit is planned. A manifest of every archived file, with
 sizes and SHA-256 checksums, is committed under `captures/`. Analyses that use only projected readings run from
 the committed caches; those that read raw activations need the captures, and the
-study README lists which. Behavior completions and reasoning traces follow the release policy stated in §4.
+study README lists which. Behavior completions follow a release policy: we release the categorization tables and paraphrased excerpts; raw completions and reasoning traces are available to researchers on request, since some contain model-generated text engaging with the letter request. Truncated outputs from the superseded 256-token pass, up to 1,200 characters each, were committed before that policy was set and remain in the repository's history; the 2,048-token completions and reasoning traces are withheld.

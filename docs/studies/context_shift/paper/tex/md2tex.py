@@ -62,8 +62,9 @@ def _tables(text):
             widths = [max(len(r[j]) if j < len(r) else 0 for r in cells) for j in range(ncol)]
             body = ["⟦AMP⟧".join(r + [""] * (ncol - len(r))) + "⟦NL⟧" for r in cells]
             size = "\\small"
-            if ncol >= 6:
-                # wide table: full-width wrapping columns so nothing runs past the
+            if ncol >= 6 or sum(widths) > 90:
+                # wide table (many columns, or long headers such as the direction
+                # labels): full-width wrapping columns so nothing runs past the
                 # margin; the first column gets 1.4 shares, numeric columns are
                 # right-aligned, headers wrap.
                 NUM = re.compile(r"^[\s\d.,+\-\u2212\u00b1%\[\]/\u2248()\u2014]*$")

@@ -289,3 +289,53 @@ their denominators rather than as a difference in behavior.
 Totals: tank 108 cells, 94 delivered, 14 loops; fiction/real 204 cells, 119
 delivered, 85 loops; 312 cells, 213 delivered. The no-shift runs loop as well,
 so looping is not a product of the shift.
+
+## Part 7. Marker-versus-behavior tests, re-run on the v2 categories (`analysis/s22_marker_behavior.py`, 6 September 2026)
+
+Pre-stated in Part 1 ("re-run as exploratory, unchanged in method"). The
+31 August tests were run inline with the 256-token categories and their code
+was not committed (s8 records the result only: one p = .047 in 8 uncorrected
+tests), so s22 fixes the form in its docstring before running: marker score per
+behavior cell exactly as the held-out mixture cells are scored (D4 no-shift PCA
+subspace at 90% variance, 8 components tank and 54 fiction/real; residual
+projected on the shared transition direction; percent of the raw class
+separation), then per task × post-shift count k ∈ {2, 6, 12, 20}, over delivered
+answers, a two-sided Mann–Whitney U between the outcome classes with rank AUC,
+uncorrected and Holm-adjusted.
+
+| Task | k | class 1 | n | median | class 2 | n | median | AUC | p | Holm |
+|---|---|---|---|---|---|---|---|---|---|---|
+| tank | 2 | one sense | 19 | 13.7 | both senses | 3 | 12.0 | 0.68 | 0.356 | 1.000 |
+| tank | 6 | one sense | 15 | 23.7 | both senses | 7 | 25.9 | 0.44 | 0.680 | 1.000 |
+| tank | 12 | one sense | 6 | 29.0 | both senses | 13 | 27.5 | 0.55 | 0.765 | 1.000 |
+| tank | 20 | one sense | 7 | 31.8 | both senses | 13 | 22.2 | 0.69 | 0.183 | 1.000 |
+| fiction/real | 2 | fiction-writing assistance | 3 | 43.9 | safe completion | 26 | 28.7 | 0.81 | 0.095 | 0.762 |
+| fiction/real | 6 | fiction-writing assistance | 1 | 30.5 | safe completion | 27 | 43.8 | 0.22 | 0.500 | 1.000 |
+| fiction/real | 12 | fiction-writing assistance | 0 | — | safe completion | 24 | 45.2 | — | undefined | — |
+| fiction/real | 20 | fiction-writing assistance | 4 | 31.3 | safe completion | 27 | 33.7 | 0.36 | 0.408 | 1.000 |
+
+0 of the 7 defined tests at p < .05 uncorrected; 0 after Holm. The eighth
+(fiction/real, k = 12) has no fiction-writing answer to compare. The
+fiction/real tests are underpowered: 8 fiction-writing answers over four
+counts.
+
+Exploratory block, new (not pre-stated): delivered versus no-answer (loop)
+cells, same score and test.
+
+| Task | cells | delivered n / median | no-answer n / median | AUC (delivered > no-answer) | p |
+|---|---|---|---|---|---|
+| tank | pooled k | 83 / 23.7 | 13 / 24.5 | 0.44 | 0.528 |
+| tank | k = 2, 6, 12, 20 | 22, 22, 19, 20 | 2, 2, 5, 4 | 0.59, 0.18, 0.66, 0.49 | 0.725, 0.181, 0.297, 0.970 |
+| fiction/real | pooled k | 112 / 35.6 | 80 / 35.3 | 0.55 | 0.233 |
+| fiction/real | k = 2, 6, 12, 20 | 29, 28, 24, 31 | 19, 20, 24, 17 | 0.58, 0.61, 0.66, 0.48 | 0.387, 0.213, 0.065, 0.796 |
+
+Marker means by category (percent of separation): tank aquarium 18.2, vehicle
+19.7, both 23.6, no answer 23.3; fiction/real fiction-writing 36.8, safe 35.1,
+no answer 32.7. The scores themselves reproduce the marker's time course (tank
+cells read about 13% at k = 2 and 24–29% from k = 6; fiction/real 29% at k = 2
+and 34–45% later), so the scoring path is the one Table 6 uses. Per-cell scores:
+`analysis/s22_marker_behavior.csv`; tests: `analysis/s22_marker_behavior_tests.csv`.
+
+Paper: §3.7's two sentences on the 256-token tests replaced by the re-run
+result; §4's marker paragraph, contribution 7, and the abstract unchanged (the
+answer did not change).

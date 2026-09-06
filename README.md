@@ -1,3 +1,5 @@
+**Paper (preprint v1, 6 September 2026):** [Unresolved: Semantic Metastability in a Language Model Under Context Shift](docs/studies/context_shift/paper/tex/main.pdf). The study's data, scripts, figures, and record are in [`docs/studies/context_shift/`](docs/studies/context_shift/README.md).
+
 (we are currently pre-alpha, development continuing on integrating a MUD and an AI Scientist swarm, thanks for your patience as there are likely a few little things to iron out before this becomes usable without tweaks though if you have claude code its not hard to work through these type of things as I havent tested on other computers, i am currently in a WSL virtual machine, again thank you for the patience)
 
 # Open LLMRI

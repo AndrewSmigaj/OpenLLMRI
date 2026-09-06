@@ -4,11 +4,12 @@
 \usepackage{xurl}
 \usepackage[round]{natbib}
 \usepackage[colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black,citecolor=blue!50!black]{hyperref}
+\hypersetup{pdftitle={Unresolved: Semantic Metastability in a Language Model Under Context Shift},pdfauthor={Andrew Smigaj}}
 \graphicspath{{../../analysis/figures/}{../../analysis/figures/other/}}
 \setlength{\parskip}{2pt}
 \title{Unresolved: Semantic Metastability in a Language Model\\ Under Context Shift}
-\author{Andrew Smigaj\\ Independent researcher}
-\date{Review draft --- \today}
+\author{Andrew Smigaj\\ Independent researcher\\ \texttt{smigaja@gmail.com}}
+\date{Preprint, version 1 --- 6 September 2026}
 \begin{document}
 \maketitle
 \begin{center}\begin{minipage}{0.9\linewidth}\small\emph{Content note: this paper analyzes model behavior around suicide-related requests in a
@@ -179,8 +180,7 @@ property of the template matters for reproduction. Its system message stamps the
 current date, so an input carries a few date tokens that change from day to day at
 fixed positions, and re-capture on another day requires pinning that date. Within a
 run the date is constant, because a run is one forward chain, so no within-run
-dynamic finding can be explained by it. Between runs we bounded the effect directly: re-capturing 24 no-shift cells with
-the date pinned a week later moved the calibrated-site reading by at most 0.02 axis
+dynamic finding can be explained by it. Between runs we bounded the effect directly: re-capturing 24 no-shift cells with the date pinned to a day about a week later moved the calibrated-site reading by at most 0.02 axis
 units, under one percent of the class separation (Appendix B), and where a run and
 its matched reference share a capture day even that cancels in the referencing. The fiction/real transition runs, their no-shift
 references, and their calibration set were captured on one day, and all but three of
@@ -277,9 +277,9 @@ baselines, the carrier alone, complete the set.
 
 
 
-\begin{table}[htbp]\centering\small
+\begin{table}[htbp]\centering\footnotesize
 \caption{The corpora, the question each answers, and their sizes.}
-\begin{tabularx}{\linewidth}{lXXX}
+\begin{tabularx}{\linewidth}{>{\hsize=1.4\hsize\raggedright\arraybackslash}X>{\hsize=0.8667\hsize\raggedright\arraybackslash}X>{\hsize=0.8667\hsize\raggedright\arraybackslash}X>{\hsize=0.8667\hsize\raggedright\arraybackslash}X}
 \toprule
 Corpus & Question & Composition & Size \\
 \midrule
@@ -451,7 +451,7 @@ repository. They are archived by the author and available to researchers on
 request, and a public deposit is planned. A manifest of every archived file, with
 sizes and SHA-256 checksums, is committed under `captures/`. Analyses that use only projected readings run from
 the committed caches; those that read raw activations need the captures, and the
-study README lists which. Behavior completions and reasoning traces follow the release policy stated in \S4.
+study README lists which. Behavior completions follow a release policy: we release the categorization tables and paraphrased excerpts; raw completions and reasoning traces are available to researchers on request, since some contain model-generated text engaging with the letter request. Truncated outputs from the superseded 256-token pass, up to 1,200 characters each, were committed before that policy was set and remain in the repository's history; the 2,048-token completions and reasoning traces are withheld.
 \FloatBarrier
 
 \section{Results}
@@ -641,13 +641,13 @@ reverse directions settle partway.
 
 
 
-\begin{table}[htbp]\centering\small
+\begin{table}[htbp]\centering\footnotesize
 \caption{Where each layer band ends up: the mean reading over the last five
 post-shift sentences (positions 36–40) under per-layer accumulated-context axes,
 averaged over the layers in each band and signed so that the destination class is
 positive. Under these axes the no-shift references sit at $\pm$1 and the midpoint at 0,
 so a value is the fraction of the way from the midpoint to the destination reference.}
-\begin{tabular}{lrrrr}
+\begin{tabularx}{\linewidth}{>{\hsize=1.4\hsize\raggedright\arraybackslash}X>{\hsize=0.9000\hsize\raggedleft\arraybackslash}X>{\hsize=0.9000\hsize\raggedleft\arraybackslash}X>{\hsize=0.9000\hsize\raggedleft\arraybackslash}X>{\hsize=0.9000\hsize\raggedleft\arraybackslash}X}
 \toprule
 Layers & tank, aquarium$\rightarrow$vehicle & tank, vehicle$\rightarrow$aquarium & fiction-writing$\rightarrow$real-world & real-world$\rightarrow$fiction-writing \\
 \midrule
@@ -656,7 +656,7 @@ Layers & tank, aquarium$\rightarrow$vehicle & tank, vehicle$\rightarrow$aquarium
 13–18 & 0.00 & +0.38 & +0.41 & +0.33 \\
 19–23 & $-$0.10 & +0.42 & +0.08 & +0.48 \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{table}
 
 Direction matters, and the asymmetry survives a change of carrier and a change of
@@ -797,9 +797,7 @@ ten consecutive steps, and it sits at least 2.9 across-run standard deviations f
 both endpoint references. The spread across runs stays flat rather than tightening. A one-component fit beats a two-component fit in every time bin, so this is one
 stationary population, not a hidden mixture of resolved and unresolved runs. The
 stationarity is a property of the population, not of each run. Over the last ten
-post-shift sentences the family-clustered mean late slope lies within $-$0.040 and
-+0.024 axis units per sentence, under a fifth of the no-shift amplitude across the
-whole window, and the median late reading sits at $-$0.11, at the midpoint. But
+post-shift sentences the family-clustered mean late slope lies within $-$0.040 and +0.024 axis units per sentence, so that over those ten sentences the population moves by under a fifth of the no-shift amplitude, and the median late reading sits at $-$0.11, at the midpoint. But
 individual late slopes range from $-$0.09 to +0.09 units per sentence, and only 3 of
 the 12 runs are individually flat by a criterion fixed before computing (slope
 within $\pm$0.02 and at least half the window in the middle band). In the reverse
@@ -939,7 +937,7 @@ asymmetry of \S3.2.
 
 
 
-\begin{table}[htbp]\centering\small
+\begin{table}[htbp]\centering\footnotesize
 \caption{Hysteresis in the static mixture sweeps. Loop area is the area between
 the two block-order branches of the sweep, in axis units times sentences, with a
 family-clustered bootstrap 95\% interval. The fitted loop area comes from a
@@ -947,7 +945,7 @@ one-parameter recency integrator fitted to the same cells; the excess is the
 observed area minus the fitted area. The last column gives the recency weight $\gamma$
 fitted separately to each block order, with the destination block placed first or
 last in the context.}
-\begin{tabularx}{\linewidth}{llllX}
+\begin{tabularx}{\linewidth}{>{\hsize=1.4\hsize\raggedright\arraybackslash}X>{\hsize=0.9000\hsize\raggedleft\arraybackslash}X>{\hsize=0.9000\hsize\raggedleft\arraybackslash}X>{\hsize=0.9000\hsize\raggedright\arraybackslash}X>{\hsize=0.9000\hsize\raggedleft\arraybackslash}X}
 \toprule
 Task & Observed loop area & Fitted integrator loop area & Excess (stickiness) & $\gamma$, destination block first / last \\
 \midrule
@@ -966,7 +964,7 @@ equilibrium map. There is no bistable equilibrium and no barrier between states.
 
 \begin{figure}[tbp]\centering
 \includegraphics[width=\linewidth]{fig_r6_d6_loop_tank.png}
-\caption{Hysteresis in the tank task. Each point is the mean carrier reading, midpoint-referenced, in a twenty-sentence context holding a fixed number of destination-class sentences, with the destination block placed last (orange) or first (blue). The shaded area between the branches is the loop: the same mixture reads differently depending on the order, with area +14.4 [12.2, 16.8]. Dashed lines are the predictions of a one-parameter recency integrator fitted to the same cells, which reproduces the loop (area +14.3); the excess, +0.1, is indistinguishable from zero. The green diamond is an interleaved mixture of 10 destination sentences in 20, which falls between the branches. The fiction/real sweep (not shown) gives +10.5 [7.5, 13.3] observed against +11.1 fitted (Table 5).}\label{fig:fig_r6_d6_loop_tank}
+\caption{Hysteresis in the tank task. Each point is the mean carrier reading, midpoint-referenced, in a twenty-sentence context holding a fixed number of destination-class sentences, with the destination block placed last (orange) or first (blue). The shaded area between the branches is the loop: the same mixture reads differently depending on the order, with area +14.4 [12.2, 16.8]. Dashed lines are the predictions of a one-parameter recency integrator fitted to the same cells, which reproduces the loop (area +14.3); the excess, +0.1, is indistinguishable from zero. The green diamond is an interleaved mixture of 10 destination sentences in 20, which falls between the branches. The fiction/real sweep (Appendix C) gives +10.5 [7.5, 13.3] observed against +11.1 fitted (Table 5).}\label{fig:fig_r6_d6_loop_tank}
 \end{figure}
 \FloatBarrier
 \subsection{The geometry of irresolution}
@@ -1034,10 +1032,7 @@ its full transition strength in the tank task and about 70\% of it in fiction/re
 captured on one day, so the separation between pure and mixed cells cannot be a
 capture-day effect (\S2.1). One qualification: in the
 fiction/real task it halves when the mixture is interleaved rather than blocked, so
-there, part of what elevates it is the coherent, blocked structure of the shift. It did not predict behavior in eight matched-composition tests at the calibrated
-site and layer, with one nominal hit, uncorrected. Those tests used the categories of the superseded 256-token pass and were not
-repeated. Other
-layers are untested. The model,
+there, part of what elevates it is the coherent, blocked structure of the shift. It does not predict behavior at matched composition. In eight tests at the calibrated site and layer, one per task and post-shift count, the marker score of the delivered answers does not differ between the outcome classes: none of the seven defined tests reaches p < 0.05 uncorrected, the eighth has no fiction-writing answer to compare, and the score does not separate delivered answers from loops either. The fiction/real tests are underpowered, with 8 fiction-writing answers spread over four counts. Other layers are untested. The model,
 in other words, carries a persistent, systematic signal that its context is mixed: a
 direction on which pure contexts sit near zero and mixed contexts near 27\% of the
 class separation. Its behavior does not appear to use it. Whether this signal is
@@ -1112,10 +1107,7 @@ unobservable. Our two tasks appear to differ in whether they carry a trained def
 for unresolved cases. The covered fiction/real task behaved as though it does. In the middle reading band, 89\% of its delivered answers safe-complete, and 82\%
 of its reasoning channels commit to a safe completion; where the reasoning
 entertains the fiction-writing frame, the answer that follows, when one follows,
-takes it up. We release the categorization tables and
-paraphrased excerpts; raw completions and reasoning traces are available to
-researchers on request, since some contain model-generated text engaging with the
-letter request. The tank task showed no such default.
+takes it up. The tank task showed no such default.
 There the model silently commits: 48\% of delivered middle-band answers pick a sense. If
 this reading is right, the unresolved zone is the failure window for every behavior
 without a trained uncertainty-default, and refusal-style safeguards may be the
@@ -1285,27 +1277,6 @@ case.
 
 \section*{Back matter}
 
-\subsection*{Acknowledgments}
-
-This study was carried out with language-model assistants,
-Claude through Claude Code and in chat, used as the analysis runtime and as writing
-and review assistants. Under the author's direction they authored the context
-sentences under the blind protocol of \S2.3, ran the captures and the committed
-analysis scripts, categorized the completions, and drafted and revised the text. The author reviewed every number and claim and is responsible for them. The
-research questions, study design, and interpretive decisions are the author's.
-
-\subsection*{Ethics and safe messaging}
-
-This paper studies how a model's internal reading of a
-suicide-related request moves under context, and reports the model's behavior around
-that request. It involves no human subjects and no user data. The fiction/real corpus
-was written under the norms of \S2.3: no context sentence contains the carrier request,
-and the theme-only sub-arm never names a suicide letter or note. The content note on
-the first page follows safe-messaging practice, and the paper quotes no model-generated text that assists with the letter.
-Completions containing such text are withheld from open release (see Data and code
-availability, \S2.6). The motivating case is contested litigation, and the paper
-characterizes only what the filing and reporting describe.
-
 \subsection*{Related work}
 
 \textbf{Reading representations with probes.} Linear probes have been the standard way to
@@ -1372,6 +1343,27 @@ California, San Francisco, on 26 August 2025, with contemporaneous reporting \ci
 denying causation \citep{openai2025answer,nbc2025nov,techcrunch2025}. The litigation is contested.
 This paper characterizes only what the filing and reporting describe. The safety training of the model we study is
 documented in its model card \citep{openai2025gptoss}.
+
+\subsection*{Ethics and safe messaging}
+
+This paper studies how a model's internal reading of a
+suicide-related request moves under context, and reports the model's behavior around
+that request. It involves no human subjects and no user data. The fiction/real corpus
+was written under the norms of \S2.3: no context sentence contains the carrier request,
+and the theme-only sub-arm never names a suicide letter or note. The content note on
+the first page follows safe-messaging practice, and the paper quotes no model-generated text that assists with the letter.
+Completions containing such text are withheld from open release (see Data and code
+availability, \S2.6). The motivating case is contested litigation, and the paper
+characterizes only what the filing and reporting describe.
+
+\subsection*{Acknowledgments}
+
+This study was carried out with language-model assistants,
+Claude through Claude Code and in chat, used as the analysis runtime and as writing
+and review assistants. Under the author's direction they authored the context
+sentences under the blind protocol of \S2.3, ran the captures and the committed
+analysis scripts, categorized the completions, and drafted and revised the text. The author reviewed every number and claim and is responsible for them. The
+research questions, study design, and interpretive decisions are the author's.
 
 \subsection*{Appendix A — Corrections}
 

@@ -5,27 +5,6 @@ the post-freeze log). Acknowledgments placeholder unchanged. -->
 
 # Back matter
 
-## Acknowledgments
-
-This study was carried out with language-model assistants,
-Claude through Claude Code and in chat, used as the analysis runtime and as writing
-and review assistants. Under the author's direction they authored the context
-sentences under the blind protocol of §2.3, ran the captures and the committed
-analysis scripts, categorized the completions, and drafted and revised the text. The author reviewed every number and claim and is responsible for them. The
-research questions, study design, and interpretive decisions are the author's.
-
-## Ethics and safe messaging
-
-This paper studies how a model's internal reading of a
-suicide-related request moves under context, and reports the model's behavior around
-that request. It involves no human subjects and no user data. The fiction/real corpus
-was written under the norms of §2.3: no context sentence contains the carrier request,
-and the theme-only sub-arm never names a suicide letter or note. The content note on
-the first page follows safe-messaging practice, and the paper quotes no model-generated text that assists with the letter.
-Completions containing such text are withheld from open release (see Data and code
-availability, §2.6). The motivating case is contested litigation, and the paper
-characterizes only what the filing and reporting describe.
-
 ## Related work
 
 **Reading representations with probes.** Linear probes have been the standard way to
@@ -105,6 +84,27 @@ filing; CNN, 26 August 2025; NBC News]. A later report covers the defendant's an
 denying causation [CITE: TechCrunch, 26 November 2025]. The litigation is contested.
 This paper characterizes only what the filing and reporting describe. The safety training of the model we study is
 documented in its model card [CITE: gpt-oss model card].
+
+## Ethics and safe messaging
+
+This paper studies how a model's internal reading of a
+suicide-related request moves under context, and reports the model's behavior around
+that request. It involves no human subjects and no user data. The fiction/real corpus
+was written under the norms of §2.3: no context sentence contains the carrier request,
+and the theme-only sub-arm never names a suicide letter or note. The content note on
+the first page follows safe-messaging practice, and the paper quotes no model-generated text that assists with the letter.
+Completions containing such text are withheld from open release (see Data and code
+availability, §2.6). The motivating case is contested litigation, and the paper
+characterizes only what the filing and reporting describe.
+
+## Acknowledgments
+
+This study was carried out with language-model assistants,
+Claude through Claude Code and in chat, used as the analysis runtime and as writing
+and review assistants. Under the author's direction they authored the context
+sentences under the blind protocol of §2.3, ran the captures and the committed
+analysis scripts, categorized the completions, and drafted and revised the text. The author reviewed every number and claim and is responsible for them. The
+research questions, study design, and interpretive decisions are the author's.
 
 ## Appendix A — Corrections
 

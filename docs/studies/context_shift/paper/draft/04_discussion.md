@@ -53,10 +53,7 @@ unobservable. Our two tasks appear to differ in whether they carry a trained def
 for unresolved cases. The covered fiction/real task behaved as though it does. In the middle reading band, 89% of its delivered answers safe-complete, and 82%
 of its reasoning channels commit to a safe completion; where the reasoning
 entertains the fiction-writing frame, the answer that follows, when one follows,
-takes it up. We release the categorization tables and
-paraphrased excerpts; raw completions and reasoning traces are available to
-researchers on request, since some contain model-generated text engaging with the
-letter request. The tank task showed no such default.
+takes it up. The tank task showed no such default.
 There the model silently commits: 48% of delivered middle-band answers pick a sense. If
 this reading is right, the unresolved zone is the failure window for every behavior
 without a trained uncertainty-default, and refusal-style safeguards may be the
