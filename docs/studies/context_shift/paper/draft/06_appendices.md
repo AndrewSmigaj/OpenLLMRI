@@ -107,38 +107,22 @@ denying causation [CITE: TechCrunch, 26 November 2025]. The litigation is contes
 This paper characterizes only what the filing and reporting describe. The safety training of the model we study is
 documented in its model card [CITE: gpt-oss model card].
 
-## Appendix A — Corrections that changed reported values
+## Appendix A — Corrections
 
-Four corrections made during the study's audits changed values as printed. Each is
-recorded here in one line; the complete corrections record, nineteen entries, is in
-the repository.
-
-1. The real→fictional remnant gap was first reported with an interval that held
-   the no-shift references fixed, [0.11, 0.58]. Resampling the six reference runs
-   as well widens it to [−0.12, +0.79], which includes zero, so that remnant is
-   reported as suggestive only (§3.2, Table 2).
-2. The within-stream readings of the tank task were first reported as untrimmed
-   means, which heavy tails inflated. The paper now reports trimmed means: +0.34 and
-   +0.37 at ten post-shift sentences and +0.52 and +0.53 at twenty (§3.3).
-3. Crossing times were first summarized as a range read from the mean trajectories.
-   The paper now reports per-run medians: 10.5 and 6.0 sentences in the tank task and
-   4.0 and 5.0 in fiction/real (§3.2, Table 2), with the mean-trajectory crossings
-   given separately in the Figure 1 caption.
-4. The recency integrator's memory was first stated as a range of sentences derived
-   loosely from its decay parameter. The paper now reports the per-direction median
-   decay values (Table 2) and the weighted-mean evidence ages they imply: about nine
-   sentences in the fiction/real task, fourteen from vehicle to aquarium, and beyond
-   the window from aquarium to vehicle (§3.2).
-
-One further correction predates the draft. A first estimate of stickiness (§3.6)
-used a null with γ imported from the transition fits and gave +3.7, significant; it
-was retracted the same day when the null was fitted to the sweep cells, and the
-paper reports only the fitted-null values (Table 5).
+Values that changed during the study's audits, the analyses added after the analysis
+freeze, and the analyses superseded before this version are recorded with their dates
+in the repository's findings record and revision log. Four corrections changed values
+as printed: the real→fictional remnant interval widened to include zero once the
+no-shift references were resampled (§3.2); the tank within-stream readings are
+trimmed means (§3.3); crossing times are per-run medians rather than a range read
+from mean trajectories (§3.2); and the recency integrator's memory is stated as
+per-direction decay values (§3.2). A first estimate of stickiness (§3.6) used a
+misspecified null and was retracted the same day.
 
 ## Appendix B — Quality assurance and reproducibility
 
-**Regeneration.** A full regeneration audit re-ran every committed analysis script
-over the frozen captures and reproduced every reported value. The calibration axes regenerated bit-identically. The seeded bootstraps regenerated
+**Regeneration.** A full regeneration audit re-ran every committed analysis script over the archived
+captures and reproduced every reported value. The calibration axes regenerated bit-identically. The seeded bootstraps regenerated
 exactly. The diff over all 23 scripts was clean.
 
 **Fixtures.** A permanent fixture suite pushes synthetic data with analytically known
@@ -171,35 +155,20 @@ August 2026, except two transition runs and one no-shift run captured the next d
 Every fiction/real transition run, no-shift run, and calibration item was captured on
 28 August. Each task's checkpoint captures fall on one day, as do its mixture-sweep
 cells and the minimal pairs. Behavior completions were generated on later days, and each completion's reading
-comes from the same forward pass as the completion. The regenerated behavior
-completions (§2.5) were captured on 5 and 6 September 2026 with the template date
-pinned to each cell's original day, which reproduces the original forward pass
-exactly; the date-bound run below used 5 September. A
+comes from the same forward pass as the completion. The 2,048-token behavior completions were captured on 5 September 2026 with the
+template date pinned to each cell's original day, which reproduces the original
+forward pass exactly; the date-bound run below used 5 September. A
 committed script reproduces this table from the session manifests.
 
-**Additions after the freeze.** The following were added after the analysis
-freeze, all computed from the frozen captures or their manifests through committed
-scripts, and each is noted as a post-freeze addition where it appears: the tank
-response counts of §3.5; the monitor ROC of §4; the per-layer collapse panels of
-§3.2 (Fig. fig_s13_collapse_layers and Table 3); the exploratory per-layer
-behavior association of §3.5 (Fig. fig_s14_behavior_by_layer); the channel-reach
-and frame-query counts of §3.5; the capture-day table above; and the behavior
-regeneration below.
-
-**Behavior regeneration.** The frozen behavior captures used a 256-token generation
-cap, and the model's reasoning channel ran past it in 71 of 108 tank and 120 of 204
-fiction/real outputs, so their categories had been read from truncated reasoning.
-All 312 cells were regenerated with a 2,048-token cap and the chat template's date
-pinned to each cell's original capture day. Determinism was checked first: the
-same cell captured twice gave byte-identical text and an identical reading. Every
-regenerated output extends its frozen text byte for byte, with the reading unchanged
-in every cell. Under the longer cap 94 of 108 tank and 119 of 204 fiction/real
-outputs reach an answer; every remaining output is a degenerate loop or a stuck
-deliberation. Categories were re-read from the delivered answers under the frozen
-doctrine, stated in the regeneration record before any output was read. The
-frozen categories, the regenerated ones, and the reasoning channel's pre-loop
-commitment for every cell are in the repository, with the frozen-versus-regenerated
-comparison in the findings record. The change in the fiction/real rates is stated in §3.5.
+**Generation budget.** The behavior completions reported in §3.5 were decoded with
+a 2,048-token cap and the chat template's date pinned to each cell's original capture
+day. An earlier pass with a 256-token cap ended inside the model's reasoning channel
+in 71 of 108 tank and 120 of 204 fiction/real outputs, and its categories had been
+read from that truncated reasoning; it is superseded. Determinism was checked before
+the longer pass: the same cell captured twice gives byte-identical text and an
+identical reading, and every 2,048-token output extends its 256-token text byte for
+byte with the reading unchanged. Both sets of categories, and the reasoning
+channel's pre-loop commitment for every cell, are in the repository.
 
 **Date-effect bound.** The 24 no-shift behavior cells were captured once more with
 the template date pinned to 5 September 2026 instead of their original day. The
@@ -212,19 +181,8 @@ cells. Three fiction/real cells that had looped on their original day delivered 
 answer on the later one. The date tokens cannot explain any reading effect; they
 can change whether a particular greedy path loops.
 
-**Names used in the repository.** Readers of the repository will meet different
-names for some of the paper's terms.
-
-- The paper's *remnant* is the repository's "residual".
-- The dwelling within the unresolved zone is the repository's "park".
-- The *accumulation offset* is the repository's "accumulation drift".
-- The paper's *tasks* are the repository's "probes" or "probe arms".
-- The corpus directories D3, D4, D5, and D6 are the transition, no-shift,
-  minimal-pair, and mixture-sweep corpora.
-- The repository's "K=1" label names an analysis convention for a routing track this
-  study dropped.
-
-Regeneration instructions are in the study README.
+Regeneration instructions and the mapping between the paper's terms and the
+repository's working names are in the study README.
 
 ## Appendix C — Supplementary figures
 

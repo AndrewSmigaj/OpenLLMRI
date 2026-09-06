@@ -34,6 +34,7 @@ DRAFT = PAPER / "draft"
 FROZEN = PAPER / "draft_v2"
 CAPTIONS = DRAFT / "captions.md"
 ALLOWLIST = HERE / "number_allowlist.md"
+RETIRED = HERE / "number_retired.md"  # numerals deliberately dropped after the freeze; preservation skips them
 RECORD = [STUDY / "findings" / "FINDINGS_FINAL.md",
           STUDY / "findings" / "FINDINGS_AND_ANALYSIS_v2.md",
           STUDY / "findings" / "behavior_regeneration_2026-09.md"]  # post-freeze behavior corpus
@@ -102,9 +103,19 @@ def trace(names):
     return bad == 0
 
 
+def retired():
+    """Numerals listed in number_retired.md (first table column, comma-separated)."""
+    if not RETIRED.exists(): return set()
+    out = set()
+    for line in RETIRED.read_text().splitlines():
+        if line.startswith("| ") and not line.startswith("| Numeral") and not line.startswith("|---"):
+            out |= {x.strip() for x in line.split("|")[1].split(",")}
+    return out
+
 def preservation(names):
     if not FROZEN.exists():
         print("[preservation] no draft_v2/ — nothing to compare"); return True
+    RET = retired()
     new_all = {}
     for f in list(DRAFT.glob("0*.md")) + ([CAPTIONS] if CAPTIONS.exists() else []):
         new_all[f.name] = digit_set(f.read_text())
@@ -125,7 +136,8 @@ def preservation(names):
                 moved.append((s, where))
             else:
                 gone.append((s, c))
-        print(f"\n[preservation] {old.name}: {len(moved)} moved, {len(gone)} LOST")
+        ret = [(s, c) for s, c in gone if s in RET]; gone = [(s, c) for s, c in gone if s not in RET]
+        print(f"\n[preservation] {old.name}: {len(moved)} moved, {len(ret)} retired (number_retired.md), {len(gone)} LOST")
         for s, where in moved:
             print(f"   moved   {s:>10}   → {', '.join(where)}")
         for s, c in gone:

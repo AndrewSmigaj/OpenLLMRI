@@ -138,9 +138,7 @@ around that mean. The crossing delay is no longer than evidence integration pred
 does not explain is the late shortfall. Whether the path itself is smooth
 integration is a separate question, tested head-to-head in §3.3.
 
-Behind the single-site view there is depth structure. The depth analyses were
-computed after the analysis freeze from the frozen captures and are exploratory
-(Appendix B). Crossing times by depth are measured under each layer's
+Behind the single-site view there is depth structure. The depth analyses are exploratory. Crossing times by depth are measured under each layer's
 accumulated-context axis (§2.4), so they differ from the calibrated-axis values of
 Table 2 even at the calibrated layers. We group the layers into four bands: 0–2,
 3–12, 13–18, and 19–23 (Table 3). Figure fig_s13_collapse_layers repeats Figure
@@ -293,22 +291,16 @@ shows next.
 What does the model say while its reading sits between the two interpretations? We
 generated a completion from every run at four points after the shift: after 2, 6,
 12, and 20 post-shift sentences. All behavioral claims in this subsection are
-correlational. For analysis we partition readings into three bands, one side, the
-middle, and the other side (Fig. fig_r6_behavior_bands). The completions analyzed
-here were regenerated after the freeze with a 2,048-token cap and categorized from
-the delivered answer (§2.5). The frozen 256-token completions, whose categories came
-largely from truncated reasoning channels, gave different rates in the fiction/real
-task; Appendix B states what changed, and the frozen tables remain in the
-repository record.
+correlational. For analysis we partition readings into three bands, one side, the middle, and the other side (Fig. fig_r6_behavior_bands).
 
-A first result is that the model often does not answer at all. Under greedy
-decoding, 14 of the 108 tank outputs and 85 of the 204 fiction/real outputs never
-leave the reasoning channel. They repeat one sentence to the cap, cycle through one
+A first result is that the model often does not answer at all. Under the greedy
+decoding used here, 14 of the 108 tank outputs and 85 of the 204 fiction/real
+outputs never leave the reasoning channel. They repeat one sentence to the cap, cycle through one
 sentence frame with a changing noun, or re-read the passage without concluding. No
-cap would finish them. We call these "no answer", report every rate below both
-with them counted and over delivered answers only, and note that deployed decoding
-samples rather than taking the greedy token, so their frequency in use is untested
-(§5).
+cap would finish them. We call these "no answer" and report every rate below both with them counted and
+over delivered answers only. Deployed decoding samples rather than taking the
+greedy token, which is what breaks such loops, so their frequency in use is
+untested (§5).
 
 In the tank task, behavior tracks the reading. Completions whose reading sits on
 the aquarium side answer with the aquarium sense in 52% of cases, 62% of those that
@@ -323,15 +315,12 @@ one. It answers as if resolved.
 Does the reading carry information beyond the context composition that drives both
 reading and behavior? We test this at matched composition, comparing completions
 generated after the same number of post-shift sentences (Fig.
-fig_s9_behavior_matchedk). At 6 post-shift sentences, decided answers come from runs
-with more extreme readings, with a median absolute reading of 0.90 against 0.38 for
-hedged or absent answers (one-sided p = 0.037). At 12 sentences they do not (0.53
-against 0.56), and at the settled extremes they do not. The pooled test over 6 and 12 sentences, pre-stated before the regenerated
-completions were read, gives 0.67 against 0.55 and does not reach significance
-(one-sided p = 0.10). The frozen completions had given p = 0.061 and 0.045 at 6 and 12 sentences and a
-pooled p = 0.0138 chosen after the pattern was seen (Appendix B). On delivered
-answers the mid-transition association is therefore one significant count of four,
-not a pooled effect, and we no longer grade it beyond that.
+fig_s9_behavior_matchedk). The evidence is thin. At 6 post-shift sentences, decided
+answers come from runs with more extreme readings, with a median absolute reading of
+0.90 against 0.38 for hedged or absent answers (one-sided p = 0.037); at 12 sentences
+they do not (0.53 against 0.56), the pooled test over both counts gives p = 0.10,
+and at the settled extremes there is no difference. We report it as one significant
+count of four and claim nothing further.
 
 In the fiction/real task we categorize each delivered answer as fiction-writing
 assistance, which takes up the fiction-writing frame and helps with the letter or
@@ -348,10 +337,7 @@ completions are 89% of the middle band's delivered answers and 95% of the real
 side's, and the fiction-side band delivers one answer in four, a safe completion
 (Fig. fig_r6_behavior_bands). What varies with the reading is the share of outputs
 that never answer: 3 of 4 on the fiction side, 13 of 40 in the middle band, 69 of
-160 on the real side. The frozen captures had shown safe completions falling from
-91% to 50% toward the fiction-writing frame. That gradient was an artifact of
-categorizing truncated reasoning channels, and it does not survive regeneration
-(Appendix B).
+160 on the real side. 
 
 None of the 119 delivered fiction/real answers asks whether the request is
 fictional or real. One assumes the story frame and ends by inviting correction. In
@@ -359,13 +345,12 @@ the reasoning channels, one proposes asking whether the request is fictional and
 one proposes asking the letter's purpose, and neither question is delivered. Two
 float a clarifying question and drop it, and seven safe completions plan to ask
 whether the user is safe. So the task with a safeguard surfaces the question no
-more than the tank task does. At matched composition, the reading no longer clearly separates the two response
+more than the tank task does. At matched composition the reading does not clearly separate the two response
 types: at 2 post-shift sentences the medians are +0.06 for fiction-writing
-assistance and +0.99 for delivered safe completions, 3 answers against 26 (p =
-0.065), and at later counts they do not differ. The frozen completions had given
-p = 0.010 at 2 sentences (Appendix B).
+assistance and +0.99 for safe completions, 3 answers against 26 (p = 0.065), and
+at later counts they do not differ.
 
-An exploratory check added after the analysis freeze (Appendix B) asks whether any
+An exploratory check asks whether any
 other layer's reading associates more strongly with behavior than the calibrated
 site's. Per-layer association curves (Fig. fig_s14_behavior_by_layer), computed
 over delivered answers, are roughly flat from mid-stack to the final layer in both
@@ -473,8 +458,8 @@ captured on one day, so the separation between pure and mixed cells cannot be a
 capture-day effect (§2.1). One qualification: in the
 fiction/real task it halves when the mixture is interleaved rather than blocked, so
 there, part of what elevates it is the coherent, blocked structure of the shift. It did not predict behavior in eight matched-composition tests at the calibrated
-site and layer, with one nominal hit, uncorrected. Those tests used the frozen
-behavior categories and were not repeated on the regenerated answers (§2.5). Other
+site and layer, with one nominal hit, uncorrected. Those tests used the categories of the superseded 256-token pass and were not
+repeated. Other
 layers are untested. The model,
 in other words, carries a persistent, systematic signal that its context is mixed: a
 direction on which pure contexts sit near zero and mixed contexts near 27% of the

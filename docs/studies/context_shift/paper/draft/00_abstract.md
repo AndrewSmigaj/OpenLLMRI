@@ -48,8 +48,6 @@ safeguard: the model lists both senses or commits silently to one. The
 suicide-letter task has a refusal safeguard, and wherever the model answers, it
 holds: 89% of the middle band's delivered answers and 95% of the real side's decline
 the letter or redirect to support. What changes toward the fiction-writing frame is
-whether an answer arrives at all. Under greedy decoding, 85 of the 204 completions
-never leave the model's reasoning channel, and on the fiction side three of four do
-not. A shorter generation budget had suggested the safeguard weakens toward the
-fiction-writing frame; the regenerated completions show that was an artifact of
-reading truncated reasoning.
+not the answer but whether one arrives. Under the greedy decoding used here, a large
+share of completions never leave the model's reasoning channel, a property of the
+decoding that sampling is expected to remove and that we have not yet tested.

@@ -1229,3 +1229,21 @@ analysis/behavior_categorization_v2.md. Plan: ~/.claude/plans/humming-finding-fr
 - Checks: trace PASS; preservation FLAG (18 frozen behavior numerals retired by
   design); prose density flag in §3 rises to 4.3 with the two-way rates,
   accepted; back-matter semicolons unchanged. Build: 46 pages, zero placeholders.
+
+## De-narration pass (6 September 2026)
+
+Andrew: the freeze is a lab discipline, not a paper structure. Applied: the
+behavior corpus is stated once in §2.5 (greedy, 2,048-token cap, categories from
+the delivered answer, loops as no answer, rates two ways; the 256-token pass noted
+as superseded in one sentence). Removed from §3.5, §4, the abstract, §5, and the
+captions: every frozen-versus-regenerated comparison, "pre-stated", "post-freeze",
+"after the analysis freeze". §3.5's matched-composition paragraph cut to one
+verdict ("one significant count of four"). Contribution 5 no longer carries the
+loop clause; the abstract's third paragraph ends on the safeguard holding, with
+one sentence on greedy loops as a decoding property. §5: greedy-decoding limit in
+one sentence; a sampled regeneration is now the first deferred item. Appendix A
+reduced to a paragraph; Appendix B's post-freeze list and the name mapping moved
+to the study README (which now carries the four corrections and the retraction).
+Tooling: tex/number_retired.md lists the superseded behavior numerals with
+reasons; number_check's preservation check skips them. Trace PASS; preservation
+PASS; 45 pages.

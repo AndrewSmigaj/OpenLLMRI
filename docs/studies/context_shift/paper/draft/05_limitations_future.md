@@ -4,11 +4,10 @@ of the previous version retained. -->
 # 5. Limitations and future work
 
 **One model, stated plainly.** Everything here is measured in one 20-billion-parameter
-mixture-of-experts model, with deterministic decoding, so the behavior rates of §3.5 are properties of the
-greedy continuation. Under greedy decoding 14 of the 108 tank outputs and 85 of the
-204 fiction/real outputs never leave the reasoning channel. Deployed decoding
-samples, and behavior under sampling is untested here; after the regeneration this
-is the study's most consequential scope limit.
+mixture-of-experts model, with greedy decoding, so the behavior rates of §3.5 are properties of the greedy
+continuation, and so are the loops that leave many completions without an answer.
+Deployed decoding samples, which breaks such loops; behavior under sampling is
+untested here.
 Three kinds of claim should be kept apart. Descriptive claims about gpt-oss-20b are
 fully established here, since this model is the population of interest. Existence
 claims about the class, that a deployed language model can dwell between
@@ -47,6 +46,9 @@ and measures what remains of the second frame. Both are designed and costed. Nei
 
 **Further deferred work,** in rough order of leverage:
 
+- Regenerate the behavior completions under sampling at the model's default
+  temperature, several draws per cell. This settles whether the loops and the
+  delivered-answer rates of §3.5 hold under the decoding the model is used with.
 - Replicate the fiction/real headline quantities at the ' write' site, where the
   framing contrast reads most strongly. The existing recordings suffice.
 - Expand the ' letter'-site families.
@@ -68,5 +70,3 @@ and measures what remains of the second frame. Both are designed and costed. Nei
   excursions are most likely there. Our clean block shifts are the tamest possible
   case.
 
-The analyses reported here were frozen before drafting. The additions made after the
-freeze are logged as such in Appendix B.

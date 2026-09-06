@@ -26,8 +26,7 @@ the date pinned a week later moved the calibrated-site reading by at most 0.02 a
 units, under one percent of the class separation (Appendix B), and where a run and
 its matched reference share a capture day even that cancels in the referencing. The fiction/real transition runs, their no-shift
 references, and their calibration set were captured on one day, and all but three of
-the tank runs on another. Appendix B lists the days for every corpus. The behavior completions were regenerated after the analysis freeze with the
-template date pinned to each cell's original day (§2.5). We capture the full residual
+the tank runs on another. Appendix B lists the days for every corpus. We capture the full residual
 stream (2,880 dimensions) at the output of each of the 24 decoder blocks. Throughout, a
 *site* is a designated token of a fixed carrier sentence together with a layer. The
 *reading* at a site is the residual stream at that token and layer, projected onto a
@@ -250,23 +249,20 @@ reference.
 resampling scene families with replacement. Where a named test appears, its clustering
 unit is stated in place.
 
-**Behavior.** Completions are categorized by manual review of the committed
-categorization tables, with a regular-expression scan as a cross-check. The model's
-chat format emits a reasoning channel before its final answer. The frozen captures
-used a 256-token generation cap, which ended inside the reasoning channel in most
-completions, so after the analysis freeze we regenerated every behavior completion
-with a 2,048-token cap and the chat template's date pinned to each cell's original
-capture day. Under greedy decoding each regenerated completion extends its frozen
-twin byte for byte, and the readings are unchanged (Appendix B). Categories are read
-from the delivered final answer. An output that never reaches one is a degenerate
-loop, categorized "no answer", and every rate in §3.5 is reported both with loops
-counted and over delivered answers only. The response the reasoning channel committed
-to before looping is recorded alongside.
+**Behavior.** Completions are decoded greedily with a 2,048-token cap and
+categorized by manual review of the committed categorization tables, with a
+regular-expression scan as a cross-check. The model's chat format emits a reasoning
+channel before its final answer, and categories are read from the delivered final
+answer. An output that never reaches one is a degenerate loop, categorized "no
+answer", and every rate in §3.5 is reported both with loops counted and over
+delivered answers only. An earlier pass with a 256-token cap, which ended inside the
+reasoning channel in most outputs, was superseded by this one; its tables and the
+comparison are in the repository record.
 
 ## 2.6 Reproducibility
 
-Every number in this paper regenerates from committed analysis scripts over frozen
-captures. A full regeneration audit reproduced all reported values, with calibration
+Every number in this paper regenerates from committed analysis scripts over the
+archived captures. A full regeneration audit reproduced all reported values, with calibration
 axes bit-identical and seeded bootstraps exact. A permanent fixture suite pushes
 synthetic data with analytically known answers through the actual pipeline functions.
 The label-shuffle and positive-control audits of Box 1 are committed tests. Corrections

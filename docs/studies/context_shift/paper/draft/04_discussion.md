@@ -44,11 +44,9 @@ per direction.
 Behavior inside this window tracks the reading. Throughout, in the tank task, the
 model never asks which reading is meant or flags the ambiguity as an obstacle. That holds in every delivered tank answer. Even so, half of the middle band's
 delivered answers surface both senses. Safeguard behavior, read from delivered
-answers, holds across the reading bands. What co-varies with the reading is whether
-an answer arrives at all: on the fiction side, three of four outputs loop inside the
-reasoning channel and never answer (§3.5). The frozen captures had suggested a
-weakening of the safeguard toward the fiction-writing frame; regeneration showed
-that to be an artifact of truncated reasoning (Appendix B).
+answers, holds across the reading bands. What co-varies with the reading is whether an answer arrives at all: on the
+fiction side, three of four outputs loop inside the reasoning channel and never
+answer (§3.5).
 
 **A trained default for unresolved cases?** What follows is a post-hoc reading of an
 asymmetry we noticed, not a designed manipulation, and training provenance is

@@ -93,9 +93,7 @@ We contribute:
 4. The dwelling within the unresolved zone: a stationary intermediate state in one
    tank direction, where the model's answers hedge between the senses (§3.4). None of the tank completions asks which sense is meant (§3.5).
 5. Behavior set beside the reading in both tasks: wherever the model answers, the
-   task with a trained safeguard stays safe across the reading bands, and under
-   greedy decoding a large share of its completions never answer at all, looping
-   inside the reasoning channel (§3.5).
+   task with a trained safeguard stays safe across the reading bands (§3.5).
 6. Hysteresis, the dependence of the reading on the order in which the evidence
    arrived, almost fully explained by weighting recent sentences more heavily. A mild
    direction-dependent recency difference is all that remains, so the metastability

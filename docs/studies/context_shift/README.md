@@ -177,8 +177,29 @@ the reading, logprob sets, and category for every completion but no completion
 text; the full-text versions live with the archived captures. Scripts that scan
 the text (`s12_r4_counts.py`, `s15_fr_frame_queries.py`) read it from the archive.
 
-## Corrections
+## Corrections and superseded analyses
 
-Values that changed during the study's audits are listed in the paper's Appendix A;
-the complete corrections log is in `findings/FINDINGS_FINAL.md`. The paper's
-revision history is `paper/draft/REVISION_LOG.md`.
+The paper's Appendix A points here. Values that changed during the study's audits,
+each with its date and the script that changed it, are in the corrections log inside
+`findings/FINDINGS_FINAL.md`; the paper's revision history is
+`paper/draft/REVISION_LOG.md`. The four corrections that changed printed values:
+
+1. The real→fictional remnant gap was first reported with an interval holding the
+   no-shift references fixed, [0.11, 0.58]; resampling the six reference runs
+   widens it to [−0.12, +0.79], so that remnant is reported as suggestive only.
+2. The tank within-stream readings were first reported as untrimmed means, which
+   heavy tails inflated; the paper reports trimmed means (+0.34 and +0.37 at ten
+   post-shift sentences, +0.52 and +0.53 at twenty).
+3. Crossing times were first summarized as a range read from mean trajectories;
+   the paper reports per-run medians (10.5 and 6.0 sentences in the tank task, 4.0
+   and 5.0 in fiction/real), with mean-trajectory crossings in the Figure 1 caption.
+4. The recency integrator's memory was first stated loosely as a range of
+   sentences; the paper reports the per-direction median decay values and the
+   evidence ages they imply.
+
+A first estimate of stickiness (+3.7, significant) used a null with γ imported from
+the transition fits and was retracted the same day; the paper reports only the
+fitted-null values. Analyses added after the analysis freeze (`s11`–`s19`) are each
+marked as post-freeze in their script docstrings, and the behavior completions of
+§3.5 come from the 2,048-token pass that superseded the 256-token pass
+(`findings/behavior_regeneration_2026-09.md`).
