@@ -1247,3 +1247,39 @@ to the study README (which now carries the four corrections and the retraction).
 Tooling: tex/number_retired.md lists the superseded behavior numerals with
 reasons; number_check's preservation check skips them. Trace PASS; preservation
 PASS; 45 pages.
+
+## Strengthening pass, Phase A (6 September 2026)
+
+Plan: ~/.claude/plans/humming-finding-frost.md (approved 6 Sept after review).
+Measured first, then written:
+
+- Reasoning channel's final commitment categorized for every cell that delivered
+  an answer (`reasoning_category`; loops keep the early reading). Result: it
+  matches the delivered answer in 119 of 119 fiction/real cells and 75 of 94 tank
+  cells; the three "flips" logged on 5 Sept were early-versus-late reasoning.
+  Fiction-writing-committed reasoning delivers fiction-writing assistance (8) or
+  loops (15), never a safe completion; it loops more often than
+  safety-committed reasoning (15 of 23 vs 70 of 181, Fisher p = 0.023). The frozen
+  50/80/91 are therefore the reasoning channel's commitment by band (final
+  reading 50/82/91), the lower bound of the safe rate; delivered answers
+  (100/89/95) are the upper bound. §3.5, §4, contribution 5, and the abstract's
+  third paragraph now state the bracket; the "artifact" framing is withdrawn.
+  The bands figure has paired panels (delivered answer / reasoning commitment).
+  §2.5 states that the reasoning channel is treated as an output, with a
+  faithfulness citation (Turpin et al. 2023; Lanham et al. 2023; Andrew to
+  confirm).
+- Dwelling decomposition (s20; criterion in the docstring before running):
+  population plateau holds (mean late slope within [−0.040, +0.024] units per
+  sentence, median late reading −0.11), but only 3 of 12 runs are individually
+  flat; §3.4 now says the stationarity is a property of the population, with
+  the bound and the per-run spread. The abstract's "stops at the midpoint and
+  stays there" is population-level and stands.
+- Whitelist restorations: "fixed in advance" on the pooled test; Appendix A
+  carries the count (nineteen at the freeze) and the kinds of things caught.
+- Naming sweep (Andrew's rule): fiction-writing frame / real-world frame in text,
+  captions, and figure legends (direction labels, side names, class-label
+  sentence); task name and ±1 class labels kept; figures regenerated.
+- C6 scope bound; B3 rival stated and refuted; D1 "references held fixed"
+  clause; E2 six nulls present with tier words. F1 table not added (optional).
+- Checks: trace PASS, preservation PASS (retired list), prose flags unchanged;
+  46 pages, zero placeholders.

@@ -44,16 +44,19 @@ per direction.
 Behavior inside this window tracks the reading. Throughout, in the tank task, the
 model never asks which reading is meant or flags the ambiguity as an obstacle. That holds in every delivered tank answer. Even so, half of the middle band's
 delivered answers surface both senses. Safeguard behavior, read from delivered
-answers, holds across the reading bands. What co-varies with the reading is whether an answer arrives at all: on the
-fiction side, three of four outputs loop inside the reasoning channel and never
-answer (§3.5).
+answers, holds across the reading bands, and read from the reasoning channel's
+commitments it falls from 91% on the real-world side to 82% in the middle band,
+with the fiction-writing side too thin to grade. The two readings differ because
+reasoning that commits to fiction-writing assistance usually loops under greedy
+decoding instead of answering (§3.5).
 
 **A trained default for unresolved cases?** What follows is a post-hoc reading of an
 asymmetry we noticed, not a designed manipulation, and training provenance is
 unobservable. Our two tasks appear to differ in whether they carry a trained default
-for unresolved cases. The covered fiction/real task behaved as though it does. In the middle reading band, 89% of its delivered answers safe-complete. In sampled chain-of-thought traces, both
-framings are weighed before the safe reply. These traces are the reasoning channel the chat format exposes. That is a
-qualitative observation, not a coded rate. We release the categorization tables and
+for unresolved cases. The covered fiction/real task behaved as though it does. In the middle reading band, 89% of its delivered answers safe-complete, and 82%
+of its reasoning channels commit to a safe completion; where the reasoning
+entertains the fiction-writing frame, the answer that follows, when one follows,
+takes it up. We release the categorization tables and
 paraphrased excerpts; raw completions and reasoning traces are available to
 researchers on request, since some contain model-generated text engaging with the
 letter request. The tank task showed no such default.
@@ -79,7 +82,7 @@ weaker than it first looked. In the fiction/real task, layers 3 to 18, the two m
 the destination side in both directions, where the tank task from aquarium to
 vehicle ends at the midpoint (§3.2). Downstream layers in the fiction/real task may
 therefore act on a more settled reading than the site we measure. But the deepest
-layer band hovers near the midpoint in the fictional-to-real direction too, the
+layer band hovers near the midpoint in the fiction-writing-to-real-world direction too, the
 direction in which safeguard behavior must appear, and did. Resolution at depth cannot carry the
 explanation alone.
 
@@ -88,7 +91,7 @@ the stack. The shallowest layers resolve the framing composition almost immediat
 and completely (§3.2), with the profile of surface-cue tracking. The minimal-pair test, which shows the reading tracks framing cues rather than
 content, was run at the calibrated site, not at shallow layers. A safeguard that reads early, from surface content and frame cues, would fire
 whenever the alarming request is present and be suppressed only by a well-established
-fictional frame. That is consistent with our behavioral data, in which the safeguard fires in nearly
+fiction-writing frame. That is consistent with our behavioral data, in which the safeguard fires in nearly
 every delivered answer. The fast, complete shallow response is specific to the
 fiction/real task. The tank task's shallow layers respond later and, in one direction,
 only partway (§3.2). That is what a trigger sculpted by safety post-training would
@@ -106,9 +109,12 @@ is future work, not a claim.
 
 **A signal behavior does not appear to use.** The mixed-context marker gives the
 sharpest form of the dissociation between what the model represents and what it does.
-The model carries a persistent, systematic signal that its context is mixed, and its
-behavior does not appear to use that signal when the mixture of frames in the context
-is held fixed, at the one site and layer tested. This is the structure reported
+The model carries a persistent, systematic signal that its context is mixed, and
+its behavior does not appear to use that signal when the mixture of frames in the
+context is held fixed, at the one site and layer tested. The reasoning channel
+shows the contrast: what it commits to is expressed whenever an answer arrives
+(§3.5). The marker, by comparison, is present and, as far as tested, not acted
+on. This is the structure reported
 in the hallucination literature, where models internally encode uncertainty or
 truthfulness that their generations do not respect [CITE: internal encoding versus
 expression]. Here it appears in transition dynamics. An internal signal correlated

@@ -38,7 +38,7 @@ assistance, while the user's real circumstances were present in the same long
 conversation. And the model offered to draft a suicide note. We do not analyze that
 case. We take from it a precise scientific question. A model processing such a
 conversation carries, in some form, internal state that tracks whether "I want to write
-a suicide letter." is framed as fictional or real. How does that internal state move as
+a suicide letter." sits in a fiction-writing frame or a real-world frame. How does that internal state move as
 the surrounding context shifts?
 
 Our two tasks also bracket a safety question: what a safeguard does while the reading
@@ -92,8 +92,11 @@ We contribute:
    strength, with the smooth integrators we tested rejected head-to-head (§3.3).
 4. The dwelling within the unresolved zone: a stationary intermediate state in one
    tank direction, where the model's answers hedge between the senses (§3.4). None of the tank completions asks which sense is meant (§3.5).
-5. Behavior set beside the reading in both tasks: wherever the model answers, the
-   task with a trained safeguard stays safe across the reading bands (§3.5).
+5. Behavior set beside the reading in both tasks, read two ways: the delivered
+   answer, where the task with a trained safeguard stays safe across the reading
+   bands, and the reasoning channel's commitment, which follows the reading toward
+   the fiction-writing frame and, under greedy decoding, loops rather than
+   answers when it does (§3.5).
 6. Hysteresis, the dependence of the reading on the order in which the evidence
    arrived, almost fully explained by weighting recent sentences more heavily. A mild
    direction-dependent recency difference is all that remains, so the metastability

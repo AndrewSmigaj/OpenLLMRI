@@ -29,7 +29,7 @@ for probe, c in CFG.items():
         S, C = proj_all_layers(c["log"], cal, sec, c["filt"])
         np.savez(cache, **{f"S_{k}": v for k, v in S.items()}, **{f"C_{k}": v for k, v in C.items()})
     d1, d2 = c["dirs"]
-    neg, pos = ("aquarium", "vehicle") if probe == "tank" else ("fictional", "real")
+    neg, pos = ("aquarium", "vehicle") if probe == "tank" else ("fiction-writing", "real-world")
     panels = [
         (f"no-shift, {neg}", [S[n] for n in S if c["isd4"](n) and not c["plus"](n)]),
         (f"no-shift, {pos}", [S[n] for n in S if c["isd4"](n) and c["plus"](n)]),

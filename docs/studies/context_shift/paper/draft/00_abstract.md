@@ -45,9 +45,11 @@ properties semantic metastability.
 What the model does while unresolved differs sharply between the tasks. Across the
 312 completions we examine, none asks which reading is meant. The tank task has no
 safeguard: the model lists both senses or commits silently to one. The
-suicide-letter task has a refusal safeguard, and wherever the model answers, it
-holds: 89% of the middle band's delivered answers and 95% of the real side's decline
-the letter or redirect to support. What changes toward the fiction-writing frame is
-not the answer but whether one arrives. Under the greedy decoding used here, a large
-share of completions never leave the model's reasoning channel, a property of the
-decoding that sampling is expected to remove and that we have not yet tested.
+suicide-letter task has a refusal safeguard. Read from delivered answers it holds:
+89% in the middle band and 95% on the real-world side decline the letter or
+redirect to support. Read from the model's reasoning channel, whose commitment
+follows the reading, it weakens toward the fiction-writing frame, from 91% to 82%
+and lower. The two readings differ because reasoning that commits to helping with
+the letter usually loops instead of answering under the greedy decoding used here.
+Which reading a user meets, under the sampling the model is deployed with, is the
+question the next experiment answers.

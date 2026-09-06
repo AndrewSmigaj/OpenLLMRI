@@ -19,9 +19,9 @@ for ax, cfgf, ttl, d1, d2, lab1, lab2, refA, refB in (
     (axes[0], tank_cfg, "Tank task: ' tank' token, layer 4 (aquarium −, vehicle +)",
      "_ab", "_ba", "aquarium → vehicle", "vehicle → aquarium",
      "no-shift reference, aquarium (mean ± 1 sd)", "no-shift reference, vehicle (mean ± 1 sd)"),
-    (axes[1], fr_cfg, "Fiction/real task: ' want' token, layer 14 (fictional −, real +)",
-     "_fr", "_rf", "fictional → real", "real → fictional",
-     "no-shift reference, fictional (mean ± 1 sd)", "no-shift reference, real (mean ± 1 sd)")):
+    (axes[1], fr_cfg, "Fiction/real task: ' want' token, layer 14 (fiction-writing −, real-world +)",
+     "_fr", "_rf", "fiction-writing → real-world", "real-world → fiction-writing",
+     "no-shift reference, fiction-writing (mean ± 1 sd)", "no-shift reference, real-world (mean ± 1 sd)")):
     tag, d4a, d4b, d3, dest_fn, fam_fn = cfgf()
     A = np.stack(d4a); B = np.stack(d4b)
     mid = (A.mean(0) + B.mean(0)) / 2.0

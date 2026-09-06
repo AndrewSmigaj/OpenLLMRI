@@ -159,5 +159,12 @@
  ],
  "gpt-oss model card": [
   "openai2025gptoss"
- ]
+ ],
+ "chain-of-thought faithfulness, e.g. Turpin et al. 2023; Lanham et al. 2023": {
+  "keys": [
+   "turpin2023",
+   "lanham2023"
+  ],
+  "pre": "e.g."
+ }
 }

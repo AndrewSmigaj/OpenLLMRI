@@ -114,12 +114,12 @@ Which scripts need the raw captures:
   `r5_geometry.py`, `r6_behavior.py`, `r6_carrier_dprime_fr.py`,
   `r6_d6_stickiness.py`, `r6_post_capture.py`, `fr_battery.py`,
   `s7_sanity_checks.py`, `s8_subspace_geometry.py`, `s9_adversarial_checks.py`,
-  `s9_figures.py`, `s10_materialized.py`, `s12_r4_counts.py` (v2 mode), `s15_fr_frame_queries.py`, `s18_regeneration_checks.py`, `s19_date_bound.py`,
+  `s9_figures.py`, `s10_materialized.py`, `s12_r4_counts.py` (v2 mode), `s15_fr_frame_queries.py`, `s18_regeneration_checks.py`, `s19_date_bound.py`, `s20_dwelling_decomposition.py`,
   `make_figures.py`, `dual_trajectory_figure.py`; `s16_capture_days.py` and
   `s17_capture_manifest.py` read only the session manifests.
 
 The analysis freeze and the additions made after it are recorded in the paper's
-Appendix B. Post-freeze scripts are `s11` through `s19`, each a logged addition
+Appendix B. Post-freeze scripts are `s11` through `s20`, each a logged addition
 computed from the frozen captures, their manifests, or the regenerated behavior
 captures (`captures/behavior_chain_v2.py`).
 
@@ -143,8 +143,8 @@ script for each claim.
 | §3.2 | Direction asymmetry and replicate carrier | `s9_figures.py` | `fig_s9_asymmetry` |
 | §3.3 | Five-model selection and synthetic calibration (Table 4) | `s7_sanity_checks.py`, tallied in `s9_figures.py` | `fig_s9_model_classes` |
 | §3.3 | Jump sentences are median-strength; within-stream readings | `s7_sanity_checks.py`, `r2_figures.py`, `s9_figures.py` | `fig_r2_within_stream`, `fig_s9_within_stream_fr` |
-| §3.4 | Dwell at the midpoint (mode track) | `r2_figures.py`, `second_pass_r2_occupancy.py` | `fig_r2_mode_track` |
-| §3.5 | Behavior by reading band; matched composition | `r6_behavior.py`, `r6_behavior_figure.py`, `s7_sanity_checks.py`, `s9_figures.py` | `r6_behavior_worksheet_*_categorized.csv`, `fig_r6_behavior_bands`, `fig_s9_behavior_matchedk` |
+| §3.4 | Dwell at the midpoint (mode track); per-run late slopes and plateau criterion | `r2_figures.py`, `second_pass_r2_occupancy.py`, `s20_dwelling_decomposition.py` | `fig_r2_mode_track`; printed |
+| §3.5 | Behavior by reading band, delivered answer and reasoning commitment; matched composition | `r6_behavior.py`, `r6_behavior_figure.py`, `s7_sanity_checks.py`, `s9_figures.py` | `r6_behavior_worksheet_*_categorized.csv`, `fig_r6_behavior_bands`, `fig_s9_behavior_matchedk` |
 | §3.5 | Zero clarification requests; channel reach; frame queries; regeneration integrity | `s12_r4_counts.py v2`, `s15_fr_frame_queries.py v2`, `s18_regeneration_checks.py` | printed counts |
 | §3.5 | Behavior association by layer | `s14_behavior_by_layer.py` | `fig_s14_behavior_by_layer` |
 | §3.6 | Hysteresis loops and fitted integrator (Table 5) | `r6_d6_stickiness.py`, `s7_sanity_checks.py` | `fig_r6_d6_loop_*` |

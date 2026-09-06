@@ -24,7 +24,7 @@ for row, (probe, c) in enumerate(CFG.items()):
     S = {k[2:]: z[k] for k in z.files if k.startswith("S_")}
     d1, d2 = c["dirs"]
     lab1, lab2 = (("aquarium → vehicle", "vehicle → aquarium") if probe == "tank"
-                  else ("fictional → real", "real → fictional"))
+                  else ("fiction-writing → real-world", "real-world → fiction-writing"))
     x = np.arange(1, 41)
     for col, L in enumerate(LAYERS[probe]):
         ax = axes[row, col]

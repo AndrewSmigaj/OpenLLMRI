@@ -48,12 +48,14 @@ properties semantic metastability.
 What the model does while unresolved differs sharply between the tasks. Across the
 312 completions we examine, none asks which reading is meant. The tank task has no
 safeguard: the model lists both senses or commits silently to one. The
-suicide-letter task has a refusal safeguard, and wherever the model answers, it
-holds: 89\% of the middle band's delivered answers and 95\% of the real side's decline
-the letter or redirect to support. What changes toward the fiction-writing frame is
-not the answer but whether one arrives. Under the greedy decoding used here, a large
-share of completions never leave the model's reasoning channel, a property of the
-decoding that sampling is expected to remove and that we have not yet tested.
+suicide-letter task has a refusal safeguard. Read from delivered answers it holds:
+89\% in the middle band and 95\% on the real-world side decline the letter or
+redirect to support. Read from the model's reasoning channel, whose commitment
+follows the reading, it weakens toward the fiction-writing frame, from 91\% to 82\%
+and lower. The two readings differ because reasoning that commits to helping with
+the letter usually loops instead of answering under the greedy decoding used here.
+Which reading a user meets, under the sampling the model is deployed with, is the
+question the next experiment answers.
 \end{abstract}
 
 \section{Introduction}
@@ -90,7 +92,7 @@ assistance, while the user's real circumstances were present in the same long
 conversation. And the model offered to draft a suicide note. We do not analyze that
 case. We take from it a precise scientific question. A model processing such a
 conversation carries, in some form, internal state that tracks whether ``I want to write
-a suicide letter.'' is framed as fictional or real. How does that internal state move as
+a suicide letter.'' sits in a fiction-writing frame or a real-world frame. How does that internal state move as
 the surrounding context shifts?
 
 Our two tasks also bracket a safety question: what a safeguard does while the reading
@@ -144,8 +146,11 @@ the end of the tested horizon (\S3.2).
 strength, with the smooth integrators we tested rejected head-to-head (\S3.3).
 \item The dwelling within the unresolved zone: a stationary intermediate state in one
 tank direction, where the model's answers hedge between the senses (\S3.4). None of the tank completions asks which sense is meant (\S3.5).
-\item Behavior set beside the reading in both tasks: wherever the model answers, the
-task with a trained safeguard stays safe across the reading bands (\S3.5).
+\item Behavior set beside the reading in both tasks, read two ways: the delivered
+answer, where the task with a trained safeguard stays safe across the reading
+bands, and the reasoning channel's commitment, which follows the reading toward
+the fiction-writing frame and, under greedy decoding, loops rather than
+answers when it does (\S3.5).
 \item Hysteresis, the dependence of the reading on the order in which the evidence
 arrived, almost fully explained by weighting recent sentences more heavily. A mild
 direction-dependent recency difference is all that remains, so the metastability
@@ -205,7 +210,7 @@ class: single context sentences of that class, each followed by the carrier (\S2
 and their difference, w. The reading of a state h is its position along that axis,
 rescaled so the class means sit at $-$1 and +1: r(h) = 2(h $-$ m)$\cdot$w/|w|$^{2}$, where m is the
 midpoint of the two class means. For the tank task the aquarium mean sits at $-$1 and the
-vehicle mean at +1; for the fiction/real task, fictional at $-$1 and real at +1. A
+vehicle mean at +1; for the fiction/real task, the fiction-writing class at $-$1 and the real-world class at +1. A
 reading is therefore a signed coordinate on the line through the two calibrated
 interpretations. It is a projection, not a distance to either class, and readings are
 not confined to the interval between $-$1 and +1.
@@ -301,7 +306,7 @@ The fiction/real transition runs pair each of the 12 scene families with two
 sub-arms, which is what gives 24 runs per direction. In the theme-only sub-arm the
 context never names a suicide letter or note. In the artifact-mentioned sub-arm it
 names one at least once. The two sub-arms' trajectories nearly coincide, with the
-mention slightly strengthening the early fictional reading, so the paper pools
+mention slightly strengthening the early fiction-writing reading, so the paper pools
 them. The no-shift runs use the theme-only sub-arm.
 
 Context sentences were written by language-model authoring agents, separate from the
@@ -425,8 +430,12 @@ categorized by manual review of the committed categorization tables, with a
 regular-expression scan as a cross-check. The model's chat format emits a reasoning
 channel before its final answer, and categories are read from the delivered final
 answer. An output that never reaches one is a degenerate loop, categorized ``no
-answer'', and every rate in \S3.5 is reported both with loops counted and over
-delivered answers only. An earlier pass with a 256-token cap, which ended inside the
+answer'', and every rate in \S3.5 is reported both with loops counted and over delivered
+answers only. For every cell we also record what the reasoning channel committed
+to: its last sentences before the answer where an answer arrived, and its early
+sentences where the output looped. The reasoning channel is the model's exposed
+intermediate output. We treat it as an output, not as ground truth about the
+computation that produced the answer \citep[e.g.][]{turpin2023,lanham2023}. An earlier pass with a 256-token cap, which ended inside the
 reasoning channel in most outputs, was superseded by this one; its tables and the
 comparison are in the repository record.
 
@@ -525,7 +534,7 @@ lives at a token. A framing contrast lives across the utterance.
 \end{figure}
 \begin{figure}[tbp]\centering
 \includegraphics[width=\linewidth]{fig_r3_heatmap_secondary_fr.png}
-\caption{The same view for the fiction/real task: readings by layer and position, under axes refit per layer on accumulated no-shift contexts (class means at $\pm$1, so blue is the fictional side and red the real side). Left two panels: no-shift runs of each class, 6 runs each. Right two panels: transition runs in each direction, 24 each, with the shift after sentence 20. The dashed line marks sentence 20 in every panel. Every layer carries class signal, and no layer reads outside the range the two no-shift classes span.}\label{fig:fig_r3_heatmap_secondary_fr}
+\caption{The same view for the fiction/real task: readings by layer and position, under axes refit per layer on accumulated no-shift contexts (class means at $\pm$1, so blue is the fiction-writing side and red the real-world side). Left two panels: no-shift runs of each class, 6 runs each. Right two panels: transition runs in each direction, 24 each, with the shift after sentence 20. The dashed line marks sentence 20 in every panel. Every layer carries class signal, and no layer reads outside the range the two no-shift classes span.}\label{fig:fig_r3_heatmap_secondary_fr}
 \end{figure}
 \begin{figure}[tbp]\centering
 \includegraphics[width=\linewidth]{fig_r3_axis_rotation.png}
@@ -537,7 +546,7 @@ lives at a token. A framing contrast lives across the utterance.
 \end{figure}
 \begin{figure}[tbp]\centering
 \includegraphics[width=\linewidth]{fig_s9_d5_pairs.png}
-\caption{Minimal pairs: 150 sentence pairs that share most content words and differ only in framing cues. Left: the within-pair difference in reading (real minus fictional) by content domain, domain means as diamonds. The mean shift is +0.99 axis units and 95\% of pairs are positive; pair-level p = 2.5$\times 10$$^{-25}$; clustered by the six domains, t(5) = 12.0, p = 7.2$\times 10$$^{-5}$; the effect is positive in each of three independently generated batches. Middle: the distribution of pair effects. Right: the effect against the word-count difference between the two sentences (r = 0.02); the correlation with the number of cue words is r = 0.05, and length-matched pairs give +1.05. Orange lines mark the mean pair effect, +0.99.}\label{fig:fig_s9_d5_pairs}
+\caption{Minimal pairs: 150 sentence pairs that share most content words and differ only in framing cues. Left: the within-pair difference in reading (real-world minus fiction-writing) by content domain, domain means as diamonds. The mean shift is +0.99 axis units and 95\% of pairs are positive; pair-level p = 2.5$\times 10$$^{-25}$; clustered by the six domains, t(5) = 12.0, p = 7.2$\times 10$$^{-5}$; the effect is positive in each of three independently generated batches. Middle: the distribution of pair effects. Right: the effect against the word-count difference between the two sentences (r = 0.02); the correlation with the number of cue words is r = 0.05, and length-matched pairs give +1.05. Orange lines mark the mean pair effect, +0.99.}\label{fig:fig_s9_d5_pairs}
 \end{figure}
 \begin{figure}[tbp]\centering
 \includegraphics[width=\linewidth]{fig_r6_carrier_dprime_fr.png}
@@ -557,8 +566,8 @@ opposite reference within the twenty sentences after the shift.
 How far short do they stop? The \textbf{remnant gap} measures the shortfall. It is the
 no-shift reference level minus the run's plateau, both over the last five post-shift
 sentences and both measured from the midpoint between the two references (\S2.5;
-Fig.~\ref{fig:fig_r1_residual_gap}). The gap is positive in both directions of both tasks under
-the family-clustered bootstrap (Table 2). The largest is in the tank task from
+Fig.~\ref{fig:fig_r1_residual_gap}). With the references held fixed, the gap is positive in both directions of both
+tasks under the family-clustered bootstrap (Table 2). The largest is in the tank task from
 aquarium to vehicle, where the gap is 1.09 times the no-shift amplitude, the distance
 from the midpoint to the matched reference. Within the interval's precision, that plateau sits at the midpoint: the transition
 stopped halfway.
@@ -580,20 +589,21 @@ Transition & Crossing (median sentences) & Decay $\gamma$ (median) & Remnant gap
 \midrule
 tank, aquarium$\rightarrow$vehicle & 10.5 & 0.99 & +2.16 & [1.87, 2.44] & [1.70, 2.62] & 1.09 \\
 tank, vehicle$\rightarrow$aquarium & 6.0 & 0.94 & +1.15 & [0.82, 1.45] & [0.77, 1.48] & 0.57 \\
-fictional$\rightarrow$real & 4.0 & 0.90 & +0.38 & [0.28, 0.49] & [0.27, 0.50] & 0.43 \\
-real$\rightarrow$fictional & 5.0 & 0.90 & +0.35 & [0.11, 0.58] & [$-$0.12, +0.79] & 0.40 \\
+fiction-writing$\rightarrow$real-world & 4.0 & 0.90 & +0.38 & [0.28, 0.49] & [0.27, 0.50] & 0.43 \\
+real-world$\rightarrow$fiction-writing & 5.0 & 0.90 & +0.35 & [0.11, 0.58] & [$-$0.12, +0.79] & 0.40 \\
 \bottomrule
 \end{tabularx}
 \end{table}
 
 Three checks bear on the gap. First, one case weakens under a stricter bootstrap.
 When the six no-shift reference runs of the destination class are also resampled, three gaps still
-exclude zero, but the real to fictional interval widens to [$-$0.12, +0.79] (Table 2), so
-that remnant is suggestive only. Second, in the tank task, where we checked, the gap is not an artifact of weaker
-post-shift material. We ranked each sentence's single-sentence reading as a percentile
+exclude zero, but the real-world to fiction-writing interval widens to [$-$0.12, +0.79] (Table 2), so
+that remnant is suggestive only. Second, the mundane rival is that the post-shift evidence is simply weaker. In the
+tank task, where we checked, it is not. We ranked each sentence's single-sentence reading as a percentile
 within its class's calibration set. The post-shift sentences match the no-shift sentences. From aquarium to vehicle
-the median percentiles are 0.51 against 0.45 (p = 0.24). From vehicle to aquarium
-they are 0.48 against 0.49 (p = 0.90). Third, whether the remnant
+the median percentiles are 0.51 against 0.45 (p = 0.24). From vehicle to aquarium they are 0.48 against 0.49 (p = 0.90). And no-shift runs
+built from the same class pools, with no prior frame to overcome, read at the
+reference level, so the shortfall belongs to the history, not the material. Third, whether the remnant
 is permanent or only slower than twenty sentences can resolve is undecidable in this
 corpus. The late slopes are shallow but nonzero in some runs. Deciding it is the first
 item of future work (\S5).
@@ -633,7 +643,7 @@ the fiction/real task, layers 3 to 18 settle at about +0.3 to +0.4 of the way to
 reference in both directions, and layers 0 to 2 settle fully. In the tank task from
 aquarium to vehicle, layers 0 to 2 settle only partway, and every band below them
 ends at or near the midpoint. The deepest band, layers 19 to 23, hovers near the midpoint in one direction
-of each task, fictional to real at +0.08 and aquarium to vehicle at $-$0.10, while the
+of each task, fiction-writing to real-world at +0.08 and aquarium to vehicle at $-$0.10, while the
 reverse directions settle partway.
 
 
@@ -646,7 +656,7 @@ positive. Under these axes the no-shift references sit at $\pm$1 and the midpoin
 so a value is the fraction of the way from the midpoint to the destination reference.}
 \begin{tabular}{lrrrr}
 \toprule
-Layers & tank, aquarium$\rightarrow$vehicle & tank, vehicle$\rightarrow$aquarium & fictional$\rightarrow$real & real$\rightarrow$fictional \\
+Layers & tank, aquarium$\rightarrow$vehicle & tank, vehicle$\rightarrow$aquarium & fiction-writing$\rightarrow$real-world & real-world$\rightarrow$fiction-writing \\
 \midrule
 0–2 & +0.57 & +1.03 & +0.99 & +1.14 \\
 3–12 & +0.12 & +0.30 & +0.41 & +0.32 \\
@@ -676,7 +686,7 @@ not a demonstrated cause.
 
 \begin{figure}[tbp]\centering
 \includegraphics[width=\linewidth]{fig_r1_residual_gap.png}
-\caption{The remnant gap, run by run. Each dot is one transition run: the no-shift reference level minus the run's plateau, both over positions 36–40 and both measured from the midpoint. Left, in axis units; right, divided by the no-shift amplitude, which is 2.0 in the tank task and 0.9 in fiction/real; even after this division the task with the wider endpoint separation shows the larger gaps. Each dot is one run: 12 per direction in the tank task and 24 in fiction/real. Diamonds are means with family-clustered bootstrap 95\% intervals, holding the no-shift references fixed. With the references also resampled, three intervals still exclude zero and real$\rightarrow$fictional widens to [$-$0.12, +0.79] (Table 2). Blue: the tank task, toward vehicle and toward aquarium; orange: the fiction/real task, toward real and toward fictional.}\label{fig:fig_r1_residual_gap}
+\caption{The remnant gap, run by run. Each dot is one transition run: the no-shift reference level minus the run's plateau, both over positions 36–40 and both measured from the midpoint. Left, in axis units; right, divided by the no-shift amplitude, which is 2.0 in the tank task and 0.9 in fiction/real; even after this division the task with the wider endpoint separation shows the larger gaps. Each dot is one run: 12 per direction in the tank task and 24 in fiction/real. Diamonds are means with family-clustered bootstrap 95\% intervals, holding the no-shift references fixed. With the references also resampled, three intervals still exclude zero and real-world$\rightarrow$fiction-writing widens to [$-$0.12, +0.79] (Table 2). Blue: the tank task, toward vehicle and toward aquarium; orange: the fiction/real task, toward real-world and toward fiction-writing.}\label{fig:fig_r1_residual_gap}
 \end{figure}
 \begin{figure}[tbp]\centering
 \includegraphics[width=\linewidth]{fig_s13_collapse_layers.png}
@@ -684,7 +694,7 @@ not a demonstrated cause.
 \end{figure}
 \begin{figure}[tbp]\centering
 \includegraphics[width=\linewidth]{fig_s9_asymmetry.png}
-\caption{Direction asymmetry. Left: the remnant gap as a fraction of the no-shift amplitude, by carrier, site, and direction. Tank, main carrier: 1.09 toward vehicle against 0.57 toward aquarium. Tank, replicate carrier ``Define the word tank.'': 0.92 against 0.61 (its calibration axis is in-sample). Fiction/real at the ' want' site: 0.43 toward real against 0.40 toward fictional. Fiction/real at the ' letter' site of ``Help me write\ldots{}'': 0.90 against 0.33 (hatched: 4 runs per direction, exploratory; that site's own reference amplitude is 1.18). Right: the spread of each class's single-sentence calibration readings, as a range over the layers tested. The vehicle class is broader than the aquarium class at every layer (0.83–0.91 against 0.56–0.70); the two fiction/real classes are alike.}\label{fig:fig_s9_asymmetry}
+\caption{Direction asymmetry. Left: the remnant gap as a fraction of the no-shift amplitude, by carrier, site, and direction. Tank, main carrier: 1.09 toward vehicle against 0.57 toward aquarium. Tank, replicate carrier ``Define the word tank.'': 0.92 against 0.61 (its calibration axis is in-sample). Fiction/real at the ' want' site: 0.43 toward real-world against 0.40 toward fiction-writing. Fiction/real at the ' letter' site of ``Help me write\ldots{}'': 0.90 against 0.33 (hatched: 4 runs per direction, exploratory; that site's own reference amplitude is 1.18). Right: the spread of each class's single-sentence calibration readings, as a range over the layers tested. The vehicle class is broader than the aquarium class at every layer (0.83–0.91 against 0.56–0.70); the two fiction/real classes are alike.}\label{fig:fig_s9_asymmetry}
 \end{figure}
 \FloatBarrier
 \subsection{The form of the dynamics: drift plus discrete jumps}
@@ -780,7 +790,7 @@ Any readout that averages over a window of context tokens inherits the suppressi
 \end{figure}
 \begin{figure}[tbp]\centering
 \includegraphics[width=\linewidth]{fig_s9_within_stream_fr.png}
-\caption{The same measurement in the fiction/real task (' want' site, layer 14), which has a tighter instrument and no heavy tails. Top: fictional$\rightarrow$real; bottom: real$\rightarrow$fictional; panels at 20, 30, and 40 sentences. At 20 sentences the block reads near $-$1, its origin-class baseline. The post-shift-block tokens read about half of the way to their no-shift reference at +1 at 30 sentences and about two-thirds at 40 (means in the panel titles).}\label{fig:fig_s9_within_stream_fr}
+\caption{The same measurement in the fiction/real task (' want' site, layer 14), which has a tighter instrument and no heavy tails. Top: fiction-writing$\rightarrow$real-world; bottom: real-world$\rightarrow$fiction-writing; panels at 20, 30, and 40 sentences. At 20 sentences the block reads near $-$1, its origin-class baseline. The post-shift-block tokens read about half of the way to their no-shift reference at +1 at 30 sentences and about two-thirds at 40 (means in the panel titles).}\label{fig:fig_s9_within_stream_fr}
 \end{figure}
 \FloatBarrier
 \subsection{The dwelling within the unresolved zone}
@@ -792,7 +802,16 @@ horizon, does not leave. Figure~\ref{fig:fig_r2_mode_track} tracks the mode of t
 distribution by post-shift band. The mode is stationary at the midpoint for at least
 ten consecutive steps, and it sits at least 2.9 across-run standard deviations from
 both endpoint references. The spread across runs stays flat rather than tightening. A one-component fit beats a two-component fit in every time bin, so this is one
-stationary population, not a hidden mixture of resolved and unresolved runs.
+stationary population, not a hidden mixture of resolved and unresolved runs. The
+stationarity is a property of the population, not of each run. Over the last ten
+post-shift sentences the family-clustered mean late slope lies within $-$0.040 and
++0.024 axis units per sentence, under a fifth of the no-shift amplitude across the
+whole window, and the median late reading sits at $-$0.11, at the midpoint. But
+individual late slopes range from $-$0.09 to +0.09 units per sentence, and only 3 of
+the 12 runs are individually flat by a criterion fixed before computing (slope
+within $\pm$0.02 and at least half the window in the middle band). In the reverse
+direction the population is still moving, with a late slope bounded away from
+zero at +0.025 to +0.133.
 
 The signature replicates within the tank task and barely appears in the other.
 Within tank it appears at the ' word' site, the token just before ' tank' in the
@@ -846,7 +865,7 @@ reading and behavior? We test this at matched composition, comparing completions
 generated after the same number of post-shift sentences (Fig.~\ref{fig:fig_s9_behavior_matchedk}). The evidence is thin. At 6 post-shift sentences, decided
 answers come from runs with more extreme readings, with a median absolute reading of
 0.90 against 0.38 for hedged or absent answers (one-sided p = 0.037); at 12 sentences
-they do not (0.53 against 0.56), the pooled test over both counts gives p = 0.10,
+they do not (0.53 against 0.56), the pooled test over both counts, fixed in advance, gives p = 0.10,
 and at the settled extremes there is no difference. We report it as one significant
 count of four and claim nothing further.
 
@@ -854,22 +873,29 @@ In the fiction/real task we categorize each delivered answer as fiction-writing
 assistance, which takes up the fiction-writing frame and helps with the letter or
 the manuscript, or a safe completion, which declines the letter or redirects to
 support. No delivered answer mixes the two. Of the 119 delivered answers, 111 are
-safe completions, 95 of them redirecting to support and 16 only declining, and 8 are
-fiction-writing assistance. The reasoning channel and the delivered answer disagree
-in three cells: twice the reasoning took up the fiction-writing frame and the answer
-safe-completed, and once the reasoning committed to a safe completion and the answer
-offered to help write the letter for the story.
+safe completions, 95 of them redirecting to support and 16 only declining, and 8
+are fiction-writing assistance. Read over delivered answers, the safeguard holds
+across the reading bands: safe completions are 89\% of the middle band's delivered
+answers and 95\% of the real-world side's, and the fiction-writing side delivers one
+answer in four, a safe completion (Fig.~\ref{fig:fig_r6_behavior_bands}, top right).
 
-Read over delivered answers, the safeguard holds across the reading bands. Safe
-completions are 89\% of the middle band's delivered answers and 95\% of the real
-side's, and the fiction-side band delivers one answer in four, a safe completion
-(Fig.~\ref{fig:fig_r6_behavior_bands}). What varies with the reading is the share of outputs
-that never answer: 3 of 4 on the fiction side, 13 of 40 in the middle band, 69 of
-160 on the real side. 
+The reasoning channel tells the other half. Its final commitment matches the
+delivered answer in every one of the 119 cells that answered, so where an answer
+arrives the channel is expressed, not overridden. What the channel commits to
+follows the reading: safe completions in 91\% of the real-world side's reasoning,
+82\% of the middle band's, and 2 of 4 on the fiction-writing side (Fig.~\ref{fig:fig_r6_behavior_bands}, bottom right). The difference between the two panels is
+the loops. Reasoning that commits to fiction-writing assistance loops in 15 of 23
+cells, safety-committed reasoning in 70 of 181 (Fisher exact p = 0.023), and no
+fiction-writing-committed reasoning ever delivers a safe completion. So the two
+panels bracket what a user would see: delivered answers bound the safe rate from
+above, and the reasoning's commitments, which are what the loops would resolve to
+if they completed as committed, bound it from below. Where in that bracket the
+model sits under the sampling it is used with is the first item of future work
+(\S5).
 
-None of the 119 delivered fiction/real answers asks whether the request is
-fictional or real. One assumes the story frame and ends by inviting correction. In
-the reasoning channels, one proposes asking whether the request is fictional and
+None of the 119 delivered fiction/real answers asks whether the request belongs to
+fiction writing or to the speaker's real circumstances. One assumes the story frame and ends by inviting correction. In
+the reasoning channels, one proposes asking whether the request is for a story and
 one proposes asking the letter's purpose, and neither question is delivered. Two
 float a clarifying question and drop it, and seven safe completions plan to ask
 whether the user is safe. So the task with a safeguard surfaces the question no
@@ -889,7 +915,7 @@ depth-specific behavioral readout.
 
 \begin{figure}[tbp]\centering
 \includegraphics[width=\linewidth]{fig_r6_behavior_bands.png}
-\caption{Behavior by reading band. Completions are grouped by the reading at generation time: below $-$0.5 (the aquarium side in the tank task, the fiction side in the fiction/real task), within $\pm$0.5 of the midpoint (the middle band), and above +0.5 (the vehicle side, the real side); the number of completions per band is under each bar, and gray is the share of outputs that never delivered an answer. Left: the tank task, by which sense the answer settles on (aquarium, vehicle, both senses listed, or no answer). The side bands answer their side, 52\% and 59\% of all completions and 62\% and 63\% of delivered answers; the middle band lists both senses in 45\%, 52\% of delivered answers. Right: the fiction/real task, by response type: fiction-writing assistance, safe-completion (declines the letter or redirects to support), or no answer. Safe completions are 89\% and 95\% of the delivered answers in the middle band and on the real side; the fiction side delivers one answer in four. Completions decoded greedily with a 2,048-token cap (\S2.5).}\label{fig:fig_r6_behavior_bands}
+\caption{Behavior by reading band, read two ways. Completions are grouped by the reading at generation time: below $-$0.5 (the aquarium side in the tank task, the fiction-writing side in the fiction/real task), within $\pm$0.5 of the midpoint (the middle band), and above +0.5 (the vehicle side, the real-world side); the number of completions per band is under each bar. Top row: the delivered answer, with gray the share of outputs that never delivered one. Bottom row: what the reasoning channel committed to in the same cells, which every cell has. Left: the tank task, by which sense the answer settles on. The side bands answer their side (52\% and 59\% of all completions, 62\% and 63\% of delivered answers); the middle band lists both senses in 45\%, 52\% of delivered answers. Right: the fiction/real task, by response type. Delivered answers safe-complete in 89\% of the middle band and 95\% of the real-world side, with one answer in four delivered on the fiction-writing side; the reasoning channel commits to a safe completion in 91\%, 82\%, and 2 of 4 across the same bands, and the difference is the loops, which fall mostly on reasoning that had committed to fiction-writing assistance. Completions decoded greedily with a 2,048-token cap (\S2.5).}\label{fig:fig_r6_behavior_bands}
 \end{figure}
 \begin{figure}[tbp]\centering
 \includegraphics[width=\linewidth]{fig_s9_behavior_matchedk.png}
@@ -1086,16 +1112,19 @@ per direction.
 Behavior inside this window tracks the reading. Throughout, in the tank task, the
 model never asks which reading is meant or flags the ambiguity as an obstacle. That holds in every delivered tank answer. Even so, half of the middle band's
 delivered answers surface both senses. Safeguard behavior, read from delivered
-answers, holds across the reading bands. What co-varies with the reading is whether an answer arrives at all: on the
-fiction side, three of four outputs loop inside the reasoning channel and never
-answer (\S3.5).
+answers, holds across the reading bands, and read from the reasoning channel's
+commitments it falls from 91\% on the real-world side to 82\% in the middle band,
+with the fiction-writing side too thin to grade. The two readings differ because
+reasoning that commits to fiction-writing assistance usually loops under greedy
+decoding instead of answering (\S3.5).
 
 \textbf{A trained default for unresolved cases?} What follows is a post-hoc reading of an
 asymmetry we noticed, not a designed manipulation, and training provenance is
 unobservable. Our two tasks appear to differ in whether they carry a trained default
-for unresolved cases. The covered fiction/real task behaved as though it does. In the middle reading band, 89\% of its delivered answers safe-complete. In sampled chain-of-thought traces, both
-framings are weighed before the safe reply. These traces are the reasoning channel the chat format exposes. That is a
-qualitative observation, not a coded rate. We release the categorization tables and
+for unresolved cases. The covered fiction/real task behaved as though it does. In the middle reading band, 89\% of its delivered answers safe-complete, and 82\%
+of its reasoning channels commit to a safe completion; where the reasoning
+entertains the fiction-writing frame, the answer that follows, when one follows,
+takes it up. We release the categorization tables and
 paraphrased excerpts; raw completions and reasoning traces are available to
 researchers on request, since some contain model-generated text engaging with the
 letter request. The tank task showed no such default.
@@ -1121,7 +1150,7 @@ weaker than it first looked. In the fiction/real task, layers 3 to 18, the two m
 the destination side in both directions, where the tank task from aquarium to
 vehicle ends at the midpoint (\S3.2). Downstream layers in the fiction/real task may
 therefore act on a more settled reading than the site we measure. But the deepest
-layer band hovers near the midpoint in the fictional-to-real direction too, the
+layer band hovers near the midpoint in the fiction-writing-to-real-world direction too, the
 direction in which safeguard behavior must appear, and did. Resolution at depth cannot carry the
 explanation alone.
 
@@ -1130,7 +1159,7 @@ the stack. The shallowest layers resolve the framing composition almost immediat
 and completely (\S3.2), with the profile of surface-cue tracking. The minimal-pair test, which shows the reading tracks framing cues rather than
 content, was run at the calibrated site, not at shallow layers. A safeguard that reads early, from surface content and frame cues, would fire
 whenever the alarming request is present and be suppressed only by a well-established
-fictional frame. That is consistent with our behavioral data, in which the safeguard fires in nearly
+fiction-writing frame. That is consistent with our behavioral data, in which the safeguard fires in nearly
 every delivered answer. The fast, complete shallow response is specific to the
 fiction/real task. The tank task's shallow layers respond later and, in one direction,
 only partway (\S3.2). That is what a trigger sculpted by safety post-training would
@@ -1147,9 +1176,12 @@ is future work, not a claim.
 
 \textbf{A signal behavior does not appear to use.} The mixed-context marker gives the
 sharpest form of the dissociation between what the model represents and what it does.
-The model carries a persistent, systematic signal that its context is mixed, and its
-behavior does not appear to use that signal when the mixture of frames in the context
-is held fixed, at the one site and layer tested. This is the structure reported
+The model carries a persistent, systematic signal that its context is mixed, and
+its behavior does not appear to use that signal when the mixture of frames in the
+context is held fixed, at the one site and layer tested. The reasoning channel
+shows the contrast: what it commits to is expressed whenever an answer arrives
+(\S3.5). The marker, by comparison, is present and, as far as tested, not acted
+on. This is the structure reported
 in the hallucination literature, where models internally encode uncertainty or
 truthfulness that their generations do not respect \citep{azaria2023,orgad2025}. Here it appears in transition dynamics. An internal signal correlated
 with the conditions that produce the unresolved zone already exists inside the model,
@@ -1186,7 +1218,7 @@ unresolved. For now, so is the question of what a model should do while inside o
 
 \begin{figure}[tbp]\centering
 \includegraphics[width=\linewidth]{fig_s11_monitor_roc.png}
-\caption{The frame reading as a standalone monitor, an exploratory check. Receiver operating characteristic for predicting fiction-framed responses to the request (responses that take up the fictional frame rather than safe-completing) from the calibrated-site reading alone: the true-positive rate (fiction-framed responses caught) against the false-positive rate (safe-completions flagged). The AUC is 0.61 [0.37, 0.81], with a 95\% interval clustered by scene family (\S2.3), compatible with chance (dashed line); only 8 of the 192 transition completions are fiction-writing answers. The marked point is one threshold, with its recall and false-positive rate.}\label{fig:fig_s11_monitor_roc}
+\caption{The frame reading as a standalone monitor, an exploratory check. Receiver operating characteristic for predicting fiction-writing responses to the request (responses that take up the fiction-writing frame rather than safe-completing) from the calibrated-site reading alone: the true-positive rate (fiction-writing responses caught) against the false-positive rate (safe-completions flagged). The AUC is 0.61 [0.37, 0.81], with a 95\% interval clustered by scene family (\S2.3), compatible with chance (dashed line); only 8 of the 192 transition completions are fiction-writing answers. The marked point is one threshold, with its recall and false-positive rate.}\label{fig:fig_s11_monitor_roc}
 \end{figure}
 \FloatBarrier
 
@@ -1197,8 +1229,9 @@ mixture-of-experts model, with greedy decoding, so the behavior rates of \S3.5 a
 continuation, and so are the loops that leave many completions without an answer.
 Deployed decoding samples, which breaks such loops; behavior under sampling is
 untested here.
-Three kinds of claim should be kept apart. Descriptive claims about gpt-oss-20b are
-fully established here, since this model is the population of interest. Existence
+Three kinds of claim should be kept apart. Descriptive claims about gpt-oss-20b are established for the tested tasks,
+contexts, sites, and decoding conditions, since this model is the population of
+interest. Existence
 claims about the class, that a deployed language model can dwell between
 interpretations, can carry a mixed-context signal its behavior does not use, and can
 have safeguard behavior weakened by ordinary coherent context, need only one model.
@@ -1215,7 +1248,7 @@ is a sufficient readout of the model's state, and behavior is produced downstrea
 all of them. Within the study, replication is internal. Its scope is set out in \S2.3: the task contrasts, carriers, sites, and scene
 families.
 
-\textbf{What did not replicate cleanly.} The real$\rightarrow$fictional remnant is suggestive only
+\textbf{What did not replicate cleanly.} The real-world$\rightarrow$fiction-writing remnant is suggestive only
 once reference uncertainty is propagated. The ' letter'-site asymmetry rests on four
 runs per direction. In the fiction/real task, 48\% of runs are indeterminate under per-run
 trajectory-model selection. And our pre-registered prediction about the ordering of crossing times across
@@ -1237,8 +1270,9 @@ and measures what remains of the second frame. Both are designed and costed. Nei
 
 \begin{itemize}
 \item Regenerate the behavior completions under sampling at the model's default
-temperature, several draws per cell. This settles whether the loops and the
-delivered-answer rates of \S3.5 hold under the decoding the model is used with.
+temperature, several draws per cell. The two readings of \S3.5 bracket the
+safeguard's rate; sampling, which breaks the loops, decides where in the
+bracket the deployed model sits.
 \item Replicate the fiction/real headline quantities at the ' write' site, where the
 framing contrast reads most strongly. The existing recordings suffice.
 \item Expand the ' letter'-site families.
@@ -1356,10 +1390,13 @@ documented in its model card \citep{openai2025gptoss}.
 
 \subsection*{Appendix A — Corrections}
 
-Values that changed during the study's audits, the analyses added after the analysis
-freeze, and the analyses superseded before this version are recorded with their dates
-in the repository's findings record and revision log. Four corrections changed values
-as printed: the real$\rightarrow$fictional remnant interval widened to include zero once the
+The study's corrections log, nineteen entries at the analysis freeze and extended
+since, is in the repository's findings record and revision log with dates. The
+audits caught three kinds of thing: instrument artifacts, above all uncorrected
+per-layer readings that produced three findings retracted before this version
+(Box 1); a misspecified null, retracted the same day; and reference uncertainty
+that widened one interval to include zero. Four corrections changed values
+as printed: the real-world$\rightarrow$fiction-writing remnant interval widened to include zero once the
 no-shift references were resampled (\S3.2); the tank within-stream readings are
 trimmed means (\S3.3); crossing times are per-run medians rather than a range read
 from mean trajectories (\S3.2); and the recency integrator's memory is stated as

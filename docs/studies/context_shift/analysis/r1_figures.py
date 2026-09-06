@@ -90,7 +90,7 @@ for ax, col, ttl in ((axs[0], "gap", "remnant gap (axis units)"),
                     fmt="D", color=INK, ms=5, capsize=4, lw=1.4, zorder=3)
     ax.axhline(0, color=MUT, lw=0.8, ls="--")
     names = {("tank L4", "→+"): "tank\n→ vehicle", ("tank L4", "→−"): "tank\n→ aquarium",
-             ("fr S1 L14", "→+"): "fiction/real\n→ real", ("fr S1 L14", "→−"): "fiction/real\n→ fictional"}
+             ("fr S1 L14", "→+"): "fiction/real\n→ real-world", ("fr S1 L14", "→−"): "fiction/real\n→ fiction-writing"}
     ax.set_xticks(range(4)); ax.set_xticklabels([names[(p, d)] for p, d in cells], fontsize=8)
     ax.set_title(ttl, fontsize=9.5, color=INK)
     style(ax)
@@ -98,7 +98,7 @@ fig.suptitle("The remnant gap: the plateau falls short of the matched no-shift l
              fontsize=10.5, color=INK)
 fig.text(0.01, 0.005, "gap = no-shift destination level (positions 36–40, midpoint-referenced) − run plateau (post-shift sentences 16–20).\n"
          "Intervals hold the no-shift references fixed; with reference uncertainty propagated, "
-         "real→fictional widens to [−0.12,+0.79] and no longer excludes zero; the other three stand.",
+         "real-world→fiction-writing widens to [−0.12,+0.79] and no longer excludes zero; the other three stand.",
          fontsize=7, color=MUT)
 fig.tight_layout(rect=[0, 0.03, 1, 0.94])
 fig.savefig(FIG / "fig_r1_residual_gap.png", dpi=150)

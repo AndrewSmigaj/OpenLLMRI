@@ -36,7 +36,7 @@ for i, d in enumerate(doms):
     axs[0].scatter([i], [v.mean()], marker="D", s=45, color=INK, zorder=5)
 axs[0].axhline(0, color=MUT, lw=0.9, ls="--")
 axs[0].set_xticks(range(len(doms))); axs[0].set_xticklabels([d.replace("_", " ") for d in doms], fontsize=7, rotation=20)
-axs[0].set_ylabel("within-pair reading diff (real − fictional)", fontsize=8.5, color=INK)
+axs[0].set_ylabel("within-pair reading diff (real-world − fiction-writing)", fontsize=8.5, color=INK)
 axs[0].set_title(f"content held, cue varied: +{piv['diff'].mean():.2f} mean,\n"
                  f"{(piv['diff']>0).mean():.0%} of 150 pairs > 0, p=2.5e-25", fontsize=9, color=INK)
 axs[1].hist(piv["diff"], bins=30, color=BLUE, alpha=0.85)
@@ -45,7 +45,7 @@ axs[1].set_title("distribution of pair effects", fontsize=9, color=INK)
 axs[1].set_xlabel("pair effect (axis units)", fontsize=8.5, color=MUT); axs[1].set_ylabel("pairs", fontsize=8.5, color=INK)
 axs[2].scatter(piv.len_diff, piv["diff"], s=10, color=BLUE, alpha=0.5)
 axs[2].axhline(piv["diff"].mean(), color=ORANGE, lw=1.2)
-axs[2].set_xlabel("word-count difference (fictional − real)", fontsize=8.5, color=MUT)
+axs[2].set_xlabel("word-count difference (fiction-writing − real-world)", fontsize=8.5, color=MUT)
 axs[2].set_ylabel("pair effect (axis units)", fontsize=8.5, color=INK)
 axs[2].set_title("length confound: r = 0.02\n(cue-dose r = 0.05)", fontsize=9, color=INK)
 for a in axs: style(a)
@@ -123,7 +123,7 @@ for j, ck in enumerate(("ck20", "ck30", "ck40")):
         for x0 in (-1, +1): ax.axvline(x0, color=INK, lw=0.9, ls="--")
         ax.axvline(float(np.mean(vals)), color=AQUA, lw=1.6)
         ckn = {"ck20": "at 20 sentences", "ck30": "at 30 sentences (10 post-shift)", "ck40": "at 40 sentences (20 post-shift)"}[ck]
-        dirn = {"fr": "fictional → real", "rf": "real → fictional"}[a_]
+        dirn = {"fr": "fiction-writing → real-world", "rf": "real-world → fiction-writing"}[a_]
         ax.set_title(f"{ckn}, {dirn}: mean {np.mean(vals):+.2f}", fontsize=8.5, color=INK)
         style(ax)
 axes[1, 1].set_xlabel("per-token reading (−1 = mean of the same tokens in origin-class no-shift runs, +1 = mean in destination-class runs)", fontsize=8.5, color=MUT)
@@ -171,7 +171,7 @@ for i, k in enumerate(("2", "6", "12", "20")):
         if len(v): axs[1].plot([i + off - 0.1, i + off + 0.1], [v.median()] * 2, color=INK, lw=1.6)
 axs[1].set_xticks(range(4)); axs[1].set_xticklabels([f"after {k}" for k in (2, 6, 12, 20)], fontsize=8.5)
 axs[1].set_xlabel("post-shift sentences", fontsize=8.5, color=MUT)
-axs[1].set_ylabel("reading (fictional −, real +)", fontsize=8.5, color=INK)
+axs[1].set_ylabel("reading (fiction-writing −, real-world +)", fontsize=8.5, color=INK)
 axs[1].set_title("Fiction/real task: fiction-writing assistance (blue) vs safe-completion (orange)\n"
                  f"after 2 sentences, assistance comes at lower readings (p = {_pf2:.3f});\n"
                  "later, response type follows the scene family", fontsize=8.5, color=INK)
@@ -185,10 +185,10 @@ print("4/7 behavior_matchedk")
 # Values from committed outputs: R3/r6_post_capture/letter-site check (provenance in findings).
 gaps = [("tank\nmain carrier\n→ vehicle", 1.09, BLUE), ("tank\nmain carrier\n→ aquarium", 0.57, BLUE),
         ("tank\nreplicate carrier\n→ vehicle", 0.92, "#7aa8e0"), ("tank\nreplicate carrier\n→ aquarium", 0.61, "#7aa8e0"),
-        ("fiction/real\n' want' site\n→ real", 0.43, ORANGE), ("fiction/real\n' want' site\n→ fictional", 0.40, ORANGE),
-        ("fiction/real\n' letter' site\n→ real", 0.90, "#f0a175"), ("fiction/real\n' letter' site\n→ fictional", 0.33, "#f0a175")]
+        ("fiction/real\n' want' site\n→ real-world", 0.43, ORANGE), ("fiction/real\n' want' site\n→ fiction-writing", 0.40, ORANGE),
+        ("fiction/real\n' letter' site\n→ real-world", 0.90, "#f0a175"), ("fiction/real\n' letter' site\n→ fiction-writing", 0.33, "#f0a175")]
 spreads = [("aquarium", 0.56, 0.70, BLUE), ("vehicle", 0.83, 0.91, "#7aa8e0"),
-           ("fictional", 0.80, 1.07, ORANGE), ("real", 0.73, 1.05, "#f0a175")]
+           ("fiction-writing", 0.80, 1.07, ORANGE), ("real-world", 0.73, 1.05, "#f0a175")]
 fig, axs = plt.subplots(1, 2, figsize=(13.0, 4.6), facecolor=SURFACE,
                         gridspec_kw={"width_ratios": [2.4, 1]})
 xs = np.arange(len(gaps))

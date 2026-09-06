@@ -109,10 +109,13 @@ documented in its model card [CITE: gpt-oss model card].
 
 ## Appendix A — Corrections
 
-Values that changed during the study's audits, the analyses added after the analysis
-freeze, and the analyses superseded before this version are recorded with their dates
-in the repository's findings record and revision log. Four corrections changed values
-as printed: the real→fictional remnant interval widened to include zero once the
+The study's corrections log, nineteen entries at the analysis freeze and extended
+since, is in the repository's findings record and revision log with dates. The
+audits caught three kinds of thing: instrument artifacts, above all uncorrected
+per-layer readings that produced three findings retracted before this version
+(Box 1); a misspecified null, retracted the same day; and reference uncertainty
+that widened one interval to include zero. Four corrections changed values
+as printed: the real-world→fiction-writing remnant interval widened to include zero once the
 no-shift references were resampled (§3.2); the tank within-stream readings are
 trimmed means (§3.3); crossing times are per-run medians rather than a range read
 from mean trajectories (§3.2); and the recency integrator's memory is stated as

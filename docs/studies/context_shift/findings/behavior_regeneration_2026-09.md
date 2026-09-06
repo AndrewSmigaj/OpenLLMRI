@@ -129,12 +129,30 @@ no_answer 11; regenerated aquarium 31 / vehicle 26 / both 37 / no_answer 14.
 Fiction/real, all 204: frozen safety 180 / fiction 21 / mixed 3; regenerated safety
 111 (95 redirect, 16 refusal only) / fiction 8 / mixed 0 / no_answer 85.
 
-**Reasoning channel versus delivered answer** (`s18 agreement`). Tank: 65 of 108
-agree; 16 cells whose reasoning committed to one sense delivered a list of both,
-10 the reverse. Fiction/real: 116 of 204 agree; 85 disagreements are loops (the
-reasoning committed, no answer came); 3 are real flips: two cells whose reasoning
-took up the fiction-writing frame delivered a safe completion, and one whose
-reasoning committed to a safe completion delivered fiction-writing assistance.
+**Reasoning channel versus delivered answer** (`s18 agreement`; 6 September). Two
+readings of the reasoning channel exist. The frozen category is an early reading:
+for cells whose 256-token output had not answered, the first 1,200 characters. On
+6 September the reasoning channel's *final* commitment, the last sentences before
+the answer marker, was read for every cell that delivered an answer
+(`reasoning_category`; loops keep the early reading, since a loop has no final
+commitment). Result: where an answer was delivered, the reasoning's final
+commitment equals the delivered category in every fiction/real cell (119 of 119)
+and in 75 of 94 tank cells (the 19 exceptions are commit-versus-list differences).
+The three fiction/real "flips" reported on 5 September were early-versus-late
+reasoning, not reasoning-versus-answer: in two cells the reasoning took up the
+fiction-writing frame early and settled on a safe completion; in one it started
+toward a safe completion and settled on complying. Fiction-writing-committed
+reasoning never delivers a safe completion; it delivers fiction-writing
+assistance (8 cells) or loops (15). Fiction-writing-committed reasoning loops
+more often than safety-committed reasoning: 15 of 23 against 70 of 181, Fisher
+exact p = 0.023.
+
+Consequence: the frozen 50 / 80 / 91% were not an artifact. They are the reasoning channel's early commitment by band (2 of 4, 32 of 40, 146 of
+160 safe); the final-commitment reading gives 2 of 4, 33 of 40, and 146 of 160
+(50%, 82%, 91%), which is what the loops would resolve to if they completed as
+committed. Delivered
+answers bound the safe rate from above (1 of 1, 24 of 27, 86 of 91), reasoning commitments bound it from below (50%, 82%, 91%). The truth under sampling lies in
+that bracket; the sampled arm decides where.
 
 **Tank band rates** (all 108 cells, bands on the reading, aquarium side below
 −0.5, as the frozen figure computed them; the frozen caption's "signed toward the
@@ -223,3 +241,28 @@ original day (29 August for tank, 30 August for fiction/real) and pinned to
 Consequence for the paper: the date tokens cannot explain any reported reading
 effect; they can flip whether a particular greedy path loops, which is one more
 reason the no-answer share is reported as a property of greedy decoding.
+
+## Part 5. Dwelling decomposition (`analysis/s20_dwelling_decomposition.py`, 6 September 2026)
+
+Criterion fixed in the script docstring before running: per-run late slope over
+post-shift sentences 11–20 (least squares, midpoint-referenced readings signed
+toward the destination); residence = positions 31–40 within ±0.5 axis units of
+the midpoint; plateau = |slope| ≤ 0.02 units per sentence and residence ≥ 5;
+family-clustered 2,000-draw bootstrap of the mean late slope.
+
+| Transition | n | mean late slope, units/sentence [95%] | over 10 sentences | runs meeting the plateau criterion | residence, median of 10 | late mean reading, median |
+|---|---|---|---|---|---|---|
+| tank, aquarium→vehicle | 12 | −0.009 [−0.040, +0.024] | [−0.40, +0.24] (amplitude 2.02) | 3 | 6 | −0.11 |
+| tank, vehicle→aquarium | 12 | +0.079 [+0.025, +0.133] | [+0.25, +1.33] | 0 | 2 | +0.65 |
+| fiction-writing→real-world | 24 | +0.016 [+0.008, +0.025] | [+0.08, +0.25] (amplitude 0.80) | 10 | 8 | +0.40 |
+| real-world→fiction-writing | 24 | +0.008 [−0.011, +0.027] | [−0.11, +0.27] | 5 | 5 | +0.48 |
+
+Reading: the tank aquarium→vehicle population sits at the midpoint late in the
+window (median late reading −0.11) with a mean late slope bounded within ±0.04
+units per sentence, under a fifth of the amplitude over the last ten sentences;
+but individual runs are heterogeneous (late slopes from −0.09 to +0.09) and only
+3 of 12 are individually flat by the criterion. The population-level wording
+applies; the per-run wording does not. The reverse tank direction is still
+moving (bound excludes zero, positive); the fiction-writing→real-world
+transition creeps toward the destination at +0.02 units per sentence with a
+bound excluding zero.

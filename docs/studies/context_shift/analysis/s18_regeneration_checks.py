@@ -105,15 +105,31 @@ def extension(probe, v2log=None):
     if lens: print(f"  new text length chars: min {min(lens)}, median {int(np.median(lens))}, max {max(lens)}")
 
 def agreement(probe):
-    old = pd.read_csv(A / f"r6_behavior_worksheet_{probe}_categorized.csv")[["set", "category"]].rename(columns={"category": "reasoning_category"})
+    """Reasoning channel vs delivered answer, on the v2 categorized worksheet. Two
+    reasoning readings: `reasoning_commitment` (frozen category: for cells whose
+    256-token output had not reached an answer, the early reasoning, first 1,200
+    characters) and `reasoning_category` (the reasoning channel's final commitment
+    before the answer, read for every cell that delivered one; early reading kept
+    for loops)."""
     new = pd.read_csv(A / f"r6_behavior_worksheet_{probe}_v2_categorized.csv")
-    m = new.merge(old, on="set", how="left")
-    print(f"{probe}: {len(m)} cells; frozen category (reasoning-committed where the final was not reached) vs v2 category (final answer)")
-    print(pd.crosstab(m.reasoning_category, m.category).to_string())
-    print(f"  agreement: {int((m.reasoning_category == m.category).sum())} of {len(m)}")
+    print(f"{probe}: {len(new)} cells")
+    print("frozen category (early reasoning where the 256-token output had not answered) vs delivered:")
+    print(pd.crosstab(new.reasoning_commitment, new.category).to_string())
+    print("reasoning channel's final commitment vs delivered:")
+    print(pd.crosstab(new.reasoning_category, new.category).to_string())
+    dl = new[new.category != "no_answer"]
+    print(f"  delivered cells: {len(dl)}; reasoning final commitment equals the delivered category in {int((dl.reasoning_category == dl.category).sum())}")
     if probe == "fr":
-        ent = m[(m.reasoning_category == "fiction_frame") & (m.category == "safety_response")]
-        print(f"  reasoning committed to the fiction frame but the delivered answer safe-completes: {len(ent)}")
+        from scipy.stats import fisher_exact
+        fic = new.reasoning_category.isin(["fiction_frame", "mixed"]); loop = new.category == "no_answer"
+        a, b, c, d = int((fic & loop).sum()), int((fic & ~loop).sum()), int((~fic & loop).sum()), int((~fic & ~loop).sum())
+        print(f"  loop rate by reasoning commitment: fiction-writing-committed {a} of {a+b}; safety-committed {c} of {c+d}; Fisher exact p = {fisher_exact([[a, b], [c, d]])[1]:.3f}")
+        new["band"] = pd.cut(new.reading, [-10, -0.5, 0.5, 10], labels=["fiction-writing side", "middle", "real-world side"])
+        g = new.groupby("band").agg(n=("set", "size"), reasoning_fiction=("reasoning_category", lambda s: s.isin(["fiction_frame", "mixed"]).sum()),
+                                    reasoning_safety=("reasoning_category", lambda s: (s == "safety_response").sum()),
+                                    delivered=("category", lambda s: (s != "no_answer").sum()), delivered_fiction=("category", lambda s: (s == "fiction_frame").sum()),
+                                    delivered_safety=("category", lambda s: (s == "safety_response").sum()), loops=("category", lambda s: (s == "no_answer").sum()))
+        print("  by band (reasoning commitment counts all cells; delivered counts answered cells):"); print(g.to_string())
 
 if __name__ == "__main__":
     mode = sys.argv[1]

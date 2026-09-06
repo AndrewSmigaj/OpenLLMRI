@@ -8,8 +8,9 @@ mixture-of-experts model, with greedy decoding, so the behavior rates of §3.5 a
 continuation, and so are the loops that leave many completions without an answer.
 Deployed decoding samples, which breaks such loops; behavior under sampling is
 untested here.
-Three kinds of claim should be kept apart. Descriptive claims about gpt-oss-20b are
-fully established here, since this model is the population of interest. Existence
+Three kinds of claim should be kept apart. Descriptive claims about gpt-oss-20b are established for the tested tasks,
+contexts, sites, and decoding conditions, since this model is the population of
+interest. Existence
 claims about the class, that a deployed language model can dwell between
 interpretations, can carry a mixed-context signal its behavior does not use, and can
 have safeguard behavior weakened by ordinary coherent context, need only one model.
@@ -26,7 +27,7 @@ is a sufficient readout of the model's state, and behavior is produced downstrea
 all of them. Within the study, replication is internal. Its scope is set out in §2.3: the task contrasts, carriers, sites, and scene
 families.
 
-**What did not replicate cleanly.** The real→fictional remnant is suggestive only
+**What did not replicate cleanly.** The real-world→fiction-writing remnant is suggestive only
 once reference uncertainty is propagated. The ' letter'-site asymmetry rests on four
 runs per direction. In the fiction/real task, 48% of runs are indeterminate under per-run
 trajectory-model selection. And our pre-registered prediction about the ordering of crossing times across
@@ -47,8 +48,9 @@ and measures what remains of the second frame. Both are designed and costed. Nei
 **Further deferred work,** in rough order of leverage:
 
 - Regenerate the behavior completions under sampling at the model's default
-  temperature, several draws per cell. This settles whether the loops and the
-  delivered-answer rates of §3.5 hold under the decoding the model is used with.
+  temperature, several draws per cell. The two readings of §3.5 bracket the
+  safeguard's rate; sampling, which breaks the loops, decides where in the
+  bracket the deployed model sits.
 - Replicate the fiction/real headline quantities at the ' write' site, where the
   framing contrast reads most strongly. The existing recordings suffice.
 - Expand the ' letter'-site families.

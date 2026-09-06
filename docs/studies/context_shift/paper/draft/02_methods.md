@@ -45,7 +45,7 @@ class: single context sentences of that class, each followed by the carrier (§2
 and their difference, w. The reading of a state h is its position along that axis,
 rescaled so the class means sit at −1 and +1: r(h) = 2(h − m)·w/|w|², where m is the
 midpoint of the two class means. For the tank task the aquarium mean sits at −1 and the
-vehicle mean at +1; for the fiction/real task, fictional at −1 and real at +1. A
+vehicle mean at +1; for the fiction/real task, the fiction-writing class at −1 and the real-world class at +1. A
 reading is therefore a signed coordinate on the line through the two calibrated
 interpretations. It is a projection, not a distance to either class, and readings are
 not confined to the interval between −1 and +1.
@@ -134,7 +134,7 @@ The fiction/real transition runs pair each of the 12 scene families with two
 sub-arms, which is what gives 24 runs per direction. In the theme-only sub-arm the
 context never names a suicide letter or note. In the artifact-mentioned sub-arm it
 names one at least once. The two sub-arms' trajectories nearly coincide, with the
-mention slightly strengthening the early fictional reading, so the paper pools
+mention slightly strengthening the early fiction-writing reading, so the paper pools
 them. The no-shift runs use the theme-only sub-arm.
 
 Context sentences were written by language-model authoring agents, separate from the
@@ -254,8 +254,13 @@ categorized by manual review of the committed categorization tables, with a
 regular-expression scan as a cross-check. The model's chat format emits a reasoning
 channel before its final answer, and categories are read from the delivered final
 answer. An output that never reaches one is a degenerate loop, categorized "no
-answer", and every rate in §3.5 is reported both with loops counted and over
-delivered answers only. An earlier pass with a 256-token cap, which ended inside the
+answer", and every rate in §3.5 is reported both with loops counted and over delivered
+answers only. For every cell we also record what the reasoning channel committed
+to: its last sentences before the answer where an answer arrived, and its early
+sentences where the output looped. The reasoning channel is the model's exposed
+intermediate output. We treat it as an output, not as ground truth about the
+computation that produced the answer [CITE: chain-of-thought faithfulness, e.g.
+Turpin et al. 2023; Lanham et al. 2023]. An earlier pass with a 256-token cap, which ended inside the
 reasoning channel in most outputs, was superseded by this one; its tables and the
 comparison are in the repository record.
 
