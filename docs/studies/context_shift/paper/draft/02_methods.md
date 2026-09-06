@@ -12,21 +12,22 @@ previous version retained. -->
 All experiments use gpt-oss-20b, a 20-billion-parameter mixture-of-experts language
 model, in its stock configuration. We make no modifications to the model or its
 routing. Its native top-4-experts-per-token routing operates untouched. Inputs are formatted with the model's chat template as a single user message, with
-no developer message, and processed with deterministic forward passes, so identical
-inputs yield identical activations. The model runs at the precision it is distributed
+no developer message, and processed with deterministic forward passes, so identical inputs yield identical
+activations. We verified this on the hardware used: the same input captured twice
+gives byte-identical generated text and an identical reading (Appendix B). The model runs at the precision it is distributed
 in: expert weights in the 4-bit MXFP4 format, all other weights in 16-bit floating
 point. The same loaded model produced every capture and every completion. One
 property of the template matters for reproduction. Its system message stamps the
 current date, so an input carries a few date tokens that change from day to day at
 fixed positions, and re-capture on another day requires pinning that date. Within a
 run the date is constant, because a run is one forward chain, so no within-run
-dynamic finding can be explained by it. We have not bounded the effect between runs
-empirically. It is expected to be small, a change of one or two tokens in a system
-prefix of fixed length, and where a run and its matched reference share a capture
-day it cancels in the referencing. The fiction/real transition runs, their no-shift
+dynamic finding can be explained by it. Between runs we bounded the effect directly: re-capturing 24 no-shift cells with
+the date pinned a week later moved the calibrated-site reading by at most 0.02 axis
+units, under one percent of the class separation (Appendix B), and where a run and
+its matched reference share a capture day even that cancels in the referencing. The fiction/real transition runs, their no-shift
 references, and their calibration set were captured on one day, and all but three of
-the tank runs on another. Appendix B lists the days for every corpus, and pinned-date
-re-capture is future work (§5). We capture the full residual
+the tank runs on another. Appendix B lists the days for every corpus. The behavior completions were regenerated after the analysis freeze with the
+template date pinned to each cell's original day (§2.5). We capture the full residual
 stream (2,880 dimensions) at the output of each of the 24 decoder blocks. Throughout, a
 *site* is a designated token of a fixed carrier sentence together with a layer. The
 *reading* at a site is the residual stream at that token and layer, projected onto a
@@ -127,7 +128,7 @@ baselines, the carrier alone, complete the set.
 | Checkpoint captures | What does every token read? | every token's activations at designated context lengths | 144 captures per task |
 | Minimal pairs | Does the reading track framing cues rather than content? | content held within the pair, framing cue varied | 150 pairs |
 | Static mixture sweeps | Does the order of evidence matter beyond its amount? | twenty-sentence contexts at a fixed class mix, in two block orders | 252 cells per task |
-| Behavior prompts | What does the model do? | generation enabled, greedy decoding | 312 completions |
+| Behavior prompts | What does the model do? | generation enabled, greedy decoding, 2,048-token cap | 312 completions |
 | Bare-carrier baselines | What does the carrier read with no context? | the carrier alone | — |
 
 The fiction/real transition runs pair each of the 12 scene families with two
@@ -249,14 +250,18 @@ reference.
 resampling scene families with replacement. Where a named test appears, its clustering
 unit is stated in place.
 
-**Behavior.** Completions are categorized by regular-expression scan plus manual review
-of the committed categorization tables. The model's chat format emits a
-reasoning channel before its final answer, and generation was capped at 256 new
-tokens, so many completions end inside the reasoning channel: 37 of 108 in the tank
-task and 84 of 204 in the fiction/real task reach the final answer. The tables hold
-the raw output, so a category records the final answer where the generation reached
-it and otherwise the response the reasoning channel committed to. Every
-fiction-framed completion was categorized from its reasoning channel (§3.5).
+**Behavior.** Completions are categorized by manual review of the committed
+categorization tables, with a regular-expression scan as a cross-check. The model's
+chat format emits a reasoning channel before its final answer. The frozen captures
+used a 256-token generation cap, which ended inside the reasoning channel in most
+completions, so after the analysis freeze we regenerated every behavior completion
+with a 2,048-token cap and the chat template's date pinned to each cell's original
+capture day. Under greedy decoding each regenerated completion extends its frozen
+twin byte for byte, and the readings are unchanged (Appendix B). Categories are read
+from the delivered final answer. An output that never reaches one is a degenerate
+loop, categorized "no answer", and every rate in §3.5 is reported both with loops
+counted and over delivered answers only. The response the reasoning channel committed
+to before looping is recorded alongside.
 
 ## 2.6 Reproducibility
 

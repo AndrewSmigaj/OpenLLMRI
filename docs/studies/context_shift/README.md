@@ -56,8 +56,20 @@ Three facts about the captures that a reader should not discover by surprise:
   records the chat-template hash (`prompt_format: harmony@a4c9919cbbd4`); a
   template upgrade changes that hash and invalidates the calibrations.
 - **Reasoning effort** was the template default, "medium", for captures and
-  completions alike, and generation was capped at 256 new tokens, which ends
-  inside the model's reasoning channel for most completions (paper §2.5, §3.5).
+  completions alike.
+- **Behavior completions were regenerated after the freeze.** The frozen behavior
+  captures used a 256-token generation cap, which ended inside the model's
+  reasoning channel in most outputs. All 312 cells were regenerated on 5–6
+  September 2026 with a 2,048-token cap and the template date pinned to each
+  cell's original capture day; every regenerated output extends its frozen text
+  byte for byte with the reading unchanged (the pipeline is bit-deterministic:
+  the same cell captured twice gives identical text and reading). Categories were
+  re-read from the delivered answers; outputs that loop to the cap are
+  `no_answer`. The frozen worksheets (`r6_behavior_worksheet_*_categorized.csv`)
+  and the regenerated ones (`*_v2_categorized.csv`) are both committed, without
+  completion text; the comparison is in
+  `findings/behavior_regeneration_2026-09.md`, and the categorization rules and
+  judgment calls in `analysis/behavior_categorization_v2.md`.
 
 ## Environment
 
@@ -92,7 +104,7 @@ Which scripts need the raw captures:
 - **Run from committed caches and tables (no captures needed):**
   `s9_collapse_figure.py` (Figure 1), `r1_figures.py`, `r3_figures.py`,
   `s13_collapse_by_layer.py`, `s14_behavior_by_layer.py`, `r6_behavior_figure.py`,
-  `s11_monitor_roc.py`, `s12_r4_counts.py`, `r5_fr_occupancy_bands.py`,
+  `s11_monitor_roc.py`, `s12_r4_counts.py` (v1 mode), `r5_fr_occupancy_bands.py`,
   `r5_letter_battery.py`, `reassessment_checks.py`, and the corpus assembly and
   audit scripts (`assemble_*.py`, `pool_audit.py`).
 - **Read raw activations (captures needed):** `scene_heldout_calibration.py`,
@@ -102,13 +114,14 @@ Which scripts need the raw captures:
   `r5_geometry.py`, `r6_behavior.py`, `r6_carrier_dprime_fr.py`,
   `r6_d6_stickiness.py`, `r6_post_capture.py`, `fr_battery.py`,
   `s7_sanity_checks.py`, `s8_subspace_geometry.py`, `s9_adversarial_checks.py`,
-  `s9_figures.py`, `s10_materialized.py`, `s15_fr_frame_queries.py`,
+  `s9_figures.py`, `s10_materialized.py`, `s12_r4_counts.py` (v2 mode), `s15_fr_frame_queries.py`, `s18_regeneration_checks.py`, `s19_date_bound.py`,
   `make_figures.py`, `dual_trajectory_figure.py`; `s16_capture_days.py` and
   `s17_capture_manifest.py` read only the session manifests.
 
 The analysis freeze and the additions made after it are recorded in the paper's
-Appendix B. Post-freeze scripts are `s11` through `s17`, each a logged addition
-computed from the frozen captures or their manifests.
+Appendix B. Post-freeze scripts are `s11` through `s19`, each a logged addition
+computed from the frozen captures, their manifests, or the regenerated behavior
+captures (`captures/behavior_chain_v2.py`).
 
 ## Claims, scripts, figures
 
@@ -132,12 +145,12 @@ script for each claim.
 | §3.3 | Jump sentences are median-strength; within-stream readings | `s7_sanity_checks.py`, `r2_figures.py`, `s9_figures.py` | `fig_r2_within_stream`, `fig_s9_within_stream_fr` |
 | §3.4 | Dwell at the midpoint (mode track) | `r2_figures.py`, `second_pass_r2_occupancy.py` | `fig_r2_mode_track` |
 | §3.5 | Behavior by reading band; matched composition | `r6_behavior.py`, `r6_behavior_figure.py`, `s7_sanity_checks.py`, `s9_figures.py` | `r6_behavior_worksheet_*_categorized.csv`, `fig_r6_behavior_bands`, `fig_s9_behavior_matchedk` |
-| §3.5 | Zero clarification requests; channel reach; frame queries | `s12_r4_counts.py`, `s15_fr_frame_queries.py` | printed counts |
+| §3.5 | Zero clarification requests; channel reach; frame queries; regeneration integrity | `s12_r4_counts.py v2`, `s15_fr_frame_queries.py v2`, `s18_regeneration_checks.py` | printed counts |
 | §3.5 | Behavior association by layer | `s14_behavior_by_layer.py` | `fig_s14_behavior_by_layer` |
 | §3.6 | Hysteresis loops and fitted integrator (Table 5) | `r6_d6_stickiness.py`, `s7_sanity_checks.py` | `fig_r6_d6_loop_*` |
 | §3.7 | Per-state geometry; mixed-context marker (Table 6) | `r5_geometry.py`, `s8_subspace_geometry.py`, `s9_figures.py` | `fig_r5_geometry`, `fig_s9_shift_marker` |
 | §4 | Standalone monitor ROC | `s11_monitor_roc.py` | `fig_s11_monitor_roc` |
-| App. B | Label-shuffle audits (Table 7); capture days; archive manifest | `s9_adversarial_checks.py`, `s16_capture_days.py`, `s17_capture_manifest.py` | printed; `capture_manifest.csv` |
+| App. B | Label-shuffle audits (Table 7); capture days; archive manifest; date-effect bound | `s9_adversarial_checks.py`, `s16_capture_days.py`, `s17_capture_manifest.py`, `s19_date_bound.py` | printed; `capture_manifest.csv` |
 
 ## Names
 

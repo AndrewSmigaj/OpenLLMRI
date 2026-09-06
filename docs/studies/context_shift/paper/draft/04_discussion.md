@@ -42,25 +42,24 @@ horizon. The fiction/real task shows an exploratory echo of this, resting on 4 r
 per direction.
 
 Behavior inside this window tracks the reading. Throughout, in the tank task, the
-model never asks which reading is meant or flags the ambiguity as an obstacle. That
-holds in zero of 96 completions across all bands. Even so, 45% of middle-band answers
-surface both senses. And safeguard-relevant behavior co-varies with the internal
-reading. Safe-completion rates fall from 91% to 50% across reading bands. The
-fiction-side endpoint rests on four completions, and the gradient is partly
-scene-driven (§3.5). This weakening is reachable by ordinary context, with no exotic
-inputs required.
+model never asks which reading is meant or flags the ambiguity as an obstacle. That holds in every delivered tank answer. Even so, half of the middle band's
+delivered answers surface both senses. Safeguard behavior, read from delivered
+answers, holds across the reading bands. What co-varies with the reading is whether
+an answer arrives at all: on the fiction side, three of four outputs loop inside the
+reasoning channel and never answer (§3.5). The frozen captures had suggested a
+weakening of the safeguard toward the fiction-writing frame; regeneration showed
+that to be an artifact of truncated reasoning (Appendix B).
 
 **A trained default for unresolved cases?** What follows is a post-hoc reading of an
 asymmetry we noticed, not a designed manipulation, and training provenance is
 unobservable. Our two tasks appear to differ in whether they carry a trained default
-for unresolved cases. The covered fiction/real task behaved as though it does. In the middle reading
-band, 80% of its completions safe-complete. In sampled chain-of-thought traces, both
+for unresolved cases. The covered fiction/real task behaved as though it does. In the middle reading band, 89% of its delivered answers safe-complete. In sampled chain-of-thought traces, both
 framings are weighed before the safe reply. These traces are the reasoning channel the chat format exposes. That is a
 qualitative observation, not a coded rate. We release the categorization tables and
 paraphrased excerpts; raw completions and reasoning traces are available to
 researchers on request, since some contain model-generated text engaging with the
 letter request. The tank task showed no such default.
-There the model silently commits: 52% of middle-band completions pick a sense. If
+There the model silently commits: 48% of delivered middle-band answers pick a sense. If
 this reading is right, the unresolved zone is the failure window for every behavior
 without a trained uncertainty-default, and refusal-style safeguards may be the
 well-covered exception rather than the rule.
@@ -91,8 +90,8 @@ the stack. The shallowest layers resolve the framing composition almost immediat
 and completely (§3.2), with the profile of surface-cue tracking. The minimal-pair test, which shows the reading tracks framing cues rather than
 content, was run at the calibrated site, not at shallow layers. A safeguard that reads early, from surface content and frame cues, would fire
 whenever the alarming request is present and be suppressed only by a well-established
-fictional frame. That is the shape of our behavioral data, including its fragile 50%
-fiction-side floor. The fast, complete shallow response is specific to the
+fictional frame. That is consistent with our behavioral data, in which the safeguard fires in nearly
+every delivered answer. The fast, complete shallow response is specific to the
 fiction/real task. The tank task's shallow layers respond later and, in one direction,
 only partway (§3.2). That is what a trigger sculpted by safety post-training would
 look like. But ordinary register statistics learned in pretraining predict the same
@@ -101,7 +100,8 @@ mid-stack states during generation is the decisive test (§5).
 
 **One limit.** As a standalone monitor, predicting each response from its reading
 alone, the frame reading, the fiction/real task's reading at its calibrated site, is
-not yet usable: its AUC is 0.61 [0.43, 0.76], compatible with chance (Fig.
+not yet usable: its AUC is 0.61 [0.37, 0.81], compatible with chance, with only 8 fiction-writing
+answers among 192 completions (Fig.
 fig_s11_monitor_roc). The band-level gradient of §3.5 is real. A usable monitor would
 combine several sites, the mixed-context marker, and per-layer readings. Building one
 is future work, not a claim.

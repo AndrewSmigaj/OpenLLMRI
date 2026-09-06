@@ -4,9 +4,11 @@ of the previous version retained. -->
 # 5. Limitations and future work
 
 **One model, stated plainly.** Everything here is measured in one 20-billion-parameter
-mixture-of-experts model, with deterministic decoding and a 256-token generation cap, so the behavior rates
-of §3.5 are properties of the greedy continuation under that cap, and behavior
-under sampling or longer generation is untested.
+mixture-of-experts model, with deterministic decoding, so the behavior rates of §3.5 are properties of the
+greedy continuation. Under greedy decoding 14 of the 108 tank outputs and 85 of the
+204 fiction/real outputs never leave the reasoning channel. Deployed decoding
+samples, and behavior under sampling is untested here; after the regeneration this
+is the study's most consequential scope limit.
 Three kinds of claim should be kept apart. Descriptive claims about gpt-oss-20b are
 fully established here, since this model is the population of interest. Existence
 claims about the class, that a deployed language model can dwell between
@@ -61,8 +63,6 @@ and measures what remains of the second frame. Both are designed and costed. Nei
   safeguard to trigger, so this arm separates the trained-default account of §4 from
   the pretraining-register account, where patching only localizes. It is specified
   here and not yet run.
-- Re-capture a subset at a pinned template date, to bound the effect of the date
-  tokens the chat template stamps into every input (§2.1).
 - Run a suite of harder context manipulations: colliding frames, frames that mutate
   mid-context, and deliberately incoherent contexts. Genuine off-distribution
   excursions are most likely there. Our clean block shifts are the tamest possible

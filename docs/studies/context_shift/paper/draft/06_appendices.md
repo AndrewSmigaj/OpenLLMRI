@@ -74,7 +74,7 @@ conversations, and the weakening of the safeguard we observe needs no adversary.
 **Verbalized uncertainty and ambiguity.** Models can be trained or prompted to
 express confidence, and their verbalized confidence can be calibrated [CITE:
 Kadavath et al.; Lin et al.; Xiong et al.]. Ambiguity in questions has been modeled
-directly [CITE: Liu et al.]. These ground the scoped claim of §1: models can express uncertainty, and in the 300 completions we examined none asked which reading was meant.
+directly [CITE: Liu et al.]. These ground the scoped claim of §1: models can express uncertainty, and in the 312 completions we examined none asked which reading was meant.
 
 **Internal encoding versus expression.** Models internally encode truthfulness and
 uncertainty that their generations do not respect [CITE: Azaria & Mitchell; Orgad et
@@ -170,18 +170,47 @@ The tank transition runs, no-shift runs, and calibration set were captured on 27
 August 2026, except two transition runs and one no-shift run captured the next day.
 Every fiction/real transition run, no-shift run, and calibration item was captured on
 28 August. Each task's checkpoint captures fall on one day, as do its mixture-sweep
-cells and the minimal pairs. Behavior completions were generated on later days, and
-each completion's reading comes from the same forward pass as the completion. A
+cells and the minimal pairs. Behavior completions were generated on later days, and each completion's reading
+comes from the same forward pass as the completion. The regenerated behavior
+completions (§2.5) were captured on 5 and 6 September 2026 with the template date
+pinned to each cell's original day, which reproduces the original forward pass
+exactly; the date-bound run below used 5 September. A
 committed script reproduces this table from the session manifests.
 
-**Additions after the freeze.** Six analyses were added after the analysis freeze, all
-computed from the frozen captures or their manifests through committed scripts, and each
-is noted as a post-freeze addition where it appears: the tank response counts of §3.5 (zero of 96
-completions ask which sense is meant); the monitor ROC of §4 (AUC 0.61 [0.43,
-0.76]); the per-layer collapse panels of §3.2 (Fig. fig_s13_collapse_layers and
-Table 3); the exploratory per-layer behavior association of §3.5 (Fig.
-fig_s14_behavior_by_layer); the channel-reach and frame-query counts of §3.5; and
-the capture-day table above.
+**Additions after the freeze.** The following were added after the analysis
+freeze, all computed from the frozen captures or their manifests through committed
+scripts, and each is noted as a post-freeze addition where it appears: the tank
+response counts of §3.5; the monitor ROC of §4; the per-layer collapse panels of
+§3.2 (Fig. fig_s13_collapse_layers and Table 3); the exploratory per-layer
+behavior association of §3.5 (Fig. fig_s14_behavior_by_layer); the channel-reach
+and frame-query counts of §3.5; the capture-day table above; and the behavior
+regeneration below.
+
+**Behavior regeneration.** The frozen behavior captures used a 256-token generation
+cap, and the model's reasoning channel ran past it in 71 of 108 tank and 120 of 204
+fiction/real outputs, so their categories had been read from truncated reasoning.
+All 312 cells were regenerated with a 2,048-token cap and the chat template's date
+pinned to each cell's original capture day. Determinism was checked first: the
+same cell captured twice gave byte-identical text and an identical reading. Every
+regenerated output extends its frozen text byte for byte, with the reading unchanged
+in every cell. Under the longer cap 94 of 108 tank and 119 of 204 fiction/real
+outputs reach an answer; every remaining output is a degenerate loop or a stuck
+deliberation. Categories were re-read from the delivered answers under the frozen
+doctrine, stated in the regeneration record before any output was read. The
+frozen categories, the regenerated ones, and the reasoning channel's pre-loop
+commitment for every cell are in the repository, with the frozen-versus-regenerated
+comparison in the findings record. The change in the fiction/real rates is stated in §3.5.
+
+**Date-effect bound.** The 24 no-shift behavior cells were captured once more with
+the template date pinned to 5 September 2026 instead of their original day. The
+reading at the calibrated site moved by at most 0.0024 axis units in the tank task
+and 0.0182 in the fiction/real task, under one percent of the class separation and
+an order of magnitude below the smallest effect reported. The greedy completion
+text diverged in 23 of the 24 cells, from a few characters to a few hundred in,
+yet where both days delivered an answer the category was the same in all 18
+cells. Three fiction/real cells that had looped on their original day delivered an
+answer on the later one. The date tokens cannot explain any reading effect; they
+can change whether a particular greedy path loops.
 
 **Names used in the repository.** Readers of the repository will meet different
 names for some of the paper's terms.

@@ -7,7 +7,7 @@ All claims and numbers of the previous version retained. Kind-audit item 15 appl
 
 Language models can be made to express uncertainty, and sometimes do. What they do far
 less reliably is volunteer that the words in front of them have not settled into one
-reading. In the 300 completions we examine in §3.5, none asks which reading is meant. Much of what we ask
+reading. In the 312 completions we examine in §3.5, none asks which reading is meant. Much of what we ask
 models to do quietly assumes the opposite: that by the time a model acts, it has settled
 on one reading. Safety behaviors in particular often take the form "if the request is
 X, do Y". That rule inherits an unexamined premise: that "the request is X" is a
@@ -91,11 +91,11 @@ We contribute:
 3. The form of its dynamics: drift plus discrete jumps that are not timed by evidence
    strength, with the smooth integrators we tested rejected head-to-head (§3.3).
 4. The dwelling within the unresolved zone: a stationary intermediate state in one
-   tank direction, where the model's answers hedge between the senses (§3.4). Zero of
-   the 96 completions ask which sense is meant (§3.5).
-5. Behavior set beside the reading in both tasks: the task with a trained safeguard
-   mostly stays safe while the reading is unresolved, and its share of safe responses
-   falls as the reading moves toward the fictional frame (§3.5).
+   tank direction, where the model's answers hedge between the senses (§3.4). None of the tank completions asks which sense is meant (§3.5).
+5. Behavior set beside the reading in both tasks: wherever the model answers, the
+   task with a trained safeguard stays safe across the reading bands, and under
+   greedy decoding a large share of its completions never answer at all, looping
+   inside the reasoning channel (§3.5).
 6. Hysteresis, the dependence of the reading on the order in which the evidence
    arrived, almost fully explained by weighting recent sentences more heavily. A mild
    direction-dependent recency difference is all that remains, so the metastability

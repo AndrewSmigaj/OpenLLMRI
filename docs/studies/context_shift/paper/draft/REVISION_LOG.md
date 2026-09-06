@@ -1170,3 +1170,62 @@ late plateau then sits at the midpoint within the interval's precision (gap rati
 1.09, CI on the ratio spanning 1.0; §3.2 "the transition stopped halfway"). The
 clause now reads "the largest means the average reading ends at the midpoint".
 Reported to Andrew as the single deviation.
+
+## Behavior corpus regeneration applied to the paper (5–6 September 2026)
+
+Record: findings/behavior_regeneration_2026-09.md (Parts 1–4) and
+analysis/behavior_categorization_v2.md. Plan: ~/.claude/plans/humming-finding-frost.md
+(approved 5 Sept). What changed in the paper:
+
+- §2.1: determinism stated as verified (same cell twice → identical text and
+  reading); regeneration pinned to original capture days; date-effect bound
+  referenced. Table 1 behavior row: 2,048-token cap.
+- §2.5 Behavior: rewritten. Categories from delivered answers; loops are "no
+  answer"; every rate two ways; reasoning-channel commitment recorded.
+- §3.5: rewritten from the regenerated corpus. Tank side bands answer their side
+  (52%/59% all, 62%/63% delivered), middle band lists both in 45% (52% delivered);
+  no clarification requests (0 of 94 delivered answers). Matched composition: p =
+  0.037 at 6 sentences only; the pre-stated pooled test gives p = 0.10 and the
+  result is graded as one significant count of four. Fiction/real: 111 safe / 8
+  fiction-writing / 85 no-answer; safe completions 89% and 95% of delivered answers
+  in the middle and real bands; the fiction side delivers 1 of 4. The frozen
+  50→80→91% gradient is stated as an artifact of truncated reasoning. Frame
+  queries: 0 of 119 delivered answers ask; one invites correction; reasoning
+  channels counted. k=2 separation p = 0.034 (3 vs 45).
+- §3.7: the eight marker-versus-behavior tests are scoped to the frozen
+  categories (their computation is not in a committed script; not re-run).
+- §4: rates replaced; the "weakening reachable by ordinary context" claim
+  withdrawn; AUC 0.61 [0.37, 0.81] with 8 positives.
+- §5: greedy-decoding caveat now carries the loop counts and names sampling as
+  the study's most consequential scope limit.
+- §1: 312 completions; contribution 4 reworded; contribution 5 rewritten
+  (safeguard holds wherever the model answers; many completions never answer).
+- Abstract, third paragraph: rewritten from the regenerated numbers; the
+  "weakening reachable by ordinary context" sentence removed. FOR ANDREW'S VOICE
+  READ.
+- Appendix B: regeneration paragraph; capture days for the regenerated cells;
+  post-freeze list. Captions: behavior bands (sides named, no-answer share),
+  by-layer counts, monitor ROC.
+- Preservation check: the frozen behavior values (96, 56/66%, 80%, 50%, 0.76 …)
+  are reported LOST by design; they are superseded and recorded in Appendix B and
+  the regeneration record.
+- Figure script r6_behavior_figure.py: fiction/real panel gained the no-answer
+  category (bars had not summed to one); band labels name the sides; rates are
+  printed both ways. Its frozen caption's "signed toward the destination" had
+  described a convention the script never applied; the caption now matches the
+  computation.
+- Matched composition, fiction/real: the frozen script compared fiction-writing
+  answers against everything else, which on the regenerated corpus includes loops;
+  the pre-stated comparison is against delivered safe completions (3 vs 26,
+  p = 0.065, s7 S1.3 fixed to exclude no_answer). §3.5 and the caption state the
+  weaker result; the frozen p = 0.010 is noted.
+- Date-effect bound (s19, 24 no-shift cells re-captured pinned to 5 Sept): reading
+  shift ≤ 0.02 axis units; greedy text diverges in 23 of 24; delivered category
+  unchanged in all 18 pairs that answered both days; 3 loops became answers. §2.1
+  now states the bound; Appendix B carries the paragraph; the §5 pinned-date
+  bullet is retired.
+- Matched-composition figure: fiction/real panel excludes no-answer outputs;
+  p-values computed from the worksheet instead of hardcoded frozen values.
+- Checks: trace PASS; preservation FLAG (18 frozen behavior numerals retired by
+  design); prose density flag in §3 rises to 4.3 with the two-way rates,
+  accepted; back-matter semicolons unchanged. Build: 46 pages, zero placeholders.

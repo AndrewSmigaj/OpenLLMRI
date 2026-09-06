@@ -48,3 +48,7 @@ can be re-run or opened.
 | 300 | completions in which none asks which reading is meant: 96 tank transition completions (s12) + 204 fiction/real completions (s15) | `analysis/s12_r4_counts.py` and `analysis/s15_fr_frame_queries.py` outputs |
 | 72 | transition runs on the main carriers: tank 12 families × 2 directions + fiction/real 12 families × 2 directions × 2 sub-arms (Table 1) | Table 1 sizes; `analysis/s17_capture_manifest.py` corpus counts (24 + 48) |
 | 40% to 109% | remnant gap as a share of the no-shift amplitude, range over the four transitions (1.09, 0.57, 0.43, 0.40) | Table 2 last column |
+| 312 | all behavior completions examined (108 tank + 204 fiction/real), regenerated corpus | `analysis/r6_behavior_worksheet_{tank,fr}_v2_categorized.csv` row counts |
+| 2,048 | regeneration cap in new tokens | `captures/behavior_chain_v2.py` (`--cap 2048`), logs `captures/behavior_*_v2_log.tsv` |
+| 256 | frozen generation cap | `backend/src/api/routers/probes.py` before the regeneration (schemas default) |
+| 0.02; 0.0024; 0.0182; 24; 23 of 24; 18; three | date-effect bound: max reading shift per task, cells, diverged texts, same-category pairs, loops that became answers | `analysis/s19_date_bound.py` output (5 Sept 2026) |
