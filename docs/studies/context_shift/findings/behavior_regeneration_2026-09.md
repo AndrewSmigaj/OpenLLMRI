@@ -154,7 +154,7 @@ committed. Delivered
 answers bound the safe rate from above (1 of 1, 24 of 27, 86 of 91), reasoning commitments bound it from below (50%, 82%, 91%). Within either reading the middle band is not distinguishably less safe than the
 real-world side at this sample size: reasoning commitment 82% against 91%, Fisher
 p = 0.14, family-clustered bootstrap of the difference −0.07 to +0.23; delivered
-answers 89% against 95%, p = 0.38. The loop association is robust to clustering:
+answers 89% against 95%, p = 0.38, interval −0.07 to +0.18. The loop association is robust to clustering:
 difference in loop rate +0.27 [+0.16, +0.38] (6 September, `s18 agreement fr`).
 The truth under sampling lies in the bracket; the sampled arm decides where.
 
