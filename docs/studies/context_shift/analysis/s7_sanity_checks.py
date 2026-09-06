@@ -15,9 +15,9 @@ sys.path.insert(0, "docs/studies/context_shift/analysis")
 import numpy as np, pandas as pd
 from pathlib import Path
 from second_pass_r1_dynamics import (tank_cfg, fr_cfg, integrator_pred, fit_integrator,
-WS = "_v2"  # behavior worksheet version: "" = frozen 256-token captures, "_v2" = regenerated (Sept 2026)
 
                                      fit_step, fit_hybrid, bic, K)
+WS = "_v2"  # behavior worksheet version: "" = frozen 256-token captures, "_v2" = regenerated (Sept 2026)
 
 rng = np.random.default_rng(21)
 

@@ -37,7 +37,7 @@ for _ in range(2000):
     boots.append(np.trapz(t, f))
 lo, hi = np.percentile(boots, [2.5, 97.5])
 print(f"AUC(reading -> fiction-frame response): {auc:.2f} [boot {lo:.2f},{hi:.2f}] "
-      f"(n=192 cells, 21 positives)")
+      f"(n={len(df)} transition cells, {int(y.sum())} positives = fiction_frame; {int((df.category == 'no_answer').sum())} no_answer cells counted as negatives)")
 # operating point example: threshold at reading < 0.5
 thr = 0.5
 flag = df.reading < thr

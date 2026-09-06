@@ -74,7 +74,34 @@ answer. Two consequences, fixed now:
 
 ## Part 2. Determinism, extension, and timing
 
-(filled by `analysis/s18_regeneration_checks.py`)
+**Determinism.** The same cell (`tank_d3_fam00_ab_beh_k02`) fired twice under the
+same pinned date and cap gave byte-identical generated text (2,617 characters) and
+an identical calibrated-site reading (difference 0.00). The pipeline is
+bit-deterministic on this hardware, so identical inputs yield identical
+activations, as §2.1 claims.
+
+**Extension, fiction/real (204 cells, 5 September 2026).** The frozen 256-token
+text is a byte-for-byte prefix of the regenerated text in 204 of 204 cells, and
+the reading at the calibrated site equals the frozen value in every cell (maximum
+difference 0.00). Pinning the template date reproduces the frozen forward pass
+exactly.
+
+**Channel reach, fiction/real.** 119 of 204 regenerated completions reach a final
+answer; 85 hit the 2,048-token cap inside the reasoning channel. All 85 are
+degenerate: 77 repeat one sentence verbatim to the cap, 7 repeat one sentence
+frame with a varying noun, and 1 is an enumeration that never terminates
+(`s18 extension fr`, loop signatures). By generation point: after 2, 6, 12, and 20
+post-shift sentences, 19, 20, 24, and 17 of 48 loop; 5 of the 12 no-shift finals
+loop. Under greedy decoding, 42% of the fiction/real completions deliver no
+answer.
+
+**Timing.** Mean 123 s per fiction/real cell; 6.9 GPU-hours for the block. Two
+cells were interrupted when the backend's background task was stopped (15:49 and
+15:57) and were re-fired after the backend was relaunched detached; their
+retries pass the prefix check like every other cell.
+
+**Extension, tank (108 cells) and date-bound run (24 cells).** (filled when the
+blocks complete)
 
 ## Part 3. Results, frozen versus regenerated
 

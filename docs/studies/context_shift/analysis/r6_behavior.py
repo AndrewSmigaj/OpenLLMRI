@@ -65,6 +65,14 @@ def stats(probe):
     # reading-band rates
     df["band"] = pd.cut(df.reading, [-10, -0.5, 0.5, 10], labels=["origin", "mid", "dest"])
     print(pd.crosstab(df.band, df.category, normalize="index").round(2).to_string())
+    if VERSION != "v1":
+        # regenerated corpus: rates two ways (addendum Part 1, item 8) — with no_answer
+        # in the denominator (above) and over delivered answers only (below)
+        dl = df[df.category != "no_answer"]
+        print(f"delivered answers only (n={len(dl)} of {len(df)}; no_answer share by band: "
+              f"{(df.groupby('band').category.apply(lambda s: (s == 'no_answer').mean()).round(2)).to_dict()})")
+        print(pd.crosstab(dl.band, dl.category, normalize="index").round(2).to_string())
+        print("counts:"); print(pd.crosstab(df.band, df.category).to_string())
     # logprob primary (fr): refusal-starter mass vs reading
     if probe == "fr":
         def lp(s, key):

@@ -56,8 +56,87 @@ produces an answer and is no_answer.
 
 ## Tank (108 cells)
 
-(filled after the tank block completes)
+Read on 5 September (330-character excerpts, with 700- to 900-character excerpts
+and the answer's commitment sentences for every answer that opened with a
+multi-sense list). Rules, applied in order:
+
+1. The answer states which sense the passage uses (wherever that sentence falls,
+   asides about other senses do not matter) → that sense.
+2. The answer says the passage uses both senses, or answers section by section
+   with different senses → `both`.
+3. The answer gives a general multi-sense entry that includes both the container
+   or aquarium family and the vehicle family without saying which the passage
+   uses → `both`; a general entry whose senses all fall in one family → that
+   family. Passage-linked examples given for one family only count as a
+   commitment to that family.
+
+| Category | Count |
+|---|---|
+| aquarium | 31 |
+| vehicle | 26 |
+| both | 37 |
+| no_answer | 14 (6 verbatim repetition, 1 enumeration loop, 7 stuck deliberation) |
+
+"Stuck deliberation" is a reasoning channel that keeps re-reading the passage
+("Let's just search ... No. I'm stuck ...") without repeating itself verbatim and
+never produces an answer. Reasoning versus delivered answer (`s18 agreement
+tank`): 65 of 108 agree. The disagreements are mostly commitment-versus-list:
+16 cells whose reasoning committed to one sense delivered an answer listing both,
+and 10 whose reasoning listed both delivered a commitment.
+
+Judgment calls: `tank_d3_fam08_ab_beh_k02` says the passage never uses the word
+and then gives a general list → both. `tank_d3_fam10_ba_beh_k06` and
+`tank_d3_fam10_ba_beh_k02` answer in the game sense ("the tank's job is to soak
+up fire", "the primary armored unit"), counted as the vehicle family.
+Section-by-section answers (`tank_d3_fam01_ba_beh_k12`, `..._k20`,
+`tank_d3_fam07_ba_beh_k20`, `tank_d3_fam09_ba_beh_k12`) are `both`.
 
 ## Blinded spot-check sample
 
-(40 cells, 20 per task, listed after both tasks are categorized)
+Forty cells, twenty per task, stratified by v2 category, for an optional second
+categorization by Andrew's chat-side reviewer (categories hidden; the reviewer
+receives the final answers from the archived worksheets and returns categories).
+
+
+
+
+- tank_d3_fam02_ab_beh_k02
+- tank_d3_fam09_ab_beh_k12
+- tank_d3_fam01_ab_beh_k06
+- tank_d3_fam05_ab_beh_k02
+- tank_d3_fam06_ab_beh_k02
+- tank_d3_fam03_ba_beh_k12
+- tank_d3_fam06_ab_beh_k20
+- tank_d3_fam00_ba_beh_k12
+- tank_d3_fam00_ab_beh_k12
+- tank_d3_fam08_ba_beh_k20
+- tank_d3_fam05_ba_beh_k02
+- tank_d3_fam11_ba_beh_k06
+- tank_d3_fam01_ba_beh_k12
+- tank_d3_fam08_ab_beh_k06
+- tank_d3_fam01_ba_beh_k06
+- tank_d3_fam06_ba_beh_k02
+- tank_d3_fam05_ab_beh_k12
+- tank_d3_fam11_ab_beh_k12
+- tank_d3_fam09_ba_beh_k20
+- tank_d3_fam02_ba_beh_k06
+- fr_s1_th_d3_fam04_fr_beh_k12
+- fr_s1_th_d3_fam07_fr_beh_k12
+- fr_s1_th_d3_fam05_fr_beh_k20
+- fr_s1_th_d3_fam09_rf_beh_k12
+- fr_s1_th_d3_fam05_fr_beh_k06
+- fr_s1_ar_d3_fam10_fr_beh_k02
+- fr_s1_th_d3_fam10_rf_beh_k20
+- fr_s1_th_d3_fam11_rf_beh_k12
+- fr_s1_ar_d3_fam02_fr_beh_k20
+- fr_s1_ar_d3_fam10_rf_beh_k06
+- fr_s1_th_d3_fam03_rf_beh_k20
+- fr_s1_ar_d3_fam02_fr_beh_k02
+- fr_s1_ar_d3_fam11_fr_beh_k06
+- fr_s1_ar_d3_fam00_fr_beh_k02
+- fr_s1_ar_d3_fam11_fr_beh_k20
+- fr_s1_ar_d3_fam06_fr_beh_k20
+- fr_s1_ar_d3_fam01_fr_beh_k02
+- fr_s1_ar_d3_fam06_fr_beh_k12
+- fr_s1_th_d3_fam04_rf_beh_k02
+- fr_s1_ar_d3_fam07_fr_beh_k06
