@@ -100,13 +100,126 @@ cells were interrupted when the backend's background task was stopped (15:49 and
 15:57) and were re-fired after the backend was relaunched detached; their
 retries pass the prefix check like every other cell.
 
-**Extension, tank (108 cells) and date-bound run (24 cells).** (filled when the
-blocks complete)
+**Extension, tank (108 cells).** Frozen text is a prefix of the regenerated text in
+108 of 108; readings identical. 94 of 108 reach a final answer; the 14 that do not
+are 6 verbatim loops, 1 enumeration loop, and 7 stuck deliberations (re-reading the
+passage without concluding). The tank block took about 2.2 hours (22:26 finish);
+the date-bound cells finished at 23:08.
 
 ## Part 3. Results, frozen versus regenerated
 
-(table filled after categorization)
+Readings are identical in every cell (Part 2), so every difference below comes
+from reading the delivered answer instead of the truncated reasoning channel.
+"Delivered" rates exclude `no_answer`; "all" rates count it in the denominator
+(Part 1, item 8). Sources: `r6_behavior.py --stats v2`, `s12_r4_counts.py v2`,
+`s15_fr_frame_queries.py v2`, `s18_regeneration_checks.py agreement`,
+`s11_monitor_roc.py`, `s14_behavior_by_layer.py`, and for the matched-composition
+tests `s7_sanity_checks.py` (S1.3), `s9_figures.py` (matched-k panel) and
+`s10_materialized.py` (v).
+
+**Channel reach and loops.** Frozen (256-token cap): 37 of 108 tank and 84 of 204
+fiction/real outputs reached a final answer. Regenerated (2,048-token cap): 94 of
+108 tank and 119 of 204 fiction/real. Every output that did not reach an answer is
+degenerate: tank 6 verbatim loops, 1 enumeration loop, 7 stuck deliberations;
+fiction/real 77 verbatim loops, 7 enumeration loops, 1 unbounded enumeration. In
+the fiction/real task 42% of completions deliver no answer under greedy decoding.
+
+**Categories.** Tank, all 108 cells: frozen aquarium 34 / vehicle 33 / both 30 /
+no_answer 11; regenerated aquarium 31 / vehicle 26 / both 37 / no_answer 14.
+Fiction/real, all 204: frozen safety 180 / fiction 21 / mixed 3; regenerated safety
+111 (95 redirect, 16 refusal only) / fiction 8 / mixed 0 / no_answer 85.
+
+**Reasoning channel versus delivered answer** (`s18 agreement`). Tank: 65 of 108
+agree; 16 cells whose reasoning committed to one sense delivered a list of both,
+10 the reverse. Fiction/real: 116 of 204 agree; 85 disagreements are loops (the
+reasoning committed, no answer came); 3 are real flips: two cells whose reasoning
+took up the fiction-writing frame delivered a safe completion, and one whose
+reasoning committed to a safe completion delivered fiction-writing assistance.
+
+**Tank band rates** (all 108 cells, bands on the reading, aquarium side below
+−0.5, as the frozen figure computed them; the frozen caption's "signed toward the
+destination" described a convention the committed script never applied, and Part
+1 item 1 inherited that wording; `all` / `delivered`):
+
+| Band | n | no answer | answers its side | lists both | commits to one sense |
+|---|---|---|---|---|---|
+| aquarium side | 48 | 8 | 52% / 62% | 27% / 32% | 56% / 67% |
+| middle | 31 | 4 | – | 45% / 52% | 42% / 48% |
+| vehicle side | 29 | 2 | 59% / 63% | 34% / 37% | 59% / 63% |
+
+Frozen values for comparison: the side bands answered their side in 56% and 66%,
+the middle band listed both in 45%, and 11 of 108 were loops. The side bands still
+answer their side; the middle band still lists both in about half of its
+delivered answers.
+
+**Fiction/real band rates** (all 204 cells, bands on the reading, fiction side
+below −0.5; `all` / `delivered`):
+
+| Band | n | no answer | safe completion | fiction-writing assistance |
+|---|---|---|---|---|
+| fiction side | 4 | 3 | 25% / 100% (1 of 1) | 0% / 0% |
+| middle | 40 | 13 | 60% / 89% | 7% / 11% |
+| real side | 160 | 69 | 54% / 95% | 3% / 5% |
+
+Frozen values: safe completion 50% / 80% / 91% across the same bands. Read from
+delivered answers, the safeguard holds at 89% to 95% wherever there is an answer,
+and the fiction-side band delivers one answer in four. The frozen 50-to-91%
+gradient was produced by categorizing truncated reasoning channels; what actually
+happens on the fiction side is mostly no answer.
+
+**Clarification and frame queries.** Tank: 0 of 94 delivered answers (0 of 108
+outputs) ask which sense is meant; the one regex hit in a reasoning channel is a
+quoted passage sentence, not a request. Fiction/real: 0 of 119 delivered answers
+ask whether the request is fictional or real (two regex hits are questions inside
+fiction-writing assistance); one delivered answer assumes the story frame and
+invites correction; in the reasoning channels, 1 proposes asking whether the
+request is fictional, 1 proposes asking the letter's context and purpose (then
+loops), 2 float a clarifying question and drop it, 2 propose a task
+clarification, and 7 plan a safety check-in.
+
+**Standalone monitor** (`s11`): AUC 0.61 [0.37, 0.81] with 8 positives among 192
+transition cells (frozen: 0.61 [0.43, 0.76] with 21). **Per-layer association**
+(`s14`): fiction/real n=112 delivered transition answers, curve 0.51 to 0.76,
+maximum at layer 6; tank mid-transition n=41 and all-transition n=83, maxima 0.64
+and 0.66 at layer 19. Both remain roughly flat from mid-stack to the final layer.
+
+**Matched-composition tests** (pre-stated, Part 1 items 2–3; `s7_sanity_checks.py`
+S1.3, decided = one sense, undecided = both senses or no answer, |reading| medians,
+one-sided Mann–Whitney): tank at 2 post-shift sentences 1.32 against 1.49 (19 vs 5,
+p = 0.868); at 6, 0.90 against 0.38 (15 vs 9, p = 0.037); at 12, 0.53 against 0.56
+(6 vs 18, p = 0.527); at 20, 0.57 against 0.68 (7 vs 17, p = 0.772). Frozen: p =
+0.061 at 6 and 0.045 at 12, pooled 0.72 against 0.38, p = 0.0138. Fiction/real at 2 post-shift sentences, fiction-writing assistance against
+delivered safe completions: +0.06 against +0.99 (3 vs 26, one-sided p = 0.065;
+frozen −0.06 against +1.13, p = 0.010). Against all other outputs including the 19
+loops the same test gives p = 0.034 (3 vs 45), which is the comparison the frozen
+script made and is not the pre-stated one. At 20 sentences the reading does not
+separate the types. Pooled tank test over 6 and 12 (`s10_materialized.py` (v)): decided 0.67 (n=21)
+against undecided 0.55 (n=27), one-sided p = 0.1006. The pre-stated pooled test
+does not replicate on delivered answers; the effect at 6 sentences alone does
+(p = 0.037), one of four counts.
 
 ## Part 4. Date-effect bound
 
-(filled by `analysis/s19_date_bound.py`)
+`analysis/s19_date_bound.py`. The 24 no-shift behavior cells (12 per task,
+forty-sentence contexts plus the carrier) were captured twice: pinned to their
+original day (29 August for tank, 30 August for fiction/real) and pinned to
+5 September 2026. Only the month and day tokens of the system message differ.
+
+- **Reading at the calibrated site.** Tank: |Δ| max 0.0024 axis units, median
+  0.0012 (0.12% and 0.06% of the class separation). Fiction/real: max 0.0182,
+  median 0.0023 (0.91% and 0.12%). Every effect the paper reports is at least an
+  order of magnitude larger than the largest of these.
+- **Greedy completion text.** Unchanged in 0 of 12 tank and 1 of 12 fiction/real
+  cells. The texts diverge early (median first differing character in the low
+  hundreds; as early as character 8), because the date tokens perturb the
+  logits by a tiny amount and greedy decoding amplifies any tie-break.
+- **Delivered category.** Where both days deliver an answer, the category is the
+  same in 11 of 11 tank cells and 7 of 7 fiction/real cells. Three fiction/real
+  cells that looped on their original day deliver an answer on 5 September (two
+  safe completions, one fiction-writing answer about the campaign), and none goes
+  the other way. Loops are therefore a property of the particular greedy path,
+  not of the cell; the delivered category, and the reading, are not.
+
+Consequence for the paper: the date tokens cannot explain any reported reading
+effect; they can flip whether a particular greedy path loops, which is one more
+reason the no-answer share is reported as a property of greedy decoding.

@@ -150,6 +150,7 @@ def _run_battery():
                   f"undecided {np.abs(und.r_or).median():.2f} (n={len(und)}); MW p={pv:.3f}")
     f = pd.read_csv(f"docs/studies/context_shift/analysis/r6_behavior_worksheet_fr{WS}_categorized.csv")
     f = f[f.k != "d4_final"]
+    if WS: f = f[f.category != "no_answer"]  # regenerated corpus: compare against delivered safe completions only
     f["fic"] = f.category == "fiction_frame"
     for k in ("2", "6", "12", "20"):
         sub = f[f.k == k]

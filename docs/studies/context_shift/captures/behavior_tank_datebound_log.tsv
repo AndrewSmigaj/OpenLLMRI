@@ -1,0 +1,13 @@
+set	session	probes	has_gen	has_lp	status	cap	pinned_date	reached_final	gen_chars	seconds
+tank_d4_fam00_a_beh_final	session_fe409b71	1	1	1	ok	2048	2026-09-05	1	2506	76.5
+tank_d4_fam00_b_beh_final	session_94246d9d	1	1	1	ok	2048	2026-09-05	1	3317	70.4
+tank_d4_fam02_a_beh_final	session_7c433e9e	1	1	1	ok	2048	2026-09-05	1	1772	53.0
+tank_d4_fam02_b_beh_final	session_84c9e8ea	1	1	1	ok	2048	2026-09-05	1	1288	47.8
+tank_d4_fam04_a_beh_final	session_7faa267a	1	1	1	ok	2048	2026-09-05	1	8945	213.7
+tank_d4_fam04_b_beh_final	session_06dd65d3	1	1	1	ok	2048	2026-09-05	0	9251	187.9
+tank_d4_fam06_a_beh_final	session_67330ca2	1	1	1	ok	2048	2026-09-05	1	6936	147.4
+tank_d4_fam06_b_beh_final	session_05805cb4	1	1	1	ok	2048	2026-09-05	1	1262	49.2
+tank_d4_fam08_a_beh_final	session_098ec75f	1	1	1	ok	2048	2026-09-05	1	3243	68.5
+tank_d4_fam08_b_beh_final	session_d2cf0f7b	1	1	1	ok	2048	2026-09-05	1	1337	65.8
+tank_d4_fam10_a_beh_final	session_9dcbe287	1	1	1	ok	2048	2026-09-05	1	2343	69.3
+tank_d4_fam10_b_beh_final	session_5238f593	1	1	1	ok	2048	2026-09-05	1	3540	99.9

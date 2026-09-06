@@ -139,7 +139,14 @@ t = pd.read_csv(OUT / f"r6_behavior_worksheet_tank{WS}_categorized.csv"); t = t[
 t["r_or"] = np.where(t.set.str.contains("_ab_"), t.reading, -t.reading)
 t["dec"] = t.category.isin(["aquarium", "vehicle"])
 f = pd.read_csv(OUT / f"r6_behavior_worksheet_fr{WS}_categorized.csv"); f = f[f.k != "d4_final"]
+f = f[f.category != "no_answer"]  # regenerated corpus: outputs that never delivered an answer are excluded here
 f["fic"] = f.category == "fiction_frame"
+from scipy.stats import mannwhitneyu as _mwu
+def _p(a, b, alt):  # one-sided Mann-Whitney, computed from the worksheet rather than hardcoded
+    return _mwu(a, b, alternative=alt).pvalue if len(a) and len(b) else float("nan")
+_pt = {k: _p(np.abs(t[(t.k == k) & t.dec].r_or), np.abs(t[(t.k == k) & ~t.dec].r_or), "greater") for k in ("6", "12")}
+_pool = t[t.k.isin(["6", "12"])]; _pp = _p(np.abs(_pool[_pool.dec].r_or), np.abs(_pool[~_pool.dec].r_or), "greater")
+_pf2 = _p(f[(f.k == "2") & f.fic].reading, f[(f.k == "2") & ~f.fic].reading, "less")
 fig, axs = plt.subplots(1, 2, figsize=(11.5, 4.2), facecolor=SURFACE)
 rng = np.random.default_rng(7)
 for i, k in enumerate(("2", "6", "12", "20")):
@@ -153,8 +160,8 @@ axs[0].set_xticks(range(4)); axs[0].set_xticklabels([f"after {k}" for k in (2, 6
 axs[0].set_xlabel("post-shift sentences", fontsize=8.5, color=MUT)
 axs[0].set_ylabel("|reading| (absolute value of the destination-signed reading)", fontsize=8.5, color=INK)
 axs[0].set_title("Tank task: decided (blue) vs hedged or no answer (green)\n"
-                 "mid-transition, decided runs read more extreme\n"
-                 "(p = .061 after 6, .045 after 12)", fontsize=8.5, color=INK)
+                 f"one-sided p = {_pt['6']:.3f} after 6, {_pt['12']:.3f} after 12;\n"
+                 f"pooled over 6 and 12, p = {_pp:.2f}", fontsize=8.5, color=INK)
 for i, k in enumerate(("2", "6", "12", "20")):
     s = f[f.k == k]
     for fic, color, off in ((True, BLUE, -0.17), (False, ORANGE, +0.17)):
@@ -165,8 +172,8 @@ for i, k in enumerate(("2", "6", "12", "20")):
 axs[1].set_xticks(range(4)); axs[1].set_xticklabels([f"after {k}" for k in (2, 6, 12, 20)], fontsize=8.5)
 axs[1].set_xlabel("post-shift sentences", fontsize=8.5, color=MUT)
 axs[1].set_ylabel("reading (fictional −, real +)", fontsize=8.5, color=INK)
-axs[1].set_title("Fiction/real task: fiction-framed assistance (blue) vs safe-completion (orange)\n"
-                 "after 2 sentences, assistance comes at lower readings (p = .010);\n"
+axs[1].set_title("Fiction/real task: fiction-writing assistance (blue) vs safe-completion (orange)\n"
+                 f"after 2 sentences, assistance comes at lower readings (p = {_pf2:.3f});\n"
                  "later, response type follows the scene family", fontsize=8.5, color=INK)
 for a in axs: style(a)
 fig.suptitle("Behavior against the reading within matched context composition", fontsize=10.5, color=INK)
