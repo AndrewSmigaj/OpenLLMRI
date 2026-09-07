@@ -38,8 +38,7 @@ distance from the midpoint between the two sides, the shortfall ranges from 40\%
 sentences after the switch never close the remaining gap. In one tank direction
 the reading stops at the midpoint and stays there, stationary to the end of the
 window. Individual runs move by drift plus discrete jumps. Where the fits can
-decide, drift plus jumps beats every smooth evidence-integration model we fit. The
-jumps do not coincide with unusually strong evidence. Evidence order has a large
+decide, drift plus jumps beats every smooth evidence-integration model we fit. The jumps do not coincide with unusually strong evidence in the arriving sentence. Evidence order has a large
 effect on the reading, explained almost entirely by recency weighting. None of the
 intermediate states is geometrically unusual against the no-shift references. Yet
 together they carry a persistent internal signal that the context is mixed, a
@@ -136,8 +135,7 @@ instrument artifacts, accumulation offset and axis rotation, that mimic findings
 (\S2).
 \item The shape of reinterpretation: a gradual, partial update whose remnant lingers to
 the end of the tested horizon (\S3.2).
-\item The form of its dynamics: drift plus discrete jumps that are not timed by evidence
-strength, with the smooth integrators we tested rejected head-to-head (\S3.3).
+\item The form of its dynamics: drift plus discrete jumps that are not timed by the class evidence in the arriving sentence, with the smooth integrators we tested rejected head-to-head (\S3.3).
 \item The dwelling within the unresolved zone: a stationary intermediate state in one
 tank direction, where the model's answers hedge between the senses (\S3.4). None of the tank completions asks which sense is meant (\S3.5).
 \item Behavior set beside the reading in both tasks, read two ways: the delivered
@@ -751,7 +749,7 @@ synthetic, step truth (48) & 3 & 27 & 0 & 0 & 18 & 30 \\
 \end{tabularx}
 \end{table}
 
-Jump timing is not predicted by evidence strength. In runs where the largest single
+Jump timing is not predicted by the strength of the arriving sentence's class evidence. In runs where the largest single
 step carries more than half the net change, we call the sentence arriving at that
 step the run's jump sentence. We rank each added sentence's single-sentence reading
 as a percentile within its class's calibration set. Steps are taken between consecutive post-shift readings, so the first post-shift
@@ -1093,8 +1091,9 @@ occupies something functionally state-like: it is stationary for many steps and 
 its own behavioral signature. Geometrically it is a passage, inside the trajectory
 bundle and on a smooth equilibrium map. One disclaimer follows. Nothing here is
 equilibrium bistability, since the map from evidence mixture to reading is smooth
-(\S3.6), and readers should not import a barrier-crossing picture. Semantic
-metastability, as we use it, is a property of paths.
+(\S3.6), and readers should not import a barrier-crossing picture. Semantic metastability, as we use it, is a property of paths.
+
+Two caveats bound the term. The plateau's location is ambiguous on its own: an equal-weight average of twenty aquarium and twenty vehicle sentences reads at the midpoint, so the location cannot separate a transient state from an equilibrium reading of mixed content. What separates them is that no single weighting produces both phases. The equal weighting that lands on the midpoint would cross it only at the twentieth post-shift sentence, where the runs cross at a median of 10.5, and the recency weights fitted independently to the static sweeps, $\gamma$ of 0.91 to 0.97 (Table 5), give the destination block 65\% to 87\% of the weight, which places the equilibrium reading of destination-last content on the destination side of the midpoint, not at it. The term therefore rests on the cluster, the two-phase incompatibility and the state-timed jumps, not on the plateau's position. And the term names a signature, not a mechanism. There are no autonomous dynamics here: each reading is a fresh forward pass on a longer prompt, and the phenomenology arises from a map without attractor structure (\S3.6) processing shifting inputs. That absence is itself a finding.
 
 \textbf{Typicality is not commitment.} The three-worlds question of \S1 dissolved because
 it conflated two axes. On distributional typicality the stationary states are

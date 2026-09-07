@@ -17,8 +17,9 @@ occupies something functionally state-like: it is stationary for many steps and 
 its own behavioral signature. Geometrically it is a passage, inside the trajectory
 bundle and on a smooth equilibrium map. One disclaimer follows. Nothing here is
 equilibrium bistability, since the map from evidence mixture to reading is smooth
-(§3.6), and readers should not import a barrier-crossing picture. Semantic
-metastability, as we use it, is a property of paths.
+(§3.6), and readers should not import a barrier-crossing picture. Semantic metastability, as we use it, is a property of paths.
+
+Two caveats bound the term. The plateau's location is ambiguous on its own: an equal-weight average of twenty aquarium and twenty vehicle sentences reads at the midpoint, so the location cannot separate a transient state from an equilibrium reading of mixed content. What separates them is that no single weighting produces both phases. The equal weighting that lands on the midpoint would cross it only at the twentieth post-shift sentence, where the runs cross at a median of 10.5, and the recency weights fitted independently to the static sweeps, γ of 0.91 to 0.97 (Table 5), give the destination block 65% to 87% of the weight, which places the equilibrium reading of destination-last content on the destination side of the midpoint, not at it. The term therefore rests on the cluster, the two-phase incompatibility and the state-timed jumps, not on the plateau's position. And the term names a signature, not a mechanism. There are no autonomous dynamics here: each reading is a fresh forward pass on a longer prompt, and the phenomenology arises from a map without attractor structure (§3.6) processing shifting inputs. That absence is itself a finding.
 
 **Typicality is not commitment.** The three-worlds question of §1 dissolved because
 it conflated two axes. On distributional typicality the stationary states are

@@ -339,3 +339,16 @@ and 34–45% later), so the scoring path is the one Table 6 uses. Per-cell score
 Paper: §3.7's two sentences on the 256-token tests replaced by the re-run
 result; §4's marker paragraph, contribution 7, and the abstract unchanged (the
 answer did not change).
+
+## Part 8. Equilibrium weight of the destination block (`analysis/s23_equilibrium_weight.py`, 6 September 2026)
+
+Arithmetic behind the §4 caveat on the dwelling plateau's location. Under
+recency weighting γ^age over a forty-sentence context whose last twenty
+sentences are the destination class, the destination block carries
+(1 − γ²⁰)/(1 − γ⁴⁰) of the weight: 0.868 at γ = 0.91 and 0.648 at γ = 0.97, the
+tank sweep-fitted values of Table 5, so 65% to 87% of the weight, placing the
+equilibrium reading +0.30 to +0.74 of the amplitude on the destination side.
+At γ = 0.99 the share is 0.550 (+0.10) and at γ = 1 it is 0.500, the midpoint,
+which uniform weighting reaches only at the twentieth post-shift sentence
+((k − 20)/(k + 20) = 0 at k = 20). The tank aquarium→vehicle runs cross at a
+median of 10.5 (Table 2).

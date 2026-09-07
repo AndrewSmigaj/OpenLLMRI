@@ -1372,3 +1372,25 @@ against the manifest. Findings and changes:
   first column; booktabs `\addlinespace` between rows of wrapped tables;
   hyphenation off inside wide tables (Table 4's "hy-brid", "integra-tor").
   Tables 1–6 inspected as rendered; overfull ≤ 7.5 pt; 47 pages.
+
+## Delta 3, evidence wording and two §4 caveats (6 September 2026; changelog, no values change)
+
+- Abstract: "unusually strong evidence" → "unusually strong evidence in the
+  arriving sentence" (the bare sentence parses as an epistemic confession when
+  quoted alone). Rule adopted: every sentence in the abstract, the contributions
+  list, and the figure captions must survive being quoted alone; body sentences
+  may lean on local vocabulary.
+- §1 contribution 3 and the §3.3 opener anchored the same way; the later
+  "evidence strength" uses in §3.3 sit after the definition and stay.
+- §4, "What metastable means here": two caveats added. The plateau's location
+  is ambiguous on its own (an equal-weight 20/20 average reads at the midpoint);
+  the term rests on the two-phase incompatibility (uniform weighting crosses only
+  at the twentieth post-shift sentence against a median of 10.5; the sweep-fitted
+  γ of 0.91–0.97 gives the destination block 65–87% of the weight, so the
+  equilibrium reading of destination-last content sits on the destination side)
+  and the state-timed jumps. And the term names a signature, not a mechanism:
+  no autonomous dynamics, each reading a fresh forward pass, a map without
+  attractor structure processing shifting inputs. Arithmetic committed as
+  `analysis/s23_equilibrium_weight.py` and recorded in addendum Part 8. The
+  reviewer's circular phrasing (the transition-fitted γ ≈ 0.99 "places" the
+  plateau) not used. The loops-as-limit-cycles observation stays out (Andrew).

@@ -87,8 +87,7 @@ We contribute:
    (§2).
 2. The shape of reinterpretation: a gradual, partial update whose remnant lingers to
    the end of the tested horizon (§3.2).
-3. The form of its dynamics: drift plus discrete jumps that are not timed by evidence
-   strength, with the smooth integrators we tested rejected head-to-head (§3.3).
+3. The form of its dynamics: drift plus discrete jumps that are not timed by the class evidence in the arriving sentence, with the smooth integrators we tested rejected head-to-head (§3.3).
 4. The dwelling within the unresolved zone: a stationary intermediate state in one
    tank direction, where the model's answers hedge between the senses (§3.4). None of the tank completions asks which sense is meant (§3.5).
 5. Behavior set beside the reading in both tasks, read two ways: the delivered

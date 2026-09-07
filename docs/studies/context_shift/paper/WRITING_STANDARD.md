@@ -130,3 +130,14 @@ Answer these questions, quoting the text where you find a problem:
 Return either PASS, or a numbered list of specific fixes. Each fix quotes the text,
 says what is wrong, and proposes a replacement. Do not rewrite the section. Do not
 soften a finding because it is unflattering.
+
+## Quote-alone zones (6 September 2026)
+
+Every sentence in the abstract, the contributions list, and the figure captions
+must survive being quoted alone: read it with no surrounding sentence and it must
+still mean what the paper means. Abstract sentences get quoted in isolation;
+contributions get copied into reviews; figures circulate detached from their
+sections. Body sentences may lean on the local vocabulary of their paragraph. The
+case that set the rule: "The jumps do not coincide with unusually strong
+evidence" reads, alone, as a confession about the paper's evidence; anchored to
+"in the arriving sentence" it cannot.

@@ -34,8 +34,7 @@ distance from the midpoint between the two sides, the shortfall ranges from 40% 
 sentences after the switch never close the remaining gap. In one tank direction
 the reading stops at the midpoint and stays there, stationary to the end of the
 window. Individual runs move by drift plus discrete jumps. Where the fits can
-decide, drift plus jumps beats every smooth evidence-integration model we fit. The
-jumps do not coincide with unusually strong evidence. Evidence order has a large
+decide, drift plus jumps beats every smooth evidence-integration model we fit. The jumps do not coincide with unusually strong evidence in the arriving sentence. Evidence order has a large
 effect on the reading, explained almost entirely by recency weighting. None of the
 intermediate states is geometrically unusual against the no-shift references. Yet
 together they carry a persistent internal signal that the context is mixed, a

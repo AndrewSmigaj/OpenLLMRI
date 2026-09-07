@@ -233,7 +233,7 @@ two-timescale truth read as hybrid in 2 and 3 of 24.
 | synthetic, two-timescale truth (48) | 5 | 0 | 18 | 4 | 21 | 27 |
 | synthetic, step truth (48) | 3 | 27 | 0 | 0 | 18 | 30 |
 
-Jump timing is not predicted by evidence strength. In runs where the largest single
+Jump timing is not predicted by the strength of the arriving sentence's class evidence. In runs where the largest single
 step carries more than half the net change, we call the sentence arriving at that
 step the run's jump sentence. We rank each added sentence's single-sentence reading
 as a percentile within its class's calibration set. Steps are taken between consecutive post-shift readings, so the first post-shift

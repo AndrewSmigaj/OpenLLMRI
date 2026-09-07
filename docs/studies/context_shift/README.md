@@ -114,12 +114,12 @@ Which scripts need the raw captures:
   `r5_geometry.py`, `r6_behavior.py`, `r6_carrier_dprime_fr.py`,
   `r6_d6_stickiness.py`, `r6_post_capture.py`, `fr_battery.py`,
   `s7_sanity_checks.py`, `s8_subspace_geometry.py`, `s9_adversarial_checks.py`,
-  `s9_figures.py`, `s10_materialized.py`, `s12_r4_counts.py` (v2 mode), `s15_fr_frame_queries.py`, `s18_regeneration_checks.py`, `s19_date_bound.py`, `s20_dwelling_decomposition.py`, `s22_marker_behavior.py`,
+  `s9_figures.py`, `s10_materialized.py`, `s12_r4_counts.py` (v2 mode), `s15_fr_frame_queries.py`, `s18_regeneration_checks.py`, `s19_date_bound.py`, `s20_dwelling_decomposition.py`, `s22_marker_behavior.py`, `s23_equilibrium_weight.py`,
   `make_figures.py`, `dual_trajectory_figure.py`; `s16_capture_days.py` and
   `s17_capture_manifest.py` read only the session manifests.
 
 The analysis freeze and the additions made after it are recorded in the paper's
-Appendix B. Post-freeze scripts are `s11` through `s20` and `s22`, each a logged addition
+Appendix B. Post-freeze scripts are `s11` through `s20`, `s22`, and `s23`, each a logged addition
 computed from the frozen captures, their manifests, or the regenerated behavior
 captures (`captures/behavior_chain_v2.py`).
 
@@ -150,6 +150,7 @@ script for each claim.
 | §3.6 | Hysteresis loops and fitted integrator (Table 5) | `r6_d6_stickiness.py`, `s7_sanity_checks.py` | `fig_r6_d6_loop_*` |
 | §3.7 | Per-state geometry; mixed-context marker (Table 6) | `r5_geometry.py`, `s8_subspace_geometry.py`, `s9_figures.py` | `fig_r5_geometry`, `fig_s9_shift_marker` |
 | §3.7 | Marker versus behavior at matched composition (v2 categories); marker versus loops | `s22_marker_behavior.py` | printed; `s22_marker_behavior_tests.csv` |
+| §4 | Equilibrium weight of the destination block under sweep-fitted γ (plateau-location caveat) | `s23_equilibrium_weight.py` | printed |
 | §4 | Standalone monitor ROC | `s11_monitor_roc.py` | `fig_s11_monitor_roc` |
 | App. B | Label-shuffle audits (Table 7); capture days; archive manifest; date-effect bound | `s9_adversarial_checks.py`, `s16_capture_days.py`, `s17_capture_manifest.py`, `s19_date_bound.py` | printed; `capture_manifest.csv` |
 
