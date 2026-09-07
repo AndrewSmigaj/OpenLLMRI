@@ -1394,3 +1394,14 @@ against the manifest. Findings and changes:
   `analysis/s23_equilibrium_weight.py` and recorded in addendum Part 8. The
   reviewer's circular phrasing (the transition-fitted γ ≈ 0.99 "places" the
   plateau) not used. The loops-as-limit-cycles observation stays out (Andrew).
+
+- Plateau-location caveat strengthened (Andrew: "what is best for the paper").
+  §4 now carries the level-plus-slope argument beside the sweep-calibrated one:
+  a fixed weighting at the midpoint must be near-uniform and must still rise a
+  third of the amplitude over the last ten sentences; one that is flat within
+  the late-slope bound (an eighth) needs γ ≤ 0.76 and sits at the vehicle
+  reference; the observed trajectory is flat at the midpoint, which no single
+  weighting produces. Reverse direction stated as the contrast (compatible with
+  γ 0.94). Open item named: length-dependent weighting; a forty-sentence sweep
+  added to §5's deferred list. s23 extended; addendum Part 8 rewritten with the
+  table. Second caveat split into its own paragraph.

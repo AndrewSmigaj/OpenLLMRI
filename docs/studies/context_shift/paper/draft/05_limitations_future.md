@@ -49,8 +49,8 @@ and measures what remains of the second frame. Both are designed and costed. Nei
   temperature, several draws per cell. The two readings of §3.5 bracket the
   safeguard's rate; sampling, which is expected to break the loops, decides where in the
   bracket the deployed model sits.
-- Replicate the fiction/real headline quantities at the ' write' site, where the
-  framing contrast reads most strongly. The existing recordings suffice.
+- Run a forty-sentence static mixture sweep, so that the equilibrium map is measured at the transition's own length. It tests directly whether the dwelling plateau is an equilibrium reading of its content or sits below it (§4).
+- Replicate the fiction/real headline quantities at the ' write' site, where the framing contrast reads most strongly. The existing recordings suffice.
 - Expand the ' letter'-site families.
 - Build calibration sets from a third, unrelated class, to identify what the
   accumulation offset contains.

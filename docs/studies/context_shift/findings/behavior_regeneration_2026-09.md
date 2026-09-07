@@ -340,15 +340,37 @@ Paper: §3.7's two sentences on the 256-token tests replaced by the re-run
 result; §4's marker paragraph, contribution 7, and the abstract unchanged (the
 answer did not change).
 
-## Part 8. Equilibrium weight of the destination block (`analysis/s23_equilibrium_weight.py`, 6 September 2026)
+## Part 8. What a fixed recency weighting predicts for the dwelling window (`analysis/s23_equilibrium_weight.py`, 6 September 2026)
 
-Arithmetic behind the §4 caveat on the dwelling plateau's location. Under
-recency weighting γ^age over a forty-sentence context whose last twenty
-sentences are the destination class, the destination block carries
-(1 − γ²⁰)/(1 − γ⁴⁰) of the weight: 0.868 at γ = 0.91 and 0.648 at γ = 0.97, the
-tank sweep-fitted values of Table 5, so 65% to 87% of the weight, placing the
-equilibrium reading +0.30 to +0.74 of the amplitude on the destination side.
-At γ = 0.99 the share is 0.550 (+0.10) and at γ = 1 it is 0.500, the midpoint,
-which uniform weighting reaches only at the twentieth post-shift sentence
-((k − 20)/(k + 20) = 0 at k = 20). The tank aquarium→vehicle runs cross at a
-median of 10.5 (Table 2).
+Arithmetic behind the §4 caveat on the dwelling plateau's location. A recency
+integrator weights the sentence of age a by γ^a; after k post-shift sentences
+(twenty origin, then k destination) the destination block carries
+(1 − γ^k)/(1 − γ^(20+k)) of the weight and the reading, in amplitude units signed
+toward the destination, is twice that share minus one. Uniform weighting gives
+(k − 20)/(k + 20): the midpoint exactly at k = 20. Observed constants: amplitude
+2.02 axis units and late-slope bound [−0.040, +0.024] axis units per sentence
+over post-shift sentences 11–20 (Part 5); remnant gap +2.16 [1.87, 2.44]
+(Table 2), so the plateau sits at 1 − gap/amplitude of the way to the
+destination: −0.07 [−0.21, +0.07] (−0.09 at the printed ratio 1.09). The
+late-slope bound allows a rise of at most 0.12 of the amplitude over the
+ten-sentence window (an eighth).
+
+| γ | reading at k = 10 | reading at k = 20 | rise over sentences 11–20 |
+|---|---|---|---|
+| 0.91 (sweep, destination first) | +0.30 | +0.74 | +0.44 |
+| 0.94 (reverse-direction transition fit) | +0.09 | +0.55 | +0.46 |
+| 0.97 (sweep, destination last) | −0.12 | +0.30 | +0.42 |
+| 0.99 (dwelling-direction transition fit) | −0.27 | +0.10 | +0.37 |
+| 1.00 (uniform) | −0.33 | 0.00 | +0.33 (a third) |
+
+Level and slope together: a rise within the bound (≤ 0.12) requires γ ≤ 0.76,
+at which the reading sits at +0.99 of the amplitude, the destination reference.
+No fixed γ gives "flat at the midpoint". From outside: the sweep-fitted γ of
+0.91–0.97 gives the destination block 65–87% of the weight (shares 0.648 and
+0.868) and an equilibrium reading 0.30–0.74 past the midpoint; the plateau's
+interval does not reach a tenth of the amplitude past it. Reverse direction
+(vehicle→aquarium, γ 0.94): predicted +0.55 at k = 20 against observed +0.43
+[+0.28, +0.59]; predicted rise +0.092 axis units per sentence against observed
+[+0.025, +0.133]; compatible on both. Open: a weighting that changes with
+context length (the sweeps are twenty sentences long); a forty-sentence sweep
+is the direct test (§5).
