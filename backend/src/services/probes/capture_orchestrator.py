@@ -112,6 +112,8 @@ class CaptureOrchestrator:
         self, input_tensor: torch.Tensor, max_new_tokens: int = 50,
         attention_mask: Optional[torch.Tensor] = None,
         skip_special_tokens: bool = True,
+        do_sample: bool = False, temperature: float = 1.0, top_p: float = 1.0,
+        seed: Optional[int] = None,
     ) -> Tuple[str, List[int]]:
         """Generate text continuation, returning both decoded text and token IDs.
 
@@ -126,11 +128,20 @@ class CaptureOrchestrator:
                 gen_kwargs = {
                     "input_ids": input_tensor,
                     "max_new_tokens": max_new_tokens,
-                    "do_sample": False,
+                    "do_sample": do_sample,
                     "pad_token_id": self.tokenizer.pad_token_id or self.tokenizer.eos_token_id,
                 }
+                if do_sample:
+                    # No top_k: the model's generation config leaves it unset and
+                    # transformers adds no top-k warper, so this samples the full
+                    # distribution at the given temperature and top_p.
+                    gen_kwargs["temperature"] = temperature
+                    gen_kwargs["top_p"] = top_p
                 if attention_mask is not None:
                     gen_kwargs["attention_mask"] = attention_mask
+                if seed is not None:
+                    torch.manual_seed(seed)
+                    torch.cuda.manual_seed_all(seed)
                 gen_output = self.model.generate(**gen_kwargs)
             generated_ids = gen_output[0, input_tensor.shape[1]:]
             text = self.tokenizer.decode(generated_ids, skip_special_tokens=skip_special_tokens)

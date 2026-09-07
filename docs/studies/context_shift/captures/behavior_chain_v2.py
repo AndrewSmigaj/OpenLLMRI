@@ -4,14 +4,23 @@ with a longer generation cap and the chat-template date pinned to each cell's
 original capture day, so each new completion is an exact extension of the frozen
 one under greedy decoding.
 
+Sampled arm (7 September 2026): with --sample the same cells are generated under
+do_sample=True at the given temperature and top_p (no top-k truncation), with the
+RNG seeded per request; the prompt tokens are unchanged (date still pinned), only
+the decoding differs. Without --sample the payload is byte-identical to the greedy
+regeneration's.
+
 Usage: behavior_chain_v2.py MANIFEST LOG PROBE(tank|fr) [--cap N] [--pin-date auto|YYYY-MM-DD]
                             [--suffix _v2] [--only name1,name2,...] [--repeat K]
+                            [--sample] [--temperature 1.0] [--top-p 1.0] [--seed N]
 
 --pin-date auto  looks each cell's frozen capture date up in captures/capture_manifest.csv.
 --suffix         is appended to the session_name (never to the sentence-set name), so
                  regenerated sessions are distinguishable from the frozen ones.
 --repeat K       fires each cell K times with session_name suffixes _r1.._rK (determinism check).
-Log columns: set, session, probes, has_gen, has_lp, status, cap, pinned_date, reached_final, gen_chars, seconds.
+--sample         request sampled decoding; --seed is sent with every request.
+Log columns: set, session, probes, has_gen, has_lp, status, cap, pinned_date, reached_final,
+gen_chars, seconds, sampled, temperature, top_p, seed.
 """
 import argparse, csv, glob, json, os, sys, time, urllib.request
 from pathlib import Path
@@ -30,17 +39,30 @@ ap.add_argument("--pin-date", default="auto")
 ap.add_argument("--suffix", default="_v2")
 ap.add_argument("--only", default="")
 ap.add_argument("--repeat", type=int, default=1)
+ap.add_argument("--sample", action="store_true")
+ap.add_argument("--temperature", type=float, default=1.0)
+ap.add_argument("--top-p", type=float, default=1.0)
+ap.add_argument("--seed", type=int, default=None)
 a = ap.parse_args()
+if a.sample and a.seed is None:
+    sys.exit("--sample requires --seed so every draw is recorded")
 log_path = Path(a.log)
 entries = json.load(open(a.manifest))
 if a.only: entries = [e for e in entries if e["name"] in set(a.only.split(","))]
 
 frozen_date = {}
+# The frozen capture day is the EARLIEST session date for the sentence set among the
+# original corpora. The manifest now also lists the regenerated, date-bound, smoke,
+# and sampled sessions (later dates), so "first row" is no longer the frozen one.
 for r in csv.DictReader(open("docs/studies/context_shift/captures/capture_manifest.csv")):
-    if r["file"].startswith("_sessions/") and r["sentence_set"] not in frozen_date:
-        frozen_date[r["sentence_set"]] = r["capture_date"]
+    if not r["file"].startswith("_sessions/"): continue
+    if any(w in r["corpus"] for w in ("regenerated", "date-bound", "smoke", "sampled")): continue
+    d = r["capture_date"]
+    if r["sentence_set"] not in frozen_date or d < frozen_date[r["sentence_set"]]:
+        frozen_date[r["sentence_set"]] = d
 
-COLS = "set\tsession\tprobes\thas_gen\thas_lp\tstatus\tcap\tpinned_date\treached_final\tgen_chars\tseconds\n"
+COLS = ("set\tsession\tprobes\thas_gen\thas_lp\tstatus\tcap\tpinned_date\treached_final\tgen_chars\tseconds"
+        "\tsampled\ttemperature\ttop_p\tseed\n")
 if not log_path.exists(): log_path.write_text(COLS)
 done = {l.split("\t")[0] for l in log_path.read_text().splitlines()[1:] if l}
 
@@ -60,10 +82,13 @@ for e in entries:
         if a.pin_date == "auto" and pin is None:
             print(f"[{name}] no frozen capture date in capture_manifest.csv; skipping", flush=True); continue
         session_name = f"sentence_{name}{a.suffix}" + (f"_r{rep}" if a.repeat > 1 else "")
-        payload = json.dumps({"sentence_set_name": name, "session_name": session_name,
-                              "generate_output": True, "max_new_tokens": a.cap, "pin_date": pin,
-                              "capture_static_substring": e["substring"],
-                              "logit_token_sets": TOKSETS[a.probe], "logit_forced_final": True}).encode()
+        body = {"sentence_set_name": name, "session_name": session_name,
+                "generate_output": True, "max_new_tokens": a.cap, "pin_date": pin,
+                "capture_static_substring": e["substring"],
+                "logit_token_sets": TOKSETS[a.probe], "logit_forced_final": True}
+        if a.sample:
+            body.update({"do_sample": True, "temperature": a.temperature, "top_p": a.top_p, "seed": a.seed})
+        payload = json.dumps(body).encode()
         req = urllib.request.Request("http://localhost:8000/api/probes/sentence-experiment",
                                      data=payload, headers={"Content-Type": "application/json"})
         t0 = time.time(); sid = "ERR"
@@ -82,7 +107,10 @@ for e in entries:
         except Exception:
             pass
         status = "ok" if (n == 1 and hg and hl) else "err"
+        samp = (int(a.sample), a.temperature if a.sample else "", a.top_p if a.sample else "", a.seed if a.sample else "")
         with open(log_path, "a") as f:
-            f.write(f"{key}\t{sid}\t{n}\t{hg}\t{hl}\t{status}\t{a.cap}\t{pin}\t{fin}\t{chars}\t{secs}\n")
-        print(f"[{key}] {sid} n={n} gen={hg} lp={hl} final={fin} chars={chars} {secs}s {status}", flush=True)
+            f.write(f"{key}\t{sid}\t{n}\t{hg}\t{hl}\t{status}\t{a.cap}\t{pin}\t{fin}\t{chars}\t{secs}"
+                    f"\t{samp[0]}\t{samp[1]}\t{samp[2]}\t{samp[3]}\n")
+        print(f"[{key}] {sid} n={n} gen={hg} lp={hl} final={fin} chars={chars} {secs}s {status}"
+              + (f" seed={a.seed}" if a.sample else ""), flush=True)
 print("=== behavior chain v2 complete ===")

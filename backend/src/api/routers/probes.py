@@ -291,7 +291,10 @@ async def run_sentence_experiment(
                 # to old capture_probe order: same prompt, same model state)
                 gen_text = None
                 if request.generate_output:
-                    gen_text, _ = service.generate(token_ids, max_new_tokens=request.max_new_tokens)
+                    gen_text, _ = service.generate(
+                        token_ids, max_new_tokens=request.max_new_tokens,
+                        do_sample=request.do_sample, temperature=request.temperature,
+                        top_p=request.top_p, seed=request.seed)
 
                 # Forced-final-channel suffix (after generation, before capture):
                 # shifts the logprob position to the first visible answer token

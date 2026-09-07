@@ -350,6 +350,15 @@ class SentenceExperimentRequest(BaseModel):
     # rendered with this date instead of today's, so a capture can reproduce a
     # prior day's input token stream exactly (only the date tokens differ across
     # days; positions are unchanged).
+    do_sample: bool = False
+    # Sampled decoding for generate_output. False keeps greedy decoding (the frozen
+    # and regenerated behavior captures); True samples with temperature and top_p
+    # below and no top-k truncation (the model's config leaves top_k unset).
+    temperature: float = 1.0
+    top_p: float = 1.0
+    seed: Optional[int] = None
+    # RNG seed set immediately before generation when given, so a sampled draw is
+    # reproducible and recorded with its session.
 
 
 class SentenceExperimentResponse(BaseModel):

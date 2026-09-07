@@ -339,6 +339,10 @@ class IntegratedCaptureService:
         *,
         attention_mask=None,
         skip_special_tokens: bool = True,
+        do_sample: bool = False,
+        temperature: float = 1.0,
+        top_p: float = 1.0,
+        seed=None,
     ) -> Tuple[str, List[int]]:
         """Generation forward pass with hooks OFF. Returns (text, generated_ids).
         Wraps orchestrator.generate_continuation_with_ids; lifts hook
@@ -350,6 +354,7 @@ class IntegratedCaptureService:
             max_new_tokens=max_new_tokens,
             attention_mask=attention_mask,
             skip_special_tokens=skip_special_tokens,
+            do_sample=do_sample, temperature=temperature, top_p=top_p, seed=seed,
         )
         del input_tensor
         gc.collect()
