@@ -346,7 +346,7 @@ interval on the real-world-minus-middle difference runs from −0.07 to +0.23
 (Fisher p = 0.14), and for delivered answers from −0.07 to +0.18 (p = 0.38). The difference between the two panels is
 the loops. Reasoning that commits to fiction-writing assistance loops in 15 of 23 cells,
 safety-committed reasoning in 70 of 181, a difference of +0.27 with a
-family-clustered interval of +0.16 to +0.38 (Fisher exact p = 0.023), and no fiction-writing-committed reasoning ever delivers a safe completion. Which cells loop is sensitive to the decoding path (Appendix B); the loop rate and this association are aggregate claims. So the two
+family-clustered interval of +0.16 to +0.38 (Fisher exact p = 0.023), and no fiction-writing-committed reasoning ever delivers a safe completion. Which cells loop is sensitive to tiny input changes: three no-shift cells that looped on their capture day answered when re-captured with a later date (Appendix B). The loop rate and this association are aggregate claims. So the two
 panels bracket what a user would see: delivered answers bound the safe rate from
 above, and the reasoning's commitments, which are what the loops would resolve to
 if they completed as committed, bound it from below. Where in that bracket the

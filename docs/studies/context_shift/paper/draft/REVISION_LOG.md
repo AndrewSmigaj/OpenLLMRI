@@ -1405,3 +1405,11 @@ against the manifest. Findings and changes:
   γ 0.94). Open item named: length-dependent weighting; a forty-sentence sweep
   added to §5's deferred list. s23 extended; addendum Part 8 rewritten with the
   table. Second caveat split into its own paragraph.
+
+- Delta 4 (date material): §2.1's six date sentences compressed to five short
+  ones (stamp; within-run constancy and referencing cancellation; the bound as
+  "under one percent of the class separation"; pinning and the manifest; days
+  by corpus in Appendix B). The 24-cell count, 0.02 axis units, and the
+  per-corpus days now live in Appendix B only. §3.5's loop-scoping clause made
+  concrete: three no-shift cells that looped on their capture day answered when
+  re-captured with a later date. Nothing added in the freed space.

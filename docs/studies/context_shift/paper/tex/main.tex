@@ -172,16 +172,7 @@ no developer message, and processed with deterministic forward passes, so identi
 activations. We verified this on the hardware used: the same input captured twice
 gives byte-identical generated text and an identical reading (Appendix B). The model runs at the precision it is distributed
 in: expert weights in the 4-bit MXFP4 format, all other weights in 16-bit floating
-point. The same loaded model produced every capture and every completion. One
-property of the template matters for reproduction. Its system message stamps the
-current date, so an input carries a few date tokens that change from day to day at
-fixed positions, and re-capture on another day requires pinning that date. Within a
-run the date is constant, because a run is one forward chain, so no within-run
-dynamic finding can be explained by it. Between runs we bounded the effect directly: re-capturing 24 no-shift cells with the date pinned to a day about a week later moved the calibrated-site reading by at most 0.02 axis
-units, under one percent of the class separation (Appendix B), and where a run and
-its matched reference share a capture day even that cancels in the referencing. The fiction/real transition runs, their no-shift
-references, and their calibration set were captured on one day, and all but three of
-the tank runs on another. Appendix B lists the days for every corpus. We capture the full residual
+point. The same loaded model produced every capture and every completion. One property of the template matters for reproduction. Its system message stamps the capture date, so inputs captured on different days differ by a few tokens at fixed positions and are not bit-identical. Within a run the date is constant, since a run is one forward chain, and where a run and its matched no-shift reference share a capture day the shared input effect cancels in the referencing. Substituting a date about a week later moves the calibrated-site reading by under one percent of the class separation (Appendix B). Re-capture requires pinning the template's date, and the archive manifest records the capture date of every session, with the days by corpus in Appendix B. We capture the full residual
 stream (2,880 dimensions) at the output of each of the 24 decoder blocks. Throughout, a
 \emph{site} is a designated token of a fixed carrier sentence together with a layer. The
 \emph{reading} at a site is the residual stream at that token and layer, projected onto a
@@ -888,7 +879,7 @@ interval on the real-world-minus-middle difference runs from $-$0.07 to +0.23
 (Fisher p = 0.14), and for delivered answers from $-$0.07 to +0.18 (p = 0.38). The difference between the two panels is
 the loops. Reasoning that commits to fiction-writing assistance loops in 15 of 23 cells,
 safety-committed reasoning in 70 of 181, a difference of +0.27 with a
-family-clustered interval of +0.16 to +0.38 (Fisher exact p = 0.023), and no fiction-writing-committed reasoning ever delivers a safe completion. Which cells loop is sensitive to the decoding path (Appendix B); the loop rate and this association are aggregate claims. So the two
+family-clustered interval of +0.16 to +0.38 (Fisher exact p = 0.023), and no fiction-writing-committed reasoning ever delivers a safe completion. Which cells loop is sensitive to tiny input changes: three no-shift cells that looped on their capture day answered when re-captured with a later date (Appendix B). The loop rate and this association are aggregate claims. So the two
 panels bracket what a user would see: delivered answers bound the safe rate from
 above, and the reasoning's commitments, which are what the loops would resolve to
 if they completed as committed, bound it from below. Where in that bracket the
