@@ -97,6 +97,29 @@ Acceptance: the bow-drill transcript and the lighter transcript play with real t
 two survives one modelled night by ≥3 warmth strategies (fire; huddle + fuselage; insulation
 salvage) and dies by none of them if they do nothing.
 
+## 9. Sleep, rest, and the consensus clock (Andrew, 2026-09-07 — amends DR-14 / DR-15)
+Andrew's decisions: players can **sleep**; there is a way to **move the clock forward if ALL
+players agree**, and **events can interrupt it**; the run is **roughly a week**, rescue can come
+earlier, and it can run longer until the food runs out — not a permanent game: the escalation
+ladder (`events-and-escalation.md` §2) kills a party that is not rescued.
+- **`sleep`** / **`rest`** / **`wait [until dawn | N hours | for <event>]`** are unattended
+  processes on the character: `resting_until` in world-time, a bedding score from the zone (what
+  you lie on and under: boughs, foam, the blanket, the sleeping bag; the huddle), and a watch flag.
+- **Consensus advance (DR-14a):** when every connected character in the run is resting (or waiting),
+  the heartbeat runs at **20× dt** (one real tick = 20 game-min) until the earliest `resting_until`
+  or an **interrupting event**: cold below the character's floor (you wake shivering), the fire
+  reaching `embers`, any propagated Event with loudness ≥ 0.5 in band (wolves, the ice booming, a
+  plane), DANGER, a player's own command. A single player who keeps acting holds the clock at 1×
+  for everyone — the watch is a real co-op role (one tends the fire while three sleep; the fire
+  can be banked to last the watch).
+- **Sleep is a resource with a price:** fatigue falls only while asleep; sleeping cold costs
+  warmth per hour (the bedding score sets the rate); a night without sleep costs judgment (slower
+  activities, worse tick lines) and warmth the next day.
+- **The clock never freezes** (DR-14 holds): the world advances at 1× or 20×, never 0×; nobody can
+  yank it backwards or stall it; the storm and the search run on the calendar regardless.
+- **The run length (DR-15a):** the instance persists across sittings for ~a week of game time; it
+  ends by rescue, walk-out, or the last death — never by a timer.
+
 ## 8. Lens pass
 ### Visible Progress (GD)
 - **GREEN by design.** Start/tick/interrupt/complete lines; the world remembers partial work.

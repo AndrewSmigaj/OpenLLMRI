@@ -102,6 +102,20 @@ physics literature). All raised confidence; none reversed a decision (overall �
 | DR-27 | Activities & processes | *(designed 2026-09; promoted with the time-and-stakes pass)* attended activities with start/tick/interrupt/complete feedback + unattended processes (fire, drying, cold), both driven by the single persistent heartbeat; deadlines in world-time, progress in Attributes; realizes DR-14's P4 design |
 | DR-28 | Moral & social logging | *(designed 2026-09; promoted with the moral-social-layer pass)* ownership + spatial witness + multi-axis tags (target / harm type / severity) in the event log; observational only, never a reward; a run-level consent flag |
 
+> **DR-14a / DR-15a (Andrew's amendments, 2026-09-07 late — recorded, designed in
+> `docs/investigation/design/time-and-stakes.md` §9 and `events-and-escalation.md`; promoted on his
+> review).** The clock still runs continuously and never freezes, but it may run FAST by consensus:
+> when every connected player is sleeping or waiting it advances at 20×, and events interrupt it
+> (cold, the fire dying, a loud event, danger, any player's command). The run is **roughly a week**
+> of game time, persisting across sittings; rescue can come earlier; it can run longer until the
+> food runs out; it is not permanent — an **escalation ladder** (falling temperatures, storms, snow
+> load, fuel radius, food, injury, fatigue, the search moving on) kills a party that is not rescued,
+> with **no hard time-window barriers**. There is **no set arc**: what to do is the players' call.
+> Also decided: the aircraft is the 206-class single (plane-interior §1) with the honest interior
+> (cargo net + hat shelf + jammed cargo door; seats 1A/1B/2A/2B + the right seat); each player
+> starts with a different clothing / injury / pockets draw (`players-and-kit.md`); luggage has real
+> contents; the clothing system prices warmth loss and more (DR-25a, designed).
+>
 > **DR-05b (appended, closure 2026-09-07) — the DSL is retired; verbs stay Python.** The declarative
 > operation DSL was aimed at the wrong axis: verbs are finite (~40 physical operation categories),
 > each with real physics, and the 25 existing handlers already share one toolkit (`_helpers`). The
