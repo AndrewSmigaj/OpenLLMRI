@@ -23,13 +23,23 @@ from world.scenarios.whiteout import content
 from world.scenarios.whiteout.authored import AUTHORED
 from world.sim.contracts import Disambiguation, EffectKind, ParseError
 from world.sim.operations.registry import VERB_TO_OP
-from world.sim.parser import parse
+from world.sim.parser import parse, split_commands
 from world.sim.resolver import resolve
 from world.sim.resolver.wall_sensor import gap_record
 
 content.load()                       # install narration templates when the cmdset loads
 MATERIALS = content.MATERIALS
-_VERBS = sorted(VERB_TO_OP)
+from world.sim.parser.vocab import PARTICLES, SYNONYMS
+_VERBS = sorted(set(VERB_TO_OP) | set(SYNONYMS) | {v for v, _ in PARTICLES})
+# Words that are keys/aliases of OTHER commands in the cmdset must not become aliases here — Evennia
+# drops a command whose alias collides (the speech set: say/whisper/call/shout; the stock look/drop/
+# get/inventory; the builder set/dig-style keys we don't want to shadow). The parser still knows the
+# synonym; it just isn't a command key.
+_RESERVED = {"look", "drop", "inventory", "i", "help", "say", "whisper", "call", "shout",
+             "yell", "speak", "'", "set", "create", "name", "desc", "home", "tel", "teleport", "quit",
+             "who", "time", "about", "page", "pose", "emote", "give", "nick", "alias", "channel",
+             "color", "option", "password", "sessions", "style", "wall", "batchcode", "batchcommands"}
+_VERBS = [v for v in _VERBS if v not in _RESERVED]
 
 _FORMAT = ("VERB thing [RELATION thing] [WITH tool]  — e.g. 'cut the cover off the seat with the "
            "multitool'. Type 'examine <thing>' to see what you can name.")
@@ -38,6 +48,9 @@ _FORMAT = ("VERB thing [RELATION thing] [WITH tool]  — e.g. 'cut the cover off
 # a .db/.ndb Attribute — world state changes only via apply() (DR-10); a menu is a question, not a
 # fact. One record per caller (a fresh command supersedes it); evaporates on @reload, harmlessly.
 _PENDING: dict = {}
+# The anaphora slot per caller: the last noun a command bound, so "blow on it" works. Ephemeral UI
+# state like the menu (a question of reference, not a fact about the world).
+_LAST: dict = {}
 
 
 def _show_menu(caller, line, disambig, bindings):
@@ -74,6 +87,9 @@ def _run_action(caller, line, bindings=None):
         caller.msg("You are nowhere in particular.")
         return
     world = EvenniaWorldView(room, caller, seed=(room.db.seed or 0))
+    bindings = dict(bindings or {})
+    if caller.id in _LAST and "it" not in bindings:
+        bindings["it"] = _LAST[caller.id]
     result = parse(line, VERB_TO_OP, world.reachables(), bindings=bindings)
 
     if isinstance(result, ParseError):
@@ -84,6 +100,9 @@ def _run_action(caller, line, bindings=None):
         return
 
     attempt = replace(result, actor=(caller.db.sim_id or caller.key))
+    last = attempt.X or (attempt.Y[0] if attempt.Y else None)
+    if last is not None and not last.entity_id.startswith(("zone:", "form:")):
+        _LAST[caller.id] = (last.entity_id, last.part_id)
     action = resolve(attempt, world, MATERIALS, authored=AUTHORED)
     if action.tier == "redirect:generic":              # the wall-sensor (DR-18a): persist the gap
         _log_gap(attempt, world)
@@ -126,7 +145,8 @@ class CmdAction(Command):
     def func(self):
         _PENDING.pop(self.caller.id, None)         # any fresh command supersedes a pending menu
         line = " ".join(f"{self.cmdstring} {self.args}".split())   # normalized — menus echo this line
-        _run_action(self.caller, line)
+        for part in split_commands(line, VERB_TO_OP):               # "take X and cut Y" → two acts
+            _run_action(self.caller, part)
 
 
 class CmdNoMatch(Command):

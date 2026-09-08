@@ -150,5 +150,49 @@ RESPONSES = {
     "attachment.residue.bolted": "The bolts stay put, stripped bare.",
     "attachment.residue._": "Whatever held it stays behind, wrecked.",
     # generic -----------------------------------------------------------------
+    # use — the teaching verb: dispatch + echo, never free success ----------------------------
+    "use.echo": "(That's '{verb} {target} with {tool}'.)",
+    "use.what": "The {tool} has {axis} to it — you could {verbs} with it. Say what, and what on.",
+    "use.nothing": "The {tool} doesn't lend itself to anything in particular. Try it as a thing: "
+                   "cut, pry, tie, burn, wrap — with something else.",
+    "use.no_fit": "The {tool} could {verb}, but not that — it finds nothing to work on there.",
+    # make — the teaching verb: what a thing is MADE OF, physically; never the steps --------------
+    "make.fire": "A fire wants three things: something fine and dry that catches from a flame or a "
+                 "spark, small dry wood to build it up, and bigger fuel to keep it — and a way to "
+                 "light it.",
+    "make.shelter": "A shelter is a windbreak and a roof between you and the sky, with something dry "
+                    "under you. Snow, boughs, the hull, a sheet — anything that stops wind and holds "
+                    "warmth.",
+    "make.spindle": "A spindle is a straight, dry, thumb-thick stick with its ends worked to points.",
+    "make.bow": "A bow is a springy stick bent and strung with cord.",
+    "make.drill": "A friction drill is a spindle spun hard in a notch on a dry board, with something "
+                  "hard to press down on it — and a bow to spin it faster than hands can.",
+    "make.torch": "A torch is a stick with something that burns slow bound to one end.",
+    "make.rope": "Rope is anything long, flexible and strong — cord, webbing, wire, or strips twisted "
+                 "together.",
+    "make.cord": "Cord is anything long, flexible and strong — webbing, wire, or strips twisted "
+                 "together.",
+    "make.splint": "A splint is something rigid along the limb, bound in place with something that "
+                   "ties.",
+    "make.bandage": "A bandage is clean cloth wrapped around a wound and held there.",
+    "make.snare": "A snare is a loop of cord set where something small runs, anchored to something "
+                  "that won't move.",
+    "make.trap": "A trap is bait, a trigger, and a weight or a loop — and patience.",
+    "make.signal": "A signal is anything that reads from the sky: smoke by day, fire by night, a "
+                   "flash of something that reflects, a shape in the snow that isn't nature's.",
+    "make.spear": "A spear is a straight pole with a point — carved, or something sharp bound on.",
+    "make.knife": "A knife is an edge you can hold. Glass or metal broken sharp will do, wrapped "
+                  "where you grip it.",
+    "make.windbreak": "A windbreak is anything wide and solid between you and the wind — snow, a "
+                      "sheet, the hull.",
+    "make.bed": "A bed is insulation between you and the snow: boughs, foam, cloth — dry, and thick.",
+    "make.water": "Water is snow or ice and enough heat to melt it, in something that holds liquid.",
+    "make.tea": "Tea is hot water and something to steep. Hot water is snow, heat, and a vessel.",
+    "make.coffee": "Coffee is hot water and grounds. Hot water is snow, heat, and a vessel.",
+    "make.antenna": "An antenna is a long conductor raised high and connected to the set.",
+    "make.camp": "A camp is a fire, a windbreak, and a dry place to lie — in that order.",
+    "make._": "You don't {thing} in a word here — do the physical things. Cut, carve, tie, put, light: "
+              "'help verbs' lists them.",
+    "make.with": "How do you mean to use the {named} for that? Name the act.",
     "__fallback__": "Something shifts, but not the way you meant.",
 }

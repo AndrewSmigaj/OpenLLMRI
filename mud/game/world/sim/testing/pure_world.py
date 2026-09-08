@@ -178,7 +178,8 @@ class PureWorld:
             if i == self.actor_id:
                 aliases = tuple(aliases) + ("me", "self", "myself")
             out.append(Reachable(id=i, name=e.name, aliases=tuple(aliases),
-                                 ident=str((e.state or {}).get("ident", "") or ""), parts=parts))
+                                 ident=str((e.state or {}).get("ident", "") or ""), parts=parts,
+                                 held=(self._loc.get(i) == self.actor_id)))
         if self.zoned:
             for zid, z in sorted(zonemap.all_zones().items()):
                 out.append(Reachable(id=f"zone:{zid}", name=z.name, aliases=tuple(z.aliases)))

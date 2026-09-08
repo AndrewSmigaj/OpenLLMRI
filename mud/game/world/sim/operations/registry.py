@@ -9,9 +9,9 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Callable
 
-from world.sim.operations.handlers import (bend, break_op, burn, cut, drink, eat, examine, light, melt,
-                                           move, open_op, pour, pry, read, search, take, talk, tear,
-                                           tie, wear, wrap)
+from world.sim.operations.handlers import (bend, break_op, burn, cut, drink, eat, examine, light,
+                                           make_op, melt, move, open_op, pour, pry, read, search, take,
+                                           talk, tear, tie, use, wear, wrap)
 
 
 @dataclass(frozen=True)
@@ -65,6 +65,9 @@ OPERATIONS: dict[str, Op] = {
     # authored text + the soft social catch
     "read": Op("read", read.VERBS, read.resolve_read),
     "talk": Op("talk", talk.VERBS, talk.resolve_talk, relations=("to",)),
+    # the teaching verbs (parser tolerance, 2026-09-07): never free success; they teach the grammar
+    "use": Op("use", use.VERBS, use.resolve_use, relations=("on", "against", "into")),
+    "make": Op("make", make_op.VERBS, make_op.resolve_make),
 }
 
 # synonym verb → canonical operation id (feeds the parser's synonym table, P1.5)

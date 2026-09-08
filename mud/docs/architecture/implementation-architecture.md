@@ -326,6 +326,26 @@ operation×material engine — not parser cleverness or an enumerated command li
 > command (`CmdNoMatch`); one pending menu per caller — **the latest question wins**. `give` is
 > deferred until a third use case.
 
+> **DR-08b (appended, parser tolerance 2026-09-07) — the grammar absorbs how people type.** Measured
+> against the real parser, taught-condition agent phrasings parsed 32–58%; the six mechanical fixes
+> below lift that into the 90s without free-text NLP (`ontology-closure.md` §5): (1) verb + PARTICLE
+> forms resolved positionally (`cut open X`, `pick up X`, `put on X` → wear — a relation word right
+> after the verb is a particle only if the pair is listed, else it stays a relation); (2) multi-word
+> relations matched greedily (`out of`, `on top of`) + the missing single ones (over, through, across,
+> behind, beside); (3) a first-token SYNONYM table seeded from the samples; (4) **state the act, not
+> the aim** — purpose clauses (`… to VERB …`, `for …`, `so …`), meta prefixes (`try to`, `see if`)
+> and adverbs are dropped; `use X to VERB Y` rewrites to `VERB Y with X`; (5) body parts → the actor,
+> `it` → the last bound noun (an ephemeral per-caller binding, like the menu); (6) nouns bind the
+> WHOLE phrase before the possessive split (`canteen of water`), then the longest known prefix.
+> **Disambiguation is resolved silently first**: exact matches beat partial ones, three identical
+> shards pick the first (a tie that doesn't matter — Inform's "does the player mean"), a held thing
+> wins the tool slot; a menu only for a true tie (two different seats). **Three failure kinds, never
+> one**: an unknown verb nudges with 2–4 close verbs + `help grammar`/`help verbs`; an unseen noun
+> parses to X=None and the resolver says so; a verb that doesn't fit a thing gets the physics
+> (tier-4). `use X on Y` dispatches through capabilities to the real verb and echoes it; `make X` says
+> what X is made of, never the steps. `and`/`then` split a line into acts. Contract: `ParseError.kind`
+> and `Reachable.held` added (ADDITIVE).
+>
 ### DR-09 Resolver (`resolve(attempt, world) -> ActionResult`, pure)
 ```
 resolve(attempt, world):

@@ -124,11 +124,13 @@ def test_disambiguation_lists_options():
         assert isinstance(a, ActionAttempt) and a.X.part_id == "cover"
 
 
-def test_identical_objects_disambiguate_with_distinct_entity_ids():
-    d = parse("examine shard", VERB_TO_OP, SHARDS + [MULTITOOL])
-    assert isinstance(d, Disambiguation) and d.term == "shard"
-    ids = [o.entity_id for o in d.options]
-    assert len(ids) == 3 and len(set(ids)) == 3        # identical labels, distinct identities
+def test_identical_objects_are_picked_silently_but_a_binding_still_pins_one():
+    # DR-08b (2026-09-07): three IDENTICAL shards are a tie that doesn't matter — pick one, no menu
+    a = parse("examine shard", VERB_TO_OP, SHARDS + [MULTITOOL])
+    assert isinstance(a, ActionAttempt) and a.X.entity_id in {s.id for s in SHARDS}
+    # things that DIFFER (an ident) still get the numbered menu with distinct identities
+    d = parse("examine shard", VERB_TO_OP, SHARDS[:2] + [Reachable(id="bottle:shard2:loose", name="glass shard", ident="big")])
+    assert isinstance(d, Disambiguation) and len({o.entity_id for o in d.options}) == 3
     assert all(o.part_id is None for o in d.options)
 
 
@@ -152,8 +154,12 @@ def test_binding_pins_an_ambiguous_part():
 
 
 def test_stale_binding_falls_back_safely():
-    # the picked entity is gone → the binding is ignored, a fresh menu comes back (never an error)
-    d = parse("examine shard", VERB_TO_OP, SHARDS, bindings={"shard": ("gone:id", None)})
+    # the picked entity is gone → the binding is ignored; identical shards pick silently (DR-08b),
+    # DIFFERENT ones come back as a fresh menu — never an error
+    a = parse("examine shard", VERB_TO_OP, SHARDS, bindings={"shard": ("gone:id", None)})
+    assert isinstance(a, ActionAttempt)
+    distinct = [Reachable(id=f"bottle:shard{i}:loose", name="glass shard", ident=str(i)) for i in range(3)]
+    d = parse("examine shard", VERB_TO_OP, distinct, bindings={"shard": ("gone:id", None)})
     assert isinstance(d, Disambiguation) and len(d.options) == 3
 
 

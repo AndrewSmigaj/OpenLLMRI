@@ -182,9 +182,18 @@ class TestSlice(EvenniaTest):
 
     def test_numbered_menu_pick_runs_the_original_command(self):
         self._spawn("whisky bottle", "bottle", ["glass"], 500, ["bottle"])
-        with mock.patch.object(self.char1, "msg") as m1:
+        with mock.patch.object(self.char1, "msg") as m0:
             self.char1.execute_cmd("break the bottle")
-            self.char1.execute_cmd("examine shard")           # 3 identical "glass shard"s
+            self.char1.execute_cmd("examine shard")           # 3 IDENTICAL "glass shard"s
+        said0 = self._said(m0)
+        # DR-08b: identical things are a tie that doesn't matter — picked silently, no menu
+        assert "which shard" not in said0 and "glass" in said0, "identical shards must not prompt"
+        # make two of them DIFFERENT → a true tie → the numbered menu
+        shards = [o for o in self.room1.contents if o.key == "glass shard"]
+        shards[0].db.state = {**(shards[0].db.state or {}), "ident": "big"}
+        shards[1].db.state = {**(shards[1].db.state or {}), "ident": "small"}
+        with mock.patch.object(self.char1, "msg") as m1:
+            self.char1.execute_cmd("examine shard")
         said = self._said(m1)
         assert "which shard" in said and "1." in said and "3." in said, "expected a numbered menu"
         with mock.patch.object(self.char1, "msg") as m2:

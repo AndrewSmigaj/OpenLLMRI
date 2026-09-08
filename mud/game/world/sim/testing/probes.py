@@ -23,6 +23,7 @@ from world.sim.resolver import resolve
 from world.sim.testing.pure_world import LedgerError, PureWorld
 
 OUTCOMES = {"SUCCESS": Resolution.SUCCESS, "REDIRECT": Resolution.REDIRECT, "PARTIAL": Resolution.PARTIAL}
+# plus "PARSED": the line parsed AND bound a noun, whatever the outcome (the phrasing corpus)
 
 
 @dataclass
@@ -32,6 +33,7 @@ class StepResult:
     tier: str = ""
     resolution: str = ""
     narration: str = ""
+    bound: bool = False       # the line bound a noun (X or Y) — the phrasing corpus's expectation
 
 
 @dataclass
@@ -50,8 +52,8 @@ def _pick(step: str):
     return step, 1
 
 
-def run_step(world: PureWorld, materials, line: str, authored=None, pick: int = 1) -> StepResult:
-    bindings = None
+def run_step(world: PureWorld, materials, line: str, authored=None, pick: int = 1, last=None) -> StepResult:
+    bindings = {"it": last} if last else None
     for _ in range(3):                                   # a pick may itself re-ambiguate; bound the loop
         res = parse(line, VERB_TO_OP, world.reachables(), bindings=bindings)
         if isinstance(res, ParseError):
@@ -62,14 +64,18 @@ def run_step(world: PureWorld, materials, line: str, authored=None, pick: int = 
             bindings[res.term] = (opt.entity_id, opt.part_id)
             continue
         attempt = replace(res, actor=world.actor_id)
+        ref = attempt.X or (attempt.Y[0] if attempt.Y else None)
+        if ref is not None and not ref.entity_id.startswith(("zone:", "form:")):
+            world.last_noun = (ref.entity_id, ref.part_id)
         action = resolve(attempt, world, materials, authored=authored)
         if action.effects:
             try:
                 world.apply(action.effects)
             except LedgerError as err:
                 return StepResult(line, "ledger_error", tier=action.tier, narration=str(err))
+        bound = attempt.X is not None or bool(attempt.Y)
         return StepResult(line, "ok", tier=action.tier, resolution=action.resolution.value,
-                          narration=action.narration)
+                          narration=action.narration, bound=bound)
     return StepResult(line, "disambiguation", narration="could not settle a disambiguation")
 
 
@@ -81,16 +87,26 @@ def run_probe(probe: dict, rows, materials, authored=None, default_zone="mid_cab
         except KeyError:
             return ProbeResult(probe, False, f"holds: unknown object {held!r}")
     steps = []
+    world.last_noun = None
     for step in probe.get("steps", ()):
         line, pick = _pick(step)
-        sr = run_step(world, materials, line, authored=authored, pick=pick)
+        try:
+            sr = run_step(world, materials, line, authored=authored, pick=pick, last=world.last_noun)
+        except Exception as err:                        # a crash IS a failed probe, never a dead runner
+            sr = StepResult(line, "crash", narration=f"{type(err).__name__}: {err}")
         steps.append(sr)
         if sr.kind != "ok":
             return ProbeResult(probe, False, f"{sr.kind} at {line!r}: {sr.narration}", steps)
     if not steps:
         return ProbeResult(probe, False, "no steps", steps)
     last = steps[-1]
-    want = OUTCOMES.get(str(probe.get("expect", "SUCCESS")).upper())
+    expect = str(probe.get("expect", "SUCCESS")).upper()
+    if expect == "PARSED":                      # the phrasing corpus: was the line UNDERSTOOD
+        understood = last.bound or last.tier not in ("redirect:no_target", "redirect:generic",
+                                                     "op:make:unknown", "")
+        return ProbeResult(probe, bool(understood), "" if understood else
+                           f"parsed but bound no noun ({last.tier}): {last.narration}", steps)
+    want = OUTCOMES.get(expect)
     if want is None:
         return ProbeResult(probe, False, f"bad expect {probe.get('expect')!r}", steps)
     if last.resolution != want.value:

@@ -22,6 +22,7 @@ def main():
     ap.add_argument("--todo", action="store_true", help="list todo probes that pass (promotable)")
     ap.add_argument("--write-baseline", action="store_true")
     ap.add_argument("--filter", default="")
+    ap.add_argument("--phrasing", action="store_true", help="the phrasing corpus: parse rate by condition")
     a = ap.parse_args()
 
     content = importlib.import_module(f"world.scenarios.{a.scenario}.content")
@@ -34,8 +35,24 @@ def main():
     from world.sim.testing.probes import run_all, summarize
 
     materials = content.load()
+    if a.phrasing:
+        a.filter = a.filter or "phrasing."
     probes = [p for p in probes_pkg.PROBES if a.filter in p["id"]]
     results = run_all(probes, objects.OBJECT_TABLE, materials, authored)
+    if a.phrasing:
+        import collections
+        by = collections.defaultdict(lambda: [0, 0])
+        for r in results:
+            key = ".".join(r.probe["id"].split(".")[1:3])          # model.condition
+            by[key][0] += int(r.passed)
+            by[key][1] += 1
+        for k in sorted(by):
+            ok, n = by[k]
+            print(f"  phrasing {k}: {ok}/{n} parsed ({100 * ok // max(1, n)}%)")
+        if a.verbose:
+            for r in results:
+                if not r.passed:
+                    print(f"    - {r.probe['steps'][0]!r}: {r.reason[:100]}")
     s = summarize(results)
     base = probes_pkg.baseline()
     print(f"probes: {s['passing']}/{s['total']} passing — pass-status {s['pass_ok']} ok / "

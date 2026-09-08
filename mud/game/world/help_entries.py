@@ -1,58 +1,67 @@
-"""
-File-based help entries. These complements command-based help and help entries
-added in the database using the `sethelp` command in-game.
-
-Control where Evennia reads these entries with `settings.FILE_HELP_ENTRY_MODULES`,
-which is a list of python-paths to modules to read.
-
-A module like this should hold a global `HELP_ENTRY_DICTS` list, containing
-dicts that each represent a help entry. If no `HELP_ENTRY_DICTS` variable is
-given, all top-level variables that are dicts in the module are read as help
-entries.
-
-Each dict is on the form
-::
-
-    {'key': <str>,
-     'text': <str>}``     # the actual help text. Can contain # subtopic sections
-     'category': <str>,   # optional, otherwise settings.DEFAULT_HELP_CATEGORY
-     'aliases': <list>,   # optional
-     'locks': <str>       # optional, 'view' controls seeing in help index, 'read'
-                          #           if the entry can be read. If 'view' is unset,
-                          #           'read' is used for the index. If unset, everyone
-                          #           can read/view the entry.
-
-"""
+"""File-based help entries (Evennia reads `HELP_ENTRY_DICTS`). The taught grammar and the verb families —
+they teach FORMS, never solutions (the hinting policy, ontology-closure.md §5). Tunable content."""
 
 HELP_ENTRY_DICTS = [
     {
-        "key": "evennia",
-        "aliases": ["ev"],
-        "category": "General",
-        "locks": "read:perm(Developer)",
+        "key": "grammar",
+        "aliases": ["commands", "syntax", "how", "howto", "how to play"],
+        "category": "Interaction",
         "text": """
-            Evennia is a MU-game server and framework written in Python. You can read more
-            on https://www.evennia.com.
+            Everything you do is one physical act, in one line:
+
+                VERB thing
+                VERB thing WITH tool
+                VERB thing RELATION thing [WITH tool]
+                VERB thing INTO form [WITH tool]
+                GO place
+
+            Examples: 'cut the cover off the seat with the multitool' · 'put the branch on the fire'
+            · 'tie the paracord to the frame' · 'carve the branch into a spindle with the knife'
+            · 'search the duffel' · 'take the wire from the panel' · 'go to the cockpit'.
+
+            State the ACT, not the aim. 'shake thermos' — not 'shake the thermos to see if there is
+            coffee in it'. The world answers physically either way; it never needs to know why.
+
+            Name things the way the room names them ('examine <thing>' shows what you can name,
+            including its PARTS: 'cut the seat's cover'). Two of a kind? Add the label ('11b') or
+            answer the numbered question.
+
+            'use X on Y' works — the game tells you which verb it did, so next time you can say it.
+            'make fire' tells you what a fire is made of; the steps are yours to find.
 
             # subtopics
 
-            ## Installation
+            ## relations
+            off · from · on · onto · into · in · to · against · between · under · around · over ·
+            through · behind · beside. Two-object acts are first-class: 'wedge the seat against the
+            door', 'tie the strap between the pole and the tree'.
 
-            You'll find installation instructions on https://www.evennia.com.
+            ## tools
+            'with' or 'using' names the tool. Bare hands are the default. Anything with an edge
+            cuts; anything rigid and long levers; anything long and flexible ties.
 
-            ## Community
+            ## when it doesn't understand
+            An unknown verb gets a nudge naming close ones. A thing it can't see gets 'you don't see
+            that here' — examine, search, open, or move closer. A verb that doesn't fit a thing gets
+            the physics of why.
+        """,
+    },
+    {
+        "key": "verbs",
+        "aliases": ["verb", "actions", "verb list"],
+        "category": "Interaction",
+        "text": """
+            The verb families (each verb has everyday synonyms; say it your way):
 
-            There are many ways to get help and communicate with other devs!
+            cutting & shaping — cut, tear, break, bend, pry (carve, split, notch: coming)
+            fire — light, burn, melt, douse
+            binding & covering — tie, wrap, put, cover
+            moving & carrying — take, put, go, open, close, search, dig
+            body & senses — examine, eat, drink, wear, remove, read
+            social — say, whisper, call, shout, talk to
 
-            ### Discussions
-
-            The Discussions forum is found at https://github.com/evennia/evennia/discussions.
-
-            ### Discord
-
-            There is also a discord channel for chatting - connect using the
-            following link: https://discord.gg/AJJpcRUhtF
-
+            Anything that fits the grammar and is physically sensible resolves — by the materials
+            involved, not by a list of allowed pairs. Try the desperate thing; you'll be told why.
         """,
     },
 ]

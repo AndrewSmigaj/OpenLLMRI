@@ -27,11 +27,13 @@ class TestStockMenus(EvenniaTest):
         return " ".join(out).lower()
 
     def _spawn_shards(self, n=3, where=None):
+        # DR-08b (2026-09-07): IDENTICAL things pick silently; a menu needs DISTINGUISHABLE ones —
+        # these shards carry idents so the numbered-menu path stays exercised.
         return [create_object("typeclasses.objects.Object", key="glass shard",
                               location=(where or self.room1),
                               attributes=[("sim_id", f"bottle:shard{i}:loose"),
                                           ("materials", ["glass"]), ("mass_g", 100),
-                                          ("state", {})])
+                                          ("state", {"ident": f"#{i + 1}"})])
                 for i in range(n)]
 
     def _carried(self):

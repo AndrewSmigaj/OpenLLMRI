@@ -162,9 +162,13 @@ class ActionAttempt:
 @dataclass(frozen=True)
 class ParseError:
     """Returned by parse() when input doesn't fit the taught grammar — carries a help nudge that
-    teaches the format, never a hard 'you can't do that'."""
+    teaches the format, never a hard 'you can't do that'. (contract change, parser tolerance
+    2026-09-07 — ADDITIVE) `kind` names WHICH failure (Inform's taxonomy): "unknown_verb" (nudge
+    names 2–4 plausible verbs) | "empty" | "no_verb"; an unresolvable NOUN is not a ParseError — it
+    parses with X=None and the resolver answers "you don't see that here"."""
     reason: str
     nudge: str = ""
+    kind: str = "unknown_verb"
 
 
 # --- Perception additions (contract change, P3/DR-13 — additive; no existing field changed) ---
@@ -207,6 +211,8 @@ class Reachable:
     aliases: tuple[str, ...] = ()
     ident: str = ""                                # short player designator, e.g. "11B"
     parts: tuple[tuple[str, str], ...] = ()         # (part_id, part_label) pairs
+    held: bool = False                             # (ADDITIVE, 2026-09-07) carried by the actor — the
+                                                   # silent-disambiguation bias prefers what you hold
 
 
 @dataclass(frozen=True)

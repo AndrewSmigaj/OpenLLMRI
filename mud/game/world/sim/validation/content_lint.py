@@ -159,6 +159,6 @@ def validate(objects, materials, zones, spaces, appearance, responses, probes=No
         for h in p.get("holds", ()):
             if h not in ids:
                 errors.append(f"probe {pid!r}: holds unknown object {h!r}")
-        if str(p.get("expect", "SUCCESS")).upper() not in ("SUCCESS", "REDIRECT", "PARTIAL"):
+        if str(p.get("expect", "SUCCESS")).upper() not in ("SUCCESS", "REDIRECT", "PARTIAL", "PARSED"):
             errors.append(f"probe {pid!r}: bad expect {p.get('expect')!r}")
     return errors, warnings

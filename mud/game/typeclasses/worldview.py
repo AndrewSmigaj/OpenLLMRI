@@ -63,11 +63,11 @@ def to_entity_state(obj) -> EntityState:
         state=state, provenance=list(obj.db.provenance or []), owner=obj.db.owner)
 
 
-def to_reachable(obj) -> Reachable:
+def to_reachable(obj, held: bool = False) -> Reachable:
     parts = tuple((p["id"], p.get("label", p["id"])) for p in (obj.db.parts or []))
     return Reachable(id=obj.db.sim_id or obj.key, name=obj.key,
                      aliases=tuple(obj.aliases.all()), ident=(obj.db.state or {}).get("ident", ""),
-                     parts=parts)
+                     parts=parts, held=held)
 
 
 class EvenniaWorldView:
@@ -150,8 +150,8 @@ class EvenniaWorldView:
         return out
 
     def _as_reachable(self, o):
-        r = to_reachable(o)
+        r = to_reachable(o, held=self._carried(o))
         if o is self.actor:                        # "examine me" (DR-25 self-view)
             return Reachable(id=r.id, name=r.name, aliases=r.aliases + ("me", "self", "myself"),
-                             ident=r.ident, parts=r.parts)
+                             ident=r.ident, parts=r.parts, held=r.held)
         return r
