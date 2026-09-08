@@ -20,10 +20,12 @@ from typeclasses.apply import LedgerError, apply, get_sink
 from typeclasses.propagator import propagate
 from typeclasses.worldview import EvenniaWorldView
 from world.scenarios.whiteout import content
+from world.scenarios.whiteout.authored import AUTHORED
 from world.sim.contracts import Disambiguation, EffectKind, ParseError
 from world.sim.operations.registry import VERB_TO_OP
 from world.sim.parser import parse
 from world.sim.resolver import resolve
+from world.sim.resolver.wall_sensor import gap_record
 
 content.load()                       # install narration templates when the cmdset loads
 MATERIALS = content.MATERIALS
@@ -46,6 +48,25 @@ def _show_menu(caller, line, disambig, bindings):
                f"Type a number to choose — I'll redo '{line}' with your pick. (Or rephrase.)")
 
 
+def _log_gap(attempt, world):
+    """Append a wall-sensor record to server/logs/gaps.jsonl — the build-time authoring queue
+    (DR-18a). A file, not an Attribute: world state is untouched (DR-10). Never raises."""
+    import json
+    import os
+    import time
+    try:
+        from django.conf import settings
+        path = os.path.join(settings.GAME_DIR, "server", "logs", "gaps.jsonl")
+        rec = gap_record(attempt, world)
+        rec["actor"] = attempt.actor
+        rec["zone"] = getattr(world, "actor_zone", None)
+        rec["at"] = int(time.time())
+        with open(path, "a", encoding="utf-8") as fh:
+            fh.write(json.dumps(rec) + "\n")
+    except Exception as err:                            # logging must never break play
+        logger.log_err(f"[whiteout] wall-sensor write failed: {err}")
+
+
 def _run_action(caller, line, bindings=None):
     """Parse → resolve → apply → narrate for a full command line (fresh, or a menu-pick re-run)."""
     room = caller.location
@@ -63,7 +84,9 @@ def _run_action(caller, line, bindings=None):
         return
 
     attempt = replace(result, actor=(caller.db.sim_id or caller.key))
-    action = resolve(attempt, world, MATERIALS)
+    action = resolve(attempt, world, MATERIALS, authored=AUTHORED)
+    if action.tier == "redirect:generic":              # the wall-sensor (DR-18a): persist the gap
+        _log_gap(attempt, world)
 
     if action.effects:
         try:

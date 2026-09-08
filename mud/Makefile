@@ -5,8 +5,8 @@
 SCENARIO ?= smoketest
 DC = docker compose
 
-.PHONY: help build init migrate accounts up up-d down restart logs \
-        load-scenario test test-host lint bake fuzz test-int validate verify \
+.PHONY: help build init migrate accounts up up-d down restart logs probes render-scenes \
+        load-scenario test test-host lint fuzz test-int validate verify \
         reset-db shell agent
 
 help:
@@ -24,10 +24,11 @@ help:
 	@echo "  test-host      run the pure tests + gates on the HOST (no Docker; fast loop)"
 	@echo "  lint           host gates: pure-core + no-raw-writes + no-raw-output (propagator) + doc-consistency"
 	@echo "  test-int       run the Evennia integration tests"
-	@echo "  validate       run the content-lint (SCENARIO=smoketest)"
-	@echo "  bake           compile authored scenario sources to baked runtime data"
+	@echo "  validate       the §44 content lint over the scenario tables (SCENARIO=whiteout)"
+	@echo "  probes         run the probe corpus: every pass probe green, BASELINE never drops"
+	@echo "  render-scenes  render every zone/object/probe to docs/review/ for READING"
 	@echo "  fuzz           run the solvability-fuzz harness"
-	@echo "  verify         gates + compose config check + tests"
+	@echo "  verify         gates + compose config + validate + probes + tests"
 	@echo "  reset-db       DESTROY the Postgres volume and start fresh"
 	@echo "  shell          open an Evennia/Django shell"
 	@echo "  agent          run the scripted bot against the running server"
@@ -98,9 +99,6 @@ test-host: lint
 	else echo "host pytest not installed — gates passed; run 'make test' for the full pure suite in Docker"; fi
 
 # Build-time tools (offline; never runtime).
-bake:
-	python3 tools/bake.py $(SCENARIO)
-
 fuzz:
 	python3 tools/fuzz.py $(SCENARIO)
 
@@ -108,14 +106,23 @@ fuzz:
 test-int:
 	$(DC) run --rm evennia evennia test --settings settings tests.integration
 
+CONTENT_SCENARIO ?= whiteout
+
 validate:
-	@echo "Content validation lands with the engine (design §44)."
-	@echo "See docs/guides/validation-rules.md and game/world/sim/README.md."
+	PYTHONPATH=game python3 -m world.sim.validation $(CONTENT_SCENARIO)
+
+probes:
+	PYTHONPATH=game python3 tools/probes.py $(CONTENT_SCENARIO) --todo
+
+render-scenes:
+	PYTHONPATH=game python3 tools/render_scenes.py $(CONTENT_SCENARIO)
 
 verify: lint
 	$(DC) config -q
+	$(MAKE) validate
+	$(MAKE) probes
 	$(MAKE) test
-	@echo "verify: gates + compose config OK + tests run. (validate is engine-stage; roadmap.)"
+	@echo "verify: gates + compose config + validate + probes + tests OK."
 
 reset-db:
 	$(DC) down -v

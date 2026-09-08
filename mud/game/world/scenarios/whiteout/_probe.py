@@ -10,21 +10,7 @@ from world.sim.contracts import ActionAttempt, EntityState, NounRef, Part
 from world.sim.operations.registry import OPERATIONS
 
 
-class ProbeWorld:
-    """A minimal WorldView over the fixture entities (get / reachable / in_zone / seed_state)."""
-    seed_state = 0
-
-    def __init__(self, ents):
-        self._e = {e.id: e for e in ents}
-
-    def get(self, i):
-        return self._e.get(i)
-
-    def reachable(self, a):
-        return list(self._e)
-
-    def in_zone(self, z):
-        return list(self._e)
+from world.sim.testing.pure_world import PureWorld as ProbeWorld   # the shared pure substrate (DR-18a)
 
 
 def probe_world():
@@ -54,7 +40,7 @@ def probe_world():
         EntityState(id="plank", name="plank", materials=["wood"], mass_g=600),
         EntityState(id="chocolate", name="chocolate bar", materials=["chocolate"], mass_g=100),
         EntityState(id="pilot", name="the pilot", materials=["flesh"], mass_g=78000, state={"dead": True}),
-    ])
+    ], actor_id="p")
 
 
 _TARGETS = ["seat", "multitool", "tinder", "pool", "canteen", "ice", "snow", "wire", "bottle",
