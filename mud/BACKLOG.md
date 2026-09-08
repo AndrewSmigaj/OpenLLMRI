@@ -7,18 +7,13 @@ arc (P0–P7) lives in [`docs/scenarios/whiteout/roadmap.md`](docs/scenarios/whi
 item at a time**; deferred-but-designed items are two-line stubs linking to their design.
 
 ## Now  (work-in-progress limit: 1)
-- **The closure loop, first chunk** (plan approved 2026-09-07; the plan file is the executable spec):
-  **step 1 closure** (forms + `affordances.derive()` + per-form prose — the shard cuts) → **step 2
-  harness** (`OBJECT_TABLE` + generic loader · `PureWorld` + in-memory apply + parity test · the probe
-  corpus + `make probes` + BASELINE ratchet · a real `make validate` · `make render-scenes` · wall-sensor
-  persisted · the authored seam wired) → **step 2b parser tolerance** (particles, multi-word relations,
-  synonyms, intent trimming, body nouns, anaphora, three failure messages, silent disambiguation,
-  `use`/`make`, `help grammar`/`help verbs`, the phrasing probe set). Each step commits on its own.
+- **Andrew reviews the seven design passes** (`docs/investigation/design/`, each with a lens pass):
+  rescue graph · time & stakes · moral & social layer · living rooms · fire & shaping · phrasing
+  corpus · grammar guide. Nothing in them is implemented until promoted. *(Steps 1–2b of the closure
+  loop SHIPPED 2026-09-07: closure, the harness, parser tolerance — commits f1f8e23…13e7a9e; probes
+  261/388 at the ratchet; taught-agent phrasings parse 79–83%.)*
 
 ## Next
-- **The seven design passes — AWAITING ANDREW'S REVIEW** (`docs/investigation/design/`, each with a lens
-  pass; nothing implemented until promoted): rescue graph · time & stakes · moral & social layer · living
-  rooms (the seat rows as exemplar) · fire & shaping · phrasing corpus · grammar guide.
 - **Step 3 — time & stakes** (after its two docs are promoted): the activity scheduler on the heartbeat
   (attended actions with start/tick/interrupt/complete; unattended processes), the fire ladder, minimal
   integer warmth / hunger / injury on the clock, the warmth floor, wet/dry + temperature written by ops.
