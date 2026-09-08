@@ -7,17 +7,24 @@ arc (P0–P7) lives in [`docs/scenarios/whiteout/roadmap.md`](docs/scenarios/whi
 item at a time**; deferred-but-designed items are two-line stubs linking to their design.
 
 ## Now  (work-in-progress limit: 1)
-- **Andrew reviews the seven design passes** (`docs/investigation/design/`, each with a lens pass):
-  rescue graph · time & stakes · moral & social layer · living rooms · fire & shaping · phrasing
-  corpus · grammar guide. Nothing in them is implemented until promoted. *(Steps 1–2b of the closure
-  loop SHIPPED 2026-09-07: closure, the harness, parser tolerance — commits f1f8e23…13e7a9e; probes
-  261/388 at the ratchet; taught-agent phrasings parse 79–83%.)*
+- **Andrew reviews the nine design passes** (`docs/investigation/design/`, each with a lens pass):
+  rescue graph · time & stakes (now incl. sleep + the consensus clock, DR-14a) · events & escalation
+  (the week-long run, the escalation ladder, the event menu — DR-15a) · moral & social layer · living
+  rooms · fire & shaping · players & kit (the 206's honest interior: cargo net, hat shelf, 4 seats) ·
+  phrasing corpus · grammar guide. Nothing in them is implemented until promoted — EXCEPT what Andrew
+  decided outright on 2026-09-07 and is SHIPPED: the closure loop steps 1–2b, and **the crash draw**
+  (slots, pockets, luggage, clothing v2 — commit 18bac60; probes 290/417; taught phrasings 79–83%).
 
 ## Next
-- **Step 3 — time & stakes** (after its two docs are promoted): the activity scheduler on the heartbeat
-  (attended actions with start/tick/interrupt/complete; unattended processes), the fire ladder, minimal
-  integer warmth / hunger / injury on the clock, the warmth floor, wet/dry + temperature written by ops.
+- **Step 3 — time & stakes** (after its docs are promoted): the activity scheduler on the heartbeat
+  (attended actions with start/tick/interrupt/complete; unattended processes), **sleep / wait + the 20×
+  consensus advance with event interrupts (DR-14a)**, the fire ladder, integer warmth (the clothing v2
+  exposure fraction is its input) / hunger / injury on the clock, the warmth floor, wet/dry + temperature
+  written by ops, **the escalation calendar + the seeded event deck (DR-15a; events-and-escalation.md)**.
   DR-27.
+- **The 206's honest interior** (players-and-kit.md §5, on approval): cargo net + hat shelf + jammed
+  cargo door replace the two bins; four seats 1A/1B/2A/2B + the right seat, each with different damage
+  and finds; look-under (DR-24b). A content pass with a render read.
 - **Steps 4–5 — the overnight loop** (`build-queue.md` Phase C, `/loop 30m`, one probe cluster per firing):
   tier-4 generic physics; the verb gaps the censuses and the agent samples voted for (spin, strike, tape,
   press, arrange, fill, blow, sit, listen, smell, feel, adjust, wave, fix, scrape, cover/block, push/pull/
