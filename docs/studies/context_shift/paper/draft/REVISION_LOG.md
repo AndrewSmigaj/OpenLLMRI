@@ -1413,3 +1413,47 @@ against the manifest. Findings and changes:
   per-corpus days now live in Appendix B only. §3.5's loop-scoping clause made
   concrete: three no-shift cells that looped on their capture day answered when
   re-captured with a later date. Nothing added in the freed space.
+
+## Version 1.1: behavior bands re-referenced; the sampled arm integrated (8 September 2026)
+
+Correction 20 (FINDINGS_FINAL; sampling addendum Part 5; `s25_referenced_bands.py`):
+the §3.5 bands had been cut on the raw reading, which the fiction/real site's
+accumulation offset (+1 axis unit) displaces, so the band the paper called
+"middle" held contexts at the fiction-writing reference and the "real-world
+side" pooled the between-frames cells with the real side. Bands are now cut at
+±0.5 axis units from the position-matched no-shift midpoint in both tasks; the
+tank bands change by two borderline cells. Numbers on the underlying cells were
+right; labels were not. Consequences: the fiction/real safeguard holds between
+the frames and on the real-world side (greedy delivered 95% and 94%; sampled per
+draw 90% and 94%) and is weakest at the fiction-writing frame (89%; 79%); the
+composition view (assistance rising with the recent fiction-writing block) is
+the primary statement; no band difference excludes zero with 12 families; the
+abstract's sentence is the composition form (gate A2). The sampled arm
+(addendum Parts 1–5) enters §2.5, §3.5, §4, §5, Appendix B and a new figure;
+greedy stays for the loops, the loop-versus-commitment association, and the
+bracket the sampled arm resolves. Date bound widened to the 192-cell figure
+(max 0.067 axis units) after a prompt-identity check.
+- v1.1 build state (8 Sept, pre-review): 49 pages, trace PASS, preservation PASS
+  (two raw-band numerals retired: 52% one-sense mid-band; 82% reasoning
+  commitment), prose flags = standing §3 numbers + Related-work semicolons,
+  overfull ≤ 7.5 pt, new figure fig_s25_behavior_sampled embedded, Table 5
+  inserted in §3.5 with tables 5–7 renumbered to 6–8. Sonnet readability
+  review of the abstract, §3.5, and the rewritten §4 paragraphs commissioned
+  per the writing rule; advice applied by hand below.
+- Sonnet readability review, 12 items: 11 applied by hand (abstract contrast
+  sentence restructured and "take up the letter" → "assist with the letter";
+  §3.5 corpus sentence split; "twice over" removed; the referencing clause
+  repaired; the tank rates given parallel structure; Table 5 caption order and
+  header word aligned; the reasoning-commitment band order matched to Table 5;
+  the +0.27 named a loop-rate difference; §4 "this window" → "the unresolved
+  zone"; "uncovered" → "which no safeguard covers"). Item 9 (raw figure names)
+  declined: the source convention resolves to figure numbers at build.
+- Abstract closing sentence (Andrew's ruling): the onset-direction gradient
+  ("none to one in five") replaced by the decline in the direction that turns
+  to the speaker's real circumstances, all four values (19, 14, 12, 10% at 2,
+  6, 12, 20 sentences past the turn) with the pure-real baseline of none. His
+  reasoning, adopted: the rise is what an established fiction-writing frame
+  licenses; the decline and its nonzero floor are the study's thesis in
+  behavioral form (gradual, partial, lingering). Contribution 5 reframed on
+  the decline and floor; §3.5 names the carryover as the behavioral form of
+  the remnant beside the composition table.

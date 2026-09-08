@@ -118,8 +118,7 @@ as printed: the real-world→fiction-writing remnant interval widened to include
 no-shift references were resampled (§3.2); the tank within-stream readings are
 trimmed means (§3.3); crossing times are per-run medians rather than a range read
 from mean trajectories (§3.2); and the recency integrator's memory is stated as
-per-direction decay values (§3.2). A first estimate of stickiness (§3.6) used a
-misspecified null and was retracted the same day.
+per-direction decay values (§3.2). A first estimate of stickiness (§3.6) used a misspecified null and was retracted the same day. A fifth printed-value correction postdates the first posted version: the behavior bands of §3.5 had been cut on the raw reading, which the fiction/real site's accumulation offset displaces by about one axis unit, so the band reported as the middle held contexts reading at the fiction-writing reference, and the band reported as the real-world side pooled the between-frames contexts with that side. The bands are now referenced to the position-matched no-shift midpoint, as Box 1, rule 3 requires of every level claim. The counts on the underlying contexts were correct; their band labels were not. The corrected rates are in §3.5, the tank bands moved by two borderline contexts, and the full cross-tabulation is in the repository record.
 
 ## Appendix B — Quality assurance and reproducibility
 
@@ -137,9 +136,9 @@ per-layer accumulated-context axes keep held-out sign with accuracy 0.93–1.00.
 Boundary audits confirmed contiguous positions 1 to 40 in every run and the correct
 target token for every carrier. Join audits confirmed that calibration items are
 drawn from the same pools as the context sentences and that held-out folds separate
-by construction. Family-level label shuffles kill every effect they are run on (Table 7).
+by construction. Family-level label shuffles kill every effect they are run on (Table 8).
 
-**Table 7.** Label-shuffle audits. Each effect is recomputed with the class labels
+**Table 8.** Label-shuffle audits. Each effect is recomputed with the class labels
 shuffled at the scene-family level. The shuffled column gives the permutation band
 or mean. The minimal-pair row is the fiction/real task; the remnant-gap row is the
 tank task, averaged over its two directions.
@@ -172,6 +171,16 @@ identical reading, and every 2,048-token output extends its 256-token text byte 
 byte with the reading unchanged. Both sets of categories, and the reasoning
 channel's pre-loop commitment for every cell, are in the repository.
 
+**Sampled arm.** The sampled completions of §3.5 were generated on 7–8 September
+2026 with the template date pinned to each context's original capture day, seeds
+recorded per draw, and the settings of §2.5. A smoke test preceded the run: with the
+sampling fields absent the route reproduces a stored greedy completion byte for byte;
+the same seed reproduces a sampled draw byte for byte; a different seed gives a
+different draw. All 720 draws reached the final channel. Sampled draws were
+categorized blind to the greedy categories and to each other, in shuffled order, and
+the band ordering of §3.5 is unchanged at every band cut from a quarter to three
+quarters of the no-shift amplitude.
+
 **Date-effect bound.** The 24 no-shift behavior cells were captured once more with
 the template date pinned to 5 September 2026 instead of their original day. The
 reading at the calibrated site moved by at most 0.0024 axis units in the tank task
@@ -180,8 +189,7 @@ an order of magnitude below the smallest effect reported. The greedy completion
 text diverged in 23 of the 24 cells, from a few characters to a few hundred in,
 yet where both days delivered an answer the category was the same in all 18
 cells. Three fiction/real cells that had looped on their original day delivered an
-answer on the later one. The date tokens cannot explain any reading effect; they
-can change whether a particular greedy path loops.
+answer on the later one. Across the 192 fiction/real transition contexts, whose behavior captures fell one day after their runs, the reading differs from the run's reading at the same position by a median of 0.0048 and at most 0.0667 axis units, about 3% of the class separation, with the input text otherwise identical. The date tokens cannot explain any reading effect; they can change whether a particular greedy path loops.
 
 Regeneration instructions and the mapping between the paper's terms and the
 repository's working names are in the study README.

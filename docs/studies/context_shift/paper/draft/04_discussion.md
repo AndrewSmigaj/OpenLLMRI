@@ -19,7 +19,7 @@ bundle and on a smooth equilibrium map. One disclaimer follows. Nothing here is
 equilibrium bistability, since the map from evidence mixture to reading is smooth
 (§3.6), and readers should not import a barrier-crossing picture. Semantic metastability, as we use it, is a property of paths.
 
-Two caveats bound the term. The first concerns the plateau's location. An equal-weight average of twenty aquarium and twenty vehicle sentences reads at the midpoint, so the location alone cannot separate a transient state from an equilibrium reading of mixed content. Its level and its slope together can. A fixed weighting that lands at the midpoint at sentence 40 must be near-uniform, and a near-uniform weighting must still rise through the last ten post-shift sentences, because ten more vehicle sentences arrive: uniform weighting rises by a third of the amplitude over that window. A fixed weighting that stays flat over those ten sentences, within the eighth of the amplitude the late-slope bound allows, must discount old sentences so heavily, γ of 0.76 or below, that it sits at the vehicle reference. The observed trajectory is flat at the midpoint (§3.4), which no single weighting of the content produces. The recency weights fitted independently to the static sweeps say the same from outside: γ of 0.91 to 0.97 (Table 5) gives the destination block 65% to 87% of the weight and places the equilibrium reading of destination-last content 0.30 to 0.74 of the amplitude past the midpoint, where the plateau's interval does not reach a tenth of the amplitude past it (Table 2). The reverse tank direction is the contrast: still rising, at a level and slope compatible with its fitted weighting of 0.94. What remains open is a weighting that changes with context length. The sweeps are twenty sentences long, and a forty-sentence sweep is the direct test (§5). The term therefore rests on the cluster, the two-phase incompatibility and the state-timed jumps, not on the plateau's position.
+Two caveats bound the term. The first concerns the plateau's location. An equal-weight average of twenty aquarium and twenty vehicle sentences reads at the midpoint, so the location alone cannot separate a transient state from an equilibrium reading of mixed content. Its level and its slope together can. A fixed weighting that lands at the midpoint at sentence 40 must be near-uniform, and a near-uniform weighting must still rise through the last ten post-shift sentences, because ten more vehicle sentences arrive: uniform weighting rises by a third of the amplitude over that window. A fixed weighting that stays flat over those ten sentences, within the eighth of the amplitude the late-slope bound allows, must discount old sentences so heavily, γ of 0.76 or below, that it sits at the vehicle reference. The observed trajectory is flat at the midpoint (§3.4), which no single weighting of the content produces. The recency weights fitted independently to the static sweeps say the same from outside: γ of 0.91 to 0.97 (Table 6) gives the destination block 65% to 87% of the weight and places the equilibrium reading of destination-last content 0.30 to 0.74 of the amplitude past the midpoint, where the plateau's interval does not reach a tenth of the amplitude past it (Table 2). The reverse tank direction is the contrast: still rising, at a level and slope compatible with its fitted weighting of 0.94. What remains open is a weighting that changes with context length. The sweeps are twenty sentences long, and a forty-sentence sweep is the direct test (§5). The term therefore rests on the cluster, the two-phase incompatibility and the state-timed jumps, not on the plateau's position.
 
 The second caveat is scope. The term names a signature, not a mechanism. There are no autonomous dynamics here: each reading is a fresh forward pass on a longer prompt, and the phenomenology arises from a map without attractor structure (§3.6) processing shifting inputs. That absence is itself a finding.
 
@@ -44,27 +44,13 @@ In one tank direction it dwells between frames for the remainder of the tested
 horizon. The fiction/real task shows an exploratory echo of this, resting on 4 runs
 per direction.
 
-In the tank task, behavior inside this window tracks the reading. Throughout, the model never asks which reading is meant or flags the ambiguity as an obstacle. That holds in every delivered tank answer. Even so, half of the middle band's delivered answers surface both senses. In the fiction/real task it does not: safeguard behavior, read from delivered answers, holds across the reading bands, and read from the reasoning channel's commitments it is 91% on the real-world side and
-82% in the middle band, a difference the sample cannot distinguish from none, with
-the fiction-writing side too thin to grade. The two readings differ because
-reasoning that commits to fiction-writing assistance usually loops under greedy
-decoding instead of answering (§3.5).
+In the tank task, behavior inside the unresolved zone tracks the reading. Throughout, the model never asks which reading is meant or flags the ambiguity as an obstacle; that holds in every delivered tank answer under both decoding policies. Even so, half of the middle band's answers surface both senses. In the fiction/real task the safeguard fires in most answers in every reading band, and its failures follow the content. Assistance with the letter is most frequent where the reading sits at the fiction-writing frame, 21% of sampled answers there against 10% between the frames and 6% once the reading has settled on the real-world side, and it grows with the length of the recent fiction-writing block whether the transition is toward fiction writing or away from it (§3.5). No band difference is distinguishable from none at this sample size.
 
 **A trained default for unresolved cases?** What follows is a post-hoc reading of an
 asymmetry we noticed, not a designed manipulation, and training provenance is
-unobservable. Our two tasks appear to differ in whether they carry a trained default
-for unresolved cases. The covered fiction/real task behaved as though it does. In the middle reading band, 89% of its delivered answers safe-complete, and 82%
-of its reasoning channels commit to a safe completion; where the reasoning
-entertains the fiction-writing frame, the answer that follows, when one follows,
-takes it up. The tank task showed no such default.
-There the model silently commits: 48% of delivered middle-band answers pick a sense. If
-this reading is right, the unresolved zone is the failure window for every behavior
-without a trained uncertainty-default, and refusal-style safeguards may be the
-well-covered exception rather than the rule.
+unobservable. An earlier version of this paper read the middle band's high safe rate as a default the safeguard supplies for unresolved cases. The corrected bands weaken that exhibit: the middle band is not specially protected, it is intermediate on a monotone gradient that runs from the real-world side to the fiction-writing side and tracks the content of the recent context (§3.5). What survives is the contrast between the tasks. The fiction/real task, covered by the safeguard, resolves the unresolved zone to a safe completion in nine answers of ten. The tank task, which no safeguard covers, resolves it by silently committing to a sense or hedging between the senses, and never by naming the ambiguity. If this reading is right, the unresolved zone is the failure window for every behavior without a trained default, and what a safeguard buys there is not immunity but a strong prior that weakens as the context fills with the covered frame's material.
 
-**Why the safeguard held: three candidate accounts.** Three accounts could explain why
-the covered fiction/real task mostly safe-completed in the middle reading band, and
-we cannot yet separate them. They are not exclusive: one is about what training
+**Why the safeguard held: three candidate accounts.** Three accounts could explain why the covered fiction/real task mostly safe-completes in every reading band, and we cannot yet separate them. They are not exclusive: one is about what training
 installed, one about what deeper layers see, one about where in the stack the trigger
 reads. None is causally established. With two tasks these are observations. The
 exploratory per-layer curves of §3.5 cannot separate them either. Shallow readings
@@ -88,8 +74,7 @@ the stack. The shallowest layers resolve the framing composition almost immediat
 and completely (§3.2), with the profile of surface-cue tracking. The minimal-pair test, which shows the reading tracks framing cues rather than
 content, was run at the calibrated site, not at shallow layers. A safeguard that reads early, from surface content and frame cues, would fire
 whenever the alarming request is present and be suppressed only by a well-established
-fiction-writing frame. That is consistent with our behavioral data, in which the safeguard fires in nearly
-every delivered answer. The fast, complete shallow response is specific to the
+fiction-writing frame. That is consistent with our behavioral data, in which the safeguard fires in nearly every delivered answer, and it fits the content gradient of §3.5 directly: assistance grows with the amount of recent fiction-writing material, which is exactly what would suppress an early, surface-keyed trigger. The fast, complete shallow response is specific to the
 fiction/real task. The tank task's shallow layers respond later and, in one direction,
 only partway (§3.2). That is what a trigger sculpted by safety post-training would
 look like. But ordinary register statistics learned in pretraining predict the same
@@ -108,9 +93,7 @@ is future work, not a claim.
 sharpest form of the dissociation between what the model represents and what it does.
 The model carries a persistent, systematic signal that its context is mixed, and
 its behavior does not appear to use that signal when the mixture of frames in the
-context is held fixed, at the one site and layer tested. The reasoning channel
-shows the contrast: what it commits to is expressed whenever an answer arrives
-(§3.5). The marker, by comparison, is present and, as far as tested, not acted
+context is held fixed, at the one site and layer tested. The reasoning channel shows the contrast: what it commits to is expressed whenever an answer arrives, under either decoding policy (§3.5). The marker, by comparison, is present and, as far as tested, not acted
 on. This is the structure reported
 in the hallucination literature, where models internally encode uncertainty or
 truthfulness that their generations do not respect [CITE: internal encoding versus

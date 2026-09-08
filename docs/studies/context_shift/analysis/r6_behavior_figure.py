@@ -7,6 +7,16 @@ delivered answers only."""
 import pandas as pd, numpy as np
 import matplotlib
 WS = "_v2"  # behavior worksheet version: "" = frozen 256-token captures, "_v2" = regenerated (Sept 2026)
+import sys
+sys.path.insert(0, "docs/studies/context_shift/analysis")
+from second_pass_r1_dynamics import fr_cfg, tank_cfg
+# Bands are cut on the reading REFERENCED to the position-matched midpoint of the two
+# no-shift classes (Box 1 rule 3), ±0.5 axis units. Correction of 8 September 2026: the
+# frozen figure cut the raw reading, which is right for the tank site (offset ≈ 0) and
+# wrong for the fiction/real site (offset ≈ +1), see s25_referenced_bands.py.
+def _mid(cfg):
+    _, d4a, d4b, *_ = cfg(); return (np.stack(d4a).mean(0) + np.stack(d4b).mean(0)) / 2
+MID = {"tank": _mid(tank_cfg), "fr": _mid(fr_cfg)}
 
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
@@ -31,12 +41,14 @@ for col, (probe, order, colors, ttl, shown) in enumerate((
      "Fiction/real task: response type to the request",
      {"origin side": "fiction-writing side", "mid band": "middle band", "dest side": "real-world side"}))):
     df = pd.read_csv(OUT / f"r6_behavior_worksheet_{probe}{WS}_categorized.csv")
-    df["band"] = pd.cut(df.reading, [-10, -0.5, 0.5, 10], labels=BANDS)
+    pos = np.where(df.set.str.contains("_beh_final"), 40, 20 + pd.to_numeric(df.k, errors="coerce").fillna(20).astype(int))
+    df["ref"] = df.reading - MID[probe][pos - 1]
+    df["band"] = pd.cut(df.ref, [-10, -0.5, 0.5, 10], labels=BANDS)
     ns = df.band.value_counts()
     for row, (column, label) in enumerate((("category", "delivered answer"), ("reasoning_category", "reasoning channel's commitment"))):
         ax = axes[row, col]
         ct = pd.crosstab(df.band, df[column], normalize="index")
-        print(f"{probe} — {label}: bands on the raw reading (negative = {'aquarium' if probe == 'tank' else 'fiction-writing'} side); all {len(df)} cells")
+        print(f"{probe} — {label}: bands on the midpoint-referenced reading (negative = {'aquarium' if probe == 'tank' else 'fiction-writing'} side); all {len(df)} cells")
         print(pd.crosstab(df.band, df[column]).to_string()); print("rates:"); print(ct.round(2).to_string())
         if column == "category":
             dl = df[df.category != "no_answer"]
@@ -58,7 +70,7 @@ for col, (probe, order, colors, ttl, shown) in enumerate((
         for s in ("top", "right"): ax.spines[s].set_visible(False)
         ax.tick_params(colors=MUT, labelsize=8)
 fig.suptitle("Behavior by reading band at generation time: the delivered answer (top) and the reasoning channel's commitment (bottom)\n"
-             "(bands on the reading: below −0.5, within ±0.5 of the midpoint, above +0.5; negative is the aquarium side and the fiction-writing side)",
+             "(bands on the reading referenced to the position-matched no-shift midpoint: below −0.5, within ±0.5, above +0.5 axis units; negative is the aquarium side and the fiction-writing side)",
              fontsize=9, color=INK)
 fig.tight_layout(rect=[0, 0, 1, 0.93])
 fig.savefig(FIG / "fig_r6_behavior_bands.png", dpi=150)

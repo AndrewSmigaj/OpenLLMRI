@@ -7,7 +7,7 @@ All claims and numbers of the previous version retained. Kind-audit item 15 appl
 
 Language models can be made to express uncertainty, and sometimes do. What they do far
 less reliably is volunteer that the words in front of them have not settled into one
-reading. Of the answers the model delivers in §3.5, none asks which reading is meant. Much of what we ask
+reading. Across both tasks and both decoding policies of §3.5, exactly one delivered answer asks which reading is meant. Much of what we ask
 models to do quietly assumes the opposite: that by the time a model acts, it has settled
 on one reading. Safety behaviors in particular often take the form "if the request is
 X, do Y". That rule inherits an unexamined premise: that "the request is X" is a
@@ -90,10 +90,7 @@ We contribute:
 3. The form of its dynamics: drift plus discrete jumps that are not timed by the class evidence in the arriving sentence, with the smooth integrators we tested rejected head-to-head (§3.3).
 4. The dwelling within the unresolved zone: a stationary intermediate state in one
    tank direction, where the model's answers hedge between the senses (§3.4). None of the tank completions asks which sense is meant (§3.5).
-5. Behavior set beside the reading in both tasks, read two ways: the delivered
-   answer, where the task with a trained safeguard stays safe across the reading
-   bands, and the reasoning channel's commitment, which, when it takes up the letter,
-   loops rather than answers under greedy decoding (§3.5).
+5. Behavior set beside the reading in both tasks, under greedy decoding and under the sampling the model is deployed with. The task with a trained safeguard safe-completes most answers in every reading band, and its failures mirror the reading's dynamics: after the frame turns from fiction writing to the speaker's real circumstances, assistance with the letter declines only gradually and never reaches the zero of purely real-world contexts. The reasoning channel's commitment predicts the answer across both decoding policies, and the degenerate loops of greedy decoding vanish under sampling (§3.5).
 6. Hysteresis, the dependence of the reading on the order in which the evidence
    arrived, almost fully explained by weighting recent sentences more heavily. A mild
    direction-dependent recency difference is all that remains, so the metastability

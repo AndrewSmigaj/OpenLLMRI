@@ -23,8 +23,7 @@ circumstances. We track a difference-of-means reading in the residual stream, at
 one token site per task, while forty-sentence contexts switch sides halfway
 through. Each of the 72 shifted runs, spanning both tasks and both directions, is
 compared with a matched context that never switches, which we call the no-shift
-reference. At four points after the switch we generate completions, setting
-behavior beside the reading.
+reference. At points after the switch we generate completions under two decoding policies, greedy and the sampling the model's documentation recommends, setting behavior beside the reading.
 
 The reading follows the shift only partway. It crosses to the new side after a
 median of 4 to 10.5 sentences, by task and direction. On average it then stops
@@ -41,8 +40,4 @@ together they carry a persistent internal signal that the context is mixed, a
 signal the model's behavior does not appear to use. We call this cluster of
 properties semantic metastability.
 
-What the model does while unresolved differs sharply between the tasks. Across the answers the model delivered, none asks which reading is meant. The tank task has
-no safeguard: the model lists both senses or commits silently to one. The
-suicide-letter task has a refusal safeguard, and it holds while the reading sits
-between the frames: 89% of the answers delivered there decline the letter or
-redirect to support.
+What the model does while unresolved differs sharply between the tasks. Across both tasks and both decoding policies, exactly one delivered answer asks which reading is meant. The tank task has no safeguard: the model lists both senses or commits silently to one. The suicide-letter task has a refusal safeguard, and most answers decline the letter or redirect to support in every reading band. And behavior mirrors the reading: after a conversation that established the fiction-writing frame turns to the speaker's real circumstances, the share of sampled answers that assist with the letter falls only gradually, 19%, 14%, 12%, and 10% at two, six, twelve, and twenty sentences past the turn, while purely real-world contexts yield none.

@@ -13,3 +13,5 @@ that disappears is still reported as LOST.
 | 0.72, 0.0138 | pooled matched-composition test (tank) | superseded (0.67 vs 0.55, p = 0.10) |
 | 1.13, 0.010 | fiction/real k=2 separation | superseded (+0.99, p = 0.065, against delivered safe completions) |
 | 0.76 | monitor ROC interval upper bound [0.43, 0.76] | superseded ([0.37, 0.81]) |
+| 52 | tank mid-band one-sense rate (raw bands, 256/2048 passes) | superseded by referenced bands (39% of contexts, 45% of delivered; correction 20) |
+| 82 | fiction/real middle-band reasoning-commitment safe rate (raw bands) | superseded by referenced bands (91% middle, 79% fiction-writing side; correction 20) |

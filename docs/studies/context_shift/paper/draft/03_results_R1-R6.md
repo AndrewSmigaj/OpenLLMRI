@@ -296,81 +296,113 @@ shows next.
 
 ## 3.5 What the model does in the unresolved zone
 
-What does the model say while its reading sits between the two interpretations? We generated a completion from every transition run at four points after the shift, after 2, 6, 12, and 20 post-shift sentences, 96 in the tank task and 192 in the fiction/real task, and one from each of the 24 no-shift runs at its full length, giving 108 and 204. All behavioral claims in this subsection are
-correlational. For analysis we partition readings into three bands, one side, the middle, and the other side (Fig. fig_r6_behavior_bands).
+What does the model say while its reading sits between the two interpretations? We generated completions from every transition run at four points after the shift, after 2, 6, 12, and 20 post-shift sentences: 96 generation contexts in the tank task and 192 in the fiction/real task. Each of the 24 no-shift runs contributes one more context at its full length, giving 108 tank and 204 fiction/real contexts. Every context was generated under both decoding policies: one greedy completion, and sampled completions under the decoding the model's documentation recommends, three draws per context in the fiction/real task and one in the tank task (§2.5). All
+behavioral claims in this subsection are correlational.
 
-A first result is that the model often does not answer at all. Under the greedy
-decoding used here, 14 of the 108 tank outputs and 85 of the 204 fiction/real outputs never leave the reasoning channel. The no-shift runs loop as well, 1 of 12 in the tank task and 5 of 12 in the fiction/real task, so looping is not a product of the shift. They repeat one sentence to the cap, cycle through one
-sentence frame with a changing noun, or re-read the passage without concluding. No
-cap would finish them. We call these "no answer" and report every rate below both with them counted and
-over delivered answers only. Deployed decoding samples rather than taking the
-greedy token, which is expected to break such loops, so their frequency in use is untested (§5).
+For analysis we partition the contexts into three bands by the reading at generation
+time: one side, the middle, and the other side. Bands are cut at half an axis unit either side of the position-matched midpoint of the two no-shift references, the same referencing that every level claim in this paper uses (Box 1, rule 3). This matters in the
+fiction/real task, whose accumulation offset is about one axis unit: a band cut on the
+raw reading there would put contexts sitting at the fiction-writing reference into the
+middle. Earlier versions of this paper made that error, and Appendix A records what it
+changed. The tank site's offset is near zero, so its bands are almost unaffected.
 
-In the tank task, behavior tracks the reading. Completions whose reading sits on
-the aquarium side answer with the aquarium sense in 52% of cases, 62% of those that
-answer. On the vehicle side the vehicle sense is given in 59%, 63% of those that
-answer. The middle band lists both senses in 45% of its completions, 52% of those
-that answer, and commits to one sense in 42%, 48% of those that answer. None of the
-94 delivered tank answers asks which sense is meant or declines to answer pending
-disambiguation, by manual review and regular-expression scan of the committed
-table. In the unresolved zone the model either lists both senses or commits to
-one. It answers as if resolved.
+**Under greedy decoding the model often does not answer at all; under sampling it
+always does.** Greedily, 14 of the 108 tank contexts and 85 of the 204 fiction/real
+contexts never leave the reasoning channel. They repeat one sentence to the cap, cycle
+through one sentence frame with a changing noun, or re-read the passage without
+concluding; no cap would finish them. The no-shift contexts loop as well, 1 of 12 and
+5 of 12, so looping is not a product of the shift. Under sampling, every one of the
+108 tank draws and 612 fiction/real draws reaches an answer. The loops are a property
+of the greedy continuation, and the rates below are reported per regime, never pooled.
+
+**In the tank task behavior tracks the reading, in both regimes.** Greedily, the aquarium side answers with the aquarium sense in 53% of contexts (64% of those that answer), the vehicle side with the vehicle sense in 61% (65% of those that answer), and the middle band lists both senses in 48% (55% of those that answer) and commits to one sense in 39% (45%). Under sampling the same shape
+sharpens: the aquarium side answers aquarium in 38 of 47, the vehicle side answers
+vehicle in 18 of 28, and the middle band lists both senses in 19 of 33 and commits to
+one in 14 (Fig. fig_s25_behavior_sampled, right). None of the 94 delivered greedy
+answers and none of the 108 sampled answers asks which sense is meant or declines to
+answer pending disambiguation, by manual review and regular-expression scan of the
+committed tables. In the unresolved zone the model either lists both senses or commits
+to one. It answers as if resolved.
 
 Does the reading carry information beyond the context composition that drives both
 reading and behavior? We test this at matched composition, comparing completions
 generated after the same number of post-shift sentences (Fig.
-fig_s9_behavior_matchedk). The evidence is thin. At 6 post-shift sentences, decided
-answers come from runs with more extreme readings, with a median absolute reading of
-0.90 against 0.38 for hedged or absent answers (one-sided p = 0.037); at 12 sentences
-they do not (0.53 against 0.56), the pooled test over both counts, fixed in advance, gives p = 0.10,
-and at the settled extremes there is no difference. We report it as one significant
-count of four and claim nothing further.
+fig_s9_behavior_matchedk). Greedily the evidence was thin: at 6 post-shift sentences
+decided answers came from runs with more extreme readings, a median absolute reading
+of 0.90 against 0.38 (one-sided p = 0.037); at 12 they did not; the pooled test over
+both counts, fixed in advance, gave p = 0.10. Under sampling, where every context answers, the same pooled test, on the referenced reading, separates: 0.65 against 0.42 axis units (31 decided
+against 17 hedged, one-sided p = 0.012), with the per-count values in the record.
+The tank reading carries some information about whether the answer will commit,
+beyond the number of sentences on each side.
 
-In the fiction/real task we categorize each delivered answer as fiction-writing
-assistance, which takes up the fiction-writing frame and helps with the letter or
-the manuscript, or a safe completion, which declines the letter or redirects to
-support. No delivered answer mixes the two. Of the 119 delivered answers, 111 are
-safe completions, 95 of them redirecting to support and 16 only declining, and 8
-are fiction-writing assistance. Read over delivered answers, the safeguard holds
-across the reading bands: safe completions are 89% of the middle band's delivered
-answers and 95% of the real-world side's, and the fiction-writing side delivers one
-answer in four, a safe completion (Fig. fig_r6_behavior_bands, top right).
+**In the fiction/real task the safeguard holds through the unresolved zone and is
+weakest where the reading reaches the fiction-writing frame.** We categorize each
+delivered answer as fiction-writing assistance, which takes up the fiction-writing
+frame and helps with the letter or the manuscript, a safe completion, which declines
+the letter or redirects to support, or mixed, which does both. Greedily, of the 119
+delivered answers 111 are safe completions, 95 of them redirecting to support and 16
+only declining, and 8 are fiction-writing assistance; no greedy answer is mixed. Of
+the 612 sampled draws, 511 redirect, 30 only decline, 53 are fiction-writing
+assistance and 18 are mixed. Table 5 gives the rates by band.
 
-The reasoning channel tells the other half. Its final commitment matches the
-delivered answer in every one of the 119 cells that answered, so where an answer
-arrives the channel is expressed, not overridden. By band, the channel commits to a safe completion in 91% of the real-world side's
-cells, 82% of the middle band's, and 2 of 4 on the fiction-writing side (Fig.
-fig_r6_behavior_bands, bottom right). Neither reading shows a band difference the
-sample can distinguish from none: for the reasoning channel the family-clustered
-interval on the real-world-minus-middle difference runs from −0.07 to +0.23
-(Fisher p = 0.14), and for delivered answers from −0.07 to +0.18 (p = 0.38). The difference between the two panels is
-the loops. Reasoning that commits to fiction-writing assistance loops in 15 of 23 cells,
-safety-committed reasoning in 70 of 181, a difference of +0.27 with a
-family-clustered interval of +0.16 to +0.38 (Fisher exact p = 0.023), and no fiction-writing-committed reasoning ever delivers a safe completion. Which cells loop is sensitive to tiny input changes: three no-shift cells that looped on their capture day answered when re-captured with a later date (Appendix B). The loop rate and this association are aggregate claims. So the two
-panels bracket what a user would see: delivered answers bound the safe rate from
-above, and the reasoning's commitments, which are what the loops would resolve to
-if they completed as committed, bound it from below. Where in that bracket the
-model sits under the sampling it is used with is the first item of future work
-(§5).
+**Table 5.** Fiction/real behavior by reading band, both decoding policies, all 204 contexts. Bands on the reading referenced to the position-matched no-shift midpoint, ±0.5 axis units. Greedy: loops (no answer), safe completions over delivered answers, and the reasoning channel's committed safe rate over all contexts. Sampled: safe completions and assistance per draw (three draws per context), and the share of contexts with assistance in at least one of three draws, with family-clustered 95% intervals.
 
-None of the 119 delivered fiction/real answers asks whether the request belongs to
-fiction writing or to the speaker's real circumstances. One assumes the fiction-writing frame and ends by inviting correction. In
-the reasoning channels, one proposes asking whether the request is for a story and
-one proposes asking the letter's purpose, and neither question is delivered. Two
-float a clarifying question and drop it, and seven safe completions plan to ask
-whether the user is safe. So the task with a safeguard surfaces the question no
-more than the tank task does. At matched composition the reading does not clearly separate the two response
-types: at 2 post-shift sentences the medians are +0.06 for fiction-writing
-assistance and +0.99 for safe completions, 3 answers against 26 (p = 0.065), and
-at later counts they do not differ.
+| Band | contexts | greedy: loops | greedy: safe, of delivered | greedy: reasoning commits safe | sampled: safe, per draw | sampled: assistance, per draw | sampled: contexts with assistance in at least one of three draws |
+|---|---|---|---|---|---|---|---|
+| fiction-writing side | 43 | 16 | 89% (24 of 27) | 79% | 79% [71, 90] | 21% [10, 29] | 35% [18, 47] |
+| middle | 125 | 51 | 95% (70 of 74) | 91% | 90% [81, 97] | 10% [3, 20] | 15% [6, 28] |
+| real-world side | 36 | 18 | 94% (17 of 18) | 92% | 94% [83, 100] | 6% [0, 17] | 8% [0, 21] |
 
-An exploratory check asks whether any
-other layer's reading associates more strongly with behavior than the calibrated
-site's. Per-layer association curves (Fig. fig_s14_behavior_by_layer), computed
-over delivered answers, are roughly flat from mid-stack to the final layer in both
-tasks. Nothing singles out the deep layers. The instrument is blunt, a band-level
-association with imbalanced outcomes, so this neither establishes nor rules out a
-depth-specific behavioral readout.
+Intervals are family-clustered. The ordering is the same in both regimes and at every
+band cut we tried, from a quarter to three quarters of the no-shift amplitude
+(Appendix B), but no band difference is distinguishable from none at this sample size:
+the sampled fiction-writing-side-minus-middle difference in assistance per draw is
++0.11 with an interval from −0.02 to +0.21, and the middle-minus-real-world difference
+is +0.03 [−0.09, +0.17].
+
+The composition view says the same thing without the reading. Assistance rises with
+the length of the recent fiction-writing block and falls as real-world material
+accumulates. In the direction that ends in fiction writing, sampled assistance runs 0%, 3%, 12%, 22% at 2, 6, 12 and 20 post-shift sentences; in the direction that ends in the real world, 19%, 14%, 12%, 10%. Contexts that never shift bracket the range: 4 of 18 draws from pure fiction-writing contexts deliver assistance, 0 of 18 from pure real-world contexts. The second direction is the behavioral form of the remnant (§3.2): twenty sentences after the conversation has turned to the speaker's real circumstances, one draw in ten still treats the request as fiction, where purely real-world contexts yield none. Whether the reading adds anything beyond composition is not
+detectable here: permuting the reading among contexts within each direction-and-count
+stratum gives p = 0.17 (§2.5).
+
+**The reasoning channel predicts what an answer will say, across both regimes.**
+Greedily, the channel's final commitment matches the delivered answer in every one of
+the 119 contexts that answered, so where an answer arrives the channel is expressed,
+not overridden. By band it commits to a safe completion in 79% of the fiction-writing side's contexts, 91% of the middle band's, and 92% of the real-world side's. The
+difference between the delivered rate and the commitment rate is the loops: reasoning
+that commits to fiction-writing assistance loops in 15 of 23 contexts, safety-committed reasoning in 70 of 181, a loop-rate difference of +0.27 [+0.16, +0.38] (Fisher exact p = 0.023),
+and no fiction-writing-committed reasoning ever delivers a greedy safe completion.
+Which contexts loop is sensitive to tiny input changes, so the loop rate and this
+association are aggregate claims. The sampled arm shows what the loops would have
+said. Of the 85 greedily looping contexts, the sampled answer matches the greedy
+channel's commitment in 77, 77 and 76 of the three draws; the 70 whose reasoning had
+committed to safety deliver a safe completion in 70, 69 and 69, and the 15 whose
+reasoning had committed to assistance deliver assistance in 8, 11 and 11. Of the 119
+that answered greedily, the sampled answer matches the greedy answer in 110, 110 and
+109. The commitment survives the change of decoding policy.
+
+**Almost no answer asks which reading is meant.** None of the 119 delivered greedy
+answers asks whether the request belongs to fiction writing or to the speaker's real
+circumstances; one assumes the fiction-writing frame and ends by inviting correction.
+In the greedy reasoning channels, one proposes asking whether the request is for a
+story and one proposes asking the letter's purpose, and neither question is delivered;
+two float a clarifying question and drop it, and seven safe completions plan to ask
+whether the user is safe. Of the 612 sampled draws, one asks: it sets out "story
+letter?" against "personal letter?", asks the user to say more, and offers support if
+the request is personal. Two safe completions invite the other reading conditionally.
+So the task with a safeguard surfaces the question in one answer of 612, and the tank task in none, under either policy. At matched composition the reading does not separate the two
+fiction/real response types in either regime: greedily, at 2 post-shift sentences the
+medians are +0.06 for assistance and +0.99 for safe completions (3 answers against 26,
+p = 0.065); under sampling the same comparison gives p = 0.27, 0.16 and 0.21 across
+the three draws.
+
+An exploratory check asks whether any other layer's reading associates more strongly
+with behavior than the calibrated site's. Per-layer association curves (Fig.
+fig_s14_behavior_by_layer), computed over the greedy delivered answers, are roughly
+flat from mid-stack to the final layer in both tasks. Nothing singles out the deep
+layers. The instrument is blunt, a band-level association with imbalanced outcomes, so
+this neither establishes nor rules out a depth-specific behavioral readout.
 
 ## 3.6 Order and equilibrium: hysteresis without stickiness
 
@@ -379,20 +411,20 @@ mixture sweeps: twenty-sentence contexts holding k destination-class sentences, 
 k swept from 0 to 20, in two block orders, using each family's own transition
 sentences. The resulting loops are large. The same mixture reads differently depending on block order, with a loop area of
 +14.4 [12.2, 16.8] in the tank task (Fig. fig_r6_d6_loop_tank) and a comparable one
-in fiction/real (Table 5).
+in fiction/real (Table 6).
 Operational hysteresis is plainly present.
 
 The open question was whether any of that order dependence exceeds what recency
 weighting alone produces. We call any such excess *stickiness*. There is none. A
 one-parameter recency integrator fitted to the sweep cells reproduces the loop areas
-almost exactly, and the excess is indistinguishable from zero in both tasks (Table 5).
+almost exactly, and the excess is indistinguishable from zero in both tasks (Table 6).
 Cross-order validation preserves the verdict: fitting one branch predicts the other. A null that imports γ from the transition fits instead of fitting it to the sweep
 cells shows apparent stickiness. The fitted null supersedes it (Appendix A).
 What remains beyond the one-parameter integrator is mild. The two sweep
 directions prefer slightly different recency weights, echoing the directional
 asymmetry of §3.2.
 
-**Table 5.** Hysteresis in the static mixture sweeps. Loop area is the area between
+**Table 6.** Hysteresis in the static mixture sweeps. Loop area is the area between
 the two block-order branches of the sweep, in axis units times sentences, with a
 family-clustered bootstrap 95% interval. The fitted loop area comes from a
 one-parameter recency integrator fitted to the same cells; the excess is the
@@ -441,7 +473,7 @@ p < 0.001 in both tasks. It rises over the first five post-shift sentences and p
 undiminished to twenty, and it is largest in the stationary dwelling states. We call
 the direction that carries it the **mixed-context marker**.
 
-Three checks say what the marker is not (Table 6). It is not class leakage: the
+Three checks say what the marker is not (Table 7). It is not class leakage: the
 direction is orthogonal to the single-sentence class axis and, by construction and by
 measurement, to the accumulated-context class axis. It survives held-out direction estimation, in which the direction is estimated on
 half the families and the magnitude measured on the other half. It retains 71% to
@@ -450,7 +482,7 @@ novelty. If the marker merely reflected unfamiliar scene families, pure-class ce
 from families outside the reference construction should sit higher on it than cells
 from familiar families. They sit lower, and both sit far below mixed cells.
 
-**Table 6.** The mixed-context marker and its checks. Values are for the tank and
+**Table 7.** The mixed-context marker and its checks. Values are for the tank and
 fiction/real tasks. The displacement rows are in percent of the full class
 separation; the cosine rows measure the marker direction against the two class axes.
 
@@ -467,7 +499,7 @@ separation; the cosine rows measure the marker direction against the two class a
 What is it? Held-out mixture cells, cells of the static sweeps that were not used to
 construct the marker, locate what elevates it. The marker is absent from pure-class contexts. In static mixed contexts it is near
 its full transition strength in the tank task and about 70% of it in fiction/real
-(Table 6), so it marks mixed context, not temporal shifting as such. Those cells were all
+(Table 7), so it marks mixed context, not temporal shifting as such. Those cells were all
 captured on one day, so the separation between pure and mixed cells cannot be a
 capture-day effect (§2.1). One qualification: in the
 fiction/real task it halves when the mixture is interleaved rather than blocked, so

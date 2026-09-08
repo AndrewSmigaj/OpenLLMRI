@@ -22,7 +22,7 @@ SEC_FIGS = {
  "3.2": ["fig_r1_residual_gap","fig_s13_collapse_layers","fig_s9_asymmetry"],
  "3.3": ["fig_s9_model_classes","fig_r1_fit_gallery_tank","spaghetti_L4","fig_r2_within_stream","fig_s9_within_stream_fr"],
  "3.4": ["fig_r2_mode_track"],
- "3.5": ["fig_r6_behavior_bands","fig_s9_behavior_matchedk","fig_s14_behavior_by_layer"],
+ "3.5": ["fig_r6_behavior_bands","fig_s25_behavior_sampled","fig_s9_behavior_matchedk","fig_s14_behavior_by_layer"],
  "3.6": ["fig_r6_d6_loop_tank"],
  "3.7": ["fig_r5_geometry","fig_s9_shift_marker"],
  "discussion": ["fig_s11_monitor_roc"],

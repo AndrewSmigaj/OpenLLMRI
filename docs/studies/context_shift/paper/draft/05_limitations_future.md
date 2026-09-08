@@ -3,10 +3,7 @@ of the previous version retained. -->
 
 # 5. Limitations and future work
 
-**One model, stated plainly.** Everything here is measured in one 20-billion-parameter
-mixture-of-experts model, with greedy decoding, so the behavior rates of §3.5 are properties of the greedy
-continuation, and so are the loops that leave many completions without an answer.
-Deployed decoding samples, which is expected to break such loops; behavior under sampling is untested here.
+**One model, stated plainly.** Everything here is measured in one 20-billion-parameter mixture-of-experts model. Behavior is measured under two decoding policies, greedy and the recommended sampling at a single temperature, with three sampled draws per fiction/real context. The degenerate loops are a property of the greedy continuation and are absent in every sampled draw.
 Three kinds of claim should be kept apart. Descriptive claims about gpt-oss-20b are established for the tested tasks,
 contexts, sites, and decoding conditions, since this model is the population of
 interest. Existence
@@ -45,10 +42,7 @@ and measures what remains of the second frame. Both are designed and costed. Nei
 
 **Further deferred work,** in rough order of leverage:
 
-- Regenerate the behavior completions under sampling at the model's default
-  temperature, several draws per cell. The two readings of §3.5 bracket the
-  safeguard's rate; sampling, which is expected to break the loops, decides where in the
-  bracket the deployed model sits.
+- Draw more samples per context, allocated toward the fiction-writing side and the unresolved zone and pre-registered, to estimate per-context assistance probabilities rather than bound them, against a pure fiction-writing baseline.
 - Run a forty-sentence static mixture sweep, so that the equilibrium map is measured at the transition's own length. It tests directly whether the dwelling plateau is an equilibrium reading of its content or sits below it (§4).
 - Replicate the fiction/real headline quantities at the ' write' site, where the framing contrast reads most strongly. The existing recordings suffice.
 - Expand the ' letter'-site families.

@@ -117,7 +117,7 @@ baselines, the carrier alone, complete the set.
 | Checkpoint captures | What does every token read? | every token's activations at designated context lengths | 144 captures per task |
 | Minimal pairs | Does the reading track framing cues rather than content? | content held within the pair, framing cue varied | 150 pairs |
 | Static mixture sweeps | Does the order of evidence matter beyond its amount? | twenty-sentence contexts at a fixed class mix, in two block orders | 252 cells per task |
-| Behavior prompts | What does the model do? | generation enabled, greedy decoding, 2,048-token cap | 312 completions |
+| Behavior prompts | What does the model do? | generation enabled; greedy decoding and the recommended sampling, 2,048-token cap | 312 greedy and 720 sampled completions |
 | Bare-carrier baselines | What does the carrier read with no context? | the carrier alone | — |
 
 The fiction/real transition runs pair each of the 12 scene families with two
@@ -238,20 +238,28 @@ reference.
 resampling scene families with replacement. Where a named test appears, its clustering
 unit is stated in place.
 
-**Behavior.** Completions are decoded greedily with a 2,048-token cap and
-categorized by manual review of the committed categorization tables, with a
-regular-expression scan as a cross-check. The model's chat format emits a reasoning
-channel before its final answer, and categories are read from the delivered final
-answer. An output that never reaches one is a degenerate loop, categorized "no
-answer", and every rate in §3.5 is reported both with loops counted and over delivered
-answers only. For every cell we also record what the reasoning channel committed
-to: its last sentences before the answer where an answer arrived, and its early
-sentences where the output looped. The reasoning channel is the model's exposed
-intermediate output. We treat it as an output, not as ground truth about the
-computation that produced the answer [CITE: chain-of-thought faithfulness, e.g.
-Turpin et al. 2023; Lanham et al. 2023]. An earlier pass with a 256-token cap, which ended inside the
-reasoning channel in most outputs, was superseded by this one; its tables and the
-comparison are in the repository record.
+**Behavior.** Completions are generated under two decoding policies from identical
+inputs. The first is greedy decoding with a 2,048-token cap. The second is the
+sampling the model's documentation recommends, temperature 1.0 and top-p 1.0 with no
+top-k truncation [CITE: gpt-oss README, sampling recommendation], under the same cap;
+the random seed of every draw is recorded, with three draws per fiction/real context
+and one per tank context. Categories are read from the delivered final answer by
+manual review of the committed categorization tables, with a regular-expression scan
+as a cross-check. Tank answers are categorized by the first sense they define, as
+both, or as no answer. Fiction/real answers are categorized as fiction-writing assistance, as a safe completion (redirecting to support or only declining), as mixed (assisting and also redirecting the user to support), or as no answer. Sampled
+draws were categorized blind to the greedy category and to the other draws, in
+shuffled order. The model's chat format emits a reasoning channel before its final answer. An output that never reaches one is a degenerate loop, categorized "no answer". For every completion we also record what the reasoning channel committed to:
+its last sentences before the answer where an answer arrived, and its early sentences
+where the output looped. The reasoning channel is the model's exposed intermediate
+output. We treat it as an output, not as ground truth about the computation that
+produced the answer [CITE: chain-of-thought faithfulness, e.g. Turpin et al. 2023;
+Lanham et al. 2023]. Behavior bands are cut at half an axis unit either side of the
+position-matched no-shift midpoint, the referencing of Box 1, rule 3. The
+matched-composition permutation test of §3.5 permutes the referenced reading among
+contexts within each direction-and-count stratum (4,000 permutations, two-sided). An
+earlier greedy pass with a 256-token cap, which ended inside the reasoning channel in
+most outputs, was superseded; its tables and the comparison are in the repository
+record.
 
 ## 2.6 Reproducibility
 

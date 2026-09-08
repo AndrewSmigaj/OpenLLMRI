@@ -155,9 +155,12 @@ a crisis line in the story, is not a redirect and leaves the answer
 85 of 204). No cell loops in any draw. Under the model's recommended sampling the
 greedy loops do not exist.
 
-**Item 2, rates by band.** Bands over all 204 cells, transition and no-shift,
-as the paper's band rates are computed (the greedy values below reproduce the
-paper's 89% and 95%); family-clustered 95% intervals:
+**Item 2, rates by band.** SUPERSEDED on 8 September by Part 5: these bands cut the
+raw reading, which at the fiction/real site is offset by about +1 axis unit; the
+raw "middle" is the referenced fiction-writing side. Kept as the frozen record.
+Bands over all 204 cells, transition and no-shift (the greedy values below
+reproduce the paper's 89% and 95% under the raw cut); family-clustered 95%
+intervals:
 
 | Band | greedy delivered: safe | sampled per draw: safe | sampled per draw: any assistance | sampled per cell: majority safe | sampled per cell: any assistance in 3 draws |
 |---|---|---|---|---|---|
@@ -264,3 +267,90 @@ context; several answers name the ambiguity and resolve it themselves.
 - Clarification: fiction/real 1 of 612 asks story-letter or personal; tank 0 of
   108.
 - New category: mixed (assistance plus a redirect to support), 18 of 612 draws.
+
+## Part 5. Bands re-referenced to the position-matched midpoint (8 September 2026; correction 20)
+
+Script `analysis/s25_referenced_bands.py`; output `analysis/s25_bands_summary.csv`.
+Band of record: reading minus the position-matched midpoint of the two no-shift
+classes (position 20 + k for a transition cell, 40 for a no-shift cell), cut at
+±0.5 axis units; both tasks. Fiction/real no-shift midpoint at position 40 +0.97
+(amplitude 0.84); tank +0.04 (amplitude 2.06). Cross-tab of the raw bands
+(rows) against referenced bands (columns), fiction/real: fiction side 4 →
+(4, 0, 0); middle 40 → (39, 1, 0); real side 160 → (0, 124, 36). Tank: 47/33/28
+cells against the raw 48/31/29 (two borderline cells).
+
+**Fiction/real by referenced band, all 204 cells** (family-clustered 95%):
+
+| Band | cells | greedy loops | greedy delivered safe | greedy reasoning safe | sampled per draw: assist | sampled per draw: safe | per cell: any assistance | per cell: majority safe |
+|---|---|---|---|---|---|---|---|---|
+| fiction-writing side | 43 | 16 | 89% [79, 100] (24 of 27) | 79% | 21% [10, 29] | 79% [71, 90] | 35% [18, 47] | 77% [66, 90] |
+| middle | 125 | 51 | 95% [85, 100] (70 of 74) | 91% | 10% [3, 20] | 90% [81, 97] | 15% [6, 28] | 90% [78, 98] |
+| real-world side | 36 | 18 | 94% [84, 100] (17 of 18) | 92% | 6% [0, 17] | 94% [83, 100] | 8% [0, 21] | 92% [79, 100] |
+
+Sampled draws by band: fiction_frame 20 / 26 / 7, mixed 7 / 11 / 0, refusal-only
+13 / 17 / 0 (fiction side / middle / real side, of 129 / 375 / 108 draws).
+Differences, per-draw assistance: fiction side minus middle +0.11 [−0.02, +0.21];
+middle minus real side +0.03 [−0.09, +0.17]. Greedy delivered safe: fiction side
+minus middle −0.06 [−0.19, +0.09]; middle minus real +0.00 [−0.14, +0.14]. With 12
+families no band difference excludes zero.
+
+**Composition view** (sampled per-draw assistance, family-clustered; greedy
+delivered safe rate beside it):
+
+| Direction | k = 2 | k = 6 | k = 12 | k = 20 |
+|---|---|---|---|---|
+| fiction-writing→real-world, sampled assist | 19% [10, 31] | 14% [6, 24] | 12% [3, 24] | 10% [1, 19] |
+| fiction-writing→real-world, greedy delivered safe | 79% of 14 | 93% of 14 | 100% of 12 | 88% of 16 |
+| real-world→fiction-writing, sampled assist | 0% [0, 0] | 3% [0, 7] | 12% [3, 24] | 22% [11, 35] |
+| real-world→fiction-writing, greedy delivered safe | 100% of 15 | 100% of 14 | 100% of 12 | 87% of 15 |
+
+No-shift fiction-writing cells: 4 assists in 18 sampled draws, greedy delivered
+safe 100%; no-shift real-world cells: 0 of 18, 100%. Assistance rises with the
+length of the recent fiction-writing block (0 → 3 → 12 → 22% as it grows from 2 to
+20 sentences) and falls as real-world material accumulates (19 → 10%).
+
+**Within-stratum test** (strata = direction × k; permutation of the referenced
+reading across cells within strata, 4,000 draws): covariance statistic −7.11,
+two-sided p = 0.17, sign toward more assistance at fiction-ward readings. At
+matched composition the reading adds nothing detectable here.
+
+**Band-cut sensitivity** (sampled per-draw assistance, fiction / middle / real):
+±0.25 amplitude 17 / 12 / 8% (59 / 60 / 85 cells); ±0.5 amplitude 20 / 10 / 7%
+(45 / 109 / 50); ±0.75 amplitude 22 / 9 / 9% (36 / 143 / 25); ±0.5 axis units
+21 / 10 / 6% (43 / 125 / 36). The ordering is the same at every cut.
+
+**Date effect over the 192 transition cells** (cell reading minus the run's reading
+at the same position, runs captured one day earlier): |difference| median 0.0048,
+90th percentile 0.0156, maximum 0.0667 axis units (3.3% of the class separation).
+Prompt identity: 12 of 12 sampled cells have input text identical to the run
+step; only the template's date line differs. This widens the paper's stated bound
+(0.02 from 24 cells) without changing any conclusion.
+
+**Abstract gate (A2):** greedy delivered middle 95%, real-world side 94%; sampled
+per draw middle 90%, real-world side 94% (all ≥ 90%); fiction-minus-middle
+per-draw assistance +0.11 [−0.02, +0.21] includes zero. The composition-form
+sentence is the abstract's sentence for v1.1.
+
+**Tank on referenced bands** (all 108 cells; greedy v2): aquarium side 47 cells,
+answers aquarium 25 (53%; 25 of 39 delivered, 64%); vehicle side 28, answers
+vehicle 17 (61%; 17 of 26, 65%); middle 33, both senses 16 (48%; 16 of 29, 55%),
+one sense 13 (39%; 45% of delivered), no answer 4.
+
+**Tank, sampled draw, on referenced bands** (all 108 cells; `s25_behavior_sampled_figure.py`):
+aquarium side 47 cells: aquarium 38, both 7, vehicle 2; middle 33: aquarium 5,
+both 19, vehicle 9; vehicle side 28: aquarium 3, both 7, vehicle 18. Fiction/real
+sampled draws by referenced band and type: fiction-writing side 129 draws:
+assistance 20, mixed 7, refusal only 13, redirect 89; middle 375: 26, 11, 17,
+321; real-world side 108: 7, 0, 0, 101. Cells by number of assisting draws
+(0 / 1 / 2 / 3): fiction-writing side 28 / 5 / 8 / 2; middle 106 / 6 / 8 / 5;
+real-world side 33 / 0 / 2 / 1. Over all 612 sampled draws: 53 fiction-writing
+assistance, 18 mixed, 511 redirect, 30 refusal only.
+
+**Item 6, tank half, on the sampled draw** (pre-stated; |referenced reading| signed
+toward the destination class, decided answers against both-senses answers,
+one-sided Mann–Whitney): k = 2 medians 1.39 against 1.85 (n = 22, 2; p = 0.85);
+k = 6 0.74 against 0.44 (17, 7; p = 0.12); k = 12 0.63 against 0.20 (14, 10;
+p = 0.054); k = 20 0.83 against 0.44 (11, 13; p = 0.082); pooled k ∈ {6, 12}
+0.65 against 0.42 (31, 17; p = 0.012). The pre-stated pooled test that gave
+p = 0.10 under greedy decoding, where a third of the cells had no answer,
+separates once every cell answers.

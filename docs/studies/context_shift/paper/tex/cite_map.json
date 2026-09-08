@@ -166,5 +166,8 @@
    "lanham2023"
   ],
   "pre": "e.g."
- }
+ },
+ "gpt-oss README, sampling recommendation": [
+  "gptoss_readme"
+ ]
 }
