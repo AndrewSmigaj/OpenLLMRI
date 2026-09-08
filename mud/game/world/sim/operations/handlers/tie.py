@@ -8,15 +8,19 @@ from __future__ import annotations
 
 from world.sim import effects, narrator
 from world.sim.contracts import ActionResult, Event, EventKind, Resolution
-from world.sim.operations._helpers import material_of, resolve_ref
+from world.sim.operations._helpers import capability, material_of, resolve_ref
 
 VERBS = ("tie", "lash", "fasten", "bind", "secure", "knot")
 _CORDAGE = frozenset({"cordage", "webbing", "wire"})
 
 
 def _is_cordage(ref, world, materials):
+    """Cordage by material tag (paracord, wire) OR by derived capability (a torn strip of fabric
+    is cordage because it is flexible and strip-shaped — DR-26 closure)."""
     mat = material_of(ref, world, materials)
-    return mat is not None and bool(set(mat.tags) & _CORDAGE)
+    if mat is not None and bool(set(mat.tags) & _CORDAGE):
+        return True
+    return capability(ref, world, "cordage", materials) >= 0.2
 
 
 def resolve_tie(attempt, world, materials):

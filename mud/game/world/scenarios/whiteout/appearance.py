@@ -558,4 +558,94 @@ APPEARANCE = {
         "examine": [(None, "Nylon webbing off the seatbelt, anchor-holes and all. Strong enough "
                            "to bear weight.")],
     },
+    # --- form-keyed GENERICS (DR-26 closure): any minted thing without an entry of its own reads
+    # from its FORM, with {material} filled in. Name-keyed entries above override these. Each one
+    # carries the SIGNIFIER of the capability the form derives (the edge, the tie, the cover) — a
+    # capability nobody can see is the first thing players complain about. Tunable voice.
+    "form:shard": {
+        "salience": "ordinary",
+        "aggregate": "Broken {material} — {count} sharp shards — glitters where it went",
+        "scene": [(None, "a sharp {material} shard")],
+        "examine": [(None, "A shard of {material}, one edge wicked-sharp. It would cut — you, as "
+                           "gladly as whatever you meant to cut.")],
+    },
+    "form:flake": {
+        "salience": "subtle",
+        "scene": [(None, "a {material} flake")],
+        "examine": [(None, "A thin flake of {material} with a keen, brittle edge. A scraper, "
+                           "for as long as it lasts.")],
+    },
+    "form:piece": {
+        "salience": "ordinary",
+        "aggregate": "{count} broken pieces of {material}",
+        "scene": [(None, "a broken piece of {material}")],
+        "examine": [(None, "A rough piece of {material}, snapped clean. Heft enough to matter in "
+                           "the hand.")],
+    },
+    "form:scrap": {
+        "salience": "subtle",
+        "aggregate": "{count} ragged scraps of {material}",
+        "scene": [(None, "a ragged scrap of {material}")],
+        "examine": [(None, "Torn {material}, ragged where it was hacked free. Not much of a thing "
+                           "alone; a few together might be stuffing, or fuel.")],
+    },
+    "form:strip": {
+        "salience": "ordinary",
+        "aggregate": "{count} torn strips of {material}",
+        "scene": [(None, "a strip of {material}")],
+        "examine": [(None, "A long strip of {material}. It would tie, bind or wrap something "
+                           "small — or feed a young fire.")],
+    },
+    "form:sheet": {
+        "salience": "ordinary",
+        "scene": [(None, "a loose sheet of {material}")],
+        "examine": [(None, "A loose sheet of {material}. It would cover an opening, wrap "
+                           "around a body, or tear down into strips.")],
+    },
+    "form:shavings": {
+        "salience": "subtle",
+        "scene": [(None, "a heap of {material} shavings")],
+        "examine": [(None, "Fine pale curls of {material}. Thin enough to catch from a small "
+                           "flame and burn hot for a minute.")],
+    },
+    "form:bundle": {
+        "salience": "ordinary",
+        "scene": [(None, "a loose bundle of {material}")],
+        "examine": [(None, "A nest of {material} worked loose and airy, the way a spark or an "
+                           "ember wants it.")],
+    },
+    "form:rod": {
+        "salience": "ordinary",
+        "aggregate": "{count} lengths of {material}",
+        "scene": [(None, "a length of {material}")],
+        "examine": [(None, "A straight length of {material}, wrist-thick. Lever, stake or "
+                           "firewood, as you choose.")],
+    },
+    "form:block": {
+        "salience": "ordinary",
+        "scene": [(None, "a solid block of {material}")],
+        "examine": [(None, "A solid block of {material}, whole. Worth more unbroken than in "
+                           "pieces.")],
+    },
+    "form:vessel": {
+        "salience": "ordinary",
+        "scene": [(None, "a {material} vessel")],
+        "examine": [(None, "A hollow of {material} that would hold water, or snow to melt.")],
+    },
+    "form:ember": {
+        "salience": "prominent",
+        "scene": [(None, "a glowing ember")],
+        "examine": [(None, "A pinhead of orange alive in black dust, good for a minute or two. "
+                           "It wants a nest of tinder and a slow breath.")],
+    },
+    "form:ash": {
+        "salience": "subtle",
+        "scene": [(None, "a smear of pale ash")],
+        "examine": [(None, "Fine grey ash, still faintly warm underneath.")],
+    },
+    "form:liquid": {
+        "salience": "ordinary",
+        "scene": [(None, "a pool of {material}")],
+        "examine": [(None, "A pool of {material}, spreading where it was spilled.")],
+    },
 }

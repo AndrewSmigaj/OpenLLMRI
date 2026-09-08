@@ -12,7 +12,8 @@ from __future__ import annotations
 from world.sim import effects, narrator
 from world.sim.contracts import ActionResult, Event, EventKind, Resolution
 from world.sim.operations._helpers import (PRYABLE_ATTACH, attachment_phrase, capability,
-                                           derived_id, resolve_ref, sibling_hint, tool_phrase)
+                                           derived_id, form_for_template, resolve_ref, sibling_hint,
+                                           tool_phrase)
 
 VERBS = ("pry", "lever", "wrench", "force")
 _SLACK = 0.1
@@ -28,7 +29,7 @@ def resolve_pry(attempt, world, materials):
     if part is None:
         st = ent.state or {}
         if st.get("jammed"):                       # DR-24: a buckled lid is exactly a pry's job
-            leverage = capability(attempt.tool, world, "leverage")
+            leverage = capability(attempt.tool, world, "leverage", materials)
             tool = tool_phrase(attempt.tool, world)
             if leverage >= 0.5 - _SLACK:
                 eff = (effects.set_attr(ent.id, "jammed", False),
@@ -43,7 +44,7 @@ def resolve_pry(attempt, world, materials):
                                                            {"tool": tool, "part": ent.name}))
         return None  # whole-entity pry → let the resolver redirect
 
-    leverage = capability(attempt.tool, world, "leverage")
+    leverage = capability(attempt.tool, world, "leverage", materials)
 
     if part.attachment not in PRYABLE_ATTACH:
         # nothing mechanical to lever against → explain the physics; one near-miss (DR-09a)
@@ -71,6 +72,7 @@ def resolve_pry(attempt, world, materials):
         effects.remove_part(ent.id, part.id),
         effects.create_object(output, derived_id(ent.id, part.id),
                               {"material": part.material, "mass_g": part.mass_g,
+                               "form": form_for_template(output),
                                "provenance": [f"pried from {ent.id}"]}),
     )
     ev = (Event(EventKind.IMPACT, ent.id, loudness=0.5, data={"verb": "pry", "part": part.id}),)

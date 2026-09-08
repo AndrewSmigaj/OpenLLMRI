@@ -33,7 +33,8 @@ def resolve_burn(attempt, world, materials):
     eff = (
         effects.consume(ent.id),
         effects.create_object("ash", derived_id(ent.id, "ash"),
-                              {"material": "ash", "mass_g": ash_mass, "provenance": [f"burned {ent.id}"]}),
+                              {"material": "ash", "mass_g": ash_mass, "form": "ash",
+                               "provenance": [f"burned {ent.id}"]}),
     )
     ev = (Event(EventKind.FIRE_STATE_CHANGE, ent.id, loudness=0.4, data={"verb": "burn"}),)
     smoke = "acrid black smoke" if prop(mat, "smoke_toxicity") >= 0.7 else "thin pale smoke"

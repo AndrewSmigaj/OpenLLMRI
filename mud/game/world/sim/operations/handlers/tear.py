@@ -10,8 +10,8 @@ from __future__ import annotations
 from world.sim import effects, narrator
 from world.sim.contracts import ActionResult, Event, EventKind, Resolution
 from world.sim.operations._helpers import (CUTTABLE_ATTACH, PRYABLE_ATTACH, attachment_phrase,
-                                           derived_id, material_of, prop, resolve_ref,
-                                           sibling_hint)
+                                           derived_id, form_for_template, material_of, prop,
+                                           resolve_ref, sibling_hint)
 
 VERBS = ("tear", "rip", "shred")
 _HAND_FORCE = 0.45   # what bare hands can tear through (fabric/paper), a shade above 'low'
@@ -38,6 +38,7 @@ def resolve_tear(attempt, world, materials):
             effects.remove_part(ent.id, part.id),
             effects.create_object(output, derived_id(ent.id, part.id),
                                   {"material": part.material, "mass_g": part.mass_g,
+                                   "form": form_for_template(output),
                                    "provenance": [f"torn from {ent.id}"]}),
         )
         ev = (Event(EventKind.IMPACT, ent.id, loudness=0.25, data={"verb": "tear", "part": part.id}),)
@@ -54,7 +55,7 @@ def resolve_tear(attempt, world, materials):
         eff = (effects.remove_part(ent.id, part.id),
                effects.set_attr(ent.id, f"residue_{part.id}", part.attachment)) + tuple(
             effects.create_object(scrap, derived_id(ent.id, f"{part.id}_scrap{i}"),
-                                  {"material": part.material, "mass_g": m,
+                                  {"material": part.material, "mass_g": m, "form": "scrap",
                                    "provenance": [f"ripped from {ent.id}"]})
             for i, m in enumerate(masses))
         ev = (Event(EventKind.IMPACT, ent.id, loudness=0.3,
@@ -92,9 +93,11 @@ def resolve_tear(attempt, world, materials):
     eff = (
         effects.consume(ent.id),
         effects.create_object(f"{mat_id}_strip", derived_id(ent.id, "a"),
-                              {"material": mat_id, "mass_g": a, "provenance": [f"torn from {ent.id}"]}),
+                              {"material": mat_id, "mass_g": a, "form": "strip",
+                               "provenance": [f"torn from {ent.id}"]}),
         effects.create_object(f"{mat_id}_strip", derived_id(ent.id, "b"),
-                              {"material": mat_id, "mass_g": b, "provenance": [f"torn from {ent.id}"]}),
+                              {"material": mat_id, "mass_g": b, "form": "strip",
+                               "provenance": [f"torn from {ent.id}"]}),
     )
     ev = (Event(EventKind.IMPACT, ent.id, loudness=0.2, data={"verb": "tear"}),)
     return ActionResult(Resolution.SUCCESS, effects=eff, events=ev, tier="op:tear:strips",

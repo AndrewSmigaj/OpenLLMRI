@@ -6,6 +6,7 @@ materials table and return Effects/Events.
 from __future__ import annotations
 
 from world.sim import narrator
+from world.sim.affordances import derive, form_for_template  # noqa: F401 (re-exported)
 from world.sim.contracts import Material
 
 # Attachments a cutting tool can sever → cutting a part on one of these FREES it (D12).
@@ -54,14 +55,21 @@ def prop(material, axis: str) -> float:
     return float(material.props.get(axis, 0.0))
 
 
-def capability(ref, world, axis: str) -> float:
-    """A tool/object capability value from its `state` (e.g. 'edge' = cut quality, 'leverage' = pry).
-    0.0 if there is no tool (bare hands) or the capability is absent."""
+def capability(ref, world, axis: str, materials=None) -> float:
+    """A thing's capability level on `axis` ('edge', 'leverage', 'point', 'cordage', …). AUTHORED
+    wins: a numeric `state[axis]` is returned as-is (the golden tools stay hand-tuned). Otherwise the
+    level is DERIVED from material × form × state (`affordances.derive`, DR-26) — so a minted glass
+    shard has an edge and a torn sheet is a cover. 0.0 if there is no thing (bare hands), or the
+    axis is absent and no `materials` were given to derive from."""
     ent, _ = resolve_ref(ref, world)
     if ent is None:
         return 0.0
-    val = ent.state.get(axis, 0.0)
-    return float(val) if isinstance(val, (int, float)) and not isinstance(val, bool) else 0.0
+    val = (ent.state or {}).get(axis)
+    if isinstance(val, (int, float)) and not isinstance(val, bool):
+        return float(val)
+    if materials is None:
+        return 0.0
+    return float(derive(ent, materials).get(axis, 0.0))
 
 
 def name_of(ref, world):

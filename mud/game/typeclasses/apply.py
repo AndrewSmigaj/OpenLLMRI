@@ -71,7 +71,9 @@ def _apply_one(e, world, touched):
         touched.append(obj)
     elif k == EffectKind.CREATE_OBJECT:
         key = str(e.args.get("template", e.target_id)).replace("_", " ")
-        state = {}
+        state = dict(e.args.get("state") or {})    # conserved state a handler carries over
+        if e.args.get("form"):                     # DR-26: the minted thing's shape → its capabilities
+            state["form"] = e.args["form"]
         if getattr(world, "actor_zone", None):     # minted objects land at the actor's feet (DR-13a)
             state["zone"] = world.actor_zone
         evennia.create_object(

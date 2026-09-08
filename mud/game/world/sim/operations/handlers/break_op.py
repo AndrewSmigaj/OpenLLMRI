@@ -50,7 +50,7 @@ def resolve_break(attempt, world, materials):
         return _shatter(ent, part, "shard", 3, loud=0.7, tier="op:break:shatter",
                         template_id="break.shatter", target=target)
 
-    force = _HAND_FORCE + capability(attempt.tool, world, "leverage") * 0.6
+    force = _HAND_FORCE + capability(attempt.tool, world, "leverage", materials) * 0.6
     if force < rigidity - _SLACK:
         tool = tool_phrase(attempt.tool, world)
         return ActionResult(Resolution.REDIRECT, tier="op:break:no_force",
@@ -68,7 +68,8 @@ def _shatter(ent, part, piece_word, n, loud, tier, template_id, target):
     masses = [base] * (n - 1) + [mass - base * (n - 1)]
     remove = effects.remove_part(parent, part.id) if part else effects.consume(parent)
     made = tuple(effects.create_object(f"{mat_id}_{piece_word}", derived_id(parent, f"{piece_word}{i}"),
-                                       {"material": mat_id, "mass_g": m, "provenance": [f"broke {parent}"]})
+                                       {"material": mat_id, "mass_g": m, "form": piece_word,
+                                        "provenance": [f"broke {parent}"]})
                  for i, m in enumerate(masses))
     ev = (Event(EventKind.IMPACT, parent, loudness=loud, data={"verb": "break"}),)
     return ActionResult(Resolution.SUCCESS, effects=(remove,) + made, events=ev, tier=tier,

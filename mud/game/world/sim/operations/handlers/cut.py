@@ -17,8 +17,8 @@ from __future__ import annotations
 from world.sim import effects, narrator
 from world.sim.contracts import ActionResult, Event, EventKind, Resolution
 from world.sim.operations._helpers import (CUTTABLE_ATTACH, PRYABLE_ATTACH, attachment_phrase,
-                                           capability, derived_id, material_of, prop, resolve_ref,
-                                           sibling_hint, tool_phrase)
+                                           capability, derived_id, form_for_template, material_of,
+                                           prop, resolve_ref, sibling_hint, tool_phrase)
 
 VERBS = ("cut", "saw", "slice", "sever", "slash")
 _SLACK = 0.1  # a tool slightly under the resistance still bites (graded, not a hard cliff)
@@ -32,7 +32,7 @@ def resolve_cut(attempt, world, materials):
     if mat is None or "cut_resistance" not in mat.props:
         return None  # nothing cuttable here (e.g. water) → let the resolver redirect
     resistance = prop(mat, "cut_resistance")
-    edge = capability(attempt.tool, world, "edge")            # 0.0 = bare hands
+    edge = capability(attempt.tool, world, "edge", materials)  # authored OR derived; 0.0 = bare hands
     tool = tool_phrase(attempt.tool, world)
 
     if edge < resistance - _SLACK:
@@ -48,6 +48,7 @@ def resolve_cut(attempt, world, materials):
             effects.remove_part(ent.id, part.id),
             effects.create_object(output, derived_id(ent.id, part.id),
                                   {"material": part.material, "mass_g": part.mass_g,
+                                   "form": form_for_template(output),
                                    "provenance": [f"cut from {ent.id}"]}),
         )
         ev = (Event(EventKind.IMPACT, ent.id, loudness=0.35, data={"verb": "cut", "part": part.id}),)
@@ -67,7 +68,7 @@ def resolve_cut(attempt, world, materials):
         eff = (effects.remove_part(ent.id, part.id),
                effects.set_attr(ent.id, f"residue_{part.id}", part.attachment)) + tuple(
             effects.create_object(scrap, derived_id(ent.id, f"{part.id}_scrap{i}"),
-                                  {"material": part.material, "mass_g": m,
+                                  {"material": part.material, "mass_g": m, "form": "scrap",
                                    "provenance": [f"hacked from {ent.id}"]})
             for i, m in enumerate(masses))
         ev = (Event(EventKind.IMPACT, ent.id, loudness=0.45,
@@ -101,9 +102,11 @@ def resolve_cut(attempt, world, materials):
     eff = (
         effects.consume(ent.id),
         effects.create_object(f"{mat_id}_piece", derived_id(ent.id, "a"),
-                              {"material": mat_id, "mass_g": a, "provenance": [f"cut from {ent.id}"]}),
+                              {"material": mat_id, "mass_g": a, "form": "piece",
+                               "provenance": [f"cut from {ent.id}"]}),
         effects.create_object(f"{mat_id}_piece", derived_id(ent.id, "b"),
-                              {"material": mat_id, "mass_g": b, "provenance": [f"cut from {ent.id}"]}),
+                              {"material": mat_id, "mass_g": b, "form": "piece",
+                               "provenance": [f"cut from {ent.id}"]}),
     )
     ev = (Event(EventKind.IMPACT, ent.id, loudness=0.3, data={"verb": "cut"}),)
     return ActionResult(

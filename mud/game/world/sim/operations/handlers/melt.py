@@ -30,7 +30,7 @@ def resolve_melt(attempt, world, materials):
     eff = (
         effects.consume(ent.id),
         effects.create_object("water", derived_id(ent.id, "melt"),
-                              {"material": "water", "mass_g": ent.mass_g,
+                              {"material": "water", "form": "liquid", "mass_g": ent.mass_g,
                                "provenance": [f"melted {ent.id}"]}),
     )
     ev = (Event(EventKind.FIRE_STATE_CHANGE, ent.id, loudness=0.1, data={"verb": "melt"}),)

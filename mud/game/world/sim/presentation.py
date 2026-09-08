@@ -17,6 +17,7 @@ render physically via the DR-09a hint phrases ("held by stitching"), never as da
 from __future__ import annotations
 
 from world.sim.operations._helpers import attachment_phrase
+from world.sim import narrator
 
 _APPEARANCE: dict = {}
 
@@ -30,9 +31,27 @@ def load_appearance(appearance: dict) -> None:
 
 
 def _entry(ent):
-    """The appearance entry for an entity: exact sim_id first, then display name (derived objects
-    share name-keyed entries: three 'glass shard's, one entry), else None (generic fallback)."""
-    return _APPEARANCE.get(ent.id) or _APPEARANCE.get(ent.name)
+    """The appearance entry for an entity: by sim_id, then by display NAME (identical deriveds share
+    one entry), then — DR-26 closure — by FORM (`form:shard`, …), rendered with the entity's material
+    so a minted thing always reads as a thing, never as "glass, 166 grams of it"."""
+    hit = _APPEARANCE.get(ent.id) or _APPEARANCE.get(ent.name)
+    if hit is not None:
+        return hit
+    form = (ent.state or {}).get("form")
+    generic = _APPEARANCE.get(f"form:{form}") if form else None
+    if generic is None:
+        return None
+    material = (ent.materials[0] if ent.materials else "stuff").replace("_", " ")
+    fill = {"material": material, "name": ent.name}
+
+    def render(v):
+        if isinstance(v, str):
+            return narrator.render(v, fill)
+        if isinstance(v, (list, tuple)):
+            return [(cond, narrator.render(text, fill)) if isinstance(text, str) else (cond, text)
+                    for cond, text in v]
+        return v
+    return {k: render(v) for k, v in generic.items()}
 
 
 def _pick(variants, state):

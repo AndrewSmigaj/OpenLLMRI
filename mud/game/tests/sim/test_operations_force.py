@@ -170,3 +170,76 @@ def test_bend_fabric_not_applicable():
     w = FakeWorld([EntityState(id="rag", name="rag", materials=["synthetic_fabric"], mass_g=100)])
     a = ActionAttempt(actor="p", verb="bend", X=NounRef("rag"))
     assert bend.resolve_bend(a, w, MATS) is None   # a pure fabric just flops
+
+
+# --- DR-26 closure: the example chain — break a bottle, cut with the shard, burn the cover ------------
+
+def _mint(effect, name=None):
+    """Build the EntityState a CREATE_OBJECT effect would produce (what the shell's apply() writes)."""
+    a = effect.args
+    st = {"form": a["form"]} if a.get("form") else {}
+    return EntityState(id=effect.target_id, name=(name or a["template"].replace("_", " ")),
+                       materials=[a["material"]], mass_g=int(a["mass_g"]), state=st,
+                       provenance=list(a.get("provenance", [])))
+
+
+def test_closure_chain_break_bottle_cut_cover_with_shard_burn_it():
+    from world.sim.operations.handlers import burn, cut
+    bottle = EntityState(id="bottle", name="whisky bottle", materials=["glass"], mass_g=500)
+    seat = _seat()
+    lighter = EntityState(id="lighter", name="lighter", materials=["plastic"], mass_g=20,
+                          state={"ignition": True})
+    w = FakeWorld([bottle, seat, lighter])
+
+    # 1. break → three shards, each carrying its FORM
+    r1 = break_op.resolve_break(ActionAttempt(actor="p", verb="break", X=NounRef("bottle")), w, MATS)
+    assert r1.resolution == Resolution.SUCCESS and r1.tier == "op:break:shatter"
+    _conserves(w, r1)
+    mints = [e for e in r1.effects if e.kind == EffectKind.CREATE_OBJECT]
+    assert len(mints) == 3 and all(e.args["form"] == "shard" for e in mints)
+    shard = _mint(mints[0])
+    assert shard.state["form"] == "shard"
+
+    # 2. cut the cover off the seat WITH THE SHARD — the closure: a minted thing is a real tool
+    w2 = FakeWorld([shard, seat, lighter])
+    r2 = cut.resolve_cut(ActionAttempt(actor="p", verb="cut", X=NounRef("seat", "cover"),
+                                       tool=NounRef(shard.id)), w2, MATS)
+    assert r2.resolution == Resolution.SUCCESS, r2.narration
+    assert r2.tier == "op:cut:free"
+    _conserves(w2, r2)
+    cover_mint = [e for e in r2.effects if e.kind == EffectKind.CREATE_OBJECT][0]
+    assert cover_mint.args["form"] == "sheet"                # loose_fabric → a sheet (a cover, a wrap)
+    cover = _mint(cover_mint)
+
+    # 3. burn the freed cover with the lighter → ash (form) + the rest to the sink
+    w3 = FakeWorld([cover, lighter])
+    r3 = burn.resolve_burn(ActionAttempt(actor="p", verb="burn", X=NounRef(cover.id),
+                                         tool=NounRef("lighter")), w3, MATS)
+    assert r3.resolution == Resolution.SUCCESS and r3.tier == "op:burn:success"
+    _conserves(w3, r3)
+    ash = [e for e in r3.effects if e.kind == EffectKind.CREATE_OBJECT][0]
+    assert ash.args["form"] == "ash"
+
+
+def test_shard_still_cannot_cut_steel_and_a_foam_lump_is_no_blade():
+    from world.sim.operations.handlers import cut
+    shard = EntityState(id="shard", name="glass shard", materials=["glass"], mass_g=166,
+                        state={"form": "shard"})
+    lump = EntityState(id="lump", name="foam lump", materials=["foam"], mass_g=166, state={"form": "shard"})
+    seat = _seat()
+    w = FakeWorld([shard, lump, seat])
+    r = cut.resolve_cut(ActionAttempt(actor="p", verb="cut", X=NounRef("seat", "bolt"), tool=NounRef("shard")), w, MATS)
+    assert r.resolution == Resolution.REDIRECT and r.tier == "op:cut:too_dull"
+    r = cut.resolve_cut(ActionAttempt(actor="p", verb="cut", X=NounRef("seat", "cover"), tool=NounRef("lump")), w, MATS)
+    assert r.resolution == Resolution.REDIRECT and r.tier == "op:cut:too_dull"
+
+
+def test_a_torn_strip_ties_because_it_is_cordage_by_form():
+    from world.sim.operations.handlers import tie
+    strip = EntityState(id="strip", name="synthetic fabric strip", materials=["synthetic_fabric"], mass_g=40,
+                        state={"form": "strip"})
+    frame = EntityState(id="frame", name="seat frame", materials=["steel"], mass_g=3000)
+    w = FakeWorld([strip, frame])
+    r = tie.resolve_tie(ActionAttempt(actor="p", verb="tie", X=NounRef("strip"), relation="to",
+                                      Y=(NounRef("frame"),)), w, MATS)
+    assert r.resolution == Resolution.SUCCESS and r.tier == "op:tie:knot"
