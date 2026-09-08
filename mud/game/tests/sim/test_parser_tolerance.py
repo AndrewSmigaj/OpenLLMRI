@@ -111,3 +111,10 @@ def test_split_commands():
     assert parts == ["tie the letters and the sheet"]
     parts = split_commands("open the bag, then take the canteen", VERB_TO_OP)
     assert parts == ["open the bag", "take the canteen"]
+
+
+def test_make_never_binds_a_noun():
+    ext = Reachable(id="extinguisher", name="fire extinguisher", aliases=("extinguisher",))
+    a = _p("make fire with sticks", reach=REACH + [ext])
+    assert isinstance(a, ActionAttempt) and a.verb == "make" and a.X is None and a.tool is None
+    assert a.raw == "make fire with sticks"

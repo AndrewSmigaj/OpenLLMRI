@@ -22,4 +22,13 @@ PROBES = [
      "steps": ["cut cover off 12c with multitool", "tear fabric", "tie strip to 12c"],
      "expect": "SUCCESS", "tier_prefix": "op:tie:knot",
      "status": "pass", "source": "ontology-closure.md §3 (cordage by form)"},
+    {"id": "chain.make_fire_teaches", "zone": "cockpit",
+     "steps": ["make fire with sticks"], "expect": "REDIRECT", "tier_prefix": "op:make:fire",
+     "status": "pass", "source": "live smoke 2026-09-07 (make bound the fire extinguisher)"},
+    {"id": "chain.use_echoes_the_verb", "zone": "rear_cabin",
+     "steps": ["break bottle", "take shard", "use shard on 12c cushion"], "expect": "SUCCESS",
+     "tier_prefix": "use>op:cut", "status": "pass", "source": "live smoke 2026-09-07"},
+    {"id": "chain.and_splits_and_it_binds", "zone": "rear_cabin",
+     "steps": ["break bottle", "take shard", "examine it"], "expect": "SUCCESS",
+     "tier_prefix": "op:examine", "status": "pass", "source": "live smoke 2026-09-07 (anaphora)"},
 ]

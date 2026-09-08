@@ -74,6 +74,8 @@ def parse(text, vocab, reachable, bindings=None):
         rewritten = _rewrite_use(rest, vocab)
         if rewritten is not None:
             return parse(rewritten, vocab, reachable, bindings)
+    if verb == "make":                                 # `make fire` names a WANT, never a thing here —
+        return ActionAttempt(actor="", verb=verb, raw=raw)   # the handler reads the raw words
 
     rest = _trim_purpose(rest, vocab)
     rest = [w for w in rest if w not in TRAIL_ADVERBS]
