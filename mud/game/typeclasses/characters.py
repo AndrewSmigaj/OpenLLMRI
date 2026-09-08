@@ -31,9 +31,9 @@ class Character(ObjectParent, DefaultCharacter):
         from world.scenarios.whiteout import content
         from world.sim import presentation
         from world.sim.systems import warmth
-        base = presentation.describe(to_entity_state(self))
+        me = to_entity_state(self)
         if looker is self:
             worn = [to_entity_state(o) for o in self.contents
                     if (o.db.state or {}).get("worn_by")]
-            return f"{base} {warmth.worn_summary(worn, content.MATERIALS)}"
-        return base
+            return warmth.self_view(me, worn, content.MATERIALS)   # the ONE self-view helper
+        return presentation.describe(me)

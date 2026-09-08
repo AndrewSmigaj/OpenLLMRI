@@ -103,7 +103,17 @@ class EvenniaWorldView:
         return zone_of(obj, self.room) if obj is not None else None
 
     def _carried(self, obj):
-        return self.actor is not None and getattr(obj, "location", None) is self.actor
+        """Anywhere in the actor's inventory tree (the whisky in the flask in your pocket)."""
+        if self.actor is None:
+            return False
+        loc = getattr(obj, "location", None)
+        seen = set()
+        while loc is not None and id(loc) not in seen:
+            if loc is self.actor:
+                return True
+            seen.add(id(loc))
+            loc = getattr(loc, "location", None)
+        return False
 
     def get(self, sim_id):
         if isinstance(sim_id, str) and sim_id.startswith("zone:"):

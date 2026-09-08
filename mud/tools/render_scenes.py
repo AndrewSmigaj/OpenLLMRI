@@ -30,6 +30,10 @@ def main():
         authored = importlib.import_module(f"{base}.authored").AUTHORED
     except ModuleNotFoundError:
         probes, authored = [], None
+    try:
+        slots = importlib.import_module(f"{base}.characters")
+    except ModuleNotFoundError:
+        slots = None
     from world.sim import presentation
     from world.sim.space import zones as zonemap
     from world.sim.testing.probes import run_probe
@@ -64,7 +68,7 @@ def main():
     # --- every probe's transcript ---------------------------------------------------------------
     L.append("## Probes — transcripts"); L.append("")
     for p in probes:
-        res = run_probe(p, objects, mats, authored)
+        res = run_probe(p, objects, mats, authored, slots=slots)
         mark = "✅" if res.passed else ("⏳" if p.get("status") != "pass" else "❌")
         L.append(f"### {mark} {p['id']}  ({p.get('zone', '')}; expect {p.get('expect', 'SUCCESS')}; "
                  f"{p.get('status')})")

@@ -38,7 +38,11 @@ def main():
     if a.phrasing:
         a.filter = a.filter or "phrasing."
     probes = [p for p in probes_pkg.PROBES if a.filter in p["id"]]
-    results = run_all(probes, objects.OBJECT_TABLE, materials, authored)
+    try:
+        slots = importlib.import_module(f"world.scenarios.{a.scenario}.characters")
+    except ModuleNotFoundError:
+        slots = None
+    results = run_all(probes, objects.OBJECT_TABLE, materials, authored, slots=slots)
     if a.phrasing:
         import collections
         by = collections.defaultdict(lambda: [0, 0])

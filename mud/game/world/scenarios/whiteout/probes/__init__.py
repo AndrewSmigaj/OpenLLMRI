@@ -9,9 +9,10 @@ import os
 
 from world.scenarios.whiteout.probes.census import PROBES as _CENSUS
 from world.scenarios.whiteout.probes.chain import PROBES as _CHAIN
+from world.scenarios.whiteout.probes.kit import PROBES as _KIT
 from world.scenarios.whiteout.probes.phrasing import PROBES as _PHRASING
 
-PROBES: list[dict] = list(_CHAIN) + list(_CENSUS) + list(_PHRASING)
+PROBES: list[dict] = list(_CHAIN) + list(_CENSUS) + list(_PHRASING) + list(_KIT)
 BASELINE_PATH = os.path.join(os.path.dirname(__file__), "BASELINE")
 
 

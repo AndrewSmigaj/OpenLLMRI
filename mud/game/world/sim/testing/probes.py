@@ -79,8 +79,14 @@ def run_step(world: PureWorld, materials, line: str, authored=None, pick: int = 
     return StepResult(line, "disambiguation", narration="could not settle a disambiguation")
 
 
-def run_probe(probe: dict, rows, materials, authored=None, default_zone="mid_cabin") -> ProbeResult:
+def run_probe(probe: dict, rows, materials, authored=None, default_zone="mid_cabin", slots=None) -> ProbeResult:
     world = PureWorld.from_table(rows, actor_zone=probe.get("zone"), default_zone=default_zone)
+    if probe.get("slot"):                          # the crash draw (players-and-kit.md)
+        if not slots:
+            return ProbeResult(probe, False, "slot given but no slots module")
+        world.dress(slots.outfit(probe["slot"]), slots.character_state(probe["slot"]))
+        if probe.get("zone"):
+            world.raw(world.actor_id).state["zone"] = probe["zone"]
     for held in probe.get("holds", ()):
         try:
             world.give(held)
@@ -118,8 +124,8 @@ def run_probe(probe: dict, rows, materials, authored=None, default_zone="mid_cab
     return ProbeResult(probe, True, "", steps)
 
 
-def run_all(probes, rows, materials, authored=None, default_zone="mid_cabin") -> list:
-    return [run_probe(p, rows, materials, authored, default_zone) for p in probes]
+def run_all(probes, rows, materials, authored=None, default_zone="mid_cabin", slots=None) -> list:
+    return [run_probe(p, rows, materials, authored, default_zone, slots) for p in probes]
 
 
 def summarize(results) -> dict:

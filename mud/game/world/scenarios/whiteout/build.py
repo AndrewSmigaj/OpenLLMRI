@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import evennia
 
+from world.scenarios.whiteout.characters import character_state, outfit
 from world.scenarios.whiteout.objects import OBJECT_TABLE
 
 _OBJ = "typeclasses.objects.Object"
@@ -65,3 +66,23 @@ def build():
     room.db.default_zone = "mid_cabin"    # anything unzoned stands here (DR-13a)
     load_table(OBJECT_TABLE, room)
     return room
+
+
+def dress(character, slot: str, make=None):
+    """Give a character its crash draw (players-and-kit.md): the worn things (worn_by set), the
+    pockets and their contents, and the slot's starting state (zone, wounds). Build-time only —
+    the P6 instance spawn calls this per party member; smokes and tests call it directly."""
+    sim_id = character.db.sim_id or character.key
+    rows = []
+    for r in outfit(slot):
+        r = dict(r)
+        st = dict(r.get("state") or {})
+        if st.pop("worn", None):
+            st["worn_by"] = sim_id
+        r["state"] = st
+        rows.append(r)
+    made = load_table(rows, character, make=make)
+    st = dict(character.db.state or {})
+    st.update(character_state(slot))
+    character.db.state = st
+    return made

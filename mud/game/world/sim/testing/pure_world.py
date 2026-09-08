@@ -98,6 +98,17 @@ class PureWorld:
         z = (top.state or {}).get("zone") if top else None
         return z or self.default_zone
 
+    def _held(self, eid) -> bool:
+        """Anywhere in the actor's inventory tree (the whisky in the flask in your pocket)."""
+        seen = set()
+        cur = self._loc.get(eid)
+        while cur is not None and cur not in seen:
+            if cur == self.actor_id:
+                return True
+            seen.add(cur)
+            cur = self._loc.get(cur)
+        return False
+
     def _revealed(self, eid) -> bool:
         st = (self._e[eid].state or {}) if eid in self._e else {}
         return bool(st.get("open") or st.get("searched"))
@@ -179,7 +190,7 @@ class PureWorld:
                 aliases = tuple(aliases) + ("me", "self", "myself")
             out.append(Reachable(id=i, name=e.name, aliases=tuple(aliases),
                                  ident=str((e.state or {}).get("ident", "") or ""), parts=parts,
-                                 held=(self._loc.get(i) == self.actor_id)))
+                                 held=self._held(i)))
         if self.zoned:
             for zid, z in sorted(zonemap.all_zones().items()):
                 out.append(Reachable(id=f"zone:{zid}", name=z.name, aliases=tuple(z.aliases)))
@@ -188,6 +199,22 @@ class PureWorld:
         return out
 
     # --- tooling conveniences -----------------------------------------------------------------
+    def dress(self, rows, state=None):
+        """Load outfit rows INTO the actor (worn things get worn_by=actor; rows without `in` land
+        in the actor) and merge the actor's starting state — the pure twin of build.dress()."""
+        for r in rows:
+            r = dict(r)
+            st = dict(r.get("state") or {})
+            if st.pop("worn", None):
+                st["worn_by"] = self.actor_id
+            self._e[r["sim_id"]] = EntityState(id=r["sim_id"], name=r["name"], materials=list(r.get("materials") or []),
+                                               parts=_parts(r.get("parts")), tags=[], mass_g=int(r.get("mass_g", 0)),
+                                               state=st, provenance=[], owner=None)
+            self._alias[r["sim_id"]] = tuple(r.get("aliases") or ())
+            self._loc[r["sim_id"]] = r.get("in", self.actor_id)
+        if state:
+            self._e[self.actor_id].state.update(state)
+
     def give(self, sim_id):
         """Test setup: put a thing (wherever it is stowed) into the actor's hands."""
         if sim_id not in self._e:

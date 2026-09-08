@@ -132,4 +132,40 @@ MATERIAL_TABLE = {
                   "tear_resistance": "very_low", "cut_resistance": "very_low"},
         "tags": ("soft", "flexible", "insulating", "flammable"),
     },
+    # --- the kit's cloth (players-and-kit.md; DR-25a) ------------------------------------------
+    "down": {  # a down parka's fill — the warmest thing in the valley, worthless soaked
+        "props": {"insulation": "extreme", "burnability": "high", "ignition_difficulty": "med",
+                  "cut_resistance": "very_low", "tear_resistance": "very_low", "absorbency": "very_high"},
+        "tags": ("soft", "flexible", "insulating", "flammable", "fabric"),
+    },
+    "nylon_shell": {  # a parka's or ski jacket's outer skin — stops wind and most water, warms nothing
+        "props": {"insulation": "very_low", "cut_resistance": "low", "tear_resistance": "med",
+                  "burnability": "med", "ignition_difficulty": "med", "smoke_toxicity": "high",
+                  "absorbency": "none"},
+        "tags": ("fabric", "flexible", "synthetic", "windproof", "waterproof", "flammable"),
+    },
+    "denim": {  # jeans and a jacket — cotton, heavy, cold when wet
+        "props": {"insulation": "low", "cut_resistance": "low", "tear_resistance": "med",
+                  "burnability": "high", "ignition_difficulty": "med", "absorbency": "high"},
+        "tags": ("fabric", "flexible", "flammable", "absorbent"),
+    },
+    "fleece": {  # a synthetic mid-layer — warm, light, still warm damp, melts near a flame
+        "props": {"insulation": "high", "cut_resistance": "very_low", "tear_resistance": "low",
+                  "burnability": "high", "ignition_difficulty": "low", "smoke_toxicity": "high",
+                  "absorbency": "low"},
+        "tags": ("fabric", "flexible", "synthetic", "insulating", "flammable"),
+    },
+    "wax": {  # lip balm, a candle — a slow, hot fuel that takes a flame readily
+        "props": {"burnability": "high", "ignition_difficulty": "low", "cut_resistance": "very_low",
+                  "rigidity": "low"},
+        "tags": ("flammable", "fuel", "soft"),
+    },
+    "alcohol": {  # hand sanitizer, the flask's spirit — a flammable liquid that also cleans a wound
+        "props": {"burnability": "very_high", "ignition_difficulty": "very_low", "potability": "low"},
+        "tags": ("liquid", "flammable", "fuel"),
+    },
+    "fish": {  # a family's frozen catch in the cooler — food, hard as a plank until thawed
+        "props": {"edibility": "high", "cut_resistance": "low", "burnability": "low", "rigidity": "med"},
+        "tags": ("edible", "food", "organic"),
+    },
 }

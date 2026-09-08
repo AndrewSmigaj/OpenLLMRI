@@ -62,13 +62,26 @@ def _pick(variants, state):
     return None
 
 
+_PLURAL_ENDINGS = ("s", "es")
+_NOT_PLURAL = ("ss", "us", "is", "as", "os", "glass", "grass", "canvas", "brass", "mass", "moss")
+
+
+def _is_plural_name(phrase: str) -> bool:
+    """`jeans`, `sneakers`, `leather gloves`, `oxygen masks` read as plurals (no article);
+    `glass`, `canvas`, `brass` do not."""
+    head = phrase.strip().lower().split()[-1] if phrase.strip() else ""
+    return head.endswith("s") and not head.endswith(_NOT_PLURAL)
+
+
 def _article(phrase: str) -> str:
-    low = phrase.lower()
-    if low.startswith(("the ", "a ", "an ", "some ")):
-        return phrase                     # already determined ("the pilot") — never "a the pilot"
-    if low[:1] in "aeiou":
-        return f"an {phrase}"
-    return f"a {phrase}"
+    """'a'/'an' before a noun phrase; none before an already-articled, plural or proper phrase."""
+    p = phrase.strip()
+    low = p.lower()
+    if low.startswith(("a ", "an ", "the ", "some ", "his ", "her ", "your ", "its ")):
+        return p
+    if _is_plural_name(low):
+        return p
+    return ("an " if low[:1] in "aeiou" else "a ") + p
 
 
 def _bare_or_article(ent) -> str:

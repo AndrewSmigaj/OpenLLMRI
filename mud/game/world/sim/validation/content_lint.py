@@ -21,7 +21,7 @@ KNOWN_ATTACH = frozenset(CUTTABLE_ATTACH) | frozenset(PRYABLE_ATTACH) | {"fixed"
 KNOWN_TAGS = {"flexible", "flammable", "fabric", "soft", "insulating", "strong", "cordage", "metal",
               "rigid", "conductive", "synthetic", "natural", "fuel", "tinder", "wire", "brittle",
               "frozen_water", "cold", "liquid", "extinguisher", "paper", "organic", "edible", "food",
-              "absorbent", "potable"}
+              "absorbent", "potable", "windproof", "waterproof"}
 _NARRATE = re.compile(r"""narrate\(\s*["']([a-z_.]+)["']""")
 
 

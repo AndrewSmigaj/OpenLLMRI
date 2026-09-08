@@ -24,5 +24,5 @@ def resolve_examine(attempt, world, materials, detail: str = "full"):
         from world.sim.systems import warmth                     # DR-25: the self-view
         worn = [e for e in (world.get(i) for i in world.reachable(attempt.actor))
                 if e is not None and (e.state or {}).get("worn_by") == attempt.actor]
-        line = f"{line} {warmth.worn_summary(worn, materials)}"
+        line = warmth.self_view(ent, worn, materials)             # you — never "nothing remarkable"
     return ActionResult(Resolution.SUCCESS, narration=line, tier="op:examine")

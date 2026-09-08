@@ -372,12 +372,11 @@ def _match_entity(words, reachable, bindings=None, exact_only=False, prefer_held
         for h in hits:
             if h.id == bound[0]:
                 return NounRef(h.id)
-    if prefer_held:                                       # the tool slot: what you hold wins
-        held = [h for h in hits if getattr(h, "held", False)]
-        if len(held) == 1:
-            return NounRef(held[0].id)
     if _identical(hits):                                  # three identical shards: any will do
         return NounRef(hits[0].id)
+    held = [h for h in hits if getattr(h, "held", False)]  # DR-08b bias: what you hold wins the tie —
+    if len(held) == 1:                                    # the whisky in your flask over the bottle
+        return NounRef(held[0].id)                        # on the floor, in any slot
     return _disambig(phrase, [(h, None) for h in hits])
 
 
