@@ -330,8 +330,10 @@ class WorldView(Protocol):
 
 
 # ---------------------------------------------------------------------------
-# Build-time authoring packets (§43; DR-17). Used by tools/ at build time and
-# baked to runtime data — NEVER consulted by an LLM at runtime.
+# Build-time authoring packets (§43; DR-17). RETIRED from the authoring model (DR-17a,
+# 2026-09-07): content is authored in the scenario TABLES (objects.py / materials / zones /
+# spaces / appearance / responses / probes). The dataclasses stay because the contract is
+# frozen-additive; nothing reads them. NEVER consulted by an LLM at runtime.
 # ---------------------------------------------------------------------------
 
 @dataclass(frozen=True)

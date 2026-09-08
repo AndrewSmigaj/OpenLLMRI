@@ -1,6 +1,7 @@
 ---
 name: sim-test-writer
 description: Writes fast, pure pytest tests under game/tests/sim/ for the Whiteout simulation core, drawn from the design §45 test list. Tests import only world.sim.* (no Evennia, no DB) and run via `make test`. Use when adding coverage for sim rules or turning a §45 line into an executable test.
+model: claude-opus-4-8
 tools: Read, Write, Edit, Grep, Glob, Bash
 ---
 

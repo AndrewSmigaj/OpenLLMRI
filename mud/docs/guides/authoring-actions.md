@@ -1,151 +1,80 @@
-# Authoring Action Families
+# Authoring Actions (operations)
 
-How to add a new **action family** — the generic verbs (`cut`, `examine`, `say`,
-`tie`, `burn`, …) that resolve over *any* object by its parts and materials.
-Design §27 / §43.2 → the [`ActionFamilyPacket`](../../game/world/sim/contracts.py)
-dataclass.
+> Rewritten 2026-09-07 for the closure loop (DR-05b / DR-26). Verbs are **pure Python handlers** over
+> material properties, forms, capabilities and attachments — one handler cuts fabric, webbing and foam
+> differently because the *materials* differ. There is no DSL (retired, DR-05b) and no per-object code.
 
-> **⚠️ Being revised (pre-v4).** This guide predates the finalized architecture and still uses the old
-> module names (`actions/families/`), the old `ActionAttempt` shape, and a 6-tier ladder. **Authoritative:**
-> [`../architecture/implementation-architecture.md`](../architecture/implementation-architecture.md) —
-> DR-08 taught grammar → `ActionAttempt{verb,X,relation,Y,tool}`; DR-09 tiers
-> authored→object→**operation×material**→generic→redirect; operations live in `world/sim/operations` +
-> `world/sim/resolver`, **not** `actions/`. A proper rewrite lands with roadmap P1 — use the *intent*
-> below, not the stale specifics.
+## Where a verb lives
+- `game/world/sim/operations/handlers/<op>.py` — a pure module with `VERBS = (...)` (the canonical verb
+  first, then synonyms) and `resolve_<op>(attempt, world, materials) -> ActionResult | None`.
+- `game/world/sim/operations/registry.py` — one `Op(...)` entry: `relations` the verb accepts,
+  `applies_to` (material tags / attachments the coarse redirect suggests it for).
+- `game/world/scenarios/<scenario>/responses/*.py` — the narration templates (`<op>.<outcome>`).
+- Extra synonyms and particle forms — `game/world/sim/parser/vocab.py` (`SYNONYMS`, `PARTICLES`).
 
-> The whole point (§2, §26): the player survives by **understanding the world**,
-> not by guessing the author's verb-object pair. A family encodes *how a verb
-> interacts with materials and parts*, so one `cut` cuts fabric, webbing and foam
-> differently without per-object scripting.
+## The tier ladder as implemented (`resolver/tiers.py`)
+0 the **reach gate** (a far thing → "too far to {verb} from here") · 1 **authored** (a per-object rule from
+`authored.py`) · 3 the **handler** · 4 **generic physics** (`resolver/physics.py`: a property-based answer
+when the handler returns `None`) · 5 the **coarse redirect** (≤2 plausible verbs). Everything resolves;
+nothing says "you can't do that". The wall-sensor logs tier-5 hits to `gaps.jsonl`.
 
-## Two stages, and where a family lives
-
-Actions are **two-stage** (fixes design §26):
-
-- **Stage A — the Evennia command shell.** Parses the **taught grammar**
-  `VERB X [RELATION Y] [WITH Z]` (GDD §25a) into a structured
-  [`ActionAttempt`](../../game/world/sim/contracts.py) `{actor, verb, X, relation, Y, tool, raw}`.
-  **No runtime LLM** — unknown phrasing yields a help nudge that teaches the format (DR-02/DR-08).
-- **Stage B — the pure resolver** in
-  [`world/sim/actions`](../../game/world/sim/). Resolves the `ActionAttempt`
-  deterministically and returns an `ActionResult`.
-
-**An action family is Stage-B content.** It lives in
-`world/sim/actions/families/<id>.py` as a pure function over the contract
-dataclasses, next to the worked **examine / cut / say** examples. The LLM is
-*never* in Stage B ([../architecture/llm-integration.md](../architecture/llm-integration.md)).
-
-## The §26 resolution tiers
-
-Stage B resolves through this priority ladder (the `Resolution` enum — note the
-LLM tier from §26 is pulled out into Stage A and is **absent** here):
-
-1. **AUTHORED** — a scenario-authored puzzle rule (e.g. the radio's one authored
-   damage state).
-2. **OBJECT** — an object-specific rule.
-3. **PART** — a part-specific rule.
-4. **MATERIAL** — the material's properties decide it (most `cut`/`tear`/`burn`
-   outcomes; §21).
-5. **PHYSICS** — generic physics fallback.
-6. **FAILURE** — a *plausible failure with explanation*. Never "You can't do
-   that" (§3.5, §49): a desperate or silly attempt still gets a real physical
-   answer.
-
-A family walks the ladder and stops at the first tier that resolves; the result
-records *which* tier fired.
-
-## The packet → dataclass mapping (§43.2)
-
-| §43.2 field | `ActionFamilyPacket` field | Notes |
-|---|---|---|
-| `id`, `synonyms` | `id`, `synonyms` | synonyms feed Stage-A parsing |
-| `required_roles` / `optional_roles` | same | e.g. `cut` requires `target`, optional `tool` |
-| `physical_checks` | `physical_checks` | reachability, tool quality vs material |
-| `duration_model` / `stamina_model` | same | feeds the scheduler (§9; tick feedback) |
-| `partial_success_states` | `partial_success_states` | interrupted work stays partial |
-| `failure_modes` | `failure_modes` | the explanations the FAILURE tier draws on |
-| `tests` | `tests` | success / failure / conservation / silly cases |
-
-## How to add a family
-
-1. **Brainstorm first (§28).** List obvious, clever, desperate and silly attempts
-   for the verb against the major objects it touches. This drives the test list.
-2. **Author the packet.** Fill an `ActionFamilyPacket` (id, synonyms, roles,
-   physical/stamina/duration models, partial/failure states, tests).
-3. **Register synonyms in Stage A** so the command shell can route phrasings into
-   one `ActionAttempt` with `action == <id>`.
-4. **Write the resolver** in `world/sim/actions/families/<id>.py`: a pure function
-   `(ActionAttempt, world snapshot) -> ActionResult`. Walk the §26 tiers; return
-   `Effect`s (never prose-only — §44), `Event`s (with loudness for perception
-   routing), deterministic `narration`, and `duration_minutes` for timed work.
-5. **Test in Tier 1** (`make test`) — no DB, no Evennia boot
-   ([../architecture/testing.md](../architecture/testing.md)).
-
-## Worked sketch: `cut`
-
+## The handler skeleton
 ```python
-# world/sim/actions/families/cut.py  (pure; no Evennia imports)
-from world.sim.contracts import ActionAttempt, ActionResult, Resolution
-from world.sim import effects
+VERBS = ("scrape", "scratch", "abrade")
 
-def resolve_cut(attempt: ActionAttempt, world) -> ActionResult:
-    target = world.entity(attempt.target)
-    tool = world.entity(attempt.tool) if attempt.tool else None
-
-    # 1-3: authored / object / part overrides checked first (omitted) ...
-    # 4: MATERIAL tier — the general case.
-    material = world.material_of(target)
-    tool_q = world.tool_cut_quality(tool)             # 0 = bare hands
-    if tool_q < material.cut_resistance - 0.1:
-        return ActionResult(
-            success=False, resolution=Resolution.MATERIAL,
-            narration=f"The {tool or 'edge'} skates off the {target.display_name}; "
-                      "it barely scratches the surface.",
-        )
-    minutes = world.cut_minutes(material, tool_q)      # nylon webbing: slow
-    part = world.severable_part(target)
-    return ActionResult(
-        success=True, resolution=Resolution.MATERIAL,
-        narration=f"You work the blade through the {target.display_name}.",
-        effects=[
-            effects.remove_part(target.id, part.id),
-            effects.create_object(part.outputs_when_removed[0]),  # conserves mass (§24)
-        ],
-        events=[...],            # loudness drives perception routing (§14)
-        duration_minutes=minutes, partial=True,        # schedules onto ticks (§9)
-    )
+def resolve_scrape(attempt, world, materials):
+    ent, part = resolve_ref(attempt.X, world)          # X may be a thing or a part
+    if ent is None:
+        return None                                    # let the resolver answer
+    mat = material_of(attempt.X, world, materials)
+    if mat is None or "rigidity" not in mat.props:
+        return None                                    # not scrapeable → tier 4 / redirect
+    edge = capability(attempt.tool, world, "edge")     # authored OR derived (DR-26); 0 = bare hands
+    if edge < 0.2:
+        return ActionResult(Resolution.REDIRECT, tier="op:scrape:no_edge",
+                            narration=narrator.narrate("scrape.no_edge", {...}))
+    eff = (effects.adjust_attr(ent.id, "frost", -1),
+           effects.create_object("water", derived_id(ent.id, "melt"),
+                                 {"material": "water", "mass_g": 20, "form": "liquid",
+                                  "provenance": [f"scraped from {ent.id}"]}))
+    return ActionResult(Resolution.SUCCESS, effects=eff, tier="op:scrape:frost",
+                        events=(Event(EventKind.IMPACT, ent.id, loudness=0.2),),
+                        narration=narrator.narrate("scrape.frost", {...}))
 ```
+Rules the skeleton encodes:
+1. **The material gate comes first** (a dull blade is dull whatever the attachment).
+2. **Read capabilities, never tool identities**: `capability(ref, world, "edge")` — a shard, a knife and a
+   torn sheet all answer; the value is authored or derived from material × form.
+3. **Attachments gate HOW, never WHETHER** (the DR-05a table): severable → intact; mechanical → scraps
+   (cut/tear) or intact (pry); integral → refuse + physics + one sibling near-miss.
+4. **Mint with a form.** Every `create_object` names the `form` of what it makes (`shard`, `strip`,
+   `scrap`, `piece`, `sheet`, `shavings`, `bundle`, `ember`, `ash`, `liquid`…). Mass is integer grams and
+   the pieces sum to the original; the ledger rejects anything else.
+5. **Narration only from templates**, filled from the projected post-state; never a prose-only change.
+6. **Return `None` when the verb doesn't apply to X at all** so tier 4 can answer physically.
+7. **Accessories are implicit** when unambiguous (a handhold for the drill, a reachable flame for melt) and
+   are **named in the prose**; the primary tool is always the explicit `with Z`.
+8. **Duration** goes in `duration_minutes` (game-minutes); the scheduler turns it into an attended
+   activity with tick feedback (DR-27) — never sleep, never wall-clock.
 
-The same function cuts fabric, webbing and foam differently because the
-*material* differs — roadmap Pass 4's acceptance test. No per-object cut code.
+## Shaping verbs (`carve`, `split`, `shave`, `whittle`, `notch`, `string`, `bundle`)
+Their grammar is `VERB X into <form> [with Z]`; the form arrives as a pseudo-noun in `attempt.Y`
+(`form:spindle`). A real entity in Y means "one like that". The handler checks the material/form is
+shapeable into the target form, consumes/transforms X, and mints the output with the new form.
 
-## The attachment decision table (DR-05a — attachment gates HOW, never WHETHER)
+## Adding a verb — checklist
+- [ ] handler module + `VERBS`; registry `Op` with `relations` and `applies_to`
+- [ ] response templates for every outcome (success / partial / each refusal) — `{tool}` arrives
+      pre-articled ("the multitool" / "your bare hands"); never write an article before it
+- [ ] synonyms/particles the phrasing corpus showed (`vocab.py`)
+- [ ] probes: the success case, the honest failure(s), the silly case; cite their source
+- [ ] a Tier-1 test: resolves, conserves, the redirect is informative
+- [ ] `make test-host && make validate && make probes` green; `make render-scenes` read
 
-For a part whose **material** passes the verb's gate (the material check always comes first):
-
-| verb | severable (stitched/tied/glued/…) | mechanical (clipped/bolted/…) | integral (`fixed`/unknown) |
-|---|---|---|---|
-| cut  | freed intact (`outputs_when_removed`) | **hacked out** as `{material}_scrap` ×3 | refuse + explain + one near-miss |
-| tear | freed intact | **ripped out** as scraps | refuse + explain + near-miss |
-| pry  | refuse + explain + near-miss | freed intact (the ONLY intact route off a fastener) | refuse + explain |
-
-Authors opt a part INTO extractability by naming a real attachment; `fixed` means "moulded into the
-thing". The attachment voice (why it resists, what residue it leaves, the short hint form) lives in
-the scenario responses as `attachment.explain/hint/residue.*` keys.
-
-## Naming & narration rules (slice-fix, 2026-07)
-
-- **Derived template ids compose material-first**: `{material_id}_{fragment_word}` (`glass_shard`,
-  `synthetic_fabric_strip`) — the shell derives the display key via `replace("_", " ")`, so the
-  order IS the player-facing name ("glass shard", never "shard glass"). Authored
-  `outputs_when_removed` ids follow the same reads-naturally rule (`loose_fabric` → "loose fabric").
-- **`{tool}` arrives pre-articled** via `_helpers.tool_phrase()` — "the multitool" / "your bare
-  hands". Templates must never write an article before `{tool}`, never start a sentence with it,
-  and any verb governed by `{tool}` must be number-invariant (modals: *won't*, *can't*) — "your
-  bare hands" is plural.
+## Naming rules (still current)
+Derived template ids compose material-first (`glass_shard`, `synthetic_fabric_strip`); the display key is
+the id with underscores → spaces, so the order IS the player-facing name.
 
 ## Related
-
-- [authoring-objects.md](authoring-objects.md) — the materials/parts `cut` reads.
-- [authoring-workflows.md](authoring-workflows.md) — chaining actions into goals.
-- [validation-rules.md](validation-rules.md) — failure-feedback & tick rules (§44).
+[authoring-objects.md](authoring-objects.md) · [validation-rules.md](validation-rules.md) ·
+[`../architecture/ontology-closure.md`](../architecture/ontology-closure.md)

@@ -97,7 +97,31 @@ first unchecked box instead of redoing partial work.)
 Andrew flips this to ✅ after reviewing the foundation. While ⛔, firings do nothing but re-verify.
 *(Andrew: set this to ✅ when the engine + the 9 rooms' voice look right.)*
 
-## Phase 1 — the 50 outdoor rooms (2 per firing, in build order)
+## Phase C — the closure loop (2026-09-07; supersedes the room-first order — see `docs/architecture/ontology-closure.md`)
+The unit of overnight work is a **probe cluster**, not a room. Each firing (`/loop 30m`): take the next
+unchecked box → make its `todo` probes pass by extending a material / a form rule / an operation / an
+object (never a one-off) → `make test-host && make validate && make probes` → `make render-scenes` →
+commit code + docs + probes together → tick the box → STOP. Morning artifact: `docs/review/render-<date>.md`.
+Boxes get filled in as steps 1–2b land (the plan file is the spec); the first clusters:
+
+- [ ] **C0 · steps 1–2b land** (closure · harness · parser tolerance) — done in day sessions, not by the loop.
+- [ ] **C1 · tier-4 generic physics** — soft/liquid/heavy/non-flammable/wet/non-edible answers replace the
+  verb list; every census `❌ redirect:generic` probe gets a physical line.
+- [ ] **C2 · sense verbs** — `smell` / `listen` / `feel` (read-only) + the elusive pseudo-nouns (cold, draft,
+  light, smell, sound) per zone.
+- [ ] **C3 · scenery pseudo-nouns** — windscreen, bulkhead, instruments, rudder pedals, hull tear, notch…
+  examinable (and breakable where glass) in the 9 crash rooms.
+- [ ] **C4 · the verb gaps, batch 1** — strike/hit, press, tape, fill/empty (minimal liquid quantity),
+  arrange/pile (→ put), blow/fan (fire tending stubs until step 3).
+- [ ] **C5 · the verb gaps, batch 2** — sit/lie/rest, scrape, cover/block (the draft), push/pull/drag,
+  throw, unscrew, warm, wave, adjust/turn (toggles: flashlight on/off).
+- [ ] **C6 · phrasing pass 2** — a fresh agent sample (cold + primed) against the real parser; new synonyms
+  / particles / relations → probes; parse rate re-measured.
+
+### GATE — step 3 (time & stakes + fire) is a designed phase, built after Andrew reviews its two docs.
+While the design passes are unreviewed, firings work C1–C6 only.
+
+## Phase 1 — the 50 outdoor rooms (2 per firing, in build order) — WAITS behind Phase C; implements as `OBJECT_TABLE` / zone / space rows, rendered and read
 
 ### S2 — Muskeg
 - [ ] tussock_flat

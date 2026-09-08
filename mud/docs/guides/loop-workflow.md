@@ -33,9 +33,9 @@ fixed point when it drifts:
 
 Make **one** small, coherent change, from its packet template and guide:
 
-- an object → [authoring-objects.md](authoring-objects.md) (`ObjectPacket`)
-- an action family → [authoring-actions.md](authoring-actions.md) (`ActionFamilyPacket`)
-- a workflow → [authoring-workflows.md](authoring-workflows.md) (`WorkflowPacket`)
+- an object → [authoring-objects.md](authoring-objects.md) (an `OBJECT_TABLE` row)
+- a verb → [authoring-actions.md](authoring-actions.md) (a pure handler + responses + probes)
+- a goal path → the rescue graph → a probe chain (`probes/graph.py`); workflow packets are retired
 
 Keep rules pure (`world/sim/**`); keep the Evennia shell thin
 ([../architecture/overview.md](../architecture/overview.md)).
@@ -68,7 +68,7 @@ action family, one workflow stage. End an iteration only when the gate is green.
 
 1. **Anchor:** roadmap P1 = "the co-op vertical slice → the fun gate" (the GDD slice success test).
 2. **Author:** add `scenarios/whiteout/objects/aircraft_seat.py` as an
-   `ObjectPacket` with parts that dismantle several ways, each output first-class
+   an object row with parts that dismantle several ways, each output a first-class derived object with a form
    with uses or explicit non-uses.
 3. **Verify:** `make verify SCENARIO=whiteout` — pure tests for the dismantle
    conservation, validator confirms every output has uses + tests exist.

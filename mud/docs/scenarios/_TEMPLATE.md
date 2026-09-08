@@ -37,7 +37,7 @@ works (§11–12), and which scene transitions use Evennia exits.
 
 ## 4. Key objects
 
-The major authored objects, each an `ObjectPacket`
+The major authored objects, each an `OBJECT_TABLE` row (packets are retired)
 ([authoring objects](../../guides/authoring-objects.md)).
 
 | Object | Material(s) | Parts → outputs | Survival uses | Silly/non-survival use |
@@ -49,7 +49,7 @@ puzzle rule (the §26 AUTHORED tier).
 
 ## 5. Workflows
 
-Goal-level workflows, each a `WorkflowPacket`
+Goal-level paths from the rescue graph, each a probe chain (workflow packets are retired)
 ([authoring workflows](../../guides/authoring-workflows.md)). Remember §44:
 **≥ 3 solution paths** per critical goal, **≥ 3 clue paths** per hidden fact,
 inspect/access/diagnose/repair/test stages for critical repairs.

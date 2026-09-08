@@ -1,76 +1,58 @@
 # Backlog — Now / Next / Later
 
 The single living list of what we're doing, next, and parked. One tactical board; the **strategic** phase
-arc (P0–P7) lives in [`docs/scenarios/whiteout/roadmap.md`](docs/scenarios/whiteout/roadmap.md). Work **one
-Now item at a time**; deferred-but-designed items are two-line stubs linking to their design.
+arc (P0–P7) lives in [`docs/scenarios/whiteout/roadmap.md`](docs/scenarios/whiteout/roadmap.md), and the
+**closure loop** that now drives P2 lives in
+[`docs/architecture/ontology-closure.md`](docs/architecture/ontology-closure.md) (DR-26). Work **one Now
+item at a time**; deferred-but-designed items are two-line stubs linking to their design.
 
 ## Now  (work-in-progress limit: 1)
-- **Finish the item-interaction slice** — get the verbs / materials / transforms into "a format we like"
-  (iterate until it feels right). Shipped so far: disambiguation + naming + bare-hands (M1–M3,
-  DR-08a) · stock get/drop numbered menus (DR-08a append) · **attachment honesty** — destructive
-  extraction + explain-why/near-miss redirects (DR-05a/DR-09a, 2026-07-02). Next sub-item is
-  Andrew's call — natural candidate: **fragment affordances** (Later, below).
+- **The closure loop, first chunk** (plan approved 2026-09-07; the plan file is the executable spec):
+  **step 1 closure** (forms + `affordances.derive()` + per-form prose — the shard cuts) → **step 2
+  harness** (`OBJECT_TABLE` + generic loader · `PureWorld` + in-memory apply + parity test · the probe
+  corpus + `make probes` + BASELINE ratchet · a real `make validate` · `make render-scenes` · wall-sensor
+  persisted · the authored seam wired) → **step 2b parser tolerance** (particles, multi-word relations,
+  synonyms, intent trimming, body nouns, anaphora, three failure messages, silent disambiguation,
+  `use`/`make`, `help grammar`/`help verbs`, the phrasing probe set). Each step commits on its own.
 
 ## Next
-- **Presentation v1 SHIPPED** (2026-07-03, DR-23 — [`docs/architecture/presentation.md`](docs/architecture/presentation.md)):
-  scene-as-prose `look`, salience weighting, unified look-at/examine renderer, full appearance
-  content for the crash cabin (Andrew tunes the voice in `appearance.py`). **v2 leftovers → Later.**
-- **P3 zones/perception SHIPPED** (2026-07-03, DR-13a, pulled ahead of P2 —
-  [`docs/architecture/perception-model.md`](docs/architecture/perception-model.md)): the 7-zone
-  crash site (`zones.py` content — Andrew tunes geography + survey prose), go/approach movement,
-  the §14 fading look, band-routed events, the §17 reach gate, zone-aware say/whisper/call/shout.
-  **Building out the plane is now authored zone content**, not plumbing.
-- **DR-24 + DR-25 SHIPPED** (2026-07-03 — [`containment.md`](docs/architecture/containment.md),
-  [`clothing-warmth.md`](docs/architecture/clothing-warmth.md)): the scene is containment-first
-  (open/search/dig/take-from/put; the re-stowed crash site; deterministic finds); clothing is a
-  system (wear everything that physically wears; the warmth band on inventory/self-examine);
-  read (the 121.5 manual clue) + the social catch. The world is now DUG THROUGH, not read off.
-- **Mudlet integration write-up** — the research pass is done (findings gathered); writing them up into
-  [`docs/client/mudlet-research.md`](docs/client/mudlet-research.md) (currently a skeleton) + a brainstorm
-  doc with a proposed Whiteout Mudlet setup are pending.
-- **The valley (world design) — AWAITING ANDREW'S REVIEW** (2026-07-15 overnight run,
-  [`docs/investigation/world/`](docs/investigation/world/)): the full outdoor scenario — 11 Scenes /
-  59 zones (map, rooms with authored looks + priced resources + telegraphed hazards, the play report
-  with three assessment passes, and the ~1,150-object census). Design-only; implements nothing.
-  Companion pending decision: **Presentation v3 plan** (`docs/investigation/presentation-v3-plan.md`).
+- **The seven design passes — AWAITING ANDREW'S REVIEW** (`docs/investigation/design/`, each with a lens
+  pass; nothing implemented until promoted): rescue graph · time & stakes · moral & social layer · living
+  rooms (the seat rows as exemplar) · fire & shaping · phrasing corpus · grammar guide.
+- **Step 3 — time & stakes** (after its two docs are promoted): the activity scheduler on the heartbeat
+  (attended actions with start/tick/interrupt/complete; unattended processes), the fire ladder, minimal
+  integer warmth / hunger / injury on the clock, the warmth floor, wet/dry + temperature written by ops.
+  DR-27.
+- **Steps 4–5 — the overnight loop** (`build-queue.md` Phase C, `/loop 30m`, one probe cluster per firing):
+  tier-4 generic physics; the verb gaps the censuses and the agent samples voted for (spin, strike, tape,
+  press, arrange, fill, blow, sit, listen, smell, feel, adjust, wave, fix, scrape, cover/block, push/pull/
+  drag, throw, unscrew, warm); scenery + elusive pseudo-nouns.
+- **The valley (world design) — implements as data** once steps 1–5 land: the 50 outdoor zones from
+  [`docs/investigation/world/`](docs/investigation/world/) become `OBJECT_TABLE` / zone / space rows,
+  rendered and READ, not hand-built in Python. Outdoor rooms are traversal terrain; the systems are the
+  content. (The Phase-1 gate in `build-queue.md` waits behind Phase C.)
+- **Mudlet integration write-up** — research done; the write-up + a proposed Whiteout Mudlet setup pending
+  ([`docs/client/mudlet-research.md`](docs/client/mudlet-research.md)).
 
-## Later  (the big boulders — see `roadmap.md` P2–P7 for the strategic detail)
-- **Randomness / dice-rolling for conditions** — decide whether/where to introduce RNG (runtime is
-  deterministic today; the seed seam exists).
-- **Status / time updates** — surface the running clock + survivor status to the player (and to clients,
-  e.g. GMCP — ties to the Mudlet work).
-- **Colors** — subtle greys for "different" + reserved special-state colors (blood, fire); try it and get
-  friends' feedback.
-- **Build-time authoring pipeline** — draft the appearance/content library, validate, and bake.
-- **Perception polish (post-P3)** — `look <direction>` / `scan`; targeted `whisper <player> =`;
-  move durations + auto-pathing (P4, the `duration_minutes` seam is plumbed); planar-distance
-  banding + finer occlusion; real weather banding (P7 — the `weather=` parameter is the seam).
-- **Wire the tier-1 authored-rule seam** — `resolve(authored=…)` exists but cmd_act never passes
-  it; needed for: the hatchet-haft REPAIR loop (tie/tape restores the edge), the match-DRYING
-  loop (wet → dry by a fire), the radio/ELT state machines (§38), flare ignition, the
-  extinguisher. The scattered wreck planted all their furniture; the seam unlocks the mechanics.
-- **Scattered-wreck v2** — a broken satcom/inReach (cruel find + antenna parts); the bins→cargo-net
-  re-fiction (realism skin, same gameplay); wall-batting salvage (tear the headliner); the
-  V. HOLT cabin as a second Scene (the chart plants it); wing fuel drains + the fuel tester.
-- **Containment/clothing v2 (post-DR-24/25)** — a liquid-container model (the jerry can's `sealed`
-  bit is the placeholder; drink-from/pour-into/fill); container capacity; `give`; sit/posture;
-  clothing layering curves + coverage; a `status` command (with P5); leading-count taking
-  ("take 3 branches" — the stock stacking loss recorded in DR-24); cutting a filled container
-  should spill its contents, not orphan them (edge noted in DR-24 review).
-- **A shippable Mudlet client package** — mapper feed, GUI gauges, auto-install.
-- **Fragment affordances** — minted fragments carry no tool capabilities: a glass shard has no `edge`
-  state (`_shatter` sets only material/mass/provenance), so "cut X with shard" counts as bare hands;
-  the DR-05a `{material}_scrap` objects have the same gap. The improvised-glass-knife loop wants a
-  material→affordance rule for derived objects — a small design decision first, then trivial to
-  implement. *(Found during the 2026-07 slice-fix certainty audit.)*
-- **break derived-id collision (latent)** — `_shatter` ids are `derived_id(parent, f"{piece_word}{i}")`,
-  so breaking two different parts of one entity would collide sim_ids; the DR-05a scrap ids are
-  part-scoped and immune. Give break the part-scoped shape when touched next.
-- **Presentation v2** — the deferred DR-23 answers: state-conditioned ROOM desc (fire-lit cabin reads
-  differently), authored hiding (waits for/with P3 perception), per-part examine prose, richer
-  connective frames. Design decisions recorded in `docs/architecture/presentation.md`.
-- **Lenses skill rework** — right-size the lens libraries (currently overkill for routine checks; the
-  `certainty` skill — draft in [`docs/proposals/certainty-skill-draft.md`](docs/proposals/certainty-skill-draft.md) —
-  covers the pre-implementation gate).
-- The rest of the phased arc — ontology breadth (P2), scheduler (P4), survival + rescue (P5), instanced
-  co-op (P6), weather + ending (P7). See `roadmap.md`.
+## Later  (the big boulders — see `roadmap.md` P5–P7 for the strategic detail)
+- **Chunk-after-mastery** — a procedure done once becomes a single long activity (`make fire with bow
+  drill`); the Hadean Lands mechanic; offered never imposed. After the base fire paths work.
+- **The pure-world play harness** (`tools/play.py`) — an LLM brain drives parse → resolve → apply in
+  `PureWorld`, logging trajectory JSONL + gaps (an external player, ADR-0005); then the telnet bot harness
+  with the `@OBS` line (plain text — OOB needs a GMCP handshake a bare socket never does).
+- **Rescue content** (P5) — the radio/ELT state machines, the hatchet repair, the match-drying loop, flare
+  ignition, the extinguisher — the tier-1 authored seam is wired in step 2; content lands from the rescue
+  graph.
+- **Randomness / dice** — parked; deterministic, variety from route economics; revisit at P5.
+- **Status / time updates + colors** — surface the clock + survivor status (ties to Mudlet/GMCP).
+- **Presentation v2/v3 leftovers** — masses, three-form phrases, glimpse lines, DR-24b look-under (the
+  living-rooms pass decides which survive after Andrew reads a render).
+- **Containment/clothing v2** — liquid containers (drink-from / pour-into / fill), capacity, `give`, sit/
+  posture, layering curves, leading-count taking, cutting a filled container spills.
+- **Scattered-wreck v2** — the cargo-net re-skin (a data-row edit now), the V. HOLT cabin as a Scene, wing
+  fuel drains; the satcom is omitted.
+- **Lenses skill rework** — right-size the libraries (the `certainty` skill, now promoted, covers the
+  pre-implementation gate).
+- **break derived-id collision (latent)** — `_shatter` ids are `derived_id(parent, f"{piece_word}{i}")`;
+  breaking two parts of one entity would collide. Give break the part-scoped shape when touched next.
+- The rest of the phased arc — survival + rescue (P5), instanced co-op (P6), weather + ending (P7).

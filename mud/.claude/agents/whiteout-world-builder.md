@@ -1,6 +1,7 @@
 ---
 name: whiteout-world-builder
 description: Authors Whiteout scenario content (objects, action families, workflows) from the design §43 packet templates. Use when adding or fleshing out scenario content under game/world/scenarios/ and the matching world.sim contracts. Keeps rules pure and self-checks against the §44 validation list before finishing.
+model: claude-sonnet-5
 tools: Read, Write, Edit, Grep, Glob, Bash
 ---
 

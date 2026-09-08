@@ -26,7 +26,7 @@
 |---|---|---|---|
 | **P0** | Repo prep + locked contracts | DR-21 tree · `contracts.py` · CI gates | `world.sim` imports with no Evennia; gates green; contracts **frozen** |
 | **P1** | **Vertical slice (co-op)** | op×material core · ledger · taught parser · resolver · narrator · **shared-room co-op + basic clock**, behind seams | mechanism resolves everything + conserves; the interaction/format feels right (our call) |
-| **P2** | Ontology breadth + coverage | full material/operation matrix · property tests · fuzz · bake | matrix complete; ≥10k fuzz, 0 unresolved / 0 conservation violations |
+| **P2** | Ontology breadth + coverage — **now the closure loop** (DR-26; `architecture/ontology-closure.md`) | forms + derived capabilities · the probe corpus · a real validator · parser tolerance · tier-4 physics · verb gaps (bake retired, DR-17a) | every `pass` probe green, BASELINE never drops; ≥10k fuzz, 0 unresolved / 0 conservation violations |
 | **P3** | Perception & zones (§10–15) | `space/*` · per-observer rendering · propagator | crossing the scene fades detail through perception bands |
 | **P4** | Full activity scheduler (basic clock ships in P1) | `systems/scheduler` + the durable Activity model | long activities accrue on ticks, interrupt-safe, `@reload`-durable |
 | **P5** | Survival systems + rescue | `systems/{fire,warmth,water,shelter,injury,rescue}` · radio FSM · pilot | survive the night ≥3 warmth strategies; rescue reachable ≥4 ways; radio ≥3 paths; pilot death never softlocks |

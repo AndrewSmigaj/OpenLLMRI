@@ -1,86 +1,46 @@
-# Validation Rules
+# Validation Rules — `make validate`
 
-> **⚠️ Being revised (pre-v4).** Predates the finalized architecture; some specifics (module paths,
-> field names, the §N numbering) are stale. **Authoritative:**
-> [`../architecture/implementation-architecture.md`](../architecture/implementation-architecture.md)
-> (§44 lands in `world/sim/validation`) + [GDD §44](../scenarios/whiteout/GDD.md). A proper rewrite
-> lands with roadmap P2 — use the *intent*, not the stale details.
+> Rewritten 2026-09-07 (DR-17a / DR-18a). The validator is a **real content lint over the tables**, run
+> on the host in milliseconds: `make validate SCENARIO=<name>` → `python3 -m world.sim.validation
+> <name>`. It is part of `make verify`, CI, and the overnight loop's gate. A red validate is a stop.
 
-The design §44 validation checklist, as an actionable gate. It runs as
-**content-lint** over authored scenario content — **not at runtime** — via
-`make validate` (and `make verify`).
+Validation is a gate on **authored data**, not a game system. The engine still enforces conservation and
+"everything resolves" at runtime; the lint makes sure the tables are well-formed before they load.
 
-> Validation is a *gate on content*, not a game system. It catches authoring
-> mistakes (an unsolvable goal, a prose-only state change, a missing test) before
-> they ship. The deterministic engine still enforces conservation etc. at run
-> time; the validator makes sure the *authored data* is well-formed.
+## What it checks (the §44 checklist, made mechanical)
+**Objects (`objects.py`)**
+- every `materials` id and every part `material` exists in `materials/table.py`
+- every part `attachment` is in the taxonomy (`_helpers.CUTTABLE_ATTACH ∪ PRYABLE_ATTACH ∪ {fixed}`)
+- `mass_g` and part masses are non-negative integers; `sim_id` is unique
+- exactly one of `zone` / `in`; a referenced parent exists; a referenced zone exists
+- an appearance entry exists (**warning**; the generic fallback is honest but dull)
 
-## How it runs
+**Materials** — every prop is an ordinal word; every tag is known; a `flammable` tag implies
+`burnability`, a `brittle` tag implies `rigidity`, etc.
 
-```
-make validate SCENARIO=<name>   # python -m world.sim.validation.validators <name>
-make verify   SCENARIO=<name>   # compose config check + make test + make validate
-```
+**Zones / spaces** — every zone has a default space; every space frame has the `{be}`/`{items}` slots;
+every object's `space` exists in its zone.
 
-It loads the scenario's authored packets ([`ObjectPacket`](../../game/world/sim/contracts.py),
-`ActionFamilyPacket`, `WorkflowPacket`) and lints them with pure checks in
-`world/sim/validation/**` — no DB, no Evennia boot. It is the same gate the §28
-`/verify` step and the agentic [loop](loop-workflow.md) run every iteration, and
-it belongs in CI.
+**Responses** — every `narrator.narrate("<id>")` call in the handlers has a template; no template writes
+an article before `{tool}`.
 
-## The checklist (§44)
+**Probes** — every probe cites a `source`; `status` is `pass` or `todo`; the zone and the held things
+exist; every `status: pass` probe passes (that part runs in `make probes`, CI-enforced) and the
+passing count never drops below `probes/BASELINE`.
 
-Each item below is a check the validator performs. Grouped for skimming.
-
-**State integrity**
-- [ ] No prose-only state changes (if narration says it happened, an `Effect` did).
-- [ ] Conservation rules are followed (mass/material/temp/wetness/contamination/
-      ownership/provenance preserved across transforms — §24).
-- [ ] Every generated object has a **material** and a **location**.
-- [ ] Every derived object has **capabilities or explicit non-uses**.
-
-**Solvability (the multiplicity rules)**
-- [ ] Critical goals have **≥ 3 solution paths**.
-- [ ] Critical hidden facts have **≥ 3 clue paths**.
-- [ ] Critical repairs include **inspect / access / diagnose / repair / test** stages.
-- [ ] Multiple rescue routes are possible (no single perfect path — §39).
-
-**Time & actions (§9)**
-- [ ] Long actions never jump global time.
-- [ ] Every timed action has **tick feedback**.
-- [ ] Every timed action can be **interrupted** or is explicitly marked uninterruptible.
-- [ ] Every important action has **failure feedback** (never "you can't do that").
-
-**Perception (§10–15)**
-- [ ] Perception routing exists for major activity messages.
-- [ ] Distant objects cannot be manipulated unless a ranged action supports it.
-- [ ] Weather changes visibility and audibility.
-- [ ] `look` descriptions use **relative direction** for visible distant features.
-- [ ] Speaking, calling and shouting have **different** propagation rules.
-
-**Coverage**
-- [ ] Survival-critical objects have **tests**.
-- [ ] **Silly / non-survival** interactions exist for major objects.
-
-**Authored-content specifics**
-- [ ] Radio has **one authored damage state**, not procedural variants (§38).
-- [ ] Radio success is **not** instant rescue (§38.7).
-
-**LLM guardrail**
-- [ ] LLM-generated rules cannot override core physics without approval (§41).
+**Solvability (with the rescue graph)** — every critical goal has ≥3 probe chains; every critical fact
+has ≥3 clue paths; no single object appears in every path of a goal.
 
 ## Fixing failures
-
-| Failure | Fix | Guide |
-|---|---|---|
-| object missing material/location | set `materials` + `scene`/`zone` | [authoring-objects.md](authoring-objects.md) |
-| derived object has no uses | add `survival_uses` or explicit `non_survival_uses` | [authoring-objects.md](authoring-objects.md) |
-| goal has < 3 paths / clues | add `alternate_paths` / `clue_paths` | [authoring-workflows.md](authoring-workflows.md) |
-| timed action lacks tick feedback / interrupt | set `duration_model` + partial states | [authoring-actions.md](authoring-actions.md) |
-| no silly interaction | add a `non_survival_uses` entry + test | [authoring-objects.md](authoring-objects.md) |
+| failure | fix |
+|---|---|
+| unknown material / attachment | add the material to the table or fix the spelling; name a real attachment |
+| no zone and no `in` | place it: a `zone`, or stow it `in` a parent (DR-24) |
+| missing template | add `<op>.<outcome>` to the scenario responses |
+| appearance missing | add the `sim_id` entry (or rely on the form-keyed generic for a derived thing) |
+| probe regressed | fix the engine, never edit the probe's expectation to pass |
 
 ## Related
-
-- [authoring-objects.md](authoring-objects.md) · [authoring-actions.md](authoring-actions.md) · [authoring-workflows.md](authoring-workflows.md)
-- [../architecture/testing.md](../architecture/testing.md) — validation vs the test tiers.
-- [loop-workflow.md](loop-workflow.md) — `make verify` in the agentic loop.
+[authoring-objects.md](authoring-objects.md) · [authoring-actions.md](authoring-actions.md) ·
+[`../architecture/ontology-closure.md`](../architecture/ontology-closure.md) §6 ·
+[`../architecture/testing.md`](../architecture/testing.md)

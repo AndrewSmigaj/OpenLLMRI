@@ -9,8 +9,9 @@ Where everything lives, what's authoritative, and where new docs go.
 - [`scenarios/whiteout/GDD.md`](scenarios/whiteout/GDD.md) — the game design (FINAL).
 - [`architecture/`](architecture/) — the architecture. `implementation-architecture.md` is the spine
   (its **DR-01…DR-23 decision register is our ADR log**); `overview.md` / `perception-model.md` /
-  `presentation.md` / `tick-and-scheduler.md` / `llm-integration.md` / `testing.md` are focused views
-  kept consistent with it.
+  `presentation.md` / `tick-and-scheduler.md` / `llm-integration.md` / `testing.md` /
+  **`ontology-closure.md`** (forms, derived capabilities, tier-4 physics, the probe corpus) are focused
+  views kept consistent with it.
 - [`scenarios/whiteout/roadmap.md`](scenarios/whiteout/roadmap.md) — the **strategic** phased build order
   (P0–P7) with exit gates.
 - [`guides/`](guides/) — authoring guides (objects, actions, workflows, validation).
@@ -24,7 +25,9 @@ Where everything lives, what's authoritative, and where new docs go.
 - [`process.md`](process.md) — **how we work** (the design→document→implement loop).
 
 **Scratchpad / exploratory — NOT authoritative (thinking-in-progress):**
-- [`investigation/`](investigation/) — brainstorms, lenses, research probes.
+- [`investigation/`](investigation/) — brainstorms, lenses, research probes; `investigation/design/` holds the
+  design passes awaiting Andrew's review (rescue graph, time & stakes, moral layer, living rooms, fire &
+  shaping, phrasing corpus, grammar guide).
 - [`proposals/`](proposals/) — proposals under consideration.
 - `~/.claude/plans/` — plan-mode working files.
 

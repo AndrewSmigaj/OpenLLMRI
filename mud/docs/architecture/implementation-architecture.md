@@ -98,6 +98,30 @@ physics literature). All raised confidence; none reversed a decision (overall �
 | DR-23 | Presentation | scene-as-prose `look` (salience weights what is VISIBLE — amended by DR-24); `look at X` ≡ `examine X` via ONE pure renderer (`presentation.py`); appearance is state-conditioned scenario content; attachments render physically (DR-09a hint phrases), never as data — full spec: [`presentation.md`](presentation.md) |
 | DR-24 | Containment & discovery | loot lives INSIDE things (Evennia nesting = honest hiding); ONE reveal rule (`open` OR `searched`, recursive through revealed); deterministic finds; `TRANSFER` effect (additive) relocates via hook-free `move_to`; taught `take/get` owns acquisition — full spec: [`containment.md`](containment.md) |
 | DR-25 | Clothing & warmth | wearability DERIVED from materials (never a whitelist); worn = `state["worn_by"]`, stays in inventory; warmth = Σ round(insulation × capped mass) in insulation-grams (intensive×extensive, not ordinal-summing) → banded words on `inventory`/self-examine; unlimited linear layering v1 — full spec: [`clothing-warmth.md`](clothing-warmth.md) |
+| DR-26 | Ontology closure | **forms** on every minted object + **derived capabilities** (material × form × state, capped, authored wins) + tier-4 generic physics + the **probe corpus** as the coverage definition — full spec: [`ontology-closure.md`](ontology-closure.md) |
+| DR-27 | Activities & processes | *(designed 2026-09; promoted with the time-and-stakes pass)* attended activities with start/tick/interrupt/complete feedback + unattended processes (fire, drying, cold), both driven by the single persistent heartbeat; deadlines in world-time, progress in Attributes; realizes DR-14's P4 design |
+| DR-28 | Moral & social logging | *(designed 2026-09; promoted with the moral-social-layer pass)* ownership + spatial witness + multi-axis tags (target / harm type / severity) in the event log; observational only, never a reward; a run-level consent flag |
+
+> **DR-05b (appended, closure 2026-09-07) — the DSL is retired; verbs stay Python.** The declarative
+> operation DSL was aimed at the wrong axis: verbs are finite (~40 physical operation categories),
+> each with real physics, and the 25 existing handlers already share one toolkit (`_helpers`). The
+> volume axis — objects, forms, materials, responses — is DATA (tables), and that is where authoring
+> scales. `operations/interpreter.py` stays a stub; no interpreter will be built. Handlers may read
+> small tuning tables; that is not a DSL. Specificity dispatch (authored > handler > tier-4 physics
+> > redirect) is unchanged.
+>
+> **DR-17a (appended, closure 2026-09-07) — the bake step is retired.** `load_materials` already maps
+> ordinals to numbers at boot; the tables (`objects.py`, `materials/table.py`, `zones.py`, `spaces.py`,
+> `appearance.py`, `responses/`) load directly. The pipeline is author → **validate** (`make validate`,
+> real content lint over the tables) → load. `tools/bake.py` is removed from the process. The §43
+> packet dataclasses in `contracts.py` remain (frozen contract, additive rule) but are retired from
+> the authoring model; the four authoring guides describe the tables.
+>
+> **DR-18a (appended, closure 2026-09-07) — coverage is the probe corpus + the fuzz.** "The op×material
+> matrix populated" is replaced by: every `status: pass` probe green (CI), the passing count never
+> drops (`probes/BASELINE`), plus the seeded fuzz (every attempt resolves, every effect conserves).
+> Probes cite a census row, a phrasing-corpus line, a rescue-graph node, or Andrew's approval — never
+> self-graded. The wall-sensor is persisted (`gaps.jsonl`) and feeds the queue.
 
 ---
 

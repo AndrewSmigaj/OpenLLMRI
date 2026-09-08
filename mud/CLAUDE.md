@@ -41,8 +41,10 @@ user's model weights + GPU and is never containerized.
 | `make test-host` | **host-fast** pure tests + gates (no Docker; the tight inner loop) |
 | `make lint` | the pure-core boundary/determinism + no-raw-writes gates (host, ms) |
 | `make test-int` | Evennia integration tests |
-| `make validate SCENARIO=…` | §44 content-lint (hard gate) |
-| `make bake` / `make fuzz` | build-time: bake authored data / solvability-fuzz |
+| `make validate SCENARIO=…` | §44 content-lint over the tables (hard gate) |
+| `make probes` | the probe corpus: every `pass` probe green, BASELINE never drops (DR-18a) |
+| `make render-scenes` | render every zone / object / probe narration to `docs/review/` for READING |
+| `make fuzz` | the seeded solvability-fuzz over the pure core |
 | `make verify` | gates + compose config check + tests |
 | `make shell` | Evennia/Django shell |
 | `make agent` | run the scripted bot from the host against a running server |
@@ -67,7 +69,7 @@ image is pinned by digest (`docker/evennia/Dockerfile`) so local, CI and any clo
 - `game/world/scenarios/whiteout/` — authored **content** (skeleton + `_template/`); authored P1+.
 - `game/world/llm/` — **build-time** authoring seams only (never runtime).
 - `game/tests/{sim,integration}/` — the two test tiers; `sim/test_contracts.py` locks the contracts.
-- `tools/` — build-time + CI: `bake/fuzz/coverage` (stubs) + `lints/` (the host-fast gates).
+- `tools/` — build-time + CI: `fuzz.py`, `probes.py`, `render_scenes.py` + `lints/` (the host-fast gates). (bake is retired, DR-17a.)
 - `agent/` — the **bot harness** (host-side; scripted + torch brains; a *client*, not the engine).
 - `scripts/` — host helpers (e.g. `create_superuser.py`).
 - `docs/` — design, roadmap, architecture, authoring guides (authoritative sources: see Pointers).
@@ -94,8 +96,9 @@ image is pinned by digest (`docker/evennia/Dockerfile`) so local, CI and any clo
 - **Conservation holds (GDD §24):** material, mass (**real integer grams**), temperature, wetness,
   contamination, damage, ownership and provenance survive every transformation. No prose-only state
   changes — if narration says it happened, an Effect made it happen. (DR-11)
-- **Author from the §43 packets and pass `make validate` (GDD §44).** The validator is a hard gate
-  at load / CI / `make verify`.
+- **Author in the tables (`objects.py` / `materials/table.py` / `zones.py` / `spaces.py` / `appearance.py` /
+  `responses/`) and pass `make validate` (GDD §44, DR-17a).** The validator is a hard gate at CI /
+  `make verify`. Verbs are Python handlers (DR-05b); capabilities derive from material × form (DR-26).
 - **Read first before authoring or coding:** the doc map (`docs/README.md`) + how we work
   (`docs/process.md`); then `VISION.md` and the authoritative spec for the task
   (`docs/scenarios/whiteout/GDD.md` for design · `docs/architecture/implementation-architecture.md`
@@ -115,7 +118,7 @@ entrypoint word-splits args, so Make commands with quoted args use `--entrypoint
   improvements + §0b locked decisions). `design.md` beside it is the **archived original seed — not
   authoritative**.
 - `docs/architecture/implementation-architecture.md` — **the authoritative architecture** (v4/FINAL;
-  decisions register DR-01…DR-22). `overview.md` / `perception-model.md` / `tick-and-scheduler.md` /
+  decisions register DR-01…DR-28). `ontology-closure.md` beside it is the closure-loop spec (DR-26). `overview.md` / `perception-model.md` / `tick-and-scheduler.md` /
   `llm-integration.md` / `testing.md` are focused views kept consistent with it.
 - `docs/scenarios/whiteout/roadmap.md` — the **slice-first waterfall** build order (P0…P7; P1 = the
   co-op vertical slice → the fun gate).

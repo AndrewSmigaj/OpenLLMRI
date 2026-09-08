@@ -1,119 +1,83 @@
 # Authoring Objects
 
-> **⚠️ Being revised (pre-v4).** Predates the finalized architecture; some specifics (module paths,
-> field names like `mass_kg` → `mass_g`, the §N tier numbering) are stale. **Authoritative:**
-> [`../architecture/implementation-architecture.md`](../architecture/implementation-architecture.md) +
-> [GDD](../scenarios/whiteout/GDD.md). A proper rewrite lands with roadmap P1 — use the *intent*, not
-> the stale details.
+> Rewritten 2026-09-07 for the closure loop (DR-26 / DR-17a). Objects are **rows in a table**, not
+> packets. Authoritative: [`../architecture/ontology-closure.md`](../architecture/ontology-closure.md) +
+> [`../architecture/implementation-architecture.md`](../architecture/implementation-architecture.md).
 
-How to author one in-world object, from the design §43.1 **Object Authoring
-Packet** to the [`ObjectPacket`](../../game/world/sim/contracts.py) dataclass the
-engine and the §44 validator consume.
+## The idea (GDD §21, §43)
+**Objects are cheap.** An object is a parts-list made of materials with a mass; its *behaviour* comes from
+the shared operations over those materials and from the capabilities its material × form derive. You
+never write per-object verb code. The heavy authoring goes into materials (`materials/table.py`),
+forms and capabilities (engine), prose (`appearance.py`), and — for the handful of puzzle-critical
+objects — an authored rule in `authored.py` (the tier-1 seam).
 
-> Authoring philosophy (§4, §49): **deep model, short mandatory chains.** Model
-> everything plausible about the thing; require only the core authored blockers.
-> Every object should be *tryable* in many ways, and every attempt should
-> *resolve* (§3.5).
+## Where an object lives
+`game/world/scenarios/<scenario>/objects.py` → `OBJECT_TABLE: list[dict]`. The loader (`build.py`) walks
+the table twice (parents first) and creates the Evennia objects; the pure world (`PureWorld.from_table`)
+loads the **same rows** for probes and fuzz, so the two can never drift.
 
-## The packet → dataclass mapping
-
-The §43.1 YAML packet is rich (identity, perception, parts, states, affordances,
-transformations, survival/non-survival uses, tests). It maps onto `ObjectPacket`
-plus the structures it nests:
-
-| §43.1 section | Where it lands |
-|---|---|
-| `identity` (id, name, aliases, category, description, scene, zone, mass) | `ObjectPacket` top-level fields |
-| `parts` | `ObjectPacket.parts: list[Part]` → each `Part` has `material`, `Attachment`, `outputs_when_removed` |
-| `states` (temperature, wetness, damage, contamination, ownership) | runtime `EntityState` fields (authored as starting values via `extra`) |
-| `affordances` | `ObjectPacket.affordances` |
-| `survival_uses` / `non_survival_uses` | `ObjectPacket.survival_uses` / `non_survival_uses` |
-| `transformations` / `failure_modes` | resolved by action families + `ObjectPacket.failure_modes` |
-| `tests` | `ObjectPacket.tests` |
-
-Materials are referenced by id (`Material.id`, §21); the material's *properties*
-(rigidity, cut_resistance, burnability, insulation_value, …) live in the
-scenario's material table, not on the object — so "cut" resolves the same way for
-anything made of that material (the §26 material tier).
-
-## Conservation is not optional (§24)
-
-Mass, material, temperature, wetness, contamination, damage, ownership and
-**provenance** survive every transformation. When a part is removed it becomes a
-**first-class object** carrying its share of those properties (§23). The authoring
-job is to declare `outputs_when_removed`; the engine enforces conservation. The
-validator rejects prose-only changes and objects with no material/location (§44).
-
-## Worked mini-example
-
-A seatbelt webbing length cut from an aircraft seat (design §25's running
-example). As an `ObjectPacket`:
-
+## A row
 ```python
-from world.sim.contracts import ObjectPacket, Part, Attachment
-
-seatbelt = ObjectPacket(
-    id="seatbelt_03",
-    name="frozen seatbelt",
-    aliases=["belt", "webbing", "strap"],
-    category="restraint",
-    description="A stiff nylon lap belt, crusted with frost.",
-    scene="wreck_cabin",
-    zone="rear_seat_row",
-    mass_kg=0.4,
-    materials=["nylon_webbing"],
-    parts=[
-        Part(
-            id="webbing_length",
-            material="nylon_webbing",
-            attachment=Attachment(
-                method="stitched_buckle",
-                strength=0.7,
-                accessible=True,
-                required_tool_quality=0.3,      # a pocketknife qualifies, slowly
-                removable_by=["cut", "saw", "tear"],
-                failure_modes=["fibers_fray", "knife_slips"],
-            ),
-            outputs_when_removed=["nylon_webbing_length"],   # a new first-class object
-        ),
+{
+    "sim_id": "seat",                    # logical id (DR-12): stable, never a dbref
+    "name": "aircraft seat",             # the display key; the player's noun
+    "aliases": ["seat"],                 # extra nouns the parser matches
+    "materials": ["steel"],              # primary material first (the body)
+    "mass_g": 5000,                      # BODY mass in integer grams, excluding parts (DR-11)
+    "zone": "mid_cabin",                 # OR "in": "<parent sim_id>" for stowed things (DR-24)
+    "state": {"ident": "11B", "fixed": True},
+    "parts": [
+        {"id": "cover", "label": "cover", "material": "synthetic_fabric", "mass_g": 200,
+         "attachment": "stitched", "outputs_when_removed": ["loose_fabric"]},
+        {"id": "cushion", "label": "cushion", "material": "foam", "mass_g": 800,
+         "attachment": "clipped", "outputs_when_removed": ["loose_foam"]},
+        {"id": "bolt", "label": "bolt", "material": "steel", "mass_g": 30, "attachment": "bolted"},
     ],
-    affordances=["examine", "cut", "saw", "tear", "tie", "wrap", "pull"],
-    survival_uses=["lashing for a splint", "securing a shelter tarp"],
-    non_survival_uses=["something to fidget with", "a makeshift belt"],
-    failure_modes=["frozen webbing resists tearing by hand"],
-    tests=[
-        "Can cut nylon webbing with a pocketknife, but slowly.",
-        "Frozen webbing is harder to tear than warm webbing.",
-        "Cutting the webbing yields a nylon_webbing_length (mass conserved).",
-    ],
-)
+}
+{"sim_id": "chocolate", "name": "chocolate bar", "aliases": ["chocolate", "bar", "ration"],
+ "materials": ["chocolate"], "mass_g": 100, "in": "seatpocket"}     # found by searching the seat
 ```
 
-What the engine does with it:
+### Fields
+| field | meaning |
+|---|---|
+| `sim_id` | unique logical id; derived objects get `derived_id(parent, tag)` ids automatically |
+| `name`, `aliases` | what the parser matches (whole phrase, any alias, or a single word of the name) |
+| `materials` | material ids from the table; the first is the body's material |
+| `mass_g` | integer grams for the body; each part carries its own `mass_g`; the ledger sums them |
+| `zone` / `in` | exactly one: placed in a zone, or stowed inside a parent (the parent's zone chains) |
+| `state` | the payload the engine reads: `ident`, `fixed`, `container`, `open`, `sealed`, `jammed`, `wet`, `lit`, `ignition`, `powered`, `worn_by`, `form`, and **authored capabilities** (`edge`, `leverage`, …) |
+| `parts` | removable parts: `id`, `label`, `material`, `mass_g`, `attachment`, `outputs_when_removed` |
 
-- **Cut/saw/tear** resolve through the §26 tiers — here mostly the **material**
-  tier (`nylon_webbing`'s `cut_resistance` + the tool's quality decide *how
-  slowly*), unless an object/part rule overrides.
-- Success emits an `Effect(kind="remove_part", payload={"part_id": "webbing_length"})`
-  plus a `create_object` for `nylon_webbing_length`; conservation moves mass and
-  provenance across (§24).
-- The new object is itself authorable/tryable: it has its own affordances and
-  survival uses (it can lash a splint — §35).
+### Attachments (DR-05a — attachment gates HOW a part comes free, never WHETHER)
+`stitched` / `sewn` / `tied` / `lashed` / `cordage` / `glued` / `taped` / `grown` → a blade frees the part
+intact. `bolted` / `screwed` / `wedged` / `nailed` / `clipped` / `pinned` → pry frees it intact; cut/tear
+hack it out as scraps. `fixed` (or unknown) → integral: refuse with the physics + one near-miss. Authors
+opt a part INTO extractability by naming a real attachment.
 
-## Authoring checklist
+### Forms and capabilities (DR-26)
+Give a `state["form"]` when the shape matters: the multitool is a `blade`, a bottle is a `vessel`, a
+branch is a `rod`, paracord is `cord`. The engine derives capabilities (edge, point, heft, leverage,
+cordage, sheet, vessel, reflective, …) from **material × form × state**, capped at min(material tier,
+form tier). An explicit `state["edge"]` (etc.) overrides the derivation — that is how the golden tools
+stay hand-tuned. **Every load-bearing capability must show in the examine text** (the signifier rule).
 
-- [ ] `id`, `name`, `category`, `scene`, `zone`, `mass_kg`, `materials` set
-      (validator: every object needs material + location).
-- [ ] Every part declares `material`, an `Attachment` (`removable_by`,
-      `required_tool_quality`, `failure_modes`) and `outputs_when_removed`.
-- [ ] Derived outputs have `survival_uses` **or** explicit `non_survival_uses`
-      (validator: every derived object has capabilities or explicit non-uses).
-- [ ] At least one **silly / non-survival** use exists for a major object (§44).
-- [ ] `tests` include success, failure, conservation, silly and perception cases
-      (§43.1 / §45). Survival-critical objects **must** have tests.
+## Prose (`appearance.py`)
+Each object gets an entry keyed by `sim_id`: its home `space` in the zone, `anchor` (leads its space as a
+full sentence), `scene` (a noun phrase carrying CHARACTER, not position — the frame owns position),
+`examine`, `read`, `aggregate`. State-conditioned variants are `[(state_subset | None, text), …]`, first
+match wins. Derived objects (shards, strips, scraps) read from **form-keyed generic templates**
+(`"{material} shard, one edge wicked-sharp"`), which a name-keyed entry can override. Tell/hide rule:
+show functional flavour; never leave a load-bearing item lying in the open — it lives INSIDE something
+(DR-24), earned by `open` / `search` / `dig`.
+
+## Checklist (what `make validate` enforces)
+- [ ] every material id exists in the table; every attachment is in the taxonomy
+- [ ] `mass_g` and part masses are integers; `sim_id` unique
+- [ ] exactly one of `zone` / `in`; the parent exists; the zone exists and has a default space
+- [ ] an appearance entry exists (warning if missing — the generic fallback is honest but dull)
+- [ ] a puzzle-critical object has an `authored.py` rule and ≥3 solution paths in the rescue graph
 
 ## Related
-
-- [authoring-actions.md](authoring-actions.md) — the verbs that act on objects.
-- [validation-rules.md](validation-rules.md) — the §44 gate that lints packets.
-- [../architecture/overview.md](../architecture/overview.md) — Effects/conservation flow.
+[authoring-actions.md](authoring-actions.md) · [validation-rules.md](validation-rules.md) ·
+[adding-a-scenario.md](adding-a-scenario.md)

@@ -16,7 +16,7 @@ Forbidden (each = a locked decision someone tried to undo):
   a Markdown link to design.md presented as authoritative (it's the archived seed -> link GDD.md)
 
 Host-fast, stdlib only. Run by `make lint` / `make verify` / the Stop hook / the pre-commit hook.
-As each pre-v4 guide is rewritten (P1+), drop it from EXCLUDE_FILES so it's enforced too.
+The authoring guides were rewritten 2026-09-07 (closure loop) and are enforced.
 """
 from __future__ import annotations
 
@@ -32,10 +32,6 @@ EXCLUDE_FILES = {
     "docs/scenarios/whiteout/design.md",
     "docs/scenarios/_TEMPLATE.md",
     "seed.md",
-    "docs/guides/authoring-actions.md",
-    "docs/guides/authoring-objects.md",
-    "docs/guides/authoring-workflows.md",
-    "docs/guides/validation-rules.md",
 }
 
 ALLOW = ("reject", "retire", "remov", "archiv", "supersed", "stale", "pre-v4", "deprecat",

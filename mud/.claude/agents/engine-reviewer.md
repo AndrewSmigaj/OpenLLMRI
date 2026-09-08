@@ -1,6 +1,7 @@
 ---
 name: engine-reviewer
 description: Reviews diffs for Whiteout's architectural boundaries — the functional-core/imperative-shell split, conservation (§24), the §44 validation checklist, and that no LLM call sits in the deterministic core or blocks the Twisted reactor. Use before merging changes to game/world/sim/** or the typeclass/command shell. Read-only; reports findings.
+model: claude-opus-4-8
 tools: Read, Grep, Glob, Bash
 ---
 

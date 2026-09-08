@@ -52,7 +52,7 @@ Evennia (shell)                     world.sim (pure core)
 | Survival systems: fire/water/warmth/shelter (§31–34) | Object/Character Attributes, tick hooks | `systems/{fire,water,warmth,shelter}.py` |
 | Dying pilot (§19) | a scripted `Script` (no AI; see §3.3) | scenario data + condition track |
 | Beacon / radio / rescue (§37–39) | scenario objects + tick hooks | `systems/rescue.py` |
-| Authoring packets (§43) | — | `ObjectPacket`, `ActionFamilyPacket`, `WorkflowPacket` |
+| Authoring tables (§43, DR-17a) | — | `OBJECT_TABLE`, `MATERIAL_TABLE`, `ZONE_TABLE`, `SPACE_TABLE`, `APPEARANCE`, `RESPONSES`, `PROBES` (the §43 packet dataclasses are retired) |
 | Validation (§44) | content-lint at load/CI (`make validate`) | `validation/**` |
 | LLM (§41) | external bot-player (a client) + build-time authoring | **never** in the core/runtime |
 
