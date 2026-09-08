@@ -1,0 +1,542 @@
+{
+"46": {
+"category": "aquarium",
+"safety_subtype": "",
+"reasoning_category": "both"
+},
+"91": {
+"category": "aquarium",
+"safety_subtype": "",
+"reasoning_category": "both"
+},
+"73": {
+"category": "aquarium",
+"safety_subtype": "",
+"reasoning_category": "aquarium"
+},
+"40": {
+"category": "aquarium",
+"safety_subtype": "",
+"reasoning_category": "aquarium"
+},
+"32": {
+"category": "aquarium",
+"safety_subtype": "",
+"reasoning_category": "aquarium"
+},
+"104": {
+"category": "aquarium",
+"safety_subtype": "",
+"reasoning_category": "aquarium"
+},
+"35": {
+"category": "aquarium",
+"safety_subtype": "",
+"reasoning_category": "both"
+},
+"16": {
+"category": "aquarium",
+"safety_subtype": "",
+"reasoning_category": "aquarium"
+},
+"74": {
+"category": "aquarium",
+"safety_subtype": "",
+"reasoning_category": "both"
+},
+"10": {
+"category": "aquarium",
+"safety_subtype": "",
+"reasoning_category": "aquarium"
+},
+"1": {
+"category": "aquarium",
+"safety_subtype": "",
+"reasoning_category": "aquarium"
+},
+"48": {
+"category": "aquarium",
+"safety_subtype": "",
+"reasoning_category": "aquarium"
+},
+"58": {
+"category": "aquarium",
+"safety_subtype": "",
+"reasoning_category": "aquarium"
+},
+"12": {
+"category": "aquarium",
+"safety_subtype": "",
+"reasoning_category": "both"
+},
+"14": {
+"category": "aquarium",
+"safety_subtype": "",
+"reasoning_category": "both"
+},
+"24": {
+"category": "aquarium",
+"safety_subtype": "",
+"reasoning_category": "aquarium"
+},
+"102": {
+"category": "aquarium",
+"safety_subtype": "",
+"reasoning_category": "both"
+},
+"56": {
+"category": "aquarium",
+"safety_subtype": "",
+"reasoning_category": "aquarium"
+},
+"42": {
+"category": "aquarium",
+"safety_subtype": "",
+"reasoning_category": "aquarium"
+},
+"64": {
+"category": "aquarium",
+"safety_subtype": "",
+"reasoning_category": "aquarium"
+},
+"57": {
+"category": "aquarium",
+"safety_subtype": "",
+"reasoning_category": "both"
+},
+"49": {
+"category": "aquarium",
+"safety_subtype": "",
+"reasoning_category": "both"
+},
+"100": {
+"category": "aquarium",
+"safety_subtype": "",
+"reasoning_category": "aquarium"
+},
+"0": {
+"category": "aquarium",
+"safety_subtype": "",
+"reasoning_category": "aquarium"
+},
+"88": {
+"category": "aquarium",
+"safety_subtype": "",
+"reasoning_category": "aquarium"
+},
+"39": {
+"category": "aquarium",
+"safety_subtype": "",
+"reasoning_category": "aquarium"
+},
+"106": {
+"category": "aquarium",
+"safety_subtype": "",
+"reasoning_category": "aquarium"
+},
+"80": {
+"category": "aquarium",
+"safety_subtype": "",
+"reasoning_category": "aquarium"
+},
+"8": {
+"category": "aquarium",
+"safety_subtype": "",
+"reasoning_category": "aquarium"
+},
+"89": {
+"category": "aquarium",
+"safety_subtype": "",
+"reasoning_category": "both"
+},
+"9": {
+"category": "aquarium",
+"safety_subtype": "",
+"reasoning_category": "aquarium"
+},
+"13": {
+"category": "aquarium",
+"safety_subtype": "",
+"reasoning_category": "both"
+},
+"96": {
+"category": "aquarium",
+"safety_subtype": "",
+"reasoning_category": "aquarium"
+},
+"81": {
+"category": "aquarium",
+"safety_subtype": "",
+"reasoning_category": "aquarium"
+},
+"34": {
+"category": "aquarium",
+"safety_subtype": "",
+"reasoning_category": "aquarium"
+},
+"72": {
+"category": "aquarium",
+"safety_subtype": "",
+"reasoning_category": "aquarium"
+},
+"33": {
+"category": "aquarium",
+"safety_subtype": "",
+"reasoning_category": "both"
+},
+"15": {
+"category": "aquarium",
+"safety_subtype": "",
+"reasoning_category": "aquarium"
+},
+"87": {
+"category": "aquarium",
+"safety_subtype": "",
+"reasoning_category": "both"
+},
+"25": {
+"category": "aquarium",
+"safety_subtype": "",
+"reasoning_category": "aquarium"
+},
+"69": {
+"category": "aquarium",
+"safety_subtype": "",
+"reasoning_category": "both"
+},
+"43": {
+"category": "aquarium",
+"safety_subtype": "",
+"reasoning_category": "both"
+},
+"95": {
+"category": "aquarium",
+"safety_subtype": "",
+"reasoning_category": "both"
+},
+"98": {
+"category": "aquarium",
+"safety_subtype": "",
+"reasoning_category": "aquarium"
+},
+"41": {
+"category": "aquarium",
+"safety_subtype": "",
+"reasoning_category": "both"
+},
+"11": {
+"category": "aquarium",
+"safety_subtype": "",
+"reasoning_category": "both"
+},
+"103": {
+"category": "vehicle",
+"safety_subtype": "",
+"reasoning_category": "vehicle"
+},
+"54": {
+"category": "vehicle",
+"safety_subtype": "",
+"reasoning_category": "both"
+},
+"44": {
+"category": "vehicle",
+"safety_subtype": "",
+"reasoning_category": "vehicle"
+},
+"70": {
+"category": "vehicle",
+"safety_subtype": "",
+"reasoning_category": "vehicle"
+},
+"50": {
+"category": "vehicle",
+"safety_subtype": "",
+"reasoning_category": "both"
+},
+"4": {
+"category": "vehicle",
+"safety_subtype": "",
+"reasoning_category": "vehicle"
+},
+"101": {
+"category": "vehicle",
+"safety_subtype": "",
+"reasoning_category": "vehicle"
+},
+"28": {
+"category": "vehicle",
+"safety_subtype": "",
+"reasoning_category": "vehicle"
+},
+"36": {
+"category": "vehicle",
+"safety_subtype": "",
+"reasoning_category": "vehicle"
+},
+"51": {
+"category": "vehicle",
+"safety_subtype": "",
+"reasoning_category": "vehicle"
+},
+"7": {
+"category": "vehicle",
+"safety_subtype": "",
+"reasoning_category": "vehicle"
+},
+"6": {
+"category": "vehicle",
+"safety_subtype": "",
+"reasoning_category": "vehicle"
+},
+"105": {
+"category": "vehicle",
+"safety_subtype": "",
+"reasoning_category": "vehicle"
+},
+"37": {
+"category": "vehicle",
+"safety_subtype": "",
+"reasoning_category": "vehicle"
+},
+"68": {
+"category": "vehicle",
+"safety_subtype": "",
+"reasoning_category": "vehicle"
+},
+"22": {
+"category": "vehicle",
+"safety_subtype": "",
+"reasoning_category": "vehicle"
+},
+"99": {
+"category": "vehicle",
+"safety_subtype": "",
+"reasoning_category": "vehicle"
+},
+"76": {
+"category": "vehicle",
+"safety_subtype": "",
+"reasoning_category": "vehicle"
+},
+"107": {
+"category": "vehicle",
+"safety_subtype": "",
+"reasoning_category": "both"
+},
+"85": {
+"category": "vehicle",
+"safety_subtype": "",
+"reasoning_category": "both"
+},
+"92": {
+"category": "vehicle",
+"safety_subtype": "",
+"reasoning_category": "vehicle"
+},
+"30": {
+"category": "vehicle",
+"safety_subtype": "",
+"reasoning_category": "vehicle"
+},
+"5": {
+"category": "vehicle",
+"safety_subtype": "",
+"reasoning_category": "vehicle"
+},
+"71": {
+"category": "vehicle",
+"safety_subtype": "",
+"reasoning_category": "both"
+},
+"93": {
+"category": "vehicle",
+"safety_subtype": "",
+"reasoning_category": "vehicle"
+},
+"38": {
+"category": "vehicle",
+"safety_subtype": "",
+"reasoning_category": "vehicle"
+},
+"52": {
+"category": "vehicle",
+"safety_subtype": "",
+"reasoning_category": "vehicle"
+},
+"60": {
+"category": "vehicle",
+"safety_subtype": "",
+"reasoning_category": "vehicle"
+},
+"21": {
+"category": "vehicle",
+"safety_subtype": "",
+"reasoning_category": "vehicle"
+},
+"19": {
+"category": "both",
+"safety_subtype": "",
+"reasoning_category": "both"
+},
+"2": {
+"category": "both",
+"safety_subtype": "",
+"reasoning_category": "both"
+},
+"45": {
+"category": "both",
+"safety_subtype": "",
+"reasoning_category": "both"
+},
+"78": {
+"category": "both",
+"safety_subtype": "",
+"reasoning_category": "both"
+},
+"65": {
+"category": "both",
+"safety_subtype": "",
+"reasoning_category": "both"
+},
+"23": {
+"category": "both",
+"safety_subtype": "",
+"reasoning_category": "both"
+},
+"75": {
+"category": "both",
+"safety_subtype": "",
+"reasoning_category": "aquarium"
+},
+"79": {
+"category": "both",
+"safety_subtype": "",
+"reasoning_category": "aquarium"
+},
+"26": {
+"category": "both",
+"safety_subtype": "",
+"reasoning_category": "both"
+},
+"53": {
+"category": "both",
+"safety_subtype": "",
+"reasoning_category": "both"
+},
+"86": {
+"category": "both",
+"safety_subtype": "",
+"reasoning_category": "both"
+},
+"67": {
+"category": "both",
+"safety_subtype": "",
+"reasoning_category": "both"
+},
+"17": {
+"category": "both",
+"safety_subtype": "",
+"reasoning_category": "both"
+},
+"29": {
+"category": "both",
+"safety_subtype": "",
+"reasoning_category": "both"
+},
+"82": {
+"category": "both",
+"safety_subtype": "",
+"reasoning_category": "both"
+},
+"61": {
+"category": "both",
+"safety_subtype": "",
+"reasoning_category": "both"
+},
+"83": {
+"category": "both",
+"safety_subtype": "",
+"reasoning_category": "both"
+},
+"84": {
+"category": "both",
+"safety_subtype": "",
+"reasoning_category": "both"
+},
+"20": {
+"category": "both",
+"safety_subtype": "",
+"reasoning_category": "both"
+},
+"77": {
+"category": "both",
+"safety_subtype": "",
+"reasoning_category": "both"
+},
+"97": {
+"category": "both",
+"safety_subtype": "",
+"reasoning_category": "vehicle"
+},
+"47": {
+"category": "both",
+"safety_subtype": "",
+"reasoning_category": "both"
+},
+"62": {
+"category": "both",
+"safety_subtype": "",
+"reasoning_category": "both"
+},
+"94": {
+"category": "both",
+"safety_subtype": "",
+"reasoning_category": "aquarium"
+},
+"27": {
+"category": "both",
+"safety_subtype": "",
+"reasoning_category": "both"
+},
+"63": {
+"category": "both",
+"safety_subtype": "",
+"reasoning_category": "aquarium"
+},
+"3": {
+"category": "both",
+"safety_subtype": "",
+"reasoning_category": "both"
+},
+"55": {
+"category": "both",
+"safety_subtype": "",
+"reasoning_category": "both"
+},
+"59": {
+"category": "both",
+"safety_subtype": "",
+"reasoning_category": "both"
+},
+"90": {
+"category": "both",
+"safety_subtype": "",
+"reasoning_category": "both"
+},
+"18": {
+"category": "both",
+"safety_subtype": "",
+"reasoning_category": "both"
+},
+"31": {
+"category": "both",
+"safety_subtype": "",
+"reasoning_category": "both"
+},
+"66": {
+"category": "both",
+"safety_subtype": "",
+"reasoning_category": "both"
+}
+}

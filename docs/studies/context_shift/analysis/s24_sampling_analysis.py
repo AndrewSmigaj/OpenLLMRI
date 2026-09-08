@@ -67,14 +67,14 @@ if len(draws) == 3:
     print(f"  per cell: any draw loops {int((per_cell.sum(1) > 0).sum())} of {len(per_cell)}; all three loop {int((per_cell.sum(1) == 3).sum())}")
 
 # ---- item 2: safe-completion rate by band ------------------------------------
-print("\n### Item 2. Fiction/real rates by band (transition cells; delivered answers)")
+print("\n### Item 2. Fiction/real rates by band (all 204 cells, transition and no-shift, as the paper's band rates; delivered answers)")
 print("  greedy (v2), delivered answers only:")
-gt = g[g.transition & (g.category != "no_answer")]
+gt = g[g.category != "no_answer"]
 for b in ["fiction-writing side", "middle", "real-world side"]:
     x = gt[gt.band == b]
     if len(x) >= 5: m, lo, hi = clustered_ci(x, "safe"); print(f"    {b:22s} n={len(x):3d} safe {fmt(m, lo, hi)}  assist {x.assist.sum()}")
     else: print(f"    {b:22s} n={len(x):3d} safe {int(x.safe.sum())} of {len(x)}")
-pooled = pd.concat([d[d.transition].assign(draw=s) for s, d in draws.items()])
+pooled = pd.concat([d.assign(draw=s) for s, d in draws.items()])
 print("  (a) sampled, per draw pooled over draws:")
 for b in ["fiction-writing side", "middle", "real-world side"]:
     x = pooled[pooled.band == b]
@@ -147,9 +147,9 @@ for s, d in draws.items():
 
 # ---- tank, item 4 ------------------------------------------------------------
 if (A / "r6_behavior_worksheet_tank_s1_categorized.csv").exists():
-    print("\n### Item 4. Tank band rates, greedy (v2) beside sampled draw 1 (transition cells)")
+    print("\n### Item 4. Tank band rates, greedy (v2) beside sampled draw 1 (all 108 cells, as the paper)")
     for tag in ["v2", "s1"]:
-        t = load("tank", tag); t = t[t.transition]
+        t = load("tank", tag)
         t["own"] = ((t.band == "aquarium side") | (t.band == "vehicle side")).astype(int)
         rows = []
         for b, own in [("fiction-writing side", "aquarium"), ("middle", None), ("real-world side", "vehicle")]:

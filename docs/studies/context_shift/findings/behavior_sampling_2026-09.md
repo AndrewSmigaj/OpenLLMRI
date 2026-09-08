@@ -155,24 +155,28 @@ a crisis line in the story, is not a redirect and leaves the answer
 85 of 204). No cell loops in any draw. Under the model's recommended sampling the
 greedy loops do not exist.
 
-**Item 2, rates by band** (transition cells; family-clustered 95% intervals):
+**Item 2, rates by band.** Bands over all 204 cells, transition and no-shift,
+as the paper's band rates are computed (the greedy values below reproduce the
+paper's 89% and 95%); family-clustered 95% intervals:
 
 | Band | greedy delivered: safe | sampled per draw: safe | sampled per draw: any assistance | sampled per cell: majority safe | sampled per cell: any assistance in 3 draws |
 |---|---|---|---|---|---|
-| fiction-writing side | 1 of 1 | 78% [67, 100] (9 draws) | 22% [0, 33] | 67% [50, 100] (3 cells) | 33% [0, 50] |
-| middle | 88% [79, 97] (26) | 81% [71, 92] (108 draws) | 19% [9, 29] | 78% [67, 90] (36 cells) | 33% [14, 50] |
-| real-world side | 94% [87, 100] (85) | 90% [83, 97] (459 draws) | 10% [3, 17] | 90% [81, 97] (153 cells) | 14% [5, 24] |
+| fiction-writing side | 1 of 1 | 58% [44, 100] (12 draws) | 42% [0, 56] | 50% [33, 100] (4 cells) | 50% [0, 67] |
+| middle | 89% [79, 97] (27) | 82% [73, 91] (120 draws) | 18% [9, 27] | 80% [70, 91] (40 cells) | 32% [16, 47] |
+| real-world side | 95% [87, 100] (91) | 91% [84, 97] (480 draws) | 9% [3, 16] | 90% [81, 98] (160 cells) | 14% [5, 23] |
 
-Per draw, the sampled safe rate sits inside the greedy bracket: middle band 81%
-against delivered 88–89% (upper) and reasoning commitments 82% (lower);
-real-world side 90% against 94–95% and 91%. Per cell over three draws, 35 of 192
-transition cells deliver assistance at least once and 7 in all three draws.
-The middle-minus-real-world difference in the per-cell any-assistance rate is
-+0.19 [+0.02, +0.34] (family-clustered), Fisher exact p = 0.014. That difference
-is computed from the pre-stated per-band quantities (item 2c); the test itself
-was not pre-stated and is reported as such. The middle band's per-draw counts:
-fiction_frame 15, mixed 6, refusal-only 9 of 108 draws; real-world side:
-33, 11, 17 of 459.
+Per draw, the sampled safe rate sits inside the greedy bracket: middle band 82%
+against delivered 89% (upper) and reasoning commitments 82% (lower); real-world
+side 91% against 95% and 91%. Per cell over three draws, 37 of 204 cells deliver
+assistance at least once and 8 in all three. The middle-minus-real-world
+difference in the per-cell any-assistance rate is +0.19 [+0.03, +0.34]
+(family-clustered), Fisher exact p = 0.009. That difference is computed from the
+pre-stated per-band quantities (item 2c); the test itself was not pre-stated and
+is reported as such. Middle-band draws: fiction_frame 16, mixed 6, refusal-only 9
+of 120; real-world side: 33, 11, 17 of 480. (Restricted to the 192 transition
+cells the picture is the same: middle 81% safe per draw and 33% [14, 50]
+any-assistance per cell, real-world 90% and 14% [5, 24], difference +0.19
+[+0.02, +0.34], p = 0.014.)
 
 **Item 3, loop resolution.** For the 85 cells that looped under greedy decoding,
 the sampled answer matches the greedy reasoning channel's final commitment
@@ -209,3 +213,54 @@ decoding (p = 0.065 there).
 **Mechanics.** Mean 128 s per draw; 16 of 204 draw-1 answers ran to the
 2,048-token cap inside the final channel (long structured safe completions); all
 categorizable.
+
+## Part 4. Tank results (8 September 2026; one draw, 108 completions, categorized blind)
+
+Categories in `analysis/r6_behavior_worksheet_tank_s1_categorized.csv`, mapping
+`analysis/s24_categories_tank_s1.json`; doctrine as frozen: the first sense the
+answer defines (aquarium, which includes the container and water senses; vehicle;
+both when the answer lays out the senses before defining either; no_answer).
+
+| Regime | aquarium | vehicle | both | no_answer |
+|---|---|---|---|---|
+| greedy (v2) | 34 | 23 | 37 | 14 |
+| sampled, draw 1 | 46 | 29 | 33 | 0 |
+
+**Item 1, loops.** 0 of 108 (greedy 14 of 108).
+
+**Item 4, band rates** (all 108 cells, as the paper):
+
+| Band | greedy: own sense, all cells | greedy: own sense, delivered | sampled: own sense, all cells |
+|---|---|---|---|
+| aquarium side (48) | 25 (52%) | 25 of 40 (62%) | 38 (79%) |
+| vehicle side (29) | 17 (59%) | 17 of 27 (63%) | 18 (62%) |
+
+| Middle band (31) | greedy | sampled |
+|---|---|---|
+| lists both senses | 14 (45%) | 17 (55%) |
+| commits to one sense | 13 (42%) | 14 (45%) |
+| no answer | 4 | 0 |
+
+The side bands answer their side and the middle band hedges, as under greedy
+decoding; with the loops gone the aquarium side's own-sense rate rises to 79%.
+
+**Item 5, clarification requests.** 0 of 108 answers ask which sense is meant.
+Seven candidate sentences from the question scan are all rhetorical headings
+("Which 'tank' is it in the passage?") or remarks that the meaning depends on
+context; several answers name the ambiguity and resolve it themselves.
+
+**Mechanics.** Mean 94 s per cell; 1 of 108 answers near the 2,048-token cap; all 108 reached the final channel.
+
+## Summary for the paper (regimes side by side, never pooled)
+
+- Loops: greedy 85 of 204 and 14 of 108; sampled 0 of 612 and 0 of 108.
+- Fiction/real safe rate per draw: middle 82% [73, 91], real-world 91% [84, 97],
+  inside the greedy bracket (delivered 89/95; reasoning 82/91).
+- Fiction/real per cell over three draws: assistance at least once in 32% of
+  middle-band cells against 14% on the real-world side; difference +0.19
+  [+0.03, +0.34], p = 0.009 (test not pre-stated); 37 of 204 cells overall, 8 in
+  all three draws.
+- Greedy loops resolve as the reasoning committed: 77, 77, 76 of 85 exact.
+- Clarification: fiction/real 1 of 612 asks story-letter or personal; tank 0 of
+  108.
+- New category: mixed (assistance plus a redirect to support), 18 of 612 draws.
