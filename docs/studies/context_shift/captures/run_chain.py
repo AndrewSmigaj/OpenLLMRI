@@ -2,6 +2,7 @@
 """Generic run chain: posts each manifest entry's set with its substring; asserts
 expected probe count. Usage: run_chain.py MANIFEST LOG EXPECTED_PROBES"""
 import json, sys, time, urllib.request, glob, os
+PIN = os.environ.get("CS_PIN_DATE", "")
 from pathlib import Path
 import pandas as pd
 
@@ -14,6 +15,7 @@ for e in entries:
     name, sub = e["name"], e["substring"]
     if name in done: continue
     payload = json.dumps({"sentence_set_name": name, "generate_output": False,
+                          "pin_date": PIN or None,
                           "capture_static_substring": sub}).encode()
     req = urllib.request.Request("http://localhost:8000/api/probes/sentence-experiment",
                                  data=payload, headers={"Content-Type": "application/json"})

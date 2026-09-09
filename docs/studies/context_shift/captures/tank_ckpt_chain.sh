@@ -13,7 +13,7 @@ for e in m: print(e['name'] + '\t' + e['substring'].replace('\"','\\\\\"'))
     if grep -q "^${SET}	" "$LOG"; then continue; fi
     RESP=$(curl -s -X POST http://localhost:8000/api/probes/sentence-experiment \
         -H 'Content-Type: application/json' --max-time 600 \
-        -d "{\"sentence_set_name\": \"${SET}\", \"generate_output\": false, \"capture_static_substring\": \"${SUB}\"}")
+        -d "{$( [ -n "${CS_PIN_DATE:-}" ] && printf '\"pin_date\": \"%s\", ' "$CS_PIN_DATE")\"sentence_set_name\": \"${SET}\", \"generate_output\": false, \"capture_static_substring\": \"${SUB}\"}")
     SID=$(printf '%s' "$RESP" | $PY -c "import sys,json
 try: print(json.load(sys.stdin).get('session_id','ERR'))
 except: print('ERR')")

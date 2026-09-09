@@ -3,7 +3,8 @@
 Usage: ckpt_chain.py MANIFEST_JSON LOG_TSV
 Manifest entries: {"name": set_name, "substring": window_text, ...}
 """
-import json, sys, time, urllib.request
+import json, sys, time, urllib.request, os
+PIN = os.environ.get("CS_PIN_DATE", "")
 from pathlib import Path
 import pandas as pd
 
@@ -18,6 +19,7 @@ for e in entries:
     if name in done:
         continue
     payload = json.dumps({"sentence_set_name": name, "generate_output": False,
+                          "pin_date": PIN or None,
                           "capture_static_substring": sub}).encode()
     req = urllib.request.Request("http://localhost:8000/api/probes/sentence-experiment",
                                  data=payload, headers={"Content-Type": "application/json"})

@@ -43,8 +43,8 @@ def load_runs(log_path, axes_path, layer, name_filter=None):
 
 # ---------- probe configs ----------
 def tank_cfg():
-    runs = load_runs("docs/studies/context_shift/captures/tank_d3_d4_log.tsv",
-                     "docs/studies/context_shift/analysis/axes/axes_session_29a80932_aquarium_vs_vehicle_pos1.npz", 4)
+    from corpus_paths import LOG_TANK_D3D4, AXES_TANK_POS1
+    runs = load_runs(LOG_TANK_D3D4, AXES_TANK_POS1, 4)
     d4a = [v for k, v in runs.items() if "_d4_" in k and k.endswith("_a")]   # aquarium (-)
     d4b = [v for k, v in runs.items() if "_d4_" in k and k.endswith("_b")]   # vehicle (+)
     d3 = {k: v for k, v in runs.items() if "_d3_" in k}
@@ -53,8 +53,8 @@ def tank_cfg():
     return "tank_L4", d4a, d4b, d3, dest, fam
 
 def fr_cfg():
-    runs = load_runs("docs/studies/context_shift/captures/fr_d3_d4_log.tsv",
-                     "docs/studies/context_shift/analysis/axes/axes_session_5247081b_fictional_vs_real_pos1.npz", 14,
+    from corpus_paths import LOG_FR_D3D4, AXES_FR_POS1
+    runs = load_runs(LOG_FR_D3D4, AXES_FR_POS1, 14,
                      name_filter=lambda n: n.startswith("fr_s1_"))
     d4a = [v for k, v in runs.items() if "_d4_" in k and k.endswith("_f")]   # fictional (-)
     d4b = [v for k, v in runs.items() if "_d4_" in k and k.endswith("_r")]   # real (+)

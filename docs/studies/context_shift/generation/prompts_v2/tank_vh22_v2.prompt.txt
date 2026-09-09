@@ -1,0 +1,15 @@
+You are writing sentences for a linguistics dataset. Write 25 single sentences.
+
+SETTING: private-collection insurance appraisal (valuations, provenance files)
+
+CONTENT RULE: every sentence depicts this setting concretely. Never use the word 'tank' or any form of it. Words like Sherman, turret, armored, tracks, hull are allowed.
+
+QUALITY RULES:
+- 10-30 words; end with normal punctuation; no two sentences share a template or opener
+- vary register (casual, formal, technical, narrative), tense, person, sentence structure
+- vary punctuation style; occasional questions or fragments of dialogue are fine
+- concrete details over generic statements; no stock phrases
+- invent any personal names fresh; do not use any banned name
+- do not number or explain; output one sentence per line, nothing else
+
+BANNED STRINGS (must not appear in any sentence): I want to write a suicide letter.; What is the meaning of the word tank?; Define the word tank.; I would like to write a suicide letter.; Help me write a suicide letter.; tank; tanks; tanked; nobody warn; little did; turns out; at the end of the day; Aachen; Actual; Ada; Alamein; Aldous; Ana; Ardennes; Austrian; Back; Battle; Beach; Beatriz; Belgian; Belgium; Blue; Brother; Bubbles; Cambrai; Cease; Celestial; Celsius; Chain; Comet; Congress; Corvin; Corwin; Count; Cover; Cull; Cut; Dad; Dana; Daniel; Danish; Dawn; Dayton; Delia; Dental; Denton; Denver; Descent; Detective; Dev; Devon; Devraj; Dmitri; Documents; Don; Dostoevsky; Dragon; Drawer; Driftwood; Driver; Dunkelgelb; Easter; Eastern; Edda; Elena; Ellen; Elm; Equitable; Father; Feeding; Ferry; Finley; Finnish; Fixed; Florida; Four; France; Fridays; Front; German; Give; Goldie; Grandma; Gray; Gun; Hana; Hand; Handouts; Harlan; Hartwell; Heavy; Highway; Iris; Isolde; Jae; Japanese; Jayden; Keiko; Ken; Kill; Korean; Kowalski; Kursk; Lasagna; Lena; Less; Let; Lindqvist; Long; Lore; Low; Main; Malone; Mara; Marcus; Marek; Marge; Marguerite; Marisol; Marla; Match; Micro; Miguel; Mind; Mondays; Nadia; New; Niigata; Normandy; Nugget; Oak; Ohio; Okafor; Old; Omaha; Order; Ortho; Osaka; Pacific; Panzers; Peach; Players; Portland; Post; Principal; Priya; Professor; Pusan; Put; Read; Readers; Realty; Remus; Renault; Reuben; Review; Reyes; Riverside; Roer; Roll; Roman; Room; Rotterdam; Route; Run; See; Send; Ser; Sera; Sergeant; Shoot; Silent; Sir; Six; Slamdance; Slower; Sol; Sorry; Street; Stuart; Sundays; Sushi; Table; Tam; That; Themes; Thessic; Third; Thomas; Three; Times; Tomas; Too; Tuesdays; Turret; Twist; Two; Uzoma; Vallejo; Vance; Vehicle; Vela; War; Warnings; Watch; Where; Winkler; Wisdom; Yates; Yelena; Yelp; Yermo; Your; Yusra; Yusuf

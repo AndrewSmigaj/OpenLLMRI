@@ -1,0 +1,302 @@
+[
+ {
+  "batch": "tank_aq13_v2",
+  "prompt": "prompts_v2/tank_aq13_v2.prompt.txt",
+  "out": "batches_v2/tank_aq13_v2.txt"
+ },
+ {
+  "batch": "tank_aq14_v2",
+  "prompt": "prompts_v2/tank_aq14_v2.prompt.txt",
+  "out": "batches_v2/tank_aq14_v2.txt"
+ },
+ {
+  "batch": "tank_aq15_v2",
+  "prompt": "prompts_v2/tank_aq15_v2.prompt.txt",
+  "out": "batches_v2/tank_aq15_v2.txt"
+ },
+ {
+  "batch": "tank_aq16_v2",
+  "prompt": "prompts_v2/tank_aq16_v2.prompt.txt",
+  "out": "batches_v2/tank_aq16_v2.txt"
+ },
+ {
+  "batch": "tank_aq17_v2",
+  "prompt": "prompts_v2/tank_aq17_v2.prompt.txt",
+  "out": "batches_v2/tank_aq17_v2.txt"
+ },
+ {
+  "batch": "tank_aq18_v2",
+  "prompt": "prompts_v2/tank_aq18_v2.prompt.txt",
+  "out": "batches_v2/tank_aq18_v2.txt"
+ },
+ {
+  "batch": "tank_aq19_v2",
+  "prompt": "prompts_v2/tank_aq19_v2.prompt.txt",
+  "out": "batches_v2/tank_aq19_v2.txt"
+ },
+ {
+  "batch": "tank_aq20_v2",
+  "prompt": "prompts_v2/tank_aq20_v2.prompt.txt",
+  "out": "batches_v2/tank_aq20_v2.txt"
+ },
+ {
+  "batch": "tank_aq21_v2",
+  "prompt": "prompts_v2/tank_aq21_v2.prompt.txt",
+  "out": "batches_v2/tank_aq21_v2.txt"
+ },
+ {
+  "batch": "tank_aq22_v2",
+  "prompt": "prompts_v2/tank_aq22_v2.prompt.txt",
+  "out": "batches_v2/tank_aq22_v2.txt"
+ },
+ {
+  "batch": "tank_aq23_v2",
+  "prompt": "prompts_v2/tank_aq23_v2.prompt.txt",
+  "out": "batches_v2/tank_aq23_v2.txt"
+ },
+ {
+  "batch": "tank_aq24_v2",
+  "prompt": "prompts_v2/tank_aq24_v2.prompt.txt",
+  "out": "batches_v2/tank_aq24_v2.txt"
+ },
+ {
+  "batch": "tank_vh13_v2",
+  "prompt": "prompts_v2/tank_vh13_v2.prompt.txt",
+  "out": "batches_v2/tank_vh13_v2.txt"
+ },
+ {
+  "batch": "tank_vh14_v2",
+  "prompt": "prompts_v2/tank_vh14_v2.prompt.txt",
+  "out": "batches_v2/tank_vh14_v2.txt"
+ },
+ {
+  "batch": "tank_vh15_v2",
+  "prompt": "prompts_v2/tank_vh15_v2.prompt.txt",
+  "out": "batches_v2/tank_vh15_v2.txt"
+ },
+ {
+  "batch": "tank_vh16_v2",
+  "prompt": "prompts_v2/tank_vh16_v2.prompt.txt",
+  "out": "batches_v2/tank_vh16_v2.txt"
+ },
+ {
+  "batch": "tank_vh17_v2",
+  "prompt": "prompts_v2/tank_vh17_v2.prompt.txt",
+  "out": "batches_v2/tank_vh17_v2.txt"
+ },
+ {
+  "batch": "tank_vh18_v2",
+  "prompt": "prompts_v2/tank_vh18_v2.prompt.txt",
+  "out": "batches_v2/tank_vh18_v2.txt"
+ },
+ {
+  "batch": "tank_vh19_v2",
+  "prompt": "prompts_v2/tank_vh19_v2.prompt.txt",
+  "out": "batches_v2/tank_vh19_v2.txt"
+ },
+ {
+  "batch": "tank_vh20_v2",
+  "prompt": "prompts_v2/tank_vh20_v2.prompt.txt",
+  "out": "batches_v2/tank_vh20_v2.txt"
+ },
+ {
+  "batch": "tank_vh21_v2",
+  "prompt": "prompts_v2/tank_vh21_v2.prompt.txt",
+  "out": "batches_v2/tank_vh21_v2.txt"
+ },
+ {
+  "batch": "tank_vh22_v2",
+  "prompt": "prompts_v2/tank_vh22_v2.prompt.txt",
+  "out": "batches_v2/tank_vh22_v2.txt"
+ },
+ {
+  "batch": "tank_vh23_v2",
+  "prompt": "prompts_v2/tank_vh23_v2.prompt.txt",
+  "out": "batches_v2/tank_vh23_v2.txt"
+ },
+ {
+  "batch": "tank_vh24_v2",
+  "prompt": "prompts_v2/tank_vh24_v2.prompt.txt",
+  "out": "batches_v2/tank_vh24_v2.txt"
+ },
+ {
+  "batch": "fic_theme_13_v2",
+  "prompt": "prompts_v2/fic_theme_13_v2.prompt.txt",
+  "out": "batches_v2/fic_theme_13_v2.txt"
+ },
+ {
+  "batch": "fic_artifact_13_v2",
+  "prompt": "prompts_v2/fic_artifact_13_v2.prompt.txt",
+  "out": "batches_v2/fic_artifact_13_v2.txt"
+ },
+ {
+  "batch": "fic_theme_14_v2",
+  "prompt": "prompts_v2/fic_theme_14_v2.prompt.txt",
+  "out": "batches_v2/fic_theme_14_v2.txt"
+ },
+ {
+  "batch": "fic_artifact_14_v2",
+  "prompt": "prompts_v2/fic_artifact_14_v2.prompt.txt",
+  "out": "batches_v2/fic_artifact_14_v2.txt"
+ },
+ {
+  "batch": "fic_theme_15_v2",
+  "prompt": "prompts_v2/fic_theme_15_v2.prompt.txt",
+  "out": "batches_v2/fic_theme_15_v2.txt"
+ },
+ {
+  "batch": "fic_artifact_15_v2",
+  "prompt": "prompts_v2/fic_artifact_15_v2.prompt.txt",
+  "out": "batches_v2/fic_artifact_15_v2.txt"
+ },
+ {
+  "batch": "fic_theme_16_v2",
+  "prompt": "prompts_v2/fic_theme_16_v2.prompt.txt",
+  "out": "batches_v2/fic_theme_16_v2.txt"
+ },
+ {
+  "batch": "fic_artifact_16_v2",
+  "prompt": "prompts_v2/fic_artifact_16_v2.prompt.txt",
+  "out": "batches_v2/fic_artifact_16_v2.txt"
+ },
+ {
+  "batch": "fic_theme_17_v2",
+  "prompt": "prompts_v2/fic_theme_17_v2.prompt.txt",
+  "out": "batches_v2/fic_theme_17_v2.txt"
+ },
+ {
+  "batch": "fic_artifact_17_v2",
+  "prompt": "prompts_v2/fic_artifact_17_v2.prompt.txt",
+  "out": "batches_v2/fic_artifact_17_v2.txt"
+ },
+ {
+  "batch": "fic_theme_18_v2",
+  "prompt": "prompts_v2/fic_theme_18_v2.prompt.txt",
+  "out": "batches_v2/fic_theme_18_v2.txt"
+ },
+ {
+  "batch": "fic_artifact_18_v2",
+  "prompt": "prompts_v2/fic_artifact_18_v2.prompt.txt",
+  "out": "batches_v2/fic_artifact_18_v2.txt"
+ },
+ {
+  "batch": "fic_theme_19_v2",
+  "prompt": "prompts_v2/fic_theme_19_v2.prompt.txt",
+  "out": "batches_v2/fic_theme_19_v2.txt"
+ },
+ {
+  "batch": "fic_artifact_19_v2",
+  "prompt": "prompts_v2/fic_artifact_19_v2.prompt.txt",
+  "out": "batches_v2/fic_artifact_19_v2.txt"
+ },
+ {
+  "batch": "fic_theme_20_v2",
+  "prompt": "prompts_v2/fic_theme_20_v2.prompt.txt",
+  "out": "batches_v2/fic_theme_20_v2.txt"
+ },
+ {
+  "batch": "fic_artifact_20_v2",
+  "prompt": "prompts_v2/fic_artifact_20_v2.prompt.txt",
+  "out": "batches_v2/fic_artifact_20_v2.txt"
+ },
+ {
+  "batch": "fic_theme_21_v2",
+  "prompt": "prompts_v2/fic_theme_21_v2.prompt.txt",
+  "out": "batches_v2/fic_theme_21_v2.txt"
+ },
+ {
+  "batch": "fic_artifact_21_v2",
+  "prompt": "prompts_v2/fic_artifact_21_v2.prompt.txt",
+  "out": "batches_v2/fic_artifact_21_v2.txt"
+ },
+ {
+  "batch": "fic_theme_22_v2",
+  "prompt": "prompts_v2/fic_theme_22_v2.prompt.txt",
+  "out": "batches_v2/fic_theme_22_v2.txt"
+ },
+ {
+  "batch": "fic_artifact_22_v2",
+  "prompt": "prompts_v2/fic_artifact_22_v2.prompt.txt",
+  "out": "batches_v2/fic_artifact_22_v2.txt"
+ },
+ {
+  "batch": "fic_theme_23_v2",
+  "prompt": "prompts_v2/fic_theme_23_v2.prompt.txt",
+  "out": "batches_v2/fic_theme_23_v2.txt"
+ },
+ {
+  "batch": "fic_artifact_23_v2",
+  "prompt": "prompts_v2/fic_artifact_23_v2.prompt.txt",
+  "out": "batches_v2/fic_artifact_23_v2.txt"
+ },
+ {
+  "batch": "fic_theme_24_v2",
+  "prompt": "prompts_v2/fic_theme_24_v2.prompt.txt",
+  "out": "batches_v2/fic_theme_24_v2.txt"
+ },
+ {
+  "batch": "fic_artifact_24_v2",
+  "prompt": "prompts_v2/fic_artifact_24_v2.prompt.txt",
+  "out": "batches_v2/fic_artifact_24_v2.txt"
+ },
+ {
+  "batch": "real_13_v2",
+  "prompt": "prompts_v2/real_13_v2.prompt.txt",
+  "out": "batches_v2/real_13_v2.txt"
+ },
+ {
+  "batch": "real_14_v2",
+  "prompt": "prompts_v2/real_14_v2.prompt.txt",
+  "out": "batches_v2/real_14_v2.txt"
+ },
+ {
+  "batch": "real_15_v2",
+  "prompt": "prompts_v2/real_15_v2.prompt.txt",
+  "out": "batches_v2/real_15_v2.txt"
+ },
+ {
+  "batch": "real_16_v2",
+  "prompt": "prompts_v2/real_16_v2.prompt.txt",
+  "out": "batches_v2/real_16_v2.txt"
+ },
+ {
+  "batch": "real_17_v2",
+  "prompt": "prompts_v2/real_17_v2.prompt.txt",
+  "out": "batches_v2/real_17_v2.txt"
+ },
+ {
+  "batch": "real_18_v2",
+  "prompt": "prompts_v2/real_18_v2.prompt.txt",
+  "out": "batches_v2/real_18_v2.txt"
+ },
+ {
+  "batch": "real_19_v2",
+  "prompt": "prompts_v2/real_19_v2.prompt.txt",
+  "out": "batches_v2/real_19_v2.txt"
+ },
+ {
+  "batch": "real_20_v2",
+  "prompt": "prompts_v2/real_20_v2.prompt.txt",
+  "out": "batches_v2/real_20_v2.txt"
+ },
+ {
+  "batch": "real_21_v2",
+  "prompt": "prompts_v2/real_21_v2.prompt.txt",
+  "out": "batches_v2/real_21_v2.txt"
+ },
+ {
+  "batch": "real_22_v2",
+  "prompt": "prompts_v2/real_22_v2.prompt.txt",
+  "out": "batches_v2/real_22_v2.txt"
+ },
+ {
+  "batch": "real_23_v2",
+  "prompt": "prompts_v2/real_23_v2.prompt.txt",
+  "out": "batches_v2/real_23_v2.txt"
+ },
+ {
+  "batch": "real_24_v2",
+  "prompt": "prompts_v2/real_24_v2.prompt.txt",
+  "out": "batches_v2/real_24_v2.txt"
+ }
+]

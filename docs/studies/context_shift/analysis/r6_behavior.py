@@ -20,9 +20,9 @@ SUF = "" if VERSION == "v1" else f"_{VERSION}"
 FINAL = "assistantfinal"  # decoded remains of the final-channel scaffold in the raw output
 CFG = {
     "tank": dict(log=C / f"behavior_tank{SUF}_log.tsv", L=4,
-                 ax=OUT / "axes/axes_session_29a80932_aquarium_vs_vehicle_pos1.npz"),
+                 ax=Path(__import__("corpus_paths").AXES_TANK_POS1)),
     "fr": dict(log=C / f"behavior_fr{SUF}_log.tsv", L=14,
-               ax=OUT / "axes/axes_session_5247081b_fictional_vs_real_pos1.npz"),
+               ax=Path(__import__("corpus_paths").AXES_FR_POS1)),
 }
 
 def build_worksheet(probe):
