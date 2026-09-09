@@ -1,4 +1,4 @@
-# Upload fields, preprint v1 (6 September 2026)
+# Upload fields, preprint v1.1 (8 September 2026)
 
 Paste-ready fields for ResearchGate or any preprint venue. The abstract is
 verbatim from the paper; do not edit it here without editing
@@ -11,7 +11,7 @@ Unresolved: Semantic Metastability in a Language Model Under Context Shift
 Andrew Smigaj, Independent researcher, smigaja@gmail.com
 
 **Date**
-6 September 2026 (preprint, version 1)
+8 September 2026 (preprint, version 1.1)
 
 **Type**
 Preprint
@@ -62,6 +62,10 @@ This paper analyzes model behavior around suicide-related requests in a research
 context. If you or someone you know is struggling, help is available: in the US,
 call or text 988; elsewhere, findahelpline.com.
 
+**Versions**
+Version 1.1 (current) replaces version 1.0 at the same links; the version 1.0
+PDF is archived at `paper/tex/archive/main_v1.0.pdf` and at the `paper-v1.0` tag.
+
 **Links**
 - PDF, fixed at the version tag:
   https://github.com/AndrewSmigaj/OpenLLMRI/blob/paper-v1/docs/studies/context_shift/paper/tex/main.pdf
@@ -77,5 +81,5 @@ ResearchGate's offer to assign its own DOI, so the paper has one identifier.
 
 **How to cite (until a DOI exists)**
 Smigaj, A. (2026). Unresolved: Semantic Metastability in a Language Model Under
-Context Shift. Preprint, version 1, 6 September 2026.
+Context Shift. Preprint, version 1.1, 8 September 2026.
 https://github.com/AndrewSmigaj/OpenLLMRI/tree/paper-v1/docs/studies/context_shift

@@ -1457,3 +1457,7 @@ bracket the sampled arm resolves. Date bound widened to the 192-cell figure
   behavioral form (gradual, partial, lingering). Contribution 5 reframed on
   the decline and floor; §3.5 names the carryover as the behavioral form of
   the remnant beside the composition table.
+- Released as Preprint, version 1.1 (8 September 2026). Version 1.0 archived
+  at `paper/tex/archive/main_v1.0.pdf` and tag `paper-v1.0`; the `paper-v1`
+  tag moves with the current version so the circulated links keep serving the
+  latest PDF.
