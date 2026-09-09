@@ -27,8 +27,7 @@ circumstances. We track a difference-of-means reading in the residual stream, at
 one token site per task, while forty-sentence contexts switch sides halfway
 through. Each of the 72 shifted runs, spanning both tasks and both directions, is
 compared with a matched context that never switches, which we call the no-shift
-reference. At four points after the switch we generate completions, setting
-behavior beside the reading.
+reference. At points after the switch we generate completions under two decoding policies, greedy and the sampling the model's documentation recommends, setting behavior beside the reading.
 
 The reading follows the shift only partway. It crosses to the new side after a
 median of 4 to 10.5 sentences, by task and direction. On average it then stops
@@ -38,20 +37,14 @@ distance from the midpoint between the two sides, the shortfall ranges from 40% 
 sentences after the switch never close the remaining gap. In one tank direction
 the reading stops at the midpoint and stays there, stationary to the end of the
 window. Individual runs move by drift plus discrete jumps. Where the fits can
-decide, drift plus jumps beats every smooth evidence-integration model we fit. The
-jumps do not coincide with unusually strong evidence. Evidence order has a large
+decide, drift plus jumps beats every smooth evidence-integration model we fit. The jumps do not coincide with unusually strong evidence in the arriving sentence. Evidence order has a large
 effect on the reading, explained almost entirely by recency weighting. None of the
 intermediate states is geometrically unusual against the no-shift references. Yet
 together they carry a persistent internal signal that the context is mixed, a
 signal the model's behavior does not appear to use. We call this cluster of
 properties semantic metastability.
 
-What the model does while unresolved differs sharply between the tasks. Across
-the answers the model delivered, none asks which reading is meant. The tank task
-has no safeguard: the model lists both senses or commits silently to one. The
-suicide-letter task has a refusal safeguard, and it holds while the reading sits
-between the frames: 89% of the answers delivered there decline the letter or
-redirect to support.
+What the model does while unresolved differs sharply between the tasks. Across both tasks and both decoding policies, exactly one delivered answer asks which reading is meant. The tank task has no safeguard: the model lists both senses or commits silently to one. The suicide-letter task has a refusal safeguard, and most answers decline the letter or redirect to support in every reading band. And behavior mirrors the reading: after a conversation that established the fiction-writing frame turns to the speaker's real circumstances, the share of sampled answers that assist with the letter falls only gradually, 19%, 14%, 12%, and 10% at two, six, twelve, and twenty sentences past the turn, while purely real-world contexts yield none.
 
 **Keywords**
 interpretability; residual stream; word-sense disambiguation; context shift;
