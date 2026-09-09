@@ -79,6 +79,14 @@ predictions here, to be tested, not re-fit.
   authoring path and re-audited. **Circularity ban**: no sentence is ever
   screened, selected, or replaced on the basis of the model-under-study's
   readings.
+- Name canonicalization (assembly-side, deterministic, logged): blind authors
+  converge on a small pool of given names, so after all batches pass the audit,
+  `analysis/canonicalize_names.py` renames every given name that occurs in more
+  than one family, keeping the first family's use and substituting fresh unique
+  names elsewhere from a curated list. Detection is by the lowercase-elsewhere
+  heuristic (a capitalized token whose lowercase form never appears as an
+  ordinary word). This is a single-token, class-neutral transform (names occur
+  in both classes and carry no class signal); the substitution log is committed.
 - Logs and paths: v2 chains write the canonical log filenames; v1 logs are
   archived under `captures/v1/`; axes and log paths route through one
   indirection (`analysis/corpus_paths.py`) whose defaults are the v1 values.

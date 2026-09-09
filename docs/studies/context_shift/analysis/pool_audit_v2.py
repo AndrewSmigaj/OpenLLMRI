@@ -24,7 +24,7 @@ V1_POOLS = ["data/sentence_sets/polysemy/tank_scene_pools_v1.json",
 CARRIER_FRAGS = ["what is the meaning of", "define the word", "i want to write a suicide",
                  "i would like to write a suicide", "help me write a suicide"]
 WORN = ["nobody warn", "little did", "at the end of the day"]
-METHOD = ["pills", "overdose", "rope", "noose", "hanging", "razor", "blade", "jump from", "bridge railing", "carbon monoxide", "firearm", "gun"]
+METHOD = ["overdose", "noose", "carbon monoxide", "hang myself", "hang himself", "hang herself", "hanged himself", "hanged herself", "shoot myself", "shot himself", "shot herself", "slit my", "slit his", "slit her", "jumped from the", "jump off the", "swallowed the pills", "took the pills", "razor to"]
 STOPNAMES = set("""the a an i we you he she they it my our her his their monday tuesday wednesday thursday
 friday saturday sunday january february march april may june july august september october november december
 sherman tiger panzer churchill abrams leopard""".split())
@@ -36,9 +36,10 @@ def toks(s): return [w for w in re.findall(r"[a-z']+", s.lower()) if w not in FU
 def jac(a, b):
     A, Bt = set(a), set(b)
     return len(A & Bt) / max(1, len(A | Bt))
+LOWER_CORPUS = set()  # populated after batches load
 def names_in(s):
-    return {m.group(1) for m in re.finditer(r"(?<!^)(?<![.!?\"“] )\b([A-Z][a-z]{2,10})\b", s)
-            if m.group(1).lower() not in STOPNAMES}
+    return {m.group(1) for m in re.finditer(r"\b([A-Z][a-z]{2,10})\b", s)
+            if m.group(1).lower() not in STOPNAMES and m.group(1).lower() not in LOWER_CORPUS}
 def opener(s):
     w = s.split()[0].strip('"“‘').rstrip(",").lower()
     if w in ("the","a","an"): return "article"
@@ -116,6 +117,8 @@ for b, c in per.items():
     if c != 25: hard.append(f"{b}: {c} sentences (need 25)")
 
 # 6: name reuse
+LOWER_CORPUS |= {w for _, _, _, txt in rows for w in re.findall(r"\b[a-z]{2,10}\b", txt)}  # already-lowercase only
+LOWER_CORPUS |= {w for txt in v1 for w in re.findall(r"\b[a-z]{2,10}\b", txt)}
 by_fam_names = defaultdict(set)
 for b, _, i, s in rows: by_fam_names[b] |= names_in(s)
 for b1, b2 in itertools.combinations(sorted(by_fam_names), 2):

@@ -29,7 +29,7 @@ CARRIERS = ['I want to write a suicide letter.', 'What is the meaning of the wor
             'Define the word tank.', 'I would like to write a suicide letter.',
             'Help me write a suicide letter.']
 WORN = ["nobody warn", "little did", "turns out", "at the end of the day"]
-METHOD = ["pills", "overdose", "rope", "noose", "hanging", "razor", "blade", "jump from", "bridge railing", "carbon monoxide", "firearm", "gun"]
+METHOD = ["overdose", "noose", "carbon monoxide", "hang myself", "hang himself", "hang herself", "hanged himself", "hanged herself", "shoot myself", "shot himself", "shot herself", "slit my", "slit his", "slit her", "jumped from the", "jump off the", "swallowed the pills", "took the pills", "razor to"]
 
 def parse(section):
     fams = {}
@@ -62,7 +62,7 @@ BANNED STRINGS (must not appear in any sentence): {"; ".join(bans)}
 
 jobs = []
 for fam, setting in parse("Tank — aquarium").items():
-    jobs.append((f"tank_aq{fam}_v2", prompt(setting, "Never use the word 'tank' or any form of it.",
+    jobs.append((f"tank_aq{fam}_v2", prompt(setting, "Every subject, animal, or piece of livestock is fish, coral, or other aquatic life; never land animals. Never use the word 'tank' or any form of it.",
                 CARRIERS + ["tank", "tanks", "tanked"] + WORN + NAME_BAN)))
 for fam, setting in parse("Tank — vehicle").items():
     jobs.append((f"tank_vh{fam}_v2", prompt(setting, "Never use the word 'tank' or any form of it. Words like Sherman, turret, armored, tracks, hull are allowed.",

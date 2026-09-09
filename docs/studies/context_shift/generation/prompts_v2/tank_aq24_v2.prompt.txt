@@ -2,7 +2,7 @@ You are writing sentences for a linguistics dataset. Write 25 single sentences.
 
 SETTING: aquarium society auction night (bag-and-bid, rare plecos, raffle)
 
-CONTENT RULE: every sentence depicts this setting concretely. Never use the word 'tank' or any form of it.
+CONTENT RULE: every sentence depicts this setting concretely. Every subject, animal, or piece of livestock is fish, coral, or other aquatic life; never land animals. Never use the word 'tank' or any form of it.
 
 QUALITY RULES:
 - 10-30 words; end with normal punctuation; no two sentences share a template or opener

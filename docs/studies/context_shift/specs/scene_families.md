@@ -86,7 +86,7 @@ acts of writing; no personal name may recur across families (audit-enforced).
 16. paludarium build workshop (half-land half-water builds, misting, moss)
 17. fish rescue and rehoming run (craigslist pickups, bagged fish, triage)
 18. commercial aquaculture hatchery (raceways, grading, biosecurity)
-19. wholesale livestock import warehouse (acclimation lines, boxes, invoices)
+19. wholesale AQUATIC-livestock import warehouse (fish acclimation lines, bagged fish, invoices)
 20. hotel atrium display, commercial dive-clean crew (regulators, wipe-downs)
 21. fishkeeping channel livestream filming (cameras, sponsors, water tests)
 22. retirement-home common-room fish corner (volunteers, feeding chart)
