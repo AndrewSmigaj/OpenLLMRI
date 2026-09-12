@@ -521,3 +521,27 @@ doctrine wants, and the χ² audits confirmed no label-correlated surface struct
   review passes because F9 says "amp" and nothing downstream restated the divisor.
 - Recommendation: decide single-vs-multi authorship before tex conversion — "one of
   us" phrasing and the (A.S.) credit convention hinge on it (proposal 2 in the log).
+
+## 2026-09-12 — v1.1 cleanup: prereg de-emphasis, confound appendix, r6 legend
+
+- Demoted the prereg/freeze/date/determinism ceremony from the paper body (§2.1/§2.5/
+  §2.6) to Appendix B + repo; dropped 3 "pre-registered" framings (results kept) and 12
+  git-commit "committed" modifiers, while preserving the ~20 scientific "commitment" uses.
+  The body no longer harps on process.
+- Removed the §3.1 dose-independence claim: its `cue-dose r=0.05` was a hardcoded
+  figure/caption string with NO computation anywhere in the tree (length r=0.02 IS
+  computed). **Recommendation: any number a caption quotes must trace to a committed
+  computation — periodically grep figure titles for literal `r = ` / hardcoded stats.**
+- Added a CPU-only surface-feature confound appendix (`feature_battery.py` +
+  `confound_features_analysis.py` + `fig_confound_features`): a logistic confound-ceiling
+  classifier, leave-one-scene-out. Tank surface = chance 0.47 vs reading 0.905 (not a
+  surface confound); fiction/real surface = 0.74 vs reading 0.910 (partly surface-separable,
+  disclosed). The write-up is framed to hold for any ceiling value.
+- Fixed `fig_r6_behavior_bands`: the opaque in-axes legend covered the cross-over segments
+  the figure exists to show; now two per-column legends sit below the panels.
+- Deferred the orthogonal-cue decomposition and the full v2 recapture to `EXPERIMENTS.md`
+  (the decomposition is the proper future test of the removed dose claim, and could hedge
+  §3.1/§4 — a real experiment, not a cleanup). Whole cycle kept CPU-only, no captures.
+- Note for a future session: `pool_audit_v2.py` (deferred v2 tooling) needs a `__main__`
+  guard — it runs + `sys.exit`s at import, so its helpers can't be imported (I replicated
+  them in `feature_battery.py`). Fix when v2 resumes.

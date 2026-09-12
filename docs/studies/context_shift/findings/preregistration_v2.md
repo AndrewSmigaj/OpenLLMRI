@@ -1,5 +1,10 @@
 # Pre-registration — context-shift study, version 2 corpus (drafted 8 September 2026)
 
+> **Status (12 September 2026): the v2 recapture this pre-registration governs is deferred
+> to future work (see `../EXPERIMENTS.md`).** The released v1.1 paper stands on the v1
+> corpus; its confound controls are in §3.1 and Appendix B. This file is retained as the
+> repository record of the planned v2 design, not an active commitment.
+
 This document is committed before the first v2 capture and is binding under the
 single-amendment rule: every commitment below is fixed now; anything added later
 goes into one dated amendment committed before the analyses it governs, and

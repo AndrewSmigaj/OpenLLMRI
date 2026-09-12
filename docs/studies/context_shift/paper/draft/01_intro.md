@@ -100,5 +100,5 @@ We contribute:
 
 Section 4 returns to the three worlds with these results in hand: the in-between
 states are unremarkable in geometry and uncommitted in meaning, and the taxonomy
-conflated those two axes. All numbers regenerate from the committed repository, which
+conflated those two axes. All numbers regenerate from the repository, which
 includes the study's full corrections record.

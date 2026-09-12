@@ -102,14 +102,14 @@ characterizes only what the filing and reporting describe.
 This study was carried out with language-model assistants,
 Claude through Claude Code and in chat, used as the analysis runtime and as writing
 and review assistants. Under the author's direction they authored the context
-sentences under the blind protocol of §2.3, ran the captures and the committed
-analysis scripts, categorized the completions, and drafted and revised the text. The author reviewed every number and claim and is responsible for them. The
+sentences under the blind protocol of §2.3, ran the captures and the analysis
+scripts, categorized the completions, and drafted and revised the text. The author reviewed every number and claim and is responsible for them. The
 research questions, study design, and interpretive decisions are the author's.
 
 ## Appendix A — Corrections
 
-The study's corrections log, nineteen entries at the analysis freeze and extended
-since, is in the repository's findings record and revision log with dates. The
+The study's corrections log, nineteen entries at the time of analysis and extended
+since, is in the repository's findings record and revision log. The
 audits caught three kinds of thing: instrument artifacts, above all uncorrected
 per-layer readings that produced three findings retracted before this version
 (Box 1); a misspecified null, retracted the same day; and reference uncertainty
@@ -122,9 +122,9 @@ per-direction decay values (§3.2). A first estimate of stickiness (§3.6) used 
 
 ## Appendix B — Quality assurance and reproducibility
 
-**Regeneration.** A full regeneration audit re-ran every committed analysis script over the archived
-captures and reproduced every reported value. The calibration axes regenerated bit-identically. The seeded bootstraps regenerated
-exactly. The diff over all 23 scripts was clean.
+**Regeneration.** A regeneration audit re-runs the analysis scripts over the archived
+captures and reproduces the reported values; the calibration axes and the seeded
+bootstraps regenerate deterministically.
 
 **Fixtures.** A permanent fixture suite pushes synthetic data with analytically known
 answers through the actual pipeline functions. Nine of nine fixtures recover their
@@ -150,6 +150,19 @@ tank task, averaged over its two directions.
 | Remnant gap (axis units) | +1.66 | band [−1.42, +1.31] |
 
 
+**Surface-feature confound.** §3.1's third test asks how much of each class contrast is
+recoverable from deterministic surface features alone — token and character length,
+sentence count, type-token ratio, punctuation, dialogue and digit rates, opener class,
+and within-scene 4-gram overlap (feature_battery.py) — with no access to the residual
+stream. A standardized logistic classifier, validated leave-one-scene-pair-out over the
+same twelve scene folds as the reading's calibration, reaches balanced accuracy 0.47 on
+the tank task (at chance) and 0.74 on the fiction/real task, against the reading's
+held-out 0.905 and 0.910 (Fig. fig_confound_features). The tank reading is therefore not
+recoverable from surface form; the fiction/real classes are partly surface-separable, as
+expected when the framing is expressed in surface cues, and the reading separates them
+better than a surface classifier does. The classes differ most on length and type-token
+ratio and overlap on the rest.
+
 **Capture days.** The chat template stamps the capture date into every input (§2.1).
 The tank transition runs, no-shift runs, and calibration set were captured on 27
 August 2026, except two transition runs and one no-shift run captured the next day.
@@ -159,7 +172,7 @@ cells and the minimal pairs. Behavior completions were generated on later days, 
 comes from the same forward pass as the completion. The 2,048-token behavior completions were captured on 5 September 2026 with the
 template date pinned to each cell's original day, which reproduces the original
 forward pass exactly; the date-bound run below used 5 September. A
-committed script reproduces this table from the session manifests.
+script reproduces this table from the session manifests.
 
 **Generation budget.** The behavior completions reported in §3.5 were decoded with
 a 2,048-token cap and the chat template's date pinned to each cell's original capture
@@ -192,7 +205,9 @@ cells. Three fiction/real cells that had looped on their original day delivered 
 answer on the later one. Across the 192 fiction/real transition contexts, whose behavior captures fell one day after their runs, the reading differs from the run's reading at the same position by a median of 0.0048 and at most 0.0667 axis units, about 3% of the class separation, with the input text otherwise identical. The date tokens cannot explain any reading effect; they can change whether a particular greedy path loops.
 
 Regeneration instructions and the mapping between the paper's terms and the
-repository's working names are in the study README.
+repository's working names are in the study README. The full findings record, the
+corrections log, the revision history, and the study's pre-analysis notes are in the
+repository's `findings/` directory.
 
 ## Appendix C — Supplementary figures
 

@@ -20,6 +20,7 @@ MID = {"tank": _mid(tank_cfg), "fr": _mid(fr_cfg)}
 
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+from matplotlib.patches import Patch
 from pathlib import Path
 
 BLUE, ORANGE, AQUA, GRAY, INK, MUT = "#2a78d6", "#eb6834", "#1baf7a", "#b9b9b4", "#222222", "#8a8a86"
@@ -30,7 +31,8 @@ NAMES = {"no_answer": "no answer", "both": "both senses", "fiction_frame": "fict
          "safety_response": "safe-completion", "mixed": "mixed", "aquarium": "aquarium", "vehicle": "vehicle"}
 BANDS = ["origin side", "mid band", "dest side"]
 
-fig, axes = plt.subplots(2, 2, figsize=(11.5, 8.0), facecolor=SURFACE)
+fig, axes = plt.subplots(2, 2, figsize=(11.5, 8.4), facecolor=SURFACE)
+col_cat = {}  # per-column category order + colors, for the per-column legends below
 for col, (probe, order, colors, ttl, shown) in enumerate((
     ("tank", ["aquarium", "both", "no_answer", "vehicle"],
      {"aquarium": BLUE, "vehicle": ORANGE, "both": AQUA, "no_answer": GRAY},
@@ -45,6 +47,7 @@ for col, (probe, order, colors, ttl, shown) in enumerate((
     df["ref"] = df.reading - MID[probe][pos - 1]
     df["band"] = pd.cut(df.ref, [-10, -0.5, 0.5, 10], labels=BANDS)
     ns = df.band.value_counts()
+    col_cat[col] = (order, colors)
     for row, (column, label) in enumerate((("category", "delivered answer"), ("reasoning_category", "reasoning channel's commitment"))):
         ax = axes[row, col]
         ct = pd.crosstab(df.band, df[column], normalize="index")
@@ -65,13 +68,19 @@ for col, (probe, order, colors, ttl, shown) in enumerate((
         ax.set_xticklabels([f"{shown[b]}\n(n = {ns.get(b, 0)})" for b in BANDS], fontsize=8.5)
         ax.set_ylim(0, 1.0); ax.set_title(f"{ttl}\n{label}", fontsize=9.5, color=INK)
         ax.set_ylabel("share of completions", fontsize=9, color=INK)
-        ax.legend(fontsize=7.5, loc="lower right", framealpha=0.95)
         ax.set_facecolor(SURFACE)
         for s in ("top", "right"): ax.spines[s].set_visible(False)
         ax.tick_params(colors=MUT, labelsize=8)
 fig.suptitle("Behavior by reading band at generation time: the delivered answer (top) and the reasoning channel's commitment (bottom)\n"
              "(bands on the reading referenced to the position-matched no-shift midpoint: below −0.5, within ±0.5, above +0.5 axis units; negative is the aquarium side and the fiction-writing side)",
              fontsize=9, color=INK)
-fig.tight_layout(rect=[0, 0, 1, 0.93])
+# one legend per column, in the reserved strip below the panels (the two columns use
+# different category sets, so a single shared legend would be wrong)
+for col, xc in ((0, 0.28), (1, 0.76)):
+    order, colors = col_cat[col]
+    handles = [Patch(facecolor=colors[c], label=NAMES.get(c, c)) for c in order]
+    fig.legend(handles=handles, loc="lower center", bbox_to_anchor=(xc, 0.005),
+               ncol=4, fontsize=7.5, frameon=False, columnspacing=1.1, handlelength=1.3)
+fig.tight_layout(rect=[0, 0.055, 1, 0.93])
 fig.savefig(FIG / "fig_r6_behavior_bands.png", dpi=150)
 print("figure: fig_r6_behavior_bands.png")

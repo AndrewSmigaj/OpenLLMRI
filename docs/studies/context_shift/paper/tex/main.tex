@@ -144,7 +144,7 @@ use (\S3.7).
 
 Section 4 returns to the three worlds with these results in hand: the in-between
 states are unremarkable in geometry and uncommitted in meaning, and the taxonomy
-conflated those two axes. All numbers regenerate from the committed repository, which
+conflated those two axes. All numbers regenerate from the repository, which
 includes the study's full corrections record.
 
 \begin{figure}[tbp]\centering
@@ -161,10 +161,9 @@ All experiments use gpt-oss-20b, a 20-billion-parameter mixture-of-experts langu
 model, in its stock configuration. We make no modifications to the model or its
 routing. Its native top-4-experts-per-token routing operates untouched. Inputs are formatted with the model's chat template as a single user message, with
 no developer message, and processed with deterministic forward passes, so identical inputs yield identical
-activations. We verified this on the hardware used: the same input captured twice
-gives byte-identical generated text and an identical reading (Appendix B). The model runs at the precision it is distributed
+activations (verified byte-identical on the hardware used; Appendix B). The model runs at the precision it is distributed
 in: expert weights in the 4-bit MXFP4 format, all other weights in 16-bit floating
-point. The same loaded model produced every capture and every completion. One property of the template matters for reproduction. Its system message stamps the capture date, so inputs captured on different days differ by a few tokens at fixed positions and are not bit-identical. Within a run the date is constant, since a run is one forward chain, and where a run and its matched no-shift reference share a capture day the shared input effect cancels in the referencing. Substituting a date about a week later moves the calibrated-site reading by under one percent of the class separation (Appendix B). Re-capture requires pinning the template's date, and the archive manifest records the capture date of every session, with the days by corpus in Appendix B. We capture the full residual
+point. The same loaded model produced every capture and every completion. One property of the template matters for reproduction. Its system message stamps the capture date, so inputs captured on different days differ by a few tokens at fixed positions. Within a run the date is constant, and where a run and its matched no-shift reference share a capture day the shared input effect cancels in the referencing. Substituting a date about a week later moves the calibrated-site reading by under one percent of the class separation, so the date tokens do not drive the reading; the capture days and the re-capture procedure are in Appendix B. We capture the full residual
 stream (2,880 dimensions) at the output of each of the 24 decoder blocks. Throughout, a
 \emph{site} is a designated token of a fixed carrier sentence together with a layer. The
 \emph{reading} at a site is the residual stream at that token and layer, projected onto a
@@ -407,10 +406,10 @@ unit is stated in place.
 \textbf{Behavior.} Completions are generated under two decoding policies from identical
 inputs. The first is greedy decoding with a 2,048-token cap. The second is the
 sampling the model's documentation recommends, temperature 1.0 and top-p 1.0 with no
-top-k truncation \citep{gptoss_readme}, under the same cap;
-the random seed of every draw is recorded, with three draws per fiction/real context
-and one per tank context. Categories are read from the delivered final answer by
-manual review of the committed categorization tables, with a regular-expression scan
+top-k truncation \citep{gptoss_readme}, under the same cap,
+with three draws per fiction/real context and one per tank context (seeds recorded per
+draw; Appendix B). Categories are read from the delivered final answer by
+manual review of the categorization tables, with a regular-expression scan
 as a cross-check. Tank answers are categorized by the first sense they define, as
 both, or as no answer. Fiction/real answers are categorized as fiction-writing assistance, as a safe completion (redirecting to support or only declining), as mixed (assisting and also redirecting the user to support), or as no answer. Sampled
 draws were categorized blind to the greedy category and to the other draws, in
@@ -428,12 +427,10 @@ record.
 
 \subsection{Reproducibility}
 
-Every number in this paper regenerates from committed analysis scripts over the
-archived captures. A full regeneration audit reproduced all reported values, with calibration
-axes bit-identical and seeded bootstraps exact. A permanent fixture suite pushes
-synthetic data with analytically known answers through the actual pipeline functions.
-The label-shuffle and positive-control audits of Box 1 are committed tests. Corrections
-that changed reported values are listed in Appendix A. The complete record is in the repository. \textbf{Data and code availability.} The study lives in the
+All reported numbers regenerate from the analysis scripts over the archived captures;
+the regeneration procedure, the fixture suite, the Box 1 control audits, and a
+checksummed file manifest are in the repository (Appendix B). Corrections that changed
+reported values are listed in Appendix A. \textbf{Data and code availability.} The study lives in the
 `docs/studies/context\_shift/` directory of the repository at
 github.com/AndrewSmigaj/OpenLLMRI, under the Apache-2.0 license. That directory
 holds the capture chains and their logs, the analysis and figure scripts together
@@ -443,9 +440,9 @@ sentence-generation batches, and this paper's source. The context sentences are
 under `data/sentence\_sets/`. The raw residual-stream captures, 48 GB across 1,299 sessions, are not in the
 repository. They are archived by the author and available to researchers on
 request, and a public deposit is planned. A manifest of every archived file, with
-sizes and SHA-256 checksums, is committed under `captures/`. Analyses that use only projected readings run from
-the committed caches; those that read raw activations need the captures, and the
-study README lists which. Behavior completions follow a release policy: we release the categorization tables and paraphrased excerpts; raw completions and reasoning traces are available to researchers on request, since some contain model-generated text engaging with the letter request. Truncated outputs from the superseded 256-token pass, up to 1,200 characters each, were committed before that policy was set and remain in the repository's history; the 2,048-token completions and reasoning traces are withheld.
+sizes and SHA-256 checksums, is in the repository under `captures/`. Analyses that use only projected readings run from
+cached readings; those that read raw activations need the captures, and the
+study README lists which. Behavior completions follow a release policy: we release the categorization tables and paraphrased excerpts; raw completions and reasoning traces are available to researchers on request, since some contain model-generated text engaging with the letter request. Truncated outputs from the superseded 256-token pass, up to 1,200 characters each, were added to the repository before that policy was set and remain in its history; the 2,048-token completions and reasoning traces are withheld.
 \FloatBarrier
 
 \section{Results}
@@ -475,8 +472,9 @@ accumulated-context axes, no-shift runs read on their own class's side at every 
 applies: the fiction/real direction itself rotates with accumulation and must be
 refit at depth (Fig.~\ref{fig:fig_r3_axis_rotation}).
 
-On the second question we have three independent tests: one on the tank task, and
-two on the fiction/real task, whose contrast has no single token to anchor to.
+On the second question we have three tests: an identity-matched comparison on the
+tank task, a minimal-pair test on the fiction/real task, whose contrast has no single
+token to anchor to, and a surface-feature confound ceiling on both.
 
 The first is an identity-matched comparison. The tank carrier is ``What is the meaning of the word tank?'' Its nine tokens appear verbatim in every checkpoint capture, so class signal can be compared across tokens
 with token identity held fixed. We measure the class signal at each token as $d'$, the difference of class means
@@ -497,10 +495,17 @@ positive in each of three independently generated batches of pairs, and it holds
 the six content domains the pairs were written in, rather than the pairs, are taken as
 the unit of analysis. The statistics are in the caption.
 
-The third is dose-independence. The effect does not grow with the
-number of framing-cue words, and it is not a length artifact; both correlations are
-near zero (Fig.~\ref{fig:fig_s9_d5_pairs}). One cue moves the reading as far as four. The
-response saturates at a single cue rather than accumulating.
+The third is a surface-feature confound ceiling. We ask how much of each class
+contrast a classifier recovers from deterministic surface features alone — token and
+character length, punctuation and dialogue rates, opener class, type-token ratio, and
+within-scene n-gram overlap — with no access to the residual stream, validated
+leave-one-scene-pair-out (Fig.~\ref{fig:fig_confound_features}; Appendix B). On the tank task
+the surface classifier sits at chance, balanced accuracy 0.47, so the tank reading's
+held-out 0.905 is not recoverable from surface form. On the fiction/real task surface
+features carry real signal, balanced accuracy 0.74, as expected when the framing is
+itself expressed in surface cues, yet the reading still separates the classes better,
+at 0.910. The pair effect is also not a length artifact: within a pair it is
+uncorrelated with the sentences' length difference (r = 0.02; Fig.~\ref{fig:fig_s9_d5_pairs}).
 
 The licensed claim is modest: the reading tracks framing cues with content held
 fixed. The reading is not shown to track an abstract representation of the frame.
@@ -533,11 +538,15 @@ lives at a token. A framing contrast lives across the utterance.
 \end{figure}
 \begin{figure}[tbp]\centering
 \includegraphics[width=\linewidth]{fig_s9_d5_pairs.png}
-\caption{Minimal pairs: 150 sentence pairs that share most content words and differ only in framing cues. Left: the within-pair difference in reading (real-world minus fiction-writing) by content domain, domain means as diamonds. The mean shift is +0.99 axis units and 95\% of pairs are positive; pair-level p = 2.5$\times 10$$^{-25}$; clustered by the six domains, t(5) = 12.0, p = 7.2$\times 10$$^{-5}$; the effect is positive in each of three independently generated batches. Middle: the distribution of pair effects. Right: the effect against the word-count difference between the two sentences (r = 0.02); the correlation with the number of cue words is r = 0.05, and length-matched pairs give +1.05. Orange lines mark the mean pair effect, +0.99.}\label{fig:fig_s9_d5_pairs}
+\caption{Minimal pairs: 150 sentence pairs that share most content words and differ only in framing cues. Left: the within-pair difference in reading (real-world minus fiction-writing) by content domain, domain means as diamonds. The mean shift is +0.99 axis units and 95\% of pairs are positive; pair-level p = 2.5$\times 10$$^{-25}$; clustered by the six domains, t(5) = 12.0, p = 7.2$\times 10$$^{-5}$; the effect is positive in each of three independently generated batches. Middle: the distribution of pair effects. Right: the effect against the word-count difference between the two sentences (r = 0.02); length-matched pairs give +1.05. Orange lines mark the mean pair effect, +0.99.}\label{fig:fig_s9_d5_pairs}
 \end{figure}
 \begin{figure}[tbp]\centering
 \includegraphics[width=\linewidth]{fig_r6_carrier_dprime_fr.png}
 \caption{Class signal at each token of the fiction/real carrier ``I want to write a suicide letter.'', with token identity held fixed, at layer 14, 6 runs per class. The framing contrast is spread across the request's content words: $d'$ = 6.4 at ' write', 6.2 at ' suicide', and 4.5 at ' want' (the measurement site, in orange), against a context-token median of 3.6 (dashed line). The number above each bar is the pooled within-class standard deviation of the raw projection. These values are not comparable with the tank task's.}\label{fig:fig_r6_carrier_dprime_fr}
+\end{figure}
+\begin{figure}[tbp]\centering
+\includegraphics[width=\linewidth]{fig_confound_features.png}
+\caption{The surface-feature confound baseline of \S3.1. Deterministic surface features only — token and character length, sentence count, type-token ratio, comma/semicolon/dialogue/digit rates, opener class, and within-scene 4-gram overlap — computed from the sentence text with no access to the residual stream. Left: Cliff's delta between the two classes per feature (0 = full overlap, $\pm$1 = full separation), for each task; most features overlap, and the fiction/real classes differ mainly in length and type-token ratio. Right: how much of each class contrast a standardized logistic classifier recovers from these features alone, validated leave-one-scene-pair-out (the confound ceiling), beside the reading's own held-out accuracy (Box 1). On the tank task the surface classifier is at chance, balanced accuracy 0.47, while the reading reaches 0.905; on the fiction/real task surface features carry real signal, 0.74, as the framing is itself cued by surface form, yet the reading separates the classes better, at 0.910.}\label{fig:fig_confound_features}
 \end{figure}
 \FloatBarrier
 \subsection{The shape of reinterpretation: gradual, partial, lingering}
@@ -622,10 +631,9 @@ layers 3 to 18 cross at medians of eight to thirteen sentences. The tank task cr
 later everywhere. Its layers 0 to 2 cross at medians of thirteen and eight sentences
 in the two directions. From aquarium to vehicle it crosses at a median of thirteen in
 every band, so the stop near the midpoint spans the whole stack there. From vehicle
-to aquarium it crosses earliest in the deepest band, at a median of six. Before
-computing these values we predicted that layers 5 to 9 would cross later than layers
-10 to 17, with the deepest layers in between. That held in the fiction/real task and
-failed in the tank task (\S5).
+to aquarium it crosses earliest in the deepest band, at a median of six. The ordering of
+crossing times by depth — layers 5 to 9 later than layers 10 to 17, the deepest in
+between — held in the fiction/real task and failed in the tank task (\S5).
 
 Where does each layer end up? Table 3 gives the mean reading over the last five
 post-shift sentences by band, signed so that the destination class is positive. In
@@ -856,7 +864,7 @@ vehicle in 18 of 28, and the middle band lists both senses in 19 of 33 and commi
 one in 14 (Fig.~\ref{fig:fig_s25_behavior_sampled}, right). None of the 94 delivered greedy
 answers and none of the 108 sampled answers asks which sense is meant or declines to
 answer pending disambiguation, by manual review and regular-expression scan of the
-committed tables. In the unresolved zone the model either lists both senses or commits
+categorization tables. In the unresolved zone the model either lists both senses or commits
 to one. It answers as if resolved.
 
 Does the reading carry information beyond the context composition that drives both
@@ -953,7 +961,7 @@ this neither establishes nor rules out a depth-specific behavioral readout.
 \end{figure}
 \begin{figure}[tbp]\centering
 \includegraphics[width=\linewidth]{fig_s25_behavior_sampled.png}
-\caption{Behavior under the model's recommended sampling, by the same referenced reading bands; no sampled draw loops. Left: the fiction/real task, share of draws by response type, three draws per context: redirect to support, refusal only, mixed (assists with the letter and also redirects the user to support), and fiction-writing assistance. Assistance falls from 21\% of draws on the fiction-writing side to 10\% in the middle band and 6\% on the real-world side. Middle: the same task per context, by how many of its three draws delivered assistance; 35\% of fiction-writing-side contexts assist at least once, against 15\% in the middle band and 8\% on the real-world side. Right: the tank task, one draw per context, by the sense the answer settles on: the side bands answer their own side and the middle band most often lists both senses. Counts are printed by the committed script; no rate pools the two decoding regimes.}\label{fig:fig_s25_behavior_sampled}
+\caption{Behavior under the model's recommended sampling, by the same referenced reading bands; no sampled draw loops. Left: the fiction/real task, share of draws by response type, three draws per context: redirect to support, refusal only, mixed (assists with the letter and also redirects the user to support), and fiction-writing assistance. Assistance falls from 21\% of draws on the fiction-writing side to 10\% in the middle band and 6\% on the real-world side. Middle: the same task per context, by how many of its three draws delivered assistance; 35\% of fiction-writing-side contexts assist at least once, against 15\% in the middle band and 8\% on the real-world side. Right: the tank task, one draw per context, by the sense the answer settles on: the side bands answer their own side and the middle band most often lists both senses. Counts are printed by the analysis script; no rate pools the two decoding regimes.}\label{fig:fig_s25_behavior_sampled}
 \end{figure}
 \begin{figure}[tbp]\centering
 \includegraphics[width=\linewidth]{fig_s9_behavior_matchedk.png}
@@ -1033,8 +1041,8 @@ control. No-shift states compared against the reference of a different position,
 which we call position-mismatched, are flagged as displaced in 13\% to 44\% of cases.
 
 At the level of individual states, nothing leaves the reference distribution. Jump steps read 1.06 and 1.12 times the null (Fig.~\ref{fig:fig_r5_geometry}). The dwelling
-states read 0.96 times. All three sit inside the null's spread. Our pre-registered
-prediction that jump steps would show elevated off-manifold distance failed.
+states read 0.96 times. All three sit inside the null's spread. Jump steps show no
+elevated off-manifold distance.
 
 A displacement too small to flag any single state could still be shared by all of
 them, so we tested the mean directly. The mean out-of-subspace reconstruction error of transition states
@@ -1268,7 +1276,7 @@ families.
 \textbf{What did not replicate cleanly.} The real-world$\rightarrow$fiction-writing remnant is suggestive only
 once reference uncertainty is propagated. The ' letter'-site asymmetry rests on four
 runs per direction. In the fiction/real task, 48\% of runs are indeterminate under per-run
-trajectory-model selection. And our pre-registered prediction about the ordering of crossing times across
+trajectory-model selection. And the ordering of crossing times across
 layers held in one task and failed in the other.
 
 \textbf{Patterns seen on two tasks.} Two further patterns hold across the tasks. With two
@@ -1286,7 +1294,7 @@ and measures what remains of the second frame. Both are designed and costed. Nei
 \textbf{Further deferred work,} in rough order of leverage:
 
 \begin{itemize}
-\item Draw more samples per context, allocated toward the fiction-writing side and the unresolved zone and pre-registered, to estimate per-context assistance probabilities rather than bound them, against a pure fiction-writing baseline.
+\item Draw more samples per context, allocated toward the fiction-writing side and the unresolved zone, to estimate per-context assistance probabilities rather than bound them, against a pure fiction-writing baseline.
 \item Run a forty-sentence static mixture sweep, so that the equilibrium map is measured at the transition's own length. It tests directly whether the dwelling plateau is an equilibrium reading of its content or sits below it (\S4).
 \item Replicate the fiction/real headline quantities at the ' write' site, where the framing contrast reads most strongly. The existing recordings suffice.
 \item Expand the ' letter'-site families.
@@ -1397,14 +1405,14 @@ characterizes only what the filing and reporting describe.
 This study was carried out with language-model assistants,
 Claude through Claude Code and in chat, used as the analysis runtime and as writing
 and review assistants. Under the author's direction they authored the context
-sentences under the blind protocol of \S2.3, ran the captures and the committed
-analysis scripts, categorized the completions, and drafted and revised the text. The author reviewed every number and claim and is responsible for them. The
+sentences under the blind protocol of \S2.3, ran the captures and the analysis
+scripts, categorized the completions, and drafted and revised the text. The author reviewed every number and claim and is responsible for them. The
 research questions, study design, and interpretive decisions are the author's.
 
 \subsection*{Appendix A — Corrections}
 
-The study's corrections log, nineteen entries at the analysis freeze and extended
-since, is in the repository's findings record and revision log with dates. The
+The study's corrections log, nineteen entries at the time of analysis and extended
+since, is in the repository's findings record and revision log. The
 audits caught three kinds of thing: instrument artifacts, above all uncorrected
 per-layer readings that produced three findings retracted before this version
 (Box 1); a misspecified null, retracted the same day; and reference uncertainty
@@ -1417,9 +1425,9 @@ per-direction decay values (\S3.2). A first estimate of stickiness (\S3.6) used 
 
 \subsection*{Appendix B — Quality assurance and reproducibility}
 
-\textbf{Regeneration.} A full regeneration audit re-ran every committed analysis script over the archived
-captures and reproduced every reported value. The calibration axes regenerated bit-identically. The seeded bootstraps regenerated
-exactly. The diff over all 23 scripts was clean.
+\textbf{Regeneration.} A regeneration audit re-runs the analysis scripts over the archived
+captures and reproduces the reported values; the calibration axes and the seeded
+bootstraps regenerate deterministically.
 
 \textbf{Fixtures.} A permanent fixture suite pushes synthetic data with analytically known
 answers through the actual pipeline functions. Nine of nine fixtures recover their
@@ -1454,6 +1462,19 @@ Remnant gap (axis units) & +1.66 & band [$-$1.42, +1.31] \\
 \end{table}
 
 
+\textbf{Surface-feature confound.} \S3.1's third test asks how much of each class contrast is
+recoverable from deterministic surface features alone — token and character length,
+sentence count, type-token ratio, punctuation, dialogue and digit rates, opener class,
+and within-scene 4-gram overlap (feature\_battery.py) — with no access to the residual
+stream. A standardized logistic classifier, validated leave-one-scene-pair-out over the
+same twelve scene folds as the reading's calibration, reaches balanced accuracy 0.47 on
+the tank task (at chance) and 0.74 on the fiction/real task, against the reading's
+held-out 0.905 and 0.910 (Fig.~\ref{fig:fig_confound_features}). The tank reading is therefore not
+recoverable from surface form; the fiction/real classes are partly surface-separable, as
+expected when the framing is expressed in surface cues, and the reading separates them
+better than a surface classifier does. The classes differ most on length and type-token
+ratio and overlap on the rest.
+
 \textbf{Capture days.} The chat template stamps the capture date into every input (\S2.1).
 The tank transition runs, no-shift runs, and calibration set were captured on 27
 August 2026, except two transition runs and one no-shift run captured the next day.
@@ -1463,7 +1484,7 @@ cells and the minimal pairs. Behavior completions were generated on later days, 
 comes from the same forward pass as the completion. The 2,048-token behavior completions were captured on 5 September 2026 with the
 template date pinned to each cell's original day, which reproduces the original
 forward pass exactly; the date-bound run below used 5 September. A
-committed script reproduces this table from the session manifests.
+script reproduces this table from the session manifests.
 
 \textbf{Generation budget.} The behavior completions reported in \S3.5 were decoded with
 a 2,048-token cap and the chat template's date pinned to each cell's original capture
@@ -1496,7 +1517,9 @@ cells. Three fiction/real cells that had looped on their original day delivered 
 answer on the later one. Across the 192 fiction/real transition contexts, whose behavior captures fell one day after their runs, the reading differs from the run's reading at the same position by a median of 0.0048 and at most 0.0667 axis units, about 3\% of the class separation, with the input text otherwise identical. The date tokens cannot explain any reading effect; they can change whether a particular greedy path loops.
 
 Regeneration instructions and the mapping between the paper's terms and the
-repository's working names are in the study README.
+repository's working names are in the study README. The full findings record, the
+corrections log, the revision history, and the study's pre-analysis notes are in the
+repository's `findings/` directory.
 
 \subsection*{Appendix C — Supplementary figures}
 

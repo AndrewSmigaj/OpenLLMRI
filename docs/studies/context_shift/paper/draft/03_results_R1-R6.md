@@ -35,8 +35,9 @@ accumulated-context axes, no-shift runs read on their own class's side at every 
 applies: the fiction/real direction itself rotates with accumulation and must be
 refit at depth (Fig. fig_r3_axis_rotation).
 
-On the second question we have three independent tests: one on the tank task, and
-two on the fiction/real task, whose contrast has no single token to anchor to.
+On the second question we have three tests: an identity-matched comparison on the
+tank task, a minimal-pair test on the fiction/real task, whose contrast has no single
+token to anchor to, and a surface-feature confound ceiling on both.
 
 The first is an identity-matched comparison. The tank carrier is "What is the meaning of the word tank?" Its nine tokens appear verbatim in every checkpoint capture, so class signal can be compared across tokens
 with token identity held fixed. We measure the class signal at each token as d′, the difference of class means
@@ -58,10 +59,17 @@ positive in each of three independently generated batches of pairs, and it holds
 the six content domains the pairs were written in, rather than the pairs, are taken as
 the unit of analysis. The statistics are in the caption.
 
-The third is dose-independence. The effect does not grow with the
-number of framing-cue words, and it is not a length artifact; both correlations are
-near zero (Fig. fig_s9_d5_pairs). One cue moves the reading as far as four. The
-response saturates at a single cue rather than accumulating.
+The third is a surface-feature confound ceiling. We ask how much of each class
+contrast a classifier recovers from deterministic surface features alone — token and
+character length, punctuation and dialogue rates, opener class, type-token ratio, and
+within-scene n-gram overlap — with no access to the residual stream, validated
+leave-one-scene-pair-out (Fig. fig_confound_features; Appendix B). On the tank task
+the surface classifier sits at chance, balanced accuracy 0.47, so the tank reading's
+held-out 0.905 is not recoverable from surface form. On the fiction/real task surface
+features carry real signal, balanced accuracy 0.74, as expected when the framing is
+itself expressed in surface cues, yet the reading still separates the classes better,
+at 0.910. The pair effect is also not a length artifact: within a pair it is
+uncorrelated with the sentences' length difference (r = 0.02; Fig. fig_s9_d5_pairs).
 
 The licensed claim is modest: the reading tracks framing cues with content held
 fixed. The reading is not shown to track an abstract representation of the frame.
@@ -149,10 +157,9 @@ layers 3 to 18 cross at medians of eight to thirteen sentences. The tank task cr
 later everywhere. Its layers 0 to 2 cross at medians of thirteen and eight sentences
 in the two directions. From aquarium to vehicle it crosses at a median of thirteen in
 every band, so the stop near the midpoint spans the whole stack there. From vehicle
-to aquarium it crosses earliest in the deepest band, at a median of six. Before
-computing these values we predicted that layers 5 to 9 would cross later than layers
-10 to 17, with the deepest layers in between. That held in the fiction/real task and
-failed in the tank task (§5).
+to aquarium it crosses earliest in the deepest band, at a median of six. The ordering of
+crossing times by depth — layers 5 to 9 later than layers 10 to 17, the deepest in
+between — held in the fiction/real task and failed in the tank task (§5).
 
 Where does each layer end up? Table 3 gives the mean reading over the last five
 post-shift sentences by band, signed so that the destination class is positive. In
@@ -321,7 +328,7 @@ vehicle in 18 of 28, and the middle band lists both senses in 19 of 33 and commi
 one in 14 (Fig. fig_s25_behavior_sampled, right). None of the 94 delivered greedy
 answers and none of the 108 sampled answers asks which sense is meant or declines to
 answer pending disambiguation, by manual review and regular-expression scan of the
-committed tables. In the unresolved zone the model either lists both senses or commits
+categorization tables. In the unresolved zone the model either lists both senses or commits
 to one. It answers as if resolved.
 
 Does the reading carry information beyond the context composition that drives both
@@ -461,8 +468,8 @@ control. No-shift states compared against the reference of a different position,
 which we call position-mismatched, are flagged as displaced in 13% to 44% of cases.
 
 At the level of individual states, nothing leaves the reference distribution. Jump steps read 1.06 and 1.12 times the null (Fig. fig_r5_geometry). The dwelling
-states read 0.96 times. All three sit inside the null's spread. Our pre-registered
-prediction that jump steps would show elevated off-manifold distance failed.
+states read 0.96 times. All three sit inside the null's spread. Jump steps show no
+elevated off-manifold distance.
 
 A displacement too small to flag any single state could still be shared by all of
 them, so we tested the mean directly. The mean out-of-subspace reconstruction error of transition states

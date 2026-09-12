@@ -13,10 +13,9 @@ All experiments use gpt-oss-20b, a 20-billion-parameter mixture-of-experts langu
 model, in its stock configuration. We make no modifications to the model or its
 routing. Its native top-4-experts-per-token routing operates untouched. Inputs are formatted with the model's chat template as a single user message, with
 no developer message, and processed with deterministic forward passes, so identical inputs yield identical
-activations. We verified this on the hardware used: the same input captured twice
-gives byte-identical generated text and an identical reading (Appendix B). The model runs at the precision it is distributed
+activations (verified byte-identical on the hardware used; Appendix B). The model runs at the precision it is distributed
 in: expert weights in the 4-bit MXFP4 format, all other weights in 16-bit floating
-point. The same loaded model produced every capture and every completion. One property of the template matters for reproduction. Its system message stamps the capture date, so inputs captured on different days differ by a few tokens at fixed positions and are not bit-identical. Within a run the date is constant, since a run is one forward chain, and where a run and its matched no-shift reference share a capture day the shared input effect cancels in the referencing. Substituting a date about a week later moves the calibrated-site reading by under one percent of the class separation (Appendix B). Re-capture requires pinning the template's date, and the archive manifest records the capture date of every session, with the days by corpus in Appendix B. We capture the full residual
+point. The same loaded model produced every capture and every completion. One property of the template matters for reproduction. Its system message stamps the capture date, so inputs captured on different days differ by a few tokens at fixed positions. Within a run the date is constant, and where a run and its matched no-shift reference share a capture day the shared input effect cancels in the referencing. Substituting a date about a week later moves the calibrated-site reading by under one percent of the class separation, so the date tokens do not drive the reading; the capture days and the re-capture procedure are in Appendix B. We capture the full residual
 stream (2,880 dimensions) at the output of each of the 24 decoder blocks. Throughout, a
 *site* is a designated token of a fixed carrier sentence together with a layer. The
 *reading* at a site is the residual stream at that token and layer, projected onto a
@@ -241,10 +240,10 @@ unit is stated in place.
 **Behavior.** Completions are generated under two decoding policies from identical
 inputs. The first is greedy decoding with a 2,048-token cap. The second is the
 sampling the model's documentation recommends, temperature 1.0 and top-p 1.0 with no
-top-k truncation [CITE: gpt-oss README, sampling recommendation], under the same cap;
-the random seed of every draw is recorded, with three draws per fiction/real context
-and one per tank context. Categories are read from the delivered final answer by
-manual review of the committed categorization tables, with a regular-expression scan
+top-k truncation [CITE: gpt-oss README, sampling recommendation], under the same cap,
+with three draws per fiction/real context and one per tank context (seeds recorded per
+draw; Appendix B). Categories are read from the delivered final answer by
+manual review of the categorization tables, with a regular-expression scan
 as a cross-check. Tank answers are categorized by the first sense they define, as
 both, or as no answer. Fiction/real answers are categorized as fiction-writing assistance, as a safe completion (redirecting to support or only declining), as mixed (assisting and also redirecting the user to support), or as no answer. Sampled
 draws were categorized blind to the greedy category and to the other draws, in
@@ -263,12 +262,10 @@ record.
 
 ## 2.6 Reproducibility
 
-Every number in this paper regenerates from committed analysis scripts over the
-archived captures. A full regeneration audit reproduced all reported values, with calibration
-axes bit-identical and seeded bootstraps exact. A permanent fixture suite pushes
-synthetic data with analytically known answers through the actual pipeline functions.
-The label-shuffle and positive-control audits of Box 1 are committed tests. Corrections
-that changed reported values are listed in Appendix A. The complete record is in the repository. **Data and code availability.** The study lives in the
+All reported numbers regenerate from the analysis scripts over the archived captures;
+the regeneration procedure, the fixture suite, the Box 1 control audits, and a
+checksummed file manifest are in the repository (Appendix B). Corrections that changed
+reported values are listed in Appendix A. **Data and code availability.** The study lives in the
 `docs/studies/context_shift/` directory of the repository at
 github.com/AndrewSmigaj/OpenLLMRI, under the Apache-2.0 license. That directory
 holds the capture chains and their logs, the analysis and figure scripts together
@@ -278,6 +275,6 @@ sentence-generation batches, and this paper's source. The context sentences are
 under `data/sentence_sets/`. The raw residual-stream captures, 48 GB across 1,299 sessions, are not in the
 repository. They are archived by the author and available to researchers on
 request, and a public deposit is planned. A manifest of every archived file, with
-sizes and SHA-256 checksums, is committed under `captures/`. Analyses that use only projected readings run from
-the committed caches; those that read raw activations need the captures, and the
-study README lists which. Behavior completions follow a release policy: we release the categorization tables and paraphrased excerpts; raw completions and reasoning traces are available to researchers on request, since some contain model-generated text engaging with the letter request. Truncated outputs from the superseded 256-token pass, up to 1,200 characters each, were committed before that policy was set and remain in the repository's history; the 2,048-token completions and reasoning traces are withheld.
+sizes and SHA-256 checksums, is in the repository under `captures/`. Analyses that use only projected readings run from
+cached readings; those that read raw activations need the captures, and the
+study README lists which. Behavior completions follow a release policy: we release the categorization tables and paraphrased excerpts; raw completions and reasoning traces are available to researchers on request, since some contain model-generated text engaging with the letter request. Truncated outputs from the superseded 256-token pass, up to 1,200 characters each, were added to the repository before that policy was set and remain in its history; the 2,048-token completions and reasoning traces are withheld.

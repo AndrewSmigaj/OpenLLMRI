@@ -25,7 +25,7 @@ families.
 **What did not replicate cleanly.** The real-world→fiction-writing remnant is suggestive only
 once reference uncertainty is propagated. The ' letter'-site asymmetry rests on four
 runs per direction. In the fiction/real task, 48% of runs are indeterminate under per-run
-trajectory-model selection. And our pre-registered prediction about the ordering of crossing times across
+trajectory-model selection. And the ordering of crossing times across
 layers held in one task and failed in the other.
 
 **Patterns seen on two tasks.** Two further patterns hold across the tasks. With two
@@ -42,7 +42,7 @@ and measures what remains of the second frame. Both are designed and costed. Nei
 
 **Further deferred work,** in rough order of leverage:
 
-- Draw more samples per context, allocated toward the fiction-writing side and the unresolved zone and pre-registered, to estimate per-context assistance probabilities rather than bound them, against a pure fiction-writing baseline.
+- Draw more samples per context, allocated toward the fiction-writing side and the unresolved zone, to estimate per-context assistance probabilities rather than bound them, against a pure fiction-writing baseline.
 - Run a forty-sentence static mixture sweep, so that the equilibrium map is measured at the transition's own length. It tests directly whether the dwelling plateau is an equilibrium reading of its content or sits below it (§4).
 - Replicate the fiction/real headline quantities at the ' write' site, where the framing contrast reads most strongly. The existing recordings suffice.
 - Expand the ' letter'-site families.
