@@ -545,3 +545,35 @@ doctrine wants, and the χ² audits confirmed no label-correlated surface struct
 - Note for a future session: `pool_audit_v2.py` (deferred v2 tooling) needs a `__main__`
   guard — it runs + `sys.exit`s at import, so its helpers can't be imported (I replicated
   them in `feature_battery.py`). Fix when v2 resumes.
+
+## 2026-09-16 — README refresh: carrier recaptures, tour screenshots, paper figures
+
+- Recaptured `tank_polysemy_v3` (500) and `threatened_framing_v1` (400) as carrier variants
+  under the harmony template with a 2,048-token cap (`session_a644abd9`, `session_673360a5`),
+  categorized the delivered answers (tank sense: container 127, vehicle 92, aquarium 88,
+  clothing 81, scuba 62, septic 15, multiple 12, other 6, no_answer 17; threatened frame:
+  fictional 188, factual 173, unsure 18, no_answer 21), built `*_carrier_k6_n15` schemas, and
+  ran the full analyze chain on the tank schema (27 reports, 396 element descriptions).
+- **Frontend does not compile.** `frontend/src/components/analysis/ContextSensitiveCard.tsx`
+  imports `isOutputNode as checkIsOutputNode` twice (lines 2 and 5, committed in b18efcd).
+  Vite shows only the error overlay, so the MUDApp is unusable until one of the two lines is
+  deleted. This blocked the tour screenshots; a one-line fix under code-change mode unblocks
+  them. Recommendation: run `npm run build` (or open the app) before committing frontend edits.
+- **Server skill OP-3 should launch uvicorn detached.** The harness background task killed the
+  5 Sept regeneration twice; the detached form (`setsid nohup … &` with a log and PID file)
+  ran the 7-hour capture chain today without incident. Fold it into `/server` OP-3 and OP-2.
+- **The sentence-experiment route blocks the event loop** (`async def` running the capture
+  inline). Health checks hang during a capture and a second request queues behind the first.
+  Either make the route a threadpool `def` or move the capture to a background task with a
+  status endpoint, so `/health` and the session list stay responsive during long runs.
+- Loops (no `assistantfinal` within 2,048 tokens) were 3.4% on tank and 5.3% on threatened
+  with single sentences, against 13% and 42% on the paper's forty-sentence contexts.
+- The septic design group is answered "container" 82 of 100 times because most of its
+  sentences are fuel, water, propane and process vessels; only fifteen say septic or sewage.
+  If the five-sense probe is reused for a claim, rename or re-author that group.
+- README findings section keeps the March single-sentence figures and Cramér's V values at the
+  in-sentence token; the new carrier sessions measure a different token and their statistics
+  differ. A future pass could refresh that subsection from the September sessions.
+- `docs/images/` still holds ten unreferenced screenshots and the repo root eleven tracked
+  loose PNGs (`aaa.png`, `help_probe_w3_blend_stakes*.png`, `phase1_*`); candidates for
+  `docs/images/` or deletion.

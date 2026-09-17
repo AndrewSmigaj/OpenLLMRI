@@ -2,7 +2,6 @@ import { getNodeColor, getAxisColor, rgbToHex, type GradientScheme } from '../..
 import { isOutputNode as checkIsOutputNode } from '../../constants/outputNodes'
 import SentenceHighlight from '../SentenceHighlight'
 import ReactMarkdown from 'react-markdown'
-import { isOutputNode as checkIsOutputNode } from '../../constants/outputNodes'
 
 export interface ContextSensitiveCardProps {
   cardType: 'expert' | 'highway' | 'cluster' | 'route'

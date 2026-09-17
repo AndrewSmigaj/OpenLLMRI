@@ -26,6 +26,8 @@ curl -X POST http://localhost:8000/api/probes/sentence-experiment \
   -d '{"sentence_set_name": "knife_safety_v2", "session_name": "knife_run_01"}'
 ```
 
+Generation and capture options (all optional; see `SentenceExperimentRequest` in `backend/src/api/schemas.py`): `generate_output` (default true), `max_new_tokens` (default 256; the context-shift study and the September 2026 README recapture used 2048), `pin_date` (ISO date to pin the chat template's date line), `do_sample` / `temperature` / `top_p` / `seed`. The route applies the harmony chat template to every sentence and runs the whole capture inline, so the server's event loop is blocked until the request returns; fire one capture at a time and wait for `state: completed` in `data/lake/_sessions/<session>.json`. The stored `generated_text` is the full completion: reasoning channel first, then `assistantfinal` and the delivered answer.
+
 This is a Claude-based workflow — there is no probe UI. Claude Code runs captures via the API and manages sessions directly.
 
 ## What Happens During Capture
@@ -93,6 +95,10 @@ print(df[['probe_id', 'target_word', 'label', 'label2']].head())
 | `attacked_framing_v1` | attacked | roleplay vs factual | voice, scale, specificity | `role_framing/attacked_framing_v1.json` |
 | `destroyed_framing_v1` | destroyed | roleplay vs factual | voice, scale, specificity | `role_framing/destroyed_framing_v1.json` |
 | `threatened_framing_v1` | threatened | roleplay vs factual | voice, scale, specificity | `role_framing/threatened_framing_v1.json` |
+| `tank_polysemy_v3_carrier` | tank | five senses + paper Q1 carrier ("What is the meaning of the word tank?") | structure, register | `polysemy/tank_polysemy_v3_carrier.json` |
+| `threatened_framing_v1_carrier` | threatened | roleplay vs factual + frame-question carrier | voice, scale, specificity, … | `role_framing/threatened_framing_v1_carrier.json` |
+
+Carrier sets declare `metadata.set_type = "assembled"` so the loader accepts the second occurrence of the target word and the longer text; capture lands on the carrier's token (last occurrence). Their guides (`*_carrier.md`) hold the delivered-answer classification rules.
 
 Each set has a `categories` dict per sentence and a file-level `axes` array declaring available category dimensions. See `data/sentence_sets/GUIDE.md` for full category details and confound analysis.
 

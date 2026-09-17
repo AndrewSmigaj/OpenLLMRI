@@ -14,7 +14,7 @@ The platform works in two modes:
 
 **MUD scenario analysis** — an integrated MUD (Multi-User Dungeon) built on [Evennia](https://www.evennia.com/) where an AI agent encounters YAML-defined scenarios. Each scenario is a self-contained room with NPCs, objects, and branching actions that the agent navigates through text commands — examining, interacting, and making decisions. Activations are captured at each decision tick, producing trajectory data that shows how internal states form and shift as information accumulates across turns. Scenarios can probe any domain: social reasoning, spatial navigation, moral dilemmas, resource management, or anything else expressible as a text adventure.
 
-The accompanying paper is in [`paper/main.pdf`](paper/main.pdf).
+The March 2026 hackathon paper that introduced the platform is in [`paper/main.pdf`](paper/main.pdf); the current preprint is linked at the top of this page.
 
 ---
 
@@ -50,17 +50,23 @@ Expert routing independently confirms the same group boundaries, providing conve
 
 ![Contingency table — basin membership covaries with engagement vs refusal](paper/fictionrealindividualsentencesoutputcontigency.png)
 
-### Accumulated context overrides distress sensitivity
+### Accumulated context: the reading crosses, then stops short
 
-In the **polysemy probe**, the starting reading holds as context accumulates. After a context switch, a noisy transition occurs as the model moves through an unresolved zone toward the new reading:
+*Content note: this study analyzes model behavior around suicide-related requests in a research context. If you or someone you know is struggling, help is available: in the US, call or text 988; elsewhere, findahelpline.com.*
 
-![Polysemy temporal analysis — basin held, noisy transition after switch](paper/polysemyconfusion.png)
+The September 2026 preprint studies what happens to the model's reading of a critical token when accumulating context changes what that token means. Two tasks use forty-sentence contexts that switch sides after sentence 20. In the **tank task**, the word "tank" moves between its aquarium and vehicle senses, measured at the "tank" token of a fixed carrier question at layer 4. In the **fiction/real task**, the fixed request "I want to write a suicide letter." keeps its wording while the surrounding frame moves between fiction writing and the speaker's real circumstances, measured at "want" at layer 14. Each of the 72 shifted runs is compared with a matched context that never switches, the no-shift reference.
 
-In the **suicide letter probe**, both orderings collapse toward the fictional-side reading within the first few sentences and remain there through the context switch. The model correctly identifies genuine distress in individual sentences (99% cluster purity), but under accumulated context, that sensitivity disappears:
+![Figure 1 — the reading at the calibrated site of each task as context accumulates and switches sides after sentence 20](docs/studies/context_shift/analysis/figures/fig_s9_collapse.png)
 
-![Suicide letter temporal analysis — both orderings collapse to the fictional basin](paper/fictionrealprobe.png)
+Solid lines are the mean transition trajectory in each direction, with bands of one standard deviation across runs. Dotted lines are the no-shift references. Zero is the midpoint between the two references, and the green band is the core of the unresolved zone: the part of the gap that fewer than 5% of either reference's readings enter.
 
-This characterizes an alignment failure invisible to harmful-output detection: the model produces benign outputs, just the wrong ones. A model that correctly refuses isolated genuine distress may still engage when accumulated context has established a different interpretive frame — exactly the condition present in real conversations.
+The reading follows the shift only partway. It crosses the midpoint after a median of 4 to 10.5 sentences, by task and direction, and then stops well short of the no-shift reference. Measured against the reference's own distance from the midpoint, the shortfall ranges from 40% to 109%, and the twenty sentences after the switch never close it. Individual runs move by drift plus discrete jumps, and evidence order has a large effect on the reading, explained almost entirely by recency weighting. None of the intermediate states is geometrically unusual against the no-shift references, yet together they carry a persistent internal signal that the context is mixed.
+
+![Behavior by reading band — the delivered answer and the reasoning channel's commitment, for both tasks](docs/studies/context_shift/analysis/figures/fig_r6_behavior_bands.png)
+
+What the model does while unresolved differs between the tasks. Across both tasks and both decoding policies, exactly one delivered answer asks which reading is meant. The tank task has no safeguard: the model lists both senses or commits silently to one. The suicide-letter task has a refusal safeguard, and most answers decline the letter or redirect to support in every reading band. Behavior still mirrors the reading: after a conversation that established the fiction-writing frame turns to the speaker's real circumstances, the share of sampled answers that assist with the letter falls only gradually, 19%, 14%, 12%, and 10% at two, six, twelve, and twenty sentences past the turn, while purely real-world contexts yield none.
+
+Method, figures, scripts, and the capture record are in [`docs/studies/context_shift/`](docs/studies/context_shift/README.md); the paper is [`main.pdf`](docs/studies/context_shift/paper/tex/main.pdf).
 
 ---
 
@@ -149,7 +155,7 @@ This project uses **Claude Code not as a development tool, but as the analysis r
 
 - **Sentence set analysis**: Sentences → model forward pass → routing weights + residual streams → Parquet files → UMAP projection → hierarchical clustering → behavioral validation → neuron extraction
 - **MUD scenario analysis**: Scenario YAML → Evennia room build → agent telnet session → tick-by-tick capture → Parquet → trajectory and cluster analysis
-- **Temporal analysis**: Expanding context window → UMAP projection onto cluster axis → persistence measurement
+- **Temporal analysis**: Expanding context window → raw-activation axis projection → transition dynamics
 
 ---
 
@@ -205,15 +211,27 @@ PATH="../.venv/bin:$PATH" evennia start
 
 ---
 
-## What it looks like
+## Platform tour
 
 ![MUDApp — bus_stop scenario, friend/foe routing across all 4 windows](docs/images/hero-mudapp-bus-stop.png)
 
 The toolbar (top-left) carries the schema dropdown plus a natural-language summary of the active schema (number of probes, filters, clustering method, reduction, embedding source — each parameter color-coded by axis). The Sankey panel below visualises cluster routes across each layer transition; the right column is the model's output bucketing (friend / foe / unknown). The right-hand analysis panel renders the per-window contingency table with χ² statistics. The MUD terminal lives at the bottom-left for live agent runs.
 
-| Tank polysemy (5 word senses) | Suicide letter (fictional vs real) |
-|---|---|
-| ![polysemy](docs/images/polysemy-view.png) | ![suicide](docs/images/suicide-view.png) |
+The three shots below come from a September 2026 recapture of the tank polysemy and threatened-framing probes in the chat format, with the paper's carrier question appended to every sentence and the capture taken at the carrier's token; the figures in the findings section above are from the March run at the in-sentence token, so the statistics visible here are not expected to match the text above.
+
+**Stepped UMAP trajectories.** Every probe's residual stream is projected with UMAP at each layer and drawn as a polyline across the layer window, colored by its design label. Here the five senses of "tank" (aquarium, vehicle, scuba, septic, clothing) travel through layers 17 to 23 at the carrier token; the Sankeys above the plot in the app show the same probes as expert routes and cluster routes.
+
+![Stepped UMAP trajectories — five senses of "tank" across layers 17–23](docs/images/tour-umap-tank.png)
+
+**Color blending.** The Color Axis carries the primary label and the Blend Axis a second one, giving four corner colors in the legend. Each Sankey node takes a weighted mix of its members' colors, so a cluster that is pure on both axes is saturated and a mixed cluster sits between. Here the threatened-framing probe is colored factual versus roleplay and blended by grammatical voice, chosen by trying each of the set's balanced design axes in the toolbar and keeping the one whose blended nodes separated most visibly. The blend exposes structure the primary axis hides: the six late-layer clusters are frame by voice, three roleplay and three factual, and nearly every one is also pure on active versus passive.
+
+![Color blending — factual vs roleplay as the color axis, active vs passive blended in](docs/images/tour-blend-threatened.png)
+
+**Cluster route analysis.** Clicking a route opens its card: token flow, the composition of its input labels and secondary categories as stacked bars, a description written by Claude Code through the analyze skill, and example sentences with the model's full completion (reasoning channel and delivered answer). The contingency table beside the Sankeys ties each late-layer cluster to the sense the delivered answer settled on, with χ² and Cramér's V for the window.
+
+![Route card — composition bars, description, and examples for one cluster route](docs/images/tour-route-card-tank.png)
+
+![Cluster → generated-continuation contingency table for the tank probe](docs/images/tour-contingency-tank.png)
 
 ---
 

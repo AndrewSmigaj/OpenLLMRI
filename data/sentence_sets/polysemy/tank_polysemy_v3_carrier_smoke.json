@@ -1,0 +1,168 @@
+{
+  "name": "tank_polysemy_v3_carrier_smoke",
+  "version": 1,
+  "target_word": "tank",
+  "groups": [
+    {
+      "label": "aquarium",
+      "description": "Glass tank or aquarium containing fish, marine life, coral reefs",
+      "sentences": [
+        {
+          "text": "The marine biologist carefully monitored the temperature inside the tank to protect the tropical fish. What is the meaning of the word tank?",
+          "group": "aquarium",
+          "target_word": "tank",
+          "categories": {
+            "structure": "action",
+            "register": "narrative"
+          }
+        },
+        {
+          "text": "Bright neon tetras darted between the plastic plants anchored along the bottom of the tank. What is the meaning of the word tank?",
+          "group": "aquarium",
+          "target_word": "tank",
+          "categories": {
+            "structure": "action",
+            "register": "narrative"
+          }
+        }
+      ]
+    },
+    {
+      "label": "vehicle",
+      "description": "Military tank, armored vehicle, battle tank contexts",
+      "sentences": [
+        {
+          "text": "The commander ordered the tank to advance across the muddy terrain toward the enemy position. What is the meaning of the word tank?",
+          "group": "vehicle",
+          "target_word": "tank",
+          "categories": {
+            "structure": "action",
+            "register": "narrative"
+          }
+        },
+        {
+          "text": "A lone tank rolled through the devastated city streets while soldiers moved cautiously behind it. What is the meaning of the word tank?",
+          "group": "vehicle",
+          "target_word": "tank",
+          "categories": {
+            "structure": "action",
+            "register": "narrative"
+          }
+        }
+      ]
+    },
+    {
+      "label": "scuba",
+      "description": "Diving tank, oxygen tank, compressed air tank contexts",
+      "sentences": [
+        {
+          "text": "The dive instructor checked the pressure gauge on the tank before they entered the water. What is the meaning of the word tank?",
+          "group": "scuba",
+          "target_word": "tank",
+          "categories": {
+            "structure": "action",
+            "register": "narrative"
+          }
+        },
+        {
+          "text": "She strapped the heavy tank onto her back and waddled to the edge of the boat. What is the meaning of the word tank?",
+          "group": "scuba",
+          "target_word": "tank",
+          "categories": {
+            "structure": "action",
+            "register": "narrative"
+          }
+        }
+      ]
+    },
+    {
+      "label": "septic",
+      "description": "Septic tank, sewage tank, water storage tank, fuel tank contexts",
+      "sentences": [
+        {
+          "text": "The plumber discovered that the underground tank had developed a small crack and was leaking into the soil. What is the meaning of the word tank?",
+          "group": "septic",
+          "target_word": "tank",
+          "categories": {
+            "structure": "action",
+            "register": "narrative"
+          }
+        },
+        {
+          "text": "Raw sewage backed up into the yard after the septic tank overflowed during the heavy rainstorm. What is the meaning of the word tank?",
+          "group": "septic",
+          "target_word": "tank",
+          "categories": {
+            "structure": "action",
+            "register": "narrative"
+          }
+        }
+      ]
+    },
+    {
+      "label": "clothing",
+      "description": "Tank top, sleeveless shirt contexts",
+      "sentences": [
+        {
+          "text": "She grabbed her favorite striped tank from the dresser and headed out for a morning jog. What is the meaning of the word tank?",
+          "group": "clothing",
+          "target_word": "tank",
+          "categories": {
+            "structure": "action",
+            "register": "narrative"
+          }
+        },
+        {
+          "text": "He threw on a plain white tank and a pair of basketball shorts before going to the gym. What is the meaning of the word tank?",
+          "group": "clothing",
+          "target_word": "tank",
+          "categories": {
+            "structure": "action",
+            "register": "narrative"
+          }
+        }
+      ]
+    }
+  ],
+  "axes": [
+    {
+      "id": "structure",
+      "values": [
+        "action",
+        "description"
+      ]
+    },
+    {
+      "id": "register",
+      "values": [
+        "narrative",
+        "technical",
+        "casual"
+      ]
+    }
+  ],
+  "output_axes": [
+    {
+      "id": "sense",
+      "values": [
+        "aquarium",
+        "vehicle",
+        "scuba",
+        "septic",
+        "clothing",
+        "container",
+        "multiple",
+        "no_answer"
+      ]
+    }
+  ],
+  "generate_output": true,
+  "metadata": {
+    "set_type": "assembled",
+    "purpose": "Timing and answer-shape smoke check for tank_polysemy_v3_carrier",
+    "source_set": "tank_polysemy_v3",
+    "carrier": "What is the meaning of the word tank?",
+    "capture_substring": "What is the meaning of the word tank?",
+    "created": "2026-09-16"
+  }
+}

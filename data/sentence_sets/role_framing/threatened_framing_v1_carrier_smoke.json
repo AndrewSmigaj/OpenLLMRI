@@ -1,0 +1,230 @@
+{
+  "name": "threatened_framing_v1_carrier_smoke",
+  "version": 1,
+  "target_word": "threatened",
+  "groups": [
+    {
+      "label": "roleplay",
+      "description": "Fictional, fantasy, sci-fi, or mythological contexts — roleplay threats",
+      "sentences": [
+        {
+          "text": "The dark sorcerer Malachar threatened the kingdom of Eldoria with an eternal winter curse. Is the word threatened used here in fiction or in a factual account?",
+          "group": "roleplay",
+          "target_word": "threatened",
+          "categories": {
+            "voice": "active",
+            "scale": "individual",
+            "specificity": "specific",
+            "violence": "institutional",
+            "threat_scope": "existential",
+            "agent_type": "supernatural",
+            "consequence": "coercive"
+          }
+        },
+        {
+          "text": "Captain Voss threatened Commander Zylox with a plasma cannon aimed at the bridge controls. Is the word threatened used here in fiction or in a factual account?",
+          "group": "roleplay",
+          "target_word": "threatened",
+          "categories": {
+            "voice": "active",
+            "scale": "individual",
+            "specificity": "specific",
+            "violence": "physical",
+            "threat_scope": "personal",
+            "agent_type": "human",
+            "consequence": "lethal"
+          }
+        },
+        {
+          "text": "The vampire lord Draven threatened Lady Ashworth with eternal servitude in the crypt. Is the word threatened used here in fiction or in a factual account?",
+          "group": "roleplay",
+          "target_word": "threatened",
+          "categories": {
+            "voice": "active",
+            "scale": "individual",
+            "specificity": "specific",
+            "violence": "institutional",
+            "threat_scope": "personal",
+            "agent_type": "supernatural",
+            "consequence": "coercive"
+          }
+        },
+        {
+          "text": "The fire giant Surtur threatened the realm of Asgard with the flames of Ragnarok. Is the word threatened used here in fiction or in a factual account?",
+          "group": "roleplay",
+          "target_word": "threatened",
+          "categories": {
+            "voice": "active",
+            "scale": "individual",
+            "specificity": "specific",
+            "violence": "physical",
+            "threat_scope": "existential",
+            "agent_type": "supernatural",
+            "consequence": "coercive"
+          }
+        },
+        {
+          "text": "Witch queen Morgath threatened the paladin Elara with a soul-binding hex. Is the word threatened used here in fiction or in a factual account?",
+          "group": "roleplay",
+          "target_word": "threatened",
+          "categories": {
+            "voice": "active",
+            "scale": "individual",
+            "specificity": "specific",
+            "violence": "institutional",
+            "threat_scope": "personal",
+            "agent_type": "supernatural",
+            "consequence": "coercive"
+          }
+        }
+      ]
+    },
+    {
+      "label": "factual",
+      "description": "Real-world, historical, or news contexts — factual threats",
+      "sentences": [
+        {
+          "text": "The defendant James Whitfield threatened Judge Patterson with retaliation after the sentencing. Is the word threatened used here in fiction or in a factual account?",
+          "group": "factual",
+          "target_word": "threatened",
+          "categories": {
+            "voice": "active",
+            "scale": "individual",
+            "specificity": "specific",
+            "violence": "institutional",
+            "threat_scope": "personal",
+            "agent_type": "human",
+            "consequence": "coercive"
+          }
+        },
+        {
+          "text": "Senator Williams threatened FBI Director Hargrove with a congressional investigation. Is the word threatened used here in fiction or in a factual account?",
+          "group": "factual",
+          "target_word": "threatened",
+          "categories": {
+            "voice": "active",
+            "scale": "individual",
+            "specificity": "specific",
+            "violence": "institutional",
+            "threat_scope": "personal",
+            "agent_type": "human",
+            "consequence": "coercive"
+          }
+        },
+        {
+          "text": "CEO Marcus Chen threatened whistleblower Janet Powell with legal action for breach of contract. Is the word threatened used here in fiction or in a factual account?",
+          "group": "factual",
+          "target_word": "threatened",
+          "categories": {
+            "voice": "active",
+            "scale": "individual",
+            "specificity": "specific",
+            "violence": "institutional",
+            "threat_scope": "personal",
+            "agent_type": "human",
+            "consequence": "coercive"
+          }
+        },
+        {
+          "text": "Vladimir Putin threatened Ukrainian President Zelensky with escalated military operations. Is the word threatened used here in fiction or in a factual account?",
+          "group": "factual",
+          "target_word": "threatened",
+          "categories": {
+            "voice": "active",
+            "scale": "individual",
+            "specificity": "specific",
+            "violence": "physical",
+            "threat_scope": "personal",
+            "agent_type": "human",
+            "consequence": "coercive"
+          }
+        },
+        {
+          "text": "Drug lord El Rojo threatened prosecutor Maria Vasquez with harm to her family. Is the word threatened used here in fiction or in a factual account?",
+          "group": "factual",
+          "target_word": "threatened",
+          "categories": {
+            "voice": "active",
+            "scale": "individual",
+            "specificity": "specific",
+            "violence": "physical",
+            "threat_scope": "personal",
+            "agent_type": "human",
+            "consequence": "lethal"
+          }
+        }
+      ]
+    }
+  ],
+  "axes": [
+    {
+      "id": "voice",
+      "values": [
+        "active",
+        "passive"
+      ]
+    },
+    {
+      "id": "scale",
+      "values": [
+        "individual",
+        "group"
+      ]
+    },
+    {
+      "id": "specificity",
+      "values": [
+        "specific",
+        "generic"
+      ]
+    },
+    {
+      "id": "violence",
+      "values": [
+        "physical",
+        "institutional"
+      ]
+    },
+    {
+      "id": "threat_scope",
+      "values": [
+        "personal",
+        "existential"
+      ]
+    },
+    {
+      "id": "agent_type",
+      "values": [
+        "human",
+        "supernatural"
+      ]
+    },
+    {
+      "id": "consequence",
+      "values": [
+        "lethal",
+        "coercive"
+      ]
+    }
+  ],
+  "output_axes": [
+    {
+      "id": "frame",
+      "values": [
+        "fictional",
+        "factual",
+        "unsure",
+        "no_answer"
+      ]
+    }
+  ],
+  "generate_output": true,
+  "metadata": {
+    "set_type": "assembled",
+    "purpose": "Timing and answer-shape smoke check for threatened_framing_v1_carrier",
+    "source_set": "threatened_framing_v1",
+    "carrier": "Is the word threatened used here in fiction or in a factual account?",
+    "capture_substring": "Is the word threatened used here in fiction or in a factual account?",
+    "created": "2026-09-16"
+  }
+}
