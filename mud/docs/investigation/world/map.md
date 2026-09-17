@@ -1,5 +1,9 @@
 # The Whiteout world map — the valley (macro design)
 
+> **The design of record for this material is `docs/design/01-premise-and-world.md` (2026-09-16).** This file
+> stays as the detailed source (the zone-by-zone designs, the investigation notes) until the
+> ontology store carries it; it is a scratchpad, not authoritative.
+
 > **Status: SCRATCHPAD (investigation) — 2026-07-15 overnight design run.** The full outdoor
 > scenario: every Scene and zone beyond the crash site, designed as if the room system were
 > fully built (Scene-to-Scene travel, durations, weather bands). Companion docs:

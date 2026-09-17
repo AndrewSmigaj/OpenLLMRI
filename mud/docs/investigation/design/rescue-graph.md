@@ -1,5 +1,8 @@
 # The rescue graph — goals × paths × the scarce resource each path burns × where it sits
 
+> **Merged into `docs/design/14-rescue-paths.md` on 2026-09-16 — that document is the design of record;**
+> this file is kept as the source it was merged from and is not maintained. Corrections go there.
+
 > **Status: SCRATCHPAD — design pass for Andrew's review (2026-09-07).** The single artifact that
 > makes rooms purposeful and "several ways of doing things" checkable: for every goal, ≥3 paths;
 > for every path, the DISTINCT scarce resource it spends and the rooms it runs through. Compiled

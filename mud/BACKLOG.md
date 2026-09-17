@@ -7,8 +7,11 @@ arc (P0–P7) lives in [`docs/scenarios/whiteout/roadmap.md`](docs/scenarios/whi
 item at a time**; deferred-but-designed items are two-line stubs linking to their design.
 
 ## Now  (work-in-progress limit: 1)
-- **Andrew reviews the nine design passes** — read `docs/investigation/design/00-provenance-audit.md`
-  FIRST (what is his, what Claude added, what was removed on 2026-09-16) — (`docs/investigation/design/`, each with a lens pass):
+- **The design review — a conversation over `docs/design/`, one document at a time, in the index
+  order** (`docs/design/README.md`); nothing is built and no agent runs a world-building loop until
+  every document is finalized. Read `docs/investigation/design/00-provenance-audit.md` first (what is
+  his, what Claude added, what was removed on 2026-09-16). The nine passes of 2026-09-07 are merged
+  into `docs/design/` (`docs/investigation/design/`, each with a lens pass):
   rescue graph · time & stakes (now incl. sleep + the consensus clock, DR-14a) · events & escalation
   (the week-long run, the escalation ladder, the event menu — DR-15a) · moral & social layer · living
   rooms · fire & shaping · players & kit (the 206's honest interior: cargo net, hat shelf, 4 seats) ·

@@ -1,5 +1,9 @@
 # The plane — a realistic interior inventory (content design)
 
+> **The design of record for this material is `docs/design/16-players-and-kit.md` and `docs/design/01-premise-and-world.md` (2026-09-16).** This file
+> stays as the detailed source (the zone-by-zone designs, the investigation notes) until the
+> ontology store carries it; it is a scratchpad, not authoritative.
+
 > **Status: SCRATCHPAD — iterating with Andrew (2026-07-04).** The exhaustive what-COULD-be-there
 > list for a realistic Alaska bush plane, section by section, before we choose what makes the
 > scenario. Nothing here is content until curated into `build.py`/`zones.py` per the process.

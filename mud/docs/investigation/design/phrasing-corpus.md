@@ -1,5 +1,8 @@
 # The phrasing corpus — what agents actually type, and what the parser does with it
 
+> **Merged into `docs/design/04-grammar-and-feedback.md` and `docs/design/20-the-agent-player-and-research.md` on 2026-09-16 — that document is the design of record;**
+> this file is kept as the source it was merged from and is not maintained. Corrections go there.
+
 > **Status: SCRATCHPAD — design pass + data record (2026-09-07).** The discovery loop's first
 > artifact: two agents (Sonnet 5, Haiku 4.5), seven survival tasks, naive (A) and taught (B)
 > conditions, 294 lines → `game/world/scenarios/whiteout/probes/phrasing.py` (expect PARSED; status

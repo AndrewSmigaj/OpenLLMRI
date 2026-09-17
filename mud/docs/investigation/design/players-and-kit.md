@@ -1,5 +1,8 @@
 # Players & kit — starting draws, pockets, luggage, the clothing system, and the plane's honest interior
 
+> **Merged into `docs/design/16-players-and-kit.md` (the clothing model in 08) on 2026-09-16 — that document is the design of record;**
+> this file is kept as the source it was merged from and is not maintained. Corrections go there.
+
 > **Status: SCRATCHPAD — design pass for Andrew's review (2026-09-07, late).** **Andrew, 2026-09-16:
 > the four-seat interior (§5) is a go; the kid (§1) is in — a party of four or five; the crash is in
 > December.** Andrew decided (2026-09-07):

@@ -1,6 +1,9 @@
 # Whiteout — Game Design Document (authoritative)
 
-> **Status: FINAL — design-frozen (v1 scope).** This GDD = **your original design** (`design.md`,
+> **Status: THE UMBRELLA — pitch, vision, cross-cutting rules, and the chapter index (2026-09-16).**
+> The per-system design of record now lives in [`docs/design/`](../../design/README.md), one document
+> per system, reviewed with Andrew one at a time; each section below points to its chapter. This
+> GDD = **your original design** (`design.md`,
 > §1–49) **+ a short list of targeted improvements** (§0a). The **goals and the core engine are
 > unchanged.** Runtime is **fully deterministic — no LLM is ever called during play**; the LLM is a
 > **build-time authoring tool only**. The previously-open mechanic decisions are now **locked** (§0b/§9):
@@ -54,7 +57,34 @@ The clock and session model that were once open are **decided and locked** (full
 
 ---
 
+## Chapter index — the design of record, one document per system
+- [`01-premise-and-world`](../../design/01-premise-and-world.md)
+- [`02-the-experience`](../../design/02-the-experience.md)
+- [`03-the-player-view`](../../design/03-the-player-view.md)
+- [`04-grammar-and-feedback`](../../design/04-grammar-and-feedback.md)
+- [`05-ontology-and-sufficiency`](../../design/05-ontology-and-sufficiency.md)
+- [`06-time-sleep-and-the-clock`](../../design/06-time-sleep-and-the-clock.md)
+- [`07-fire-and-shaping`](../../design/07-fire-and-shaping.md)
+- [`08-warmth-clothing-and-shelter`](../../design/08-warmth-clothing-and-shelter.md)
+- [`09-water`](../../design/09-water.md)
+- [`10-food-and-hunger`](../../design/10-food-and-hunger.md)
+- [`11-injury-and-first-aid`](../../design/11-injury-and-first-aid.md)
+- [`12-the-pilot-and-bodies`](../../design/12-the-pilot-and-bodies.md)
+- [`13-events-escalation-and-weather`](../../design/13-events-escalation-and-weather.md)
+- [`14-rescue-paths`](../../design/14-rescue-paths.md)
+- [`15-moral-and-social-layer`](../../design/15-moral-and-social-layer.md)
+- [`16-players-and-kit`](../../design/16-players-and-kit.md)
+- [`17-rooms-and-living-rooms`](../../design/17-rooms-and-living-rooms.md)
+- [`18-materials-and-forms`](../../design/18-materials-and-forms.md)
+- [`19-multiplayer-and-instances`](../../design/19-multiplayer-and-instances.md)
+- [`20-the-agent-player-and-research`](../../design/20-the-agent-player-and-research.md)
+- [`21-endings-and-recap`](../../design/21-endings-and-recap.md)
+- [`22-the-world-building-loops`](../../design/22-the-world-building-loops.md)
+The index, the review order and the template: [`docs/design/README.md`](../../design/README.md).
+
 ## §1. Pitch & §2. Essential experience  *(unchanged)*
+> *Design of record (reviewed per system):* [`02-the-experience`](../../design/02-the-experience.md)
+
 **Whiteout** — survivors of a snowy plane crash improvise with a physically-modeled world to outlast
 cold, injury, hunger, and a worsening storm until rescue, escape, or collapse. **Essential
 experience:** *understanding a living, reactive world under pressure — and being told, physically and
@@ -76,6 +106,7 @@ by guessing the author's verb.**
    external bot *players* (ADR-0005), not authored NPCs.
 
 ## §6/§8. The world  *(unchanged; §6 premise, §8 weather arc)*
+> *Design of record (reviewed per system):* [`01-premise-and-world`](../../design/01-premise-and-world.md) · [`13-events-escalation-and-weather`](../../design/13-events-escalation-and-weather.md)
 One authored crash. One **dense scene** (cabin + camp + near-forest) gets the whole data budget —
 modeled to the hilt — rather than spread thin. Premise (§6): off-route winter crash, wrong search
 area, dead radio, weak beacon, unstable wreck, ~5h daylight. Weather (§8) escalates light → steady →
@@ -86,6 +117,7 @@ doesn't sag.
 ---
 
 ## §5/§20–§27. The interaction engine  *(your engine; runtime now fully deterministic)*
+> *Design of record (reviewed per system):* [`05-ontology-and-sufficiency`](../../design/05-ontology-and-sufficiency.md) · [`18-materials-and-forms`](../../design/18-materials-and-forms.md) · [`04-grammar-and-feedback`](../../design/04-grammar-and-feedback.md)
 
 ### §5/§21. Operations over materials  *(your §5 + §20–24, with cheap objects emphasized)*
 - **Objects are cheap:** `{materials, parts?, size, mass, tags, state{temp,wetness,contamination,
@@ -170,6 +202,7 @@ player types  e.g.  "cut the cover of the seat with the multitool"
 ---
 
 ## §10–§18. Perception & space  *(your design, unchanged; built after the slice)*
+> *Design of record (reviewed per system):* [`19-multiplayer-and-instances`](../../design/19-multiplayer-and-instances.md) · [`03-the-player-view`](../../design/03-the-player-view.md)
 Overlapping perceptual zones, not chunky rooms: a Scene is one space; a character's zone is a position
 within it; **visibility, audibility, reachability, direction, detail are separate**, each distance/
 weather/occlusion-aware (§14 bands). `look` renders perception; activity/speech route by band × loudness
@@ -177,6 +210,7 @@ weather/occlusion-aware (§14 bands). `look` renders perception; activity/speech
 Speech ranges whisper/say/call/shout, weather-modified (§15). *Deferred past the first slice.*
 
 ## §9/§16. Time, multiplayer, cooperation  *(LOCKED — running real-time clock + instanced co-op)*
+> *Design of record (reviewed per system):* [`06-time-sleep-and-the-clock`](../../design/06-time-sleep-and-the-clock.md) · [`19-multiplayer-and-instances`](../../design/19-multiplayer-and-instances.md)
 **Clock — a continuously running real-time clock (LOCKED).** Game time advances on its own, in real
 time, at a fixed pace (a tunable constant, ~10–20 real-seconds per game-minute, so one ~5-hour daylight
 arc fits a sitting). It is **not** advanced by player actions or chat, no one pokes it forward, and no
@@ -196,12 +230,14 @@ instance resets (idiomatic on Evennia — the dungeon-contrib instancing pattern
 scout's landmark while another transmits) so co-op is a shared-story engine, not parallel solitaire.
 
 ## §19. The dying pilot  *(unchanged; one tweak)*
+> *Design of record (reviewed per system):* [`12-the-pilot-and-bodies`](../../design/12-the-pilot-and-bodies.md)
 A condition-scripted, deteriorating information source — not AI dialogue. Tending buys lucidity/time/
 fragments; he dies on a timer and becomes a body. **Give tending a real opportunity cost** (time,
 exposure) so tend/question/loot is a genuine choice. Every fact he holds has **≥3 independent clue
 paths** so his death never softlocks.
 
 ## §31–§36. Survival systems  *(unchanged; + the warmth floor, improvement #4)*
+> *Design of record (reviewed per system):* [`07-fire-and-shaping`](../../design/07-fire-and-shaping.md) · [`08-warmth-clothing-and-shelter`](../../design/08-warmth-clothing-and-shelter.md) · [`09-water`](../../design/09-water.md) · [`10-food-and-hunger`](../../design/10-food-and-hunger.md) · [`11-injury-and-first-aid`](../../design/11-injury-and-first-aid.md)
 Fire (state ladder + hazards), warmth (fire **plus** windbreak/shelter/insulation/huddling/body-heat),
 water (safety gated by container state), shelter (by properties; partial shelters count), injury/
 medicine (systemic, improvised), food/death/bodies (incl. consequential cannibalism). **A no-materials
@@ -209,6 +245,7 @@ warmth floor** (huddle + fuselage + body heat) lets a competent party survive on
 so fire-failure is recoverable.
 
 ## §37–§39. Rescue  *(your additive-confidence model; one improvement)*
+> *Design of record (reviewed per system):* [`14-rescue-paths`](../../design/14-rescue-paths.md) · [`21-endings-and-recap`](../../design/21-endings-and-recap.md)
 Rescue = additive confidence + a weather window; ≥4 winning combinations; no single required path.
 Routes: stay-and-signal, beacon, radio, visual, travel. **Improvement:** make routes draw on
 **distinct** scarce resources (not all on warmth/fire) so the choice between them is real and total
@@ -217,6 +254,7 @@ warmth failure doesn't kill every route at once. The radio is the one authored d
 ---
 
 ## §43. Authoring model  *(improvement #2)*
+> *Design of record (reviewed per system):* [`17-rooms-and-living-rooms`](../../design/17-rooms-and-living-rooms.md) · [`22-the-world-building-loops`](../../design/22-the-world-building-loops.md) · [`16-players-and-kit`](../../design/16-players-and-kit.md)
 **Default:** cheap objects + ordinal materials + pre-authored operation rules (the `ontology-generator`
 skill drafts them at build time, generate-then-validate; the material table is hand-curated).
 **Exception:** full §43 packets only for puzzle-critical objects, authored as *goals with ≥3 clue/

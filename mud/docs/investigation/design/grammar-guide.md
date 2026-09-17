@@ -1,5 +1,8 @@
 # The grammar guide — what the game teaches, and how it says no
 
+> **Merged into `docs/design/04-grammar-and-feedback.md` on 2026-09-16 — that document is the design of record;**
+> this file is kept as the source it was merged from and is not maintained. Corrections go there.
+
 > **Status: SCRATCHPAD — design pass for Andrew's review (2026-09-07).** Source of the in-game
 > `help grammar` / `help verbs` text (already live, `game/world/help_entries.py`) and of the in-world
 > manual's "how to act" page. Lenses at the end. Promotes to `docs/guides/grammar.md` + the manual page

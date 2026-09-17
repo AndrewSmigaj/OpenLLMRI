@@ -1,5 +1,9 @@
 # The object inventory — every room, everything in it
 
+> **The design of record for this material is `docs/design/05-ontology-and-sufficiency.md` and `docs/design/18-materials-and-forms.md` (2026-09-16).** This file
+> stays as the detailed source (the zone-by-zone designs, the investigation notes) until the
+> ontology store carries it; it is a scratchpad, not authoritative.
+
 > **Status: SCRATCHPAD (investigation) — 2026-07-15 overnight design run.** The per-zone
 > object census Andrew asked for: for every room, as many objects as possible — snow,
 > breeze, rock, whatever — to feed the eventual flesh-out (§43 packets, the appearance

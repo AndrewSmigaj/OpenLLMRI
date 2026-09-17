@@ -1,5 +1,9 @@
 # Scene spaces — template-driven rooms, positioned objects, inner scenes
 
+> **The design of record for this material is `docs/design/03-the-player-view.md` (2026-09-16).** This file
+> stays as the detailed source (the zone-by-zone designs, the investigation notes) until the
+> ontology store carries it; it is a scratchpad, not authoritative.
+
 > **Status: SCRATCHPAD (investigation) — 2026-07-15.** Andrew's design, worked up for a read-through
 > before any code moves. Supersedes the salience-tier bucketing of DR-23 and grounds the
 > [`presentation-v3-plan`](presentation-v3-plan.md)'s "composition with a budget" in a physical model.

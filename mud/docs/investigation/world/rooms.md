@@ -1,5 +1,9 @@
 # The rooms — every Scene and zone in the valley
 
+> **The design of record for this material is `docs/design/01-premise-and-world.md` (2026-09-16).** This file
+> stays as the detailed source (the zone-by-zone designs, the investigation notes) until the
+> ontology store carries it; it is a scratchpad, not authoritative.
+
 > **Status: SCRATCHPAD (investigation) — 2026-07-15 overnight design run.** The complete room
 > design for the Whiteout scenario, written as if the full room system (Scene transitions,
 > durations, exposure, weather) were live. Macro geography, travel pricing and the design

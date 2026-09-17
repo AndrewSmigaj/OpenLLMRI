@@ -1,5 +1,8 @@
 # Living rooms — individuation, state that persists, and the seat rows as the exemplar
 
+> **Merged into `docs/design/17-rooms-and-living-rooms.md` on 2026-09-16 — that document is the design of record;**
+> this file is kept as the source it was merged from and is not maintained. Corrections go there.
+
 > **Status: SCRATCHPAD — design pass for Andrew's review (2026-09-07).** Andrew's brief: "not
 > half-thought rooms — living, interesting rooms: seats with cushions you can look under, labeled so
 > you can look under different rows or cut different seats; but the things facilitate the rescue

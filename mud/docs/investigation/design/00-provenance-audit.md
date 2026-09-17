@@ -29,8 +29,18 @@ can have some feedback reminding them of the grammar help system (it would have 
 pretty simple guide, after we finalize all the possible forms)." "If the system recognizes they need
 to use another word then it would clearly understand that word."
 
-**The world and the run (2026-09-07).** Living, interesting rooms, not half-thought ones; things
-facilitate the rescue goals; several ways of doing things; timed actions with feedback ("attempting to
+**The world and the run (2026-09-07).** Verbatim: "we dont want half thought rooms we want living
+interesting rooms - but at the same time the things will facilitate completing the various rescue goals
+(fix radio, use radio, then survive until help arives so find food, find warmth, etc) and there should
+be several ways of doing things - you could find a lighter if you look hard enough but can light it in
+various other ways, and of course a lot of things have time it takes, like a MUD you will see
+'attempting to X' with appropriate messages that fire." Also (2026-09-07, on the world): "there is the
+plane with cockpit and forward, middle, back, we should decide on what specific type of plane it is so we
+can ensure everything is there, they probably wont stay outside much though they can make a fire and
+lean to if they want so this has to be available, there should be multiple ways of getting food, getting
+warmth (blanket, jackets, other people as we see when they share a blanket, there will of course be the
+means of rescue, water sources from melting ice in a container over the fire, stream or whatever." In short: living, interesting rooms, not
+half-thought ones; things facilitate the rescue goals; several ways of doing things; timed actions with feedback ("attempting to
 X" with messages that fire); decisions across the moral spectrum (eating the pilot, stealing, hitting,
 killing); lenses from the Book of Lenses; other scenarios later. Fire is made *somehow*: rubbing sticks
 fails and the game says so; a bow drill works; a lighter lights tinder, not a branch. A survival guide

@@ -1,5 +1,9 @@
 # Presentation v3 — composition with a budget (plan + self-assessment)
 
+> **The design of record for this material is `docs/design/03-the-player-view.md` (2026-09-16).** This file
+> stays as the detailed source (the zone-by-zone designs, the investigation notes) until the
+> ontology store carries it; it is a scratchpad, not authoritative.
+
 > **Status: SCRATCHPAD — Andrew reviews before anything is built (2026-07-09).** Written after
 > his mid-cabin transcript critique. Contains: the retrospective on why three presentation
 > passes still produced lists, the v3 design, an honest assessment of what it can and cannot

@@ -1,5 +1,8 @@
 # Time & stakes — activities with feedback, processes on the clock, and the numbers that make choices real
 
+> **Merged into `docs/design/06-time-sleep-and-the-clock.md` (and 08, 10, 11, 12 for its §4 processes) on 2026-09-16 — that document is the design of record;**
+> this file is kept as the source it was merged from and is not maintained. Corrections go there.
+
 > **Status: SCRATCHPAD — design pass for Andrew's review (2026-09-07).** Realizes DR-14's P4
 > design (the scheduler) and the first slice of P5 (fire ladder, warmth, hunger, injury) as ONE
 > designed step (step 3), because without stakes there are no decisions. Grounded in the timed-action

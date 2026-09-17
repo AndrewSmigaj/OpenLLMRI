@@ -1,5 +1,8 @@
 # Fire & shaping — the forms vocabulary, the ignition model, fire as a process
 
+> **Merged into `docs/design/07-fire-and-shaping.md` on 2026-09-16 — that document is the design of record;**
+> this file is kept as the source it was merged from and is not maintained. Corrections go there.
+
 > **Status: SCRATCHPAD — design pass for Andrew's review (2026-09-07).** Walked with Andrew in
 > conversation (the lighter path; the bow-drill path; "rubbing sticks doesn't work and the game
 > says so"). Grounded in the property-crafting research (Cataclysm DDA tool qualities, NEO Scavenger

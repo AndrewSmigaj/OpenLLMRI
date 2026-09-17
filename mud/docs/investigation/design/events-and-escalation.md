@@ -1,5 +1,8 @@
 # Events & escalation — the world moves, the cold closes in, and nothing is a barrier
 
+> **Merged into `docs/design/13-events-escalation-and-weather.md` (endings also in 21) on 2026-09-16 — that document is the design of record;**
+> this file is kept as the source it was merged from and is not maintained. Corrections go there.
+
 > **Status: SCRATCHPAD — design pass for Andrew's review (2026-09-07, late).** Andrew's brief:
 > heavy snow starts at some point; other events (a bear, or whatever); the game runs roughly a
 > WEEK — rescue can come earlier, it can run longer until the food runs out — but it is not a

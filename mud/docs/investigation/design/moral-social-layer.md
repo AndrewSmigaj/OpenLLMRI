@@ -1,5 +1,8 @@
 # The moral & social layer — possible, priced, witnessed, logged; never rated
 
+> **Merged into `docs/design/15-moral-and-social-layer.md` on 2026-09-16 — that document is the design of record;**
+> this file is kept as the source it was merged from and is not maintained. Corrections go there.
+
 > **Status: SCRATCHPAD — design pass for Andrew's review (2026-09-07).** For the game AND for the
 > interpretability sandbox: decisions across the moral spectrum must be POSSIBLE (the engine never
 > refuses), PRICED (real survival math), WITNESSED (perception bands), and LEGIBLE in logs (multi-axis

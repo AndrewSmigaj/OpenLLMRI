@@ -1,5 +1,9 @@
 # How the rooms are used — the play report (v2, after polish pass 1)
 
+> **The design of record for this material is `docs/design/01-premise-and-world.md` and `docs/design/14-rescue-paths.md` (2026-09-16).** This file
+> stays as the detailed source (the zone-by-zone designs, the investigation notes) until the
+> ontology store carries it; it is a scratchpad, not authoritative.
+
 > **Status: SCRATCHPAD (investigation) — 2026-07-15 overnight design run.** Companion to
 > [`map.md`](map.md) and [`rooms.md`](rooms.md). This is the report Andrew asked for: how
 > every room earns its place in an actual session. §8+ is the auditable process log — each

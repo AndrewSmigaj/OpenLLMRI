@@ -6,7 +6,11 @@ Where everything lives, what's authoritative, and where new docs go.
 
 **Authoritative — the design of record (trust these):**
 - [`../VISION.md`](../VISION.md) — the anchor: what we build + the locked non-negotiables.
-- [`scenarios/whiteout/GDD.md`](scenarios/whiteout/GDD.md) — the game design (FINAL).
+- [`design/`](design/) — **the design of record, one document per system**, in review order; the index,
+  the review procedure and the template are in [`design/README.md`](design/README.md). A system's design
+  (the what and why, Whiteout content included) lives here; its mechanism (the how) lives in
+  `architecture/`. Each document's banner says whether it is a draft, reviewed, or finalized.
+- [`scenarios/whiteout/GDD.md`](scenarios/whiteout/GDD.md) — the umbrella: pitch, vision, cross-cutting rules, and the chapter index into `design/`.
 - [`architecture/`](architecture/) — the architecture. `implementation-architecture.md` is the spine
   (its **DR-01…DR-23 decision register is our ADR log**); `overview.md` / `perception-model.md` /
   `presentation.md` / `tick-and-scheduler.md` / `llm-integration.md` / `testing.md` /
@@ -25,9 +29,10 @@ Where everything lives, what's authoritative, and where new docs go.
 - [`process.md`](process.md) — **how we work** (the design→document→implement loop).
 
 **Scratchpad / exploratory — NOT authoritative (thinking-in-progress):**
-- [`investigation/`](investigation/) — brainstorms, lenses, research probes; `investigation/design/` holds the
-  design passes awaiting Andrew's review (rescue graph, time & stakes, moral layer, living rooms, fire &
-  shaping, phrasing corpus, grammar guide).
+- [`investigation/`](investigation/) — brainstorms, lenses, research probes; `investigation/design/` held the
+  nine design passes of 2026-09-07, now merged into `design/` (each carries a pointer banner);
+  `investigation/design/00-provenance-audit.md` stays as the review aid (what is Andrew's, what was
+  Claude's, what was removed).
 - [`proposals/`](proposals/) — proposals under consideration.
 - `~/.claude/plans/` — plan-mode working files.
 
