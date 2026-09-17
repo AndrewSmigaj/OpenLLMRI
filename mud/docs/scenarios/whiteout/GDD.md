@@ -40,8 +40,9 @@ That's the whole substantive change. Everything below is your design with these 
 > no hard time barriers, not a one-day reset; DR-17a/18a — tables and the probe corpus replace
 > packets, bake and the matrix; DR-08c — feedback is clarification only, never a menu, never a verb
 > list; the world is open-ended: the vocabulary and the entities grow by evidence without a ceiling;
-> and the pilot dies within the first day, moaning softly (heard only in the cockpit), and is not a
-> clue source — §19 is superseded; his facts live in the world.
+> and the pilot dies within the first day: nobody can talk to him (no language model behind him),
+> so scripted things only — moaning heard in the cockpit, maybe a line; what he says is designed in
+> `../../design/12-the-pilot-and-bodies.md` (§19 stands until that review).
 The clock and session model that were once open are **decided and locked** (full detail in §9):
 - **Clock — a continuously running real-time clock (LOCKED).** The world advances in real time on its
   own; it is never poked forward by player actions or chat, and no one can stall or yank the shared

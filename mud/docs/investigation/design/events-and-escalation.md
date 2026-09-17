@@ -30,7 +30,7 @@
 | **injuries** — untreated wounds infect; frostbite deepens | a cut | infection risk rises (dirty wound) | fever costs warmth and water | gangrene without care | — | a body that can't work can't stay warm |
 | **fatigue** — no sleep, or sleep in the cold | — | judgment: slower activities | mistakes: the fire goes out on watch | collapse | — | sleep is a resource with a price |
 | **the search** — rescue confidence decays as the grid moves away | the first overflight (wrong area) | a search plane crosses the valley (seen only if a signal is UP) | the search shifts north | the search is scaled back | occasional traffic only | rescue needs a signal in the air at the moment of a pass |
-| **the pilot** (Andrew, 2026-09-16) | moaning softly, heard only in the cockpit; dies within the day | a body | — | — | — | the moral question starts on day one |
+| **the pilot** (Andrew, 2026-09-16) | scripted only — no talking to him: moaning heard in the cockpit, maybe a line; dies within the day | a body | — | — | — | the moral question starts on day one |
 Nothing here refuses a player; every line is a number that hurts more each day. A party that
 does everything right can last past day ten; a party that does nothing dies by night three.
 

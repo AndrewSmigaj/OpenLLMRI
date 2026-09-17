@@ -84,8 +84,10 @@ Opus 5 build the ontology as peers. Fable plans; Opus 5 implements and grades it
 The four endings incl. "still going"; the event deck's v1 scope; cross-family agent sampling; the
 drafted numbers (warmth bands, calories, the ladder) as tunable starting points; the defaults Claude
 intends to take unless he objects (the non-interrupting command whitelist; the step-3 build order).
-**Decided 2026-09-16 (later the same day):** the pilot dies within the first day and is not a clue
-source (he moans softly, heard only in the cockpit); the watch rule stands (one acting player holds
+**Decided 2026-09-16 (later the same day):** the pilot dies within the first day; nobody can talk to
+him (no language model behind him) — scripted things only: moaning heard in the cockpit, maybe a line;
+what his lines carry is reviewed in the pilot's document (my earlier "not a clue source" was wrong and
+is corrected); the watch rule stands (one acting player holds
 the clock at 1×); moral tags and other action tags are ontology fields assigned in a fleshing-out
 pass; the beacon/radio wire overlap is a note inside the rescue-paths design, reviewed there.
 

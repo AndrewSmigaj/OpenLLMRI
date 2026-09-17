@@ -14,9 +14,9 @@
 **Be found** — rescue confidence = Σ channels ≥ threshold inside a weather window, ≥4 winning
 combinations, no single object required by all (GDD §39): stay-and-signal · beacon (ELT) · radio ·
 visual · travel/shelter.
-**Keep the party alive** — the injured co-player (carry, bind, warm). *(The pilot is not a clue
-source: he dies within the first day — Andrew, 2026-09-16; his body is a food path and a moral
-question, nothing more.)*
+**Keep the party alive** — the injured co-player (carry, bind, warm). *(The pilot dies within the first
+day and cannot be talked to — scripted lines only, Andrew 2026-09-16; whether his lines carry clues
+is reviewed in the pilot's document; his body is a food path and a moral question.)*
 
 ## 2. The currencies (map.md §1) — a path must spend a DIFFERENT key account from its siblings
 daylight · warmth · sweat (deferred cold) · tools · knowledge · risk. Every path also spends the
@@ -64,7 +64,7 @@ with-consequence, not a refusal).
 |---|---|---|---|---|
 | stay-and-signal (fire on the ice; the tire's black smoke; a ground sign) | fuel logistics + wind engineering | ice_flat, gear_gouge, crash site | the manual's SIGNALS page · the chart's search grid note · the reflector's glint (examine) | `put oil quart on fire` (smoke) · `put boughs on ice` (SOS) |
 | beacon (ELT) | conductor + elevation | tail_section (ELT), cockpit panel (wire) or dooryard cable, fuselage_top / the_knob | the manual's 121.5 page · examine the ELT ("antenna sheared") · the sheared base on fuselage_top | `take elt` → `tie wire to elt` → `go to fuselage top` → `tie wire to antenna base` |
-| radio | carry logistics + weather windows (the battery is 12 kg in the nose cowling) | cockpit, outside_nose (battery), the_knob | static-but-powered implies antenna · the manual's radio page · the chart's ridge bearing | `pry cowling` → `take battery` → `tie wire to radio` → `talk to radio` (the FSM: authored.py) |
+| radio | carry logistics + weather windows (the battery is 12 kg in the nose cowling) | cockpit, outside_nose (battery), the_knob | static-but-powered implies antenna · the pilot's fragment · the chart's ridge bearing | `pry cowling` → `take battery` → `tie wire to radio` → `talk to radio` (the FSM: authored.py) |
 | visual (mirror, reflector, flare) | the flare's one shot / sun for the mirror | crash site, ice_flat, fuselage_top | the reflector's glint · the manual · the survival mirror (census: under the seat) | `light flare` (spends the fire source) · `examine reflector` → `signal with reflector` |
 | travel/shelter (the cabin) | navigation + daylight | creek → trapline → homestead | the chart (V. HOLT) · blaze marks (knowledge) · the pilot's "ridge" | the walk, priced by the P4 durations |
 **Distinctness check** *(a design note for this doc's review, not a decision asked of Andrew)*: wire
@@ -73,12 +73,13 @@ the second conductor so it isn't a single point) · elevation ·
 fuel/wind · the flare · navigation. No object is required by every channel; the flare is fire OR
 signal (Triangularity).
 
-### THE PILOT — not a clue source (Andrew, 2026-09-16)
-He dies within the first day, moaning softly (heard only from the cockpit); tending him is a physical
-act that resolves (cover, press a wound) but does not change that. Every fact the June design gave
-him lives in the world instead, each with ≥3 paths (the ridge bearing: chart, blaze, the wreck's
-scar; 121.5: the manual, the ELT placard, the radio's dial detent). Death → a body (food path; the
-moral layer) on day one.
+### THE PILOT (scripted, dies within the first day — Andrew, 2026-09-16)
+Nobody can talk to him (no language model behind him): scripted things only — moaning softly, heard
+only in the cockpit, maybe a line. The June design had every fact he holds reachable by ≥3 other
+paths (the ridge bearing: chart, blaze, the wreck's scar; 121.5: the manual, the ELT placard, the
+radio's dial detent) — what his lines carry is reviewed in the pilot's document. Tending him is a
+physical act that resolves (cover, press a wound). Death within the first day → a body (food path;
+the moral layer).
 
 ## 4. What the graph asks of the world (gaps it exposes — content for Phase C)
 - **Missing objects**: the survival mirror (cockpit, under the seat), the tire (the smoke column),

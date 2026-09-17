@@ -121,9 +121,10 @@ physics literature). All raised confidence; none reversed a decision (overall �
 > and for agents only, all on the same rules; there is no lethal-consent gate — the engine never gates
 > physics; an agent sees exactly what a human sees (structure goes to the log only); the look is a
 > title line, the prose, who is here and one `Exits:` line (compass outdoors, fore/aft/out inside).
-> **The pilot dies within the first day**; he does not interact beyond moaning softly (heard only in
-> the cockpit); then a body. No lucid windows, no clue fragments — GDD §19's clue-source design is
-> superseded; every fact he would have held lives in the world (chart, manual, placards, dials).
+> **The pilot dies within the first day.** Nobody can talk to him — there is no language model
+> behind him, ever — so he is limited to scripted things: moaning softly, heard only in the cockpit,
+> maybe a line. What he says, and which clues (if any) ride on it with ≥3 other paths per fact, is
+> designed in `docs/design/12-the-pilot-and-bodies.md` and reviewed there; GDD §19 stands until then.
 > **The watch rule stands:** one player who keeps acting holds the clock at 1× for everyone; the
 > others wait for the next event (someone waking). **Moral tags, and other tags on actions, are
 > ontology fields** (`docs/ontology/`), assigned in their own fleshing-out pass.

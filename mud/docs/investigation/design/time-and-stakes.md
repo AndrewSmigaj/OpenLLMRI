@@ -69,11 +69,11 @@ Activity{id, actor, verb, target, tool, started_at (world-min), deadline (world-
   Wrap/bandage/press/splint act on wounds; `examine me` lists them.
 - **Drying / wetting** — `wet` is a number (g of water in the thing); by a fire it falls; in snow it
   rises; wet insulation counts for less; the soaked matchbox dries by heat (the fire bootstrap).
-- **The pilot** — a scripted process that ends within the first day (Andrew, 2026-09-16): he moans
-  softly (a sound event heard only in the cockpit), does not speak, and dies; then a body. Tending
-  him (cover, press a wound) is a physical act that resolves like any other and costs the tender
-  time and warmth, but does not delay the end. *(The June "lucid windows / fragments" design is
-  superseded.)*
+- **The pilot** — a scripted process that ends within the first day (Andrew, 2026-09-16): nobody can
+  talk to him (no language model behind him); he moans softly (a sound event heard only in the
+  cockpit) and may say scripted lines; then a body. Tending him (cover, press a wound) is a physical
+  act that resolves like any other and costs the tender time and warmth. What he says and what it
+  carries is designed in the pilot's document (June's "lucid windows / fragments" stands until then).
 All tick effects are Effects through `apply()` (DR-10); the ledger balances fuel→ash+sink and
 water in/out; the seeded replay property must stay green with activities.
 
