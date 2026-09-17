@@ -41,7 +41,30 @@ no design.
 ### Phase A — Design, first pass: the review (exit: every `docs/design/` document is `finalized`)
 | status | id | task | owner | design doc | waits on |
 |---|---|---|---|---|---|
-| ◐ | A1 | The review sittings, one document at a time in index order: GDD umbrella → 01 → 02 → 03 → 04 → 05 → 06–12 → 13–18 → 19–22. Each: I open with the paragraph, the provenance and the open questions; Andrew cuts, keeps, rewrites; the review log records it; status flips. | Andrew + Fable | all | — |
+| ◐ | A1 | The review sittings (2026-09-17), one document at a time in index order; the five-step procedure; the review packet page; blocks 1–4 then the close. Rows below flip as each document finalizes. | Andrew + Fable | all | — |
+| ☐ | A1.00 | GDD umbrella — reviewed and finalized | Andrew + Fable | GDD | — |
+| ☐ | A1.01 | 01 premise and world — reviewed and finalized | Andrew + Fable | 01 | — |
+| ☐ | A1.02 | 02 the experience — reviewed and finalized | Andrew + Fable | 02 | — |
+| ☐ | A1.03 | 03 the player view — reviewed and finalized | Andrew + Fable | 03 | — |
+| ☐ | A1.04 | 04 grammar and feedback — reviewed and finalized | Andrew + Fable | 04 | — |
+| ☐ | A1.05 | 05 ontology and sufficiency — reviewed and finalized | Andrew + Fable | 05 | — |
+| ☐ | A1.06 | 06 time, sleep and the clock — reviewed and finalized | Andrew + Fable | 06 | — |
+| ☐ | A1.07 | 07 fire and shaping — reviewed and finalized | Andrew + Fable | 07 | — |
+| ☐ | A1.08 | 08 warmth, clothing and shelter — reviewed and finalized | Andrew + Fable | 08 | — |
+| ☐ | A1.09 | 09 water — reviewed and finalized | Andrew + Fable | 09 | — |
+| ☐ | A1.10 | 10 food and hunger — reviewed and finalized | Andrew + Fable | 10 | — |
+| ☐ | A1.11 | 11 injury and first aid — reviewed and finalized | Andrew + Fable | 11 | — |
+| ☐ | A1.12 | 12 the pilot and bodies — reviewed and finalized | Andrew + Fable | 12 | — |
+| ☐ | A1.13 | 13 events, escalation and weather — reviewed and finalized | Andrew + Fable | 13 | — |
+| ☐ | A1.14 | 14 rescue paths — reviewed and finalized | Andrew + Fable | 14 | — |
+| ☐ | A1.15 | 15 moral and social layer — reviewed and finalized | Andrew + Fable | 15 | — |
+| ☐ | A1.16 | 16 players and kit — reviewed and finalized | Andrew + Fable | 16 | — |
+| ☐ | A1.17 | 17 rooms and living rooms — reviewed and finalized | Andrew + Fable | 17 | — |
+| ☐ | A1.18 | 18 materials and forms — reviewed and finalized | Andrew + Fable | 18 | — |
+| ☐ | A1.19 | 19 multiplayer and instances — reviewed and finalized | Andrew + Fable | 19 | — |
+| ☐ | A1.20 | 20 the agent player and research — reviewed and finalized | Andrew + Fable | 20 | — |
+| ☐ | A1.21 | 21 endings and recap — reviewed and finalized | Andrew + Fable | 21 | — |
+| ☐ | A1.22 | 22 the world-building loops — reviewed and finalized | Andrew + Fable | 22 | — |
 | ☐ | A2 | The cross-document decisions the docs flag (see §5): the walk-out as ending vs channel (14/21); four routes vs five (01/14); the forms list (07/18); the warmth floor (08); the run's food yields (10); the event deck's first version (13); "still going" (13/21). | Andrew | 01, 07, 08, 10, 13, 14, 18, 21 | A1 |
 | ☐ | A3 | Record every review decision: the doc's review log, the DR register (amendments), `VISION.md` where a non-negotiable moves. | Fable | — | A1 |
 | ☐ | A4 | Re-price the valley for a week-long run (travel, stay-or-go, the ladder): the July map assumed a five-hour day. | Fable → doc 01 + 13 | 01, 13 | A1.01, A1.13 |
