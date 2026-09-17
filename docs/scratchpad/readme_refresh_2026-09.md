@@ -131,3 +131,12 @@ Playwright, cropped with Pillow into `docs/images/`:
   blends to mud; output-frame blend is nearly pure. Threatened L17–23: χ²(15)=305.2, V=0.504.
 Note: the app's Run button must be pressed after selecting a schema; pressing it before the
 schema state settles loads only the trajectory.
+
+### Stage 4 redo (17 Sept)
+
+Andrew: suicide-letter findings figures stay (March, "powerful"); the first tour shots had the
+six Sankey panels bunched and no trajectory plot. Re-shot at a 2800×1500 viewport (left pane
+1400 px): `tour-umap-tank.png` = Clusters & Routes row + stepped UMAP; `tour-blend-threatened.png`
+= Visual Encoding panel (four-corner legend) stacked over the blended Sankeys + trajectory plot.
+Lesson for the app: select the layer window before pressing Run; Run loads the window that is
+selected at that moment.
