@@ -69,8 +69,11 @@ Activity{id, actor, verb, target, tool, started_at (world-min), deadline (world-
   Wrap/bandage/press/splint act on wounds; `examine me` lists them.
 - **Drying / wetting** — `wet` is a number (g of water in the thing); by a fire it falls; in snow it
   rises; wet insulation counts for less; the soaked matchbox dries by heat (the fire bootstrap).
-- **The pilot** — a scripted deterioration on the clock (GDD §19): lucidity windows, fragments,
-  death → a body. Tending buys time and costs the tender heat and minutes.
+- **The pilot** — a scripted process that ends within the first day (Andrew, 2026-09-16): he moans
+  softly (a sound event heard only in the cockpit), does not speak, and dies; then a body. Tending
+  him (cover, press a wound) is a physical act that resolves like any other and costs the tender
+  time and warmth, but does not delay the end. *(The June "lucid windows / fragments" design is
+  superseded.)*
 All tick effects are Effects through `apply()` (DR-10); the ledger balances fuel→ash+sink and
 water in/out; the seeded replay property must stay green with activities.
 
@@ -111,7 +114,8 @@ ladder (`events-and-escalation.md` §2) kills a party that is not rescued.
   or an **interrupting event**: cold below the character's floor (you wake shivering), the fire
   reaching `embers`, any propagated Event with loudness ≥ 0.5 in band (wolves, the ice booming, a
   plane), DANGER, a player's own command. A single player who keeps acting holds the clock at 1×
-  for everyone — the watch is a real co-op role (one tends the fire while three sleep; the fire
+  for everyone (decided — Andrew, 2026-09-16: the others wait for the next event, such as someone
+  waking, and do something else meanwhile) — the watch is a real co-op role (one tends the fire while three sleep; the fire
   can be banked to last the watch).
 - **Sleep is a resource with a price:** fatigue falls only while asleep; sleeping cold costs
   warmth per hour (the bedding score sets the rate); a night without sleep costs judgment (slower

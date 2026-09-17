@@ -30,7 +30,7 @@
 | **injuries** — untreated wounds infect; frostbite deepens | a cut | infection risk rises (dirty wound) | fever costs warmth and water | gangrene without care | — | a body that can't work can't stay warm |
 | **fatigue** — no sleep, or sleep in the cold | — | judgment: slower activities | mistakes: the fire goes out on watch | collapse | — | sleep is a resource with a price |
 | **the search** — rescue confidence decays as the grid moves away | the first overflight (wrong area) | a search plane crosses the valley (seen only if a signal is UP) | the search shifts north | the search is scaled back | occasional traffic only | rescue needs a signal in the air at the moment of a pass |
-| **the pilot** | lucid windows, fragments | fading | dies | a body | — | information stops; the moral question starts |
+| **the pilot** (Andrew, 2026-09-16) | moaning softly, heard only in the cockpit; dies within the day | a body | — | — | — | the moral question starts on day one |
 Nothing here refuses a player; every line is a number that hurts more each day. A party that
 does everything right can last past day ten; a party that does nothing dies by night three.
 
@@ -67,7 +67,7 @@ chance to be seen, and a story) · a distant chainsaw (the upriver village exist
 shifts on the slope with a groan (things slide; the door jams) · a window pane falls in · the tail
 section slides further down the scar · the battery freezes (the radio route's clock) · the
 extinguisher's bracket lets go · ice seals the cargo door overnight (dig or pry).
-**Bodies**: the pilot's lucid windows and his death · a wound infects · frostbite whitens a finger ·
+**Bodies**: the pilot's moans (cockpit only) and his death within the first day · a wound infects · frostbite whitens a finger ·
 snow blindness on the ice · hypothermia confusion (messages, not command hijacking) · dehydration
 headaches · the hunger stages.
 **Camp**: the fire dies on an untended watch · the drift buries the entrance · the ice booms at

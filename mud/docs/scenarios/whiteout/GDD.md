@@ -39,7 +39,9 @@ That's the whole substantive change. Everything below is your design with these 
 > sleep or wait, events interrupt it; DR-15a — a roughly week-long run with an escalation ladder and
 > no hard time barriers, not a one-day reset; DR-17a/18a — tables and the probe corpus replace
 > packets, bake and the matrix; DR-08c — feedback is clarification only, never a menu, never a verb
-> list; and the world is open-ended: the vocabulary and the entities grow by evidence without a ceiling.
+> list; the world is open-ended: the vocabulary and the entities grow by evidence without a ceiling;
+> and the pilot dies within the first day, moaning softly (heard only in the cockpit), and is not a
+> clue source — §19 is superseded; his facts live in the world.
 The clock and session model that were once open are **decided and locked** (full detail in §9):
 - **Clock — a continuously running real-time clock (LOCKED).** The world advances in real time on its
   own; it is never poked forward by player actions or chat, and no one can stall or yank the shared

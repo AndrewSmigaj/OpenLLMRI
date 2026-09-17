@@ -30,6 +30,10 @@
    severity and witnesses. *(My earlier draft had a run-level consent flag that turned hits into
    shoves; it was my addition, not Andrew's, and it is dropped.)*
 
+**Decided 2026-09-16 (Andrew):** moral tags — and other tags for actions — are fields on the
+ontology's action rows (`docs/ontology/`), assigned in their own fleshing-out pass like everything
+else in the world; the engine reads them into the event log, never into a score.
+
 ## 2. What the engine needs (small, mostly plumbing)
 - **Ownership** (`owner` exists in the contract): `take X from <character>` is an act with a
   witness check; `give X to <character>` (the prosocial twin); dropping clears no ownership — theft

@@ -81,11 +81,13 @@ Opus 5 build the ontology as peers. Fable plans; Opus 5 implements and grades it
 | "bounded", "finite (~40)", "extend by evidence, never speculatively" | DR-05b; closure §2; GDD §25a; build-practices | ceiling framing; counts are floors |
 
 ## 4. Still needing Andrew's call (asked in context in the experience document)
-The watch rule (one acting player holds the 20× clock at 1×); the four endings incl. "still going";
-the event deck's v1 scope; cross-family agent sampling; the drafted numbers (warmth bands, calories,
-the ladder) as tunable starting points; the defaults Claude intends to take unless he objects (the
-non-interrupting command whitelist; the step-3 build order; the beacon/radio wire overlap; the pilot
-dies day 3; the moral tag axes; the townie's harsh draw).
+The four endings incl. "still going"; the event deck's v1 scope; cross-family agent sampling; the
+drafted numbers (warmth bands, calories, the ladder) as tunable starting points; the defaults Claude
+intends to take unless he objects (the non-interrupting command whitelist; the step-3 build order).
+**Decided 2026-09-16 (later the same day):** the pilot dies within the first day and is not a clue
+source (he moans softly, heard only in the cockpit); the watch rule stands (one acting player holds
+the clock at 1×); moral tags and other action tags are ontology fields assigned in a fleshing-out
+pass; the beacon/radio wire overlap is a note inside the rescue-paths design, reviewed there.
 
 ## 5. Shipped code that still carries the old behaviour (BACKLOG Next, DR-08c)
 `game/world/sim/parser/grammar.py` (`_NUDGE`, the "Did you mean" line) · `game/world/sim/resolver/
