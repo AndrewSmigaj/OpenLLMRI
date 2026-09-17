@@ -1,6 +1,6 @@
 **Paper (preprint v1, 6 September 2026):** [Unresolved: Semantic Metastability in a Language Model Under Context Shift](docs/studies/context_shift/paper/tex/main.pdf). The study's data, scripts, figures, and record are in [`docs/studies/context_shift/`](docs/studies/context_shift/README.md).
 
-(we are currently pre-alpha, development continuing on integrating a MUD and an AI Scientist swarm, thanks for your patience as there are likely a few little things to iron out before this becomes usable without tweaks though if you have claude code its not hard to work through these type of things as I havent tested on other computers, i am currently in a WSL virtual machine, again thank you for the patience)
+We are currently pre-alpha. Development continues building and integrating an 'ontologically sufficient' MUD, adding steering and ablation and activation patching tools, creating new visualizations which show off color blending and the trajectory and cluster routes, and use an AI Scientist mini swarm (small lab) to use all the routing and cluster data to continue modeling OSS 20B's mind. 
 
 # Open LLMRI
 
