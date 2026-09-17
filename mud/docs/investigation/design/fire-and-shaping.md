@@ -79,7 +79,9 @@ that space; a burning thing in the hand is a torch, not a fire.
    drill (near-impossible for a novice in winter; a real partial with raw palms).
 `rub sticks together` → "The bark scuffs and warms under your hands, nothing more. Friction fire
 wants one stick spinning hard and fast in a notch of another, not two sticks scraping." `make fire
-with sticks` → the limited question.
+with sticks` → a clarification only: `'make' names what you want, not what you do. Say the act.`
+*(No question about means, no options — Andrew, 2026-09-16. The "limited question" was my
+misreading of a fallback example; removed.)*
 
 ## 7. The two walked transcripts are the seed probes (`probes/graph.py`, the fire goal)
 The lighter path (5 steps, 3 honest failures) and the bow-drill path (11 steps, 2 honest failures)
@@ -87,10 +89,11 @@ from the 2026-09-07 conversation, verbatim, with expected tiers. The runner will
 shaping family, the ignition model and the fire process land — they are the acceptance test of this
 pass.
 
-## 8. Chunk-after-mastery (Hadean Lands; approved as optional, after the base paths work)
-When a character has completed a procedure once (bow-drill fire), `make fire with bow drill` becomes
-a single long activity if the parts are present — offered, never imposed, named back to the player
-("You know this now: 'make fire with bow drill' does the whole thing."). Per character, deterministic.
+## 8. Chunk-after-mastery — REMOVED (2026-09-16)
+This was my addition (Hadean Lands' ritual macro), not Andrew's design. It hands the player a command
+("You know this now: 'make fire with bow drill' does the whole thing"), which is the game offering an
+option. Removed from this pass and from BACKLOG Later. If Andrew wants a mastery mechanic later it is
+his to raise.
 
 ## 9. Lens pass
 ### Problem Solving (GD — are there several real solutions?)

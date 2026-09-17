@@ -4,6 +4,14 @@
 > `help grammar` / `help verbs` text (already live, `game/world/help_entries.py`) and of the in-world
 > manual's "how to act" page. Lenses at the end. Promotes to `docs/guides/grammar.md` + the manual page
 > content on approval.
+>
+> **Corrected 2026-09-16 (Andrew's rule): feedback is clarification only.** The game never offers a set
+> of options, never lists what is reachable, never names a verb the player did not type. Ambiguity gets
+> `Which can do you mean?` and nothing more. An unknown word gets `I don't understand 'X'` and a pointer
+> to the grammar help; if the game could suggest the right word it already knows it, so the synonym
+> table absorbs it and the line simply works. The verb nudge, the numbered menu, `help verbs`, the
+> `make X` recipe, the `use` echo and the "limited question" were my additions or misreadings and are
+> removed below. The shipped code still carries the old behaviour until the BACKLOG item (DR-08c) lands.
 
 ## 1. The shapes (all of them)
 
@@ -27,43 +35,41 @@ seven shapes, reached from more directions.
 1. **State the act, not the aim.** `shake thermos`, not `shake the thermos to see if there's coffee
    in it`. The world answers physically either way; it never needs to know why.
 2. **Name things the way the room names them.** `examine <thing>` shows what you can name,
-   including its parts (`cut the seat's cover`). Two of a kind? Add the label (`12c`) or answer the
-   numbered question. Identical things (three shards) never ask.
+   including its parts (`cut the seat's cover`). Two of a kind? The game asks `Which seat do you
+   mean?` — nothing more — and you say it more exactly (`the wrenched seat`, `1b`, `the can in the
+   bag`). Identical things (three shards) never ask.
 3. **Tools are anything with the capability.** `with` names the tool; bare hands are the default.
    Anything with an edge cuts; anything rigid and long levers; anything long and flexible ties.
 
-## 3. How it says no (three messages, never one)
+## 3. How it says no (clarification only — never options)
 
 | failure | the game says | what the player does next |
 |---|---|---|
-| unknown verb | `I don't know how to 'chop'. Did you mean cut? Try: VERB thing … 'help grammar' shows the shape; 'help verbs' lists the families.` | picks a family verb |
-| a thing it can't see | `You don't see that here.` (+ the place is named if visible but far: `…too far away to cut from here`) | examine / search / open / move closer |
-| a verb that doesn't fit the thing | the physics: `The blade finds no seam — the bolt is bolted through the frame.` · `The foam gives; there is nothing to break.` *(tier-4, step 4)* | tries the verb the physics implies |
+| unknown word | `I don't understand 'chop'.` (+ once: `'help grammar' shows the forms.`) — never a suggested verb: if the game could suggest the word it already knows it, so the synonym table absorbs it and the line just works; every unknown word is logged so the next pass adds the synonym | rephrases, or reads the grammar help |
+| a thing it can't see | `You don't see any 'X' here.` — never naming what IS here (+ the place is named if visible but far: `…too far away to cut from here`) | examine / search / open / move closer |
+| a verb that doesn't fit the thing | the physics: `The blade finds no seam — the bolt is bolted through the frame.` · `The foam gives; there is nothing to break.` *(tier-4)* — never names another verb | tries what the physics implies |
+| two things match | `Which can do you mean?` — no numbered list, no candidates named (listing the reachable cans would give away every hidden one) | names it more exactly |
 
-The grammar nudge is cheap and automatic. A puzzle hint is expensive and opt-in — it never rides on
-a parse error. (InvisiClues / Inform's own caution: syntax confusion and puzzle-stuckness are
-different failure modes with different remedies.)
+Every reply is a clarification or the physics. The game never proposes an action, never lists what is
+here, never names a verb the player did not type. For a person that keeps the puzzles; for an agent
+it keeps the behaviour the agent's own — offering options changes how it thinks (Andrew, 2026-09-16).
 
-## 4. The teaching verbs
+## 4. `use` and `make` (tolerance, not teaching)
 
-- `use X on Y` — dispatches through X's capabilities to the real verb and **echoes it**:
-  `(That's 'cut cover with glass shard'.) You work the glass shard through the cover…`. Next time
-  the player says `cut`. `use X` alone: `The glass shard has edge to it — you could cut with it.`
-- `make X` — never runs steps. `make fire` → `A fire wants three things: something fine and dry
-  that catches from a flame or a spark, small dry wood to build it up, and bigger fuel to keep it —
-  and a way to light it.` `make fire with sticks` → adds `How do you mean to use the sticks for
-  that? Name the act.` (Andrew's limited-hint form.)
+- `use X on Y` — a phrasing people really type; it dispatches through X's capabilities to the real
+  operation and resolves **silently** as that operation, narrated like any cut or tie (Andrew,
+  2026-09-16: no verb is named back). `use X` alone → `Use it how, and on what?` — a clarification,
+  never what X could do.
+- `make X` — an aim, not an act. `make fire` → `'make' names what you want, not what you do. Say the
+  act.` No recipe, no question about means. *(The earlier "what a fire is made of" reply and the
+  "limited question" were my additions, from misreading a fallback example as a design; removed.)*
 
-## 5. `help verbs` — the families (what the player sees)
+## 5. `help grammar` — the forms, one example each (there is no verb list)
 
-cutting & shaping — cut, tear, break, bend, pry (carve, split, notch: the fire pass) ·
-fire — light, burn, melt, douse · binding & covering — tie, wrap, put, cover ·
-moving & carrying — take, put, go, open, close, search, dig · body & senses — examine, eat, drink,
-wear, remove, read (smell, listen, feel: the verb-gap step) · social — say, whisper, call, shout,
-talk to.
-
-Listing families teaches the language, not the puzzle. The list never says which verb opens which
-puzzle.
+The only help is the grammar: each form from §1 with one example, and the three rules of §2. Simple.
+It is written once the forms are final (the shaping form and any the loops discover) and rewritten
+when they change. There is no `help verbs`: vocabulary is learned by trying, and the synonym table
+absorbs how people say things. *(The verb-family list was my addition; removed 2026-09-16.)*
 
 ## 6. The in-world page (diegetic)
 
@@ -82,14 +88,15 @@ players who never type `help`.
   nouns), which the discovery loop drains; the guide never has to grow.
 
 ### Information (GD — "is the right information visible at the right moment?")
-- **Verdict:** YELLOW. **Evidence:** the three failure messages give the right *kind* of
-  information; the tier-4 physics message is not built yet, so today a verb that doesn't fit falls
-  to "you could cut or pry it". **Severity:** med. **What would change it:** step 4 (tier-4).
+- **Verdict:** YELLOW. **Evidence:** the right information is the physics of why, and the tier-4
+  physics message is not built yet, so today a verb that doesn't fit falls to a verb-list redirect —
+  which is now forbidden. **Severity:** med. **What would change it:** tier-4 + the clarification-only
+  code change (BACKLOG, DR-08c).
 
 ### Simplicity / Complexity (GD — "is the complexity in the world, not the interface?")
 - **Verdict:** GREEN. **Evidence:** interface complexity is fixed (seven shapes); world complexity
   is unbounded (materials × forms × operations). **Note:** resist adding shapes; add nouns and verbs.
 
 ### The Toy (GD — is it fun to poke without a goal?)
-- **Verdict:** YELLOW until tier-4. **Evidence:** `use X on Y` and `make X` reward poking with a
-  lesson rather than a wall; but "you could cut or pry it" is a wall with a smile.
+- **Verdict:** YELLOW until tier-4. **Evidence:** poking is rewarded only when the answer is the
+  physics of the thing; today's verb-list redirect is a wall with a smile, and a menu would be worse.

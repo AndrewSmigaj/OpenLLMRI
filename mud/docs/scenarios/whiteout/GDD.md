@@ -34,6 +34,12 @@ Same game, same goals, same engine. These are the targeted fixes:
 That's the whole substantive change. Everything below is your design with these folded in.
 
 ## §0b. Decisions now locked + remaining nice-to-haves
+> **Amended 2026-09-07 and 2026-09-16** (recorded in `../../architecture/implementation-architecture.md`
+> §2; the June text below is kept as written): DR-14a — the clock may run 20× by consensus when all
+> sleep or wait, events interrupt it; DR-15a — a roughly week-long run with an escalation ladder and
+> no hard time barriers, not a one-day reset; DR-17a/18a — tables and the probe corpus replace
+> packets, bake and the matrix; DR-08c — feedback is clarification only, never a menu, never a verb
+> list; and the world is open-ended: the vocabulary and the entities grow by evidence without a ceiling.
 The clock and session model that were once open are **decided and locked** (full detail in §9):
 - **Clock — a continuously running real-time clock (LOCKED).** The world advances in real time on its
   own; it is never poked forward by player actions or chat, and no one can stall or yank the shared
@@ -129,7 +135,7 @@ engine (§5/§21), **not** a hand-enumerated list of allowed commands. The gramm
 surface*; the engine *generates* the outcome from the verb's operation applied to the materials of
 X/Y/Z. It deliberately does **not** parse arbitrary prose or absurd over-specification ("scrape a z into
 the snow with your third fingernail") — it covers the real, sensible actions a survivor would express.
-The verb/relation vocabulary is finite and discoverable; the *objects and materials* are scene content;
+The verb/relation vocabulary is finite at any moment, discoverable, and grown by evidence without a ceiling (amended 2026-09-16); the *objects and materials* are scene content;
 the *interaction space* is the (operations × materials × relations) product, which is vast.
 
 ### §25–§27. The action pipeline — **deterministic end to end, no LLM**
@@ -139,7 +145,7 @@ player types  e.g.  "cut the cover of the seat with the multitool"
         {verb, X, relation, Y, tool}; resolve each noun phrase to reachable things.  (classic IF/MUD parser — no LLM)
  └─ RESOLVE (deterministic) through your §26 tiers, now WITHOUT an LLM tier:
         authored-special → object-rule → OPERATION×MATERIAL (the workhorse)
-        → generic-physics → INFORMATIVE REDIRECT (nearest possible operations)
+        → generic-physics → INFORMATIVE REDIRECT (the physics of why — never a list of operations; DR-08c, 2026-09-16)
  └─ APPLY effects (single source of truth) ⊳ conservation ledger ⊳ route messages by perception
  └─ NARRATE from pre-written templates + current state.  (no LLM)
 ```

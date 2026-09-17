@@ -24,6 +24,10 @@ resolve-then-crystallize), the lens pass surfaced these upgrades:
    actions → 200k pairs). Design and market to *that*, and the "wall" becomes a **delightful
    redirect** ("you can't dissolve it, but you could cut, burn, or pry it") instead of a hidden cage
    (GD22).
+   > **Corrected 2026-09-16 (Andrew).** Two things above are wrong as a design stance and stay here
+   > only as history: "bounded" — the operation set, vocabulary and entities grow by evidence without a
+   > ceiling (VISION.md); and the verb-list redirect — the game never offers options; a wall gets the
+   > physics of why and nothing else (DR-08c).
 
 3. **Two extension paths, kept distinct.** *Composition* (new combinations of existing operations) is
    handled at runtime by **crystallize** — cheap, automatic, validated. *New primitives* (a genuinely

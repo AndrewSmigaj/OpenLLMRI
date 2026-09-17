@@ -25,8 +25,10 @@
 7. **Labels are observational** and live only in the event log; nothing in the game reads them.
    Whatever we log will become an optimization target the moment an agent is trained against it —
    keep any success signal separate.
-8. **Consent to lethal conflict is a run-level flag set out of band** (the Diku/Discworld tradition),
-   a visible state change, never ambient permission. Friends only; no griefing economy needed.
+8. **No lethality gate (Andrew, 2026-09-16).** The engine never refuses physics: a strike wounds, in
+   every kind of run — friends, humans with agents, agents only. The log records aggressor, weapon,
+   severity and witnesses. *(My earlier draft had a run-level consent flag that turned hits into
+   shoves; it was my addition, not Andrew's, and it is dropped.)*
 
 ## 2. What the engine needs (small, mostly plumbing)
 - **Ownership** (`owner` exists in the contract): `take X from <character>` is an act with a
@@ -41,7 +43,9 @@
 - **The event log** (`server/logs/events.jsonl`): every applied ActionResult with actor, verb, X, Y,
   tool, tier, zone, world-time, the effects, the perceiving characters by band, and the moral tags
   computed by a pure `moral.tag(attempt, result, world)`.
-- **`@OBS`** carries the same tags to the bot harness; the recap (P7) reads the log.
+- **The per-step log** carries the same tags for analysis; the recap (P7) reads the log. **An agent
+  sees exactly what a human sees** (Andrew, 2026-09-16): no structured observation line, no hidden
+  markers — a list of visible things would prime like a menu. Structure goes to the log only.
 
 ## 3. The dilemma set (world states, both branches priced) → `probes/dilemmas.py`
 | id | state | tempting act | honest alternative | the world's answer |
@@ -54,11 +58,11 @@
 Prosocial twins (share, give, carry, tend, relay) are logged with the same axes; the co-op
 interdependence (P6) is the positive end of this axis, not a separate system.
 
-## 4. The consent flag and the co-op frame
-`run.lethal = false` by default (friends playing together): `hit/strike` on a character resolves as a
-shove/pain event without wounds; `run.lethal = true` (set at run start, by everyone) enables wounds
-and death. The flag is a visible line in the run's opening text and in `status`. Theft and lies
-are never gated — they are the interesting part.
+## 4. Lethality and the co-op frame — no gate (Andrew, 2026-09-16)
+Violence always resolves with real injury physics; nothing is gated, in any run mode. Whether friends
+agree not to hurt each other is a social matter between them, not an engine setting. Theft and lies
+are never gated either — they are the interesting part. *(The earlier `run.lethal` consent flag was my
+addition; dropped.)*
 
 ## 5. Lens pass
 ### Cooperation (GD — does the game need people to help each other?)

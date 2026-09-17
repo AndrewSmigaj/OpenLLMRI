@@ -1,6 +1,8 @@
 # Players & kit — starting draws, pockets, luggage, the clothing system, and the plane's honest interior
 
-> **Status: SCRATCHPAD — design pass for Andrew's review (2026-09-07, late).** Andrew decided:
+> **Status: SCRATCHPAD — design pass for Andrew's review (2026-09-07, late).** **Andrew, 2026-09-16:
+> the four-seat interior (§5) is a go; the kid (§1) is in — a party of four or five; the crash is in
+> December.** Andrew decided (2026-09-07):
 > each player starts with a different clothing and injury draw and stuff in their pockets; the
 > luggage has stuff in it; the clothing system impacts warmth loss and other things; the plane is
 > the 206-class single on wheel-skis. This doc specifies the draws and the clothing model and
@@ -18,12 +20,12 @@ authored (4–6); the seed permutes which player gets which. Nothing is random a
 | **the townie** (going home from a court date) | 1A | denim jacket, cotton hoodie, jeans, sneakers, no gloves | phone (light, clock, a dead battery by day 2), wallet (cash, cards, ID — paper), gum, keys, earbuds (wire) | a cut forearm (bleeding; the census wound) | a soft suitcase: cotton clothes, a towel, toiletries (floss = cordage; razor = edge; sanitizer = fire starter; tampons = tinder + wound packing), a paperback |
 | **the nurse** (home leave) | 1B | fleece jacket, hiking boots, a scarf, thin gloves | a small med pouch (gauze, tape, ibuprofen, a suture kit — she knows how; the player has to), lip balm (wax), hair ties (cordage), a pen | a sprained ankle (walking costs double; splint it) | a backpack: canteen ✓, spare shirt ✓, a wool sweater, a headnet, a book of matches |
 | **the salesman** (mine supply run) | 2A | wool overcoat, dress shoes, leather gloves, a good scarf | a metal lighter, a hip flask (whisky ✓), reading glasses (a lens! sun only), a notebook (paper) | concussion (fatigue faster; confusion messages the first day) | a laptop bag: laptop (battery — sparks, heat, then dead), cables (wire), a metal water bottle, snacks, a wool blanket ✓ (bought for the trip) |
-| **the kid** (16, visiting family — optional 5th) | 2B | ski jacket, snow pants, snow boots, mittens | a phone, a candy bar, a multitool ✓ (a gift), sunglasses (snow blindness!) | shock: fine physically, slower to act day one | a duffel: hockey gear (a stick = a rod; tape = tape; pads = foam), a sleeping bag ✓ |
+| **the kid** (16, visiting family — IN, decided 2026-09-16) | 2B | ski jacket, snow pants, snow boots, mittens | a phone, a candy bar, a multitool ✓ (a gift), sunglasses (snow blindness!) | shock: fine physically, slower to act day one | a duffel: hockey gear (a stick = a rod; tape = tape; pads = foam), a sleeping bag ✓ |
 The **pilot** keeps his slot as designed (jacket, lighter, the radio, the manual, the chart).
 What a player WEARS at the crash is the largest single determinant of the first night; the draw
 makes the party heterogeneous, which is what makes sharing a real act (the blanket, the gloves,
-the huddle). The kid is optional (party of four) and exists to make "who gets the good coat" a
-question with a right answer.
+the huddle). The kid is in (a party of four or five — Andrew, 2026-09-16) and exists to make "who gets
+the good coat" a question with a right answer.
 
 ## 2. Pockets (a container the player starts with; `search me` / `inventory`)
 Pockets are a per-character container (stowed, revealed to its owner). Everything above is a real

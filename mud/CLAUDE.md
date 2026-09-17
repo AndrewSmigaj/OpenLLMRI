@@ -77,6 +77,14 @@ image is pinned by digest (`docker/evennia/Dockerfile`) so local, CI and any clo
   commands, hooks. Reach for `run-game` to operate the server and `run-tests` for the checks.
 
 ## Hard rules (LOCKED — do not relitigate; see VISION.md / GDD §0b / the architecture DRs)
+- **The world is open-ended — never frame it as bounded.** Any and all entities and relations a player
+  would reasonably try are in scope, the natural world included; verbs, nouns, relations, materials
+  and forms grow by evidence without a ceiling. Every count in any doc is a floor. The overnight loops
+  (ontology → possibilities → design → implement → agents play → log walls) are the main line of
+  work, run by teams of agents. (VISION.md, 2026-09-16)
+- **Never a menu.** The game never offers a set of actions, never lists what is reachable, never names
+  a verb the player did not type. Feedback is a clarification (`Which can do you mean?`, `I don't
+  understand 'X'`, a pointer to `help grammar`) or the physics of why. (VISION.md, DR-08c)
 - **`world/sim` imports no Evennia/Django — functional core, imperative shell.** Rules are
   pure Python in `game/world/sim/**`. Never put rules in typeclass methods; never import Evennia
   from `world/sim`. Enforced by `tools/lints/check_pure_core.py`. (ADR-0003, DR-01)
@@ -84,9 +92,11 @@ image is pinned by digest (`docker/evennia/Dockerfile`) so local, CI and any clo
   only** (GDD §41) — it helps build the world, it is never in the world. It never invents state,
   decides survival math, or interprets input at runtime. (DR-02)
 - **The world clock is a continuously running real-time clock** (GDD §9) — it just runs; nobody can
-  stall or yank it. Event-driven/turn-based time, a planning-freeze and fast-forward were all rejected.
-  A deterministic logical clock under the hood keeps replay/fuzz reproducible. (DR-14)
-- **Sessions are instanced, synchronous co-op** (~1 in-game day, then reset). (DR-15)
+  stall or yank it. Event-driven/turn-based time and a planning-freeze were rejected. It may run at
+  20× by consensus when every player sleeps or waits, and events interrupt it (DR-14a). A
+  deterministic logical clock under the hood keeps replay/fuzz reproducible. (DR-14)
+- **Sessions are instanced, synchronous co-op**; a run is roughly a week of game time with an
+  escalation ladder and no hard time barriers. (DR-15, amended DR-15a)
 - **Input is the taught grammar** `VERB X [RELATION Y] [WITH Z]` → `ActionAttempt{verb,X,relation,
   Y,tool}` — not free-form NLP, not a canned verb list; resolution is the generative
   operation×material engine. (DR-08, GDD §25a)

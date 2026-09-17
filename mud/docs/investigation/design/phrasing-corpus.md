@@ -61,6 +61,7 @@ are what grow.
 
 ## 6. Lens pass (Skill · Information · Curiosity)
 - **Skill — GREEN:** the taught condition is learnable in four lines; the residue is content.
-- **Information — GREEN:** the nudge names close verbs; the guide names families.
+- **Information — GREEN:** an unknown word gets a clarification and the grammar help; synonyms absorb
+  phrasing (no verb suggestions, no verb list — corrected 2026-09-16).
 - **Curiosity — YELLOW:** agents in the naive condition tried things the world can't answer yet
   (blow on the flame, cover the tear). Those are the best gaps: they are what a curious player wants.

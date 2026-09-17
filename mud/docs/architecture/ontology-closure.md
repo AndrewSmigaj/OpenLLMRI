@@ -25,12 +25,27 @@ The engine already had the tiers, the ledger, the single writer and the taught g
 closure: a shard minted by `break` carried only material, mass and provenance, so `cut X with shard`
 counted as bare hands. That gap — outputs as dead ends — is what this doc closes.
 
+**Sufficiency has no ceiling (Andrew, 2026-09-16).** "Whatever is reasonable" means any and all
+entities and relations a player would reasonably try — chop the log with the axe, dig the dirt, find
+a rock, find clay — including the natural world, not only the authored kit. The verb set, the noun
+set, the relations, the materials and the forms are all growing sets, grown by evidence from the room
+censuses and from agents playing, over many overnight loops run by teams of agents. Every count in
+this doc (~15 forms, ~40 operation categories) is where things start, never where they end. Fallback
+physics (§4) is the honest interim answer while the loop catches up, not the boundary. A room is never
+finished; it is "no walls found in the last N runs".
+
+**Never a menu (Andrew, 2026-09-16).** The game never offers a set of actions, never lists what is
+reachable, never names a verb the player did not type. Feedback is a clarification (`Which can do you
+mean?`, `I don't understand 'X'`, a pointer to the grammar help) or the physics of why. Offering
+options gives away the puzzles and, for an agent, constrains how it thinks.
+
 ## 2. Forms
 
 A **form** is the shape a quantity of material takes. Materials (DR-04) say what a thing is made of;
 forms say what shape it is in; capabilities (§3) fall out of the pair.
 
-The taught forms vocabulary (v1, ~15; extend by evidence, never speculatively):
+The forms vocabulary (v1, ~15 — the starting set; the censuses and play grow it continuously, and it
+has no ceiling):
 
 | form | typical origin | what it lends |
 |---|---|---|
@@ -99,8 +114,9 @@ it" — or "Nothing you try seems to affect the X." Tier 4 sits between the hand
 and that list, and answers **from properties**: a soft thing "gives — there is nothing to break";
 a liquid "parts around the blade"; a heavy thing "won't shift"; a non-flammable thing "won't take a
 flame"; a wet thing "is too wet to catch"; a non-edible thing "would choke you". Each is a narrated
-REDIRECT with a physical reason, and only then the ≤2-verb suggestion. The wall-sensor records the
-attempt either way.
+REDIRECT with a physical reason and nothing else — the game never names a verb the player did not
+type (Andrew, 2026-09-16; this retires the coarse verb-list redirect of DR-09 and the sibling
+near-miss hint of DR-09a). The wall-sensor records the attempt either way.
 
 ## 5. Parser tolerance (the largest measured gap to an agent playing)
 
@@ -120,16 +136,21 @@ grammar (none of this is free-text NLP):
    thermos to see if coffee is in there`. Trailing purpose clauses and adverbs are trimmed;
    meta-verbs (`try to`, `see if`) are stripped; `and` compounds become two commands.
 5. **Body parts and pronouns**: `my arm` / `myself` → the actor; `it` → the last bound noun
-   (ephemeral per-caller shell state, like the pending menu).
+   (ephemeral per-caller shell state, like a pending clarification).
 6. **Noun binding**: whole-phrase entity match *before* the possessive `of` split (`canteen of
    water`), then longest-known-noun matching so trailing words don't poison the phrase.
 
-Plus the teaching layer: **three distinct failure messages** (unknown verb → 2–4 plausible verbs;
-unresolvable noun → "you don't see that here", point to `examine`; supported verb + wrong object →
-the tier-4 physics), **silent disambiguation first** (held > reachable > recent; the more specific
-candidate wins; ask only on a true tie), **`use X on Y`** dispatching through capabilities to the
-real verb and echoing it, **`make X`** naming what X is made of, and **`help grammar` /
-`help verbs`** teaching forms and verb families — never solutions.
+Plus the feedback layer — **clarification only, never options** (Andrew, 2026-09-16; supersedes the
+"three failure messages" of DR-08b and the numbered menu of DR-08a): an unknown word → `I don't
+understand 'X'.` with a pointer to `help grammar` — never a suggested verb, because if the game could
+suggest the word it already knows it, so the synonym table absorbs it and the line simply works (and
+every unknown word is logged to the wall-sensor so the next pass adds the synonym); an unresolvable
+noun → `You don't see any 'X' here.`, never naming what IS here; a verb that doesn't fit → the tier-4
+physics, never another verb; a true tie → `Which X do you mean?` and nothing more (no numbered list,
+no candidates named — that would give away hidden things); **silent disambiguation first** (held >
+reachable > recent; the more specific candidate wins). `use X on Y` resolves silently as the real
+operation (no verb named back); `make X` is an aim, not an act, and gets a clarification; `help
+grammar` shows the forms with one example each — there is no verb list.
 
 ### 5.4 Pseudo-nouns
 Zones (`zone:`), forms (`form:`), and — as the verb-gap step lands — **scenery** (`scenery:`:
@@ -150,7 +171,7 @@ A **probe** is one typed command chain in one room with an expected outcome clas
 
 Probes run the **real parser** on typed lines against a **pure in-memory world** (`PureWorld`,
 loaded from the same `OBJECT_TABLE` the Evennia loader uses, with an in-memory `apply()` for
-chained steps). A disambiguation mid-chain takes the first option unless the step names a pick.
+chained steps). A probe step names its nouns unambiguously; a clarification mid-chain fails the probe.
 
 - `status: pass` probes are CI-enforced; `status: todo` probes are the work queue.
 - `probes/BASELINE` holds the passing count; it may never drop (the ratchet).

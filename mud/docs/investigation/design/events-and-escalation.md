@@ -11,13 +11,15 @@
 ## 1. The two clocks (what "a week" means)
 - **The world clock** runs continuously (DR-14) at 15 real-s per game-minute — ~1.6 real hours per
   game day when the party is active. **Sleep and `wait` advance it by consensus** (DR-14a, in
-  `time-and-stakes.md` §9): when every connected player is resting, the heartbeat runs at 20× until
+  `time-and-stakes.md` §8): when every connected player is resting, the heartbeat runs at 20× until
   a target time or an interrupting event. So a week of game time is a few sittings, and a party that
   keeps busy pays for it in cold.
 - **The escalation calendar** is indexed by game day, not by real time: the world gets deadlier on
   its own schedule whether the party acts or sleeps.
 
 ## 2. The escalation ladder (the "should kill them" curve — deterministic, telegraphed, no barriers)
+> **Decided 2026-09-16: the crash is in December** — five hours of daylight; the ladder below starts
+> from a December valley. The numbers are proposals for Andrew's review, tunable by probes.
 | what rises | day 1 | day 3 | day 5 | day 7 | day 10 | how it kills |
 |---|---|---|---|---|---|---|
 | **cold** — ambient by day, colder at night (coldest before dawn) | −12 °C / −20 night | −18 / −26 | −24 / −32 | −30 / −38 | −34 / −42 | warmth math: without fire + insulation + shelter the core drops below the floor |
@@ -54,11 +56,8 @@ night, tracks circle the wreck by the fourth, they test a lone traveller on the 
 danger, never a scripted kill) · a lynx print, never the lynx · ptarmigan flush (food if you're
 quick) · a hare in the snare · a moose on the trail (a wall of meat that kills the careless; not
 food unless the party can kill it, which they can't) · an owl at night · a snow load drops off a
-bough onto whoever stands under it. **The bear:** Alaska bears den by early winter; a bear is
-plausible only if the crash is late October (a hungry, late-denning grizzly drawn by the meat
-smell) or if the tail section came to rest on a den. If Andrew wants the bear, set the calendar
-to late October / early November and make it the rarest, loudest event in the deck — otherwise
-the wolverine and the wolves are the honest antagonists of a December valley.
+bough onto whoever stands under it. **The bear — decided 2026-09-16: no bear.** The crash is in December; Alaska bears den by early
+winter. The wolverine and the wolves are the antagonists.
 **Search & rescue** (the rescue system's own events): the day-1 overflight in the wrong area (heard,
 not seen) · the day-2/3 search plane crossing the valley (seen if a signal is up: smoke, fire on the
 ice, the mirror in sun, the ELT if an aircraft is overhead to hear 121.5) · a helicopter on a clear

@@ -115,9 +115,15 @@ physics literature). All raised confidence; none reversed a decision (overall �
 > (cargo net + hat shelf + jammed cargo door; seats 1A/1B/2A/2B + the right seat); each player
 > starts with a different clothing / injury / pockets draw (`players-and-kit.md`); luggage has real
 > contents; the clothing system prices warmth loss and more (DR-25a, designed).
+> **Andrew, 2026-09-16:** the whole valley (all fifty outdoor zones, the walk-out included) is in the
+> first complete run; the four-seat interior is a go; the crash is in December — no bear (wolves and a
+> wolverine); the kid is in (a party of four or five); runs are for friends, for humans with agents,
+> and for agents only, all on the same rules; there is no lethal-consent gate — the engine never gates
+> physics; an agent sees exactly what a human sees (structure goes to the log only); the look is a
+> title line, the prose, who is here and one `Exits:` line (compass outdoors, fore/aft/out inside).
 >
 > **DR-05b (appended, closure 2026-09-07) — the DSL is retired; verbs stay Python.** The declarative
-> operation DSL was aimed at the wrong axis: verbs are finite (~40 physical operation categories),
+> operation DSL was aimed at the wrong axis: verbs are a small set at any moment (~40 physical operation categories today — grown by evidence without a ceiling, never a fixed list),
 > each with real physics, and the 25 existing handlers already share one toolkit (`_helpers`). The
 > volume axis — objects, forms, materials, responses — is DATA (tables), and that is where authoring
 > scales. `operations/interpreter.py` stays a stub; no interpreter will be built. Handlers may read
@@ -360,6 +366,21 @@ operation×material engine — not parser cleverness or an enumerated command li
 > what X is made of, never the steps. `and`/`then` split a line into acts. Contract: `ParseError.kind`
 > and `Reachable.held` added (ADDITIVE).
 >
+> **DR-08c (appended 2026-09-16, Andrew) — feedback is clarification only; the game never offers
+> options.** Supersedes DR-08b's "three failure kinds", DR-08a's numbered disambiguation menu, the
+> DR-09 verb-list redirect ("you could cut, burn or pry it") and the DR-09a sibling near-miss hint.
+> The game never offers a set of actions, never lists what is reachable, never names a verb the
+> player did not type: an unknown word → `I don't understand 'X'.` plus a pointer to `help grammar`
+> (if the game could suggest the word it already knows it — the synonym table absorbs it; every
+> unknown word is logged to the wall-sensor); an unseen noun → `You don't see any 'X' here.` (never
+> naming what IS here); a verb that doesn't fit → the tier-4 physics, never another verb; a true tie
+> → `Which X do you mean?` and nothing more (no list — listing the reachable candidates would give
+> away hidden things); silent disambiguation first still holds. `use X on Y` resolves silently as the
+> real operation; `make X` is an aim, not an act, and gets a clarification; `help grammar` shows the
+> forms with one example each; there is no `help verbs`. Why: listing gives away the puzzles, and for
+> an LLM agent offering options changes how it thinks (Andrew's LLM-MRI finding). The shipped parser,
+> redirect, menus and help entries carry the old behaviour until the BACKLOG item lands.
+
 ### DR-09 Resolver (`resolve(attempt, world) -> ActionResult`, pure)
 ```
 resolve(attempt, world):

@@ -32,6 +32,10 @@ sleeping bag). The **power ∝ cost** curve (plane-interior §8b): the obvious i
 search, time or a tool.
 
 ## 3. The seat rows — the exemplar (mid_cabin, rear_cabin)
+> **Recast 2026-09-16 — Andrew decided the 206's four-seat interior** (players-and-kit.md §5: seats
+> 1A/1B/2A/2B + the right seat; a hat shelf and a cargo net instead of overhead bins). The six-seat
+> rows below are the earlier draft, kept for the FINDS, which redistribute across the four seats, the
+> hat shelf and the cargo net. The layout is superseded.
 A bush plane carries six to nine seats. Today: two. Proposed rows 11A/11B/11C (mid) and 12A/12B/12C
 (rear), each the same parts-machine (cover, cushion, belt, bolts) with **different** damage and
 **different** finds:
@@ -58,9 +62,13 @@ Effect can set. 8. Repeated lines (frames, ticks) are plain; objects carry the c
 Sonnet 5 drafts under these rules (the world-builder agent); Andrew owns the voice.
 
 ## 5. The individuation rule for the valley (traversal terrain)
-Outdoor rooms don't get a hook each; they get the systems (movement effort, exposure, sightlines)
-and a class-yielding census (deadfall, willow, snow types). Individuate only the landmarks (the
-drift log, the erratic boulder, the tamarack) and the graph's resources.
+Outdoor rooms don't get a puzzle hook each; they get the systems (movement effort, exposure,
+sightlines) and a class-yielding census (deadfall, willow, snow types). Individuate the landmarks (the
+drift log, the erratic boulder, the tamarack) and the graph's resources; classify the rest.
+> **Clarified 2026-09-16 (Andrew):** "traversal terrain" is about not forcing a puzzle hook per room.
+> It is NOT a cap on entities: every outdoor room is censused to real-world depth — the ground and
+> what is under it, rock, clay, bark, every substance and every relation a person would try — and
+> grown without a ceiling by the loops. A class that yields individuals is still a full entity.
 
 ## 6. Lens pass
 ### The Toy (GD — is it fun to poke without a goal?)

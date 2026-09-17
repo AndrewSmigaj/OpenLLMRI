@@ -33,8 +33,9 @@ Activity{id, actor, verb, target, tool, started_at (world-min), deadline (world-
   **`busy` ≠ `lagged`**: you can talk while sawing; you can't swing twice.
 - **Danger force-interrupts** (`DANGER`, `FIRE_STATE_CHANGE` nearby, `SURVIVOR_WORSENS` on you,
   `PLAYER_STOP_REQUEST`) — The Long Dark's most-cited failure is finishing a craft while a bear eats
-  you; some activities are declared **uninterruptible** per type (the last strokes of a drill, a
-  splint being bound) with a confirmation before discarding progress.
+  you. Any new command interrupts; progress banks where that is physical (the half-sawn branch) and
+  is lost where it is (the ember dies). No confirmation prompts, no questions to the player
+  (clarification-only feedback, Andrew 2026-09-16; the "uninterruptible + confirm" idea was mine).
 - **Every tick callback re-checks "am I still the current activity"** (stale callbacks are the async
   failure mode); cancelling is by activity id.
 - **Durations are authored in game-minutes** and converted at schedule time by the live ratio; a
@@ -76,7 +77,7 @@ water in/out; the seeded replay property must stay green with activities.
 ## 5. Status (the player sees the numbers as words)
 `status` (and the inventory footer): *You are shivering, hungry, and your left forearm is bleeding
 into the bandage. The fire is burning low. About four hours of light left.* Bands, never numbers;
-the `@OBS` line carries the numbers for agents.
+the per-step log carries the numbers for analysis (an agent sees what a human sees — moral-social §2).
 
 ## 6. What this makes possible (the reason it is core, not later)
 - The fire path is a real sequence with tension (the ember dies in two minutes if you don't feed it).
@@ -92,12 +93,12 @@ the `@OBS` line carries the numbers for agents.
 3. warmth (core temperature; clothing + fire + shelter + activity; the warmth-floor property test).
 4. hunger/thirst; eat/drink effects; snow-eating costs heat.
 5. injury (wounds, bleeding, bind/press/splint); wet/dry as numbers; the matchbox dries.
-6. the pilot's clock; `status`; the `@OBS` numbers.
+6. the pilot's clock; `status`; the logged numbers.
 Acceptance: the bow-drill transcript and the lighter transcript play with real ticks; a party of
 two survives one modelled night by ≥3 warmth strategies (fire; huddle + fuselage; insulation
 salvage) and dies by none of them if they do nothing.
 
-## 9. Sleep, rest, and the consensus clock (Andrew, 2026-09-07 — amends DR-14 / DR-15)
+## 8. Sleep, rest, and the consensus clock (Andrew, 2026-09-07 — amends DR-14 / DR-15)
 Andrew's decisions: players can **sleep**; there is a way to **move the clock forward if ALL
 players agree**, and **events can interrupt it**; the run is **roughly a week**, rescue can come
 earlier, and it can run longer until the food runs out — not a permanent game: the escalation
@@ -120,7 +121,7 @@ ladder (`events-and-escalation.md` §2) kills a party that is not rescued.
 - **The run length (DR-15a):** the instance persists across sittings for ~a week of game time; it
   ends by rescue, walk-out, or the last death — never by a timer.
 
-## 8. Lens pass
+## 9. Lens pass
 ### Visible Progress (GD)
 - **GREEN by design.** Start/tick/interrupt/complete lines; the world remembers partial work.
 ### Flow (GD — challenge matched to skill, no dead time?)

@@ -7,7 +7,8 @@ arc (P0–P7) lives in [`docs/scenarios/whiteout/roadmap.md`](docs/scenarios/whi
 item at a time**; deferred-but-designed items are two-line stubs linking to their design.
 
 ## Now  (work-in-progress limit: 1)
-- **Andrew reviews the nine design passes** (`docs/investigation/design/`, each with a lens pass):
+- **Andrew reviews the nine design passes** — read `docs/investigation/design/00-provenance-audit.md`
+  FIRST (what is his, what Claude added, what was removed on 2026-09-16) — (`docs/investigation/design/`, each with a lens pass):
   rescue graph · time & stakes (now incl. sleep + the consensus clock, DR-14a) · events & escalation
   (the week-long run, the escalation ladder, the event menu — DR-15a) · moral & social layer · living
   rooms · fire & shaping · players & kit (the 206's honest interior: cargo net, hat shelf, 4 seats) ·
@@ -16,6 +17,16 @@ item at a time**; deferred-but-designed items are two-line stubs linking to thei
   (slots, pockets, luggage, clothing v2 — commit 18bac60; probes 290/417; taught phrasings 79–83%).
 
 ## Next
+- **Clarification-only feedback — the code catches up with DR-08c (Andrew, 2026-09-16; VISION.md
+  "Never a menu"):** remove the verb suggestions from the parser nudge (`parser/grammar.py` `_NUDGE`
+  and the "Did you mean" line) and from the tier-5 redirect (`resolver/redirect.py`, "but you could …");
+  replace the numbered disambiguation menus (`cmd_act.py`, `cmd_items.py`, DR-08a) with `Which X do
+  you mean?` and nothing more; `help grammar` becomes the forms with one example each; delete `help
+  verbs`; `make X` and bare `use X` become clarifications, `use X on Y` resolves silently; drop the
+  DR-09a sibling near-miss hint; probe steps name nouns unambiguously (the runner no longer picks the
+  first option); **every unknown-word parse failure is logged to `gaps.jsonl`** so the next pass adds
+  the synonym; run the agent phrasing samples early, after each synonym batch. Opus 5 implementer via
+  the loop; the probe baseline must not drop (re-authored probes are not drops).
 - **Step 3 — time & stakes** (after its docs are promoted): the activity scheduler on the heartbeat
   (attended actions with start/tick/interrupt/complete; unattended processes), **sleep / wait + the 20×
   consensus advance with event interrupts (DR-14a)**, the fire ladder, integer warmth (the clothing v2
@@ -37,8 +48,6 @@ item at a time**; deferred-but-designed items are two-line stubs linking to thei
   ([`docs/client/mudlet-research.md`](docs/client/mudlet-research.md)).
 
 ## Later  (the big boulders — see `roadmap.md` P5–P7 for the strategic detail)
-- **Chunk-after-mastery** — a procedure done once becomes a single long activity (`make fire with bow
-  drill`); the Hadean Lands mechanic; offered never imposed. After the base fire paths work.
 - **The pure-world play harness** (`tools/play.py`) — an LLM brain drives parse → resolve → apply in
   `PureWorld`, logging trajectory JSONL + gaps (an external player, ADR-0005); then the telnet bot harness
   with the `@OBS` line (plain text — OOB needs a GMCP handshake a bare socket never does).
