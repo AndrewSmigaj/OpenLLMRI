@@ -275,7 +275,8 @@ cooperation"* (roadmap P6) — a real gate, not a checkbox.
    equation already has a slot for it.
 
 3. **Reset, persistence and the shape of a sitting — and a contradiction to settle.** GDD §9/§16 says
-   a party plays *"to resolution (~1 in-game day); then the instance resets"*. Andrew's later
+   a party played *"to resolution (~1 in-game day); then the instance resets"* — corrected in place on
+   2026-09-17: that wording was never Andrew's; the run was always a week. Andrew's
    amendment (2026-09-07, DR-15a) says the run is *"roughly a week of game time, persisting across
    sittings"*. Both are in the authoritative documents. The later statement is his and should win, but
    the GDD line has not been corrected, and the mechanics it implies are unbuilt: what happens when

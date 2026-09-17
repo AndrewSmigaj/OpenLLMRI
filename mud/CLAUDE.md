@@ -122,7 +122,9 @@ entrypoint word-splits args, so Make commands with quoted args use `--entrypoint
 ## Pointers (authoritative sources — check these before coding; don't trust memory)
 - [`docs/README.md`](docs/README.md) — **the doc map**: what's authoritative vs scratchpad, where things
   live, where new docs go. Start here.
-- [`BACKLOG.md`](BACKLOG.md) — the single Now / Next / Later list (active work + parked ideas).
+- [`PLAN.md`](PLAN.md) — **the program: every task, tracked** (phases, statuses, owning design doc, waits-on,
+  the decisions Andrew must make, how loop additions flow back into design and tasks). Update it in the
+  same commit as the work. [`BACKLOG.md`](BACKLOG.md) is its Now slice.
 - `VISION.md` — the anchor: what we build + the locked non-negotiables.
 - `docs/scenarios/whiteout/GDD.md` — **the authoritative game design** (FINAL; §N anchors; §0a
   improvements + §0b locked decisions). `design.md` beside it is the **archived original seed — not

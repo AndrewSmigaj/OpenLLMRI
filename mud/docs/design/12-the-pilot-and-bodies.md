@@ -227,6 +227,11 @@ nothing to attach to.
 
 ## 7. Review log
 
+- **2026-09-17 (Andrew, in conversation):** the pilot starts the run **alive**, mumbles a clue fragment
+  or two ("we used the pilot as a clue as they would mumble something"), and dies within the first day.
+  Settles Q1 (b), Q2 (b) and Q7 (alive at start; the shipped `dead: True` start state is a content fix).
+  Q3–Q6 stay open for the sitting.
+
 *Not yet reviewed. 2026-09-16: written from the sources above; the only decided content is §2.*
 
 ## 8. What exists today

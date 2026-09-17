@@ -16,14 +16,16 @@ Where everything lives, what's authoritative, and where new docs go.
   `presentation.md` / `tick-and-scheduler.md` / `llm-integration.md` / `testing.md` /
   **`ontology-closure.md`** (forms, derived capabilities, tier-4 physics, the probe corpus) are focused
   views kept consistent with it.
-- [`scenarios/whiteout/roadmap.md`](scenarios/whiteout/roadmap.md) — the **strategic** phased build order
-  (P0–P7) with exit gates.
+- [`scenarios/whiteout/roadmap.md`](scenarios/whiteout/roadmap.md) — the June P0–P7 arc, kept as history;
+  the order of work now lives in `../PLAN.md`.
 - [`guides/`](guides/) — authoring guides (objects, actions, workflows, validation).
 - `game/world/sim/contracts.py` — the frozen contract dataclasses (here the **code** is the source of truth).
 
 **Living / operational (changes often):**
-- [`../BACKLOG.md`](../BACKLOG.md) — the single **Now / Next / Later** list: what's active, next, and parked.
-  The tactical board (the strategic arc is `roadmap.md`).
+- [`../PLAN.md`](../PLAN.md) — **the program: every task, tracked** — phases, statuses, the design document that
+  owns each task, what it waits on, the decisions Andrew must make, and the rule that lets the loops' additions
+  flow back into the design and into new tasks. **The single task list.**
+- [`../BACKLOG.md`](../BACKLOG.md) — the Now slice of `PLAN.md`.
 - [`../README.md`](../README.md) — repo entry point + quickstart.
 - [`../CLAUDE.md`](../CLAUDE.md) — orientation + rules for Claude Code.
 - [`process.md`](process.md) — **how we work** (the design→document→implement loop).

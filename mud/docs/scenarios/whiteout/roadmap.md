@@ -1,5 +1,9 @@
 # Whiteout — Implementation Roadmap
 
+> **History (2026-09-17).** The order of work now lives in [`../../../PLAN.md`](../../../PLAN.md) — every
+> task, tracked. This June P0–P7 arc is kept as the record of how the build was first sequenced; its
+> exit gates and phase bodies are no longer maintained.
+
 > **Status: FINAL — the waterfall build order.** Derived from `GDD.md` (§42) and
 > [`../../architecture/implementation-architecture.md`](../../architecture/implementation-architecture.md)
 > (DR-22 slice → layered build). **Supersedes** the older §42 "Pass 1–10" order, which built the

@@ -83,7 +83,7 @@ These once-open choices are decided; recorded here so this proposal doesn't conf
 - **Clock — a continuously running real-time clock (LOCKED).** The world advances in real time on its
   own; it can't be poked, stalled, or yanked by players. Event-/turn-based time was **rejected** as
   clunky for multiplayer.
-- **Session model — instanced, synchronous co-op runs (LOCKED)** (~1 in-game day, then reset).
+- **Session model — instanced, synchronous co-op runs (LOCKED)** — roughly a week of game time (DR-15a; the proposal's original "~1 in-game day" was never Andrew's and is corrected 2026-09-17).
 - **Remaining nice-to-haves (still optional):** a knowledge/uncertainty layer (believed-vs-true) and an
   auto-generated end-of-run recap story. Pure additions.
 

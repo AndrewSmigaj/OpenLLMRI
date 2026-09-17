@@ -125,6 +125,9 @@ physics literature). All raised confidence; none reversed a decision (overall �
 > behind him, ever — so he is limited to scripted things: moaning softly, heard only in the cockpit,
 > maybe a line. What he says, and which clues (if any) ride on it with ≥3 other paths per fact, is
 > designed in `docs/design/12-the-pilot-and-bodies.md` and reviewed there; GDD §19 stands until then.
+> **2026-09-17:** he starts the run alive, mumbles a clue fragment or two (each fact with ≥3 other paths),
+> and dies within the first day. **The run length was always a week** — the "~1 in-game day, then
+> reset" wording in the June text was never Andrew's; DR-15a is the decision, not an amendment of his.
 > **The watch rule stands:** one player who keeps acting holds the clock at 1× for everyone; the
 > others wait for the next event (someone waking). **Moral tags, and other tags on actions, are
 > ontology fields** (`docs/ontology/`), assigned in their own fleshing-out pass.

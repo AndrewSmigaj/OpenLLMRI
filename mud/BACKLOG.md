@@ -1,6 +1,7 @@
-# Backlog — Now / Next / Later
+# Backlog — the Now slice of [`PLAN.md`](PLAN.md)
 
-The single living list of what we're doing, next, and parked. One tactical board; the **strategic** phase
+**The single tracked task list for the whole project is [`PLAN.md`](PLAN.md)** (every task, its status,
+the design document that owns it, what it waits on). This file is only its Now slice. One tactical board; the **strategic** phase
 arc (P0–P7) lives in [`docs/scenarios/whiteout/roadmap.md`](docs/scenarios/whiteout/roadmap.md), and the
 **closure loop** that now drives P2 lives in
 [`docs/architecture/ontology-closure.md`](docs/architecture/ontology-closure.md) (DR-26). Work **one Now

@@ -31,7 +31,7 @@ heartbeat Script (shell)        world.sim.systems (pure core)
    advance world clock      ─►  clock.tick(dt, world_time)
 ```
 
-Tick pace: **1 game-minute per ~10–20 real seconds** (a tunable constant) while the
+Tick pace: **1 game-minute per ~10–20 real seconds *(a run is roughly a week of game time, DR-15a; the clock may run 20× by consensus, DR-14a)*** (a tunable constant) while the
 run is live. Each tick updates activity progress, stamina, cold exposure, injury,
 fire/smoke, weather, interruptions, noise events, snow accumulation, rescue search
 state and visibility/audibility.

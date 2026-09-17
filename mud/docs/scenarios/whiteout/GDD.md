@@ -51,7 +51,8 @@ The clock and session model that were once open are **decided and locked** (full
   own; it is never poked forward by player actions or chat, and no one can stall or yank the shared
   clock. Event-/turn-based time is **rejected** as clunky for a multiplayer game.
 - **Session model — instanced, synchronous, small-party co-op (LOCKED).** One crash, played together
-  online, to resolution (~1 in-game day), then reset.
+  online, to resolution — **roughly a week of game time, persisting across sittings** *(corrected
+  2026-09-17: the June draft's "~1 in-game day, then reset" was never Andrew's; see DR-15a)*.
 - **Remaining nice-to-haves (genuinely optional — drop freely):** a knowledge/uncertainty layer
   (believed-vs-true) and an auto-generated end-of-run recap story. Pure additions.
 
@@ -223,8 +224,9 @@ the hood the clock is a deterministic logical clock — time is an input — so 
 reproducible; real time is simply its pacing.*
 
 **Session model — instanced, synchronous, small-party co-op (LOCKED).** A party plays one crash
-together, online at the same time, acting concurrently, to resolution (~1 in-game day); then the
-instance resets (idiomatic on Evennia — the dungeon-contrib instancing pattern).
+together, online at the same time, acting concurrently, to resolution — roughly a week of game time,
+persisting across sittings *(corrected 2026-09-17; the one-day wording was never Andrew's — DR-15a)*;
+then the instance resets (idiomatic on Evennia — the dungeon-contrib instancing pattern).
 
 **Cooperation:** add **≥1 first-class interdependence** (one holds/raises the antenna or relays the
 scout's landmark while another transmits) so co-op is a shared-story engine, not parallel solitaire.

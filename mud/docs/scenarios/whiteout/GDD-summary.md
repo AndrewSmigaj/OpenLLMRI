@@ -34,7 +34,8 @@ fabric strips → print the authored line. No LLM.
 ## Locked decisions (§0b/§9) + remaining options
 **Locked:** a **continuously running real-time clock** — the world advances on its own; it can't be
 poked/stalled by players; event-/turn-based time rejected as clunky for multiplayer · **instanced,
-synchronous co-op** runs (~1 in-game day, then reset). **Still optional (drop freely):** a knowledge/
+synchronous co-op** runs — roughly a week of game time, persisting across sittings (DR-15a; the
+"one in-game day" wording of the June draft was never Andrew's). **Still optional (drop freely):** a knowledge/
 uncertainty layer · an auto-generated end-of-run recap story.
 
 ## The honest bottom line
