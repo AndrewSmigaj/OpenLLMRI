@@ -1,6 +1,6 @@
 # 06 — Time, sleep and the clock
 
-> **Status: draft for review.** Architecture counterpart:
+> **Status: reviewed with Andrew 2026-09-18 — every question answered; finalized at the close** Architecture counterpart:
 > [`../architecture/tick-and-scheduler.md`](../architecture/tick-and-scheduler.md) (its basic clock is
 > built; its scheduler section predates DR-14a — see *The design* §3 below) and
 > [`../architecture/implementation-architecture.md`](../architecture/implementation-architecture.md) §7
@@ -228,6 +228,11 @@ within the first day, tended like any other physical thing — designed in
 window ([`14-rescue-paths.md`](14-rescue-paths.md)) also run on this clock.
 
 ## Open questions
+
+**All answered 2026-09-18.** Q1 the whitelist as listed · Q2a one to three game-minutes for small jobs ·
+Q2b ambience from the things present, and a fast forward runs the world fast for the awake watcher ·
+Q3 the build order as listed · Q4 the bedding and fatigue numbers are valued with the warmth numbers
+in document 08 · Q5 the watch is automatic. Kept below as the record of what was weighed.
 1. **The non-interrupting command whitelist.** Proposed: look, examine, inventory,
    say/whisper/call/shout, help, status. *Options:* adopt as-is; or add/remove verbs as play surfaces
    ones that should stay silent but currently interrupt (e.g. should checking `examine me` mid-activity
@@ -273,6 +278,11 @@ window ([`14-rescue-paths.md`](14-rescue-paths.md)) also run on this clock.
   awake is on watch; awake players receive events sleepers do not. Written into the design above.
   **Still open at this sitting:** Q1 (the non-interrupting command whitelist), Q3 (the step-3 build
   order), Q4 (bedding and fatigue numbers).
+
+- **2026-09-18 (Andrew):** Q1 the non-interrupting whitelist adopted as listed; Q3 the step-3 build order
+  kept (scheduler → fire → warmth → hunger/thirst → injury → the pilot and `status`); Q4 the bedding
+  score and fatigue numbers are valued alongside the warmth numbers in document 08, not here.
+  **Document reviewed in full.**
 
 ## What exists today
 **Built.** [`game/typeclasses/heartbeat.py`](../../game/typeclasses/heartbeat.py) — a persistent global

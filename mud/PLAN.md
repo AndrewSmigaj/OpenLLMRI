@@ -48,7 +48,7 @@ no design.
 | ◐ | A1.03 | 03 the player view — reviewed 2026-09-17 (exits as entities, groups, the block) | Andrew + Fable | 03 | — |
 | ◐ | A1.04 | 04 grammar and feedback — reviewed in full 2026-09-18 (the forms, `make`, quantities, encumbrance, the naming rule, word-first vocabulary); finalized at the close | Andrew + Fable | 04 | — |
 | ◐ | A1.05 | 05 ontology and sufficiency — reviewed in full 2026-09-18 (the full schema, the measured merge, the five wall categories); finalized at the close | Andrew + Fable | 05 | — |
-| ☐ | A1.06 | 06 time, sleep and the clock — reviewed and finalized | Andrew + Fable | 06 | — |
+| ◐ | A1.06 | 06 time, sleep and the clock — reviewed in full 2026-09-18; finalized at the close | Andrew + Fable | 06 | — |
 | ☐ | A1.07 | 07 fire and shaping — reviewed and finalized | Andrew + Fable | 07 | — |
 | ☐ | A1.08 | 08 warmth, clothing and shelter — reviewed and finalized | Andrew + Fable | 08 | — |
 | ☐ | A1.09 | 09 water — reviewed and finalized | Andrew + Fable | 09 | — |
@@ -212,6 +212,7 @@ under "no task yet" — which must stay empty. Three tasks were added by this pa
 | ⊘ | Water hemlock: the one poison that kills, or softened to illness? | 23 | at the sitting |
 | ☑ | `make` is the one aim-verb: vague it asks how, given the means it performs the act they imply; the recipe reply is cut and moves to the survival manual. | 04, 07 | 2026-09-18 |
 | ☑ | The form list is finalized before the loops run; movement, goal and meta forms added. | 04 | 2026-09-18 |
+| ☑ | The non-interrupting command whitelist (look, examine, inventory, speech, help, status); the step-3 build order (scheduler → fire → warmth → hunger → injury → the pilot); bedding and fatigue numbers valued with warmth in 08. | 06, 08 | 2026-09-18 |
 | ☑ | Attended actions are one to three game-minutes for small jobs; ambience comes from the things present, each with its own cadence; a fast forward runs the world fast for the awake watcher rather than muting it; being awake is being on watch, and awake players receive events sleepers do not. | 06, 05 | 2026-09-18 |
 | ☑ | Walls per run counts all five categories separately (unknown word, unknown noun, generic answer, wrong refusal, retry cluster). | 05 | 2026-09-18 |
 | ☑ | The ontology schema is designed in full up front (not discovered from the pilot); the pilot verifies it. The merge unions and never drops; agreement is a count; every firing writes an analysis of what each model contributes. | 05 | 2026-09-18 |
