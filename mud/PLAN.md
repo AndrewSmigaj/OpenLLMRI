@@ -50,7 +50,7 @@ no design.
 | ◐ | A1.05 | 05 ontology and sufficiency — reviewed in full 2026-09-18 (the full schema, the measured merge, the five wall categories); finalized at the close | Andrew + Fable | 05 | — |
 | ◐ | A1.06 | 06 time, sleep and the clock — reviewed in full 2026-09-18; finalized at the close | Andrew + Fable | 06 | — |
 | ◐ | A1.07 | 07 fire and shaping — reviewed in full 2026-09-18; finalized at the close | Andrew + Fable | 07 | — |
-| ☐ | A1.08 | 08 warmth, clothing and shelter — reviewed and finalized | Andrew + Fable | 08 | — |
+| ◐ | A1.08 | 08 warmth, clothing and shelter — reviewed in full 2026-09-18; finalized at the close | Andrew + Fable | 08 | — |
 | ☐ | A1.09 | 09 water — reviewed and finalized | Andrew + Fable | 09 | — |
 | ☐ | A1.10 | 10 food and hunger — reviewed and finalized | Andrew + Fable | 10 | — |
 | ☐ | A1.11 | 11 injury and first aid — reviewed and finalized | Andrew + Fable | 11 | — |
@@ -117,6 +117,7 @@ no design.
 ### Phase E — The systems, built to the finalized designs (each item: probes first, certainty mode B, the reviewer pair)
 | status | id | task | owner | design doc | waits on |
 |---|---|---|---|---|---|
+| ☐ | E28 | Openings as speaking entities: the hull tear, the torn tail, a missing pane, the unseated cargo door — each with a wind sound that varies with weather and with being blocked; blocking one makes the room quiet. The zone's wind and roof numbers are read through them. | Opus | 08 §4.8, 06, 05 | A1.08, E26 |
 | ☐ | E26 | The three streams: activity emotes (start/tick/interrupt/complete), ambience from the things present (each thing's `sensed` cadence, varying with state; the sum is the room), and other people through the propagator. Under a fast forward the world runs fast for the awake watcher, rate-limited in real time to stay readable; interrupting events drop the clock to base pace. | Opus | 06, 05 | A1.06, E1 |
 | ☐ | E1 | Time: the clock at 15 game-min per real min with a 4-second heartbeat; `propose fast forward` to 180× by consensus, events drop it back; the activity scheduler (attended actions with start/tick/interrupt/complete; unattended processes; `responses/activities.py`); sleep and wait; halt and resume with the missing-member rule; travel durations actually spent per exit. | Opus | 06, 01, 19 | A1.06 |
 | ☐ | E27 | Reconcile the forms list: the code's 26 words are canonical; correct `ontology-closure.md` §2's table and drop its "extend by evidence, never speculatively" comment (ceiling framing). Reconcile `systems/fire.py`'s older stage ladder to the design's. | Opus | 07, 18, 05 | A1.07 |
@@ -141,7 +142,7 @@ no design.
 | ☐ | E24 | Encumbrance (decided 2026-09-18): `density` on every material row, bulk derived (mass ÷ density, authored wins); `capacity_g` and `capacity_bulk` on containers — hands, pockets, bags, worn clothing, a dragged frame; exceeding capacity answered physically, never refused; the load feeds travel time. | Opus | 18, 16, 04 §3.11, 03 §4.1a | A1.18, A1.16 |
 | ☐ | E22 | The distinguishable-names gate: `make validate` fails when two reachable things in a zone share a name with no separating adjective or label (there is no numbered menu to fall back on). | Opus | 04 §3.10, 17 | A1.04 |
 | ☐ | E25 | Vocabulary authored word-first: every verb and noun ships with its synonym set written in the same pass, before the loops run; the gaps log stays as the backstop. A step in the authoring guide and a `make validate` warning for a word with no synonyms. | Opus | 04 §3.7 | A1.04 |
-| ☐ | E23 | The missing everyday verbs the walk-through found: `give`, `sit`/`stand`/`lie`, `wait [duration\|until <event>]`, `stop`, `look under`, `listen`/`smell`/`feel`, `status`, `propose fast forward`. | Opus | 04, 06, 17 | A1.04 |
+| ☐ | E23 | The missing everyday verbs the walk-through found: `give`, `sit`/`stand`/`lie`, `wait [duration\|until <event>]`, `stop`, `look under`, `listen`/`smell`/`feel`, **`status` (the body's report: injuries, cold, hunger, thirst, tiredness, wetness — band words, never numbers; document 08 §4.9)**, `propose fast forward`. | Opus | 04, 06, 17 | A1.04 |
 | ☐ | E15 | Daylight and light: the day/night cycle on the clock (December's five hours), darkness that changes what a look shows and what searching needs, light sources (fire, the flashlight, the phone, the headlamp) with batteries that drain; powered devices as processes (the phone's clock and light, the laptop's sparks). | Opus | 13, 03, 16 | A1.13, E1 |
 | ☐ | E16 | Classes that yield individuals as an engine primitive: `take a branch from the deadfall`, `take snow`, a tussock from the tussocks — a class entity mints one member with the right material, form and mass; needed by every outdoor zone. | Opus | 17, 05 | A1.17 |
 
@@ -213,6 +214,7 @@ under "no task yet" — which must stay empty. Three tasks were added by this pa
 | ⊘ | Water hemlock: the one poison that kills, or softened to illness? | 23 | at the sitting |
 | ☑ | `make` is the one aim-verb: vague it asks how, given the means it performs the act they imply; the recipe reply is cut and moves to the survival manual. | 04, 07 | 2026-09-18 |
 | ☑ | The form list is finalized before the loops run; movement, goal and meta forms added. | 04 | 2026-09-18 |
+| ☑ | A `status` screen exists: injuries, cold, hunger, thirst, tiredness, wetness, in band words. The wreck's openings speak, so a shelter's quality is heard (the wind through the tear) rather than shown as a number. | 08, 06 | 2026-09-18 |
 | ☑ | No guaranteed warmth floor. Night one is survivable inside the wreck in the starting clothes (no fire, no huddle); going out saps you; from night two the cold climbs and you need a heat source, better gear, conserving, or huddling. The ladder is tuned until both halves hold. | 08, 13 | 2026-09-18 |
 | ☑ | Fire: the code's 26 forms are canonical; the seven methods priced by cost alone first; Claude drafts the ignition weights and the fuel-to-heat curve for review; the design's stage ladder wins over the stub's. | 07, 18 | 2026-09-18 |
 | ☑ | The non-interrupting command whitelist (look, examine, inventory, speech, help, status); the step-3 build order (scheduler → fire → warmth → hunger → injury → the pilot); bedding and fatigue numbers valued with warmth in 08. | 06, 08 | 2026-09-18 |

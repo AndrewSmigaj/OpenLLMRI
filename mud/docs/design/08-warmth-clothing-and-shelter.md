@@ -1,7 +1,6 @@
 # 08 — Warmth, clothing and shelter
 
-> **Status: `draft for review` (2026-09-16). NEW — this system had no design document of its own;
-> its content was scattered across six places and is gathered here for the first time.**
+> **Status: reviewed with Andrew 2026-09-18 — every question answered; finalized at the close**
 > **Architecture counterpart:** [`../architecture/clothing-warmth.md`](../architecture/clothing-warmth.md)
 > (DR-25, the shipped v1). **Sources:** `docs/investigation/design/time-and-stakes.md` §4 (the warmth
 > process, the bands, the floor; drying/wetting) · `docs/investigation/design/players-and-kit.md` §4
@@ -36,8 +35,13 @@
 - **The crash is in December**; **the whole valley is in the first complete run**; **the plane is a
   Cessna 206-class single** with the four-seat interior. (2026-09-16.) December sets the ambient
   temperatures the warmth clock spends, and the 206's thin skin and split hull set the shelter.
-- **Descriptions are composed from state.** (2026-09-16.) "Your feet are soaked" is not a separate
-  status screen; it is the scene and the self-view telling you what is true.
+- **Descriptions are composed from state.** (2026-09-16.) "Your feet are soaked" is the scene and
+  the self-view telling you what is true.
+- **There is a `status` screen** (2026-09-18): "injuries like frostbite, broken whatever, anything
+  you can sense like hunger or cold, tiredness level" — the body's own report, in band words, on
+  request (§4.9).
+- **You hear your shelter leaking** (2026-09-18): the tail wreckage and the torn-open parts of the
+  plane give feedback — "we could give feedback such as hearing the wind blow in" (§4.8).
 
 ### Proposals (Claude)
 
@@ -354,6 +358,14 @@ about the world, `status` tells you about you.
 
 ## 6. Open questions
 
+
+**All answered 2026-09-18.** Q1 the night-one rule replaces the warmth floor (§4.1a) · Q2 shelter is two
+mutable numbers on the zone · Q3 layering stays linear for now · Q4 huddle: proximity small, a shared
+covering large · Q5 extremities in the cold clock · **Q6 yes, there is a `status` screen** (§4.9) ·
+Q7 a generic `cover`/`block` over openings · Q8 sweat is in, surfaced through clothing · Q9 sleeping
+without shelter is survivable but expensive · Q10 heated stones and a warm vessel are in. Kept below
+as the record of what was weighed.
+
 ~~1. Is the warmth floor kept?~~ **Answered 2026-09-18 (Andrew), and neither option**: the guaranteed
    no-materials floor is gone, and so is "no fire on night one is death". **Night one is survivable
    inside the wreck in the clothes you crashed in**; going out saps you; from night two the cold
@@ -379,10 +391,11 @@ about the world, `status` tells you about you.
    message. *(b)* Per-region cold that can frostbite a hand while the core is fine.
    **Recommendation: (b) for the extremities only** (hands, feet, face) — that is where frostbite
    lives and it costs one extra number, not six.
-6. **Is there a `status` command at all?** `time-and-stakes.md` §5 proposes one; the never-a-menu
-   rule makes any always-on readout suspect. **Recommendation: no separate status screen** — the
-   self-view (`examine me`) and the composed scene already carry it, and the inventory footer
-   carries the band. Bring `status` back only if playtests show players losing the thread.
+~~6. Is there a `status` command at all?~~ **Answered 2026-09-18: yes, reversing the recommendation.**
+   Andrew: "you should have a status screen, injuries like frostbite, broken whatever, anything you
+   can sense like hunger or cold, tiredness level." It is not an always-on readout and not a menu —
+   it is your body answering when you ask, in band words (§4.9). *(original recommendation: no
+   separate screen, on the grounds that the self-view and the scene already carry it.)*
 7. **How does blocking the breach express itself in the grammar?** `cover breach with cover`,
    `block hull`, `stuff hole with jacket` are all in the census as attempts. **Recommendation: a
    `cover`/`block` operation over any opening** (the censuses voted it up from three rooms), not a
@@ -422,6 +435,13 @@ except the items marked as Andrew's is open for cutting.*
   warmth too; they probably will have fire though if they try to do that for the first day." Written as
   §4.1a with the four answers from night two and a new acceptance test; §4.6's path table and the
   softlock guard updated; the GDD's improvement 4 corrected.
+
+- **2026-09-18 (Andrew, the rest):** Q2, Q3, Q4, Q5, Q7, Q8, Q9, Q10 as recommended. **Q6 reversed: there
+  is a `status` screen** — injuries (frostbite, breaks), cold, hunger, thirst, tiredness, wetness,
+  anything you can sense about yourself, in band words (§4.9). And the wreck's openings — the tail
+  wreckage, the torn-off parts, the hull tear, a missing pane, the unseated cargo door — **speak**:
+  you hear the wind blowing in, and that is how a shelter's quality is read (§4.8). **Document
+  reviewed in full.**
 
 ## 8. What exists today
 
