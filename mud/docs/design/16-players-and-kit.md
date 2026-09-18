@@ -180,6 +180,24 @@ the coat"; "huddle under the blanket with 2".
 
 ---
 
+### What you can carry (Andrew, 2026-09-18)
+
+Inventory is limited by **weight and space** — mass in grams, which the contract tracks, and bulk,
+which derives from the material's density (document 18). Capacity is not a number on the character:
+it lives on the things that carry.
+
+| carrier | holds | notes |
+|---|---|---|
+| your hands | a couple of things, or one awkward one | a full armful means you cannot also pry a door |
+| pockets | small, light things | the crash draw already fills them (§4.2) |
+| a backpack, a duffel, a laptop bag, a guitar case | what its capacity says | each slot's bag becomes a real carrier, not a container of story items |
+| worn clothing | its own pockets; a stuffed jacket | stuffing insulation is a use of space (document 08) |
+| a dragged seat frame, the cargo net as a bundle | far more, and it costs you speed | the 2A seat is already designed as a movable frame; this is what it is for |
+
+Exceeding capacity is never a refusal: you take what fits, the world names what you left behind, and
+the load feeds the travel time (document 03 §4.1a). *Proposal: capacity is a `capacity_g` and a
+`capacity_bulk` on any container row; the sum of what you hold, wear and haul is what you can carry.*
+
 ## 5. Interactions
 
 **This depends on:**
@@ -260,6 +278,10 @@ the coat"; "huddle under the blanket with 2".
 | — | — | — | — |
 
 ---
+
+- **2026-09-18 (Andrew, block 1):** capacity lives on containers (hands, pockets, bags, worn clothing, a
+  dragged frame); inventory is limited by weight and space; exceeding it is answered physically, never
+  refused (document 04 §3.11, document 18 density).
 
 ## 8. What exists today
 

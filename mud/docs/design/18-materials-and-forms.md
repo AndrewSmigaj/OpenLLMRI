@@ -279,6 +279,21 @@ Two gaps are visible in the table itself rather than the census:
   them. Nothing expresses viscosity, freezing point, or what a liquid does to a fire beyond the
   `extinguisher` tag — and in a December valley, "does it freeze, and when" is load-bearing.
 
+### Density, and the bulk it gives (Andrew, 2026-09-18)
+
+Inventory is limited by **weight and space**, and only weight exists today. A down sleeping bag is
+light and enormous; the aircraft battery is small and crushing; a bundle of dry grass weighs nothing
+and fills your arms. Without a second axis they all cost the same to carry.
+
+*Proposal:* add **`density`** to the material table (grams per litre, the real number for each
+material), and derive **bulk = mass ÷ density**, with an authored `bulk` on an object winning — the
+same derive-then-override shape the capabilities already use (§4.5). One axis, physically true, and
+it makes the sleeping bag and the battery behave differently for free.
+
+It also pays for itself elsewhere: density is what decides whether a thing floats in the lead, how
+much a snow block weighs when you cut one, and how far a thrown stone carries. Capacity, the other
+half, lives on containers (document 16); the grammar side is document 04 §3.11.
+
 ## 5. Interactions
 
 **Depended on by:** almost everything. Fire and shaping (07) reads `burnability`, `ignition_difficulty`
@@ -335,6 +350,9 @@ existing row is the cheap, safe half.
 
 *Not yet reviewed. 2026-09-16: written by reading the shipped table and the closure spec; §4.3 is a
 transcription, §4.7 and §6 are the honest gaps.*
+
+- **2026-09-18 (Andrew, block 1):** `density` proposed as a material axis so **bulk** can derive from mass;
+  inventory is limited by weight *and* space (document 04 §3.11, Q12).
 
 ## 8. What exists today
 

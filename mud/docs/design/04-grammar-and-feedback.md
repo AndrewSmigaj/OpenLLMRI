@@ -91,6 +91,7 @@ never shown a list of what's reachable, and never handed a verb they didn't type
 | `VERB thing, then VERB thing` | `take the shard and cut the cover` | two acts in order |
 | `VERB exit` *(added 2026-09-18)* | `walk west` · `walk to the birch grove` · `run to the treeline` · `climb up` · `enter the tail` · `turn back` | `{move, exit, mode}` — exits are entities (document 03 §4.1a); the mode sets the time and what it costs |
 | `MAKE goal [WITH means (and means)*]` *(added 2026-09-18)* | `make fire` · `make fire with the lighter and the stick` · `make a splint with the branch and the paracord` | a goal, not an act — §3.9 |
+| `VERB <quantity> of X` *(added 2026-09-18)* | `take two rocks` · `grab a handful of rocks` · `pick up some branches` · `take all the bark from the birch` · `carry as much wood as I can` | a quantity is a **budget**, not a number — §3.11 |
 | meta *(added 2026-09-18)* | `propose fast forward` · `status` · `help` · `look` · `inventory` | out-of-world commands; they never interrupt an activity |
 
 Everything else is the tolerance layer folding real phrasings onto these: particles (`pick
@@ -217,6 +218,45 @@ shelter in 08, the signal in 14. This document owns the form and the dispatch ru
   together and they scuff and warm, nothing more. `make` never runs a procedure.
 - **It is not an oracle.** Probing `make fire with X` tells you only what X physically does, which
   `examine` already signals. It costs time on the clock like any attempt.
+
+### 3.11 Quantities: counts, measures, and what you can carry (Andrew, 2026-09-18)
+
+People do not count when they gather. They say *a handful of rocks*, *some branches*, *an armful of
+wood*, and the world tells them what they got. So a quantity in the grammar is a **budget the engine
+spends**, never a number the player has to get right.
+
+| what they type | what it means | what the world answers |
+|---|---|---|
+| `take rock` | one | "You pick up a fist-sized stone." |
+| `take two rocks` | a count, bounded by what is there and what you can carry | "You take two of them." / "You take two; there is only one more." |
+| `a handful of X` | what one hand holds | "You gather a handful — five or six fist-sized stones." |
+| `an armful of X` | what both arms hold | "You get an armful of deadfall across your chest." |
+| `some X` · `a few X` | a small sensible amount, resolved like a handful | as above |
+| `all the X` | everything of that class in reach, **bounded by what you can carry** | "You can manage four; the rest stay where they are." |
+| `as much X as I can carry` | fill to the limit deliberately | "You load up until your arms ache." |
+
+Three rules make this honest.
+
+**A quantity resolves against what is physically there.** The source is a class that yields
+individuals (document 17; `PLAN.md` E16) — deadfall, snow, rocks, bark, berries. Ask for more than
+exists and you get what exists, and the world says so. No refusal, no menu.
+
+**A quantity resolves against what you can carry**, which needs two budgets:
+- **mass**, in integer grams, which the contract already tracks and conserves;
+- **bulk**, which does **not** exist today and is the real gap. A down sleeping bag is light and
+  enormous; the aircraft battery is small and crushing. *Proposal:* bulk derives from mass ÷ the
+  material's density, with an authored value winning — the same derive-then-override shape the
+  capabilities use. Density becomes a material axis (document 18).
+
+**Capacity lives on containers, not on a character stat.** Your hands hold a couple of things; your
+pockets hold small ones; a backpack, a duffel or a laptop bag holds what its capacity says; a seat
+frame dragged behind you (document 16) hauls far more and costs you speed. What you can carry is the
+sum of what you are holding, wearing and hauling. Exceeding it is never a refusal: you take what
+fits, the world names what you left, and the load feeds the travel time in document 03 §4.1a
+(distance ÷ pace × terrain × snow × **load** × fitness).
+
+This also settles `all` without a special rule. `take all` over a room fails on capacity long before
+it becomes a way to strip a wreck, and what you cannot carry stays where it is, in the prose.
 
 ### 3.10 Naming things apart — an authoring requirement, not a grammar one (Andrew, 2026-09-18)
 
@@ -414,13 +454,15 @@ a wall with a smile, and a menu would be worse.
      and the existing file is already the established convention (§7 below: this isn't built yet
      either way).
 
-6. **Counts: do they mean anything?** Today `take two branches` takes one branch and says nothing
-   about the two; `take all` answers "You don't see that here". A quantifier that is silently
-   dropped teaches the player the wrong thing.
-   - *Options:* (a) counts work, bounded by what is there and by what you can carry — "you take two
-     of the three branches"; (b) counts are refused honestly — "one at a time"; (c) leave as is.
-   - *Recommendation:* (a). It needs the class-yields-individuals primitive (`PLAN.md` E16) for
-     classes like deadfall and snow, which the outdoor zones need anyway.
+6. **Counts and measures: do they mean anything?** Today `take two branches` takes one branch and
+   says nothing about the two; `take all` answers "You don't see that here". A quantifier that is
+   silently dropped teaches the player the wrong thing. §3.11 proposes counts *and* measures (a
+   handful, an armful, some, a few, all, as much as I can carry) as budgets the engine spends.
+   - *Options:* (a) counts and measures both, as §3.11; (b) counts only, measures later; (c) leave
+     as is.
+   - *Recommendation:* (a). Measures are how people actually gather, and they need no number from
+     the player. Both need the class-yields-individuals primitive (`PLAN.md` E16) and capacity
+     (Q12), which the outdoor zones need anyway.
 
 7. **`all`: in, and scoped to what?**
    - *Options:* (a) scoped only — `take all from the duffel`, `take all the branches` — never a bare
@@ -440,6 +482,22 @@ a wall with a smile, and a menu would be worse.
      one; (b) fire only, and grow the rest from what agents type; (c) a larger set up front.
    - *Recommendation:* (a), with the rows written in the owning documents (07, 09, 08, 14, 11) and
      grown by the loops afterwards.
+
+11. **What is in your hands after `a handful of rocks` — one thing or five?**
+   - *Options:* (a) one aggregate entity carrying a count and a total mass, which splits when you
+     use one ("you wedge one of the stones under the runner"); (b) five individual entities; (c) an
+     aggregate for identical things, individuals once any of them differ (one gets blood on it).
+   - *Recommendation:* (c). It keeps the object count sane, keeps conservation exact (mass lives on
+     the aggregate), and the moment a thing becomes distinct it earns its own identity — which is
+     the same individuate-what-a-player-would-individuate rule the rooms use (document 17).
+
+12. **Bulk: derived, authored, or not modelled?** Mass is tracked and conserved; bulk is not, and
+   without it a down sleeping bag costs the same to carry as a folded shirt.
+   - *Options:* (a) bulk = mass ÷ material density, authored value wins (adds `density` to the
+     material table, document 18); (b) an authored `bulk` per object only; (c) mass alone, no bulk.
+   - *Recommendation:* (a). It is one new material axis, it is physically true, it makes the
+     sleeping bag and the battery behave differently for free, and it matches how capabilities
+     already derive.
 
 10. **Is the distinguishable-names rule (§3.10) enforced, or just written down?**
    - *Options:* (a) `make validate` fails when two reachable things in a zone share a name with no
@@ -463,6 +521,12 @@ eight parts; nothing new was added to the design itself.
   finalized **before** the loops run; the movement, goal and meta forms are added (§3.1). §3.9 and
   §3.10 written; §3.4 now points at §3.9. New questions Q6–Q10 (counts, `all`, the wording, which
   goals first, enforcing distinguishable names).
+
+- **2026-09-18 (Andrew, block 1):** **quantities** — people say *a handful of rocks*, *some branches*, *an
+  armful of wood*, so a quantity is a budget the engine spends against what is there and what you can
+  carry, never a number the player must name; **inventory is limited by weight and space**, which
+  means bulk as well as mass. §3.11 written, a form row added, Q6 rewritten, Q11 (aggregate vs
+  individuals) and Q12 (bulk from density) added.
 
 ## 7. What exists today
 
