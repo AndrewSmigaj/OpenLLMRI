@@ -190,31 +190,63 @@ scout writes is a future probe** — which is what connects §4.7 to this number
 **Where.** `docs/ontology/`, as YAML (Andrew, 2026-09-16 — "stored where humans can look at it").
 Human-readable, diffable, reviewable, and not the runtime.
 
-**Per zone** — `zones/<zone>.yaml`: the zone itself (name, region, position, edges, terrain, exposure,
-survey) and its entities. Each entity carries:
+**The schema is designed in full, up front (Andrew, 2026-09-18).** A schema is cheap to specify and
+expensive to change once 59 zones of data exist: a field added later means either backfilling by
+re-running passes or living with rows that disagree about their own shape. That is exactly the drift
+waterfall exists to avoid, so the schema below is complete, and the pilot pass **verifies** it rather
+than discovers it.
 
-| field | what it holds |
-|---|---|
-| `id`, `name`, `aliases` | how it is addressed |
-| `class` | individuated, or a class that yields individuals |
-| `materials` | what it is made of |
-| `parts` | recursive — parts of parts |
-| `states` | the states it can be in |
-| `form` | the shape its material is in |
-| `located` | its space, and its relation to a parent: on / in / under / against |
-| `could_become` | the transforms and what they yield |
-| `relations` | to other things |
-| `actions` | candidate commands, each with the goal lens that produced it |
-| `synonyms` | the words people use for it |
-| `status` | ✅ built · 📐 designed · ◌ candidate |
-| `provenance` | agent, model, pass, date, source doc and line |
+Two disciplines keep a full schema from becoming a half-filled one. **Every field is required,
+conditional or derived** — if a world-builder standing in the room cannot fill it, it does not belong
+in the ontology (it belongs in code, or in a later pass). And **every field names the pass that fills
+it**, so a row is never "half empty", it is *complete for its phase*.
 
-**Shared** — `materials.yaml`, `verbs.yaml` (canonical verb, family, the relations it takes, the
-forms it yields), `synonyms.yaml`, `relations.yaml`.
+**Per zone** — `zones/<zone>.yaml`: the zone (id, name, aliases, region, position, terrain, exposure,
+the survey line, and its **exits** — each with direction, mode `walk|climb|wade|crawl|enter`, travel
+time, state) and its entities. Each entity carries:
+
+| field | what it holds | req. | filled by |
+|---|---|---|---|
+| `id` · `name` · `aliases` | how it is addressed; aliases are the nouns people try | required | world-builder |
+| `class` | `individual` · `class` (yields individuals: deadfall, snow, rocks) · `scenery` (addressable, not takeable) · `elusive` (cold, draft, light, smell, sound) | required | world-builder |
+| `count` | for a class or an aggregate: how many, and the mass of one | if `class`/aggregate | world-builder |
+| `materials` | what it is made of, in order | required | world-builder |
+| `mass_g` · `bulk` | integer grams; bulk derives from mass ÷ density unless authored | required · derived | world-builder |
+| `form` | the shape the material is in (`rod`, `sheet`, `vessel`…) | if it has one | world-builder |
+| `parts` | recursive: each part with its own row and an `attachment` (stitched, bolted, clipped, tied) | if it has parts | world-builder |
+| `container` | `capacity_g`, `capacity_bulk`, `open`/`jammed`/`sealed`; `contains` | if it holds things | world-builder |
+| `surfaces` | what things can sit *on* it | if it has any | world-builder |
+| `located` | `space`, and `relation` to a parent: on · in · under · against · attached | required | world-builder |
+| `states` | the state axes this thing really has, and their starting values (wet, frozen, burning, burnt, open, searched, damaged, lit…) | required | world-builder |
+| `could_become` | every transform: `{operation, needs: capability + level, yields: [{name, form, material, mass_g}], notes}` — cut, break, burn, dig, melt, shave… | required | world-builder |
+| `relations` | beyond containment: attached-to, part-of, blocks, supports, near, leads-to | if any | world-builder |
+| `sensed` | what it gives each sense: `look`, `smell`, `sound`, `touch`, `taste` | required | world-builder |
+| `synonyms` | the words people use for it — written with the noun, not harvested (document 04 §3.7) | required | world-builder |
+| `actions` | candidate commands: `{command, lens, expects, source}` — one row per thing a survivor might try | required | scout |
+| `goal_roles` | the goals this thing can serve a role in (ignition, fuel, vessel, binding…) — document 04 §3.9 | if any | scout |
+| `status` | ✅ built · 📐 designed · ◌ candidate | required | design pass |
+| `notes` | anything the pass wants the next pass to know | optional | any |
+| `provenance` | **a list**, one entry per pass that produced this row: `{model, agent, pass, date, source}` | required | every pass |
+
+**Shared files** — `materials.yaml` (every material with its axes, including `density` — document 18),
+`verbs.yaml` (canonical verb, family, the relations it takes, the capability it needs, the forms it
+yields), `synonyms.yaml`, `relations.yaml`, `goals.yaml` (the goal table, document 04 §3.9).
 
 **The rules** (in `docs/ontology/README.md`): provenance is required on every row; status is never
-overstated; **a row is never deleted, only superseded**. `make validate-ontology` checks the schema
-and the cross-references.
+overstated; **a row is never deleted, only superseded**. `make validate-ontology` checks the schema,
+the cross-references, and the two disciplines above — a required field left empty is an error, a
+field no pass owns is a schema bug.
+
+**Merging the two models, and measuring them (Andrew, 2026-09-18).** Sonnet and Opus each produce a
+file per zone; the merge **unions, never drops**, and every row's `provenance` list gains an entry
+per pass that found it. That makes agreement a number: a row found by both models carries two
+entries, a row only one model saw carries one. Each firing then writes an **analysis report** beside
+the merge: how many rows each model found, how many both found, what each found that the other did
+not, broken down by kind (entity · part · state · transform · relation · action · synonym), and how
+those counts move over time. That is what tells us what each model actually contributes, whether the
+two-model premise pays, and how to change the briefs — and it is the same data the design pass reads
+when it prunes. *(Andrew: "we would have the models' outputs, tracking how frequent those are every
+time you merge, then running analysis to see what they are doing, find patterns, all that.")*
 
 **Seeding, before any agent runs.** `tools/ontology_seed.py` converts what is already built — the
 object table, the materials table, the zones, the spaces, the appearance rows, and the nine censuses'
@@ -343,13 +375,13 @@ the honest scale of the work, and the reason the store and the viewer come befor
 
 ## 6. Open questions
 
-1. **The schema fields.** §4.5 is a first cut, never used in anger. Risks both ways: too few fields
-   and the loops produce prose nobody can convert; too many and every row is expensive and half
-   empty. Options: (a) take the field list as drafted into the pilot; (b) cut it to a minimum
-   (`id`, `materials`, `could_become`, `relations`, `actions`, `provenance`) and let the pilot show
-   what is missing; (c) design it further on paper first. **Recommendation: (b)** — the pilot exists
-   precisely to fix the schema from evidence, and a thin schema that grows is cheaper than a wide one
-   that is half-filled.
+~~1. The schema fields.~~ **Answered 2026-09-18 (Andrew): design it in full, up front.** His objection
+   to the original recommendation (cut to a minimum, let the pilot show what is missing) was that it
+   contradicts the waterfall stance — and it does. A schema is cheap to specify and expensive to
+   change after 59 zones of data exist; discovering it from the pilot is exactly the drift we are
+   avoiding. §4.5 now carries the complete schema, with every field marked required/conditional/
+   derived and tagged with the pass that fills it, so "wide" cannot become "half-filled". **The pilot
+   verifies the schema; it does not design it.**
 2. **The scaffold text.** The world-builder and scout briefs are the single biggest lever on output
    quality, and are currently one paragraph each. Options: (a) run the pilot on this draft and rewrite
    from what the two models actually produce; (b) write a long, worked brief first, with a full
@@ -362,14 +394,34 @@ the honest scale of the work, and the reason the store and the viewer come befor
    things" Andrew wants from Sonnet. **Recommendation: keep the goal lenses as the backbone, and add
    a small set of human lenses**, tried in the pilot and kept only if they produce commands the goal
    lenses missed.
-4. **How merges between the two models are reconciled.** Two models on every room will disagree on
+~~4. How merges between the two models are reconciled.~~ **Answered 2026-09-18 (Andrew): union, track
+   frequency, and analyse.** Provenance is a list, agreement is a count, and every firing writes an
+   analysis report on what each model found, what both found, and how that moves — see §4.5. Kept
+   below as the record of what was weighed; the remaining question is only *who prunes and when*,
+   which the design pass answers per zone.
+
+   *(original)* **How merges between the two models are reconciled.** Two models on every room will disagree on
    naming, granularity and plausibility. Options: (a) a Sonnet merge step that unions everything and
    flags only exact-id collisions; (b) a stricter merge that judges plausibility and drops rows; (c)
    keep both models' rows side by side, with provenance, and let the design pass prune. **Recommendation:
    (a) with (c) as the fallback** — dropping rows loses the evidence we are running two models to get,
    and "a row is never deleted, only superseded" already says which way to lean. The real question for
    the review is who prunes, and when.
-5. **What counts as "a wall".** The measure of the whole programme is "walls per run", and it is
+5. **What counts as "a wall"?** *(Andrew, 2026-09-18: "not sure what you mean" — so, plainly: a **wall**
+   is a moment when someone tries something reasonable and the world cannot answer it properly. It
+   is the project's progress measure: "walls per run" should fall as the loops flesh the world out,
+   and it never reaches zero. The question is which failures count.)*
+
+   The candidates, each of which is a different kind of gap:
+   - **an unknown word** — they typed `chop` and the game has no such verb (a vocabulary gap);
+   - **an unknown noun** — they named something a real room would have and this one does not model
+     (`the windscreen`, `the roots`) (a world gap);
+   - **a generic answer** — the verb fits, the thing exists, but the reply came from the fallback
+     physics rather than something specific (a depth gap);
+   - **a refusal that should not be one** — the world said no to something a survivor could do;
+   - **a retry cluster** — the same intent attempted three different ways in a row, which says the
+     player hit a wall even when each individual reply was defensible.
+ The measure of the whole programme is "walls per run", and it is
    undefined. Candidates: any tier-4 fallback; any unknown word; any clarification the player did not
    resolve; any attempt whose answer the player retried three different ways; only an attempt a
    reasonable person would expect to work. Options: (a) count the broad set and accept a noisy number
@@ -389,6 +441,16 @@ the honest scale of the work, and the reason the store and the viewer come befor
 | — | — | — | — |
 
 ---
+
+- **2026-09-18 (Andrew, block 1):** **Q1 changed from the recommendation** — the schema is designed in full
+  up front, not discovered from the pilot; a minimum-then-grow schema contradicts the waterfall stance
+  and is expensive to change once the zones are censused. §4.5 rewritten with the complete schema,
+  every field marked required/conditional/derived and tagged with the pass that fills it; the pilot
+  verifies it. Q2 scaffold: pilot on the draft, then rewrite from the output. Q3 lenses: the goal
+  lenses as the backbone plus a small set of human lenses. **Q4 improved by Andrew** — the merge
+  unions and never drops, provenance is a list so agreement is a count, and every firing writes an
+  analysis report on what each model found and how that moves over time. Q5 (what counts as a wall)
+  restated with its five candidate categories, open for his answer.
 
 ## 8. What exists today
 

@@ -84,7 +84,7 @@ no design.
 | ☐ | B6 | Hygiene: delete `seed.md`, `tools/bake.py`, `tools/coverage.py`, the certainty draft, empty scenario dirs; gitignore the render output and the hook stamp; banners on unbannered authoritative files; fix `_TEMPLATE.md` links; move `mudlet-research.md`. | docs-editor | — | — |
 | ☐ | B7 | The commit doc-reminder hook (`.claude/hooks/commit-doc-reminder.py`): a Bash `git commit` triggers a checklist of the docs the staged paths may need, incl. this file. The first test of the implement → self-grade → review process. | Opus implementer → Sonnet review → Fable | 22 | B1 |
 | ☐ | B8 | Publish: fast-forward `main` to the branch, push, CI green. After Andrew's read of README + VISION + this file. | Fable | — | B3, B4 |
-| ☐ | B9 | The ontology store: `docs/ontology/` YAML schema + `docs/ontology/README.md` (provenance required; a row is never deleted, only superseded); `make validate-ontology`. | Fable (schema) → Opus | 05 | — |
+| ☐ | B9 | The ontology store: the **full** `docs/ontology/` YAML schema (document 05 §4.5 — every field required/conditional/derived and tagged with the pass that fills it) + `docs/ontology/README.md` (provenance a list; a row is never deleted, only superseded); `make validate-ontology` checks the schema, the cross-references, required-but-empty fields and fields no pass owns. | Fable (schema) → Opus | 05 | — |
 | ☐ | B10 | The seed converter `tools/ontology_seed.py`: the built tables and the nine censuses → the first YAML files (✅ built / 📐 designed), so the store exists before any agent runs. | Opus | 05 | B9 |
 | ☐ | B11 | The viewer `tools/ontology_view.py`: a static site — the world map, per-region and per-room pages, counts, what changed since last firing; publishable as an Artifact. | Opus | 05 | B10 |
 | ☐ | B12 | The loop scaffold `docs/guides/world-building.md` (world-builder and scout briefs; the goal lenses) and the queue `docs/investigation/world/loop-queue.md` (zone × phase × model). | Fable | 22 | — |
@@ -97,6 +97,7 @@ no design.
 | ☐ | C1 | The pilot pass: the mid cabin by the world-builder on Sonnet and on Opus, merged; the first viewer page; read together; the scaffold, schema and queue fixed from what we learned. | both models → Andrew + Fable | 22 | Phase A exit, B9–B12 |
 | ☐ | C2 | Ontology passes over every zone (the nine built first, then the fifty): entities, materials, what each could turn into, relations, candidate commands; merged with provenance. | both models, overnight | 22, 05 | C1 |
 | ☐ | C3 | Possibility passes: a survivor in a situation, one goal lens at a time (fire · food · water · warmth · shelter · signals · rescue · injury · the pilot · the party · others), everything they would try as commands. | both models, overnight | 22 | C2 |
+| ☐ | C6 | The merge and its analysis: union the two models' files per zone, never drop; provenance as a list so agreement is a count; an analysis report per firing — rows per model, rows found by both, what each found alone, by kind, and the trend over firings. | Opus | 05 §4.5, 22 | B9 |
 | ☐ | C4 | **The feedback rule, run after every firing:** each addition that names a new food source, material, verb, relation, hazard or system goes into the owning design document as a proposal AND becomes a task here (Phase E) if it needs code. Synonyms → the phrasing probes. | Fable (morning read) | all | C2 |
 | ☐ | C5 | Walls per run defined and measured once agents play (Phase F); the categories kept separate. | Fable | 20, 22 | F1 |
 
@@ -210,6 +211,7 @@ under "no task yet" — which must stay empty. Three tasks were added by this pa
 | ⊘ | Water hemlock: the one poison that kills, or softened to illness? | 23 | at the sitting |
 | ☑ | `make` is the one aim-verb: vague it asks how, given the means it performs the act they imply; the recipe reply is cut and moves to the survival manual. | 04, 07 | 2026-09-18 |
 | ☑ | The form list is finalized before the loops run; movement, goal and meta forms added. | 04 | 2026-09-18 |
+| ☑ | The ontology schema is designed in full up front (not discovered from the pilot); the pilot verifies it. The merge unions and never drops; agreement is a count; every firing writes an analysis of what each model contributes. | 05 | 2026-09-18 |
 | ☑ | Vocabulary is authored word-first (canonical word + its synonyms in the same pass, before the loops); the gaps log is the backstop. The world's voice, not the system's, in every line the game speaks. | 04 | 2026-09-18 |
 | ☑ | Quantities are budgets, not numbers: counts and measures (a handful, an armful, some, all, as much as I can carry) resolved against what is there and what you can carry; inventory limited by weight **and** space. | 04, 16, 18 | 2026-09-18 |
 | ☑ | Bulk derives from mass ÷ material density, authored wins; `density` joins the material table. | 18, 04 | 2026-09-18 |
