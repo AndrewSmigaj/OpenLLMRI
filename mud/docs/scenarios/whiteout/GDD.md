@@ -1,6 +1,6 @@
 # Whiteout — Game Design Document (authoritative)
 
-> **Status: THE UMBRELLA — pitch, vision, cross-cutting rules, and the chapter index (2026-09-16). Reviewed with Andrew 2026-09-17 (block 1: the pitch, the engine rule, the improvements, the session model); finalized at the close.**
+> **Status: THE UMBRELLA — pitch, vision, cross-cutting rules, and the chapter index (2026-09-16). Reviewed with Andrew 2026-09-17 in full (block 1); finalized at the close.**
 > The per-system design of record now lives in [`docs/design/`](../../design/README.md), one document
 > per system, reviewed with Andrew one at a time; each section below points to its chapter. This
 > GDD = **your original design** (`design.md`,
@@ -56,8 +56,8 @@ The clock and session model that were once open are **decided and locked** (full
   shot, or two with a halt and resume; a member missing at resume is incapacitated where they lie). It is
   a game played in sessions with friends, not an ongoing world. *(Andrew, 2026-09-17, DR-15b; the June
   draft's "~1 in-game day, then reset" was never his.)*
-- **Remaining nice-to-haves (genuinely optional — drop freely):** a knowledge/uncertainty layer
-  (believed-vs-true) and an auto-generated end-of-run recap story. Pure additions.
+- The end-of-run recap is design (document 21). The knowledge/uncertainty layer (believed vs true) is
+  an idea in `docs/design/IDEAS.md`, not design. *(2026-09-17.)*
 
 ---
 
@@ -111,19 +111,19 @@ by guessing the author's verb.**
    documented.
 4. **Model-deep, requirement-light (§4).** Model everything plausible; gate only core blockers; reward
    depth with safety/quality/options.
-5. **No autonomous in-scenario NPCs (§3.3).** The pilot is scripted; LLM-controlled *characters* are
-   external bot *players* (ADR-0005), not authored NPCs.
+5. **No scripted-AI NPCs inside the engine (§3.3).** The pilot is authored content (he starts dead).
+   Language-model-driven *characters* — including agents scaffolded as non-human characters (NHCs) —
+   are *players* from the engine's side (ADR-0005), never engine logic. *(Reworded with Andrew, 2026-09-17.)*
 
 ## §6/§8. The world  *(unchanged; §6 premise, §8 weather arc)*
 > *Design of record (reviewed per system):* [`01-premise-and-world`](../../design/01-premise-and-world.md) · [`13-events-escalation-and-weather`](../../design/13-events-escalation-and-weather.md)
-One authored crash. One **dense scene** (cabin + camp + near-forest) gets the whole data budget —
-modeled to the hilt — rather than spread thin. Premise (§6): off-route winter crash, wrong search
-area, dead radio, weak beacon, unstable wreck, ~5h daylight. Weather (§8) escalates light → steady →
-heavy → near-whiteout → night (−15 to −20 °C), degrading visibility/audibility/fire/tracks/rescue.
-Seed 2–3 timed beats (a search plane that misses you; the pilot's last lucid line) so the curve
-doesn't sag.
 
----
+Premise (§6): an off-route December crash; the search grid in the wrong area; a dead radio, a weak
+beacon, an unstable wreck; about five hours of daylight. The crash site is the densest place in the
+valley — modelled to the hilt — and the whole valley is in the run (document 01). Weather and the
+escalation ladder — snow that deepens, cold that drops by the day, storms, the search moving on — are
+designed in document 13; the June arc (light → steady → heavy → near-whiteout; −15 to −20 °C) is
+superseded by the December ladder there. *(Reviewed with Andrew, 2026-09-17.)*
 
 ## §5/§20–§27. The interaction engine  *(your engine; runtime now fully deterministic)*
 > *Design of record (reviewed per system):* [`05-ontology-and-sufficiency`](../../design/05-ontology-and-sufficiency.md) · [`18-materials-and-forms`](../../design/18-materials-and-forms.md) · [`04-grammar-and-feedback`](../../design/04-grammar-and-feedback.md)
@@ -220,107 +220,104 @@ Speech ranges whisper/say/call/shout, weather-modified (§15). *Deferred past th
 
 ## §9/§16. Time, multiplayer, cooperation  *(LOCKED — running real-time clock + instanced co-op)*
 > *Design of record (reviewed per system):* [`06-time-sleep-and-the-clock`](../../design/06-time-sleep-and-the-clock.md) · [`19-multiplayer-and-instances`](../../design/19-multiplayer-and-instances.md)
-**Clock — a continuously running real-time clock (LOCKED).** Game time advances on its own, in real
-time, at a fixed pace (a tunable constant, ~10–20 real-seconds per game-minute, so one ~5-hour daylight
-arc fits a sitting). It is **not** advanced by player actions or chat, no one pokes it forward, and no
-one can stall or yank the shared clock for everyone else. The world — storm, dying pilot, fires, cooling
-bodies — moves whether or not the party is acting, and **that pressure is the survival gameplay** (not
-"rushing"). A long action is a *scheduled activity* that occupies its actor for N game-minutes while the
-shared clock keeps running uniformly for everyone (§9.1: long actions never skip the clock for others).
-Event-/turn-based time is **rejected** as clunky in multiplayer. *Build note (no gameplay effect): under
-the hood the clock is a deterministic logical clock — time is an input — so replay/fuzz/tests are
-reproducible; real time is simply its pacing.*
 
-**Session model — instanced, synchronous, small-party co-op (LOCKED).** A party plays one crash
-together, online at the same time, acting concurrently, to resolution — roughly a week of game time,
-persisting across sittings *(corrected 2026-09-17; the one-day wording was never Andrew's — DR-15a)*;
-then the instance resets (idiomatic on Evennia — the dungeon-contrib instancing pattern).
+**The clock (LOCKED, DR-14/14b).** Game time runs on its own, always faster than real time: **15
+game-minutes per real minute**. Nobody can stall or yank it. `propose fast forward` raises it to
+**180×** when every player agrees — for sleeping and waiting — and events drop it back; a player who
+does not agree keeps it at the base pace. Time controls are taught in the pre-scenario tutorial. A long
+act is an attended activity that occupies its actor for game-minutes while the clock runs for everyone;
+processes (a fire burning down, snow melting, a wound bleeding) are the clock's own work. Under the
+hood the clock is a deterministic logical clock, so runs replay exactly. Design: document 06.
 
-**Cooperation:** add **≥1 first-class interdependence** (one holds/raises the antenna or relays the
-scout's landmark while another transmits) so co-op is a shared-story engine, not parallel solitaire.
+**The session (LOCKED, DR-15/15a/15b).** Instanced, synchronous, small-party co-op: **one sitting of
+two or three hours** covering roughly a week of game time — a game played with friends, one shot or two
+with a halt and resume; a member missing at resume is incapacitated where they lie. Not an ongoing
+world. The only endings are rescued or dead; a dead player is a ghost who moves freely and talks only
+in the out-of-character chat. Design: documents 19 and 21.
+
+**Cooperation:** at least one first-class interdependence (one raises the antenna while another works
+the radio; one relays a landmark) so co-op is a shared-story engine, not parallel solitaire.
+*(Reviewed with Andrew, 2026-09-17.)*
 
 ## §19. The dying pilot  *(unchanged; one tweak)*
 > *Design of record (reviewed per system):* [`12-the-pilot-and-bodies`](../../design/12-the-pilot-and-bodies.md)
-A condition-scripted, deteriorating information source — not AI dialogue. Tending buys lucidity/time/
-fragments; he dies on a timer and becomes a body. **Give tending a real opportunity cost** (time,
-exposure) so tend/question/loot is a genuine choice. Every fact he holds has **≥3 independent clue
-paths** so his death never softlocks.
+
+He is dead at the start (Andrew, 2026-09-17). His body is a food path and a moral question; his kit is where
+he sat. Nothing the party needs for rescue depends on him. Design: document 12.
 
 ## §31–§36. Survival systems  *(unchanged; + the warmth floor, improvement #4)*
 > *Design of record (reviewed per system):* [`07-fire-and-shaping`](../../design/07-fire-and-shaping.md) · [`08-warmth-clothing-and-shelter`](../../design/08-warmth-clothing-and-shelter.md) · [`09-water`](../../design/09-water.md) · [`10-food-and-hunger`](../../design/10-food-and-hunger.md) · [`11-injury-and-first-aid`](../../design/11-injury-and-first-aid.md)
-Fire (state ladder + hazards), warmth (fire **plus** windbreak/shelter/insulation/huddling/body-heat),
-water (safety gated by container state), shelter (by properties; partial shelters count), injury/
-medicine (systemic, improvised), food/death/bodies (incl. consequential cannibalism). **A no-materials
-warmth floor** (huddle + fuselage + body heat) lets a competent party survive one night without fire,
-so fire-failure is recoverable.
+
+One chapter per system; each is its own document, reviewed separately. *(Rewritten with Andrew, 2026-09-17;
+the June one-liners came from the archived seed.)*
+- **Time and sleep** — the clock at 15 game-minutes per real minute; `propose fast forward`; attended
+  acts with feedback; processes; halt and resume. Document 06.
+- **Fire** — ignition needs the right source for the right material in the right form (a lighter lights
+  tinder, not a branch); fire is a process with a stage ladder; seven ways to make it. Document 07.
+- **Warmth, clothing and shelter** — cold is the antagonist; clothing by region and wetness; the huddle;
+  shelter as a property of a place. Document 08.
+- **Water** — vessels, melting, boiling; eating snow costs heat. Document 09.
+- **Food and hunger** — the kit, the freight, the country (berries, snares, birds with a thrown rock,
+  fish under the ice, roots in frozen ground), the body. Documents 10 and 23.
+- **Injury and first aid** — named wounds with clocks; improvised care. Document 11.
+- **The pilot and bodies** — document 12.
 
 ## §37–§39. Rescue  *(your additive-confidence model; one improvement)*
 > *Design of record (reviewed per system):* [`14-rescue-paths`](../../design/14-rescue-paths.md) · [`21-endings-and-recap`](../../design/21-endings-and-recap.md)
-Rescue = additive confidence + a weather window; ≥4 winning combinations; no single required path.
-Routes: stay-and-signal, beacon, radio, visual, travel. **Improvement:** make routes draw on
-**distinct** scarce resources (not all on warmth/fire) so the choice between them is real and total
-warmth failure doesn't kill every route at once. The radio is the one authored deep puzzle (§38).
 
----
+Rescue is the only good ending, and it comes three ways, each harder than the last. **The hand radio
+during a flyover:** find the battery in the tail wreckage under the snow, raise the antenna, turn the
+dial through the static — a high screech, a low hum, a faint voice — and piece together what the voice
+asks for (*improve your signal*, *adjust antenna*), a medium-difficulty mini game; the radio is static
+except when a plane is overhead. **A signal a search plane can see:** a smoke column past a threshold —
+rubber, oil, green boughs — or the cabin burning during a pass. **Surviving long enough** for the
+search to reach a findable party — the hardest path, because every day is worse. The flyover schedule
+is the hidden rescue clock: an early pass for the story, real chances, then the late pass. Players never
+see a number. The cabin is supplies, never an exit. The ELT — a silent beacon you rig an antenna onto —
+is decided in the rescue document. Design: document 14; endings in 21. *(Rewritten with Andrew, 2026-09-17.)*
 
 ## §43. Authoring model  *(improvement #2)*
 > *Design of record (reviewed per system):* [`17-rooms-and-living-rooms`](../../design/17-rooms-and-living-rooms.md) · [`22-the-world-building-loops`](../../design/22-the-world-building-loops.md) · [`16-players-and-kit`](../../design/16-players-and-kit.md)
-**Default:** cheap objects + ordinal materials + pre-authored operation rules (the `ontology-generator`
-skill drafts them at build time, generate-then-validate; the material table is hand-curated).
-**Exception:** full §43 packets only for puzzle-critical objects, authored as *goals with ≥3 clue/
-solution paths*, never recipes. **Gap-filling (build time):** the fuzzer's wall-sensor log tells devs
-which interactions still need authoring; the LLM helps draft them; the validator gates them; they're
-baked in. None of this happens at runtime.
+
+**Behaviour derives; authoring has no ceiling.** Objects get their behaviour from materials, forms and
+the shared operations, so nothing needs a hand-written rule in order to exist; authored rules go on top
+of anything, without limit, when they make the world truer or more interesting. Content is authored in
+tables (`objects.py`, `materials/table.py`, `zones.py`, `spaces.py`, `appearance.py`, `responses/`)
+and grown by the world-building loops from the ontology store (`docs/ontology/`), where Sonnet and
+Opus flesh out every room as peers and every addition flows back into the design and the plan.
+`make validate` is the gate. Design: documents 05, 18, 22. *(Rewritten with Andrew, 2026-09-17.)*
 
 ## §44/§45. Correctness  *(improvements #3, #4, #6)*
-Validator (content-lint) + **runtime assertions** + property tests + **fuzz**, replacing 700 enumerated
-tests. Enforced invariants: the conservation ledger; **narration↔Effect** (no prose-only change);
-**rescue-confidence monotonic & always-reachable**; **every-attempt-resolves** (0 fuzz dead-ends);
-**warmth floor**; **activity durability across `@reload`**. **Coverage = the
-operation×material matrix is complete + property-tested, plus a ≥10k-attempt fuzz corpus with 0
-unresolved / 0 conservation violations / rescue reachable.** This proves *resolution + conservation +
-solvability*; **quality** (does it read well?) is curated + playtested, not automated.
+
+Invariants, enforced at runtime and in the gates: the **conservation ledger** (mass and material never
+appear from nowhere or vanish); **narration ↔ effect** (no prose-only change); **rescue always
+reachable** (no run can become unwinnable); **every attempt resolves**; **activities survive a
+reload**. **Coverage** is the probe corpus — every `pass` probe green, the count never drops — plus the
+seeded fuzz (every attempt resolves, every effect conserves): DR-18a. Quality — does it read well, is it
+interesting — is judged by reading rendered scenes, never automated. The warmth floor is decided in
+document 08. *(Reviewed with Andrew, 2026-09-17.)*
 
 ## §42. Build plan — vertical slice first  *(improvement #5)*
-1. **Slice (co-op multiplayer, one shared room, ~5 objects, ~25 materials, ~15 operations):** the
-   operation×material core + conservation ledger + the deterministic parser + the §26 tiers + redirect +
-   wall-sensor + ~50 hand-curated signature responses + a stub radio rescue, with **2–3 players co-op in
-   one shared room** (all game output through the message **propagator** seam — trivially "everyone in
-   the room" for now) and a **basic running clock** (world-time + cold ticks). **Built behind seams**
-   (propagator for all output; `WorldView.reachable/in_zone` for reach; the logical clock; run-tagging)
-   so the deferred systems drop in without refactoring. **Defer:** the graded perception zones, the full
-   activity scheduler, instanced-run lifecycle, authored interdependence, weather.
-2. Materials/operations breadth + property tests + the fuzz harness.
-3. Perception/zones (§10–15). 4. Running real-time clock + activity scheduler (timed tasks). 5. Rescue
-   confidence + distinct-resource routes + authored radio/beacon/pilot. 6. Instanced synchronous co-op
-   multiplayer + the graded propagator + co-op interdependence. 7. Weather arc (+ optional recap story).
 
-**Slice success test:** the systemic core resolves *everything* tried and conserves, and the interaction —
-*try-anything → it resolves → it feels alive and reactive*, **zero** "you can't do that", the occasional
-delighted *"I can't believe that worked / that it told me why"* — is in a shape we like, so it's worth
-layering the rest. This is *our* design judgment (friends see the finished game, not the slice). **Fun is
-a continuous design judgment held throughout — "are we designing toward something fun?" — not a test the
-slice must pass;** we keep checking it as depth accumulates.
+Superseded (2026-09-17). The order of work is [`PLAN.md`](../../../PLAN.md): the design review, the machine,
+the world-building loops, the cabin zone done right, the systems, play.
 
 ## §46. Scope & non-goals (v1)
-**In:** the slice → the layered build, one dense scene, additive rescue. **Out (v1):** procedural
-variants; the §46 density numbers (cut); the graded perception zones / instanced lifecycle / weather *until the core is proven on the slice*;
-**any runtime LLM.**
+
+**In:** the whole valley (59 zones); the systems in documents 06–23; the world-building loops before
+anyone plays; runs for friends, for humans with agents, and for agents only. **Out:** a language model
+inside the engine (models play characters and help build the world; the engine never calls one);
+procedural variants of the crash; an ongoing world — a run is one sitting of two or three hours.
+*(Rewritten with Andrew, 2026-09-17.)*
 
 ## §49. Bottom line
-Structurally sound, buildable, and now simpler (no runtime LLM). **Why this is feasible now:** deep
-world-model text systems (SHRDLU → Infocom → MUDs → simulationist IF) were historically limited by
-*hand-authored* ontology — the Cyc bottleneck; LLMs lift that ceiling **at build time, with validation**
-(generate-then-validate), which is exactly where this design puts them. See
-`docs/investigation/research/lineage-and-the-llm-unlock.md`. The make-or-break is **fun**, and it's
-**empirical**: it rests on the bet that pre-authored, validated responses read as *specific and witty*.
-**Confidence in the plan-to-find-out ~90%; in the game-being-fun ~50%** — a bet judged as we build toward
-depth, not certifiable on a thin slice.
-Full reasoning: `docs/investigation/certainty-assessment.md` and `scope-and-risk-register.md`. (Note:
-removing runtime LLM retires the determinism/latency/mis-parse risks those docs raised — the picture
-is now better.)
 
----
+Two things, both first-class. A **model world for serious research**: an LLM acts in it freely through
+the same grammar a person uses, never offered options, and its behaviour and activations are studied;
+the runtime is deterministic, so every run replays exactly. A **new kind of MUD**: a survival game where
+you can do anything within reason to solve it. What makes both work is one property — the world answers
+anything reasonable — and the loops keep growing what it can answer. The reasoning and the history:
+`docs/investigation/` (not authoritative). *(Rewritten with Andrew, 2026-09-17.)*
 
 ## Appendix A — §-anchor map
 §1–2 Pitch/Essential · §3 Binding decisions · §4 (in §3.4) · §5/§21 Operations/Materials · §6/§8 World

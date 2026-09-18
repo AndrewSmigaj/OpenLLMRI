@@ -178,6 +178,32 @@ GDD_BRIEF = {
         "P7 — §6 'one dense scene (cabin + camp + near-forest) gets the whole data budget rather than spread thin' (June text; the whole valley is now in the first run).",
         "P8 — §42 build plan and §46 scope as written (the June waterfall; PLAN.md now holds the order).",
     ],
+    "questions2": [
+        ("G5", "§3 Binding decisions — rule 1 (every attempt resolves, never 'you can't do that'), rule 3 (conservation holds at runtime), rule 4 (model-deep, requirement-light) are yours from June; rule 5 says 'no autonomous in-scenario NPCs; LLM-controlled characters are external players'. With NHCs allowed as agent players, keep rules 1, 3, 4 and reword 5?",
+         ["(a) keep 1, 3, 4; reword 5: no scripted-AI NPCs inside the engine; LLM-driven characters, NHCs included, are players", "(b) keep all five as written", "(c) rewrite — say what"], "a"),
+        ("G6", "§6/§8 The world — the June premise text and the weather arc (light → steady → heavy → near-whiteout; −15/−20 °C), now superseded by the December ladder in document 13.",
+         ["(a) keep the premise sentence; replace the weather arc with two lines pointing to documents 01 and 13", "(b) leave as is with the pointer line", "(c) rewrite"], "a"),
+        ("G7", "§9/§16 Time, multiplayer, cooperation — the locked clock and session text, now DR-14b/15b (15 game-min per real min; propose fast forward to 180×; one sitting of two or three hours). The '≥1 first-class interdependence' line stays?",
+         ["(a) rewrite the section to the new numbers and sessions; keep the interdependence line; point to 06 and 19", "(b) leave with pointer lines"], "a"),
+        ("G8", "§19 The dying pilot — he now starts dead.",
+         ["(a) replace the section with two lines: he is dead at the start; the body is a food path and a moral question; document 12", "(b) leave with a pointer"], "a"),
+        ("G9", "§31–§36 Survival systems — June one-liners, all from the archived AI seed; the design lives in documents 07–11 and 23.",
+         ["(a) replace with a two-line summary per system pointing to its chapter", "(b) strike the seed text; pointers only", "(c) leave as is"], "a"),
+        ("G10", "§37–§39 Rescue — the June additive-confidence text; the design is now the flyover clock, the radio mini game, signals, and surviving long enough (document 14).",
+         ["(a) rewrite the section to that in a short paragraph pointing to 14", "(b) leave with a pointer"], "a"),
+        ("G11", "§42 Build plan — the June slice-first waterfall; the order of work is PLAN.md.",
+         ["(a) strike; one line pointing to PLAN.md", "(b) keep as history"], "a"),
+        ("G12", "§43 Authoring model — packets and 'the ontology-generator skill drafts them at build time' (both retired); authoring is the tables, the ontology store and the world-building loops.",
+         ["(a) rewrite to the no-ceiling principle: behaviour derives; authoring has no ceiling; the loops grow the world; point to 05 and 22", "(b) strike; pointer only"], "a"),
+        ("G13", "§44/§45 Correctness — the invariants (conservation ledger, narration↔effect, rescue always reachable, every attempt resolves, activity durability) stay; 'coverage = the operation×material matrix + 10k fuzz' is replaced by the probe corpus + fuzz (DR-18a). The warmth floor is decided in document 08.",
+         ["(a) keep the invariants; replace the coverage sentence; leave the warmth floor to 08", "(b) rewrite the section"], "a"),
+        ("G14", "§46 Scope & non-goals — 'one dense scene', 'perception zones until the core is proven' (perception shipped) and 'procedural variants' are stale; 'no runtime LLM' keeps its reworded meaning.",
+         ["(a) rewrite: in — the whole valley, the systems in documents 06–23, the loops; out — a runtime language model in the engine, procedural variants, an ongoing world", "(b) strike the section"], "a"),
+        ("G15", "§49 Bottom line — June's 'confidence in the plan 90%, in the game being fun 50%' and 'the make-or-break is fun'.",
+         ["(a) rewrite as the two goals (the research world; the new MUD) and what makes each work — the world answers anything reasonable, and the loops grow it", "(b) strike"], "a"),
+        ("G16", "§0b's remaining nice-to-haves — the knowledge/uncertainty layer (believed vs true) and the auto-generated recap.",
+         ["(a) the recap is design (document 21); the knowledge layer goes to IDEAS.md", "(b) both to IDEAS.md", "(c) both in"], "a"),
+    ],
     "questions": [
         ("Q1", "Is the pitch and the essential experience (§1–§2) right as written?",
          ["(a) yes, as the umbrella's opening", "(b) rewrite — say what"], "a"),
@@ -308,7 +334,9 @@ def render_gdd(block: int, idx: int, total: int, current: str, gdd_text: str) ->
     status = status_of(gdd_text)
     pill = f"<span class='pill {status}'>{status}</span>" + (" <span class='pill current'>now</span>" if current == "GDD" else "")
     qs = []
-    for qid, q, opts, default in b["questions"]:
+    for qid, q, opts, default in b["questions"] + [("—", "**Part 2 — the remaining sections** (answered 2026-09-17 in part: Q1 a, Q2 a with history, Q3 b; Q4 is G9 below)", [], "")] + b["questions2"]:
+        if qid == "—":
+            qs.append(f"<li><span class='q'>{inline(q)}</span></li>"); continue
         badge = "<span class='default'>default</span>"
         opts_html = "".join(
             f"<li>{inline(o)} {badge if o.startswith('(' + default + ')') else ''}</li>" for o in opts)

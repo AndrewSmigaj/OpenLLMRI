@@ -10,3 +10,4 @@
 | **`walk` / `run` energy trade** | Andrew, 2026-09-17 | Running an exit takes less time and more energy (sweat → wet → cold later). | folded into document 03 §4.1a as design |
 | **"Air traffic" label on the radio** | Andrew, 2026-09-17 | A hint that the hand radio only works when a plane is overhead — a label, or let them work it out. | open in document 14 |
 | **The burning cabin** | Andrew, 2026-09-17 | Setting the homestead cabin alight during a flyover triggers a rescue; it also destroys the supplies. | folded into document 14 as a signal path |
+| **A knowledge / uncertainty layer** | the June GDD (Claude), moved here 2026-09-17 | Track believed-vs-true (is the water safe? is the beacon transmitting? which way is the road?) so the party can be wrong about the world. | idea, not design |
