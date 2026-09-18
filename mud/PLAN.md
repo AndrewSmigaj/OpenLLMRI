@@ -43,7 +43,7 @@ no design.
 |---|---|---|---|---|---|
 | ◐ | A1 | The review sittings (2026-09-17), one document at a time in index order; the five-step procedure; the review packet page; blocks 1–4 then the close. Rows below flip as each document finalizes. | Andrew + Fable | all | — |
 | ◐ | A1.00 | GDD umbrella — reviewed in full 2026-09-17 (every section rewritten or struck as decided); finalized at the close | Andrew + Fable | GDD | — |
-| ◐ | A1.01 | 01 premise and world — Q3–Q9 answered 2026-09-17; Q1 size, Q2 regions at its sitting | Andrew + Fable | 01 | — |
+| ◐ | A1.01 | 01 premise and world — reviewed in full 2026-09-17 (fifty zones, eleven regions kept); finalized at the close | Andrew + Fable | 01 | — |
 | ◐ | A1.02 | 02 the experience — reviewed 2026-09-17; the sample week regenerated after block 4 | Andrew + Fable | 02 | — |
 | ◐ | A1.03 | 03 the player view — reviewed 2026-09-17 (exits as entities, groups, the block) | Andrew + Fable | 03 | — |
 | ☐ | A1.04 | 04 grammar and feedback — reviewed and finalized | Andrew + Fable | 04 | — |

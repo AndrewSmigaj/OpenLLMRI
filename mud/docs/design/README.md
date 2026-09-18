@@ -29,7 +29,7 @@ then 19–22. Ideas that are not design yet live in [`IDEAS.md`](IDEAS.md).
 | # | document | system | status | architecture counterpart |
 |---|---|---|---|---|
 | — | [`../scenarios/whiteout/GDD.md`](../scenarios/whiteout/GDD.md) | the umbrella: pitch, vision, cross-cutting rules, chapter index | reviewed with Andrew 2026-09-17 (finalize at the close) | [`implementation-architecture.md`](../architecture/implementation-architecture.md) (the DR register) |
-| 01 | [`01-premise-and-world.md`](01-premise-and-world.md) | the crash, December, the valley: regions, the 59 zones, routes, currencies, the map | draft for review | — |
+| 01 | [`01-premise-and-world.md`](01-premise-and-world.md) | the crash, December, the valley: regions, the 59 zones, routes, currencies, the map | reviewed with Andrew 2026-09-17 | — |
 | 02 | [`02-the-experience.md`](02-the-experience.md) | what a run is like: a sample week in prose, then the reference | reviewed with Andrew 2026-09-17 (sample week regenerated after block 4) | — |
 | 03 | [`03-the-player-view.md`](03-the-player-view.md) | the look; exits as entities; groups; descriptions composed from state | reviewed with Andrew 2026-09-17 | [`presentation.md`](../architecture/presentation.md) (v2 pending) |
 | 04 | [`04-grammar-and-feedback.md`](04-grammar-and-feedback.md) | the forms; state the act; clarification only; `help grammar`; how vocabulary grows | draft for review | [`ontology-closure.md`](../architecture/ontology-closure.md) §5; `grammar.md` (pending) |

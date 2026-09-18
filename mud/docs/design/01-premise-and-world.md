@@ -2,7 +2,7 @@
 
 ## 1. Status and sources
 
-> **Status: draft for review** (created 2026-09-16). **Architecture counterpart:** none — this
+> **Status: reviewed with Andrew 2026-09-17** (created 2026-09-16). **Architecture counterpart:** none — this
 > document is *what the world is*; how zones, edges and Scenes are represented lives in
 > [`../architecture/implementation-architecture.md`](../architecture/implementation-architecture.md)
 > (DR-13a) and [`../architecture/perception-model.md`](../architecture/perception-model.md).
@@ -581,6 +581,12 @@ indifference-without-malice — which is the argument that the players' own comp
   announced ("you feel a dice roll somewhere"). Q9 — sweat is wet clothing draining warmth, inside the
   warmth system. **Still open for this document's sitting:** Q1 the valley's size, Q2 which regions
   earn their place, Q5 where the walk-out goes (now: nowhere — the cabin is a place, not an exit).
+
+- **2026-09-17 (Andrew, block 1, the rest):** Q1 — keep the fifty zones; size is judged by the travel table
+  now that travel is an attended activity at 15 game-minutes per real minute. Q2 — keep all eleven
+  regions; each gets a reason to come back; the muskeg is the cut if one is ever wanted. **Reviewed in
+  full.** Follow-ups tracked in PLAN.md: A4 (re-price the valley for a week-long run at X = 15), E17
+  (exits as entities, travel as an activity).
 
 ## 8. What exists today
 
