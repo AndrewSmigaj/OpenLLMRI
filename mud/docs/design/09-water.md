@@ -1,6 +1,6 @@
 # 09 — Water
 
-> **Status: `draft for review` (2026-09-16). NEW — this system had no design document of its own.**
+> **Status: reviewed with Andrew 2026-09-18 — every question answered; finalized at the close**
 > **Architecture counterpart:** none. **Sources:** `docs/investigation/design/rescue-graph.md` §WATER
 > (the four paths; eating snow costs heat) · `docs/investigation/design/time-and-stakes.md` §4
 > (hydration as a number; drying and wetting) · GDD §31–§36 ("water — safety gated by container
@@ -147,6 +147,65 @@ asks how; given the means it performs the act they imply and this system answers
 
 *(Proposal: the row set is a floor — the loops add goals and means from what people and agents type.)*
 
+### 4.6 Decided with Andrew, 2026-09-18 — liquids are measured, and thirst is the fastest clock
+
+**Liquids have units.** *"Liquids with units — melt some snow should not be one use."* Water is
+millilitres, not a token: a vessel has a capacity in ml, melting snow yields ml in proportion to what
+you melted, a mouthful takes ml, and a half-full canteen is half full. Liquids are the same aggregate
+shape as a handful of stones (document 04 §3.11): one entity, a quantity, split when spent.
+
+**Thirst kills faster than hunger, and you need more of it.** *"Thirst kills in a realistic amount of
+time for thirst, usually other things do get them but you need to drink more than eat."*
+
+| | proposal (real figures) |
+|---|---|
+| daily need, cold and working | ~3,000 ml |
+| daily need, resting | ~2,000 ml |
+| nothing at all | degrading within hours; dead in about three days, sooner if working |
+| what usually happens first | the cold or an injury — thirst is the clock underneath, not the headline |
+
+Cold is the trap: you do not feel thirsty, and you lose water breathing dry air all day. The symptoms
+come before the danger — headache, dullness, poor decisions — and dehydration makes the cold worse,
+so thirst kills mostly by making everything else harder. *(Numbers are proposals, tunable by probes.)*
+
+**Eating snow works, and here is what it costs.** Melting a litre of snow inside you takes the latent
+heat of fusion plus warming it from freezing to blood temperature: about **490 kJ, roughly 120 kcal,
+taken straight out of your core**. And snow is mostly air:
+
+| source | volume needed for 1 L of water |
+|---|---|
+| fresh loose snow | ~10 L |
+| wind-packed snow or old settled snow | ~3 L |
+| ice | ~1.1 L |
+
+So eating snow is always allowed, always costs warmth you can feel, and the wind-slab by the tail is
+worth three times the fresh powder — a real thing to learn. Melting it over a fire costs fuel instead
+of body heat, which is the whole point of having one.
+
+**No boiling gate** *(Andrew: "not really, just melting")*. The valley's snow, ice and running water
+are clean enough to drink, and the one real waterborne illness of this country takes one to three
+weeks to show — longer than the run. Boiling is still worth doing (it is warm, it makes tea, it
+thaws), it is simply not a wall between the party and a drink.
+
+**Contamination is fuel, not germs** *(answering "not sure what you mean")*. The hazard that is real
+here is the aircraft's own: avgas and oil. Snow scooped from under the wing where fuel pooled, water
+melted in the jerry can, a vessel that held oil — the water carries it, it smells and tastes of it,
+and drinking it makes you sick. Contamination is **provenance**, carried from the source or the
+vessel exactly as the conservation rules already carry it, and `examine` or a sniff gives it away.
+Cleaning a vessel is an ordinary act — scour it with snow, burn it out — not a special mechanic.
+
+**Steam is a thing, if someone thinks to make it.** *(Andrew: "they won't be making things to
+condense things, but I guess if an LLM thinks to do it then yeah — steam or whatever as an entity.")*
+Boiling water produces steam as a real entity; where it meets something cold it condenses. Nothing
+authors a still, and nothing needs to: the pieces are there for anyone who reasons their way to it,
+which is the whole point of the world.
+
+**`fill` is a transfer of as much as fits.** `fill the canteen from the lead`, `fill the thermos with
+snow`, `fill the tin from the creek` — it moves as much as the target can take from the source, and
+the world says what you got ("the canteen is full"; "there is enough to cover the bottom of the
+tin"). The same budget rule as every other quantity (document 04 §3.11). *Andrew: "a lot we will see
+when we see how things try to use the system."*
+
 ## 5. Interactions
 
 **This depends on:**
@@ -169,6 +228,15 @@ asks how; given the means it performs the act they imply and this system answers
 ---
 
 ## 6. Open questions
+
+
+**All answered 2026-09-18 (Andrew), and several changed the proposal** — §4.6 carries the result. Q1 liquids
+have **units** in v1, not whole-object tokens · Q2 thirst **kills**, in about three days, and you need
+more water than food · Q3 eating snow costs about 120 kcal of core heat per litre, and takes ten
+litres of loose snow to make one · Q4 **no boiling gate**, just melting · Q5 contamination means
+**fuel**, carried as provenance, not germs · Q6 steam exists as an entity for anyone who reasons their
+way to condensing it · Q7 `fill` is a transfer of as much as fits. Kept below as the record of what
+was weighed.
 
 1. **Are liquid containers modelled at all in v1?** Today they are not: `containment.md` ends
    "liquid containers are NOT modeled (only the jerry can's `sealed` bit gates pouring)", and the
@@ -213,6 +281,15 @@ asks how; given the means it performs the act they imply and this system answers
 ---
 
 - **2026-09-18:** the `make water` goal rows added (document 04 §3.9 owns the form and the dispatch rule).
+
+- **2026-09-18 (Andrew):** **Q1 changed** — liquids are measured in millilitres from v1 ("melt some snow
+  should not be one use"). **Q2 changed** — thirst kills, on a realistic clock (~3 days), and the
+  daily need is larger than the food need. **Q3** — Claude supplied the real figures: ~120 kcal of
+  core heat per litre eaten as snow, ~10:1 loose snow to water, ~3:1 wind-packed, ~1.1:1 ice.
+  **Q4 changed** — no boiling gate, just melting; the one real waterborne illness of this country
+  outlasts the run. **Q5 restated and answered** — contamination is fuel and oil carried as
+  provenance, not germs. **Q6** — steam is an entity; nothing authors a still, but the pieces are
+  there. **Q7** — `fill` transfers as much as fits. §4.6 written. **Document reviewed in full.**
 
 ## 8. What exists today
 

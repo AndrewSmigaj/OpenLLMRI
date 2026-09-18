@@ -37,7 +37,7 @@ then 19–22. Ideas that are not design yet live in [`IDEAS.md`](IDEAS.md).
 | 06 | [`06-time-sleep-and-the-clock.md`](06-time-sleep-and-the-clock.md) | the clock; the three streams of text; activities; processes; sleep; the watch | reviewed with Andrew 2026-09-18 | [`tick-and-scheduler.md`](../architecture/tick-and-scheduler.md) |
 | 07 | [`07-fire-and-shaping.md`](07-fire-and-shaping.md) | ignition; fire as a process; forms; the seven methods; the `make fire` goal rows | reviewed with Andrew 2026-09-18 | — |
 | 08 | [`08-warmth-clothing-and-shelter.md`](08-warmth-clothing-and-shelter.md) | the night-one rule; the cold clock; clothing; huddle; shelter, heard through its holes; `status` | reviewed with Andrew 2026-09-18 | [`clothing-warmth.md`](../architecture/clothing-warmth.md) |
-| 09 | [`09-water.md`](09-water.md) | the paths to water; vessels; melting; eating snow | draft for review | — |
+| 09 | [`09-water.md`](09-water.md) | liquids in millilitres; thirst as the fastest clock; melting; eating snow's real cost; fuel contamination | reviewed with Andrew 2026-09-18 | — |
 | 10 | [`10-food-and-hunger.md`](10-food-and-hunger.md) | the kit, the freight, the country, the body; hunger; cooking | draft for review | — |
 | 11 | [`11-injury-and-first-aid.md`](11-injury-and-first-aid.md) | wounds, bleeding, infection, frostbite, splints, the med pouch | draft for review | — |
 | 12 | [`12-the-pilot-and-bodies.md`](12-the-pilot-and-bodies.md) | the pilot (starts the run dead); bodies persist; the moral question | draft for review | — |
