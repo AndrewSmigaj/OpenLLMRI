@@ -35,7 +35,7 @@ then 19–22. Ideas that are not design yet live in [`IDEAS.md`](IDEAS.md).
 | 04 | [`04-grammar-and-feedback.md`](04-grammar-and-feedback.md) | the forms; state the act; clarification only; `help grammar`; how vocabulary grows | reviewed with Andrew 2026-09-18 | [`ontology-closure.md`](../architecture/ontology-closure.md) §5; `grammar.md` (pending) |
 | 05 | [`05-ontology-and-sufficiency.md`](05-ontology-and-sufficiency.md) | what "anything reasonable" means; growing sets; the ontology store; the loops' scaffold; the viewer | reviewed with Andrew 2026-09-18 | [`ontology-closure.md`](../architecture/ontology-closure.md) |
 | 06 | [`06-time-sleep-and-the-clock.md`](06-time-sleep-and-the-clock.md) | the clock; the three streams of text; activities; processes; sleep; the watch | reviewed with Andrew 2026-09-18 | [`tick-and-scheduler.md`](../architecture/tick-and-scheduler.md) |
-| 07 | [`07-fire-and-shaping.md`](07-fire-and-shaping.md) | ignition; fire as a process; forms; the seven methods | draft for review | — |
+| 07 | [`07-fire-and-shaping.md`](07-fire-and-shaping.md) | ignition; fire as a process; forms; the seven methods; the `make fire` goal rows | reviewed with Andrew 2026-09-18 | — |
 | 08 | [`08-warmth-clothing-and-shelter.md`](08-warmth-clothing-and-shelter.md) | the cold clock; clothing; huddle; shelter as a property; drying | draft for review | [`clothing-warmth.md`](../architecture/clothing-warmth.md) |
 | 09 | [`09-water.md`](09-water.md) | the paths to water; vessels; melting; eating snow | draft for review | — |
 | 10 | [`10-food-and-hunger.md`](10-food-and-hunger.md) | the kit, the freight, the country, the body; hunger; cooking | draft for review | — |

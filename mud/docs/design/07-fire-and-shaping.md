@@ -1,6 +1,6 @@
 # 07 — Fire and shaping
 
-> **Status: draft for review.** Architecture counterpart: none named in the design index; the closure
+> **Status: reviewed with Andrew 2026-09-18 — every question answered; finalized at the close** Architecture counterpart: none named in the design index; the closure
 > mechanism this document rides is
 > [`../architecture/ontology-closure.md`](../architecture/ontology-closure.md) §2 (forms) and §3
 > (derived capabilities), DR-26 in
@@ -192,6 +192,13 @@ warmth cost; rescue ([`14-rescue-paths.md`](14-rescue-paths.md)) — the flare i
 both.
 
 ## Open questions
+
+**All answered 2026-09-18 (Andrew).** Q1 the code's 26 forms are canonical and
+`ontology-closure.md` §2 is corrected to match · Q2 price the seven methods by cost alone first, a
+failure-rate axis only if one still dominates in play · Q3 Claude drafts the ignition weights and the
+threshold alongside the fuel-to-heat curve, for his review · Q4 this document's stage ladder
+(`unlit lay → catching → burning → established → embers → dead`) is the design, and the older stub in
+`systems/fire.py` is reconciled to it. Kept below as the record of what was weighed.
 1. **The final forms list.** This document's list (26 form-words, several doubled under one bullet —
    `slab`/`board`, `rod`/`stick`/`bar`/`pole`, `point`/`stake`) does not match
    `ontology-closure.md` §2's table (15 rows, ~19 distinct words). *Finding:* the shipped
@@ -224,6 +231,13 @@ a direct read of `affordances.py` and the shipped handlers. Not yet reviewed wit
 - **2026-09-18 (Andrew, block 1, ahead of this document's sitting):** the `make fire` goal rows written
   here; `make fire with the lighter and the stick` must produce the honest refusal, which is this
   document's acceptance test. The `make` form and dispatch rule are document 04 §3.9.
+
+- **2026-09-18 (Andrew):** all four answered as recommended. The forms list is the code's 26 words and the
+  closure spec's table is the stale one; the seven fire methods are priced by what each spends
+  (time, a tool, weather, knowledge, the flare's one shot) with a failure-rate axis held back;
+  Claude drafts the ignition weights, the threshold and the fuel-to-heat curve together for review;
+  the stage ladder here is the design and `systems/fire.py`'s older ladder is reconciled to it.
+  **Document reviewed in full.**
 
 ## What exists today
 **Built (closure step 1).**

@@ -49,7 +49,7 @@ no design.
 | ◐ | A1.04 | 04 grammar and feedback — reviewed in full 2026-09-18 (the forms, `make`, quantities, encumbrance, the naming rule, word-first vocabulary); finalized at the close | Andrew + Fable | 04 | — |
 | ◐ | A1.05 | 05 ontology and sufficiency — reviewed in full 2026-09-18 (the full schema, the measured merge, the five wall categories); finalized at the close | Andrew + Fable | 05 | — |
 | ◐ | A1.06 | 06 time, sleep and the clock — reviewed in full 2026-09-18; finalized at the close | Andrew + Fable | 06 | — |
-| ☐ | A1.07 | 07 fire and shaping — reviewed and finalized | Andrew + Fable | 07 | — |
+| ◐ | A1.07 | 07 fire and shaping — reviewed in full 2026-09-18; finalized at the close | Andrew + Fable | 07 | — |
 | ☐ | A1.08 | 08 warmth, clothing and shelter — reviewed and finalized | Andrew + Fable | 08 | — |
 | ☐ | A1.09 | 09 water — reviewed and finalized | Andrew + Fable | 09 | — |
 | ☐ | A1.10 | 10 food and hunger — reviewed and finalized | Andrew + Fable | 10 | — |
@@ -69,7 +69,7 @@ no design.
 | ☐ | A2 | The cross-document decisions the docs flag (see §5): the walk-out as ending vs channel (14/21); four routes vs five (01/14); the forms list (07/18); the warmth floor (08); the run's food yields (10); the event deck's first version (13); "still going" (13/21). | Andrew | 01, 07, 08, 10, 13, 14, 18, 21 | A1 |
 | ☐ | A3 | Record every review decision: the doc's review log, the DR register (amendments), `VISION.md` where a non-negotiable moves. | Fable | — | A1 |
 | ☐ | A4 | Re-price the valley for a week-long run (travel, stay-or-go, the ladder): the July map assumed a five-hour day. | Fable → doc 01 + 13 | 01, 13 | A1.01, A1.13 |
-| ☐ | A5 | First-pass numbers as proposals where the docs have none: food yields per source (10), water paths (09), injury clocks (11), the warmth/bedding numbers (06/08), the ignition and fire-ladder numbers (07), rescue confidence weights (14). Proposed in the sittings, tunable by probes later. | Fable | 06–11, 14 | A1 |
+| ◐ | A5 | First-pass numbers as proposals where the docs have none: **ignition weights + threshold + the fuel-to-heat curve (07, owed — Andrew asked for a draft)**, the warmth and bedding numbers (08, incl. 06's fatigue), food yields per source (10), water (09), injury clocks (11), rescue confidence weights (14). Drafted for Andrew's review, tunable by probes later. | Fable | 06–11, 14 | A1 |
 | ☐ | A6 | Promote finalized mechanisms into their architecture counterparts: `architecture/grammar.md`, `presentation.md` v2, `events.md`, `time-and-stakes.md`, `moral-social-layer.md`, `fire-and-shaping.md`, `rescue.md`; DR-29/30 appended. | Fable | 03, 04, 06, 07, 13, 14, 15 | A1 |
 | ☐ | A7 | The GDD's per-system sections pointed and corrected where the seed text is wrong (§31–36 came from the archived AI seed; §19; §9). | Fable | GDD | A1 |
 
@@ -119,6 +119,7 @@ no design.
 |---|---|---|---|---|---|
 | ☐ | E26 | The three streams: activity emotes (start/tick/interrupt/complete), ambience from the things present (each thing's `sensed` cadence, varying with state; the sum is the room), and other people through the propagator. Under a fast forward the world runs fast for the awake watcher, rate-limited in real time to stay readable; interrupting events drop the clock to base pace. | Opus | 06, 05 | A1.06, E1 |
 | ☐ | E1 | Time: the clock at 15 game-min per real min with a 4-second heartbeat; `propose fast forward` to 180× by consensus, events drop it back; the activity scheduler (attended actions with start/tick/interrupt/complete; unattended processes; `responses/activities.py`); sleep and wait; halt and resume with the missing-member rule; travel durations actually spent per exit. | Opus | 06, 01, 19 | A1.06 |
+| ☐ | E27 | Reconcile the forms list: the code's 26 words are canonical; correct `ontology-closure.md` §2's table and drop its "extend by evidence, never speculatively" comment (ceiling framing). Reconcile `systems/fire.py`'s older stage ladder to the design's. | Opus | 07, 18, 05 | A1.07 |
 | ☐ | E2 | Fire: the ignition model (source × receptivity × form thinness; a branch does not take from a lighter), fire as a process (the stage ladder; the stub's old ladder reconciled), the shaping family (`carve/split/shave/whittle/notch/string/bundle`), the seven methods as probe chains. | Opus | 07 | A1.07, E1 |
 | ☐ | E3 | Warmth, clothing, shelter: the cold clock (regions, wet fraction, wind), huddle, shelter as zone properties (per-zone exposure bands in `zones.py`; wind and roof numbers written by built things: `cover/block` an opening, snow walls, boughs), drying and wetting as grams, sweat and dexterity, heated stones, the warmth floor if kept. | Opus | 08, 01 | A1.08, E1 |
 | ☐ | E4 | Water: vessels and liquids (fill / pour / drink from), melting, boiling, contamination, eating snow costs heat. | Opus | 09 | A1.09, E2 |
@@ -212,6 +213,7 @@ under "no task yet" — which must stay empty. Three tasks were added by this pa
 | ⊘ | Water hemlock: the one poison that kills, or softened to illness? | 23 | at the sitting |
 | ☑ | `make` is the one aim-verb: vague it asks how, given the means it performs the act they imply; the recipe reply is cut and moves to the survival manual. | 04, 07 | 2026-09-18 |
 | ☑ | The form list is finalized before the loops run; movement, goal and meta forms added. | 04 | 2026-09-18 |
+| ☑ | Fire: the code's 26 forms are canonical; the seven methods priced by cost alone first; Claude drafts the ignition weights and the fuel-to-heat curve for review; the design's stage ladder wins over the stub's. | 07, 18 | 2026-09-18 |
 | ☑ | The non-interrupting command whitelist (look, examine, inventory, speech, help, status); the step-3 build order (scheduler → fire → warmth → hunger → injury → the pilot); bedding and fatigue numbers valued with warmth in 08. | 06, 08 | 2026-09-18 |
 | ☑ | Attended actions are one to three game-minutes for small jobs; ambience comes from the things present, each with its own cadence; a fast forward runs the world fast for the awake watcher rather than muting it; being awake is being on watch, and awake players receive events sleepers do not. | 06, 05 | 2026-09-18 |
 | ☑ | Walls per run counts all five categories separately (unknown word, unknown noun, generic answer, wrong refusal, retry cluster). | 05 | 2026-09-18 |
