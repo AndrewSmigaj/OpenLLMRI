@@ -1,6 +1,6 @@
 # 04 — Grammar and feedback
 
-> **Status: draft for review (2026-09-16).** Architecture counterpart:
+> **Status: reviewed with Andrew 2026-09-18 in part (the forms, `make`, the naming rule); Q1–Q10 at its sitting** Architecture counterpart:
 > [`ontology-closure.md`](../architecture/ontology-closure.md) §5 (the tolerance layer and the
 > feedback rule) and `implementation-architecture.md` DR-08 / DR-08a / DR-08b / DR-08c. A dedicated
 > `docs/architecture/grammar.md` is **pending** — until it exists, §5 plus the DR-08 chain are the
@@ -76,9 +76,9 @@ never shown a list of what's reachable, and never handed a verb they didn't type
 
 ## 3. The design
 
-### 3.1 The forms — all seven shapes
+### 3.1 The forms
 
-*(source: `grammar-guide.md` §1, reproduced)*
+*(source: `grammar-guide.md` §1, plus the three added with Andrew on 2026-09-18)*
 
 | shape | example | what the engine gets |
 |---|---|---|
@@ -89,11 +89,18 @@ never shown a list of what's reachable, and never handed a verb they didn't type
 | `GO place` | `go to the cockpit` · `go outside` | `{move, to, zone}` |
 | `say / whisper / call / shout …` | `shout for help` | speech, by range |
 | `VERB thing, then VERB thing` | `take the shard and cut the cover` | two acts in order |
+| `VERB exit` *(added 2026-09-18)* | `walk west` · `walk to the birch grove` · `run to the treeline` · `climb up` · `enter the tail` · `turn back` | `{move, exit, mode}` — exits are entities (document 03 §4.1a); the mode sets the time and what it costs |
+| `MAKE goal [WITH means (and means)*]` *(added 2026-09-18)* | `make fire` · `make fire with the lighter and the stick` · `make a splint with the branch and the paracord` | a goal, not an act — §3.9 |
+| meta *(added 2026-09-18)* | `propose fast forward` · `status` · `help` · `look` · `inventory` | out-of-world commands; they never interrupt an activity |
 
-Everything else is the tolerance layer folding real phrasings onto these seven: particles (`pick
+Everything else is the tolerance layer folding real phrasings onto these: particles (`pick
 up`, `cut open`, `put on`), synonyms (`grab`, `find`, `place`), plurals, body parts (`bandage my
 arm`), `it`, and the dropping of intent (`… to see if …`). None of it is new grammar — the same
-seven shapes, reached from more directions (§3.7 has the mechanics and the measured numbers).
+shapes, reached from more directions (§3.7 has the mechanics and the measured numbers).
+
+**This list is the one to finalize before the loops run** (Andrew, 2026-09-18): every room they write
+assumes these forms exist. The shaping form (`INTO form`) and the movement, goal and meta forms are
+designed here and unbuilt; the new-verb spike (Q1) tells us what adding a verb inside them costs.
 
 The architecture register (`implementation-architecture.md` DR-08) states the same shape as
 `VERB X [RELATION Y] [WITH Z]` at "action granularity," pipelined as tokenize → verb-to-synonym
@@ -148,8 +155,80 @@ and for an LLM agent offering options changes how it thinks (Andrew's LLM-MRI fi
   operation and resolves **silently** as that operation, narrated like any cut or tie (Andrew,
   2026-09-16: no verb is named back). `use X` alone → `Use it how, and on what?` — a clarification,
   never what X could do.
-- `make X` — an aim, not an act. `make fire` → `'make' names what you want, not what you do. Say
-  the act.` No recipe, no question about means.
+- `make X` — an aim, not an act, and the one verb that bridges from an aim to an act. Vague, it asks
+  how; given the means, it performs the act they imply. The whole rule is §3.9.
+
+### 3.9 `make` — the one aim-verb, and how it dispatches (Andrew, 2026-09-18)
+
+**"State the act, not the aim" (§3.2 rule 1) holds for every verb but this one.** `make` exists
+precisely to catch an aim and turn it into an act. It behaves in exactly two ways.
+
+**Vague — no means named.** A clarification, nothing else:
+
+```
+> make fire
+Request too vague. How are you going to make the fire?
+```
+
+*(Andrew's own wording, 2026-09-18. Proposal for the voice, his to take or leave: "How do you mean to
+make a fire?" — the same question, in the world's register rather than the system's.)* No recipe, no
+list of what a fire needs, no naming of what is in reach. What a fire wants is knowledge, and
+knowledge lives in the world: the survival manual's fire page says it, findable, readable, burnable.
+
+**Means named — it performs the act they imply.** The goal's roles are filled from what each named
+thing can do, and the real operation runs:
+
+```
+> make fire with the lighter and the stick
+You hold the flame to the deadfall branch. The bark blackens and smokes, but a
+wrist-thick branch won't catch from a flame this small. Something finer would.
+```
+
+That failure is not authored for `make`. It is the ignition model answering (document 07), reached
+through the same pipeline as `light stick with lighter` typed directly.
+
+**The mechanism (proposal).** A parse-time rewrite, exactly like the `use X to VERB Y` rewrite that
+already ships: `make <goal> with A and B` binds A and B to the goal's roles by capability and emits
+the ordinary `ActionAttempt` for the operation those roles imply. There is no second resolution
+path — the locked one-pipeline rule (DR-09) is untouched, and `make` is the twin of `use`: `use`
+dispatches by capability, `make` by goal plus capability, and both resolve **silently** as the real
+operation (no verb is named back — Andrew, 2026-09-16).
+
+**The goal table.** One row per goal, authored as content and grown by the loops the way objects
+are, from what people and agents actually type:
+
+| field | what it holds |
+|---|---|
+| `goal` | the noun and its synonyms (`fire`, `a fire`, `flame`) |
+| `vague` | the clarification line for the bare `make <goal>` |
+| `roles` | what the goal needs, as capabilities — fire: an ignition source (`flame`, `spark`, `ember`, `focus`) and a receptive fuel (`burnability > 0`) |
+| `realize` | the operation a filled set of roles implies — fire: `light <fuel> with <ignition>` |
+
+**The rows live in the system that owns the goal**, not here: fire in document 07, water in 09,
+shelter in 08, the signal in 14. This document owns the form and the dispatch rule only.
+
+**The honest edges.**
+- **Means that fill no role**: the physics of the things themselves. `make fire with a rock and a
+  sock` → the wool frays, nothing more. Never "you need an ignition source".
+- **Roles half-filled**: the physics of what will not happen. `make fire with the branch and the
+  grass` → neither will light the other. Never a shopping list.
+- **Goals that are genuinely multi-step** (a bow-drill fire, a shelter): the dispatch performs the
+  *first* act the means imply and the world answers it. `make fire with sticks` rubs the sticks
+  together and they scuff and warm, nothing more. `make` never runs a procedure.
+- **It is not an oracle.** Probing `make fire with X` tells you only what X physically does, which
+  `examine` already signals. It costs time on the clock like any attempt.
+
+### 3.10 Naming things apart — an authoring requirement, not a grammar one (Andrew, 2026-09-18)
+
+Removing the numbered menu (DR-08c) puts a duty on the content. When two things a player can
+plausibly confuse are in reach, the game asks `Which seat do you mean?` and nothing more — so the
+player must have some word that separates them. Every pair of confusable things therefore needs
+**distinguishable names or adjectives in its authored prose**: the *wrenched* seat and the *thrown*
+seat, seat *1a* and seat *1b*, the *forward* bin and the *aft* bin. Identical things (three glass
+shards) never ask, because it does not matter which one you take.
+
+This is a rule the world-building loops must follow (document 17, document 22): a room that can ask
+an unanswerable question is a bug in the room, and `make validate` should be able to catch it.
 
 ### 3.5 `help grammar` — the forms, one example each (there is no verb list)
 
@@ -248,7 +327,7 @@ logged; the unknown-*word* log is designed but not yet wired (see §7).
 *(source: `grammar-guide.md` §7, reproduced)*
 
 **Skill (GD — "what skills does this game require?").** Verdict: GREEN. Evidence: the skill is
-*understanding the world*, not guessing syntax: seven shapes, all shown up front, with the
+*understanding the world*, not guessing syntax: a fixed set of shapes, all shown up front, with the
 tolerance layer absorbing the rest (measured 79–83% taught). Severity: —. Note: the remaining
 friction is vocabulary (new verbs, scenery nouns), which the discovery loop drains; the guide never
 has to grow.
@@ -260,7 +339,7 @@ Severity: med. What would change it: tier-4 + the clarification-only code change
 DR-08c).
 
 **Simplicity / Complexity (GD — "is the complexity in the world, not the interface?").** Verdict:
-GREEN. Evidence: interface complexity is fixed (seven shapes); world complexity is unbounded
+GREEN. Evidence: interface complexity is fixed (a short list of shapes); world complexity is unbounded
 (materials × forms × operations). Note: resist adding shapes; add nouns and verbs.
 
 **The Toy (GD — is it fun to poke without a goal?).** Verdict: YELLOW until tier-4. Evidence:
@@ -335,6 +414,39 @@ a wall with a smile, and a menu would be worse.
      and the existing file is already the established convention (§7 below: this isn't built yet
      either way).
 
+6. **Counts: do they mean anything?** Today `take two branches` takes one branch and says nothing
+   about the two; `take all` answers "You don't see that here". A quantifier that is silently
+   dropped teaches the player the wrong thing.
+   - *Options:* (a) counts work, bounded by what is there and by what you can carry — "you take two
+     of the three branches"; (b) counts are refused honestly — "one at a time"; (c) leave as is.
+   - *Recommendation:* (a). It needs the class-yields-individuals primitive (`PLAN.md` E16) for
+     classes like deadfall and snow, which the outdoor zones need anyway.
+
+7. **`all`: in, and scoped to what?**
+   - *Options:* (a) scoped only — `take all from the duffel`, `take all the branches` — never a bare
+     `take all` over the room; (b) bare `take all` scoops everything loose in reach; (c) no `all`.
+   - *Recommendation:* (a). A bare room-wide `take all` is both unphysical (you cannot carry a
+     room) and a discovery shortcut: it would reveal what is takeable by taking it, which is the
+     never-list rule leaking out through a convenience.
+
+8. **The `make` clarification's wording.** Andrew's line is "Request too vague. How are you going to
+   make the fire?"
+   - *Options:* (a) his wording as written; (b) the same question in the world's register — "How do
+     you mean to make a fire?"
+   - *Recommendation:* (b), but it is his line and his call.
+
+9. **Which goals get rows first?**
+   - *Options:* (a) fire, water, shelter, a signal, a splint — the five a party reaches for on day
+     one; (b) fire only, and grow the rest from what agents type; (c) a larger set up front.
+   - *Recommendation:* (a), with the rows written in the owning documents (07, 09, 08, 14, 11) and
+     grown by the loops afterwards.
+
+10. **Is the distinguishable-names rule (§3.10) enforced, or just written down?**
+   - *Options:* (a) `make validate` fails when two reachable things in a zone share a name with no
+     distinguishing adjective; (b) an authoring rule in the guide only.
+   - *Recommendation:* (a). It is mechanically checkable, and the alternative is a room that can
+     ask a question the player cannot answer.
+
 ## 6. Review log
 
 Not yet reviewed with Andrew. This is the first draft: a straight merge of `grammar-guide.md`,
@@ -342,6 +454,15 @@ Not yet reviewed with Andrew. This is the first draft: a straight merge of `gram
 `implementation-architecture.md` into the template, re-labelled for provenance per
 `00-provenance-audit.md`. No content was changed in the merge beyond reorganizing it under the
 eight parts; nothing new was added to the design itself.
+
+- **2026-09-18 (Andrew, block 1):** **`make` becomes the one aim-verb that bridges to an act** — vague, it
+  asks how ("Request too vague. How are you going to make the fire?"); given the means, it performs
+  the act they imply and the world answers physically ("you light the stick but it won't catch").
+  The recipe reply that ships today is cut; what a fire wants belongs in the survival manual. The
+  goal table is a hint corpus brainstormed now and grown from what agents type. The form list is
+  finalized **before** the loops run; the movement, goal and meta forms are added (§3.1). §3.9 and
+  §3.10 written; §3.4 now points at §3.9. New questions Q6–Q10 (counts, `all`, the wording, which
+  goals first, enforcing distinguishable names).
 
 ## 7. What exists today
 

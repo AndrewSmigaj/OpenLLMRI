@@ -133,6 +133,10 @@ no design.
 | ☐ | E17 | Exits as entities with a mode, travel time and state; movement as an attended activity with events (`walk`, `run` = less time more sweat, `climb`, `enter`, `turn back`); the first-exit tutorial showing the forms once. | Opus | 03, 01 | A1.03, E1 |
 | ☐ | E18 | Groups: several things sharing a place and a kind form a described group ("a pile of clothes"); `look at the pile` lists them; taking dissolves it — the composer's fifth extension. | Opus | 03 | D3 |
 | ☐ | E19 | The pre-scenario tutorial: the grammar forms with one example each, the time controls (`propose fast forward`), movement, `help`; taught once, never a menu. | describer + Opus | 04, 06 | A1.04, A1.06 |
+| ☐ | E20 | `make` as the aim-bridge: the parse-time rewrite (like `use X to VERB Y`), the goal table loaded from content, role-filling by capability, the vague clarification, the honest edges (means that fill no role, half-filled roles, multi-step goals); the shipped recipe reply removed; what a fire wants moves to the survival manual's page. | Opus | 04 §3.9, 07 | A1.04, E2 |
+| ☐ | E21 | Counts and `all`: a count means what it says, bounded by what is there and what you can carry; `all` scoped to a container or a named group, never bare over a room. Needs E16. | Opus | 04 Q6–Q7 | A1.04, E16 |
+| ☐ | E22 | The distinguishable-names gate: `make validate` fails when two reachable things in a zone share a name with no separating adjective or label (there is no numbered menu to fall back on). | Opus | 04 §3.10, 17 | A1.04 |
+| ☐ | E23 | The missing everyday verbs the walk-through found: `give`, `sit`/`stand`/`lie`, `wait [duration\|until <event>]`, `stop`, `look under`, `listen`/`smell`/`feel`, `status`, `propose fast forward`. | Opus | 04, 06, 17 | A1.04 |
 | ☐ | E15 | Daylight and light: the day/night cycle on the clock (December's five hours), darkness that changes what a look shows and what searching needs, light sources (fire, the flashlight, the phone, the headlamp) with batteries that drain; powered devices as processes (the phone's clock and light, the laptop's sparks). | Opus | 13, 03, 16 | A1.13, E1 |
 | ☐ | E16 | Classes that yield individuals as an engine primitive: `take a branch from the deadfall`, `take snow`, a tussock from the tussocks — a class entity mints one member with the right material, form and mass; needed by every outdoor zone. | Opus | 17, 05 | A1.17 |
 
@@ -202,6 +206,10 @@ under "no task yet" — which must stay empty. Three tasks were added by this pa
 | ⊘ | Player count per run; the first-class interdependence. | 19 | at the sitting |
 | ⊘ | The ELT: a second silent rescue path, or folded into the radio? | 14 | at the sitting (Claude recommends keep) |
 | ⊘ | Water hemlock: the one poison that kills, or softened to illness? | 23 | at the sitting |
+| ☑ | `make` is the one aim-verb: vague it asks how, given the means it performs the act they imply; the recipe reply is cut and moves to the survival manual. | 04, 07 | 2026-09-18 |
+| ☑ | The form list is finalized before the loops run; movement, goal and meta forms added. | 04 | 2026-09-18 |
+| ⊘ | Counts and `all`: do they mean what they say, and is `all` scoped? | 04 | at the 04 sitting (Claude recommends yes, and scoped) |
+| ⊘ | Enforce distinguishable names in `make validate`, or leave it an authoring rule? | 04, 17 | at the 04 sitting (Claude recommends enforce) |
 | ⊘ | What is logged per step; cross-family sampling; the stopping rule for agent runs. | 20 | at the sitting |
 | ⊘ | The non-interrupting command whitelist; the step-3 build order (defaults proposed). | 06 | at the sitting |
 | ⊘ | Which fire stage ladder (the design's, or the stub's older one); which temperature curve (the December ladder over the GDD's June line); the radio state's spelling — mine to reconcile, his to confirm. | 07, 13, 14 | at the sittings |

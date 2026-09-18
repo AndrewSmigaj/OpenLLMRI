@@ -235,6 +235,20 @@ here refuses a player; every line is a number that hurts more each day.
 
 ---
 
+### The `make shelter` rows (Andrew, 2026-09-18)
+
+The goal table's rows for this system; the form and the dispatch rule are document 04 §3.9. Vague, `make`
+asks how; given the means it performs the act they imply and this system answers.
+
+| field | shelter |
+|---|---|
+| `goal` | shelter · a lean-to · a windbreak |
+| `vague` | "How are you going to make a shelter?" |
+| `roles` | **cover**: boughs, a sheet, a seat frame, the hull · **support**: a rigid thing or the wreck itself · **site**: the zone |
+| `realize` | the first act the means imply — `lean <cover> against <support>`, `cover <opening> with <cover>` — which writes the zone's wind and roof numbers; a shelter is never one command |
+
+*(Proposal: the row set is a floor — the loops add goals and means from what people and agents type.)*
+
 ## 5. Interactions
 
 **This depends on:**
@@ -321,6 +335,8 @@ except the items marked as Andrew's is open for cutting.*
 | — | — | — | — |
 
 ---
+
+- **2026-09-18:** the `make shelter` goal rows added (document 04 §3.9 owns the form and the dispatch rule).
 
 ## 8. What exists today
 

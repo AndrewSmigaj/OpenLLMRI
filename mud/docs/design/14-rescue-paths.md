@@ -393,6 +393,20 @@ survival paths applied to a teammate instead of yourself.
 - **Problem Solving — GREEN.** Every goal ≥3 paths; every fact ≥3 clues; the counts are what
   `make probes` reports once a probe chain for the rescue graph exists (§7 — it does not yet).
 
+### The `make a signal` rows (Andrew, 2026-09-18)
+
+The goal table's rows for this system; the form and the dispatch rule are document 04 §3.9. Vague, `make`
+asks how; given the means it performs the act they imply and this system answers.
+
+| field | a signal |
+|---|---|
+| `goal` | a signal · smoke · to be seen |
+| `vague` | "How are you going to signal?" |
+| `roles` | **fire** (lit) · **smoke-maker**: rubber, oil, green boughs · or **reflector**: the mirror, the landing-light reflector, in sun |
+| `realize` | `put <smoke-maker> on <fire>` · `signal with <reflector>` — and whether anyone sees it is the flyover clock's answer, not the command's |
+
+*(Proposal: the row set is a floor — the loops add goals and means from what people and agents type.)*
+
 ## 4. Interactions
 
 **Depends on:**
@@ -483,6 +497,8 @@ survival paths applied to a teammate instead of yourself.
   closed; surviving long enough is the hardest rescue path; the flyover schedule as the rescue clock; the
   radio as the mini game above; the battery in the tail under the snow; searching the ground as an
   activity. Open: the ELT — keep as a second silent path (Claude's recommendation) or fold in.
+
+- **2026-09-18:** the `make a signal` goal rows added (document 04 §3.9 owns the form and the dispatch rule).
 
 ## 7. What exists today
 

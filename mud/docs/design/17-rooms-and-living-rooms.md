@@ -189,6 +189,15 @@ changes from the census itself). The nine rooms, one line each:
 
 ---
 
+### Naming things apart — a rule the loops must follow (Andrew, 2026-09-18)
+
+There is no numbered menu (DR-08c): when two things a player can plausibly confuse are in reach, the
+game asks `Which seat do you mean?` and nothing more. So every pair of confusable things in a room
+needs **a word that separates them** in its authored prose — the *wrenched* seat and the *thrown*
+seat, seat *1a* and *1b*, the *forward* bin and the *aft* bin. Identical things (three glass shards)
+never ask, because it does not matter which one you take. **A room that can ask an unanswerable
+question is a bug in the room**, and `make validate` should catch it (document 04 §3.10, Q10).
+
 ## 5. Interactions
 
 **This depends on:**
@@ -265,6 +274,8 @@ changes from the census itself). The nine rooms, one line each:
 | — | — | — | — |
 
 ---
+
+- **2026-09-18:** the distinguishable-names rule added as an authoring requirement for the loops.
 
 ## 8. What exists today
 

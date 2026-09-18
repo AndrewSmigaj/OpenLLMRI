@@ -148,6 +148,31 @@ physics, learnable from failure lines and the manual, never from a recipe. Every
 something else: fuel is mass; shavings are tinder *and* lost wood; the flare is fire *or* signal; the
 manual is fire *or* knowledge.
 
+### The `make fire` rows (Andrew, 2026-09-18)
+
+`make` is the one aim-verb: vague it asks how, given the means it performs the act they imply and this
+model answers (document 04 §3.9). Fire's rows in the goal table:
+
+| field | fire |
+|---|---|
+| `goal` | fire · a fire · flame · blaze |
+| `vague` | "Request too vague. How are you going to make the fire?" — nothing else; what a fire wants is in the survival manual, not in the reply |
+| `roles` | **ignition**: a thing with `flame`, `spark`, `ember` or `focus` · **fuel**: a thing with `burnability > 0`, and its form decides whether this ignition can reach it |
+| `realize` | `light <fuel> with <ignition>` — the ordinary operation, resolved through §4.2's additive check |
+| half-filled | two fuels and no ignition → neither will light the other, stated physically; an ignition and nothing receptive → the flame burns alone |
+| multi-step | `make fire with sticks` rubs them together and they scuff and warm, nothing more — `make` performs the first act the means imply, never a procedure |
+
+Worked, and this is the line the whole design exists to produce:
+
+```
+> make fire with the lighter and the stick
+You hold the flame to the deadfall branch. The bark blackens and smokes, but a
+wrist-thick branch won't catch from a flame this small. Something finer would.
+```
+
+Today the shipped engine lights the branch ("a fire, at last") because the additive check is not
+built. That refusal is the acceptance test for this document.
+
 ## Interactions
 **Depends on:** the ontology closure mechanism
 ([`05-ontology-and-sufficiency.md`](05-ontology-and-sufficiency.md), DR-26) for the forms and derived
@@ -195,6 +220,10 @@ both.
 ## Review log
 2026-09-16 — first draft, written from `fire-and-shaping.md` (primary), `ontology-closure.md` §2–3, and
 a direct read of `affordances.py` and the shipped handlers. Not yet reviewed with Andrew.
+
+- **2026-09-18 (Andrew, block 1, ahead of this document's sitting):** the `make fire` goal rows written
+  here; `make fire with the lighter and the stick` must produce the honest refusal, which is this
+  document's acceptance test. The `make` form and dispatch rule are document 04 §3.9.
 
 ## What exists today
 **Built (closure step 1).**

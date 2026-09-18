@@ -147,6 +147,20 @@ day one, the pilot's moans, heard only in the cockpit.
 
 ---
 
+### The `make a splint` rows (Andrew, 2026-09-18)
+
+The goal table's rows for this system; the form and the dispatch rule are document 04 §3.9. Vague, `make`
+asks how; given the means it performs the act they imply and this system answers.
+
+| field | a splint |
+|---|---|
+| `goal` | a splint · a bandage · to stop the bleeding |
+| `vague` | "How are you going to splint it?" / "…stop the bleeding?" |
+| `roles` | **rigid**: a rod, a board, a stick · **binding**: cordage, a strip, tape · **wound**: the named wound |
+| `realize` | `bind <wound> with <rigid> and <binding>` — the ordinary wound operations; a wrong pairing gets the physics (a strip alone will not hold a bone) |
+
+*(Proposal: the row set is a floor — the loops add goals and means from what people and agents type.)*
+
 ## 5. Interactions
 
 **This depends on:**
@@ -225,6 +239,8 @@ day one, the pilot's moans, heard only in the cockpit.
 | — | — | — | — |
 
 ---
+
+- **2026-09-18:** the `make a splint` goal rows added (document 04 §3.9 owns the form and the dispatch rule).
 
 ## 8. What exists today
 

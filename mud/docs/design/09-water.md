@@ -133,6 +133,20 @@ proposal for how that reads in play:
 
 ---
 
+### The `make water` rows (Andrew, 2026-09-18)
+
+The goal table's rows for this system; the form and the dispatch rule are document 04 §3.9. Vague, `make`
+asks how; given the means it performs the act they imply and this system answers.
+
+| field | water |
+|---|---|
+| `goal` | water · a drink · melt water |
+| `vague` | "How are you going to get water?" |
+| `roles` | **source**: snow, ice, a lead, a seep · **vessel**: a thing with `vessel` · **heat** (optional): a fire or a body |
+| `realize` | with heat: `melt <source> in <vessel>` · without: `fill <vessel> from <source>`, or eating snow, which always works and always costs warmth |
+
+*(Proposal: the row set is a floor — the loops add goals and means from what people and agents type.)*
+
 ## 5. Interactions
 
 **This depends on:**
@@ -197,6 +211,8 @@ proposal for how that reads in play:
 | — | — | — | — |
 
 ---
+
+- **2026-09-18:** the `make water` goal rows added (document 04 §3.9 owns the form and the dispatch rule).
 
 ## 8. What exists today
 
