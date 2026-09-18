@@ -1,6 +1,6 @@
 # 05 — Ontology and sufficiency: what "anything reasonable" means, growing sets, the ontology store, the loops' scaffold, the viewer
 
-> **Status: DRAFT FOR REVIEW (written 2026-09-16).**
+> **Status: reviewed with Andrew 2026-09-18 — every question answered; finalized at the close**
 > **Architecture counterpart:** [`../architecture/ontology-closure.md`](../architecture/ontology-closure.md)
 > — the mechanism (forms, derived capabilities, fallback physics, the probe corpus). This document is
 > the *what* and the *why*; that one is the *how*.
@@ -258,6 +258,26 @@ the design review, before a single loop fires.
 tables are the runtime. A converter (later) turns finalized YAML rows into object / material / zone /
 space / appearance rows, run per zone when that zone's design is finalized.
 
+### 4.5a Walls per run — the measure (Andrew, 2026-09-18)
+
+A **wall** is a moment when someone tries something reasonable and the world cannot answer it
+properly. **Walls per run** is the project's progress measure: it should fall as the loops flesh the
+world out, and it never reaches zero — the world is open-ended, so there is always a next wall.
+
+**All five categories are counted, and each is counted separately** (Andrew, 2026-09-18) — a blended number
+would hide which axis is lagging, and this is the number read every morning:
+
+| category | what happened | which gap it names | where it is logged |
+|---|---|---|---|
+| **unknown word** | they typed `chop`; no such verb | vocabulary | the parser's gaps log (document 04 §3.7) |
+| **unknown noun** | they named something a real room would have and this one does not model (`the windscreen`, `the roots`) | the world | the parser's gaps log |
+| **generic answer** | the verb fits and the thing exists, but the reply came from fallback physics rather than something specific | depth | the wall-sensor (tier-4 hit) |
+| **wrong refusal** | the world said no to something a survivor could do | rules | the wall-sensor, flagged at review |
+| **retry cluster** | the same intent tried three different ways in a row | anything — it is the player's own signal | derived from the per-step log (document 20) |
+
+Each becomes a row in the morning report beside the ontology diff, with its own trend line. A
+category that stops falling is the next pass's brief.
+
 ### 4.6 The viewer
 
 `tools/ontology_view.py` generates a static site (`docs/review/ontology/`, gitignored, regenerated
@@ -407,7 +427,10 @@ the honest scale of the work, and the reason the store and the viewer come befor
    (a) with (c) as the fallback** — dropping rows loses the evidence we are running two models to get,
    and "a row is never deleted, only superseded" already says which way to lean. The real question for
    the review is who prunes, and when.
-5. **What counts as "a wall"?** *(Andrew, 2026-09-18: "not sure what you mean" — so, plainly: a **wall**
+~~5. What counts as "a wall"?~~ **Answered 2026-09-18 (Andrew): all five categories, counted
+   separately** — see §4.5a. Kept below as the record of what was weighed.
+
+   *(original)* **What counts as "a wall"?** *(a **wall**
    is a moment when someone tries something reasonable and the world cannot answer it properly. It
    is the project's progress measure: "walls per run" should fall as the loops flesh the world out,
    and it never reaches zero. The question is which failures count.)*
@@ -451,6 +474,11 @@ the honest scale of the work, and the reason the store and the viewer come befor
   unions and never drops, provenance is a list so agreement is a count, and every firing writes an
   analysis report on what each model found and how that moves over time. Q5 (what counts as a wall)
   restated with its five candidate categories, open for his answer.
+
+- **2026-09-18 (Andrew):** Q5 — **all five wall categories are counted, and separately**: unknown word,
+  unknown noun, generic answer, wrong refusal, retry cluster. §4.5a written with where each is logged
+  and the rule that each keeps its own trend line, because a blended number would hide which axis is
+  lagging. **Document reviewed in full — block 1 complete.**
 
 ## 8. What exists today
 

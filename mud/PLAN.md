@@ -47,7 +47,7 @@ no design.
 | ◐ | A1.02 | 02 the experience — reviewed 2026-09-17; the sample week regenerated after block 4 | Andrew + Fable | 02 | — |
 | ◐ | A1.03 | 03 the player view — reviewed 2026-09-17 (exits as entities, groups, the block) | Andrew + Fable | 03 | — |
 | ◐ | A1.04 | 04 grammar and feedback — reviewed in full 2026-09-18 (the forms, `make`, quantities, encumbrance, the naming rule, word-first vocabulary); finalized at the close | Andrew + Fable | 04 | — |
-| ☐ | A1.05 | 05 ontology and sufficiency — reviewed and finalized | Andrew + Fable | 05 | — |
+| ◐ | A1.05 | 05 ontology and sufficiency — reviewed in full 2026-09-18 (the full schema, the measured merge, the five wall categories); finalized at the close | Andrew + Fable | 05 | — |
 | ☐ | A1.06 | 06 time, sleep and the clock — reviewed and finalized | Andrew + Fable | 06 | — |
 | ☐ | A1.07 | 07 fire and shaping — reviewed and finalized | Andrew + Fable | 07 | — |
 | ☐ | A1.08 | 08 warmth, clothing and shelter — reviewed and finalized | Andrew + Fable | 08 | — |
@@ -99,7 +99,7 @@ no design.
 | ☐ | C3 | Possibility passes: a survivor in a situation, one goal lens at a time (fire · food · water · warmth · shelter · signals · rescue · injury · the pilot · the party · others), everything they would try as commands. | both models, overnight | 22 | C2 |
 | ☐ | C6 | The merge and its analysis: union the two models' files per zone, never drop; provenance as a list so agreement is a count; an analysis report per firing — rows per model, rows found by both, what each found alone, by kind, and the trend over firings. | Opus | 05 §4.5, 22 | B9 |
 | ☐ | C4 | **The feedback rule, run after every firing:** each addition that names a new food source, material, verb, relation, hazard or system goes into the owning design document as a proposal AND becomes a task here (Phase E) if it needs code. Synonyms → the phrasing probes. | Fable (morning read) | all | C2 |
-| ☐ | C5 | Walls per run defined and measured once agents play (Phase F); the categories kept separate. | Fable | 20, 22 | F1 |
+| ☐ | C5 | Walls per run, five categories counted separately (document 05 §4.5a): unknown word, unknown noun, generic answer, wrong refusal, retry cluster; each with its own trend line in the morning report; the parser gaps log and the wall-sensor wired to produce them. | Fable + Opus | 05 §4.5a, 20, 22 | B13, F1 |
 
 ### Phase D — The cabin zone done right (exit: one zone of the plane plays end to end to the finalized design)
 | status | id | task | owner | design doc | waits on |
@@ -211,6 +211,7 @@ under "no task yet" — which must stay empty. Three tasks were added by this pa
 | ⊘ | Water hemlock: the one poison that kills, or softened to illness? | 23 | at the sitting |
 | ☑ | `make` is the one aim-verb: vague it asks how, given the means it performs the act they imply; the recipe reply is cut and moves to the survival manual. | 04, 07 | 2026-09-18 |
 | ☑ | The form list is finalized before the loops run; movement, goal and meta forms added. | 04 | 2026-09-18 |
+| ☑ | Walls per run counts all five categories separately (unknown word, unknown noun, generic answer, wrong refusal, retry cluster). | 05 | 2026-09-18 |
 | ☑ | The ontology schema is designed in full up front (not discovered from the pilot); the pilot verifies it. The merge unions and never drops; agreement is a count; every firing writes an analysis of what each model contributes. | 05 | 2026-09-18 |
 | ☑ | Vocabulary is authored word-first (canonical word + its synonyms in the same pass, before the loops); the gaps log is the backstop. The world's voice, not the system's, in every line the game speaks. | 04 | 2026-09-18 |
 | ☑ | Quantities are budgets, not numbers: counts and measures (a handful, an armful, some, all, as much as I can carry) resolved against what is there and what you can carry; inventory limited by weight **and** space. | 04, 16, 18 | 2026-09-18 |
