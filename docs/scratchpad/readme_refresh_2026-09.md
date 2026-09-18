@@ -140,3 +140,16 @@ six Sankey panels bunched and no trajectory plot. Re-shot at a 2800×1500 viewpo
 = Visual Encoding panel (four-corner legend) stacked over the blended Sankeys + trajectory plot.
 Lesson for the app: select the layer window before pressing Run; Run loads the window that is
 selected at that moment.
+
+## Restructure (18 Sept)
+
+Andrew: tank findings figures were March; wanted the platform section up top, one shot for
+Sankeys + trajectory, one for the route card, and a friend/foe section showing tick 0 vs tick 1
+(devlog 4). New order: The platform (hero, Sankeys+UMAP tank, route card, blend) → How UMAP
+works → Research findings (friend/foe tick 0 vs tick 1 from bus_stop schemas step0/step1 at
+L17–23: V 0.139 → 0.698; five-sense tank on the new session, V 0.688; suicide-letter March
+figures kept by ruling; accumulated-context paper figures) → agent scenarios → how it works →
+quick start. New images: `tour-busstop-tick0.png`, `tour-busstop-tick1.png` (Sankeys + UMAP +
+contingency), `tour-route-card-tank.png` re-shot with the selected route highlighted. Per-layer
+Cramér's V for the bus-stop schemas: step0 0.06–0.20 at every layer; step1 0.45–0.70 from L9,
+0.68–0.70 at L19–23.

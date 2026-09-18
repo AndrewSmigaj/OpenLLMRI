@@ -18,6 +18,28 @@ The March 2026 hackathon paper that introduced the platform is in [`paper/main.p
 
 ---
 
+## The platform
+
+![MUDApp — the bus stop scenario after the agent has examined the person, friend/foe routing across layers 0–5](docs/images/hero-mudapp-bus-stop.png)
+
+The main view is one page. The toolbar at the top-left names the session and the clustering schema, and prints the schema as a sentence (number of probes, filters, clustering method, reduction, embedding source, each parameter color-coded). Below it are two rows of Sankey diagrams, one per layer transition in the selected six-layer window: **Expert Routes** shows which MoE expert each probe's target token was routed to at each layer, **Clusters & Routes** shows which cluster of the residual stream it fell into. The rightmost column of each row is the outcome: for a sentence probe, the category the model's delivered answer was classified into; for an agent run, the action the agent chose. The top-right panel sets the visual encoding: a Color Axis for the primary label, a Blend Axis for a second one, and separate color and blend axes for the output column. The analysis panel on the right holds the per-window contingency table with χ² and Cramér's V, the window synthesis written by Claude Code, and the card for whatever node or route was last clicked. The MUD terminal sits at the bottom-left for live agent runs.
+
+The three shots below come from a September 2026 recapture of two sentence probes in the model's chat format, with the paper's carrier question appended to every sentence and the capture taken at the carrier's own token, so the delivered answer is a direct commitment the classifier can read.
+
+**Cluster routes and stepped UMAP trajectories.** The probe is the five-sense tank set: 500 sentences, 100 each for the aquarium, armored vehicle, scuba cylinder, septic or storage tank, and sleeveless-top senses, each followed by "What is the meaning of the word tank?". Every probe's residual stream at that token is projected with UMAP at each layer and drawn as a polyline across the window, colored by its design sense. The Sankeys above the plot show the same probes as flows between per-layer clusters, ending in the sense the model's answer settled on. Aquarium, vehicle and clothing each hold a clean basin from layer 17 to 23; scuba and septic never get basins of their own at this cluster count, because the model groups them by register instead, technical pressure-vessel language in one basin and narrative handling and storage in another, and the generic "container" answer is the single most common answer in the run.
+
+![Cluster-route Sankeys for layers 17–23 above the stepped UMAP trajectories of the five senses of "tank"](docs/images/tour-umap-tank.png)
+
+**Route cards.** Clicking a ribbon in a Sankey selects that route and opens its card. The card gives the route's token count, coverage and confidence, stacked bars for the composition of its members on the design label and on every secondary category (here structure and register), a description written by Claude Code through the analyze skill, and the member sentences with the model's full completion, reasoning channel followed by the delivered answer. The route shown is the aquarium basin carrying itself from layer 22 to 23: 82 sentences, 93% aquarium-labeled, and 77 of them answered "aquarium".
+
+![The selected route highlighted in the last transition, with its card: composition bars, description, and example completions](docs/images/tour-route-card-tank.png)
+
+**Color blending.** The probe is the threatened-framing set: 400 sentences that use "threatened" in either a roleplay frame (fantasy, science fiction, myth) or a factual one (courts, politics, crime), balanced on grammatical voice, scale and specificity, each followed by "Is the word threatened used here in fiction or in a factual account?". The Color Axis carries the frame and the Blend Axis carries voice, which gives the four corner colors in the legend. Each Sankey node takes a weighted mix of its members' colors, so a cluster pure on both axes is saturated and a mixed cluster sits between, and the trajectory plot draws every probe's path in the same blended color. The blend exposes structure the primary axis hides: the six late-layer clusters are frame by voice, three roleplay and three factual, and nearly every one is also pure on active versus passive. Voice was chosen by trying each balanced axis in the toolbar and keeping the one whose blended nodes separated most visibly, which is what the feature is for.
+
+![Color blending — factual vs roleplay as the color axis and active vs passive blended in, on the Sankeys and on the trajectory plot](docs/images/tour-blend-threatened.png)
+
+---
+
 ## How UMAP Works Here
 
 UMAP (Uniform Manifold Approximation and Projection) compresses high-dimensional activation vectors (2,048 dimensions in a 20B parameter model) down to 2D or 3D for visualization. It works on distances between points, not on the activation values themselves. It asks which points are neighbors in the original space, then arranges them so those neighborhoods are preserved in the projection.
@@ -32,23 +54,33 @@ UMAP finds whatever structure dominates the dataset. Friend/foe probes surface f
 
 ## Research Findings
 
-### Basin geometry covaries with model behavior
+### Friend or foe: the signal forms only after the agent looks
 
-Clusters identified in UMAP space covary with what the model does. In the **tank polysemy probe**, five meanings of the word "tank" separate into distinct clusters that covary with output topic (Cramér's V = 0.548, p < 0.001). In the **suicide letter probe**, the fictional basin (99% non-genuine input) co-occurs with engagement output 81% of the time, and the distress basin (99% genuine input) with refusal 80% of the time (Cramér's V = 0.554, p < 0.001).
+In the bus-stop scenarios the agent arrives at a stop where a person is doing something ambiguous, such as searching frantically through a bag. At the first tick the agent has only that description. At the second tick it has examined the person and received the clarifying detail: looking around to make sure no one sees them, or wheezing and saying they need their inhaler. The same scenario family is written in a friend version and a foe version, and the activations at the token "person" are captured at each tick. With 479 varied scenarios, clustering the residual stream in layers 17 to 23 gives the two pictures below.
 
-Expert routing independently confirms the same group boundaries, providing convergent evidence from two measurement windows. (The legacy paper below uses 'basin' vocabulary; the current program studies these as metastable states — see docs/research/research_briefing_metastable_states.md.)
+![Tick 0, before the agent examines the person: cluster routes, stepped UMAP trajectories, and the cluster-by-action contingency table](docs/images/tour-busstop-tick0.png)
 
-**Tank polysemy** — 5 word senses route to distinct geometric regions:
+![Tick 1, after the examination: the same views, now split into friend and foe](docs/images/tour-busstop-tick1.png)
 
-![Tank polysemy basin identification — expert routing Sankey, latent space Sankey, and UMAP trajectories](paper/polysemybasinsnew.png)
+At tick 0 the clusters are a purple tangle of both labels and the contingency table reports a Cramér's V of 0.14. At tick 1 two of the five clusters are nearly pure, one 99% foe and one 98% friend, and between them they hold half the probes; the same statistic is 0.70. Nothing about the sample changed between the two pictures; the information did. Structure that UMAP can bring into focus with enough samples has to exist in the representation first, and here it appears only once the agent has looked.
 
-![Contingency table — cluster membership covaries with output topic](paper/polysemyoutput.png)
+### Five senses of one word, read at a single token
 
-**Suicide letter probe** — genuine vs non-genuine requests separate cleanly:
+The tank probe above also measures how the model's internal grouping relates to what it says. For every sentence the delivered answer was classified into the sense it settled on, and the table ties each late-layer cluster to those answers.
+
+![Cluster → delivered-answer contingency table for the five-sense tank probe, layers 17–23](docs/images/tour-contingency-tank.png)
+
+The aquarium, clothing and vehicle clusters answer their own sense in 94% to 100% of cases. The two container clusters split between "scuba" and the generic "container" answer, and the mixed casual-register cluster holds most of the hedged and looped answers. Where the design label and the cluster disagree, the answer follows the cluster: aquarium sentences that mention only hardware are filed with storage tanks and answered "container", and clothing sentences about "the front of the tank" are filed with vehicles and answered "vehicle".
+
+### Genuine and fictional requests separate as single sentences
+
+In the **suicide letter probe**, 198 single sentences ask to write a suicide letter, half inside a fictional frame and half about the speaker's real circumstances. Genuine and non-genuine requests fall into distinct geometric regions, and the regions covary with what the model does: the fictional basin (99% non-genuine input) co-occurs with engagement 81% of the time, and the distress basin (99% genuine input) with refusal 80% of the time (Cramér's V = 0.554, p < 0.001).
 
 ![Suicide letter probe basin identification — genuine and non-genuine requests in distinct geometric regions](paper/suicidebasins.png)
 
 ![Contingency table — basin membership covaries with engagement vs refusal](paper/fictionrealindividualsentencesoutputcontigency.png)
+
+The legacy paper below uses "basin" vocabulary; the current program studies these as metastable states, see docs/research/research_briefing_metastable_states.md.
 
 ### Accumulated context: the reading crosses, then stops short
 
@@ -208,30 +240,6 @@ PATH="../.venv/bin:$PATH" evennia start
 
 - **Frontend**: http://localhost:5173
 - **API docs**: http://localhost:8000/docs
-
----
-
-## Platform tour
-
-![MUDApp — bus_stop scenario, friend/foe routing across all 4 windows](docs/images/hero-mudapp-bus-stop.png)
-
-The toolbar (top-left) carries the schema dropdown plus a natural-language summary of the active schema (number of probes, filters, clustering method, reduction, embedding source — each parameter color-coded by axis). The Sankey panel below visualises cluster routes across each layer transition; the right column is the model's output bucketing (friend / foe / unknown). The right-hand analysis panel renders the per-window contingency table with χ² statistics. The MUD terminal lives at the bottom-left for live agent runs.
-
-The three shots below come from a September 2026 recapture of the tank polysemy and threatened-framing probes in the chat format, with the paper's carrier question appended to every sentence and the capture taken at the carrier's token; the figures in the findings section above are from the March run at the in-sentence token, so the statistics visible here are not expected to match the text above.
-
-**Stepped UMAP trajectories.** Every probe's residual stream is projected with UMAP at each layer and drawn as a polyline across the layer window, colored by its design label. Here the five senses of "tank" (aquarium, vehicle, scuba, septic, clothing) travel through layers 17 to 23 at the carrier token; the cluster-route Sankeys above the plot show the same probes as flows between per-layer clusters, ending in the sense the model's answer settled on.
-
-![Stepped UMAP trajectories — five senses of "tank" across layers 17–23](docs/images/tour-umap-tank.png)
-
-**Color blending.** The Color Axis carries the primary label and the Blend Axis a second one, giving four corner colors in the legend. Each Sankey node takes a weighted mix of its members' colors, so a cluster that is pure on both axes is saturated and a mixed cluster sits between, and the trajectory plot below draws every probe's path in the same blended color. Here the threatened-framing probe is colored factual versus roleplay and blended by grammatical voice, chosen by trying each of the set's balanced design axes in the toolbar and keeping the one whose blended nodes separated most visibly. The blend exposes structure the primary axis hides: the six late-layer clusters are frame by voice, three roleplay and three factual, and nearly every one is also pure on active versus passive.
-
-![Color blending — factual vs roleplay as the color axis, active vs passive blended in](docs/images/tour-blend-threatened.png)
-
-**Cluster route analysis.** Clicking a route opens its card: token flow, the composition of its input labels and secondary categories as stacked bars, a description written by Claude Code through the analyze skill, and example sentences with the model's full completion (reasoning channel and delivered answer). The contingency table beside the Sankeys ties each late-layer cluster to the sense the delivered answer settled on, with χ² and Cramér's V for the window.
-
-![Route card — composition bars, description, and examples for one cluster route](docs/images/tour-route-card-tank.png)
-
-![Cluster → generated-continuation contingency table for the tank probe](docs/images/tour-contingency-tank.png)
 
 ---
 
