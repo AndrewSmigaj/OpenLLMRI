@@ -165,6 +165,41 @@ it). Every dilemma the moral layer raises — the pilot's body, the blanket for 
 ration — becomes a real decision, because hunger and cold are numbers that hurt. Co-op stops being
 parallel solitaire: one saws while the other tends the fire, and the half-sawn branch is anyone's.
 
+### The three streams of text, and where ambience comes from (Andrew, 2026-09-18)
+
+While time passes, a player is reading three different things, and they have different rhythms.
+
+**Their own work.** An attended action gives a start line, a few varied tick lines driven by state,
+an interruption that names what remains, and a completion line. **Small jobs are one to three
+game-minutes** (four to twelve real seconds at the clock's base pace); bigger ones are as long as
+they honestly are — digging out a drifted door is half an hour of game time, two real minutes — and
+anything genuinely long runs unattended while you do something else.
+
+**The room's ambience, which comes from the things that are there** — not from a room-level timer.
+The fire crackles and settles; the creek runs; wind gusts against the hull; a raven calls; a spruce
+drops its load of snow. Each of those lines belongs to the *thing*, carried in its ontology row's
+`sensed` field with its own cadence (document 05 §4.5), so a fire burning well speaks more often than
+embers do, a quiet room is genuinely quiet, and a room with a fire and a creek in it is alive without
+anyone authoring a room script. Ambience is the sum of what is present.
+
+**Other people.** Speech and the third-person view of what others are doing arrive whenever they
+happen, through the propagator, by band.
+
+**Under a fast forward, the world does not go quiet — it goes fast** (Andrew, 2026-09-18). Whoever is awake
+is on watch, and they watch the night run past: the fire burning down, the wind rising, the wolves
+somewhere out on the ice. *Implementation note, not a design change: lines are rate-limited in real
+time so the stream stays readable rather than unspooling three a second, and any interrupting event
+(document 06's list) still drops the clock back to base pace.* Sleepers see nothing — later, they
+will be dreaming (`docs/design/IDEAS.md`).
+
+### The watch (Andrew, 2026-09-18)
+
+**Being awake is being on watch.** There is no `keep watch` command and nothing to declare: if you
+are awake while the others sleep, you are the one who is there. What that buys is perception — **you
+receive the events the sleepers do not**: the fire dropping to embers, tracks circling, a plane
+somewhere south. You can wake them. A sleeper gets only what is loud enough to wake them, which is
+the perception system's own answer (document 19), not a special rule.
+
 ## Interactions
 **Depends on:** the taught grammar and resolver
 ([`04-grammar-and-feedback.md`](04-grammar-and-feedback.md)) — an activity only exists because a
@@ -228,6 +263,16 @@ window ([`14-rescue-paths.md`](14-rescue-paths.md)) also run on this clock.
 - **2026-09-17 (Andrew, block 1, ahead of this document's sitting):** X = 15, Y = 180, `propose fast forward`
   by consensus, events interrupt; one sitting of two or three hours; halt/resume; "watch rule" was
   Claude's label and is dropped. The rest of this document is reviewed in block 2.
+
+- **2026-09-18 (Andrew, block 2):** **Q2a** attended actions at one to three game-minutes for small jobs,
+  scaled honestly for bigger ones — adopted as the starting point. **Q2b changed from the
+  recommendation**: ambience is *not* suppressed during a fast forward — "it would just go faster for
+  awake people, they are on watch"; sleepers will be dreaming (deferred, IDEAS.md). And the cadence
+  is not a room-level timer: ambient lines belong to the *things present*, each with its own rhythm
+  in its ontology row, so the room is as alive as what is in it. **Q5** the watch is automatic —
+  awake is on watch; awake players receive events sleepers do not. Written into the design above.
+  **Still open at this sitting:** Q1 (the non-interrupting command whitelist), Q3 (the step-3 build
+  order), Q4 (bedding and fatigue numbers).
 
 ## What exists today
 **Built.** [`game/typeclasses/heartbeat.py`](../../game/typeclasses/heartbeat.py) — a persistent global

@@ -220,7 +220,7 @@ time, state) and its entities. Each entity carries:
 | `states` | the state axes this thing really has, and their starting values (wet, frozen, burning, burnt, open, searched, damaged, lit…) | required | world-builder |
 | `could_become` | every transform: `{operation, needs: capability + level, yields: [{name, form, material, mass_g}], notes}` — cut, break, burn, dig, melt, shave… | required | world-builder |
 | `relations` | beyond containment: attached-to, part-of, blocks, supports, near, leads-to | if any | world-builder |
-| `sensed` | what it gives each sense: `look`, `smell`, `sound`, `touch`, `taste` | required | world-builder |
+| `sensed` | what it gives each sense: `look`, `smell`, `sound`, `touch`, `taste` — and for the ones that speak on their own (a fire crackling, a creek running), the **cadence** and how it varies with state, since a room's ambience is the sum of its things, not a room-level timer (document 06) | required | world-builder |
 | `synonyms` | the words people use for it — written with the noun, not harvested (document 04 §3.7) | required | world-builder |
 | `actions` | candidate commands: `{command, lens, expects, source}` — one row per thing a survivor might try | required | scout |
 | `goal_roles` | the goals this thing can serve a role in (ignition, fuel, vessel, binding…) — document 04 §3.9 | if any | scout |
@@ -479,6 +479,8 @@ the honest scale of the work, and the reason the store and the viewer come befor
   unknown noun, generic answer, wrong refusal, retry cluster. §4.5a written with where each is logged
   and the rule that each keeps its own trend line, because a blended number would hide which axis is
   lagging. **Document reviewed in full — block 1 complete.**
+
+- **2026-09-18:** `sensed` gains a cadence per sense — ambience comes from the things present (document 06).
 
 ## 8. What exists today
 
