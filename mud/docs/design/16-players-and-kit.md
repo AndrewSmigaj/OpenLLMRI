@@ -283,6 +283,8 @@ the load feeds the travel time (document 03 §4.1a). *Proposal: capacity is a `c
   dragged frame); inventory is limited by weight and space; exceeding it is answered physically, never
   refused (document 04 §3.11, document 18 density).
 
+- **2026-09-18 (Andrew):** bulk is derived from density and a gathered quantity is an aggregate; capacity on containers stands as written.
+
 ## 8. What exists today
 
 **Built**

@@ -243,10 +243,17 @@ exists and you get what exists, and the world says so. No refusal, no menu.
 
 **A quantity resolves against what you can carry**, which needs two budgets:
 - **mass**, in integer grams, which the contract already tracks and conserves;
-- **bulk**, which does **not** exist today and is the real gap. A down sleeping bag is light and
-  enormous; the aircraft battery is small and crushing. *Proposal:* bulk derives from mass ÷ the
-  material's density, with an authored value winning — the same derive-then-override shape the
-  capabilities use. Density becomes a material axis (document 18).
+- **bulk**, which does not exist today and is the real gap. A down sleeping bag is light and
+  enormous; the aircraft battery is small and crushing. **Decided 2026-09-18 (Andrew): bulk derives from
+  mass ÷ the material's density**, with an authored value winning — the same derive-then-override
+  shape the capabilities use. `density` becomes a material axis (document 18).
+
+**What a gathered quantity *is*, in your hands. Decided 2026-09-18 (Andrew): an aggregate.** Five
+gathered stones are one entity carrying a count and a total mass, not five objects — the object
+count stays sane and conservation stays exact, because the grams live on the aggregate. It splits
+when one is spent (`wedge a stone under the runner`) or when one stops being interchangeable — a
+stone with blood on it earns its own identity, which is the same *individuate what a player would
+individuate* rule the rooms use (document 17).
 
 **Capacity lives on containers, not on a character stat.** Your hands hold a couple of things; your
 pockets hold small ones; a backpack, a duffel or a laptop bag holds what its capacity says; a seat
@@ -483,21 +490,12 @@ a wall with a smile, and a menu would be worse.
    - *Recommendation:* (a), with the rows written in the owning documents (07, 09, 08, 14, 11) and
      grown by the loops afterwards.
 
-11. **What is in your hands after `a handful of rocks` — one thing or five?**
-   - *Options:* (a) one aggregate entity carrying a count and a total mass, which splits when you
-     use one ("you wedge one of the stones under the runner"); (b) five individual entities; (c) an
-     aggregate for identical things, individuals once any of them differ (one gets blood on it).
-   - *Recommendation:* (c). It keeps the object count sane, keeps conservation exact (mass lives on
-     the aggregate), and the moment a thing becomes distinct it earns its own identity — which is
-     the same individuate-what-a-player-would-individuate rule the rooms use (document 17).
+~~11. What is in your hands after `a handful of rocks`?~~ **Answered 2026-09-18: an aggregate** — one
+entity with a count and a total mass, splitting when one is spent or stops being interchangeable
+(§3.11).
 
-12. **Bulk: derived, authored, or not modelled?** Mass is tracked and conserved; bulk is not, and
-   without it a down sleeping bag costs the same to carry as a folded shirt.
-   - *Options:* (a) bulk = mass ÷ material density, authored value wins (adds `density` to the
-     material table, document 18); (b) an authored `bulk` per object only; (c) mass alone, no bulk.
-   - *Recommendation:* (a). It is one new material axis, it is physically true, it makes the
-     sleeping bag and the battery behave differently for free, and it matches how capabilities
-     already derive.
+~~12. Bulk: derived, authored, or not modelled?~~ **Answered 2026-09-18: derived** — bulk = mass ÷ the
+material's density, authored value wins; `density` joins the material table (§3.11, document 18).
 
 10. **Is the distinguishable-names rule (§3.10) enforced, or just written down?**
    - *Options:* (a) `make validate` fails when two reachable things in a zone share a name with no
@@ -527,6 +525,10 @@ eight parts; nothing new was added to the design itself.
   carry, never a number the player must name; **inventory is limited by weight and space**, which
   means bulk as well as mass. §3.11 written, a form row added, Q6 rewritten, Q11 (aggregate vs
   individuals) and Q12 (bulk from density) added.
+
+- **2026-09-18 (Andrew):** Q11 **aggregate** — a gathered quantity is one entity with a count and a total
+  mass, splitting when one is spent or stops being interchangeable. Q12 **derived** — bulk = mass ÷
+  density, authored wins; `density` joins the material table. Both folded into §3.11 as design.
 
 ## 7. What exists today
 
