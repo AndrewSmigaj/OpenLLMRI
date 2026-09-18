@@ -84,6 +84,15 @@ it — and it lasts about a week of game time across as many sittings as it take
 
 ## 4. The design
 
+
+> **Decided with Andrew, 2026-09-17:** a run is **one sitting of two or three hours** with friends — one shot,
+> or two with a halt and resume; not an ongoing world. A member missing at resume is incapacitated where
+> they lie (the party is warned). A dead player is a **ghost**: moves freely, talks only in the global
+> out-of-character chat. Agent runs are short sessions too. Agents may be scaffolded as non-human
+> characters (NHCs) — still players from the engine's side. The clock: 15 game-minutes per real minute,
+> `propose fast forward` to 180× by consensus. The sections below are the September draft, reviewed in
+> block 4; the empty-instance clock question is closed (halt/resume).
+
 ### 4.1 A run is an instance
 
 A **run** is one party's private copy of the world: a fresh world-state spawned from a prototype set
@@ -315,13 +324,16 @@ cooperation"* (roadmap P6) — a real gate, not a checkbox.
 
 ## 7. Review log
 
-*Not yet reviewed. This document has never been through a sitting with Andrew.*
+*
 
 | date | decided | cut | sent back |
 |---|---|---|---|
 | — | — | — | — |
 
 ---
+
+- **2026-09-17 (Andrew, block 1, ahead of this document's sitting):** sessions, not persistence; halt/resume
+  with the missing-member rule; ghosts; NHCs as agent players; Q3 (reset/persistence) closed.
 
 ## 8. What exists today
 

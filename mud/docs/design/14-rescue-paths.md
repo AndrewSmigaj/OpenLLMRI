@@ -112,6 +112,27 @@ at one is not automatically good at all of them.
 
 ## 3. The design
 
+
+> **Decided with Andrew, 2026-09-17:** the only endings are **rescued or dead**; walking out is not an ending
+> and the cabin is supplies. Rescue comes three ways, each harder than the last: **the radio** during a
+> flyover; **a signal** a search plane can see (a smoke column — rubber, oil, green boughs — past a
+> threshold; or the cabin burning during a flyover); or **surviving long enough** for the search to
+> reach a findable party (at the wreck, at the cabin, or under a signal). The flyover schedule is the
+> rescue clock and players never see a number: an early pass for the story (too early to succeed),
+> then real chances, then the late pass that is the endurance rescue. **The radio, as Andrew designed
+> it:** it needs the battery, which is in the tail wreckage under the snow (light snow on day one,
+> more by the second morning), found by searching the ground — an activity that lists things slowly,
+> which then appear in the description — and by sorting through the wreckage, prying where needed. It
+> works only during a flyover; otherwise static (a possible "air traffic" label as a hint, or let them
+> work it out). Signal quality is continuous — battery, antenna up or down and how high, the plane's
+> nearness — mapped to prose: a high screech with the antenna down, a low hum with it up, a faint
+> voice as you turn the dial, clearer as it improves. Talking back gets snippets — "can't hear you,
+> repeat", in variants — and the words *improve your signal* and *adjust antenna* ride on the better
+> bands: a medium-difficulty mini game of piecing the message together, then the rescue ending if
+> they survive the time it takes. One person can work the radio while another gets food. **Open for
+> this document's sitting:** whether the ELT (the silent beacon you rig an antenna onto) stays as a
+> second path or folds into the radio. The graph below is the September draft.
+
 ### 3.1 The goals
 
 What "win" and "not lose" decompose into (`rescue-graph.md` §1):
@@ -456,7 +477,12 @@ survival paths applied to a teammate instead of yourself.
 
 ## 6. Review log
 
-Not yet reviewed with Andrew.
+
+
+- **2026-09-17 (Andrew, block 1, ahead of this document's sitting):** endings rescued or dead; the walk-out
+  closed; surviving long enough is the hardest rescue path; the flyover schedule as the rescue clock; the
+  radio as the mini game above; the battery in the tail under the snow; searching the ground as an
+  activity. Open: the ELT — keep as a second silent path (Claude's recommendation) or fold in.
 
 ## 7. What exists today
 

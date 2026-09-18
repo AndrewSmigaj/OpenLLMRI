@@ -1,6 +1,6 @@
 # 02 — The experience: what a run of Whiteout is like
 
-> **Status: DRAFT FOR REVIEW (2026-09-16).** The document to react to: a sample week in prose first,
+> **Status: reviewed with Andrew 2026-09-17 — see the review log; the sample week is regenerated after block 4** The document to react to: a sample week in prose first,
 > then the reference behind it. **Architecture counterpart:** none of its own — this is the read-through
 > of every system's document, and each claim points at the document that owns it.
 > **Sources:** the nine design passes in [`../investigation/design/`](../investigation/design/)
@@ -956,6 +956,20 @@ document** — flagged here only so the week's version is not mistaken for a dec
 the date, what was decided, what was cut and what was sent back, and the status banner flips.*
 
 ---
+
+- **2026-09-17 (Andrew, block 1):** Q1 — the endings are **rescued or dead**, nothing else; "surviving long
+  enough" is a rescue path, the hardest; walking out is not an ending, the cabin is supplies. Q2 — the
+  event deck is designed in full now (waterfall), in document 13. Q3 — cross-family sampling as
+  recommended; the play harness comes after the cabin zone. Q4 — Claude drafts the numbers for
+  approval. Q5 — the command whitelist as recommended. Q6 — the build order tentative until planned.
+  Q7 — food: roots, berries of a couple of kinds (a red one makes you sick), more in the plane and the
+  wreckage, small creatures, birds with a thrown rock over several tries with honest misses, rocks to
+  find, a sling with low odds → **document 23, flora and fauna**. Q8 — a run is one sitting of two or
+  three hours, one shot or two, halt and resume, a missing member incapacitated where they lie; not
+  an ongoing world. Q9 — a dead player is a ghost (moves, OOC chat only). Q10 — agent runs are short
+  sessions too. Q11 — **the pilot starts dead**; the radio is the rich puzzle (document 14).
+  **The sample week predates these** on the pilot, the exits line and the endings; it is regenerated
+  after block 4 rather than patched now.
 
 ## 8. What exists today
 

@@ -8,8 +8,9 @@
 
 ## What we are building
 **Whiteout** — a text-forward, multiplayer, *systemic* survival-puzzle MUD on **Evennia**.
-Survivors of a snowy plane crash improvise with every object around them to survive cold,
-injury, hunger and a worsening storm until rescue, escape or collapse.
+Survivors of a bush-plane crash in an Alaskan December improvise with every object around them to
+survive cold, injury, hunger and a worsening storm until they are rescued — the radio, a signal, or
+simply surviving long enough — or die. The only endings are rescued or dead.
 
 The central promise (design §2):
 > The player survives by **understanding the world**, not by guessing the author's
@@ -49,10 +50,11 @@ out the world — every entity, relation and verb — and it has no finish line.
   via the **generative** operation×material engine.
 - **Multiplayer-first, on a continuously running real-time clock** (GDD §9). Time advances on its
   own; no player owns or can stall the clock; long actions schedule onto ticks rather than jumping
-  it. It may run fast by consensus — when every player is asleep or waiting it advances at 20× and
-  events interrupt it; never 0× (DR-14a). Sessions are **instanced, synchronous co-op**; a run is
-  roughly a week of game time with an escalation ladder and no hard time barriers (DR-15, amended
-  DR-15a).
+  it. It always runs faster than real time — 15 game-minutes per real minute — and `propose fast
+  forward` raises it to 180× when every player agrees; events drop it back (DR-14b). Sessions are
+  **instanced, synchronous co-op**: roughly a week of game time inside one sitting of two or three
+  hours, one shot or two with a resume, with an escalation ladder and no hard time barriers (DR-15a,
+  DR-15b).
 - **Perception is graded, not binary** (design §10–15): visibility, audibility,
   reachability, direction and detail are separate and distance/weather/occlusion-aware.
 - **No autonomous in-scenario NPCs** (design §3.3). The dying pilot is scripted, not an AI.

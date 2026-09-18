@@ -572,6 +572,16 @@ indifference-without-malice — which is the argument that the players' own comp
 
 ---
 
+- **2026-09-17 (Andrew, block 1):** Q3 travel — no escape; some sections take longer to cross; moving between
+  areas is an attended activity with feedback and events (`walk`, `run` for less time and more sweat,
+  `turn back`); weather lengthens it, so early exploration is rewarded a little; the first exit shows the
+  forms once. Q4 — the walk-out is **not** an ending; the cabin is supplies. Q6 — priority is authoring
+  order, never a cap. Q7 — wildlife as events and sign (a flock bursting from the birch grove, spooked);
+  **no wolverine**. Q8 — lethal zones injure, never kill outright; fitness matters; a seeded dice roll,
+  announced ("you feel a dice roll somewhere"). Q9 — sweat is wet clothing draining warmth, inside the
+  warmth system. **Still open for this document's sitting:** Q1 the valley's size, Q2 which regions
+  earn their place, Q5 where the walk-out goes (now: nowhere — the cabin is a place, not an exit).
+
 ## 8. What exists today
 
 **Built** — nine zones, all at the crash site, in `game/world/scenarios/whiteout/zones.py`: `cockpit`,

@@ -42,10 +42,10 @@ no design.
 | status | id | task | owner | design doc | waits on |
 |---|---|---|---|---|---|
 | ◐ | A1 | The review sittings (2026-09-17), one document at a time in index order; the five-step procedure; the review packet page; blocks 1–4 then the close. Rows below flip as each document finalizes. | Andrew + Fable | all | — |
-| ☐ | A1.00 | GDD umbrella — reviewed and finalized | Andrew + Fable | GDD | — |
-| ☐ | A1.01 | 01 premise and world — reviewed and finalized | Andrew + Fable | 01 | — |
-| ☐ | A1.02 | 02 the experience — reviewed and finalized | Andrew + Fable | 02 | — |
-| ☐ | A1.03 | 03 the player view — reviewed and finalized | Andrew + Fable | 03 | — |
+| ◐ | A1.00 | GDD umbrella — reviewed 2026-09-17 (pitch, engine rule, improvements, sessions); finalized at the close | Andrew + Fable | GDD | — |
+| ◐ | A1.01 | 01 premise and world — Q3–Q9 answered 2026-09-17; Q1 size, Q2 regions at its sitting | Andrew + Fable | 01 | — |
+| ◐ | A1.02 | 02 the experience — reviewed 2026-09-17; the sample week regenerated after block 4 | Andrew + Fable | 02 | — |
+| ◐ | A1.03 | 03 the player view — reviewed 2026-09-17 (exits as entities, groups, the block) | Andrew + Fable | 03 | — |
 | ☐ | A1.04 | 04 grammar and feedback — reviewed and finalized | Andrew + Fable | 04 | — |
 | ☐ | A1.05 | 05 ontology and sufficiency — reviewed and finalized | Andrew + Fable | 05 | — |
 | ☐ | A1.06 | 06 time, sleep and the clock — reviewed and finalized | Andrew + Fable | 06 | — |
@@ -65,6 +65,7 @@ no design.
 | ☐ | A1.20 | 20 the agent player and research — reviewed and finalized | Andrew + Fable | 20 | — |
 | ☐ | A1.21 | 21 endings and recap — reviewed and finalized | Andrew + Fable | 21 | — |
 | ☐ | A1.22 | 22 the world-building loops — reviewed and finalized | Andrew + Fable | 22 | — |
+| ☐ | A1.23 | 23 flora and fauna — reviewed and finalized (new 2026-09-17) | Andrew + Fable | 23 | — |
 | ☐ | A2 | The cross-document decisions the docs flag (see §5): the walk-out as ending vs channel (14/21); four routes vs five (01/14); the forms list (07/18); the warmth floor (08); the run's food yields (10); the event deck's first version (13); "still going" (13/21). | Andrew | 01, 07, 08, 10, 13, 14, 18, 21 | A1 |
 | ☐ | A3 | Record every review decision: the doc's review log, the DR register (amendments), `VISION.md` where a non-negotiable moves. | Fable | — | A1 |
 | ☐ | A4 | Re-price the valley for a week-long run (travel, stay-or-go, the ladder): the July map assumed a five-hour day. | Fable → doc 01 + 13 | 01, 13 | A1.01, A1.13 |
@@ -108,27 +109,30 @@ no design.
 | ☐ | D4 | The look: the title line, people present, the `Exits:` line (compass outdoors; fore/aft/up/out inside). | Opus | 03 | D3 |
 | ☐ | D5 | The 206 interior as content: seats 1A/1B/2A/2B + the right seat with their finds; the hat shelf; the cargo net; the jammed cargo door; the finds redistributed from the six-seat draft; `look under` as the seat reveal; the guide's and nurse's missing bag extras. | describer + Opus | 16, 17 | A1.16 |
 | ☐ | D6 | Multi-zone perception verified against doc 19 (see and talk across zones; hear by loudness); the propagator's weather stub. | Opus | 19 | A1.19 |
-| ☐ | D7 | The pilot as a process: alive at first light, mumbling a clue fragment or two (each fact with ≥3 other paths), heard only in the cockpit, dies within the first day; tending as costed acts; the body afterwards (`cover` as reverence, search, `butcher`, buried, findable); the `pilot_body` dilemma probe. | Opus | 12, 15 | A1.12 |
+| ☐ | D7 | The pilot starts the run dead (2026-09-17); the body afterwards (`cover` as reverence, search, `butcher`, buried, findable); the `pilot_body` dilemma probe. | Opus | 12, 15 | A1.12 |
 | ☐ | D8 | Elusive nouns and sense verbs (cold, draft, light, smell, sound; smell/listen/feel) as a generic mechanism, proven on one room. | Opus | 17, 05 | D1 |
 | ☐ | D9 | Render read and voice sign-off on the cabin (Andrew reads the rendered zone whole). | Andrew | 17 | D3–D8 |
 
 ### Phase E — The systems, built to the finalized designs (each item: probes first, certainty mode B, the reviewer pair)
 | status | id | task | owner | design doc | waits on |
 |---|---|---|---|---|---|
-| ☐ | E1 | Time: the activity scheduler on the heartbeat (attended actions with start/tick/interrupt/complete; unattended processes; `responses/activities.py`), sleep and wait, the 20× consensus advance with event interrupts, the watch; travel and movement durations actually spent per edge. | Opus | 06, 01 | A1.06 |
+| ☐ | E1 | Time: the clock at 15 game-min per real min with a 4-second heartbeat; `propose fast forward` to 180× by consensus, events drop it back; the activity scheduler (attended actions with start/tick/interrupt/complete; unattended processes; `responses/activities.py`); sleep and wait; halt and resume with the missing-member rule; travel durations actually spent per exit. | Opus | 06, 01, 19 | A1.06 |
 | ☐ | E2 | Fire: the ignition model (source × receptivity × form thinness; a branch does not take from a lighter), fire as a process (the stage ladder; the stub's old ladder reconciled), the shaping family (`carve/split/shave/whittle/notch/string/bundle`), the seven methods as probe chains. | Opus | 07 | A1.07, E1 |
 | ☐ | E3 | Warmth, clothing, shelter: the cold clock (regions, wet fraction, wind), huddle, shelter as zone properties (per-zone exposure bands in `zones.py`; wind and roof numbers written by built things: `cover/block` an opening, snow walls, boughs), drying and wetting as grams, sweat and dexterity, heated stones, the warmth floor if kept. | Opus | 08, 01 | A1.08, E1 |
 | ☐ | E4 | Water: vessels and liquids (fill / pour / drink from), melting, boiling, contamination, eating snow costs heat. | Opus | 09 | A1.09, E2 |
 | ☐ | E5 | Food and hunger: calories as a ledger, yields per source (kit, freight, the country by zone, the body), cooking as heat state, `throw`, `set snare`, fishing; hunger's symptoms before death. | Opus | 10 | A1.10, E1 |
 | ☐ | E6 | Injury and first aid: wounds as data with bleeding/infection/frostbite clocks, `press`, `bind/wrap`, `splint`, the med pouch, the starting draws' injuries as live processes. | Opus | 11 | A1.11, E1 |
 | ☐ | E7 | Events, escalation and weather: the ladder by game day, the event deck (first version) as scheduled processes with a due list and band-routed narration, hazard triggers (the cornice, thin ice, snow load off a bough), tracks that persist and decay, weather bands wired to perception and fire, snow load and the drift, wildlife as sign and pressure (ravens, the wolverine, wolves), an escape path documented per lethal card. | Opus | 13, 01 | A1.13, E1 |
-| ☐ | E8 | Rescue: confidence arithmetic and the weather window, the radio state machine and antenna quality, the ELT score, signals (smoke, the mirror, the flare, a ground sign; `signal with <reflector>`), the missing objects (the survival mirror, the tire, the aircraft battery, the wing drains, a spark rock; the dooryard cable as a real second conductor), the walk-out, the rescue graph as probe chains (`probes/graph.py`), the solvability oracle. | Opus | 14 | A1.14, E7 |
+| ☐ | E8 | Rescue: the flyover schedule as the hidden rescue clock (a story pass, real chances, the late endurance pass); the radio as a continuous signal quality (battery in the tail under snow, antenna up/down/height, the plane's nearness) mapped to prose bands, the dial, the snippet mini game ("can't hear you, repeat"; *improve your signal*; *adjust antenna*), usable only during a flyover; the ELT (if kept); signals (smoke past a threshold, the burning cabin, the mirror, the flare); the ground search as an activity that lists finds slowly; the missing objects; the rescue graph as probe chains; the solvability oracle. | Opus | 14 | A1.14, E7 |
 | ☐ | E9 | The moral and social layer: ownership live (`take X from <person>` witnessed; `give X to Y`), persons as targets (`hit`, `strike`, `push`, `bind`, `carry`), speech as acts with claims checked against world state, the event log `events.jsonl` with witness lists and action tags from the ontology, the two-lie check, the five dilemma probes. | Opus | 15 | A1.15, E5, E6 |
 | ☐ | E10 | Materials: the natural world (stone, soil, clay, bone, hide, sinew, punk wood, lichen, rubber…) and the missing axes (edibility on flesh, liquid axes, hardness/spark); snow and ice as state on one material. | Opus | 18 | A1.18, C2 |
 | ☐ | E11 | New verbs as the loops and the docs demand them (strike, press, tape, fill, arrange, blow, sit, scrape, cover/block, push/pull/drag, throw, unscrew, warm, climb, dig dirt…); `help grammar` finalized once the forms are final; the manual page. | Opus | 04 | D2 |
 | ☐ | E12 | The converter YAML → tables, run per zone when its design is finalized; the fifty outdoor zones as data, rendered and read. | Opus | 05, 01 | C2, D9 |
-| ☐ | E13 | Instances and co-op: instanced runs persisting across sittings (lifecycle, the reaper), the empty-instance and disconnect clock rules, seed-driven slot permutation at run start, the first-class interdependence as a general concurrent-state capability (the antenna hold first), the run modes and an agent action-rate cap. | Opus | 19, 16 | A1.19 |
-| ☐ | E14 | Endings and the recap: the four endings, dead players, the recap from the event log; a fuzz that proves no party survives past day N unrescued. | Opus | 21 | A1.21, E7 |
+| ☐ | E13 | Instances and co-op: a run as one sitting (lifecycle, halt/resume, the reaper), ghosts for dead players (free movement, OOC chat only), seed-driven slot permutation at run start, the first-class interdependence as a general concurrent-state capability (the antenna hold first), the run modes incl. NHCs, an agent action-rate cap. | Opus | 19, 16, 21 | A1.19 |
+| ☐ | E14 | Endings and the recap: the two endings (rescued — early by radio or signal, late by surviving long enough; or dead), ghosts, the recap from the event log; a fuzz that proves the late rescue reaches every findable party. | Opus | 21 | A1.21, E7 |
+| ☐ | E17 | Exits as entities with a mode, travel time and state; movement as an attended activity with events (`walk`, `run` = less time more sweat, `climb`, `enter`, `turn back`); the first-exit tutorial showing the forms once. | Opus | 03, 01 | A1.03, E1 |
+| ☐ | E18 | Groups: several things sharing a place and a kind form a described group ("a pile of clothes"); `look at the pile` lists them; taking dissolves it — the composer's fifth extension. | Opus | 03 | D3 |
+| ☐ | E19 | The pre-scenario tutorial: the grammar forms with one example each, the time controls (`propose fast forward`), movement, `help`; taught once, never a menu. | describer + Opus | 04, 06 | A1.04, A1.06 |
 | ☐ | E15 | Daylight and light: the day/night cycle on the clock (December's five hours), darkness that changes what a look shows and what searching needs, light sources (fire, the flashlight, the phone, the headlamp) with batteries that drain; powered devices as processes (the phone's clock and light, the laptop's sparks). | Opus | 13, 03, 16 | A1.13, E1 |
 | ☐ | E16 | Classes that yield individuals as an engine primitive: `take a branch from the deadfall`, `take snow`, a tussock from the tussocks — a class entity mints one member with the right material, form and mass; needed by every outdoor zone. | Opus | 17, 05 | A1.17 |
 
@@ -183,15 +187,21 @@ under "no task yet" — which must stay empty. Three tasks were added by this pa
 
 | status | decision | doc | note |
 |---|---|---|---|
-| ☑ | The pilot: alive at first light, mumbles a clue fragment or two, dies within the first day. | 12 | 2026-09-17 |
+| ☑ | The pilot starts the run dead (supersedes the morning's "alive, mumbling"). | 12 | 2026-09-17 |
 | ☑ | The run was always a week; the one-day wording struck everywhere live. | 19, GDD | 2026-09-17 |
-| ⊘ | The walk-out to the cabin: its own ending, or one way of being found? | 14, 21 | at the sitting |
+| ☑ | The endings are rescued or dead; the walk-out is not an ending (the cabin is supplies); surviving long enough is the hardest rescue path. | 14, 21, 02 | 2026-09-17 |
 | ⊘ | Four routes or five channels (visual as its own account)? | 01, 14 | at the sitting |
 | ⊘ | The forms list: the code's 26 words canonical, the closure table updated? | 07, 18 | at the sitting |
 | ⊘ | The warmth floor: keep (a fire-less night is survivable by huddle + fuselage) or drop? | 08 | at the sitting |
 | ⊘ | The event deck's first version: full or a subset? "Still going" with no cutoff? | 13, 21 | at the sitting |
 | ⊘ | Which regions earn their place; the muskeg; the density gradient. | 01 | at the sitting |
-| ⊘ | Player count per run; the first-class interdependence; the empty-instance clock. | 19 | at the sitting |
+| ☑ | A run is one sitting of two or three hours (halt/resume; a missing member incapacitated); dead players are ghosts; the empty-instance clock question is closed. | 19, 21 | 2026-09-17 |
+| ☑ | The clock: 15 game-min per real min; `propose fast forward` to 180× by consensus; events drop it back. | 06 | 2026-09-17 |
+| ☑ | Exits are entities in prose with their own verbs; people and animals as prose above them; groups ("a pile of"); a blank line before events; color for humans only. | 03 | 2026-09-17 |
+| ☑ | Wildlife as events and sign; no wolverine; lethal zones injure, never kill outright; seeded dice, announced. | 01, 13, 23 | 2026-09-17 |
+| ⊘ | Player count per run; the first-class interdependence. | 19 | at the sitting |
+| ⊘ | The ELT: a second silent rescue path, or folded into the radio? | 14 | at the sitting (Claude recommends keep) |
+| ⊘ | Water hemlock: the one poison that kills, or softened to illness? | 23 | at the sitting |
 | ⊘ | What is logged per step; cross-family sampling; the stopping rule for agent runs. | 20 | at the sitting |
 | ⊘ | The non-interrupting command whitelist; the step-3 build order (defaults proposed). | 06 | at the sitting |
 | ⊘ | Which fire stage ladder (the design's, or the stub's older one); which temperature curve (the December ladder over the GDD's June line); the radio state's spelling — mine to reconcile, his to confirm. | 07, 13, 14 | at the sittings |

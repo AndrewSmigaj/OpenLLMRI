@@ -1,6 +1,6 @@
 # Whiteout — Game Design Document (authoritative)
 
-> **Status: THE UMBRELLA — pitch, vision, cross-cutting rules, and the chapter index (2026-09-16).**
+> **Status: THE UMBRELLA — pitch, vision, cross-cutting rules, and the chapter index (2026-09-16). Reviewed with Andrew 2026-09-17 (block 1: the pitch, the engine rule, the improvements, the session model); finalized at the close.**
 > The per-system design of record now lives in [`docs/design/`](../../design/README.md), one document
 > per system, reviewed with Andrew one at a time; each section below points to its chapter. This
 > GDD = **your original design** (`design.md`,
@@ -19,20 +19,21 @@ Same game, same goals, same engine. These are the targeted fixes:
    §26 and the runtime intent-fallback from §41. The LLM is used **only at build time** to help author
    content (materials, operation rules, objects, response text), which a validator + a human then
    approve and **bake into data**. During play, the engine never calls an LLM.
-2. **Author materials + operation rules richly; keep objects cheap.** The seat is just a parts-list;
-   its behavior comes from the shared operations over its materials. Reserve full §43 packets for the
-   handful of **puzzle-critical** objects (radio, beacon, pilot, one showcase seat). *Same outputs as
-   §43, far less per-object authoring.*
+2. **Behaviour derives; authoring has no ceiling.** Objects get their behaviour from their materials,
+   forms and the shared operations, so nothing needs a hand-written rule in order to exist. Authored
+   rules can be layered on top of anything, without limit, whenever they make the world truer or more
+   interesting — the derived answer is the floor, never the ceiling. *(Reworded with Andrew, 2026-09-17;
+   the June "packets" were retired, DR-17a.)*
 3. **Conservation becomes a runtime assertion, not just a content-check.** A per-transform ledger
    makes the books balance before any change commits (your §24 was a rule + a §44 lint; this enforces
    it live).
 4. **Add a global-resource softlock check** alongside your per-fact ≥3-paths rule (§44) — so a party
    can't burn/spend its way into an unwinnable world-state the per-fact rule can't see. Plus a
    guaranteed **no-materials warmth floor** so fire-failure is recoverable.
-5. **Build the one-room ontology slice first** (revised build order, §42) — prove the core is fun
-   before building perception/multiplayer/weather.
-6. **Coverage = invariants + a fuzzer + a curated set**, replacing §46's 700+ enumerated tests (same
-   confidence, actually doable).
+5. ~~Build the one-room ontology slice first~~ — *history (2026-09-17): the slice was built in June–July;
+   the order of work is `PLAN.md`.*
+6. ~~Coverage = invariants + a fuzzer + a curated set~~ — *history (2026-09-17): replaced by the probe
+   corpus and the fuzz (DR-18a).*
 
 That's the whole substantive change. Everything below is your design with these folded in.
 
@@ -51,8 +52,10 @@ The clock and session model that were once open are **decided and locked** (full
   own; it is never poked forward by player actions or chat, and no one can stall or yank the shared
   clock. Event-/turn-based time is **rejected** as clunky for a multiplayer game.
 - **Session model — instanced, synchronous, small-party co-op (LOCKED).** One crash, played together
-  online, to resolution — **roughly a week of game time, persisting across sittings** *(corrected
-  2026-09-17: the June draft's "~1 in-game day, then reset" was never Andrew's; see DR-15a)*.
+  online, to resolution — **roughly a week of game time inside one sitting of two or three hours** (one
+  shot, or two with a halt and resume; a member missing at resume is incapacitated where they lie). It is
+  a game played in sessions with friends, not an ongoing world. *(Andrew, 2026-09-17, DR-15b; the June
+  draft's "~1 in-game day, then reset" was never his.)*
 - **Remaining nice-to-haves (genuinely optional — drop freely):** a knowledge/uncertainty layer
   (believed-vs-true) and an auto-generated end-of-run recap story. Pure additions.
 
@@ -86,8 +89,11 @@ The index, the review order and the template: [`docs/design/README.md`](../../de
 ## §1. Pitch & §2. Essential experience  *(unchanged)*
 > *Design of record (reviewed per system):* [`02-the-experience`](../../design/02-the-experience.md)
 
-**Whiteout** — survivors of a snowy plane crash improvise with a physically-modeled world to outlast
-cold, injury, hunger, and a worsening storm until rescue, escape, or collapse. **Essential
+**Whiteout** — survivors of a bush-plane crash in an Alaskan December improvise with a physically
+modelled world to stay alive — cold, injury, hunger and a worsening storm against them — until they are
+rescued: by fixing the radio and raising someone during a flyover, by a signal a search plane can see, or
+by simply surviving long enough for the search to reach them, each path harder than the last. **The only
+endings are rescued or dead.** *(Reworded with Andrew, 2026-09-17.)* **Essential
 experience:** *understanding a living, reactive world under pressure — and being told, physically and
 specifically, why each desperate idea works or doesn't.* **You survive by understanding the world, not
 by guessing the author's verb.**
@@ -95,9 +101,11 @@ by guessing the author's verb.**
 ## §3. Binding design decisions  *(your originals; rule 2 sharpened to "no runtime LLM")*
 1. **Resolution-not-success (§3.5).** No `You can't do that.` ever ships; every sensible/desperate/
    silly attempt gets a real, pre-authored physical answer (or an informative redirect).
-2. **The deterministic engine owns state and runs the entire game.** **The LLM is a build-time
-   authoring tool only and is never called during play.** It never invents state, decides survival
-   math, grants success, or steps the world.
+2. **The deterministic engine owns state and runs the entire game.** The engine never calls a language
+   model to decide what happens or to write what a player sees. Language models play *characters* —
+   agents through the same grammar as a person, including agents scaffolded as non-human characters
+   (NHCs) — and help build the world at build time. An LLM never invents state, decides survival math,
+   grants success, or steps the world. *(Reworded with Andrew, 2026-09-17.)*
 3. **Conservation holds at runtime (§24)** — material, mass (against an environment sink), temperature,
    wetness, contamination, damage, ownership, provenance survive every transform; *asserted*, not
    documented.

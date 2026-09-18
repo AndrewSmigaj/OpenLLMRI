@@ -58,6 +58,17 @@ to happen and get on with something else in the meantime.
 
 ## The design
 
+
+> **Decided with Andrew, 2026-09-17 (supersedes the "20× by consensus" and any "watch rule" wording below):**
+> the clock always runs faster than real time — **15 game-minutes per real minute** (X); `propose fast
+> forward` raises it to **180×** (Y) when every player agrees; events drop it back to X; a player who
+> does not agree keeps it at X. Time controls are taught in the pre-scenario tutorial and are in `help`.
+> A run is **one sitting of two or three hours** covering roughly a week of game time (about 26 real
+> minutes per game day at X/Y with five active hours a day); halt and resume allowed; a member missing
+> at resume is incapacitated where they lie. The heartbeat ticks every 4 real seconds (one game-minute).
+> Attended actions of one to three game-minutes take 4–12 real seconds; half an hour of sawing takes
+> two real minutes. The section below is the September draft and is reviewed in block 2.
+
 ### The running clock
 One persistent heartbeat drives everything: **15 real-seconds → +1 game-minute** (verified against the
 Evennia `turnbattle` and EvAdventure `reaper` conventions — a single Script, no `TickerHandler` beside
@@ -211,7 +222,12 @@ window ([`14-rescue-paths.md`](14-rescue-paths.md)) also run on this clock.
 
 ## Review log
 2026-09-16 — first draft, written from `time-and-stakes.md` §1–3/§5–8, `tick-and-scheduler.md` and
-`implementation-architecture.md` §7. Not yet reviewed with Andrew.
+`implementation-architecture.md` §7. 
+
+
+- **2026-09-17 (Andrew, block 1, ahead of this document's sitting):** X = 15, Y = 180, `propose fast forward`
+  by consensus, events interrupt; one sitting of two or three hours; halt/resume; "watch rule" was
+  Claude's label and is dropped. The rest of this document is reviewed in block 2.
 
 ## What exists today
 **Built.** [`game/typeclasses/heartbeat.py`](../../game/typeclasses/heartbeat.py) — a persistent global

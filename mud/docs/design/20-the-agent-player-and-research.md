@@ -323,13 +323,17 @@ runs'."* Walls come from the wall-sensor (unknown words included) and feed the w
 
 ## 7. Review log
 
-*Not yet reviewed. This document has never been through a sitting with Andrew.*
+*
 
 | date | decided | cut | sent back |
 |---|---|---|---|
 | — | — | — | — |
 
 ---
+
+- **2026-09-17 (Andrew, block 1, ahead of this document's sitting):** agents may be scaffolded as **non-human
+  characters (NHCs)** with a persona brief — still players from the engine's side, which keeps the engine
+  deterministic; agent runs are short sessions like human ones.
 
 ## 8. What exists today
 

@@ -92,11 +92,13 @@ image is pinned by digest (`docker/evennia/Dockerfile`) so local, CI and any clo
   only** (GDD §41) — it helps build the world, it is never in the world. It never invents state,
   decides survival math, or interprets input at runtime. (DR-02)
 - **The world clock is a continuously running real-time clock** (GDD §9) — it just runs; nobody can
-  stall or yank it. Event-driven/turn-based time and a planning-freeze were rejected. It may run at
-  20× by consensus when every player sleeps or waits, and events interrupt it (DR-14a). A
-  deterministic logical clock under the hood keeps replay/fuzz reproducible. (DR-14)
-- **Sessions are instanced, synchronous co-op**; a run is roughly a week of game time with an
-  escalation ladder and no hard time barriers. (DR-15, amended DR-15a)
+  stall or yank it. Event-driven/turn-based time and a planning-freeze were rejected. It always runs
+  faster than real time (15 game-min per real min); `propose fast forward` raises it to 180× by
+  consensus and events drop it back (DR-14b). A deterministic logical clock under the hood keeps
+  replay/fuzz reproducible. (DR-14)
+- **Sessions are instanced, synchronous co-op**: roughly a week of game time inside one sitting of two
+  or three hours (one shot, or two with a resume), an escalation ladder, no hard time barriers; the
+  only endings are rescued or dead. (DR-15, amended DR-15a/15b)
 - **Input is the taught grammar** `VERB X [RELATION Y] [WITH Z]` → `ActionAttempt{verb,X,relation,
   Y,tool}` — not free-form NLP, not a canned verb list; resolution is the generative
   operation×material engine. (DR-08, GDD §25a)

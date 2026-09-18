@@ -54,6 +54,13 @@ battery, what got burned, what was done to the pilot, which plane missed you, ho
 
 ## 4. The design
 
+
+> **Decided with Andrew, 2026-09-17:** there are **two endings, rescued or dead**. "Walked out" is not an
+> ending (the cabin is supplies) and "still going" is gone: **surviving long enough is a rescue path**,
+> the hardest, because the search eventually reaches a findable party while the ladder makes every day
+> worse. A dead player becomes a **ghost** — moves freely, talks only in the global out-of-character
+> chat. The four-ending text below is the September draft, reviewed in block 4.
+
 ### 4.1 The four endings (proposal — `events-and-escalation.md` §3)
 
 | ending | what happens | what makes it happen |
@@ -174,8 +181,11 @@ distinction between surviving and being rescued.
 
 ## 7. Review log
 
-*Not yet reviewed. 2026-09-16: written from the four sources above; §2 separates Andrew's run shape
+*
 from the proposed endings and the optional recap.*
+
+- **2026-09-17 (Andrew, block 1, ahead of this document's sitting):** two endings; surviving long enough is a
+  rescue path; ghosts. Q1, Q3, Q6 closed; the recap (Q5) stays for the sitting.
 
 ## 8. What exists today
 

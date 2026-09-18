@@ -21,17 +21,17 @@ an amendment to the DR register where a locked decision moved. This table update
 per sitting, at Andrew's pace.
 
 **Suggested first sitting:** the GDD umbrella (what the game is, in one read) → 01 → 02 (the sample
-week — the document to react to) → 03 → 04 → 05. Then the survival systems 06–12, the world 13–18,
-then 19–22.
+week — the document to react to) → 03 → 04 → 05. Then the survival systems 06–12, the world 13–18 and 23,
+then 19–22. Ideas that are not design yet live in [`IDEAS.md`](IDEAS.md).
 
 ## The documents
 
 | # | document | system | status | architecture counterpart |
 |---|---|---|---|---|
-| — | [`../scenarios/whiteout/GDD.md`](../scenarios/whiteout/GDD.md) | the umbrella: pitch, vision, cross-cutting rules, chapter index | draft for review | [`implementation-architecture.md`](../architecture/implementation-architecture.md) (the DR register) |
+| — | [`../scenarios/whiteout/GDD.md`](../scenarios/whiteout/GDD.md) | the umbrella: pitch, vision, cross-cutting rules, chapter index | reviewed with Andrew 2026-09-17 (finalize at the close) | [`implementation-architecture.md`](../architecture/implementation-architecture.md) (the DR register) |
 | 01 | [`01-premise-and-world.md`](01-premise-and-world.md) | the crash, December, the valley: regions, the 59 zones, routes, currencies, the map | draft for review | — |
-| 02 | [`02-the-experience.md`](02-the-experience.md) | what a run is like: a sample week in prose, then the reference | draft for review | — |
-| 03 | [`03-the-player-view.md`](03-the-player-view.md) | the look; descriptions composed from state; arrival and events | draft for review | [`presentation.md`](../architecture/presentation.md) (v2 pending) |
+| 02 | [`02-the-experience.md`](02-the-experience.md) | what a run is like: a sample week in prose, then the reference | reviewed with Andrew 2026-09-17 (sample week regenerated after block 4) | — |
+| 03 | [`03-the-player-view.md`](03-the-player-view.md) | the look; exits as entities; groups; descriptions composed from state | reviewed with Andrew 2026-09-17 | [`presentation.md`](../architecture/presentation.md) (v2 pending) |
 | 04 | [`04-grammar-and-feedback.md`](04-grammar-and-feedback.md) | the forms; state the act; clarification only; `help grammar`; how vocabulary grows | draft for review | [`ontology-closure.md`](../architecture/ontology-closure.md) §5; `grammar.md` (pending) |
 | 05 | [`05-ontology-and-sufficiency.md`](05-ontology-and-sufficiency.md) | what "anything reasonable" means; growing sets; the ontology store; the loops' scaffold; the viewer | draft for review | [`ontology-closure.md`](../architecture/ontology-closure.md) |
 | 06 | [`06-time-sleep-and-the-clock.md`](06-time-sleep-and-the-clock.md) | the running clock; activities with feedback; processes; sleep and the consensus advance; the watch | draft for review | [`tick-and-scheduler.md`](../architecture/tick-and-scheduler.md) |
@@ -40,16 +40,17 @@ then 19–22.
 | 09 | [`09-water.md`](09-water.md) | the paths to water; vessels; melting; eating snow | draft for review | — |
 | 10 | [`10-food-and-hunger.md`](10-food-and-hunger.md) | the kit, the freight, the country, the body; hunger; cooking | draft for review | — |
 | 11 | [`11-injury-and-first-aid.md`](11-injury-and-first-aid.md) | wounds, bleeding, infection, frostbite, splints, the med pouch | draft for review | — |
-| 12 | [`12-the-pilot-and-bodies.md`](12-the-pilot-and-bodies.md) | the pilot (scripted, dies within the first day); bodies persist; the moral question | draft for review | — |
+| 12 | [`12-the-pilot-and-bodies.md`](12-the-pilot-and-bodies.md) | the pilot (starts the run dead); bodies persist; the moral question | draft for review | — |
 | 13 | [`13-events-escalation-and-weather.md`](13-events-escalation-and-weather.md) | the ladder; the event deck; weather; endings | draft for review | — |
-| 14 | [`14-rescue-paths.md`](14-rescue-paths.md) | the goals; ≥3 paths; the five channels; confidence; the radio; the ELT; the walk-out | draft for review | [`implementation-architecture.md`](../architecture/implementation-architecture.md) §8 |
+| 14 | [`14-rescue-paths.md`](14-rescue-paths.md) | the goals; ≥3 paths; the flyover clock; the radio mini game; the ELT; signals; surviving long enough | draft for review | [`implementation-architecture.md`](../architecture/implementation-architecture.md) §8 |
 | 15 | [`15-moral-and-social-layer.md`](15-moral-and-social-layer.md) | possible, priced, witnessed, logged; action tags; the dilemma set | draft for review | — |
 | 16 | [`16-players-and-kit.md`](16-players-and-kit.md) | the slots, draws, pockets, luggage; the 206 interior | draft for review | [`clothing-warmth.md`](../architecture/clothing-warmth.md) |
 | 17 | [`17-rooms-and-living-rooms.md`](17-rooms-and-living-rooms.md) | individuation; state that persists; the prose style; the crash rooms | draft for review | [`containment.md`](../architecture/containment.md) |
 | 18 | [`18-materials-and-forms.md`](18-materials-and-forms.md) | the material table in plain words; forms; what is missing | draft for review | [`ontology-closure.md`](../architecture/ontology-closure.md) §2–3 |
+| 23 | [`23-flora-and-fauna.md`](23-flora-and-fauna.md) | the living things of the valley in December: what grows, what can be dug, caught, fished; the poison | draft for review | — |
 | 19 | [`19-multiplayer-and-instances.md`](19-multiplayer-and-instances.md) | instanced runs; seeing and talking across zones; interdependence; run modes | draft for review | [`perception-model.md`](../architecture/perception-model.md) |
 | 20 | [`20-the-agent-player-and-research.md`](20-the-agent-player-and-research.md) | what an agent is given; the same view as a human; the log; tags; replay; research runs | draft for review | [`adr/0005`](../architecture/adr/) |
-| 21 | [`21-endings-and-recap.md`](21-endings-and-recap.md) | rescued / walked out / dead / still going; the recap | draft for review | — |
+| 21 | [`21-endings-and-recap.md`](21-endings-and-recap.md) | rescued or dead; surviving long enough as the hardest rescue; ghosts; the recap | draft for review | — |
 | 22 | [`22-the-world-building-loops.md`](22-the-world-building-loops.md) | the phases; both models as peers; the scaffold; the queue; walls per run | draft for review | `harness.md` (pending) |
 
 ## The template — every document has these eight parts, in this order

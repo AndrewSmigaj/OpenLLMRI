@@ -1,6 +1,6 @@
 # 03 — The player view: the look, descriptions composed from state, arrival and events
 
-> **Status: DRAFT FOR REVIEW (written 2026-09-16).**
+> **Status: reviewed with Andrew 2026-09-17**
 > **Architecture counterpart:** [`../architecture/presentation.md`](../architecture/presentation.md)
 > — v1, implemented, and **superseded on two points** by Andrew's 2026-09-16 walk-through: its
 > "object phrases only (the room desc stays static in v1)" default and its numbered disambiguation
@@ -103,12 +103,18 @@ Every arrival and every `look` prints the same block, in this order:
 ```
 The mid cabin                                          ← title line: where you are
 Buckled seat rows and spilled luggage crowd the aisle.  ← the zone survey sentence
-An aircraft seat — 11B stencilled on the frame — sits wrenched sideways on its bolts.
-Overhead are the latched forward overhead bin and oxygen masks swaying from a sprung
-panel. Lying in the aisle is a duffel bag burst half-open.        ← the composed scene
-With you: Mara, Cal.                                    ← who is here
-Exits: fore, aft, out                                   ← one line
+An aircraft seat — 1B stencilled on the frame — sits wrenched sideways on its bolts.
+Luggage lies thrown across the floor.                   ← the composed scene (groups form)
+
+Mara is going through the duffel; Cal sits against the hull.   ← people and animals, as prose
+                                                         (colored for human players)
+Forward, the cockpit; aft, the rear cabin; the split hull opens onto the snow.
+                                                         ← the exits, as prose (they are entities)
 ```
+
+*(Andrew, 2026-09-17: exits are listed below the room as prose, not as an `Exits:` line; people and
+animals sit between the description and the exits, as prose by what they are doing, standing or sitting
+when idle, colored slightly differently for human players; the description holds the interactables.)*
 
 What is **not** in it: no `You see:` list, no item inventory of the room, no counts-first phrasing,
 no salience labels, no tags, no ident brackets, no per-step structure, no numbered anything. The
@@ -124,7 +130,29 @@ are `go <direction>` and `go to <place>`.
 from the cockpit to the mid cabin changes no room header on its own. The title line is the marker
 that you moved.
 
-### 4.2 Composed from state — the pipeline
+### 4.2 
+
+### 4.1a Exits are entities (Andrew, 2026-09-17)
+
+An exit is a thing in the world with a name, synonyms, a direction, a mode and a state, and its own
+sentence in the room's prose ("a trail leads north into the spruce"; "the scar climbs east toward the
+ridge, drifted knee-deep"). You act on it with the verb its mode calls for: `walk west`, `walk to the
+birch grove`, `run to the treeline` (less time, more sweat), `climb up` the rock face, `enter the tail`,
+`turn back` mid-way. Moving is an attended activity with feedback and events (something passes; a wolf
+tests you); its time is distance over pace, times terrain, snow depth, load and fitness, so weather
+lengthens it and early exploration is rewarded. The first exit a player takes shows the forms once (the
+tutorial), never a menu. *(Proposal for the mechanism: an exit row carries `mode`, `travel_time`,
+`state`; its sentence composes from state like every other thing.)*
+
+### 4.1b Groups (Andrew, 2026-09-17)
+
+When more than one thing shares a place and a kind, a group forms with its own descriptor — "a pile of
+clothes", "luggage thrown across the floor" — and the room shows the group, not the members.
+`look at the pile` lists what is in it (uncapped); taking things apart dissolves it. Groups are
+relations with descriptors, like containers that form on their own. This is how a crowded room stays
+readable without ever listing what is reachable: you have to look. *(Proposal: groups form by place +
+kind with an authored descriptor per kind; the composer's cap/overflow phrases become named groups.)*
+Composed from state — the pipeline
 
 Nothing in the block is a hand-written variant of a whole room, and no room owns a state machine.
 On every look the composer runs:
@@ -371,6 +399,14 @@ look-at-able but never take-able or open-able.
 | — | — | — | — |
 
 ---
+
+- **2026-09-17 (Andrew, block 1):** Q1 — exits are entities, listed below the description as prose, each with
+  its own name, synonyms and verb; a brief guide and example in the tutorial. Q2 — people and animals as
+  prose above the exits and below the description, by what they are doing; colored for human players.
+  Q3 — a blank line before interrupting events; color only for humans. Q4, Q5 — as recommended (state
+  variants on frames; a small authored set of survey variants). Q6 — solved by granularity: groups.
+  `examine` reveals features you would not otherwise see; `search` goes through a container (the
+  appropriate ones only). §4.1 rewritten; §4.1a and §4.1b added.
 
 ## 8. What exists today
 

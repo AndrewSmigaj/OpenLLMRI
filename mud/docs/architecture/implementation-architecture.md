@@ -128,6 +128,23 @@ physics literature). All raised confidence; none reversed a decision (overall �
 > **2026-09-17:** he starts the run alive, mumbles a clue fragment or two (each fact with ≥3 other paths),
 > and dies within the first day. **The run length was always a week** — the "~1 in-game day, then
 > reset" wording in the June text was never Andrew's; DR-15a is the decision, not an amendment of his.
+>
+> **DR-14b / DR-15b (Andrew, 2026-09-17, the design review).** The clock always runs faster than real time:
+> **15 game-minutes per real minute** (X); `propose fast forward` raises it to **180×** (Y) when every
+> player agrees, events drop it back, and a player who does not agree keeps it at X. Time controls are
+> taught in the pre-scenario tutorial. **A run is one sitting of two or three hours** covering roughly a
+> week of game time — a game played in sessions with friends, not an ongoing world; halt and resume
+> allowed; a member missing at resume is incapacitated where they lie. **The only endings are rescued
+> or dead**: rescue by the radio during a flyover, by a signal a search plane sees, or by surviving long
+> enough for the search to reach a findable party; the cabin is supplies, never an exit. **A dead
+> player is a ghost**: moves freely, talks only in the global out-of-character chat. **The pilot starts
+> the run dead** (supersedes the morning's "alive, mumbling"). **Exits are entities**, listed below the
+> room prose as prose, each with its own name, synonyms and verb (`walk west`, `walk to the birch
+> grove`, `climb up`, `enter the tail`), travel time and state; movement is an attended activity with
+> events. **Groups** ("a pile of clothes", "luggage thrown across the floor") form when several things
+> share a place and a kind; `look at the pile` lists them; taking dissolves them. Wildlife is events
+> and sign; no wolverine. Lethal zones injure, never kill outright; seeded dice may roll ("you feel a
+> dice roll somewhere"). Sweat is not a meter: it is wet clothing draining warmth later.
 > **The watch rule stands:** one player who keeps acting holds the clock at 1× for everyone; the
 > others wait for the next event (someone waking). **Moral tags, and other tags on actions, are
 > ontology fields** (`docs/ontology/`), assigned in their own fleshing-out pass.

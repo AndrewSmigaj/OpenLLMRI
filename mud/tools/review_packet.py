@@ -32,6 +32,7 @@ ORDER = [  # (key, block, file or None for the GDD)
     ("13", 3, "13-events-escalation-and-weather.md"), ("14", 3, "14-rescue-paths.md"),
     ("15", 3, "15-moral-and-social-layer.md"), ("16", 3, "16-players-and-kit.md"),
     ("17", 3, "17-rooms-and-living-rooms.md"), ("18", 3, "18-materials-and-forms.md"),
+    ("23", 3, "23-flora-and-fauna.md"),
     ("19", 4, "19-multiplayer-and-instances.md"), ("20", 4, "20-the-agent-player-and-research.md"),
     ("21", 4, "21-endings-and-recap.md"), ("22", 4, "22-the-world-building-loops.md"),
 ]
@@ -55,7 +56,7 @@ def split_sections(text: str) -> dict[str, str]:
 
 def status_of(text: str) -> str:
     head = text[:1500].lower()
-    if "finalized" in head:
+    if re.search(r"finalized \d{4}-\d\d-\d\d", head):
         return "finalized"
     if "reviewed with andrew" in head:
         return "reviewed"
@@ -304,7 +305,7 @@ def render_doc(key: str, block: int, idx: int, total: int, text: str, current: s
 
 def render_gdd(block: int, idx: int, total: int, current: str, gdd_text: str) -> tuple[str, str, str]:
     b = GDD_BRIEF
-    status = "finalized" if "finalized" in gdd_text[:800].lower() else "draft"
+    status = status_of(gdd_text)
     pill = f"<span class='pill {status}'>{status}</span>" + (" <span class='pill current'>now</span>" if current == "GDD" else "")
     qs = []
     for qid, q, opts, default in b["questions"]:

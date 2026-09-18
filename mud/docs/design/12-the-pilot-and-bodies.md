@@ -78,9 +78,9 @@ game will ever comment on.
 | | |
 |---|---|
 | **He is scripted** | No dialogue system, no topics, no question verb aimed at him. Anything he emits is authored text fired by world state. |
-| **He dies within the first day** | Day one, not day three. The escalation ladder (`events-and-escalation.md` §2) puts "a body" at day 3 and says the moral question "starts on day one". |
-| **Moaning is cockpit-only** | Heard only from inside the cockpit; nobody outside hears it. *(How is an implementation matter: a sound event whose audible range is the cockpit, through the perception bands — design 19.)* |
-| **He may say scripted things** | Permitted, unspecified. What they are is Q2. |
+| **He starts the run dead** (Andrew, 2026-09-17 — supersedes "dies within the first day") | A body from the first look: no clock, no lines, no fragments. "They don't need him for figuring out the rescue things." The moral question starts on day one. |
+| ~~Moaning is cockpit-only~~ | Superseded 2026-09-17: he is dead at the start; there is nothing to hear. |
+| ~~He may say scripted things~~ | Superseded 2026-09-17: nothing. Q1–Q4 below are closed by this. |
 | **Talking gets silence, never a list** | The never-a-menu rule (DR-08c): `talk to the pilot` answers with the physics of why ("nobody will"), not with topics or a prompt. |
 
 ### 4.2 What the June design proposed (GDD §19 — proposal, unreviewed)
@@ -232,7 +232,14 @@ nothing to attach to.
   Settles Q1 (b), Q2 (b) and Q7 (alive at start; the shipped `dead: True` start state is a content fix).
   Q3–Q6 stay open for the sitting.
 
-*Not yet reviewed. 2026-09-16: written from the sources above; the only decided content is §2.*
+*
+
+
+- **2026-09-17 (Andrew, block 1):** "i guess we can just start with the pilot dead it will solve a lot of
+  problems. they don't need him for figuring out the rescue things." **He starts the run dead.** This
+  supersedes the same day's "alive at first light, mumbling" and closes Q1–Q4 and Q7 (the shipped
+  `dead: True` start state is now correct). Q5 (the body) and Q6 (dead players' bodies) stay for this
+  document's sitting; dead players are ghosts (document 21).
 
 ## 8. What exists today
 
