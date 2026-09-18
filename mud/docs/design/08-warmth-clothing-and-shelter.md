@@ -280,6 +280,50 @@ asks how; given the means it performs the act they imply and this system answers
 
 *(Proposal: the row set is a floor — the loops add goals and means from what people and agents type.)*
 
+### 4.8 You hear your shelter leaking (Andrew, 2026-09-18)
+
+A shelter's quality is never a number on screen. **You learn it through your senses**, because the
+holes in it are things, and things speak (document 06: ambience comes from what is present, carried
+in each row's `sensed` cadence).
+
+The wreck is full of them. The hull tear in the rear cabin, the torn-open tail section, a window
+pane gone, the cargo door that will not seat, a seam the impact opened. Each one is an entity with a
+wind sound that varies with the weather and with whether anything has been done about it:
+
+| the opening's state | what you hear |
+|---|---|
+| open, wind rising | "The wind comes through the tear in long cold breaths." |
+| open, gusting | "A gust drives snow through the tear and across the floor." |
+| partly blocked | "The wind worries at the edge of the sheet over the tear." |
+| blocked | nothing — and the quiet is the reward |
+
+So the loop closes without a tutorial: you hear the cold getting in, you find the hole, you cover it,
+and the room goes quiet. The same holds outdoors — a lean-to that does not meet the ground tells you
+so on a gusty night. **Ambient lines are how the zone's wind and roof numbers (§4.4) are read**, and
+`examine` on the opening gives the detail.
+
+### 4.9 `status` — what your body reports (Andrew, 2026-09-18)
+
+There **is** a status screen. It is not a heads-up display and it is not a menu of anything: it is
+your own body answering when you ask, in the same words the prose uses, never in numbers.
+
+```
+> status
+You are shivering, and your feet are soaked through.
+Two fingers on your left hand are white and hard — frostbitten.
+Your left forearm is bandaged; the bleeding has stopped.
+You are hungry. You have not slept.
+```
+
+It carries everything a person can sense about themselves: **injuries** (each named wound and its
+state — frostbite, a break, a burn, what is bound and what is not), **cold**, **hunger**, **thirst**,
+**tiredness**, **wetness**, and anything else the body has to say. Bands, not numbers (§4.3), and the
+same band words the narration uses, so the screen never teaches a second vocabulary.
+
+`status` is one of the commands that does **not** interrupt what you are doing (document 06) — asking
+how you feel is free. It is a command, not part of the room block (document 03): the look tells you
+about the world, `status` tells you about you.
+
 ## 5. Interactions
 
 **This depends on:**
