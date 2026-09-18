@@ -156,7 +156,7 @@ model answers (document 04 §3.9). Fire's rows in the goal table:
 | field | fire |
 |---|---|
 | `goal` | fire · a fire · flame · blaze |
-| `vague` | "Request too vague. How are you going to make the fire?" — nothing else; what a fire wants is in the survival manual, not in the reply |
+| `vague` | "How do you mean to make a fire?" — nothing else; what a fire wants is in the survival manual, not in the reply |
 | `roles` | **ignition**: a thing with `flame`, `spark`, `ember` or `focus` · **fuel**: a thing with `burnability > 0`, and its form decides whether this ignition can reach it |
 | `realize` | `light <fuel> with <ignition>` — the ordinary operation, resolved through §4.2's additive check |
 | half-filled | two fuels and no ignition → neither will light the other, stated physically; an ignition and nothing receptive → the flame burns alone |

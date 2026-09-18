@@ -1,6 +1,6 @@
 # 04 — Grammar and feedback
 
-> **Status: reviewed with Andrew 2026-09-18 in part (the forms, `make`, the naming rule); Q1–Q10 at its sitting** Architecture counterpart:
+> **Status: reviewed with Andrew 2026-09-18 — every question answered; finalized at the close** Architecture counterpart:
 > [`ontology-closure.md`](../architecture/ontology-closure.md) §5 (the tolerance layer and the
 > feedback rule) and `implementation-architecture.md` DR-08 / DR-08a / DR-08b / DR-08c. A dedicated
 > `docs/architecture/grammar.md` is **pending** — until it exists, §5 plus the DR-08 chain are the
@@ -168,11 +168,12 @@ precisely to catch an aim and turn it into an act. It behaves in exactly two way
 
 ```
 > make fire
-Request too vague. How are you going to make the fire?
+How do you mean to make a fire?
 ```
 
-*(Andrew's own wording, 2026-09-18. Proposal for the voice, his to take or leave: "How do you mean to
-make a fire?" — the same question, in the world's register rather than the system's.)* No recipe, no
+*(Andrew's intent, 2026-09-18: "Request too vague. How are you going to make the fire?" — and he chose
+the world's voice for the line itself, here and everywhere else the game asks. The question is the
+same; it just is not spoken by a system.)* No recipe, no
 list of what a fire needs, no naming of what is in reach. What a fire wants is knowledge, and
 knowledge lives in the world: the survival manual's fire page says it, findable, readable, burnable.
 
@@ -361,13 +362,23 @@ are what grow.
 6. The taught condition converges across models (79 vs 83); the naive gap is larger (71 vs 78) —
    another reason the guide goes to agents up front.
 
-**How an unknown word turns into vocabulary.** This is decided, not open: "every unknown word is
-logged to the wall-sensor so the next pass adds the synonym" (DR-08c). Nothing auto-learns at
-runtime — DR-02 holds, there is no runtime language model to do the learning — the log is a
-build-time authoring queue read by the next design/implementation pass, the same mechanism that
-already logs unhandled verb×thing attempts (`ontology-closure.md` §4/§6, the wall-sensor and the
-probe corpus). §5 below has the one open point this leaves: today only the verb×thing gap is
-logged; the unknown-*word* log is designed but not yet wired (see §7).
+**How vocabulary is built — word first, then its synonyms (Andrew, 2026-09-18).** The synonym table is
+not harvested, it is **authored**, and it is cheap: *"we actually start with a word and then flesh
+out the synonyms, which is easy, before the new passes."* So the rule is —
+
+1. **A word is chosen when the thing or the act is designed**: one canonical verb, one canonical
+   noun. That is the word the world uses in its own prose.
+2. **Its synonyms are authored in the same pass**, immediately, because writing out the ten ways a
+   person says *cut* costs minutes and guessing later costs a player their sentence. A verb or a
+   noun is not finished until its synonym set is written.
+3. **This happens before the world-building loops run**, so the loops are fleshing out a world whose
+   words already have their variants, rather than one where every new noun is a fresh gap.
+4. **The gaps log is the backstop, not the mechanism.** Every unknown word is still logged to the
+   wall-sensor (DR-08c) and read at build time by the next pass — it catches what the authoring
+   missed, which is exactly what a sample of real play is good for. Nothing auto-learns at runtime:
+   DR-02 holds, there is no runtime language model to do the learning.
+
+Today only the verb×thing gap is logged; the unknown-*word* log is designed and not yet wired (§7).
 
 ### 3.8 Lens pass
 
@@ -419,6 +430,11 @@ a wall with a smile, and a menu would be worse.
   mechanics live.
 
 ## 5. Open questions
+
+**All answered 2026-09-18.** Q1 · Q2 · Q3 · Q4 · Q6 · Q7 · Q9 · Q10 as recommended; **Q5 changed** —
+vocabulary is authored word-first with its synonyms, before the loops, and the gaps log is the
+backstop (§3.7); **Q8** — the world's voice, here and in every other line the game speaks. The
+questions are kept below as the record of what was weighed.
 
 1. **Does the grammar need expanding for the planned actions?**
    - *Options:* (a) assume the current seven shapes cover everything the roadmap's later systems
@@ -529,6 +545,15 @@ eight parts; nothing new was added to the design itself.
 - **2026-09-18 (Andrew):** Q11 **aggregate** — a gathered quantity is one entity with a count and a total
   mass, splitting when one is spent or stops being interchangeable. Q12 **derived** — bulk = mass ÷
   density, authored wins; `density` joins the material table. Both folded into §3.11 as design.
+
+- **2026-09-18 (Andrew, block 1, the rest):** Q1 the spike answers it · Q2 freeze the forms once shaping and
+  movement land, then write `help grammar` once · Q3 `use X on Y` stays, silent · Q4 the manual page
+  finalizes with `help grammar` · **Q5 changed from the recommendation**: vocabulary is authored
+  word-first — pick the canonical word, write its synonyms in the same pass, before the loops run;
+  the gaps log is the backstop, not the mechanism (§3.7 rewritten) · Q6 counts **and** measures ·
+  Q7 `all` scoped · **Q8 the world's voice** — "How do you mean to make a fire?", and that register
+  applies to every line the game speaks · Q9 fire, water, shelter, signal, splint first · Q10
+  `make validate` enforces distinguishable names. **Document reviewed in full.**
 
 ## 7. What exists today
 
