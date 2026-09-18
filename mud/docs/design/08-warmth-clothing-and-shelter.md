@@ -47,10 +47,10 @@ Everything below is a proposal for this review. In particular:
   seed**, not from Andrew — the file's own banner says "ARCHIVED — original AI seed". GDD §31–§36
   carries them "unchanged", so they have been sitting in an authoritative document wearing a
   provenance they do not have. They are good lists and this document keeps them; they are proposals.
-- **The warmth floor** (GDD §0a improvement 4: a guaranteed no-materials warmth floor so
-  fire-failure is recoverable) is likewise a GDD improvement, not a recorded decision of Andrew's.
-  It is a proposal this document recommends keeping, because it is what makes fire failure a setback
-  instead of an ending.
+- **The warmth floor as GDD §0a improvement 4 described it — a guaranteed no-materials floor — was a
+  Claude proposal, and Andrew replaced it on 2026-09-18 with the night-one rule below (§4.1a).** The
+  guarantee is gone; what stands in its place is a first night that is survivable inside the wreck,
+  and a ladder that takes that away afterwards.
 - **The clothing system v2** — coverage by body region, the shell's wind, waterproofing, the wet
   fraction, sweat, dexterity, movement, signal, sharing (`players-and-kit.md` §4).
 - **The warmth clock** — core temperature as an integer, the per-tick equation, the bands
@@ -97,10 +97,8 @@ the rest.
    + activity_heat − wet_skin_penalty + huddle_bonus`.
 4. **Bands, as proposed:** fine ≥ 360 · cold 350–359 · shivering 340–349 · impaired 320–339 ·
    dying < 320.
-5. **The warmth floor.** Huddle + the fuselage + body heat, with no materials at all, keeps a
-   competent party at or above *shivering* through one night — held as a property test, not a hope
-   (GDD §0a #4; `time-and-stakes.md` §4). Fire failure must be survivable or the fire stops being a
-   choice and becomes a gate.
+5. **The night-one rule** (§4.1a): the first night is survivable *inside the wreck, in the clothes
+   you crashed in*, with no fire and no huddle. After that the ladder takes it away.
 6. **Wearability is derived, never whitelisted.** Anything flexible/fabric/soft/insulating and light
    enough to drape around a body wears: the blanket as a cloak, a freed seat cover, the engine
    cover, socks on hands. Refusals are physical ("it doesn't bend around a body"), never a list of
@@ -114,6 +112,37 @@ the rest.
 9. **Never a menu.** The game does not suggest huddling, does not list shelter types, does not say
    "you could block the breach". The breach is described as what it is — the wind's door — and the
    engine cover is described as holding heat against metal all night. The player joins them.
+
+### 4.1a The first night, and what comes after (Andrew, 2026-09-18)
+
+There is no guaranteed floor. There is a **first night that is survivable inside**, and a ladder that
+removes it.
+
+**Night one.** It is not as cold yet. A party that stays in the wreck survives it in the clothes they
+crashed in — no fire, no huddle, nobody doing anything clever. It will not be pleasant, and the
+townie in denim will feel it, but nobody dies of it. *This is the teaching night: the lesson it
+teaches is that the wreck is shelter.*
+
+**Going outside on night one** saps you — without fire, food and better gear the cold takes warmth
+steadily. You can be out there for a while, and short trips are fine and expected. A whole night out
+without a heat source is not.
+
+**Night two onward it gets colder** (document 13's ladder), and the wreck alone stops being enough.
+Now you need at least one of:
+
+| answer | what it is |
+|---|---|
+| **a heat source** | a fire, and everything document 07 says about getting one; hot stones, a warm vessel |
+| **better gear** | what the wreck gives up — the engine cover, the sleeping bag, salvaged foam and batting, another person's spare coat |
+| **conserving** | block the breach, get off the metal floor onto boughs, close the space you are heating, and gather anything that will serve as a blanket |
+| **huddling** | shared body heat, and more of it under one covering — a real answer, not the only one |
+
+**Most parties will have fire by then**, because most parties spend day one trying for it — which is
+exactly the intent: night one buys them the day to earn it.
+
+**The acceptance test** (replacing the old warmth-floor property test): *a party that stays in the
+wreck on night one survives without fire, in the starting draws; a party that has done nothing more
+by night two is in trouble.* Document 13's ladder numbers are tuned until both halves are true.
 
 ### 4.2 The clothing system
 
@@ -219,10 +248,12 @@ Every survival goal must have at least three paths spending different key resour
 | **fire** | fuel + an ignition source | the treeline and the north wood for fuel; the ignition source's own room |
 | **insulation salvage** | tools (to strip) + time | mid and rear cabin: foam, batting, the blanket, the engine cover, clothes |
 | **shelter / windbreak** | sweat + tools | the rear cabin (block the breach); outside (snow wall, boughs) |
-| **huddle + fuselage + body heat — the floor** | nothing but proximity | any enclosed zone |
+| **the wreck itself, night one** | nothing at all | inside the fuselage — enough for the first night only (§4.1a) |
+| **huddling** | nothing but proximity; more under a shared covering | any enclosed zone — one answer among several, from night two |
 
-The softlock guard: the floor path needs no object at all, and the fire paths need at least two
-different ignition sources present at the start.
+The softlock guard: night one needs no object at all, and the fire paths need at least two different
+ignition sources present at the start — so a party that loses one can still earn the heat source
+night two asks for.
 
 ### 4.7 The cold ladder (December)
 
@@ -279,11 +310,12 @@ asks how; given the means it performs the act they imply and this system answers
 
 ## 6. Open questions
 
-1. **Is the warmth floor kept?** *(a)* Keep it — a competent party survives one fire-less night by
-   huddle + fuselage + body heat, held by a property test. *(b)* Drop it — no fire on night one is
-   death. **Recommendation: keep.** It is what lets the fire be a choice rather than a gate, and it
-   makes the huddle — the social act — mechanically load-bearing. It needs Andrew's word because the
-   provenance audit does not record him deciding it.
+~~1. Is the warmth floor kept?~~ **Answered 2026-09-18 (Andrew), and neither option**: the guaranteed
+   no-materials floor is gone, and so is "no fire on night one is death". **Night one is survivable
+   inside the wreck in the clothes you crashed in**; going out saps you; from night two the cold
+   climbs and you need a heat source, better gear, conserving, or huddling — and most parties will
+   have fire by then because they spent day one on it. Written as §4.1a; the acceptance test
+   replaces the old property test.
 2. **Does shelter live on the zone or on an object?** *(a)* Two mutable numbers on the zone (wind
    exposure, roof) that built things write to. *(b)* Shelters as entities with the seed's full
    seven-property block. **Recommendation: (a) first**, because partial shelters then count for free
@@ -337,6 +369,15 @@ except the items marked as Andrew's is open for cutting.*
 ---
 
 - **2026-09-18:** the `make shelter` goal rows added (document 04 §3.9 owns the form and the dispatch rule).
+
+- **2026-09-18 (Andrew):** **Q1 answered, and it replaced the proposal.** No guaranteed warmth floor. "They
+  shouldn't need to huddle, it's not as cold the first night, they should stay inside though; going out
+  will sap them without fire and food and better gear, though they can for a little bit; after the
+  first night though it gets colder and they need to find a heat source or find better gear or conserve
+  and huddle gear including anything they can use for blankets, though huddling with someone conserves
+  warmth too; they probably will have fire though if they try to do that for the first day." Written as
+  §4.1a with the four answers from night two and a new acceptance test; §4.6's path table and the
+  softlock guard updated; the GDD's improvement 4 corrected.
 
 ## 8. What exists today
 

@@ -28,8 +28,10 @@ Same game, same goals, same engine. These are the targeted fixes:
    makes the books balance before any change commits (your §24 was a rule + a §44 lint; this enforces
    it live).
 4. **Add a global-resource softlock check** alongside your per-fact ≥3-paths rule (§44) — so a party
-   can't burn/spend its way into an unwinnable world-state the per-fact rule can't see. Plus a
-   guaranteed **no-materials warmth floor** so fire-failure is recoverable.
+   can't burn/spend its way into an unwinnable world-state the per-fact rule can't see. *(The
+   "guaranteed no-materials warmth floor" this improvement also proposed was replaced on 2026-09-18 by
+   the night-one rule: the first night is survivable inside the wreck, and the ladder takes that away
+   afterwards — `docs/design/08-warmth-clothing-and-shelter.md` §4.1a.)*
 5. ~~Build the one-room ontology slice first~~ — *history (2026-09-17): the slice was built in June–July;
    the order of work is `PLAN.md`.*
 6. ~~Coverage = invariants + a fuzzer + a curated set~~ — *history (2026-09-17): replaced by the probe
@@ -245,7 +247,7 @@ the radio; one relays a landmark) so co-op is a shared-story engine, not paralle
 He is dead at the start (Andrew, 2026-09-17). His body is a food path and a moral question; his kit is where
 he sat. Nothing the party needs for rescue depends on him. Design: document 12.
 
-## §31–§36. Survival systems  *(unchanged; + the warmth floor, improvement #4)*
+## §31–§36. Survival systems
 > *Design of record (reviewed per system):* [`07-fire-and-shaping`](../../design/07-fire-and-shaping.md) · [`08-warmth-clothing-and-shelter`](../../design/08-warmth-clothing-and-shelter.md) · [`09-water`](../../design/09-water.md) · [`10-food-and-hunger`](../../design/10-food-and-hunger.md) · [`11-injury-and-first-aid`](../../design/11-injury-and-first-aid.md)
 
 One chapter per system; each is its own document, reviewed separately. *(Rewritten with Andrew, 2026-09-17;

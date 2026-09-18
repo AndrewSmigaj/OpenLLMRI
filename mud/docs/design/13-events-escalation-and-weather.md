@@ -225,6 +225,11 @@ as questions rather than deciding them.
 ## 7. Review log
 None yet — first draft, not yet reviewed with Andrew.
 
+- **2026-09-18 (Andrew, via document 08):** the ladder's first rungs are constrained by the **night-one
+  rule** — night one must be survivable inside the wreck in the starting clothes, with no fire and no
+  huddle, and night two must not be. The day-1/day-3 temperatures are tuned until both are true
+  (document 08 §4.1a).
+
 ## 8. What exists today
 
 **Built:** nothing.
