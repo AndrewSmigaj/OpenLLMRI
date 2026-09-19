@@ -194,11 +194,13 @@ as questions rather than deciding them.
    Andrew's review, tunable by probes." *Options:* lock them now vs. treat them as tunable starting
    points revisited once probes/playtest exist. *Recommendation:* starting points — tune by probes, as
    the source already intends.
-2. **What ships in the event deck's first version — the full deck above, or a subset?** *Options:* ship
-   everything listed now vs. ship a smaller first subset (e.g., weather + one wildlife thread) and grow
-   the rest by evidence, matching the "every count is a floor" rule used everywhere else in this
-   project. *Recommendation:* a first subset, named explicitly in the review conversation, with the
-   remaining categories tracked as floors to build on.
+2. **In what order is the event deck built?** *(Reframed 2026-09-18: the earlier version asked what to
+   cut from the deck, which is scarcity reasoning — nothing is dropped, only queued.)* Every event
+   listed is in the design. The question is only what gets built first, since they cannot all be
+   built at once. *Options:* (a) the weather spine and the fixed beats first (the heavy snow, the
+   flyovers, the pilot), then the wildlife threads, then the rest; (b) a different order — name it.
+   *Recommendation:* (a), with everything else queued rather than dropped, and the loops adding more
+   events as they flesh the world out.
 3. **How are lethal cards (the moose, wolves testing a lone traveller, a snow load dropping on someone
    underneath) kept "telegraphed, never a scripted kill" in practice?** The source states the rule but
    not the mechanism. *Options:* rely on the sign-before-danger convention alone vs. require each lethal

@@ -156,11 +156,11 @@ never gated either — they are the interesting part.
    revisited once the fleshing-out pass actually runs. *Recommendation:* treat them as a floor — the
    axes are a reasonable starting shape, but the fleshing-out pass, not this document, should have the
    final say.
-2. **Which dilemmas ship first?** The table lists five (pilot_body, hidden_stash, blanket,
-   last_ration, confrontation). *Options:* ship all five as the first set vs. ship a smaller subset and
-   grow the rest by evidence. *Recommendation:* ship the five as the first set — each is already priced
-   against systems named elsewhere in this document set — and grow more the same way the event deck
-   does (see doc 13).
+2. **In what order are the dilemmas built?** *(Reframed 2026-09-18: nothing is dropped, only queued.)*
+   All five (pilot_body, hidden_stash, blanket, last_ration, confrontation) are in the design, and
+   more will come from play. *Options:* (a) build all five together, since each is already priced
+   against systems named elsewhere; (b) an order — name it. *Recommendation:* (a), and the loops add
+   dilemmas the same way they add everything else.
 3. **How does the engine mechanically distinguish the two lie categories (rule 4)?** The source states
    the rule but not the check. *Options:* leave it to the implementation pass to invent vs. design the
    mechanism now (e.g., a stated-falsehood check compares a claim's timestamp against world state at

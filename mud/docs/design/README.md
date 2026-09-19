@@ -70,6 +70,13 @@ then 19–22. Ideas that are not design yet live in [`IDEAS.md`](IDEAS.md).
 
 - **Known facts and open questions only.** Nothing is invented to fill a section. A short honest
   document beats a full invented one; a half-thought placeholder is worse than a blank marked open.
+- **Never propose a cut for economy, and never frame a question as "which of these do we keep".**
+  (Andrew, 2026-09-18, after one too many of them.) The world is open-ended: "the valley already has
+  three kinds of protein, so drop the grubs" is scarcity reasoning in a project that has no scarcity
+  of content. **Ordering is legitimate** — we cannot build everything at once, so "what do we build
+  first" is a fair question — but the tail is never dropped, only queued, and the better question is
+  almost always **"what else is missing?"** A thing leaves the design only when it is *wrong*
+  (untrue to the place, contradicting a decision), never when it is merely surplus.
 - **Every claim has a source**: a quote of Andrew's with a date, a document section, a code path, or a
   probe id. If none exists, it is an open question.
 - **The world is open-ended**: never describe a verb set, a vocabulary or a room as finished or

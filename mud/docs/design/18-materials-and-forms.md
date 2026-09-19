@@ -309,12 +309,13 @@ loops (22), which are the mechanism that grows them.
 
 ## 6. Open questions
 
-**Q1 — Which natural materials go in first?**
-Options: (a) the three Andrew named — stone, soil, clay — plus what they obviously imply (a stone
-holds no edge but takes a flake off, soil is a fire base on snow, clay holds water and takes a shape);
-(b) the whole census list at once; (c) wait for the loops to hit walls and add by evidence.
-*Recommendation:* (a) now — the absence of stone is a hole in his own example — then (c) continuously.
-(b) authors properties for objects nobody has placed yet.
+**Q1 — In what order do the natural materials go in?** *(Reframed 2026-09-18: every material named
+anywhere is in the design; the only question is build order.)*
+Options: (a) stone, soil and clay first — the three Andrew named, and the absence of stone is a hole
+in his own example — then the census list (bone and antler, fur and hide, peat, lichen, punk wood,
+rubber, kerosene, canvas, rawhide, grease, mica, brass, paper) and whatever the loops add;
+(b) the whole census list in one pass; (c) a different order — name it.
+*Recommendation:* (a), with everything else queued rather than deferred indefinitely.
 
 **Q2 — What property axes are missing, and which do we add before content needs them?**
 Known candidates: `edibility` on flesh (or a `meat` material); a freezing point and a viscosity for

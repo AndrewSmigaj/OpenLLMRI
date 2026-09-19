@@ -168,6 +168,35 @@ is the only purpose-built cooking surface in the valley. Whether any of that is 
 
 ---
 
+### 4.7 What else is missing (the question that replaced "what do we cut", 2026-09-18)
+
+Everything the passes and the valley design named is in — the kit, the freight and the mail, the
+cooler's frozen salmon, the pockets, cranberries, crowberries, highbush cranberries, rose hips,
+spruce-needle tea, labrador tea, inner bark, chaga, the hare runs, ptarmigan and spruce grouse, the
+red squirrel's midden, voles, **grubs under the bark**, the fishery under the ice, and the pilot's
+body. Document 23 holds the living inventory.
+
+And this is what a December forager in this country would also find, which the design did not yet
+have. Every one of these is real here in winter, and each is a row for document 23 and the loops:
+
+| addition | where | what it gives |
+|---|---|---|
+| **mountain ash (rowan) berries** | the birch stand, forest edges | bitter clusters that hang all winter and sweeten after frost — one of the few berries still *on* the tree at eye height |
+| **bearberry (kinnikinnick)** | the ridge, dry open ground | mealy red berries that persist under snow; the leaves make a tea |
+| **blueberries dried on the bush** | muskeg, open spruce | shrivelled and sweet where the birds missed them |
+| **birch polypore and tinder conk** | dead and dying birch | one is a poor tea and a real medicine; both are tinder |
+| **the squirrel's cached mushrooms** | wedged in spruce forks above the midden | dried by the squirrel in autumn; raiding a midden gets seeds *and* mushrooms |
+| **spruce pitch** | any wounded trunk | chewable, antiseptic on a wound, and it burns |
+| **rock tripe** | the boulder field, the erratic | famine lichen — edible after long boiling, sour and poor |
+| **wintergreen / pyrola leaves** | under snow in the spruce | an evergreen leaf tea |
+| **juniper berries** | the ridge, dry slopes | flavouring, and a hot drink |
+| **marrow** | any bone from any kill | the calories the rest of the animal does not have |
+| **hide** | any kill | boiled long enough it is food; the real last resort before the body |
+| **blood** | any kill, if caught | dense calories, and it freezes |
+
+None of these replaces anything. The list is a floor, like every other list in these documents, and
+the world-building loops will add to it from what people and agents actually reach for.
+
 ## 5. Interactions
 
 **This depends on:**
@@ -192,11 +221,12 @@ is the only purpose-built cooking surface in the valley. Whether any of that is 
 
 ## 6. Open questions
 
-1. **Do grubs and bark join the world, or leave the design?** *(a)* Add them to the tamarack and the
-   aspen as real forage. *(b)* Drop them from the passes; the valley already has cranberries, rose
-   hips, labrador tea, three kinds of protein and a fishery. **Recommendation: (b)** — the valley's
-   food is better designed than the passes' shorthand, and inner bark as *bait* is a more
-   interesting fact than inner bark as food.
+~~1. Do grubs and bark join the world, or leave the design?~~ **Answered 2026-09-18 (Andrew): they are
+   in — and the question was wrong to ask.** The original recommendation was to drop them because
+   the valley "already has" other food; that is scarcity reasoning, and this world has no ceiling.
+   Grubs go under the bark of rotten spruce and birch; inner bark is food *and* snare bait, which is
+   two facts rather than a choice between them. **The real question is what else is missing** — see
+   §4.7 and document 23, which grew by a dozen rows in the same pass.
 2. **How hard does starvation bite in a week?** *(a)* A real calorie ledger where a party that finds
    nothing dies around day 8–10. *(b)* Hunger degrades (weakness, cold tolerance, slower work) and
    the cold does the killing. **Recommendation: (a) with (b)'s texture** — Andrew decided the run
@@ -239,6 +269,13 @@ is the only purpose-built cooking surface in the valley. Whether any of that is 
 | — | — | — | — |
 
 ---
+
+- **2026-09-18 (Andrew):** **Q1 answered, and the question retracted.** Grubs and bark are in; recommending
+  a cut because the valley "already has" other food was scarcity reasoning in a world with no ceiling,
+  and Andrew called it. §4.7 added: twelve more real December foods the design did not have (rowan,
+  bearberry, dried blueberries, birch polypore, the squirrel's cached mushrooms, spruce pitch, rock
+  tripe, wintergreen, juniper, marrow, hide, blood), each a row for document 23 and the loops. The
+  writing rules in `docs/design/README.md` now forbid cut-for-economy questions outright.
 
 ## 8. What exists today
 

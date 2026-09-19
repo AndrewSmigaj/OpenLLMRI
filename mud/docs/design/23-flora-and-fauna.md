@@ -103,9 +103,13 @@ loops will grow), document 13 (wildlife events, ravens at the cache, wolves), do
 berry, the hemlock, frostbite from digging), document 07 (tinder plants), document 01 (where things are).
 
 ## 6. Open questions
-1. **Which berries, and how does a player tell them apart?** *(a)* the four edible + baneberry as
-   listed, told apart by `examine` prose (colour, bush, smell) and the manual's page; *(b)* fewer.
-   **Recommendation: (a)** — five is a real forager's set and one poison keeps it a choice.
+1. **How does a player tell the berries apart?** *(Reframed 2026-09-18: "fewer" is not an option —
+   nothing is cut for economy. Document 10 §4.7 has just added rowan, bearberry and dried blueberries
+   to this list, and the loops will add more.)* *(a)* By `examine` prose — colour, the bush it grows
+   on, smell, whether it is on the branch or under the snow — plus the manual's forage page;
+   *(b)* by a naming convention that gives it away; *(c)* they cannot, and poisoning is luck.
+   **Recommendation: (a)** — telling them apart is a real skill, learnable, and one deadly and one
+   sickening berry make it matter.
 2. **The sick berry's effect.** *(a)* vomiting and weakness for a day (calories lost, slower work);
    *(b)* worse. **Recommendation: (a)**, honest and recoverable.
 3. **Roots in frozen ground.** *(a)* digging is possible only where ground is thawed (by a fire, at the
@@ -119,8 +123,10 @@ berry, the hemlock, frostbite from digging), document 07 (tinder plants), docume
    "nothing outright kills" rule is about hazards, not about eating a known poison; *(b)* soften to
    severe illness. **Recommendation: (a)**, but it needs Andrew's word because it is the one death that
    is not the cold.
-6. **Ice fishing.** *(a)* in, with the hole as real work and the kit's line; *(b)* out for v1.
-   **Recommendation: (a)** — the best meal in the valley should exist.
+6. **Ice fishing — how hard?** *(Reframed 2026-09-18: "out for v1" is not an option.)* *(a)* the hole
+   is real work (a blade, a bar, or the hatchet; twenty minutes through a foot of ice) and the line
+   comes from the kit or is improvised from wire and a bent pin; *(b)* simpler. **Recommendation:
+   (a)** — the best meal in the valley should cost something.
 
 ## 7. Review log
 - **2026-09-17:** drafted from Andrew's block-1 brief; lizards replaced by what lives here (grubs,
