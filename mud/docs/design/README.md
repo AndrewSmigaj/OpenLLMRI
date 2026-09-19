@@ -77,6 +77,12 @@ then 19–22. Ideas that are not design yet live in [`IDEAS.md`](IDEAS.md).
   first" is a fair question — but the tail is never dropped, only queued, and the better question is
   almost always **"what else is missing?"** A thing leaves the design only when it is *wrong*
   (untrue to the place, contradicting a decision), never when it is merely surplus.
+- **"Untrue to the place" includes ecology, and ecology is a real filter** (Andrew, 2026-09-18):
+  *"we have to think about what realistically is in an area of that size in terms of flora and fauna,
+  not just shove food sources in because they happen to be possible."* A species has to live in **this**
+  habitat, in **this** month, in numbers that matter. Adding something because it exists somewhere in
+  the region is as wrong as dropping something because there is already enough — and every row says
+  what it actually yields, because the totals are what make the survival clock honest.
 - **Every claim has a source**: a quote of Andrew's with a date, a document section, a code path, or a
   probe id. If none exists, it is an open question.
 - **The world is open-ended**: never describe a verb set, a vocabulary or a room as finished or
