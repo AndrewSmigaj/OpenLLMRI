@@ -20,7 +20,7 @@ The March 2026 hackathon paper that introduced the platform is in [`paper/main.p
 
 ## The platform
 
-![MUDApp — the bus stop scenario after the agent has examined the person, friend/foe routing across layers 0–5](docs/images/hero-mudapp-bus-stop.png)
+![MUDApp — the bus stop scenario after the agent has examined the person, friend/foe routing across layers 17–23](docs/images/hero-mudapp-bus-stop.png)
 
 The main view is one page. The toolbar at the top-left names the session and the clustering schema, and prints the schema as a sentence (number of probes, filters, clustering method, reduction, embedding source, each parameter color-coded). Below it are two rows of Sankey diagrams, one per layer transition in the selected six-layer window: **Expert Routes** shows which MoE expert each probe's target token was routed to at each layer, **Clusters & Routes** shows which cluster of the residual stream it fell into. The rightmost column of each row is the outcome: for a sentence probe, the category the model's delivered answer was classified into; for an agent run, the action the agent chose. The top-right panel sets the visual encoding: a Color Axis for the primary label, a Blend Axis for a second one, and separate color and blend axes for the output column. The analysis panel on the right holds the per-window contingency table with χ² and Cramér's V, the window synthesis written by Claude Code, and the card for whatever node or route was last clicked. The MUD terminal sits at the bottom-left for live agent runs.
 

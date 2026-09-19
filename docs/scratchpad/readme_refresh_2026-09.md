@@ -153,3 +153,18 @@ quick start. New images: `tour-busstop-tick0.png`, `tour-busstop-tick1.png` (San
 contingency), `tour-route-card-tank.png` re-shot with the selected route highlighted. Per-layer
 Cramér's V for the bus-stop schemas: step0 0.06–0.20 at every layer; step1 0.45–0.70 from L9,
 0.68–0.70 at L19–23.
+
+## Tailwind fix and full re-shoot (19 Sept)
+
+Andrew: blend legend invisible, UMAP endpoints cut off. Diagnosis: `frontend/src/index.css`
+and `theme.css` used Tailwind 3 directives (`@tailwind base/components/utilities`) while the
+project runs Tailwind 4 via `@tailwindcss/vite`; Tailwind 4 loads its theme only through
+`@import "tailwindcss"`, so `--spacing` was undefined and every spacing / text-size / radius /
+swatch-size utility was missing from the generated CSS (arbitrary values like `w-[90px]`
+still worked). Legend swatches computed to 0×0 px. Authorized fix: replace the three
+directives with the import in both files. Result: padding, gaps, text sizes, rounded panels
+and the four-color legend all appear; the app now looks as designed.
+All README images re-shot at the corrected layout (2800×1500 viewport, spacing 40, scale 0.6,
+points 3 so all seven layer planes and the endpoints fit): hero (2000×1250, tick 1, L17–23),
+tank Sankeys + UMAP, tank contingency, route card (L22C3→L23C2 selected), blend (encoding
+panel with legend + Sankeys + UMAP), bus-stop tick 0 and tick 1 (Sankeys + UMAP + contingency).

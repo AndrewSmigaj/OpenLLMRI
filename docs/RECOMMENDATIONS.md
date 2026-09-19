@@ -577,3 +577,17 @@ doctrine wants, and the χ² audits confirmed no label-correlated surface struct
 - `docs/images/` still holds ten unreferenced screenshots and the repo root eleven tracked
   loose PNGs (`aaa.png`, `help_probe_w3_blend_stakes*.png`, `phase1_*`); candidates for
   `docs/images/` or deletion.
+
+## 2026-09-19 — Tailwind 4 theme was never loaded
+
+- `frontend/src/index.css` and `theme.css` carried Tailwind 3 directives under Tailwind 4, so
+  the theme (`--spacing`, text sizes, radii) never loaded and every spacing-scale utility in the
+  app was a no-op: no padding or gaps, 0×0 legend swatches, bunched Sankey panels. Fixed by
+  replacing the directives with `@import "tailwindcss"` (authorized). Every earlier MUDApp
+  screenshot in the repo was taken in the broken layout. **Recommendation: add a smoke check
+  that a known utility (e.g. `.p-2`) resolves at startup, or a Playwright test that asserts a
+  legend swatch has non-zero width, so a build-tool upgrade cannot silently strip the theme
+  again.**
+- The stepped-trajectory defaults (spacing 72, scale 1) push the last layers out of the frame
+  for a 7-layer window; spacing 40 and scale 0.6 fit all planes. Consider deriving the default
+  spacing from the number of layers in the window.
