@@ -48,6 +48,15 @@ obstacle — and the one root at the marsh edge that looks like a carrot can kil
 - **Real, in December.** Every living thing here exists in interior Alaska in early winter, in the form
   it takes then: frozen berries, dormant plants, the animals that stay. Nothing is added because it
   would be convenient.
+- **Real *in this valley, at this size, in this month* (Andrew, 2026-09-18).** *"We have to think about
+  what realistically is in an area of that size in terms of flora and fauna, not just shove food
+  sources in because they happen to be possible."* Existing somewhere in Alaska is not the test. The
+  test is: does it live in **this** habitat — spruce forest, muskeg, a lake, willow bottoms, a birch
+  toe, a ridge, roughly six square kilometres — and is it there in **December**, in numbers that
+  matter? A species present as one plant on one slope is scenery, not a food source, and the document
+  says which it is. This is the one honest reason to leave something out: it is untrue to the place.
+- **Numbers before abundance.** Every row carries what it actually yields and how often, because the
+  valley's total is what decides whether the party starves (§4.4).
 - **Wildlife is events and sign** (Andrew): tracks, calls, a flock that bursts, a hare in the snare, a
   moose on the trail. Animals are not standing objects in a room except when present as a class (a flock,
   a squirrel at its midden) that yields an individual when acted on.
@@ -97,6 +106,42 @@ The freight, the mail, the luggage and the pilot's lunch are in documents 10 and
 them is an activity that lists things slowly (document 14, the ground search). This document only
 notes that the wreck's food is finite and the country's is renewable but slow — which is the week.
 
+### 4.4 What the valley actually yields — and why it is not enough (2026-09-18)
+
+This is the number that matters, and it was missing. The valley is roughly six square kilometres of
+interior boreal country: black and white spruce, muskeg, a lake, willow bottoms along the creek, a
+birch toe, an open ridge. In December that supports a real and **thin** winter community.
+
+**A party of four to five burns 12,000–15,000 kcal a day** in this cold, working (document 09's
+companion figure for water is 3 L a day each). Against that, here is what the country gives, with
+effort, on a *good* day:
+
+| source | realistic yield | what it takes |
+|---|---|---|
+| snowshoe hare | ~800–1,000 kcal each; a line of ten snares takes 1–3 a night **in a good hare year**, near zero in a poor one | setting a line, and waiting overnight |
+| willow ptarmigan | ~400 kcal a bird; flocks concentrate in the willow bottoms | a thrown rock, several misses, luck |
+| spruce grouse | ~350 kcal a bird; low density, a few in the whole valley | close range, a rock or a stick |
+| red squirrel + its midden | ~150 kcal the animal; cached cone seeds and dried mushrooms a little more | finding a midden, an hour of work |
+| vole | ~20 kcal | a deadfall, hours — better as bait |
+| fish (whitefish, burbot, grayling) | 1,000–2,000 kcal a fish; burbot liver is the richest thing in the valley | a hole through a foot of ice, a line, hours |
+| berries under the snow | ~50–150 kcal an hour of picking | cold hands |
+| inner bark, lichen, roots | a few hundred kcal for hours of work, and hard to digest | a blade, a fire, patience |
+
+**So a good day of foraging by the whole party is one to two thousand calories against twelve to
+fifteen thousand burned.** The country is a *brake on starvation, never a living*. That is the honest
+shape of the week: the survival kit and the freight carry them for a few days, foraging stretches it,
+and by day five or six they are in real deficit — which is exactly why the run can "go longer until
+the food runs out", and why the pilot's body becomes a question rather than a horror story.
+
+**The hare cycle is a seeded run variable.** Snowshoe hare numbers swing roughly tenfold on a ten-year
+cycle, and every predator in the valley swings with them. A good-hare-year run has snares that pay and
+lynx tracks everywhere; a poor-year run has empty snares, thin foxes, and a party that must look
+elsewhere. One seed, and the whole food picture changes — a real thing that is also a replay lever.
+
+**Rabbit starvation is real.** Hare and ptarmigan are extremely lean. A party eating nothing but them
+gets protein without fat and does worse than one eating less but with fat in it — which makes the
+freight's flour, the cooler's salmon, marrow, and rendered fat worth more than their calories alone.
+
 ## 5. Interactions
 Feeds document 10 (yields, cooking, spoilage), document 05/22 (every row here is an ontology entity the
 loops will grow), document 13 (wildlife events, ravens at the cache, wolves), document 11 (the poison
@@ -131,6 +176,14 @@ berry, the hemlock, frostbite from digging), document 07 (tinder plants), docume
 ## 7. Review log
 - **2026-09-17:** drafted from Andrew's block-1 brief; lizards replaced by what lives here (grubs,
   voles, squirrels), stated as a push-back for his call.
+
+- **2026-09-18 (Andrew):** *"We have to think about what realistically is in an area of that size in terms of
+  flora and fauna, not just shove food sources in because they happen to be possible."* Correct, and a
+  different objection from cutting for economy: **untrue to the place** is the one honest reason to
+  leave something out. §4.1 gains the habitat-and-month-and-density test; §4.4 added — what the valley
+  actually yields (one to two thousand calories on a good day against twelve to fifteen thousand
+  burned), the hare cycle as a seeded run variable, and rabbit starvation. Document 10 §4.7's twelve
+  additions are audited against the test there.
 
 ## 8. What exists today
 Nothing of this is built. `rooms.md` names hare runs, grouse, a fishing pool, chaga, cranberries and

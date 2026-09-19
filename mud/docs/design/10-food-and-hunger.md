@@ -194,8 +194,21 @@ have. Every one of these is real here in winter, and each is a row for document 
 | **hide** | any kill | boiled long enough it is food; the real last resort before the body |
 | **blood** | any kill, if caught | dense calories, and it freezes |
 
-None of these replaces anything. The list is a floor, like every other list in these documents, and
-the world-building loops will add to it from what people and agents actually reach for.
+**Audited against the place, 2026-09-18 (Andrew: "we have to think about what realistically is in an
+area of that size … not just shove food sources in because they happen to be possible").** Existing in
+Alaska is not the test; living in *this* habitat, in December, in numbers that matter, is. On that
+test:
+
+- **Solid** — bearberry (dry ridges, berries persist), birch polypore (common on birch), the squirrel's
+  cached mushrooms, spruce pitch, rock tripe (the boulder field), wintergreen, juniper (dry slopes),
+  and marrow, hide and blood, which are not species at all but parts of any kill.
+- **Occasional, and the row says so** — mountain ash: present in the interior but never abundant, so a
+  few trees in the birch stand, not a harvest.
+- **Rare, and nearly gone by December** — blueberries dried on the bush: the birds and the bears have
+  usually had them. It stays as a lucky find, not a food source.
+
+None of these replaces anything, and nothing is dropped for being surplus. The list is a floor — but a
+floor of things that are genuinely *there*, in the numbers document 23 §4.4 gives them.
 
 ## 5. Interactions
 
@@ -276,6 +289,12 @@ the world-building loops will add to it from what people and agents actually rea
   bearberry, dried blueberries, birch polypore, the squirrel's cached mushrooms, spruce pitch, rock
   tripe, wintergreen, juniper, marrow, hide, blood), each a row for document 23 and the loops. The
   writing rules in `docs/design/README.md` now forbid cut-for-economy questions outright.
+
+- **2026-09-18 (Andrew):** the §4.7 additions audited against the place — habitat, month and density, not
+  mere possibility. Most stand; mountain ash is marked occasional and dried blueberries a lucky find.
+  The valley's real carrying capacity is now in document 23 §4.4 and it is the spine of the food
+  clock: a good day of foraging by the whole party is one to two thousand calories against twelve to
+  fifteen thousand burned.
 
 ## 8. What exists today
 
