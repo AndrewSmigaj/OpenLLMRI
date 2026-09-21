@@ -116,7 +116,10 @@ physics literature). All raised confidence; none reversed a decision (overall �
 > starts with a different clothing / injury / pockets draw (`players-and-kit.md`); luggage has real
 > contents; the clothing system prices warmth loss and more (DR-25a, designed).
 > **Andrew, 2026-09-16:** the whole valley (all fifty outdoor zones, the walk-out included) is in the
-> first complete run; the four-seat interior is a go; the crash is in December — no bear (wolves and a
+> first complete run; the four-seat interior is a go; ~~the crash is in December — no bear~~
+> **(REOPENED 2026-09-18 — the season is undecided: Andrew is considering freeze-up, an inch of snow
+> with bushes still visible and skim ice on the water, the storm arriving during the run; a bear is
+> plausible again at that season. `PLAN.md` §5.)** (wolves and a
 > wolverine); the kid is in (a party of four or five); runs are for friends, for humans with agents,
 > and for agents only, all on the same rules; there is no lethal-consent gate — the engine never gates
 > physics; an agent sees exactly what a human sees (structure goes to the log only); the look is a

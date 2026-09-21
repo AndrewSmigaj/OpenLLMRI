@@ -8,6 +8,16 @@
 > December — the point of a separate document is that a real valley has a real living inventory, and the
 > loops will grow it.
 
+> **⚠ THE SEASON IS OPEN (2026-09-18) — read before trusting anything dated here.** "December" was
+> answered on 2026-09-16 inside a question about whether a bear was plausible, and Claude then derived
+> a whole deep-winter world from it. On 2026-09-18 Andrew reopened it: *"you assume the ground will be
+> covered in a lot of snow, it doesn't have to be December, just before a snow storm, it could start
+> with a little bit of ice over water sources, maybe an inch of snow on the ground, bushes dusted in
+> snow but visible, roots, other berries, trapping things, stuff they have in the plane and wreckage."*
+> **Everything in this document that depends on deep winter is provisional** — snow depth, temperatures,
+> daylight hours, what is forageable, ice thickness, and whether a bear is possible. The decision is
+> tracked in `PLAN.md` §5 and is the first thing to settle on resuming.
+
 ## 2. Provenance
 
 ### Andrew's decisions (2026-09-17)

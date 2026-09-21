@@ -6,6 +6,60 @@
 > this file. `docs/scenarios/whiteout/roadmap.md` (the June P0–P7 arc) is history.
 > Statuses: ☐ not started · ◐ in progress · ☑ done · ⊘ waiting on a decision (named).
 
+## 0. RESUME HERE (last touched 2026-09-20)
+
+**What we are in the middle of:** Phase A, the design review — a conversation over `docs/design/`, one
+document at a time, in the index order, until every one is finalized. Nothing is built and no agent
+runs a world-building loop until then. The review page is
+**https://claude.ai/artifact/2Kyi7Cvxk2PovHthYRGayC** (regenerate and republish it with
+`python3 tools/review_packet.py --current NN --out <scratchpad>/review-packet.html --parked <scratchpad>/parked.md`).
+
+**Reviewed in full:** the GDD umbrella · 01 premise and world · 02 the experience · 03 the player view ·
+04 grammar and feedback · 05 ontology and sufficiency · 06 time, sleep and the clock · 07 fire and
+shaping · 08 warmth, clothing and shelter · 09 water. *(Ten of twenty-four; they finalize at the close,
+after the whole set has been through once.)*
+
+**Where the conversation stopped:** document **10, food and hunger**, with Q2–Q9 still open. Q1 was
+answered (grubs and bark are in) and then the conversation went somewhere more important:
+
+**⚠ THE FIRST THING TO SETTLE ON RESUMING: the season.** "December" was recorded as decided on
+2026-09-16, inside a question about whether a bear was plausible. Claude then derived a whole
+deep-winter world from that one word — snow depth, temperatures, five hours of daylight, a picked-over
+winter larder, a carrying-capacity table. On 2026-09-18 Andrew reopened it:
+
+> *"you assume the ground will be covered in a lot of snow, it doesn't have to be december just before
+> a snow storm, it could start with a little bit of ice over water sources, maybe an inch of snow on
+> the ground, bushes dusted in snow but visible, roots other berries, trapping things, stuff they have
+> in the plane and wreckage"*
+
+That is freeze-up, roughly early October, and it changes: snow depth (an inch, deepening as the storm
+arrives, rather than buried from the start), temperatures (nights around −5 to −10 rather than −20),
+daylight (ten or eleven hours, shrinking fast, rather than five), forage (roots diggable, berries on
+the bush and visible, mushrooms possible), ice (skim ice — a water source, a shortcut and a hazard at
+once), the storm (an arrival during the run rather than a backdrop) and **the bear** (plausible again:
+early October is hyperphagia, bears are not denned). The three questions put to Andrew, unanswered:
+
+1. Is it freeze-up, roughly early October, with the storm arriving during the run?
+2. If so, does the bear come back in?
+3. Does the snow deepening over the week become one of the main pressures — what was easy to find on
+   day one under a foot of snow by day five?
+
+**Documents 01, 02, 08, 10, 13 and 23 carry a warning banner** saying their deep-winter content is
+provisional; the DR register's "December, no bear" line is struck through and marked reopened. Nothing
+was deleted — once the season is settled, the affected numbers get revised rather than rediscovered.
+
+**Then:** finish 10's Q2–Q9, and continue in index order — 11 injury · 12 the pilot · 13 events and
+weather · 14 rescue · 15 the moral layer · 16 players and kit · 17 rooms · 18 materials · 23 flora and
+fauna · 19 multiplayer · 20 the agent player · 21 endings · 22 the loops — then the close (§3 Phase A,
+A2–A7).
+
+**Two standing corrections Claude owes the work** (both are in memory and in the design writing rules,
+and both recurred more than once): never propose a cut for economy — ordering is legitimate, exclusion
+for surplus is not; and do not derive a world from a single answer — ask before hardening one word into
+a system.
+
+---
+
 ## 1. What we are building, and how this plan grows
 
 Two things, both first-class: a **model world for serious research** — an LLM acts in it freely
@@ -197,6 +251,7 @@ under "no task yet" — which must stay empty. Three tasks were added by this pa
 
 | status | decision | doc | note |
 |---|---|---|---|
+| ⊘ | **THE SEASON — settle this first (§0).** December was recorded 2026-09-16 inside a bear question and reopened 2026-09-18: freeze-up instead — an inch of snow, bushes visible, skim ice, the storm arriving during the run. Decides snow depth, temperatures, daylight, forage, ice, and whether the bear is back in. | 01, 02, 08, 10, 13, 23 | **reopened 2026-09-18** |
 | ☑ | The pilot starts the run dead (supersedes the morning's "alive, mumbling"). | 12 | 2026-09-17 |
 | ☑ | The run was always a week; the one-day wording struck everywhere live. | 19, GDD | 2026-09-17 |
 | ☑ | The endings are rescued or dead; the walk-out is not an ending (the cabin is supplies); surviving long enough is the hardest rescue path. | 14, 21, 02 | 2026-09-17 |
