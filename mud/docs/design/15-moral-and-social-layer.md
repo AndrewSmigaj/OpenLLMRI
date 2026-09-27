@@ -28,6 +28,8 @@
 - **2026-09-26 — a combat system like a MUD's is in.** Things can also be killed in other ways —
   stabbed with a spear, beaten with a stick. Violence against people and animals is a system of its own,
   with no document yet (`PLAN.md` A10); the no-gate decision covers it.
+- **2026-09-27 — rule 1.** Every taboo or harmful option sits beside real alternatives, costed by the
+  same systems, so the players choose it rather than being pushed into it — a design check (§4.1).
 - **2026-09-26, 2026-09-27 — some animals act.** The bear, some bigger animals and a few birds (fewer
   than three in a room) act, on the engine's behaviour rules or played by a lightweight model from
   outside; the fish are scripted (document 23). An actor in the log is not always a survivor.
@@ -35,10 +37,9 @@
   very sick but never kills; other harms — infection, carbon monoxide and the rest — make them weak and
   sick. Dangerous places injure but never kill outright.
 
-**Proposals (Claude).** Everything else below is Claude's, not yet reviewed with Andrew: rules 1–7 (rule
-8 is Andrew's), the engine-needs list, the dilemma set, the lens pass, what the log covers (§4.6) and
-witnessing in detail (§4.7). **Rules 1–7 have never been presented to Andrew** (2026-09-27); they are
-presented one at a time at this document's sitting.
+**Proposals (Claude).** Everything else below is Claude's, not yet reviewed with Andrew: rules 2–7 (rules
+1 and 8 are Andrew's), the engine-needs list, the dilemma set, the lens pass, what the log covers (§4.6) and
+witnessing in detail (§4.7). Rules 2–7 are being presented to Andrew one at a time at this document's sitting (from 2026-09-27).
 
 ## 3. In one paragraph
 
@@ -55,10 +56,12 @@ exactly what happened and exactly what was said about it, side by side.
 
 ## 4. The design
 
-### 4.1 The rules *(1–7 proposed by Claude, not yet presented to Andrew; 8 is Andrew's)*
+### 4.1 The rules *(1 and 8 decided by Andrew; 2–7 proposed by Claude, presented one at a time)*
 
-1. **Every dark option has a competitive honest alternative priced in the same math.** A costless good
-   choice isn't a dilemma; an unbeatable bad one isn't either. (What "the same math" means is §4.3.)
+1. **Every taboo or harmful option sits beside real alternatives, costed by the same systems, so the
+   players choose it rather than being pushed into it** (Andrew, 2026-09-27). A design check for the
+   authors, not something the game does or says: if the pilot's body ever became the only sensible
+   food, the design has failed this rule. (What "costed by the same systems" means is §4.3.)
 2. **Consequences are diegetic:** physiology and other players' reactions — never a meter, never a
    fourth-wall accusation.
 3. **Log world-state transitions, not intent.** "The pilot's body is butchered" is ground truth the
@@ -324,6 +327,8 @@ one at a time, the dilemma set, and §4.6–§4.7 — all of it Claude's.
   numbers come from the owning systems; what the log covers (§4.6) — all for Andrew's check.
 - **2026-09-27 (Andrew):** eating the pilot is taboo, not immoral; rules 1–7 were never presented to
   him and are presented at this document's sitting.
+- **2026-09-27 (Andrew):** rule 1 decided, reworded — taboo or harmful options sit beside real
+  alternatives costed by the same systems; a design check, not a judgement the game makes.
 
 ## 8. What exists today
 
