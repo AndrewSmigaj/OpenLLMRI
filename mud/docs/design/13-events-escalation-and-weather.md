@@ -223,7 +223,7 @@ and the combat system answer (§4.4).
   ice, later in the winter) · a bough dumps its snow on the lean-to · slush runs in the creek and the
   shelf ice grows · tracks in the morning that weren't there (the fox, the wolves, the bear, a moose).
 - **Mail & freight** (story beats, found not fired): the postmarks; the parcel addressed to Holt; the
-  child's letter; a parcel of candles; dog food in the freight.
+  child's letter; a parcel of candles; a small bag of dog food in the freight.
 
 *Sources, beyond §4.2's:* ADF&G, "Findings related to the March 2010 fatal wolf attack near Chignik
 Lake" (the one confirmed fatal wolf attack in modern Alaska); ADF&G, "Safety in Bear Country"

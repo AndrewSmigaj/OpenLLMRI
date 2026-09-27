@@ -221,7 +221,7 @@ of it is built.
 | **the wreck** | fuel drips and pools under the wing · the fuselage shifts with a groan and the door jams · a window pane falls in · the tail slides further down the scar · ice seals the cargo door overnight · the snow loads the wreck until it vanishes from the air |
 | **bodies** | the pilot's body cooling and freezing, a smell the bear and the ravens follow · a wound infects · frostbite whitens a finger · snow blindness · hypothermia confusion (messages, never command hijacking) · dehydration headaches · the hunger stages |
 | **camp** | the fire dies on an untended watch · the drift buries the entrance · the new ice sings at night · a bough dumps its snow on the lean-to · tracks in the morning that weren't there |
-| **mail and freight** (found, not fired) | the postmarks · the parcel addressed to Holt · the child's letter · a parcel of candles · dog food in the freight |
+| **mail and freight** (found, not fired) | the postmarks · the parcel addressed to Holt · the child's letter · a parcel of candles · a small bag of dog food in the freight |
 
 ### 4.5 What players can do — the forms
 

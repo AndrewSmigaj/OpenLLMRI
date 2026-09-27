@@ -113,7 +113,7 @@ matter.
 ### 4.3 Luggage (the baggage bay, and what the crash threw into the cabin and along the trail)
 
 Every bag in §4.1, plus: the **mail sack** (letters, postmarks, a parcel of candles, a parcel
-addressed to V. Holt), the **freight** (flour, the coffee tin, dog food, a box of shear pins, a
+addressed to V. Holt), the **freight** (flour, the coffee tin, a small bag of dog food, a box of shear pins, a
 toolbox — screwdrivers, pliers, a hacksaw blade that is both an edge and a saw), a **cooler** (a
 family's frozen fish — a vessel), and a **guitar case** (a story object: the strings are wire, the
 case is a sled, the neck is wood). A bag in the tail section holds the hand radio's batteries (document

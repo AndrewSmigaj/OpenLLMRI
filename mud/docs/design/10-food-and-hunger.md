@@ -48,8 +48,6 @@
 
 ### Proposals (Claude)
 
-- The freight, the mail sack, the cooler, the spoiled lunch and each slot's edible pocket contents
-  (with document 16).
 - The country's food, zone by zone (§4.4), and the additions audited against the place (§4.7) — with
   document 23.
 - The seed's food categories and body block, carried through GDD §31–§36; its "passenger snacks" and
@@ -64,7 +62,7 @@
 
 There is food, and there is not enough of it, and the distance between those two facts is the whole
 week. The first day it is a question of finding it: a chocolate bar in a pocket, a thermos, somebody's
-trail mix, a sack of dog food in the freight, a family's frozen salmon in a cooler thrown out onto the
+trail mix, a small bag of dog food in the freight, a family's frozen salmon in a cooler thrown out onto the
 debris trail. The
 country is still open in the first days — lowbush cranberries sweet from the frost under an inch of
 snow, rose hips on the creek bar, a fool hen in a spruce that will stand there and let you try twice —
@@ -134,7 +132,7 @@ say anything about it because everybody has already thought it.
 
 | way | key resource it spends | where | the chain |
 |---|---|---|---|
-| **what is aboard** (the pockets, the luggage, the freight: flour, the coffee tin, dog food) | search | the pockets, the luggage, the freight | `search <bag>` → `eat <what you find>` |
+| **what is aboard** (the pockets, the luggage, the freight: flour, the coffee tin, a small bag of dog food) | search | the pockets, the luggage, the freight | `search <bag>` → `eat <what you find>` |
 | **the country** (snares, forage, birds, fish) | knowledge + tools + daylight | the tamarack, the tussocks, the willows, the creek | `tie the wire into a noose` → `set the snare across the run` (the grammar forms of document 04 §3.1) — the operations are §4.8 |
 | **the pilot's body** | the taboo | the cockpit | `butcher pilot with knife` — the acts are §4.8 |
 | **Holt's stores** | travel | the homestead | modest stores, the reward for the walk there |
@@ -150,7 +148,8 @@ Every food in the design, in one place and growing as the world is fleshed out, 
 - **Pockets** — the guide's chocolate bar; the kid's candy bar; the salesman's trail mix and hip
   flask; the townie's gum. A seat nobody plays is a dead character whose pockets can be searched
   (2026-09-27).
-- **The freight** — flour, the coffee tin, a sack of dog food, a box of shear pins, a toolbox. The
+- **The freight** — flour, the coffee tin, a small bag of dog food (never enough to live on — Andrew,
+  2026-09-27), a box of shear pins, a toolbox. The
   anti-easy rule holds: the toolbox is in the crushed tail cone and wants prying.
 - **The cooler** — a family's fish, frozen, thrown onto the debris trail and dusted with the first
   snow. The fish stays frozen only while it stays cold — carried into a wreck warmed by a fire it
@@ -163,8 +162,7 @@ Every food in the design, in one place and growing as the world is fleshed out, 
   signifier rule, document 03 §4.6). Holt's **bulged can** (§4.4) is the second. The country adds its
   own — mushrooms the frost killed, rotting where they stood (document 23 §4.2) — and the spoilage
   system (§4.6) makes more of whatever the party mishandles. The poisonous mushrooms are document 23's.
-- **The mail sack** — letters, postmarks, a parcel of candles, a parcel for V. Holt. Not food, and
-  the ravens will teach you that (§4.4).
+- **The mail sack** — letters, postmarks, a parcel of candles, a parcel for V. Holt. Not food.
 - **The thermos of coffee** in the cockpit — the first warm thing anyone drinks.
 
 ### 4.4 The country (content — the valley's food, zone by zone)
@@ -466,7 +464,10 @@ None open.
 ## 8. What exists today
 
 **Built**
-- `game/world/sim/operations/handlers/eat.py` — `eat` / `bite` / `chew` / `devour` over any material
+- `game/world/sim/operations/handlers/eat.py` — `eat` / `bite` / `chew` / `devour` ov
+- **2026-09-27 (Andrew):** what is aboard accepted (§4.3), with the dog food a small bag — never enough
+  to live on.
+er any material
   with an edibility property; a low-edibility material gets the meagre-meal narration. Eating
   consumes the thing, ledger-balanced.
 - Edible materials in `materials/table.py`: `rations`, `chocolate`, `fish`, and `snow` (low

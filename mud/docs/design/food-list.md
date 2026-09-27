@@ -30,7 +30,7 @@ was hauling, found by searching the plane (documents 10 §4.3 and 16 §4.1–§4
 | snacks | the salesman's laptop bag | what they are is content | 📐 |
 | flour | the freight | starch; needs water and fire to be worth much | ✅ |
 | coffee | the freight's coffee tin; the cockpit's thermos, the first warm thing anyone drinks | warmth and morale, not calories | ✅ |
-| dog food | a sack in the freight | food — dog food is food | ✅ |
+| dog food | a small bag in the freight | food — dog food is food; a small bag, never enough to live on (Andrew, 2026-09-27) | ✅ |
 | frozen salmon | a family's cooler, thrown onto the debris trail | a real meal; stays frozen only while it stays cold, thaws in a warmed wreck and spoils over days; the cooler is also a vessel | ✅ |
 | a spoiled lunch | a paper sack behind the pilot's seat | **sick-making** — furred bread, slimed meat; it smells before it is opened | 📐 |
 

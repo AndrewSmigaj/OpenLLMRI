@@ -146,7 +146,7 @@ What is aboard is the design's call, and it is set so the run is neither too eas
   deepens every day the party waits (document 14 §3.2).
 - **The ELT is broken.**
 - **The plane's battery** is in the nose, wired and fine.
-- **The freight and the mail** — flour, coffee, dog food, a toolbox, the mail sack with a parcel for
+- **The freight and the mail** — flour, coffee, a small bag of dog food, a toolbox, the mail sack with a parcel for
   V. Holt — are scattered through the wreck and along the scar (documents 10 and 16).
 
 Realism supplies the inventory; the crash supplies the difficulty: the tail tore off two hundred
