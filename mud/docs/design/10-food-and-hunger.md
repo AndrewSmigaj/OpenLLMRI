@@ -48,7 +48,6 @@
 
 ### Proposals (Claude)
 
-- The ways to eat and their key resources (§4.2).
 - The freight, the mail sack, the cooler, the spoiled lunch and each slot's edible pocket contents
   (with document 16).
 - The country's food, zone by zone (§4.4), and the additions audited against the place (§4.7) — with
@@ -157,7 +156,8 @@ Every food in the design, in one place and growing as the world is fleshed out, 
   snow. The fish stays frozen only while it stays cold — carried into a wreck warmed by a fire it
   thaws, and over days it spoils (§4.6) — and by the storm's later days the cooler is under the drift
   and wants digging. It is a vessel as well as a meal.
-- **At least one spoiled thing** (Andrew, 2026-09-26; the instances are Claude's proposals): a paper
+- **At least one spoiled thing** (Andrew, 2026-09-26): **a half-rotten fish** (Andrew, 2026-09-27; where
+  it lies is placed with the zones); and, Claude's proposals, a paper
   sack wedged behind the pilot's seat — a lunch from some earlier day, the bread furred green and the
   meat in it slimed; it smells before it is opened, and `examine`, a sniff or a taste give it away (the
   signifier rule, document 03 §4.6). Holt's **bulged can** (§4.4) is the second. The country adds its
@@ -460,6 +460,8 @@ None open.
   not immoral, poison that never kills, Holt's modest stores, and the pockets of a seat nobody plays.
 - **2026-09-27 (Andrew):** hunger's physiology accepted — real energy stores, symptoms in the real order,
   starvation weakening within the week rather than killing (§4.1).
+- **2026-09-27 (Andrew):** there is no survival kit; the ways to eat accepted (§4.2); a half-rotten fish
+  is among the spoiled things (§4.3).
 
 ## 8. What exists today
 

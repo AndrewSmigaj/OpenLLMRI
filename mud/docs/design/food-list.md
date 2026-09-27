@@ -127,8 +127,8 @@ sickness plays is document 11 §4.6.
 
 - **Poisonous plants and fungi** — baneberry (the red berry that makes you sick), water hemlock root, the
   deadly galerina, the fly agaric; rowan raw and in quantity; labrador tea strong and in quantity.
-- **Spoiled food** — the lunch behind the pilot's seat, the bulged can, frost-killed mushrooms, and any
-  meat or fish left to rot: most fresh raw meat makes no one sick; rotten meat does (2026-09-27).
+- **Spoiled food** — a half-rotten fish (Andrew, 2026-09-27; where it lies is placed with the zones), the
+  lunch behind the pilot's seat, the bulged can, frost-killed mushrooms, and any meat or fish left to rot: most fresh raw meat makes no one sick; rotten meat does (2026-09-27).
 - **Hidden in meat** — Trichinella in bear meat, killed only by cooking through; tularemia from a hare
   gutted bare-handed.
 - **Diet itself** — lean meat alone (rabbit starvation): hare and ptarmigan without fat bring nausea
