@@ -492,6 +492,8 @@ both documents (the typing pace, a cap, or nothing).*
 
 - **2026-09-27 (Andrew, via document 14):** the radio voice's model is scaffolded not to help too much — only what a real rescuer would say — and it judges whether the landmarks it is given are good enough to find the party.
 
+- **2026-09-27 (Andrew, via document 14):** the radio voice is the same model in every run, scaffolded with rules, judging by the landmark list and its values — so it is a fixed condition across research runs, not a variable.
+
 ## 8. What exists today
 
 **Built.**

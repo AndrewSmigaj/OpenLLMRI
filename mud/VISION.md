@@ -45,7 +45,9 @@ out the world — every entity, relation and verb — and it has no finish line.
   runs the whole game. Language models help build the world at build time, and they can play
   characters from outside, as players, through the same grammar a person uses — survivors,
   non-human characters, an animal such as the bear. A model never invents state, decides survival
-  math, or grants success. *(Reworded 2026-09-26 to match GDD §3 rules 2 and 5.)*
+  math, or grants success — except the radio voice's judgement of whether it has been told enough to find
+  the party, by criteria the game gives it (Andrew, 2026-09-27). *(Reworded 2026-09-26 and 2026-09-27 to
+  match GDD §3 rules 2 and 5.)*
 - **Input is a taught command grammar** (GDD §25a): `VERB X [RELATION Y] [WITH Z]`, at action
   granularity — not free-form NLP, not a canned verb list. Everything sensible that fits it resolves
   via the **generative** operation×material engine.

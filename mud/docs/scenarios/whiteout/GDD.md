@@ -108,7 +108,11 @@ by guessing the author's verb.**
    model to decide what happens or to write what a player sees. Language models play *characters* —
    agents through the same grammar as a person, including agents scaffolded as non-human characters
    (NHCs) — and help build the world at build time. An LLM never invents state, decides survival math,
-   grants success, or steps the world. *(Reworded with Andrew, 2026-09-17.)*
+   grants success, or steps the world. *(Reworded with Andrew, 2026-09-17.)* **One exception, because the
+   party is talking to someone (Andrew, 2026-09-27):** the voice on the radio judges whether the party has
+   told it enough to be found — by criteria the game gives it (the landmarks and what each is worth) — and
+   that judgement is its act, logged like any player's. The same model plays the voice in every run,
+   scaffolded with rules (document 14).
 3. **Conservation holds at runtime (§24)** — material, mass (against an environment sink), temperature,
    wetness, contamination, damage, ownership, provenance survive every transform; *asserted*, not
    documented.

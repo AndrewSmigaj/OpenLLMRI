@@ -92,7 +92,8 @@ image is pinned by digest (`docker/evennia/Dockerfile`) so local, CI and any clo
   game. Models help build the world at build time, and they can *play* in it from outside, through the
   same grammar a person uses — survivors, non-human characters, an animal such as the bear — as
   players, never engine logic. A model never invents state, decides survival math, or interprets
-  input for the engine. (DR-02; GDD §3 rules 2 and 5, reworded 2026-09-17 and 2026-09-26)
+  input for the engine — one exception: the radio voice judges whether it has been told enough to find the
+  party, by criteria the game gives it (document 14, 2026-09-27). (DR-02; GDD §3 rules 2 and 5, reworded 2026-09-17 and 2026-09-26)
 - **The world clock is a continuously running real-time clock** (GDD §9) — it just runs; nobody can
   stall or yank it. Event-driven/turn-based time and a planning-freeze were rejected. It always runs
   faster than real time (15 game-min per real min); `propose fast forward` raises it to 180× by

@@ -194,6 +194,13 @@ superseded by the 2026-09-17 decisions and kept as the record:*
 > plane, keep warm, save your battery, a fire they can see when you hear them). It asks for a landmark:
 > *"you can tell them you are next to a river and they would be like 'there are a lot of rivers' and you
 > can give them another landmark - the llm can make a judgment on if the information is good enough."*
+> **Settled the same day:** *"i need one because they are talking to someone. the someone can hint at
+> things like needing to raise the antenna though it might take a few tries given we only show certain
+> words. yes we will keep the same model and scaffold it with rules."* and *"the llm can judge based on
+> criteria we give it such as the list of landmarks and their value."* The voice may hint as a rescuer
+> would (*"you're breaking up — can you get your antenna higher?"*), heard only as far as the signal lets
+> it through; the game gives it the landmarks and what each is worth; the same model plays it every run.
+> GDD §3 rule 2 carries this as its one exception.
 
 
 > **Decided with Andrew, 2026-09-17:** the only endings are **rescued or dead**; walking out is not an ending
@@ -901,6 +908,8 @@ kept, struck, as the record.
 - **2026-09-27 (Andrew, the rescue conversation, fourth round):** *"a. sure, they can say once the storm dies down on the radio, i want the radio person controlled by a weak llm as the user might want to talk to them, i think the user might want to press the button while talking into the mic but if they dont it will hint. a lot of things might need hints i dont want users figuring out common sense things b. you choose, i thought we already decided but i dont care"* — no earlier decision on location was found in the record; Claude's choice is in the §3 banner, for his check.
 
 - **2026-09-27 (Andrew, the rescue conversation, fifth round):** no "mini game" — the radio is interacting with the world, and a bad signal letting through only some words is part of the world; the voice is scaffolded to help only as a real rescuer would, asks for landmarks, and judges whether what it is told is good enough (§3 banner). The "mini game" wording is struck here, in the GDD, the design index and `PLAN.md`.
+
+- **2026-09-27 (Andrew, the rescue conversation, sixth round):** the model's judgement stays — *"i changed my mind. i need one because they are talking to someone"*; the voice may hint (raise the antenna), heard through the bad signal; the same model every run, scaffolded with rules; it judges by criteria the game gives it — the landmarks and their value. GDD §3 rule 2, `VISION.md` and `CLAUDE.md` carry the exception.
 
 ## 7. What exists today
 
