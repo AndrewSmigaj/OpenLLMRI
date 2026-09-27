@@ -39,7 +39,7 @@
   taught: the forms, one example each.
 - **Runs are for friends, for humans and agents together, and for agents only (2026-09-16).** An
   agent-only run is a first-class run, not a test fixture.
-- **There is never a language model in the running game (locked, GDD §41 / DR-02).** The model plays
+- **The engine never calls a language model (GDD §3 rules 2 and 5; DR-02).** The model plays
   *from outside*, through the same socket a person uses. It never resolves anything.
 - **Action tags — moral and other — are ontology fields (2026-09-16),** assigned in their own
   fleshing-out pass, read into the log and never into a score.
@@ -50,7 +50,7 @@
   research run is started and seeded.
 - **The per-step log's schema** — the field list in §4.4 is `moral-social-layer.md` §2's proposal,
   reviewed here for the first time.
-- **The replay story** as a *research* instrument (the determinism it rests on is locked; using it to
+- **The replay story** as a *research* instrument (the determinism it rests on is decided; using it to
   re-run and diff a trajectory is a proposal).
 - **"Walls per run" as the measure** and the wall-sensor's role as the loop's input queue.
 - The tag axes (`target` × `harm` × `severity` × `witnessed_by`) and the warning that any logged

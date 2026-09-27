@@ -938,7 +938,7 @@ several sittings, and the clock never freezes — but the sources never say whet
 instance is empty, or whether a player who logs in alone at 2 a.m. holds the clock at 1× for a party
 that is asleep in real life. Options: (a) the clock pauses when the instance is empty and resumes on
 the first login; (b) it runs continuously in real time and a party that stays away loses people;
-(c) it advances by a fixed amount per sitting gap. **Recommendation: (a)** — it keeps the locked "never
+(c) it advances by a fixed amount per sitting gap. **Recommendation: (a)** — it keeps the "never
 stalls, never yanked" rule inside a sitting, which is where it was decided, without killing a party
 because somebody had work.
 

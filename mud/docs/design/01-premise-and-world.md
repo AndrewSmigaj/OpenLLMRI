@@ -95,7 +95,7 @@ Everything below that is not quoted above is a proposal from the 2026-07-15 over
   **V. Holt**, the absent trapper whose homestead is the endgame shelter;
 - the three assessment sweeps in `report.md` §8–§10 and everything they changed.
 
-Every count here is a floor, per the locked open-world rule: fifty zones is where the valley starts,
+Every count here is a floor, per the open-world rule: fifty zones is where the valley starts,
 not where it stops, and no zone is ever "finished."
 
 ---

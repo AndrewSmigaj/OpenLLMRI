@@ -5,8 +5,8 @@
 > per system, reviewed with Andrew one at a time; each section below points to its chapter. This
 > GDD = **your original design** (`design.md`,
 > §1–49) **+ a short list of targeted improvements** (§0a). The **goals and the core engine are
-> unchanged.** Runtime is **fully deterministic — no LLM is ever called during play**; the LLM is a
-> **build-time authoring tool only**. The previously-open mechanic decisions are now **locked** (§0b/§9):
+> unchanged.** The engine is **fully deterministic and never calls a language model**; models help build the world
+> and can play characters from outside (§3 rules 2 and 5). The previously-open mechanic decisions are now **decided** (§0b/§9):
 > a **continuously running real-time clock** and **instanced, synchronous co-op**. Interaction input is a
 > **structured, taught command grammar** (§25a). Legacy "design §N" references still resolve (Appendix A).
 
@@ -39,7 +39,7 @@ Same game, same goals, same engine. These are the targeted fixes:
 
 That's the whole substantive change. Everything below is your design with these folded in.
 
-## §0b. Decisions now locked + remaining nice-to-haves
+## §0b. Decisions made + remaining nice-to-haves
 > **Amended 2026-09-07 and 2026-09-16** (recorded in `../../architecture/implementation-architecture.md`
 > §2; the June text below is kept as written): DR-14a — the clock may run 20× by consensus when all
 > sleep or wait, events interrupt it; DR-15a — a roughly week-long run with an escalation ladder and
@@ -49,11 +49,11 @@ That's the whole substantive change. Everything below is your design with these 
 > and the pilot dies within the first day: nobody can talk to him (no language model behind him),
 > so scripted things only — moaning heard in the cockpit, maybe a line; what he says is designed in
 > `../../design/12-the-pilot-and-bodies.md` (§19 stands until that review).
-The clock and session model that were once open are **decided and locked** (full detail in §9):
-- **Clock — a continuously running real-time clock (LOCKED).** The world advances in real time on its
+The clock and session model that were once open are **decided** (full detail in §9):
+- **Clock — a continuously running real-time clock (decided).** The world advances in real time on its
   own; it is never poked forward by player actions or chat, and no one can stall or yank the shared
   clock. Event-/turn-based time is **rejected** as clunky for a multiplayer game.
-- **Session model — instanced, synchronous, small-party co-op (LOCKED).** One crash, played together
+- **Session model — instanced, synchronous, small-party co-op (decided).** One crash, played together
   online, to resolution — **roughly a week of game time inside one sitting of two or three hours** (one
   shot, or two with a halt and resume; a member missing at resume is incapacitated where they lie). It is
   a game played in sessions with friends, not an ongoing world. *(Andrew, 2026-09-17, DR-15b; the June
@@ -114,8 +114,8 @@ by guessing the author's verb.**
 4. **Model-deep, requirement-light (§4).** Model everything plausible; gate only core blockers; reward
    depth with safety/quality/options.
 5. **The engine runs the world; language models play characters from outside (§3.3).** The pilot is
-   authored content (he starts dead). Animals are part of the world: the bear and some of the bigger
-   animals act on behaviour rules the engine runs (which animals: document 23). Language-model-driven
+   authored content (he starts dead). Animals are part of the world: the bear, some of the bigger animals
+   and the birds (a few, not flocks) act on behaviour rules the engine runs (which: document 23). Language-model-driven
    *characters* — including agents scaffolded as non-human characters (NHCs), and an animal a
    lightweight model plays when a run wants one — are *players* from the engine's side (ADR-0005),
    never engine logic. *(Reworded with Andrew, 2026-09-17; animals added 2026-09-26.)*
@@ -149,7 +149,7 @@ Before any change commits, a per-transform check asserts the post-state balances
 material/mass(±environment sink)/contamination/heat/provenance/length-count — else the transform is
 rejected. This is what makes "everything interacts" *trustworthy*.
 
-### §25a. Interaction input — the *taught* command grammar  *(LOCKED)*
+### §25a. Interaction input — the *taught* command grammar  *(decided)*
 Input is **not** free-form natural language and **not** a short menu of canned verbs. It is a
 **structured command grammar, taught to the player**, pitched at the granularity of real physical
 actions. The player is shown the shape and learns it in the first minutes; `help`/onboarding teach it;
@@ -178,7 +178,7 @@ resolving each noun phrase to a reachable entity or part. Examples a player migh
 | `wear the jacket` | `{wear, jacket, —, —, —}` |
 | `burn the seat` | `{burn, seat, —, —, —}` |
 
-**What "you can do everything" means here (LOCKED intent).** *Everything that fits this grammar and is
+**What "you can do everything" means here (the intent).** *Everything that fits this grammar and is
 physically sensible resolves* — because resolution runs through the **generative** operation×material
 engine (§5/§21), **not** a hand-enumerated list of allowed commands. The grammar is the *expression
 surface*; the engine *generates* the outcome from the verb's operation applied to the materials of
@@ -223,10 +223,10 @@ weather/occlusion-aware (§14 bands). `look` renders perception; activity/speech
 × weather (Evennia: `return_appearance`/`get_display_*` + an rpsystem-`send_emote`-style propagator).
 Speech ranges whisper/say/call/shout, weather-modified (§15). *Deferred past the first slice.*
 
-## §9/§16. Time, multiplayer, cooperation  *(LOCKED — running real-time clock + instanced co-op)*
+## §9/§16. Time, multiplayer, cooperation  *(decided — running real-time clock + instanced co-op)*
 > *Design of record (reviewed per system):* [`06-time-sleep-and-the-clock`](../../design/06-time-sleep-and-the-clock.md) · [`19-multiplayer-and-instances`](../../design/19-multiplayer-and-instances.md)
 
-**The clock (LOCKED, DR-14/14b).** Game time runs on its own, always faster than real time: **15
+**The clock (DR-14/14b).** Game time runs on its own, always faster than real time: **15
 game-minutes per real minute**. Nobody can stall or yank it. `propose fast forward` raises it to
 **180×** when every player agrees — for sleeping and waiting — and events drop it back; a player who
 does not agree keeps it at the base pace. Time controls are taught in the pre-scenario tutorial. A long
@@ -234,7 +234,7 @@ act is an attended activity that occupies its actor for game-minutes while the c
 processes (a fire burning down, snow melting, a wound bleeding) are the clock's own work. Under the
 hood the clock is a deterministic logical clock, so runs replay exactly. Design: document 06.
 
-**The session (LOCKED, DR-15/15a/15b).** Instanced, synchronous, small-party co-op: **one sitting of
+**The session (DR-15/15a/15b).** Instanced, synchronous, small-party co-op: **one sitting of
 two or three hours** covering roughly a week of game time — a game played with friends, one shot or two
 with a halt and resume; a member missing at resume is incapacitated where they lie. Not an ongoing
 world. The only endings are rescued or dead; a dead player is a ghost who moves freely and talks only
@@ -326,10 +326,10 @@ anything reasonable — and the loops keep growing what it can answer. The reaso
 
 ## Appendix A — §-anchor map
 §1–2 Pitch/Essential · §3 Binding decisions · §4 (in §3.4) · §5/§21 Operations/Materials · §6/§8 World
-· §9/§16 Time/multiplayer (clock+session **LOCKED**) · §10–18 Perception · §19 Pilot · §20–27
+· §9/§16 Time/multiplayer (clock + session decided) · §10–18 Perception · §19 Pilot · §20–27
 Interaction engine (§24 Conservation ledger · §25a Taught input grammar) · §31–36 Survival · §37–39
 Rescue · §40 UI (in the pipeline) · §41 LLM = build-time only · §42 Build plan · §43 Authoring ·
-§44/45 Correctness · §46 Scope. Improvements are §0a; §0b = now-locked clock/session + optional
+§44/45 Correctness · §46 Scope. Improvements are §0a; §0b = the decided clock/session + optional
 nice-to-haves.
 
 ## Appendix B — Sources

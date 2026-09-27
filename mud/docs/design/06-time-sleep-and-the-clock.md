@@ -12,7 +12,7 @@
 ## Provenance
 
 ### Andrew's decisions
-- **The clock itself is his original design**, locked before the September sessions and kept as
+- **The clock itself is his original design**, decided before the September sessions and kept as
   written (GDD §0b: "the June text below is kept as written"): **a continuously running real-time
   clock** that nobody can stall or yank — the world moves whether or not the party acts.
 - **(2026-09-07, amending DR-14/DR-15 — `time-and-stakes.md` §8).** "Andrew's decisions: players can

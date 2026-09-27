@@ -17,7 +17,7 @@ For each document, in the order below: Claude opens with the one-paragraph exper
 (what is Andrew's, what is proposed) and the open questions with recommendations. Andrew reads and
 reacts — *not interesting*, *not fleshed out*, *cut this*, *more of that*. We rewrite together in the
 conversation. Claude records every decision in the document's review log, flips its status, and appends
-an amendment to the DR register where a locked decision moved. This table updates. Several documents
+an amendment to the DR register where a decision moved. This table updates. Several documents
 per sitting, at Andrew's pace.
 
 **Suggested first sitting:** the GDD umbrella (what the game is, in one read) → 01 → 02 (the sample

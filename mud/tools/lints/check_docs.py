@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Gate: live docs don't regress to a decision we already locked (consistency / anti-drift).
+"""Gate: live docs don't regress to a decision already made (consistency / anti-drift).
 
 The mechanical version of "did you check the docs?" — it forbids known STALE patterns from re-appearing
 in the authoritative / always-loaded docs, so drift can't creep back silently.
@@ -8,7 +8,7 @@ Scans Markdown under the repo EXCEPT historical / being-revised files (see EXCLU
 on a line is a violation UNLESS the line also carries an ALLOW token (it's explicitly talking about the
 rejected/old thing — e.g. "rejected", "retired", "archived", "superseded", "no longer").
 
-Forbidden (each = a locked decision someone tried to undo):
+Forbidden (each = a decision someone tried to undo):
   mass_kg            -> the contract field is mass_g (integer grams)            (DR-11)
   CMD_NOMATCH        -> runtime-LLM fallback; runtime is deterministic          (DR-02)
   event-driven       -> the clock is a continuously running real-time clock     (DR-14)
@@ -71,7 +71,7 @@ def main() -> int:
                     violations.append((rel, i + 1, msg, line.strip()))
 
     if violations:
-        print("DOC-CONSISTENCY GATE FAILED — a live doc regressed to a locked decision:")
+        print("DOC-CONSISTENCY GATE FAILED — a live doc regressed from a decision:")
         for rel, i, msg, src in violations:
             print(f"  {rel}:{i}: {msg}")
             print(f"      > {src[:100]}")
@@ -79,7 +79,7 @@ def main() -> int:
         print("  'rejected' / 'retired' / 'archived' so the gate knows it isn't a regression.")
         return 1
 
-    print(f"doc-consistency gate OK: {len(md_files)} live docs, no regressions to locked decisions.")
+    print(f"doc-consistency gate OK: {len(md_files)} live docs, no regressions from current decisions.")
     return 0
 
 

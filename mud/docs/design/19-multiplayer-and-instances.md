@@ -24,7 +24,7 @@
   architecture records it as the one deferred item that is nevertheless **critical**: *"Overlapping
   perception zones (DR-13) are deferred but **critical**"* (§14). Seeing others in nearby zones and
   being able to talk to them is the part of multiplayer that matters to him.
-- **Instanced, synchronous co-op is LOCKED (GDD §9/§16, DR-15).** *"A party plays one crash
+- **Instanced, synchronous co-op is decided (GDD §9/§16, DR-15).** *"A party plays one crash
   together, online at the same time, acting concurrently…"*
 - **The run is roughly a week of game time, persisting across sittings (2026-09-07, DR-15a).**
   *"The run is **roughly a week** of game time, persisting across sittings; rescue can come earlier;
@@ -49,7 +49,7 @@
 - **≥1 first-class interdependence is required (GDD §16).** *"add **≥1 first-class
   interdependence** (one holds/raises the antenna or relays the scout's landmark while another
   transmits) so co-op is a shared-story engine, not parallel solitaire."* The requirement is in the
-  locked GDD; *which* interdependence ships is not settled (open question 2).
+  GDD; *which* interdependence ships is not settled (open question 2).
 
 ### Proposals (Claude)
 
@@ -200,7 +200,7 @@ Two decided amendments shape how a party actually spends an evening:
 
 ### 4.7 Interdependence — the one thing co-op must have
 
-The locked requirement: **at least one first-class interdependence**, something that genuinely
+The requirement: **at least one first-class interdependence**, something that genuinely
 *requires* two people, so co-op is a shared-story engine rather than parallel solitaire (GDD §16).
 The two candidates named in the sources — both **proposals** as to which ships:
 
@@ -365,7 +365,7 @@ cooperation"* (roadmap P6) — a real gate, not a checkbox.
   lifecycle.
 
 **Designed, not built.** The instance lifecycle (create / persist / reset / GC) — DR-15 and roadmap
-P6. Co-op interdependence — the requirement is locked, the content is not designed. Concurrent-action
+P6. Co-op interdependence — the requirement is decided, the content is not designed. Concurrent-action
 handling on the shared clock beyond what the reactor gives for free.
 
 **Nothing.** No instancing code, no reaper Script, no run creation or teardown, no multi-run support

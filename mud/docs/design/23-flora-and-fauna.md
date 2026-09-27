@@ -208,6 +208,11 @@ berry, the hemlock, frostbite from digging), document 07 (tinder plants), docume
   animals act on behaviour rules the engine runs, and a lightweight model can play one from outside
   (a non-human character) when a run wants it. Which bigger animals act stays for this sitting. GDD
   §3 rule 5 reworded to match.
+- **2026-09-26 (Andrew, later):** *"the bear can be controlled by either, birds have to be controlled by AI, we don't actually need flocks of them, if they are limited then llms can control them"* The birds are
+  actors like the bear — a few of them rather than flocks, driven by engine behaviour rules or a
+  lightweight model. This changes the 2026-09-17 "wildlife as events and sign" for the bear and the
+  birds (the flock bursting from the birch grove was its example); revised at this sitting, with which
+  animals act and how many birds.
 
 ## 8. What exists today
 Nothing of this is built. `rooms.md` names hare runs, grouse, a fishing pool, chaga, cranberries and

@@ -1,10 +1,10 @@
 # Whiteout — Implementation Architecture
 
-> **Status: v4 — FINAL (design-frozen).** The full implementation blueprint for Whiteout, derived from
+> **Status: v4 — current; a work in progress, amended through the DR register.** The full implementation blueprint for Whiteout, derived from
 > `docs/scenarios/whiteout/GDD.md`. Supersedes the older sub-docs where they conflict
 > (`overview.md`, `llm-integration.md`, `tick-and-scheduler.md`, `perception-model.md`, `testing.md`
-> remain valid as focused views). **Hard constraints (LOCKED): runtime is 100% deterministic and the
-> LLM is a build-time authoring tool only; the world clock is a continuously running real-time clock;
+> remain valid as focused views). **Current decisions: the engine is 100% deterministic and never calls a
+> language model (models build the world and play from outside — GDD §3 rules 2 and 5); the world clock is a continuously running real-time clock;
 > sessions are instanced, synchronous co-op runs; input is the taught grammar (§25a / DR-08).** This
 > document is scored in `review/30-certainty.md` against its **decisions register (§2)**.
 
@@ -86,8 +86,8 @@ physics literature). All raised confidence; none reversed a decision (overall �
 | DR-11 | Conservation ledger | pre-commit balance gate inside apply(); **accountable** environment sink (tracked, monotonic) |
 | DR-12 | Determinism/seeding | per-run seeded RNG for all ids + draws; `dbid/uuid/datetime` forbidden in `EntityState`; double-run-same-seed test; pure replay |
 | DR-13 | Perception/zones | zone = attribute in a Scene-Room; per-observer `return_appearance`; propagator |
-| DR-14 | Clock/scheduler | **continuously running real-time clock (LOCKED)** + activity scheduler; activities persisted (not `.ndb`); deterministic logical clock under the hood |
-| DR-15 | Session/instance | **instanced, synchronous co-op runs (LOCKED)**; explicit lifecycle (create/persist/reset/GC) |
+| DR-14 | Clock/scheduler | **continuously running real-time clock** + activity scheduler; activities persisted (not `.ndb`); deterministic logical clock under the hood |
+| DR-15 | Session/instance | **instanced, synchronous co-op runs**; explicit lifecycle (create/persist/reset/GC) |
 | DR-16 | Rescue | additive-confidence model; distinct-resource routes; radio FSM |
 | DR-17 | Build pipeline | author → validate (+ ledger) → **bake** → runtime loads baked data |
 | DR-18 | Coverage/fuzz | operation×material matrix + ≥10k seeded fuzz; the solvability oracle |
@@ -548,7 +548,7 @@ rendered per observer by perception band × loudness × weather. Reachability ga
 > source zone from `source_id` (`data["zone"]` optional override).
 
 ## 7. Time & multiplayer (DR-14, DR-15)
-- **Clock (DR-14, LOCKED):** a **continuously running real-time clock** — game time advances on its own
+- **Clock (DR-14):** a **continuously running real-time clock** — game time advances on its own
   at a fixed real→game pace (a tunable constant, ~10–20 real-seconds per game-minute) on a global
   heartbeat Script (`tick-and-scheduler.md`, now the canonical model). It is never advanced by player
   actions or chat and cannot be stalled or yanked by one player; the world moves whether or not the party
@@ -564,7 +564,7 @@ rendered per observer by perception band × loudness × weather. Reachability ga
   progress** on interrupt. A pending activity is interrupted on `events.INTERRUPT_SIGNALS` (danger, fire/weather/rescue changes); the running clock itself never stops. **v3:** persist each
   Activity's start/deadline/progress and **recompute elapsed from the world clock on `at_start`** after a
   reload, rather than trusting the timer's elapsed estimate (Evennia research).
-- **Session/instance (DR-15, LOCKED):** a **synchronous, small-party instanced run** = a fresh world-state spawned from a **prototype
+- **Session/instance (DR-15):** a **synchronous, small-party instanced run** = a fresh world-state spawned from a **prototype
   set** (Evennia spawner) and tagged with a `run_id`, created on party start, persisted in Postgres
   during play, **reset** by deleting the run's tagged objects (`search_object_by_tag`) at end, and
   **GC'd** by a reaper Script that **sweeps tag-orphans** (objects whose run has no connected sessions
@@ -675,7 +675,7 @@ single-threaded reactor serializes commands, so shared-object mutation can't rac
   Pass → layer DR-13 / DR-14(full) / DR-15 / DR-16.
 
 ## 14. Deferred-in-the-slice (decided, not open)
-- **Clock** (DR-14) and **sessions** (DR-15) are **decided and locked** — a continuously running
+- **Clock** (DR-14) and **sessions** (DR-15) are **decided** — a continuously running
   real-time clock and instanced, synchronous co-op (GDD §9). The slice ships their **basic** form (a
   running clock; one shared co-op room with run-tagging); the **full** versions (the activity scheduler;
   instanced-run lifecycle + GC + interdependence) land post-slice, **behind the §13 seams** so adding
@@ -694,7 +694,7 @@ nothing below 72; the two residual unknowns (DR-05 operation-DSL boundary, DR-11
 empirical "prove-it-in-the-slice" items. The Evennia-dependent decisions (DR-07/10/14/15) were verified
 against the installed Evennia **6.0.0** source.
 >
-> **v4 (FINAL)** folds in the user's locked decisions — the taught input grammar (§25a / DR-08), the
+> **v4 (FINAL)** folds in Andrew's decisions — the taught input grammar (§25a / DR-08), the
 > continuously running real-time clock (DR-14), and instanced synchronous co-op (DR-15) — plus the GDD
 > finalization. These are vision/decision locks the design is built *toward*, not changes the review
 > proposed; DR-14's earlier "event-driven (recommended)" framing is retired accordingly.

@@ -257,7 +257,7 @@ massless economy — which is why the_knob, pure information, justifies the map'
   behind your back) and **always reachable** from every sampled state (the solvability oracle,
   `roadmap.md` P5 exit gate; `rescue-graph.md` §4).
 
-The exact weights, the threshold, and the ≥4-combinations count are not locked by Andrew anywhere this
+The exact weights, the threshold, and the ≥4-combinations count are not decided by Andrew anywhere this
 document found — see open question 2.
 
 ### 3.6 The radio — the one authored deep puzzle

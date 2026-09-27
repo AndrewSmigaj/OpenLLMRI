@@ -73,7 +73,7 @@ hunger never plateau.
 
 ### 4.2 The escalation ladder (deterministic, telegraphed, no barriers)
 The crash is in December — five hours of daylight; the ladder starts from a December valley. The
-numbers below are proposals for review, tunable by probes, not locked.
+numbers below are proposals for review, tunable by probes, not final.
 
 | what rises | day 1 | day 3 | day 5 | day 7 | day 10 | how it kills |
 |---|---|---|---|---|---|---|

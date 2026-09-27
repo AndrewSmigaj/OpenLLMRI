@@ -192,7 +192,7 @@ through the same pipeline as `light stick with lighter` typed directly.
 **The mechanism (proposal).** A parse-time rewrite, exactly like the `use X to VERB Y` rewrite that
 already ships: `make <goal> with A and B` binds A and B to the goal's roles by capability and emits
 the ordinary `ActionAttempt` for the operation those roles imply. There is no second resolution
-path — the locked one-pipeline rule (DR-09) is untouched, and `make` is the twin of `use`: `use`
+path — the one-pipeline rule (DR-09) is untouched, and `make` is the twin of `use`: `use`
 dispatches by capability, `make` by goal plus capability, and both resolve **silently** as the real
 operation (no verb is named back — Andrew, 2026-09-16).
 
@@ -445,7 +445,7 @@ questions are kept below as the record of what was weighed.
      the question; let the spike answer it.
 
 2. **What is the finalized forms list?**
-   - *Options:* (a) freeze the current seven shapes now and write `help grammar` and the in-world
+   - *Options:* (a) finalize the current seven shapes now and write `help grammar` and the in-world
      manual page against them; (b) wait until the shaping pass and the verb-gap steps (4–5) land,
      since Andrew's own rule is that the help is written "after we finalize all the possible forms."
    - *Recommendation:* (b). The source is explicit that the help text waits for the forms to be
@@ -462,7 +462,7 @@ questions are kept below as the record of what was weighed.
 4. **What does the in-world manual page actually say?**
    - *Options:* (a) treat the §3.6 line ("Say what you do, not what you hope...") as final flavor
      text now; (b) treat it as a draft, to be finalized alongside `help grammar` once the forms list
-     is locked (question 2).
+     is finalized (question 2).
    - *Recommendation:* (b), for the same reason as question 2 — the two texts teach the same rules
      and should be finalized together, once, not twice.
 
@@ -546,7 +546,7 @@ eight parts; nothing new was added to the design itself.
   mass, splitting when one is spent or stops being interchangeable. Q12 **derived** — bulk = mass ÷
   density, authored wins; `density` joins the material table. Both folded into §3.11 as design.
 
-- **2026-09-18 (Andrew, block 1, the rest):** Q1 the spike answers it · Q2 freeze the forms once shaping and
+- **2026-09-18 (Andrew, block 1, the rest):** Q1 the spike answers it · Q2 finalize the forms once shaping and
   movement land, then write `help grammar` once · Q3 `use X on Y` stays, silent · Q4 the manual page
   finalizes with `help grammar` · **Q5 changed from the recommendation**: vocabulary is authored
   word-first — pick the canonical word, write its synonyms in the same pass, before the loops run;

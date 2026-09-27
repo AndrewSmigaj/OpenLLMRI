@@ -5,7 +5,7 @@ Where everything lives, what's authoritative, and where new docs go.
 ## Tiers
 
 **Authoritative — the design of record (trust these):**
-- [`../VISION.md`](../VISION.md) — the anchor: what we build + the locked non-negotiables.
+- [`../VISION.md`](../VISION.md) — the anchor: what we build + the core decisions.
 - [`design/`](design/) — **the design of record, one document per system**, in review order; the index,
   the review procedure and the template are in [`design/README.md`](design/README.md). A system's design
   (the what and why, Whiteout content included) lives here; its mechanism (the how) lives in

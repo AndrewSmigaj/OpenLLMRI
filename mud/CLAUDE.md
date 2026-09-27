@@ -76,7 +76,7 @@ image is pinned by digest (`docker/evennia/Dockerfile`) so local, CI and any clo
 - `.claude/` — this tooling: **skills** (`run-game`, `run-tests`, lenses, ontology, fuzz), agents,
   commands, hooks. Reach for `run-game` to operate the server and `run-tests` for the checks.
 
-## Hard rules (LOCKED — do not relitigate; see VISION.md / GDD §0b / the architecture DRs)
+## Current decisions (Andrew's; agents don't reopen them, and he changes them as the design grows — see VISION.md / GDD §0b / the architecture DRs)
 - **The world is open-ended — never frame it as bounded.** Any and all entities and relations a player
   would reasonably try are in scope, the natural world included; verbs, nouns, relations, materials
   and forms grow by evidence without a ceiling. Every count in any doc is a floor. The overnight loops
@@ -129,9 +129,9 @@ entrypoint word-splits args, so Make commands with quoted args use `--entrypoint
 - [`PLAN.md`](PLAN.md) — **the program: every task, tracked** (phases, statuses, owning design doc, waits-on,
   the decisions Andrew must make, how loop additions flow back into design and tasks). Update it in the
   same commit as the work. [`BACKLOG.md`](BACKLOG.md) is its Now slice.
-- `VISION.md` — the anchor: what we build + the locked non-negotiables.
+- `VISION.md` — the anchor: what we build + the core decisions.
 - `docs/scenarios/whiteout/GDD.md` — **the authoritative game design** (FINAL; §N anchors; §0a
-  improvements + §0b locked decisions). `design.md` beside it is the **archived original seed — not
+  improvements + §0b decisions). `design.md` beside it is the **archived original seed — not
   authoritative**.
 - `docs/architecture/implementation-architecture.md` — **the authoritative architecture** (v4/FINAL;
   decisions register DR-01…DR-28). `ontology-closure.md` beside it is the closure-loop spec (DR-26). `overview.md` / `perception-model.md` / `tick-and-scheduler.md` /
