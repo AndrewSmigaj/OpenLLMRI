@@ -85,7 +85,7 @@ no design.
 | ◐ | A1.07 | 07 fire and shaping — reviewed in full 2026-09-18; finalized at the close | Andrew + Fable | 07 | — |
 | ◐ | A1.08 | 08 warmth, clothing and shelter — reviewed in full 2026-09-18; finalized at the close | Andrew + Fable | 08 | — |
 | ◐ | A1.09 | 09 water — reviewed in full 2026-09-18; finalized at the close | Andrew + Fable | 09 | — |
-| ☐ | A1.10 | 10 food and hunger — reviewed and finalized | Andrew + Fable | 10 | — |
+| ◐ | A1.10 | 10 food and hunger — reviewed in full 2026-09-27; finalized at the close | Andrew + Fable | 10 | — |
 | ☐ | A1.11 | 11 injury and first aid — reviewed and finalized | Andrew + Fable | 11 | — |
 | ☐ | A1.12 | 12 the pilot and bodies — reviewed and finalized | Andrew + Fable | 12 | — |
 | ☐ | A1.13 | 13 events, escalation and weather — reviewed and finalized | Andrew + Fable | 13 | — |

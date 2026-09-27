@@ -37,7 +37,7 @@ berries and roots still findable, skim ice on still water; light snow on days 1�
 | 07 | [`07-fire-and-shaping.md`](07-fire-and-shaping.md) | ignition; fire as a process; forms; the seven methods; the `make fire` goal rows | reviewed with Andrew 2026-09-18 | — |
 | 08 | [`08-warmth-clothing-and-shelter.md`](08-warmth-clothing-and-shelter.md) | the night-one rule; the cold clock; clothing; huddle; shelter, heard through its holes; `status` | reviewed with Andrew 2026-09-18 | [`clothing-warmth.md`](../architecture/clothing-warmth.md) |
 | 09 | [`09-water.md`](09-water.md) | liquids in millilitres; thirst; melting; eating snow's real cost; fuel contamination | reviewed with Andrew 2026-09-18 | — |
-| 10 | [`10-food-and-hunger.md`](10-food-and-hunger.md) | what is aboard, the country, the body; hunger; cooking | draft for review | — |
+| 10 | [`10-food-and-hunger.md`](10-food-and-hunger.md) | what is aboard, the country, the body; hunger; cooking | reviewed with Andrew 2026-09-27 | — |
 | 11 | [`11-injury-and-first-aid.md`](11-injury-and-first-aid.md) | wounds, bleeding, infection, frostbite, splints, the med pouch | draft for review | — |
 | 12 | [`12-the-pilot-and-bodies.md`](12-the-pilot-and-bodies.md) | the pilot (starts the run dead); bodies persist; the moral question | draft for review | — |
 | 13 | [`13-events-escalation-and-weather.md`](13-events-escalation-and-weather.md) | the ladder; the event deck; weather; endings | draft for review | — |
