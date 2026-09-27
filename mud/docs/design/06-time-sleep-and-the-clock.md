@@ -129,6 +129,9 @@ Activity{id, actor, verb, target, tool, started_at (world-min), deadline (world-
 - **One activity per actor.** A new command **interrupts** and banks partial progress, except the
   commands that don't (Andrew, 2026-09-18): look, examine, inventory, say/whisper/call/shout, help,
   and `status`. **`busy` ≠ `lagged`**: you can talk while sawing; you can't swing twice.
+  In a fight each attack has a recovery — longer after a heavy swing than a jab; the game says when
+  you have recovered, and an attack tried before then is answered that you have not recovered yet
+  (2026-09-27).
 - **Danger force-interrupts** (`DANGER`, `FIRE_STATE_CHANGE` nearby, `SURVIVOR_WORSENS` on you,
   `PLAYER_STOP_REQUEST`) — the most-cited failure mode in this genre is finishing a craft while a
   predator closes in. Any new command interrupts; progress banks where that is physical (the

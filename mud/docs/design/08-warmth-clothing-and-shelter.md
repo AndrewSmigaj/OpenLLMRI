@@ -58,8 +58,9 @@
   inside the plane; there is no survival kit. Up to five play, and a seat nobody plays is
   a dead character whose clothes and pockets can be searched.
 - **(2026-09-27)** Death comes from blood loss, the bear, the cold and thirst.
-- **(2026-09-27)** Players see **meters** for what a person can sense about their own body, hunger
-  among them — people are not cut off from their own senses. The `status` screen stays (§4.9).
+- **(2026-09-27)** Players see **meters** for what a person can sense about their own body — people
+  are not cut off from their own senses: six bars with no numbers in the prompt line — hunger,
+  thirst, warmth, rest, pain and stamina. The `status` screen stays (§4.9).
 
 ### Proposals (Claude)
 
@@ -347,10 +348,9 @@ about the world, `status` tells you about you.
 
 **The meters** (Andrew, 2026-09-27). People are not cut off from their own senses — you know you are
 hungry without stopping to ask yourself — so players see meters for what a person can sense about their
-own body, hunger among them, all the time, without typing anything. *(Proposed by Claude, for Andrew's
-check:)* six of them — **hunger, thirst, warmth, rest, pain** and **stamina** (how out of breath you
-are: running, fighting and hauling spend it, and a breather gives it back) — each a short bar with no
-digits, because that is how a person feels it: very hungry, not 38 %. Each bar is full when all is well
+own body, all the time, without typing anything. There are six — **hunger, thirst, warmth, rest,
+pain** and **stamina** (how out of breath you are: running, fighting and hauling spend it, and a
+breather gives it back) — each a short bar with no digits, because that is how a person feels it: very hungry, not 38 %. Each bar is full when all is well
 and empties as the body runs down; pain fills as it hurts more. They sit in the prompt line under each
 response, the way a MUD shows its bars:
 
@@ -414,7 +414,7 @@ None open.
   openings and an internal heat, which is how shelter works inside it. Claude proposed hypothermia
   bands that follow the clinical staging, for Andrew's check.
 - **2026-09-27 (Andrew, at document 11's sitting)** — meters for what the body feels, beside the
-  `status` screen (§4.9).
+  `status` screen: six bars with no numbers, in the prompt line (§4.9).
 - **2026-09-27** — the first week of October carried in (the cold, day by day, is document 13 §4.2);
   what is aboard (the two hidden blankets, the sleeping bag with the tail wreckage); the unplayed seat;
   what kills.

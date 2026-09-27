@@ -205,7 +205,8 @@ weather/occlusion-aware (§14 bands). `look` renders perception; activity/speech
 Speech ranges whisper/say/call/shout, weather-modified (§15). The look is a title line, prose composed
 from state, people and animals as prose and exits as entities in prose — no item list; an agent sees
 exactly what a human sees (2026-09-16, 2026-09-17; document 03). Players see meters for what a person
-can sense about their own body, hunger among them (2026-09-27; document 08 §4.9). Zones and perception bands are built
+can sense about their own body: six bars in the prompt line — hunger, thirst, warmth, rest, pain and
+stamina (2026-09-27; document 08 §4.9). Zones and perception bands are built
 in a first version (DR-13a).
 
 ## §9/§16. Time, multiplayer, cooperation
@@ -273,7 +274,7 @@ One chapter per system; each is its own document, reviewed separately.
   dangerous places injure but never kill outright, fitness matters, and a seeded dice roll is
   announced. There is no gate on violence: it resolves with real physics, through a combat system
   roughly like a MUD's — nothing automatic, each attack typed, landing by the fighters' stats and
-  chance as in D&D — and a blow wounds only when it would really hurt (2026-09-26, 2026-09-27).
+  chance as in D&D, read as what happened, never as dice — and a blow wounds only when it would really hurt (2026-09-26, 2026-09-27).
   Document 11.
 - **The pilot and bodies** — document 12.
 

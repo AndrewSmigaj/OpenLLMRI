@@ -76,7 +76,7 @@ The decisions that shape a run, in plain words; every one of them, with its date
   and thirst. Poison makes people very sick but never kills; other harms make them weak and sick.
   Dangerous places injure but never kill outright. No gate on violence: it resolves with real physics,
   through a combat system roughly like a MUD's — nothing automatic, each attack typed, landing by the
-  fighters' stats and chance as in D&D; a blow wounds only when it would really hurt; no hit points.
+  fighters' stats and chance as in D&D, read as what happened; a blow wounds only when it would really hurt; no hit points.
   Hunger works as it does in real life, and players see meters for what the body feels.
 - **Getting home (2026-09-17, 2026-09-27).** Three ways: the radio, a signal a plane can see, surviving
   long enough — exactly as document 14 §3. The ELT is broken. Surviving long enough is the hardest way;

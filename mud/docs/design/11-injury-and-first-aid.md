@@ -33,14 +33,17 @@
 - **(2026-09-27)** **No hit points.** A wound is a named thing on a body part — a kind, a severity,
   bleeding or not, bound or not, and later infection — and each part has its own heat, wetness, pain
   and covering (§4.1, §4.6).
-- **(2026-09-27)** **Players see meters** for what a person can sense about their own body, hunger
-  among them: people are not cut off from their own senses. The meters are document 08 §4.9's.
+- **(2026-09-27)** **Players see meters** for what a person can sense about their own body: people are
+  not cut off from their own senses. Six bars with no numbers — hunger, thirst, warmth, rest, pain and
+  stamina (document 08 §4.9); a wound is never a meter.
 - **(2026-09-27)** **A blow wounds only when it would really hurt.** Common sense and real physics
   decide: a feather does nothing; a spear thrust punctures.
 - **(2026-09-27)** **Combat is roughly a MUD's, changed to suit this game.** Nothing in it is
   automatic: each attack is typed, like any other act. No attack hits automatically either: as in D&D,
-  whether it lands depends on the fighters' stats and on chance. The combat document, to be written,
-  designs it.
+  whether it lands depends on the fighters' stats and on chance, never shown as dice — the player
+  reads what happened. The body at that moment decides the blow: skill; cold hands, pain, tiredness and
+  stamina; the weapon; what the target wears. Every attack has a recovery, and the game says when it
+  is over. The rest is `PLAN.md` §5 until the combat document is written.
 
 ### Proposals (Claude)
 Everything else here is Claude's, for Andrew's check: the bleeding and infection processes; which
@@ -211,7 +214,8 @@ fingers, legs, feet and toes. Every part carries its own states:
 And the whole body carries the quantities that decide whether it lives: **blood volume** (mL),
 **core temperature** (document 08), **hydration** (mL, document 09), **energy** (document 10's stores —
 glycogen, fat, protein — not one kcal number), **carbon-monoxide saturation**, **what is in the gut**
-(poison, bad meat), **infection and fever**, **fatigue**, **consciousness**. None of them is a
+(poison, bad meat), **infection and fever**, **fatigue**, **stamina** (breath — spent by running,
+fighting and hauling, back with a rest), **consciousness**. None of them is a
 hit-point total; each is a real quantity.
 
 **What kills** (Andrew, 2026-09-27) — three things, on their real clocks:
@@ -456,7 +460,8 @@ None open.
 - **2026-09-27 (Andrew, the document's sitting):** item 1 — no hit points: named wounds on body parts,
   each part with its own states; meters for what the body feels (document 08 §4.9); a blow wounds only
   when it would really hurt; combat is roughly a MUD's, with every attack typed and landing by stats
-  and chance, as in D&D.
+  and chance, as in D&D, read as what happened; a recovery after each attack; stepping in for a
+  friend; the bear's warnings, and running as the wrong answer to a bear. The six meters.
 
 ## 8. What exists today
 

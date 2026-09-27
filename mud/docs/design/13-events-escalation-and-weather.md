@@ -265,7 +265,9 @@ a bluff charge before contact; a bear on a carcass defending it as a cache. **Th
 combat system's physics and document 11's wounds. A snow load or a dead branch coming down under the
 heavy wet snow is ordinary physics on the tree. **Escape is never authored per danger**: it is
 whatever the world allows — back off, group up, make noise, get into the wreck, leave the carcass,
-fight. The stakes are real: the bear can kill (2026-09-27), though in Alaska's own record a bear
+fight. Running from a bear is the wrong answer: it chases, and it runs a person down; standing your
+ground, looking big, staying together and, depending on the attack, playing dead are the real answers
+(2026-09-27). The stakes are real: the bear can kill (2026-09-27), though in Alaska's own record a bear
 injures far more often than it kills; other animals' wounds kill only through what they do to a body —
 blood loss — and dangerous places injure but never kill outright (2026-09-17; document 11 §4.6).
 Sources: ADF&G, "Safety in Bear Country".
