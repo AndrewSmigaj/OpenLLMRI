@@ -10,8 +10,8 @@ and what comes next; the task ids are PLAN's. The current decisions, all in one 
 touches no design.
 
 ## Now  (work-in-progress limit: 1)
-- **Document 15's rules** (A1.15), presented to Andrew one at a time — they have never been through a
-  sitting. The cleanup (A14) is done: every document shows the current design only.
+- **The sittings resume at document 10**, checking the answers Claude proposed in each document (marked
+  *proposed by Claude, for Andrew's check*), one document at a time. Document 15's rules are decided.
 
 ## Next  (in this order — PLAN §0)
 2. **The sittings resume in index order** (A1.10–A1.23, `docs/design/README.md`): each document's

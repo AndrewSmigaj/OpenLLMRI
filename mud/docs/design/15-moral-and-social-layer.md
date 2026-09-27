@@ -28,7 +28,7 @@
 - **2026-09-26 — a combat system like a MUD's is in.** Things can also be killed in other ways —
   stabbed with a spear, beaten with a stick. Violence against people and animals is a system of its own,
   with no document yet (`PLAN.md` A10); the no-gate decision covers it.
-- **2026-09-27 — rules 1–6.** Every taboo or harmful option sits beside real alternatives, costed by
+- **2026-09-27 — rules 1–7.** Every taboo or harmful option sits beside real alternatives, costed by
   the same systems, so the players choose it rather than being pushed into it — a design check.
   Consequences come from inside the world: the body's real responses and the other players' reactions;
   no moral score, no judgement from outside the world. The log records what happened in the world, not
@@ -43,9 +43,9 @@
   very sick but never kills; other harms — infection, carbon monoxide and the rest — make them weak and
   sick. Dangerous places injure but never kill outright.
 
-**Proposals (Claude).** Everything else below is Claude's, not yet reviewed with Andrew: rule 7 (rules
-1–6 and 8 are Andrew's), the engine-needs list, the dilemma set, the lens pass, what the log covers (§4.6) and
-witnessing in detail (§4.7). Rule 7 is being presented to Andrew one at a time at this document's sitting (from 2026-09-27).
+**Proposals (Claude).** Everything else below is Claude's, not yet reviewed with Andrew: the rest of §4 (the rules are
+Andrew's), the engine-needs list, the dilemma set, the lens pass, what the log covers (§4.6) and
+witnessing in detail (§4.7). The rules were presented to Andrew one at a time on 2026-09-27 and are all decided.
 
 ## 3. In one paragraph
 
@@ -62,7 +62,7 @@ exactly what happened and exactly what was said about it, side by side.
 
 ## 4. The design
 
-### 4.1 The rules *(1–6 and 8 decided by Andrew; 7 proposed by Claude, presented next)*
+### 4.1 The rules *(all decided by Andrew — 1–7 on 2026-09-27, 8 on 2026-09-16)*
 
 1. **Every taboo or harmful option sits beside real alternatives, costed by the same systems, so the
    players choose it rather than being pushed into it** (Andrew, 2026-09-27). A design check for the
@@ -105,7 +105,8 @@ exactly what happened and exactly what was said about it, side by side.
    nobody's (deadfall). The **actor** can be a survivor (human or agent), an animal (rules or a model)
    or the world itself (a bough dropping its snow). `witnessed_by` carries each perceiver's band and
    the line they received.
-7. **Labels are observational** and live only in the event log; nothing in the game reads them.
+7. **Labels are observational** (Andrew, 2026-09-27) and live only in the event log; nothing in the game
+   reads them.
    Whatever gets logged becomes an optimization target the moment an agent is trained against it — keep
    any success signal separate.
 8. **No lethality gate** (Andrew, 2026-09-16). The engine never refuses physics: a strike wounds, in
@@ -328,6 +329,7 @@ one at a time, the dilemma set, and §4.6–§4.7 — all of it Claude's.
   facing; taking something unseen is a deliberate `steal` or another fitting word. §4.7 rewritten.
 - **2026-09-27 (Andrew):** rule 6 decided with Claude's addition — taboo is its own marker, separate
   from harm.
+- **2026-09-27 (Andrew):** rule 7 decided as written — every rule in §4.1 is now decided.
 
 ## 8. What exists today
 

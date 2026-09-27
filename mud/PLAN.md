@@ -25,10 +25,9 @@ it.
   carries the first-week-of-October weather.
 
 **Next, in this order:**
-1. **Document 15's rules**, presented one at a time — they have never been through a sitting.
-2. **The sittings resume in index order**, checking the answers Claude proposed in each document, then
+1. **The sittings resume in index order, from document 10**, checking the answers Claude proposed in each document, then
    finalizing at the close.
-3. A10 — the missing systems' documents (combat, heat, hunting/trapping/fishing, food state, animal
+2. A10 — the missing systems' documents (combat, heat, hunting/trapping/fishing, food state, animal
    behaviour, scent, light, weather, snow and ice on the ground, physiology, the tutorial rooms); A11 — the
    GDD's vision, which Andrew finds too small.
 
@@ -336,7 +335,8 @@ it says so. When a decision changes, this list and every document it touches cha
   mistake, a broken promise; the game never judges speech live. Rule 5: every act in the room is emoted
   to everyone there — the game does not know which way anyone faces; taking something unseen is a
   deliberate `steal` or another fitting word. Rule 6: acts are tagged on several axes, never one score,
-  with taboo as its own marker, separate from harm. (2026-09-16, 2026-09-27)
+  with taboo as its own marker, separate from harm. Rule 7: the tags only describe — nothing in the game
+  reads them, and any measure of success is kept separate. (2026-09-16, 2026-09-27)
 
 **The player's view and the grammar**
 - The look: a title line, prose composed from state, people and animals as prose, exits as entities in
@@ -387,7 +387,7 @@ it says so. When a decision changes, this list and every document it touches cha
   decision is carried to every document it touches. (2026-09-27)
 
 ### Open with Andrew
-- **Document 15's moral rules** — to be presented, one at a time.
+Nothing open. The next sitting checks, document by document, the answers Claude proposed.
 
 ## 6. How this plan is maintained
 
