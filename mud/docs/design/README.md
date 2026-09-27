@@ -24,11 +24,10 @@ per sitting, at Andrew's pace.
 week — the document to react to) → 03 → 04 → 05. Then the survival systems 06–12, the world 13–18 and 23,
 then 19–22. Ideas that are not design yet live in [`IDEAS.md`](IDEAS.md).
 
-> **⚠ Open and blocking (2026-09-18): the season.** December was recorded as decided on 2026-09-16 and
-> reopened two days later — freeze-up with an inch of snow, bushes visible, skim ice, and the storm
-> arriving during the run is the alternative under consideration. Snow depth, temperatures, daylight,
-> forage, ice and the bear all hang on it. Documents 01, 02, 08, 10, 13 and 23 carry a warning banner;
-> settle this first on resuming (`PLAN.md` §5).
+> **The season (settled 2026-09-26): October, at freeze-up.** An inch of snow at the start, bushes
+> visible, skim ice, and a storm that starts light and gets heavier over the days; a bear is in.
+> Documents 01, 02, 08, 10, 13 and 23 still carry December content, marked by a banner and revised
+> to October (`PLAN.md` task A8).
 
 ## The documents
 

@@ -6,7 +6,7 @@
 > this file. `docs/scenarios/whiteout/roadmap.md` (the June P0–P7 arc) is history.
 > Statuses: ☐ not started · ◐ in progress · ☑ done · ⊘ waiting on a decision (named).
 
-## 0. RESUME HERE (last touched 2026-09-20)
+## 0. RESUME HERE (last touched 2026-09-26)
 
 **What we are in the middle of:** Phase A, the design review — a conversation over `docs/design/`, one
 document at a time, in the index order, until every one is finalized. Nothing is built and no agent
@@ -19,39 +19,23 @@ runs a world-building loop until then. The review page is
 shaping · 08 warmth, clothing and shelter · 09 water. *(Ten of twenty-four; they finalize at the close,
 after the whole set has been through once.)*
 
-**Where the conversation stopped:** document **10, food and hunger**, with Q2–Q9 still open. Q1 was
-answered (grubs and bark are in) and then the conversation went somewhere more important:
+**Where the conversation stopped:** document **10, food and hunger**, with Q2–Q9 still open (Q1 was
+answered: grubs and bark are in).
 
-**⚠ THE FIRST THING TO SETTLE ON RESUMING: the season.** "December" was recorded as decided on
-2026-09-16, inside a question about whether a bear was plausible. Claude then derived a whole
-deep-winter world from that one word — snow depth, temperatures, five hours of daylight, a picked-over
-winter larder, a carrying-capacity table. On 2026-09-18 Andrew reopened it:
-
-> *"you assume the ground will be covered in a lot of snow, it doesn't have to be december just before
-> a snow storm, it could start with a little bit of ice over water sources, maybe an inch of snow on
-> the ground, bushes dusted in snow but visible, roots other berries, trapping things, stuff they have
-> in the plane and wreckage"*
-
-That is freeze-up, roughly early October, and it changes: snow depth (an inch, deepening as the storm
-arrives, rather than buried from the start), temperatures (nights around −5 to −10 rather than −20),
-daylight (ten or eleven hours, shrinking fast, rather than five), forage (roots diggable, berries on
-the bush and visible, mushrooms possible), ice (skim ice — a water source, a shortcut and a hazard at
-once), the storm (an arrival during the run rather than a backdrop) and **the bear** (plausible again:
-early October is hyperphagia, bears are not denned). The three questions put to Andrew, unanswered:
-
-1. Is it freeze-up, roughly early October, with the storm arriving during the run?
-2. If so, does the bear come back in?
-3. Does the snow deepening over the week become one of the main pressures — what was easy to find on
-   day one under a foot of snow by day five?
-
-**Documents 01, 02, 08, 10, 13 and 23 carry a warning banner** saying their deep-winter content is
-provisional; the DR register's "December, no bear" line is struck through and marked reopened. Nothing
-was deleted — once the season is settled, the affected numbers get revised rather than rediscovered.
+**The season was settled on 2026-09-26 (§5): October, at freeze-up.** It had been reopened on
+2026-09-18, after "December" (recorded 2026-09-16 inside a bear question) had grown into a whole
+deep-winter world. The run starts with about an inch of snow, bushes visible, skim ice on the water;
+the storm starts light and gets heavier over the days and the snow piles up as a real one would — part
+of the escalation ladder; a bear is in. Documents 01, 02, 08, 10, 13 and 23 still carry December
+content, marked by a banner; task **A8** revises it (10, 13 and 23 at their sittings; 01, 02 and 08 as
+diffs before the close). Two new questions came with the answer and are parked with Andrew: how the
+bear and the bigger animals are driven (document 23), and the agent's pace in a run with humans
+(document 20) — both in §5.
 
 **Then:** finish 10's Q2–Q9, and continue in index order — 11 injury · 12 the pilot · 13 events and
 weather · 14 rescue · 15 the moral layer · 16 players and kit · 17 rooms · 18 materials · 23 flora and
 fauna · 19 multiplayer · 20 the agent player · 21 endings · 22 the loops — then the close (§3 Phase A,
-A2–A7).
+A2–A8).
 
 **Two standing corrections Claude owes the work** (both are in memory and in the design writing rules,
 and both recurred more than once): never propose a cut for economy — ordering is legitimate, exclusion
@@ -126,6 +110,7 @@ no design.
 | ◐ | A5 | First-pass numbers as proposals where the docs have none: **ignition weights + threshold + the fuel-to-heat curve (07, owed — Andrew asked for a draft)**, the warmth and bedding numbers (08, incl. 06's fatigue), food yields per source (10), water (09), injury clocks (11), rescue confidence weights (14). Drafted for Andrew's review, tunable by probes later. | Fable | 06–11, 14 | A1 |
 | ☐ | A6 | Promote finalized mechanisms into their architecture counterparts: `architecture/grammar.md`, `presentation.md` v2, `events.md`, `time-and-stakes.md`, `moral-social-layer.md`, `fire-and-shaping.md`, `rescue.md`; DR-29/30 appended. | Fable | 03, 04, 06, 07, 13, 14, 15 | A1 |
 | ☐ | A7 | The GDD's per-system sections pointed and corrected where the seed text is wrong (§31–36 came from the archived AI seed; §19; §9). | Fable | GDD | A1 |
+| ☐ | A8 | Revise the December content to October freeze-up (settled 2026-09-26): snow depth, temperatures, daylight, forage, ice and the fauna, from real climate data, as proposals. 10, 13 and 23 at their sittings (23's title says "in December"); 01, 02 and 08 as diffs shown to Andrew before the close. | Fable | 01, 02, 08, 10, 13, 23 | the sittings |
 
 ### Phase B — The machine: the harness, the front door, the store (parallel with A; touches no design)
 | status | id | task | owner | design doc | waits on |
@@ -251,7 +236,9 @@ under "no task yet" — which must stay empty. Three tasks were added by this pa
 
 | status | decision | doc | note |
 |---|---|---|---|
-| ⊘ | **THE SEASON — settle this first (§0).** December was recorded 2026-09-16 inside a bear question and reopened 2026-09-18: freeze-up instead — an inch of snow, bushes visible, skim ice, the storm arriving during the run. Decides snow depth, temperatures, daylight, forage, ice, and whether the bear is back in. | 01, 02, 08, 10, 13, 23 | **reopened 2026-09-18** |
+| ☑ | **The season: October, at freeze-up.** The run starts with about an inch of snow, bushes visible, skim ice on the water, roots and berries still findable; the storm starts light and gets heavier over the days, and the snow piles up the way a real storm of that kind piles it up — part of the escalation ladder; a bear is in. Andrew: *"It starts with just an inch, you can still get to berries and such, with the storm it accumulates however much snow storms that start from light then get heavier over the days (part of the increasing challenge mechanic)"*; *"we can have a bear, that would be neat"*. The month is Claude's pick at Andrew's request (*"you pick the month"*). Replaces "December, no bear" (2026-09-16, reopened 2026-09-18). Revisions: task A8. | 01, 02, 08, 10, 13, 23 | 2026-09-26 |
+| ⊘ | **How the bear and the bigger animals are driven.** Andrew: *"with basic AI logic which we can easily do. i could also use a lightweight LLM model with low reasoning to control the bear, some of the other bigger animals. not each of the birds that would be ridiculous as I dont have the resources unless it would be cheap"*. (a) behaviour rules inside the engine — free, replays exactly from the seed, but GDD rule 5 ("no scripted-AI NPCs inside the engine") needs a line saying animal behaviour is a world process, not an NPC; (b) a lightweight model playing the animal as a non-human character — already allowed by GDD rules 2 and 5 (a player from the engine's side), costs calls, replays from the log; (c) both — the rules by default, a model when a run wants one. Also: which bigger animals. `CLAUDE.md`'s "NO runtime LLM … never in the world" predates the 2026-09-17 rewording of GDD rules 2 and 5 and is corrected with it. | 23, 13, GDD | at the 23 sitting (Claude recommends c) |
+| ⊘ | **The agent's pace in a run with humans.** Andrew: *"we want our human agent to run at the same speed as humans so basically the speed an average typer could type something minus the additional thinking time if it is slower than a human would be, lightweight models are relatively quick compared to the length it takes to type commands"*. Agent-only runs can hold the clock while a slow model thinks; a run with humans cannot, because the clock is continuous and nobody can stall it (DR-14) — so there a slow model's extra thinking is either charged to it, or the agent needs a model fast enough not to need the allowance. Document 19 Q4 already asks for an action-rate cap so a model cannot hold the clock at 1× by acting nonstop; typing speed is that cap, so the two are settled together. | 20, 19, 06 | at the 20 sitting (with 19 Q4) |
 | ☑ | The pilot starts the run dead (supersedes the morning's "alive, mumbling"). | 12 | 2026-09-17 |
 | ☑ | The run was always a week; the one-day wording struck everywhere live. | 19, GDD | 2026-09-17 |
 | ☑ | The endings are rescued or dead; the walk-out is not an ending (the cabin is supplies); surviving long enough is the hardest rescue path. | 14, 21, 02 | 2026-09-17 |

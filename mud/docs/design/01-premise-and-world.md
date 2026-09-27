@@ -17,15 +17,18 @@
 > (Andrew's amendments) · `game/world/scenarios/whiteout/zones.py` (the built zones).
 > Provenance audit: [`../investigation/design/00-provenance-audit.md`](../investigation/design/00-provenance-audit.md).
 
-> **⚠ THE SEASON IS OPEN (2026-09-18) — read before trusting anything dated here.** "December" was
-> answered on 2026-09-16 inside a question about whether a bear was plausible, and Claude then derived
-> a whole deep-winter world from it. On 2026-09-18 Andrew reopened it: *"you assume the ground will be
-> covered in a lot of snow, it doesn't have to be December, just before a snow storm, it could start
-> with a little bit of ice over water sources, maybe an inch of snow on the ground, bushes dusted in
-> snow but visible, roots, other berries, trapping things, stuff they have in the plane and wreckage."*
-> **Everything in this document that depends on deep winter is provisional** — snow depth, temperatures,
-> daylight hours, what is forageable, ice thickness, and whether a bear is possible. The decision is
-> tracked in `PLAN.md` §5 and is the first thing to settle on resuming.
+> **The season was settled on 2026-09-26: October, at freeze-up.** The run starts with about an inch
+> of snow, bushes dusted but visible, skim ice on the water, roots and berries still findable;
+> the storm starts light and gets heavier over the days, and the snow piles up the way a real storm of
+> that kind piles it up — part of the escalation ladder. A bear is in. Andrew, 2026-09-26: *"It starts
+> with just an inch, you can still get to berries and such, with the storm it accumulates however much
+> snow storms that start from light then get heavier over the days (part of the increasing challenge
+> mechanic)"*; *"we can have a bear, that would be neat"*. The month is Claude's pick, at Andrew's
+> request (*"you pick the month"*): freeze-up is October in interior Alaska — the first lasting snow,
+> skim ice on still water, berries still on the bush, bears feeding hard before they den.
+> **Content in this document still written for December** (snow depth, temperatures, daylight,
+> forage, ice, the fauna) **is out of date** and is revised to October — shown to Andrew as a diff before the close (this document is already reviewed).
+> `PLAN.md` §5 and task A8.
 
 This is the document you read to picture the whole world before anything else: what happened, when
 and where it happened, what country the party is standing in, how big it is, what it costs to cross,

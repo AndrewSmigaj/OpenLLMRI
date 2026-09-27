@@ -58,7 +58,7 @@ def status_of(text: str) -> str:
     head = text[:1500].lower()
     if re.search(r"finalized \d{4}-\d\d-\d\d", head):
         return "finalized"
-    if "reviewed with andrew" in head:
+    if "reviewed with andrew" in head and "never reviewed with andrew" not in head:
         return "reviewed"
     return "draft"
 

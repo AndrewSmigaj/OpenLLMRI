@@ -334,6 +334,11 @@ runs'."* Walls come from the wall-sensor (unknown words included) and feed the w
 - **2026-09-17 (Andrew, block 1, ahead of this document's sitting):** agents may be scaffolded as **non-human
   characters (NHCs)** with a persona brief — still players from the engine's side, which keeps the engine
   deterministic; agent runs are short sessions like human ones.
+- **2026-09-26 (Andrew, ahead of this document's sitting):** *"we want our human agent to run at the same
+  speed as humans so basically the speed an average typer could type something minus the additional
+  thinking time if it is slower than a human would be, lightweight models are relatively quick compared
+  to the length it takes to type commands."* Open for the sitting: in a run with humans the clock cannot
+  wait out a slow model (DR-14), so the allowance holds only in agent-only runs (`PLAN.md` §5).
 
 ## 8. What exists today
 
