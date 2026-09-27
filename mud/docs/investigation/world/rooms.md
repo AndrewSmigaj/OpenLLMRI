@@ -279,7 +279,7 @@ exterior, trees, sheltered · *exposure:* sheltered
 > a firm blue dusk. Dead twigs skirt every big trunk from knee height down, grey and
 > brittle and bone-dry under the living boughs — a fact worth more than it looks. The wind
 > passes overhead without stopping.
-**Resources & pricing.** *Squaw wood* (the dry dead twig-skirts): THE reliable fire starter
+**Resources & pricing.** *Dead spruce twigs* (the dry dead twig-skirts): THE reliable fire starter
 of the entire valley — always dry regardless of weather, snaps free bare-handed. Priced
 purely in knowledge: the look hints ("worth more than it looks"), the manual's fire page
 names it, and once learned it changes every fire the party ever builds. *Spruce pitch*:
@@ -1145,7 +1145,7 @@ zone looks. The required pages and the zone lessons each backs:
 
 | Manual page | Backs (zones/lessons) |
 |---|---|
-| FIRE | squaw wood (hollow), birch bark grades (grove), punk embers (fringe), chaga spark (chaga_tree), wind engineering (ice_flat) |
+| FIRE | dead spruce twigs (hollow), birch bark grades (grove), punk embers (fringe), chaga spark (chaga_tree), wind engineering (ice_flat) |
 | WATER | boil-everything (riffle, shore lead, water hole), blue-ice efficiency (apron, pressure ridge), melt ratios (everywhere) |
 | SHELTER | bough beds + the tree-well bivvy (hollow), snow blocks (ice_flat), the warmth floor (fuselage) |
 | SIGNALS | three-of-anything, smoke color (green=white / rubber=black: forest_edge + gear_gouge), fire placement (ice_flat) |

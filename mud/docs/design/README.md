@@ -26,8 +26,9 @@ then 19–22. Ideas that are not design yet live in [`IDEAS.md`](IDEAS.md).
 
 > **The season (settled 2026-09-26): October, at freeze-up.** An inch of snow at the start, bushes
 > visible, skim ice, and a storm that starts light and gets heavier over the days; a bear is in.
-> Documents 01, 02, 08, 10, 13 and 23 still carry December content, marked by a banner and revised
-> to October (`PLAN.md` task A8).
+> Documents 10, 13 and 23 were revised to October on 2026-09-26 from real data (for Andrew's check);
+> 01, 02, 08 and 09 still carry December content, marked, and are revised as diffs shown to Andrew
+> before the close (`PLAN.md` task A8).
 
 ## The documents
 
@@ -52,7 +53,7 @@ then 19–22. Ideas that are not design yet live in [`IDEAS.md`](IDEAS.md).
 | 16 | [`16-players-and-kit.md`](16-players-and-kit.md) | the slots, draws, pockets, luggage; the 206 interior | draft for review | [`clothing-warmth.md`](../architecture/clothing-warmth.md) |
 | 17 | [`17-rooms-and-living-rooms.md`](17-rooms-and-living-rooms.md) | individuation; state that persists; the prose style; the crash rooms | draft for review | [`containment.md`](../architecture/containment.md) |
 | 18 | [`18-materials-and-forms.md`](18-materials-and-forms.md) | the material table in plain words; forms; what is missing | draft for review | [`ontology-closure.md`](../architecture/ontology-closure.md) §2–3 |
-| 23 | [`23-flora-and-fauna.md`](23-flora-and-fauna.md) | the living things of the valley in December: what grows, what can be dug, caught, fished; the poison | draft for review | — |
+| 23 | [`23-flora-and-fauna.md`](23-flora-and-fauna.md) | the living things of the valley in October: what grows, what can be dug, caught, fished; the poison | draft for review | — |
 | 19 | [`19-multiplayer-and-instances.md`](19-multiplayer-and-instances.md) | instanced runs; seeing and talking across zones; interdependence; run modes | draft for review | [`perception-model.md`](../architecture/perception-model.md) |
 | 20 | [`20-the-agent-player-and-research.md`](20-the-agent-player-and-research.md) | what an agent is given; the same view as a human; the log; tags; replay; research runs | draft for review | [`adr/0005`](../architecture/adr/) |
 | 21 | [`21-endings-and-recap.md`](21-endings-and-recap.md) | rescued or dead; surviving long enough as the hardest rescue; ghosts; the recap | draft for review | — |
@@ -88,6 +89,32 @@ then 19–22. Ideas that are not design yet live in [`IDEAS.md`](IDEAS.md).
   habitat, in **this** month, in numbers that matter. Adding something because it exists somewhere in
   the region is as wrong as dropping something because there is already enough — and every row says
   what it actually yields, because the totals are what make the survival clock honest.
+- **Real life is the default answer** (Andrew, 2026-09-26: *"however it is in real life"*). A question
+  whose answer is a fact about the world — physiology, ecology, physics, weather, how a snare, a
+  fishing line or a spear actually works — is answered from reality, with sources, not put to Andrew
+  as a set of options. Numbers come from real data first and are tuned by probes after.
+- **State systems, not shortcuts** (Andrew, 2026-09-26: *"we dont want to be lazy here"*). Heat,
+  wetness, spoilage, damage and the rest are states on every entity that really has them — body parts
+  included — and systems change them: a fire heats its area and leaves residual heat in the areas
+  around it; the plane is an entity with openings that are open or closed and an internal heat that a
+  fire inside it raises; snow melts into water and food changes with heat because that is part of
+  what each object is. A recommendation that collapses a real process into "one rule instead of a
+  subsystem" is wrong.
+- **Never make the world less interactive** (Andrew, 2026-09-26: *"you keep trying to make the world
+  more interactive but less"*). Every real distinction a survivor would act on is in: raw, cooked and
+  spoiled meat differ; there is spoiled food and there are poisonous mushrooms; there are many ways to
+  hunt, trap, fish and kill, and a combat system like a MUD's. "Modestly", "trivially", "no special
+  verb", "falls out of existing operations" and "for v1" are warning words — check the sentence
+  against the real world before writing it.
+- **Answer in the ontology's terms** (documents 03–05): entities and their parts, materials, forms,
+  states, what each could become, relations, the systems that change them, and the grammar forms that
+  reach them. A variant that is ontologically significant — casting a line out versus dropping one
+  through a hole — is its own operation, as long as it follows the grammar rules.
+- **Only Andrew's questions go to Andrew**: taste, vision, what the game is for, what his friends'
+  evenings should feel like. What reality or the decided design already answers is answered in the
+  document, marked *"Claude's answer (date), for Andrew's check"*, so he can overrule it.
+- **No "locked" or "frozen"** for the design: it is a work in progress. A new idea of Andrew's that a
+  document does not allow changes the document; it is not a clash.
 - **Every claim has a source**: a quote of Andrew's with a date, a document section, a code path, or a
   probe id. If none exists, it is an open question.
 - **The world is open-ended**: never describe a verb set, a vocabulary or a room as finished or

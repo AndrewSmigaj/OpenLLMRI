@@ -74,6 +74,7 @@ def title_of(text: str, key: str) -> str:
 def inline(md: str) -> str:
     s = html.escape(md, quote=False)
     s = re.sub(r"`([^`]+)`", r"<code>\1</code>", s)
+    s = re.sub(r"~~(.+?)~~", r"<del>\1</del>", s)
     s = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", s)
     s = re.sub(r"(?<![*\w])\*(?!\s)(.+?)(?<!\s)\*(?![*\w])", r"<em>\1</em>", s)
     s = re.sub(r"\[([^\]]+)\]\(([^)]+)\)", r"<a href=\"\2\">\1</a>", s)
@@ -266,6 +267,10 @@ h5{font-size:.92rem;margin:.9rem 0 .2rem;color:var(--muted)}
 .questions .q{font-weight:600}
 .questions .opts{margin:.35rem 0 0;padding-left:1.1rem;color:var(--muted)}
 .questions .opts li{margin:.1rem 0;padding:0;border:0;background:none}
+.questions li.done{opacity:.62}
+.questions li.note{background:none;border:0;padding:0 .1rem;color:var(--muted)}
+.answered{display:inline-block;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border:1px solid var(--rule);border-radius:99px;padding:0 .45rem;margin-right:.4rem;vertical-align:middle}
+del{text-decoration-thickness:1px;color:var(--muted)}
 .qid{font-family:"IBM Plex Mono",monospace;color:var(--ember);font-size:.85rem;margin-right:.4rem}
 .default{display:inline-block;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--spruce);border:1px solid var(--spruce);border-radius:99px;padding:0 .45rem;margin-left:.4rem;vertical-align:middle}
 blockquote{margin:.6rem 0;padding:.2rem 0 .2rem 1rem;border-left:3px solid var(--rule);color:var(--ink)}
@@ -282,21 +287,30 @@ th{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--mu
 
 
 def render_questions_from_md(md: str) -> str:
-    """Turn a doc's open-questions markdown into numbered Q cards. The docs use either
-    '1. **Title**…' lists or '**Q1 — Title**' paragraphs; we keep each question's own text."""
-    # Split on top-level numbered items or **Qn** markers.
-    chunks = re.split(r"\n(?=(?:\d+\.\s+\*\*|\*\*Q\d+|\*\*\d+\.\s))", "\n" + md.strip())
+    """Turn a doc's open-questions markdown into numbered Q cards. The docs use '1. **Title**…' lists,
+    '**Q1 — Title**' / 'Q1 — Title' paragraphs, and struck answered ones ('~~1. …~~', '~~Q1 — …~~',
+    '~~**Q1 — …**~~'). Each question keeps its own number; text that is not a question (a preface
+    paragraph) is shown without a number."""
+    marker = r"(?:~~)?(?:\*\*)?(?:Q\d+\s*[—–-]|\d+\.\s)"
+    chunks = re.split(r"\n(?=" + marker + r")", "\n" + md.strip())
     chunks = [c.strip() for c in chunks if c.strip()]
-    if len(chunks) <= 1:
+    if len(chunks) <= 1 and not re.match(marker, md.strip()):
         return md_to_html(md)
     items = []
-    for n, c in enumerate(chunks, 1):
-        c = re.sub(r"^\d+\.\s+", "", c)
-        c = re.sub(r"^\*\*Q\d+\s*[—–-]\s*", "**", c)
-        c = re.sub(r"^\*\*\d+\.\s+", "**", c)
-        # mark the recommendation
-        c = re.sub(r"\*?\*?(Recommendation|Recommend)\*?\*?\s*:?", r"<span class='default'>default</span> **\1:**", c, count=1)
-        items.append(f"<li><span class='qid'>Q{n}</span>{md_to_html(c)}</li>")
+    for c in chunks:
+        m_num = re.match(r"^(?:~~)?(?:\*\*)?Q?(\d+)(?:\.\s|\s*[—–-])", c)
+        if not m_num:
+            items.append(f"<li class='note'>{md_to_html(c)}</li>")
+            continue
+        n = m_num.group(1)
+        done = c.startswith("~~")
+        # drop the number/label, keep any bold or strike that opened with it
+        c = re.sub(r"^(~~)?(\*\*)?(?:Q\d+\s*[—–-]\s*|\d+\.\s+)", lambda m: (m.group(1) or "") + (m.group(2) or ""), c)
+        if not done:
+            c = re.sub(r"\*?\*?(Recommendation|Recommend)\*?\*?\s*:?", r"<span class='default'>default</span> **\1:**", c, count=1)
+        cls = " class='done'" if done else ""
+        tag = "<span class='answered'>answered</span>" if done else ""
+        items.append(f"<li{cls}><span class='qid'>Q{n}</span>{tag}{md_to_html(c)}</li>")
     return "<div class='questions'><ol>" + "".join(items) + "</ol></div>"
 
 

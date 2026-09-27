@@ -247,7 +247,9 @@ exists and you get what exists, and the world says so. No refusal, no menu.
 - **bulk**, which does not exist today and is the real gap. A down sleeping bag is light and
   enormous; the aircraft battery is small and crushing. **Decided 2026-09-18 (Andrew): bulk derives from
   mass ÷ the material's density**, with an authored value winning — the same derive-then-override
-  shape the capabilities use. `density` becomes a material axis (document 18).
+  shape the capabilities use. `density` becomes a material axis (document 18). *(Claude, 2026-09-26,
+  for Andrew's check: porous things — snow, down, moss, a sleeping bag — use their as-found density,
+  with compression as a state, so a stuffed sack is smaller than a loose one; document 18 §4.8.)*
 
 **What a gathered quantity *is*, in your hands. Decided 2026-09-18 (Andrew): an aggregate.** Five
 gathered stones are one entity carrying a count and a total mass, not five objects — the object

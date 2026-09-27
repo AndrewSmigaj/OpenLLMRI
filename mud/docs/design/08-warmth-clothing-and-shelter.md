@@ -113,7 +113,11 @@ the rest.
    `Δ = −exposure(zone, weather, wind) + insulation(clothing, wet penalty) + fire_heat(distance)
    + activity_heat − wet_skin_penalty + huddle_bonus`.
 4. **Bands, as proposed:** fine ≥ 360 · cold 350–359 · shivering 340–349 · impaired 320–339 ·
-   dying < 320.
+   dying < 320. *(Claude, 2026-09-26, for Andrew's check: the real staging — Wilderness Medical Society
+   2019 — is mild 35–32 °C (shivering, clumsy), moderate 32–28 °C (impaired consciousness, shivering
+   stops), severe below 28 °C (unconscious; cardiac arrest risk rising, high below 24 °C). "Dying
+   below 32" is early; the bands follow the real staging when the numbers are drafted (PLAN A5), and
+   document 11 §4.6 carries the same thresholds.)*
 5. **The night-one rule** (§4.1a): the first night is survivable *inside the wreck, in the clothes
    you crashed in*, with no fire and no huddle. After that the ladder takes it away.
 6. **Wearability is derived, never whitelisted.** Anything flexible/fabric/soft/insulating and light
@@ -206,6 +210,13 @@ no affordance… it would light up the whole warmth loop") and `outside_nose.md`
 should cost more warmth than the cabin — wind unbroken, no walls… pairs with the block-the-draft
 gap; shelter is the same system from both sides"). What follows is the proposal that answers both.
 
+> *(Claude, 2026-09-26, for Andrew's check — change note from the A9 review.)* Inside the plane,
+> shelter now comes from the plane as an entity (Andrew, 2026-09-26): each opening is a part with an
+> area and an open/closed state, and the cabin has one air volume with an internal heat that bodies
+> and a fire raise and the skin and open openings lose (document 17 §4.8). The "two mutable numbers on
+> the zone" below stay right for outdoor shelters and remain the zone-level view; for the plane they are
+> derived from its openings and internal heat. The heat system's own document (PLAN A10) owns both.
+
 **Shelter is a property of a zone, not an object you own.** Every zone carries, as authored data:
 
 - **wind exposure** — how much of the weather's wind reaches a body standing in it. The valley
@@ -273,6 +284,10 @@ ignition sources present at the start — so a party that loses one can still ea
 night two asks for.
 
 ### 4.7 The cold ladder (December)
+
+> *(Superseded by the October ladder in document 13 §4.2, 2026-09-26 — real mid-October numbers, a
+> night one under cloud and a colder clear night two; this December table stays as the record and is
+> revised here as a diff shown to Andrew before the close, PLAN A8.)*
 
 The antagonist's schedule, indexed by game day, not by real time (`events-and-escalation.md` §2 —
 proposals, tunable): ambient about −12 °C by day and −20 °C at night on day 1, falling to −24/−32 by

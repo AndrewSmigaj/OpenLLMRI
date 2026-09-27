@@ -44,6 +44,19 @@
 - **Action tags — moral and other — are ontology fields (2026-09-16),** assigned in their own
   fleshing-out pass, read into the log and never into a score.
 
+**Decided since this draft** *(gathered here 2026-09-26 by Claude from this document's review log,
+documents 05, 19 and 23, and `PLAN.md` §5 — Andrew's decisions, not new ones):*
+
+- **Agents may be scaffolded as non-human characters with a persona brief (2026-09-17)** — still
+  players from the engine's side; agent runs are short sessions, like human ones.
+- **The bear, some of the bigger animals and a few birds act (2026-09-26)** — on the engine's
+  behaviour rules, or played from outside by a lightweight model when a run wants it.
+- **In a run with humans, a slow model is simply slow (2026-09-26).** Whether anything paces a fast
+  agent is open — asked once, as document 19 Q4.
+- **What counts as a wall (2026-09-18)** — five categories, counted separately (document 05 §4.5a).
+- **The runs end rescued or dead (2026-09-17)** — nothing else; the escalation ladder kills a party
+  that is not rescued.
+
 ### Proposals (Claude)
 
 - **Everything about the harness**: the two harness forms, the brain roster, the runner loop, how a
@@ -53,6 +66,8 @@
 - **The replay story** as a *research* instrument (the determinism it rests on is decided; using it to
   re-run and diff a trajectory is a proposal).
 - **"Walls per run" as the measure** and the wall-sensor's role as the loop's input queue.
+  *(annotated 2026-09-26: the measure and its five categories became Andrew's on 2026-09-18 —
+  document 05 §4.5a.)*
 - The tag axes (`target` × `harm` × `severity` × `witnessed_by`) and the warning that any logged
   label becomes an optimisation target the moment something is trained against it.
 
@@ -93,11 +108,23 @@ disambiguation list, a structured observation line, or any marker a human would 
 those was proposed by an earlier session and each was removed on 2026-09-16 (audit §3). The rule is
 one line: *structure goes to the log, never to the screen.*
 
+*(Claude, 2026-09-26 — §6 Q6; for Andrew's check.)* "The grammar guide, up front" is concretely the
+pre-scenario tutorial a person is shown — the forms with one example each, the time controls,
+movement, `help` (`PLAN.md` E19) — followed by the run's opening, in the same order. A model playing a
+**non-human character** also has its persona brief (Andrew, 2026-09-17) — the bear is told it is a
+bear — and the brief lives in the model's instructions, never on the screen. What such a character
+*sees* is what that body perceives: the same bands, and the senses the animal really has (a bear's
+nose outranges its eyes — the scent channel is still to be designed, document 19 §4.4).
+
 ### 4.2 The same view as a human
 
 The look is a title line, the prose, who is here, and one `Exits:` line — compass outdoors,
 fore/aft/out inside — with no item list (Andrew, 2026-09-16; document
-[03](03-the-player-view.md)). Perception is banded by zone, so an agent four zones from an event sees
+[03](03-the-player-view.md)). *(superseded in part 2026-09-26, from Andrew's 2026-09-17 decisions in
+document 03: people and animals are prose, by what they are doing; the exits are entities, written as
+prose below the room; crowded places show groups — "a pile of clothes" — that you look at to see
+into. Still no item list, and still byte-for-byte what a person reads.)* Perception is banded by
+zone, so an agent four zones from an event sees
 *"A shape shifts to the southeast"* exactly as a person would (document
 [19](19-multiplayer-and-instances.md)). Feedback on a failed command is a clarification (*"Which can
 do you mean?"*, *"I don't understand 'X'"*, a pointer to the grammar help) or the physics of why —
@@ -132,6 +159,12 @@ The planned brains:
 and the GPU, and a synchronous model call inside Evennia's single-threaded reactor would block every
 player. The runner loop is: observe → `brain.act(observation)` → send → read → log.
 
+*(Claude, 2026-09-26, from Andrew's 2026-09-17 and 2026-09-26 decisions.)* A brain may play a
+non-human character as well as a survivor: the bear, one of the bigger animals, one of the few birds.
+Andrew named a **lightweight model** for the animals; it runs through this same harness and socket,
+with its persona brief, and nothing on the engine's side changes. The pace a brain's commands reach
+the world at — the one open question here — is document 19 Q4.
+
 ### 4.4 The per-step log (proposal)
 
 The research artifact. Per applied action, the log records (`moral-social-layer.md` §2):
@@ -151,6 +184,20 @@ what makes deception legible without the engine ever judging it.
 Alongside it, the **wall-sensor** log: every attempt the world could not answer, with the unknown
 words. That file is the world-building loops' input queue (document
 [22](22-the-world-building-loops.md)).
+
+**Two streams** *(Claude, 2026-09-26 — §6 Q1; for Andrew's check).* The list above splits in two.
+The **ground-truth stream** is everything the engine knows at each step, complete, because a
+deterministic run can always regenerate it and nothing in it is an opinion: the actor; the line as
+typed and the parsed attempt; the tier that answered and its decision trace (DR-20); every Effect
+applied (conservation makes that the whole state change — GDD §24); zone, world-time, run and seed;
+who could perceive it, by band; **the exact text every character received**, byte for byte, since
+the observation is what the research varies; and the numbers behind every band word (document 06:
+`status` shows words, the log keeps the numbers). Unanswered attempts sit in the same stream, marked.
+The **interpretation stream** is everything derived: the action tags (read from the ontology's action
+rows), the five wall categories (document 05 §4.5a — the retry cluster is computed from the ground
+truth), and any later labelling. It is regenerated from a replay whenever a scheme changes, and it
+never shares a file with a success signal (§4.5's warning). Activations captured outside the game
+join both by run and step.
 
 ### 4.5 Tags
 
@@ -231,6 +278,9 @@ The measure, once agents play freely: **every wall becomes the next pass's input
 walls per run is how progress is read** — *"there is no finish line."* VISION states the same idea as
 the definition of a finished room: *"A room is never finished; it is 'no walls found in the last N
 runs'."* Walls come from the wall-sensor (unknown words included) and feed the world-building loops.
+*(annotated 2026-09-26: what counts is decided — Andrew, 2026-09-18, document 05 §4.5a: unknown word,
+unknown noun, generic answer, wrong refusal and retry cluster, each counted separately with its own
+trend line.)*
 
 ---
 
@@ -258,7 +308,19 @@ runs'."* Walls come from the wall-sensor (unknown words included) and feed the w
 
 ## 6. Open questions
 
-1. **What exactly is logged per step?** §4.4 is a proposal and has never been reviewed. The tension
+~~1. What exactly is logged per step?~~ **Claude's answer (2026-09-26), for Andrew's check:** two
+   streams, both complete — the draft's (b) without its "minimal", because determinism decides it:
+   whatever the engine knows can be regenerated from a replay, so logging all of it costs nothing in
+   truth and leaves nothing to reconstruct. **Ground truth:** the actor; the line as typed and the
+   parsed attempt; the tier and decision trace; every Effect applied; zone, world-time, run and seed;
+   who could perceive it, by band; the exact text every character received (the observation is what
+   the research varies); the numbers behind every band word (document 06). **Interpretation:** the
+   action tags (ontology fields — Andrew, 2026-09-16), the five wall categories (document 05 §4.5a),
+   any later labels — re-derived from a replay when a scheme changes, never in a file with a success
+   signal. §4.4 now carries this. What Andrew wants to *study* with the log is his — Q3 and Q5.
+
+   *The draft (2026-09-16), kept as the record:*
+   **What exactly is logged per step?** §4.4 is a proposal and has never been reviewed. The tension
    is real: the richer the log, the better the research and the more it looks like a label set
    someone will eventually optimise against.
    *Options:* (a) the full schema in §4.4; (b) a minimal core (actor, attempt, effects, world-time,
@@ -268,7 +330,22 @@ runs'."* Walls come from the wall-sensor (unknown words included) and feed the w
    interpretation can be re-derived from a replay when the tag scheme changes, and no trained
    objective can reach the tags by accident.
 
-2. **How is a research run started and seeded?** Nothing is decided. A run needs a seed, a scenario,
+~~2. How is a research run started and seeded?~~ **Claude's answer (2026-09-26), for Andrew's
+   check:** the draft's (c), with its stopping rule corrected. An agent-only run starts from the
+   pure-world harness on the command line — fast, headless, byte-reproducible; a run with people in it
+   can only be on the server, so it starts like any sitting and agents join over telnet. Either way
+   the run first writes a **manifest**: the seed (DR-12), the scenario and the build of the world it
+   ran against, which seats are played and by whom (a person; which model; which persona brief), and
+   the pace setting (document 19 Q4 — in an agent-only run it decides how much game time each step
+   costs). So any run replays, and two runs compare. **The stopping rule is the game's own:** rescued
+   or dead (Andrew, 2026-09-17 — "walked out" is not an ending and is struck from the draft), and a
+   run cannot go on forever because the escalation ladder kills a party that is not rescued (document
+   06, Andrew 2026-09-07). Halt and resume apply as in any sitting. A step budget is a harness guard
+   against a stuck or crashed brain — never a game rule, never an ending. The artifacts: the manifest,
+   the two log streams (§4.4), each character's transcript, and the wall report.
+
+   *The draft (2026-09-16), kept as the record:*
+   **How is a research run started and seeded?** Nothing is decided. A run needs a seed, a scenario,
    a party composition, a stopping condition, and a place to put its artifacts.
    *Options:* (a) a command-line entry point on the pure-world harness taking seed + scenario +
    brain; (b) an in-game admin command that spawns an instance and attaches brains; (c) both, with
@@ -277,7 +354,20 @@ runs'."* Walls come from the wall-sensor (unknown words included) and feed the w
    / a step budget — because "roughly a week of game time" is not a halting rule for an unattended
    agent.
 
-3. **Is cross-family sampling wanted?** The phrasing corpus says cross-family sampling *"waits for
+3. **Which model families play in Whiteout, and for what?** *(Sharpened 2026-09-26 by Claude; the
+   draft is kept below as the record.)* This is what research Andrew wants. The facts that bear on it:
+   activations can be captured only from weights run locally (the `TorchBrain`, §4.3); an API model —
+   Claude, or another vendor's — can play, but its insides cannot be studied; the phrasing samples
+   (§4.6) are where a second family would show whether the vocabulary is fitted to how one family
+   writes; and every family plays through the same socket and grammar, so adding one costs a brain,
+   not a design change.
+   *Options:* (a) the local weights plus Claude; (b) one other family added, for the phrasing samples
+   and behaviour runs; (c) several families across all research runs.
+   *Recommendation:* (b) — vocabulary is exactly where a second family earns its place, and the deep
+   behavioural runs stay on the local weights, where activations can actually be captured.
+
+   *The draft (2026-09-16), kept as the record:*
+   **Is cross-family sampling wanted?** The phrasing corpus says cross-family sampling *"waits for
    the play harness with an API-key brain"* — a `ClaudeBrain` is one family; another vendor's model
    is another. It is listed in the audit as still needing Andrew's call.
    *Options:* (a) single-family (the local weights plus Claude), which keeps everything reproducible
@@ -287,7 +377,18 @@ runs'."* Walls come from the wall-sensor (unknown words included) and feed the w
    whether the world is over-fitted to how one family writes; the deep behavioural runs can stay on
    the local weights where activations are actually capturable.
 
-4. **What is "a wall", exactly, and how is walls-per-run counted?** The wall-sensor already logs
+~~4. What is "a wall", exactly, and how is walls-per-run counted?~~ **Answered 2026-09-18 (Andrew),
+   in document 05 §4.5a:** all five categories, counted separately, each with its own trend line —
+   unknown word, unknown noun, generic answer, wrong refusal, retry cluster; the draft's (c) in
+   outline. **Claude's answer (2026-09-26), for Andrew's check, on the edges the draft raised:** the
+   reach gate's "too far to {verb} from here" is an answer, not a wall; a clarification the player
+   resolves is not a wall, and one they give up on shows as a retry cluster; a physically correct
+   refusal ("the branch will not take a spark") is the system working, and only a refusal a survivor
+   could really overcome is a *wrong refusal*; and an unknown noun is a different wall from an unknown
+   verb — the world is missing a thing, not a word — which is why they are counted apart.
+
+   *The draft (2026-09-16), kept as the record:*
+   **What is "a wall", exactly, and how is walls-per-run counted?** The wall-sensor already logs
    unanswered attempts, but the definition has edges: the reach gate's "too far to {verb} from here"
    is deliberately *excluded* (it is an answer, not a gap), a clarification is not a wall, and a
    physically correct refusal ("the branch will not take a spark") is the system working. Is an
@@ -299,7 +400,21 @@ runs'."* Walls come from the wall-sensor (unknown words included) and feed the w
    *Recommendation:* (c). One number will be gamed by whoever is trying to make it go down, and the
    four categories have four different owners in the loops.
 
-5. **Do agents and humans share instances in research runs?** Decided for play (mixed runs exist,
+5. **Are runs with people in them research data?** *(Sharpened 2026-09-26 by Claude; the draft is
+   kept below as the record.)* The engine does not know which mode it is in, and every run is logged
+   the same way (document 19 §4.2), so a mixed run's log exists whatever is decided. The question is
+   whether it is *used*, and on what terms for the people in it — Andrew's friends. The research value
+   is real: the co-op and moral material (the antenna hold, the shared blanket, the lie about the
+   cache) exists only with someone else in the run.
+   *Options:* (a) research uses agent-only runs; runs with people are play; (b) runs with people are
+   used too, with the humans' presence a recorded run condition and the people told their runs are
+   logged and may be studied; (c) as (b), and the people's own behaviour is studied as well, not only
+   the agents'.
+   *Recommendation:* (b) — it keeps the most interesting half of the design inside the research, and
+   telling the friends is both fair and what makes the data usable.
+
+   *The draft (2026-09-16), kept as the record:*
+   **Do agents and humans share instances in research runs?** Decided for play (mixed runs exist,
    same rules); undecided for research, where a human in the run is an uncontrolled variable and also
    the most interesting thing in it.
    *Options:* (a) research runs are agent-only, mixed runs are play; (b) mixed research runs are
@@ -309,7 +424,19 @@ runs'."* Walls come from the wall-sensor (unknown words included) and feed the w
    the lie about the cache) only exists when there is someone else in the room, and excluding humans
    would cut the research off from the most interesting half of the design.
 
-6. **Does the agent get any briefing beyond the grammar guide?** Decided: the grammar guide, up
+~~6. Does the agent get any briefing beyond the grammar guide?~~ **Claude's answer (2026-09-26), for
+   Andrew's check:** exactly what a person gets, and nothing a person does not — the draft's (b). A
+   person sees the pre-scenario tutorial (the forms with one example each, the time controls,
+   movement, `help` — `PLAN.md` E19) and then the run's opening; the agent gets the same text in the
+   same order. Who it is, what it wears and carries and how it is hurt, it learns as a person does —
+   `status`, `inventory`, looking at itself (the draw is made at run start, document 16). A character
+   sheet (the draft's (c)) would be a second channel, which the same-view rule forbids. The one
+   addition already decided is the persona brief of a non-human character (Andrew, 2026-09-17), which
+   lives in the model's instructions, never on screen. For research, the instructions are part of the
+   run manifest (Q2) and identical across the conditions compared. §4.1 carries this.
+
+   *The draft (2026-09-16), kept as the record:*
+   **Does the agent get any briefing beyond the grammar guide?** Decided: the grammar guide, up
    front. Not decided: whether it is told it has just survived a crash, who it is, what the party is
    — things a human would know from the game's own framing before typing anything.
    *Options:* (a) grammar guide only, cold start — it learns the situation by looking;
@@ -318,6 +445,9 @@ runs'."* Walls come from the wall-sensor (unknown words included) and feed the w
    *Recommendation:* (b) — whatever a human is shown on connecting is by definition the same view,
    and a cold start measures "can it work out it is in a plane crash", which is not the thing being
    studied. Any extra framing must be identical in both conditions or the comparison is void.
+
+*The agent's pace — Andrew's, and open — is asked once, as document 19 Q4, and answered there for
+both documents (the typing pace, a cap, or nothing).*
 
 ---
 
@@ -343,6 +473,18 @@ runs'."* Walls come from the wall-sensor (unknown words included) and feed the w
   there is nothing we can do about it when humans are playing."* In a run with humans the clock does
   not wait for a slow model. Whether anything paces a fast agent stays for this sitting, together with
   document 19 Q4.
+- **2026-09-26 (Claude, self-review — PLAN.md A9):** **Answered for Andrew's check:** Q1 (two complete
+  streams, ground truth and interpretation, with the exact text each character received and the
+  numbers behind the band words; §4.4 extended), Q2 (the pure harness for agent-only runs, the server
+  for runs with people; a run manifest; the stopping rule is the game's own — rescued or dead — with a
+  step budget only as a harness guard; "walked out" struck), Q4's edges (the question itself was
+  Andrew's, 2026-09-18, document 05 §4.5a), Q6 (exactly what a person is shown — the tutorial, then
+  the opening — plus the persona brief for a non-human character, never on screen; §4.1 extended).
+  **Left for Andrew, sharpened:** Q3 (which model families play, and for what) and Q5 (whether runs
+  with his friends in them are research data, and on what terms). The pace question points to
+  document 19 Q4. **Stale content marked:** the `Exits:`-line look (→ people, animals and exits as
+  prose; groups). **Added:** the decisions since the draft (§2); the lightweight-model brain for the
+  animals (§4.3).
 
 ## 8. What exists today
 

@@ -35,7 +35,7 @@ only honest pricing. Every resource out here costs at least two of the six curre
 | **Warmth** | every zone has an exposure band; open ice and the ridge drain you while you work |
 | **Sweat** | hard effort (digging, floundering, chopping) dampens clothing — a *deferred* cold debt |
 | **Tools** | blade, chopper, saw, container, cordage — each unlocks a different shelf of the world |
-| **Knowledge** | reading sign: tracks, ice color, blaze marks, squaw wood. `examine` is the tutor |
+| **Knowledge** | reading sign: tracks, ice color, blaze marks, dead spruce twigs. `examine` is the tutor |
 | **Risk** | thin ice, overflow, the cornice, the climb — always telegraphed, never random |
 
 **The anti-easy rule.** Nothing usable lies loose on the surface anywhere in the valley except

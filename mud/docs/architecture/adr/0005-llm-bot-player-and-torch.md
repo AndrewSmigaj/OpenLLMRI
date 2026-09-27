@@ -13,7 +13,10 @@ We want LLM-driven *characters* in Whiteout — for playtesting, for collecting
 `(observation, action)` training data against the local OSS-20B torch model, and
 eventually as companions. But the design forbids autonomous in-scenario NPCs
 (§3.3): *the dying pilot is scripted, not an AI.* And §41 forbids the LLM from
-touching deterministic state. Two further hard constraints:
+touching deterministic state. *(Update 2026-09-26: GDD §3 rules 2 and 5 now say it positively — the
+engine runs the world, including the bear and other animals on behaviour rules; language models play
+characters from outside, as players, including non-human ones such as an animal. That is this ADR's
+decision; the constraints below still hold.)* Two further hard constraints:
 
 - Evennia runs on a single-threaded **Twisted reactor**; a synchronous model call
   inside it blocks every player.

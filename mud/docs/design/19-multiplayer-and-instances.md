@@ -28,7 +28,9 @@
   together, online at the same time, acting concurrently…"*
 - **The run is roughly a week of game time, persisting across sittings (2026-09-07, DR-15a).**
   *"The run is **roughly a week** of game time, persisting across sittings; rescue can come earlier;
-  it can run longer until the food runs out; it is not permanent."*
+  it can run longer until the food runs out; it is not permanent."* *(superseded 2026-09-26, from
+  Andrew's 2026-09-17 decision: the week is played in **one sitting of two or three hours** — one shot,
+  or two with a halt and resume — a game played in sessions, not an ongoing world; DR-15b.)*
 - **Three run modes, all on the same rules (2026-09-16).** *"Runs are for friends, for humans and
   agents together, and for agents only"* ([`VISION.md`](../../VISION.md)); the architecture records
   the same decision as *"runs are for friends, for humans with agents, and for agents only, all on
@@ -38,18 +40,44 @@
   document [20](20-the-agent-player-and-research.md).
 - **The watch rule stands (2026-09-16).** *"one player who keeps acting holds the clock at 1× for
   everyone; the others wait for the next event (someone waking)."* One player holding the clock is
-  acceptable, not a problem to design away.
+  acceptable, not a problem to design away. *(superseded 2026-09-26, from Andrew's 2026-09-17 and
+  2026-09-18 decisions: the clock always runs at 15 game-minutes per real minute; `propose fast
+  forward` raises it to 180× when every player agrees, events drop it back, and a player who does not
+  agree keeps it at the base pace — so one player still holds the pace for everyone. "Watch rule" was
+  Claude's label and is dropped; being awake is being on watch — document 06.)*
 - **The clock may run 20× by consensus (2026-09-07, DR-14a).** When every connected player is
-  sleeping or waiting it advances at 20×, and events interrupt it.
+  sleeping or waiting it advances at 20×, and events interrupt it. *(superseded 2026-09-26, from
+  Andrew's 2026-09-17 decision: 180× by `propose fast forward`, from a base of 15 game-minutes per
+  real minute — DR-14b, document 06.)*
 - **No lethal-consent gate (2026-09-16).** *"a strike wounds, in every kind of run — friends, humans
   with agents, agents only"* (audit §1; `moral-social-layer.md` §1 rule 8). Multiplayer never turns
   a hit into a shove.
 - **The whole valley is in the first complete run (2026-09-16).** All fifty outdoor zones, the
   walk-out included — so a party can be spread across the valley, not just across a crash site.
+  *(annotated 2026-09-26: the walk-out route stays geography, but it is not an ending — the endings
+  are rescued or dead, and the cabin is supplies; Andrew, 2026-09-17.)*
 - **≥1 first-class interdependence is required (GDD §16).** *"add **≥1 first-class
   interdependence** (one holds/raises the antenna or relays the scout's landmark while another
   transmits) so co-op is a shared-story engine, not parallel solitaire."* The requirement is in the
   GDD; *which* interdependence ships is not settled (open question 2).
+
+**Decided since this draft** *(gathered here 2026-09-26 by Claude from this document's review log,
+documents 06, 21 and 23, and `PLAN.md` §5 — Andrew's decisions, not new ones):*
+
+- **Sessions, not persistence (2026-09-17)** — one sitting of two or three hours; halt and resume; a
+  member missing at resume is incapacitated where they lie (the party is warned).
+- **A dead player is a ghost (2026-09-17)** — moves freely, talks only in the global
+  out-of-character chat.
+- **Agents may be scaffolded as non-human characters (2026-09-17)** — still players from the
+  engine's side; agent runs are short sessions too.
+- **In a run with humans, a slow model is simply slow (2026-09-26)** — *"If something is slow they
+  are slow there is nothing we can do about it when humans are playing."* Whether anything paces a
+  fast agent is open (Q4).
+- **The bear, some of the bigger animals and a few birds act (2026-09-26)** — on behaviour rules the
+  engine runs, or played from outside by a lightweight model when a run wants it; so animals are
+  actors that perceive and are perceived, not only events and sign (document 23).
+- **A combat system like a MUD's is in (2026-09-26)** — violence resolves with real physics in every
+  kind of run.
 
 ### Proposals (Claude)
 
@@ -74,11 +102,14 @@ are — clearly if they are next door, as a shape moving in the snow four zones 
 to them: a whisper carries to the person beside you, a shout carries across the crash site, and the
 storm eats the difference. What you cannot do is *reach* them, or the orange case you can plainly see
 by the bulkhead; for that you walk over. The clock runs for everybody at once, so while you are
-prying at a jammed door your friend's fire is burning down and the pilot is dying on the same minutes
-you are spending. When you all sleep or wait, time runs fast until something interrupts it; when one
-of you keeps working, that person holds the clock at normal speed and the others wait for the next
-thing to happen. The run is yours alone — your own copy of the valley, no strangers walking through
-it — and it lasts about a week of game time across as many sittings as it takes.
+prying at a jammed door your friend's fire is burning down and the cold in the cabin is climbing on
+the same minutes you are spending. When you all agree to fast-forward — to sleep, or to wait out the
+dark — time runs fast until something interrupts it; if one of you does not agree, the clock keeps its
+normal pace for everyone and the others wait for the next thing to happen. The run is yours alone —
+your own copy of the valley, no strangers walking through it — and it covers about a week of game
+time in one sitting of two or three hours, or two with a halt between. *(Claude, 2026-09-26 — three
+sentences brought up to Andrew's 2026-09-17 decisions: the pilot starts the run dead, the fast
+forward is proposed and agreed, and a run is one sitting; for Andrew's check.)*
 
 ---
 
@@ -104,11 +135,12 @@ The lifecycle (**proposal**, DR-15):
 | stage | what happens |
 |---|---|
 | create | spawn the prototype set; tag every object with the run's `run_id`; seed the run's RNG (DR-12) |
-| persist | the run lives in Postgres while it is played, across sittings (DR-15a) |
+| persist | the run lives in Postgres while it is played, and across a halt until the party resumes it (DR-15b) *(Claude, 2026-09-26 — §6 Q3)* |
 | reset | delete the run's tagged objects (`search_object_by_tag`) at the end |
-| GC | a reaper Script sweeps **tag-orphans** — objects whose run has had no connected sessions past a timeout — rather than iterating live runs |
+| GC | a reaper Script sweeps **tag-orphans** — objects whose run has had no connected sessions past a timeout — rather than iterating live runs *(superseded 2026-09-26 — §6 Q3: a halted run is never an orphan; the reaper sweeps a run that has ended, rescued or dead, or been discarded, plus objects whose run no longer exists; for Andrew's check)* |
 
-The reaper timeout is unset (open question 3). *Implementation note carried from the architecture:
+The reaper timeout is unset (open question 3). *(Claude, 2026-09-26 — §6 Q3: no timeout is needed
+once a halt is a state of the run rather than an absence of sessions; for Andrew's check.)* *Implementation note carried from the architecture:
 `search_object_by_tag` lives under `evennia.search` / `evennia.utils.search`, and the reference
 instancing usage is `evennia/contrib/tutorials/evadventure/dungeon.py`.*
 
@@ -117,8 +149,12 @@ instancing usage is `evennia/contrib/tutorials/evadventure/dungeon.py`.*
 Friends only · humans and agents together · agents only. **One rule set.** Nothing in the engine asks
 which mode it is in: an agent connects to a player account over telnet and issues the commands a
 human issues (ADR-0005), and sees what a human sees. The consequences of "same rules" are concrete:
-violence resolves with real physics in every mode (no consent flag); the clock, the watch rule and
-the consensus fast-forward apply to agents exactly as to people; a research run is a run.
+violence resolves with real physics in every mode (no consent flag); the clock and the consensus
+fast-forward apply to agents exactly as to people; a research run is a run. *(Claude, 2026-09-26:
+"the watch rule" struck as a dropped label, 2026-09-17. And, from Andrew's 2026-09-17 and 2026-09-26
+decisions: an agent may play a survivor or a non-human character — the bear, one of the bigger
+animals, a bird — from outside, through the same grammar; the engine still does not know which it
+is.)*
 
 ### 4.3 Seeing across zones
 
@@ -165,6 +201,15 @@ events use the identical scale: quiet work carries a zone, shattering glass carr
 the storm is a social pressure and not just a temperature: as the weather closes in, the party's voices
 stop reaching each other before their bodies do.
 
+*(Claude, 2026-09-26, for Andrew's check — the acting animals.)* The bear, the bigger animals and the
+few birds that act (Andrew, 2026-09-26) perceive and are perceived through these same bands: a
+survivor sees the bear as a shape four zones off, and the bear hears a shout the way a person does.
+One channel the bands do not carry yet is **scent**. A real bear finds meat, a body and a camp by
+smell, downwind and far past sight; smoke and cooking carry on the wind for people too. Scent
+travels with the wind and lingers where sound does not, so it is not a loudness — it is its own
+propagation, owned by a scent-and-wind design, to be written with document 23's animals and
+document 13's wind.
+
 Every game message goes through the **propagator** rather than being broadcast to the room: for each
 observer the shell computes the band toward the event's source and renders *that band's* line — the
 full third-person line, then a direction-framed line, then *"…is working at something"*, then
@@ -195,8 +240,14 @@ Two decided amendments shape how a party actually spends an evening:
 
 - **Consensus 20× (DR-14a).** When every connected player is sleeping or waiting, time runs at 20×;
   cold, a dying fire, a loud event, danger, or *any player's command* interrupts it.
+  *(superseded 2026-09-26, from Andrew's 2026-09-17 decision: the base pace is 15 game-minutes per
+  real minute, and `propose fast forward` raises it to 180× when every player agrees; events drop it
+  back — document 06.)*
 - **The watch rule (Andrew, 2026-09-16).** One player who keeps acting holds the clock at 1× for
   everyone; the others wait for the next event. This is accepted, not a fault to engineer around.
+  *(superseded 2026-09-26, from Andrew's 2026-09-17 and 2026-09-18 decisions: a player who does not
+  agree to the fast forward keeps the base pace for everyone; the label is dropped; being awake is
+  being on watch, and the awake receive the events sleepers do not — document 06.)*
 
 ### 4.7 Interdependence — the one thing co-op must have
 
@@ -218,6 +269,32 @@ The carry of an injured survivor is a third candidate from the same source.
 The exit condition for the phase that builds this is *"≥1 interdependence genuinely **requires**
 cooperation"* (roadmap P6) — a real gate, not a checkbox.
 
+**The mechanism** *(Claude, 2026-09-26 — §6 Q2; for Andrew's check).* Interdependence is what the
+physics gives when an act's needs exceed one body, so it is built once, as a general rule, and every
+real case follows from it. An operation's needs — a capability at a level (`heft`, `leverage`), a
+free hand, a body's heat, a position, a line of sight — are met by **what the actors present bring
+together, read from each one's concurrent state**; and because an activity's progress lives on the
+world (document 06), two people can work one job. What that makes real, from how the things actually
+work:
+
+- **the antenna held up high** outside while another keys the microphone in the cockpit — the
+  antenna's quality already reads height and placement (document 14), and aircraft VHF is line of
+  sight, so height is range;
+- **the landmark relayed** from where it can be seen to the person at the radio, by the speech and
+  sight ranges above;
+- **the carry** of someone who cannot walk — an adult is more than one person can carry over snow for
+  any distance;
+- **the huddle** — another body's heat is by definition another person (document 08); this one
+  *genuinely requires* two, which is the P6 gate met by physics;
+- bracing a log while another saws it; holding the light while another works; hauling someone out
+  through the ice; lifting what one person cannot shift — and whatever else the loops find.
+
+None of these is a two-player script, and almost none is the only path: a person alone can lash the
+antenna to a pole or drag a travois (≥3 paths per goal), so cooperation is usually the better answer
+rather than the only one — which is what keeps a party of one a real run. Which is built first is
+ordering: `PLAN.md` E13 names the antenna hold; the huddle arrives with warmth, earlier in the build
+order (document 06).
+
 ### 4.8 What is deliberately *not* here (proposals)
 
 - **No party chat channel and no out-of-world coordination layer.** Talking is in-world speech with a
@@ -225,6 +302,9 @@ cooperation"* (roadmap P6) — a real gate, not a checkbox.
   decides this either way, and Evennia's stock out-of-character channel typeclass is present in the
   scaffold ([`game/typeclasses/channels.py`](../../game/typeclasses/channels.py)) — so this is a
   proposal that needs a yes or a no, not a description of what is built.*
+  *(annotated 2026-09-26: Andrew's 2026-09-17 ghost decision made an out-of-character channel real —
+  a dead player talks only in the global out-of-character chat. The live question is now who reads
+  it during a run: §6 Q6.)*
 - **No shared status readout of other players.** You learn how your friend is doing by looking at
   them, being told, or watching them fail. This follows from never-a-menu (a status panel is a list
   of facts nobody perceived) but has not been decided as such.
@@ -257,13 +337,41 @@ cooperation"* (roadmap P6) — a real gate, not a checkbox.
 - [21 — endings and recap](21-endings-and-recap.md): an ending is a run's ending; the recap reads one
   run's log.
 - [12 — the pilot and bodies](12-the-pilot-and-bodies.md): the pilot's moaning is *"heard only in the
-  cockpit"* — a perception constraint.
+  cockpit"* — a perception constraint. *(superseded 2026-09-26: the pilot starts the run dead
+  (Andrew, 2026-09-17), so there is no moaning; what document 12 takes from here is witnessing — who
+  could see what was done to his body, by band.)*
+- *(added 2026-09-26)* [08 — warmth, clothing and shelter](08-warmth-clothing-and-shelter.md): the
+  huddle is an interdependence (§4.7). [11 — injury and first aid](11-injury-and-first-aid.md): the
+  carry, and tending a survivor who is incapacitated or whose player is gone (§6 Q5).
+  [23 — flora and fauna](23-flora-and-fauna.md): the acting animals perceive and are perceived by
+  band; scent is a channel still to be designed (§4.4). [21 — endings](21-endings-and-recap.md): the
+  ghosts and their out-of-character chat (§6 Q6).
 
 ---
 
 ## 6. Open questions
 
-1. **How many players does a run support?** The fiction seats four or five (the 206's 1A/1B/2A/2B
+1. **How many people play one run, and what is in a seat nobody plays?** *(Sharpened 2026-09-26 by
+   Claude; the draft is kept below as the record.)* The plane carries five survivors — 1A/1B/2A/2B and
+   the right seat, the kid included (Andrew, 2026-09-16) — and the pilot, dead at the start. Already
+   settled: one survivor per player; an agent, or a model playing a non-human character, is a player
+   like any other (2026-09-17); every mode runs on the same rules; freight and mail ride in the plane
+   whoever is aboard (document 10 §4.3). Document 16 Q3 asks the same question from the kit side and
+   should be answered with this one. What Andrew is deciding is the social shape of an evening: the
+   most people one run seats, whether one person alone is a run, and what is in a seat nobody plays.
+   *Options for the unplayed seat:* (a) nobody flew in it — and, as on a real Alaskan air-taxi run,
+   an empty seat carries freight instead, so the plane holds as much to work with as a full party's;
+   (b) its survivor flew and died in the crash — a second body, with clothes and luggage, beside the
+   pilot's; (c) its survivor is aboard, alive and incapacitated by the crash — someone the party must
+   keep alive from the first minute; (d) an agent plays that survivor (the humans-with-agents mode).
+   *Recommendation:* up to five players, one survivor each; one person alone is a run (a party of one
+   on the same code path); an unplayed seat is (d) when the run includes agents and (a) otherwise —
+   freight in an empty seat is what a 206 on a bush route really flies with, it keeps the world as full
+   of material as a full party's, and it adds no body the party did not choose. (b) and (c) are real
+   and strong, and each changes the tone of every smaller run — which is why this is his.
+
+   *The draft (2026-09-16), kept as the record:*
+   **How many players does a run support?** The fiction seats four or five (the 206's 1A/1B/2A/2B
    plus the right seat; the kid is in — Andrew, 2026-09-16); the slice was scoped at 2–3 in one room;
    the GDD says "small-party". These are three different numbers for three different things and none
    of them is a decided player cap.
@@ -274,7 +382,26 @@ cooperation"* (roadmap P6) — a real gate, not a checkbox.
    the others absent from the fiction — it keeps "the party" one concept and it is the only option
    that needs no new system.
 
-2. **Which interdependence is the first-class one?** The antenna hold, the landmark relay, and the
+~~2. Which interdependence is the first-class one?~~ **Claude's answer (2026-09-26), for Andrew's
+   check:** all of them, and every other one the physics gives — picking one was a false either/or
+   between authored set pieces, and the draft's own option (c) was the answer. Interdependence is not
+   a feature; it is what happens when an act's physical needs exceed one body. In the ontology's
+   terms, an operation's needs (a capability at a level — `heft`, `leverage` — a free hand, a body's
+   heat, a position, a line of sight) are met by what the actors present bring together, read from
+   each one's concurrent state, and an activity's banked progress lets two people work one job
+   (document 06). That makes real: the antenna held up high outside while another keys the radio
+   (antenna quality already reads height and placement — document 14; aircraft VHF is line of sight,
+   so height is range); the landmark relayed to the radio by speech range; the carry (an adult is more
+   than one person carries over snow for any distance); the huddle (another body's heat is another
+   person — document 08 — and this one *genuinely requires* two, so the roadmap's P6 gate is met by
+   physics); bracing a log for the saw; holding the light; hauling someone out through the ice;
+   lifting what one person cannot. Almost none is the only path — one person can lash the antenna to
+   a pole or drag a travois (≥3 paths per goal) — so a party of one stays a real run. Which is built
+   first is ordering (`PLAN.md` E13: the antenna hold; the huddle lands earlier, with warmth). §4.7
+   carries the mechanism.
+
+   *The draft (2026-09-16), kept as the record:*
+   **Which interdependence is the first-class one?** The antenna hold, the landmark relay, and the
    carry are all named in the sources; the requirement says one, and none is chosen.
    *Options:* (a) the antenna hold; (b) the landmark relay; (c) build the general capability
    (an action whose quality term depends on another character's concurrent state) and let several
@@ -283,7 +410,19 @@ cooperation"* (roadmap P6) — a real gate, not a checkbox.
    the exact "authored set piece" the systemic design exists to avoid, and the antenna's quality
    equation already has a slot for it.
 
-3. **Reset, persistence and the shape of a sitting — and a contradiction to settle.** GDD §9/§16 says
+~~3. Reset, persistence and the shape of a sitting.~~ **Answered 2026-09-17 (Andrew): sessions, not
+   persistence** — a run is one sitting of two or three hours covering about a week of game time, one
+   shot or two with a halt and resume; a member missing at resume is incapacitated where they lie; the
+   empty-instance clock question is closed by the halt (review log). The GDD's one-day wording has
+   since been struck (`PLAN.md` §5, 2026-09-17). **Claude's answer (2026-09-26), for Andrew's check,
+   on what the draft left — the reaper:** a halted run is never reaped — a halt is the party's choice
+   to come back, not an abandonment, so it is a state of the run, not an absence of sessions. The
+   reaper sweeps a run when it ends (rescued or dead, document 21) or is discarded, and sweeps objects
+   whose run no longer exists. There is no timeout to set, and "abandoned" versus "asleep between
+   sittings" is the difference between a discarded run and a halted one. §4.1 is updated to match.
+
+   *The draft (2026-09-16), kept as the record:*
+   **Reset, persistence and the shape of a sitting — and a contradiction to settle.** GDD §9/§16 says
    a party played *"to resolution (~1 in-game day); then the instance resets"* — corrected in place on
    2026-09-17: that wording was never Andrew's; the run was always a week. Andrew's
    amendment (2026-09-07, DR-15a) says the run is *"roughly a week of game time, persisting across
@@ -300,7 +439,33 @@ cooperation"* (roadmap P6) — a real gate, not a checkbox.
    real-world Tuesday learns nothing interesting; the pressure the clock exists to create is
    within-sitting pressure.
 
-4. **How do agents and humans mix in one instance?** Decided: same view, same rules, same clock. Not
+4. **Does anything pace a fast agent?** *(Sharpened 2026-09-26 by Claude; decided together with
+   document 20, whose review log holds Andrew's words; the draft is kept below as the record.)*
+   Already settled: an agent is a party member — a survivor in a seat, or a non-human character with
+   a persona brief (2026-09-17) — with the same view, rules and clock, never an observer; in a run
+   with humans the clock never waits for a slow model (2026-09-26); an agent agrees to `propose fast
+   forward` or does not, like anyone, so it can hold the base pace exactly as a person who does not
+   agree can. Whether the humans are told who is a model is split out as Q7. And the draft's fear —
+   a model monopolising the clock — is mostly answered by the clock's own design: every physical act
+   takes its honest game duration and occupies its actor (one activity per actor, document 06), so a
+   fast model cannot do more work per game-minute than a person. What it still has is **reaction**:
+   no reading or typing, the next act the instant the last one ends. An average typist manages about
+   52 words a minute (Dhakal et al., CHI 2018, 168,000 typists) — some seven real seconds for
+   `cut cover off seat with shard`, nearly two game-minutes at the base pace. That gap is the whole
+   decision. In an agent-only run there is no human pace at all, so the same setting also decides how
+   much game time each step costs.
+   *Options:* (a) nothing paces it — a fast agent is simply fast, as a slow one is simply slow
+   (*"not sure we should cap anything"*, 2026-09-26); (b) the typing pace — a command reaches the
+   world no sooner than an average typist could have typed it, and the model's thinking time stays its
+   own, so a slow model stays slow (Andrew's own wish, 2026-09-26, document 20); (c) a fixed minimum
+   gap between commands (the draft's rate cap).
+   *Recommendation:* (b) — it is the agent Andrew described wanting, it takes away only the one
+   advantage no person can match, it never makes anything wait for a model, and in an agent-only run
+   it is what gives every step an honest cost on the clock. (c) is a cruder (b); (a) lets a model win
+   every race to the orange case by reaction alone.
+
+   *The draft (2026-09-16), kept as the record:*
+   **How do agents and humans mix in one instance?** Decided: same view, same rules, same clock. Not
    decided: whether an agent in a mixed run is a *character in the party* (with the fiction's
    luggage, injuries and name) or an observer-participant; whether the humans are told which
    survivors are agents; whether an agent's much faster action rate breaks the watch rule (an agent
@@ -311,7 +476,19 @@ cooperation"* (roadmap P6) — a real gate, not a checkbox.
    *Recommendation:* (b) plus (c) — the rate cap is a real mechanical need created by the watch rule,
    and telling friends "two of the five are models" is part of the fun, not a leak.
 
-5. **What happens when a player disconnects mid-run?** Undecided, and load-bearing: the clock keeps
+~~5. What happens when a player disconnects mid-run?~~ **Claude's answer (2026-09-26), for Andrew's
+   check — the half the decided design settles; the other half is the rewritten Q5 below.** When the
+   last player leaves, the sitting halts (halt and resume, 2026-09-17): the clock stops because the
+   run is halted, which is not a hole in the running clock. When one player among several drops, the
+   missing-member rule applies at once rather than only at resume: their survivor is incapacitated
+   where they lie, and the party is warned (2026-09-17). An incapacitated survivor is a body in the
+   world — core and extremity heat, wetness, hunger, thirst and wounds keep changing by the same
+   systems as anyone's — and the party can carry them in, cover them, huddle them, feed them; the
+   player returns to whatever state the body is in. The draft's (c) is the first half of this. What
+   is left is only whether that body may reach death.
+
+   *The draft (2026-09-16), kept as the record:*
+   **What happens when a player disconnects mid-run?** Undecided, and load-bearing: the clock keeps
    running, the character is a body in the world with warmth and hunger, and the reaper's definition
    of an orphan is "no connected sessions past a timeout".
    *Options:* (a) the character stays in the world and keeps ticking (they can freeze while offline);
@@ -319,6 +496,42 @@ cooperation"* (roadmap P6) — a real gate, not a checkbox.
    when the last player disconnects (the pairing of option 3a).
    *Recommendation:* (c) for the last player out, (b) for one player among several — "your friend
    froze because his wifi dropped" is the one death nobody will accept as physics.
+
+5. **Can a survivor die while their player is disconnected?** *(Rewritten 2026-09-26 by Claude.)* The
+   body is incapacitated where it lies and every system keeps running on it (above). Andrew is
+   deciding what an evening with friends can bear: a dropped connection as a death, or not.
+   *Options:* (a) yes — the systems run to the end, and keeping the absent friend alive is the party's
+   job, like any other incapacitated survivor (the dropout becomes a co-op problem: carry them in,
+   cover them, share the fire); (b) the systems run, but the body stops at the brink — alive, gravely
+   cold or hurt — until its player returns, and the physics resumes from there; (c) the party decides
+   at the moment of the warning whether to halt the sitting for everyone.
+   *Recommendation:* (a) with (c) — "incapacitated where they lie" already makes the absent survivor a
+   physical body the party must answer for, a body that cannot die would be the one exception to the
+   world's physics, and the warning plus the option to halt gives the table its way out. (b) is the
+   gentler rule if a death by dropped connection feels wrong at the table.
+
+6. **Who reads the out-of-character chat?** *(New 2026-09-26 — the ghost decision made real a channel
+   §4.8 said did not exist.)* Settled: a dead player is a ghost who moves freely and talks only in the
+   global out-of-character chat (2026-09-17); the living talk in the world, where speech has a range
+   and the storm eats it (§4.4). Open: whether the living read that chat during a run. A ghost walks
+   the whole valley, so whatever it tells the living is scouting from outside the world — where the
+   cache is, what is over the ridge, where the bear is.
+   *Options:* (a) everyone reads it, living and dead; (b) only the dead read it during the run, and the
+   living see it in the recap; (c) everyone reads it, and ghosts are asked by the table not to scout.
+   *Recommendation:* (b). In-world speech stays the living's only channel, which is what makes the
+   storm a social cost; a dead agent cannot scout for living ones, which a second channel into the
+   run would allow (the same-view rule, document 20); and the recap gives the ghosts' commentary back
+   to everyone at the end. Friends on a voice call will talk anyway — that is outside the game.
+
+7. **Are the people in a run told which survivors are models?** *(Split out of the draft Q4,
+   2026-09-26.)* How an evening with friends feels, and also a research condition: a person who knows
+   a companion is a model may treat it differently, and that difference is itself data (document 20
+   Q5). A model playing the bear needs no disclosure; this is about survivors.
+   *Options:* (a) told at the start, by name; (b) told that models are present, not which; (c) not
+   told; revealed in the recap.
+   *Recommendation:* (a) for friends' runs — the draft's reason stands: "two of the five are models" is
+   part of the fun, not a leak; in a research run the choice is a recorded run condition, so (b) and
+   (c) can be studied on purpose.
 
 ---
 
@@ -338,6 +551,21 @@ cooperation"* (roadmap P6) — a real gate, not a checkbox.
   is slow they are slow there is nothing we can do about it when humans are playing."* Bears on Q4: the
   clock never waits for a slow model; whether a fast agent is paced or capped stays for the sitting
   (document 20 holds the typing-speed wish).
+- **2026-09-26 (Claude, self-review — PLAN.md A9):** **Answered for Andrew's check:** Q2 (the
+  interdependence — all of them, from one general rule: an act's needs met by what the actors present
+  bring together; the huddle genuinely requires two; §4.7 gains the mechanism); Q3's remainder (a
+  halted run is never reaped; no timeout; §4.1 updated — the rest of Q3 was Andrew's, 2026-09-17);
+  Q5's first half (the last player out halts the sitting; one player dropping is the missing-member
+  rule at once). **Rewritten:** Q5 as *can a survivor die while their player is gone?* (the draft's
+  "protected from death" stepped around the systems). **Left for Andrew, sharpened:** Q1 (how many
+  play, and what is in an unplayed seat — freight, a body, an incapacitated survivor, or an agent;
+  one question with document 16 Q3), Q4 (the pace of a fast agent — the typing pace, a cap, or
+  nothing; the monopoly fear mostly answered by one activity per actor), Q5, and two new: Q6 (who
+  reads the ghosts' out-of-character chat) and Q7 (whether people are told which survivors are
+  models). **Stale content marked:** 20× and the watch rule (→ 15 game-min per real min, 180× by
+  consensus), persistence across sittings (→ one sitting), the dying pilot in §3 and §5, the walk-out.
+  **Added:** the decisions since the draft (§2), the acting animals and scent as a channel still to
+  be designed (§4.4), the new interactions (§5).
 
 ## 8. What exists today
 

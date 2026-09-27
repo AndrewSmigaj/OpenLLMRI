@@ -27,7 +27,7 @@ logistics start crude and immediate rather than arriving gift-wrapped at hour fo
 **Hour 2 — the first radial expeditions.** Whichever plan wins, its first leg crosses
 teaching country: the muskeg's drifted channel punishes straight-line thinking on the way
 to the lake; the strike path pays salvage immediately (boughs, the tire, the wing's drip)
-on the way up; the north wood hands over squaw wood and the camp site on the way anywhere.
+on the way up; the north wood hands over dead spruce twigs and the camp site on the way anywhere.
 The tuition zones (drifted channel, inlet mouth, overflow bend) all sit on FIRST legs by
 design — the map spends its cheap lessons early so the expensive country later is met with
 skills, not luck. The inlet now teaches AND tempts in the same forty feet: the shore lead
@@ -81,7 +81,7 @@ engineering, and navigation are separate accounts.
 
 ## 3. The economies, as room networks
 
-- **Fuel**: squaw wood (starter, north wood) → dwarf birch / krumm / black-spruce twigs
+- **Fuel**: dead spruce twigs (starter, north wood) → dwarf birch / krumm / black-spruce twigs
   (kindling, priced in armloads) → deadfall + logjam (bulk, tool-priced) → drift log +
   far burn + woodshed (jackpots, distance/tool-priced). Fire is always POSSIBLE; scale is
   always EARNED.
@@ -99,7 +99,7 @@ engineering, and navigation are separate accounts.
   (self-made capital) → game trails / causeway / tunnel (the world's own roads,
   knowledge-priced) → snowshoes (cache) → the repaired freight sled (the endgame that
   makes the woodshed matter at the wreck). A full progression now, crude-to-mastery.
-- **Fire-craft as its own arc**: lighter → squaw wood habit → birch bark (weatherproof
+- **Fire-craft as its own arc**: lighter → dead-twig habit → birch bark (weatherproof
   start) → punk-cupped embers (portable flame, aspen fringe) → chaga spark (lighterless
   insurance) → avgas (dangerous shortcut). The birch stand's two zones split it cleanly:
   the grove starts fire anywhere, the fringe carries it forward.
@@ -151,7 +151,7 @@ by existing systems (green boughs = white smoke is already authored; the tire = 
 | overflow | overflow_bend | creek corridor | the same bend at dusk, loaded |
 | tracking/sign | tamarack ravens, willow runs | snares, ptarmigan | baited-run optimization |
 | blaze navigation | blaze_gateway | the trapline both ways | the tunnel in near-whiteout |
-| fire craft | squaw wood, birch bark | every camp | wind-engineering on the ice; ember transport |
+| fire craft | dead spruce twigs, birch bark | every camp | wind-engineering on the ice; ember transport |
 | reading people | the wreck's story | Holt's sets, the yard | "leave the box full" |
 
 The exams are the tutorials' own rooms revisited under worse conditions — the map re-uses
@@ -212,7 +212,7 @@ should be the one place the world pre-paid the first move.*
 
 **C. Agent-playability (the ontology goal) — can a text-reading agent solve this?**
 Audit: every knowledge-priced resource was checked for an IN-GAME teacher. PASS with one
-systemic finding: **the manual is now the world's textbook** — squaw wood, blue ice,
+systemic finding: **the manual is now the world's textbook** — dead spruce twigs, blue ice,
 overflow probing, snare craft, signals, bulged cans, pool fishing, the bivvy all cite
 it. That makes the manual's authored read-pages CRITICAL content equal in rank to the
 zone looks. *Fix for pass 3 (I-9): rooms.md gains a cross-cutting section enumerating

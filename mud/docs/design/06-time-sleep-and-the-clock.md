@@ -145,7 +145,8 @@ tick lines) and warmth the next day.
 it backwards or stall it; the storm and the search run on the calendar regardless.
 
 **The run length (DR-15a):** the instance persists across sittings for roughly a week of game time; it
-ends by rescue, walk-out, or the last death — never by a timer.
+ends by rescue, walk-out, or the last death — never by a timer. *(Since 2026-09-17: rescue or death
+only — the walk-out is not an ending; a run is one sitting of two or three hours, halt/resume.)*
 
 ### The watch
 When one player keeps acting while others sleep or wait, the clock holds at its normal 1× — it does
@@ -222,7 +223,9 @@ thirst** — integer calories and hydration spent per tick and per activity, sno
 designed in [`10-food-and-hunger.md`](10-food-and-hunger.md). **Injury** — named wounds, bleeding,
 infection after untreated hours, binding and splinting — designed in
 [`11-injury-and-first-aid.md`](11-injury-and-first-aid.md). **The pilot** — a scripted process ending
-within the first day, tended like any other physical thing — designed in
+within the first day, tended like any other physical thing *(since 2026-09-17 he starts the run dead;
+his body is the process now — cooling, stiffening, freezing over days, smelling, drawing the bear and
+the ravens — document 12 §4.3a)* — designed in
 [`12-the-pilot-and-bodies.md`](12-the-pilot-and-bodies.md). The escalation ladder
 ([`13-events-escalation-and-weather.md`](13-events-escalation-and-weather.md)) and the rescue weather
 window ([`14-rescue-paths.md`](14-rescue-paths.md)) also run on this clock.

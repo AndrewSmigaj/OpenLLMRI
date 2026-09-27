@@ -105,6 +105,10 @@ The fifty outdoor zones already price water honestly (`rooms.md`):
 - **Blue ice** — the shore apron's blue ice chunks are "cleaner and denser than snow for melting",
   and the pressure ridge's clear blue slabs are "the cleanest melt-water stock on the map, already
   broken into liftable slabs (a container and a fire still gate the payoff)".
+> *(A8, 2026-09-26: Holt's water hole and the overflow bend below are midwinter features; at October
+> freeze-up the creek is mostly open or skinned with shore ice and overflow comes later. Revised as a
+> diff shown to Andrew before the close.)*
+
 - **Holt's water hole** — a chopped basin in the creek ice under a weighted plank lid, a dipper can
   hanging on its wire above it. Break the thin skin and the homestead has bucket water with none of
   the riffle's risk: the walk-out route's reward, made concrete in chores.

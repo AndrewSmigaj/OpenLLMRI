@@ -65,6 +65,22 @@ The decisions that carries, itemised:
 - **Who does what (2026-09-16).** *"Fable plans; Opus 5 implements and grades its own work"*
   (audit §1); cheaper models take mechanical and prose work.
 
+**Decided since this draft** *(gathered here 2026-09-26 by Claude from document 05's review log,
+`docs/design/README.md` and `PLAN.md` §5 — Andrew's decisions, not new ones):*
+
+- **The schema is designed in full, up front; the pilot verifies it (2026-09-18)** — document 05
+  §4.5, every field required, conditional or derived, and tagged with the pass that fills it.
+- **The merge unions and never drops; agreement is a count; every firing writes an analysis of what
+  each model found (2026-09-18)** — document 05 §4.5.
+- **The scaffold is piloted on the draft, then rewritten from the output; goal lenses are the
+  backbone, plus human lenses (2026-09-18)** — document 05 Q2 and Q3.
+- **Walls per run counts five categories, separately (2026-09-18)** — document 05 §4.5a.
+- **Real life is the default answer; state systems, not shortcuts; never make the world less
+  interactive (2026-09-26)** — the writing rules in `docs/design/README.md`, which the scaffold
+  carries to the world-builders and scouts (§4.3).
+- **Ecology is a real filter (2026-09-18)** — a species is in the valley only if it lives in this
+  habitat, this month, in numbers that matter.
+
 ### Proposals (Claude)
 
 Everything structural below. Specifically:
@@ -75,10 +91,14 @@ Everything structural below. Specifically:
   will be adjusted; the sentences are drafted.
 - **The queue** — its file, its format (zone × phase × model), and its ordering.
 - **The merge step** — that the two models' outputs are merged by a third pass, and that provenance
-  is kept per row so each model's contribution stays visible.
+  is kept per row so each model's contribution stays visible. *(annotated 2026-09-26: the merge rule
+  became Andrew's on 2026-09-18 — union, never drop, provenance a list; §6 Q3.)*
 - **The YAML schema** (§4.4), the seeding tool, the viewer's page structure, `make validate-ontology`.
+  *(annotated 2026-09-26: the schema is document 05 §4.5's, designed in full on Andrew's 2026-09-18
+  decision; §4.4 below is superseded by it.)*
 - **The firing size**, the morning artifact, and the parallelism.
-- **"Walls per run" as the measure** and the wall-sensor as the loop's input queue.
+- **"Walls per run" as the measure** and the wall-sensor as the loop's input queue. *(annotated
+  2026-09-26: the measure and its five categories became Andrew's on 2026-09-18 — document 05 §4.5a.)*
 
 ---
 
@@ -122,6 +142,13 @@ Andrew's sequence, with the steps that are his marked, and the rest proposals:
 Step 0 is a gate, not a preference: *"no agent runs in a loop before every design doc is finalized."*
 Steps 2 and 3 write **no code** — that is the sharpest break from the July loop (§4.7).
 
+*(Claude, 2026-09-26, for Andrew's check.)* Step 0 now includes the system documents the 2026-09-26
+review found missing (`PLAN.md` A10) — at least combat; heat as a state on every entity and body part,
+with fire heating its area and the plane's openings and internal heat; hunting, trapping and fishing;
+food state and spoilage. The world-builders write every entity's `states` and `could_become`, and
+those documents are what say which states and transforms exist; a zone written before them would be
+rewritten after.
+
 ### 4.2 Both models, as peers
 
 Every room gets both passes. The two briefs differ on purpose, which is the entire reason for running
@@ -135,7 +162,9 @@ two:
 **Outputs are merged and never ranked** — neither model's list is the reference the other is graded
 against. Every row carries provenance (agent, model, pass, date, and the source document or line it
 came from), so which model found what stays visible and the briefs can be adjusted from evidence
-rather than impression. A Sonnet merge step reconciles duplicates.
+rather than impression. A Sonnet merge step reconciles duplicates. *(annotated 2026-09-26: the merge
+**unions and never drops** — Andrew, 2026-09-18, document 05 §4.5; what "reconciling" means under
+that rule is §6 Q3.)*
 
 The same peer rule applies to the possibility pass, for the same reason: one model imagines the
 unexpected tries, the other the thorough ones.
@@ -161,10 +190,42 @@ gap to fill or a physical answer to author.
 Plus an **exemplar** — the pilot room worked to the standard, and later an outdoor room (the birch
 grove) as the calibration piece for terrain, which reads very differently from a cabin.
 
+**What both briefs carry from the decisions since** *(Claude, 2026-09-26 — §6 Q1 and Q2; for
+Andrew's check; the wording itself is still piloted, not settled here):*
+
+- **Real life is the answer.** When the world-builder does not know what a thing is made of, how it
+  breaks or what it weighs, it finds out how it is in reality and cites the source; numbers come from
+  real data first.
+- **Every state a thing really has.** Each entity's `states` lists the axes it really has — heat
+  (body parts included), wetness, frozen, spoilage, damage, open or closed — and each `could_become`
+  is a real transform driven by a system (heat melts, cooks and chars; time and warmth spoil), never a
+  shortcut.
+- **Every real distinction a survivor would act on**, and every ontologically significant variant of
+  an act as its own candidate command — cast a line out and drop one through a hole; stab, club,
+  throw.
+- **The ecology filter.** A living thing goes into a zone only if it lives in that habitat, in
+  October at freeze-up, in numbers that matter (document 23).
+- **The lenses** (the list is a floor): fire · water · food, which takes in hunting, trapping and
+  fishing, many ways each · warmth · shelter · signals · rescue · injury · the pilot's body · the
+  party · **danger** (the bear and the other acting animals, the ice, a fall, the storm — and violence,
+  since a MUD-like combat system is in) · **moving** (exits are entities with modes and honest travel
+  times; the outdoors is traversal terrain whose systems are the content); and the human lenses —
+  curiosity, boredom, fear, grief, spite, tidying up, keeping the kid busy, play.
+- **Situations across the October run**, one per scout pass: day one in an inch of snow with skim ice
+  on the water; the storm building mid-week; deep snow late in the week; night; injured; alone; with
+  the party; the bear near.
+
 ### 4.4 The store and the viewer
 
 **`docs/ontology/`, YAML** (decided). `zones/<zone>.yaml` holds the zone — name, region, position,
 edges, terrain, exposure, survey — and its entities. Per entity (proposal):
+
+> *(superseded 2026-09-26: the schema is **document 05 §4.5**, designed in full on Andrew's
+> 2026-09-18 decision — it adds `count`, `mass_g` and `bulk`, `container`, `surfaces`, `sensed` (per
+> sense, with a cadence for things that speak on their own), `goal_roles`, the zone's `exits` as
+> entities, the `class` values `individual` · `class` · `scenery` · `elusive`, `provenance` as a
+> **list** (one entry per pass that found the row), and the shared `goals.yaml`. The list below is the
+> September draft, kept as the record.)*
 
 `id` · `name` · `aliases` · `class` (individuated | class-yields-individuals) · `materials` ·
 `parts` (recursive) · `states` · `form` · `located` (the space, and the relation to its parent:
@@ -204,6 +265,13 @@ is the regenerated viewer plus a diff summary, which is what gets read; nobody r
 The bounding is the point, and it is the one piece of the July loop that proved itself: *"Doing a
 small bounded chunk per firing is the entire point — it keeps each burst under the rolling token
 budget so the work spreads across the night instead of exhausting one window and dying."*
+
+*(Claude, 2026-09-26 — §6 Q4; for Andrew's check.)* The unit inside a firing is a **whole zone for one
+phase** — both models, the merge and its analysis report — so a zone is always complete for its phase
+or untouched. How many zones one firing takes is part of the firing procedure, which document 05 §4.7
+fixes from what the pilot measures. A night is many firings, and the morning artifact covers the
+night: the regenerated viewer, the diff summary, each firing's analysis report, the conflicts list
+(§6 Q3), and — once agents play — the walls.
 
 ### 4.6 Probes, and how coverage is counted
 
@@ -257,7 +325,9 @@ The end state, after the play harness exists: agents play freely, and every wall
 world could not answer, unknown words included — becomes the next pass's input. **Walls per run is
 the measure.** There is no finish line, and a room's completeness is expressed the same way:
 *"no walls found in the last N runs."* What counts as a wall is open question 4 of document
-[20](20-the-agent-player-and-research.md).
+[20](20-the-agent-player-and-research.md). *(superseded 2026-09-26: decided by Andrew on 2026-09-18 —
+five categories, counted separately, each with its own trend line in the morning report: unknown
+word, unknown noun, generic answer, wrong refusal, retry cluster; document 05 §4.5a.)*
 
 ---
 
@@ -275,6 +345,10 @@ the measure.** There is no finish line, and a room's completeness is expressed t
   style the describer writes to.
 - [18 — materials and forms](18-materials-and-forms.md): `could_become` rows are material × form
   claims and land in the shared material file.
+- *(added 2026-09-26)* [23 — flora and fauna](23-flora-and-fauna.md): the ecology filter every living
+  row passes, and the animals that act. The system documents still to be written (`PLAN.md` A10 —
+  combat; heat; hunting, trapping and fishing; food state and spoilage): they define the states and
+  transforms the world-builders write onto every entity.
 
 **These depend on this:**
 
@@ -288,7 +362,17 @@ the measure.** There is no finish line, and a room's completeness is expressed t
 
 ## 6. Open questions
 
-1. **The scaffold's wording.** §4.3 is a draft, and Andrew has already said it will be adjusted. The
+~~1. The scaffold's wording.~~ **Answered 2026-09-18 (Andrew), in document 05 Q2:** pilot on the
+   draft, then rewrite from what the two models produce, and promote the mid cabin's output as the
+   exemplar. **Claude's answer (2026-09-26), for Andrew's check, on the one sentence the draft wanted
+   settled on paper:** the frame *"if this were the real world, not a MUD"* stands — it is now
+   Andrew's own writing rule, *"however it is in real life"* (2026-09-26, `README.md`) — and it goes
+   into both briefs with its companions from the same rules: every state a thing really has, body
+   parts included, changed by systems; every real distinction a survivor would act on; and the
+   ecology filter (2026-09-18). §4.3 carries them.
+
+   *The draft (2026-09-16), kept as the record:*
+   **The scaffold's wording.** §4.3 is a draft, and Andrew has already said it will be adjusted. The
    real question is what to change it from: a scaffold written on paper and a scaffold corrected after
    reading one room's output are different artifacts.
    *Options:* (a) review the draft wording now, in the sitting; (b) run the pilot pass on the draft
@@ -298,7 +382,22 @@ the measure.** There is no finish line, and a room's completeness is expressed t
    it; the one thing worth settling on paper is whether the frame is *"if this were the real world,
    not a MUD"*, because everything else follows from that sentence.
 
-2. **The lenses list.** Named so far: fire, food, water, warmth, shelter, signals, rescue, injury,
+~~2. The lenses list.~~ **Answered 2026-09-18 (Andrew), in document 05 Q3:** the goal lenses as the
+   backbone, plus human lenses. **Claude's answer (2026-09-26), for Andrew's check, on the rest:** the
+   list is a growing set and its count a floor. The goal lenses gain two that the 2026-09-26
+   decisions make real — **danger** (the bear and the other acting animals, the ice, a fall, the storm,
+   and violence, now that a MUD-like combat system is in) and **moving** (exits are entities with modes
+   and honest travel times; the outdoors is traversal terrain whose systems are the content) — and
+   *food* explicitly takes in hunting, trapping and fishing in all their real variants. The human
+   lenses: curiosity, boredom, fear, grief, spite, tidying up, keeping the kid busy, play. **Per
+   situation, not per room:** a scout gets one room, one situation and one lens at a time (document
+   05 §4.8), and each room is walked through the situations the October run really has — day one in
+   an inch of snow with skim ice; the storm building; deep snow late; night; injured; alone; with the
+   party; the bear near. Which lens produced a command is already a field on every action row, so the
+   analysis report shows what each lens finds. §4.3 carries the list.
+
+   *The draft (2026-09-16), kept as the record:*
+   **The lenses list.** Named so far: fire, food, water, warmth, shelter, signals, rescue, injury,
    the pilot, the party — *"and other lenses"*. Undecided: the full list, whether non-goal lenses are
    included (curiosity, fear, boredom, grief, keeping the kid occupied), and whether a lens is run
    per situation or per room.
@@ -309,7 +408,21 @@ the measure.** There is no finish line, and a room's completeness is expressed t
    makes a room feel alive — nobody with a goal lens on thinks to look out of the window, and those
    are the attempts a real player makes in the first five minutes.
 
-3. **The merge rule.** Two models produce overlapping lists with different words for the same thing.
+~~3. The merge rule.~~ **Answered 2026-09-18 (Andrew), in document 05 §4.5:** the merge unions and
+   never drops; `provenance` is a list, so a row both models found carries two entries and agreement
+   is a count; every firing writes an analysis of what each model found, what both found, what each
+   found alone, by kind, and how that moves. **Claude's answer (2026-09-26), for Andrew's check, on
+   the mechanics the draft left:** *who merges* — mechanically where ids match, a model's judgment
+   where two rows are one thing under different words (Sonnet, as §4.2 has it); *what a duplicate is*
+   — the same entity in the same place, whatever each model called it, and **both names survive** as
+   `synonyms`, because a second word for a thing is vocabulary (document 04 §3.7), not noise; *a
+   disagreement of fact* (vinyl or leather on the seat) — both values stay on the row with their
+   provenance and go in the zone's conflicts list in the morning report; the design pass settles it
+   from reality, with a source (what the 206's seats are actually covered with), and the other value
+   is superseded, never deleted.
+
+   *The draft (2026-09-16), kept as the record:*
+   **The merge rule.** Two models produce overlapping lists with different words for the same thing.
    Undecided: who merges, what counts as a duplicate, what happens when the two disagree about a
    fact (one says the seat cover is vinyl, the other leather), and whether the merged row keeps both
    provenances or the first.
@@ -321,7 +434,16 @@ the measure.** There is no finish line, and a room's completeness is expressed t
    material disagreement is a real design question and should not be silently resolved by whichever
    pass ran second.
 
-4. **The firing size.** The July loop's answer was two rooms per firing, tuned to the token budget.
+~~4. The firing size.~~ **Claude's answer (2026-09-26), for Andrew's check:** the draft's (c) then
+   (b), from two decided things. The unit is a **whole zone for one phase** — both models, the merge
+   and its analysis — so a zone is complete for its phase or untouched (document 05 §4.5: a row is
+   complete for its phase, never half empty). How many zones a firing takes belongs to the firing
+   procedure, which document 05 §4.7 fixes from what the pilot teaches: the pilot measures what one
+   zone costs, and N is set from that. A firing is one bounded chunk that then stops, and a night is
+   many firings — the one July lesson that proved itself (§4.5). §4.5 carries this.
+
+   *The draft (2026-09-16), kept as the record:*
+   **The firing size.** The July loop's answer was two rooms per firing, tuned to the token budget.
    This loop's unit is bigger (a room's full ontology, twice over) and cheaper in one way (no code,
    no gates to run).
    *Options:* (a) two zones per firing, as before; (b) N zones in parallel, N tuned after the pilot;
@@ -330,7 +452,20 @@ the measure.** There is no finish line, and a room's completeness is expressed t
    state to wake up to, and until the pilot has told us what one zone actually costs, any N is a
    guess.
 
-5. **The pilot pass.** Proposed: the mid cabin, by hand, both models, under the draft scaffold, read
+~~5. The pilot pass.~~ **Claude's answer (2026-09-26), for Andrew's check:** the outline is decided in
+   document 05 §4.7–§4.8 (reviewed with Andrew 2026-09-18) — the pilot is the mid cabin, by both
+   models, read together; the birch grove is the outdoor calibration piece. What the draft asked
+   follows from that. **Both phases are piloted** — an ontology pass and a possibility pass — because
+   both briefs are drafts. **The birch grove is calibrated the same way, by hand and read, before the
+   fifty outdoor zones run**: the queue already takes the nine built rooms first, so the calibration
+   falls exactly where the terrain begins, and the outdoor rooms are the bulk of the work and read
+   nothing like a cabin. **What the pilot may change:** the scaffold, the queue format and the firing
+   procedure (05 §4.7); the schema only where it fails verification — the pilot verifies the schema,
+   it does not design it (05 Q1, Andrew 2026-09-18) — so a field found missing is a deliberate change
+   recorded in document 05, not drift.
+
+   *The draft (2026-09-16), kept as the record:*
+   **The pilot pass.** Proposed: the mid cabin, by hand, both models, under the draft scaffold, read
    together before anything runs unattended. Undecided: whether one room is enough evidence (a cabin
    and a snowfield are very different problems), and what specifically the pass is allowed to change
    afterwards.
@@ -343,7 +478,18 @@ the measure.** There is no finish line, and a room's completeness is expressed t
    the fuselage-top census: *"outdoor rooms are traversal, systems > per-room hooks"*). Piloting only on a cabin would calibrate the scaffold on the
    easy nine.
 
-6. **When is a zone's pass done?** There is no ceiling by decision, so "finished" cannot be the stop
+~~6. When is a zone's pass done?~~ **Claude's answer (2026-09-26), for Andrew's check:** a *pass* is
+   done when both models have run it on the zone and the merge is written; "done" belongs to a pass,
+   never to a room (a room is never finished — VISION). Every zone gets its first passes before any
+   zone gets a second — ordering, not a limit — and a zone goes back on the queue on evidence: walls
+   from play there (document 05 §4.5a); a new lens (every zone gets *danger* once it exists); a new
+   system document whose states and transforms its rows must carry (`PLAN.md` A10); a design change
+   that makes rows untrue (the season moving to October); or the analysis report showing a kind of row
+   one model keeps missing, which changes a brief and re-runs it. A diminishing-returns threshold would
+   be a count target, and counts are floors — the draft's reasoning holds.
+
+   *The draft (2026-09-16), kept as the record:*
+   **When is a zone's pass done?** There is no ceiling by decision, so "finished" cannot be the stop
    condition — but a firing has to stop somewhere, and a second pass over an already-rich room has
    to be worth more than a first pass over an empty one.
    *Options:* (a) one pass per model per zone, then move on and revisit only when play produces walls
@@ -354,6 +500,10 @@ the measure.** There is no finish line, and a room's completeness is expressed t
    while forty zones stay empty. A diminishing-returns threshold sounds principled but would be a
    count-based target, and the counts are floors.
 
+*(2026-09-26: every question here was a loop mechanic that Andrew's 2026-09-18 decisions in document
+05 already answer; nothing is left for him beyond checking the answers above. The scaffold's wording
+is settled by the pilot, not on paper.)*
+
 ---
 
 ## 7. Review log
@@ -363,6 +513,20 @@ the measure.** There is no finish line, and a room's completeness is expressed t
 | date | decided | cut | sent back |
 |---|---|---|---|
 | — | — | — | — |
+
+- **2026-09-26 (Claude, self-review — PLAN.md A9):** **Answered for Andrew's check, all six:** Q1 (the
+  frame *"if this were the real world, not a MUD"* stands as Andrew's *"however it is in real life"*;
+  the wording is piloted — document 05 Q2), Q2 (goal lenses plus human lenses — 05 Q3 — with
+  *danger* and *moving* added and *food* taking in hunting, trapping and fishing; one room, one
+  situation, one lens at a time across the October run), Q3 (union, never drop — 05 §4.5 — both names
+  kept as synonyms, fact conflicts listed and settled from reality by the design pass), Q4 (a whole
+  zone per phase is the unit; N from the pilot; a night is many firings), Q5 (both phases piloted on
+  the mid cabin, the birch grove calibrated before the fifty; the pilot verifies the schema), Q6 (done
+  belongs to a pass; zones return to the queue on evidence). **Left for Andrew:** nothing. **Stale
+  content marked:** the §4.4 schema (→ document 05 §4.5), the merge step (→ union), walls as open (→
+  05 §4.5a). **Added:** the decisions since the draft (§2), the missing system documents in the step-0
+  gate (§4.1, §5), what both briefs carry from the 2026-09-26 writing rules (§4.3), the firing unit
+  (§4.5).
 
 ---
 

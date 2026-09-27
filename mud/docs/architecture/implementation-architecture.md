@@ -88,7 +88,7 @@ physics literature). All raised confidence; none reversed a decision (overall �
 | DR-13 | Perception/zones | zone = attribute in a Scene-Room; per-observer `return_appearance`; propagator |
 | DR-14 | Clock/scheduler | **continuously running real-time clock** + activity scheduler; activities persisted (not `.ndb`); deterministic logical clock under the hood |
 | DR-15 | Session/instance | **instanced, synchronous co-op runs**; explicit lifecycle (create/persist/reset/GC) |
-| DR-16 | Rescue | additive-confidence model; distinct-resource routes; radio FSM |
+| DR-16 | Rescue | additive-confidence model; distinct-resource routes; radio FSM *(superseded in design: Andrew's three ways home and the flyover clock, 2026-09-17; the radio's signal is continuous; document 14 §3.5a proposes a real search-and-detection model, for Andrew's check)* |
 | DR-17 | Build pipeline | author → validate (+ ledger) → **bake** → runtime loads baked data |
 | DR-18 | Coverage/fuzz | operation×material matrix + ≥10k seeded fuzz; the solvability oracle |
 | DR-19 | Test strategy | Tier-1 pure pytest + Tier-2 Evennia integration; property tests for invariants |
@@ -145,10 +145,14 @@ physics literature). All raised confidence; none reversed a decision (overall �
 > grove`, `climb up`, `enter the tail`), travel time and state; movement is an attended activity with
 > events. **Groups** ("a pile of clothes", "luggage thrown across the floor") form when several things
 > share a place and a kind; `look at the pile` lists them; taking dissolves them. Wildlife is events
-> and sign; no wolverine. Lethal zones injure, never kill outright; seeded dice may roll ("you feel a
+> and sign; no wolverine. *(2026-09-26: the bear, some bigger animals and a few birds — not flocks —
+> act, on engine behaviour rules or played by a lightweight model from outside; GDD §3 rule 5,
+> document 23.)* Lethal zones injure, never kill outright; seeded dice may roll ("you feel a
 > dice roll somewhere"). Sweat is not a meter: it is wet clothing draining warmth later.
 > **The watch rule stands:** one player who keeps acting holds the clock at 1× for everyone; the
-> others wait for the next event (someone waking). **Moral tags, and other tags on actions, are
+> others wait for the next event (someone waking). *(2026-09-17/18: the "watch rule" label is dropped;
+> the clock runs at 15 game-minutes per real minute, `propose fast forward` raises it to 180× by
+> consensus, and being awake is being on watch — document 06.)* **Moral tags, and other tags on actions, are
 > ontology fields** (`docs/ontology/`), assigned in their own fleshing-out pass.
 >
 > **DR-05b (appended, closure 2026-09-07) — the DSL is retired; verbs stay Python.** The declarative

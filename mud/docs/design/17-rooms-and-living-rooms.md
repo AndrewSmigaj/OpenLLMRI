@@ -12,6 +12,11 @@
 > `game/world/scenarios/whiteout/zones.py`, `spaces.py`, `appearance.py`, `objects.py`;
 > `game/world/scenarios/whiteout/probes/census.py`.
 
+> **2026-09-26 (Claude, for Andrew's check).** Two things arrived after this draft. **The season is
+> October, at freeze-up** (`README.md`): the fifty outdoor zones in §8 were designed in July for
+> December, and their census changes with an inch of snow, open ground and skim ice (§4.5). And
+> **rooms are entities, the plane among them** (Andrew, 2026-09-26 — §2, §4.8).
+
 ---
 
 ## 2. Provenance
@@ -32,6 +37,14 @@
 - **The four-seat interior is a go.** (2026-09-16, recorded in document **16 — Players and kit**
   and the DR-14a/DR-15a amendment.) This supersedes the six-seat rows this document's §4.3 keeps —
   see that section for what is superseded and what is kept.
+- **The plane is an entity itself, with openings that are open or closed and an internal heat that a
+  fire inside raises; fire heats its area and leaves residual heat in other areas; body parts have heat
+  as part of their ontology.** (2026-09-26, in document 10's review log, answering its Q3.) In his
+  words: *"we will have the plane as an entity itself with flags for open or closed and a fire source
+  rule which uses it's heat amount to change it's internal heat calue, so this would all be part of
+  planning the design and implementation of the fire and heat system"*; *"fire would generate heat in
+  that area and residual heat in other areas"*. Rooms are therefore entities in the ontology like
+  everything in them (§4.8). *(Recorded here by Claude, 2026-09-26.)*
 
 ### Proposals (Claude)
 
@@ -72,8 +85,9 @@ a hook.
 2. **State that persists and shows**: the stripped seat stays stripped ("bared clips showing where
    its cushion was hacked out"); the fire ring you built is there next look; the drift you dug has a
    hole. Every state-changing Effect has a scene/examine variant.
-3. **Processes visible**: the fire's stage, the cold's band, the light failing, the pilot's breathing
-   — the room changes while you stand in it.
+3. **Processes visible**: the fire's stage, the cold's band, the light failing, the pilot's body
+   cooling and stiffening — the room changes while you stand in it. *(Claude, 2026-09-26: "the
+   pilot's breathing" is superseded — he starts the run dead, Andrew 2026-09-17; document 12 §4.3a.)*
 4. **Other people's traces**: what a co-player did shows (the half-sawn branch, the scuffed rime, a
    dropped thing on the floor) — objects that land in a space render into that space's frame
    regardless of who dropped them.
@@ -145,6 +159,17 @@ Clarified by Andrew, 2026-09-16 (quoted in full in §2): this is about not forci
 never about a ceiling on what a room contains — every outdoor room is censused to the same
 real-world depth as the crash rooms, and grown without a ceiling by the loops.
 
+**At freeze-up the census is deeper, not shallower** *(Claude, 2026-09-26 — the season; for Andrew's
+check)*. An inch of snow leaves the ground readable: fallen birch and aspen leaves, moss and lichen,
+berries still on the bush, mushrooms frozen where they stood, mud stiffening in the ruts, the creek
+running, skim ice on still water, tracks printed sharp in the new snow. None of it holds still for the
+week — the storm lays snow down day by day, each clear night drives frost deeper into the ground and
+thickens the ice. So snow depth and type, the depth of frozen ground, ice thickness and what is buried
+are **states on the room** (§4.8), changed by the weather system, and the same zone reads and plays
+differently on day one and day six: berries you picked on Monday are under a foot of snow by Friday,
+and the lake skim you could not stand on may, by the end of a cold week, bear a person (document 18
+§4.8 has the ice arithmetic).
+
 ### 4.6 The nine crash-room censuses
 
 A **census** is the "ontological Turing test" the `cockpit.md` banner names it: for one room, ask
@@ -178,6 +203,11 @@ changes from the census itself). The nine rooms, one line each:
   tinder, and shelter material, earning its keep as a resource-plus-gateway rather than a unique
   hook — exactly what the traversal-terrain rule asks of an outdoor zone.
 
+*(Claude, 2026-09-26: the nine censuses predate the 206 interior and the season. Their overhead bins
+are the hat shelf and the cargo net now — document 16 §4.6, the finds redistributed as §4.3 says — and
+their December snow and cold are October's inch of snow and freeze-up; the censuses are re-run at the
+cabin zone's census, with the plane as an entity (§4.8).)*
+
 ### 4.7 Lens pass
 
 - **The Toy** (GD — is it fun to poke without a goal?) — YELLOW → GREEN once the four-seat recast's
@@ -198,6 +228,73 @@ seat, seat *1a* and *1b*, the *forward* bin and the *aft* bin. Identical things 
 never ask, because it does not matter which one you take. **A room that can ask an unanswerable
 question is a bug in the room**, and `make validate` should catch it (document 04 §3.10, Q10).
 
+### 4.8 Rooms are entities — and the plane is one (Andrew, 2026-09-26; the mechanism is Claude's, for Andrew's check)
+
+**What Andrew decided** (§2): the plane is an entity with openings that are open or closed and an
+internal heat that a fire inside raises; a fire heats its area and leaves residual heat in other areas;
+body parts have heat. So a room is not a backdrop things sit in. It is an entity of the ontology with
+the same schema as everything in it (document 05 §4.5) — materials, parts, states, `sensed` with its
+cadence, relations, `could_become`, synonyms — plus what only a place has: its **air** (volume,
+temperature, wind, smoke, damp), its **light**, its **floor or ground**, and its exits (document 03
+§4.1a).
+
+**The plane.** One entity, and the crash rooms inside it are its interior.
+- *Its parts:* the fuselage skin (aluminium sheet under a millimetre thick, over a frame), the
+  windscreen and windows (acrylic — document 18 §4.8), the pilot's door, the right door, the double
+  cargo door, the breach where the tail tore away, the seams the impact opened; the seats, the hat
+  shelf and the baggage bay (document 16 §4.6); the wings with fuel in them; the engine and its
+  battery. The tail section out on the trail is a separate entity now, with the tail cone and the ELT.
+- *Each opening is a part with an area and a state* — open · partly blocked · blocked · closed ·
+  jammed · iced shut. The state is what its wind sound speaks from (document 08 §4.8), what lets the
+  wind and the snow in, and what lets the heat out.
+- *One air volume.* In a 206 the cockpit, the two passenger rows and the baggage area are one cabin
+  with no bulkhead between them — about 3.7 m long, 1.1 m wide and 1.3 m high (12 ft 1 in × 3 ft 8 in ×
+  4 ft 2 in, Cessna Flyer Association), some 4–5 m³ of air. The cockpit, the mid cabin and the rear
+  cabin stay separate places for where things sit and how the prose reads (document 03), but they
+  share **one internal heat**, warmest near whatever is heating it.
+
+**The internal heat, physically** *(first figures, for the heat-system design to redo properly)*.
+- *Heat in:* bodies, about 100 W each at rest and several times that working or shivering; a candle,
+  about 80 W; a fire or a stove, kilowatts.
+- *Heat out:* through the skin — thin aluminium is almost no barrier; the U.S. Army's survival manual
+  says that in extreme cold a metal fuselage conducts away what little heat you make, and what holds
+  heat is the still air against the walls and whatever lines them (foam, batting, the engine cover) —
+  and through every open opening, because the wind changes the air.
+- *The air itself holds almost nothing* — roughly 6 kJ per degree for the whole cabin, about a minute
+  of one person's heat — so the inside temperature settles within minutes to the balance of those two
+  flows, and moves when an opening changes state or a source starts or stops. Roughly: four or five
+  people resting in a closed cabin keep it a few degrees above outside; with the breach open, barely
+  above; a small fire of a few kilowatts, with an opening for draught, can hold it fifteen to twenty
+  degrees above.
+- *What that does for the design:* the night-one rule (document 08 §4.1a) becomes physics rather than
+  a promise. At mid-October's night lows of about −8 °C (Fairbanks normals, document 16 §4.9) a closed
+  wreck with the party inside is survivable in the clothes they crashed in; every opening they close,
+  every lining they put up and every body adds degrees; the colder nights at the end of the week take
+  them away again.
+
+**A fire inside is real, and so is its price.** A fire needs air: in a closed cabin it starves and
+smokes, so an opening must stay open, and the openings do double duty — shut to keep heat in, open to
+breathe. It makes carbon monoxide; burning seat foam makes the most poisonous smoke in the material
+table (document 18); aluminium melts in the coals (from about 600 °C); and warming the shell turns the
+frost that everyone's breath has laid on the inside of the cold skin into drips, which is how the
+inside of a heated wreck gets wet. How dangerous the carbon monoxide may be is Andrew's (Q6).
+
+**Outdoors, a zone is an entity too**: its ground (soil, moss, rock — frozen to a depth that grows every
+clear night at freeze-up), its snow cover (depth and type, document 18 Q4), its air (temperature and
+wind from the weather, sheltered or exposed as document 08 §4.4 bands it), its light. A fire outdoors
+warms mostly by radiation, which falls off steeply with distance: it warms a body a metre or two away,
+and a reflector behind it (rock, stacked logs, a sheet of hull) sends back part of what would be lost.
+The heat that stays is in thermal mass — the hearth stones, the thawed ground under the ashes (where
+roots can now be dug, document 23 Q3), the embers for hours. So Andrew's *"residual heat in other
+areas"* is, outdoors, the warmed ground, the stones and the lee of the fire; inside the plane, the
+connected air carrying heat forward and aft.
+
+**Who owns what.** This document owns that rooms and the plane are entities with these parts and
+states. The numbers — heat flow between connected spaces, the openings' areas, the sources' outputs,
+the carbon monoxide — belong to the **heat-system design, to be written**. Document 08 §4.4's
+wind-exposure and roof numbers stand outdoors; inside the plane they are read off the openings (a
+reconciliation for document 08).
+
 ## 5. Interactions
 
 **This depends on:**
@@ -215,6 +312,13 @@ question is a bug in the room**, and `make validate` should catch it (document 0
   the rescue graph existing to point at.
 - **06 — Time, sleep and the clock** — property 3 (processes visible) needs the activities/processes
   system to have something to show.
+- **The heat system** (no design document yet — to be written; *Claude, 2026-09-26*) — the room's and
+  the plane's internal heat, heat flowing between connected spaces, the openings, carbon monoxide
+  (§4.8).
+- **13 — Events, escalation and weather** — the storm laying snow down, frost driving into the ground,
+  ice thickening: the states that make a room on day six differ from day one (§4.5).
+- **05 — Ontology and sufficiency** — the per-zone schema (§4.5 there) is where a room's own
+  materials, parts, states and `sensed` live once rooms are entities (§4.8 here).
 
 **These depend on it:**
 - **22 — The world-building loops** — the room-authoring rules this document proposes (§4.1, §4.4,
@@ -224,44 +328,124 @@ question is a bug in the room**, and `make validate` should catch it (document 0
   this style.
 - **15 — Moral and social layer** — property 4 (other people's traces) is part of how a co-player's
   action becomes something a third party can witness.
+- **08 — Warmth, clothing and shelter** — inside the plane, the wind exposure and the warmth a body
+  feels are read off the plane's openings and internal heat (§4.8), not a band on the zone.
 
 ---
 
 ## 6. Open questions
 
-1. **The prose voice needs a render read, not a text approval.** `living-rooms.md`'s own rule 9 is
+**Re-reviewed 2026-09-26 (Claude, `PLAN.md` A9) against block 1, the season and rooms as entities.**
+Q1, Q2, Q4 and Q5 are answered by the decided design, each marked for Andrew's check; Q3 is rewritten
+(it assumed the loops could start before the design is finalized); Q6 is new and his. The original
+wording of every question is kept as the record.
+
+~~1. The prose voice needs a render read, not a text approval.~~ **Claude's answer (2026-09-26), for
+   Andrew's check:** already decided by this document's own rule 9 (§4.4: render every scene, then read
+   the zone whole) and by `presentation.md` §4 (the voice is Andrew's to rewrite). The nine rooms are
+   rendered with `make render-scenes` and read together at the sitting; the reading, and any rewrite,
+   is his. One caution: what renders today is the six-seat, December wreck, so the reading judges the
+   *voice*, not the content — the content changes with the four-seat plane entity (§4.8) and October
+   (§4.5).
+
+   *(The original, kept as the record:)* **The prose voice needs a render read, not a text approval.** `living-rooms.md`'s own rule 9 is
    "read it" — render every scene and read the zone whole before committing — and `presentation.md`
    §4 leaves Voice open for Andrew to rewrite freely. *Options:* (a) sign off on the style guide from
    this document's text alone; (b) render the nine crash rooms and read them together at the review
-   sitting before signing off. **Recommendation: (b)** — a style guide is a hypothesis about prose
+   sitting before signing off. *Recommendation then:* (b) — a style guide is a hypothesis about prose
    until it is read.
-2. **Which presentation leftovers survive?** Masses (identical objects aggregating into one
+
+~~2. Which presentation leftovers survive?~~ **Claude's answer (2026-09-26), for Andrew's check:**
+   each of the four was tested against the ground the removals used — does it name a verb, list what is
+   reachable, or hint at a solution? — and against document 03's review (2026-09-17). **Masses** (one
+   authored sentence folding the rest of a space) are superseded by **groups** (document 03 §4.1b): the
+   room shows "a pile of clothes", and `look at the pile` lists its members. **Three-form phrases** (a
+   thing's `scene`, `item` and `glance` wording for near, listed and far) survive: how a thing reads
+   depends on how far away you are, which is perception, not a hint. **Glimpse lines** (what you can
+   make out in the next zone) survive for the same reason — they say what is really visible from where
+   you stand (document 03 §4.2; document 19's perception). **Look-under** survives: hiding is physical,
+   things are inside and under things (document 03 review, 2026-09-17), and looking under something is
+   an act on the world. None names a verb or lists what is in reach.
+
+   *(The original, kept as the record:)* **Which presentation leftovers survive?** Masses (identical objects aggregating into one
    sentence), three-form phrases, glimpse lines, and look-under are all named across the sources,
    but the provenance audit records several removals elsewhere (the verb-list redirect, the sibling
    near-miss hint) on grounds that would apply here too if any of these turn out to hint at a
    solution. *Options:* (a) treat all four as still-live conventions until told otherwise; (b) audit
-   each one explicitly at this sitting. **Recommendation: (b)** — a five-minute check against the
+   each one explicitly at this sitting. *Recommendation then:* (b) — a five-minute check against the
    same "does this give something away" question the removals used, done once, in this review.
-3. **The room-authoring rules for the loops.** `living-rooms.md`'s banner says this promotes into
+
+~~3. The room-authoring rules for the loops — start the loops now, promote the guide later?~~
+   **Rewritten (Claude, 2026-09-26):** the question offered starting the loops before this document is
+   finalized, which Andrew ruled out — no agent runs a loop until every design document is finalized
+   (document 05 §2, 2026-09-16). **The answer:** when this document is finalized, its rules — the five
+   properties (§4.1), density with purpose (§4.2), the style guide (§4.4), the outdoor census rule and
+   October's changing ground (§4.5), naming things apart, and rooms as entities (§4.8) — go into the
+   world-builder's scaffold, `docs/guides/world-building.md` (document 05 §4.8), which is what the
+   loops actually read, and into `docs/guides/authoring-objects.md` for anyone authoring rows by hand.
+   Both happen before the pilot pass on the mid cabin.
+
+   *(The original, kept as the record:)* **The room-authoring rules for the loops.** `living-rooms.md`'s banner says this promotes into
    `docs/guides/authoring-objects.md` "on approval"; nothing has been added there yet.
    *Options:* (a) let the fifty-outdoor-zone loops start from this document's rules now, behind the
    existing content seams, and promote the guide afterward; (b) wait for the promotion before any
-   loop authors a new room. **Recommendation: (a)** — the promotion is a paperwork step, not a gate
+   loop authors a new room. *Recommendation then:* (a) — the promotion is a paperwork step, not a gate
    on content; the rules are already specific enough to build from.
-4. **`look under` is still unbuilt.** The seat-row exemplar (§4.3) names it as the reveal verb for
+
+~~4. `look under` is still unbuilt.~~ **Claude's answer (2026-09-26), for Andrew's check:** it is
+   designed; it is not yet built, like every other part of the design. `under` is one of the relations
+   things really stand in — the containment modes on · under · against · inside of document 03 §4.4
+   (extension 1) and the `located.relation` of document 05 §4.5 — and hiding is physical. The
+   variants that do different things are each their own operation, within the grammar's
+   `VERB [RELATION] thing` forms: **`look under`** (sight — it needs light, and it shows what is there
+   to be seen), **`feel under`** / **`reach under`** (touch — it works in the dark and finds what the eye
+   cannot, and it can find the sharp thing the hard way), **`look behind`**. It is built with
+   extension 1 when the cabin zone is implemented — before any outdoor zone is built, since the valley
+   hides things under logs and in hollows the same way.
+
+   *(The original, kept as the record:)* **`look under` is still unbuilt.** The seat-row exemplar (§4.3) names it as the reveal verb for
    seats, but no operation, handler, or probe anywhere in the codebase implements or even tests for
    it. *Options:* (a) build it before any of the fifty outdoor zones start populating landmarks,
    since this document's own exemplar depends on it; (b) leave seats reachable only through `search`
-   and `cut`/`pry` until a later pass. **Recommendation: (a)** — the exemplar this document points
+   and `cut`/`pry` until a later pass. *Recommendation then:* (a) — the exemplar this document points
    to for "how a room is living" cannot fully demonstrate its own point without it.
-5. **The "elusive" sensory layer has no generic mechanism.** Property 5 and every census's own
+
+~~5. The "elusive" sensory layer has no generic mechanism.~~ **Claude's answer (2026-09-26), for
+   Andrew's check:** the decided schema is the mechanism, and rooms as entities complete it. Cold,
+   draft, light, smoke and smell are **states of the room entity** (§4.8), each produced by the things
+   that cause it — the tear makes the draft, the fire the smoke and the light, the pilot's body in a
+   warming cabin the smell — and each of those things carries what it gives the senses, with its
+   cadence, in its `sensed` field (document 05 §4.5; document 06). What is not an object at all — the
+   wind, the cold itself — is a row of `class: elusive` (document 05 §4.5) that points at its source.
+   So `feel the draft`, `smell the smoke` and `listen` address the room's own states and lead to what
+   makes them, and every room has them because every room has air, light and things in it — no per-room
+   hand-authoring and no special primitive. The loops still census each room's elusives, since that is
+   what a room *is*. Option (c), "defer", was a cut dressed as ordering and is struck.
+
+   *(The original, kept as the record:)* **The "elusive" sensory layer has no generic mechanism.** Property 5 and every census's own
    "elusive" section name cold, draft, sound, smell, light, and time as things a person would sense
    and try to act on; none are addressable objects anywhere in `objects.py` or `appearance.py`.
    *Options:* (a) a generic sense-noun primitive in the ontology that every room inherits; (b)
    hand-author sensory nouns per room as ordinary content rows; (c) defer until a dedicated pass.
-   **Recommendation: (a)**, proven on one room first — it is the single build that unblocks all nine
+   *Recommendation then:* (a), proven on one room first — it is the single build that unblocks all nine
    censuses' elusive sections at once, and matches the outdoor rule's preference for systems over
    per-room authoring.
+
+6. **How dangerous is a fire inside the plane allowed to be?** *(New, Claude, 2026-09-26 — raised by
+   §4.8; the numbers will belong to the heat-system design.)* Reality is plain: a fire in an enclosed
+   space makes carbon monoxide, which has no smell and kills sleepers; burning seat foam adds cyanide
+   to the smoke; the warnings a real person gets are a headache, dizziness, nausea, confusion, and a
+   fire that burns poorly for want of air. Andrew's standing rule is that lethal places injure, never
+   kill outright, with a seeded roll announced (2026-09-17) — and a gas that kills in the night is
+   exactly the unannounced death that rule was written against. What he is deciding is how that rule
+   meets an invisible hazard the party creates themselves. *Options:* (a) fully real — carbon monoxide
+   accumulates by the physics and can kill sleepers who closed every opening; (b) real harm, bounded by
+   the rule — it builds by the physics and injures (headache, nausea, confusion, collapse, a lost
+   night), its symptoms and the choking fire are the telegraph, and whoever is awake on watch
+   (document 06) notices; it kills only someone who stays in it after it has spoken; (c) no carbon
+   monoxide. **Recommendation: (b)** — every real distinction stays (open an opening, bank the fire,
+   put someone on watch), the danger is honest, and the death it can cause is one the party walked
+   into with warnings, which is what the lethal-places rule protects.
 
 ---
 
@@ -276,6 +460,24 @@ question is a bug in the room**, and `make validate` should catch it (document 0
 ---
 
 - **2026-09-18:** the distinguishable-names rule added as an authoring requirement for the loops.
+
+- **2026-09-26 (Claude, self-review — PLAN.md A9):** re-checked against block 1, the October season and
+  Andrew's 2026-09-26 decision that the plane is an entity with openings and an internal heat.
+  **Design text:** that decision recorded in §2; §4.8 added — rooms are entities with the full schema
+  plus air, light and ground; the plane as one entity whose parts include every opening (area and
+  state) and whose cockpit, mid cabin and rear cabin share one air volume and one internal heat; the
+  physics of that heat in first figures (bodies, candle, fire in; aluminium skin and openings out; the
+  air holds almost nothing), the price of a fire inside, and a zone outdoors as an entity with residual
+  heat in the ground and stones. §4.5 gains October's changing ground; the pilot's breathing (§4.1) and
+  the censuses' overhead bins (§4.6) marked superseded. **Answered for Andrew's check:** Q1 (rule 9
+  already says render and read; the voice is his), Q2 (groups replace masses; three-form phrases,
+  glimpses and look-under are perception or physical acts, not hints), Q4 (`look under` is the `under`
+  relation, with `feel under`/`reach under` and `look behind` as their own operations), Q5 (the room
+  entity's states plus `sensed` and `class: elusive`; "defer" struck). **Rewritten:** Q3 (the loops
+  cannot start before finalization; the rules go into the world-builder scaffold). **New for Andrew:**
+  Q6 (how dangerous carbon monoxide from a fire inside may be — recommended: real harm bounded by the
+  lethal-places rule). **Needs a design document:** the heat system (room and plane heat, openings,
+  heat between spaces, carbon monoxide).
 
 ## 8. What exists today
 
@@ -315,6 +517,9 @@ question is a bug in the room**, and `make validate` should catch it (document 0
 - The four-seat interior recast (§4.3) — see **16 — Players and kit** §8 for the full gap: the seat
   objects in `objects.py` are still the six-seat draft's `11B`/`12C`, not `1A`/`1B`/`2A`/`2B`/the
   right seat.
+- Rooms and the plane as entities (§4.8; *Claude, 2026-09-26*) — nothing in code: a zone in
+  `zones.py` carries position, terrain tags, adjacency and a survey line, with no states, parts or
+  heat; the plane is not an entity, and its openings are not parts with states.
 
 **Nothing**
 - The room-authoring rules promoted into a guide: `docs/guides/authoring-objects.md` does not yet

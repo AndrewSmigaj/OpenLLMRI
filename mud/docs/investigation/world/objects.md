@@ -64,7 +64,7 @@
 **Sign & trace:** boot-scuffs in rime (yours — the map's first own-trace mirror), the skin's oil-canning dents underfoot.
 
 ### outside_tail / debris_trail / tail_section / treeline
-(Existing builds carry these; census adds:) heavier gauge scatter along the trail — hull rib sections, window frame, insulation batts (snagged on stubs, wind-strewn), a wheel chock, cargo-door hinge half; treeline adds: first spruces (bough/pitch/squaw-wood bearing), snow-caps on boughs (dumpable — the cold shower gag that teaches canopy snow), a wind-tipped leaner to push over (starter deadfall), snowshoe-hare crossing tracks (the FIRST sign object, pointing north into the wood), raven flyover + kronk (ambient, points at the tamarack cache), the wreck-glint view SW (glimpse object).
+(Existing builds carry these; census adds:) heavier gauge scatter along the trail — hull rib sections, window frame, insulation batts (snagged on stubs, wind-strewn), a wheel chock, cargo-door hinge half; treeline adds: first spruces (bough/pitch/dead-twig bearing), snow-caps on boughs (dumpable — the cold shower gag that teaches canopy snow), a wind-tipped leaner to push over (starter deadfall), snowshoe-hare crossing tracks (the FIRST sign object, pointing north into the wood), raven flyover + kronk (ambient, points at the tamarack cache), the wreck-glint view SW (glimpse object).
 
 ---
 
@@ -157,14 +157,14 @@
 
 ### forest_edge
 **Terrain & fixtures:** edge spruces (bough-bearing class), the wind-shear line (canopy lean), snow-depth step (shallower inside — visible threshold).
-**Harvest & loose:** green boughs (bedding/thatch/smoke), cone litter, dead lower twigs (starter squaw wood — the teaser before the hollow's lesson).
+**Harvest & loose:** green boughs (bedding/thatch/smoke), cone litter, dead lower twigs (starter dead spruce twigs — the teaser before the hollow's lesson).
 **Hidden / contained / buried:** bough-pillow pockets (dumpable snow-caps), an edge-tree's pitch scar (first pitch, small).
 **Ambient:** the wind dropping to rumor (the threshold ambient — the map's most repeated mercy, first felt here), grouse wing-thunder somewhere deeper (invitation sound), needle-sift.
 **Sign & trace:** the wreck's glint back S (orientation anchor), hare tracks entering (the commute continues), squirrel cone-shred middens at trunk bases.
 
 ### big_spruce_hollow
-**Terrain & fixtures:** the six grandfather spruces (each an object: squaw-wood skirt, pitch seams, bough tiers, windward moss), the firm blue-dusk floor, the flat camp shelf, a nurse log (moss-topped, punky).
-**Harvest & loose:** squaw wood in armloads (THE resource), pitch globs (amber classes: fresh-soft, aged-hard), bough tiers, nurse-log punk (ember bed stock), old-man's-beard lichen streamers (flash tinder — catches from spark, burns in seconds: the tinder ladder's top rung).
+**Terrain & fixtures:** the six grandfather spruces (each an object: dead-twig skirt, pitch seams, bough tiers, windward moss), the firm blue-dusk floor, the flat camp shelf, a nurse log (moss-topped, punky).
+**Harvest & loose:** dead spruce twigs in armloads (THE resource), pitch globs (amber classes: fresh-soft, aged-hard), bough tiers, nurse-log punk (ember bed stock), old-man's-beard lichen streamers (flash tinder — catches from spark, burns in seconds: the tinder ladder's top rung).
 **Hidden / contained / buried:** under-skirt dry cones (stove-grade), a rusted tin cup wedged in a root crotch (someone camped here before — human past #4, and a CUP), boughs concealing a grouse dust-bowl hollow.
 **Ambient:** cathedral hush, resin-sweet air, shafted light columns, chickadee flock working through (the wood's citizens), snow-sift ticking down through tiers.
 **Sign & trace:** old blaze-like bark scar (natural, a TEST of the blaze lesson — false positive that makes players verify doubles), squirrel highway prints trunk-to-trunk, the cup's decades of patina (date the visitor).
@@ -192,7 +192,7 @@
 
 ### tree_well_hollow
 **Terrain & fixtures:** the grandmother spruce (the map's biggest single organism), the well room (needle floor, snow walls, bough roof), the bough door.
-**Harvest & loose:** needle duff (dry floor stock + slow-smolder fuel), her dead skirt (a family's worth of squaw wood — the reserve bank), pitch mother-lode seams.
+**Harvest & loose:** needle duff (dry floor stock + slow-smolder fuel), her dead skirt (a family's worth of dead spruce twigs — the reserve bank), pitch mother-lode seams.
 **Hidden / contained / buried:** a previous occupant's layer (compressed old bough bed, a wax-paper twist with three fish hooks and a wine cork — the bivvy has SAVED someone before: hope archaeology), deep-duff warmth (measurably warmer floor — the thermal object).
 **Ambient:** the held-breath warmth (air object with a temperature), her trunk's slow deep creak (a different, older voice than the tangle's), total wind-shadow.
 **Sign & trace:** the old bed's outline, a carved initial + date grown half-shut in the bark ("R.T. '61" — the valley's guestbook), ermine investigation prints at the door (the landlord checks on tenants).

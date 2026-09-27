@@ -210,7 +210,7 @@ two of six currencies:
 | **Warmth** | every zone has an exposure band; open ice and the ridge drain you while you work |
 | **Sweat** | hard effort (digging, floundering, chopping) dampens clothing — a *deferred* cold debt |
 | **Tools** | blade, chopper, saw, container, cordage — each unlocks a different shelf of the world |
-| **Knowledge** | reading sign: tracks, ice colour, blaze marks, squaw wood. `examine` is the tutor |
+| **Knowledge** | reading sign: tracks, ice colour, blaze marks, dead spruce twigs. `examine` is the tutor |
 | **Risk** | thin ice, overflow, the cornice, the climb — always telegraphed, never random |
 
 **The anti-easy rule.** Nothing usable lies loose on the surface anywhere in the valley except what the
@@ -279,7 +279,7 @@ redesign)*
 | Zone | What it is for | Status |
 |---|---|---|
 | `forest_edge` | green boughs for bedding, thatch and white signal smoke; the wood's first tracks | 📐 |
-| `big_spruce_hollow` | squaw wood — the always-dry fire starter — and the forward camp of the dense core | 📐 |
+| `big_spruce_hollow` | dead spruce twigs — the always-dry fire starter — and the forward camp of the dense core | 📐 |
 | `deadfall_tangle` | the near fuel mother-lode, tool-priced, under a named widow-maker | 📐 |
 | `grouse_thicket` | tame protein you must approach slowly and throw at | 📐 |
 | `hare_runs` | the snare line: the best protein per effort, gated on wire and on reading which runs are fresh | 📐 |
@@ -389,7 +389,7 @@ No two routes compete for their key resource; every route crosses the shared sur
 
 Each is a crude-to-mastery arc, and each is a network of rooms rather than a stat:
 
-- **Fuel** — squaw wood (starter) → dwarf birch and krummholz twigs (kindling, priced in armloads) →
+- **Fuel** — dead spruce twigs (starter) → dwarf birch and krummholz twigs (kindling, priced in armloads) →
   deadfall and the logjam (bulk, tool-priced) → the drift log, the far burn, the woodshed (jackpots,
   distance- and tool-priced). Fire is always possible; scale is always earned.
 - **Water** — melt (anywhere, plus a fuel tax) → blue ice (efficiency) → the inlet's shore lead (north,
@@ -401,7 +401,7 @@ Each is a crude-to-mastery arc, and each is a network of rooms rather than a sta
   the loft trunk; plus the terrain layer, where *where you work* is itself a clothing decision.
 - **Mobility and hauling** — boots → the cowling drag (hour one) → your own broken trails → the game
   trails, the causeway and the tunnel (the world's own roads) → snowshoes → the repaired freight sled.
-- **Fire-craft** — lighter → squaw wood → birch bark (a weatherproof start) → punk-cupped embers
+- **Fire-craft** — lighter → dead spruce twigs → birch bark (a weatherproof start) → punk-cupped embers
   (portable flame) → chaga and a spark (lighterless insurance) → avgas (a dangerous shortcut).
 - **Information** — the chart, the manual's pages, the pilot's line, the knob, the blaze protocol,
   ice-reading, track-reading. The only massless economy, which is why the knob — pure information —

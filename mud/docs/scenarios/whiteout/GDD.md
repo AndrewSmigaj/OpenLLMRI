@@ -42,11 +42,12 @@ That's the whole substantive change. Everything below is your design with these 
 ## §0b. Decisions made + remaining nice-to-haves
 > **Amended 2026-09-07 and 2026-09-16** (recorded in `../../architecture/implementation-architecture.md`
 > §2; the June text below is kept as written): DR-14a — the clock may run 20× by consensus when all
-> sleep or wait, events interrupt it; DR-15a — a roughly week-long run with an escalation ladder and
+> sleep or wait, events interrupt it *(since DR-14b, 2026-09-17: 15 game-minutes per real minute, and
+> `propose fast forward` to 180× by consensus)*; DR-15a — a roughly week-long run with an escalation ladder and
 > no hard time barriers, not a one-day reset; DR-17a/18a — tables and the probe corpus replace
 > packets, bake and the matrix; DR-08c — feedback is clarification only, never a menu, never a verb
 > list; the world is open-ended: the vocabulary and the entities grow by evidence without a ceiling;
-> and the pilot dies within the first day: nobody can talk to him (no language model behind him),
+> and the pilot dies within the first day *(since 2026-09-17: he starts the run dead)*: nobody can talk to him (no language model behind him),
 > so scripted things only — moaning heard in the cockpit, maybe a line; what he says is designed in
 > `../../design/12-the-pilot-and-bodies.md` (§19 stands until that review).
 The clock and session model that were once open are **decided** (full detail in §9):
@@ -91,7 +92,7 @@ The index, the review order and the template: [`docs/design/README.md`](../../de
 ## §1. Pitch & §2. Essential experience  *(unchanged)*
 > *Design of record (reviewed per system):* [`02-the-experience`](../../design/02-the-experience.md)
 
-**Whiteout** — survivors of a bush-plane crash in an Alaskan December improvise with a physically
+**Whiteout** — survivors of a bush-plane crash in an Alaskan October *(the season: freeze-up, settled 2026-09-26; was December)* improvise with a physically
 modelled world to stay alive — cold, injury, hunger and a worsening storm against them — until they are
 rescued: by fixing the radio and raising someone during a flyover, by a signal a search plane can see, or
 by simply surviving long enough for the search to reach them, each path harder than the last. **The only
@@ -123,12 +124,12 @@ by guessing the author's verb.**
 ## §6/§8. The world  *(unchanged; §6 premise, §8 weather arc)*
 > *Design of record (reviewed per system):* [`01-premise-and-world`](../../design/01-premise-and-world.md) · [`13-events-escalation-and-weather`](../../design/13-events-escalation-and-weather.md)
 
-Premise (§6): an off-route December crash; the search grid in the wrong area; a dead radio, a weak
+Premise (§6): an off-route crash at October freeze-up *(settled 2026-09-26; was December)*; the search grid in the wrong area; a dead radio, a weak
 beacon, an unstable wreck; about five hours of daylight. The crash site is the densest place in the
 valley — modelled to the hilt — and the whole valley is in the run (document 01). Weather and the
 escalation ladder — snow that deepens, cold that drops by the day, storms, the search moving on — are
 designed in document 13; the June arc (light → steady → heavy → near-whiteout; −15 to −20 °C) is
-superseded by the December ladder there. *(Reviewed with Andrew, 2026-09-17.)*
+superseded by the ladder there *(the October ladder since 2026-09-26: an inch of snow, a storm that builds over the days)*. *(Reviewed with Andrew, 2026-09-17.)*
 
 ## §5/§20–§27. The interaction engine  *(your engine; runtime now fully deterministic)*
 > *Design of record (reviewed per system):* [`05-ontology-and-sufficiency`](../../design/05-ontology-and-sufficiency.md) · [`18-materials-and-forms`](../../design/18-materials-and-forms.md) · [`04-grammar-and-feedback`](../../design/04-grammar-and-feedback.md)

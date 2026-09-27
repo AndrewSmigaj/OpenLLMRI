@@ -138,7 +138,7 @@ Three sets do the work, and none of them is closed.
   state. Verbs require a capability at a level; **a verb never names a tool**. That is the whole
   trick: anything the world mints is a full participant, so the sets can grow without touching the
   verbs.
-- The starting forms (~15) are `shard`, `piece`, `scrap`, `strip`, `sheet`, `slab`/`board`,
+- The starting forms (~15 — the code's 26 words are canonical, document 07 Q1, 2026-09-18) are `shard`, `piece`, `scrap`, `strip`, `sheet`, `slab`/`board`,
   `rod`/`stick`, `spindle`, `point`/`stake`, `bow`, `shavings`, `bundle`, `cord`, `vessel`,
   `ember`/`ash`. The starting operation categories are ~40. **Both are floors** — "where things
   start, never where they end" (Andrew, 2026-09-16).
@@ -232,6 +232,21 @@ time, state) and its entities. Each entity carries:
 `verbs.yaml` (canonical verb, family, the relations it takes, the capability it needs, the forms it
 yields), `synonyms.yaml`, `relations.yaml`, `goals.yaml` (the goal table, document 04 §3.9).
 
+**Change notes from the A9 review (Claude, 2026-09-26, for Andrew's check).** Documents 10–23, reviewed
+against this schema, need five additions so the world-builders can write what those documents define:
+1. **The zone is an entity too** — a zone row carries `materials`, `parts` (openings, the ground),
+   `states` and `sensed` like any entity, because the plane is an entity with openings and an internal
+   heat, and the ground has a frost depth and a snow depth (Andrew, 2026-09-26; documents 17 §4.8, 23).
+2. **`states` always lists temperature** where the thing has one — body parts, food, water, stone,
+   metal, the air of an enclosed space — because heat is a state everywhere (document 10 Q3).
+3. **Food-state axes** on anything edible: doneness, char, dryness, spoilage, contamination, and the
+   hidden pathogens or parasites it may carry (documents 10 §4.6, 18 §4.8).
+4. **An ownership relation**, separate from holding: whose a thing is versus who has it (document 15
+   §4.6), with starting owners from documents 16 and 17.
+5. **Action tags on each `actions` and `could_become` row** — the fixed part of the moral and other
+   tags (target kind, harm kind); the situational part (who, whose, how hard, who saw) is computed
+   when the act is logged (document 15 Q1).
+
 **The rules** (in `docs/ontology/README.md`): provenance is required on every row; status is never
 overstated; **a row is never deleted, only superseded**. `make validate-ontology` checks the schema,
 the cross-references, and the two disciplines above — a required field left empty is an error, a
@@ -311,7 +326,9 @@ are collected as they appear.
 try, as the command they would type. New verbs, relations and entities surface here and go back into
 the YAML. Every candidate command is a future probe.
 
-**A firing** is one overnight run: N zones in parallel; the morning artifact is the regenerated viewer
+**A firing** is one bounded chunk of work — a whole zone per phase, N zones in parallel, N set by the
+pilot pass; a night is many firings *(Claude, 2026-09-26, matching document 22 §6 Q4; was "one
+overnight run")*; the morning artifact is the regenerated viewer
 plus a diff summary Andrew reads. The queue is a plain table of zone × phase × model rows — the nine
 built rooms first, then the fifty designed zones.
 
