@@ -332,7 +332,8 @@ it says so. When a decision changes, this list and every document it touches cha
   being pushed into it — a design check, not a judgement the game makes. Rule 2: consequences come from
   inside the world — the body's real responses and the other players' reactions; no moral score, no
   judgement from outside the world. Rule 3: the log records what happened in the world, not intent;
-  what people say is logged beside it. (2026-09-16, 2026-09-27)
+  what people say is logged beside it. Rule 4: lies are sorted after the run, from the log — a lie, a
+  mistake, a broken promise; the game never judges speech live. (2026-09-16, 2026-09-27)
 
 **The player's view and the grammar**
 - The look: a title line, prose composed from state, people and animals as prose, exits as entities in
