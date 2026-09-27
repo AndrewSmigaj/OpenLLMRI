@@ -213,6 +213,18 @@ superseded by the 2026-09-17 decisions and kept as the record:*
 > everything and grounds the planes), and how close the pass comes. **The plane is heard before it is
 > seen** (Andrew: *"yes heard first is fine, they might not make it in time but that is ok"*) — a real
 > window to light a fire laid ready, which a party may miss.
+>
+> **Surviving long enough, and the flyovers (Andrew, 2026-09-27):** *"the default 'wait it out' rescue is
+> 7 days so 'real chance' being at the very end of the window makes no sense, storm can be days 3 and 4
+> with light snow before and clearing up after other than that you descide. yes same flyover."* The same
+> flyovers every run. **The schedule — Claude's, at Andrew's request, for his check (document 13 §4.2):**
+> day 1 the early pass at dusk, for the story; day 2 the route search between snow showers — a real
+> chance; days 3–4 the storm, nothing flies; day 5 the clearing, the search widening into the side
+> valleys — a real chance; day 6 a pass over the valley in clear air — a real chance; **day 7 the default
+> rescue**, which finds a party that can be found; after that, if not found, passes continue while the
+> weather allows, each a chance. **Findable takes work** — the storm buries the wreck, so a party digs out,
+> stamps a sign or keeps smoke going; a party in radio contact that isn't findable is told what it needs
+> to do (*"if they are not the radio guy will tell them they need to do xyz whatever"*).
 
 
 > **Decided with Andrew, 2026-09-17:** the only endings are **rescued or dead**; walking out is not an ending
@@ -924,6 +936,8 @@ kept, struck, as the record.
 - **2026-09-27 (Andrew, the rescue conversation, sixth round):** the model's judgement stays — *"i changed my mind. i need one because they are talking to someone"*; the voice may hint (raise the antenna), heard through the bad signal; the same model every run, scaffolded with rules; it judges by criteria the game gives it — the landmarks and their value. GDD §3 rule 2, `VISION.md` and `CLAUDE.md` carry the exception.
 
 - **2026-09-27 (Andrew, the rescue conversation, seventh round):** signals — *"1. you decide 2. yes heard first is fine, they might not make it in time but that is ok"*. Claude chose physics for whether a crew sees a signal (§3 banner, for his check); the approaching plane is heard first.
+
+- **2026-09-27 (Andrew, the rescue conversation, eighth round):** the default "wait it out" rescue is day 7; the storm days 3–4 with light snow before and clearing after; the same flyovers every run; the rest of the schedule is Claude's (§3 banner, document 13 §4.2); findable takes work, and the radio voice tells a party in contact what it needs to do.
 
 ## 7. What exists today
 
