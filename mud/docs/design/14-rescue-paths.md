@@ -861,6 +861,8 @@ kept, struck, as the record.
 
 - **2026-09-27 (Andrew):** Q7 — no working ELT. The battery is in the nose, wired up and fine; the radio has a loose wire inside that a character with technical proficiency sees on inspecting it. *"this whole rescue scenario will need thought please dont just blindly agree … I want help designing this, i just dont want you to add things without explicitely asking me."* Rescue is reopened as a design conversation with Andrew (`PLAN.md` A13); Claude's additions here are not accepted design.
 
+- **2026-09-27 (Andrew, the rescue conversation, first round):** the radio — *"you need to find something to open the radio, you need to fix the antenna, you need to adjust the antenna, never said you had to wait for a flyover you just have to try different channels"*; and *"What would you add to make it harder? a disconnected battery? what?"* A party without a technical character: *"it would just be slower just like making fire. it would hint at this 'you are not technically proficient so this might take awhile' when inspecting the inside."* Why planes come: *"they are searching for it, search and rescue you know."* Claude showed the 2026-09-17 words (*"the hand radio is also usable only during flyover events otherwise it is static"*) — which of the two stands is open in the conversation.
+
 ## 7. What exists today
 
 **Designed, not built:**

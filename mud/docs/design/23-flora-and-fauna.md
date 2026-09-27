@@ -174,8 +174,12 @@ LLMs."* The proposal, by how each animal is driven:
 | **A population** | snowshoe hares (the runs a snare is set on), red squirrels (middens), voles, the beavers in their lodge, marten (sign) | many of them, little choice each — counts and rules until one is caught or seen |
 | **Scripted** | the fish: grayling, burbot, whitefish, pike | Andrew: *"fish are scripted"* — met only through fishing |
 
-**Birds:** fewer than three in any room at once. A bird makes a sound when something happens — a flush,
-a raven's call at food, a jay arriving — never a constant chirp.
+**Birds:** fewer than three in any room at once, and *"they dont need to constantly be doing things like
+chirping it would add a lot of noise"* (Andrew). Like everything present, a bird speaks on its own
+cadence (document 06, 2026-09-18): an occasional call while it is there, and more when something happens
+— a flush, a raven at food, a jay arriving. *(Corrected 2026-09-27: the first version said a bird sounds
+"only when something happens", which Andrew never said and which would leave a room silent while a
+player sits in it.)*
 
 ### 4.2 Flora — what a survivor can find (proposal)
 
@@ -517,6 +521,8 @@ is — its depth and whether it connects to the creek — before the fish rows c
   fishing, heat, food state and spoilage.
 
 - **2026-09-27 (Andrew):** Q5 — poison makes them really sick and never kills (water hemlock, the deadly galerina); the bear can kill. Q7 — *"you propose the wildlife"*: fish scripted, fewer than three birds a room, no constant chirping — Claude's proposal is §4.1a, for his check.
+
+- **2026-09-27 (Andrew, later):** *"'They make a sound only when something happens' I never said this. Show me where I said this. They would then be silent if a player just sat there."* Right — Claude's extrapolation from "not constantly"; §4.1a corrected: birds speak on their own cadence, occasionally, and more when something happens.
 
 ## 8. What exists today
 Nothing of this is built. `rooms.md` names hare runs, grouse, a fishing pool, chaga, cranberries and
