@@ -9,7 +9,7 @@ You write the pure unit tests that prove Whiteout's functional core, without boo
 Evennia or touching a database.
 
 ## Read first
-- `docs/scenarios/whiteout/design.md` §45 (the test list) and the system being tested
+- `docs/scenarios/whiteout/GDD.md` §44/45 (correctness), `docs/architecture/testing.md`, and the design document of the system being tested (`docs/design/`)
   (e.g. §21 materials, §24 conservation, §14 perception).
 - `game/world/sim/contracts.py` and the module under test in `game/world/sim/**`.
 - Any existing tests under `game/tests/sim/` for the house style and fixtures.

@@ -22,8 +22,8 @@ time** — no sprints, story points, or standups. **Waterfall on *design*, agile
    design; prune stale items; pick the next `Now`.
 
 ## Doc tiers (see [`README.md`](README.md))
-Authoritative (design of record) · living (BACKLOG, README, CLAUDE.md) · scratchpad (investigation/,
-proposals/, plan files) · archived. **Scratchpads iterate; authoritative docs decide.**
+Authoritative (design of record) · living (BACKLOG, README, CLAUDE.md) · scratchpad (proposals/,
+plan files, the session scratchpad). **Scratchpads iterate; authoritative docs decide.**
 
 ## Working with Claude (keeps the agent on-rails)
 - **One concern per session;** state explicitly what's **out of scope**.

@@ -44,8 +44,7 @@ For every lens applied, write one card:
    not assume it's open.
 3. **Triage (optional but recommended for big reviews).** Rate each lens HIGH/MED/LOW *leverage*
    for THIS artifact = (how much it could change the design) × (how uncertain the answer is now).
-   Deep-dive the HIGH set; still give every lens a card (shorter for MED/LOW). See
-   `docs/investigation/lenses/triage.md` for a worked example.
+   Deep-dive the HIGH set; still give every lens a card (shorter for MED/LOW).
 4. **Apply.** Walk the chosen lenses, writing finding cards. Quote the artifact. Be adversarial:
    look for the *failure*, not confirmation. A lens that says "fine" must say *why it's certain*.
    **Stay inside the vision (step 2):** if a lens uncovers a real problem whose only fix would change

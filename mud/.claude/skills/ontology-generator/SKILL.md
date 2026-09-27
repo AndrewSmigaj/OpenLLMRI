@@ -8,7 +8,7 @@ allowed-tools: Read, Write, Edit, Bash, Grep, Glob
 
 Implements the proposal's "LLM at the authoring edge" (see
 `docs/proposals/whiteout-engine-proposal.md` §3–§4) with the **generate-then-validate** discipline
-from `docs/investigation/research/prior-art.md` (LIGHT/COMET). The deterministic engine + validator
+(the LIGHT/COMET prior art). The deterministic engine + validator
 are the ground truth; this skill never writes runtime state, only content that must pass the gate.
 
 ## The inversion you are authoring toward

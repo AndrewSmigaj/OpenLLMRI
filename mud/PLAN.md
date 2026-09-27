@@ -6,74 +6,38 @@
 > this file. `docs/scenarios/whiteout/roadmap.md` (the June P0–P7 arc) is history.
 > Statuses: ☐ not started · ◐ in progress · ☑ done · ⊘ waiting on a decision (named).
 
-## 0. RESUME HERE (last touched 2026-09-26)
+## 0. RESUME HERE (last touched 2026-09-27)
 
 **What we are in the middle of:** Phase A, the design review — a conversation over `docs/design/`, one
-document at a time, in the index order, until every one is finalized. Nothing is built and no agent
-runs a world-building loop until then. The review page is
-**https://claude.ai/artifact/2Kyi7Cvxk2PovHthYRGayC** (regenerate and republish it with
-`python3 tools/review_packet.py --current NN --out <scratchpad>/review-packet.html --parked <scratchpad>/parked.md`).
+document at a time, until every one is finalized. Nothing is built and no agent runs a world-building
+loop until then. The review page is **https://claude.ai/artifact/2Kyi7Cvxk2PovHthYRGayC** (regenerate
+and republish it with `python3 tools/review_packet.py --current NN --out <scratchpad>/review-packet.html
+--parked <scratchpad>/parked.md`). **The current decisions are §5** — every document is checked against
+it.
 
-**Reviewed in full:** the GDD umbrella · 01 premise and world · 02 the experience · 03 the player view ·
-04 grammar and feedback · 05 ontology and sufficiency · 06 time, sleep and the clock · 07 fire and
-shaping · 08 warmth, clothing and shelter · 09 water. *(Ten of twenty-four; they finalize at the close,
-after the whole set has been through once.)*
-
-**Where the conversation stopped (2026-09-26):** document **10, food and hunger**. Andrew answered Q2–Q5
-and then stopped the sitting: documents 10–23 were drafted before block 1 settled the ontology, states,
-forms and grammar, and their questions shrank the world. *"have you review all these and see if you
-can't answer them yourselves and then leave me the rest."* **Task A9 did that pass (2026-09-26):** every
-remaining question in 10–23 was checked against block 1 and real life; the ones reality or the decided
-design answers are answered in the documents, marked *"Claude's answer, for Andrew's check"*; the
-wrong-headed ones are rewritten. **Resume with Andrew's list below**, in index order; each document's
-Claude answers are checked at its sitting.
-
-**Andrew's list — answered 2026-09-27** (each answer is in its document's review log, word for word):
-the survival kit is gone, buried somewhere; either side of 15 October, the sleeping bag buried with the
-tail wreckage and two blankets hidden in the plane ("not too easy but not too hard"); no firearm; no back
-stories — different clothes and stuff; up to five play, an empty seat is empty and an unplayed character
-is dead and searchable, agents may play seats; **the bear can kill, poison makes them really sick but never
-kills — death comes from blood loss, the bear and the cold**; different characters have different success
-rates and times (a woodsman lights fires better); nothing is explained — a series of tutorial rooms, one
-simple situation each; the same weather every run; **no working ELT**; the moral rules were never
-presented, and eating the pilot is taboo, not immoral; Claude proposes the wildlife (fish scripted, fewer
-than three birds a room, no constant chirping — document 23 §4.1a); pace is the speed of typing the
-command; a missing player's character goes catatonic and the others can keep them alive; ghosts hear
-ghosts, players can't, anyone can use OOC chat; a fast model (Haiku or Sonnet) and Andrew's own
-open-weight model, which needs timing; activations in mixed runs if it is fast enough; **no recap**; **the
-battery is in the nose and fine, and the radio has a loose wire a technically proficient character sees**.
-Two lessons: *"I am concerned now you are asking about a lot of absolutely clearly defined and decided
-things"* — every question is now checked against his recorded decisions first (a writing rule); and
-*"please dont just blindly agree … I want help designing this, i just dont want you to add things without
-explicitely asking me."*
+**Where we are (2026-09-27):**
+- Reviewed with Andrew: the GDD and documents 01–09. Documents 10–23 were re-reviewed by Claude against
+  block 1 and real life (A9); Andrew answered the questions that were his, and the rescue was designed
+  together (A13, document 14 §3).
+- **Now: the cleanup (task A14).** Every document is made to show the current design only, in clean
+  prose: no quotes of the conversation, no superseded material, every decision in §5 applied everywhere;
+  the old seed design, the investigation scratchpads and the second GDD summary are removed. Document 13
+  carries the first-week-of-October weather.
 
 **Next, in this order:**
-1. ~~**The rescue, designed together (A13)**~~ — done 2026-09-27; document 14 §3 rewritten from it.
-2. **Document 15's rules**, presented properly for the first time.
-3. **The sittings resume in index order** — each document's Claude answers (marked "for Andrew's check")
-   checked, then finalized at the close.
-4. A10 — the missing systems' documents; A11 — the GDD's vision.
+1. Finish A14, and answer the four items open with Andrew (§5, end).
+2. **Document 15's rules**, presented one at a time — they have never been through a sitting.
+3. **The sittings resume in index order**, checking the answers Claude proposed in each document, then
+   finalizing at the close.
+4. A10 — the missing systems' documents (combat, heat, hunting/trapping/fishing, food state, animal
+   behaviour, scent, light, weather, snow and ice on the ground, physiology, the tutorial rooms); A11 — the
+   GDD's vision, which Andrew finds too small.
 
-**The season was settled on 2026-09-26 (§5): October, at freeze-up.** It had been reopened on
-2026-09-18, after "December" (recorded 2026-09-16 inside a bear question) had grown into a whole
-deep-winter world. The run starts with about an inch of snow, bushes visible, skim ice on the water;
-the storm starts light and gets heavier over the days and the snow piles up as a real one would — part
-of the escalation ladder; a bear is in. Documents 01, 02, 08, 10, 13 and 23 still carry December
-content, marked by a banner; task **A8** revises it (10, 13 and 23 at their sittings; 01, 02 and 08 as
-diffs before the close). Two questions came with the answer (§5): the bear and some bigger animals act
-on engine behaviour rules, with a lightweight model playing one when a run wants it (decided); in a run
-with humans a slow model is simply slow (decided), and whether anything paces a fast agent is open
-for document 20.
-
-**Then:** finish 10's Q2–Q9, and continue in index order — 11 injury · 12 the pilot · 13 events and
-weather · 14 rescue · 15 the moral layer · 16 players and kit · 17 rooms · 18 materials · 23 flora and
-fauna · 19 multiplayer · 20 the agent player · 21 endings · 22 the loops — then the close (§3 Phase A,
-A2–A8).
-
-**Two standing corrections Claude owes the work** (both are in memory and in the design writing rules,
-and both recurred more than once): never propose a cut for economy — ordering is legitimate, exclusion
-for surplus is not; and do not derive a world from a single answer — ask before hardening one word into
-a system.
+**Standing corrections Claude owes the work** (in memory and in the writing rules): never quote the
+conversation in the repository — it is public; show the current design only and carry every decision to
+every document; never propose a cut for economy; never derive a world from a single answer; never ask
+Andrew something he has already decided; be a design partner — real pushback, nothing added without
+asking.
 
 ---
 
@@ -134,21 +98,22 @@ no design.
 | ☐ | A1.18 | 18 materials and forms — reviewed and finalized | Andrew + Fable | 18 | — |
 | ☐ | A1.19 | 19 multiplayer and instances — reviewed and finalized | Andrew + Fable | 19 | — |
 | ☐ | A1.20 | 20 the agent player and research — reviewed and finalized | Andrew + Fable | 20 | — |
-| ☐ | A1.21 | 21 endings and recap — reviewed and finalized | Andrew + Fable | 21 | — |
+| ☐ | A1.21 | 21 endings — reviewed and finalized | Andrew + Fable | 21 | — |
 | ☐ | A1.22 | 22 the world-building loops — reviewed and finalized | Andrew + Fable | 22 | — |
 | ☐ | A1.23 | 23 flora and fauna — reviewed and finalized (new 2026-09-17) | Andrew + Fable | 23 | — |
-| ☐ | A2 | The cross-document decisions the docs flag (see §5): ~~the walk-out as ending vs channel (14/21)~~ (settled 2026-09-17: not an ending); four routes vs five (01/14); the forms list (07/18); the warmth floor (08); the run's food yields (10); the event deck's first version (13); "still going" (13/21). | Andrew | 01, 07, 08, 10, 13, 14, 18, 21 | A1 |
+| ☑ | A2 | The cross-document decisions the documents flagged — settled in the sittings and in §5 (2026-09-17 to 2026-09-27); new ones are raised at the sittings. | Andrew | all | A1 |
 | ☐ | A3 | Record every review decision: the doc's review log, the DR register (amendments), `VISION.md` where a non-negotiable moves. | Fable | — | A1 |
 | ☐ | A4 | Re-price the valley for a week-long run (travel, stay-or-go, the ladder): the July map assumed a five-hour day. | Fable → doc 01 + 13 | 01, 13 | A1.01, A1.13 |
-| ◐ | A5 | First-pass numbers as proposals where the docs have none: **ignition weights + threshold + the fuel-to-heat curve (07, owed — Andrew asked for a draft)**, the warmth and bedding numbers (08, incl. 06's fatigue), food yields per source (10), water (09), injury clocks (11), rescue confidence weights (14). Drafted for Andrew's review, tunable by probes later. | Fable | 06–11, 14 | A1 |
+| ◐ | A5 | First-pass numbers as proposals where the docs have none: **ignition weights + threshold + the fuel-to-heat curve (07, owed — Andrew asked for a draft)**, the warmth and bedding numbers (08, incl. 06's fatigue), food yields per source (10), water (09), injury clocks (11), the landmark list and its values for the radio voice (14). Drafted for Andrew's review, tunable by probes later. | Fable | 06–11, 14 | A1 |
 | ☐ | A6 | Promote finalized mechanisms into their architecture counterparts: `architecture/grammar.md`, `presentation.md` v2, `events.md`, `time-and-stakes.md`, `moral-social-layer.md`, `fire-and-shaping.md`, `rescue.md`; DR-29/30 appended. | Fable | 03, 04, 06, 07, 13, 14, 15 | A1 |
 | ☐ | A7 | The GDD's per-system sections pointed and corrected where the seed text is wrong (§31–36 came from the archived AI seed; §19; §9). | Fable | GDD | A1 |
-| ◐ | A8 | Revise the December content to October freeze-up (settled 2026-09-26): snow depth, temperatures, daylight, forage, ice and the fauna, from real climate data, as proposals. 10, 13 and 23 at their sittings (23's title says "in December"); 01, 02 and 08 as diffs shown to Andrew before the close. | Fable | 01, 02, 08, 10, 13, 23 | the sittings | **2026-09-26: 10, 13 and 23 done from real data (for Andrew's check); 01, 02, 08 and 09 remain, as diffs.**
-| ☑ | A9 | **Claude's self-review of documents 10–23** (done 2026-09-26; Andrew's list is in §0) (Andrew, 2026-09-26): every open question checked against block 1 (03–05, then 06–09) and real life; answered where reality or the decided design answers (marked *"Claude's answer, for Andrew's check"*), rewritten where wrong-headed, left for Andrew only where it is his. The lessons are writing rules in `docs/design/README.md` (real life is the default answer; state systems, not shortcuts; never make the world less interactive; answer in the ontology's terms; only Andrew's questions go to Andrew). The October revision (A8) is done in the same pass for 10, 13 and 23. | Fable | 10–23 | — |
-| ☐ | A10 | **New design documents for the systems the review found missing** — at least: combat (a MUD-like combat system, Andrew 2026-09-26); heat (heat as a state on every entity and body part; fire heating its area with residual heat around it; the plane as an entity with openings and an internal heat — Andrew 2026-09-26, "part of planning the design and implementation of the fire and heat system"); hunting, trapping and fishing (snares from materials, throwing, casting vs dropping a line, stabbing, clubbing); food state and spoilage. A9 found these (2026-09-26): **combat** (blows as named wounds on body parts, clothing as protection, rounds vs single acts, fleeing, restraint, animals as fighters; `kill X` as an aim-verb with document 04); **heat** (every entity and body part; contact heat and cold; the plane's openings and internal heat; carbon monoxide and smoke; a body cooling and freezing); **hunting, trapping and fishing**; **food state and spoilage**; **animal behaviour** (the actors: senses, attack modes, caching and scavenging); **scent** as a perception channel carried on the wind; **light and darkness** (daylight by date, firelight, the phone); **weather** (document 13 §4.7 specifies it for now); **snow and ice on the ground** (settling, drifting, ice growth, slush, frost depth; falling through ice); **the body's physiology** (document 11 grows into it, or its own document); **two people acting on one thing** (a grammar form, documents 04 and 19). Each is its own document (Andrew: every system has its own design document). | Fable → Andrew | new | A9 |
-| ☐ | A11 | **The GDD's vision is too small** (Andrew, 2026-09-26: *"it would have a combat system like a MUD but your vision is very tiny in the GDD"*) — the umbrella's pitch, scope and system list re-read against the open world and the systems A9/A10 name, and broadened. | Fable → Andrew | GDD | A10 |
-| ☐ | A12 | **Corrections A9 found, for when the content is authored:** the pilot's materials (skin, fat, muscle, bone, blood, organs — not `flesh`); the 206's windscreen and windows are acrylic, not glass; `insulation_batting` is two materials; `conductivity` → `electrical_conductivity`; the radio is a panel transceiver on the aircraft battery (the GDD says "hand radio", `objects.py` a "field radio"); a second signalling device (the law requires two; the docs say "the plane's one flare"); the handbook with its ELT page, the flight-plan copy, the kneeboard, the logbook, the altimeter (document 16); `plane-interior.md` §7's blanket-per-occupant error; document 05's schema change notes (§4.5); ground-to-air shapes through the `INTO` slot (document 04); document 01's lake (depth, connection to the creek) and its five hours of daylight. | Fable | 01, 04, 05, 14, 16, 18 | A1 |
-| ☑ | A13 | **The rescue, redesigned with Andrew** (2026-09-27 — the conversation is done, and document 14 §3 is rewritten cleanly from it; the old draft is its Appendix A. Andrew reads §3 whole at document 14's sitting): no working ELT; the battery in the nose and fine; a loose wire inside the radio that a technically proficient character sees; then the rest of the scenario — what makes the radio hard, what a party without that character does, the flyovers, the signals, surviving long enough. A conversation: real design help, no additions without asking. | Andrew + Fable | 14 | — |
+| ☑ | A8 | The season revised everywhere to the first week of October, from real data (done in the A14 cleanup, 2026-09-27; weather and daylight in document 13 §4.2). | Fable | all | — |
+| ☑ | A9 | **Claude's self-review of documents 10–23** (done 2026-09-26): every open question checked against block 1 and real life; answered where reality or the decided design answers, rewritten where wrong-headed, left for Andrew only where it is his. Andrew answered his on 2026-09-27. | Fable | 10–23 | — |
+| ☐ | A10 | **New design documents for the systems the review found missing** — at least: combat (a MUD-like combat system, Andrew 2026-09-26); heat (heat as a state on every entity and body part; fire heating its area with residual heat around it; the plane as an entity with openings and an internal heat — Andrew 2026-09-26: part of designing the fire and heat system); hunting, trapping and fishing (snares from materials, throwing, casting vs dropping a line, stabbing, clubbing); food state and spoilage. A9 found these (2026-09-26): **combat** (blows as named wounds on body parts, clothing as protection, rounds vs single acts, fleeing, restraint, animals as fighters; `kill X` as an aim-verb with document 04); **heat** (every entity and body part; contact heat and cold; the plane's openings and internal heat; carbon monoxide and smoke; a body cooling and freezing); **hunting, trapping and fishing**; **food state and spoilage**; **animal behaviour** (the actors: senses, attack modes, caching and scavenging); **scent** as a perception channel carried on the wind; **light and darkness** (daylight by date, firelight, the phone); **weather** (document 13 §4.7 specifies it for now); **snow and ice on the ground** (settling, drifting, ice growth, slush, frost depth; falling through ice); **the body's physiology** (document 11 grows into it, or its own document); **two people acting on one thing** (a grammar form, documents 04 and 19). Each is its own document (Andrew: every system has its own design document). | Fable → Andrew | new | A9 |
+| ☐ | A11 | **The GDD's vision is too small** (Andrew, 2026-09-26: it should include a combat system like a MUD's, and more besides) — the umbrella's pitch, scope and system list re-read against the open world and the systems A9/A10 name, and broadened. | Fable → Andrew | GDD | A10 |
+| ☐ | A12 | **Corrections A9 found, for when the content is authored:** the pilot's materials (skin, fat, muscle, bone, blood, organs — not `flesh`); the 206's windscreen and windows are acrylic, not glass; `insulation_batting` is two materials; `conductivity` → `electrical_conductivity`; the radio is a hand radio with its batteries in a bag in the tail (document 14 §3; `objects.py` has a "field radio" in the cockpit cradle); ground signals and a piece of mirror (document 14 §3.4); the handbook with its ELT page, the flight-plan copy, the kneeboard, the logbook, the altimeter (document 16); document 05's schema change notes (§4.5); ground-to-air shapes through the `INTO` slot (document 04); document 01's lake (depth, connection to the creek). | Fable | 01, 04, 05, 14, 16, 18 | A1 |
+| ☑ | A13 | **The rescue, redesigned with Andrew** (2026-09-27 — the conversation is done, and document 14 §3 is rewritten cleanly from it; Andrew reads §3 whole at document 14's sitting): no working ELT; the battery in the nose and fine; a loose wire inside the radio that a technically proficient character sees; then the rest of the scenario — what makes the radio hard, what a party without that character does, the flyovers, the signals, surviving long enough. A conversation: real design help, no additions without asking. | Andrew + Fable | 14 | — |
+| ◐ | A14 | **The cleanup** (Andrew, 2026-09-27): every document shows the current design only, in clean prose — no quotes of the conversation (the repository is public), no superseded material, every §5 decision applied everywhere; `design.md`, `GDD-summary.md` and `docs/investigation/` removed; the writing rules and §5 rewritten; the first week of October. | Fable | all | — |
 
 ### Phase B — The machine: the harness, the front door, the store (parallel with A; touches no design)
 | status | id | task | owner | design doc | waits on |
@@ -164,7 +129,8 @@ no design.
 | ☐ | B9 | The ontology store: the **full** `docs/ontology/` YAML schema (document 05 §4.5 — every field required/conditional/derived and tagged with the pass that fills it) + `docs/ontology/README.md` (provenance a list; a row is never deleted, only superseded); `make validate-ontology` checks the schema, the cross-references, required-but-empty fields and fields no pass owns. | Fable (schema) → Opus | 05 | — |
 | ☐ | B10 | The seed converter `tools/ontology_seed.py`: the built tables and the nine censuses → the first YAML files (✅ built / 📐 designed), so the store exists before any agent runs. | Opus | 05 | B9 |
 | ☐ | B11 | The viewer `tools/ontology_view.py`: a static site — the world map, per-region and per-room pages, counts, what changed since last firing; publishable as an Artifact. | Opus | 05 | B10 |
-| ☐ | B12 | The loop scaffold `docs/guides/world-building.md` (world-builder and scout briefs; the goal lenses) and the queue `docs/investigation/world/loop-queue.md` (zone × phase × model). | Fable | 22 | — |
+| ☐ | B12 | The loop scaffold `docs/guides/world-building.md` (world-builder and scout briefs; the goal lenses) and the loop queue in `docs/ontology/` (zone × phase × model). | Fable | 22 | — |
+| ☐ | B15 | The Mudlet write-up and a proposed Whiteout Mudlet setup (the research is done: `docs/client/mudlet-research.md`). | Fable | — | — |
 | ☐ | B13 | The clarification-only feedback in code (DR-08c): no verb suggestions, no numbered menus, `help verbs` gone, `make`/bare `use` clarify, `use X on Y` silent, the near-miss hint gone, bare `go` no longer lists exits' targets beyond the Exits line, unknown words logged to the wall-sensor; **tier-4 physics answers from properties replace the verb-list redirect**; probes re-authored to name nouns. | Opus implementer | 04, 05 | A1.04 |
 | ☐ | B14 | Shipped narration and binding bugs (found by running the sample week): the article doubler ("the the pilot", "a leather gloves"), `the fire` binding the extinguisher, bare `bin` binding the far bin, `cover X` folding to `wrap`. Bug fixes, not design. | Opus implementer | 03 | — |
 
@@ -184,7 +150,7 @@ no design.
 | ☐ | D1 | Finalize the cabin zone's design from its ontology (the mid cabin as the exemplar); the room-authoring rules for the loops. | Andrew + Fable | 17, 16 | C1 |
 | ☐ | D2 | The implementation plan for the zone (plan mode): objects, verbs, phrases, probes; the new-verb spike (how easy is a new verb inside the grammar; does the grammar need expanding). | Fable → Opus | 04, 17 | D1 |
 | ☐ | D3 | The description model v2: the four composer extensions (relations rendered on the parent; generic state overlays; zone/space state variants via an additive zone-facts effect; range conditions), the walked scenarios as failing probes first, a certainty audit, then built. | Opus | 03 | A1.03 |
-| ☐ | D4 | The look: the title line, people present, the `Exits:` line (compass outdoors; fore/aft/up/out inside). | Opus | 03 | D3 |
+| ☐ | D4 | The look: the title line, prose composed from state, people and animals as prose, exits as entities in prose (document 03). | Opus | 03 | D3 |
 | ☐ | D5 | The 206 interior as content: seats 1A/1B/2A/2B + the right seat with their finds; the hat shelf; the cargo net; the jammed cargo door; the finds redistributed from the six-seat draft; `look under` as the seat reveal; the guide's and nurse's missing bag extras. | describer + Opus | 16, 17 | A1.16 |
 | ☐ | D6 | Multi-zone perception verified against doc 19 (see and talk across zones; hear by loudness); the propagator's weather stub. | Opus | 19 | A1.19 |
 | ☐ | D7 | The pilot starts the run dead (2026-09-17); the body afterwards (`cover` as reverence, search, `butcher`, buried, findable); the `pilot_body` dilemma probe. | Opus | 12, 15 | A1.12 |
@@ -196,31 +162,32 @@ no design.
 |---|---|---|---|---|---|
 | ☐ | E28 | Openings as speaking entities: the hull tear, the torn tail, a missing pane, the unseated cargo door — each with a wind sound that varies with weather and with being blocked; blocking one makes the room quiet. The zone's wind and roof numbers are read through them. | Opus | 08 §4.8, 06, 05 | A1.08, E26 |
 | ☐ | E26 | The three streams: activity emotes (start/tick/interrupt/complete), ambience from the things present (each thing's `sensed` cadence, varying with state; the sum is the room), and other people through the propagator. Under a fast forward the world runs fast for the awake watcher, rate-limited in real time to stay readable; interrupting events drop the clock to base pace. | Opus | 06, 05 | A1.06, E1 |
-| ☐ | E1 | Time: the clock at 15 game-min per real min with a 4-second heartbeat; `propose fast forward` to 180× by consensus, events drop it back; the activity scheduler (attended actions with start/tick/interrupt/complete; unattended processes; `responses/activities.py`); sleep and wait; halt and resume with the missing-member rule; travel durations actually spent per exit. | Opus | 06, 01, 19 | A1.06 |
+| ☐ | E1 | Time: the clock at 15 game-min per real min with a 4-second heartbeat; fast forward at about 150× by the players' agreement, a command to slow it, a player waking or any non-ambient event dropping it back to 15×; the activity scheduler (attended actions with start/tick/interrupt/complete; unattended processes; `responses/activities.py`); sleep and wait; halt and resume with the missing-member rule; travel durations actually spent per exit. | Opus | 06, 01, 19 | A1.06 |
 | ☐ | E27 | Reconcile the forms list: the code's 26 words are canonical; correct `ontology-closure.md` §2's table and drop its "extend by evidence, never speculatively" comment (ceiling framing). Reconcile `systems/fire.py`'s older stage ladder to the design's. | Opus | 07, 18, 05 | A1.07 |
+| ☐ | E29 | A latent `break` id collision: `_shatter` ids are `derived_id(parent, f"{piece_word}{i}")`, so breaking two parts of one entity would collide — give `break` the part-scoped id shape when it is next touched. | Opus | 18 | — |
 | ☐ | E2 | Fire: the ignition model (source × receptivity × form thinness; a branch does not take from a lighter), fire as a process (the stage ladder; the stub's old ladder reconciled), the shaping family (`carve/split/shave/whittle/notch/string/bundle`), the seven methods as probe chains. | Opus | 07 | A1.07, E1 |
 | ☐ | E3 | Warmth, clothing, shelter: the night-one rule as a property test (inside the wreck, starting clothes, no fire, no huddle → survives; nothing done by night two → in trouble); the cold clock (regions, wet fraction, wind), huddle, shelter as zone properties (per-zone exposure bands in `zones.py`; wind and roof numbers written by built things: `cover/block` an opening, snow walls, boughs), drying and wetting as grams, sweat and dexterity, heated stones, the warmth floor if kept. | Opus | 08, 01 | A1.08, E1 |
 | ☐ | E4 | Water: **liquids measured in millilitres** (vessels with `capacity_ml`; an aggregate that splits when spent); `fill` as a transfer of as much as fits; `pour`, `drink from`; melting snow and ice over a fire (snow:water ~10:1 loose, ~3:1 packed, ~1.1:1 ice) and against the body; eating snow at ~120 kcal of core heat per litre; **thirst on a ~3-day clock** with ~3,000 ml/day cold-and-working; **no boiling gate**; contamination as fuel/oil carried by provenance, smellable, cleanable; **steam as an entity** so condensation works for anyone who reasons to it. | Opus | 09, 18 | A1.09, E2 |
 | ☐ | E5 | Food and hunger: calories as a ledger; yields per source from document 23 §4.4's real figures (kit, freight, the country by zone, the body); the valley's carrying capacity as the spine of the week; the hare cycle as a seeded run variable; rabbit starvation (protein without fat); cooking as a heat state; `throw`, `set snare`, fishing; hunger's symptoms long before death. | Opus | 10, 23 | A1.10, E1 |
 | ☐ | E6 | Injury and first aid: wounds as data with bleeding/infection/frostbite clocks, `press`, `bind/wrap`, `splint`, the med pouch, the starting draws' injuries as live processes. | Opus | 11 | A1.11, E1 |
-| ☐ | E7 | Events, escalation and weather: the ladder by game day, the event deck (first version) as scheduled processes with a due list and band-routed narration, hazard triggers (the cornice, thin ice, snow load off a bough), tracks that persist and decay, weather bands wired to perception and fire, snow load and the drift, wildlife as sign and pressure (ravens, the wolverine, wolves), an escape path documented per lethal card. | Opus | 13, 01 | A1.13, E1 |
-| ☐ | E8 | Rescue: the flyover schedule as the hidden rescue clock (a story pass, real chances, the late endurance pass); the radio as a continuous signal quality (battery in the tail under snow, antenna up/down/height, the plane's nearness) mapped to prose bands, the dial, the snippets through a bad signal ("can't hear you, repeat"; *improve your signal*; *adjust antenna*), usable only during a flyover; the ELT (if kept); signals (smoke past a threshold, the burning cabin, the mirror, the flare); the ground search as an activity that lists finds slowly; the missing objects; the rescue graph as probe chains; the solvability oracle. | Opus | 14 | A1.14, E7 |
+| ☐ | E7 | Events, escalation and weather: the ladder by game day, the event deck (first version) as scheduled processes with a due list and band-routed narration, hazard triggers (the cornice, thin ice, snow load off a bough), tracks that persist and decay, weather bands wired to perception and fire, snow load and the drift, the acting animals (the bear, the moose, the wolves, a few birds) and wildlife as sign; dangerous places injure, never kill outright. | Opus | 13, 01 | A1.13, E1 |
+| ☐ | E8 | Rescue, as document 14 §3: the hand radio (its batteries buried in a bag in the tail, something to open it, the loose wire, any long metal raised as the antenna, the channel buttons or the written frequency, push-to-talk, the draining light, contact once the antenna is fixed); the voice on the other end (a weak language model, scaffolded, judging landmarks by the game's criteria); signals seen by physics, the plane heard first; the same flyovers every run and the default rescue on day 7; findable after the storm takes work. The ELT is broken. | Opus | 14 | A1.14, E7 |
 | ☐ | E9 | The moral and social layer: ownership live (`take X from <person>` witnessed; `give X to Y`), persons as targets (`hit`, `strike`, `push`, `bind`, `carry`), speech as acts with claims checked against world state, the event log `events.jsonl` with witness lists and action tags from the ontology, the two-lie check, the five dilemma probes. | Opus | 15 | A1.15, E5, E6 |
 | ☐ | E10 | Materials: the natural world (stone, soil, clay, bone, hide, sinew, punk wood, lichen, rubber…) and the missing axes (edibility on flesh, liquid axes, hardness/spark); snow and ice as state on one material. | Opus | 18 | A1.18, C2 |
 | ☐ | E11 | New verbs as the loops and the docs demand them (strike, press, tape, fill, arrange, blow, sit, scrape, cover/block, push/pull/drag, throw, unscrew, warm, climb, dig dirt…); `help grammar` finalized once the forms are final; the manual page. | Opus | 04 | D2 |
 | ☐ | E12 | The converter YAML → tables, run per zone when its design is finalized; the fifty outdoor zones as data, rendered and read. | Opus | 05, 01 | C2, D9 |
-| ☐ | E13 | Instances and co-op: a run as one sitting (lifecycle, halt/resume, the reaper), ghosts for dead players (free movement, OOC chat only), seed-driven slot permutation at run start, the first-class interdependence as a general concurrent-state capability (the antenna hold first), the run modes incl. NHCs (and animals played by a lightweight model), and whatever Andrew decides on pacing a fast agent (19 Q4 — open; "not sure we should cap anything"). | Opus | 19, 16, 21 | A1.19 |
-| ☐ | E14 | Endings and the recap: the two endings (rescued — early by radio or signal, late by surviving long enough; or dead), ghosts, the recap from the event log; a fuzz that proves the late rescue reaches every findable party. | Opus | 21 | A1.21, E7 |
-| ☐ | E17 | Exits as entities with a mode, travel time and state; movement as an attended activity with events (`walk`, `run` = less time more sweat, `climb`, `enter`, `turn back`); the first-exit tutorial showing the forms once. | Opus | 03, 01 | A1.03, E1 |
+| ☐ | E13 | Instances and co-op: a run as one sitting (lifecycle, halt/resume, the reaper), ghosts for dead players (free movement; ghosts hear ghosts, the living do not; anyone can use out-of-character chat), the missing player's character catatonic, seed-driven slot permutation at run start, the first-class interdependence as a general concurrent-state capability (the antenna hold first), the run modes incl. NHCs (and animals played by a lightweight model), and the agent pace: the speed of typing the command (Andrew, 2026-09-27). | Opus | 19, 16, 21 | A1.19 |
+| ☐ | E14 | Endings: rescued (by the radio, a signal, or surviving to the day-7 rescue) or dead; ghosts; a fuzz that proves the day-7 rescue reaches every findable party. | Opus | 21 | A1.21, E7 |
+| ☐ | E17 | Exits as entities with a mode, travel time and state; movement as an attended activity with events (`walk`, `run` = less time more sweat, `climb`, `enter`, `turn back`); the tutorial rooms teach it (E19). | Opus | 03, 01 | A1.03, E1 |
 | ☐ | E18 | Groups: several things sharing a place and a kind form a described group ("a pile of clothes"); `look at the pile` lists them; taking dissolves it — the composer's fifth extension. | Opus | 03 | D3 |
-| ☐ | E19 | The pre-scenario tutorial *(Andrew, 2026-09-27: "a series of tutorial rooms where we have one simple situation they can see what sort of things they can do" — it needs its own design document)*: the grammar forms with one example each, the time controls (`propose fast forward`), movement, `help`; taught once, never a menu. | describer + Opus | 04, 06 | A1.04, A1.06 |
+| ☐ | E19 | The pre-scenario tutorial *(Andrew, 2026-09-27: a series of tutorial rooms, each one simple situation showing what sort of things players can do — it needs its own design document)*: the grammar forms with one example each, the time controls (`propose fast forward`), movement, `help`; taught once, never a menu. | describer + Opus | 04, 06 | A1.04, A1.06 |
 | ☐ | E20 | `make` as the aim-bridge: the parse-time rewrite (like `use X to VERB Y`), the goal table loaded from content, role-filling by capability, the vague clarification, the honest edges (means that fill no role, half-filled roles, multi-step goals); the shipped recipe reply removed; what a fire wants moves to the survival manual's page. | Opus | 04 §3.9, 07 | A1.04, E2 |
-| ☐ | E21 | Quantities as budgets: counts (`take two rocks`) and measures (`a handful of`, `an armful of`, `some`, `a few`, `all the`, `as much as I can carry`) resolved against what is there and what you can carry; the world reports what you actually got; aggregates (decided) with a count and a total mass that split when one is spent or stops being interchangeable. Needs E16 and E24. | Opus | 04 §3.11, Q6/Q11 | A1.04, E16, E24 |
+| ☐ | E21 | Quantities as budgets: counts (`take two rocks`) and measures (`a handful of`, `an armful of`, `some`, `a few`, `all the`, `as much as I can carry`) resolved against what is there and what you can carry; the world reports what you actually got; aggregates (decided) with a count and a total mass that split when one is spent or stops being interchangeable. Needs E16 and E24. | Opus | 04 §3.11 | A1.04, E16, E24 |
 | ☐ | E24 | Encumbrance (decided 2026-09-18): `density` on every material row, bulk derived (mass ÷ density, authored wins); `capacity_g` and `capacity_bulk` on containers — hands, pockets, bags, worn clothing, a dragged frame; exceeding capacity answered physically, never refused; the load feeds travel time. | Opus | 18, 16, 04 §3.11, 03 §4.1a | A1.18, A1.16 |
 | ☐ | E22 | The distinguishable-names gate: `make validate` fails when two reachable things in a zone share a name with no separating adjective or label (there is no numbered menu to fall back on). | Opus | 04 §3.10, 17 | A1.04 |
 | ☐ | E25 | Vocabulary authored word-first: every verb and noun ships with its synonym set written in the same pass, before the loops run; the gaps log stays as the backstop. A step in the authoring guide and a `make validate` warning for a word with no synonyms. | Opus | 04 §3.7 | A1.04 |
 | ☐ | E23 | The missing everyday verbs the walk-through found: `give`, `sit`/`stand`/`lie`, `wait [duration\|until <event>]`, `stop`, `look under`, `listen`/`smell`/`feel`, **`status` (the body's report: injuries, cold, hunger, thirst, tiredness, wetness — band words, never numbers; document 08 §4.9)**, `propose fast forward`. | Opus | 04, 06, 17 | A1.04 |
-| ☐ | E15 | Daylight and light: the day/night cycle on the clock (December's five hours), darkness that changes what a look shows and what searching needs, light sources (fire, the flashlight, the phone, the headlamp) with batteries that drain; powered devices as processes (the phone's clock and light, the laptop's sparks). | Opus | 13, 03, 16 | A1.13, E1 |
+| ☐ | E15 | Daylight and light: the day/night cycle on the clock (the first week of October, document 13 §4.2), darkness that changes what a look shows and what searching needs, light sources (fire, the flashlight, the phone, the headlamp) with batteries that drain; powered devices as processes (the phone's clock and light, the laptop's sparks). | Opus | 13, 03, 16 | A1.13, E1 |
 | ☐ | E16 | Classes that yield individuals as an engine primitive: `take a branch from the deadfall`, `take snow`, a tussock from the tussocks — a class entity mints one member with the right material, form and mass; needed by every outdoor zone. | Opus | 17, 05 | A1.17 |
 
 ### Phase F — Play, and the loop closes
@@ -246,16 +213,16 @@ under "no task yet" — which must stay empty. Three tasks were added by this pa
 
 | doc | what it says is missing | tasks |
 |---|---|---|
-| 01 | the fifty zones as data; travel durations; exposure bands; hazard triggers; tracks; the timed-beat scheduler; `probe`, `climb`, `throw`, `drag/haul`, `set snare`, `fish`; the 206 recast; wolf/wolverine sign; the cornice's outcome; live verification of the nine rooms | E12, E1, E3, E7, E11, E5, D5, D9 |
-| 02 | daylight/darkness; the title + Exits renderer; `press`; the ignition check; shaping; fire as a process; `cover` a body; sleep/rest/wait + the watch; the 20× advance; the deck; the ladder; weather + snow load; band-routed event narration; calorie yields and a calorie number; interdependence; `butcher`; the event log with witnesses; claims checked; confidence + weather window; the article and binding bugs; DR-08c in code; `give`; wet as grams; hydration; the play harness; the four unbuilt fire methods; the `make fire` recipe removed | E15, D4, E6, E2, D7, E1, E7, E5, E13, E9, E8, B14, B13, E3, E4, F1 |
+| 01 | the fifty zones as data; travel durations; exposure bands; hazard triggers; tracks; the timed-beat scheduler; `probe`, `climb`, `throw`, `drag/haul`, `set snare`, `fish`; the 206 recast; wolf sign; the cornice's outcome; live verification of the nine rooms | E12, E1, E3, E7, E11, E5, D5, D9 |
+| 02 | daylight/darkness; the title + Exits renderer; `press`; the ignition check; shaping; fire as a process; `cover` a body; sleep/rest/wait + being on watch; fast forward and the slow command; the deck; the ladder; weather + snow load; band-routed event narration; calorie yields and a calorie number; interdependence; `butcher`; the event log with witnesses; claims checked; confidence + weather window; the article and binding bugs; DR-08c in code; `give`; wet as grams; hydration; the play harness; the four unbuilt fire methods; the `make fire` recipe removed | E15, D4, E6, E2, D7, E1, E7, E5, E13, E9, E8, B14, B13, E3, E4, F1 |
 | 03 | the four composer extensions; the walked scenarios as probes; people-line phrasing; a length budget | D3, D4 |
 | 04 | unknown-word logging; `architecture/grammar.md`; final `help grammar` + the manual page; tier-4 physics replacing the verb-list redirect | B13, A6, E11 |
 | 05, 22 | the ontology store and shared tables; the seed converter; the viewer; `validate-ontology`; the scaffold; the queue; the pilot pass; the lenses; the merge step; the definition of a wall; the world-builder/scout/describer agents; the firing policy | B9, B10, B11, B12, C1, C3, C5, B1 |
 | 06 | `scheduler.advance` + `Activity`; `should_interrupt`; `responses/activities.py`; bedding and fatigue numbers; `keep watch`; the whitelist; the chatter cadence | E1, A5 |
 | 07 | the ignition numbers; the fuel→heat curve; pricing the seven methods; `probes/graph.py`; the stub's old stage ladder reconciled | E2, A5, E8 |
-| 08 | the cold clock; sweat/dexterity/movement/signal; the December ladder numbers; shelter as zone numbers and building operations; `huddle`; `cover/block`; snow as building material; `sit`; per-region frostbite; heated stones; `status` (or its refusal) | E3, E7, E11, D4 |
+| 08 | the cold clock; sweat/dexterity/movement/signal; the cold ladder numbers (document 13 §4.2); shelter as zone numbers and building operations; `huddle`; `cover/block`; snow as building material; `sit`; per-region frostbite; heated stones; `status` (or its refusal) | E3, E7, E11, D4 |
 | 09 | `water.py`; `fill`; `boil`/`gather`/`filter`/cleaning; volume in ml and `pour into`; the safety model; melt as a process | E4 |
-| 10 | cooking as heat state; spoilage/storage/scavengers; `clean`/`prepare`; the bodies model; raven/wolverine pressure; ration tuning | E5, E7, D7, A5 |
+| 10 | cooking as heat state; spoilage/storage/scavengers; `clean`/`prepare`; the bodies model; raven, fox and bear pressure; ration tuning | E5, E7, D7, A5 |
 | 11 | the injury clock; `splint`/`stitch`/`clean`/`treat`; world-inflicted injuries; `carry`; wounds gating capability; painkiller masking; unreliable description; `examine <someone>` showing wounds | E6, E11 |
 | 12 | the death clock + alive start; the moaning event; the clue fragments; tending; body states; the `authored.py` packet; the dilemma probe | D7 |
 | 13 | `weather.py`; the ladder/deck as a probe table; `events.md` + DR-30; weather driving perception; an escape path per lethal card | E7, A6 |
@@ -266,53 +233,155 @@ under "no task yet" — which must stay empty. Three tasks were added by this pa
 | 18 | natural materials (stone, soil, clay first); edibility on flesh; liquid axes; snow/ice as state; hardness/spark/ember/elasticity axes; the stale forms table | E10, A6 |
 | 19 | the instance lifecycle and reaper; the interdependence capability; muffle edges; movement durations spent; a rate cap; the offline clock policy | E13, D6, E1 |
 | 20 | `tools/play.py` + `agent/runner.py` + `client.py`; the brains; the log schema; replay; the research-run entry point; activation capture; the `@OBS` line removed from `bot-harness.md` | F1, F2, F3, B5 |
-| 21 | the two endings (rescued or dead) as end conditions; deaths, persisting bodies and ghosts; the recap; the fuzz that every run ends | E14 |
+| 21 | the two endings (rescued or dead) as end conditions; deaths, persisting bodies and ghosts; the fuzz that every run ends | E14 |
 
 **No task yet:** none.
 
-## 5. Decisions Andrew must make (tracked; each with the doc and status)
+## 5. The current decisions (the reference every document is checked against)
 
-| status | decision | doc | note |
-|---|---|---|---|
-| ☑ | **The season: October, at freeze-up.** The run starts with about an inch of snow, bushes visible, skim ice on the water, roots and berries still findable; the storm starts light and gets heavier over the days, and the snow piles up the way a real storm of that kind piles it up — part of the escalation ladder; a bear is in. Andrew: *"It starts with just an inch, you can still get to berries and such, with the storm it accumulates however much snow storms that start from light then get heavier over the days (part of the increasing challenge mechanic)"*; *"we can have a bear, that would be neat"*. The month is Claude's pick at Andrew's request (*"you pick the month"*). Replaces "December, no bear" (2026-09-16, reopened 2026-09-18). Revisions: task A8. | 01, 02, 08, 10, 13, 23 | 2026-09-26 |
-| ☑ | **How the bear and the bigger animals are driven: both.** Behaviour rules the engine runs, by default; a lightweight model playing the animal from outside, as a non-human character, when a run wants one. Birds are actors too, few of them rather than flocks, so a model can play them as well. Andrew: *"with basic AI logic which we can easily do. i could also use a lightweight LLM model with low reasoning to control the bear, some of the other bigger animals. not each of the birds that would be ridiculous as I dont have the resources unless it would be cheap"*; then *"go with your recommendations"*; then *"the bear can be controlled by either, birds have to be controlled by AI, we don't actually need flocks of them, if they are limited then llms can control them"*. GDD §3 rule 5, `VISION.md` and `CLAUDE.md` reworded to match. Which animals act and how many birds: at the 23 sitting. | 23, 13, GDD | 2026-09-26 |
-| ⊘ | **The agent's pace.** Andrew: *"we want our human agent to run at the same speed as humans so basically the speed an average typer could type something minus the additional thinking time if it is slower than a human would be, lightweight models are relatively quick compared to the length it takes to type commands"*; then *"not sure we should cap anything, If something is slow they are slow there is nothing we can do about it when humans are playing."* **Decided:** in a run with humans the clock does not wait for a slow model. **Open:** whether anything paces a fast agent — the typing-speed pace, document 19 Q4's action-rate cap, or nothing. | 20, 19, 06 | decided in part 2026-09-26; the rest at the 20 sitting (with 19 Q4) |
-| ☑ | The pilot starts the run dead (supersedes the morning's "alive, mumbling"). | 12 | 2026-09-17 |
-| ☑ | The run was always a week; the one-day wording struck everywhere live. | 19, GDD | 2026-09-17 |
-| ☑ | The endings are rescued or dead; the walk-out is not an ending (the cabin is supplies); surviving long enough is the hardest rescue path. | 14, 21, 02 | 2026-09-17 |
-| ⊘ | Four routes or five channels (visual as its own account)? | 01, 14 | at the sitting |
-| ⊘ | The forms list: the code's 26 words canonical, the closure table updated? | 07, 18 | at the sitting |
-| ⊘ | The warmth floor: keep (a fire-less night is survivable by huddle + fuselage) or drop? | 08 | at the sitting |
-| ⊘ | The event deck's first version: full or a subset? "Still going" with no cutoff? | 13, 21 | at the sitting |
-| ⊘ | Which regions earn their place; the muskeg; the density gradient. | 01 | at the sitting |
-| ☑ | A run is one sitting of two or three hours (halt/resume; a missing member incapacitated); dead players are ghosts; the empty-instance clock question is closed. | 19, 21 | 2026-09-17 |
-| ☑ | The clock: 15 game-min per real min; `propose fast forward` to 180× by consensus; events drop it back. | 06 | 2026-09-17 |
-| ☑ | Exits are entities in prose with their own verbs; people and animals as prose above them; groups ("a pile of"); a blank line before events; color for humans only. | 03 | 2026-09-17 |
-| ☑ | Wildlife as events and sign; no wolverine; lethal zones injure, never kill outright; seeded dice, announced. *(2026-09-26: the bear, some bigger animals and a few birds act — see the bear row.)* | 01, 13, 23 | 2026-09-17 |
-| ⊘ | Player count per run; the first-class interdependence. | 19 | at the sitting |
-| ⊘ | The ELT: a second silent rescue path, or folded into the radio? | 14 | at the sitting (Claude recommends keep) |
-| ⊘ | Water hemlock: the one poison that kills, or softened to illness? | 23 | at the sitting |
-| ☑ | `make` is the one aim-verb: vague it asks how, given the means it performs the act they imply; the recipe reply is cut and moves to the survival manual. | 04, 07 | 2026-09-18 |
-| ☑ | The form list is finalized before the loops run; movement, goal and meta forms added. | 04 | 2026-09-18 |
-| ☑ | Flora and fauna are filtered by ecology, not possibility: habitat, month and density decide what is in the valley. It yields one to two thousand calories on a good day against twelve to fifteen thousand burned, so the country brakes starvation rather than preventing it; the hare cycle is a seeded run variable. | 23, 10 | 2026-09-18 |
-| ☑ | Liquids have units (millilitres) from v1; thirst kills on a realistic ~3-day clock and needs more than food; eating snow costs ~120 kcal of core heat per litre; no boiling gate; contamination is fuel, carried as provenance; steam is an entity; `fill` transfers as much as fits. | 09 | 2026-09-18 |
-| ☑ | A `status` screen exists: injuries, cold, hunger, thirst, tiredness, wetness, in band words. The wreck's openings speak, so a shelter's quality is heard (the wind through the tear) rather than shown as a number. | 08, 06 | 2026-09-18 |
-| ☑ | No guaranteed warmth floor. Night one is survivable inside the wreck in the starting clothes (no fire, no huddle); going out saps you; from night two the cold climbs and you need a heat source, better gear, conserving, or huddling. The ladder is tuned until both halves hold. | 08, 13 | 2026-09-18 |
-| ☑ | Fire: the code's 26 forms are canonical; the seven methods priced by cost alone first; Claude drafts the ignition weights and the fuel-to-heat curve for review; the design's stage ladder wins over the stub's. | 07, 18 | 2026-09-18 |
-| ☑ | The non-interrupting command whitelist (look, examine, inventory, speech, help, status); the step-3 build order (scheduler → fire → warmth → hunger → injury → the pilot); bedding and fatigue numbers valued with warmth in 08. | 06, 08 | 2026-09-18 |
-| ☑ | Attended actions are one to three game-minutes for small jobs; ambience comes from the things present, each with its own cadence; a fast forward runs the world fast for the awake watcher rather than muting it; being awake is being on watch, and awake players receive events sleepers do not. | 06, 05 | 2026-09-18 |
-| ☑ | Walls per run counts all five categories separately (unknown word, unknown noun, generic answer, wrong refusal, retry cluster). | 05 | 2026-09-18 |
-| ☑ | The ontology schema is designed in full up front (not discovered from the pilot); the pilot verifies it. The merge unions and never drops; agreement is a count; every firing writes an analysis of what each model contributes. | 05 | 2026-09-18 |
-| ☑ | Vocabulary is authored word-first (canonical word + its synonyms in the same pass, before the loops); the gaps log is the backstop. The world's voice, not the system's, in every line the game speaks. | 04 | 2026-09-18 |
-| ☑ | Quantities are budgets, not numbers: counts and measures (a handful, an armful, some, all, as much as I can carry) resolved against what is there and what you can carry; inventory limited by weight **and** space. | 04, 16, 18 | 2026-09-18 |
-| ☑ | Bulk derives from mass ÷ material density, authored wins; `density` joins the material table. | 18, 04 | 2026-09-18 |
-| ☑ | A gathered quantity is an aggregate: one entity with a count and a total mass, splitting when one is spent or stops being interchangeable. | 04 | 2026-09-18 |
-| ⊘ | Enforce distinguishable names in `make validate`, or leave it an authoring rule? | 04, 17 | at the 04 sitting (Claude recommends enforce) |
-| ⊘ | What is logged per step; cross-family sampling; the stopping rule for agent runs. | 20 | at the sitting |
-| ⊘ | The non-interrupting command whitelist; the step-3 build order (defaults proposed). | 06 | at the sitting |
-| ⊘ | Which fire stage ladder (the design's, or the stub's older one); which temperature curve (the December ladder over the GDD's June line); the radio state's spelling — mine to reconcile, his to confirm. | 07, 13, 14 | at the sittings |
-| ⊘ | Per-goal path minimums (≥3 everywhere vs the roadmap's ≥4 for rescue); the nurse's knowledge (nothing mechanical vs a skill). | 14, 11 | at the sittings |
-| ⊘ | Every other open question in the 22 documents, in their order (130 in the 2026-09-17 inventory). | all | at the sittings |
+Andrew's decisions, in plain words, with the date each was made. Where Andrew left the choice to Claude,
+it says so. When a decision changes, this list and every document it touches change together.
+
+**What it is**
+- Two purposes, both first-class: a model world for research — a language model acts in it freely through
+  the same taught grammar a person uses, and its behaviour and activations are studied — and a new kind
+  of MUD for friends. Runs are for friends, for humans with agents, and for agents only. (2026-09-16)
+- The world is open-ended: any entity or relation a person would reasonably try; every count is a floor;
+  the loops grow it. Every goal has **several ways**, with no set number; clues are what a realistic world
+  holds, plus some added to help players. (2026-09-16, 2026-09-27)
+- Never a menu: the game never lists options or names a verb the player did not type. Feedback is a
+  clarification or the physics of why, and **common sense is hinted** in the world's voice. (2026-09-16,
+  2026-09-27)
+- The engine is deterministic and never calls a language model. Models play characters from outside, as
+  players: survivors, non-human characters, animals, the voice on the radio. **One exception:** the
+  radio voice judges whether it has been told enough to find the party, by criteria the game gives it.
+  (2026-09-17, 2026-09-27)
+- Design first: nothing is built and no loop runs until the design documents are finalized. The design is
+  a work in progress; every system has its own document; **one GDD**. (2026-09-16, 2026-09-17, 2026-09-27)
+
+**The setting**
+- A Cessna 206-class single with a four-seat interior (1A, 1B, 2A, 2B and the right seat), a hat shelf,
+  a cargo net and a jammed cargo door. The plane's battery is in the nose, wired and fine. (2026-09-16,
+  2026-09-27)
+- The whole valley — all fifty outdoor zones and all eleven regions, each with a reason to come back —
+  is in the first complete run. (2026-09-16, 2026-09-17)
+- **The season: the first week of October in interior Alaska** (Claude's choice, at Andrew's request,
+  for more than ten hours of daylight). An inch of snow at the start, bushes dusted but visible, berries
+  and roots findable, skim ice on still water; light snow on days 1–2, the storm on days 3–4, clearing
+  after. **The same weather every run.** (2026-09-26, 2026-09-27)
+- **The party:** up to five play (four adults and the kid). A seat nobody plays is a dead character whose
+  clothes and pockets can be searched; AI agents may play seats. No back stories: characters differ in
+  clothes, injuries and what they carry, and in how well and how fast they do things (a woodsman lights
+  fires better; a technically proficient character sees a fault in a device). (2026-09-16, 2026-09-27)
+- **The pilot starts the run dead.** He carries no clues. His body is food, and eating it is taboo, not
+  immoral. (2026-09-17, 2026-09-27)
+- **What is aboard:** the survival kit is not at hand — it is buried somewhere; the sleeping bag is
+  buried with the tail wreckage; two blankets are hidden inside the plane; no firearm. Not too easy, not
+  too hard. (2026-09-27)
+- **Holt's cabin** is supplies: some trapline gear and modest stores, not piles of food. Walking out is
+  not an ending. (2026-09-17, 2026-09-27)
+- **Wildlife:** the bear, some bigger animals and a few birds act — on the engine's behaviour rules, or
+  played by a lightweight model; fewer than three birds in a room, not constantly calling; the fish are
+  scripted; other wildlife shows as events and sign; no wolverine. Claude proposes the list (document 23,
+  for Andrew's check). Flora and fauna are filtered by ecology — this habitat, this month, real numbers.
+  (2026-09-17, 2026-09-18, 2026-09-26, 2026-09-27)
+
+**Time and the run**
+- The clock runs continuously at **15 game-minutes per real minute**. **Fast forward** (proposed and
+  agreed by the players) runs it at about **150×**; awake players can stay in it, seeing events faster,
+  and type a command to slow it when they want to act. A player waking or any non-ambient event drops it
+  back to 15×; ambient events do not. Sleeping players can chat out of character to pass the time. The
+  numbers are tuned by playtesting. (2026-09-17, 2026-09-27)
+- A run is one sitting of two or three hours — about a week of game time — which the players can pause
+  and return to. A missing player's character goes catatonic, sits down and stares; the others can keep
+  them alive, and they can die. (2026-09-17, 2026-09-27)
+- Small attended jobs take one to three game-minutes; bigger ones take honest durations. Ambience comes
+  from the things present, each with its own rhythm. Being awake is being on watch. The commands that
+  don't interrupt an activity: look, examine, inventory, speech, help, status. Build order: scheduler →
+  fire → warmth → hunger and thirst → injury → the pilot's body and `status`. (2026-09-18)
+- **Endings: rescued or dead.** The run ends when they die, of anything. Dead players are ghosts: they
+  move and use out-of-character chat; ghosts hear ghosts, the living cannot; anyone can use the
+  out-of-character chat. **No recap.** (2026-09-17, 2026-09-26, 2026-09-27)
+
+**What kills, and what hurts**
+- **Death comes from blood loss, the bear and the cold.** Poison makes people very sick but never kills;
+  other harms — infection, carbon monoxide and the rest — make them weak and sick. Dangerous places
+  injure but never kill outright; fitness matters; a seeded dice roll, announced. (2026-09-17,
+  2026-09-27)
+- No gate on violence: it resolves with real physics, and there is a **combat system like a MUD's**.
+  (2026-09-16, 2026-09-26)
+- Hunger works as it does in real life. (2026-09-26)
+- Water: liquids are measured in millilitres; eating snow costs body heat; there is no boiling gate;
+  contamination means fuel and oil, carried as provenance; steam is an entity; `fill` moves as much as
+  fits. (2026-09-18)
+- Warmth: no guaranteed floor — night one is survivable inside the wreck in the clothes they crashed in;
+  from night two they need a heat source, better gear, conserving or huddling. A `status` screen reports
+  the body in words. The wreck's openings are heard (the wind through the tear). Layering, huddling, the
+  extremities' own cold, covering openings, sweat, and heated stones are in. (2026-09-18)
+- **Heat is a state system**: heat on every entity, body parts included; a fire heats its area and leaves
+  residual heat around it; the plane is an entity with openings, open or closed, and an internal heat.
+  Food changes with heat — raw, cooked, spoiled — and there is spoiled food and there are poisonous
+  mushrooms. Hunting, trapping, fishing and killing are real operations, each variant its own.
+  (2026-09-26)
+- Fire: the code's 26 forms are canonical; the seven methods are priced by what they cost; the design's
+  stage ladder stands; Claude drafts the ignition weights and the fuel-to-heat curve. (2026-09-18)
+
+**The player's view and the grammar**
+- The look: a title line, prose composed from state, people and animals as prose, exits as entities in
+  prose; no item list; groups; a blank line before events; colour for human players only. An agent sees
+  exactly what a human sees. (2026-09-16, 2026-09-17)
+- `make` is the one aim-verb; `use X on Y` is silent; the forms are finalized before the loops run;
+  vocabulary is written word-first with its synonyms; every line is in the world's voice; quantities are
+  budgets (a handful, some, all); a gathered quantity is one aggregate; inventory is limited by weight and
+  space, and bulk comes from density; distinguishable names are enforced. (2026-09-18)
+- The tutorial is a series of rooms, each one simple situation that shows what sort of things players can
+  do; nothing else is explained. (2026-09-27)
+
+**The ontology and the loops**
+- The store is `docs/ontology/` as YAML; the schema is designed in full up front; the two models build it
+  as peers and the merge never drops; walls per run are counted in five categories; goal lenses plus human
+  lenses. (2026-09-16, 2026-09-18)
+
+**Rescue** (document 14 §3) — three ways: the radio, a signal a plane can see, surviving long enough.
+- **The ELT is broken.** (2026-09-27)
+- **The radio:** a hand radio in the plane's cabin; its batteries are buried in a bag in the tail section. You need
+  something to open it; a loose wire inside is seen at once by a technical character and found more
+  slowly by anyone else, with a hint. The antenna is anything metal and long enough, raised — higher is
+  better, and a poor match only weakens the signal. Flip through the channel buttons or find the written
+  emergency frequency; hold the button to talk. The batteries drain with use, and the light dims.
+  Contact comes fairly quickly once the antenna is fixed — not only during flyovers. (2026-09-17,
+  2026-09-18, 2026-09-27)
+- **The voice:** a person at search and rescue, played by a weak language model — the same model every
+  run, scaffolded with rules. It helps only as a real rescuer would, may hint (raise the antenna) through
+  the bad signal, asks for landmarks and judges them by the game's list and values, says they will come
+  once the storm dies down, and tells a party that cannot be found what it needs to do. A party that
+  cannot say where it is can be homed in on, at a battery cost (Claude's choice). (2026-09-27)
+- **Signals:** fire and smoke (rubber, oil, green boughs), a piece of mirror once clear of the trees,
+  burning the cabin during a flyover. Whether a crew sees a signal follows physics — contrast, weather,
+  how close the pass comes (Claude's choice). The plane is heard before it is seen; a party may not make
+  it in time. (2026-09-17, 2026-09-27)
+- **Surviving long enough:** search and rescue is searching; **the same flyovers every run**; **the
+  default rescue is day 7**; being findable after the storm takes work. The rest of the schedule is
+  Claude's (document 13 §4.2). No boats. (2026-09-17, 2026-09-27)
+
+**Agents**
+- An agent acts at the speed of typing its command; a slow model is simply slow. The models: a fast one
+  (Haiku or Sonnet, low to medium reasoning) and Andrew's own open-weight model, which needs timing;
+  activations may be collected in runs with humans if it is fast enough. (2026-09-26, 2026-09-27)
+
+**Documents**
+- One GDD; the old seed design and the investigation scratchpads are removed from the repository (git
+  keeps them). Documents present the current design only, never quote the conversation, and every
+  decision is carried to every document it touches. (2026-09-27)
+
+### Open with Andrew
+- **The trapper coming back** — on the fence; Claude recommends against it (the cabin would become a
+  waiting room) and suggests his traces instead: gear, and a calendar showing he returns after the week.
+- **Thirst** — decided 2026-09-18 as killing on a realistic three-day clock; the 2026-09-27 rule names
+  blood loss, the bear and the cold as what kills. Does thirst kill, or weaken? Claude recommends it can kill: it is a slow clock with an answer always at hand (snow, the creek), not an accident like the mushroom (document 09 §6).
+- **Document 15's moral rules** — to be presented, one at a time.
+- **The other historical folders** (`docs/proposals/`, `docs/architecture/review/`, the June
+  `roadmap.md`, the room censuses) — the same treatment as the investigation folder?
 
 ## 6. How this plan is maintained
 

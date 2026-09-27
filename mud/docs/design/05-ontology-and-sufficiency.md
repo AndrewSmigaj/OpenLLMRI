@@ -1,86 +1,80 @@
 # 05 — Ontology and sufficiency: what "anything reasonable" means, growing sets, the ontology store, the loops' scaffold, the viewer
 
-> **Status: reviewed with Andrew 2026-09-18 — every question answered; finalized at the close**
+> **Status: reviewed with Andrew 2026-09-18 — every question answered; finalized at the close.**
 > **Architecture counterpart:** [`../architecture/ontology-closure.md`](../architecture/ontology-closure.md)
 > — the mechanism (forms, derived capabilities, fallback physics, the probe corpus). This document is
 > the *what* and the *why*; that one is the *how*.
-> **Sources.** [`../../VISION.md`](../../VISION.md) ("What it is for", and the two non-negotiables
-> added 2026-09-16) · [`../architecture/ontology-closure.md`](../architecture/ontology-closure.md)
-> §1 (including the two 2026-09-16 paragraphs), §2–§4, §6–§7 ·
-> [`../investigation/design/00-provenance-audit.md`](../investigation/design/00-provenance-audit.md)
-> §1 · the session plan of 2026-09-16 (§5.4 the world-building loops, §5.5 the scaffold, §13a the
-> ontology store and the viewer) ·
-> [`../investigation/world/objects.md`](../investigation/world/objects.md) (the per-zone census; its
-> closing section on material-table candidates) · code: `game/world/sim/affordances.py`,
-> `game/world/sim/testing/probes.py`, `game/world/scenarios/whiteout/probes/`.
 
 ---
 
-## 2. Provenance
+## 2. Decisions
 
-### Andrew's words
+### Andrew's decisions
 
-**The concept (2026-09-07, 2026-09-16).** An "ontologically sufficient" MUD: *"a user, or LLM when
-we capture activations and analyze behavior, can do whatever is reasonable (if they want to cut
-something they can break a mirror and get a piece of glass, then cut open a cushion for the stuffing
-and then burn it)."*
-
-**"Anything reasonable" (2026-09-16).** *"want to take an axe thing and chop the log up then sure.
-want to dig dirt then yeah. find a rock, maybe some clay, whatever."* — the natural world is in
-scope, not only the authored kit.
-
-**What it is for (2026-09-16, quoted from [`../../VISION.md`](../../VISION.md)).** *"Two things, both
-first-class: a **model world for serious research** — an LLM acts in it freely, through the same
-taught grammar a person uses, and its behaviour and activations are studied (offering it options
-would change how it thinks, so the world never does); and a **new kind of MUD** for friends — a
-survival game where you can do anything within reason to solve it. Runs are for friends, for humans
-and agents together, and for agents only. It is a massive side project, grown mostly in overnight
-sessions where teams of agents systematically flesh out the world — every entity, relation and verb —
-and it has no finish line."*
-
-**The two non-negotiables added on 2026-09-16, quoted in full from
-[`../../VISION.md`](../../VISION.md):**
-
-> **The world is open-ended.** "Ontologically sufficient" means any and all entities and relations a
-> player would reasonably try — chop the log with the axe, dig the dirt, find a rock, find clay, the
-> natural world included. The verb set, the nouns, the relations, the materials and the forms are all
-> growing sets, grown by evidence from room censuses and from play, without a ceiling. Every count in
-> any doc is a floor. A room is never finished; it is "no walls found in the last N runs".
-
-> **Never a menu.** The game never offers a set of actions, never lists what is reachable, never
-> names a verb the player did not type. Feedback is a clarification (`Which can do you mean?`, `I
-> don't understand 'X'`, a pointer to the grammar help) or the physics of why. Listing would give
-> away the puzzles and, for an agent, constrain how it thinks.
-
-**The scale of the work (2026-09-16).** *"This is not a small project, it is a massive side project
-that will mostly run in overnight sessions as agents systematically 'flesh out' the world as in
-building all the entities and relations and verbs."* *"We barely even touched this."*
-
-**The loops, recorded in his words (2026-09-16).** The goal is to flesh out the things and the
-synonyms *before anyone plays*. Sonnet writes descriptions; **both Sonnet and Opus do "ontology
-building"**, using a scaffold we give them to think about a room and what more it could turn into —
-entities and relations (the soil, a rock, clay…). Two models get better coverage; both have a good
-ontology to work with, they just need the guidance, and we will adjust the scaffold as we learn.
-Sonnet especially is wanted for the fun, random things a person would notice or try. **Everything
-about the rooms and entities is stored where humans can look at it, with a simple app to view the
-ontology as a whole and per room, with a map.** After the initial fleshing-out, a second pass by
-reasoning: agents imagine being in the survival scenario, in different situations and rooms, and list
-everything they could possibly do there toward the survival and rescue goals, given **goal lenses**
-(*"tasks related to starting a fire"*, *"finding food"*, …) and other lenses — *"some agents build
-the world, others think of all the things they would do in it."*
-
-**Decided the same day.** The ontology store lives in `docs/ontology/` as YAML. Sonnet 5 and Opus 5
-build it as peers. Nothing is built and **no agent runs a loop until every design document is
-finalized**.
+- **Ontological sufficiency (2026-09-07, 2026-09-16).** A player — a person, or a language model
+  whose behaviour is analysed and whose activations are captured — can do whatever is reasonable: if
+  they want to cut something, they can break a mirror for a piece of glass, cut open a cushion for
+  the stuffing, and then burn it.
+- **The natural world is in scope (2026-09-16)**, not only the authored kit: take an axe and chop
+  the log up; dig dirt; find a rock, maybe some clay.
+- **What it is for (2026-09-16).** Two purposes, both first-class: a model world for research — a
+  language model acts in it freely through the same taught grammar a person uses, and its behaviour
+  and activations are studied — and a new kind of MUD for friends, a survival game where you can do
+  anything within reason to solve it. Runs are for friends, for humans with agents, and for agents
+  only.
+- **The world is open-ended (2026-09-16).** Any entity or relation a person would reasonably try is
+  in scope. The verbs, nouns, relations, materials and forms are growing sets, grown by evidence from
+  the room censuses and from play, with no ceiling. Every count in any document is a floor. A room is
+  never finished; it is "no walls found in the last N runs". Every goal has several ways, with no
+  set number (2026-09-27).
+- **Never a menu (2026-09-16, 2026-09-27).** The game never offers a set of actions, never lists
+  what is reachable, never names a verb the player did not type. Feedback is a clarification
+  (`Which can do you mean?`, `I don't understand 'X'`, a pointer to the grammar help) or the physics
+  of why, and common sense is hinted in the world's voice (document 04 §3.3). Listing would give away
+  the puzzles and, for an agent, constrain how it thinks.
+- **The scale of the work (2026-09-16).** This is a massive side project with no finish line, grown
+  mostly in overnight sessions where agents systematically flesh out the world — all the entities,
+  relations and verbs.
+- **The loops (2026-09-16).** The things and their synonyms are fleshed out *before anyone plays*.
+  Sonnet writes descriptions; **both Sonnet and Opus build the ontology**, with a scaffold we give
+  them for thinking about a room and what more it could turn into — entities and relations (the soil,
+  a rock, clay…). Two models give better coverage; both have a good ontology to work with and need
+  only the guidance, and the scaffold is adjusted as we learn. Sonnet especially is wanted for the
+  fun, random things a person would notice or try. After the first fleshing-out, a second pass by
+  reasoning: agents imagine being in the survival scenario, in different situations and rooms, and
+  list everything they could do there toward survival and rescue, given **goal lenses** (tasks
+  related to starting a fire, finding food, …) and other lenses. Some agents build the world; others
+  think of all the things they would do in it.
+- **The store and the viewer (2026-09-16).** Everything about the rooms and entities is stored where
+  people can read it — `docs/ontology/`, as YAML — with a simple app to view the ontology as a whole
+  and per room, with a map. Sonnet 5 and Opus 5 build it as peers.
+- **Design first (2026-09-16).** Nothing is built and **no agent runs a loop until every design
+  document is finalized**.
+- **Moral tags, and other tags on actions, are ontology fields (2026-09-16)**, assigned in their own
+  pass.
+- **The schema is designed in full, up front (2026-09-18)** — the pilot verifies it; it does not
+  design it (§4.5).
+- **The merge unions and never drops, and it is measured (2026-09-18)**: the models' outputs are
+  kept, how often each row is found is tracked at every merge, and the results are analysed for what
+  each model is doing and for patterns (§4.5).
+- **The scaffold (2026-09-18):** the pilot runs on the draft briefs, and the briefs are rewritten
+  from what the two models actually produce (§4.8).
+- **The lenses (2026-09-18):** the goal lenses as the backbone, plus a small set of human lenses
+  (§4.8).
+- **Walls per run (2026-09-18):** all five categories are counted, each separately (§4.5a).
+- **Ambience comes from the things present (2026-09-18)** — each thing's `sensed` field carries its
+  own cadence (document 06).
 
 ### Proposals (Claude)
 
 - The YAML **schema** — every field named in §4.5, the shared files, the status vocabulary, the
-  provenance requirement, the never-delete rule, `make validate-ontology`.
+  provenance requirement, the never-delete rule, `make validate-ontology` — and the five fields
+  proposed on 2026-09-26 for the systems of documents 10–23 (§4.5).
 - The **viewer** as a generated static site, its pages, and the "what changed since last firing"
   summary.
-- The **scaffold's wording** — the world-builder brief and the scout brief in §4.8 — and the choice
-  of the mid cabin as the first exemplar and the birch grove as the outdoor calibration piece.
+- The **scaffold's wording** — the world-builder brief and the scout brief in §4.8 — the goal-lens
+  list and the human-lens examples, and the choice of the mid cabin as the first exemplar and the
+  birch grove as the outdoor calibration piece.
 - The **seeding** step (converting what is already built into the first YAML files).
 - The **mechanism** counterpart in
   [`../architecture/ontology-closure.md`](../architecture/ontology-closure.md): forms, derived
@@ -138,10 +132,11 @@ Three sets do the work, and none of them is closed.
   state. Verbs require a capability at a level; **a verb never names a tool**. That is the whole
   trick: anything the world mints is a full participant, so the sets can grow without touching the
   verbs.
-- The starting forms (~15 — the code's 26 words are canonical, document 07 Q1, 2026-09-18) are `shard`, `piece`, `scrap`, `strip`, `sheet`, `slab`/`board`,
-  `rod`/`stick`, `spindle`, `point`/`stake`, `bow`, `shavings`, `bundle`, `cord`, `vessel`,
-  `ember`/`ash`. The starting operation categories are ~40. **Both are floors** — "where things
-  start, never where they end" (Andrew, 2026-09-16).
+- The starting forms are the code's 26 words, which are canonical (Andrew, 2026-09-18; document 07)
+  — among them `shard`, `piece`, `scrap`, `strip`, `sheet`, `slab`/`board`, `rod`/`stick`,
+  `spindle`, `point`/`stake`, `bow`, `shavings`, `bundle`, `cord`, `vessel`, `ember`/`ash`. The
+  starting operation categories are ~40. **Both are floors** — where things start, never where they
+  end (Andrew, 2026-09-16).
 - **Authored wins, derived fills.** An explicit value on an object overrides the derived one, so the
   golden tools stay hand-tuned while everything minted still works. Derived levels are **capped** at
   min(material, form), so free composition cannot mint an exploit. **State degrades**: a wet match has
@@ -157,8 +152,8 @@ The loop will always be behind the players. Tier-4 generic physics is what stand
 handler fires, the answer comes from properties — a soft thing *"gives — there is nothing to break"*;
 a liquid *"parts around the blade"*; a heavy thing *"won't shift"*; a wet thing *"is too wet to
 catch"*. Each is a physical reason and nothing else: **the game never names a verb the player did not
-type** (Andrew, 2026-09-16 — this retires the older verb-list redirect and the sibling near-miss
-hint). The wall sensor records the attempt either way, so the fallback is also an input to the loop.
+type** (Andrew, 2026-09-16). The wall sensor records the attempt either way, so the fallback is also
+an input to the loop.
 
 Fallback physics is the interim answer, **not the boundary**.
 
@@ -176,19 +171,20 @@ A **probe** is one typed command chain in one room with an expected outcome clas
 
 - `status: pass` probes are CI-enforced; `status: todo` probes **are the work queue**.
 - `probes/BASELINE` holds the passing count and may never drop — the ratchet.
-- Every probe cites its source: a census row, a phrasing-corpus line, a rescue-graph node, or
-  Andrew's approval. No self-graded probes.
+- Every probe cites its source: a census row, a phrasing-corpus line, a rescue path (document 14),
+  or Andrew's approval. No self-graded probes.
 - Coverage = the probe corpus's passing count plus the seeded fuzz (every attempt resolves, every
   effect conserves).
 
 The corpus grows from four sources: the room censuses, the phrasing corpus (agent-generated
-commands), the rescue graph, and the dilemma set. Once the loops run, **every candidate command a
-scout writes is a future probe** — which is what connects §4.7 to this number.
+commands), the rescue paths (document 14), and the dilemma set (document 15). Once the loops run,
+**every candidate command a scout writes is a future probe** — which is what connects §4.7 to this
+number.
 
 ### 4.5 The ontology store
 
-**Where.** `docs/ontology/`, as YAML (Andrew, 2026-09-16 — "stored where humans can look at it").
-Human-readable, diffable, reviewable, and not the runtime.
+**Where.** `docs/ontology/`, as YAML (Andrew, 2026-09-16). Human-readable, diffable, reviewable, and
+not the runtime.
 
 **The schema is designed in full, up front (Andrew, 2026-09-18).** A schema is cheap to specify and
 expensive to change once 59 zones of data exist: a field added later means either backfilling by
@@ -203,7 +199,11 @@ it**, so a row is never "half empty", it is *complete for its phase*.
 
 **Per zone** — `zones/<zone>.yaml`: the zone (id, name, aliases, region, position, terrain, exposure,
 the survey line, and its **exits** — each with direction, mode `walk|climb|wade|crawl|enter`, travel
-time, state) and its entities. Each entity carries:
+time, state) and its entities. **The zone is an entity too:** a zone row carries `materials`, `parts`
+(its openings, the ground), `states` and `sensed` like any other entity, because the plane is an
+entity with openings and an internal heat (Andrew, 2026-09-26), and the ground has a frost depth and a
+snow depth (documents 17 §4.8, 23) *(the row shape proposed by Claude, 2026-09-26, for Andrew's
+check)*. Each entity carries:
 
 | field | what it holds | req. | filled by |
 |---|---|---|---|
@@ -228,24 +228,23 @@ time, state) and its entities. Each entity carries:
 | `notes` | anything the pass wants the next pass to know | optional | any |
 | `provenance` | **a list**, one entry per pass that produced this row: `{model, agent, pass, date, source}` | required | every pass |
 
+**What the later systems need in these rows** *(proposed by Claude, 2026-09-26, for Andrew's check —
+so the world-builders can write what documents 10–23 define):*
+
+- **Temperature in `states`**, wherever the thing has one — body parts, food, water, stone, metal,
+  the air of an enclosed space — because heat is a state on every entity, body parts included
+  (Andrew, 2026-09-26).
+- **Food-state axes in `states`** on anything edible: doneness, char, dryness, spoilage,
+  contamination, and the hidden pathogens or parasites it may carry (documents 10 §4.6, 18 §4.8).
+- **An ownership relation** in `relations`, separate from holding — whose a thing is versus who has
+  it (document 15 §4.6), with starting owners from documents 16 and 17.
+- **Action tags on each `actions` and `could_become` row** — the fixed part of the moral and other
+  tags (target kind, harm kind); the situational part (who, whose, how hard, who saw) is computed
+  when the act is logged (document 15).
+
 **Shared files** — `materials.yaml` (every material with its axes, including `density` — document 18),
 `verbs.yaml` (canonical verb, family, the relations it takes, the capability it needs, the forms it
 yields), `synonyms.yaml`, `relations.yaml`, `goals.yaml` (the goal table, document 04 §3.9).
-
-**Change notes from the A9 review (Claude, 2026-09-26, for Andrew's check).** Documents 10–23, reviewed
-against this schema, need five additions so the world-builders can write what those documents define:
-1. **The zone is an entity too** — a zone row carries `materials`, `parts` (openings, the ground),
-   `states` and `sensed` like any entity, because the plane is an entity with openings and an internal
-   heat, and the ground has a frost depth and a snow depth (Andrew, 2026-09-26; documents 17 §4.8, 23).
-2. **`states` always lists temperature** where the thing has one — body parts, food, water, stone,
-   metal, the air of an enclosed space — because heat is a state everywhere (document 10 Q3).
-3. **Food-state axes** on anything edible: doneness, char, dryness, spoilage, contamination, and the
-   hidden pathogens or parasites it may carry (documents 10 §4.6, 18 §4.8).
-4. **An ownership relation**, separate from holding: whose a thing is versus who has it (document 15
-   §4.6), with starting owners from documents 16 and 17.
-5. **Action tags on each `actions` and `could_become` row** — the fixed part of the moral and other
-   tags (target kind, harm kind); the situational part (who, whose, how hard, who saw) is computed
-   when the act is logged (document 15 Q1).
 
 **The rules** (in `docs/ontology/README.md`): provenance is required on every row; status is never
 overstated; **a row is never deleted, only superseded**. `make validate-ontology` checks the schema,
@@ -259,9 +258,8 @@ entries, a row only one model saw carries one. Each firing then writes an **anal
 the merge: how many rows each model found, how many both found, what each found that the other did
 not, broken down by kind (entity · part · state · transform · relation · action · synonym), and how
 those counts move over time. That is what tells us what each model actually contributes, whether the
-two-model premise pays, and how to change the briefs — and it is the same data the design pass reads
-when it prunes. *(Andrew: "we would have the models' outputs, tracking how frequent those are every
-time you merge, then running analysis to see what they are doing, find patterns, all that.")*
+two-model premise pays, and how to change the briefs. Pruning is the design pass's, per zone, when it
+reads the merge and its report.
 
 **Seeding, before any agent runs.** `tools/ontology_seed.py` converts what is already built — the
 object table, the materials table, the zones, the spaces, the appearance rows, and the nine censuses'
@@ -279,8 +277,8 @@ A **wall** is a moment when someone tries something reasonable and the world can
 properly. **Walls per run** is the project's progress measure: it should fall as the loops flesh the
 world out, and it never reaches zero — the world is open-ended, so there is always a next wall.
 
-**All five categories are counted, and each is counted separately** (Andrew, 2026-09-18) — a blended number
-would hide which axis is lagging, and this is the number read every morning:
+**All five categories are counted, and each is counted separately** (Andrew, 2026-09-18) — a blended
+number would hide which axis is lagging, and this is the number read every morning:
 
 | category | what happened | which gap it names | where it is logged |
 |---|---|---|---|
@@ -311,8 +309,9 @@ Kept simple on purpose. Its job is that a person can read the world.
 in a loop before every design document is finalized — one built room (the mid cabin) is done by the
 world-builder on Opus 5 and again on Sonnet 5, under the draft scaffold; the two outputs are merged
 into `docs/ontology/zones/mid_cabin.yaml`; Andrew and Claude read it and the first generated viewer
-page together. **The scaffold, the schema, the queue format and the firing procedure are fixed from
-what that teaches, not designed on paper.** Only then do the loops run unattended.
+page together. **The scaffold, the queue format and the firing procedure are fixed from what that
+teaches, not designed on paper**; the schema is verified by it (§4.5). Only then do the loops run
+unattended.
 
 **Phase 1 — ontology building.** Unit: a room × a pass. The world-builder reasons about the room to
 real-world depth — what is there, what it is made of, what each thing could turn into, every relation,
@@ -322,15 +321,15 @@ see what each contributes and adjust the briefs. Duplicates are reconciled by a 
 are collected as they appear.
 
 **Phase 2 — possibility passes.** The scout imagines being a survivor in that room in a *situation*
-(day 1 dusk, injured, the storm…) with **one goal lens at a time**, and lists everything they would
-try, as the command they would type. New verbs, relations and entities surface here and go back into
-the YAML. Every candidate command is a future probe.
+(day 1 dusk, injured, the storm…) with **one lens at a time**, and lists everything they would try,
+as the command they would type. New verbs, relations and entities surface here and go back into the
+YAML. Every candidate command is a future probe.
 
 **A firing** is one bounded chunk of work — a whole zone per phase, N zones in parallel, N set by the
-pilot pass; a night is many firings *(Claude, 2026-09-26, matching document 22 §6 Q4; was "one
-overnight run")*; the morning artifact is the regenerated viewer
-plus a diff summary Andrew reads. The queue is a plain table of zone × phase × model rows — the nine
-built rooms first, then the fifty designed zones.
+pilot pass; a night is many firings *(proposed by Claude, 2026-09-26, for Andrew's check; document 22
+§4.5)*; the morning artifact is the regenerated viewer plus a diff summary Andrew reads. The queue is
+a plain table of zone × phase × model rows — the nine built rooms first, then the fifty designed
+zones.
 
 **No implementation happens in either phase.** Design and implementation stay separate: the cabin
 zone is finalized from its ontology first (including the multi-zone connected perception), then an
@@ -339,12 +338,13 @@ how easy new verbs are inside the grammar.
 
 **Then play, and the walls.** Once the play harness exists, agents play freely, and every wall — an
 attempt with no answer, an unknown word, a thing that should have been there — is logged and becomes
-the next pass's input. **"Walls per run" is the measure.** There is no finish line.
+the next pass's input. **"Walls per run" is the measure** (§4.5a). There is no finish line.
 
 ### 4.8 The scaffold (what the agents are given)
 
-`docs/guides/world-building.md` — one guide, two briefs. Wording is a proposal; it is expected to
-change after the pilot.
+`docs/guides/world-building.md` — one guide, two briefs. The wording below is a draft: the pilot runs
+on it, and it is rewritten from what the two models actually produce, with the mid cabin's merged
+output promoted as the exemplar — worth more than more instructions (Andrew, 2026-09-18).
 
 **For world-builders — "if this were the real world, not a MUD":** every entity a person would notice
 (objects, parts of parts, substances, surfaces, the ground and what is under it, natural materials,
@@ -354,31 +354,34 @@ near); every action a person would reasonably try on it, **with the command they
 Thorough, not the gist. **No cap.** Provenance on every row.
 
 **For scouts:** the situation packet (room, day, weather, the party's state, what is known); **one
-goal lens at a time** — fire · food · water · warmth · shelter · signals · rescue · injury · the
-pilot · the party, plus lenses we add; "list everything you might try, as the command you would
-type"; **never judging feasibility** (judging is what a probe is for).
+lens at a time**; "list everything you might try, as the command you would type"; **never judging
+feasibility** (judging is what a probe is for).
+
+**The lenses (Andrew, 2026-09-18): the goal lenses as the backbone, plus a small set of human
+lenses.** The goal lenses: fire · food · water · warmth · shelter · signals · rescue · injury · the
+pilot · the party, plus lenses we add. The human lenses cover what a person would try with no survival
+goal at all — exactly the fun, random things wanted from Sonnet: boredom, fear, grief, curiosity,
+spite, tidying up, keeping the kid busy. *(The lists are Claude's; the human lenses are tried in the
+pilot, to see what they add beyond the goal lenses.)*
 
 **The exemplars:** the mid cabin from the pilot pass, and later the birch grove at real-world depth as
 the outdoor calibration piece.
 
 ### 4.9 What the census already says the world needs
 
-The per-zone census ([`../investigation/world/objects.md`](../investigation/world/objects.md)) was
-written generous on purpose and is the closest thing to a dry run of Phase 1. Its closing section is
-the concrete shape of "growing sets" — the materials the current table does not have:
-
-> rock/stone (boiling stones, anvils, flakes — **presently absent**), bone/antler, fur/hide, peat,
-> lichen, punk/rotten wood (ember medium — distinct from sound wood), rubber, kerosene, canvas,
-> babiche/rawhide, grease/fat, mica ("the honesty material" — worthless glitter), brass, paper.
-
-And the detail the natural world demands: snow and ice are never one object — powder, wind-slab,
-drift, spindrift, sugar snow, snow-cap, sastrugi, rime, hoarfrost, surface hoar, frost feathers;
-black ice, white ice, shore ice, pressure slab, overflow, frazil, skim ice, glare ice — *"the variety
-IS the ontology exercise"*, and each behaves differently under the material table.
+The per-zone census of the valley was written generous on purpose and is the closest thing to a dry
+run of Phase 1. What it found is carried in the design documents: the materials the current table
+does not have — rock and stone above all, then bone and antler, fur and hide, peat, lichen, punk wood,
+rubber, kerosene, canvas, rawhide, grease and fat, mica, brass, paper (document 18 §4.7) — and the
+detail the natural world demands: snow and ice are never one object — powder, wind-slab, drift,
+spindrift, sugar snow, snow-cap, sastrugi, rime, hoarfrost, surface hoar, frost feathers; black ice,
+white ice, shore ice, pressure slab, overflow, frazil, skim ice, glare ice. The variety is the ontology
+exercise, and each behaves differently under the material table.
 
 Its totals — **~59 zones, ~1,150 candidate objects, ambients and signs across the valley** (crash-site
-builds excluded) — are a floor from one pass by one model, before any loop has run. That number is
-the honest scale of the work, and the reason the store and the viewer come before the loops.
+builds excluded; document 01 §4.11) — are a floor from one pass by one model, before any loop has run.
+That number is the honest scale of the work, and the reason the store and the viewer come before the
+loops.
 
 ---
 
@@ -412,99 +415,29 @@ the honest scale of the work, and the reason the store and the viewer come befor
 
 ## 6. Open questions
 
-~~1. The schema fields.~~ **Answered 2026-09-18 (Andrew): design it in full, up front.** His objection
-   to the original recommendation (cut to a minimum, let the pilot show what is missing) was that it
-   contradicts the waterfall stance — and it does. A schema is cheap to specify and expensive to
-   change after 59 zones of data exist; discovering it from the pilot is exactly the drift we are
-   avoiding. §4.5 now carries the complete schema, with every field marked required/conditional/
-   derived and tagged with the pass that fills it, so "wide" cannot become "half-filled". **The pilot
-   verifies the schema; it does not design it.**
-2. **The scaffold text.** The world-builder and scout briefs are the single biggest lever on output
-   quality, and are currently one paragraph each. Options: (a) run the pilot on this draft and rewrite
-   from what the two models actually produce; (b) write a long, worked brief first, with a full
-   exemplar room. **Recommendation: (a) then (b)** — draft in, pilot, then promote the mid cabin's
-   output as the exemplar, which is worth more than more instructions.
-3. **The goal lenses.** The list (fire · food · water · warmth · shelter · signals · rescue · injury ·
-   the pilot · the party) is Claude's, from Andrew's two examples. Open: whether non-goal lenses
-   belong too — boredom, fear, grief, curiosity, spite, tidying up, keeping the kid busy — since a lot
-   of what a person would try has no survival goal at all, and those are exactly the "fun, random
-   things" Andrew wants from Sonnet. **Recommendation: keep the goal lenses as the backbone, and add
-   a small set of human lenses**, tried in the pilot and kept only if they produce commands the goal
-   lenses missed.
-~~4. How merges between the two models are reconciled.~~ **Answered 2026-09-18 (Andrew): union, track
-   frequency, and analyse.** Provenance is a list, agreement is a count, and every firing writes an
-   analysis report on what each model found, what both found, and how that moves — see §4.5. Kept
-   below as the record of what was weighed; the remaining question is only *who prunes and when*,
-   which the design pass answers per zone.
-
-   *(original)* **How merges between the two models are reconciled.** Two models on every room will disagree on
-   naming, granularity and plausibility. Options: (a) a Sonnet merge step that unions everything and
-   flags only exact-id collisions; (b) a stricter merge that judges plausibility and drops rows; (c)
-   keep both models' rows side by side, with provenance, and let the design pass prune. **Recommendation:
-   (a) with (c) as the fallback** — dropping rows loses the evidence we are running two models to get,
-   and "a row is never deleted, only superseded" already says which way to lean. The real question for
-   the review is who prunes, and when.
-~~5. What counts as "a wall"?~~ **Answered 2026-09-18 (Andrew): all five categories, counted
-   separately** — see §4.5a. Kept below as the record of what was weighed.
-
-   *(original)* **What counts as "a wall"?** *(a **wall**
-   is a moment when someone tries something reasonable and the world cannot answer it properly. It
-   is the project's progress measure: "walls per run" should fall as the loops flesh the world out,
-   and it never reaches zero. The question is which failures count.)*
-
-   The candidates, each of which is a different kind of gap:
-   - **an unknown word** — they typed `chop` and the game has no such verb (a vocabulary gap);
-   - **an unknown noun** — they named something a real room would have and this one does not model
-     (`the windscreen`, `the roots`) (a world gap);
-   - **a generic answer** — the verb fits, the thing exists, but the reply came from the fallback
-     physics rather than something specific (a depth gap);
-   - **a refusal that should not be one** — the world said no to something a survivor could do;
-   - **a retry cluster** — the same intent attempted three different ways in a row, which says the
-     player hit a wall even when each individual reply was defensible.
- The measure of the whole programme is "walls per run", and it is
-   undefined. Candidates: any tier-4 fallback; any unknown word; any clarification the player did not
-   resolve; any attempt whose answer the player retried three different ways; only an attempt a
-   reasonable person would expect to work. Options: (a) count the broad set and accept a noisy number
-   that trends; (b) count only the narrow set and accept that it undercounts. **Recommendation: (a),
-   with the categories kept separate** — the trend per category is what tells us which axis is
-   lagging, and a single blended number would hide it. This needs Andrew's call, because it is the
-   number he will be shown every morning.
+None open. Every question this document asked was answered on 2026-09-18 and is written into §4.
 
 ---
 
 ## 7. Review log
 
-*(Nothing yet — this document has not been reviewed with Andrew.)*
-
-| date | decided | cut | sent back |
-|---|---|---|---|
-| — | — | — | — |
+- **2026-09-16** — the concept with Andrew: the world is open-ended and never a menu; the store as
+  YAML in `docs/ontology/` with a viewer and a map; both models build the ontology as peers; the loops'
+  two passes and the goal lenses; nothing runs until the design is finalized.
+- **2026-09-18** — reviewed in full with Andrew: the schema designed in full up front, verified by the
+  pilot; the merge unions, never drops, and is measured with an analysis report per firing; the
+  scaffold piloted on the draft, then rewritten from the output; the goal lenses plus a small set of
+  human lenses; all five wall categories counted separately; `sensed` carries a cadence, because
+  ambience comes from the things present (document 06).
 
 ---
-
-- **2026-09-18 (Andrew, block 1):** **Q1 changed from the recommendation** — the schema is designed in full
-  up front, not discovered from the pilot; a minimum-then-grow schema contradicts the waterfall stance
-  and is expensive to change once the zones are censused. §4.5 rewritten with the complete schema,
-  every field marked required/conditional/derived and tagged with the pass that fills it; the pilot
-  verifies it. Q2 scaffold: pilot on the draft, then rewrite from the output. Q3 lenses: the goal
-  lenses as the backbone plus a small set of human lenses. **Q4 improved by Andrew** — the merge
-  unions and never drops, provenance is a list so agreement is a count, and every firing writes an
-  analysis report on what each model found and how that moves over time. Q5 (what counts as a wall)
-  restated with its five candidate categories, open for his answer.
-
-- **2026-09-18 (Andrew):** Q5 — **all five wall categories are counted, and separately**: unknown word,
-  unknown noun, generic answer, wrong refusal, retry cluster. §4.5a written with where each is logged
-  and the rule that each keeps its own trend line, because a blended number would hide which axis is
-  lagging. **Document reviewed in full — block 1 complete.**
-
-- **2026-09-18:** `sensed` gains a cadence per sense — ambience comes from the things present (document 06).
 
 ## 8. What exists today
 
 **Nothing of the store, the viewer or the loops.** Verified absent: `docs/ontology/` (no directory),
 `tools/ontology_seed.py`, `tools/ontology_view.py`, `docs/guides/world-building.md` (the scaffold),
-the loop queue under `docs/investigation/world/`, and a `validate-ontology` target in the `Makefile`.
-No agent has ever run a world-building or possibility pass. The mid-cabin pilot has not been run.
+the loop queue, and a `validate-ontology` target in the `Makefile`. No agent has ever run a
+world-building or possibility pass. The mid-cabin pilot has not been run.
 
 **Built — the closure mechanism's first step.**
 
@@ -528,12 +461,10 @@ No agent has ever run a world-building or possibility pass. The mid-cabin pilot 
 - The entry points: `tools/probes.py`, `make probes`; the seeded solvability fuzz `tools/fuzz.py`,
   `make fuzz`.
 
-**Designed, on paper, as scratchpads.**
+**Designed, on paper.**
 
-- The per-zone census of the whole valley:
-  [`../investigation/world/objects.md`](../investigation/world/objects.md), with
-  [`map.md`](../investigation/world/map.md), [`rooms.md`](../investigation/world/rooms.md) and
-  [`report.md`](../investigation/world/report.md).
+- The valley census's findings, carried into documents 01 (the zones, §4.5; the density gradient and
+  the census totals, §4.11) and 18 (the missing materials, §4.7).
 - The nine built rooms' censuses: `docs/scenarios/whiteout/rooms/*.md` — the source of the `census`
   probes and the nearest thing to a Phase 1 output that exists.
 - The mechanism spec: [`../architecture/ontology-closure.md`](../architecture/ontology-closure.md).

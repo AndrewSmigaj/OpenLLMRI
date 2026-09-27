@@ -31,15 +31,8 @@ Where everything lives, what's authoritative, and where new docs go.
 - [`process.md`](process.md) — **how we work** (the design→document→implement loop).
 
 **Scratchpad / exploratory — NOT authoritative (thinking-in-progress):**
-- [`investigation/`](investigation/) — brainstorms, lenses, research probes; `investigation/design/` held the
-  nine design passes of 2026-09-07, now merged into `design/` (each carries a pointer banner);
-  `investigation/design/00-provenance-audit.md` stays as the review aid (what is Andrew's, what was
-  Claude's, what was removed).
 - [`proposals/`](proposals/) — proposals under consideration.
-- `~/.claude/plans/` — plan-mode working files.
-
-**Archived (history, not current):**
-- `scenarios/whiteout/design.md` — the original seed, superseded by the GDD (not authoritative).
+- `~/.claude/plans/` and the session scratchpad — working files, never the design of record.
 
 ## The rule
 Scratchpads are for iterating. **Nothing gets implemented until the decision is promoted into the
@@ -51,4 +44,4 @@ authoritative docs.** The flow is in [`process.md`](process.md).
 - A **feature with real trade-offs** → a short design doc under `architecture/` (or the scenario) —
   after iterating in a scratchpad.
 - A **task / idea** → [`../BACKLOG.md`](../BACKLOG.md) (Now/Next/Later).
-- **Exploration** → [`investigation/`](investigation/).
+- **Exploration** → the session scratchpad; what survives is promoted into `docs/design/`.

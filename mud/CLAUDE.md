@@ -76,7 +76,7 @@ image is pinned by digest (`docker/evennia/Dockerfile`) so local, CI and any clo
 - `.claude/` — this tooling: **skills** (`run-game`, `run-tests`, lenses, ontology, fuzz), agents,
   commands, hooks. Reach for `run-game` to operate the server and `run-tests` for the checks.
 
-## Current decisions (Andrew's; agents don't reopen them, and he changes them as the design grows — see VISION.md / GDD §0b / the architecture DRs)
+## Current decisions (Andrew's; agents don't reopen them, and he changes them as the design grows — see VISION.md, PLAN.md §5 and the architecture DRs)
 - **The world is open-ended — never frame it as bounded.** Any and all entities and relations a player
   would reasonably try are in scope, the natural world included; verbs, nouns, relations, materials
   and forms grow by evidence without a ceiling. Every count in any doc is a floor. The overnight loops
@@ -95,10 +95,10 @@ image is pinned by digest (`docker/evennia/Dockerfile`) so local, CI and any clo
   input for the engine — one exception: the radio voice judges whether it has been told enough to find the
   party, by criteria the game gives it (document 14, 2026-09-27). (DR-02; GDD §3 rules 2 and 5, reworded 2026-09-17 and 2026-09-26)
 - **The world clock is a continuously running real-time clock** (GDD §9) — it just runs; nobody can
-  stall or yank it. Event-driven/turn-based time and a planning-freeze were rejected. It always runs
-  faster than real time (15 game-min per real min); `propose fast forward` raises it to 180× by
-  consensus and events drop it back (DR-14b). A deterministic logical clock under the hood keeps
-  replay/fuzz reproducible. (DR-14)
+  stall or yank it. It runs at 15 game-minutes per real minute; fast forward (by the players' agreement)
+  runs it at about 150×, and awake players can stay in it and type a command to slow it; a player waking or
+  any non-ambient event drops it back to 15×. Tuned by playtesting. A deterministic logical clock under the
+  hood keeps replay/fuzz reproducible. (DR-14; document 06)
 - **Sessions are instanced, synchronous co-op**: roughly a week of game time inside one sitting of two
   or three hours (one shot, or two with a resume), an escalation ladder, no hard time barriers; the
   only endings are rescued or dead. (DR-15, amended DR-15a/15b)
@@ -131,15 +131,15 @@ entrypoint word-splits args, so Make commands with quoted args use `--entrypoint
   the decisions Andrew must make, how loop additions flow back into design and tasks). Update it in the
   same commit as the work. [`BACKLOG.md`](BACKLOG.md) is its Now slice.
 - `VISION.md` — the anchor: what we build + the core decisions.
-- `docs/scenarios/whiteout/GDD.md` — **the authoritative game design** (FINAL; §N anchors; §0a
-  improvements + §0b decisions). `design.md` beside it is the **archived original seed — not
-  authoritative**.
-- `docs/architecture/implementation-architecture.md` — **the authoritative architecture** (v4/FINAL;
+- `docs/scenarios/whiteout/GDD.md` — **the one game design document**: the umbrella over the per-system
+  design documents in `docs/design/` (a work in progress, reviewed with Andrew). The current decisions,
+  all in one place, are `PLAN.md` §5.
+- `docs/architecture/implementation-architecture.md` — **the architecture** (v4, amended through the DR register;
   decisions register DR-01…DR-28). `ontology-closure.md` beside it is the closure-loop spec (DR-26). `overview.md` / `perception-model.md` / `tick-and-scheduler.md` /
   `llm-integration.md` / `testing.md` are focused views kept consistent with it.
 - `docs/scenarios/whiteout/roadmap.md` — the **slice-first waterfall** build order (P0…P7; P1 = the
   co-op vertical slice → the fun gate).
 - `docs/guides/` — authoring guides (objects, actions, workflows).
 - `game/world/sim/contracts.py` — the **frozen** dataclasses every `sim` module speaks.
-- `docs/investigation/**` + `docs/architecture/review/**` — historical record (how decisions were
-  reached); NOT authoritative for current state.
+- `docs/architecture/review/**` — historical record (how decisions were reached); NOT authoritative for
+  current state.

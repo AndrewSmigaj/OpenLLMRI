@@ -12,9 +12,9 @@ functions.
 
 ## Read first (always, before authoring)
 1. `VISION.md` — the non-negotiables.
-2. `docs/scenarios/whiteout/design.md` — especially §20–24 (state/parts/materials/
-   conservation), §25–27 (actions), §30 (workflows), §43 (the authoring packets),
-   §44 (validation), §45 (test list).
+2. `docs/design/05-ontology-and-sufficiency.md` §4.5 (the entity schema), `17-rooms-and-living-rooms.md`
+   and `18-materials-and-forms.md` (state, parts, materials), `04-grammar-and-feedback.md` (the forms and
+   actions), the GDD §24 and §44 (conservation, validation), and `PLAN.md` §5 (the current decisions).
 3. `docs/guides/` — the authoring guides (objects, actions, workflows). Follow them.
 4. `game/world/sim/contracts.py` — the dataclasses you fill:
    `ObjectPacket` (§43.1), `ActionFamilyPacket` (§43.2), `WorkflowPacket` (§43.3),

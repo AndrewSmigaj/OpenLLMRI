@@ -11,7 +11,7 @@ Where a language model touches Whiteout — and, decisively, where it does **not
 In the workshop, before anyone plays, the LLM **assists authoring** — it drafts material property
 vectors, operation rules, cheap objects, and response/redirect text. Every draft is then **validated**
 (content-lint + the conservation ledger) and **human-curated**, and **baked into data** the runtime
-loads. See `docs/investigation/claude-code-build-practices.md` and the `ontology-generator` skill.
+loads. See the `ontology-generator` skill and `docs/design/22-the-world-building-loops.md`.
 
 - The authored content is *static data + deterministic rules* by the time the game runs.
 - Gaps (sensible attempts with no authored rule, found by the fuzzer's **wall-sensor**) are filled the
@@ -54,4 +54,4 @@ The §26 tiers are **authored → object → part → material → generic physi
 ## Related
 - [overview.md](overview.md) · [implementation-architecture.md](implementation-architecture.md) (the full how)
 - [ADR-0005](adr/0005-llm-bot-player-and-torch.md) — the bot-player decision.
-- `docs/investigation/claude-code-build-practices.md` — the build-time authoring loop.
+- `docs/design/22-the-world-building-loops.md` — the build-time authoring loop.

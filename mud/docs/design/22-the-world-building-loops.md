@@ -1,104 +1,74 @@
 # 22 — The world-building loops
 
-> **Status: draft for review (2026-09-16).** Never reviewed with Andrew. **No loop of this shape has
-> ever run.**
+> **Status: draft for review.** No loop of this shape has ever run.
 > **Architecture counterpart:** [`ontology-closure.md`](../architecture/ontology-closure.md) §6–§7
-> (probes as the coverage definition; the closure loop) · `harness.md` (pending) ·
+> (probes as the coverage definition; the closure loop) · `docs/harness.md` (pending, `PLAN.md` B2) ·
 > `docs/ontology/README.md` (pending, the store's schema).
-> **Sources:** the plan file `plan-out-updating-the-lazy-pie.md` §1 (Andrew's words on the loops),
-> §2 (the model policy), §5.4–§5.5 (the phases and the scaffold), §13a (the store and the viewer) ·
-> [`build-queue.md`](../investigation/world/build-queue.md) (the July loop this replaces) ·
+> **Sources:** document [05](05-ontology-and-sufficiency.md) (the store, the scaffold, the loops) ·
 > [`ontology-closure.md`](../architecture/ontology-closure.md) §6–§7 ·
-> [`loop-workflow.md`](../guides/loop-workflow.md) ·
-> [`00-provenance-audit.md`](../investigation/design/00-provenance-audit.md) §1 ·
-> [`VISION.md`](../../VISION.md).
+> [`loop-workflow.md`](../guides/loop-workflow.md) · [`VISION.md`](../../VISION.md).
 
 ---
 
-## 2. Provenance
+## 2. Decisions
 
 ### Andrew's decisions
 
-**The loops, in his words (2026-09-16)** — as recorded in the plan file, which presents this
-paragraph as his words rather than as a verbatim transcript; the itemised decisions under it are
-each traceable to a second source. *"The goal is to flesh out the things and the synonyms
-before anyone plays. Sonnet writes descriptions; both Sonnet and Opus do 'ontology building' using a
-scaffold we give them to think about a room and what more it could turn into — entities and relations
-(the soil, a rock, clay…). Two models get better coverage; both have a good ontology to work with,
-they just need the guidance; we will adjust the scaffold. Everything about the rooms and entities is
-stored where humans can look at it, with a simple app to view the ontology as a whole and per room,
-with a map. After the initial fleshing-out, a second pass by reasoning: agents imagine being in the
-survival scenario in different situations and rooms and list everything they could possibly do there
-toward the survival and rescue goals, given goal lenses ('tasks related to starting a fire', 'finding
-food', …) and other lenses — some agents build the world, others think of all the things they would
-do in it. After the ontology is documented: one room first — the cabin, as one zone of the plane,
-done right including the multi-zone connected perception (see and talk to people in adjacent zones) —
-finalize its design, then plan implementation; then plan how to implement all the planned objects and
-actions (some need new functionality; how easy new verbs are inside the grammar is untested; the
-grammar may need expanding); finalize the grammar approach with its own document; every planned
-architecture or approach gets its own document, plus a master document."*
-
-The decisions that carries, itemised:
-
-- **Both models build the ontology, as peers (2026-09-16).** *"Sonnet 5 and Opus 5 build the ontology
-  as peers"* (audit §1). His reason, recorded with the model policy: **Sonnet is trained to be more
-  conversational and less stuffy, so it thinks of fun, random things more often**; Opus is the
-  systematic, exhaustive pass; together they cover more than either.
-- **Descriptions are Sonnet's job.** *"Sonnet writes descriptions."*
-- **A scaffold is given, and it will be adjusted.** *"a scaffold we give them to think about a room
-  and what more it could turn into"* — and *"we will adjust the scaffold."* It is expected to change,
-  not to be got right on paper.
-- **The store is human-browsable, with a viewer (2026-09-16).** *"stored where humans can look at
-  it, with a simple app to view the ontology as a whole and per room, with a map."* The store is
-  decided: `docs/ontology/` as YAML (audit §1).
-- **A second pass, by reasoning, with goal lenses.** Agents imagine being there and list everything
-  they could do toward the survival and rescue goals. *"some agents build the world, others think of
-  all the things they would do in it."*
-- **All design is finalized before any of this runs (2026-09-16).** *"All design finalized in a
-  conversation before rooms are built or any agent runs a loop."* This is the rule at the top of
-  [`docs/design/README.md`](README.md).
-- **Then the cabin, as one zone, done right** — including the multi-zone connected perception —
-  *then* implementation planning, *then* the grammar finalized in its own document.
-- **There is no ceiling and no finish line.** *"Every count in every doc is a floor. A room is never
-  finished; it is 'no walls found in the last N runs'"* ([`VISION.md`](../../VISION.md)). And on how
-  much has been done: *"We barely even touched this"* (audit §1).
-- **Who does what (2026-09-16).** *"Fable plans; Opus 5 implements and grades its own work"*
-  (audit §1); cheaper models take mechanical and prose work.
-
-**Decided since this draft** *(gathered here 2026-09-26 by Claude from document 05's review log,
-`docs/design/README.md` and `PLAN.md` §5 — Andrew's decisions, not new ones):*
-
-- **The schema is designed in full, up front; the pilot verifies it (2026-09-18)** — document 05
-  §4.5, every field required, conditional or derived, and tagged with the pass that fills it.
-- **The merge unions and never drops; agreement is a count; every firing writes an analysis of what
-  each model found (2026-09-18)** — document 05 §4.5.
-- **The scaffold is piloted on the draft, then rewritten from the output; goal lenses are the
-  backbone, plus human lenses (2026-09-18)** — document 05 Q2 and Q3.
-- **Walls per run counts five categories, separately (2026-09-18)** — document 05 §4.5a.
-- **Real life is the default answer; state systems, not shortcuts; never make the world less
-  interactive (2026-09-26)** — the writing rules in `docs/design/README.md`, which the scaffold
-  carries to the world-builders and scouts (§4.3).
-- **Ecology is a real filter (2026-09-18)** — a species is in the valley only if it lives in this
+- **The world is fleshed out before anyone plays** (2026-09-16): the things and their synonyms are
+  written down first.
+- **Both models build the ontology, as peers** (2026-09-16). Sonnet 5 and Opus 5 each do ontology
+  building, using a scaffold for thinking about a room and what more it could turn into — its entities
+  and relations (the soil, a rock, clay…). Two models give better coverage; both have a good ontology
+  to work with and need only the guidance. Sonnet is more conversational and less stuffy, so it thinks
+  of fun, random things more often.
+- **Sonnet writes the descriptions** (2026-09-16).
+- **A scaffold is given, and it will be adjusted** (2026-09-16) — it is expected to change, not to be
+  got right on paper. It is piloted on the draft and rewritten from what the two models produce
+  (2026-09-18, document 05).
+- **The store is human-browsable, with a viewer** (2026-09-16): everything about the rooms and
+  entities is stored where people can look at it, with a simple app to view the ontology as a whole
+  and per room, with a map. The store is `docs/ontology/`, as YAML.
+- **A second pass, by reasoning, with lenses** (2026-09-16): agents imagine being in the survival
+  scenario, in different situations and rooms, and list everything they could do there toward the
+  survival and rescue goals, given goal lenses (tasks related to starting a fire, to finding food, …)
+  and other lenses. Some agents build the world; others think of all the things they would do in it.
+  The goal lenses are the backbone, plus human lenses (2026-09-18, document 05).
+- **Design first** (2026-09-16): all design is finalized in conversation before rooms are built or any
+  agent runs a loop — the rule at the top of [`docs/design/README.md`](README.md).
+- **Then the cabin, as one zone of the plane, done right** (2026-09-16) — including the multi-zone
+  connected perception (seeing and talking to people in adjacent zones) — with its design finalized;
+  then implementation planning for it; then planning how to implement all the planned objects and
+  actions (some need new functionality; how easy new verbs are inside the grammar is untested; the
+  grammar may need expanding); then the grammar approach finalized in its own document. Every planned
+  architecture or approach gets its own document, plus a master document.
+- **There is no ceiling and no finish line** (2026-09-16). Every count in every document is a floor; a
+  room is never finished — it is "no walls found in the last N runs" ([`VISION.md`](../../VISION.md)).
+  What exists so far barely begins it.
+- **Who does what** (2026-09-16): Fable plans; Opus 5 implements and grades its own work; cheaper
+  models take mechanical and prose work.
+- **The schema is designed in full, up front; the pilot verifies it** (2026-09-18) — document 05 §4.5:
+  every field required, conditional or derived, and tagged with the pass that fills it.
+- **The merge unions and never drops** (2026-09-18): `provenance` is a list, so agreement is a count,
+  and every firing writes an analysis of what each model found (document 05 §4.5).
+- **Walls per run counts five categories, separately** (2026-09-18) — document 05 §4.5a.
+- **Ecology is a real filter** (2026-09-18): a species is in the valley only if it lives in this
   habitat, this month, in numbers that matter.
+- **Real life is the default answer; state systems, not shortcuts; never make the world less
+  interactive** (2026-09-26) — the writing rules in [`docs/design/README.md`](README.md), which the
+  scaffold carries to the world-builders and scouts (§4.3).
 
 ### Proposals (Claude)
 
-Everything structural below. Specifically:
-
 - **The phase structure** — a pilot pass, then Phase 1 (ontology), then Phase 2 (possibilities), and
-  the rule that no implementation happens inside either.
-- **The scaffold's actual wording** (§4.3) — his decision is that there *is* a scaffold and that it
-  will be adjusted; the sentences are drafted.
-- **The queue** — its file, its format (zone × phase × model), and its ordering.
-- **The merge step** — that the two models' outputs are merged by a third pass, and that provenance
-  is kept per row so each model's contribution stays visible. *(annotated 2026-09-26: the merge rule
-  became Andrew's on 2026-09-18 — union, never drop, provenance a list; §6 Q3.)*
-- **The YAML schema** (§4.4), the seeding tool, the viewer's page structure, `make validate-ontology`.
-  *(annotated 2026-09-26: the schema is document 05 §4.5's, designed in full on Andrew's 2026-09-18
-  decision; §4.4 below is superseded by it.)*
-- **The firing size**, the morning artifact, and the parallelism.
-- **"Walls per run" as the measure** and the wall-sensor as the loop's input queue. *(annotated
-  2026-09-26: the measure and its five categories became Andrew's on 2026-09-18 — document 05 §4.5a.)*
+  the rule that no implementation happens inside either (§4.1).
+- **The scaffold's wording** (§4.3) — the sentences are drafted and piloted.
+- **The merge mechanics** under Andrew's union rule (§4.2).
+- **The queue** — its file, its format (zone × phase × model), and its ordering; the firing unit; when
+  a pass is done and when a zone returns to the queue (§4.5).
+- **The seeding tool, the viewer's page structure, `make validate-ontology`**, and the bridge to the
+  runtime tables (§4.4).
+- **The pilot's scope** — both phases, and the birch grove calibrated before the fifty outdoor zones
+  (§4.1).
 
 ---
 
@@ -131,7 +101,7 @@ Andrew's sequence, with the steps that are his marked, and the rest proposals:
 | # | step | whose |
 |---|---|---|
 | 0 | Every design document finalized in conversation | **his** |
-| 1 | A pilot pass by hand on one built room; read it together; fix the scaffold, the schema, the queue format from what we learn | proposal |
+| 1 | A pilot pass by hand; read it together; fix the scaffold, the queue format and the firing procedure from what we learn | proposal |
 | 2 | **Phase 1 — ontology building** on every zone, both models as peers | **his** (the pass); proposal (the phase structure) |
 | 3 | **Phase 2 — possibility passes** with goal lenses, both models | **his** |
 | 4 | The cabin, as one zone of the plane, done right — including multi-zone connected perception; its design finalized | **his** |
@@ -139,59 +109,78 @@ Andrew's sequence, with the steps that are his marked, and the rest proposals:
 | 6 | The grammar finalized in its own document | **his** |
 | 7 | The play harness; then agents play freely and walls per run becomes the measure | proposal (document [20](20-the-agent-player-and-research.md)) |
 
-Step 0 is a gate, not a preference: *"no agent runs in a loop before every design doc is finalized."*
-Steps 2 and 3 write **no code** — that is the sharpest break from the July loop (§4.7).
+Step 0 is a gate, not a preference: no agent runs in a loop before every design document is
+finalized. Steps 2 and 3 write **no code**.
 
-*(Claude, 2026-09-26, for Andrew's check.)* Step 0 now includes the system documents the 2026-09-26
-review found missing (`PLAN.md` A10) — at least combat; heat as a state on every entity and body part,
-with fire heating its area and the plane's openings and internal heat; hunting, trapping and fishing;
-food state and spoilage. The world-builders write every entity's `states` and `could_become`, and
-those documents are what say which states and transforms exist; a zone written before them would be
+*(Proposed by Claude, for Andrew's check.)* Step 0 includes the system documents the review found
+missing (`PLAN.md` A10) — at least combat; heat as a state on every entity and body part, with fire
+heating its area and the plane's openings and internal heat; hunting, trapping and fishing; food state
+and spoilage. The world-builders write every entity's `states` and `could_become`, and those
+documents are what say which states and transforms exist; a zone written before them would be
 rewritten after.
+
+**The pilot** *(proposed by Claude, for Andrew's check; its outline is document 05 §4.7–§4.8)*. The
+pilot is the mid cabin, by both models, read together. **Both phases are piloted** — an ontology pass
+and a possibility pass — because both briefs are drafts. **The birch grove is calibrated the same
+way, by hand and read, before the fifty outdoor zones run**: the queue takes the nine built rooms
+first, so the calibration falls exactly where the terrain begins, and the outdoor rooms are the bulk
+of the work and read nothing like a cabin — they are traversal terrain, where the systems are the
+content. **What the pilot may change:** the scaffold, the queue format and the firing procedure
+(document 05 §4.7); the schema only where it fails verification — the pilot verifies the schema, it
+does not design it (document 05, Andrew 2026-09-18) — so a field found missing is a deliberate change
+recorded in document 05, not drift.
 
 ### 4.2 Both models, as peers
 
 Every room gets both passes. The two briefs differ on purpose, which is the entire reason for running
 two:
 
-| | the brief | the strength Andrew named |
+| | the brief | the strength |
 |---|---|---|
-| Sonnet 5 | *"what would a curious, playful person notice or try here?"* | conversational, less stuffy — thinks of the fun, random things |
+| Sonnet 5 | *"what would a curious, playful person notice or try here?"* | conversational, less stuffy — thinks of the fun, random things (Andrew, 2026-09-16) |
 | Opus 5 | *"everything a careful person would notice, part by part, substance by substance"* | the systematic, exhaustive sweep |
 
 **Outputs are merged and never ranked** — neither model's list is the reference the other is graded
 against. Every row carries provenance (agent, model, pass, date, and the source document or line it
 came from), so which model found what stays visible and the briefs can be adjusted from evidence
-rather than impression. A Sonnet merge step reconciles duplicates. *(annotated 2026-09-26: the merge
-**unions and never drops** — Andrew, 2026-09-18, document 05 §4.5; what "reconciling" means under
-that rule is §6 Q3.)*
+rather than impression. **The merge unions and never drops** (Andrew, 2026-09-18, document 05 §4.5):
+a row both models found carries two provenance entries, and agreement is a count.
+
+**The merge mechanics** *(proposed by Claude, for Andrew's check)*: mechanical where ids match; a
+model's judgment (Sonnet's) where two rows are one thing under different words. A duplicate is the
+same entity in the same place, whatever each model called it, and **both names survive** as
+`synonyms`, because a second word for a thing is vocabulary (document 04 §3.7), not noise. A
+disagreement of fact (vinyl or leather on the seat) keeps both values on the row with their
+provenance and goes in the zone's conflicts list in the morning report; the design pass settles it
+from reality, with a source (what the 206's seats are actually covered with), and the other value is
+marked superseded on the row, never deleted.
 
 The same peer rule applies to the possibility pass, for the same reason: one model imagines the
 unexpected tries, the other the thorough ones.
 
-### 4.3 The scaffold (proposal — the wording is open question 1)
+### 4.3 The scaffold (proposal — piloted, then rewritten)
 
 One guide, `docs/guides/world-building.md`, given to both models.
 
-**For the ontology pass**, the frame is *"if this were the real world, not a MUD"*: every entity a
-person would notice — objects, parts of parts, substances, surfaces, the ground and what is under it,
-natural materials, sounds, smells, temperatures, light, wind, tracks, sign — what each is made of,
-what each could turn into (cut, broken, burnt, dug, melted…), every relation to other things (on,
-under, inside, attached, near), and every action a person would reasonably try on it **with the
-command they would type**. Thorough, not the gist. No cap. Provenance on every row.
+**For the ontology pass**, the frame is *"if this were the real world, not a MUD"* — which is
+Andrew's writing rule that real life is the default answer (2026-09-26): every entity a person would
+notice — objects, parts of parts, substances, surfaces, the ground and what is under it, natural
+materials, sounds, smells, temperatures, light, wind, tracks, sign — what each is made of, what each
+could turn into (cut, broken, burnt, dug, melted…), every relation to other things (on, under,
+inside, attached, near), and every action a person would reasonably try on it **with the command
+they would type**. Thorough, not the gist. No cap. Provenance on every row.
 
 **For the possibility pass**, the model is handed a *situation packet* — the room, the day, the
-weather, the party's state, what is known — and **one goal lens at a time**: fire · food · water ·
-warmth · shelter · signals · rescue · injury · the pilot · the party, plus others as they are added.
-The instruction is *"list everything you might try, as the command you would type"*, and explicitly
-**not** to judge feasibility. An impossible attempt is as useful as a possible one: it is either a
-gap to fill or a physical answer to author.
+weather, the party's state, what is known — and **one goal lens at a time**. The instruction is
+*"list everything you might try, as the command you would type"*, and explicitly **not** to judge
+feasibility. An impossible attempt is as useful as a possible one: it is either a gap to fill or a
+physical answer to author.
 
-Plus an **exemplar** — the pilot room worked to the standard, and later an outdoor room (the birch
-grove) as the calibration piece for terrain, which reads very differently from a cabin.
+Plus an **exemplar** — the pilot room worked to the standard, and the birch grove as the calibration
+piece for terrain, which reads very differently from a cabin.
 
-**What both briefs carry from the decisions since** *(Claude, 2026-09-26 — §6 Q1 and Q2; for
-Andrew's check; the wording itself is still piloted, not settled here):*
+**What both briefs carry** *(proposed by Claude, for Andrew's check; the wording itself is piloted,
+not settled here)*:
 
 - **Real life is the answer.** When the world-builder does not know what a thing is made of, how it
   breaks or what it weighs, it finds out how it is in reality and cites the source; numbers come from
@@ -203,75 +192,68 @@ Andrew's check; the wording itself is still piloted, not settled here):*
 - **Every real distinction a survivor would act on**, and every ontologically significant variant of
   an act as its own candidate command — cast a line out and drop one through a hole; stab, club,
   throw.
-- **The ecology filter.** A living thing goes into a zone only if it lives in that habitat, in
-  October at freeze-up, in numbers that matter (document 23).
-- **The lenses** (the list is a floor): fire · water · food, which takes in hunting, trapping and
-  fishing, many ways each · warmth · shelter · signals · rescue · injury · the pilot's body · the
-  party · **danger** (the bear and the other acting animals, the ice, a fall, the storm — and violence,
-  since a MUD-like combat system is in) · **moving** (exits are entities with modes and honest travel
-  times; the outdoors is traversal terrain whose systems are the content); and the human lenses —
-  curiosity, boredom, fear, grief, spite, tidying up, keeping the kid busy, play.
-- **Situations across the October run**, one per scout pass: day one in an inch of snow with skim ice
-  on the water; the storm building mid-week; deep snow late in the week; night; injured; alone; with
-  the party; the bear near.
+- **The ecology filter.** A living thing goes into a zone only if it lives in that habitat, in the
+  first week of October, in numbers that matter (document 23).
+- **The lenses** — a growing set, the list a floor: fire · water · food, which takes in hunting,
+  trapping and fishing, many ways each · warmth · shelter · signals · rescue · injury · the pilot's
+  body · the party · **danger** (the bear and the other acting animals, the ice, a fall, the storm —
+  and violence, since a MUD-like combat system is in) · **moving** (exits are entities with modes and
+  honest travel times; the outdoors is traversal terrain whose systems are the content); and the human
+  lenses — curiosity, boredom, fear, grief, spite, tidying up, keeping the kid busy, play. Which lens
+  produced a command is a field on every action row, so the analysis report shows what each lens
+  finds.
+- **One room, one situation and one lens at a time** (document 05 §4.8), with each room walked
+  through the situations the week really has: day one in an inch of snow with skim ice on the water;
+  the storm on days 3–4; deep snow after it; night; injured; alone; with the party; the bear near.
 
 ### 4.4 The store and the viewer
 
-**`docs/ontology/`, YAML** (decided). `zones/<zone>.yaml` holds the zone — name, region, position,
-edges, terrain, exposure, survey — and its entities. Per entity (proposal):
+**`docs/ontology/`, YAML** (decided). The schema — per zone, per entity, the shared files and the
+store's rules — is document 05 §4.5, designed in full up front (Andrew, 2026-09-18).
+`make validate-ontology` checks the schema and the cross-references.
 
-> *(superseded 2026-09-26: the schema is **document 05 §4.5**, designed in full on Andrew's
-> 2026-09-18 decision — it adds `count`, `mass_g` and `bulk`, `container`, `surfaces`, `sensed` (per
-> sense, with a cadence for things that speak on their own), `goal_roles`, the zone's `exits` as
-> entities, the `class` values `individual` · `class` · `scenery` · `elusive`, `provenance` as a
-> **list** (one entry per pass that found the row), and the shared `goals.yaml`. The list below is the
-> September draft, kept as the record.)*
+**Seeding without agents** *(proposal)*. A converter turns what is already built — the object table,
+the materials, the zones, the spaces, the appearance rows, and the nine room censuses
+([`docs/scenarios/whiteout/rooms/`](../scenarios/whiteout/rooms/)) — into the first YAML files,
+marked built or designed with provenance *"converted from <file>"*. This matters for the review: the
+store and the viewer exist and can be browsed **before any agent runs**, so the first thing Andrew
+reads is the current world, not a model's guess at it.
 
-`id` · `name` · `aliases` · `class` (individuated | class-yields-individuals) · `materials` ·
-`parts` (recursive) · `states` · `form` · `located` (the space, and the relation to its parent:
-on / in / under / against) · `could_become` (the transforms and what each yields) · `relations` ·
-`actions` (candidate commands, each with the goal lens that produced it) · `synonyms` · `status`
-(built / designed / candidate) · `provenance` (agent, model, pass, date, source).
-
-Shared files: `materials.yaml`, `verbs.yaml` (canonical verb, family, the relations it takes, the
-forms it yields), `synonyms.yaml`, `relations.yaml`. `docs/ontology/README.md` holds the schema and
-three rules: **provenance is required**, **status is never overstated**, and **a row is never
-deleted, only superseded**. `make validate-ontology` checks the schema and the cross-references.
-
-**Seeding without agents.** A converter turns what is already built — the object table, the
-materials, the zones, the spaces, the appearance rows, and the nine room censuses — into the first
-YAML files, marked built or designed with provenance *"converted from <file>"*. This matters for the
-review: the store and the viewer exist and can be browsed **before any agent runs**, so the first
-thing Andrew reads is the current world, not a model's guess at it.
-
-**The viewer** generates a static site from the YAML: the world map (positions and edges drawn from
-the zone files), a page per region and per room (entities, parts, relations, candidate actions,
-synonyms, provenance, status), whole-world counts, and *what changed since the last firing*. It is
-regenerated per firing and can be published as an artifact to browse from anywhere.
+**The viewer** *(proposal; document 05 §4.6)* generates a static site from the YAML: the world map
+(positions and edges drawn from the zone files), a page per region and per room (entities, parts,
+relations, candidate actions, synonyms, provenance, status), whole-world counts, and *what changed
+since the last firing*. It is regenerated per firing and can be published as an artifact to browse
+from anywhere.
 
 **The bridge to implementation (later):** a converter from YAML rows to the runtime tables, run per
 zone when that zone's design is finalized. The YAML stays the design of record for the ontology; the
 tables stay the runtime.
 
-### 4.5 The queue and a firing
+### 4.5 The queue and a firing *(proposal)*
 
-The queue is a file — `docs/investigation/world/loop-queue.md` — with a row per **zone × phase ×
-model**. Order: the nine built rooms first (they can be checked against reality), then the fifty
-designed zones. State lives in the file and in git, so a firing that dies mid-way loses nothing and
-the next one resumes at the first unchecked row.
+The queue is a file — `docs/ontology/loop-queue.md` — with a row per **zone × phase × model**. Order:
+the nine built rooms first (they can be checked against reality), then the fifty designed zones.
+State lives in the file and in git, so a firing that dies mid-way loses nothing and the next one
+resumes at the first unchecked row.
 
-**A firing** (proposal): a bounded chunk — N zones in parallel — then **stop**. The morning artifact
-is the regenerated viewer plus a diff summary, which is what gets read; nobody reads the YAML diff.
-The bounding is the point, and it is the one piece of the July loop that proved itself: *"Doing a
-small bounded chunk per firing is the entire point — it keeps each burst under the rolling token
-budget so the work spreads across the night instead of exhausting one window and dying."*
+**A firing** is a bounded chunk, then **stop**. The bounding is the point: a small chunk per firing
+keeps each burst under the rolling token budget, so the work spreads across the night instead of
+exhausting one window and dying. The unit inside a firing is a **whole zone for one phase** — both
+models, the merge and its analysis report — so a zone is always complete for its phase or untouched
+(document 05 §4.5: a row is complete for its phase, never half empty). How many zones one firing takes
+is part of the firing procedure, which document 05 §4.7 fixes from what the pilot measures. A night
+is many firings, and the morning artifact covers the night: the regenerated viewer, a diff summary,
+each firing's analysis report, the conflicts list (§4.2), and — once agents play — the walls. The
+artifact is what gets read; nobody reads the YAML diff.
 
-*(Claude, 2026-09-26 — §6 Q4; for Andrew's check.)* The unit inside a firing is a **whole zone for one
-phase** — both models, the merge and its analysis report — so a zone is always complete for its phase
-or untouched. How many zones one firing takes is part of the firing procedure, which document 05 §4.7
-fixes from what the pilot measures. A night is many firings, and the morning artifact covers the
-night: the regenerated viewer, the diff summary, each firing's analysis report, the conflicts list
-(§6 Q3), and — once agents play — the walls.
+**When a pass is done.** A *pass* is done when both models have run it on the zone and the merge is
+written; "done" belongs to a pass, never to a room (a room is never finished). Every zone gets its
+first passes before any zone gets a second — ordering, not a limit — and a zone goes back on the queue
+on evidence: walls from play there (document 05 §4.5a); a new lens (every zone gets *danger* once it
+exists); a new system document whose states and transforms its rows must carry (`PLAN.md` A10); a
+design change that makes rows untrue (a change of season); or the analysis report showing a kind of
+row one model keeps missing, which changes a brief and re-runs it. A diminishing-returns threshold
+would be a count target, and counts are floors.
 
 ### 4.6 Probes, and how coverage is counted
 
@@ -283,51 +265,38 @@ The rules that already govern the corpus (`ontology-closure.md` §6) carry over 
 
 - probes marked passing are enforced; probes marked todo **are the work queue**;
 - the passing count is a ratchet that may never drop;
-- **every probe cites its source** — a census row, a phrasing line, a rescue-graph node, or Andrew's
-  approval. No self-graded probes.
+- **every probe cites its source** — a census row, a phrasing line, a node of the rescue design
+  (document 14), or Andrew's approval. No self-graded probes.
 - **Coverage** = the passing corpus + the seeded fuzz (every attempt resolves, every effect
   conserves). Not a matrix-filled percentage.
 
 That last rule is what keeps the loops honest: an agent cannot generate its own evidence that the
 world is finished.
 
-### 4.7 What this replaces, and what survives from it
+### 4.7 The order of work, and what carries into it
 
-The July loop ([`build-queue.md`](../investigation/world/build-queue.md)) was **build-first**: per
-room, *build it in code → census it → gap-analyse → verify and commit*, two rooms per firing. Its
-successor inside that same file, the closure loop, changed the unit from a room to a probe cluster
-and still ended each firing at a green gate and a commit.
+**Design is finalized first, then the ontology is written down, and only then is anything built**
+(Andrew, 2026-09-16): a room is understood in full before a line of it exists.
 
-The change now is not a refinement of either — it is the order. **Design is finalized first, then the
-ontology is written down, and only then is anything built** (Andrew, 2026-09-16). Under the July
-order, a room was implemented and then censused to see what had been missed; under this one, the room
-is understood in full before a line of it exists. The July file's Phase 1 (the fifty outdoor rooms as
-table rows) is history, and its gate never opened.
+Carried into these loops from the earlier build loop: the bounded firing; state in a file plus git so
+the work resumes; the morning artifact being *prose or a page a human reads*, never a diff; committing
+documents and code together; the census standard itself (*"if this were the real world, not a MUD"* —
+every entity including the elusive ones: air, wind, light, sound, cold, smell, damp — and for each,
+every action and relation with a candidate command); and the probe corpus as the definition of
+coverage.
 
-**What survives:** the bounded firing; state in a file plus git so the work resumes; the morning
-artifact being *prose or a page a human reads*, never a diff; committing documents and code together;
-the census standard itself (*"if this were the real world, not a MUD"* — every entity including the
-elusive ones: air, wind, light, sound, cold, smell, damp — and for each, every action and relation
-with a candidate command); and the probe corpus as the definition of coverage.
-
-**On [`loop-workflow.md`](../guides/loop-workflow.md).** Its four beats — anchor, author, verify,
-repeat — still describe the **implementation** loop, and driving it with `/loop` is unchanged. Two
-things in it are superseded: its unit of work (*one object, one action family, one workflow stage,
-ending at a green `make verify`*) does not describe Phases 1 and 2, whose unit is a room × a pass and
-which run no gate because they produce no code; and its anchoring example still calls the slice's
-exit *"the fun gate"*, which the roadmap has since replaced (fun is a continuous design judgment, not
-a test a slice passes, and friends see the finished game). The guide needs a pointer to this document
-for the world-building phases.
+The implementation loop keeps its four beats — anchor, author, verify, repeat — and is still driven
+with `/loop` ([`loop-workflow.md`](../guides/loop-workflow.md)). Phases 1 and 2 are not that loop:
+their unit is a zone × a pass, and they run no gate because they produce no code.
 
 ### 4.8 Walls per run
 
 The end state, after the play harness exists: agents play freely, and every wall — every attempt the
 world could not answer, unknown words included — becomes the next pass's input. **Walls per run is
-the measure.** There is no finish line, and a room's completeness is expressed the same way:
-*"no walls found in the last N runs."* What counts as a wall is open question 4 of document
-[20](20-the-agent-player-and-research.md). *(superseded 2026-09-26: decided by Andrew on 2026-09-18 —
-five categories, counted separately, each with its own trend line in the morning report: unknown
-word, unknown noun, generic answer, wrong refusal, retry cluster; document 05 §4.5a.)*
+the measure.** There is no finish line, and a room's completeness is expressed the same way: no walls
+found in the last N runs. What counts is Andrew's (2026-09-18, document 05 §4.5a): unknown word,
+unknown noun, generic answer, wrong refusal and retry cluster, each counted separately with its own
+trend line in the morning report.
 
 ---
 
@@ -337,18 +306,19 @@ word, unknown noun, generic answer, wrong refusal, retry cluster; document 05 §
 
 - **Every other design document.** The gate is literal: no loop fires until all of them are
   finalized, because a changed room intent invalidates the ontology written against it.
-- [05 — ontology and sufficiency](05-ontology-and-sufficiency.md): what the loops are producing, and
-  the store and viewer they produce it into.
+- [05 — ontology and sufficiency](05-ontology-and-sufficiency.md): what the loops are producing, the
+  store and viewer they produce it into, the schema, the pilot and the scaffold's outline.
 - [04 — grammar and feedback](04-grammar-and-feedback.md): candidate commands are written in the
   taught grammar; new verbs surfacing in Phase 2 feed the grammar's own finalization.
 - [17 — rooms and living rooms](17-rooms-and-living-rooms.md): the census standard and the prose
   style the describer writes to.
 - [18 — materials and forms](18-materials-and-forms.md): `could_become` rows are material × form
   claims and land in the shared material file.
-- *(added 2026-09-26)* [23 — flora and fauna](23-flora-and-fauna.md): the ecology filter every living
-  row passes, and the animals that act. The system documents still to be written (`PLAN.md` A10 —
-  combat; heat; hunting, trapping and fishing; food state and spoilage): they define the states and
-  transforms the world-builders write onto every entity.
+- [23 — flora and fauna](23-flora-and-fauna.md): the ecology filter every living row passes, and the
+  animals that act.
+- The system documents still to be written (`PLAN.md` A10 — combat; heat; hunting, trapping and
+  fishing; food state and spoilage): they define the states and transforms the world-builders write
+  onto every entity.
 
 **These depend on this:**
 
@@ -362,171 +332,21 @@ word, unknown noun, generic answer, wrong refusal, retry cluster; document 05 §
 
 ## 6. Open questions
 
-~~1. The scaffold's wording.~~ **Answered 2026-09-18 (Andrew), in document 05 Q2:** pilot on the
-   draft, then rewrite from what the two models produce, and promote the mid cabin's output as the
-   exemplar. **Claude's answer (2026-09-26), for Andrew's check, on the one sentence the draft wanted
-   settled on paper:** the frame *"if this were the real world, not a MUD"* stands — it is now
-   Andrew's own writing rule, *"however it is in real life"* (2026-09-26, `README.md`) — and it goes
-   into both briefs with its companions from the same rules: every state a thing really has, body
-   parts included, changed by systems; every real distinction a survivor would act on; and the
-   ecology filter (2026-09-18). §4.3 carries them.
-
-   *The draft (2026-09-16), kept as the record:*
-   **The scaffold's wording.** §4.3 is a draft, and Andrew has already said it will be adjusted. The
-   real question is what to change it from: a scaffold written on paper and a scaffold corrected after
-   reading one room's output are different artifacts.
-   *Options:* (a) review the draft wording now, in the sitting; (b) run the pilot pass on the draft
-   and review the wording against its output; (c) both — glance now for anything obviously wrong,
-   then fix properly from the pilot.
-   *Recommendation:* (c). The text is cheap to change and the output is the only real evidence about
-   it; the one thing worth settling on paper is whether the frame is *"if this were the real world,
-   not a MUD"*, because everything else follows from that sentence.
-
-~~2. The lenses list.~~ **Answered 2026-09-18 (Andrew), in document 05 Q3:** the goal lenses as the
-   backbone, plus human lenses. **Claude's answer (2026-09-26), for Andrew's check, on the rest:** the
-   list is a growing set and its count a floor. The goal lenses gain two that the 2026-09-26
-   decisions make real — **danger** (the bear and the other acting animals, the ice, a fall, the storm,
-   and violence, now that a MUD-like combat system is in) and **moving** (exits are entities with modes
-   and honest travel times; the outdoors is traversal terrain whose systems are the content) — and
-   *food* explicitly takes in hunting, trapping and fishing in all their real variants. The human
-   lenses: curiosity, boredom, fear, grief, spite, tidying up, keeping the kid busy, play. **Per
-   situation, not per room:** a scout gets one room, one situation and one lens at a time (document
-   05 §4.8), and each room is walked through the situations the October run really has — day one in
-   an inch of snow with skim ice; the storm building; deep snow late; night; injured; alone; with the
-   party; the bear near. Which lens produced a command is already a field on every action row, so the
-   analysis report shows what each lens finds. §4.3 carries the list.
-
-   *The draft (2026-09-16), kept as the record:*
-   **The lenses list.** Named so far: fire, food, water, warmth, shelter, signals, rescue, injury,
-   the pilot, the party — *"and other lenses"*. Undecided: the full list, whether non-goal lenses are
-   included (curiosity, fear, boredom, grief, keeping the kid occupied), and whether a lens is run
-   per situation or per room.
-   *Options:* (a) the ten goal lenses only; (b) the ten plus a small set of non-goal lenses;
-   (c) goal lenses for the first sweep, then a second sweep of non-goal lenses once the gaps from the
-   first are filled.
-   *Recommendation:* (b). The goal lenses will find the rescue-relevant actions and miss most of what
-   makes a room feel alive — nobody with a goal lens on thinks to look out of the window, and those
-   are the attempts a real player makes in the first five minutes.
-
-~~3. The merge rule.~~ **Answered 2026-09-18 (Andrew), in document 05 §4.5:** the merge unions and
-   never drops; `provenance` is a list, so a row both models found carries two entries and agreement
-   is a count; every firing writes an analysis of what each model found, what both found, what each
-   found alone, by kind, and how that moves. **Claude's answer (2026-09-26), for Andrew's check, on
-   the mechanics the draft left:** *who merges* — mechanically where ids match, a model's judgment
-   where two rows are one thing under different words (Sonnet, as §4.2 has it); *what a duplicate is*
-   — the same entity in the same place, whatever each model called it, and **both names survive** as
-   `synonyms`, because a second word for a thing is vocabulary (document 04 §3.7), not noise; *a
-   disagreement of fact* (vinyl or leather on the seat) — both values stay on the row with their
-   provenance and go in the zone's conflicts list in the morning report; the design pass settles it
-   from reality, with a source (what the 206's seats are actually covered with), and the other value
-   is superseded, never deleted.
-
-   *The draft (2026-09-16), kept as the record:*
-   **The merge rule.** Two models produce overlapping lists with different words for the same thing.
-   Undecided: who merges, what counts as a duplicate, what happens when the two disagree about a
-   fact (one says the seat cover is vinyl, the other leather), and whether the merged row keeps both
-   provenances or the first.
-   *Options:* (a) a Sonnet merge step reconciling duplicates by name and keeping every provenance;
-   (b) a mechanical merge on `id` with conflicts listed for a human; (c) no merge — keep both
-   models' files side by side and let the viewer show the union.
-   *Recommendation:* (a) with (b)'s conflict list: mechanical where the ids match, a model for the
-   synonym judgments, and a short conflicts section per zone in the morning artifact, because a
-   material disagreement is a real design question and should not be silently resolved by whichever
-   pass ran second.
-
-~~4. The firing size.~~ **Claude's answer (2026-09-26), for Andrew's check:** the draft's (c) then
-   (b), from two decided things. The unit is a **whole zone for one phase** — both models, the merge
-   and its analysis — so a zone is complete for its phase or untouched (document 05 §4.5: a row is
-   complete for its phase, never half empty). How many zones a firing takes belongs to the firing
-   procedure, which document 05 §4.7 fixes from what the pilot teaches: the pilot measures what one
-   zone costs, and N is set from that. A firing is one bounded chunk that then stops, and a night is
-   many firings — the one July lesson that proved itself (§4.5). §4.5 carries this.
-
-   *The draft (2026-09-16), kept as the record:*
-   **The firing size.** The July loop's answer was two rooms per firing, tuned to the token budget.
-   This loop's unit is bigger (a room's full ontology, twice over) and cheaper in one way (no code,
-   no gates to run).
-   *Options:* (a) two zones per firing, as before; (b) N zones in parallel, N tuned after the pilot;
-   (c) one zone per firing but both models plus the merge, so a zone is always complete or untouched.
-   *Recommendation:* (c) for the first several firings, then (b). A half-merged zone is the worst
-   state to wake up to, and until the pilot has told us what one zone actually costs, any N is a
-   guess.
-
-~~5. The pilot pass.~~ **Claude's answer (2026-09-26), for Andrew's check:** the outline is decided in
-   document 05 §4.7–§4.8 (reviewed with Andrew 2026-09-18) — the pilot is the mid cabin, by both
-   models, read together; the birch grove is the outdoor calibration piece. What the draft asked
-   follows from that. **Both phases are piloted** — an ontology pass and a possibility pass — because
-   both briefs are drafts. **The birch grove is calibrated the same way, by hand and read, before the
-   fifty outdoor zones run**: the queue already takes the nine built rooms first, so the calibration
-   falls exactly where the terrain begins, and the outdoor rooms are the bulk of the work and read
-   nothing like a cabin. **What the pilot may change:** the scaffold, the queue format and the firing
-   procedure (05 §4.7); the schema only where it fails verification — the pilot verifies the schema,
-   it does not design it (05 Q1, Andrew 2026-09-18) — so a field found missing is a deliberate change
-   recorded in document 05, not drift.
-
-   *The draft (2026-09-16), kept as the record:*
-   **The pilot pass.** Proposed: the mid cabin, by hand, both models, under the draft scaffold, read
-   together before anything runs unattended. Undecided: whether one room is enough evidence (a cabin
-   and a snowfield are very different problems), and what specifically the pass is allowed to change
-   afterwards.
-   *Options:* (a) one interior room; (b) one interior and one outdoor room — the mid cabin and the
-   birch grove; (c) one room per phase (an ontology pilot and a possibility pilot, possibly on
-   different rooms).
-   *Recommendation:* (b). The outdoor rooms are the bulk of the work (fifty of fifty-nine) and are
-   known to behave differently — they are traversal terrain, where the systems are the content and a
-   per-room hook is the wrong instinct ([`build-queue.md`](../investigation/world/build-queue.md),
-   the fuselage-top census: *"outdoor rooms are traversal, systems > per-room hooks"*). Piloting only on a cabin would calibrate the scaffold on the
-   easy nine.
-
-~~6. When is a zone's pass done?~~ **Claude's answer (2026-09-26), for Andrew's check:** a *pass* is
-   done when both models have run it on the zone and the merge is written; "done" belongs to a pass,
-   never to a room (a room is never finished — VISION). Every zone gets its first passes before any
-   zone gets a second — ordering, not a limit — and a zone goes back on the queue on evidence: walls
-   from play there (document 05 §4.5a); a new lens (every zone gets *danger* once it exists); a new
-   system document whose states and transforms its rows must carry (`PLAN.md` A10); a design change
-   that makes rows untrue (the season moving to October); or the analysis report showing a kind of row
-   one model keeps missing, which changes a brief and re-runs it. A diminishing-returns threshold would
-   be a count target, and counts are floors — the draft's reasoning holds.
-
-   *The draft (2026-09-16), kept as the record:*
-   **When is a zone's pass done?** There is no ceiling by decision, so "finished" cannot be the stop
-   condition — but a firing has to stop somewhere, and a second pass over an already-rich room has
-   to be worth more than a first pass over an empty one.
-   *Options:* (a) one pass per model per zone, then move on and revisit only when play produces walls
-   there; (b) repeat passes until a pass adds fewer than some number of new rows; (c) a fixed budget
-   per zone, revisited on a schedule.
-   *Recommendation:* (a). It matches "no walls found in the last N runs" — the world decides what
-   needs more work by failing at it — and it avoids the trap of grinding the mid cabin to perfection
-   while forty zones stay empty. A diminishing-returns threshold sounds principled but would be a
-   count-based target, and the counts are floors.
-
-*(2026-09-26: every question here was a loop mechanic that Andrew's 2026-09-18 decisions in document
-05 already answer; nothing is left for him beyond checking the answers above. The scaffold's wording
-is settled by the pilot, not on paper.)*
+None open. The scaffold's wording is settled by the pilot, not on paper (document 05).
 
 ---
 
 ## 7. Review log
 
-*Not yet reviewed. This document has never been through a sitting with Andrew.*
-
-| date | decided | cut | sent back |
-|---|---|---|---|
-| — | — | — | — |
-
-- **2026-09-26 (Claude, self-review — PLAN.md A9):** **Answered for Andrew's check, all six:** Q1 (the
-  frame *"if this were the real world, not a MUD"* stands as Andrew's *"however it is in real life"*;
-  the wording is piloted — document 05 Q2), Q2 (goal lenses plus human lenses — 05 Q3 — with
-  *danger* and *moving* added and *food* taking in hunting, trapping and fishing; one room, one
-  situation, one lens at a time across the October run), Q3 (union, never drop — 05 §4.5 — both names
-  kept as synonyms, fact conflicts listed and settled from reality by the design pass), Q4 (a whole
-  zone per phase is the unit; N from the pilot; a night is many firings), Q5 (both phases piloted on
-  the mid cabin, the birch grove calibrated before the fifty; the pilot verifies the schema), Q6 (done
-  belongs to a pass; zones return to the queue on evidence). **Left for Andrew:** nothing. **Stale
-  content marked:** the §4.4 schema (→ document 05 §4.5), the merge step (→ union), walls as open (→
-  05 §4.5a). **Added:** the decisions since the draft (§2), the missing system documents in the step-0
-  gate (§4.1, §5), what both briefs carry from the 2026-09-26 writing rules (§4.3), the firing unit
-  (§4.5).
+- **2026-09-16 (Andrew):** the loops' shape — both models as peers, a scaffold to be adjusted, a
+  human-browsable store with a viewer, a possibility pass with goal lenses, design first, then the
+  cabin zone done right.
+- **2026-09-18 (Andrew, in document 05's sitting):** the schema designed in full up front and verified
+  by the pilot; the merge unions and never drops; the scaffold piloted on the draft; goal lenses plus
+  human lenses; walls counted in five categories.
+- **2026-09-26 (Claude, self-review):** answered for Andrew's check — the frame and what both briefs
+  carry (§4.3), the lenses including *danger* and *moving* (§4.3), the merge mechanics (§4.2), the
+  firing unit and when a pass is done (§4.5), the pilot's scope (§4.1).
 
 ---
 
@@ -538,18 +358,13 @@ is settled by the pilot, not on paper.)*
 - No seeding tool (`tools/ontology_seed.py`), no viewer (`tools/ontology_view.py`), no
   `make validate-ontology`.
 - No scaffold: `docs/guides/world-building.md` does not exist.
-- No queue: `docs/investigation/world/loop-queue.md` does not exist.
+- No queue: `docs/ontology/loop-queue.md` does not exist.
 - No world-builder, scout or describer agent has been run against a room under this design.
 
-**What the July loop did produce** ([`build-queue.md`](../investigation/world/build-queue.md), still
-the operational file until this replaces it): its foundation phase ran, and stopped there. The engine
-core, the placement work and the authored prose for the crash cluster are done and ticked; the nine
-crash rooms were censused into
+**What the earlier build loop produced.** The engine core, the placement work and the authored prose
+for the crash cluster; and the nine crash rooms censused into
 [`docs/scenarios/whiteout/rooms/`](../scenarios/whiteout/rooms/) — one document per room, each with
-its real-world entity census and a gap list. The live-verification box is **unticked**, and the gate
-to the fifty outdoor rooms is **still closed** ("Andrew flips this after reviewing the foundation"),
-so under that file a firing today would do nothing but re-verify. The closure loop's boxes in the
-same file are all unticked.
+its real-world entity census and a gap list. Its step into the fifty outdoor rooms never began.
 
 **What exists to build on.** The probe corpus and its ratchet
 ([`game/world/scenarios/whiteout/probes/`](../../game/world/scenarios/whiteout/probes/)), which is
@@ -558,3 +373,9 @@ where every candidate command from a possibility pass will land; the wall-sensor
 the walls-per-run input; the nine room censuses above; the runtime tables the seeder would read
 (`objects.py`, `materials/table.py`, `zones.py`, `spaces.py`, `appearance.py`); and the content
 validator that gates authored rows.
+
+**A correction owed.** [`loop-workflow.md`](../guides/loop-workflow.md) describes only the
+implementation loop — its unit of work is one object, one action family or one workflow stage, ending
+at a green `make verify` — and its anchoring example still calls the slice's exit "the fun gate",
+which the roadmap has replaced (fun is a continuous design judgment, and friends see the finished
+game). The guide needs a pointer to this document for the world-building phases.

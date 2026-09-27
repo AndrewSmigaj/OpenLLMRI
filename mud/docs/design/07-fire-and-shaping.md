@@ -1,41 +1,48 @@
 # 07 — Fire and shaping
 
-> **Status: reviewed with Andrew 2026-09-18 — every question answered; finalized at the close** Architecture counterpart: none named in the design index; the closure
-> mechanism this document rides is
+> **Status: reviewed with Andrew 2026-09-18.** **Architecture counterpart:** none named in the design
+> index; the closure mechanism this document rides is
 > [`../architecture/ontology-closure.md`](../architecture/ontology-closure.md) §2 (forms) and §3
 > (derived capabilities), DR-26 in
 > [`../architecture/implementation-architecture.md`](../architecture/implementation-architecture.md).
-> Primary source:
-> [`../investigation/design/fire-and-shaping.md`](../investigation/design/fire-and-shaping.md) — its §8
-> (chunk-after-mastery) was removed on 2026-09-16 and is not part of this document.
 
-## Provenance
+## 2. Decisions
 
 ### Andrew's decisions
-- **(2026-09-07, walked in conversation).** The lighter path and the bow-drill path, walked step by
-  step; **"rubbing sticks doesn't work and the game says so."**
-- **(2026-09-07, per the provenance audit).** Fire is made *somehow*: rubbing sticks fails and the game
-  says so; a bow drill works; a lighter lights tinder, not a branch. **"State the act, not the aim"**:
-  `shake thermos` — applied here to fire as `make fire with sticks` never being the command; you say
-  what you *do*.
-- **(2026-09-16).** No question about means, no options, when a player states an aim instead of an
-  act: `make fire with sticks` gets a clarification, never a list of what would actually work. Never a
-  menu, applied to fire specifically.
-
-### Removed (2026-09-16)
-The source's §8, "chunk-after-mastery" (a Hadean-Lands-style ritual macro that would let a player type
-`make fire with bow drill` once mastered), was Claude's addition, not Andrew's design — it hands the
-player a command, which is the game offering an option. Removed from the source and not carried into
-this document.
+- **(2026-09-07)** Andrew walked the lighter path and the bow-drill path step by step. Rubbing two
+  sticks together does not make fire, and the game says so; a bow drill works; a lighter lights
+  tinder, not a branch.
+- **(2026-09-07)** State the act, not the aim: a player says what they do (`shake thermos`), not what
+  they want. The one aim-verb is `make` (below).
+- **(2026-09-16)** Never a menu, applied to fire: no reply lists what would work, and mastery is never
+  packed into a command the game hands the player — a ritual shortcut such as `make fire with bow
+  drill`, unlocked once learned, would be the game offering an option.
+- **(2026-09-18)** `make` is the one aim-verb (document 04 §3.9): `make fire` alone asks how, and
+  nothing else; given the means, it performs the first act they imply. Fire's goal rows are §4.9.
+- **(2026-09-18)** The code's 26 forms are canonical; the closure spec's table follows them.
+- **(2026-09-18)** The seven methods are priced by what each spends — time, a tool, the weather,
+  knowledge, the flare's one shot. A failure-rate axis is added only if one method still dominates in
+  play.
+- **(2026-09-18)** Claude drafts the ignition weights and the threshold together with the
+  fuel-to-heat curve, for Andrew's review (`PLAN.md` A5).
+- **(2026-09-18)** This document's stage ladder — `unlit lay → catching → burning → established →
+  embers → dead` — is the design; the older ladder in `systems/fire.py` is reconciled to it.
+- **(2026-09-26)** Heat is a state system: a fire heats its area and leaves residual heat around it;
+  the plane is an entity with openings, open or closed, and an internal heat that a fire inside raises
+  (document 17 §4.8; the heat system's own document is `PLAN.md` A10).
+- **(2026-09-27)** Characters differ in how well and how fast they do things: a woodsman lights fires
+  better (document 16).
+- **(2026-09-17, 2026-09-27)** Fire and smoke are rescue signals — rubber, oil and green boughs make
+  smoke a search crew can see (document 14 §3.4).
 
 ### Proposals (Claude)
-The forms vocabulary, the additive ignition formula, the fire-as-process stage ladder and its tending
-verbs, the shaping family of operations, the pricing of the seven methods, and the framing of the two
-walked transcripts as "seed probes" are all Claude's proposals for how to realize Andrew's fire
-walkthrough and his "never a menu" rule mechanically. The transcripts' *steps* are Andrew's own, from
-the 2026-09-07 conversation; the probe framing around them is not.
+The ignition mechanism (the additive score, its terms, and how a character's skill enters it), the
+forms mechanism, the shaping family of operations, the tending verbs, where a fire lives, the probe
+chains for each method, and the framing of the two walked transcripts as seed probes are Claude's
+proposals for how to realize Andrew's walkthrough and the never-a-menu rule mechanically. The
+transcripts' *steps* are Andrew's own, from 2026-09-07.
 
-## In one paragraph
+## 3. In one paragraph
 A player pats their pockets and finds a lighter — click, and the tinder catches, but hold that same
 flame to a wrist-thick branch and it just blackens; you have to build up from tinder to kindling to
 fuel, or the fire dies in your hands. Without a lighter it is a longer, harder-won path: carve a
@@ -44,9 +51,9 @@ becomes a coal you have to blow into life — or give up and let the cold win th
 sticks together does nothing but warm your palms, and the game says so plainly, pointing at the physics
 of why without ever naming the verb that would actually work.
 
-## The design
+## 4. The design
 
-### What fire needs
+### 4.1 What fire needs
 Fire is an **ignition source × a receptive material × air × time**. The game models:
 - **Sources**, each a capability: `flame` (a lighter, a match, a burning thing), `spark` (ferro rod,
   hatchet spine on quartz, battery + wire strands), `ember` (a coal from friction or a dying fire),
@@ -62,13 +69,17 @@ Fire is an **ignition source × a receptive material × air × time**. The game 
   character; it lives on the heartbeat ([`06-time-sleep-and-the-clock.md`](06-time-sleep-and-the-clock.md))
   and interrupts nearby activities when its stage changes.
 
-### The ignition check
+### 4.2 The ignition check
 An additive, transparent score: `score = source_strength + receptivity(material, form) + air − wet −
 wind`, checked against a threshold; every term is visible in the failure line. *"The flame licks at the
 bark and blackens it, but a wrist-thick branch won't take from a flame this small. Something finer
 would."* Failure **costs** something — a match, a minute, stamina on the bow — never a silent retry.
 
-### The forms
+**Who is trying matters.** Characters differ in how well and how fast they do things (Andrew,
+2026-09-27): a woodsman lights fires better, and a novice's attempt takes longer and fails more.
+*(How skill enters the score is proposed by Claude, drafted with the weights, for Andrew's check.)*
+
+### 4.3 The forms
 The mechanism underneath is the closure model (`ontology-closure.md` §2–3, DR-26): a **form** is the
 shape a quantity of material takes; materials say what a thing is made of, forms say what shape it is
 in, and **capabilities** (`edge`, `point`, `leverage`, `ignition`, `flame`, `ember`, `tinder`, …) fall
@@ -78,15 +89,16 @@ value; the multitool and hatchet stay hand-tuned), and every load-bearing capabi
 examine text — "a shard of glass, one edge wicked-sharp" — because a capability nobody can see is the
 top complaint across every property-crafting game this design draws on.
 
-The forms this pass proposes (v1 vocabulary):
+The forms — the code's 26, canonical (Andrew, 2026-09-18), and like every list here a floor the loops
+grow (document 18 holds the candidates):
 `blade` · `shard` · `flake` · `piece` · `scrap` · `strip` · `sheet` · `slab` / `board` · `rod` /
 `stick` / `bar` / `pole` · `spindle` · `point` / `stake` · `bow` · `shavings` · `bundle` · `cord` ·
 `block` · `vessel` · `ember` · `ash` · `liquid` · `cloth`. Live since closure step 1 for minted
 objects; authored objects declare theirs in `OBJECT_TABLE` (the multitool is a `blade`, a bottle a
 `vessel`, a branch a `rod`, paracord `cord`).
 
-### The shaping family
-A new operation family whose outputs are forms:
+### 4.4 The shaping family
+An operation family whose outputs are forms:
 
 | verb | grammar | needs | makes |
 |---|---|---|---|
@@ -103,52 +115,56 @@ Form pseudo-nouns arrive in the Y slot only after `into`; a real entity there me
 the same mechanism zones use (`zone:cockpit`). Implicit accessories (a handhold for the drill, a
 reachable flame for melt) are chosen when unambiguous and **named in the prose**.
 
-### Fire as a process
+### 4.5 Fire as a process
 `unlit lay` → `catching` (tinder flame, 1–2 game-min, dies without kindling) → `burning` (kindling,
 heat rising) → `established` (fuel load ≥ 800 g, steady heat, the warmth source) → `embers` (fuel gone;
 blow + tinder restarts) → `dead` (ash). Fuel is TRANSFERred into the fire (`put branch on fire`); each
 tick CONSUMEs fuel mass by material burn rate into ash and the sink; heat output is a function of stage
-and fuel; smoke reads from material toxicity (the foam warning). Tending verbs: `blow on` / `fan`
-(stage push, +air), `feed` (= put fuel), `bank` (slow burn overnight), `smother` / `douse` (out). Wind
-and wet degrade the fire; the windbreak is a real object property (the shelter pass,
-[`08-warmth-clothing-and-shelter.md`](08-warmth-clothing-and-shelter.md)). **Where a fire lives:** the
-first burning thing on the ground with a lay becomes the fire entity at that space; a burning thing in
-the hand is a torch, not a fire.
+and fuel. **The heat goes into the world as state** (Andrew, 2026-09-26): the fire heats its area and
+leaves residual heat around it — outdoors the warmed ground and hearth stones, inside the plane the
+cabin's one internal heat (document 17 §4.8). Smoke reads from material toxicity (the foam warning) and
+has a colour a search crew can see: rubber and oil burn dark against snow, green boughs white against
+dark spruce (document 14 §3.4). Tending verbs: `blow on` / `fan` (stage push, +air), `feed` (= put
+fuel), `bank` (slow burn overnight), `smother` / `douse` (out). Wind and wet degrade the fire; the
+windbreak is a real object property ([`08-warmth-clothing-and-shelter.md`](08-warmth-clothing-and-shelter.md)
+§4.4). **Where a fire lives:** the first burning thing on the ground with a lay becomes the fire entity
+at that space; a burning thing in the hand is a torch, not a fire.
 
-### The seven methods
+### 4.6 The seven methods
 Each has at least one probe chain proposed, including the honest failures:
-1. **Lighter** (the pilot's pocket) — flame → tinder → kindling → fuel. Fails on: a branch straight
-   from the flame; wet tinder; wind without a windbreak.
+1. **Lighter** (in a pocket — document 16) — flame → tinder → kindling → fuel. Fails on: a branch
+   straight from the flame; wet tinder; wind without a windbreak.
 2. **Matches** — the soaked box: `dry matchbox` by a fire or body heat (a process) → strike.
-3. **The flare** — ignites anything, once, loudly; spends the visual-signal resource (the rescue
-   graph's trade-off, [`14-rescue-paths.md`](14-rescue-paths.md)).
-4. **Battery + wire** — pry the panel, the aircraft battery in the nose cowling (12 kg), copper strands
-   across the terminals glow → tinder. Needs the wire *and* a walk outside.
+3. **The flare** — in the survival kit, which is buried somewhere (document 10 §4.3); ignites
+   anything, once, loudly; it is fire *or* signal, never both
+   ([`14-rescue-paths.md`](14-rescue-paths.md) §3.4).
+4. **Battery + wire** — pry the panel: the plane's battery in the nose cowling (12 kg, wired and
+   fine), copper strands across the terminals glow → tinder. Needs the wire *and* a walk outside.
 5. **Focus** — the landing-light reflector or an ice lens, sun only (weather-gated).
-6. **Spark** — the hatchet spine on quartz (the ridge; a rock is in the muskeg census) into char or
-   fuel-soaked cloth.
+6. **Spark** — the hatchet spine on quartz (the ridge; a rock in the muskeg) into char or fuel-soaked
+   cloth.
 7. **Friction** — the bow drill (carve, split, notch, string, bundle, drill → ember → blow); the hand
-   drill (near-impossible for a novice in winter; a real partial with raw palms).
+   drill (near-impossible for a novice in the cold and damp; a real partial with raw palms).
 
 `rub sticks together` → *"The bark scuffs and warms under your hands, nothing more. Friction fire wants
 one stick spinning hard and fast in a notch of another, not two sticks scraping."* `make fire with
-sticks` → a clarification only: *"'make' names what you want, not what you do. Say the act."* No
-question about means, no options.
+sticks` performs the first act the means imply — it rubs them together — and gets the same answer
+(§4.9). Nothing names the act that would work.
 
-### The two walked transcripts
+### 4.7 The two walked transcripts
 The lighter path (5 steps, 3 honest failures) and the bow-drill path (11 steps, 2 honest failures) from
 the 2026-09-07 conversation are proposed as the seed probes for this whole document — every method and
 every honest failure line above should be able to play out as one of these two chains, or a variant of
 them, with real tiers.
 
-### Why this matters (the lens pass)
+### 4.8 Why this matters (the lens pass)
 Seven methods, each gated by a different scarce resource (time, tool, weather, knowledge, the flare's
 one shot) — a real "several ways of doing things." The skill is knowing what catches from what —
 physics, learnable from failure lines and the manual, never from a recipe. Every fire choice spends
 something else: fuel is mass; shavings are tinder *and* lost wood; the flare is fire *or* signal; the
 manual is fire *or* knowledge.
 
-### The `make fire` rows (Andrew, 2026-09-18)
+### 4.9 The `make fire` rows (Andrew, 2026-09-18)
 
 `make` is the one aim-verb: vague it asks how, given the means it performs the act they imply and this
 model answers (document 04 §3.9). Fire's rows in the goal table:
@@ -173,73 +189,40 @@ wrist-thick branch won't catch from a flame this small. Something finer would.
 Today the shipped engine lights the branch ("a fire, at last") because the additive check is not
 built. That refusal is the acceptance test for this document.
 
-## Interactions
+## 5. Interactions
 **Depends on:** the ontology closure mechanism
 ([`05-ontology-and-sufficiency.md`](05-ontology-and-sufficiency.md), DR-26) for the forms and derived
 capabilities (`edge`, `tinder`, `ignition`, `flame`, `ember`) that the shaping family mints and the
 ignition check consumes; the taught grammar
 ([`04-grammar-and-feedback.md`](04-grammar-and-feedback.md)) for the `into <form>` syntax the shaping
-verbs use; the running clock ([`06-time-sleep-and-the-clock.md`](06-time-sleep-and-the-clock.md),
+verbs use and the `make` rows; the running clock ([`06-time-sleep-and-the-clock.md`](06-time-sleep-and-the-clock.md),
 DR-27) for fire as an unattended process, the drying process for the soaked matchbox, and
-`FIRE_STATE_CHANGE` as an activity-interrupt signal.
+`FIRE_STATE_CHANGE` as an activity-interrupt signal; the characters' differing skill (document 16);
+the heat system (`PLAN.md` A10), which carries the fire's heat into its area and the plane
+([`17-rooms-and-living-rooms.md`](17-rooms-and-living-rooms.md) §4.8).
 
 **Depended on by:** warmth ([`08-warmth-clothing-and-shelter.md`](08-warmth-clothing-and-shelter.md)) —
-the fire's heat output feeds the core-temperature formula directly; water
-([`09-water.md`](09-water.md)) — melting snow needs a reachable heat source, the same gate fire
-provides; food ([`10-food-and-hunger.md`](10-food-and-hunger.md)) — cooking; the pilot
-([`12-the-pilot-and-bodies.md`](12-the-pilot-and-bodies.md)) — tended near a fire, at a real time and
-warmth cost; rescue ([`14-rescue-paths.md`](14-rescue-paths.md)) — the flare is fire *or* signal, never
-both.
+the fire's heat, through the heat system, is one of the ways to stay warm and the fast way to dry
+things; water ([`09-water.md`](09-water.md)) — melting snow needs a reachable heat source, the same
+gate fire provides; food ([`10-food-and-hunger.md`](10-food-and-hunger.md)) — cooking, thawing,
+smoking and drying; rescue ([`14-rescue-paths.md`](14-rescue-paths.md)) — a fire and its smoke are
+signals, and the flare is fire *or* signal, never both.
 
-## Open questions
+## 6. Open questions
 
-**All answered 2026-09-18 (Andrew).** Q1 the code's 26 forms are canonical and
-`ontology-closure.md` §2 is corrected to match · Q2 price the seven methods by cost alone first, a
-failure-rate axis only if one still dominates in play · Q3 Claude drafts the ignition weights and the
-threshold alongside the fuel-to-heat curve, for his review · Q4 this document's stage ladder
-(`unlit lay → catching → burning → established → embers → dead`) is the design, and the older stub in
-`systems/fire.py` is reconciled to it. Kept below as the record of what was weighed.
-1. **The final forms list.** This document's list (26 form-words, several doubled under one bullet —
-   `slab`/`board`, `rod`/`stick`/`bar`/`pole`, `point`/`stake`) does not match
-   `ontology-closure.md` §2's table (15 rows, ~19 distinct words). *Finding:* the shipped
-   `game/world/sim/affordances.py` `FORMS` constant already contains the exact 26-word list from this
-   document, word for word — the code has settled this question in this document's favor.
-   *Recommendation:* treat this document's list as canonical and update `ontology-closure.md` §2 to
-   match; it is the stale one, not this pass.
-2. **Pricing the seven methods so none dominates.** Named as a requirement (*"the graph must price them
-   so none dominates"*) but not valued. *Options:* price by time and resource cost alone (lighter fast
-   and cheap but a limited pocket item; bow drill free but slow and skill-gated; flare instant but
-   one-shot and loud) versus adding a genuine failure-rate/skill axis on top. *Recommendation:*
-   cost-only pricing first — every method here already spends something distinct (fuel, tool charges,
-   time, the flare's one shot), which is most of what "none dominates" needs; add a failure-rate axis
-   only if playtesting shows one method winning anyway.
-3. **The ignition score's actual numbers.** `source_strength`, `receptivity`, `air`, `wet`, `wind` and
-   the threshold are named as axes, not valued anywhere in the source. *Recommendation:* value them
-   together with the fire ladder's fuel-to-heat-output curve (also unvalued) when this pass is next
-   worked, since both feed the same formula and neither can be tuned alone.
-4. **Anything else open:** the fire ladder names stages but gives no fuel-mass-to-heat-output formula;
-   the stub `game/world/sim/systems/fire.py` names a *different* stage ladder (`unlit → smouldering →
-   small → steady → spreading → dangerous`, from an older §31 spec) than this document's proposed one
-   (`unlit lay → catching → burning → established → embers → dead`) — the two have never been
-   reconciled, and that reconciliation is this document's business, not architecture's, since this is
-   where the ladder is designed.
+None open.
 
-## Review log
-2026-09-16 — first draft, written from `fire-and-shaping.md` (primary), `ontology-closure.md` §2–3, and
-a direct read of `affordances.py` and the shipped handlers. Not yet reviewed with Andrew.
+## 7. Review log
+- **2026-09-16** — first draft, from the fire-and-shaping pass, `ontology-closure.md` §2–3, and a
+  direct read of `affordances.py` and the shipped handlers.
+- **2026-09-18 (Andrew)** — the `make fire` goal rows, with the honest refusal as this document's
+  acceptance test; the code's 26 forms canonical; the seven methods priced by what each spends; Claude
+  to draft the ignition weights, threshold and fuel-to-heat curve together; this document's stage
+  ladder is the design. Reviewed in full.
+- **2026-09-27** — the decisions of 2026-09-26 and 2026-09-27 carried in: heat as a state system,
+  characters' differing skill, the flare in the buried survival kit, fire and smoke as signals.
 
-- **2026-09-18 (Andrew, block 1, ahead of this document's sitting):** the `make fire` goal rows written
-  here; `make fire with the lighter and the stick` must produce the honest refusal, which is this
-  document's acceptance test. The `make` form and dispatch rule are document 04 §3.9.
-
-- **2026-09-18 (Andrew):** all four answered as recommended. The forms list is the code's 26 words and the
-  closure spec's table is the stale one; the seven fire methods are priced by what each spends
-  (time, a tool, weather, knowledge, the flare's one shot) with a failure-rate axis held back;
-  Claude drafts the ignition weights, the threshold and the fuel-to-heat curve together for review;
-  the stage ladder here is the design and `systems/fire.py`'s older ladder is reconciled to it.
-  **Document reviewed in full.**
-
-## What exists today
+## 8. What exists today
 **Built (closure step 1).**
 [`game/world/sim/affordances.py`](../../game/world/sim/affordances.py) — the `FORMS` frozenset (26
 forms, matching this document's list exactly) and `derive()`, computing capability levels including
@@ -266,10 +249,10 @@ any reachable heat source, single-shot, mass-conserved. The exact chain Andrew w
 `bundle`, `strike` — has no handler files and no `VERBS` entries anywhere in the codebase. Fire as a
 persistent process object (the stage ladder, fuel load, heat output, tending verbs `blow`/`feed`/
 `bank`/`smother`) does not exist; `game/world/sim/systems/fire.py` is a 6-line docstring stub (roadmap
-P5) naming a different, older stage ladder (see *Open questions* above). The additive ignition-score
-formula is not implemented. Four of the seven fire methods have no path at all: the flare, battery +
-wire, focus/lens, and the full friction chain (which needs the whole shaping family first); the lighter
-and match paths work only as far as lighting a flammable thing directly, because there is no fire
-process object yet to feed. The two walked transcripts are named in the source as the intended seed
-probes (as a `probes/graph.py`) but that file does not exist — only the break→cut→burn chain above is
-in the probe corpus today.
+P5) naming an older stage ladder (`unlit → smouldering → small → steady → spreading → dangerous`),
+to be reconciled to §4.5's. The additive ignition score and the skill term are not implemented. Four of
+the seven fire methods have no path at all: the flare, battery + wire, focus/lens, and the full
+friction chain (which needs the whole shaping family first); the lighter and match paths work only as
+far as lighting a flammable thing directly, because there is no fire process object yet to feed. The
+two walked transcripts are named as the intended seed probes (a `probes/graph.py`), but that file does
+not exist — only the break→cut→burn chain above is in the probe corpus today.

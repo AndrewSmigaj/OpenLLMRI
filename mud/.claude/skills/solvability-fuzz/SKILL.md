@@ -31,7 +31,7 @@ check. This skill is the oracle (proposal §5; lenses AR6, IM10).
    that fired.
 4. **Classify** every flagged item: unresolved-attempt | global-softlock | invariant-violation |
    irreversibility-trap | false-alarm.
-5. **Report** → write `docs/investigation/probes/fuzz-<scenario>-<seed>.md`: counts per class, the
+5. **Report** → write `docs/review/fuzz-<scenario>-<seed>.md`: counts per class, the
    worst dead-end with its action trace, and the prioritized fix queue. Unresolved attempts go to the
    `ontology-generator` crystallize mode; softlocks go to design (add a degraded fallback or a clue
    path).

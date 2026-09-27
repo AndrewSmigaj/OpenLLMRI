@@ -2,7 +2,7 @@
 """review_packet — build the design-review page from docs/design/*.md (host-side, stdlib only).
 
 For each design document, in index order, extract: the status (from the banner), the one-paragraph
-experience (part 3), the provenance (part 2: Andrew's decisions + the proposals), the open questions
+experience (part 3), the decisions (part 2: Andrew's decisions + the proposals), the open questions
 (part 6) and the review log (part 7). Emit ONE HTML page: a progress strip (23 boxes), one section per
 document with anchors, and the parked list. The GDD umbrella gets a hand-written section (it does not
 follow the template). Andrew reads the page; answers land in the terminal; the page is regenerated.
@@ -34,7 +34,7 @@ ORDER = [  # (key, block, file or None for the GDD)
     ("17", 3, "17-rooms-and-living-rooms.md"), ("18", 3, "18-materials-and-forms.md"),
     ("23", 3, "23-flora-and-fauna.md"),
     ("19", 4, "19-multiplayer-and-instances.md"), ("20", 4, "20-the-agent-player-and-research.md"),
-    ("21", 4, "21-endings-and-recap.md"), ("22", 4, "22-the-world-building-loops.md"),
+    ("21", 4, "21-endings.md"), ("22", 4, "22-the-world-building-loops.md"),
 ]
 BLOCK_NAMES = {1: "Foundations", 2: "Survival systems", 3: "The world and the stakes",
                4: "Multiplayer, research, endings, the loops"}
@@ -153,69 +153,6 @@ def md_to_html(md: str) -> str:
 
 
 # ---------- the GDD umbrella (hand-written brief; it does not follow the template) ----------
-GDD_BRIEF = {
-    "title": "The GDD — the umbrella",
-    "paragraph": (
-        "Whiteout — survivors of a snowy plane crash improvise with a physically-modeled world to outlast "
-        "cold, injury, hunger and a worsening storm until rescue, escape, or collapse. The essential experience: "
-        "understanding a living, reactive world under pressure, and being told, physically and specifically, "
-        "why each desperate idea works or doesn't. You survive by understanding the world, not by guessing the "
-        "author's verb. The GDD is now the umbrella — pitch, vision, cross-cutting rules, and the chapter index "
-        "into the 22 documents."),
-    "decisions": [
-        "Runtime is 100% deterministic; no language model in the running game, ever (§3, June; DR-02).",
-        "A continuously running real-time clock nobody can stall; 20× by consensus when everyone sleeps or waits (June; DR-14a, 2026-09-07).",
-        "Instanced, synchronous co-op; a run is roughly a week of game time, persisting across sittings (DR-15a — the one-day wording was never Andrew's).",
-        "Input is the taught grammar `VERB X [RELATION Y] [WITH Z]`; feedback is clarification only, never a menu (§25a; DR-08c, 2026-09-16).",
-        "The world is open-ended; every count is a floor (VISION, 2026-09-16).",
-    ],
-    "proposals": [
-        "P1 — §0a improvement 1: all interactions pre-built; the LLM is a build-time authoring tool only.",
-        "P2 — §0a improvement 2: cheap objects, rich materials and operation rules; heavy packets only for puzzle-critical things (packets since retired, DR-17a).",
-        "P3 — §0a improvement 3: conservation as a runtime ledger.",
-        "P4 — §0a improvement 4: the global softlock check + a no-materials warmth floor (the floor is also Q1 of doc 08).",
-        "P5 — §0a improvement 5: the one-room slice first (history now — built in June/July).",
-        "P6 — §0a improvement 6: coverage = invariants + a fuzzer + a curated set (since replaced by the probe corpus, DR-18a).",
-        "P7 — §6 'one dense scene (cabin + camp + near-forest) gets the whole data budget rather than spread thin' (June text; the whole valley is now in the first run).",
-        "P8 — §42 build plan and §46 scope as written (the June waterfall; PLAN.md now holds the order).",
-    ],
-    "questions2": [
-        ("G5", "§3 Binding decisions — rule 1 (every attempt resolves, never 'you can't do that'), rule 3 (conservation holds at runtime), rule 4 (model-deep, requirement-light) are yours from June; rule 5 says 'no autonomous in-scenario NPCs; LLM-controlled characters are external players'. With NHCs allowed as agent players, keep rules 1, 3, 4 and reword 5?",
-         ["(a) keep 1, 3, 4; reword 5: no scripted-AI NPCs inside the engine; LLM-driven characters, NHCs included, are players", "(b) keep all five as written", "(c) rewrite — say what"], "a"),
-        ("G6", "§6/§8 The world — the June premise text and the weather arc (light → steady → heavy → near-whiteout; −15/−20 °C), now superseded by the December ladder in document 13.",
-         ["(a) keep the premise sentence; replace the weather arc with two lines pointing to documents 01 and 13", "(b) leave as is with the pointer line", "(c) rewrite"], "a"),
-        ("G7", "§9/§16 Time, multiplayer, cooperation — the locked clock and session text, now DR-14b/15b (15 game-min per real min; propose fast forward to 180×; one sitting of two or three hours). The '≥1 first-class interdependence' line stays?",
-         ["(a) rewrite the section to the new numbers and sessions; keep the interdependence line; point to 06 and 19", "(b) leave with pointer lines"], "a"),
-        ("G8", "§19 The dying pilot — he now starts dead.",
-         ["(a) replace the section with two lines: he is dead at the start; the body is a food path and a moral question; document 12", "(b) leave with a pointer"], "a"),
-        ("G9", "§31–§36 Survival systems — June one-liners, all from the archived AI seed; the design lives in documents 07–11 and 23.",
-         ["(a) replace with a two-line summary per system pointing to its chapter", "(b) strike the seed text; pointers only", "(c) leave as is"], "a"),
-        ("G10", "§37–§39 Rescue — the June additive-confidence text; the design is now the flyover clock, the radio mini game, signals, and surviving long enough (document 14).",
-         ["(a) rewrite the section to that in a short paragraph pointing to 14", "(b) leave with a pointer"], "a"),
-        ("G11", "§42 Build plan — the June slice-first waterfall; the order of work is PLAN.md.",
-         ["(a) strike; one line pointing to PLAN.md", "(b) keep as history"], "a"),
-        ("G12", "§43 Authoring model — packets and 'the ontology-generator skill drafts them at build time' (both retired); authoring is the tables, the ontology store and the world-building loops.",
-         ["(a) rewrite to the no-ceiling principle: behaviour derives; authoring has no ceiling; the loops grow the world; point to 05 and 22", "(b) strike; pointer only"], "a"),
-        ("G13", "§44/§45 Correctness — the invariants (conservation ledger, narration↔effect, rescue always reachable, every attempt resolves, activity durability) stay; 'coverage = the operation×material matrix + 10k fuzz' is replaced by the probe corpus + fuzz (DR-18a). The warmth floor is decided in document 08.",
-         ["(a) keep the invariants; replace the coverage sentence; leave the warmth floor to 08", "(b) rewrite the section"], "a"),
-        ("G14", "§46 Scope & non-goals — 'one dense scene', 'perception zones until the core is proven' (perception shipped) and 'procedural variants' are stale; 'no runtime LLM' keeps its reworded meaning.",
-         ["(a) rewrite: in — the whole valley, the systems in documents 06–23, the loops; out — a runtime language model in the engine, procedural variants, an ongoing world", "(b) strike the section"], "a"),
-        ("G15", "§49 Bottom line — June's 'confidence in the plan 90%, in the game being fun 50%' and 'the make-or-break is fun'.",
-         ["(a) rewrite as the two goals (the research world; the new MUD) and what makes each work — the world answers anything reasonable, and the loops grow it", "(b) strike"], "a"),
-        ("G16", "§0b's remaining nice-to-haves — the knowledge/uncertainty layer (believed vs true) and the auto-generated recap.",
-         ["(a) the recap is design (document 21); the knowledge layer goes to IDEAS.md", "(b) both to IDEAS.md", "(c) both in"], "a"),
-    ],
-    "questions": [
-        ("Q1", "Is the pitch and the essential experience (§1–§2) right as written?",
-         ["(a) yes, as the umbrella's opening", "(b) rewrite — say what"], "a"),
-        ("Q2", "The six §0a improvements: keep as decisions (P1–P6), with P2/P5/P6 marked as history?",
-         ["(a) keep, mark history where noted", "(b) strike P5/P6 entirely", "(c) revisit one — name it"], "a"),
-        ("Q3", "§6's 'one dense scene … rather than spread thin' against the whole valley being in the first run.",
-         ["(a) strike the line; the valley is the scene", "(b) keep it as the density principle: the crash site densest, the valley as designed", "(c) rewrite"], "b"),
-        ("Q4", "The per-system sections (§19, §31–§39 etc.) carry June seed text that is now superseded: pointer lines only, or strike the seed text?",
-         ["(a) pointer lines only, body untouched", "(b) strike the superseded seed text; keep the pointers", "(c) rewrite each section as a two-line summary of its chapter"], "c"),
-    ],
-}
 
 CSS = r"""
 :root{--bg:#F3F5F7;--panel:#FFFFFF;--ink:#17212B;--muted:#5B6B78;--rule:#D5DCE2;--ember:#C2551F;--spruce:#2E7D5B;--ice:#8FB3C9;--amber:#B08A1E;--codebg:#E9EEF2;}
@@ -319,7 +256,7 @@ def render_doc(key: str, block: int, idx: int, total: int, text: str, current: s
     status = status_of(text)
     title = title_of(text, key)
     para = sec.get("in one paragraph", "")
-    prov = sec.get("provenance", "")
+    prov = sec.get("decisions", "") or sec.get("provenance", "")
     oq = sec.get("open questions", "")
     log = sec.get("review log", "")
     cls = status + (" current" if key == current else "")
@@ -331,7 +268,7 @@ def render_doc(key: str, block: int, idx: int, total: int, text: str, current: s
         f"<div class='eyebrow'><span>Block {block} · {BLOCK_NAMES[block]}</span><span>document {idx} of {total}</span>{pill}</div>",
         f"<h2>{inline(title)}</h2>",
         f"<div class='lead'>{md_to_html(para)}</div>",
-        "<h3>Provenance — yours, and the proposals</h3>",
+        "<h3>Decisions — yours, then the proposals</h3>",
         f"<div class='decisions'>{md_to_html(prov)}</div>",
         "<h3>Open questions — answer by number; “defaults” takes every recommendation</h3>",
         render_questions_from_md(oq),
@@ -344,31 +281,29 @@ def render_doc(key: str, block: int, idx: int, total: int, text: str, current: s
 
 
 def render_gdd(block: int, idx: int, total: int, current: str, gdd_text: str) -> tuple[str, str, str]:
-    b = GDD_BRIEF
+    """The GDD's section shows the one-paragraph pitch and the current decisions, read live from PLAN.md §5,
+    so the page never shows a decision that has since changed."""
     status = status_of(gdd_text)
     pill = f"<span class='pill {status}'>{status}</span>" + (" <span class='pill current'>now</span>" if current == "GDD" else "")
-    qs = []
-    for qid, q, opts, default in b["questions"] + [("—", "**Part 2 — the remaining sections** (answered 2026-09-17 in part: Q1 a, Q2 a with history, Q3 b; Q4 is G9 below)", [], "")] + b["questions2"]:
-        if qid == "—":
-            qs.append(f"<li><span class='q'>{inline(q)}</span></li>"); continue
-        badge = "<span class='default'>default</span>"
-        opts_html = "".join(
-            f"<li>{inline(o)} {badge if o.startswith('(' + default + ')') else ''}</li>" for o in opts)
-        qs.append(f"<li><span class='qid'>{qid}</span><span class='q'>{inline(q)}</span><ul class='opts'>{opts_html}</ul></li>")
+    plan = (ROOT / "PLAN.md").read_text(encoding="utf-8")
+    m = re.search(r"^## 5\.[^\n]*\n(.*?)(?=^## 6\.)", plan, re.S | re.M)
+    decisions = m.group(1) if m else "_PLAN.md §5 not found._"
+    title = "The GDD — the umbrella, and the current decisions"
+    lead = ("Whiteout: survivors of a small-plane crash in an Alaskan valley in the first week of October improvise "
+            "with a physically modelled world to outlast cold, injury, hunger and a storm until rescue, or death. "
+            "You survive by understanding the world, not by guessing the author's verb; the world answers anything "
+            "reasonable, and nothing ever offers you a menu. The GDD is the one umbrella document; each system has "
+            "its own document below.")
     body = [
         "<section class='doc' id='doc-GDD'>",
         f"<div class='eyebrow'><span>Block {block} · {BLOCK_NAMES[block]}</span><span>document {idx} of {total}</span>{pill}</div>",
-        f"<h2>{inline(b['title'])}</h2>",
-        f"<div class='lead'><p>{inline(b['paragraph'])}</p></div>",
-        "<h3>Your decisions in it</h3>",
-        "<div class='decisions'><ul>" + "".join(f"<li>{inline(d)}</li>" for d in b["decisions"]) + "</ul></div>",
-        "<h3>Proposals — keep, cut, or change</h3>",
-        "<ul>" + "".join(f"<li>{inline(p)}</li>" for p in b["proposals"]) + "</ul>",
-        "<h3>Open questions — answer by number; “defaults” takes every recommendation</h3>",
-        "<div class='questions'><ol>" + "".join(qs) + "</ol></div>",
+        f"<h2>{inline(title)}</h2>",
+        f"<div class='lead'><p>{inline(lead)}</p></div>",
+        "<h3>The current decisions — PLAN.md §5</h3>",
+        f"<div class='decisions'>{md_to_html(decisions)}</div>",
         "</section>",
     ]
-    return "\n".join(body), status, b["title"]
+    return "\n".join(body), status, title
 
 
 def main() -> int:
@@ -412,7 +347,7 @@ def main() -> int:
   <div class="procedure"><strong>How this works.</strong> Each document below has the same five parts. Read the one marked <span class="pill current">now</span>.
     <ol>
       <li>The paragraph — what the player experiences.</li>
-      <li>Provenance — your decisions, quoted; then the proposals (P…) to keep, cut or change.</li>
+      <li>Decisions — yours, in plain words with dates; then the proposals to keep, cut or change.</li>
       <li>The open questions (Q…), each with options and a <span class="default">default</span>.</li>
       <li>Answer in the terminal by number, or “defaults”. Say <em>cut</em> or <em>rewrite:</em> for anything alien.</li>
       <li>I rewrite the document, log the decisions, flip its status, and this page updates. Anything needing more thought is parked with an owner — the list is at the bottom.</li>

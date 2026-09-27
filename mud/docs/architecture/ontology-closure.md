@@ -4,8 +4,8 @@
 > DR-26 (closure), DR-05b / DR-17a / DR-18a (amendments) in
 > [`implementation-architecture.md`](implementation-architecture.md) §2. The engine work this doc
 > governs is the **closure loop**: closure → harness → parser tolerance → (time & stakes, designed
-> separately) → tier-4 physics → verb gaps + nouns. Companion design passes (scratchpads until
-> promoted): `docs/investigation/design/*.md`.
+> separately) → tier-4 physics → verb gaps + nouns. The design it serves is in `docs/design/`
+> (documents 04, 05, 07 and 18).
 
 ## 1. The property we are building toward
 

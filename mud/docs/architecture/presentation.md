@@ -135,8 +135,8 @@ for the 17 objects + parts + state variants, Andrew rewrites freely.
    authored per-room, or a small reusable set?
 
 ## Sources
-`design.md` §17 (prose look examples), §11/§13 (evocative-sparse, perception-honest prose), §38.2
-(state-as-clue: the broken antenna); lenses GD3 (curiosity), GD20 (affordance discoverability —
+The GDD and `docs/design/03-the-player-view.md` (the look, prose composed from state, perception-honest
+prose); lenses GD3 (curiosity), GD20 (affordance discoverability —
 "hints at properties and a couple of verbs, never the full set"), GD25 (specific-and-witty);
 prior-art: Inform's Report stage, Curveship's simulator/teller split, Short's "knowing a verb
 exists ≠ knowing when to apply it", Extended-Room `$state` conditioning; pinned Evennia seams:

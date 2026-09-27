@@ -1,121 +1,126 @@
 # 01 — The premise and the world
 
-## 1. Status and sources
+## 1. Status
 
-> **Status: reviewed with Andrew 2026-09-17** (created 2026-09-16). **Architecture counterpart:** none — this
-> document is *what the world is*; how zones, edges and Scenes are represented lives in
+> **Status: reviewed with Andrew 2026-09-17** (created 2026-09-16; brought to the current decisions
+> 2026-09-27 — the season, the pilot, the ELT, what is aboard, Holt's cabin, the animals — for Andrew's
+> check). **Architecture counterpart:** none — this document is *what the world is*; how zones, edges
+> and Scenes are represented lives in
 > [`../architecture/implementation-architecture.md`](../architecture/implementation-architecture.md)
-> (DR-13a) and [`../architecture/perception-model.md`](../architecture/perception-model.md).
-> **Sources:** [`../investigation/world/map.md`](../investigation/world/map.md) ·
-> [`../investigation/world/rooms.md`](../investigation/world/rooms.md) ·
-> [`../investigation/world/report.md`](../investigation/world/report.md) ·
-> [`../investigation/world/objects.md`](../investigation/world/objects.md) ·
-> [`../investigation/world/build-queue.md`](../investigation/world/build-queue.md) ·
-> [`../investigation/plane-interior.md`](../investigation/plane-interior.md) ·
-> [`../scenarios/whiteout/GDD.md`](../scenarios/whiteout/GDD.md) §6/§8 ·
-> [`../architecture/implementation-architecture.md`](../architecture/implementation-architecture.md) §2
-> (Andrew's amendments) · `game/world/scenarios/whiteout/zones.py` (the built zones).
-> Provenance audit: [`../investigation/design/00-provenance-audit.md`](../investigation/design/00-provenance-audit.md).
-
-> **The season was settled on 2026-09-26: October, at freeze-up.** The run starts with about an inch
-> of snow, bushes dusted but visible, skim ice on the water, roots and berries still findable;
-> the storm starts light and gets heavier over the days, and the snow piles up the way a real storm of
-> that kind piles it up — part of the escalation ladder. A bear is in. Andrew, 2026-09-26: *"It starts
-> with just an inch, you can still get to berries and such, with the storm it accumulates however much
-> snow storms that start from light then get heavier over the days (part of the increasing challenge
-> mechanic)"*; *"we can have a bear, that would be neat"*. The month is Claude's pick, at Andrew's
-> request (*"you pick the month"*): freeze-up is October in interior Alaska — the first lasting snow,
-> skim ice on still water, berries still on the bush, bears feeding hard before they den.
-> **Content in this document still written for December** (snow depth, temperatures, daylight,
-> forage, ice, the fauna) **is out of date** and is revised to October — shown to Andrew as a diff before the close (this document is already reviewed).
-> `PLAN.md` §5 and task A8.
+> (DR-13a) and [`../architecture/perception-model.md`](../architecture/perception-model.md). The built
+> zones are `game/world/scenarios/whiteout/zones.py`; the nine built rooms each have a room document
+> under [`../scenarios/whiteout/rooms/`](../scenarios/whiteout/rooms/).
 
 This is the document you read to picture the whole world before anything else: what happened, when
 and where it happened, what country the party is standing in, how big it is, what it costs to cross,
 and every room in it. The valley's shape, its regions, its routes and all fifty outdoor zone designs
-came out of one overnight design run on 2026-07-15 — **they are Claude's proposals, and they are what
-this review is judging: interesting, or not.**
+came out of one overnight design run on 2026-07-15 — **they are Claude's proposals**, reviewed with
+Andrew on 2026-09-17 and brought to the first week of October on 2026-09-27.
 
 ---
 
-## 2. Provenance
+## 2. Decisions
 
 ### Andrew's decisions
 
-- **The premise (GDD §6, his original design text, June 2026).** "Off-route winter crash, wrong search
-  area, dead radio, weak beacon, unstable wreck, ~5h daylight." The search grid is in the wrong place:
-  nobody is coming to where you are.
-- **The pitch (GDD §1 / `VISION.md`, June 2026).** "Survivors of a snowy plane crash improvise with a
-  physically-modeled world to outlast cold, injury, hunger, and a worsening storm until rescue, escape,
-  or collapse."
-- **The data budget (GDD §6, June 2026).** "One authored crash. One **dense scene** (cabin + camp +
-  near-forest) gets the whole data budget — modeled to the hilt — rather than spread thin."
-- **The bar for rooms (2026-09-07, verbatim).** "we dont want half thought rooms we want living
-  interesting rooms - but at the same time the things will facilitate completing the various rescue
-  goals (fix radio, use radio, then survive until help arives so find food, find warmth, etc) and
-  there should be several ways of doing things - you could find a lighter if you look hard enough but
-  can light it in various other ways, and of course a lot of things have time it takes, like a MUD you
-  will see 'attempting to X' with appropriate messages that fire."
-- **The weather arc (GDD §8, June 2026).** Weather escalates "light → steady → heavy → near-whiteout →
-  night (−15 to −20 °C), degrading visibility/audibility/fire/tracks/rescue," with "2–3 timed beats (a
-  search plane that misses you; the pilot's last lucid line) so the curve doesn't sag."
-- **The aircraft (2026-09-07, recorded in architecture §2).** "The aircraft is the 206-class single
-  (plane-interior §1) with the honest interior (cargo net + hat shelf + jammed cargo door; seats
-  1A/1B/2A/2B + the right seat)." The plane itself is fine — it is the crash that supplies the
-  difficulty.
-- **The run length (2026-09-07, DR-15a).** Roughly a week of game time, persisting across sittings;
-  rescue can come earlier, it can run longer until the food runs out; an escalation ladder, and "**no
-  hard time-window barriers**." There is **no set arc**.
-- **The whole valley is in scope (2026-09-16, architecture §2).** "The whole valley (all fifty outdoor
-  zones, the walk-out included) is in the first complete run."
-- **December (2026-09-16, architecture §2).** "The crash is in December — no bear (wolves and a
-  wolverine)." Alaska bears are denned by December; the valley's predators are wolves and a wolverine.
-- **The party (2026-09-16).** "The kid is in (a party of four or five)."
-- **What the party will actually do outside (2026-09-16, said in conversation; not yet written into any
-  document).** The party probably won't stay outside much — but they can make a fire and a lean-to if
-  they want to. The outdoors is terrain to cross and work in, not a second home the design must force
-  them into.
+- **The premise (June 2026, GDD §6).** A crash off the filed route, so the search starts in the wrong
+  place: nobody is looking where you are yet. The wreck is unstable.
+- **The pitch (June 2026; reworded with Andrew 2026-09-17).** Survivors of a bush-plane crash improvise
+  with a physically modelled world to stay alive against cold, injury, hunger and a worsening storm
+  until they are rescued. The only endings are rescued or dead.
+- **The data budget (June 2026, GDD §6).** One authored crash; the crash site and its near forest are
+  the densest place in the valley, modelled to the hilt.
+- **The bar for rooms (2026-09-07).** Rooms are living and interesting, never half-thought. The things
+  in them serve the rescue goals — fixing and using the radio, then surviving until help arrives, which
+  means finding food and warmth — and there are several ways of doing things: a lighter can be found by
+  looking hard enough, and fire can be lit in other ways too. Things take the time they take, and, as in
+  a MUD, the player sees messages while an attempt is under way.
+- **The aircraft (2026-09-07, 2026-09-16, 2026-09-27).** A Cessna 206-class single with the honest
+  four-seat interior: seats 1A, 1B, 2A, 2B and the right seat, a hat shelf, a cargo net and a jammed
+  cargo door. The plane itself is fine; the crash supplies the difficulty. The plane's battery is in the
+  nose, wired and fine.
+- **The run (2026-09-07, 2026-09-17).** Roughly a week of game time in one sitting of two or three
+  hours, which the players can pause and return to. An escalation ladder and no hard time barriers;
+  there is no set arc.
+- **The whole valley (2026-09-16, 2026-09-17).** All fifty outdoor zones and all eleven regions are in
+  the first complete run, and each region gets a reason to come back. The size is judged by the travel
+  table (§4.6), now that travel is an attended activity. If a region is ever cut, it is the muskeg.
+- **The season (2026-09-26, 2026-09-27).** The first week of October in interior Alaska — Claude's
+  choice, at Andrew's request, for more than ten hours of daylight. An inch of snow at the start, bushes
+  dusted but visible, berries and roots findable, skim ice on still water; light snow on days 1–2, the
+  storm on days 3–4, clearing after. The same weather every run. The numbers are document 13 §4.2's.
+- **The party (2026-09-16, 2026-09-27).** Up to five play: four adults and the kid. A seat nobody plays
+  is a dead character whose clothes and pockets can be searched; AI agents may play seats. No back
+  stories — the characters differ in clothes, injuries and what they carry, and in how well and how fast
+  they do things (document 16).
+- **The pilot (2026-09-17, 2026-09-27).** He starts the run dead and carries no clues. His body is food,
+  and eating it is taboo, not immoral (document 12).
+- **What is aboard (2026-09-27).** The survival kit is not at hand: it is buried somewhere. The sleeping
+  bag is buried with the tail wreckage; two blankets are hidden inside the plane; there is no firearm.
+  Not too easy, not too hard.
+- **Rescue (2026-09-17, 2026-09-27).** Three ways home — the radio, a signal a plane can see, surviving
+  long enough — exactly as document 14 §3. **The ELT is broken.** The hand radio's batteries are buried
+  in a bag in the tail section.
+- **Holt's cabin (2026-09-17, 2026-09-27).** The cabin is supplies — some trapline gear and modest
+  stores, not piles of food. Walking out is not an ending, and no zone leads out of the valley.
+- **The animals (2026-09-17, 2026-09-26, 2026-09-27).** The bear, some of the bigger animals and a few
+  birds act — on the engine's behaviour rules, or played by a lightweight model; fewer than three birds
+  in a room, and not constantly calling. The fish are scripted. Other wildlife shows as events and
+  sign. No wolverine. Flora and fauna are
+  filtered by ecology: this habitat, this month, real numbers (document 23).
+- **Moving through the valley (2026-09-17).** Moving between areas is an attended activity with
+  feedback and events: `walk`, `run` (less time, more sweat), `turn back`. Some stretches take longer to
+  cross; weather lengthens every trip, so exploring early is rewarded a little. There is no escape by
+  walking out.
+- **What the party does outside (2026-09-16).** The party probably won't stay outside much, but it can
+  make a fire and a lean-to if it wants. The outdoors is terrain to cross and work in, not a second home
+  the design must force them into.
+- **Dangerous places (2026-09-17).** They injure, never kill outright; fitness matters; the outcome is
+  a seeded dice roll, and the player is told a roll was made.
+- **Sweat (2026-09-17).** Sweat is wet clothing draining warmth, inside the warmth system (document 08).
+- **Density (2026-09-17).** The density gradient (§4.11) is authoring order — a priority, never a cap.
 
 ### Proposals (Claude)
 
-Everything below that is not quoted above is a proposal from the 2026-07-15 overnight design run, in
-`docs/investigation/world/`. Specifically, **all of this is proposed, not decided**:
+Everything else in this document is a proposal — from the 2026-07-15 overnight design run, and, for
+its October state, from 2026-09-27 (every October detail below is Claude's, for Andrew's check):
 
 - the valley's geography, size and shape (an unnamed side valley in interior Alaska);
-- the **eleven regions** ("Scenes") and the **fifty outdoor zones**, each with its authored look,
-  resources, prices, hazards and story beat (`rooms.md`);
-- **one region per rescue route**, and the four routes as room itineraries (`report.md` §2);
-- the **six currencies** every resource is priced in, and the anti-easy rule (`map.md` §1);
-- every **number**: distances, travel minutes, exposure bands, the ~1,150-object census (`objects.md`);
-- the **density gradient** (Ring 0 / Ring 1 / Ring 2 / the homestead) as the way GDD §6's "one dense
-  scene" is honoured across a big map (`map.md` §6);
-- the storm's **spatial re-pricing** of the map (`map.md` §5) as the application of GDD §8;
-- the **discovery chains** (no region is announced; each is found at least two ways);
-- the cast: ravens, spruce grouse, hare, ptarmigan, marten, an offstage moose, the beavers — and
-  **V. Holt**, the absent trapper whose homestead is the endgame shelter;
-- the three assessment sweeps in `report.md` §8–§10 and everything they changed.
+- the **eleven regions** ("Scenes") and the **fifty outdoor zones**, each with its purpose, resources,
+  prices, hazards and story;
+- the jobs the regions do for the three ways home (§4.3, §4.7);
+- the **six currencies** every resource is priced in, and the anti-easy rule (§4.3);
+- every **number**: distances, travel minutes, exposure bands, the object census;
+- the **density gradient** (Ring 0 / Ring 1 / Ring 2 / the homestead) as the way GDD §6's dense scene
+  is honoured across a big map (§4.11);
+- the storm's **re-pricing** of the map (§4.10);
+- the **discovery chains** — no region is announced; each is found several ways (§4.9);
+- **V. Holt**, the absent trapper whose homestead holds the valley's other supplies;
+- the **October state** of every zone — open water, new ice, the first snow and what the storm buries.
 
-Every count here is a floor, per the open-world rule: fifty zones is where the valley starts,
-not where it stops, and no zone is ever "finished."
+Every count here is a floor, per the open-world rule: fifty zones is where the valley starts, not
+where it stops, and no zone is ever "finished."
 
 ---
 
 ## 3. In one paragraph
 
-A mail plane going over a low ridge in December clips the spruce, sheds a wing and its tail, and slides
-to a stop at the east edge of a frozen muskeg; the pilot is dying, the radio is dead, the beacon is
-screaming into a sheared antenna, and the search grid is a hundred miles off. You have about five hours
-of light. Step out of the hull and the country starts pricing you: west across the bog is a frozen lake
-wide enough that anything burning on it can be seen for miles, and cold enough that standing on it
-costs you; north is spruce forest with the fuel, the snares and the only free warmth on the map;
-northeast the plane's own scar climbs to a wing in the trees with avgas in its tank and, above that, a
-knob you can see the whole valley from; east is birch, which is how you make fire when your lighter is
-gone; and south the lake drains into a creek that runs, with liquid water and fish under the ice, past
-a beaver pond to a blazed trapline that ends at a stranger's cabin with a wood stove in it, two and a
-half kilometres away — half a day of light, round trip, the first time. Nothing out there is lying
-loose on the snow; everything is under it, inside ice, up a tree, or a long walk off, and every hazard
-tells you what it is before it takes anything. What you can afford to reach, before the snow gets
-heavy and the light goes, is the game.
+A mail plane crossing a low ridge in the first week of October clips the spruce, sheds a wing and its
+tail, and slides to a stop at the east edge of a muskeg dusted with the first inch of snow. The pilot
+is dead in his seat. The beacon is broken; the hand radio is dead, and its batteries are somewhere in
+the wreckage of the tail; the search is starting where the flight plan said the plane would be, not
+where it is. Step out of the hull and the country starts pricing you: west across the bog is a lake,
+open water with skim ice at its edges, whose shore is the widest sightline in the valley and the
+windiest place to stand; north is spruce forest with the fuel, the snares and the most sheltered
+ground; northeast the plane's own scar climbs to a wing in the trees with avgas in its tank and, above
+that, a knob you can see the whole valley from — the highest place to raise an antenna; east is birch,
+which is how you make fire when your lighter is gone; and south the lake drains into a creek that
+runs, with fish in its open pools, past a beaver pond to a blazed trapline that ends at a stranger's
+cabin with a wood stove, some trapline gear and modest stores, two and a half kilometres away — about
+ninety minutes the first time, one way. Nothing out there is lying loose: everything is under the
+snow, inside the ice, up a tree or a long walk off, and every hazard tells you what it is before it
+takes anything. Two days of light snow, then the storm, then the clear cold behind it — what you can
+reach, and use, before the snow buries it is the game.
 
 ---
 
@@ -123,38 +128,47 @@ heavy and the light goes, is the game.
 
 ### 4.1 The crash (the premise, made specific)
 
-A 206-class piston single on wheel-skis — the Alaska mail-and-freight workhorse — came in from the
-northeast over a low ridge shoulder, clipped the spruce crowns, shed its right wing into the trees,
-bellied down the slope and slid southwest across the muskeg fringe, shedding the tail, to stop at the
-muskeg's east edge. *(Proposal — `map.md` §2.)* The pilot was stretching for the lake ice and almost
-made it. He is alive and dying; he dies within the first day and nobody can talk to him (doc 12).
+A 206-class piston single — the Alaska mail-and-freight workhorse, on big tundra tyres in October
+(document 16 §4.5) — came in from the northeast over a low ridge shoulder, clipped the spruce crowns,
+shed its right wing into the trees, bellied down the slope and slid southwest across the muskeg fringe,
+shedding the tail, to stop at the muskeg's east edge. The pilot was stretching for the flat of the
+muskeg and almost made it. He died in the crash: the run starts with his body in the left seat, and he
+carries no clues (document 12).
 
-The plane was legal under Alaska Statute AS 02.35.110, which requires an emergency kit aboard every
-in-state flight — a week of rations per occupant, an axe, a first-aid kit, sealed signalling devices,
-and, from 15 October to 1 April, snowshoes, a sleeping bag and a wool blanket per occupant. *(Sourced
-fact, `plane-interior.md` §7.)* **That single statute justifies the entire survival economy without
-inventing anything** — and the crash then decides where the kit is and what shape it is in: the tail
-tore off two hundred metres back up the scar, the duffel split, the hatchet's haft snapped, the matches
-soaked, the sleeping bag took avgas, the ELT's antenna sheared. Realism supplies the inventory; the
-crash supplies the difficulty. *(`plane-interior.md` §8b — proposal, shipped in the built content.)*
+What is aboard is the design's call, and it is set so the run is neither too easy nor too hard:
 
-Conditions: December, roughly −15 °C falling to −20 °C after dark, about five hours of usable light,
-weather on GDD §8's ladder. The search grid is in the wrong area.
+- **The survival kit** is not at hand — the crash buried it somewhere (where is content, document 10
+  §4.3).
+- **The sleeping bag** is buried with the tail wreckage; **two blankets** are hidden inside the plane;
+  there is **no firearm** (document 16).
+- **The hand radio** is dead; its **batteries are buried in a bag in the tail section**, under snow that
+  deepens every day the party waits (document 14 §3.2).
+- **The ELT is broken.**
+- **The plane's battery** is in the nose, wired and fine.
+- **The freight and the mail** — flour, coffee, dog food, a toolbox, the mail sack with a parcel for
+  V. Holt — are scattered through the wreck and along the scar (documents 10 and 16).
+
+Realism supplies the inventory; the crash supplies the difficulty: the tail tore off two hundred
+metres back up the scar, the hatchet's haft snapped, the matches soaked, the sleeping bag took avgas.
+The more a thing solves, the farther, deeper or more broken the crash left it.
+
+Conditions: the first week of October; daylight, temperature, snow and ice day by day are document 13
+§4.2. The search starts in the wrong place, and search and rescue is searching (document 14 §3.5).
 
 ### 4.2 The valley
 
 An unnamed side valley in interior Alaska. West of the wreck the muskeg opens onto a lake; the lake
-drains from its south end into a creek that runs southeast past a beaver pond; from the pond an old blazed
-trapline climbs southeast to V. Holt's homestead on a bench — the cabin the sectional chart promises
-("V. HOLT — CABIN, WOOD STOVE"). North of the wreck is spruce forest; northeast, the plane's own scar
-climbs to a ridge; east, a south-facing toe of birch. *(Proposal — `map.md` §2, `rooms.md`.)*
+drains from its south end into a creek that runs southeast past a beaver pond; from the pond an old
+blazed trapline climbs southeast to V. Holt's homestead on a bench — the cabin the sectional chart
+promises ("V. HOLT — CABIN, WOOD STOVE"). North of the wreck is spruce forest; northeast, the plane's
+own scar climbs to a ridge; east, a south-facing toe of birch.
 
 ```
                                     N
                                     ▲
                     THE RIDGE OVERLOOK · 4 zones · 800 m NE, +120 m
                     krummholz ▸ boulder field ▸ the knob ▸ the lee cornice
-                    (the cabin found · the weather read · elevation for the radio)
+                    (the cabin found · the weather read · height for the radio)
                                    ╱
                  THE STRIKE PATH · 4 zones · 110–330 m NE
                  shear line ▸ the wing in the trees ▸ the gear gouge ▸ bench saddle
@@ -166,10 +180,10 @@ climbs to a ridge; east, a south-facing toe of birch. *(Proposal — `map.md` §
                             treeline  scar
  THE LAKE ◄── THE MUSKEG ◄───── ✈ THE CRASH SITE · 9 zones ─────────────────► E
  6 zones      5 zones             cockpit ▸ cabin ▸ breach ▸ 200 m of scar ▸ the tail
- 500 m W      120–420 m W         (the kit · the ELT · the pilot · the chart)
- shore ▸ open ice ▸ pressure ridge ▸ inlet ▸ outlet       — the signal stage
+ 500 m W      120–420 m W         (the pilot's body · the chart · the radio · the tail)
+ shore ▸ open water ▸ mid-lake ▸ inlet ▸ outlet      — where a party stays and signals
     │
-    ├── the far-shore burn: 1.5 km W across open ice (the fuel jackpot; the greed test)
+    ├── the far-shore burn: 1.5 km W across the lake (the fuel jackpot; the greed test)
     │
     │ S — the outlet, heard before it is seen
  THE CREEK · 5 zones · 0.8–1.1 km SE
@@ -184,95 +198,97 @@ climbs to a ridge; east, a south-facing toe of birch. *(Proposal — `map.md` §
            dooryard ▸ porch ▸ the cabin (stove) ▸ loft ▸ cache ▸ woodshed ▸ water hole
 ```
 
-*(Adapted from `map.md` §2, which carries the original diagram; zone positions in metres from the
-wreck, y+ = north, are authored per zone in `rooms.md` and match `zones.py`'s convention.)*
+Zone positions are authored per zone in metres from the wreck, y+ = north, matching `zones.py`'s
+convention.
 
 Straight-line distances from the wreck: lake shore 500 m W · ridge knob 800 m NE (+120 m) · birch stand
 350 m E · creek riffle 800 m SW · beaver pond 1.7 km S–SE · homestead 2.4 km of travel SE. The far-shore
-burn is 1.5 km W **across open lake ice**.
+burn is 1.5 km W across the lake — farther round its shore.
 
-### 4.3 The three rules the map is built on *(proposals — `map.md` §1)*
+### 4.3 The three rules the map is built on
 
-**Each region anchors one rescue route.** GDD §37–39 asks for additive rescue confidence with several
-winning combinations drawing on *distinct* scarce resources. The map is that design made geographic:
-the lake anchors the visual route (open sightlines), the ridge anchors radio and beacon (elevation),
-the creek–trapline–cabin line anchors travel and shelter (distance and navigation), and the crash site
-anchors stay-and-signal. The forest ring between them is the survival economy every route spends from.
+**Each region has a job in getting home.** The three ways home (document 14 §3) are laid on the map:
+the lake's shore and the knob are the sightlines where a signal can be seen; the ridge and the
+fuselage top are the heights where the radio's antenna goes; the crash site is where a party stays,
+signals and keeps itself findable; and the creek–trapline–cabin line leads to the valley's other
+supplies (distance and navigation). The forest ring between them is the survival economy every way
+spends from.
 
-**The country is the difficulty engine.** Indoors, the crash supplied the difficulty. Outdoors, winter
-does: snow buries, ice gates, distance taxes, cold punishes idleness, and the storm closes the world
-one band at a time. Nothing needed adding — only honest pricing. Every resource out here costs at least
-two of six currencies:
+**The country is the difficulty engine.** Indoors, the crash supplied the difficulty. Outdoors, the
+season does: the first snow and then the storm bury, water that is open in the first days freezes
+too thin to trust, distance taxes, cold punishes idleness, and the storm closes the world one band at a
+time. Nothing needed adding — only honest pricing. Every resource out here costs at least two of six
+currencies:
 
 | Currency | What spends it |
 |---|---|
-| **Daylight** | travel and work both burn the ~5 h light budget; the storm shortens it further |
-| **Warmth** | every zone has an exposure band; open ice and the ridge drain you while you work |
-| **Sweat** | hard effort (digging, floundering, chopping) dampens clothing — a *deferred* cold debt |
+| **Daylight** | travel and work both burn the day's light (document 13 §4.2); the storm makes the useful part shorter |
+| **Warmth** | every zone has an exposure band; the lake shore and the ridge drain you while you work |
+| **Sweat** | hard effort (digging, floundering, chopping) dampens clothing — a *deferred* cold debt, carried as wet clothing inside the warmth system (document 08) |
 | **Tools** | blade, chopper, saw, container, cordage — each unlocks a different shelf of the world |
 | **Knowledge** | reading sign: tracks, ice colour, blaze marks, dead spruce twigs. `examine` is the tutor |
-| **Risk** | thin ice, overflow, the cornice, the climb — always telegraphed, never random |
+| **Risk** | thin ice, the cold creek, the cornice, the climb — always telegraphed; a fall is a seeded roll, announced, that injures and never kills outright |
 
 **The anti-easy rule.** Nothing usable lies loose on the surface anywhere in the valley except what the
 crash itself scattered (which is already priced). Everything else is under snow, inside ice, up a tree,
 behind a blaze you have to follow, or 2.4 km away. Fair, not generous: every hazard telegraphs, every
-gate has at least two openings, `examine` always pays.
+gate has several openings, `examine` always pays.
 
 ### 4.4 The regions
 
 | Region | Zones | What it is for | From the wreck |
 |---|---|---|---|
-| **S1 The Crash Site** | 9 ✅ | the wreck: the kit, the ELT, the chart, the pilot; the stay-and-signal anchor | — |
-| **S2 The Muskeg** | 5 📐 | the frozen bog the pilot almost cleared: the snow-travel tutorial, a tinder and forage trickle, the gate to the lake | 120–420 m W |
-| **S3 The Lake** | 6 📐 | the visual-rescue stage, the wind's kingdom, the ice-hazard curriculum, the one place the world can see you | 500 m W |
-| **S4 The North Wood** | 6 📐 | the survival economy's heart: fuel, shelter, protein, the forward camp, the free warmth floor | 60–260 m N |
+| **S1 The Crash Site** | 9 ✅ | the wreck: the pilot's body, the chart, the hand radio and its batteries in the tail, what the crash scattered; where a party stays and signals | — |
+| **S2 The Muskeg** | 5 📐 | the bog the pilot almost reached: the travel tutorial, a tinder and berry trickle, the gate to the lake | 120–420 m W |
+| **S3 The Lake** | 6 📐 | the widest sightline in the valley and the wind's home; the ice curriculum as the lake freezes; open water at its edges | 500 m W |
+| **S4 The North Wood** | 6 📐 | the survival economy's heart: fuel, shelter, protein, the forward camp, the most sheltered ground | 60–260 m N |
 | **S5 The Strike Path** | 4 📐 | the crash rewound — salvage, orientation, and one genuinely dangerous liquid | 110–330 m NE |
-| **S6 The Ridge Overlook** | 4 📐 | elevation: the radio/beacon route's scarce resource, the map's reveal, the honest exposure math | 800 m NE, +120 m |
+| **S6 The Ridge Overlook** | 4 📐 | height: the radio's scarce resource, the map's reveal, the honest exposure math | 800 m NE, +120 m |
 | **S7 The Birch Stand** | 4 📐 | the fire-craft chapter: ignition, ember-craft, reading trees | 350 m E |
-| **S8 The Creek** | 5 📐 | the travel corridor and the water chapter: liquid water, fish, willow, the overflow toll gate | 0.8–1.1 km SW→SE |
+| **S8 The Creek** | 5 📐 | the travel corridor and the water chapter: running water, fish, willow, the thin-ice toll gate | 0.8–1.1 km SW→SE |
 | **S9 The Beaver Pond** | 5 📐 | another engineer's infrastructure to reuse, wire to salvage, a larder to misunderstand, the trailhead | 1.7 km S |
 | **S10 The Trapline** | 4 📐 | Holt's commute: the storm-safe route, the navigation tutorial, the quietest storytelling | 1.7–2.4 km SE |
-| **S11 Holt's Homestead** | 7 📐 | the second dense node: the endgame shelter, the material payoff, a portrait of its absent owner | 2.4 km SE |
+| **S11 Holt's Homestead** | 7 📐 | the second dense node: supplies — trapline gear and modest stores — a stove, and a portrait of its absent owner | 2.4 km SE |
 
 ### 4.5 The fifty-nine zones
 
-✅ = built in `zones.py` today · 📐 = designed as a document, not built.
+✅ = built in `zones.py` today · 📐 = designed in this document, not built.
 
 **S1 — The Crash Site** *(built; the wider world adds only outward edges and glimpses — no interior
 redesign)*
 
 | Zone | What it is for | Status |
 |---|---|---|
-| `cockpit` | the panel, the radio set, the dying pilot; the wire prize behind the panel | ✅ |
+| `cockpit` | the panel, the pilot's body in the left seat, the chart and the flight manual; the wire behind the panel | ✅ |
 | `mid_cabin` | the crafting heart: seats as a parts-machine, the tool caches, the luggage | ✅ |
-| `rear_cabin` | the torn hull: indoor snow, the engine-cover warmth prize, the draft to block | ✅ |
-| `outside_nose` | the nose in the drift; the wings' fuel; the cowling that becomes the party's first sled | ✅ |
-| `fuselage_top` | the watchtower: the sheared antenna base, the valley's sightlines, the worst exposure on site | ✅ |
+| `rear_cabin` | the torn hull: blown-in snow, the engine-cover warmth prize, the draft to block | ✅ |
+| `outside_nose` | the nose in the snow; the plane's battery, wired and fine; the wings' fuel; the cowling that becomes the party's first sled | ✅ |
+| `fuselage_top` | the watchtower: the torn antenna base, the valley's sightlines, a high place to raise an antenna, the worst exposure on site | ✅ |
 | `outside_tail` | the breach exit — the hub between hull, scar and treeline | ✅ |
-| `debris_trail` | the scatter: the torn survival duffel, the drift-buried hatchet, the mail sack | ✅ |
-| `tail_section` | the expedition cache: the ELT screaming into a sheared antenna, snowshoes, the avgas-soaked bag | ✅ |
+| `debris_trail` | the scatter: the mail sack, the freight, the hatchet under the snow | ✅ |
+| `tail_section` | the tail wreckage: the broken ELT, snowshoes, the sleeping bag buried with it and soaked in avgas, and the bag holding the hand radio's batteries | ✅ |
 | `treeline` | the supply room and the forest gateway: deadfall, boughs, dry grass | ✅ |
 
 **S2 — The Muskeg**
 
 | Zone | What it is for | Status |
 |---|---|---|
-| `tussock_flat` | cottongrass tinder and frozen cranberries at ankle height; hurrying wrenches an ankle | 📐 |
+| `tussock_flat` | cottongrass tinder, and lowbush and bog cranberries frost-sweetened under the first snow until the storm buries them; hurrying wrenches an ankle | 📐 |
 | `labrador_thicket` | kindling in quantity and the hot-drink plant: kindling is free, an armload costs | 📐 |
 | `tamarack_island` | bone-dry dead limbs, the best easy fuel west of the treeline; the ravens teach that tracks point at calories | 📐 |
-| `drifted_channel` | the snow-travel tuition zone: thigh-deep drift, no resources, a probe finds the dry line | 📐 |
+| `drifted_channel` | the travel tuition zone: a wet channel under skim ice and the first snow, drifted deep after the storm; no resources; a probe finds the firm line | 📐 |
 | `lake_gate_willows` | withes for lashings and the first hare runs to snare; the gate to the lake | 📐 |
 
 **S3 — The Lake**
 
 | Zone | What it is for | Status |
 |---|---|---|
-| `shore_apron` | the lake's honest zone: the drift log (a season of fuel behind a saw) and blue melt-ice; no hazards, deliberately | 📐 |
-| `ice_flat` | the visual route's stage — visibility is the resource, wind is the bill; the map's most dangerous room in a whiteout | 📐 |
-| `pressure_ridge` | the free windbreak mid-crossing and the cleanest blue ice: cross via the ridge, not the short line | 📐 |
-| `inlet_mouth` | the ice curriculum in three telegraphs — and the north's liquid water at the shore lead | 📐 |
-| `outlet_narrows` | running water heard before it is seen: the discovery chain south, gated by current-thinned ice | 📐 |
-| `far_shore_burn` | the fuel jackpot 1.5 km across open ice: the greed test | 📐 |
+| `shore_apron` | the lake's honest zone: the drift log (a season of fuel behind a saw) and open water at the edge under a skin of ice at dawn; no hazards, deliberately | 📐 |
+| `ice_flat` | the open lake: visibility is the resource, wind is the bill; open water at first, new ice later that holds nobody until it thickens (document 13 §4.2); the map's most dangerous room in the storm | 📐 |
+| `pressure_ridge` | the lake's middle, reached only over the ice. Its winter design — a pressure ridge as a windbreak mid-crossing, with the cleanest blue ice — needs thick ice the first week of October does not have; in October this is open water, then the thinnest new ice | 📐 |
+| `inlet_mouth` | the ice curriculum as the lake freezes — skim ice, new ice, the current that keeps it thin — and running water at the inflow | 📐 |
+| `outlet_narrows` | running water heard before it is seen: the discovery chain south, its border ice thin over the current | 📐 |
+| `far_shore_burn` | the fuel jackpot on the far shore: the long way round the lake while it is open, across it only once the ice holds — the greed test | 📐 |
 
 **S4 — The North Wood**
 
@@ -282,16 +298,16 @@ redesign)*
 | `big_spruce_hollow` | dead spruce twigs — the always-dry fire starter — and the forward camp of the dense core | 📐 |
 | `deadfall_tangle` | the near fuel mother-lode, tool-priced, under a named widow-maker | 📐 |
 | `grouse_thicket` | tame protein you must approach slowly and throw at | 📐 |
-| `hare_runs` | the snare line: the best protein per effort, gated on wire and on reading which runs are fresh | 📐 |
-| `tree_well_hollow` | the no-materials warmth floor given terrain: the night you survive on boughs and body heat | 📐 |
+| `hare_runs` | the snare line: the best protein per effort, gated on wire and on reading which runs are fresh in the new snow | 📐 |
+| `tree_well_hollow` | shelter given by terrain: the dry ground under a big spruce — a tree well once the storm's snow is down — a night on boughs and body heat | 📐 |
 
 **S5 — The Strike Path**
 
 | Zone | What it is for | Status |
 |---|---|---|
 | `shear_line` | the crash pre-cut a shelter's worth of boughs; the scar as an arrow back up the hill | 📐 |
-| `wing_in_the_trees` | avgas in the tip tank: the valley's accelerant and its most dangerous convenience, three ways to reach it | 📐 |
-| `gear_gouge` | the tire — black smoke, the one column that reads as man-made against snow | 📐 |
+| `wing_in_the_trees` | avgas in the tip tank: the valley's accelerant and its most dangerous convenience, several ways to reach it | 📐 |
+| `gear_gouge` | the torn-off tyre — black smoke that reads as man-made against snow | 📐 |
 | `bench_saddle` | the mid-station where the climb's cost becomes informed consent | 📐 |
 
 **S6 — The Ridge Overlook**
@@ -300,8 +316,8 @@ redesign)*
 |---|---|---|
 | `krummholz_band` | the driest small fuel on the map, kept in the worst place to need it; the staging shelf | 📐 |
 | `boulder_field` | the survey cairn (a fixed point on the chart) and dry stakes; hollow talus underfoot | 📐 |
-| `the_knob` | elevation: the cabin discovered, the weather read a band early, the radio/beacon multiplier | 📐 |
-| `lee_cornice` | the shortcut that isn't — a roof over air; the map's one deliberately lethal opt-in | 📐 |
+| `the_knob` | height: the cabin discovered, the weather read early, the highest place to raise the radio's antenna | 📐 |
+| `lee_cornice` | the shortcut that isn't: a steep lee slope, and after the storm a new cornice — a roof over air; a fall injures and never kills outright | 📐 |
 
 **S7 — The Birch Stand**
 
@@ -310,26 +326,26 @@ redesign)*
 | `aspen_fringe` | push-over poles and punk wood: the ember you can carry | 📐 |
 | `birch_grove` | bark in three grades: fire that starts wet | 📐 |
 | `chaga_tree` | the spark-catching fungus ten feet up — lighterless insurance, and the reward for looking up | 📐 |
-| `game_trail_crossing` | the shed antler (premium tool stock) and the moose bed's heat lesson; the owner stays offstage | 📐 |
+| `game_trail_crossing` | an old shed antler (tool stock) and a moose bed's heat lesson; the moose itself may be on the trail (document 23 §4.1a) | 📐 |
 
 **S8 — The Creek**
 
 | Zone | What it is for | Status |
 |---|---|---|
 | `outlet_riffle` | free-running water: a full container without burning a stick, priced in wet-boot risk | 📐 |
-| `gravel_bar_willows` | willow in sled-load quantity, and ptarmigan that are visible only when they move | 📐 |
-| `overflow_bend` | the southern toll gate: water atop the ice under dry powder — three telegraphs and a probe | 📐 |
+| `gravel_bar_willows` | willow in sled-load quantity, rose hips, and ptarmigan turning white that hide on snow and show against bare brush | 📐 |
+| `overflow_bend` | the southern toll gate: the creek running fast under thin shelf ice that the first snow hides — telegraphed, and a probe finds the edge | 📐 |
 | `logjam_crossing` | the only dry crossing and the southern fuel depot, over booby-trapped voids | 📐 |
-| `confluence_pool` | the fishery: the longest chain on the map and the one calorie source that scales | 📐 |
+| `confluence_pool` | the fishery, open at the start of the run: the longest chain on the map and the one calorie source that scales | 📐 |
 
 **S9 — The Beaver Pond**
 
 | Zone | What it is for | Status |
 |---|---|---|
 | `dam_crossing` | the causeway to the trapline side, and pre-cut poles you *could* pull from the working face | 📐 |
-| `pond_flat` | the bubble-trails: wonder that doubles as a map of who lives here | 📐 |
-| `the_lodge` | the shelter chapter taught by a rodent — mass + insulation + bodies = a livable core at −20 °C | 📐 |
-| `food_cache_margin` | the ethical harvest (green poles without touching the dam) and the green-wood lesson | 📐 |
+| `pond_flat` | the bubble-trails under the new ice: wonder that doubles as a map of who lives here | 📐 |
+| `the_lodge` | the shelter chapter taught by a rodent — mass, insulation and bodies make a livable core in the cold | 📐 |
+| `food_cache_margin` | the beavers' winter larder, being built now; the ethical harvest (green poles without touching the dam) and the green-wood lesson | 📐 |
 | `drowned_set` | snare wire in yards, free of the plane; the first human sign beyond the wreck | 📐 |
 
 **S10 — The Trapline**
@@ -345,19 +361,21 @@ redesign)*
 
 | Zone | What it is for | Status |
 |---|---|---|
-| `dooryard` | the yard's buried infrastructure and the dog-run cable; the note before the note | 📐 |
-| `porch` | the drift dune: dig it bare-handed and soak your layers, or ten minutes with the shed's shovel | 📐 |
-| `cabin_interior` | the stove — shelter's endgame — with the first move pre-paid: laid kindling and a match tin | 📐 |
-| `loft` | the wool jackpot in a cedar trunk, and the photograph that names the absent man's reason | 📐 |
-| `cache` | ten feet of air as a puzzle: snowshoes, the felling axe and food, behind a ladder stashed under the cabin | 📐 |
+| `dooryard` | the yard's infrastructure and the dog-run cable; the note before the note | 📐 |
+| `porch` | the door: after the storm, a drift against it — dig it bare-handed and soak your layers, or ten minutes with the shed's shovel | 📐 |
+| `cabin_interior` | the stove, with the first move pre-paid — laid kindling and a match tin; Holt's shelf of modest stores | 📐 |
+| `loft` | wool in a cedar trunk, and the photograph that names the absent man's reason | 📐 |
+| `cache` | ten feet of air as a puzzle: trapline gear (snowshoes, the felling axe) and modest stores, behind a ladder stashed under the cabin | 📐 |
 | `woodshed` | a winter of split dry wood 2.4 km from where it is needed; the freight sled with a split runner | 📐 |
 | `water_hole_path` | Holt's water infrastructure: bucket-water without the riffle's risks | 📐 |
 
-### 4.6 Travel is the price tag *(proposal — `map.md` §3)*
+### 4.6 Travel is the price tag
 
-Unbroken snow is the tyrant: knee-deep trail-breaking moves at ~1.5 km/h and costs sweat. Your own
-broken trail is twice as fast — until the storm refills it. Creek ice is a highway with a toll
-(overflow). Snowshoes, in Holt's cache, roughly double open-country speed — which is why the mobility
+At the start of the run the snow is an inch deep and the going is the ground's own — tussocks, bog,
+deadfall. After the storm, unbroken snow is the tyrant: knee-deep trail-breaking moves at about
+1.5 km/h and costs sweat. Your own broken trail is twice as fast — until the next snow refills it. The
+creek's bank is a highway with a toll (thin ice and cold water). Snowshoes — in the tail wreckage and
+in Holt's cache — roughly double open-country speed once the snow is deep, which is why the mobility
 upgrade is treasure: the map is big.
 
 | Leg (one way) | First time | Broken trail | On snowshoes |
@@ -369,110 +387,128 @@ upgrade is treasure: the map is big.
 | wreck → creek riffle | 30 min | 18 min | 12 min |
 | wreck → beaver pond | 55 min | 35 min | 25 min |
 | wreck → homestead | ~90 min | ~60 min | ~40 min |
-| lake crossing to the burn | 25 min | — (wind erases the trail) | 15 min |
+| across the lake to the burn, once the ice holds | 25 min | — (wind erases the trail) | 15 min |
 
-Against a five-hour light budget the homestead is a **commitment**: the first trip eats half the usable
-day, round trip. That is the stay-or-go tension, made of minutes instead of dialogue.
+The table was drawn for deep snow; it is re-priced for the week-long run and the October ground by
+`PLAN.md` task A4. Moving is an attended activity whose time is distance over pace, times terrain,
+snow depth, load and fitness (document 03 §4.1a). Against the October day (document 13 §4.2) the first
+round trip to the homestead is about three hours of walking before any work there — a commitment, and
+a bigger one once the storm has filled the trail. That is the stay-or-go tension, made of minutes
+instead of dialogue.
 
-### 4.7 The four routes, as room itineraries *(proposal — `report.md` §2)*
+### 4.7 The three ways home, on the map
 
-No two routes compete for their key resource; every route crosses the shared survival economy.
+The ways home are document 14 §3's; this is where they happen. No two compete for their key resource,
+and every one of them spends from the shared survival economy.
 
-| Route | Rooms | Its distinct scarce resource |
+| Way home | Rooms | Its scarce resource |
 |---|---|---|
-| **Stay-and-signal** | crash site, `ice_flat`, `gear_gouge`, the north wood's fuel zones | fuel logistics + wind engineering |
-| **Beacon (the ELT)** | `tail_section` (the ELT), the cockpit's wiring or the dooryard's cable, `fuselage_top` or `the_knob` | conductor + elevation |
-| **Radio (the deep puzzle)** | the cockpit set, the wreck's batteries, `the_knob` | carry logistics + weather windows |
-| **Travel / shelter** | the creek run, the trapline, the homestead | navigation skill + daylight |
+| **The radio** | the hand radio; its batteries in a bag in `tail_section`; anything metal and long enough for the antenna (the panel's wire, seat tubing, the dooryard's dog-run cable); a height to raise it — `fuselage_top`, `the_knob` | the batteries, digging for them as the snow deepens, and height |
+| **A signal a plane can see** | the crash site; the lake shore's sightline; `gear_gouge` (the tyre's black smoke); the north wood's green boughs; the knob in clear air | fuel logistics, wind, and being ready when the engines are heard |
+| **Surviving long enough** | everywhere — and after the storm, keeping the party findable: digging the wreck out, a sign stamped in the snow, smoke | staying alive, and the work of being findable |
 
-### 4.8 The economies the routes spend from *(proposal — `report.md` §3)*
+**Holt's homestead is not a way home.** The creek run, the trapline and the homestead are the road to
+the valley's other supplies — navigation skill and daylight are its price — and the cabin's chimney
+smoke is a sign a search plane can see (document 14 §3.5).
+
+### 4.8 The economies every way spends from
 
 Each is a crude-to-mastery arc, and each is a network of rooms rather than a stat:
 
-- **Fuel** — dead spruce twigs (starter) → dwarf birch and krummholz twigs (kindling, priced in armloads) →
-  deadfall and the logjam (bulk, tool-priced) → the drift log, the far burn, the woodshed (jackpots,
-  distance- and tool-priced). Fire is always possible; scale is always earned.
-- **Water** — melt (anywhere, plus a fuel tax) → blue ice (efficiency) → the inlet's shore lead (north,
-  nerve-priced) → the riffle and Holt's water hole (south, travel-priced).
-- **Food** — rations (finite) → cranberries and rose hips (a trickle) → grouse and ptarmigan (skill
-  shots) → snare lines (planning + wire) → the fishery (the source that scales) → the cabin's stores
-  (the depot, farthest away). Calories scale with commitment, never with luck.
-- **Warmth and clothing** — crash clothing → the pilot's jacket → covers and blankets → marten fur →
+- **Fuel** — dead spruce twigs (starter) → dwarf birch and krummholz twigs (kindling, priced in
+  armloads) → deadfall and the logjam (bulk, tool-priced) → the drift log, the far burn, the woodshed
+  (jackpots, distance- and tool-priced). Fire is always possible; scale is always earned. The storm
+  buries the deadfall and pushes the work to standing dead wood.
+- **Water** — open water at the lake's edge and in the creek from the start, under a skin of ice at
+  dawn; snow and ice melted by a fire anywhere, for a fuel tax; the riffle and Holt's water hole, still
+  open when the still water has frozen. Eating snow costs body heat; water tainted by fuel or oil
+  carries it (document 09).
+- **Food** — the wreck's food (the pockets, the freight, and the survival kit once it is dug up) →
+  cranberries, rose hips and roots (a trickle) → grouse and ptarmigan (skill shots) → snare lines
+  (planning + wire) → the fishery (the source that scales) → Holt's modest stores (farthest away) → the
+  bear and the moose (the richest food and the most dangerous, through the combat system) — and the
+  pilot's body, which is food and taboo (document 12). Calories scale with commitment, never with luck.
+- **Warmth and clothing** — crash clothing → the pilot's jacket and the unplayed seats' clothes → seat
+  covers, the two blankets hidden in the plane, the sleeping bag buried with the tail → marten fur →
   the loft trunk; plus the terrain layer, where *where you work* is itself a clothing decision.
-- **Mobility and hauling** — boots → the cowling drag (hour one) → your own broken trails → the game
-  trails, the causeway and the tunnel (the world's own roads) → snowshoes → the repaired freight sled.
+- **Mobility and hauling** — boots → the cowling drag → your own broken trails → the game trails, the
+  causeway and the tunnel (the world's own roads) → snowshoes → the repaired freight sled. A dragged
+  load snags on an inch of snow over tussocks and runs once the storm has filled the hollows.
 - **Fire-craft** — lighter → dead spruce twigs → birch bark (a weatherproof start) → punk-cupped embers
   (portable flame) → chaga and a spark (lighterless insurance) → avgas (a dangerous shortcut).
-- **Information** — the chart, the manual's pages, the pilot's line, the knob, the blaze protocol,
-  ice-reading, track-reading. The only massless economy, which is why the knob — pure information —
-  justifies the map's hardest climb.
+- **Information** — the chart, the manual's pages, the knob, the blaze protocol, ice-reading,
+  track-reading, and the voice on the radio once it answers. The only massless economy, which is why
+  the knob — pure information — justifies the map's hardest climb.
 
-### 4.9 How the world teaches, and how the party finds it *(proposal — `report.md` §4/§6, `map.md` §4)*
+### 4.9 How the world teaches, and how the party finds it
 
-No region is announced; each is discovered at least two independent ways, so a party that misses a clue
-is never locked out. The cabin is found by the chart, or from the knob's line of sight, or by the blaze
-at the drowned set, or from the pilot's last lucid line. The lake is visible as sky-glare west from the
-fuselage top, and the muskeg simply opens onto it. The ridge is pointed at by the plane's own gouge.
-Open water at the outlet is **audible** before it is visible.
+No region is announced; each is discovered several independent ways, so a party that misses a clue
+is never locked out. The cabin is found by the chart, from the knob's line of sight, or by the blaze at
+the drowned set. The lake shows west from the fuselage top, and the muskeg simply opens onto it. The
+ridge is pointed at by the plane's own gouge. Open water at the outlet is **audible** before it is
+visible.
 
 The knowledge currency is paid back the same way every time: a cheap tutorial zone, a zone where the
 lesson pays, and an exam — usually the tutorial's own room revisited at night or in the storm. The
-drifted channel teaches snow; the inlet teaches ice; the overflow bend teaches overflow; the blaze
-gateway teaches the trail the near-whiteout will later test closed-book. Behind every knowledge price
-stands an in-game teacher, and most of them are **the survival manual**: its eight read-pages (fire,
-water, shelter, signals, food, fishing, SAR/ELT, exposure) are therefore first-class content, ranked
-equal with the zone looks, under one authoring rule — the manual may simplify, but it must never lie.
+drifted channel teaches footing; the inlet teaches ice as it forms; the creek's bend teaches thin ice
+over running water; the blaze gateway teaches the trail the storm will later test closed-book. Behind
+every knowledge price stands an in-game teacher, and most of them are **the survival manual**: its
+read-pages (fire, water, shelter, signals, food, fishing, search and rescue, exposure) are
+first-class content, ranked equal with the zone looks, under one authoring rule — the manual may
+simplify, but it must never lie.
 
-### 4.10 The storm re-prices the map *(proposal — `map.md` §5, applying GDD §8)*
+### 4.10 The storm re-prices the map
 
-Each weather phase doesn't just dim the world, it changes what things cost:
+The weather is the same every run (document 13 §4.2). Each part of it doesn't just dim the world, it
+changes what things cost:
 
-1. **Light snow** — the whole map is open. Scouting is cheap; the far burn and the ridge are
-   affordable. Everything learned now (broken trails, blaze positions) is capital for later.
-2. **Steady** — sight-bands tighten a step; the search plane's pass happens somewhere in here, over the
-   lake line, following the drainage as real search pilots do. You are either ready with smoke on the
-   ice, or you eat the near-miss.
-3. **Heavy** — open country turns hostile: the lake crossing and the knob become gambles, and your
-   morning trail is filling in. The sheltered routes (the spruce tunnel, the creek under its banks)
-   keep working.
-4. **Near-whiteout** — navigation collapses to handrails: the creek, the blazes, a rope line you
-   rigged, the wind's one constant direction. Zones shrink to arm's length.
-5. **Night (−20 °C)** — the world is three lit rooms: a fire you built, the fuselage huddle, or Holt's
-   stove. Everything else is a mistake.
+1. **Light snow (days 1–2)** — the whole map is open, and the ground is still readable: berries on the
+   bush, deadfall in sight, every track crisp. Scouting is cheap; the far burn round the shore and the
+   ridge are affordable. Everything learned now — trails broken, blazes found, where the deadfall lies —
+   is capital for later. The search flies the filed route, then the route between showers (document 14
+   §3.5).
+2. **The storm (days 3–4)** — steady snow building to heavy, and wind. Open country turns hostile: the
+   lake shore and the knob become gambles, sight bands collapse, and the morning's trail fills in.
+   Navigation shrinks to handrails — the creek, the blazes, a rope line you rigged, the wind's one
+   direction. The sheltered routes (the spruce tunnel, the creek under its banks) keep working. Nothing
+   flies. The low berries, the deadfall and the wreck's outline go under.
+3. **The clearing (day 5 on)** — the snow ends and the cold falls in behind it. Every trip now breaks
+   trail through deep snow, forage and fuel are under it, and the wreck has vanished from the air —
+   but these are the clearest days of the run, and the search's best (document 14 §3.5).
 
-Every timed beat is a **world** event, never a silent no-op: the search plane's drone is audible in
-every exterior zone with a bearing, so the party a day's walk south *hears* what its allocation cost;
-the heavy-band radio crackle reaches whoever carries the handheld, wherever they are; and once, deep in
-the storm night, the overcast tears open for a few minutes and the north gets the aurora — beauty
-honestly priced, because clearing skies mean plunging cold.
+**Night** is always the same argument: the world is three lit rooms — a fire you built, the fuselage
+huddle, or Holt's stove. Everything else is a mistake.
 
-### 4.11 The density gradient *(proposal — `map.md` §6, honouring GDD §6)*
+Every timed beat is a **world** event, never a silent no-op: a search plane's engines are audible in
+every exterior zone with a bearing, heard before it is seen, so a party a day's walk south *hears*
+what its choices cost; and on a clear night the north gets the aurora (document 13 §4.3) — beauty
+honestly priced, because clear skies mean falling cold.
 
-GDD §6 gives the dense scene the whole data budget. The map keeps that promise across a big valley by
-spending unevenly on purpose:
+### 4.11 The density gradient
+
+GDD §6 gives the dense scene the most modelling. The map keeps that promise across a big valley by
+spending unevenly on purpose — as authoring order, a priority and never a cap:
 
 - **Ring 0** — the crash site and the big-spruce forward camp: modelled to the hilt.
 - **Ring 1** — muskeg, strike path, birch stand, near creek: full interaction, leaner object counts.
-- **Ring 2** — lake, ridge, pond, trapline: purposeful terrain. Each zone exists for one decision, one
-  resource, one hazard, one story beat.
-- **The homestead** — the second dense node; it is the "cabin + camp" of the endgame.
+- **Ring 2** — lake, ridge, pond, trapline: purposeful terrain. Each zone exists for a decision, a
+  resource, a hazard or a story beat — and grows by evidence like every other.
+- **The homestead** — the second dense node.
 
-The object census (`objects.md`) scoped the authoring bill behind this: **~1,150 candidate objects,
-ambients and signs across the valley**, excluding what is already built at the crash site, with Ring-0
-and homestead zones keeping most of their census and Ring-2 zones keeping the load-bearing half. The
-census also flagged what the material table still lacks for any of this to be buildable — **rock and
-stone are absent today**, along with bone/antler, fur/hide, punk wood, rubber, kerosene, canvas,
-rawhide, grease, brass and paper — and it distinguishes fifteen-odd snow and ice sub-types (powder,
-wind-slab, drift, sastrugi, rime, hoarfrost, black ice, shore ice, overflow, frazil…), each of which
-wants its own behaviour note. Those are doc 18's to settle; they are named here because the valley
-cannot be built without them.
+The July object census counted **about 1,150 candidate objects, ambients and signs across the valley**,
+beyond what is built at the crash site. It also named what the material table lacks for any of this
+to be buildable — **rock and stone are absent today**, along with bone and antler, fur and hide, punk
+wood, rubber, kerosene, canvas, rawhide, grease, brass and paper — and it distinguished fifteen-odd
+snow and ice sub-types (powder, wind-slab, drift, sastrugi, rime, hoarfrost, black ice, shore ice,
+skim ice, frazil, overflow…), each of which wants its own behaviour note. Those are document 18's to
+settle; they are named here because the valley cannot be built without them.
 
 ### 4.12 What the valley is about
 
-One story is told by every room regardless of route order: **the crash is not the first thing that ever
-happened here.** Ravens already commute to the wreck; the burn already regrew; the beavers already
-solved winter; a surveyor already measured the ridge; Holt already blazed the way out and left his door
-unlocked and his kindling laid. The emotional argument is competence-before-you and
+One story is told by every room regardless of route order: **the crash is not the first thing that
+ever happened here.** Ravens already commute to the wreck; the burn already regrew; the beavers are
+already laying in their winter; a surveyor already measured the ridge; Holt already blazed his trail
+and left his door unlocked and his kindling laid. The emotional argument is competence-before-you and
 indifference-without-malice — which is the argument that the players' own competence is possible.
 
 ---
@@ -485,9 +521,12 @@ indifference-without-malice — which is the argument that the players' own comp
   running clock and the activity model; the whole map is priced in minutes.
 - **08 (warmth, clothing and shelter)** — every zone carries an authored exposure band
   (`sheltered` < `broken` < `open` < `brutal`); the bands are inert until warmth drain exists.
-- **13 (events, escalation and weather)** — the storm ladder is what re-prices the map; the search
-  plane, the radio crackle and the aurora are its beats.
+- **13 (events, escalation and weather)** — the weather, day by day, is what re-prices the map; the
+  flyovers and the aurora are its beats.
+- **16 (players and kit)** and **12 (the pilot and bodies)** — who is aboard, what they carry, and the
+  pilot's body.
 - **18 (materials and forms)** — the census's missing materials (stone above all) gate the build.
+- **23 (flora and fauna)** — what lives in each zone in October, and which animals act.
 - **05 (ontology and sufficiency)** and **17 (rooms and living rooms)** — individuation, the prose
   style, and the state a room remembers.
 - **19 (multiplayer and instances)** — sight and sound across zones is what makes a split party work:
@@ -495,111 +534,34 @@ indifference-without-malice — which is the argument that the players' own comp
 
 **These depend on this document:**
 
-- **14 (rescue paths)** — the four routes *are* the four regions; the walk-out's geography is here.
+- **14 (rescue paths)** — the three ways home happen on this map (§4.7): the heights for the antenna,
+  the sightlines for signals, the wreck to keep findable.
 - **10 (food and hunger)**, **09 (water)**, **07 (fire and shaping)** — every economy's sources are
   zones on this map.
-- **02 (the experience)** — the sample week walks this map.
-- **22 (the world-building loops)** — the build queue is this document's fifty zones in build order.
+- **02 (the experience)** — the sample week, rewritten once the design is finalized, walks this map.
+- **22 (the world-building loops)** — the queue builds this document's fifty zones.
 
 ---
 
 ## 6. Open questions
 
-1. **Is the valley the right size?** Fifty outdoor zones over roughly four kilometres of country —
-   the far-shore burn 1.5 km west across the ice, the homestead 2.4 km of travel southeast, ~90 minutes
-   away the first time. *Options:* (a) keep the fifty as designed; (b) trim Ring 2 to the
-   zones that carry a route or an economy (roughly 35 outdoor zones); (c) grow it. **Recommendation:**
-   keep the fifty — you decided the whole valley ships in the first complete run — but judge the *size*
-   by the travel table in §4.6 rather than by the zone count, because a week-long run makes distance
-   much cheaper than the table's one-day assumptions imply (see question 3).
-
-2. **Which regions earn their place?** Tested by "does this region anchor a route or an economy, and is
-   there a reason to go back a second time?", the strongest are the lake, the north wood, the ridge, the
-   creek and the homestead. The two weakest are **the muskeg** (a five-zone tutorial corridor whose
-   material payoff is a calorie trickle and some willow) and **the birch stand** (a fire-craft chapter
-   that a party usually reaches *after* it has solved fire). *Options:* (a) keep all eleven; (b) fold
-   the muskeg into the lake approach at two zones; (c) keep both, but give each a second-visit reason.
-   **Recommendation:** (c) — the muskeg is the road west and the road west gets walked every day
-   anyway; the birch stand needs a reason that survives the lighter (ember transport is one, and it is
-   already there). If you want a cut, the muskeg is the cut.
-
-3. **A one-day map under a week-long run.** The map, the travel table and the storm phases were all
-   designed against a single five-hour day (`report.md` opens "a session is ~5 hours of daylight plus
-   the storm night"). Your 2026-09-07 decision made the run **roughly a week**. Over a week, the
-   homestead stops being a gamble and becomes day two, and the "stay or go" argument the map is built
-   around loses most of its pressure. *Options:* (a) re-price the map for a week (distances get longer
-   or the ladder gets meaner); (b) keep the day-scale pricing and let the week be repeating days, each
-   worse than the last; (c) let the escalation ladder carry it — the party can reach everything by day
-   three, but by then the weather, the food and the injuries decide whether they can *use* it.
-   **Recommendation:** (c), and doc 13 owns the ladder that makes it true. This is the biggest
-   unresolved tension in the world design and it should be settled before any outdoor zone is built.
-
-4. **The four routes.** Each is anchored in its own region on its own scarce resource. But "travel /
-   shelter" is not rescue — reaching Holt's cabin means you *outlast*, it does not mean anyone comes.
-   *Options:* (a) keep it as a fourth rescue route; (b) rename it what it is (an outlast path) and
-   require it to convert into rescue by some other channel; (c) make the cabin a rescue channel in its
-   own right (Holt's own gear, a second radio, a route out). **Recommendation:** (b) — doc 14 owns the
-   conversion; the world is happy either way.
-
-5. **The walk-out.** You said the walk-out is in the first complete run, but the fifty zones end at the
-   homestead: no zone leads out of the valley. *Options:* (a) the walk *to the cabin* is the walk-out,
-   and the ending is "shelter secured, storm outlasted"; (b) a further chain of zones beyond the
-   homestead (the river, a road, a village) — new design that grows the fifty; (c) the walk-out is
-   narrated off-map once the party has snowshoes, food and a working navigation plan.
-   **Recommendation:** (a) with (c) as the ending text — otherwise the map needs a twelfth region.
-
-6. **The density gradient.** Ring 2 keeps "the load-bearing half" of its object census. *Options:* (a)
-   keep the gradient with a per-ring quota; (b) keep the gradient as *authoring order* only, and let
-   evidence decide — build what players and probes actually reach for, in ring order.
-   **Recommendation:** (b). A quota contradicts the open-world rule; ring order is a priority, not a
-   ceiling.
-
-7. **The fauna, after December.** You decided no bear — wolves and a wolverine. The July zones cast
-   ravens, spruce grouse, hare, ptarmigan, marten, an offstage moose and the beavers; no wolverine
-   appears anywhere in the fifty, and the only wolf is a single trot-line of tracks crossing the lake
-   ice in the object census. *Options:* (a) put them in the world as *sign* (wolf
-   trot-lines crossing the lake ice, a wolverine's raids on the cache and on snare lines) and leave the
-   encounters to doc 13; (b) design them as full presences here; (c) leave them entirely to events.
-   **Recommendation:** (a) — sign in the world, pressure in the event ladder. A wolverine that robs
-   snares is a systems antagonist the economy already has a slot for.
-
-8. **The one lethal opt-in.** The lee cornice is designed as the map's single deliberately lethal place,
-   and there is no lethal-consent gate. The sources telegraph it three ways but never say what
-   happens. *Options:* (a) a fall that kills; (b) a fall that buries and injures, so the party fights
-   the cold clock for a rescue; (c) survivable but crippling. **Recommendation:** (b) — it keeps the
-   physics honest, keeps the party playing, and makes the one lethal zone a co-op emergency rather than
-   an execution. Doc 11 prices the injury.
-
-9. **Sweat as its own currency.** The six currencies treat sweat as separate from warmth. *Options:*
-   (a) keep six for design talk and implement it as wetness inside the warmth system; (b) collapse to
-   five. **Recommendation:** (a) — the deferred-debt shape is the point of naming it, and doc 08 owns
-   the implementation.
+1. **Does Holt come back?** The trapper is absent; his homestead is supplies. Andrew is on the fence
+   about the trapper returning during the run. *Options:* (a) he comes back during the week; (b) he
+   stays away, and the world shows his traces instead — his gear, and a calendar on the cabin wall
+   showing he returns after the week. **Recommendation:** (b) —
+   a returning trapper would turn the cabin into a waiting room.
 
 ---
 
 ## 7. Review log
 
-| Date | Decided | Cut | Sent back |
-|---|---|---|---|
-| — | *(awaiting the review with Andrew)* | | |
-
----
-
-- **2026-09-17 (Andrew, block 1):** Q3 travel — no escape; some sections take longer to cross; moving between
-  areas is an attended activity with feedback and events (`walk`, `run` for less time and more sweat,
-  `turn back`); weather lengthens it, so early exploration is rewarded a little; the first exit shows the
-  forms once. Q4 — the walk-out is **not** an ending; the cabin is supplies. Q6 — priority is authoring
-  order, never a cap. Q7 — wildlife as events and sign (a flock bursting from the birch grove, spooked);
-  **no wolverine**. Q8 — lethal zones injure, never kill outright; fitness matters; a seeded dice roll,
-  announced ("you feel a dice roll somewhere"). Q9 — sweat is wet clothing draining warmth, inside the
-  warmth system. **Still open for this document's sitting:** Q1 the valley's size, Q2 which regions
-  earn their place, Q5 where the walk-out goes (now: nowhere — the cabin is a place, not an exit).
-
-- **2026-09-17 (Andrew, block 1, the rest):** Q1 — keep the fifty zones; size is judged by the travel table
-  now that travel is an attended activity at 15 game-minutes per real minute. Q2 — keep all eleven
-  regions; each gets a reason to come back; the muskeg is the cut if one is ever wanted. **Reviewed in
-  full.** Follow-ups tracked in PLAN.md: A4 (re-price the valley for a week-long run at X = 15), E17
-  (exits as entities, travel as an activity).
+- **2026-09-17 (block 1):** reviewed in full. Travel is an attended activity (`walk`, `run`, `turn
+  back`) that weather lengthens; walking out is not an ending and the cabin is supplies; the density
+  gradient is authoring order, never a cap; wildlife as events and sign, no wolverine; dangerous places
+  injure, never kill outright, by an announced seeded roll; sweat is wet clothing inside the warmth
+  system; keep the fifty zones and all eleven regions, each with a reason to come back. Follow-ups in
+  `PLAN.md`: A4 (re-price the valley for the week-long run), E17 (exits as entities, travel as an
+  activity).
 
 ## 8. What exists today
 
@@ -610,27 +572,31 @@ each has authored spaces in `game/world/scenarios/whiteout/spaces.py` and object
 `objects.py` / `objects/`; each has an official room document with its real-world ontology census and
 gap list under `docs/scenarios/whiteout/rooms/` (nine files, one per zone); the probe corpus
 (`game/world/scenarios/whiteout/probes/`) is drawn from those censuses and names those nine zones and
-no others. The crash-site content
-includes the ELT, the sectional chart naming V. Holt's cabin, the scattered survival kit, the snapped
-hatchet and the soaked matchbox.
+no others. The crash-site content includes the pilot's body, the sectional chart naming V. Holt's
+cabin, the torn survival duffel, the snapped hatchet, the soaked matchbox, the sleeping bag, the
+snowshoes and the ELT.
 
-**Designed, not built** — the fifty outdoor zones. They exist as documents only:
-`docs/investigation/world/rooms.md` (every zone's look, resources, prices, hazards, story),
-`map.md` (geography, travel pricing, the currencies, the density gradient), `report.md` (how the rooms
-are used in play, plus the three assessment sweeps), `objects.md` (the ~1,150-object census). No
-outdoor zone id appears anywhere under `game/` — verified. The build order for all fifty is
-`docs/investigation/world/build-queue.md`, which is gated behind a foundation phase whose last box
-(live verification of the nine crash rooms) is still open, and behind the closure loop's clusters.
+**Where the built crash site differs from the design** — content to change at the next crash-site
+pass:
+
+- **The airliner fiction.** `objects.py` defines a "forward overhead bin" and an "aft overhead bin", and
+  seats identified as `11B` and `12C`. The design is the honest 206 interior — a hat shelf, a netted
+  cargo bay and a jammed cargo door, with seats 1A/1B/2A/2B plus the right seat. The re-skin is small
+  (names, aliases and prose; a `cargo net` object already exists).
+- **The ELT** is built as an armed beacon whose antenna is sheared; the design's ELT is broken.
+- **The radio** is built as a field radio in a cradle in the cockpit; the design's radio is the hand
+  radio whose batteries are buried in a bag in the tail section (document 14 §3.2).
+- **The survival kit** is built as a torn duffel lying on the debris trail; the design's kit is buried
+  somewhere.
+
+**Designed, not built** — the fifty outdoor zones. They exist as this document's tables; the fuller
+zone-by-zone write-ups of the July run are in git history. No outdoor zone id appears anywhere under
+`game/` — verified 2026-09-27. The build order is document 22's queue (§4.5), behind the crash-site
+foundation and the closure loop's clusters.
 
 **Nothing yet** — the ontology store `docs/ontology/` does not exist. Nor does any of the machinery the
-outdoor world assumes: travel durations, exposure/warmth drain, weather bands, hazard triggers,
-forage/snare/fish operations, track persistence and decay, the timed-beat scheduler. `report.md` §9-D
-enumerates the ten operations the map assumes (`probe` — the map's signature verb — plus `climb`,
-`throw`, `drag/haul`, snare-setting, `fish`, and the rest), each with the degraded behaviour that keeps
-its zone playable until the operation ships.
-
-**One known discrepancy to fix.** The built crash-site content still carries the pre-206 airliner
-fiction: `objects.py` defines a "forward overhead bin" and an "aft overhead bin", and seats identified
-as `11B` and `12C`. Your 2026-09-16 decision is the honest 206 interior — a hat shelf, a netted cargo
-bay and a jammed cargo door, with seats 1A/1B/2A/2B plus the right seat. The re-skin is small (names,
-aliases and prose; a `cargo net` object already exists) and belongs to the next crash-site pass.
+outdoor world assumes: travel durations, exposure and warmth drain, weather, hazard triggers, forage,
+snare and fishing operations, track persistence and decay, ice growth, the timed-beat scheduler. The
+map assumes operations that do not exist yet — `probe` (the map's signature verb), `climb`, `throw`,
+`drag` and `haul`, setting a snare, `fish`, and more — and each zone needs a degraded behaviour that
+keeps it playable until its operation ships.

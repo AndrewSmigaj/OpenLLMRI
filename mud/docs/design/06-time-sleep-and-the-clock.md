@@ -1,90 +1,119 @@
 # 06 — Time, sleep and the clock
 
-> **Status: reviewed with Andrew 2026-09-18 — every question answered; finalized at the close** Architecture counterpart:
+> **Status: reviewed with Andrew 2026-09-18 — every question answered; finalized at the close; fast
+> forward set 2026-09-27.** Architecture counterpart:
 > [`../architecture/tick-and-scheduler.md`](../architecture/tick-and-scheduler.md) (its basic clock is
-> built; its scheduler section predates DR-14a — see *The design* §3 below) and
+> built; its scheduler section predates fast forward and DR-27, and is updated when this design is
+> promoted — `PLAN.md` A6) and
 > [`../architecture/implementation-architecture.md`](../architecture/implementation-architecture.md) §7
-> (DR-14, DR-14a, DR-27). Sources:
-> [`../investigation/design/time-and-stakes.md`](../investigation/design/time-and-stakes.md) §1, §2, §3,
-> §5, §6, §7, §8 and the two architecture documents above. §4 of that pass (the processes: fire, warmth,
-> hunger, injury, drying, the pilot) belongs to other documents — see *Interactions* below.
+> (DR-14, DR-14b, DR-27). The processes that run on this clock — fire, warmth, drying, hunger,
+> thirst, injury, the pilot's body — are designed in their own documents (§5).
 
-## Provenance
+## 2. Decisions
 
 ### Andrew's decisions
-- **The clock itself is his original design**, decided before the September sessions and kept as
-  written (GDD §0b: "the June text below is kept as written"): **a continuously running real-time
-  clock** that nobody can stall or yank — the world moves whether or not the party acts.
-- **(2026-09-07, amending DR-14/DR-15 — `time-and-stakes.md` §8).** "Andrew's decisions: players can
-  **sleep**; there is a way to **move the clock forward if ALL players agree**, and **events can
-  interrupt it**; the run is **roughly a week**, rescue can come earlier, and it can run longer until
-  the food runs out — not a permanent game: the escalation ladder... kills a party that is not
-  rescued."
-- **(2026-09-16 — the watch rule, `time-and-stakes.md` §8 / `00-provenance-audit.md` §4).** A single
-  player who keeps acting holds the clock at 1× for everyone — decided by Andrew: "**the others wait
-  for the next event, such as someone waking, and do something else meanwhile**" — the watch is a real
-  co-op role (one tends the fire while three sleep; the fire can be banked to last the watch).
-- **Clarification-only feedback (2026-09-16, general rule, applied here).** No confirmation prompts, no
-  questions to the player when an activity is interrupted; the "uninterruptible + confirm" idea was
-  Claude's and is dropped.
+
+- **A continuously running real-time clock (Andrew's original design, June 2026; DR-14).** Nobody
+  can stall it or yank it; the world moves whether or not the party acts. Turn-based time was set
+  aside as too clunky for a group playing together.
+- **Sleep, a week, and no permanent game (2026-09-07).** Players can sleep. The clock can be moved
+  forward when all the players agree, and events can interrupt it. A run is roughly a week of game
+  time; rescue can come earlier, and a run can go longer; it is not a permanent game — the escalation
+  ladder kills a party that is not rescued.
+- **No questions when an activity is interrupted (2026-09-16)** — the clarification-only rule
+  (document 04) applied here: no confirmation prompts.
+- **The pace (2026-09-17).** The clock always runs faster than real time: **15 game-minutes per real
+  minute**. The time controls are taught in the tutorial and are in `help`.
+- **The run (2026-09-17, 2026-09-27).** A run is one sitting of two or three hours — about a week of
+  game time — which the players can pause and return to. A missing player's character goes
+  catatonic, sits down and stares; the others can keep them alive, and they can die. The only endings
+  are rescued or dead.
+- **Durations and ambience (2026-09-18).** Small attended jobs take one to three game-minutes; bigger
+  ones take as long as they honestly do. Ambience comes from the things present, each with its own
+  rhythm, not from a room-level timer.
+- **Being awake is being on watch (2026-09-18)** — automatically, with no command; awake players
+  receive the events sleepers do not.
+- **The commands that don't interrupt an activity (2026-09-18):** look, examine, inventory, speech,
+  help, status.
+- **The build order (2026-09-18):** scheduler → fire → warmth → hunger and thirst → injury → the
+  pilot's body and `status`. The bedding and fatigue numbers are valued with the warmth numbers in
+  document 08.
+- **Fast forward (2026-09-07, 2026-09-17, 2026-09-27).** Proposed and agreed by the players, fast
+  forward runs the clock at **about 150×**. Awake players can stay in it, seeing events go by faster, and type a
+  command to slow it when they want to act. **A player waking or any non-ambient event drops it back
+  to 15×; ambient events do not.** Sleeping players can chat out of character to pass the time. The
+  numbers are tuned by playtesting.
 
 ### Proposals (Claude)
-Everything else in this document is a proposal, offered because Andrew's decisions above need a
-mechanism to run on:
-- the **activity model** (the `Activity` record; deadline in world-time; progress on the world, not the
-  actor; one activity per actor; force-interrupt on danger);
-- **durations** in game-minutes (1–3 for attended actions) and the real-second floor;
-- the **feedback grammar** (start / tick / interrupt / complete / third-person lines);
-- the **non-interrupting command whitelist** (look, examine, inventory, say/whisper/call/shout, help,
-  status);
-- the mechanics of the **consensus advance** (the 20× multiplier and its specific list of interrupting
-  conditions) and of **sleep as a priced resource** (fatigue, the bedding score, the next-day cost) —
-  these operationalize Andrew's "sleep" and "moves forward if all agree" decisions but the numbers and
-  triggers are Claude's;
-- `status` showing **bands, never numbers**;
-- the **build order** inside step 3 (`time-and-stakes.md` §7).
-DR-27 itself (*Activities & processes*) is recorded in `implementation-architecture.md` as "designed
-2026-09; promoted with the time-and-stakes pass" — i.e. a proposal, not one of Andrew's decisions.
 
-## In one paragraph
+Everything else here is a proposal, offered because the decisions above need a mechanism to run on:
+
+- the **activity model** (the `Activity` record; deadline in world-time; progress on the world, not
+  the actor; one activity per actor; force-interrupt on danger), and the real-second floor;
+- the **feedback grammar** (start / tick / interrupt / complete / third-person lines);
+- **which events count as ambient** and which do not (§4.2);
+- **sleep as a priced resource** (fatigue, the bedding score, the next-day cost);
+- `status` showing **bands, never numbers** (the body reported in words is Andrew's, document 08);
+- the rate limit on lines during fast forward;
+- DR-27 (*Activities & processes*), recorded in `implementation-architecture.md` as designed in
+  2026-09 and reviewed here before promotion.
+
+## 3. In one paragraph
+
 The clock never stops. While one player saws at a branch, the fire someone lit an hour ago is quietly
 burning down, and the tea reaching a boil is a line spoken to the room the moment it happens — nobody
 had to ask. If a new command comes in mid-saw, the half-sawn branch stays half-sawn, banked for anyone
-to finish; if a wolf howls close by, the saw stops on its own, no questions asked. When the whole party
-stops to sleep or wait, hours blur past in a breath — until the fire drops to embers, or something loud
-enough happens nearby, and the world snaps back to real pace. If one person keeps acting while the
-others try to sleep, the clock holds at its normal pace for everyone; the others wait for the next thing
-to happen and get on with something else in the meantime.
+to finish; if a wolf howls close by, the saw stops on its own, no questions asked. When the party
+settles in to sleep or wait, the players agree to fast forward and the hours blur past — whoever is
+still awake watches the fire burn down and the wind rise at ten times the pace, and the sleepers pass
+the time chatting out of character — until someone wakes or something happens that matters, and the
+world drops back to its normal pace.
 
-## The design
+## 4. The design
 
+### 4.1 The running clock
 
-> **Decided with Andrew, 2026-09-17 (supersedes the "20× by consensus" and any "watch rule" wording below):**
-> the clock always runs faster than real time — **15 game-minutes per real minute** (X); `propose fast
-> forward` raises it to **180×** (Y) when every player agrees; events drop it back to X; a player who
-> does not agree keeps it at X. Time controls are taught in the pre-scenario tutorial and are in `help`.
-> A run is **one sitting of two or three hours** covering roughly a week of game time (about 26 real
-> minutes per game day at X/Y with five active hours a day); halt and resume allowed; a member missing
-> at resume is incapacitated where they lie. The heartbeat ticks every 4 real seconds (one game-minute).
-> Attended actions of one to three game-minutes take 4–12 real seconds; half an hour of sawing takes
-> two real minutes. The section below is the September draft and is reviewed in block 2.
+The clock runs at **15 game-minutes per real minute** (Andrew, 2026-09-17): one persistent heartbeat
+advances the world **one game-minute every 4 real seconds**. Attended actions of one to three
+game-minutes take 4–12 real seconds; half an hour of sawing takes two real minutes.
 
-### The running clock
-One persistent heartbeat drives everything: **15 real-seconds → +1 game-minute** (verified against the
-Evennia `turnbattle` and EvAdventure `reaper` conventions — a single Script, no `TickerHandler` beside
-it; `utils.delay` only if a sub-tick feedback cadence is ever wanted, since persistent callbacks must
-pickle). It is never advanced by a player's action or by chat, and no one player can stall or yank it
-for the others — turn-based time was considered and set aside as too clunky for a group playing
-together. Underneath, the clock is a **deterministic logical clock**: the wall-clock only decides
-*when* a tick fires; a pure function of `(state, dt)` decides *what* it does, with every draw from the
-per-run seeded RNG — so the fuzzer and replay drive logical ticks directly and stay byte-reproducible.
+The heartbeat is a single Script, with no `TickerHandler` beside it (the Evennia `turnbattle` and
+EvAdventure `reaper` conventions); `utils.delay` only if a sub-tick feedback cadence is ever wanted,
+since persistent callbacks must pickle. It is never advanced by a player's action or by chat, and no
+one player can stall or yank it for the others. Underneath, the clock is a **deterministic logical
+clock**: the wall-clock only decides *when* a tick fires; a pure function of `(state, dt)` decides
+*what* it does, with every draw from the per-run seeded RNG — so the fuzzer and replay drive logical
+ticks directly and stay byte-reproducible.
 
-### Activities with feedback
+**The clock never freezes** (DR-14): the world advances at 15× or in fast forward, never 0×; nobody
+can yank it backwards or stall it; the storm and the search run on the calendar regardless
+(documents 13 and 14).
+
+### 4.2 Fast forward (Andrew, 2026-09-27)
+
+- **Starting it.** A player proposes it (`propose fast forward`); it runs when the players agree.
+- **The pace.** About **150×** — 150 game-minutes per real minute, ten game-minutes a heartbeat. A
+  ten-hour night passes in about four real minutes.
+- **Awake players can stay in it.** They see the events go by faster (§4.4) and type a command to
+  slow it back to 15× when they want to act.
+- **What drops it back to 15×:** a player waking, or any **non-ambient** event. Ambient events do not.
+- **Sleepers** can chat out of character to pass the time (document 19).
+- **The numbers are tuned by playtesting.**
+
+*(Proposed by Claude, for Andrew's check.)* **Ambient** events are the lines the things present speak
+on their own rhythm (§4.4, document 05's `sensed` cadence) — the fire crackling and settling, the
+creek running, wind gusting against the hull, a raven calling, a spruce dropping its load of snow.
+**Non-ambient** events are the ones that change the party's situation: danger (`DANGER`), the fire
+dropping to embers, a propagated sound loud enough in band (loudness ≥ 0.5 — wolves close by, the ice
+booming, a plane), and a sleeper's cold falling below their floor, which wakes them shivering.
+
+### 4.3 Activities with feedback
+
 Two kinds of time ride the same heartbeat. **Attended activities** are what this document designs:
 sawing a branch, drilling for an ember, digging, dressing a wound, fighting — a start line, a few
 varied tick lines driven by state, an interruption that keeps partial progress, a completion line.
-**Unattended processes** are the world's own work; this document names them once, under
-*Interactions*, and their design lives in other documents.
+**Unattended processes** are the world's own work; this document names them once, in §5, and their
+design lives in other documents.
 
 The activity model (pure `systems/scheduler.py`; state in Attributes):
 ```
@@ -96,20 +125,22 @@ Activity{id, actor, verb, target, tool, started_at (world-min), deadline (world-
   delta or a timer's elapsed estimate).
 - **Progress lives on the world, not the actor**: the half-sawn branch carries its own `sawn_pct`;
   anyone can continue it — a co-op property that falls out for free.
-- **One activity per actor.** A new command **interrupts** and banks partial progress, except a
-  whitelist that doesn't: look, examine, inventory, say/whisper/call/shout, help, and `status`.
-  **`busy` ≠ `lagged`**: you can talk while sawing; you can't swing twice.
+- **One activity per actor.** A new command **interrupts** and banks partial progress, except the
+  commands that don't (Andrew, 2026-09-18): look, examine, inventory, say/whisper/call/shout, help,
+  and `status`. **`busy` ≠ `lagged`**: you can talk while sawing; you can't swing twice.
 - **Danger force-interrupts** (`DANGER`, `FIRE_STATE_CHANGE` nearby, `SURVIVOR_WORSENS` on you,
   `PLAYER_STOP_REQUEST`) — the most-cited failure mode in this genre is finishing a craft while a
   predator closes in. Any new command interrupts; progress banks where that is physical (the
   half-sawn branch) and is lost where it isn't (the ember dies). No confirmation prompts, no questions
-  to the player.
+  to the player (Andrew, 2026-09-16).
 - **Every tick callback re-checks "am I still the current activity"** (a stale callback is the classic
   async failure mode); cancelling is by activity id.
 - **Durations are authored in game-minutes** and converted at schedule time by the live ratio, with a
-  real-second floor (≈3 s) so very short beats stay legible. Attended actions are proposed at
-  **1–3 game-minutes** (15–45 real seconds) so the fiction compresses by design; anything longer
-  becomes a process instead (see *Interactions*).
+  real-second floor (≈3 s) so very short beats stay legible. **Small jobs are one to three
+  game-minutes** (Andrew, 2026-09-18) — 4–12 real seconds at 15× — so the fiction compresses by
+  design; bigger ones are as long as they honestly are — digging out a drifted door is half an hour of
+  game time, two real minutes — and anything genuinely long runs unattended as a process while you do
+  something else (§5).
 
 The feedback grammar (content: `responses/activities.py`):
 
@@ -121,60 +152,12 @@ The feedback grammar (content: `responses/activities.py`):
 | complete | *The branch drops, and you with it, into the snow.* | the outcome line is the operation's own narration |
 | third person | *Agent-1 is sawing at a branch.* / *You hear sawing to the north.* | via the propagator, by band |
 
-### Sleep and the consensus advance
-`sleep` / `rest` / `wait [until dawn | N hours | for <event>]` are unattended processes on the
-character: `resting_until` in world-time, a bedding score from the zone (what you lie on and under —
-boughs, foam, the blanket, the sleeping bag; the huddle), and a watch flag.
-
-**Consensus advance (DR-14a):** when every connected character in the run is resting or waiting, the
-heartbeat runs at **20× dt** (one real tick = 20 game-minutes) until the earliest `resting_until` or an
-**interrupting event**: cold below the character's floor (you wake shivering), the fire reaching
-`embers`, any propagated Event with loudness ≥ 0.5 in band (wolves, the ice booming, a plane), `DANGER`,
-or a player's own command.
-
-> The architecture counterpart, `tick-and-scheduler.md`, still says: *"There is no planning-mode freeze
-> and no consensus fast-forward — both were the [turn-driven] flavour we rejected."* That line predates
-> Andrew's 2026-09-07 decision; DR-14a supersedes it. The clock still never freezes (0× never happens),
-> but it now runs at 20× by consensus — `tick-and-scheduler.md` wants an update to match.
-
-**Sleep is a resource with a price:** fatigue falls only while asleep; sleeping cold costs warmth per
-hour (the bedding score sets the rate); a night without sleep costs judgment (slower activities, worse
-tick lines) and warmth the next day.
-
-**The clock never freezes** (DR-14 holds): the world advances at 1× or 20×, never 0×; nobody can yank
-it backwards or stall it; the storm and the search run on the calendar regardless.
-
-**The run length (DR-15a):** the instance persists across sittings for roughly a week of game time; it
-ends by rescue, walk-out, or the last death — never by a timer. *(Since 2026-09-17: rescue or death
-only — the walk-out is not an ending; a run is one sitting of two or three hours, halt/resume.)*
-
-### The watch
-When one player keeps acting while others sleep or wait, the clock holds at its normal 1× — it does
-not fall back to 20× just because most of the party is down. The others wait for the next event (such
-as someone waking) and do something else meanwhile. This makes the watch a real co-op role: one tends
-the fire while three sleep, and the fire can be banked to last through it.
-
-### Status: numbers as words
-`status` (and the inventory footer) turns the numbers into prose: *You are shivering, hungry, and your
-left forearm is bleeding into the bandage. The fire is burning low. About four hours of light left.*
-Bands, never raw numbers — an agent sees exactly what a human sees; the per-step log carries the actual
-numbers for analysis.
-
-### Why this is core, not later
-The fire path becomes a real sequence with tension (the ember dies in two minutes if you don't feed
-it). Every dilemma the moral layer raises — the pilot's body, the blanket for the dying man, the last
-ration — becomes a real decision, because hunger and cold are numbers that hurt. Co-op stops being
-parallel solitaire: one saws while the other tends the fire, and the half-sawn branch is anyone's.
-
-### The three streams of text, and where ambience comes from (Andrew, 2026-09-18)
+### 4.4 The three streams of text, and where ambience comes from (Andrew, 2026-09-18)
 
 While time passes, a player is reading three different things, and they have different rhythms.
 
 **Their own work.** An attended action gives a start line, a few varied tick lines driven by state,
-an interruption that names what remains, and a completion line. **Small jobs are one to three
-game-minutes** (four to twelve real seconds at the clock's base pace); bigger ones are as long as
-they honestly are — digging out a drifted door is half an hour of game time, two real minutes — and
-anything genuinely long runs unattended while you do something else.
+an interruption that names what remains, and a completion line (§4.3).
 
 **The room's ambience, which comes from the things that are there** — not from a room-level timer.
 The fire crackles and settles; the creek runs; wind gusts against the hull; a raven calls; a spruce
@@ -186,22 +169,64 @@ anyone authoring a room script. Ambience is the sum of what is present.
 **Other people.** Speech and the third-person view of what others are doing arrive whenever they
 happen, through the propagator, by band.
 
-**Under a fast forward, the world does not go quiet — it goes fast** (Andrew, 2026-09-18). Whoever is awake
-is on watch, and they watch the night run past: the fire burning down, the wind rising, the wolves
-somewhere out on the ice. *Implementation note, not a design change: lines are rate-limited in real
-time so the stream stays readable rather than unspooling three a second, and any interrupting event
-(document 06's list) still drops the clock back to base pace.* Sleepers see nothing — later, they
-will be dreaming (`docs/design/IDEAS.md`).
+**Under a fast forward, the world does not go quiet — it goes fast** (Andrew, 2026-09-18). Whoever is
+awake is on watch, and they watch the night run past: the fire burning down, the wind rising, the
+wolves somewhere out on the ice. *(Proposed by Claude: lines are rate-limited in real time so the
+stream stays readable rather than unspooling three a second.)* Any non-ambient event drops the clock
+back to 15× (§4.2). Sleepers see nothing of the world; they can chat out of character, and later they
+will be dreaming ([`IDEAS.md`](IDEAS.md)).
 
-### The watch (Andrew, 2026-09-18)
+### 4.5 Sleep
+
+`sleep` / `rest` / `wait [until dawn | N hours | for <event>]` are unattended processes on the
+character: `resting_until` in world-time, and a bedding score from the zone (what you lie on and
+under — boughs, foam, the blankets, the sleeping bag; the huddle). A sleeper wakes at their
+`resting_until`, or when something wakes them — and a player waking drops a fast forward back to 15×
+(§4.2).
+
+**Sleep is a resource with a price** *(proposal)*: fatigue falls only while asleep; sleeping cold
+costs warmth per hour (the bedding score sets the rate); a night without sleep costs judgment (slower
+activities, worse tick lines) and warmth the next day. The bedding score and the fatigue numbers are
+valued with the warmth numbers in document 08 (Andrew, 2026-09-18).
+
+### 4.6 The watch (Andrew, 2026-09-18)
 
 **Being awake is being on watch.** There is no `keep watch` command and nothing to declare: if you
 are awake while the others sleep, you are the one who is there. What that buys is perception — **you
 receive the events the sleepers do not**: the fire dropping to embers, tracks circling, a plane
 somewhere south. You can wake them. A sleeper gets only what is loud enough to wake them, which is
-the perception system's own answer (document 19), not a special rule.
+the perception system's own answer (document 19), not a special rule. The watch is a real co-op role:
+one tends the fire while the others sleep, and the fire can be banked to last the night.
 
-## Interactions
+### 4.7 Status: numbers as words
+
+`status` (and the inventory footer) turns the numbers into prose: *You are shivering, hungry, and your
+left forearm is bleeding into the bandage. The fire is burning low. About four hours of light left.*
+Bands, never raw numbers — an agent sees exactly what a human sees; the per-step log carries the actual
+numbers for analysis. `status` is one of the commands that don't interrupt an activity.
+
+### 4.8 The run
+
+A run is **one sitting of two or three hours** covering about a week of game time; the players can
+pause it and come back (Andrew, 2026-09-17). A player who is missing when the run resumes leaves a
+character who goes catatonic, sits down and stares; the others can keep them alive, and they can die
+(Andrew, 2026-09-27). The run ends in **rescue or death** — never by a timer; walking out is not an
+ending. The search reaches a party it can find on day 7 by default, and rescue can come sooner
+(document 14 §3.5).
+
+*(Claude's arithmetic, for the playtests to tune:)* with about five active hours a day at 15× and the
+rest in fast forward at 150×, a game day takes about 28 real minutes, and a week a little over three
+hours.
+
+### 4.9 Why this is core, not later
+
+The fire path becomes a real sequence with tension (the ember dies in two minutes if you don't feed
+it). Every dilemma the moral layer raises — the pilot's body, the last ration — becomes a real
+decision, because hunger and cold are numbers that hurt. Co-op stops being parallel solitaire: one
+saws while the other tends the fire, and the half-sawn branch is anyone's.
+
+## 5. Interactions
+
 **Depends on:** the taught grammar and resolver
 ([`04-grammar-and-feedback.md`](04-grammar-and-feedback.md)) — an activity only exists because a
 resolved attempt returned a duration; the ontology closure mechanism
@@ -211,90 +236,57 @@ tick's progress and every process change is an Effect, nothing here writes state
 perception/propagator model ([`03-the-player-view.md`](03-the-player-view.md), DR-13) — tick lines
 route to the actor and degraded third-person lines to bystanders by band.
 
-**Depended on by (the processes, `time-and-stakes.md` §4):** five unattended processes ride this same
-heartbeat, each designed in its own document, not here. **Fire** — a stage ladder, fuel mass consumed
-per tick by material burn rate into ash and the environment sink, heat output by stage, stage
-transitions that interrupt nearby activities — designed in
-[`07-fire-and-shaping.md`](07-fire-and-shaping.md). **Warmth** — one integer core temperature per
-character, gained and lost by exposure, insulation, fire distance, activity heat and huddling, banded
-into words — and **drying** — wetness as grams of water, rising in snow and falling by a fire — both
-designed in [`08-warmth-clothing-and-shelter.md`](08-warmth-clothing-and-shelter.md). **Hunger and
-thirst** — integer calories and hydration spent per tick and per activity, snow-eating's heat cost —
-designed in [`10-food-and-hunger.md`](10-food-and-hunger.md). **Injury** — named wounds, bleeding,
-infection after untreated hours, binding and splinting — designed in
-[`11-injury-and-first-aid.md`](11-injury-and-first-aid.md). **The pilot** — a scripted process ending
-within the first day, tended like any other physical thing *(since 2026-09-17 he starts the run dead;
-his body is the process now — cooling, stiffening, freezing over days, smelling, drawing the bear and
-the ravens — document 12 §4.3a)* — designed in
-[`12-the-pilot-and-bodies.md`](12-the-pilot-and-bodies.md). The escalation ladder
-([`13-events-escalation-and-weather.md`](13-events-escalation-and-weather.md)) and the rescue weather
-window ([`14-rescue-paths.md`](14-rescue-paths.md)) also run on this clock.
+**Depended on by (the processes):** the unattended processes ride this same heartbeat, each designed
+in its own document, not here. **Fire** — a stage ladder, fuel mass consumed per tick by material
+burn rate into ash and the environment sink, heat output by stage, stage transitions that interrupt
+nearby activities — designed in [`07-fire-and-shaping.md`](07-fire-and-shaping.md). **Warmth** — one
+integer core temperature per character, gained and lost by exposure, insulation, fire distance,
+activity heat and huddling, banded into words — and **drying** — wetness as grams of water, rising in
+snow and falling by a fire — both designed in
+[`08-warmth-clothing-and-shelter.md`](08-warmth-clothing-and-shelter.md). **Thirst** — hydration
+spent per tick and per activity, and eating snow's cost in body heat — designed in
+[`09-water.md`](09-water.md). **Hunger** — calories spent per tick and per activity — designed in
+[`10-food-and-hunger.md`](10-food-and-hunger.md). **Injury** — named wounds, bleeding, infection after
+untreated hours, binding and splinting — designed in
+[`11-injury-and-first-aid.md`](11-injury-and-first-aid.md). **The pilot's body** — he starts the run
+dead; his body cools, stiffens and freezes over days, smells, and draws the bear and the ravens —
+designed in [`12-the-pilot-and-bodies.md`](12-the-pilot-and-bodies.md) §4.3a. The escalation ladder
+and the weather ([`13-events-escalation-and-weather.md`](13-events-escalation-and-weather.md)) and the
+flyovers ([`14-rescue-paths.md`](14-rescue-paths.md) §3.5) also run on this clock. Who agrees to a
+fast forward, and the out-of-character chat, are the multiplayer document's
+([`19-multiplayer-and-instances.md`](19-multiplayer-and-instances.md)).
 
-## Open questions
+## 6. Open questions
 
-**All answered 2026-09-18.** Q1 the whitelist as listed · Q2a one to three game-minutes for small jobs ·
-Q2b ambience from the things present, and a fast forward runs the world fast for the awake watcher ·
-Q3 the build order as listed · Q4 the bedding and fatigue numbers are valued with the warmth numbers
-in document 08 · Q5 the watch is automatic. Kept below as the record of what was weighed.
-1. **The non-interrupting command whitelist.** Proposed: look, examine, inventory,
-   say/whisper/call/shout, help, status. *Options:* adopt as-is; or add/remove verbs as play surfaces
-   ones that should stay silent but currently interrupt (e.g. should checking `examine me` mid-activity
-   really cost nothing?). *Recommendation:* adopt as the default (it is already the defined-but-unapproved
-   default per the provenance audit) and revise only against a concrete case that comes up in play.
-2. **The 1–3 game-minute attended range and the process chatter cadence.** Proposed: 15–45 real
-   seconds per attended action; a process line every 5–10 game-minutes so waiting by a fire isn't
-   silence. *Options:* keep as the starting tunable; widen or narrow after feel. *Recommendation:* keep
-   as proposed and revisit only after the first modelled night (the acceptance test in the design
-   source's §7), not in the abstract.
-3. **The step-3 build order.** `time-and-stakes.md` §7 proposes: (1) scheduler + activities for the
-   verbs that already take time, the whitelist, force-interrupt on danger; (2) fire as a process;
-   (3) warmth; (4) hunger/thirst; (5) injury; (6) the pilot's clock + `status`. *Options:* keep this
-   order; or reorder. *Recommendation:* keep — it already matches the roadmap's own split (the
-   scheduler is P4; fire/warmth/hunger/injury/the pilot are P5), so reordering would cost a second
-   sequencing conversation for no evident gain.
-4. **The bedding score and fatigue numbers.** Named (boughs, foam, blanket, sleeping bag; the huddle;
-   "a night without sleep costs judgment") but not valued anywhere in the sources. *Recommendation:*
-   value them alongside 08's warmth numbers, since the bedding score is really a warmth-loss-rate
-   input.
-5. **How the watch is held.** The sources name a "watch flag" on the sleep/rest process but don't say
-   how it's set. *Options:* automatic (whoever is still acting is on watch by definition); an explicit
-   command (`keep watch`) that a player must issue to be exempted from the sleep processes'
-   fatigue-recovery clock. *Recommendation:* automatic first (it falls out of "a single player who
-   keeps acting holds the clock"); add an explicit command only if a player wants to sleep lightly
-   *and* be woken preferentially, which the sources don't yet ask for.
+None open. Every question this document asked was answered on 2026-09-18, and the clock was set on
+2026-09-27; both are written into §4.
 
-## Review log
-2026-09-16 — first draft, written from `time-and-stakes.md` §1–3/§5–8, `tick-and-scheduler.md` and
-`implementation-architecture.md` §7. 
+## 7. Review log
 
+- **2026-09-16** — first draft, from the time-and-stakes design pass and the architecture's clock
+  and scheduler.
+- **2026-09-17** — with Andrew: the clock always faster than real time, 15 game-minutes per real
+  minute, and a fast forward by agreement; a run is one sitting of two or three hours, paused and
+  resumed; the time controls taught in the tutorial.
+- **2026-09-18** — reviewed in full with Andrew: small jobs at one to three game-minutes and honest
+  durations for bigger ones; ambience from the things present; under a fast forward the world runs
+  fast for whoever is awake; being awake is being on watch, automatically; the commands that don't
+  interrupt; the build order; the bedding and fatigue numbers valued in document 08.
+- **2026-09-27** — with Andrew: fast forward at about 150×; awake players can stay in it and slow it
+  to act; a player waking or a non-ambient event drops it to 15×, ambient events do not; sleepers chat
+  out of character; the numbers tuned by playtesting; a missing player's character goes catatonic.
 
-- **2026-09-17 (Andrew, block 1, ahead of this document's sitting):** X = 15, Y = 180, `propose fast forward`
-  by consensus, events interrupt; one sitting of two or three hours; halt/resume; "watch rule" was
-  Claude's label and is dropped. The rest of this document is reviewed in block 2.
+## 8. What exists today
 
-- **2026-09-18 (Andrew, block 2):** **Q2a** attended actions at one to three game-minutes for small jobs,
-  scaled honestly for bigger ones — adopted as the starting point. **Q2b changed from the
-  recommendation**: ambience is *not* suppressed during a fast forward — "it would just go faster for
-  awake people, they are on watch"; sleepers will be dreaming (deferred, IDEAS.md). And the cadence
-  is not a room-level timer: ambient lines belong to the *things present*, each with its own rhythm
-  in its ontology row, so the room is as alive as what is in it. **Q5** the watch is automatic —
-  awake is on watch; awake players receive events sleepers do not. Written into the design above.
-  **Still open at this sitting:** Q1 (the non-interrupting command whitelist), Q3 (the step-3 build
-  order), Q4 (bedding and fatigue numbers).
-
-- **2026-09-18 (Andrew):** Q1 the non-interrupting whitelist adopted as listed; Q3 the step-3 build order
-  kept (scheduler → fire → warmth → hunger/thirst → injury → the pilot and `status`); Q4 the bedding
-  score and fatigue numbers are valued alongside the warmth numbers in document 08, not here.
-  **Document reviewed in full.**
-
-## What exists today
 **Built.** [`game/typeclasses/heartbeat.py`](../../game/typeclasses/heartbeat.py) — a persistent global
 Script, `interval = 15` real seconds, advancing the world clock by `dt=1` game-minute per tick through
-the allow-listed `apply()` writer, then propagating any events. This is the basic, P1 clock.
+the allow-listed `apply()` writer, then propagating any events. This is the basic P1 clock; its pace
+(4 game-minutes per real minute) is not yet the design's 15 (a 4-second heartbeat — `PLAN.md` E1).
 [`game/world/sim/systems/clock.py`](../../game/world/sim/systems/clock.py) — the pure `tick(dt,
 world_time)` function; deterministic; currently returns no consequential events (a placeholder).
-[`game/world/sim/events.py`](../../game/world/sim/events.py) — the `INTERRUPT_SIGNALS` frozenset (the
-seven event kinds named above) is defined and exported.
+[`game/world/sim/events.py`](../../game/world/sim/events.py) — the `INTERRUPT_SIGNALS` frozenset
+(`FIRE_STATE_CHANGE`, `SURVIVOR_WORSENS`, `WEATHER_CHANGE`, `SCRIPTED_TRIGGER`, `RESCUE_SIGNAL`,
+`DANGER`, `PLAYER_STOP_REQUEST`) is defined and exported.
 
 **Designed, not built.** `game/world/sim/systems/scheduler.py` documents the `Activity` shape in its
 docstring but `advance()` raises `NotImplementedError("systems.scheduler.advance — roadmap P4")` — no
@@ -305,9 +297,9 @@ files `game/world/sim/systems/{fire,water,shelter,weather}.py` are bare docstrin
 templates) does not exist — the scenario's narration currently lives in one file,
 `game/world/scenarios/whiteout/responses/slice.py`.
 
-**Nothing.** `sleep`, `rest`, `wait`, the watch flag, the consensus advance, the bedding score and
-fatigue — no verb handlers, no Attributes, no commands exist anywhere in `game/commands/` or
-`game/world/sim/operations/handlers/` for any of this. `game/world/sim/systems/warmth.py` is
-substantially built (177 lines: `wearable`, `insulation_units`, `warmth_band`, …) but that is the
-clothing/insulation math of DR-25, owned by document 08 — it is not the per-tick core-temperature
-process this document's *Interactions* section points to, which still has no code at all.
+**Nothing.** `sleep`, `rest`, `wait`, fast forward and the command that slows it, the out-of-character
+chat for sleepers, the bedding score and fatigue — no verb handlers, no Attributes, no commands exist
+anywhere in `game/commands/` or `game/world/sim/operations/handlers/` for any of this.
+`game/world/sim/systems/warmth.py` is substantially built (177 lines: `wearable`, `insulation_units`,
+`warmth_band`, …) but that is the clothing/insulation math of DR-25, owned by document 08 — it is not
+the per-tick core-temperature process §5 points to, which still has no code at all.

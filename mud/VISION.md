@@ -2,13 +2,13 @@
 
 > Anchor file. Short on purpose. Read this before any work session; it is the ground
 > truth a loop returns to when work drifts. **Authoritative specs:**
-> `docs/scenarios/whiteout/GDD.md` (game design, FINAL) · `docs/architecture/implementation-architecture.md`
-> (architecture, v4/FINAL, the DR register DR-01…DR-28 + amendments) · `docs/scenarios/whiteout/roadmap.md` (build order).
-> `design.md` is the **archived original seed — not authoritative**. Details live in `docs/`.
+> `docs/scenarios/whiteout/GDD.md` (the one game design document, over `docs/design/`) ·
+> `docs/architecture/implementation-architecture.md` (architecture, the DR register) · `PLAN.md` (the
+> order of work, and the current decisions in §5). Details live in `docs/`.
 
 ## What we are building
 **Whiteout** — a text-forward, multiplayer, *systemic* survival-puzzle MUD on **Evennia**.
-Survivors of a bush-plane crash in an Alaskan December improvise with every object around them to
+Survivors of a bush-plane crash in an Alaskan valley in the first week of October improvise with every object around them to
 survive cold, injury, hunger and a worsening storm until they are rescued — the radio, a signal, or
 simply surviving long enough — or die. The only endings are rescued or dead.
 
@@ -46,18 +46,17 @@ out the world — every entity, relation and verb — and it has no finish line.
   characters from outside, as players, through the same grammar a person uses — survivors,
   non-human characters, an animal such as the bear. A model never invents state, decides survival
   math, or grants success — except the radio voice's judgement of whether it has been told enough to find
-  the party, by criteria the game gives it (Andrew, 2026-09-27). *(Reworded 2026-09-26 and 2026-09-27 to
-  match GDD §3 rules 2 and 5.)*
+  the party, by criteria the game gives it (Andrew, 2026-09-27; GDD §3 rules 2 and 5).
 - **Input is a taught command grammar** (GDD §25a): `VERB X [RELATION Y] [WITH Z]`, at action
   granularity — not free-form NLP, not a canned verb list. Everything sensible that fits it resolves
   via the **generative** operation×material engine.
 - **Multiplayer-first, on a continuously running real-time clock** (GDD §9). Time advances on its
   own; no player owns or can stall the clock; long actions schedule onto ticks rather than jumping
-  it. It always runs faster than real time — 15 game-minutes per real minute — and `propose fast
-  forward` raises it to 180× when every player agrees; events drop it back (DR-14b). Sessions are
+  it. It always runs faster than real time — 15 game-minutes per real minute — and fast forward, by
+  the players' agreement, runs it at about 150×; awake players can stay in it and type a command to
+  slow it, and a player waking or any non-ambient event drops it back (document 06). Sessions are
   **instanced, synchronous co-op**: roughly a week of game time inside one sitting of two or three
-  hours, one shot or two with a resume, with an escalation ladder and no hard time barriers (DR-15a,
-  DR-15b).
+  hours that the players can pause and return to, with an escalation ladder and no hard time barriers.
 - **Perception is graded, not binary** (design §10–15): visibility, audibility,
   reachability, direction and detail are separate and distance/weather/occlusion-aware.
 - **Characters are players; the world runs itself** (GDD §3 rule 5). The pilot is authored content
@@ -84,9 +83,7 @@ out the world — every entity, relation and verb — and it has no finish line.
 ## Current focus
 The engine core and the crash-site rooms are built and playable; the closure loop's first steps
 (forms, derived capabilities, the probe harness, parser tolerance) and the crash draw are in. The
-world-building loops have not run yet: the design passes for time and stakes, fire, events, the moral
-layer and living rooms are under Andrew's review, the ontology store and the loops' scaffold come
-next, and the valley's outdoor zones are designed as documents that implement as data. The active
-list is [`BACKLOG.md`](BACKLOG.md) (Now / Next / Later); the master document is
-`docs/scenarios/whiteout/roadmap.md`. *Fun is a continuous design judgment held throughout, not a test
+world-building loops have not run yet: the design documents in `docs/design/` are under review with
+Andrew, one at a time, and nothing is built and no loop runs until they are finalized. The order of
+work is [`PLAN.md`](PLAN.md); its Now slice is [`BACKLOG.md`](BACKLOG.md). *Fun is a continuous design judgment held throughout, not a test
 a thin slice must pass* (friends see the finished game).

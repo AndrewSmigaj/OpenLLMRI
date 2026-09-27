@@ -1,6 +1,6 @@
 # <Scenario Name> — Design
 
-> Copy this file to `docs/scenarios/<name>/design.md` and fill it in. It is the
+> Copy this file to `docs/scenarios/<name>/GDD.md` and fill it in. It is the
 > per-scenario design doc that mirrors the engine's authoring shape. Keep it
 > skimmable; cite the engine design as "§N" where a rule is reused, and link the
 > guides for *how* to author each piece. The reusable engine lives in

@@ -16,7 +16,7 @@ changing a locked decision, **flag it for the user — never recommend overridin
 
 ## Context to load
 - `VISION.md` and `docs/architecture/overview.md` — the layering and ADRs.
-- `docs/scenarios/whiteout/design.md` §24 (conservation), §41 (LLM role), §44 (validation).
+- `docs/scenarios/whiteout/GDD.md` §24 (conservation), §3 (the engine never calls a model; models play from outside), §44 (validation); `PLAN.md` §5 (the current decisions).
 - `game/world/sim/contracts.py` — the shell↔core contract.
 
 ## Get the diff

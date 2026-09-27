@@ -1,55 +1,46 @@
 # 18 — Materials and forms: the material table in plain words, forms, what is missing
 
-> **Status: draft for review** (created 2026-09-16). **Architecture counterpart:**
+> **Status: draft for review** (created 2026-09-16). **Architecture counterparts:**
 > [`ontology-closure.md`](../architecture/ontology-closure.md) §2–§3 (forms, derived capabilities) and
 > [`implementation-architecture.md`](../architecture/implementation-architecture.md) §4 (DR-04, the
-> material model).
-> **Sources:** `game/world/scenarios/whiteout/materials/table.py` (the table itself — the content of
-> this document) · `game/world/sim/affordances.py` (the shipped forms vocabulary and the derivation) ·
-> [`authoring-objects.md`](../guides/authoring-objects.md) (how a row is authored) ·
-> [`objects.md`](../investigation/world/objects.md) "New-material & system flags harvested by the
-> census" · [`00-provenance-audit.md`](../investigation/design/00-provenance-audit.md).
+> material model). The table in §4.3 is a transcription of what is loaded at boot
+> (`game/world/scenarios/whiteout/materials/table.py`; the forms and the derivation in
+> `game/world/sim/affordances.py`; how a row is authored in
+> [`authoring-objects.md`](../guides/authoring-objects.md)). What *is* open is everything about its
+> growth: which natural materials come next, which property axes, and who adds them.
 
-> **2026-09-26 (Claude, for Andrew's check).** The season is October, at freeze-up (`README.md`), and
-> heat, spoilage, cooking and freezing are state systems on every entity that really has them (Andrew,
-> 2026-09-26). §4.8 is what the material table must carry for them, from real physical data with
-> sources; §6 is re-reviewed against it.
-
-## 1. Status
-
-Draft for review. The table below is the real content of the game as it stands — it is not a
-proposal in the sense the other documents use, it is a transcription of what is loaded at boot. What
-*is* open is everything about its growth: which natural materials come next, which property axes are
-missing, and who adds them.
-
-## 2. Provenance
+## 2. Decisions
 
 ### Andrew's decisions
 
-**The natural world is in scope** (2026-09-07 / 2026-09-16, recorded in the provenance audit §1):
-
-> "want to take an axe thing and chop the log up then sure. want to dig dirt then yeah. find a rock,
-> maybe some clay, whatever."
-
-**Abstract the affordance away from the object** (2026-09-07, recorded in the provenance audit §2):
-
-> "a shard can cut but so can a knife, abstract it"
-
-That second quote is the whole reason materials and forms exist as a system: nothing in this game
-asks "is this the knife?", it asks "does this thing hold an edge?", and the answer comes from what it
-is made of and what shape it is in.
-
-**The world is open-ended** (2026-09-16, VISION.md): materials and forms are growing sets grown by
-evidence, without a ceiling. **Every count in this document is a floor**, including the 32 and the 26
-below.
+- **2026-09-07, restated 2026-09-16 — the natural world is in scope.** Taking an axe to a log and
+  chopping it up, digging dirt, finding a rock, maybe some clay — all of it is in.
+- **2026-09-07 — abstract the affordance away from the object.** A shard can cut, and so can a knife.
+  That decision is the whole reason materials and forms exist as a system: nothing in this game asks
+  "is this the knife?", it asks "does this thing hold an edge?", and the answer comes from what it is
+  made of and what shape it is in.
+- **2026-09-16 — the world is open-ended** (`VISION.md`): materials and forms are growing sets grown by
+  evidence, without a ceiling. **Every count in this document is a floor**, including the 32 and the 26
+  below.
+- **2026-09-18 — density is in.** Every material carries its real density; bulk derives from mass ÷
+  density, and an authored bulk wins (§4.7a).
+- **2026-09-18 — the code's 26 forms are canonical** (document 07), and `ontology-closure.md` §2 is
+  corrected to match — one list, floors everywhere.
+- **2026-09-18 — the ontology store's schema is designed in full, up front** (document 05).
+- **2026-09-26 — heat and the rest are state systems.** Heat, wetness, spoilage, cooking and freezing
+  are states on every entity that really has them, changed by systems: snow melts into water, food
+  changes with heat, and that is part of the implementation of each object; body parts have heat as
+  part of their ontology.
+- **2026-09-26, 2026-09-27 — the season** is the first week of October in interior Alaska (document 13
+  §4.2).
 
 ### Proposals (Claude)
 
 The contents of the table — every material, every ordinal value, every tag — are authored content, not
 Andrew's decisions; the table's own docstring says "This is world-building content — tune freely".
-The forms vocabulary, the derived-capability axes and their form factors are equally proposals
-(labelled as such in the provenance audit §2 under "ontology-closure"). So is every gap and
-recommendation in §4.7 and §6.
+The forms vocabulary, the derived-capability axes and their form factors are equally proposals. So is
+every gap in §4.7, the axes and materials of §4.8, and the order and growth of §4.9 — all for Andrew's
+check.
 
 ## 3. In one paragraph
 
@@ -100,13 +91,13 @@ is worth saying out loud to anyone editing a row:
 | `ignition_difficulty` | **hard to light.** Low is the tinder end: dry grass and paper are `very_low` |
 | `smoke_toxicity` | the smoke will hurt you in a closed fuselage |
 | `insulation` | keeps heat in — the warmth system's axis |
-| `conductivity` | carries current — the radio and beacon wiring axis |
+| `conductivity` | carries current — the radio and battery wiring axis |
 | `rigidity` | holds its shape under load — the leverage and heft axis |
 | `absorbency` | soaks up water (and so gets heavy, and stops insulating) |
 | `edibility` | food value |
 | `potability` | safe to drink |
 
-*(Claude, 2026-09-26 — §6 Q2; for Andrew's check: `conductivity` here is electrical and is renamed
+*(Proposed by Claude, for Andrew's check: `conductivity` here is electrical and is renamed
 `electrical_conductivity` so the heat system's `thermal_conductivity` is not mistaken for it;
 `edibility` and `potability` become answers the food and water systems derive from real axes and the
 entity's states, and `absorbency` gains a real number, `holds_water` — §4.8.)*
@@ -133,8 +124,8 @@ cordage, `metal` is what makes a sheet reflective.
 | `plastic` | cases, the radio shell, the lighter | middling to cut, bends easily, burns moderately with toxic smoke, takes some work to light, middling rigidity |
 | `rubber` | tyres, hose, insulation | middling to cut, bends at a touch, burns moderately with toxic smoke, insulates well, and conducts **nothing** — the one insulator against current |
 | `copper_wire` | the panel loom, the antenna run | middling to cut, bends at a touch, conducts better than anything else in the table (`extreme`), not rigid |
-| `glass` | ~~the windscreen~~, instrument faces | hard to cut, will not bend at all, will not burn, rigid, brittle — the shard source. *(Claude, 2026-09-26: the 206's windscreen and windows are acrylic, not glass — §4.8)* |
-| `insulation_batting` | the quilted engine cover, wall batting | insulates almost better than anything (`very_high`); burns well and takes some work to light; cuts and tears with no resistance. *(Claude, 2026-09-26: two materials — the fuselage's wall batting is fibreglass, which does not burn; the engine cover's polyester fill does — §4.8)* |
+| `glass` | instrument faces | hard to cut, will not bend at all, will not burn, rigid, brittle — the shard source. *(The 206's windscreen and windows are acrylic, not glass — §4.8, proposed by Claude.)* |
+| `insulation_batting` | the quilted engine cover, wall batting | insulates almost better than anything (`very_high`); burns well and takes some work to light; cuts and tears with no resistance. *(Proposed by Claude: two materials — the fuselage's wall batting is fibreglass, which does not burn; the engine cover's polyester fill does — §4.8.)* |
 | `fuel` | avgas from a ruptured line or a jerry can | burns as hot as anything and catches at a spark, with toxic smoke. Declares no `potability` and no extinguishing tag — it is not a drink and not a douser |
 
 **Fibre, cloth and clothing** *(the kit's materials — players-and-kit, DR-25a)*
@@ -172,7 +163,7 @@ cordage, `metal` is what makes a sheet reflective.
 
 | material | where it is | what the table says |
 |---|---|---|
-| `flesh` | the pilot; any body | cuts easily, middling to tear, bends easily, barely burns and is hard to light, toxic smoke. **It declares no `edibility`** — see §4.7. *(Claude, 2026-09-26: becomes the six body materials — skin, fat, muscle, bone, blood, organs — document 12 §4.3a; §4.8)* |
+| `flesh` | the pilot; any body | cuts easily, middling to tear, bends easily, barely burns and is hard to light, toxic smoke. **It declares no `edibility`** — see §4.7. *(Proposed by Claude: it becomes the six body materials — skin, fat, muscle, bone, blood, organs — document 12 §4.3a; §4.8.)* |
 | `bone` | a body; later, antler and game | hard to cut, `extreme` to tear, hard to bend, barely burns, rigid |
 | `chocolate` | the emergency ration | very edible; burns poorly and is hard to light |
 | `rations` | the survival kit's food | very edible; burns poorly; cuts easily |
@@ -205,9 +196,18 @@ the multitool is a `blade`, the whisky bottle is a `vessel`, a branch is a `rod`
 is `VERB X into <form> [with Z]`, where the form word sits in the Y slot as a pseudo-noun
 (`form:spindle`) exactly as zones do.
 
-**A documentation mismatch to fix in review:** `ontology-closure.md` §2's table lists 15 rows
-covering 20 form words and calls the set "~15"; the code carries 26. The doc is behind the code, not
-the other way round. Neither number is a ceiling (Q3).
+**One list** (Andrew, 2026-09-18): the code's 26 forms are canonical, and `ontology-closure.md` §2 —
+which still lists about fifteen — is corrected to match; so is the stale "extend by evidence, never
+speculatively" comment in `affordances.py`. Neither number is a ceiling.
+
+*(Proposed by Claude, for Andrew's check:)* §4.8's materials bring forms of their own into the floor: a
+carcass's quarters and fillets, a hide, a clay lump and coil, a snow block and ball, a coal. Snaring,
+fishing and trapping (document 10 §4.8) bring three more: **`noose`** (a running loop of wire or cord —
+the snare), **`hook`** (a bent pin or wire, or a carved bone or wood gorge that lodges crosswise in the
+throat — the oldest fish hook), and **`net`** / **`mesh`** (cordage knotted into a grid — a gill net, a
+dip net, a carrying bag). Each is a shape a material takes, with capabilities that follow from material
+× form: a wire noose tightens and holds, a cord noose frays on a gnawing hare, a mesh strains water and
+holds fish.
 
 ### 4.5 What the pair derives
 
@@ -254,46 +254,43 @@ Materials are where the heavy authoring goes; objects are cheap (`authoring-obje
 
 An object then names material ids, a mass in integer grams, and — when the shape matters — a
 `state["form"]`. `make validate` gates it: every material id an object names must exist in the table,
-masses must be integers, and a puzzle-critical object needs its authored rule and ≥3 solution paths in
-the rescue graph. The validator prints the material count on every run.
+and masses must be non-negative integers; a puzzle-critical object also has its authored rule
+(`authored.py`). The validator prints the material count on every run.
 
 ### 4.7 What is missing (from the census)
 
-The valley census (`objects.md`, "New-material & system flags harvested by the census") went looking
-for what a real person would pick up out there and came back with a list the table does not have:
-
-> rock/stone (boiling stones, anvils, flakes — **presently absent!**), bone/antler (billet, tine,
-> scales), fur/hide (marten, hare — insulation values), peat (poor wet fuel), lichen (flash tinder +
-> famine food), punk/rotten wood (ember medium — distinct from sound wood), rubber (tire, tube —
-> black smoke + elastic), kerosene (lamp fuel class), canvas (pack, tarp), babiche/rawhide (lacing),
-> grease/fat (bearing grease, lard — lamp fuel + waterproofing), mica (worthless glitter — the honesty
-> material), brass (benchmark, shells), paper (newspaper, photographs, cards — burnable heartbreak
-> class).
+The valley census went looking for what a real person would pick up out there and came back with a
+list the table does not have: rock and stone (boiling stones, anvils, flakes); bone and antler (billet,
+tine, scales); fur and hide (marten, hare — insulation values); peat (poor wet fuel); lichen (flash
+tinder and famine food); punk or rotten wood (an ember medium, distinct from sound wood); rubber (tyre,
+tube — black smoke and elastic); kerosene (lamp fuel); canvas (pack, tarp); babiche and rawhide
+(lacing); grease and fat (bearing grease, lard — lamp fuel and waterproofing); mica (worthless glitter —
+the honesty material); brass (benchmark, shells); paper (newspaper, photographs, cards — burnable
+heartbreak).
 
 Three of them — `rubber`, `paper` and `bone` — are in the table. **Stone is not**, which is the
-sharpest gap in the table: Andrew's own example of the natural world is "find a rock", a rock is the
+sharpest gap in the table: Andrew's own example of the natural world is finding a rock, a rock is the
 oldest tool there is (an anvil, a hammer, a boiling stone, a spark against steel), and the game
 currently has nothing to make one out of. Soil and clay — his other two examples — are equally absent.
 
-The census also flags that snow and ice are one word each in the table and about twenty in the world
+The census also notes that snow and ice are one word each in the table and about twenty in the world
 (powder, wind-slab, drift, spindrift, sugar snow, sastrugi, rime, hoarfrost; black ice, shore ice,
-pressure slab, overflow, skim ice, glare ice), and notes that "each wants at least a behavior note in
-the table".
+pressure slab, overflow, skim ice, glare ice), each wanting at least a behaviour note. §4.8 makes them
+states of one substance, water.
 
 Two gaps are visible in the table itself rather than the census:
 
 - **`flesh` declares no `edibility`.** With the default-to-`none` rule that means a body is not food,
-  which contradicts the food path in the rescue graph and the `pilot_body` dilemma (design 12). Either
-  the axis is added or the butchered output is a different material (`meat`) that carries it.
-  *(Answered in §4.8, Claude, 2026-09-26: `flesh` becomes the six body materials of document 12
-  §4.3a, each with its food energy and its state-driven hazards.)*
+  which contradicts the pilot's body as food (Andrew, 2026-09-27; document 12) and the `pilot_body`
+  dilemma (document 15). §4.8 replaces `flesh` with the six body materials of document 12 §4.3a, each
+  with its food energy and its state-driven hazards.
 - **Liquids are nearly propertyless.** `water`, `fuel` and `alcohol` carry two or three axes between
   them. Nothing expresses viscosity, freezing point, or what a liquid does to a fire beyond the
-  `extinguisher` tag — and at October freeze-up, when the air crosses 0 °C most days, "does it freeze,
-  and when" is load-bearing. *(Claude, 2026-09-26: "a December valley" superseded by the season;
-  answered in §4.8 — freezing points, flash points and heats of combustion for every liquid aboard.)*
+  `extinguisher` tag — and in the first week of October, when the air crosses 0 °C most days, "does it
+  freeze, and when" is load-bearing. §4.8 gives freezing points, flash points and heats of combustion
+  for every liquid aboard.
 
-### Density, and the bulk it gives (Andrew, 2026-09-18)
+### 4.7a Density, and the bulk it gives (Andrew, 2026-09-18)
 
 Inventory is limited by **weight and space**, and only weight exists today. A down sleeping bag is
 light and enormous; the aircraft battery is small and crushing; a bundle of dry grass weighs nothing
@@ -309,18 +306,17 @@ It also pays for itself elsewhere: density is what decides whether a thing float
 much a snow block weighs when you cut one, and how far a thrown stone carries. Capacity, the other
 half, lives on containers (document 16); the grammar side is document 04 §3.11.
 
-### 4.8 What the state systems need from a material (Claude, 2026-09-26 — §6 Q2 and Q4; for Andrew's check)
+### 4.8 What the state systems need from a material *(proposed by Claude, for Andrew's check)*
 
-Andrew, 2026-09-26 (document 10's review log): heat, wetness, spoilage and the rest are states on every
-entity that really has them, changed by systems — *"snow should melt into water, food change based on
-heat, it is part of the implementation of that particular object, body parts have heat as part of
-their ontology"*. A state lives on the entity: this log's temperature, this fish frozen hard, this
-meat's spoilage. **The material says how that state changes** — how much heat it takes to warm, how
-fast heat passes through it, when it melts, what it gives when it burns, what it feeds and what in it
-can hurt you. That is what the table must carry.
+Heat, wetness, spoilage and the rest are states on every entity that really has them, changed by
+systems; snow melts into water, food changes with heat, and body parts have heat as part of their
+ontology (Andrew, 2026-09-26). A state lives on the entity: this log's temperature, this fish frozen
+hard, this meat's spoilage. **The material says how that state changes** — how much heat it takes to
+warm, how fast heat passes through it, when it melts, what it gives when it burns, what it feeds and what
+in it can hurt you. That is what the table must carry.
 
 **How the numbers are written.** The physical axes are real numbers in real units, with a source on
-every row, exactly as `density` already is (grams per litre, "the real number for each material" —
+every row, exactly as `density` already is (grams per litre, the real number for each material —
 Andrew, 2026-09-18). The ordinal words (§4.1) stay the authoring surface for the axes that are
 judgements a gate compares — cut, tear and bend resistance, ignition difficulty, smoke toxicity —
 because nothing adds them up over time. A system that moves heat, water or calories over time needs the
@@ -365,7 +361,7 @@ answers the food and water systems derive from these, not one word on the materi
 food *and* a hazard; the same steak cooked through is food. *The heat numbers belong to the heat-system
 design and the rest to the food-state and spoilage design — both to be written.*
 
-**One substance, water — snow and ice are its states (§6 Q4).** Snow and ice are both solid water. What
+**One substance, water — snow and ice are its states.** Snow and ice are both solid water. What
 separates powder from wind-slab is how much air is in it, which is a number, and how its grains are
 bonded, which weather and people change. So the table carries **water**, with the constants of all
 three phases, and the entity carries the states: phase (ice · liquid · vapour — steam is document 09's
@@ -374,6 +370,9 @@ packs; cold snow is dry and does not), temperature, and for ice its thickness an
 names — powder, wind-slab, sugar snow, rime, skim ice, black ice… — are words the prose and the
 synonyms key on those states (document 03, extensions 2 and 4), not twenty materials. The existing
 `snow` and `ice` rows are how the code says this today; in the store they become states of `water`.
+It follows Andrew's rule that snow melts into water as part of the object's own implementation
+(2026-09-26), and the same density is what the snow shelter reads (conductivity rises with it) and what
+document 09's melt ratios already are.
 
 | water as | density (g/L) | what it does |
 |---|---|---|
@@ -387,11 +386,12 @@ synonyms key on those states (document 03, extensions 2 and 4), not twenty mater
 density — about 0.05 W/m·K for new snow, about 0.13 at 300 g/L, about 0.25 at 400 (Sturm and others
 1997, *Journal of Glaciology*) — against 2.2 for ice and 0.024 for still air: loose snow insulates like
 a quilt, packed snow like wood, ice hardly at all. That is the snow shelter and the snow wall of
-document 08, from one axis. Freeze-up ice is the other half: **10 cm (4 in) of clear ice to walk on** is
-the rule Alaskans are given; white snow-ice is weaker than clear; skim ice a few millimetres thick holds
-nothing. Lake ice thickens roughly with the square root of the cold it has accumulated — a week of
-freeze-up nights may take it from skim to walkable, and a blanket of new snow on top slows it (Stefan's
-ice-growth law; a first figure for the weather system).
+document 08, from one axis. The first ice of the season is the other half: **10 cm (4 in) of clear ice
+to walk on** is the rule Alaskans are given; white snow-ice is weaker than clear; skim ice a few
+millimetres thick holds nothing. Lake ice thickens roughly with the square root of the cold it has
+accumulated — a week of cold nights may take it from skim toward walkable, and a blanket of new snow on
+top slows it (Stefan's ice-growth law; a first figure for the weather system). How far it gets in the
+run's week follows the week's weather (document 13 §4.2).
 
 **Every material, first physical figures** *(handbook values, rounded; ranges where the real thing
 varies; each row's pass confirms its figure at source when it writes the row — the sources are listed
@@ -430,14 +430,14 @@ below)*
 | rations (ration bars, Pilot Bread) | ~1,000 | ~1.5 | — | — | 430–500 kcal per 100 g |
 | fish (salmon) | ~1,050 | 3.6 thawed · 1.9 frozen | 0.5 thawed · ~1.5 frozen | — | freezes near −2 °C; coho 146 kcal per 100 g; thaws more slowly than it froze, because the thawed outside conducts worse |
 
-**What the valley, the season and the state systems add.** Every one is in the design now (§6 Q1), each
-with the axes above, and each gives a survivor a real distinction to act on:
+**What the valley, the season and the state systems add.** Every one is in the design, each with the
+axes above, and each gives a survivor a real distinction to act on:
 
 | material | where | the real distinction |
 |---|---|---|
 | **the body materials** — skin, fat, muscle, bone (with marrow), blood, organs | every body: the pilot's (document 12 §4.3a), every kill | `flesh` becomes these six, the same for a person, a hare or a bear, each species with its own figures. Muscle is about 1,300 kcal a kilogram and fat about 5,700 (Cole 2017, *Scientific Reports*); blood freezes; marrow is mostly fat |
 | stone (the Interior's schist, granite and quartz, in bedrock and creek gravel) | the ridge, the creek bar, the erratic | 2,600–2,750 g/L, 0.79 J/g·K, 2.5–3.5 W/m·K; quartz is hardness 7. It stores heat — a kilogram at 400 °C holds enough above boiling to warm a litre of water by about 55 °C (stone-boiling; a hot stone in a sock warms a bed); it strikes sparks off carbon steel; **wet creek stones can burst in a fire** as the water in them turns to steam |
-| soil (silt and loam) | everywhere under the snow | 1,100–1,600 g/L; thawed, it digs; frozen, it is nearly rock, and it carries heat better than thawed soil because ice conducts four times better than water. At freeze-up it is a frozen crust over soft ground, thicker every clear night; a fire thaws it |
+| soil (silt and loam) | everywhere under the snow | 1,100–1,600 g/L; thawed, it digs; frozen, it is nearly rock, and it carries heat better than thawed soil because ice conducts four times better than water. In early October it is a frozen crust over soft ground, thicker every clear night; a fire thaws it |
 | clay | the creek cut, the pond edge | plastic only at the right water content (a state), crumbling dry, rock-hard frozen; fired above about 600 °C — which a hot fire reaches — it becomes pottery: a vessel |
 | sphagnum and peat | the muskeg | sphagnum holds many times its dry weight in water and was a wound dressing in the First World War; dry peat burns slowly (~20 MJ/kg dry), wet peat not at all |
 | lichen | the ridge, the spruce | reindeer lichen and the hair lichens on spruce: flash tinder dry; famine food only after boiling out its acids |
@@ -471,6 +471,29 @@ reminds hunters: bear meat…" · Carmody, Weintraub and Wrangham 2011, *PNAS* 1
 *Scientific Reports* 7:44707 · LP Aero Plastics (206 acrylic windscreens) · IFLScience, "Why you should
 never use river rocks in a campfire" · U.S. Army FM 21-76 (the metal fuselage in the cold).
 
+### 4.9 The order materials go in, and how the table grows *(proposed by Claude, for Andrew's check)*
+
+**The order.** Every material named in §4.7 and §4.8 is in the design: the ontology store's
+`materials.yaml` carries each, with its axes and a source for every number, and the loops add more
+(document 05 §4.5). The only order is the runtime table's, and it follows the system build order
+(document 06: scheduler → fire → warmth → hunger and thirst → injury → the pilot's body and `status`):
+each material lands with the first system that reads it. **With fire** — stone (the hearth ring, sparks
+off carbon steel, heated stones), birch bark, punk wood and chaga, lichen, spruce pitch, charcoal and
+ash, kerosene, and the heat axes on every row. **With warmth** — fur and hide, feathers, canvas, the
+batting split in two, acrylic. **With water** — water's phases and snow's states. **With hunger** — the
+six body materials, fat, fish and game species, berries, roots and mushrooms with their hazards. **With
+injury** — sphagnum, spruce pitch as an antiseptic, willow bark. **Soil and clay** come with the first
+`dig`, which the season brings forward: in early October the ground is open under an inch of snow and
+roots are there to be dug (document 23). Stone leads, because fire needs it.
+
+**How the table grows.** By document 05's store: the loops write material rows into `materials.yaml` as
+candidates, with provenance; the merge unions and never drops; nothing reaches `table.py` until the
+zone that uses it is finalized and the converter writes it; a row is never deleted, only superseded;
+`make validate-ontology` checks the schema. What stops drift is that real life is the default answer
+(`README.md`): every physical number on a row carries its source, and the validator treats a physical
+axis without one as an error — so an agent can add a material or a value freely, and cannot add an
+unsourced one.
+
 ## 5. Interactions
 
 **Depended on by:** almost everything. Fire and shaping (07) reads `burnability`, `ignition_difficulty`
@@ -478,149 +501,31 @@ and the tinder derivation; warmth and clothing (08) reads `insulation` and `abso
 insulation × capped mass, DR-25); water (09) reads `potability`; food and hunger (10) reads
 `edibility`; the grammar (04) and the ontology (05) rest on capabilities rather than verb-to-tool
 lists; rooms (17) and the player view (03) render derived objects through form-keyed prose; the pilot
-and bodies (12) needs `flesh` to be food. *(Claude, 2026-09-26:)* the **heat system** and the
-**food-state and spoilage system** — neither has a design document yet, both to be written — read the
-physical axes of §4.8; the rooms and the plane (17 §4.8) read the aluminium, the acrylic and the
-batting.
+and bodies (12) needs the body to be food. The **heat system** and the **food-state and spoilage
+system** — neither has a design document yet, both to be written — read the physical axes of §4.8; the
+rooms and the plane (17 §4.8) read the aluminium, the acrylic and the batting.
 
 **Depends on:** the ontology and sufficiency document (05) for how the sets grow, and the world-building
 loops (22), which are the mechanism that grows them.
 
 ## 6. Open questions
 
-**Re-reviewed 2026-09-26 (Claude, `PLAN.md` A9) against block 1, the season and the state systems.**
-Q1, Q3, Q4 and Q5 are answered by reality or by the decided design, each marked for Andrew's check; Q2 is
-rewritten (it deferred the axes the state systems need). Nothing here is left for Andrew beyond checking
-those answers and §4.8. The original wording of every question is kept as the record.
-
-~~**Q1 — In what order do the natural materials go in?**~~ **Claude's answer (2026-09-26), for Andrew's
-check:** every one is in the design now — the ontology store's `materials.yaml` carries each material
-named in §4.7 and §4.8, with its axes and a source for every number, and the loops add more (document 05
-§4.5). The only order is the runtime table's, and it follows the build order Andrew kept (document 06:
-scheduler → fire → warmth → hunger and thirst → injury → the pilot and `status`): each material lands
-with the first system that reads it. **With fire** — stone (the hearth ring, sparks off carbon steel,
-heated stones), birch bark, punk wood and chaga, lichen, spruce pitch, charcoal and ash, kerosene, and
-the heat axes on every row. **With warmth** — fur and hide, feathers, canvas, the batting split in two,
-acrylic. **With water** — water's phases and snow's states (Q4). **With hunger** — the six body
-materials, fat, fish and game species, berries, roots and mushrooms with their hazards. **With injury**
-— sphagnum, spruce pitch as an antiseptic, willow bark. **Soil and clay** come with the first `dig`,
-which the season brings forward: in October the ground is open under an inch of snow and roots are
-there to be dug (document 23). Stone leads, because fire needs it.
-
-*(The original, kept as the record:)* **Q1 — In what order do the natural materials go in?** *(Reframed 2026-09-18: every material named
-anywhere is in the design; the only question is build order.)*
-Options: (a) stone, soil and clay first — the three Andrew named, and the absence of stone is a hole
-in his own example — then the census list (bone and antler, fur and hide, peat, lichen, punk wood,
-rubber, kerosene, canvas, rawhide, grease, mica, brass, paper) and whatever the loops add;
-(b) the whole census list in one pass; (c) a different order — name it.
-*Recommendation then:* (a), with everything else queued rather than deferred indefinitely.
-
-~~**Q2 — What property axes are missing, and which do we add before content needs them?**~~
-**Rewritten (Claude, 2026-09-26):** its recommendation, "add an axis only when an operation reads it",
-is the minimum-then-grow schema Andrew rejected for the ontology on 2026-09-18 (document 05 Q1: designed
-in full, up front, because a field added after 59 zones of data means backfilling every one), and it
-would have left heat, spoilage and cooking without the numbers his 2026-09-26 decision needs. **The
-answer** is §4.8, from real physics: heat (specific heat, thermal conductivity, emissivity); phase
-(melting, freezing and boiling points and their latent heats; softening and charring); burning (heat of
-combustion, ignition temperature, flash point); water (`holds_water`); food (energy and its split,
-water fraction, cooking temperature, cooking gain, hazards and what kills them, spoilage by
-temperature); and the mechanical extras the census asked for (hardness and the spark, elasticity,
-shrinking as it dries). `flesh` becomes the six body materials of document 12 §4.3a; the old electrical
-`conductivity` is renamed so it is not mistaken for heat.
-
-*(The original, kept as the record:)* **Q2 — What property axes are missing, and which do we add before content needs them?**
-Known candidates: `edibility` on flesh (or a `meat` material); a freezing point and a viscosity for
-liquids; hardness/friability and a spark axis for stone; a wetness interaction for fuels that are
-poor *because* they are wet (peat); an ember-medium axis distinguishing punk wood from sound wood;
-`elasticity` for rubber and sinew. Options: (a) add an axis only when an operation reads it; (b) add
-the obvious set now.
-*Recommendation then:* (a), with the `flesh`/`meat` fix taken immediately because a designed path already
-depends on it.
-
-~~**Q3 — The two forms lists.**~~ **Claude's answer (2026-09-26), for Andrew's check:** Andrew already
-answered it on 2026-09-18, in document 07 (Q1): the code's 26 forms are canonical and
-`ontology-closure.md` §2 is corrected to match — one list, floors everywhere. Two loose ends for
-whoever makes that change: the stale "extend by evidence, never speculatively" comment in
-`affordances.py`, and document 05 §4.2, which still says "the starting forms (~15)". And §4.8's
-materials bring forms of their own into the floor: a carcass's quarters and fillets, a hide, a clay lump
-and coil, a snow block and ball, a coal. Snaring, fishing and trapping (document 10 §4.8) bring three
-more, proposed here: **`noose`** (a running loop of wire or cord — the snare), **`hook`** (a bent pin or
-wire, or a carved bone or wood gorge that lodges crosswise in the throat — the oldest fish hook), and
-**`net`** / **`mesh`** (cordage knotted into a grid — a gill net, a dip net, a carrying bag). Each is a
-shape a material takes, with capabilities that follow from material × form: a wire noose tightens and
-holds, a cord noose frays on a gnawing hare, a mesh strains water and holds fish.
-
-*(The original, kept as the record:)* **Q3 — The two forms lists.**
-The doc says ~15 forms, the code has 26, and the code's comment still says "extend by evidence, never
-speculatively" — phrasing the provenance audit removed from the docs as ceiling framing. Options:
-(a) make the closure doc's table match the code and delete the stale comment; (b) treat the doc's 15
-as the taught set and the code's 26 as the internal set.
-*Recommendation then:* (a). One list, floors everywhere, no ceilings in the comments.
-
-~~**Q4 — Snow and ice sub-types: material rows, or state on one material?**~~ **Claude's answer
-(2026-09-26), for Andrew's check:** state on one material — and the material is **water**. Snow and ice
-are solid water; powder and wind-slab differ in how much air is in them (50–70 g/L against 350–400,
-Cuffey and Paterson) and in how their grains are bonded, both of which weather and people change; ice
-differs from both in being solid (917 g/L). So one substance carries the constants of all three phases,
-and each entity carries phase, density, grain and crust, liquid-water content, temperature, and for ice
-its thickness and clarity. The twenty names are words keyed on those states. It is Andrew's own rule —
-*"snow should melt into water … it is part of the implementation of that particular object"* — and the
-same density is what the snow shelter reads (conductivity rises with it, Sturm 1997) and what document
-09's melt ratios already are. §4.8 has the table.
-
-*(The original, kept as the record:)* **Q4 — Snow and ice sub-types: material rows, or state on one material?**
-Options: (a) rows per sub-type (twenty-odd materials for snow alone); (b) one `snow` material plus a
-state axis (density, crust, wetness) that the prose and the operations read; (c) the current single
-row plus authored prose.
-*Recommendation then:* (b) — the difference between powder and wind-slab is a number, not a different
-substance, and it is the same axis a snow shelter needs.
-
-~~**Q5 — How do the loops add materials, and what stops the table drifting?**~~ **Claude's answer
-(2026-09-26), for Andrew's check:** decided already, by document 05's store (Andrew, 2026-09-18). The
-loops write material rows into `materials.yaml` as candidates, with provenance; the merge unions and
-never drops; nothing reaches `table.py` until the zone that uses it is finalized and the converter
-writes it; a row is never deleted, only superseded; `make validate-ontology` checks the schema. What
-stops drift is the new rule that real life is the default answer (`README.md`): every physical number on
-a row carries its source, and the validator treats a physical axis without one as an error — so an
-agent can add a material or a value freely, and cannot add an unsourced one.
-
-*(The original, kept as the record:)* **Q5 — How do the loops add materials, and what stops the table drifting?**
-The table is the hand-curated quality anchor (DR-04/DR-17), and the overnight loops are meant to grow
-the world. Options: (a) agents propose rows, a person reviews each one before it lands; (b) agents add
-rows freely and the validator plus probes are the only gate; (c) agents may add *tags and axes to
-existing rows* freely but new materials need review.
-*Recommendation then:* (c). New materials are where the quality anchor actually matters; extending an
-existing row is the cheap, safe half.
+None open. Claude's proposals — the new forms (§4.4), the axes and materials of §4.8, and the order and
+growth of §4.9 — are for Andrew's check at this document's sitting.
 
 ## 7. Review log
 
-*Not yet reviewed. 2026-09-16: written by reading the shipped table and the closure spec; §4.3 is a
-transcription, §4.7 and §6 are the honest gaps.*
-
-- **2026-09-18 (Andrew, block 1):** `density` proposed as a material axis so **bulk** can derive from mass;
-  inventory is limited by weight *and* space (document 04 §3.11, Q12).
-
-- **2026-09-18 (Andrew):** `density` is **in** — bulk derives from mass ÷ density, authored wins.
-
-- **2026-09-26 (Claude, self-review — PLAN.md A9):** re-checked against block 1, the October season and
-  Andrew's 2026-09-26 direction that heat, spoilage, cooking and freezing are state systems. **Design
-  text:** §4.8 added — the physical axes the heat and food-state systems read (specific heat, thermal
-  conductivity, emissivity, phase points and latent heats, softening, heat of combustion, ignition
-  temperature, flash point, water held; food energy and its split, water fraction, cooking temperature,
-  cooking gain, hazards, spoilage), written as real numbers with sources as `density` is; water as one
-  substance with snow and ice as its states, with the density table, snow's conductivity and freeze-up
-  ice; first physical figures for all 32 rows; the materials the valley, the season and the systems add
-  (the six body materials of document 12 §4.3a replacing `flesh`, stone, soil, clay, sphagnum and peat,
-  lichen, punk wood and chaga, birch bark, pitch, fat, hide and sinew, feathers, one material per food
-  species, acrylic, fibreglass batting, lead, battery electrolyte, kerosene, canvas, charcoal and ash,
-  brass, mica). Corrections: the windscreen is acrylic, not glass; `insulation_batting` is two
-  materials; the electrical `conductivity` is renamed; "a December valley" superseded. **Answered for
-  Andrew's check:** Q1 (all in the design now; runtime order follows document 06's system build order,
-  stone first), Q3 (already Andrew's, document 07 Q1; the forms `noose`, `hook` and `net`/`mesh`
-  proposed for snaring and fishing), Q4 (one substance, water; snow and ice are its
-  states), Q5 (document 05's store rules, plus a source required on every physical number).
-  **Rewritten:** Q2 (it deferred the axes; the schema is designed in full). **Left for Andrew:** only
-  the check of §4.8. **Needs design documents:** the heat system; the food-state and spoilage system.
+- **2026-09-16 (Claude):** written by reading the shipped table and the closure spec; §4.3 is a
+  transcription, §4.7 the honest gaps.
+- **2026-09-18 (Andrew):** `density` is in — bulk derives from mass ÷ density, authored wins; inventory
+  is limited by weight and space (document 04 §3.11).
+- **2026-09-26 (Andrew, in document 10's review):** heat, spoilage, cooking and freezing are state
+  systems on every entity that really has them, body parts included.
+- **2026-09-26 (Claude, self-review):** the physical axes the state systems read, as real numbers with
+  sources; water as one substance with snow and ice as its states; first physical figures for every
+  row; the materials the valley, the season and the systems add; the windscreen is acrylic,
+  `insulation_batting` is two materials, `conductivity` is renamed; the forms `noose`, `hook` and
+  `net`/`mesh`; the order materials go in and how the table grows — all for Andrew's check.
 
 ## 8. What exists today
 
@@ -637,16 +542,15 @@ transcription, §4.7 and §6 are the honest gaps.*
   capability axes in §4.5, with the caps, the mass gates and the authored-override rule.
 - `game/world/sim/validation` — `make validate` checks that every material id an object names exists,
   and prints the material count.
-- Coverage today (counted 2026-09-16): the 99 authored objects in `objects.py` plus the kit outfits in
+- Coverage (counted 2026-09-16): the 99 authored objects in `objects.py` plus the kit outfits in
   `characters.py` draw on **31 of the 32** rows, and every material they name exists in the table.
   `bone` is the one row authored ahead of an object that uses it.
 
-**Designed, not built.** The stale "~15" forms table in `ontology-closure.md` §2; every material in
-§4.7 (stone, soil, clay, fur/hide, peat, lichen, punk wood, kerosene, canvas, rawhide, grease, mica,
-brass); the snow and ice sub-type behaviour; `edibility` on flesh or a `meat` material; any liquid
-axis beyond potability. *(Claude, 2026-09-26:)* `density` — decided 2026-09-18 — is not yet in
-`table.py`; nor is any axis of §4.8, water as one substance with snow and ice as states, or any of the
-materials §4.8 adds.
+**Designed, not built.** The correction of `ontology-closure.md` §2's forms table (it still says about
+fifteen) and of the comment in `affordances.py`; every material in §4.7 (stone, soil, clay, fur and
+hide, peat, lichen, punk wood, kerosene, canvas, rawhide, grease, mica, brass); snow and ice as states of
+water; the body materials in place of `flesh`; any liquid axis beyond potability. `density` — decided
+2026-09-18 — is not yet in `table.py`; nor is any axis of §4.8, or any of the materials §4.8 adds.
 
 **Nothing.** No process adds materials automatically; there is no bake pipeline yet (the ordinal→number
 mapping in `materials.py` *is* the bake for now, as its docstring says), and no loop has yet proposed

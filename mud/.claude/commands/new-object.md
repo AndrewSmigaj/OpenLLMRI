@@ -9,8 +9,8 @@ If `$ARGUMENTS` is empty, ask for an object name and stop.
 
 Steps:
 
-1. **Read the templates first.** Open `docs/scenarios/whiteout/design.md` §43.1 (the Object
-   Authoring Packet), the authoring guide in `docs/guides/` (objects), and
+1. **Read the templates first.** Open `docs/design/05-ontology-and-sufficiency.md` §4.5 (the entity
+   schema), the authoring guide in `docs/guides/` (objects), and
    `game/world/sim/contracts.py` for the `ObjectPacket` / `Part` / `Attachment` / `Material`
    field sets. Skim an existing object under the scenario's `objects/` for house style.
 
