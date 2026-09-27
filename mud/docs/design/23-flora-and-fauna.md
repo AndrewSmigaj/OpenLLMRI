@@ -309,7 +309,8 @@ country's own spoiled and poisonous things are §4.2 above.
   walled off.
 - **Throwing and the sling.** Andrew's design (2026-09-17), in real terms (document 10 §4.8). Rocks are
   found where rocks are — the ridge, the creek bar, the muskeg erratic — and the first inch of snow
-  hides the small ones. Each throw is a seeded roll, announced, whose terms are real: range, the
+  hides the small ones. What a throw does is told as feedback, never as a dice roll (2026-09-27); its
+  terms are real: range, the
   projectile's mass and shape, the target's size and behaviour, the thrower's arm and cold hands
   (document 08). The odds rise with tries for a real reason — the thrower learns the range of a bird
   that stays put, and a spruce grouse stays put — and fall when the bird is alarmed (a ptarmigan runs

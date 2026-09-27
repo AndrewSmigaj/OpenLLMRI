@@ -30,12 +30,23 @@
   and the time an act takes depend on who they are — a woodsman lights fires better, and a nurse's
   hands are better at wound care. It shows only in the outcome, never as advice; the player still has
   to know what to do.
+- **(2026-09-27)** **No hit points.** A wound is a named thing on a body part — a kind, a severity,
+  bleeding or not, bound or not, and later infection — and each part has its own heat, wetness, pain
+  and covering (§4.1, §4.6).
+- **(2026-09-27)** **Players see meters** for what a person can sense about their own body, hunger
+  among them: people are not cut off from their own senses. The meters are document 08 §4.9's.
+- **(2026-09-27)** **A blow wounds only when it would really hurt.** Common sense and real physics
+  decide: a feather does nothing; a spear thrust punctures.
+- **(2026-09-27)** **Combat is roughly a MUD's, changed to suit this game.** Nothing in it is
+  automatic: each attack is typed, like any other act. No attack hits automatically either: as in D&D,
+  whether it lands depends on the fighters' stats and on chance. The combat document, to be written,
+  designs it.
 
 ### Proposals (Claude)
-Everything else here is Claude's, for Andrew's check: the wound model and the bleeding and infection
-processes; which injury each slot draws; the body as an entity with parts and states (§4.6); the
-treatments as operations (§4.7–§4.12); the injury list beyond the crash's; every number. The real-world
-sources are listed at the end of §4.6.
+Everything else here is Claude's, for Andrew's check: the bleeding and infection processes; which
+injury each slot draws; the rest of the body as an entity with parts and states (§4.6); the treatments
+as operations (§4.7–§4.12); the injury list beyond the crash's; every number. The real-world sources
+are listed at the end of §4.6.
 
 ## 3. In one paragraph
 
@@ -54,17 +65,16 @@ start to matter, and first aid stops being a one-off act and becomes a thing you
 
 ### 4.1 The rules
 
-1. **Wounds are named things on a body part, not a hit-point total.** The shipped shape is `{part, kind,
-   severity, bleeding (grams per minute, 0 = none), bound?, infected_at, note}`, and a person has a
-   list of them. *(Proposed by Claude, for Andrew's check:)* a wound is a state on a body **part**, and
-   the part is an entity with its own heat, wetness, pain and covering (§4.6); a wound gains
-   `contamination` and `pain`, and `infected_at` becomes the state of the infection process (§4.8).
-   There are no hit points anywhere: a body has none, so the game has none. The combat system is built
-   on this, not beside it — a spear thrust is a `point` wound to the part it reaches, through what that
-   part wears; a stick is `heft` — a bruise, a break, a concussion; the bear's claws are `edge`, its bite
-   a puncture and a crush. What combat *feels* like — the exchange of blows, its pace, breaking off and
-   running — is the combat design's to write; that every blow resolves into a named wound on a body
-   part is this document's rule.
+1. **Wounds are named things on a body part; there are no hit points** (2026-09-27). A body has none,
+   so the game has none. The shipped shape is `{part, kind, severity, bleeding (grams per minute, 0 =
+   none), bound?, infected_at, note}`, and a person has a list of them. A wound is a state on a body
+   **part**, and the part is an entity with its own heat, wetness, pain and covering (§4.6); a wound
+   gains `contamination` and `pain`, and `infected_at` becomes the state of the infection process
+   (§4.8). **A blow wounds only when it would really hurt** (2026-09-27): what struck, how hard, where
+   it landed and what that part wears decide it, by common sense and real physics — a feather does
+   nothing, a shove may only knock someone off their feet, a punch through a parka may not even bruise,
+   a spear thrust punctures what it reaches, the bear's claws cut and tear. How a fight plays is the
+   combat design's (§5); what a blow that lands does to a body is this document's.
 2. **Bleeding is a process, and blood loss kills** (2026-09-27). *(Proposed by Claude, for Andrew's
    check:)* bleeding spends **blood volume**, in millilitres — about 70 mL per kilogram of body weight,
    some 5 L in a 70 kg adult — and a body short of blood makes less heat, so it costs warmth too.
@@ -92,7 +102,8 @@ start to matter, and first aid stops being a one-off act and becomes a thing you
    `drag` a person (§4.7–§4.9).
 6. **The injury is in the description.** `examine me` reads your wounds back to you in plain words —
    this is shipped: *"Your forearm is cut and bleeding; your ankle is sprained."* The `status` screen
-   reports them too, in band words, never numbers (document 08 §4.9).
+   reports them too, in band words, never numbers, and the meters show what the body feels at a glance
+   (2026-09-27; document 08 §4.9). A wound is never a meter: it is named.
 7. **Never a menu, and common sense is hinted.** The game does not tell you to press the wound, does
    not list the med pouch's contents when you are bleeding, and does not name the tourniquet. It says
    the sleeve is soaking.
@@ -229,7 +240,7 @@ what the cold and blood loss find:
 | source | what it does to a part | owned by |
 |---|---|---|
 | the crash | the starting draw (§4.2) | document 16 |
-| a person with a stick, a spear, a knife, a rock | `heft` bruises, breaks bone, concusses; `edge` cuts; `point` punctures — small, deep and dirtier than it looks; what covers the part changes what gets through | **the combat design, to be written** |
+| a person with a stick, a spear, a knife, a rock | when the blow is hard enough to hurt: `heft` bruises, breaks bone, concusses; `edge` cuts; `point` punctures — small, deep and dirtier than it looks; what covers the part changes what gets through. Whether an attack lands at all is the fighters' stats and chance (2026-09-27) | **the combat design, to be written** |
 | the bear and the other animals that act | claws cut and tear; a bite punctures and crushes. Every animal wound is heavily contaminated | document 23 and **the animal-behaviour design, to be written** |
 | a fall — the cornice, the climb, a slip on the ice | a sprain, a break, a head strike. **Dangerous places injure, never kill outright; fitness matters; the dice roll is announced** (2026-09-17) — the wound then runs its own real clock, which the party can answer | documents 01 and 13 |
 | cold air on a part | the part's `heat` falls: fine work goes when finger skin is below about 15 °C, the part is numb below about 7 °C, and it freezes below about −0.5 °C | document 08 (extremities); **the heat design** |
@@ -410,7 +421,8 @@ asks how; given the means it performs the act they imply and this system answers
 - **13 Events, escalation and weather** — the week's cold, wet and light (13 §4.2); the Bodies cards.
 - **01 Premise and world** and **13** — the dangerous places and the ice, which deliver wounds and never
   kill outright.
-- **The combat design** *(to be written)* — blows, cuts and stabs, delivered as wounds on parts.
+- **The combat design** *(to be written)* — each attack typed, landing by the fighters' stats and
+  chance; the blows that really hurt arrive here as wounds on parts.
 - **The heat design** *(to be written)* — `heat` on every body part, contact heat and cold, burns, the
   plane's openings and internal air (carbon monoxide, smoke).
 - **23 Flora and fauna** and **the animal-behaviour design** *(to be written)* — the bear's and the other
@@ -441,6 +453,10 @@ None open.
   real medicine and wilderness first aid (§4).
 - **2026-09-27 (Andrew):** characters differ in how well and how fast they do things; what kills is
   blood loss, the bear, the cold and thirst — poison sickens but never kills, and other harms weaken.
+- **2026-09-27 (Andrew, the document's sitting):** item 1 — no hit points: named wounds on body parts,
+  each part with its own states; meters for what the body feels (document 08 §4.9); a blow wounds only
+  when it would really hurt; combat is roughly a MUD's, with every attack typed and landing by stats
+  and chance, as in D&D.
 
 ## 8. What exists today
 

@@ -72,10 +72,12 @@ The decisions that shape a run, in plain words; every one of them, with its date
   which the players can pause and return to; not an ongoing world. A missing player's character goes
   catatonic, sits down and stares; the others can keep them alive, and they can die. Agent runs are
   short sessions too.
-- **What kills (2026-09-17, 2026-09-26, 2026-09-27).** Death comes from blood loss, the bear and the
-  cold. Poison makes people very sick but never kills; other harms make them weak and sick. Dangerous
-  places injure but never kill outright. No gate on violence: it resolves with real physics, through a
-  combat system like a MUD's. Hunger works as it does in real life.
+- **What kills (2026-09-17, 2026-09-26, 2026-09-27).** Death comes from blood loss, the bear, the cold
+  and thirst. Poison makes people very sick but never kills; other harms make them weak and sick.
+  Dangerous places injure but never kill outright. No gate on violence: it resolves with real physics,
+  through a combat system roughly like a MUD's — nothing automatic, each attack typed, landing by the
+  fighters' stats and chance as in D&D; a blow wounds only when it would really hurt; no hit points.
+  Hunger works as it does in real life, and players see meters for what the body feels.
 - **Getting home (2026-09-17, 2026-09-27).** Three ways: the radio, a signal a plane can see, surviving
   long enough — exactly as document 14 §3. The ELT is broken. Surviving long enough is the hardest way;
   the default rescue is day 7. Walking out is not an ending; Holt's cabin is supplies — some trapline
@@ -450,7 +452,7 @@ None open. Each system document holds its own.
 (03) · the new forms, `make` as the aim-verb, quantities, `help grammar` without a verb list (04) · the
 running clock at its rates, fast forward, activities with ticks and interrupts, sleep, the watch (06) ·
 fire as a process, the ignition model, the shaping family, the seven methods (07) · warmth, clothing,
-the huddle, drying, `status` (08) · water in millilitres, thirst, the cost of eating snow (09) · hunger,
+the huddle, drying, `status` and the meters (08) · water in millilitres, thirst, the cost of eating snow (09) · hunger,
 food states and spoilage (10) · bleeding, infection, frostbite and the wound verbs (11) · the pilot's
 body (12) · the ladder, the event deck, the weather (13) · the hand radio, the voice, signals and the
 flyovers (14) · ownership, witnessing, the event log and the action tags (15) · the 206's four-seat

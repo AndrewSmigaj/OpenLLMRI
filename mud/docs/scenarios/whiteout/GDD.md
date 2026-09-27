@@ -204,7 +204,8 @@ weather/occlusion-aware (§14 bands). `look` renders perception; activity/speech
 × weather (Evennia: `return_appearance`/`get_display_*` + an rpsystem-`send_emote`-style propagator).
 Speech ranges whisper/say/call/shout, weather-modified (§15). The look is a title line, prose composed
 from state, people and animals as prose and exits as entities in prose — no item list; an agent sees
-exactly what a human sees (2026-09-16, 2026-09-17; document 03). Zones and perception bands are built
+exactly what a human sees (2026-09-16, 2026-09-17; document 03). Players see meters for what a person
+can sense about their own body, hunger among them (2026-09-27; document 08 §4.9). Zones and perception bands are built
 in a first version (DR-13a).
 
 ## §9/§16. Time, multiplayer, cooperation
@@ -266,11 +267,14 @@ One chapter per system; each is its own document, reviewed separately.
   spoiled — and there are poisonous mushrooms. The freight, people's bags, the
   country (berries, snares, birds brought down by anything thrown, fish, roots), the body; hunting, trapping, fishing
   and killing are real operations, each variant its own (2026-09-26, 2026-09-27). Documents 10 and 23.
-- **Injury and first aid** — named wounds with clocks; improvised care. **Death comes from blood loss,
-  the bear and the cold**; poison makes people very sick but never kills; other harms — infection,
-  carbon monoxide and the rest — make them weak and sick; dangerous places injure but never kill
-  outright, fitness matters, and a seeded dice roll is announced. There is no gate on violence: it
-  resolves with real physics, through a combat system like a MUD's (2026-09-26, 2026-09-27). Document 11.
+- **Injury and first aid** — named wounds on body parts, with clocks, and no hit points; improvised
+  care. **Death comes from blood loss, the bear, the cold and thirst**; poison makes people very sick
+  but never kills; other harms — infection, carbon monoxide and the rest — make them weak and sick;
+  dangerous places injure but never kill outright, fitness matters, and a seeded dice roll is
+  announced. There is no gate on violence: it resolves with real physics, through a combat system
+  roughly like a MUD's — nothing automatic, each attack typed, landing by the fighters' stats and
+  chance as in D&D — and a blow wounds only when it would really hurt (2026-09-26, 2026-09-27).
+  Document 11.
 - **The pilot and bodies** — document 12.
 
 ## §37–§39. Rescue

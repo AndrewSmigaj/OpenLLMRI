@@ -395,7 +395,7 @@ None open. The proposals in §4 wait for Andrew's check at this document's sitti
   interior-Alaska data; the animals act; how an event runs; what is built first; weather as state.
 - **2026-09-27 (Andrew):** the same weather every run; light snow on days 1–2, the storm on days 3–4,
   clearing after; the default rescue on day 7, with the same flyovers every run; what kills — blood
-  loss, the bear and the cold.
+  loss, the bear, the cold and thirst.
 - **2026-09-27 (Andrew):** the season is the first week of October, for more than ten hours of
   daylight; the ladder rebuilt for it from the Fairbanks record.
 

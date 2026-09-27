@@ -53,7 +53,8 @@ Everything else here is a proposal, offered because the decisions above need a m
 - the **feedback grammar** (start / tick / interrupt / complete / third-person lines);
 - **which events count as ambient** and which do not (§4.2);
 - **sleep as a priced resource** (fatigue, the bedding score, the next-day cost);
-- `status` showing **bands, never numbers** (the body reported in words is Andrew's, document 08);
+- `status` showing **bands, never numbers** (the body reported in words is Andrew's, document 08), and
+  the meters beside it (2026-09-27; document 08 §4.9);
 - the rate limit on lines during fast forward;
 - DR-27 (*Activities & processes*), recorded in `implementation-architecture.md` as designed in
   2026-09 and reviewed here before promotion.
@@ -203,7 +204,8 @@ one tends the fire while the others sleep, and the fire can be banked to last th
 `status` (and the inventory footer) turns the numbers into prose: *You are shivering, hungry, and your
 left forearm is bleeding into the bandage. The fire is burning low. About four hours of light left.*
 Bands, never raw numbers — an agent sees exactly what a human sees; the per-step log carries the actual
-numbers for analysis. `status` is one of the commands that don't interrupt an activity.
+numbers for analysis. The meters show the same body at a glance, as bars in the prompt line (document
+08 §4.9). `status` is one of the commands that don't interrupt an activity.
 
 ### 4.8 The run
 

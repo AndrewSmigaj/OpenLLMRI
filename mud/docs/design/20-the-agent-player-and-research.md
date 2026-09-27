@@ -112,7 +112,7 @@ not see. The rule is one line: *structure goes to the log, never to the screen.*
 person is shown, in the same order, and nothing a person is not: the tutorial — a series of rooms,
 each one simple situation that shows what sort of things players can do (Andrew, 2026-09-27;
 `PLAN.md` E19) — and then the run's opening. Who it is, what it wears and carries and how it is hurt,
-it learns as a person does: `status`, `inventory`, looking at itself (the draw is made at run start,
+it learns as a person does: the meters, `status`, `inventory`, looking at itself (the draw is made at run start,
 document 16). A character sheet would be a second channel, which the same-view rule forbids. A model
 playing a **non-human character** also has its persona brief (Andrew, 2026-09-17) — the bear is told
 it is a bear — and the brief lives in the model's instructions, never on the screen. What such a

@@ -60,7 +60,7 @@ going to give them.
 ### 4.1 The rules
 
 1. **Hydration is a number on the body**, in millilitres, spent per tick and per activity; drinking
-   adds. Surfaced as words, never as a number. *(Proposal.)*
+   adds. Surfaced as words and on the meters (document 08 §4.9), never as a number. *(Proposal.)*
 2. **What water carries, it carries from its source and its vessel** (Andrew, 2026-09-18:
    contamination is provenance). Melted snow is not safe just because snow is: a vessel that held fuel
    or oil, a bloody one, or one made of something toxic passes it on, and so does snow scooped where

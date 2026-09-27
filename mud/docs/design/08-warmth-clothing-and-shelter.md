@@ -58,6 +58,8 @@
   inside the plane; there is no survival kit. Up to five play, and a seat nobody plays is
   a dead character whose clothes and pockets can be searched.
 - **(2026-09-27)** Death comes from blood loss, the bear, the cold and thirst.
+- **(2026-09-27)** Players see **meters** for what a person can sense about their own body, hunger
+  among them — people are not cut off from their own senses. The `status` screen stays (§4.9).
 
 ### Proposals (Claude)
 
@@ -75,7 +77,7 @@
 ## 3. In one paragraph
 
 You come to in a cold aluminium tube in the first week of October with whatever you happened to be
-wearing, and from that minute the cold is spending you. It is not a meter you watch; it is the wind
+wearing, and from that minute the cold is spending you. It is not a stat you manage; it is the wind
 through the tear in the hull, the snow melting into your sleeve, your fingers losing the knot you are
 trying to tie. You get warmth back the way people actually do: you put more on — your own bag,
 someone else's sweater, the quilted engine cover out of the aft bin — you get out of the wind, you
@@ -95,8 +97,8 @@ the rest.
 1. **Heat is a state on the body, surfaced as words.** Heat is a state on every entity, body parts
    included (Andrew, 2026-09-26). A body carries its core temperature — an integer in tenths of a
    degree Celsius (370 = 37.0) — and the extremities (hands, feet, face) cool on their own, which is
-   where frostbite lives (Andrew, 2026-09-18). The player never sees a number; they see a band and,
-   better, a composed sentence about their hands and their feet. *(The integer and its unit are a
+   where frostbite lives (Andrew, 2026-09-18). The player never sees a number; they see a band, the
+   meters (§4.9) and, better, a composed sentence about their hands and their feet. *(The integer and its unit are a
    proposal.)*
 2. **Every source is physical and additive.** There is no "warmth buff". The seed's list stands as
    the coverage target — *fire · windbreak · shelter · dry clothing · layering · insulation from the
@@ -321,10 +323,10 @@ and the room goes quiet. The same holds outdoors — a lean-to that does not mee
 so on a gusty night. **Ambient lines are how shelter (§4.4) is read**, and `examine` on the opening
 gives the detail.
 
-### 4.9 `status` — what your body reports (Andrew, 2026-09-18)
+### 4.9 `status` and the meters — what your body reports (Andrew, 2026-09-18, 2026-09-27)
 
-There **is** a status screen. It is not a heads-up display and it is not a menu of anything: it is
-your own body answering when you ask, in the same words the prose uses, never in numbers.
+There **is** a status screen. It is not a menu of anything: it is your own body answering when you
+ask, in the same words the prose uses, never in numbers.
 
 ```
 > status
@@ -342,6 +344,23 @@ same band words the narration uses, so the screen never teaches a second vocabul
 `status` is one of the commands that does **not** interrupt what you are doing (document 06) — asking
 how you feel is free. It is a command, not part of the room block (document 03): the look tells you
 about the world, `status` tells you about you.
+
+**The meters** (Andrew, 2026-09-27). People are not cut off from their own senses — you know you are
+hungry without stopping to ask yourself — so players see meters for what a person can sense about their
+own body, hunger among them, all the time, without typing anything. *(Proposed by Claude, for Andrew's
+check:)* six of them — **hunger, thirst, warmth, rest, pain** and **stamina** (how out of breath you
+are: running, fighting and hauling spend it, and a breather gives it back) — each a short bar with no
+digits, because that is how a person feels it: very hungry, not 38 %. Each bar is full when all is well
+and empties as the body runs down; pain fills as it hurts more. They sit in the prompt line under each
+response, the way a MUD shows its bars:
+
+```
+Hunger [###--]  Thirst [####-]  Warmth [##---]  Rest [####-]  Pain [##---]  Stamina [#####]
+```
+
+A client such as Mudlet can draw the same line as gauges, and an agent sees the line a human sees. The
+bars read the same body numbers the band words do, so the meters and the words never disagree. A wound
+is never a meter: it is named, in `status` and in `examine me` (document 11 §4.1).
 
 ## 5. Interactions
 
@@ -394,6 +413,8 @@ None open.
 - **2026-09-26 (Andrew)** — heat as a state on every entity and body part; the plane as an entity with
   openings and an internal heat, which is how shelter works inside it. Claude proposed hypothermia
   bands that follow the clinical staging, for Andrew's check.
+- **2026-09-27 (Andrew, at document 11's sitting)** — meters for what the body feels, beside the
+  `status` screen (§4.9).
 - **2026-09-27** — the first week of October carried in (the cold, day by day, is document 13 §4.2);
   what is aboard (the two hidden blankets, the sleeping bag with the tail wreckage); the unplayed seat;
   what kills.

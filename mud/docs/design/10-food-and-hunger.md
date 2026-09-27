@@ -88,7 +88,8 @@ say anything about it because everybody has already thought it.
    its **state** (§4.6) — cooked meat and cooked starch give the body more than raw (Carmody et al.,
    *PNAS* 2011) — and lean meat alone cannot be lived on (**rabbit starvation**: protein above about
    35–45 % of energy brings nausea and diarrhoea within about a week; document 23 §4.4).
-   What the player feels comes in `status` band words (document 08 §4.9), in the real order: hungry →
+   What the player feels shows on the hunger meter and in `status` band words (document 08 §4.9), in
+   the real order: hungry →
    light-headed, slow and cold once the glycogen is gone → the pangs fading by the second or third day
    as ketosis takes over (the dangerous quiet) → weak, clumsy, irritable, cold-intolerant and poor at
    judgement (what the Minnesota Starvation Experiment recorded over months of semi-starvation, Keys et
