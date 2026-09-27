@@ -167,7 +167,7 @@ cordage, `metal` is what makes a sheet reflective.
 | `bone` | a body; later, antler and game | hard to cut, `extreme` to tear, hard to bend, barely burns, rigid |
 | `chocolate` | the emergency ration | very edible; burns poorly and is hard to light |
 | `rations` | packaged ration food | very edible; burns poorly; cuts easily |
-| `fish` | a family's frozen catch in the cooler | very edible; cuts easily; burns poorly; middling rigidity — hard as a plank until thawed |
+| `fish` | a family's frozen catch in the cooler | very edible; cuts easily; burns poorly; middling rigidity — hard as a plank until thawed, though a knife still shaves it |
 
 ### 4.4 Forms
 

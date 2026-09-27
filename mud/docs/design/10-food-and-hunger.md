@@ -50,9 +50,8 @@
 
 - The seed's food categories and body block, carried through GDD §31–§36; its "passenger snacks" and
   "airline meals" do not fit a 206 and are not used.
-- The food states, the cooking operations, spoilage and storage (§4.6); the techniques of trapping,
-  hunting and fishing and the acts of butchery (§4.8) — Claude's working-out of Andrew's decisions of
-  2026-09-26, from real data, for his check.
+- The techniques of trapping, hunting and fishing and the acts of butchery (§4.8) — Claude's
+  working-out of Andrew's decisions of 2026-09-26, from real data, for his check.
 
 ---
 
@@ -106,7 +105,7 @@ say anything about it because everybody has already thought it.
    taking — roughly, what is aboard on day 1, the freight by day 3, the country or the pilot by day 5
    — as a check, not a schedule.
 3. **Several ways, spending different resources** (§4.2).
-4. **Food is physical.** Frozen salmon is hard as a plank until it thaws; a bulged can is visibly
+4. **Food is physical.** Frozen salmon is hard as a plank until it thaws, though a knife still shaves it; a bulged can is visibly
    bulged; dog food is food. Nothing is "a food item" by type — edibility is a material property,
    and the interesting cases are all things that are edible in a way you would rather not think
    about. *(Shipped: edibility is a material property.)* **And food has states** — temperature,
@@ -220,7 +219,7 @@ thing's *(proposed by Claude, for Andrew's check)*. The pilot's body sits at the
 the body with it, and the spoilage system runs on it exactly as it runs on a hare. Where the body is
 kept is therefore a real decision twice over: the taboo (documents 12 and 15) and the physical one.
 
-### 4.6 Food states, heat and spoilage (Andrew, 2026-09-26; the working-out is Claude's, for Andrew's check)
+### 4.6 Food states, heat and spoilage (Andrew, 2026-09-26; the working-out accepted 2026-09-27)
 
 **Heat is a state on everything that has it** (Andrew, 2026-09-26). Every food entity carries a
 `temperature` (integer tenths of a degree, the same unit as the body's core, document 08 §4.1), and the
@@ -237,7 +236,7 @@ system, each with a real consequence:
 
 | state | what changes it | what it does | source |
 |---|---|---|---|
-| **frozen** (the fraction of its water that is ice) | temperature over time; thawing costs latent heat | frozen meat cannot be cut or chewed like thawed meat; frozen food keeps | physics |
+| **frozen** (the fraction of its water that is ice) | temperature over time; thawing costs latent heat | frozen fish and meat still cut with a knife — shaved thin, as northern people eat them (Andrew, 2026-09-27) — though they bend and chew like wood, not flesh; eating them frozen costs body heat (document 12 §4.3a); frozen food keeps | physics |
 | **doneness** (the highest core temperature reached, and how long it was held) | heat into the core | kills what cooking kills at real core temperatures: 63 °C for whole cuts and fish, 71–74 °C for wild game — bear always cooked through, because *Trichinella* survives freezing (USDA 160 °F; ADF&G 165 °F) — and 74 °C for birds and hare (tularemia); cooked meat and cooked starch give the body more energy than raw | USDA FSIS safe minimum temperatures; CDC / ADF&G on *Trichinella nativa*; ADF&G tularemia guidance; Carmody et al., *PNAS* 2011; document 12 §4.3a |
 | **char** (the burnt fraction of the surface) | surface held in flame or on coals too long | charred food is carbon — calories gone, bitter; a burnt thing's mass partly becomes ash (conserved, document 07) | physics |
 | **dryness** (water fraction lost) | air, fire and smoke over hours and days | dried meat and fish keep and weigh less; smoke slows spoilage further | established practice |
@@ -459,6 +458,8 @@ None open.
   is among the spoiled things (§4.3).
 - **2026-09-27 (Andrew):** the country's food accepted (§4.4, §4.7) — no ravens digging at the mail;
   Holt's marten set kept, empty; anything within reason can be thrown.
+- **2026-09-27 (Andrew):** food states, cooking and storage accepted (§4.6); frozen fish and meat still cut
+  with a knife.
 
 ## 8. What exists today
 
