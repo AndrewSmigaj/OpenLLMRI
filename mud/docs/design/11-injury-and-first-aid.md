@@ -44,9 +44,14 @@
   reads what happened. The body at that moment decides the blow: skill; cold hands, pain, tiredness and
   stamina; the weapon; what the target wears. Every attack has a recovery, and the game says when it
   is over. The rest is `PLAN.md` §5 until the combat document is written.
+- **(2026-09-27)** **Bleeding spends a real blood volume** — about 70 mL per kilogram, some 5 L in an
+  adult — on the real clocks: a cut vein over hours, a cut artery in minutes, a broken thigh bone
+  inside the leg. Losing it shows in the real order and is felt in words, not on a meter; a body short
+  of blood makes less heat. What stops a bleed has to match it (§4.1 rule 2, §4.6). The clocks stay
+  real at the game's 15×: a cut artery leaves seconds of real time.
 
 ### Proposals (Claude)
-Everything else here is Claude's, for Andrew's check: the bleeding and infection processes; which
+Everything else here is Claude's, for Andrew's check: the infection process; which
 injury each slot draws; the rest of the body as an entity with parts and states (§4.6); the treatments
 as operations (§4.7–§4.12); the injury list beyond the crash's; every number. The real-world sources
 are listed at the end of §4.6.
@@ -78,8 +83,8 @@ start to matter, and first aid stops being a one-off act and becomes a thing you
    nothing, a shove may only knock someone off their feet, a punch through a parka may not even bruise,
    a spear thrust punctures what it reaches, the bear's claws cut and tear. How a fight plays is the
    combat design's (§5); what a blow that lands does to a body is this document's.
-2. **Bleeding is a process, and blood loss kills** (2026-09-27). *(Proposed by Claude, for Andrew's
-   check:)* bleeding spends **blood volume**, in millilitres — about 70 mL per kilogram of body weight,
+2. **Bleeding is a process, and blood loss kills** (2026-09-27). Bleeding spends **blood volume**, in
+   millilitres — about 70 mL per kilogram of body weight,
    some 5 L in a 70 kg adult — and a body short of blood makes less heat, so it costs warmth too.
    Pressure slows it while it is held; a pressure dressing or packing holds it after; a tourniquet stops
    a limb's arterial bleed (§4.7). A binding stops only a bleed it is equal to: arterial blood soaks
@@ -191,8 +196,8 @@ whitens a finger; snow blindness; hypothermia's clumsiness; dehydration headache
 
 ### 4.6 The body, and everything that can hurt it
 
-*(Proposed by Claude, for Andrew's check — except the rule of what kills, which is Andrew's,
-2026-09-27.)* Injury has many sources — a combat system like a MUD's, a bear and other animals that
+*(Proposed by Claude, for Andrew's check — except the rule of what kills and the bleeding clocks,
+which are Andrew's, 2026-09-27.)* Injury has many sources — a combat system like a MUD's, a bear and other animals that
 act, dangerous places, the ice, the cold in the extremities — and all of them act on the same thing:
 **the body, as an entity in the ontology** (document 05 §4.5), whose parts carry states that systems
 change. A living player, the dead pilot and a dead player are the same kind of entity (document 12
@@ -461,7 +466,8 @@ None open.
   each part with its own states; meters for what the body feels (document 08 §4.9); a blow wounds only
   when it would really hurt; combat is roughly a MUD's, with every attack typed and landing by stats
   and chance, as in D&D, read as what happened; a recovery after each attack; stepping in for a
-  friend; the bear's warnings, and running as the wrong answer to a bear. The six meters.
+  friend; the bear's warnings, and running as the wrong answer to a bear. The six meters. Item 2 —
+  bleeding as a real blood volume on the real clocks, kept real at 15×.
 
 ## 8. What exists today
 
