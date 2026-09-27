@@ -41,6 +41,8 @@
 - **Common sense is hinted (2026-09-27).** When a player misses something any person would know —
   holding the radio's button while talking — the world says why, in its own voice: a reason, never a
   list of options (§3.3).
+- **(2026-09-27)** Taking something unseen is its own verb: `steal`, or another fitting word; every other
+  act is emoted to everyone in the zone (document 15 rule 5).
 
 ### Proposals (Claude)
 
@@ -65,8 +67,6 @@ gets told it isn't there; a verb that doesn't fit gets the physics of why; two t
 get one question — `Which can do you mean?` — and nothing else; a player who misses something any
 person would know is told why, in the world's voice. The player is never shown a menu, never shown
 a list of what's reachable, and never handed a verb they didn't type themselves.
-- **(2026-09-27)** Taking something unseen is its own verb: `steal`, or another fitting word; every other
-  act is emoted to everyone in the zone (document 15 rule 5).
 
 ## 3. The design
 
