@@ -48,8 +48,6 @@
 
 ### Proposals (Claude)
 
-- The country's food, zone by zone (§4.4), and the additions audited against the place (§4.7) — with
-  document 23.
 - The seed's food categories and body block, carried through GDD §31–§36; its "passenger snacks" and
   "airline meals" do not fit a 206 and are not used.
 - The food states, the cooking operations, spoilage and storage (§4.6); the techniques of trapping,
@@ -174,9 +172,8 @@ state of every living thing is document 23 §4.2–§4.3.)*
 |---|---|---|
 | `tussock_flat` | lowbush cranberries, frost-sweetened on the mats under the first inch of snow, and bog cranberries in the wet hollows; the storm buries them | knowledge + sweat; a real but marginal calorie trickle, priced honestly low so it cannot replace hunting |
 | `labrador_thicket` | labrador tea, leathery leaves that persist all winter | knowledge + a container + fire; warmth and morale, not calories |
-| `tamarack_island` | the ravens' dig — a mail bundle, nothing to eat | knowledge (reading tracks); a red herring with a heart, which teaches that *tracks point at calories* |
 | `lake_gate_willows` | the hare runs at the lake gate; a snare set on a run | wire or cordage + knowledge + the discipline to leave and come back |
-| `grouse_thicket` | spruce grouse — real protein, comically tame | a thrown billet, a slow approach (rushing flushes the birds a zone away for hours — a few birds, not a flock: Andrew, 2026-09-26), then plucking, cleaning and the whole fire chain |
+| `grouse_thicket` | spruce grouse — real protein, comically tame | anything within reason thrown, a slow approach (rushing flushes the birds a zone away for hours — a few birds, not a flock: Andrew, 2026-09-26), then plucking, cleaning and the whole fire chain |
 | `hare_runs` | the snare line — the valley's best protein-per-effort | wire, reading which runs are fresh, setting loops right, and *leaving*; it pays on return visits, hours later |
 | `aspen_fringe` | browse sign pointing back to the hare runs | the noticing; one snare |
 | `chaga_tree` | chaga — tinder fungus, and the hot-drink loop | a climb, a throw, a pole or a chop |
@@ -186,7 +183,7 @@ state of every living thing is document 23 §4.2–§4.3.)*
 | `food_cache_margin` | the beavers' larder: green pole stock and fresh aspen inner bark, being built now — the beavers cut and sink it before the ice locks the pond, working at dusk | inner bark is food, and the snare line's upgrade bait (bait a run, double the take) |
 | `the_lodge` | nothing, deliberately | hacking in is possible and is a bad trade: the lodge stores food in the water, not the walls — the map's one anti-loot lesson |
 | `drowned_set` | yards of snare wire on a trapper's pole | cold fingers and patience; it opens the snare-line game fully |
-| `marten_set_tree` | a marten frozen in the set — fur, not a meal | perception, prying the iced box, then skinning (blade + knowledge + stomach) |
+| `marten_set_tree` | Holt's old marten set — the box and its snare wire, empty: the trapping season has not opened | perception, and prying the box open |
 | `cabin_interior` | Holt's shelf: flour, salt, lard, tea, a few tins — and **one bulged can** among the good ones | the walk; and the examine-gated poison lesson (the manual's food page names the bulge) |
 | `cache` | the rest of Holt's modest stores: some beans and rice, a slab of dry fish | the whole journey, the climb, and carrying it back down and home |
 
@@ -460,6 +457,8 @@ None open.
   starvation weakening within the week rather than killing (§4.1).
 - **2026-09-27 (Andrew):** there is no survival kit; the ways to eat accepted (§4.2); a half-rotten fish
   is among the spoiled things (§4.3).
+- **2026-09-27 (Andrew):** the country's food accepted (§4.4, §4.7) — no ravens digging at the mail;
+  Holt's marten set kept, empty; anything within reason can be thrown.
 
 ## 8. What exists today
 

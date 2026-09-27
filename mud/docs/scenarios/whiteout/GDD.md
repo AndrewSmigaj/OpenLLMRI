@@ -264,7 +264,7 @@ One chapter per system; each is its own document, reviewed separately.
   contamination is fuel and oil, carried as provenance (2026-09-18). Document 09.
 - **Food and hunger** — hunger works as it does in real life; food changes with heat — raw, cooked,
   spoiled — and there are poisonous mushrooms. The freight, people's bags, the
-  country (berries, snares, birds with a thrown rock, fish, roots), the body; hunting, trapping, fishing
+  country (berries, snares, birds brought down by anything thrown, fish, roots), the body; hunting, trapping, fishing
   and killing are real operations, each variant its own (2026-09-26, 2026-09-27). Documents 10 and 23.
 - **Injury and first aid** — named wounds with clocks; improvised care. **Death comes from blood loss,
   the bear and the cold**; poison makes people very sick but never kills; other harms — infection,

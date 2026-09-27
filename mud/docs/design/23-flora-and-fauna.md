@@ -12,7 +12,8 @@
 
 - **What the valley offers** (2026-09-17): roots and berries — pickable, a couple of kinds, and a red
   one that makes you sick; more things to find in the plane and the wreckage; small creatures to catch
-  (he named bugs and lizards); and birds that can be hit with a thrown rock. It takes a few tries; the
+  (he named bugs and lizards); and birds that can be hit with a thrown rock — or anything within reason that can be thrown
+  (2026-09-27). It takes a few tries; the
   world says the rock missed, so the player tries again; rocks have to be found, and a sling can be
   made. The odds are low, but a player who keeps trying gets there, and a bird covers one meal for a
   couple of people.
@@ -59,7 +60,7 @@ frosts have killed most of the mushrooms and left them rotting where they stood,
 fruit in the cold, one of which has a lookalike that will make you desperately sick; the squirrels
 have dried the rest in the spruce branches, the poisonous with the good. The hares are still brown,
 only beginning to turn, and stand out on the new snow; every run they use prints in it. Spruce grouse
-sit in the spruce, tame enough that a thrown rock will miss and miss and then not; a few ptarmigan work
+sit in the spruce, tame enough that whatever is thrown will miss and miss and then not; a few ptarmigan work
 the willow bottoms; red squirrels scold from middens heaped with a winter's cones; voles tunnel under
 the first snow; fish feed in open water. A grizzly is still up, feeding hard on berries and roots
 before it dens, and it can smell the wreck's food from a long way off; the moose are in the rut, and a
@@ -186,9 +187,9 @@ presence in this valley is still to be checked against it.
 | animal | where | how it shows in the first week of October | how you get it | yield (document 10 owns the numbers) |
 |---|---|---|---|---|
 | snowshoe hare | willow thickets, the hare runs (document 01) | still mostly brown, the moult to white just beginning — stark on the first inch of snow; every run printed in it; a flash of brown and white | a snare on a run, a spring pole, checked later (hours); a thrown stick or rock rarely; the fox robs snares | ~800–1,000 kcal each; the pelt; gutting one bare-handed risks tularemia (ADF&G) |
-| willow ptarmigan | willow bars, muskeg edge | one or two at a time (fewer than three birds in a room, §4.1a) — the females come down to the willow in small groups (ADF&G), mottled and turning white; they let you close | a thrown rock — misses several times with honest feedback ("the rock thumps into the snow a foot short; the birds shuffle"); a sling; a snare in a gap in a brush fence; finding rocks is its own search | one bird (~570 g live, ADF&G), ~350 kcal |
-| spruce grouse ("fool hen") | spruce forest, low branches | sits and stares; eating spruce needles | a rock or a stick at close range; a noose on a pole — the tamest bird in the valley | ~300 kcal a bird |
-| ruffed grouse | the aspen and birch | budding in the aspen at dusk; flushes hard and loud | a thrown stick or rock — harder than the spruce grouse | ~300 kcal a bird |
+| willow ptarmigan | willow bars, muskeg edge | one or two at a time (fewer than three birds in a room, §4.1a) — the females come down to the willow in small groups (ADF&G), mottled and turning white; they let you close | anything within reason thrown — misses several times with honest feedback ("the rock thumps into the snow a foot short; the birds shuffle"); a sling; a snare in a gap in a brush fence; finding rocks is its own search | one bird (~570 g live, ADF&G), ~350 kcal |
+| spruce grouse ("fool hen") | spruce forest, low branches | sits and stares; eating spruce needles | anything within reason thrown at close range; a noose on a pole — the tamest bird in the valley | ~300 kcal a bird |
+| ruffed grouse | the aspen and birch | budding in the aspen at dusk; flushes hard and loud | anything within reason thrown — harder than the spruce grouse | ~300 kcal a bird |
 | red squirrel | spruce forest, its midden (a mound of cone scales) | chatter; cones being cut and dropped; mushrooms hung in the branches; the midden | raid the midden for cached cones (seeds, small calories — the cones open by a fire); the squirrel itself is a hard throw; a squirrel pole | seeds; ~100–150 kcal the animal |
 | vole | under the first snow, tussocks | tunnels, a scurry | a deadfall trap; hours; tiny | ~25 kcal; better as bait |
 | wood frog | the leaf litter by the ponds | nothing — in its winter shelter under the litter, cold and torpid, not yet frozen (Larson et al. 2014) | scraping the litter | a few grams: a find, not a food source — the real animal in the place of the lizards |
@@ -239,7 +240,7 @@ counts (3 L a day each).
 | source | what a unit gives | realistic take | what it takes |
 |---|---|---|---|
 | snowshoe hare | ~800–1,000 kcal (1.4–1.8 kg live, about half of it meat at ~111 kcal per 100 g) | ten snares on used runs: **roughly one hare a night at the peak of the cycle, one a week or less at the bottom** — the one published capture rate found is about 0.07 per trap-night at a hare's centre of activity, falling off within ~200 m (a capture–recapture study with live traps) | setting a line, and waiting overnight; the fox takes some |
-| willow ptarmigan | ~350 kcal (570 g live, ADF&G) | one on a lucky day | a thrown rock, several misses, luck |
+| willow ptarmigan | ~350 kcal (570 g live, ADF&G) | one on a lucky day | anything thrown, several misses, luck |
 | spruce and ruffed grouse | ~300 kcal a bird | one or two a day while the 25–40 last | close range, a rock, a stick or a pole noose |
 | red squirrel midden | roughly a kilocalorie of seed per cone (estimate: a white-spruce cone holds a few dozen oil-rich seeds of a few milligrams — a squirrel lives on a hundred-odd cones a day); the dried mushrooms besides | a few hundred cones an hour's raid — **a few hundred kcal**, after the cones are opened by a fire and threshed | finding a midden, an hour of raiding, more hours of fire and threshing |
 | fish | ~300 kcal a grayling; ~400–900 a whitefish; ~600–1,600 a burbot with its liver; ~500–1,800 a pike | **0–3 fish a day** for a party that works at it (estimate — no interior catch rate found; ADF&G: burbot bite from sunset to midnight) | a line cast into the open lake, the creek or the pool; once the ice holds, a hole, a jig, a set line |

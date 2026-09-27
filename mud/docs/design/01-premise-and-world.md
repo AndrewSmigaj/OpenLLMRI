@@ -276,7 +276,7 @@ redesign)*
 |---|---|---|
 | `tussock_flat` | cottongrass tinder, and lowbush and bog cranberries frost-sweetened under the first snow until the storm buries them; hurrying wrenches an ankle | 📐 |
 | `labrador_thicket` | kindling in quantity and the hot-drink plant: kindling is free, an armload costs | 📐 |
-| `tamarack_island` | bone-dry dead limbs, the best easy fuel west of the treeline; the ravens teach that tracks point at calories | 📐 |
+| `tamarack_island` | bone-dry dead limbs, the best easy fuel west of the treeline | 📐 |
 | `drifted_channel` | the travel tuition zone: a wet channel under skim ice and the first snow, drifted deep after the storm; no resources; a probe finds the firm line | 📐 |
 | `lake_gate_willows` | withes for lashings and the first hare runs to snare; the gate to the lake | 📐 |
 
@@ -355,7 +355,7 @@ redesign)*
 |---|---|---|
 | `blaze_gateway` | the navigation tutorial: each blaze visible from the last. It installs a skill and holds no loot | 📐 |
 | `spruce_tunnel` | sheltered for its whole length: the only long move that stays cheap in heavy weather | 📐 |
-| `marten_set_tree` | a fur scrap behind a chain of small gates; Holt's craft, read a second time | 📐 |
+| `marten_set_tree` | Holt's old marten set behind a chain of small gates, empty — the trapping season has not opened; his craft, read a second time | 📐 |
 | `cabin_gate` | the threshold beat: hope, correction, and a door anyway | 📐 |
 
 **S11 — Holt's Homestead**
@@ -430,7 +430,7 @@ Each is a crude-to-mastery arc, and each is a network of rooms rather than a sta
   bear and the moose (the richest food and the most dangerous, through the combat system) — and the
   pilot's body, which is food and taboo (document 12). Calories scale with commitment, never with luck.
 - **Warmth and clothing** — crash clothing → the pilot's jacket and the unplayed seats' clothes → seat
-  covers, the two blankets hidden in the plane, the sleeping bag buried with the tail → marten fur →
+  covers, the two blankets hidden in the plane, the sleeping bag buried with the tail →
   the loft trunk; plus the terrain layer, where *where you work* is itself a clothing decision.
 - **Mobility and hauling** — boots → the cowling drag → your own broken trails → the game trails, the
   causeway and the tunnel (the world's own roads) → snowshoes → the repaired freight sled. A dragged
