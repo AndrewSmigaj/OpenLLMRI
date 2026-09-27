@@ -45,6 +45,6 @@ GPU. See `agent/README.md`.
 - [`BACKLOG.md`](BACKLOG.md) — what's active / next / parked (Now / Next / Later).
 - [`VISION.md`](VISION.md) — what we're building and the non-negotiables.
 - [`docs/scenarios/whiteout/GDD.md`](docs/scenarios/whiteout/GDD.md) — the one game design document; the per-system design lives in `docs/design/`.
-- [`docs/scenarios/whiteout/roadmap.md`](docs/scenarios/whiteout/roadmap.md) — the strategic build order (P0–P7).
+- [`PLAN.md`](PLAN.md) — the order of work and the current decisions.
 - [`docs/`](docs/) — architecture and authoring guides.
 - [`CLAUDE.md`](CLAUDE.md) — orientation for Claude Code working in this repo.

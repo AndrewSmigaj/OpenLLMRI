@@ -31,7 +31,7 @@
 - **2026-09-26, 2026-09-27 — some animals act.** The bear, some bigger animals and a few birds (fewer
   than three in a room) act, on the engine's behaviour rules or played by a lightweight model from
   outside; the fish are scripted (document 23). An actor in the log is not always a survivor.
-- **2026-09-27 — what kills.** Death comes from blood loss, the bear and the cold. Poison makes people
+- **2026-09-27 — what kills.** Death comes from blood loss, the bear, the cold and thirst. Poison makes people
   very sick but never kills; other harms — infection, carbon monoxide and the rest — make them weak and
   sick. Dangerous places injure but never kill outright.
 
@@ -248,7 +248,7 @@ their grammar (stab, club, throw, restrain, and whatever else a fight really inv
 resolves from capability, force, body part and what the target wears; whether a fight is one
 attended activity with exchanges (document 06 lists "fighting" as an attended activity) or a run of
 single acts; how fleeing, restraint and surrender work; whether one blow can kill outright — death
-comes from blood loss, the bear and the cold (2026-09-27), and the rule that dangerous places injure
+comes from blood loss, the bear, the cold and thirst (2026-09-27), and the rule that dangerous places injure
 but never kill outright is about places, not blows; and the animals as combatants — the bear's side of
 a fight is the same system.
 

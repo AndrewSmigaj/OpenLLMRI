@@ -57,7 +57,7 @@
 - **(2026-09-27)** Aboard: the sleeping bag is buried with the tail wreckage; two blankets are hidden
   inside the plane; the survival kit is buried somewhere. Up to five play, and a seat nobody plays is
   a dead character whose clothes and pockets can be searched.
-- **(2026-09-27)** Death comes from blood loss, the bear and the cold.
+- **(2026-09-27)** Death comes from blood loss, the bear, the cold and thirst.
 
 ### Proposals (Claude)
 
@@ -205,10 +205,8 @@ an act rather than a transaction.
 ### 4.4 Shelter
 
 The room censuses found the same missing system from opposite sides: in the rear cabin, covering the
-hull breach is the most natural survival act there is
-([`rear_cabin.md`](../scenarios/whiteout/rooms/rear_cabin.md) §5); outside the nose, standing in the
-open should cost more warmth than the cabin, with the wind unbroken and no walls
-([`outside_nose.md`](../scenarios/whiteout/rooms/outside_nose.md) §5). Shelter answers both.
+hull breach is the most natural survival act there is; outside the nose, standing in the
+open should cost more warmth than the cabin, with the wind unbroken and no walls. Shelter answers both.
 
 **Outdoors, shelter is a property of a zone, not an object you own** (Andrew, 2026-09-18). Every zone
 carries, as authored data *(the bands and scores are proposals)*:

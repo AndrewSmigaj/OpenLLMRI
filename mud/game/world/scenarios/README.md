@@ -6,7 +6,7 @@ puzzle-critical objects (radio / beacon / pilot / showcase seat).
 
 > **Status: skeleton (P0).** The Whiteout subpackage layout + a `_template/` are in place; content is
 > authored from P1 on (see
-> [`docs/scenarios/whiteout/roadmap.md`](../../../docs/scenarios/whiteout/roadmap.md)).
+> [`PLAN.md`](../../../PLAN.md)).
 
 ```
 world/scenarios/<name>/

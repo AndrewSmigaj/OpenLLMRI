@@ -16,8 +16,6 @@ Where everything lives, what's authoritative, and where new docs go.
   `presentation.md` / `tick-and-scheduler.md` / `llm-integration.md` / `testing.md` /
   **`ontology-closure.md`** (forms, derived capabilities, tier-4 physics, the probe corpus) are focused
   views kept consistent with it.
-- [`scenarios/whiteout/roadmap.md`](scenarios/whiteout/roadmap.md) — the June P0–P7 arc, kept as history;
-  the order of work now lives in `../PLAN.md`.
 - [`guides/`](guides/) — authoring guides (objects, actions, workflows, validation).
 - `game/world/sim/contracts.py` — the frozen contract dataclasses (here the **code** is the source of truth).
 
@@ -31,7 +29,6 @@ Where everything lives, what's authoritative, and where new docs go.
 - [`process.md`](process.md) — **how we work** (the design→document→implement loop).
 
 **Scratchpad / exploratory — NOT authoritative (thinking-in-progress):**
-- [`proposals/`](proposals/) — proposals under consideration.
 - `~/.claude/plans/` and the session scratchpad — working files, never the design of record.
 
 ## The rule

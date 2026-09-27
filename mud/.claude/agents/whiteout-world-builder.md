@@ -20,7 +20,7 @@ functions.
    `ObjectPacket` (§43.1), `ActionFamilyPacket` (§43.2), `WorkflowPacket` (§43.3),
    plus `Material`, `Part`, `Attachment`, `EntityState`.
    Skim a worked representative under `game/world/scenarios/` for the house style.
-5. `docs/proposals/whiteout-engine-proposal.md` — **this updates the authoring model below.**
+5. `docs/design/22-the-world-building-loops.md` — the loops this work runs in.
    Use the `ontology-generator` skill for the bulk generate-then-validate work.
 
 ## Authoring model (per the proposal — read it)

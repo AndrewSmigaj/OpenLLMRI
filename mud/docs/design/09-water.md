@@ -14,6 +14,7 @@
   melting way runs through *a container* and *a fire* — it is a chain, not a verb.
 - **(2026-09-07, 2026-09-27)** Every goal has several ways, water included, with no set number.
 - **(2026-09-18)** Liquids are measured in millilitres: melting some snow is never a one-use thing.
+- **(2026-09-27)** Thirst is one of the things that kill, with blood loss, the bear and the cold.
 - **(2026-09-18)** Thirst kills in a realistic time for thirst — though usually something else gets a
   person first — and a person needs to drink more than they eat. *(See §6: this sits beside the
   2026-09-27 rule on what kills.)*
@@ -148,8 +149,7 @@ usually get a person first.
 
 Cold is the trap: you do not feel thirsty, and you lose water breathing dry air all day. The symptoms
 come before the danger — headache, dullness, poor decisions — and dehydration makes the cold worse,
-so thirst kills mostly by making everything else harder. *(Numbers are proposals, tunable by probes.
-Whether thirst kills at all, beside the 2026-09-27 rule on what kills, is §6.)*
+so thirst kills mostly by making everything else harder. *(Numbers are proposals, tunable by probes.)*
 
 **Eating snow works, and here is what it costs.** Melting a litre of snow inside you takes the latent
 heat of fusion plus warming it from freezing to blood temperature: about **490 kJ, roughly 120 kcal,
@@ -216,15 +216,7 @@ over any vessel and any source — water, fuel or snow.
 
 ## 6. Open questions
 
-1. **Does thirst kill, or weaken?** On 2026-09-18 thirst was decided as killing, on a realistic clock
-   of about three days with nothing to drink (§4.6). On 2026-09-27 the rule on what kills names blood
-   loss, the bear and the cold, and says other harms make people weak and sick. *(a)* Thirst kills on its
-   real clock, as decided on 2026-09-18 — a fourth thing on the list. *(b)* Thirst weakens and sickens,
-   and the cold does the killing. **Recommendation: (a).** Thirst is not an accident like the mushroom: it
-   is a slow clock that is felt long before it is dangerous, and this week the party always has an answer
-   to it — snow to melt and a creek that runs. The mushroom rule is about not killing a character off for
-   one mistake; thirst is the same kind of clock as the cold. Until Andrew answers, §4.6 stands as
-   decided.
+None open.
 
 ---
 
@@ -238,6 +230,7 @@ over any vessel and any source — water, fuel or snow.
 - **2026-09-27** — the first week of October carried in: the creek runs, the lake is open and still
   water has skim ice, so the midwinter features (a chopped water hole, overflow, the lake's blue ice)
   are gone; thirst's clock set beside the rule on what kills (§6).
+- **2026-09-27 (Andrew)** — thirst kills; it is on the list of what kills.
 
 ## 8. What exists today
 

@@ -75,8 +75,8 @@ person's body, and every act below is the general system applied to him, not pil
 | the act | what it is | source |
 |---|---|---|
 | `search pilot` | the pocket contents — a lighter, one of the fire paths | census `pilot (body) — frisk` ✅; `objects.py` (`lighter` is `in: pilot`) |
-| `remove jacket from pilot` | a leather flight jacket — insulation the material table calls middling; his boots, gloves and watch are still to be authored | [`rooms/cockpit.md`](../scenarios/whiteout/rooms/cockpit.md) §2b, §3 |
-| `cover pilot with blanket` | a covered body — it keeps the birds off and hides him; no reward is invented for it, and a blanket on him is a blanket not on the living | [`rooms/cockpit.md`](../scenarios/whiteout/rooms/cockpit.md) §3; document 15 |
+| `remove jacket from pilot` | a leather flight jacket — insulation the material table calls middling; his boots, gloves and watch are still to be authored | `objects.py` (the jacket on the pilot) |
+| `cover pilot with blanket` | a covered body — it keeps the birds off and hides him; no reward is invented for it, and a blanket on him is a blanket not on the living | document 15 |
 | `butcher pilot with knife` | the food path: an attended activity made of real cuts (§4.3a), witnessed by whoever is in perception band | document 15 |
 | `examine pilot` | states plainly that he is dead | census ✅ (prose) |
 

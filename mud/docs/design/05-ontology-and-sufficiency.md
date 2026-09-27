@@ -465,6 +465,6 @@ world-building or possibility pass. The mid-cabin pilot has not been run.
 
 - The valley census's findings, carried into documents 01 (the zones, §4.5; the density gradient and
   the census totals, §4.11) and 18 (the missing materials, §4.7).
-- The nine built rooms' censuses: `docs/scenarios/whiteout/rooms/*.md` — the source of the `census`
-  probes and the nearest thing to a Phase 1 output that exists.
+- The `census` probes (`game/world/scenarios/whiteout/probes/census.py`) — drawn from the July room
+  censuses, the nearest thing to a Phase 1 output that exists.
 - The mechanism spec: [`../architecture/ontology-closure.md`](../architecture/ontology-closure.md).

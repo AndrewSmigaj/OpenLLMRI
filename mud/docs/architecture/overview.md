@@ -90,7 +90,7 @@ MUDExperiments/
 ```
 
 The folders under `world/sim/` marked *(roadmap)* are introduced by their
-[roadmap](../scenarios/whiteout/roadmap.md) pass; `space/`, `contracts.py`,
+[PLAN](../../PLAN.md) pass; `space/`, `contracts.py`,
 `effects.py`, `events.py`, `narrator.py`, `materials.py` and `conservation.py`
 exist today.
 

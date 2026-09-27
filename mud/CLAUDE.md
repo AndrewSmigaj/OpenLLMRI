@@ -117,7 +117,7 @@ image is pinned by digest (`docker/evennia/Dockerfile`) so local, CI and any clo
 - **Read first before authoring or coding:** the doc map (`docs/README.md`) + how we work
   (`docs/process.md`); then `VISION.md` and the authoritative spec for the task
   (`docs/scenarios/whiteout/GDD.md` for design · `docs/architecture/implementation-architecture.md`
-  for architecture), the relevant `docs/scenarios/whiteout/roadmap.md` phase, and `docs/guides/`.
+  for architecture), the relevant `PLAN.md` task, and `docs/guides/`.
 
 ## Gotcha
 Evennia's `createsuperuser` loops without a TTY. Account #1 is created over a pty by
@@ -137,9 +137,5 @@ entrypoint word-splits args, so Make commands with quoted args use `--entrypoint
 - `docs/architecture/implementation-architecture.md` — **the architecture** (v4, amended through the DR register;
   decisions register DR-01…DR-28). `ontology-closure.md` beside it is the closure-loop spec (DR-26). `overview.md` / `perception-model.md` / `tick-and-scheduler.md` /
   `llm-integration.md` / `testing.md` are focused views kept consistent with it.
-- `docs/scenarios/whiteout/roadmap.md` — the **slice-first waterfall** build order (P0…P7; P1 = the
-  co-op vertical slice → the fun gate).
 - `docs/guides/` — authoring guides (objects, actions, workflows).
 - `game/world/sim/contracts.py` — the **frozen** dataclasses every `sim` module speaks.
-- `docs/architecture/review/**` — historical record (how decisions were reached); NOT authoritative for
-  current state.

@@ -176,8 +176,8 @@ own schedule 📐 (document 13 §4.2): the storm buries the berries, the deadfal
 wreck's outline; the cold falls in behind it; the fuel radius walks away from camp; the food runs down;
 untreated wounds infect; sleep debt slows you. Night one is survivable inside the wreck in the clothes
 you crashed in; from night two you need a heat source, better gear, conserving or the huddle
-(document 08). Death comes from blood loss, the bear and the cold; poison makes you very sick and never
-kills; other harms weaken. Whether thirst kills or weakens is open with Andrew (`PLAN.md` §5).
+(document 08). Death comes from blood loss, the bear, the cold and thirst; poison makes you very sick and never
+kills; other harms weaken.
 
 ### 4.2 The week, day by day
 

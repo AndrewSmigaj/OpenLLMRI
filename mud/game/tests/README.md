@@ -11,4 +11,4 @@ Two tiers (see [`docs/architecture/testing.md`](../../docs/architecture/testing.
   runner. Empty until there's shell code to test.
 
 There are no tests yet — the engine and scenarios they would cover are not built
-(see [`docs/scenarios/whiteout/roadmap.md`](../../docs/scenarios/whiteout/roadmap.md)).
+(see [`PLAN.md`](../../PLAN.md)).

@@ -10,14 +10,10 @@ and what comes next; the task ids are PLAN's. The current decisions, all in one 
 touches no design.
 
 ## Now  (work-in-progress limit: 1)
-- **A14 — the cleanup.** Every document shows the current design only, in clean prose: no quotes of
-  the conversation (the repository is public), nothing superseded, every decision in PLAN §5 applied
-  everywhere it applies; the first week of October throughout. Then the four items open with Andrew
-  (PLAN §5, end): the trapper coming back, whether thirst kills or weakens, document 15's moral rules,
-  and the other historical folders.
+- **Document 15's rules** (A1.15), presented to Andrew one at a time — they have never been through a
+  sitting. The cleanup (A14) is done: every document shows the current design only.
 
 ## Next  (in this order — PLAN §0)
-1. **Document 15's rules** (A1.15), presented one at a time — they have never been through a sitting.
 2. **The sittings resume in index order** (A1.10–A1.23, `docs/design/README.md`): each document's
    answers proposed by Claude are checked with Andrew, and every document is finalized at the close
    (A2–A8).

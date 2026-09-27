@@ -43,7 +43,7 @@
   too easy. What is aboard is the design's choice.
 - **(2026-09-27)** Holt's cabin is supplies: some trapline gear and modest stores, not piles of food.
 - **(2026-09-27)** The season is the first week of October in interior Alaska (document 13 §4.2).
-- **(2026-09-27)** Death comes from blood loss, the bear and the cold. Poison makes people very sick
+- **(2026-09-27)** Death comes from blood loss, the bear, the cold and thirst. Poison makes people very sick
   but never kills.
 
 ### Proposals (Claude)

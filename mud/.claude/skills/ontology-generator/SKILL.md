@@ -7,7 +7,7 @@ allowed-tools: Read, Write, Edit, Bash, Grep, Glob
 # Ontology generator — LLM authors content, the validator gates it
 
 Implements the proposal's "LLM at the authoring edge" (see
-`docs/proposals/whiteout-engine-proposal.md` §3–§4) with the **generate-then-validate** discipline
+`docs/design/05-ontology-and-sufficiency.md` and `22-the-world-building-loops.md`) with the **generate-then-validate** discipline
 (the LIGHT/COMET prior art). The deterministic engine + validator
 are the ground truth; this skill never writes runtime state, only content that must pass the gate.
 

@@ -24,7 +24,7 @@
   some bigger animals and a few birds act (document 23).
 - **(2026-09-26, 2026-09-27)** The season is the first week of October in interior Alaska; the week's
   numbers are document 13 §4.2's.
-- **(2026-09-27)** **What kills: blood loss, the bear and the cold.** Poison makes people very sick but
+- **(2026-09-27)** **What kills: blood loss, the bear, the cold and thirst.** Poison makes people very sick but
   never kills; other harms — infection, carbon monoxide and the rest — make them weak and sick.
 - **(2026-09-27)** **Characters differ in how well and how fast they do things.** A character's success
   and the time an act takes depend on who they are — a woodsman lights fires better, and a nurse's
@@ -170,7 +170,7 @@ hours (an animal bite in 12–24); fever and spreading redness over the next day
 water. A deep, dirty wound can turn to gas gangrene within hours to three days; the black of dead
 frostbitten tissue takes weeks to declare itself, longer than the run. None of that kills on its own
 (2026-09-27): what it takes is the labour that keeps everyone else alive — *a body that can't work
-can't stay warm.* What kills is blood loss, the bear and the cold (§4.6).
+can't stay warm.* What kills is blood loss, the bear, the cold and thirst (§4.6).
 
 The Bodies cards of the event deck (document 13 §4.3) make it visible: a wound infects; frostbite
 whitens a finger; snow blindness; hypothermia's clumsiness; dehydration headaches; the hunger stages.
@@ -222,7 +222,7 @@ what the cold and blood loss find:
 | **the chest** | broken ribs make every breath hurt, so breathing goes shallow, and pneumonia follows within the week | days |
 | **the gut — poison** | water hemlock: seizures within the first hour; botulism from the bulged can: weakness and paralysis from about a day on; spoiled or raw meat: vomiting and diarrhoea from half an hour to days later, spending water. Very sick, never dead (2026-09-27) | hours to days |
 | **energy** | document 10: weakness, then cold | weeks |
-| **hydration** | document 09 §4.6: thirst, headache, weakness — on a real clock of about three days. Whether thirst kills or only weakens is open with Andrew (§6) | days |
+| **hydration** | document 09 §4.6: thirst, headache, weakness — on a real clock of about three days. Thirst kills on its real clock (2026-09-27) | days |
 
 **Where injuries come from** (a floor; each source's system owns how it delivers the wound):
 
@@ -430,7 +430,7 @@ asks how; given the means it performs the act they imply and this system answers
 
 ## 6. Open questions
 
-None open here. Whether thirst kills is document 09's open question.
+None open.
 
 ## 7. Review log
 
@@ -440,7 +440,7 @@ None open here. Whether thirst kills is document 09's open question.
   states; the real clocks; every source of injury; the treatments and the other design answers from
   real medicine and wilderness first aid (§4).
 - **2026-09-27 (Andrew):** characters differ in how well and how fast they do things; what kills is
-  blood loss, the bear and the cold — poison sickens but never kills, and other harms weaken.
+  blood loss, the bear, the cold and thirst — poison sickens but never kills, and other harms weaken.
 
 ## 8. What exists today
 
@@ -469,8 +469,7 @@ None open here. Whether thirst kills is document 09's open question.
 **Designed, not built**
 - The injury processes: bleeding per tick, binding stopping it, infection, fever.
 - Treatment as an act on a *wound*: `press`, `pack`, `splint`, `stitch`, `clean` —
-  [`rooms/mid_cabin.md`](../scenarios/whiteout/rooms/mid_cabin.md) §5 logs that the first-aid kit's
-  contents have no use-verb yet.
+  the first-aid kit's contents have no use-verb yet.
 - The injuries the world can *inflict*: frostbite from bare regions, burns, hypothermia, smoke
   inhalation, exhaustion, snow blindness, carbon monoxide.
 - Carrying an injured person.

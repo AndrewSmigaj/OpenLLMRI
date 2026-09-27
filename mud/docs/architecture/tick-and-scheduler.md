@@ -94,4 +94,4 @@ player's *current activity* is interrupted.**
 
 - [overview.md](overview.md) · [perception-model.md](perception-model.md)
 - Roadmap **P4** is the clock/scheduler milestone
-  ([roadmap](../scenarios/whiteout/roadmap.md)).
+  ([PLAN](../../PLAN.md)).

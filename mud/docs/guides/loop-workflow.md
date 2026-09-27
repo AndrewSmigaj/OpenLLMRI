@@ -4,7 +4,7 @@ The agentic authoring loop: **anchor → author → verify → repeat**, driven 
 Claude Code's built-in `/loop` skill. This is how content is produced one small,
 validated increment at a time.
 
-> Why a loop: Whiteout is built in passes ([roadmap](../scenarios/whiteout/roadmap.md))
+> Why a loop: Whiteout is built in passes ([PLAN](../../PLAN.md))
 > from authoring *packets* (§43) gated by *validation* (§44). A tight loop that
 > re-anchors on the design every iteration keeps work from drifting away from the
 > non-negotiables.
@@ -26,7 +26,7 @@ fixed point when it drifts:
 
 - [`../../VISION.md`](../../VISION.md) — the non-negotiables.
 - The authoritative design — [`../scenarios/whiteout/GDD.md`](../scenarios/whiteout/GDD.md)
-  (cite sections as "§N") — and the [roadmap](../scenarios/whiteout/roadmap.md)
+  (cite sections as "§N") — and the [PLAN](../../PLAN.md)
   for *which phase (P0–P7)* you're in.
 
 ### 2. Author
@@ -79,4 +79,4 @@ action family, one workflow stage. End an iteration only when the gate is green.
 
 - [docker-workflow.md](docker-workflow.md) — the commands the loop calls.
 - [validation-rules.md](validation-rules.md) — what `make verify` enforces.
-- [../scenarios/whiteout/roadmap.md](../scenarios/whiteout/roadmap.md) — the passes.
+- [../../PLAN.md](../../PLAN.md) — the order of work.

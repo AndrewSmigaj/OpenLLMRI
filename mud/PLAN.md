@@ -3,7 +3,7 @@
 > **Status: LIVING — the single task list for the whole project (created 2026-09-17).** Every task we
 > know of is here, with a status, the design document that owns it, and what it waits on. It is updated
 > in the same commit as the work (the commit hook reminds). `BACKLOG.md` is only the *Now* slice of
-> this file. `docs/scenarios/whiteout/roadmap.md` (the June P0–P7 arc) is history.
+> this file.
 > Statuses: ☐ not started · ◐ in progress · ☑ done · ⊘ waiting on a decision (named).
 
 ## 0. RESUME HERE (last touched 2026-09-27)
@@ -19,17 +19,16 @@ it.
 - Reviewed with Andrew: the GDD and documents 01–09. Documents 10–23 were re-reviewed by Claude against
   block 1 and real life (A9); Andrew answered the questions that were his, and the rescue was designed
   together (A13, document 14 §3).
-- **Now: the cleanup (task A14).** Every document is made to show the current design only, in clean
+- **Done: the cleanup (task A14).** Every document is made to show the current design only, in clean
   prose: no quotes of the conversation, no superseded material, every decision in §5 applied everywhere;
   the old seed design, the investigation scratchpads and the second GDD summary are removed. Document 13
   carries the first-week-of-October weather.
 
 **Next, in this order:**
-1. Finish A14, and answer the four items open with Andrew (§5, end).
-2. **Document 15's rules**, presented one at a time — they have never been through a sitting.
-3. **The sittings resume in index order**, checking the answers Claude proposed in each document, then
+1. **Document 15's rules**, presented one at a time — they have never been through a sitting.
+2. **The sittings resume in index order**, checking the answers Claude proposed in each document, then
    finalizing at the close.
-4. A10 — the missing systems' documents (combat, heat, hunting/trapping/fishing, food state, animal
+3. A10 — the missing systems' documents (combat, heat, hunting/trapping/fishing, food state, animal
    behaviour, scent, light, weather, snow and ice on the ground, physiology, the tutorial rooms); A11 — the
    GDD's vision, which Andrew finds too small.
 
@@ -113,7 +112,7 @@ no design.
 | ☐ | A11 | **The GDD's vision is too small** (Andrew, 2026-09-26: it should include a combat system like a MUD's, and more besides) — the umbrella's pitch, scope and system list re-read against the open world and the systems A9/A10 name, and broadened. | Fable → Andrew | GDD | A10 |
 | ☐ | A12 | **Corrections A9 found, for when the content is authored:** the pilot's materials (skin, fat, muscle, bone, blood, organs — not `flesh`); the 206's windscreen and windows are acrylic, not glass; `insulation_batting` is two materials; `conductivity` → `electrical_conductivity`; the radio is a hand radio with its batteries in a bag in the tail (document 14 §3; `objects.py` has a "field radio" in the cockpit cradle); ground signals and a piece of mirror (document 14 §3.4); the handbook with its ELT page, the flight-plan copy, the kneeboard, the logbook, the altimeter (document 16); document 05's schema change notes (§4.5); ground-to-air shapes through the `INTO` slot (document 04); document 01's lake (depth, connection to the creek). | Fable | 01, 04, 05, 14, 16, 18 | A1 |
 | ☑ | A13 | **The rescue, redesigned with Andrew** (2026-09-27 — the conversation is done, and document 14 §3 is rewritten cleanly from it; Andrew reads §3 whole at document 14's sitting): no working ELT; the battery in the nose and fine; a loose wire inside the radio that a technically proficient character sees; then the rest of the scenario — what makes the radio hard, what a party without that character does, the flyovers, the signals, surviving long enough. A conversation: real design help, no additions without asking. | Andrew + Fable | 14 | — |
-| ◐ | A14 | **The cleanup** (Andrew, 2026-09-27): every document shows the current design only, in clean prose — no quotes of the conversation (the repository is public), no superseded material, every §5 decision applied everywhere; `design.md`, `GDD-summary.md` and `docs/investigation/` removed; the writing rules and §5 rewritten; the first week of October. | Fable | all | — |
+| ☑ | A14 | **The cleanup** (Andrew, 2026-09-27; the historical folders — proposals, architecture reviews, the June roadmap, the room censuses, the stale render — removed the same day, the GDD the one design document): every document shows the current design only, in clean prose — no quotes of the conversation (the repository is public), no superseded material, every §5 decision applied everywhere; `design.md`, `GDD-summary.md` and `docs/investigation/` removed; the writing rules and §5 rewritten; the first week of October. | Fable | all | — |
 
 ### Phase B — The machine: the harness, the front door, the store (parallel with A; touches no design)
 | status | id | task | owner | design doc | waits on |
@@ -278,7 +277,8 @@ it says so. When a decision changes, this list and every document it touches cha
 - **What is aboard:** the survival kit is not at hand — it is buried somewhere; the sleeping bag is
   buried with the tail wreckage; two blankets are hidden inside the plane; no firearm. Not too easy, not
   too hard. (2026-09-27)
-- **Holt's cabin** is supplies: some trapline gear and modest stores, not piles of food. Walking out is
+- **Holt's cabin** is supplies: some trapline gear and modest stores, not piles of food. Holt does not
+  come back during the week. Walking out is
   not an ending. (2026-09-17, 2026-09-27)
 - **Wildlife:** the bear, some bigger animals and a few birds act — on the engine's behaviour rules, or
   played by a lightweight model; fewer than three birds in a room, not constantly calling; the fish are
@@ -304,7 +304,7 @@ it says so. When a decision changes, this list and every document it touches cha
   out-of-character chat. **No recap.** (2026-09-17, 2026-09-26, 2026-09-27)
 
 **What kills, and what hurts**
-- **Death comes from blood loss, the bear and the cold.** Poison makes people very sick but never kills;
+- **Death comes from blood loss, the bear, the cold and thirst.** Poison makes people very sick but never kills;
   other harms — infection, carbon monoxide and the rest — make them weak and sick. Dangerous places
   injure but never kill outright; fitness matters; a seeded dice roll, announced. (2026-09-17,
   2026-09-27)
@@ -375,13 +375,7 @@ it says so. When a decision changes, this list and every document it touches cha
   decision is carried to every document it touches. (2026-09-27)
 
 ### Open with Andrew
-- **The trapper coming back** — on the fence; Claude recommends against it (the cabin would become a
-  waiting room) and suggests his traces instead: gear, and a calendar showing he returns after the week.
-- **Thirst** — decided 2026-09-18 as killing on a realistic three-day clock; the 2026-09-27 rule names
-  blood loss, the bear and the cold as what kills. Does thirst kill, or weaken? Claude recommends it can kill: it is a slow clock with an answer always at hand (snow, the creek), not an accident like the mushroom (document 09 §6).
 - **Document 15's moral rules** — to be presented, one at a time.
-- **The other historical folders** (`docs/proposals/`, `docs/architecture/review/`, the June
-  `roadmap.md`, the room censuses) — the same treatment as the investigation folder?
 
 ## 6. How this plan is maintained
 

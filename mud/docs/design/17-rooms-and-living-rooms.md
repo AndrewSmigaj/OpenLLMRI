@@ -30,7 +30,7 @@
   and heat system. Rooms are therefore entities in the ontology like everything in them (§4.8).
 - **2026-09-26, 2026-09-27 — the season** is the first week of October in interior Alaska (document 13
   §4.2).
-- **2026-09-27 — what kills.** Death comes from blood loss, the bear and the cold; other harms —
+- **2026-09-27 — what kills.** Death comes from blood loss, the bear, the cold and thirst; other harms —
   carbon monoxide among them — make people weak and sick.
 
 ### Proposals (Claude)
@@ -39,9 +39,8 @@ Everything else is a proposal for review:
 
 - The five properties of a "living" room (§4.1), density with purpose (§4.2), the seat exemplar and its
   finds (§4.3), the nine-rule prose style guide (§4.4), and the lens pass (§4.7).
-- The nine room censuses (`docs/scenarios/whiteout/rooms/*.md`) — the "ontological Turing test" method
-  (census first, then the built room, then the gaps) comes from the `ontology-generator` skill, named in
-  the `cockpit.md` banner.
+- The "ontological Turing test" method (census first, then the built room, then the gaps) — from the
+  `ontology-generator` skill.
 - §4.8's mechanism — rooms as entities with air, light and ground; the plane's parts and openings; one
   air volume; the physics of its internal heat — stands as a proposal for Andrew's check.
 
@@ -289,7 +288,7 @@ table (document 18); aluminium melts in the coals (from about 600 °C); and warm
 frost that everyone's breath has laid on the inside of the cold skin into drips, which is how the
 inside of a heated wreck gets wet. Carbon monoxide builds by the physics and makes people weak and sick
 — headache, dizziness, nausea, confusion, a fire that burns poorly for want of air — but it does not
-kill: death comes from blood loss, the bear and the cold (Andrew, 2026-09-27). Opening an opening,
+kill: death comes from blood loss, the bear, the cold and thirst (Andrew, 2026-09-27). Opening an opening,
 banking the fire and keeping someone awake on watch (document 06) are the real answers to it.
 
 **Outdoors, a zone is an entity too**: its ground (soil, moss, rock — frozen to a depth that grows every
@@ -369,7 +368,7 @@ are for Andrew's check at this document's sitting.
   ground (§4.5); the sensory layer as room states; look-under as the `under` relation with its own
   family of acts; reading the voice; groups, three-form phrases, glimpses and look-under in the prose;
   the room rules into the loops' scaffold — all for Andrew's check.
-- **2026-09-27 (Andrew):** what kills is blood loss, the bear and the cold; carbon monoxide from a fire
+- **2026-09-27 (Andrew):** what kills is blood loss, the bear, the cold and thirst; carbon monoxide from a fire
   inside makes people weak and sick.
 
 ## 8. What exists today
@@ -387,7 +386,6 @@ are for Andrew's check at this document's sitting.
 - The aggregation of identical objects into one sentence (part of property 4's "other people's
   traces," and a presentation mechanism, DR-23): two authored `deadfall` branches render as "{count}
   snow-crusted deadfall branches" when both are present — `appearance.py`.
-- The nine census documents themselves: `docs/scenarios/whiteout/rooms/*.md`.
 - A probe corpus over the censuses: `game/world/scenarios/whiteout/probes/census.py` (mixed
   `pass`/`todo` status per candidate command); the coverage floor at
   `game/world/scenarios/whiteout/probes/BASELINE`.

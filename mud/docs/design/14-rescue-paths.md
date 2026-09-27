@@ -58,6 +58,9 @@
   weather, how close the pass comes (§3.4).
 - **The rest of the flyover schedule**, and passes after day 7 for a party not yet found (§3.5;
   document 13 §4.2).
+- **(2026-09-27)** Holt, the trapper, does not come back during the week; the cabin is supplies, not a place to be
+  rescued from. *(Proposed by Claude, for Andrew's check:* his traces say so — his trapline gear, and a calendar
+  on the cabin wall showing he returns after the week.)
 
 ### Proposals (Claude)
 - The `make a signal` rows' further roles — marker and pyrotechnic (§3.4).
@@ -223,11 +226,7 @@ what opens the radio. Each is written with Andrew when its document or zone is d
 
 ## 5. Open questions
 
-1. **Does Holt, the trapper, come back during the run?** Andrew is on the fence. *Options:* (a) he comes
-   back — a person arrives at Holt's cabin during the week; (b) he does not, and his traces say when he
-   will — his trapline gear, and a calendar in the cabin showing that he returns after the week.
-   *Recommendation:* (b). If he could come, the cabin would become a waiting room; his traces keep it
-   supplies, and they tell a party that reads them that no one is coming to the cabin in time.
+None open.
 
 ## 6. Review log
 
@@ -240,6 +239,7 @@ what opens the radio. Each is written with Andrew when its document or zone is d
   the hand radio in the plane's cabin and its batteries in the tail; the loose wire; the antenna; the channels;
   holding the button to talk; the draining light; contact not tied to flyovers; the voice; signals seen by
   physics, the plane heard first; the storm on days 3–4; the default rescue on day 7. §3 written from it.
+- **2026-09-27 (Andrew)** — the trapper does not come back; not a way to be rescued.
 
 ## 7. What exists today
 

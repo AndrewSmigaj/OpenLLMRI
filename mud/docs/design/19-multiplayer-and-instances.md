@@ -6,8 +6,7 @@
 > [`implementation-architecture.md`](../architecture/implementation-architecture.md) §6 (DR-13,
 > DR-13a), §7 (DR-14, DR-15, DR-15a), §13 (DR-22) ·
 > [`adr/0004-zone-as-attribute-perception.md`](../architecture/adr/0004-zone-as-attribute-perception.md).
-> **Sources:** [`roadmap.md`](../scenarios/whiteout/roadmap.md) P1 and P6;
-> [`GDD.md`](../scenarios/whiteout/GDD.md) §9/§16; [`VISION.md`](../../VISION.md).
+> **Sources:** [`GDD.md`](../scenarios/whiteout/GDD.md) §9/§16; [`VISION.md`](../../VISION.md).
 
 ---
 

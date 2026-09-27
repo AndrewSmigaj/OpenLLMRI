@@ -229,8 +229,7 @@ only knowable by running.
 
 ### 4.5 The worked examples
 
-The baseline for all six is the mid cabin as it renders today
-([`../review/render-2026-09-07.md`](../review/render-2026-09-07.md)). Today's content still labels the
+The baseline for all six is the mid cabin as it renders today (`make render-scenes`). Today's content still labels the
 seats with airliner rows (11B, 12C); the 206's seats are 1A, 1B, 2A, 2B and the right seat
 (document 16), and the labels change when that content is re-authored.
 
@@ -397,8 +396,7 @@ None open. Everything this document asked was settled on 2026-09-17 and is writt
   `game/typeclasses/propagator.py`.
 - The shell seams: `Room.get_display_things` / `get_display_desc` / `get_display_characters` in
   `game/typeclasses/rooms.py`.
-- The rendered-prose review artifact: `make render-scenes` →
-  [`../review/render-2026-09-07.md`](../review/render-2026-09-07.md).
+- The rendered-prose review artifact: `make render-scenes` writes it to `docs/review/`.
 
 **Designed, not built.**
 

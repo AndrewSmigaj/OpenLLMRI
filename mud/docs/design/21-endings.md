@@ -1,8 +1,7 @@
 # 21 — Endings
 
 > **Status: draft for review.** Architecture counterpart: none — the run lifecycle is DR-15/DR-15a in
-> [`implementation-architecture.md`](../architecture/implementation-architecture.md) §2. The roadmap's
-> P7 ([`roadmap.md`](../scenarios/whiteout/roadmap.md)) gates on the endings.
+> [`implementation-architecture.md`](../architecture/implementation-architecture.md) §2. `PLAN.md` E14 builds the endings.
 
 The endings — rescued or dead — and what a dead player becomes: a ghost.
 
@@ -13,10 +12,9 @@ The endings — rescued or dead — and what a dead player becomes: a ghost.
 - **Two endings: rescued or dead** (2026-09-17). Walking out is not an ending — Holt's cabin is
   supplies. Surviving long enough is one of the ways of being rescued, and the hardest (2026-09-17).
 - **The run ends when they die, of anything** (2026-09-26).
-- **What kills** (2026-09-27): death comes from **blood loss, the bear and the cold**. Poison makes
+- **What kills** (2026-09-27): death comes from **blood loss, the bear, the cold and thirst**. Poison makes
   people very sick but never kills; other harms — infection, carbon monoxide and the rest — make them
-  weak and sick. Dangerous places injure but never kill outright. Whether thirst kills or only weakens
-  is open with Andrew (`PLAN.md` §5, "Open with Andrew"; document 09).
+  weak and sick. Dangerous places injure but never kill outright.
 - **A run is about a week of game time in one sitting of two or three hours**, which the players can
   pause and return to (2026-09-17, 2026-09-27).
 - **No hard time barriers** (2026-09-07): rescue can come earlier than the week's end; instead of
@@ -78,8 +76,7 @@ a body died.
 
 Everything else hurts without killing: poison makes a person very sick (document 23 — the baneberry,
 the water hemlock, the deadly galerina); infection, carbon monoxide and the rest make them weak and
-sick (document 11); dangerous places — thin ice, a fall — injure and never kill outright. Whether
-thirst kills is open with Andrew (document 09).
+sick (document 11); dangerous places — thin ice, a fall — injure and never kill outright.
 
 ### 4.3 Rescue, per findable group *(proposed by Claude, for Andrew's check)*
 
@@ -150,7 +147,7 @@ episode; the world-building loops (22) — agents playing to an ending is how wa
 
 ## 6. Open questions
 
-None open. Whether thirst kills is Andrew's, asked with document 09.
+None open.
 
 ## 7. Review log
 
@@ -161,7 +158,7 @@ None open. Whether thirst kills is Andrew's, asked with document 09.
   findable group, nothing a cutoff after day 7, the ladder measured by the fuzz; what a ghost sees and
   does.
 - **2026-09-27 (Andrew):** there is no recap; ghosts hear ghosts, the living cannot, and anyone can use
-  the out-of-character chat; death comes from blood loss, the bear and the cold.
+  the out-of-character chat; death comes from blood loss, the bear, the cold and thirst.
 
 ## 8. What exists today
 

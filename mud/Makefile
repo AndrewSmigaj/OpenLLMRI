@@ -68,7 +68,7 @@ logs:
 	$(DC) logs -f evennia
 
 # NOTE: the engine, scenarios and bot harness aren't built yet (see
-# docs/scenarios/whiteout/roadmap.md). These targets are the intended dev
+# PLAN.md). These targets are the intended dev
 # interface; they degrade gracefully until there's something to run.
 
 # Loads a scenario once one exists. When you author world/scenarios/<name>/build.py,

@@ -33,7 +33,7 @@
 - **Food states** (2026-09-26): raw, cooked and spoiled differ; there is spoiled food, and there are
   poisonous mushrooms; there is a combat system like a MUD's (document 10 §2).
 - **What kills** (2026-09-27): **poison makes people very sick and never kills.** The bear can kill.
-  Death comes from blood loss, the bear and the cold; other things make people weak and sick.
+  Death comes from blood loss, the bear, the cold and thirst; other things make people weak and sick.
 
 ### Proposals (Claude)
 

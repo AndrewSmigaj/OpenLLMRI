@@ -10,5 +10,5 @@ import sys
 print("bake: not built yet (roadmap P2).")
 print("  It will validate authored sources (content-lint + the conservation ledger over each "
       "transform) then write the baked numeric/indexed runtime data.")
-print("  See docs/scenarios/whiteout/roadmap.md (P2) and game/world/sim/validation/README.md.")
+print("  See PLAN.md and game/world/sim/validation/README.md.")
 sys.exit(0)

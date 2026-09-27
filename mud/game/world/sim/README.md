@@ -7,7 +7,7 @@ Effects (the only writer).
 
 > **Status: scaffolded (P0).** The package tree, the **frozen** `contracts.py`, and interface stubs
 > (`NotImplementedError`, no behavior) are in place. Bodies are filled per phase in
-> [`docs/scenarios/whiteout/roadmap.md`](../../../docs/scenarios/whiteout/roadmap.md). The authoritative
+> [`PLAN.md`](../../../PLAN.md). The authoritative
 > spec is
 > [`docs/architecture/implementation-architecture.md`](../../../docs/architecture/implementation-architecture.md)
 > (decisions register DR-01…DR-22).

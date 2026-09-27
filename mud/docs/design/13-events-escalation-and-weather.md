@@ -34,7 +34,7 @@
   proposed and agreed by the players, runs it at about 150×; awake players can stay in it and type a
   command to slow it. A player waking or any non-ambient event drops it back to 15×; ambient events
   do not (document 06).
-- **(2026-09-27)** What kills: **blood loss, the bear and the cold.** Poison makes people very sick but
+- **(2026-09-27)** What kills: **blood loss, the bear, the cold and thirst.** Poison makes people very sick but
   never kills; other harms make them weak and sick (document 11 §4.6). Dead players are ghosts; there
   is no recap.
 
@@ -279,7 +279,7 @@ Document 21 owns the endings and document 14 the rescue; this is what the ladder
 - **Rescued** — by the radio, by a signal a search plane sees, or on day 7 for a party that can be
   found (document 14 §3). Help comes when the weather lets it in; this week the lake never holds, so a
   helicopter sets down on the shore, the gravel or the muskeg.
-- **Dead** — of blood loss, the bear or the cold (2026-09-27; document 11 §4.6). Every other harm on
+- **Dead** — of blood loss, the bear, the cold or thirst (2026-09-27; document 11 §4.6). Every other harm on
   the ladder — hunger, infection, carbon monoxide, a fall — weakens a body and leaves it to those
   three. The run ends when the last player dies. A dead player's body stays in the world, and the
   player is a ghost who moves freely and talks only out of character. There is no recap.

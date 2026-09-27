@@ -74,7 +74,7 @@ the action, so a `ScriptedBrain` run is still usable data.
 - There is **no runtime LLM** — the LLM is a build-time authoring tool only
   ([../architecture/llm-integration.md](../architecture/llm-integration.md)). This harness is a
   *client* (an AI that plays the MUD like a human); its `ScriptedBrain` drives the solvability fuzz
-  (roadmap P2 — [roadmap](../scenarios/whiteout/roadmap.md)).
+  (roadmap P2 — [PLAN](../../PLAN.md)).
 
 ## Related
 

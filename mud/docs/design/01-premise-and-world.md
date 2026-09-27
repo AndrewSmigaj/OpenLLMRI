@@ -8,8 +8,7 @@
 > and Scenes are represented lives in
 > [`../architecture/implementation-architecture.md`](../architecture/implementation-architecture.md)
 > (DR-13a) and [`../architecture/perception-model.md`](../architecture/perception-model.md). The built
-> zones are `game/world/scenarios/whiteout/zones.py`; the nine built rooms each have a room document
-> under [`../scenarios/whiteout/rooms/`](../scenarios/whiteout/rooms/).
+> zones are `game/world/scenarios/whiteout/zones.py`.
 
 This is the document you read to picture the whole world before anything else: what happened, when
 and where it happened, what country the party is standing in, how big it is, what it costs to cross,
@@ -79,6 +78,9 @@ Andrew on 2026-09-17 and brought to the first week of October on 2026-09-27.
   a seeded dice roll, and the player is told a roll was made.
 - **Sweat (2026-09-17).** Sweat is wet clothing draining warmth, inside the warmth system (document 08).
 - **Density (2026-09-17).** The density gradient (§4.11) is authoring order — a priority, never a cap.
+- **(2026-09-27)** Holt, the trapper, does not come back during the week; the cabin is supplies, not a place to be
+  rescued from. *(Proposed by Claude, for Andrew's check:* his traces say so — his trapline gear, and a calendar
+  on the cabin wall showing he returns after the week.)
 
 ### Proposals (Claude)
 
@@ -545,11 +547,7 @@ indifference-without-malice — which is the argument that the players' own comp
 
 ## 6. Open questions
 
-1. **Does Holt come back?** The trapper is absent; his homestead is supplies. Andrew is on the fence
-   about the trapper returning during the run. *Options:* (a) he comes back during the week; (b) he
-   stays away, and the world shows his traces instead — his gear, and a calendar on the cabin wall
-   showing he returns after the week. **Recommendation:** (b) —
-   a returning trapper would turn the cabin into a waiting room.
+None open.
 
 ---
 
@@ -562,6 +560,7 @@ indifference-without-malice — which is the argument that the players' own comp
   system; keep the fifty zones and all eleven regions, each with a reason to come back. Follow-ups in
   `PLAN.md`: A4 (re-price the valley for the week-long run), E17 (exits as entities, travel as an
   activity).
+- **2026-09-27 (Andrew)** — Holt does not come back during the week.
 
 ## 8. What exists today
 
@@ -569,10 +568,8 @@ indifference-without-malice — which is the argument that the players' own comp
 `mid_cabin`, `rear_cabin`, `outside_nose`, `fuselage_top`, `outside_tail`, `debris_trail`,
 `tail_section`, `treeline`. Each has a position, edges (walk/see), terrain tags and a survey line;
 each has authored spaces in `game/world/scenarios/whiteout/spaces.py` and objects in
-`objects.py` / `objects/`; each has an official room document with its real-world ontology census and
-gap list under `docs/scenarios/whiteout/rooms/` (nine files, one per zone); the probe corpus
-(`game/world/scenarios/whiteout/probes/`) is drawn from those censuses and names those nine zones and
-no others. The crash-site content includes the pilot's body, the sectional chart naming V. Holt's
+`objects.py` / `objects/`; the probe corpus (`game/world/scenarios/whiteout/probes/`) names those nine
+zones and no others. Their full census is the ontology store's work (document 05 §4.5). The crash-site content includes the pilot's body, the sectional chart naming V. Holt's
 cabin, the torn survival duffel, the snapped hatchet, the soaked matchbox, the sleeping bag, the
 snowshoes and the ELT.
 

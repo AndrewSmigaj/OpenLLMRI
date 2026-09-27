@@ -213,8 +213,7 @@ store's rules — is document 05 §4.5, designed in full up front (Andrew, 2026-
 `make validate-ontology` checks the schema and the cross-references.
 
 **Seeding without agents** *(proposal)*. A converter turns what is already built — the object table,
-the materials, the zones, the spaces, the appearance rows, and the nine room censuses
-([`docs/scenarios/whiteout/rooms/`](../scenarios/whiteout/rooms/)) — into the first YAML files,
+the materials, the zones, the spaces and the appearance rows — into the first YAML files,
 marked built or designed with provenance *"converted from <file>"*. This matters for the review: the
 store and the viewer exist and can be browsed **before any agent runs**, so the first thing Andrew
 reads is the current world, not a model's guess at it.
@@ -362,9 +361,8 @@ None open. The scaffold's wording is settled by the pilot, not on paper (documen
 - No world-builder, scout or describer agent has been run against a room under this design.
 
 **What the earlier build loop produced.** The engine core, the placement work and the authored prose
-for the crash cluster; and the nine crash rooms censused into
-[`docs/scenarios/whiteout/rooms/`](../scenarios/whiteout/rooms/) — one document per room, each with
-its real-world entity census and a gap list. Its step into the fifty outdoor rooms never began.
+for the crash cluster; and a census of the nine crash rooms, now carried by the `census` probes and
+redone properly by the loops. Its step into the fifty outdoor rooms never began.
 
 **What exists to build on.** The probe corpus and its ratchet
 ([`game/world/scenarios/whiteout/probes/`](../../game/world/scenarios/whiteout/probes/)), which is
