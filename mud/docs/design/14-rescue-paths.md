@@ -201,6 +201,18 @@ superseded by the 2026-09-17 decisions and kept as the record:*
 > would (*"you're breaking up — can you get your antenna higher?"*), heard only as far as the signal lets
 > it through; the game gives it the landmarks and what each is worth; the same model plays it every run.
 > GDD §3 rule 2 carries this as its one exception.
+>
+> **Signals a plane can see (2026-09-27).** Andrew's words, 2026-09-17: *"they can start a fire and burn
+> rubber or other smoke producing things maybe enough pine branches i dont know whatever is realistic but
+> also burning the cabin down should trigger a rescue, if it is during a flyover event, we will have an
+> early flyover event just to set the story they wont have progressed enough likely to trigger rescue."*
+> **Whether a crew sees a signal comes from physics — Claude's choice, at Andrew's request ("you decide"),
+> for his check:** what the signal is and its contrast (dark smoke from rubber or oil against snow, white
+> smoke from green boughs against dark forest, fire at night, the wreck's metal until snow covers it,
+> signs stamped in the snow, three fires in a triangle), the weather (wind flattens smoke; the storm hides
+> everything and grounds the planes), and how close the pass comes. **The plane is heard before it is
+> seen** (Andrew: *"yes heard first is fine, they might not make it in time but that is ok"*) — a real
+> window to light a fire laid ready, which a party may miss.
 
 
 > **Decided with Andrew, 2026-09-17:** the only endings are **rescued or dead**; walking out is not an ending
@@ -910,6 +922,8 @@ kept, struck, as the record.
 - **2026-09-27 (Andrew, the rescue conversation, fifth round):** no "mini game" — the radio is interacting with the world, and a bad signal letting through only some words is part of the world; the voice is scaffolded to help only as a real rescuer would, asks for landmarks, and judges whether what it is told is good enough (§3 banner). The "mini game" wording is struck here, in the GDD, the design index and `PLAN.md`.
 
 - **2026-09-27 (Andrew, the rescue conversation, sixth round):** the model's judgement stays — *"i changed my mind. i need one because they are talking to someone"*; the voice may hint (raise the antenna), heard through the bad signal; the same model every run, scaffolded with rules; it judges by criteria the game gives it — the landmarks and their value. GDD §3 rule 2, `VISION.md` and `CLAUDE.md` carry the exception.
+
+- **2026-09-27 (Andrew, the rescue conversation, seventh round):** signals — *"1. you decide 2. yes heard first is fine, they might not make it in time but that is ok"*. Claude chose physics for whether a crew sees a signal (§3 banner, for his check); the approaching plane is heard first.
 
 ## 7. What exists today
 
