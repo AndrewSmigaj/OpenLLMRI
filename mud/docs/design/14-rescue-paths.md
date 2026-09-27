@@ -172,9 +172,10 @@ superseded by the 2026-09-17 decisions and kept as the record:*
 > length of wire. It has **a dial and a set of channel buttons**, one of them the emergency channel: try
 > them all, or find the frequency written down. The batteries **drain with use, and it shows** (*"the
 > light starts to dim, perhaps the radio is draining"*). Not in: a wet radio; a wire-length puzzle.
-> Search and rescue is searching — that is why planes come. **Still open:** when someone can answer (only
-> during flyovers, as on 2026-09-17, or anyone within reach of the radio); whether the cold weakens the
-> batteries too.
+> Search and rescue is searching — that is why planes come. **Answered the same day:** someone can answer
+> **not just during a flyover — once the antenna is fixed, contact is relatively quick** (supersedes the
+> 2026-09-17 "usable only during flyover events"); the cold does **not** weaken the batteries — only use
+> drains them.
 
 
 > **Decided with Andrew, 2026-09-17:** the only endings are **rescued or dead**; walking out is not an ending
@@ -876,6 +877,8 @@ kept, struck, as the record.
 - **2026-09-27 (Andrew, the rescue conversation, first round):** the radio — *"you need to find something to open the radio, you need to fix the antenna, you need to adjust the antenna, never said you had to wait for a flyover you just have to try different channels"*; and *"What would you add to make it harder? a disconnected battery? what?"* A party without a technical character: *"it would just be slower just like making fire. it would hint at this 'you are not technically proficient so this might take awhile' when inspecting the inside."* Why planes come: *"they are searching for it, search and rescue you know."* Claude showed the 2026-09-17 words (*"the hand radio is also usable only during flyover events otherwise it is static"*) — which of the two stands is open in the conversation.
 
 - **2026-09-27 (Andrew, the rescue conversation, second round):** *"would a battery really stop working in a week of cold? it could drain down with indicators 'the light starts to dim, perhaps the radio is draining'. b) absolutely not making the user find the right length wire, putting it higher is ok c) we have a dial and a set of buttons for different channels only one of which is the emergency one they can try all the channels or find the written down frequency d) no, as for the fork you suggested a hand radio in the cabin but it needs batteries buried in a container like luggage or bag in the tail section."* Written into the §3 banner.
+
+- **2026-09-27 (Andrew, the rescue conversation, third round):** *"1. no 2. not just during a flyover, once you fix the antenna it is relatively quick"* — the cold does not weaken the radio's batteries; contact does not wait for a flyover, and comes relatively quickly once the antenna is fixed (supersedes 2026-09-17's "usable only during flyover events").
 
 ## 7. What exists today
 
