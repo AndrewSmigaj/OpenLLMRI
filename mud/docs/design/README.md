@@ -91,6 +91,9 @@ every food in the valley and everything that makes people sick.
 - **Never make the world less interactive.** Every real distinction a survivor would act on is in.
   "Modestly", "trivially", "no special verb", "falls out of existing operations" and "for v1" are
   warning words.
+- **Plain words, common names.** Use the name people actually say — rabbit fever, not tularemia; the
+  trichinosis worm, not *Trichinella* — and name every item by its most common name, with the technical
+  and other names as its synonyms (Andrew, 2026-09-27).
 - **Answer in the ontology's terms** (documents 03–05): entities and parts, materials, forms, states,
   what each could become, relations, the systems that change them, and the grammar forms that reach
   them. A variant that is ontologically significant is its own operation, within the grammar rules.

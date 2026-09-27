@@ -36,6 +36,7 @@
 - **What kills** (2026-09-27): **poison makes people very sick and never kills.** The bear can kill.
   Death comes from blood loss, the bear, the cold and thirst; other things make people weak and sick.
 
+- **2026-09-27 — no moose.** Things are named by their most common name, with the other names as synonyms.
 ### Proposals (Claude)
 
 - Everything below the rules: the species, where each lives, what it yields, with sources (§4.0,
@@ -63,8 +64,7 @@ only beginning to turn, and stand out on the new snow; every run they use prints
 sit in the spruce, tame enough that whatever is thrown will miss and miss and then not; a few ptarmigan work
 the willow bottoms; red squirrels scold from middens heaped with a winter's cones; voles tunnel under
 the first snow; fish feed in open water. A grizzly is still up, feeding hard on berries and roots
-before it dens, and it can smell the wreck's food from a long way off; the moose are in the rut, and a
-moose owns the trail; wolves cross the valley and are heard before they are seen; ravens find your
+before it dens, and it can smell the wreck's food from a long way off; wolves cross the valley and are heard before they are seen; ravens find your
 cache before you do. The ground crusts on clear nights — digging is still possible, and harder by the
 day — and the root at the marsh edge that looks like a carrot is the worst poison in the valley. Then
 the storm comes, and buries the low berries first.
@@ -85,7 +85,6 @@ Every figure is a real starting point that the probes tune.
 | **roots** | the tops dying back; the ground crusting on clear nights over soft soil. Sweetvetch — the Indian potato, historically one of the most widely harvested wild plants in Alaska — is hard work to dig, ounces a plant, which is why people raided the voles' caches or searched riverbanks for exposed roots; grizzlies dig the same roots in fall | harder to dig after each clear night; under the storm's snow the frost goes in more slowly, but the snow must be moved first | Holloway, *Georgeson Botanical Notes* 77 (UAF, 1997, revised 2014); ADF&G, *Activity and food habits of barren-ground grizzly bears in arctic Alaska*; ADF&G, "Grizzly Bear Denning" (fall digging for roots) |
 | **mushrooms** | the fleshy season is over: most caps frozen, collapsed and rotting; the fly agaric still recognisable, fading; the velvet foot fruiting on dead aspen, poplar and willow in the cold; the deadly galerina on rotting wood in fall; the red squirrels' dried caches in the spruce, fly agaric among them; the woody conks all year | the ground species go under the snow; the conks and the caches stay | Geophysical Institute, *Alaska Science Forum*, "Squirrels and toxic mushrooms" (UAF — Fairbanks squirrels cache Amanitas); ADF&G, red squirrel; *Galerina marginata* and *Flammulina* references (e.g. Missouri Dept. of Conservation; Fungus Fact Friday); NWS Fairbanks frost dates |
 | **bears** | interior black bears are denning — in the Yukon Flats the mean den entry was 26 September and the last 8 October (42 bears), so most have gone in and the last are going. Grizzlies den later: on the North Slope all females by mid-October and about 80 % of males by 1 November; at Lake Clark females about 20 October and males about 28 October. A bear still up and feeding now is most likely a grizzly, feeding hard on late berries, roots and anything else; fall bears run about 20 % heavier | den entry can fall inside the run, more likely late in it | the Yukon Flats black bear study (International Association for Bear Research and Management); ADF&G, "Grizzly Bear Denning"; "Sex-specific variation in denning by brown bears" (Lake Clark, *Mammalian Biology* 2018); ADF&G species profiles |
-| **moose** | the rut at its peak — late September to early October; in Denali mating runs from about the third week of September into early October. Bulls spar, fight and are quick to charge; cows with calves | the rut winds down through the week | ADF&G, moose; NPS, "Moose Rutting in Denali" |
 | **hares** | the fall moult to white is just beginning: it starts between 28 September and 3 October and takes about six weeks (36–43 days), on a day-length clock whatever the snow does — so a hare is still mostly brown on the first inch of snow; every run prints in it | fresh tracks after each snowfall; still more brown than white at the week's end | Ghimirey et al., *Royal Society Open Science* 2025 (Kluane, Yukon); Mills et al., *PNAS* 2013; ADF&G, snowshoe hare |
 | **grouse, ptarmigan** | willow ptarmigan families have flocked in September, and the sexes separate in late September and October, the females moving in small groups to the lower willow; mottled, turning white; spruce grouse on spruce needles and as tame as ever; ruffed grouse in the aspen | — | ADF&G, willow ptarmigan; ADF&G grouse |
 | **squirrels, voles, frogs** | red squirrels caching cones and hanging mushrooms to dry, most territorial while they cache; voles moving into the space the first snow makes over the ground; wood frogs in their winter shelters under the leaf litter since September, cold and torpid but not yet frozen — at Fairbanks they freeze between about 10 and 25 October | — | ADF&G, red squirrel; Smith 1968 and later interior-Alaska midden studies; Larson et al., *J Exp Biol* 2014 |
@@ -129,7 +128,7 @@ by how each animal is driven:
 | how it is driven | who | why |
 |---|---|---|
 | **An actor a lightweight model can play** (engine behaviour rules otherwise) | one **grizzly** — in the first week of October most interior black bears have denned, and a bear still up and feeding is most likely a grizzly (§4.0); the **raven pair** | the two whose choices make a story: the bear finds the pilot's body and the food by smell and decides what to do about the people near it; the ravens watch, follow, call and steal. Two on a model at once keeps a run affordable. |
-| **An actor on engine behaviour rules** | a **cow moose with a calf** (she owns the trail and charges if pressed); the **wolf pack** as one actor moving as a group (heard at night, sign on the ice, wary of people); a **red fox** at the camp's edge; **one or two gray jays** at food; the **grouse and ptarmigan** people hunt | simple, readable behaviour; any of them could move to a model later if a run wants it |
+| **An actor on engine behaviour rules** | the **wolf pack** as one actor moving as a group (heard at night, sign on the ice, wary of people); a **red fox** at the camp's edge; **one or two gray jays** at food; the **grouse and ptarmigan** people hunt | simple, readable behaviour; any of them could move to a model later if a run wants it |
 | **A population** | snowshoe hares (the runs a snare is set on), red squirrels (middens), voles, the beavers in their lodge, marten (sign) | many of them, little choice each — counts and rules until one is caught or seen |
 | **Scripted** | the fish: grayling, burbot, whitefish, pike | Andrew, 2026-09-27 — met only through fishing |
 
@@ -154,14 +153,14 @@ presence in this valley is still to be checked against it.
 | highbush cranberry | willow bars, creek | red clusters on the bush above the snow, softened by frost, with a musty smell and flavour (UAF Cooperative Extension) | food — very sour, a big flat seed in each; a few handfuls | the sour red berry; stays on the bush above any snow the week brings |
 | rose hips | creek, forest edge | red-orange, frost-softened on the stem | food — the richest fruit in the valley, about 160 kcal per 100 g (USDA, wild rose hips), once the seeds and their itching hairs are out; vitamin C | the manual's page; stays above the snow |
 | **baneberry** | forest floor, shaded | the last red (or white) clusters on a leafy plant dying back — it fruits August to October (USFS FEIS), so some remain | **poison** — as few as six berries poison an adult: nausea, dizziness, cramps, a racing pulse; far fewer are dangerous to a child (UAF Alaska Ethnobotany). In the game it makes a person very sick and never kills (§4.6) | the red berry that makes you sick (Andrew, 2026-09-17) |
-| **rowan (mountain ash)** | the birch stand, forest edges — a few trees | orange-red clusters at eye height, frost-touched | food — raw and in quantity it makes you sick (parasorbic acid: vomiting, cramps); frost begins to convert it and cooking finishes the job | occasional; a second real red berry that makes you sick, and one that heat cures (document 10 §4.6) |
+| **rowan (mountain ash)** | the birch stand, forest edges — a few trees | orange-red clusters at eye height, frost-touched | food — raw and in quantity it makes you sick (an acid in the raw berries: vomiting, cramps); frost begins to convert it and cooking finishes the job | occasional; a second real red berry that makes you sick, and one that heat cures (document 10 §4.6) |
 | bearberry (kinnikinnick) | the ridge, dry open ground | mealy red berries on a flat mat | food — mealy, poor; the leaves make a tea | buried early |
 | blueberries dried on the bush | muskeg, open spruce | the few the birds and the bear missed, shrivelled | a lucky find | rare by October |
 | juniper berries | the ridge, dry slopes | blue-black on the low shrub | flavouring; a hot drink | — |
 | spruce needles / tips | everywhere with spruce | green | tea (warmth, vitamin C) | the safest forage |
 | wintergreen / pyrola leaves | under the spruce | evergreen leaves under the first snow | tea | — |
-| labrador tea | muskeg | leaves persist | tea; mild — strong and in quantity it is harmful (its ledol), so the dose matters | crush-and-sniff to identify |
-| inner bark (spruce, birch cambium) | any live tree, a blade to strip | the sap is down; the cambium thin | famine food — chew or boil; costs the tree | the world remembers a girdled tree |
+| labrador tea | muskeg | leaves persist | tea; mild — strong and in quantity it is harmful, so the dose matters | crush-and-sniff to identify |
+| inner bark (spruce, birch) | any live tree, a blade to strip | the sap is down; the inner bark thin | famine food — chew or boil; costs the tree | the world remembers a girdled tree |
 | spruce pitch | any wounded trunk | stiff, amber | chew it; seal a wound; it burns | — |
 | willow bark | willow bars | dormant | a mild painkiller (tea) | a real thing, weak |
 | chaga | the old birch (document 01, S7) | the black conk | tea; tinder that holds an ember | a reach puzzle |
@@ -170,9 +169,9 @@ presence in this valley is still to be checked against it.
 | sweetvetch root (Indian potato) | the bench, river bars | in ground that crusts on clear nights, soft below | food — starch, sweetish; long, skinny roots, ounces a plant (Holloway, UAF) | digging breaks the crust first (§4.6); a fire thaws it; the grizzly digs the same roots |
 | mouse caches *(candidate)* | the sedge meadow at the muskeg edge | root voles' stores of small roots and tubers under the moss, laid in before the ground freezes | food — small starchy roots, found by the soft ground over a cache | people in Alaska raided these caches for Indian potato rather than dig it (Holloway, UAF; the Yup'ik *mousefood*); whether they are in this valley's meadow is for the loops to check |
 | **water hemlock root** | the marsh edge, by the cattails | tops dead and brown; the root in soft, unfrozen mud — a cluster of fleshy tubers, the rootstock chambered inside, a yellowish oily sap, a smell like raw parsnip | **poison** — in reality the most toxic plant in North America (CDC, *MMWR* 1994). In the game it brings seizures and lost days and never kills (§4.6) | the worst poison in the valley; the manual warns; the soft mud makes it easy to dig |
-| **velvet foot** (*Flammulina*) | dead aspen, poplar and willow | orange, slimy caps in clusters on black, velvety stems; it fruits in the cold, from late fall into winter | food — a real edible mushroom, the one fresh one of the season | the deadly galerina grows on rotting wood nearby, and most galerina poisonings are people mistaking it for this one: a brown spore print and a ring on the stem, against a white print and no ring |
-| **deadly galerina** (*Galerina marginata*) | rotting conifer logs, mossy wood — where the grubs are | small brown caps in clusters, a thin ring on the stem | **poison** — in reality amatoxins: violent vomiting and diarrhoea some hours after the meal, a false recovery, then the liver and kidneys fail. In the game a long, severe sickness that never kills (§4.6) | the lookalike of the one good mushroom; the sickness arrives hours after the meal |
-| **fly agaric** (*Amanita muscaria*) | under birch and spruce | the red cap with white warts, collapsing after frost, the colour fading | **poison** — within hours: nausea, vomiting, confusion, delirium, drowsiness | Alaska's most familiar toxic mushroom |
+| **velvet foot** (wild enoki) | dead aspen, poplar and willow | orange, slimy caps in clusters on black, velvety stems; it fruits in the cold, from late fall into winter | food — a real edible mushroom, the one fresh one of the season | the deadly galerina grows on rotting wood nearby, and most galerina poisonings are people mistaking it for this one: a brown spore print and a ring on the stem, against a white print and no ring |
+| **deadly galerina** | rotting conifer logs, mossy wood — where the grubs are | small brown caps in clusters, a thin ring on the stem | **poison** — in reality liver-destroying toxins: violent vomiting and diarrhoea some hours after the meal, a false recovery, then the liver and kidneys fail. In the game a long, severe sickness that never kills (§4.6) | the lookalike of the one good mushroom; the sickness arrives hours after the meal |
+| **fly agaric** | under birch and spruce | the red cap with white warts, collapsing after frost, the colour fading | **poison** — within hours: nausea, vomiting, confusion, delirium, drowsiness | Alaska's most familiar toxic mushroom |
 | frost-killed mushrooms | the forest floor everywhere | frozen and thawed, collapsed, slimy, smelling | spoiled — sick-making whatever they were | the country's own spoiled food (Andrew, 2026-09-26) |
 | the squirrels' dried mushrooms | wedged in spruce forks above a midden | dried by the squirrel in late summer and fall; **edible kinds and fly agaric together** — Fairbanks squirrels cache Amanitas (Geophysical Institute, *Alaska Science Forum*) | food, if you can tell them apart | a raid gets seeds *and* mushrooms |
 | reindeer lichen | the ridge, open spruce | grey mats under the first snow | famine food after boiling; acid otherwise | poor, but there |
@@ -186,7 +185,7 @@ presence in this valley is still to be checked against it.
 
 | animal | where | how it shows in the first week of October | how you get it | yield (document 10 owns the numbers) |
 |---|---|---|---|---|
-| snowshoe hare | willow thickets, the hare runs (document 01) | still mostly brown, the moult to white just beginning — stark on the first inch of snow; every run printed in it; a flash of brown and white | a snare on a run, a spring pole, checked later (hours); a thrown stick or rock rarely; the fox robs snares | ~800–1,000 kcal each; the pelt; gutting one bare-handed risks tularemia (ADF&G) |
+| snowshoe hare | willow thickets, the hare runs (document 01) | still mostly brown, the moult to white just beginning — stark on the first inch of snow; every run printed in it; a flash of brown and white | a snare on a run, a spring pole, checked later (hours); a thrown stick or rock rarely; the fox robs snares | ~800–1,000 kcal each; the pelt; gutting one bare-handed risks rabbit fever (tularemia) (ADF&G) |
 | willow ptarmigan | willow bars, muskeg edge | one or two at a time (fewer than three birds in a room, §4.1a) — the females come down to the willow in small groups (ADF&G), mottled and turning white; they let you close | anything within reason thrown — misses several times with honest feedback ("the rock thumps into the snow a foot short; the birds shuffle"); a sling; a snare in a gap in a brush fence; finding rocks is its own search | one bird (~570 g live, ADF&G), ~350 kcal |
 | spruce grouse ("fool hen") | spruce forest, low branches | sits and stares; eating spruce needles | anything within reason thrown at close range; a noose on a pole — the tamest bird in the valley | ~300 kcal a bird |
 | ruffed grouse | the aspen and birch | budding in the aspen at dusk; flushes hard and loud | anything within reason thrown — harder than the spruce grouse | ~300 kcal a bird |
@@ -194,14 +193,13 @@ presence in this valley is still to be checked against it.
 | vole | under the first snow, tussocks | tunnels, a scurry | a deadfall trap; hours; tiny | ~25 kcal; better as bait |
 | wood frog | the leaf litter by the ponds | nothing — in its winter shelter under the litter, cold and torpid, not yet frozen (Larson et al. 2014) | scraping the litter | a few grams: a find, not a food source — the real animal in the place of the lizards |
 | grubs / beetle larvae | rotten logs, under loose bark | split the log | a blade or hands | a handful; the honest bugs Andrew asked for |
-| grayling, whitefish, burbot | the lake, the pool (document 01) | nothing, until you fish; open water | cast a line into open water; once the lake ice holds, drop a line or set one through it; spear; net (document 10 §4.8) — line and hooks, or wire | ~300 kcal a grayling to ~1,600 for a big burbot with its liver; the best single meal |
+| grayling, whitefish, burbot | the lake, the pool (document 01) | nothing, until you fish; open water | cast a line into open water; the ice breaks if you walk out on it (Andrew, 2026-09-27); spear; net (document 10 §4.8) — line and hooks, or wire | ~300 kcal a grayling to ~1,600 for a big burbot with its liver; the best single meal |
 | northern pike *(candidate)* | the lake, if it is a lowland lake deep enough to overwinter fish | nothing, until you fish | casting, jigging, a set line, spearing (ADF&G) | ~500–1,800 kcal a fish |
 | beaver | the lodge and its feed pile (document 01, S9) | out at dusk cutting and towing branches to the feed pile before the ice locks the pond; the tail-slap alarm; fresh-chewed stumps | on land at dusk and wary: a snare or a trap at its slide, a club or a spear at close range — hard; once the ice seals the pond it lives under it | a 17–32 kg animal (ADF&G) — rich meat, the tail's fat |
 | muskrat *(candidate)* | the marsh edge, if the lake has one | push-ups of vegetation once the ice forms (ADF&G) | a snare or a spear at the push-up | 0.9–1.8 kg (ADF&G) |
 | ravens, Canada (gray) jays | the wreck, any camp | actors (§4.1a): the raven pair finds your cache first, the jays within the hour; their gathering marks a carcass (document 12 §4.3a) | not food; a pressure and a sign | — |
 | wolves | the treeline, the ice | howls at night, tracks circling by day; a pack of about six or seven on a territory far larger than the valley, passing through (ADF&G) | a confrontation is the combat system's physics — the odds, the injury, the pack's own behaviour — never a script either way; real wolves rarely attack people | — |
-| moose | the game trail | the trench, the bed, the browse line; the rut at its peak — a bull quick to charge, cows with calves | a wall of meat that injures the careless; killing one with improvised weapons is the combat system's physics — possible, rare, and dangerous to try | hundreds of kilograms of meat, if it happens |
-| **the bear** (Andrew, 2026-09-26) | wherever food is: the berry slopes, the root bench, the creek; the wreck, once it smells food there | tracks, berry-filled scat, dug-up roots, a torn stump — then the bear | an actor (§4.1a); fighting it is the combat system with real odds, and the bear can kill (Andrew, 2026-09-27); a kill is a fall bear heavy with fat — and *Trichinella* in the meat, so it is always cooked through (document 10 §4.6) | the richest food in the valley, and the most dangerous thing in it |
+| **the bear** (Andrew, 2026-09-26) | wherever food is: the berry slopes, the root bench, the creek; the wreck, once it smells food there | tracks, berry-filled scat, dug-up roots, a torn stump — then the bear | an actor (§4.1a); fighting it is the combat system with real odds, and the bear can kill (Andrew, 2026-09-27); a kill is a fall bear heavy with fat — and the trichinosis worm in the meat, so it is always cooked through (document 10 §4.6) | the richest food in the valley, and the most dangerous thing in it |
 | fox, marten, lynx | tracks everywhere in the new snow; the marten set on the trapline (document 01) | sign, rarely the animal; the fox follows the snare line | the trapline's old sets, if repaired | a pelt, a little meat |
 | owl | night | a call | — | — |
 
@@ -256,7 +254,7 @@ the freight and people's bags — foraging stretches it, most in the first days,
 and by day five or six they are in real deficit, which is why the pilot's body becomes a question
 rather than a horror story. The run ends rescued or dead (document 21).
 
-**The exceptions are the big animals.** A moose, a beaver or the bear killed changes the whole run —
+**The exceptions are the big animals.** A beaver or the bear killed changes the whole run —
 hundreds of kilograms of meat, or a fall bear's fat — and each is a combat act with real physics and
 real danger (document 10 §4.8). None of them is in the daily yield.
 
@@ -296,7 +294,7 @@ country's own spoiled and poisonous things are §4.2 above.
   illness model (document 11 §4.6: what is in the gut). Baneberry: nausea, dizziness, cramps, a racing
   pulse — as few as six berries for an adult, far fewer for a child, which matters with the kid in the
   party (UAF Alaska Ethnobotany; USFS FEIS). Raw rowan in quantity: vomiting, diarrhoea and cramps
-  (parasorbic acid), which frost and cooking undo. Water hemlock: nausea and cramps within 15–90
+  (an acid in the raw berries), which frost and cooking undo. Water hemlock: nausea and cramps within 15–90
   minutes, then seizures (CDC, *MMWR* 1994) — seizures, the injury they cause and the lost days, never
   death. The deadly galerina: violent vomiting and diarrhoea some hours after the meal, a false
   recovery, then a long, severe sickness. The fly agaric: within hours, nausea, vomiting, confusion,
@@ -319,8 +317,8 @@ country's own spoiled and poisonous things are §4.2 above.
   pouch and two cords. A miss lands somewhere, and the rock is in the snow.
 - **Fishing as the ice comes.** As hard as the water really is that day (document 10 §4.8). In the
   first week of October the lake, the creek and the pool are open water, so the first fishing is a
-  line cast from the shore or into the pool; skim ice at the edges breaks under a body. When the lake's
-  ice will hold a person is document 13 §4.2's ice row. A hole through new ice is minutes with a
+  line cast from the shore or into the pool; skim ice at the edges breaks under a body. Walking out on the ice breaks it
+  (Andrew, 2026-09-27). A hole through new ice is minutes with a
   hatchet — through thicker ice, far longer — and the hole is an entity whose ice skins over again
   every cold night. Then the variants are each their own operation: jigging, a set line left overnight
   for burbot, spearing through clear ice, a net, and line and hooks or wire and a bent pin.
@@ -334,7 +332,7 @@ grizzly bears in arctic Alaska*; Geophysical Institute, *Alaska Science Forum*, 
 mushrooms"; *Galerina* and *Flammulina* references; CDC, *MMWR* 1994 (water hemlock poisonings); the
 Yukon Flats black bear study (International Association for Bear Research and Management); ADF&G,
 "Grizzly Bear Denning"; "Sex-specific variation in denning by brown bears" (Lake Clark, *Mammalian
-Biology* 2018); NPS, "Moose Rutting in Denali"; ADF&G species profiles (black and brown bear, moose,
+Biology* 2018); ADF&G species profiles (black and brown bear,
 wolf, snowshoe hare, willow ptarmigan, beaver, muskrat, common raven, red squirrel, Arctic grayling);
 Ghimirey et al., *Royal Society Open Science* 2025, and Mills et al., *PNAS* 2013 (hare moult); Larson
 et al., *J Exp Biol* 2014 (wood frogs); Ellison 1968 (spruce grouse); Smith 1968 and later
@@ -354,8 +352,8 @@ supplies the weather, daylight, snow, ice and frost this document refers to, and
 the low berries and refreshes the tracks; document 12 §4.3a the carcass that draws the bear, the ravens
 and the jays; document 11 §4.6 what the poisonous mushrooms, the baneberry and the hemlock do inside a
 body; document 10 §4.8 the operations that take what is listed here. Systems with no design document
-yet (`PLAN.md` A10): **animal behaviour** (the actors of §4.1a), **combat** (fighting the bear, the
-moose, the wolves), **hunting, trapping and fishing**, the **heat system** (frost in the ground, ice
+yet (`PLAN.md` A10): **animal behaviour** (the actors of §4.1a), **combat** (fighting the bear or the
+wolves), **hunting, trapping and fishing**, the **heat system** (frost in the ground, ice
 on the water, a fire thawing both) and **food state and spoilage**. Document 01 must say what the lake
 is — its depth and whether it connects to the creek — before the fish rows can have densities.
 
@@ -381,7 +379,7 @@ Andrew's check.
   the bear can kill; the fish are scripted; fewer than three birds in a room, calling now and then, not
   constantly; Claude proposes the wildlife (§4.1a).
 - **2026-09-27 (Claude):** the season material revised to the first week of October from the record —
-  berries, roots, mushrooms, the bears before denning, the moose rut, the hares' moult, the frogs —
+  berries, roots, mushrooms, the bears before denning, the hares' moult, the frogs —
   for Andrew's check.
 
 ## 8. What exists today

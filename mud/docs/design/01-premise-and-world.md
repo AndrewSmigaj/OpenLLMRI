@@ -289,7 +289,7 @@ redesign)*
 | `pressure_ridge` | the lake's middle, reached only over the ice. Its winter design — a pressure ridge as a windbreak mid-crossing, with the cleanest blue ice — needs thick ice the first week of October does not have; in October this is open water, then the thinnest new ice | 📐 |
 | `inlet_mouth` | the ice curriculum as the lake freezes — skim ice, new ice, the current that keeps it thin — and running water at the inflow | 📐 |
 | `outlet_narrows` | running water heard before it is seen: the discovery chain south, its border ice thin over the current | 📐 |
-| `far_shore_burn` | the fuel jackpot on the far shore: the long way round the lake while it is open, across it only once the ice holds — the greed test | 📐 |
+| `far_shore_burn` | the fuel jackpot on the far shore: the long way round the lake — walking out on the ice breaks it (Andrew, 2026-09-27) — the greed test | 📐 |
 
 **S4 — The North Wood**
 
@@ -327,7 +327,7 @@ redesign)*
 | `aspen_fringe` | push-over poles and punk wood: the ember you can carry | 📐 |
 | `birch_grove` | bark in three grades: fire that starts wet | 📐 |
 | `chaga_tree` | the spark-catching fungus ten feet up — lighterless insurance, and the reward for looking up | 📐 |
-| `game_trail_crossing` | an old shed antler (tool stock) and a moose bed's heat lesson; the moose itself may be on the trail (document 23 §4.1a) | 📐 |
+| `game_trail_crossing` | an old shed antler (tool stock) | 📐 |
 
 **S8 — The Creek**
 
@@ -388,7 +388,6 @@ upgrade is treasure: the map is big.
 | wreck → creek riffle | 30 min | 18 min | 12 min |
 | wreck → beaver pond | 55 min | 35 min | 25 min |
 | wreck → homestead | ~90 min | ~60 min | ~40 min |
-| across the lake to the burn, once the ice holds | 25 min | — (wind erases the trail) | 15 min |
 
 The table was drawn for deep snow; it is re-priced for the week-long run and the October ground by
 `PLAN.md` task A4. Moving is an attended activity whose time is distance over pace, times terrain,
@@ -427,7 +426,7 @@ Each is a crude-to-mastery arc, and each is a network of rooms rather than a sta
 - **Food** — the wreck's food (the pockets, the luggage, the freight) →
   cranberries, rose hips and roots (a trickle) → grouse and ptarmigan (skill shots) → snare lines
   (planning + wire) → the fishery (the source that scales) → Holt's modest stores (farthest away) → the
-  bear and the moose (the richest food and the most dangerous, through the combat system) — and the
+  bear (the richest food and the most dangerous, through the combat system) — and the
   pilot's body, which is food and taboo (document 12). Calories scale with commitment, never with luck.
 - **Warmth and clothing** — crash clothing → the pilot's jacket and the unplayed seats' clothes → seat
   covers, the two blankets hidden in the plane, the sleeping bag buried with the tail →
@@ -554,7 +553,7 @@ None open.
 
 - **2026-09-17 (block 1):** reviewed in full. Travel is an attended activity (`walk`, `run`, `turn
   back`) that weather lengthens; walking out is not an ending and the cabin is supplies; the density
-  gradient is authoring order, never a cap; wildlife as events and sign, no wolverine; dangerous places
+  gradient is authoring order, never a cap; wildlife as events and sign, no wolverine and no moose; dangerous places
   injure, never kill outright, by an announced seeded roll; sweat is wet clothing inside the warmth
   system; keep the fifty zones and all eleven regions, each with a reason to come back. Follow-ups in
   `PLAN.md`: A4 (re-price the valley for the week-long run), E17 (exits as entities, travel as an

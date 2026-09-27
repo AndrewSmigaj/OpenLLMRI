@@ -230,7 +230,7 @@ what the cold and blood loss find:
 |---|---|---|
 | the crash | the starting draw (§4.2) | document 16 |
 | a person with a stick, a spear, a knife, a rock | `heft` bruises, breaks bone, concusses; `edge` cuts; `point` punctures — small, deep and dirtier than it looks; what covers the part changes what gets through | **the combat design, to be written** |
-| the bear and the other animals that act | claws cut and tear; a bite punctures and crushes; a moose's kick or trample breaks bone. Every animal wound is heavily contaminated | document 23 and **the animal-behaviour design, to be written** |
+| the bear and the other animals that act | claws cut and tear; a bite punctures and crushes. Every animal wound is heavily contaminated | document 23 and **the animal-behaviour design, to be written** |
 | a fall — the cornice, the climb, a slip on the ice | a sprain, a break, a head strike. **Dangerous places injure, never kill outright; fitness matters; the dice roll is announced** (2026-09-17) — the wound then runs its own real clock, which the party can answer | documents 01 and 13 |
 | cold air on a part | the part's `heat` falls: fine work goes when finger skin is below about 15 °C, the part is numb below about 7 °C, and it freezes below about −0.5 °C | document 08 (extremities); **the heat design** |
 | cold metal and cold fuel | contact frostbite: bare skin on cold metal loses heat fast; avgas or oil below freezing is still liquid and freezes skin almost at once as it evaporates | **the heat design** |
@@ -271,7 +271,7 @@ and the world teaches it by happening in it.
 - Stop the Bleed / American Red Cross — direct pressure, packing, hold pressure (minutes; 10 or more
   for a heavy bleed); tourniquets considered safe to about two hours, worse outcomes past four
   (scoping review, *Injury*, 2023); improvised tourniquets often fail when too narrow.
-- CDC — tetanus incubation 3–21 days (Pink Book ch. 21); staphylococcal food poisoning 30 minutes to
+- CDC — tetanus incubation 3–21 days (Pink Book ch. 21); staph food poisoning 30 minutes to
   8 hours, heat-stable toxin; *C. perfringens* 6–24 hours. StatPearls — *Pasteurella* infection within
   24 hours of a bite.
 - OSHA confined-space handout, *Effects of Carbon Monoxide at Different Concentrations*.

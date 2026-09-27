@@ -41,6 +41,8 @@
 - **Common sense is hinted (2026-09-27).** When a player misses something any person would know —
   holding the radio's button while talking — the world says why, in its own voice: a reason, never a
   list of options (§3.3).
+- **(2026-09-27)** Every thing is named by its most common name; its technical and other names are its
+  synonyms.
 - **(2026-09-27)** Taking something unseen is its own verb: `steal`, or another fitting word; every other
   act is emoted to everyone in the zone (document 15 rule 5).
 

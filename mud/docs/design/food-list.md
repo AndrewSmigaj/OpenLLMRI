@@ -58,13 +58,13 @@ above the snow stays.
 | crowberry | muskeg, ridge | bulk, low value; sweeter after frost | easy to overeat | 📐 |
 | highbush cranberry | willow bars, the creek | very sour; a few handfuls | stays above the snow | 📐 |
 | rose hips | creek, forest edge | ~160 kcal per 100 g — the richest fruit in the valley; vitamin C | the seeds and their itching hairs must come out | 📐 |
-| rowan (mountain ash) berries | the birch stand — a few trees | food once frost and cooking have worked on them | **raw and in quantity, sick-making** (parasorbic acid) | 📐 |
+| rowan (mountain ash) berries | the birch stand — a few trees | food once frost and cooking have worked on them | **raw and in quantity, sick-making** (an acid in the raw berries) | 📐 |
 | bearberry (kinnikinnick) | the ridge | mealy, poor; the leaves make a tea | buried early | 📐 |
 | blueberries dried on the bush | muskeg, open spruce | a lucky find | rare by October | 📐 |
 | juniper berries | the ridge | flavouring; a hot drink | — | 📐 |
 | spruce needles and tips | everywhere with spruce | tea: warmth, vitamin C | the safest forage | 📐 |
 | wintergreen / pyrola leaves | under the spruce | tea | — | 📐 |
-| labrador tea | muskeg | tea | **strong and in quantity, harmful** (ledol) — the dose matters | 📐 |
+| labrador tea | muskeg | tea | **strong and in quantity, harmful** — the dose matters | 📐 |
 | willow bark | willow bars | a mild painkiller as tea | weak | 📐 |
 | chaga | the old birch | tea | a reach to get it | 📐 |
 | birch polypore, tinder conk | dead and dying birch | a poor tea; a real medicine | — | 📐 |
@@ -84,7 +84,7 @@ From document 23 §4.3, §4.4 and document 10 §4.4, §4.8. How each is taken is
 
 | food | where | what it gives | what to watch | status |
 |---|---|---|---|---|
-| snowshoe hare | willow thickets, the hare runs | ~800–1,000 kcal each; the pelt | very lean (rabbit starvation, §6); gutting bare-handed risks tularemia; the hare cycle is a seeded run variable | 📐 |
+| snowshoe hare | willow thickets, the hare runs | ~800–1,000 kcal each; the pelt | very lean (rabbit starvation, §6); gutting bare-handed risks rabbit fever (tularemia); the hare cycle is a seeded run variable | 📐 |
 | willow ptarmigan | willow bars, muskeg edge | ~350 kcal a bird | lean | 📐 |
 | spruce grouse | spruce forest | ~300 kcal a bird | each one taken is gone for the run | 📐 |
 | ruffed grouse | aspen and birch | ~300 kcal a bird | harder to hit | 📐 |
@@ -98,8 +98,7 @@ From document 23 §4.3, §4.4 and document 10 §4.4, §4.8. How each is taken is
 | northern pike | the lake, if deep enough to overwinter fish | ~500–1,800 kcal a fish | — | ◌ |
 | beaver | the lodge and its feed pile | a 17–32 kg animal; rich meat; the tail's fat | wary, hard to take | 📐 |
 | muskrat | the marsh edge, if the lake has one | 0.9–1.8 kg | — | ◌ |
-| moose | the game trail | hundreds of kilograms of meat | dangerous to try (the combat system) | 📐 |
-| the bear | wherever food is | the richest food in the valley — a fall bear's fat | the most dangerous thing in the valley; **Trichinella in the meat — always cook it through** | 📐 |
+| the bear | wherever food is | the richest food in the valley — a fall bear's fat | the most dangerous thing in the valley; **trichinosis worms in the meat — always cook it through** | 📐 |
 | fox, marten, lynx | tracks everywhere | a pelt, a little meat | rarely seen | 📐 |
 
 ## 5. Parts of any kill
@@ -129,7 +128,7 @@ sickness plays is document 11 §4.6.
   deadly galerina, the fly agaric; rowan raw and in quantity; labrador tea strong and in quantity.
 - **Spoiled food** — a half-rotten fish (Andrew, 2026-09-27; where it lies is placed with the zones), the
   lunch behind the pilot's seat, the bulged can, frost-killed mushrooms, and any meat or fish left to rot: most fresh raw meat makes no one sick; rotten meat does (2026-09-27).
-- **Hidden in meat** — Trichinella in bear meat, killed only by cooking through; tularemia from a hare
+- **Hidden in meat** — trichinosis worms in bear meat, killed only by cooking through; rabbit fever (tularemia) from a hare
   gutted bare-handed.
 - **Diet itself** — lean meat alone (rabbit starvation): hare and ptarmigan without fat bring nausea
   and diarrhoea within about a week.

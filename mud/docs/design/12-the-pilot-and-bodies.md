@@ -164,7 +164,7 @@ gut (document 11 §4.6). Bad meat makes people very sick and never kills (2026-0
   more usable energy than raw (Carmody et al. 2011, *PNAS*). It needs the fire, a spit or a vessel,
   and fuel — time the party spends.
 - **Spoiled** — warm too long, which is what happens if he lies in a heated fuselage: cooking does not
-  make it safe, because some bacteria leave toxins heat will not destroy (staphylococcal toxin:
+  make it safe, because some bacteria leave toxins heat will not destroy (staph toxin:
   vomiting within half an hour to eight hours — CDC). Spoiled is a state you can smell.
 - **What a person's flesh carries that game does not**: prion disease (kuru) from the brain and
   nerves — no cooking destroys prions, and it takes years to decades to show — and whatever
@@ -195,8 +195,8 @@ smaller than it was, blood on a knife, meat by the fire — or by being told.
   two days; cold slows every stage.
 - USDA / state extension food-safety guidance for wild game (e.g. Clemson HGIC; Penn State Extension)
   — gut at once, never puncture the gut, cool below 4 °C (40 °F); bacteria grow between 4 and 60 °C.
-- CDC — staphylococcal food poisoning (30 minutes to 8 hours; heat-stable toxin); *C. perfringens*
-  (6–24 hours). Alaska Department of Fish and Game — Arctic *Trichinella* survives freezing, so bear
+- CDC — staph food poisoning (30 minutes to 8 hours; heat-stable toxin); *C. perfringens*
+  (6–24 hours). Alaska Department of Fish and Game — Arctic the trichinosis worm survives freezing, so bear
   meat must always be cooked (to about 74 °C / 165 °F) — for the bear, not for the pilot.
 - Carmody, Weintraub & Wrangham, *Energetic consequences of thermal and nonthermal food processing*
   (*PNAS* 108, 2011) — cooking increases the energy gained from meat.

@@ -78,7 +78,7 @@ the author's verb.**
 5. **The engine runs the world; language models play characters from outside.** The pilot is authored
    content: he starts the run dead (§19). Animals are part of the world: the bear, some of the bigger
    animals and a few birds — fewer than three in a room, not constantly calling — act, on behaviour
-   rules the engine runs; the fish are scripted; other wildlife shows as events and sign (document 23).
+   rules the engine runs; the fish are scripted; other wildlife shows as events and sign; no wolverine and no moose (document 23).
    A model-played character — a survivor, an NHC, or an animal a lightweight model plays when a run
    wants one — is a *player* from the engine's side (ADR-0005), never engine logic. (2026-09-17,
    2026-09-26, 2026-09-27)

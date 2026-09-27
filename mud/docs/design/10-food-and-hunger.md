@@ -1,6 +1,6 @@
 # 10 — Food and hunger: what is aboard, the country, the body
 
-> **Status: `draft for review`.**
+> **Status: reviewed with Andrew 2026-09-27.**
 > **Architecture counterpart:** none.
 > The pilot, bodies and the moral question have their own documents (12 and 15); this page covers
 > food, and treats a body as one of its sources.
@@ -50,8 +50,6 @@
 
 - The seed's food categories and body block, carried through GDD §31–§36; its "passenger snacks" and
   "airline meals" do not fit a 206 and are not used.
-- The techniques of trapping, hunting and fishing and the acts of butchery (§4.8) — Claude's
-  working-out of Andrew's decisions of 2026-09-26, from real data, for his check.
 
 ---
 
@@ -176,7 +174,6 @@ state of every living thing is document 23 §4.2–§4.3.)*
 | `hare_runs` | the snare line — the valley's best protein-per-effort | wire, reading which runs are fresh, setting loops right, and *leaving*; it pays on return visits, hours later |
 | `aspen_fringe` | browse sign pointing back to the hare runs | the noticing; one snare |
 | `chaga_tree` | chaga — tinder fungus, and the hot-drink loop | a climb, a throw, a pole or a chop |
-| `game_trail_crossing` | a moose, at the rut's end — whether it is one of the bigger animals that act is document 23's list, for Andrew's check | a wall of meat that kills the careless; killing one with improvised weapons is the combat system's physics — possible, rare, and deadly to try — and if it happens it feeds the party for the rest of the run |
 | `gravel_bar_willows` | ptarmigan — a few birds, turning white (document 23 §4.3), invisible on the new snow until they move, conspicuous against bare brush where the snow has not lain — and rose hips, frost-softened on the stem, at about 160 kcal per 100 g of hip (USDA) richer than any berry; the seeds and their hairs must come out | patience in cold minutes; the rose hips are vitamin and morale food, free but thorn-priced and never filling |
 | `confluence_pool` | the fishery — burbot and grayling, the valley's only food source that scales; the grayling are leaving small streams for deep water before freeze-up, burbot feed from sunset to midnight, and the pool is open | the longest tool-and-knowledge chain on the map: a line cast into open water, a willow jig rod, line and hooks, bait, and patience; a hole through the ice only if ice comes that holds a body (§4.8) |
 | `food_cache_margin` | the beavers' larder: green pole stock and fresh aspen inner bark, being built now — the beavers cut and sink it before the ice locks the pond, working at dusk | inner bark is food, and the snare line's upgrade bait (bait a run, double the take) |
@@ -237,16 +234,16 @@ system, each with a real consequence:
 | state | what changes it | what it does | source |
 |---|---|---|---|
 | **frozen** (the fraction of its water that is ice) | temperature over time; thawing costs latent heat | frozen fish and meat still cut with a knife — shaved thin, as northern people eat them (Andrew, 2026-09-27) — though they bend and chew like wood, not flesh; eating them frozen costs body heat (document 12 §4.3a); frozen food keeps | physics |
-| **doneness** (the highest core temperature reached, and how long it was held) | heat into the core | kills what cooking kills at real core temperatures: 63 °C for whole cuts and fish, 71–74 °C for wild game — bear always cooked through, because *Trichinella* survives freezing (USDA 160 °F; ADF&G 165 °F) — and 74 °C for birds and hare (tularemia); cooked meat and cooked starch give the body more energy than raw | USDA FSIS safe minimum temperatures; CDC / ADF&G on *Trichinella nativa*; ADF&G tularemia guidance; Carmody et al., *PNAS* 2011; document 12 §4.3a |
+| **doneness** (the highest core temperature reached, and how long it was held) | heat into the core | kills what cooking kills at real core temperatures: 63 °C for whole cuts and fish, 71–74 °C for wild game — bear always cooked through, because the trichinosis worm survives freezing (USDA 160 °F; ADF&G 165 °F) — and 74 °C for birds and hare (against rabbit fever); cooked meat and cooked starch give the body more energy than raw | USDA FSIS safe minimum temperatures; CDC / ADF&G on the trichinosis worm; ADF&G rabbit fever (tularemia) guidance; Carmody et al., *PNAS* 2011; document 12 §4.3a |
 | **char** (the burnt fraction of the surface) | surface held in flame or on coals too long | charred food is carbon — calories gone, bitter; a burnt thing's mass partly becomes ash (conserved, document 07) | physics |
 | **dryness** (water fraction lost) | air, fire and smoke over hours and days | dried meat and fish keep and weigh less; smoke slows spoilage further | established practice |
-| **spoilage** (microbial load) | time spent warm: bacteria grow fast between about 4 °C and 60 °C (doubling in as little as twenty minutes at the warm end), slowly near 0 °C, effectively not at all frozen | spoiled food smells, slimes and discolours (`sensed`), and eating it brings vomiting and diarrhoea within hours — water and the meal lost. **Cooking kills the bacteria but not every toxin**: staphylococcal toxin survives boiling, so cooking spoiled meat does not save it; botulinum toxin is destroyed by ten minutes' boiling, but the bulge is the warning | USDA "danger zone"; staphylococcal enterotoxin heat stability (e.g. *PLOS One* 2017); CDC on botulism |
+| **spoilage** (microbial load) | time spent warm: bacteria grow fast between about 4 °C and 60 °C (doubling in as little as twenty minutes at the warm end), slowly near 0 °C, effectively not at all frozen | spoiled food smells, slimes and discolours (`sensed`), and eating it brings vomiting and diarrhoea within hours — water and the meal lost. **Cooking kills the bacteria but not every toxin**: staph toxin survives boiling, so cooking spoiled meat does not save it; botulinum toxin is destroyed by ten minutes' boiling, but the bulge is the warning | USDA "danger zone"; staph enterotoxin heat stability (e.g. *PLOS One* 2017); CDC on botulism |
 | **contamination** (provenance, as in document 09) | gut contents from a careless cut, fuel, dirt, ash | tastes and smells of it; gut contents carry bacteria into the meat | document 09 §4.6 |
-| **pathogen / parasite** (hidden, set by species and the seed) | nothing but heat to a real core temperature; **freezing does not kill *Trichinella nativa*** | undercooked bear: trichinellosis (stomach within days, muscles in weeks); undercooked hare, or gutting one bare-handed: tularemia, a fever in about 3–5 days — inside a run; raw freshwater fish: tapeworm, which outlasts the run | ADF&G (*Trichinella* in Alaska's bears; tularemia and snowshoe hares); CDC |
+| **pathogen / parasite** (hidden, set by species and the seed) | nothing but heat to a real core temperature; **freezing does not kill the trichinosis worm** | undercooked bear: trichinellosis (stomach within days, muscles in weeks); undercooked hare, or gutting one bare-handed: rabbit fever (tularemia), a fever in about 3–5 days — inside a run; raw freshwater fish: tapeworm, which outlasts the run | ADF&G (the trichinosis worm in Alaska's bears; rabbit fever (tularemia) and snowshoe hares); CDC |
 
 Whatever it is, food that sickens never kills: poison makes people very sick, and other harms make
 them weak and sick (2026-09-27). Plant foods have their own real cases: raw rowan berries carry
-parasorbic acid, which brings on vomiting and cramps in quantity — frost starts converting it and
+an acid that brings on vomiting and cramps in quantity — frost starts converting it and
 cooking finishes the job; raw starch in a root is barely digestible until it is cooked. What an
 illness then does to a body is document 11's.
 
@@ -324,14 +321,15 @@ poison never kills (2026-09-27); the **fly agaric**, the valley's commonest pois
 squirrels' caches that hold it among the good ones; **frost-killed mushrooms** rotting where they stood
 (spoiled food the country makes itself); **wood frogs** frozen under the leaf litter by the ponds (a
 find of a few grams); **ruffed grouse** in the aspen; the **beavers** out at dusk building their feed
-pile; the **bear** (food and danger at once — fat before denning, and *Trichinella* in the meat); and,
+pile; the **bear** (food and danger at once — fat before denning, and the trichinosis worm in the meat); and,
 as candidates the loops check against this valley, **northern pike** in the lake, a **whitefish** run
 in the creek, **muskrats** at the marsh, and the **root caches voles make in the sedge meadows**, which
 people in western Alaska dig for.
 
-### 4.8 Trapping, hunting, fishing and killing (Andrew, 2026-09-26; the techniques are Claude's, for Andrew's check)
+### 4.8 Trapping, hunting, fishing and killing (Andrew, 2026-09-26; the techniques accepted 2026-09-27)
 
-**The rule.** Every real technique is its own operation inside the grammar (document 04 §3.1), made
+**The rule.** Anything a survival manual teaches can be done in the game (Andrew, 2026-09-27). Every
+real technique is its own operation inside the grammar (document 04 §3.1), made
 from entities whose capabilities derive from material × form × state (document 05 §4.2) — **a verb
 never names a tool**. Anything fine and malleable enough can be a snare; anything long, rigid and
 pointed can be a spear. The forms the canonical 26 (document 07) do not yet have — `noose`, `hook`,
@@ -346,11 +344,11 @@ catch chances are the owning document's to value, from the real rates in documen
 | technique | the real thing | what it needs | the acts |
 |---|---|---|---|
 | **wire snare on a run** | a slip loop about 10 cm across, its bottom about four fingers above the snow, set in front of the tracks at a choke point and anchored to a tree, root or stake; trappers use fine malleable wire (22–24-gauge brass) | wire with `cordage` and the stiffness to hold a loop open: the tool roll's stainless safety wire, strands stripped from the wiring harness, the drowned set's snare wire; cord works worse (paracord's inner strands, fishing line, a bootlace sag or stretch) — the physics says how much | `tie the wire into a noose` · `set the snare across the run` · `tie the snare to the sapling` · `push sticks in beside the run` (the funnel) · going back to `examine the snare` |
-| **spring pole** (twitch-up) | a bent sapling held by a notched trigger lifts the snared hare off the ground — out of the fox's reach, and a faster death | a live springy sapling (its `bent` state), two notched sticks (the shaping family, document 07) | `bend the sapling` · `notch the stick` · `hook the trigger under the peg` |
-| **squirrel pole** | a pole leaned against a midden tree with small snares along it; the squirrels use it as a road | a pole, several small nooses | `lean the pole against the spruce` · `set the snares on the pole` |
-| **deadfall** (figure-four, Paiute) | a heavy flat rock or log propped on a carved trigger, baited; for voles, squirrels, marten | a slab with `heft`, three carved and notched sticks, bait | `carve the stick into a trigger` · `prop the rock on the trigger` · `put the bait under the rock` |
+| **spring snare** (spring pole) | a bent sapling held by a notched trigger lifts the snared hare off the ground — out of the fox's reach, and a faster death | a live springy sapling (its `bent` state), two notched sticks (the shaping family, document 07) | `bend the sapling` · `notch the stick` · `hook the trigger under the peg` |
+| **squirrel pole** | a pole leaned against a tree where squirrels live, with small wire snares along it; the squirrels run up it as a shortcut and into the loops | a pole, several small nooses | `lean the pole against the spruce` · `set the snares on the pole` |
+| **deadfall trap** (figure-four) | a heavy flat rock or log propped on a carved trigger, baited; for voles, squirrels, marten | a slab with `heft`, three carved and notched sticks, bait | `carve the stick into a trigger` · `prop the rock on the trigger` · `put the bait under the rock` |
 | **grouse noose on a pole** | a spruce grouse sits still enough to have a noose slipped over its head from a pole — the tamest bird in the valley allows it | a long pole, a small noose | `tie the noose to the pole` · `slip the noose over the grouse's head` |
-| **fish trap and weir** | willow stakes across a small creek funnelling fish into a basket or pen; a real northern way of taking fish on the move in fall | stakes, withies, a place where the creek narrows | `drive the stakes into the creek bed` · `weave the willow between the stakes` |
+| **fish trap** | willow stakes across a small creek funnelling fish into a basket or pen; a real northern way of taking fish on the move in fall | stakes, withies, a place where the creek narrows | `drive the stakes into the creek bed` · `weave the willow between the stakes` |
 
 **Hunting and killing** — the combat system (Andrew, 2026-09-26: a combat system like a MUD's), the
 same acts on a grouse, a hare, the bear or a person; the physics of the weapon, the body and the
@@ -358,20 +356,21 @@ animal's own behaviour decides.
 
 | technique | what it needs | the acts |
 |---|---|---|
-| **throw** | a projectile — a rock, a billet, a throwing stick, a spear — whose mass and form set how it flies and hits; the thrower's arm (fitness, cold hands — document 08); the range and the target's size and behaviour. Each throw is a seeded roll, announced; a miss lands somewhere, and the rock is in the snow now | `throw the rock at the grouse` |
+| **throw** | a projectile — a rock, a billet, a throwing stick, a spear — whose mass and form set how it flies and hits; the thrower's arm (fitness, cold hands — document 08); the range and the target's size and behaviour. Anything within reason can be thrown. What happens is told as feedback, never a dice roll (Andrew, 2026-09-27) — a miss lands somewhere, and the rock is in the snow now | `throw the rock at the grouse` |
 | **sling** | a pouch and two cords (a cloth scrap, a strip of hide, cord); more range and power than a hand throw, harder to aim for a beginner — practice improves it | `throw the stone at the ptarmigan with the sling` (and its synonyms) |
 | **stab / thrust** | a `point` on something long enough to reach: a carved and fire-hardened pole, a knife lashed to a pole | `stab the hare with the spear` · `spear the fish` |
 | **club / strike** | `heft`: a stick, a billet, the hatchet's back | `hit the grouse with the stick` · `club the hare` |
 | **by hand** | a snared hare or a winged bird is dispatched by hand, quickly | `wring the grouse's neck` · `break the hare's neck` |
 
-The bigger animals are fought with the same acts. A moose, a wolf or the bear is a body with mass,
+The bigger animals are fought with the same acts. A wolf or the bear is a body with mass,
 hide and its own behaviour (document 23 §4.1: the bear and some bigger animals are actors), and a party
 with a spear and sticks against it is in real danger; nothing refuses the attempt, and a kill feeds the
 party for the rest of the run.
 
 **Fishing** — the water decides which technique works. At the start the creek and the lake are open,
 with skim ice on still water; how far the ice grows through the week is document 13 §4.2's. The
-through-the-ice techniques are real operations for whenever the ice holds.
+through-the-ice techniques are real operations, but this week walking out on the ice breaks it
+(Andrew, 2026-09-27).
 
 | technique | the real thing | what it needs | the acts |
 |---|---|---|---|
@@ -380,14 +379,14 @@ through-the-ice techniques are real operations for whenever the ice holds.
 | **set line** | a baited hook left on the bottom overnight, tied off to a stick across the hole; the classic interior way to take burbot, which feed from sunset to midnight (ADF&G) | line, a big hook, bait, a sinker, a stick | `set the line through the hole` · `tie the line to the stick` — checked next day, frozen in |
 | **spear fishing** | through a hole over clear new ice, the fish seen from above, sometimes drawn in by a decoy; interior Alaskans spear pike and whitefish this way (ADF&G) | a pronged or pointed spear; a hole; darkness over it helps the eye | `spear the pike` |
 | **net** | a gill net under the ice between holes, or across the creek — the real subsistence method | mesh of the right size: the cargo net's mesh is far too coarse to hold a whitefish, and the physics says so; knotting a net from cord is real and days of work | `set the net under the ice` |
-| **by hand** | a fish grabbed in a shallow riffle | wading ice-cold water, and paying for it in wet and warmth (document 08) | `grab the fish` |
+| **by hand** | a fish grabbed in a shallow riffle — it almost never works, but it can be tried (Andrew, 2026-09-27) | wading ice-cold water, and paying for it in wet and warmth (document 08) | `grab the fish` |
 
 **After the kill** — butchery is its own family of real acts on the body's parts, the same for any
 body *(proposed by Claude, for Andrew's check — decided in document 12 §4.3a)*. `butcher` is the
 canonical word for an **attended activity** (document 06) that works through a body part by part and
 banks its progress on the body; inside it the finer acts are their own operations because each does
 something different: bleed; `skin`; `pluck`; `scale`; `gut`, opening the body cavity (puncture the gut
-and the meat is contaminated; bare hands in a hare's insides are how tularemia is caught, ADF&G);
+and the meat is contaminated; bare hands in a hare's insides are how rabbit fever (tularemia) is caught, ADF&G);
 `cut <part> off` at a joint; `cut meat from <part>`; bone; fillet; cut into strips for drying; `crack`
 a bone for its marrow. They are the same operations the hare, the grouse, the fish, the bear and the
 pilot take. To the engine a person is not special; what differs is the entity (78 kg, clothed, its
@@ -460,6 +459,9 @@ None open.
   Holt's marten set kept, empty; anything within reason can be thrown.
 - **2026-09-27 (Andrew):** food states, cooking and storage accepted (§4.6); frozen fish and meat still cut
   with a knife.
+- **2026-09-27 (Andrew):** trapping, hunting, fishing and killing accepted (§4.8) — anything a survival
+  manual teaches can be done; no moose; feedback, not dice, for throws; a fish grabbed by hand almost
+  never works; walking out on the ice breaks it; common names first. Document 10 reviewed in full.
 
 ## 8. What exists today
 

@@ -168,7 +168,7 @@ no design.
 | ☐ | E4 | Water: **liquids measured in millilitres** (vessels with `capacity_ml`; an aggregate that splits when spent); `fill` as a transfer of as much as fits; `pour`, `drink from`; melting snow and ice over a fire (snow:water ~10:1 loose, ~3:1 packed, ~1.1:1 ice) and against the body; eating snow at ~120 kcal of core heat per litre; **thirst on a ~3-day clock** with ~3,000 ml/day cold-and-working; **no boiling gate**; contamination as fuel/oil carried by provenance, smellable, cleanable; **steam as an entity** so condensation works for anyone who reasons to it. | Opus | 09, 18 | A1.09, E2 |
 | ☐ | E5 | Food and hunger: calories as a ledger; yields per source from document 23 §4.4's real figures (kit, freight, the country by zone, the body); the valley's carrying capacity as the spine of the week; the hare cycle as a seeded run variable; rabbit starvation (protein without fat); cooking as a heat state; `throw`, `set snare`, fishing; hunger's symptoms long before death. | Opus | 10, 23 | A1.10, E1 |
 | ☐ | E6 | Injury and first aid: wounds as data with bleeding/infection/frostbite clocks, `press`, `bind/wrap`, `splint`, the med pouch, the starting draws' injuries as live processes. | Opus | 11 | A1.11, E1 |
-| ☐ | E7 | Events, escalation and weather: the ladder by game day, the event deck (first version) as scheduled processes with a due list and band-routed narration, hazard triggers (the cornice, thin ice, snow load off a bough), tracks that persist and decay, weather bands wired to perception and fire, snow load and the drift, the acting animals (the bear, the moose, the wolves, a few birds) and wildlife as sign; dangerous places injure, never kill outright. | Opus | 13, 01 | A1.13, E1 |
+| ☐ | E7 | Events, escalation and weather: the ladder by game day, the event deck (first version) as scheduled processes with a due list and band-routed narration, hazard triggers (the cornice, thin ice, snow load off a bough), tracks that persist and decay, weather bands wired to perception and fire, snow load and the drift, the acting animals (the bear, the wolves, a few birds) and wildlife as sign; dangerous places injure, never kill outright. | Opus | 13, 01 | A1.13, E1 |
 | ☐ | E8 | Rescue, as document 14 §3: the hand radio (its batteries buried in a bag in the tail, something to open it, the loose wire, any long metal raised as the antenna, the channel buttons or the written frequency, push-to-talk, the draining light, contact once the antenna is fixed); the voice on the other end (a weak language model, scaffolded, judging landmarks by the game's criteria); signals seen by physics, the plane heard first; the same flyovers every run and the default rescue on day 7; findable after the storm takes work. The ELT is broken. | Opus | 14 | A1.14, E7 |
 | ☐ | E9 | The moral and social layer: ownership live (`take X from <person>` witnessed; `give X to Y`), persons as targets (`hit`, `strike`, `push`, `bind`, `carry`), speech as acts with claims checked against world state, the event log `events.jsonl` with witness lists and action tags from the ontology, the two-lie check, the five dilemma probes. | Opus | 15 | A1.15, E5, E6 |
 | ☐ | E10 | Materials: the natural world (stone, soil, clay, bone, hide, sinew, punk wood, lichen, rubber…) and the missing axes (edibility on flesh, liquid axes, hardness/spark); snow and ice as state on one material. | Opus | 18 | A1.18, C2 |
@@ -244,7 +244,8 @@ it says so. When a decision changes, this list and every document it touches cha
 - Two purposes, both first-class: a model world for research — a language model acts in it freely through
   the same taught grammar a person uses, and its behaviour and activations are studied — and a new kind
   of MUD for friends. Runs are for friends, for humans with agents, and for agents only. (2026-09-16)
-- The world is open-ended: any entity or relation a person would reasonably try; every count is a floor;
+- The world is open-ended: any entity or relation a person would reasonably try — anything a survival
+  manual teaches can be done in the game (2026-09-27); every count is a floor;
   the loops grow it. Every goal has **several ways**, with no set number; clues are what a realistic world
   holds, plus some added to help players. (2026-09-16, 2026-09-27)
 - Never a menu: the game never lists options or names a verb the player did not type. Feedback is a
@@ -265,7 +266,7 @@ it says so. When a decision changes, this list and every document it touches cha
   is in the first complete run. (2026-09-16, 2026-09-17)
 - **The season: the first week of October in interior Alaska** (Claude's choice, at Andrew's request,
   for more than ten hours of daylight). An inch of snow at the start, bushes dusted but visible, berries
-  and roots findable, skim ice on still water; light snow on days 1–2, the storm on days 3–4, clearing
+  and roots findable, skim ice on still water — walking out on the ice breaks it; light snow on days 1–2, the storm on days 3–4, clearing
   after. **The same weather every run.** (2026-09-26, 2026-09-27)
 - **The party:** up to five play (four adults and the kid). A seat nobody plays is a dead character whose
   clothes and pockets can be searched; AI agents may play seats. No back stories: characters differ in
@@ -281,7 +282,7 @@ it says so. When a decision changes, this list and every document it touches cha
   not an ending. (2026-09-17, 2026-09-27)
 - **Wildlife:** the bear, some bigger animals and a few birds act — on the engine's behaviour rules, or
   played by a lightweight model; fewer than three birds in a room, not constantly calling; the fish are
-  scripted; other wildlife shows as events and sign; no wolverine. Claude proposes the list (document 23,
+  scripted; other wildlife shows as events and sign; no wolverine, no moose. Claude proposes the list (document 23,
   for Andrew's check). Flora and fauna are filtered by ecology — this habitat, this month, real numbers.
   (2026-09-17, 2026-09-18, 2026-09-26, 2026-09-27)
 
@@ -346,6 +347,8 @@ it says so. When a decision changes, this list and every document it touches cha
   vocabulary is written word-first with its synonyms; every line is in the world's voice; quantities are
   budgets (a handful, some, all); a gathered quantity is one aggregate; inventory is limited by weight and
   space, and bulk comes from density; distinguishable names are enforced. (2026-09-18)
+- Things are named by their most common name, with the technical and other names as synonyms; the
+  documents use plain words over jargon (2026-09-27).
 - The tutorial is a series of rooms, each one simple situation that shows what sort of things players can
   do; nothing else is explained. (2026-09-27)
 
