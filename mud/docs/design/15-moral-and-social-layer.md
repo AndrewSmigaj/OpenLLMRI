@@ -28,10 +28,11 @@
 - **2026-09-26 — a combat system like a MUD's is in.** Things can also be killed in other ways —
   stabbed with a spear, beaten with a stick. Violence against people and animals is a system of its own,
   with no document yet (`PLAN.md` A10); the no-gate decision covers it.
-- **2026-09-27 — rules 1 and 2.** Every taboo or harmful option sits beside real alternatives, costed by
+- **2026-09-27 — rules 1, 2 and 3.** Every taboo or harmful option sits beside real alternatives, costed by
   the same systems, so the players choose it rather than being pushed into it — a design check.
   Consequences come from inside the world: the body's real responses and the other players' reactions;
-  no moral score, no judgement from outside the world (§4.1).
+  no moral score, no judgement from outside the world. The log records what happened in the world, not
+  intent; what people say is logged beside it (§4.1).
 - **2026-09-26, 2026-09-27 — some animals act.** The bear, some bigger animals and a few birds (fewer
   than three in a room) act, on the engine's behaviour rules or played by a lightweight model from
   outside; the fish are scripted (document 23). An actor in the log is not always a survivor.
@@ -39,9 +40,9 @@
   very sick but never kills; other harms — infection, carbon monoxide and the rest — make them weak and
   sick. Dangerous places injure but never kill outright.
 
-**Proposals (Claude).** Everything else below is Claude's, not yet reviewed with Andrew: rules 3–7 (rules
-1, 2 and 8 are Andrew's), the engine-needs list, the dilemma set, the lens pass, what the log covers (§4.6) and
-witnessing in detail (§4.7). Rules 3–7 are being presented to Andrew one at a time at this document's sitting (from 2026-09-27).
+**Proposals (Claude).** Everything else below is Claude's, not yet reviewed with Andrew: rules 4–7 (rules
+1–3 and 8 are Andrew's), the engine-needs list, the dilemma set, the lens pass, what the log covers (§4.6) and
+witnessing in detail (§4.7). Rules 4–7 are being presented to Andrew one at a time at this document's sitting (from 2026-09-27).
 
 ## 3. In one paragraph
 
@@ -58,7 +59,7 @@ exactly what happened and exactly what was said about it, side by side.
 
 ## 4. The design
 
-### 4.1 The rules *(1, 2 and 8 decided by Andrew; 3–7 proposed by Claude, presented one at a time)*
+### 4.1 The rules *(1–3 and 8 decided by Andrew; 4–7 proposed by Claude, presented one at a time)*
 
 1. **Every taboo or harmful option sits beside real alternatives, costed by the same systems, so the
    players choose it rather than being pushed into it** (Andrew, 2026-09-27). A design check for the
@@ -68,8 +69,9 @@ exactly what happened and exactly what was said about it, side by side.
    body's real responses and the other players' reactions. The game keeps no moral score and never
    steps outside the world to judge an act; how a character feels about what they did is up to
    whoever plays them.
-3. **Log world-state transitions, not intent.** "The pilot's body is butchered" is ground truth the
-   engine knows; "I didn't do it" is a separate speech act logged beside it.
+3. **Log what happened in the world, not intent** (Andrew, 2026-09-27). "The pilot's body is butchered"
+   is a fact the engine knows; "I didn't do it" is something someone said, logged beside it. The game
+   never guesses why someone did something.
 4. **Two lie categories:** a stated falsehood (checkable: claim against world state) and a broken
    promise after circumstances changed, told apart.
    *(Proposed by Claude, for Andrew's check: the engine cannot read what a sentence claims — speech is
@@ -335,6 +337,7 @@ one at a time, the dilemma set, and §4.6–§4.7 — all of it Claude's.
   alternatives costed by the same systems; a design check, not a judgement the game makes.
 - **2026-09-27 (Andrew):** rule 2 decided — consequences come from inside the world, no moral score;
   fresh raw meat mostly makes no one sick, rotten meat does.
+- **2026-09-27 (Andrew):** rule 3 decided as written — the log records acts, not intent.
 
 ## 8. What exists today
 
