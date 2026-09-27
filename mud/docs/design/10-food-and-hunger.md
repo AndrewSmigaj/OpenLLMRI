@@ -142,6 +142,9 @@ say anything about it because everybody has already thought it.
 
 ### 4.3 What is aboard (the pockets, the luggage, the freight)
 
+Every food in the design, in one place and growing as the world is fleshed out, is the
+[food list](food-list.md).
+
 *(Content, with document 16 and the shipped object table.)*
 
 - **There is no survival kit** (Andrew, 2026-09-27).

@@ -52,6 +52,9 @@ berries and roots still findable, skim ice on still water; light snow on days 1�
 | 21 | [`21-endings.md`](21-endings.md) | rescued or dead; ghosts | draft for review | — |
 | 22 | [`22-the-world-building-loops.md`](22-the-world-building-loops.md) | the phases; both models as peers; the scaffold; the queue; walls per run | draft for review | `harness.md` (pending) |
 
+**Companion lists** (living, never finished — the loops add to them): [`food-list.md`](food-list.md) —
+every food in the valley and everything that makes people sick.
+
 ## The template — every document has these eight parts, in this order
 
 1. **Status banner** — `draft for review` / `reviewed with Andrew <date>` / `finalized <date>`; the

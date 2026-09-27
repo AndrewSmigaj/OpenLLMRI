@@ -139,6 +139,9 @@ a flush, a raven at food, a jay arriving.
 
 ### 4.2 Flora — what a survivor can find (proposal)
 
+Everything edible here, with the plane's food and Holt's, is also gathered in the
+[food list](food-list.md).
+
 Where each thing lives is document 01's zones. Every row is a floor; "candidate" marks a row whose
 presence in this valley is still to be checked against it.
 
