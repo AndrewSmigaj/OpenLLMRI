@@ -488,6 +488,8 @@ both documents (the typing pace, a cap, or nothing).*
 
 - **2026-09-27 (Andrew):** Q3 — a fast model (Haiku or Sonnet, low to medium reasoning) and Andrew's own open-weight model, which needs timing; Q5 — perhaps: if the open-weight model is fast enough, activations are collected in runs with humans. Pace: the speed of typing the command.
 
+- **2026-09-27 (Andrew, via document 14):** the person on the other end of the radio is played by a weak language model, because players will want to talk to them — a third kind of model-played character besides survivors and animals.
+
 ## 8. What exists today
 
 **Built.**

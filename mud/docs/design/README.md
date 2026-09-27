@@ -123,7 +123,10 @@ then 19–22. Ideas that are not design yet live in [`IDEAS.md`](IDEAS.md).
 - **The world is open-ended**: never describe a verb set, a vocabulary or a room as finished or
   bounded; every count is a floor.
 - **Never a menu**: no design here may have the game list options, suggest verbs, or name what is
-  reachable; feedback is a clarification or the physics of why.
+  reachable; feedback is a clarification or the physics of why. **Common sense is hinted** (Andrew, 2026-09-27: *"i dont
+  want users figuring out common sense things"*): when a player misses what any person would know, the world
+  says why in its own voice — *"You talk into the mic, but the radio stays quiet while the button is up"*
+  — a reason, never a list of options.
 - **No stats** in status text (no test counts, no percentages that rot); *built / designed / nothing*.
 - The doc-consistency gate applies: never write `Pass <digit>`, `event-driven`, `mass_kg`,
   `CMD_NOMATCH`, `intent-fallback`, or a Markdown link to `design.md`.

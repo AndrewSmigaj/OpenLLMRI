@@ -176,6 +176,16 @@ superseded by the 2026-09-17 decisions and kept as the record:*
 > **not just during a flyover — once the antenna is fixed, contact is relatively quick** (supersedes the
 > 2026-09-17 "usable only during flyover events"); the cold does **not** weaken the batteries — only use
 > drains them.
+>
+> **After contact (Andrew, 2026-09-27):** the pickup waits on the weather — the voice on the radio can say
+> they will come *"once the storm dies down"*. **The person on the other end is played by a weak language
+> model**, because players will want to talk to them — a character played from outside, like any other
+> (GDD §3 rules 2 and 5): the engine decides when the rescue flies; the voice only speaks it. Players
+> hold the button while they talk into the mic; if they don't, the world hints. *"a lot of things might
+> need hints i dont want users figuring out common sense things."* **Where they are — Claude's choice
+> (2026-09-27), at Andrew's request, for his check:** the voice asks; whatever the party can tell —
+> the lake, the ridge, the burn, the chart — narrows the search; if they can tell nothing, a search plane
+> homes in on their transmissions when it is in the area, which costs battery.
 
 
 > **Decided with Andrew, 2026-09-17:** the only endings are **rescued or dead**; walking out is not an ending
@@ -879,6 +889,8 @@ kept, struck, as the record.
 - **2026-09-27 (Andrew, the rescue conversation, second round):** *"would a battery really stop working in a week of cold? it could drain down with indicators 'the light starts to dim, perhaps the radio is draining'. b) absolutely not making the user find the right length wire, putting it higher is ok c) we have a dial and a set of buttons for different channels only one of which is the emergency one they can try all the channels or find the written down frequency d) no, as for the fork you suggested a hand radio in the cabin but it needs batteries buried in a container like luggage or bag in the tail section."* Written into the §3 banner.
 
 - **2026-09-27 (Andrew, the rescue conversation, third round):** *"1. no 2. not just during a flyover, once you fix the antenna it is relatively quick"* — the cold does not weaken the radio's batteries; contact does not wait for a flyover, and comes relatively quickly once the antenna is fixed (supersedes 2026-09-17's "usable only during flyover events").
+
+- **2026-09-27 (Andrew, the rescue conversation, fourth round):** *"a. sure, they can say once the storm dies down on the radio, i want the radio person controlled by a weak llm as the user might want to talk to them, i think the user might want to press the button while talking into the mic but if they dont it will hint. a lot of things might need hints i dont want users figuring out common sense things b. you choose, i thought we already decided but i dont care"* — no earlier decision on location was found in the record; Claude's choice is in the §3 banner, for his check.
 
 ## 7. What exists today
 

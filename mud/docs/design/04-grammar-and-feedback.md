@@ -557,6 +557,8 @@ eight parts; nothing new was added to the design itself.
   applies to every line the game speaks · Q9 fire, water, shelter, signal, splint first · Q10
   `make validate` enforces distinguishable names. **Document reviewed in full.**
 
+- **2026-09-27 (Andrew, via document 14):** *"a lot of things might need hints i dont want users figuring out common sense things"* — common sense is hinted: when a player misses something any person would know (holding the radio's button while talking), the world says so. Written into the never-a-menu writing rule: the hint is the world's reason in its own voice, not a list of options.
+
 ## 7. What exists today
 
 **Built, but shipping the pre-2026-09-16 behaviour** (the BACKLOG "Next" item under DR-08c has not
