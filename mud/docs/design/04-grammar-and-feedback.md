@@ -166,7 +166,7 @@ say things.
 
 ### 3.6 The in-world page (diegetic)
 
-The survival manual's first page, found in the kit, reads the same rules as fiction: *"Say what
+The survival manual's first page reads the same rules as fiction: *"Say what
 you do, not what you hope. Name things by what they are. Anything sharp cuts; anything long and
 strong ties; anything that burns will burn better small and dry."* Hadean Lands teaches its whole
 command syntax through an in-world notebook; ours does the same, so the fourth wall stays intact

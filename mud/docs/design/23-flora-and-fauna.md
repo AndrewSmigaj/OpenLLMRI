@@ -190,7 +190,7 @@ presence in this valley is still to be checked against it.
 | vole | under the first snow, tussocks | tunnels, a scurry | a deadfall trap; hours; tiny | ~25 kcal; better as bait |
 | wood frog | the leaf litter by the ponds | nothing — in its winter shelter under the litter, cold and torpid, not yet frozen (Larson et al. 2014) | scraping the litter | a few grams: a find, not a food source — the real animal in the place of the lizards |
 | grubs / beetle larvae | rotten logs, under loose bark | split the log | a blade or hands | a handful; the honest bugs Andrew asked for |
-| grayling, whitefish, burbot | the lake, the pool (document 01) | nothing, until you fish; open water | cast a line into open water; once the lake ice holds, drop a line or set one through it; spear; net (document 10 §4.8) — the kit's line and hooks once the kit is found, or wire | ~300 kcal a grayling to ~1,600 for a big burbot with its liver; the best single meal |
+| grayling, whitefish, burbot | the lake, the pool (document 01) | nothing, until you fish; open water | cast a line into open water; once the lake ice holds, drop a line or set one through it; spear; net (document 10 §4.8) — line and hooks, or wire | ~300 kcal a grayling to ~1,600 for a big burbot with its liver; the best single meal |
 | northern pike *(candidate)* | the lake, if it is a lowland lake deep enough to overwinter fish | nothing, until you fish | casting, jigging, a set line, spearing (ADF&G) | ~500–1,800 kcal a fish |
 | beaver | the lodge and its feed pile (document 01, S9) | out at dusk cutting and towing branches to the feed pile before the ice locks the pond; the tail-slap alarm; fresh-chewed stumps | on land at dusk and wary: a snare or a trap at its slide, a club or a spear at close range — hard; once the ice seals the pond it lives under it | a 17–32 kg animal (ADF&G) — rich meat, the tail's fat |
 | muskrat *(candidate)* | the marsh edge, if the lake has one | push-ups of vegetation once the ice forms (ADF&G) | a snare or a spear at the push-up | 0.9–1.8 kg (ADF&G) |
@@ -248,7 +248,7 @@ peak of the hare cycle with fish biting and berries still out — **against 12,0
 the storm, in a poor hare year, 500–1,500.** It closes as the week goes: the snow buries the berries,
 the stocks of grouse and hares are taken down, the water shuts, the bear dens or does not. The country
 is *a brake on starvation, never a living*. The shape of the week: what the plane holds carries them —
-the freight, and the survival kit once it is found — foraging stretches it, most in the first days,
+the freight and people's bags — foraging stretches it, most in the first days,
 and by day five or six they are in real deficit, which is why the pilot's body becomes a question
 rather than a horror story. The run ends rescued or dead (document 21).
 
@@ -319,7 +319,7 @@ country's own spoiled and poisonous things are §4.2 above.
   ice will hold a person is document 13 §4.2's ice row. A hole through new ice is minutes with a
   hatchet — through thicker ice, far longer — and the hole is an entity whose ice skins over again
   every cold night. Then the variants are each their own operation: jigging, a set line left overnight
-  for burbot, spearing through clear ice, a net, and the kit's line and hooks or wire and a bent pin.
+  for burbot, spearing through clear ice, a net, and line and hooks or wire and a bent pin.
 
 **Sources for §4.0–§4.6** (looked up 2026-09-26 and 2026-09-27): UAF Cooperative Extension
 (lingonberries; highbush cranberries; crowberries); USFS FEIS (*Actaea rubra*, *Typha latifolia*);

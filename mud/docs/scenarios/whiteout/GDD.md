@@ -90,8 +90,7 @@ the author's verb.**
 (2026-09-26, 2026-09-27); the search looking in the wrong area; the hand radio dead and the ELT broken;
 an unstable wreck. The aircraft is a Cessna 206-class single with a four-seat interior (1A, 1B, 2A, 2B
 and the right seat), a hat shelf, a cargo net and a jammed cargo door; the plane's battery is in the
-nose, wired and fine. **What is aboard** is not too easy and not too hard: the survival kit is not at
-hand — it is buried somewhere; the sleeping bag is buried with the tail wreckage; two blankets are
+nose, wired and fine. **What is aboard** is not too easy and not too hard: there is no survival kit; the sleeping bag is buried with the tail wreckage; two blankets are
 hidden inside the plane; there is no firearm (2026-09-27; document 16). **Holt's cabin** is supplies —
 some trapline gear and modest stores — and walking out is not an ending. The crash site is the densest
 place in the valley — modelled to the hilt — and the whole valley, all fifty outdoor zones in eleven
@@ -264,7 +263,7 @@ One chapter per system; each is its own document, reviewed separately.
 - **Water** — liquids in millilitres; vessels, melting; eating snow costs body heat; no boiling gate;
   contamination is fuel and oil, carried as provenance (2026-09-18). Document 09.
 - **Food and hunger** — hunger works as it does in real life; food changes with heat — raw, cooked,
-  spoiled — and there are poisonous mushrooms. The survival kit (buried somewhere), the freight, the
+  spoiled — and there are poisonous mushrooms. The freight, people's bags, the
   country (berries, snares, birds with a thrown rock, fish, roots), the body; hunting, trapping, fishing
   and killing are real operations, each variant its own (2026-09-26, 2026-09-27). Documents 10 and 23.
 - **Injury and first aid** — named wounds with clocks; improvised care. **Death comes from blood loss,

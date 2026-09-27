@@ -1,4 +1,4 @@
-# 10 — Food and hunger: the kit, the freight, the country, the body
+# 10 — Food and hunger: what is aboard, the country, the body
 
 > **Status: `draft for review`.**
 > **Architecture counterpart:** none.
@@ -16,8 +16,8 @@
   here. The pilot starts the run dead and carries no clues; his body is food, and eating it is taboo,
   not immoral.
 - **(2026-09-16)** The plane is a 206-class single with freight and mail aboard. There is no galley
-  and there are no airline meals; what food exists is the survival kit, people's own snacks, the
-  freight, and the country.
+  and there are no airline meals; what food exists is people's own snacks and bags, the freight, and
+  the country.
 - **(2026-09-17, 2026-09-26)** A run ends in rescue or death — it ends when they die, of anything.
   Hunger is one pressure among many, not the clock that ends the run.
 - **(2026-09-18)** Grubs and inner bark are in. The foods are audited against the place — what
@@ -40,8 +40,7 @@
   kill things in other ways — stab with a spear, beat with a stick.
 - **(2026-09-17, 2026-09-26, 2026-09-27)** A bear is in; there is no wolverine. The bear, some bigger
   animals and a few birds act (document 23 proposes which, for Andrew's check); the fish are scripted.
-- **(2026-09-27)** The survival kit is not at hand: it is buried somewhere — having it at hand would be
-  too easy. What is aboard is the design's choice.
+- **(2026-09-27)** There is no survival kit — it would make the game too easy.
 - **(2026-09-27)** Holt's cabin is supplies: some trapline gear and modest stores, not piles of food.
 - **(2026-09-27)** The season is the first week of October in interior Alaska (document 13 §4.2).
 - **(2026-09-27)** Death comes from blood loss, the bear, the cold and thirst. Poison makes people very sick
@@ -49,7 +48,6 @@
 
 ### Proposals (Claude)
 
-- The body's energy as real stores, and the order of hunger's symptoms (§4.1).
 - The ways to eat and their key resources (§4.2).
 - The freight, the mail sack, the cooler, the spoiled lunch and each slot's edible pocket contents
   (with document 16).
@@ -68,7 +66,7 @@
 There is food, and there is not enough of it, and the distance between those two facts is the whole
 week. The first day it is a question of finding it: a chocolate bar in a pocket, a thermos, somebody's
 trail mix, a sack of dog food in the freight, a family's frozen salmon in a cooler thrown out onto the
-debris trail — and the survival kit's ration tins, if anyone finds where the crash buried it. The
+debris trail. The
 country is still open in the first days — lowbush cranberries sweet from the frost under an inch of
 snow, rose hips on the creek bar, a fool hen in a spruce that will stand there and let you try twice —
 and the storm closes it, burying the low berries first. Around day three it stops being a search and
@@ -84,8 +82,7 @@ say anything about it because everybody has already thought it.
 
 ### 4.1 The rules
 
-1. **Hunger follows real physiology** (Andrew, 2026-09-26: hunger works as it does in real life; the
-   physiology below is Claude's, for his check). The body carries its energy as real stores, each a
+1. **Hunger follows real physiology** (Andrew, 2026-09-26; the physiology below accepted 2026-09-27). The body carries its energy as real stores, each a
    quantity on the body and set per character with the draw (document 16): **glycogen** in liver and
    muscle (roughly 400–500 g, about 1,600–2,000 kcal — gone in about a day of hard work in the cold),
    **fat** (a few kilograms on the kid, tens on a heavy adult; about 9 kcal a gram) and **muscle
@@ -138,17 +135,16 @@ say anything about it because everybody has already thought it.
 
 | way | key resource it spends | where | the chain |
 |---|---|---|---|
-| **what is aboard** (the kit's rations, the pockets, the freight: flour, the coffee tin, dog food) | search — and digging, for the kit is buried somewhere | the pockets, the freight, wherever the crash buried the kit | `open tin` → `eat rations` |
+| **what is aboard** (the pockets, the luggage, the freight: flour, the coffee tin, dog food) | search | the pockets, the luggage, the freight | `search <bag>` → `eat <what you find>` |
 | **the country** (snares, forage, birds, fish) | knowledge + tools + daylight | the tamarack, the tussocks, the willows, the creek | `tie the wire into a noose` → `set the snare across the run` (the grammar forms of document 04 §3.1) — the operations are §4.8 |
 | **the pilot's body** | the taboo | the cockpit | `butcher pilot with knife` — the acts are §4.8 |
 | **Holt's stores** | travel | the homestead | modest stores, the reward for the walk there |
 
-### 4.3 What is aboard (the kit, the pockets, the freight)
+### 4.3 What is aboard (the pockets, the luggage, the freight)
 
 *(Content, with document 16 and the shipped object table.)*
 
-- **The survival kit** — not at hand: it is buried somewhere (Andrew, 2026-09-27). Inside the
-  survival duffel, two sealed ration tins and the fishing kit. Dense, dull, life-sustaining.
+- **There is no survival kit** (Andrew, 2026-09-27).
 - **Pockets** — the guide's chocolate bar; the kid's candy bar; the salesman's trail mix and hip
   flask; the townie's gum. A seat nobody plays is a dead character whose pockets can be searched
   (2026-09-27).
@@ -185,7 +181,7 @@ state of every living thing is document 23 §4.2–§4.3.)*
 | `chaga_tree` | chaga — tinder fungus, and the hot-drink loop | a climb, a throw, a pole or a chop |
 | `game_trail_crossing` | a moose, at the rut's end — whether it is one of the bigger animals that act is document 23's list, for Andrew's check | a wall of meat that kills the careless; killing one with improvised weapons is the combat system's physics — possible, rare, and deadly to try — and if it happens it feeds the party for the rest of the run |
 | `gravel_bar_willows` | ptarmigan — a few birds, turning white (document 23 §4.3), invisible on the new snow until they move, conspicuous against bare brush where the snow has not lain — and rose hips, frost-softened on the stem, at about 160 kcal per 100 g of hip (USDA) richer than any berry; the seeds and their hairs must come out | patience in cold minutes; the rose hips are vitamin and morale food, free but thorn-priced and never filling |
-| `confluence_pool` | the fishery — burbot and grayling, the valley's only food source that scales; the grayling are leaving small streams for deep water before freeze-up, burbot feed from sunset to midnight, and the pool is open | the longest tool-and-knowledge chain on the map: a line cast into open water, a willow jig rod, the kit's line and hooks (the kit is buried somewhere), bait, and patience; a hole through the ice only if ice comes that holds a body (§4.8) |
+| `confluence_pool` | the fishery — burbot and grayling, the valley's only food source that scales; the grayling are leaving small streams for deep water before freeze-up, burbot feed from sunset to midnight, and the pool is open | the longest tool-and-knowledge chain on the map: a line cast into open water, a willow jig rod, line and hooks, bait, and patience; a hole through the ice only if ice comes that holds a body (§4.8) |
 | `food_cache_margin` | the beavers' larder: green pole stock and fresh aspen inner bark, being built now — the beavers cut and sink it before the ice locks the pond, working at dusk | inner bark is food, and the snare line's upgrade bait (bait a run, double the take) |
 | `the_lodge` | nothing, deliberately | hacking in is possible and is a bad trade: the lodge stores food in the water, not the walls — the map's one anti-loot lesson |
 | `drowned_set` | yards of snare wire on a trapper's pole | cold fingers and patience; it opens the snare-line game fully |
@@ -284,7 +280,7 @@ choice with a real trade-off, not decay for its own sake.
 
 ### 4.7 What else the country holds (2026-09-18)
 
-Everything the earlier passes and the valley design named is in — the kit, the freight and the mail,
+Everything the earlier passes and the valley design named is in — the freight and the mail,
 the cooler's frozen salmon, the pockets, cranberries, crowberries, highbush cranberries, rose hips,
 spruce-needle tea, labrador tea, inner bark, chaga, the hare runs, ptarmigan and spruce grouse, the
 red squirrel's midden, voles, **grubs under the bark**, the fishery, and the pilot's body. Document 23
@@ -457,9 +453,10 @@ None open.
 - **2026-09-26 (Claude)** — §4.1, §4.6 and §4.8 written from those decisions; butchery, spoilage and
   the safety of human meat answered from document 12 and real data, for Andrew's check; the season
   revised to October.
-- **2026-09-27 (Andrew)** — the survival kit is buried somewhere, and what is aboard is the design's
-  choice. Carried in with it: the first week of October, the pilot's body as taboo and
+- **2026-09-27 (Andrew)** — there is no survival kit. Carried in with it: the first week of October, the pilot's body as taboo and
   not immoral, poison that never kills, Holt's modest stores, and the pockets of a seat nobody plays.
+- **2026-09-27 (Andrew):** hunger's physiology accepted — real energy stores, symptoms in the real order,
+  starvation weakening within the week rather than killing (§4.1).
 
 ## 8. What exists today
 
@@ -477,8 +474,7 @@ None open.
 
 **Designed, not built**
 - The body's energy stores on the clock, and hunger's bands (§4.1).
-- The survival kit buried somewhere (§4.3) — the shipped slice has it as a torn duffel out on the
-  debris trail.
+- No survival kit (§4.3) — the shipped slice still has one, as a torn duffel out on the debris trail.
 - The country's food, zone by zone (§4.4) — designed for the whole valley, none of it in the object
   tables yet; the outdoor zones are themselves still to be authored as data.
 - Snares, throwing and fishing as operations (§4.8).

@@ -59,7 +59,7 @@ The decisions that shape a run, in plain words; every one of them, with its date
   device).
 - **The pilot (2026-09-17, 2026-09-27).** He starts the run dead and carries no clues. His body is food;
   eating it is taboo, not immoral.
-- **What is aboard (2026-09-27).** The survival kit is buried somewhere; the sleeping bag is buried with
+- **What is aboard (2026-09-27).** There is no survival kit; the sleeping bag is buried with
   the tail wreckage; two blankets are hidden inside the plane; no firearm. Not too easy, not too hard.
 - **The clock (2026-09-17, 2026-09-18, 2026-09-27).** It runs continuously at 15 game-minutes per real
   minute. Fast forward, proposed and agreed by the players, runs it at about 150×; awake players can
@@ -288,7 +288,7 @@ resources (daylight · warmth · sweat · tools · knowledge · risk).
 |---|---|
 | **warmth** | fire, seven ways (fuel + a source) · insulation salvage (tools + time: seat foam and batting, the engine cover, the two blankets hidden in the plane, the sleeping bag buried with the tail) · shelter and windbreak (sweat + tools: cover the openings, boughs on the floor) · layering, the huddle, heated stones (proximity and planning). No guaranteed floor: night one is survivable inside the wreck; from night two it takes a heat source, better gear, conserving or the huddle (document 08) |
 | **water** | the canteen and the thermos as found ✅ (search) · open water at the lake's edge and in the creek (risk + daylight) · snow or ice melted by fire in a vessel (fuel + vessel) · by body heat (warmth, slow). Eating snow always works and always costs heat; there is no boiling gate; fuel and oil in water are carried as provenance (document 09) |
-| **food** | the pockets and the freight — chocolate, flour, coffee ✅ (search) · the survival kit, once it is dug up · the country — berries, roots, birds brought down by thrown rocks, snares, fish (knowledge + tools + daylight) · the bear or the moose (the combat system: rare and dangerous) · Holt's modest stores (travel) · the pilot's body (taboo, not immoral). Spoiled food, poisonous mushrooms and a red berry that makes you sick are in the world (documents 10, 23) |
+| **food** | the pockets and the freight — chocolate, flour, coffee ✅ (search) · the country — berries, roots, birds brought down by thrown rocks, snares, fish (knowledge + tools + daylight) · the bear or the moose (the combat system: rare and dangerous) · Holt's modest stores (travel) · the pilot's body (taboo, not immoral). Spoiled food, poisonous mushrooms and a red berry that makes you sick are in the world (documents 10, 23) |
 | **injury** | the first-aid kit ✅ and the nurse's med pouch (search) · improvised — shirt strips, whisky as antiseptic, paracord and a rod as a splint (tools + knowledge) · warmth for frostbite, skin to skin, no rubbing (warmth) (document 11) |
 
 ### 4.8 Getting home — three ways

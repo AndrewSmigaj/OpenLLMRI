@@ -54,7 +54,7 @@ Andrew on 2026-09-17 and brought to the first week of October on 2026-09-27.
   they do things (document 16).
 - **The pilot (2026-09-17, 2026-09-27).** He starts the run dead and carries no clues. His body is food,
   and eating it is taboo, not immoral (document 12).
-- **What is aboard (2026-09-27).** The survival kit is not at hand: it is buried somewhere. The sleeping
+- **What is aboard (2026-09-27).** There is no survival kit. The sleeping
   bag is buried with the tail wreckage; two blankets are hidden inside the plane; there is no firearm.
   Not too easy, not too hard.
 - **Rescue (2026-09-17, 2026-09-27).** Three ways home — the radio, a signal a plane can see, surviving
@@ -139,8 +139,7 @@ carries no clues (document 12).
 
 What is aboard is the design's call, and it is set so the run is neither too easy nor too hard:
 
-- **The survival kit** is not at hand — the crash buried it somewhere (where is content, document 10
-  §4.3).
+- **There is no survival kit.**
 - **The sleeping bag** is buried with the tail wreckage; **two blankets** are hidden inside the plane;
   there is **no firearm** (document 16).
 - **The hand radio** is dead; its **batteries are buried in a bag in the tail section**, under snow that
@@ -425,7 +424,7 @@ Each is a crude-to-mastery arc, and each is a network of rooms rather than a sta
   dawn; snow and ice melted by a fire anywhere, for a fuel tax; the riffle and Holt's water hole, still
   open when the still water has frozen. Eating snow costs body heat; water tainted by fuel or oil
   carries it (document 09).
-- **Food** — the wreck's food (the pockets, the freight, and the survival kit once it is dug up) →
+- **Food** — the wreck's food (the pockets, the luggage, the freight) →
   cranberries, rose hips and roots (a trickle) → grouse and ptarmigan (skill shots) → snare lines
   (planning + wire) → the fishery (the source that scales) → Holt's modest stores (farthest away) → the
   bear and the moose (the richest food and the most dangerous, through the combat system) — and the
@@ -583,8 +582,8 @@ pass:
 - **The ELT** is built as an armed beacon whose antenna is sheared; the design's ELT is broken.
 - **The radio** is built as a field radio in a cradle in the cockpit; the design's radio is the hand
   radio whose batteries are buried in a bag in the tail section (document 14 §3.2).
-- **The survival kit** is built as a torn duffel lying on the debris trail; the design's kit is buried
-  somewhere.
+- **The survival kit** is built as a torn duffel lying on the debris trail; the design has no survival
+  kit.
 
 **Designed, not built** — the fifty outdoor zones. They exist as this document's tables; the fuller
 zone-by-zone write-ups of the July run are in git history. No outdoor zone id appears anywhere under

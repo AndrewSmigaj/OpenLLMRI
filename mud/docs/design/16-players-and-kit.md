@@ -27,7 +27,7 @@
   flying. Characters differ in their clothes, their injuries and what they carry, and in how well and
   how fast they do things — a woodsman lights fires better; a technically proficient character sees a
   fault in a device.
-- **2026-09-27 — what is aboard.** The survival kit is not at hand: it is buried somewhere. The sleeping
+- **2026-09-27 — what is aboard.** There is no survival kit. The sleeping
   bag is buried with the tail wreckage; two blankets are hidden inside the plane; there is no firearm.
   Not too easy, not too hard.
 - **2026-09-27 — the battery and the radio.** The plane's battery is in the nose, wired and fine. The
@@ -60,7 +60,7 @@ you are wearing when the plane stops moving is the single biggest thing that dec
 cold tonight — and it is different for everyone, as is what each of you is good at, which turns "who
 gets the good coat" into a question the party has to answer together, in the first hour, long before
 anyone says the word "rescue." A seat nobody is playing holds someone the crash killed, still dressed.
-The survival kit that should be aboard is nowhere in reach, and nobody has a gun.
+There is no survival kit, and nobody has a gun.
 
 ---
 
@@ -120,9 +120,7 @@ case is a sled, the neck is wood). A bag in the tail section holds the hand radi
 14 §3.2).
 
 **The crash is the difficulty engine.** Realism supplies the inventory; the crash supplies the
-difficulty. An intact survival kit sitting in the open would solve the game in one `search`, so the
-kit was aboard and the crash decides where it is now: **buried somewhere** (Andrew, 2026-09-27; what it
-holds is document 10 §4.3). **The sleeping bag is buried with the tail wreckage, and two blankets are
+difficulty. A survival kit would make the game too easy, so there is none (Andrew, 2026-09-27). **The sleeping bag is buried with the tail wreckage, and two blankets are
 hidden inside the plane** (2026-09-27). The toolbox is in the crushed tail cone (pry it open), the
 cooler is under the snow along the trail (dig for it), and the hacksaw blade — the keenest edge in the
 valley — is a walk away. The **power ∝ cost** curve follows from the same rule: the more a thing
@@ -132,8 +130,8 @@ is a hundred metres out under snow with a cracked haft. Not too easy, not too ha
 *(Proposed by Claude, for Andrew's check:)* **a bag travels with its owner** — by reality, not for
 simplicity. A bag holds what its owner packed for their own trip, so the townie's toiletries and the
 salesman's laptop go with whoever plays that person; a second, independent luggage draw would put a
-stranger's things in your bag. What never moves with a slot is what is nobody's here: the survival kit,
-the mail and the freight. Where each bag ended up is the crash's.
+stranger's things in your bag. What never moves with a slot is what is nobody's here: the mail and the
+freight. Where each bag ended up is the crash's.
 
 **One sleeping bag and two blankets in the whole plane** *(Claude's reading of Andrew's 2026-09-27 decision, for his
 check)*: the sleeping bag in the kid's duffel is the one buried with the tail wreckage, and the salesman's wool
@@ -163,7 +161,7 @@ skis go on when there is snow to land on. The tyres and their tubes are rubber: 
 a band that stretches for a sling.
 
 The plane's **battery is in the nose, wired and fine** (Andrew, 2026-09-27); it does not power the
-hand radio (document 14 §3.7). A survival kit was aboard; the crash buried it somewhere (§4.3).
+hand radio (document 14 §3.7). There is no survival kit (§4.3).
 
 ### 4.6 The interior (the 206)
 
@@ -276,8 +274,8 @@ and repellents"): there is a bear, and nobody has spray. And there is **no firea
 **What a 206 can lift at all.** A U206G's useful load is about 1,500 lb, roughly 680 kg (the type's
 specification; the exact aircraft's weight-and-balance sheet on the kneeboard gives its own). The pilot
 and five passengers weigh roughly 450–500 kg, and fuel for the leg plus a reserve at 13–16 US gallons an
-hour is another 70–100 kg. That leaves on the order of **100–150 kg for the survival kit, five people's
-bags, the mail and the freight**: a mail sack and a few boxes of bypass-mail groceries, which "must fit
+hour is another 70–100 kg. That leaves on the order of **100–150 kg for five people's bags, the mail
+and the freight**: a mail sack and a few boxes of bypass-mail groceries, which "must fit
 around the mail and any passengers" (Alaska Business), not a truckload. The load is a real filter on
 what is aboard, the way ecology is on the valley (`README.md`).
 
@@ -307,7 +305,7 @@ Airlines News, "Look like a local" · U.S. Army FM 21-18 · Apple Support (iPhon
   slots; it exists elsewhere in the architecture and is not yet wired to slot assignment (§8).
 - **14 — Rescue** — the hand radio's batteries in a bag in the tail; which character is technically
   proficient (§4.1).
-- **15 — Moral and social layer** — the survival kit, the mail and the freight are nobody's here, and
+- **15 — Moral and social layer** — the mail and the freight are nobody's here, and
   what a survivor wore, carried or packed is theirs (document 15 §4.6); stripping a body — the pilot's,
   or the dead occupant of a seat nobody plays — is an act that layer logs.
 - **The heat system** (no design document yet — to be written) — every worn thing, every pocket and
@@ -345,7 +343,7 @@ None open.
   early-October check of what these people wear and carry (§4.9) — all for Andrew's check.
 - **2026-09-27 (Andrew):** no back stories; characters differ in skill; up to five play, an unplayed
   seat is a dead character whose clothes can be searched, and agents may play seats; no firearm; the
-  survival kit buried somewhere, the sleeping bag with the tail wreckage, two blankets hidden in the
+  no survival kit, the sleeping bag with the tail wreckage, two blankets hidden in the
   plane; the plane's battery in the nose and fine.
 
 ## 8. What exists today

@@ -166,7 +166,7 @@ cordage, `metal` is what makes a sheet reflective.
 | `flesh` | the pilot; any body | cuts easily, middling to tear, bends easily, barely burns and is hard to light, toxic smoke. **It declares no `edibility`** — see §4.7. *(Proposed by Claude: it becomes the six body materials — skin, fat, muscle, bone, blood, organs — document 12 §4.3a; §4.8.)* |
 | `bone` | a body; later, antler and game | hard to cut, `extreme` to tear, hard to bend, barely burns, rigid |
 | `chocolate` | the emergency ration | very edible; burns poorly and is hard to light |
-| `rations` | the survival kit's food | very edible; burns poorly; cuts easily |
+| `rations` | packaged ration food | very edible; burns poorly; cuts easily |
 | `fish` | a family's frozen catch in the cooler | very edible; cuts easily; burns poorly; middling rigidity — hard as a plank until thawed |
 
 ### 4.4 Forms

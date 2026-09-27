@@ -135,7 +135,7 @@ Each has at least one probe chain proposed, including the honest failures:
 1. **Lighter** (in a pocket — document 16) — flame → tinder → kindling → fuel. Fails on: a branch
    straight from the flame; wet tinder; wind without a windbreak.
 2. **Matches** — the soaked box: `dry matchbox` by a fire or body heat (a process) → strike.
-3. **The flare** — in the survival kit, which is buried somewhere (document 10 §4.3); ignites
+3. **The flare** — ignites
    anything, once, loudly; it is fire *or* signal, never both
    ([`14-rescue-paths.md`](14-rescue-paths.md) §3.4).
 4. **Battery + wire** — pry the panel: the plane's battery in the nose cowling (12 kg, wired and
@@ -220,7 +220,7 @@ None open.
   to draft the ignition weights, threshold and fuel-to-heat curve together; this document's stage
   ladder is the design. Reviewed in full.
 - **2026-09-27** — the decisions of 2026-09-26 and 2026-09-27 carried in: heat as a state system,
-  characters' differing skill, the flare in the buried survival kit, fire and smoke as signals.
+  characters' differing skill, fire and smoke as signals; there is no survival kit.
 
 ## 8. What exists today
 **Built (closure step 1).**

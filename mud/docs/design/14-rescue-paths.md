@@ -153,8 +153,7 @@ they imply and this system answers.
 
 *(Proposed by Claude, for Andrew's check.)* **roles** also **marker** — anything that contrasts with the
 ground, laid or tramped large: boughs, dark cloth, luggage, wreckage on snow, or trenches stamped into
-fresh snow · **pyrotechnic** — a flare or a smoke from the survival kit, which is buried somewhere
-(document 10). **realize** also `put <marker> on <snow>`, `light <flare>`, `tramp <snow>`. Which
+fresh snow · **pyrotechnic** — a flare or a smoke. **realize** also `put <marker> on <snow>`, `light <flare>`, `tramp <snow>`. Which
 smoke-maker suits depends on the background, which the world already knows: rubber and oil make dark
 smoke that shows against snow; green boughs make white smoke that shows against dark spruce.
 

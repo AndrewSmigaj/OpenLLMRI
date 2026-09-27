@@ -273,7 +273,7 @@ it says so. When a decision changes, this list and every document it touches cha
   fires better; a technically proficient character sees a fault in a device). (2026-09-16, 2026-09-27)
 - **The pilot starts the run dead.** He carries no clues. His body is food, and eating it is taboo, not
   immoral. (2026-09-17, 2026-09-27)
-- **What is aboard:** the survival kit is not at hand — it is buried somewhere; the sleeping bag is
+- **What is aboard:** there is no survival kit; the sleeping bag is
   buried with the tail wreckage; two blankets are hidden inside the plane; no firearm. Not too easy, not
   too hard. (2026-09-27)
 - **Holt's cabin** is supplies: some trapline gear and modest stores, not piles of food. Holt does not

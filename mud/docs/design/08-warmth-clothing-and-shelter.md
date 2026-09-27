@@ -55,7 +55,7 @@
 - **(2026-09-27)** The season is the first week of October in interior Alaska, with the same weather
   every run; the temperatures, wind and snow by day are document 13 §4.2.
 - **(2026-09-27)** Aboard: the sleeping bag is buried with the tail wreckage; two blankets are hidden
-  inside the plane; the survival kit is buried somewhere. Up to five play, and a seat nobody plays is
+  inside the plane; there is no survival kit. Up to five play, and a seat nobody plays is
   a dead character whose clothes and pockets can be searched.
 - **(2026-09-27)** Death comes from blood loss, the bear, the cold and thirst.
 
