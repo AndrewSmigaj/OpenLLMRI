@@ -191,7 +191,9 @@ Every game message goes through the **propagator** rather than being broadcast t
 observer the shell computes the band toward the event's source and renders *that band's* line — the
 full third-person line, then a direction-framed line, then *"…is working at something"*, then
 *"A shape shifts {direction}"*, then sound only, then silence. Nobody is told what they could not
-have perceived.
+have perceived. **Within the zone, every act reaches everyone present as the full line** — the game
+does not know which way anyone is facing; the one covert act is a deliberate `steal` (Andrew,
+2026-09-27; document 15 rule 5).
 
 ### 4.5 Seeing is not reaching
 
@@ -315,8 +317,8 @@ build order (document 06).
 
 - [20 — the agent player and research](20-the-agent-player-and-research.md): mixed and agent-only
   runs are instances; "the same view as a human" is this document's perception.
-- [15 — the moral and social layer](15-moral-and-social-layer.md): witnessing is spatial — an act is
-  socially priced only if someone could perceive it, by band.
+- [15 — the moral and social layer](15-moral-and-social-layer.md): every act in the zone is seen by
+  everyone there; `steal` is the one covert act; beyond the zone, witnessing is by band.
 - [21 — endings](21-endings.md): an ending is a run's ending; the ghosts and the
   out-of-character chat.
 - [12 — the pilot and bodies](12-the-pilot-and-bodies.md): who could see what was done to the pilot's

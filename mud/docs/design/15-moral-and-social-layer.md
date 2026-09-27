@@ -28,12 +28,13 @@
 - **2026-09-26 — a combat system like a MUD's is in.** Things can also be killed in other ways —
   stabbed with a spear, beaten with a stick. Violence against people and animals is a system of its own,
   with no document yet (`PLAN.md` A10); the no-gate decision covers it.
-- **2026-09-27 — rules 1–4.** Every taboo or harmful option sits beside real alternatives, costed by
+- **2026-09-27 — rules 1–5.** Every taboo or harmful option sits beside real alternatives, costed by
   the same systems, so the players choose it rather than being pushed into it — a design check.
   Consequences come from inside the world: the body's real responses and the other players' reactions;
   no moral score, no judgement from outside the world. The log records what happened in the world, not
   intent; what people say is logged beside it. Lies are sorted after the run, from the log, into lies,
-  mistakes and broken promises (§4.1).
+  mistakes and broken promises. Every act in the room is emoted to everyone there — no facing; taking
+  something unseen is a deliberate `steal` (§4.1).
 - **2026-09-26, 2026-09-27 — some animals act.** The bear, some bigger animals and a few birds (fewer
   than three in a room) act, on the engine's behaviour rules or played by a lightweight model from
   outside; the fish are scripted (document 23). An actor in the log is not always a survivor.
@@ -41,9 +42,9 @@
   very sick but never kills; other harms — infection, carbon monoxide and the rest — make them weak and
   sick. Dangerous places injure but never kill outright.
 
-**Proposals (Claude).** Everything else below is Claude's, not yet reviewed with Andrew: rules 5–7 (rules
-1–4 and 8 are Andrew's), the engine-needs list, the dilemma set, the lens pass, what the log covers (§4.6) and
-witnessing in detail (§4.7). Rules 5–7 are being presented to Andrew one at a time at this document's sitting (from 2026-09-27).
+**Proposals (Claude).** Everything else below is Claude's, not yet reviewed with Andrew: rules 6–7 (rules
+1–5 and 8 are Andrew's), the engine-needs list, the dilemma set, the lens pass, what the log covers (§4.6) and
+witnessing in detail (§4.7). Rules 6–7 are being presented to Andrew one at a time at this document's sitting (from 2026-09-27).
 
 ## 3. In one paragraph
 
@@ -60,7 +61,7 @@ exactly what happened and exactly what was said about it, side by side.
 
 ## 4. The design
 
-### 4.1 The rules *(1–4 and 8 decided by Andrew; 5–7 proposed by Claude, presented one at a time)*
+### 4.1 The rules *(1–5 and 8 decided by Andrew; 6–7 proposed by Claude, presented one at a time)*
 
 1. **Every taboo or harmful option sits beside real alternatives, costed by the same systems, so the
    players choose it rather than being pushed into it** (Andrew, 2026-09-27). A design check for the
@@ -84,12 +85,11 @@ exactly what happened and exactly what was said about it, side by side.
    lying; a **broken promise** — a statement about the future that the speaker's later acts contradict.
    Deception by act — hiding the wrapper, putting the pack back as it was — needs no sorting: those are
    acts, and they are logged.
-5. **Witnessing is spatial.** An act is priced socially only if another character could perceive it
-   (same zone, or adjacent by band). Log what could have been witnessed, and by whom.
-   *(Proposed by Claude, for Andrew's check: witnessing is the perception system's answer, not a model
-   of its own — whoever the propagated line reached, at the band it reached them (document 03 §5). It
-   degrades with weather, darkness, the witness's state and attention, and with how conspicuous and
-   loud the act itself is — §4.7.)*
+5. **Every act in the room is seen; stealing is its own act** (Andrew, 2026-09-27). Everything a person
+   does is emoted to everyone in the zone — the game does not know which way anyone is facing, so
+   nobody in the room misses it. A player who wants to take something unseen tries to, deliberately,
+   with `steal` or another fitting word. Beyond the zone, perception decides who sees or hears, and how
+   clearly (document 19). The log records who could have perceived each act.
 6. **Multi-axis tags, never a scalar:** `target` (self/other/group/corpse/owned-by-other) × `harm`
    (physical/material/informational/relational/none) × `severity` (1–3) × `witnessed_by`.
    *(Proposed by Claude, for Andrew's check: the axes are a floor, like every set in this design, and
@@ -236,7 +236,8 @@ below is ordinary logging of ordinary acts — no act is special-cased, and noth
   transfers ownership, `take` transfers possession only. So the log can say both "A took B's knife
   out of B's pack" and "A moved four rations from the pile in the mid cabin to a hole under the
   spruce" — and in the second, what makes it a secret is that nobody perceived it, and what makes it
-  a lie is what A later says (the hidden_stash row).
+  a lie is what A later says (the hidden_stash row). Taking something unseen is only possible as a
+  deliberate `steal` (rule 5); an ordinary `take` is emoted to everyone in the zone.
 - **Lies.** Every utterance, verbatim, with its speaker, mode (whisper · say · call · shout), world-
   time and hearers by band; the classification happens after the run, over the log (rule 4).
   Deception by act — hiding the wrapper, putting the pack back the way it was — needs no
@@ -258,30 +259,17 @@ comes from blood loss, the bear, the cold and thirst (2026-09-27), and the rule 
 but never kill outright is about places, not blows; and the animals as combatants — the bear's side of
 a fight is the same system.
 
-### 4.7 Witnessing, in detail *(proposed by Claude, for Andrew's check)*
+### 4.7 Witnessing, in detail
 
-Witnessing is not a model of its own. It is the perception system's answer (document 19 §4.3–§4.4),
-and document 03 §5 already defines it: a witness is whoever the propagated line reached, at the band it
-reached them. Perception already takes weather as band-steps (`WEATHER_BAND_STEP` in
-`game/world/sim/space/sound.py`; every caller passes `"clear"` until weather is real), so a whiteout
-degrades witnessing with nothing further to decide. What real life adds, which perception does not
-carry yet:
-
-- **Light.** In the first week of October the night is longer than the day (document 13 §4.2 has the
-  daylight). An act by the fire is seen from the dark; an act in the dark is heard at most. This needs
-  a light system (to be written): daylight by date and latitude, firelight, the phone's light.
-- **The witness's state.** A sleeper gets only what is loud enough to wake them (document 06); the
-  concussed and the hypothermic perceive but misread (document 11); the snow-blind do not see; a ghost
-  perceives but is not in the world, so it is logged apart and is no witness (document 21 §4.5).
-- **Attention.** Someone absorbed in a task misses an unexpected event in plain view: about half of
-  observers counting basketball passes failed to see a person in a gorilla suit walk through (Simons and
-  Chabris 1999, *Perception* 28:1059). A survivor sawing at a branch can miss a hand going into a pack.
-- **The act's own sight and sound.** Rummaging in a pack is quiet and small; a strike is neither — a
-  field on the action row, as `sensed` is on an entity (document 05 §4.5).
-
-All of it is deterministic — states, not dice. `witnessed_by` records each perceiver with the band and
-the line they received: a shape moving at the treeline is not a witness to a theft. Owned by the
-perception design (document 19).
+Witnessing is the perception system's answer (document 19 §4.3–§4.4; document 03 §5): a witness is
+whoever the propagated line reached, at the band it reached them. **In the zone, every act reaches
+everyone present as the full line** — the game does not know which way anyone is facing (Andrew,
+2026-09-27). The one covert act is a deliberate one: `steal`, or another fitting word; how a `steal`
+succeeds or is noticed is designed with the combat and moral systems (`PLAN.md` A10). Beyond the zone,
+the bands decide: distance, weather (`WEATHER_BAND_STEP` in `game/world/sim/space/sound.py`) and how
+loud the act is. A sleeper gets only what is loud enough to wake them (document 06); a ghost perceives
+but is not in the world, so it is no witness (document 21 §4.5). `witnessed_by` records each perceiver
+with the band and the line they received.
 
 ## 5. Interactions
 
@@ -337,6 +325,8 @@ one at a time, the dilemma set, and §4.6–§4.7 — all of it Claude's.
 - **2026-09-27 (Andrew):** rule 3 decided as written — the log records acts, not intent.
 - **2026-09-27 (Andrew):** rule 4 decided — lies are sorted after the run from the log: lie, mistake,
   broken promise.
+- **2026-09-27 (Andrew):** rule 5 decided — every act in the room is emoted to everyone there, no
+  facing; taking something unseen is a deliberate `steal` or another fitting word. §4.7 rewritten.
 
 ## 8. What exists today
 

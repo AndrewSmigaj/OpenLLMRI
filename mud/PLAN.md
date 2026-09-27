@@ -333,7 +333,9 @@ it says so. When a decision changes, this list and every document it touches cha
   inside the world — the body's real responses and the other players' reactions; no moral score, no
   judgement from outside the world. Rule 3: the log records what happened in the world, not intent;
   what people say is logged beside it. Rule 4: lies are sorted after the run, from the log — a lie, a
-  mistake, a broken promise; the game never judges speech live. (2026-09-16, 2026-09-27)
+  mistake, a broken promise; the game never judges speech live. Rule 5: every act in the room is emoted
+  to everyone there — the game does not know which way anyone faces; taking something unseen is a
+  deliberate `steal` or another fitting word. (2026-09-16, 2026-09-27)
 
 **The player's view and the grammar**
 - The look: a title line, prose composed from state, people and animals as prose, exits as entities in
