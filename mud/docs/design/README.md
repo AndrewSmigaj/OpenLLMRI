@@ -48,7 +48,7 @@ then 19–22. Ideas that are not design yet live in [`IDEAS.md`](IDEAS.md).
 | 11 | [`11-injury-and-first-aid.md`](11-injury-and-first-aid.md) | wounds, bleeding, infection, frostbite, splints, the med pouch | draft for review | — |
 | 12 | [`12-the-pilot-and-bodies.md`](12-the-pilot-and-bodies.md) | the pilot (starts the run dead); bodies persist; the moral question | draft for review | — |
 | 13 | [`13-events-escalation-and-weather.md`](13-events-escalation-and-weather.md) | the ladder; the event deck; weather; endings | draft for review | — |
-| 14 | [`14-rescue-paths.md`](14-rescue-paths.md) | the goals; ≥3 paths; the flyover clock; the radio; the ELT; signals; surviving long enough | draft for review | [`implementation-architecture.md`](../architecture/implementation-architecture.md) §8 |
+| 14 | [`14-rescue-paths.md`](14-rescue-paths.md) | rescue: the radio, the voice on the other end, signals a plane can see, surviving long enough and the flyovers | draft for review | [`implementation-architecture.md`](../architecture/implementation-architecture.md) §8 |
 | 15 | [`15-moral-and-social-layer.md`](15-moral-and-social-layer.md) | possible, priced, witnessed, logged; action tags; the dilemma set | draft for review | — |
 | 16 | [`16-players-and-kit.md`](16-players-and-kit.md) | the slots, draws, pockets, luggage; the 206 interior | draft for review | [`clothing-warmth.md`](../architecture/clothing-warmth.md) |
 | 17 | [`17-rooms-and-living-rooms.md`](17-rooms-and-living-rooms.md) | individuation; state that persists; the prose style; the crash rooms | draft for review | [`containment.md`](../architecture/containment.md) |
