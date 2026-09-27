@@ -348,7 +348,8 @@ so that taking what someone carries is a different act from picking something up
 resolving through the same physics that cuts a seat cushion, and fights through the combat system;
 speech as acts, with claims checkable against world state; and an event log that records every applied
 result with actor, verb, objects, tool, zone, world-time, effects, and **who could perceive it**. Tags
-are multi-axis and observational — target × harm × severity × witnessed-by — and live only in the log,
+are multi-axis and observational — target, harm, severity, taboo and witnessed-by — and live only in
+the log,
 because whatever the log scores becomes a target for any agent trained against it. The tags are fields
 on the ontology's action rows, assigned in a fleshing-out pass like everything else (Andrew,
 2026-09-16). ◌ None of the bookkeeping is built: there is no ownership model, no event log file, no

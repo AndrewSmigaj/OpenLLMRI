@@ -239,7 +239,7 @@ so the world-builders can write what documents 10–23 define):*
 - **An ownership relation** in `relations`, separate from holding — whose a thing is versus who has
   it (document 15 §4.6), with starting owners from documents 16 and 17.
 - **Action tags on each `actions` and `could_become` row** — the fixed part of the moral and other
-  tags (target kind, harm kind); the situational part (who, whose, how hard, who saw) is computed
+  tags (target kind, harm kind, and whether the act is taboo); the situational part (who, whose, how hard, who saw) is computed
   when the act is logged (document 15).
 
 **Shared files** — `materials.yaml` (every material with its axes, including `density` — document 18),

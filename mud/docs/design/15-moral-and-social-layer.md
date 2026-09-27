@@ -28,13 +28,14 @@
 - **2026-09-26 — a combat system like a MUD's is in.** Things can also be killed in other ways —
   stabbed with a spear, beaten with a stick. Violence against people and animals is a system of its own,
   with no document yet (`PLAN.md` A10); the no-gate decision covers it.
-- **2026-09-27 — rules 1–5.** Every taboo or harmful option sits beside real alternatives, costed by
+- **2026-09-27 — rules 1–6.** Every taboo or harmful option sits beside real alternatives, costed by
   the same systems, so the players choose it rather than being pushed into it — a design check.
   Consequences come from inside the world: the body's real responses and the other players' reactions;
   no moral score, no judgement from outside the world. The log records what happened in the world, not
   intent; what people say is logged beside it. Lies are sorted after the run, from the log, into lies,
   mistakes and broken promises. Every act in the room is emoted to everyone there — no facing; taking
-  something unseen is a deliberate `steal` (§4.1).
+  something unseen is a deliberate `steal`. Acts are tagged on several axes, never one score, with
+  taboo as its own marker (§4.1).
 - **2026-09-26, 2026-09-27 — some animals act.** The bear, some bigger animals and a few birds (fewer
   than three in a room) act, on the engine's behaviour rules or played by a lightweight model from
   outside; the fish are scripted (document 23). An actor in the log is not always a survivor.
@@ -42,9 +43,9 @@
   very sick but never kills; other harms — infection, carbon monoxide and the rest — make them weak and
   sick. Dangerous places injure but never kill outright.
 
-**Proposals (Claude).** Everything else below is Claude's, not yet reviewed with Andrew: rules 6–7 (rules
-1–5 and 8 are Andrew's), the engine-needs list, the dilemma set, the lens pass, what the log covers (§4.6) and
-witnessing in detail (§4.7). Rules 6–7 are being presented to Andrew one at a time at this document's sitting (from 2026-09-27).
+**Proposals (Claude).** Everything else below is Claude's, not yet reviewed with Andrew: rule 7 (rules
+1–6 and 8 are Andrew's), the engine-needs list, the dilemma set, the lens pass, what the log covers (§4.6) and
+witnessing in detail (§4.7). Rule 7 is being presented to Andrew one at a time at this document's sitting (from 2026-09-27).
 
 ## 3. In one paragraph
 
@@ -61,7 +62,7 @@ exactly what happened and exactly what was said about it, side by side.
 
 ## 4. The design
 
-### 4.1 The rules *(1–5 and 8 decided by Andrew; 6–7 proposed by Claude, presented one at a time)*
+### 4.1 The rules *(1–6 and 8 decided by Andrew; 7 proposed by Claude, presented next)*
 
 1. **Every taboo or harmful option sits beside real alternatives, costed by the same systems, so the
    players choose it rather than being pushed into it** (Andrew, 2026-09-27). A design check for the
@@ -90,22 +91,20 @@ exactly what happened and exactly what was said about it, side by side.
    nobody in the room misses it. A player who wants to take something unseen tries to, deliberately,
    with `steal` or another fitting word. Beyond the zone, perception decides who sees or hears, and how
    clearly (document 19). The log records who could have perceived each act.
-6. **Multi-axis tags, never a scalar:** `target` (self/other/group/corpse/owned-by-other) × `harm`
-   (physical/material/informational/relational/none) × `severity` (1–3) × `witnessed_by`.
-   *(Proposed by Claude, for Andrew's check: the axes are a floor, like every set in this design, and
-   the fleshing-out pass has the final say. The **static** part of a tag — what kind of harm an act
-   does by its nature, and how bad — is a field on the action row (the verb's row in `verbs.yaml`, and
-   the entity's `actions` row where a particular thing changes it; document 05 §4.5), assigned in the
-   fleshing-out pass. The **situational** part — what the target is, whose it was, how hard the act
-   actually landed, who perceived it — cannot be known by any row in advance; a pure
-   `moral.tag(attempt, result, world)` reads it from the world and the Effects at log time. The design
-   already needs values the four axes lack: `target` splits into **what it is** — self · another person
-   · a human body · an animal · an animal carcass · a thing — and **whose it is** — the actor's ·
-   another survivor's · the dead's · an absent owner's (the freight addressed to Holt, his cabin's
-   stores) · nobody's (deadfall); the **actor** can be a survivor (human or agent), an animal (rules or
-   a model) or the world itself (a bough dropping its snow); `witnessed_by` carries each perceiver's
-   band and the line they received. Document 05's schema carries the tag fields and an ownership
-   relation, §4.5 there.)*
+6. **Acts are tagged on several axes, never one score, and taboo is its own marker** (Andrew,
+   2026-09-27). The axes are a starting set that grows like every set in this design, and the
+   fleshing-out pass has the final say. **The fixed part** of a tag — what kind of harm an act does by
+   its nature, how bad, and whether it is **taboo** — is a field on the action row (the verb's row in
+   `verbs.yaml`, and an entity's `actions` row where a particular thing changes it; document 05 §4.5).
+   Taboo is separate from harm: eating the dead is taboo, not immoral, and the log can tell it apart
+   from a harmful act such as stealing a living person's food. **The situational part** — what the
+   target is, whose it was, how hard the act landed, who perceived it — is read from the world and the
+   Effects when the act is logged. The target is two things: **what it is** — self · another person · a
+   human body · an animal · an animal carcass · a thing — and **whose it is** — the actor's · another
+   survivor's · the dead's · an absent owner's (the freight addressed to Holt, his cabin's stores) ·
+   nobody's (deadfall). The **actor** can be a survivor (human or agent), an animal (rules or a model)
+   or the world itself (a bough dropping its snow). `witnessed_by` carries each perceiver's band and
+   the line they received.
 7. **Labels are observational** and live only in the event log; nothing in the game reads them.
    Whatever gets logged becomes an optimization target the moment an agent is trained against it — keep
    any success signal separate.
@@ -327,6 +326,8 @@ one at a time, the dilemma set, and §4.6–§4.7 — all of it Claude's.
   broken promise.
 - **2026-09-27 (Andrew):** rule 5 decided — every act in the room is emoted to everyone there, no
   facing; taking something unseen is a deliberate `steal` or another fitting word. §4.7 rewritten.
+- **2026-09-27 (Andrew):** rule 6 decided with Claude's addition — taboo is its own marker, separate
+  from harm.
 
 ## 8. What exists today
 

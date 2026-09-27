@@ -335,7 +335,8 @@ it says so. When a decision changes, this list and every document it touches cha
   what people say is logged beside it. Rule 4: lies are sorted after the run, from the log — a lie, a
   mistake, a broken promise; the game never judges speech live. Rule 5: every act in the room is emoted
   to everyone there — the game does not know which way anyone faces; taking something unseen is a
-  deliberate `steal` or another fitting word. (2026-09-16, 2026-09-27)
+  deliberate `steal` or another fitting word. Rule 6: acts are tagged on several axes, never one score,
+  with taboo as its own marker, separate from harm. (2026-09-16, 2026-09-27)
 
 **The player's view and the grammar**
 - The look: a title line, prose composed from state, people and animals as prose, exits as entities in

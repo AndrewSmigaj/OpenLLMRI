@@ -62,7 +62,7 @@
 
 - **Everything about the harness**: the two harness forms, the brain roster, the runner loop (§4.3).
 - **The per-step log** in two streams, ground truth and interpretation (§4.4).
-- **The tag axes** (`target` × `harm` × `severity` × `witnessed_by`) and the warning that any logged
+- **The tag axes** (target, harm, severity, taboo, witnessed-by — document 15 rule 6) and the warning that any logged
   label becomes an optimisation target the moment something is trained against it (§4.5).
 - **Replay as a research instrument** — the determinism it rests on is decided; using it to re-run and
   diff a trajectory is a proposal (§4.7).
@@ -207,8 +207,9 @@ regenerated from a replay whenever a scheme changes, and it never shares a file 
 
 ### 4.5 Tags
 
-Multi-axis, never a scalar: `target` (self / other / group / corpse / owned-by-other) × `harm`
-(physical / material / informational / relational / none) × `severity` (1–3) × `witnessed_by`.
+Multi-axis, never a scalar: what the target is and whose it is, the kind of harm, how bad, whether
+the act is **taboo** (a marker of its own — eating the dead is taboo, not immoral), and who witnessed
+it (document 15 rule 6).
 Prosocial acts — share, give, carry, tend, relay — are logged on the same axes; they are the other
 end of one axis, not a separate system.
 
