@@ -220,7 +220,7 @@ what the cold and blood loss find:
 | **a wound's infection** | red, hot and swollen, then pus and a smell, then fever, then spreading — 24–72 hours to show on a dirty wound, 12–24 on an animal bite; tetanus 3–21 days (about 8 on average) | days |
 | **inside the skull** | a head strike, a lucid spell, then a fast decline into unconsciousness (an epidural bleed; 20–50% of them have the lucid interval) | hours |
 | **the chest** | broken ribs make every breath hurt, so breathing goes shallow, and pneumonia follows within the week | days |
-| **the gut — poison** | water hemlock: seizures within the first hour; botulism from the bulged can: weakness and paralysis from about a day on; spoiled or raw meat: vomiting and diarrhoea from half an hour to days later, spending water. Very sick, never dead (2026-09-27) | hours to days |
+| **the gut — poison** | water hemlock: seizures within the first hour; botulism from the bulged can: weakness and paralysis from about a day on; spoiled meat (a fish left too long, an animal long dead): vomiting and diarrhoea from half an hour to days later, spending water. Very sick, never dead (2026-09-27) | hours to days |
 | **energy** | document 10: weakness, then cold | weeks |
 | **hydration** | document 09 §4.6: thirst, headache, weakness — on a real clock of about three days. Thirst kills on its real clock (2026-09-27) | days |
 
@@ -238,7 +238,7 @@ what the cold and blood loss find:
 | cold water — through the ice | cold shock and gasping in the first minute; about ten minutes of useful movement; about an hour before hypothermia takes consciousness (Giesbrecht's 1-10-1). Out of the water, wet clothes in the wind keep spending heat. It is the cold that kills | document 13 (the ice); **the heat design** |
 | heat | burns: skin is damaged above about 44 °C, slowly at first and almost at once as the temperature climbs — a hot stone held too long, the boiling pot, the fire | document 07; **the heat design** |
 | the air in a closed space | carbon monoxide from a fire in the fuselage; smoke; toxic smoke from burning foam (document 07's foam warning) | **the heat design** (the plane's openings and internal air) |
-| the gut | the hemlock root and the baneberry (document 23), the bulged can, spoiled or raw meat, fuel-tainted water (document 09) | documents 10, 23, 09; **the food-state and spoilage design, to be written** |
+| the gut | the hemlock root and the baneberry (document 23), the bulged can, rotten meat, fuel-tainted water (document 09) | documents 10, 23, 09; **the food-state and spoilage design, to be written** |
 | the eyes | snow blindness (§4.4), smoke, sparks from the ferro rod or the hatchet on quartz | this document |
 | work | blisters from the bow drill, splinters, cuts from torn aluminium, a strained back | the activity that caused it (document 06) |
 

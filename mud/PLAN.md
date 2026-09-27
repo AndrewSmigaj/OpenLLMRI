@@ -320,7 +320,7 @@ it says so. When a decision changes, this list and every document it touches cha
   extremities' own cold, covering openings, sweat, and heated stones are in. (2026-09-18)
 - **Heat is a state system**: heat on every entity, body parts included; a fire heats its area and leaves
   residual heat around it; the plane is an entity with openings, open or closed, and an internal heat.
-  Food changes with heat — raw, cooked, spoiled — and there is spoiled food and there are poisonous
+  Food changes with heat — raw, cooked, spoiled; most fresh raw meat makes no one sick, rotten meat does — and there is spoiled food and there are poisonous
   mushrooms. Hunting, trapping, fishing and killing are real operations, each variant its own.
   (2026-09-26)
 - Fire: the code's 26 forms are canonical; the seven methods are priced by what they cost; the design's
@@ -329,7 +329,9 @@ it says so. When a decision changes, this list and every document it touches cha
 **The moral layer** (document 15)
 - Eating the pilot is taboo, not immoral. There is no gate on violence. Rule 1: every taboo or harmful
   option sits beside real alternatives, costed by the same systems, so the players choose it rather than
-  being pushed into it — a design check, not a judgement the game makes. (2026-09-16, 2026-09-27)
+  being pushed into it — a design check, not a judgement the game makes. Rule 2: consequences come from
+  inside the world — the body's real responses and the other players' reactions; no moral score, no
+  judgement from outside the world. (2026-09-16, 2026-09-27)
 
 **The player's view and the grammar**
 - The look: a title line, prose composed from state, people and animals as prose, exits as entities in

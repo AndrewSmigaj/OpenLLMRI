@@ -151,7 +151,8 @@ muscle is two to three days of food — real, and not a rescue.
 **Eating it — raw, frozen, cooked, spoiled.** Each is a state on the meat and a process in the eater's
 gut (document 11 §4.6). Bad meat makes people very sick and never kills (2026-09-27).
 
-- **Raw and fresh**, cleanly cut and kept cold: edible, and as safe as raw meat gets. The risk climbs
+- **Raw and fresh**, cleanly cut and kept cold: edible and mostly safe — most fresh raw meat makes no one
+  sick; rotten meat does (2026-09-27). The risk climbs
   with what touched it — a punctured gut, dirty hands, the knife that did everything. Food-poisoning
   bacteria show as vomiting and diarrhoea hours to a day or more later, spending the water document
   09 counts.

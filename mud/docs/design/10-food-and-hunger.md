@@ -29,8 +29,9 @@
   fire heats its area and leaves residual heat in other areas; the plane is an entity with openings
   flagged open or closed, and a fire inside raises its internal heat. All of it belongs to designing
   the fire and heat system.
-- **(2026-09-26)** Raw, cooked and spoiled food differ — raw meat especially, spoiled more so. There
-  should be at least one spoiled thing, and there are poisonous mushrooms.
+- **(2026-09-26, 2026-09-27)** Raw, cooked and spoiled food differ. Most fresh raw meat does not make
+  anyone sick; rotten meat does — a fish left too long, an animal found long dead. There should be at
+  least one spoiled thing, and there are poisonous mushrooms.
 - **(2026-09-26)** There is a combat system like a MUD's.
 - **(2026-09-26)** Hunting, trapping, fishing and killing are real operations, each variant its own:
   a snare takes materials to build, and you set it; you can throw rocks or anything else; you fish in
@@ -122,8 +123,8 @@ say anything about it because everybody has already thought it.
    differ; the axes are Claude's, for his check.)*
 5. **The pilot's body is food, and eating it is taboo, not immoral** (Andrew, 2026-09-27). It is
    mechanically possible, slow and grim. It takes time, tools, preparation and the same food states as
-   any meat: raw carries the real risks, meat cooked to a real core temperature is safe from what
-   cooking kills, and freezing only pauses bacteria. What a person's flesh carries that game does not
+   any meat: fresh raw meat is mostly safe and rotten meat is what makes people sick; meat cooked to a
+   real core temperature is safe from what cooking kills, and freezing only pauses bacteria. What a person's flesh carries that game does not
    — prion disease, blood-borne infection — shows in years, not inside a week (document 12 §4.3a).
    Butchery is hours of attended work and cooking needs the fire, so the difference between a decision
    and an impulse comes from the physics, not a special rule. The engine does not refuse it and does

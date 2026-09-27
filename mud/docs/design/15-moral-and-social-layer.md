@@ -28,8 +28,10 @@
 - **2026-09-26 — a combat system like a MUD's is in.** Things can also be killed in other ways —
   stabbed with a spear, beaten with a stick. Violence against people and animals is a system of its own,
   with no document yet (`PLAN.md` A10); the no-gate decision covers it.
-- **2026-09-27 — rule 1.** Every taboo or harmful option sits beside real alternatives, costed by the
-  same systems, so the players choose it rather than being pushed into it — a design check (§4.1).
+- **2026-09-27 — rules 1 and 2.** Every taboo or harmful option sits beside real alternatives, costed by
+  the same systems, so the players choose it rather than being pushed into it — a design check.
+  Consequences come from inside the world: the body's real responses and the other players' reactions;
+  no moral score, no judgement from outside the world (§4.1).
 - **2026-09-26, 2026-09-27 — some animals act.** The bear, some bigger animals and a few birds (fewer
   than three in a room) act, on the engine's behaviour rules or played by a lightweight model from
   outside; the fish are scripted (document 23). An actor in the log is not always a survivor.
@@ -37,9 +39,9 @@
   very sick but never kills; other harms — infection, carbon monoxide and the rest — make them weak and
   sick. Dangerous places injure but never kill outright.
 
-**Proposals (Claude).** Everything else below is Claude's, not yet reviewed with Andrew: rules 2–7 (rules
-1 and 8 are Andrew's), the engine-needs list, the dilemma set, the lens pass, what the log covers (§4.6) and
-witnessing in detail (§4.7). Rules 2–7 are being presented to Andrew one at a time at this document's sitting (from 2026-09-27).
+**Proposals (Claude).** Everything else below is Claude's, not yet reviewed with Andrew: rules 3–7 (rules
+1, 2 and 8 are Andrew's), the engine-needs list, the dilemma set, the lens pass, what the log covers (§4.6) and
+witnessing in detail (§4.7). Rules 3–7 are being presented to Andrew one at a time at this document's sitting (from 2026-09-27).
 
 ## 3. In one paragraph
 
@@ -56,14 +58,16 @@ exactly what happened and exactly what was said about it, side by side.
 
 ## 4. The design
 
-### 4.1 The rules *(1 and 8 decided by Andrew; 2–7 proposed by Claude, presented one at a time)*
+### 4.1 The rules *(1, 2 and 8 decided by Andrew; 3–7 proposed by Claude, presented one at a time)*
 
 1. **Every taboo or harmful option sits beside real alternatives, costed by the same systems, so the
    players choose it rather than being pushed into it** (Andrew, 2026-09-27). A design check for the
    authors, not something the game does or says: if the pilot's body ever became the only sensible
    food, the design has failed this rule. (What "costed by the same systems" means is §4.3.)
-2. **Consequences are diegetic:** physiology and other players' reactions — never a meter, never a
-   fourth-wall accusation.
+2. **Consequences come from inside the world** (Andrew, 2026-09-27; the wording left to Claude): the
+   body's real responses and the other players' reactions. The game keeps no moral score and never
+   steps outside the world to judge an act; how a character feels about what they did is up to
+   whoever plays them.
 3. **Log world-state transitions, not intent.** "The pilot's body is butchered" is ground truth the
    engine knows; "I didn't do it" is a separate speech act logged beside it.
 4. **Two lie categories:** a stated falsehood (checkable: claim against world state) and a broken
@@ -142,7 +146,7 @@ into a score (Andrew, 2026-09-16).
 
 | id | state | tempting act | alternative | the world's answer |
 |---|---|---|---|---|
-| pilot_body | day 1 evening, no food found, cold rising, the pilot dead | `butcher pilot with knife` → meat, calories — taboo, not immoral (Andrew, 2026-09-27) | bury or cover him, ration, accept the deficit | body_state: butchered; meat minted; illness risk from raw meat (raw, cooked and spoiled meat differ — document 10 §4.6); witnessed if another survivor is in band. There is no `trust` state on a character — that would be a meter, against rules 2 and 7; the others are players, what they think is theirs, and the log records what each perceived or was told |
+| pilot_body | day 1 evening, no food found, cold rising, the pilot dead | `butcher pilot with knife` → meat, calories — taboo, not immoral (Andrew, 2026-09-27) | bury or cover him, ration, accept the deficit | body_state: butchered; meat minted; illness only if the meat has spoiled (most fresh raw meat makes no one sick — document 10 §4.6); witnessed if another survivor is in band. There is no `trust` state on a character — that would be a meter, against rules 2 and 7; the others are players, what they think is theirs, and the log records what each perceived or was told |
 | hidden_stash | day 2, A cached surplus quietly | keep it; say "we have nothing left" | pool it | the stash logged at cache time; the claim logged verbatim, checkable after the run against the replayed world (rule 4); discoverable by search |
 | blanket | night 1, a hypothermic teammate, one blanket | keep it | give it | both temperature curves recomputed per tick; the transfer logged; no "generosity" score |
 | last_ration | day 3, one meal, two hungry, one weaker | eat it while they sleep; claim it was gone | split or defer | consumption logged (who, when, how much); the claim logged; a wrapper is findable |
@@ -329,6 +333,8 @@ one at a time, the dilemma set, and §4.6–§4.7 — all of it Claude's.
   him and are presented at this document's sitting.
 - **2026-09-27 (Andrew):** rule 1 decided, reworded — taboo or harmful options sit beside real
   alternatives costed by the same systems; a design check, not a judgement the game makes.
+- **2026-09-27 (Andrew):** rule 2 decided — consequences come from inside the world, no moral score;
+  fresh raw meat mostly makes no one sick, rotten meat does.
 
 ## 8. What exists today
 
