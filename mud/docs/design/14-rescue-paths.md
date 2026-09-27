@@ -68,7 +68,7 @@ watch (document 06).)*
 **Rescue, the endings and the radio (2026-09-17).** The only endings are rescued or dead; the
 walk-out is closed and the cabin is supplies; rescue comes three ways, each harder than the last — the
 radio during a flyover, a signal a search plane can see, surviving long enough; the flyover schedule
-is the rescue clock and players never see a number; the radio mini game and the battery in the tail
+is the rescue clock and players never see a number; the radio (no "mini game" — the world, Andrew 2026-09-27) and the battery in the tail
 wreckage under the snow; searching the ground as an activity. In full in the box at the head of §3
 and in the review log.
 
@@ -186,6 +186,14 @@ superseded by the 2026-09-17 decisions and kept as the record:*
 > (2026-09-27), at Andrew's request, for his check:** the voice asks; whatever the party can tell —
 > the lake, the ridge, the burn, the chart — narrows the search; if they can tell nothing, a search plane
 > homes in on their transmissions when it is in the area, which costs battery.
+>
+> **The radio is the world, not a mini game (Andrew, 2026-09-27):** *"there is no such things as a 'mini
+> game' there is interacting with the world and certain steps would need to be taken to get to a rescue
+> condition. so when the signal is bad and they can only hear certain words thats just part of the
+> world."* **The voice is scaffolded not to help too much** — only what a real rescuer says (stay with the
+> plane, keep warm, save your battery, a fire they can see when you hear them). It asks for a landmark:
+> *"you can tell them you are next to a river and they would be like 'there are a lot of rivers' and you
+> can give them another landmark - the llm can make a judgment on if the information is good enough."*
 
 
 > **Decided with Andrew, 2026-09-17:** the only endings are **rescued or dead**; walking out is not an ending
@@ -203,7 +211,7 @@ superseded by the 2026-09-17 decisions and kept as the record:*
 > nearness — mapped to prose: a high screech with the antenna down, a low hum with it up, a faint
 > voice as you turn the dial, clearer as it improves. Talking back gets snippets — "can't hear you,
 > repeat", in variants — and the words *improve your signal* and *adjust antenna* ride on the better
-> bands: a medium-difficulty mini game of piecing the message together, then the rescue ending if
+> bands: ~~a medium-difficulty mini game~~ piecing the message together from what the signal lets through *(Andrew, 2026-09-27: "there is no such things as a 'mini game' there is interacting with the world")*, then the rescue ending if
 > they survive the time it takes. One person can work the radio while another gets food. **Open for
 > this document's sitting:** whether the ELT (the silent beacon you rig an antenna onto) stays as a
 > second path or folds into the radio. The graph below is the September draft. *(Claude, 2026-09-26:
@@ -859,7 +867,7 @@ kept, struck, as the record.
 
 - **2026-09-17 (Andrew, block 1, ahead of this document's sitting):** endings rescued or dead; the walk-out
   closed; surviving long enough is the hardest rescue path; the flyover schedule as the rescue clock; the
-  radio as the mini game above; the battery in the tail under the snow; searching the ground as an
+  radio as the ~~mini game~~ interaction above; the battery in the tail under the snow; searching the ground as an
   activity. Open: the ELT — keep as a second silent path (Claude's recommendation) or fold in.
 
 - **2026-09-18:** the `make a signal` goal rows added (document 04 §3.9 owns the form and the dispatch rule).
@@ -891,6 +899,8 @@ kept, struck, as the record.
 - **2026-09-27 (Andrew, the rescue conversation, third round):** *"1. no 2. not just during a flyover, once you fix the antenna it is relatively quick"* — the cold does not weaken the radio's batteries; contact does not wait for a flyover, and comes relatively quickly once the antenna is fixed (supersedes 2026-09-17's "usable only during flyover events").
 
 - **2026-09-27 (Andrew, the rescue conversation, fourth round):** *"a. sure, they can say once the storm dies down on the radio, i want the radio person controlled by a weak llm as the user might want to talk to them, i think the user might want to press the button while talking into the mic but if they dont it will hint. a lot of things might need hints i dont want users figuring out common sense things b. you choose, i thought we already decided but i dont care"* — no earlier decision on location was found in the record; Claude's choice is in the §3 banner, for his check.
+
+- **2026-09-27 (Andrew, the rescue conversation, fifth round):** no "mini game" — the radio is interacting with the world, and a bad signal letting through only some words is part of the world; the voice is scaffolded to help only as a real rescuer would, asks for landmarks, and judges whether what it is told is good enough (§3 banner). The "mini game" wording is struck here, in the GDD, the design index and `PLAN.md`.
 
 ## 7. What exists today
 

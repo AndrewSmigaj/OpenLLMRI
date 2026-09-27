@@ -490,6 +490,8 @@ both documents (the typing pace, a cap, or nothing).*
 
 - **2026-09-27 (Andrew, via document 14):** the person on the other end of the radio is played by a weak language model, because players will want to talk to them — a third kind of model-played character besides survivors and animals.
 
+- **2026-09-27 (Andrew, via document 14):** the radio voice's model is scaffolded not to help too much — only what a real rescuer would say — and it judges whether the landmarks it is given are good enough to find the party.
+
 ## 8. What exists today
 
 **Built.**

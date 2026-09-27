@@ -274,7 +274,7 @@ the June one-liners came from the archived seed.)*
 Rescue is the only good ending, and it comes three ways, each harder than the last. **The hand radio
 during a flyover:** find the battery in the tail wreckage under the snow, raise the antenna, turn the
 dial through the static — a high screech, a low hum, a faint voice — and piece together what the voice
-asks for (*improve your signal*, *adjust antenna*), a medium-difficulty mini game; the radio is static
+asks for (*improve your signal*, *adjust antenna*), ~~a medium-difficulty mini game~~ (no "mini game": interacting with the world, Andrew 2026-09-27); the radio is static
 except when a plane is overhead. **A signal a search plane can see:** a smoke column past a threshold —
 rubber, oil, green boughs — or the cabin burning during a pass. **Surviving long enough** for the
 search to reach a findable party — the hardest path, because every day is worse. The flyover schedule
