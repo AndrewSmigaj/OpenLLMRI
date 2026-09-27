@@ -397,7 +397,7 @@ Andrew's check** — §4.3a has it in full, with sources:
   marrow: two to three days for a party of five. And his body is the strongest attractant in the
   valley — to the ravens first and, in October, to the bear, which guards what it finds.
 
-**Q6 — Dead players' bodies: what are your friends told, and when?** *(Sharpened 2026-09-26 — the old
+~~Q6 — asked:~~ **Answered 2026-09-27 (Andrew):** *"like eaten? no we dont explain anything this is an open world. we have a series of tutorial rooms where we have one simple situation they can see what sort of things they can do"* *The question as it was asked:* **Dead players' bodies: what are your friends told, and when?** *(Sharpened 2026-09-26 — the old
 options (a) persists / (b) exempt from butchering / (c) removed are answered.)* The physics, for
 Andrew's check: a dead player's body stays where they died, an entity exactly like the pilot's
 (§4.3a) — their clothes on it, their pockets full, cooling, stiffening, freezing, smelling to the
@@ -449,6 +449,8 @@ dead against the forward bulkhead") are correct as they stand.
   §5 annotated as superseded where the dead start overtook them. Needs design documents: heat, food
   state and spoilage, animal behaviour; document 14's clue paths that named the pilot need
   replacements.
+
+- **2026-09-27 (Andrew):** Q6 — nobody is told: *"we dont explain anything this is an open world. we have a series of tutorial rooms where we have one simple situation they can see what sort of things they can do"* (the tutorial: `PLAN.md` E19).
 
 ## 8. What exists today
 

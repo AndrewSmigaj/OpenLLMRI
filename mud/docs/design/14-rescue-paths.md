@@ -155,6 +155,15 @@ superseded by the 2026-09-17 decisions and kept as the record:*
 
 ## 3. The design
 
+> **Reopened with Andrew, 2026-09-27 — rescue is designed together, and nothing is added to it without
+> asking him.** *"this whole rescue scenario will need thought please dont just blindly agree it pisses me
+> off I want help designing this, i just dont want you to add things without explicitely asking me."*
+> Decided the same day: **no working ELT** (*"otherwise this wouldnt even be a game"*); **the battery is
+> in the nose, wired up and fine** (the tail battery of 2026-09-17 is superseded); **the radio has a loose
+> wire inside**, which a character with technical proficiency sees on inspecting it. Everything below that
+> is not Andrew's words — the channels, the arithmetic, §3.5a's search model, the ELT section — is the
+> record of what was weighed, not a design he has accepted (`PLAN.md` A13).
+
 
 > **Decided with Andrew, 2026-09-17:** the only endings are **rescued or dead**; walking out is not an ending
 > and the cabin is supplies. Rescue comes three ways, each harder than the last: **the radio** during a
@@ -800,7 +809,7 @@ kept, struck, as the record.
    combinations" retires with the additive model (Q2); "≥3 pilot clue paths per fact" becomes ≥3 paths
    per fact *in the world*, since he starts the run dead — §3.9 lists them. `roadmap.md` is the June
    history (`PLAN.md`'s header), not a source of numbers.
-7. **The ELT: what does hearing it do for the party?** Andrew is deciding the beacon's place among his
+~~7. asked:~~ **Answered 2026-09-27 (Andrew):** *"no working ELT meter otherwise this wouldnt even be a game"* *The question as it was asked:* **The ELT: what does hearing it do for the party?** Andrew is deciding the beacon's place among his
    three ways — not whether it exists: US rules put an ELT in nearly every small airplane (14 CFR
    91.207), and it stays a real, working device the party can switch, warm, rig and raise (§3.7). The
    facts that decide it: the design's ELT is the older 121.5 MHz kind (what a 1970s 206 left the
@@ -849,6 +858,8 @@ kept, struck, as the record.
   renamed. **Answered** Q3, Q4, Q6; **rewrote and answered** Q1 (three ways, not five channels), Q2
   (the search model replaces the arithmetic), Q5 (no conductor scarcity); **left for Andrew:** Q7, the
   ELT's place among the three ways, sharpened with the real device's facts.
+
+- **2026-09-27 (Andrew):** Q7 — no working ELT. The battery is in the nose, wired up and fine; the radio has a loose wire inside that a character with technical proficiency sees on inspecting it. *"this whole rescue scenario will need thought please dont just blindly agree … I want help designing this, i just dont want you to add things without explicitely asking me."* Rescue is reopened as a design conversation with Andrew (`PLAN.md` A13); Claude's additions here are not accepted design.
 
 ## 7. What exists today
 

@@ -202,6 +202,12 @@ beats there.)*
 
 ### 4.6 The body, and everything that can hurt it (Claude, 2026-09-26 — §6 Q1, Q2, Q5; for Andrew's check)
 
+> **What kills — Andrew, 2026-09-27:** *"bear can kill, poison should make them really sick but not kill
+> we dont want to just kill a character off because they ate a mushroom - they can die from blood loss, the
+> bear, the cold, other things make them weak and sick."* This corrects the table below and Claude's
+> answer to Q2: death comes from **blood loss, the bear and the cold**; poison, infection, carbon monoxide
+> and the rest make a body really sick and weak, and never kill on their own.
+
 This document was drafted around the crash's five wounds. Injury now has many more sources — a combat
 system like a MUD's, a bear and other animals that act, places that injure, the ice, the cold in the
 extremities — and all of them act on the same thing: **the body, as an entity in the ontology**
@@ -461,7 +467,7 @@ character's trade changes what their hands do. The originals are kept, struck, a
    - **Added, because they are real here** (§4.6): non-freezing cold injury — October's own; contact
      frostbite from metal and fuel; cold-water immersion; burns and scalds; smoke; bites and
      maulings; blows and stab wounds; poisoning; blisters, splinters and cuts from the wreck.
-6. **Does a character's trade change what their hands can do?** *(Sharpened 2026-09-26 — the old
+~~6. asked:~~ **Answered 2026-09-27 (Andrew):** *"yes different chars have different sucess rates and time it takes so a woodsman would start fires better"* *The question as it was asked:* **Does a character's trade change what their hands can do?** *(Sharpened 2026-09-26 — the old
    question was "what does the nurse's knowledge actually do?", recommending nothing mechanical.)*
    What you are deciding: whether **who the character is** changes the outcome of a typed act,
    separately from what the **player** knows. The player's knowledge is the player's either way —
@@ -556,6 +562,8 @@ character's trade changes what their hands do. The originals are kept, struck, a
   Rules 1–5, the draw's concussion and shock rows, §4.4, §4.5 and §5 annotated; the pilot-alive lines
   marked superseded. Needs design documents: combat, heat (including the air in closed zones), animal
   behaviour, food state and spoilage.
+
+- **2026-09-27 (Andrew):** Q6 — *"yes different chars have different sucess rates and time it takes so a woodsman would start fires better"*. What kills: *"bear can kill, poison should make them really sick but not kill … they can die from blood loss, the bear, the cold, other things make them weak and sick"* — supersedes Claude's Q2 answer and corrects §4.6's table (banner there).
 
 ## 8. What exists today
 

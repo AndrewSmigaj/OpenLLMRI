@@ -71,6 +71,15 @@ together, in the first hour, long before anyone says the word "rescue."
 
 ### 4.1 The draw (one slot per player, deterministic from the run seed)
 
+> **Andrew, 2026-09-27:** *"we dont make up extensive back stories, no one should be forced to have
+> reasons for flying just be given different clothes and stuff."* The slots are different clothes,
+> injuries and things in pockets and bags; the reasons for flying in the table below are struck. Up to
+> five play; an empty seat is empty, and an unplayed character is dead with its clothes there to search;
+> AI agents may play seats. **No firearm.** The survival kit is gone — buried somewhere; the sleeping bag
+> is buried with the tail wreckage; two blankets are hidden inside the plane — *"we dont want it too
+> easy but not too hard."* The date is mid-October, either side of the 15th. The Alaska statute in §4.5
+> and §4.9 is background, not a constraint.
+
 A **slot** is a seat, plus what its occupant wore, carried, and suffered in the crash. Five slots are
 authored; the run seed is meant to permute which player gets which — nothing is random at runtime
 (§6, §8).
@@ -338,7 +347,7 @@ temperature).
 Q6 are answered by the decided design or by reality, each marked for Andrew's check; Q1 and Q3 are his
 and sharpened; Q7 and Q8 are new and his. The original wording of every question is kept as the record.
 
-1. **Who are the five people, and does §4.9's October check of what they carry stand?** Andrew's
+~~1. asked:~~ **Answered 2026-09-27 (Andrew):** *"we dont make up extensive back stories, no one should be forced to have reasons for flying just be given different clothes and stuff"* *The question as it was asked:* **Who are the five people, and does §4.9's October check of what they carry stand?** Andrew's
    2026-09-16 approval covers the four-seat interior and the kid, not the people. What he is deciding
    is taste: each person's reason to be on a mail plane into the Interior in mid-October, and the
    spread of what they wore. Every item already passes the October check in §4.9; the two reasons that
@@ -376,7 +385,7 @@ and sharpened; Q7 and Q8 are new and his. The original wording of every question
    fairness claim is currently just a sentence in a document; it needs the mechanism it describes
    before more than one sitting relies on it.
 
-3. **What is in a seat nobody plays?** *(Sharpened 2026-09-26: this is document 19's Q1 asked from the
+~~3. asked:~~ **Answered 2026-09-27 (Andrew):** *"up to 5 people play, empty seats are empty - unused characters can be dead and clothes searched"*; and *"AI agents can play the game with players if they want. otherwise the char is dead if no one plays it"* *The question as it was asked:* **What is in a seat nobody plays?** *(Sharpened 2026-09-26: this is document 19's Q1 asked from the
    kit side, and it is decided once, there.)* Already settled: the plane carries five survivors — the
    right seat and 1A/1B/2A/2B — and the pilot, dead at the start; one survivor per player; an agent is
    a player like any other (2026-09-17). What Andrew is deciding is the social shape of a smaller run.
@@ -441,7 +450,7 @@ and sharpened; Q7 and Q8 are new and his. The original wording of every question
    existing authoring seams (`objects.py` / `characters.py` rows only) — it needs no new mechanism,
    just the rows this document already specifies (§4.6).
 
-7. **Is there a firearm aboard?** *(New, Claude, 2026-09-26.)* Reality allows it and often has it: a
+~~7. asked:~~ **Answered 2026-09-27 (Andrew):** *"no"* *The question as it was asked:* **Is there a firearm aboard?** *(New, Claude, 2026-09-26.)* Reality allows it and often has it: a
    gun may fly unloaded and cased in checked baggage with up to 5 kg of ammunition (FAA PackSafe), guns
    are ordinary in the Alaskan bush, and the statute no longer requires a survival gun (§4.9). One gun
    changes the bear, the hunting (a shotgun makes a ptarmigan a near-certain meal), the combat system
@@ -453,7 +462,7 @@ and sharpened; Q7 and Q8 are new and his. The original wording of every question
    spear and the club the everyday ways to hunt and fight in most runs; when present, the crash decides
    its state and distance (power ∝ cost, §4.3).
 
-8. **Which day in October does the plane go down — before or after the 15th?** *(New, Claude,
+~~8. asked:~~ **Answered 2026-09-27 (Andrew):** *"before or after is fine, the sleeping bag would be buried with the tail wreckage, two blankets can be inside the plane hidden somewhere, we dont want it too easy but not too hard"* Andrew, 2026-09-27: *"what do you mean by 'law'? it is a weird term to use."* — the Alaska statute was the reviewers' realism baseline; it is not a design constraint, and what is aboard is the design's call. *The question as it was asked:* **Which day in October does the plane go down — before or after the 15th?** *(New, Claude,
    2026-09-26.)* The month is settled (freeze-up); the day is not, and the law makes it matter: from 15
    October Alaska requires a pair of snowshoes, a sleeping bag and a wool blanket for each occupant over
    four in the kit (AS 02.35.110(a)); before it, those are the pilot's choice. The day also sets the
@@ -499,6 +508,8 @@ and sharpened; Q7 and Q8 are new and his. The original wording of every question
   15 October recommended (Q8), the legal ration week (~35,000–50,000 kcal for six) as the real baseline, the 206's
   useful load (~100–150 kg left for kit, bags, mail and freight), real carrying loads. The nurse's
   suturing points at document 11 Q6; the pilot's body materials follow document 12 §4.3a.
+
+- **2026-09-27 (Andrew):** Q1 no back stories; Q3 up to five play, empty seats are empty, an unplayed character is dead and searchable, agents may play; Q7 no firearm; Q8 either side of the 15th — the sleeping bag buried with the tail wreckage, two blankets hidden in the plane, *"not too easy but not too hard"*; the survival kit buried somewhere (document 10 Q9); the statute is not a constraint. Banner at §4.1.
 
 ## 8. What exists today
 

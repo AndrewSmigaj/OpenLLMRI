@@ -565,7 +565,7 @@ weather. The originals are kept, struck, as the record.
    acts on: exposure, wetting, travel, what is buried, whether the ice holds, whether smoke rises,
    whether a mirror flashes, whether a plane flies low. The five shipped keys stay as what they really
    are — a perception band derived from visibility and precipitation.
-7. **Is every run the same week of weather, or does each run draw its own inside the real range?**
+~~7. asked:~~ **Answered 2026-09-27 (Andrew):** *"same"* — the same week of weather every run. *The question as it was asked:* **Is every run the same week of weather, or does each run draw its own inside the real range?**
    Andrew is deciding how much a second run should be able to lean on memory of the first — whether
    his friends, playing again, know that the storm peaks on day five. The shape itself is his and does
    not change: an inch at the start, a storm that builds, the cold behind it. *Options:* (a) **one
@@ -600,6 +600,8 @@ None yet — first draft, not yet reviewed with Andrew.
   act), Q4 ("still going" is gone), Q6 (weather is state, not five keys); **left for Andrew:** Q7, the
   same week every run or drawn per run. **Systems with no design document** named in §5: heat,
   animal behaviour, combat, snow and ice on the ground, food state and spoilage.
+
+- **2026-09-27 (Andrew):** Q7 — *"same"*: the same week of weather every run. What kills (for the animals in Q3): *"bear can kill, poison should make them really sick but not kill"*; death comes from blood loss, the bear and the cold.
 
 ## 8. What exists today
 

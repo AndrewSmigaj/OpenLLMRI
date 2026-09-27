@@ -183,7 +183,8 @@ trail", the ice "forty centimetres", and the pilot died during the first day.)*
 
 *(Content; `players-and-kit.md` §1 and §3, and the shipped object table.)*
 
-- **The survival kit** — two sealed ration tins (and the fishing kit) in the survival duffel. Dense,
+- **The survival kit** *(Andrew, 2026-09-27: "the survival kit is gone, too easy, buried somewhere" —
+  it is not at hand; it is buried somewhere, Q9)* — two sealed ration tins (and the fishing kit) in the survival duffel. Dense,
   dull, life-sustaining. `players-and-kit.md` §5 proposes it lashed to the 206's floor rings in the
   baggage bay; the shipped slice has it as a torn duffel out on the debris trail. *(Conflict flagged
   2026-09-26: Alaska Statute AS 02.35.110, which document 01 and `plane-interior.md` §7 use as the
@@ -564,7 +565,7 @@ blood.
    is hours of attended work and cooking needs the fire: the difference between a decision and an
    impulse comes from the physics, not a special rule. *(original recommendation: keep the
    requirement.)*
-9. **How much food does the survival kit really hold, and what does the crash leave of it?** Alaska
+~~9. asked:~~ **Answered 2026-09-27 (Andrew):** *"the survival kit is gone, too easy, buried somewhere"* Andrew, 2026-09-27: *"what do you mean by 'law'? it is a weird term to use."* — the Alaska statute was the reviewers' realism baseline; it is not a design constraint, and what is aboard is the design's call. *The question as it was asked:* **How much food does the survival kit really hold, and what does the crash leave of it?** Alaska
    Statute AS 02.35.110 — the realism anchor of document 01 and `plane-interior.md` §7 — requires **a
    week of rations per occupant**; the design has had two ration tins "for three" (`players-and-kit.md`),
    which is less than the law. Legal survival rations are "sufficient to sustain life" — dense bars and
@@ -654,6 +655,8 @@ blood.
   flagged in §4.3). **October revision (A8) done** across §3, §4.3–§4.7 and the banner; no wolverine,
   the pilot starts dead, the moose is no longer scripted "can't". Systems this needs that have no
   document: heat, food state and spoilage, hunting/trapping/fishing, combat, animal behaviour.
+
+- **2026-09-27 (Andrew):** Q9 — *"the survival kit is gone, too easy, buried somewhere"*. And *"what do you mean by 'law'? it is a weird term to use"*: the Alaska statute was the reviewers' realism baseline, not a design constraint; what is aboard is the design's call. §4.3 annotated.
 
 ## 8. What exists today
 

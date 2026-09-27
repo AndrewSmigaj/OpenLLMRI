@@ -1,5 +1,9 @@
 # 21 — Endings and the recap
 
+> **The recap leaves the design (Andrew, 2026-09-27):** *"I never ever said I wanted a recap."* It was
+> Claude's, from the archived AI seed and the brainstorm. This document is the endings; §4.2 stays as the
+> record.
+
 > **Status: draft for review** (created 2026-09-16). **Architecture counterpart:** none — the run
 > lifecycle is DR-15/DR-15a in [`implementation-architecture.md`](../architecture/implementation-architecture.md)
 > §2, and the recap has no spec.
@@ -301,7 +305,7 @@ whether or not the story is ever generated, and (a) is a rendering of the same m
 constraint: deterministic assembly only, so the prose quality comes from authored templates over
 logged facts, not from generation.~~
 
-**Q5 — What is the recap for, what shape is it, and what may it reveal?** *(Andrew's; stays for his
+~~Q5 — asked:~~ **Answered 2026-09-27 (Andrew):** *"I never ever said I wanted a recap"* — the recap was Claude's (from the archived AI seed and the brainstorm), never Andrew's; it leaves the design. *The question as it was asked:* **What is the recap for, what shape is it, and what may it reveal?** *(Andrew's; stays for his
 sitting, 2026-09-17. Sharpened by Claude, 2026-09-26.)* Two parts are already answered: the research
 side needs no recap — the log is the research artifact, and a run report is analysis over it
 (document 20 §4.4); and whatever the recap is, it is built from the log, so it cannot claim what no
@@ -334,7 +338,7 @@ ends nothing, and it is one of the findable places where surviving long enough i
 14). The recommendation was overruled. *(Claude, 2026-09-26: nearest to the old option (b). Holt is
 absent and the stores are his, so using them is a tagged act — document 15 §4.6.)*
 
-**Q7 — Who reads what a ghost says?** *(New, Claude, 2026-09-26 — Andrew's: it is about what his
+~~Q7 — asked:~~ **Answered 2026-09-27 (Andrew):** *"ghosts can hear other ghosts, players cannot, anyone can use the OOC chat"* *The question as it was asked:* **Who reads what a ghost says?** *(New, Claude, 2026-09-26 — Andrew's: it is about what his
 friends' evening is like.)* Andrew's words are "talks only in the global out-of-character chat". A
 ghost goes anywhere unhindered and sees what anyone there would see (§4.5), so if the living read its
 chat, it is a scout with no cold, no travel time and no storm in the way: it can drift to the treeline
@@ -368,6 +372,8 @@ from the proposed endings and the optional recap.*
   the one-paragraph rewritten to two endings; the freeze-up note on where a helicopter can land.
   **Left for Andrew:** Q5, sharpened (what the recap is for, what it reveals of unwitnessed acts, who
   writes its prose), and a new Q7 (who reads a ghost's chat).
+
+- **2026-09-27 (Andrew):** Q5 — *"I never ever said I wanted a recap"*: the recap leaves the design. Q7 — ghosts hear ghosts, players can't; anyone can use the OOC chat.
 
 ## 8. What exists today
 

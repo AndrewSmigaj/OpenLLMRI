@@ -351,7 +351,7 @@ order (document 06).
 
 ## 6. Open questions
 
-1. **How many people play one run, and what is in a seat nobody plays?** *(Sharpened 2026-09-26 by
+~~1. asked:~~ **Answered 2026-09-27 (Andrew):** *"up to 5 people play, empty seats are empty - unused characters can be dead and clothes searched"*; and *"AI agents can play the game with players if they want. otherwise the char is dead if no one plays it"* *The question as it was asked:* **How many people play one run, and what is in a seat nobody plays?** *(Sharpened 2026-09-26 by
    Claude; the draft is kept below as the record.)* The plane carries five survivors — 1A/1B/2A/2B and
    the right seat, the kid included (Andrew, 2026-09-16) — and the pilot, dead at the start. Already
    settled: one survivor per player; an agent, or a model playing a non-human character, is a player
@@ -439,7 +439,7 @@ order (document 06).
    real-world Tuesday learns nothing interesting; the pressure the clock exists to create is
    within-sitting pressure.
 
-4. **Does anything pace a fast agent?** *(Sharpened 2026-09-26 by Claude; decided together with
+~~4. asked:~~ **Answered 2026-09-27 (Andrew):** *"we already discussed this which is the speed of typing the command"* — an agent acts at the pace of typing the command; a slow model is simply slow (2026-09-26). *The question as it was asked:* **Does anything pace a fast agent?** *(Sharpened 2026-09-26 by Claude; decided together with
    document 20, whose review log holds Andrew's words; the draft is kept below as the record.)*
    Already settled: an agent is a party member — a survivor in a seat, or a non-human character with
    a persona brief (2026-09-17) — with the same view, rules and clock, never an observer; in a run
@@ -497,7 +497,7 @@ order (document 06).
    *Recommendation:* (c) for the last player out, (b) for one player among several — "your friend
    froze because his wifi dropped" is the one death nobody will accept as physics.
 
-5. **Can a survivor die while their player is disconnected?** *(Rewritten 2026-09-26 by Claude.)* The
+~~5. asked:~~ **Answered 2026-09-27 (Andrew):** *"absolutely, keep in mind this is not a long running MUD, the players can pause the simulation and return later and if they are missing a player their character just goes catatonic, sits down and stares off, the other players can keep them alive though if they want"* *The question as it was asked:* **Can a survivor die while their player is disconnected?** *(Rewritten 2026-09-26 by Claude.)* The
    body is incapacitated where it lies and every system keeps running on it (above). Andrew is
    deciding what an evening with friends can bear: a dropped connection as a death, or not.
    *Options:* (a) yes — the systems run to the end, and keeping the absent friend alive is the party's
@@ -510,7 +510,7 @@ order (document 06).
    world's physics, and the warning plus the option to halt gives the table its way out. (b) is the
    gentler rule if a death by dropped connection feels wrong at the table.
 
-6. **Who reads the out-of-character chat?** *(New 2026-09-26 — the ghost decision made real a channel
+~~6. asked:~~ **Answered 2026-09-27 (Andrew):** *"ghosts can hear other ghosts, players cannot, anyone can use the OOC chat"* *The question as it was asked:* **Who reads the out-of-character chat?** *(New 2026-09-26 — the ghost decision made real a channel
    §4.8 said did not exist.)* Settled: a dead player is a ghost who moves freely and talks only in the
    global out-of-character chat (2026-09-17); the living talk in the world, where speech has a range
    and the storm eats it (§4.4). Open: whether the living read that chat during a run. A ghost walks
@@ -523,7 +523,7 @@ order (document 06).
    run would allow (the same-view rule, document 20); and the recap gives the ghosts' commentary back
    to everyone at the end. Friends on a voice call will talk anyway — that is outside the game.
 
-7. **Are the people in a run told which survivors are models?** *(Split out of the draft Q4,
+~~7. asked:~~ **Answered 2026-09-27 (Andrew):** *"*sighs* I am concerned now you are asking about a lot of absolutely clearly defined and decided things. AI agents can play the game with players if they want. otherwise the char is dead if no one plays it"* — decided; this question should not have been asked. *The question as it was asked:* **Are the people in a run told which survivors are models?** *(Split out of the draft Q4,
    2026-09-26.)* How an evening with friends feels, and also a research condition: a person who knows
    a companion is a model may treat it differently, and that difference is itself data (document 20
    Q5). A model playing the bear needs no disclosure; this is about survivors.
@@ -566,6 +566,8 @@ order (document 06).
   consensus), persistence across sittings (→ one sitting), the dying pilot in §3 and §5, the walk-out.
   **Added:** the decisions since the draft (§2), the acting animals and scent as a channel still to
   be designed (§4.4), the new interactions (§5).
+
+- **2026-09-27 (Andrew):** Q1 up to five play; empty seats are empty; an unplayed character is dead and its clothes can be searched; agents may play seats. Q4 already decided — the pace of typing the command. Q5 yes — *"the players can pause the simulation and return later and if they are missing a player their character just goes catatonic, sits down and stares off, the other players can keep them alive though if they want"*. Q6 ghosts hear ghosts, players can't, anyone can use the OOC chat. Q7 already decided (*"I am concerned now you are asking about a lot of absolutely clearly defined and decided things"*).
 
 ## 8. What exists today
 

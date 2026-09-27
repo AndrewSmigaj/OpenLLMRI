@@ -354,7 +354,7 @@ trend line.)*
    / a step budget — because "roughly a week of game time" is not a halting rule for an unattended
    agent.
 
-3. **Which model families play in Whiteout, and for what?** *(Sharpened 2026-09-26 by Claude; the
+~~3. asked:~~ **Answered 2026-09-27 (Andrew):** *"fast one and my own open weight one. we need to time my open weight one. I was thinking haiku or sonnet with low to medium reasoning"* *The question as it was asked:* **Which model families play in Whiteout, and for what?** *(Sharpened 2026-09-26 by Claude; the
    draft is kept below as the record.)* This is what research Andrew wants. The facts that bear on it:
    activations can be captured only from weights run locally (the `TorchBrain`, §4.3); an API model —
    Claude, or another vendor's — can play, but its insides cannot be studied; the phrasing samples
@@ -400,7 +400,7 @@ trend line.)*
    *Recommendation:* (c). One number will be gamed by whoever is trying to make it go down, and the
    four categories have four different owners in the loops.
 
-5. **Are runs with people in them research data?** *(Sharpened 2026-09-26 by Claude; the draft is
+~~5. asked:~~ **Answered 2026-09-27 (Andrew):** *"perhaps, if my open weight model runs fast enough then yeah we can collect activations while playing with humans"* *The question as it was asked:* **Are runs with people in them research data?** *(Sharpened 2026-09-26 by Claude; the draft is
    kept below as the record.)* The engine does not know which mode it is in, and every run is logged
    the same way (document 19 §4.2), so a mixed run's log exists whatever is decided. The question is
    whether it is *used*, and on what terms for the people in it — Andrew's friends. The research value
@@ -485,6 +485,8 @@ both documents (the typing pace, a cap, or nothing).*
   document 19 Q4. **Stale content marked:** the `Exits:`-line look (→ people, animals and exits as
   prose; groups). **Added:** the decisions since the draft (§2); the lightweight-model brain for the
   animals (§4.3).
+
+- **2026-09-27 (Andrew):** Q3 — a fast model (Haiku or Sonnet, low to medium reasoning) and Andrew's own open-weight model, which needs timing; Q5 — perhaps: if the open-weight model is fast enough, activations are collected in runs with humans. Pace: the speed of typing the command.
 
 ## 8. What exists today
 

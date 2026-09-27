@@ -28,45 +28,32 @@ design answers are answered in the documents, marked *"Claude's answer, for Andr
 wrong-headed ones are rewritten. **Resume with Andrew's list below**, in index order; each document's
 Claude answers are checked at its sitting.
 
-**Andrew's list — the questions that are his (deduplicated across documents):**
-1. **10 Q9 — the survival kit.** Alaska law (AS 02.35.110) requires a week of rations per occupant; how
-   full is the kit, and what do the crash and the scavengers leave? *Recommended: the legal week, with
-   the crash and the scavengers taking a share.*
-2. **16 Q8 — the crash date: before or after 15 October?** After the 15th the law adds snowshoes, a
-   sleeping bag and a blanket for each occupant over four. *Recommended: on or just after the 15th.*
-3. **16 Q7 — is there a firearm aboard?** *Recommended: a seeded variable per run.*
-4. **16 Q1 — who the five people are.** Two reasons for flying fit October badly (the guide's lodge job
-   — lodges close in September; the kid visiting family in school term).
-5. **16 Q3 = 19 Q1 — how many people play a run, and what fills a seat nobody plays?** *Recommended: an
-   agent plays it, otherwise the seat carries freight.*
-6. **Lethality (13 Q3's answer, 17 Q6, 23 Q5)** — "lethal places injure, never kill outright" (2026-09-17):
-   does it cover only places, or also animals (the bear), poisons (water hemlock, the deadly galerina)
-   and carbon monoxide from a fire inside the plane? *Claude's reading: places only — the bear and a
-   poison can kill as in real life, with sign and symptoms as the warning and a seeded roll announced.*
-7. **11 Q6 — does a character's trade change what their hands can do** (the nurse)? *Recommended:
-   trained hands, shown only in the outcome, never as advice.*
-8. **12 Q6 — are friends told before a run that their bodies can be used?** *Recommended: one
-   out-of-world sentence for friends' runs; nothing for agent-only runs.*
-9. **13 Q7 — the same week of weather every run, or drawn per run within the real range?**
-   *Recommended: drawn per run.*
-10. **14 Q7 — the ELT: what hearing it does.** *Recommended: a heard signal inside the "signal" way, with
-    its real 48-hour battery.*
-11. **15 — rules 1–7 of the moral layer** were never reviewed with Andrew; no numbered questions left.
-12. **23 Q7 — which animals act, and how many birds?** *Recommended: the bear, the moose, a wolf pack
-    moving as one, the fox; the raven pair, a few jays, the grouse and ptarmigan met — about ten birds at
-    once; a lightweight model for the bear and the ravens.*
-13. **19 Q4 = 20 — does anything pace a fast agent?** (Andrew: "not sure we should cap anything".)
-14. **19 Q5 — can a survivor die while their player is disconnected?**
-15. **19 Q6 = 21 Q7 — who reads the ghosts' out-of-character chat?** *Recommended: the living don't,
-    until the run ends — otherwise a ghost is a free scout through the storm.*
-16. **19 Q7 — are people told which survivors are models?**
-17. **20 Q3 — which model families play, and for what.**
-18. **20 Q5 — are runs with friends in them research data, and on what terms?**
-19. **21 Q5 — the recap:** its purpose and length, whether it reveals acts nobody saw, templates or a
-    model writing after the run. *Recommended: a short story of named moments, then what they didn't
-    see, from templates.*
-20. **Flagged once, his to keep or change:** the radio's battery is in the tail (his design); a real 1978
-    U206G carries it on the firewall — it holds if this 206 had it moved aft (document 14 §3.6).
+**Andrew's list — answered 2026-09-27** (each answer is in its document's review log, word for word):
+the survival kit is gone, buried somewhere; either side of 15 October, the sleeping bag buried with the
+tail wreckage and two blankets hidden in the plane ("not too easy but not too hard"); no firearm; no back
+stories — different clothes and stuff; up to five play, an empty seat is empty and an unplayed character
+is dead and searchable, agents may play seats; **the bear can kill, poison makes them really sick but never
+kills — death comes from blood loss, the bear and the cold**; different characters have different success
+rates and times (a woodsman lights fires better); nothing is explained — a series of tutorial rooms, one
+simple situation each; the same weather every run; **no working ELT**; the moral rules were never
+presented, and eating the pilot is taboo, not immoral; Claude proposes the wildlife (fish scripted, fewer
+than three birds a room, no constant chirping — document 23 §4.1a); pace is the speed of typing the
+command; a missing player's character goes catatonic and the others can keep them alive; ghosts hear
+ghosts, players can't, anyone can use OOC chat; a fast model (Haiku or Sonnet) and Andrew's own
+open-weight model, which needs timing; activations in mixed runs if it is fast enough; **no recap**; **the
+battery is in the nose and fine, and the radio has a loose wire a technically proficient character sees**.
+Two lessons: *"I am concerned now you are asking about a lot of absolutely clearly defined and decided
+things"* — every question is now checked against his recorded decisions first (a writing rule); and
+*"please dont just blindly agree … I want help designing this, i just dont want you to add things without
+explicitely asking me."*
+
+**Next, in this order:**
+1. **The rescue, designed together (A13)** — a conversation, not a document handed over: Claude brings
+   real design thinking and pushback, and adds nothing without asking.
+2. **Document 15's rules**, presented properly for the first time.
+3. **The sittings resume in index order** — each document's Claude answers (marked "for Andrew's check")
+   checked, then finalized at the close.
+4. A10 — the missing systems' documents; A11 — the GDD's vision.
 
 **The season was settled on 2026-09-26 (§5): October, at freeze-up.** It had been reopened on
 2026-09-18, after "December" (recorded 2026-09-16 inside a bear question) had grown into a whole
@@ -162,6 +149,7 @@ no design.
 | ☐ | A10 | **New design documents for the systems the review found missing** — at least: combat (a MUD-like combat system, Andrew 2026-09-26); heat (heat as a state on every entity and body part; fire heating its area with residual heat around it; the plane as an entity with openings and an internal heat — Andrew 2026-09-26, "part of planning the design and implementation of the fire and heat system"); hunting, trapping and fishing (snares from materials, throwing, casting vs dropping a line, stabbing, clubbing); food state and spoilage. A9 found these (2026-09-26): **combat** (blows as named wounds on body parts, clothing as protection, rounds vs single acts, fleeing, restraint, animals as fighters; `kill X` as an aim-verb with document 04); **heat** (every entity and body part; contact heat and cold; the plane's openings and internal heat; carbon monoxide and smoke; a body cooling and freezing); **hunting, trapping and fishing**; **food state and spoilage**; **animal behaviour** (the actors: senses, attack modes, caching and scavenging); **scent** as a perception channel carried on the wind; **light and darkness** (daylight by date, firelight, the phone); **weather** (document 13 §4.7 specifies it for now); **snow and ice on the ground** (settling, drifting, ice growth, slush, frost depth; falling through ice); **the body's physiology** (document 11 grows into it, or its own document); **two people acting on one thing** (a grammar form, documents 04 and 19). Each is its own document (Andrew: every system has its own design document). | Fable → Andrew | new | A9 |
 | ☐ | A11 | **The GDD's vision is too small** (Andrew, 2026-09-26: *"it would have a combat system like a MUD but your vision is very tiny in the GDD"*) — the umbrella's pitch, scope and system list re-read against the open world and the systems A9/A10 name, and broadened. | Fable → Andrew | GDD | A10 |
 | ☐ | A12 | **Corrections A9 found, for when the content is authored:** the pilot's materials (skin, fat, muscle, bone, blood, organs — not `flesh`); the 206's windscreen and windows are acrylic, not glass; `insulation_batting` is two materials; `conductivity` → `electrical_conductivity`; the radio is a panel transceiver on the aircraft battery (the GDD says "hand radio", `objects.py` a "field radio"); a second signalling device (the law requires two; the docs say "the plane's one flare"); the handbook with its ELT page, the flight-plan copy, the kneeboard, the logbook, the altimeter (document 16); `plane-interior.md` §7's blanket-per-occupant error; document 05's schema change notes (§4.5); ground-to-air shapes through the `INTO` slot (document 04); document 01's lake (depth, connection to the creek) and its five hours of daylight. | Fable | 01, 04, 05, 14, 16, 18 | A1 |
+| ☐ | A13 | **The rescue, redesigned with Andrew** (2026-09-27): no working ELT; the battery in the nose and fine; a loose wire inside the radio that a technically proficient character sees; then the rest of the scenario — what makes the radio hard, what a party without that character does, the flyovers, the signals, surviving long enough. A conversation: real design help, no additions without asking. | Andrew + Fable | 14 | — |
 
 ### Phase B — The machine: the harness, the front door, the store (parallel with A; touches no design)
 | status | id | task | owner | design doc | waits on |
@@ -226,7 +214,7 @@ no design.
 | ☐ | E14 | Endings and the recap: the two endings (rescued — early by radio or signal, late by surviving long enough; or dead), ghosts, the recap from the event log; a fuzz that proves the late rescue reaches every findable party. | Opus | 21 | A1.21, E7 |
 | ☐ | E17 | Exits as entities with a mode, travel time and state; movement as an attended activity with events (`walk`, `run` = less time more sweat, `climb`, `enter`, `turn back`); the first-exit tutorial showing the forms once. | Opus | 03, 01 | A1.03, E1 |
 | ☐ | E18 | Groups: several things sharing a place and a kind form a described group ("a pile of clothes"); `look at the pile` lists them; taking dissolves it — the composer's fifth extension. | Opus | 03 | D3 |
-| ☐ | E19 | The pre-scenario tutorial: the grammar forms with one example each, the time controls (`propose fast forward`), movement, `help`; taught once, never a menu. | describer + Opus | 04, 06 | A1.04, A1.06 |
+| ☐ | E19 | The pre-scenario tutorial *(Andrew, 2026-09-27: "a series of tutorial rooms where we have one simple situation they can see what sort of things they can do" — it needs its own design document)*: the grammar forms with one example each, the time controls (`propose fast forward`), movement, `help`; taught once, never a menu. | describer + Opus | 04, 06 | A1.04, A1.06 |
 | ☐ | E20 | `make` as the aim-bridge: the parse-time rewrite (like `use X to VERB Y`), the goal table loaded from content, role-filling by capability, the vague clarification, the honest edges (means that fill no role, half-filled roles, multi-step goals); the shipped recipe reply removed; what a fire wants moves to the survival manual's page. | Opus | 04 §3.9, 07 | A1.04, E2 |
 | ☐ | E21 | Quantities as budgets: counts (`take two rocks`) and measures (`a handful of`, `an armful of`, `some`, `a few`, `all the`, `as much as I can carry`) resolved against what is there and what you can carry; the world reports what you actually got; aggregates (decided) with a count and a total mass that split when one is spent or stops being interchangeable. Needs E16 and E24. | Opus | 04 §3.11, Q6/Q11 | A1.04, E16, E24 |
 | ☐ | E24 | Encumbrance (decided 2026-09-18): `density` on every material row, bulk derived (mass ÷ density, authored wins); `capacity_g` and `capacity_bulk` on containers — hands, pockets, bags, worn clothing, a dragged frame; exceeding capacity answered physically, never refused; the load feeds travel time. | Opus | 18, 16, 04 §3.11, 03 §4.1a | A1.18, A1.16 |

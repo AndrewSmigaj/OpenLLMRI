@@ -410,6 +410,8 @@ None yet — first draft, not yet reviewed with Andrew.
   marked resolved. Nothing left for Andrew but the review of the design itself; the recap's reveal of
   unwitnessed acts is document 21 Q5.
 
+- **2026-09-27 (Andrew):** *"no one presented me 7 rules so I dont know what those are, all we talked about was attacking others and eating the pilot which is actually taboo but not immorral."* Rules 1–7 are Claude's (from `moral-social-layer.md`) and were never presented; they are presented at this document's sitting. Eating the pilot is **taboo, not immoral**.
+
 ## 8. What exists today
 
 **Built:** nothing.

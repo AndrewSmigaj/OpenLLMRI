@@ -111,7 +111,10 @@ then 19–22. Ideas that are not design yet live in [`IDEAS.md`](IDEAS.md).
   reach them. A variant that is ontologically significant — casting a line out versus dropping one
   through a hole — is its own operation, as long as it follows the grammar rules.
 - **Only Andrew's questions go to Andrew**: taste, vision, what the game is for, what his friends'
-  evenings should feel like. What reality or the decided design already answers is answered in the
+  evenings should feel like. **And never one he has already answered** (Andrew, 2026-09-27: *"I am concerned now you
+  are asking about a lot of absolutely clearly defined and decided things"*) — before a question reaches
+  him, check it against the documents' review logs, `PLAN.md` §5 and the decision register; a question an
+  agent writes is checked the same way before it is passed on. What reality or the decided design already answers is answered in the
   document, marked *"Claude's answer (date), for Andrew's check"*, so he can overrule it.
 - **No "locked" or "frozen"** for the design: it is a work in progress. A new idea of Andrew's that a
   document does not allow changes the document; it is not a clash.

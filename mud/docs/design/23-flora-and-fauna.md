@@ -160,6 +160,23 @@ October. Every figure is a real starting point that the probes tune; the storm's
   with honest misses and partial yields, never free.
 - **Food yields are authored per item** (document 10 owns the numbers; document 23 owns what exists).
 
+### 4.1a Which animals act — Claude's proposal (2026-09-27), for Andrew's check
+
+Andrew: *"you decide on wildlife, bear and you had some others, fish are scripted, birds lets keep to less
+than 3 per room at most so we can try to run them with AI though they dont need to constantly be doing
+things like chirping it would add a lot of noise, you propose the wildlife given we want to run some with
+LLMs."* The proposal, by how each animal is driven:
+
+| how it is driven | who | why |
+|---|---|---|
+| **An actor a lightweight model can play** (engine behaviour rules otherwise) | one **grizzly** — a brown bear still out in mid-October (most black bears have denned by then); the **raven pair** | the two whose choices make a story: the bear finds the pilot's body and the food by smell and decides what to do about the people near it; the ravens watch, follow, call and steal. Two on a model at once keeps a run affordable. |
+| **An actor on engine behaviour rules** | a **cow moose with a calf** (she owns the trail and charges if pressed); the **wolf pack** as one actor moving as a group (heard at night, sign on the ice, wary of people); a **red fox** at the camp's edge; **one or two gray jays** at food; the **grouse and ptarmigan** people hunt | simple, readable behaviour; any of them could move to a model later if a run wants it |
+| **A population** | snowshoe hares (the runs a snare is set on), red squirrels (middens), voles, the beavers in their lodge, marten (sign) | many of them, little choice each — counts and rules until one is caught or seen |
+| **Scripted** | the fish: grayling, burbot, whitefish, pike | Andrew: *"fish are scripted"* — met only through fishing |
+
+**Birds:** fewer than three in any room at once. A bird makes a sound when something happens — a flush,
+a raven's call at food, a jay arriving — never a constant chirp.
+
 ### 4.2 Flora — what a survivor can find (proposal)
 
 *(Revised for October — Claude, 2026-09-26, `PLAN.md` A8; for Andrew's check. The third column read
@@ -401,7 +418,7 @@ is — its depth and whether it connects to the creek — before the fish rows c
    aim until practised; making one needs a pouch and two cords. A miss lands somewhere and the rock is
    in the snow. *(original: (a) found rocks, misses with feedback, odds rising with tries and a sling;
    (b) simpler fixed odds. Recommended then: (a).)*
-5. **Water hemlock: does eating the root kill, as it really can?** *(Parked with Andrew; sharpened
+~~5. asked:~~ **Answered 2026-09-27 (Andrew):** *"bear can kill, poison should make them really sick but not kill we dont want to just kill a character off because they ate a mushroom - they can die from blood loss, the bear, the cold, other things make them weak and sick"* *The question as it was asked:* **Water hemlock: does eating the root kill, as it really can?** *(Parked with Andrew; sharpened
    2026-09-26.)* Reality: water hemlock is the most toxic plant in North America. A single bite of the
    root can be fatal; nausea and cramps come within 15–90 minutes, then seizures, and death, when it
    comes, is from unbroken seizures within hours; about 30 % of the poisonings reported between 1900 and
@@ -427,7 +444,7 @@ is — its depth and whether it connects to the creek — before the fish rows c
    line left overnight for burbot, spearing through clear ice, a net, and the kit's line and hooks or
    wire and a bent pin. *(original: (a) the hole is real work, twenty minutes through a foot of ice;
    (b) simpler. Recommended then: (a).)*
-7. **Which animals are actors, and how many birds?** *(New 2026-09-26, from Andrew's decisions that
+~~7. asked:~~ **Answered 2026-09-27 (Andrew):** *"you decide on wildlife, bear and you had some others, fish are scripted, birds lets keep to less than 3 per room at most so we can try to run them with AI though they dont need to constantly be doing things like chirping it would add a lot of noise, you propose the wildlife given we want to run some with LLMs"* — Claude's proposal is §4.1a, for his check. *The question as it was asked:* **Which animals are actors, and how many birds?** *(New 2026-09-26, from Andrew's decisions that
    the bear, some bigger animals and a few birds act.)* An actor is an individual with behaviour — the
    engine's rules, or a lightweight model playing it from outside; everything else is a population that
    yields individuals, plus sign (§4.1). What really lives here in October, and in what numbers (§4.0,
@@ -498,6 +515,8 @@ is — its depth and whether it connects to the creek — before the fish rows c
   eats; Q7 new — which animals are actors and how many birds, with the real October community and a
   recommendation. Systems needed that have no document: animal behaviour, combat, hunting/trapping/
   fishing, heat, food state and spoilage.
+
+- **2026-09-27 (Andrew):** Q5 — poison makes them really sick and never kills (water hemlock, the deadly galerina); the bear can kill. Q7 — *"you propose the wildlife"*: fish scripted, fewer than three birds a room, no constant chirping — Claude's proposal is §4.1a, for his check.
 
 ## 8. What exists today
 Nothing of this is built. `rooms.md` names hare runs, grouse, a fishing pool, chaga, cranberries and

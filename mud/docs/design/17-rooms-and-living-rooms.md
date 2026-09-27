@@ -431,7 +431,7 @@ wording of every question is kept as the record.
    censuses' elusive sections at once, and matches the outdoor rule's preference for systems over
    per-room authoring.
 
-6. **How dangerous is a fire inside the plane allowed to be?** *(New, Claude, 2026-09-26 — raised by
+~~6. asked:~~ **Answered 2026-09-27 (Andrew):** *"bear can kill, poison should make them really sick but not kill we dont want to just kill a character off because they ate a mushroom - they can die from blood loss, the bear, the cold, other things make them weak and sick"* *The question as it was asked:* **How dangerous is a fire inside the plane allowed to be?** *(New, Claude, 2026-09-26 — raised by
    §4.8; the numbers will belong to the heat-system design.)* Reality is plain: a fire in an enclosed
    space makes carbon monoxide, which has no smell and kills sleepers; burning seat foam adds cyanide
    to the smoke; the warnings a real person gets are a headache, dizziness, nausea, confusion, and a
@@ -478,6 +478,8 @@ wording of every question is kept as the record.
   Q6 (how dangerous carbon monoxide from a fire inside may be — recommended: real harm bounded by the
   lethal-places rule). **Needs a design document:** the heat system (room and plane heat, openings,
   heat between spaces, carbon monoxide).
+
+- **2026-09-27 (Andrew):** Q6 — what kills: blood loss, the bear, the cold; *"other things make them weak and sick"* — carbon monoxide from a fire inside the plane is one of the other things.
 
 ## 8. What exists today
 
