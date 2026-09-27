@@ -41,10 +41,11 @@ out the world — every entity, relation and verb — and it has no finish line.
   blockers. Model-deep, requirement-light.
 - **Everything physical is tryable, and every attempt *resolves*.** Never "You can't do
   that." Desperate, silly and wasteful attempts get a real, physical answer.
-- **Runtime is 100% deterministic — there is NO runtime LLM.** The deterministic engine owns
-  state and runs the whole game; the **LLM is a build-time authoring tool only** (GDD §41) — *it
-  helps build the world; it is never in the world.* It never invents state, decides survival math,
-  or grants success at runtime.
+- **The engine is deterministic — no language model runs inside it.** The engine owns state and
+  runs the whole game. Language models help build the world at build time, and they can play
+  characters from outside, as players, through the same grammar a person uses — survivors,
+  non-human characters, an animal such as the bear. A model never invents state, decides survival
+  math, or grants success. *(Reworded 2026-09-26 to match GDD §3 rules 2 and 5.)*
 - **Input is a taught command grammar** (GDD §25a): `VERB X [RELATION Y] [WITH Z]`, at action
   granularity — not free-form NLP, not a canned verb list. Everything sensible that fits it resolves
   via the **generative** operation×material engine.
@@ -57,8 +58,9 @@ out the world — every entity, relation and verb — and it has no finish line.
   DR-15b).
 - **Perception is graded, not binary** (design §10–15): visibility, audibility,
   reachability, direction and detail are separate and distance/weather/occlusion-aware.
-- **No autonomous in-scenario NPCs** (design §3.3). The dying pilot is scripted, not an AI.
-  LLM-controlled *characters* are external bot **players**, not authored NPCs.
+- **Characters are players; the world runs itself** (GDD §3 rule 5). The pilot is authored content
+  (he starts dead); animals act on behaviour rules the engine runs, and a lightweight model may play
+  one; LLM-controlled *characters* are external **players**, not authored NPCs.
 - **Conservation holds** (design §24): material, mass, temperature, wetness, contamination,
   damage, ownership and provenance survive every transformation.
 - **No prose-only state changes.** If the story says it happened, the simulation made it

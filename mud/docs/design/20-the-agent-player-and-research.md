@@ -339,6 +339,10 @@ runs'."* Walls come from the wall-sensor (unknown words included) and feed the w
   thinking time if it is slower than a human would be, lightweight models are relatively quick compared
   to the length it takes to type commands."* Open for the sitting: in a run with humans the clock cannot
   wait out a slow model (DR-14), so the allowance holds only in agent-only runs (`PLAN.md` §5).
+- **2026-09-26 (Andrew, later):** *"not sure we should cap anything, If something is slow they are slow
+  there is nothing we can do about it when humans are playing."* In a run with humans the clock does
+  not wait for a slow model. Whether anything paces a fast agent stays for this sitting, together with
+  document 19 Q4.
 
 ## 8. What exists today
 

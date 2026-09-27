@@ -334,6 +334,10 @@ cooperation"* (roadmap P6) — a real gate, not a checkbox.
 
 - **2026-09-17 (Andrew, block 1, ahead of this document's sitting):** sessions, not persistence; halt/resume
   with the missing-member rule; ghosts; NHCs as agent players; Q3 (reset/persistence) closed.
+- **2026-09-26 (Andrew, ahead of this document's sitting):** *"not sure we should cap anything, If something
+  is slow they are slow there is nothing we can do about it when humans are playing."* Bears on Q4: the
+  clock never waits for a slow model; whether a fast agent is paced or capped stays for the sitting
+  (document 20 holds the typing-speed wish).
 
 ## 8. What exists today
 

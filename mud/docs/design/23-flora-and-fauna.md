@@ -204,6 +204,10 @@ berry, the hemlock, frostbite from digging), document 07 (tinder plants), docume
   animals. not each of the birds that would be ridiculous as I dont have the resources unless it would be
   cheap."* Open for the sitting: rules in the engine, a lightweight model playing the animal, or both;
   and which bigger animals (`PLAN.md` §5).
+- **2026-09-26 (Andrew):** *"go with your recommendations"* — **both**: the bear and some of the bigger
+  animals act on behaviour rules the engine runs, and a lightweight model can play one from outside
+  (a non-human character) when a run wants it. Which bigger animals act stays for this sitting. GDD
+  §3 rule 5 reworded to match.
 
 ## 8. What exists today
 Nothing of this is built. `rooms.md` names hare runs, grouse, a fishing pool, chaga, cranberries and

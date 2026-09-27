@@ -113,9 +113,12 @@ by guessing the author's verb.**
    documented.
 4. **Model-deep, requirement-light (§4).** Model everything plausible; gate only core blockers; reward
    depth with safety/quality/options.
-5. **No scripted-AI NPCs inside the engine (§3.3).** The pilot is authored content (he starts dead).
-   Language-model-driven *characters* — including agents scaffolded as non-human characters (NHCs) —
-   are *players* from the engine's side (ADR-0005), never engine logic. *(Reworded with Andrew, 2026-09-17.)*
+5. **The engine runs the world; language models play characters from outside (§3.3).** The pilot is
+   authored content (he starts dead). Animals are part of the world: the bear and some of the bigger
+   animals act on behaviour rules the engine runs (which animals: document 23). Language-model-driven
+   *characters* — including agents scaffolded as non-human characters (NHCs), and an animal a
+   lightweight model plays when a run wants one — are *players* from the engine's side (ADR-0005),
+   never engine logic. *(Reworded with Andrew, 2026-09-17; animals added 2026-09-26.)*
 
 ## §6/§8. The world  *(unchanged; §6 premise, §8 weather arc)*
 > *Design of record (reviewed per system):* [`01-premise-and-world`](../../design/01-premise-and-world.md) · [`13-events-escalation-and-weather`](../../design/13-events-escalation-and-weather.md)

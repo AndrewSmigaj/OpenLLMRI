@@ -88,9 +88,11 @@ image is pinned by digest (`docker/evennia/Dockerfile`) so local, CI and any clo
 - **`world/sim` imports no Evennia/Django — functional core, imperative shell.** Rules are
   pure Python in `game/world/sim/**`. Never put rules in typeclass methods; never import Evennia
   from `world/sim`. Enforced by `tools/lints/check_pure_core.py`. (ADR-0003, DR-01)
-- **Runtime is 100% deterministic — NO runtime LLM.** The LLM is a **build-time authoring tool
-  only** (GDD §41) — it helps build the world, it is never in the world. It never invents state,
-  decides survival math, or interprets input at runtime. (DR-02)
+- **The engine is deterministic and never calls a language model.** It owns state and runs the whole
+  game. Models help build the world at build time, and they can *play* in it from outside, through the
+  same grammar a person uses — survivors, non-human characters, an animal such as the bear — as
+  players, never engine logic. A model never invents state, decides survival math, or interprets
+  input for the engine. (DR-02; GDD §3 rules 2 and 5, reworded 2026-09-17 and 2026-09-26)
 - **The world clock is a continuously running real-time clock** (GDD §9) — it just runs; nobody can
   stall or yank it. Event-driven/turn-based time and a planning-freeze were rejected. It always runs
   faster than real time (15 game-min per real min); `propose fast forward` raises it to 180× by
