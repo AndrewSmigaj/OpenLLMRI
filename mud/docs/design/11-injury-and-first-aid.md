@@ -55,6 +55,10 @@
   real at the game's 15×: a cut artery leaves seconds of real time.
 - **(2026-09-27)** **Whisky in a wound and over the needle are in** — the film scene — with their
   real result; boiled or iodine-treated water rinses a wound (§4.1 rule 4, §4.8).
+- **(2026-09-27)** **Each real first-aid act is its own act** — press (held, an activity that ties up
+  the hands), pack, a tight bandage, a tourniquet, raising the limb, rinsing, picking out grit,
+  rewarming, splinting, stitching, carrying and dragging — each with its everyday names (§4.1 rule 5,
+  §4.7).
 
 ### Proposals (Claude)
 Everything else here is Claude's, for Andrew's check: which
@@ -110,9 +114,9 @@ start to matter, and first aid stops being a one-off act and becomes a thing you
    Society's guideline is to irrigate with plain drinkable water and add nothing, so a rinse cleans the
    wound a little better. The world tells it by what happens, never by a warning.
 5. **Treatment is an act on a wound, with a tool.** `press`, `bind` / `wrap`, `splint`, `stitch`,
-   `clean`. The wound is the target; what you use is whatever physically serves. *(Proposed by Claude,
-   for Andrew's check:)* the floor grows with the real acts, each its own operation because each does
-   something different to the wound — `pack`, a tourniquet (`tie` a band above the wound, `twist` a rod
+   `clean`. The wound is the target; what you use is whatever physically serves. The floor grows with
+   the real acts, each its own operation because each does something different to the wound
+   (2026-09-27) — `pack`, a tourniquet (`tie` a band above the wound, `twist` a rod
    through it), `rinse` / irrigate, pick out the grit, `elevate`, rewarm a frozen part, `carry` and
    `drag` a person (§4.7–§4.9).
 6. **The injury is in the description.** `examine me` reads your wounds back to you in plain words —
@@ -325,7 +329,7 @@ and the world teaches it by happening in it.
 
 ### 4.7 Stopping the bleeding
 
-*(Proposed by Claude, for Andrew's check.)* Direct pressure is the first thing every bleeding-control
+Direct pressure is the first thing every bleeding-control
 course teaches (Stop the Bleed, the Red Cross), and it needs nothing but a hand. **`press`** is an
 **attended activity** (document 06): while it is held the wound's bleeding rate falls; lifting early
 lets the bleed restart; held long enough — minutes, ten or more for a heavy bleed — a clot holds and the
@@ -487,7 +491,8 @@ None open.
   respond — wounds and infection can kill, poison never does, a fall never kills outright; a torn-up
   shirt makes a dressing; a few iodine tablets in one of the packs and a sewing needle and thread
   aboard. Item 4 — whisky in a wound and over the needle are in, the film scene, with their real
-  result; boiled or iodine-treated water rinses a wound.
+  result; boiled or iodine-treated water rinses a wound. Item 5 — each real first-aid act its own act,
+  pressing held.
 
 ## 8. What exists today
 
