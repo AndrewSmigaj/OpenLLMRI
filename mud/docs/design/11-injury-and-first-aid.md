@@ -38,8 +38,8 @@
   bleeding or not, bound or not, and later infection — and each part has its own heat, wetness, pain
   and covering (§4.1, §4.6).
 - **(2026-09-27)** **Players see meters** for what a person can sense about their own body: people are
-  not cut off from their own senses. Six bars with no numbers — hunger, thirst, warmth, rest, pain and
-  stamina (document 08 §4.9); a wound is never a meter.
+  not cut off from their own senses. Seven bars with no numbers — hunger, thirst, warmth, rest, pain,
+  stamina and blood (document 08 §4.9); a wound is never a meter.
 - **(2026-09-27)** **A blow wounds only when it would really hurt.** Common sense and real physics
   decide: a feather does nothing; a spear thrust punctures.
 - **(2026-09-27)** **Combat is roughly a MUD's, changed to suit this game.** Nothing in it is
@@ -50,8 +50,8 @@
   is over. The rest is `PLAN.md` §5 until the combat document is written.
 - **(2026-09-27)** **Bleeding spends a real blood volume** — about 70 mL per kilogram, some 5 L in an
   adult — on the real clocks: a cut vein over hours, a cut artery in minutes, a broken thigh bone
-  inside the leg. Losing it shows in the real order and is felt in words, not on a meter; a body short
-  of blood makes less heat. What stops a bleed has to match it (§4.1 rule 2, §4.6). The clocks stay
+  inside the leg. Losing it drains the blood meter, and the world says so too, in the real order —
+  feeling faint, light-headed, confused; a body short of blood makes less heat. What stops a bleed has to match it (§4.1 rule 2, §4.6). The clocks stay
   real at the game's 15×: a cut artery leaves seconds of real time.
 
 ### Proposals (Claude)
@@ -476,8 +476,9 @@ None open.
   each part with its own states; meters for what the body feels (document 08 §4.9); a blow wounds only
   when it would really hurt; combat is roughly a MUD's, with every attack typed and landing by stats
   and chance, as in D&D, read as what happened; a recovery after each attack; stepping in for a
-  friend; the bear's warnings, and running as the wrong answer to a bear. The six meters. Item 2 —
-  bleeding as a real blood volume on the real clocks, kept real at 15×. Item 3 — infection and
+  friend; the bear's warnings, and running as the wrong answer to a bear. The meters. Item 2 —
+  bleeding as a real blood volume on the real clocks, kept real at 15×, with a blood meter and the
+  world's own messages, such as feeling faint. Item 3 — infection and
   cleaning; nothing kills instantly, and death is realistic, by the body running down with time to
   respond — wounds and infection can kill, poison never does, a fall never kills outright; a torn-up
   shirt makes a dressing; a few iodine tablets in one of the packs and a sewing needle and thread

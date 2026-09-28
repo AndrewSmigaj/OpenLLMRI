@@ -166,7 +166,7 @@ no design.
 | ☐ | E26 | The three streams: activity emotes (start/tick/interrupt/complete), ambience from the things present (each thing's `sensed` cadence, varying with state; the sum is the room), and other people through the propagator. Under a fast forward the world runs fast for the awake watcher, rate-limited in real time to stay readable; interrupting events drop the clock to base pace. | Opus | 06, 05 | A1.06, E1 |
 | ☐ | E1 | Time: the clock at 15 game-min per real min with a 4-second heartbeat; fast forward at about 150× by the players' agreement, a command to slow it, a player waking or any non-ambient event dropping it back to 15×; the activity scheduler (attended actions with start/tick/interrupt/complete; unattended processes; `responses/activities.py`); sleep and wait; halt and resume with the missing-member rule; travel durations actually spent per exit. | Opus | 06, 01, 19 | A1.06 |
 | ☐ | E27 | Reconcile the forms list: the code's 26 words are canonical; correct `ontology-closure.md` §2's table and drop its "extend by evidence, never speculatively" comment (ceiling framing). Reconcile `systems/fire.py`'s older stage ladder to the design's. | Opus | 07, 18, 05 | A1.07 |
-| ☐ | E30 | The meters: a prompt line of bars for what the body feels, read from the same body numbers as the band words, drawn by Mudlet as gauges (document 08 §4.9: hunger, thirst, warmth, rest, pain, stamina). | Opus | 08, 03, 20 | A1.08 |
+| ☐ | E30 | The meters: a prompt line of bars for what the body feels, read from the same body numbers as the band words, drawn by Mudlet as gauges (document 08 §4.9: hunger, thirst, warmth, rest, pain, stamina, blood). | Opus | 08, 03, 20 | A1.08 |
 | ☐ | E29 | A latent `break` id collision: `_shatter` ids are `derived_id(parent, f"{piece_word}{i}")`, so breaking two parts of one entity would collide — give `break` the part-scoped id shape when it is next touched. | Opus | 18 | — |
 | ☐ | E2 | Fire: the ignition model (source × receptivity × form thinness; a branch does not take from a lighter), fire as a process (the stage ladder; the stub's old ladder reconciled), the shaping family (`carve/split/shave/whittle/notch/string/bundle`), the seven methods as probe chains. | Opus | 07 | A1.07, E1 |
 | ☐ | E3 | Warmth, clothing, shelter: the night-one rule as a property test (inside the wreck, starting clothes, no fire, no huddle → survives; nothing done by night two → in trouble); the cold clock (regions, wet fraction, wind), huddle, shelter as zone properties (per-zone exposure bands in `zones.py`; wind and roof numbers written by built things: `cover/block` an opening, snow walls, boughs), drying and wetting as grams, sweat and dexterity, heated stones, the warmth floor if kept. | Opus | 08, 01 | A1.08, E1 |
@@ -333,12 +333,14 @@ it says so. When a decision changes, this list and every document it touches cha
   common sense and real physics. There are no hit points: wounds are named things on body parts.
   (2026-09-16, 2026-09-26, 2026-09-27)
 - Bleeding spends a real blood volume (about 5 L in an adult) on the real clocks — a cut vein over
-  hours, a cut artery in minutes — kept real at the game's 15×; losing it is felt in words, and a body
+  hours, a cut artery in minutes — kept real at the game's 15×; losing it drains the blood meter and the world says so (feeling faint), and a body
   short of blood makes less heat; what stops a bleed has to match it (document 11). (2026-09-27)
 - Hunger works as it does in real life. (2026-09-26)
 - Water: liquids are measured in millilitres; eating snow costs body heat; there is no boiling gate;
-  contamination means fuel and oil, carried as provenance; steam is an entity; `fill` moves as much as
-  fits. (2026-09-18)
+  contamination is carried as provenance — fuel and oil, and germs depending on the source,
+  realistically: melted clean snow is safe, lake water likelier to carry them (the specifics left to
+  Claude, document 09 §4.6); steam is an entity; `fill` moves as much as fits. (2026-09-18,
+  2026-09-27)
 - Warmth: no guaranteed floor — night one is survivable inside the wreck in the clothes they crashed in;
   from night two they need a heat source, better gear, conserving or huddling. A `status` screen reports
   the body in words. The wreck's openings are heard (the wind through the tear). Layering, huddling, the
@@ -369,8 +371,8 @@ it says so. When a decision changes, this list and every document it touches cha
   prose; no item list; groups; a blank line before events; colour for human players only. An agent sees
   exactly what a human sees. (2026-09-16, 2026-09-17)
 - Players see meters for what a person can sense about their own body — people are not cut off from
-  their own senses: six bars with no numbers in the prompt line — hunger, thirst, warmth, rest, pain and
-  stamina. A wound is never a meter; it is named. The `status` screen still reports the body in words
+  their own senses: seven bars with no numbers in the prompt line — hunger, thirst, warmth, rest, pain,
+  stamina and blood. A wound is never a meter; it is named. The `status` screen still reports the body in words
   (document 08 §4.9). (2026-09-18, 2026-09-27)
 - `make` is the one aim-verb; `use X on Y` is silent; the forms are finalized before the loops run;
   vocabulary is written word-first with its synonyms; every line is in the world's voice; quantities are

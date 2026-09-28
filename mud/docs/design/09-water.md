@@ -21,7 +21,9 @@
   (document 16).
 - **(2026-09-18)** Eating snow is allowed and costs body heat.
 - **(2026-09-18)** There is no boiling gate — just melting.
-- **(2026-09-18)** Contamination means fuel and oil, carried as provenance.
+- **(2026-09-18, 2026-09-27)** Contamination is carried as provenance: fuel and oil, and germs
+  depending on the source, realistically — not every water has them; melted clean snow is safe to
+  drink, and lake water is likelier to carry them. The specifics are Claude's, left to Claude (§4.6).
 - **(2026-09-18)** Steam is an entity. Players are not expected to build things to condense it, but if
   someone — a model included — thinks to, the steam is there.
 - **(2026-09-18)** `fill` moves as much as fits. Much of the rest will be learned from how players and
@@ -36,6 +38,7 @@
 - Hydration as an integer in millilitres spent per tick and per activity.
 - The ways to water and their key resources (§4.3).
 - The real figures: daily need, the heat cost of eating snow, the melt ratios (§4.6).
+- What each source carries, and the numbers for it (§4.6) — Claude's call, as Andrew left it.
 - Every number on this page.
 
 ---
@@ -105,8 +108,8 @@ because of what a helmet *is*, and the same must be true of anything else a play
 - **The lake** — open at the start, with skim ice at its margins and on the ponds after a clear night;
   skim ice holds nothing. The inlet mouth is the north's liquid water, a walk west across the muskeg;
   at the shore a stick or a stone breaks the skim and a vessel dips, and a careless step soaks a boot.
-- **Ice** — the skim ice from still water and the shelf ice on the creek are clean melt stock, and ice
-  gives far more water for its volume than snow does (§4.6).
+- **Ice** — the skim ice from still water and the shelf ice on the creek are cleaner than the water
+  they froze on, and ice gives far more water for its volume than snow does (§4.6).
 - **Holt's water** — the homestead's own path down to the creek: bucket-water without the riffle's
   risks, the reward for the walk there.
 - **The manual's WATER page** is the in-world teacher for all of it: boil everything, ice before snow,
@@ -166,14 +169,33 @@ So eating snow is always allowed, always costs warmth you can feel, and the wind
 leaves by the tail is worth three times the fresh powder — a real thing to learn. Melting it over a
 fire costs fuel instead of body heat, which is the whole point of having one.
 
-**No boiling gate.** The valley's snow, ice and running water are clean enough to drink, and the one
-real waterborne illness of this country takes one to three weeks to show — longer than the run.
-Boiling is a heat state of the water, not a purification stat. It is still worth doing (it is warm, it
-makes tea, it thaws), and the manual says to boil wild water, as manuals do — it is simply not a wall
-between the party and a drink.
+**No boiling gate.** Most of the valley's water is safe enough to drink, so boiling is never a wall
+between the party and a drink. It is still worth doing — it is warm, it makes tea, it thaws — and a
+rolling boil for about a minute kills every germ the water carries (CDC); the manual says to boil wild
+water, as manuals do.
 
-**Contamination is fuel, not germs.** The hazard that is real here is the aircraft's own: avgas and
-oil. Snow scooped from under the wing where fuel pooled, water melted in the jerry can, a vessel that
+**What the water carries depends on where it came from** (2026-09-27; the specifics are Claude's, as
+Andrew left them). Not every water has germs:
+
+| source | what it can carry |
+|---|---|
+| fresh snow, away from the camp and from animals | nothing worth fearing — people melt it and eat it safely |
+| trampled or yellow snow; snow by the camp, the latrine, a carcass or animal sign | germs from people and animals — the camp makes its own dirty snow |
+| snow under the wing where fuel pooled; anything melted in the jerry can | fuel |
+| skim ice and the creek's shelf ice | less than the water it froze on — freezing kills some germs, not all |
+| the creek, running | some risk: beaver fever from beavers upstream — higher below the lodge, lower in fast water |
+| the lake, still | the likeliest: beaver fever, and bacteria from birds and animals — worst near the beaver lodge and the marsh edge |
+| the canteen, the thermos, bottled drinks | whatever they were filled with |
+
+The germs are real and so is their timing. Bacteria such as *Campylobacter* show in two to five days —
+inside the run — as cramps, diarrhoea and fever, which spend water on thirst's clock; beaver fever
+(*Giardia*) takes one to three weeks, so a party drinking lake water on day one may feel it at the very
+end or not within the run (CDC). Whether a given drink sickens is seeded chance by its dose (DR-12).
+What kills them: boiling, always; **iodine tablets**, given time — about half an hour, longer in water
+near freezing — for most of them; a cloth filter takes out silt, not germs. The one pack's few tablets
+(document 16) make a couple of days of safe water, which is why the lake is worth boiling for.
+
+**Fuel and oil** are the aircraft's own hazard. Snow scooped from under the wing where fuel pooled, water melted in the jerry can, a vessel that
 held oil — the water carries it, it smells and tastes of it, and drinking it makes you sick (sick, not
 dead: poison never kills, 2026-09-27). Contamination is **provenance**, carried from the source or the
 vessel exactly as the conservation rules already carry it: a vessel carries what it has held and what
@@ -217,9 +239,7 @@ over any vessel and any source — water, fuel or snow.
 
 ## 6. Open questions
 
-1. **Does the water carry germs?** Iodine tablets only do something if it can. Today contamination is
-   fuel and oil only (Andrew, 2026-09-18). Real life: creek and lake water here can carry beaver fever
-   (giardia), which takes one to three weeks to show, and other bugs that take two to five days.
+None open.
 
 ---
 
@@ -233,7 +253,9 @@ over any vessel and any source — water, fuel or snow.
 - **2026-09-27** — the first week of October carried in: the creek runs, the lake is open and still
   water has skim ice, so the midwinter features (a chopped water hole, overflow, the lake's blue ice)
   are gone; thirst's clock set beside the rule on what kills (§6).
-- **2026-09-27 (Andrew)** — thirst kills, on its real clock; a few iodine tablets in one of the packs.
+- **2026-09-27 (Andrew)** — thirst kills, on its real clock; a few iodine tablets in one of the packs;
+  whether water carries germs depends on its source, realistically, with the specifics left to Claude
+  (§4.6).
 
 ## 8. What exists today
 

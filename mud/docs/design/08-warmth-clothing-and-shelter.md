@@ -60,8 +60,8 @@
 - **(2026-09-27)** Nothing kills instantly: death comes by the body running down — blood loss, the
   cold, thirst and the rest — on real clocks, with time to respond.
 - **(2026-09-27)** Players see **meters** for what a person can sense about their own body — people
-  are not cut off from their own senses: six bars with no numbers in the prompt line — hunger,
-  thirst, warmth, rest, pain and stamina. The `status` screen stays (§4.9).
+  are not cut off from their own senses: seven bars with no numbers in the prompt line — hunger,
+  thirst, warmth, rest, pain, stamina and blood. The `status` screen stays (§4.9).
 
 ### Proposals (Claude)
 
@@ -349,14 +349,16 @@ about the world, `status` tells you about you.
 
 **The meters** (Andrew, 2026-09-27). People are not cut off from their own senses — you know you are
 hungry without stopping to ask yourself — so players see meters for what a person can sense about their
-own body, all the time, without typing anything. There are six — **hunger, thirst, warmth, rest,
-pain** and **stamina** (how out of breath you are: running, fighting and hauling spend it, and a
-breather gives it back) — each a short bar with no digits, because that is how a person feels it: very hungry, not 38 %. Each bar is full when all is well
-and empties as the body runs down; pain fills as it hurts more. They sit in the prompt line under each
+own body, all the time, without typing anything. There are seven — **hunger, thirst, warmth, rest,
+pain, stamina** (how out of breath you are: running, fighting and hauling spend it, and a breather
+gives it back) and **blood** (it drains as you bleed, and the world says so too — you feel faint,
+light-headed, cold) — each a short bar with no digits, because that is how a person feels it: very
+hungry, not 38 %. Each bar is full when all is well and empties as the body runs down; pain fills as
+it hurts more. They sit in the prompt line under each
 response, the way a MUD shows its bars:
 
 ```
-Hunger [###--]  Thirst [####-]  Warmth [##---]  Rest [####-]  Pain [##---]  Stamina [#####]
+Hunger [###--]  Thirst [####-]  Warmth [##---]  Rest [####-]  Pain [##---]  Stamina [#####]  Blood [####-]
 ```
 
 A client such as Mudlet can draw the same line as gauges, and an agent sees the line a human sees. The
@@ -415,7 +417,7 @@ None open.
   openings and an internal heat, which is how shelter works inside it. Claude proposed hypothermia
   bands that follow the clinical staging, for Andrew's check.
 - **2026-09-27 (Andrew, at document 11's sitting)** — meters for what the body feels, beside the
-  `status` screen: six bars with no numbers, in the prompt line (§4.9).
+  `status` screen: seven bars with no numbers, in the prompt line, blood among them (§4.9).
 - **2026-09-27** — the first week of October carried in (the cold, day by day, is document 13 §4.2);
   what is aboard (the two hidden blankets, the sleeping bag with the tail wreckage); the unplayed seat;
   what kills.

@@ -206,8 +206,8 @@ weather/occlusion-aware (§14 bands). `look` renders perception; activity/speech
 Speech ranges whisper/say/call/shout, weather-modified (§15). The look is a title line, prose composed
 from state, people and animals as prose and exits as entities in prose — no item list; an agent sees
 exactly what a human sees (2026-09-16, 2026-09-17; document 03). Players see meters for what a person
-can sense about their own body: six bars in the prompt line — hunger, thirst, warmth, rest, pain and
-stamina (2026-09-27; document 08 §4.9). Zones and perception bands are built
+can sense about their own body: seven bars in the prompt line — hunger, thirst, warmth, rest, pain,
+stamina and blood (2026-09-27; document 08 §4.9). Zones and perception bands are built
 in a first version (DR-13a).
 
 ## §9/§16. Time, multiplayer, cooperation
@@ -264,7 +264,8 @@ One chapter per system; each is its own document, reviewed separately.
   is survivable inside the wreck in the clothes they crashed in; from night two they need a heat source,
   better gear, conserving or huddling (2026-09-18). Document 08.
 - **Water** — liquids in millilitres; vessels, melting; eating snow costs body heat; no boiling gate;
-  contamination is fuel and oil, carried as provenance (2026-09-18). Document 09.
+  contamination is carried as provenance — fuel and oil, and germs depending on the source,
+  realistically (2026-09-18, 2026-09-27). Document 09.
 - **Food and hunger** — hunger works as it does in real life; food changes with heat — raw, cooked,
   spoiled — and there are poisonous mushrooms. The freight, people's bags, the
   country (berries, snares, birds brought down by anything thrown, fish, roots), the body; hunting, trapping, fishing
