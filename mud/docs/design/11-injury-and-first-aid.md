@@ -68,6 +68,8 @@
 - **(2026-09-28)** **Painkillers mask pain honestly** — the pain meter falls while the wound is
   unchanged — and a side effect too small to matter in a week is not modelled: ibuprofen's cost is the
   tablets and who gets them (§4.10).
+- **(2026-09-28)** **The body can fail at an act, but the engine never performs an act the player did
+  not type** — a concussion or hypothermia reads as what the body really does (§4.11).
 - **(2026-09-27)** **Each real first-aid act is its own act** — press (held, an activity that ties up
   the hands), pack, a tight bandage, a tourniquet, raising the limb, rinsing, picking out grit,
   rewarming, splinting, stitching, carrying and dragging — each with its everyday names (§4.1 rule 5,
@@ -403,8 +405,7 @@ Willow grows in the valley, so willow-bark tea (document 23) is a weak real pain
 
 ### 4.11 How impairment reads
 
-*(Proposed by Claude, for Andrew's check.)* By what the body really does, and never by doing something
-the player did not type. A concussion is headache, nausea, dizziness, light sensitivity, fatigue and
+By what the body really does, and never by doing something the player did not type (2026-09-28). A concussion is headache, nausea, dizziness, light sensitivity, fatigue and
 slowness — not a world that looks wrong — so the salesman's first day is slower acts (activities take
 longer, document 06), more fine-work failures, lines of headache and nausea, and a pull toward sleep;
 the room reads true. Hypothermia's confusion (document 08's `impaired` band) is clumsiness and poor
@@ -508,7 +509,8 @@ None open.
   hurts above all through getting wet, the whole body — the ice, the flurries, sweat once the work
   stops. Item 8 — carrying a person in every real way; the mechanics of helping someone drag or carry
   are still to be worked out. Item 9 — painkillers as proposed, without side effects too small to
-  matter in a week; willow-bark tea, since willow grows here.
+  matter in a week; willow-bark tea, since willow grows here. Item 10 — how impairment reads: the body
+  can fail at an act, and the engine never performs one the player did not type.
 - **2026-09-27** — the no-storm week carried in (document 13 §4.2).
 
 ## 8. What exists today
