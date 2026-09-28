@@ -190,7 +190,7 @@ state of every living thing is document 23 §4.2–§4.3.)*
 birch; inner bark is food *and* snare bait, which is two facts rather than a choice between them.
 
 **Food events** (document 13's event deck): ravens scout the wreck and find the food cache before you
-do; ptarmigan flush (food if you're quick); a hare in the snare; and the scavengers come again wherever
+do; ptarmigan flush (food if you're quick); and the scavengers come again wherever
 food is mishandled — the world's first scavenger pressure. Storing food badly is a mechanic, not a
 flavour note.
 
@@ -405,7 +405,7 @@ their marrow, blood.
 - **09 Water** — the vessel and the fire are shared; dehydration and hunger compound.
 - **06 Time, sleep and the clock** — hunger is spent on the heartbeat; snares pay on *return visits,
   hours later*, which is the clock doing design work.
-- **13 Events, escalation and weather** — the food row of the ladder; ravens, the hare in the snare,
+- **13 Events, escalation and weather** — the food row of the ladder; ravens,
   daylight for foraging; the flurries that cover the low berries a little at a time.
 - **18 Materials and forms** — edibility is a material property; wire and cordage make snares; the
   forms `noose`, `hook` and `net`/`mesh` are candidates (§4.8).

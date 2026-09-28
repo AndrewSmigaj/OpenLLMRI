@@ -300,6 +300,9 @@ it says so. When a decision changes, this list and every document it touches cha
   holds a few very basic supplies — iodine tablets, only a couple of days' worth — for whoever takes
   the time to rummage through the plane and the wreckage; a sewing needle and thread are aboard; a tarp is aboard to help seal the openings the crash tore in the plane — branches and
   anything else that covers serve too, and a lean-to is in. Not too easy, not too hard. (2026-09-27)
+- **The bear's sign** lies in its own area, not spread everywhere, and is plain on entering it; no claw
+  marks on the wreck; no chainsaw or anything else that promises people within walking distance
+  (documents 13, 23). (2026-09-28)
 - **Holt's cabin** is supplies: some trapline gear and modest stores, not piles of food. Holt does not
   come back during the week. Walking out is
   not an ending. (2026-09-17, 2026-09-27)
@@ -399,6 +402,9 @@ it says so. When a decision changes, this list and every document it touches cha
 - The look: a title line, prose composed from state, people and animals as prose, exits as entities in
   prose; no item list; groups; a blank line before events; colour for human players only. An agent sees
   exactly what a human sees. (2026-09-16, 2026-09-17)
+- **Open-ended activities**: `tend the fire` keeps a fire fed from the wood at hand until stopped, runs on
+  through fast forward, and when the wood runs out stops and drops the clock back to 15×; keeping watch
+  and fishing a line are the same kind (documents 06, 07). (2026-09-28)
 - **Searching is an activity**: a body, the wreckage, any pile or container is gone through a pocket, a
   compartment or a layer at a time, a line for each find, and it can be stopped; a search aimed at one
   place goes straight there; rummaging through the wreckage can cut you on something sharp. Taking a

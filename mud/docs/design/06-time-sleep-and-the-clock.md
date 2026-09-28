@@ -114,7 +114,11 @@ Two kinds of time ride the same heartbeat. **Attended activities** are what this
 sawing a branch, drilling for an ember, digging, dressing a wound, taking a body's clothes off,
 searching a body, the wreckage, a pile or a container a pocket, a compartment or a layer at a time
 (2026-09-28) — a start line, a few varied tick
-lines driven by state, an interruption that keeps partial progress, a completion line. Fighting is not
+lines driven by state, an interruption that keeps partial progress, a completion line. **Some
+activities are open-ended** (2026-09-28): `tend the fire` keeps a fire fed from the wood at hand until
+the player stops it, and runs on through fast forward, so nobody has to keep slowing the clock to add a
+stick; when it cannot go on — the wood runs out — it stops, says so, and drops the clock back to 15×.
+Keeping watch and fishing a line are the same kind. Fighting is not
 one of them: nothing in a fight is automatic, and each attack is its own typed act (2026-09-27).
 **Unattended processes** are the world's own work; this document names them once, in §5, and their
 design lives in other documents.
@@ -203,7 +207,8 @@ are awake while the others sleep, you are the one who is there. What that buys i
 receive the events the sleepers do not**: the fire dropping to embers, tracks circling, a plane
 somewhere south. You can wake them. A sleeper gets only what is loud enough to wake them, which is
 the perception system's own answer (document 19), not a special rule. The watch is a real co-op role:
-one tends the fire while the others sleep, and the fire can be banked to last the night.
+one tends the fire while the others sleep — `tend the fire`, an open-ended activity that runs through
+fast forward (§4.3) — and the fire can be banked to last the night.
 
 ### 4.7 Status: numbers as words
 

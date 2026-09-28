@@ -34,6 +34,10 @@
   forage covered a little at a time, the near wood used up, the body's own clocks, the bear growing
   bolder — and **the day-6 flurry is the finale**, telegraphed on day 5, clearing into the coldest
   night of the run before the day-7 plane (§4.2).
+- **(2026-09-28)** **The event deck** is §4.3's, as proposed, with these: the bear's sign lies in its
+  own area, not spread everywhere, and is plain on entering it — nobody has to examine the ground in
+  every room; no claw marks on the wreck (the party would see and hear the bear); no snared hare found
+  waiting; no chainsaw — nothing promises people within walking distance.
 - **(2026-09-28)** **The week's day-by-day numbers** are §4.2's table, as proposed: the cold rising
   steadily with one sharp drop after the day-6 flurry, and the search closing in day by day.
 - **(2026-09-27)** **The default rescue is day 7**, and the flyovers are the same every run; the rest
@@ -171,7 +175,7 @@ them until the acceptance test holds.
 
 ### 4.3 The event deck (each fires when its preconditions hold and its day and hour arrive)
 
-*(Proposed by Claude, for Andrew's check.)* Every card is a floor; the loops grow the deck. Two
+Every card is a floor; the loops grow the deck (2026-09-28). Two
 things differ in kind from a list of beats. **Weather cards are the moments the weather state (§4.7)
 crosses a threshold** — the first flake, the wind swinging, the clearing — not beats laid on top of
 it, and like the weather they are the same in every run. **Acting animals are not cards**: the deck
@@ -190,21 +194,22 @@ and the combat system answer (§4.4).
   run, the lake shore and the muskeg coldest · steam fog over the open riffle in the cold · sun on the
   fresh snow (day 7: the mirror window) · a flurry now and then (days 8–10).
 - **The animals** (actors — document 23 owns which): **the bear**, feeding hard before its den — its
-  sign before it (tracks in the new snow, a torn-apart log, scat full of berries, claw marks on the
-  fuselage, ravens and jays gathered over something); drawn by the pilot's body, the freight's food,
+  sign before it, in its own area, not spread everywhere, and plain on entering that area without
+  examining the ground (tracks in the new snow, a torn-apart log, scat full of berries, ravens and jays
+  gathered over something) (2026-09-28); never a mark on the wreck the party would not have seen and
+  heard being made; drawn by the pilot's body, the freight's food,
   the fuel and the oil; it may claim the body and defend it as a cache, and it may be driven off ·
   **wolves**: howls at night; tracks circling the wreck in the fresh snow; they come to any carcass; testing a lone traveller is rare in real Alaska and rare here ·
   **a few birds** — fewer than three in a room, and not constantly calling: a pair of ravens that find
   the food before you do; Canada jays that will take it from a hand; a spruce grouse that sits and
   stares; a great horned owl calling at night · a fox trots the tussocks and the camp · a lynx print,
-  never the lynx · a hare in the snare, half-white in its change of coat · a dead branch comes down in the
+  never the lynx · a hare, half-white in its change of coat · a dead branch comes down in the
   wind. **No
   wolverine.**
 - **Search & rescue** (document 14's flyover schedule): the early pass at dusk on day 1 (high over the
   filed route — heard, not seen) · the route search on day 2 · the search widening, then narrowing
   toward this valley on days 3–5 (the real chances) · the silence of the flurry day · airliners high
-  above the weather, heard and never seen; a plane that rocks its wings has seen you · the day-7 rescue · a distant chainsaw
-  (the upriver village exists) · a light plane that is not searching — someone flying supplies out to
+  above the weather, heard and never seen; a plane that rocks its wings has seen you · the day-7 rescue · a light plane that is not searching — someone flying supplies out to
   a trapline cabin before the season — a chance to be seen, and a story.
 - **The wreck**: fuel drips and pools under the wing (a fire hazard and a fuel source) · the fuselage
   shifts on the slope with a groan (things slide; the door jams) · a window pane falls in · the tail
@@ -255,7 +260,7 @@ Three kinds of thing ride this one mechanism, and they differ in what the event 
   never through the card. *(The behaviour system and the combat system have no design document yet —
   `PLAN.md` A10.)*
 - **A scheduled happening** with its own preconditions — the flyovers (document 14), the wreck
-  settling, the chainsaw upriver.
+  settling.
 
 **Danger is telegraphed the way it is in real country, and resolved by physics, never by a card.**
 **The sign** is in each animal's ontology row — `sensed` carries its tracks, scat, calls and smell,

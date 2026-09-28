@@ -136,7 +136,9 @@ leaves residual heat around it — outdoors the warmed ground and hearth stones,
 cabin's one internal heat (document 17 §4.8). Smoke reads from material toxicity (the foam warning) and
 has a colour a search crew can see: rubber and oil burn dark against snow, green boughs white against
 dark spruce (document 14 §3.4). Tending verbs: `blow on` / `fan` (stage push, +air), `feed` (= put
-fuel), `bank` (slow burn overnight), `smother` / `douse` (out). Wind and wet degrade the fire; the
+fuel), `bank` (slow burn overnight), `smother` / `douse` (out), and `tend the fire` (2026-09-28) — an
+open-ended activity that keeps feeding it from the wood at hand, runs on through fast forward, and when
+the wood runs out stops and drops the clock back to 15× (document 06 §4.3). Wind and wet degrade the fire; the
 windbreak is a real object property ([`08-warmth-clothing-and-shelter.md`](08-warmth-clothing-and-shelter.md)
 §4.4). **Where a fire lives:** the first burning thing on the ground with a lay becomes the fire entity
 at that space; a burning thing in the hand is a torch, not a fire.

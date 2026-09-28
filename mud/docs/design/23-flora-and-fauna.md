@@ -116,8 +116,10 @@ Every figure is a real starting point that the probes tune.
   they are doing (document 03 §4.1), driven by behaviour rules the engine runs, or played from outside
   by a lightweight model (GDD §3 rule 5; the engine never calls a model). Which animals act is §4.1a.
   Everything else lives as a **population** — a density per zone that yields an individual when met or
-  caught (a hare in the snare, a squirrel at its midden) — and as **sign**, which is everywhere:
-  tracks, scat, calls, a cone-scale midden, browse, a kill. *The actors' rules are owned by an
+  caught (a hare in the party's snare, a squirrel at its midden) — and as **sign**: tracks, scat,
+  calls, a cone-scale midden, browse, a kill, where each animal lives. **The bear's sign lies in its own
+  area** (2026-09-28), not spread everywhere, and is plain on entering that area — nobody has to
+  examine the ground in every room to find it. *The actors' rules are owned by an
   **animal behaviour** design document, to be written (`PLAN.md` A10).*
 - **Foraging is work with feedback**: picking, digging, throwing, setting, checking — attended activities
   with honest misses and partial yields, never free.
