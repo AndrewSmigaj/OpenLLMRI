@@ -41,7 +41,7 @@ always at least partly cloudy. The same weather every run (document 13 §4.2).
 | 10 | [`10-food-and-hunger.md`](10-food-and-hunger.md) | what is aboard, the country, the body; hunger; cooking | reviewed with Andrew 2026-09-27 | — |
 | 11 | [`11-injury-and-first-aid.md`](11-injury-and-first-aid.md) | wounds, bleeding, infection, frostbite, splints, the med pouch | reviewed with Andrew 2026-09-28 | — |
 | 12 | [`12-the-pilot-and-bodies.md`](12-the-pilot-and-bodies.md) | the pilot (starts the run dead); bodies persist; the moral question | reviewed with Andrew 2026-09-28 | — |
-| 13 | [`13-events-escalation-and-weather.md`](13-events-escalation-and-weather.md) | the ladder; the event deck; weather; endings | draft for review | — |
+| 13 | [`13-events-escalation-and-weather.md`](13-events-escalation-and-weather.md) | the ladder; the event deck; weather; endings | reviewed with Andrew 2026-09-28 | — |
 | 14 | [`14-rescue-paths.md`](14-rescue-paths.md) | rescue: the radio, the voice on the other end, signals a plane can see, surviving long enough and the flyovers | draft for review | [`implementation-architecture.md`](../architecture/implementation-architecture.md) §8 |
 | 15 | [`15-moral-and-social-layer.md`](15-moral-and-social-layer.md) | possible, priced, witnessed, logged; action tags; the dilemma set | draft for review | — |
 | 16 | [`16-players-and-kit.md`](16-players-and-kit.md) | the slots, draws, pockets, luggage; the 206 interior | draft for review | [`clothing-warmth.md`](../architecture/clothing-warmth.md) |

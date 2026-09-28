@@ -23,6 +23,8 @@ it.
   prose: no quotes of the conversation, no superseded material, every decision in §5 applied everywhere;
   the old seed design, the investigation scratchpads and the second GDD summary are removed. Document 13
   carries the first-week-of-October weather.
+- **Document 13 reviewed in full (2026-09-28):** the no-storm week's numbers, the event deck, open-ended
+  activities such as tending the fire through fast forward.
 - **Document 12 reviewed in full (2026-09-28):** searching and stripping a body are activities; fire has
   to be found or earned (the pilot's two matches, a lighter in the luggage, friction in its real ways).
 - **Documents 10 and 11 reviewed in full (2026-09-27, 2026-09-28).** Document 11's sitting settled: no
@@ -32,7 +34,7 @@ it.
   light start (bumps and bruises, a cut, a concussion).
 
 **Next, in this order:**
-1. **The sittings continue in index order, from document 13**, checking the answers Claude proposed in each document, then
+1. **The sittings continue in index order, from document 14**, checking the answers Claude proposed in each document, then
    finalizing at the close.
 2. A10 — the missing systems' documents (combat, heat, hunting/trapping/fishing, food state, animal
    behaviour, scent, light, weather, snow and ice on the ground, physiology, the tutorial rooms); A11 — the

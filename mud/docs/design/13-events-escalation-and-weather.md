@@ -1,6 +1,6 @@
 # 13 — Events, escalation and weather: the ladder, the event deck, weather, endings
 
-> **Status: draft for review.** Architecture counterpart: none yet — no `docs/architecture/events.md`
+> **Status: reviewed with Andrew 2026-09-28.** Architecture counterpart: none yet — no `docs/architecture/events.md`
 > exists; the closest entries are DR-12 (determinism and seeding) and DR-15a (the week-long run, the
 > escalation ladder, no hard time barriers) in
 > [`implementation-architecture.md`](../architecture/implementation-architecture.md). **This document
@@ -38,6 +38,8 @@
   own area, not spread everywhere, and is plain on entering it — nobody has to examine the ground in
   every room; no claw marks on the wreck (the party would see and hear the bear); no snared hare found
   waiting; no chainsaw — nothing promises people within walking distance.
+- **(2026-09-28)** **Weather is state** — real quantities that change every minute, one air mass over
+  the valley, and each zone's snow, ice and frozen ground its own (§4.7).
 - **(2026-09-28)** **How an event runs** is §4.4's, as proposed: a line crossed in the weather's
   state, an arrival, or a scheduled happening; danger warns first and physics decides; escape is never
   authored per danger.
@@ -55,9 +57,8 @@
   is no recap.
 
 ### Proposals (Claude)
-Everything else here is Claude's, for Andrew's check: the ladder's rows and every number in them
-(from real interior-Alaska data, with the sources under §4.2), the event deck's contents (§4.3), how an
-event runs (§4.4), what is built first (§4.6) and weather as state (§4.7).
+Every number is a real starting point, from the interior-Alaska sources under §4.2, and playtesting
+tunes it. What is built first (§4.6) waits for the implementation plan.
 
 ## 3. In one paragraph
 
@@ -314,7 +315,7 @@ be designed — `PLAN.md` A10). (5) Everything else, and whatever the loops add.
 
 ### 4.7 Weather is state
 
-*(Proposed by Claude, for Andrew's check.)* Weather is not a label on the valley. It is a set of real
+Weather is not a label on the valley (2026-09-28). It is a set of real
 quantities that change every tick, that other systems read, and that the things in the world answer
 to. One air mass lies over the whole valley; each zone and each body of water does its own thing with
 it.
@@ -400,7 +401,7 @@ written); until it exists, this section is its specification.
 
 ## 6. Open questions
 
-None open. The proposals in §4 wait for Andrew's check at this document's sitting.
+None open.
 
 ## 7. Review log
 
@@ -415,6 +416,11 @@ None open. The proposals in §4 wait for Andrew's check at this document's sitti
   on and off to a couple of inches, a heavier flurry on day 6 that clears for day 7; the sky always at
   least partly cloudy, planes flying most days and the wreck hard to see; the escalation from the cold
   and the land; the week stays the first of October. The ladder and the deck redrawn for it.
+- **2026-09-28 (Andrew, the document's sitting):** the week's day-by-day numbers; the event deck, with
+  the bear's sign in its own area and plain on entering, no claw marks on the wreck, no snared hare
+  found waiting and no chainsaw; open-ended activities such as tending the fire through fast forward;
+  how an event runs; weather as state. What is built first waits for the implementation plan.
+  **Reviewed in full.**
 
 ## 8. What exists today
 
