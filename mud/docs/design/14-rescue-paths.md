@@ -58,7 +58,8 @@
   rescue is day 7.** Being findable takes work. No boats.
 
 ### Left to Claude, at Andrew's request (for his check)
-- A party that cannot say where it is can be **homed in on**, at a battery cost (§3.3).
+- A party that cannot say where it is can be **homed in on**, at a battery cost (§3.3) — accepted,
+  realism first: it takes far longer than flying to a named landmark (2026-09-28).
 - **Whether a crew sees a signal follows physics** — what the signal is and how it contrasts, the
   weather, how close the pass comes (§3.4).
 - **The rest of the flyover schedule**, and passes after day 7 for a party not yet found (§3.5;
@@ -129,8 +130,11 @@ search to reach a party it can find. **The ELT is broken** (2026-09-27). Players
 - It **asks where you are** and **judges what it is told by the game's criteria — the landmarks and what
   each is worth**: a party that says it is next to a river is told there are a lot of rivers; another
   landmark narrows it.
-- *(Claude's choice, at Andrew's request, for his check:)* a party that cannot say where it is can be
-  **homed in on** — a search plane in the area follows its transmissions, which costs battery.
+- A party that cannot say where it is can be **homed in on** (2026-09-28): it has to keep
+  transmitting while a search plane flies around taking bearings on it, and bearings give only a
+  general area, so the plane circles to narrow it — far longer than flying straight to a named
+  landmark, and longer still if the party moves. Every minute on the air drains the batteries. The
+  chart in the cockpit names landmarks, so a party that works out where it is gets home sooner.
 - **The pickup comes at the next daylight good for flying** (2026-09-27), once contact is made and the
   voice judges it can find the party; the day-6 flurry is the only day nothing can land or fly, and the
   voice says when they will come.

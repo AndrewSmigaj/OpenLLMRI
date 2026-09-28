@@ -302,8 +302,8 @@ ELT is broken** (2026-09-27).
   the same model every run, scaffolded with rules (§3 rule 2). It helps only as a real rescuer would,
   may hint (raise the antenna) through the bad signal, asks for landmarks and judges them by the game's
   list and values, says they will come at the next daylight good for flying, and tells a party that cannot be found
-  what it needs to do. A party that cannot say where it is can be homed in on, at a battery cost
-  *(Claude's choice, at Andrew's request)*.
+  what it needs to do. A party that cannot say where it is can be homed in on — slower than naming a
+  landmark, and it drains the batteries (2026-09-28).
 - **A signal a search plane can see:** fire and smoke (rubber, oil, green boughs), a piece of mirror once
   clear of the trees, the blue tarp laid out in the open (the one that can also seal the plane),
   burning Holt's cabin during a flyover. Whether a crew sees a signal follows physics

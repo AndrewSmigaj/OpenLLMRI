@@ -449,7 +449,8 @@ it says so. When a decision changes, this list and every document it touches cha
   run, scaffolded with rules. It helps only as a real rescuer would, may hint (raise the antenna) through
   the bad signal, asks for landmarks and judges them by the game's list and values, says they will come
   at the next daylight good for flying (never in the day-6 flurry), and tells a party that cannot be found what it needs to do. A party that
-  cannot say where it is can be homed in on, at a battery cost (Claude's choice). (2026-09-27)
+  cannot say where it is can be homed in on: it keeps transmitting while a plane circles to narrow the
+  bearings — far longer than flying to a named landmark — and the batteries drain. (2026-09-27, 2026-09-28)
 - **Signals:** fire and smoke (rubber, oil, green boughs), a piece of mirror once clear of the trees,
   the blue tarp laid out in the open (the same tarp that can seal the plane — a real choice), burning
   the cabin during a flyover. Whether a crew sees a signal follows physics — contrast, weather,

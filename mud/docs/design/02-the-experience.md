@@ -318,7 +318,7 @@ resources (daylight · warmth · sweat · tools · knowledge · risk).
 model every run, scaffolded with rules. It helps only as a real rescuer would, may hint through the bad
 signal (*"can you get your antenna higher?"*), asks where the party is and judges the landmarks it is
 told by the game's criteria, says when they can come, and tells a party it cannot find what it needs
-to do. A party that cannot say where it is can be homed in on, at a battery cost. Contact comes fairly
+to do. A party that cannot say where it is can be homed in on — slower than naming a landmark, and it drains the batteries. Contact comes fairly
 quickly once the antenna is fixed, not only during flyovers.
 
 ### 4.9 Time — the clock, fast forward, sleep and the watch
