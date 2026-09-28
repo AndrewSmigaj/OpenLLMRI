@@ -1,13 +1,15 @@
 # 11 — Injury and first aid: wounds, bleeding, infection, frostbite, splints, the med pouch
 
-> **Status: draft for review.** **Architecture counterpart:** none. This system had no design document
+> **Status: reviewed with Andrew 2026-09-27 and 2026-09-28.** **Architecture counterpart:** none. This system had no design document
 > of its own before this one.
 
 ## 2. Decisions
 
 ### Andrew's decisions
-- **(2026-09-07)** Each player starts with a different injury draw, as with clothing and pockets. You do
-  not choose what the crash did to you, and nobody in the party is whole.
+- **(2026-09-07, 2026-09-28)** Each player starts with a different injury draw, as with clothing and
+  pockets, and you do not choose what the crash did to you — but the start is light: nobody is crippled
+  or hindered for the sake of it. Most wake with minor bumps and bruises; one has a cut, which sends the
+  party looking for bandage material, and one a concussion (§4.2).
 - **(2026-09-07)** Decisions across the moral spectrum — the injured are one of the places that lands:
   who gets carried, who gets the bandage, who gets left by the fire.
 - **(2026-09-16, 2026-09-26)** No lethal-consent gate; violence resolves with real physics, and there is a
@@ -80,18 +82,16 @@
   §4.7).
 
 ### Proposals (Claude)
-Everything else here is Claude's, for Andrew's check: which
-injury each slot draws; the rest of the body as an entity with parts and states (§4.6); the treatments
-as operations (§4.7–§4.12); the injury list beyond the crash's; every number. The real-world sources
-are listed at the end of §4.6.
+Every number here is a real starting point, from the sources at the end of §4.6, and playtesting tunes
+it.
 
 ## 3. In one paragraph
 
-Everybody wakes up hurt, differently, and it shapes what each of you can do before anyone has said a
-word about it. The cut forearm is bleeding into a sleeve and will keep bleeding until somebody
-presses it and binds it; the sprained ankle makes every walk cost double until somebody thinks of a
-stick and a strap; the bruised ribs make heavy work slow; the concussion makes the first day slow and
-sick. None of it is a debuff you read off a sheet — it is your own description when you look at
+Everybody wakes up sore — bumps and bruises — and two of you are really hurt. The cut forearm is
+bleeding into a sleeve and will keep bleeding until somebody presses it and binds it, which sends the
+party looking for anything that will do as a bandage; the concussion makes one person's first day slow
+and sick. Nobody is crippled: the crash gives the party its first job, not a handicap. None of it is a
+debuff you read off a sheet — it is your own description when you look at
 yourself, and it is the reason the party has to decide who does what. The nurse has a pouch with gauze
 and tape and sutures in it, and her hands are quicker and surer at wound care than anyone else's — but
 the person playing her still has to know what to do, like everyone else. Later the wounds that were
@@ -139,7 +139,7 @@ start to matter, and first aid stops being a one-off act and becomes a thing you
    through it), `rinse` / irrigate, pick out the grit, `elevate`, rewarm a frozen part, `carry` and
    `drag` a person (§4.7–§4.9).
 6. **The injury is in the description.** `examine me` reads your wounds back to you in plain words —
-   this is shipped: *"Your forearm is cut and bleeding; your ankle is sprained."* The `status` screen
+   this is shipped: *"Your forearm is cut and bleeding."* The `status` screen
    reports them too, in band words, never numbers, and the meters show what the body feels at a glance
    (2026-09-27; document 08 §4.9). A wound is never a meter: it is named.
 7. **Never a menu, and common sense is hinted.** The game does not tell you to press the wound, does
@@ -154,15 +154,16 @@ start to matter, and first aid stops being a one-off act and becomes a thing you
 
 | slot | injury | what it costs |
 |---|---|---|
-| the guide | bruised ribs | bending and lifting hurt; heavy work is slow |
-| the townie | a cut forearm, bleeding | the census wound — bleeding through the sleeve; press it, bind it |
-| the nurse | a sprained ankle | walking costs double; a splint and a stick would halve it |
+| the guide | minor bumps and bruises | sore for a day or two; nothing it stops |
+| the townie | a cut forearm, bleeding | bleeding through the sleeve; press it, bind it — the party's first search is for something to bind it with |
+| the nurse | minor bumps and bruises | sore for a day or two; nothing it stops |
 | the salesman | concussion | tires fast; the first day is slow — headache, nausea, dizziness, light hurts, slower acts (§4.11) |
-| the kid | shock | physically fine; slower to act on day one. This is an acute stress reaction — psychological. Circulatory shock is what blood loss does to a body (§4.6); both are real, and they are different states |
+| the kid | minor bumps and bruises | sore for a day or two; nothing it stops |
 
-The point of the spread is that it is *heterogeneous*: the person who can walk is not the person who
-can lift, and the person who knows medicine is the one who cannot get to you. The seed permutes which
-player draws which slot, so no player is always the townie. A seat nobody plays is a dead character
+The start is light on purpose (2026-09-28): nobody is crippled or hindered for the sake of it. The cut
+gives the party its first job — find something to bind it with — and the concussion slows one person's
+first day; everyone else is only sore. The seed permutes which player draws which slot, so no player is
+always the townie. A seat nobody plays is a dead character
 (document 12 §4.4), so its injury never runs.
 
 ### 4.3 Ways to treat a wound (a floor — the loops add more)
@@ -400,7 +401,7 @@ Pain is a state on the part (§4.6) and part of what limits the part, so masking
 honestly (2026-09-28). Ibuprofen — the nurse's pouch holds a count of tablets —
 works in 30–60 minutes and lasts four to six hours; it lowers pain and swelling, and `status`
 truthfully reports less pain while the wound is unchanged: that is the fair lie. How much the part
-gives back depends on the wound — a sprain's limit is mostly pain, so the nurse walks better; a broken
+gives back depends on the wound — a sprain's limit is mostly pain, so a sprained ankle walks better; a broken
 bone's limit is mechanical, so no pill makes it bear weight. Over a week its side effects are too small
 to matter (2026-09-28): what it costs is the tablets, and who gets them. It is also the field treatment
 for frostbite. Whisky dulls pain and judgment, and it opens
@@ -446,7 +447,7 @@ asks how; given the means it performs the act they imply and this system answers
 | `roles` | **rigid**: a rod, a board, a stick · **binding**: cordage, a strip, tape · **wound**: the named wound |
 | `realize` | `bind <wound> with <rigid> and <binding>` — the ordinary wound operations; a wrong pairing gets the physics (a strip alone will not hold a bone) |
 
-*(Proposal: the row set is a floor — the loops add goals and means from what people and agents type.)*
+The row set is a floor — the loops add goals and means from what people and agents type (2026-09-28).
 
 ## 5. Interactions
 
@@ -520,7 +521,9 @@ None open.
   matter in a week; willow-bark tea, since willow grows here. Item 10 — how impairment reads: the body
   can fail at an act, and the engine never performs one the player did not type. Item 11 — seeing
   another's wounds by the senses: a serious condition in the person's line in the room, the body's
-  signs as emotes, the smaller things on a closer look.
+  signs as emotes, the smaller things on a closer look. Item 12 — the start is light: bumps and
+  bruises for most, a cut and a concussion, no sprained ankle; the treatments, the injury list and the
+  goal rows are floors; the numbers are real starting points. **Reviewed in full.**
 - **2026-09-27** — the no-storm week carried in (document 13 §4.2).
 
 ## 8. What exists today
@@ -548,6 +551,8 @@ None open.
   passing.
 
 **Designed, not built**
+- The light start (§4.2): `characters.py` still ships bruised ribs, a sprained ankle and shock for the
+  guide, the nurse and the kid, where the design now has minor bumps and bruises.
 - The injury processes: bleeding per tick, binding stopping it, infection, fever.
 - Treatment as an act on a *wound*: `press`, `pack`, `splint`, `stitch`, `clean` —
   the first-aid kit's contents have no use-verb yet.

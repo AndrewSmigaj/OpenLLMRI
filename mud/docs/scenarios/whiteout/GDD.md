@@ -230,7 +230,8 @@ exactly. Design: document 06.
 three hours** covering about a week of game time, which the players can pause and return to — a game
 played with friends, not an ongoing world. **The party:** up to five play (four adults and the kid); a
 seat nobody plays is a dead character whose clothes and pockets can be searched; AI agents may play
-seats. No back stories: characters differ in clothes, injuries and what they carry, and in how well and
+seats. No back stories: characters differ in clothes, injuries (a light start — bumps and bruises for most, a cut and a
+concussion) and what they carry, and in how well and
 how fast they do things — a woodsman lights fires better; a technically proficient character sees a
 fault in a device (document 16). A missing player's character goes catatonic, sits down and stares; the
 others can keep them alive, and they can die. An agent acts at the speed of typing its command; a slow

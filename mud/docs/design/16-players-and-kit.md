@@ -59,7 +59,7 @@ Everything else here is a proposal for review:
 
 You come to belted into a seat you did not choose, wearing whatever you happened to have on when you
 got on the plane, with whatever was in your pockets — almost none of it meant for this. One of you has
-a parka, a pocketknife and bruised ribs; one has a ski jacket, mittens and a duffel full of hockey gear;
+a parka, a pocketknife and a few bruises; one has a ski jacket, mittens and a duffel full of hockey gear;
 one has a denim jacket, no gloves, and a phone that is, for now, the party's only clock and light. What
 you are wearing when the plane stops moving is the single biggest thing that decides whether you are
 cold tonight — and it is different for everyone, as is what each of you is good at, which turns "who
@@ -82,11 +82,11 @@ on the per-run seeded stream (DR-12), and the deal is logged like every other se
 
 | slot | seat | wearing | pockets | injury | their bag |
 |---|---|---|---|---|---|
-| **the guide** | right seat | parka (down, hood), wool base layer, insulated boots, gloves, wool hat | pocketknife, lighter, a chocolate bar, a compass on a lanyard | bruised ribs (slow, painful work; no bending) | his own duffel: a headlamp, a ferro rod, a steel cup |
+| **the guide** | right seat | parka (down, hood), wool base layer, insulated boots, gloves, wool hat | pocketknife, lighter, a chocolate bar, a compass on a lanyard | minor bumps and bruises (sore for a day or two) | his own duffel: a headlamp, a ferro rod, a steel cup |
 | **the townie** | 1A | denim jacket, cotton hoodie, jeans, sneakers, no gloves | phone (light, clock, a dead battery by day 2), wallet (cash, cards, ID — paper), gum, keys, earbuds (wire) | a cut forearm (bleeding; the census wound) | a soft suitcase: cotton clothes, a towel, toiletries (floss = cordage; razor = edge; sanitizer = fire starter; tampons = tinder + wound packing; a travel sewing kit — a needle and a card of thread), a paperback |
-| **the nurse** | 1B | fleece jacket, hiking boots, a scarf, thin gloves | a small med pouch (gauze, tape, ibuprofen, a suture kit — she knows how; the player still types each act), lip balm (wax), hair ties (cordage), a pen | a sprained ankle (walking costs double; splint it) | a backpack: canteen, spare shirt, a wool sweater, a headnet, a book of matches, a part-used bottle of iodine tablets |
+| **the nurse** | 1B | fleece jacket, hiking boots, a scarf, thin gloves | a small med pouch (gauze, tape, ibuprofen, a suture kit — she knows how; the player still types each act), lip balm (wax), hair ties (cordage), a pen | minor bumps and bruises (sore for a day or two) | a backpack: canteen, spare shirt, a wool sweater, a headnet, a book of matches, a part-used bottle of iodine tablets |
 | **the salesman** | 2A | wool overcoat, dress shoes, leather gloves, a good scarf | a metal lighter, a hip flask (whisky), reading glasses (a lens! sun only), a notebook (paper) | concussion (fatigue faster; confusion messages the first day) | a laptop bag: laptop (battery — sparks, heat, then dead), cables (wire), a metal water bottle, snacks, a wool blanket |
-| **the kid** (16) | 2B | ski jacket, snow pants, snow boots, mittens | a phone, a candy bar, a multitool (a gift), sunglasses | shock: fine physically, slower to act day one | a duffel: hockey gear (a stick = a rod; tape = tape; pads = foam), a sleeping bag |
+| **the kid** (16) | 2B | ski jacket, snow pants, snow boots, mittens | a phone, a candy bar, a multitool (a gift), sunglasses | minor bumps and bruises (sore for a day or two) | a duffel: hockey gear (a stick = a rod; tape = tape; pads = foam), a sleeping bag |
 
 *(The kid's sleeping bag and the salesman's blanket are the sleeping bag and one of the two blankets
 Andrew placed on 2026-09-27 — see §4.3's note.)*

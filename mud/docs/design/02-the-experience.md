@@ -147,11 +147,11 @@ their kit are built ✅ — `game/world/scenarios/whiteout/characters.py`). Nobo
 
 | slot | seat | wore | pockets | the crash left them |
 |---|---|---|---|---|
-| **the guide** | right seat | down parka, wool base layer, insulated boots, gloves, wool hat | pocketknife, lighter, chocolate, a compass on a lanyard | bruised ribs — bending and lifting hurt |
+| **the guide** | right seat | down parka, wool base layer, insulated boots, gloves, wool hat | pocketknife, lighter, chocolate, a compass on a lanyard | minor bumps and bruises |
 | **the townie** | 1A | denim jacket, cotton hoodie, jeans, sneakers, no gloves | phone, wallet, gum, keys, earbuds | a cut forearm, bleeding |
-| **the nurse** | 1B | fleece, hiking boots, scarf, thin gloves | a med pouch, lip balm, hair ties, a pen | a sprained ankle — walking costs double |
+| **the nurse** | 1B | fleece, hiking boots, scarf, thin gloves | a med pouch, lip balm, hair ties, a pen | minor bumps and bruises |
 | **the salesman** | 2A | wool overcoat, dress shoes, leather gloves | a metal lighter, a hip flask, reading glasses, a notebook | concussion — fatigue faster, confusion the first day |
-| **the kid** | 2B | ski jacket, snow pants, snow boots, mittens | phone, candy bar, a multitool, sunglasses | shock — fine physically, slow to act on day one |
+| **the kid** | 2B | ski jacket, snow pants, snow boots, mittens | phone, candy bar, a multitool, sunglasses | minor bumps and bruises |
 
 What you wore that morning is the single largest determinant of the first night. That is the point: a
 party of identical survivors is a chore list; people with one good coat between them is a question
@@ -203,7 +203,7 @@ on the clock today.
 | **water** | the lake's edge and the creek open; skim ice at dawn; the small ponds skin over at night | slush in the creek's eddies; shelf ice at its edges | the pond ice a couple of centimetres — it holds nobody | the snow lies on the pond ice and slows it | the lake skins over in its bays; the riffle stays open and steams; walking out on any ice breaks it | the ponds thicken; the lake still freezing |
 | **the search** | an early pass at dusk on day 1, high over the filed route, in the wrong place; the route search on day 2 — a chance for a party with a signal ready | the search widens off the route, lost in the cloud (day 3); a pass across the lake's far end, seen through a gap (day 4) — a real chance | a pass low along the creek — a real chance | grounded: nothing flies | **the default rescue**, in clear air, for a party that can be found | passes continue while the weather allows, each a chance |
 | **the animals** | the bear feeding hard before its den, its sign first, following the smell of the pilot's body and the food; wolves heard at night | tracks in the first snow; the bear bolder as the camp smells of food | — | the flurry holds everything down | tracks circling the wreck in the fresh snow; ravens, jays and a fox work the camp | a bear still about, hungrier, looks for a den unless it has claimed a carcass |
-| **bodies** | a cut, a sprain, a concussion; clothes soaked by the wet flurries | a dirty wound shows infection; fever costs warmth and water | untreated infection spreads | feet wet for days take non-freezing cold injury | frostbite after the coldest night | — |
+| **bodies** | a cut, a concussion, bumps and bruises; clothes soaked by the wet flurries | a dirty wound shows infection; fever costs warmth and water | untreated infection spreads | feet wet for days take non-freezing cold injury | frostbite after the coldest night | — |
 
 ### 4.3 The endings
 
