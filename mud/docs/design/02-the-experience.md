@@ -147,11 +147,11 @@ their kit are built ✅ — `game/world/scenarios/whiteout/characters.py`). Nobo
 
 | slot | seat | wore | pockets | the crash left them |
 |---|---|---|---|---|
-| **the guide** | right seat | down parka, wool base layer, insulated boots, gloves, wool hat | pocketknife, chocolate, a compass on a lanyard | minor bumps and bruises |
+| **the guide** | right seat | down parka, wool base layer, insulated boots, gloves, wool hat | a chocolate bar, a wallet | minor bumps and bruises |
 | **the townie** | 1A | denim jacket, cotton hoodie, jeans, sneakers, no gloves | phone, wallet, gum, keys, earbuds | a cut forearm, bleeding |
-| **the nurse** | 1B | fleece, hiking boots, scarf, thin gloves | a med pouch, lip balm, hair ties, a pen | minor bumps and bruises |
-| **the salesman** | 2A | wool overcoat, dress shoes, leather gloves | a hip flask, reading glasses, a notebook | concussion — fatigue faster, confusion the first day |
-| **the kid** | 2B | ski jacket, snow pants, snow boots, mittens | phone, candy bar, a multitool, sunglasses | minor bumps and bruises |
+| **the nurse** | 1B | fleece, hiking boots, scarf, thin gloves | lip balm, hair ties, a pen | minor bumps and bruises |
+| **the salesman** | 2A | wool overcoat, dress shoes, leather gloves | a hip flask, reading glasses (convex), a notebook | concussion — fatigue faster, confusion the first day |
+| **the kid** | 2B | ski jacket, snow pants, snow boots, mittens | phone, candy bar, sunglasses | minor bumps and bruises |
 
 What you wore that morning is the single largest determinant of the first night. That is the point: a
 party of identical survivors is a chore list; people with one good coat between them is a question
@@ -282,7 +282,7 @@ Nobody starts with fire in hand; it has to be found or earned (2026-09-28; docum
 3. **The flare** ✅ (object) — ignites anything, once, loudly; spends a signal.
 4. **Battery and wire** — the plane's battery in the nose, copper strands across the terminals; needs
    the wire and a walk outside.
-5. **Focus** — the landing-light reflector or an ice lens, sun only.
+5. **Focus** — the salesman's reading glasses (convex), the landing-light reflector or an ice lens, sun only.
 6. **Spark** — the hatchet's spine ✅ on quartz, into char or fuel-soaked cloth.
 7. **Friction** — a stick rubbed up and down a trough in a board, or spun in a notch, costs stamina hard
    (2026-09-28); the bow drill (carve, split, notch, string, bundle, drill → ember → blow) costs less.

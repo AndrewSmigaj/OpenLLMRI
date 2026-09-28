@@ -27,6 +27,11 @@
   flying. Characters differ in their clothes, their injuries and what they carry, and in how well and
   how fast they do things — a woodsman lights fires better; a technically proficient character sees a
   fault in a device.
+- **2026-09-28 — pockets hold everyday things; anything useful is in a bag you have to find.** Nobody
+  starts with a knife, medical supplies, a compass or fire in hand. Pockets hold a wallet, a phone,
+  keys, gum, lip balm, a pen, reading glasses, a hip flask, a candy bar; the tools and supplies are in
+  bags the crash left somewhere that takes work to reach (§4.1). The salesman's reading glasses are
+  convex: in sun, they can light tinder. More things are under the seats (§4.6).
 - **2026-09-28 — fire has to be found or earned.** Nobody starts with a lighter or matches in hand. A
   lighter is fine, but it has to be found — one is packed in a jacket in the luggage, and searching a
   bag turns up the clothes in it, each garment's pockets searched in turn; there can be more than one
@@ -90,11 +95,11 @@ on the per-run seeded stream (DR-12), and the deal is logged like every other se
 
 | slot | seat | wearing | pockets | injury | their bag |
 |---|---|---|---|---|---|
-| **the guide** | right seat | parka (down, hood), wool base layer, insulated boots, gloves, wool hat | pocketknife, a chocolate bar, a compass on a lanyard | minor bumps and bruises (sore for a day or two) | his own duffel: a headlamp, a ferro rod, a steel cup |
-| **the townie** | 1A | denim jacket, cotton hoodie, jeans, sneakers, no gloves | phone (light, clock, a dead battery by day 2), wallet (cash, cards, ID — paper), gum, keys, earbuds (wire) | a cut forearm (bleeding; the census wound) | a soft suitcase: cotton clothes, a canvas jacket with a lighter forgotten in its pocket, a towel, toiletries (floss = cordage; razor = edge; sanitizer = fire starter; tampons = tinder + wound packing; a travel sewing kit — a needle and a card of thread), a paperback |
-| **the nurse** | 1B | fleece jacket, hiking boots, a scarf, thin gloves | a small med pouch (gauze, tape, ibuprofen, a suture kit — she knows how; the player still types each act), lip balm (wax), hair ties (cordage), a pen | minor bumps and bruises (sore for a day or two) | a backpack: canteen, spare shirt, a wool sweater, a headnet, a book of matches (about eight, damp where the canteen leaked), a part-used bottle of iodine tablets |
-| **the salesman** | 2A | wool overcoat, dress shoes, leather gloves, a good scarf | a hip flask (whisky), reading glasses (a lens! sun only), a notebook (paper) | concussion (fatigue faster; confusion messages the first day) | a laptop bag: laptop (battery — sparks, heat, then dead), cables (wire), a metal water bottle, snacks, a wool blanket, an old metal lighter in a side pocket, its wick dry |
-| **the kid** (16) | 2B | ski jacket, snow pants, snow boots, mittens | a phone, a candy bar, a multitool (a gift), sunglasses | minor bumps and bruises (sore for a day or two) | a duffel: hockey gear (a stick = a rod; tape = tape; pads = foam), a sleeping bag |
+| **the guide** | right seat | parka (down, hood), wool base layer, insulated boots, gloves, wool hat | a chocolate bar, a wallet | minor bumps and bruises (sore for a day or two) | his own duffel, in the baggage bay behind the jammed cargo door: his pocketknife (the one real knife aboard), a compass, a headlamp, a ferro rod, a steel cup |
+| **the townie** | 1A | denim jacket, cotton hoodie, jeans, sneakers, no gloves | phone (light, clock, a dead battery by day 2), wallet (cash, cards, ID — paper), gum, keys, earbuds (wire) | a cut forearm (bleeding; the census wound) | a soft suitcase, in the baggage bay: cotton clothes, a canvas jacket with a lighter forgotten in its pocket, a towel, toiletries (floss = cordage; razor = edge; sanitizer = fire starter; tampons = tinder + wound packing; a travel sewing kit — a needle and a card of thread), a paperback |
+| **the nurse** | 1B | fleece jacket, hiking boots, a scarf, thin gloves | lip balm (wax), hair ties (cordage), a pen | minor bumps and bruises (sore for a day or two) | a backpack, behind the jammed aft bin: the med pouch (gauze, tape, ibuprofen, a suture kit — she knows how; the player still types each act), canteen, spare shirt, a wool sweater, a headnet, a book of matches (about eight, damp where the canteen leaked), a part-used bottle of iodine tablets |
+| **the salesman** | 2A | wool overcoat, dress shoes, leather gloves, a good scarf | a hip flask (whisky), reading glasses (convex — in sun, a lens that can light tinder), a notebook (paper) | concussion (fatigue faster; confusion messages the first day) | a laptop bag, under his seat: laptop (battery — sparks, heat, then dead), cables (wire), a metal water bottle, snacks, a wool blanket, an old metal lighter in a side pocket, its wick dry |
+| **the kid** (16) | 2B | ski jacket, snow pants, snow boots, mittens | a phone, a candy bar, sunglasses | minor bumps and bruises (sore for a day or two) | a duffel, in the tail wreckage: hockey gear (a stick = a rod; tape = tape; pads = foam), a sleeping bag, a multitool (a gift — a knife blade among its tools) |
 
 *(The kid's sleeping bag and the salesman's blanket are the sleeping bag and one of the two blankets
 Andrew placed on 2026-09-27 — see §4.3's note.)*
@@ -185,6 +190,13 @@ ground signal: spread in the open, its blue shows against brown ground or new sn
 (2026-09-27).
 
 ### 4.6 The interior (the 206)
+
+**Under the seats** (Andrew, 2026-09-28: more things are under the seats; *what, proposed by Claude
+for Andrew's check*) — carry-ons and whatever the crash threw there, found by looking or searching
+under each seat: under the pilot's seat his flight bag — a flashlight with weak batteries, a pair of
+work gloves, a roll of duct tape, the plane's tie-down ropes; under 1A, a half-full water bottle that
+rolled there; under 1B, a paper sack of the salesman's trail mix, burst; under 2A, the salesman's
+laptop bag; under 2B, a phone charging cable and a crumpled chip bag.
 
 - **Seats**: the pilot's seat and the right seat up front; **1A/1B** (row one), **2A/2B** (row two) —
   the labels the manifest on the kneeboard uses to name who sat where, itself a clue and a story. Each

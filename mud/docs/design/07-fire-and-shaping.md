@@ -164,7 +164,8 @@ tinder only.
    ([`14-rescue-paths.md`](14-rescue-paths.md) §3.4).
 4. **Battery + wire** — pry the panel: the plane's battery in the nose cowling (12 kg, wired and
    fine), copper strands across the terminals glow → tinder. Needs the wire *and* a walk outside.
-5. **Focus** — the landing-light reflector or an ice lens, sun only (weather-gated).
+5. **Focus** — the salesman's reading glasses (convex, 2026-09-28), the landing-light reflector or an
+   ice lens, onto fine dark tinder — sun only (weather-gated; the October sun is low, so it is slow).
 6. **Spark** — the ferro rod from the guide's duffel, scraped with a knife's spine, into fine dry tinder
    (birch bark, old-man's-beard lichen, shavings); or the hatchet spine on quartz (the ridge; a rock in
    the muskeg) into char or fuel-soaked cloth.
