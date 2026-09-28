@@ -460,6 +460,13 @@ it says so. When a decision changes, this list and every document it touches cha
 - The store is `docs/ontology/` as YAML; the schema is designed in full up front; the two models build it
   as peers and the merge never drops; walls per run are counted in five categories; goal lenses plus human
   lenses. (2026-09-16, 2026-09-18)
+- **No rules that constrain the world** (2026-09-28): decisions are made case by case, by what makes
+  the game better. Where each thing lies is one of them — what would make the start too easy is not in
+  plain sight in the first room, and everything else lies where it really would (a dead fish on the
+  shore). Examining a thing gives sensory cues, never its uses or a verb. Hints are added case by case
+  where something is very unobvious or players struggle — found by other language models analysing the
+  agents' playthroughs and a brief questionnaire for the agent players (documents 03, 04, 17, 20, 22).
+  The prose reading waits until Claude has a draft of the real rooms ready for review.
 - **Ontologically sufficient** means anything reasonable that follows the grammar works — basically
   anything a language model playing the game would think to do, whether or not it leads anywhere —
   throwing a snowball is as real as lighting a fire; nothing is placed only because a goal needs it

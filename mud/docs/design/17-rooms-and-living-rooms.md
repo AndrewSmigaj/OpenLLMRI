@@ -105,9 +105,7 @@ carve a name in a seat, build a snowman (Andrew, 2026-09-28; document 05). Nothi
 because a goal needs it, and nothing is left out because no goal does.
 
 Every room has obvious flavour that is tryable and honest, finds inside and under things (the reveal
-rule, DR-24), and trade-offs (the fuel-soaked sleeping bag). The **power ∝ cost** curve (also named in
-**16 — Players and kit** §4.3) holds for what does serve a way home: the obvious is weak, the good costs
-search, time, or a tool.
+rule, DR-24), and trade-offs (the fuel-soaked sleeping bag). Where each thing lies is decided case by case, by what makes the game better (2026-09-28): what would make the start too easy — the tools and supplies that solve the big problems — is not lying in plain sight in the first room, and no rule hides things away; everything else lies where it would really lie — a dead fish on the shore.
 
 ### 4.3 The seats — the exemplar
 
@@ -142,25 +140,25 @@ any outdoor zone is built, since the valley hides things under logs and in hollo
 2. An object's phrase carries its own CHARACTER, not its position.
 3. Persons get their own sentence, never a list item.
 4. No internal commas in a noun phrase that will sit in a list.
-5. Show functional flavour; hide load-bearing things inside containers.
-6. Examine prose names what the thing AFFORDS (the signifier rule): "one edge wicked-sharp," "would
-   tie, bind or wrap."
-7. State variants are written for every state an Effect can set.
-8. Repeated lines (frames, ticks) are plain; objects carry the colour.
-9. Read it: render every scene, then read the zone whole before committing.
+5. Examine prose says what a thing is like — a couple of sensory cues, "one edge wicked-sharp" — and
+   never what to do with it: no uses, no verbs (2026-09-28; document 03 §4.6).
+6. State variants are written for every state an Effect can set.
+7. Repeated lines (frames, ticks) are plain; objects carry the colour.
+8. Read it: render every scene, then read the zone whole before committing.
 
-This is the content-side companion to the architecture's own **Voice** principle
-(`presentation.md` §4): phrasing must be *specific-and-witty* or it fails its purpose — a
-derived-dry "the shirt is too light to block wind" satisfies the physics and loses the game's
-identity. Both agree on who owns the words: Claude (or whichever model is drafting) writes under
-these rules; Andrew owns the voice and rewrites freely.
+These are rules for the prose, never for the world (2026-09-28): nothing in them decides where a thing
+lies or whether it is there. Where each thing lies is decided case by case, by what makes the game better (2026-09-28): what would make the start too easy — the tools and supplies that solve the big problems — is not lying in plain sight in the first room, and no rule hides things away; everything else lies where it would really lie — a dead fish on the shore.
 
-*(Proposed by Claude, for Andrew's check:)* **the voice is judged by reading.** Rule 9 and
-`presentation.md` §4 already say how: the crash rooms are rendered with `make render-scenes` and read
-together at this document's sitting; the reading, and any rewrite, is Andrew's. What renders today
-predates the four-seat plane and the season, so that reading judges the *voice*, not the content.
+This is the content-side companion to the architecture's **Voice** section (`presentation.md` §4): the
+words are specific to the thing and the moment, never generic. Claude (or whichever model is drafting)
+writes under these rules; Andrew owns the voice and rewrites freely.
 
-*(Proposed by Claude, for Andrew's check:)* **what the prose may use.** Each device was tested against
+**The voice is judged by reading** (2026-09-28). Rule 8 and `presentation.md` §4 say how: the rooms
+are rendered with `make render-scenes` and read whole; the reading, and any rewrite, is Andrew's. What
+renders today predates the four-seat plane and the season, so the reading waits until Claude has a
+draft of the real rooms it is happy with and ready for review.
+
+**What the prose may use** (2026-09-28). Each device was tested against
 the rule the game's feedback follows — does it name a verb, list what is reachable, or hint at a
 solution? — and against document 03. **Groups** (document 03 §4.1b) fold identical or gathered things:
 the room shows "a pile of clothes", and `look at the pile` lists its members. **Three-form phrases** (a

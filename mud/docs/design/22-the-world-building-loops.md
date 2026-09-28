@@ -53,6 +53,9 @@
 - **Walls per run counts five categories, separately** (2026-09-18) — document 05 §4.5a.
 - **Ecology is a real filter** (2026-09-18): a species is in the valley only if it lives in this
   habitat, this month, in numbers that matter.
+- **Balancing from play** (2026-09-28): after agents play, other language models analyse their
+  playthroughs and the agents answer a brief questionnaire; what they find feeds the loops —
+  including where a hint is needed, added case by case (document 04).
 - **Real life is the default answer; state systems, not shortcuts; never make the world less
   interactive** (2026-09-26) — the writing rules in [`docs/design/README.md`](README.md), which the
   scaffold carries to the world-builders and scouts (§4.3).

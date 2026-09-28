@@ -41,6 +41,7 @@
 - **Common sense is hinted (2026-09-27).** When a player misses something any person would know —
   holding the radio's button while talking — the world says why, in its own voice: a reason, never a
   list of options (§3.3).
+- **(2026-09-28)** **Hints are added case by case.** Where something is very unobvious, or players struggle to understand what to do, a hint in the world's voice goes in when they try it. What needs one is found after agents have played a lot: other language models analyse their playthroughs, and the agent players answer a brief questionnaire — part of fleshing out and balancing the world (documents 20, 22). Examining a thing never names its uses.
 - **(2026-09-27)** Every thing is named by its most common name; its technical and other names are its
   synonyms.
 - **(2026-09-27)** Taking something unseen is its own verb: `steal`, or another fitting word; every other

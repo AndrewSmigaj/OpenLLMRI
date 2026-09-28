@@ -32,9 +32,10 @@
   a name is ambiguous (two cans in a scene: `Which can do you mean?`). There are no numbered nouns.
   So the look never lists the things in the room, and a tie asks `Which can do you mean?` and prints
   nothing more.
-- **The tell/hide rule (2026-07; DR-24).** Scenes read as scenes, not manifests. Load-bearing things
-  live *inside* things and are honestly absent from the prose, from the parser's pool and from reach
-  until `open` / `search` / `dig` earns them. No hidden flags — the hiding is physical.
+- **The tell/hide rule (2026-07; DR-24; 2026-09-28).** Scenes read as scenes, not manifests. What is
+  inside a closed or unsearched thing is honestly absent from the prose, from the parser's pool and
+  from reach until `open` / `search` / `dig` earns it. No hidden flags — the hiding is physical. No rule
+  puts useful things inside others: where each thing lies is decided case by case, for the game.
 - **The unified renderer (2026-07-02).** Bare `look` **is** the room survey — there is no separate
   "look around" verb. `look at X` / `look X` ≡ `examine X`: one detailed description, one renderer,
   identical output on both paths.
@@ -196,8 +197,9 @@ activity (2026-09-28): it goes through a body, a pile, a container or the wrecka
 compartment or a layer at a time, a line for each find, and it can be stopped with what was searched
 kept; searching a bag turns up the clothes in it, and each garment's pockets are searched in turn; a search aimed at one place (`search the pilot's pockets`) goes straight there (document 06).
 
-This is what lets the look be short and still fair. The scene shows the *flavour* — the things a
-person would see from the doorway — and the load-bearing kit is inside things, earned.
+This is what lets the look be short and still fair. The scene shows what a person would see from the
+doorway; what is inside things waits for opening or searching. Where each thing lies is decided case
+by case, for the game (2026-09-28).
 
 ### 4.4 The four composer extensions
 
@@ -306,7 +308,8 @@ Idents survive here (`aircraft seat [1B]`) because the grammar needs an addressa
 tag the player can *say*, not a hidden marker on the scene.
 
 Property hints, not affordance lists: at most a couple of sensory cues ("the fabric is thin; the foam
-beneath is dense and dry"). Naming a verb here would be a menu.
+beneath is dense and dry"). Naming a verb or a use here would be a menu — players know what a sharp
+thing can do (2026-09-28). Where players really struggle, a hint is added case by case (document 04).
 
 `search` goes through a container — the ones it makes sense to search — and is what reveals their
 contents (§4.3).

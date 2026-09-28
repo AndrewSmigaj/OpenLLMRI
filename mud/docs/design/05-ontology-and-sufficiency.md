@@ -145,8 +145,7 @@ Three sets do the work, and none of them is closed.
   min(material, form), so free composition cannot mint an exploit. **State degrades**: a wet match has
   no ignition; a frozen cord is stiff.
 - **The signifier rule.** A capability nobody can see is the top complaint across every
-  property-based game studied. Every load-bearing derived capability must show in the examine text —
-  *"a shard of glass, one edge wicked-sharp"* — which is why this system and
+  property-based game studied, so what a thing is like shows in its examine text as a couple of sensory cues — "a shard of glass, one edge wicked-sharp" — never what to do with it (2026-09-28; document 03 §4.6) — which is why this system and
   [`03-the-player-view.md`](03-the-player-view.md) are two halves of one thing.
 
 ### 4.3 The honest interim answer

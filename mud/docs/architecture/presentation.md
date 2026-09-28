@@ -23,7 +23,7 @@
    convention they are the same command.
 3. **`examine` is the worst spoiler in the game**: `cushion (foam, clipped)` prints the solution
    as data — GD20's "checklist" failure mode, and the opposite of the §49 bet that responses read
-   *specific and witty*.
+   specific to the thing.
 4. **No object has any prose at all.** 17 objects, zero descriptions.
 
 ## Locked conventions (Andrew, 2026-07-02)
@@ -96,8 +96,7 @@ same function, so stock `look at` output is byte-identical. Shape:
 
 ### 4. Voice
 
-Specific-and-witty (GD25) or it fails its purpose: a derived-dry "the shirt is too light to block
-wind" satisfies the invariant and loses the game's identity. All phrases are **content** in the
+Specific to the thing and the moment, never generic; the voice is Andrew's (2026-09-28). All phrases are **content** in the
 scenario (`responses/` or a sibling `appearance.py`), Andrew-tunable; Claude drafts the full set
 for the 17 objects + parts + state variants, Andrew rewrites freely.
 
@@ -137,7 +136,7 @@ for the 17 objects + parts + state variants, Andrew rewrites freely.
 ## Sources
 The GDD and `docs/design/03-the-player-view.md` (the look, prose composed from state, perception-honest
 prose); lenses GD3 (curiosity), GD20 (affordance discoverability —
-"hints at properties and a couple of verbs, never the full set"), GD25 (specific-and-witty);
+hints at properties, never verbs — 2026-09-28), GD25 (specific);
 prior-art: Inform's Report stage, Curveship's simulator/teller split, Short's "knowing a verb
 exists ≠ knowing when to apply it", Extended-Room `$state` conditioning; pinned Evennia seams:
 `get_display_things` / `return_appearance`.

@@ -144,9 +144,8 @@ difficulty. A survival kit would make the game too easy, so there is none (Andre
 sleeping bag is buried with the tail wreckage, and two blankets are hidden inside the plane**
 (2026-09-27). The toolbox is in the crushed tail cone (pry it open), the cooler was thrown into the
 brush along the trail (search for it — each flurry hides it a little more), and the hacksaw blade — the
-keenest edge in the valley — is a walk away. The **power ∝ cost** curve follows from the same rule: the
-more a thing solves, the farther, deeper, or more broken the crash left it. A paperback is at your feet;
-the hatchet is a hundred metres out in the brush with a cracked haft. Not too easy, not too hard.
+keenest edge in the valley — is a walk away. A paperback is at your feet; the hatchet is a hundred
+metres out in the brush with a cracked haft. Where each thing lies is decided case by case, by what makes the game better (2026-09-28): what would make the start too easy — the tools and supplies that solve the big problems — is not lying in plain sight in the first room, and no rule hides things away; everything else lies where it would really lie — a dead fish on the shore. Not too easy, not too hard.
 
 **Where the bags are** (Andrew, 2026-09-28): not with their owners. Some are in the back — the baggage
 bay, the aft bin, thrown into the tail — and some are under their owner's seat or beside them, as

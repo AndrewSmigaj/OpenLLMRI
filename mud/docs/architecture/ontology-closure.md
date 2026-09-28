@@ -102,8 +102,8 @@ Cataclysm DDA's tool-quality model, which has run thousands of recipes on the sa
 function is the whole engine's reach into the model, so closure lands everywhere at once.
 
 **The signifier rule.** A capability nobody can see is the top complaint across every
-property-based game we studied. Every load-bearing derived capability must show in the examine
-text: "a shard of glass, one edge wicked-sharp". Derived objects get **form-keyed generic prose**
+property-based game we studied, so what a derived thing is like must show in the examine text as
+sensory cues — "a shard of glass, one edge wicked-sharp" — never as its uses or a verb (2026-09-28). Derived objects get **form-keyed generic prose**
 (`"{material} shard, …"`) rendered through `narrator.render`; authored name-keyed entries in
 `appearance.py` override it.
 

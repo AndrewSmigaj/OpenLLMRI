@@ -55,6 +55,9 @@
 - **No moral tags** (2026-09-16, 2026-09-28): acts are not tagged as immoral, neutral or taboo; after
   the run, a language model reads the playthrough and describes what happened (document 15 rule 6).
 - **What counts as a wall** (2026-09-18): five categories, counted separately (document 05 §4.5a).
+- **After agents play** (2026-09-28), other language models analyse their playthroughs, and the agent
+  players answer a brief questionnaire — part of fleshing out and balancing the world, and how the
+  places that need a hint are found (document 04).
 - **The runs end rescued or dead** (2026-09-17) — nothing else; the things that cause death increase
   instead of any time barrier (2026-09-07; document 21).
 

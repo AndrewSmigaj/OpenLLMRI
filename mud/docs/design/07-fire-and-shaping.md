@@ -96,8 +96,9 @@ shape a quantity of material takes; materials say what a thing is made of, forms
 in, and **capabilities** (`edge`, `point`, `leverage`, `ignition`, `flame`, `ember`, `tinder`, …) fall
 out of the pair via `world/sim/affordances.derive(entity, materials)`. Capped (a derived level never
 exceeds the material or form tier), authored wins (an explicit `state[axis]` overrides the derived
-value; the multitool and hatchet stay hand-tuned), and every load-bearing capability has to show in the
-examine text — "a shard of glass, one edge wicked-sharp" — because a capability nobody can see is the
+value; the multitool and hatchet stay hand-tuned), and what a thing is like has to show in the examine
+text as sensory cues, never its uses — "a shard of glass, one edge wicked-sharp" — because a capability
+nobody can see is the
 top complaint across every property-crafting game this design draws on.
 
 The forms — the code's 26, canonical (Andrew, 2026-09-18), and like every list here a floor the loops

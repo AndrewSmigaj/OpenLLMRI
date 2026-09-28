@@ -236,9 +236,8 @@ The rules, in plain words:
 - **Capped**: a derived level never exceeds the lower of the material's and the form's own ceiling —
   free composition must not mint an exploit. **Authored wins**: an explicit `state["edge"]` on an
   object overrides the derivation, which is how the golden tools stay hand-tuned.
-- **The signifier rule**: every load-bearing capability must show in the examine text — "a shard of
-  glass, one edge wicked-sharp". A capability nobody can see is the standard failure of this kind of
-  system.
+- **The signifier rule**: what a thing is like shows in its examine text as a couple of sensory cues — "a shard of glass, one edge wicked-sharp" — never what to do with it (2026-09-28; document 03 §4.6). A capability nobody can see is the standard failure of
+  this kind of system; naming its uses is a menu.
 
 ### 4.6 How a row is authored
 

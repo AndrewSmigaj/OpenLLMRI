@@ -155,7 +155,7 @@ What is aboard is the design's call, and it is set so the run is neither too eas
 
 Realism supplies the inventory; the crash supplies the difficulty: the tail tore off two hundred
 metres back up the scar, the hatchet's haft snapped, the nurse's matches damp, the sleeping bag took avgas.
-The more a thing solves, the farther, deeper or more broken the crash left it.
+Where each thing lies is decided case by case, by what makes the game better (2026-09-28): what would make the start too easy — the tools and supplies that solve the big problems — is not lying in plain sight in the first room, and no rule hides things away; everything else lies where it would really lie — a dead fish on the shore.
 
 Conditions: the first week of October; daylight, temperature, snow and ice day by day are document 13
 §4.2. The search starts in the wrong place, and search and rescue is searching (document 14 §3.5).

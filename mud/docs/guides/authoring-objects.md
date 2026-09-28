@@ -60,7 +60,8 @@ Give a `state["form"]` when the shape matters: the multitool is a `blade`, a bot
 branch is a `rod`, paracord is `cord`. The engine derives capabilities (edge, point, heft, leverage,
 cordage, sheet, vessel, reflective, …) from **material × form × state**, capped at min(material tier,
 form tier). An explicit `state["edge"]` (etc.) overrides the derivation — that is how the golden tools
-stay hand-tuned. **Every load-bearing capability must show in the examine text** (the signifier rule).
+stay hand-tuned. **What a thing is like must show in the examine text as a couple of sensory cues —
+never its uses or a verb** (the signifier rule, document 03 §4.6).
 
 ## Prose (`appearance.py`)
 Each object gets an entry keyed by `sim_id`: its home `space` in the zone, `anchor` (leads its space as a
@@ -68,8 +69,9 @@ full sentence), `scene` (a noun phrase carrying CHARACTER, not position — the 
 `examine`, `read`, `aggregate`. State-conditioned variants are `[(state_subset | None, text), …]`, first
 match wins. Derived objects (shards, strips, scraps) read from **form-keyed generic templates**
 (`"{material} shard, one edge wicked-sharp"`), which a name-keyed entry can override. Tell/hide rule:
-show functional flavour; never leave a load-bearing item lying in the open — it lives INSIDE something
-(DR-24), earned by `open` / `search` / `dig`.
+what is inside a closed or unsearched thing stays out of the prose until `open` / `search` / `dig`
+earns it (DR-24). Where each thing lies is decided case by case for the game — no rule puts useful
+things inside others (document 17 §4.2).
 
 ## Checklist (what `make validate` enforces)
 - [ ] every material id exists in the table; every attachment is in the taxonomy
