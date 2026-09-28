@@ -31,7 +31,8 @@
   bag is buried with the tail wreckage; two blankets are hidden inside the plane; there is no firearm.
   One of the packs holds a few very basic supplies — iodine tablets, only a couple of days' worth — for
   whoever takes the time to rummage through the plane and the wreckage; a sewing needle and thread are
-  aboard. Not too easy, not too hard.
+  aboard; a tarp is aboard, to help seal the openings the crash tore in the plane — branches and
+  anything else that covers serve too, and a lean-to is in. Not too easy, not too hard.
 - **2026-09-27 — the battery and the radio.** The plane's battery is in the nose, wired and fine. The
   radio is a hand radio in the plane's cabin, and its batteries are buried in a bag in the tail section
   (document 14 §3.2).
@@ -83,7 +84,7 @@ on the per-run seeded stream (DR-12), and the deal is logged like every other se
 | **the townie** | 1A | denim jacket, cotton hoodie, jeans, sneakers, no gloves | phone (light, clock, a dead battery by day 2), wallet (cash, cards, ID — paper), gum, keys, earbuds (wire) | a cut forearm (bleeding; the census wound) | a soft suitcase: cotton clothes, a towel, toiletries (floss = cordage; razor = edge; sanitizer = fire starter; tampons = tinder + wound packing; a travel sewing kit — a needle and a card of thread), a paperback |
 | **the nurse** | 1B | fleece jacket, hiking boots, a scarf, thin gloves | a small med pouch (gauze, tape, ibuprofen, a suture kit — she knows how; the player still types each act), lip balm (wax), hair ties (cordage), a pen | a sprained ankle (walking costs double; splint it) | a backpack: canteen, spare shirt, a wool sweater, a headnet, a book of matches, a part-used bottle of iodine tablets |
 | **the salesman** | 2A | wool overcoat, dress shoes, leather gloves, a good scarf | a metal lighter, a hip flask (whisky), reading glasses (a lens! sun only), a notebook (paper) | concussion (fatigue faster; confusion messages the first day) | a laptop bag: laptop (battery — sparks, heat, then dead), cables (wire), a metal water bottle, snacks, a wool blanket |
-| **the kid** (16) | 2B | ski jacket, snow pants, snow boots, mittens | a phone, a candy bar, a multitool (a gift), sunglasses (snow blindness) | shock: fine physically, slower to act day one | a duffel: hockey gear (a stick = a rod; tape = tape; pads = foam), a sleeping bag |
+| **the kid** (16) | 2B | ski jacket, snow pants, snow boots, mittens | a phone, a candy bar, a multitool (a gift), sunglasses | shock: fine physically, slower to act day one | a duffel: hockey gear (a stick = a rod; tape = tape; pads = foam), a sleeping bag |
 
 *(The kid's sleeping bag and the salesman's blanket are the sleeping bag and one of the two blankets
 Andrew placed on 2026-09-27 — see §4.3's note.)*
@@ -166,7 +167,8 @@ The plane's **battery is in the nose, wired and fine** (Andrew, 2026-09-27); it 
 hand radio (document 14 §3.7). There is no survival kit (§4.3). *(Proposed by Claude, for Andrew's
 check:)* the iodine tablets are in the nurse's backpack — a part-used bottle of about twelve, two to a
 litre of water, so about six litres: a couple of days for one person, less than a day for the party;
-the sewing kit is in the townie's toiletry bag.
+the sewing kit is in the townie's toiletry bag; the tarp — a folded blue plastic tarp, about 3 × 4 m —
+is in the baggage bay under the cargo net, with the freight.
 
 ### 4.6 The interior (the 206)
 

@@ -55,6 +55,9 @@
   real at the game's 15×: a cut artery leaves seconds of real time.
 - **(2026-09-27)** **Whisky in a wound and over the needle are in** — the film scene — with their
   real result; boiled or iodine-treated water rinses a wound (§4.1 rule 4, §4.8).
+- **(2026-09-27)** **No snow blindness**: the sky is always at least partly cloudy. **Carbon monoxide
+  builds only where a space does not breathe enough for its fire** — by real physics: a small fire in
+  a can with some ventilation is different from a big one in a sealed plane (§4.4).
 - **(2026-09-27)** **Each real first-aid act is its own act** — press (held, an activity that ties up
   the hands), pack, a tight bandage, a tourniquet, raising the limb, rinsing, picking out grit,
   rewarming, splinting, stitching, carrying and dragging — each with its everyday names (§4.1 rule 5,
@@ -164,12 +167,11 @@ sanitizer are the alcohol, and both are also fuel.
 The set the system honours — a floor, not a list of what can happen: **bleeding · a broken limb ·
 concussion · burns · frostbite · hypothermia · infection · shock · dehydration · smoke inhalation ·
 exhaustion** — and, because they are real here, **non-freezing cold injury, contact frostbite,
-cold-water immersion, snow blindness, carbon monoxide, bites and maulings, blows and stab wounds,
+cold-water immersion, carbon monoxide, bites and maulings, blows and stab wounds,
 poisoning, and the blisters, splinters and cuts of work in a wreck** (§4.6). Frostbite and hypothermia
 are the warmth system's failures with a location; burns and smoke inhalation are fire's; dehydration
 and exhaustion are the other survival clocks'.
 
-*(Proposed by Claude, for Andrew's check.)*
 - **Frostbite** is a part's `heat` below about −0.5 °C (document 08's extremities; the heat design). It
   whitens a finger first; bare hands and feet drive it. The care is the survivor's act, and real:
   rewarm against warm skin (an armpit, a belly) or in water at 37–39 °C; never rub; and **never thaw a
@@ -177,21 +179,17 @@ and exhaustion are the other survival clocks'.
   frozen feet may be right to walk first (WMS frostbite guidelines, 2024). The nurse's ibuprofen is real
   field treatment for frostbite. Blisters come in the hours after rewarming; dead tissue takes weeks to
   show, longer than the run.
-- **Snow blindness** is a dose of UV on the eyes: the sun (by date, hour and cloud) × the snow's
-  reflection (fresh snow reflects up to 80–90%) × the hours unprotected. It shows **6–12 hours later** —
-  typically waking in the night with burning, gritty eyes — and heals in a day or two in the dark. This
-  week the sun is low, so it is uncommon, and likeliest on the clear days after the storm, on fresh
-  snow in the open (document 13 §4.2). The kid's sunglasses are one answer among real ones: slit
-  goggles cut from bark, cardboard, leather or cloth, and soot under the eyes. Physics with improvisable
-  answers, not a gotcha.
-- **Carbon monoxide** is a gas in a zone's air. A fire in a closed space makes it — a smouldering or
-  banked fire more than a bright one — and the plane's openings let it out (the plane is an entity with
-  openings, open or closed, 2026-09-26). A body takes it up and gives it back only slowly, over hours of
-  fresh air: headache and nausea first, then confusion, then collapse, and, left to build, death — by
-  the level rising in the blood over hours, never at once (2026-09-27). *(Proposed by Claude, for
-  Andrew's check:)* a body getting worse wakes a sleeper, as the cold already does (document 06), so
-  there is time to respond. It is why blocking every gap is not free. Owned by the heat design (the air
-  in enclosed zones).
+- **Carbon monoxide** is a gas in a zone's air, and it builds only where the space does not breathe
+  enough for the fire in it (2026-09-27) — real physics: the level is what the fire puts out against
+  what the openings let out (the plane is an entity with openings, open or closed, 2026-09-26). What
+  the fire puts out depends on its size and how well it burns — a smouldering, banked or starved fire
+  makes far more than a small bright one. A small fire in a can with a gap left open near it is how
+  people really heat a shelter; a big fire in a plane sealed tight is how they poison themselves. A
+  body takes it up and gives it back only slowly, over hours of fresh air: headache and nausea first,
+  then confusion, then collapse, and, left to build, death — by the level rising in the blood over
+  hours, never at once (2026-09-27). A body getting worse wakes a sleeper, as the cold does (document
+  06), so there is time to respond. It is why sealing every gap is not free. Owned by the heat design
+  (the air in enclosed zones).
 - **Hypothermia's confusion** is clumsiness, slowness and poor judgment — the body can fail at an act,
   and the engine never performs one the player did not type (§4.11).
 
@@ -205,7 +203,7 @@ any of it kills, it takes the labour that keeps everyone else alive — *a body 
 stay warm.* Nothing kills instantly (§4.6).
 
 The Bodies cards of the event deck (document 13 §4.3) make it visible: a wound infects; frostbite
-whitens a finger; snow blindness; hypothermia's clumsiness; dehydration headaches; the hunger stages.
+whitens a finger; hypothermia's clumsiness; dehydration headaches; the hunger stages.
 
 ### 4.6 The body, and everything that can hurt it
 
@@ -274,7 +272,7 @@ from half an hour to days later, spending water. Very sick, never dead — hours
 | heat | burns: skin is damaged above about 44 °C, slowly at first and almost at once as the temperature climbs — a hot stone held too long, the boiling pot, the fire | document 07; **the heat design** |
 | the air in a closed space | carbon monoxide from a fire in the fuselage; smoke; toxic smoke from burning foam (document 07's foam warning) | **the heat design** (the plane's openings and internal air) |
 | the gut | the hemlock root and the baneberry (document 23), the bulged can, rotten meat, fuel-tainted water (document 09) | documents 10, 23, 09; **the food-state and spoilage design, to be written** |
-| the eyes | snow blindness (§4.4), smoke, sparks from the ferro rod or the hatchet on quartz | this document |
+| the eyes | smoke, sparks from the ferro rod or the hatchet on quartz | this document |
 | work | blisters from the bow drill, splinters, cuts from torn aluminium, a strained back | the activity that caused it (document 06) |
 
 **The animals are real animals.** Alaska's record for brown bears (1986–1996) is about 2.75 people
@@ -312,8 +310,6 @@ and the world teaches it by happening in it.
 - OSHA confined-space handout, *Effects of Carbon Monoxide at Different Concentrations*.
 - Giesbrecht's 1-10-1 principle of cold-water immersion.
 - Moritz & Henriques, *Studies of Thermal Injury II* (Am. J. Pathology, 1947) — burn threshold ~44 °C.
-- The College of Optometrists and the American Academy of Ophthalmology — photokeratitis shows 6–12
-  hours after exposure and heals in 24–48; fresh snow reflects up to 80–90% of UV.
 - UpToDate / *Nonfreezing Cold Injury (Trench Foot)* — 0–15 °C, days (as little as 10–14 hours).
 - Occupational studies of hand cooling — marked loss of dexterity below ~15 °C finger skin; numb
   below ~7 °C; tissue freezes at about −0.55 °C; supercooled fuel causes instant frostbite.
@@ -492,7 +488,9 @@ None open.
   shirt makes a dressing; a few iodine tablets in one of the packs and a sewing needle and thread
   aboard. Item 4 — whisky in a wound and over the needle are in, the film scene, with their real
   result; boiled or iodine-treated water rinses a wound. Item 5 — each real first-aid act its own act,
-  pressing held.
+  pressing held. Item 6 — frostbite and hypothermia as proposed; no snow blindness, since the sky is
+  always at least partly cloudy; carbon monoxide only where the space does not breathe enough for the
+  fire, by real physics; a tarp aboard for sealing the crash's openings.
 
 ## 8. What exists today
 
@@ -523,7 +521,7 @@ None open.
 - Treatment as an act on a *wound*: `press`, `pack`, `splint`, `stitch`, `clean` —
   the first-aid kit's contents have no use-verb yet.
 - The injuries the world can *inflict*: frostbite from bare regions, burns, hypothermia, smoke
-  inhalation, exhaustion, snow blindness, carbon monoxide.
+  inhalation, exhaustion, carbon monoxide.
 - Carrying an injured person.
 - Wounds affecting what a character can do — the notes ("walking costs double", "heavy work is slow")
   are authored prose that nothing reads.

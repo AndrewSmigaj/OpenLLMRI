@@ -62,6 +62,9 @@
 - **(2026-09-27)** Players see **meters** for what a person can sense about their own body — people
   are not cut off from their own senses: seven bars with no numbers in the prompt line — hunger,
   thirst, warmth, rest, pain, stamina and blood. The `status` screen stays (§4.9).
+- **(2026-09-27)** A tarp is aboard, to help seal the openings the crash tore in the plane; branches
+  and anything else that covers serve too, and a lean-to is in (document 16). Carbon monoxide builds
+  only where the space does not breathe enough for its fire (document 11 §4.4).
 
 ### Proposals (Claude)
 

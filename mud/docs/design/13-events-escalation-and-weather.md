@@ -185,7 +185,7 @@ and the combat system answer (§4.4).
   day 3): near-whiteout in the open · the storm easing (day 4 afternoon) · the wind shift behind the
   low (day 5), drifting · the clearing and the cold: the inversion nights, the lake shore and the
   muskeg coldest (days 6–7) · steam fog over the open riffle in the cold · sun break on fresh snow (the
-  mirror window, and snow blindness) · a second, smaller system (days 9–10).
+  mirror window) · a second, smaller system (days 9–10).
 - **The animals** (actors — document 23 owns which): **the bear**, feeding hard before its den — its
   sign before it (tracks in the new snow, a torn-apart log, scat full of berries, claw marks on the
   fuselage, ravens and jays gathered over something); drawn by the pilot's body, the freight's food,
@@ -214,7 +214,7 @@ and the combat system answer (§4.4).
 - **Bodies**: the pilot's body from the first minute — cooling, stiffening, freezing from the skin
   inward over the clear nights, a smell the bear and the ravens follow (document 12 §4.3a) · wet
   clothes from the first wet snow · a wound infects · frostbite whitens a finger in the cold behind
-  the storm · snow blindness in the low sun on fresh snow · hypothermia's clumsiness and poor judgment
+  the storm · hypothermia's clumsiness and poor judgment
   (the body fails at acts; the engine never acts for a player — document 11 §4.11) · dehydration
   headaches · the hunger stages.
 - **Camp**: the fire dies on an untended watch · the drift buries the entrance · the new pond ice
@@ -319,7 +319,7 @@ it.
 | visibility | metres | perception (document 19) — `visual_band` derives from it; whether a search crew can see anything |
 | cloud | cover and ceiling height | whether search aircraft fly low (document 14's flyover schedule); whether the sun or the moon is out; how far a night falls |
 | pressure | hectopascals | the altimeter in the cockpit, read as the barometer it is |
-| sun and moon | height and bearing from the date, the hour and the latitude; the moon's phase | light — daylight, twilight, moonlight on snow; a mirror flash; focus fire (document 07); snow blindness |
+| sun and moon | height and bearing from the date, the hour and the latitude; the moon's phase | light — daylight, twilight, moonlight on snow; a mirror flash; focus fire (document 07) |
 
 **Each zone and each water body:**
 

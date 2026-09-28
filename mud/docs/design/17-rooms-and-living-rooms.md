@@ -286,9 +286,13 @@ smokes, so an opening must stay open, and the openings do double duty — shut t
 breathe. It makes carbon monoxide; burning seat foam makes the most poisonous smoke in the material
 table (document 18); aluminium melts in the coals (from about 600 °C); and warming the shell turns the
 frost that everyone's breath has laid on the inside of the cold skin into drips, which is how the
-inside of a heated wreck gets wet. Carbon monoxide builds by the physics — headache, dizziness, nausea, confusion, a fire that burns
-poorly for want of air — and, left to build, kills over hours, never at once (2026-09-27; document 11
-§4.4). Opening an opening,
+inside of a heated wreck gets wet. Carbon monoxide builds only where the space does not breathe
+enough for the fire in it (2026-09-27): the level is what the fire puts out — more from a big, banked
+or starved fire — against what the openings let out, so a small fire in a can with a gap open is a
+different thing from a big one in a sealed plane. It brings headache, dizziness, nausea, confusion and
+a fire that burns poorly for want of air, and, left to build, kills over hours, never at once
+(document 11 §4.4). Sealing the crash's openings — the tarp aboard, branches, anything that covers
+(document 16) — keeps heat in and brings the price closer. Opening an opening,
 banking the fire and keeping someone awake on watch (document 06) are the real answers to it.
 
 **Outdoors, a zone is an entity too**: its ground (soil, moss, rock — frozen to a depth that grows every
