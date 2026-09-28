@@ -31,6 +31,10 @@
   series of tutorial rooms, each one simple situation, shows players what sort of things they can do
   (`PLAN.md` E19).
 - **(2026-09-27)** Poison and bad meat make people very sick but never kill (document 11 §4.6).
+- **(2026-09-28)** The acts on a body are the general system, and anything reasonable that follows the
+  grammar works on it (§4.3). Taking a body's clothes off is an activity that takes time. A search aimed
+  at one place — `search the pilot's pockets`, `search the pilot's jacket` — works, because the world
+  is ontologically sufficient. There is no trust meter.
 
 ### Proposals (Claude)
 Everything else here is Claude's, for Andrew's check: the acts on the body (§4.3), the body in the
@@ -69,13 +73,14 @@ layer's "possible, priced, witnessed, logged" (document 15).
 
 ### 4.3 The body — the acts
 
-*(Proposed by Claude, for Andrew's check.)* The dead pilot is an ordinary physical thing made of a
-person's body, and every act below is the general system applied to him, not pilot-specific code.
+The dead pilot is an ordinary physical thing made of a person's body, and every act below is the
+general system applied to him, not pilot-specific code (2026-09-28). Anything reasonable that follows
+the grammar works on him, as on everything else (document 05).
 
 | the act | what it is | source |
 |---|---|---|
-| `search pilot` | the pocket contents — a lighter, one of the fire paths | census `pilot (body) — frisk` ✅; `objects.py` (`lighter` is `in: pilot`) |
-| `remove jacket from pilot` | a leather flight jacket — insulation the material table calls middling; his boots, gloves and watch are still to be authored | `objects.py` (the jacket on the pilot) |
+| `search pilot` | the pocket contents — a lighter, one of the fire paths. *(Proposed by Claude, for Andrew's check — the question is Andrew's, 2026-09-28:)* an **attended activity** (document 06) that goes through him a garment and a pocket at a time — his jacket, his shirt pocket, his trousers — a line for each, and what it finds as it finds it; `stop` ends it with what was searched banked on him, so anyone can finish it; what cannot be reached says so (his back pockets are under him in the seat until he is moved or rolled). A search aimed at one place is its own act: `search the pilot's pockets`, `search the pilot's jacket`, `search his inside pocket` (2026-09-28) | census `pilot (body) — frisk` ✅; `objects.py` (`lighter` is `in: pilot`) |
+| `remove jacket from pilot` | a leather flight jacket — insulation the material table calls middling; his boots, gloves and watch are still to be authored. Taking a body's clothes off is an **attended activity that takes time** (2026-09-28) — longer through rigor, and it needs a cut once he is frozen | `objects.py` (the jacket on the pilot) |
 | `cover pilot with blanket` | a covered body — it keeps the birds off and hides him; no reward is invented for it, and a blanket on him is a blanket not on the living | document 15 |
 | `butcher pilot with knife` | the food path: an attended activity made of real cuts (§4.3a), witnessed by whoever is in perception band | document 15 |
 | `examine pilot` | states plainly that he is dead | census ✅ (prose) |
@@ -83,8 +88,8 @@ person's body, and every act below is the general system applied to him, not pil
 **The pilot's body as a dilemma** (document 15): day 1 evening, no food found, cold rising; the
 tempting act is butchering him for meat; the alternative is to cover or bury him, ration, and accept
 the deficit. The world's answer is physical and recorded, never editorial: his body's states change
-(§4.3a), the act is witnessed by whoever could perceive it, and other players' trust shifts only on
-witness or disclosure. Eating him is taboo, not immoral (2026-09-27). The hunger bands are what make the
+(§4.3a), the act is witnessed by whoever could perceive it, and the other players know only what they
+saw or were told — what they think of it is theirs; there is no trust meter (document 15). Eating him is taboo, not immoral (2026-09-27). The hunger bands are what make the
 choice live — hungry enough to look at the pilot.
 
 The engine work this needs is general: persons as targets for `cover`, `search`, `butcher` and

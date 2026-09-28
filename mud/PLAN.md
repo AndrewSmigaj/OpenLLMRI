@@ -35,6 +35,9 @@ it.
 2. A10 — the missing systems' documents (combat, heat, hunting/trapping/fishing, food state, animal
    behaviour, scent, light, weather, snow and ice on the ground, physiology, the tutorial rooms); A11 — the
    GDD's vision, which Andrew finds too small.
+3. **How we implement it** (Andrew, 2026-09-28) — once the design is done, Claude drafts how each system
+   will be built, with suggestions, and Andrew reviews it before anything is built: some of what the
+   design asks for needs care.
 
 **Standing corrections Claude owes the work** (in memory and in the writing rules): never quote the
 conversation in the repository — it is public; show the current design only and carry every decision to
@@ -409,6 +412,8 @@ it says so. When a decision changes, this list and every document it touches cha
 - The store is `docs/ontology/` as YAML; the schema is designed in full up front; the two models build it
   as peers and the merge never drops; walls per run are counted in five categories; goal lenses plus human
   lenses. (2026-09-16, 2026-09-18)
+- **Ontologically sufficient** means anything reasonable that follows the grammar works — basically
+  anything a language model playing the game would think to do (document 05). (2026-09-28)
 
 **Rescue** (document 14 §3) — three ways: the radio, a signal a plane can see, surviving long enough.
 - **The ELT is broken.** (2026-09-27)
@@ -443,6 +448,8 @@ it says so. When a decision changes, this list and every document it touches cha
 - One GDD; the old seed design and the investigation scratchpads are removed from the repository (git
   keeps them). Documents present the current design only, never quote the conversation, and every
   decision is carried to every document it touches. (2026-09-27)
+- After the design, an implementation plan with suggestions, for Andrew's review before anything is
+  built. (2026-09-28)
 
 ### Open with Andrew
 Nothing open. The next sitting checks, document by document, the answers Claude proposed.
