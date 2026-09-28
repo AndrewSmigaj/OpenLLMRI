@@ -58,6 +58,10 @@
 - **(2026-09-27)** **No snow blindness**: the sky is always at least partly cloudy. **Carbon monoxide
   builds only where a space does not breathe enough for its fire** — by real physics: a small fire in
   a can with some ventilation is different from a big one in a sealed plane (§4.4).
+- **(2026-09-28)** **The body as an entity with parts and states** (§4.6) — the same for the living,
+  the pilot and a dead player; every source of injury on its real clock. **The cold hurts above all
+  through getting wet — the whole body**: breaking through the ice, the flurries, the creek, and sweat,
+  which keeps you warm while you work and chills you once you stop.
 - **(2026-09-27)** **Each real first-aid act is its own act** — press (held, an activity that ties up
   the hands), pack, a tight bandage, a tourniquet, raising the limb, rinsing, picking out grit,
   rewarming, splinting, stitching, carrying and dragging — each with its everyday names (§4.1 rule 5,
@@ -207,8 +211,7 @@ whitens a finger; hypothermia's clumsiness; dehydration headaches; the hunger st
 
 ### 4.6 The body, and everything that can hurt it
 
-*(Proposed by Claude, for Andrew's check — except the rule of what kills and the bleeding clocks,
-which are Andrew's, 2026-09-27.)* Injury has many sources — a combat system like a MUD's, a bear and other animals that
+Injury has many sources — a combat system like a MUD's, a bear and other animals that
 act, dangerous places, the ice, the cold in the extremities — and all of them act on the same thing:
 **the body, as an entity in the ontology** (document 05 §4.5), whose parts carry states that systems
 change. A living player, the dead pilot and a dead player are the same kind of entity (document 12
@@ -286,8 +289,10 @@ this table's.
 degrees above freezing, falling below it by the end, and every night is below it, colder as the week
 goes, down to the clear night after the day-6 flurry, the coldest of the run (document 13 §4.2), but
 frostbite from the air alone needs a wind chill near −28 °C to strike in half an hour (the National
-Weather Service chart). So this week the cold injures through **wet** (hands and feet soaked in the wet
-flurries, the creek, the ice), **contact** (metal, fuel), **immobility** (the injured and the sleeping)
+Weather Service chart). So this week the cold injures above all through **wet** — the whole body, not only hands and feet
+(2026-09-28): clothes soaked through by breaking through the ice, by the wet flurries and the creek,
+and by sweat, which keeps a body warm while it works and chills it once the work stops (document 08) —
+**contact** (metal, fuel), **immobility** (the injured and the sleeping)
 and **tight boots** — and non-freezing cold injury in feet that stay wet for days is the week's own.
 That is the real order, and the world teaches it by happening in it.
 
@@ -493,6 +498,9 @@ None open.
   pressing held. Item 6 — frostbite and hypothermia as proposed; no snow blindness, since the sky is
   always at least partly cloudy; carbon monoxide only where the space does not breathe enough for the
   fire, by real physics; a tarp aboard for sealing the crash's openings.
+- **2026-09-28 (Andrew, the document's sitting, continued):** item 7 — the body as proposed; the cold
+  hurts above all through getting wet, the whole body — the ice, the flurries, sweat once the work
+  stops.
 - **2026-09-27** — the no-storm week carried in (document 13 §4.2).
 
 ## 8. What exists today

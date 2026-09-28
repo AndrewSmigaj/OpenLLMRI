@@ -42,6 +42,9 @@
   not a bespoke breach verb.
 - **(2026-09-18)** Sweat is in, surfaced only through the clothing line ("you are sweating in the
   parka") and its later cost — never as a warning.
+- **(2026-09-28)** Getting wet is how the cold hurts most — the whole body, not only hands and feet:
+  breaking through the ice, the wet flurries, the creek, and sweat, which keeps a body warm while it
+  works and chills it once the work stops.
 - **(2026-09-18)** Sleeping without shelter is survivable but expensive — roughly the cost of a day's
   work.
 - **(2026-09-18)** Heated stones and a warm vessel are in.
