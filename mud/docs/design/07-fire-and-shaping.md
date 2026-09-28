@@ -36,8 +36,8 @@
 - **(2026-09-18)** This document's stage ladder — `unlit lay → catching → burning → established →
   embers → dead` — is the design; the older ladder in `systems/fire.py` is reconciled to it.
 - **(2026-09-26)** Heat is a state system: a fire heats its area and leaves residual heat around it;
-  the plane is an entity with openings, open or closed, and an internal heat that a fire inside raises
-  (document 17 §4.8; the heat system's own document is `PLAN.md` A10).
+  the plane's cabin is rooms like any others, with openings, open or closed, and a shared internal heat
+  that a fire inside raises (2026-09-28; document 17 §4.8; the heat system's own document is `PLAN.md` A10).
 - **(2026-09-27)** Characters differ in how well and how fast they do things: a woodsman lights fires
   better (document 16).
 - **(2026-09-17, 2026-09-27)** Fire and smoke are rescue signals — rubber, oil and green boughs make

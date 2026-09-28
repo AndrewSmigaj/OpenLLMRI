@@ -59,8 +59,8 @@
 - **(2026-09-18)** You hear your shelter leaking: the tail wreckage and the torn-open parts of the
   plane give feedback, such as hearing the wind blow in (§4.8).
 - **(2026-09-26)** Heat is a state system: heat on every entity, body parts included; a fire heats its
-  area and leaves residual heat around it; the plane is an entity with openings, open or closed, and
-  an internal heat (document 17 §4.8).
+  area and leaves residual heat around it; the plane's cabin is rooms like any others, with openings,
+  open or closed, and a shared internal heat (2026-09-28; document 17 §4.8).
 - **(2026-09-27)** The season is the first week of October in interior Alaska, with the same weather
   every run; the temperatures, wind and snow by day are document 13 §4.2.
 - **(2026-09-27)** Aboard: the sleeping bag is buried with the tail wreckage; two blankets are hidden
@@ -218,7 +218,7 @@ proposals. Up to five play, and a seat nobody plays is a dead character whose cl
 be searched (2026-09-27). The warmth-relevant shape: a guide in a down parka, wool base layer,
 insulated boots, gloves and a wool hat; a townie in a denim jacket, cotton hoodie, jeans and sneakers
 with **no gloves**; a nurse in fleece and hiking boots with thin gloves; a salesman in a wool overcoat
-and **dress shoes**; a kid in a full ski outfit and mittens. *What a player wears at the crash is the
+and **dress shoes**; a kid in a hoodie, a thin windbreaker, jeans and sneakers, his snow gear packed in a duffel out in the tail wreckage (2026-09-28). *What a player wears at the crash is the
 largest single determinant of the first night* — and the spread is what makes giving away your gloves
 an act rather than a transaction.
 
@@ -241,7 +241,7 @@ carries, as authored data *(the bands and scores are proposals)*:
 - **a roof score** — how much sky is over you: bough cover, hull, a lean-to's thatch, a big
   spruce's skirt. A roof cuts radiant loss and stops falling snow wetting you.
 
-**Inside the plane, shelter comes from the plane as an entity** (Andrew, 2026-09-26). Each opening is
+**Inside the plane, shelter comes from the cabin's rooms** (Andrew, 2026-09-26, 2026-09-28). Each opening is
 a part with an area and a state — open · partly blocked · blocked · closed · jammed · iced shut — and
 the cabin is one air volume with one internal heat, which bodies and a fire raise and the skin and the
 open openings lose (document 17 §4.8). The wind and roof a body feels inside are read off the

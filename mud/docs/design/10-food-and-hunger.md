@@ -26,8 +26,8 @@
 - **(2026-09-26)** Hunger works as it does in real life.
 - **(2026-09-26)** Cooking is part of a heat and state system, done properly: snow melts into water;
   food changes with heat, as part of what each object is; body parts have heat in their ontology; a
-  fire heats its area and leaves residual heat in other areas; the plane is an entity with openings
-  flagged open or closed, and a fire inside raises its internal heat. All of it belongs to designing
+  fire heats its area and leaves residual heat in other areas; the plane's cabin is rooms with openings
+  flagged open or closed, and a fire inside raises their shared internal heat. All of it belongs to designing
   the fire and heat system.
 - **(2026-09-26, 2026-09-27)** Raw, cooked and spoiled food differ. Most fresh raw meat does not make
   anyone sick; rotten meat does — a fish left too long, an animal found long dead. There should be at

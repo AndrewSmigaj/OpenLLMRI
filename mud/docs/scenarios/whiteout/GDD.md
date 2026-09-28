@@ -262,8 +262,8 @@ One chapter per system; each is its own document, reviewed separately.
   friction works — the trough, the hand drill, the bow drill — at a cost in stamina (2026-09-28). Ignition needs the right source for the right
   material in the right form (a lighter lights tinder, not a branch); fire is a process with a stage ladder; seven methods, each priced by what
   it costs. Heat is a state on every entity, body parts included: a fire heats its area and leaves
-  residual heat around it, and the plane is an entity with openings, open or closed, and an internal
-  heat (2026-09-26). Document 07.
+  residual heat around it, and the plane's cabin is rooms with openings, open or closed, and a shared
+  internal heat (2026-09-26, 2026-09-28). Document 07.
 - **Warmth, clothing and shelter** — cold is the antagonist; clothing by region and wetness; the huddle;
   shelter as a property of a place, heard through its openings. There is no guaranteed floor: night one
   is survivable inside the wreck in the clothes they crashed in; from night two they need a heat source,

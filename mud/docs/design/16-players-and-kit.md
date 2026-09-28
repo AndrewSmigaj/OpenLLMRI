@@ -1,6 +1,6 @@
 # 16 — Players and kit: the slots, draws, pockets, luggage, the 206 interior
 
-> **Status: draft for review.** Architecture counterpart:
+> **Status: reviewed with Andrew 2026-09-28.** Architecture counterpart:
 > [`../architecture/clothing-warmth.md`](../architecture/clothing-warmth.md) (DR-25; DR-25a's region,
 > wind and wet model is live in code — `warmth.py` — but not yet written into that document; see §8).
 
@@ -27,6 +27,9 @@
   flying. Characters differ in their clothes, their injuries and what they carry, and in how well and
   how fast they do things — a woodsman lights fires better; a technically proficient character sees a
   fault in a device.
+- **2026-09-28 — the kid wears ordinary clothes.** Full snow gear to sit in a plane makes no sense and
+  would make the start too easy; the guide is the one dressed warm. The kid's snow pants and mittens are
+  packed in his duffel in the tail wreckage.
 - **2026-09-28 — the bags are not with their owners.** Some are in the back, some under their owner's
   seat or beside them; where each is, the crash decides (§4.3). The cooler holds only a few frozen
   salmon fillets — a meal or two. What is under the seats is §4.6's list.
@@ -57,17 +60,9 @@
 
 ### Proposals (Claude)
 
-Everything else here is a proposal for review:
-
-- The five slots — the guide, the townie, the nurse, the salesman, the kid — and exactly what each
-  wears, carries in their pockets, is injured by, and finds in their bag (§4.1–§4.3).
-- The clothing model's mechanism — coverage by body region, the shell's wind and waterproof numbers,
-  the wet fraction, sweat, dexterity, movement, signal, sharing, and layers that go on only if they fit
-  (Andrew, 2026-09-28) (§4.4; designed in full in **08 — Warmth, clothing and shelter**).
-- The interior's specific furniture beyond the four seats — the baggage bay, the panel and every named
-  object inside (§4.5–§4.6).
-- What this asks of the engine (§4.7), the lens pass (§4.8), and the early-October check of what these
-  people wear, carry and fly with (§4.9).
+None left open: the slots, their clothes, pockets, injuries and bags, the luggage and where it lies,
+the cabin and what is under the seats, carrying, and the early-October check were accepted at the
+2026-09-28 sitting, with Andrew's changes. The clothing mechanism is document 08's.
 
 ---
 
@@ -75,7 +70,7 @@ Everything else here is a proposal for review:
 
 You come to belted into a seat you did not choose, wearing whatever you happened to have on when you
 got on the plane, with whatever was in your pockets — almost none of it meant for this. One of you has
-a parka, a pocketknife and a few bruises; one has a ski jacket, mittens and a duffel full of hockey gear;
+a parka, a pocketknife and a few bruises; one has a hoodie, a windbreaker and a duffel full of hockey gear somewhere in the wreck;
 one has a denim jacket, no gloves, and a phone that is, for now, the party's only clock and light. What
 you are wearing when the plane stops moving is the single biggest thing that decides whether you are
 cold tonight — and it is different for everyone, as is what each of you is good at, which turns "who
@@ -92,7 +87,7 @@ There is no survival kit, and nobody has a gun.
 A **slot** is a seat, plus what its occupant wore, carried, and suffered in the crash — no back story
 (Andrew, 2026-09-27). Five slots are authored. Up to five play; a seat nobody plays holds a dead
 character whose clothes, pockets and bag are there to search, and AI agents may play seats
-(2026-09-27). *(Proposed by Claude, for Andrew's check:)* the run seed deals the slots within each run,
+(2026-09-27). The run seed deals the slots within each run (2026-09-28),
 on the per-run seeded stream (DR-12), and the deal is logged like every other seeded draw (document
 20) — nothing is random at runtime beyond the seed, and nobody is the townie every run.
 
@@ -102,7 +97,7 @@ on the per-run seeded stream (DR-12), and the deal is logged like every other se
 | **the townie** | 1A | denim jacket, cotton hoodie, jeans, sneakers, no gloves | phone (light, clock, a dead battery by day 2), wallet (cash, cards, ID — paper), gum, keys, earbuds (wire) | a cut forearm (bleeding; the census wound) | a soft suitcase, in the baggage bay: cotton clothes, a canvas jacket with a lighter forgotten in its pocket, a towel, toiletries (floss = cordage; razor = edge; sanitizer = fire starter; tampons = tinder + wound packing; a travel sewing kit — a needle and a card of thread), a paperback |
 | **the nurse** | 1B | fleece jacket, hiking boots, a scarf, thin gloves | lip balm (wax), hair ties (cordage), a pen | minor bumps and bruises (sore for a day or two) | a backpack, behind the jammed aft bin: the med pouch (gauze, tape, ibuprofen, a suture kit — she knows how; the player still types each act), canteen, spare shirt, a wool sweater, a headnet, a book of matches (about eight, damp where the canteen leaked), a part-used bottle of iodine tablets |
 | **the salesman** | 2A | wool overcoat, dress shoes, leather gloves, a good scarf | a hip flask (whisky), reading glasses (convex — in sun, a lens that can light tinder), a notebook (paper) | concussion (fatigue faster; confusion messages the first day) | a laptop bag, under his seat: laptop (battery — sparks, heat, then dead), cables (wire), a metal water bottle, snacks, a wool blanket, an old metal lighter in a side pocket, its wick dry |
-| **the kid** (16) | 2B | ski jacket, snow pants, snow boots, mittens | a phone, a candy bar, sunglasses | minor bumps and bruises (sore for a day or two) | a duffel, in the tail wreckage: hockey gear (a stick = a rod; tape = tape; pads = foam), a sleeping bag, a multitool (a gift — a knife blade among its tools) |
+| **the kid** (16) | 2B | a hoodie, a thin windbreaker, jeans, sneakers — no hat, no gloves | a phone, a candy bar, sunglasses | minor bumps and bruises (sore for a day or two) | a duffel, in the tail wreckage: hockey gear (a stick = a rod; tape = tape; pads = foam), a sleeping bag, snow pants and mittens packed for later in the season, a multitool (a gift — a knife blade among its tools) |
 
 *(The kid's sleeping bag and the salesman's blanket are the sleeping bag and one of the two blankets
 Andrew placed on 2026-09-27 — see §4.3's note.)*
@@ -183,7 +178,7 @@ big tundra tyres — and the skis go on when there is snow to land on. The tyres
 rubber: black signal smoke, and a band that stretches for a sling.
 
 The plane's **battery is in the nose, wired and fine** (Andrew, 2026-09-27); it does not power the hand
-radio (document 14 §3.7). There is no survival kit (§4.3). *(Proposed by Claude, for Andrew's check:)*
+radio (document 14 §3.7). There is no survival kit (§4.3). Where the small supplies are (2026-09-28):
 the iodine tablets are in the nurse's backpack — a part-used bottle of about twelve, two to a litre of
 water, so about six litres: a couple of days for one person, less than a day for the party; the sewing
 kit is in the townie's toiletry bag; the tarp — a folded blue plastic tarp, about 3 × 4 m — is in the
@@ -219,10 +214,11 @@ laptop bag; under 2B, a phone charging cable and a crumpled chip bag.
   the yokes, the halon extinguisher, the magneto key in the ignition, the kneeboard with the manifest
   and the sectional chart.
 
-**The wreck is several things, each with its parts** (Andrew, 2026-09-26, 2026-09-28): the fuselage
-with its wing — the cabin, whose parts are the seats, the hat shelf, the baggage bay, the cargo door,
-the windows and the breach, each opening open or closed, with an internal heat (document 17 §4.8) —
-the tail section torn off up the scar, and the pieces strewn along the debris trail. The interior is
+**The cabin is rooms like any others** (Andrew, 2026-09-26, 2026-09-28): the cockpit, the mid cabin
+and the rear cabin, with the seats, the hat shelf, the baggage bay, the cargo door, the windows and the
+breach in them, each opening open or closed, and one shared internal heat (document 17 §4.8). There is
+no plane object — nobody can move it; the wing, the engine and the tail section torn off up the scar
+are fixed wreckage in their places, and the pieces along the debris trail are things like any other. The interior is
 content — written into the ontology store at the cabin zone's census and converted into rows when that
 zone is finalized; the openings feed the heat-system design, to be written (2026-09-28).
 
@@ -266,7 +262,7 @@ Exceeding capacity is never a refusal: you take what fits, the world names what 
 the load feeds the travel time (document 03 §4.1a). Capacity is a `capacity_g` and a `capacity_bulk`
 on any container row; the sum of what you hold, wear and haul is what you can carry (2026-09-28).
 
-### 4.9 Early October — what these people would really wear, carry and fly with *(proposed by Claude, for Andrew's check)*
+### 4.9 Early October — what these people would really wear, carry and fly with (2026-09-28)
 
 **The weather they dressed for.** The run is the first week of October in interior Alaska; its
 temperatures, snow and daylight are document 13 §4.2's. Clothes that are right on the day they flew are
@@ -290,7 +286,7 @@ Outside dress for the town, which is exactly the salesman.
 | the townie | denim, a cotton hoodie, sneakers, no gloves — a real way to be dressed for a day in town, and the harsh draw the fairness design wants. The Alaskan default would be a Carhartt and XtraTufs, which is why the townie is the lesson — cotton, soaked, in the first snow |
 | the nurse | fleece, hiking boots, a scarf, thin gloves — right for the month. The headnet in her pack is left over from summer; the mosquitoes are gone after the first hard frosts |
 | the salesman | wool overcoat, dress shoes, leather gloves — what an Outside business traveller wears |
-| the kid | ski jacket, snow pants, snow boots, mittens — warmer than most early-October days, and true of a kid whose family dressed them for a bush flight |
+| the kid | a hoodie, a thin windbreaker, jeans, sneakers — no hat, no gloves — what a sixteen-year-old wears to sit on a plane; his snow pants and mittens are packed in his duffel, out in the tail wreckage (2026-09-28). Only the guide is dressed warm, so warm gear is found, not worn |
 
 **The phones are a heat problem.** A phone's lithium battery gives up quickly below freezing and the
 phone shuts itself off; Apple rates the iPhone for use between 0 °C and 35 °C (Apple Support). On a
@@ -383,6 +379,12 @@ None open.
   no survival kit, the sleeping bag with the tail wreckage, two blankets hidden in the
   plane; the plane's battery in the nose and fine.
 - **2026-09-27** — the no-storm week carried in (document 13 §4.2); the tarp is also a ground signal.
+- **2026-09-28 (Andrew, the document's sitting):** pockets hold everyday things and anything useful is in
+  a bag to find — the one real knife behind the jammed cargo door, the med pouch behind the jammed aft
+  bin, the multitool in the tail; the salesman's reading glasses are convex; more things under the
+  seats; the bags lie where the crash left them, not with their owners; a few frozen salmon fillets; the
+  cabin is rooms like any others that hold heat; the kid wears ordinary clothes, his snow gear packed;
+  pockets are warm places. **Reviewed in full.**
 
 ## 8. What exists today
 
@@ -414,8 +416,7 @@ None open.
   cockpit and an armed ELT in the tail cone (`PLAN.md` A12).
 - The guide's duffel extras (headlamp, ferro rod, steel cup) and the nurse's backpack extras (wool
   sweater, headnet, book of matches) named in §4.1 — not in `objects.py`, which has only the earlier
-  duffel (multitool, paracord, socks) and backpack (canteen, spare shirt). *(Proposed by Claude, for
-  Andrew's check:)* they go into the ontology store with their owners when the plane is censused
+  duffel (multitool, paracord, socks) and backpack (canteen, spare shirt). They go into the ontology store with their owners when the plane is censused
   (document 05 §4.5), and reach `objects.py` through the converter when the cabin zone is finalized.
 - The four-seat interior (§4.6): the seat labels are designed and referenced in `characters.py`, but
   the only seat objects in `objects.py` are `seat` (ident `11B`, in `mid_cabin`) and `seat2` (ident

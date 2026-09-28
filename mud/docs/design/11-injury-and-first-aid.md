@@ -199,7 +199,7 @@ and exhaustion are the other survival clocks'.
   show, longer than the run.
 - **Carbon monoxide** is a gas in a zone's air, and it builds only where the space does not breathe
   enough for the fire in it (2026-09-27) — real physics: the level is what the fire puts out against
-  what the openings let out (the plane is an entity with openings, open or closed, 2026-09-26). What
+  what the openings let out (the cabin's rooms have openings, open or closed, 2026-09-26). What
   the fire puts out depends on its size and how well it burns — a smouldering, banked or starved fire
   makes far more than a small bright one. A small fire in a can with a gap left open near it is how
   people really heat a shelter; a big fire in a plane sealed tight is how they poison themselves. A

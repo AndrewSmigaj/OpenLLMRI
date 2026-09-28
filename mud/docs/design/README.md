@@ -44,7 +44,7 @@ always at least partly cloudy. The same weather every run (document 13 §4.2).
 | 13 | [`13-events-escalation-and-weather.md`](13-events-escalation-and-weather.md) | the ladder; the event deck; weather; endings | reviewed with Andrew 2026-09-28 | — |
 | 14 | [`14-rescue-paths.md`](14-rescue-paths.md) | rescue: the radio, the voice on the other end, signals a plane can see, surviving long enough and the flyovers | reviewed with Andrew 2026-09-28 | [`implementation-architecture.md`](../architecture/implementation-architecture.md) §8 |
 | 15 | [`15-moral-and-social-layer.md`](15-moral-and-social-layer.md) | possible, priced, witnessed, logged; the dilemma set | reviewed with Andrew 2026-09-28 | — |
-| 16 | [`16-players-and-kit.md`](16-players-and-kit.md) | the slots, draws, pockets, luggage; the 206 interior | draft for review | [`clothing-warmth.md`](../architecture/clothing-warmth.md) |
+| 16 | [`16-players-and-kit.md`](16-players-and-kit.md) | the slots, draws, pockets, luggage; the 206 interior | reviewed with Andrew 2026-09-28 | [`clothing-warmth.md`](../architecture/clothing-warmth.md) |
 | 17 | [`17-rooms-and-living-rooms.md`](17-rooms-and-living-rooms.md) | individuation; state that persists; the prose style; the crash rooms | draft for review | [`containment.md`](../architecture/containment.md) |
 | 18 | [`18-materials-and-forms.md`](18-materials-and-forms.md) | the material table in plain words; forms; what is missing | draft for review | [`ontology-closure.md`](../architecture/ontology-closure.md) §2–3 |
 | 23 | [`23-flora-and-fauna.md`](23-flora-and-fauna.md) | the living things of the valley in October: what grows, what can be dug, caught, fished; the poison | draft for review | — |

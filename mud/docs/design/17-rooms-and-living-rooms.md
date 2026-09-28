@@ -27,7 +27,11 @@
 - **2026-09-26 — the plane is an entity.** The plane is an entity itself, with openings that are open or
   closed and an internal heat that a fire inside raises; a fire generates heat in its area and residual
   heat in other areas; body parts have heat as part of their ontology. It is part of designing the fire
-  and heat system. Rooms are therefore entities in the ontology like everything in them (§4.8). The wreck is several things, each an entity with its parts (2026-09-28): the fuselage with its wing — the cabin — the tail section torn off up the scar, and the pieces strewn along the debris trail.
+  and heat system. Rooms are therefore entities in the ontology like everything in them (§4.8).
+- **2026-09-28 — the cabin is rooms like any others.** The plane needs no special treatment beyond
+  what bears on warmth: its cabin is rooms that hold heat, with openings; nobody can move the plane,
+  so there is no plane object above them. The wing, the engine and the tail section are fixed
+  wreckage in their places.
 - **2026-09-26, 2026-09-27 — the season** is the first week of October in interior Alaska (document 13
   §4.2).
 - **2026-09-27 — what kills.** Nothing kills instantly: death comes by the body running down, on real
@@ -218,7 +222,7 @@ itself). The nine rooms, one line each:
 
 The nine censuses predate the 206 interior and the season: their overhead bins are the hat shelf and
 the cargo net (document 16 §4.6), and their snow and cold are the first week of October's (document 13
-§4.2). They are re-run at the cabin zone's census, with the plane as an entity (§4.8).
+§4.2). They are re-run at the cabin zone's census, with the cabin as rooms sharing one heat (§4.8).
 
 ### 4.7 Lens pass
 
@@ -238,7 +242,7 @@ seat, seat *1a* and *1b*. Identical things (three glass shards) never ask, becau
 which one you take. **A room that can ask an unanswerable question is a bug in the room**, and `make
 validate` should catch it (document 04 §3.10).
 
-### 4.8 Rooms are entities — and the plane is one (Andrew, 2026-09-26; the mechanism proposed by Claude, for Andrew's check)
+### 4.8 Rooms are entities — and the plane's cabin is rooms (Andrew, 2026-09-26, 2026-09-28)
 
 **What Andrew decided** (§2): the plane is an entity with openings that are open or closed and an
 internal heat that a fire inside raises; a fire heats its area and leaves residual heat in other areas;
@@ -248,8 +252,12 @@ cadence, relations, `could_become`, synonyms — plus what only a place has: its
 temperature, wind, smoke, damp), its **light**, its **floor or ground**, and its exits (document 03
 §4.1a).
 
-**The plane.** One entity, and the crash rooms inside it are its interior.
-- *Its parts:* the fuselage skin (aluminium sheet under a millimetre thick, over a frame), the
+**The cabin is rooms like any others** (Andrew, 2026-09-28) — the cockpit, the mid cabin and the rear
+cabin — and there is no plane object above them: nobody can move the plane, so it needs no body of its
+own. What is special about them is only warmth: they hold heat, as below. The wing, the engine and the
+battery in the nose are fixed wreckage in the zones outside, and the tail section is fixed wreckage
+out on the trail — searched and pried, never moved.
+- *The cabin rooms' parts:* the fuselage skin (aluminium sheet under a millimetre thick, over a frame), the
   windscreen and windows (acrylic — document 18 §4.8), the pilot's door, the right door, the double
   cargo door, the breach where the tail tore away, the seams the impact opened; the seats, the hat
   shelf and the baggage bay (document 16 §4.6); the wings with fuel in them; the engine, and the

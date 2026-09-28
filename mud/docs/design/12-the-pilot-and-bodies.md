@@ -19,8 +19,8 @@
 - **(2026-09-17, 2026-09-27)** The endings are rescued or dead; the run ends when they die, of
   anything. There is no recap.
 - **(2026-09-26)** A bear is in, and it acts; so do some bigger animals and a few birds. Body parts
-  carry heat as part of their ontology; heat is a state system, and the plane is an entity with
-  openings, open or closed, and an internal heat a fire raises. Food changes with heat — raw, cooked
+  carry heat as part of their ontology; heat is a state system, and the plane's cabin is rooms with
+  openings, open or closed, and a shared internal heat a fire raises. Food changes with heat — raw, cooked
   and spoiled differ.
 - **(2026-09-26, 2026-09-27)** The season is the first week of October in interior Alaska (document 13
   §4.2).
