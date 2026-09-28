@@ -53,6 +53,8 @@
   inside the leg. Losing it drains the blood meter, and the world says so too, in the real order —
   feeling faint, light-headed, confused; a body short of blood makes less heat. What stops a bleed has to match it (§4.1 rule 2, §4.6). The clocks stay
   real at the game's 15×: a cut artery leaves seconds of real time.
+- **(2026-09-27)** **Whisky in a wound and over the needle are in** — the film scene — with their
+  real result; boiled or iodine-treated water rinses a wound (§4.1 rule 4, §4.8).
 
 ### Proposals (Claude)
 Everything else here is Claude's, for Andrew's check: which
@@ -102,10 +104,11 @@ start to matter, and first aid stops being a one-off act and becomes a thing you
    cleans a blade and intact skin; boiling water or a flame cleans some metal tools; snow reduces
    swelling and worsens cold exposure; painkillers improve function and mask danger; moving an injured
    person can save them from the cold and worsen the injury. Every one of those is a trade, and none of
-   them is a crafting recipe. *(Proposed by Claude, for Andrew's check:)* poured into an open wound,
-   alcohol kills tissue as well as germs, and the Wilderness Medical Society's guideline is to irrigate
-   with plain drinkable water and add nothing — whisky on a cut arm is a real act with a real, worse
-   result than clean water.
+   them is a crafting recipe. **Whisky poured into a wound, and over the needle before stitching, are
+   in** (2026-09-27) — the scene everyone knows from the films — with their real result: poured into
+   an open wound, alcohol kills tissue as well as germs and burns badly, and the Wilderness Medical
+   Society's guideline is to irrigate with plain drinkable water and add nothing, so a rinse cleans the
+   wound a little better. The world tells it by what happens, never by a warning.
 5. **Treatment is an act on a wound, with a tool.** `press`, `bind` / `wrap`, `splint`, `stitch`,
    `clean`. The wound is the target; what you use is whatever physically serves. *(Proposed by Claude,
    for Andrew's check:)* the floor grows with the real acts, each its own operation because each does
@@ -344,7 +347,8 @@ that grows from that contamination over real hours, deterministic and seeded (DR
 shows redness, heat and swelling in 24–72 hours (an animal bite in 12–24), then pus and a smell, then
 fever — which spends water and warmth — and, untreated, spreads into the blood, which kills over days.
 Cleaning is its own set of real operations: **irrigate** — pour or squirt drinkable water into it, in
-millilitres (document 09), harder if you pierce a bag or a bottle cap; the Wilderness Medical Society's
+millilitres (document 09), harder if you pierce a bag or a bottle cap — boiled water, or water treated
+with the iodine tablets, is drinkable and so is right for it; the Wilderness Medical Society's
 guideline is that drinkable water is enough and nothing should be added; **pick out** grit and
 splinters with a point (the multitool, a clean knife tip); and scrub the skin around it. Whisky and
 sanitizer are alcohol: they clean a blade and intact skin, but in the wound they kill tissue as well as
@@ -352,7 +356,7 @@ germs and hurt badly — a real act, worse than clean water. Whatever covers the
 contamination as provenance, the way a vessel does (document 09 §4.6): a torn-up shirt makes a
 dressing, as any cloth does, and brings whatever it carries — a boiled strip cleanest, a shirt worn for
 days less clean. A sewing needle and thread (document 16) close a wound as well as the suture kit
-does, once boiled. And **closing** a dirty wound traps it — the guideline leaves a grossly
+does, once the needle is boiled, held in a flame or soaked in whisky. And **closing** a dirty wound traps it — the guideline leaves a grossly
 contaminated wound open and packed — so the nurse's suture kit is a real choice with a real downside,
 not a finish line. Boiling a strip or a blade is the heat design's (to be written).
 
@@ -482,7 +486,8 @@ None open.
   cleaning; nothing kills instantly, and death is realistic, by the body running down with time to
   respond — wounds and infection can kill, poison never does, a fall never kills outright; a torn-up
   shirt makes a dressing; a few iodine tablets in one of the packs and a sewing needle and thread
-  aboard.
+  aboard. Item 4 — whisky in a wound and over the needle are in, the film scene, with their real
+  result; boiled or iodine-treated water rinses a wound.
 
 ## 8. What exists today
 

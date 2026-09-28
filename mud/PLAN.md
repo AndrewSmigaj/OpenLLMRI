@@ -332,6 +332,9 @@ it says so. When a decision changes, this list and every document it touches cha
   the real answers. Running works against a person. A blow wounds only when it would really hurt, by
   common sense and real physics. There are no hit points: wounds are named things on body parts.
   (2026-09-16, 2026-09-26, 2026-09-27)
+- Whisky poured into a wound and over the needle are in — the film scene — with their real result:
+  it burns and kills some tissue, and a rinse of drinkable water (boiled, or iodine-treated) cleans a
+  wound a little better (document 11). (2026-09-27)
 - Bleeding spends a real blood volume (about 5 L in an adult) on the real clocks — a cut vein over
   hours, a cut artery in minutes — kept real at the game's 15×; losing it drains the blood meter and the world says so (feeling faint), and a body
   short of blood makes less heat; what stops a bleed has to match it (document 11). (2026-09-27)
