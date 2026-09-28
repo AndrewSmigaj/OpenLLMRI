@@ -33,10 +33,16 @@
   will have fire by then if they spend the first day trying for it (§4.1a).
 - **(2026-09-18)** Outdoors, shelter is two mutable numbers on the zone — wind exposure and roof —
   that built things write; shelters as objects with the full property block are the growth path (§4.4).
-- **(2026-09-18)** Layering stays linear for now; whether stacking stops paying past some point is
+- **(2026-09-18, 2026-09-28)** **Clothing is layered**: extra layers go on over what someone wears, as
+  long as they fit — a parka over a sweater, never a sweater over a parka, and the kid's jacket will not
+  go on an adult. Layering adds linearly for now; whether stacking stops paying past some point is
   measured once the cold clock bites.
-- **(2026-09-18)** The huddle: being close gives a small shared bonus; a shared covering gives the
-  large one.
+- **(2026-09-18, 2026-09-28)** The huddle: being close gives a small shared bonus; a shared covering
+  gives the large one. **Two can huddle under one blanket, no more**; the others huddle together for
+  warmth or put on extra layers.
+- **(2026-09-28)** **On night one the cold does not kill.** The party will not have fire yet and not
+  everyone has a blanket; the cold costs their warmth and their rest, by how well they manage it —
+  staying in the wreck, huddling, layering, sealing the openings (§4.1a).
 - **(2026-09-18)** The extremities — hands, feet, face — have their own cold, for frostbite.
 - **(2026-09-18)** Covering and blocking are one generic `cover`/`block` operation over any opening,
   not a bespoke breach verb.
@@ -150,14 +156,16 @@ the rest.
 There is no guaranteed floor. There is a **first night that is survivable inside**, and a cold that
 removes it.
 
-**Night one.** It is not as cold yet. A party that stays in the wreck survives it in the clothes they
-crashed in — no fire, no huddle, nobody doing anything clever. It will not be pleasant, and the
-townie in denim will feel it, but nobody dies of it. *This is the teaching night: the lesson it
+**Night one.** It is not as cold yet, and **the cold does not kill on night one** (2026-09-28). A party
+that stays in the wreck survives it in the clothes they crashed in — no fire, no huddle, nobody doing
+anything clever. It will not be pleasant, and the townie in denim will feel it, but nobody dies of it:
+what night one costs shows on the warmth and rest meters, by how well the party manages it. *This is the teaching night: the lesson it
 teaches is that the wreck is shelter.*
 
 **Going outside on night one** saps you — without fire, food and better gear the cold takes warmth
 steadily. You can be out there for a while, and short trips are fine and expected. A whole night out
-without a heat source is not.
+without a heat source costs dearly — deep into the warmth meter, a night with no real rest — though on
+night one it still does not kill.
 
 **Night two onward it gets colder** (document 13 §4.2), and the wreck alone stops being enough.
 Now you need at least one of:
@@ -188,13 +196,13 @@ What derives from that:
 | derived | rule | source |
 |---|---|---|
 | **warmth by region** | the body loses heat per region by exposure × (1 − that region's coverage); a bare head is about a fifth of the loss, bare hands and feet drive frostbite | proposal; the shipped region shares are head .20 · torso .35 · arms .10 · hands .10 · legs .15 · feet .10 |
-| **layering** | layers add; the outer shell's `wind` multiplies the whole stack | linear for now — "wear everything" (Andrew, 2026-09-18); diminishing returns are measured once the cold clock bites |
+| **layering** | layers add, as long as each fits over what is under it — size and order are real (a parka over a sweater, not the reverse; the kid's jacket will not go on an adult); the outer shell's `wind` multiplies the whole stack | Andrew, 2026-09-18 and 2026-09-28: linear for now, wearing everything that fits; diminishing returns are measured once the cold clock bites |
 | **wet** | wet insulation counts for a fraction that falls with wetness, to zero for soaked down; wool forgives, down does not | proposal; `warmth.py::wet_fraction` |
 | **sweat** | hard work in a heavy stack puts water into the inner layer — the deferred cold debt; the player hears of it only through the clothing line and pays for it later | Andrew, 2026-09-18 |
 | **dexterity** | bare hands in the cold lose fine work by the minute (knots, a match, the drill); thick mittens cannot do fine work at all — take them off and pay the warmth | proposal; `warmth.py::fine_work_ok` |
 | **movement** | snow boots against sneakers changes wet-feet rate and speed; snowshoes pay only in deep snow, which this week never lays, and on a couple of inches over tussocks they slow you; dress shoes on ice or frost-glazed rock is a fall | proposal |
 | **signal** | a bright jacket spread on the wing is something a search crew can see; a dark one is not | proposal; document 14 §3.4 |
-| **sharing** | `give X to Y`, wearing something from another's hand, the blanket over two — the huddle is real physics: two bodies, one blanket, shared loss; being close gives a small shared bonus, a shared covering the large one | Andrew, 2026-09-18 |
+| **sharing** | `give X to Y`, wearing something from another's hand, the blanket over two — the huddle is real physics: two bodies, one blanket, shared loss; two fit under a blanket, no more, and the rest huddle close or layer up; being close gives a small shared bonus, a shared covering the large one | Andrew, 2026-09-18 and 2026-09-28 |
 
 **The score, as built (DR-25):** each worn item contributes `round(insulation × min(mass_g, 3000))`
 "insulation-grams" — an intensive material property scaled by an extensive mass — summed, then

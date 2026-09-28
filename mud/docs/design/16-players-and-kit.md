@@ -54,8 +54,8 @@ Everything else here is a proposal for review:
 - The five slots — the guide, the townie, the nurse, the salesman, the kid — and exactly what each
   wears, carries in their pockets, is injured by, and finds in their bag (§4.1–§4.3).
 - The clothing model's mechanism — coverage by body region, the shell's wind and waterproof numbers,
-  the wet fraction, sweat, dexterity, movement, signal, sharing (§4.4; designed in full in
-  **08 — Warmth, clothing and shelter**).
+  the wet fraction, sweat, dexterity, movement, signal, sharing, and layers that go on only if they fit
+  (Andrew, 2026-09-28) (§4.4; designed in full in **08 — Warmth, clothing and shelter**).
 - The interior's specific furniture beyond the four seats — the baggage bay, the panel and every named
   object inside (§4.5–§4.6).
 - What this asks of the engine (§4.7), the lens pass (§4.8), and the early-October check of what these

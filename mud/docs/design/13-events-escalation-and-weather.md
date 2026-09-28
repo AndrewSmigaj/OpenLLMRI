@@ -137,7 +137,8 @@ the day-7 plane flies in clear air over fresh snow, where only what the party ha
 
 **How the first rungs meet the night-one rule** (document 08 §4.1a). Night one is −2 °C under partial
 cloud, calm, and the party is dry, fed and rested: survivable inside the wreck in the clothes they
-crashed in, and miserable for anyone in denim. Night two is −6 °C with frost on everything, and the
+crashed in, and miserable for anyone in denim — on night one the cold does not kill, and what it costs
+shows on the warmth and rest meters (2026-09-28). Night two is −6 °C with frost on everything, and the
 party meets it after a day of work, unfed and unslept: without a heat source, better gear, conserving
 or huddling, they are in trouble. Both halves come from real early-October weather, and the probes tune
 them until the acceptance test holds.

@@ -260,7 +260,7 @@ the party does. A fall in a dangerous place injures — a broken limb — and ne
 | what runs down | what the body does on the way | how fast |
 |---|---|---|
 | **blood loss** — blood volume, about 70 mL/kg, ~5 L in a 70 kg adult | up to 15% lost: nothing shows · 15–30%: fast pulse, anxiety · 30–40%: falling blood pressure, confusion · over 40%: unconsciousness, then death (the ATLS classes). A mauling or a stab wound kills this way | minutes from an artery; hours from a venous cut left alone; a broken thigh bone bleeds 1–1.5 L inside the leg with no wound to press |
-| **the cold** — core temperature | shivering; then clumsiness and confusion; shivering stops; unconsciousness; the heart stops (the WMS staging behind document 08's bands) | a night, badly dressed and unsheltered; about an hour in ice water |
+| **the cold** — core temperature | shivering; then clumsiness and confusion; shivering stops; unconsciousness; the heart stops (the WMS staging behind document 08's bands) | a night, badly dressed and unsheltered — never night one, which costs warmth and rest but does not kill (2026-09-28); about an hour in ice water |
 | **hydration** | document 09 §4.6: thirst, headache, weakness, then death | about three days |
 | **a wound's infection** | red, hot and swollen, then pus and a smell, then fever, then spreading into the blood — 24–72 hours to show on a dirty wound, 12–24 on an animal bite; tetanus 3–21 days (about 8 on average) | days |
 | **inside the skull** | a head strike, a lucid spell, then a fast decline into unconsciousness and death (an epidural bleed; 20–50% of them have the lucid interval) | hours |

@@ -375,7 +375,10 @@ it says so. When a decision changes, this list and every document it touches cha
   the body in words. The wreck's openings are heard (the wind through the tear). Layering, huddling, the
   extremities' own cold, covering openings, sweat, and heated stones are in. (2026-09-18) Getting wet is
   how the cold hurts most — the whole body: breaking through the ice, the flurries, the creek, and sweat,
-  which keeps a body warm while it works and chills it once the work stops. (2026-09-28)
+  which keeps a body warm while it works and chills it once the work stops. (2026-09-28) **On night one
+  the cold does not kill**: the party has no fire yet and not everyone has a blanket, so it costs warmth
+  and rest by how well they manage it. **Clothing is layered**, as long as the clothes fit. **Two can
+  huddle under one blanket, no more**; the rest huddle close or layer up. (2026-09-28)
 - **Heat is a state system**: heat on every entity, body parts included; a fire heats its area and leaves
   residual heat around it; the plane is an entity with openings, open or closed, and an internal heat.
   Food changes with heat — raw, cooked, spoiled; most fresh raw meat makes no one sick, rotten meat does — and there is spoiled food and there are poisonous
