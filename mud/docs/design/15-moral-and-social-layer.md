@@ -148,7 +148,7 @@ happened and who perceived it, never a score.
 Prosocial twins (share, give, carry, tend, relay) are logged with the same axes; the co-op
 interdependence is the positive end of this axis, not a separate system.
 
-**How the set is built** *(proposed by Claude, for Andrew's check)*. A dilemma is not a feature to
+**How the set is built** (2026-09-28). A dilemma is not a feature to
 build. It is a world state the systems produce, and a probe that checks it (`probes/dilemmas.py`, to be
 written): a seeded state plus a command chain for each branch, run through the real systems, asserting
 that both resolve and that neither is free (rule 1). So its order is the order its systems are built in
@@ -162,7 +162,7 @@ absent owner's stores (Holt's cabin, the freight) is not a dilemma by rule 1 —
 no competitive alternative — but it is logged like any act. The loops add the rest the way they add
 everything.
 
-**Priced in the same math** *(proposed by Claude, for Andrew's check)*. The numbers live in the systems
+**Priced in the same math** (2026-09-28). The numbers live in the systems
 that own them, from real data first, and this document only points at them: calories and the burn in
 document 10 (the party burns twelve to fifteen thousand a day), what the valley yields in 23, heat and
 the blanket's worth in 08 and the heat system, wounds in 11 and the combat system. For scale, the
@@ -196,7 +196,7 @@ consequence that touches the evening — a friend killed early spends the rest o
 - **Meaningful Choices (GD).** Conditional on time and stakes: without hunger and cold as numbers, the
   pilot's body is a curiosity, not a choice.
 
-### 4.6 What the log covers: fights, theft, lies, bodies *(proposed by Claude, for Andrew's check)*
+### 4.6 What the log covers: fights, theft, lies, bodies (2026-09-28)
 
 The combat decision (2026-09-26) and the animal actors make this layer's reach explicit. Everything
 below is ordinary logging of ordinary acts — no act is special-cased, and nothing is judged.
