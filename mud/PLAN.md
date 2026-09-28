@@ -311,7 +311,8 @@ it says so. When a decision changes, this list and every document it touches cha
   somewhere that takes work to reach — the guide's duffel (the one real knife) behind the jammed cargo
   door, the nurse's backpack (the med pouch) behind the jammed aft bin, the kid's duffel (a multitool)
   in the tail wreckage. The salesman's reading glasses are convex and can light tinder in sun. More
-  things are under the seats. (2026-09-28)
+  things are under the seats. The bags are not with their owners: some are in the back, some under their
+  owner's seat or beside them. The cooler holds only a few frozen salmon fillets. (2026-09-28)
 - **The bear's sign** lies in its own area, not spread everywhere, and is plain on entering it; no claw
   marks on the wreck; no chainsaw or anything else that promises people within walking distance
   (documents 13, 23). (2026-09-28)

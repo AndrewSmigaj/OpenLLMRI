@@ -27,6 +27,9 @@
   flying. Characters differ in their clothes, their injuries and what they carry, and in how well and
   how fast they do things — a woodsman lights fires better; a technically proficient character sees a
   fault in a device.
+- **2026-09-28 — the bags are not with their owners.** Some are in the back, some under their owner's
+  seat or beside them; where each is, the crash decides (§4.3). The cooler holds only a few frozen
+  salmon fillets — a meal or two. What is under the seats is §4.6's list.
 - **2026-09-28 — pockets hold everyday things; anything useful is in a bag you have to find.** Nobody
   starts with a knife, medical supplies, a compass or fire in hand. Pockets hold a wallet, a phone,
   keys, gum, lip balm, a pen, reading glasses, a hip flask, a candy bar; the tools and supplies are in
@@ -133,7 +136,7 @@ matter.
 Every bag in §4.1, plus: the **mail sack** (letters, postmarks, a parcel of candles, a parcel
 addressed to V. Holt), the **freight** (flour, the coffee tin, a small bag of dog food, a box of shear pins, a
 toolbox — screwdrivers, pliers, a hacksaw blade that is both an edge and a saw), a **cooler** (a
-family's frozen fish — a vessel), and a **guitar case** (a story object: the strings are wire, the
+few frozen salmon fillets — a meal or two, not a larder (2026-09-28); the cooler is a vessel), and a **guitar case** (a story object: the strings are wire, the
 case is a sled, the neck is wood). A bag in the tail section holds the hand radio's batteries (document
 14 §3.2).
 
@@ -146,11 +149,11 @@ keenest edge in the valley — is a walk away. The **power ∝ cost** curve foll
 more a thing solves, the farther, deeper, or more broken the crash left it. A paperback is at your feet;
 the hatchet is a hundred metres out in the brush with a cracked haft. Not too easy, not too hard.
 
-*(Proposed by Claude, for Andrew's check:)* **a bag travels with its owner** — by reality, not for
-simplicity. A bag holds what its owner packed for their own trip, so the townie's toiletries and the
-salesman's laptop go with whoever plays that person; a second, independent luggage draw would put a
-stranger's things in your bag. What never moves with a slot is what is nobody's here: the mail and the
-freight. Where each bag ended up is the crash's.
+**Where the bags are** (Andrew, 2026-09-28): not with their owners. Some are in the back — the baggage
+bay, the aft bin, thrown into the tail — and some are under their owner's seat or beside them, as
+carry-ons are; where each ended up is the crash's (§4.1's table, §4.6). What is in a bag is what its
+owner packed for their own trip, so whoever plays the townie is the one whose suitcase holds the canvas
+jacket; the mail and the freight are nobody's here.
 
 **One sleeping bag and two blankets in the whole plane** *(Claude's reading of Andrew's 2026-09-27 decision, for his
 check)*: the sleeping bag in the kid's duffel is the one buried with the tail wreckage, and the salesman's wool
@@ -191,8 +194,7 @@ ground signal: spread in the open, its blue shows against brown ground or new sn
 
 ### 4.6 The interior (the 206)
 
-**Under the seats** (Andrew, 2026-09-28: more things are under the seats; *what, proposed by Claude
-for Andrew's check*) — carry-ons and whatever the crash threw there, found by looking or searching
+**Under the seats** (Andrew, 2026-09-28) — carry-ons and whatever the crash threw there, found by looking or searching
 under each seat: under the pilot's seat his flight bag — a flashlight with weak batteries, a pair of
 work gloves, a roll of duct tape, the plane's tie-down ropes; under 1A, a half-full water bottle that
 rolled there; under 1B, a paper sack of the salesman's trail mix, burst; under 2A, the salesman's

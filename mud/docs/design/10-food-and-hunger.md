@@ -60,7 +60,7 @@
 
 There is food, and there is not enough of it, and the distance between those two facts is the whole
 week. The first day it is a question of finding it: a chocolate bar in a pocket, a thermos, somebody's
-trail mix, a small bag of dog food in the freight, a family's frozen salmon in a cooler thrown out onto
+trail mix, a small bag of dog food in the freight, a few frozen salmon fillets (a meal or two, not a larder — 2026-09-28) in a family's cooler thrown out onto
 the debris trail. The country is still open in the first days — lowbush cranberries sweet from the
 frost on bare ground, rose hips on the creek bar, a fool hen in a spruce that will stand there and let
 you try twice — and each flurry closes it a little more, the lowest berry mats going under first.
@@ -150,7 +150,7 @@ Every food in the design, in one place and growing as the world is fleshed out, 
 - **The freight** — flour, the coffee tin, a small bag of dog food (never enough to live on — Andrew,
   2026-09-27), a box of shear pins, a toolbox. The
   anti-easy rule holds: the toolbox is in the crushed tail cone and wants prying.
-- **The cooler** — a family's fish, frozen, thrown onto the debris trail and rimed with frost. The
+- **The cooler** — a few fillets of a family's fish, a meal or two (2026-09-28), frozen, thrown onto the debris trail and rimed with frost. The
   fish stays frozen only while it stays cold — carried into a wreck warmed by a fire it thaws, and over
   days it spoils (§4.6) — and after the day-6 flurry the cooler is one more white shape on the white
   debris trail. It is a vessel as well as a meal.
