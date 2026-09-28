@@ -386,6 +386,9 @@ it says so. When a decision changes, this list and every document it touches cha
 - The look: a title line, prose composed from state, people and animals as prose, exits as entities in
   prose; no item list; groups; a blank line before events; colour for human players only. An agent sees
   exactly what a human sees. (2026-09-16, 2026-09-17)
+- A serious condition shows in a person's line in the room; the body's signs — a cough, a wince,
+  shivering — arrive as emotes; examining or looking at the person reveals the smaller things; touch
+  and smell work too (documents 03 and 11). (2026-09-28)
 - Players see meters for what a person can sense about their own body — people are not cut off from
   their own senses: seven bars with no numbers in the prompt line — hunger, thirst, warmth, rest, pain,
   stamina and blood. A wound is never a meter; it is named. The `status` screen still reports the body in words

@@ -16,6 +16,9 @@
   are; a paragraph of prose composed from state; the people and animals present, as prose, by what
   they are doing (standing or sitting when idle); then the exits, as prose. No item list, no hidden
   tags on screen. Exits are named by compass direction outdoors and fore / aft / out inside the plane.
+- **(2026-09-28)** A serious condition shows in a person's line in the room; the body's signs (a
+  cough, a wince, shivering) arrive as emotes; examining or looking at the person reveals the smaller
+  things (§4.1, §4.7; document 11 §4.12).
   People are coloured slightly differently, and colour is for human players only.
 - **Descriptions are composed from state (2026-09-16)**, with the four composer extensions of §4.4,
   which Andrew walked against the shipped renderer and approved as the way to get there.
@@ -105,7 +108,10 @@ Forward, the cockpit; aft, the rear cabin; the split hull opens onto the muskeg.
 ```
 
 The description holds the things you can interact with; the people and animals sit between the
-description and the exits, as prose by what they are doing, standing or sitting when idle.
+description and the exits, as prose by what they are doing, standing or sitting when idle. **A serious
+condition shows in the person's line** (2026-09-28) — what anyone would see from across the room:
+*Cal sits against the hull, his sleeve soaked dark with blood*; *Mara stands on one foot, pale and
+shaking*. Smaller things wait for a closer look — `look at Mara`, `examine Mara` (document 11 §4.12).
 
 What is **not** in it: no `You see:` list, no item inventory of the room, no counts-first phrasing,
 no salience labels, no tags, no ident brackets, no per-step structure, no numbered anything. The
@@ -308,6 +314,9 @@ look-at-able but never take-able or open-able.
 - **Arrival prints the block.** Moving into a zone re-prints the whole look (MUD convention), and
   that is what makes the title line a marker. This is shipped behaviour (`game/commands/cmd_act.py`,
   the `MOVE_ZONE` branch).
+- **The body's own signs arrive as emotes** (2026-09-28): a cough, a wince, teeth chattering, a limp as
+  someone moves — single event lines now and then, not every tick, routed by distance like any other
+  (document 11 §4.12).
 - **Events print as single lines** (proposal), **after a blank line** (Andrew, 2026-09-17): one line,
   in the same voice as the prose, no block, no header; colour, where it is used, is for human players
   only, since it does not survive an agent's transcript. What another person's action looks like to

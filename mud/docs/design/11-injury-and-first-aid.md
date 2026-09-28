@@ -70,6 +70,10 @@
   tablets and who gets them (§4.10).
 - **(2026-09-28)** **The body can fail at an act, but the engine never performs an act the player did
   not type** — a concussion or hypothermia reads as what the body really does (§4.11).
+- **(2026-09-28)** **Another person's wounds are known by the senses** — touch, smell and sight. A
+  serious condition shows in the person's line in the room; the body's signs (a cough, a wince,
+  shivering) arrive as emotes; examining or looking at the person reveals the smaller things you would
+  not see from across the room (§4.12).
 - **(2026-09-27)** **Each real first-aid act is its own act** — press (held, an activity that ties up
   the hands), pack, a tight bandage, a tourniquet, raising the limb, rinsing, picking out grit,
   rewarming, splinting, stitching, carrying and dragging — each with its everyday names (§4.1 rule 5,
@@ -417,11 +421,15 @@ felt urge in the prose ("the parka is unbearable"); taking it off is the player'
 
 ### 4.12 Seeing another person's wounds
 
-*(Proposed by Claude, for Andrew's check.)* By the senses, the way the tell-and-hide rule works for
-everything else (document 03 §4.3: the worn layer is what shows). **Looking** shows what the covering
-allows — blood through a sleeve, a limp, a white patch on a bare cheek, a leg at the wrong angle,
-pallor, shivering; what is under a glove or a boot stays hidden until someone takes it off, which costs
-that part its heat. **Touch** gives heat — a hot forehead is a fever, a cold hand is cold — swelling and
+By the senses (2026-09-28), the way the tell-and-hide rule works for everything else (document 03
+§4.3: the worn layer is what shows); a player's meters show only their own body. **A serious condition
+shows in the person's line in the room** — what anyone would see from across it: a sleeve soaked dark
+with blood, a leg at the wrong angle, someone pale and shaking, hopping on one foot (document 03 §4.1).
+**The body's own signs arrive as emotes** — a cough, a wince, teeth chattering, a limp as someone
+moves — single lines now and then, routed by distance like any event (document 03 §4.7). **Examining
+or looking at the person** reveals the smaller things you would not see from across the room — a white
+patch on a bare cheek, a bandage's edge, a swollen wrist; what is under a glove or a boot stays hidden
+until someone takes it off, which costs that part its heat. **Touch** gives heat — a hot forehead is a fever, a cold hand is cold — swelling and
 a pulse; **smell** gives an infected wound away. Wounds and parts carry this in their `sensed` rows
 (document 05 §4.5). Asking is speech, and the person can answer truly or not. Each is its own act:
 `examine Mara`, `examine Mara's hand`, `feel Mara's forehead`, `take the glove off Mara's hand`.
@@ -510,7 +518,9 @@ None open.
   stops. Item 8 — carrying a person in every real way; the mechanics of helping someone drag or carry
   are still to be worked out. Item 9 — painkillers as proposed, without side effects too small to
   matter in a week; willow-bark tea, since willow grows here. Item 10 — how impairment reads: the body
-  can fail at an act, and the engine never performs one the player did not type.
+  can fail at an act, and the engine never performs one the player did not type. Item 11 — seeing
+  another's wounds by the senses: a serious condition in the person's line in the room, the body's
+  signs as emotes, the smaller things on a closer look.
 - **2026-09-27** — the no-storm week carried in (document 13 §4.2).
 
 ## 8. What exists today
