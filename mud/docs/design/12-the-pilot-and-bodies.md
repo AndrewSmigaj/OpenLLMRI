@@ -1,6 +1,6 @@
 # 12 — The pilot and bodies
 
-> **Status: draft for review.** **Architecture counterpart:** none yet;
+> **Status: reviewed with Andrew 2026-09-28.** **Architecture counterpart:** none yet;
 > [`implementation-architecture.md`](../architecture/implementation-architecture.md) DR-06 lists the
 > pilot among the puzzle-critical authored packets. Since he starts the run dead, what he needs is the
 > general body of §4.3a.
@@ -41,15 +41,14 @@
   body's states over the week (§4.3a) are as proposed, and a sharp knife still slices frozen flesh.
   Butchering and what it yields (§4.3a) are as proposed. **Eating him** — raw, frozen, cooked or
   spoiled — is as proposed; what could only show long after the run (prion disease, blood-borne
-  infection) is not modelled (2026-09-28). A search aimed
+  infection) is not modelled (2026-09-28). **The body among the animals** is as proposed: where the
+  party puts him decides where the bear comes. A search aimed
   at one place — `search the pilot's pockets`, `search the pilot's jacket` — works, because the world
   is ontologically sufficient. There is no trust meter.
 
 ### Proposals (Claude)
-Everything else here is Claude's, for Andrew's check: the acts on the body (§4.3), the body in the
-ontology — its parts, states, what it could become, butchering and what it yields, raw, frozen, cooked
-and spoiled flesh, the body among the animals (§4.3a) — from real forensic, food-safety and wildlife
-sources listed at the end of §4.3a.
+Every number here is a real starting point, from the forensic, food-safety and wildlife sources listed
+at the end of §4.3a, and playtesting tunes it.
 
 ## 3. In one paragraph
 
@@ -268,6 +267,12 @@ None open. The proposals in §4.3 and §4.3a wait for Andrew's check at this doc
 - **2026-09-27 (Andrew):** nobody is told what can happen to a dead player's body — an open world, with
   tutorial rooms; eating the pilot is taboo, not immoral; a seat nobody plays is a dead character.
 - **2026-09-27** — the no-storm week carried in (document 13 §4.2).
+- **2026-09-28 (Andrew, the document's sitting):** the acts on a body are the general system; taking
+  clothes off and searching are activities — a body, the wreckage, any pile or container, a pocket or
+  a layer at a time — and rummaging the wreckage can cut you; the lighter is not on the pilot, who has a
+  book of matches with two left; the body over the week, with a knife still slicing frozen flesh;
+  butchering; eating him, without what could only show long after the run; the body among the animals.
+  No trust meter. **Reviewed in full.**
 
 ## 8. What exists today
 

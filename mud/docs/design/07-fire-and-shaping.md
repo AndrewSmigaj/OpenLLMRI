@@ -13,7 +13,8 @@
   Rubbing two sticks together at random does not make fire, and the game says so. Friction fire works
   in its real ways, each at a real cost in stamina: a stick rubbed hard up and down a trough cut in a
   board (the trough, or fire plough), a stick spun between the palms in a notch (the hand drill), and
-  the bow drill, which costs the least; a lighter lights tinder, not a branch.
+  the bow drill, which costs the least; two people spinning one stick in turns make it far easier; a
+  failure can carry a hint in the world's voice; a lighter lights tinder, not a branch.
 - **(2026-09-28)** Nobody starts with a lighter or matches in hand. A lighter is fine, but it has to be
   found; there can be more than one, never everywhere. There can be more than one book of matches, and
   the easier one is to find, the fewer matches it holds. No whole fire kit; a flint striker (a ferro
@@ -167,7 +168,9 @@ tinder only.
    the muskeg) into char or fuel-soaked cloth.
 7. **Friction** (Andrew, 2026-09-28) — a dry board and a stick worked hard against it: rubbed up and
    down a trough cut in the board (the trough, or fire plough), or spun between the palms in a notch
-   (the hand drill) → a coal → blow.
+   (the hand drill) → a coal → blow. Two people who know how make it far easier: they take turns
+   spinning the same stick without letting it stop, so the heat never drops and each spends less
+   stamina (2026-09-28) — an act of two people on one thing (documents 04 and 19).
    It works with the right dry wood, and it costs stamina hard — tired, cold or raw hands fail, and the
    stamina meter shows it. The bow drill (carve, split, notch, string with a bootlace or paracord,
    bundle, drill → ember → blow) takes much less stamina for the same coal. The ferro rod's spark is
@@ -175,7 +178,8 @@ tinder only.
 
 `rub sticks together` → *"The bark scuffs and warms under your hands, nothing more. Friction fire needs
 the heat kept in one place — wood ground to hot dust in a notch or a groove — not two sticks sliding
-past each other."* `make fire with
+past each other."* A failure can carry a hint like this, in the world's voice — the physics of why —
+never a list of what would work (2026-09-28). `make fire with
 sticks` performs the first act the means imply — it rubs them together — and gets the same answer
 (§4.9). Nothing names the act that would work.
 
