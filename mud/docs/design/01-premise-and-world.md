@@ -154,7 +154,7 @@ What is aboard is the design's call, and it is set so the run is neither too eas
   V. Holt — are scattered through the wreck and along the scar (documents 10 and 16).
 
 Realism supplies the inventory; the crash supplies the difficulty: the tail tore off two hundred
-metres back up the scar, the hatchet's haft snapped, the matches soaked, the sleeping bag took avgas.
+metres back up the scar, the hatchet's haft snapped, the nurse's matches damp, the sleeping bag took avgas.
 The more a thing solves, the farther, deeper or more broken the crash left it.
 
 Conditions: the first week of October; daylight, temperature, snow and ice day by day are document 13

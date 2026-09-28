@@ -35,7 +35,8 @@
   grammar works on it (§4.3). Taking a body's clothes off is an activity that takes time. **Searching
   is an activity** — a body, the wreckage, any pile or container is gone through a pocket, a
   compartment or a layer at a time, and it can be stopped; rummaging through the wreckage can cut you
-  on something sharp. **The lighter is not on the pilot**: it is in a jacket packed in the luggage —
+  on something sharp. **The pilot has a book of matches with two left; the lighter is not on him**:
+  it is in a jacket packed in the luggage —
   searching a bag turns up the clothes in it, and each garment's pockets are searched in turn. His
   body's states over the week (§4.3a) are as proposed, and a sharp knife still slices frozen flesh.
   Butchering and what it yields (§4.3a) are as proposed. A search aimed
@@ -53,7 +54,7 @@ sources listed at the end of §4.3a.
 You come to in a wrecked Cessna in early October, and the man in the left seat is dead. Nothing about
 him will speak or move again, and nobody in the game will ever say a word about him. He is a body in the
 cockpit: a leather flight jacket that comes off easily now and will fight you in a few hours, pockets
-full of what a pilot carries, 78 kilos of a person, cooling. Over the days he goes stiff, then slack, and — as the frosty
+full of what a pilot carries — a book of matches with two left among it — 78 kilos of a person, cooling. Over the days he goes stiff, then slack, and — as the frosty
 nights get into him — hard, from the fingers in, freezing through after the coldest night of the week.
 If someone lights a fire in the fuselage he does not freeze, and what that means arrives slowly, through
 the nose. The ravens find him if the cockpit is open; the bear may. And somewhere around the third
@@ -85,7 +86,7 @@ the grammar works on him, as on everything else (document 05).
 
 | the act | what it is | source |
 |---|---|---|
-| `search pilot` | the pocket contents — what a pilot carries; **the lighter is not on him** (2026-09-28) — it is in a jacket packed in the luggage (document 16). Searching him is an **attended activity** (document 06, 2026-09-28) that goes through him a garment and a pocket at a time — his jacket, his shirt pocket, his trousers — a line for each, and what it finds as it finds it; `stop` ends it with what was searched banked on him, so anyone can finish it; what cannot be reached says so (his back pockets are under him in the seat until he is moved or rolled). A search aimed at one place is its own act: `search the pilot's pockets`, `search the pilot's jacket`, `search his inside pocket` (2026-09-28) | census `pilot (body) — frisk` ✅; `objects.py` (`lighter` is `in: pilot`) |
+| `search pilot` | the pocket contents — what a pilot carries, and **a book of matches with two left** (2026-09-28), so a party that wastes the first learns to be careful with its tinder; the lighter is not on him — it is in a jacket packed in the luggage (document 16). Searching him is an **attended activity** (document 06, 2026-09-28) that goes through him a garment and a pocket at a time — his jacket, his shirt pocket, his trousers — a line for each, and what it finds as it finds it; `stop` ends it with what was searched banked on him, so anyone can finish it; what cannot be reached says so (his back pockets are under him in the seat until he is moved or rolled). A search aimed at one place is its own act: `search the pilot's pockets`, `search the pilot's jacket`, `search his inside pocket` (2026-09-28) | census `pilot (body) — frisk` ✅; `objects.py` (`lighter` is `in: pilot`) |
 | `remove jacket from pilot` | a leather flight jacket — insulation the material table calls middling; his boots, gloves and watch are still to be authored. Taking a body's clothes off is an **attended activity that takes time** (2026-09-28) — longer through rigor, and it needs a cut once he is frozen | `objects.py` (the jacket on the pilot) |
 | `cover pilot with blanket` | a covered body — it keeps the birds off and hides him; no reward is invented for it, and a blanket on him is a blanket not on the living | document 15 |
 | `butcher pilot with knife` | the food path: an attended activity made of real cuts (§4.3a), witnessed by whoever is in perception band | document 15 |

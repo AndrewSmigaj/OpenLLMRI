@@ -147,10 +147,10 @@ their kit are built ✅ — `game/world/scenarios/whiteout/characters.py`). Nobo
 
 | slot | seat | wore | pockets | the crash left them |
 |---|---|---|---|---|
-| **the guide** | right seat | down parka, wool base layer, insulated boots, gloves, wool hat | pocketknife, lighter, chocolate, a compass on a lanyard | minor bumps and bruises |
+| **the guide** | right seat | down parka, wool base layer, insulated boots, gloves, wool hat | pocketknife, chocolate, a compass on a lanyard | minor bumps and bruises |
 | **the townie** | 1A | denim jacket, cotton hoodie, jeans, sneakers, no gloves | phone, wallet, gum, keys, earbuds | a cut forearm, bleeding |
 | **the nurse** | 1B | fleece, hiking boots, scarf, thin gloves | a med pouch, lip balm, hair ties, a pen | minor bumps and bruises |
-| **the salesman** | 2A | wool overcoat, dress shoes, leather gloves | a metal lighter, a hip flask, reading glasses, a notebook | concussion — fatigue faster, confusion the first day |
+| **the salesman** | 2A | wool overcoat, dress shoes, leather gloves | a hip flask, reading glasses, a notebook | concussion — fatigue faster, confusion the first day |
 | **the kid** | 2B | ski jacket, snow pants, snow boots, mittens | phone, candy bar, a multitool, sunglasses | minor bumps and bruises |
 
 What you wore that morning is the single largest determinant of the first night. That is the point: a
@@ -274,16 +274,18 @@ while the button is up"* — a reason, never a list of options.
 📐 Document 07. Each is gated by a different scarce resource, so none dominates. ◌ None is built:
 there is no fire entity, no ignition model and no shaping family.
 
-1. **Lighter** (in two players' pockets, and one in a jacket packed in the luggage — document 16) — flame → tinder → kindling → fuel.
+Nobody starts with fire in hand; it has to be found or earned (2026-09-28; document 07 §4.6).
+1. **Lighter** (found: one in a jacket packed in the luggage, one dry in the salesman's laptop bag that
+   takes fuel — document 07 §4.6) — flame → tinder → kindling → fuel.
    Fails on a branch straight from the flame, on wet tinder, on wind without a windbreak.
-2. **Matches** — the soaked box ✅: dry them by a fire or on your body (a process), then strike.
+2. **Matches** — the pilot's book with two left; the nurse's damp book: dry them against the body or by a fire (a process), then strike.
 3. **The flare** ✅ (object) — ignites anything, once, loudly; spends a signal.
 4. **Battery and wire** — the plane's battery in the nose, copper strands across the terminals; needs
    the wire and a walk outside.
 5. **Focus** — the landing-light reflector or an ice lens, sun only.
 6. **Spark** — the hatchet's spine ✅ on quartz, into char or fuel-soaked cloth.
-7. **Friction** — the bow drill: carve, split, notch, string, bundle, drill → ember → blow. The hand
-   drill is near-impossible for a novice in the cold and gives a real partial with raw palms.
+7. **Friction** — a notch in a board and a stick worked in it, spun or pushed, costs stamina hard
+   (2026-09-28); the bow drill (carve, split, notch, string, bundle, drill → ember → blow) costs less.
 
 The honest failure: `rub sticks together` → *"The bark scuffs and warms under your hands, nothing more.
 Friction fire wants one stick spinning hard and fast in a notch of another, not two sticks scraping."*
@@ -481,6 +483,6 @@ against the live game (2026-09-07 and 2026-09-16):
 | `make fire` | a recipe: *"A fire wants three things…"* | vague, `make` asks how; given the means, it performs the act (document 04 §3.9) |
 | `cover the pilot with the blanket` | resolves as `wrap`: *"…it'll hold the warmth in."* — over a body | covering a body as its own act (document 12) |
 | `give the gloves to the townie` | the stock shell command | a physical act with an owner and a witness (document 15) |
-| drying the soaked matches | nothing changes: wet is a flag on a row | wetness as grams of water that heat drives off (document 08) |
+| drying the damp matches | nothing changes: wet is a flag on a row | wetness as grams of water that heat drives off (document 08) |
 | bare `pry bin` from the rear cabin | binds the **forward** bin: *"too far away to pry from here"* | what is in front of you wins (document 04 §3.3, silent disambiguation) |
 | `search the pilot` · `dig the drift` · `search the tail cone` · `bandage my arm` | *"You go through the the pilot"* · *"a leather gloves"* · *"a sleeping bag and a snowshoes"* · *"around the you"* — articles glued onto names that don't take them | one fix in the phrase renderer (names that already start with an article, and plural names), worth doing before anyone reads a render for voice |

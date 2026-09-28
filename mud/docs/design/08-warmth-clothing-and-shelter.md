@@ -268,7 +268,7 @@ bands and the prose still says which places are cold; a party can still get out 
 
 ### 4.5 Drying and wetting
 
-Wet is grams of water in a thing. By a fire it falls; in snow it rises; a soaked matchbox dries by
+Wet is grams of water in a thing. By a fire it falls; in snow it rises; a damp book of matches dries by
 heat, which is the fire bootstrap. The ways to get wet that the world already carries: snow driving in
 through the breach; wet snow near freezing, which soaks what it lands on (document 13 §4.2); the
 creek, which still runs — a slip at the riffle or a wade soaks boots and legs a long way from a fire;

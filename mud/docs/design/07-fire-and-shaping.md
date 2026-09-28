@@ -9,9 +9,15 @@
 ## 2. Decisions
 
 ### Andrew's decisions
-- **(2026-09-07)** Andrew walked the lighter path and the bow-drill path step by step. Rubbing two
-  sticks together does not make fire, and the game says so; a bow drill works; a lighter lights
-  tinder, not a branch.
+- **(2026-09-07, 2026-09-28)** Andrew walked the lighter path and the bow-drill path step by step.
+  Rubbing two sticks together at random does not make fire, and the game says so; a notch cut in a
+  board and a stick worked in it does — spun between the palms or pushed along a groove — at a real
+  cost in stamina, and a bow drill works with less; a lighter lights tinder, not a branch.
+- **(2026-09-28)** Nobody starts with a lighter or matches in hand. A lighter is fine, but it has to be
+  found; there can be more than one, never everywhere. There can be more than one book of matches, and
+  the easier one is to find, the fewer matches it holds. No whole fire kit; a flint striker (a ferro
+  rod) in a duffel is fine. The dead pilot has a book of matches with two left. Not too hard, and never
+  handed over (§4.6).
 - **(2026-09-07)** State the act, not the aim: a player says what they do (`shake thermos`), not what
   they want. The one aim-verb is `make` (below).
 - **(2026-09-16)** Never a menu, applied to fire: no reply lists what would work, and mastery is never
@@ -43,11 +49,14 @@ proposals for how to realize Andrew's walkthrough and the never-a-menu rule mech
 transcripts' *steps* are Andrew's own, from 2026-09-07.
 
 ## 3. In one paragraph
-A player pats their pockets and finds a lighter — click, and the tinder catches, but hold that same
-flame to a wrist-thick branch and it just blackens; you have to build up from tinder to kindling to
-fuel, or the fire dies in your hands. Without a lighter it is a longer, harder-won path: carve a
-spindle, split a board, notch a socket, string a bow, bundle tinder, and drill until a thread of smoke
-becomes a coal you have to blow into life — or give up and let the cold win the argument. Rubbing two
+Nobody has fire in their pocket. Somebody searches the dead pilot and finds a book of matches with two
+left — strikes one at a handful of spruce twigs in the wind and watches it die, and learns, with one
+match left, to gather birch bark and dry shavings first and build from tinder to kindling to fuel.
+Somewhere in the luggage there is a lighter in a jacket pocket, if anyone digs for it; a damp book of
+matches in a backpack; a ferro rod in a duffel. Without any of them it is a longer, harder-won path:
+carve a spindle, split a board, notch a socket, spin or drill until a thread of smoke becomes a coal
+you have to blow into life — paid for in stamina and raw palms — or give up and let the cold win the
+argument. Rubbing two
 sticks together does nothing but warm your palms, and the game says so plainly, pointing at the physics
 of why without ever naming the verb that would actually work.
 
@@ -132,19 +141,36 @@ at that space; a burning thing in the hand is a torch, not a fire.
 
 ### 4.6 The seven methods
 Each has at least one probe chain proposed, including the honest failures:
-1. **Lighter** (in a pocket — document 16) — flame → tinder → kindling → fuel. Fails on: a branch
-   straight from the flame; wet tinder; wind without a windbreak.
-2. **Matches** — the soaked box: `dry matchbox` by a fire or body heat (a process) → strike.
+*Where the flames are* (the rule is Andrew's, 2026-09-28; the placement is proposed by Claude, for
+Andrew's check): nothing in anyone's hand at the start, and the easier a source is to find, the less of
+it there is — **the pilot's book of matches, two left**, in his shirt pocket (Andrew's); **the nurse's
+book of matches, about eight, damp** where her canteen leaked in the crash, in her backpack behind the
+jammed aft bin — dried against the body or near a fire before it strikes; **a cheap butane lighter** in
+a canvas jacket rolled in the townie's suitcase in the baggage bay — bag, then jacket, then pocket — which
+sputters in the cold until it is warmed in a hand or a pocket; **the salesman's old metal lighter, dry**,
+in a side pocket of his laptop bag — it lights again once its wick is fed fuel, and the avgas in the
+wing will do; and **a ferro rod** in the guide's duffel (Andrew's), thousands of sparks into fine dry
+tinder only.
+
+1. **Lighter** (found — above) — flame → tinder → kindling → fuel. Fails on: a branch straight from
+   the flame; wet tinder; wind without a windbreak; a butane lighter too cold to light.
+2. **Matches** — the pilot's two, and the nurse's damp book: `dry the matches` against the body or near
+   a fire (a process) → strike. Each match is one try.
 3. **The flare** — ignites
    anything, once, loudly; it is fire *or* signal, never both
    ([`14-rescue-paths.md`](14-rescue-paths.md) §3.4).
 4. **Battery + wire** — pry the panel: the plane's battery in the nose cowling (12 kg, wired and
    fine), copper strands across the terminals glow → tinder. Needs the wire *and* a walk outside.
 5. **Focus** — the landing-light reflector or an ice lens, sun only (weather-gated).
-6. **Spark** — the hatchet spine on quartz (the ridge; a rock in the muskeg) into char or fuel-soaked
-   cloth.
-7. **Friction** — the bow drill (carve, split, notch, string, bundle, drill → ember → blow); the hand
-   drill (near-impossible for a novice in the cold and damp; a real partial with raw palms).
+6. **Spark** — the ferro rod from the guide's duffel, scraped with a knife's spine, into fine dry tinder
+   (birch bark, old-man's-beard lichen, shavings); or the hatchet spine on quartz (the ridge; a rock in
+   the muskeg) into char or fuel-soaked cloth.
+7. **Friction** (Andrew, 2026-09-28) — a notch cut in a dry board and a stick worked in it: spun
+   between the palms (the hand drill) or pushed hard along a groove (the fire plough) → a coal → blow.
+   It works with the right dry wood, and it costs stamina hard — tired, cold or raw hands fail, and the
+   stamina meter shows it. The bow drill (carve, split, notch, string with a bootlace or paracord,
+   bundle, drill → ember → blow) takes much less stamina for the same coal. The ferro rod's spark is
+   its own way (6).
 
 `rub sticks together` → *"The bark scuffs and warms under your hands, nothing more. Friction fire wants
 one stick spinning hard and fast in a notch of another, not two sticks scraping."* `make fire with
@@ -196,7 +222,7 @@ capabilities (`edge`, `tinder`, `ignition`, `flame`, `ember`) that the shaping f
 ignition check consumes; the taught grammar
 ([`04-grammar-and-feedback.md`](04-grammar-and-feedback.md)) for the `into <form>` syntax the shaping
 verbs use and the `make` rows; the running clock ([`06-time-sleep-and-the-clock.md`](06-time-sleep-and-the-clock.md),
-DR-27) for fire as an unattended process, the drying process for the soaked matchbox, and
+DR-27) for fire as an unattended process, the drying process for the damp matches, and
 `FIRE_STATE_CHANGE` as an activity-interrupt signal; the characters' differing skill (document 16);
 the heat system (`PLAN.md` A10), which carries the fire's heat into its area and the plane
 ([`17-rooms-and-living-rooms.md`](17-rooms-and-living-rooms.md) §4.8).
