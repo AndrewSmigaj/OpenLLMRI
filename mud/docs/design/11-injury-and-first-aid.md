@@ -65,6 +65,9 @@
 - **(2026-09-28)** **A person can be carried in every real way** — on the back, by two, dragged, on a
   litter or sled — at a real cost to both (§4.9). The mechanics of one player helping another drag or
   carry are still to be worked out (documents 04 and 19).
+- **(2026-09-28)** **Painkillers mask pain honestly** — the pain meter falls while the wound is
+  unchanged — and a side effect too small to matter in a week is not modelled: ibuprofen's cost is the
+  tablets and who gets them (§4.10).
 - **(2026-09-27)** **Each real first-aid act is its own act** — press (held, an activity that ties up
   the hands), pack, a tight bandage, a tourniquet, raising the limb, rinsing, picking out grit,
   rewarming, splinting, stitching, carrying and dragging — each with its everyday names (§4.1 rule 5,
@@ -329,8 +332,7 @@ That is the real order, and the world teaches it by happening in it.
   people: 1900–2009* (J. Wildlife Management, 2011).
 - Epidural haematoma and the lucid interval (AMBOSS; StatPearls); pneumonia after rib fractures
   (*Am. J. Emergency Medicine*, 2019).
-- NSAIDs and platelets (Schafer, J. Clin. Pharmacology, 1995); NSAIDs and acute kidney injury when
-  dehydrated (National Kidney Foundation); alcohol, skin vasodilation and blunted shivering.
+- Alcohol, skin vasodilation and blunted shivering.
 
 ### 4.7 Stopping the bleeding
 
@@ -388,16 +390,16 @@ another drag something — whose mechanics are still to be worked out, in docume
 
 ### 4.10 Painkillers
 
-*(Proposed by Claude, for Andrew's check.)* Pain is a state on the part (§4.6) and part of what limits
-the part, so masking it is modelled, honestly. Ibuprofen — the nurse's pouch holds a count of tablets —
+Pain is a state on the part (§4.6) and part of what limits the part, so masking it is modelled,
+honestly (2026-09-28). Ibuprofen — the nurse's pouch holds a count of tablets —
 works in 30–60 minutes and lasts four to six hours; it lowers pain and swelling, and `status`
 truthfully reports less pain while the wound is unchanged: that is the fair lie. How much the part
 gives back depends on the wound — a sprain's limit is mostly pain, so the nurse walks better; a broken
-bone's limit is mechanical, so no pill makes it bear weight. Its real prices: it slows clotting (the
-bleeding townie should not take it), and taken while dehydrated it can injure the kidneys (document
-09's clock). It is also the field treatment for frostbite. Whisky dulls pain and judgment, and it opens
+bone's limit is mechanical, so no pill makes it bear weight. Over a week its side effects are too small
+to matter (2026-09-28): what it costs is the tablets, and who gets them. It is also the field treatment
+for frostbite. Whisky dulls pain and judgment, and it opens
 the skin's blood vessels and blunts shivering, so it costs heat — the brandy-in-the-snow cure is a myth.
-Willow-bark tea (document 23) is a weak real painkiller.
+Willow grows in the valley, so willow-bark tea (document 23) is a weak real painkiller.
 
 ### 4.11 How impairment reads
 
@@ -505,7 +507,8 @@ None open.
 - **2026-09-28 (Andrew, the document's sitting, continued):** item 7 — the body as proposed; the cold
   hurts above all through getting wet, the whole body — the ice, the flurries, sweat once the work
   stops. Item 8 — carrying a person in every real way; the mechanics of helping someone drag or carry
-  are still to be worked out.
+  are still to be worked out. Item 9 — painkillers as proposed, without side effects too small to
+  matter in a week; willow-bark tea, since willow grows here.
 - **2026-09-27** — the no-storm week carried in (document 13 §4.2).
 
 ## 8. What exists today
