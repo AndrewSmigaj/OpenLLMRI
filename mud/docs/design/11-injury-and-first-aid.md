@@ -62,6 +62,9 @@
   the pilot and a dead player; every source of injury on its real clock. **The cold hurts above all
   through getting wet — the whole body**: breaking through the ice, the flurries, the creek, and sweat,
   which keeps you warm while you work and chills you once you stop.
+- **(2026-09-28)** **A person can be carried in every real way** — on the back, by two, dragged, on a
+  litter or sled — at a real cost to both (§4.9). The mechanics of one player helping another drag or
+  carry are still to be worked out (documents 04 and 19).
 - **(2026-09-27)** **Each real first-aid act is its own act** — press (held, an activity that ties up
   the hands), pack, a tight bandage, a tourniquet, raising the limb, rinsing, picking out grit,
   rewarming, splinting, stitching, carrying and dragging — each with its everyday names (§4.1 rule 5,
@@ -368,7 +371,7 @@ not a finish line. Boiling a strip or a blade is the heat design's (to be writte
 
 ### 4.9 Carrying a person
 
-*(Proposed by Claude, for Andrew's check.)* A person can be carried in every real way, because a person
+A person can be carried in every real way (2026-09-28), because a person
 is an entity with a mass and the carrying rules already exist (document 04 §3.11: capacity is what you
 hold, wear and haul; the load feeds travel time). **`carry`** on the back or over the shoulders is one
 strong person, a short way; **two people** can carry one between them; **`drag`** by the shoulders or
@@ -379,8 +382,9 @@ design already has a drag litter of panelling and cord). Carrying makes the **ca
 sweating — the deferred cold debt (document 08 §4.2) — while the **carried** person, not moving and
 often lying on frozen ground or snow, cools fast and needs insulation under and around them. Moving an
 unsplinted break grinds the bone ends: pain, more bleeding, damaged nerves. Two people carrying one
-needs a co-operative form in the grammar (two actors on one entity), which is documents 04 and 19 to
-write.
+needs a co-operative form in the grammar — two actors on one entity, such as one player helping
+another drag something — whose mechanics are still to be worked out, in documents 04 and 19
+(2026-09-28).
 
 ### 4.10 Painkillers
 
@@ -500,7 +504,8 @@ None open.
   fire, by real physics; a tarp aboard for sealing the crash's openings.
 - **2026-09-28 (Andrew, the document's sitting, continued):** item 7 — the body as proposed; the cold
   hurts above all through getting wet, the whole body — the ice, the flurries, sweat once the work
-  stops.
+  stops. Item 8 — carrying a person in every real way; the mechanics of helping someone drag or carry
+  are still to be worked out.
 - **2026-09-27** — the no-storm week carried in (document 13 §4.2).
 
 ## 8. What exists today
