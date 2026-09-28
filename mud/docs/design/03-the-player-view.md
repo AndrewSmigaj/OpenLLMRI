@@ -189,7 +189,10 @@ One rule decides whether a thing is in the text at all: **an object's contents e
 parser's pool and reach if and only if the object is `open` or `searched`** (or the child is worn by
 the parent — a worn jacket is the visible layer). Recursive through revealed containers only:
 opening the bin shows the duffel; the duffel's insides wait for their own search. Discovery is
-deterministic — search and dig find exactly what is physically there, never a roll.
+deterministic — search and dig find exactly what is physically there, never a roll. Searching is an
+activity (2026-09-28): it goes through a body, a pile, a container or the wreckage a pocket, a
+compartment or a layer at a time, a line for each find, and it can be stopped with what was searched
+kept; a search aimed at one place (`search the pilot's pockets`) goes straight there (document 06).
 
 This is what lets the look be short and still fair. The scene shows the *flavour* — the things a
 person would see from the doorway — and the load-bearing kit is inside things, earned.

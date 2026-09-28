@@ -289,7 +289,7 @@ from half an hour to days later, spending water. Very sick, never dead — hours
 | the air in a closed space | carbon monoxide from a fire in the fuselage; smoke; toxic smoke from burning foam (document 07's foam warning) | **the heat design** (the plane's openings and internal air) |
 | the gut | the hemlock root and the baneberry (document 23), the bulged can, rotten meat, fuel-tainted water (document 09) | documents 10, 23, 09; **the food-state and spoilage design, to be written** |
 | the eyes | smoke, sparks from the ferro rod or the hatchet on quartz | this document |
-| work | blisters from the bow drill, splinters, cuts from torn aluminium, a strained back | the activity that caused it (document 06) |
+| work | blisters from the bow drill, splinters, cuts from torn aluminium — rummaging through the wreckage can cut you on something sharp (2026-09-28) — a strained back | the activity that caused it (document 06) |
 
 **The animals are real animals.** Alaska's record for brown bears (1986–1996) is about 2.75 people
 injured and 0.42 killed a year: a bear injures far more often than it kills, and a defensive attack

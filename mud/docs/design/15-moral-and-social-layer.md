@@ -230,7 +230,7 @@ below is ordinary logging of ordinary acts — no act is special-cased, and noth
 - **Theft — possession and ownership are two relations, not one.** Possession is whose hands,
   pockets, pack or cache a thing is in (the containment chain, which exists). Ownership is whose it
   is (`owner`, which exists as a contract field). They come apart constantly, as they do in real
-  life: the pilot's lighter is his, in his pocket; a ration from the plane's kit belongs to nobody
+  life: the pilot's lighter is his, in his pocket; the plane's first-aid kit belongs to nobody
   present; the parcel addressed to Holt is Holt's and nobody here holds it. Starting ownership comes
   from provenance — what a survivor wore, carried or packed is theirs (document 16), the pilot's
   pockets are his, the freight is its addressee's, the valley's deadfall is nobody's; `give`

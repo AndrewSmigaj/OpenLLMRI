@@ -32,7 +32,11 @@
   (`PLAN.md` E19).
 - **(2026-09-27)** Poison and bad meat make people very sick but never kill (document 11 §4.6).
 - **(2026-09-28)** The acts on a body are the general system, and anything reasonable that follows the
-  grammar works on it (§4.3). Taking a body's clothes off is an activity that takes time. A search aimed
+  grammar works on it (§4.3). Taking a body's clothes off is an activity that takes time. **Searching
+  is an activity** — a body, the wreckage, any pile or container is gone through a pocket, a
+  compartment or a layer at a time, and it can be stopped; rummaging through the wreckage can cut you
+  on something sharp. The pilot's lighter is not easy to find. His body's states over the week (§4.3a)
+  are as proposed, and a sharp knife still slices frozen flesh. A search aimed
   at one place — `search the pilot's pockets`, `search the pilot's jacket` — works, because the world
   is ontologically sufficient. There is no trust meter.
 
@@ -79,7 +83,7 @@ the grammar works on him, as on everything else (document 05).
 
 | the act | what it is | source |
 |---|---|---|
-| `search pilot` | the pocket contents — a lighter, one of the fire paths. *(Proposed by Claude, for Andrew's check — the question is Andrew's, 2026-09-28:)* an **attended activity** (document 06) that goes through him a garment and a pocket at a time — his jacket, his shirt pocket, his trousers — a line for each, and what it finds as it finds it; `stop` ends it with what was searched banked on him, so anyone can finish it; what cannot be reached says so (his back pockets are under him in the seat until he is moved or rolled). A search aimed at one place is its own act: `search the pilot's pockets`, `search the pilot's jacket`, `search his inside pocket` (2026-09-28) | census `pilot (body) — frisk` ✅; `objects.py` (`lighter` is `in: pilot`) |
+| `search pilot` | the pocket contents — a lighter, one of the fire paths, and **not easy to find** (2026-09-28). *(Proposed by Claude, for Andrew's check:)* it is in the front pocket of his trousers, under the lap belt — a search of his jacket finds nothing, and the belt has to come off first. Searching him is an **attended activity** (document 06, 2026-09-28) that goes through him a garment and a pocket at a time — his jacket, his shirt pocket, his trousers — a line for each, and what it finds as it finds it; `stop` ends it with what was searched banked on him, so anyone can finish it; what cannot be reached says so (his back pockets are under him in the seat until he is moved or rolled). A search aimed at one place is its own act: `search the pilot's pockets`, `search the pilot's jacket`, `search his inside pocket` (2026-09-28) | census `pilot (body) — frisk` ✅; `objects.py` (`lighter` is `in: pilot`) |
 | `remove jacket from pilot` | a leather flight jacket — insulation the material table calls middling; his boots, gloves and watch are still to be authored. Taking a body's clothes off is an **attended activity that takes time** (2026-09-28) — longer through rigor, and it needs a cut once he is frozen | `objects.py` (the jacket on the pilot) |
 | `cover pilot with blanket` | a covered body — it keeps the birds off and hides him; no reward is invented for it, and a blanket on him is a blanket not on the living | document 15 |
 | `butcher pilot with knife` | the food path: an attended activity made of real cuts (§4.3a), witnessed by whoever is in perception band | document 15 |
@@ -99,8 +103,6 @@ spoilage system, and the animals' senses (§4.3a).
 
 ### 4.3a The body in the ontology
 
-*(Proposed by Claude, for Andrew's check.)*
-
 **What he is.** An `individual` of 78,000 g, the same kind of entity as a living player (document 11
 §4.6): `materials` in order — skin, fat, muscle, bone, blood, organs; `parts` recursively, as a living
 body's; a `container` (his pockets: the lighter); worn things with `worn_by: pilot` (the jacket today;
@@ -111,7 +113,7 @@ bulkhead. His states, each changed by a system:
 |---|---|---|
 | `heat`, per part | a body cools about a degree an hour at first, faster in cold air and fastest in the thin parts. In a cockpit below freezing his fingers, face and feet freeze first, and the whole 78 kg takes days to freeze through, because the heat of some 45 kg of water has to leave it (a physics estimate, for the probes to tune) | the heat system: the cockpit's air, the plane's openings, a fire in the fuselage |
 | `stiff` (rigor) | sets in 2–6 hours after death, peaks around 12, passes over the next day or two — more slowly in the cold. Stripping him is easy before it, a fight during it | time × heat |
-| `frozen`, per part | frozen flesh is hard as wood: it will not bend, strip or cut with a knife — only a saw or an axe will go through, or thawing by a fire, which starts it spoiling | the heat system |
+| `frozen`, per part | frozen flesh is hard: it will not bend or strip, but a sharp knife still slices and shaves it, slowly — frozen raw meat is eaten shaved thin in the north (2026-09-28). A frozen joint or bone takes a saw or an axe, or thawing by a fire, which starts it spoiling | the heat system |
 | `spoilage` | bacteria grow above about 4 °C (40 °F) and barely below it, and stop below freezing. The gut spoils first, from the inside — which is why a hunter guts a kill at once | time × heat; **the food-state and spoilage design, to be written** |
 | `sensed.smell`, with a range | faint while cold and whole; strong once opened, warmed or spoiling. Smell is how the bear, the ravens and the gray jays find a carcass | his other states; read by the animals' behaviour rules (document 23) |
 | `covered` · `buried` · `moved` · `stripped` · `searched` · `cut` (which parts) · `scavenged` | the record of what was done to him — each a physical fact the prose composes from, never a label | the acts below, and the animals |

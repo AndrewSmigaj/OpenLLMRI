@@ -111,7 +111,8 @@ ice cracking, a plane), and a sleeper's cold falling below their floor, which wa
 ### 4.3 Activities with feedback
 
 Two kinds of time ride the same heartbeat. **Attended activities** are what this document designs:
-sawing a branch, drilling for an ember, digging, dressing a wound, taking a body's clothes off
+sawing a branch, drilling for an ember, digging, dressing a wound, taking a body's clothes off,
+searching a body, the wreckage, a pile or a container a pocket, a compartment or a layer at a time
 (2026-09-28) — a start line, a few varied tick
 lines driven by state, an interruption that keeps partial progress, a completion line. Fighting is not
 one of them: nothing in a fight is automatic, and each attack is its own typed act (2026-09-27).
