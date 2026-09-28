@@ -27,7 +27,7 @@
 - **2026-09-26 — the plane is an entity.** The plane is an entity itself, with openings that are open or
   closed and an internal heat that a fire inside raises; a fire generates heat in its area and residual
   heat in other areas; body parts have heat as part of their ontology. It is part of designing the fire
-  and heat system. Rooms are therefore entities in the ontology like everything in them (§4.8).
+  and heat system. Rooms are therefore entities in the ontology like everything in them (§4.8). The wreck is several things, each an entity with its parts (2026-09-28): the fuselage with its wing — the cabin — the tail section torn off up the scar, and the pieces strewn along the debris trail.
 - **2026-09-26, 2026-09-27 — the season** is the first week of October in interior Alaska (document 13
   §4.2).
 - **2026-09-27 — what kills.** Nothing kills instantly: death comes by the body running down, on real

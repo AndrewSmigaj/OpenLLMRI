@@ -177,7 +177,7 @@ The aircraft is a **Cessna 206-class piston single** (Andrew, 2026-09-07) with t
 netted baggage bay behind the last row. A real bush plane has no airline-style overhead bins — only a
 hat shelf, floor tie-down tracks and cargo netting — and neither has this one.
 
-*(Proposed by Claude, for Andrew's check:)* in early October, with bare ground or a few centimetres of
+In early October (2026-09-28), with bare ground or a few centimetres of
 snow and only skim ice on still water, a mail plane landing on village gravel strips flies on wheels —
 big tundra tyres — and the skis go on when there is snow to land on. The tyres and their tubes are
 rubber: black signal smoke, and a band that stretches for a sling.
@@ -219,11 +219,12 @@ laptop bag; under 2B, a phone charging cable and a crumpled chip bag.
   the yokes, the halon extinguisher, the magneto key in the ignition, the kneeboard with the manifest
   and the sectional chart.
 
-**The plane is one entity** (Andrew, 2026-09-26): the seats, the hat shelf, the baggage bay, the cargo
-door, the windows and the breach are its parts; each opening is open or closed, and the plane has an
-internal heat (document 17 §4.8). *(Proposed by Claude, for Andrew's check:)* the interior is content —
-written into the ontology store at the cabin zone's census and converted into rows when that zone is
-finalized; the openings feed the heat-system design, to be written.
+**The wreck is several things, each with its parts** (Andrew, 2026-09-26, 2026-09-28): the fuselage
+with its wing — the cabin, whose parts are the seats, the hat shelf, the baggage bay, the cargo door,
+the windows and the breach, each opening open or closed, with an internal heat (document 17 §4.8) —
+the tail section torn off up the scar, and the pieces strewn along the debris trail. The interior is
+content — written into the ontology store at the cabin zone's census and converted into rows when that
+zone is finalized; the openings feed the heat-system design, to be written (2026-09-28).
 
 ### 4.7 What this asks of the engine
 
@@ -262,8 +263,8 @@ it lives on the things that carry.
 | a dragged seat frame, the cargo net as a bundle | far more, and it costs you speed | the 2A seat is already designed as a movable frame; this is what it is for |
 
 Exceeding capacity is never a refusal: you take what fits, the world names what you left behind, and
-the load feeds the travel time (document 03 §4.1a). *Proposal: capacity is a `capacity_g` and a
-`capacity_bulk` on any container row; the sum of what you hold, wear and haul is what you can carry.*
+the load feeds the travel time (document 03 §4.1a). Capacity is a `capacity_g` and a `capacity_bulk`
+on any container row; the sum of what you hold, wear and haul is what you can carry (2026-09-28).
 
 ### 4.9 Early October — what these people would really wear, carry and fly with *(proposed by Claude, for Andrew's check)*
 

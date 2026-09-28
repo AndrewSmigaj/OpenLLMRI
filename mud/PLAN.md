@@ -390,6 +390,8 @@ it says so. When a decision changes, this list and every document it touches cha
   huddle under one blanket, no more**; the rest huddle close or layer up. (2026-09-28)
 - **Heat is a state system**: heat on every entity, body parts included; a fire heats its area and leaves
   residual heat around it; the plane is an entity with openings, open or closed, and an internal heat.
+  The wreck is several things, each an entity with its parts: the fuselage with its wing (the cabin),
+  the tail section torn off up the scar, and the pieces along the debris trail. (2026-09-28)
   Food changes with heat — raw, cooked, spoiled; most fresh raw meat makes no one sick, rotten meat does — and there is spoiled food and there are poisonous
   mushrooms. Hunting, trapping, fishing and killing are real operations, each variant its own.
   (2026-09-26)
