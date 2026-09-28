@@ -33,8 +33,9 @@
   constantly. **The fish are scripted.** Claude proposes the list (§4.1a), for Andrew's check.
 - **Food states** (2026-09-26): raw, cooked and spoiled differ; there is spoiled food, and there are
   poisonous mushrooms; there is a combat system like a MUD's (document 10 §2).
-- **What kills** (2026-09-27): **poison makes people very sick and never kills.** The bear can kill.
-  Death comes from blood loss, the bear, the cold and thirst; other things make people weak and sick.
+- **What kills** (2026-09-27): **poison makes people very sick and never kills.** The bear can kill,
+  through the bleeding it causes. Nothing kills instantly: death comes by the body running down, on
+  real clocks, with time to respond.
 
 - **2026-09-27 — no moose.** Things are named by their most common name, with the other names as synonyms.
 ### Proposals (Claude)
@@ -348,7 +349,7 @@ the cold); reviews of protein toxicity ("rabbit starvation"); *Mousefood* (Yup'i
 Feeds document 10 (yields, cooking, spoilage), documents 05 and 22 (every row here is an ontology
 entity the loops will grow), document 13 (wildlife events, ravens at the cache, wolves), document 11
 (the poisons — very sick, never dead; frostbite from digging), document 07 (tinder plants), document 01
-(where things are) and document 21 (the bear is one of the three things that kill). Document 13 §4.2
+(where things are) and document 21 (the bear kills through the bleeding it causes). Document 13 §4.2
 supplies the weather, daylight, snow, ice and frost this document refers to, and the storm that buries
 the low berries and refreshes the tracks; document 12 §4.3a the carcass that draws the bear, the ravens
 and the jays; document 11 §4.6 what the poisonous mushrooms, the baneberry and the hemlock do inside a

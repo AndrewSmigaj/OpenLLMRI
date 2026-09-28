@@ -91,7 +91,8 @@ the author's verb.**
 an unstable wreck. The aircraft is a Cessna 206-class single with a four-seat interior (1A, 1B, 2A, 2B
 and the right seat), a hat shelf, a cargo net and a jammed cargo door; the plane's battery is in the
 nose, wired and fine. **What is aboard** is not too easy and not too hard: there is no survival kit; the sleeping bag is buried with the tail wreckage; two blankets are
-hidden inside the plane; there is no firearm (2026-09-27; document 16). **Holt's cabin** is supplies —
+hidden inside the plane; there is no firearm; one of the packs holds a few iodine tablets and a sewing
+needle and thread are aboard (2026-09-27; document 16). **Holt's cabin** is supplies —
 some trapline gear and modest stores — and walking out is not an ending. The crash site is the densest
 place in the valley — modelled to the hilt — and the whole valley, all fifty outdoor zones in eleven
 regions, is in the run (document 01).
@@ -269,9 +270,10 @@ One chapter per system; each is its own document, reviewed separately.
   country (berries, snares, birds brought down by anything thrown, fish, roots), the body; hunting, trapping, fishing
   and killing are real operations, each variant its own (2026-09-26, 2026-09-27). Documents 10 and 23.
 - **Injury and first aid** — named wounds on body parts, with clocks, and no hit points; improvised
-  care. **Death comes from blood loss, the bear, the cold and thirst**; poison makes people very sick
-  but never kills; other harms — infection, carbon monoxide and the rest — make them weak and sick;
-  dangerous places injure but never kill outright, fitness matters, and a seeded dice roll is
+  care. **Nothing kills instantly:** death is realistic and can come fairly fast, but always by the
+  body running down — blood loss, the cold, thirst, a wound gone bad — so a player always has time to
+  respond, and the bear and a knife kill through the bleeding they cause; poison makes people very sick
+  but never kills; dangerous places injure but never kill outright, fitness matters, and a seeded dice roll is
   announced. There is no gate on violence: it resolves with real physics, through a combat system
   roughly like a MUD's — nothing automatic, each attack typed, landing by the fighters' stats and
   chance as in D&D, read as what happened, never as dice — and a blow wounds only when it would really hurt (2026-09-26, 2026-09-27).

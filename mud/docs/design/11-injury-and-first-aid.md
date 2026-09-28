@@ -13,8 +13,8 @@
 - **(2026-09-16, 2026-09-26)** No lethal-consent gate; violence resolves with real physics, and there is a
   combat system like a MUD's — stab with a spear, beat with a stick. Wounds are wounds whoever caused
   them; the engine does not soften a blow.
-- **(2026-09-17)** Dangerous places injure but never kill outright; fitness matters; a seeded dice roll,
-  announced (document 01).
+- **(2026-09-17)** Dangerous places injure — a fall may break a limb — but never kill outright; fitness
+  matters; a seeded dice roll, announced (document 01).
 - **(2026-09-17)** The pilot starts the run dead, so the party's first patients are each other.
 - **(2026-09-17, 2026-09-27)** The endings are rescued or dead; the run ends when they die. Dead players
   are ghosts.
@@ -24,8 +24,12 @@
   some bigger animals and a few birds act (document 23).
 - **(2026-09-26, 2026-09-27)** The season is the first week of October in interior Alaska; the week's
   numbers are document 13 §4.2's.
-- **(2026-09-27)** **What kills: blood loss, the bear, the cold and thirst.** Poison makes people very sick but
-  never kills; other harms — infection, carbon monoxide and the rest — make them weak and sick.
+- **(2026-09-27)** **Nothing kills instantly.** Death is realistic and can come fairly fast, but always
+  by the body running down — blood loss, the cold, thirst, a wound gone bad and the rest, each on its
+  real clock — so a player always has time to respond. The bear and a knife kill through the bleeding
+  they cause: a mauled person lies there bleeding, can play dead, and may or may not make it back. A
+  body already near its end can go almost at once, never in one instant. Poison makes people very sick
+  but never kills.
 - **(2026-09-27)** **Characters differ in how well and how fast they do things.** A character's success
   and the time an act takes depend on who they are — a woodsman lights fires better, and a nurse's
   hands are better at wound care. It shows only in the outcome, never as advice; the player still has
@@ -51,7 +55,7 @@
   real at the game's 15×: a cut artery leaves seconds of real time.
 
 ### Proposals (Claude)
-Everything else here is Claude's, for Andrew's check: the infection process; which
+Everything else here is Claude's, for Andrew's check: which
 injury each slot draws; the rest of the body as an entity with parts and states (§4.6); the treatments
 as operations (§4.7–§4.12); the injury list beyond the crash's; every number. The real-world sources
 are listed at the end of §4.6.
@@ -89,10 +93,10 @@ start to matter, and first aid stops being a one-off act and becomes a thing you
    Pressure slows it while it is held; a pressure dressing or packing holds it after; a tourniquet stops
    a limb's arterial bleed (§4.7). A binding stops only a bleed it is equal to: arterial blood soaks
    straight through a strip.
-3. **Infection is a process on the wound, and it weakens rather than kills** (2026-09-27). *(Proposed by
-   Claude, for Andrew's check:)* deterministic and seeded (DR-12), so a run replays identically, and
-   driven by the wound's contamination, how it was cleaned and what covers it (§4.8). Then fever, which
-   costs warmth and water, and, untended, worse — but never death on its own.
+3. **Infection is a process on the wound** (2026-09-27), seeded (DR-12) so a run replays identically,
+   and driven by the wound's contamination, how it was cleaned and what covers it (§4.8). Then fever,
+   which costs warmth and water, and, untended, a spread into the blood that kills on its real clock of
+   days — never at once, like everything that kills.
 4. **Medicine is systemic and improvised, never a recipe.** Cloth becomes a bandage; seatbelt webbing
    becomes a tourniquet or a splint tie; branches, aluminium frames or poles become splints; alcohol
    cleans a blade and intact skin; boiling water or a flame cleans some metal tools; snow reduces
@@ -140,7 +144,7 @@ player draws which slot, so no player is always the townie. A seat nobody plays 
 | way | what it spends | where | the chain |
 |---|---|---|---|
 | **the first-aid kit** (bandage, tape) | search | the forward bin in the mid cabin — pry-gated | `press wound` → `wrap arm with bandage` |
-| **improvised** (shirt strips, clean water to rinse, paracord and a rod as a splint) | tools + knowledge | the rear cabin, the duffel | `tear shirt` → `pour water on the cut` → `wrap arm with strip` |
+| **improvised** (a torn-up shirt or any cloth, clean water to rinse, paracord and a rod as a splint, a sewing needle and thread to stitch — boiled first) | tools + knowledge | the rear cabin, the duffel; the sewing kit in the townie's toiletry bag (document 16) | `tear shirt` → `pour water on the cut` → `wrap arm with strip` |
 | **warmth for frostbite** (skin to skin, no rubbing) | warmth | any | `wrap hands in socks` · sit by the fire |
 
 **The med pouch** belongs to a person, not the plane: gauze pads, medical tape, ibuprofen, a suture kit
@@ -176,20 +180,22 @@ and exhaustion are the other survival clocks'.
 - **Carbon monoxide** is a gas in a zone's air. A fire in a closed space makes it — a smouldering or
   banked fire more than a bright one — and the plane's openings let it out (the plane is an entity with
   openings, open or closed, 2026-09-26). A body takes it up and gives it back only slowly, over hours of
-  fresh air: headache and nausea first, then confusion, then collapse. It makes a body very sick and
-  never kills on its own (2026-09-27); it is why blocking every gap is not free. Owned by the heat
-  design (the air in enclosed zones).
+  fresh air: headache and nausea first, then confusion, then collapse, and, left to build, death — by
+  the level rising in the blood over hours, never at once (2026-09-27). *(Proposed by Claude, for
+  Andrew's check:)* a body getting worse wakes a sleeper, as the cold already does (document 06), so
+  there is time to respond. It is why blocking every gap is not free. Owned by the heat design (the air
+  in enclosed zones).
 - **Hypothermia's confusion** is clumsiness, slowness and poor judgment — the body can fail at an act,
   and the engine never performs one the player did not type (§4.11).
 
 ### 4.5 The escalation (what untreated injury does over a week)
 
-*(Proposed by Claude, for Andrew's check.)* A cut on day 1; a dirty wound shows infection in 24–72
-hours (an animal bite in 12–24); fever and spreading redness over the next days, costing warmth and
-water. A deep, dirty wound can turn to gas gangrene within hours to three days; the black of dead
-frostbitten tissue takes weeks to declare itself, longer than the run. None of that kills on its own
-(2026-09-27): what it takes is the labour that keeps everyone else alive — *a body that can't work
-can't stay warm.* What kills is blood loss, the bear, the cold and thirst (§4.6).
+A cut on day 1; a dirty wound shows infection in 24–72 hours (an animal bite in 12–24); fever and
+spreading redness over the next days, costing warmth and water; untended, the spread into the blood
+kills over days (2026-09-27). A deep, dirty wound can turn to gas gangrene within hours to three days;
+the black of dead frostbitten tissue takes weeks to declare itself, longer than the run. Long before
+any of it kills, it takes the labour that keeps everyone else alive — *a body that can't work can't
+stay warm.* Nothing kills instantly (§4.6).
 
 The Bodies cards of the event deck (document 13 §4.3) make it visible: a wound infects; frostbite
 whitens a finger; snow blindness; hypothermia's clumsiness; dehydration headaches; the hunger stages.
@@ -223,26 +229,28 @@ glycogen, fat, protein — not one kcal number), **carbon-monoxide saturation**,
 fighting and hauling, back with a rest), **consciousness**. None of them is a
 hit-point total; each is a real quantity.
 
-**What kills** (Andrew, 2026-09-27) — three things, on their real clocks:
+**How death comes** (Andrew, 2026-09-27): **nothing kills instantly.** Death is realistic and can come
+fairly fast, but always by the body running down on a real clock, so a player always has time to
+respond — to press the wound, get to the fire, drink, play dead. A body already near its end can go
+almost at once, never in one instant. The bear and a knife kill through the bleeding they cause: a
+mauled or stabbed person lies there bleeding, and whether they make it back is the clock against what
+the party does. A fall in a dangerous place injures — a broken limb — and never kills outright.
 
-| what kills | what the body does on the way | how fast |
+| what runs down | what the body does on the way | how fast |
 |---|---|---|
-| **blood loss** — blood volume, about 70 mL/kg, ~5 L in a 70 kg adult | up to 15% lost: nothing shows · 15–30%: fast pulse, anxiety · 30–40%: falling blood pressure, confusion · over 40%: unconsciousness, then death (the ATLS classes) | minutes from an artery; hours from a venous cut left alone; a broken thigh bone bleeds 1–1.5 L inside the leg with no wound to press |
-| **the bear** — through its claws and teeth, and the bleeding they cause | claws cut and tear; a bite punctures and crushes; a defensive attack usually ends when the person stops being a threat, a predatory one does not | one encounter |
+| **blood loss** — blood volume, about 70 mL/kg, ~5 L in a 70 kg adult | up to 15% lost: nothing shows · 15–30%: fast pulse, anxiety · 30–40%: falling blood pressure, confusion · over 40%: unconsciousness, then death (the ATLS classes). A mauling or a stab wound kills this way | minutes from an artery; hours from a venous cut left alone; a broken thigh bone bleeds 1–1.5 L inside the leg with no wound to press |
 | **the cold** — core temperature | shivering; then clumsiness and confusion; shivering stops; unconsciousness; the heart stops (the WMS staging behind document 08's bands) | a night, badly dressed and unsheltered; about an hour in ice water |
-
-**What weakens and sickens, and never kills on its own** (2026-09-27) — a body brought low by these is
-what the cold and blood loss find:
-
-| what fails | what the body does | how fast |
-|---|---|---|
-| **carbon monoxide** | headache and nausea; dizziness and confusion; collapse | 200 ppm: a headache in 2–3 hours · 800 ppm: dizziness and nausea within 45 minutes · 1,600 ppm: collapse within the hour |
-| **a wound's infection** | red, hot and swollen, then pus and a smell, then fever, then spreading — 24–72 hours to show on a dirty wound, 12–24 on an animal bite; tetanus 3–21 days (about 8 on average) | days |
-| **inside the skull** | a head strike, a lucid spell, then a fast decline into unconsciousness (an epidural bleed; 20–50% of them have the lucid interval) | hours |
+| **hydration** | document 09 §4.6: thirst, headache, weakness, then death | about three days |
+| **a wound's infection** | red, hot and swollen, then pus and a smell, then fever, then spreading into the blood — 24–72 hours to show on a dirty wound, 12–24 on an animal bite; tetanus 3–21 days (about 8 on average) | days |
+| **inside the skull** | a head strike, a lucid spell, then a fast decline into unconsciousness and death (an epidural bleed; 20–50% of them have the lucid interval) | hours |
 | **the chest** | broken ribs make every breath hurt, so breathing goes shallow, and pneumonia follows within the week | days |
-| **the gut — poison** | water hemlock: seizures within the first hour; botulism from the bulged can: weakness and paralysis from about a day on; spoiled meat (a fish left too long, an animal long dead): vomiting and diarrhoea from half an hour to days later, spending water. Very sick, never dead (2026-09-27) | hours to days |
-| **energy** | document 10: weakness, then cold | weeks |
-| **hydration** | document 09 §4.6: thirst, headache, weakness — on a real clock of about three days. Thirst kills on its real clock (2026-09-27) | days |
+| **carbon monoxide** | headache and nausea; dizziness and confusion; collapse; death | 200 ppm: a headache in 2–3 hours · 800 ppm: dizziness and nausea within 45 minutes · 1,600 ppm: collapse within the hour |
+| **energy** | document 10: weakness, then cold | weeks — hunger alone does not kill inside the run |
+
+**What never kills** (Andrew, 2026-09-27): **poison** — so nobody is killed off for eating a mushroom.
+Water hemlock: seizures within the first hour; botulism from the bulged can: weakness and paralysis
+from about a day on; spoiled meat (a fish left too long, an animal long dead): vomiting and diarrhoea
+from half an hour to days later, spending water. Very sick, never dead — hours to days.
 
 **Where injuries come from** (a floor; each source's system owns how it delivers the wound):
 
@@ -250,8 +258,8 @@ what the cold and blood loss find:
 |---|---|---|
 | the crash | the starting draw (§4.2) | document 16 |
 | a person with a stick, a spear, a knife, a rock | when the blow is hard enough to hurt: `heft` bruises, breaks bone, concusses; `edge` cuts; `point` punctures — small, deep and dirtier than it looks; what covers the part changes what gets through. Whether an attack lands at all is the fighters' stats and chance (2026-09-27) | **the combat design, to be written** |
-| the bear and the other animals that act | claws cut and tear; a bite punctures and crushes. Every animal wound is heavily contaminated | document 23 and **the animal-behaviour design, to be written** |
-| a fall — the cornice, the climb, a slip on the ice | a sprain, a break, a head strike. **Dangerous places injure, never kill outright; fitness matters; the dice roll is announced** (2026-09-17) — the wound then runs its own real clock, which the party can answer | documents 01 and 13 |
+| the bear and the other animals that act | claws cut and tear; a bite punctures and crushes. Every animal wound is heavily contaminated. A defensive attack usually ends when the person stops being a threat — playing dead — and a predatory one does not | document 23 and **the animal-behaviour design, to be written** |
+| a fall — the cornice, the climb, a slip on the ice | a sprain, a broken limb, a head strike. **Dangerous places injure, never kill outright; fitness matters; the dice roll is announced** (2026-09-17) — the wound then runs its own real clock, which the party can answer | documents 01 and 13 |
 | cold air on a part | the part's `heat` falls: fine work goes when finger skin is below about 15 °C, the part is numb below about 7 °C, and it freezes below about −0.5 °C | document 08 (extremities); **the heat design** |
 | cold metal and cold fuel | contact frostbite: bare skin on cold metal loses heat fast; avgas or oil below freezing is still liquid and freezes skin almost at once as it evaporates | **the heat design** |
 | wet, cold feet above freezing | **non-freezing cold injury** (trench foot): numb, swollen, then painful — usually after two or three days wet and cold at 0–15 °C, in as little as 10–14 hours. This week's own cold injury, before it is cold enough for frostbite from the air: the townie's sneakers | **the heat design**; document 08 (wet) |
@@ -329,20 +337,22 @@ their synonyms are authored together (document 04 §3.7): press · apply pressur
 
 ### 4.8 Cleaning, and infection
 
-*(Proposed by Claude, for Andrew's check.)* A wound carries **`contamination`** as a state — how much and
+A wound carries **`contamination`** as a state — how much and
 of what: crash grit, cloth fibres, soil, avgas, an animal's mouth — set by what made it (a bite or a
 claw is always dirty; a clean slice from the razor barely is). **Infection is a process on the wound**
 that grows from that contamination over real hours, deterministic and seeded (DR-12): a dirty wound
 shows redness, heat and swelling in 24–72 hours (an animal bite in 12–24), then pus and a smell, then
-fever — which spends water and warmth — and, untreated, spreads, weakening the body without killing it.
+fever — which spends water and warmth — and, untreated, spreads into the blood, which kills over days.
 Cleaning is its own set of real operations: **irrigate** — pour or squirt drinkable water into it, in
 millilitres (document 09), harder if you pierce a bag or a bottle cap; the Wilderness Medical Society's
 guideline is that drinkable water is enough and nothing should be added; **pick out** grit and
 splinters with a point (the multitool, a clean knife tip); and scrub the skin around it. Whisky and
 sanitizer are alcohol: they clean a blade and intact skin, but in the wound they kill tissue as well as
 germs and hurt badly — a real act, worse than clean water. Whatever covers the wound carries its own
-contamination as provenance, the way a vessel does (document 09 §4.6): a boiled strip is clean; the
-shirt you slept in is not. And **closing** a dirty wound traps it — the guideline leaves a grossly
+contamination as provenance, the way a vessel does (document 09 §4.6): a torn-up shirt makes a
+dressing, as any cloth does, and brings whatever it carries — a boiled strip cleanest, a shirt worn for
+days less clean. A sewing needle and thread (document 16) close a wound as well as the suture kit
+does, once boiled. And **closing** a dirty wound traps it — the guideline leaves a grossly
 contaminated wound open and packed — so the nurse's suture kit is a real choice with a real downside,
 not a finish line. Boiling a strip or a blade is the heat design's (to be written).
 
@@ -461,13 +471,17 @@ None open.
   states; the real clocks; every source of injury; the treatments and the other design answers from
   real medicine and wilderness first aid (§4).
 - **2026-09-27 (Andrew):** characters differ in how well and how fast they do things; what kills is
-  blood loss, the bear, the cold and thirst — poison sickens but never kills, and other harms weaken.
+  blood loss, the cold and thirst — poison sickens but never kills.
 - **2026-09-27 (Andrew, the document's sitting):** item 1 — no hit points: named wounds on body parts,
   each part with its own states; meters for what the body feels (document 08 §4.9); a blow wounds only
   when it would really hurt; combat is roughly a MUD's, with every attack typed and landing by stats
   and chance, as in D&D, read as what happened; a recovery after each attack; stepping in for a
   friend; the bear's warnings, and running as the wrong answer to a bear. The six meters. Item 2 —
-  bleeding as a real blood volume on the real clocks, kept real at 15×.
+  bleeding as a real blood volume on the real clocks, kept real at 15×. Item 3 — infection and
+  cleaning; nothing kills instantly, and death is realistic, by the body running down with time to
+  respond — wounds and infection can kill, poison never does, a fall never kills outright; a torn-up
+  shirt makes a dressing; a few iodine tablets in one of the packs and a sewing needle and thread
+  aboard.
 
 ## 8. What exists today
 

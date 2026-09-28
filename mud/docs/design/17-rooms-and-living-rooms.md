@@ -30,8 +30,8 @@
   and heat system. Rooms are therefore entities in the ontology like everything in them (§4.8).
 - **2026-09-26, 2026-09-27 — the season** is the first week of October in interior Alaska (document 13
   §4.2).
-- **2026-09-27 — what kills.** Death comes from blood loss, the bear, the cold and thirst; other harms —
-  carbon monoxide among them — make people weak and sick.
+- **2026-09-27 — what kills.** Nothing kills instantly: death comes by the body running down, on real
+  clocks, with time to respond — carbon monoxide from a fire inside among them.
 
 ### Proposals (Claude)
 
@@ -286,9 +286,9 @@ smokes, so an opening must stay open, and the openings do double duty — shut t
 breathe. It makes carbon monoxide; burning seat foam makes the most poisonous smoke in the material
 table (document 18); aluminium melts in the coals (from about 600 °C); and warming the shell turns the
 frost that everyone's breath has laid on the inside of the cold skin into drips, which is how the
-inside of a heated wreck gets wet. Carbon monoxide builds by the physics and makes people weak and sick
-— headache, dizziness, nausea, confusion, a fire that burns poorly for want of air — but it does not
-kill: death comes from blood loss, the bear, the cold and thirst (Andrew, 2026-09-27). Opening an opening,
+inside of a heated wreck gets wet. Carbon monoxide builds by the physics — headache, dizziness, nausea, confusion, a fire that burns
+poorly for want of air — and, left to build, kills over hours, never at once (2026-09-27; document 11
+§4.4). Opening an opening,
 banking the fire and keeping someone awake on watch (document 06) are the real answers to it.
 
 **Outdoors, a zone is an entity too**: its ground (soil, moss, rock — frozen to a depth that grows every
@@ -368,8 +368,8 @@ are for Andrew's check at this document's sitting.
   ground (§4.5); the sensory layer as room states; look-under as the `under` relation with its own
   family of acts; reading the voice; groups, three-form phrases, glimpses and look-under in the prose;
   the room rules into the loops' scaffold — all for Andrew's check.
-- **2026-09-27 (Andrew):** what kills is blood loss, the bear, the cold and thirst; carbon monoxide from a fire
-  inside makes people weak and sick.
+- **2026-09-27 (Andrew):** nothing kills instantly; death comes by the body running down, carbon
+  monoxide from a fire inside among the ways.
 
 ## 8. What exists today
 

@@ -72,9 +72,11 @@ The decisions that shape a run, in plain words; every one of them, with its date
   which the players can pause and return to; not an ongoing world. A missing player's character goes
   catatonic, sits down and stares; the others can keep them alive, and they can die. Agent runs are
   short sessions too.
-- **What kills (2026-09-17, 2026-09-26, 2026-09-27).** Death comes from blood loss, the bear, the cold
-  and thirst. Poison makes people very sick but never kills; other harms make them weak and sick.
-  Dangerous places injure but never kill outright. No gate on violence: it resolves with real physics,
+- **What kills (2026-09-17, 2026-09-26, 2026-09-27).** Nothing kills instantly: death is realistic and
+  can come fairly fast, but always by the body running down — blood loss, the cold, thirst, a wound
+  gone bad — so a player always has time to respond; the bear and a knife kill through the bleeding
+  they cause. Poison makes people very sick but never kills. Dangerous places injure but never kill
+  outright. No gate on violence: it resolves with real physics,
   through a combat system roughly like a MUD's — nothing automatic, each attack typed, landing by the
   fighters' stats and chance as in D&D, read as what happened; a blow wounds only when it would really hurt; no hit points.
   Hunger works as it does in real life, and players see meters for what the body feels.
@@ -179,8 +181,8 @@ own schedule 📐 (document 13 §4.2): the storm buries the berries, the deadfal
 wreck's outline; the cold falls in behind it; the fuel radius walks away from camp; the food runs down;
 untreated wounds infect; sleep debt slows you. Night one is survivable inside the wreck in the clothes
 you crashed in; from night two you need a heat source, better gear, conserving or the huddle
-(document 08). Death comes from blood loss, the bear, the cold and thirst; poison makes you very sick and never
-kills; other harms weaken.
+(document 08). Nothing kills instantly: death comes by the body running down — blood loss, the cold,
+thirst, a wound gone bad — with time to respond; poison makes you very sick and never kills.
 
 ### 4.2 The week, day by day
 

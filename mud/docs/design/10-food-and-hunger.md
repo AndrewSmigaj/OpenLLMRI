@@ -43,8 +43,8 @@
 - **(2026-09-27)** There is no survival kit — it would make the game too easy.
 - **(2026-09-27)** Holt's cabin is supplies: some trapline gear and modest stores, not piles of food.
 - **(2026-09-27)** The season is the first week of October in interior Alaska (document 13 §4.2).
-- **(2026-09-27)** Death comes from blood loss, the bear, the cold and thirst. Poison makes people very sick
-  but never kills.
+- **(2026-09-27)** Nothing kills instantly: death comes by the body running down, on real clocks, with
+  time to respond. Poison makes people very sick but never kills.
 
 ### Proposals (Claude)
 
@@ -242,8 +242,8 @@ system, each with a real consequence:
 | **contamination** (provenance, as in document 09) | gut contents from a careless cut, fuel, dirt, ash | tastes and smells of it; gut contents carry bacteria into the meat | document 09 §4.6 |
 | **pathogen / parasite** (hidden, set by species and the seed) | nothing but heat to a real core temperature; **freezing does not kill the trichinosis worm** | undercooked bear: trichinellosis (stomach within days, muscles in weeks); undercooked hare, or gutting one bare-handed: rabbit fever (tularemia), a fever in about 3–5 days — inside a run; raw freshwater fish: tapeworm, which outlasts the run | ADF&G (the trichinosis worm in Alaska's bears; rabbit fever (tularemia) and snowshoe hares); CDC |
 
-Whatever it is, food that sickens never kills: poison makes people very sick, and other harms make
-them weak and sick (2026-09-27). Plant foods have their own real cases: raw rowan berries carry
+Whatever it is, food that sickens never kills: poison makes people very sick and never kills
+(2026-09-27). Plant foods have their own real cases: raw rowan berries carry
 an acid that brings on vomiting and cramps in quantity — frost starts converting it and
 cooking finishes the job; raw starch in a root is barely digestible until it is cooked. What an
 illness then does to a body is document 11's.

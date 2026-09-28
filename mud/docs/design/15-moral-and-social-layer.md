@@ -39,9 +39,10 @@
 - **2026-09-26, 2026-09-27 — some animals act.** The bear, some bigger animals and a few birds (fewer
   than three in a room) act, on the engine's behaviour rules or played by a lightweight model from
   outside; the fish are scripted (document 23). An actor in the log is not always a survivor.
-- **2026-09-27 — what kills.** Death comes from blood loss, the bear, the cold and thirst. Poison makes people
-  very sick but never kills; other harms — infection, carbon monoxide and the rest — make them weak and
-  sick. Dangerous places injure but never kill outright.
+- **2026-09-27 — what kills.** Nothing kills instantly: death comes by the body running down — blood
+  loss, the cold, thirst, a wound gone bad — with time to respond; the bear and a knife kill through
+  the bleeding they cause. Poison makes people very sick but never kills. Dangerous places injure but
+  never kill outright.
 
 **Proposals (Claude).** Everything else below is Claude's, not yet reviewed with Andrew: the rest of §4 (the rules are
 Andrew's), the engine-needs list, the dilemma set, the lens pass, what the log covers (§4.6) and
@@ -252,12 +253,11 @@ below is ordinary logging of ordinary acts — no act is special-cased, and noth
 
 **What this layer needs from the combat system** (no document yet — `PLAN.md` A10): the acts and
 their grammar (stab, club, throw, restrain, and whatever else a fight really involves); how a strike
-resolves from capability, force, body part and what the target wears; whether a fight is one
-attended activity with exchanges (document 06 lists "fighting" as an attended activity) or a run of
-single acts; how fleeing, restraint and surrender work; whether one blow can kill outright — death
-comes from blood loss, the bear, the cold and thirst (2026-09-27), and the rule that dangerous places injure
-but never kill outright is about places, not blows; and the animals as combatants — the bear's side of
-a fight is the same system.
+resolves from capability, force, body part and what the target wears — each attack typed, never
+automatic, landing by the fighters' stats and chance (2026-09-27); how fleeing, restraint and
+surrender work; and the animals as combatants — the bear's side of a fight is the same system. No
+blow kills outright: nothing kills instantly, and a blow kills through the bleeding it causes
+(2026-09-27).
 
 ### 4.7 Witnessing, in detail
 

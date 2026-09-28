@@ -111,8 +111,9 @@ booming, a plane), and a sleeper's cold falling below their floor, which wakes t
 ### 4.3 Activities with feedback
 
 Two kinds of time ride the same heartbeat. **Attended activities** are what this document designs:
-sawing a branch, drilling for an ember, digging, dressing a wound, fighting — a start line, a few
-varied tick lines driven by state, an interruption that keeps partial progress, a completion line.
+sawing a branch, drilling for an ember, digging, dressing a wound — a start line, a few varied tick
+lines driven by state, an interruption that keeps partial progress, a completion line. Fighting is not
+one of them: nothing in a fight is automatic, and each attack is its own typed act (2026-09-27).
 **Unattended processes** are the world's own work; this document names them once, in §5, and their
 design lives in other documents.
 

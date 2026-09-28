@@ -12,9 +12,9 @@ The endings — rescued or dead — and what a dead player becomes: a ghost.
 - **Two endings: rescued or dead** (2026-09-17). Walking out is not an ending — Holt's cabin is
   supplies. Surviving long enough is one of the ways of being rescued, and the hardest (2026-09-17).
 - **The run ends when they die, of anything** (2026-09-26).
-- **What kills** (2026-09-27): death comes from **blood loss, the bear, the cold and thirst**. Poison makes
-  people very sick but never kills; other harms — infection, carbon monoxide and the rest — make them
-  weak and sick. Dangerous places injure but never kill outright.
+- **What kills** (2026-09-27): **nothing kills instantly** — death comes by the body running down, on
+  real clocks, with time to respond; the bear and a knife kill through the bleeding they cause. Poison
+  makes people very sick but never kills. Dangerous places injure but never kill outright.
 - **A run is about a week of game time in one sitting of two or three hours**, which the players can
   pause and return to (2026-09-17, 2026-09-27).
 - **No hard time barriers** (2026-09-07): rescue can come earlier than the week's end; instead of
@@ -69,14 +69,16 @@ Three properties hold for both:
 ### 4.2 Death (Andrew, 2026-09-26, 2026-09-27)
 
 Death is not something this document decides. It is a body's state crossing the line in the system
-that reaches it: **the cold** (warmth and the heat system — document 08), **blood loss** (wounds —
-document 11, and the combat system, still to be written, `PLAN.md` A10), and **the bear** (document 23;
-the combat system). Each owning system draws its line from physiology; this document only reads that
-a body died.
+that reaches it — **nothing kills instantly** (2026-09-27): death comes by the body running down on a
+real clock, so a player always has time to respond. **The cold** (warmth and the heat system —
+document 08), **blood loss** (wounds — document 11, and the combat system, still to be written,
+`PLAN.md` A10; the bear and a knife kill this way), **thirst** (document 09), a wound's infection, a
+bleed inside the skull, carbon monoxide (document 11 §4.6). Each owning system draws its line from
+physiology; this document only reads that a body died.
 
-Everything else hurts without killing: poison makes a person very sick (document 23 — the baneberry,
-the water hemlock, the deadly galerina); infection, carbon monoxide and the rest make them weak and
-sick (document 11); dangerous places — thin ice, a fall — injure and never kill outright.
+Two things never kill: poison makes a person very sick (document 23 — the baneberry, the water
+hemlock, the deadly galerina), and dangerous places — thin ice, a fall — injure and never kill
+outright.
 
 ### 4.3 Rescue, per findable group *(proposed by Claude, for Andrew's check)*
 
@@ -136,9 +138,9 @@ the endings, not a script a player is meant to follow.
 **Depends on:** rescue (14) — the three ways, the voice, the flyover schedule and the day-7 rescue;
 events, escalation and weather (13) — the ladder and the weather the search flies in; time and the
 clock (06) — the week in one sitting, and pausing; the systems that kill — warmth (08) for the cold,
-injury and first aid (11) for blood loss, the bear (23) and the combat system (no document yet,
-`PLAN.md` A10); the systems that hurt without killing — water (09), food (10), injury and illness
-(11), the poisons (23), the heat system (no document yet); multiplayer and instances (19) — what a run
+injury and first aid (11) for blood loss, infection and the rest, water (09) for thirst, the bear (23)
+and the combat system (no document yet, `PLAN.md` A10), the heat system (no document yet) for carbon
+monoxide; the systems that hurt without killing — food (10) and the poisons (23); multiplayer and instances (19) — what a run
 is, the out-of-character chat and the perception a ghost sees by; the pilot and bodies (12) — bodies
 persist; the moral and social layer (15) — the log and who witnessed what.
 
@@ -158,7 +160,7 @@ None open.
   findable group, nothing a cutoff after day 7, the ladder measured by the fuzz; what a ghost sees and
   does.
 - **2026-09-27 (Andrew):** there is no recap; ghosts hear ghosts, the living cannot, and anyone can use
-  the out-of-character chat; death comes from blood loss, the bear, the cold and thirst.
+  the out-of-character chat; nothing kills instantly — death comes by the body running down.
 
 ## 8. What exists today
 

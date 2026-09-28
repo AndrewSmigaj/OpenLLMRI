@@ -57,7 +57,8 @@
 - **(2026-09-27)** Aboard: the sleeping bag is buried with the tail wreckage; two blankets are hidden
   inside the plane; there is no survival kit. Up to five play, and a seat nobody plays is
   a dead character whose clothes and pockets can be searched.
-- **(2026-09-27)** Death comes from blood loss, the bear, the cold and thirst.
+- **(2026-09-27)** Nothing kills instantly: death comes by the body running down — blood loss, the
+  cold, thirst and the rest — on real clocks, with time to respond.
 - **(2026-09-27)** Players see **meters** for what a person can sense about their own body — people
   are not cut off from their own senses: six bars with no numbers in the prompt line — hunger,
   thirst, warmth, rest, pain and stamina. The `status` screen stays (§4.9).
@@ -119,7 +120,7 @@ the rest.
    32–28 °C (impaired consciousness, and the shivering stops); severe below 28 °C (unconscious; the
    risk of the heart stopping rises, high below 24 °C). The band words and the exact thresholds are
    drafted with the warmth numbers (`PLAN.md` A5); document 11 §4.6 carries the same thresholds. The
-   cold is one of the three things that kill (2026-09-27).
+   cold kills on its real clock, never at once (2026-09-27).
 5. **The night-one rule** (§4.1a): the first night is survivable *inside the wreck, in the clothes
    you crashed in*, with no fire and no huddle. After that the cold takes it away.
 6. **Wearability is derived, never whitelisted.** Anything flexible/fabric/soft/insulating and light

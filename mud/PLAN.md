@@ -25,7 +25,8 @@ it.
   carries the first-week-of-October weather.
 - **Document 10 reviewed in full (2026-09-27); document 11's sitting is under way** — item 1 settled
   (no hit points; meters for what the body feels; combat typed attack by attack, landing by stats and
-  chance).
+  chance), item 2 (bleeding) and item 3 (infection; nothing kills instantly; iodine tablets and a sewing
+  kit aboard).
 
 **Next, in this order:**
 1. **The sittings resume in index order, from document 10**, checking the answers Claude proposed in each document, then
@@ -112,7 +113,7 @@ no design.
 | ☑ | A9 | **Claude's self-review of documents 10–23** (done 2026-09-26): every open question checked against block 1 and real life; answered where reality or the decided design answers, rewritten where wrong-headed, left for Andrew only where it is his. Andrew answered his on 2026-09-27. | Fable | 10–23 | — |
 | ☐ | A10 | **New design documents for the systems the review found missing** — at least: combat (roughly a MUD's, with every attack typed and landing by stats and chance as in D&D — Andrew 2026-09-26, 2026-09-27); heat (heat as a state on every entity and body part; fire heating its area with residual heat around it; the plane as an entity with openings and an internal heat — Andrew 2026-09-26: part of designing the fire and heat system); hunting, trapping and fishing (snares from materials, throwing, casting vs dropping a line, stabbing, clubbing); food state and spoilage. A9 found these (2026-09-26): **combat** (each attack typed, never automatic; whether it lands by the fighters' stats and chance; a blow wounds only when it would really hurt; clothing as protection; the recovery after an attack, announced (document 06's `lagged`); stepping in for a friend (a grammar form, with document 04); the bear's warnings and why running fails; how the clock runs during a fight; the decisions so far are §5's; fleeing, restraint, animals as fighters; `kill X` as an aim-verb with document 04); **heat** (every entity and body part; contact heat and cold; the plane's openings and internal heat; carbon monoxide and smoke; a body cooling and freezing); **hunting, trapping and fishing**; **food state and spoilage**; **animal behaviour** (the actors: senses, attack modes, caching and scavenging); **scent** as a perception channel carried on the wind; **light and darkness** (daylight by date, firelight, the phone); **weather** (document 13 §4.7 specifies it for now); **snow and ice on the ground** (settling, drifting, ice growth, slush, frost depth; falling through ice); **the body's physiology** (document 11 grows into it, or its own document); **two people acting on one thing** (a grammar form, documents 04 and 19). Each is its own document (Andrew: every system has its own design document). | Fable → Andrew | new | A9 |
 | ☐ | A11 | **The GDD's vision is too small** (Andrew, 2026-09-26: it should include a combat system like a MUD's, and more besides) — the umbrella's pitch, scope and system list re-read against the open world and the systems A9/A10 name, and broadened. | Fable → Andrew | GDD | A10 |
-| ☐ | A12 | **Corrections A9 found, for when the content is authored:** the pilot's materials (skin, fat, muscle, bone, blood, organs — not `flesh`); the 206's windscreen and windows are acrylic, not glass; `insulation_batting` is two materials; `conductivity` → `electrical_conductivity`; the radio is a hand radio with its batteries in a bag in the tail (document 14 §3; `objects.py` has a "field radio" in the cockpit cradle); ground signals and a piece of mirror (document 14 §3.4); the handbook with its ELT page, the flight-plan copy, the kneeboard, the logbook, the altimeter (document 16); document 05's schema change notes (§4.5); ground-to-air shapes through the `INTO` slot (document 04); document 01's lake (depth, connection to the creek). | Fable | 01, 04, 05, 14, 16, 18 | A1 |
+| ☐ | A12 | **Corrections A9 found, for when the content is authored:** the pilot's materials (skin, fat, muscle, bone, blood, organs — not `flesh`); the 206's windscreen and windows are acrylic, not glass; `insulation_batting` is two materials; `conductivity` → `electrical_conductivity`; the radio is a hand radio with its batteries in a bag in the tail (document 14 §3; `objects.py` has a "field radio" in the cockpit cradle); ground signals and a piece of mirror (document 14 §3.4); the iodine tablets in the nurse's backpack and a sewing kit in the townie's toiletry bag (document 16); the handbook with its ELT page, the flight-plan copy, the kneeboard, the logbook, the altimeter (document 16); document 05's schema change notes (§4.5); ground-to-air shapes through the `INTO` slot (document 04); document 01's lake (depth, connection to the creek). | Fable | 01, 04, 05, 14, 16, 18 | A1 |
 | ☑ | A13 | **The rescue, redesigned with Andrew** (2026-09-27 — the conversation is done, and document 14 §3 is rewritten cleanly from it; Andrew reads §3 whole at document 14's sitting): no working ELT; the battery in the nose and fine; a loose wire inside the radio that a technically proficient character sees; then the rest of the scenario — what makes the radio hard, what a party without that character does, the flyovers, the signals, surviving long enough. A conversation: real design help, no additions without asking. | Andrew + Fable | 14 | — |
 | ☑ | A14 | **The cleanup** (Andrew, 2026-09-27; the historical folders — proposals, architecture reviews, the June roadmap, the room censuses, the stale render — removed the same day, the GDD the one design document): every document shows the current design only, in clean prose — no quotes of the conversation (the repository is public), no superseded material, every §5 decision applied everywhere; `design.md`, `GDD-summary.md` and `docs/investigation/` removed; the writing rules and §5 rewritten; the first week of October. | Fable | all | — |
 
@@ -279,8 +280,10 @@ it says so. When a decision changes, this list and every document it touches cha
 - **The pilot starts the run dead.** He carries no clues. His body is food, and eating it is taboo, not
   immoral. (2026-09-17, 2026-09-27)
 - **What is aboard:** there is no survival kit; the sleeping bag is
-  buried with the tail wreckage; two blankets are hidden inside the plane; no firearm. Not too easy, not
-  too hard. (2026-09-27)
+  buried with the tail wreckage; two blankets are hidden inside the plane; no firearm. One of the packs
+  holds a few very basic supplies — iodine tablets, only a couple of days' worth — for whoever takes
+  the time to rummage through the plane and the wreckage; a sewing needle and thread are aboard. Not too
+  easy, not too hard. (2026-09-27)
 - **Holt's cabin** is supplies: some trapline gear and modest stores, not piles of food. Holt does not
   come back during the week. Walking out is
   not an ending. (2026-09-17, 2026-09-27)
@@ -308,10 +311,13 @@ it says so. When a decision changes, this list and every document it touches cha
   out-of-character chat. **No recap.** (2026-09-17, 2026-09-26, 2026-09-27)
 
 **What kills, and what hurts**
-- **Death comes from blood loss, the bear, the cold and thirst.** Poison makes people very sick but never kills;
-  other harms — infection, carbon monoxide and the rest — make them weak and sick. Dangerous places
-  injure but never kill outright; fitness matters; a seeded dice roll, announced. (2026-09-17,
-  2026-09-27)
+- **Nothing kills instantly.** Death is realistic and can come fairly fast, but always by the body
+  running down — blood loss, the cold, thirst, a wound gone bad and the rest, each on its real clock —
+  so a player always has time to respond. The bear and a knife kill through the bleeding they cause: a
+  mauled person lies there bleeding, can play dead, and may or may not make it back. A body already
+  near its end can go almost at once, never in one instant. Poison makes people very sick but never
+  kills. Dangerous places injure — a fall may break a limb — and never kill outright; fitness matters;
+  a seeded dice roll, announced. (2026-09-17, 2026-09-27)
 - No gate on violence: it resolves with real physics, and there is a **combat system**, roughly a MUD's
   with changes to suit the game. Nothing in it is automatic: each attack is typed, like any other act.
   No attack hits automatically: as in D&D, whether it lands depends on the fighters' stats and on

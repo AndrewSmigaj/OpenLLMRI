@@ -34,8 +34,9 @@
   proposed and agreed by the players, runs it at about 150×; awake players can stay in it and type a
   command to slow it. A player waking or any non-ambient event drops it back to 15×; ambient events
   do not (document 06).
-- **(2026-09-27)** What kills: **blood loss, the bear, the cold and thirst.** Poison makes people very sick but
-  never kills; other harms make them weak and sick (document 11 §4.6). Dead players are ghosts; there
+- **(2026-09-27)** **Nothing kills instantly:** death comes by the body running down — blood loss, the
+  cold, thirst and the rest — on real clocks, with time to respond; the bear kills through the bleeding
+  it causes. Poison makes people very sick but never kills (document 11 §4.6). Dead players are ghosts; there
   is no recap.
 
 ### Proposals (Claude)
@@ -267,9 +268,10 @@ heavy wet snow is ordinary physics on the tree. **Escape is never authored per d
 whatever the world allows — back off, group up, make noise, get into the wreck, leave the carcass,
 fight. Running from a bear is the wrong answer: it chases, and it runs a person down; standing your
 ground, looking big, staying together and, depending on the attack, playing dead are the real answers
-(2026-09-27). The stakes are real: the bear can kill (2026-09-27), though in Alaska's own record a bear
-injures far more often than it kills; other animals' wounds kill only through what they do to a body —
-blood loss — and dangerous places injure but never kill outright (2026-09-17; document 11 §4.6).
+(2026-09-27). The stakes are real: the bear can kill — through the bleeding it causes, never at once, so a mauled
+person lies there bleeding and can still play dead (2026-09-27) — though in Alaska's own record a bear
+injures far more often than it kills; dangerous places injure but never kill outright (2026-09-17;
+document 11 §4.6).
 Sources: ADF&G, "Safety in Bear Country".
 
 ### 4.5 Endings
@@ -396,8 +398,8 @@ None open. The proposals in §4 wait for Andrew's check at this document's sitti
 - **2026-09-26 (Claude's self-review, for Andrew's check):** the ladder and the deck rebuilt from real
   interior-Alaska data; the animals act; how an event runs; what is built first; weather as state.
 - **2026-09-27 (Andrew):** the same weather every run; light snow on days 1–2, the storm on days 3–4,
-  clearing after; the default rescue on day 7, with the same flyovers every run; what kills — blood
-  loss, the bear, the cold and thirst.
+  clearing after; the default rescue on day 7, with the same flyovers every run; nothing kills
+  instantly.
 - **2026-09-27 (Andrew):** the season is the first week of October, for more than ten hours of
   daylight; the ladder rebuilt for it from the Fairbanks record.
 

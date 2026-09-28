@@ -14,10 +14,11 @@
   melting way runs through *a container* and *a fire* — it is a chain, not a verb.
 - **(2026-09-07, 2026-09-27)** Every goal has several ways, water included, with no set number.
 - **(2026-09-18)** Liquids are measured in millilitres: melting some snow is never a one-use thing.
-- **(2026-09-27)** Thirst is one of the things that kill, with blood loss, the bear and the cold.
+- **(2026-09-27)** Thirst kills, on its real clock; nothing kills instantly.
 - **(2026-09-18)** Thirst kills in a realistic time for thirst — though usually something else gets a
-  person first — and a person needs to drink more than they eat. *(See §6: this sits beside the
-  2026-09-27 rule on what kills.)*
+  person first — and a person needs to drink more than they eat.
+- **(2026-09-27)** One of the packs holds a few iodine tablets, only a couple of days' worth
+  (document 16).
 - **(2026-09-18)** Eating snow is allowed and costs body heat.
 - **(2026-09-18)** There is no boiling gate — just melting.
 - **(2026-09-18)** Contamination means fuel and oil, carried as provenance.
@@ -216,7 +217,9 @@ over any vessel and any source — water, fuel or snow.
 
 ## 6. Open questions
 
-None open.
+1. **Does the water carry germs?** Iodine tablets only do something if it can. Today contamination is
+   fuel and oil only (Andrew, 2026-09-18). Real life: creek and lake water here can carry beaver fever
+   (giardia), which takes one to three weeks to show, and other bugs that take two to five days.
 
 ---
 
@@ -230,7 +233,7 @@ None open.
 - **2026-09-27** — the first week of October carried in: the creek runs, the lake is open and still
   water has skim ice, so the midwinter features (a chopped water hole, overflow, the lake's blue ice)
   are gone; thirst's clock set beside the rule on what kills (§6).
-- **2026-09-27 (Andrew)** — thirst kills; it is on the list of what kills.
+- **2026-09-27 (Andrew)** — thirst kills, on its real clock; a few iodine tablets in one of the packs.
 
 ## 8. What exists today
 
