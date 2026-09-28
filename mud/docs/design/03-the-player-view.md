@@ -192,7 +192,7 @@ opening the bin shows the duffel; the duffel's insides wait for their own search
 deterministic — search and dig find exactly what is physically there, never a roll. Searching is an
 activity (2026-09-28): it goes through a body, a pile, a container or the wreckage a pocket, a
 compartment or a layer at a time, a line for each find, and it can be stopped with what was searched
-kept; a search aimed at one place (`search the pilot's pockets`) goes straight there (document 06).
+kept; searching a bag turns up the clothes in it, and each garment's pockets are searched in turn; a search aimed at one place (`search the pilot's pockets`) goes straight there (document 06).
 
 This is what lets the look be short and still fair. The scene shows the *flavour* — the things a
 person would see from the doorway — and the load-bearing kit is inside things, earned.

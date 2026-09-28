@@ -274,7 +274,7 @@ while the button is up"* — a reason, never a list of options.
 📐 Document 07. Each is gated by a different scarce resource, so none dominates. ◌ None is built:
 there is no fire entity, no ignition model and no shaping family.
 
-1. **Lighter** (on the pilot's body ✅, and in two players' pockets) — flame → tinder → kindling → fuel.
+1. **Lighter** (in two players' pockets, and one in a jacket packed in the luggage — document 16) — flame → tinder → kindling → fuel.
    Fails on a branch straight from the flame, on wet tinder, on wind without a windbreak.
 2. **Matches** — the soaked box ✅: dry them by a fire or on your body (a process), then strike.
 3. **The flare** ✅ (object) — ignites anything, once, loudly; spends a signal.
