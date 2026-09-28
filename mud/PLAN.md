@@ -377,7 +377,7 @@ it says so. When a decision changes, this list and every document it touches cha
 - **Fire has to be found or earned.** Nobody starts with a lighter or matches in hand. A lighter is fine
   but has to be found; more than one, never everywhere. More than one book of matches, and the easier
   one is to find, the fewer matches it holds; the dead pilot's has two left. No whole fire kit; a flint
-  striker in a duffel is fine. Friction works — a notch in a board and a stick worked in it — at a real
+  striker in a duffel is fine. Friction works in its real ways — a stick rubbed up and down a trough in a board, one spun in a notch, the bow drill — at a real
   cost in stamina. Not too hard, never handed over. (2026-09-28)
 
 **The moral layer** (document 15)

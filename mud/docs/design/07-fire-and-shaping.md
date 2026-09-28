@@ -10,9 +10,10 @@
 
 ### Andrew's decisions
 - **(2026-09-07, 2026-09-28)** Andrew walked the lighter path and the bow-drill path step by step.
-  Rubbing two sticks together at random does not make fire, and the game says so; a notch cut in a
-  board and a stick worked in it does — spun between the palms or pushed along a groove — at a real
-  cost in stamina, and a bow drill works with less; a lighter lights tinder, not a branch.
+  Rubbing two sticks together at random does not make fire, and the game says so. Friction fire works
+  in its real ways, each at a real cost in stamina: a stick rubbed hard up and down a trough cut in a
+  board (the trough, or fire plough), a stick spun between the palms in a notch (the hand drill), and
+  the bow drill, which costs the least; a lighter lights tinder, not a branch.
 - **(2026-09-28)** Nobody starts with a lighter or matches in hand. A lighter is fine, but it has to be
   found; there can be more than one, never everywhere. There can be more than one book of matches, and
   the easier one is to find, the fewer matches it holds. No whole fire kit; a flint striker (a ferro
@@ -141,8 +142,7 @@ at that space; a burning thing in the hand is a torch, not a fire.
 
 ### 4.6 The seven methods
 Each has at least one probe chain proposed, including the honest failures:
-*Where the flames are* (the rule is Andrew's, 2026-09-28; the placement is proposed by Claude, for
-Andrew's check): nothing in anyone's hand at the start, and the easier a source is to find, the less of
+*Where the flames are* (Andrew, 2026-09-28): nothing in anyone's hand at the start, and the easier a source is to find, the less of
 it there is — **the pilot's book of matches, two left**, in his shirt pocket (Andrew's); **the nurse's
 book of matches, about eight, damp** where her canteen leaked in the crash, in her backpack behind the
 jammed aft bin — dried against the body or near a fire before it strikes; **a cheap butane lighter** in
@@ -165,15 +165,17 @@ tinder only.
 6. **Spark** — the ferro rod from the guide's duffel, scraped with a knife's spine, into fine dry tinder
    (birch bark, old-man's-beard lichen, shavings); or the hatchet spine on quartz (the ridge; a rock in
    the muskeg) into char or fuel-soaked cloth.
-7. **Friction** (Andrew, 2026-09-28) — a notch cut in a dry board and a stick worked in it: spun
-   between the palms (the hand drill) or pushed hard along a groove (the fire plough) → a coal → blow.
+7. **Friction** (Andrew, 2026-09-28) — a dry board and a stick worked hard against it: rubbed up and
+   down a trough cut in the board (the trough, or fire plough), or spun between the palms in a notch
+   (the hand drill) → a coal → blow.
    It works with the right dry wood, and it costs stamina hard — tired, cold or raw hands fail, and the
    stamina meter shows it. The bow drill (carve, split, notch, string with a bootlace or paracord,
    bundle, drill → ember → blow) takes much less stamina for the same coal. The ferro rod's spark is
    its own way (6).
 
-`rub sticks together` → *"The bark scuffs and warms under your hands, nothing more. Friction fire wants
-one stick spinning hard and fast in a notch of another, not two sticks scraping."* `make fire with
+`rub sticks together` → *"The bark scuffs and warms under your hands, nothing more. Friction fire needs
+the heat kept in one place — wood ground to hot dust in a notch or a groove — not two sticks sliding
+past each other."* `make fire with
 sticks` performs the first act the means imply — it rubs them together — and gets the same answer
 (§4.9). Nothing names the act that would work.
 

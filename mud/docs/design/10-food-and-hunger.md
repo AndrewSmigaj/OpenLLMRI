@@ -116,8 +116,8 @@ thought it.
 5. **The pilot's body is food, and eating it is taboo, not immoral** (Andrew, 2026-09-27). It is
    mechanically possible, slow and grim. It takes time, tools, preparation and the same food states as
    any meat: fresh raw meat is mostly safe and rotten meat is what makes people sick; meat cooked to a
-   real core temperature is safe from what cooking kills, and freezing only pauses bacteria. What a person's flesh carries that game does not
-   — prion disease, blood-borne infection — shows in years, not inside a week (document 12 §4.3a).
+   real core temperature is safe from what cooking kills, and freezing only pauses bacteria (document
+   12 §4.3a).
    Butchery is hours of attended work and cooking needs the fire, so the difference between a decision
    and an impulse comes from the physics, not a special rule. The engine does not refuse it and does
    not editorialise; it is priced, witnessed and logged like any other act (document 15). *(The food

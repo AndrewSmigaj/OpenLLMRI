@@ -259,7 +259,7 @@ One chapter per system; each is its own document, reviewed separately.
   feedback; processes; pausing a run and returning to it. Document 06.
 - **Fire** — nobody starts with fire in hand: a lighter has to be found, books of matches are fewer
   the easier they are to find (the dead pilot's has two left), a ferro rod waits in a duffel, and
-  friction works at a cost in stamina (2026-09-28). Ignition needs the right source for the right
+  friction works — the trough, the hand drill, the bow drill — at a cost in stamina (2026-09-28). Ignition needs the right source for the right
   material in the right form (a lighter lights tinder, not a branch); fire is a process with a stage ladder; seven methods, each priced by what
   it costs. Heat is a state on every entity, body parts included: a fire heats its area and leaves
   residual heat around it, and the plane is an entity with openings, open or closed, and an internal

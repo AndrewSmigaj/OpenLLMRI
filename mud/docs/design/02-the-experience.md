@@ -284,11 +284,11 @@ Nobody starts with fire in hand; it has to be found or earned (2026-09-28; docum
    the wire and a walk outside.
 5. **Focus** — the landing-light reflector or an ice lens, sun only.
 6. **Spark** — the hatchet's spine ✅ on quartz, into char or fuel-soaked cloth.
-7. **Friction** — a notch in a board and a stick worked in it, spun or pushed, costs stamina hard
+7. **Friction** — a stick rubbed up and down a trough in a board, or spun in a notch, costs stamina hard
    (2026-09-28); the bow drill (carve, split, notch, string, bundle, drill → ember → blow) costs less.
 
 The honest failure: `rub sticks together` → *"The bark scuffs and warms under your hands, nothing more.
-Friction fire wants one stick spinning hard and fast in a notch of another, not two sticks scraping."*
+Friction fire needs the heat kept in one place — wood ground to hot dust in a notch or a groove — not two sticks sliding past each other."*
 Most of what a player types that fails, fails on a missing noun or verb rather than on grammar, and
 each failure is logged for the next vocabulary pass.
 

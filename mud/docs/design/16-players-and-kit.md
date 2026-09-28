@@ -32,9 +32,9 @@
   bag turns up the clothes in it, each garment's pockets searched in turn; there can be more than one
   lighter, never everywhere. There can be more than one book of matches, and the easier one is to find,
   the fewer matches it holds; the dead pilot has a book with two left. No whole fire kit; a flint
-  striker (a ferro rod) in a duffel is fine. *(Where each is, proposed by Claude for Andrew's check —
-  document 07 §4.6: the canvas jacket in the townie's suitcase; the nurse's damp book of about eight;
-  the salesman's dry metal lighter in his laptop bag; the ferro rod in the guide's duffel.)*
+  striker (a ferro rod) in a duffel is fine. Where each is (document 07 §4.6): the canvas jacket in the
+  townie's suitcase; the nurse's damp book of about eight; the salesman's dry metal lighter in his
+  laptop bag, which lights again on avgas; the ferro rod in the guide's duffel.
 - **2026-09-27 — what is aboard.** There is no survival kit. The sleeping
   bag is buried with the tail wreckage; two blankets are hidden inside the plane; there is no firearm.
   One of the packs holds a few very basic supplies — iodine tablets, only a couple of days' worth — for

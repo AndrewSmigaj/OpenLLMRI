@@ -39,7 +39,9 @@
   it is in a jacket packed in the luggage —
   searching a bag turns up the clothes in it, and each garment's pockets are searched in turn. His
   body's states over the week (§4.3a) are as proposed, and a sharp knife still slices frozen flesh.
-  Butchering and what it yields (§4.3a) are as proposed. A search aimed
+  Butchering and what it yields (§4.3a) are as proposed. **Eating him** — raw, frozen, cooked or
+  spoiled — is as proposed; what could only show long after the run (prion disease, blood-borne
+  infection) is not modelled (2026-09-28). A search aimed
   at one place — `search the pilot's pockets`, `search the pilot's jacket` — works, because the world
   is ontologically sufficient. There is no trust meter.
 
@@ -177,10 +179,6 @@ gut (document 11 §4.6). Bad meat makes people very sick and never kills (2026-0
 - **Spoiled** — warm too long, which is what happens if he lies in a heated fuselage: cooking does not
   make it safe, because some bacteria leave toxins heat will not destroy (staph toxin:
   vomiting within half an hour to eight hours — CDC). Spoiled is a state you can smell.
-- **What a person's flesh carries that game does not**: prion disease (kuru) from the brain and
-  nerves — no cooking destroys prions, and it takes years to decades to show — and whatever
-  blood-borne infection he carried. Neither shows inside a week; both are true, and nothing fires for
-  them during the run.
 
 **The body among the animals** (the bear is in, 2026-09-26). A carcass is the strongest pull in the
 country: bears find one by smell, feed, bury what they do not eat under debris, and **guard it**. A
@@ -211,8 +209,6 @@ smaller than it was, blood on a knife, meat by the fire — or by being told.
   meat must always be cooked (to about 74 °C / 165 °F) — for the bear, not for the pilot.
 - Carmody, Weintraub & Wrangham, *Energetic consequences of thermal and nonthermal food processing*
   (*PNAS* 108, 2011) — cooking increases the energy gained from meat.
-- Kuru and the prion diseases (NINDS; the Fore studies) — transmitted by eating nervous tissue,
-  incubation years to decades, not destroyed by cooking.
 - Alaska Department of Fish and Game, bear-safety guidance and carcass warnings — bears bury and
   defend carcasses; scavenging birds, an unusual smell and a fresh debris pile mark one; *Anchorage
   Daily News* (2011) on grizzly cache piles.
