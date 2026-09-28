@@ -127,10 +127,10 @@ into a score (Andrew, 2026-09-16).
 - **Persons as targets:** `hit/strike <character> [with Z]`, `push`, `bind`, `carry` (the injured),
   `cover <body> with X` (reverence), `search <body>`, `butcher <body> with Z` (→ meat; the pilot's body
   is the calories on day two). All resolve through the same physics: injury on the target, noise
-  events, blood on the tool (provenance). *(Proposed by Claude, for Andrew's check: `hit`, `strike`,
-  `push` and `bind` aimed at a person are part of the combat system — stab, club, throw, restrain —
-  which has no design document yet (`PLAN.md` A10); the same acts reach animals. The verbs here are the
-  moral layer's view of them; the combat document owns how they resolve — §4.6.)*
+  events, blood on the tool (provenance). `hit`, `strike`, `push` and `bind` aimed at a person are part
+  of the combat system — typed attacks landing by stats and chance — which has no design document yet
+  (`PLAN.md` A10); the same acts reach animals. The verbs here are the moral layer's view of them; the
+  combat document owns how they resolve (2026-09-28).
 - **Speech as acts:** `say` already carries by range. An utterance is **recorded** at log time,
   verbatim, with everything needed to check it — "there's nothing left" while a cache exists; the check
   itself is made over the log after the run, because the engine cannot read what a sentence claims
@@ -190,8 +190,7 @@ Violence always resolves with real injury physics; nothing is gated, in any run 
 2026-09-16). Whether friends agree not to hurt each other is a social matter between them, not an
 engine setting. Theft and lies are never gated either — they are the interesting part.
 
-*(Proposed by Claude, for Andrew's check:)* nothing in the game announces that survivors can hurt one
-another — that would be naming a verb, which is a menu — and nothing needs to: the grammar guide teaches
+Nothing in the game announces that survivors can hurt one another (2026-09-28) — that would be naming a verb, which is a menu — and nothing needs to: the grammar guide teaches
 the forms, and `stab`, `hit` and `club` are words that resolve like any other. Whatever a group of
 friends agrees before a run, they say to one another, like any house rule at a table. The one
 consequence that touches the evening — a friend killed early spends the rest of the sitting as a ghost
