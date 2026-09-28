@@ -1,6 +1,6 @@
 # 15 — The moral and social layer: possible, priced, witnessed, logged; the dilemma set
 
-> **Status: draft for review.** Architecture counterpart: none yet — no
+> **Status: reviewed with Andrew 2026-09-27 and 2026-09-28.** Architecture counterpart: none yet — no
 > `docs/architecture/moral-social-layer.md` exists; the closest architecture entry is DR-28 (moral and
 > social logging) in [`implementation-architecture.md`](../architecture/implementation-architecture.md).
 
@@ -45,9 +45,9 @@
   the bleeding they cause. Poison makes people very sick but never kills. Dangerous places injure but
   never kill outright.
 
-**Proposals (Claude).** Everything else below is Claude's, not yet reviewed with Andrew: the rest of §4 (the rules are
-Andrew's), the engine-needs list, the dilemma set, the lens pass, what the log covers (§4.6) and
-witnessing in detail (§4.7). The rules were presented to Andrew one at a time on 2026-09-27 and are all decided.
+**Proposals (Claude).** None left open: the rules were decided one at a time on 2026-09-27 (6 and 7
+changed 2026-09-28), and the rest of §4 was accepted at the 2026-09-28 sitting. The sounds that give a
+hiding person away are Claude's choice, at Andrew's request (§4.7).
 
 ## 3. In one paragraph
 
@@ -253,11 +253,24 @@ blow kills outright: nothing kills instantly, and a blow kills through the bleed
 Witnessing is the perception system's answer (document 19 §4.3–§4.4; document 03 §5): a witness is
 whoever the propagated line reached, at the band it reached them. **In the zone, every act reaches
 everyone present as the full line** — the game does not know which way anyone is facing (Andrew,
-2026-09-27). The one covert act is a deliberate one: `steal`, or another fitting word; how a `steal`
-succeeds or is noticed is designed with the combat and moral systems (`PLAN.md` A10). Beyond the zone,
-the bands decide: distance, weather (`WEATHER_BAND_STEP` in `game/world/sim/space/sound.py`) and how
-loud the act is. A sleeper gets only what is loud enough to wake them (document 06); a ghost perceives
-but is not in the world, so it is no witness (document 21 §4.5). `witnessed_by` records each perceiver
+2026-09-27). The one covert act is a deliberate one: `steal`, or another fitting word. **Whether a
+steal is noticed depends on what the others are doing** (2026-09-28): someone standing watch sees it
+easily; someone busy — chopping wood, working a fire drill, digging — is far less likely to; a sleeper
+not at all. So a thief waits for the moment, and the chance is weighed like any contested act, by who
+is looking and how, with the dice unseen (the details with the combat system, `PLAN.md` A10). Beyond
+the zone, the bands decide: distance, weather (`WEATHER_BAND_STEP` in `game/world/sim/space/sound.py`)
+and how loud the act is. A sleeper gets only what is loud enough to wake them (document 06). **A ghost
+sees everyone**, a hidden person included (2026-09-28), but it is not in the world, so it is no
+witness (document 21 §4.5).
+
+**Hiding** (2026-09-28). A person can hide — behind the cargo, in the tail section, in the trees,
+anywhere that can really conceal a body — and is then left out of the room's people line and out of
+the others' view, unless someone looks at the place they are hiding (`look behind the cargo`,
+`search the tail section`). Now and then a small sound gives them away — a creak, a breath, a boot
+shifting on frost — more often when they move or act, heard by whoever is near *(the sounds and how
+often: Claude's choice, at Andrew's request)*. Whoever finds a hiding person sees them from then on:
+they join that person's people line (document 03 §4.1). Hiding is an act like any other, logged with
+who could have perceived it. `witnessed_by` records each perceiver
 with the band and the line they received.
 
 ## 5. Interactions
@@ -321,7 +334,9 @@ one at a time, the dilemma set, and §4.6–§4.7 — all of it Claude's.
 - **2026-09-28 (Andrew, the document's sitting):** people as targets through the combat system, and
   nothing announcing it; the dilemma set, with the blanket reframed — two can huddle under one, no
   more; **no moral tags** — acts are not tagged as immoral, neutral or taboo, and a language model reads
-  the playthrough after the run (rules 6 and 7 changed).
+  the playthrough after the run (rules 6 and 7 changed); what the log covers; witnessing, with hiding
+  (found by looking where someone hides, or given away by a sound), a steal noticed or not by what the
+  others are doing, and ghosts seeing everyone. **Reviewed in full.**
 
 ## 8. What exists today
 

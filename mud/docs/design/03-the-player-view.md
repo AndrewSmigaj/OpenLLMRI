@@ -112,6 +112,8 @@ description and the exits, as prose by what they are doing, standing or sitting 
 condition shows in the person's line** (2026-09-28) — what anyone would see from across the room:
 *Cal sits against the hull, his sleeve soaked dark with blood*; *Mara stands on one foot, pale and
 shaking*. Smaller things wait for a closer look — `look at Mara`, `examine Mara` (document 11 §4.12).
+**A hiding person is left out of the line** (2026-09-28) until someone looks where they are hiding or
+a small sound gives them away; from then on they are in that person's line (document 15 §4.7).
 
 What is **not** in it: no `You see:` list, no item inventory of the room, no counts-first phrasing,
 no salience labels, no tags, no ident brackets, no per-step structure, no numbered anything. The

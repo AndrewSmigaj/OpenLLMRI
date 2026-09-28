@@ -117,9 +117,10 @@ ghosts. Anyone, living or dead, can use the out-of-character chat** (document 19
 
 What follows from the rest of the design *(proposed by Claude, for Andrew's check)*:
 
-- **A ghost sees what anyone standing where it is would see** — the same composed look, banded by the
-  same perception, weather and darkness included (document 03; an agent sees what a human sees, and so
-  does a ghost). Nothing extra: no view into closed things, no party-wide status, no map of caches.
+- **A ghost sees everyone** (Andrew, 2026-09-28), a hidden person included, and otherwise what anyone
+  standing where it is would see — the same composed look, banded by the same perception, weather and
+  darkness included (document 03; an agent sees what a human sees, and so does a ghost). Nothing else
+  extra: no view into closed things, no party-wide status, no map of caches.
 - **It moves unhindered** — no terrain, snow, cold or hunger slows it; it has no body.
 - **Its body stays where it died**, clothed, pockets full: mass is never lost (DR-11). What the living
   may do with it is documents 12 and 15, and that the ghost may be watching is part of it.

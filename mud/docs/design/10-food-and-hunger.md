@@ -41,7 +41,8 @@
 - **(2026-09-17, 2026-09-26, 2026-09-27)** A bear is in; there is no wolverine. The bear, some bigger
   animals and a few birds act (document 23 proposes which, for Andrew's check); the fish are scripted.
 - **(2026-09-27)** There is no survival kit — it would make the game too easy.
-- **(2026-09-27)** Holt's cabin is supplies: some trapline gear and modest stores, not piles of food.
+- **(2026-09-27, 2026-09-28)** Holt's cabin is supplies: some trapline gear, an axe, and modest stores,
+  not piles of food.
 - **(2026-09-27)** The season is the first week of October in interior Alaska, with no big storm: the
   snow builds to a couple of inches through the week and covers the low forage a little at a time
   (document 13 §4.2).
