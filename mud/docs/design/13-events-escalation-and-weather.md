@@ -38,6 +38,9 @@
   own area, not spread everywhere, and is plain on entering it — nobody has to examine the ground in
   every room; no claw marks on the wreck (the party would see and hear the bear); no snared hare found
   waiting; no chainsaw — nothing promises people within walking distance.
+- **(2026-09-28)** **How an event runs** is §4.4's, as proposed: a line crossed in the weather's
+  state, an arrival, or a scheduled happening; danger warns first and physics decides; escape is never
+  authored per danger.
 - **(2026-09-28)** **The week's day-by-day numbers** are §4.2's table, as proposed: the cold rising
   steadily with one sharp drop after the day-6 flurry, and the search closing in day by day.
 - **(2026-09-27)** **The default rescue is day 7**, and the flyovers are the same every run; the rest
@@ -237,7 +240,7 @@ mercury); singing thin ice (Minnesota Sea Grant, "Sounds of ice").
 
 ### 4.4 How an event runs (the mechanism)
 
-*(Proposed by Claude, for Andrew's check.)* An event is a **scheduled process** with preconditions:
+An event is a **scheduled process** with preconditions (2026-09-28):
 `Event{day, hour_window, preconditions(world) -> bool, effects, narration by band, ambient: bool,
 interrupts: bool}`. The heartbeat checks the due list each tick; fired events apply Effects through
 `apply()` (a drift is mass; a wound is state) and route their narration through the propagator by
