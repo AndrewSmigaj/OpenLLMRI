@@ -62,7 +62,7 @@
 - **Whether a crew sees a signal follows physics** — what the signal is and how it contrasts, the
   weather, how close the pass comes (§3.4).
 - **The rest of the flyover schedule**, and passes after day 7 for a party not yet found (§3.5;
-  document 13 §4.2).
+  document 13 §4.2) — accepted with document 13's numbers (2026-09-28).
 - **(2026-09-27)** Holt, the trapper, does not come back during the week; the cabin is supplies, not a place to be
   rescued from. *(Proposed by Claude, for Andrew's check:* his traces say so — his trapline gear, and a calendar
   on the cabin wall showing he returns after the week.)
