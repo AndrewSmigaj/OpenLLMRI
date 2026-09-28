@@ -53,7 +53,7 @@ same as the one behind you — this one is wrenched off its rails with someone's
 wedged under it, that one is thrown loose and could be dragged outside as a windbreak — and looking
 under one tells you nothing about the others; you have to check each. Whatever you or the person
 next to you does to a room stays true the next time either of you looks: the seat you stripped for
-its cushion stays stripped, the drift you dug stays dug, the fire you built is still there, still
+its cushion stays stripped, the pit you dug stays dug, the fire you built is still there, still
 burning or still dead. Outdoors, nobody hands you a puzzle to solve at every tree; the woods are
 exactly as thorough as the cabin was, but what they ask of you is movement, cold, and sightlines, not
 a hook.
@@ -69,8 +69,8 @@ a hook.
    deadfall, snow). Rule: *individuate what a player would individuate; classify the rest; let classes
    yield individuals* (`take a branch` from "deadfall").
 2. **State that persists and shows**: the stripped seat stays stripped ("bared clips showing where
-   its cushion was hacked out"); the fire ring you built is there next look; the drift you dug has a
-   hole. Every state-changing Effect has a scene/examine variant.
+   its cushion was hacked out"); the fire ring you built is there next look; the pit you dug is still
+   a hole. Every state-changing Effect has a scene/examine variant.
 3. **Processes visible**: the fire's stage, the cold's band, the light failing, the pilot's body
    cooling and stiffening — the room changes while you stand in it.
 4. **Other people's traces**: what a co-player did shows (the half-sawn branch, the scuffed rime, a
@@ -171,16 +171,17 @@ about not forcing a hook per room, never about a ceiling on what a room contains
 every outdoor room is censused to the same real-world depth as the crash rooms, and grown without a
 ceiling by the loops.
 
-**In early October the census is deeper, not shallower** *(proposed by Claude, for Andrew's check)*. An
-inch of snow leaves the ground readable: fallen birch and aspen leaves, moss and lichen, berries still
-on the bush, mushrooms frozen where they stood, mud stiffening in the ruts, the creek running, skim ice
-on still water, tracks printed sharp in the new snow. None of it holds still for the week — the storm
-lays snow down day by day, each clear night drives frost into the ground and thickens the ice. So snow
-depth and type, the depth of frozen ground, ice thickness and what is buried are **states on the room**
+**In early October the census is deeper, not shallower** *(proposed by Claude, for Andrew's check)*.
+Bare, frosty ground at the start and never more than a couple of inches of snow leave the ground
+readable all week: fallen birch and aspen leaves, moss and lichen, berries still on the bush, mushrooms
+frozen where they stood, mud stiffening in the ruts, the creek running, skim ice on still water, tracks
+printed sharp in each new fall of snow. None of it holds still for the week — the flurries lay snow down
+a little at a time, each colder night drives frost into the ground and thickens the ice. So snow depth
+and type, the depth of frozen ground, ice thickness and what is covered are **states on the room**
 (§4.8), changed by the weather system, and the same zone reads and plays differently on day one and day
-six: berries you picked on the first day are under the storm's snow by the fifth, and the lake skim you
-could not stand on may, by the end of a cold week, bear a person (document 18 §4.8 has the ice
-arithmetic).
+seven: the bog cranberries you picked on the first day are under the snow after the sixth, and the
+skim on the ponds thickens night by night yet holds nobody this week — walking out on any ice breaks it
+(document 13 §4.2; document 18 §4.8 has the ice arithmetic).
 
 ### 4.6 The nine crash-room censuses
 
@@ -295,15 +296,15 @@ a fire that burns poorly for want of air, and, left to build, kills over hours, 
 (document 16) — keeps heat in and brings the price closer. Opening an opening,
 banking the fire and keeping someone awake on watch (document 06) are the real answers to it.
 
-**Outdoors, a zone is an entity too**: its ground (soil, moss, rock — frozen to a depth that grows every
-clear night), its snow cover (depth and type — states of water, document 18 §4.8), its air (temperature
-and wind from the weather, sheltered or exposed as document 08 §4.4 bands it), its light. A fire outdoors
-warms mostly by radiation, which falls off steeply with distance: it warms a body a metre or two away,
-and a reflector behind it (rock, stacked logs, a sheet of hull) sends back part of what would be lost.
-The heat that stays is in thermal mass — the hearth stones, the thawed ground under the ashes (where
-roots can now be dug, document 23), the embers for hours. So the residual heat in other areas that
-Andrew named is, outdoors, the warmed ground, the stones and the lee of the fire; inside the plane, the
-connected air carrying heat forward and aft.
+**Outdoors, a zone is an entity too**: its ground (soil, moss, rock — frozen to a depth that grows night
+by night until snow covers it), its snow cover (depth and type — states of water, document 18 §4.8), its
+air (temperature and wind from the weather, sheltered or exposed as document 08 §4.4 bands it), its
+light. A fire outdoors warms mostly by radiation, which falls off steeply with distance: it warms a body
+a metre or two away, and a reflector behind it (rock, stacked logs, a sheet of hull) sends back part of
+what would be lost. The heat that stays is in thermal mass — the hearth stones, the thawed ground under
+the ashes (where roots can now be dug, document 23), the embers for hours. So the residual heat in other
+areas that Andrew named is, outdoors, the warmed ground, the stones and the lee of the fire; inside the
+plane, the connected air carrying heat forward and aft.
 
 **Who owns what.** This document owns that rooms and the plane are entities with these parts and
 states. The numbers — heat flow between connected spaces, the openings' areas, the sources' outputs,
@@ -329,8 +330,8 @@ reconciliation for document 08).
   system to have something to show.
 - **The heat system** (no design document yet — to be written) — the room's and the plane's internal
   heat, heat flowing between connected spaces, the openings, carbon monoxide (§4.8).
-- **13 — Events, escalation and weather** — the storm laying snow down, frost driving into the ground,
-  ice thickening: the states that make a room on day six differ from day one (§4.5).
+- **13 — Events, escalation and weather** — the flurries laying snow down, frost driving into the
+  ground, ice thickening: the states that make a room on day seven differ from day one (§4.5).
 - **05 — Ontology and sufficiency** — the per-zone schema (§4.5 there) is where a room's own
   materials, parts, states and `sensed` live once rooms are entities (§4.8 here).
 
@@ -374,6 +375,7 @@ are for Andrew's check at this document's sitting.
   the room rules into the loops' scaffold — all for Andrew's check.
 - **2026-09-27 (Andrew):** nothing kills instantly; death comes by the body running down, carbon
   monoxide from a fire inside among the ways.
+- **2026-09-27** — the no-storm week carried in (document 13 §4.2).
 
 ## 8. What exists today
 

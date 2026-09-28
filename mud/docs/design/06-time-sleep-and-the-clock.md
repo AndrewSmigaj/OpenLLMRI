@@ -87,7 +87,7 @@ clock**: the wall-clock only decides *when* a tick fires; a pure function of `(s
 ticks directly and stay byte-reproducible.
 
 **The clock never freezes** (DR-14): the world advances at 15× or in fast forward, never 0×; nobody
-can yank it backwards or stall it; the storm and the search run on the calendar regardless
+can yank it backwards or stall it; the weather and the search run on the calendar regardless
 (documents 13 and 14).
 
 ### 4.2 Fast forward (Andrew, 2026-09-27)
@@ -105,8 +105,8 @@ can yank it backwards or stall it; the storm and the search run on the calendar 
 on their own rhythm (§4.4, document 05's `sensed` cadence) — the fire crackling and settling, the
 creek running, wind gusting against the hull, a raven calling, a spruce dropping its load of snow.
 **Non-ambient** events are the ones that change the party's situation: danger (`DANGER`), the fire
-dropping to embers, a propagated sound loud enough in band (loudness ≥ 0.5 — wolves close by, the ice
-booming, a plane), and a sleeper's cold falling below their floor, which wakes them shivering.
+dropping to embers, a propagated sound loud enough in band (loudness ≥ 0.5 — wolves close by, the new
+ice cracking, a plane), and a sleeper's cold falling below their floor, which wakes them shivering.
 
 ### 4.3 Activities with feedback
 
@@ -143,9 +143,9 @@ Activity{id, actor, verb, target, tool, started_at (world-min), deadline (world-
 - **Durations are authored in game-minutes** and converted at schedule time by the live ratio, with a
   real-second floor (≈3 s) so very short beats stay legible. **Small jobs are one to three
   game-minutes** (Andrew, 2026-09-18) — 4–12 real seconds at 15× — so the fiction compresses by
-  design; bigger ones are as long as they honestly are — digging out a drifted door is half an hour of
-  game time, two real minutes — and anything genuinely long runs unattended as a process while you do
-  something else (§5).
+  design; bigger ones are as long as they honestly are — chopping down a standing dead spruce with the
+  hatchet is half an hour of game time, two real minutes — and anything genuinely long runs unattended
+  as a process while you do something else (§5).
 
 The feedback grammar (content: `responses/activities.py`):
 
@@ -176,7 +176,7 @@ happen, through the propagator, by band.
 
 **Under a fast forward, the world does not go quiet — it goes fast** (Andrew, 2026-09-18). Whoever is
 awake is on watch, and they watch the night run past: the fire burning down, the wind rising, the
-wolves somewhere out on the ice. *(Proposed by Claude: lines are rate-limited in real time so the
+wolves somewhere out along the shore. *(Proposed by Claude: lines are rate-limited in real time so the
 stream stays readable rather than unspooling three a second.)* Any non-ambient event drops the clock
 back to 15× (§4.2). Sleepers see nothing of the world; they can chat out of character, and later they
 will be dreaming ([`IDEAS.md`](IDEAS.md)).
@@ -281,6 +281,7 @@ None open. Every question this document asked was answered on 2026-09-18, and th
 - **2026-09-27** — with Andrew: fast forward at about 150×; awake players can stay in it and slow it
   to act; a player waking or a non-ambient event drops it to 15×, ambient events do not; sleepers chat
   out of character; the numbers tuned by playtesting; a missing player's character goes catatonic.
+- **2026-09-27** — the no-storm week carried in (document 13 §4.2).
 
 ## 8. What exists today
 

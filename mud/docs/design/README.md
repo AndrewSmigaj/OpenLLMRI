@@ -19,9 +19,10 @@ quoting the conversation — updates every other document the decision touches, 
 [`IDEAS.md`](IDEAS.md).
 
 **The season:** the first week of October in interior Alaska — about eleven hours of daylight at the
-start, still over ten and a half by day seven; an inch of snow on the ground, bushes dusted but visible,
-berries and roots still findable, skim ice on still water; light snow on days 1–2, the storm on days
-3–4, clearing after. The same weather every run.
+start, still over ten and a half by day seven; no big storm: bare, icy ground at the start, berries and
+roots still findable, skim ice on still water; snow on and off, building to a couple of inches by the
+end; a heavier flurry on day 6 that clears into the coldest night before the day-7 plane; the sky
+always at least partly cloudy. The same weather every run (document 13 §4.2).
 
 ## The documents
 

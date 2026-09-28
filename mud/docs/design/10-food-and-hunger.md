@@ -42,7 +42,9 @@
   animals and a few birds act (document 23 proposes which, for Andrew's check); the fish are scripted.
 - **(2026-09-27)** There is no survival kit — it would make the game too easy.
 - **(2026-09-27)** Holt's cabin is supplies: some trapline gear and modest stores, not piles of food.
-- **(2026-09-27)** The season is the first week of October in interior Alaska (document 13 §4.2).
+- **(2026-09-27)** The season is the first week of October in interior Alaska, with no big storm: the
+  snow builds to a couple of inches through the week and covers the low forage a little at a time
+  (document 13 §4.2).
 - **(2026-09-27)** Nothing kills instantly: death comes by the body running down, on real clocks, with
   time to respond. Poison makes people very sick but never kills.
 
@@ -57,16 +59,16 @@
 
 There is food, and there is not enough of it, and the distance between those two facts is the whole
 week. The first day it is a question of finding it: a chocolate bar in a pocket, a thermos, somebody's
-trail mix, a small bag of dog food in the freight, a family's frozen salmon in a cooler thrown out onto the
-debris trail. The
-country is still open in the first days — lowbush cranberries sweet from the frost under an inch of
-snow, rose hips on the creek bar, a fool hen in a spruce that will stand there and let you try twice —
-and the storm closes it, burying the low berries first. Around day three it stops being a search and
-becomes work — snare wire and a hare run read right in the new snow and then *left alone*, a line cast
-into the open water at the creek mouth. Meat that is not eaten has to be kept somewhere cold enough not
-to spoil and far enough from the ravens and the bear, which is still up, feeding hard before it dens.
-And the whole time there is the pilot's body, in the cockpit, from the first hour, and nobody has to
-say anything about it because everybody has already thought it.
+trail mix, a small bag of dog food in the freight, a family's frozen salmon in a cooler thrown out onto
+the debris trail. The country is still open in the first days — lowbush cranberries sweet from the
+frost on bare ground, rose hips on the creek bar, a fool hen in a spruce that will stand there and let
+you try twice — and each flurry closes it a little more, the lowest berry mats going under first.
+Around day three it stops being a search and becomes work — snare wire and a hare run read right in the
+new snow and then *left alone*, a line cast into the open water at the creek mouth. Meat that is not
+eaten has to be kept somewhere cold enough not to spoil and far enough from the ravens and the bear,
+which is still up, feeding hard before it dens. And the whole time there is the pilot's body, in the
+cockpit, from the first hour, and nobody has to say anything about it because everybody has already
+thought it.
 
 ---
 
@@ -147,10 +149,10 @@ Every food in the design, in one place and growing as the world is fleshed out, 
 - **The freight** — flour, the coffee tin, a small bag of dog food (never enough to live on — Andrew,
   2026-09-27), a box of shear pins, a toolbox. The
   anti-easy rule holds: the toolbox is in the crushed tail cone and wants prying.
-- **The cooler** — a family's fish, frozen, thrown onto the debris trail and dusted with the first
-  snow. The fish stays frozen only while it stays cold — carried into a wreck warmed by a fire it
-  thaws, and over days it spoils (§4.6) — and by the storm's later days the cooler is under the drift
-  and wants digging. It is a vessel as well as a meal.
+- **The cooler** — a family's fish, frozen, thrown onto the debris trail and rimed with frost. The
+  fish stays frozen only while it stays cold — carried into a wreck warmed by a fire it thaws, and over
+  days it spoils (§4.6) — and after the day-6 flurry the cooler is one more white shape on the white
+  debris trail. It is a vessel as well as a meal.
 - **At least one spoiled thing** (Andrew, 2026-09-26): **a half-rotten fish** (Andrew, 2026-09-27; where
   it lies is placed with the zones); and, Claude's proposals, a paper
   sack wedged behind the pilot's seat — a lunch from some earlier day, the bread furred green and the
@@ -168,11 +170,11 @@ state of every living thing is document 23 §4.2–§4.3.)*
 
 | zone | what it offers | what it costs |
 |---|---|---|
-| `tussock_flat` | lowbush cranberries, frost-sweetened on the mats under the first inch of snow, and bog cranberries in the wet hollows; the storm buries them | knowledge + sweat; a real but marginal calorie trickle, priced honestly low so it cannot replace hunting |
+| `tussock_flat` | lowbush cranberries, frost-sweetened on the bare mats, and bog cranberries in the wet hollows; each flurry covers more, and the day-6 snow buries the bog cranberries while the lowbush cranberries poke through | knowledge + sweat; a real but marginal calorie trickle, priced honestly low so it cannot replace hunting |
 | `labrador_thicket` | labrador tea, leathery leaves that persist all winter | knowledge + a container + fire; warmth and morale, not calories |
 | `lake_gate_willows` | the hare runs at the lake gate; a snare set on a run | wire or cordage + knowledge + the discipline to leave and come back |
 | `grouse_thicket` | spruce grouse — real protein, comically tame | anything within reason thrown, a slow approach (rushing flushes the birds a zone away for hours — a few birds, not a flock: Andrew, 2026-09-26), then plucking, cleaning and the whole fire chain |
-| `hare_runs` | the snare line — the valley's best protein-per-effort | wire, reading which runs are fresh, setting loops right, and *leaving*; it pays on return visits, hours later |
+| `hare_runs` | the snare line — the valley's best protein-per-effort | wire, reading which runs are fresh — easiest the morning after a flurry, when every track is new — setting loops right, and *leaving*; it pays on return visits, hours later |
 | `aspen_fringe` | browse sign pointing back to the hare runs | the noticing; one snare |
 | `chaga_tree` | chaga — tinder fungus, and the hot-drink loop | a climb, a throw, a pole or a chop |
 | `gravel_bar_willows` | ptarmigan — a few birds, turning white (document 23 §4.3), invisible on the new snow until they move, conspicuous against bare brush where the snow has not lain — and rose hips, frost-softened on the stem, at about 160 kcal per 100 g of hip (USDA) richer than any berry; the seeds and their hairs must come out | patience in cold minutes; the rose hips are vitamin and morale food, free but thorn-priced and never filling |
@@ -404,7 +406,7 @@ their marrow, blood.
 - **06 Time, sleep and the clock** — hunger is spent on the heartbeat; snares pay on *return visits,
   hours later*, which is the clock doing design work.
 - **13 Events, escalation and weather** — the food row of the ladder; ravens, the hare in the snare,
-  daylight for foraging; the storm that buries the low berries.
+  daylight for foraging; the flurries that cover the low berries a little at a time.
 - **18 Materials and forms** — edibility is a material property; wire and cordage make snares; the
   forms `noose`, `hook` and `net`/`mesh` are candidates (§4.8).
 - **01 Premise and world** / **17 Rooms** — the country's food lives in the outdoor zones.
@@ -463,6 +465,7 @@ None open.
 - **2026-09-27 (Andrew):** trapping, hunting, fishing and killing accepted (§4.8) — anything a survival
   manual teaches can be done; no moose; feedback, not dice, for throws; a fish grabbed by hand almost
   never works; walking out on the ice breaks it; common names first. Document 10 reviewed in full.
+- **2026-09-27** — the no-storm week carried in (document 13 §4.2).
 
 ## 8. What exists today
 

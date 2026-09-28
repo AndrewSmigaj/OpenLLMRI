@@ -377,7 +377,7 @@ document 09's melt ratios already are.
 | water as | density (g/L) | what it does |
 |---|---|---|
 | new snow, fallen calm | 50–70 | ~14–20 L of it to melt one litre; warm to lie under, useless to build with |
-| damp new snow | 100–200 | packs into snowballs and walls — the first snows of October |
+| damp new snow | 100–200 | packs into snowballs, and into walls where there is enough of it — the first snows of October |
 | settled snow | 200–300 | three to five litres of it per litre of water |
 | wind-packed snow | 350–400 | cuts into blocks; about 3 L per litre (document 09's figure) |
 | ice | 917 | ~1.1 L per litre; floats; bears a walking person at about 10 cm of clear ice |
@@ -385,13 +385,14 @@ document 09's melt ratios already are.
 (Cuffey and Paterson, *The Physics of Glaciers*, Table 2.1.) Snow's thermal conductivity rises with its
 density — about 0.05 W/m·K for new snow, about 0.13 at 300 g/L, about 0.25 at 400 (Sturm and others
 1997, *Journal of Glaciology*) — against 2.2 for ice and 0.024 for still air: loose snow insulates like
-a quilt, packed snow like wood, ice hardly at all. That is the snow shelter and the snow wall of
-document 08, from one axis. The first ice of the season is the other half: **10 cm (4 in) of clear ice
-to walk on** is the rule Alaskans are given; white snow-ice is weaker than clear; skim ice a few
-millimetres thick holds nothing. Lake ice thickens roughly with the square root of the cold it has
-accumulated — a week of cold nights may take it from skim toward walkable, and a blanket of new snow on
-top slows it (Stefan's ice-growth law; a first figure for the weather system). How far it gets in the
-run's week follows the week's weather (document 13 §4.2).
+a quilt, packed snow like wood, ice hardly at all. That is how a snow shelter and a snow wall work, from
+one axis — though this week's couple of inches is never enough snow to build with (document 13 §4.2).
+The first ice of the season is the other half: **10 cm (4 in) of clear ice to walk on** is the rule
+Alaskans are given; white snow-ice is weaker than clear; skim ice a few millimetres thick holds nothing.
+Ice thickens roughly with the square root of the cold it has accumulated, and a blanket of new snow on
+top slows it (Stefan's ice-growth law; a first figure for the weather system). This week it gets the
+small ponds to a few centimetres and skins the lake's calm bays, so no ice holds a person: walking out
+on any of it breaks it (document 13 §4.2).
 
 **Every material, first physical figures** *(handbook values, rounded; ranges where the real thing
 varies; each row's pass confirms its figure at source when it writes the row — the sources are listed
@@ -437,7 +438,7 @@ axes above, and each gives a survivor a real distinction to act on:
 |---|---|---|
 | **the body materials** — skin, fat, muscle, bone (with marrow), blood, organs | every body: the pilot's (document 12 §4.3a), every kill | `flesh` becomes these six, the same for a person, a hare or a bear, each species with its own figures. Muscle is about 1,300 kcal a kilogram and fat about 5,700 (Cole 2017, *Scientific Reports*); blood freezes; marrow is mostly fat |
 | stone (the Interior's schist, granite and quartz, in bedrock and creek gravel) | the ridge, the creek bar, the erratic | 2,600–2,750 g/L, 0.79 J/g·K, 2.5–3.5 W/m·K; quartz is hardness 7. It stores heat — a kilogram at 400 °C holds enough above boiling to warm a litre of water by about 55 °C (stone-boiling; a hot stone in a sock warms a bed); it strikes sparks off carbon steel; **wet creek stones can burst in a fire** as the water in them turns to steam |
-| soil (silt and loam) | everywhere under the snow | 1,100–1,600 g/L; thawed, it digs; frozen, it is nearly rock, and it carries heat better than thawed soil because ice conducts four times better than water. In early October it is a frozen crust over soft ground, thicker every clear night; a fire thaws it |
+| soil (silt and loam) | everywhere underfoot | 1,100–1,600 g/L; thawed, it digs; frozen, it is nearly rock, and it carries heat better than thawed soil because ice conducts four times better than water. In early October it is a frozen crust over soft ground, thicker every cold night until snow covers it; a fire thaws it |
 | clay | the creek cut, the pond edge | plastic only at the right water content (a state), crumbling dry, rock-hard frozen; fired above about 600 °C — which a hot fire reaches — it becomes pottery: a vessel |
 | sphagnum and peat | the muskeg | sphagnum holds many times its dry weight in water and was a wound dressing in the First World War; dry peat burns slowly (~20 MJ/kg dry), wet peat not at all |
 | lichen | the ridge, the spruce | reindeer lichen and the hair lichens on spruce: flash tinder dry; famine food only after boiling out its acids |
@@ -483,8 +484,8 @@ ash, kerosene, and the heat axes on every row. **With warmth** — fur and hide,
 batting split in two, acrylic. **With water** — water's phases and snow's states. **With hunger** — the
 six body materials, fat, fish and game species, berries, roots and mushrooms with their hazards. **With
 injury** — sphagnum, spruce pitch as an antiseptic, willow bark. **Soil and clay** come with the first
-`dig`, which the season brings forward: in early October the ground is open under an inch of snow and
-roots are there to be dug (document 23). Stone leads, because fire needs it.
+`dig`, which the season brings forward: in early October the ground is bare or under a few
+centimetres of snow, and roots are there to be dug (document 23). Stone leads, because fire needs it.
 
 **How the table grows.** By document 05's store: the loops write material rows into `materials.yaml` as
 candidates, with provenance; the merge unions and never drops; nothing reaches `table.py` until the
@@ -526,6 +527,7 @@ growth of §4.9 — are for Andrew's check at this document's sitting.
   row; the materials the valley, the season and the systems add; the windscreen is acrylic,
   `insulation_batting` is two materials, `conductivity` is renamed; the forms `noose`, `hook` and
   `net`/`mesh`; the order materials go in and how the table grows — all for Andrew's check.
+- **2026-09-27** — the no-storm week carried in (document 13 §4.2).
 
 ## 8. What exists today
 

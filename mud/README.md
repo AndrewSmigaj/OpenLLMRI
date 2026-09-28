@@ -2,8 +2,8 @@
 
 **Whiteout** is a text-forward, multiplayer, *systemic* survival-puzzle MUD on
 [Evennia](https://www.evennia.com/). Survivors of a snowy plane crash improvise with every
-object around them to outlast cold, injury, hunger and a worsening storm until rescue,
-escape or collapse. You survive by *understanding the world*, not by guessing the author's
+object around them to outlast cold, injury, hunger and the coming winter until they are
+rescued or die. You survive by *understanding the world*, not by guessing the author's
 intended verb-object pair.
 
 This repo (`MUDExperiments`) hosts a reusable simulation engine (the "interaction system")

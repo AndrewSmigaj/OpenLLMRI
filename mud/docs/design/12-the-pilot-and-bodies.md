@@ -41,13 +41,13 @@ sources listed at the end of §4.3a.
 ## 3. In one paragraph
 
 You come to in a wrecked Cessna in early October, and the man in the left seat is dead. Nothing about
-him will speak or move again, and nobody in the game will ever say a word about him. He is a body in
-the cockpit: a leather flight jacket that comes off easily now and will fight you in a few hours, a
-lighter in a pocket, 78 kilos of a person, cooling. Over the days he goes stiff, then slack, and — once
-the clear cold comes behind the storm — hard, from the fingers in. If someone lights a fire in the
-fuselage he does not freeze, and what that means arrives slowly, through the nose. The ravens find him
-if the cockpit is open; the bear may. And somewhere around the third hungry day, somebody does the
-arithmetic.
+him will speak or move again, and nobody in the game will ever say a word about him. He is a body in the
+cockpit: a leather flight jacket that comes off easily now and will fight you in a few hours, a lighter
+in a pocket, 78 kilos of a person, cooling. Over the days he goes stiff, then slack, and — as the frosty
+nights get into him — hard, from the fingers in, freezing through after the coldest night of the week.
+If someone lights a fire in the fuselage he does not freeze, and what that means arrives slowly, through
+the nose. The ravens find him if the cockpit is open; the bear may. And somewhere around the third
+hungry day, somebody does the arithmetic.
 
 ## 4. The design
 
@@ -117,19 +117,20 @@ bulkhead. His states, each changed by a system:
 |---|---|---|---|
 | strip — `remove jacket from pilot` (shipped) | hands | his clothes | easy in the first hours, a struggle through rigor, impossible frozen without cutting |
 | search (shipped) | hands | his pockets — the lighter | — |
-| move · drag · carry | his 78 kg against what the movers can haul (document 04 §3.11) | him, somewhere else | dragging over snow is the real way; two can carry him a short distance |
-| cover | a sheet, a blanket, boughs, snow | a covered body | still there and still findable — a shape under a blanket. Covering keeps the birds off; snow keeps him frozen and hides him; a blanket on him is a blanket not on the living |
-| bury | a `dig` capability and something to dig with; rocks | a grave or a cairn | the top of the ground freezes on the clear nights and the snow comes on day 3 (document 13 §4.2); a cairn of rocks, or a snow burial, is what a day's work can do |
+| move · drag · carry | his 78 kg against what the movers can haul (document 04 §3.11) | him, somewhere else | dragging is the real way, easiest over frosty moss or snow; two can carry him a short distance |
+| cover | a sheet, a blanket, boughs, snow | a covered body | still there and still findable — a shape under a blanket. Covering keeps the birds off; snow keeps him cold and hides him, though this week there is only a thin layer to scrape together; a blanket on him is a blanket not on the living |
+| bury | a `dig` capability and something to dig with; rocks | a grave or a cairn | the ground is soft under a crust that freezes each night and thickens through the week (document 13 §4.2): a cairn of rocks is what a day's work can do, and a grave is slow, hard digging with what the party has; there is never enough snow this week to bury him in |
 | burn | fuel | ash and bone | an open-air pyre takes 400–600 kg of dry wood — days of the whole party's wood work |
 | butcher | `edge` for skin, muscle and gut; `heft`, a saw or an axe for joints and bone | meat, fat, organs, marrow, skin, bone | below |
 
 `cover` needs its own operation — today it parses to `wrap` — the same one that covers the hull's
 openings (document 08).
 
-**Covering and burying, and finding him again.** A covered body is a shape under a blanket; a snow
-burial or a cairn is a mound; outside, the storm's snow buries him further by itself. Covering and
-burying are real acts that can be undone by uncovering and digging, and the animals can undo them too
-— the bear digs and caches, the ravens pick at what is exposed.
+**Covering and burying, and finding him again.** A covered body is a shape under a blanket; a grave or
+a cairn is a mound; outside, each flurry lays a little more snow on him, a white shape under a couple
+of inches by the end of the week. Covering and burying are real acts that can be undone by uncovering
+and digging, and the animals can undo them too — the bear digs and caches, the ravens pick at what is
+exposed.
 
 **Butchering, and what it yields.** `butcher` is the canonical word (its synonyms authored with it,
 document 04 §3.7) for an **attended activity** (document 06) that works through the body part by part
@@ -177,7 +178,7 @@ bear's cache pile is called about the deadliest thing to walk into in the Alaska
 Daily News*, 2011), and the Alaska Department of Fish and Game's warning signs of one are gathering
 ravens and jays, an out-of-place smell and a fresh mound of debris. Here the ravens and gray jays
 come first, in daylight, and their gathering over the wreck is itself a sign the party can read. So
-what the party does with him — leave him in a closed cockpit, drag him out onto the snow, butcher him
+what the party does with him — leave him in a closed cockpit, drag him out into the open, butcher him
 and hang the meat, cache it — is a real decision about the bear, read through his `smell` row and the
 animals' behaviour rules (document 23; the animal-behaviour design, to be written). Nothing is
 scripted.
@@ -260,6 +261,7 @@ None open. The proposals in §4.3 and §4.3a wait for Andrew's check at this doc
   states; what butchering yields; raw, frozen, cooked and spoiled flesh; the body among the animals.
 - **2026-09-27 (Andrew):** nobody is told what can happen to a dead player's body — an open world, with
   tutorial rooms; eating the pilot is taboo, not immoral; a seat nobody plays is a dead character.
+- **2026-09-27** — the no-storm week carried in (document 13 §4.2).
 
 ## 8. What exists today
 

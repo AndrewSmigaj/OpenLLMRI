@@ -50,8 +50,11 @@ The decisions that shape a run, in plain words; every one of them, with its date
   zones and all eleven regions — is in the first complete run. The plane is a Cessna 206-class single
   with a four-seat interior (1A, 1B, 2A, 2B and the right seat), a hat shelf, a cargo net and a jammed
   cargo door; its battery is in the nose, wired and fine. The season is **the first week of October**
-  in interior Alaska: an inch of snow at the start, light snow on days 1–2, the storm on days 3–4,
-  clearing after — the same weather every run (document 13 §4.2).
+  in interior Alaska, with **no big storm** (2026-09-27): bare, icy ground at the start; snow on and off,
+  building to a couple of inches by the end, so a fire can be kept going outside and the world stays
+  open; a heavier flurry on day 6 that clears for day 7; the sky always at least partly cloudy, so
+  planes fly most days but the wreck is hard to see from the air. The escalation comes from the cold
+  and the land — the same weather every run (document 13 §4.2).
 - **The party (2026-09-16, 2026-09-27).** Up to five play: four adults and the kid. A seat nobody plays
   is a dead character whose clothes and pockets can be searched; AI agents may play seats. No back
   stories: the characters differ in clothes, injuries and what they carry, and in how well and how fast
@@ -115,18 +118,19 @@ The decisions that shape a run, in plain words; every one of them, with its date
 ## 3. In one paragraph
 
 You come to in a broken Cessna in an unnamed valley in interior Alaska, in the first week of October:
-an inch of snow on the ground, skim ice on the still water, and a pilot who did not survive the
+bare ground white with hoarfrost, skim ice on the still water, and a pilot who did not survive the
 landing. You are one of up to five people, each wearing different clothes, carrying different things
 and hurt differently, and some of you are better at some things than others. Nobody tells you what to
 do and nothing offers you a list: you type physical acts in a grammar the game teaches once — `cut the
 cover off the seat with the multitool`, `put the branch on the fire`, `walk west` — and the world
 answers with physics, including when it says no, and in its own voice when you miss something anyone
 would know. The clock never stops: fifteen minutes of game time to every real minute, faster when you
-all agree to fast forward. Two days of light snow, then the storm, then the clear cold behind it — the
-same week every run. There are three ways home: raise someone on the hand radio, whose batteries are
-buried in the tail; get a signal up that a search plane can see when you hear it coming; or stay alive,
-and findable, until the search comes on the seventh day. You are rescued, or you die of blood loss, the
-bear or the cold — and if you die, you watch the rest as a ghost.
+all agree to fast forward. Snow on and off, the nights growing colder, and a heavier flurry on
+the sixth day that clears into the coldest night of the run — the same week every run. There are three
+ways home: raise someone on the hand radio, whose batteries are buried in the tail; get a signal up
+that a search plane can see when you hear it coming; or stay alive, and findable, until the search
+comes on the seventh day. You are rescued, or you die of blood loss, the bear or the cold — and if you
+die, you watch the rest as a ghost.
 
 ---
 
@@ -177,12 +181,14 @@ expires: it is a radio call answered, a signal in the air at the moment a plane 
 alive and findable when the search reaches it.
 
 **What makes it a week.** Nothing refuses you and nothing locks. Instead the week gets harder on its
-own schedule 📐 (document 13 §4.2): the storm buries the berries, the deadfall, the tracks and the
-wreck's outline; the cold falls in behind it; the fuel radius walks away from camp; the food runs down;
-untreated wounds infect; sleep debt slows you. Night one is survivable inside the wreck in the clothes
-you crashed in; from night two you need a heat source, better gear, conserving or the huddle
-(document 08). Nothing kills instantly: death comes by the body running down — blood loss, the cold,
-thirst, a wound gone bad — with time to respond; poison makes you very sick and never kills.
+own schedule 📐 (document 13 §4.2): the nights grow colder; each flurry covers more of the
+low berries; the fuel radius walks away from camp; the ground freezes deeper; the food runs down;
+untreated wounds infect; sleep debt slows you; the bear grows bolder; and a heavier flurry on day 6
+clears into the coldest night of the run, leaving the wreck white on white. Night one is survivable
+inside the wreck in the clothes you crashed in; from night two you need a heat source, better gear,
+conserving or the huddle (document 08). Nothing kills instantly: death comes by the body running down —
+blood loss, the cold, thirst, a wound gone bad — with time to respond; poison makes you very sick and
+never kills.
 
 ### 4.2 The week, day by day
 
@@ -190,23 +196,23 @@ The same week every run 📐; the numbers are document 13 §4.2's, and the flyov
 (the schedule beyond day 7 and the passes' details are Claude's, for Andrew's check). ◌ Nothing here is
 on the clock today.
 
-| | days 1–2 | days 3–4 | day 5 | days 6–7 | after |
-|---|---|---|---|---|---|
-| **the weather** | an inch of snow; light snow on and off; the first clear night brings frost | the storm: steady snow building to heavy, wind, sight collapsing | the snow ends; the cold falls in behind it | clear, calm and cold | clear cold holds, or a smaller system |
-| **the ground** | berries, deadfall and every track visible | the low berries, the deadfall, the tracks and the wreck's outline go under | deep snow; drifts against the hull each morning | breaking trail costs sweat on every trip | — |
-| **water** | the lake's edge and the creek open; skim ice at dawn | new ice under snow and slush holds nobody | — | the ice thickens; the riffle stays open | — |
-| **the search** | an early pass at dusk on day 1, high over the filed route, in the wrong place; the route search on day 2 — a real chance | nothing flies | the search widens into the side valleys — a real chance | a pass in clear air on day 6 — a real chance; **day 7, the default rescue** for a party that can be found | passes continue while the weather allows, each a chance |
-| **the animals** | the bear feeding hard before its den, its sign first; wolves heard at night | the storm holds everything down | the bear most likely dens as the snow deepens, unless it has claimed a carcass | wolves on the packed trails and at any carcass; ravens, jays and a fox work the camp | — |
-| **bodies** | a cut, a sprain, a concussion; wet clothes from the first snow | infection risk rises | fever costs warmth and water | frostbite in the cold behind the storm | — |
+| | days 1–2 | days 3–4 | day 5 | day 6 | day 7 | after |
+|---|---|---|---|---|---|---|
+| **the weather** | partly cloudy; the first wet flurries on day 2; frost on everything at night | cloudier; flurries on and off, wet, melting where the sun reaches; a clearer, colder night on day 4 | partly cloudy, then high cloud thickening, a ring round the sun and the altimeter creeping up: heavier snow within a day | **the heavier flurry**: steady snow from the early hours through the afternoon, an east wind, sight down to a few hundred metres at its heaviest; it clears through the evening into the coldest night of the run | partly cloudy and calm over fresh snow | partly cloudy; a flurry now and then |
+| **the ground** | bare and icy — hoarfrost, frozen puddles; berries, deadfall and roots in plain sight; a dusting in the shade by day 2 | about a centimetre, patchy; the first tracks; the ground frozen a few centimetres down; the near deadfall used up, so every armful is a longer walk | about 2 cm | a couple of inches by night: the lowest berry mats and the small deadfall go under, and the lowbush cranberries poke through | crisp fresh snow — the best tracking of the week; the white wreck on white ground | a few centimetres more |
+| **water** | the lake's edge and the creek open; skim ice at dawn; the small ponds skin over at night | slush in the creek's eddies; shelf ice at its edges | the pond ice a couple of centimetres — it holds nobody | the snow lies on the pond ice and slows it | the lake skins over in its bays; the riffle stays open and steams; walking out on any ice breaks it | the ponds thicken; the lake still freezing |
+| **the search** | an early pass at dusk on day 1, high over the filed route, in the wrong place; the route search on day 2 — a chance for a party with a signal ready | the search widens off the route, lost in the cloud (day 3); a pass across the lake's far end, seen through a gap (day 4) — a real chance | a pass low along the creek — a real chance | grounded: nothing flies | **the default rescue**, in clear air, for a party that can be found | passes continue while the weather allows, each a chance |
+| **the animals** | the bear feeding hard before its den, its sign first, following the smell of the pilot's body and the food; wolves heard at night | tracks in the first snow; the bear bolder as the camp smells of food | — | the flurry holds everything down | tracks circling the wreck in the fresh snow; ravens, jays and a fox work the camp | a bear still about, hungrier, looks for a den unless it has claimed a carcass |
+| **bodies** | a cut, a sprain, a concussion; clothes soaked by the wet flurries | a dirty wound shows infection; fever costs warmth and water | untreated infection spreads | feet wet for days take non-freezing cold injury | frostbite after the coldest night | — |
 
 ### 4.3 The endings
 
 📐 Document 21. **Rescued or dead.** Each player's run ends one way or the other, and the run is over
 when nobody is left alive in the valley. A party found by a pass, raised on the radio and picked up
-when the storm dies down, or found on day 7 is rescued; death comes of anything the body's systems
-reach. Dead players are **ghosts**: they move freely and talk in the out-of-character chat; ghosts hear
-ghosts, the living cannot; anyone can use the out-of-character chat. There is **no recap**. A sitting
-that ends first, with someone alive and unrescued, is a pause, resumed like any other.
+when the weather lets the search in, or found on day 7 is rescued; death comes of anything the body's
+systems reach. Dead players are **ghosts**: they move freely and talk in the out-of-character chat;
+ghosts hear ghosts, the living cannot; anyone can use the out-of-character chat. There is **no recap**.
+A sitting that ends first, with someone alive and unrescued, is a pause, resumed like any other.
 
 ### 4.4 The events, by category
 
@@ -220,12 +226,12 @@ of it is built.
 
 | category | what fires |
 |---|---|
-| **weather** | the first flurries · the first clear night · the halo before the storm · the snow begins · the wind rises and swings · the storm's peak · the clearing and the cold · a sun break on fresh snow · a smaller second system |
-| **the animals** | the bear, its sign before it — drawn by the pilot's body and the food · wolves heard at night, tracks after the storm · the raven pair and the jays at food · a fox at the camp and the snare line · a hare in the snare · grouse and ptarmigan flushing · a snow load off a bough. No wolverine |
-| **search and rescue** | the flyovers, the same every run (document 14 §3.5) — heard before they are seen · the silence of the grounded storm days · a plane that rocks its wings has seen you |
-| **the wreck** | fuel drips and pools under the wing · the fuselage shifts with a groan and the door jams · a window pane falls in · the tail slides further down the scar · ice seals the cargo door overnight · the snow loads the wreck until it vanishes from the air |
+| **weather** | hoarfrost and frozen puddles at dawn · the first wet flurries · frost on everything, an aurora through a gap in the cloud · the first tracks after a flurry · a ring round the sun, and the altimeter creeping up · the heavier flurry begins · the wind rises and swings · the flurry easing · the clearing and the coldest night · sun on the fresh snow · a flurry now and then |
+| **the animals** | the bear, its sign before it — drawn by the pilot's body and the food · wolves heard at night, their tracks in the fresh snow · the raven pair and the jays at food · a fox at the camp and the snare line · a hare in the snare · grouse and ptarmigan flushing · a snow load off a bough. No wolverine |
+| **search and rescue** | the flyovers, the same every run (document 14 §3.5) — heard before they are seen · the silence of the grounded flurry day · a plane that rocks its wings has seen you |
+| **the wreck** | fuel drips and pools under the wing · the fuselage shifts with a groan and the door jams · a window pane falls in · the tail slides further down the scar · ice seals the cargo door overnight · the day-6 snow lies on the wing and the fuselage until the wreck no longer stands out from the air |
 | **bodies** | the pilot's body cooling and freezing, a smell the bear and the ravens follow · a wound infects · frostbite whitens a finger · hypothermia confusion (messages, never command hijacking) · dehydration headaches · the hunger stages |
-| **camp** | the fire dies on an untended watch · the drift buries the entrance · the new ice sings at night · a bough dumps its snow on the lean-to · tracks in the morning that weren't there |
+| **camp** | the fire dies on an untended watch · the flurry soaks a woodpile left in the open · the new ice sings at night · a bough dumps its snow on the lean-to · tracks in the morning that weren't there |
 | **mail and freight** (found, not fired) | the postmarks · the parcel addressed to Holt · the child's letter · a parcel of candles · a small bag of dog food in the freight |
 
 ### 4.5 What players can do — the forms
@@ -302,16 +308,16 @@ resources (daylight · warmth · sweat · tools · knowledge · risk).
 
 | way | what it takes | where |
 |---|---|---|
-| **the radio** | the hand radio, dead; its batteries, buried in a bag in the tail section under snow that deepens each day · something to open it · the loose wire inside, seen at once by a technically proficient character and found slowly by anyone else, with a hint · anything metal and long enough as the antenna, raised — higher is better · the channel buttons, or the emergency frequency found written down · hold the button to talk · the light dims as the batteries drain | the cabin, the tail section, and a height: the fuselage top or the knob |
+| **the radio** | the hand radio, dead; its batteries, buried in a bag in the tail section, which each flurry hides a little more · something to open it · the loose wire inside, seen at once by a technically proficient character and found slowly by anyone else, with a hint · anything metal and long enough as the antenna, raised — higher is better · the channel buttons, or the emergency frequency found written down · hold the button to talk · the light dims as the batteries drain | the cabin, the tail section, and a height: the fuselage top or the knob |
 | **a signal a plane can see** | fire and smoke — rubber, oil, green boughs · a piece of mirror, once clear of the trees · burning the cabin during a flyover · whether a crew sees it is physics: contrast, weather, how close the pass comes · the plane is heard before it is seen, and a party may not make it in time | the crash site, the lake shore, the gear gouge, the knob |
-| **surviving long enough** | staying alive — and after the storm, staying findable: digging the wreck out, a sign stamped in the snow, smoke kept going | anywhere; the default rescue is day 7 |
+| **surviving long enough** | staying alive — and staying findable: partial cloud and the trees hide the wreck, and after the day-6 snow it is white on white, so what the party builds decides it — a sign stamped or laid out in the fresh snow, the wreck brushed clear, smoke kept going | anywhere; the default rescue is day 7 |
 
 **The voice** on the radio is a person at search and rescue, played by a weak language model — the same
 model every run, scaffolded with rules. It helps only as a real rescuer would, may hint through the bad
 signal (*"can you get your antenna higher?"*), asks where the party is and judges the landmarks it is
-told by the game's criteria, says they will come once the storm dies down, and tells a party it cannot
-find what it needs to do. A party that cannot say where it is can be homed in on, at a battery cost.
-Contact comes fairly quickly once the antenna is fixed, not only during flyovers.
+told by the game's criteria, says when they can come, and tells a party it cannot find what it needs
+to do. A party that cannot say where it is can be homed in on, at a battery cost. Contact comes fairly
+quickly once the antenna is fixed, not only during flyovers.
 
 ### 4.9 Time — the clock, fast forward, sleep and the watch
 
@@ -319,7 +325,7 @@ Contact comes fairly quickly once the antenna is fixed, not only during flyovers
 that emits nothing.
 
 - **The clock** runs continuously at 15 game-minutes per real minute. Nobody can stall it or yank it
-  back; the storm and the search run on the calendar regardless.
+  back; the weather and the search run on the calendar regardless.
 - **Fast forward** — proposed and agreed by the players — runs the clock at about 150×. Awake players
   can stay in it, seeing events go by faster, and type a command to slow it when they want to act. A
   player waking or any non-ambient event drops it back to 15×; ambient events do not. Sleeping players
@@ -433,6 +439,7 @@ None open. Each system document holds its own.
   sitting of two or three hours with pause and resume, not an ongoing world; a dead player is a ghost;
   agent runs are short sessions too; the pilot starts dead and the radio is the rich puzzle (document
   14); the sample week is written again after the review.
+- **2026-09-27** — the no-storm week carried in (document 13 §4.2).
 
 ## 8. What exists today
 

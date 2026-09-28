@@ -109,8 +109,10 @@ the rest.
    the coverage target — *fire · windbreak · shelter · dry clothing · layering · insulation from the
    ground · huddling · heated stones · hot water containers · moving out of the wind · closing
    fuselage gaps · a snow trench · a snow wall · reduced sweating and exertion · sharing body heat*
-   (GDD §31–§36). Each is a thing you do to the world, and the world remembers it. Heated stones and a
-   warm vessel are in (Andrew, 2026-09-18).
+   (GDD §31–§36). Each is a thing you do to the world, and the world remembers it. This week lays only
+   a couple of inches of snow (document 13 §4.2), too little for a trench or a wall; a windbreak of
+   boughs, logs, rocks or the wreck's panels does that work (§4.4). Heated stones and a warm vessel
+   are in (Andrew, 2026-09-18).
 3. **The loss side accounts for** ambient temperature · wind exposure · wet clothing · clothing
    insulation · shelter insulation · ground contact · fatigue · calorie deficit · fire distance ·
    body condition. The per-tick form proposed:
@@ -187,7 +189,7 @@ What derives from that:
 | **wet** | wet insulation counts for a fraction that falls with wetness, to zero for soaked down; wool forgives, down does not | proposal; `warmth.py::wet_fraction` |
 | **sweat** | hard work in a heavy stack puts water into the inner layer — the deferred cold debt; the player hears of it only through the clothing line and pays for it later | Andrew, 2026-09-18 |
 | **dexterity** | bare hands in the cold lose fine work by the minute (knots, a match, the drill); thick mittens cannot do fine work at all — take them off and pay the warmth | proposal; `warmth.py::fine_work_ok` |
-| **movement** | snow boots against sneakers changes wet-feet rate and speed; snowshoes double speed on snow; dress shoes on ice is a fall | proposal |
+| **movement** | snow boots against sneakers changes wet-feet rate and speed; snowshoes pay only in deep snow, which this week never lays, and on a couple of inches over tussocks they slow you; dress shoes on ice or frost-glazed rock is a fall | proposal |
 | **signal** | a bright jacket spread on the wing is something a search crew can see; a dark one is not | proposal; document 14 §3.4 |
 | **sharing** | `give X to Y`, wearing something from another's hand, the blanket over two — the huddle is real physics: two bodies, one blanket, shared loss; being close gives a small shared bonus, a shared covering the large one | Andrew, 2026-09-18 |
 
@@ -222,11 +224,11 @@ carries, as authored data *(the bands and scores are proposals)*:
   over document 01's zones: `sheltered` (the big-spruce hollow, the tree well, the deadfall tangle,
   the grouse thicket, the spruce tunnel, the marten set, the cabin, the loft) · `broken` (most forest,
   brush and bank zones) · `open` (the muskeg flats, the lake shore, inlet and outlet, the pond flats,
-  the krummholz, the bench saddle) · `brutal` (the boulder field, the knob, the lee cornice, the
+  the krummholz, the bench saddle) · `brutal` (the boulder field, the knob, the lee slope, the
   fuselage top). The cabin with its stove lit is the map's only `warm`. The crash cluster: exteriors
   `open`, the fuselage top `brutal`.
-- **a roof score** — how much sky is over you: bough cover, hull, a lean-to's thatch, the tree
-  well's skirt. A roof cuts radiant loss and stops falling snow wetting you.
+- **a roof score** — how much sky is over you: bough cover, hull, a lean-to's thatch, a big
+  spruce's skirt. A roof cuts radiant loss and stops falling snow wetting you.
 
 **Inside the plane, shelter comes from the plane as an entity** (Andrew, 2026-09-26). Each opening is
 a part with an area and a state — open · partly blocked · blocked · closed · jammed · iced shut — and
@@ -236,7 +238,7 @@ openings and the internal heat. The heat system's own document (`PLAN.md` A10) o
 both.
 
 **Both are mutable.** Blocking the breach changes the opening's state, and the cabin's wind and heat
-follow; a snow wall in the open raises the fire's survival and the body's; a lean-to raises the roof
+follow; a windbreak in the open raises the fire's survival and the body's; a lean-to raises the roof
 score of the patch of outdoors you built it on. This is what makes shelter a *verb* and not a
 *building*.
 
@@ -252,10 +254,10 @@ numbers plus capacity — so partial work counts automatically and nothing needs
 | **the fuselage, a windbreak with holes** | the crash's default shelter: walls, no heat, and openings the wind owns — the tear in the rear hull first. It is night one's physical half (§4.1a) | the rear cabin — the tear is the way outside, the wind's door, and the reason the room is colder (`rear_cabin.md` §2e); the manual's SHELTER page backs the fuselage as shelter |
 | **block the breach** | cover the tear with the engine cover, a wing panel, a suitcase wall, a sheet of acrylic — the generic `cover`/`block` over any opening. The first real shelter act, available in the first hour, needing nothing the party does not have | the rear cabin (`rear_cabin.md` §5.1) |
 | **the lean-to** | Andrew's own example (2026-09-07): poles and thatch against the weather, outside, by choice. Boughs are pre-cut for it on the shear line and free at the forest edge | `shear_line` (the crash pre-cut a shelter's worth of thatch and bedding); `forest_edge` (bough beds, shelter thatch) |
-| **a snow trench / snow wall / snow blocks** | once the storm has laid its snow (document 13 §4.2), wind-packed snow on open ground cuts into blocks with any long blade or the shovel — a windbreak for a signal fire, or emergency shelter stock | open ground after the storm |
-| **the tree well** | a natural bivvy: a big spruce's skirt to the snow, a dry needle floor, already warmer than the air. A party caught out overnight survives there with boughs and body heat and nothing else | `tree_well_hollow` |
-| **ground insulation** | boughs, foam, luggage, the seat cushions — the ground steals more heat than the air. A night on bare metal or bare snow is survivable but expensive, roughly the cost of a day's work (Andrew, 2026-09-18), so gathering boughs before dark is the obviously right thing nobody tells you to do | `forest_edge`; the bedding score (document 06) |
-| **the stove** | Holt's cabin, the map's only `warm` zone: a contained, chimney-drafted fire that turns the storm into weather — the reward for the walk there | `cabin_interior` |
+| **a windbreak in the open** | boughs, logs, rocks and the wreck's panels stacked against the wind — for a signal fire, or a night caught out. The week lays only a couple of inches of snow (document 13 §4.2): too little to cut into blocks or pile into a wall, though scraped up and packed along a windbreak's foot it seals the gap at the ground | open ground: the muskeg, the lake shore, the bench saddle |
+| **under a big spruce** | a natural bivvy: a big spruce's skirt of low branches down to the ground, a dry needle floor that stays bare while the open ground whitens, out of the wind and the open sky. A party caught out overnight survives there with boughs and body heat and nothing else | `tree_well_hollow` |
+| **ground insulation** | boughs, foam, luggage, the seat cushions — the ground steals more heat than the air. A night on bare metal, frozen ground or snow is survivable but expensive, roughly the cost of a day's work (Andrew, 2026-09-18), so gathering boughs before dark is the obviously right thing nobody tells you to do | `forest_edge`; the bedding score (document 06) |
+| **the stove** | Holt's cabin, the map's only `warm` zone: a contained, chimney-drafted fire that turns the coldest night into weather — the reward for the walk there | `cabin_interior` |
 
 **Graceful degradation.** Until a build operation exists, the zones are still authored with their
 bands and the prose still says which places are cold; a party can still get out of the wind by
@@ -278,7 +280,7 @@ Every goal has several ways, each spending something different. Warmth's:
 |---|---|---|
 | **fire** | fuel + an ignition source | the treeline and the north wood for fuel; the ignition source's own room |
 | **insulation salvage** | tools (to strip) + time | mid and rear cabin: foam, batting, the two hidden blankets, the engine cover, clothes; the sleeping bag, dug out of the tail wreckage |
-| **shelter / windbreak** | sweat + tools | the rear cabin (block the breach); outside (snow wall, boughs) |
+| **shelter / windbreak** | sweat + tools | the rear cabin (block the breach); outside (boughs, logs, the wreck's panels) |
 | **the wreck itself, night one** | nothing at all | inside the fuselage — enough for the first night only (§4.1a) |
 | **huddling** | nothing but proximity; more under a shared covering | any enclosed zone — one answer among several, from night two |
 
@@ -287,10 +289,11 @@ ignition source — so a party that loses one can still earn the heat source nig
 
 ### 4.7 The cold, day by day
 
-The antagonist's schedule is document 13 §4.2: temperature, wind, snow and the storm by game day, the
-same every run — light snow on days 1–2, the storm on days 3–4, clearing after, and the clear nights
-behind the storm the coldest of the run. Wind chill multiplies exposure. Nothing here refuses a player;
-every line is a number that hurts more each day.
+The antagonist's schedule is document 13 §4.2: temperature, wind and snow by game day, the same every
+run — bare, icy ground at the start, snow on and off through the week, the nights growing colder (the
+partial cloud keeps them from the deepest drops), and a heavier flurry on day 6 that clears into the
+coldest night of the run, coldest on the valley floor where the cold air pools. Wind chill multiplies
+exposure. Nothing here refuses a player; every line is a number that hurts more each day.
 
 ### The `make shelter` rows (Andrew, 2026-09-18)
 
@@ -376,7 +379,7 @@ is never a meter: it is named, in `status` and in `examine me` (document 11 §4.
   gets spent, and "you wake shivering" is one of the interrupts that drops the clock back to 15×.
 - **07 Fire and shaping** — fire is one way to stay warm and the only drying source that works fast;
   its heat reaches bodies through the heat state of its area.
-- **13 Events, escalation and weather** — supplies temperature, wind and the storm (§4.2); a wind
+- **13 Events, escalation and weather** — supplies temperature, wind and snow (§4.2); a wind
   shift ("the breach faces it now") and ice sealing the cargo door are shelter events.
 - **16 Players and kit** — the clothing draw, the luggage, the 206's interior; the engine cover, the
   two hidden blankets, the sleeping bag buried with the tail wreckage; the clothes of a seat nobody
@@ -424,6 +427,7 @@ None open.
 - **2026-09-27** — the first week of October carried in (the cold, day by day, is document 13 §4.2);
   what is aboard (the two hidden blankets, the sleeping bag with the tail wreckage); the unplayed seat;
   what kills.
+- **2026-09-27** — the no-storm week carried in (document 13 §4.2).
 
 ## 8. What exists today
 
@@ -457,7 +461,7 @@ None open.
   boolean today: authored on the soaked matchbox and written by `pour`. `warmth.py::wet_fraction`
   already reads grams and treats a bare `wet: True` as half-soaked, so the curve is waiting for the
   world to start writing numbers.
-- The cold and the storm by day (document 13 §4.2; `systems/weather.py` is a docstring).
+- The cold and the snow by day (document 13 §4.2; `systems/weather.py` is a docstring).
 - The per-zone exposure bands for the outdoor zones (document 01) — design data, not yet in
   `zones.py`, which carries only `terrain_tags` (one crash zone is tagged `exposed`).
 

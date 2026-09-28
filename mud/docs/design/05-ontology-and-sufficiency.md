@@ -321,7 +321,7 @@ see what each contributes and adjust the briefs. Duplicates are reconciled by a 
 are collected as they appear.
 
 **Phase 2 — possibility passes.** The scout imagines being a survivor in that room in a *situation*
-(day 1 dusk, injured, the storm…) with **one lens at a time**, and lists everything they would try,
+(day 1 dusk, injured, the day-6 flurry…) with **one lens at a time**, and lists everything they would try,
 as the command they would type. New verbs, relations and entities surface here and go back into the
 YAML. Every candidate command is a future probe.
 
@@ -429,6 +429,7 @@ None open. Every question this document asked was answered on 2026-09-18 and is 
   scaffold piloted on the draft, then rewritten from the output; the goal lenses plus a small set of
   human lenses; all five wall categories counted separately; `sensed` carries a cadence, because
   ambience comes from the things present (document 06).
+- **2026-09-27** — the no-storm week carried in (document 13 §4.2).
 
 ---
 

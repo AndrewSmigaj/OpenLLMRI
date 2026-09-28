@@ -43,14 +43,19 @@
   model every run, scaffolded with rules. It helps only as a real rescuer would, and may hint (raise
   the antenna), heard through the bad signal, so it can take a few tries. It asks for landmarks and
   judges what it is told by criteria the game gives it — the list of landmarks and what each is
-  worth; this is the one exception to the engine never calling a language model (GDD §3 rule 2). It
-  says they will come once the storm dies down, and tells a party it cannot find what it needs to do.
+  worth; this is the one exception to the engine never calling a language model (GDD §3 rule 2). Once
+  contact is made and it judges it can find the party, the pickup comes at the next daylight good for
+  flying — the day-6 flurry is the only day nothing can land or fly. It tells a party it cannot find
+  what it needs to do.
 - **(2026-09-17, 2026-09-27) Signals.** Fire and smoke — rubber, oil, green boughs; a piece of mirror
-  once clear of the trees; burning Holt's cabin during a flyover. The plane is heard before it is seen;
-  a party may not make it in time.
+  once clear of the trees; burning Holt's cabin during a flyover; the blue tarp laid in the open, which
+  a plane can see — the same tarp that seals the plane's openings, so one tarp has two uses and the
+  party chooses. The plane is heard before it is seen; a party may not make it in time.
 - **(2026-09-17, 2026-09-27) Surviving long enough.** Search and rescue is searching — that is why
-  planes come. The same flyovers every run. Light snow on days 1–2, the storm on days 3–4, clearing
-  after. **The default rescue is day 7.** Being findable after the storm takes work. No boats.
+  planes come. The same flyovers every run. No big storm: snow on and off, and a heavier flurry on
+  day 6 that grounds the search and clears for day 7; the sky is always at least partly cloudy, so
+  planes fly most days, but the wreck is hard to see from the air (document 13 §4.2). **The default
+  rescue is day 7.** Being findable takes work. No boats.
 
 ### Left to Claude, at Andrew's request (for his check)
 - A party that cannot say where it is can be **homed in on**, at a battery cost (§3.3).
@@ -67,17 +72,19 @@
 
 ## 2. In one paragraph
 
-Nobody is looking where you are yet, but search and rescue is searching. There are three ways home. **The
-radio** — a hand radio sits in the plane's cabin, dead, its batteries somewhere in a bag in the tail section
-under snow that deepens every day you wait; you find something to open it and a loose wire inside, fix
-the antenna and get it high, and work the dial and the channel buttons until, through the screech and
-the hum, a faint voice answers — a person who wants to know where you are, and who will come once the
-storm dies down. **A signal a search plane can see** — you hear the engines first, and have that long to
-get smoke up dark against the snow or white against the spruce; you might not make it. **Surviving long
-enough** — on the seventh day the search comes for a party it can find, and after the storm has buried
-the wreck, being findable is work. None of it shows a number, and nobody tells you what to do — except the
-voice on the radio, who talks like a rescuer. Meanwhile staying alive has its own several ways, in
-documents 08–11. *(Written 2026-09-27 from Andrew's decisions, for his check.)*
+Nobody is looking where you are yet, but search and rescue is searching. There are three ways home.
+**The radio** — a hand radio sits in the plane's cabin, dead, its batteries somewhere in a bag in the
+tail section, which gathers a little more snow with every flurry you wait; you find something to open it
+and a loose wire inside, fix the antenna and get it high, and work the dial and the channel buttons
+until, through the screech and the hum, a faint voice answers — a person who wants to know where you
+are, and who will come at the next daylight good for flying. **A signal a search plane can see** — you
+hear the engines first, and have that long to get smoke up dark against the snow or white against the
+spruce, or the blue tarp spread in the open; you might not make it. **Surviving long enough** — on the
+seventh day the search comes for a party it can find, and under a half-clouded sky, with the trees
+around the wreck and the white plane on white ground after the sixth day's snow, being findable is work.
+None of it shows a number, and nobody tells you what to do — except the voice on the radio, who talks
+like a rescuer. Meanwhile staying alive has its own several ways, in documents 08–11. *(Written
+2026-09-27 from Andrew's decisions, for his check.)*
 
 ## 3. The design
 
@@ -90,8 +97,9 @@ search to reach a party it can find. **The ELT is broken** (2026-09-27). Players
 ### 3.2 The radio (Andrew, 2026-09-17, 2026-09-18, 2026-09-27)
 
 - **What and where.** A **hand radio in the plane's cabin**. Its **batteries are buried in a container — a bag or
-  luggage — in the tail section**; the tail is under light snow on days 1–2 and under the storm's snow
-  after days 3–4 (document 13 §4.2), so the longer a party waits, the deeper it digs. Finding them is
+  luggage — in the tail section**; the tail lies on bare, frosty ground at the start and gathers a
+  little snow with each flurry, a couple of inches by the end (document 13 §4.2), so the longer a party
+  waits, the more there is to brush off and the colder the hands that sort through it. Finding them is
   searching the ground and sorting through the wreckage, as on 2026-09-17.
 - **Getting it working.** You need **something to open it**. Inside is **a loose wire**: a character
   with technical proficiency sees it on inspecting the inside; anyone else finds it more slowly, and the
@@ -123,18 +131,25 @@ search to reach a party it can find. **The ELT is broken** (2026-09-27). Players
   landmark narrows it.
 - *(Claude's choice, at Andrew's request, for his check:)* a party that cannot say where it is can be
   **homed in on** — a search plane in the area follows its transmissions, which costs battery.
-- **The pickup waits on the weather** — the voice says they will come once the storm dies down.
+- **The pickup comes at the next daylight good for flying** (2026-09-27), once contact is made and the
+  voice judges it can find the party; the day-6 flurry is the only day nothing can land or fly, and the
+  voice says when they will come.
 - A party in contact that is not findable is **told what it needs to do**.
 
 ### 3.4 Signals a plane can see (Andrew, 2026-09-17, 2026-09-27)
 
 - Fire and smoke — rubber, oil, green boughs, whatever really makes smoke — a piece of mirror once clear
-  of the trees, and **burning Holt's cabin down during a flyover**, which brings a rescue.
+  of the trees, **burning Holt's cabin down during a flyover**, which brings a rescue, and **the blue
+  tarp laid in the open** (2026-09-27): bright blue against brown ground or new snow is something a crew
+  can see. It is the same tarp that seals the plane's openings (document 16 §4.5), so one tarp has two
+  uses — keep the plane warm or signal — and the choice is the party's.
 - *(Claude's choice, at Andrew's request, for his check:)* **whether a crew sees a signal comes from
   physics**: what it is and how it contrasts — dark smoke from rubber or oil against snow, white smoke
-  from green boughs against dark forest, fire at night, the wreck's metal until snow covers it, signs
-  stamped in the snow, three fires in a triangle — the weather (wind flattens smoke; the storm hides
-  everything and grounds the planes), and how close the pass comes.
+  from green boughs against dark forest, fire at night, the tarp's blue, the white wreck against brown
+  ground until the day-6 snow makes it white on white, signs laid out on the ground or scraped through
+  the snow to the dark ground beneath, three fires in a triangle — the weather (wind flattens smoke;
+  cloud hides the ground from a pass; the day-6 flurry hides everything and grounds the planes), the
+  trees between the signal and the sky, and how close the pass comes.
 - **The plane is heard before it is seen** — a window to light a fire laid ready, which a party may
   miss.
 
@@ -152,8 +167,8 @@ they imply and this system answers.
 *(Proposal: the row set is a floor — the loops add goals and means from what people and agents type.)*
 
 *(Proposed by Claude, for Andrew's check.)* **roles** also **marker** — anything that contrasts with the
-ground, laid or tramped large: boughs, dark cloth, luggage, wreckage on snow, or trenches stamped into
-fresh snow · **pyrotechnic** — a flare or a smoke. **realize** also `put <marker> on <snow>`, `light <flare>`, `tramp <snow>`. Which
+ground, laid or tramped large: the blue tarp, boughs, dark cloth, luggage, wreckage on snow, or lines
+stamped or scraped through the fresh snow to the dark ground · **pyrotechnic** — a flare or a smoke. **realize** also `put <marker> on <snow>`, `light <flare>`, `tramp <snow>`. Which
 smoke-maker suits depends on the background, which the world already knows: rubber and oil make dark
 smoke that shows against snow; green boughs make white smoke that shows against dark spruce.
 
@@ -161,16 +176,22 @@ smoke that shows against snow; green boughs make white smoke that shows against 
 
 - **Why planes come:** search and rescue is searching for the plane. A flyover is heard approaching,
   seen, passes over and leaves slowly, as planes do when they are searching (2026-09-17).
-- **The same weather and the same flyovers every run.** Light snow on days 1–2, **the storm on days 3–4**,
-  clearing after (document 13 §4.2).
+- **The same weather and the same flyovers every run.** No big storm: snow on and off, the sky always
+  at least partly cloudy, so planes fly most days; **a heavier flurry on day 6** grounds the search and
+  clears overnight for day 7 (document 13 §4.2).
 - **The default rescue is day 7** — for a party that waits it out and can be found.
-- *(The rest of the schedule is Claude's, at Andrew's request, for his check:)* day 1 an early pass at
-  dusk, for the story; day 2 the route search between snow showers — a real chance; days 3–4 nothing flies;
-  day 5 the clearing, the search widening into the side valleys — a real chance; day 6 a pass over the
-  valley in clear air — a real chance; **day 7 the default rescue** for a party that can be found; after
-  that, if not found, passes continue while the weather allows, each a chance.
-- **Findable takes work**: the storm buries the wreck, so a party digs out, stamps a sign or keeps smoke
-  going; the chimney smoke at Holt's cabin is a sign by itself. A party in radio contact that is not findable is
+- *(The rest of the schedule is Claude's, at Andrew's request, for his check:)* day 1 at dusk the early
+  pass, high along the filed route — heard far off, for the story; day 2 the route search, across the
+  ridge in the afternoon — a chance for a party with a signal ready; day 3 the search widening off the
+  route, a pass heard in the next valley and lost in the cloud; day 4 a pass across the lake's far end,
+  seen through a gap in the cloud — a real chance; day 5 the search narrowing toward this valley, a pass
+  low along the creek in the afternoon — a real chance; day 6 the flurry grounds the search and nothing
+  flies; **day 7 the default rescue**, in clear air over fresh snow, for a party that can be found;
+  after that, if not found, passes continue while the weather allows, each a chance.
+- **Findable takes work**: partial cloud and the trees hide the wreck from the air, and after day 6's
+  snow the white plane is white on white, so what the party builds decides it — smoke kept going, the
+  tarp laid out, a sign laid or scraped in the open; the chimney smoke at Holt's cabin is a sign by
+  itself. A party in radio contact that is not findable is
   told what to do.
 
 ### 3.6 Staying alive meanwhile
@@ -196,14 +217,16 @@ what opens the radio. Each is written with Andrew when its document or zone is d
 - **06 Time, sleep and the clock** — the flyovers and the voice run on the world clock; a flyover is
   not an ambient event, so it drops fast forward back to 15×; searching the ground and working the
   radio are activities, and one person can do one while another does something else.
-- **13 Events, escalation and weather** — the storm on days 3–4 and the snow that buries the tail and
-  the wreck; the weather state (13 §4.7) — cloud, visibility, wind, light — that decides whether a
+- **13 Events, escalation and weather** — the day-6 flurry that grounds the search, the partial cloud
+  that hides the ground from a pass, and the snow that gathers on the tail and turns the wreck white on
+  white; the weather state (13 §4.7) — cloud, visibility, wind, light — that decides whether a
   plane flies low and whether a signal is seen; the flyover schedule in 13 §4.2's search row.
 - **07 Fire and shaping** — the fire under every smoke signal, and Holt's cabin burning.
 - **08–11 (warmth, water, food, injury)** — staying alive until one of the ways home comes through;
   an injured party digs, climbs and carries less.
 - **16 Players and kit** — which characters are technically proficient; what the party carries that can
-  open the radio or serve as an antenna; the luggage in the tail that holds the batteries.
+  open the radio or serve as an antenna; the luggage in the tail that holds the batteries; the blue
+  tarp, a seal or a signal.
 - **18 Materials and forms** — what is metal and long enough to be an antenna; what burns into dark or
   white smoke.
 - **01 Premise and world** and **17 Rooms and living rooms** — the plane's cabin, where the radio is,
@@ -237,8 +260,9 @@ None open.
 - **2026-09-27 (Andrew, the rescue conversation):** the ELT is broken; the plane's battery in the nose;
   the hand radio in the plane's cabin and its batteries in the tail; the loose wire; the antenna; the channels;
   holding the button to talk; the draining light; contact not tied to flyovers; the voice; signals seen by
-  physics, the plane heard first; the storm on days 3–4; the default rescue on day 7. §3 written from it.
+  physics, the plane heard first; the default rescue on day 7. §3 written from it.
 - **2026-09-27 (Andrew)** — the trapper does not come back; not a way to be rescued.
+- **2026-09-27** — the no-storm week carried in (document 13 §4.2); the tarp is also a ground signal.
 
 ## 7. What exists today
 

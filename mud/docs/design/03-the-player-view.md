@@ -100,7 +100,7 @@ Luggage lies thrown across the floor.                   ← the composed scene (
 
 Mara is going through the duffel; Cal sits against the hull.   ← people and animals, as prose
                                                          (coloured for human players)
-Forward, the cockpit; aft, the rear cabin; the split hull opens onto the snow.
+Forward, the cockpit; aft, the rear cabin; the split hull opens onto the muskeg.
                                                          ← the exits, as prose (they are entities)
 ```
 
@@ -127,8 +127,8 @@ that you moved.
 
 An exit is a thing in the world with a name, synonyms, a direction, a mode and a state, and its own
 sentence in the room's prose ("a trail leads north into the spruce"; "the scar climbs east toward the
-ridge, drifted knee-deep"). You act on it with the verb its mode calls for: `walk west`, `walk to the
-birch grove`, `run to the treeline` (less time, more sweat), `climb up` the rock face, `enter the tail`,
+ridge under a skin of new snow"). You act on it with the verb its mode calls for: `walk west`,
+`walk to the birch grove`, `run to the treeline` (less time, more sweat), `climb up` the rock face, `enter the tail`,
 `turn back` mid-way. Moving is an attended activity with feedback and events (something passes; a wolf
 tests you); its time is distance over pace, times terrain, snow depth, load and fitness, so weather
 lengthens it and early exploration is rewarded. The tutorial gives a brief guide and an example of
@@ -197,8 +197,8 @@ behind seams that already exist.
 |---|---|---|
 | 1 | **Relations rendered on the parent** | `on` / `under` / `against` / `inside (when open)` as containment modes. The child renders as a clause on the parent's sentence — *"…, a duffel bag dumped on it"* — not as its own sentence in the space's frame. |
 | 2 | **Generic state overlays** | A table keyed by material × form × state (searched, open, wet, frozen, burning, burnt, half-sawn, dug…) that modifies any thing's phrase, authored or minted. Authored phrases stay for the places where the voice earns it. |
-| 3 | **Zone and space state variants** | The `(condition, phrase)` mechanism objects already use, now driven by *zone facts* written by Effects: smoke, light, a fire present, a breach blocked, drift depth. A zone's survey line has **a small authored set of variants** — dark, lit, smoke, storm — rather than clauses composed freely onto it, so the voice holds and the opening line stays recognisable (Andrew, 2026-09-17). |
-| 4 | **Range conditions in the phrase matcher** | The matcher today is an equality-subset test; ranges let a phrase key on `drift_depth > 40` or `temperature_c <= -20` instead of an exact value. |
+| 3 | **Zone and space state variants** | The `(condition, phrase)` mechanism objects already use, now driven by *zone facts* written by Effects: smoke, light, a fire present, a breach blocked, snow depth. A zone's survey line has **a small authored set of variants** — dark, lit, smoke, falling snow — rather than clauses composed freely onto it, so the voice holds and the opening line stays recognisable (Andrew, 2026-09-17). |
+| 4 | **Range conditions in the phrase matcher** | The matcher today is an equality-subset test; ranges let a phrase key on `snow_depth >= 5` or `temperature_c <= -10` instead of an exact value. |
 
 **What each needs (verified at source, 2026-09-16 — this raises the design's certainty; it is not a
 substitute for the certainty audit that precedes implementation).**
@@ -281,7 +281,7 @@ hole (state on the space), chopping mints pieces that aggregate rather than list
 
 > Across the trampled snow are a spruce log, half through, and three split billets.
 
-…and the dug ground reads as dug, via the same state overlay, with the drift depth keyed through a
+…and the dug ground reads as dug, via the same state overlay, with the snow depth keyed through a
 range condition (4).
 
 ### 4.6 The thing renderer — `look at X` ≡ `examine X`
@@ -333,7 +333,7 @@ look-at-able but never take-able or open-able.
   in the table.
 - [`06-time-sleep-and-the-clock.md`](06-time-sleep-and-the-clock.md) and
   [`13-events-escalation-and-weather.md`](13-events-escalation-and-weather.md) — the zone facts that
-  extension (3) renders (smoke, light, drift, weather) are written by those systems' Effects.
+  extension (3) renders (smoke, light, snow, weather) are written by those systems' Effects.
 - [`19-multiplayer-and-instances.md`](19-multiplayer-and-instances.md) — the perception bands that
   decide who and what you can see from an adjacent zone
   ([`../architecture/perception-model.md`](../architecture/perception-model.md)).
@@ -369,6 +369,7 @@ None open. Everything this document asked was settled on 2026-09-17 and is writt
   for human players; a blank line before events, colour for humans only; state variants on frames; a
   small authored set of survey variants per zone; groups, which also keep a crowded zone's paragraph
   short; what `examine` and `search` reveal.
+- **2026-09-27** — the no-storm week carried in (document 13 §4.2).
 
 ---
 

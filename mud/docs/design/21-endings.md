@@ -38,14 +38,14 @@ The endings — rescued or dead — and what a dead player becomes: a ghost.
 
 ## 3. In one paragraph
 
-A run ends one of two ways, and neither is a clock running out. Either you are found — a faint voice
-on the radio that wants to know where you are and says they will come once the storm dies down; smoke
-a search plane can see, got up in the time between hearing its engines and seeing it; or, hardest of
-all, staying alive and findable until the search reaches you on the seventh day — and a helicopter
+A run ends one of two ways, and neither is a clock running out. Either you are found — a faint voice on
+the radio that wants to know where you are and says they will come at the next daylight good for flying;
+smoke a search plane can see, got up in the time between hearing its engines and seeing it; or, hardest
+of all, staying alive and findable until the search reaches you on the seventh day — and a helicopter
 sets down near you. Or you die: of the cold, of blood loss, or to the bear. Death comes one person at a
-time. Whoever dies becomes a ghost, drifting through the valley, heard only by the other ghosts, and
-the run is over when nobody is left alive there. Reaching Holt's cabin is not an ending — it is a
-stove, some stores and a roof, and somewhere findable to wait.
+time. Whoever dies becomes a ghost, drifting through the valley, heard only by the other ghosts, and the
+run is over when nobody is left alive there. Reaching Holt's cabin is not an ending — it is a stove,
+some stores and a roof, and somewhere findable to wait.
 
 ## 4. The design
 
@@ -101,12 +101,12 @@ shore. A lake that is skinning over with new ice takes neither floats nor skis (
   on day 49. The world never announces that a search is suspended; the planes simply come less often,
   which the party hears.
 - **A party that stays unfindable meets the ladder** (document 13) — and real life is the caution:
-  Klaben and Flores lived 49 days on almost no food, so hunger alone does not end a week; it is cold,
-  storm, injury and exhaustion together that close in. Two properties are checked like the numbers
-  they are: **the day-7 rescue reaches every findable party** (`PLAN.md` E14's fuzz), and **the ladder
-  closes on an unfindable party**. The second is measured, not assumed; if the fuzz finds competent
-  unfindable parties outliving the sitting, that is a finding for the ladder, never a reason for a
-  cutoff.
+  Klaben and Flores lived 49 days on almost no food, so hunger alone does not end a week; it is the
+  deepening cold, wet, injury and exhaustion together that close in. Two properties are checked like the
+  numbers they are: **the day-7 rescue reaches every findable party** (`PLAN.md` E14's fuzz), and **the
+  ladder closes on an unfindable party**. The second is measured, not assumed; if the fuzz finds
+  competent unfindable parties outliving the sitting, that is a finding for the ladder, never a reason
+  for a cutoff.
 - **When the sitting ends first**, with someone alive and unrescued, the run is paused and resumed
   like any other (Andrew, 2026-09-17, 2026-09-27).
 
@@ -161,6 +161,7 @@ None open.
   does.
 - **2026-09-27 (Andrew):** there is no recap; ghosts hear ghosts, the living cannot, and anyone can use
   the out-of-character chat; nothing kills instantly — death comes by the body running down.
+- **2026-09-27** — the no-storm week carried in (document 13 §4.2).
 
 ## 8. What exists today
 

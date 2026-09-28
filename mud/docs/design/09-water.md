@@ -29,7 +29,8 @@
 - **(2026-09-18)** `fill` moves as much as fits. Much of the rest will be learned from how players and
   agents try to use the system.
 - **(2026-09-27)** The season is the first week of October: the creek runs, the lake is open, and still
-  water has skim ice (document 13 §4.2).
+  water has skim ice; the ground is bare at the start, and snow comes on and off, building to a couple
+  of inches by the end (document 13 §4.2).
 
 ### Proposals (Claude)
 
@@ -47,11 +48,12 @@
 
 The water is there, and all of it costs something. The creek still runs and the lake is open, skinned
 with ice at its edges — but both are a walk from the wreck, and a wet boot on the way is the cold's
-opening. The snow at the wreck is an inch at first and deep after the storm, and snow is water you pay
-for twice — once in fuel to melt it and once in the heat it steals if you cheat and eat it. That price
-is why the half-full canteen in the backpack matters and why the open water at the riffle is worth the
-walk. Getting a drink is a small chain done right: find something that holds liquid, fill it at the
-creek or pack it with snow or skim ice, get it near the fire you already have, wait, drink. Getting it
+opening. At first there is no snow at the wreck, only frost and frozen puddles, and the week never lays
+more than a couple of inches. Snow is water you pay for twice — once in fuel to melt it and once in the
+heat it steals if you cheat and eat it. That price is why the half-full canteen in the backpack matters
+and why the open water at the riffle is worth the walk. Getting a drink is a small chain done right:
+find something that holds liquid, fill it at the creek or pack it with ice from the puddles and the
+pond edges, or with snow once it falls, get it near the fire you already have, wait, drink. Getting it
 wrong is also modelled: a fuel-smelling can, snow scooped from under the wing where the fuel pooled, a
 bottle you bled into. Thirst does not kill you as fast as the cold does, but it makes everything else
 worse, and it is the quiet reason a party that never lights a fire loses even the days the cold was
@@ -105,20 +107,21 @@ because of what a helmet *is*, and the same must be true of anything else a play
 - **The outlet riffle** — free-running water: "a full container without spending a stick of firewood
   — the efficiency prize that funds every other fire". Priced in the walk and in wet risk: shelf ice
   rims the banks, thin at its lips, and kneeling on it is a plunge to the knee and the wet-boot clock.
-- **The lake** — open at the start, with skim ice at its margins and on the ponds after a clear night;
+- **The lake** — open at the start, with skim ice at its margins and on the ponds after a cold night;
   skim ice holds nothing. The inlet mouth is the north's liquid water, a walk west across the muskeg;
   at the shore a stick or a stone breaks the skim and a vessel dips, and a careless step soaks a boot.
-- **Ice** — the skim ice from still water and the shelf ice on the creek are cleaner than the water
-  they froze on, and ice gives far more water for its volume than snow does (§4.6).
+- **Ice** — the frozen puddles round the wreck on the first mornings (carrying whatever the puddle
+  held — fuel, under the wing), the skim ice from still water and the shelf ice on the creek. Ice is
+  cleaner than the water it froze on, and gives far more water for its volume than snow does (§4.6).
 - **Holt's water** — the homestead's own path down to the creek: bucket-water without the riffle's
   risks, the reward for the walk there.
 - **The manual's WATER page** is the in-world teacher for all of it: boil everything, ice before snow,
   melt ratios.
 
 Inside the wreck: the thermos of coffee in the cockpit, the half-full canteen in the backpack behind
-the jammed aft bin, the salesman's steel water bottle and hip flask, and the snowdrift banked in
-through the hull breach — indoor weather that is also the room's water source, and deeper after the
-storm.
+the jammed aft bin, the salesman's steel water bottle and hip flask, and whatever the flurries blow in
+through the hull breach — a skin of snow on the floor that is indoor weather and also the room's water
+source, a little more after each flurry.
 
 ### 4.5 The `make water` rows (Andrew, 2026-09-18)
 
@@ -165,8 +168,9 @@ taken straight out of your core**. And snow is mostly air:
 | wind-packed snow or old settled snow | ~3 L |
 | ice | ~1.1 L |
 
-So eating snow is always allowed, always costs warmth you can feel, and the wind-packed snow the storm
-leaves by the tail is worth three times the fresh powder — a real thing to learn. Melting it over a
+So eating snow is always allowed, always costs warmth you can feel, and ice — the frozen puddles, the
+pond skins, the creek's shelf ice — gives nearly ten times the water of fresh snow for its volume, a
+real thing to learn. Melting it over a
 fire costs fuel instead of body heat, which is the whole point of having one.
 
 **No boiling gate.** Most of the valley's water is safe enough to drink, so boiling is never a wall
@@ -223,7 +227,7 @@ over any vessel and any source — water, fuel or snow.
 - **17 Rooms and living rooms** / **18 Materials and forms** — `snow` and `ice` are materials with
   potability and the `frozen_water` tag; vessels are things whose form holds liquid.
 - **06 Time, sleep and the clock** — melting is an unattended process; hydration is spent per tick.
-- **13 Events, escalation and weather** — the creek and the lake through the week, the snow the storm
+- **13 Events, escalation and weather** — the creek and the lake through the week, the snow the week
   lays (§4.2).
 
 **These depend on it:**
@@ -256,6 +260,7 @@ None open.
 - **2026-09-27 (Andrew)** — thirst kills, on its real clock; a few iodine tablets in one of the packs;
   whether water carries germs depends on its source, realistically, with the specifics left to Claude
   (§4.6).
+- **2026-09-27** — the no-storm week carried in (document 13 §4.2).
 
 ## 8. What exists today
 

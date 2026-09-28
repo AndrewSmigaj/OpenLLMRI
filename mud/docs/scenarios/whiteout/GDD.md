@@ -46,7 +46,7 @@ Ideas that are not design yet: [`docs/design/IDEAS.md`](../../design/IDEAS.md).
 > *Design:* [`01-premise-and-world`](../../design/01-premise-and-world.md) · [`02-the-experience`](../../design/02-the-experience.md)
 
 **Whiteout** — survivors of a bush-plane crash in interior Alaska, in the first week of October,
-improvise with a physically modelled world to stay alive — cold, injury, hunger and a worsening storm
+improvise with a physically modelled world to stay alive — cold, injury, hunger and the coming winter
 against them — until they are rescued: by getting the hand radio working and raising someone, by a
 signal a search plane can see, or by surviving long enough for the search to reach them, each path
 harder than the last. **The only endings are rescued or dead.** **Essential experience:**
@@ -97,11 +97,13 @@ some trapline gear and modest stores — and walking out is not an ending. The c
 place in the valley — modelled to the hilt — and the whole valley, all fifty outdoor zones in eleven
 regions, is in the run (document 01).
 
-**Weather and the ladder (§8).** The same weather every run: an inch of snow at the start, bushes
-dusted but visible, berries and roots findable, skim ice on still water; light snow, then the storm,
-then clear cold behind it. The days, the daylight and the numbers are document 13 §4.2. The escalation
-ladder — snow that deepens, forage and fuel going under, the cold behind the storm — is designed in
-document 13. What lives in the valley, filtered by ecology (this habitat, this month, real numbers), is
+**Weather and the ladder (§8).** The same weather every run, and no big storm (2026-09-27): bare, icy
+ground at the start, berries and roots findable, skim ice on still water; snow on and off, building to
+a couple of inches by the end, so a fire can be kept outside and the world stays open; a heavier
+flurry on day 6 that clears into the coldest night of the run before the day-7 plane. The sky is
+always at least partly cloudy. The days, the daylight and the numbers are document 13 §4.2. The
+escalation ladder — the nights colder through the week, the low forage covered a little at a time, the near wood used
+up, the bear bolder — is designed in document 13. What lives in the valley, filtered by ecology (this habitat, this month, real numbers), is
 document 23.
 
 ## §5/§20–§27. The interaction engine — deterministic end to end
@@ -296,15 +298,16 @@ ELT is broken** (2026-09-27).
 - **The voice** on the other end is a person at search and rescue, played by a weak language model —
   the same model every run, scaffolded with rules (§3 rule 2). It helps only as a real rescuer would,
   may hint (raise the antenna) through the bad signal, asks for landmarks and judges them by the game's
-  list and values, says they will come once the storm dies down, and tells a party that cannot be found
+  list and values, says they will come at the next daylight good for flying, and tells a party that cannot be found
   what it needs to do. A party that cannot say where it is can be homed in on, at a battery cost
   *(Claude's choice, at Andrew's request)*.
 - **A signal a search plane can see:** fire and smoke (rubber, oil, green boughs), a piece of mirror once
-  clear of the trees, burning Holt's cabin during a flyover. Whether a crew sees a signal follows physics
+  clear of the trees, the blue tarp laid out in the open (the one that can also seal the plane),
+  burning Holt's cabin during a flyover. Whether a crew sees a signal follows physics
   — contrast, weather, how close the pass comes *(Claude's choice, at Andrew's request)*. The plane is
   heard before it is seen; a party may not make it in time.
 - **Surviving long enough:** search and rescue is searching; **the same flyovers every run**; **the
-  default rescue is day 7**; being findable after the storm takes work. The rest of the schedule is
+  default rescue is day 7**; being findable takes work — partial cloud and the trees hide the wreck. The rest of the schedule is
   Claude's (document 13 §4.2). No boats.
 
 Holt's cabin is supplies, never an exit. Design: document 14 §3; endings: document 21.

@@ -9,7 +9,7 @@
 ## What we are building
 **Whiteout** — a text-forward, multiplayer, *systemic* survival-puzzle MUD on **Evennia**.
 Survivors of a bush-plane crash in an Alaskan valley in the first week of October improvise with every object around them to
-survive cold, injury, hunger and a worsening storm until they are rescued — the radio, a signal, or
+survive cold, injury, hunger and the coming winter until they are rescued — the radio, a signal, or
 simply surviving long enough — or die. The only endings are rescued or dead.
 
 The central promise (design §2):

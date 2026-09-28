@@ -264,7 +264,7 @@ from half an hour to days later, spending water. Very sick, never dead — hours
 | the crash | the starting draw (§4.2) | document 16 |
 | a person with a stick, a spear, a knife, a rock | when the blow is hard enough to hurt: `heft` bruises, breaks bone, concusses; `edge` cuts; `point` punctures — small, deep and dirtier than it looks; what covers the part changes what gets through. Whether an attack lands at all is the fighters' stats and chance (2026-09-27) | **the combat design, to be written** |
 | the bear and the other animals that act | claws cut and tear; a bite punctures and crushes. Every animal wound is heavily contaminated. A defensive attack usually ends when the person stops being a threat — playing dead — and a predatory one does not | document 23 and **the animal-behaviour design, to be written** |
-| a fall — the cornice, the climb, a slip on the ice | a sprain, a broken limb, a head strike. **Dangerous places injure, never kill outright; fitness matters; the dice roll is announced** (2026-09-17) — the wound then runs its own real clock, which the party can answer | documents 01 and 13 |
+| a fall — the steep lee slope, the climb, a slip on the ice or on frosty rock | a sprain, a broken limb, a head strike. **Dangerous places injure, never kill outright; fitness matters; the dice roll is announced** (2026-09-17) — the wound then runs its own real clock, which the party can answer | documents 01 and 13 |
 | cold air on a part | the part's `heat` falls: fine work goes when finger skin is below about 15 °C, the part is numb below about 7 °C, and it freezes below about −0.5 °C | document 08 (extremities); **the heat design** |
 | cold metal and cold fuel | contact frostbite: bare skin on cold metal loses heat fast; avgas or oil below freezing is still liquid and freezes skin almost at once as it evaporates | **the heat design** |
 | wet, cold feet above freezing | **non-freezing cold injury** (trench foot): numb, swollen, then painful — usually after two or three days wet and cold at 0–15 °C, in as little as 10–14 hours. This week's own cold injury, before it is cold enough for frostbite from the air: the townie's sneakers | **the heat design**; document 08 (wet) |
@@ -282,13 +282,14 @@ usually ends when the person stops being a threat. Most fatal black-bear attacks
 den. How each animal decides is the animal-behaviour design's; what its claws and teeth do to a body is
 this table's.
 
-**The week decides which cold injuries come first.** In the first week of October the days are near
-freezing and the clear nights after the storm are well below it (document 13 §4.2), but frostbite from
-the air alone needs a wind chill near −28 °C to strike in half an hour (the National Weather Service
-chart). So this week the cold injures through **wet** (hands and feet soaked in wet snow, the creek,
-the ice), **contact** (metal, fuel), **immobility** (the injured and the sleeping) and **tight boots** —
-and non-freezing cold injury in feet that stay wet for days is the week's own. That is the real order,
-and the world teaches it by happening in it.
+**The week decides which cold injuries come first.** In the first week of October the days are a few
+degrees above freezing, falling below it by the end, and every night is below it, colder as the week
+goes, down to the clear night after the day-6 flurry, the coldest of the run (document 13 §4.2), but
+frostbite from the air alone needs a wind chill near −28 °C to strike in half an hour (the National
+Weather Service chart). So this week the cold injures through **wet** (hands and feet soaked in the wet
+flurries, the creek, the ice), **contact** (metal, fuel), **immobility** (the injured and the sleeping)
+and **tight boots** — and non-freezing cold injury in feet that stay wet for days is the week's own.
+That is the real order, and the world teaches it by happening in it.
 
 **Real-world sources for this section and §4.7–§4.12:**
 - Wilderness Medical Society, *Clinical Practice Guidelines for the Prevention and Treatment of
@@ -366,14 +367,15 @@ not a finish line. Boiling a strip or a blade is the heat design's (to be writte
 is an entity with a mass and the carrying rules already exist (document 04 §3.11: capacity is what you
 hold, wear and haul; the load feeds travel time). **`carry`** on the back or over the shoulders is one
 strong person, a short way; **two people** can carry one between them; **`drag`** by the shoulders or
-the jacket works on snow; and a **litter or sled** — a seat frame, the panelling, a tarp or a blanket
-between two poles — dragged over snow hauls a person much farther for the same effort, which is why it
-is the real answer (the world design already has a drag litter of panelling and cord). Carrying makes
-the **carrier** hot and sweating — the deferred cold debt (document 08 §4.2) — while the **carried**
-person, not moving and often lying on snow, cools fast and needs insulation under and around them.
-Moving an unsplinted break grinds the bone ends: pain, more bleeding, damaged nerves. Two people
-carrying one needs a co-operative form in the grammar (two actors on one entity), which is documents 04
-and 19 to write.
+the jacket works on frosty moss or snow; and a **litter or sled** — a seat frame, the panelling, a tarp
+or a blanket between two poles — dragged over the ground hauls a person much farther for the same
+effort, sliding best where snow lies on smooth ground, which is why it is the real answer (the world
+design already has a drag litter of panelling and cord). Carrying makes the **carrier** hot and
+sweating — the deferred cold debt (document 08 §4.2) — while the **carried** person, not moving and
+often lying on frozen ground or snow, cools fast and needs insulation under and around them. Moving an
+unsplinted break grinds the bone ends: pain, more bleeding, damaged nerves. Two people carrying one
+needs a co-operative form in the grammar (two actors on one entity), which is documents 04 and 19 to
+write.
 
 ### 4.10 Painkillers
 
@@ -491,6 +493,7 @@ None open.
   pressing held. Item 6 — frostbite and hypothermia as proposed; no snow blindness, since the sky is
   always at least partly cloudy; carbon monoxide only where the space does not breathe enough for the
   fire, by real physics; a tarp aboard for sealing the crash's openings.
+- **2026-09-27** — the no-storm week carried in (document 13 §4.2).
 
 ## 8. What exists today
 

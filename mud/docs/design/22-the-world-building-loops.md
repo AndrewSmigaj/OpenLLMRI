@@ -195,16 +195,17 @@ not settled here)*:
 - **The ecology filter.** A living thing goes into a zone only if it lives in that habitat, in the
   first week of October, in numbers that matter (document 23).
 - **The lenses** — a growing set, the list a floor: fire · water · food, which takes in hunting,
-  trapping and fishing, many ways each · warmth · shelter · signals · rescue · injury · the pilot's
-  body · the party · **danger** (the bear and the other acting animals, the ice, a fall, the storm —
-  and violence, since a MUD-like combat system is in) · **moving** (exits are entities with modes and
-  honest travel times; the outdoors is traversal terrain whose systems are the content); and the human
-  lenses — curiosity, boredom, fear, grief, spite, tidying up, keeping the kid busy, play. Which lens
-  produced a command is a field on every action row, so the analysis report shows what each lens
-  finds.
+  trapping and fishing, many ways each · warmth · shelter · signals · rescue · injury · the pilot's body
+  · the party · **danger** (the bear and the other acting animals, the ice, a fall, the cold, the day-6
+  flurry — and violence, since a MUD-like combat system is in) · **moving** (exits are entities with
+  modes and honest travel times; the outdoors is traversal terrain whose systems are the content); and
+  the human lenses — curiosity, boredom, fear, grief, spite, tidying up, keeping the kid busy, play.
+  Which lens produced a command is a field on every action row, so the analysis report shows what each
+  lens finds.
 - **One room, one situation and one lens at a time** (document 05 §4.8), with each room walked
-  through the situations the week really has: day one in an inch of snow with skim ice on the water;
-  the storm on days 3–4; deep snow after it; night; injured; alone; with the party; the bear near.
+  through the situations the week really has: day one on bare, frosty ground with skim ice on the
+  water; a wet flurry and the first tracks; the heavier flurry of day 6 and the clear, cold night after
+  it, with a couple of inches on the ground; night; injured; alone; with the party; the bear near.
 
 ### 4.4 The store and the viewer
 
@@ -346,6 +347,7 @@ None open. The scaffold's wording is settled by the pilot, not on paper (documen
 - **2026-09-26 (Claude, self-review):** answered for Andrew's check — the frame and what both briefs
   carry (§4.3), the lenses including *danger* and *moving* (§4.3), the merge mechanics (§4.2), the
   firing unit and when a pass is done (§4.5), the pilot's scope (§4.1).
+- **2026-09-27** — the no-storm week carried in (document 13 §4.2).
 
 ---
 

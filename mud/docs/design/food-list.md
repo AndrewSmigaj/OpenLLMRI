@@ -48,18 +48,19 @@ Holt's cabin is supplies: some trapline gear and modest stores, not piles of foo
 
 ## 3. Plants, fungi and lichens
 
-From document 23 §4.2 and document 10 §4.7. The storm on days 3–4 buries the low plants; what stands
-above the snow stays.
+From document 23 §4.2 and document 10 §4.7. The snow on and off through the week covers the low
+plants a little at a time, and the heavier flurry of day 6 buries the lowest mats; what stands above the
+snow stays (document 13 §4.2).
 
 | food | where | what it gives | what to watch | status |
 |---|---|---|---|---|
-| lowbush cranberry (lingonberry) | tussocks, spruce floor | ~44 kcal per 100 g; a real calorie trickle, frost-sweetened | buried by the storm | 📐 |
-| bog cranberry | the muskeg's moss | small, sour | buried early | 📐 |
+| lowbush cranberry (lingonberry) | tussocks, spruce floor | ~44 kcal per 100 g; a real calorie trickle, frost-sweetened | a hand high, it pokes through the week's snow; slower and wetter to pick once snow lies | 📐 |
+| bog cranberry | the muskeg's moss | small, sour | under the snow after day 6 | 📐 |
 | crowberry | muskeg, ridge | bulk, low value; sweeter after frost | easy to overeat | 📐 |
 | highbush cranberry | willow bars, the creek | very sour; a few handfuls | stays above the snow | 📐 |
 | rose hips | creek, forest edge | ~160 kcal per 100 g — the richest fruit in the valley; vitamin C | the seeds and their itching hairs must come out | 📐 |
 | rowan (mountain ash) berries | the birch stand — a few trees | food once frost and cooking have worked on them | **raw and in quantity, sick-making** (an acid in the raw berries) | 📐 |
-| bearberry (kinnikinnick) | the ridge | mealy, poor; the leaves make a tea | buried early | 📐 |
+| bearberry (kinnikinnick) | the ridge | mealy, poor; the leaves make a tea | under the snow after day 6 | 📐 |
 | blueberries dried on the bush | muskeg, open spruce | a lucky find | rare by October | 📐 |
 | juniper berries | the ridge | flavouring; a hot drink | — | 📐 |
 | spruce needles and tips | everywhere with spruce | tea: warmth, vitamin C | the safest forage | 📐 |
@@ -71,7 +72,7 @@ above the snow stays.
 | inner bark (spruce, birch) | any live tree | famine food, chewed or boiled; also snare bait | costs the tree | 📐 |
 | spruce pitch | any wounded trunk | chewed | also seals a wound and burns | 📐 |
 | cattail rhizome | the pond edge, in the mud | real starch | wet, cold digging; only where a pond has a stand | 📐 |
-| sweetvetch root (Indian potato) | the bench, river bars | starch, sweetish; ounces a plant | the ground crusts on clear nights; a fire thaws it; the grizzly digs the same roots | 📐 |
+| sweetvetch root (Indian potato) | the bench, river bars | starch, sweetish; ounces a plant | the ground crusts each frosty night; a fire thaws it; the grizzly digs the same roots | 📐 |
 | vole root caches | the sedge meadow | small starchy roots, found by the soft ground over a cache | whether this valley has them is for the loops to check | ◌ |
 | velvet foot mushroom | dead aspen, poplar, willow | the one fresh edible mushroom of the season | **the deadly galerina grows nearby and looks like it** | 📐 |
 | the squirrels' dried mushrooms | spruce forks above a midden | food, if you can tell them apart | **edible kinds and fly agaric cached together** | 📐 |
@@ -89,7 +90,7 @@ From document 23 §4.3, §4.4 and document 10 §4.4, §4.8. How each is taken is
 | spruce grouse | spruce forest | ~300 kcal a bird | each one taken is gone for the run | 📐 |
 | ruffed grouse | aspen and birch | ~300 kcal a bird | harder to hit | 📐 |
 | red squirrel, and its midden | spruce forest | the animal ~100–150 kcal; the midden's cached cones, a few hundred kcal an hour's raid once the cones are opened by a fire | — | 📐 |
-| vole | under the first snow | ~25 kcal; better as bait | — | 📐 |
+| vole | the grass and moss of the tussocks | ~25 kcal; better as bait | — | 📐 |
 | wood frog | the leaf litter by the ponds | a few grams — a find, not a food source | — | 📐 |
 | grubs, beetle larvae | rotten logs, under loose bark | a handful | — | 📐 |
 | grayling | the lake, the pool | ~300 kcal a fish | — | 📐 |

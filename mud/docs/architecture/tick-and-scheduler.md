@@ -31,7 +31,7 @@ heartbeat Script (shell)        world.sim.systems (pure core)
    advance world clock      ─►  clock.tick(dt, world_time)
 ```
 
-Tick pace: **1 game-minute per ~10–20 real seconds *(a run is roughly a week of game time, DR-15a; the clock may run 20× by consensus, DR-14a)*** (a tunable constant) while the
+Tick pace: **1 game-minute per ~10–20 real seconds *(a run is roughly a week of game time, DR-15a; fast forward by the players' agreement runs it at about 150×, document 06)*** (a tunable constant) while the
 run is live. Each tick updates activity progress, stamina, cold exposure, injury,
 fire/smoke, weather, interruptions, noise events, snow accumulation, rescue search
 state and visibility/audibility.
@@ -42,7 +42,7 @@ state and visibility/audibility.
 **continuously**, at a fixed real→game pace, whenever the run is live — it does
 **not** freeze while players read/plan/chat, and it does **not** compress when they
 are idle. Reading, planning and talking happen *while the world keeps moving*: the
-storm, the dying pilot and the fires don't wait for the party. That pressure is the
+cold, the pilot's body and the fires don't wait for the party. That pressure is the
 survival gameplay, not a tax to be optimized away.
 
 This trivially satisfies the VISION non-negotiable that **no single player can seize

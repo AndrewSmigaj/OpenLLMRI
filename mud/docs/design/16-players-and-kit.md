@@ -32,7 +32,9 @@
   One of the packs holds a few very basic supplies — iodine tablets, only a couple of days' worth — for
   whoever takes the time to rummage through the plane and the wreckage; a sewing needle and thread are
   aboard; a tarp is aboard, to help seal the openings the crash tore in the plane — branches and
-  anything else that covers serve too, and a lean-to is in. Not too easy, not too hard.
+  anything else that covers serve too, and a lean-to is in. The tarp is also a ground signal: laid in
+  the open it is something a search plane can see, so one tarp has two uses and the party chooses
+  (document 14 §3.4). Not too easy, not too hard.
 - **2026-09-27 — the battery and the radio.** The plane's battery is in the nose, wired and fine. The
   radio is a hand radio in the plane's cabin, and its batteries are buried in a bag in the tail section
   (document 14 §3.2).
@@ -123,12 +125,13 @@ case is a sled, the neck is wood). A bag in the tail section holds the hand radi
 14 §3.2).
 
 **The crash is the difficulty engine.** Realism supplies the inventory; the crash supplies the
-difficulty. A survival kit would make the game too easy, so there is none (Andrew, 2026-09-27). **The sleeping bag is buried with the tail wreckage, and two blankets are
-hidden inside the plane** (2026-09-27). The toolbox is in the crushed tail cone (pry it open), the
-cooler is under the snow along the trail (dig for it), and the hacksaw blade — the keenest edge in the
-valley — is a walk away. The **power ∝ cost** curve follows from the same rule: the more a thing
-solves, the farther, deeper, or more broken the crash left it. A paperback is at your feet; the hatchet
-is a hundred metres out under snow with a cracked haft. Not too easy, not too hard.
+difficulty. A survival kit would make the game too easy, so there is none (Andrew, 2026-09-27). **The
+sleeping bag is buried with the tail wreckage, and two blankets are hidden inside the plane**
+(2026-09-27). The toolbox is in the crushed tail cone (pry it open), the cooler was thrown into the
+brush along the trail (search for it — each flurry hides it a little more), and the hacksaw blade — the
+keenest edge in the valley — is a walk away. The **power ∝ cost** curve follows from the same rule: the
+more a thing solves, the farther, deeper, or more broken the crash left it. A paperback is at your feet;
+the hatchet is a hundred metres out in the brush with a cracked haft. Not too easy, not too hard.
 
 *(Proposed by Claude, for Andrew's check:)* **a bag travels with its owner** — by reality, not for
 simplicity. A bag holds what its owner packed for their own trip, so the townie's toiletries and the
@@ -158,17 +161,20 @@ The aircraft is a **Cessna 206-class piston single** (Andrew, 2026-09-07) with t
 netted baggage bay behind the last row. A real bush plane has no airline-style overhead bins — only a
 hat shelf, floor tie-down tracks and cargo netting — and neither has this one.
 
-*(Proposed by Claude, for Andrew's check:)* in early October, with an inch of snow and only skim ice on
-still water, a mail plane landing on village gravel strips flies on wheels — big tundra tyres — and the
-skis go on when there is snow to land on. The tyres and their tubes are rubber: black signal smoke, and
-a band that stretches for a sling.
+*(Proposed by Claude, for Andrew's check:)* in early October, with bare ground or a few centimetres of
+snow and only skim ice on still water, a mail plane landing on village gravel strips flies on wheels —
+big tundra tyres — and the skis go on when there is snow to land on. The tyres and their tubes are
+rubber: black signal smoke, and a band that stretches for a sling.
 
-The plane's **battery is in the nose, wired and fine** (Andrew, 2026-09-27); it does not power the
-hand radio (document 14 §3.7). There is no survival kit (§4.3). *(Proposed by Claude, for Andrew's
-check:)* the iodine tablets are in the nurse's backpack — a part-used bottle of about twelve, two to a
-litre of water, so about six litres: a couple of days for one person, less than a day for the party;
-the sewing kit is in the townie's toiletry bag; the tarp — a folded blue plastic tarp, about 3 × 4 m —
-is in the baggage bay under the cargo net, with the freight.
+The plane's **battery is in the nose, wired and fine** (Andrew, 2026-09-27); it does not power the hand
+radio (document 14 §3.7). There is no survival kit (§4.3). *(Proposed by Claude, for Andrew's check:)*
+the iodine tablets are in the nurse's backpack — a part-used bottle of about twelve, two to a litre of
+water, so about six litres: a couple of days for one person, less than a day for the party; the sewing
+kit is in the townie's toiletry bag; the tarp — a folded blue plastic tarp, about 3 × 4 m — is in the
+baggage bay under the cargo net, with the freight. It seals the crash's openings, and it is also a
+ground signal: spread in the open, its blue shows against brown ground or new snow to a search plane
+(document 14 §3.4). One tarp, two uses — sealing the plane or signalling — is a real choice
+(2026-09-27).
 
 ### 4.6 The interior (the 206)
 
@@ -289,9 +295,10 @@ what is aboard, the way ecology is on the valley (`README.md`).
 **Carrying, in real figures.** For the carriers above, whose capacities live on the containers (Andrew,
 2026-09-18): a fit adult carries about 22 kg as a working load and about 33 kg on a long march (U.S.
 Army FM 21-18, *Foot Marches*: a 48 lb fighting load, a 72 lb approach-march load). A dragged frame or
-sled moves far more — on packed snow over smooth ground. On an inch of snow over tussocks it snags on
-every hummock; it runs once there is snow enough to fill the hollows and a trail packed by snowshoes.
-So the storm that makes everything else harder is also what makes hauling possible.
+sled moves far more — on snow over smooth ground. Over bare tussocks, or the thin snow this week lays
+on them, it snags on every hummock: the week never brings snow enough to fill the hollows. It runs best
+on the smooth, frozen ground — the gravel bar, the shore, a trail beaten down between camp and the wood
+— once the flurries have laid a skin of snow on it.
 
 *Sources for §4.9:* FAA PackSafe, "Sprays and repellents" (faa.gov/hazmat/packsafe) · Alaska Business,
 "Rural Retail Realities" (akbizmag.com) · Cessna Flyer Association 206 specifications; planephd.com
@@ -352,6 +359,7 @@ None open.
   seat is a dead character whose clothes can be searched, and agents may play seats; no firearm; the
   no survival kit, the sleeping bag with the tail wreckage, two blankets hidden in the
   plane; the plane's battery in the nose and fine.
+- **2026-09-27** — the no-storm week carried in (document 13 §4.2); the tarp is also a ground signal.
 
 ## 8. What exists today
 

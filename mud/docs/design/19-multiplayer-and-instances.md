@@ -77,20 +77,20 @@
 
 ## 3. In one paragraph
 
-You and the others who walked away from the same broken aeroplane are in one run, on one clock, at
-the same time. You are not standing in a shared box: you are in the mid cabin, someone is up in the
-cockpit with the pilot's body, someone has already gone out to the tail. You can *see* them from where
-you are — clearly if they are next door, as a shape moving in the snow four zones off — and you can
-talk to them: a whisper carries to the person beside you, a shout carries across the crash site, and
-the storm eats the difference. What you cannot do is *reach* them, or the orange case you can plainly
-see by the bulkhead; for that you walk over. The clock runs for everybody at once, so while you are
-prying at a jammed door your friend's fire is burning down and the cold in the cabin is climbing on
+You and the others who walked away from the same broken aeroplane are in one run, on one clock, at the
+same time. You are not standing in a shared box: you are in the mid cabin, someone is up in the cockpit
+with the pilot's body, someone has already gone out to the tail. You can *see* them from where you are —
+clearly if they are next door, as a shape moving on the far shore four zones off — and you can talk to
+them: a whisper carries to the person beside you, a shout carries across the crash site, and the wind
+and the falling snow eat the difference. What you cannot do is *reach* them, or the orange case you can
+plainly see by the bulkhead; for that you walk over. The clock runs for everybody at once, so while you
+are prying at a jammed door your friend's fire is burning down and the cold in the cabin is climbing on
 the same minutes you are spending. When you all agree to fast-forward — to sleep, or to wait out the
 dark — the hours run past; whoever stays awake watches them go and can slow the clock with a command,
 and someone waking or something that matters drops it back to its normal pace. If one of you does not
 agree, the clock keeps its normal pace for everyone. The run is yours alone — your own copy of the
-valley, no strangers walking through it — and it covers about a week of game time in one sitting of
-two or three hours, which you can pause and come back to.
+valley, no strangers walking through it — and it covers about a week of game time in one sitting of two
+or three hours, which you can pause and come back to.
 
 ---
 
@@ -174,10 +174,11 @@ Speech is a **loudness**, and loudness is a reach in zone-hops (shipped; the map
 | shout | distant |
 
 Weather shifts the reach in band-steps — steady snow −1 down to whiteout −3 — clamped so the same
-zone always hears you. A **muffled** edge (sound passes, damped) costs 2 hops instead of 1. Non-speech
-events use the identical scale: quiet work carries a zone, shattering glass carries three. This is why
-the storm is a social pressure and not just a temperature: as the weather closes in, the party's voices
-stop reaching each other before their bodies do.
+zone always hears you; this week the worst is the day-6 flurry at its heaviest (document 13 §4.2). A
+**muffled** edge (sound passes, damped) costs 2 hops instead of 1. Non-speech events use the identical
+scale: quiet work carries a zone, shattering glass carries three. This is why the weather is a social
+pressure and not just a temperature: as the day-6 flurry closes in, the party's voices stop reaching
+each other before their bodies do.
 
 *(Proposed by Claude, for Andrew's check — the acting animals.)* The bear, the bigger animals and the
 few birds that act perceive and are perceived through these same bands: a survivor sees the bear as a
@@ -269,8 +270,8 @@ from each one's concurrent state**; and because an activity's progress lives on 
   line of sight, so height is range;
 - **the landmark relayed** from where it can be seen to the person at the radio, by the speech and
   sight ranges above;
-- **the carry** of someone who cannot walk — an adult is more than one person can carry over snow for
-  any distance;
+- **the carry** of someone who cannot walk — an adult is more than one person can carry over rough
+  ground for any distance;
 - **the huddle** — another body's heat is by definition another person (document 08); this one
   *genuinely requires* two, which is the P6 gate met by physics;
 - bracing a log while another saws it; holding the light while another works; hauling someone out
@@ -350,6 +351,7 @@ None open.
   searched; agents may play seats; the pace is the speed of typing the command; a missing player's
   character goes catatonic, the others can keep it alive, and it can die; ghosts hear ghosts, the
   living cannot, and anyone can use the out-of-character chat.
+- **2026-09-27** — the no-storm week carried in (document 13 §4.2).
 
 ## 8. What exists today
 

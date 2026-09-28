@@ -1,7 +1,7 @@
 # CLAUDE.md — Whiteout
 
 **Whiteout** is a systemic, multiplayer survival-puzzle MUD on Evennia: survivors of a
-snowy plane crash improvise with the world to outlast cold, injury, hunger and a storm.
+plane crash in the Alaskan fall improvise with the world to outlast cold, injury, hunger and the coming winter.
 This repo hosts a reusable simulation engine (the "interaction system") plus authored
 scenarios; Whiteout is the first.
 

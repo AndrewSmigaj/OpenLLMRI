@@ -552,7 +552,8 @@ The design is document 14 §3; the engine design is written when that document i
   processes on the escalation calendar, with the default rescue on day 7 for a party that can be found.
   Whether a crew sees a signal is decided by physics at the moment of a pass — contrast, weather, how
   close the pass comes — deterministically from the seeded state (DR-12). Being findable is world state
-  too: the storm buries the wreck, so a party digs out, stamps a sign or keeps smoke going.
+  too: partial cloud and the trees hide the wreck, and after the day-6 snow it is white on white, so
+  what the party builds decides it — smoke kept going, the tarp or a sign laid out.
 - **The ELT is broken.**
 
 ---
