@@ -113,21 +113,21 @@ search, time, or a tool.
 
 The 206's seats are the pilot's and the right seat up front, and **1A/1B/2A/2B** behind (Andrew,
 2026-09-16; document 16 §4.6). Each is the same parts-machine — cover, cushion, belt, bolts — with
-**different** damage and **different** finds. The damage, as document 16 §4.6 places it: 1A intact;
-1B wrenched on its bolts (a laptop bag under it); 2A thrown loose — a movable seat, a windbreak, a sled
-base; 2B thrown hard against the hull (under it, a life-vest pouch — vest fabric, straps, a whistle, a
-signal object). Other damage a seat can carry: a cushion torn with the foam showing; a belt buckled; a
-belt cut clean where someone freed themselves — the story.
+**different** damage and **different** finds (2026-09-28). The damage: 1A intact; 1B wrenched on its
+bolts; 2A thrown loose — a movable seat, a windbreak, a sled base; 2B thrown hard against the hull.
+Other damage a seat can carry: a cushion torn with the foam showing; a belt buckled; a belt cut clean
+where someone freed themselves — the story.
 
-The finds, placed across the seats, the hat shelf and the cargo net when the cabin zone is censused:
-in the seat pockets, a safety card, a chocolate bar, an airsickness bag (paper), a boarding pass with a
-name; under the seats, a AA battery, a penknife (the second blade), a hair clip, coins, a mitten.
+The finds under the seats are document 16 §4.6's — the pilot's flight bag, the water bottle, the burst
+trail mix, the salesman's laptop bag under 2A, the charging cable — with the small scatter a crash
+leaves: coins, a hair clip, a loose AA battery that fits the pilot's weak flashlight. No life vest (a
+land plane carries none) and no second knife (the guide's pocketknife is the one real knife aboard).
 
 `look under 1b` is the reveal act for seats; `search` covers pockets; `cut`/`pry`/`tear` the
 parts-machine. Seats are addressable as a class: `look under the seats` composes what each hides once
 revealed.
 
-*(Proposed by Claude, for Andrew's check:)* `under` is one of the relations things really stand in —
+`under` is one of the relations things really stand in (2026-09-28) —
 the containment modes on · under · against · inside of document 03 §4.4 (extension 1) and the
 `located.relation` of document 05 §4.5 — and hiding is physical. The variants that do different things
 are each their own operation, within the grammar's `VERB [RELATION] thing` forms: **`look under`**
@@ -235,8 +235,8 @@ the cargo net (document 16 §4.6), and their snow and cold are the first week of
   and the deeper physics resolver are in place. Seats with different guts are a toy; identical ones
   are a puzzle with one answer.
 - **Curiosity** (GD) — GREEN. Look-under, pockets, labels: every seat asks "and this one?"
-- **Surprise** (GD) — GREEN. A cut belt and a boarding pass with someone's name on it: a story you
-  find, not a note you're handed.
+- **Surprise** (GD) — GREEN. A belt cut clean where someone freed themselves: a story you find, not a
+  note you're handed.
 
 ### 4.7a Naming things apart — a rule the loops must follow (Andrew, 2026-09-18)
 
