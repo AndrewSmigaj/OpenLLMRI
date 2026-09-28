@@ -34,6 +34,8 @@
   forage covered a little at a time, the near wood used up, the body's own clocks, the bear growing
   bolder — and **the day-6 flurry is the finale**, telegraphed on day 5, clearing into the coldest
   night of the run before the day-7 plane (§4.2).
+- **(2026-09-28)** **The week's day-by-day numbers** are §4.2's table, as proposed: the cold rising
+  steadily with one sharp drop after the day-6 flurry, and the search closing in day by day.
 - **(2026-09-27)** **The default rescue is day 7**, and the flyovers are the same every run; the rest
   of the flyover schedule is Claude's (§4.2's search row, for Andrew's check).
 - **(2026-09-17, 2026-09-27)** The clock runs at 15 game-minutes per real minute; fast forward,
@@ -81,7 +83,7 @@ found — or **dead**.
 
 ### 4.2 The escalation ladder (the same every run, telegraphed, no barriers)
 
-*(The shape is Andrew's, 2026-09-27; the numbers are proposed by Claude, for Andrew's check.)* The run
+*(Andrew, 2026-09-27 and 2026-09-28 — the shape and the day-by-day numbers.)* The run
 is the first week of October in an interior-Alaska side valley at about 64–65° N: **day 1 is
 1 October and day 7 is 7 October.** The reference station is Fairbanks (64.8° N), the interior's long
 record; every number below comes from real data first and is tuned by probes after. **The shape is
@@ -206,9 +208,7 @@ and the combat system answer (§4.4).
   a trapline cabin before the season — a chance to be seen, and a story.
 - **The wreck**: fuel drips and pools under the wing (a fire hazard and a fuel source) · the fuselage
   shifts on the slope with a groan (things slide; the door jams) · a window pane falls in · the tail
-  section slides further down the scar
-  (warmed, it gives some back; run flat, it freezes a few degrees below zero, while a charged one will
-  not freeze in any cold this week) · the extinguisher's bracket lets go · the day's meltwater
+  section slides further down the scar · the extinguisher's bracket lets go · the day's meltwater
   refreezes the cargo door shut overnight · the day-6 snow lies on the wing and the fuselage, white on
   white ground, until the wreck no longer stands out from the air.
 - **Bodies**: the pilot's body from the first minute — cooling, stiffening, freezing from the skin
@@ -294,7 +294,8 @@ session limit is document 20's question.
 
 ### 4.6 What is built first
 
-*(Proposed by Claude, for Andrew's check.)* An ordering by what each piece stands on, with nothing
+*(Held for the implementation plan — `PLAN.md` §0, step 3 — where Andrew reviews how everything is
+built; not part of the design sitting, 2026-09-28.)* An ordering by what each piece stands on, with nothing
 dropped. (1) **The weather as state and the escalation calendar** (§4.7), because the warmth process
 — step 3 of the decided build order (scheduler → fire → warmth → hunger and thirst → injury → the
 pilot's body and `status`) — cannot run without air temperature, wind and falling snow. (2) **The
