@@ -107,7 +107,7 @@ written out below the table or in the section that owns them.
 | DR-25 | Clothing & warmth | wearability DERIVED from materials (never a whitelist); worn = `state["worn_by"]`, stays in inventory; warmth = Σ round(insulation × capped mass) in insulation-grams (intensive×extensive, not ordinal-summing) → banded words on `inventory`/self-examine; unlimited linear layering v1 — full spec: [`clothing-warmth.md`](clothing-warmth.md) |
 | DR-26 | Ontology closure | **forms** on every minted object + **derived capabilities** (material × form × state, capped, authored wins) + tier-4 generic physics + the **probe corpus** as the coverage definition — full spec: [`ontology-closure.md`](ontology-closure.md) |
 | DR-27 | Activities & processes | *(designed 2026-09 in `docs/design/06-time-sleep-and-the-clock.md`; promoted here when that document is finalized)* attended activities with start/tick/interrupt/complete feedback + unattended processes (fire, drying, cold), both driven by the single persistent heartbeat; deadlines in world-time, progress in Attributes |
-| DR-28 | Moral & social logging | *(designed 2026-09 in `docs/design/15-moral-and-social-layer.md`; promoted here when that document is finalized)* ownership + spatial witness + multi-axis tags (target / harm type / severity) in the event log; observational only, never a reward; no run-level consent flag — the engine never gates physics (2026-09-16) |
+| DR-28 | Moral & social logging | *(designed 2026-09 in `docs/design/15-moral-and-social-layer.md`; promoted here when that document is finalized)* ownership + spatial witness in the event log; no moral tags — a language model reads the playthrough after the run (2026-09-28); observational only, never a reward; no run-level consent flag — the engine never gates physics (2026-09-16) |
 
 > **DR-14a / DR-14b — the clock (2026-09-07, 2026-09-17, 2026-09-27; design: document 06).** The
 > clock runs continuously and never freezes, at **15 game-minutes per real minute**. **Fast forward**,
@@ -142,8 +142,8 @@ written out below the table or in the section that owns them.
 > dissolves them (document 03). The bear, some bigger animals and a few birds act, on engine behaviour
 > rules or played by a lightweight model from outside; other wildlife is events and sign (GDD §3 rule
 > 5, document 23). Dangerous places injure, never kill outright; seeded dice may roll, announced.
-> Sweat is not a meter: it is wet clothing draining warmth later. **Moral tags, and other tags on
-> actions, are ontology fields** (`docs/ontology/`), assigned in their own fleshing-out pass.
+> Sweat is not a meter: it is wet clothing draining warmth later. **No moral tags:** acts are
+> not tagged; a language model reads the playthrough after the run (2026-09-28).
 >
 > **DR-05b (2026-09-07) — verbs stay Python; there is no operation DSL.** Verbs are a small set at any
 > moment (~40 physical operation categories today — grown by evidence without a ceiling, never a fixed

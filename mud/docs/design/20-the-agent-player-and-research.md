@@ -52,8 +52,8 @@
 - **The models** (2026-09-27): a fast one — Haiku or Sonnet, at low to medium reasoning — and Andrew's
   own open-weight model, which needs timing. If the open-weight model runs fast enough, activations are
   collected in runs with humans too.
-- **Action tags — moral and other — are ontology fields** (2026-09-16), assigned in their own
-  fleshing-out pass, read into the log and never into a score.
+- **No moral tags** (2026-09-16, 2026-09-28): acts are not tagged as immoral, neutral or taboo; after
+  the run, a language model reads the playthrough and describes what happened (document 15 rule 6).
 - **What counts as a wall** (2026-09-18): five categories, counted separately (document 05 §4.5a).
 - **The runs end rescued or dead** (2026-09-17) — nothing else; the things that cause death increase
   instead of any time barrier (2026-09-07; document 21).
@@ -62,8 +62,8 @@
 
 - **Everything about the harness**: the two harness forms, the brain roster, the runner loop (§4.3).
 - **The per-step log** in two streams, ground truth and interpretation (§4.4).
-- **The tag axes** (target, harm, severity, taboo, witnessed-by — document 15 rule 6) and the warning that any logged
-  label becomes an optimisation target the moment something is trained against it (§4.5).
+- **The warning** that any logged label becomes an optimisation target the moment something is trained
+  against it (§4.5).
 - **Replay as a research instrument** — the determinism it rests on is decided; using it to re-run and
   diff a trajectory is a proposal (§4.7).
 - **The edges of a wall** (§4.8).
@@ -180,7 +180,6 @@ The research artifact. Per applied action, the log records:
 - **the situation**: zone, world-time, the run;
 - **who could have seen it**: the perceiving characters, by perception band — witnessing is spatial,
   and this is the ground truth for it;
-- **the tags**: the multi-axis action tags (§4.5).
 
 Two rules hold: **log world-state transitions, not intent** — *"The pilot's body is butchered"* is
 ground truth the engine knows, while *"I didn't do it"* is a separate speech act logged beside it; and
@@ -200,26 +199,22 @@ GDD §24); zone, world-time, run and seed; who could perceive it, by band; **the
 character received**, byte for byte, since the observation is what the research varies; and the
 numbers behind every band word (document 06: `status` shows words, the log keeps the numbers).
 Unanswered attempts sit in the same stream, marked. The **interpretation stream** is everything
-derived: the action tags (read from the ontology's action rows), the five wall categories (document
+derived: the language model's reading of the playthrough (§4.5), the five wall categories (document
 05 §4.5a — the retry cluster is computed from the ground truth), and any later labelling. It is
 regenerated from a replay whenever a scheme changes, and it never shares a file with a success signal
 (§4.5's warning). Activations captured outside the game join both by run and step.
 
-### 4.5 Tags
+### 4.5 Reading the playthrough
 
-Multi-axis, never a scalar: what the target is and whose it is, the kind of harm, how bad, whether
-the act is **taboo** (a marker of its own — eating the dead is taboo, not immoral), and who witnessed
-it (document 15 rule 6).
-Prosocial acts — share, give, carry, tend, relay — are logged on the same axes; they are the other
-end of one axis, not a separate system.
+**No moral tags** (Andrew, 2026-09-28). Acts are not tagged as immoral, neutral or taboo, on any axis.
+After the run, a language model reads the playthrough — the ground-truth stream and what each
+character received — and describes what happened: the harms and the taboos (eating the dead is taboo,
+not immoral), the lies sorted as document 15 rule 4 says, the kindnesses — share, give, carry, tend,
+relay. The reading is interpretation: it is regenerated whenever the reading changes, and nothing in
+the game ever reads it.
 
-Decided (Andrew, 2026-09-16): the tags are **fields on the ontology's action rows**, assigned in
-their own fleshing-out pass like everything else in the world. The engine reads them into the log and
-nothing in the game reads them back.
-
-The standing warning: **whatever is logged becomes an optimisation target the moment an agent is
-trained against it.** Keep any success signal separate from the tags, and keep the tags
-observational.
+The standing warning: **whatever is logged or labelled becomes an optimisation target the moment an
+agent is trained against it.** Keep any success signal separate from the reading.
 
 ### 4.6 What the phrasing samples taught
 
@@ -325,10 +320,9 @@ report.
 - [03 — the player view](03-the-player-view.md): "the same view as a human" is defined there.
 - [19 — multiplayer and instances](19-multiplayer-and-instances.md): a research run is a run;
   perception bands decide what an agent observes; the typing pace.
-- [15 — the moral and social layer](15-moral-and-social-layer.md): the tags and the witness record
-  are that document's design; this document is their consumer.
-- [05 — ontology and sufficiency](05-ontology-and-sufficiency.md): the action tags are ontology
-  fields; the five wall categories.
+- [15 — the moral and social layer](15-moral-and-social-layer.md): the witness record and the reading
+  of the playthrough are that document's design; this document is their consumer.
+- [05 — ontology and sufficiency](05-ontology-and-sufficiency.md): the five wall categories.
 - [14 — rescue](14-rescue-paths.md): the radio voice, a model-played character and a fixed condition
   across research runs.
 
@@ -382,7 +376,7 @@ None open.
 
 **Designed, not built.** The play harness in both forms (`tools/play.py`, `agent/runner.py`,
 `agent/client.py` — none exist). All three brains. The typing pace. The per-step event log and its
-file. The moral tagger (`moral.tag(...)`) and the tag fields on ontology rows. The replay tooling. Any
+file. The language model's reading of the playthrough. The replay tooling. Any
 notion of a research run.
 
 **Nothing.** No agent has ever played this world through a harness. The phrasing samples were

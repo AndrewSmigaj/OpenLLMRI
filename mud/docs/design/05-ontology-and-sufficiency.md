@@ -51,8 +51,9 @@
   and per room, with a map. Sonnet 5 and Opus 5 build it as peers.
 - **Design first (2026-09-16).** Nothing is built and **no agent runs a loop until every design
   document is finalized**.
-- **Moral tags, and other tags on actions, are ontology fields (2026-09-16)**, assigned in their own
-  pass.
+- **No moral tags (2026-09-16, 2026-09-28).** Acts are not tagged as immoral, neutral or taboo; a
+  language model reads the playthrough after the run (document 15 rule 6). Other tags on actions can
+  be ontology fields if research ever needs them.
 - **The schema is designed in full, up front (2026-09-18)** — the pilot verifies it; it does not
   design it (§4.5).
 - **The merge unions and never drops, and it is measured (2026-09-18)**: the models' outputs are
@@ -239,9 +240,6 @@ so the world-builders can write what documents 10–23 define):*
   contamination, and the hidden pathogens or parasites it may carry (documents 10 §4.6, 18 §4.8).
 - **An ownership relation** in `relations`, separate from holding — whose a thing is versus who has
   it (document 15 §4.6), with starting owners from documents 16 and 17.
-- **Action tags on each `actions` and `could_become` row** — the fixed part of the moral and other
-  tags (target kind, harm kind, and whether the act is taboo); the situational part (who, whose, how hard, who saw) is computed
-  when the act is logged (document 15).
 
 **Shared files** — `materials.yaml` (every material with its axes, including `density` — document 18),
 `verbs.yaml` (canonical verb, family, the relations it takes, the capability it needs, the forms it
@@ -404,8 +402,8 @@ loops.
   grammar accepts are ontology rows; vocabulary grows here and the grammar absorbs it.
 - [`03-the-player-view.md`](03-the-player-view.md) — every minted thing needs a phrase, and the
   state overlays key on material × form × state. A form with no prose is a thing nobody can see.
-- [`15-moral-and-social-layer.md`](15-moral-and-social-layer.md) — moral tags, and other tags on
-  actions, **are ontology fields** (Andrew, 2026-09-16), assigned in their own pass.
+- [`15-moral-and-social-layer.md`](15-moral-and-social-layer.md) — acts are not tagged morally; a
+  language model reads the playthrough after the run (Andrew, 2026-09-28).
 - [`17-rooms-and-living-rooms.md`](17-rooms-and-living-rooms.md) — a room is individuated by its
   ontology; "a room is never finished" is this document's rule applied there.
 - [`20-the-agent-player-and-research.md`](20-the-agent-player-and-research.md) — the walls an agent

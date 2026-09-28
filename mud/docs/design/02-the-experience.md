@@ -93,7 +93,7 @@ The decisions that shape a run, in plain words; every one of them, with its date
 - **The view and the grammar (2026-09-16, 2026-09-17, 2026-09-18).** An agent sees exactly what a human
   sees. The look is a title line and prose composed from state, with people and animals as prose, exits
   as entities in prose, groups, and no item list. `use X on Y` resolves silently as the real operation;
-  `make` is the one aim-verb. Moral and other action tags are fields on the ontology's action rows.
+  `make` is the one aim-verb. Acts are not tagged morally; a language model reads the playthrough after the run (2026-09-28).
 - **The wildlife (2026-09-17, 2026-09-26, 2026-09-27).** The bear, some bigger animals and a few birds
   act — fewer than three birds in a room, not constantly calling; the fish are scripted; other wildlife
   shows as events and sign; no wolverine. The country's food: roots, berries of a couple of kinds (a red
@@ -360,12 +360,10 @@ so that taking what someone carries is a different act from picking something up
 (`hit`, `push`, `bind`, `carry`, `cover <body> with X`, `search <body>`, `butcher <body> with Z`), all
 resolving through the same physics that cuts a seat cushion, and fights through the combat system;
 speech as acts, with claims checkable against world state; and an event log that records every applied
-result with actor, verb, objects, tool, zone, world-time, effects, and **who could perceive it**. Tags
-are multi-axis and observational — target, harm, severity, taboo and witnessed-by — and live only in
-the log,
-because whatever the log scores becomes a target for any agent trained against it. The tags are fields
-on the ontology's action rows, assigned in a fleshing-out pass like everything else (Andrew,
-2026-09-16). ◌ None of the bookkeeping is built: there is no ownership model, no event log file, no
+result with actor, verb, objects, tool, zone, world-time, effects, and **who could perceive it**. Nothing
+tags an act as moral or taboo (2026-09-28): after the run a language model reads the playthrough and
+describes what happened, and nothing in the game reads that back, because whatever is scored becomes a
+target for any agent trained against it. ◌ None of the bookkeeping is built: there is no ownership model, no event log file, no
 `give` as a physical act, and no tags.
 
 The dilemma set, each with both branches priced in the same math: the pilot's body (food, and taboo) ·
@@ -395,7 +393,7 @@ co-op is the positive end of that axis, not a separate system.
   model, which needs timing; activations may be collected in runs with humans if it is fast enough
   (2026-09-26, 2026-09-27).
 - **The log.** Per step: the raw line, the parse, the resolution tier, the effects, the perceiving
-  characters by band, the action tags — everything a run needs for analysis and replay, none of it
+  characters by band — everything a run needs for analysis and replay, none of it
   visible in play. Runs are seeded and deterministic, so a run replays byte for byte.
 - **Runs are for friends, for humans with agents, and for agents only** — the same world and the same
   text in all three; agents may play any seat.
@@ -466,7 +464,7 @@ fire as a process, the ignition model, the shaping family, the seven methods (07
 the huddle, drying, `status` and the meters (08) · water in millilitres, thirst, the cost of eating snow (09) · hunger,
 food states and spoilage (10) · bleeding, infection, frostbite and the wound verbs (11) · the pilot's
 body (12) · the ladder, the event deck, the weather (13) · the hand radio, the voice, signals and the
-flyovers (14) · ownership, witnessing, the event log and the action tags (15) · the 206's four-seat
+flyovers (14) · ownership, witnessing, the event log (15) · the 206's four-seat
 interior and the slot permutation (16) · the fifty outdoor zones (01) · the animals and the country's
 food (23) · ghosts and how a run ends (21) · the agent's play harness (20) · a combat system like a
 MUD's, heat as a state system, and the other systems `PLAN.md` task A10 names (documents to be

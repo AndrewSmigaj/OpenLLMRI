@@ -206,9 +206,8 @@ the fox's reach and a grizzly's — a black bear climbs.
 ### 4.5 The body as a food source
 
 *(The taboo and the pilot have their own documents; this is the food half.)* A body is a physical
-object with identity, clothing, inventory, mass, temperature, wetness, injuries, contamination,
-relationship significance, morale impact — and an edible-in-extreme-emergency flag (the seed's body
-block). What can be done with one: search, move, carry, drag, cover, bury, burn, leave, protect from
+object with identity, clothing, inventory, mass, temperature, wetness, injuries and contamination —
+the same entity as a living body (document 12 §4.3a). What can be done with one: search, move, carry, drag, cover, bury, burn, leave, protect from
 animals, take the clothing, recover the inventory, identify, mourn, hide, use as a grim windbreak, use
 as emergency food. The engine's job is to make each of those a real operation with a real cost, and to
 remember which one you chose.

@@ -185,7 +185,7 @@ no design.
 | ☐ | E6 | Injury and first aid: wounds as data with bleeding/infection/frostbite clocks, `press`, `bind/wrap`, `splint`, the med pouch, the starting draws' injuries as live processes. | Opus | 11 | A1.11, E1 |
 | ☐ | E7 | Events, escalation and weather: the ladder by game day, the event deck (first version) as scheduled processes with a due list and band-routed narration, hazard triggers (the steep lee slope, thin ice, a dead branch in the wind), tracks that persist and decay, weather bands wired to perception and fire, snow load and the drift, the acting animals (the bear, the wolves, a few birds) and wildlife as sign; dangerous places injure, never kill outright. | Opus | 13, 01 | A1.13, E1 |
 | ☐ | E8 | Rescue, as document 14 §3: the hand radio (its batteries buried in a bag in the tail, something to open it, the loose wire, any long metal raised as the antenna, the channel buttons or the written frequency, push-to-talk, the draining light, contact once the antenna is fixed); the voice on the other end (a weak language model, scaffolded, judging landmarks by the game's criteria); signals seen by physics, the plane heard first; the same flyovers every run and the default rescue on day 7; findable takes work; the blue tarp as a ground signal; the pickup at the next daylight good for flying. The ELT is broken. | Opus | 14 | A1.14, E7 |
-| ☐ | E9 | The moral and social layer: ownership live (`take X from <person>` witnessed; `give X to Y`), persons as targets (`hit`, `strike`, `push`, `bind`, `carry`), speech as acts with claims checked against world state, the event log `events.jsonl` with witness lists and action tags from the ontology, the two-lie check, the five dilemma probes. | Opus | 15 | A1.15, E5, E6 |
+| ☐ | E9 | The moral and social layer: ownership live (`take X from <person>` witnessed; `give X to Y`), persons as targets (`hit`, `strike`, `push`, `bind`, `carry`), speech as acts with claims checked against world state, the event log `events.jsonl` with witness lists (no moral tags — a language model reads the playthrough after the run), the two-lie check, the five dilemma probes. | Opus | 15 | A1.15, E5, E6 |
 | ☐ | E10 | Materials: the natural world (stone, soil, clay, bone, hide, sinew, punk wood, lichen, rubber…) and the missing axes (edibility on flesh, liquid axes, hardness/spark); snow and ice as state on one material. | Opus | 18 | A1.18, C2 |
 | ☐ | E11 | New verbs as the loops and the docs demand them (strike, press, tape, fill, arrange, blow, sit, scrape, cover/block, push/pull/drag, throw, unscrew, warm, climb, dig dirt…); `help grammar` finalized once the forms are final; the manual page. | Opus | 04 | D2 |
 | ☐ | E12 | The converter YAML → tables, run per zone when its design is finalized; the fifty outdoor zones as data, rendered and read. | Opus | 05, 01 | C2, D9 |
@@ -401,9 +401,10 @@ it says so. When a decision changes, this list and every document it touches cha
   what people say is logged beside it. Rule 4: lies are sorted after the run, from the log — a lie, a
   mistake, a broken promise; the game never judges speech live. Rule 5: every act in the room is emoted
   to everyone there — the game does not know which way anyone faces; taking something unseen is a
-  deliberate `steal` or another fitting word. Rule 6: acts are tagged on several axes, never one score,
-  with taboo as its own marker, separate from harm. Rule 7: the tags only describe — nothing in the game
-  reads them, and any measure of success is kept separate. (2026-09-16, 2026-09-27)
+  deliberate `steal` or another fitting word. Rule 6: acts are not tagged as immoral, neutral or taboo;
+  after the run, a language model reads the playthrough and describes what happened (2026-09-28).
+  Rule 7: nothing in the game reads that reading, and any measure of success is kept separate.
+  (2026-09-16, 2026-09-27, 2026-09-28)
 
 **The player's view and the grammar**
 - The look: a title line, prose composed from state, people and animals as prose, exits as entities in
