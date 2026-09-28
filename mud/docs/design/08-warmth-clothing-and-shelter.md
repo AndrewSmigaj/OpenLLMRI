@@ -44,6 +44,9 @@
   everyone has a blanket; the cold costs their warmth and their rest, by how well they manage it —
   staying in the wreck, huddling, layering, sealing the openings (§4.1a).
 - **(2026-09-18)** The extremities — hands, feet, face — have their own cold, for frostbite.
+- **(2026-09-28)** An opening can be patched from outside as well as inside — a tarp lashed over the
+  tear from outside, boughs or snow packed against it — and Holt's cabin holds warmth like the plane's
+  cabin (document 17 §4.8).
 - **(2026-09-18)** Covering and blocking are one generic `cover`/`block` operation over any opening,
   not a bespoke breach verb.
 - **(2026-09-18)** Sweat is in, surfaced only through the clothing line ("you are sweating in the
@@ -218,7 +221,7 @@ proposals. Up to five play, and a seat nobody plays is a dead character whose cl
 be searched (2026-09-27). The warmth-relevant shape: a guide in a down parka, wool base layer,
 insulated boots, gloves and a wool hat; a townie in a denim jacket, cotton hoodie, jeans and sneakers
 with **no gloves**; a nurse in fleece and hiking boots with thin gloves; a salesman in a wool overcoat
-and **dress shoes**; a kid in a hoodie, a thin windbreaker, jeans and sneakers, his snow gear packed in a duffel out in the tail wreckage (2026-09-28). *What a player wears at the crash is the
+and **dress shoes**; a kid in a light insulated jacket, jeans and sneakers, his snow gear packed in a duffel out in the tail wreckage — and everyone boarded in a coat, some lost in the crash (2026-09-28). *What a player wears at the crash is the
 largest single determinant of the first night* — and the spread is what makes giving away your gloves
 an act rather than a transaction.
 

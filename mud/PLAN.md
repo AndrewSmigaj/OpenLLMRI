@@ -314,8 +314,10 @@ it says so. When a decision changes, this list and every document it touches cha
   door, the nurse's backpack (the med pouch) behind the jammed aft bin, the kid's duffel (a multitool)
   in the tail wreckage. The salesman's reading glasses are convex and can light tinder in sun. More
   things are under the seats. The bags are not with their owners: some are in the back, some under their
-  owner's seat or beside them. The cooler holds only a few frozen salmon fillets. The kid wears ordinary
-  clothes; only the guide is dressed warm, and the kid's snow gear is packed in his duffel. (2026-09-28)
+  owner's seat or beside them. The cooler holds only a few frozen salmon fillets. The kid wears an ordinary
+  jacket, not ski gear; everyone boarded in a coat, and some were lost in the crash; the kid's snow gear is
+  packed in his duffel. Holt's cabin holds warmth like the plane's cabin, and an opening can be patched
+  from outside as well as inside. (2026-09-28)
 - **The bear's sign** lies in its own area, not spread everywhere, and is plain on entering it; no claw
   marks on the wreck; no chainsaw or anything else that promises people within walking distance
   (documents 13, 23). (2026-09-28)
@@ -459,7 +461,9 @@ it says so. When a decision changes, this list and every document it touches cha
   as peers and the merge never drops; walls per run are counted in five categories; goal lenses plus human
   lenses. (2026-09-16, 2026-09-18)
 - **Ontologically sufficient** means anything reasonable that follows the grammar works — basically
-  anything a language model playing the game would think to do (document 05). (2026-09-28)
+  anything a language model playing the game would think to do, whether or not it leads anywhere —
+  throwing a snowball is as real as lighting a fire; nothing is placed only because a goal needs it
+  (documents 05, 17). (2026-09-28)
 
 **Rescue** (document 14 §3) — three ways: the radio, a signal a plane can see, surviving long enough.
 - **The ELT is broken.** (2026-09-27)

@@ -151,7 +151,7 @@ their kit are built ✅ — `game/world/scenarios/whiteout/characters.py`). Nobo
 | **the townie** | 1A | denim jacket, cotton hoodie, jeans, sneakers, no gloves | phone, wallet, gum, keys, earbuds | a cut forearm, bleeding |
 | **the nurse** | 1B | fleece, hiking boots, scarf, thin gloves | lip balm, hair ties, a pen | minor bumps and bruises |
 | **the salesman** | 2A | wool overcoat, dress shoes, leather gloves | a hip flask, reading glasses (convex), a notebook | concussion — fatigue faster, confusion the first day |
-| **the kid** | 2B | a hoodie, a thin windbreaker, jeans, sneakers — no hat, no gloves | phone, candy bar, sunglasses | minor bumps and bruises |
+| **the kid** | 2B | a light insulated jacket, jeans, sneakers — no hat, no gloves | phone, candy bar, sunglasses | minor bumps and bruises |
 
 What you wore that morning is the single largest determinant of the first night. That is the point: a
 party of identical survivors is a chore list; people with one good coat between them is a question

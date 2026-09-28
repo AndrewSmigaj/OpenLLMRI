@@ -15,7 +15,8 @@
   whose behaviour is analysed and whose activations are captured — can do whatever is reasonable: if
   they want to cut something, they can break a mirror for a piece of glass, cut open a cushion for
   the stuffing, and then burn it. **In practice (2026-09-28): anything reasonable that follows the
-  grammar works — basically anything a language model playing the game would think to do.**
+  grammar works — basically anything a language model playing the game would think to do — whether or
+  not it leads anywhere: throwing a snowball is as real as lighting a fire.**
 - **The natural world is in scope (2026-09-16)**, not only the authored kit: take an axe and chop
   the log up; dig dirt; find a rock, maybe some clay.
 - **What it is for (2026-09-16).** Two purposes, both first-class: a model world for research — a

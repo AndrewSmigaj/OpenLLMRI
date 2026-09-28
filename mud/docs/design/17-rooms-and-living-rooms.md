@@ -31,7 +31,10 @@
 - **2026-09-28 — the cabin is rooms like any others.** The plane needs no special treatment beyond
   what bears on warmth: its cabin is rooms that hold heat, with openings; nobody can move the plane,
   so there is no plane object above them. The wing, the engine and the tail section are fixed
-  wreckage in their places.
+  wreckage in their places, too heavy to move by design. **Holt's cabin holds warmth too** — a room
+  with walls, a door, a stove, and the same heat rules. **An opening can be patched from outside as well
+  as inside** — a tarp lashed over the tear from outside, boughs or snow packed against it — which needs
+  its own mechanics (the implementation plan).
 - **2026-09-26, 2026-09-27 — the season** is the first week of October in interior Alaska (document 13
   §4.2).
 - **2026-09-27 — what kills.** Nothing kills instantly: death comes by the body running down, on real
@@ -41,7 +44,7 @@
 
 Everything else is a proposal for review:
 
-- The five properties of a "living" room (§4.1), density with purpose (§4.2), the seat exemplar and its
+- The five properties of a "living" room (§4.1), what a room holds (§4.2), the seat exemplar and its
   finds (§4.3), the nine-rule prose style guide (§4.4), and the lens pass (§4.7).
 - The "ontological Turing test" method (census first, then the built room, then the gaps) — from the
   `ontology-generator` skill.
@@ -81,8 +84,8 @@ a hook.
    dropped thing on the floor) — objects that land in a space render into that space's frame
    regardless of who dropped them.
 5. **Sensory layers**: smell, sound, cold, draft, light as addressable elusive nouns with sense
-   verbs — the census's "entities a MUD usually forgets." *(Proposed by Claude, for Andrew's check:)*
-   the decided schema is the mechanism, and rooms as entities complete it. Cold, draft, light, smoke and
+   verbs — the census's "entities a MUD usually forgets." The decided schema is the mechanism
+   (2026-09-28), and rooms as entities complete it. Cold, draft, light, smoke and
    smell are **states of the room entity** (§4.8), each produced by the things that cause it — the tear
    makes the draft, the fire the smoke and the light, the pilot's body in a warming cabin the smell —
    and each of those things carries what it gives the senses, with its cadence, in its `sensed` field
@@ -92,17 +95,19 @@ a hook.
    them because every room has air, light and things in it — no per-room hand-authoring and no special
    primitive. The loops still census each room's elusives, since that is what a room *is*.
 
-### 4.2 Density with purpose (how a room earns its objects)
+### 4.2 What a room holds: what is really there (Andrew, 2026-09-28)
 
-Every object is placed for one of two reasons, and the row says which:
-- **a goal put it there** (a resource on one of its ways: the lighter, the wire, the hand radio's
-  batteries, the manual);
-- **realism put it there** (the census: the kneeboard, the airsickness bag, the headset).
+A room holds what would really be there — the census decides, not the goals. Some of it happens to
+serve one of the ways home (the lighter, the wire, the radio's batteries); most of it is simply there
+(the kneeboard, the airsickness bag, the headset, a snowbank, a stone), and **anything a player might
+reasonably do with any of it works, whether or not it leads anywhere**: throw a snowball, stack stones,
+carve a name in a seat, build a snowman (Andrew, 2026-09-28; document 05). Nothing is placed only
+because a goal needs it, and nothing is left out because no goal does.
 
-Every room has obvious flavour that is tryable and honest; earned finds (inside things, per the reveal
-rule, DR-24); things that connect to a goal's ways; and a trade-off (the fuel-soaked sleeping bag). The
-**power ∝ cost** curve (also named in **16 — Players and kit** §4.3): the obvious is weak, the good
-costs search, time, or a tool.
+Every room has obvious flavour that is tryable and honest, finds inside and under things (the reveal
+rule, DR-24), and trade-offs (the fuel-soaked sleeping bag). The **power ∝ cost** curve (also named in
+**16 — Players and kit** §4.3) holds for what does serve a way home: the obvious is weak, the good costs
+search, time, or a tool.
 
 ### 4.3 The seats — the exemplar
 
@@ -264,7 +269,9 @@ out on the trail — searched and pried, never moved.
   battery in the nose. The tail section out on the trail is a separate entity, with the tail cone and
   the broken ELT.
 - *Each opening is a part with an area and a state* — open · partly blocked · blocked · closed ·
-  jammed · iced shut. The state is what its wind sound speaks from (document 08 §4.8), what lets the
+  jammed · iced shut — and **two sides**: it can be patched from inside or from outside (2026-09-28). The
+  physics differs: from outside the wind presses a cover onto the hole, from inside it pushes the cover
+  off, so a patch inside needs lashing or bracing *(Claude's reading of real physics)*. The state is what its wind sound speaks from (document 08 §4.8), what lets the
   wind and the snow in, and what lets the heat out.
 - *One air volume.* In a 206 the cockpit, the two passenger rows and the baggage area are one cabin
   with no bulkhead between them — about 3.7 m long, 1.1 m wide and 1.3 m high (12 ft 1 in × 3 ft 8 in ×
@@ -333,7 +340,7 @@ reconciliation for document 08).
 - **Ontology closure** (`../architecture/ontology-closure.md`, DR-26) — forms, derived capabilities,
   and the probe corpus are the census method's engine-side counterpart: a census gap is only real if
   no existing material/operation precondition already covers it.
-- **14 — Rescue** — density with purpose's "a goal put it there" half points at the ways home.
+- **14 — Rescue** — the things in a room that happen to serve a way home (§4.2).
 - **06 — Time, sleep and the clock** — property 3 (processes visible) needs the activities/processes
   system to have something to show.
 - **The heat system** (no design document yet — to be written) — the room's and the plane's internal
@@ -345,7 +352,7 @@ reconciliation for document 08).
 
 **These depend on it:**
 - **22 — The world-building loops** — *(proposed by Claude, for Andrew's check:)* when this document is
-  finalized, its rules — the five properties (§4.1), density with purpose (§4.2), the style guide
+  finalized, its rules — the five properties (§4.1), what a room holds (§4.2), the style guide
   (§4.4), the outdoor census rule and early October's changing ground (§4.5), naming things apart
   (§4.7a), and rooms as entities (§4.8) — go into the world-builder's scaffold,
   `docs/guides/world-building.md` (document 05 §4.8), which is what the loops read, and into

@@ -27,9 +27,13 @@
   flying. Characters differ in their clothes, their injuries and what they carry, and in how well and
   how fast they do things — a woodsman lights fires better; a technically proficient character sees a
   fault in a device.
-- **2026-09-28 — the kid wears ordinary clothes.** Full snow gear to sit in a plane makes no sense and
-  would make the start too easy; the guide is the one dressed warm. The kid's snow pants and mittens are
-  packed in his duffel in the tail wreckage.
+- **2026-09-28 — everyone boarded in a coat; some were lost in the crash.** It is cold out, so nobody
+  flew without one; some came off in the warm cabin and the crash took them. The kid wears an ordinary
+  jacket, not ski gear — full snow gear to sit in a plane makes no sense and would make the start too
+  easy; his snow pants and mittens are packed in his duffel in the tail wreckage. *(Whose coats were
+  lost and where they are, proposed by Claude for Andrew's check: the townie's winter parka went out
+  through the breach onto the debris trail; the nurse's down jacket is stuffed down behind the rear
+  seats, where the crash threw it.)*
 - **2026-09-28 — the bags are not with their owners.** Some are in the back, some under their owner's
   seat or beside them; where each is, the crash decides (§4.3). The cooler holds only a few frozen
   salmon fillets — a meal or two. What is under the seats is §4.6's list.
@@ -70,7 +74,7 @@ the cabin and what is under the seats, carrying, and the early-October check wer
 
 You come to belted into a seat you did not choose, wearing whatever you happened to have on when you
 got on the plane, with whatever was in your pockets — almost none of it meant for this. One of you has
-a parka, a pocketknife and a few bruises; one has a hoodie, a windbreaker and a duffel full of hockey gear somewhere in the wreck;
+a parka, a pocketknife and a few bruises; one has a light jacket and a duffel full of hockey gear somewhere in the wreck;
 one has a denim jacket, no gloves, and a phone that is, for now, the party's only clock and light. What
 you are wearing when the plane stops moving is the single biggest thing that decides whether you are
 cold tonight — and it is different for everyone, as is what each of you is good at, which turns "who
@@ -94,10 +98,10 @@ on the per-run seeded stream (DR-12), and the deal is logged like every other se
 | slot | seat | wearing | pockets | injury | their bag |
 |---|---|---|---|---|---|
 | **the guide** | right seat | parka (down, hood), wool base layer, insulated boots, gloves, wool hat | a chocolate bar, a wallet | minor bumps and bruises (sore for a day or two) | his own duffel, in the baggage bay behind the jammed cargo door: his pocketknife (the one real knife aboard), a compass, a headlamp, a ferro rod, a steel cup |
-| **the townie** | 1A | denim jacket, cotton hoodie, jeans, sneakers, no gloves | phone (light, clock, a dead battery by day 2), wallet (cash, cards, ID — paper), gum, keys, earbuds (wire) | a cut forearm (bleeding; the census wound) | a soft suitcase, in the baggage bay: cotton clothes, a canvas jacket with a lighter forgotten in its pocket, a towel, toiletries (floss = cordage; razor = edge; sanitizer = fire starter; tampons = tinder + wound packing; a travel sewing kit — a needle and a card of thread), a paperback |
-| **the nurse** | 1B | fleece jacket, hiking boots, a scarf, thin gloves | lip balm (wax), hair ties (cordage), a pen | minor bumps and bruises (sore for a day or two) | a backpack, behind the jammed aft bin: the med pouch (gauze, tape, ibuprofen, a suture kit — she knows how; the player still types each act), canteen, spare shirt, a wool sweater, a headnet, a book of matches (about eight, damp where the canteen leaked), a part-used bottle of iodine tablets |
+| **the townie** | 1A | denim jacket, cotton hoodie, jeans, sneakers, no gloves — the winter coat lost in the crash (below) | phone (light, clock, a dead battery by day 2), wallet (cash, cards, ID — paper), gum, keys, earbuds (wire) | a cut forearm (bleeding; the census wound) | a soft suitcase, in the baggage bay: cotton clothes, a canvas jacket with a lighter forgotten in its pocket, a towel, toiletries (floss = cordage; razor = edge; sanitizer = fire starter; tampons = tinder + wound packing; a travel sewing kit — a needle and a card of thread), a paperback |
+| **the nurse** | 1B | fleece jacket, hiking boots, a scarf, thin gloves — the down jacket lost in the crash (below) | lip balm (wax), hair ties (cordage), a pen | minor bumps and bruises (sore for a day or two) | a backpack, behind the jammed aft bin: the med pouch (gauze, tape, ibuprofen, a suture kit — she knows how; the player still types each act), canteen, spare shirt, a wool sweater, a headnet, a book of matches (about eight, damp where the canteen leaked), a part-used bottle of iodine tablets |
 | **the salesman** | 2A | wool overcoat, dress shoes, leather gloves, a good scarf | a hip flask (whisky), reading glasses (convex — in sun, a lens that can light tinder), a notebook (paper) | concussion (fatigue faster; confusion messages the first day) | a laptop bag, under his seat: laptop (battery — sparks, heat, then dead), cables (wire), a metal water bottle, snacks, a wool blanket, an old metal lighter in a side pocket, its wick dry |
-| **the kid** (16) | 2B | a hoodie, a thin windbreaker, jeans, sneakers — no hat, no gloves | a phone, a candy bar, sunglasses | minor bumps and bruises (sore for a day or two) | a duffel, in the tail wreckage: hockey gear (a stick = a rod; tape = tape; pads = foam), a sleeping bag, snow pants and mittens packed for later in the season, a multitool (a gift — a knife blade among its tools) |
+| **the kid** (16) | 2B | a light insulated jacket, jeans, sneakers — no hat, no gloves | a phone, a candy bar, sunglasses | minor bumps and bruises (sore for a day or two) | a duffel, in the tail wreckage: hockey gear (a stick = a rod; tape = tape; pads = foam), a sleeping bag, snow pants and mittens packed for later in the season, a multitool (a gift — a knife blade among its tools) |
 
 *(The kid's sleeping bag and the salesman's blanket are the sleeping bag and one of the two blankets
 Andrew placed on 2026-09-27 — see §4.3's note.)*
@@ -283,10 +287,10 @@ Outside dress for the town, which is exactly the salesman.
 | slot | what they wear, against the season |
 |---|---|
 | the guide | a down parka, wool base, insulated boots — more than early October needs, which is how a professional dresses for the bush |
-| the townie | denim, a cotton hoodie, sneakers, no gloves — a real way to be dressed for a day in town, and the harsh draw the fairness design wants. The Alaskan default would be a Carhartt and XtraTufs, which is why the townie is the lesson — cotton, soaked, in the first snow |
-| the nurse | fleece, hiking boots, a scarf, thin gloves — right for the month. The headnet in her pack is left over from summer; the mosquitoes are gone after the first hard frosts |
+| the townie | denim, a cotton hoodie, sneakers, no gloves — the winter parka out on the debris trail where the crash threw it; a real way to be dressed for a day in town, and the harsh draw the fairness design wants. The Alaskan default would be a Carhartt and XtraTufs, which is why the townie is the lesson — cotton, soaked, in the first snow |
+| the nurse | fleece, hiking boots, a scarf, thin gloves — her down jacket stuffed behind the rear seats by the crash; right for the month. The headnet in her pack is left over from summer; the mosquitoes are gone after the first hard frosts |
 | the salesman | wool overcoat, dress shoes, leather gloves — what an Outside business traveller wears |
-| the kid | a hoodie, a thin windbreaker, jeans, sneakers — no hat, no gloves — what a sixteen-year-old wears to sit on a plane; his snow pants and mittens are packed in his duffel, out in the tail wreckage (2026-09-28). Only the guide is dressed warm, so warm gear is found, not worn |
+| the kid | a light insulated jacket, jeans, sneakers — no hat, no gloves — what a sixteen-year-old wears to sit on a plane; his snow pants and mittens are packed in his duffel, out in the tail wreckage (2026-09-28). Only the guide is dressed warm, so warm gear is found, not worn |
 
 **The phones are a heat problem.** A phone's lithium battery gives up quickly below freezing and the
 phone shuts itself off; Apple rates the iPhone for use between 0 °C and 35 °C (Apple Support). On a
