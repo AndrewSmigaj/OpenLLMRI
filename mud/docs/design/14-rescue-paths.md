@@ -1,6 +1,6 @@
 # 14 — Rescue: the radio, the voice, signals, and surviving long enough
 
-> **Status: draft for review.** Architecture counterpart:
+> **Status: reviewed with Andrew 2026-09-28.** Architecture counterpart:
 > [`../architecture/implementation-architecture.md`](../architecture/implementation-architecture.md) §8
 > (DR-16). §3 was written on 2026-09-27 from the rescue conversation with Andrew (`PLAN.md` A13); he
 > reads it whole at this document's sitting.
@@ -65,8 +65,11 @@
 - **The rest of the flyover schedule**, and passes after day 7 for a party not yet found (§3.5;
   document 13 §4.2) — accepted with document 13's numbers (2026-09-28).
 - **(2026-09-27)** Holt, the trapper, does not come back during the week; the cabin is supplies, not a place to be
-  rescued from. *(Proposed by Claude, for Andrew's check:* his traces say so — his trapline gear, and a calendar
-  on the cabin wall showing he returns after the week.)
+  rescued from. **His own traces tell it** (2026-09-28), and nothing else does: the gear he carries on
+  the line is gone from its pegs (spare snares and traps stay); a calendar on the wall has the days
+  crossed off to late September and a date circled weeks after this week; the stores are modest and
+  the stove cold, the way someone leaves a place for a while. A careful reader works it out; a careless
+  one waits.
 
 ### Proposals (Claude)
 None left: the `make a signal` rows' marker and flare roles were accepted (2026-09-28, §3.4).
@@ -267,6 +270,10 @@ None open.
   physics, the plane heard first; the default rescue on day 7. §3 written from it.
 - **2026-09-27 (Andrew)** — the trapper does not come back; not a way to be rescued.
 - **2026-09-27** — the no-storm week carried in (document 13 §4.2); the tarp is also a ground signal.
+- **2026-09-28 (Andrew, the document's sitting):** the flyover schedule with document 13's numbers;
+  homing in on a party that cannot name a landmark — far slower than naming one, and it drains the
+  batteries; being seen follows physics, with markers (three of anything, or SOS) and the flare; Holt's
+  own traces tell the party he is not coming back. **Reviewed in full.**
 
 ## 7. What exists today
 
