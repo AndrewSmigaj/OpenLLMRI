@@ -61,7 +61,7 @@
 - A party that cannot say where it is can be **homed in on**, at a battery cost (§3.3) — accepted,
   realism first: it takes far longer than flying to a named landmark (2026-09-28).
 - **Whether a crew sees a signal follows physics** — what the signal is and how it contrasts, the
-  weather, how close the pass comes (§3.4).
+  weather, how close the pass comes (§3.4) — accepted (2026-09-28).
 - **The rest of the flyover schedule**, and passes after day 7 for a party not yet found (§3.5;
   document 13 §4.2) — accepted with document 13's numbers (2026-09-28).
 - **(2026-09-27)** Holt, the trapper, does not come back during the week; the cabin is supplies, not a place to be
@@ -69,7 +69,7 @@
   on the cabin wall showing he returns after the week.)
 
 ### Proposals (Claude)
-- The `make a signal` rows' further roles — marker and pyrotechnic (§3.4).
+None left: the `make a signal` rows' marker and flare roles were accepted (2026-09-28, §3.4).
 
 ## 2. In one paragraph
 
@@ -147,8 +147,7 @@ search to reach a party it can find. **The ELT is broken** (2026-09-27). Players
   tarp laid in the open** (2026-09-27): bright blue against brown ground or new snow is something a crew
   can see. It is the same tarp that seals the plane's openings (document 16 §4.5), so one tarp has two
   uses — keep the plane warm or signal — and the choice is the party's.
-- *(Claude's choice, at Andrew's request, for his check:)* **whether a crew sees a signal comes from
-  physics**: what it is and how it contrasts — dark smoke from rubber or oil against snow, white smoke
+- **Whether a crew sees a signal comes from physics** (2026-09-28): what it is and how it contrasts — dark smoke from rubber or oil against snow, white smoke
   from green boughs against dark forest, fire at night, the tarp's blue, the white wreck against brown
   ground until the day-6 snow makes it white on white, signs laid out on the ground or scraped through
   the snow to the dark ground beneath, three fires in a triangle — the weather (wind flattens smoke;
@@ -168,11 +167,12 @@ they imply and this system answers.
 | `roles` | **fire** (lit) · **smoke-maker**: rubber, oil, green boughs · or **reflector**: the mirror, the landing-light reflector, in sun |
 | `realize` | `put <smoke-maker> on <fire>` · `signal with <reflector>` — and whether anyone sees it is the flyover clock's answer, not the command's |
 
-*(Proposal: the row set is a floor — the loops add goals and means from what people and agents type.)*
+The row set is a floor — the loops add goals and means from what people and agents type (2026-09-28).
 
-*(Proposed by Claude, for Andrew's check.)* **roles** also **marker** — anything that contrasts with the
+**roles** also (2026-09-28) **marker** — anything that contrasts with the
 ground, laid or tramped large: the blue tarp, boughs, dark cloth, luggage, wreckage on snow, or lines
-stamped or scraped through the fresh snow to the dark ground · **pyrotechnic** — a flare or a smoke. **realize** also `put <marker> on <snow>`, `light <flare>`, `tramp <snow>`. Which
+stamped or scraped through the fresh snow to the dark ground; three of anything, or SOS, is the
+international distress sign · **pyrotechnic** — the flare, one shot, fire or signal, never both. **realize** also `put <marker> on <snow>`, `light <flare>`, `tramp <snow>`. Which
 smoke-maker suits depends on the background, which the world already knows: rubber and oil make dark
 smoke that shows against snow; green boughs make white smoke that shows against dark spruce.
 
