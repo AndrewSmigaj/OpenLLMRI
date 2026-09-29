@@ -341,6 +341,11 @@ it says so. When a decision changes, this list and every document it touches cha
   (2026-09-17, 2026-09-18, 2026-09-26, 2026-09-27)
 
 **Time and the run**
+- **The institute's sim rooms** (2026-09-29): Whiteout is played inside another MUD, the institute, which
+  knows it is a MUD and fakes no reality. An AI robot in its main room tells players that up to five can
+  go into a sim room when ready; about three sim rooms, each an empty room with a sign — get everyone
+  in, run the start command — which loads them into the tutorial rooms, then the run. The door locks
+  while a run is going; more than five in the room and it does not start (document 19 §4.1).
 - The clock runs continuously at **15 game-minutes per real minute**. **Fast forward** (proposed and
   agreed by the players) runs it at about **150×**; awake players can stay in it, seeing events faster,
   and type a command to slow it when they want to act. A player waking or any non-ambient event drops it
