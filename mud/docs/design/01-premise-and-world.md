@@ -397,6 +397,14 @@ across it is knowing it.
 | wreck → beaver pond | 55 min | 35 min |
 | wreck → homestead | ~90 min | ~60 min |
 
+**The journey itself** (Andrew, 2026-09-28; document 19 §4.3). A Scene is a connected group of places — a
+multi-place zone, bigger or smaller — and going to another one is a journey, not a step: you head off
+in its direction and the world gives an estimate (*"You head off toward the birch grove; you reckon it
+will take about twenty minutes."*). The walk is an attended activity with its own emotes, and on a
+long one you may pass things along the way. You can stop walking, and then you are between Scenes —
+*"You are between the birch grove and the plane"* — with whatever is near you, and no room description
+beyond that. Moving from place to place inside a Scene takes time too, with the right emotes.
+
 The minutes are placeholders, re-priced for the week-long run and the October ground by `PLAN.md`
 task A4. Moving is an attended activity whose time is distance over pace, times terrain, snow depth,
 load and fitness (document 03 §4.1a). Against the October day (document 13 §4.2) the first round trip

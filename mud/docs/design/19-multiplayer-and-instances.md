@@ -157,7 +157,18 @@ occlusion model today. Weather is a stubbed parameter (`"clear"`) until the weat
 state; the band-steps it will apply are in §4.4.
 
 So "you can see two or three zones away" is the practical shape of it: the party stays visible to each
-other across the crash site, and someone far enough off is a shape, not a person.
+other across the crash site, and someone far enough off is a shape, not a person. **Sight works within
+a Scene** (Andrew, 2026-09-28) — a connected group of places; you do not automatically see into another
+Scene. Where the land is really open — across the lake, down the burn — something big such as the bear
+can be seen far off; bushes, dense trees and weather block it, decided case by case by common sense.
+
+**Traveling between Scenes** (Andrew, 2026-09-28). A Scene is a connected group of places — a
+multi-place zone, bigger or smaller — and going to another one is a journey, not a step: you head off
+in its direction and the world gives an estimate (*"You head off toward the birch grove; you reckon it
+will take about twenty minutes."*). The walk is an attended activity with its own emotes, and on a
+long one you may pass things along the way. You can stop walking, and then you are between Scenes —
+*"You are between the birch grove and the plane"* — with whatever is near you, and no room description
+beyond that. Moving from place to place inside a Scene takes time too, with the right emotes.
 
 Direction is phrased from the bearing between zones plus the elevation difference — the eight compass
 points with *upslope* / *downslope*: *"to the southeast and upslope"*.
@@ -166,12 +177,14 @@ points with *upslope* / *downslope*: *"to the southeast and upslope"*.
 
 Speech is a **loudness**, and loudness is a reach in zone-hops (shipped; the mapping is a proposal):
 
-| mode | reach |
-|---|---|
-| whisper | the same zone |
-| say | adjacent |
-| call | near |
-| shout | distant |
+| mode | reach | its synonyms (a floor) |
+|---|---|---|
+| whisper | the same zone | murmur, mutter, breathe |
+| say | adjacent | speak, tell, talk |
+| call | near | call out, holler |
+| shout | distant | yell, bellow, scream |
+
+Four levels, each with its synonyms written in the same pass (Andrew, 2026-09-28; document 04 §3.7).
 
 Weather shifts the reach in band-steps — steady snow −1 down to whiteout −3 — clamped so the same
 zone always hears you; this week the worst is the day-6 flurry at its heaviest (document 13 §4.2). A
@@ -235,7 +248,9 @@ reactor serializes commands, so shared-object mutation cannot race (DR-22).
 - **Pausing** (Andrew, 2026-09-17, 2026-09-27, 2026-09-28). The players can pause the run and return to
   it later. **The run pauses when someone in the party types the pause command** — it does not pause
   by itself when players leave. The clock stops because the run is paused, which is not a hole in the
-  running clock.
+  running clock. When someone leaves, the out-of-character chat says so and offers the command:
+  *"Mara disconnected — type `pause` to pause the game if you want."* **If everyone disconnects, the
+  run pauses itself**, so nobody comes back to a party gone catatonic (2026-09-28).
 - **A missing player** (Andrew, 2026-09-27). If a player is missing, their character goes catatonic:
   sits down and stares off. The party is warned (2026-09-17). The others can keep the character alive
   if they want, and it can die. *(Proposed by Claude, for Andrew's check:)* the body is in the world

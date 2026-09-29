@@ -441,6 +441,13 @@ it says so. When a decision changes, this list and every document it touches cha
 - **Open-ended activities**: `tend the fire` keeps a fire fed from the wood at hand until stopped, runs on
   through fast forward, and when the wood runs out stops and drops the clock back to 15×; keeping watch
   and fishing a line are the same kind (documents 06, 07). (2026-09-28)
+- **Sight, travel and pausing** (2026-09-28): sight works within a Scene — a connected group of places;
+  another Scene is not seen automatically, though something big can be seen far across open land,
+  blocked by bushes, trees or weather case by case. Going to another Scene is a journey with an
+  estimate ("about twenty minutes"), its own emotes, things passed on the way; stopping leaves you
+  "between the birch grove and the plane". Moving within a Scene takes time too. Talking has four
+  levels, each with synonyms. When someone disconnects the out-of-character chat offers `pause`; if
+  everyone disconnects, the run pauses itself.
 - **Being next to something**: a person can approach a thing and be next to it — sit next to the fire —
   and the position is real (who gets the heat, who can reach what); the room's prose says it. Tricky,
   and doable in a text world (documents 03, 08, 17). (2026-09-28)

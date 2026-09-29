@@ -16,6 +16,9 @@
   are; a paragraph of prose composed from state; the people and animals present, as prose, by what
   they are doing (standing or sitting when idle); then the exits, as prose. No item list, no hidden
   tags on screen. Exits are named by compass direction outdoors and fore / aft / out inside the plane.
+- **(2026-09-28)** Between Scenes, a person who stops walking is *"between the birch grove and the
+  plane"*, with whatever is near them and no room description beyond that; a journey gives an estimate
+  of how long it will take (document 19 §4.3).
 - **(2026-09-28)** A person can approach a thing and be next to it — `sit next to the fire` — and the
   room's prose says so ("Cal sits close by the fire"); the position is real (document 17 §4.8).
 - **(2026-09-28)** A serious condition shows in a person's line in the room; the body's signs (a

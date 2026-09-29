@@ -113,7 +113,8 @@ ice cracking, a plane), and a sleeper's cold falling below their floor, which wa
 Two kinds of time ride the same heartbeat. **Attended activities** are what this document designs:
 sawing a branch, drilling for an ember, digging, dressing a wound, taking a body's clothes off,
 searching a body, the wreckage, a pile or a container a pocket, a compartment or a layer at a time
-(2026-09-28) — a start line, a few varied tick
+(2026-09-28), a journey between Scenes with its estimate and its emotes (document 19 §4.3) — a start
+line, a few varied tick
 lines driven by state, an interruption that keeps partial progress, a completion line. **Some
 activities are open-ended** (2026-09-28): `tend the fire` keeps a fire fed from the wood at hand until
 the player stops it, and runs on through fast forward, so nobody has to keep slowing the clock to add a
