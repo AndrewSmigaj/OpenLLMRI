@@ -1,6 +1,6 @@
 # 19 — Multiplayer and instances
 
-> **Status: draft for review.** Andrew answered its open questions on 2026-09-27.
+> **Status: reviewed with Andrew 2026-09-28.** Andrew answered its open questions on 2026-09-27.
 > **Architecture counterpart:** [`perception-model.md`](../architecture/perception-model.md) (the
 > shipped seeing and hearing across zones) ·
 > [`implementation-architecture.md`](../architecture/implementation-architecture.md) §6 (DR-13,
@@ -193,7 +193,7 @@ scale: quiet work carries a zone, shattering glass carries three. This is why th
 pressure and not just a temperature: as the day-6 flurry closes in, the party's voices stop reaching
 each other before their bodies do.
 
-*(Proposed by Claude, for Andrew's check — the acting animals.)* The bear, the bigger animals and the
+**The acting animals** (2026-09-28). The bear, the bigger animals and the
 few birds that act perceive and are perceived through these same bands: a survivor sees the bear as a
 shape four zones off, and the bear hears a shout the way a person does. One channel the bands do not
 carry yet is **scent**. A real bear finds meat, a body and a camp by smell, downwind and far past
@@ -276,7 +276,7 @@ They are the positive end of the moral layer's axis, not a separate system: the 
 logging that make betrayal legible make the hold and the relay legible (document
 [15](15-moral-and-social-layer.md)).
 
-**The mechanism** *(proposed by Claude, for Andrew's check)*. Interdependence is what the physics
+**The mechanism** (2026-09-28). Interdependence is what the physics
 gives when an act's needs exceed one body, so it is built once, as a general rule, and every real case
 follows from it. An operation's needs — a capability at a level (`heft`, `leverage`), a free hand, a
 body's heat, a position, a line of sight — are met by **what the actors present bring together, read
@@ -291,8 +291,13 @@ from each one's concurrent state**; and because an activity's progress lives on 
   ground for any distance;
 - **the huddle** — another body's heat is by definition another person (document 08); this one
   *genuinely requires* two, which is the P6 gate met by physics;
-- bracing a log while another saws it; holding the light while another works; hauling someone out
-  through the ice; lifting what one person cannot shift — and whatever else the loops find.
+- holding the light while another works; hauling someone out through the ice; lifting what one person
+  cannot shift; two people spinning one fire drill — and whatever else the loops find. Nothing that one
+  person can really do is made to need two (2026-09-28): a log can be cut alone.
+
+Here a little hint in the world's voice is right (2026-09-28): *"It's too heavy for one person to
+lift."* The antenna has more to it, as the other systems do — held higher, it hears and is heard
+farther, if the party thinks to do it (document 14 §3.2).
 
 None of these is a two-player script, and almost none is the only way: a person alone can lash the
 antenna to a pole or drag a travois — every goal has several ways — so cooperation is usually the
@@ -307,7 +312,7 @@ build order (document 06).
   ghosts (document [21](21-endings.md) §4.5). Speech in the world keeps its physical range
   (§4.4). Evennia's stock channel typeclass is in the scaffold
   ([`game/typeclasses/channels.py`](../../game/typeclasses/channels.py)).
-- **No shared status readout of other players** *(proposal)*. You learn how your friend is doing by
+- **No shared status readout of other players** (2026-09-28). You learn how your friend is doing by
   looking at them, being told, or watching them fail. This follows from never-a-menu — a status panel
   is a list of facts nobody perceived.
 - **No mode switch** (Andrew, 2026-09-16). The engine does not know whether it is running a friends
@@ -369,6 +374,13 @@ None open.
   character goes catatonic, the others can keep it alive, and it can die; ghosts hear ghosts, the
   living cannot, and anyone can use the out-of-character chat.
 - **2026-09-27** — the no-storm week carried in (document 13 §4.2).
+- **2026-09-28 (Andrew, the document's sitting):** a run as its own copy of the world, its machinery for
+  the implementation plan; the run pauses when someone types `pause game`, and by itself only if
+  everyone disconnects; sight works within a Scene, and going to another is a journey with an estimate,
+  emotes, things passed, and a stop between two Scenes; four levels of talk with synonyms; the typing
+  pace and a missing player's body; working together as one general rule, never making two people
+  needed for what one can do, with a small hint when something is too heavy for one. **Reviewed in
+  full.**
 
 ## 8. What exists today
 
