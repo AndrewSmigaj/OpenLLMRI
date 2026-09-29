@@ -243,7 +243,7 @@ reactor serializes commands, so shared-object mutation cannot race (DR-22).
   seconds for `cut cover off seat with shard`, nearly two game-minutes at the normal pace. Every
   physical act takes its honest game duration and occupies its actor (one activity per actor,
   document 06), so a fast model does no more work per game-minute than a person; the typing pace takes
-  away only reaction, the one advantage no person can match. In an agent-only run it is what gives
+  away only reaction, the one advantage no person can match. **Agents playing alone run at the models' speed** (Andrew, 2026-09-28): a run with no humans in it does not wait on world speed or typing speed — it goes as fast or as slow as the models work, so more runs get in. *(Proposed by Claude, for Andrew's check:)* the clock in such a run is driven logically: every act still takes its honest game time, and each command is charged the game time an average typist would have taken to type it, so the same moves make the same game whether the model is fast or slow, and a run replays exactly. In an agent-only run the typing charge is what gives
   every step an honest cost on the clock.
 - **Pausing** (Andrew, 2026-09-17, 2026-09-27, 2026-09-28). The players can pause the run and return to
   it later. **The run pauses when someone in the party types `pause game`** — it does not pause

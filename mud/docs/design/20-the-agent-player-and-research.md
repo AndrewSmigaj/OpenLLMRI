@@ -144,7 +144,7 @@ do you mean?"*, *"I don't understand 'X'"*, a pointer to the grammar help) or th
 never a suggestion of the right verb, because a system that could tell which word the player needed
 would already understand the word they typed (Andrew, 2026-09-16).
 
-### 4.3 The play harness (proposal)
+### 4.3 The play harness (accepted 2026-09-28; how it is built is the implementation plan's)
 
 Two forms, at two different costs:
 
@@ -178,7 +178,7 @@ read → log.
 A brain may play a non-human character as well as a survivor: the bear, one of the bigger animals, one
 of the few birds, with a **lightweight model** (Andrew, 2026-09-26) running through this same harness
 and socket with its persona brief; nothing on the engine's side changes. The radio voice is played the
-same way, by the same weak model in every run (document 14 §3.3). A brain's commands reach the world
+same way, by the same weak model in every run (document 14 §3.3). **Agents playing alone run at the models' speed** (Andrew, 2026-09-28): a run with no humans in it does not wait on world speed or typing speed — it goes as fast or as slow as the models work, so more runs get in. *(Proposed by Claude, for Andrew's check:)* the clock in such a run is driven logically: every act still takes its honest game time, and each command is charged the game time an average typist would have taken to type it, so the same moves make the same game whether the model is fast or slow, and a run replays exactly. With people in the run, a brain's commands reach the world
 at the speed of typing them (document 19 §4.6).
 
 ### 4.4 The per-step log (proposal)
