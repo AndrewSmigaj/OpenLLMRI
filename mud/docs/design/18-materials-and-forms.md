@@ -34,7 +34,7 @@
 - **2026-09-26, 2026-09-27 — the season** is the first week of October in interior Alaska (document 13
   §4.2).
 
-- **(2026-09-28)** The missing materials go in (§4.7): stone above all, soil and clay, fur and hide,
+- **2026-09-28 — the missing materials go in** (§4.7): stone above all, soil and clay, fur and hide,
   bone and antler, lichen, punk wood, peat, canvas, rawhide, grease and fat, kerosene, mica, brass;
   snow and ice as states of one substance, water; the six body materials in place of `flesh`; real
   freezing points, flash points and burn heat for every liquid aboard.
