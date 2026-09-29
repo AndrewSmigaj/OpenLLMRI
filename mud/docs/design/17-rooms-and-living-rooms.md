@@ -28,6 +28,8 @@
   closed and an internal heat that a fire inside raises; a fire generates heat in its area and residual
   heat in other areas; body parts have heat as part of their ontology. It is part of designing the fire
   and heat system. Rooms are therefore entities in the ontology like everything in them (§4.8).
+- **2026-09-28 — being next to something.** A person can approach a thing and be next to it — sit
+  next to the fire — and that position is real: who gets the fire's heat, who can reach what (§4.8).
 - **2026-09-28 — the cabin is rooms like any others.** The plane needs no special treatment beyond
   what bears on warmth: its cabin is rooms that hold heat, with openings; nobody can move the plane,
   so there is no plane object above them. The wing, the engine and the tail section are fixed
@@ -178,7 +180,7 @@ about not forcing a hook per room, never about a ceiling on what a room contains
 every outdoor room is censused to the same real-world depth as the crash rooms, and grown without a
 ceiling by the loops.
 
-**In early October the census is deeper, not shallower** *(proposed by Claude, for Andrew's check)*.
+**In early October the census is deeper, not shallower** (2026-09-28).
 Bare, frosty ground at the start and never more than a couple of inches of snow leave the ground
 readable all week: fallen birch and aspen leaves, moss and lichen, berries still on the bush, mushrooms
 frozen where they stood, mud stiffening in the ruts, the creek running, skim ice on still water, tracks
@@ -245,7 +247,7 @@ seat, seat *1a* and *1b*. Identical things (three glass shards) never ask, becau
 which one you take. **A room that can ask an unanswerable question is a bug in the room**, and `make
 validate` should catch it (document 04 §3.10).
 
-### 4.8 Rooms are entities — and the plane's cabin is rooms (Andrew, 2026-09-26, 2026-09-28)
+### 4.8 Rooms are entities — and the plane's cabin is rooms (Andrew, 2026-09-26, 2026-09-28; the heat physics accepted 2026-09-28)
 
 **What Andrew decided** (§2): the plane is an entity with openings that are open or closed and an
 internal heat that a fire inside raises; a fire heats its area and leaves residual heat in other areas;
@@ -312,7 +314,7 @@ banking the fire and keeping someone awake on watch (document 06) are the real a
 **Outdoors, a zone is an entity too**: its ground (soil, moss, rock — frozen to a depth that grows night
 by night until snow covers it), its snow cover (depth and type — states of water, document 18 §4.8), its
 air (temperature and wind from the weather, sheltered or exposed as document 08 §4.4 bands it), its
-light. A fire outdoors warms mostly by radiation, which falls off steeply with distance: it warms a body
+light. **Being next to something** (Andrew, 2026-09-28): a person can approach a thing and be next to it — `go to the fire`, `sit next to the fire`, `stand by the stove`, `sit beside Mara` — and that position is real: it is who gets the fire's radiant heat, who can reach what, who is under the blanket, who is close enough to see a small thing. It holds until they move, and the room's prose says it ("Cal sits close by the fire"). Tricky, and doable in a text world; its mechanics go in the implementation plan. A fire outdoors warms mostly by radiation, which falls off steeply with distance: it warms a body
 a metre or two away, and a reflector behind it (rock, stacked logs, a sheet of hull) sends back part of
 what would be lost. The heat that stays is in thermal mass — the hearth stones, the thawed ground under
 the ashes (where roots can now be dug, document 23), the embers for hours. So the residual heat in other

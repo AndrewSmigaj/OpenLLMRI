@@ -44,6 +44,8 @@
   everyone has a blanket; the cold costs their warmth and their rest, by how well they manage it —
   staying in the wreck, huddling, layering, sealing the openings (§4.1a).
 - **(2026-09-18)** The extremities — hands, feet, face — have their own cold, for frostbite.
+- **(2026-09-28)** Being next to a fire is a real position — approach it, sit next to it — and the fire's
+  radiant heat reaches those close to it (document 17 §4.8).
 - **(2026-09-28)** An opening can be patched from outside as well as inside — a tarp lashed over the
   tear from outside, boughs or snow packed against it — and Holt's cabin holds warmth like the plane's
   cabin (document 17 §4.8).

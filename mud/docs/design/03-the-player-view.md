@@ -16,6 +16,8 @@
   are; a paragraph of prose composed from state; the people and animals present, as prose, by what
   they are doing (standing or sitting when idle); then the exits, as prose. No item list, no hidden
   tags on screen. Exits are named by compass direction outdoors and fore / aft / out inside the plane.
+- **(2026-09-28)** A person can approach a thing and be next to it — `sit next to the fire` — and the
+  room's prose says so ("Cal sits close by the fire"); the position is real (document 17 §4.8).
 - **(2026-09-28)** A serious condition shows in a person's line in the room; the body's signs (a
   cough, a wince, shivering) arrive as emotes; examining or looking at the person reveals the smaller
   things (§4.1, §4.7; document 11 §4.12).

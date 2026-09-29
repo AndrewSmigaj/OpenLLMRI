@@ -47,7 +47,8 @@ it.
    GDD's vision, which Andrew finds too small.
 3. **How we implement it** (Andrew, 2026-09-28) — once the design is done, Claude drafts how each system
    will be built, with suggestions, and Andrew reviews it before anything is built: some of what the
-   design asks for needs care — hiding, noticing and stealing among them.
+   design asks for needs care — hiding, noticing and stealing, being next to something, patching an
+   opening from either side among them.
 
 **Standing corrections Claude owes the work** (in memory and in the writing rules): never quote the
 conversation in the repository — it is public; show the current design only and carry every decision to
@@ -434,6 +435,9 @@ it says so. When a decision changes, this list and every document it touches cha
 - **Open-ended activities**: `tend the fire` keeps a fire fed from the wood at hand until stopped, runs on
   through fast forward, and when the wood runs out stops and drops the clock back to 15×; keeping watch
   and fishing a line are the same kind (documents 06, 07). (2026-09-28)
+- **Being next to something**: a person can approach a thing and be next to it — sit next to the fire —
+  and the position is real (who gets the heat, who can reach what); the room's prose says it. Tricky,
+  and doable in a text world (documents 03, 08, 17). (2026-09-28)
 - **Searching is an activity**: a body, the wreckage, any pile or container is gone through a pocket, a
   compartment or a layer at a time, a line for each find, and it can be stopped; a search aimed at one
   place goes straight there; rummaging through the wreckage can cut you on something sharp. Taking a
