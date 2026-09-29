@@ -34,6 +34,9 @@
 - **2026-09-26, 2026-09-27 — the season** is the first week of October in interior Alaska (document 13
   §4.2).
 
+- **2026-09-28 — forms, as far as a person really breaks things down** (§4.4): a kill gives meat, hide,
+  bones, guts for bait, sinew, fat, organs, blood, feathers; the examples are never the full set, and
+  things are named in terms people recognize.
 - **2026-09-28 — real numbers on every material** (§4.8): the physical axes the heat, water and food
   systems read are real numbers in real units, each with a source; the word scales stay for the
   judgement axes (cut, tear, bend, ignition, smoke).
@@ -208,12 +211,16 @@ is `VERB X into <form> [with Z]`, where the form word sits in the Y slot as a ps
 which still lists about fifteen — is corrected to match; so is the stale "extend by evidence, never
 speculatively" comment in `affordances.py`. Neither number is a ceiling.
 
-*(Proposed by Claude, for Andrew's check:)* §4.8's materials bring forms of their own into the floor: a
-carcass's quarters and fillets, a hide, a clay lump and coil, a snow block and ball, a coal. Snaring,
-fishing and trapping (document 10 §4.8) bring three more: **`noose`** (a running loop of wire or cord —
-the snare), **`hook`** (a bent pin or wire, or a carved bone or wood gorge that lodges crosswise in the
-throat — the oldest fish hook), and **`net`** / **`mesh`** (cordage knotted into a grid — a gill net, a
-dip net, a carrying bag). Each is a shape a material takes, with capabilities that follow from material
+§4.8's materials bring forms of their own — examples, never the full set (2026-09-28). **Everything is
+broken down as far as a person really would**, not only along the happy paths: a kill gives quarters
+and fillets, a hide or a pelt, bones (for marrow, tools and a gorge), guts (bait for fishing), sinew
+(thread and lashing), fat to render, the liver and the other organs, blood, feathers from a bird, a
+fish's head and scales; clay gives a lump, and whatever it is shaped into — a pot, a bowl; snow gives a
+block and a snowball; a fire gives a coal to carry. Snaring, fishing and trapping (document 10 §4.8)
+bring three more: **`noose`** (a running loop of wire or cord — the snare), **`hook`** (a bent pin or
+wire, or a carved bone or wood gorge that lodges crosswise in the throat — the oldest fish hook), and
+**`net`** / **`mesh`** (cordage knotted into a grid — a gill net, a dip net, a carrying bag). The loops
+add the rest. Each is a shape a material takes, with capabilities that follow from material
 × form: a wire noose tightens and holds, a cord noose frays on a gnawing hare, a mesh strains water and
 holds fish.
 
