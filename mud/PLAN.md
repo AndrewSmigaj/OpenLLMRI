@@ -445,6 +445,9 @@ it says so. When a decision changes, this list and every document it touches cha
 - **Open-ended activities**: `tend the fire` keeps a fire fed from the wood at hand until stopped, runs on
   through fast forward, and when the wood runs out stops and drops the clock back to 15×; keeping watch
   and fishing a line are the same kind (documents 06, 07). (2026-09-28)
+- **After rescue** (2026-09-28): a rescued player is loaded onto the helicopter and still gets to hang
+  out — the out-of-character chat, watching the world like a ghost, or waiting in the lobby, a place
+  outside the run where players gather (documents 19, 21).
 - **Sight, travel and pausing** (2026-09-28): sight works within a Scene — a connected group of places;
   another Scene is not seen automatically, though something big can be seen far across open land,
   blocked by bushes, trees or weather case by case. Going to another Scene is a journey with an

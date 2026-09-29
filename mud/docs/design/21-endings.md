@@ -26,11 +26,13 @@ The endings — rescued or dead — and what a dead player becomes: a ghost.
   one another; the living do not hear ghosts. Anyone, living or dead, can use the out-of-character
   chat.
 - **The run ends at its endings; there is no recap** (2026-09-27).
+- **Endings per person, rescue per group** (2026-09-28): an ending belongs to a person, and the run is
+  over when nobody is left alive in the valley; a pass rescues whoever is findable, as real searches
+  go, by helicopter on solid ground. **A rescued player still gets to hang out** — the
+  out-of-character chat, and watching the world like a ghost or waiting in the lobby.
 
 ### Proposals (Claude)
 
-- An ending belongs to a person; the run is over when nobody is left alive in the valley (§4.1).
-- Rescue per findable group, as real searches go (§4.3); the pickup by helicopter on solid ground.
 - After day 7 nothing is a cutoff: passes continue while the weather allows (§4.4).
 - Two properties checked like the numbers they are: the day-7 rescue reaches every findable party,
   and the ladder closes on a party that stays unfindable (§4.4).
@@ -53,7 +55,7 @@ some stores and a roof, and somewhere findable to wait.
 
 Each player's run ends **rescued** or **dead**. The run is over when no player is left alive in the
 valley — all rescued, all dead, or some of each (Andrew, 2026-09-26: the run ends when they die, of
-anything). *(The per-person reading is proposed by Claude, for Andrew's check.)*
+anything). An ending belongs to a person (2026-09-28).
 
 Three properties hold for both:
 
@@ -80,13 +82,15 @@ Two things never kill: poison makes a person very sick (document 23 — the bane
 hemlock, the deadly galerina), and dangerous places — thin ice, a fall — injure and never kill
 outright.
 
-### 4.3 Rescue, per findable group *(proposed by Claude, for Andrew's check)*
+### 4.3 Rescue, per findable group (2026-09-28)
 
 A pass finds whoever is findable at that moment — at the wreck, at the cabin, or under a signal
 (document 14 §3). Real searchers who find part of a party learn from them how many were aboard and
 where the rest went, and search on from there. So a group found first is rescued and tells the
-searchers, and the rest are found at the next pass if they are findable there. A rescued player leaves
-the valley; while others still play, they stay in the out-of-character chat, which anyone can use.
+searchers, and the rest are found at the next pass if they are findable there. **A rescued player is
+loaded onto the helicopter and still gets to hang out** (Andrew, 2026-09-28): they chat in the
+out-of-character chat, and they can watch the world the way a ghost does or wait in the **lobby** — a
+place outside the run where players gather (document 19).
 
 The pickup is a helicopter setting down on solid ground — the wreck's clearing, a gravel bar, the
 shore. A lake that is skinning over with new ice takes neither floats nor skis (document 13 §4.2).
