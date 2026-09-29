@@ -315,9 +315,7 @@ build order (document 06).
 - **No shared status readout of other players** (2026-09-28). You learn how your friend is doing by
   looking at them, being told, or watching them fail. This follows from never-a-menu — a status panel
   is a list of facts nobody perceived.
-- **The lobby** (Andrew, 2026-09-28): a place outside the run where players gather — a rescued player
-  can wait there or watch the world the way a ghost does, and chat out of character either way
-  (document 21 §4.3).
+- **The lobby** (Andrew, 2026-09-28, 2026-09-29): once a player dies or is rescued they are transported to the lobby — a room inside the simulation, not a physical room of the institute. Players there talk to each other in the room itself, so they can talk about the rescue without the out-of-character chat. It has a door that opens into the simulation: through it they move around the world at a quick speed, not the slow pace of the living, watching as ghosts do — seeing everyone, acting on nothing, heard only by other ghosts. (document 21 §4.5).
 - **No mode switch** (Andrew, 2026-09-16). The engine does not know whether it is running a friends
   run or a research run: the same rules in all three modes.
 

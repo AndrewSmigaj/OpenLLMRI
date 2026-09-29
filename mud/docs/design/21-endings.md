@@ -28,8 +28,10 @@ The endings — rescued or dead — and what a dead player becomes: a ghost.
 - **The run ends at its endings; there is no recap** (2026-09-27).
 - **Endings per person, rescue per group** (2026-09-28): an ending belongs to a person, and the run is
   over when nobody is left alive in the valley; a pass rescues whoever is findable, as real searches
-  go, by helicopter on solid ground. **A rescued player still gets to hang out** — the
-  out-of-character chat, and watching the world like a ghost or waiting in the lobby.
+  go, by helicopter on solid ground. **A rescued player still gets to hang out**, in the lobby.
+- **The lobby** (2026-09-29): dead and rescued players are transported to a lobby inside the
+  simulation; they talk there in the room, and a door opens into the world, where they move quickly
+  and watch as ghosts (§4.5).
 
 ### Proposals (Claude)
 
@@ -88,9 +90,7 @@ A pass finds whoever is findable at that moment — at the wreck, at the cabin, 
 (document 14 §3). Real searchers who find part of a party learn from them how many were aboard and
 where the rest went, and search on from there. So a group found first is rescued and tells the
 searchers, and the rest are found at the next pass if they are findable there. **A rescued player is
-loaded onto the helicopter and still gets to hang out** (Andrew, 2026-09-28): they chat in the
-out-of-character chat, and they can watch the world the way a ghost does or wait in the **lobby** — a
-place outside the run where players gather (document 19).
+loaded onto the helicopter and still gets to hang out** (Andrew, 2026-09-28) — in the lobby (§4.5).
 
 The pickup is a helicopter setting down on solid ground — the wreck's clearing, a gravel bar, the
 shore. A lake that is skinning over with new ice takes neither floats nor skis (document 13 §4.2).
@@ -117,6 +117,8 @@ shore. A lake that is skinning over with new ice takes neither floats nor skis (
 
 A dead player becomes a **ghost** and moves freely. **Ghosts hear one another; the living do not hear
 ghosts. Anyone, living or dead, can use the out-of-character chat** (document 19 §4.8).
+
+**The lobby** (Andrew, 2026-09-28, 2026-09-29): once a player dies or is rescued they are transported to the lobby — a room inside the simulation, not a physical room of the institute. Players there talk to each other in the room itself, so they can talk about the rescue without the out-of-character chat. It has a door that opens into the simulation: through it they move around the world at a quick speed, not the slow pace of the living, watching as ghosts do — seeing everyone, acting on nothing, heard only by other ghosts.
 
 What follows from the rest of the design *(proposed by Claude, for Andrew's check)*:
 
