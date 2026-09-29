@@ -1,6 +1,6 @@
 # 20 — The agent player and the research
 
-> **Status: draft for review.** Andrew answered its open questions on 2026-09-27.
+> **Status: reviewed with Andrew 2026-09-28.** Andrew answered its open questions on 2026-09-27.
 > **Architecture counterpart:**
 > [`adr/0005-llm-bot-player-and-torch.md`](../architecture/adr/0005-llm-bot-player-and-torch.md) (the
 > model is an external bot-*player*, never an NPC) ·
@@ -69,15 +69,10 @@
 
 ### Proposals (Claude)
 
-- **Everything about the harness**: the two harness forms, the brain roster, the runner loop (§4.3).
-- **The per-step log** in two streams, ground truth and interpretation (§4.4).
-- **The warning** that any logged label becomes an optimisation target the moment something is trained
-  against it (§4.5).
-- **Replay as a research instrument** — the determinism it rests on is decided; using it to re-run and
-  diff a trajectory is a proposal (§4.7).
-- **The edges of a wall** (§4.8).
-- **What an agent is shown beyond the grammar guide** — exactly what a person is shown (§4.1).
-- **A research run**: how it starts, its manifest, and its stopping rule (§4.9).
+None left open: what an agent is shown, the harness, the two log streams, replay, the edges of a wall
+and the research run were accepted at the 2026-09-28 sitting, with Andrew's changes. The clock of an
+agent-only run — driven logically, each command charged a typist's time — is Claude's proposal, for
+Andrew's check (§4.3).
 
 ---
 
@@ -298,14 +293,14 @@ wall-sensor (unknown words included) and feed the world-building loops. What cou
 (2026-09-18, document 05 §4.5a): **unknown word, unknown noun, generic answer, wrong refusal and retry
 cluster**, each counted separately with its own trend line.
 
-*(Proposed by Claude, for Andrew's check — the edges.)* The reach gate's "too far to {verb} from
+**The edges** (2026-09-28). The reach gate's "too far to {verb} from
 here" is an answer, not a wall; a clarification the player resolves is not a wall, and one they give
 up on shows as a retry cluster; a physically correct refusal ("the branch will not take a spark") is
 the system working, and only a refusal a survivor could really overcome is a *wrong refusal*; and an
 unknown noun is a different wall from an unknown verb — the world is missing a thing, not a word —
 which is why they are counted apart.
 
-### 4.9 A research run *(proposed by Claude, for Andrew's check)*
+### 4.9 A research run (2026-09-28)
 
 **Starting.** An agent-only run starts from the pure-world harness on the command line — fast,
 headless, byte-reproducible; a run with people in it can only be on the server, so it starts like any
@@ -368,6 +363,11 @@ None open.
   fast enough; the pace is the speed of typing the command; the radio voice is a weak language model,
   the same in every run, scaffolded with rules and judging the landmarks it is told — a fixed
   condition across research runs.
+- **2026-09-28 (Andrew, the document's sitting):** an agent gets exactly what a person gets, the same
+  tutorial included, with scaffolding to try later and the eval awareness it may bring accepted; agents
+  playing alone run at the models' speed; the two log streams and replay; activations and expert
+  routing captured the way Andrew's LLM MRI suite does it; the edges of a wall; the research run; no
+  moral tags — a language model reads the playthrough. **Reviewed in full.**
 
 ## 8. What exists today
 

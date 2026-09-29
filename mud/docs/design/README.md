@@ -49,7 +49,7 @@ always at least partly cloudy. The same weather every run (document 13 §4.2).
 | 18 | [`18-materials-and-forms.md`](18-materials-and-forms.md) | the material table in plain words; forms; what is missing | reviewed with Andrew 2026-09-28 | [`ontology-closure.md`](../architecture/ontology-closure.md) §2–3 |
 | 23 | [`23-flora-and-fauna.md`](23-flora-and-fauna.md) | the living things of the valley in October: what grows, what can be dug, caught, fished; the poison | draft for review | — |
 | 19 | [`19-multiplayer-and-instances.md`](19-multiplayer-and-instances.md) | instanced runs; seeing and talking across zones; interdependence; run modes | reviewed with Andrew 2026-09-28 | [`perception-model.md`](../architecture/perception-model.md) |
-| 20 | [`20-the-agent-player-and-research.md`](20-the-agent-player-and-research.md) | what an agent is given; the same view as a human; the log; tags; replay; research runs | draft for review | [`adr/0005`](../architecture/adr/) |
+| 20 | [`20-the-agent-player-and-research.md`](20-the-agent-player-and-research.md) | what an agent is given; the same view as a human; the log; the reading of the playthrough; replay; research runs | reviewed with Andrew 2026-09-28 | [`adr/0005`](../architecture/adr/) |
 | 21 | [`21-endings.md`](21-endings.md) | rescued or dead; ghosts | draft for review | — |
 | 22 | [`22-the-world-building-loops.md`](22-the-world-building-loops.md) | the phases; both models as peers; the scaffold; the queue; walls per run | draft for review | `harness.md` (pending) |
 

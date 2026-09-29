@@ -23,6 +23,8 @@ it.
   prose: no quotes of the conversation, no superseded material, every decision in §5 applied everywhere;
   the old seed design, the investigation scratchpads and the second GDD summary are removed. Document 13
   carries the first-week-of-October weather.
+- **Document 20 reviewed in full (2026-09-28):** agents alone run at model speed; activations and expert
+  routing captured the LLM MRI way; the research run.
 - **Document 19 reviewed in full (2026-09-28):** `pause game`, and a self-pause only when everyone
   disconnects; sight within a Scene and journeys between them; working together as one rule.
 - **Document 18 reviewed in full (2026-09-28):** real numbers with sources; forms as far as a person
@@ -46,7 +48,7 @@ it.
   light start (bumps and bruises, a cut, a concussion).
 
 **Next, in this order:**
-1. **The sittings continue in index order, from document 20**, checking the answers Claude proposed in each document, then
+1. **The sittings continue in index order, from document 21**, checking the answers Claude proposed in each document, then
    finalizing at the close.
 2. A10 — the missing systems' documents (combat, heat, hunting/trapping/fishing, food state, animal
    behaviour, scent, light, weather, snow and ice on the ground, physiology, the tutorial rooms); A11 — the
