@@ -34,6 +34,11 @@
 - **2026-09-26, 2026-09-27 — the season** is the first week of October in interior Alaska (document 13
   §4.2).
 
+- **(2026-09-28)** The missing materials go in (§4.7): stone above all, soil and clay, fur and hide,
+  bone and antler, lichen, punk wood, peat, canvas, rawhide, grease and fat, kerosene, mica, brass;
+  snow and ice as states of one substance, water; the six body materials in place of `flesh`; real
+  freezing points, flash points and burn heat for every liquid aboard.
+
 ### Proposals (Claude)
 
 The contents of the table — every material, every ordinal value, every tag — are authored content, not
@@ -256,7 +261,7 @@ An object then names material ids, a mass in integer grams, and — when the sha
 and masses must be non-negative integers; a puzzle-critical object also has its authored rule
 (`authored.py`). The validator prints the material count on every run.
 
-### 4.7 What is missing (from the census)
+### 4.7 What is missing (from the census — accepted 2026-09-28)
 
 The valley census went looking for what a real person would pick up out there and came back with a
 list the table does not have: rock and stone (boiling stones, anvils, flakes); bone and antler (billet,
@@ -264,7 +269,7 @@ tine, scales); fur and hide (marten, hare — insulation values); peat (poor wet
 tinder and famine food); punk or rotten wood (an ember medium, distinct from sound wood); rubber (tyre,
 tube — black smoke and elastic); kerosene (lamp fuel); canvas (pack, tarp); babiche and rawhide
 (lacing); grease and fat (bearing grease, lard — lamp fuel and waterproofing); mica (worthless glitter —
-the honesty material); brass (benchmark, shells); paper (newspaper, photographs, cards — burnable
+the honesty material); brass (a survey benchmark); paper (newspaper, photographs, cards — burnable
 heartbreak).
 
 Three of them — `rubber`, `paper` and `bone` — are in the table. **Stone is not**, which is the
@@ -286,7 +291,7 @@ Two gaps are visible in the table itself rather than the census:
 - **Liquids are nearly propertyless.** `water`, `fuel` and `alcohol` carry two or three axes between
   them. Nothing expresses viscosity, freezing point, or what a liquid does to a fire beyond the
   `extinguisher` tag — and in the first week of October, when the air crosses 0 °C most days, "does it
-  freeze, and when" is load-bearing. §4.8 gives freezing points, flash points and heats of combustion
+  freeze, and when" matters. §4.8 gives freezing points, flash points and heats of combustion
   for every liquid aboard.
 
 ### 4.7a Density, and the bulk it gives (Andrew, 2026-09-18)
