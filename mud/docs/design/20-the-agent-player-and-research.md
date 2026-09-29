@@ -52,6 +52,9 @@
 - **The models** (2026-09-27): a fast one — Haiku or Sonnet, at low to medium reasoning — and Andrew's
   own open-weight model, which needs timing. If the open-weight model runs fast enough, activations are
   collected in runs with humans too.
+- **Activations and expert routing are captured here** (2026-09-28): the open-weight model's
+  activations and its mixture-of-experts routing data. When it is built, it is done the way Andrew's
+  own LLM MRI suite does it — Claude reads that repository first — so the two integrate easily.
 - **No moral tags** (2026-09-16, 2026-09-28): acts are not tagged as immoral, neutral or taboo; after
   the run, a language model reads the playthrough and describes what happened (document 15 rule 6).
 - **What counts as a wall** (2026-09-18): five categories, counted separately (document 05 §4.5a).
@@ -165,12 +168,14 @@ planned brains:
 | brain | purpose | needs |
 |---|---|---|
 | `ScriptedBrain` | deterministic; drives the solvability fuzz and the tests | nothing |
-| `TorchBrain` | Andrew's own open-weight model (the local OSS-20B weights) — **the activation-capture target**; its speed is still to be timed | host GPU + weights |
+| `TorchBrain` | Andrew's own open-weight model (the local OSS-20B weights) — **the activation- and expert-routing-capture target**; its speed is still to be timed | host GPU + weights |
 | `ClaudeBrain` | an API-key brain for the fast model — Haiku or Sonnet, at low to medium reasoning | API access |
 
 Activations can be captured only from weights run locally, so the open-weight model is the one whose
 insides are studied; if it runs fast enough, its activations are collected in runs with humans too
-(Andrew, 2026-09-27). `TorchBrain` is why the harness runs **on the host and never in the container**:
+(Andrew, 2026-09-27). **Both its activations and its expert-routing data are captured** (2026-09-28),
+following the way Andrew's LLM MRI suite captures them, so the data integrates with it without being
+built twice; that repository is read before this is implemented. `TorchBrain` is why the harness runs **on the host and never in the container**:
 it needs the weights and the GPU, and a synchronous model call inside Evennia's single-threaded
 reactor would block every player. The runner loop is: observe → `brain.act(observation)` → send →
 read → log.
@@ -181,7 +186,7 @@ and socket with its persona brief; nothing on the engine's side changes. The rad
 same way, by the same weak model in every run (document 14 §3.3). **Agents playing alone run at the models' speed** (Andrew, 2026-09-28): a run with no humans in it does not wait on world speed or typing speed — it goes as fast or as slow as the models work, so more runs get in. *(Proposed by Claude, for Andrew's check:)* the clock in such a run is driven logically: every act still takes its honest game time, and each command is charged the game time an average typist would have taken to type it, so the same moves make the same game whether the model is fast or slow, and a run replays exactly. With people in the run, a brain's commands reach the world
 at the speed of typing them (document 19 §4.6).
 
-### 4.4 The per-step log (proposal)
+### 4.4 The per-step log (accepted 2026-09-28)
 
 The research artifact. Per applied action, the log records:
 
@@ -200,7 +205,7 @@ Alongside it, the **wall-sensor** log: every attempt the world could not answer,
 words. That file is the world-building loops' input queue (document
 [22](22-the-world-building-loops.md)).
 
-**Two streams** *(proposed by Claude, for Andrew's check)*. Both are complete, because determinism
+**Two streams** (2026-09-28). Both are complete, because determinism
 decides it: whatever the engine knows can be regenerated from a replay, so logging all of it costs
 nothing in truth and leaves nothing to reconstruct. The **ground-truth stream** is everything the
 engine knows at each step: the actor; the line as typed and the parsed attempt; the tier that answered
@@ -282,7 +287,7 @@ resolution (DR-20) records which tier answered.
 
 For research this buys: a run replays exactly from its seed and command sequence; two models can be
 run against an identical world; and a trajectory can be re-executed offline while activations are
-captured, because the world's side of the conversation is a pure function.
+captured, with the routing data, because the world's side of the conversation is a pure function.
 
 ### 4.8 Walls per run
 
@@ -391,7 +396,8 @@ notion of a research run.
 
 **Nothing.** No agent has ever played this world through a harness. The phrasing samples were
 collected by giving agents scene text and reading back what they typed — a measurement, not a run.
-There is no activation capture of any kind, and the open-weight model's speed has not been timed.
+There is no activation or expert-routing capture of any kind, and the open-weight model's speed has
+not been timed.
 
 **Two corrections owed in the shipped docs and code:**
 
