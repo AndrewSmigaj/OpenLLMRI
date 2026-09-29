@@ -238,7 +238,7 @@ reactor serializes commands, so shared-object mutation cannot race (DR-22).
 - **An agent acts at the speed of typing its command** (Andrew, 2026-09-26, 2026-09-27): a command
   reaches the world no sooner than an average typist could have typed it, and a slow model is
   simply slow — the clock never waits for it. An agent agrees to a
-  fast forward or does not, like anyone. *(Proposed by Claude, for Andrew's check:)* the average
+  fast forward or does not, like anyone. The average
   typist manages about 52 words a minute (Dhakal et al., CHI 2018, 168,000 typists) — some seven real
   seconds for `cut cover off seat with shard`, nearly two game-minutes at the normal pace. Every
   physical act takes its honest game duration and occupies its actor (one activity per actor,
@@ -246,14 +246,15 @@ reactor serializes commands, so shared-object mutation cannot race (DR-22).
   away only reaction, the one advantage no person can match. In an agent-only run it is what gives
   every step an honest cost on the clock.
 - **Pausing** (Andrew, 2026-09-17, 2026-09-27, 2026-09-28). The players can pause the run and return to
-  it later. **The run pauses when someone in the party types the pause command** — it does not pause
+  it later. **The run pauses when someone in the party types `pause game`** — it does not pause
   by itself when players leave. The clock stops because the run is paused, which is not a hole in the
-  running clock. When someone leaves, the out-of-character chat says so and offers the command:
-  *"Mara disconnected — type `pause` to pause the game if you want."* **If everyone disconnects, the
+  running clock. The command is `pause game`, not `pause` — pausing is also something a person might do
+  in the world (2026-09-28). When someone leaves, the out-of-character chat says so and offers the command:
+  *"Mara disconnected — type `pause game` to pause it if you want."* **If everyone disconnects, the
   run pauses itself**, so nobody comes back to a party gone catatonic (2026-09-28).
 - **A missing player** (Andrew, 2026-09-27). If a player is missing, their character goes catatonic:
   sits down and stares off. The party is warned (2026-09-17). The others can keep the character alive
-  if they want, and it can die. *(Proposed by Claude, for Andrew's check:)* the body is in the world
+  if they want, and it can die. The body is in the world
   like anyone's — core and extremity heat, wetness, hunger, thirst and wounds keep changing by the same
   systems — so the party can carry them in, cover them, huddle with them and feed them, and the player
   returns to whatever state the body is in.

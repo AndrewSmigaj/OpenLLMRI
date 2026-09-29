@@ -343,7 +343,7 @@ it says so. When a decision changes, this list and every document it touches cha
   back to 15×; ambient events do not. Sleeping players can chat out of character to pass the time. The
   numbers are tuned by playtesting. (2026-09-17, 2026-09-27)
 - A run is one sitting of two or three hours — about a week of game time — which the players can pause
-  and return to: the run pauses when someone in the party types the pause command, never by itself
+  and return to: the run pauses when someone in the party types `pause game`, never by itself
   (2026-09-28). A missing player's character goes catatonic, sits down and stares; the others can keep
   them alive, and they can die. (2026-09-17, 2026-09-27)
 - Small attended jobs take one to three game-minutes; bigger ones take honest durations. Ambience comes
@@ -446,7 +446,7 @@ it says so. When a decision changes, this list and every document it touches cha
   blocked by bushes, trees or weather case by case. Going to another Scene is a journey with an
   estimate ("about twenty minutes"), its own emotes, things passed on the way; stopping leaves you
   "between the birch grove and the plane". Moving within a Scene takes time too. Talking has four
-  levels, each with synonyms. When someone disconnects the out-of-character chat offers `pause`; if
+  levels, each with synonyms. When someone disconnects the out-of-character chat offers `pause game`; if
   everyone disconnects, the run pauses itself.
 - **Being next to something**: a person can approach a thing and be next to it — sit next to the fire —
   and the position is real (who gets the heat, who can reach what); the room's prose says it. Tricky,
