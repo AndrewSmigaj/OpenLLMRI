@@ -46,7 +46,7 @@ always at least partly cloudy. The same weather every run (document 13 §4.2).
 | 15 | [`15-moral-and-social-layer.md`](15-moral-and-social-layer.md) | possible, priced, witnessed, logged; the dilemma set | reviewed with Andrew 2026-09-28 | — |
 | 16 | [`16-players-and-kit.md`](16-players-and-kit.md) | the slots, draws, pockets, luggage; the 206 interior | reviewed with Andrew 2026-09-28 | [`clothing-warmth.md`](../architecture/clothing-warmth.md) |
 | 17 | [`17-rooms-and-living-rooms.md`](17-rooms-and-living-rooms.md) | individuation; state that persists; the prose style; the crash rooms | reviewed with Andrew 2026-09-28 | [`containment.md`](../architecture/containment.md) |
-| 18 | [`18-materials-and-forms.md`](18-materials-and-forms.md) | the material table in plain words; forms; what is missing | draft for review | [`ontology-closure.md`](../architecture/ontology-closure.md) §2–3 |
+| 18 | [`18-materials-and-forms.md`](18-materials-and-forms.md) | the material table in plain words; forms; what is missing | reviewed with Andrew 2026-09-28 | [`ontology-closure.md`](../architecture/ontology-closure.md) §2–3 |
 | 23 | [`23-flora-and-fauna.md`](23-flora-and-fauna.md) | the living things of the valley in October: what grows, what can be dug, caught, fished; the poison | draft for review | — |
 | 19 | [`19-multiplayer-and-instances.md`](19-multiplayer-and-instances.md) | instanced runs; seeing and talking across zones; interdependence; run modes | draft for review | [`perception-model.md`](../architecture/perception-model.md) |
 | 20 | [`20-the-agent-player-and-research.md`](20-the-agent-player-and-research.md) | what an agent is given; the same view as a human; the log; tags; replay; research runs | draft for review | [`adr/0005`](../architecture/adr/) |

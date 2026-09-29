@@ -1,6 +1,6 @@
 # 18 — Materials and forms: the material table in plain words, forms, what is missing
 
-> **Status: draft for review** (created 2026-09-16). **Architecture counterparts:**
+> **Status: reviewed with Andrew 2026-09-28** (created 2026-09-16). **Architecture counterparts:**
 > [`ontology-closure.md`](../architecture/ontology-closure.md) §2–§3 (forms, derived capabilities) and
 > [`implementation-architecture.md`](../architecture/implementation-architecture.md) §4 (DR-04, the
 > material model). The table in §4.3 is a transcription of what is loaded at boot
@@ -34,6 +34,9 @@
 - **2026-09-26, 2026-09-27 — the season** is the first week of October in interior Alaska (document 13
   §4.2).
 
+- **2026-09-28 — how the table grows** (§4.9): the loops add materials freely, but every physical number
+  needs a source; the order they go in waits for the implementation plan. Andrew reviews and edits the
+  store in a web app (document 05 §4.6).
 - **2026-09-28 — forms, as far as a person really breaks things down** (§4.4): a kill gives meat, hide,
   bones, guts for bait, sinew, fat, organs, blood, feathers; the examples are never the full set, and
   things are named in terms people recognize.
@@ -47,11 +50,10 @@
 
 ### Proposals (Claude)
 
-The contents of the table — every material, every ordinal value, every tag — are authored content, not
-Andrew's decisions; the table's own docstring says "This is world-building content — tune freely".
-The forms vocabulary, the derived-capability axes and their form factors are equally proposals. So is
-every gap in §4.7, the axes and materials of §4.8, and the order and growth of §4.9 — all for Andrew's
-check.
+The contents of the table — every material, every value, every tag — are authored content, tuned
+freely within real numbers and their sources. The missing materials, the real-number axes, the forms and
+the table's growth were accepted at the 2026-09-28 sitting; the order materials go in waits for the
+implementation plan.
 
 ## 3. In one paragraph
 
@@ -486,7 +488,7 @@ reminds hunters: bear meat…" · Carmody, Weintraub and Wrangham 2011, *PNAS* 1
 *Scientific Reports* 7:44707 · LP Aero Plastics (206 acrylic windscreens) · IFLScience, "Why you should
 never use river rocks in a campfire" · U.S. Army FM 21-76 (the metal fuselage in the cold).
 
-### 4.9 The order materials go in, and how the table grows *(proposed by Claude, for Andrew's check)*
+### 4.9 The order materials go in, and how the table grows (the growth accepted 2026-09-28; the order held for the implementation plan)
 
 **The order.** Every material named in §4.7 and §4.8 is in the design: the ontology store's
 `materials.yaml` carries each, with its axes and a source for every number, and the loops add more
@@ -542,6 +544,10 @@ growth of §4.9 — are for Andrew's check at this document's sitting.
   `insulation_batting` is two materials, `conductivity` is renamed; the forms `noose`, `hook` and
   `net`/`mesh`; the order materials go in and how the table grows — all for Andrew's check.
 - **2026-09-27** — the no-storm week carried in (document 13 §4.2).
+- **2026-09-28 (Andrew, the document's sitting):** the missing materials — stone above all; real numbers
+  with sources on every material; forms broken down as far as a person really would, in plain names,
+  never a full set; how the table grows; the build order held for the implementation plan; a web app
+  for Andrew to review and edit the rooms and the ontology. **Reviewed in full.**
 
 ## 8. What exists today
 

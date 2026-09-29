@@ -23,6 +23,8 @@ it.
   prose: no quotes of the conversation, no superseded material, every decision in §5 applied everywhere;
   the old seed design, the investigation scratchpads and the second GDD summary are removed. Document 13
   carries the first-week-of-October weather.
+- **Document 18 reviewed in full (2026-09-28):** real numbers with sources; forms as far as a person
+  really breaks things down; a web app for Andrew to review and edit the rooms and the ontology.
 - **Document 17 reviewed in full (2026-09-28):** no rules that constrain the world; a room holds not only
   things there for a reason; being next to something; hints case by case from play.
 - **Document 16 reviewed in full (2026-09-28):** pockets hold everyday things, useful things are in bags to
@@ -42,7 +44,7 @@ it.
   light start (bumps and bruises, a cut, a concussion).
 
 **Next, in this order:**
-1. **The sittings continue in index order, from document 18**, checking the answers Claude proposed in each document, then
+1. **The sittings continue in index order, from document 19**, checking the answers Claude proposed in each document, then
    finalizing at the close.
 2. A10 — the missing systems' documents (combat, heat, hunting/trapping/fishing, food state, animal
    behaviour, scent, light, weather, snow and ice on the ground, physiology, the tutorial rooms); A11 — the
@@ -50,7 +52,8 @@ it.
 3. **How we implement it** (Andrew, 2026-09-28) — once the design is done, Claude drafts how each system
    will be built, with suggestions, and Andrew reviews it before anything is built: some of what the
    design asks for needs care — hiding, noticing and stealing, being next to something, patching an
-   opening from either side among them.
+   opening from either side among them — and it includes the web app for reviewing and editing the
+   rooms and the ontology, and the order materials and systems go in.
 
 **Standing corrections Claude owes the work** (in memory and in the writing rules): never quote the
 conversation in the repository — it is public; show the current design only and carry every decision to
@@ -473,6 +476,8 @@ it says so. When a decision changes, this list and every document it touches cha
   where something is very unobvious or players struggle — found by other language models analysing the
   agents' playthroughs and a brief questionnaire for the agent players (documents 03, 04, 17, 20, 22).
   The prose reading waits until Claude has a draft of the real rooms ready for review.
+- **A web app for the store** (2026-09-28): Andrew reviews the rooms and the ontology in a web app and
+  adds or deletes things there, not only reads them (document 05 §4.6).
 - **Ontologically sufficient** means anything reasonable that follows the grammar works — basically
   anything a language model playing the game would think to do, whether or not it leads anywhere —
   throwing a snowball is as real as lighting a fire; the world holds not only things that are there for a

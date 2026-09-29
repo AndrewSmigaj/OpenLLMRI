@@ -47,9 +47,10 @@
   list everything they could do there toward survival and rescue, given **goal lenses** (tasks
   related to starting a fire, finding food, …) and other lenses. Some agents build the world; others
   think of all the things they would do in it.
-- **The store and the viewer (2026-09-16).** Everything about the rooms and entities is stored where
-  people can read it — `docs/ontology/`, as YAML — with a simple app to view the ontology as a whole
-  and per room, with a map. Sonnet 5 and Opus 5 build it as peers.
+- **The store and the viewer (2026-09-16, 2026-09-28).** Everything about the rooms and entities is
+  stored where people can read it — `docs/ontology/`, as YAML — with a map. Sonnet 5 and Opus 5 build
+  it as peers. **The viewer is a web app where Andrew reviews the rooms and the ontology and adds or
+  deletes things** (2026-09-28), not only reads them.
 - **Design first (2026-09-16).** Nothing is built and **no agent runs a loop until every design
   document is finalized**.
 - **No moral tags (2026-09-16, 2026-09-28).** Acts are not tagged as immoral, neutral or taboo; a
@@ -246,7 +247,9 @@ so the world-builders can write what documents 10–23 define):*
 yields), `synonyms.yaml`, `relations.yaml`, `goals.yaml` (the goal table, document 04 §3.9).
 
 **The rules** (in `docs/ontology/README.md`): provenance is required on every row; status is never
-overstated; **a row is never deleted, only superseded**. `make validate-ontology` checks the schema,
+overstated; **a row is never deleted, only superseded** — and when Andrew deletes something in the web
+app, the row is marked removed by him, kept in the history, and the loops never add it back
+*(proposed by Claude, for Andrew's check, 2026-09-28)*. `make validate-ontology` checks the schema,
 the cross-references, and the two disciplines above — a required field left empty is an error, a
 field no pass owns is a schema bug.
 
@@ -300,7 +303,10 @@ after every firing; also publishable so Andrew can browse it from anywhere):
   provenance, status;
 - **whole-world counts**, and **what changed since the last firing**.
 
-Kept simple on purpose. Its job is that a person can read the world.
+**It is a web app, not only a static site** (Andrew, 2026-09-28): Andrew reviews the rooms and the
+ontology in it and adds or deletes things, and what he changes is written back to the store with his
+name as its provenance. How it is built is the implementation plan's. Its first job is still that a
+person can read the world.
 
 ### 4.7 The loops
 
