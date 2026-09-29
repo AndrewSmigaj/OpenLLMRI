@@ -1,6 +1,6 @@
 # 17 — Rooms and living rooms: individuation, state that persists, the prose style, the crash rooms
 
-> **Status: draft for review.** Architecture counterparts:
+> **Status: reviewed with Andrew 2026-09-28.** Architecture counterparts:
 > [`../architecture/containment.md`](../architecture/containment.md) (DR-24, the reveal rule that
 > `search`/`open`/`look under` all obey) and
 > [`../architecture/presentation.md`](../architecture/presentation.md) §4 (Voice — the prose principle
@@ -44,14 +44,10 @@
 
 ### Proposals (Claude)
 
-Everything else is a proposal for review:
-
-- The five properties of a "living" room (§4.1), what a room holds (§4.2), the seat exemplar and its
-  finds (§4.3), the nine-rule prose style guide (§4.4), and the lens pass (§4.7).
-- The "ontological Turing test" method (census first, then the built room, then the gaps) — from the
-  `ontology-generator` skill.
-- §4.8's mechanism — rooms as entities with air, light and ground; the plane's parts and openings; one
-  air volume; the physics of its internal heat — stands as a proposal for Andrew's check.
+None left open: the five properties, what a room holds, the seats and looking under, the prose rules,
+the changing outdoor ground, rooms and heat, and the rules reaching the loops were accepted at the
+2026-09-28 sitting, with Andrew's changes. The census method (census first, then the built room, then
+the gaps) comes from the `ontology-generator` skill.
 
 ---
 
@@ -99,12 +95,12 @@ a hook.
 
 ### 4.2 What a room holds: what is really there (Andrew, 2026-09-28)
 
-A room holds what would really be there — the census decides, not the goals. Some of it happens to
-serve one of the ways home (the lighter, the wire, the radio's batteries); most of it is simply there
-(the kneeboard, the airsickness bag, the headset, a snowbank, a stone), and **anything a player might
-reasonably do with any of it works, whether or not it leads anywhere**: throw a snowball, stack stones,
-carve a name in a seat, build a snowman (Andrew, 2026-09-28; document 05). Nothing is placed only
-because a goal needs it, and nothing is left out because no goal does.
+A room holds **not only things that are there for a reason** (Andrew, 2026-09-28). Some things are
+placed because a way home needs them — the lighter, the wire, the radio's batteries — where the game
+is better for it; but a room also holds everything else that would really be there (the kneeboard, the
+airsickness bag, the headset, a snowbank, a stone), and **anything a player might reasonably do with
+any of it works, whether or not it leads anywhere**: throw a snowball, stack stones, carve a name in a
+seat, build a snowman (document 05). Nothing is left out because no goal needs it.
 
 Every room has obvious flavour that is tryable and honest, finds inside and under things (the reveal
 rule, DR-24), and trade-offs (the fuel-soaked sleeping bag). Where each thing lies is decided case by case, by what makes the game better (2026-09-28): what would make the start too easy — the tools and supplies that solve the big problems — is not lying in plain sight in the first room, and no rule hides things away; everything else lies where it would really lie — a dead fish on the shore.
@@ -351,10 +347,11 @@ reconciliation for document 08).
   materials, parts, states and `sensed` live once rooms are entities (§4.8 here).
 
 **These depend on it:**
-- **22 — The world-building loops** — *(proposed by Claude, for Andrew's check:)* when this document is
-  finalized, its rules — the five properties (§4.1), what a room holds (§4.2), the style guide
+- **22 — The world-building loops** (2026-09-28) — now that this document is finalized, its rules — the
+  five properties (§4.1), what a room holds, not only things there for a reason (§4.2), the prose rules
   (§4.4), the outdoor census rule and early October's changing ground (§4.5), naming things apart
-  (§4.7a), and rooms as entities (§4.8) — go into the world-builder's scaffold,
+  (§4.7a), rooms as entities and being next to something (§4.8), and no rules that constrain the world
+  — go into the world-builder's scaffold,
   `docs/guides/world-building.md` (document 05 §4.8), which is what the loops read, and into
   `docs/guides/authoring-objects.md` for anyone authoring rows by hand. Both happen before the pilot
   pass on the mid cabin; no loop runs before the design documents are finalized (Andrew, 2026-09-16).
@@ -369,9 +366,7 @@ reconciliation for document 08).
 
 ## 6. Open questions
 
-None open. Claude's answers — the sensory layer (§4.1), the look-under family (§4.3), reading the voice
-and what the prose may use (§4.4), and the room rules reaching the loops (§5) — and §4.8's mechanism
-are for Andrew's check at this document's sitting.
+None open.
 
 ---
 
@@ -391,6 +386,12 @@ are for Andrew's check at this document's sitting.
 - **2026-09-27 (Andrew):** nothing kills instantly; death comes by the body running down, carbon
   monoxide from a fire inside among the ways.
 - **2026-09-27** — the no-storm week carried in (document 13 §4.2).
+- **2026-09-28 (Andrew, the document's sitting):** what makes a room alive; a room holds not only things
+  there for a reason — anything reasonable works, a snowball as much as a fire; the seats and looking
+  under, fixed to match document 16; the prose rules, with no rules that constrain the world, examine
+  text that never names uses, no "witty", and hints added case by case from play; the reading waits for
+  a draft; the cabin is rooms that hold heat, as is Holt's cabin; an opening patched from either side;
+  being next to something; the rules reach the loops. **Reviewed in full.**
 
 ## 8. What exists today
 

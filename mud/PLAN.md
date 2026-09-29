@@ -23,6 +23,8 @@ it.
   prose: no quotes of the conversation, no superseded material, every decision in §5 applied everywhere;
   the old seed design, the investigation scratchpads and the second GDD summary are removed. Document 13
   carries the first-week-of-October weather.
+- **Document 17 reviewed in full (2026-09-28):** no rules that constrain the world; a room holds not only
+  things there for a reason; being next to something; hints case by case from play.
 - **Document 16 reviewed in full (2026-09-28):** pockets hold everyday things, useful things are in bags to
   find; the cabin is rooms that hold heat; the kid in ordinary clothes.
 - **Document 15 reviewed in full (2026-09-28):** no moral tags — a language model reads the
@@ -40,7 +42,7 @@ it.
   light start (bumps and bruises, a cut, a concussion).
 
 **Next, in this order:**
-1. **The sittings continue in index order, from document 17**, checking the answers Claude proposed in each document, then
+1. **The sittings continue in index order, from document 18**, checking the answers Claude proposed in each document, then
    finalizing at the close.
 2. A10 — the missing systems' documents (combat, heat, hunting/trapping/fishing, food state, animal
    behaviour, scent, light, weather, snow and ice on the ground, physiology, the tutorial rooms); A11 — the
@@ -473,7 +475,8 @@ it says so. When a decision changes, this list and every document it touches cha
   The prose reading waits until Claude has a draft of the real rooms ready for review.
 - **Ontologically sufficient** means anything reasonable that follows the grammar works — basically
   anything a language model playing the game would think to do, whether or not it leads anywhere —
-  throwing a snowball is as real as lighting a fire; nothing is placed only because a goal needs it
+  throwing a snowball is as real as lighting a fire; the world holds not only things that are there for a
+  reason
   (documents 05, 17). (2026-09-28)
 
 **Rescue** (document 14 §3) — three ways: the radio, a signal a plane can see, surviving long enough.
