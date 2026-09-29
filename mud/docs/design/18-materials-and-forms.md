@@ -34,6 +34,9 @@
 - **2026-09-26, 2026-09-27 — the season** is the first week of October in interior Alaska (document 13
   §4.2).
 
+- **2026-09-28 — real numbers on every material** (§4.8): the physical axes the heat, water and food
+  systems read are real numbers in real units, each with a source; the word scales stay for the
+  judgement axes (cut, tear, bend, ignition, smoke).
 - **2026-09-28 — the missing materials go in** (§4.7): stone above all, soil and clay, fur and hide,
   bone and antler, lichen, punk wood, peat, canvas, rawhide, grease and fat, kerosene, mica, brass;
   snow and ice as states of one substance, water; the six body materials in place of `flesh`; real
@@ -102,10 +105,10 @@ is worth saying out loud to anyone editing a row:
 | `edibility` | food value |
 | `potability` | safe to drink |
 
-*(Proposed by Claude, for Andrew's check: `conductivity` here is electrical and is renamed
-`electrical_conductivity` so the heat system's `thermal_conductivity` is not mistaken for it;
-`edibility` and `potability` become answers the food and water systems derive from real axes and the
-entity's states, and `absorbency` gains a real number, `holds_water` — §4.8.)*
+`conductivity` here is electrical and is renamed `electrical_conductivity` so the heat system's
+`thermal_conductivity` is not mistaken for it; `edibility` and `potability` become answers the food and
+water systems derive from real axes and the entity's states, and `absorbency` gains a real number,
+`holds_water` — §4.8 (2026-09-28).
 
 Beside the properties each material carries **tags** — 27 in use, among them `flammable`, `fuel`,
 `tinder`, `fabric`, `flexible`, `metal`, `conductive`, `cordage`, `wire`, `rigid`, `brittle`, `soft`,
@@ -310,7 +313,7 @@ It also pays for itself elsewhere: density is what decides whether a thing float
 much a snow block weighs when you cut one, and how far a thrown stone carries. Capacity, the other
 half, lives on containers (document 16); the grammar side is document 04 §3.11.
 
-### 4.8 What the state systems need from a material *(proposed by Claude, for Andrew's check)*
+### 4.8 What the state systems need from a material (accepted 2026-09-28)
 
 Heat, wetness, spoilage and the rest are states on every entity that really has them, changed by
 systems; snow melts into water, food changes with heat, and body parts have heat as part of their
