@@ -523,6 +523,9 @@ it says so. When a decision changes, this list and every document it touches cha
 - An agent acts at the speed of typing its command; a slow model is simply slow. The models: a fast one
   (Haiku or Sonnet, low to medium reasoning) and Andrew's own open-weight model, which needs timing;
   activations may be collected in runs with humans if it is fast enough. (2026-09-26, 2026-09-27)
+- An agent gets exactly what a person gets — the grammar guide, the same tutorial, the same screen —
+  and different scaffolding can be tried later so it understands the goal; that this may make it aware
+  it is being evaluated is accepted, since it is not necessarily what is being studied. (2026-09-28)
 
 **Documents**
 - One GDD; the old seed design and the investigation scratchpads are removed from the repository (git

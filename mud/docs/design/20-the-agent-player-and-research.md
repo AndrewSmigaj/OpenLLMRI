@@ -55,6 +55,9 @@
 - **No moral tags** (2026-09-16, 2026-09-28): acts are not tagged as immoral, neutral or taboo; after
   the run, a language model reads the playthrough and describes what happened (document 15 rule 6).
 - **What counts as a wall** (2026-09-18): five categories, counted separately (document 05 §4.5a).
+- **What an agent is given** (2026-09-28): exactly what a person is — the grammar guide, the same
+  tutorial, the same screen — and different scaffolding can be tried later so it understands the goal;
+  the eval awareness this may bring is accepted.
 - **After agents play** (2026-09-28), other language models analyse their playthroughs, and the agent
   players answer a brief questionnaire — part of fleshing out and balancing the world, and how the
   places that need a hint are found (document 04).
@@ -111,8 +114,7 @@ Explicitly **not** given (Andrew, 2026-09-16): a verb list, an action menu, a li
 reachable, a numbered disambiguation list, a structured observation line, or any marker a human would
 not see. The rule is one line: *structure goes to the log, never to the screen.*
 
-*(Proposed by Claude, for Andrew's check.)* Beyond the grammar guide, an agent is shown exactly what a
-person is shown, in the same order, and nothing a person is not: the tutorial — a series of rooms,
+Beyond the grammar guide, an agent is shown exactly what a person is shown (2026-09-28), in the same order, and nothing a person is not: the tutorial — a series of rooms,
 each one simple situation that shows what sort of things players can do (Andrew, 2026-09-27;
 `PLAN.md` E19) — and then the run's opening. Who it is, what it wears and carries and how it is hurt,
 it learns as a person does: the meters, `status`, `inventory`, looking at itself (the draw is made at run start,
@@ -123,6 +125,11 @@ character *sees* is what that body perceives: the same bands, and the senses the
 bear's nose outranges its eyes — the scent channel is still to be designed, document 19 §4.4). For
 research, the instructions are part of the run's manifest (§4.9) and identical across the conditions
 compared.
+
+**Scaffolding, later** (Andrew, 2026-09-28): different scaffolding can be tried when the agents play,
+so an agent understands the goal. It goes through the same tutorial as a person. That this may make an
+agent aware it is being evaluated is accepted — it is not necessarily what is being studied. Each
+scaffolding is part of the run's manifest (§4.9).
 
 ### 4.2 The same view as a human
 
