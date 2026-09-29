@@ -212,7 +212,7 @@ when nobody is left alive in the valley. A party found by a pass, raised on the 
 when the weather lets the search in, or found on day 7 is rescued; death comes of anything the body's
 systems reach. Dead players are **ghosts**: they move freely and talk in the out-of-character chat;
 ghosts hear ghosts, the living cannot; anyone can use the out-of-character chat. There is **no recap**.
-A sitting that ends first, with someone alive and unrescued, is a pause, resumed like any other.
+A sitting that ends first, with someone alive and unrescued, is paused — someone types the pause command — and resumed like any other.
 
 ### 4.4 The events, by category
 

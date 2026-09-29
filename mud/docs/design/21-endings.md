@@ -107,8 +107,8 @@ shore. A lake that is skinning over with new ice takes neither floats nor skis (
   ladder closes on an unfindable party**. The second is measured, not assumed; if the fuzz finds
   competent unfindable parties outliving the sitting, that is a finding for the ladder, never a reason
   for a cutoff.
-- **When the sitting ends first**, with someone alive and unrescued, the run is paused and resumed
-  like any other (Andrew, 2026-09-17, 2026-09-27).
+- **When the sitting ends first**, with someone alive and unrescued, someone in the party types the pause
+  command, and the run is resumed like any other (Andrew, 2026-09-17, 2026-09-27, 2026-09-28).
 
 ### 4.5 Ghosts (Andrew, 2026-09-17, 2026-09-27)
 

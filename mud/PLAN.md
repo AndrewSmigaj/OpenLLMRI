@@ -343,7 +343,8 @@ it says so. When a decision changes, this list and every document it touches cha
   back to 15×; ambient events do not. Sleeping players can chat out of character to pass the time. The
   numbers are tuned by playtesting. (2026-09-17, 2026-09-27)
 - A run is one sitting of two or three hours — about a week of game time — which the players can pause
-  and return to. A missing player's character goes catatonic, sits down and stares; the others can keep
+  and return to: the run pauses when someone in the party types the pause command, never by itself
+  (2026-09-28). A missing player's character goes catatonic, sits down and stares; the others can keep
   them alive, and they can die. (2026-09-17, 2026-09-27)
 - Small attended jobs take one to three game-minutes; bigger ones take honest durations. Ambience comes
   from the things present, each with its own rhythm. Being awake is being on watch. The commands that

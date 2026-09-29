@@ -221,7 +221,8 @@ numbers for analysis. The meters show the same body at a glance, as bars in the 
 ### 4.8 The run
 
 A run is **one sitting of two or three hours** covering about a week of game time; the players can
-pause it and come back (Andrew, 2026-09-17). A player who is missing when the run resumes leaves a
+pause it and come back (Andrew, 2026-09-17) — the run pauses when someone in the party types the pause
+command, never by itself (2026-09-28). A player who is missing when the run resumes leaves a
 character who goes catatonic, sits down and stares; the others can keep them alive, and they can die
 (Andrew, 2026-09-27). The run ends in **rescue or death** — never by a timer; walking out is not an
 ending. The search reaches a party it can find on day 7 by default, and rescue can come sooner

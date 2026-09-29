@@ -57,7 +57,7 @@
 
 ### Proposals (Claude)
 
-- The **instance lifecycle** — spawn from a prototype set, tag every object with a `run_id`, persist
+- The **instance lifecycle** (accepted 2026-09-28; its details held for the implementation plan) — spawn from a prototype set, tag every object with a `run_id`, persist
   in Postgres during play, reset by deleting the run's tagged objects, and a reaper Script (DR-15's
   mechanism). This mirrors Evennia's EvAdventure dungeon contrib; it is an idiomatic pattern, not an
   invented one. A paused run is never reaped (§4.1).
@@ -67,7 +67,7 @@
 - The **reachable/visible split** and the "too far to {verb} from here" answer.
 - **Interdependence as one general rule** — an act's needs met by what the actors present bring
   together (§4.7).
-- The **typing pace** in numbers; the last player out pauses the run; what the party can do for a
+- The **typing pace** in numbers; what the party can do for a
   catatonic member (§4.6).
 - The **acting animals perceive by the same bands**, and scent is a channel still to be designed
   (§4.4).
@@ -112,8 +112,8 @@ The lifecycle (**proposal**, DR-15):
 | GC | a reaper Script sweeps a run that has ended — rescued or dead — or been discarded, and any objects whose run no longer exists |
 
 A paused run is never reaped: a pause is the party's choice to come back, a state of the run rather
-than an absence of sessions, so the reaper needs no timeout. *(Proposed by Claude, for Andrew's
-check.)* *Implementation note carried from the architecture: `search_object_by_tag` lives under
+than an absence of sessions, so the reaper needs no timeout (2026-09-28). How the instance machinery
+is built is the implementation plan's. *Implementation note carried from the architecture: `search_object_by_tag` lives under
 `evennia.search` / `evennia.utils.search`, and the reference instancing usage is
 `evennia/contrib/tutorials/evadventure/dungeon.py`.*
 
@@ -232,9 +232,10 @@ reactor serializes commands, so shared-object mutation cannot race (DR-22).
   document 06), so a fast model does no more work per game-minute than a person; the typing pace takes
   away only reaction, the one advantage no person can match. In an agent-only run it is what gives
   every step an honest cost on the clock.
-- **Pausing** (Andrew, 2026-09-17, 2026-09-27). The players can pause the run and return to it later.
-  *(Proposed by Claude, for Andrew's check:)* when the last player leaves, the run pauses — the clock
-  stops because the run is paused, which is not a hole in the running clock.
+- **Pausing** (Andrew, 2026-09-17, 2026-09-27, 2026-09-28). The players can pause the run and return to
+  it later. **The run pauses when someone in the party types the pause command** — it does not pause
+  by itself when players leave. The clock stops because the run is paused, which is not a hole in the
+  running clock.
 - **A missing player** (Andrew, 2026-09-27). If a player is missing, their character goes catatonic:
   sits down and stares off. The party is warned (2026-09-17). The others can keep the character alive
   if they want, and it can die. *(Proposed by Claude, for Andrew's check:)* the body is in the world
