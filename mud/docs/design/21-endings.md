@@ -21,7 +21,7 @@ The endings — rescued or dead — and what a dead player becomes: a ghost.
   time-window barriers, the things that cause death increase, so a party that is not rescued dies
   honestly. There is no set arc — what to do is the players' decision.
 - **Rescue comes three ways** — the radio, a signal a plane can see, surviving long enough — with the
-  same flyovers every run and the default rescue on day 7 (2026-09-17, 2026-09-27; document 14 §3).
+  same flyovers every run (2026-09-17, 2026-09-27; document 14 §3).
 - **Ghosts** (2026-09-17, 2026-09-27): a dead player becomes a ghost and moves freely. Ghosts hear
   one another; the living do not hear ghosts. Anyone, living or dead, can use the out-of-character
   chat.
@@ -29,15 +29,16 @@ The endings — rescued or dead — and what a dead player becomes: a ghost.
 - **Endings per person, rescue per group** (2026-09-28): an ending belongs to a person, and the run is
   over when nobody is left alive in the valley; a pass rescues whoever is findable, as real searches
   go, by helicopter on solid ground. **A rescued player still gets to hang out**, in the lobby.
-- **The lobby** (2026-09-29): dead and rescued players are transported to a lobby inside the
-  simulation; they talk there in the room, and a door opens into the world, where they move quickly
-  and watch as ghosts (§4.5).
+- **The game ends on day 7** (2026-09-29): the rescuers find everyone still alive; a rescuer entering a
+  room with characters rescues them, and they are transported to the lobby. The early ways home get
+  out sooner, and the last 24 hours are the hardest (§4.3).
+- **The lobby** (2026-09-29): a small room inside the simulation — windows, couches, warm drinks —
+  where the rescued and the dead are back in their own bodies, look up their character, talk, go back
+  in as silent watchers, and are offered a T-shirt by a polite robot (§4.5).
 
 ### Proposals (Claude)
 
-- After day 7 nothing is a cutoff: passes continue while the weather allows (§4.4).
-- Two properties checked like the numbers they are: the day-7 rescue reaches every findable party,
-  and the ladder closes on a party that stays unfindable (§4.4).
+- Where the rescuers walk is the game's rules, and what they say a small model (§4.3).
 - What a ghost sees and does beyond Andrew's decision (§4.5).
 
 ## 3. In one paragraph
@@ -84,41 +85,28 @@ Two things never kill: poison makes a person very sick (document 23 — the bane
 hemlock, the deadly galerina), and dangerous places — thin ice, a fall — injure and never kill
 outright.
 
-### 4.3 Rescue, per findable group (2026-09-28)
+### 4.3 Rescue (Andrew, 2026-09-28, 2026-09-29)
 
-A pass finds whoever is findable at that moment — at the wreck, at the cabin, or under a signal
-(document 14 §3). Real searchers who find part of a party learn from them how many were aboard and
-where the rest went, and search on from there. So a group found first is rescued and tells the
-searchers, and the rest are found at the next pass if they are findable there. **A rescued player is
-loaded onto the helicopter and still gets to hang out** (Andrew, 2026-09-28) — in the lobby (§4.5).
+**The game ends on day 7** (Andrew, 2026-09-29). That morning the helicopter comes for everyone still alive — the survived-long-enough rescue — and its crew find the people wherever they are: when a rescuer enters a room with any characters in it, they get the *you are rescued* text and are transported to the lobby, still in the simulation. Everyone alive is rescued; nobody is left out and no extra storm or bad weather is needed. The early ways home — the radio, a signal a plane sees — bring the helicopter sooner, and a party that can speedrun it gets out sooner. For those early routes to be worth the work, **the last 24 hours before the day-7 rescue are the hardest of the run** — the day-6 flurry and the coldest night (document 13 §4.2). *(Proposed by Claude, for Andrew's check:)* where the rescuers walk is the game's own rules, so they always reach everyone — the helicopter's thermal camera shows a warm body through the trees — and what they say is played by a small language model, so the rescue never depends on how well the model does.
+
+An early rescue finds whoever is findable at that moment — at the wreck, at the cabin, or under a
+signal (document 14 §3); real searchers who find part of a party learn from them where the rest went,
+and the crew go to them the same way.
 
 The pickup is a helicopter setting down on solid ground — the wreck's clearing, a gravel bar, the
 shore. A lake that is skinning over with new ice takes neither floats nor skis (document 13 §4.2).
 
-### 4.4 After day 7, and when the sitting ends first *(proposed by Claude, for Andrew's check)*
+### 4.4 When the sitting ends first
 
-- **After day 7, nothing is a cutoff.** The flyover schedule is the rescue clock (document 14 §3.5),
-  and day 7 is the default rescue for a party that can be found. After it, if they are not found,
-  passes continue while the weather allows, each a chance, as real searches go: a search is scaled
-  back, but traffic does not stop. The 1963 search for Helen Klaben and Ralph Flores, down in a Yukon
-  winter, was called off within about two weeks, and a passing bush plane saw their SOS in a clearing
-  on day 49. The world never announces that a search is suspended; the planes simply come less often,
-  which the party hears.
-- **A party that stays unfindable meets the ladder** (document 13) — and real life is the caution:
-  Klaben and Flores lived 49 days on almost no food, so hunger alone does not end a week; it is the
-  deepening cold, wet, injury and exhaustion together that close in. Two properties are checked like the
-  numbers they are: **the day-7 rescue reaches every findable party** (`PLAN.md` E14's fuzz), and **the
-  ladder closes on an unfindable party**. The second is measured, not assumed; if the fuzz finds
-  competent unfindable parties outliving the sitting, that is a finding for the ladder, never a reason
-  for a cutoff.
-- **When the sitting ends first**, with someone alive and unrescued, someone in the party types `pause game`, and the run is resumed like any other (Andrew, 2026-09-17, 2026-09-27, 2026-09-28).
+Someone alive and unrescued when the sitting ends: someone in the party types `pause game`, and the
+run is resumed like any other (Andrew, 2026-09-17, 2026-09-27, 2026-09-28). No run goes past day 7.
 
 ### 4.5 Ghosts (Andrew, 2026-09-17, 2026-09-27)
 
 A dead player becomes a **ghost** and moves freely. **Ghosts hear one another; the living do not hear
 ghosts. Anyone, living or dead, can use the out-of-character chat** (document 19 §4.8).
 
-**The lobby** (Andrew, 2026-09-28, 2026-09-29): once a player dies or is rescued they are transported to the lobby — a room inside the simulation, not a physical room of the institute. Players there talk to each other in the room itself, so they can talk about the rescue without the out-of-character chat. It has a door that opens into the simulation: through it they move around the world at a quick speed, not the slow pace of the living, watching as ghosts do — seeing everyone, acting on nothing, heard only by other ghosts.
+**The lobby** (Andrew, 2026-09-28, 2026-09-29) — the name is still to be chosen. A player who is rescued or dies is transported there: a small room inside the simulation, with windows, a couple of couches and warm things to drink. Players are back in their own bodies. There are displays where they look up information about their character; a sign gives the command to go back into the simulation as a silent watcher — through its door they move around the world at a quick speed, seeing everyone, acting on nothing, heard only by the others watching; they talk to each other in the room itself, or stay in the chat; and there are a few fun things to do, still to be designed. A polite robot, played by a language model, offers each of them a T-shirt — one about surviving or one about dying, by how they got there.
 
 What follows from the rest of the design *(proposed by Claude, for Andrew's check)*:
 
@@ -168,6 +156,10 @@ None open.
 - **2026-09-27 (Andrew):** there is no recap; ghosts hear ghosts, the living cannot, and anyone can use
   the out-of-character chat; nothing kills instantly — death comes by the body running down.
 - **2026-09-27** — the no-storm week carried in (document 13 §4.2).
+- **2026-09-29 (Andrew):** the game ends on day 7 — the rescuers find everyone still alive, and a
+  rescuer entering a room rescues whoever is in it; early routes get out sooner; the last 24 hours are
+  the hardest; the lobby, with its displays, its sign, its silent-watcher door and a T-shirt from a
+  polite robot; nothing after day 7.
 
 ## 8. What exists today
 

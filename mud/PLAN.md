@@ -198,13 +198,13 @@ no design.
 | ☐ | E5 | Food and hunger: calories as a ledger; yields per source from document 23 §4.4's real figures (kit, freight, the country by zone, the body); the valley's carrying capacity as the spine of the week; the hare cycle as a seeded run variable; rabbit starvation (protein without fat); cooking as a heat state; `throw`, `set snare`, fishing; hunger's symptoms long before death. | Opus | 10, 23 | A1.10, E1 |
 | ☐ | E6 | Injury and first aid: wounds as data with bleeding/infection/frostbite clocks, `press`, `bind/wrap`, `splint`, the med pouch, the starting draws' injuries as live processes. | Opus | 11 | A1.11, E1 |
 | ☐ | E7 | Events, escalation and weather: the ladder by game day, the event deck (first version) as scheduled processes with a due list and band-routed narration, hazard triggers (the steep lee slope, thin ice, a dead branch in the wind), tracks that persist and decay, weather bands wired to perception and fire, snow load and the drift, the acting animals (the bear, the wolves, a few birds) and wildlife as sign; dangerous places injure, never kill outright. | Opus | 13, 01 | A1.13, E1 |
-| ☐ | E8 | Rescue, as document 14 §3: the hand radio (its batteries buried in a bag in the tail, something to open it, the loose wire, any long metal raised as the antenna, the channel buttons or the written frequency, push-to-talk, the draining light, contact once the antenna is fixed); the voice on the other end (a weak language model, scaffolded, judging landmarks by the game's criteria); signals seen by physics, the plane heard first; the same flyovers every run and the default rescue on day 7; findable takes work; the blue tarp as a ground signal; the pickup at the next daylight good for flying. The ELT is broken. | Opus | 14 | A1.14, E7 |
+| ☐ | E8 | Rescue, as document 14 §3: the hand radio (its batteries buried in a bag in the tail, something to open it, the loose wire, any long metal raised as the antenna, the channel buttons or the written frequency, push-to-talk, the draining light, contact once the antenna is fixed); the voice on the other end (a weak language model, scaffolded, judging landmarks by the game's criteria); signals seen by physics, the plane heard first; the same flyovers every run and the day-7 rescue of everyone alive, the crew reaching each survivor; findable takes work for the earlier passes; the blue tarp as a ground signal; the pickup at the next daylight good for flying. The ELT is broken. | Opus | 14 | A1.14, E7 |
 | ☐ | E9 | The moral and social layer: ownership live (`take X from <person>` witnessed; `give X to Y`), persons as targets (`hit`, `strike`, `push`, `bind`, `carry`), speech as acts with claims checked against world state, the event log `events.jsonl` with witness lists (no moral tags — a language model reads the playthrough after the run), the two-lie check, the five dilemma probes. | Opus | 15 | A1.15, E5, E6 |
 | ☐ | E10 | Materials: the natural world (stone, soil, clay, bone, hide, sinew, punk wood, lichen, rubber…) and the missing axes (edibility on flesh, liquid axes, hardness/spark); snow and ice as state on one material. | Opus | 18 | A1.18, C2 |
 | ☐ | E11 | New verbs as the loops and the docs demand them (strike, press, tape, fill, arrange, blow, sit, scrape, cover/block, push/pull/drag, throw, unscrew, warm, climb, dig dirt…); `help grammar` finalized once the forms are final; the manual page. | Opus | 04 | D2 |
 | ☐ | E12 | The converter YAML → tables, run per zone when its design is finalized; the fifty outdoor zones as data, rendered and read. | Opus | 05, 01 | C2, D9 |
 | ☐ | E13 | Instances and co-op: a run as one sitting (lifecycle, halt/resume, the reaper), ghosts for dead players (free movement; ghosts hear ghosts, the living do not; anyone can use out-of-character chat), the missing player's character catatonic, seed-driven slot permutation at run start, the first-class interdependence as a general concurrent-state capability (the antenna hold first), the run modes incl. NHCs (and animals played by a lightweight model), and the agent pace: the speed of typing the command (Andrew, 2026-09-27). | Opus | 19, 16, 21 | A1.19 |
-| ☐ | E14 | Endings: rescued (by the radio, a signal, or surviving to the day-7 rescue) or dead; ghosts; a fuzz that proves the day-7 rescue reaches every findable party. | Opus | 21 | A1.21, E7 |
+| ☐ | E14 | Endings: rescued (by the radio, a signal, or the day-7 rescue of everyone alive) or dead; the rescuers reaching each survivor; the lobby; a fuzz that proves the day-7 rescue reaches everyone alive. | Opus | 21 | A1.21, E7 |
 | ☐ | E17 | Exits as entities with a mode, travel time and state; movement as an attended activity with events (`walk`, `run` = less time more sweat, `climb`, `enter`, `turn back`); the tutorial rooms teach it (E19). | Opus | 03, 01 | A1.03, E1 |
 | ☐ | E18 | Groups: several things sharing a place and a kind form a described group ("a pile of clothes"); `look at the pile` lists them; taking dissolves it — the composer's fifth extension. | Opus | 03 | D3 |
 | ☐ | E19 | The pre-scenario tutorial *(Andrew, 2026-09-27: a series of tutorial rooms, each one simple situation showing what sort of things players can do — it needs its own design document; the first room asks each player their character's sex and name, 2026-09-29)*: the grammar forms with one example each, the time controls (`propose fast forward`), movement, `help`; taught once, never a menu. | describer + Opus | 04, 06 | A1.04, A1.06 |
@@ -454,9 +454,14 @@ it says so. When a decision changes, this list and every document it touches cha
 - **Open-ended activities**: `tend the fire` keeps a fire fed from the wood at hand until stopped, runs on
   through fast forward, and when the wood runs out stops and drops the clock back to 15×; keeping watch
   and fishing a line are the same kind (documents 06, 07). (2026-09-28)
-- **The lobby** (2026-09-28, 2026-09-29): a player who dies or is rescued is transported to the lobby, a
-  room inside the simulation; they talk there in the room, and its door opens into the world, where
-  they move quickly and watch as ghosts (documents 19, 21).
+- **The game ends on day 7** (2026-09-29): the rescuers find everyone still alive, and a rescuer entering
+  a room rescues whoever is in it; early routes (the radio, a signal seen) get out sooner, and the last
+  24 hours before the day-7 rescue are the hardest, so they are worth the work. Nothing runs past day 7.
+- **The lobby** (2026-09-28, 2026-09-29; the name still to be chosen): the rescued and the dead are
+  transported to a small room inside the simulation — windows, couches, warm drinks — back in their own
+  bodies, with displays about their character, a sign with the command to go back in as a silent
+  watcher, the chat, a few fun things, and a polite robot offering a T-shirt about surviving or dying
+  (documents 19, 21).
 - **Sight, travel and pausing** (2026-09-28): sight works within a Scene — a connected group of places;
   another Scene is not seen automatically, though something big can be seen far across open land,
   blocked by bushes, trees or weather case by case. Going to another Scene is a journey with an
@@ -529,8 +534,9 @@ it says so. When a decision changes, this list and every document it touches cha
   how close the pass comes (Claude's choice). The plane is heard before it is seen; a party may not make
   it in time. (2026-09-17, 2026-09-27)
 - **Surviving long enough:** search and rescue is searching; **the same flyovers every run**; **the
-  default rescue is day 7**; being findable takes work — partial cloud and the trees hide the wreck,
-  and after the day-6 snow it is white on white. The rest of the schedule is
+  game ends on day 7**, when the rescuers find everyone still alive (2026-09-29); being findable on an
+  earlier pass takes work — partial cloud and the trees hide the wreck, and after the day-6 snow it is
+  white on white. The rest of the schedule is
   Claude's (document 13 §4.2). No boats. (2026-09-17, 2026-09-27)
 
 **Agents**

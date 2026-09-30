@@ -62,8 +62,8 @@
   realism first: it takes far longer than flying to a named landmark (2026-09-28).
 - **Whether a crew sees a signal follows physics** — what the signal is and how it contrasts, the
   weather, how close the pass comes (§3.4) — accepted (2026-09-28).
-- **The rest of the flyover schedule**, and passes after day 7 for a party not yet found (§3.5;
-  document 13 §4.2) — accepted with document 13's numbers (2026-09-28).
+- **The rest of the flyover schedule** (§3.5; document 13 §4.2) — accepted with document 13's numbers
+  (2026-09-28).
 - **(2026-09-27)** Holt, the trapper, does not come back during the week; the cabin is supplies, not a place to be
   rescued from. **His own traces tell it** (2026-09-28), and nothing else does: the gear he carries on
   the line is gone from its pegs (spare snares and traps stay); a calendar on the wall has the days
@@ -186,16 +186,17 @@ smoke that shows against snow; green boughs make white smoke that shows against 
 - **The same weather and the same flyovers every run.** No big storm: snow on and off, the sky always
   at least partly cloudy, so planes fly most days; **a heavier flurry on day 6** grounds the search and
   clears overnight for day 7 (document 13 §4.2).
-- **The default rescue is day 7** — for a party that waits it out and can be found.
+- **The game ends on day 7** (2026-09-29) — the survived-long-enough rescue: the crew find everyone
+  still alive, wherever they are, and a rescuer entering a room rescues whoever is in it (document 21
+  §4.3). The early ways home bring the helicopter sooner.
 - *(The rest of the schedule is Claude's, at Andrew's request, for his check:)* day 1 at dusk the early
   pass, high along the filed route — heard far off, for the story; day 2 the route search, across the
   ridge in the afternoon — a chance for a party with a signal ready; day 3 the search widening off the
   route, a pass heard in the next valley and lost in the cloud; day 4 a pass across the lake's far end,
   seen through a gap in the cloud — a real chance; day 5 the search narrowing toward this valley, a pass
   low along the creek in the afternoon — a real chance; day 6 the flurry grounds the search and nothing
-  flies; **day 7 the default rescue**, in clear air over fresh snow, for a party that can be found;
-  after that, if not found, passes continue while the weather allows, each a chance.
-- **Findable takes work**: partial cloud and the trees hide the wreck from the air, and after day 6's
+  flies; **day 7 the rescue of everyone still alive**, in clear air over fresh snow.
+- **Findable takes work — for the early passes** (days 2–5): partial cloud and the trees hide the wreck from the air, and after day 6's
   snow the white plane is white on white, so what the party builds decides it — smoke kept going, the
   tarp laid out, a sign laid or scraped in the open; the chimney smoke at Holt's cabin is a sign by
   itself. A party in radio contact that is not findable is

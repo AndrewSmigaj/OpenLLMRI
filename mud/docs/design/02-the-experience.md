@@ -84,8 +84,9 @@ The decisions that shape a run, in plain words; every one of them, with its date
   fighters' stats and chance as in D&D, read as what happened; a blow wounds only when it would really hurt; no hit points.
   Hunger works as it does in real life, and players see meters for what the body feels.
 - **Getting home (2026-09-17, 2026-09-27).** Three ways: the radio, a signal a plane can see, surviving
-  long enough — exactly as document 14 §3. The ELT is broken. Surviving long enough is the hardest way;
-  the default rescue is day 7. Walking out is not an ending; Holt's cabin is supplies — some trapline
+  long enough — exactly as document 14 §3. The ELT is broken. **The game ends on day 7**: the rescuers
+  find everyone still alive (2026-09-29); the early ways home get out sooner, and the last 24 hours
+  before day 7 are the hardest. Walking out is not an ending; Holt's cabin is supplies — some trapline
   gear and modest stores.
 - **Endings (2026-09-17, 2026-09-26, 2026-09-27).** Rescued or dead. The run ends when they die, of
   anything. Dead players are ghosts: they move and use out-of-character chat; ghosts hear ghosts, the
@@ -312,7 +313,7 @@ resources (daylight · warmth · sweat · tools · knowledge · risk).
 |---|---|---|
 | **the radio** | the hand radio, dead; its batteries, buried in a bag in the tail section, which each flurry hides a little more · something to open it · the loose wire inside, seen at once by a technically proficient character and found slowly by anyone else, with a hint · anything metal and long enough as the antenna, raised — higher is better · the channel buttons, or the emergency frequency found written down · hold the button to talk · the light dims as the batteries drain | the cabin, the tail section, and a height: the fuselage top or the knob |
 | **a signal a plane can see** | fire and smoke — rubber, oil, green boughs · a piece of mirror, once clear of the trees · burning the cabin during a flyover · whether a crew sees it is physics: contrast, weather, how close the pass comes · the plane is heard before it is seen, and a party may not make it in time | the crash site, the lake shore, the gear gouge, the knob |
-| **surviving long enough** | staying alive — and staying findable: partial cloud and the trees hide the wreck, and after the day-6 snow it is white on white, so what the party builds decides it — a sign stamped or laid out in the fresh snow, the wreck brushed clear, smoke kept going | anywhere; the default rescue is day 7 |
+| **surviving long enough** | staying alive through the hardest 24 hours, the day-6 flurry and the coldest night — on day 7 the rescuers find everyone still alive, wherever they are (2026-09-29) | anywhere; the game ends on day 7 |
 
 **The voice** on the radio is a person at search and rescue, played by a weak language model — the same
 model every run, scaffolded with rules. It helps only as a real rescuer would, may hint through the bad

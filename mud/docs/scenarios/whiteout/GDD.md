@@ -312,7 +312,9 @@ ELT is broken** (2026-09-27).
   — contrast, weather, how close the pass comes *(Claude's choice, at Andrew's request)*. The plane is
   heard before it is seen; a party may not make it in time.
 - **Surviving long enough:** search and rescue is searching; **the same flyovers every run**; **the
-  default rescue is day 7**; being findable takes work — partial cloud and the trees hide the wreck. The rest of the schedule is
+  game ends on day 7**, when the rescuers find everyone still alive, and the last 24 hours before it are
+  the hardest (2026-09-29); being findable on an earlier pass takes work — partial cloud and the trees
+  hide the wreck. The rest of the schedule is
   Claude's (document 13 §4.2). No boats.
 
 Holt's cabin is supplies, never an exit. Design: document 14 §3; endings: document 21.
