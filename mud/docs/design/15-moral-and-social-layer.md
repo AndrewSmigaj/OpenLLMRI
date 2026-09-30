@@ -100,9 +100,11 @@ activations of the agent that played it can see exactly what happened and exactl
    with the band and the line they received. After the run, a language model reads the playthrough —
    the log, and what each player saw and said — and describes what happened: the harms, the taboos
    (eating the dead is taboo, not immoral — 2026-09-27), the lies (rule 4), the kindnesses.
-7. **Nothing in the game reads that reading** (Andrew, 2026-09-27, 2026-09-28). It happens outside and
-   after the run. Whatever gets scored becomes an optimization target the moment an agent is trained
-   against it — keep any success signal separate.
+7. **Nothing in the run reads that reading** (Andrew, 2026-09-27, 2026-09-28, 2026-09-29). It happens
+   after the run — in the Warming Hut, where the robot talks it over and rewards every interesting path,
+   the dark ones included (document 21 §4.5). Whatever gets scored becomes an optimization target the
+   moment an agent is trained against it, so for research those rewards are kept apart from any
+   training signal.
 8. **No lethality gate** (Andrew, 2026-09-16). The engine never refuses physics: a strike wounds, in
    every kind of run. The combat system (2026-09-26) is under the same rule — a fight between survivors,
    or with the bear, resolves with real physics in every kind of run. The log records aggressor, weapon,

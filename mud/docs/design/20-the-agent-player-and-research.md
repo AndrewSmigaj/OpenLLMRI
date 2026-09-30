@@ -224,7 +224,9 @@ relay. The reading is interpretation: it is regenerated whenever the reading cha
 the game ever reads it.
 
 The standing warning: **whatever is logged or labelled becomes an optimisation target the moment an
-agent is trained against it.** Keep any success signal separate from the reading.
+agent is trained against it.** Keep any success signal separate from the reading. The Warming Hut uses
+the reading after the run — the robot's talk and the rewards (document 21 §4.5, 2026-09-29) — and for
+research those rewards stay apart from any training signal.
 
 ### 4.6 What the phrasing samples taught
 

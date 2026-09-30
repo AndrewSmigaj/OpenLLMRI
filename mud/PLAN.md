@@ -23,6 +23,8 @@ it.
   prose: no quotes of the conversation, no superseded material, every decision in §5 applied everywhere;
   the old seed design, the investigation scratchpads and the second GDD summary are removed. Document 13
   carries the first-week-of-October weather.
+- **Document 21 reviewed in full (2026-09-29):** the game ends on day 7 with the rescuers finding everyone
+  alive; the Warming Hut; the institute's sim rooms; sex and name chosen by each player.
 - **Document 20 reviewed in full (2026-09-28):** agents alone run at model speed; activations and expert
   routing captured the LLM MRI way; the research run.
 - **Document 19 reviewed in full (2026-09-28):** `pause game`, and a self-pause only when everyone
@@ -48,7 +50,7 @@ it.
   light start (bumps and bruises, a cut, a concussion).
 
 **Next, in this order:**
-1. **The sittings continue in index order, from document 21**, checking the answers Claude proposed in each document, then
+1. **The sittings continue in index order, from document 22**, checking the answers Claude proposed in each document, then
    finalizing at the close.
 2. A10 — the missing systems' documents (combat, heat, hunting/trapping/fishing, food state, animal
    behaviour, scent, light, weather, snow and ice on the ground, physiology, the tutorial rooms); A11 — the
@@ -190,6 +192,7 @@ no design.
 | ☐ | E26 | The three streams: activity emotes (start/tick/interrupt/complete), ambience from the things present (each thing's `sensed` cadence, varying with state; the sum is the room), and other people through the propagator. Under a fast forward the world runs fast for the awake watcher, rate-limited in real time to stay readable; interrupting events drop the clock to base pace. | Opus | 06, 05 | A1.06, E1 |
 | ☐ | E1 | Time: the clock at 15 game-min per real min with a 4-second heartbeat; fast forward at about 150× by the players' agreement, a command to slow it, a player waking or any non-ambient event dropping it back to 15×; the activity scheduler (attended actions with start/tick/interrupt/complete; unattended processes; `responses/activities.py`); sleep and wait; halt and resume with the missing-member rule; travel durations actually spent per exit. | Opus | 06, 01, 19 | A1.06 |
 | ☐ | E27 | Reconcile the forms list: the code's 26 words are canonical; correct `ontology-closure.md` §2's table and drop its "extend by evidence, never speculatively" comment (ceiling framing). Reconcile `systems/fire.py`'s older stage ladder to the design's. | Opus | 07, 18, 05 | A1.07 |
+| ☐ | E31 | The Warming Hut (document 21 §4.5): the room, the robot, the displays and totals, the language model's readings for each person and the party, the rewards for every interesting path, rewatching a stretch of the run, the guestbook, the wall of photos, the window, the silent-watcher door; the archives room later. | Opus | 21, 19, 20, 15 | E14 |
 | ☐ | E30 | The meters: a prompt line of bars for what the body feels, read from the same body numbers as the band words, drawn by Mudlet as gauges (document 08 §4.9: hunger, thirst, warmth, rest, pain, stamina, blood). | Opus | 08, 03, 20 | A1.08 |
 | ☐ | E29 | A latent `break` id collision: `_shatter` ids are `derived_id(parent, f"{piece_word}{i}")`, so breaking two parts of one entity would collide — give `break` the part-scoped id shape when it is next touched. | Opus | 18 | — |
 | ☐ | E2 | Fire: the ignition model (source × receptivity × form thinness; a branch does not take from a lighter), fire as a process (the stage ladder; the stub's old ladder reconciled), the shaping family (`carve/split/shave/whittle/notch/string/bundle`), the seven methods as probe chains. | Opus | 07 | A1.07, E1 |
@@ -204,7 +207,7 @@ no design.
 | ☐ | E11 | New verbs as the loops and the docs demand them (strike, press, tape, fill, arrange, blow, sit, scrape, cover/block, push/pull/drag, throw, unscrew, warm, climb, dig dirt…); `help grammar` finalized once the forms are final; the manual page. | Opus | 04 | D2 |
 | ☐ | E12 | The converter YAML → tables, run per zone when its design is finalized; the fifty outdoor zones as data, rendered and read. | Opus | 05, 01 | C2, D9 |
 | ☐ | E13 | Instances and co-op: a run as one sitting (lifecycle, halt/resume, the reaper), ghosts for dead players (free movement; ghosts hear ghosts, the living do not; anyone can use out-of-character chat), the missing player's character catatonic, seed-driven slot permutation at run start, the first-class interdependence as a general concurrent-state capability (the antenna hold first), the run modes incl. NHCs (and animals played by a lightweight model), and the agent pace: the speed of typing the command (Andrew, 2026-09-27). | Opus | 19, 16, 21 | A1.19 |
-| ☐ | E14 | Endings: rescued (by the radio, a signal, or the day-7 rescue of everyone alive) or dead; the rescuers reaching each survivor; the lobby; a fuzz that proves the day-7 rescue reaches everyone alive. | Opus | 21 | A1.21, E7 |
+| ☐ | E14 | Endings: rescued (by the radio, a signal, or the day-7 rescue of everyone alive) or dead; the rescuers reaching each survivor; the Warming Hut; a fuzz that proves the day-7 rescue reaches everyone alive. | Opus | 21 | A1.21, E7 |
 | ☐ | E17 | Exits as entities with a mode, travel time and state; movement as an attended activity with events (`walk`, `run` = less time more sweat, `climb`, `enter`, `turn back`); the tutorial rooms teach it (E19). | Opus | 03, 01 | A1.03, E1 |
 | ☐ | E18 | Groups: several things sharing a place and a kind form a described group ("a pile of clothes"); `look at the pile` lists them; taking dissolves it — the composer's fifth extension. | Opus | 03 | D3 |
 | ☐ | E19 | The pre-scenario tutorial *(Andrew, 2026-09-27: a series of tutorial rooms, each one simple situation showing what sort of things players can do — it needs its own design document; the first room asks each player their character's sex and name, 2026-09-29)*: the grammar forms with one example each, the time controls (`propose fast forward`), movement, `help`; taught once, never a menu. | describer + Opus | 04, 06 | A1.04, A1.06 |
@@ -439,7 +442,8 @@ it says so. When a decision changes, this list and every document it touches cha
   to everyone there — the game does not know which way anyone faces; taking something unseen is a
   deliberate `steal` or another fitting word. Rule 6: acts are not tagged as immoral, neutral or taboo;
   after the run, a language model reads the playthrough and describes what happened (2026-09-28).
-  Rule 7: nothing in the game reads that reading, and any measure of success is kept separate.
+  Rule 7: nothing in the run reads that reading; after the run the Warming Hut uses it for talk and
+  rewards, kept apart from any training signal (2026-09-29).
   (2026-09-16, 2026-09-27, 2026-09-28)
 - **Hiding and stealing** (2026-09-28): a person can hide anywhere that really conceals a body and is
   left out of the others' view until someone looks where they hide or a small sound gives them away;
@@ -457,10 +461,14 @@ it says so. When a decision changes, this list and every document it touches cha
 - **The game ends on day 7** (2026-09-29): the rescuers find everyone still alive, and a rescuer entering
   a room rescues whoever is in it; early routes (the radio, a signal seen) get out sooner, and the last
   24 hours before the day-7 rescue are the hardest, so they are worth the work. Nothing runs past day 7.
-- **The lobby** (2026-09-28, 2026-09-29; the name still to be chosen): the rescued and the dead are
-  transported to a small room inside the simulation — windows, couches, warm drinks — back in their own
-  bodies, with displays about their character, a sign with the command to go back in as a silent
-  watcher, the chat, a few fun things, and a polite robot offering a T-shirt about surviving or dying
+- **The Warming Hut** (2026-09-28, 2026-09-29): the rescued and the dead are transported to a room inside
+  the simulation, with a warming hut's atmosphere, to recover and look back on the run — back in their
+  own bodies; a polite robot that talks the run over and offers a T-shirt; displays with each
+  character's information and the run's totals in plain text; a language model reading the run for each
+  person and the party; rewards for each member and the team, small things to wear or use even outside
+  the simulation, for every interesting path, not only the happy ones; rewatching any stretch of the run
+  with simple commands; a guestbook, a wall of photos, a window onto the valley; and the way back in as
+  a silent watcher who moves as fast as they type. An archives room of past runs comes later
   (documents 19, 21).
 - **Sight, travel and pausing** (2026-09-28): sight works within a Scene — a connected group of places;
   another Scene is not seen automatically, though something big can be seen far across open land,

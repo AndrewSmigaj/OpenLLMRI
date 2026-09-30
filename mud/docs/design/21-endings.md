@@ -1,6 +1,6 @@
 # 21 — Endings
 
-> **Status: draft for review.** Architecture counterpart: none — the run lifecycle is DR-15/DR-15a in
+> **Status: reviewed with Andrew 2026-09-29.** Architecture counterpart: none — the run lifecycle is DR-15/DR-15a in
 > [`implementation-architecture.md`](../architecture/implementation-architecture.md) §2. `PLAN.md` E14 builds the endings.
 
 The endings — rescued or dead — and what a dead player becomes: a ghost.
@@ -28,17 +28,18 @@ The endings — rescued or dead — and what a dead player becomes: a ghost.
 - **The run ends at its endings; there is no recap** (2026-09-27).
 - **Endings per person, rescue per group** (2026-09-28): an ending belongs to a person, and the run is
   over when nobody is left alive in the valley; a pass rescues whoever is findable, as real searches
-  go, by helicopter on solid ground. **A rescued player still gets to hang out**, in the lobby.
+  go, by helicopter on solid ground. **A rescued player still gets to hang out**, in the Warming Hut.
 - **The game ends on day 7** (2026-09-29): the rescuers find everyone still alive; a rescuer entering a
-  room with characters rescues them, and they are transported to the lobby. The early ways home get
+  room with characters rescues them, and they are transported to the Warming Hut. The early ways home get
   out sooner, and the last 24 hours are the hardest (§4.3).
-- **The lobby** (2026-09-29): a small room inside the simulation — windows, couches, warm drinks —
-  where the rescued and the dead are back in their own bodies, look up their character, talk, go back
-  in as silent watchers, and are offered a T-shirt by a polite robot (§4.5).
+- **The Warming Hut** (2026-09-29): a room inside the simulation, with a warming hut's atmosphere, where
+  the rescued and the dead recover and look back on the run — a robot, displays, a language model's
+  reading of the run for each person and the party, rewards for every interesting path, rewatching any
+  stretch of the run, a guestbook, a wall of photos, a window, and the way back in as a silent watcher
+  (§4.5).
 
 ### Proposals (Claude)
 
-- Where the rescuers walk is the game's rules, and what they say a small model (§4.3).
 - What a ghost sees and does beyond Andrew's decision (§4.5).
 
 ## 3. In one paragraph
@@ -87,7 +88,7 @@ outright.
 
 ### 4.3 Rescue (Andrew, 2026-09-28, 2026-09-29)
 
-**The game ends on day 7** (Andrew, 2026-09-29). That morning the helicopter comes for everyone still alive — the survived-long-enough rescue — and its crew find the people wherever they are: when a rescuer enters a room with any characters in it, they get the *you are rescued* text and are transported to the lobby, still in the simulation. Everyone alive is rescued; nobody is left out and no extra storm or bad weather is needed. The early ways home — the radio, a signal a plane sees — bring the helicopter sooner, and a party that can speedrun it gets out sooner. For those early routes to be worth the work, **the last 24 hours before the day-7 rescue are the hardest of the run** — the day-6 flurry and the coldest night (document 13 §4.2). *(Proposed by Claude, for Andrew's check:)* where the rescuers walk is the game's own rules, so they always reach everyone — the helicopter's thermal camera shows a warm body through the trees — and what they say is played by a small language model, so the rescue never depends on how well the model does.
+**The game ends on day 7** (Andrew, 2026-09-29). That morning the helicopter comes for everyone still alive — the survived-long-enough rescue — and its crew find the people wherever they are: when a rescuer enters a room with any characters in it, they get the *you are rescued* text and are transported to the Warming Hut, still in the simulation. Everyone alive is rescued; nobody is left out and no extra storm or bad weather is needed. The early ways home — the radio, a signal a plane sees — bring the helicopter sooner, and a party that can speedrun it gets out sooner. For those early routes to be worth the work, **the last 24 hours before the day-7 rescue are the hardest of the run** — the day-6 flurry and the coldest night (document 13 §4.2). Where the rescuers walk is the game's own rules, so they always reach everyone — the helicopter's thermal camera shows a warm body through the trees — and what they say is played by a small language model, so the rescue never depends on how well the model does.
 
 An early rescue finds whoever is findable at that moment — at the wreck, at the cabin, or under a
 signal (document 14 §3); real searchers who find part of a party learn from them where the rest went,
@@ -106,9 +107,30 @@ run is resumed like any other (Andrew, 2026-09-17, 2026-09-27, 2026-09-28). No r
 A dead player becomes a **ghost** and moves freely. **Ghosts hear one another; the living do not hear
 ghosts. Anyone, living or dead, can use the out-of-character chat** (document 19 §4.8).
 
-**The lobby** (Andrew, 2026-09-28, 2026-09-29) — the name is still to be chosen. A player who is rescued or dies is transported there: a small room inside the simulation, with windows, a couple of couches and warm things to drink. Players are back in their own bodies. There are displays where they look up information about their character; a sign gives the command to go back into the simulation as a silent watcher — through its door they move around the world at a quick speed, seeing everyone, acting on nothing, heard only by the others watching; they talk to each other in the room itself, or stay in the chat; and there are a few fun things to do, still to be designed. A polite robot, played by a language model, offers each of them a T-shirt — one about surviving or one about dying, by how they got there.
+**The Warming Hut** (Andrew, 2026-09-28, 2026-09-29). A player who is rescued or dies is transported
+there: a room inside the simulation to recover in and look back on the run — seats and displays, with
+the atmosphere of a warming hut, windows, warm things to drink. Players are back in their own bodies.
 
-What follows from the rest of the design *(proposed by Claude, for Andrew's check)*:
+- **A polite robot**, played by a language model, talks the run over and offers each person a T-shirt —
+  about surviving or about dying, by how they got there.
+- **The displays** show each character's information and the run's totals, in text a MUD shows well
+  (no charts that one screen draws and another butchers). A language model reads the playthrough in
+  different ways — each person, and the party as a group — and the robot talks it through.
+- **Rewards.** Each member gets rewards, and the party is scored as a team; the rewards are small things
+  they can wear or use, even outside the simulation, in the institute. They are flexible and reward
+  every interesting path, not only the happy ones — taking the dark route earns its own badge.
+- **Rewatching.** One display replays any stretch of the run: the watcher moves around it and speeds
+  up or slows time with simple commands (a direction, a speed), and so can rewatch what happened in
+  other rooms. A run replays exactly (document 20 §4.7).
+- **A guestbook** each party signs, with how they got out, which later parties can read; **a wall of
+  photos**, one per past run — the party, the outcome, the day; **a window** onto the valley, which you
+  look out of to see its live weather.
+- **A sign** gives the command to go back into the simulation as a silent watcher: a watcher sees
+  everyone, acts on nothing, is heard only by other watchers, and moves as fast as they type, with no
+  travel time. They talk to each other in the hut itself, or in the chat.
+- **Later:** an archives room where any past run can be pulled up and rewatched — not needed now.
+
+What follows from the rest of the design (2026-09-29):
 
 - **A ghost sees everyone** (Andrew, 2026-09-28), a hidden person included, and otherwise what anyone
   standing where it is would see — the same composed look, banded by the same perception, weather and
@@ -121,7 +143,7 @@ What follows from the rest of the design *(proposed by Claude, for Andrew's chec
   perceiver of its own kind, recorded apart from `witnessed_by`, because it cannot testify inside the
   world (document 15).
 
-### 4.6 The end-to-end run the roadmap gates on
+### 4.6 The end-to-end run the roadmap gates on (held for the implementation plan)
 
 P7's exit gate names a minimal run that must play through: **wake → free yourself → find the pilot's
 body → salvage a seat → make a fire → improvise a radio antenna → be rescued**. It is a smoke test of
@@ -158,8 +180,11 @@ None open.
 - **2026-09-27** — the no-storm week carried in (document 13 §4.2).
 - **2026-09-29 (Andrew):** the game ends on day 7 — the rescuers find everyone still alive, and a
   rescuer entering a room rescues whoever is in it; early routes get out sooner; the last 24 hours are
-  the hardest; the lobby, with its displays, its sign, its silent-watcher door and a T-shirt from a
-  polite robot; nothing after day 7.
+  the hardest; the Warming Hut, with its robot, its displays, its rewards for every interesting path,
+  its rewatching, and the way back in as a silent watcher; nothing after day 7.
+- **2026-09-29 (Andrew):** the Warming Hut — a room to recover and look back on the run, with rewards for
+  every interesting path and rewatching; the silent-watcher rules, moving as fast as they type.
+  **Reviewed in full.**
 
 ## 8. What exists today
 

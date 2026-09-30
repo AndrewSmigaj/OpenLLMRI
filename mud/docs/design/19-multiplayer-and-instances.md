@@ -326,7 +326,10 @@ build order (document 06).
 - **No shared status readout of other players** (2026-09-28). You learn how your friend is doing by
   looking at them, being told, or watching them fail. This follows from never-a-menu — a status panel
   is a list of facts nobody perceived.
-- **The lobby** (Andrew, 2026-09-28, 2026-09-29) — the name is still to be chosen. A player who is rescued or dies is transported there: a small room inside the simulation, with windows, a couple of couches and warm things to drink. Players are back in their own bodies. There are displays where they look up information about their character; a sign gives the command to go back into the simulation as a silent watcher — through its door they move around the world at a quick speed, seeing everyone, acting on nothing, heard only by the others watching; they talk to each other in the room itself, or stay in the chat; and there are a few fun things to do, still to be designed. A polite robot, played by a language model, offers each of them a T-shirt — one about surviving or one about dying, by how they got there. (document 21 §4.5).
+- **The Warming Hut** (Andrew, 2026-09-29): where a player goes when rescued or dead — a room inside the
+  simulation to recover in and look back on the run, with its robot, its displays, its rewards and its
+  rewatching, and the way back in as a silent watcher who moves as fast as they type (document 21
+  §4.5).
 - **No mode switch** (Andrew, 2026-09-16). The engine does not know whether it is running a friends
   run or a research run: the same rules in all three modes.
 
