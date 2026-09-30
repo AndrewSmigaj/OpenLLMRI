@@ -27,6 +27,8 @@
   flying. Characters differ in their clothes, their injuries and what they carry, and in how well and
   how fast they do things — a woodsman lights fires better; a technically proficient character sees a
   fault in a device.
+- **2026-09-29 — sex and name are the player's.** The seat is dealt at random; each player chooses
+  their character's sex and name in the first tutorial room, and the body and pronouns follow (§4.1).
 - **2026-09-28 — everyone boarded in a coat; some were lost in the crash.** It is cold out, so nobody
   flew without one; some came off in the warm cabin and the crash took them. The kid wears an ordinary
   jacket, not ski gear — full snow gear to sit in a plane makes no sense and would make the start too
@@ -94,6 +96,7 @@ character whose clothes, pockets and bag are there to search, and AI agents may 
 (2026-09-27). The run seed deals the slots within each run (2026-09-28),
 on the per-run seeded stream (DR-12), and the deal is logged like every other seeded draw (document
 20) — nothing is random at runtime beyond the seed, and nobody is the townie every run.
+**Each player chooses their character's sex and name** (Andrew, 2026-09-29), in the first tutorial room — *"Before you wake: are you a man or a woman? What's your name?"* The seat itself is still dealt at random, so what you wore and how you were hurt stay unchosen; the body and the pronouns follow the choice (the kid is a teenage boy or girl), and the seat's clothes are sized to fit. The pronouns in these documents are for reading only.
 
 | slot | seat | wearing | pockets | injury | their bag |
 |---|---|---|---|---|---|

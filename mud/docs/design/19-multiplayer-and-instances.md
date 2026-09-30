@@ -100,6 +100,15 @@ or three hours, which you can pause and come back to.
 
 **Where a run starts: the institute's sim rooms** (Andrew, 2026-09-29). Whiteout is played inside another MUD, the institute, which is still being designed and knows it is a MUD — it fakes no reality and needs no ontologically sufficient world; only the survival simulation does. In its main room an AI robot tells players that when they are ready, up to five can go into a sim room. There are about three sim rooms. Each is an empty room with a sign giving the basic instructions — get everyone who is playing into the room, then run the command to start — and starting loads them into the tutorial rooms, then the run. While a run is going the door is locked and nobody else can enter; if more than five people are in the room, the run does not start until five or fewer are.
 
+Around that (2026-09-29): **a short countdown on start** — *"Starting in 10 seconds with Mara, Cal and
+Jo — step out now if you're not playing"* — so nobody idling in the room is pulled into a two-hour run;
+**the door shows its state from outside** — free, in use (how many players, which day), or holding a
+paused run; **a paused run is saved with its party, not its room**, so any free sim room can resume it,
+and anyone who does not come back goes catatonic; **empty seats can be filled with AI players** if the
+group wants (`start simulation with agents`). **The robot is played by a light language model**, like
+most of the institute's robots and characters; the institute's scientists, who know the work, are played
+by heavy models — the institute's own design.
+
 A **run** is one party's private copy of the world: a fresh world-state spawned from a prototype set
 and tagged with a `run_id` (DR-15). Two parties playing Whiteout at the same time are in two
 unconnected valleys. Solo is a one-player instance — the same code path, a party of one.

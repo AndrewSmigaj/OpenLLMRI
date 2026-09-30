@@ -207,7 +207,7 @@ no design.
 | ☐ | E14 | Endings: rescued (by the radio, a signal, or surviving to the day-7 rescue) or dead; ghosts; a fuzz that proves the day-7 rescue reaches every findable party. | Opus | 21 | A1.21, E7 |
 | ☐ | E17 | Exits as entities with a mode, travel time and state; movement as an attended activity with events (`walk`, `run` = less time more sweat, `climb`, `enter`, `turn back`); the tutorial rooms teach it (E19). | Opus | 03, 01 | A1.03, E1 |
 | ☐ | E18 | Groups: several things sharing a place and a kind form a described group ("a pile of clothes"); `look at the pile` lists them; taking dissolves it — the composer's fifth extension. | Opus | 03 | D3 |
-| ☐ | E19 | The pre-scenario tutorial *(Andrew, 2026-09-27: a series of tutorial rooms, each one simple situation showing what sort of things players can do — it needs its own design document)*: the grammar forms with one example each, the time controls (`propose fast forward`), movement, `help`; taught once, never a menu. | describer + Opus | 04, 06 | A1.04, A1.06 |
+| ☐ | E19 | The pre-scenario tutorial *(Andrew, 2026-09-27: a series of tutorial rooms, each one simple situation showing what sort of things players can do — it needs its own design document; the first room asks each player their character's sex and name, 2026-09-29)*: the grammar forms with one example each, the time controls (`propose fast forward`), movement, `help`; taught once, never a menu. | describer + Opus | 04, 06 | A1.04, A1.06 |
 | ☐ | E20 | `make` as the aim-bridge: the parse-time rewrite (like `use X to VERB Y`), the goal table loaded from content, role-filling by capability, the vague clarification, the honest edges (means that fill no role, half-filled roles, multi-step goals); the shipped recipe reply removed; what a fire wants moves to the survival manual's page. | Opus | 04 §3.9, 07 | A1.04, E2 |
 | ☐ | E21 | Quantities as budgets: counts (`take two rocks`) and measures (`a handful of`, `an armful of`, `some`, `a few`, `all the`, `as much as I can carry`) resolved against what is there and what you can carry; the world reports what you actually got; aggregates (decided) with a count and a total mass that split when one is spent or stops being interchangeable. Needs E16 and E24. | Opus | 04 §3.11 | A1.04, E16, E24 |
 | ☐ | E24 | Encumbrance (decided 2026-09-18): `density` on every material row, bulk derived (mass ÷ density, authored wins); `capacity_g` and `capacity_bulk` on containers — hands, pockets, bags, worn clothing, a dragged frame; exceeding capacity answered physically, never refused; the load feeds travel time. | Opus | 18, 16, 04 §3.11, 03 §4.1a | A1.18, A1.16 |
@@ -345,7 +345,11 @@ it says so. When a decision changes, this list and every document it touches cha
   knows it is a MUD and fakes no reality. An AI robot in its main room tells players that up to five can
   go into a sim room when ready; about three sim rooms, each an empty room with a sign — get everyone
   in, run the start command — which loads them into the tutorial rooms, then the run. The door locks
-  while a run is going; more than five in the room and it does not start (document 19 §4.1).
+  while a run is going; more than five in the room and it does not start (document 19 §4.1). A short
+  countdown on start; the door shows free, in use or paused; a paused run is saved with its party and
+  resumes in any free sim room; empty seats can be filled with AI players; the robot is a light model,
+  the scientists heavy ones. The seat is dealt at random, and each player chooses their character's sex
+  and name in the first tutorial room (document 16 §4.1). (2026-09-29)
 - The clock runs continuously at **15 game-minutes per real minute**. **Fast forward** (proposed and
   agreed by the players) runs it at about **150×**; awake players can stay in it, seeing events faster,
   and type a command to slow it when they want to act. A player waking or any non-ambient event drops it
