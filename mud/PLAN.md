@@ -345,6 +345,7 @@ it says so. When a decision changes, this list and every document it touches cha
 - **Holt's cabin** is supplies: some trapline gear, an axe, and modest stores, not piles of food. Holt does not
   come back during the week. Walking out is
   not an ending. (2026-09-17, 2026-09-27)
+- **The bear is a male grizzly that stays up all week** — no den mid-run (2026-10-01).
 - **Wildlife:** the bear, some bigger animals and a few birds act — on the engine's behaviour rules, or
   played by a lightweight model; fewer than three birds in a room, not constantly calling; the fish are
   scripted; other wildlife shows as events and sign; no wolverine, no moose. Claude proposes the list (document 23,

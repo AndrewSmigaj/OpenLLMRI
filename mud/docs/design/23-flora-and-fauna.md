@@ -27,7 +27,8 @@
   couple of inches by the end, and a heavier flurry on day 6 that clears. The low forage is covered a
   little at a time — part of the escalation, which comes from the cold and the land (2026-09-27). The
   same weather every run (document 13 §4.2).
-- **A bear is in** (2026-09-26).
+- **A bear is in** (2026-09-26): **a male grizzly that stays up all week** (2026-10-01), feeding hard
+  before he dens; no den mid-run, so the bear is part of the week's build-up to the end.
 - **Animals that act** (2026-09-26, 2026-09-27): the bear, some of the bigger animals and a few birds
   act — on the engine's behaviour rules, or played from outside by a lightweight model at low
   reasoning. Birds are few, not flocks: **fewer than three in a room**, and they call now and then, not
@@ -72,8 +73,8 @@ in the new snow. Spruce grouse sit in the spruce, tame enough that whatever is t
 and then not; a few ptarmigan work the willow bottoms; red squirrels scold from middens heaped with a
 winter's cones; voles run their tunnels through the grass and moss; grubs wait under the bark of the dead spruce, ants
 sleep in the rotting logs, and caddis larvae crawl in their grit cases under the creek's stones; fish
-feed in open water. A grizzly
-is still up, feeding hard on berries and roots before it dens, and it can smell the wreck's food from a
+feed in open water. A male grizzly
+is still up, feeding hard on berries and roots before he dens late in the month, and it can smell the wreck's food from a
 long way off; wolves cross the valley and are heard before they are seen; ravens find your cache before
 you do. The ground crusts each frosty night — digging is still possible, and harder by the day — and the
 root at the marsh edge that looks like a carrot is the worst poison in the valley. Then the snow comes
@@ -95,7 +96,7 @@ Every figure is a real starting point that the probes tune.
 | **berries** | a month of frosts behind them (Fairbanks's first autumn freeze averages 5 September and came by 27 September in every year of the 1930–2015 record): lowbush and bog cranberries ripe and frost-sweetened; crowberries sweeter and softer after the freeze, bursting when picked; highbush cranberries softened, with a musty smell and flavour, a little sweeter than before the frost; rose hips, bearberry and rowan on the plant; blueberries mostly dropped or eaten; baneberry fruits from August to October, so some clusters remain | each flurry covers the low mats a little more; on day 6 the lowest — bog cranberry and bearberry, flat on the ground — go under, while lowbush cranberry and crowberry, a hand high, poke through; highbush cranberry, rose hips and rowan hang above the snow all week and stay on the plant through the winter | UAF Cooperative Extension (lingonberries; highbush cranberries; crowberries); USFS FEIS, *Actaea rubra*; NWS Fairbanks, *Fairbanks Area Frost and Growing Season Information* |
 | **roots** | the tops dying back; the ground crusting each frosty night over soft soil. Sweetvetch — the Indian potato, historically one of the most widely harvested wild plants in Alaska — is hard work to dig, ounces a plant, which is why people raided the voles' caches or searched riverbanks for exposed roots; grizzlies dig the same roots in fall | harder to dig after each frosty night; under the day-6 snow the frost stops deepening, and a couple of inches brushes aside | Holloway, *Georgeson Botanical Notes* 77 (UAF, 1997, revised 2014); ADF&G, *Activity and food habits of barren-ground grizzly bears in arctic Alaska*; ADF&G, "Grizzly Bear Denning" (fall digging for roots) |
 | **mushrooms** | the fleshy season is over: most caps frozen, collapsed and rotting; the fly agaric still recognisable, fading; the velvet foot fruiting on dead aspen, poplar and willow in the cold; the deadly galerina on rotting wood in fall; the red squirrels' dried caches in the spruce, fly agaric among them; the woody conks all year | the ground species are dusted by the flurries and go under on day 6; the conks and the caches stay | Geophysical Institute, *Alaska Science Forum*, "Squirrels and toxic mushrooms" (UAF — Fairbanks squirrels cache Amanitas); ADF&G, red squirrel; *Galerina marginata* and *Flammulina* references (e.g. Missouri Dept. of Conservation; Fungus Fact Friday); NWS Fairbanks frost dates |
-| **bears** | interior black bears are denning — in the Yukon Flats the mean den entry was 26 September and the last 8 October (42 bears), so most have gone in and the last are going. Grizzlies den later: on the North Slope all females by mid-October and about 80 % of males by 1 November; at Lake Clark females about 20 October and males about 28 October. A bear still up and feeding now is most likely a grizzly, feeding hard on late berries, roots and anything else; fall bears run about 20 % heavier | den entry can fall inside the run, more likely late in it | the Yukon Flats black bear study (International Association for Bear Research and Management); ADF&G, "Grizzly Bear Denning"; "Sex-specific variation in denning by brown bears" (Lake Clark, *Mammalian Biology* 2018); ADF&G species profiles |
+| **bears** | interior black bears are denning — in the Yukon Flats the mean den entry was 26 September and the last 8 October (42 bears), so most have gone in and the last are going. Grizzlies den later: on the North Slope all females by mid-October and about 80 % of males by 1 November; at Lake Clark females about 20 October and males about 28 October. A bear still up and feeding now is most likely a grizzly, feeding hard on late berries, roots and anything else; fall bears run about 20 % heavier. **The valley's bear is a male** (2026-10-01): males den last, so he stays up all week | he stays up all week, feeding harder as the nights get colder; no den inside the run | the Yukon Flats black bear study (International Association for Bear Research and Management); ADF&G, "Grizzly Bear Denning"; "Sex-specific variation in denning by brown bears" (Lake Clark, *Mammalian Biology* 2018); ADF&G species profiles |
 | **hares** | the fall moult to white is just beginning: it starts between 28 September and 3 October and takes about six weeks (36–43 days), on a day-length clock whatever the snow does — so a hare is still mostly brown: its white patches show against the brown ground, and its brown stands out on the first snow; every run prints in it | fresh tracks after each snowfall; still more brown than white at the week's end | Ghimirey et al., *Royal Society Open Science* 2025 (Kluane, Yukon); Mills et al., *PNAS* 2013; ADF&G, snowshoe hare |
 | **grouse, ptarmigan** | willow ptarmigan families have flocked in September, and the sexes separate in late September and October, the females moving in small groups to the lower willow; mottled, turning white; spruce grouse on spruce needles and as tame as ever; ruffed grouse in the aspen | — | ADF&G, willow ptarmigan; ADF&G grouse |
 | **squirrels, voles, frogs** | red squirrels caching cones and hanging mushrooms to dry, most territorial while they cache; voles in their runways under the grass and moss (this week's snow is too thin to roof them); wood frogs in their winter shelters under the leaf litter since September, cold and torpid but not yet frozen — at Fairbanks they freeze between about 10 and 25 October | — | ADF&G, red squirrel; Smith 1968 and later interior-Alaska midden studies; Larson et al., *J Exp Biol* 2014 |
@@ -141,7 +142,7 @@ by how each animal is driven:
 
 | how it is driven | who | why |
 |---|---|---|
-| **An actor a lightweight model can play** (engine behaviour rules otherwise) | one **grizzly** — in the first week of October most interior black bears have denned, and a bear still up and feeding is most likely a grizzly (§4.0); the **raven pair** | the two whose choices make a story: the bear finds the pilot's body and the food by smell and decides what to do about the people near it; the ravens watch, follow, call and steal. Two on a model at once keeps a run affordable. |
+| **An actor a lightweight model can play** (engine behaviour rules otherwise) | one **male grizzly**, up all week — in the first week of October most interior black bears have denned, a bear still up and feeding is most likely a grizzly, and males den last (§4.0); the **raven pair** | the two whose choices make a story: the bear finds the pilot's body and the food by smell and decides what to do about the people near it; the ravens watch, follow, call and steal. Two on a model at once keeps a run affordable. |
 | **An actor on engine behaviour rules** | the **wolf pack** as one actor moving as a group (heard at night, sign on the shore, wary of people); a **red fox** at the camp's edge; **one or two gray jays** at food; the **grouse and ptarmigan** people hunt | simple, readable behaviour; any of them could move to a model later if a run wants it |
 | **A population** | snowshoe hares (the runs a snare is set on), red squirrels (middens), voles, the beavers in their lodge, marten (sign) | many of them, little choice each — counts and rules until one is caught or seen |
 | **Scripted** | the fish: grayling, burbot, whitefish, pike | Andrew, 2026-09-27 — met only through fishing |
@@ -266,7 +267,7 @@ counts (3 L a day each).
 **So a good early day of foraging by the whole party is about 1,500–3,500 kcal** — nearer 5,000 at the
 peak of the hare cycle with fish biting and berries still out — **against 12,000–16,000 burned; late in
 the week, in a poor hare year, 500–1,500.** It closes as the week goes: the snow covers the low berries,
-the stocks of grouse and hares are taken down, the ponds skin over, the bear dens or does not. The
+the stocks of grouse and hares are taken down, the ponds skin over, and the bear, still up, grows bolder. The
 country is *a brake on starvation, never a living*. The shape of the week: what the plane holds carries
 them — the freight and people's bags — foraging stretches it, most in the first days, and by day five or
 six they are in real deficit, which is why the pilot's body becomes a question rather than a horror
@@ -405,7 +406,8 @@ Andrew's check.
   berries, roots, mushrooms, the bears before denning, the hares' moult, the frogs —
   for Andrew's check.
 - **2026-09-27** — the no-storm week carried in (document 13 §4.2).
-- **2026-10-01 (Andrew):** the sitting — the season table kept, with the bugs added (§4.0, §4.3).
+- **2026-10-01 (Andrew):** the sitting — the season table kept, with the bugs added (§4.0, §4.3); the
+  bear a male grizzly who stays up all week, no den mid-run.
 
 ## 8. What exists today
 

@@ -67,7 +67,7 @@ you try twice — and each flurry closes it a little more, the lowest berry mats
 Around day three it stops being a search and becomes work — snare wire and a hare run read right in the
 new snow and then *left alone*, a line cast into the open water at the creek mouth. Meat that is not
 eaten has to be kept somewhere cold enough not to spoil and far enough from the ravens and the bear,
-which is still up, feeding hard before it dens. And the whole time there is the pilot's body, in the
+a male grizzly still up all week, feeding hard before he dens. And the whole time there is the pilot's body, in the
 cockpit, from the first hour, and nobody has to say anything about it because everybody has already
 thought it.
 
@@ -197,7 +197,7 @@ food is mishandled — the world's first scavenger pressure. Storing food badly 
 flavour note.
 
 **The scavengers act** *(proposed by Claude, for Andrew's check — document 23 §4.1a)*. The **bear**,
-still up and feeding hard before it dens, follows its nose to food from a long way off, and food kept
+a male grizzly up all week and feeding hard before he dens, follows its nose to food from a long way off, and food kept
 at the wreck is what brings it there — the most dangerous thing in the valley is drawn by the easiest
 mistake; the **raven** pair and a **gray jay** or two find a cache within the hour; the **fox** robs a
 snare line and eats what hangs in it. So where food is kept is a real choice with real trade-offs —
