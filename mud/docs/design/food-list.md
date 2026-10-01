@@ -92,7 +92,9 @@ From document 23 §4.3, §4.4 and document 10 §4.4, §4.8. How each is taken is
 | red squirrel, and its midden | spruce forest | the animal ~100–150 kcal; the midden's cached cones, a few hundred kcal an hour's raid once the cones are opened by a fire | — | 📐 |
 | vole | the grass and moss of the tussocks | ~25 kcal; better as bait | — | 📐 |
 | wood frog | the leaf litter by the ponds | a few grams — a find, not a food source | — | 📐 |
-| grubs, beetle larvae | rotten logs, under loose bark | a handful | — | 📐 |
+| beetle grubs | under the bark of dead spruce; rotten logs | a handful; bait | — | 📐 |
+| carpenter ants | rotting logs and stumps | a sour pinch; bait | — | 📐 |
+| creek larvae (stonefly, caddisfly) | under the creek's stones | a few grams; bait for fish | cold, wet hands | 📐 |
 | grayling | the lake, the pool | ~300 kcal a fish | — | 📐 |
 | whitefish | the lake, the creek | ~400–900 kcal a fish | whether a run comes up the creek is for the loops | 📐 |
 | burbot | the lake, the pool | ~600–1,600 kcal with its liver — the liver's fat is worth more than its calories | bites from sunset to midnight | 📐 |

@@ -1,6 +1,6 @@
 # 23 — Flora and fauna: the living things of the valley in the first week of October
 
-> **Status: draft for review.** Architecture counterpart: none; the entities land in the ontology store
+> **Status: in review with Andrew (2026-10-01).** Architecture counterpart: none; the entities land in the ontology store
 > (document 05) and the food model in document 10; where each thing lives is document 01's zones. The
 > species are Claude's proposals from what actually lives in interior Alaska in the first week of
 > October, with sources (§4.0, §4.4) — a real valley has a real living inventory, and the loops will
@@ -39,6 +39,11 @@
   real clocks, with time to respond.
 
 - **2026-09-27 — no moose.** Things are named by their most common name, with the other names as synonyms.
+- **2026-10-01 — the season table (§4.0) kept, with the bugs added**: what the insects are doing this
+  week and where a person finds them — grubs in dead spruce, ants in rotting logs, larvae under the
+  creek's stones, the wintering adults under bark and litter (§4.0, §4.3). A find, bait and a handful of
+  food, never a food source.
+
 ### Proposals (Claude)
 
 - Everything below the rules: the species, where each lives, what it yields, with sources (§4.0,
@@ -65,7 +70,9 @@ spruce branches, the poisonous with the good. The hares are still mostly brown, 
 their white patches showing against the brown ground; once the flurries come, every run they use prints
 in the new snow. Spruce grouse sit in the spruce, tame enough that whatever is thrown will miss and miss
 and then not; a few ptarmigan work the willow bottoms; red squirrels scold from middens heaped with a
-winter's cones; voles run their tunnels through the grass and moss; fish feed in open water. A grizzly
+winter's cones; voles run their tunnels through the grass and moss; grubs wait under the bark of the dead spruce, ants
+sleep in the rotting logs, and caddis larvae crawl in their grit cases under the creek's stones; fish
+feed in open water. A grizzly
 is still up, feeding hard on berries and roots before it dens, and it can smell the wreck's food from a
 long way off; wolves cross the valley and are heard before they are seen; ravens find your cache before
 you do. The ground crusts each frosty night — digging is still possible, and harder by the day — and the
@@ -92,6 +99,7 @@ Every figure is a real starting point that the probes tune.
 | **hares** | the fall moult to white is just beginning: it starts between 28 September and 3 October and takes about six weeks (36–43 days), on a day-length clock whatever the snow does — so a hare is still mostly brown: its white patches show against the brown ground, and its brown stands out on the first snow; every run prints in it | fresh tracks after each snowfall; still more brown than white at the week's end | Ghimirey et al., *Royal Society Open Science* 2025 (Kluane, Yukon); Mills et al., *PNAS* 2013; ADF&G, snowshoe hare |
 | **grouse, ptarmigan** | willow ptarmigan families have flocked in September, and the sexes separate in late September and October, the females moving in small groups to the lower willow; mottled, turning white; spruce grouse on spruce needles and as tame as ever; ruffed grouse in the aspen | — | ADF&G, willow ptarmigan; ADF&G grouse |
 | **squirrels, voles, frogs** | red squirrels caching cones and hanging mushrooms to dry, most territorial while they cache; voles in their runways under the grass and moss (this week's snow is too thin to roof them); wood frogs in their winter shelters under the leaf litter since September, cold and torpid but not yet frozen — at Fairbanks they freeze between about 10 and 25 October | — | ADF&G, red squirrel; Smith 1968 and later interior-Alaska midden studies; Larson et al., *J Exp Biol* 2014 |
+| **bugs** | most are dormant, and found where they shelter: whitespotted sawyer grubs under the bark and in the sapwood of dead spruce (in the north the life cycle takes two years, so every fall holds big grubs); carpenter ants clustered, cold and slow, in rotting logs and stumps; under loose bark and in the leaf litter, the snow mosquitoes that winter as adults, wasp queens and spiders; in the creek, stonefly and caddisfly larvae under the stones, active all winter in the cold water, the caddis in cases built of grit; the summer's wasp nest empty or dying, its workers killed by the hard frosts; on a mild afternoon a few mosquitoes still fly | the colder nights quiet the last fliers; on a mild day snow fleas (springtails) may show as black pepper on the new snow — less certain this early, since they are mostly reported in late winter | Alaska Science Forum (UAF Geophysical Institute), "How mosquitoes overwinter in Alaska" and "Springtails: a sign of the season"; USDA Forest Service, *Carpenter Ants in Alaska*; whitespotted sawyer life history (*Northern Woodlands*; forestpests.org); Hudson, Hocker and Armstrong, *Stoneflies* and *Caddisflies in Alaska* |
 | **beavers** | out at dusk cutting and towing branches to the underwater food cache that has to be laid in before freeze-up | once ice seals the pond they live under it | ADF&G, beaver |
 | **fish** | grayling leaving small streams for deep pools and lakes to overwinter; whitefish running to spawn in interior rivers (humpback in late September–October); burbot feeding from sunset to midnight; northern pike in lowland lakes; the fishing is open water | the lake stays open all week, skinning over in its calm bays late in it; walking out on any ice breaks it, so the fishing is from the shore, the creek and the pool (document 13 §4.2) | ADF&G, Arctic grayling; Dupuis et al. 2014 (humpback whitefish spawning); ADF&G interior winter-fishing guide |
 | **what the snow covers** | — | a little with each flurry: the low berry mats, the lowest under after day 6; the old tracks, while fresh ones print; small things left on the ground; how deep, and what it does to the ice, is document 13 §4.2 | from the rows above |
@@ -198,7 +206,11 @@ presence in this valley is still to be checked against it.
 | red squirrel | spruce forest, its midden (a mound of cone scales) | chatter; cones being cut and dropped; mushrooms hung in the branches; the midden | raid the midden for cached cones (seeds, small calories — the cones open by a fire); the squirrel itself is a hard throw; a squirrel pole | seeds; ~100–150 kcal the animal |
 | vole | the grass and moss of the tussocks | tunnels, a scurry | a deadfall trap; hours; tiny | ~25 kcal; better as bait |
 | wood frog | the leaf litter by the ponds | nothing — in its winter shelter under the litter, cold and torpid, not yet frozen (Larson et al. 2014) | scraping the litter | a few grams: a find, not a food source — the real animal in the place of the lizards |
-| grubs / beetle larvae | rotten logs, under loose bark | split the log | a blade or hands | a handful; the honest bugs Andrew asked for |
+| beetle grubs | under the bark and in the sapwood of dead spruce (whitespotted sawyer — big grubs); rotten logs and stumps | nothing until the bark comes off or the log splits | peel the bark, split the log — a blade, a hatchet, or bare hands on punk wood | a handful of food, and bait; the bugs of the 2026-09-17 decision |
+| carpenter ants | rotting logs and stumps | a cold, slow cluster in the galleries | split the log | a sour pinch of food; bait |
+| creek larvae (stonefly, caddisfly) | under the stones of the creek and the pool's riffle | the caddis in little cases of grit, the stoneflies flat under the stone — active all winter | turn the stones in the cold water, with wet, cold hands (document 08) | bait for fish; a few grams of food |
+| bugs wintering under bark and litter | loose bark, the leaf litter, dead stumps | snow mosquitoes, wasp queens, spiders — still and cold | peel the bark, scrape the litter | a find, not food |
+| the wasp nest | a spruce branch, under an overhang | grey paper, empty or nearly so | take it down | its paper burns |
 | grayling, whitefish, burbot | the lake, the pool (document 01) | nothing, until you fish; open water | cast a line into open water; the ice breaks if you walk out on it (Andrew, 2026-09-27); spear; net (document 10 §4.8) — line and hooks, or wire | ~300 kcal a grayling to ~1,600 for a big burbot with its liver; the best single meal |
 | northern pike *(candidate)* | the lake, if it is a lowland lake deep enough to overwinter fish | nothing, until you fish | casting, jigging, a set line, spearing (ADF&G) | ~500–1,800 kcal a fish |
 | beaver | the lodge and its feed pile (document 01, S9) | out at dusk cutting and towing branches to the feed pile before the ice locks the pond; the tail-slap alarm; fresh-chewed stumps | on land at dusk and wary: a snare or a trap at its slide, a club or a spear at close range — hard; once the ice seals the pond it lives under it | a 17–32 kg animal (ADF&G) — rich meat, the tail's fat |
@@ -347,7 +359,11 @@ interior-Alaska red squirrel studies; Dupuis et al. 2014 (humpback whitefish spa
 winter-fishing guide, "How to set line for burbot" and "Spear fishing in Interior Alaska"; a
 snowshoe-hare capture–recapture study (capture probability ~0.07 per trap-night); Matvaretabellen
 (lingonberry energy); USDA (wild rose hips; rabbit meat); Institute of Medicine 1996 (energy needs in
-the cold); reviews of protein toxicity ("rabbit starvation"); *Mousefood* (Yup'ik root caches).
+the cold); reviews of protein toxicity ("rabbit starvation"); *Mousefood* (Yup'ik root caches);
+Alaska Science Forum, "How mosquitoes overwinter in Alaska" and "Springtails: a sign of the season";
+USDA Forest Service, *Carpenter Ants in Alaska*; whitespotted sawyer life history (*Northern
+Woodlands*; forestpests.org); J. Hudson, K. Hocker and R. H. Armstrong, *Stoneflies* and *Caddisflies*
+(aquatic insects of Alaska) (bugs, looked up 2026-10-01).
 
 ## 5. Interactions
 
@@ -389,6 +405,7 @@ Andrew's check.
   berries, roots, mushrooms, the bears before denning, the hares' moult, the frogs —
   for Andrew's check.
 - **2026-09-27** — the no-storm week carried in (document 13 §4.2).
+- **2026-10-01 (Andrew):** the sitting — the season table kept, with the bugs added (§4.0, §4.3).
 
 ## 8. What exists today
 

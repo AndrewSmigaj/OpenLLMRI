@@ -6,7 +6,7 @@
 > this file.
 > Statuses: ☐ not started · ◐ in progress · ☑ done · ⊘ waiting on a decision (named).
 
-## 0. RESUME HERE (last touched 2026-09-27)
+## 0. RESUME HERE (last touched 2026-10-01)
 
 **What we are in the middle of:** Phase A, the design review — a conversation over `docs/design/`, one
 document at a time, until every one is finalized. Nothing is built and no agent runs a world-building
@@ -15,7 +15,7 @@ and republish it with `python3 tools/review_packet.py --current NN --out <scratc
 --parked <scratchpad>/parked.md`). **The current decisions are §5** — every document is checked against
 it.
 
-**Where we are (2026-09-27):**
+**Where we are (2026-10-01):**
 - Reviewed with Andrew: the GDD and documents 01–09. Documents 10–23 were re-reviewed by Claude against
   block 1 and real life (A9); Andrew answered the questions that were his, and the rescue was designed
   together (A13, document 14 §3).
@@ -57,10 +57,13 @@ it.
 **Next, in this order:**
 1. **The sittings continue with document 23**, the last, checking the answers Claude proposed in each document, then
    finalizing at the close.
-2. A10 — the missing systems' documents (combat, heat, hunting/trapping/fishing, food state, animal
+2. **The pilot** (document 22 §4.7; build order M1–M6 above): the schema and validator, the store's
+   start and the zone briefs, the web app, triage, the spikes, the scaffolds and runner, round 1 — its
+   findings are an input to the next step.
+3. A10 — the missing systems' documents (combat, heat, hunting/trapping/fishing, food state, animal
    behaviour, scent, light, weather, snow and ice on the ground, physiology, the tutorial rooms); A11 — the
    GDD's vision, which Andrew finds too small.
-3. **How we implement it** (Andrew, 2026-09-28) — once the design is done, Claude drafts how each system
+4. **How we implement it** (Andrew, 2026-09-28) — once the design is done, Claude drafts how each system
    will be built, with suggestions, and Andrew reviews it before anything is built: some of what the
    design asks for needs care — hiding, noticing and stealing, being next to something, patching an
    opening from either side among them — and it includes the web app for reviewing and editing the

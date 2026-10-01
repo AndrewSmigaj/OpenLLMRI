@@ -187,8 +187,9 @@ state of every living thing is document 23 §4.2–§4.3.)*
 | `cabin_interior` | Holt's shelf: flour, salt, lard, tea, a few tins — and **one bulged can** among the good ones | the walk; and the examine-gated poison lesson (the manual's food page names the bulge) |
 | `cache` | the rest of Holt's modest stores: some beans and rice, a slab of dry fish | the whole journey, the climb, and carrying it back down and home |
 
-**Grubs and inner bark are food** (Andrew, 2026-09-18). Grubs live under the bark of rotten spruce and
-birch; inner bark is food *and* snare bait, which is two facts rather than a choice between them.
+**Grubs and inner bark are food** (Andrew, 2026-09-18). Grubs live under the bark of dead and rotting spruce
+and birch, carpenter ants winter in rotting logs, and stonefly and caddis larvae live under the creek's
+stones all winter — a handful of food, and bait (document 23 §4.3); inner bark is food *and* snare bait, which is two facts rather than a choice between them.
 
 **Food events** (document 13's event deck): ravens scout the wreck and find the food cache before you
 do; ptarmigan flush (food if you're quick); and the scavengers come again wherever
