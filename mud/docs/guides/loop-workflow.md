@@ -1,5 +1,8 @@
 # Loop Workflow
 
+> This guide is the **implementation** loop. The world-building passes (census and possibility passes,
+> which write no code) are [document 22](../design/22-the-world-building-loops.md).
+
 The agentic authoring loop: **anchor → author → verify → repeat**, driven by
 Claude Code's built-in `/loop` skill. This is how content is produced one small,
 validated increment at a time.
@@ -66,7 +69,8 @@ action family, one workflow stage. End an iteration only when the gate is green.
 
 ## Concrete example (one iteration)
 
-1. **Anchor:** roadmap P1 = "the co-op vertical slice → the fun gate" (the GDD slice success test).
+1. **Anchor:** the current `PLAN.md` task (fun is a continuous design judgment, not a gate; friends see
+   the finished game).
 2. **Author:** add `scenarios/whiteout/objects/aircraft_seat.py` as an
    an object row with parts that dismantle several ways, each output a first-class derived object with a form
    with uses or explicit non-uses.

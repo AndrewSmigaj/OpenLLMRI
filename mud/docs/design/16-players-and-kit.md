@@ -204,9 +204,9 @@ laptop bag; under 2B, a phone charging cable and a crumpled chip bag.
 - **Seats**: the pilot's seat and the right seat up front; **1A/1B** (row one), **2A/2B** (row two) —
   the labels the manifest on the kneeboard uses to name who sat where, itself a clue and a story. Each
   seat is the same parts-machine (cover, cushion, belt, bolts — the seat exemplar in
-  **17 — Rooms and living rooms** §4.3) with a DIFFERENT damage and find: 1A intact; 1B wrenched (the
-  salesman's laptop bag under it); 2A thrown loose (a movable frame — a windbreak, a sled base); 2B
-  thrown against the hull (the life-vest pouch: vest, straps, a whistle).
+  **17 — Rooms and living rooms** §4.3) with a DIFFERENT damage and find: 1A intact; 1B wrenched on its
+  bolts; 2A thrown loose (a movable frame — a windbreak, a sled base); 2B thrown against the hull. What
+  is under each seat is the list above; there is no life vest (a land plane carries none).
 - **The hat shelf** (behind row two): hats, a scarf, the kid's helmet — a shelf, not a bin.
 - **The baggage bay** behind it: the cargo net over the bags (cut it or unhook it), the freight and the
   mail against the bulkhead.

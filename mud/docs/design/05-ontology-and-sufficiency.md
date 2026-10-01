@@ -68,18 +68,20 @@
 - **Walls per run (2026-09-18):** all five categories are counted, each separately (§4.5a).
 - **Ambience comes from the things present (2026-09-18)** — each thing's `sensed` field carries its
   own cadence (document 06).
+- **The store starts from the design, not the old tables (2026-09-30).** The engine's own vocabulary
+  (materials, forms, capabilities, verbs, relations) is generated from code; the zone outlines come from
+  document 01; each zone gets a brief of what the design says is there. The old runtime tables and the
+  July room censuses describe an airliner-style cabin and are not imported — the runtime is only
+  compared against. Nothing is reused just because it exists in the repo.
+- **The schema refinements (2026-10-01, with the pilot plan):** flat parts with `part_of`; `states` as
+  a list of axes; fixed `sensed` keys; provenance records the run and who; a `conflicts` list; a stable
+  key on every sub-row; removals kept with a reason; every proposed command carries its intended target
+  and tool; required fields checked per pass (§4.5).
 
 ### Proposals (Claude)
 
-- The YAML **schema** — every field named in §4.5, the shared files, the status vocabulary, the
-  provenance requirement, the never-delete rule, `make validate-ontology` — and the five fields
-  proposed on 2026-09-26 for the systems of documents 10–23 (§4.5).
-- The **viewer** as a generated static site, its pages, and the "what changed since last firing"
-  summary.
-- The **scaffold's wording** — the world-builder brief and the scout brief in §4.8 — the goal-lens
-  list and the human-lens examples, and the choice of the mid cabin as the first exemplar and the
-  birch grove as the outdoor calibration piece.
-- The **seeding** step (converting what is already built into the first YAML files).
+- The exact field names and value lists in §4.5, until the pilot verifies them (document 22 §4.7).
+- The **scaffold's wording**, the lens lists and the situations — document 22, settled by the pilot.
 - The **mechanism** counterpart in
   [`../architecture/ontology-closure.md`](../architecture/ontology-closure.md): forms, derived
   capabilities, tier-4 fallback physics, the probe corpus as the coverage measure. Approved in
@@ -210,51 +212,64 @@ check)*. Each entity carries:
 
 | field | what it holds | req. | filled by |
 |---|---|---|---|
-| `id` · `name` · `aliases` | how it is addressed; aliases are the nouns people try | required | world-builder |
-| `class` | `individual` · `class` (yields individuals: deadfall, snow, rocks) · `scenery` (addressable, not takeable) · `elusive` (cold, draft, light, smell, sound) | required | world-builder |
-| `count` | for a class or an aggregate: how many, and the mass of one | if `class`/aggregate | world-builder |
-| `materials` | what it is made of, in order | required | world-builder |
-| `mass_g` · `bulk` | integer grams; bulk derives from mass ÷ density unless authored | required · derived | world-builder |
-| `form` | the shape the material is in (`rod`, `sheet`, `vessel`…) | if it has one | world-builder |
-| `parts` | recursive: each part with its own row and an `attachment` (stitched, bolted, clipped, tied) | if it has parts | world-builder |
-| `container` | `capacity_g`, `capacity_bulk`, `open`/`jammed`/`sealed`; `contains` | if it holds things | world-builder |
-| `surfaces` | what things can sit *on* it | if it has any | world-builder |
-| `located` | `space`, and `relation` to a parent: on · in · under · against · attached | required | world-builder |
-| `states` | the state axes this thing really has, and their starting values (wet, frozen, burning, burnt, open, searched, damaged, lit…) | required | world-builder |
-| `could_become` | every transform: `{operation, needs: capability + level, yields: [{name, form, material, mass_g}], notes}` — cut, break, burn, dig, melt, shave… | required | world-builder |
-| `relations` | beyond containment: attached-to, part-of, blocks, supports, near, leads-to | if any | world-builder |
-| `sensed` | what it gives each sense: `look`, `smell`, `sound`, `touch`, `taste` — and for the ones that speak on their own (a fire crackling, a creek running), the **cadence** and how it varies with state, since a room's ambience is the sum of its things, not a room-level timer (document 06) | required | world-builder |
-| `synonyms` | the words people use for it — written with the noun, not harvested (document 04 §3.7) | required | world-builder |
-| `actions` | candidate commands: `{command, lens, expects, source}` — one row per thing a survivor might try | required | scout |
-| `goal_roles` | the goals this thing can serve a role in (ignition, fuel, vessel, binding…) — document 04 §3.9 | if any | scout |
-| `status` | ✅ built · 📐 designed · ◌ candidate | required | design pass |
+| `id` · `name` · `aliases` | how it is addressed; aliases are the nouns people try | required | census |
+| `class` | `individual` · `class` (yields individuals: deadfall, snow, rocks) · `scenery` (addressable, not takeable) · `elusive` (cold, draft, light, smell, sound) | required | census |
+| `count` | for a class or an aggregate: how many, and the mass of one | if `class`/aggregate | census |
+| `materials` | what it is made of, in order | required | census |
+| `mass_g` · `bulk` | integer grams; bulk derives from mass ÷ density unless authored | required · derived | census |
+| `form` | the shape the material is in (`rod`, `sheet`, `vessel`…) | if it has one | census |
+| `part_of` | the entity this is a part of, with its `attachment` (stitched, bolted, clipped, tied…). **Parts are entities in their own right, listed flat** — a part of a part points at its parent | if it is a part | census |
+| `container` | `capacity_g`, `capacity_bulk`, `open`/`jammed`/`sealed`; what it contains is every entity located `in` it | if it holds things | census |
+| `surfaces` | what things can sit *on* it | if it has any | census |
+| `located` | `space`, and `relation` to a parent: on · in · under · against · attached | required | census |
+| `states` | **a list of axes** this thing really has: `{axis, start, driver}` — e.g. `{axis: wet, start: dry, driver: wetness system}` (wet, frozen, temperature, burning, open, searched, damaged, lit…) | required | census |
+| `could_become` | every transform: `{key, operation, needs: capability + level, yields: [{name, form, material, mass_g}], notes, support}` — cut, break, burn, dig, melt, shave… | required | census |
+| `relations` | beyond containment: `{key, kind, target}` — blocks, supports, near, leads-to, owned-by | if any | census |
+| `sensed` | **fixed keys** `look`, `smell`, `sound`, `touch`, `taste`, each `{text, cadence?}` — the cadence for things that speak on their own (a fire crackling, a creek running) and how it varies with state, since a room's ambience is the sum of its things (document 06) | required | census |
+| `synonyms` | the words people use for it — written with the noun, not harvested (document 04 §3.7) | required | census |
+| `actions` | candidate commands: `{key, command, intent, target, tool, lens, situation, expects, support, source}` — **`intent`, `target` and `tool` in plain words**, so triage can tell when the engine bound something else (a misread) | required | census · possibility |
+| `goal_roles` | the goals this thing can serve a role in (ignition, fuel, vessel, binding…) — document 04 §3.9 | if any | possibility |
+| `support` | on transforms and actions: what the agent thinks it would take — works now · content only · a synonym · a new operation · relation mechanics · a state system · a new mechanic | required on those rows | census · possibility |
+| `numbers` | for each number given: `sourced` (with the source), `estimated` or `guessed` | required where numbers are | census |
+| `status` | built · designed · candidate · removed | required | design pass |
+| `removal` | when removed: `{by, on, reason}` — reason is not in this world · wrong · duplicate of · noise. The row is kept; the loops never add it back | if removed | design pass |
+| `conflicts` | values two sources disagree on, each with its provenance, until the design pass settles it from reality | if any | merge |
 | `notes` | anything the pass wants the next pass to know | optional | any |
-| `provenance` | **a list**, one entry per pass that produced this row: `{model, agent, pass, date, source}` | required | every pass |
+| `provenance` | **a list**, one entry per pass that produced this row: `{model, agent, who, pass, run, date, source}` | required | every pass |
 
-**What the later systems need in these rows** *(proposed by Claude, 2026-09-26, for Andrew's check —
-so the world-builders can write what documents 10–23 define):*
+**Every sub-row has a stable `key`** (an action, a transform, a relation, a synonym), so a single one
+can be removed or merged without touching the rest. **Required is checked per pass:** a row is
+complete for the passes named in its provenance, never half empty for those.
+
+**What the later systems need in these rows** (accepted 2026-10-01 with the pilot plan — so the
+census can write what documents 10–23 define):
 
 - **Temperature in `states`**, wherever the thing has one — body parts, food, water, stone, metal,
   the air of an enclosed space — because heat is a state on every entity, body parts included
   (Andrew, 2026-09-26).
 - **Food-state axes in `states`** on anything edible: doneness, char, dryness, spoilage,
   contamination, and the hidden pathogens or parasites it may carry (documents 10 §4.6, 18 §4.8).
-- **An ownership relation** in `relations`, separate from holding — whose a thing is versus who has
-  it (document 15 §4.6), with starting owners from documents 16 and 17.
+- **An ownership relation** in `relations` (`owned-by`), separate from holding — whose a thing is
+  versus who has it (document 15 §4.6), with starting owners from documents 16 and 17.
 
 **Shared files** — `materials.yaml` (every material with its axes, including `density` — document 18),
 `verbs.yaml` (canonical verb, family, the relations it takes, the capability it needs, the forms it
-yields), `synonyms.yaml`, `relations.yaml`, `goals.yaml` (the goal table, document 04 §3.9).
+yields), `synonyms.yaml`, `relations.yaml`, `goals.yaml` (the goal table, document 04 §3.9 — each row
+lives in the system document that owns the goal, and this file collects them with that source). The
+materials, forms, capabilities, verbs and relations the engine already has are generated from its
+code, so the store starts from what the engine really does.
 
 **The rules** (in `docs/ontology/README.md`): provenance is required on every row; status is never
 overstated; **a row is never deleted, only superseded** — and when Andrew deletes something in the web
-app, the row is marked removed by him, kept in the history, and the loops never add it back
-*(proposed by Claude, for Andrew's check, 2026-09-28)*. `make validate-ontology` checks the schema,
+app, the row is marked removed by him with a reason and kept; the loops never add it back, and a
+proposal of it again only adds to its provenance (2026-09-28, 2026-10-01). A "not in this world" removal
+becomes a "not here" line in that zone's brief. The store is written in one canonical YAML form, with
+no comments (notes go in `notes`). `make validate-ontology` checks the schema,
 the cross-references, and the two disciplines above — a required field left empty is an error, a
 field no pass owns is a schema bug.
 
-**Merging the two models, and measuring them (Andrew, 2026-09-18).** Sonnet and Opus each produce a
-file per zone; the merge **unions, never drops**, and every row's `provenance` list gains an entry
+**Merging, and measuring (Andrew, 2026-09-18).** Runs are experiments; Andrew merges the rows he
+wants into the store, explicitly (2026-10-01; document 22 §4.6). The merge **unions, never drops**, and every row's `provenance` list gains an entry
 per pass that found it. That makes agreement a number: a row found by both models carries two
 entries, a row only one model saw carries one. Each firing then writes an **analysis report** beside
 the merge: how many rows each model found, how many both found, what each found that the other did
@@ -263,11 +278,13 @@ those counts move over time. That is what tells us what each model actually cont
 two-model premise pays, and how to change the briefs. Pruning is the design pass's, per zone, when it
 reads the merge and its report.
 
-**Seeding, before any agent runs.** `tools/ontology_seed.py` converts what is already built — the
-object table, the materials table, the zones, the spaces, the appearance rows, and the nine censuses'
-entity lists — into the first YAML files (status ✅ built or 📐 designed, provenance "converted from
-&lt;file&gt;"). So the store and the viewer exist, and Andrew can browse the *current* world during
-the design review, before a single loop fires.
+**How the store starts (2026-09-30).** From the design, not from the old tables: the engine's own
+vocabulary generated from code into the shared files; the 59 zone outlines from document 01 (with the
+built zones' positions); and, for each zone the pilot works on, a **brief** (`briefs/<zone>.md`) — what
+the design says is there, with its sources and a "not here" list — written by reading every document
+that names the zone and fixing their contradictions first, then checked by Andrew. The old runtime
+tables are what the S-world/R-world comparison measures against (document 22 §4.5); the July censuses
+are not imported.
 
 **Which one is the design of record.** The YAML is the design of record for the ontology; the Python
 tables are the runtime. A converter (later) turns finalized YAML rows into object / material / zone /
@@ -293,84 +310,18 @@ number would hide which axis is lagging, and this is the number read every morni
 Each becomes a row in the morning report beside the ontology diff, with its own trend line. A
 category that stops falling is the next pass's brief.
 
-### 4.6 The viewer
+### 4.6 The web app
 
-`tools/ontology_view.py` generates a static site (`docs/review/ontology/`, gitignored, regenerated
-after every firing; also publishable so Andrew can browse it from anywhere):
+The viewer is **a web app** (Andrew, 2026-09-16, 2026-09-28): Andrew browses the world and any single
+room, with a map, and adds, removes and edits things; what he changes is written back to the store
+with his name as its provenance. It also shows the runs that build the store. Its design is document
+22 §4.8.
 
-- **the world map** — positions and edges, taken from the zone files;
-- **per-region and per-room pages** — entities, parts, relations, candidate actions, synonyms,
-  provenance, status;
-- **whole-world counts**, and **what changed since the last firing**.
+### 4.7 The loops, the pilot and the scaffold
 
-**It is a web app, not only a static site** (Andrew, 2026-09-28): Andrew reviews the rooms and the
-ontology in it and adds or deletes things, and what he changes is written back to the store with his
-name as its provenance. How it is built is the implementation plan's. Its first job is still that a
-person can read the world.
-
-### 4.7 The loops
-
-**A pilot pass, by hand, first.** After the schema exists and after the design review — no agent runs
-in a loop before every design document is finalized — one built room (the mid cabin) is done by the
-world-builder on Opus 5 and again on Sonnet 5, under the draft scaffold; the two outputs are merged
-into `docs/ontology/zones/mid_cabin.yaml`; Andrew and Claude read it and the first generated viewer
-page together. **The scaffold, the queue format and the firing procedure are fixed from what that
-teaches, not designed on paper**; the schema is verified by it (§4.5). Only then do the loops run
-unattended.
-
-**Phase 1 — ontology building.** Unit: a room × a pass. The world-builder reasons about the room to
-real-world depth — what is there, what it is made of, what each thing could turn into, every relation,
-and (Sonnet especially) the fun, random things a person would notice or try — and writes YAML rows
-with provenance. **Both models run every room**, as peers; which model found a row is kept, so we can
-see what each contributes and adjust the briefs. Duplicates are reconciled by a merge step; synonyms
-are collected as they appear.
-
-**Phase 2 — possibility passes.** The scout imagines being a survivor in that room in a *situation*
-(day 1 dusk, injured, the day-6 flurry…) with **one lens at a time**, and lists everything they would try,
-as the command they would type. New verbs, relations and entities surface here and go back into the
-YAML. Every candidate command is a future probe.
-
-**A firing** is one bounded chunk of work — a whole zone per phase, N zones in parallel, N set by the
-pilot pass; a night is many firings *(proposed by Claude, 2026-09-26, for Andrew's check; document 22
-§4.5)*; the morning artifact is the regenerated viewer plus a diff summary Andrew reads. The queue is
-a plain table of zone × phase × model rows — the nine built rooms first, then the fifty designed
-zones.
-
-**No implementation happens in either phase.** Design and implementation stay separate: the cabin
-zone is finalized from its ontology first (including the multi-zone connected perception), then an
-implementation plan is written for the planned objects and actions across the world, with a spike on
-how easy new verbs are inside the grammar.
-
-**Then play, and the walls.** Once the play harness exists, agents play freely, and every wall — an
-attempt with no answer, an unknown word, a thing that should have been there — is logged and becomes
-the next pass's input. **"Walls per run" is the measure** (§4.5a). There is no finish line.
-
-### 4.8 The scaffold (what the agents are given)
-
-`docs/guides/world-building.md` — one guide, two briefs. The wording below is a draft: the pilot runs
-on it, and it is rewritten from what the two models actually produce, with the mid cabin's merged
-output promoted as the exemplar — worth more than more instructions (Andrew, 2026-09-18).
-
-**For world-builders — "if this were the real world, not a MUD":** every entity a person would notice
-(objects, parts of parts, substances, surfaces, the ground and what is under it, natural materials,
-sounds, smells, temperatures, light, wind, tracks, sign); what each is made of; what each could turn
-into (cut, broken, burnt, dug, melted…); every relation to other things (on, under, inside, attached,
-near); every action a person would reasonably try on it, **with the command they would type**.
-Thorough, not the gist. **No cap.** Provenance on every row.
-
-**For scouts:** the situation packet (room, day, weather, the party's state, what is known); **one
-lens at a time**; "list everything you might try, as the command you would type"; **never judging
-feasibility** (judging is what a probe is for).
-
-**The lenses (Andrew, 2026-09-18): the goal lenses as the backbone, plus a small set of human
-lenses.** The goal lenses: fire · food · water · warmth · shelter · signals · rescue · injury · the
-pilot · the party, plus lenses we add. The human lenses cover what a person would try with no survival
-goal at all — exactly the fun, random things wanted from Sonnet: boredom, fear, grief, curiosity,
-spite, tidying up, keeping the kid busy. *(The lists are Claude's; the human lenses are tried in the
-pilot, to see what they add beyond the goal lenses.)*
-
-**The exemplars:** the mid cabin from the pilot pass, and later the birch grove at real-world depth as
-the outdoor calibration piece.
+How the passes run — the pilot, the scaffolds, how a run works, triage, merging, the queue and the
+firings — is document 22. This document owns what the ontology *is*: the schema, the store's rules and
+the measure.
 
 ### 4.9 What the census already says the world needs
 
@@ -435,6 +386,10 @@ None open. Every question this document asked was answered on 2026-09-18 and is 
   human lenses; all five wall categories counted separately; `sensed` carries a cadence, because
   ambience comes from the things present (document 06).
 - **2026-09-27** — the no-storm week carried in (document 13 §4.2).
+- **2026-10-01 (Andrew, with the pilot plan):** the store starts from the design, not the old tables;
+  the schema refinements (flat parts, states as axes, fixed senses, provenance with run and who,
+  conflicts, stable keys, removals with a reason, the intended target on every command, required
+  checked per pass); the viewer is the web app; how passes run moved wholly to document 22.
 
 ---
 

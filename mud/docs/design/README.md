@@ -51,7 +51,7 @@ always at least partly cloudy. The same weather every run (document 13 §4.2).
 | 19 | [`19-multiplayer-and-instances.md`](19-multiplayer-and-instances.md) | instanced runs; seeing and talking across zones; interdependence; run modes | reviewed with Andrew 2026-09-28 | [`perception-model.md`](../architecture/perception-model.md) |
 | 20 | [`20-the-agent-player-and-research.md`](20-the-agent-player-and-research.md) | what an agent is given; the same view as a human; the log; the reading of the playthrough; replay; research runs | reviewed with Andrew 2026-09-28 | [`adr/0005`](../architecture/adr/) |
 | 21 | [`21-endings.md`](21-endings.md) | rescued or dead; the day-7 rescue; the Warming Hut; silent watchers | reviewed with Andrew 2026-09-29 | — |
-| 22 | [`22-the-world-building-loops.md`](22-the-world-building-loops.md) | the phases; both models as peers; the scaffold; the queue; walls per run | draft for review | `harness.md` (pending) |
+| 22 | [`22-the-world-building-loops.md`](22-the-world-building-loops.md) | how the passes run: the pilot, scaffolds, runs, triage, merging, the web app, the queue | reviewed with Andrew 2026-10-01 | `harness.md` (pending) |
 
 **Companion lists** (living, never finished — the loops add to them): [`food-list.md`](food-list.md) —
 every food in the valley and everything that makes people sick.

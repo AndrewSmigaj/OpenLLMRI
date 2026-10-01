@@ -23,6 +23,11 @@ it.
   prose: no quotes of the conversation, no superseded material, every decision in §5 applied everywhere;
   the old seed design, the investigation scratchpads and the second GDD summary are removed. Document 13
   carries the first-week-of-October weather.
+- **Document 22 reviewed in full (2026-10-01): the pilot plan approved** (plan file
+  `~/.claude/plans/graceful-beaming-puffin.md`; document 22 rewritten from it in plain technical English;
+  document 05 owns the schema, with its refinements). Build order after the review: M1 schema and
+  validator → M2 the store's start and the zone briefs → M3/M4 the web app, triage, probe console → M5
+  spikes, scaffolds, runner → M6 pilot round 1 → M7 more rounds → M8 launching runs.
 - **Document 21 reviewed in full (2026-09-29):** the game ends on day 7 with the rescuers finding everyone
   alive; the Warming Hut; the institute's sim rooms; sex and name chosen by each player.
 - **Document 20 reviewed in full (2026-09-28):** agents alone run at model speed; activations and expert
@@ -50,7 +55,7 @@ it.
   light start (bumps and bruises, a cut, a concussion).
 
 **Next, in this order:**
-1. **The sittings continue in index order, from document 22**, checking the answers Claude proposed in each document, then
+1. **The sittings continue with document 23**, the last, checking the answers Claude proposed in each document, then
    finalizing at the close.
 2. A10 — the missing systems' documents (combat, heat, hunting/trapping/fishing, food state, animal
    behaviour, scent, light, weather, snow and ice on the ground, physiology, the tutorial rooms); A11 — the
@@ -146,7 +151,7 @@ no design.
 ### Phase B — The machine: the harness, the front door, the store (parallel with A; touches no design)
 | status | id | task | owner | design doc | waits on |
 |---|---|---|---|---|---|
-| ☐ | B1 | The agent roster pinned to models (`implementer`, `world-builder`, `scout`, `describer`, `engine-reviewer`, `requirements-reviewer`, `docs-editor`, `sim-test-writer`); the certainty skill's post-implementation mode; the constitution; all hooks consolidated into `.claude/settings.json`; the Opus-4.8 env pin removed. | Fable | 22 | — |
+| ☐ | B1 | The agent roster pinned to models (`implementer`, `engine-reviewer`, `requirements-reviewer`, `docs-editor`, `sim-test-writer`; the world-building passes run through `tools/ontology/runner.py`, not repo agents — the old `whiteout-world-builder` agent and `ontology-generator` skill are retired, document 22 §8); the certainty skill's post-implementation mode; the constitution; all hooks consolidated into `.claude/settings.json`; the Opus-4.8 env pin removed. | Fable | 22 | — |
 | ☐ | B2 | `docs/harness.md` — the inventory of every hook, gate, skill, agent, command and doc, what each returns to Claude, its cost, and how to change it. | Sonnet draft → Fable | 22 | B1 |
 | ☐ | B3 | `README.md` rewritten: what it is for, no ceiling, never a menu, how it's built, how we work, built with Claude Code deliberately, where we are (no stats), the quickstart fixed. Andrew reads before the push. | Sonnet draft → Fable | — | — |
 | ☐ | B4 | Anchors and quickstart config: `docs/README.md`, `Makefile` default scenario, `docker-compose.yml`, the `.claude/commands`, the guides' scenario names, `CLAUDE.md` commands table. | docs-editor | — | — |
@@ -154,10 +159,10 @@ no design.
 | ☐ | B6 | Hygiene: delete `seed.md`, `tools/bake.py`, `tools/coverage.py`, the certainty draft, empty scenario dirs; gitignore the render output and the hook stamp; banners on unbannered authoritative files; fix `_TEMPLATE.md` links; move `mudlet-research.md`. | docs-editor | — | — |
 | ☐ | B7 | The commit doc-reminder hook (`.claude/hooks/commit-doc-reminder.py`): a Bash `git commit` triggers a checklist of the docs the staged paths may need, incl. this file. The first test of the implement → self-grade → review process. | Opus implementer → Sonnet review → Fable | 22 | B1 |
 | ☐ | B8 | Publish: fast-forward `main` to the branch, push, CI green. After Andrew's read of README + VISION + this file. | Fable | — | B3, B4 |
-| ☐ | B9 | The ontology store: the **full** `docs/ontology/` YAML schema (document 05 §4.5 — every field required/conditional/derived and tagged with the pass that fills it) + `docs/ontology/README.md` (provenance a list; a row is never deleted, only superseded); `make validate-ontology` checks the schema, the cross-references, required-but-empty fields and fields no pass owns. Generate the living lists from it — first `docs/design/food-list.md` (2026-09-27), so what a model adds appears there. | Fable (schema) → Opus | 05 | — |
-| ☐ | B10 | The seed converter `tools/ontology_seed.py`: the built tables and the nine censuses → the first YAML files (✅ built / 📐 designed), so the store exists before any agent runs. | Opus | 05 | B9 |
-| ☐ | B11 | The viewer `tools/ontology_view.py`: a static site — the world map, per-region and per-room pages, counts, what changed since last firing; publishable as an Artifact. | Opus | 05 | B10 |
-| ☐ | B12 | The loop scaffold `docs/guides/world-building.md` (world-builder and scout briefs; the goal lenses) and the loop queue in `docs/ontology/` (zone × phase × model). | Fable | 22 | — |
+| ☐ | B9 | **M1** — the ontology store's schema as pydantic models (`tools/ontology/schema.py`, the single source; `docs/ontology/schema.json` generated) with document 05 §4.5's refinements (flat parts, states as axes, fixed senses, provenance with run and who, conflicts, stable keys, removals with a reason, intended target on every command, required checked per pass); canonical YAML and the safe write (`yamlio.py`); `store.py`; `docs/ontology/README.md`; `make validate-ontology` (schema, cross-references, per-pass completeness, fields no pass owns). Generate the living lists from it — first `docs/design/food-list.md` (2026-09-27), so what a model adds appears there. | Fable (schema) → Opus | 05 | — |
+| ☐ | B10 | **M2** — the store's start, from the design (2026-09-30): the engine vocabulary generated from code (`framework.py` → `shared/`); the 59 zone outlines from document 01; the mid-cabin and birch-grove briefs and reference lists, written by reading every document that names the zone and fixing contradictions first, checked by Andrew. No import of the old tables or the July censuses. | Opus (+ Fable for the briefs) → Andrew | 05, 22 | B9 |
+| ☐ | B11 | **M3/M4** — the review web app (document 22 §4.8; `make ontology-web`, FastAPI + Jinja2, local, one worker): browse, edit with removals kept and a commit button; then the S-world bridge, triage and the probe console. With spikes S4 (five hand-written rows), S6 (Andrew's walk-through), S3 (triage agreement ≥85%) and S5 (what the bridge cannot express). | Opus | 22, 05 | B10 |
+| ☐ | B12 | **M5** — spikes S1 (isolation and flags) and S2 (output size); scaffolds v1 (`docs/ontology/scaffolds/`); the packet, the runner (`claude -p`, isolated, checked from its first event, repair turns, triage, report, asking the run why); run, compare and findings pages. The settled scaffold is promoted to `docs/guides/world-building.md` after the pilot; the queue comes after the pilot (M8). | Fable → Opus | 22 | B11 |
 | ☐ | B15 | The Mudlet write-up and a proposed Whiteout Mudlet setup (the research is done: `docs/client/mudlet-research.md`). | Fable | — | — |
 | ☐ | B13 | The clarification-only feedback in code (DR-08c): no verb suggestions, no numbered menus, `help verbs` gone, `make`/bare `use` clarify, `use X on Y` silent, the near-miss hint gone, bare `go` no longer lists exits' targets beyond the Exits line, unknown words logged to the wall-sensor; **tier-4 physics answers from properties replace the verb-list redirect**; probes re-authored to name nouns. | Opus implementer | 04, 05 | A1.04 |
 | ☐ | B14 | Shipped narration and binding bugs (found by running the sample week): the article doubler ("the the pilot", "a leather gloves"), `the fire` binding the extinguisher, bare `bin` binding the far bin, `cover X` folding to `wrap`. Bug fixes, not design. | Opus implementer | 03 | — |
@@ -165,10 +170,10 @@ no design.
 ### Phase C — The world-building loops: the design grows (exit: every zone has both passes; additions flowed back)
 | status | id | task | owner | design doc | waits on |
 |---|---|---|---|---|---|
-| ☐ | C1 | The pilot pass: the mid cabin by the world-builder on Sonnet and on Opus, merged; the first viewer page; read together; the scaffold, schema and queue fixed from what we learned. | both models → Andrew + Fable | 22 | Phase A exit, B9–B12 |
+| ☐ | C1 | **M6** — pilot round 1 (document 22 §4.7): the mid cabin's ontology pass (2 briefs × 2 models × 2 repeats), scaffold v2, its possibility pass, the birch grove; the analysis per question Q1–Q10, the mechanics report, the findings notebook. Runs after the design review and before A10, as its input (2026-09-30). Then rounds as needed (M7). | both models → Andrew + Fable | 22 | the review (docs 22, 23), B9–B12 |
 | ☐ | C2 | Ontology passes over every zone (the nine built first, then the fifty): entities, materials, what each could turn into, relations, candidate commands; merged with provenance. | both models, overnight | 22, 05 | C1 |
 | ☐ | C3 | Possibility passes: a survivor in a situation, one goal lens at a time (fire · food · water · warmth · shelter · signals · rescue · injury · the pilot · the party · others), everything they would try as commands. | both models, overnight | 22 | C2 |
-| ☐ | C6 | The merge and its analysis: union the two models' files per zone, never drop; provenance as a list so agreement is a count; an analysis report per firing — rows per model, rows found by both, what each found alone, by kind, and the trend over firings. | Opus | 05 §4.5, 22 | B9 |
+| ☐ | C6 | The merge and its analysis (document 22 §4.6): explicit — Andrew merges; matching by id, then synonym, then near-matches he confirms; union, never drop; removed rows stay removed; provenance as a list so agreement is a count; an analysis report per firing — rows per model, rows found by both, what each found alone, by kind, and the trend over firings. | Opus | 05 §4.5, 22 | B9 |
 | ☐ | C4 | **The feedback rule, run after every firing:** each addition that names a new food source, material, verb, relation, hazard or system goes into the owning design document as a proposal AND becomes a task here (Phase E) if it needs code. Synonyms → the phrasing probes. | Fable (morning read) | all | C2 |
 | ☐ | C5 | Walls per run, five categories counted separately (document 05 §4.5a): unknown word, unknown noun, generic answer, wrong refusal, retry cluster; each with its own trend line in the morning report; the parser gaps log and the wall-sensor wired to produce them. | Fable + Opus | 05 §4.5a, 20, 22 | B13, F1 |
 
@@ -515,6 +520,11 @@ it says so. When a decision changes, this list and every document it touches cha
   The prose reading waits until Claude has a draft of the real rooms ready for review.
 - **A web app for the store** (2026-09-28): Andrew reviews the rooms and the ontology in a web app and
   adds or deletes things there, not only reads them (document 05 §4.6).
+- **The world-building passes** (2026-09-29 to 2026-10-01): the pilot is an experiment, hand-run and
+  read together, run after the design review and before the missing system documents, as their input;
+  runs are experiments, never merged automatically — Andrew merges rows; the store starts from the
+  design, not the old tables; nothing is reused just because it exists; quality over speed. The web app
+  gets run pages and, later, launches runs with `claude -p` (document 22).
 - **Ontologically sufficient** means anything reasonable that follows the grammar works — basically
   anything a language model playing the game would think to do, whether or not it leads anywhere —
   throwing a snowball is as real as lighting a fire; the world holds not only things that are there for a

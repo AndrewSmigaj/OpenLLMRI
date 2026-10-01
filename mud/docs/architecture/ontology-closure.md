@@ -183,7 +183,10 @@ chained steps). A probe step names its nouns unambiguously; a clarification mid-
 The corpus grows from four sources: the room censuses (~120 rows), the phrasing corpus (agent-
 generated commands), the rescue graph (goal paths), and the dilemma set.
 
-## 7. The closure loop (how overnight runs work now)
+## 7. The implementation loop
+
+*(The world-building passes — the census and the possibility passes, which write no code — are
+[document 22](../design/22-the-world-building-loops.md). This section is the loop that builds code.)*
 
 The unit of overnight work is a **probe cluster**, not a room. Each firing (`/loop 30m`, one box,
 then stop): take the next `todo` cluster → extend a material, a form rule, an operation, or an
