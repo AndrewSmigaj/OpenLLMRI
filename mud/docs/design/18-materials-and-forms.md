@@ -13,6 +13,9 @@
 
 ### Andrew's decisions
 
+- **(2026-10-02)** The windscreen and windows are acrylic; the wall batting is fibreglass (does not burn)
+  and the engine cover's fill polyester (burns). Something sharp can always be had — broken glass from
+  whatever glass is aboard, or torn metal.
 - **2026-09-07, restated 2026-09-16 — the natural world is in scope.** Taking an axe to a log and
   chopping it up, digging dirt, finding a rock, maybe some clay — all of it is in.
 - **2026-09-07 — abstract the affordance away from the object.** A shard can cut, and so can a knife.
@@ -137,8 +140,8 @@ cordage, `metal` is what makes a sheet reflective.
 | `plastic` | cases, the radio shell, the lighter | middling to cut, bends easily, burns moderately with toxic smoke, takes some work to light, middling rigidity |
 | `rubber` | tyres, hose, insulation | middling to cut, bends at a touch, burns moderately with toxic smoke, insulates well, and conducts **nothing** — the one insulator against current |
 | `copper_wire` | the panel loom, the antenna run | middling to cut, bends at a touch, conducts better than anything else in the table (`extreme`), not rigid |
-| `glass` | instrument faces | hard to cut, will not bend at all, will not burn, rigid, brittle — the shard source. *(The 206's windscreen and windows are acrylic, not glass — §4.8, proposed by Claude.)* |
-| `insulation_batting` | the quilted engine cover, wall batting | insulates almost better than anything (`very_high`); burns well and takes some work to light; cuts and tears with no resistance. *(Proposed by Claude: two materials — the fuselage's wall batting is fibreglass, which does not burn; the engine cover's polyester fill does — §4.8.)* |
+| `glass` | instrument faces, and any other glass aboard — a bottle, a mirror, a lens | hard to cut, will not bend at all, will not burn, rigid, brittle — a shard source. Something sharp can always be had: broken glass from whatever glass is aboard, or torn metal — the aluminium skin's ripped edges, a broken bracket (2026-10-02). The 206's windscreen and windows are acrylic, not glass (§4.8, 2026-10-02). |
+| `insulation_batting` | the quilted engine cover, wall batting | insulates almost better than anything (`very_high`); burns well and takes some work to light; cuts and tears with no resistance. Two materials (2026-10-02): the fuselage's wall batting is fibreglass, which does not burn; the engine cover's polyester fill does — §4.8. |
 | `fuel` | avgas from a ruptured line or a jerry can | burns as hot as anything and catches at a spark, with toxic smoke. Declares no `potability` and no extinguishing tag — it is not a drink and not a douser |
 
 **Fibre, cloth and clothing** *(the kit's materials — players-and-kit, DR-25a)*
@@ -528,8 +531,7 @@ loops (22), which are the mechanism that grows them.
 ## 6. Open questions
 
 None open. Reviewed in full with Andrew on 2026-09-28; three details of §4.8 were never put to him and
-are in the 2026-10-02 audit list (the acrylic windows, the two battings); the porous things' bulk was
-kept on 2026-10-02.
+were kept in the 2026-10-02 audit (the porous things' bulk, the acrylic windows, the two battings).
 
 ## 7. Review log
 
