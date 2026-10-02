@@ -103,6 +103,7 @@ From document 23 §4.3, §4.4 and document 10 §4.4, §4.8. How each is taken is
 | beaver | the lodge and its feed pile | an 18–32 kg animal: ~10,000–20,000 kcal of rich meat; the tail's fat | wary, hard to take | 📐 |
 | muskrat | the marsh edge, if the lake has one | 0.9–1.8 kg: ~600–1,100 kcal | — | ◌ |
 | the bear | wherever food is | the richest food in the valley — 70–100 kg of meat (~110,000–160,000 kcal) and tens of kilograms of fat | the most dangerous thing in the valley; **trichinosis worms in the meat — always cook it through** | 📐 |
+| porcupine | the spruce and birch | ~5,000–10,000 kcal, much of it fat — fattest in fall | clubbed; the quills | 📐 |
 | fox, marten, lynx | tracks everywhere | a pelt; ~4,000–6,000 kcal a lynx, ~1,500–3,000 a fox, a few hundred a marten | rarely seen | 📐 |
 
 ## 5. Parts of any kill

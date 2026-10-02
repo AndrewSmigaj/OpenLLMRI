@@ -74,6 +74,14 @@
   about one night in five, and an empty snare always tells the trapper something. Unseen animals are
   decided by odds and shown when seen (§4.1). Each try is plain dice; getting better with practice, on
   each character's hidden skill sheet (document 16 §4.1), is what makes "eventually" true.
+- **2026-10-02 — five animals added** (§4.3): the porcupine (fat in fall, clubbed — the fat the lean
+  game lacks), the swans going south and a few late ducks, the small birds of the winter, ermine, and
+  mink and river otter (sign).
+- **2026-10-02 — wildlife comes and goes.** The animals are not all hanging about: they come and go at
+  a rate that is perhaps not fully realistic but never ridiculously often, so a valley never reads as
+  too much wildlife for the scenario, and finding things means walking around and looking. Getting the
+  rate right takes taste and game-design judgement, then playthroughs to see how easy it is, and
+  adjusting.
 
 ### Proposals (Claude)
 
@@ -157,7 +165,9 @@ Every figure is a real starting point that the probes tune.
   morning, or robbed by a fox before the party comes. A person watching makes a hare far less likely
   to come, as real hares avoid people, and one that does come is a full animal the watcher sees arrive
   and move along the run. Every population animal works this way; the actors are the ones that really
-  move about. It also lives as **sign**: tracks, scat,
+  move about. **Wildlife comes and goes** (2026-10-02): an animal is met now and then, never
+  ridiculously often, and finding one means walking around and looking; the rates are tuned by
+  playthroughs. It also lives as **sign**: tracks, scat,
   calls, a cone-scale midden, browse, a kill, where each animal lives. **The bear's sign lies in its own
   area** (2026-09-28), not spread everywhere, and is plain on entering that area — nobody has to
   examine the ground in every room to find it. *The actors' rules are owned by an
@@ -178,7 +188,7 @@ animal is driven:
 |---|---|---|
 | **An actor a lightweight model can play** (engine behaviour rules otherwise) | one **male grizzly**, up all week — in the first week of October most interior black bears have denned, a bear still up and feeding is most likely a grizzly, and males den last (§4.0); the **raven pair** | the two whose choices make a story: the bear finds the pilot's body and the food by smell and decides what to do about the people near it; the ravens watch, follow, call and steal |
 | **An actor on engine behaviour rules** | a **red fox** at the camp's edge; the **gray jays** at food — a pair, often with one of the year's young; the **grouse and ptarmigan** people hunt | simple, readable behaviour; any of them can be played by a model in a run that wants it |
-| **A population** | snowshoe hares (the runs a snare is set on), red squirrels (middens), voles, the beavers in their lodge, marten (sign), the bugs | many of them, little choice each — counts and rules until one is caught or seen |
+| **A population** | snowshoe hares (the runs a snare is set on), red squirrels (middens), voles, the beavers in their lodge, marten (sign), porcupines, the small birds of the winter, ermine, mink and otter (sign), the bugs; the swans are an event overhead | many of them, little choice each — counts and rules until one is caught or seen |
 | **Scripted** | the fish: grayling, burbot, whitefish, pike | Andrew, 2026-09-27 — met only through fishing |
 
 **Birds** (2026-09-27, 2026-10-01): as many in a room as is realistic — the raven pair and the jays
@@ -271,6 +281,11 @@ lying on the ground is wet outside; what stands, or hangs, or is sheltered is dr
 | **the bear** (Andrew, 2026-09-26) | wherever food is: the berry slopes, the root bench, the creek; the wreck, once it smells food there | tracks, berry-filled scat, dug-up roots, a torn stump — then the bear | an actor (§4.1a); fighting it is the combat system with real odds, and the bear can kill (Andrew, 2026-09-27); a kill is a fall male of ~200–300 kg: some 70–100 kg of meat (~110,000–160,000 kcal at 161 kcal per 100 g, USDA; about a third of live weight is meat, as hunters find) and tens of kilograms of fat — weeks of food for the whole party; the trichinosis worm is in the meat, so it is always cooked through (document 10 §4.6) | the richest food in the valley, and the most dangerous thing in it |
 | fox, marten, lynx | tracks everywhere in the new snow; the marten set on the trapline (document 01) | sign, rarely the animal; the fox follows the snare line | the trapline's old sets, if repaired | a pelt; ~4,000–6,000 kcal a lynx, ~1,500–3,000 a fox, a few hundred a marten |
 | great horned owl | the spruce, at night; all year in the interior | a call | — | — |
+| porcupine | the spruce and birch — up a tree eating the inner bark, or on the ground between trees | slow; gnawed trunks, droppings under a feeding tree; at its fattest in fall (ADF&G) | walked up to and clubbed — the classic survival animal of the north; the quills are the hazard, to hands and to the mouth | adults 7–12 kg (ADF&G): roughly 5,000–10,000 kcal, much of it fat — the fat the lean hares and grouse lack |
+| swans (trumpeter, tundra), a few late ducks | overhead; the open lake | the last waterfowl to leave Alaska, going south in the first week or two of October in family groups: calls overhead, lines flying south, perhaps a family resting on the lake; a few late ducks may still be on the water (most have gone by October) | an event overhead; on the water, out of reach of anything thrown from the shore | — |
+| small birds of the winter (black-capped and boreal chickadees, redpolls, pine grosbeaks, woodpeckers) | the spruce, the birch, any camp | chickadees calling and coming close; a woodpecker tapping dead spruce; redpolls in the birch | the forest's everyday sound — heard far more than eaten | a few grams each |
+| ermine (short-tailed weasel) | anywhere voles are; the camp, a food cache | turning white this week; curious, popping up and gone | sign and a sighting | — |
+| mink, river otter | the creek, the lake shore | tracks, an otter's slide down the bank, a fish half-eaten on the shore | sign | — |
 
 ### 4.4 What the valley actually yields — and why it is not enough *(proposed by Claude, for Andrew's check)*
 
@@ -335,8 +350,8 @@ elsewhere. One seed, and the whole food picture changes — a real thing that is
 **Rabbit starvation is real.** Hare and ptarmigan are extremely lean. A party eating nothing but them
 gets protein without fat — protein above about 35–45 % of energy brings nausea, diarrhoea and a craving
 for fat within about a week — and does worse than one eating less but with fat in it, which makes the
-freight's flour, the cooler's salmon, marrow, rendered fat, a burbot's liver and a fall bear worth more
-than their calories alone.
+freight's flour, the cooler's salmon, marrow, rendered fat, a burbot's liver, a fall porcupine and a fall bear worth
+more than their calories alone.
 
 ### 4.5 What the wreck adds
 
@@ -412,7 +427,9 @@ winter-fishing guide, "How to set line for burbot" and "Spear fishing in Interio
 *Snowshoe Hare Studies* (Ernest 1974; trap success by season) and trappers' snaring reports; USDA game-meat
 energy (rabbit, beaver, bear, muskrat); Matvaretabellen
 (lingonberry energy); USDA (wild rose hips; rabbit meat); Institute of Medicine 1996 (energy needs in
-the cold); reviews of protein toxicity ("rabbit starvation"); *Mousefood* (Yup'ik root caches);
+the cold); reviews of protein toxicity ("rabbit starvation"); *Mousefood* (Yup'ik root caches); ADF&G, North American porcupine and "Alaska's Thorny Pig";
+Alaska Science Forum, "The Alaska porcupine's winter in slow-motion"; ADF&G, trumpeter swan, and the
+*Fairbanks Daily News-Miner* on the swans' October migration;
 Alaska Science Forum, "How mosquitoes overwinter in Alaska" and "Springtails: a sign of the season";
 USDA Forest Service, *Carpenter Ants in Alaska*; whitespotted sawyer life history (*Northern
 Woodlands*; forestpests.org); J. Hudson, K. Hocker and R. H. Armstrong, *Stoneflies* and *Caddisflies*
@@ -470,7 +487,9 @@ Andrew's check.
   and dead fireweed, yarrow, willow as material, and what the valley gives a fire this week (§4.2a).
   The animals kept (gray jay, great horned owl); snares set on runs that fresh tracks show in use;
   the calories redone; balance — effort pays, eventually, with starting chances in document 10 §4.8;
-  unseen animals decided by odds and shown when seen.
+  unseen animals decided by odds and shown when seen. Five animals added (porcupine, swans and late ducks,
+  the small birds of the winter, ermine, mink and otter); wildlife comes and goes, never too often —
+  finding it means walking and looking, tuned by playthroughs.
 
 ## 8. What exists today
 

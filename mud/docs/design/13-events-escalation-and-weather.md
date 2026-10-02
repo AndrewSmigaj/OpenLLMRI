@@ -206,7 +206,8 @@ and the combat system answer (§4.4).
   gathered over something) (2026-09-28); never a mark on the wreck the party would not have seen and
   heard being made; drawn by the pilot's body, the freight's food,
   the fuel and the oil; it may claim the body and defend it as a cache, and it may be driven off ·
-  **a few birds** — as many as is realistic, and not constantly calling: a pair of ravens that find
+  **a few birds** — as many as is realistic, and not constantly calling; wildlife comes and goes, met now and
+  then and never ridiculously often (document 23 §4.1): a pair of ravens that find
   the food before you do; gray jays that will take it from a hand; a spruce grouse that sits and
   stares; a great horned owl calling at night · a fox trots the tussocks and the camp · a lynx print,
   never the lynx · a hare, half-white in its change of coat · a dead branch comes down in the
