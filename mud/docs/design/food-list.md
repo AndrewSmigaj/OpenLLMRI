@@ -99,7 +99,7 @@ From document 23 §4.3, §4.4 and document 10 §4.4, §4.8. How each is taken is
 | grayling | the lake, the pool | ~150–350 kcal a fish | — | 📐 |
 | whitefish | the lake, the creek | ~400–900 kcal a fish | whether a run comes up the creek is for the loops | 📐 |
 | burbot | the lake, the pool | ~600–1,600 kcal with its liver — the liver's fat is worth more than its calories | bites from sunset to midnight | 📐 |
-| northern pike | the lake, if deep enough to overwinter fish | ~500–1,800 kcal a fish | — | ◌ |
+| northern pike | the lake | ~500–1,800 kcal a fish | — | 📐 |
 | beaver | the lodge and its feed pile | an 18–32 kg animal: ~10,000–20,000 kcal of rich meat; the tail's fat | wary, hard to take | 📐 |
 | muskrat | the marsh edge, if the lake has one | 0.9–1.8 kg: ~600–1,100 kcal | — | ◌ |
 | the bear | wherever food is | the richest food in the valley — 70–100 kg of meat (~110,000–160,000 kcal) and tens of kilograms of fat | the most dangerous thing in the valley; **trichinosis worms in the meat — always cook it through** | 📐 |

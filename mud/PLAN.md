@@ -23,6 +23,12 @@ it.
   prose: no quotes of the conversation, no superseded material, every decision in §5 applied everywhere;
   the old seed design, the investigation scratchpads and the second GDD summary are removed. Document 13
   carries the first-week-of-October weather.
+- **Document 23 reviewed in full (2026-10-02) — the design review is complete.** The bugs; the bear a
+  male grizzly up all week; no wolves, no lizards; realistic numbers of animals, only a few played by a
+  model at once; new plants and animals (sphagnum, bunchberry, the fire woods, the porcupine, the swans);
+  balance — effort pays, eventually, with starting chances in document 10 §4.8; a hidden skill sheet that
+  grows with practice, knowledge on it shown as subtle cues; no survival manual in the world; a fixed
+  middle hare year; a 10 lb bag of flour; permafrost in patches; the lake 6–8 m deep.
 - **Document 22 reviewed in full (2026-10-01): the pilot plan approved** (plan file
   `~/.claude/plans/graceful-beaming-puffin.md`; document 22 rewritten from it in plain technical English;
   document 05 owns the schema, with its refinements). Build order after the review: M1 schema and
@@ -55,15 +61,13 @@ it.
   light start (bumps and bruises, a cut, a concussion).
 
 **Next, in this order:**
-1. **The sittings continue with document 23**, the last, checking the answers Claude proposed in each document, then
-   finalizing at the close.
-2. **The pilot** (document 22 §4.7; build order M1–M6 above): the schema and validator, the store's
+1. **The pilot** (document 22 §4.7; build order M1–M6 above): the schema and validator, the store's
    start and the zone briefs, the web app, triage, the spikes, the scaffolds and runner, round 1 — its
    findings are an input to the next step.
-3. A10 — the missing systems' documents (combat, heat, hunting/trapping/fishing, food state, animal
+2. A10 — the missing systems' documents (combat, heat, hunting/trapping/fishing, food state, animal
    behaviour, scent, light, weather, snow and ice on the ground, physiology, the tutorial rooms); A11 — the
    GDD's vision, which Andrew finds too small.
-4. **How we implement it** (Andrew, 2026-09-28) — once the design is done, Claude drafts how each system
+3. **How we implement it** (Andrew, 2026-09-28) — once the design is done, Claude drafts how each system
    will be built, with suggestions, and Andrew reviews it before anything is built: some of what the
    design asks for needs care — hiding, noticing and stealing, being next to something, patching an
    opening from either side among them — and it includes the web app for reviewing and editing the
@@ -357,7 +361,8 @@ it says so. When a decision changes, this list and every document it touches cha
   usage limits; birds not constantly calling; the fish are
   scripted; other wildlife is a population shown as events and sign, and an animal met or caught is a
   full thing in the room while it is there (2026-10-01); no wolves (2026-10-01), no wolverine, no moose, no
-  lizards — the bear is the one really dangerous animal (2026-10-02). **Balance: effort pays, eventually** —
+  lizards — the bear is the one really dangerous animal (2026-10-02). The lake is about 1.5 km long and 6–8 m at
+  its deepest, joined to the creek (2026-10-02). **Balance: effort pays, eventually** —
   food from the country takes a few attempts and some waiting, and a party that really tries gets something;
   starting chances per way of taking an animal (document 10 §4.8; a snare on a good run about one night in
   five); unseen animals are decided by odds and shown when seen; wildlife comes and goes — met now and then, never

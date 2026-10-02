@@ -285,7 +285,9 @@ redesign)*
 | `drifted_channel` | the travel tuition zone: a wet channel under skim ice, its edges hidden under the thin new snow as the week goes on; no resources; a probe finds the firm line | 📐 |
 | `lake_gate_willows` | withes for lashings and the first hare runs to snare; the gate to the lake | 📐 |
 
-**S3 — The Lake**
+**S3 — The Lake** — about 1.5 km long and 6–8 m at its deepest, deep enough for fish to winter in it;
+fed by its inlet and drained south by the creek at the outlet, so grayling come down from the creek to
+winter in it, and burbot, whitefish and pike live in it (document 23, 2026-10-02).
 
 | Zone | What it is for | Status |
 |---|---|---|

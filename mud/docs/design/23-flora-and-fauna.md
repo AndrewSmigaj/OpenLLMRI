@@ -1,10 +1,9 @@
 # 23 — Flora and fauna: the living things of the valley in the first week of October
 
-> **Status: in review with Andrew (2026-10-01).** Architecture counterpart: none; the entities land in the ontology store
+> **Status: reviewed with Andrew 2026-10-02.** Architecture counterpart: none; the entities land in the ontology store
 > (document 05) and the food model in document 10; where each thing lives is document 01's zones. The
-> species are Claude's proposals from what actually lives in interior Alaska in the first week of
-> October, with sources (§4.0, §4.4) — a real valley has a real living inventory, and the loops will
-> grow it. The weather, daylight, snow, ice and frost numbers are document 13 §4.2.
+> species are what actually lives in interior Alaska in the first week of October, with sources (§4.0,
+> §4.4) — a real valley has a real living inventory, and the loops will grow it. The weather, daylight, snow, ice and frost numbers are document 13 §4.2.
 
 ## 2. Decisions
 
@@ -101,12 +100,10 @@
 - **2026-10-02 — throwing and the sling (§4.6) kept**, told as what happened, on the starting chances of
   document 10 §4.8 and the hidden skill sheet.
 
-### Proposals (Claude)
-
-- Everything below the rules: the species, where each lives, what it yields, with sources (§4.0,
-  §4.2–§4.4).
-- What the valley yields (§4.4), and how the living things are met — telling them apart, what the
-  poisons do, digging, throwing, fishing (§4.6).
+- **2026-10-02 — fishing as the ice comes (§4.6) kept**, with the gear improvised from what is around;
+  **the lake** is about 1.5 km long and 6–8 m at its deepest — deep enough for fish to winter in it —
+  fed by its inlet and drained south by the creek (document 01): grayling come down from the creek to
+  winter in it, and burbot, whitefish and pike live in it.
 
 ## 3. In one paragraph
 
@@ -133,7 +130,7 @@ lowest of them.
 
 ## 4. The design
 
-### 4.0 The first week of October — the living valley, from the record *(proposed by Claude, for Andrew's check)*
+### 4.0 The first week of October — the living valley, from the record
 
 The run is the first week of October in interior Alaska (Claude's choice, at Andrew's request —
 2026-09-26, 2026-09-27). The weather, the daylight, the snow on the ground, the ice on the water and
@@ -214,7 +211,7 @@ together at a carcass, as they really feed — and they call now and then, not c
 everything present, a bird speaks on its own cadence (document 06): an occasional call while it is
 there, and more when something happens — a flush, a raven at food, a jay arriving.
 
-### 4.2 Flora — what a survivor can find (proposal)
+### 4.2 Flora — what a survivor can find
 
 Everything edible here, with the plane's food and Holt's, is also gathered in the
 [food list](food-list.md).
@@ -273,7 +270,7 @@ lying on the ground is wet outside; what stands, or hangs, or is sheltered is dr
 | **friction fire** (document 07's ways) | a hearth board and spindle of dry, dead, soft, non-resinous wood: willow, aspen, cottonwood (balsam poplar), tamarack, and dry spruce without pitch | green or damp wood fails, and pitchy wood glazes the hole; a dead branch still on the tree is the driest choice |
 
 
-### 4.3 Fauna — what is there, and how you get it (proposal)
+### 4.3 Fauna — what is there, and how you get it
 
 "How you get it" points to the operations of document 10 §4.8; which animals act is §4.1a.
 
@@ -292,7 +289,7 @@ lying on the ground is wet outside; what stands, or hangs, or is sheltered is dr
 | bugs wintering under bark and litter | loose bark, the leaf litter, dead stumps | snow mosquitoes, wasp queens, spiders — still and cold | peel the bark, scrape the litter | a find, not food |
 | the wasp nest | a spruce branch, under an overhang | grey paper, empty or nearly so | take it down | its paper burns |
 | grayling, whitefish, burbot | the lake, the pool (document 01) | nothing, until you fish; open water | cast a line into open water; the ice breaks if you walk out on it (Andrew, 2026-09-27); spear; net (document 10 §4.8) — line and hooks, or wire | ~150–350 kcal a grayling to ~1,600 for a big burbot with its liver; the best single meal |
-| northern pike *(candidate)* | the lake, if it is a lowland lake deep enough to overwinter fish | nothing, until you fish | casting, jigging, a set line, spearing (ADF&G) | ~500–1,800 kcal a fish |
+| northern pike | the lake — 6–8 m at its deepest, deep enough to winter fish (document 01) | nothing, until you fish | casting, jigging, a set line, spearing (ADF&G) | ~500–1,800 kcal a fish |
 | beaver | the lodge and its feed pile (document 01, S9) | out at dusk cutting and towing branches to the feed pile before the ice locks the pond; the tail-slap alarm; fresh-chewed stumps | on land at dusk and wary: a snare or a trap at its slide, a club or a spear at close range — hard; once the ice seals the pond it lives under it | an 18–32 kg animal (ADF&G) — ~10,000–20,000 kcal of rich meat (146 kcal per 100 g, USDA), and the tail's fat |
 | muskrat *(candidate)* | the marsh edge, if the lake has one | push-ups of vegetation once the ice forms (ADF&G) | a snare or a spear at the push-up | 0.9–1.8 kg (ADF&G) — ~600–1,100 kcal |
 | ravens, gray jays (Canada jay, camp robber, whiskey jack) | the wreck, any camp | actors (§4.1a): the raven pair finds your cache first, the jays within the hour; their gathering marks a carcass (document 12 §4.3a) | not food; a pressure and a sign | — |
@@ -305,7 +302,7 @@ lying on the ground is wet outside; what stands, or hangs, or is sheltered is dr
 | ermine (short-tailed weasel) | anywhere voles are; the camp, a food cache | turning white this week; curious, popping up and gone | sign and a sighting | — |
 | mink, river otter | the creek, the lake shore | tracks, an otter's slide down the bank, a fish half-eaten on the shore | sign | — |
 
-### 4.4 What the valley actually yields — and why it is not enough *(proposed by Claude, for Andrew's check)*
+### 4.4 What the valley actually yields — and why it is not enough
 
 This is the number that matters. The valley is roughly six square kilometres of interior boreal
 country: black and white spruce, muskeg, a lake, willow bottoms along the creek, a birch toe, an open
@@ -332,7 +329,7 @@ counts (3 L a day each).
 | spruce grouse | about 3–4 displaying males per km² in spring (Ellison 1968: 7–10 per square mile, south-central Alaska); with hens and the year's young, roughly 10–15 birds per km² in fall — **some 25–40 birds** in the valley's spruce, and each one taken is gone for the run | Ellison 1968; the fall multiple is an estimate |
 | willow ptarmigan | small groups of females moving down into the willow bottoms through October — tens at most | ADF&G |
 | red squirrel | one per 1.2–1.6 ha of white spruce (Smith 1968, interior Alaska), up to several per ha in good stands — **some 60–250 middens**, each with about 1,000 to over 8,000 cached cones | Smith 1968; interior-Alaska midden studies |
-| fish | set by the lake's depth and whether it connects to the creek; not knowable until document 01 says what the lake is | — |
+| fish | the lake is about 1.5 km long and 6–8 m at its deepest, fed by its inlet and drained by the creek (document 01, 2026-10-02): grayling winter in it, and burbot, whitefish and pike live in it; the densities are set from interior lakes of its size by the hunting, trapping and fishing document (`PLAN.md` A10) | ADF&G |
 
 **What the party can take on a good day** (three people foraging through the day's light — document
 13 §4.2):
@@ -385,7 +382,7 @@ turns things up slowly. This document only notes that the wreck's food is finite
 renewable but slow — which is the week. The spoiled thing in the plane is document 10 §4.3; the
 country's own spoiled and poisonous things are §4.2 above.
 
-### 4.6 How the living things are met *(proposed by Claude, for Andrew's check)*
+### 4.6 How the living things are met
 
 - **Telling them apart.** The way people really do — by what the senses give, each an entity's
   `sensed` field (document 05 §4.5) shown by `examine` under the signifier rule (document 03 §4.6): the
@@ -441,9 +438,12 @@ country's own spoiled and poisonous things are §4.2 above.
   breaks it (Andrew, 2026-09-27), and this week no ice grows thick enough to hold anyone (document 13
   §4.2). Skim ice in a calm bay is broken from the shore to reach the water, and the gap is an entity
   whose ice skins over again every cold night. The variants are each their own operation: a set line
-  left overnight for burbot, a spear in the shallows, a net, and line and hooks or wire and a bent pin;
+  left overnight for burbot, a spear in the shallows, a net, a willow fish trap, and line and hooks or wire and a bent pin;
   jigging and spearing through a hole in the ice are the same operations on thicker ice than this week
-  grows.
+  grows. The gear is improvised from what is around: hooks from a bent safety pin, bent wire, or a
+  carved gorge (a sliver of bone or hard wood that lodges crosswise in the fish's throat); line from
+  paracord's inner strands, thread or wire; bait from grubs, a hare's guts, a scrap of salmon. The fish
+  are scripted (2026-09-27), met only through fishing, on document 10 §4.8's starting chances.
 
 **Sources for §4.0–§4.6** (looked up 2026-09-26 and 2026-09-27): UAF Cooperative Extension
 (lingonberries; highbush cranberries; crowberries); USFS FEIS (*Actaea rubra*, *Typha latifolia*);
@@ -485,13 +485,13 @@ the low berries and refresh the tracks; document 12 §4.3a the carcass that draw
 and the jays; document 11 §4.6 what the poisonous mushrooms, the baneberry and the hemlock do inside a
 body; document 10 §4.8 the operations that take what is listed here. Systems with no design document yet
 (`PLAN.md` A10): **animal behaviour** (the actors of §4.1a), **combat** (fighting the bear), **hunting, trapping and fishing**, the **heat system** (frost in the ground, ice on the water,
-a fire thawing both) and **food state and spoilage**. Document 01 must say what the lake is — its depth
-and whether it connects to the creek — before the fish rows can have densities.
+a fire thawing both) and **food state and spoilage**. Document 01 holds the lake: about 1.5 km long,
+6–8 m at its deepest, joined to the creek.
 
 ## 6. Open questions
 
-None open. The list of animals that act (§4.1a) and Claude's answers in §4.0, §4.4 and §4.6 await
-Andrew's check.
+None open. Reviewed in full with Andrew on 2026-10-01 and 2026-10-02. The fish densities, the
+encounter rates and every starting chance are tuned by play.
 
 ## 7. Review log
 
@@ -529,7 +529,9 @@ Andrew's check.
   days of short rations at most (a 10 lb bag of flour); never truly full without a huge source. The hare
   year fixed at a middle year, the same every run. Telling plants apart by the senses; knowing plants on
   the hidden skill sheet, shown as subtle cues; no survival manual. What the poisons do, kept. Digging
-  kept, with permafrost in patches half a metre to a metre down. Throwing and the sling, kept.
+  kept, with permafrost in patches half a metre to a metre down. Throwing and the sling, kept. Fishing
+  kept, with improvised gear; the lake 6–8 m at its deepest, joined to the creek. The document reviewed
+  in full.
 
 ## 8. What exists today
 
