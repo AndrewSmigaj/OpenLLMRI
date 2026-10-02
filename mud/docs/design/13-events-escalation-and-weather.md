@@ -14,8 +14,8 @@
   are planned.
 - **(2026-09-17)** The pilot starts the run dead. The only endings are rescued or dead; walking out is
   not an ending and Holt's cabin is supplies. Rescue comes three ways (document 14 §3), and the flyover
-  schedule is its clock. Dangerous places injure but never kill outright; fitness matters; a seeded
-  dice roll, announced. No wolverine.
+  schedule is its clock. Dangerous places injure but never kill outright; fitness matters; the
+  chance is never shown as dice — the player reads what happened (2026-10-02). No wolves, no wolverine.
 - **(2026-09-18, via document 08)** The night-one rule: night one is survivable inside the wreck in the
   clothes the party crashed in; from night two they need a heat source, better gear, conserving or
   huddling. The ladder's first rungs are tuned until both halves hold (document 08 §4.1a).

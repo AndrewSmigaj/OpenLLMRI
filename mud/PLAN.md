@@ -404,7 +404,7 @@ it says so. When a decision changes, this list and every document it touches cha
   mauled person lies there bleeding, can play dead, and may or may not make it back. A body already
   near its end can go almost at once, never in one instant. Poison makes people very sick but never
   kills. Dangerous places injure — a fall may break a limb — and never kill outright; fitness matters;
-  a seeded dice roll, announced. (2026-09-17, 2026-09-27)
+  chance is never shown as dice — the player reads what happened, and the tutorials explain that success mixes chance with the character's stats (2026-10-02). (2026-09-17, 2026-09-27)
 - No gate on violence: it resolves with real physics, and there is a **combat system**, roughly a MUD's
   with changes to suit the game. Nothing in it is automatic: each attack is typed, like any other act.
   No attack hits automatically: as in D&D, whether it lands depends on the fighters' stats and on

@@ -282,8 +282,9 @@ One chapter per system; each is its own document, reviewed separately.
   care. **Nothing kills instantly:** death is realistic and can come fairly fast, but always by the
   body running down — blood loss, the cold, thirst, a wound gone bad — so a player always has time to
   respond, and the bear and a knife kill through the bleeding they cause; poison makes people very sick
-  but never kills; dangerous places injure but never kill outright, fitness matters, and a seeded dice roll is
-  announced. There is no gate on violence: it resolves with real physics, through a combat system
+  but never kills; dangerous places injure but never kill outright, fitness matters, and the chance is never
+  shown as dice — the player reads what happened, and the tutorials explain that success mixes chance with
+  the character's stats. There is no gate on violence: it resolves with real physics, through a combat system
   roughly like a MUD's — nothing automatic, each attack typed, landing by the fighters' stats and
   chance as in D&D, read as what happened, never as dice — and a blow wounds only when it would really hurt (2026-09-26, 2026-09-27).
   Document 11.

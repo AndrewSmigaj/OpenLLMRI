@@ -77,8 +77,10 @@ Andrew on 2026-09-17 and brought to the first week of October on 2026-09-27.
 - **What the party does outside (2026-09-16).** The party probably won't stay outside much, but it can
   make a fire and a lean-to if it wants. The outdoors is terrain to cross and work in, not a second home
   the design must force them into.
-- **Dangerous places (2026-09-17).** They injure, never kill outright; fitness matters; the outcome is
-  a seeded dice roll, and the player is told a roll was made.
+- **Dangerous places (2026-09-17, 2026-10-02).** They injure, never kill outright; fitness matters; the
+  outcome mixes chance with the character's stats, and it is never shown as a dice roll — the player
+  reads what happened (*"your boot skids on the glazed rock and you go down hard"*); the tutorials
+  explain that success is chance influenced by stats.
 - **Sweat (2026-09-17).** Sweat is wet clothing draining warmth, inside the warmth system (document 08).
 - **Density (2026-09-17).** The density gradient (§4.11) is authoring order — a priority, never a cap.
 - **(2026-09-27)** Holt, the trapper, does not come back during the week; the cabin is supplies, not a place to be
@@ -233,7 +235,7 @@ two of six currencies:
 | **Sweat** | hard effort (digging, floundering, chopping) dampens clothing — a *deferred* cold debt, carried as wet clothing inside the warmth system (document 08) |
 | **Tools** | blade, chopper, saw, container, cordage — each unlocks a different shelf of the world |
 | **Knowledge** | reading sign: tracks, ice colour, blaze marks, dead spruce twigs. `examine` is the tutor |
-| **Risk** | thin ice, the cold creek, the frost-glazed lee slope, the climb — always telegraphed; a fall is a seeded roll, announced, that injures and never kills outright |
+| **Risk** | thin ice, the cold creek, the frost-glazed lee slope, the climb — always telegraphed; a fall is chance mixed with fitness, told as what happened, and it injures and never kills outright |
 
 **Where things lie is decided case by case** (2026-09-28): there is no rule that hides things away.
 What would make the start too easy is not in plain sight in the first room; everything else lies where
@@ -581,7 +583,7 @@ None open.
 - **2026-09-17 (block 1):** reviewed in full. Travel is an attended activity (`walk`, `run`, `turn
   back`) that weather lengthens; walking out is not an ending and the cabin is supplies; the density
   gradient is authoring order, never a cap; wildlife as events and sign, no wolverine and no moose; dangerous places
-  injure, never kill outright, by an announced seeded roll; sweat is wet clothing inside the warmth
+  injure, never kill outright (chance never shown as dice — 2026-10-02); sweat is wet clothing inside the warmth
   system; keep the fifty zones and all eleven regions, each with a reason to come back. Follow-ups in
   `PLAN.md`: A4 (re-price the valley for the week-long run), E17 (exits as entities, travel as an
   activity).

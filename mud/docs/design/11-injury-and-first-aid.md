@@ -15,8 +15,8 @@
 - **(2026-09-16, 2026-09-26)** No lethal-consent gate; violence resolves with real physics, and there is a
   combat system like a MUD's — stab with a spear, beat with a stick. Wounds are wounds whoever caused
   them; the engine does not soften a blow.
-- **(2026-09-17)** Dangerous places injure — a fall may break a limb — but never kill outright; fitness
-  matters; a seeded dice roll, announced (document 01).
+- **(2026-09-17, 2026-10-02)** Dangerous places injure — a fall may break a limb — but never kill
+  outright; fitness matters; chance is never shown as dice — the player reads what happened, and the tutorials explain that success mixes chance with the character's stats (2026-10-02) (document 01).
 - **(2026-09-17)** The pilot starts the run dead, so the party's first patients are each other.
 - **(2026-09-17, 2026-09-27)** The endings are rescued or dead; the run ends when they die. Dead players
   are ghosts.
@@ -282,7 +282,7 @@ from half an hour to days later, spending water. Very sick, never dead — hours
 | the crash | the starting draw (§4.2) | document 16 |
 | a person with a stick, a spear, a knife, a rock | when the blow is hard enough to hurt: `heft` bruises, breaks bone, concusses; `edge` cuts; `point` punctures — small, deep and dirtier than it looks; what covers the part changes what gets through. Whether an attack lands at all is the fighters' stats and chance (2026-09-27) | **the combat design, to be written** |
 | the bear and the other animals that act | claws cut and tear; a bite punctures and crushes. Every animal wound is heavily contaminated. A defensive attack usually ends when the person stops being a threat — playing dead — and a predatory one does not | document 23 and **the animal-behaviour design, to be written** |
-| a fall — the steep lee slope, the climb, a slip on the ice or on frosty rock | a sprain, a broken limb, a head strike. **Dangerous places injure, never kill outright; fitness matters; the dice roll is announced** (2026-09-17) — the wound then runs its own real clock, which the party can answer | documents 01 and 13 |
+| a fall — the steep lee slope, the climb, a slip on the ice or on frosty rock | a sprain, a broken limb, a head strike. **Dangerous places injure, never kill outright; fitness matters; the chance is never shown as dice — told as what happened** (2026-09-17, 2026-10-02) — the wound then runs its own real clock, which the party can answer | documents 01 and 13 |
 | cold air on a part | the part's `heat` falls: fine work goes when finger skin is below about 15 °C, the part is numb below about 7 °C, and it freezes below about −0.5 °C | document 08 (extremities); **the heat design** |
 | cold metal and cold fuel | contact frostbite: bare skin on cold metal loses heat fast; avgas or oil below freezing is still liquid and freezes skin almost at once as it evaporates | **the heat design** |
 | wet, cold feet above freezing | **non-freezing cold injury** (trench foot): numb, swollen, then painful — usually after two or three days wet and cold at 0–15 °C, in as little as 10–14 hours. This week's own cold injury, before it is cold enough for frostbite from the air: the townie's sneakers | **the heat design**; document 08 (wet) |

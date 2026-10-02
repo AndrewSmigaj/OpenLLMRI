@@ -141,7 +141,8 @@ written out below the table or in the section that owns them.
 > clothes") form when several things share a place and a kind; `look at the pile` lists them; taking
 > dissolves them (document 03). The bear, some bigger animals and a few birds act, on engine behaviour
 > rules or played by a lightweight model from outside; other wildlife is events and sign (GDD §3 rule
-> 5, document 23). Dangerous places injure, never kill outright; seeded dice may roll, announced.
+> 5, document 23). Dangerous places injure, never kill outright; the seeded dice are never shown — the player reads
+> what happened (2026-10-02).
 > Sweat is not a meter: it is wet clothing draining warmth later. **No moral tags:** acts are
 > not tagged; a language model reads the playthrough after the run (2026-09-28).
 >
