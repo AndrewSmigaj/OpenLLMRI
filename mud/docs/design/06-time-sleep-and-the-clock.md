@@ -18,10 +18,10 @@
 - **A continuously running real-time clock (Andrew's original design, June 2026; DR-14).** Nobody
   can stall it or yank it; the world moves whether or not the party acts. Turn-based time was set
   aside as too clunky for a group playing together.
-- **Sleep, a week, and no permanent game (2026-09-07).** Players can sleep. The clock can be moved
-  forward when all the players agree, and events can interrupt it. A run is roughly a week of game
-  time; rescue can come earlier, and a run can go longer; it is not a permanent game — the escalation
-  ladder kills a party that is not rescued.
+- **Sleep, a week, and the end (2026-09-07, 2026-09-29).** Players can sleep. The clock can be moved
+  forward when all the players agree, and events can interrupt it. A run is a week of game time: the
+  game ends on day 7, when the rescuers find everyone still alive, and rescue can come sooner, by the
+  radio or a signal seen.
 - **No questions when an activity is interrupted (2026-09-16)** — the clarification-only rule
   (document 04) applied here: no confirmation prompts.
 - **The pace (2026-09-17).** The clock always runs faster than real time: **15 game-minutes per real
@@ -57,7 +57,6 @@ Everything else here is a proposal, offered because the decisions above need a m
 - **sleep as a priced resource** (fatigue, the bedding score, the next-day cost);
 - `status` showing **bands, never numbers** (the body reported in words is Andrew's, document 08), and
   the meters beside it (2026-09-27; document 08 §4.9);
-- the rate limit on lines during fast forward;
 - DR-27 (*Activities & processes*), recorded in `implementation-architecture.md` as designed in
   2026-09 and reviewed here before promotion.
 
@@ -88,7 +87,8 @@ clock**: the wall-clock only decides *when* a tick fires; a pure function of `(s
 *what* it does, with every draw from the per-run seeded RNG — so the fuzzer and replay drive logical
 ticks directly and stay byte-reproducible.
 
-**The clock never freezes** (DR-14): the world advances at 15× or in fast forward, never 0×; nobody
+**While a run is going, the clock never freezes** (DR-14): the world advances at 15× or in fast forward,
+never 0× — a paused run is simply stopped (§4.8); nobody
 can yank it backwards or stall it; the weather and the search run on the calendar regardless
 (documents 13 and 14).
 
@@ -103,12 +103,13 @@ can yank it backwards or stall it; the weather and the search run on the calenda
 - **Sleepers** can chat out of character to pass the time (document 19).
 - **The numbers are tuned by playtesting.**
 
-(2026-09-27, 2026-09-28) **Ambient** events are the lines the things present speak
+(2026-09-27, 2026-09-28; which events fall on which side, and the loudness threshold, are starting
+points tuned in play) **Ambient** events are the lines the things present speak
 on their own rhythm (§4.4, document 05's `sensed` cadence) — the fire crackling and settling, the
 creek running, wind gusting against the hull, a raven calling, a spruce dropping its load of snow.
 **Non-ambient** events are the ones that change the party's situation: danger (`DANGER`), the fire
 dropping to embers, a propagated sound loud enough in band (loudness ≥ 0.5 — the bear close by, the new
-ice cracking, a plane), and a sleeper's cold falling below their floor, which wakes them shivering.
+ice cracking, a plane), and a sleeper getting cold enough to wake shivering.
 
 ### 4.3 Activities with feedback
 
@@ -199,9 +200,9 @@ under — boughs, foam, the blankets, the sleeping bag; the huddle). A sleeper w
 `resting_until`, or when something wakes them — and a player waking drops a fast forward back to 15×
 (§4.2).
 
-**Sleep is a resource with a price** (2026-09-18): fatigue falls only while asleep; sleeping cold
-costs warmth per hour (the bedding score sets the rate); a night without sleep costs judgment (slower
-activities, worse tick lines) and warmth the next day. The bedding score and the fatigue numbers are
+**Sleep has a real price** (real physiology): fatigue falls only while asleep; sleeping cold costs
+warmth (the bedding sets how much); a night without sleep makes a person slower and clumsier, with
+worse judgement, and colder the next day. The bedding score and the fatigue numbers are
 valued with the warmth numbers in document 08 (Andrew, 2026-09-18).
 
 ### 4.6 The watch (Andrew, 2026-09-18)
@@ -225,9 +226,9 @@ numbers for analysis. The meters show the same body at a glance, as bars in the 
 ### 4.8 The run
 
 A run is **one sitting of two or three hours** covering about a week of game time; the players can
-pause it and come back (Andrew, 2026-09-17) — the run pauses when someone in the party types `pause game`, never by itself (2026-09-28). A player who is missing when the run resumes leaves a
+pause it and come back (Andrew, 2026-09-17) — the run pauses when someone in the party types `pause game`, and by itself when everyone disconnects (2026-09-28). A player who is missing when the run resumes leaves a
 character who goes catatonic, sits down and stares; the others can keep them alive, and they can die
-(Andrew, 2026-09-27). The run ends in **rescue or death** — never by a timer; walking out is not an
+(Andrew, 2026-09-27). The run ends in **rescue or death**; walking out is not an
 ending. The game ends on day 7, when the rescuers find everyone still alive (2026-09-29), and rescue
 can come sooner (document 14 §3.5).
 

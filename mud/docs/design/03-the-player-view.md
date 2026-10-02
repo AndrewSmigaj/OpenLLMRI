@@ -107,7 +107,7 @@ Every arrival and every `look` prints the same block, in this order:
 
 ```
 The mid cabin                                          ← title line: where you are
-Buckled seat rows and spilled luggage crowd the aisle.  ← the zone survey sentence
+Wrenched seats and spilled luggage crowd the narrow cabin.  ← the zone survey sentence
 An aircraft seat — 1B stencilled on the frame — sits wrenched sideways on its bolts.
 Luggage lies thrown across the floor.                   ← the composed scene (groups form)
 
@@ -253,8 +253,10 @@ only knowable by running.
 
 ### 4.5 The worked examples
 
-The baseline for all six is the mid cabin as it renders today (`make render-scenes`). Today's content still labels the
-seats with airliner rows (11B, 12C); the 206's seats are 1A, 1B, 2A, 2B and the right seat
+The baseline for all six is the mid cabin as it renders today (`make render-scenes`). Today's built content is
+still the old airliner cabin — overhead bins, oxygen masks, seat rows and an aisle — and labels the
+seats with airliner rows (11B, 12C); the design is the 206 interior, with no overhead bins, and these
+examples are redone when that content is re-authored; the 206's seats are 1A, 1B, 2A, 2B and the right seat
 (document 16), and the labels change when that content is re-authored.
 
 > **The mid cabin**
@@ -336,7 +338,7 @@ look-at-able but never take-able or open-able.
 - **The body's own signs arrive as emotes** (2026-09-28): a cough, a wince, teeth chattering, a limp as
   someone moves — single event lines now and then, not every tick, routed by distance like any other
   (document 11 §4.12).
-- **Events print as single lines**, **after a blank line** (Andrew, 2026-09-17): one line,
+- **Events print as single lines** *(Claude's)*, **after a blank line** (Andrew, 2026-09-17): one line,
   in the same voice as the prose, no block, no header; colour, where it is used, is for human players
   only, since it does not survive an agent's transcript. What another person's action looks like to
   you is graded by distance and loudness and is routed per observer — a full third-person line here,
@@ -369,8 +371,8 @@ look-at-able but never take-able or open-able.
 **Depends on this:**
 
 - [`04-grammar-and-feedback.md`](04-grammar-and-feedback.md) — the look is what teaches the nouns.
-  Anything the prose does not name is a noun the player has no reason to type; anything it names must
-  parse. The clarification-only rule and this document's "no list" rule are the same rule seen twice.
+  Anything it names must parse, and a player can also name what a real place would hold (document 05
+  §4.1). The clarification-only rule and this document's "no list" rule are the same rule seen twice.
 - [`20-the-agent-player-and-research.md`](20-the-agent-player-and-research.md) — the agent's entire
   observation is this block; the structured per-step record goes to the log.
 - [`07-fire-and-shaping.md`](07-fire-and-shaping.md), [`09-water.md`](09-water.md),

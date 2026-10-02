@@ -53,7 +53,7 @@
   deletes things** (2026-09-28), not only reads them.
 - **Design first (2026-09-16).** Nothing is built and **no agent runs a loop until every design
   document is finalized**.
-- **No moral tags (2026-09-16, 2026-09-28).** Acts are not tagged as immoral, neutral or taboo; a
+- **No moral tags (2026-09-28).** Acts are not tagged as immoral, neutral or taboo; a
   language model reads the playthrough after the run (document 15 rule 6). Other tags on actions can
   be ontology fields if research ever needs them.
 - **The schema is designed in full, up front (2026-09-18)** — the pilot verifies it; it does not
@@ -328,13 +328,14 @@ The per-zone census of the valley was written generous on purpose and is the clo
 run of Phase 1. What it found is carried in the design documents: the materials the current table
 does not have — rock and stone above all, then bone and antler, fur and hide, peat, lichen, punk wood,
 rubber, kerosene, canvas, rawhide, grease and fat, mica, brass, paper (document 18 §4.7) — and the
-detail the natural world demands: snow and ice are never one object — powder, wind-slab, drift,
-spindrift, sugar snow, snow-cap, sastrugi, rime, hoarfrost, surface hoar, frost feathers; black ice,
-white ice, shore ice, pressure slab, overflow, frazil, skim ice, glare ice. The variety is the ontology
-exercise, and each behaves differently under the material table.
+detail the natural world demands: snow and ice come in kinds that behave differently. This week's are
+the ones the first week of October really has (document 13 §4.2) — hoarfrost and rime, a few
+centimetres of fresh, wet or settling snow, skim ice, new black and white ice, shore ice, thin ice over
+running water, frazil in the creek — and the loops add the rest as the world needs them.
 
 Its totals — **~59 zones, ~1,150 candidate objects, ambients and signs across the valley** (crash-site
-builds excluded; document 01 §4.11) — are a floor from one pass by one model, before any loop has run.
+builds excluded; document 01 §4.11) — are a floor from one pass by one model — the July overnight run, set in a December world — before
+any loop has run.
 That number is the honest scale of the work, and the reason the store and the viewer come before the
 loops.
 

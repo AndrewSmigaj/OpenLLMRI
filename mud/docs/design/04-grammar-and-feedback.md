@@ -174,7 +174,7 @@ say things.
 
 ### 3.6 Teaching the grammar
 
-There is no survival manual or other in-world page in the world (2026-10-02). The grammar is taught by
+There is no survival manual in the world, and no in-world page teaches the grammar (2026-10-02). The grammar is taught by
 the tutorial rooms, each one simple situation that shows what sort of things players can do
 (2026-09-27), and by `help grammar`; an attempt that fails says why, in the world's voice (§3.3).
 
@@ -248,8 +248,8 @@ up, tie off, take out, snap off, zip up.
 | lines that aren't acts | "see if I can tell where we crashed", "keep the cover as a second layer", "let the water cool", "check if bleeding has stopped" | leave: not commands; the guide says state the act |
 | junk tokens | "there's", "if no ember, …" (now handled), gerunds (now handled) | done |
 
-Nothing in the residue is a grammar shape. The grammar is sufficient; the vocabulary and the world
-are what grow.
+In this 2026-09-07 sample, nothing in the residue needed a new grammar form; the play the loops log
+shows whether one is needed.
 
 **What the samples taught us** (rules adopted):
 1. Agents type **particles** constantly (`put on`, `take out`, `pick up`) → positional particle
@@ -258,7 +258,7 @@ are what grow.
    and put "state the act" in the guide.
 3. **`use X on/to`** is the first thing an untaught agent tries → the tolerance path that resolves
    through capabilities.
-4. **Synonym drift is bounded**: after the table, unknown verbs are real missing verbs, not
+4. **After the synonym table**, the unknown verbs in this sample were real missing verbs, not
    phrasing.
 5. Nouns fail more than verbs: **plurals, adjectives, head nouns** (`the quilted engine cover`),
    **possessives that aren't parts** (`the pilot's jacket`) → all four handled in the binder.
@@ -270,8 +270,8 @@ are what grow.
 **Skill (GD — "what skills does this game require?").** Verdict: GREEN. Evidence: the skill is
 *understanding the world*, not guessing syntax: a fixed set of shapes, all shown up front, with the
 tolerance layer absorbing the rest (measured 79–83% taught). Severity: —. Note: the remaining
-friction is vocabulary (new verbs, scenery nouns), which the discovery loop drains; the guide never
-has to grow.
+friction is vocabulary (new verbs, scenery nouns), which the discovery loop drains; the guide grows
+when the forms do.
 
 **Information (GD — "is the right information visible at the right moment?").** Verdict: YELLOW.
 Evidence: the right information is the physics of why, and the tier-4 physics message is not built
@@ -279,8 +279,9 @@ yet, so today a verb that doesn't fit falls to a verb-list redirect — which th
 Severity: med. What would change it: tier-4 + the clarification-only code change (DR-08c).
 
 **Simplicity / Complexity (GD — "is the complexity in the world, not the interface?").** Verdict:
-GREEN. Evidence: interface complexity is fixed (a short list of shapes); world complexity is unbounded
-(materials × forms × operations). Note: resist adding shapes; add nouns and verbs.
+GREEN. Evidence: interface complexity is small (a short list of shapes); world complexity is unbounded
+(materials × forms × operations). The forms are finalized before the loops and grown when evidence
+shows a need (2026-09-18).
 
 **The Toy (GD — is it fun to poke without a goal?).** Verdict: YELLOW until tier-4. Evidence:
 poking is rewarded only when the answer is the physics of the thing; today's verb-list redirect is
