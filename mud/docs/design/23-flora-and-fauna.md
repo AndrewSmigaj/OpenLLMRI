@@ -93,6 +93,8 @@
   the telling detail at once, a subtle cue and never a "do this" hint, and a reason for that character
   to go out and forage. Woods knowledge is likelier in the woodsman. There is no survival manual in the
   world.
+- **2026-10-02 — what the poisons do (§4.6) kept**: each poison's real effects, dose and onset shape a
+  sickness that makes a person very sick and never kills.
 
 ### Proposals (Claude)
 
@@ -401,10 +403,11 @@ country's own spoiled and poisonous things are §4.2 above.
   party (UAF Alaska Ethnobotany; USFS FEIS). Raw mountain ash berries in quantity: vomiting, diarrhoea and cramps
   (an acid in the raw berries), which frost and cooking undo. Water hemlock: nausea and cramps within 15–90
   minutes, then seizures (CDC, *MMWR* 1994) — seizures, the injury they cause and the lost days, never
-  death. The deadly galerina: violent vomiting and diarrhoea some hours after the meal, a false
+  death. The deadly galerina: violent vomiting and diarrhoea 6–24 hours after the meal, a false
   recovery, then a long, severe sickness. The fly agaric: within hours, nausea, vomiting, confusion,
   delirium and drowsiness. Vomiting spends water and the meal (document 09), weakness slows work, and
-  the dose eaten is remembered by the body.
+  the dose eaten is remembered by the body. The real onset times make a puzzle: someone who ate the
+  galerina feels fine for hours, and the party has to work out what made them sick.
 - **Digging in freezing ground.** Frost depth is a state on the ground of each zone, changed by the heat
   system: a crust after each frosty night, thickening through the week (document 13 §4.2), slower in wet
   peat and under snow, thawed by a fire built on it. Digging needs the capability to break the crust — a
@@ -513,7 +516,7 @@ Andrew's check.
   finding it means walking and looking, tuned by playthroughs. The yield kept; the plane's food a few
   days of short rations at most (a 10 lb bag of flour); never truly full without a huge source. The hare
   year fixed at a middle year, the same every run. Telling plants apart by the senses; knowing plants on
-  the hidden skill sheet, shown as subtle cues; no survival manual.
+  the hidden skill sheet, shown as subtle cues; no survival manual. What the poisons do, kept.
 
 ## 8. What exists today
 
