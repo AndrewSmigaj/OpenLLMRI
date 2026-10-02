@@ -326,7 +326,9 @@ it says so. When a decision changes, this list and every document it touches cha
   most, one cut (which sends the party looking for bandage material) and one concussion. (2026-09-28)
 - **The pilot starts the run dead.** He carries no clues. His body is food, and eating it is taboo, not
   immoral. (2026-09-17, 2026-09-27)
-- **What is aboard:** there is no survival kit; the sleeping bag is
+- **What is aboard:** there is no survival kit; the freight's flour is a 10 lb bag (2026-10-02) — the party gets by
+  for a while on the plane's food but has to go out into the country to supplement it, never truly full unless it
+  lands a huge source or eats everything quickly; the sleeping bag is
   buried with the tail wreckage; two blankets are hidden inside the plane; no firearm. One of the packs
   holds a few very basic supplies — iodine tablets, only a couple of days' worth — for whoever takes
   the time to rummage through the plane and the wreckage; a sewing needle and thread are aboard; a tarp is aboard to help seal the openings the crash tore in the plane — branches and

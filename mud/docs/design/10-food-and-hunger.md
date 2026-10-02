@@ -147,8 +147,9 @@ Every food in the design, in one place and growing as the world is fleshed out, 
 - **Pockets** — the guide's chocolate bar; the kid's candy bar; the salesman's trail mix and hip
   flask; the townie's gum. A seat nobody plays is a dead character whose pockets can be searched
   (2026-09-27).
-- **The freight** — flour, the coffee tin, a small bag of dog food (never enough to live on — Andrew,
-  2026-09-27), a box of shear pins, a toolbox. The
+- **The freight** — a 10 lb (4.5 kg) bag of flour, about 16,000 kcal, roughly a day of the party's food and
+  worth much only with water and a fire (2026-10-02); the coffee tin; a small bag of dog food (never enough
+  to live on — Andrew, 2026-09-27); a box of shear pins, a toolbox. The
   anti-easy rule holds: the toolbox is in the crushed tail cone and wants prying.
 - **The cooler** — a few fillets of a family's fish, a meal or two (2026-09-28), frozen, thrown onto the debris trail and rimed with frost. The
   fish stays frozen only while it stays cold — carried into a wreck warmed by a fire it thaws, and over

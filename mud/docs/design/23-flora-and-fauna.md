@@ -82,6 +82,10 @@
   too much wildlife for the scenario, and finding things means walking around and looking. Getting the
   rate right takes taste and game-design judgement, then playthroughs to see how easy it is, and
   adjusting.
+- **2026-10-02 — the yield (§4.4) kept**: the country covers roughly a fifth to a quarter of what the
+  party burns; the party gets by for a while on the plane's food — a few days of short rations at most,
+  with a 10 lb bag of flour in the freight — and has to go out to supplement it, never truly full
+  unless it lands a huge source or eats everything quickly.
 
 ### Proposals (Claude)
 
@@ -333,10 +337,13 @@ counts (3 L a day each).
 the peak of the hare cycle with fish biting and berries still out — **against 12,000–16,000 burned; late in
 the week, in a poor hare year, 500–1,500.** It closes as the week goes: the snow covers the low berries,
 the stocks of grouse and hares are taken down, the ponds skin over, and the bear, still up, grows bolder. The
-country is *a brake on starvation, never a living*. The shape of the week: what the plane holds carries
-them — the freight and people's bags — foraging stretches it, most in the first days, and by day five or
-six they are in real deficit, which is why the pilot's body becomes a question rather than a horror
-story. The run ends rescued or dead (document 21).
+country is *a brake on starvation, never a living*. The shape of the week (2026-10-02): the party can get
+by for a while on what the plane holds — pocket snacks, trail mix, a small bag of dog food, a meal or two
+of salmon and a 10 lb bag of flour (document 10 §4.3), a few days of short rations at most — but has to
+go out into the country to supplement it, and is never truly full unless it lands a huge source (a
+beaver, a porcupine, the bear) or eats everything it has quickly. Foraging pays most in the first days.
+Nobody starves to death in a week; the deficit makes people weaker, colder and slower, and by day four
+to six it is real, which is when the pilot's body becomes a question rather than a horror story. The run ends rescued or dead (document 21).
 
 **The exceptions are the big animals.** A beaver (~10,000–20,000 kcal) or the bear (70–100 kg of meat
 and tens of kilograms of fat) killed changes the whole run — and each is a combat act with real physics and
@@ -489,7 +496,8 @@ Andrew's check.
   the calories redone; balance — effort pays, eventually, with starting chances in document 10 §4.8;
   unseen animals decided by odds and shown when seen. Five animals added (porcupine, swans and late ducks,
   the small birds of the winter, ermine, mink and otter); wildlife comes and goes, never too often —
-  finding it means walking and looking, tuned by playthroughs.
+  finding it means walking and looking, tuned by playthroughs. The yield kept; the plane's food a few
+  days of short rations at most (a 10 lb bag of flour); never truly full without a huge source.
 
 ## 8. What exists today
 

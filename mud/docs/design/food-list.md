@@ -28,7 +28,7 @@ was hauling, found by searching the plane (documents 10 §4.3 and 16 §4.1–§4
 | trail mix | a bag (the salesman's) | nuts and fruit: dense | ✅ |
 | whisky | the salesman's hip flask | calories, and it costs body heat (document 08) | 📐 |
 | snacks | the salesman's laptop bag | what they are is content | 📐 |
-| flour | the freight | starch; needs water and fire to be worth much | ✅ |
+| flour | the freight — a 10 lb (4.5 kg) bag | ~16,000 kcal, roughly a day of the party's food; starch, needing water and fire to be worth much | ✅ |
 | coffee | the freight's coffee tin; the cockpit's thermos, the first warm thing anyone drinks | warmth and morale, not calories | ✅ |
 | dog food | a small bag in the freight | food — dog food is food; a small bag, never enough to live on (Andrew, 2026-09-27) | ✅ |
 | frozen salmon | a family's cooler, thrown onto the debris trail — a few fillets, a meal or two, not a larder (2026-09-28) | a real meal; stays frozen only while it stays cold, thaws in a warmed wreck and spoils over days; the cooler is also a vessel | ✅ |
