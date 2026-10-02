@@ -10,6 +10,9 @@
 
 ### Andrew's decisions
 
+- **(2026-10-02)** The body's core temperature follows the real clinical staging of hypothermia —
+  cold-stressed, mild, moderate, severe (§4.1) — felt in the text and the warmth meter, never shown as a
+  number.
 - **(2026-07-03)** A player can wear everything a body can wear. Clothing is a system, not flavour;
   wearability is derived from what a thing physically is, never from a list of approved garments (the
   directive behind DR-25).
@@ -133,8 +136,8 @@ the rest.
    `Δ = −exposure(zone, weather, wind) + insulation(clothing, wet penalty) + fire_heat(distance)
    + activity_heat − wet_skin_penalty + huddle_bonus`, with the fire's heat read from the heat state
    around the body (document 07 §4.5).
-4. **The bands follow the clinical staging of hypothermia** *(proposed by Claude, for Andrew's check —
-   Wilderness Medical Society, 2019)*: cold-stressed but not hypothermic at 35–37 °C (cold and
+4. **The bands follow the clinical staging of hypothermia** (2026-10-02; Wilderness Medical Society,
+   2019): cold-stressed but not hypothermic at 35–37 °C (cold and
    shivering, the mind clear); mild hypothermia at 35–32 °C (shivering hard, clumsy); moderate at
    32–28 °C (impaired consciousness, and the shivering stops); severe below 28 °C (unconscious; the
    risk of the heart stopping rises, high below 24 °C). The band words and the exact thresholds are

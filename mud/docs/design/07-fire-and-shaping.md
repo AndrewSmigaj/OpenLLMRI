@@ -88,7 +88,9 @@ would."* Failure **costs** something — a match, a minute, stamina on the bow �
 
 **Who is trying matters.** Characters differ in how well and how fast they do things (Andrew,
 2026-09-27): a woodsman lights fires better, and a novice's attempt takes longer and fails more.
-*(How skill enters the score is proposed by Claude, drafted with the weights, for Andrew's check.)*
+The fire skill is on the character's hidden skill sheet (document 16 §4.1, 2026-10-02): it raises the
+chance of a light and shortens the attempt, the woodsman starts higher, and everyone gets better with
+practice; the numbers are set with the ignition weights and tuned in play.
 
 ### 4.3 The forms
 The mechanism underneath is the closure model (`ontology-closure.md` §2–3, DR-26): a **form** is the
