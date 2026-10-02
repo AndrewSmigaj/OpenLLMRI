@@ -84,6 +84,10 @@ Andrew on 2026-09-17 and brought to the first week of October on 2026-09-27.
   explain that success is chance influenced by stats.
 - **Sweat (2026-09-17).** Sweat is wet clothing draining warmth, inside the warmth system (document 08).
 - **Density (2026-09-17).** The density gradient (§4.11) is authoring order — a priority, never a cap.
+- **(2026-10-02)** Holt's cabin: a few matches in a tin (the party still has to get wood), a bunk with
+  wool bedding, the raised cache with its ladder stashed under the cabin, the woodshed and a freight
+  sled; the door is simply unlocked. Not every place needs something interesting — ontologically
+  sufficient is not fluff for its own sake.
 - **(2026-10-02)** Each region's roles are listed in the map data. Things cost what they really cost —
   there is no required number of costs.
 - **(2026-09-27)** Holt, the trapper, does not come back during the week; the cabin is supplies, not a place to be
@@ -374,11 +378,11 @@ winter in it, and burbot, whitefish and pike live in it (document 23, 2026-10-02
 | Zone | What it is for | Status |
 |---|---|---|
 | `dooryard` | the yard and the dog-run cable | 📐 |
-| `porch` | the door, unlocked; *(Claude's, not yet decided: swollen in its frame, and frozen to the sill by meltwater once the snow comes)* | 📐 |
-| `cabin_interior` | the stove; Holt's shelf of modest stores; *(Claude's, not yet decided: kindling laid in the stove and a match tin)* | 📐 |
-| `loft` | *(Claude's, not yet decided: wool in a cedar trunk, and a photograph that tells why Holt is away)* | 📐 |
-| `cache` | a raised cache: trapline gear (snowshoes, the felling axe) and modest stores; *(Claude's, not yet decided: its ladder stashed under the cabin)* | 📐 |
-| `woodshed` | *(Claude's, not yet decided: a winter of split dry wood, and a freight sled with a split runner)* | 📐 |
+| `porch` | the door, unlocked | 📐 |
+| `cabin_interior` | the stove; Holt's shelf of modest stores; a tin with a few matches — the party still has to get wood (2026-10-02) | 📐 |
+| `loft` | a bunk with wool bedding (2026-10-02) | 📐 |
+| `cache` | a raised cache, its ladder stashed under the cabin as trappers do against bears (2026-10-02): trapline gear (snowshoes, the felling axe) and modest stores | 📐 |
+| `woodshed` | split dry wood, and a freight sled with a split runner (2026-10-02) | 📐 |
 | `water_hole_path` | Holt's water infrastructure: bucket-water without the riffle's risks | 📐 |
 
 ### 4.6 Travel takes time
@@ -454,7 +458,7 @@ Each is a crude-to-mastery arc, and each is a network of rooms rather than a sta
   covers, the two blankets hidden in the plane, the sleeping bag buried with the tail →
   the loft trunk; plus the terrain layer, where *where you work* is itself a clothing decision.
 - **Mobility and hauling** — boots → the cowling drag → your own trails → the game trails, the
-  causeway and the tunnel (the world's own roads) → a sled *(Claude's, not yet decided: Holt's freight sled)*. Snowshoes wait for deep
+  causeway and the tunnel (the world's own roads) → Holt's freight sled, once its runner is mended. Snowshoes wait for deep
   snow the week never lays. A dragged load snags on bare tussocks and slides easier over frozen ground
   under a skin of snow, but the tussocks still stand through a couple of inches.
 - **Fire-craft** — lighter → dead spruce twigs → birch bark (a weatherproof start) → punk-cupped embers

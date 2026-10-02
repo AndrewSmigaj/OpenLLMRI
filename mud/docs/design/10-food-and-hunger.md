@@ -184,7 +184,7 @@ state of every living thing is document 23 §4.2–§4.3.)*
 | `drowned_set` | *(Claude's, not yet decided)* yards of snare wire on a trapper's pole | cold fingers and patience; it opens the snare-line game fully |
 | `marten_set_tree` | Holt's old marten set — the box and its snare wire, empty: the trapping season has not opened | perception, and prying the box open |
 | `cabin_interior` | Holt's shelf: flour, salt, lard, tea, a few tins — and **one bulged can** among the good ones | the walk; and the examine-gated poison lesson (a careful look shows the bulge) |
-| `cache` | *(Claude's, not yet decided: the itemised stores and the climb)* the rest of Holt's modest stores: some beans and rice, a slab of dry fish | the whole journey, the climb, and carrying it back down and home |
+| `cache` | the rest of Holt's modest stores: some beans and rice, a slab of dry fish (2026-10-02) | the whole journey, the climb, and carrying it back down and home |
 
 **Grubs and inner bark are food** (Andrew, 2026-09-18). Grubs live under the bark of dead and rotting spruce
 and birch, carpenter ants winter in rotting logs, and stonefly and caddis larvae live under the creek's

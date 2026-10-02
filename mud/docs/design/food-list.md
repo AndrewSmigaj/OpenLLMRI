@@ -43,7 +43,7 @@ Holt's cabin is supplies: some trapline gear and modest stores, not piles of foo
 | flour, salt, lard, tea | the cabin shelf | starch; fat (lard is worth more than its calories to a party living on lean meat); salt; a hot drink | 📐 |
 | a few tins | the cabin shelf | real food | 📐 |
 | **one bulged can** | among the good tins | **sick-making** — botulism: weakness and paralysis from about a day on; never kills (2026-09-27) | 📐 |
-| some beans and rice, a slab of dry fish *(Claude's, not yet decided)* | Holt's cache | the rest of his modest stores; the climb, and carrying it home | 📐 |
+| some beans and rice, a slab of dry fish | Holt's cache, its ladder stashed under the cabin | the rest of his modest stores; the climb, and carrying it home | 📐 |
 
 ## 3. Plants, fungi and lichens
 
