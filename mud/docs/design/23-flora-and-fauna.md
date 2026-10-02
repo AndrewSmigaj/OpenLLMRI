@@ -32,10 +32,14 @@
 - **2026-10-01 — animals are actors, populations and sign** (§4.1): the actors are individuals shown as
   people are; every other animal is a population that yields a real animal when one is met or caught,
   a full thing in the room while it is there; and sign. Foraging is work with feedback.
-- **Animals that act** (2026-09-26, 2026-09-27): the bear, some of the bigger animals and a few birds
-  act — on the engine's behaviour rules, or played from outside by a lightweight model at low
-  reasoning. Birds are few, not flocks: **fewer than three in a room**, and they call now and then, not
-  constantly. **The fish are scripted.** Claude proposes the list (§4.1a), for Andrew's check.
+- **Animals that act** (2026-09-26, 2026-09-27, 2026-10-01): the bear, some of the bigger animals and
+  a few birds act — on the engine's behaviour rules, or played from outside by a lightweight model at
+  low reasoning. **As many of an animal are in a room as is realistic** — a raven pair, a jay family, a
+  small group of ptarmigan; what is kept few is how many animals a model plays at once, by common sense,
+  since each one costs latency and the usage limits of the runs that play them. Birds call now and
+  then, not constantly. **The fish are scripted.** The list is §4.1a (2026-10-01).
+- **No wolves** (2026-10-01): the bear and its sign are the valley's danger. Realistic for a week — a
+  pack's territory runs to hundreds of square kilometres, and a pack need not pass this valley in it.
 - **Food states** (2026-09-26): raw, cooked and spoiled differ; there is spoiled food, and there are
   poisonous mushrooms; there is a combat system like a MUD's (document 10 §2).
 - **What kills** (2026-09-27): **poison makes people very sick and never kills.** The bear can kill,
@@ -78,7 +82,7 @@ winter's cones; voles run their tunnels through the grass and moss; grubs wait u
 sleep in the rotting logs, and caddis larvae crawl in their grit cases under the creek's stones; fish
 feed in open water. A male grizzly
 is still up, feeding hard on berries and roots before he dens late in the month, and it can smell the wreck's food from a
-long way off; wolves cross the valley and are heard before they are seen; ravens find your cache before
+long way off; an owl calls at night; ravens find your cache before
 you do. The ground crusts each frosty night — digging is still possible, and harder by the day — and the
 root at the marsh edge that looks like a carrot is the worst poison in the valley. Then the snow comes
 on and off, covering the low berries a little at a time, and on the sixth day a heavier fall buries the
@@ -123,7 +127,7 @@ Every figure is a real starting point that the probes tune.
 - **Numbers before abundance.** Every row carries what it actually yields and how often, because the
   valley's total is what decides whether the party starves (§4.4).
 - **Animals are actors, populations and sign** (2026-10-01). The **bear**, some of the **bigger animals** and **a few
-  birds — not flocks** — are actors: individuals in the world, shown as people are, in prose by what
+  birds** are actors: individuals in the world, shown as people are, in prose by what
   they are doing (document 03 §4.1), driven by behaviour rules the engine runs, or played from outside
   by a lightweight model (GDD §3 rule 5; the engine never calls a model). Which animals act is §4.1a.
   Everything else lives as a **population** — a density per zone that yields an individual when met or
@@ -139,23 +143,25 @@ Every figure is a real starting point that the probes tune.
   with honest misses and partial yields, never free.
 - **Food yields are authored per item** (document 10 owns the numbers; document 23 owns what exists).
 
-### 4.1a Which animals act *(proposed by Claude, for Andrew's check)*
+### 4.1a Which animals act (2026-10-01)
 
-Andrew decided (2026-09-27) that the fish are scripted and that birds number fewer than three in a
-room, and asked Claude to propose the wildlife with some of it run by language models. The proposal,
-by how each animal is driven:
+The fish are scripted (2026-09-27); there are no wolves (2026-10-01). Which actors a model plays is
+set per run, like a seat; any actor can be played by a model or by the engine's rules, and by default
+the bear and the raven pair are played by a model. Each model-played animal costs latency and the
+usage limits of the run that plays it, so only a few are played at once, by common sense. By how each
+animal is driven:
 
 | how it is driven | who | why |
 |---|---|---|
-| **An actor a lightweight model can play** (engine behaviour rules otherwise) | one **male grizzly**, up all week — in the first week of October most interior black bears have denned, a bear still up and feeding is most likely a grizzly, and males den last (§4.0); the **raven pair** | the two whose choices make a story: the bear finds the pilot's body and the food by smell and decides what to do about the people near it; the ravens watch, follow, call and steal. Two on a model at once keeps a run affordable. |
-| **An actor on engine behaviour rules** | the **wolf pack** as one actor moving as a group (heard at night, sign on the shore, wary of people); a **red fox** at the camp's edge; **one or two gray jays** at food; the **grouse and ptarmigan** people hunt | simple, readable behaviour; any of them could move to a model later if a run wants it |
-| **A population** | snowshoe hares (the runs a snare is set on), red squirrels (middens), voles, the beavers in their lodge, marten (sign) | many of them, little choice each — counts and rules until one is caught or seen |
+| **An actor a lightweight model can play** (engine behaviour rules otherwise) | one **male grizzly**, up all week — in the first week of October most interior black bears have denned, a bear still up and feeding is most likely a grizzly, and males den last (§4.0); the **raven pair** | the two whose choices make a story: the bear finds the pilot's body and the food by smell and decides what to do about the people near it; the ravens watch, follow, call and steal |
+| **An actor on engine behaviour rules** | a **red fox** at the camp's edge; the **gray jays** at food — a pair, often with one of the year's young; the **grouse and ptarmigan** people hunt | simple, readable behaviour; any of them can be played by a model in a run that wants it |
+| **A population** | snowshoe hares (the runs a snare is set on), red squirrels (middens), voles, the beavers in their lodge, marten (sign), the bugs | many of them, little choice each — counts and rules until one is caught or seen |
 | **Scripted** | the fish: grayling, burbot, whitefish, pike | Andrew, 2026-09-27 — met only through fishing |
 
-**Birds** (Andrew, 2026-09-27): fewer than three in any room at once, and they call now and then —
-not constantly. *(Proposed by Claude, for Andrew's check:)* like everything present, a bird speaks on
-its own cadence (document 06): an occasional call while it is there, and more when something happens —
-a flush, a raven at food, a jay arriving.
+**Birds** (2026-09-27, 2026-10-01): as many in a room as is realistic — the raven pair and the jays
+together at a carcass, as they really feed — and they call now and then, not constantly. Like
+everything present, a bird speaks on its own cadence (document 06): an occasional call while it is
+there, and more when something happens — a flush, a raven at food, a jay arriving.
 
 ### 4.2 Flora — what a survivor can find (proposal)
 
@@ -206,7 +212,7 @@ presence in this valley is still to be checked against it.
 | animal | where | how it shows in the first week of October | how you get it | yield (document 10 owns the numbers) |
 |---|---|---|---|---|
 | snowshoe hare | willow thickets, the hare runs (document 01) | still mostly brown, the moult to white just beginning — the white patches show against the brown ground, and the brown stands out on the first snow; every run printed in it once the flurries come; a flash of brown and white | a snare on a run, a spring pole, checked later (hours); a thrown stick or rock rarely; the fox robs snares | ~800–1,000 kcal each; the pelt; gutting one bare-handed risks rabbit fever (tularemia) (ADF&G) |
-| willow ptarmigan | willow bars, muskeg edge | one or two at a time (fewer than three birds in a room, §4.1a) — the females come down to the willow in small groups (ADF&G), mottled and turning white; they let you close | anything within reason thrown — misses several times with honest feedback ("the rock thumps into the snow a foot short; the birds shuffle"); a sling; a snare in a gap in a brush fence; finding rocks is its own search | one bird (~570 g live, ADF&G), ~350 kcal |
+| willow ptarmigan | willow bars, muskeg edge | a small group — the females come down to the willow in small groups (ADF&G), mottled and turning white; they let you close | anything within reason thrown — misses several times with honest feedback ("the rock thumps into the snow a foot short; the birds shuffle"); a sling; a snare in a gap in a brush fence; finding rocks is its own search | one bird (~570 g live, ADF&G), ~350 kcal |
 | spruce grouse ("fool hen") | spruce forest, low branches | sits and stares; eating spruce needles | anything within reason thrown at close range; a noose on a pole — the tamest bird in the valley | ~300 kcal a bird |
 | ruffed grouse | the aspen and birch | budding in the aspen at dusk; flushes hard and loud | anything within reason thrown — harder than the spruce grouse | ~300 kcal a bird |
 | red squirrel | spruce forest, its midden (a mound of cone scales) | chatter; cones being cut and dropped; mushrooms hung in the branches; the midden | raid the midden for cached cones (seeds, small calories — the cones open by a fire); the squirrel itself is a hard throw; a squirrel pole | seeds; ~100–150 kcal the animal |
@@ -222,7 +228,6 @@ presence in this valley is still to be checked against it.
 | beaver | the lodge and its feed pile (document 01, S9) | out at dusk cutting and towing branches to the feed pile before the ice locks the pond; the tail-slap alarm; fresh-chewed stumps | on land at dusk and wary: a snare or a trap at its slide, a club or a spear at close range — hard; once the ice seals the pond it lives under it | a 17–32 kg animal (ADF&G) — rich meat, the tail's fat |
 | muskrat *(candidate)* | the marsh edge, if the lake has one | push-ups of vegetation once the ice forms (ADF&G) | a snare or a spear at the push-up | 0.9–1.8 kg (ADF&G) |
 | ravens, Canada (gray) jays | the wreck, any camp | actors (§4.1a): the raven pair finds your cache first, the jays within the hour; their gathering marks a carcass (document 12 §4.3a) | not food; a pressure and a sign | — |
-| wolves | the treeline, the shore | howls at night, tracks circling by day; a pack of about six or seven on a territory far larger than the valley, passing through (ADF&G) | a confrontation is the combat system's physics — the odds, the injury, the pack's own behaviour — never a script either way; real wolves rarely attack people | — |
 | **the bear** (Andrew, 2026-09-26) | wherever food is: the berry slopes, the root bench, the creek; the wreck, once it smells food there | tracks, berry-filled scat, dug-up roots, a torn stump — then the bear | an actor (§4.1a); fighting it is the combat system with real odds, and the bear can kill (Andrew, 2026-09-27); a kill is a fall bear heavy with fat — and the trichinosis worm in the meat, so it is always cooked through (document 10 §4.6) | the richest food in the valley, and the most dangerous thing in it |
 | fox, marten, lynx | tracks everywhere in the new snow; the marten set on the trapline (document 01) | sign, rarely the animal; the fox follows the snare line | the trapline's old sets, if repaired | a pelt, a little meat |
 | owl | night | a call | — | — |
@@ -358,7 +363,7 @@ mushrooms"; *Galerina* and *Flammulina* references; CDC, *MMWR* 1994 (water heml
 Yukon Flats black bear study (International Association for Bear Research and Management); ADF&G,
 "Grizzly Bear Denning"; "Sex-specific variation in denning by brown bears" (Lake Clark, *Mammalian
 Biology* 2018); ADF&G species profiles (black and brown bear,
-wolf, snowshoe hare, willow ptarmigan, beaver, muskrat, common raven, red squirrel, Arctic grayling);
+snowshoe hare, willow ptarmigan, beaver, muskrat, common raven, red squirrel, Arctic grayling);
 Ghimirey et al., *Royal Society Open Science* 2025, and Mills et al., *PNAS* 2013 (hare moult); Larson
 et al., *J Exp Biol* 2014 (wood frogs); Ellison 1968 (spruce grouse); Smith 1968 and later
 interior-Alaska red squirrel studies; Dupuis et al. 2014 (humpback whitefish spawning); ADF&G interior
@@ -374,15 +379,14 @@ Woodlands*; forestpests.org); J. Hudson, K. Hocker and R. H. Armstrong, *Stonefl
 ## 5. Interactions
 
 Feeds document 10 (yields, cooking, spoilage), documents 05 and 22 (every row here is an ontology entity
-the loops will grow), document 13 (wildlife events, ravens at the cache, wolves), document 11 (the
+the loops will grow), document 13 (wildlife events, ravens at the cache, the bear), document 11 (the
 poisons — very sick, never dead; frostbite from digging), document 07 (tinder plants), document 01
 (where things are) and document 21 (the bear kills through the bleeding it causes). Document 13 §4.2
 supplies the weather, daylight, snow, ice and frost this document refers to, and the flurries that cover
 the low berries and refresh the tracks; document 12 §4.3a the carcass that draws the bear, the ravens
 and the jays; document 11 §4.6 what the poisonous mushrooms, the baneberry and the hemlock do inside a
 body; document 10 §4.8 the operations that take what is listed here. Systems with no design document yet
-(`PLAN.md` A10): **animal behaviour** (the actors of §4.1a), **combat** (fighting the bear or the
-wolves), **hunting, trapping and fishing**, the **heat system** (frost in the ground, ice on the water,
+(`PLAN.md` A10): **animal behaviour** (the actors of §4.1a), **combat** (fighting the bear), **hunting, trapping and fishing**, the **heat system** (frost in the ground, ice on the water,
 a fire thawing both) and **food state and spoilage**. Document 01 must say what the lake is — its depth
 and whether it connects to the creek — before the fish rows can have densities.
 
@@ -405,15 +409,16 @@ Andrew's check.
 - **2026-09-26 (Claude, self-review):** the document revised for October from the real record, with
   answers for Andrew's check on telling plants apart, the poisons, digging, throwing and fishing.
 - **2026-09-27 (Andrew):** the first week of October; poison makes people very sick and never kills;
-  the bear can kill; the fish are scripted; fewer than three birds in a room, calling now and then, not
-  constantly; Claude proposes the wildlife (§4.1a).
+  the bear can kill; the fish are scripted; birds call now and then, not constantly; Claude proposes
+  the wildlife (§4.1a).
 - **2026-09-27 (Claude):** the season material revised to the first week of October from the record —
   berries, roots, mushrooms, the bears before denning, the hares' moult, the frogs —
   for Andrew's check.
 - **2026-09-27** — the no-storm week carried in (document 13 §4.2).
 - **2026-10-01 (Andrew):** the sitting — the season table kept, with the bugs added (§4.0, §4.3); the
   bear a male grizzly who stays up all week, no den mid-run; animals as actors, populations and sign,
-  a met animal a full thing in the room.
+  a met animal a full thing in the room; no wolves; as many of an animal in a room as is realistic, and
+  few played by a model at once; which actors a model plays set per run.
 
 ## 8. What exists today
 

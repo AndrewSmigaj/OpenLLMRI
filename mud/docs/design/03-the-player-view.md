@@ -143,8 +143,8 @@ An exit is a thing in the world with a name, synonyms, a direction, a mode and a
 sentence in the room's prose ("a trail leads north into the spruce"; "the scar climbs east toward the
 ridge under a skin of new snow"). You act on it with the verb its mode calls for: `walk west`,
 `walk to the birch grove`, `run to the treeline` (less time, more sweat), `climb up` the rock face, `enter the tail`,
-`turn back` mid-way. Moving is an attended activity with feedback and events (something passes; a wolf
-tests you); its time is distance over pace, times terrain, snow depth, load and fitness, so weather
+`turn back` mid-way. Moving is an attended activity with feedback and events (something passes; a hare
+bolts; the bear's fresh sign); its time is distance over pace, times terrain, snow depth, load and fitness, so weather
 lengthens it and early exploration is rewarded. The tutorial gives a brief guide and an example of
 these forms; the game never lists them. *(Proposal for the mechanism: an exit row carries `mode`,
 `travel_time`, `state`; its sentence composes from state like every other thing.)*

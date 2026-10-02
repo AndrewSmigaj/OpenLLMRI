@@ -20,8 +20,8 @@
   clothes the party crashed in; from night two they need a heat source, better gear, conserving or
   huddling. The ladder's first rungs are tuned until both halves hold (document 08 §4.1a).
 - **(2026-09-26)** A bear is in. The bear, some bigger animals and a few birds act, on the engine's behaviour rules or
-  played by a lightweight model from outside; fewer than three birds in a room, and not constantly
-  calling; the fish are scripted; other wildlife shows as events and sign. A combat system like a
+  played by a lightweight model from outside, only a few at once; as many of an animal in a room as is
+  realistic, and birds not constantly calling; no wolves (2026-10-01); the fish are scripted; other wildlife shows as events and sign. A combat system like a
   MUD's is in.
 - **(2026-09-26, 2026-09-27)** The season is **the first week of October in interior Alaska** (Claude's
   choice, at Andrew's request, for more than ten hours of daylight; kept over an earlier date so every
@@ -75,7 +75,7 @@ cost more every day — and the sign of what is coming (a ring round the sun, tr
 from the fuselage) arrives before the thing itself. The weather
 and the flyovers are the same in every run. Events — the weather crossing a line, the search, the
 wreck settling, the pilot's body changing — fire when their day and their preconditions line up; the
-bear and the wolves, once they are in the valley, act on their own. The run ends two ways:
+bear and the other animals that act do so on their own. The run ends two ways:
 **rescued** — by the radio, by a signal a search plane sees, or on day 7, when the rescuers find
 everyone still alive — or **dead**.
 
@@ -131,7 +131,7 @@ the day-7 plane flies in clear air over fresh snow, where only what the party ha
 | **the ground** | thawed under a skin frozen overnight; roots dig | frozen a centimetre or two at dawn, thawing in the sun | — | frozen a few centimetres | — | under the new snow the frost stops deepening (snow insulates) | a frozen crust, thawed below | digging roots, a pit, a grave costs more each day |
 | **fuel** — deadfall within reach | bare ground: the treeline's deadfall in plain sight | — | the near wood's deadfall is used; wet wood smokes | a longer walk for each armful | — | the new snow covers the small deadfall; standing dead wood (a blade, a saw) and the far wood | a trail to the far wood, packed, is fast | daylight and sweat per armful rise; a fire and its wood have to be kept dry in the flurries |
 | **food** — the country closing | the country at its richest: berries on the bush, grouse on the ground, hares turning white against the brown, open water with fish in it, roots in soft ground; the freight and people's bags | — | the first dusting on the low berries | — | — | the lowest mats go under; birds and hares sit tight in cover | fresh tracks lead to the hares and the grouse; fishing means the creek's open water, the riffle and the lake from its shore | a calorie debt each day → weakness → cold (document 10) |
-| **the animals** — they act (document 23 owns which) | the bear, a male grizzly up all week, feeding hard before his den: its sign first (a torn-apart log, scat full of berries, tracks in the mud at the creek, ravens and jays gathered over something); wolves heard at night | the bear follows the smell — the pilot's body, the freight's food, the fuel and the oil | tracks in the first snow | the bear bolder as the camp smells of food | — | the flurry holds everything down | tracks circling the wreck in the fresh snow; ravens, jays and a fox work the camp | through the combat system and document 11's wounds; never a scripted kill |
+| **the animals** — they act (document 23 owns which) | the bear, a male grizzly up all week, feeding hard before his den: its sign first (a torn-apart log, scat full of berries, tracks in the mud at the creek, ravens and jays gathered over something); an owl at night | the bear follows the smell — the pilot's body, the freight's food, the fuel and the oil | tracks in the first snow | the bear bolder as the camp smells of food | — | the flurry holds everything down | tracks circling the wreck in the fresh snow; ravens, jays and a fox work the camp | through the combat system and document 11's wounds; never a scripted kill |
 | **injuries** — untreated wounds infect; cold injures | a cut | — | a dirty wound shows infection (24–72 hours, document 11) | fever costs warmth and water | untreated infection spreads | feet wet for days take non-freezing cold injury | frostbite through wet and contact after the coldest night | a body that can't work can't stay warm |
 | **fatigue** — no sleep, or sleep in the cold | — | the first bad night's cost | judgment: slower activities | mistakes: the fire goes out on watch | — | — | collapse | sleep is a resource with a price |
 | **the search** — document 14's flyover schedule, the same every run (Andrew) | overdue half an hour after the pilot's ETA; the alert out within about two hours; at dusk an aircraft flies the filed route high — heard far off, in the wrong place: the early pass, for the story (a party is unlikely to be ready) | the route search: engines along the filed route, across the ridge in the afternoon — a chance for a party with a signal ready | the search widens off the route: a pass heard in the next valley, lost in the cloud | a pass crosses the lake's far end, seen through a gap in the cloud — a real chance | the search narrows toward this valley: a pass low along the creek in the afternoon — a real chance | the flurry grounds the search; nothing flies | **the rescue of everyone still alive** (Andrew, 2026-09-29) — in clear air over fresh snow; the crew find each survivor wherever they are | before day 7, rescue needs a signal up, seen or heard, at the moment of a pass, or the radio; partial cloud and the trees hide the wreck, so what the party builds decides it; a party in radio contact that is not findable is told what to do by the voice |
@@ -206,8 +206,7 @@ and the combat system answer (§4.4).
   gathered over something) (2026-09-28); never a mark on the wreck the party would not have seen and
   heard being made; drawn by the pilot's body, the freight's food,
   the fuel and the oil; it may claim the body and defend it as a cache, and it may be driven off ·
-  **wolves**: howls at night; tracks circling the wreck in the fresh snow; they come to any carcass; testing a lone traveller is rare in real Alaska and rare here ·
-  **a few birds** — fewer than three in a room, and not constantly calling: a pair of ravens that find
+  **a few birds** — as many as is realistic, and not constantly calling: a pair of ravens that find
   the food before you do; Canada jays that will take it from a hand; a spruce grouse that sits and
   stares; a great horned owl calling at night · a fox trots the tussocks and the camp · a lynx print,
   never the lynx · a hare, half-white in its change of coat · a dead branch comes down in the
@@ -232,12 +231,11 @@ and the combat system answer (§4.4).
 - **Camp**: the fire dies on an untended watch · the flurry soaks the woodpile left in the open · the new pond ice
   sings at night — thin ice cracking as it cools, high and strange (the deep booming belongs to thick
   ice, later in the winter) · a bough drops its snow on the lean-to · slush runs in the creek and the
-  shelf ice grows · tracks in the morning that weren't there (the fox, the wolves, the bear).
+  shelf ice grows · tracks in the morning that weren't there (the fox, a lynx, the bear).
 - **Mail & freight** (story beats, found not fired): the postmarks; the parcel addressed to Holt; the
   child's letter; a parcel of candles; a small bag of dog food in the freight.
 
-*Sources, beyond §4.2's:* ADF&G, "Findings related to the March 2010 fatal wolf attack near Chignik
-Lake" (the one confirmed fatal wolf attack in modern Alaska); ADF&G, "Safety in Bear Country"
+*Sources, beyond §4.2's:* ADF&G, "Safety in Bear Country"
 (scavenging birds over a carcass are a warning sign); the altimeter-as-barometer relation is standard
 (FAA, *Pilot's Handbook of Aeronautical Knowledge*, the altimeter: about 1,000 feet per inch of
 mercury); singing thin ice (Minnesota Sea Grant, "Sounds of ice").
@@ -248,7 +246,7 @@ An event is a **scheduled process** with preconditions (2026-09-28):
 `Event{day, hour_window, preconditions(world) -> bool, effects, narration by band, ambient: bool,
 interrupts: bool}`. The heartbeat checks the due list each tick; fired events apply Effects through
 `apply()` (a drift is mass; a wound is state) and route their narration through the propagator by
-band (the wolves are heard from the treeline, seen from the shore). A **non-ambient** event drops fast
+band (an owl is heard from the treeline; the bear is seen across the shore). A **non-ambient** event drops fast
 forward back to 15×; an **ambient** one — a raven calling, the wind in the tear — leaves it running
 (Andrew, 2026-09-27); `interrupts` says whether it also wakes sleepers and breaks activities. The
 weather and the flyovers are authored and the same in every run; every other draw comes from the run

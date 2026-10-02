@@ -366,7 +366,7 @@ animal's own behaviour decides.
 | **club / strike** | `heft`: a stick, a billet, the hatchet's back | `hit the grouse with the stick` · `club the hare` |
 | **by hand** | a snared hare or a winged bird is dispatched by hand, quickly | `wring the grouse's neck` · `break the hare's neck` |
 
-The bigger animals are fought with the same acts. A wolf or the bear is a body with mass,
+The bigger animals are fought with the same acts. The bear is a body with mass,
 hide and its own behaviour (document 23 §4.1: the bear and some bigger animals are actors), and a party
 with a spear and sticks against it is in real danger; nothing refuses the attempt, and a kill feeds the
 party for the rest of the run.

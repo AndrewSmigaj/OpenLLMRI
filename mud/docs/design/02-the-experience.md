@@ -96,8 +96,9 @@ The decisions that shape a run, in plain words; every one of them, with its date
   as entities in prose, groups, and no item list. `use X on Y` resolves silently as the real operation;
   `make` is the one aim-verb. Acts are not tagged morally; a language model reads the playthrough after the run (2026-09-28).
 - **The wildlife (2026-09-17, 2026-09-26, 2026-09-27).** The bear, some bigger animals and a few birds
-  act — fewer than three birds in a room, not constantly calling; the fish are scripted; other wildlife
-  shows as events and sign; no wolverine. The country's food: roots, berries of a couple of kinds (a red
+  act — as many of an animal in a room as is realistic, a few played by a model at once, birds not
+  constantly calling; the fish are scripted; other wildlife shows as events and sign; no wolves, no
+  wolverine, no moose. The country's food: roots, berries of a couple of kinds (a red
   one makes you sick), more in the plane and the wreckage, small creatures, birds brought down by a
   thrown rock — or anything within reason that can be thrown — over several tries with honest misses,
   a sling with low odds (document 23).
@@ -203,7 +204,7 @@ on the clock today.
 | **the ground** | bare and icy — hoarfrost, frozen puddles; berries, deadfall and roots in plain sight; a dusting in the shade by day 2 | about a centimetre, patchy; the first tracks; the ground frozen a few centimetres down; the near deadfall used up, so every armful is a longer walk | about 2 cm | a couple of inches by night: the lowest berry mats and the small deadfall go under, and the lowbush cranberries poke through | crisp fresh snow — the best tracking of the week; the white wreck on white ground | a few centimetres more |
 | **water** | the lake's edge and the creek open; skim ice at dawn; the small ponds skin over at night | slush in the creek's eddies; shelf ice at its edges | the pond ice a couple of centimetres — it holds nobody | the snow lies on the pond ice and slows it | the lake skins over in its bays; the riffle stays open and steams; walking out on any ice breaks it | the ponds thicken; the lake still freezing |
 | **the search** | an early pass at dusk on day 1, high over the filed route, in the wrong place; the route search on day 2 — a chance for a party with a signal ready | the search widens off the route, lost in the cloud (day 3); a pass across the lake's far end, seen through a gap (day 4) — a real chance | a pass low along the creek — a real chance | grounded: nothing flies | **the default rescue**, in clear air, for a party that can be found | passes continue while the weather allows, each a chance |
-| **the animals** | the bear — a male grizzly, up all week — feeding hard before his den, its sign first, following the smell of the pilot's body and the food; wolves heard at night | tracks in the first snow; the bear bolder as the camp smells of food | — | the flurry holds everything down | tracks circling the wreck in the fresh snow; ravens, jays and a fox work the camp | a bear still about, hungrier, looks for a den unless it has claimed a carcass |
+| **the animals** | the bear — a male grizzly, up all week — feeding hard before his den, its sign first, following the smell of the pilot's body and the food; an owl at night | tracks in the first snow; the bear bolder as the camp smells of food | — | the flurry holds everything down | tracks circling the wreck in the fresh snow; ravens, jays and a fox work the camp | the bear still about, hungrier, bolder unless it has claimed a carcass |
 | **bodies** | a cut, a concussion, bumps and bruises; clothes soaked by the wet flurries | a dirty wound shows infection; fever costs warmth and water | untreated infection spreads | feet wet for days take non-freezing cold injury | frostbite after the coldest night | — |
 
 ### 4.3 The endings
@@ -228,7 +229,7 @@ of it is built.
 | category | what fires |
 |---|---|
 | **weather** | hoarfrost and frozen puddles at dawn · the first wet flurries · frost on everything, an aurora through a gap in the cloud · the first tracks after a flurry · a ring round the sun, and the altimeter creeping up · the heavier flurry begins · the wind rises and swings · the flurry easing · the clearing and the coldest night · sun on the fresh snow · a flurry now and then |
-| **the animals** | the bear, its sign before it in its own area, plain on entering — drawn by the pilot's body and the food · wolves heard at night, their tracks in the fresh snow · the raven pair and the jays at food · a fox at the camp and the snare line · a hare, half-white · grouse and ptarmigan flushing · a snow load off a bough. No wolverine |
+| **the animals** | the bear, its sign before it in its own area, plain on entering — drawn by the pilot's body and the food · an owl at night · the raven pair and the jays at food · a fox at the camp and the snare line · a hare, half-white · grouse and ptarmigan flushing · a snow load off a bough. No wolves, no wolverine, no moose |
 | **search and rescue** | the flyovers, the same every run (document 14 §3.5) — heard before they are seen · the silence of the grounded flurry day · a plane that rocks its wings has seen you |
 | **the wreck** | fuel drips and pools under the wing · the fuselage shifts with a groan and the door jams · a window pane falls in · the tail slides further down the scar · ice seals the cargo door overnight · the day-6 snow lies on the wing and the fuselage until the wreck no longer stands out from the air |
 | **bodies** | the pilot's body cooling and freezing, a smell the bear and the ravens follow · a wound infects · frostbite whitens a finger · hypothermia confusion (messages, never command hijacking) · dehydration headaches · the hunger stages |

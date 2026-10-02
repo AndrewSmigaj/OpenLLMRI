@@ -64,7 +64,7 @@ Everything else here is a proposal, offered because the decisions above need a m
 The clock never stops. While one player saws at a branch, the fire someone lit an hour ago is quietly
 burning down, and the tea reaching a boil is a line spoken to the room the moment it happens — nobody
 had to ask. If a new command comes in mid-saw, the half-sawn branch stays half-sawn, banked for anyone
-to finish; if a wolf howls close by, the saw stops on its own, no questions asked. When the party
+to finish; if the bear huffs close by, the saw stops on its own, no questions asked. When the party
 settles in to sleep or wait, the players agree to fast forward and the hours blur past — whoever is
 still awake watches the fire burn down and the wind rise at ten times the pace, and the sleepers pass
 the time chatting out of character — until someone wakes or something happens that matters, and the
@@ -105,7 +105,7 @@ can yank it backwards or stall it; the weather and the search run on the calenda
 on their own rhythm (§4.4, document 05's `sensed` cadence) — the fire crackling and settling, the
 creek running, wind gusting against the hull, a raven calling, a spruce dropping its load of snow.
 **Non-ambient** events are the ones that change the party's situation: danger (`DANGER`), the fire
-dropping to embers, a propagated sound loud enough in band (loudness ≥ 0.5 — wolves close by, the new
+dropping to embers, a propagated sound loud enough in band (loudness ≥ 0.5 — the bear close by, the new
 ice cracking, a plane), and a sleeper's cold falling below their floor, which wakes them shivering.
 
 ### 4.3 Activities with feedback
@@ -182,8 +182,8 @@ anyone authoring a room script. Ambience is the sum of what is present.
 happen, through the propagator, by band.
 
 **Under a fast forward, the world does not go quiet — it goes fast** (Andrew, 2026-09-18). Whoever is
-awake is on watch, and they watch the night run past: the fire burning down, the wind rising, the
-wolves somewhere out along the shore. *(Proposed by Claude: lines are rate-limited in real time so the
+awake is on watch, and they watch the night run past: the fire burning down, the wind rising, an
+owl somewhere out along the shore. *(Proposed by Claude: lines are rate-limited in real time so the
 stream stays readable rather than unspooling three a second.)* Any non-ambient event drops the clock
 back to 15× (§4.2). Sleepers see nothing of the world; they can chat out of character, and later they
 will be dreaming ([`IDEAS.md`](IDEAS.md)).

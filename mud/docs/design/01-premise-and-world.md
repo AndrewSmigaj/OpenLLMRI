@@ -66,9 +66,9 @@ Andrew on 2026-09-17 and brought to the first week of October on 2026-09-27.
 - **Holt's cabin (2026-09-17, 2026-09-27).** The cabin is supplies — some trapline gear and modest
   stores, not piles of food. Walking out is not an ending, and no zone leads out of the valley.
 - **The animals (2026-09-17, 2026-09-26, 2026-09-27).** The bear, some of the bigger animals and a few
-  birds act — on the engine's behaviour rules, or played by a lightweight model; fewer than three birds
-  in a room, and not constantly calling. The fish are scripted. Other wildlife shows as events and
-  sign. No wolverine. Flora and fauna are
+  birds act — on the engine's behaviour rules, or played by a lightweight model, only a few at once; as
+  many of an animal in a room as is realistic, and birds not constantly calling. The fish are scripted.
+  Other wildlife shows as events and sign. No wolves, no wolverine, no moose (2026-10-01). Flora and fauna are
   filtered by ecology: this habitat, this month, real numbers (document 23).
 - **Moving through the valley (2026-09-17).** Moving between areas is an attended activity with
   feedback and events: `walk`, `run` (less time, more sweat), `turn back`. Some stretches take longer to
