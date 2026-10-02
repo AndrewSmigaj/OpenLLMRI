@@ -533,7 +533,9 @@ it says so. When a decision changes, this list and every document it touches cha
   plain sight in the first room, and everything else lies where it really would (a dead fish on the
   shore). Examining a thing gives sensory cues, never its uses or a verb. Hints are added case by case
   where something is very unobvious or players struggle — found by other language models analysing the
-  agents' playthroughs and a brief questionnaire for the agent players (documents 03, 04, 17, 20, 22).
+  agents' playthroughs and a brief questionnaire for the agent players (documents 03, 04, 17, 20, 22). A
+  character's knowledge (plants, the woods, a device) is on the hidden skill sheet and shows as subtle cues in what
+  they notice, never a "do this" hint (2026-10-02).
   The prose reading waits until Claude has a draft of the real rooms ready for review.
 - **A web app for the store** (2026-09-28): Andrew reviews the rooms and the ontology in a web app and
   adds or deletes things there, not only reads them (document 05 §4.6).

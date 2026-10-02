@@ -88,6 +88,11 @@
   unless it lands a huge source or eats everything quickly.
 - **2026-10-02 — the hare year is a middle year, the same every run**, like the weather: hares common,
   the snares paying as document 10 §4.8 says.
+- **2026-10-02 — telling the plants apart (§4.6)** by the senses, as people really do, with no naming
+  shortcut; **knowing plants is on the hidden skill sheet** — the character who knows the woods notices
+  the telling detail at once, a subtle cue and never a "do this" hint, and a reason for that character
+  to go out and forage. Woods knowledge is likelier in the woodsman. There is no survival manual in the
+  world.
 
 ### Proposals (Claude)
 
@@ -383,7 +388,12 @@ country's own spoiled and poisonous things are §4.2 above.
   never a woody bush); the smell (highbush cranberry's mustiness, crushed Labrador tea); and the taste,
   which is information in a single berry and a meal or a sickness in a handful. The same holds for the mushrooms (the velvet foot against the deadly galerina —
   spore print and ring). A naming convention would be a menu by another name, and pure luck is untrue:
-  the distinctions are real and learnable.
+  the distinctions are real and learnable. **Knowing plants is on the hidden skill sheet** (2026-10-02;
+  document 16 §4.1): a character who knows the woods notices the detail that matters at once — each
+  baneberry on its own stalk, the ring on the galerina's stem — where others notice it on a closer look
+  or with practice. It is part of the feedback and the hints: a subtle cue in what a character notices,
+  never a "do this". It gives that character a reason to go out, identify plants and forage, though the
+  calories are few.
 - **What the poisons do.** Poison makes a person very sick and never kills (Andrew, 2026-09-27); the
   real effects give the sickness its shape, dose-dependent and with real onset times, owned by the
   illness model (document 11 §4.6: what is in the gut). Baneberry: nausea, dizziness, cramps, a racing
@@ -502,7 +512,8 @@ Andrew's check.
   the small birds of the winter, ermine, mink and otter); wildlife comes and goes, never too often —
   finding it means walking and looking, tuned by playthroughs. The yield kept; the plane's food a few
   days of short rations at most (a 10 lb bag of flour); never truly full without a huge source. The hare
-  year fixed at a middle year, the same every run.
+  year fixed at a middle year, the same every run. Telling plants apart by the senses; knowing plants on
+  the hidden skill sheet, shown as subtle cues; no survival manual.
 
 ## 8. What exists today
 

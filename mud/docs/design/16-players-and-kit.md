@@ -124,7 +124,11 @@ snare, fishing, friction fire, striking a spark, fighting, closing a wound, clim
 acts come to need. It starts from the seat (the woodsman's fire and snares, the nurse's wound care) and
 **rises with practice**: every attempt teaches a little, a miss as well as a hit, fastest at first and
 slower later, as real learning goes. It shows only in outcomes — fewer misses, quicker, neater work —
-never as a number or as advice, and it works the same for an agent as for a human. Cold hands, pain and
+never as a number or as advice, and it works the same for an agent as for a human. **Knowledge is on it
+too** (2026-10-02): knowing plants, the woods, a device. It shows as what a character notices — the
+woodsman sees at once that each baneberry sits on its own stalk; the technically proficient character
+sees the radio's loose wire — a subtle cue in the feedback, never a "do this" hint, and a reason for
+that character to take on the work it suits. Woods knowledge is likelier in the woodsman. Cold hands, pain and
 tiredness act on top of it (documents 08, 11). Getting better with time is also what keeps a party
 that really tries from an endless run of bad luck (document 10 §4.8).
 
