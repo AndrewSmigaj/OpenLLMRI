@@ -343,7 +343,7 @@ it says so. When a decision changes, this list and every document it touches cha
   anything else that covers serve too, and a lean-to is in. Not too easy, not too hard. (2026-09-27)
 - **Pockets hold everyday things; anything useful is in a bag you have to find.** Nobody starts with a
   knife, medical supplies, a compass or fire in hand; the tools and supplies are in bags the crash left
-  somewhere that takes work to reach — the guide's duffel (the one real knife) behind the jammed cargo
+  somewhere that takes work to reach — the guide's duffel (a pocketknife) behind the jammed cargo
   door, the nurse's backpack (the med pouch) behind the jammed aft bin, the kid's duffel (a multitool)
   in the tail wreckage. The salesman's reading glasses are convex and can light tinder in sun. More
   things are under the seats. The bags are not with their owners: some are in the back, some under their

@@ -399,7 +399,7 @@ None open.
   plane; the plane's battery in the nose and fine.
 - **2026-09-27** — the no-storm week carried in (document 13 §4.2); the tarp is also a ground signal.
 - **2026-09-28 (Andrew, the document's sitting):** pockets hold everyday things and anything useful is in
-  a bag to find — the one real knife behind the jammed cargo door, the med pouch behind the jammed aft
+  a bag to find — the guide's knife behind the jammed cargo door, the med pouch behind the jammed aft
   bin, the multitool in the tail; the salesman's reading glasses are convex; more things under the
   seats; the bags lie where the crash left them, not with their owners; a few frozen salmon fillets; the
   cabin is rooms like any others that hold heat; the kid wears ordinary clothes, his snow gear packed;
