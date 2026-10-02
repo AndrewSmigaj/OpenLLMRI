@@ -98,6 +98,8 @@
 - **2026-10-02 — digging in freezing ground (§4.6) kept**, with permafrost in patches under the black
   spruce, the muskeg and north-facing slopes, half a metre to a metre down; people dig for roots,
   rocks, mud and anything else they try.
+- **2026-10-02 — throwing and the sling (§4.6) kept**, told as what happened, on the starting chances of
+  document 10 §4.8 and the hidden skill sheet.
 
 ### Proposals (Claude)
 
@@ -527,7 +529,7 @@ Andrew's check.
   days of short rations at most (a 10 lb bag of flour); never truly full without a huge source. The hare
   year fixed at a middle year, the same every run. Telling plants apart by the senses; knowing plants on
   the hidden skill sheet, shown as subtle cues; no survival manual. What the poisons do, kept. Digging
-  kept, with permafrost in patches half a metre to a metre down.
+  kept, with permafrost in patches half a metre to a metre down. Throwing and the sling, kept.
 
 ## 8. What exists today
 
