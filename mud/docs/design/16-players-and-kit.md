@@ -35,10 +35,9 @@
 - **2026-09-28 — everyone boarded in a coat; some were lost in the crash.** It is cold out, so nobody
   flew without one; some came off in the warm cabin and the crash took them. The kid wears an ordinary
   jacket, not ski gear — full snow gear to sit in a plane makes no sense and would make the start too
-  easy; his snow pants and mittens are packed in his duffel in the tail wreckage. *(Whose coats were
-  lost and where they are, proposed by Claude for Andrew's check: the townie's winter parka went out
-  through the breach onto the debris trail; the nurse's down jacket is stuffed down behind the rear
-  seats, where the crash threw it.)*
+  easy; his snow pants and mittens are packed in his duffel in the tail wreckage. Whose coats were
+  lost and where they are (2026-10-02): the townie's winter parka went out through the breach onto the
+  debris trail; the nurse's down jacket is stuffed down behind the rear seats, where the crash threw it.
 - **2026-09-28 — the bags are not with their owners.** Some are in the back, some under their owner's
   seat or beside them; where each is, the crash decides (§4.3). The cooler holds only a few frozen
   salmon fillets — a meal or two. What is under the seats is §4.6's list.
