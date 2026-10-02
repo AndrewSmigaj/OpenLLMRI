@@ -57,6 +57,9 @@
   September (Larson et al., *J Exp Biol* 2014). The small, quick things to catch are the voles in their
   runways, the red squirrels at their middens, a torpid wood frog scraped out of the litter by a pond,
   and the bugs (§4.3).
+- **2026-10-02 — the plants (§4.2) kept**, with their most common names: mountain ash (rowan), a few
+  shrubs, scattered in the interior; wild potato (Eskimo potato, Indian potato, sweetvetch, bear root);
+  Labrador tea.
 
 ### Proposals (Claude)
 
@@ -100,8 +103,8 @@ Every figure is a real starting point that the probes tune.
 
 | what | in the first week of October | through the week | source |
 |---|---|---|---|
-| **berries** | a month of frosts behind them (Fairbanks's first autumn freeze averages 5 September and came by 27 September in every year of the 1930–2015 record): lowbush and bog cranberries ripe and frost-sweetened; crowberries sweeter and softer after the freeze, bursting when picked; highbush cranberries softened, with a musty smell and flavour, a little sweeter than before the frost; rose hips, bearberry and rowan on the plant; blueberries mostly dropped or eaten; baneberry fruits from August to October, so some clusters remain | each flurry covers the low mats a little more; on day 6 the lowest — bog cranberry and bearberry, flat on the ground — go under, while lowbush cranberry and crowberry, a hand high, poke through; highbush cranberry, rose hips and rowan hang above the snow all week and stay on the plant through the winter | UAF Cooperative Extension (lingonberries; highbush cranberries; crowberries); USFS FEIS, *Actaea rubra*; NWS Fairbanks, *Fairbanks Area Frost and Growing Season Information* |
-| **roots** | the tops dying back; the ground crusting each frosty night over soft soil. Sweetvetch — the Indian potato, historically one of the most widely harvested wild plants in Alaska — is hard work to dig, ounces a plant, which is why people raided the voles' caches or searched riverbanks for exposed roots; grizzlies dig the same roots in fall | harder to dig after each frosty night; under the day-6 snow the frost stops deepening, and a couple of inches brushes aside | Holloway, *Georgeson Botanical Notes* 77 (UAF, 1997, revised 2014); ADF&G, *Activity and food habits of barren-ground grizzly bears in arctic Alaska*; ADF&G, "Grizzly Bear Denning" (fall digging for roots) |
+| **berries** | a month of frosts behind them (Fairbanks's first autumn freeze averages 5 September and came by 27 September in every year of the 1930–2015 record): lowbush and bog cranberries ripe and frost-sweetened; crowberries sweeter and softer after the freeze, bursting when picked; highbush cranberries softened, with a musty smell and flavour, a little sweeter than before the frost; rose hips, bearberry and mountain ash on the plant; blueberries mostly dropped or eaten; baneberry fruits from August to October, so some clusters remain | each flurry covers the low mats a little more; on day 6 the lowest — bog cranberry and bearberry, flat on the ground — go under, while lowbush cranberry and crowberry, a hand high, poke through; highbush cranberry, rose hips and mountain ash hang above the snow all week and stay on the plant through the winter | UAF Cooperative Extension (lingonberries; highbush cranberries; crowberries); USFS FEIS, *Actaea rubra*; NWS Fairbanks, *Fairbanks Area Frost and Growing Season Information* |
+| **roots** | the tops dying back; the ground crusting each frosty night over soft soil. Wild potato — also called Indian potato or sweetvetch, historically one of the most widely harvested wild plants in Alaska — is hard work to dig, ounces a plant, which is why people raided the voles' caches or searched riverbanks for exposed roots; grizzlies dig the same roots in fall | harder to dig after each frosty night; under the day-6 snow the frost stops deepening, and a couple of inches brushes aside | Holloway, *Georgeson Botanical Notes* 77 (UAF, 1997, revised 2014); ADF&G, *Activity and food habits of barren-ground grizzly bears in arctic Alaska*; ADF&G, "Grizzly Bear Denning" (fall digging for roots) |
 | **mushrooms** | the fleshy season is over: most caps frozen, collapsed and rotting; the fly agaric still recognisable, fading; the velvet foot fruiting on dead aspen, poplar and willow in the cold; the deadly galerina on rotting wood in fall; the red squirrels' dried caches in the spruce, fly agaric among them; the woody conks all year | the ground species are dusted by the flurries and go under on day 6; the conks and the caches stay | Geophysical Institute, *Alaska Science Forum*, "Squirrels and toxic mushrooms" (UAF — Fairbanks squirrels cache Amanitas); ADF&G, red squirrel; *Galerina marginata* and *Flammulina* references (e.g. Missouri Dept. of Conservation; Fungus Fact Friday); NWS Fairbanks frost dates |
 | **bears** | interior black bears are denning — in the Yukon Flats the mean den entry was 26 September and the last 8 October (42 bears), so most have gone in and the last are going. Grizzlies den later: on the North Slope all females by mid-October and about 80 % of males by 1 November; at Lake Clark females about 20 October and males about 28 October. A bear still up and feeding now is most likely a grizzly, feeding hard on late berries, roots and anything else; fall bears run about 20 % heavier. **The valley's bear is a male** (2026-10-01): males den last, so he stays up all week | he stays up all week, feeding harder as the nights get colder; no den inside the run | the Yukon Flats black bear study (International Association for Bear Research and Management); ADF&G, "Grizzly Bear Denning"; "Sex-specific variation in denning by brown bears" (Lake Clark, *Mammalian Biology* 2018); ADF&G species profiles |
 | **hares** | the fall moult to white is just beginning: it starts between 28 September and 3 October and takes about six weeks (36–43 days), on a day-length clock whatever the snow does — so a hare is still mostly brown: its white patches show against the brown ground, and its brown stands out on the first snow; every run prints in it | fresh tracks after each snowfall; still more brown than white at the week's end | Ghimirey et al., *Royal Society Open Science* 2025 (Kluane, Yukon); Mills et al., *PNAS* 2013; ADF&G, snowshoe hare |
@@ -179,20 +182,20 @@ presence in this valley is still to be checked against it.
 | highbush cranberry | willow bars, creek | red clusters on the bush above the snow, softened by frost, with a musty smell and flavour (UAF Cooperative Extension) | food — very sour, a big flat seed in each; a few handfuls | the sour red berry; stays on the bush above any snow the week brings |
 | rose hips | creek, forest edge | red-orange, frost-softened on the stem | food — the richest fruit in the valley, about 160 kcal per 100 g (USDA, wild rose hips), once the seeds and their itching hairs are out; vitamin C | the manual's page; stays above the snow |
 | **baneberry** | forest floor, shaded | the last red (or white) clusters on a leafy plant dying back — it fruits August to October (USFS FEIS), so some remain | **poison** — as few as six berries poison an adult: nausea, dizziness, cramps, a racing pulse; far fewer are dangerous to a child (UAF Alaska Ethnobotany). In the game it makes a person very sick and never kills (§4.6) | the red berry that makes you sick (Andrew, 2026-09-17) |
-| **rowan (mountain ash)** | the birch stand, forest edges — a few trees | orange-red clusters at eye height, frost-touched | food — raw and in quantity it makes you sick (an acid in the raw berries: vomiting, cramps); frost begins to convert it and cooking finishes the job | occasional; a second real red berry that makes you sick, and one that heat cures (document 10 §4.6) |
+| **mountain ash (rowan)** | the birch stand, forest edges — a few shrubs: Greene's mountain ash is native to the interior but scattered (the Tanana and Yukon valleys; USDA, *Pocket Guide to Alaska Trees*) | orange-red clusters at eye height, frost-touched | food — raw and in quantity it makes you sick (an acid in the raw berries: vomiting, cramps); frost begins to convert it and cooking finishes the job | occasional; a second real red berry that makes you sick, and one that heat cures (document 10 §4.6) |
 | bearberry (kinnikinnick) | the ridge, dry open ground | mealy red berries on a flat mat | food — mealy, poor; the leaves make a tea | under the snow after day 6 |
 | blueberries dried on the bush | muskeg, open spruce | the few the birds and the bear missed, shrivelled | a lucky find | rare by October |
 | juniper berries | the ridge, dry slopes | blue-black on the low shrub | flavouring; a hot drink | — |
 | spruce needles / tips | everywhere with spruce | green | tea (warmth, vitamin C) | the safest forage |
 | wintergreen / pyrola leaves | under the spruce | evergreen leaves, dusted by the first snow | tea | — |
-| labrador tea | muskeg | leaves persist | tea; mild — strong and in quantity it is harmful, so the dose matters | crush-and-sniff to identify |
+| Labrador tea | muskeg | leaves persist | tea; mild — strong and in quantity it is harmful, so the dose matters | crush-and-sniff to identify |
 | inner bark (spruce, birch) | any live tree, a blade to strip | the sap is down; the inner bark thin | famine food — chew or boil; costs the tree | the world remembers a girdled tree |
 | spruce pitch | any wounded trunk | stiff, amber | chew it; seal a wound; it burns | — |
 | willow bark | willow bars | dormant | a mild painkiller (tea) | a real thing, weak |
 | chaga | the old birch (document 01, S7) | the black conk | tea; tinder that holds an ember | a reach puzzle |
 | birch polypore, tinder conk | dead and dying birch | the conks, all year | a poor tea and a real medicine; both are tinder | — |
 | cattail rhizome | the pond edge, in the mud under the water | brown tops; the starch in the rhizome | food — real starch if you can dig it out | wet, cold work; **scattered** in central Alaska (USFS FEIS) — present only if this pond has a stand, and the row says so per pond |
-| sweetvetch root (Indian potato) | the bench, river bars | in ground that crusts each frosty night, soft below | food — starch, sweetish; long, skinny roots, ounces a plant (Holloway, UAF) | digging breaks the crust first (§4.6); a fire thaws it; the grizzly digs the same roots |
+| wild potato root (Eskimo potato, Indian potato, sweetvetch, bear root) | the bench, river bars | in ground that crusts each frosty night, soft below | food — starch, sweetish; long, skinny roots, ounces a plant (Holloway, UAF) | digging breaks the crust first (§4.6); a fire thaws it; the grizzly digs the same roots |
 | mouse caches *(candidate)* | the sedge meadow at the muskeg edge | root voles' stores of small roots and tubers under the moss, laid in before the ground freezes | food — small starchy roots, found by the soft ground over a cache | people in Alaska raided these caches for Indian potato rather than dig it (Holloway, UAF; the Yup'ik *mousefood*); whether they are in this valley's meadow is for the loops to check |
 | **water hemlock root** | the marsh edge, by the cattails | tops dead and brown; the root in soft, unfrozen mud — a cluster of fleshy tubers, the rootstock chambered inside, a yellowish oily sap, a smell like raw parsnip | **poison** — in reality the most toxic plant in North America (CDC, *MMWR* 1994). In the game it brings seizures and lost days and never kills (§4.6) | the worst poison in the valley; the manual warns; the soft mud makes it easy to dig |
 | **velvet foot** (wild enoki) | dead aspen, poplar and willow | orange, slimy caps in clusters on black, velvety stems; it fruits in the cold, from late fall into winter | food — a real edible mushroom, the one fresh one of the season | the deadly galerina grows on rotting wood nearby, and most galerina poisonings are people mistaking it for this one: a brown spore print and a ring on the stem, against a white print and no ring |
@@ -271,8 +274,8 @@ counts (3 L a day each).
 | spruce and ruffed grouse | ~300 kcal a bird | one or two a day while the 25–40 last | close range, a rock, a stick or a pole noose |
 | red squirrel midden | roughly a kilocalorie of seed per cone (estimate: a white-spruce cone holds a few dozen oil-rich seeds of a few milligrams — a squirrel lives on a hundred-odd cones a day); the dried mushrooms besides | a few hundred cones an hour's raid — **a few hundred kcal**, after the cones are opened by a fire and threshed | finding a midden, an hour of raiding, more hours of fire and threshing |
 | fish | ~300 kcal a grayling; ~400–900 a whitefish; ~600–1,600 a burbot with its liver; ~500–1,800 a pike | **0–3 fish a day** for a party that works at it (estimate — no interior catch rate found; ADF&G: burbot bite from sunset to midnight) | a line cast into the open lake from its shore, the creek or the pool; the ice never holds a person this week |
-| berries, early in the week | lingonberry ~44 kcal per 100 g; rose hips ~160 | a quarter to half a kilogram of lowbush cranberries an hour by hand on bare or dusted ground (estimate — no picking-rate data found): **~100–220 kcal an hour**; rose hips somewhat more once cleaned | cold hands (document 08); after day 6, near zero for bog cranberry and bearberry, slower and wetter for lowbush cranberry picked through the snow; highbush cranberry, rose hips and rowan stay above it |
-| roots, inner bark, lichen | a few hundred kcal for hours of work, hard to digest raw (cooked starch gives more — document 10 §4.6); sweetvetch comes in ounces a plant, and a person would need about four pounds of the roots a day to live on them (Holloway, UAF) | a few hundred kcal | a blade, a fire, patience; the frozen crust first |
+| berries, early in the week | lingonberry ~44 kcal per 100 g; rose hips ~160 | a quarter to half a kilogram of lowbush cranberries an hour by hand on bare or dusted ground (estimate — no picking-rate data found): **~100–220 kcal an hour**; rose hips somewhat more once cleaned | cold hands (document 08); after day 6, near zero for bog cranberry and bearberry, slower and wetter for lowbush cranberry picked through the snow; highbush cranberry, rose hips and mountain ash stay above it |
+| roots, inner bark, lichen | a few hundred kcal for hours of work, hard to digest raw (cooked starch gives more — document 10 §4.6); wild potato comes in ounces a plant, and a person would need about four pounds of the roots a day to live on them (Holloway, UAF) | a few hundred kcal | a blade, a fire, patience; the frozen crust first |
 
 **So a good early day of foraging by the whole party is about 1,500–3,500 kcal** — nearer 5,000 at the
 peak of the hare cycle with fish biting and berries still out — **against 12,000–16,000 burned; late in
@@ -322,7 +325,7 @@ country's own spoiled and poisonous things are §4.2 above.
   real effects give the sickness its shape, dose-dependent and with real onset times, owned by the
   illness model (document 11 §4.6: what is in the gut). Baneberry: nausea, dizziness, cramps, a racing
   pulse — as few as six berries for an adult, far fewer for a child, which matters with the kid in the
-  party (UAF Alaska Ethnobotany; USFS FEIS). Raw rowan in quantity: vomiting, diarrhoea and cramps
+  party (UAF Alaska Ethnobotany; USFS FEIS). Raw mountain ash berries in quantity: vomiting, diarrhoea and cramps
   (an acid in the raw berries), which frost and cooking undo. Water hemlock: nausea and cramps within 15–90
   minutes, then seizures (CDC, *MMWR* 1994) — seizures, the injury they cause and the lost days, never
   death. The deadly galerina: violent vomiting and diarrhoea some hours after the meal, a false
@@ -374,7 +377,8 @@ the cold); reviews of protein toxicity ("rabbit starvation"); *Mousefood* (Yup'i
 Alaska Science Forum, "How mosquitoes overwinter in Alaska" and "Springtails: a sign of the season";
 USDA Forest Service, *Carpenter Ants in Alaska*; whitespotted sawyer life history (*Northern
 Woodlands*; forestpests.org); J. Hudson, K. Hocker and R. H. Armstrong, *Stoneflies* and *Caddisflies*
-(aquatic insects of Alaska) (bugs, looked up 2026-10-01).
+(aquatic insects of Alaska) (bugs, looked up 2026-10-01); USDA, *Pocket Guide to Alaska Trees* (mountain ash in the interior,
+looked up 2026-10-02).
 
 ## 5. Interactions
 
@@ -420,7 +424,8 @@ Andrew's check.
   a met animal a full thing in the room; no wolves; as many of an animal in a room as is realistic, and
   few played by a model at once; which actors a model plays set per run.
 - **2026-10-02 (Andrew):** no lizards — the small, quick things are the voles, squirrels, the wood frog
-  and the bugs; the bear is the one really dangerous animal.
+  and the bugs; the bear is the one really dangerous animal. The plants kept, with their most common
+  names (mountain ash, wild potato).
 
 ## 8. What exists today
 

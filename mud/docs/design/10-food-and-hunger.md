@@ -172,7 +172,7 @@ state of every living thing is document 23 §4.2–§4.3.)*
 | zone | what it offers | what it costs |
 |---|---|---|
 | `tussock_flat` | lowbush cranberries, frost-sweetened on the bare mats, and bog cranberries in the wet hollows; each flurry covers more, and the day-6 snow buries the bog cranberries while the lowbush cranberries poke through | knowledge + sweat; a real but marginal calorie trickle, priced honestly low so it cannot replace hunting |
-| `labrador_thicket` | labrador tea, leathery leaves that persist all winter | knowledge + a container + fire; warmth and morale, not calories |
+| `labrador_thicket` | Labrador tea, leathery leaves that persist all winter | knowledge + a container + fire; warmth and morale, not calories |
 | `lake_gate_willows` | the hare runs at the lake gate; a snare set on a run | wire or cordage + knowledge + the discipline to leave and come back |
 | `grouse_thicket` | spruce grouse — real protein, comically tame | anything within reason thrown, a slow approach (rushing flushes the birds a zone away for hours — a few birds, not a flock: Andrew, 2026-09-26), then plucking, cleaning and the whole fire chain |
 | `hare_runs` | the snare line — the valley's best protein-per-effort | wire, reading which runs are fresh — easiest the morning after a flurry, when every track is new — setting loops right, and *leaving*; it pays on return visits, hours later |
@@ -246,7 +246,7 @@ system, each with a real consequence:
 | **pathogen / parasite** (hidden, set by species and the seed) | nothing but heat to a real core temperature; **freezing does not kill the trichinosis worm** | undercooked bear: trichinellosis (stomach within days, muscles in weeks); undercooked hare, or gutting one bare-handed: rabbit fever (tularemia), a fever in about 3–5 days — inside a run; raw freshwater fish: tapeworm, which outlasts the run | ADF&G (the trichinosis worm in Alaska's bears; rabbit fever (tularemia) and snowshoe hares); CDC |
 
 Whatever it is, food that sickens never kills: poison makes people very sick and never kills
-(2026-09-27). Plant foods have their own real cases: raw rowan berries carry
+(2026-09-27). Plant foods have their own real cases: raw mountain ash berries carry
 an acid that brings on vomiting and cramps in quantity — frost starts converting it and
 cooking finishes the job; raw starch in a root is barely digestible until it is cooked. What an
 illness then does to a body is document 11's.
@@ -280,7 +280,7 @@ choice with a real trade-off, not decay for its own sake.
 
 Everything the earlier passes and the valley design named is in — the freight and the mail,
 the cooler's frozen salmon, the pockets, cranberries, crowberries, highbush cranberries, rose hips,
-spruce-needle tea, labrador tea, inner bark, chaga, the hare runs, ptarmigan and spruce grouse, the
+spruce-needle tea, Labrador tea, inner bark, chaga, the hare runs, ptarmigan and spruce grouse, the
 red squirrel's midden, voles, **grubs under the bark**, the fishery, and the pilot's body. Document 23
 holds the living inventory.
 
