@@ -102,7 +102,7 @@ You come to in a cold aluminium tube in the first week of October with whatever 
 wearing, and from that minute the cold is spending you. It is not a stat you manage; it is the wind
 through the tear in the hull, the snow melting into your sleeve, your fingers losing the knot you are
 trying to tie. You get warmth back the way people actually do: you put more on — your own bag,
-someone else's sweater, the quilted engine cover out of the aft bin — you get out of the wind, you
+someone else's sweater, the quilted engine cover from behind the rear seats — you get out of the wind, you
 block the hole the wind is coming through, you get off the metal floor onto boughs, you light a fire
 if you can, and when none of that is enough two of you share the blanket and the rest press close or
 layer up (2026-09-28), which is warmer than any of you alone. The
@@ -269,7 +269,7 @@ numbers plus capacity — so partial work counts automatically and nothing needs
 |---|---|---|
 | **the fuselage, a windbreak with holes** | the crash's default shelter: walls, no heat, and openings the wind owns — the tear in the rear hull first. It is night one's physical half (§4.1a) | the rear cabin — the tear is the way outside, the wind's door, and the reason the room is colder (`rear_cabin.md` §2e) |
 | **block the breach** | cover the tear with the engine cover, a wing panel, a suitcase wall, a sheet of acrylic — the generic `cover`/`block` over any opening. The first real shelter act, available in the first hour, needing nothing the party does not have | the rear cabin (`rear_cabin.md` §5.1) |
-| **the lean-to** | Andrew's own example (2026-09-07): poles and thatch against the weather, outside, by choice. Boughs are free at the forest edge *(Claude's, not yet decided: and pre-cut by the crash on the shear line)* | `shear_line` (the crash pre-cut a shelter's worth of thatch and bedding); `forest_edge` (bough beds, shelter thatch) |
+| **the lean-to** | Andrew's own example (2026-09-07): poles and thatch against the weather, outside, by choice. A few branches the crash snapped lie on the shear line; the rest are found or cut at the forest edge (2026-10-02) | `shear_line` (a few branches the crash snapped); `forest_edge` (bough beds, shelter thatch) |
 | **a windbreak in the open** | boughs, logs, rocks and the wreck's panels stacked against the wind — for a signal fire, or a night caught out. The week lays only a couple of inches of snow (document 13 §4.2): too little to cut into blocks or pile into a wall, though scraped up and packed along a windbreak's foot it seals the gap at the ground | open ground: the muskeg, the lake shore, the bench saddle |
 | **under a big spruce** | a natural bivvy: a big spruce's skirt of low branches down to the ground, a dry needle floor that stays bare while the open ground whitens, out of the wind and the open sky. A party caught out overnight survives there with boughs and body heat and nothing else | `tree_well_hollow` |
 | **ground insulation** | boughs, foam, luggage, the seat cushions — the ground steals more heat than the air. A night on bare metal, frozen ground or snow is survivable but expensive, *(roughly the cost of a day's work — Claude's starting point)*, so gathering boughs before dark is the obviously right thing nobody tells you to do | `forest_edge`; the bedding score (document 06) |

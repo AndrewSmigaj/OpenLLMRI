@@ -90,6 +90,10 @@ Andrew on 2026-09-17 and brought to the first week of October on 2026-09-27.
   the fire going); a bunk with wool bedding; the raised cache with its ladder stashed under the cabin,
   holding the axe and the stores; a modest woodshed stack and a freight sled. Not every place needs something interesting — ontologically
   sufficient is not fluff for its own sake.
+- **(2026-10-02)** The wreck: the sleeping bag is buried with the tail (no avgas); no snowshoes in the
+  tail; the plane is not falling apart — scripted events stay only where they are useful or add
+  ambience; a few snapped branches on the shear line, the rest found or cut; the nurse's backpack wedged
+  behind the rear seats under the crushed hat shelf.
 - **(2026-10-02)** Each region's roles are listed in the map data. Things cost what they really cost —
   there is no required number of costs.
 - **(2026-09-27)** Holt, the trapper, does not come back during the week; the cabin is supplies, not a place to be
@@ -164,7 +168,7 @@ What is aboard is the design's call, and it is set so the run is neither too eas
   V. Holt — are scattered through the wreck and along the scar (documents 10 and 16).
 
 Realism supplies the inventory; the crash supplies the difficulty: the tail tore off two hundred
-metres back up the scar, the hatchet's haft snapped, the nurse's matches damp, the sleeping bag took avgas.
+metres back up the scar, the hatchet's haft snapped, the nurse's matches damp, the sleeping bag buried with the tail.
 Where each thing lies is decided case by case, by what makes the game better (2026-09-28): what would make the start too easy — the tools and supplies that solve the big problems — is not lying in plain sight in the first room, and no rule hides things away; everything else lies where it would really lie — a dead fish on the shore.
 
 Conditions: the first week of October; daylight, temperature, snow and ice day by day are document 13
@@ -282,7 +286,7 @@ brush, a cache up a tree, a cabin 2.4 km off (§4.1).
 | `fuselage_top` | the watchtower: the torn antenna base, the valley's sightlines, a high place to raise an antenna, the worst exposure on site | ✅ |
 | `outside_tail` | the breach exit — the hub between hull, scar and treeline | ✅ |
 | `debris_trail` | the scatter: the mail sack, the freight, the hatchet in the brush, a little more hidden by each flurry | ✅ |
-| `tail_section` | the tail wreckage: the broken ELT, the sleeping bag buried with it, and the bag holding the hand radio's batteries; *(Claude's, not yet decided: snowshoes here, and the sleeping bag soaked in avgas)* | ✅ |
+| `tail_section` | the tail wreckage: the broken ELT, the sleeping bag buried with it, and the bag holding the hand radio's batteries | ✅ |
 | `treeline` | the supply room and the forest gateway: deadfall, boughs, dry grass | ✅ |
 
 **S2 — The Muskeg**
@@ -323,7 +327,7 @@ winter in it, and burbot, whitefish and pike live in it (document 23, 2026-10-02
 
 | Zone | What it is for | Status |
 |---|---|---|
-| `shear_line` | the crash pre-cut a shelter's worth of boughs; the scar as an arrow back up the hill | 📐 |
+| `shear_line` | some branches the crash snapped off; the scar as an arrow back up the hill | 📐 |
 | `wing_in_the_trees` | the sheared wing caught in the trees, avgas in its tank | 📐 |
 | `gear_gouge` | the torn-off tyre (rubber burns with thick black smoke) | 📐 |
 | `bench_saddle` | a saddle halfway up the climb | 📐 |
@@ -395,7 +399,7 @@ hide the footing: frost-glazed rock and roots on the first mornings, then the ho
 tussocks and the thin ice on the channels once the snow lies over them. Your own trail is faster than
 the first time — the firm line through the bog found, the brush broken, the deadfall stepped round — and
 after a flurry it is plain to follow back. The creek's bank is quick going, at the risk of thin ice and cold
-water. Snowshoes — in Holt's cache *(and, not yet decided, in the tail wreckage)* — are for deep snow the week never lays; on
+water. Snowshoes — in Holt's cache — are for deep snow the week never lays; on
 a couple of inches over tussocks they only slow a walker. The map is big, and what speeds a party
 across it is knowing it.
 

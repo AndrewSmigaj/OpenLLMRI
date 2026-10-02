@@ -115,8 +115,7 @@ because of what a helmet *is*, and the same must be true of anything else a play
 - **Holt's water** — the homestead's own path down to the creek: water without the riffle's
   risks.
 
-Inside the wreck: the thermos of coffee in the cockpit, the half-full canteen in the backpack behind
-the jammed aft bin, the salesman's steel water bottle and hip flask, and whatever the flurries blow in
+Inside the wreck: the thermos of coffee in the cockpit, the half-full canteen in the backpack wedged behind the rear seats where the crash crushed the hat shelf down on it, the salesman's steel water bottle and hip flask, and whatever the flurries blow in
 through the hull breach — a skin of snow on the floor that is indoor weather and also the room's water
 source, a little more after each flurry.
 

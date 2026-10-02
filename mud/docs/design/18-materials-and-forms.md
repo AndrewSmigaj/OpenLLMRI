@@ -248,6 +248,11 @@ The rules, in plain words:
   or `strip` form. **Sheet** from a flexible material in `sheet` or `cloth` form (half value from a
   strip). **Vessel** from a `vessel` form that is not floppy.
 - **Reflective** from a sheet, shard, flake or blade that is metal, glass or ice.
+- **Turning a screw** (2026-10-02) needs a thin, hard tip or edge that fits the screw's head: a
+  screwdriver, a knife's tip, the multitool, a coin or a key in a slotted screw, the steel tongue of a
+  seat-belt buckle, the end of the hacksaw blade, a strip of steel. Soft or thick things do not — the
+  aluminium skin bends. It is what opens the hand radio's screwed case (document 14 §3.2) and takes the
+  panel compass out; the party finds what serves, by itself or as part of something.
 - **Insulating** and **absorbent** pass straight through from the material, so a verb can ask the
   thing rather than the table.
 - **Fire** is state, not material: `ignition` and `flame` come from an object's own state (and a wet

@@ -105,7 +105,7 @@ on the per-run seeded stream (DR-12), and the deal is logged like every other se
 |---|---|---|---|---|---|
 | **the guide** | right seat | parka (down, hood), wool base layer, insulated boots, gloves, wool hat | a chocolate bar, a wallet | minor bumps and bruises (sore for a day or two) | his own duffel, in the baggage bay behind the jammed cargo door: his pocketknife, a compass, a headlamp, a ferro rod, a steel cup |
 | **the townie** | 1A | denim jacket, cotton hoodie, jeans, sneakers, no gloves — the winter coat lost in the crash (below) | phone (light, clock; the battery lasts as long as where it is kept allows — §4.9), wallet (cash, cards, ID — paper), gum, keys, earbuds (wire) | a cut forearm (bleeding; the census wound) | a soft suitcase, in the baggage bay: cotton clothes, a canvas jacket with a lighter forgotten in its pocket, a towel, toiletries (floss = cordage; razor = edge; sanitizer = fire starter; tampons = tinder + wound packing; a travel sewing kit — a needle and a card of thread), a paperback |
-| **the nurse** | 1B | fleece jacket, hiking boots, a scarf, thin gloves — the down jacket lost in the crash (below) | lip balm (wax), hair ties (cordage), a pen | minor bumps and bruises (sore for a day or two) | a backpack, behind the jammed aft bin: the med pouch (gauze, tape, ibuprofen, a suture kit — she knows how; the player still types each act), canteen, spare shirt, a wool sweater, a headnet, a book of matches (about eight, damp where the canteen leaked), a part-used bottle of iodine tablets |
+| **the nurse** | 1B | fleece jacket, hiking boots, a scarf, thin gloves — the down jacket lost in the crash (below) | lip balm (wax), hair ties (cordage), a pen | minor bumps and bruises (sore for a day or two) | a backpack, wedged behind the rear seats where the crash crushed the hat shelf down on it: the med pouch (gauze, tape, ibuprofen, a suture kit — she knows how; the player still types each act), canteen, spare shirt, a wool sweater, a headnet, a book of matches (about eight, damp where the canteen leaked), a part-used bottle of iodine tablets |
 | **the salesman** | 2A | wool overcoat, dress shoes, leather gloves, a good scarf | a hip flask (whisky), reading glasses (convex — in sun, a lens that can light tinder), a notebook (paper) | concussion (fatigue faster; confusion messages the first day) | a laptop bag, under his seat: laptop (battery — sparks, heat, then dead), cables (wire), a metal water bottle, snacks, a wool blanket, an old metal lighter in a side pocket, its wick dry |
 | **the kid** (16) | 2B | a light insulated jacket, jeans, sneakers — no hat, no gloves | a phone, a candy bar, sunglasses | minor bumps and bruises (sore for a day or two) | a duffel, in the tail wreckage: hockey gear (a stick = a rod; tape = tape; pads = foam), a sleeping bag, snow pants and mittens packed for later in the season, a multitool (a gift — a knife blade among its tools) |
 
@@ -167,7 +167,7 @@ away. A paperback is at your feet; the hatchet is a hundred
 metres out in the brush with a cracked haft. Where each thing lies is decided case by case, by what makes the game better (2026-09-28): what would make the start too easy — the tools and supplies that solve the big problems — is not lying in plain sight in the first room, and no rule hides things away; everything else lies where it would really lie — a dead fish on the shore. Not too easy, not too hard.
 
 **Where the bags are** (Andrew, 2026-09-28): not with their owners. Some are in the back — the baggage
-bay, the aft bin, thrown into the tail — and some are under their owner's seat or beside them, as
+bay, behind the rear seats, thrown into the tail — and some are under their owner's seat or beside them, as
 carry-ons are; where each ended up is the crash's (§4.1's table, §4.6). What is in a bag is what its
 owner packed for their own trip, so whoever plays the townie is the one whose suitcase holds the canvas
 jacket; the mail and the freight are nobody's here.
@@ -223,8 +223,8 @@ laptop bag; under 2B, a phone charging cable and a crumpled chip bag.
   **17 — Rooms and living rooms** §4.3) with a DIFFERENT damage and find: 1A intact; 1B wrenched on its
   bolts; 2A thrown loose (a movable frame — a windbreak, a sled base); 2B thrown against the hull. What
   is under each seat is the list above; there is no life vest (a land plane carries none).
-- **The hat shelf** (behind row two) — a shelf, not a bin; *(Claude's, not yet decided: hats, a scarf,
-  the kid's helmet on it)*.
+- **The hat shelf** (behind row two) — a shelf, not a bin: a ball cap tossed on it, nothing that
+  answers the cold; warm hats are in bags (2026-10-02).
 - **The baggage bay** behind it: the cargo net over the bags (cut it or unhook it), the freight and the
   mail against the bulkhead.
 - **The double cargo door** on the right rear: jammed by the impact (pry it) — a way out besides the
@@ -232,7 +232,8 @@ laptop bag; under 2B, a phone charging cable and a crumpled chip bag.
 - The hat shelf and the cargo net are opened, pried and searched like any container.
 - **Windows**: crazed plexiglass (acrylic — document 18 §4.8) — sharp sheets when broken, and a
   possible cover for the breach.
-- **Up front**: the six-pack instruments, the whiskey compass on the glareshield *(Claude's, not yet decided: takeable)*, the ELT's
+- **Up front**: the six-pack instruments, the whiskey compass screwed to the glareshield — it comes out with anything that can turn a screw
+  (2026-10-02; document 18 §4.5), the ELT's
   remote switch and placard (the ELT itself is in the tail, and broken — document 14 §3), headsets on
   the yokes, the halon extinguisher, the magneto key in the ignition, the kneeboard with the manifest
   and the sectional chart.
@@ -399,8 +400,7 @@ None open.
   plane; the plane's battery in the nose and fine.
 - **2026-09-27** — the no-storm week carried in (document 13 §4.2); the tarp is also a ground signal.
 - **2026-09-28 (Andrew, the document's sitting):** pockets hold everyday things and anything useful is in
-  a bag to find — the guide's knife behind the jammed cargo door, the med pouch behind the jammed aft
-  bin, the multitool in the tail; the salesman's reading glasses are convex; more things under the
+  a bag to find — the guide's knife behind the jammed cargo door, the med pouch wedged behind the rear seats where the crash crushed the hat shelf down on it, the multitool in the tail; the salesman's reading glasses are convex; more things under the
   seats; the bags lie where the crash left them, not with their owners; a few frozen salmon fillets; the
   cabin is rooms like any others that hold heat; the kid wears ordinary clothes, his snow gear packed;
   pockets are warm places. **Reviewed in full.**

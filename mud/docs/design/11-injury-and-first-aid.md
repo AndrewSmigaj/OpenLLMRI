@@ -176,8 +176,7 @@ always the townie. A seat nobody plays is a dead character
 | **improvised** (a torn-up shirt or any cloth, clean water to rinse, paracord and a rod as a splint, a sewing needle and thread to stitch — boiled first) | tools + knowledge | the rear cabin, the duffel; the sewing kit in the townie's toiletry bag (document 16) | `tear shirt` → `pour water on the cut` → `wrap arm with strip` |
 | **warmth for frostbite** (skin to skin, no rubbing) | warmth | any | `wrap hands in socks` · sit by the fire |
 
-**The med pouch** belongs to a person, not the plane, and it is in the nurse's backpack behind the
-jammed aft bin, not her pocket (2026-09-28): gauze pads, medical tape, ibuprofen, a suture kit
+**The med pouch** belongs to a person, not the plane, and it is in the nurse's backpack wedged behind the rear seats where the crash crushed the hat shelf down on it, not her pocket (2026-09-28): gauze pads, medical tape, ibuprofen, a suture kit
 (shipped in `characters.py`). Her hands are trained; the player still has to know what to do. The
 plane's first-aid kit is a bandage roll and medical tape in the pried forward bin. Whisky and hand
 sanitizer are the alcohol, and both are also fuel.

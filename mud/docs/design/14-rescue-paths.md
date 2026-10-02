@@ -104,7 +104,9 @@ rescuers find everyone still alive (2026-09-29). **The ELT is broken** (2026-09-
   little snow with each flurry, a couple of inches by the end (document 13 §4.2), so the longer a party
   waits, the more there is to brush off and the colder the hands that sort through it. Finding them is
   searching the ground and sorting through the wreckage, as on 2026-09-17.
-- **Getting it working.** You need **something to open it**. Inside is **a loose wire**: a character
+- **Getting it working.** You need **something to open it**: its case is screwed shut, and anything
+  that can turn a screw serves — a knife's tip, the multitool, a coin, a key, a seat-belt buckle's steel
+  tongue (2026-10-02; document 18 §4.5). Inside is **a loose wire**: a character
   with technical proficiency sees it on inspecting the inside; anyone else finds it more slowly, and the
   world says so when they look inside — the wiring means little to them, and this may take a while —
   the same way fire is slower for some (characters differ in how well and how fast they do things,

@@ -155,8 +155,7 @@ at that space; a burning thing in the hand is a torch, not a fire.
 Each has at least one probe chain proposed, including the honest failures:
 *Where the flames are* (Andrew, 2026-09-28): nothing in anyone's hand at the start, and for books of matches, the easier one is to find,
 the fewer matches it holds — **the pilot's book of matches, two left**, in his shirt pocket (Andrew's); **the nurse's
-book of matches, about eight, damp** where her canteen leaked in the crash, in her backpack behind the
-jammed aft bin — dried against the body or near a fire before it strikes; **a cheap butane lighter** in
+book of matches, about eight, damp** where her canteen leaked in the crash, in her backpack wedged behind the rear seats where the crash crushed the hat shelf down on it — dried against the body or near a fire before it strikes; **a cheap butane lighter** in
 a canvas jacket rolled in the townie's suitcase in the baggage bay — bag, then jacket, then pocket — which
 sputters in the cold until it is warmed in a hand or a pocket; **the salesman's old metal lighter, dry**,
 in a side pocket of his laptop bag — it lights again once its wick is fed fuel, and the avgas in the

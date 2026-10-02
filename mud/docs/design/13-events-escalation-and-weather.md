@@ -219,8 +219,8 @@ and the combat system answer (§4.4).
   above the weather, heard and never seen; a plane that rocks its wings has seen you · the day-7 rescue · a light plane that is not searching — someone flying supplies out to
   a trapline cabin before the season — a chance to be seen, and a story.
 - **The wreck**: fuel drips and pools under the wing (a fire hazard and a fuel source) · the fuselage
-  shifts on the slope with a groan (things slide; *Claude's, not yet decided: the door jams*) · a window pane falls in · the tail
-  section slides further down the scar · *(Claude's, not yet decided: the extinguisher's bracket lets go)* · the day's meltwater
+  shifts on the slope with a groan (things slide) · a window pane falls in · the tail
+  section slides further down the scar · the day's meltwater
   refreezes the cargo door shut overnight · the day-6 snow lies on the wing and the fuselage, white on
   white ground, until the wreck no longer stands out from the air.
 - **Bodies**: the pilot's body from the first minute — cooling, stiffening, freezing from the skin
