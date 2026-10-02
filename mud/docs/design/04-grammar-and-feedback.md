@@ -10,6 +10,8 @@
 
 ### Andrew's decisions
 
+- **(2026-10-02)** Soft, porous things take their as-found density, and compression is a state — a
+  stuffed sack is smaller, and a crushed bag insulates worse until fluffed up (§3.7, document 18 §4.8).
 - **(2026-10-02)** Every unknown word is logged, whether an agent or a person typed it, and then added
   along with whatever it needs — new mechanics included (§3.7).
 - **Feedback is clarification only, never options (2026-09-16).** The player — person or agent — is
@@ -386,10 +388,10 @@ exists and you get what exists, and the world says so. No refusal, no menu.
 - **bulk**, which does not exist today and is the real gap. A down sleeping bag is light and
   enormous; the aircraft battery is small and crushing. **Bulk derives from mass ÷ the material's density**
   (Andrew, 2026-09-18), with an authored value winning — the same derive-then-override shape the
-  capabilities use. `density` becomes a material axis (document 18). *(Proposed by Claude,
-  2026-09-26, for Andrew's check: porous things — snow, down, moss, a sleeping bag — use their
-  as-found density, with compression as a state, so a stuffed sack is smaller than a loose one;
-  document 18 §4.8.)*
+  capabilities use. `density` becomes a material axis (document 18). Soft, porous things — snow, down, moss, a sleeping bag — take
+  their as-found density, and compression is a state (2026-10-02): a stuffed sack is smaller than a
+  loose one, packing things down lets a person carry more, and a crushed bag or jacket insulates worse
+  until it is fluffed up again, since the trapped air is the warmth (document 18 §4.8).
 
 **What a gathered quantity *is*, in your hands: an aggregate (Andrew, 2026-09-18).** Five gathered
 stones are one entity carrying a count and a total mass, not five objects — the object count stays

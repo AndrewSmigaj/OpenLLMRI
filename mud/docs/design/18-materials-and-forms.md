@@ -342,7 +342,7 @@ real quantity.
 
 | axis | unit | what it decides | read by |
 |---|---|---|---|
-| `density` *(decided 2026-09-18)* | g/L | bulk (mass ÷ density), floating, the weight of a cut snow block. For anything porous — foam, down, batting, cloth, grass, snow — it is the **as-found** density, and compression is a state: a stuffed sleeping bag and a lofted one are the same mass in a quarter of the space, and the lofted one is the warm one | carrying (04 §3.11, 16), heat |
+| `density` *(decided 2026-09-18; the as-found rule 2026-10-02)* | g/L | bulk (mass ÷ density), floating, the weight of a cut snow block. For anything porous — foam, down, batting, cloth, grass, snow — it is the **as-found** density, and compression is a state: a stuffed sleeping bag and a lofted one are the same mass in a quarter of the space, and the lofted one is the warm one | carrying (04 §3.11, 16), heat |
 | `specific_heat` | J/g·K | how much heat it takes to warm it, and gives back cooling: a stone stores heat, a blanket does not, water most of all | heat |
 | `thermal_conductivity` | W/m·K | how fast heat moves through it: aluminium drains a hand; still air, snow and wool hold heat | heat, warmth (08) |
 | `emissivity` | 0–1 | how much heat it radiates and takes in: bright metal and foil throw a fire's heat back and keep a body's in; dark cloth drinks the sun | heat; the `reflective` capability |
@@ -528,7 +528,8 @@ loops (22), which are the mechanism that grows them.
 ## 6. Open questions
 
 None open. Reviewed in full with Andrew on 2026-09-28; three details of §4.8 were never put to him and
-are in the 2026-10-02 audit list (the porous things' bulk, the acrylic windows, the two battings).
+are in the 2026-10-02 audit list (the acrylic windows, the two battings); the porous things' bulk was
+kept on 2026-10-02.
 
 ## 7. Review log
 
