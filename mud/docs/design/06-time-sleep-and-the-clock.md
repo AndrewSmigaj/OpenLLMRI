@@ -13,6 +13,8 @@
 
 ### Andrew's decisions
 
+- **(2026-10-02)** The background lines (a fire crackling, a bird calling) are ours to broadcast: set to
+  read well at 15×, and chosen the same way under fast forward so it stays readable; tuned in play.
 - **A continuously running real-time clock (Andrew's original design, June 2026; DR-14).** Nobody
   can stall it or yank it; the world moves whether or not the party acts. Turn-based time was set
   aside as too clunky for a group playing together.
@@ -183,8 +185,9 @@ happen, through the propagator, by band.
 
 **Under a fast forward, the world does not go quiet — it goes fast** (Andrew, 2026-09-18). Whoever is
 awake is on watch, and they watch the night run past: the fire burning down, the wind rising, an
-owl somewhere out along the shore. *(Proposed by Claude: lines are rate-limited in real time so the
-stream stays readable rather than unspooling three a second.)* Any non-ambient event drops the clock
+owl somewhere out along the shore. **What is broadcast is ours to choose** (2026-10-02): the background
+lines — a fire crackling, a bird calling — are set to read well at 15×, and what is shown under fast
+forward is chosen the same way, so it stays readable; both are tuned in play. Any non-ambient event drops the clock
 back to 15× (§4.2). Sleepers see nothing of the world; they can chat out of character, and later they
 will be dreaming ([`IDEAS.md`](IDEAS.md)).
 
