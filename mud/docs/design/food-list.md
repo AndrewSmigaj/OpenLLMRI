@@ -86,7 +86,7 @@ From document 23 §4.3, §4.4 and document 10 §4.4, §4.8. How each is taken is
 
 | food | where | what it gives | what to watch | status |
 |---|---|---|---|---|
-| snowshoe hare | willow thickets, the hare runs | ~650–800 kcal each; the pelt | very lean (rabbit starvation, §6); gutting bare-handed risks rabbit fever (tularemia); the hare cycle is a seeded run variable | 📐 |
+| snowshoe hare | willow thickets, the hare runs | ~650–800 kcal each; the pelt | very lean (rabbit starvation, §6); gutting bare-handed risks rabbit fever (tularemia); a middle year of the hare cycle, the same every run | 📐 |
 | willow ptarmigan | willow bars, muskeg edge | ~250–300 kcal a bird | lean | 📐 |
 | spruce grouse | spruce forest | ~250–300 kcal a bird | each one taken is gone for the run | 📐 |
 | ruffed grouse | aspen and birch | ~250–300 kcal a bird | harder to hit | 📐 |

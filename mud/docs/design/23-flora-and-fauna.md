@@ -86,6 +86,8 @@
   party burns; the party gets by for a while on the plane's food — a few days of short rations at most,
   with a 10 lb bag of flour in the freight — and has to go out to supplement it, never truly full
   unless it lands a huge source or eats everything quickly.
+- **2026-10-02 — the hare year is a middle year, the same every run**, like the weather: hares common,
+  the snares paying as document 10 §4.8 says.
 
 ### Proposals (Claude)
 
@@ -314,7 +316,7 @@ counts (3 L a day each).
 
 | source | in this valley | basis |
 |---|---|---|
-| snowshoe hare | about 2–3 km² of hare country; at the cycle's peak up to ~230 hares per km² — some 450–700 hares — and at its bottom a tenth of that or less, a few dozen | ADF&G (peak density); the ten-year, roughly tenfold cycle |
+| snowshoe hare | about 2–3 km² of hare country; **a middle year of the cycle, the same every run** (2026-10-02): roughly 50–100 hares per km² — some 100–300 hares. The cycle runs from up to ~230 per km² at its peak to a tenth of that or less at its bottom | ADF&G (peak density); the ten-year, roughly tenfold cycle |
 | spruce grouse | about 3–4 displaying males per km² in spring (Ellison 1968: 7–10 per square mile, south-central Alaska); with hens and the year's young, roughly 10–15 birds per km² in fall — **some 25–40 birds** in the valley's spruce, and each one taken is gone for the run | Ellison 1968; the fall multiple is an estimate |
 | willow ptarmigan | small groups of females moving down into the willow bottoms through October — tens at most | ADF&G |
 | red squirrel | one per 1.2–1.6 ha of white spruce (Smith 1968, interior Alaska), up to several per ha in good stands — **some 60–250 middens**, each with about 1,000 to over 8,000 cached cones | Smith 1968; interior-Alaska midden studies |
@@ -333,9 +335,9 @@ counts (3 L a day each).
 | berries, early in the week | lingonberry ~44 kcal per 100 g; rose hips ~160 | a quarter to half a kilogram of lowbush cranberries an hour by hand on bare or dusted ground (estimate — no picking-rate data found): **~100–220 kcal an hour**; rose hips somewhat more once cleaned | cold hands (document 08); after day 6, near zero for bog cranberry and bearberry, slower and wetter for lowbush cranberry picked through the snow; highbush cranberry, rose hips and mountain ash stay above it |
 | roots, inner bark, lichen | a few hundred kcal for hours of work, hard to digest raw (cooked starch gives more — document 10 §4.6); wild potato comes in ounces a plant, and a person would need about four pounds of the roots a day to live on them (Holloway, UAF) | a few hundred kcal | a blade, a fire, patience; the frozen crust first |
 
-**So a good early day of foraging by the whole party is about 2,000–4,000 kcal** — nearer 5,000–6,000 at
-the peak of the hare cycle with fish biting and berries still out — **against 12,000–16,000 burned; late in
-the week, in a poor hare year, 500–1,500.** It closes as the week goes: the snow covers the low berries,
+**So a good early day of foraging by the whole party is about 2,000–4,000 kcal** — nearer 5,000 with the
+snares full, fish biting and berries still out — **against 12,000–16,000 burned; late in the week, as the
+snow covers the berries and the grouse are taken down, about 1,500–3,000.** It closes as the week goes: the snow covers the low berries,
 the stocks of grouse and hares are taken down, the ponds skin over, and the bear, still up, grows bolder. The
 country is *a brake on starvation, never a living*. The shape of the week (2026-10-02): the party can get
 by for a while on what the plane holds — pocket snacks, trail mix, a small bag of dog food, a meal or two
@@ -349,10 +351,13 @@ to six it is real, which is when the pilot's body becomes a question rather than
 and tens of kilograms of fat) killed changes the whole run — and each is a combat act with real physics and
 real danger (document 10 §4.8). None of them is in the daily yield.
 
-**The hare cycle is a seeded run variable.** Snowshoe hare numbers swing roughly tenfold on a ten-year
-cycle, and every predator in the valley swings with them. A good-hare-year run has snares that pay and
-lynx tracks everywhere; a poor-year run has empty snares, thin foxes, and a party that must look
-elsewhere. One seed, and the whole food picture changes — a real thing that is also a replay lever.
+**The hare year is a middle year, the same every run** (2026-10-02). Snowshoe hare numbers swing roughly
+tenfold on a ten-year cycle, and the lynx and foxes swing with them: a peak year has hares everywhere and
+lynx tracks on every run, a bottom year empty snares and thin foxes. The valley is set in a middle year,
+like the weather (document 13 §4.2): hares common, a snare on a good run catching about one night in five
+(document 10 §4.8), lynx and fox sign as the hares support. A random year would undo the balance a party
+that really tries is owed, and add noise to every comparison between runs (document 20); the replays vary
+already, by the seat draw, the players' choices and every roll.
 
 **Rabbit starvation is real.** Hare and ptarmigan are extremely lean. A party eating nothing but them
 gets protein without fat — protein above about 35–45 % of energy brings nausea, diarrhoea and a craving
@@ -470,8 +475,8 @@ Andrew's check.
   wreck, small things to catch, birds with a thrown rock; wildlife as events and sign; no wolverine.
   Drafted, with what lives here in place of lizards, for his call.
 - **2026-09-18 (Andrew):** only what realistically lives in an area of this size; the yield derivation
-  (§4.4) added — the country is a brake on starvation, never a living; the hare cycle a seeded run
-  variable; rabbit starvation.
+  (§4.4) added — the country is a brake on starvation, never a living; the hare cycle (a fixed middle year since
+  2026-10-02); rabbit starvation.
 - **2026-09-26 (Andrew):** October; a bear
   is in; the bear, some bigger animals and a few birds act, on behaviour rules or a lightweight model;
   raw, cooked and spoiled food, poisonous mushrooms, a combat system.
@@ -497,7 +502,8 @@ Andrew's check.
   unseen animals decided by odds and shown when seen. Five animals added (porcupine, swans and late ducks,
   the small birds of the winter, ermine, mink and otter); wildlife comes and goes, never too often —
   finding it means walking and looking, tuned by playthroughs. The yield kept; the plane's food a few
-  days of short rations at most (a 10 lb bag of flour); never truly full without a huge source.
+  days of short rations at most (a 10 lb bag of flour); never truly full without a huge source. The hare
+  year fixed at a middle year, the same every run.
 
 ## 8. What exists today
 

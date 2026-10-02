@@ -390,7 +390,7 @@ through-the-ice techniques are real operations, but this week walking out on the
 waiting, and a party that finds something to catch and really tries gets something eventually — never a
 game where nothing works (Andrew, 2026-10-02). The chances below are per try, never shown, and read as
 what happened, as in combat (document 11); play tunes them. What moves each is real: where it is set,
-skill and practice, cold hands (document 08), distance, the animal's behaviour, the hare year.
+skill and practice, cold hands (document 08), distance, the animal's behaviour. The hare year is a middle year, the same every run (document 23 §4.4).
 
 | way | target | chance per try (starting point) | what moves it |
 |---|---|---|---|
@@ -399,7 +399,7 @@ skill and practice, cold hands (document 08), distance, the animal's behaviour, 
 | thrown stick, spun end over end | a sitting grouse or hare | ~15 % — a bigger thing to hit with | the same |
 | sling | a grouse at 10–20 m | ~5 % at first, rising to ~15 % with practice over the days | practice is the sling's real cost; it reaches further and hits harder |
 | noose on a pole | a spruce grouse | ~40 % a try, if the bird stays | a slow approach |
-| snare | a hare, per snare per night | **~20 %** set at a narrow spot (between trees, under a log, or brush funnelling the run) on a run with fresh tracks; ~10 % on a run without one; ~1 % off the runs; higher at the peak of the hare cycle (~30–35 % on a good run), far lower at its bottom | skill (a woodsman sets better), wire over cord (a hare chews cord), the loop's size and height, fresh human scent; a fox takes about one catch in five |
+| snare | a hare, per snare per night | **~20 %** set at a narrow spot (between trees, under a log, or brush funnelling the run) on a run with fresh tracks; ~10 % on a run without one; ~1 % off the runs; these are the valley's middle hare year (document 23 §4.4) | skill (a woodsman sets better), wire over cord (a hare chews cord), the loop's size and height, fresh human scent; a fox takes about one catch in five |
 | baited deadfall | a vole or squirrel, per night | ~15 % | set on a runway |
 | line from the shore | grayling, per hour in the right place | ~20–30 % a fish | dusk, the pool, grubs for bait |
 | set line, overnight | burbot, per hook | ~25 % | they feed from sunset to midnight |
