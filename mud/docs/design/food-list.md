@@ -10,9 +10,9 @@
 > Numbers are real starting points; the probes tune them. Rows come from the design documents.
 
 **Status marks:** ✅ built (in the object table) · 📐 designed (in a design document) · ◌ candidate (its
-presence in this valley is still to be checked). **Adding a row:** it must be real to this valley in the
-first week of October (the ecology filter — this habitat, this month, real numbers), every number needs
-a source, and nothing is ever removed for being surplus — only for being untrue to the place.
+presence in this valley is still to be checked). **Adding a row:** it must be what realistically lives in a valley this size in the
+first week of October, and every number needs a source. The loops never drop a row for being surplus;
+Andrew removes whatever he chooses.
 
 ## 1. On the plane — found by searching
 
@@ -24,7 +24,7 @@ was hauling, found by searching the plane (documents 10 §4.3 and 16 §4.1–§4
 | a chocolate bar | the guide's pocket | dense sugar and fat | ✅ |
 | a candy bar | the kid's pocket | sugar | ✅ |
 | gum | the townie's pocket | next to nothing | 📐 |
-| trail mix | a bag (the salesman's) | nuts and fruit: dense | ✅ |
+| trail mix | the salesman's, burst under seat 1B | nuts and fruit: dense | ✅ |
 | whisky | the salesman's hip flask | calories, and it costs body heat (document 08) | 📐 |
 | snacks | the salesman's laptop bag | what they are is content | 📐 |
 | flour | the freight — a 10 lb (4.5 kg) bag | ~16,000 kcal, roughly a day of the party's food; starch, needing water and fire to be worth much | ✅ |
@@ -43,7 +43,7 @@ Holt's cabin is supplies: some trapline gear and modest stores, not piles of foo
 | flour, salt, lard, tea | the cabin shelf | starch; fat (lard is worth more than its calories to a party living on lean meat); salt; a hot drink | 📐 |
 | a few tins | the cabin shelf | real food | 📐 |
 | **one bulged can** | among the good tins | **sick-making** — botulism: weakness and paralysis from about a day on; never kills (2026-09-27) | 📐 |
-| some beans and rice, a slab of dry fish | Holt's cache | the rest of his modest stores; the climb, and carrying it home | 📐 |
+| some beans and rice, a slab of dry fish *(Claude's, not yet decided)* | Holt's cache | the rest of his modest stores; the climb, and carrying it home | 📐 |
 
 ## 3. Plants, fungi and lichens
 

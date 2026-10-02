@@ -27,7 +27,7 @@
   scene and the self-view telling you what is true.
 - **(2026-09-17, 2026-09-27)** The clock runs at 15 game-minutes per real minute; a fast forward the
   players agree to runs it at about 150×, and a player waking or any non-ambient event drops it back to
-  15× (document 06). Sleeping is where the cold does its worst work.
+  15× (document 06).
 - **(2026-09-18)** There is no guaranteed warmth floor. Night one is not as cold: a party that stays
   inside the wreck survives it in the clothes they crashed in, without needing to huddle. Going out
   saps them without fire, food and better gear, though they can go out for a little while. After the
@@ -59,8 +59,8 @@
 - **(2026-09-28)** Getting wet is how the cold hurts most — the whole body, not only hands and feet:
   breaking through the ice, the wet flurries, the creek, and sweat, which keeps a body warm while it
   works and chills it once the work stops.
-- **(2026-09-18)** Sleeping without shelter is survivable but expensive — roughly the cost of a day's
-  work.
+- **(2026-09-18)** Sleeping without shelter is survivable but expensive *(Claude's starting point, not
+  yet decided: roughly the cost of a day's work)*.
 - **(2026-09-18)** Heated stones and a warm vessel are in.
 - **(2026-09-18)** There is a `status` screen: injuries such as frostbite or a break, and anything a
   person can sense about themselves — hunger, cold, tiredness — in band words, on request (§4.9).
@@ -104,11 +104,10 @@ through the tear in the hull, the snow melting into your sleeve, your fingers lo
 trying to tie. You get warmth back the way people actually do: you put more on — your own bag,
 someone else's sweater, the quilted engine cover out of the aft bin — you get out of the wind, you
 block the hole the wind is coming through, you get off the metal floor onto boughs, you light a fire
-if you can, and when none of that is enough you sit shoulder to shoulder with the others under one
-blanket, which is warmer than any of you alone and is also the moment the party becomes a party. The
+if you can, and when none of that is enough two of you share the blanket and the rest press close or
+layer up (2026-09-28), which is warmer than any of you alone. The
 game never tells you to do any of this. It tells you your hands are numb, that the wind is coming in
-through the breach, that the cover would hold heat against metal all night — and lets you work out
-the rest.
+through the breach, that the engine cover is thick and quilted — and lets you work out the rest.
 
 ---
 
@@ -157,7 +156,7 @@ the rest.
    *(Proposal; the shipped `wet_fraction` already implements the curve.)*
 9. **Never a menu.** The game does not suggest huddling, does not list shelter types, does not say
    "you could block the breach". The breach is described as what it is — the wind's door — and the
-   engine cover is described as holding heat against metal all night. The player joins them.
+   engine cover as what it is: thick, quilted, padded. The player joins them.
 
 ### 4.1a The first night, and what comes after (Andrew, 2026-09-18)
 
@@ -208,7 +207,7 @@ What derives from that:
 | **wet** | wet insulation counts for a fraction that falls with wetness, to zero for soaked down; wool forgives, down does not | proposal; `warmth.py::wet_fraction` |
 | **sweat** | hard work in a heavy stack puts water into the inner layer — the deferred cold debt; the player hears of it only through the clothing line and pays for it later | Andrew, 2026-09-18 |
 | **dexterity** | bare hands in the cold lose fine work by the minute (knots, a match, the drill); thick mittens cannot do fine work at all — take them off and pay the warmth | proposal; `warmth.py::fine_work_ok` |
-| **movement** | snow boots against sneakers changes wet-feet rate and speed; snowshoes pay only in deep snow, which this week never lays, and on a couple of inches over tussocks they slow you; dress shoes on ice or frost-glazed rock is a fall | proposal |
+| **movement** | snow boots against sneakers changes wet-feet rate and speed; snowshoes pay only in deep snow, which this week never lays, and on a couple of inches over tussocks they slow you; dress shoes on ice or frost-glazed rock make a fall far likelier | proposal |
 | **signal** | a bright jacket spread on the wing is something a search crew can see; a dark one is not | proposal; document 14 §3.4 |
 | **sharing** | `give X to Y`, wearing something from another's hand, the blanket over two — the huddle is real physics: two bodies, one blanket, shared loss; two fit under a blanket, no more, and the rest huddle close or layer up; being close gives a small shared bonus, a shared covering the large one | Andrew, 2026-09-18 and 2026-09-28 |
 
@@ -226,9 +225,7 @@ proposals. Up to five play, and a seat nobody plays is a dead character whose cl
 be searched (2026-09-27). The warmth-relevant shape: a guide in a down parka, wool base layer,
 insulated boots, gloves and a wool hat; a townie in a denim jacket, cotton hoodie, jeans and sneakers
 with **no gloves**; a nurse in fleece and hiking boots with thin gloves; a salesman in a wool overcoat
-and **dress shoes**; a kid in a light insulated jacket, jeans and sneakers, his snow gear packed in a duffel out in the tail wreckage — and everyone boarded in a coat, some lost in the crash (2026-09-28). *What a player wears at the crash is the
-largest single determinant of the first night* — and the spread is what makes giving away your gloves
-an act rather than a transaction.
+and **dress shoes**; a kid in a light insulated jacket, jeans and sneakers, his snow gear packed in a duffel out in the tail wreckage — and everyone boarded in a coat, some lost in the crash (2026-09-28). Giving away your gloves is a real act.
 
 ### 4.4 Shelter
 
@@ -237,14 +234,14 @@ hull breach is the most natural survival act there is; outside the nose, standin
 open should cost more warmth than the cabin, with the wind unbroken and no walls. Shelter answers both.
 
 **Outdoors, shelter is a property of a zone, not an object you own** (Andrew, 2026-09-18). Every zone
-carries, as authored data *(the bands and scores are proposals)*:
+carries, as authored data *(Claude's, not yet decided: the bands, their names and which zone gets which)*:
 
 - **wind exposure** — how much of the weather's wind reaches a body standing in it, in four bands
   over document 01's zones: `sheltered` (the big-spruce hollow, the tree well, the deadfall tangle,
   the grouse thicket, the spruce tunnel, the marten set, the cabin, the loft) · `broken` (most forest,
   brush and bank zones) · `open` (the muskeg flats, the lake shore, inlet and outlet, the pond flats,
   the krummholz, the bench saddle) · `brutal` (the boulder field, the knob, the lee slope, the
-  fuselage top). The cabin with its stove lit is the map's only `warm`. The crash cluster: exteriors
+  fuselage top). The crash cluster: exteriors
   `open`, the fuselage top `brutal`.
 - **a roof score** — how much sky is over you: bough cover, hull, a lean-to's thatch, a big
   spruce's skirt. A roof cuts radiant loss and stops falling snow wetting you.
@@ -272,11 +269,11 @@ numbers plus capacity — so partial work counts automatically and nothing needs
 |---|---|---|
 | **the fuselage, a windbreak with holes** | the crash's default shelter: walls, no heat, and openings the wind owns — the tear in the rear hull first. It is night one's physical half (§4.1a) | the rear cabin — the tear is the way outside, the wind's door, and the reason the room is colder (`rear_cabin.md` §2e) |
 | **block the breach** | cover the tear with the engine cover, a wing panel, a suitcase wall, a sheet of acrylic — the generic `cover`/`block` over any opening. The first real shelter act, available in the first hour, needing nothing the party does not have | the rear cabin (`rear_cabin.md` §5.1) |
-| **the lean-to** | Andrew's own example (2026-09-07): poles and thatch against the weather, outside, by choice. Boughs are pre-cut for it on the shear line and free at the forest edge | `shear_line` (the crash pre-cut a shelter's worth of thatch and bedding); `forest_edge` (bough beds, shelter thatch) |
+| **the lean-to** | Andrew's own example (2026-09-07): poles and thatch against the weather, outside, by choice. Boughs are free at the forest edge *(Claude's, not yet decided: and pre-cut by the crash on the shear line)* | `shear_line` (the crash pre-cut a shelter's worth of thatch and bedding); `forest_edge` (bough beds, shelter thatch) |
 | **a windbreak in the open** | boughs, logs, rocks and the wreck's panels stacked against the wind — for a signal fire, or a night caught out. The week lays only a couple of inches of snow (document 13 §4.2): too little to cut into blocks or pile into a wall, though scraped up and packed along a windbreak's foot it seals the gap at the ground | open ground: the muskeg, the lake shore, the bench saddle |
 | **under a big spruce** | a natural bivvy: a big spruce's skirt of low branches down to the ground, a dry needle floor that stays bare while the open ground whitens, out of the wind and the open sky. A party caught out overnight survives there with boughs and body heat and nothing else | `tree_well_hollow` |
-| **ground insulation** | boughs, foam, luggage, the seat cushions — the ground steals more heat than the air. A night on bare metal, frozen ground or snow is survivable but expensive, roughly the cost of a day's work (Andrew, 2026-09-18), so gathering boughs before dark is the obviously right thing nobody tells you to do | `forest_edge`; the bedding score (document 06) |
-| **the stove** | Holt's cabin, the map's only `warm` zone: a contained, chimney-drafted fire that turns the coldest night into weather — the reward for the walk there | `cabin_interior` |
+| **ground insulation** | boughs, foam, luggage, the seat cushions — the ground steals more heat than the air. A night on bare metal, frozen ground or snow is survivable but expensive, *(roughly the cost of a day's work — Claude's starting point)*, so gathering boughs before dark is the obviously right thing nobody tells you to do | `forest_edge`; the bedding score (document 06) |
+| **the stove** | Holt's cabin: a contained, chimney-drafted fire that turns the coldest night into weather | `cabin_interior` |
 
 **Graceful degradation.** Until a build operation exists, the zones are still authored with their
 bands and the prose still says which places are cold; a party can still get out of the wind by
@@ -293,7 +290,7 @@ is the one nobody expects — the deferred cold debt of working hard in a heavy 
 
 ### 4.6 The ways to stay warm
 
-Every goal has several ways, each spending something different. Warmth's:
+Every goal has several ways, with no set number. Warmth's:
 
 | way | key resource it spends | where |
 |---|---|---|
@@ -394,7 +391,7 @@ is never a meter: it is named, in `status` and in `examine me` (document 11 §4.
 
 **This depends on:**
 - **06 Time, sleep and the clock** — warmth is an unattended process on the heartbeat; sleeping cold
-  costs warmth per hour at a rate the bedding score sets; a fast forward is where a cold night actually
+  costs warmth by the hour, by what a person lies on and under; a fast forward is where a cold night actually
   gets spent, and "you wake shivering" is one of the interrupts that drops the clock back to 15×.
 - **07 Fire and shaping** — fire is one way to stay warm and the only drying source that works fast;
   its heat reaches bodies through the heat state of its area.
@@ -417,8 +414,7 @@ is never a meter: it is named, in `status` and in `examine me` (document 11 §4.
 - **11 Injury and first aid** — frostbite is a warmth failure with a location; hypothermia's
   confusion is a warmth band, on the same thresholds (§4.1); a bleeding wound costs warmth.
 - **14 Rescue paths** — a bright jacket on the wing is something a crew can see; the walk to the
-  cabin is priced in warmth; distinct-resource routing exists so total warmth failure does not kill
-  every rescue route at once.
+  cabin costs warmth.
 - **15 Moral and social layer** — who gets the good coat and the blanket, and whether you strip a
   body. Sharing warmth is the first co-op act, hours before the antenna.
 - **19 Multiplayer** — the huddle is only meaningful with other bodies in the zone.

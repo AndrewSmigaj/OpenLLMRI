@@ -97,17 +97,14 @@ thought it.
    light-headed, slow and cold once the glycogen is gone → the pangs fading by the second or third day
    as ketosis takes over (the dangerous quiet) → weak, clumsy, irritable, cold-intolerant and poor at
    judgement (what the Minnesota Starvation Experiment recorded over months of semi-starvation, Keys et
-   al. 1950, arriving here in its early form). Hungry enough to look at the pilot stays a design goal,
-   and it arrives through the body, not a timer. **Starvation alone kills in weeks, not days** —
+   al. 1950, arriving here in its early form). **Starvation alone kills in weeks, not days** —
    people fasting with water have died after 46–73 days (the 1981 hunger strike) — so inside a
    week-long run hunger does not kill by itself: it weakens, and the cold does the killing
    (2026-09-27) — a hungry body shivers less, cools faster, falls more and decides worse. The kid's
    smaller reserves run out first. *(The figures are real starting points; the probes tune them.)*
 2. **Hunger is a pressure, not the clock that ends the run.** A run ends in rescue or death, of
-   anything (Andrew, 2026-09-17, 2026-09-26). The probes check when each way to eat becomes worth
-   taking — roughly, what is aboard on day 1, the freight by day 3, the country or the pilot by day 5
-   — as a check, not a schedule.
-3. **Several ways, spending different resources** (§4.2).
+   anything (Andrew, 2026-09-17, 2026-09-26).
+3. **Several ways**, with no set number (§4.2).
 4. **Food is physical.** Frozen salmon is hard as a plank until it thaws, though a knife still shaves it; a bulged can is visibly
    bulged; dog food is food. Nothing is "a food item" by type — edibility is a material property,
    and the interesting cases are all things that are edible in a way you would rather not think
@@ -145,13 +142,13 @@ Every food in the design, in one place and growing as the world is fleshed out, 
 *(Content, with document 16 and the shipped object table.)*
 
 - **There is no survival kit** (Andrew, 2026-09-27).
-- **Pockets** — the guide's chocolate bar; the kid's candy bar; the salesman's trail mix and hip
-  flask; the townie's gum. A seat nobody plays is a dead character whose pockets can be searched
+- **Pockets** — the guide's chocolate bar; the kid's candy bar; the salesman's hip flask (his trail mix is under
+  seat 1B); the townie's gum. A seat nobody plays is a dead character whose pockets can be searched
   (2026-09-27).
 - **The freight** — a 10 lb (4.5 kg) bag of flour, about 16,000 kcal, roughly a day of the party's food and
   worth much only with water and a fire (2026-10-02); the coffee tin; a small bag of dog food (never enough
   to live on — Andrew, 2026-09-27); a box of shear pins, a toolbox. The
-  anti-easy rule holds: the toolbox is in the crushed tail cone and wants prying.
+  toolbox is in the crushed tail cone and wants prying.
 - **The cooler** — a few fillets of a family's fish, a meal or two (2026-09-28), frozen, thrown onto the debris trail and rimed with frost. The
   fish stays frozen only while it stays cold — carried into a wreck warmed by a fire it thaws, and over
   days it spoils (§4.6) — and after the day-6 flurry the cooler is one more white shape on the white
@@ -173,29 +170,28 @@ state of every living thing is document 23 §4.2–§4.3.)*
 
 | zone | what it offers | what it costs |
 |---|---|---|
-| `tussock_flat` | lowbush cranberries, frost-sweetened on the bare mats, and bog cranberries in the wet hollows; each flurry covers more, and the day-6 snow buries the bog cranberries while the lowbush cranberries poke through | knowledge + sweat; a real but marginal calorie trickle, priced honestly low so it cannot replace hunting |
+| `tussock_flat` | lowbush cranberries, frost-sweetened on the bare mats, and bog cranberries in the wet hollows; each flurry covers more, and the day-6 snow buries the bog cranberries while the lowbush cranberries poke through | knowledge + sweat; a real but small calorie trickle |
 | `labrador_thicket` | Labrador tea, leathery leaves that persist all winter | knowledge + a container + fire; warmth and morale, not calories |
 | `lake_gate_willows` | the hare runs at the lake gate; a snare set on a run | wire or cordage + knowledge + the discipline to leave and come back |
 | `grouse_thicket` | spruce grouse — real protein, comically tame | anything within reason thrown, a slow approach (rushing flushes the birds a zone away for hours — a few birds, not a flock: Andrew, 2026-09-26), then plucking, cleaning and the whole fire chain |
-| `hare_runs` | the snare line — the valley's best protein-per-effort | wire, reading which runs are fresh — easiest the morning after a flurry, when every track is new — setting loops right, and *leaving*; it pays on return visits, hours later |
+| `hare_runs` | the snare line | wire or other cordage, reading which runs are fresh — easiest the morning after a flurry, when every track is new — setting loops right, and *leaving*; it pays on return visits, hours later |
 | `aspen_fringe` | browse sign pointing back to the hare runs | the noticing; one snare |
 | `chaga_tree` | chaga — tinder fungus, and the hot-drink loop | a climb, a throw, a pole or a chop |
 | `gravel_bar_willows` | ptarmigan — a few birds, turning white (document 23 §4.3), invisible on the new snow until they move, conspicuous against bare brush where the snow has not lain — and rose hips, frost-softened on the stem, at about 160 kcal per 100 g of hip (USDA) richer than any berry; the seeds and their hairs must come out | patience in cold minutes; the rose hips are vitamin and morale food, free but thorn-priced and never filling |
-| `confluence_pool` | the fishery — burbot and grayling, the valley's only food source that scales; the grayling are leaving small streams for deep water before freeze-up, burbot feed from sunset to midnight, and the pool is open | the longest tool-and-knowledge chain on the map: a line cast into open water, a willow jig rod, line and hooks, bait, and patience; a hole through the ice only if ice comes that holds a body (§4.8) |
-| `food_cache_margin` | the beavers' larder: green pole stock and fresh aspen inner bark, being built now — the beavers cut and sink it before the ice locks the pond, working at dusk | inner bark is food, and the snare line's upgrade bait (bait a run, double the take) |
-| `the_lodge` | nothing, deliberately | hacking in is possible and is a bad trade: the lodge stores food in the water, not the walls — the map's one anti-loot lesson |
-| `drowned_set` | yards of snare wire on a trapper's pole | cold fingers and patience; it opens the snare-line game fully |
+| `confluence_pool` | the fishery — burbot and grayling; the grayling are leaving small streams for deep water before freeze-up, burbot feed from sunset to midnight, and the pool is open | the longest tool-and-knowledge chain on the map: a line cast into open water, a willow jig rod, line and hooks, bait, and patience; a hole through the ice only if ice comes that holds a body (§4.8) |
+| `food_cache_margin` | the beavers' larder: green pole stock and fresh aspen inner bark, being built now — the beavers cut and sink it before the ice locks the pond, working at dusk | inner bark is food |
+| `the_lodge` | the beavers inside; their food is stored in the water, not the walls | hacking in is possible, hard work, and gets little |
+| `drowned_set` | *(Claude's, not yet decided)* yards of snare wire on a trapper's pole | cold fingers and patience; it opens the snare-line game fully |
 | `marten_set_tree` | Holt's old marten set — the box and its snare wire, empty: the trapping season has not opened | perception, and prying the box open |
 | `cabin_interior` | Holt's shelf: flour, salt, lard, tea, a few tins — and **one bulged can** among the good ones | the walk; and the examine-gated poison lesson (a careful look shows the bulge) |
-| `cache` | the rest of Holt's modest stores: some beans and rice, a slab of dry fish | the whole journey, the climb, and carrying it back down and home |
+| `cache` | *(Claude's, not yet decided: the itemised stores and the climb)* the rest of Holt's modest stores: some beans and rice, a slab of dry fish | the whole journey, the climb, and carrying it back down and home |
 
 **Grubs and inner bark are food** (Andrew, 2026-09-18). Grubs live under the bark of dead and rotting spruce
 and birch, carpenter ants winter in rotting logs, and stonefly and caddis larvae live under the creek's
 stones all winter — a handful of food, and bait (document 23 §4.3); inner bark is food *and* snare bait, which is two facts rather than a choice between them.
 
-**Food events** (document 13's event deck): ravens scout the wreck and find the food cache before you
-do; ptarmigan flush (food if you're quick); and the scavengers come again wherever
-food is mishandled — the world's first scavenger pressure. Storing food badly is a mechanic, not a
+**Food events** (document 13's event deck): ptarmigan flush (food if you're quick); and ravens and jays
+come wherever food is left out. Storing food badly is a mechanic, not a
 flavour note.
 
 **The scavengers act** (document 23 §4.1a, 2026-10-01). The **bear**,
@@ -291,7 +287,7 @@ real here in October, and each is a row in document 23 §4.2–§4.3 and for the
 
 | addition | where | what it gives |
 |---|---|---|
-| **mountain ash (rowan) berries** | the birch stand, forest edges | bitter clusters that hang all winter and sweeten after frost — one of the few berries still *on* the tree at eye height |
+| **mountain ash (rowan) berries** | the birch stand, forest edges | bitter clusters that hang all winter and sweeten after frost — one of the few berries still *on* the shrub at eye height |
 | **bearberry (kinnikinnick)** | the ridge, dry open ground | mealy red berries that persist under snow; the leaves make a tea |
 | **blueberries dried on the bush** | muskeg, open spruce | shrivelled and sweet where the birds missed them |
 | **birch polypore and tinder conk** | dead and dying birch | one is a poor tea and a real medicine; both are tinder |
@@ -311,8 +307,8 @@ in *this* habitat, in this month, in numbers that matter, is. On that test:
 - **Solid** — bearberry (dry ridges, berries persist), birch polypore (common on birch), the squirrel's
   cached mushrooms, spruce pitch, rock tripe (the boulder field), wintergreen, juniper (dry slopes),
   and marrow, hide and blood, which are not species at all but parts of any kill.
-- **Occasional, and the row says so** — mountain ash: present in the interior but never abundant, so a
-  few trees in the birch stand, not a harvest.
+- **Occasional, and the row says so** — mountain ash: present in the interior but scattered, so a few
+  shrubs in the birch stand, not a harvest.
 - **Rare** — blueberries dried on the bush: by October the birds and the bear have usually had them.
   They stay as a lucky find, not a food source.
 
@@ -349,7 +345,7 @@ the owning document's to value; the starting chances are below, from the real ra
 
 | technique | the real thing | what it needs | the acts |
 |---|---|---|---|
-| **wire snare on a run** | a slip loop about 10 cm across, its bottom about four fingers above the snow, set in front of the tracks at a choke point and anchored to a tree, root or stake; trappers use fine malleable wire (22–24-gauge brass) | wire with `cordage` and the stiffness to hold a loop open: the tool roll's stainless safety wire, strands stripped from the wiring harness, the drowned set's snare wire; cord works worse (paracord's inner strands, fishing line, a bootlace sag or stretch) — the physics says how much | `tie the wire into a noose` · `set the snare across the run` · `tie the snare to the sapling` · `push sticks in beside the run` (the funnel) · going back to `examine the snare` |
+| **wire snare on a run** | a slip loop about 10 cm across, its bottom about four fingers above the snow, set in front of the tracks at a choke point and anchored to a tree, root or stake; trappers use fine malleable wire (22–24-gauge brass) | wire with `cordage` and the stiffness to hold a loop open: strands stripped from the wiring harness, the drowned set's snare wire; cord works worse (paracord's inner strands, fishing line, a bootlace sag or stretch) — the physics says how much | `tie the wire into a noose` · `set the snare across the run` · `tie the snare to the sapling` · `push sticks in beside the run` (the funnel) · going back to `examine the snare` |
 | **spring snare** (spring pole) | a bent sapling held by a notched trigger lifts the snared hare off the ground — out of the fox's reach, and a faster death | a live springy sapling (its `bent` state), two notched sticks (the shaping family, document 07) | `bend the sapling` · `notch the stick` · `hook the trigger under the peg` |
 | **squirrel pole** | a pole leaned against a tree where squirrels live, with small wire snares along it; the squirrels run up it as a shortcut and into the loops | a pole, several small nooses | `lean the pole against the spruce` · `set the snares on the pole` |
 | **deadfall trap** (figure-four) | a heavy flat rock or log propped on a carved trigger, baited; for voles, squirrels, marten | a slab with `heft`, three carved and notched sticks, bait | `carve the stick into a trigger` · `prop the rock on the trigger` · `put the bait under the rock` |
@@ -500,15 +496,14 @@ None open.
 - **2026-09-27 (Andrew):** trapping, hunting, fishing and killing accepted (§4.8) — anything a survival
   manual teaches can be done; no moose; feedback, not dice, for throws; a fish grabbed by hand almost
   never works; walking out on the ice breaks it; common names first. Document 10 reviewed in full.
+- **2026-09-27 (Andrew):** what is aboard accepted (§4.3), with the dog food a small bag — never enough
+  to live on.
 - **2026-09-27** — the no-storm week carried in (document 13 §4.2).
 
 ## 8. What exists today
 
 **Built**
-- `game/world/sim/operations/handlers/eat.py` — `eat` / `bite` / `chew` / `devour` ov
-- **2026-09-27 (Andrew):** what is aboard accepted (§4.3), with the dog food a small bag — never enough
-  to live on.
-er any material
+- `game/world/sim/operations/handlers/eat.py` — `eat` / `bite` / `chew` / `devour` over any material
   with an edibility property; a low-edibility material gets the meagre-meal narration. Eating
   consumes the thing, ledger-balanced.
 - Edible materials in `materials/table.py`: `rations`, `chocolate`, `fish`, and `snow` (low

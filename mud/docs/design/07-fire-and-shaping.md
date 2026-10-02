@@ -9,7 +9,8 @@
 ## 2. Decisions
 
 ### Andrew's decisions
-- **(2026-09-07, 2026-09-28)** Andrew walked the lighter path and the bow-drill path step by step.
+- **(2026-09-07, 2026-09-28)** Andrew gave the lighter path and the bow-drill path in outline; Claude
+  wrote the step sequences, and he approved them.
   Rubbing two sticks together at random does not make fire, and the game says so. Friction fire works
   in its real ways, each at a real cost in stamina: a stick rubbed hard up and down a trough cut in a
   board (the trough, or fire plough), a stick spun between the palms in a notch (the hand drill), and
@@ -48,7 +49,8 @@ The ignition mechanism (the additive score, its terms, and how a character's ski
 forms mechanism, the shaping family of operations, the tending verbs, where a fire lives, the probe
 chains for each method, and the framing of the two walked transcripts as seed probes are Claude's
 proposals for how to realize Andrew's walkthrough and the never-a-menu rule mechanically. The
-transcripts' *steps* are Andrew's own, from 2026-09-07.
+transcripts follow Andrew's outline from 2026-09-07; their step sequences are Claude's, approved by
+him.
 
 ## 3. In one paragraph
 Nobody has fire in their pocket. Somebody searches the dead pilot and finds a book of matches with two
@@ -74,15 +76,16 @@ Fire is an **ignition source × a receptive material × air × time**. The game 
   focus catches dark fine tinder in sun.
 - **Receptivity** = material `burnability` and `ignition_difficulty` × **form thinness**. The same
   wood is a log (won't catch from a lighter), a branch (won't), a splinter (might), shavings (will).
-  Thinness lowers the threshold: shavings/fluff/bundle 0.4 · strip/scrap/bark 0.25 · piece/stick 0.1 ·
-  rod/branch/log 0.
+  Thinness lowers the threshold *(draft starting values for A5, tuned in play)*: shavings/fluff/bundle
+  0.4 · strip/scrap/bark 0.25 · piece/stick 0.1 · rod/branch/log 0.
 - **The fire itself is a process object** with a stage ladder, a fuel load, a heat output and a smoke
   character; it lives on the heartbeat ([`06-time-sleep-and-the-clock.md`](06-time-sleep-and-the-clock.md))
   and interrupts nearby activities when its stage changes.
 
 ### 4.2 The ignition check
 An additive, transparent score: `score = source_strength + receptivity(material, form) + air − wet −
-wind`, checked against a threshold; every term is visible in the failure line. *"The flame licks at the
+wind`, checked against a threshold; *(Claude's, not yet decided: every term visible in the failure line —
+failure lines give the physics, case by case)*. *"The flame licks at the
 bark and blackens it, but a wrist-thick branch won't take from a flame this small. Something finer
 would."* Failure **costs** something — a match, a minute, stamina on the bow — never a silent retry.
 
@@ -114,6 +117,8 @@ objects; authored objects declare theirs in `OBJECT_TABLE` (the multitool is a `
 ### 4.4 The shaping family
 An operation family whose outputs are forms:
 
+*(The thresholds below are draft starting values for A5, tuned in play.)*
+
 | verb | grammar | needs | makes |
 |---|---|---|---|
 | `carve X into spindle/point/stake/board/bowl` | `VERB X into <form> [with Z]` | edge ≥ .4 on the tool; X rigid & shapeable (wood, bone, antler, soft plastic); time | the form, mass conserved (shavings as by-product: tinder!) |
@@ -131,7 +136,7 @@ reachable flame for melt) are chosen when unambiguous and **named in the prose**
 
 ### 4.5 Fire as a process
 `unlit lay` → `catching` (tinder flame, 1–2 game-min, dies without kindling) → `burning` (kindling,
-heat rising) → `established` (fuel load ≥ 800 g, steady heat, the warmth source) → `embers` (fuel gone;
+heat rising) → `established` (a fuel load of roughly 800 g — a starting value — steady heat, the warmth source) → `embers` (fuel gone;
 blow + tinder restarts) → `dead` (ash). Fuel is TRANSFERred into the fire (`put branch on fire`); each
 tick CONSUMEs fuel mass by material burn rate into ash and the sink; heat output is a function of stage
 and fuel. **The heat goes into the world as state** (Andrew, 2026-09-26): the fire heats its area and
@@ -148,8 +153,8 @@ at that space; a burning thing in the hand is a torch, not a fire.
 
 ### 4.6 The seven methods
 Each has at least one probe chain proposed, including the honest failures:
-*Where the flames are* (Andrew, 2026-09-28): nothing in anyone's hand at the start, and the easier a source is to find, the less of
-it there is — **the pilot's book of matches, two left**, in his shirt pocket (Andrew's); **the nurse's
+*Where the flames are* (Andrew, 2026-09-28): nothing in anyone's hand at the start, and for books of matches, the easier one is to find,
+the fewer matches it holds — **the pilot's book of matches, two left**, in his shirt pocket (Andrew's); **the nurse's
 book of matches, about eight, damp** where her canteen leaked in the crash, in her backpack behind the
 jammed aft bin — dried against the body or near a fire before it strikes; **a cheap butane lighter** in
 a canvas jacket rolled in the townie's suitcase in the baggage bay — bag, then jacket, then pocket — which
@@ -162,8 +167,8 @@ tinder only.
    the flame; wet tinder; wind without a windbreak; a butane lighter too cold to light.
 2. **Matches** — the pilot's two, and the nurse's damp book: `dry the matches` against the body or near
    a fire (a process) → strike. Each match is one try.
-3. **The flare** — ignites
-   anything, once, loudly; it is fire *or* signal, never both
+3. **The flare** — burns very hot and readily lights tinder and kindling, once, loudly; it is
+   fire *or* signal, never both
    ([`14-rescue-paths.md`](14-rescue-paths.md) §3.4).
 4. **Battery + wire** — pry the panel: the plane's battery in the nose cowling (12 kg, wired and
    fine), copper strands across the terminals glow → tinder. Needs the wire *and* a walk outside.
@@ -197,11 +202,9 @@ every honest failure line above should be able to play out as one of these two c
 them, with real tiers.
 
 ### 4.8 Why this matters (the lens pass)
-Seven methods, each gated by a different scarce resource (time, tool, weather, knowledge, the flare's
-one shot) — a real "several ways of doing things." The skill is knowing what catches from what —
-physics, learnable from failure lines and the tutorial rooms, never from a recipe. Every fire choice spends
-something else: fuel is mass; shavings are tinder *and* lost wood; and the flare is fire *or*
-signal.
+Seven methods are a floor of the several ways of doing things. The skill is knowing what catches from
+what — physics, learnable from failure lines and the tutorial rooms, never from a recipe. Fuel is mass;
+shavings are tinder *and* lost wood; and the flare is fire *or* signal.
 
 ### 4.9 The `make fire` rows (Andrew, 2026-09-18)
 
@@ -217,7 +220,7 @@ model answers (document 04 §3.9). Fire's rows in the goal table:
 | half-filled | two fuels and no ignition → neither will light the other, stated physically; an ignition and nothing receptive → the flame burns alone |
 | multi-step | `make fire with sticks` rubs them together and they scuff and warm, nothing more — `make` performs the first act the means imply, never a procedure |
 
-Worked, and this is the line the whole design exists to produce:
+Worked:
 
 ```
 > make fire with the lighter and the stick
@@ -226,7 +229,7 @@ wrist-thick branch won't catch from a flame this small. Something finer would.
 ```
 
 Today the shipped engine lights the branch ("a fire, at last") because the additive check is not
-built. That refusal is the acceptance test for this document.
+built. That refusal is what this document asks the engine for.
 
 ## 5. Interactions
 **Depends on:** the ontology closure mechanism

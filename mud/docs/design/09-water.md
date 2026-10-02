@@ -11,7 +11,7 @@
 
 - **(2026-09-07)** Water comes from melting ice in a container over the fire, from a stream, or from
   wherever else it can be had. Two things follow: water comes from more than one place, and the
-  melting way runs through *a container* and *a fire* — it is a chain, not a verb.
+  melting way needs *a container*, *a fire* and time.
 - **(2026-09-07, 2026-09-27)** Every goal has several ways, water included, with no set number.
 - **(2026-09-18)** Liquids are measured in millilitres: melting some snow is never a one-use thing.
 - **(2026-09-27)** Thirst kills, on its real clock; nothing kills instantly.
@@ -21,8 +21,8 @@
   (document 16).
 - **(2026-09-18)** Eating snow is allowed and costs body heat.
 - **(2026-09-18)** There is no boiling gate — just melting.
-- **(2026-09-18, 2026-09-27)** Contamination is carried as provenance: fuel and oil, and germs
-  depending on the source, realistically — not every water has them; melted clean snow is safe to
+- **(2026-09-27)** Germs depend on the source, realistically; *(Claude's, 2026-09-18: contamination
+  is carried as provenance — fuel and oil from a vessel)* — not every water has them; melted clean snow is safe to
   drink, and lake water is likelier to carry them. The specifics are Claude's, left to Claude (§4.6).
 - **(2026-09-18)** Steam is an entity. Players are not expected to build things to condense it, but if
   someone — a model included — thinks to, the steam is there.
@@ -46,7 +46,7 @@
 
 ## 3. In one paragraph
 
-The water is there, and all of it costs something. The creek still runs and the lake is open, skinned
+The creek still runs and the lake is open, skinned
 with ice at its edges — but both are a walk from the wreck, and a wet boot on the way is the cold's
 opening. At first there is no snow at the wreck, only frost and frozen puddles, and the week never lays
 more than a couple of inches. Snow is water you pay for twice — once in fuel to melt it and once in the
@@ -67,17 +67,17 @@ going to give them.
 
 1. **Hydration is a number on the body**, in millilitres, spent per tick and per activity; drinking
    adds. Surfaced as words and on the meters (document 08 §4.9), never as a number. *(Proposal.)*
-2. **What water carries, it carries from its source and its vessel** (Andrew, 2026-09-18:
-   contamination is provenance). Melted snow is not safe just because snow is: a vessel that held fuel
+2. **What water carries, it carries from its source and its vessel** (Claude's, 2026-09-18:
+   contamination is provenance; germs by source, Andrew 2026-09-27). Melted snow is not safe just because snow is: a vessel that held fuel
    or oil, a bloody one, or one made of something toxic passes it on, and so does snow scooped where
    fuel pooled. This makes the *vessel* the interesting object (GDD §31–§36).
 3. **Frozen water is not water.** `drink snow` does not slake; it redirects with the physics of why
    ("melt it to water first"). *(Shipped.)*
 4. **Eating snow is always possible and always costs heat** (Andrew, 2026-09-18) — a redirect with a
    consequence, never a refusal. The world lets you do the stupid thing and charges you for it.
-5. **Melting is a chain, not a verb** (Andrew, 2026-09-07): a vessel, a heat source, and time —
-   melting ice in a container over the fire.
-6. **Several ways**, spending different key resources (§4.3).
+5. **Melting needs a vessel, a heat source and time** (2026-09-07) — melting ice in a container over
+   the fire.
+6. **Several ways**, with no set number (§4.3).
 7. **Never a menu.** The world does not tell you that you are thirsty in a way that names the cure,
    does not list vessels, and does not suggest melting. The thermos is described as a thermos.
 
@@ -104,8 +104,7 @@ because of what a helmet *is*, and the same must be true of anything else a play
 
 ### 4.4 The valley's water (content — document 01's zones)
 
-- **The outlet riffle** — free-running water: "a full container without spending a stick of firewood
-  — the efficiency prize that funds every other fire". Priced in the walk and in wet risk: shelf ice
+- **The outlet riffle** — running water — a full container without spending firewood on melting. It costs the walk and in wet risk: shelf ice
   rims the banks, thin at its lips, and kneeling on it is a plunge to the knee and the wet-boot clock.
 - **The lake** — open at the start, with skim ice at its margins and on the ponds after a cold night;
   skim ice holds nothing. The inlet mouth is the north's liquid water, a walk west across the muskeg;
@@ -113,8 +112,8 @@ because of what a helmet *is*, and the same must be true of anything else a play
 - **Ice** — the frozen puddles round the wreck on the first mornings (carrying whatever the puddle
   held — fuel, under the wing), the skim ice from still water and the shelf ice on the creek. Ice is
   cleaner than the water it froze on, and gives far more water for its volume than snow does (§4.6).
-- **Holt's water** — the homestead's own path down to the creek: bucket-water without the riffle's
-  risks, the reward for the walk there.
+- **Holt's water** — the homestead's own path down to the creek: water without the riffle's
+  risks.
 
 Inside the wreck: the thermos of coffee in the cockpit, the half-full canteen in the backpack behind
 the jammed aft bin, the salesman's steel water bottle and hip flask, and whatever the flurries blow in
@@ -230,8 +229,8 @@ over any vessel and any source — water, fuel or snow.
 **These depend on it:**
 - **10 Food and hunger** — cooking and boiling share the vessel and the fire; dehydration makes
   hunger worse.
-- **11 Injury and first aid** — bleeding costs hydration; a fever costs water; whisky and sanitizer
-  are liquids that are not drinks.
+- **11 Injury and first aid** — bleeding costs hydration; a fever costs water; sanitizer is not
+  a drink, and whisky costs body heat (document 08).
 - **13 Events, escalation and weather** — thaw and refreeze, a frozen canteen, skim ice thickening.
 - **14 Rescue paths** — a day spent away from water, signalling from the ridge or walking to the
   cabin, is priced partly in water logistics.
