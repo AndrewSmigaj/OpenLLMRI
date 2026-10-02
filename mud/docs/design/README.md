@@ -83,6 +83,11 @@ every food in the valley and everything that makes people sick.
   evenings should feel like — **and never one he has already answered**: check `PLAN.md` §5 and the
   documents first, including for questions an agent wrote. What reality or the decided design already
   answers is answered in the document, marked *proposed by Claude, for Andrew's check*.
+- **Every passage traces, or says it doesn't** (2026-10-02). Nothing enters a design document's body
+  unless it carries one of three things: Andrew's decision (dated), a real-world source, or a visible
+  *Claude's, not yet decided* mark. A document being "reviewed with Andrew" does not make the rest of
+  its text his decision — only his answers do. No general rule, absolute or slogan that constrains the
+  world goes in without his decision.
 - **Real life is the default answer.** Physiology, ecology, physics, weather, how a snare or a fishing
   line actually works: answered from reality, with sources. Numbers come from real data first and are
   tuned by probes after.

@@ -61,6 +61,9 @@ it.
   light start (bumps and bruises, a cut, a concussion).
 
 **Next, in this order:**
+0. **The provenance sweep** (2026-10-02): every passage in the design documents is traced to Andrew's
+   decisions, a real-world source, or marked as Claude's; untraced rules and invented content go back to him in
+   batches, worst first (an audit found the anti-easy rule, a night slogan and a survival manual he never decided).
 1. **The pilot** (document 22 §4.7; build order M1–M6 above): the schema and validator, the store's
    start and the zone briefs, the web app, triage, the spikes, the scaffolds and runner, round 1 — its
    findings are an input to the next step.
