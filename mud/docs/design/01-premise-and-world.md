@@ -83,6 +83,8 @@ Andrew on 2026-09-17 and brought to the first week of October on 2026-09-27.
   explain that success is chance influenced by stats.
 - **Sweat (2026-09-17).** Sweat is wet clothing draining warmth, inside the warmth system (document 08).
 - **Density (2026-09-17).** The density gradient (§4.11) is authoring order — a priority, never a cap.
+- **(2026-10-02)** Each region's roles are listed in the map data. Things cost what they really cost —
+  there is no required number of costs.
 - **(2026-09-27)** Holt, the trapper, does not come back during the week; the cabin is supplies, not a place to be
   rescued from. His traces say so (document 14, 2026-09-28) — his trapline gear gone from its pegs, and a
   calendar on the cabin wall with a date circled weeks after the week.
@@ -96,7 +98,7 @@ its October state, from 2026-09-27 (every October detail below is Claude's, for 
 - the **eleven regions** ("Scenes") and the **fifty outdoor zones**, each with its purpose, resources,
   prices, hazards and story;
 - the jobs the regions do for the three ways home (§4.3, §4.7);
-- the **six currencies** every resource is priced in, and the anti-easy rule (§4.3);
+- what things cost (§4.3);
 - every **number**: distances, travel minutes, exposure bands, the object census;
 - the **density gradient** (Ring 0 / Ring 1 / Ring 2 / the homestead) as the way GDD §6's dense scene
   is honoured across a big map (§4.11);
@@ -214,7 +216,9 @@ burn is 1.5 km W across the lake — farther round its shore.
 
 ### 4.3 How the map is built
 
-**Each region has a job in getting home.** The three ways home (document 14 §3) are laid on the map:
+**Each region has a job in getting home**, and each region's roles are listed in the map data
+(2026-10-02) — the store's region and zone rows (document 05 §4.5, document 22). The three ways home
+(document 14 §3) are laid on the map:
 the lake's shore and the knob are the sightlines where a signal can be seen; the ridge and the
 fuselage top are the heights where the radio's antenna goes; the crash site is where a party stays,
 signals and keeps itself findable; and the creek–trapline–cabin line leads to the valley's other
@@ -225,10 +229,10 @@ spends from.
 season does: the nights grow colder, each flurry covers more of the low forage, the near
 deadfall burns away so every armful is a longer walk, water that is open in the first days freezes
 too thin to trust, distance taxes, cold punishes idleness, and on day 6 a heavier flurry closes the
-world in for a day. Nothing needed adding — only honest pricing. Every resource out here costs at least
-two of six currencies:
+world in for a day. Nothing needed adding — only honest pricing. Things cost what they really cost, in
+these kinds of cost (2026-10-02 — no count of them is required; a rock on the creek bar costs a short walk):
 
-| Currency | What spends it |
+| Cost | What spends it |
 |---|---|
 | **Daylight** | travel and work both burn the day's light (document 13 §4.2); the days shorten, and the day-6 flurry makes the useful part shorter |
 | **Warmth** | every zone has an exposure band; the lake shore and the ridge drain you while you work |
@@ -470,7 +474,7 @@ the drowned set. The lake shows west from the fuselage top, and the muskeg simpl
 ridge is pointed at by the plane's own gouge. Open water at the outlet is **audible** before it is
 visible.
 
-The knowledge currency is paid back the same way every time: a cheap tutorial zone, a zone where the
+Knowledge is paid back the same way every time: a cheap tutorial zone, a zone where the
 lesson pays, and an exam — usually the tutorial's own room revisited at night or in the day-6 flurry.
 The muskeg's wet channel teaches footing; the inlet teaches ice as it forms; the creek's bend teaches
 thin ice over running water; the blaze gateway teaches the trail that dusk or the flurry will later
@@ -505,9 +509,6 @@ changes what things cost:
    snow: the best tracking of the week, and the day the rescuers find everyone still alive
    (2026-09-29; document 14 §3.5).
 
-**Night** is always the same argument: the world is three lit rooms — a fire you built, the fuselage
-huddle, or Holt's stove. Everything else is a mistake.
-
 Every timed beat is a **world** event, never a silent no-op: a search plane's engines are audible in
 every exterior zone with a bearing, heard before it is seen, so a party a day's walk south *hears*
 what its choices cost; and on a clearer night the north gets the aurora through the gaps in the cloud
@@ -532,7 +533,7 @@ snow and ice sub-types (powder, wind-slab, drift, sastrugi, rime, hoarfrost, bla
 skim ice, frazil, overflow…), each of which wants its own behaviour note. Those are document 18's to
 settle; they are named here because the valley cannot be built without them.
 
-### 4.12 What the valley is about
+### 4.12 What the valley is about *(Claude's, from the July design — not yet decided)*
 
 One story is told by every room regardless of route order: **the crash is not the first thing that
 ever happened here.** Ravens already commute to the wreck; the burn already regrew; the beavers are
