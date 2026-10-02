@@ -84,9 +84,11 @@ Andrew on 2026-09-17 and brought to the first week of October on 2026-09-27.
   explain that success is chance influenced by stats.
 - **Sweat (2026-09-17).** Sweat is wet clothing draining warmth, inside the warmth system (document 08).
 - **Density (2026-09-17).** The density gradient (§4.11) is authoring order — a priority, never a cap.
-- **(2026-10-02)** Holt's cabin: a few matches in a tin (the party still has to get wood), a bunk with
-  wool bedding, the raised cache with its ladder stashed under the cabin, the woodshed and a freight
-  sled; the door is simply unlocked. Not every place needs something interesting — ontologically
+- **(2026-10-02)** Holt's cabin is secured the way a trapper leaves it in bear country, so it takes
+  work: unlocked, but with bear boards over the windows and across the doorstep; the stovepipe capped;
+  kindling laid and a few matches in a tin, found by searching the shelf (wood is still needed to keep
+  the fire going); a bunk with wool bedding; the raised cache with its ladder stashed under the cabin,
+  holding the axe and the stores; a modest woodshed stack and a freight sled. Not every place needs something interesting — ontologically
   sufficient is not fluff for its own sake.
 - **(2026-10-02)** Each region's roles are listed in the map data. Things cost what they really cost —
   there is no required number of costs.
@@ -378,11 +380,11 @@ winter in it, and burbot, whitefish and pike live in it (document 23, 2026-10-02
 | Zone | What it is for | Status |
 |---|---|---|
 | `dooryard` | the yard and the dog-run cable | 📐 |
-| `porch` | the door, unlocked | 📐 |
-| `cabin_interior` | the stove; Holt's shelf of modest stores; a tin with a few matches — the party still has to get wood (2026-10-02) | 📐 |
+| `porch` | the door, unlocked as trapline cabins are; bear boards — plywood studded with nails, points out — laid across the doorstep and nailed over the windows while Holt is away, to be pried off with a tool or slow care (2026-10-02) | 📐 |
+| `cabin_interior` | the stove with kindling laid, its pipe capped against squirrels and birds (light it without noticing and the cabin fills with smoke); Holt's shelf of modest stores; a tin with a few matches on the shelf above the stove, among the tins — found by searching; the party needs wood to keep the fire going (2026-10-02) | 📐 |
 | `loft` | a bunk with wool bedding (2026-10-02) | 📐 |
 | `cache` | a raised cache, its ladder stashed under the cabin as trappers do against bears (2026-10-02): trapline gear (snowshoes, the felling axe) and modest stores | 📐 |
-| `woodshed` | split dry wood, and a freight sled with a split runner (2026-10-02) | 📐 |
+| `woodshed` | a modest stack of split dry wood — a few nights' worth, not a winter's, since Holt is still cutting it in early October — and a freight sled with a split runner; more wood means felling standing dead with the axe from the cache (2026-10-02) | 📐 |
 | `water_hole_path` | Holt's water infrastructure: bucket-water without the riffle's risks | 📐 |
 
 ### 4.6 Travel takes time

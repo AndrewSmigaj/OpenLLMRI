@@ -355,9 +355,10 @@ it says so. When a decision changes, this list and every document it touches cha
   marks on the wreck; no chainsaw or anything else that promises people within walking distance
   (documents 13, 23). (2026-09-28)
 - **Holt's cabin** is supplies: some trapline gear, an axe, and modest stores, not piles of food. Holt does not
-  come back during the week. A tin with a few matches (the party still has to get wood), a bunk with wool bedding,
-  the raised cache with its ladder stashed under the cabin, the woodshed and a freight sled; the door is simply
-  unlocked (2026-10-02). Walking out is
+  come back during the week. Secured as a trapper leaves it in bear country, so it takes work: unlocked, but bear boards over the
+  windows and doorstep; the stovepipe capped; kindling laid and a few matches in a tin, found by searching (wood is
+  still needed to keep the fire going); a bunk with wool bedding; the raised cache, its ladder stashed under the
+  cabin, holding the axe and the stores; a modest woodshed stack and a freight sled (2026-10-02). Walking out is
   not an ending. (2026-09-17, 2026-09-27)
 - **The bear is a male grizzly that stays up all week** — no den mid-run (2026-10-01).
 - **Wildlife:** the bear, some bigger animals and a few birds act — on the engine's behaviour rules, or
