@@ -29,6 +29,9 @@
   same weather every run (document 13 §4.2).
 - **A bear is in** (2026-09-26): **a male grizzly that stays up all week** (2026-10-01), feeding hard
   before he dens; no den mid-run, so the bear is part of the week's build-up to the end.
+- **2026-10-01 — animals are actors, populations and sign** (§4.1): the actors are individuals shown as
+  people are; every other animal is a population that yields a real animal when one is met or caught,
+  a full thing in the room while it is there; and sign. Foraging is work with feedback.
 - **Animals that act** (2026-09-26, 2026-09-27): the bear, some of the bigger animals and a few birds
   act — on the engine's behaviour rules, or played from outside by a lightweight model at low
   reasoning. Birds are few, not flocks: **fewer than three in a room**, and they call now and then, not
@@ -119,13 +122,15 @@ Every figure is a real starting point that the probes tune.
   leave something out: it is untrue to the place.
 - **Numbers before abundance.** Every row carries what it actually yields and how often, because the
   valley's total is what decides whether the party starves (§4.4).
-- **Animals are actors, populations and sign** *(Claude's reading of Andrew's 2026-09-26 and
-  2026-09-27 decisions, for his check)*. The **bear**, some of the **bigger animals** and **a few
+- **Animals are actors, populations and sign** (2026-10-01). The **bear**, some of the **bigger animals** and **a few
   birds — not flocks** — are actors: individuals in the world, shown as people are, in prose by what
   they are doing (document 03 §4.1), driven by behaviour rules the engine runs, or played from outside
   by a lightweight model (GDD §3 rule 5; the engine never calls a model). Which animals act is §4.1a.
   Everything else lives as a **population** — a density per zone that yields an individual when met or
-  caught (a hare in the party's snare, a squirrel at its midden) — and as **sign**: tracks, scat,
+  caught (a hare in the party's snare, a squirrel at its midden, a ptarmigan that flushes). **A met
+  animal is a full thing in the room while it is there** — it can be thrown at, chased or picked up,
+  and it acts by simple, real behaviour (a hare freezes, then bolts) — so a hare bolting from the
+  willows is never only scenery. It also lives as **sign**: tracks, scat,
   calls, a cone-scale midden, browse, a kill, where each animal lives. **The bear's sign lies in its own
   area** (2026-09-28), not spread everywhere, and is plain on entering that area — nobody has to
   examine the ground in every room to find it. *The actors' rules are owned by an
@@ -407,7 +412,8 @@ Andrew's check.
   for Andrew's check.
 - **2026-09-27** — the no-storm week carried in (document 13 §4.2).
 - **2026-10-01 (Andrew):** the sitting — the season table kept, with the bugs added (§4.0, §4.3); the
-  bear a male grizzly who stays up all week, no den mid-run.
+  bear a male grizzly who stays up all week, no den mid-run; animals as actors, populations and sign,
+  a met animal a full thing in the room.
 
 ## 8. What exists today
 

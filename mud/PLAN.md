@@ -348,7 +348,8 @@ it says so. When a decision changes, this list and every document it touches cha
 - **The bear is a male grizzly that stays up all week** — no den mid-run (2026-10-01).
 - **Wildlife:** the bear, some bigger animals and a few birds act — on the engine's behaviour rules, or
   played by a lightweight model; fewer than three birds in a room, not constantly calling; the fish are
-  scripted; other wildlife shows as events and sign; no wolverine, no moose. Claude proposes the list (document 23,
+  scripted; other wildlife is a population shown as events and sign, and an animal met or caught is a
+  full thing in the room while it is there (2026-10-01); no wolverine, no moose. Claude proposes the list (document 23,
   for Andrew's check). Flora and fauna are filtered by ecology — this habitat, this month, real numbers.
   (2026-09-17, 2026-09-18, 2026-09-26, 2026-09-27)
 
