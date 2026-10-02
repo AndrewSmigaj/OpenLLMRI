@@ -479,6 +479,8 @@ it says so. When a decision changes, this list and every document it touches cha
   at all. Ghosts see everyone. This needs care to build (the implementation plan).
 
 **The player's view and the grammar**
+- Every unknown word is logged, whether an agent or a person typed it, and then added along with whatever it needs,
+  new mechanics included (2026-10-02).
 - Moving is ontologically sufficient: the directions and their synonyms, up and down, `go to`/`walk to` a place,
   and the exit's own verb (`climb the tree` leads to a separate place up the tree) (2026-10-02).
 - The look: a title line, prose composed from state, people and animals as prose, exits as entities in

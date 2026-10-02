@@ -10,6 +10,8 @@
 
 ### Andrew's decisions
 
+- **(2026-10-02)** Every unknown word is logged, whether an agent or a person typed it, and then added
+  along with whatever it needs — new mechanics included (§3.7).
 - **Feedback is clarification only, never options (2026-09-16).** The player — person or agent — is
   never given a set of options to choose from: options change how an agent thinks and constrain it
   to those options, and listing, say, every can in reach would give away the puzzles. The only time
@@ -190,10 +192,11 @@ synonyms, before the world-building passes. So the rule is —
 4. **The gaps log is the backstop, not the mechanism.** Every unknown word is still logged to the
    wall-sensor (DR-08c) and read at build time by the next pass — it catches what the authoring
    missed, which is exactly what a sample of real play is good for. Nothing auto-learns at runtime:
-   DR-02 holds, there is no runtime language model to do the learning. *(Proposed by Claude, for
-   Andrew's check: unknown words go into the same `gaps.jsonl` the wall-sensor already writes, with a
-   minimal record — the raw line, the unrecognized word, `actor`, `zone`, `at` — so the loop reads
-   one queue, not two.)*
+   DR-02 holds, there is no runtime language model to do the learning. **Every unknown word is logged,
+   whether an agent or a person typed it** (2026-10-02), into the same `gaps.jsonl` the wall-sensor
+   already writes, with a minimal record — the raw line, the unrecognized word, `actor`, `zone`, `at` —
+   so the loop reads one queue, not two. Then the word is added, along with whatever it needs — new
+   mechanics included, if it needs them.
 
 Today only the verb×thing gap is logged; the unknown-*word* log is designed and not yet wired (§7).
 
