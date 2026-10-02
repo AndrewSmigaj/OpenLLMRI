@@ -14,6 +14,8 @@
 
 ### Andrew's decisions
 
+- **(2026-10-02)** In an agent-only run, every command is charged the time a person would take to read,
+  decide and type it, on a logical clock (§4.6; the method left to Claude).
 - **Overlapping perception, not one shared room** (recorded 2026-06/07; ADR-0004). Location,
   visibility, audibility, reachability, direction and detail are separate concerns, never collapsed
   into "the room". The architecture records overlapping perception as the deferred item that is
@@ -254,8 +256,17 @@ reactor serializes commands, so shared-object mutation cannot race (DR-22).
   seconds for `cut cover off seat with shard`, nearly two game-minutes at the normal pace. Every
   physical act takes its honest game duration and occupies its actor (one activity per actor,
   document 06), so a fast model does no more work per game-minute than a person; the typing pace takes
-  away only reaction, the one advantage no person can match. **Agents playing alone run at the models' speed** (Andrew, 2026-09-28): a run with no humans in it does not wait on world speed or typing speed — it goes as fast or as slow as the models work, so more runs get in. *(Proposed by Claude, for Andrew's check:)* the clock in such a run is driven logically: every act still takes its honest game time, and each command is charged the game time an average typist would have taken to type it, so the same moves make the same game whether the model is fast or slow, and a run replays exactly. In an agent-only run the typing charge is what gives
-  every step an honest cost on the clock.
+  away only reaction, the one advantage no person can match. **Agents playing alone run at the models' speed** (Andrew, 2026-09-28): a run with no humans in it does not wait on world speed or typing speed — it goes as fast or as slow as the models work, so more runs get in. **The clock in an agent-only run charges what each move would cost a person** (2026-10-02; the
+  method left to Claude): the run is driven logically, and every command is placed on the game clock
+  after the time an average person would take to **read** what the game has shown since their last
+  command (at an average reading speed, so a long description costs more than a short line), to
+  **decide** (a few seconds), and to **type** the command (at an average typing speed); every act then
+  takes its honest game time. The charge depends only on the game's text and the command, never on how
+  fast the model is, so the same moves make the same game whether the model is fast or slow, a run
+  replays exactly, and an all-agent party feels the same clock pressure as a party of people. With
+  several agents, each has its own place on the clock and the engine takes their commands in game-time
+  order; whatever happens while an agent is reading or typing happens to them, as it would to a person
+  caught mid-sentence. The reading, deciding and typing rates are numbers we set and tune in play.
 - **Pausing** (Andrew, 2026-09-17, 2026-09-27, 2026-09-28). The players can pause the run and return to
   it later. **The run pauses when someone in the party types `pause game`** — it does not pause
   by itself when players leave. The clock stops because the run is paused, which is not a hole in the

@@ -17,6 +17,8 @@
 
 ### Andrew's decisions
 
+- **(2026-10-02)** An agent-only run charges each command the time a person would take to read,
+  decide and type it (document 19 §4.6).
 - **The research is the point, equally with the game** (2026-09-16). Whiteout is a model world for
   serious academic research: a person, or a language model whose activations are captured and whose
   behaviour is analysed, can do whatever is reasonable in it. [`VISION.md`](../../VISION.md) states it
@@ -71,8 +73,8 @@
 
 None left open: what an agent is shown, the harness, the two log streams, replay, the edges of a wall
 and the research run were accepted at the 2026-09-28 sitting, with Andrew's changes. The clock of an
-agent-only run — driven logically, each command charged a typist's time — is Claude's proposal, for
-Andrew's check (§4.3).
+agent-only run — each command charged the time a person would take to read, decide and type it — was
+settled on 2026-10-02 (§4.3).
 
 ---
 
@@ -178,7 +180,9 @@ read → log.
 A brain may play a non-human character as well as a survivor: the bear, one of the bigger animals, one
 of the few birds, with a **lightweight model** (Andrew, 2026-09-26) running through this same harness
 and socket with its persona brief; nothing on the engine's side changes. The radio voice is played the
-same way, by the same weak model in every run (document 14 §3.3). **Agents playing alone run at the models' speed** (Andrew, 2026-09-28): a run with no humans in it does not wait on world speed or typing speed — it goes as fast or as slow as the models work, so more runs get in. *(Proposed by Claude, for Andrew's check:)* the clock in such a run is driven logically: every act still takes its honest game time, and each command is charged the game time an average typist would have taken to type it, so the same moves make the same game whether the model is fast or slow, and a run replays exactly. With people in the run, a brain's commands reach the world
+same way, by the same weak model in every run (document 14 §3.3). **Agents playing alone run at the models' speed** (Andrew, 2026-09-28): a run with no humans in it does not wait on world speed or typing speed — it goes as fast or as slow as the models work, so more runs get in. The clock in such a run charges each command the time a person would take to read, decide and type
+it (2026-10-02; document 19 §4.6), so the same moves make the same game whatever the model's speed,
+and a run replays exactly. With people in the run, a brain's commands reach the world
 at the speed of typing them (document 19 §4.6).
 
 ### 4.4 The per-step log (accepted 2026-09-28)

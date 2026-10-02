@@ -595,8 +595,9 @@ it says so. When a decision changes, this list and every document it touches cha
   and different scaffolding can be tried later so it understands the goal; that this may make it aware
   it is being evaluated is accepted, since it is not necessarily what is being studied. (2026-09-28)
 - Agents playing alone run at the models' speed, not world or typing speed, to get more runs in; the
-  clock in such a run is driven logically, each command charged a typist's time in game time
-  (proposed), so fast and slow models make the same game. (2026-09-28)
+  clock in such a run is driven logically, each command charged the time a person would take to read what was
+  shown, decide and type it, so fast and slow models make the same game and an all-agent party feels a person's
+  clock pressure. (2026-09-28, 2026-10-02)
 
 **Documents**
 - One GDD; the old seed design and the investigation scratchpads are removed from the repository (git
