@@ -113,8 +113,8 @@ thought it.
    and the interesting cases are all things that are edible in a way you would rather not think
    about. *(Shipped: edibility is a material property.)* **And food has states** — temperature,
    frozen, doneness, char, dryness, spoilage, contamination — that heat and time change, and that
-   change what eating it does (§4.6). *(Andrew decided on 2026-09-26 that raw, cooked and spoiled
-   differ; the axes are Claude's, for his check.)*
+   change what eating it does (§4.6). (Raw, cooked and spoiled differ — 2026-09-26; the axes kept
+   2026-09-27.)
 5. **The pilot's body is food, and eating it is taboo, not immoral** (Andrew, 2026-09-27). It is
    mechanically possible, slow and grim. It takes time, tools, preparation and the same food states as
    any meat: fresh raw meat is mostly safe and rotten meat is what makes people sick; meat cooked to a
@@ -122,8 +122,8 @@ thought it.
    12 §4.3a).
    Butchery is hours of attended work and cooking needs the fire, so the difference between a decision
    and an impulse comes from the physics, not a special rule. The engine does not refuse it and does
-   not editorialise; it is priced, witnessed and logged like any other act (document 15). *(The food
-   facts are Claude's, from document 12, for Andrew's check.)*
+   not editorialise; it is priced, witnessed and logged like any other act (document 15). (The food
+   facts are document 12's, kept 2026-09-28.)
 6. **Never a menu.** Nothing tells the party to set a snare, names the forageable plants, or lists
    what is edible in the room. The grouse are described sitting in the branches "with the total
    unconcern of a bird that has never been wrong about anything", and the rest is the player's.
@@ -157,7 +157,7 @@ Every food in the design, in one place and growing as the world is fleshed out, 
   days it spoils (§4.6) — and after the day-6 flurry the cooler is one more white shape on the white
   debris trail. It is a vessel as well as a meal.
 - **At least one spoiled thing** (Andrew, 2026-09-26): **a half-rotten fish** (Andrew, 2026-09-27; where
-  it lies is placed with the zones); and, Claude's proposals, a paper
+  it lies is placed with the zones); and a paper
   sack wedged behind the pilot's seat — a lunch from some earlier day, the bread furred green and the
   meat in it slimed; it smells before it is opened, and `examine`, a sniff or a taste give it away (the
   signifier rule, document 03 §4.6). Holt's **bulged can** (§4.4) is the second. The country adds its
@@ -217,7 +217,7 @@ as emergency food. The engine's job is to make each of those a real operation wi
 remember which one you chose.
 
 A body is also meat with the food states of §4.6, and its temperature is a state like any other
-thing's *(proposed by Claude, for Andrew's check)*. The pilot's body sits at the cockpit's temperature
+thing's (2026-09-28). The pilot's body sits at the cockpit's temperature
 (document 13 §4.2) and does not freeze through for days; a fire kept in the plane warms the cabin and
 the body with it, and the spoilage system runs on it exactly as it runs on a hare. Where the body is
 kept is therefore a real decision twice over: the taboo (documents 12 and 15) and the physical one.
@@ -420,7 +420,7 @@ never misses thirty in a row. If play shows that streaks still hurt, luck drawn 
 a losing run cannot last long — is the fallback.
 
 **After the kill** — butchery is its own family of real acts on the body's parts, the same for any
-body *(proposed by Claude, for Andrew's check — decided in document 12 §4.3a)*. `butcher` is the
+body (document 12 §4.3a, 2026-09-28). `butcher` is the
 canonical word for an **attended activity** (document 06) that works through a body part by part and
 banks its progress on the body; inside it the finer acts are their own operations because each does
 something different: bleed; `skin`; `pluck`; `scale`; `gut`, opening the body cavity (puncture the gut

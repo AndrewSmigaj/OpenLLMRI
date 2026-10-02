@@ -207,8 +207,7 @@ the survey line, and its **exits** — each with direction, mode `walk|climb|wad
 time, state) and its entities. **The zone is an entity too:** a zone row carries `materials`, `parts`
 (its openings, the ground), `states` and `sensed` like any other entity, because the plane is an
 entity with openings and an internal heat (Andrew, 2026-09-26), and the ground has a frost depth and a
-snow depth (documents 17 §4.8, 23) *(the row shape proposed by Claude, 2026-09-26, for Andrew's
-check)*. Each entity carries:
+snow depth (documents 17 §4.8, 23) (the row shape left to Claude, 2026-09-28). Each entity carries:
 
 | field | what it holds | req. | filled by |
 |---|---|---|---|

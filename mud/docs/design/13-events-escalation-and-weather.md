@@ -48,7 +48,7 @@
 - **(2026-09-29)** **The game ends on day 7**: the rescuers find everyone still alive. The last 24 hours
   before it are the hardest of the run, so the early ways home are worth the work (§4.2, §4.5).
 - **(2026-09-27)** The flyovers are the same every run; the rest
-  of the flyover schedule is Claude's (§4.2's search row, for Andrew's check).
+  of the flyover schedule is Claude's, at Andrew's request (§4.2's search row, kept 2026-09-28).
 - **(2026-09-17, 2026-09-27)** The clock runs at 15 game-minutes per real minute; fast forward,
   proposed and agreed by the players, runs it at about 150×; awake players can stay in it and type a
   command to slow it. A player waking or any non-ambient event drops it back to 15×; ambient events

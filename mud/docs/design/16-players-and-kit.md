@@ -173,8 +173,7 @@ carry-ons are; where each ended up is the crash's (§4.1's table, §4.6). What i
 owner packed for their own trip, so whoever plays the townie is the one whose suitcase holds the canvas
 jacket; the mail and the freight are nobody's here.
 
-**One sleeping bag and two blankets in the whole plane** *(Claude's reading of Andrew's 2026-09-27 decision, for his
-check)*: the sleeping bag in the kid's duffel is the one buried with the tail wreckage, and the salesman's wool
+**One sleeping bag and two blankets in the whole plane** (2026-09-27; the kit table kept 2026-09-28): the sleeping bag in the kid's duffel is the one buried with the tail wreckage, and the salesman's wool
 blanket is one of the two hidden inside the plane — the decision named one sleeping bag and two blankets, so the
 slot table's are those, not more besides.
 

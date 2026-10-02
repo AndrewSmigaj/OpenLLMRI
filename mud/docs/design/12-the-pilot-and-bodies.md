@@ -256,7 +256,7 @@ smaller than it was, blood on a knife, meat by the fire — or by being told.
 
 ## 6. Open questions
 
-None open. The proposals in §4.3 and §4.3a wait for Andrew's check at this document's sitting.
+None open. Reviewed in full with Andrew on 2026-09-28.
 
 ## 7. Review log
 

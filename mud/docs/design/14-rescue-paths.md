@@ -57,7 +57,7 @@
   planes fly most days, but the wreck is hard to see from the air (document 13 §4.2). **The default
   rescue is day 7.** Being findable takes work. No boats.
 
-### Left to Claude, at Andrew's request (for his check)
+### Left to Claude, at Andrew's request (kept 2026-09-28)
 - A party that cannot say where it is can be **homed in on**, at a battery cost (§3.3) — accepted,
   realism first: it takes far longer than flying to a named landmark (2026-09-28).
 - **Whether a crew sees a signal follows physics** — what the signal is and how it contrasts, the
@@ -84,19 +84,19 @@ until, through the screech and the hum, a faint voice answers — a person who w
 are, and who will come at the next daylight good for flying. **A signal a search plane can see** — you
 hear the engines first, and have that long to get smoke up dark against the snow or white against the
 spruce, or the blue tarp spread in the open; you might not make it. **Surviving long enough** — on the
-seventh day the search comes for a party it can find, and under a half-clouded sky, with the trees
-around the wreck and the white plane on white ground after the sixth day's snow, being findable is work.
+seventh day the rescuers find everyone still alive (2026-09-29); before then, under a half-clouded sky,
+with the trees around the wreck and the white plane on white ground after the sixth day's snow, being
+found by an early pass is work.
 None of it shows a number, and nobody tells you what to do — except the voice on the radio, who talks
-like a rescuer. Meanwhile staying alive has its own several ways, in documents 08–11. *(Written
-2026-09-27 from Andrew's decisions, for his check.)*
+like a rescuer. Meanwhile staying alive has its own several ways, in documents 08–11. (Written from Andrew's decisions.)
 
 ## 3. The design
 
 ### 3.1 Three ways home (Andrew, 2026-09-17)
 
 The only endings are **rescued or dead**; walking out is not an ending, and Holt's cabin is supplies. Rescue
-comes three ways: **the radio**, **a signal a search plane can see**, or **surviving long enough** for the
-search to reach a party it can find. **The ELT is broken** (2026-09-27). Players never see a number.
+comes three ways: **the radio**, **a signal a search plane can see**, or **surviving long enough**: on day 7 the
+rescuers find everyone still alive (2026-09-29). **The ELT is broken** (2026-09-27). Players never see a number.
 
 ### 3.2 The radio (Andrew, 2026-09-17, 2026-09-18, 2026-09-27)
 
@@ -189,7 +189,7 @@ smoke that shows against snow; green boughs make white smoke that shows against 
 - **The game ends on day 7** (2026-09-29) — the survived-long-enough rescue: the crew find everyone
   still alive, wherever they are, and a rescuer entering a room rescues whoever is in it (document 21
   §4.3). The early ways home bring the helicopter sooner.
-- *(The rest of the schedule is Claude's, at Andrew's request, for his check:)* day 1 at dusk the early
+- (The rest of the schedule is Claude's, at Andrew's request, kept 2026-09-28:) day 1 at dusk the early
   pass, high along the filed route — heard far off, for the story; day 2 the route search, across the
   ridge in the afternoon — a chance for a party with a signal ready; day 3 the search widening off the
   route, a pass heard in the next valley and lost in the cloud; day 4 a pass across the lake's far end,

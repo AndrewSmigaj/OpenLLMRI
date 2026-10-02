@@ -527,8 +527,8 @@ loops (22), which are the mechanism that grows them.
 
 ## 6. Open questions
 
-None open. Claude's proposals — the new forms (§4.4), the axes and materials of §4.8, and the order and
-growth of §4.9 — are for Andrew's check at this document's sitting.
+None open. Reviewed in full with Andrew on 2026-09-28; three details of §4.8 were never put to him and
+are in the 2026-10-02 audit list (the porous things' bulk, the acrylic windows, the two battings).
 
 ## 7. Review log
 

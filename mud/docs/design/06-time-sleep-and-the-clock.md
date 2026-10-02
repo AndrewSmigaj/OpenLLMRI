@@ -101,7 +101,7 @@ can yank it backwards or stall it; the weather and the search run on the calenda
 - **Sleepers** can chat out of character to pass the time (document 19).
 - **The numbers are tuned by playtesting.**
 
-*(Proposed by Claude, for Andrew's check.)* **Ambient** events are the lines the things present speak
+(2026-09-27, 2026-09-28) **Ambient** events are the lines the things present speak
 on their own rhythm (§4.4, document 05's `sensed` cadence) — the fire crackling and settling, the
 creek running, wind gusting against the hull, a raven calling, a spruce dropping its load of snow.
 **Non-ambient** events are the ones that change the party's situation: danger (`DANGER`), the fire
@@ -196,7 +196,7 @@ under — boughs, foam, the blankets, the sleeping bag; the huddle). A sleeper w
 `resting_until`, or when something wakes them — and a player waking drops a fast forward back to 15×
 (§4.2).
 
-**Sleep is a resource with a price** *(proposal)*: fatigue falls only while asleep; sleeping cold
+**Sleep is a resource with a price** (2026-09-18): fatigue falls only while asleep; sleeping cold
 costs warmth per hour (the bedding score sets the rate); a night without sleep costs judgment (slower
 activities, worse tick lines) and warmth the next day. The bedding score and the fatigue numbers are
 valued with the warmth numbers in document 08 (Andrew, 2026-09-18).
@@ -225,8 +225,8 @@ A run is **one sitting of two or three hours** covering about a week of game tim
 pause it and come back (Andrew, 2026-09-17) — the run pauses when someone in the party types `pause game`, never by itself (2026-09-28). A player who is missing when the run resumes leaves a
 character who goes catatonic, sits down and stares; the others can keep them alive, and they can die
 (Andrew, 2026-09-27). The run ends in **rescue or death** — never by a timer; walking out is not an
-ending. The search reaches a party it can find on day 7 by default, and rescue can come sooner
-(document 14 §3.5).
+ending. The game ends on day 7, when the rescuers find everyone still alive (2026-09-29), and rescue
+can come sooner (document 14 §3.5).
 
 *(Claude's arithmetic, for the playtests to tune:)* with about five active hours a day at 15× and the
 rest in fast forward at 150×, a game day takes about 28 real minutes, and a week a little over three

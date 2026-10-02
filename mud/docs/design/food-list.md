@@ -7,8 +7,7 @@
 > hand, each with its source. **How food works** — hunger, food states, cooking, spoilage, storage, and
 > the ways of getting it — is [document 10](10-food-and-hunger.md); **the living things** are
 > [document 23](23-flora-and-fauna.md); **the pilot's body** is [document 12](12-the-pilot-and-bodies.md).
-> Numbers are real starting points; the probes tune them. Rows come from the design documents, including
-> Claude's proposals there that still await Andrew's check.
+> Numbers are real starting points; the probes tune them. Rows come from the design documents.
 
 **Status marks:** ✅ built (in the object table) · 📐 designed (in a design document) · ◌ candidate (its
 presence in this valley is still to be checked). **Adding a row:** it must be real to this valley in the

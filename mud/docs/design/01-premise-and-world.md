@@ -82,8 +82,8 @@ Andrew on 2026-09-17 and brought to the first week of October on 2026-09-27.
 - **Sweat (2026-09-17).** Sweat is wet clothing draining warmth, inside the warmth system (document 08).
 - **Density (2026-09-17).** The density gradient (§4.11) is authoring order — a priority, never a cap.
 - **(2026-09-27)** Holt, the trapper, does not come back during the week; the cabin is supplies, not a place to be
-  rescued from. *(Proposed by Claude, for Andrew's check:* his traces say so — his trapline gear, and a calendar
-  on the cabin wall showing he returns after the week.)
+  rescued from. His traces say so (document 14, 2026-09-28) — his trapline gear gone from its pegs, and a
+  calendar on the cabin wall with a date circled weeks after the week.
 
 ### Proposals (Claude)
 

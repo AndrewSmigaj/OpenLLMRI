@@ -310,7 +310,7 @@ wrist-thick branch won't catch from a flame this small. Something finer would.
 That failure is not authored for `make`. It is the ignition model answering (document 07), reached
 through the same pipeline as `light stick with lighter` typed directly.
 
-**The mechanism (proposal).** A parse-time rewrite, exactly like the `use X to VERB Y` rewrite that
+**The mechanism** (2026-09-18). A parse-time rewrite, exactly like the `use X to VERB Y` rewrite that
 already ships: `make <goal> with A and B` binds A and B to the goal's roles by capability and emits
 the ordinary `ActionAttempt` for the operation those roles imply. There is no second resolution
 path — the one-pipeline rule (DR-09) is untouched, and `make` is the twin of `use`: `use`

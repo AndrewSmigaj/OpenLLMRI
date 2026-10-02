@@ -330,7 +330,7 @@ look-at-able but never take-able or open-able.
 - **The body's own signs arrive as emotes** (2026-09-28): a cough, a wince, teeth chattering, a limp as
   someone moves — single event lines now and then, not every tick, routed by distance like any other
   (document 11 §4.12).
-- **Events print as single lines** (proposal), **after a blank line** (Andrew, 2026-09-17): one line,
+- **Events print as single lines**, **after a blank line** (Andrew, 2026-09-17): one line,
   in the same voice as the prose, no block, no header; colour, where it is used, is for human players
   only, since it does not survive an agent's transcript. What another person's action looks like to
   you is graded by distance and loudness and is routed per observer — a full third-person line here,
