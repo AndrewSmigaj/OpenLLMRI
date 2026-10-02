@@ -79,7 +79,7 @@ the cabin and what is under the seats, carrying, and the early-October check wer
 
 You come to belted into a seat you did not choose, wearing whatever you happened to have on when you
 got on the plane, with whatever was in your pockets — almost none of it meant for this. One of you has
-a parka, a pocketknife and a few bruises; one has a light jacket and a duffel full of hockey gear somewhere in the wreck;
+a parka, a chocolate bar and a few bruises; one has a light jacket and a duffel full of hockey gear somewhere in the wreck;
 one has a denim jacket, no gloves, and a phone that is, for now, the party's only clock and light. What
 you are wearing when the plane stops moving is the single biggest thing that decides whether you are
 cold tonight — and it is different for everyone, as is what each of you is good at, which turns "who
@@ -103,8 +103,8 @@ on the per-run seeded stream (DR-12), and the deal is logged like every other se
 
 | slot | seat | wearing | pockets | injury | their bag |
 |---|---|---|---|---|---|
-| **the guide** | right seat | parka (down, hood), wool base layer, insulated boots, gloves, wool hat | a chocolate bar, a wallet | minor bumps and bruises (sore for a day or two) | his own duffel, in the baggage bay behind the jammed cargo door: his pocketknife (the one real knife aboard), a compass, a headlamp, a ferro rod, a steel cup |
-| **the townie** | 1A | denim jacket, cotton hoodie, jeans, sneakers, no gloves — the winter coat lost in the crash (below) | phone (light, clock, a dead battery by day 2), wallet (cash, cards, ID — paper), gum, keys, earbuds (wire) | a cut forearm (bleeding; the census wound) | a soft suitcase, in the baggage bay: cotton clothes, a canvas jacket with a lighter forgotten in its pocket, a towel, toiletries (floss = cordage; razor = edge; sanitizer = fire starter; tampons = tinder + wound packing; a travel sewing kit — a needle and a card of thread), a paperback |
+| **the guide** | right seat | parka (down, hood), wool base layer, insulated boots, gloves, wool hat | a chocolate bar, a wallet | minor bumps and bruises (sore for a day or two) | his own duffel, in the baggage bay behind the jammed cargo door: his pocketknife, a compass, a headlamp, a ferro rod, a steel cup |
+| **the townie** | 1A | denim jacket, cotton hoodie, jeans, sneakers, no gloves — the winter coat lost in the crash (below) | phone (light, clock; the battery lasts as long as where it is kept allows — §4.9), wallet (cash, cards, ID — paper), gum, keys, earbuds (wire) | a cut forearm (bleeding; the census wound) | a soft suitcase, in the baggage bay: cotton clothes, a canvas jacket with a lighter forgotten in its pocket, a towel, toiletries (floss = cordage; razor = edge; sanitizer = fire starter; tampons = tinder + wound packing; a travel sewing kit — a needle and a card of thread), a paperback |
 | **the nurse** | 1B | fleece jacket, hiking boots, a scarf, thin gloves — the down jacket lost in the crash (below) | lip balm (wax), hair ties (cordage), a pen | minor bumps and bruises (sore for a day or two) | a backpack, behind the jammed aft bin: the med pouch (gauze, tape, ibuprofen, a suture kit — she knows how; the player still types each act), canteen, spare shirt, a wool sweater, a headnet, a book of matches (about eight, damp where the canteen leaked), a part-used bottle of iodine tablets |
 | **the salesman** | 2A | wool overcoat, dress shoes, leather gloves, a good scarf | a hip flask (whisky), reading glasses (convex — in sun, a lens that can light tinder), a notebook (paper) | concussion (fatigue faster; confusion messages the first day) | a laptop bag, under his seat: laptop (battery — sparks, heat, then dead), cables (wire), a metal water bottle, snacks, a wool blanket, an old metal lighter in a side pocket, its wick dry |
 | **the kid** (16) | 2B | a light insulated jacket, jeans, sneakers — no hat, no gloves | a phone, a candy bar, sunglasses | minor bumps and bruises (sore for a day or two) | a duffel, in the tail wreckage: hockey gear (a stick = a rod; tape = tape; pads = foam), a sleeping bag, snow pants and mittens packed for later in the season, a multitool (a gift — a knife blade among its tools) |
@@ -136,7 +136,7 @@ The **pilot** is not a player slot. He starts the run dead (Andrew, 2026-09-17);
 and what he wore and carried — what a real pilot would — is found on a body whose materials
 are skin, fat, muscle, bone, blood and organs (document 12 §4.3a).
 
-The draw makes the party heterogeneous, which is what makes sharing a real act — the blanket, the
+The draw makes the party differ, so sharing is a real act — the blanket, the
 gloves, the huddle — instead of five copies of the same survivor with no reason to talk to each
 other.
 
@@ -159,12 +159,11 @@ few frozen salmon fillets — a meal or two, not a larder (2026-09-28); the cool
 case is a sled, the neck is wood). A bag in the tail section holds the hand radio's batteries (document
 14 §3.2).
 
-**The crash is the difficulty engine.** Realism supplies the inventory; the crash supplies the
-difficulty. A survival kit would make the game too easy, so there is none (Andrew, 2026-09-27). **The
+A survival kit would make the game too easy, so there is none (Andrew, 2026-09-27). **The
 sleeping bag is buried with the tail wreckage, and two blankets are hidden inside the plane**
 (2026-09-27). The toolbox is in the crushed tail cone (pry it open), the cooler was thrown into the
-brush along the trail (search for it — each flurry hides it a little more), and the hacksaw blade — the
-keenest edge in the valley — is a walk away. A paperback is at your feet; the hatchet is a hundred
+brush along the trail (search for it — each flurry hides it a little more), and the hacksaw blade is a walk
+away. A paperback is at your feet; the hatchet is a hundred
 metres out in the brush with a cracked haft. Where each thing lies is decided case by case, by what makes the game better (2026-09-28): what would make the start too easy — the tools and supplies that solve the big problems — is not lying in plain sight in the first room, and no rule hides things away; everything else lies where it would really lie — a dead fish on the shore. Not too easy, not too hard.
 
 **Where the bags are** (Andrew, 2026-09-28): not with their owners. Some are in the back — the baggage
@@ -174,8 +173,8 @@ owner packed for their own trip, so whoever plays the townie is the one whose su
 jacket; the mail and the freight are nobody's here.
 
 **One sleeping bag and two blankets in the whole plane** (2026-09-27; the kit table kept 2026-09-28): the sleeping bag in the kid's duffel is the one buried with the tail wreckage, and the salesman's wool
-blanket is one of the two hidden inside the plane — the decision named one sleeping bag and two blankets, so the
-slot table's are those, not more besides.
+blanket is one of the two hidden inside the plane — the decision named one sleeping bag and two blankets *(Claude's, not yet decided: whether there are
+no others besides)*.
 
 ### 4.4 The clothing system (DR-25 → v2)
 
@@ -201,8 +200,9 @@ rubber: black signal smoke, and a band that stretches for a sling.
 
 The plane's **battery is in the nose, wired and fine** (Andrew, 2026-09-27); it does not power the hand
 radio (document 14 §3.7). There is no survival kit (§4.3). Where the small supplies are (2026-09-28):
-the iodine tablets are in the nurse's backpack — a part-used bottle of about twelve, two to a litre of
-water, so about six litres: a couple of days for one person, less than a day for the party; the sewing
+the iodine tablets are in the nurse's backpack — a part-used bottle *(Claude's, not yet decided: about twelve, two to a litre of water — about six
+litres, a couple of days for one person, less than a day for the party — against the decision's "a
+couple of days' worth")*; the sewing
 kit is in the townie's toiletry bag; the tarp — a folded blue plastic tarp, about 3 × 4 m — is in the
 baggage bay under the cargo net, with the freight. It seals the crash's openings, and it is also a
 ground signal: spread in the open, its blue shows against brown ground or new snow to a search plane
@@ -218,20 +218,21 @@ rolled there; under 1B, a paper sack of the salesman's trail mix, burst; under 2
 laptop bag; under 2B, a phone charging cable and a crumpled chip bag.
 
 - **Seats**: the pilot's seat and the right seat up front; **1A/1B** (row one), **2A/2B** (row two) —
-  the labels the manifest on the kneeboard uses to name who sat where, itself a clue and a story. Each
+  the labels the manifest on the kneeboard uses to name who sat where. Each
   seat is the same parts-machine (cover, cushion, belt, bolts — the seat exemplar in
   **17 — Rooms and living rooms** §4.3) with a DIFFERENT damage and find: 1A intact; 1B wrenched on its
   bolts; 2A thrown loose (a movable frame — a windbreak, a sled base); 2B thrown against the hull. What
   is under each seat is the list above; there is no life vest (a land plane carries none).
-- **The hat shelf** (behind row two): hats, a scarf, the kid's helmet — a shelf, not a bin.
+- **The hat shelf** (behind row two) — a shelf, not a bin; *(Claude's, not yet decided: hats, a scarf,
+  the kid's helmet on it)*.
 - **The baggage bay** behind it: the cargo net over the bags (cut it or unhook it), the freight and the
   mail against the bulkhead.
-- **The double cargo door** on the right rear: jammed by the impact (pry it) — the second way out
-  besides the breach; ice seals it overnight as an event.
+- **The double cargo door** on the right rear: jammed by the impact (pry it) — a way out besides the
+  breach and the pilot's door; ice seals it overnight as an event.
 - The hat shelf and the cargo net are opened, pried and searched like any container.
 - **Windows**: crazed plexiglass (acrylic — document 18 §4.8) — sharp sheets when broken, and a
   possible cover for the breach.
-- **Up front**: the six-pack instruments, the whiskey compass on the glareshield (takeable), the ELT's
+- **Up front**: the six-pack instruments, the whiskey compass on the glareshield *(Claude's, not yet decided: takeable)*, the ELT's
   remote switch and placard (the ELT itself is in the tail, and broken — document 14 §3), headsets on
   the yokes, the halon extinguisher, the magneto key in the ignition, the kneeboard with the manifest
   and the sectional chart.
@@ -257,16 +258,12 @@ the blanket with 2".
 
 ### 4.8 Lens pass
 
-- **The Player** (GD — who are they, what do they bring?) — GREEN. Five people with different coats
-  is a party; four identical survivors is a chore list.
-- **Cooperation** (GD) — GREEN. Heterogeneous kit is the engine of sharing; the huddle and the glove
-  hand-off are the first co-op acts, hours before the antenna.
-- **Fairness** (GD) — YELLOW. The townie's draw is harsh; the party's job is to fix it. The seed deals
+- **Fairness** (GD) — YELLOW. The seed deals
   the slots so no one player is always the townie — not yet true at runtime (§8).
 
 ---
 
-### What you can carry (Andrew, 2026-09-18)
+### What you can carry (2026-09-18; capacity on the carriers, and never refused, 2026-09-28)
 
 Inventory is limited by **weight and space** — mass in grams, which the contract tracks, and bulk,
 which derives from the material's density (document 18). Capacity is not a number on the character:
@@ -305,8 +302,8 @@ Outside dress for the town, which is exactly the salesman.
 | slot | what they wear, against the season |
 |---|---|
 | the guide | a down parka, wool base, insulated boots — more than early October needs, which is how a professional dresses for the bush |
-| the townie | denim, a cotton hoodie, sneakers, no gloves — the winter parka out on the debris trail where the crash threw it; a real way to be dressed for a day in town, and the harsh draw the fairness design wants. The Alaskan default would be a Carhartt and XtraTufs, which is why the townie is the lesson — cotton, soaked, in the first snow |
-| the nurse | fleece, hiking boots, a scarf, thin gloves — her down jacket stuffed behind the rear seats by the crash; right for the month. The headnet in her pack is left over from summer; the mosquitoes are gone after the first hard frosts |
+| the townie | denim, a cotton hoodie, sneakers, no gloves — the winter parka out on the debris trail where the crash threw it; a real way to be dressed for a day in town. The Alaskan default would be a Carhartt and XtraTufs, which is why the townie is the lesson — cotton, soaked, in the first snow |
+| the nurse | fleece, hiking boots, a scarf, thin gloves — her down jacket stuffed behind the rear seats by the crash; right for the month. The headnet in her pack is left over from summer; the mosquitoes are mostly gone after the first hard frosts |
 | the salesman | wool overcoat, dress shoes, leather gloves — what an Outside business traveller wears |
 | the kid | a light insulated jacket, jeans, sneakers — no hat, no gloves — what a sixteen-year-old wears to sit on a plane; his snow pants and mittens are packed in his duffel, out in the tail wreckage (2026-09-28). Only the guide is dressed warm, so warm gear is found, not worn |
 

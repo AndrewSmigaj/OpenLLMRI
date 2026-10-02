@@ -219,8 +219,7 @@ A cut on day 1; a dirty wound shows infection in 24–72 hours (an animal bite i
 spreading redness over the next days, costing warmth and water; untended, the spread into the blood
 kills over days (2026-09-27). A deep, dirty wound can turn to gas gangrene within hours to three days;
 the black of dead frostbitten tissue takes weeks to declare itself, longer than the run. Long before
-any of it kills, it takes the labour that keeps everyone else alive — *a body that can't work can't
-stay warm.* Nothing kills instantly (§4.6).
+any of it kills, it takes the labour that keeps everyone else alive. Nothing kills instantly (§4.6).
 
 The Bodies cards of the event deck (document 13 §4.3) make it visible: a wound infects; frostbite
 whitens a finger; hypothermia's clumsiness; dehydration headaches; the hunger stages.

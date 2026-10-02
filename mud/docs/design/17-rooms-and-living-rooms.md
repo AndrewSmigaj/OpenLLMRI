@@ -54,8 +54,8 @@ the gaps) comes from the `ontology-generator` skill.
 ## 3. In one paragraph
 
 A room here is not a description with a noun list bolted on. The seat you are sitting in is not the
-same as the one behind you — this one is wrenched off its rails with someone's laptop bag still
-wedged under it, that one is thrown loose and could be dragged outside as a windbreak — and looking
+same as the one behind you — this one is wrenched sideways on its bolts with trail mix spilled
+under it, that one is thrown loose with a laptop bag beneath it and could be dragged outside as a windbreak — and looking
 under one tells you nothing about the others; you have to check each. Whatever you or the person
 next to you does to a room stays true the next time either of you looks: the seat you stripped for
 its cushion stays stripped, the pit you dug stays dug, the fire you built is still there, still
@@ -98,12 +98,11 @@ a hook.
 A room holds **not only things that are there for a reason** (Andrew, 2026-09-28). Some things are
 placed because a way home needs them — the lighter, the wire, the radio's batteries — where the game
 is better for it; but a room also holds everything else that would really be there (the kneeboard, the
-airsickness bag, the headset, a snowbank, a stone), and **anything a player might reasonably do with
+airsickness bag, the headset, a stone), and **anything a player might reasonably do with
 any of it works, whether or not it leads anywhere**: throw a snowball, stack stones, carve a name in a
 seat, build a snowman (document 05). Nothing is left out because no goal needs it.
 
-Every room has obvious flavour that is tryable and honest, finds inside and under things (the reveal
-rule, DR-24), and trade-offs (the fuel-soaked sleeping bag). Where each thing lies is decided case by case, by what makes the game better (2026-09-28): what would make the start too easy — the tools and supplies that solve the big problems — is not lying in plain sight in the first room, and no rule hides things away; everything else lies where it would really lie — a dead fish on the shore.
+Where each thing lies is decided case by case, by what makes the game better (2026-09-28): what would make the start too easy — the tools and supplies that solve the big problems — is not lying in plain sight in the first room, and no rule hides things away; everything else lies where it would really lie — a dead fish on the shore.
 
 ### 4.3 The seats — the exemplar
 
@@ -117,7 +116,7 @@ where someone freed themselves — the story.
 The finds under the seats are document 16 §4.6's — the pilot's flight bag, the water bottle, the burst
 trail mix, the salesman's laptop bag under 2A, the charging cable — with the small scatter a crash
 leaves: coins, a hair clip, a loose AA battery that fits the pilot's weak flashlight. No life vest (a
-land plane carries none) and no second knife (the guide's pocketknife is the one real knife aboard).
+land plane carries none) and no penknife under a seat.
 
 `look under 1b` is the reveal act for seats; `search` covers pockets; `cut`/`pry`/`tear` the
 parts-machine. Seats are addressable as a class: `look under the seats` composes what each hides once
@@ -188,42 +187,11 @@ seven: the bog cranberries you picked on the first day are under the snow after 
 skim on the ponds thickens night by night yet holds nobody this week — walking out on any ice breaks it
 (document 13 §4.2; document 18 §4.8 has the ice arithmetic).
 
-### 4.6 The nine crash-room censuses
+### 4.6 The crash-room censuses
 
-A **census** is the "ontological Turing test" the `cockpit.md` banner names: for one room, ask what is
-*here* if it were real, what a real person could *do* with each thing, and whether the game already lets
-them — before anything is built or changed. Each census walks the same shape: the scene as if it were
-real; an entity census (structure, loose kit, substances, and the "elusive" entities a MUD usually
-forgets — cold, draft, sound, smell, light, time); the candidate commands each entity invites; what is
-built today; and a flat, unranked gap analysis (recommendations only — no code changes from the census
-itself). The nine rooms, one line each:
-
-- **`cockpit.md`** — the EXEMPLAR the other eight follow; the pilot's body, the six-pack instruments,
-  the flight manual and chart; the shared cabin baseline (structure and elusive entities) that `mid_cabin.md`
-  and `rear_cabin.md` both point back to instead of repeating.
-- **`mid_cabin.md`** — the crafting heart of the crash: the wrenched seat, the burst duffel, the
-  hat shelf and the cargo net — where a survivor *harvests* foam, fabric, webbing, tools.
-- **`rear_cabin.md`** — the cold room and the warm one at once: the hull is open here, so snow and
-  wind come in, but the stowage behind it holds the engine cover, the game's warmth prize.
-- **`outside_nose.md`** — the first exterior censused, and the pattern flips: no built loose
-  objects, pure scenery plus the elusive; the coldest, most exposed spot, and where the fuel is.
-- **`outside_tail.md`** — the breach exit: the torn stump where the tail tore away, one way back
-  into the rear cabin, the other out along the crash scar.
-- **`fuselage_top.md`** — the highest, most exposed point, where the plane's antenna was; one of the
-  few outdoor rooms with a genuine hook, a deliberate exception to the traversal-terrain rule, named as
-  such in its own banner. Its census was written around rigging the ELT; the ELT is broken (Andrew,
-  2026-09-27; document 14 §3).
-- **`debris_trail.md`** — the scatter: the gouge the plane tore on its way in, a spilled mail sack and
-  what else the crash shed along it — found by looking *through* the mess, not at a glance.
-- **`tail_section.md`** — the expedition cache: the severed tail rode out here with its load, sealed
-  inside a crushed tail cone and a nailed freight crate that both want a lever and real anger.
-- **`treeline.md`** — the survival core's supply room and the gateway to the wider woods: wood,
-  tinder, and shelter material, earning its keep as a resource-plus-gateway rather than a unique
-  hook — exactly what the traversal-terrain rule asks of an outdoor zone.
-
-The nine censuses predate the 206 interior and the season: their overhead bins are the hat shelf and
-the cargo net (document 16 §4.6), and their snow and cold are the first week of October's (document 13
-§4.2). They are re-run at the cabin zone's census, with the cabin as rooms sharing one heat (§4.8).
+The July censuses of the nine crash-site rooms were removed on 2026-09-27: they described an older
+world (an airliner-style cabin, deep snow). The cabin is censused afresh at the cabin zone, by the
+world-building passes (document 22), with the cabin as rooms sharing one heat (§4.8).
 
 ### 4.7 Lens pass
 
@@ -259,7 +227,7 @@ own. What is special about them is only warmth: they hold heat, as below. The wi
 battery in the nose are fixed wreckage in the zones outside, and the tail section is fixed wreckage
 out on the trail — searched and pried, never moved.
 - *The cabin rooms' parts:* the fuselage skin (aluminium sheet under a millimetre thick, over a frame), the
-  windscreen and windows (acrylic — document 18 §4.8), the pilot's door, the right door, the double
+  windscreen and windows (acrylic — document 18 §4.8), the pilot's door, the right-rear double
   cargo door, the breach where the tail tore away, the seams the impact opened; the seats, the hat
   shelf and the baggage bay (document 16 §4.6); the wings with fuel in them; the engine, and the
   battery in the nose. The tail section out on the trail is a separate entity, with the tail cone and
@@ -305,7 +273,8 @@ different thing from a big one in a sealed plane. It brings headache, dizziness,
 a fire that burns poorly for want of air, and, left to build, kills over hours, never at once
 (document 11 §4.4). Sealing the crash's openings — the tarp aboard, branches, anything that covers
 (document 16) — keeps heat in and brings the price closer. Opening an opening,
-banking the fire and keeping someone awake on watch (document 06) are the real answers to it.
+a smaller, cleaner-burning fire and keeping someone awake on watch (document 06) are the real answers
+to it.
 
 **Outdoors, a zone is an entity too**: its ground (soil, moss, rock — frozen to a depth that grows night
 by night until snow covers it), its snow cover (depth and type — states of water, document 18 §4.8), its

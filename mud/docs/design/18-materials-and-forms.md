@@ -61,8 +61,8 @@ implementation plan.
 ## 3. In one paragraph
 
 The player never meets "materials" — they meet a seat cushion that burns fast and stinks, a wool
-blanket that is warm and hard to light, a windscreen that will not bend but will shatter into
-something that cuts, a down parka that is the warmest thing in the valley until it gets wet. All of
+blanket that is warm and hard to light, an acrylic windscreen that will not bend but cracks into
+a few big sharp-edged pieces, a down parka that is the warmest thing in the valley until it gets wet. All of
 that is two small tables and one function: what a thing is *made of* (its resistances, how it burns,
 how it insulates) and what *shape* it is in (a shard, a rod, a strip, a sheet), and from the pair the
 engine works out what the thing can do — hold an edge, take a point, give leverage, serve as cordage,
@@ -142,7 +142,7 @@ cordage, `metal` is what makes a sheet reflective.
 | `copper_wire` | the panel loom, the antenna run | middling to cut, bends at a touch, conducts better than anything else in the table (`extreme`), not rigid |
 | `glass` | instrument faces, and any other glass aboard — a bottle, a mirror, a lens | hard to cut, will not bend at all, will not burn, rigid, brittle — a shard source. Something sharp can always be had: broken glass from whatever glass is aboard, or torn metal — the aluminium skin's ripped edges, a broken bracket (2026-10-02). The 206's windscreen and windows are acrylic, not glass (§4.8, 2026-10-02). |
 | `insulation_batting` | the quilted engine cover, wall batting | insulates almost better than anything (`very_high`); burns well and takes some work to light; cuts and tears with no resistance. Two materials (2026-10-02): the fuselage's wall batting is fibreglass, which does not burn; the engine cover's polyester fill does — §4.8. |
-| `fuel` | avgas from a ruptured line or a jerry can | burns as hot as anything and catches at a spark, with toxic smoke. Declares no `potability` and no extinguishing tag — it is not a drink and not a douser |
+| `fuel` | avgas from a ruptured line or the wing's tank | burns as hot as anything and catches at a spark, with toxic smoke. Declares no `potability` and no extinguishing tag — it is not a drink and not a douser |
 
 **Fibre, cloth and clothing** *(the kit's materials — players-and-kit, DR-25a)*
 
@@ -152,7 +152,7 @@ cordage, `metal` is what makes a sheet reflective.
 | `cotton_cloth` | shirts, rags | cuts with nothing, tears easily, burns well and lights easily, poor insulation, absorbs water readily |
 | `leather` | the pilot's flight jacket, boots | middling to cut and tear, burns poorly, middling insulation |
 | `down` | a parka's fill | the warmest thing in the valley (`extreme` insulation) and the thirstiest (`very_high` absorbency) — worthless soaked; burns well; no cut or tear resistance |
-| `nylon_shell` | a parka's or ski jacket's outer skin | barely insulates on its own but absorbs nothing and is tagged `windproof` and `waterproof` — it stops wind, not cold; burns moderately with toxic smoke |
+| `nylon_shell` | a parka's or jacket's outer skin | barely insulates on its own but absorbs nothing and is tagged `windproof` and `waterproof` — it stops wind, not cold; burns moderately with toxic smoke |
 | `denim` | jeans, a jacket | poor insulation, cuts easily, middling tear resistance, burns well, absorbs water readily — cold when wet |
 | `fleece` | a synthetic mid-layer | insulates well and stays warm damp (`low` absorbency); no cut resistance, tears easily; burns well and lights easily with toxic smoke — it melts near a flame |
 
@@ -171,17 +171,17 @@ cordage, `metal` is what makes a sheet reflective.
 
 | material | where it is | what the table says |
 |---|---|---|
-| `water` | melt, the lead, the thermos | fully potable; absorbs nothing; tagged `liquid` and `extinguisher` |
-| `snow` | everywhere | middling insulation (the snow-shelter axis); middling potability; `low` edibility — you can eat it, and the heat cost lives in the water system, not here |
-| `ice` | the lake, the overflow | low cut resistance, rigid, brittle, middling potability |
+| `water` | melt, the creek and the lake's open water, the thermos | fully potable; absorbs nothing; tagged `liquid` and `extinguisher` |
+| `snow` | a few centimetres by the week's end (document 13 §4.2) | middling insulation (the snow-shelter axis); middling potability; `low` edibility — you can eat it, and the heat cost lives in the water system, not here |
+| `ice` | skim ice on still water, shelf ice on the creek, frozen puddles | low cut resistance, rigid, brittle, middling potability |
 
 **Bodies and food**
 
 | material | where it is | what the table says |
 |---|---|---|
-| `flesh` | the pilot; any body | cuts easily, middling to tear, bends easily, barely burns and is hard to light, toxic smoke. **It declares no `edibility`** — see §4.7. *(Proposed by Claude: it becomes the six body materials — skin, fat, muscle, bone, blood, organs — document 12 §4.3a; §4.8.)* |
+| `flesh` | the pilot; any body | cuts easily, middling to tear, bends easily, barely burns and is hard to light, toxic smoke. **It declares no `edibility`** — see §4.7. *(Kept 2026-09-28: it becomes the six body materials — skin, fat, muscle, bone, blood, organs — document 12 §4.3a; §4.8.)* |
 | `bone` | a body; later, antler and game | hard to cut, `extreme` to tear, hard to bend, barely burns, rigid |
-| `chocolate` | the emergency ration | very edible; burns poorly and is hard to light |
+| `chocolate` | the guide's chocolate bar, the kid's candy bar | very edible; burns poorly and is hard to light |
 | `rations` | packaged ration food | very edible; burns poorly; cuts easily |
 | `fish` | a family's frozen catch in the cooler | very edible; cuts easily; burns poorly; middling rigidity — hard as a plank until thawed, though a knife still shaves it |
 
@@ -242,8 +242,8 @@ The rules, in plain words:
   it, a shard or flake most of it, a sheet some, a piece little. Foam in any shape has none.
 - **Point** comes from a point, stake, shard, blade, flake or spindle, on either hardness or rigidity.
 - **Leverage** and **heft** need rigidity *and* mass: a bar or a pole gives the most leverage, a rod
-  or stick nearly as much — but a rigid thing under 100 g gives none at all (the toothpick gate), and
-  heft rises with mass to a full value at 800 g.
+  or stick nearly as much — but a rigid thing under about 100 g gives none, and heft rises with mass to a
+  full value at about 800 g (starting values, tuned in play).
 - **Cordage** comes free with a `cordage` or `wire` tag, otherwise from a flexible material in `cord`
   or `strip` form. **Sheet** from a flexible material in `sheet` or `cloth` form (half value from a
   strip). **Vessel** from a `vessel` form that is not floppy.
@@ -254,14 +254,14 @@ The rules, in plain words:
   thing has no ignition), while **tinder** is material burnability gated on form — shavings, a
   bundle, a strip or a scrap, dry.
 - **Capped**: a derived level never exceeds the lower of the material's and the form's own ceiling —
-  free composition must not mint an exploit. **Authored wins**: an explicit `state["edge"]` on an
-  object overrides the derivation, which is how the golden tools stay hand-tuned.
+  nothing is sharper than its material and form allow. **Authored wins**: an explicit
+  `state["edge"]` on an object overrides the derivation.
 - **The signifier rule**: what a thing is like shows in its examine text as a couple of sensory cues — "a shard of glass, one edge wicked-sharp" — never what to do with it (2026-09-28; document 03 §4.6). A capability nobody can see is the standard failure of
   this kind of system; naming its uses is a menu.
 
 ### 4.6 How a row is authored
 
-Materials are where the heavy authoring goes; objects are cheap (`authoring-objects.md`). A row is:
+Authoring has no ceiling, on materials and objects alike (2026-09-18). A material row is:
 
 ```python
 "wool": {
@@ -273,7 +273,7 @@ Materials are where the heavy authoring goes; objects are cheap (`authoring-obje
 
 An object then names material ids, a mass in integer grams, and — when the shape matters — a
 `state["form"]`. `make validate` gates it: every material id an object names must exist in the table,
-and masses must be non-negative integers; a puzzle-critical object also has its authored rule
+and masses must be non-negative integers; any object may also carry an authored rule
 (`authored.py`). The validator prints the material count on every run.
 
 ### 4.7 What is missing (from the census — accepted 2026-09-28)
@@ -283,9 +283,7 @@ list the table does not have: rock and stone (boiling stones, anvils, flakes); b
 tine, scales); fur and hide (marten, hare — insulation values); peat (poor wet fuel); lichen (flash
 tinder and famine food); punk or rotten wood (an ember medium, distinct from sound wood); rubber (tyre,
 tube — black smoke and elastic); kerosene (lamp fuel); canvas (pack, tarp); babiche and rawhide
-(lacing); grease and fat (bearing grease, lard — lamp fuel and waterproofing); mica (worthless glitter —
-the honesty material); brass (a survey benchmark); paper (newspaper, photographs, cards — burnable
-heartbreak).
+(lacing); grease and fat (bearing grease, lard — lamp fuel and waterproofing); mica; brass; paper (newspaper, photographs, cards).
 
 Three of them — `rubber`, `paper` and `bone` — are in the table. **Stone is not**, which is the
 sharpest gap in the table: Andrew's own example of the natural world is finding a rock, a rock is the
@@ -321,8 +319,8 @@ winning — the same derive-then-override shape the capabilities already use (§
 physically true, and it makes the sleeping bag and the battery behave differently for free. Every
 material row therefore gains a density; the loops add one with every new material.
 
-It also pays for itself elsewhere: density is what decides whether a thing floats in the lead, how
-much a snow block weighs when you cut one, and how far a thrown stone carries. Capacity, the other
+It also pays for itself elsewhere: density is what decides whether a thing floats, how
+much a snow block would weigh, and how far a thrown stone carries. Capacity, the other
 half, lives on containers (document 16); the grammar side is document 04 §3.11.
 
 ### 4.8 What the state systems need from a material (accepted 2026-09-28)
@@ -470,12 +468,12 @@ axes above, and each gives a survivor a real distinction to act on:
 | berries, roots, mushrooms — one material per species | the tussocks, the bars, the marsh edge | fresh berries run 40–60 kcal per 100 g (USDA: cranberries 46, blueberries 57), rose hips far more (162); baneberry and water hemlock carry their poisons, and cooking does not help |
 | acrylic | the 206's windscreen and windows | `glass` in the table is wrong for them — general-aviation windscreens are acrylic (LP Aero Plastics makes the 206's). 1,180 g/L; softens near 105 °C; burns bright with little smoke (~25 MJ/kg); cracks rather than bends; scores and snaps along a line |
 | fibreglass batting | the fuselage walls and ceiling | light aircraft are usually lined with it: it does not burn, it itches and cuts skin, it insulates dry and lofted. The engine cover's polyester fill does burn — `insulation_batting` is two materials |
-| lead | the battery's plates, the tackle's sinkers | 11,340 g/L; melts at 327 °C — a fire melts it into sinkers or weights |
+| lead | the battery's plates *(Claude's, not yet decided: fishing sinkers in someone's luggage)* | 11,340 g/L; melts at 327 °C — a fire melts it into sinkers or weights |
 | battery electrolyte (sulfuric acid) | the aircraft battery | burns skin; a charged battery's freezes near −60 °C, a flat one's near −7 °C — a dead battery cracks on an October night |
 | kerosene | Holt's lamp | ~800 g/L, ~43 MJ/kg; flash point 38–72 °C — safe to handle, needs a wick |
 | canvas (cotton duck) | the work coats, a tarp | cotton's behaviour; windproof tight and dry |
 | charcoal, wood ash | what a fire leaves | charcoal burns hot with no flame and no smoke (~30 MJ/kg); ash wetted makes lye — it scours a vessel and stings a wound |
-| brass, mica | fittings and shells; the schist | mica is glitter in the schist — worthless, as the census says, except where a book of it splits into clear sheets that stand a fire's heat |
+| brass, mica | fittings; the schist | mica is glitter in the schist — worthless, as the census says, except where a book of it splits into clear sheets that stand a fire's heat |
 
 *Sources for §4.8:* The Engineering ToolBox and the CRC *Handbook of Chemistry and Physics* (densities,
 specific heats, conductivities, melting points) · USDA Forest Products Laboratory, *Wood Handbook*

@@ -77,7 +77,7 @@ hungry day, somebody does the arithmetic.
 No topic list, no "you could ask him about the radio", no prompt about what to do with him, no score
 for covering him and no scolding for butchering him. Every consequence is physical (calories, illness,
 warmth spent, a witness who saw it) or in the log. This is the never-a-menu rule (DR-08c) and the moral
-layer's "possible, priced, witnessed, logged" (document 15).
+layer's rules (document 15).
 
 ### 4.3 The body — the acts
 
