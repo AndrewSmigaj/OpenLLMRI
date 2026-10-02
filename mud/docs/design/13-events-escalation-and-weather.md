@@ -340,7 +340,7 @@ it.
 |---|---|---|
 | snow on the ground | depth (cm), density (kg/m³), and whether it is fresh, settled, drifted, wind-slabbed or crusted | travel time (document 03 §4.1a: distance over pace × terrain × snow × load × fitness); what is buried — forage, deadfall, tracks, the wreck; digging; snow as water (document 09: ~10:1 loose, ~3:1 packed); snow blocks and walls (document 08) |
 | ice on each water body | thickness (cm), clear or white, slush under the snow, open water over currents | whether it holds the weight on it; falling through; fishing through it |
-| frost in the ground | depth (cm) | digging roots, a pit, a grave |
+| frost in the ground | depth (cm); and where there is permafrost — in patches under the black spruce, the muskeg and north-facing slopes — the depth to it, half a metre to a metre this week (document 23 §4.6) | digging roots, rocks, mud, a pit, a grave; a deep pit over permafrost hits ground frozen solid |
 
 **How it advances.** The escalation calendar holds the week's weather as authored waypoints — when
 the front arrives, when it peaks, when it clears — the same in every run (2026-09-27), with the

@@ -95,6 +95,9 @@
   world.
 - **2026-10-02 — what the poisons do (§4.6) kept**: each poison's real effects, dose and onset shape a
   sickness that makes a person very sick and never kills.
+- **2026-10-02 — digging in freezing ground (§4.6) kept**, with permafrost in patches under the black
+  spruce, the muskeg and north-facing slopes, half a metre to a metre down; people dig for roots,
+  rocks, mud and anything else they try.
 
 ### Proposals (Claude)
 
@@ -411,9 +414,16 @@ country's own spoiled and poisonous things are §4.2 above.
 - **Digging in freezing ground.** Frost depth is a state on the ground of each zone, changed by the heat
   system: a crust after each frosty night, thickening through the week (document 13 §4.2), slower in wet
   peat and under snow, thawed by a fire built on it. Digging needs the capability to break the crust — a
-  point or an edge with heft (a hatchet, a pointed stick for a thin crust, a rock) — and then the soft
-  soil below; the marsh edge's mud is not frozen at all. Under the day-6 snow the frost stops deepening,
-  and a couple of inches brushes aside. The fire is worth more, and nothing is walled off.
+  point or an edge with heft (a hatchet, a pointed stick for a thin crust, a rock, a piece of the plane)
+  — and then the soft soil below; the marsh edge's mud is not frozen at all. Under the day-6 snow the
+  frost stops deepening, and a couple of inches brushes aside. The fire is worth more, and nothing is
+  walled off. People dig for roots, the voles' caches, a fire pit, a pit to cache food, a rock (though
+  most lie on the surface — the creek bar, the ridge, the erratic), mud from the marsh edge (chinking a
+  gap, and whatever else a player thinks of), and anything else they try. **Permafrost** (2026-10-02):
+  interior Alaska has it in patches, under the black spruce, the muskeg and north-facing slopes; in
+  early October the ground above it is thawed to its deepest of the year, and the permafrost begins
+  about half a metre to a metre down — shallow digging never meets it, and a deep pit there hits ground
+  frozen solid that no fire thaws in a day.
 - **Throwing and the sling.** Andrew's design (2026-09-17), in real terms (document 10 §4.8). Rocks are
   found where rocks are — the ridge, the creek bar, the muskeg erratic — and once snow lies it hides the
   small ones. What a throw does is told as feedback, never as a dice roll (2026-09-27); its terms are
@@ -516,7 +526,8 @@ Andrew's check.
   finding it means walking and looking, tuned by playthroughs. The yield kept; the plane's food a few
   days of short rations at most (a 10 lb bag of flour); never truly full without a huge source. The hare
   year fixed at a middle year, the same every run. Telling plants apart by the senses; knowing plants on
-  the hidden skill sheet, shown as subtle cues; no survival manual. What the poisons do, kept.
+  the hidden skill sheet, shown as subtle cues; no survival manual. What the poisons do, kept. Digging
+  kept, with permafrost in patches half a metre to a metre down.
 
 ## 8. What exists today
 
