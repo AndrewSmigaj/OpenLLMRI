@@ -410,6 +410,13 @@ blank** — tracks going around it (the wrong spot), the loop sprung and empty (
 free), the snare knocked flat, fur and blood and fox tracks (robbed): each tells the trapper something
 real. The sources for the snare rate are document 23 §4.4.
 
+**Luck and practice** (2026-10-02). Each try is a plain roll of the dice, as real luck is. What keeps a
+party that really tries from an endless losing streak is that every character gets better with
+practice — the hidden skill sheet (document 16 §4.1): the thrower learns the range, the trapper learns
+where a snare catches. A thrower who starts at one in ten and improves a little with each throw almost
+never misses thirty in a row. If play shows that streaks still hurt, luck drawn like a shuffled deck —
+a losing run cannot last long — is the fallback.
+
 **After the kill** — butchery is its own family of real acts on the body's parts, the same for any
 body *(proposed by Claude, for Andrew's check — decided in document 12 §4.3a)*. `butcher` is the
 canonical word for an **attended activity** (document 06) that works through a body part by part and

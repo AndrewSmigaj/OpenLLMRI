@@ -72,7 +72,8 @@
   eventually — never a game where nothing works. Starting chances for every way of taking an animal
   (a thrown rock to a set snare) are in document 10 §4.8, tuned by play; a snare on a good run catches
   about one night in five, and an empty snare always tells the trapper something. Unseen animals are
-  decided by odds and shown when seen (§4.1).
+  decided by odds and shown when seen (§4.1). Each try is plain dice; getting better with practice, on
+  each character's hidden skill sheet (document 16 §4.1), is what makes "eventually" true.
 
 ### Proposals (Claude)
 
@@ -378,7 +379,8 @@ country's own spoiled and poisonous things are §4.2 above.
   found where rocks are — the ridge, the creek bar, the muskeg erratic — and once snow lies it hides the
   small ones. What a throw does is told as feedback, never as a dice roll (2026-09-27); its terms are
   real: range, the projectile's mass and shape, the target's size and behaviour, the thrower's arm and
-  cold hands (document 08); the starting chances are document 10 §4.8. The odds rise with tries for a real reason — the thrower learns the range of
+  cold hands (document 08); the starting chances are document 10 §4.8. The odds rise with tries — the
+  thrower's hidden skill grows with practice (document 16 §4.1) — for a real reason — the thrower learns the range of
   a bird that stays put, and a spruce grouse stays put — and fall when the bird is alarmed (a ptarmigan
   runs or flushes). A sling adds range and power and is harder to aim until practised; making one needs
   a pouch and two cords. A miss lands somewhere, and the rock is in the moss or the snow.

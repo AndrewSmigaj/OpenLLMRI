@@ -319,7 +319,9 @@ it says so. When a decision changes, this list and every document it touches cha
 - **The party:** up to five play (four adults and the kid). A seat nobody plays is a dead character whose
   clothes and pockets can be searched; AI agents may play seats. No back stories: characters differ in
   clothes, injuries and what they carry, and in how well and how fast they do things (a woodsman lights
-  fires better; a technically proficient character sees a fault in a device). (2026-09-16, 2026-09-27)
+  fires better; a technically proficient character sees a fault in a device). (2026-09-16, 2026-09-27) Each
+  has a hidden skill sheet for every act that involves chance, starting from the seat and rising with practice;
+  each try is plain dice, and getting better is what makes effort pay (2026-10-02).
   The start is light — nobody is crippled or hindered for the sake of it: minor bumps and bruises for
   most, one cut (which sends the party looking for bandage material) and one concussion. (2026-09-28)
 - **The pilot starts the run dead.** He carries no clues. His body is food, and eating it is taboo, not

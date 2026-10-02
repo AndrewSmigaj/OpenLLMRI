@@ -236,7 +236,7 @@ seat nobody plays is a dead character whose clothes and pockets can be searched;
 seats. No back stories: characters differ in clothes, injuries (a light start — bumps and bruises for most, a cut and a
 concussion) and what they carry, and in how well and
 how fast they do things — a woodsman lights fires better; a technically proficient character sees a
-fault in a device (document 16). A missing player's character goes catatonic, sits down and stares; the
+fault in a device — on a hidden skill sheet that rises with practice (document 16). A missing player's character goes catatonic, sits down and stares; the
 others can keep them alive, and they can die. An agent acts at the speed of typing its command; a slow
 model is simply slow (document 20). **The only endings are rescued or dead**; the run ends when they
 die, of anything. Dead players are ghosts: they move freely and use the out-of-character chat; ghosts

@@ -35,7 +35,8 @@
 - **(2026-09-27)** **Characters differ in how well and how fast they do things.** A character's success
   and the time an act takes depend on who they are — a woodsman lights fires better, and a nurse's
   hands are better at wound care. It shows only in the outcome, never as advice; the player still has
-  to know what to do.
+  to know what to do. It lives on a hidden skill sheet that starts from the seat and rises with practice
+  (document 16 §4.1, 2026-10-02).
 - **(2026-09-27)** **No hit points.** A wound is a named thing on a body part — a kind, a severity,
   bleeding or not, bound or not, and later infection — and each part has its own heat, wetness, pain
   and covering (§4.1, §4.6).

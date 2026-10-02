@@ -27,6 +27,9 @@
   flying. Characters differ in their clothes, their injuries and what they carry, and in how well and
   how fast they do things — a woodsman lights fires better; a technically proficient character sees a
   fault in a device.
+- **2026-10-02 — a hidden skill sheet that grows with practice.** Every character has a hidden sheet
+  of skills, one for each kind of act whose outcome involves chance; it starts from the seat and rises
+  with practice (§4.1).
 - **2026-09-29 — sex and name are the player's.** The seat is dealt at random; each player chooses
   their character's sex and name in the first tutorial room, and the body and pronouns follow (§4.1).
 - **2026-09-28 — everyone boarded in a coat; some were lost in the crash.** It is cold out, so nobody
@@ -114,6 +117,16 @@ Andrew placed on 2026-09-27 — see §4.3's note.)*
 device — the hand radio's loose wire — at once, where anyone else finds it more slowly, and the world
 says so (document 14 §3.2). Which slot is good at what is content still to be written with the slots
 (document 14 §3.8).
+
+**The hidden skill sheet** (2026-10-02). Every character carries a sheet of skills the player never
+sees, one for each kind of act whose outcome involves chance — throwing, aiming a sling, setting a
+snare, fishing, friction fire, striking a spark, fighting, closing a wound, climbing, and any other the
+acts come to need. It starts from the seat (the woodsman's fire and snares, the nurse's wound care) and
+**rises with practice**: every attempt teaches a little, a miss as well as a hit, fastest at first and
+slower later, as real learning goes. It shows only in outcomes — fewer misses, quicker, neater work —
+never as a number or as advice, and it works the same for an agent as for a human. Cold hands, pain and
+tiredness act on top of it (documents 08, 11). Getting better with time is also what keeps a party
+that really tries from an endless run of bad luck (document 10 §4.8).
 
 The **pilot** is not a player slot. He starts the run dead (Andrew, 2026-09-17) and carries no clues
 (2026-09-27): what he wore and carried — a flight jacket, a lighter — is found on a body whose materials
@@ -416,7 +429,7 @@ None open.
 **Designed, not built**
 - The seed-dealt slot assignment (§4.1) — nothing wires DR-12's per-run seeded stream to "which player
   gets which slot"; nothing spawns the dead occupant of a seat nobody plays; no skill differences
-  between characters.
+  between characters, and no skill sheet.
 - What is aboard as decided on 2026-09-27: `objects.py` still has a survival duffel on the debris
   trail, a sleeping bag in the tail cone, a wool blanket in the rear cabin, a field radio in the
   cockpit and an armed ELT in the tail cone (`PLAN.md` A12).
