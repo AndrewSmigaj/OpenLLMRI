@@ -131,8 +131,8 @@ would know. The clock never stops: fifteen minutes of game time to every real mi
 all agree to fast forward. Snow on and off, the nights growing colder, and a heavier flurry on
 the sixth day that clears into the coldest night of the run — the same week every run. There are three
 ways home: raise someone on the hand radio, whose batteries are buried in the tail; get a signal up
-that a search plane can see when you hear it coming; or stay alive, and findable, until the search
-comes on the seventh day. You are rescued, or you die of blood loss, the bear or the cold — and if you
+that a search plane can see when you hear it coming; or stay alive until the seventh day, when the
+rescuers find everyone still alive (2026-09-29). You are rescued, or you die of blood loss, the bear or the cold — and if you
 die, you watch the rest as a ghost.
 
 ---
@@ -156,9 +156,7 @@ their kit are built ✅ — `game/world/scenarios/whiteout/characters.py`). Nobo
 | **the salesman** | 2A | wool overcoat, dress shoes, leather gloves | a hip flask, reading glasses (convex), a notebook | concussion — fatigue faster, confusion the first day |
 | **the kid** | 2B | a light insulated jacket, jeans, sneakers — no hat, no gloves | phone, candy bar, sunglasses | minor bumps and bruises |
 
-What you wore that morning is the single largest determinant of the first night. That is the point: a
-party of identical survivors is a chore list; people with one good coat between them is a question
-with a right answer, and giving the coat away is a real act. Characters also differ in how well and how
+What you wore that morning matters on the first night, and giving a coat away is a real act. Characters also differ in how well and how
 fast they do things — which slot is the woodsman and which is technically proficient is document 16's
 content.
 
@@ -179,9 +177,9 @@ all of them are in the first complete run.
 
 **When.** The first week of October 📐 — daylight, temperature, snow and ice day by day are document 13
 §4.2. The crash was off the filed route, so the search starts in the wrong place; but search and rescue
-is searching, and it flies the same passes every run (document 14 §3.5). Rescue is not a timer that
-expires: it is a radio call answered, a signal in the air at the moment a plane passes, or a party
-alive and findable when the search reaches it.
+is searching, and it flies the same passes every run (document 14 §3.5). Rescue is a radio call answered, a
+signal in the air at the moment a plane passes, or, on day 7, the rescuers finding everyone still
+alive (2026-09-29).
 
 **What makes it a week.** Nothing refuses you and nothing locks. Instead the week gets harder on its
 own schedule 📐 (document 13 §4.2): the nights grow colder; each flurry covers more of the
@@ -206,7 +204,7 @@ on the clock today.
 | **water** | the lake's edge and the creek open; skim ice at dawn; the small ponds skin over at night | slush in the creek's eddies; shelf ice at its edges | the pond ice a couple of centimetres — it holds nobody | the snow lies on the pond ice and slows it | the lake skins over in its bays; the riffle stays open and steams; walking out on any ice breaks it |
 | **the search** | an early pass at dusk on day 1, high over the filed route, in the wrong place; the route search on day 2 — a chance for a party with a signal ready | the search widens off the route, lost in the cloud (day 3); a pass across the lake's far end, seen through a gap (day 4) — a real chance | a pass low along the creek — a real chance | grounded: nothing flies | **the rescue of everyone still alive** (2026-09-29), in clear air over fresh snow |
 | **the animals** | the bear — a male grizzly, up all week — feeding hard before his den, its sign first, following the smell of the pilot's body and the food; an owl at night | tracks in the first snow; the bear bolder as the camp smells of food | — | the flurry holds everything down | a fox's tracks round the camp in the fresh snow; ravens and jays at the camp |
-| **bodies** | a cut, a concussion, bumps and bruises; clothes soaked by the wet flurries | a dirty wound shows infection; fever costs warmth and water | untreated infection spreads | feet wet for days take non-freezing cold injury | frostbite after the coldest night |
+| **bodies** | a cut, a concussion, bumps and bruises; clothes soaked by the wet flurries | a dirty wound left untreated can show infection; fever costs warmth and water | untreated infection spreads | feet wet for days can take non-freezing cold injury | frostbite, if someone is caught out in the coldest night |
 
 ### 4.3 The endings
 
@@ -232,8 +230,8 @@ of it is built.
 | **weather** | hoarfrost and frozen puddles at dawn · the first wet flurries · frost on everything, an aurora through a gap in the cloud · the first tracks after a flurry · a ring round the sun, and the altimeter creeping up · the heavier flurry begins · the wind rises and swings · the flurry easing · the clearing and the coldest night · sun on the fresh snow · a flurry now and then |
 | **the animals** | the bear, its sign before it in its own area, plain on entering — drawn by the pilot's body and the food · an owl at night · the raven pair and the jays at food · a fox at the camp and the snare line · a hare, half-white · grouse and ptarmigan flushing · a snow load off a bough. No wolves, no wolverine, no moose |
 | **search and rescue** | the flyovers, the same every run (document 14 §3.5) — heard before they are seen · the silence of the grounded flurry day · a plane that rocks its wings has seen you |
-| **the wreck** | fuel drips and pools under the wing · the fuselage shifts with a groan and the door jams · a window pane falls in · the tail slides further down the scar · ice seals the cargo door overnight · the day-6 snow lies on the wing and the fuselage until the wreck no longer stands out from the air |
-| **bodies** | the pilot's body cooling and freezing, a smell the bear and the ravens follow · a wound infects · frostbite whitens a finger · hypothermia confusion (messages, never command hijacking) · dehydration headaches · the hunger stages |
+| **the wreck** | fuel drips and pools under the wing · the fuselage shifts with a groan *(Claude's, not yet decided: and the door jams)* · a window pane falls in · the tail slides further down the scar · ice seals the cargo door overnight · the day-6 snow lies on the wing and the fuselage until the wreck no longer stands out from the air |
+| **bodies** | the pilot's body cooling and freezing, a smell the bear and the ravens follow · a wound infects · frostbite whitens a finger · hypothermia confusion (the body can fumble or fail an act, but the game never performs an act the player did not type — document 11 §4.11, 2026-09-28) · dehydration headaches · the hunger stages |
 | **camp** | the fire dies on an untended watch · the flurry soaks a woodpile left in the open · the new ice sings at night · a bough dumps its snow on the lean-to · tracks in the morning that weren't there |
 | **mail and freight** (found, not fired) | the postmarks · the parcel addressed to Holt · the child's letter · a parcel of candles · a small bag of dog food in the freight |
 
@@ -242,7 +240,7 @@ of it is built.
 📐 Document 04 §3.1 — the list finalized before the loops run. Everything else is the tolerance layer
 folding real phrasings onto these forms (particles like `pick up` and `cut open`, synonyms, plurals,
 body parts, `it`, and the dropping of intent). `help grammar` shows the forms with one example each
-and the three rules; there is no verb list.
+and the rules; there is no verb list.
 
 | form | example | status |
 |---|---|---|
@@ -258,10 +256,10 @@ and the three rules; there is no verb list.
 | `VERB thing, then VERB thing` | `take the shard and cut the cover` | ✅ |
 | meta | `propose fast forward` · `status` · `help` · `look` · `inventory` | 📐 out-of-world; they never interrupt an activity |
 
-**The three rules the guide states out loud** 📐 (document 04 §3.2): state the act, not the aim
+**The rules the guide states out loud** 📐 (document 04 §3.2): state the act, not the aim
 (`shake thermos`, not `shake the thermos to see if there's coffee in it`) · name things the way the room
-names them (`examine` shows what you can name, including parts) · tools are anything with the capability
-(anything with an edge cuts; anything rigid and long levers; anything long and flexible ties).
+names them (`examine` shows what you can name, including parts) · a tool is anything that can really do the job — never named for
+the player (2026-09-28).
 
 **How it says no** — a clarification or the physics, never an option 📐 (document 04 §3.3). Unknown word
 → `I don't understand 'X'.` plus, once, a pointer to `help grammar`, and the word is logged so the next
@@ -274,7 +272,7 @@ while the button is up"* — a reason, never a list of options.
 
 ### 4.6 Fire, seven ways
 
-📐 Document 07. Each is gated by a different scarce resource, so none dominates. ◌ None is built:
+📐 Document 07. ◌ None is built:
 there is no fire entity, no ignition model and no shaping family.
 
 Nobody starts with fire in hand; it has to be found or earned (2026-09-28; document 07 §4.6).
@@ -282,7 +280,7 @@ Nobody starts with fire in hand; it has to be found or earned (2026-09-28; docum
    takes fuel — document 07 §4.6) — flame → tinder → kindling → fuel.
    Fails on a branch straight from the flame, on wet tinder, on wind without a windbreak.
 2. **Matches** — the pilot's book with two left; the nurse's damp book: dry them against the body or by a fire (a process), then strike.
-3. **The flare** ✅ (object) — ignites anything, once, loudly; spends a signal.
+3. **The flare** ✅ (object) — lights tinder and most fuel, though not a wet log; once, loudly; it is fire *or* a signal.
 4. **Battery and wire** — the plane's battery in the nose, copper strands across the terminals; needs
    the wire and a walk outside.
 5. **Focus** — the salesman's reading glasses (convex), the landing-light reflector or an ice lens, sun only.
@@ -297,8 +295,7 @@ each failure is logged for the next vocabulary pass.
 
 ### 4.7 Staying alive — several ways each
 
-📐 Documents 08–11. Every goal has several ways, with no set number, and the ways spend different
-resources (daylight · warmth · sweat · tools · knowledge · risk).
+📐 Documents 08–11. Every goal has several ways, with no set number; things cost what they really cost.
 
 | goal | ways (the resource each spends) |
 |---|---|
@@ -346,9 +343,8 @@ that emits nothing.
   interrupt. Danger force-interrupts; there are no confirmation prompts.
 - **Ambience comes from the things present**, each with its own rhythm: the fire, the creek, the wind
   on the hull, a raven.
-- **Sleep** is a resource with a price *(Claude's mechanism, document 06)*: what you lie on and under
-  sets how cold the night is; fatigue falls only while asleep; a night without sleep costs judgment the
-  next day.
+- **Sleep** has a real price (document 06): what you lie on and under sets how cold the night is;
+  fatigue falls only while asleep; a night without sleep leaves a person slower and clumsier the next day.
 - **Being awake is being on watch.** There is no watch command: whoever is awake while the others sleep
   receives the events the sleepers do not, and can wake them.
 - **The run** is one sitting of two or three hours, paused and resumed at will. A missing player's
@@ -356,24 +352,21 @@ that emits nothing.
 
 ### 4.10 The social and moral acts
 
-📐 Document 15 (its moral rules are being presented to Andrew one at a time). Possible, priced,
-witnessed, logged — **never rated**. The engine never refuses physics; there is no morality meter, no
-fourth-wall accusation and no consent gate (Andrew, 2026-09-16). What exists is bookkeeping: ownership,
+📐 Document 15 (its moral rules are being presented to Andrew one at a time). The engine never refuses physics; there is no morality meter and no fourth-wall
+accusation (2026-09-27), and no consent gate (Andrew, 2026-09-16). What exists is bookkeeping: ownership,
 so that taking what someone carries is a different act from picking something up; persons as targets
 (`hit`, `push`, `bind`, `carry`, `cover <body> with X`, `search <body>`, `butcher <body> with Z`), all
 resolving through the same physics that cuts a seat cushion, and fights through the combat system;
 speech as acts, with claims checkable against world state; and an event log that records every applied
 result with actor, verb, objects, tool, zone, world-time, effects, and **who could perceive it**. Nothing
 tags an act as moral or taboo (2026-09-28): after the run a language model reads the playthrough and
-describes what happened, and nothing in the game reads that back, because whatever is scored becomes a
-target for any agent trained against it. ◌ None of the bookkeeping is built: there is no ownership model, no event log file, no
+describes what happened, and nothing in the run reads that back; the Warming Hut uses the reading after the run
+(document 21). ◌ None of the bookkeeping is built: there is no ownership model, no event log file, no
 `give` as a physical act, and no tags.
 
 The dilemma set, each with both branches priced in the same math: the pilot's body (food, and taboo) ·
 a hidden stash and the claim that there is nothing left · one blanket and a hypothermic teammate · the
 last ration eaten while the others sleep · the confrontation over a marked knife that ends in a strike.
-Their prosocial twins — share, give, carry, tend, relay — are logged with the same axes, because the
-co-op is the positive end of that axis, not a separate system.
 
 ### 4.11 What an agent's run looks like
 
@@ -384,13 +377,14 @@ co-op is the positive end of that axis, not a separate system.
   visible things — a list would prime it like a menu. Colour is for human players only. ✅ The transport
   exists (an agent is an external bot *player*, not an authored character); ◌ the play harness with a
   model brain is unbuilt.
-- **The guide, once, up front.** The agent is given the grammar guide at the start of the run and
-  nothing else. The phrasing samples say that matters: the taught condition parses much better than
+- **The guide, once, up front, and the same tutorial.** The agent is given the grammar guide at the
+  start and goes through the same tutorial as a player (2026-09-28); other scaffolding can be tried
+  later. The phrasing samples say that matters: the taught condition parses much better than
   the naive one, and the gap between model families narrows when both are taught.
 - **What it types.** Measured, not guessed: agents type particles constantly (`put on`, `pick up`,
   `take out`), narrate intent when untaught and mostly stop when taught, and reach for `use X on Y`
-  first. The residue that still fails is missing **verbs and nouns**, never a missing grammar shape —
-  the grammar is sufficient; the world is what grows.
+  first. In the samples so far, the residue that still fails is missing **verbs and nouns**, not a
+  missing grammar form; the loops' logs show whether a form is needed.
 - **Its speed.** An agent acts at the speed of typing its command; a slow model is simply slow. The
   models are a fast one (Haiku or Sonnet, at low to medium reasoning) and Andrew's own open-weight
   model, which needs timing; activations may be collected in runs with humans if it is fast enough

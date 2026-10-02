@@ -48,8 +48,8 @@ Ideas that are not design yet: [`docs/design/IDEAS.md`](../../design/IDEAS.md).
 **Whiteout** — survivors of a bush-plane crash in interior Alaska, in the first week of October,
 improvise with a physically modelled world to stay alive — cold, injury, hunger and the coming winter
 against them — until they are rescued: by getting the hand radio working and raising someone, by a
-signal a search plane can see, or by surviving long enough for the search to reach them, each path
-harder than the last. **The only endings are rescued or dead.** **Essential experience:**
+signal a search plane can see, or by surviving long enough — on day 7 the rescuers find everyone still
+alive, and surviving that long is the hardest way. **The only endings are rescued or dead.** **Essential experience:**
 *understanding a living, reactive world under pressure — and being told, physically and specifically,
 why each desperate idea works or doesn't.* **You survive by understanding the world, not by guessing
 the author's verb.**
@@ -178,7 +178,7 @@ player types  e.g.  "cut the cover of the seat with the multitool"
  └─ APPLY effects (single source of truth) ⊳ conservation ledger ⊳ route messages by perception
  └─ NARRATE from pre-written templates + current state.  (no LLM)
 ```
-- **"Soft" judgements** (is this contraption a windbreak ≥ 0.5? does this plea move morale?) are
+- **"Soft" judgements** (is this contraption a windbreak ≥ 0.5?) are
   **pre-authored thresholds/rules evaluated deterministically** — not a runtime judge. The radio
   voice's judgement of what it has been told is the one exception, and it is a player's act (§3 rule 2).
 - **Gaps:** if a sensible attempt has no matching rule, the engine answers from the things' properties

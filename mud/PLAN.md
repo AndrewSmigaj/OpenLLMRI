@@ -492,8 +492,8 @@ it says so. When a decision changes, this list and every document it touches cha
   prose; no item list; groups; a blank line before events; colour for human players only. An agent sees
   exactly what a human sees. (2026-09-16, 2026-09-17)
 - **Open-ended activities**: `tend the fire` keeps a fire fed from the wood at hand until stopped, runs on
-  through fast forward, and when the wood runs out stops and drops the clock back to 15×; keeping watch
-  and fishing a line are the same kind (documents 06, 07). (2026-09-28)
+  through fast forward, and when the wood runs out stops and drops the clock back to 15×; *(Claude's, not
+  yet decided: keeping watch and fishing a line as the same kind)* (documents 06, 07). (2026-09-28)
 - **The game ends on day 7** (2026-09-29): the rescuers find everyone still alive, and a rescuer entering
   a room rescues whoever is in it; early routes (the radio, a signal seen) get out sooner, and the last
   24 hours before the day-7 rescue are the hardest, so they are worth the work. Nothing runs past day 7.
