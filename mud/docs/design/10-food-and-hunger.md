@@ -340,8 +340,8 @@ pointed can be a spear. The forms the canonical 26 (document 07) do not yet have
 `net`/`mesh` — are candidates for document 18; the goal-table rows (`make a snare`, `make a spear`,
 `make a fishing line`) belong to the owning document. *The whole of this is owned by the **hunting,
 trapping and fishing** design document and the **combat** design document, both to be written
-(`PLAN.md` A10); this section fixes what each technique needs and how it is reached. Durations and
-catch chances are the owning document's to value, from the real rates in document 23 §4.4.*
+(`PLAN.md` A10); this section fixes what each technique needs and how it is reached. Durations are
+the owning document's to value; the starting chances are below, from the real rates in document 23 §4.4.*
 
 **Trapping** — the plan-ahead work: set, leave, come back.
 
@@ -384,6 +384,31 @@ through-the-ice techniques are real operations, but this week walking out on the
 | **spear fishing** | through a hole over clear new ice, the fish seen from above, sometimes drawn in by a decoy; interior Alaskans spear pike and whitefish this way (ADF&G) | a pronged or pointed spear; a hole; darkness over it helps the eye | `spear the pike` |
 | **net** | a gill net under the ice between holes, or across the creek — the real subsistence method | mesh of the right size: the cargo net's mesh is far too coarse to hold a whitefish, and the physics says so; knotting a net from cord is real and days of work | `set the net under the ice` |
 | **by hand** | a fish grabbed in a shallow riffle — it almost never works, but it can be tried (Andrew, 2026-09-27) | wading ice-cold water, and paying for it in wet and warmth (document 08) | `grab the fish` |
+
+**Chances — starting points (2026-10-02).** Getting food from the country takes a few attempts and some
+waiting, and a party that finds something to catch and really tries gets something eventually — never a
+game where nothing works (Andrew, 2026-10-02). The chances below are per try, never shown, and read as
+what happened, as in combat (document 11); play tunes them. What moves each is real: where it is set,
+skill and practice, cold hands (document 08), distance, the animal's behaviour, the hare year.
+
+| way | target | chance per try (starting point) | what moves it |
+|---|---|---|---|
+| thrown rock | a spruce grouse sitting 5–10 m off | ~10 % | distance, cold hands, the arm; a spruce grouse usually stays put after a miss |
+| thrown rock | a ptarmigan or a ruffed grouse | ~5 %, and a near miss flushes it | the same |
+| thrown stick, spun end over end | a sitting grouse or hare | ~15 % — a bigger thing to hit with | the same |
+| sling | a grouse at 10–20 m | ~5 % at first, rising to ~15 % with practice over the days | practice is the sling's real cost; it reaches further and hits harder |
+| noose on a pole | a spruce grouse | ~40 % a try, if the bird stays | a slow approach |
+| snare | a hare, per snare per night | **~20 %** set at a narrow spot (between trees, under a log, or brush funnelling the run) on a run with fresh tracks; ~10 % on a run without one; ~1 % off the runs; higher at the peak of the hare cycle (~30–35 % on a good run), far lower at its bottom | skill (a woodsman sets better), wire over cord (a hare chews cord), the loop's size and height, fresh human scent; a fox takes about one catch in five |
+| baited deadfall | a vole or squirrel, per night | ~15 % | set on a runway |
+| line from the shore | grayling, per hour in the right place | ~20–30 % a fish | dusk, the pool, grubs for bait |
+| set line, overnight | burbot, per hook | ~25 % | they feed from sunset to midnight |
+| spear | a fish in the shallows | ~5 % a thrust | clear, still water |
+
+So ten snares on good runs catch about two hares a night, and about nine parties in ten find at least
+one the first morning; a few minutes of throwing brings down a grouse. **An empty snare is never a
+blank** — tracks going around it (the wrong spot), the loop sprung and empty (too big: the hare pulled
+free), the snare knocked flat, fur and blood and fox tracks (robbed): each tells the trapper something
+real. The sources for the snare rate are document 23 §4.4.
 
 **After the kill** — butchery is its own family of real acts on the body's parts, the same for any
 body *(proposed by Claude, for Andrew's check — decided in document 12 §4.3a)*. `butcher` is the

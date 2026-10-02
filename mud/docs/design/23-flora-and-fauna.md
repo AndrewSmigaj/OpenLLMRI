@@ -65,7 +65,14 @@
   fireweed (dry where sheltered), yarrow, willow as material, and the woods a fire really uses this
   week — realistic and thorough.
 - **2026-10-02 — the animals (§4.3) kept**, with their most common names (gray jay, great horned owl);
-  a snare does far better set on a run that fresh tracks show is in use.
+  a snare does far better set on a run that fresh tracks show is in use. The calories redone from real
+  weights and food tables (a hare ~650–800 kcal; the bear's meat as well as its fat).
+- **2026-10-02 — balance: effort pays, eventually.** Getting food from the country takes a few attempts
+  and some waiting, and a party that finds something to catch and really tries gets something
+  eventually — never a game where nothing works. Starting chances for every way of taking an animal
+  (a thrown rock to a set snare) are in document 10 §4.8, tuned by play; a snare on a good run catches
+  about one night in five, and an empty snare always tells the trapper something. Unseen animals are
+  decided by odds and shown when seen (§4.1).
 
 ### Proposals (Claude)
 
@@ -143,7 +150,13 @@ Every figure is a real starting point that the probes tune.
   caught (a hare in the party's snare, a squirrel at its midden, a ptarmigan that flushes). **A met
   animal is a full thing in the room while it is there** — it can be thrown at, chased or picked up,
   and it acts by simple, real behaviour (a hare freezes, then bolts) — so a hare bolting from the
-  willows is never only scenery. It also lives as **sign**: tracks, scat,
+  willows is never only scenery. **Decided by odds, shown when seen** (2026-10-02): an animal nobody can
+  see is a number; a set snare's catch is rolled on the game clock at a real time in the night (hares
+  move at dusk, at night and at dawn), and from that moment the hare is real — stiff with frost by
+  morning, or robbed by a fox before the party comes. A person watching makes a hare far less likely
+  to come, as real hares avoid people, and one that does come is a full animal the watcher sees arrive
+  and move along the run. Every population animal works this way; the actors are the ones that really
+  move about. It also lives as **sign**: tracks, scat,
   calls, a cone-scale midden, browse, a kill, where each animal lives. **The bear's sign lies in its own
   area** (2026-09-28), not spread everywhere, and is plain on entering that area — nobody has to
   examine the ground in every room to find it. *The actors' rules are owned by an
@@ -237,25 +250,25 @@ lying on the ground is wet outside; what stands, or hangs, or is sheltered is dr
 
 | animal | where | how it shows in the first week of October | how you get it | yield (document 10 owns the numbers) |
 |---|---|---|---|---|
-| snowshoe hare | willow thickets, the hare runs (document 01) | still mostly brown, the moult to white just beginning — the white patches show against the brown ground, and the brown stands out on the first snow; every run printed in it once the flurries come; a flash of brown and white | a snare on a run — set where fresh tracks show the run is in use, it catches far more than one set off it — a spring pole, checked later (hours); a thrown stick or rock rarely; the fox robs snares | ~800–1,000 kcal each; the pelt; gutting one bare-handed risks rabbit fever (tularemia) (ADF&G) |
-| willow ptarmigan | willow bars, muskeg edge | a small group — the females come down to the willow in small groups (ADF&G), mottled and turning white; they let you close | anything within reason thrown — misses several times with honest feedback ("the rock thumps into the snow a foot short; the birds shuffle"); a sling; a snare in a gap in a brush fence; finding rocks is its own search | one bird (~570 g live, ADF&G), ~350 kcal |
-| spruce grouse ("fool hen") | spruce forest, low branches | sits and stares; eating spruce needles | anything within reason thrown at close range; a noose on a pole — the tamest bird in the valley | ~300 kcal a bird |
-| ruffed grouse | the aspen and birch | budding in the aspen at dusk; flushes hard and loud | anything within reason thrown — harder than the spruce grouse | ~300 kcal a bird |
-| red squirrel | spruce forest, its midden (a mound of cone scales) | chatter; cones being cut and dropped; mushrooms hung in the branches; the midden | raid the midden for cached cones (seeds, small calories — the cones open by a fire); the squirrel itself is a hard throw; a squirrel pole | seeds; ~100–150 kcal the animal |
-| vole | the grass and moss of the tussocks | tunnels, a scurry | a deadfall trap; hours; tiny | ~25 kcal; better as bait |
-| wood frog | the leaf litter by the ponds | nothing — in its winter shelter under the litter, cold and torpid, not yet frozen (Larson et al. 2014) | scraping the litter | a few grams: a find, not a food source — the real animal in the place of the lizards |
-| beetle grubs | under the bark and in the sapwood of dead spruce (whitespotted sawyer — big grubs); rotten logs and stumps | nothing until the bark comes off or the log splits | peel the bark, split the log — a blade, a hatchet, or bare hands on punk wood | a handful of food, and bait; the bugs of the 2026-09-17 decision |
-| carpenter ants | rotting logs and stumps | a cold, slow cluster in the galleries | split the log | a sour pinch of food; bait |
-| creek larvae (stonefly, caddisfly) | under the stones of the creek and the pool's riffle | the caddis in little cases of grit, the stoneflies flat under the stone — active all winter | turn the stones in the cold water, with wet, cold hands (document 08) | bait for fish; a few grams of food |
+| snowshoe hare | willow thickets, the hare runs (document 01) | still mostly brown, the moult to white just beginning — the white patches show against the brown ground, and the brown stands out on the first snow; every run printed in it once the flurries come; a flash of brown and white | a snare on a run — set where fresh tracks show the run is in use, it catches far more than one set off it — a spring pole, checked later (hours); a thrown stick or rock rarely; the fox robs snares | ~650–800 kcal each with the heart and liver (1.4–1.8 kg live, ADF&G; about 40 % of it eaten, at 114 kcal per 100 g, USDA); the pelt; gutting one bare-handed risks rabbit fever (tularemia) (ADF&G) |
+| willow ptarmigan | willow bars, muskeg edge | a small group — the females come down to the willow in small groups (ADF&G), mottled and turning white; they let you close | anything within reason thrown — misses several times with honest feedback ("the rock thumps into the snow a foot short; the birds shuffle"); a sling; a snare in a gap in a brush fence; finding rocks is its own search | one bird (~570 g live, ADF&G), ~250–300 kcal |
+| spruce grouse ("fool hen") | spruce forest, low branches | sits and stares; eating spruce needles | anything within reason thrown at close range; a noose on a pole — the tamest bird in the valley | ~250–300 kcal a bird |
+| ruffed grouse | the aspen and birch | budding in the aspen at dusk; flushes hard and loud | anything within reason thrown — harder than the spruce grouse | ~250–300 kcal a bird |
+| red squirrel | spruce forest, its midden (a mound of cone scales) | chatter; cones being cut and dropped; mushrooms hung in the branches; the midden | raid the midden for cached cones (seeds, small calories — the cones open by a fire); the squirrel itself is a hard throw; a squirrel pole | seeds; ~100 kcal the animal |
+| vole | the grass and moss of the tussocks | tunnels, a scurry | a deadfall trap; hours; tiny | ~20–30 kcal; better as bait |
+| wood frog | the leaf litter by the ponds | nothing — in its winter shelter under the litter, cold and torpid, not yet frozen (Larson et al. 2014) | scraping the litter | ~5–10 kcal: not a food source — the real animal in the place of the lizards |
+| beetle grubs | under the bark and in the sapwood of dead spruce (whitespotted sawyer — big grubs); rotten logs and stumps | nothing until the bark comes off or the log splits | peel the bark, split the log — a blade, a hatchet, or bare hands on punk wood | ~20–40 kcal a handful, and bait; the bugs of the 2026-09-17 decision |
+| carpenter ants | rotting logs and stumps | a cold, slow cluster in the galleries | split the log | ~10 kcal a handful, sour; bait |
+| creek larvae (stonefly, caddisfly) | under the stones of the creek and the pool's riffle | the caddis in little cases of grit, the stoneflies flat under the stone — active all winter | turn the stones in the cold water, with wet, cold hands (document 08) | bait for fish; a few kcal |
 | bugs wintering under bark and litter | loose bark, the leaf litter, dead stumps | snow mosquitoes, wasp queens, spiders — still and cold | peel the bark, scrape the litter | a find, not food |
 | the wasp nest | a spruce branch, under an overhang | grey paper, empty or nearly so | take it down | its paper burns |
-| grayling, whitefish, burbot | the lake, the pool (document 01) | nothing, until you fish; open water | cast a line into open water; the ice breaks if you walk out on it (Andrew, 2026-09-27); spear; net (document 10 §4.8) — line and hooks, or wire | ~300 kcal a grayling to ~1,600 for a big burbot with its liver; the best single meal |
+| grayling, whitefish, burbot | the lake, the pool (document 01) | nothing, until you fish; open water | cast a line into open water; the ice breaks if you walk out on it (Andrew, 2026-09-27); spear; net (document 10 §4.8) — line and hooks, or wire | ~150–350 kcal a grayling to ~1,600 for a big burbot with its liver; the best single meal |
 | northern pike *(candidate)* | the lake, if it is a lowland lake deep enough to overwinter fish | nothing, until you fish | casting, jigging, a set line, spearing (ADF&G) | ~500–1,800 kcal a fish |
-| beaver | the lodge and its feed pile (document 01, S9) | out at dusk cutting and towing branches to the feed pile before the ice locks the pond; the tail-slap alarm; fresh-chewed stumps | on land at dusk and wary: a snare or a trap at its slide, a club or a spear at close range — hard; once the ice seals the pond it lives under it | a 17–32 kg animal (ADF&G) — rich meat, the tail's fat |
-| muskrat *(candidate)* | the marsh edge, if the lake has one | push-ups of vegetation once the ice forms (ADF&G) | a snare or a spear at the push-up | 0.9–1.8 kg (ADF&G) |
+| beaver | the lodge and its feed pile (document 01, S9) | out at dusk cutting and towing branches to the feed pile before the ice locks the pond; the tail-slap alarm; fresh-chewed stumps | on land at dusk and wary: a snare or a trap at its slide, a club or a spear at close range — hard; once the ice seals the pond it lives under it | an 18–32 kg animal (ADF&G) — ~10,000–20,000 kcal of rich meat (146 kcal per 100 g, USDA), and the tail's fat |
+| muskrat *(candidate)* | the marsh edge, if the lake has one | push-ups of vegetation once the ice forms (ADF&G) | a snare or a spear at the push-up | 0.9–1.8 kg (ADF&G) — ~600–1,100 kcal |
 | ravens, gray jays (Canada jay, camp robber, whiskey jack) | the wreck, any camp | actors (§4.1a): the raven pair finds your cache first, the jays within the hour; their gathering marks a carcass (document 12 §4.3a) | not food; a pressure and a sign | — |
-| **the bear** (Andrew, 2026-09-26) | wherever food is: the berry slopes, the root bench, the creek; the wreck, once it smells food there | tracks, berry-filled scat, dug-up roots, a torn stump — then the bear | an actor (§4.1a); fighting it is the combat system with real odds, and the bear can kill (Andrew, 2026-09-27); a kill is a fall bear heavy with fat — and the trichinosis worm in the meat, so it is always cooked through (document 10 §4.6) | the richest food in the valley, and the most dangerous thing in it |
-| fox, marten, lynx | tracks everywhere in the new snow; the marten set on the trapline (document 01) | sign, rarely the animal; the fox follows the snare line | the trapline's old sets, if repaired | a pelt, a little meat |
+| **the bear** (Andrew, 2026-09-26) | wherever food is: the berry slopes, the root bench, the creek; the wreck, once it smells food there | tracks, berry-filled scat, dug-up roots, a torn stump — then the bear | an actor (§4.1a); fighting it is the combat system with real odds, and the bear can kill (Andrew, 2026-09-27); a kill is a fall male of ~200–300 kg: some 70–100 kg of meat (~110,000–160,000 kcal at 161 kcal per 100 g, USDA; about a third of live weight is meat, as hunters find) and tens of kilograms of fat — weeks of food for the whole party; the trichinosis worm is in the meat, so it is always cooked through (document 10 §4.6) | the richest food in the valley, and the most dangerous thing in it |
+| fox, marten, lynx | tracks everywhere in the new snow; the marten set on the trapline (document 01) | sign, rarely the animal; the fox follows the snare line | the trapline's old sets, if repaired | a pelt; ~4,000–6,000 kcal a lynx, ~1,500–3,000 a fox, a few hundred a marten |
 | great horned owl | the spruce, at night; all year in the interior | a call | — | — |
 
 ### 4.4 What the valley actually yields — and why it is not enough *(proposed by Claude, for Andrew's check)*
@@ -292,16 +305,16 @@ counts (3 L a day each).
 
 | source | what a unit gives | realistic take | what it takes |
 |---|---|---|---|
-| snowshoe hare | ~800–1,000 kcal (1.4–1.8 kg live, about half of it meat at ~111 kcal per 100 g) | ten snares on used runs: **roughly one hare a night at the peak of the cycle, one a week or less at the bottom** — the one published capture rate found is about 0.07 per trap-night at a hare's centre of activity, falling off within ~200 m (a capture–recapture study with live traps) | setting a line, and waiting overnight; the fox takes some |
-| willow ptarmigan | ~350 kcal (570 g live, ADF&G) | one on a lucky day | anything thrown, several misses, luck |
-| spruce and ruffed grouse | ~300 kcal a bird | one or two a day while the 25–40 last | close range, a rock, a stick or a pole noose |
+| snowshoe hare | ~650–800 kcal (1.4–1.8 kg live, about 40 % of it eaten at 114 kcal per 100 g) | ten snares set at narrow spots on runs with fresh tracks: **about two hares a night in a middle year** — each catches about one night in five (ADF&G's Alaska hare studies found 10–50 % trap success by season; a trapper reports 3 hares from 15 snares the first night); off the runs, almost never; the hare year moves it (document 10 §4.8) | setting a line, and waiting overnight; the fox takes about one catch in five |
+| willow ptarmigan | ~250–300 kcal (570 g live, ADF&G) | one on a lucky day | anything thrown, several misses, luck |
+| spruce and ruffed grouse | ~250–300 kcal a bird | one or two a day while the 25–40 last | close range, a rock, a stick or a pole noose |
 | red squirrel midden | roughly a kilocalorie of seed per cone (estimate: a white-spruce cone holds a few dozen oil-rich seeds of a few milligrams — a squirrel lives on a hundred-odd cones a day); the dried mushrooms besides | a few hundred cones an hour's raid — **a few hundred kcal**, after the cones are opened by a fire and threshed | finding a midden, an hour of raiding, more hours of fire and threshing |
-| fish | ~300 kcal a grayling; ~400–900 a whitefish; ~600–1,600 a burbot with its liver; ~500–1,800 a pike | **0–3 fish a day** for a party that works at it (estimate — no interior catch rate found; ADF&G: burbot bite from sunset to midnight) | a line cast into the open lake from its shore, the creek or the pool; the ice never holds a person this week |
+| fish | ~150–350 kcal a grayling; ~400–900 a whitefish; ~600–1,600 a burbot with its liver; ~500–1,800 a pike | **0–3 fish a day** for a party that works at it (estimate — no interior catch rate found; ADF&G: burbot bite from sunset to midnight) | a line cast into the open lake from its shore, the creek or the pool; the ice never holds a person this week |
 | berries, early in the week | lingonberry ~44 kcal per 100 g; rose hips ~160 | a quarter to half a kilogram of lowbush cranberries an hour by hand on bare or dusted ground (estimate — no picking-rate data found): **~100–220 kcal an hour**; rose hips somewhat more once cleaned | cold hands (document 08); after day 6, near zero for bog cranberry and bearberry, slower and wetter for lowbush cranberry picked through the snow; highbush cranberry, rose hips and mountain ash stay above it |
 | roots, inner bark, lichen | a few hundred kcal for hours of work, hard to digest raw (cooked starch gives more — document 10 §4.6); wild potato comes in ounces a plant, and a person would need about four pounds of the roots a day to live on them (Holloway, UAF) | a few hundred kcal | a blade, a fire, patience; the frozen crust first |
 
-**So a good early day of foraging by the whole party is about 1,500–3,500 kcal** — nearer 5,000 at the
-peak of the hare cycle with fish biting and berries still out — **against 12,000–16,000 burned; late in
+**So a good early day of foraging by the whole party is about 2,000–4,000 kcal** — nearer 5,000–6,000 at
+the peak of the hare cycle with fish biting and berries still out — **against 12,000–16,000 burned; late in
 the week, in a poor hare year, 500–1,500.** It closes as the week goes: the snow covers the low berries,
 the stocks of grouse and hares are taken down, the ponds skin over, and the bear, still up, grows bolder. The
 country is *a brake on starvation, never a living*. The shape of the week: what the plane holds carries
@@ -309,8 +322,8 @@ them — the freight and people's bags — foraging stretches it, most in the fi
 six they are in real deficit, which is why the pilot's body becomes a question rather than a horror
 story. The run ends rescued or dead (document 21).
 
-**The exceptions are the big animals.** A beaver or the bear killed changes the whole run —
-hundreds of kilograms of meat, or a fall bear's fat — and each is a combat act with real physics and
+**The exceptions are the big animals.** A beaver (~10,000–20,000 kcal) or the bear (70–100 kg of meat
+and tens of kilograms of fat) killed changes the whole run — and each is a combat act with real physics and
 real danger (document 10 §4.8). None of them is in the daily yield.
 
 **The hare cycle is a seeded run variable.** Snowshoe hare numbers swing roughly tenfold on a ten-year
@@ -365,7 +378,7 @@ country's own spoiled and poisonous things are §4.2 above.
   found where rocks are — the ridge, the creek bar, the muskeg erratic — and once snow lies it hides the
   small ones. What a throw does is told as feedback, never as a dice roll (2026-09-27); its terms are
   real: range, the projectile's mass and shape, the target's size and behaviour, the thrower's arm and
-  cold hands (document 08). The odds rise with tries for a real reason — the thrower learns the range of
+  cold hands (document 08); the starting chances are document 10 §4.8. The odds rise with tries for a real reason — the thrower learns the range of
   a bird that stays put, and a spruce grouse stays put — and fall when the bird is alarmed (a ptarmigan
   runs or flushes). A sling adds range and power and is harder to aim until practised; making one needs
   a pouch and two cords. A miss lands somewhere, and the rock is in the moss or the snow.
@@ -393,8 +406,9 @@ snowshoe hare, willow ptarmigan, beaver, muskrat, common raven, red squirrel, Ar
 Ghimirey et al., *Royal Society Open Science* 2025, and Mills et al., *PNAS* 2013 (hare moult); Larson
 et al., *J Exp Biol* 2014 (wood frogs); Ellison 1968 (spruce grouse); Smith 1968 and later
 interior-Alaska red squirrel studies; Dupuis et al. 2014 (humpback whitefish spawning); ADF&G interior
-winter-fishing guide, "How to set line for burbot" and "Spear fishing in Interior Alaska"; a
-snowshoe-hare capture–recapture study (capture probability ~0.07 per trap-night); Matvaretabellen
+winter-fishing guide, "How to set line for burbot" and "Spear fishing in Interior Alaska"; ADF&G,
+*Snowshoe Hare Studies* (Ernest 1974; trap success by season) and trappers' snaring reports; USDA game-meat
+energy (rabbit, beaver, bear, muskrat); Matvaretabellen
 (lingonberry energy); USDA (wild rose hips; rabbit meat); Institute of Medicine 1996 (energy needs in
 the cold); reviews of protein toxicity ("rabbit starvation"); *Mousefood* (Yup'ik root caches);
 Alaska Science Forum, "How mosquitoes overwinter in Alaska" and "Springtails: a sign of the season";
@@ -452,7 +466,9 @@ Andrew's check.
   and the bugs; the bear is the one really dangerous animal. The plants kept, with their most common
   names (mountain ash, wild potato). Six plants added: sphagnum moss, bunchberry, dry grass and sedge
   and dead fireweed, yarrow, willow as material, and what the valley gives a fire this week (§4.2a).
-  The animals kept (gray jay, great horned owl); snares set on runs that fresh tracks show in use.
+  The animals kept (gray jay, great horned owl); snares set on runs that fresh tracks show in use;
+  the calories redone; balance — effort pays, eventually, with starting chances in document 10 §4.8;
+  unseen animals decided by odds and shown when seen.
 
 ## 8. What exists today
 

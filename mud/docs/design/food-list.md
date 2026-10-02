@@ -86,24 +86,24 @@ From document 23 §4.3, §4.4 and document 10 §4.4, §4.8. How each is taken is
 
 | food | where | what it gives | what to watch | status |
 |---|---|---|---|---|
-| snowshoe hare | willow thickets, the hare runs | ~800–1,000 kcal each; the pelt | very lean (rabbit starvation, §6); gutting bare-handed risks rabbit fever (tularemia); the hare cycle is a seeded run variable | 📐 |
-| willow ptarmigan | willow bars, muskeg edge | ~350 kcal a bird | lean | 📐 |
-| spruce grouse | spruce forest | ~300 kcal a bird | each one taken is gone for the run | 📐 |
-| ruffed grouse | aspen and birch | ~300 kcal a bird | harder to hit | 📐 |
-| red squirrel, and its midden | spruce forest | the animal ~100–150 kcal; the midden's cached cones, a few hundred kcal an hour's raid once the cones are opened by a fire | — | 📐 |
-| vole | the grass and moss of the tussocks | ~25 kcal; better as bait | — | 📐 |
-| wood frog | the leaf litter by the ponds | a few grams — a find, not a food source | — | 📐 |
-| beetle grubs | under the bark of dead spruce; rotten logs | a handful; bait | — | 📐 |
-| carpenter ants | rotting logs and stumps | a sour pinch; bait | — | 📐 |
-| creek larvae (stonefly, caddisfly) | under the creek's stones | a few grams; bait for fish | cold, wet hands | 📐 |
-| grayling | the lake, the pool | ~300 kcal a fish | — | 📐 |
+| snowshoe hare | willow thickets, the hare runs | ~650–800 kcal each; the pelt | very lean (rabbit starvation, §6); gutting bare-handed risks rabbit fever (tularemia); the hare cycle is a seeded run variable | 📐 |
+| willow ptarmigan | willow bars, muskeg edge | ~250–300 kcal a bird | lean | 📐 |
+| spruce grouse | spruce forest | ~250–300 kcal a bird | each one taken is gone for the run | 📐 |
+| ruffed grouse | aspen and birch | ~250–300 kcal a bird | harder to hit | 📐 |
+| red squirrel, and its midden | spruce forest | the animal ~100 kcal; the midden's cached cones, a few hundred kcal an hour's raid once the cones are opened by a fire | — | 📐 |
+| vole | the grass and moss of the tussocks | ~20–30 kcal; better as bait | — | 📐 |
+| wood frog | the leaf litter by the ponds | ~5–10 kcal — not a food source | — | 📐 |
+| beetle grubs | under the bark of dead spruce; rotten logs | ~20–40 kcal a handful; bait | — | 📐 |
+| carpenter ants | rotting logs and stumps | ~10 kcal a handful, sour; bait | — | 📐 |
+| creek larvae (stonefly, caddisfly) | under the creek's stones | a few kcal; bait for fish | cold, wet hands | 📐 |
+| grayling | the lake, the pool | ~150–350 kcal a fish | — | 📐 |
 | whitefish | the lake, the creek | ~400–900 kcal a fish | whether a run comes up the creek is for the loops | 📐 |
 | burbot | the lake, the pool | ~600–1,600 kcal with its liver — the liver's fat is worth more than its calories | bites from sunset to midnight | 📐 |
 | northern pike | the lake, if deep enough to overwinter fish | ~500–1,800 kcal a fish | — | ◌ |
-| beaver | the lodge and its feed pile | a 17–32 kg animal; rich meat; the tail's fat | wary, hard to take | 📐 |
-| muskrat | the marsh edge, if the lake has one | 0.9–1.8 kg | — | ◌ |
-| the bear | wherever food is | the richest food in the valley — a fall bear's fat | the most dangerous thing in the valley; **trichinosis worms in the meat — always cook it through** | 📐 |
-| fox, marten, lynx | tracks everywhere | a pelt, a little meat | rarely seen | 📐 |
+| beaver | the lodge and its feed pile | an 18–32 kg animal: ~10,000–20,000 kcal of rich meat; the tail's fat | wary, hard to take | 📐 |
+| muskrat | the marsh edge, if the lake has one | 0.9–1.8 kg: ~600–1,100 kcal | — | ◌ |
+| the bear | wherever food is | the richest food in the valley — 70–100 kg of meat (~110,000–160,000 kcal) and tens of kilograms of fat | the most dangerous thing in the valley; **trichinosis worms in the meat — always cook it through** | 📐 |
+| fox, marten, lynx | tracks everywhere | a pelt; ~4,000–6,000 kcal a lynx, ~1,500–3,000 a fox, a few hundred a marten | rarely seen | 📐 |
 
 ## 5. Parts of any kill
 
