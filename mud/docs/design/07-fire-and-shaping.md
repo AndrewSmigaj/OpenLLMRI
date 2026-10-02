@@ -175,7 +175,8 @@ tinder only.
    (the hand drill) → a coal → blow. Two people who know how make it far easier: they take turns
    spinning the same stick without letting it stop, so the heat never drops and each spends less
    stamina (2026-09-28) — an act of two people on one thing (documents 04 and 19).
-   It works with the right dry wood, and it costs stamina hard — tired, cold or raw hands fail, and the
+   It works with the right dry wood (which woods in the valley serve, and how dry they are this week, is
+   document 23 §4.2a), and it costs stamina hard — tired, cold or raw hands fail, and the
    stamina meter shows it. The bow drill (carve, split, notch, string with a bootlace or paracord,
    bundle, drill → ember → blow) takes much less stamina for the same coal. The ferro rod's spark is
    its own way (6).

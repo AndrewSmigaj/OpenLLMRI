@@ -60,6 +60,10 @@
 - **2026-10-02 — the plants (§4.2) kept**, with their most common names: mountain ash (rowan), a few
   shrubs, scattered in the interior; wild potato (Eskimo potato, Indian potato, sweetvetch, bear root);
   Labrador tea.
+- **2026-10-02 — six plants added** (§4.2, §4.2a): sphagnum moss (a dressing pad held on with a strip of
+  cloth; stuffing; bedding), bunchberry (the safe red berry beside baneberry), dry grass, sedge and dead
+  fireweed (dry where sheltered), yarrow, willow as material, and the woods a fire really uses this
+  week — realistic and thorough.
 
 ### Proposals (Claude)
 
@@ -206,7 +210,24 @@ presence in this valley is still to be checked against it.
 | reindeer lichen | the ridge, open spruce | grey mats, frosted at dawn and dusted by the first snow | famine food after boiling; acid otherwise | poor, but there |
 | rock tripe | the boulder field, the erratic | on the rock | famine lichen, edible after long boiling | sour and poor |
 | old-man's-beard lichen | spruce branches | grey strands | tinder (excellent) | not food |
-| birch bark, punk wood | the birch stand, the aspen fringe | dry | fire (document 07) | already designed |
+| sphagnum moss | the muskeg everywhere; drier on the tops of the hummocks | green to red-brown, soaked in the hollows, frosted at dawn | a wound dressing — very absorbent and mildly antiseptic (used in field dressings in the First World War): a pad held on with a strip of cloth; wrung out and dried, stuffing for boots and clothes; bedding | wet where it grows — it has to be wrung out and dried before it insulates |
+| bunchberry (dwarf dogwood) | the spruce floor, the birch stand — in the same shade as baneberry | a tight cluster of bright red berries at the top of a hand-high plant, its whorl of leaves turning red; the berries stay on until late fall | food — edible, bland, dry and seedy | the safe red berry beside the poison one: baneberry's glossy berries each sit on their own stalk with a dark eye, on a taller leafy plant |
+| dry grass, sedge, dead fireweed | open ground, the tussocks, clearings | standing dead, cured on the stem. Frost and the flurries wet what lies in the open each day, and a breezy afternoon dries it again; it stays dry where sheltered — inside a tussock's base, under dense spruce, under an overhang or a leaning tree. Dead fireweed stalks stand and shed water; little of the fireweed's fluff is left this late | tinder (a bundle carried inside a coat dries with body heat); insulation stuffed into clothes; bedding | the leaf litter is damp below its top layer — poor tinder |
+| yarrow | open, dry ground, the ridge, clearings | dead stalks and flat seed heads still standing; feathery leaves at the base | the traditional herb for slowing bleeding — weak at best, and the manual says so; a bitter tea | — |
+| willow, as material | the willow bars, the creek | bare, flexible shoots; dead, dry stems in the thickets | withies for lashing, fish traps and baskets; dry dead willow for a bow drill (§4.2a); the bark's tea is above | — |
+
+### 4.2a What the valley gives a fire this week
+
+Fire itself is document 07; this is what grows here for it, and how dry it is in the first week of
+October — frost each night, flurries on and off, the air dry between them (document 13 §4.2). Wood
+lying on the ground is wet outside; what stands, or hangs, or is sheltered is drier.
+
+| for | what | where, and how dry this week |
+|---|---|---|
+| **tinder** | birch bark (its oils burn even when it is damp); old-man's-beard lichen; the fine dead twigs under a big spruce; spruce pitch, and pitch-soaked wood at old wounds and stumps; the dry core of dead wood, split out; dry grass and dead fireweed from sheltered places; shredded dry inner bark of dead willow, aspen or poplar; chaga and tinder conk to hold an ember; cattail fluff where there is a stand | the dead twigs under a dense spruce stay dry in any weather, and so does what lies under a leaning or toppled tree or a rock overhang; dead branches still on the tree are drier than wood on the ground |
+| **kindling and fuel** | standing dead spruce — dry inside even in snow, the best fuel; dead branches still on the tree; downed wood, its wet outside split away to the dry core; aspen and willow (light, quick); alder by the creek (burns hot; smokes fish); tamarack in the muskeg, its needles gold and falling this week (burns hot); dead birch, which rots fast inside its waterproof bark, so a downed birch is often punky while its bark is still the best tinder; green spruce boughs for smoke (document 14) | standing and hanging wood is drier than downed; green wood smokes and smoulders |
+| **friction fire** (document 07's ways) | a hearth board and spindle of dry, dead, soft, non-resinous wood: willow, aspen, cottonwood (balsam poplar), tamarack, and dry spruce without pitch | green or damp wood fails, and pitchy wood glazes the hole; a dead branch still on the tree is the driest choice |
+
 
 ### 4.3 Fauna — what is there, and how you get it (proposal)
 
@@ -378,7 +399,9 @@ Alaska Science Forum, "How mosquitoes overwinter in Alaska" and "Springtails: a 
 USDA Forest Service, *Carpenter Ants in Alaska*; whitespotted sawyer life history (*Northern
 Woodlands*; forestpests.org); J. Hudson, K. Hocker and R. H. Armstrong, *Stoneflies* and *Caddisflies*
 (aquatic insects of Alaska) (bugs, looked up 2026-10-01); USDA, *Pocket Guide to Alaska Trees* (mountain ash in the interior,
-looked up 2026-10-02).
+looked up 2026-10-02); Missouri Botanical Garden, *Cornus canadensis* (bunchberry fruit persisting to late
+fall); bushcraft references on bow-drill woods (willow, aspen, cottonwood, dry non-resinous spruce) and
+on dry tinder in snow (2026-10-02).
 
 ## 5. Interactions
 
@@ -425,7 +448,8 @@ Andrew's check.
   few played by a model at once; which actors a model plays set per run.
 - **2026-10-02 (Andrew):** no lizards — the small, quick things are the voles, squirrels, the wood frog
   and the bugs; the bear is the one really dangerous animal. The plants kept, with their most common
-  names (mountain ash, wild potato).
+  names (mountain ash, wild potato). Six plants added: sphagnum moss, bunchberry, dry grass and sedge
+  and dead fireweed, yarrow, willow as material, and what the valley gives a fire this week (§4.2a).
 
 ## 8. What exists today
 

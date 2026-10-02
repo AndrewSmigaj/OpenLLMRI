@@ -57,6 +57,7 @@ snow stays (document 13 §4.2).
 | lowbush cranberry (lingonberry) | tussocks, spruce floor | ~44 kcal per 100 g; a real calorie trickle, frost-sweetened | a hand high, it pokes through the week's snow; slower and wetter to pick once snow lies | 📐 |
 | bog cranberry | the muskeg's moss | small, sour | under the snow after day 6 | 📐 |
 | crowberry | muskeg, ridge | bulk, low value; sweeter after frost | easy to overeat | 📐 |
+| bunchberry (dwarf dogwood) | the spruce floor, the birch stand | bland, dry and seedy; a handful | grows in the same shade as baneberry — the safe red berry beside the poison one | 📐 |
 | highbush cranberry | willow bars, the creek | very sour; a few handfuls | stays above the snow | 📐 |
 | rose hips | creek, forest edge | ~160 kcal per 100 g — the richest fruit in the valley; vitamin C | the seeds and their itching hairs must come out | 📐 |
 | mountain ash (rowan) berries | the birch stand — a few shrubs | food once frost and cooking have worked on them | **raw and in quantity, sick-making** (an acid in the raw berries) | 📐 |

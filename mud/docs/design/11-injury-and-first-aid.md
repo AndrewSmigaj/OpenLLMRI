@@ -374,7 +374,8 @@ sanitizer are alcohol: they clean a blade and intact skin, but in the wound they
 germs and hurt badly — a real act, worse than clean water. Whatever covers the wound carries its own
 contamination as provenance, the way a vessel does (document 09 §4.6): a torn-up shirt makes a
 dressing, as any cloth does, and brings whatever it carries — a boiled strip cleanest, a shirt worn for
-days less clean. A sewing needle and thread (document 16) close a wound as well as the suture kit
+days less clean. Sphagnum moss from the muskeg makes an absorbent pad, held on with a strip of cloth
+(document 23 §4.2). A sewing needle and thread (document 16) close a wound as well as the suture kit
 does, once the needle is boiled, held in a flame or soaked in whisky. And **closing** a dirty wound traps it — the guideline leaves a grossly
 contaminated wound open and packed — so the nurse's suture kit is a real choice with a real downside,
 not a finish line. Boiling a strip or a blade is the heat design's (to be written).
