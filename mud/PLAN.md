@@ -366,8 +366,8 @@ it says so. When a decision changes, this list and every document it touches cha
   food from the country takes a few attempts and some waiting, and a party that really tries gets something;
   starting chances per way of taking an animal (document 10 §4.8; a snare on a good run about one night in
   five); unseen animals are decided by odds and shown when seen; wildlife comes and goes — met now and then, never
-  ridiculously often, found by walking and looking, the rates tuned by playthroughs (2026-10-02). Claude proposes the list (document 23,
-  for Andrew's check). Flora and fauna are filtered by ecology — this habitat, this month, real numbers.
+  ridiculously often, found by walking and looking, the rates tuned by playthroughs (2026-10-02). The list is document 23, reviewed
+  2026-10-02. Flora and fauna are filtered by ecology — this habitat, this month, real numbers.
   (2026-09-17, 2026-09-18, 2026-09-26, 2026-09-27)
 
 **Time and the run**

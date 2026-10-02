@@ -39,7 +39,8 @@
   variants, because the difference is ontologically significant, within the grammar rules; and you can
   kill things in other ways — stab with a spear, beat with a stick.
 - **(2026-09-17, 2026-09-26, 2026-09-27)** A bear is in; there is no wolverine. The bear, some bigger
-  animals and a few birds act (document 23 proposes which, for Andrew's check); the fish are scripted.
+  animals and a few birds act (which is document 23 §4.1a, decided 2026-10-01); the fish are scripted;
+  no wolves (2026-10-01).
 - **(2026-09-27)** There is no survival kit — it would make the game too easy.
 - **(2026-09-27, 2026-09-28)** Holt's cabin is supplies: some trapline gear, an axe, and modest stores,
   not piles of food.
@@ -197,7 +198,7 @@ do; ptarmigan flush (food if you're quick); and the scavengers come again wherev
 food is mishandled — the world's first scavenger pressure. Storing food badly is a mechanic, not a
 flavour note.
 
-**The scavengers act** *(proposed by Claude, for Andrew's check — document 23 §4.1a)*. The **bear**,
+**The scavengers act** (document 23 §4.1a, 2026-10-01). The **bear**,
 a male grizzly up all week and feeding hard before he dens, follows its nose to food from a long way off, and food kept
 at the wreck is what brings it there — the most dangerous thing in the valley is drawn by the easiest
 mistake; the **raven** pair and a **gray jay** or two find a cache within the hour; the **fox** robs a
@@ -318,8 +319,8 @@ in *this* habitat, in this month, in numbers that matter, is. On that test:
 None of these replaces anything, and nothing is dropped for being surplus. The list is a floor — but a
 floor of things that are genuinely *there*, in the numbers document 23 §4.4 gives them.
 
-**What October adds** *(proposed by Claude, for Andrew's check; each is a row in document 23 §4.2–§4.3
-with its source and its density)*: **bog cranberry** in the muskeg; the **velvet foot**, a mushroom
+**What October adds** (each a row in document 23 §4.2–§4.3 with its source and its density, reviewed
+2026-10-02): **bog cranberry** in the muskeg; the **velvet foot**, a mushroom
 that fruits in the cold on dead aspen and poplar, and the **deadly galerina** on the rotting logs
 beside it — the one real lookalike that kills in life, and in the game makes a person very sick, since
 poison never kills (2026-09-27); the **fly agaric**, the valley's commonest poisonous mushroom, and the
