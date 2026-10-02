@@ -10,8 +10,9 @@
   pockets, and you do not choose what the crash did to you — but the start is light: nobody is crippled
   or hindered for the sake of it. Most wake with minor bumps and bruises; one has a cut, which sends the
   party looking for bandage material, and one a concussion (§4.2).
-- **(2026-09-07)** Decisions across the moral spectrum — the injured are one of the places that lands:
-  who gets carried, who gets the bandage, who gets left by the fire.
+- **(2026-09-07)** Decisions across the moral spectrum (Andrew's examples: eating the pilot, stealing,
+  hitting, killing). *(Claude's, not yet decided: the injured are one of the places this lands — who gets
+  carried, who gets the bandage, who gets left by the fire.)*
 - **(2026-09-16, 2026-09-26)** No lethal-consent gate; violence resolves with real physics, and there is a
   combat system like a MUD's — stab with a spear, beat with a stick. Wounds are wounds whoever caused
   them; the engine does not soften a blow.
@@ -34,8 +35,8 @@
   but never kills.
 - **(2026-09-27)** **Characters differ in how well and how fast they do things.** A character's success
   and the time an act takes depend on who they are — a woodsman lights fires better, and a nurse's
-  hands are better at wound care. It shows only in the outcome, never as advice; the player still has
-  to know what to do. It lives on a hidden skill sheet that starts from the seat and rises with practice
+  hands are better at wound care. It shows in the outcome and in subtle cues in what the character notices — never a "do this"
+  hint (2026-10-02); the player still has to know what to do. It lives on a hidden skill sheet that starts from the seat and rises with practice
   (document 16 §4.1, 2026-10-02).
 - **(2026-09-27)** **No hit points.** A wound is a named thing on a body part — a kind, a severity,
   bleeding or not, bound or not, and later infection — and each part has its own heat, wetness, pain
@@ -148,8 +149,8 @@ start to matter, and first aid stops being a one-off act and becomes a thing you
    the sleeve is soaking.
 8. **Trained hands** (2026-09-27). A character's trade changes how well and how fast they do the acts
    of that trade: the nurse's stitches close neater and cleaner and take less time, and her splint
-   holds. It shows only in the outcome (*"the edges meet neatly"*), never as advice, and it applies to
-   an agent exactly as to a human.
+   holds. It shows in the outcome (*"the edges meet neatly"*) and in subtle cues in what the character
+   notices, never as a "do this" hint (2026-10-02), and it applies to an agent exactly as to a human.
 
 ### 4.2 The starting draw (content — shipped in `characters.py`)
 
@@ -376,8 +377,9 @@ germs and hurt badly — a real act, worse than clean water. Whatever covers the
 contamination as provenance, the way a vessel does (document 09 §4.6): a torn-up shirt makes a
 dressing, as any cloth does, and brings whatever it carries — a boiled strip cleanest, a shirt worn for
 days less clean. Sphagnum moss from the muskeg makes an absorbent pad, held on with a strip of cloth
-(document 23 §4.2). A sewing needle and thread (document 16) close a wound as well as the suture kit
-does, once the needle is boiled, held in a flame or soaked in whisky. And **closing** a dirty wound traps it — the guideline leaves a grossly
+(document 23 §4.2). A sewing needle and thread (document 16) close a wound, though worse than the suture kit — sewing
+thread is braided and wicks germs in, and a straight needle tears more — once the needle is boiled,
+held in a flame or soaked in whisky. And **closing** a dirty wound traps it — the guideline leaves a grossly
 contaminated wound open and packed — so the nurse's suture kit is a real choice with a real downside,
 not a finish line. Boiling a strip or a blade is the heat design's (to be written).
 
@@ -438,7 +440,7 @@ a pulse; **smell** gives an infected wound away. Wounds and parts carry this in 
 (document 05 §4.5). Asking is speech, and the person can answer truly or not. Each is its own act:
 `examine Mara`, `examine Mara's hand`, `feel Mara's forehead`, `take the glove off Mara's hand`.
 
-### 4.13 The `make a splint` rows (Andrew, 2026-09-18)
+### 4.13 The `make a splint` rows (the goal chosen 2026-09-18; its rows kept 2026-09-28)
 
 The goal table's rows for this system; the form and the dispatch rule are document 04 §3.9. Vague, `make`
 asks how; given the means it performs the act they imply and this system answers.

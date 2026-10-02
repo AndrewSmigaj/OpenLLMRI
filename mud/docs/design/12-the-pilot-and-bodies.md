@@ -13,7 +13,7 @@
 - **(2026-09-16, 2026-09-26)** No lethal-consent gate; violence resolves with real physics, and there
   is a combat system like a MUD's.
 - **(2026-09-17)** **The pilot starts the run dead.** He is a body from the first look: no clock, no
-  moaning, no lines. He carries no clues — the party does not need him to work out the rescue.
+  moaning, no lines. The party does not need him to work out the rescue; what he carries is what a real pilot would, and clues are what a realistic world holds, plus some added to help players, no set number (2026-09-27).
 - **(2026-09-17)** Dead players are ghosts: they move freely and talk only in the out-of-character
   chat; ghosts hear ghosts, the living cannot.
 - **(2026-09-17, 2026-09-27)** The endings are rescued or dead; the run ends when they die, of
@@ -53,7 +53,7 @@ at the end of §4.3a, and playtesting tunes it.
 ## 3. In one paragraph
 
 You come to in a wrecked Cessna in early October, and the man in the left seat is dead. Nothing about
-him will speak or move again, and nobody in the game will ever say a word about him. He is a body in the
+him will speak or move again, and the world never comments on him. He is a body in the
 cockpit: a leather flight jacket that comes off easily now and will fight you in a few hours, pockets
 full of what a pilot carries — a book of matches with two left among it — 78 kilos of a person, cooling. Over the days he goes stiff, then slack, and — as the frosty
 nights get into him — hard, from the fingers in, freezing through after the coldest night of the week.
@@ -67,7 +67,7 @@ hungry day, somebody does the arithmetic.
 
 | | |
 |---|---|
-| **He starts the run dead** (2026-09-17) | A body from the first look: no clock, no lines, no clues. The moral question starts on day one. |
+| **He starts the run dead** (2026-09-17) | A body from the first look: no clock, no lines. The moral question starts on day one. |
 | **Talking gets silence, never a list** | The never-a-menu rule (DR-08c): `talk to the pilot` answers with the physics of why ("nobody will"), not with topics or a prompt. |
 | **His body is food; eating it is taboo, not immoral** (2026-09-27) | The world never comments on it (document 15). |
 | **Nobody is told** (2026-09-27) | Nothing explains what can be done to a body, his or a dead player's; the tutorial rooms show what sort of things players can do. |
@@ -93,8 +93,8 @@ the grammar works on him, as on everything else (document 05).
 | `butcher pilot with knife` | the food path: an attended activity made of real cuts (§4.3a), witnessed by whoever is in perception band | document 15 |
 | `examine pilot` | states plainly that he is dead | census ✅ (prose) |
 
-**The pilot's body as a dilemma** (document 15): day 1 evening, no food found, cold rising; the
-tempting act is butchering him for meat; the alternative is to cover or bury him, ration, and accept
+**The pilot's body as a dilemma** (document 15): when the plane's food runs low, several days in, and
+the cold is rising, the tempting act is butchering him for meat; the alternative is to cover or bury him, ration, and accept
 the deficit. The world's answer is physical and recorded, never editorial: his body's states change
 (§4.3a), the act is witnessed by whoever could perceive it, and the other players know only what they
 saw or were told — what they think of it is theirs; there is no trust meter (document 15). Eating him is taboo, not immoral (2026-09-27). The hunger bands are what make the
@@ -260,7 +260,7 @@ None open. Reviewed in full with Andrew on 2026-09-28.
 
 ## 7. Review log
 
-- **2026-09-17 (Andrew):** the pilot starts the run dead — no clock, no lines, no clues; dead players
+- **2026-09-17 (Andrew):** the pilot starts the run dead — no clock, no lines; dead players
   are ghosts.
 - **2026-09-26 (Claude's self-review, for Andrew's check):** the body as an entity with parts and
   states; what butchering yields; raw, frozen, cooked and spoiled flesh; the body among the animals.

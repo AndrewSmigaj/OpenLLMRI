@@ -18,7 +18,7 @@
   searching, and there can be a few passes; an early flyover comes for the story, before a party is
   likely to be ready. Burning Holt's cabin down during a flyover brings a rescue. Searching the ground is
   an activity.
-- **(2026-09-17)** The pilot starts the run dead and carries no clues.
+- **(2026-09-17)** The pilot starts the run dead; the party does not need him to work out the rescue.
 - **(2026-09-18)** The radio's signal is continuous and heard as the world: a high screech of static
   with the antenna down, a low hum with it up, a faint voice as the dial turns, clearer as the signal
   improves; talking back gets broken answers asking you to repeat, and word to improve the signal.
@@ -84,9 +84,8 @@ until, through the screech and the hum, a faint voice answers — a person who w
 are, and who will come at the next daylight good for flying. **A signal a search plane can see** — you
 hear the engines first, and have that long to get smoke up dark against the snow or white against the
 spruce, or the blue tarp spread in the open; you might not make it. **Surviving long enough** — on the
-seventh day the rescuers find everyone still alive (2026-09-29); before then, under a half-clouded sky,
-with the trees around the wreck and the white plane on white ground after the sixth day's snow, being
-found by an early pass is work.
+seventh day the rescuers find everyone still alive (2026-09-29); before then, under a half-clouded sky
+and with the trees around the wreck, being found by an early pass is work.
 None of it shows a number, and nobody tells you what to do — except the voice on the radio, who talks
 like a rescuer. Meanwhile staying alive has its own several ways, in documents 08–11. (Written from Andrew's decisions.)
 
@@ -159,7 +158,7 @@ rescuers find everyone still alive (2026-09-29). **The ELT is broken** (2026-09-
 - **The plane is heard before it is seen** — a window to light a fire laid ready, which a party may
   miss.
 
-**The `make a signal` rows (Andrew, 2026-09-18).** The goal table's rows for this system; the form and
+**The `make a signal` rows** (the goal chosen 2026-09-18; its rows kept 2026-09-28). The goal table's rows for this system; the form and
 the dispatch rule are document 04 §3.9. Vague, `make` asks how; given the means it performs the act
 they imply and this system answers.
 
@@ -196,8 +195,8 @@ smoke that shows against snow; green boughs make white smoke that shows against 
   seen through a gap in the cloud — a real chance; day 5 the search narrowing toward this valley, a pass
   low along the creek in the afternoon — a real chance; day 6 the flurry grounds the search and nothing
   flies; **day 7 the rescue of everyone still alive**, in clear air over fresh snow.
-- **Findable takes work — for the early passes** (days 2–5): partial cloud and the trees hide the wreck from the air, and after day 6's
-  snow the white plane is white on white, so what the party builds decides it — smoke kept going, the
+- **Findable takes work — for the early passes** (days 2–5): partial cloud and the trees hide the wreck from the air, so what the party
+  builds decides it — smoke kept going, the
   tarp laid out, a sign laid or scraped in the open; the chimney smoke at Holt's cabin is a sign by
   itself. A party in radio contact that is not findable is
   told what to do.

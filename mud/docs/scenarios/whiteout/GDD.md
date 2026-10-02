@@ -250,8 +250,8 @@ the radio; one relays a landmark) so co-op is a shared-story engine, not paralle
 ## §19. The pilot
 > *Design:* [`12-the-pilot-and-bodies`](../../design/12-the-pilot-and-bodies.md)
 
-He starts the run dead (2026-09-17). He carries no clues; nothing the party needs for rescue depends on
-him. His body is food, and eating it is taboo, not immoral (2026-09-27). His kit is where he sat.
+He starts the run dead (2026-09-17). Nothing the party needs for rescue depends on him; what he carries is
+what a real pilot would, and clues are what a realistic world holds, plus some added — no set number. His body is food, and eating it is taboo, not immoral (2026-09-27). His kit is where he sat.
 Design: document 12.
 
 ## §31–§36. Survival systems

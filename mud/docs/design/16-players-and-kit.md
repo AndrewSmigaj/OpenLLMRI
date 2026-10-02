@@ -16,7 +16,8 @@
   chosen; it is decided the moment the run begins.
 - **2026-09-16 — the four-seat interior, and the kid.** The right seat, 1A, 1B, 2A and 2B, a hat shelf,
   a cargo net and a jammed cargo door (§4.6). The kid is in: the party is four adults and the kid.
-- **2026-09-17 — the pilot starts the run dead.** **2026-09-27:** he carries no clues.
+- **2026-09-17 — the pilot starts the run dead.** **2026-09-27:** clues are what a realistic world holds, plus some added to help
+  players — no set number.
 - **2026-09-18 — what you can carry.** Inventory is limited by weight and space; capacity lives on the
   things that carry (hands, pockets, bags, worn clothing, a dragged frame); bulk derives from density,
   and a gathered quantity is one aggregate; exceeding capacity is answered physically, never refused.
@@ -131,8 +132,8 @@ that character to take on the work it suits. Woods knowledge is likelier in the 
 tiredness act on top of it (documents 08, 11). Getting better with time is also what keeps a party
 that really tries from an endless run of bad luck (document 10 §4.8).
 
-The **pilot** is not a player slot. He starts the run dead (Andrew, 2026-09-17) and carries no clues
-(2026-09-27): what he wore and carried — a flight jacket, a lighter — is found on a body whose materials
+The **pilot** is not a player slot. He starts the run dead (Andrew, 2026-09-17); the party does not need him to work out the rescue,
+and what he wore and carried — what a real pilot would — is found on a body whose materials
 are skin, fat, muscle, bone, blood and organs (document 12 §4.3a).
 
 The draw makes the party heterogeneous, which is what makes sharing a real act — the blanket, the

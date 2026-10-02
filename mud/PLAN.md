@@ -332,7 +332,7 @@ it says so. When a decision changes, this list and every document it touches cha
   each try is plain dice, and getting better is what makes effort pay (2026-10-02).
   The start is light — nobody is crippled or hindered for the sake of it: minor bumps and bruises for
   most, one cut (which sends the party looking for bandage material) and one concussion. (2026-09-28)
-- **The pilot starts the run dead.** He carries no clues. His body is food, and eating it is taboo, not
+- **The pilot starts the run dead.** The party does not need him to work out the rescue; what he carries is what a real pilot would, and clues are what a realistic world holds, plus some added to help players, no set number (2026-09-27). His body is food, and eating it is taboo, not
   immoral. (2026-09-17, 2026-09-27)
 - **What is aboard:** there is no survival kit; the freight's flour is a 10 lb bag (2026-10-02) — the party gets by
   for a while on the plane's food but has to go out into the country to supplement it, never truly full unless it

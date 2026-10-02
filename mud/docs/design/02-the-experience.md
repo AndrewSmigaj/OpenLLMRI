@@ -60,7 +60,8 @@ The decisions that shape a run, in plain words; every one of them, with its date
   stories: the characters differ in clothes, injuries and what they carry, and in how well and how fast
   they do things (a woodsman lights fires better; a technically proficient character sees a fault in a
   device).
-- **The pilot (2026-09-17, 2026-09-27).** He starts the run dead and carries no clues. His body is food;
+- **The pilot (2026-09-17, 2026-09-27).** He starts the run dead; the party does not need him to work out the rescue,
+  and what he carries is what a real pilot would, and clues are what a realistic world holds, plus some added to help players, no set number (2026-09-27). His body is food;
   eating it is taboo, not immoral.
 - **What is aboard (2026-09-27).** There is no survival kit; the sleeping bag is buried with
   the tail wreckage; two blankets are hidden inside the plane; no firearm. Not too easy, not too hard.
@@ -204,7 +205,7 @@ on the clock today.
 | **the ground** | bare and icy — hoarfrost, frozen puddles; berries, deadfall and roots in plain sight; a dusting in the shade by day 2 | about a centimetre, patchy; the first tracks; the ground frozen a few centimetres down; the near deadfall used up, so every armful is a longer walk | about 2 cm | a couple of inches by night: the lowest berry mats and the small deadfall go under, and the lowbush cranberries poke through | crisp fresh snow — the best tracking of the week; the white wreck on white ground |
 | **water** | the lake's edge and the creek open; skim ice at dawn; the small ponds skin over at night | slush in the creek's eddies; shelf ice at its edges | the pond ice a couple of centimetres — it holds nobody | the snow lies on the pond ice and slows it | the lake skins over in its bays; the riffle stays open and steams; walking out on any ice breaks it |
 | **the search** | an early pass at dusk on day 1, high over the filed route, in the wrong place; the route search on day 2 — a chance for a party with a signal ready | the search widens off the route, lost in the cloud (day 3); a pass across the lake's far end, seen through a gap (day 4) — a real chance | a pass low along the creek — a real chance | grounded: nothing flies | **the rescue of everyone still alive** (2026-09-29), in clear air over fresh snow |
-| **the animals** | the bear — a male grizzly, up all week — feeding hard before his den, its sign first, following the smell of the pilot's body and the food; an owl at night | tracks in the first snow; the bear bolder as the camp smells of food | — | the flurry holds everything down | tracks circling the wreck in the fresh snow; ravens, jays and a fox work the camp |
+| **the animals** | the bear — a male grizzly, up all week — feeding hard before his den, its sign first, following the smell of the pilot's body and the food; an owl at night | tracks in the first snow; the bear bolder as the camp smells of food | — | the flurry holds everything down | a fox's tracks round the camp in the fresh snow; ravens and jays at the camp |
 | **bodies** | a cut, a concussion, bumps and bruises; clothes soaked by the wet flurries | a dirty wound shows infection; fever costs warmth and water | untreated infection spreads | feet wet for days take non-freezing cold injury | frostbite after the coldest night |
 
 ### 4.3 The endings

@@ -55,7 +55,8 @@ Andrew on 2026-09-17 and brought to the first week of October on 2026-09-27.
   is a dead character whose clothes and pockets can be searched; AI agents may play seats. No back
   stories — the characters differ in clothes, injuries and what they carry, and in how well and how fast
   they do things (document 16).
-- **The pilot (2026-09-17, 2026-09-27).** He starts the run dead and carries no clues. His body is food,
+- **The pilot (2026-09-17, 2026-09-27).** He starts the run dead; the party does not need him to work out the rescue,
+  and what he carries is what a real pilot would, and clues are what a realistic world holds, plus some added to help players, no set number (2026-09-27). His body is food,
   and eating it is taboo, not immoral (document 12).
 - **What is aboard (2026-09-27).** There is no survival kit. The sleeping
   bag is buried with the tail wreckage; two blankets are hidden inside the plane; there is no firearm.
@@ -143,7 +144,7 @@ A 206-class piston single — the Alaska mail-and-freight workhorse, on big tund
 shed its right wing into the trees, bellied down the slope and slid southwest across the muskeg fringe,
 shedding the tail, to stop at the muskeg's east edge. The pilot was stretching for the flat of the
 muskeg and almost made it. He died in the crash: the run starts with his body in the left seat, and he
-carries no clues (document 12).
+carries what a real pilot would (document 12).
 
 What is aboard is the design's call, and it is set so the run is neither too easy nor too hard:
 

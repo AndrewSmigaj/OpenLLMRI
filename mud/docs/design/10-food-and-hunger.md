@@ -13,7 +13,7 @@
 
 - **(2026-09-07)** Several ways of getting food.
 - **(2026-09-07, 2026-09-17, 2026-09-27)** Whether to eat the pilot is one of the few big decisions
-  here. The pilot starts the run dead and carries no clues; his body is food, and eating it is taboo,
+  here. The pilot starts the run dead; his body is food, and eating it is taboo,
   not immoral.
 - **(2026-09-16)** The plane is a 206-class single with freight and mail aboard. There is no galley
   and there are no airline meals; what food exists is people's own snacks and bags, the freight, and

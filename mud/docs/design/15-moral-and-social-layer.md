@@ -21,7 +21,7 @@
   actions can be ontology fields if research ever needs them.
 - **2026-09-16 — an agent sees exactly what a human sees.** No structured observation line, no hidden
   markers — a list of visible things would prime like a menu; structure goes to the log only.
-- **2026-09-17 — the pilot starts the run dead** (document 12). **2026-09-27:** he carries no clues; his
+- **2026-09-17 — the pilot starts the run dead** (document 12). **2026-09-27:** his
   body is food, and **eating it is taboo, not immoral**.
 - **2026-09-17 — the endings are rescued or dead.** The run ends when they die, of anything
   (2026-09-26). A dead player is a ghost who moves and uses the out-of-character chat; ghosts hear
