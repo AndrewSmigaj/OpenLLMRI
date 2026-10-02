@@ -64,6 +64,8 @@
   cloth; stuffing; bedding), bunchberry (the safe red berry beside baneberry), dry grass, sedge and dead
   fireweed (dry where sheltered), yarrow, willow as material, and the woods a fire really uses this
   week — realistic and thorough.
+- **2026-10-02 — the animals (§4.3) kept**, with their most common names (gray jay, great horned owl);
+  a snare does far better set on a run that fresh tracks show is in use.
 
 ### Proposals (Claude)
 
@@ -235,7 +237,7 @@ lying on the ground is wet outside; what stands, or hangs, or is sheltered is dr
 
 | animal | where | how it shows in the first week of October | how you get it | yield (document 10 owns the numbers) |
 |---|---|---|---|---|
-| snowshoe hare | willow thickets, the hare runs (document 01) | still mostly brown, the moult to white just beginning — the white patches show against the brown ground, and the brown stands out on the first snow; every run printed in it once the flurries come; a flash of brown and white | a snare on a run, a spring pole, checked later (hours); a thrown stick or rock rarely; the fox robs snares | ~800–1,000 kcal each; the pelt; gutting one bare-handed risks rabbit fever (tularemia) (ADF&G) |
+| snowshoe hare | willow thickets, the hare runs (document 01) | still mostly brown, the moult to white just beginning — the white patches show against the brown ground, and the brown stands out on the first snow; every run printed in it once the flurries come; a flash of brown and white | a snare on a run — set where fresh tracks show the run is in use, it catches far more than one set off it — a spring pole, checked later (hours); a thrown stick or rock rarely; the fox robs snares | ~800–1,000 kcal each; the pelt; gutting one bare-handed risks rabbit fever (tularemia) (ADF&G) |
 | willow ptarmigan | willow bars, muskeg edge | a small group — the females come down to the willow in small groups (ADF&G), mottled and turning white; they let you close | anything within reason thrown — misses several times with honest feedback ("the rock thumps into the snow a foot short; the birds shuffle"); a sling; a snare in a gap in a brush fence; finding rocks is its own search | one bird (~570 g live, ADF&G), ~350 kcal |
 | spruce grouse ("fool hen") | spruce forest, low branches | sits and stares; eating spruce needles | anything within reason thrown at close range; a noose on a pole — the tamest bird in the valley | ~300 kcal a bird |
 | ruffed grouse | the aspen and birch | budding in the aspen at dusk; flushes hard and loud | anything within reason thrown — harder than the spruce grouse | ~300 kcal a bird |
@@ -251,10 +253,10 @@ lying on the ground is wet outside; what stands, or hangs, or is sheltered is dr
 | northern pike *(candidate)* | the lake, if it is a lowland lake deep enough to overwinter fish | nothing, until you fish | casting, jigging, a set line, spearing (ADF&G) | ~500–1,800 kcal a fish |
 | beaver | the lodge and its feed pile (document 01, S9) | out at dusk cutting and towing branches to the feed pile before the ice locks the pond; the tail-slap alarm; fresh-chewed stumps | on land at dusk and wary: a snare or a trap at its slide, a club or a spear at close range — hard; once the ice seals the pond it lives under it | a 17–32 kg animal (ADF&G) — rich meat, the tail's fat |
 | muskrat *(candidate)* | the marsh edge, if the lake has one | push-ups of vegetation once the ice forms (ADF&G) | a snare or a spear at the push-up | 0.9–1.8 kg (ADF&G) |
-| ravens, Canada (gray) jays | the wreck, any camp | actors (§4.1a): the raven pair finds your cache first, the jays within the hour; their gathering marks a carcass (document 12 §4.3a) | not food; a pressure and a sign | — |
+| ravens, gray jays (Canada jay, camp robber, whiskey jack) | the wreck, any camp | actors (§4.1a): the raven pair finds your cache first, the jays within the hour; their gathering marks a carcass (document 12 §4.3a) | not food; a pressure and a sign | — |
 | **the bear** (Andrew, 2026-09-26) | wherever food is: the berry slopes, the root bench, the creek; the wreck, once it smells food there | tracks, berry-filled scat, dug-up roots, a torn stump — then the bear | an actor (§4.1a); fighting it is the combat system with real odds, and the bear can kill (Andrew, 2026-09-27); a kill is a fall bear heavy with fat — and the trichinosis worm in the meat, so it is always cooked through (document 10 §4.6) | the richest food in the valley, and the most dangerous thing in it |
 | fox, marten, lynx | tracks everywhere in the new snow; the marten set on the trapline (document 01) | sign, rarely the animal; the fox follows the snare line | the trapline's old sets, if repaired | a pelt, a little meat |
-| owl | night | a call | — | — |
+| great horned owl | the spruce, at night; all year in the interior | a call | — | — |
 
 ### 4.4 What the valley actually yields — and why it is not enough *(proposed by Claude, for Andrew's check)*
 
@@ -450,6 +452,7 @@ Andrew's check.
   and the bugs; the bear is the one really dangerous animal. The plants kept, with their most common
   names (mountain ash, wild potato). Six plants added: sphagnum moss, bunchberry, dry grass and sedge
   and dead fireweed, yarrow, willow as material, and what the valley gives a fire this week (§4.2a).
+  The animals kept (gray jay, great horned owl); snares set on runs that fresh tracks show in use.
 
 ## 8. What exists today
 

@@ -207,7 +207,7 @@ and the combat system answer (§4.4).
   heard being made; drawn by the pilot's body, the freight's food,
   the fuel and the oil; it may claim the body and defend it as a cache, and it may be driven off ·
   **a few birds** — as many as is realistic, and not constantly calling: a pair of ravens that find
-  the food before you do; Canada jays that will take it from a hand; a spruce grouse that sits and
+  the food before you do; gray jays that will take it from a hand; a spruce grouse that sits and
   stares; a great horned owl calling at night · a fox trots the tussocks and the camp · a lynx print,
   never the lynx · a hare, half-white in its change of coat · a dead branch comes down in the
   wind. **No
