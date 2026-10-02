@@ -199,7 +199,7 @@ built today; and a flat, unranked gap analysis (recommendations only — no code
 itself). The nine rooms, one line each:
 
 - **`cockpit.md`** — the EXEMPLAR the other eight follow; the pilot's body, the six-pack instruments,
-  the manual and chart; the shared cabin baseline (structure and elusive entities) that `mid_cabin.md`
+  the flight manual and chart; the shared cabin baseline (structure and elusive entities) that `mid_cabin.md`
   and `rear_cabin.md` both point back to instead of repeating.
 - **`mid_cabin.md`** — the crafting heart of the crash: the wrenched seat, the burst duffel, the
   hat shelf and the cargo net — where a survivor *harvests* foam, fabric, webbing, tools.

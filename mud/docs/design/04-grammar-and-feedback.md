@@ -23,11 +23,11 @@
   there's coffee in it". **Agents are given the grammar guide up front** (2026-09-07).
 - **`make` is the one aim-verb (2026-09-18).** Vague, it asks how; given the means, it performs the
   act they imply and the world answers physically. The recipe reply is not in the design; what a
-  fire wants belongs in the survival manual. The goal table is brainstormed now and grown from what
+  fire wants is learned in the world — the tutorial rooms and the physics of a failure. The goal table is brainstormed now and grown from what
   people and agents type; the first rows are fire, water, shelter, a signal and a splint (§3.9).
 - **The forms are finalized before the loops run (2026-09-18)**, with the movement, goal, quantity
   and meta forms added (§3.1). Whether the grammar needs more is answered by the new-verb spike, not
-  in advance. `help grammar` and the in-world manual page are written once, together, when the forms
+  in advance. `help grammar` is written once, when the forms
   are final.
 - **`use X on Y` stays (2026-09-18)**, silent.
 - **Every line is in the world's voice (2026-09-18)** — "How do you mean to make a fire?", here and
@@ -50,8 +50,8 @@
 ### Proposals (Claude)
 
 - The exact shapes and their tokens (§3.1), the three rules as worded (§3.2), the disambiguation and
-  unknown-word wording (§3.3), the particle and synonym tolerance tables (§3.7), the help text and
-  the in-world manual page (§3.5, §3.6), and the lens verdicts (§3.8).
+  unknown-word wording (§3.3), the particle and synonym tolerance tables (§3.7), the help text
+  (§3.5), and the lens verdicts (§3.8).
 - The forms-and-derived-capabilities model and tier-4 physics
   ([`ontology-closure.md`](../architecture/ontology-closure.md)) — the abstraction under "anything
   with an edge cuts" (a shard can cut, and so can a knife).
@@ -167,14 +167,11 @@ Simple. It is written once the forms are final and rewritten when they change (A
 There is no `help verbs`: vocabulary is learned by trying, and the synonym table absorbs how people
 say things.
 
-### 3.6 The in-world page (diegetic)
+### 3.6 Teaching the grammar
 
-The survival manual's first page reads the same rules as fiction: *"Say what
-you do, not what you hope. Name things by what they are. Anything sharp cuts; anything long and
-strong ties; anything that burns will burn better small and dry."* Hadean Lands teaches its whole
-command syntax through an in-world notebook; ours does the same, so the fourth wall stays intact
-for players who never type `help`. This text is a draft: it is finalized together with `help
-grammar`, once, when the forms are final (Andrew, 2026-09-18).
+There is no survival manual or other in-world page in the world (2026-10-02). The grammar is taught by
+the tutorial rooms, each one simple situation that shows what sort of things players can do
+(2026-09-27), and by `help grammar`; an attempt that fails says why, in the world's voice (§3.3).
 
 ### 3.7 How the vocabulary grows
 
@@ -297,8 +294,8 @@ How do you mean to make a fire?
 
 The request is too vague, so the game asks how — in the world's voice, as every line the game speaks
 is (Andrew, 2026-09-18). No recipe, no list of what a fire needs, no naming of what is in reach. What
-a fire wants is knowledge, and knowledge lives in the world: the survival manual's fire page says it,
-findable, readable, burnable.
+a fire wants is knowledge, and knowledge lives in the world: the tutorial rooms, and the physics of
+each failure.
 
 **Means named — it performs the act they imply.** The goal's roles are filled from what each named
 thing can do, and the real operation runs:
@@ -446,7 +443,7 @@ None open. Every question this document asked was answered on 2026-09-18 and is 
   no suggested verbs and a silent `use`.
 - **2026-09-18** — reviewed in full with Andrew: `make` as the one aim-verb; the forms list finalized
   before the loops, with the movement, goal, quantity and meta forms; `use X on Y` stays, silent;
-  `help grammar` and the manual page written together once the forms are final; vocabulary authored
+  `help grammar` written once the forms are final; vocabulary authored
   word-first, with the gaps log as the backstop; quantities as budgets, counts and measures both;
   `all` scoped; a gathered quantity is an aggregate; bulk from density; every line in the world's
   voice; the first five goal rows; distinguishable names enforced by `make validate`.

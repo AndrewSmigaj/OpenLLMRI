@@ -197,9 +197,9 @@ them, with real tiers.
 ### 4.8 Why this matters (the lens pass)
 Seven methods, each gated by a different scarce resource (time, tool, weather, knowledge, the flare's
 one shot) — a real "several ways of doing things." The skill is knowing what catches from what —
-physics, learnable from failure lines and the manual, never from a recipe. Every fire choice spends
-something else: fuel is mass; shavings are tinder *and* lost wood; the flare is fire *or* signal; the
-manual is fire *or* knowledge.
+physics, learnable from failure lines and the tutorial rooms, never from a recipe. Every fire choice spends
+something else: fuel is mass; shavings are tinder *and* lost wood; and the flare is fire *or*
+signal.
 
 ### 4.9 The `make fire` rows (Andrew, 2026-09-18)
 
@@ -209,7 +209,7 @@ model answers (document 04 §3.9). Fire's rows in the goal table:
 | field | fire |
 |---|---|
 | `goal` | fire · a fire · flame · blaze |
-| `vague` | "How do you mean to make a fire?" — nothing else; what a fire wants is in the survival manual, not in the reply |
+| `vague` | "How do you mean to make a fire?" — nothing else; what a fire wants is learned in the world, never given in the reply |
 | `roles` | **ignition**: a thing with `flame`, `spark`, `ember` or `focus` · **fuel**: a thing with `burnability > 0`, and its form decides whether this ignition can reach it |
 | `realize` | `light <fuel> with <ignition>` — the ordinary operation, resolved through §4.2's additive check |
 | half-filled | two fuels and no ignition → neither will light the other, stated physically; an ignition and nothing receptive → the flame burns alone |

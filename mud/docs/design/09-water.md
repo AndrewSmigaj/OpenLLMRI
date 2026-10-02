@@ -115,8 +115,6 @@ because of what a helmet *is*, and the same must be true of anything else a play
   cleaner than the water it froze on, and gives far more water for its volume than snow does (§4.6).
 - **Holt's water** — the homestead's own path down to the creek: bucket-water without the riffle's
   risks, the reward for the walk there.
-- **The manual's WATER page** is the in-world teacher for all of it: boil everything, ice before snow,
-  melt ratios.
 
 Inside the wreck: the thermos of coffee in the cockpit, the half-full canteen in the backpack behind
 the jammed aft bin, the salesman's steel water bottle and hip flask, and whatever the flurries blow in
@@ -175,8 +173,7 @@ fire costs fuel instead of body heat, which is the whole point of having one.
 
 **No boiling gate.** Most of the valley's water is safe enough to drink, so boiling is never a wall
 between the party and a drink. It is still worth doing — it is warm, it makes tea, it thaws — and a
-rolling boil for about a minute kills every germ the water carries (CDC); the manual says to boil wild
-water, as manuals do.
+rolling boil for about a minute kills every germ the water carries (CDC).
 
 **What the water carries depends on where it came from** (2026-09-27; the specifics are Claude's, as
 Andrew left them). Not every water has germs:

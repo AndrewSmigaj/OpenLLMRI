@@ -454,7 +454,7 @@ Each is a crude-to-mastery arc, and each is a network of rooms rather than a sta
   under a skin of snow, but the tussocks still stand through a couple of inches.
 - **Fire-craft** — lighter → dead spruce twigs → birch bark (a weatherproof start) → punk-cupped embers
   (portable flame) → chaga and a spark (lighterless insurance) → avgas (a dangerous shortcut).
-- **Information** — the chart, the manual's pages, the knob, the blaze protocol, ice-reading,
+- **Information** — the chart, the knob, the blaze protocol, ice-reading,
   track-reading, and the voice on the radio once it answers. The only massless economy, which is why
   the knob — pure information — justifies the map's hardest climb.
 
@@ -470,10 +470,10 @@ The knowledge currency is paid back the same way every time: a cheap tutorial zo
 lesson pays, and an exam — usually the tutorial's own room revisited at night or in the day-6 flurry.
 The muskeg's wet channel teaches footing; the inlet teaches ice as it forms; the creek's bend teaches
 thin ice over running water; the blaze gateway teaches the trail that dusk or the flurry will later
-test closed-book. Behind every knowledge price stands an in-game teacher, and most of them are **the
-survival manual**: its read-pages (fire, water, shelter, signals, food, fishing, search and rescue,
-exposure) are first-class content, ranked equal with the zone looks, under one authoring rule — the
-manual may simplify, but it must never lie.
+test closed-book. Behind every knowledge price stands a teacher in the world: the tutorial rooms, each one simple
+situation (2026-09-27); what the world shows, and the physics of why an attempt fails; and hints added
+case by case where something is very unobvious or players struggle (document 17). **There is no
+survival manual in the world** (2026-10-02).
 
 ### 4.10 The week re-prices the map
 

@@ -185,7 +185,7 @@ state of every living thing is document 23 §4.2–§4.3.)*
 | `the_lodge` | nothing, deliberately | hacking in is possible and is a bad trade: the lodge stores food in the water, not the walls — the map's one anti-loot lesson |
 | `drowned_set` | yards of snare wire on a trapper's pole | cold fingers and patience; it opens the snare-line game fully |
 | `marten_set_tree` | Holt's old marten set — the box and its snare wire, empty: the trapping season has not opened | perception, and prying the box open |
-| `cabin_interior` | Holt's shelf: flour, salt, lard, tea, a few tins — and **one bulged can** among the good ones | the walk; and the examine-gated poison lesson (the manual's food page names the bulge) |
+| `cabin_interior` | Holt's shelf: flour, salt, lard, tea, a few tins — and **one bulged can** among the good ones | the walk; and the examine-gated poison lesson (a careful look shows the bulge) |
 | `cache` | the rest of Holt's modest stores: some beans and rice, a slab of dry fish | the whole journey, the climb, and carrying it back down and home |
 
 **Grubs and inner bark are food** (Andrew, 2026-09-18). Grubs live under the bark of dead and rotting spruce
