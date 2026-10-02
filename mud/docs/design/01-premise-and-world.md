@@ -122,8 +122,8 @@ that, a knob you can see the whole valley from — the highest place to raise an
 which is how you make fire when your lighter is gone; and south the lake drains into a creek that
 runs, with fish in its open pools, past a beaver pond to a blazed trapline that ends at a stranger's
 cabin with a wood stove, some trapline gear and modest stores, two and a half kilometres away — about
-ninety minutes the first time, one way. Nothing out there is lying loose: everything is in the brush,
-under the moss or the coming snow, inside the ice, up a tree or a long walk off, and every hazard tells
+ninety minutes the first time, one way. Things lie where they really would — some in plain sight, more
+in the brush, under the moss or the coming snow, up a tree or a long walk off — and every hazard tells
 you what it is before it takes anything. Snow comes on and off all week and the nights grow colder,
 until a heavier flurry on day 6 clears into the coldest night of the run — what you can reach,
 and use, while the country is still open is the game.
@@ -210,7 +210,7 @@ Straight-line distances from the wreck: lake shore 500 m W · ridge knob 800 m N
 350 m E · creek riffle 800 m SW · beaver pond 1.7 km S–SE · homestead 2.4 km of travel SE. The far-shore
 burn is 1.5 km W across the lake — farther round its shore.
 
-### 4.3 The three rules the map is built on
+### 4.3 How the map is built
 
 **Each region has a job in getting home.** The three ways home (document 14 §3) are laid on the map:
 the lake's shore and the knob are the sightlines where a signal can be seen; the ridge and the
@@ -235,10 +235,10 @@ two of six currencies:
 | **Knowledge** | reading sign: tracks, ice colour, blaze marks, dead spruce twigs. `examine` is the tutor |
 | **Risk** | thin ice, the cold creek, the frost-glazed lee slope, the climb — always telegraphed; a fall is a seeded roll, announced, that injures and never kills outright |
 
-**The anti-easy rule.** Nothing usable lies loose on the surface anywhere in the valley except what the
-crash itself scattered (which is already priced). Everything else is in the brush, under the moss or
-the snow, inside ice, up a tree, behind a blaze you have to follow, or 2.4 km away. Fair, not
-generous: every hazard telegraphs, every gate has several openings, `examine` always pays.
+**Where things lie is decided case by case** (2026-09-28): there is no rule that hides things away.
+What would make the start too easy is not in plain sight in the first room; everything else lies where
+it really would — rocks on the creek bar and the ridge, a dead fish on the shore, deadfall in the
+brush, a cache up a tree, a cabin 2.4 km off (§4.1).
 
 ### 4.4 The regions
 
@@ -423,7 +423,7 @@ and every one of them spends from the shared survival economy.
 |---|---|---|
 | **The radio** | the hand radio; its batteries in a bag in `tail_section`; anything metal and long enough for the antenna (the panel's wire, seat tubing, the dooryard's dog-run cable); a height to raise it — `fuselage_top`, `the_knob` | the batteries, dug out of the tail wreckage, and height |
 | **A signal a plane can see** | the crash site; the lake shore's sightline; `gear_gouge` (the tyre's black smoke); the north wood's green boughs; the knob in clear air | fuel logistics, wind, and being ready when the engines are heard |
-| **Surviving long enough** | everywhere — and keeping the party findable: partial cloud and the trees hide the wreck, and after the day-6 snow it is white on white, so what the party builds decides it — a sign stamped or laid out in the fresh snow, the wreck brushed clear, smoke | staying alive, and the work of being findable |
+| **Surviving long enough** | everywhere — on day 7 the rescuers find everyone still alive (2026-09-29); before then, being found by an early pass takes work: partial cloud and the trees hide the wreck, so what the party builds decides it — a sign laid out on the ground, the wreck brushed clear, smoke | staying alive; for the early passes, the work of being findable |
 
 **Holt's homestead is not a way home.** The creek run, the trapline and the homestead are the road to
 the valley's other supplies — navigation skill and daylight are its price — and the cabin's chimney
@@ -446,7 +446,7 @@ Each is a crude-to-mastery arc, and each is a network of rooms rather than a sta
   cranberries, rose hips and roots (a trickle) → grouse and ptarmigan (skill shots) → snare lines
   (planning + wire) → the fishery (the source that scales) → Holt's modest stores (farthest away) → the
   bear (the richest food and the most dangerous, through the combat system) — and the
-  pilot's body, which is food and taboo (document 12). Calories scale with commitment, never with luck.
+  pilot's body, which is food and taboo (document 12). Effort pays, eventually (document 10 §4.8).
 - **Warmth and clothing** — crash clothing → the pilot's jacket and the unplayed seats' clothes → seat
   covers, the two blankets hidden in the plane, the sleeping bag buried with the tail →
   the loft trunk; plus the terrain layer, where *where you work* is itself a clothing decision.
@@ -500,9 +500,8 @@ changes what things cost:
    small deadfall go under, and the wreck turns white.
 3. **The clearing (day 6 night and day 7)** — it clears through the evening into the coldest night of
    the run, coldest on the lake shore and the muskeg, where the cold air pools. Day 7 is calm over fresh
-   snow: the best tracking of the week and the best air for being seen, and the day of the default
-   rescue — but the white wreck is white on white, so only what the party has built stands out
-   (document 14 §3.5).
+   snow: the best tracking of the week, and the day the rescuers find everyone still alive
+   (2026-09-29; document 14 §3.5).
 
 **Night** is always the same argument: the world is three lit rooms — a fire you built, the fuselage
 huddle, or Holt's stove. Everything else is a mistake.
