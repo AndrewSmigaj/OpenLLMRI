@@ -46,11 +46,10 @@
 - **A missing player's character goes catatonic** — sits down and stares off; the other players can
   keep them alive if they want, and the character can die (2026-09-27). The party is warned when a
   member is missing (2026-09-17).
-- **Ghosts** (2026-09-17, 2026-09-27): a dead player is a ghost and moves freely. Ghosts hear one
-  another; the living do not hear ghosts. Anyone, living or dead, can use the out-of-character chat.
-- **No gate on violence** (2026-09-16, 2026-09-26): a strike wounds in every kind of run — friends,
-  humans with agents, agents only — and there is a combat system like a MUD's. Multiplayer never turns
-  a hit into a shove.
+- **After death or rescue** (2026-09-17, 2026-09-27, 2026-09-29): Dead and rescued players go to the Warming Hut and can go back in as silent watchers (ghosts): unseen and unheard by the living, hearing one another; anyone can use the out-of-character chat.
+- **No gate on violence** (2026-09-16, 2026-09-26): violence resolves by real physics in every kind of
+  run — friends, humans with agents, agents only — and a blow wounds when it would really hurt
+  (2026-09-27); there is a combat system like a MUD's.
 - **The whole valley is in the first complete run** (2026-09-16): all fifty outdoor zones, so a party
   can be spread across the valley, not just across a crash site. Walking out is not an ending
   (2026-09-17).
@@ -84,8 +83,8 @@ same time. You are not standing in a shared box: you are in the mid cabin, someo
 with the pilot's body, someone has already gone out to the tail. You can *see* them from where you are —
 clearly if they are next door, as a shape moving on the far shore four zones off — and you can talk to
 them: a whisper carries to the person beside you, a shout carries across the crash site, and the wind
-and the falling snow eat the difference. What you cannot do is *reach* them, or the orange case you can
-plainly see by the bulkhead; for that you walk over. The clock runs for everybody at once, so while you
+and the falling snow eat the difference. What you cannot do is *reach* them, or the toolbox you can
+plainly see in the crushed tail; for that you walk over. The clock runs for everybody at once, so while you
 are prying at a jammed door your friend's fire is burning down and the cold in the cabin is climbing on
 the same minutes you are spending. When you all agree to fast-forward — to sleep, or to wait out the
 dark — the hours run past; whoever stays awake watches them go and can slow the clock with a command,
@@ -219,18 +218,19 @@ observer the shell computes the band toward the event's source and renders *that
 full third-person line, then a direction-framed line, then *"…is working at something"*, then
 *"A shape shifts {direction}"*, then sound only, then silence. Nobody is told what they could not
 have perceived. **Within the zone, every act reaches everyone present as the full line** — the game
-does not know which way anyone is facing; the one covert act is a deliberate `steal` (Andrew,
-2026-09-27; document 15 rule 5).
+does not know which way anyone is facing (document 15 rule 5) — except that a hidden person is out of
+the others' view until someone looks where they are, and whether a steal (`steal` or another fitting
+word) is noticed depends on what the others are doing (2026-09-27, 2026-09-28).
 
 ### 4.5 Seeing is not reaching
 
-Reachability is a separate answer: you can see the orange case by the bulkhead and be unable to touch
-it. An attempt on something visible-but-far gets the physics of why, not a refusal — *"You can see the
+Reachability is a separate answer: you can see the toolbox in the crushed tail and be unable to
+touch it. An attempt on something visible-but-far gets the physics of why, not a refusal — *"You can see the
 {target} {direction}, but it is too far away to {verb} from here."* — and it is excluded from the
 wall-sensor, because it is an answer, not a gap. The parser still *matches* distant nouns, so a far
 thing gets an honest "too far", never "you don't see that here".
 
-This is the **reachability tax**, the accepted price of one room per Scene: it is paid at one central
+Reaching is checked at one central
 gate in the resolver plus the item-command pre-flight and the appearance hook, not by a mixin on every
 command.
 
@@ -284,8 +284,7 @@ reactor serializes commands, so shared-object mutation cannot race (DR-22).
 ### 4.7 Interdependence
 
 Co-op needs **first-class interdependence** — acts that genuinely *require* two people, so co-op is a
-shared story rather than parallel solitaire (GDD §16). The roadmap's P6 exit gate is an interdependence
-that genuinely requires cooperation — a real gate, not a checkbox. The sources name three:
+shared story rather than parallel solitaire (GDD §16). The sources name three:
 
 - **The antenna hold.** One survivor holds the improvised antenna up high while another works the
   radio; the signal is better the higher the antenna goes (document 14 §3.2), so "held up, out there,
@@ -294,8 +293,7 @@ that genuinely requires cooperation — a real gate, not a checkbox. The sources
   landmarks the voice on the other end asks for (document 14 §3.3).
 - **The carry** of an injured survivor.
 
-They are the positive end of the moral layer's axis, not a separate system: the same witnessing and
-logging that make betrayal legible make the hold and the relay legible (document
+The same witnessing and logging that record every act record the hold and the relay (document
 [15](15-moral-and-social-layer.md)).
 
 **The mechanism** (2026-09-28). Interdependence is what the physics
@@ -312,7 +310,7 @@ from each one's concurrent state**; and because an activity's progress lives on 
 - **the carry** of someone who cannot walk — an adult is more than one person can carry over rough
   ground for any distance;
 - **the huddle** — another body's heat is by definition another person (document 08); this one
-  *genuinely requires* two, which is the P6 gate met by physics;
+  *genuinely requires* two;
 - holding the light while another works; hauling someone out through the ice; lifting what one person
   cannot shift; two people spinning one fire drill — and whatever else the loops find. Nothing that one
   person can really do is made to need two (2026-09-28): a log can be cut alone.
@@ -330,8 +328,8 @@ build order (document 06).
 ### 4.8 Talking out of character, and what is not here
 
 - **The out-of-character chat** (Andrew, 2026-09-17, 2026-09-27). Anyone, living or dead, can use it;
-  sleeping players chat in it to pass the time. Ghosts hear one another, and the living do not hear
-  ghosts (document [21](21-endings.md) §4.5). Speech in the world keeps its physical range
+  sleeping players chat in it to pass the time. Silent watchers (ghosts) hear one another, and the living
+  do not hear them; players in the Warming Hut talk in the room (document [21](21-endings.md) §4.5). Speech in the world keeps its physical range
   (§4.4). Evennia's stock channel typeclass is in the scaffold
   ([`game/typeclasses/channels.py`](../../game/typeclasses/channels.py)).
 - **No shared status readout of other players** (2026-09-28). You learn how your friend is doing by
@@ -367,7 +365,7 @@ build order (document 06).
 - [20 — the agent player and research](20-the-agent-player-and-research.md): mixed and agent-only
   runs are instances; "the same view as a human" is this document's perception.
 - [15 — the moral and social layer](15-moral-and-social-layer.md): every act in the zone is seen by
-  everyone there; `steal` is the one covert act; beyond the zone, witnessing is by band.
+  everyone there, except a hidden person and a steal nobody notices; beyond the zone, witnessing is by band.
 - [21 — endings](21-endings.md): an ending is a run's ending; the ghosts and the
   out-of-character chat.
 - [12 — the pilot and bodies](12-the-pilot-and-bodies.md): who could see what was done to the pilot's

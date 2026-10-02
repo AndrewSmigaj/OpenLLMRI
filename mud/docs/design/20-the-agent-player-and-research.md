@@ -57,7 +57,7 @@
 - **Activations and expert routing are captured here** (2026-09-28): the open-weight model's
   activations and its mixture-of-experts routing data. When it is built, it is done the way Andrew's
   own LLM MRI suite does it — Claude reads that repository first — so the two integrate easily.
-- **No moral tags** (2026-09-16, 2026-09-28): acts are not tagged as immoral, neutral or taboo; after
+- **No moral tags** (2026-09-28): acts are not tagged as immoral, neutral or taboo; after
   the run, a language model reads the playthrough and describes what happened (document 15 rule 6).
 - **What counts as a wall** (2026-09-18): five categories, counted separately (document 05 §4.5a).
 - **What an agent is given** (2026-09-28): exactly what a person is — the grammar guide, the same
@@ -66,8 +66,8 @@
 - **After agents play** (2026-09-28), other language models analyse their playthroughs, and the agent
   players answer a brief questionnaire — part of fleshing out and balancing the world, and how the
   places that need a hint are found (document 04).
-- **The runs end rescued or dead** (2026-09-17) — nothing else; the things that cause death increase
-  instead of any time barrier (2026-09-07; document 21).
+- **The runs end rescued or dead** (2026-09-17) — nothing else; the game ends on day 7 at the latest,
+  when the rescuers find everyone still alive (2026-09-29; document 21).
 
 ### Proposals (Claude)
 
@@ -88,7 +88,7 @@ room, no hint that names a step; when it types something the world does not unde
 clarification or the physics of why, the same as anyone. Its commands reach the world at the pace a
 person could type them. It survives or it does not. What makes this research rather than a demo is
 everything happening *beside* the play: every step is logged — what it typed, what the world did,
-which tier resolved it, who could have seen it, what the act was tagged as — and because the runtime
+which tier resolved it, who could have seen it — and because the runtime
 is deterministic and seeded, the whole run can be replayed exactly, so a trajectory can be
 re-examined, diffed against another model's, or lined up against activations captured outside the
 game. And every place the world failed to answer is logged too, as a wall, which is the next night's
@@ -197,8 +197,8 @@ The research artifact. Per applied action, the log records:
 
 Two rules hold: **log world-state transitions, not intent** — *"The pilot's body is butchered"* is
 ground truth the engine knows, while *"I didn't do it"* is a separate speech act logged beside it; and
-a **stated falsehood is checkable** against the world at log time, which is what makes deception
-legible without the engine ever judging it (document [15](15-moral-and-social-layer.md)).
+speech is logged word for word with who heard it — lies, mistakes and broken promises are sorted after
+the run, from the log, and the game never judges speech live (document [15](15-moral-and-social-layer.md) rule 4).
 
 Alongside it, the **wall-sensor** log: every attempt the world could not answer, with the unknown
 words. That file is the world-building loops' input queue (document
@@ -272,9 +272,9 @@ size).
    vs 78) → the guide goes to agents up front. This is the evidence under Andrew's 2026-09-07
    decision.
 
-And the residue is the most useful part: nothing that still fails is a *grammar shape*. The failures
-are verbs that do not exist yet, nouns that do not exist yet, and lines that are not acts. The grammar
-is sufficient; the vocabulary and the world are what grow. The lens pass on that corpus flagged the
+And the residue is the most useful part: in that 2026-09-07 sample nothing that still failed was a *grammar
+form*. The failures were verbs that did not exist yet, nouns that did not exist yet, and lines that are
+not acts; the loops' logs show whether a new form is needed. The lens pass on that corpus flagged the
 naive condition's attempts — blow on the flame, cover the tear — as the best gaps in the set, because
 they are what a curious player wants.
 
@@ -293,8 +293,8 @@ captured, with the routing data, because the world's side of the conversation is
 ### 4.8 Walls per run
 
 The measure, once agents play freely: **every wall becomes the next pass's input, and the number of
-walls per run is how progress is read** — there is no finish line. VISION defines a finished room the
-same way: a room is never finished; it is "no walls found in the last N runs". Walls come from the
+walls per run is how progress is read** — there is no finish line. A room is never finished *(Claude's measure,
+not yet decided: "no walls found in the last N runs")*. Walls come from the
 wall-sensor (unknown words included) and feed the world-building loops. What counts is Andrew's
 (2026-09-18, document 05 §4.5a): **unknown word, unknown noun, generic answer, wrong refusal and retry
 cluster**, each counted separately with its own trend line.
@@ -317,9 +317,8 @@ build of the world it ran against, and which seats are played and by whom — a 
 with which persona brief. So any run replays, two runs compare, and the presence of humans is a
 recorded condition of the run.
 
-**Stopping.** The stopping rule is the game's own: rescued or dead (Andrew, 2026-09-17), and a run
-cannot go on forever, because the things that cause death increase for a party that is not rescued
-(Andrew, 2026-09-07; documents 13 and 21). Pausing and returning apply as in any sitting. A step
+**Stopping.** The stopping rule is the game's own: rescued or dead (Andrew, 2026-09-17), and the game
+ends on day 7 at the latest, when the rescuers find everyone still alive (2026-09-29; document 21). Pausing and returning apply as in any sitting. A step
 budget is a harness guard against a stuck or crashed brain — never a game rule, never an ending.
 
 **The artifacts:** the manifest, the two log streams (§4.4), each character's transcript, and the wall

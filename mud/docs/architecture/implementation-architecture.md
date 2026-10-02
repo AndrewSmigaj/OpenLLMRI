@@ -124,9 +124,9 @@ written out below the table or in the section that owns them.
 > nobody plays is a dead character whose clothes and pockets can be searched; agents may play seats. A
 > missing player's character goes catatonic, sits down and stares; the others can keep it alive, and it
 > can die.
-> **The only endings are rescued or dead**; the run ends when the party is dead, of anything. **A dead
-> player is a ghost**: moves freely, uses the out-of-character chat; ghosts hear ghosts, the living
-> cannot. There is no recap.
+> **The only endings are rescued or dead**; the run ends when the party is dead, of anything. **A dead or
+> rescued player goes to the Warming Hut** and can go back in as a silent watcher (a ghost): unseen and
+> unheard by the living, hearing other watchers; anyone can use the out-of-character chat. There is no recap.
 >
 > **The design decisions that shape the engine** (all in `PLAN.md` §5, each designed in its document):
 > the aircraft is the 206-class single with the four-seat interior — seats 1A/1B/2A/2B and the right

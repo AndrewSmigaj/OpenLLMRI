@@ -37,8 +37,8 @@
   small group of ptarmigan; what is kept few is how many animals a model plays at once, by common sense,
   since each one costs latency and the usage limits of the runs that play them. Birds call now and
   then, not constantly. **The fish are scripted.** The list is §4.1a (2026-10-01).
-- **No wolves** (2026-10-01): the bear and its sign are the valley's danger. Realistic for a week — a
-  pack's territory runs to hundreds of square kilometres, and a pack need not pass this valley in it.
+- **No wolves** (2026-10-01): Andrew's call for the game — the bear and its sign are the valley's
+  danger. It is also realistic for a week: a pack's territory runs to hundreds of square kilometres.
 - **Food states** (2026-09-26): raw, cooked and spoiled differ; there is spoiled food, and there are
   poisonous mushrooms; there is a combat system like a MUD's (document 10 §2).
 - **What kills** (2026-09-27): **poison makes people very sick and never kills.** The bear can kill,
@@ -157,15 +157,13 @@ Every figure is a real starting point that the probes tune.
 - **Real, in the first week of October.** Every living thing here exists in interior Alaska in the
   first week of October, in the form it takes then: frost-sweetened berries still on the plant, plants
   dying back to their roots, frost-killed mushrooms, the animals that stay and the bear that has not
-  yet denned. Nothing is added because it would be convenient.
-- **Real *in this valley, at this size, in this month* (Andrew, 2026-09-18).** Existing somewhere in
-  Alaska is not the test. The test is: does it live in **this** habitat — spruce forest, muskeg, a
-  lake, willow bottoms, a birch toe, a ridge, roughly six square kilometres — and is it there in the
-  first week of October, in numbers that matter? A species present as one plant on one slope is
-  scenery, not a food source, and the document says which it is. This is the one honest reason to
-  leave something out: it is untrue to the place.
-- **Numbers before abundance.** Every row carries what it actually yields and how often, because the
-  valley's total is what decides whether the party starves (§4.4).
+  yet denned.
+- **What realistically lives in an area of this size (Andrew, 2026-09-18)** — spruce forest, muskeg,
+  a lake, willow bottoms, a birch toe, a ridge, roughly six square kilometres, in the first week of
+  October; food sources are not added just because they are possible. A species present as one plant
+  on one slope is scenery, not a food source, and the document says which it is. What else is in or
+  out is decided case by case (wolves, moose and wolverine were Andrew's calls for the game).
+- **Real yields.** Each food row carries what it actually yields and how often (§4.4).
 - **Animals are actors, populations and sign** (2026-10-01). The **bear**, some of the **bigger animals** and **a few
   birds** are actors: individuals in the world, shown as people are, in prose by what
   they are doing (document 03 §4.1), driven by behaviour rules the engine runs, or played from outside
@@ -237,7 +235,7 @@ presence in this valley is still to be checked against it.
 | inner bark (spruce, birch) | any live tree, a blade to strip | the sap is down; the inner bark thin | famine food — chew or boil; costs the tree | the world remembers a girdled tree |
 | spruce pitch | any wounded trunk | stiff, amber | chew it; seal a wound; it burns | — |
 | willow bark | willow bars | dormant | a mild painkiller (tea) | a real thing, weak |
-| chaga | the old birch (document 01, S7) | the black conk | tea; tinder that holds an ember | a reach puzzle |
+| chaga | the old birch (document 01, S7) | the black conk | tea; tinder that holds an ember | ten feet up the trunk |
 | birch polypore, tinder conk | dead and dying birch | the conks, all year | a poor tea and a real medicine; both are tinder | — |
 | cattail rhizome | the pond edge, in the mud under the water | brown tops; the starch in the rhizome | food — real starch if you can dig it out | wet, cold work; **scattered** in central Alaska (USFS FEIS) — present only if this pond has a stand, and the row says so per pond |
 | wild potato root (Eskimo potato, Indian potato, sweetvetch, bear root) | the bench, river bars | in ground that crusts each frosty night, soft below | food — starch, sweetish; long, skinny roots, ounces a plant (Holloway, UAF) | digging breaks the crust first (§4.6); a fire thaws it; the grizzly digs the same roots |
@@ -292,7 +290,7 @@ lying on the ground is wet outside; what stands, or hangs, or is sheltered is dr
 | northern pike | the lake — 6–8 m at its deepest, deep enough to winter fish (document 01) | nothing, until you fish | casting, jigging, a set line, spearing (ADF&G) | ~500–1,800 kcal a fish |
 | beaver | the lodge and its feed pile (document 01, S9) | out at dusk cutting and towing branches to the feed pile before the ice locks the pond; the tail-slap alarm; fresh-chewed stumps | on land at dusk and wary: a snare or a trap at its slide, a club or a spear at close range — hard; once the ice seals the pond it lives under it | an 18–32 kg animal (ADF&G) — ~10,000–20,000 kcal of rich meat (146 kcal per 100 g, USDA), and the tail's fat |
 | muskrat *(candidate)* | the marsh edge, if the lake has one | push-ups of vegetation once the ice forms (ADF&G) | a snare or a spear at the push-up | 0.9–1.8 kg (ADF&G) — ~600–1,100 kcal |
-| ravens, gray jays (Canada jay, camp robber, whiskey jack) | the wreck, any camp | actors (§4.1a): the raven pair finds your cache first, the jays within the hour; their gathering marks a carcass (document 12 §4.3a) | not food; a pressure and a sign | — |
+| ravens, gray jays (Canada jay, camp robber, whiskey jack) | the wreck, any camp | actors (§4.1a): the raven pair finds your cache first, the jays soon after; their gathering marks a carcass (document 12 §4.3a) | not food; a pressure and a sign | — |
 | **the bear** (Andrew, 2026-09-26) | wherever food is: the berry slopes, the root bench, the creek; the wreck, once it smells food there | tracks, berry-filled scat, dug-up roots, a torn stump — then the bear | an actor (§4.1a); fighting it is the combat system with real odds, and the bear can kill (Andrew, 2026-09-27); a kill is a fall male of ~200–300 kg: some 70–100 kg of meat (~110,000–160,000 kcal at 161 kcal per 100 g, USDA; about a third of live weight is meat, as hunters find) and tens of kilograms of fat — weeks of food for the whole party; the trichinosis worm is in the meat, so it is always cooked through (document 10 §4.6) | the richest food in the valley, and the most dangerous thing in it |
 | fox, marten, lynx | tracks everywhere in the new snow; the marten set on the trapline (document 01) | sign, rarely the animal; the fox follows the snare line | the trapline's old sets, if repaired | a pelt; ~4,000–6,000 kcal a lynx, ~1,500–3,000 a fox, a few hundred a marten |
 | great horned owl | the spruce, at night; all year in the interior | a call | — | — |
@@ -307,7 +305,8 @@ lying on the ground is wet outside; what stands, or hangs, or is sheltered is dr
 This is the number that matters. The valley is roughly six square kilometres of interior boreal
 country: black and white spruce, muskeg, a lake, willow bottoms along the creek, a birch toe, an open
 ridge. In the first week of October it supports a real community that is **getting thinner by the
-day** — the bear denning, the ice closing the ponds, the snow covering the low berries.
+day** — the ice closing the ponds, the snow covering the low berries, and the bear, still up, growing
+bolder.
 
 **The method.** *Standing stock* = habitat area × a real density. *Daily take* = the effort a party can
 spend × a real capture or picking rate × the energy in each unit, from food-composition tables. Where

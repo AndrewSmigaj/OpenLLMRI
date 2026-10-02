@@ -106,9 +106,9 @@ every food in the valley and everything that makes people sick.
 - **Several ways, no set number.** Every goal has several ways; clues are what a realistic world holds,
   plus some added to help players. No fixed counts — the world grows as the ontology is fleshed out.
 - **Never propose a cut for economy.** Ordering is legitimate; dropping for surplus is not. A thing
-  leaves the design only when it is wrong — untrue to the place, or contradicting a decision.
-- **Ecology is a real filter.** A species has to live in this habitat, in this month, in numbers that
-  matter — and every row says what it actually yields.
+  leaves the design when it is untrue to the place, contradicts a decision, or Andrew cuts it.
+- **Ecology** (2026-09-18): what lives here is what realistically lives in an area of this size, and
+  every food row says what it actually yields.
 - **Never a menu, and common sense is hinted.** No design may have the game list options, suggest verbs
   or name what is reachable. When a player misses what any person would know, the world says why in its
   own voice (*"You talk into the mic, but the radio stays quiet while the button is up"*) — a reason,

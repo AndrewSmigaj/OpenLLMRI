@@ -24,8 +24,8 @@
 - **2026-09-17 — the pilot starts the run dead** (document 12). **2026-09-27:** his
   body is food, and **eating it is taboo, not immoral**.
 - **2026-09-17 — the endings are rescued or dead.** The run ends when they die, of anything
-  (2026-09-26). A dead player is a ghost who moves and uses the out-of-character chat; ghosts hear
-  ghosts, the living cannot (2026-09-27). **There is no recap** (2026-09-27).
+  (2026-09-26). A dead player goes to the Warming Hut and can go back in as a
+  silent watcher (a ghost), unheard by the living (2026-09-27, 2026-09-29). **There is no recap** (2026-09-27).
 - **2026-09-26 — a combat system like a MUD's is in.** Things can also be killed in other ways —
   stabbed with a spear, beaten with a stick. Violence against people and animals is a system of its own,
   with no document yet (`PLAN.md` A10); the no-gate decision covers it.
@@ -184,7 +184,7 @@ engine setting. Theft and lies are never gated either.
 Nothing in the game announces that survivors can hurt one another (2026-09-28) — that would be naming a verb, which is a menu — and nothing needs to: the grammar guide teaches
 the forms, and `stab`, `hit` and `club` are words that resolve like any other. Whatever a group of
 friends agrees before a run, they say to one another, like any house rule at a table. The one
-consequence that touches the evening — a friend killed early spends the rest of the sitting as a ghost
+consequence that touches the evening — a friend killed early spends the rest of the sitting in the Warming Hut or watching
 — is document 21's.
 
 ### 4.5 Lens pass

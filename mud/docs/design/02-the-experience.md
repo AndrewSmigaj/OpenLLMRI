@@ -90,8 +90,8 @@ The decisions that shape a run, in plain words; every one of them, with its date
   before day 7 are the hardest. Walking out is not an ending; Holt's cabin is supplies — some trapline
   gear and modest stores.
 - **Endings (2026-09-17, 2026-09-26, 2026-09-27).** Rescued or dead. The run ends when they die, of
-  anything. Dead players are ghosts: they move and use out-of-character chat; ghosts hear ghosts, the
-  living cannot; anyone can use the out-of-character chat. No recap.
+  anything. Dead and rescued players go to the Warming Hut and
+  can go back in as silent watchers (ghosts): unseen and unheard by the living, hearing one another; anyone can use the out-of-character chat (2026-09-29). No recap.
 - **The view and the grammar (2026-09-16, 2026-09-17, 2026-09-18).** An agent sees exactly what a human
   sees. The look is a title line and prose composed from state, with people and animals as prose, exits
   as entities in prose, groups, and no item list. `use X on Y` resolves silently as the real operation;
@@ -133,7 +133,7 @@ the sixth day that clears into the coldest night of the run — the same week ev
 ways home: raise someone on the hand radio, whose batteries are buried in the tail; get a signal up
 that a search plane can see when you hear it coming; or stay alive until the seventh day, when the
 rescuers find everyone still alive (2026-09-29). You are rescued, or you die of blood loss, the bear or the cold — and if you
-die, you watch the rest as a ghost.
+die, you go to the Warming Hut and can watch the rest as a silent watcher.
 
 ---
 
@@ -211,8 +211,7 @@ on the clock today.
 📐 Document 21. **Rescued or dead.** Each player's run ends one way or the other, and the run is over
 when nobody is left alive in the valley. A party found by a pass, raised on the radio and picked up
 when the weather lets the search in, or found on day 7 is rescued; death comes of anything the body's
-systems reach. Dead players are **ghosts**: they move freely and talk in the out-of-character chat;
-ghosts hear ghosts, the living cannot; anyone can use the out-of-character chat. There is **no recap**.
+systems reach. Dead and rescued players go to the Warming Hut and can go back in as silent watchers (ghosts): unseen and unheard by the living, hearing one another; anyone can use the out-of-character chat (2026-09-29). There is **no recap**.
 A sitting that ends first, with someone alive and unrescued, is paused — someone types `pause game` — and resumed like any other.
 
 ### 4.4 The events, by category
@@ -433,7 +432,7 @@ None open. Each system document holds its own.
   document 13; cross-family agent sampling as recommended, with the play harness after the cabin zone;
   Claude drafts the numbers for Andrew's approval; the non-interrupting commands as recommended; the
   build order tentative until planned; the country's food goes to a new document 23; a run is one
-  sitting of two or three hours with pause and resume, not an ongoing world; a dead player is a ghost;
+  sitting of two or three hours with pause and resume, not an ongoing world; a dead player goes to the Warming Hut and can watch;
   agent runs are short sessions too; the pilot starts dead and the radio is the rich puzzle (document
   14); the sample week is written again after the review.
 - **2026-09-27** — the no-storm week carried in (document 13 §4.2).

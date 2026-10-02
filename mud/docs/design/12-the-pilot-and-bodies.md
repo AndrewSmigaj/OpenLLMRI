@@ -14,8 +14,7 @@
   is a combat system like a MUD's.
 - **(2026-09-17)** **The pilot starts the run dead.** He is a body from the first look: no clock, no
   moaning, no lines. The party does not need him to work out the rescue; what he carries is what a real pilot would, and clues are what a realistic world holds, plus some added to help players, no set number (2026-09-27).
-- **(2026-09-17)** Dead players are ghosts: they move freely and talk only in the out-of-character
-  chat; ghosts hear ghosts, the living cannot.
+- **(2026-09-17, 2026-09-29)** Dead and rescued players go to the Warming Hut and can go back in as silent watchers (ghosts): unseen and unheard by the living, hearing one another; anyone can use the out-of-character chat.
 - **(2026-09-17, 2026-09-27)** The endings are rescued or dead; the run ends when they die, of
   anything. There is no recap.
 - **(2026-09-26)** A bear is in, and it acts; so do some bigger animals and a few birds. Body parts
@@ -223,8 +222,8 @@ smaller than it was, blood on a knife, meat by the fire — or by being told.
   searched and everything else the pilot's body can.
 - **A dead player's body stays where they died** — an entity exactly like the pilot's: their clothes on
   it, their pockets full, cooling, stiffening, freezing, smelling to the bear — and every act on the
-  pilot works on it. The player is a ghost who moves freely and talks only out of character, and can
-  walk in and watch. Nobody is told in advance (2026-09-27).
+  pilot works on it. The player goes to the Warming Hut and can go back in as a silent watcher
+  (2026-09-29). Nobody is told in advance (2026-09-27).
 - **The run ends when the last player dies.** The endings are rescued or dead (document 21).
 - **The bodies' event cards** (document 13 §4.3) are their own state changes — stiffening, freezing, the
   first raven — each a line that belongs to the body's `sensed` rows.

@@ -104,7 +104,7 @@ a couple of inches by the end, so a fire can be kept outside and the world stays
 flurry on day 6 that clears into the coldest night of the run before the day-7 plane. The sky is
 always at least partly cloudy. The days, the daylight and the numbers are document 13 §4.2. The
 escalation ladder — the nights colder through the week, the low forage covered a little at a time, the near wood used
-up, the bear bolder — is designed in document 13. What lives in the valley, filtered by ecology (this habitat, this month, real numbers), is
+up, the bear bolder — is designed in document 13. What lives in the valley, what realistically lives in an area of this size, is
 document 23.
 
 ## §5/§20–§27. The interaction engine — deterministic end to end
@@ -239,8 +239,7 @@ how fast they do things — a woodsman lights fires better; a technically profic
 fault in a device — on a hidden skill sheet that rises with practice (document 16). A missing player's character goes catatonic, sits down and stares; the
 others can keep them alive, and they can die. An agent acts at the speed of typing its command; a slow
 model is simply slow (document 20). **The only endings are rescued or dead**; the run ends when they
-die, of anything. Dead players are ghosts: they move freely and use the out-of-character chat; ghosts
-hear ghosts, the living cannot; anyone can use the out-of-character chat. There is no recap.
+die, of anything. Dead and rescued players go to the Warming Hut and can go back in as silent watchers (ghosts): unseen and unheard by the living, hearing one another; anyone can use the out-of-character chat (2026-09-29). There is no recap.
 (2026-09-17, 2026-09-26, 2026-09-27.) Design: documents 19, 20 and 21.
 
 **Cooperation:** at least one first-class interdependence (one raises the antenna while another works

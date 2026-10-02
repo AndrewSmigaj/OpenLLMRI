@@ -56,7 +56,7 @@
   do not (document 06).
 - **(2026-09-27)** **Nothing kills instantly:** death comes by the body running down — blood loss, the
   cold, thirst and the rest — on real clocks, with time to respond; the bear kills through the bleeding
-  it causes. Poison makes people very sick but never kills (document 11 §4.6). Dead players are ghosts; there
+  it causes. Poison makes people very sick but never kills (document 11 §4.6). Dead players go to the Warming Hut and can watch (2026-09-29); there
   is no recap.
 
 ### Proposals (Claude)
@@ -296,7 +296,7 @@ Document 21 owns the endings and document 14 the rescue; this is what the ladder
   way), the cold, thirst, a wound gone bad, carbon monoxide — on real clocks, with time to respond
   (2026-09-27; document 11 §4.6). Poison never kills, and a fall injures but never kills outright. The
   run ends when the last player dies. A dead player's body stays in the world, and the
-  player is a ghost who moves freely and talks only out of character. There is no recap.
+  player goes to the Warming Hut, where they talk with the others and can go back in as a silent watcher (2026-09-29). There is no recap.
 
 **The game ends on day 7** (Andrew, 2026-09-29): the rescuers find everyone still alive (document 21
 §4.3). The early ways home get a party out sooner, and so **the last 24 hours before the day-7 rescue

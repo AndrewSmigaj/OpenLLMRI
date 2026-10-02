@@ -221,7 +221,7 @@ no design.
 | ☐ | E10 | Materials: the natural world (stone, soil, clay, bone, hide, sinew, punk wood, lichen, rubber…) and the missing axes (edibility on flesh, liquid axes, hardness/spark); snow and ice as state on one material. | Opus | 18 | A1.18, C2 |
 | ☐ | E11 | New verbs as the loops and the docs demand them (strike, press, tape, fill, arrange, blow, sit, scrape, cover/block, push/pull/drag, throw, unscrew, warm, climb, dig dirt…); `help grammar` finalized once the forms are final. | Opus | 04 | D2 |
 | ☐ | E12 | The converter YAML → tables, run per zone when its design is finalized; the fifty outdoor zones as data, rendered and read. | Opus | 05, 01 | C2, D9 |
-| ☐ | E13 | Instances and co-op: a run as one sitting (lifecycle, halt/resume, the reaper), ghosts for dead players (free movement; ghosts hear ghosts, the living do not; anyone can use out-of-character chat), the missing player's character catatonic, seed-driven slot permutation at run start, the first-class interdependence as a general concurrent-state capability (the antenna hold first), the run modes incl. NHCs (and animals played by a lightweight model), and the agent pace: the speed of typing the command (Andrew, 2026-09-27). | Opus | 19, 16, 21 | A1.19 |
+| ☐ | E13 | Instances and co-op: a run as one sitting (lifecycle, halt/resume, the reaper), the Warming Hut for the dead and rescued, and silent watchers (free movement; watchers hear watchers, the living do not; anyone can use out-of-character chat), the missing player's character catatonic, seed-driven slot permutation at run start, the first-class interdependence as a general concurrent-state capability (the antenna hold first), the run modes incl. NHCs (and animals played by a lightweight model), and the agent pace: the speed of typing the command (Andrew, 2026-09-27). | Opus | 19, 16, 21 | A1.19 |
 | ☐ | E14 | Endings: rescued (by the radio, a signal, or the day-7 rescue of everyone alive) or dead; the rescuers reaching each survivor; the Warming Hut; a fuzz that proves the day-7 rescue reaches everyone alive. | Opus | 21 | A1.21, E7 |
 | ☐ | E17 | Exits as entities with a mode, travel time and state; movement as an attended activity with events (`walk`, `run` = less time more sweat, `climb`, `enter`, `turn back`); the tutorial rooms teach it (E19). | Opus | 03, 01 | A1.03, E1 |
 | ☐ | E18 | Groups: several things sharing a place and a kind form a described group ("a pile of clothes"); `look at the pile` lists them; taking dissolves it — the composer's fifth extension. | Opus | 03 | D3 |
@@ -370,7 +370,8 @@ it says so. When a decision changes, this list and every document it touches cha
   starting chances per way of taking an animal (document 10 §4.8; a snare on a good run about one night in
   five); unseen animals are decided by odds and shown when seen; wildlife comes and goes — met now and then, never
   ridiculously often, found by walking and looking, the rates tuned by playthroughs (2026-10-02). The list is document 23, reviewed
-  2026-10-02. Flora and fauna are filtered by ecology — this habitat, this month, real numbers.
+  2026-10-02. What lives here is what realistically lives in an area of this size; food sources are not added
+  just because they are possible (2026-09-18).
   (2026-09-17, 2026-09-18, 2026-09-26, 2026-09-27)
 
 **Time and the run**
@@ -396,9 +397,7 @@ it says so. When a decision changes, this list and every document it touches cha
   from the things present, each with its own rhythm. Being awake is being on watch. The commands that
   don't interrupt an activity: look, examine, inventory, speech, help, status. Build order: scheduler →
   fire → warmth → hunger and thirst → injury → the pilot's body and `status`. (2026-09-18)
-- **Endings: rescued or dead.** The run ends when they die, of anything. Dead players are ghosts: they
-  move and use out-of-character chat; ghosts hear ghosts, the living cannot; anyone can use the
-  out-of-character chat. **No recap.** (2026-09-17, 2026-09-26, 2026-09-27)
+- **Endings: rescued or dead.** The run ends when they die, of anything. Dead and rescued players go to the Warming Hut and can go back in as silent watchers (ghosts): unseen and unheard by the living, hearing one another; anyone can use the out-of-character chat (2026-09-29). **No recap.** (2026-09-17, 2026-09-26, 2026-09-27)
 
 **What kills, and what hurts**
 - **Nothing kills instantly.** Death is realistic and can come fairly fast, but always by the body

@@ -3,7 +3,7 @@
 > **Status: reviewed with Andrew 2026-09-29.** Architecture counterpart: none — the run lifecycle is DR-15/DR-15a in
 > [`implementation-architecture.md`](../architecture/implementation-architecture.md) §2. `PLAN.md` E14 builds the endings.
 
-The endings — rescued or dead — and what a dead player becomes: a ghost.
+The endings — rescued or dead — and where a player goes after: the Warming Hut, and watching.
 
 ## 2. Decisions
 
@@ -17,14 +17,11 @@ The endings — rescued or dead — and what a dead player becomes: a ghost.
   makes people very sick but never kills. Dangerous places injure but never kill outright.
 - **A run is about a week of game time in one sitting of two or three hours**, which the players can
   pause and return to (2026-09-17, 2026-09-27).
-- **No hard time barriers** (2026-09-07): rescue can come earlier than the week's end; instead of
-  time-window barriers, the things that cause death increase, so a party that is not rescued dies
-  honestly. There is no set arc — what to do is the players' decision.
+- **No set arc** (2026-09-07): rescue can come earlier than the week's end, and what to do is the
+  players' decision; the game ends on day 7 (2026-09-29, below).
 - **Rescue comes three ways** — the radio, a signal a plane can see, surviving long enough — with the
   same flyovers every run (2026-09-17, 2026-09-27; document 14 §3).
-- **Ghosts** (2026-09-17, 2026-09-27): a dead player becomes a ghost and moves freely. Ghosts hear
-  one another; the living do not hear ghosts. Anyone, living or dead, can use the out-of-character
-  chat.
+- **After death or rescue** (2026-09-17, 2026-09-27, 2026-09-29): Dead and rescued players go to the Warming Hut and can go back in as silent watchers (ghosts): unseen and unheard by the living, hearing one another; anyone can use the out-of-character chat.
 - **The run ends at its endings; there is no recap** (2026-09-27).
 - **Endings per person, rescue per group** (2026-09-28): an ending belongs to a person, and the run is
   over when nobody is left alive in the valley; a pass rescues whoever is findable, as real searches
@@ -47,9 +44,8 @@ The endings — rescued or dead — and what a dead player becomes: a ghost.
 A run ends one of two ways, and neither is a clock running out. Either you are found — a faint voice on
 the radio that wants to know where you are and says they will come at the next daylight good for flying;
 smoke a search plane can see, got up in the time between hearing its engines and seeing it; or, hardest
-of all, staying alive and findable until the search reaches you on the seventh day — and a helicopter
-sets down near you. Or you die: of the cold, of blood loss, or to the bear. Death comes one person at a
-time. Whoever dies becomes a ghost, drifting through the valley, heard only by the other ghosts, and the
+of all, staying alive until the seventh day, when the rescuers find everyone still alive (2026-09-29). Or you die: of the cold, of blood loss, or to the bear. Death comes one person at a
+time. Whoever dies goes to the Warming Hut and can go back in as a silent watcher, and the
 run is over when nobody is left alive there. Reaching Holt's cabin is not an ending — it is a stove,
 some stores and a roof, and somewhere findable to wait.
 
@@ -63,10 +59,10 @@ anything). An ending belongs to a person (2026-09-28).
 
 Three properties hold for both:
 
-- **No ending is a barrier.** Each is reached through the physics — a signal in the air, a voice on
-  the radio, a body's state — not through a rule that stops the run.
-- **Every ending is honest.** The search comes on its schedule (document 14 §3.5) to a party that can
-  be found; death comes from the state of a body. The ladder raises the danger (document 13) and the
+- **The early endings come through the physics** — a signal in the air, a voice on the radio, a body's
+  state; on day 7 the rescuers find everyone still alive (2026-09-29).
+- **Every ending is honest.** The search comes on its schedule (document 14 §3.5), and being found by an
+  early pass takes work; death comes from the state of a body. The ladder raises the danger (document 13) and the
   party's choices meet it.
 - **The run is seeded and replayable** (DR-12): the same run replays the same week, which is what the
   research uses (document 20). The final state of any run can be rebuilt from its seed and its
@@ -102,10 +98,11 @@ shore. A lake that is skinning over with new ice takes neither floats nor skis (
 Someone alive and unrescued when the sitting ends: someone in the party types `pause game`, and the
 run is resumed like any other (Andrew, 2026-09-17, 2026-09-27, 2026-09-28). No run goes past day 7.
 
-### 4.5 Ghosts (Andrew, 2026-09-17, 2026-09-27)
+### 4.5 After death or rescue: the Warming Hut, and watching (Andrew, 2026-09-17, 2026-09-27, 2026-09-29)
 
-A dead player becomes a **ghost** and moves freely. **Ghosts hear one another; the living do not hear
-ghosts. Anyone, living or dead, can use the out-of-character chat** (document 19 §4.8).
+A player who dies or is rescued goes to the Warming Hut, and from it can go back into the run as a
+**silent watcher** — what the earlier decisions called a ghost. **Watchers hear one another; the living
+do not hear them. Anyone, living or dead, can use the out-of-character chat** (document 19 §4.8).
 
 **The Warming Hut** (Andrew, 2026-09-28, 2026-09-29). A player who is rescued or dies is transported
 there: a room inside the simulation to recover in and look back on the run — seats and displays, with
@@ -132,20 +129,21 @@ the atmosphere of a warming hut, windows, warm things to drink. Players are back
 
 What follows from the rest of the design (2026-09-29):
 
-- **A ghost sees everyone** (Andrew, 2026-09-28), a hidden person included, and otherwise what anyone
+- **A watcher sees everyone** (Andrew, 2026-09-28), a hidden person included, and otherwise what anyone
   standing where it is would see — the same composed look, banded by the same perception, weather and
-  darkness included (document 03; an agent sees what a human sees, and so does a ghost). Nothing else
+  darkness included (document 03; an agent sees what a human sees, and so does a watcher). Nothing else
   extra: no view into closed things, no party-wide status, no map of caches.
 - **It moves unhindered** — no terrain, snow, cold or hunger slows it; it has no body.
 - **Its body stays where it died**, clothed, pockets full: mass is never lost (DR-11). What the living
-  may do with it is documents 12 and 15, and that the ghost may be watching is part of it.
+  may do with it is documents 12 and 15, and that a watcher may be watching is part of it.
 - **It cannot act on the world** — no Effects, and nobody alive perceives it. In the log it is a
   perceiver of its own kind, recorded apart from `witnessed_by`, because it cannot testify inside the
   world (document 15).
 
 ### 4.6 The end-to-end run the roadmap gates on (held for the implementation plan)
 
-P7's exit gate names a minimal run that must play through: **wake → free yourself → find the pilot's
+*(Claude's, not yet decided — held for the implementation plan as a test, not a design rule:)* a
+minimal run that must play through: **wake → find the pilot's
 body → salvage a seat → make a fire → improvise a radio antenna → be rescued**. It is a smoke test of
 the endings, not a script a player is meant to follow.
 

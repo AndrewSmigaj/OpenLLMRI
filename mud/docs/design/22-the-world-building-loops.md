@@ -29,14 +29,14 @@
   (fire, food…) plus human lenses (2026-09-18).
 - **Design first** (2026-09-16): no agent runs a loop until every design document is finalized.
 - **There is no ceiling and no finish line** (2026-09-16). Every count is a floor; a room is never
-  finished — it is "no walls found in the last N runs".
+  finished *(Claude's measure, not yet decided: "no walls found in the last N runs")*.
 - **Who does what** (2026-09-16): Fable plans; Opus implements and grades its own work; Sonnet and Opus
   are peers for building the ontology.
 - **The schema is designed in full, up front; the pilot verifies it** (2026-09-18; document 05 §4.5).
 - **The merge unions and never drops**, and it is measured (2026-09-18).
 - **Walls per run counts five categories, separately** (2026-09-18; document 05 §4.5a).
-- **Ecology is a real filter** (2026-09-18): a species is in the valley only if it lives in this
-  habitat, this month, in numbers that matter.
+- **Ecology** (2026-09-18): what is here is what realistically lives in an area of this size; food
+  sources are not added just because they are possible.
 - **Real life is the default answer; state systems, not shortcuts; never make the world less
   interactive** (2026-09-26) — carried to the agents by every scaffold (§4.3).
 - **Balancing from play** (2026-09-28): after agents play, other language models analyse their
@@ -282,8 +282,8 @@ Local only, one worker (`make ontology-web`). Every action is also a command-lin
 - **A firing** is one bounded chunk, then stop — a whole zone for one pass, so a zone is always
   complete for that pass or untouched. How many zones one firing takes is set by what the pilot
   measures.
-- **Order:** the built crash-site zones first, then the designed ones; every zone gets its first passes
-  before any gets a second. Possibility passes are scheduled by yield — the situations and lenses that
+- **Order** *(Claude's, not yet decided — settled after the pilot)*: the built crash-site zones first,
+  then the designed ones; every zone gets its first passes before any gets a second. Possibility passes are scheduled by yield — the situations and lenses that
   still find new commands go first. This is an order of work, never a finish line.
 - **A zone goes back on the queue** on evidence: walls from play there; a new lens; a new system
   document whose states and transforms its rows must carry; a design change; a kind of row a model
@@ -297,7 +297,7 @@ Nothing in these passes writes code, but every proposed command is a future prob
 probe in `game/world/scenarios/whiteout/probes/` when its zone is finalized for implementation; until
 then it stays a row with its triage result. The probe rules (`ontology-closure.md` §6) hold: passing
 probes are enforced, the passing count never drops, every probe cites its source, and no agent grades
-its own evidence that the world is finished.
+its own evidence.
 
 ### 4.11 Walls per run
 
