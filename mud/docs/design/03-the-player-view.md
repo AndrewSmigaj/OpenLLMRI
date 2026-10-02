@@ -21,6 +21,10 @@
   of how long it will take (document 19 §4.3).
 - **(2026-09-28)** A person can approach a thing and be next to it — `sit next to the fire` — and the
   room's prose says so ("Cal sits close by the fire"); the position is real (document 17 §4.8).
+- **(2026-10-02)** **Moving is ontologically sufficient.** Any reasonable way of saying it that follows
+  the grammar works: the directions and their synonyms, up and down, `go to` or `walk to` a place
+  (`walk to the grove`), and the exit's own verb — `climb the tree` leads to a separate place up the
+  tree, `climb onto the plane` to the top of the fuselage.
 - **(2026-09-28)** A serious condition shows in a person's line in the room; the body's signs (a
   cough, a wince, shivering) arrive as emotes; examining or looking at the person reveals the smaller
   things (§4.1, §4.7; document 11 §4.12).
@@ -128,8 +132,10 @@ prose.
 
 **The exits.** Below the people, each exit in prose — its own sentence or clause, composed from its
 state like any other thing (§4.1a). Outdoors they are named by compass direction; inside the plane,
-fore / aft / out *(and `up` / `down` where a zone is genuinely above or below, like the fuselage top —
-proposed by Claude, for Andrew's check)*. Exits are geography, not affordances, so naming them is not
+fore / aft / out, and `up` / `down` wherever a place really is above or below. Every direction has its
+synonyms, and moving is ontologically sufficient (2026-10-02): `go to` or `walk to` a place, or the
+exit's own verb — `climb the tree` leads to a separate place up the tree, `climb onto the plane` to the
+top of the fuselage. Exits are geography, not affordances, so naming them is not
 a menu: the prose says where the world continues, never what to do. The commands are `go <direction>`,
 `go to <place>`, and the exit's own verb.
 

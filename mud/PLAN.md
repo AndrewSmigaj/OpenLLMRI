@@ -479,6 +479,8 @@ it says so. When a decision changes, this list and every document it touches cha
   at all. Ghosts see everyone. This needs care to build (the implementation plan).
 
 **The player's view and the grammar**
+- Moving is ontologically sufficient: the directions and their synonyms, up and down, `go to`/`walk to` a place,
+  and the exit's own verb (`climb the tree` leads to a separate place up the tree) (2026-10-02).
 - The look: a title line, prose composed from state, people and animals as prose, exits as entities in
   prose; no item list; groups; a blank line before events; colour for human players only. An agent sees
   exactly what a human sees. (2026-09-16, 2026-09-17)
