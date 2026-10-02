@@ -12,7 +12,7 @@
 
 - **What the valley offers** (2026-09-17): roots and berries — pickable, a couple of kinds, and a red
   one that makes you sick; more things to find in the plane and the wreckage; small creatures to catch
-  (he named bugs and lizards); and birds that can be hit with a thrown rock — or anything within reason that can be thrown
+  (bugs, and small quick things); and birds that can be hit with a thrown rock — or anything within reason that can be thrown
   (2026-09-27). It takes a few tries; the
   world says the rock missed, so the player tries again; rocks have to be found, and a sling can be
   made. The odds are low, but a player who keeps trying gets there, and a bird covers one meal for a
@@ -52,16 +52,16 @@
   creek's stones, the wintering adults under bark and litter (§4.0, §4.3). A find, bait and a handful of
   food, never a food source.
 
+- **2026-10-02 — no lizards; the bear is the one really dangerous animal.** Interior Alaska has no
+  reptiles, and its one amphibian, the wood frog, is in its winter shelter under the leaf litter by
+  September (Larson et al., *J Exp Biol* 2014). The small, quick things to catch are the voles in their
+  runways, the red squirrels at their middens, a torpid wood frog scraped out of the litter by a pond,
+  and the bugs (§4.3).
+
 ### Proposals (Claude)
 
 - Everything below the rules: the species, where each lives, what it yields, with sources (§4.0,
   §4.2–§4.4).
-- **No lizards**: interior Alaska has no reptiles, and its one amphibian, the wood frog, is already in
-  its winter shelter under the leaf litter by September (Larson et al., *J Exp Biol* 2014). The small
-  things you can catch are grubs in rotten wood, voles, red squirrels at their middens, and a torpid
-  wood frog scraped out of the litter by a pond — the real animal in the place of the lizards.
-  Everything else Andrew asked for is here.
-- Animals as actors, populations and sign (§4.1), and which animals act (§4.1a).
 - What the valley yields (§4.4), and how the living things are met — telling them apart, what the
   poisons do, digging, throwing, fishing (§4.6).
 
@@ -399,7 +399,7 @@ Andrew's check.
 
 - **2026-09-17 (Andrew):** roots and berries, a red berry that makes you sick, more to find in the
   wreck, small things to catch, birds with a thrown rock; wildlife as events and sign; no wolverine.
-  Drafted, with the lizards replaced by what lives here, for his call.
+  Drafted, with what lives here in place of lizards, for his call.
 - **2026-09-18 (Andrew):** only what realistically lives in an area of this size; the yield derivation
   (§4.4) added — the country is a brake on starvation, never a living; the hare cycle a seeded run
   variable; rabbit starvation.
@@ -419,6 +419,8 @@ Andrew's check.
   bear a male grizzly who stays up all week, no den mid-run; animals as actors, populations and sign,
   a met animal a full thing in the room; no wolves; as many of an animal in a room as is realistic, and
   few played by a model at once; which actors a model plays set per run.
+- **2026-10-02 (Andrew):** no lizards — the small, quick things are the voles, squirrels, the wood frog
+  and the bugs; the bear is the one really dangerous animal.
 
 ## 8. What exists today
 

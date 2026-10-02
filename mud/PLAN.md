@@ -351,7 +351,8 @@ it says so. When a decision changes, this list and every document it touches cha
   animal in a room as is realistic, and only a few played by a model at once, by common sense, for latency and
   usage limits; birds not constantly calling; the fish are
   scripted; other wildlife is a population shown as events and sign, and an animal met or caught is a
-  full thing in the room while it is there (2026-10-01); no wolves (2026-10-01), no wolverine, no moose. Claude proposes the list (document 23,
+  full thing in the room while it is there (2026-10-01); no wolves (2026-10-01), no wolverine, no moose, no
+  lizards — the bear is the one really dangerous animal (2026-10-02). Claude proposes the list (document 23,
   for Andrew's check). Flora and fauna are filtered by ecology — this habitat, this month, real numbers.
   (2026-09-17, 2026-09-18, 2026-09-26, 2026-09-27)
 
