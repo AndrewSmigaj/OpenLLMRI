@@ -6,7 +6,7 @@
 > this file.
 > Statuses: ☐ not started · ◐ in progress · ☑ done · ⊘ waiting on a decision (named).
 
-## 0. RESUME HERE (last touched 2026-10-01)
+## 0. RESUME HERE (last touched 2026-10-03)
 
 **What we are in the middle of:** Phase A, the design review — a conversation over `docs/design/`, one
 document at a time, until every one is finalized. Nothing is built and no agent runs a world-building
@@ -61,7 +61,11 @@ it.
   light start (bumps and bruises, a cut, a concussion).
 
 **Next, in this order:**
-0. **The provenance sweep** (2026-10-02): every passage in the design documents is traced to Andrew's
+0. **Andrew reviews the redesigned map** (document 01 §4.2–§4.12; the visual page is
+   https://claude.ai/artifact/FT89UNSYHqzF12yE2LHkc5). The provenance sweep (2026-10-02, done): every passage traced
+   to Andrew's decisions, a real-world source, or marked as Claude's; batches A–E answered; batch F (the loops' done
+   measure, the queue order, the end-to-end test) deferred to after the pilot and the implementation plan.
+   Earlier: every passage in the design documents is traced to Andrew's
    decisions, a real-world source, or marked as Claude's; untraced rules and invented content go back to him in
    batches, worst first (an audit found the anti-easy rule, a night slogan and a survival manual he never decided).
 1. **The pilot** (document 22 §4.7; build order M1–M6 above): the schema and validator, the store's
