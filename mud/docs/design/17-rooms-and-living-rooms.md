@@ -382,7 +382,7 @@ None open.
   `game/world/scenarios/whiteout/probes/BASELINE`.
 
 **Designed, not built**
-- The fifty outdoor zones for the whole valley (document 01): `zones.py` carries exactly the nine
+- The outdoor places for the whole valley (document 01): `zones.py` carries exactly the nine
   crash-cluster zones above and nothing else.
 - `look under` and its family (§4.3) — the seat exemplar's own reveal act — unbuilt: no handler,
   operation, or probe anywhere references it.

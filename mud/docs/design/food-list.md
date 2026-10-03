@@ -72,7 +72,7 @@ snow stays (document 13 §4.2).
 | birch polypore, tinder conk | dead and dying birch | a poor tea; a real medicine | — | 📐 |
 | inner bark (spruce, birch) | any live tree | famine food, chewed or boiled; also snare bait | costs the tree | 📐 |
 | spruce pitch | any wounded trunk | chewed | also seals a wound and burns | 📐 |
-| cattail rhizome | the pond edge, in the mud | real starch | wet, cold digging; only where a pond has a stand | 📐 |
+| cattail rhizome | the lake's marsh edge, in the mud | real starch | wet, cold digging; water hemlock grows among them | 📐 |
 | wild potato root (Eskimo potato, Indian potato, sweetvetch) | the bench, river bars | starch, sweetish; ounces a plant | the ground crusts each frosty night; a fire thaws it; the grizzly digs the same roots | 📐 |
 | vole root caches | the sedge meadow | small starchy roots, found by the soft ground over a cache | whether this valley has them is for the loops to check | ◌ |
 | velvet foot mushroom | dead aspen, poplar, willow | the one fresh edible mushroom of the season | **the deadly galerina grows nearby and looks like it** | 📐 |
@@ -101,7 +101,7 @@ From document 23 §4.3, §4.4 and document 10 §4.4, §4.8. How each is taken is
 | burbot | the lake, the pool | ~600–1,600 kcal with its liver — the liver's fat is worth more than its calories | bites from sunset to midnight | 📐 |
 | northern pike | the lake | ~500–1,800 kcal a fish | — | 📐 |
 | beaver | the lodge and its feed pile | an 18–32 kg animal: ~10,000–20,000 kcal of rich meat; the tail's fat | wary, hard to take | 📐 |
-| muskrat | the marsh edge, if the lake has one | 0.9–1.8 kg: ~600–1,100 kcal | — | ◌ |
+| muskrat | the lake's marsh edge | 0.9–1.8 kg: ~600–1,100 kcal | — | 📐 |
 | the bear | wherever food is | the richest food in the valley — 70–100 kg of meat (~110,000–160,000 kcal) and tens of kilograms of fat | the most dangerous thing in the valley; **trichinosis worms in the meat — always cook it through** | 📐 |
 | porcupine | the spruce and birch | ~5,000–10,000 kcal, much of it fat — fattest in fall | clubbed; the quills | 📐 |
 | fox, marten, lynx | tracks everywhere | a pelt; ~4,000–6,000 kcal a lynx, ~1,500–3,000 a fox, a few hundred a marten | rarely seen | 📐 |

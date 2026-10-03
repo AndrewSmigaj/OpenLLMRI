@@ -192,7 +192,7 @@ number.
 not the runtime.
 
 **The schema is designed in full, up front (Andrew, 2026-09-18).** A schema is cheap to specify and
-expensive to change once 59 zones of data exist: a field added later means either backfilling by
+expensive to change once the valley's zones exist as data: a field added later means either backfilling by
 re-running passes or living with rows that disagree about their own shape. That is exactly the drift
 waterfall exists to avoid, so the schema below is complete, and the pilot pass **verifies** it rather
 than discovers it.
@@ -278,7 +278,7 @@ two-model premise pays, and how to change the briefs. Pruning is the design pass
 reads the merge and its report.
 
 **How the store starts (2026-09-30).** From the design, not from the old tables: the engine's own
-vocabulary generated from code into the shared files; the 59 zone outlines from document 01 (with the
+vocabulary generated from code into the shared files; the zone outlines from document 01 (with the
 built zones' positions); and, for each zone the pilot works on, a **brief** (`briefs/<zone>.md`) — what
 the design says is there, with its sources and a "not here" list — written by reading every document
 that names the zone and fixing their contradictions first, then checked by Andrew. The old runtime

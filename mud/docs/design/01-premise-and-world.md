@@ -2,9 +2,8 @@
 
 ## 1. Status
 
-> **Status: reviewed with Andrew 2026-09-17** (created 2026-09-16; brought to the current decisions
-> 2026-09-27 — the season, the pilot, the ELT, what is aboard, Holt's cabin, the animals — for Andrew's
-> check). **Architecture counterpart:** none — this document is *what the world is*; how zones, edges
+> **Status: the premise and Andrew's decisions reviewed 2026-09-17; the map (§3, §4.2–§4.12) redesigned
+> by Claude 2026-10-02, for Andrew's review.** **Architecture counterpart:** none — this document is *what the world is*; how zones, edges
 > and Scenes are represented lives in
 > [`../architecture/implementation-architecture.md`](../architecture/implementation-architecture.md)
 > (DR-13a) and [`../architecture/perception-model.md`](../architecture/perception-model.md). The built
@@ -12,9 +11,8 @@
 
 This is the document you read to picture the whole world before anything else: what happened, when
 and where it happened, what country the party is standing in, how big it is, what it costs to cross,
-and every room in it. The valley's shape, its regions, its routes and all fifty outdoor zone designs
-came out of one overnight design run on 2026-07-15 — **they are Claude's proposals**, reviewed with
-Andrew on 2026-09-17 and brought to the first week of October on 2026-09-27.
+and every room in it. The valley's shape, its regions, its routes and its places
+were redesigned by Claude on 2026-10-02 — **they are Claude's proposals**, for Andrew's review.
 
 ---
 
@@ -41,8 +39,8 @@ Andrew on 2026-09-17 and brought to the first week of October on 2026-09-27.
 - **The run (2026-09-07, 2026-09-17).** Roughly a week of game time in one sitting of two or three
   hours, which the players can pause and return to. An escalation ladder and no hard time barriers;
   there is no set arc.
-- **The whole valley (2026-09-16, 2026-09-17).** All fifty outdoor zones and all eleven regions are in
-  the first complete run, and each region gets a reason to come back. The size is judged by the travel
+- **The whole valley (2026-09-16, 2026-09-17).** Every region and its places are in the first complete
+  run, and each region gets a reason to come back; the counts are floors. The size is judged by the travel
   table (§4.6), now that travel is an attended activity. If a region is ever cut, it is the muskeg.
 - **The season (2026-09-26, 2026-09-27).** The first week of October in interior Alaska — Claude's
   choice, at Andrew's request, for more than ten hours of daylight. **No big storm** (2026-09-27): bare,
@@ -102,45 +100,30 @@ Andrew on 2026-09-17 and brought to the first week of October on 2026-09-27.
 
 ### Proposals (Claude)
 
-Everything else in this document is a proposal — from the 2026-07-15 overnight design run, and, for
-its October state, from 2026-09-27 (every October detail below is Claude's, for Andrew's check):
+- **The whole map** (§3, §4.2–§4.12), redesigned by Claude on 2026-10-02 at Andrew's request — the
+  regions and their roles, the places, the distances and travel times, where the ways home happen, the
+  week on the map, the density order, and what the valley already holds. For Andrew's review; it rests
+  on his decisions above, named where they apply.
 
-- the valley's geography, size and shape (an unnamed side valley in interior Alaska);
-- the **eleven regions** ("Scenes") and the **fifty outdoor zones**, each with its purpose, resources,
-  prices, hazards and story;
-- the jobs the regions do for the three ways home (§4.3, §4.7);
-- what things cost (§4.3);
-- every **number**: distances, travel minutes, exposure bands, the object census;
-- the **density gradient** (Ring 0 / Ring 1 / Ring 2 / the homestead) as the way GDD §6's dense scene
-  is honoured across a big map (§4.11);
-- the week's **re-pricing** of the map (§4.10);
-- the **discovery chains** — no region is announced; each is found several ways (§4.9);
-- **V. Holt**, the absent trapper whose homestead holds the valley's other supplies;
-- the **October state** of every zone — open water, new ice, the snow as it comes and what it covers.
-
-Every count here is a floor, per the open-world rule: fifty zones is where the valley starts, not
-where it stops, and no zone is ever "finished."
+Every count here is a floor: no region or place is ever "finished".
 
 ---
 
 ## 3. In one paragraph
 
 A mail plane crossing a low ridge in the first week of October clips the spruce, sheds a wing and its
-tail, and slides to a stop at the east edge of a muskeg white with hoarfrost. The pilot
-is dead in his seat. The beacon is broken; the hand radio is dead, and its batteries are somewhere in
+tail, and slides out onto the floor of a side valley at the east edge of a muskeg white with hoarfrost.
+The pilot is dead in his seat. The beacon is broken; the hand radio is dead, its batteries somewhere in
 the wreckage of the tail; the search is starting where the flight plan said the plane would be, not
-where it is. Step out of the hull and the country opens up: west across the bog is a lake,
-open water with skim ice at its edges, whose shore is the widest sightline in the valley and the
-windiest place to stand; north is spruce forest with the fuel, the snares and the most sheltered
-ground; northeast the plane's own scar climbs to a wing in the trees with avgas in its tank and, above
-that, a knob you can see the whole valley from — the highest place to raise an antenna; east is birch,
-whose bark is one of the best tinders; and south the lake drains into a creek that
-runs, with fish in its open pools, past a beaver pond to a blazed trapline that ends at a stranger's
-cabin with a wood stove, some trapline gear and modest stores, two and a half kilometres away — about
-ninety minutes the first time, one way. Things lie where they really would — some in plain sight, more
-in the brush, under the moss or the coming snow, up a tree or a long walk off — and every hazard tells
-you what it is before it takes anything. Snow comes on and off all week and the nights grow colder,
-until a heavier flurry on day 6 clears into the coldest night of the run.
+where it is. Step out of the hull and the valley is all around: west across the bog, a lake, open water
+under the widest sky in the valley, and an old burn on its far shore; north, spruce at the ridge's foot,
+with the fuel, the hares and the shelter; north-east, the plane's own scar climbing past its wing to a
+rocky knob that sees the whole valley — the highest place to raise an antenna; east, birch and aspen on
+the ridge's warm toe; and south, the creek out of the lake, running past a fishing pool, the slopes and
+gravel bench where a grizzly is feeding hard before winter, and a beaver pond, to a blazed trail and a
+trapper's cabin two and a half kilometres away. Things lie where they really would. Snow comes on and
+off all week and the nights grow colder, until a heavier flurry on day 6 clears into the coldest night
+of the run, and on day 7 the rescuers come.
 
 ---
 
@@ -176,372 +159,381 @@ Conditions: the first week of October; daylight, temperature, snow and ice day b
 
 ### 4.2 The valley
 
-An unnamed side valley in interior Alaska. West of the wreck the muskeg opens onto a lake; the lake
-drains from its south end into a creek that runs southeast past a beaver pond; from the pond an old
-blazed trapline climbs southeast to V. Holt's homestead on a bench — the cabin the sectional chart
-promises ("V. HOLT — CABIN, WOOD STOVE"). North of the wreck is spruce forest; northeast, the plane's
-own scar climbs to a ridge; east, a south-facing toe of birch.
+*(The whole map, §4.2–§4.12, was redesigned by Claude on 2026-10-02 at Andrew's request — he had not
+reviewed the July version. Everything here is Claude's, not yet decided, until he reviews it; what it
+rests on is his decisions, named where they apply.)*
+
+An unnamed side valley in interior Alaska, about six square kilometres, running north-west to
+south-east. Its two sides are the two faces of every interior valley: the **north side** is a ridge
+whose south-facing slope gets the sun — dry ground, white spruce, and birch and aspen on its warm
+toe; the **south side** is a lower slope facing north — black spruce, deep moss, and permafrost under
+it. Between them the floor is muskeg, a lake and the creek that drains it.
+
+The plane came in from the north-east over the ridge, clipped the spruce, shed its right wing into
+the trees, bellied down the slope and slid out onto the valley floor at the east edge of the muskeg,
+leaving its tail two hundred metres back up the scar (§4.1). So the wreck sits where the ridge meets
+the floor, and almost everything in the valley is a direction from it:
+
+- **up the scar, north-east** — the wing, the torn-off wheel, and the climb to the ridge and its rocky
+  knob, the highest place for the radio's antenna and the one place that sees the whole valley;
+- **north** — the spruce wood at the ridge's foot: fuel, hares, grouse, shelter;
+- **east** — the birch and aspen on the ridge's warm toe: bark, punk, chaga, the friction woods;
+- **west** — the muskeg, and beyond it the lake, the valley's widest open sky; across the lake, an old
+  burn full of standing dead wood;
+- **south** — the creek out of the lake's south end, running south-east down the valley: open water
+  all week, fish in its pool, the bear's berry slopes and root bench along it, a beaver pond, and from
+  the pond Holt's blazed trail up onto a bench to his homestead.
 
 ```
-                                    N
-                                    ▲
-                    THE RIDGE OVERLOOK · 4 zones · 800 m NE, +120 m
-                    krummholz ▸ boulder field ▸ the knob ▸ the lee slope
-                    (the cabin found · the weather read · height for the radio)
-                                   ╱
-                 THE STRIKE PATH · 4 zones · 110–330 m NE
-                 shear line ▸ the wing in the trees ▸ the gear gouge ▸ bench saddle
-                 (the plane's own scar, walked backwards: salvage + orientation)
-                                ╱
-  THE NORTH WOOD · 6 zones      │        THE BIRCH STAND · 4 zones · 350 m E
-  60–260 m N — fuel, protein,    │        bark ▸ punk ▸ chaga ▸ the game trail
-  the forward camp, the bivvy ╲ │ ╱      (how you make fire without a lighter)
-                            treeline  scar
- THE LAKE ◄── THE MUSKEG ◄───── ✈ THE CRASH SITE · 9 zones ─────────────────► E
- 6 zones      5 zones             cockpit ▸ cabin ▸ breach ▸ 200 m of scar ▸ the tail
- 500 m W      120–420 m W         (the pilot's body · the chart · the radio · the tail)
- shore ▸ open water ▸ mid-lake ▸ inlet ▸ outlet      — where a party stays and signals
-    │
-    ├── the far-shore burn: 1.5 km W across the lake (the fuel jackpot; the greed test)
-    │
-    │ S — the outlet, heard before it is seen
- THE CREEK · 5 zones · 0.8–1.1 km SE
- riffle ▸ willow bar ▸ overflow bend ▸ logjam ▸ the fishing pool
-    │ S
- THE BEAVER POND · 5 zones · 1.7 km S
- dam ▸ pond flat ▸ the lodge ▸ food cache ▸ the old drowned set (wire; the trailhead)
-     ╲  the blazes climb SE
-      THE TRAPLINE · 4 zones — blaze gateway ▸ spruce tunnel ▸ marten set ▸ cabin gate
-          ╲ SE
-           HOLT'S HOMESTEAD · 7 zones · 2.4 km of travel (~90 min, the first time)
-           dooryard ▸ porch ▸ the cabin (stove) ▸ loft ▸ cache ▸ woodshed ▸ water hole
+                                     N
+                     the lee slope ╮  ▲
+                 THE RIDGE · the knob (granite tor, +120 m) · the boulder field
+                       │ the ridge top (wind-stunted spruce, lichen)
+                       │ the bench saddle
+     THE NORTH WOOD    │ THE SCAR — the gear gouge · the wing in the trees · the shear line
+     forest edge ·     │      ╲
+     big spruce ·      │       the tail section (200 m up the scar)
+     hare runs ·       │      ╱
+     grouse · deadfall │    ╱                         THE BIRCH SLOPE · 350 m E
+                       ✈ THE CRASH SITE ─────────────  aspen · birch grove · the old birch · game trail
+ THE BURN ── THE LAKE ── THE MUSKEG ◄─┘
+ (far shore,  shore · marsh edge ·   tussocks · Labrador tea ·
+  1.5 km W)   inlet · outlet         tamarack · wet channel · willows
+                         │
+                         ▼ S — the outlet, heard before it is seen
+              THE CREEK · riffle · willow bars · the bend · the logjam · the pool
+                         │
+              THE BEAR'S COUNTRY · the berry slope · the root bench · torn ground
+                         │
+              THE BEAVER POND · the dam · the pond · the food pile · the old drowned set
+                         ╲ the blazes climb SE
+                          HOLT'S TRAIL · blazes · spruce tunnel · marten set · the gate
+                           ╲
+                            HOLT'S HOMESTEAD · dooryard · porch · the cabin · loft · cache · woodshed · water hole
 ```
 
 Zone positions are authored per zone in metres from the wreck, y+ = north, matching `zones.py`'s
-convention.
+convention. Straight-line distances from the wreck: the north wood 60–300 m N · the birch slope 350 m E ·
+the ridge's knob 800 m NE (+120 m) · the lake shore 500 m W · the burn 1.5 km W across the lake (about
+2.5 km round its shore) · the creek's riffle 800 m SW · the pool 1.1 km S · the bear's country
+1.2–1.5 km S · the beaver pond 1.7 km S–SE · the homestead 2.4 km of travel SE.
 
-Straight-line distances from the wreck: lake shore 500 m W · ridge knob 800 m NE (+120 m) · birch stand
-350 m E · creek riffle 800 m SW · beaver pond 1.7 km S–SE · homestead 2.4 km of travel SE. The far-shore
-burn is 1.5 km W across the lake — farther round its shore.
+**What it rests on** (Andrew): the whole valley in the first complete run, each region with a reason
+to come back (2026-09-16, 2026-09-17); the lake about 1.5 km long and 6–8 m deep, joined to the creek
+(2026-10-02); Holt's cabin as supplies, 2.4 km off (2026-09-17, 2026-09-27); the bear's sign in its own
+area, plain on entering it (2026-09-28); what lives here is what realistically lives in an area this
+size (2026-09-18); each region's roles listed in the map data (2026-10-02); if a region is ever cut, it
+is the muskeg (2026-09-17).
 
 ### 4.3 How the map is built
 
-**Each region has a job in getting home**, and each region's roles are listed in the map data
-(2026-10-02) — the store's region and zone rows (document 05 §4.5, document 22). The three ways home
-(document 14 §3) are laid on the map:
-the lake's shore and the knob are the sightlines where a signal can be seen; the ridge and the
-fuselage top are the heights where the radio's antenna goes; the crash site is where a party stays,
-signals and keeps itself findable; and the creek–trapline–cabin line leads to the valley's other
-supplies (distance and navigation). The forest ring between them is the survival economy every way
-spends from.
+**Each region has roles**, and they are listed in the map data (2026-10-02): what a party comes to it
+for — the ways home (document 14 §3) and the survival every way spends from. The roles are §4.4's
+second column. A region is a Scene (document 19 §4.3): a connected group of places, sight working
+within it and, across open land, case by case.
 
-**The week gets harder** (the escalation, PLAN §5): the nights grow colder, each flurry covers more of the low forage, the near
-deadfall burns away so every armful is a longer walk, water that is open in the first days freezes
-too thin to trust, distance and the cold cost more, and on day 6 a heavier flurry closes the
-world in for a day. Things cost what they really cost, in
-these kinds of cost (2026-10-02 — no count of them is required; a rock on the creek bar costs a short walk):
+**The week gets harder** (the escalation, PLAN §5): the nights grow colder, each flurry covers more of
+the low forage, the near deadfall burns away so every armful is a longer walk, the still water skins
+over too thin to trust, and on day 6 a heavier flurry closes the world in for a day (document 13 §4.2).
+
+**Things cost what they really cost** (2026-10-02) — the kinds of cost, with no number of them
+required (a rock on the creek bar costs a short walk):
 
 | Cost | What spends it |
 |---|---|
-| **Daylight** | travel and work both burn the day's light (document 13 §4.2); the days shorten, and the day-6 flurry makes the useful part shorter |
-| **Warmth** | every zone has an exposure band; the lake shore and the ridge drain you while you work |
-| **Sweat** | hard effort (digging, floundering, chopping) dampens clothing — a *deferred* cold debt, carried as wet clothing inside the warmth system (document 08) |
-| **Tools** | blade, chopper, saw, container, cordage — each makes different work possible |
-| **Knowledge** | reading sign: tracks, ice colour, blaze marks, dead spruce twigs. `examine` shows what is there; reading it is the player's |
-| **Risk** | thin ice, the cold creek, the frost-glazed lee slope, the climb — always telegraphed; a fall is chance mixed with fitness, told as what happened, and it injures and never kills outright |
+| **Daylight** | travel and work both burn the day's light (document 13 §4.2) |
+| **Warmth** | the open places drain you while you work — the lake shore and the ridge most (document 08) |
+| **Sweat** | hard effort dampens clothing, which chills once the work stops (document 08) |
+| **Tools** | a blade, a hatchet or axe, a saw, a container, cordage — each makes different work possible |
+| **Knowledge** | reading tracks, ice, blazes, which wood is dry — `examine` shows what is there; reading it is the player's |
+| **Risk** | thin ice, the cold creek, the glazed lee slope, the bear's country |
 
-**Where things lie is decided case by case** (2026-09-28): there is no rule that hides things away.
-What would make the start too easy is not in plain sight in the first room; everything else lies where
-it really would — rocks on the creek bar and the ridge, a dead fish on the shore, deadfall in the
-brush, a cache up a tree, a cabin 2.4 km off (§4.1).
+**Where things lie** is decided case by case (2026-09-28): what would make the start too easy is not in
+plain sight in the first room; everything else lies where it really would. Not every place has
+something interesting in it — a stretch of muskeg is a stretch of muskeg (2026-10-02).
 
 ### 4.4 The regions
 
-| Region | Zones | What it is for | From the wreck |
+| Region | Its roles | Places | From the wreck |
 |---|---|---|---|
-| **S1 The Crash Site** | 9 ✅ | the wreck: the pilot's body, the chart, the hand radio and its batteries in the tail, what the crash scattered; where a party stays and signals | — |
-| **S2 The Muskeg** | 5 📐 | the bog the pilot almost reached: tussocks and wet channels, tinder and berries, the way to the lake | 120–420 m W |
-| **S3 The Lake** | 6 📐 | the widest sightline in the valley and the wind's home; open water all week, skim ice at its edges | 500 m W |
-| **S4 The North Wood** | 6 📐 | fuel, shelter, game, the most sheltered ground | 60–260 m N |
-| **S5 The Strike Path** | 4 📐 | the crash's scar up the hill — salvage, orientation, and avgas in the wing | 110–330 m NE |
-| **S6 The Ridge Overlook** | 4 📐 | height for the radio's antenna, the view over the valley, and exposure to the wind | 800 m NE, +120 m |
-| **S7 The Birch Stand** | 4 📐 | birch bark, punk wood, chaga | 350 m E |
-| **S8 The Creek** | 5 📐 | the way south along running water: fish, willow, thin ice over the current | 0.8–1.1 km SW→SE |
-| **S9 The Beaver Pond** | 5 📐 | the beavers' dam, lodge and food pile, and where Holt's trail starts | 1.7 km S |
-| **S10 The Trapline** | 4 📐 | Holt's blazed trail: sheltered in any weather, each blaze in sight of the last | 1.7–2.4 km SE |
-| **S11 Holt's Homestead** | 7 📐 | the second dense node: supplies — trapline gear and modest stores — a stove, and a portrait of its absent owner | 2.4 km SE |
+| **The crash site** | shelter, the kit in the bags, the hand radio and — in the tail — its batteries; where a party stays, signals and keeps itself findable for the early passes | 9 ✅ | — |
+| **The scar** | salvage from the wreck (the wing's fuel, the wheel and tyre, wire, aluminium); the way up to the ridge; an arrow pointing back up the hill | 4 | 100–450 m NE |
+| **The ridge** | height for the radio's antenna; the view over the whole valley (the lake, the creek, Holt's clearing); a named landmark (the knob, on the chart); signals seen from far off; exposure and the glazed lee slope | 4 | 650–900 m NE, +100–120 m |
+| **The north wood** | fuel, boughs, shelter; spruce grouse, hares, red squirrel middens, porcupine | 5 | 60–300 m N |
+| **The muskeg** | the way to the lake (slow, wet going); berries, Labrador tea, sphagnum moss, cottongrass, tamarack | 5 | 120–450 m W |
+| **The lake** | the widest open sky — signals and the sound of the planes; water; fishing from the shore; the marsh edge's cattails, and its water hemlock; swans resting on their way south | 4 | 500 m W and along the shore |
+| **The burn** | standing dead spruce, the biggest fuel supply, far off; open ground a plane can see; berries and hares in the regrowth | 3 | 1.5 km W across the lake |
+| **The birch slope** | fire: birch bark, punk wood, chaga; the friction woods (aspen); rose hips and highbush cranberries; ruffed grouse | 4 | 350 m E |
+| **The creek** | running water all week; fish in the pool; willow; ptarmigan; the way south | 5 | 0.8–1.1 km SW–S |
+| **The bear's country** | the richest berry slope and root bench in the valley — and the grizzly's home ground, its sign plain on entering | 3 | 1.2–1.5 km S |
+| **The beaver pond** | Holt's old trap set and its wire; the beavers and their food pile; poles; where Holt's blazed trail starts | 4 | 1.7 km S–SE |
+| **Holt's trail** | the way to the cabin, sheltered in any weather; Holt's traces (an empty marten set) | 4 | 1.7–2.4 km SE |
+| **Holt's homestead** | supplies — the stove, a bunk, modest stores, the axe, the woodshed; chimney smoke a plane can see | 7 | 2.4 km SE |
 
-### 4.5 The fifty-nine zones
+### 4.5 The places
 
-✅ = built in `zones.py` today · 📐 = designed in this document, not built.
+✅ = built in `zones.py` today · 📐 = designed here, not built. Each row is what is really there; the
+loops grow every one (document 22), and every count is a floor.
 
-**S1 — The Crash Site** *(built; to be re-authored to the current decisions — §8)*
+**The crash site** *(built; to be re-authored to the current decisions — §8)*
 
-| Zone | What it is for | Status |
+| Place | What is there | Status |
 |---|---|---|
-| `cockpit` | the panel, the pilot's body in the left seat, the chart and the flight manual; the wire behind the panel | ✅ |
-| `mid_cabin` | the seats and what can be stripped from them, the luggage | ✅ |
-| `rear_cabin` | the torn hull: frost on the metal and the flurries blowing in, the quilted engine cover, the draft to block | ✅ |
-| `outside_nose` | the nose in the frozen moss; the plane's battery, wired and fine; the wings' fuel; the cowling | ✅ |
-| `fuselage_top` | the watchtower: the torn antenna base, the valley's sightlines, a high place to raise an antenna, the worst exposure on site | ✅ |
-| `outside_tail` | the breach exit — the hub between hull, scar and treeline | ✅ |
-| `debris_trail` | the scatter: the mail sack, the freight, the hatchet in the brush, a little more hidden by each flurry | ✅ |
-| `tail_section` | the tail wreckage: the broken ELT, the sleeping bag buried with it, and the bag holding the hand radio's batteries | ✅ |
-| `treeline` | the supply room and the forest gateway: deadfall, boughs, dry grass | ✅ |
+| `cockpit` | the panel and the panel compass, the pilot's body in the left seat, the chart and the flight manual, the hand flare in the door pocket; the wire behind the panel | ✅ |
+| `mid_cabin` | the four seats and what is under them, the luggage | ✅ |
+| `rear_cabin` | the torn hull, frost on the metal, the hat shelf and the bags behind the rear seats, the quilted engine cover, the cargo net and the jammed cargo door | ✅ |
+| `outside_nose` | the nose in the frozen moss; the plane's battery, wired and fine; the cowling | ✅ |
+| `fuselage_top` | the torn antenna base, the widest view from the wreck, a high place to raise an antenna, the wind | ✅ |
+| `outside_tail` | the breach — the way between the hull, the scar and the treeline | ✅ |
+| `debris_trail` | what the crash shed: the mail sack, the freight, the cooler in the brush, the hatchet with its cracked haft | ✅ |
+| `tail_section` | the tail wreckage, two hundred metres up the scar: the broken ELT, the kid's duffel with the sleeping bag buried in it, the bag holding the hand radio's batteries, the toolbox in the crushed tail cone | ✅ |
+| `treeline` | deadfall, boughs, dry grass under the spruce; the way into the north wood | ✅ |
 
-**S2 — The Muskeg**
+**The scar**
 
-| Zone | What it is for | Status |
+| Place | What is there | Status |
 |---|---|---|
-| `tussock_flat` | cottongrass tinder, and lowbush and bog cranberries frost-sweetened on the bare mats; each flurry covers more, and the day-6 snow buries the bog cranberries while the lowbush cranberries poke through; hurrying can turn an ankle | 📐 |
-| `labrador_thicket` | kindling in quantity and the hot-drink plant: kindling is free, an armload costs | 📐 |
-| `tamarack_island` | bone-dry dead limbs, the best easy fuel west of the treeline | 📐 |
-| `drifted_channel` | a wet channel under skim ice, its edges hidden under the thin new snow as the week goes on; water, sedge and mud; a probe finds the firm line | 📐 |
-| `lake_gate_willows` | withes for lashings and the first hare runs to snare; the gate to the lake | 📐 |
+| `shear_line` | where the plane came through the spruce: snapped trunks and crowns, some branches the crash broke off | 📐 |
+| `wing_in_the_trees` | the right wing hung in the spruce, avgas still in its tank, aluminium, control cables and wire | 📐 |
+| `gear_gouge` | the furrow where the landing gear dug in, and the torn-off wheel and tundra tyre (rubber burns with thick black smoke) | 📐 |
+| `bench_saddle` | a saddle halfway up the climb, out of the worst wind | 📐 |
 
-**S3 — The Lake** — about 1.5 km long and 6–8 m at its deepest, deep enough for fish to winter in it;
-fed by its inlet and drained south by the creek at the outlet, so grayling come down from the creek to
-winter in it, and burbot, whitefish and pike live in it (document 23, 2026-10-02).
+**The ridge**
 
-| Zone | What it is for | Status |
+| Place | What is there | Status |
 |---|---|---|
-| `shore_apron` | the drift log (a big supply of fuel for a saw) and open water at the edge under a skin of ice at dawn | 📐 |
-| `ice_flat` | *(Claude's, from the July winter design, not yet decided — the lake is open all week and walking out on any ice breaks it, so whether this stays a place, or becomes the open water seen from the shore, is open)* | 📐 |
-| `pressure_ridge` | the lake's middle, reached only over the ice. Its winter design — a pressure ridge as a windbreak mid-crossing, with the cleanest blue ice — needs thick ice the first week of October does not have; in October this is open water, then the thinnest new ice | 📐 |
-| `inlet_mouth` | skim ice and new ice forming, the current that keeps it thin, and running water at the inflow | 📐 |
-| `outlet_narrows` | running water heard before it is seen: the way south, its border ice thin over the current | 📐 |
-| `far_shore_burn` | a burn full of dead standing wood on the far shore: the long way round the lake — walking out on the ice breaks it (Andrew, 2026-09-27) | 📐 |
+| `ridge_top` | open ground: wind-stunted spruce and dwarf birch, lichen, bearberry; dry small fuel in a windy place | 📐 |
+| `boulder_field` | talus that shifts underfoot, rock tripe on the boulders | 📐 |
+| `the_knob` | a granite tor, the valley's highest point: the view over the whole valley, a survey marker set in the rock and named on the chart, the highest place for the antenna, the worst wind | 📐 |
+| `lee_slope` | the steep north side of the knob: frost-glazed rock, worse once new snow hides the glaze; a fall injures and never kills outright | 📐 |
 
-**S4 — The North Wood**
+**The north wood**
 
-| Zone | What it is for | Status |
+| Place | What is there | Status |
 |---|---|---|
-| `forest_edge` | green boughs for bedding, thatch and white signal smoke; the wood's first tracks | 📐 |
-| `big_spruce_hollow` | dead spruce twigs, dry under the big spruce in any weather; *(Claude's, not yet decided: a forward camp here)* | 📐 |
-| `deadfall_tangle` | a tangle of deadfall near the wreck, much of it needing a tool, under a dead tree leaning over it | 📐 |
-| `grouse_thicket` | spruce grouse, tame enough to approach | 📐 |
-| `hare_runs` | the hares' runs, the fresh ones plain in the new snow — where snares catch (document 10 §4.8) | 📐 |
-| `tree_well_hollow` | shelter given by terrain: the dry ground under a big spruce's skirt, bare while the open ground whitens around it — a night on boughs and body heat | 📐 |
+| `forest_edge` | green boughs, the wood's first tracks | 📐 |
+| `big_spruce_hollow` | big white spruce: dead twigs dry under them in any weather, a bare needle floor out of the wind, a red squirrel's midden | 📐 |
+| `deadfall_tangle` | a tangle of deadfall, much of it needing a tool, under a dead tree leaning over it | 📐 |
+| `grouse_thicket` | young spruce where spruce grouse sit, tame enough to approach | 📐 |
+| `hare_runs` | willow and alder brush threaded with hare runs, the fresh ones plain in the new snow | 📐 |
 
-**S5 — The Strike Path**
+**The muskeg**
 
-| Zone | What it is for | Status |
+| Place | What is there | Status |
 |---|---|---|
-| `shear_line` | some branches the crash snapped off; the scar as an arrow back up the hill | 📐 |
-| `wing_in_the_trees` | the sheared wing caught in the trees, avgas in its tank | 📐 |
-| `gear_gouge` | the torn-off tyre (rubber burns with thick black smoke) | 📐 |
-| `bench_saddle` | a saddle halfway up the climb | 📐 |
+| `tussock_flat` | tussocks with lowbush and bog cranberries, cottongrass, sphagnum in the hollows; hurrying can turn an ankle | 📐 |
+| `labrador_thicket` | Labrador tea, its leaves leathery all winter | 📐 |
+| `tamarack_island` | a rise of tamarack and black spruce, the tamaracks' needles gold and falling; dry dead limbs | 📐 |
+| `wet_channel` | a wet channel under skim ice, its edges hidden by the thin new snow as the week goes on; water, sedge, mud; a probe finds the firm line | 📐 |
+| `lake_gate_willows` | willow where the muskeg meets the lake, the first hare runs | 📐 |
 
-**S6 — The Ridge Overlook**
+**The lake** — about 1.5 km long and 6–8 m at its deepest, deep enough for fish to winter in it;
+fed by its inlet and drained south by the creek at the outlet (2026-10-02). Open water all week; its
+surface is water, seen and fished from the shore — walking out on any ice breaks it (2026-09-27).
 
-| Zone | What it is for | Status |
+| Place | What is there | Status |
 |---|---|---|
-| `krummholz_band` | wind-stunted spruce and dwarf birch on the exposed ridge (a 120 m ridge is far below treeline): dry small fuel in a windy place | 📐 |
-| `boulder_field` | hollow talus underfoot; *(Claude's, not yet decided: a survey cairn marked on the chart, and dry stakes)* | 📐 |
-| `the_knob` | height: the cabin discovered, the weather read early, the highest place to raise the radio's antenna | 📐 |
-| `lee_cornice` | the shortcut that isn't: a steep lee slope of frost-glazed rock, worse once the new snow hides the glaze; a fall injures and never kills outright | 📐 |
+| `shore_apron` | a gravel shore with a drift log on it (a big supply of fuel for a saw), open water at the edge under a skin of ice at dawn, the widest open sky in the valley | 📐 |
+| `marsh_edge` | the lake's shallow south-east bay: a stand of cattails, water hemlock among them, a muskrat's house of cattail and sedge; the mud never frozen | 📐 |
+| `inlet_mouth` | the north end: running water at the inflow, skim ice and new ice forming at its sides | 📐 |
+| `outlet_narrows` | the south end: running water heard before it is seen, its border ice thin over the current; the way to the creek | 📐 |
 
-**S7 — The Birch Stand**
+**The burn** — the far shore, burned some fifteen years ago; reached the long way round the lake.
 
-| Zone | What it is for | Status |
+| Place | What is there | Status |
 |---|---|---|
-| `aspen_fringe` | dead aspen poles and punk wood, which carries an ember | 📐 |
-| `birch_grove` | birch bark, which burns even damp | 📐 |
-| `chaga_tree` | chaga ten feet up a birch — it catches a spark and holds an ember | 📐 |
-| `game_trail_crossing` | an old shed antler (tool stock) | 📐 |
+| `burn_edge` | where the green forest stops: fireweed stalks, young aspen and birch | 📐 |
+| `snag_stand` | standing dead spruce, silver and dry — the most fuel in the valley, and a long way from the wreck | 📐 |
+| `burn_regrowth` | open regrowth with blueberries (dried on the bush), hare runs and their sign; open ground a plane can see | 📐 |
 
-**S8 — The Creek**
+**The birch slope**
 
-| Zone | What it is for | Status |
+| Place | What is there | Status |
+|---|---|---|
+| `aspen_fringe` | aspen poles, dead and standing, punk wood that carries an ember; ruffed grouse | 📐 |
+| `birch_grove` | birch bark, which burns even damp; birch polypore and tinder conk | 📐 |
+| `chaga_tree` | an old birch with chaga ten feet up — it catches a spark and holds an ember | 📐 |
+| `game_trail_crossing` | an old shed antler; rose hips and highbush cranberries along the trail | 📐 |
+
+**The creek**
+
+| Place | What is there | Status |
 |---|---|---|
 | `outlet_riffle` | running water — a full container without melting snow, at the risk of wet boots | 📐 |
-| `gravel_bar_willows` | willow in sled-load quantity, rose hips, and ptarmigan turning white that hide on snow and show against bare brush | 📐 |
+| `gravel_bar_willows` | willow in quantity, rose hips, highbush cranberries; ptarmigan turning white | 📐 |
 | `overflow_bend` | the creek running fast under thin shelf ice that the first snow hides; a probe finds the edge | 📐 |
 | `logjam_crossing` | a dry crossing and a lot of wood, over real voids between the logs | 📐 |
-| `confluence_pool` | the fishing pool, open all week | 📐 |
+| `confluence_pool` | a deep pool where a side stream joins: grayling and burbot, open all week | 📐 |
 
-**S9 — The Beaver Pond**
+**The bear's country** — the grizzly's home ground this week (document 23 §4.1a): its sign lies here
+and is plain on entering (2026-09-28). The bear itself can be anywhere food is (document 23).
 
-| Zone | What it is for | Status |
+| Place | What is there | Status |
 |---|---|---|
-| `dam_crossing` | the causeway to the trapline side, and pre-cut poles you *could* pull from the working face | 📐 |
-| `pond_flat` | bubble trails under the new ice, showing where the beavers swim | 📐 |
-| `the_lodge` | the beavers' lodge — mud, sticks and bodies keeping a warm core in the cold | 📐 |
-| `food_cache_margin` | the beavers' winter food pile, being built now: green poles that can be taken without touching the dam, and green wood that burns badly | 📐 |
-| `drowned_set` | *(Claude's, not yet decided: an old drowned trap set with yards of snare wire, the first human sign beyond the wreck)* | 📐 |
+| `berry_slope` | an open south-facing slope above the creek: the valley's best lowbush cranberries and crowberries, bearberry — and berry-filled scat, flattened patches where the bear fed | 📐 |
+| `root_bench` | a gravel bench along the creek with wild potato in it — dug up in swathes, the bear's diggings fresh | 📐 |
+| `torn_ground` | a rotten log ripped open for grubs, a torn-up stump, tracks in the mud at the water's edge | 📐 |
 
-**S10 — The Trapline**
+**The beaver pond**
 
-| Zone | What it is for | Status |
+| Place | What is there | Status |
 |---|---|---|
-| `blaze_gateway` | the start of Holt's blazed trail: each blaze in sight of the last | 📐 |
-| `spruce_tunnel` | sheltered for its whole length — a long walk that stays easy in heavy weather | 📐 |
-| `marten_set_tree` | Holt's old marten set behind a chain of small gates, empty — the trapping season has not opened | 📐 |
+| `dam_crossing` | the dam, a causeway to the trapline side; poles in its face | 📐 |
+| `pond_flat` | the pond skinning over at night, bubble trails under the new ice showing where the beavers swim; the lodge | 📐 |
+| `food_cache_margin` | the beavers' winter food pile, being built now: green poles that can be taken without touching the dam | 📐 |
+| `drowned_set` | Holt's old beaver set, its wire on a pole — yards of snare wire; the first sign of a person beyond the wreck | 📐 |
+
+**Holt's trail**
+
+| Place | What is there | Status |
+|---|---|---|
+| `blaze_gateway` | the first blazes from the pond, each in sight of the last | 📐 |
+| `spruce_tunnel` | the trail under close spruce, sheltered for its whole length | 📐 |
+| `marten_set_tree` | Holt's old marten set, empty — the trapping season has not opened | 📐 |
 | `cabin_gate` | the gate to Holt's yard | 📐 |
 
-**S11 — Holt's Homestead**
+**Holt's homestead** — secured the way a trapper leaves a cabin in bear country (2026-10-02).
 
-| Zone | What it is for | Status |
+| Place | What is there | Status |
 |---|---|---|
 | `dooryard` | the yard and the dog-run cable | 📐 |
-| `porch` | the door, unlocked as trapline cabins are; bear boards — plywood studded with nails, points out — laid across the doorstep and nailed over the windows while Holt is away, to be pried off with a tool or slow care (2026-10-02) | 📐 |
-| `cabin_interior` | the stove with kindling laid, its pipe capped against squirrels and birds (light it without noticing and the cabin fills with smoke); Holt's shelf of modest stores; a tin with a few matches on the shelf above the stove, among the tins — found by searching; the party needs wood to keep the fire going (2026-10-02) | 📐 |
-| `loft` | a bunk with wool bedding (2026-10-02) | 📐 |
-| `cache` | a raised cache, its ladder stashed under the cabin as trappers do against bears (2026-10-02): trapline gear (snowshoes, the felling axe) and modest stores | 📐 |
-| `woodshed` | a modest stack of split dry wood — a few nights' worth, not a winter's, since Holt is still cutting it in early October — and a freight sled with a split runner; more wood means felling standing dead with the axe from the cache (2026-10-02) | 📐 |
-| `water_hole_path` | Holt's water infrastructure: bucket-water without the riffle's risks | 📐 |
+| `porch` | the door, unlocked as trapline cabins are; bear boards — plywood studded with nails, points out — across the doorstep and over the windows, to be pried off with a tool or slow care | 📐 |
+| `cabin_interior` | the stove with kindling laid, its pipe capped against squirrels and birds (light it unnoticed and the cabin fills with smoke); Holt's shelf of modest stores, a bulged can among the tins; a tin with a few matches on the shelf, found by searching; wood is needed to keep the fire going | 📐 |
+| `loft` | a bunk with wool bedding | 📐 |
+| `cache` | a raised cache, its ladder stashed under the cabin as trappers do against bears: trapline gear (snowshoes, the felling axe) and modest stores | 📐 |
+| `woodshed` | a modest stack of split dry wood — a few nights', since Holt is still cutting his winter's in early October — and a freight sled with a split runner | 📐 |
+| `water_hole_path` | the path down to the creek where Holt draws his water | 📐 |
 
 ### 4.6 Travel takes time
 
-All week the going is the ground's own — tussocks, bog, deadfall, and ground frozen hard at dawn —
-because the snow never gets deep: a couple of inches by the end (document 13 §4.2). What it does is
-hide the footing: frost-glazed rock and roots on the first mornings, then the holes between the
-tussocks and the thin ice on the channels once the snow lies over them. Your own trail is faster than
-the first time — the firm line through the bog found, the brush broken, the deadfall stepped round — and
-after a flurry it is plain to follow back. The creek's bank is quick going, at the risk of thin ice and cold
-water. Snowshoes — in Holt's cache — are for deep snow the week never lays; on
-a couple of inches over tussocks they only slow a walker. The map is big, and what speeds a party
-across it is knowing it.
+All week the going is the ground's own — tussocks, bog, deadfall, ground frozen hard at dawn — because
+the snow never gets deep: a couple of inches by the end (document 13 §4.2). What the snow does is hide
+the footing: frost-glazed rock and roots on the first mornings, then the holes between the tussocks and
+the thin ice on the channels once it lies over them. Your own trail is faster than the first time — the
+firm line through the bog found, the brush broken — and after a flurry it is plain to follow back.
+Snowshoes, in Holt's cache, are for deep snow the week never lays.
 
 | Leg (one way) | First time | Known trail |
 |---|---|---|
-| wreck → lake shore | 20 min | 12 min |
-| wreck → big spruce hollow | 15 min | 8 min |
-| wreck → birch stand | 25 min | 15 min |
-| wreck → ridge knob | 55 min | 40 min |
+| wreck → north wood (big spruce) | 15 min | 8 min |
+| wreck → birch slope | 15 min | 10 min |
+| wreck → tail section (up the scar) | 10 min | 6 min |
+| wreck → the knob | 55 min | 40 min |
+| wreck → lake shore | 25 min | 15 min |
+| wreck → the burn (round the lake) | ~100 min | ~75 min |
 | wreck → creek riffle | 30 min | 18 min |
+| wreck → the pool | 40 min | 25 min |
+| wreck → bear's country | 45 min | 30 min |
 | wreck → beaver pond | 55 min | 35 min |
 | wreck → homestead | ~90 min | ~60 min |
 
-**The journey itself** (Andrew, 2026-09-28; document 19 §4.3). A Scene is a connected group of places — a
-multi-place zone, bigger or smaller — and going to another one is a journey, not a step: you head off
-in its direction and the world gives an estimate (*"You head off toward the birch grove; you reckon it
-will take about twenty minutes."*). The walk is an attended activity with its own emotes, and on a
-long one you may pass things along the way. You can stop walking, and then you are between Scenes —
-*"You are between the birch grove and the plane"* — with whatever is near you, and no room description
-beyond that. Moving from place to place inside a Scene takes time too, with the right emotes.
+**The journey itself** (Andrew, 2026-09-28; document 19 §4.3). Going to another region is a journey: you
+head off in its direction and the world gives an estimate (*"You head off toward the birch slope; you
+reckon it will take about fifteen minutes."*). The walk is an attended activity with its own lines, and
+on a long one you may pass things along the way. You can stop, and then you are between Scenes —
+*"You are between the birch slope and the plane"* — with whatever is near you. Moving between places
+inside a region takes time too.
 
-The minutes are placeholders, re-priced for the week-long run and the October ground by `PLAN.md`
-task A4. Moving is an attended activity whose time is distance over pace, times terrain, snow depth,
-load and fitness (document 03 §4.1a). Against the October day (document 13 §4.2) the first round trip
-to the homestead is about three hours of walking before any work there — a commitment, and a bigger
-one each day as the light shortens and the nights harden. That is the stay-or-go tension, made of
-minutes instead of dialogue.
+The minutes are starting points for the week-long run on the October ground, tuned in play (`PLAN.md`
+A4); moving is an attended activity whose time is distance over pace, times terrain, snow, load and
+fitness (document 03 §4.1a). The first round trip to the homestead is about three hours of walking
+before any work there, and the light shortens each day.
 
 ### 4.7 The three ways home, on the map
 
 The ways home are document 14 §3's; this is where they happen.
 
-| Way home | Rooms | Its scarce resource |
+| Way home | Where | What it needs |
 |---|---|---|
-| **The radio** | the hand radio; its batteries in a bag in `tail_section`; anything metal and long enough for the antenna (the panel's wire, seat tubing, the dooryard's dog-run cable); a height to raise it — `fuselage_top`, `the_knob` | the batteries, dug out of the tail wreckage, and height |
-| **A signal a plane can see** | the crash site; the lake shore's sightline; `gear_gouge` (the tyre's black smoke); the north wood's green boughs; the knob in clear air | fuel logistics, wind, and being ready when the engines are heard |
-| **Surviving long enough** | everywhere — on day 7 the rescuers find everyone still alive (2026-09-29); before then, being found by an early pass takes work: partial cloud and the trees hide the wreck, so what the party builds decides it — a sign laid out on the ground, the wreck brushed clear, smoke | staying alive; for the early passes, the work of being findable |
+| **The radio** | the hand radio, in the cabin; its batteries in a bag in `tail_section`; anything that turns a screw to open it (document 18 §4.5); anything metal and long enough for the antenna (the panel's wire, seat tubing, a control cable from the wing, the dog-run cable); a height to raise it — `fuselage_top`, and higher, `the_knob` | the batteries dug out of the tail wreckage; height; landmarks to tell the voice where you are — the lake, the knob and its survey marker, the burn, the creek, Holt's cabin on the chart |
+| **A signal a plane can see** | the open places — the lake shore, the ridge and the knob, the muskeg, the burn's open ground; smoke from the wreck's clearing; the tarp laid out; Holt's chimney | fire and fuel ready when the engines are heard; something that stands out from the air |
+| **Surviving long enough** | everywhere — on day 7 the rescuers find everyone still alive (2026-09-29); before then, being found by an early pass takes work, since partial cloud and the trees hide the wreck | staying alive |
 
-**Holt's homestead is not a way home.** The creek run, the trapline and the homestead are the road to
-the valley's other supplies — navigation skill and daylight are its price — and the cabin's chimney
-smoke is a sign a search plane can see (document 14 §3.5).
+**Holt's homestead is not a way home** (2026-09-17). It is supplies, and its chimney smoke is a sign a
+search plane can see (document 14 §3.5).
 
-### 4.8 The economies every way spends from
+### 4.8 What each kind of thing comes from
 
-Each is a crude-to-mastery arc, and each is a network of rooms rather than a stat:
+- **Fuel** — dead spruce twigs under the big spruce (dry in any weather) → dwarf birch and stunted
+  spruce twigs, Labrador tea stems, by the armload → deadfall and the logjam (bulk, needing tools) →
+  standing dead: the burn's snags, Holt's woodshed, the drift log (big supplies, far off or needing
+  tools). The near deadfall is burnt first, so every armful is a longer walk; the day-6 snow covers the
+  small deadfall. What is dry this week, and which woods serve friction fire, is document 23 §4.2a.
+- **Water** — the creek's riffle and the lake's edge, open all week; Holt's water hole; snow and ice
+  melted by a fire anywhere. Eating snow costs body heat (document 09).
+- **Food** — what is aboard (the pockets, the bags, the freight) → berries, rose hips, roots (the best
+  of them in the bear's country) → grouse and ptarmigan → snare lines on the hare runs, in the north
+  wood and the burn → the pool's fish → a porcupine, a beaver → Holt's modest stores → the bear, through
+  the combat system — and the pilot's body, which is food and taboo (document 12). The numbers are
+  document 23 §4.4 and document 10 §4.8.
+- **Warmth and clothing** — what people wore → the coats lost in the crash, found again → the unplayed
+  seats' clothes → the two blankets in the plane and the sleeping bag in the tail → the engine cover,
+  seat cushions, boughs, sphagnum stuffed in boots → Holt's bunk; and where you work is itself a
+  warmth decision.
+- **Hauling** — hands and bags → the cowling dragged → your own trails → the game trails, the dam and
+  the spruce tunnel → Holt's freight sled, once its runner is mended.
+- **Fire-craft** — the matches, the lighters, the ferro rod, the flare, the convex glasses → dead spruce
+  twigs and birch bark → punk wood that carries an ember → chaga that holds one → friction on the right
+  dry wood → avgas, a dangerous accelerant (documents 07, 12).
+- **Information** — the chart (Holt's cabin, the lake, the creek, the knob and its survey marker), the
+  view from the knob, the blazes, the ice, the tracks, and the voice on the radio once it answers.
 
-- **Fuel** — dead spruce twigs (starter) → dwarf birch and stunted spruce twigs (kindling, by the
-  armload) → deadfall and the logjam (bulk, needing tools) → the drift log, the far burn, the woodshed
-  (big supplies, far off or needing tools). The near
-  deadfall is burnt first, so every armful is a longer walk, and the day-6 snow covers the small
-  deadfall and pushes the work to standing dead wood and the far wood.
-- **Water** — open water at the lake's edge and in the creek from the start, under a skin of ice at
-  dawn; snow and ice melted by a fire anywhere, for a fuel tax; the riffle and Holt's water hole, still
-  open when the still water has frozen. Eating snow costs body heat; water tainted by fuel or oil
-  carries it (document 09).
-- **Food** — the wreck's food (the pockets, the luggage, the freight) →
-  cranberries, rose hips and roots (a trickle) → grouse and ptarmigan → snare lines
-  (planning and cordage) → the fishery → Holt's modest stores (farthest away) → the
-  bear (the richest food and the most dangerous, through the combat system) — and the
-  pilot's body, which is food and taboo (document 12). Effort pays, eventually (document 10 §4.8).
-- **Warmth and clothing** — crash clothing → the pilot's jacket and the unplayed seats' clothes → seat
-  covers, the two blankets hidden in the plane, the sleeping bag buried with the tail →
-  the loft trunk; plus the terrain layer, where *where you work* is itself a clothing decision.
-- **Mobility and hauling** — boots → the cowling drag → your own trails → the game trails, the
-  causeway and the tunnel (the world's own roads) → Holt's freight sled, once its runner is mended. Snowshoes wait for deep
-  snow the week never lays. A dragged load snags on bare tussocks and slides easier over frozen ground
-  under a skin of snow, but the tussocks still stand through a couple of inches.
-- **Fire-craft** — lighter → dead spruce twigs → birch bark (a weatherproof start) → punk-cupped embers
-  (portable flame) → chaga and a spark (lighterless insurance) → avgas (a dangerous shortcut).
-- **Information** — the chart, the knob, the blaze protocol, ice-reading,
-  track-reading, and the voice on the radio once it answers.
+### 4.9 How the party finds its way
 
-### 4.9 How the world teaches, and how the party finds it
+No region is announced; each is found more than one way, so a party that misses one never loses it.
+The lake shows west from the fuselage top, and the muskeg simply opens onto it. The ridge is up the
+plane's own scar. The outlet is heard before it is seen. Holt's cabin is on the chart, is seen from the
+knob as a clearing (and as smoke, once its stove is lit), and is reached by the blazes from the beaver
+pond. The bear's country announces itself by its sign. What players learn, they learn in the world: the
+tutorial rooms, each one simple situation (2026-09-27); what the world shows, and the physics of why an
+attempt fails; and hints added case by case where something is very unobvious (document 17). There is no
+survival manual in the world (2026-10-02).
 
-No region is announced; each is discovered several independent ways, so a party that misses a clue
-is never locked out. The cabin is found by the chart, from the knob's line of sight, or by the blaze at
-the drowned set. The lake shows west from the fuselage top, and the muskeg simply opens onto it. The
-ridge is pointed at by the plane's own gouge. Open water at the outlet is **audible** before it is
-visible.
+### 4.10 The week on the map
 
-The muskeg's wet channel shows how the footing goes; the inlet, ice as it forms; the creek's bend,
-thin ice over running water; the blazes, a trail that dusk or the flurry makes harder to follow. What
-players learn, they learn in the world: the tutorial rooms, each one simple
-situation (2026-09-27); what the world shows, and the physics of why an attempt fails; and hints added
-case by case where something is very unobvious or players struggle (document 17). **There is no
-survival manual in the world** (2026-10-02).
+The weather is the same every run (document 13 §4.2):
 
-### 4.10 The week re-prices the map
+1. **Days 1–5** — bare, icy ground at the start, then snow on and off: the whole map is open and
+   readable — berries on the bush, deadfall in sight, and after each flurry a morning of crisp tracks.
+   Everything learned now — trails, blazes, where the deadfall lies, where the bear feeds — is worth it
+   later. The country closes a little each day: colder nights, more of the low forage covered, the near
+   deadfall burnt, the ground freezing deeper, the bear bolder as the camp smells of food. The search
+   flies most days — the filed route, then wider, then narrowing toward this valley — and partial cloud
+   and the trees make the wreck hard to see (document 14 §3.5). On day 5 a ring round the sun and the
+   altimeter creeping up say heavier snow is coming.
+2. **Day 6, the flurry** — steady snow from the early hours through the afternoon, and an east wind. The
+   lake shore and the knob become hard places to be, sight closes to a few hundred metres, and the
+   morning's tracks fill in. The creek, the blazes and the spruce tunnel still lead somewhere. Nothing
+   flies. The lowest berry mats and the small deadfall go under.
+3. **Day 6 night and day 7** — it clears into the coldest night of the run, coldest on the lake shore
+   and the muskeg, where the cold air pools. Day 7 is calm over fresh snow: the best tracking of the
+   week, and the day the rescuers find everyone still alive (2026-09-29).
 
-The weather is the same every run (document 13 §4.2). Each part of it doesn't just dim the world, it
-changes what things cost:
-
-1. **The open days (days 1–5)** — bare, icy ground at the start, then snow on and off: the whole map
-   is open, and the ground is readable — berries on the bush, deadfall in sight, and after each flurry
-   a morning of crisp tracks. Scouting is cheap; the far burn round the shore and the ridge are
-   affordable. Everything learned now — trails found, blazes followed, where the deadfall lies — is
-   capital for later. Underneath, the country closes a little each day: the nights colder, each flurry
-   covering more of the low forage, the near deadfall burnt so every armful is a longer walk, the
-   ground freezing deeper. The search flies most days — the filed route, then the route, then wider,
-   then narrowing toward this valley — but partial cloud and the trees make the wreck hard to see
-   (document 14 §3.5). On day 5 a ring round the sun and the altimeter creeping up say heavier snow is
-   coming.
-2. **The flurry (day 6)** — steady snow from the early hours through the afternoon, and an east wind.
-   Open country turns hostile: the lake shore and the knob become gambles, sight closes to a few
-   hundred metres at its heaviest, and the morning's tracks fill in. Navigation shrinks to handrails —
-   the creek, the blazes, a rope line you rigged, the wind's one direction. The sheltered routes (the
-   spruce tunnel, the creek under its banks) keep working. Nothing flies. The lowest berry mats and the
-   small deadfall go under, and the wreck turns white.
-3. **The clearing (day 6 night and day 7)** — it clears through the evening into the coldest night of
-   the run, coldest on the lake shore and the muskeg, where the cold air pools. Day 7 is calm over fresh
-   snow: the best tracking of the week, and the day the rescuers find everyone still alive
-   (2026-09-29; document 14 §3.5).
-
-Every timed beat is a **world** event, never a silent no-op: a search plane's engines carry as far as the
-sound really does, heard before it is seen, so a party far down the creek hears the pass it missed; and on a clearer night the north gets the aurora through the gaps in the cloud
-(document 13 §4.3) — and a clearing sky means falling cold.
+Every timed beat is a world event: a search plane's engines carry as far as the sound really does,
+heard before it is seen; and on a clearer night the aurora shows through the gaps in the cloud — and a
+clearing sky means falling cold.
 
 ### 4.11 The density gradient
 
-GDD §6 gives the dense scene the most modelling. The map keeps that promise across a big valley by
-spending unevenly on purpose — as authoring order, a priority and never a cap:
+The crash site and its near forest are the densest place in the valley (the data budget, June 2026),
+and the homestead is the second. The rest is authored in order — a priority, never a cap (2026-09-17):
 
-- **Ring 0** — the crash site and the big spruce near it: modelled to the hilt.
-- **Ring 1** — muskeg, strike path, birch stand, near creek: full interaction.
-- **Ring 2** — lake, ridge, pond, trapline — and each grows by evidence like every other.
+- **Ring 0** — the crash site and the north wood's edge: modelled to the hilt.
+- **Ring 1** — the scar, the muskeg, the birch slope, the near creek.
+- **Ring 2** — the lake and the burn, the ridge, the bear's country, the pond, Holt's trail.
 - **The homestead** — the second dense node.
 
-The July object census counted **about 1,150 candidate objects, ambients and signs across the valley**,
-beyond what is built at the crash site. It also named what the material table lacks for any of this
-to be buildable — **rock and stone are absent today**, along with bone and antler, fur and hide, punk
-wood, rubber, kerosene, canvas, rawhide, grease, brass and paper — and it distinguished fifteen-odd
-snow and ice sub-types (powder, wind-slab, drift, sastrugi, rime, hoarfrost, black ice, shore ice,
-skim ice, frazil, overflow…), each of which wants its own behaviour note. Those are document 18's to
-settle; they are named here because the valley cannot be built without them.
+Each grows by evidence like every other (document 22). What the material table still needs for the
+outdoors — stone above all, bone and antler, fur and hide, punk wood, rubber, canvas, rawhide, grease —
+and the snow and ice of this week are document 18's.
 
-### 4.12 What the valley is about *(Claude's, from the July design — not yet decided)*
+### 4.12 What the valley holds already
 
-One story is told by every room regardless of route order: **the crash is not the first thing that
-ever happened here.** Ravens already commute to the wreck; the burn already regrew; the beavers are
-already laying in their winter; a surveyor already measured the ridge; Holt already blazed his trail
-and left his door unlocked and his kindling laid. The emotional argument is competence-before-you and
-indifference-without-malice — which is the argument that the players' own competence is possible.
+The crash is not the first thing that happened here. Ravens already work the valley; the far shore burned
+some fifteen years ago and has grown back in aspen and fireweed; the beavers are laying in their winter;
+a surveyor set a marker on the knob; Holt blazed his trail, set his traps, and left his cabin secured
+against bears with kindling laid in the stove. The party is not the first people in the valley, and the
+traces of the ones before are there to be read.
 
 ---
 
@@ -571,7 +563,7 @@ indifference-without-malice — which is the argument that the players' own comp
 - **10 (food and hunger)**, **09 (water)**, **07 (fire and shaping)** — every economy's sources are
   zones on this map.
 - **02 (the experience)** — the sample week, rewritten once the design is finalized, walks this map.
-- **22 (the world-building loops)** — the queue builds this document's fifty zones.
+- **22 (the world-building loops)** — the queue builds this document's places.
 
 ---
 
@@ -587,11 +579,14 @@ None open.
   back`) that weather lengthens; walking out is not an ending and the cabin is supplies; the density
   gradient is authoring order, never a cap; wildlife as events and sign, no wolverine and no moose; dangerous places
   injure, never kill outright (chance never shown as dice — 2026-10-02); sweat is wet clothing inside the warmth
-  system; keep the fifty zones and all eleven regions, each with a reason to come back. Follow-ups in
+  system; keep the whole valley (then fifty zones and eleven regions), each region with a reason to come back. Follow-ups in
   `PLAN.md`: A4 (re-price the valley for the week-long run), E17 (exits as entities, travel as an
   activity).
 - **2026-09-27 (Andrew)** — Holt does not come back during the week.
 - **2026-09-27** — the no-storm week carried in (document 13 §4.2).
+- **2026-10-02 (Claude, at Andrew's request)** — the whole map redesigned: thirteen regions with their
+  roles, the lake's ice places gone (it is open all week), the lake's marsh edge, the burn as a region,
+  the bear's country, the ridge's granite knob with its survey marker; for Andrew's review.
 
 ## 8. What exists today
 
@@ -622,8 +617,7 @@ pass:
   match. The design's week starts on bare, frosty ground and never lays more than a couple of inches
   (document 13 §4.2).
 
-**Designed, not built** — the fifty outdoor zones. They exist as this document's tables; the fuller
-zone-by-zone write-ups of the July run are in git history. No outdoor zone id appears anywhere under
+**Designed, not built** — the outdoor places. They exist as this document's tables. No outdoor zone id appears anywhere under
 `game/` — verified 2026-09-27. The build order is document 22's queue (§4.5), behind the crash-site
 foundation and the closure loop's clusters.
 

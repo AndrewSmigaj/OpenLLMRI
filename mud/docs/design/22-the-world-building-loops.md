@@ -318,7 +318,7 @@ Once agents play, every wall becomes the next pass's input. Walls per run is the
 - [23 — flora and fauna](23-flora-and-fauna.md): the ecology filter, and the animals that act.
 
 **These depend on this:**
-- [01 — premise and world](01-premise-and-world.md): the fifty outdoor zones get their content here.
+- [01 — premise and world](01-premise-and-world.md): the outdoor places get their content here.
 - [20 — the agent player and research](20-the-agent-player-and-research.md): the walls loop is the last
   phase of this one.
 - The missing system documents (`PLAN.md` A10) and implementation planning: the pilot's mechanics report.

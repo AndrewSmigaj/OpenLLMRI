@@ -237,11 +237,11 @@ open should cost more warmth than the cabin, with the wind unbroken and no walls
 carries, as authored data *(Claude's, not yet decided: the bands, their names and which zone gets which)*:
 
 - **wind exposure** — how much of the weather's wind reaches a body standing in it, in four bands
-  over document 01's zones: `sheltered` (the big-spruce hollow, the tree well, the deadfall tangle,
-  the grouse thicket, the spruce tunnel, the marten set, the cabin, the loft) · `broken` (most forest,
-  brush and bank zones) · `open` (the muskeg flats, the lake shore, inlet and outlet, the pond flats,
-  the krummholz, the bench saddle) · `brutal` (the boulder field, the knob, the lee slope, the
-  fuselage top). The crash cluster: exteriors
+  over document 01's zones: `sheltered` (the big-spruce hollow, the deadfall tangle, the grouse thicket,
+  the spruce tunnel, the marten set, the cabin, the loft) · `broken` (most forest, brush and bank
+  places, the burn's edge) · `open` (the muskeg, the lake shore, the marsh edge, inlet and outlet, the
+  pond flat, the burn's open regrowth, the berry slope, the ridge top, the bench saddle) · `brutal` (the
+  boulder field, the knob, the lee slope, the fuselage top). The crash cluster: exteriors
   `open`, the fuselage top `brutal`.
 - **a roof score** — how much sky is over you: bough cover, hull, a lean-to's thatch, a big
   spruce's skirt. A roof cuts radiant loss and stops falling snow wetting you.
@@ -271,7 +271,7 @@ numbers plus capacity — so partial work counts automatically and nothing needs
 | **block the breach** | cover the tear with the engine cover, a wing panel, a suitcase wall, a sheet of acrylic — the generic `cover`/`block` over any opening. The first real shelter act, available in the first hour, needing nothing the party does not have | the rear cabin (`rear_cabin.md` §5.1) |
 | **the lean-to** | Andrew's own example (2026-09-07): poles and thatch against the weather, outside, by choice. A few branches the crash snapped lie on the shear line; the rest are found or cut at the forest edge (2026-10-02) | `shear_line` (a few branches the crash snapped); `forest_edge` (bough beds, shelter thatch) |
 | **a windbreak in the open** | boughs, logs, rocks and the wreck's panels stacked against the wind — for a signal fire, or a night caught out. The week lays only a couple of inches of snow (document 13 §4.2): too little to cut into blocks or pile into a wall, though scraped up and packed along a windbreak's foot it seals the gap at the ground | open ground: the muskeg, the lake shore, the bench saddle |
-| **under a big spruce** | a natural bivvy: a big spruce's skirt of low branches down to the ground, a dry needle floor that stays bare while the open ground whitens, out of the wind and the open sky. A party caught out overnight survives there with boughs and body heat and nothing else | `tree_well_hollow` |
+| **under a big spruce** | a natural bivvy: a big spruce's skirt of low branches down to the ground, a dry needle floor that stays bare while the open ground whitens, out of the wind and the open sky. A party caught out overnight survives there with boughs and body heat and nothing else | `big_spruce_hollow` |
 | **ground insulation** | boughs, foam, luggage, the seat cushions — the ground steals more heat than the air. A night on bare metal, frozen ground or snow is survivable but expensive, *(roughly the cost of a day's work — Claude's starting point)*, so gathering boughs before dark is the obviously right thing nobody tells you to do | `forest_edge`; the bedding score (document 06) |
 | **the stove** | Holt's cabin: a contained, chimney-drafted fire that turns the coldest night into weather | `cabin_interior` |
 

@@ -131,8 +131,8 @@ written out below the table or in the section that owns them.
 > **The design decisions that shape the engine** (all in `PLAN.md` §5, each designed in its document):
 > the aircraft is the 206-class single with the four-seat interior — seats 1A/1B/2A/2B and the right
 > seat, a hat shelf, a cargo net and a jammed cargo door — and each player starts with a different
-> clothing, injury and pockets draw; luggage has real contents (document 16). The whole valley — all
-> fifty outdoor zones — is in the first complete run (document 01). The season is the first week of
+> clothing, injury and pockets draw; luggage has real contents (document 16). The whole valley — every outdoor
+> place — is in the first complete run (document 01). The season is the first week of
 > October (document 13 §4.2). The pilot starts the run dead (document 12). An agent sees exactly what
 > a human sees; structure goes to the log only (document 20). The look is a title line, the prose,
 > who is here and the exits as entities in prose (document 03). **Exits are entities**, each with its

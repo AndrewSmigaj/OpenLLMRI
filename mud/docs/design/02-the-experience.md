@@ -46,8 +46,7 @@ The decisions that shape a run, in plain words; every one of them, with its date
   are no hard time barriers — the things that kill increase instead; there is no set arc. Each player
   starts with different clothes, injuries and pockets; luggage has contents; clothing changes warmth
   loss; players can sleep.
-- **The place (2026-09-16, 2026-09-17, 2026-09-26, 2026-09-27).** The whole valley — all fifty outdoor
-  zones and all eleven regions — is in the first complete run. The plane is a Cessna 206-class single
+- **The place (2026-09-16, 2026-09-17, 2026-09-26, 2026-09-27).** The whole valley — every region and its places — is in the first complete run. The plane is a Cessna 206-class single
   with a four-seat interior (1A, 1B, 2A, 2B and the right seat), a hat shelf, a cargo net and a jammed
   cargo door; its battery is in the nose, wired and fine. The season is **the first week of October**
   in interior Alaska, with **no big storm** (2026-09-27): bare, icy ground at the start; snow on and off,
@@ -170,9 +169,9 @@ supplies, not a way out.
 
 Nine zones of the crash cluster are built and readable today ✅ — cockpit, mid cabin, rear cabin,
 outside the nose, the top of the fuselage, the torn tail opening, the debris trail, the severed tail
-section, the treeline (`game/world/scenarios/whiteout/zones.py`). Fifty outdoor zones across ten
-regions — muskeg, lake, north wood, strike path, ridge, birch stand, creek, beaver pond, trapline,
-homestead — are designed room by room 📐 in [`01-premise-and-world.md`](01-premise-and-world.md), and
+section, the treeline (`game/world/scenarios/whiteout/zones.py`). The outdoor places across twelve
+more regions — the scar, the ridge, the north wood, the muskeg, the lake, the burn, the birch slope, the
+creek, the bear's country, the beaver pond, Holt's trail and the homestead — are designed place by place 📐 in [`01-premise-and-world.md`](01-premise-and-world.md), and
 all of them are in the first complete run.
 
 **When.** The first week of October 📐 — daylight, temperature, snow and ice day by day are document 13
@@ -461,7 +460,7 @@ the huddle, drying, `status` and the meters (08) · water in millilitres, thirst
 food states and spoilage (10) · bleeding, infection, frostbite and the wound verbs (11) · the pilot's
 body (12) · the ladder, the event deck, the weather (13) · the hand radio, the voice, signals and the
 flyovers (14) · ownership, witnessing, the event log (15) · the 206's four-seat
-interior and the slot permutation (16) · the fifty outdoor zones (01) · the animals and the country's
+interior and the slot permutation (16) · the outdoor places (01) · the animals and the country's
 food (23) · ghosts and how a run ends (21) · the agent's play harness (20) · a combat system like a
 MUD's, heat as a state system, and the other systems `PLAN.md` task A10 names (documents to be
 written).

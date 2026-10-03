@@ -10,7 +10,7 @@
 ### Andrew's decisions
 - **(2026-09-07)** Every goal has several ways, with no set number — getting the radio working and
   using it, surviving until help arrives, finding food, finding warmth.
-- **(2026-09-16)** The whole valley — all fifty outdoor zones — is in the first complete run.
+- **(2026-09-16)** The whole valley — every outdoor place — is in the first complete run.
 - **(2026-09-17)** The only endings are **rescued or dead**. Walking out is not an ending, and Holt's
   cabin is supplies. Rescue comes **three ways** — the radio, a signal a search plane can see, and
   surviving long enough — and players never see a number. The flyover schedule is the rescue clock:
@@ -138,7 +138,9 @@ rescuers find everyone still alive (2026-09-29). **The ELT is broken** (2026-09-
   transmitting while a search plane flies around taking bearings on it, and bearings give only a
   general area, so the plane circles to narrow it — far longer than flying straight to a named
   landmark, and longer still if the party moves. Every minute on the air drains the batteries. The
-  chart in the cockpit names landmarks, so a party that works out where it is gets home sooner.
+  chart in the cockpit names landmarks — on the redesigned map (document 01, for Andrew's review), the
+  lake, the creek, the knob with its survey marker, the old burn and Holt's cabin — so a party that works
+  out where it is gets home sooner.
 - **The pickup comes at the next daylight good for flying** (2026-09-27), once contact is made and the
   voice judges it can find the party; the day-6 flurry is the only day nothing can land or fly, and the
   voice says when they will come.
@@ -284,7 +286,7 @@ None open.
 none of them walks a way home. The valley the rescue relies on — Holt's cabin, the lake shore, the ridge
 — exists only as design: `game/world/scenarios/whiteout/zones.py` holds the nine crash-site zones
 (cockpit, mid_cabin, rear_cabin, outside_nose, fuselage_top, outside_tail, debris_trail, tail_section,
-treeline). Building the fifty outdoor zones is tracked separately (`PLAN.md`).
+treeline). Building the outdoor places is tracked separately (`PLAN.md`).
 
 **Built, but carrying the retired model** (rewritten when the rescue is built):
 - `game/world/sim/systems/rescue.py` holds one function, `confidence(channels)`, which raises

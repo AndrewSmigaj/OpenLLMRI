@@ -95,8 +95,7 @@ nose, wired and fine. **What is aboard** is not too easy and not too hard: there
 hidden inside the plane; there is no firearm; one of the packs holds a few iodine tablets and a sewing
 needle and thread are aboard (2026-09-27; document 16). **Holt's cabin** is supplies —
 some trapline gear and modest stores — and walking out is not an ending. The crash site is the densest
-place in the valley — modelled to the hilt — and the whole valley, all fifty outdoor zones in eleven
-regions, is in the run (document 01).
+place in the valley — modelled to the hilt — and the whole valley, every region and its places, is in the run (document 01).
 
 **Weather and the ladder (§8).** The same weather every run, and no big storm (2026-09-27): bare, icy
 ground at the start, berries and roots findable, skim ice on still water; snow on and off, building to
@@ -349,7 +348,7 @@ loops, the cabin zone done right, the systems, play.
 
 ## §46. Scope & non-goals
 
-**In:** the whole valley — the nine crash-site rooms and all fifty outdoor zones in eleven regions; the
+**In:** the whole valley — the nine crash-site rooms and every region and its places; the
 systems in documents 06–23; the world-building loops before anyone plays; runs for friends, for humans
 with agents, and for agents only. **Out:** a language model inside the engine (models play characters
 and help build the world; the engine never calls one); procedural variants of the crash; an ongoing

@@ -50,7 +50,7 @@
 - **No gate on violence** (2026-09-16, 2026-09-26): violence resolves by real physics in every kind of
   run — friends, humans with agents, agents only — and a blow wounds when it would really hurt
   (2026-09-27); there is a combat system like a MUD's.
-- **The whole valley is in the first complete run** (2026-09-16): all fifty outdoor zones, so a party
+- **The whole valley is in the first complete run** (2026-09-16): every outdoor place, so a party
   can be spread across the valley, not just across a crash site. Walking out is not an ending
   (2026-09-17).
 - **Co-op has first-class interdependence** (GDD §16): acts that genuinely need two people, so co-op is
