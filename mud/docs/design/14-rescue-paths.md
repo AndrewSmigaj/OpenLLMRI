@@ -212,8 +212,7 @@ ways.
 
 ### 3.7 Not in the design (decided)
 
-A working ELT · the walk-out as an ending · a wire-length puzzle · a wet radio · the pilot as a clue
-source (he starts dead) · a rescue-confidence number · boats · the plane's battery powering the hand
+A working ELT · the walk-out as an ending · a wire-length puzzle · a wet radio · a rescue-confidence number · boats · the plane's battery powering the hand
 radio (the battery is in the nose, wired and fine).
 
 ### 3.8 Content this needs (not questions — work for when the zone is built)
