@@ -10,6 +10,8 @@
 
 ### Andrew's decisions
 
+- **(2026-10-02)** `all` always names a kind of thing — `take all the shirts`, `take all the gravel`,
+  `take all from the duffel` — never a bare `take all` that sweeps up a room (§3.11).
 - **(2026-10-02)** Soft, porous things take their as-found density, and compression is a state — a
   stuffed sack is smaller, and a crushed bag insulates worse until fluffed up (§3.7, document 18 §4.8).
 - **(2026-10-02)** Every unknown word is logged, whether an agent or a person typed it, and then added
@@ -408,7 +410,7 @@ sum of what you are holding, wearing and hauling. Exceeding it is never a refusa
 fits, the world names what you left, and the load feeds the travel time in document 03 §4.1a
 (distance ÷ pace × terrain × snow × **load** × fitness).
 
-**`all` is scoped (Andrew, 2026-09-18)** — `take all from the duffel`, `take all the branches` —
+**`all` is scoped (Andrew, 2026-10-02)** — `take all from the duffel`, `take all the branches` —
 never a bare `take all` over the room. A room-wide `take all` would be both unphysical (you cannot
 carry a room) and a discovery shortcut: it would reveal what is takeable by taking it, which is the
 never-list rule leaking out through a convenience. A scoped `all` is still bounded by what you can
