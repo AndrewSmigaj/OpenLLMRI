@@ -64,8 +64,9 @@
   anything else that covers serve too, and a lean-to is in. The tarp is also a ground signal: laid in
   the open it is something a search plane can see, so one tarp has two uses and the party chooses
   (document 14 §3.4). Not too easy, not too hard.
-- **2026-09-27 — the battery and the radio.** The plane's battery is in the nose, wired and fine. The
-  radio is a hand radio in the plane's cabin, and its batteries are buried in a bag in the tail section
+- **2026-09-27 — the battery and the radio.** The plane's battery is in the nose, wired and fine. Two
+  radios: the plane's radio runs off it, with a loose wire; a hand radio in Holt's cabin has no batteries,
+  and its batteries are buried in a bag in the plane's tail section
   (document 14 §3.2).
 
 ### Proposals (Claude)
@@ -115,7 +116,7 @@ Andrew placed on 2026-09-27 — see §4.3's note.)*
 
 **What each is good at.** Characters differ in how well and how fast they do things (Andrew,
 2026-09-27): a woodsman lights fires better; a technically proficient character sees a fault in a
-device — the hand radio's loose wire — at once, where anyone else finds it more slowly, and the world
+device — the plane's radio's loose wire — at once, where anyone else finds it more slowly, and the world
 says so (document 14 §3.2). Which slot is good at what is content still to be written with the slots
 (document 14 §3.8).
 
@@ -164,7 +165,7 @@ Every bag in §4.1, plus: the **mail sack** (letters, postmarks, a parcel of can
 addressed to V. Holt), the **freight** (a 10 lb bag of flour, the coffee tin, a small bag of dog food, a box of shear pins, a
 toolbox — screwdrivers, pliers, a hacksaw blade that is both an edge and a saw), a **cooler** (a
 few frozen salmon fillets — a meal or two, not a larder (2026-09-28); the cooler is a vessel), and a **guitar case** (a story object: the strings are wire, the
-case is a sled, the neck is wood). A bag in the tail section holds the hand radio's batteries (document
+case is a sled, the neck is wood). A bag in the tail section holds the batteries for Holt's hand radio (document
 14 §3.2).
 
 A survival kit would make the game too easy, so there is none (Andrew, 2026-09-27). **The
@@ -364,7 +365,7 @@ Airlines News, "Look like a local" · U.S. Army FM 21-18 · Apple Support (iPhon
   at me`) weaves the draw's worn items and wounds into one composed sentence.
 - **Determinism and seeding** (DR-12) — the run's per-seed random-number stream is what deals the
   slots; it exists elsewhere in the architecture and is not yet wired to slot assignment (§8).
-- **14 — Rescue** — the hand radio's batteries in a bag in the tail; which character is technically
+- **14 — Rescue** — the batteries for Holt's hand radio in a bag in the tail; the plane's radio's loose wire; which character is technically
   proficient (§4.1).
 - **15 — Moral and social layer** — the mail and the freight are nobody's here, and
   what a survivor wore, carried or packed is theirs (document 15 §4.6); stripping a body — the pilot's,

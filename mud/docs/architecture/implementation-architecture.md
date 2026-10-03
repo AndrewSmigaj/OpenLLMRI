@@ -540,7 +540,7 @@ The design is document 14 §3; the engine design is written when that document i
 `rescue.md`). What the engine has to carry, from the design:
 - **Three ways home** — the radio, a signal a search plane can see, surviving long enough — and two
   endings, rescued or dead (DR-15b). Players never see a number, and the engine keeps no rescue score.
-- **The radio is world state**, not a packet: a hand radio whose batteries are separate objects, buried
+- **The radios are world state**, not a packet: the plane's radio on the plane's battery, and Holt's hand radio whose batteries are separate objects, buried
   in a bag in the tail section; a loose wire inside; an antenna that is any metal long enough, and how
   high it is raised (higher is better; a poor match only weakens the signal); the channel buttons and
   the written emergency frequency; push-to-talk; a charge that drains with use, shown as a dimming

@@ -47,7 +47,8 @@ Ideas that are not design yet: [`docs/design/IDEAS.md`](../../design/IDEAS.md).
 
 **Whiteout** — survivors of a bush-plane crash in interior Alaska, in the first week of October,
 improvise with a physically modelled world to stay alive — cold, injury, hunger and the coming winter
-against them — until they are rescued: by getting the hand radio working and raising someone, by a
+against them — until they are rescued: by getting a radio working and raising someone — the plane's own radio, or a hand radio in a trapper's
+cabin whose batteries are in the plane's tail — by a
 signal a search plane can see, or by surviving long enough — on day 7 the rescuers find everyone still
 alive, and surviving that long is the hardest way. **The only endings are rescued or dead.** **Essential experience:**
 *understanding a living, reactive world under pressure — and being told, physically and specifically,
@@ -88,7 +89,7 @@ the author's verb.**
 > *Design:* [`01-premise-and-world`](../../design/01-premise-and-world.md) · [`13-events-escalation-and-weather`](../../design/13-events-escalation-and-weather.md) · [`16-players-and-kit`](../../design/16-players-and-kit.md) · [`23-flora-and-fauna`](../../design/23-flora-and-fauna.md)
 
 **Premise (§6).** An off-route crash in an interior-Alaska side valley in the first week of October
-(2026-09-26, 2026-09-27); the search looking in the wrong area; the hand radio dead and the ELT broken;
+(2026-09-26, 2026-09-27); the search looking in the wrong area; the plane's radio with a loose wire, Holt's hand radio without its batteries, and the ELT broken;
 an unstable wreck. The aircraft is a Cessna 206-class single with a four-seat interior (1A, 1B, 2A, 2B
 and the right seat), a hat shelf, a cargo net and a jammed cargo door; the plane's battery is in the
 nose, wired and fine. **What is aboard** is not too easy and not too hard: there is no survival kit; the sleeping bag is buried with the tail wreckage; two blankets are
@@ -293,7 +294,8 @@ One chapter per system; each is its own document, reviewed separately.
 
 Rescue is the only good ending, and it comes three ways (2026-09-17). Players never see a number. **The
 ELT is broken** (2026-09-27).
-- **The radio.** A hand radio in the plane's cabin; its batteries are buried in a bag in the tail section. You
+- **Two radios** (2026-09-17, 2026-09-27). The plane's radio runs off the plane's battery; its fault is a
+  loose wire. A hand radio in Holt's cabin has no batteries; they are buried in a bag in the plane's tail section. You
   need something to open it; inside, a loose wire is seen at once by a technically proficient character
   and found more slowly by anyone else, and the world says so. The antenna is anything metal and long
   enough, raised — higher is better, and a poor match only weakens the signal. Flip through the channel

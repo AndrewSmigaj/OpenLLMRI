@@ -129,7 +129,8 @@ answers with physics, including when it says no, and in its own voice when you m
 would know. The clock never stops: fifteen minutes of game time to every real minute, faster when you
 all agree to fast forward. Snow on and off, the nights growing colder, and a heavier flurry on
 the sixth day that clears into the coldest night of the run — the same week every run. There are three
-ways home: raise someone on the hand radio, whose batteries are buried in the tail; get a signal up
+ways home: raise someone on the plane's radio, once its loose wire is found, or on the hand radio in a
+trapper's cabin, whose batteries are buried in the plane's tail; get a signal up
 that a search plane can see when you hear it coming; or stay alive until the seventh day, when the
 rescuers find everyone still alive (2026-09-29). You are rescued, or you die of blood loss, the bear or the cold — and if you
 die, you go to the Warming Hut and can watch the rest as a silent watcher.
@@ -309,7 +310,7 @@ each failure is logged for the next vocabulary pass.
 
 | way | what it takes | where |
 |---|---|---|
-| **the radio** | the hand radio, dead; its batteries, buried in a bag in the tail section, which each flurry hides a little more · something to open it · the loose wire inside, seen at once by a technically proficient character and found slowly by anyone else, with a hint · anything metal and long enough as the antenna, raised — higher is better · the channel buttons, or the emergency frequency found written down · hold the button to talk · the light dims as the batteries drain | the cabin, the tail section, and a height: the fuselage top or the knob |
+| **the radio** | two radios: the plane's radio, on the plane's battery · something to open it · the loose wire inside, seen at once by a technically proficient character and found slowly by anyone else, with a hint · anything metal and long enough as the antenna, raised — higher is better · the channel buttons, or the emergency frequency found written down · hold the button to talk · the light dims as the batteries drain | the cabin, the tail section, and a height: the fuselage top or the knob · and Holt's hand radio, without its batteries, which are buried in a bag in the plane's tail |
 | **a signal a plane can see** | fire and smoke — rubber, oil, green boughs · a piece of mirror, once clear of the trees · burning the cabin during a flyover · whether a crew sees it is physics: contrast, weather, how close the pass comes · the plane is heard before it is seen, and a party may not make it in time | the crash site, the lake shore, the gear gouge, the knob |
 | **surviving long enough** | staying alive through the hardest 24 hours, the day-6 flurry and the coldest night — on day 7 the rescuers find everyone still alive, wherever they are (2026-09-29) | anywhere; the game ends on day 7 |
 

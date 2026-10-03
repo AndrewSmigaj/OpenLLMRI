@@ -60,7 +60,8 @@ were redesigned by Claude on 2026-10-02 — **they are Claude's proposals**, for
   bag is buried with the tail wreckage; two blankets are hidden inside the plane; there is no firearm.
   Not too easy, not too hard.
 - **Rescue (2026-09-17, 2026-09-27).** Three ways home — the radio, a signal a plane can see, surviving
-  long enough — exactly as document 14 §3. **The ELT is broken.** The hand radio's batteries are buried
+  long enough — exactly as document 14 §3. **The ELT is broken.** Two radios: the plane's radio, on the plane's battery, with a
+  loose wire; and a hand radio in Holt's cabin whose batteries are buried
   in a bag in the tail section.
 - **Holt's cabin (2026-09-17, 2026-09-27).** The cabin is supplies — some trapline gear and modest
   stores, not piles of food. Walking out is not an ending, and no zone leads out of the valley.
@@ -113,8 +114,9 @@ Every count here is a floor: no region or place is ever "finished".
 
 A mail plane crossing a low ridge in the first week of October clips the spruce, sheds a wing and its
 tail, and slides out onto the floor of a side valley at the east edge of a muskeg white with hoarfrost.
-The pilot is dead in his seat. The beacon is broken; the hand radio is dead, its batteries somewhere in
-the wreckage of the tail; the search is starting where the flight plan said the plane would be, not
+The pilot is dead in his seat. The beacon is broken; the plane's radio has power but will not work, and
+the hand radio at a trapper's cabin down the valley has no batteries — they are in the wreckage of the
+tail; the search is starting where the flight plan said the plane would be, not
 where it is. Step out of the hull and the valley is all around: west across the bog, a lake, open water
 under the widest sky in the valley, and an old burn on its far shore; north, spruce at the ridge's foot,
 with the fuel, the hares and the shelter; north-east, the plane's own scar climbing past its wing to a
@@ -143,7 +145,8 @@ What is aboard is the design's call, and it is set so the run is neither too eas
 - **There is no survival kit.**
 - **The sleeping bag** is buried with the tail wreckage; **two blankets** are hidden inside the plane;
   there is **no firearm** (document 16).
-- **The hand radio** is dead; its **batteries are buried in a bag in the tail section**, which each
+- **The plane's radio** has power from the plane's battery but a loose wire; **the hand radio in Holt's
+  cabin** has no batteries — they are **buried in a bag in the tail section**, which each
   flurry hides a little more (document 14 §3.2).
 - **The ELT is broken.**
 - **The plane's battery** is in the nose, wired and fine.
@@ -256,7 +259,7 @@ something interesting in it — a stretch of muskeg is a stretch of muskeg (2026
 
 | Region | Its roles | Places | From the wreck |
 |---|---|---|---|
-| **The crash site** | shelter, the kit in the bags, the hand radio and — in the tail — its batteries; where a party stays, signals and keeps itself findable for the early passes | 9 ✅ | — |
+| **The crash site** | shelter, the kit in the bags, the plane's radio, and in the tail the batteries for Holt's hand radio; where a party stays, signals and keeps itself findable for the early passes | 9 ✅ | — |
 | **The scar** | salvage from the wreck (the wing's fuel, the wheel and tyre, wire, aluminium); the way up to the ridge; an arrow pointing back up the hill | 4 | 100–450 m NE |
 | **The ridge** | height for the radio's antenna; the view over the whole valley (the lake, the creek, Holt's clearing); a named landmark (the knob, on the chart); signals seen from far off; exposure and the glazed lee slope | 4 | 650–900 m NE, +100–120 m |
 | **The north wood** | fuel, boughs, shelter; spruce grouse, hares, red squirrel middens, porcupine | 5 | 60–300 m N |
@@ -268,7 +271,7 @@ something interesting in it — a stretch of muskeg is a stretch of muskeg (2026
 | **The bear's country** | the richest berry slope and root bench in the valley — and the grizzly's home ground, its sign plain on entering | 3 | 1.2–1.5 km S |
 | **The beaver pond** | Holt's old trap set and its wire; the beavers and their food pile; poles; where Holt's blazed trail starts | 4 | 1.7 km S–SE |
 | **Holt's trail** | the way to the cabin, sheltered in any weather; Holt's traces (an empty marten set) | 4 | 1.7–2.4 km SE |
-| **Holt's homestead** | supplies — the stove, a bunk, modest stores, the axe, the woodshed; chimney smoke a plane can see | 7 | 2.4 km SE |
+| **Holt's homestead** | supplies — the stove, a bunk, modest stores, the axe, the woodshed; a hand radio without its batteries; chimney smoke a plane can see | 7 | 2.4 km SE |
 
 ### 4.5 The places
 
@@ -286,7 +289,7 @@ loops grow every one (document 22), and every count is a floor.
 | `fuselage_top` | the torn antenna base, the widest view from the wreck, a high place to raise an antenna, the wind | ✅ |
 | `outside_tail` | the breach — the way between the hull, the scar and the treeline | ✅ |
 | `debris_trail` | what the crash shed: the mail sack, the freight, the cooler in the brush, the hatchet with its cracked haft | ✅ |
-| `tail_section` | the tail wreckage, two hundred metres up the scar: the broken ELT, the kid's duffel with the sleeping bag buried in it, the bag holding the hand radio's batteries, the toolbox in the crushed tail cone | ✅ |
+| `tail_section` | the tail wreckage, two hundred metres up the scar: the broken ELT, the kid's duffel with the sleeping bag buried in it, the bag holding the batteries for Holt's hand radio, the toolbox in the crushed tail cone | ✅ |
 | `treeline` | deadfall, boughs, dry grass under the spruce; the way into the north wood | ✅ |
 
 **The scar**
@@ -398,7 +401,7 @@ and is plain on entering (2026-09-28). The bear itself can be anywhere food is (
 |---|---|---|
 | `dooryard` | the yard and the dog-run cable | 📐 |
 | `porch` | the door, unlocked as trapline cabins are; bear boards — plywood studded with nails, points out — across the doorstep and over the windows, to be pried off with a tool or slow care | 📐 |
-| `cabin_interior` | the stove with kindling laid, its pipe capped against squirrels and birds (light it unnoticed and the cabin fills with smoke); Holt's shelf of modest stores, a bulged can among the tins; a tin with a few matches on the shelf, found by searching; wood is needed to keep the fire going | 📐 |
+| `cabin_interior` | the stove with kindling laid, its pipe capped against squirrels and birds (light it unnoticed and the cabin fills with smoke); Holt's shelf of modest stores, a bulged can among the tins; a hand radio without its batteries (they are in the plane's tail); a tin with a few matches on the shelf, found by searching; wood is needed to keep the fire going | 📐 |
 | `loft` | a bunk with wool bedding | 📐 |
 | `cache` | a raised cache, its ladder stashed under the cabin as trappers do against bears: trapline gear (snowshoes, the felling axe) and modest stores | 📐 |
 | `woodshed` | a modest stack of split dry wood — a few nights', since Holt is still cutting his winter's in early October — and a freight sled with a split runner | 📐 |
@@ -445,7 +448,7 @@ The ways home are document 14 §3's; this is where they happen.
 
 | Way home | Where | What it needs |
 |---|---|---|
-| **The radio** | the hand radio, in the cabin; its batteries in a bag in `tail_section`; anything that turns a screw to open it (document 18 §4.5); anything metal and long enough for the antenna (the panel's wire, seat tubing, a control cable from the wing, the dog-run cable); a height to raise it — `fuselage_top`, and higher, `the_knob` | the batteries dug out of the tail wreckage; height; landmarks to tell the voice where you are — the lake, the knob and its survey marker, the burn, the creek, Holt's cabin on the chart |
+| **The radio** — two (document 14 §3.2) | **the plane's radio** in the cockpit, on the plane's battery: something to open it (anything that turns a screw), the loose wire, an antenna mended and raised — the fuselage top, or higher; **Holt's hand radio**, in his cabin, without batteries — they are in a bag in `tail_section` | height; landmarks to tell the voice where you are — the lake, the knob and its survey marker, the burn, the creek, Holt's cabin on the chart |
 | **A signal a plane can see** | the open places — the lake shore, the ridge and the knob, the muskeg, the burn's open ground; smoke from the wreck's clearing; the tarp laid out; Holt's chimney | fire and fuel ready when the engines are heard; something that stands out from the air |
 | **Surviving long enough** | everywhere — on day 7 the rescuers find everyone still alive (2026-09-29); before then, being found by an early pass takes work, since partial cloud and the trees hide the wreck | staying alive |
 
@@ -607,8 +610,9 @@ pass:
   cargo bay and a jammed cargo door, with seats 1A/1B/2A/2B plus the right seat. The re-skin is small
   (names, aliases and prose; a `cargo net` object already exists).
 - **The ELT** is built as an armed beacon whose antenna is sheared; the design's ELT is broken.
-- **The radio** is built as a field radio in a cradle in the cockpit; the design's radio is the hand
-  radio whose batteries are buried in a bag in the tail section (document 14 §3.2).
+- **The radio** is built as a field radio in a cradle in the cockpit; the design has two radios — the plane's radio
+  on the plane's battery, with a loose wire, and a hand radio in Holt's cabin whose batteries are in the
+  tail (document 14 §3.2).
 - **The survival kit** is built as a torn duffel lying on the debris trail; the design has no survival
   kit.
 - **The snow.** The built crash site is authored deep in snow: a knee-deep `snowdrift` in the rear

@@ -26,16 +26,18 @@
 - **(2026-09-26, 2026-09-27)** The season is the first week of October; the weather is the same every
   run (document 13 §4.2).
 - **(2026-09-27)** Rescue is designed together with Andrew; nothing is added to it without asking him.
-- **(2026-09-27)** **The ELT is broken.** The plane's battery is in the nose, wired and fine; it does
-  not power the hand radio.
-- **(2026-09-27) The radio.** A hand radio in the plane's cabin; its batteries are buried in a bag
-  or luggage in the plane's tail section. Something is needed to open it. Inside is a loose wire: a character
+- **(2026-09-27)** **The ELT is broken.** The plane's battery is in the nose, wired and fine.
+- **(2026-09-17, 2026-09-27) Two radios.** **The plane's radio** runs off the plane's battery, so power is
+  not its problem; **a hand radio in Holt's cabin** has no batteries — they are buried in a bag or
+  luggage in the plane's tail section, so a party finds the radio and must come back to search the tail
+  for its batteries.
+- **(2026-09-27) The plane's radio.** Something is needed to open it. Inside is a loose wire: a character
   with technical proficiency sees it on inspecting the inside; anyone else finds it more slowly, and
   the world hints that it may take them a while. The antenna is anything metal and long enough,
   raised — higher is better, a poor match only weakens the signal, and there is no finding the right
   length. A dial and a set of channel buttons, one of them the emergency channel: try them all, or
   find the frequency written down. Hold the button to talk; a player who does not is hinted. The
-  batteries drain with use and the light dims; the cold does not weaken them. Contact comes
+  power drains with use and the light dims; the cold does not stop a battery in a week. Contact comes
   relatively quickly once the antenna is fixed — not only during flyovers. The radio is interacting
   with the world, not a separate game: a bad signal that lets only some words through is part of the
   world. Common sense is hinted, in the world's voice.
@@ -77,11 +79,11 @@ None left: the `make a signal` rows' marker and flare roles were accepted (2026-
 ## 2. In one paragraph
 
 Nobody is looking where you are yet, but search and rescue is searching. There are three ways home.
-**The radio** — a hand radio sits in the plane's cabin, dead, its batteries somewhere in a bag in the
-tail section, which gathers a little more snow with every flurry you wait; you find something to open it
-and a loose wire inside, fix the antenna and get it high, and work the dial and the channel buttons
+**The radio** — two of them. The plane's own radio has power from the plane's battery but will not
+work: you find something to open it and a loose wire inside, fix the antenna and get it high, and work the dial and the channel buttons
 until, through the screech and the hum, a faint voice answers — a person who wants to know where you
-are, and who will come at the next daylight good for flying. **A signal a search plane can see** — you
+are, and who will come at the next daylight good for flying. And in Holt's cabin, a long walk away, a hand
+radio sits without its batteries, which are buried somewhere in a bag in the plane's tail. **A signal a search plane can see** — you
 hear the engines first, and have that long to get smoke up dark against the snow or white against the
 spruce, or the blue tarp spread in the open; you might not make it. **Surviving long enough** — on the
 seventh day the rescuers find everyone still alive (2026-09-29); before then, under a half-clouded sky
@@ -99,12 +101,14 @@ rescuers find everyone still alive (2026-09-29). **The ELT is broken** (2026-09-
 
 ### 3.2 The radio (Andrew, 2026-09-17, 2026-09-18, 2026-09-27)
 
-- **What and where.** A **hand radio in the plane's cabin**. Its **batteries are buried in a container — a bag or
-  luggage — in the tail section**; the tail lies on bare, frosty ground at the start and gathers a
+- **Two radios** (2026-09-17, 2026-09-27). **The plane's radio**, powered by the plane's battery in the
+  nose (wired and fine), whose fault is a loose wire; and **a hand radio in Holt's cabin**, without its
+  batteries. **Holt's radio's batteries are buried in a container — a bag or luggage — in the plane's tail
+  section**: a party has to find the radio and come back to search the tail. The tail lies on bare, frosty ground at the start and gathers a
   little snow with each flurry, a couple of inches by the end (document 13 §4.2), so the longer a party
   waits, the more there is to brush off and the colder the hands that sort through it. Finding them is
   searching the ground and sorting through the wreckage, as on 2026-09-17.
-- **Getting it working.** You need **something to open it**: its case is screwed shut, and anything
+- **Getting the plane's radio working.** You need **something to open it**: its case is screwed shut, and anything
   that can turn a screw serves — a knife's tip, the multitool, a coin, a key, a seat-belt buckle's steel
   tongue (2026-10-02; document 18 §4.5). Inside is **a loose wire**: a character
   with technical proficiency sees it on inspecting the inside; anyone else finds it more slowly, and the
@@ -112,14 +116,17 @@ rescuers find everyone still alive (2026-09-29). **The ELT is broken** (2026-09-
   the same way fire is slower for some (characters differ in how well and how fast they do things,
   2026-09-27). **Fix the antenna and raise it**: anything metal and long enough serves, higher is
   better, and a poor match only weakens the signal — there is no finding the right length of wire.
-- **Using it.** A **dial and a set of channel buttons**, one of them the emergency channel: try them all,
+  *(Open, Andrew 2026-10-03: whether the loose wire stays inside the radio, which gives players no sign it is there, or moves somewhere with a visible symptom.)*
+- **Holt's hand radio** works once its batteries are in. *(Claude's reading, not yet decided: it is used
+  the same way — the dial, the channels, the voice — and, being a hand radio, it can be carried up high.)*
+- **Using a radio.** A **dial and a set of channel buttons**, one of them the emergency channel: try them all,
   or find the frequency written down (where it is written is content, in the plane). **Hold the button
   while you talk**; a player who talks without it is told why nothing went out, in the world's voice.
 - **The signal is the world.** Static — a high screech with the antenna down, a low hum with it up — and
   a faint voice as you turn the dial, clearer as the antenna goes up. A bad signal lets only some words
   through; that is the world, like everything else in it.
-- **Power.** The batteries **drain with use, and it shows** — the radio's light starts to dim. The cold
-  does not weaken them.
+- **Power.** It **drains with use, and it shows** — the radio's light starts to dim. A week of cold
+  does not stop a battery.
 - **Contact.** Not tied to flyovers: **once the antenna is fixed, contact comes relatively quickly.**
   One person can work the radio while another gets food.
 
@@ -213,7 +220,7 @@ ways.
 ### 3.7 Not in the design (decided)
 
 A working ELT · the walk-out as an ending · a wire-length puzzle · a wet radio · a rescue-confidence number · boats · the plane's battery powering the hand
-radio (the battery is in the nose, wired and fine).
+radio (the plane's battery powers the plane's radio).
 
 ### 3.8 Content this needs (not questions — work for when the zone is built)
 
@@ -268,7 +275,8 @@ None open.
 - **2026-09-26 (Claude's self-review):** the rescue checked against real small-aircraft search and rescue;
   the findings were taken into the rescue conversation.
 - **2026-09-27 (Andrew, the rescue conversation):** the ELT is broken; the plane's battery in the nose;
-  the hand radio in the plane's cabin and its batteries in the tail; the loose wire; the antenna; the channels;
+  two radios — the plane's radio on the plane's battery, with the loose wire, and a hand radio in Holt's
+  cabin whose batteries are in the tail; the antenna; the channels;
   holding the button to talk; the draining light; contact not tied to flyovers; the voice; signals seen by
   physics, the plane heard first; the default rescue on day 7. §3 written from it.
 - **2026-09-27 (Andrew)** — the trapper does not come back; not a way to be rescued.
@@ -297,8 +305,9 @@ treeline). Building the outdoor places is tracked separately (`PLAN.md`).
   ELT.
 - `objects.py` authors `radio` as a field radio in the cockpit (`plastic`/`copper_wire`, `state:
   {powered: False, fixed: True}`) and `elt` in the tailcone (`state: {armed: True, antenna:
-  'sheared'}`), each with a description in `appearance.py`. The design puts a hand radio in the plane's
-  cabin with its batteries in a bag in the tail, and the ELT is broken.
+  'sheared'}`), each with a description in `appearance.py`. The design has two radios — the plane's
+  radio on the plane's battery, with a loose wire, and a hand radio in Holt's cabin whose batteries are in a
+  bag in the plane's tail — and the ELT is broken.
 
 **Built, and a foothold:** a generic `wire` object; the guitar's strings yield `loose_wire` when
 removed; the material table carries a `conductivity` ordinal on metals and `copper_wire` — the start of
