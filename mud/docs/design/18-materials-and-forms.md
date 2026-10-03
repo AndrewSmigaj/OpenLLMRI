@@ -473,7 +473,7 @@ axes above, and each gives a survivor a real distinction to act on:
 | berries, roots, mushrooms — one material per species | the tussocks, the bars, the marsh edge | fresh berries run 40–60 kcal per 100 g (USDA: cranberries 46, blueberries 57), rose hips far more (162); baneberry and water hemlock carry their poisons, and cooking does not help |
 | acrylic | the 206's windscreen and windows | `glass` in the table is wrong for them — general-aviation windscreens are acrylic (LP Aero Plastics makes the 206's). 1,180 g/L; softens near 105 °C; burns bright with little smoke (~25 MJ/kg); cracks rather than bends; scores and snaps along a line |
 | fibreglass batting | the fuselage walls and ceiling | light aircraft are usually lined with it: it does not burn, it itches and cuts skin, it insulates dry and lofted. The engine cover's polyester fill does burn — `insulation_batting` is two materials |
-| lead | the battery's plates *(Claude's, not yet decided: fishing sinkers in someone's luggage)* | 11,340 g/L; melts at 327 °C — a fire melts it into sinkers or weights |
+| lead | the battery's plates; the split-shot sinkers in the guide's fishing kit | 11,340 g/L; melts at 327 °C — a fire melts it into sinkers or weights |
 | battery electrolyte (sulfuric acid) | the aircraft battery | burns skin; a charged battery's freezes near −60 °C, a flat one's near −7 °C — a dead battery cracks on an October night |
 | kerosene | Holt's lamp | ~800 g/L, ~43 MJ/kg; flash point 38–72 °C — safe to handle, needs a wick |
 | canvas (cotton duck) | the work coats, a tarp | cotton's behaviour; windproof tight and dry |

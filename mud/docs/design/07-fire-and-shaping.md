@@ -166,7 +166,7 @@ tinder only.
    the flame; wet tinder; wind without a windbreak; a butane lighter too cold to light.
 2. **Matches** — the pilot's two, and the nurse's damp book: `dry the matches` against the body or near
    a fire (a process) → strike. Each match is one try.
-3. **The flare** — burns very hot and readily lights tinder and kindling, once, loudly; it is
+3. **The flare** — a hand flare in the pilot's door pocket (2026-10-02); it burns very hot and readily lights tinder and kindling, once, loudly; it is
    fire *or* signal, never both
    ([`14-rescue-paths.md`](14-rescue-paths.md) §3.4).
 4. **Battery + wire** — pry the panel: the plane's battery in the nose cowling (12 kg, wired and

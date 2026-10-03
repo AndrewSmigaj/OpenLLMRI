@@ -141,7 +141,8 @@ Every food in the design, in one place and growing as the world is fleshed out, 
 
 *(Content, with document 16 and the shipped object table.)*
 
-- **There is no survival kit** (Andrew, 2026-09-27).
+- **There is no survival kit** (Andrew, 2026-09-27). One ration tin and a small fishing kit are in the
+  guide's duffel (2026-10-02).
 - **Pockets** — the guide's chocolate bar; the kid's candy bar; the salesman's hip flask (his trail mix is under
   seat 1B); the townie's gum. A seat nobody plays is a dead character whose pockets can be searched
   (2026-09-27).

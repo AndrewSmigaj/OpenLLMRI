@@ -103,7 +103,7 @@ on the per-run seeded stream (DR-12), and the deal is logged like every other se
 
 | slot | seat | wearing | pockets | injury | their bag |
 |---|---|---|---|---|---|
-| **the guide** | right seat | parka (down, hood), wool base layer, insulated boots, gloves, wool hat | a chocolate bar, a wallet | minor bumps and bruises (sore for a day or two) | his own duffel, in the baggage bay behind the jammed cargo door: his pocketknife, a compass, a headlamp, a ferro rod, a steel cup |
+| **the guide** | right seat | parka (down, hood), wool base layer, insulated boots, gloves, wool hat | a chocolate bar, a wallet | minor bumps and bruises (sore for a day or two) | his own duffel, in the baggage bay behind the jammed cargo door: his pocketknife, a compass, a headlamp, a ferro rod, a steel cup, a small fishing kit (hooks, a little line, a few split-shot sinkers) and one ration tin (2026-10-02) |
 | **the townie** | 1A | denim jacket, cotton hoodie, jeans, sneakers, no gloves — the winter coat lost in the crash (below) | phone (light, clock; the battery lasts as long as where it is kept allows — §4.9), wallet (cash, cards, ID — paper), gum, keys, earbuds (wire) | a cut forearm (bleeding; the census wound) | a soft suitcase, in the baggage bay: cotton clothes, a canvas jacket with a lighter forgotten in its pocket, a towel, toiletries (floss = cordage; razor = edge; sanitizer = fire starter; tampons = tinder + wound packing; a travel sewing kit — a needle and a card of thread), a paperback |
 | **the nurse** | 1B | fleece jacket, hiking boots, a scarf, thin gloves — the down jacket lost in the crash (below) | lip balm (wax), hair ties (cordage), a pen | minor bumps and bruises (sore for a day or two) | a backpack, wedged behind the rear seats where the crash crushed the hat shelf down on it: the med pouch (gauze, tape, ibuprofen, a suture kit — she knows how; the player still types each act), canteen, spare shirt, a wool sweater, a headnet, a book of matches (about eight, damp where the canteen leaked), a part-used bottle of iodine tablets |
 | **the salesman** | 2A | wool overcoat, dress shoes, leather gloves, a good scarf | a hip flask (whisky), reading glasses (convex — in sun, a lens that can light tinder), a notebook (paper) | concussion (fatigue faster; confusion messages the first day) | a laptop bag, under his seat: laptop (battery — sparks, heat, then dead), cables (wire), a metal water bottle, snacks, a wool blanket, an old metal lighter in a side pocket, its wick dry |
@@ -173,8 +173,8 @@ owner packed for their own trip, so whoever plays the townie is the one whose su
 jacket; the mail and the freight are nobody's here.
 
 **One sleeping bag and two blankets in the whole plane** (2026-09-27; the kit table kept 2026-09-28): the sleeping bag in the kid's duffel is the one buried with the tail wreckage, and the salesman's wool
-blanket is one of the two hidden inside the plane — the decision named one sleeping bag and two blankets *(Claude's, not yet decided: whether there are
-no others besides)*.
+blanket is one of the two hidden inside the plane — and that is all the bedding aboard (2026-10-02); coats, the engine cover, seat cushions and the tarp
+can still be slept under.
 
 ### 4.4 The clothing system (DR-25 → v2)
 
@@ -200,9 +200,8 @@ rubber: black signal smoke, and a band that stretches for a sling.
 
 The plane's **battery is in the nose, wired and fine** (Andrew, 2026-09-27); it does not power the hand
 radio (document 14 §3.7). There is no survival kit (§4.3). Where the small supplies are (2026-09-28):
-the iodine tablets are in the nurse's backpack — a part-used bottle *(Claude's, not yet decided: about twelve, two to a litre of water — about six
-litres, a couple of days for one person, less than a day for the party — against the decision's "a
-couple of days' worth")*; the sewing
+the iodine tablets are in the nurse's backpack — a nearly full bottle of about fifty, two to a litre of water — some 25 litres, a couple of days
+for the party (2026-10-02); the sewing
 kit is in the townie's toiletry bag; the tarp — a folded blue plastic tarp, about 3 × 4 m — is in the
 baggage bay under the cargo net, with the freight. It seals the crash's openings, and it is also a
 ground signal: spread in the open, its blue shows against brown ground or new snow to a search plane
@@ -232,6 +231,7 @@ laptop bag; under 2B, a phone charging cable and a crumpled chip bag.
 - The hat shelf and the cargo net are opened, pried and searched like any container.
 - **Windows**: crazed plexiglass (acrylic — document 18 §4.8) — sharp sheets when broken, and a
   possible cover for the breach.
+- **The pilot's door pocket**: a hand flare — bush pilots commonly carry one (2026-10-02).
 - **Up front**: the six-pack instruments, the whiskey compass screwed to the glareshield — it comes out with anything that can turn a screw
   (2026-10-02; document 18 §4.5), the ELT's
   remote switch and placard (the ELT itself is in the tail, and broken — document 14 §3), headsets on

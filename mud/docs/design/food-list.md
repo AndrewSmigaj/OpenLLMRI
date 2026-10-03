@@ -24,6 +24,7 @@ was hauling, found by searching the plane (documents 10 §4.3 and 16 §4.1–§4
 | a chocolate bar | the guide's pocket | dense sugar and fat | ✅ |
 | a candy bar | the kid's pocket | sugar | ✅ |
 | gum | the townie's pocket | next to nothing | 📐 |
+| a ration tin | the guide's duffel, behind the jammed cargo door (2026-10-02) | dense, long-keeping food | 📐 |
 | trail mix | the salesman's, burst under seat 1B | nuts and fruit: dense | ✅ |
 | whisky | the salesman's hip flask | calories, and it costs body heat (document 08) | 📐 |
 | snacks | the salesman's laptop bag | what they are is content | 📐 |
