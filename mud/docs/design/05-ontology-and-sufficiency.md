@@ -135,7 +135,8 @@ Three sets do the work, and none of them is closed.
 - **Materials** say what a thing is made of. **Forms** say what shape that material is in. A
   **capability** — `edge`, `point`, `heft`, `leverage`, `abrasive`, `ignition`, `flame`, `cordage`,
   `sheet`, `vessel`, `insulating`, `absorbent`, `reflective` — is derived from material × form ×
-  state. Verbs require a capability at a level; **a verb never names a tool**. That is the whole
+  state. Verbs require a capability at a level; **a verb never requires one particular tool** — `saw`,
+  `spear` and `net` name work that anything with the capability can do (2026-10-03). That is the whole
   trick: anything the world mints is a full participant, so the sets can grow without touching the
   verbs.
 - The starting forms are the code's 26 words, which are canonical (Andrew, 2026-09-18; document 07)

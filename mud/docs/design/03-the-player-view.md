@@ -317,8 +317,8 @@ state-conditioned prose; the systemic condition woven as a clause, never as data
 soaked.` — never `(foam, clipped)`); revealed contents when open or searched; parts as physical
 sentences with their names intact, so the player learns what to type, and attachments as phrases.
 `examine` reveals the features you would not see from a glance at the room (Andrew, 2026-09-17).
-Idents survive here (`aircraft seat [1B]`) because the grammar needs an addressable tag — that is a
-tag the player can *say*, not a hidden marker on the scene.
+No ident brackets (2026-10-03): the seat's label is in the prose ("1B stencilled on the frame"), and the player
+can say it — `examine 1B`.
 
 Property hints, not affordance lists: at most a couple of sensory cues ("the fabric is thin; the foam
 beneath is dense and dry"). Naming a verb or a use here would be a menu — players know what a sharp

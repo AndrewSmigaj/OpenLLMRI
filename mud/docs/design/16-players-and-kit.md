@@ -19,7 +19,8 @@
 - **2026-09-17 — the pilot starts the run dead.** **2026-09-27:** clues are what a realistic world holds, plus some added to help
   players — no set number.
 - **2026-09-18 — what you can carry.** Inventory is limited by weight and space; capacity lives on the
-  things that carry (hands, pockets, bags, worn clothing, a dragged frame); bulk derives from density,
+  things that carry (hands, pockets, bags, worn clothing, a dragged frame) and on the body — strength,
+  tiredness and injury are part of the character's stats (2026-10-03); bulk derives from density,
   and a gathered quantity is one aggregate; exceeding capacity is answered physically, never refused.
 - **2026-09-26, 2026-09-27 — the season** is the first week of October in interior Alaska (document 13
   §4.2 has the weather and the daylight).

@@ -336,7 +336,7 @@ people in western Alaska dig for.
 **The rule.** Anything a survival manual teaches can be done in the game (Andrew, 2026-09-27). Every
 real technique is its own operation inside the grammar (document 04 §3.1), made
 from entities whose capabilities derive from material × form × state (document 05 §4.2) — **a verb
-never names a tool**. Anything fine and malleable enough can be a snare; anything long, rigid and
+never requires one particular tool**: `saw`, `spear` and `net` name work anything capable can do (2026-10-03). Anything fine and malleable enough can be a snare; anything long, rigid and
 pointed can be a spear. The forms the canonical 26 (document 07) do not yet have — `noose`, `hook`,
 `net`/`mesh` — are candidates for document 18; the goal-table rows (`make a snare`, `make a spear`,
 `make a fishing line`) belong to the owning document. *The whole of this is owned by the **hunting,

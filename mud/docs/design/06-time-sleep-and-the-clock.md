@@ -122,7 +122,9 @@ lines driven by state, an interruption that keeps partial progress, a completion
 activities are open-ended** (2026-09-28): `tend the fire` keeps a fire fed from the wood at hand until
 the player stops it, and runs on through fast forward, so nobody has to keep slowing the clock to add a
 stick; when it cannot go on — the wood runs out — it stops, says so, and drops the clock back to 15×.
-*(Claude's, not yet decided: keeping watch and fishing a line as the same kind — the watch is otherwise automatic, §4.6.)* Fighting is not
+Keeping watch is the same kind (2026-10-03): `keep watch`, `watch the fire`, `watch the snare` — a person
+paying attention notices more (a thief, the bear), and it runs through fast forward; the watch is
+otherwise automatic for whoever is awake (§4.6). Working a fishing line is the same kind. Fighting is not
 one of them: nothing in a fight is automatic, and each attack is its own typed act (2026-09-27).
 **Unattended processes** are the world's own work; this document names them once, in §5, and their
 design lives in other documents.

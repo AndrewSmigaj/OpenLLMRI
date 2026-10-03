@@ -494,8 +494,8 @@ it says so. When a decision changes, this list and every document it touches cha
   prose; no item list; groups; a blank line before events; colour for human players only. An agent sees
   exactly what a human sees. (2026-09-16, 2026-09-17)
 - **Open-ended activities**: `tend the fire` keeps a fire fed from the wood at hand until stopped, runs on
-  through fast forward, and when the wood runs out stops and drops the clock back to 15×; *(Claude's, not
-  yet decided: keeping watch and fishing a line as the same kind)* (documents 06, 07). (2026-09-28)
+  through fast forward, and when the wood runs out stops and drops the clock back to 15×; keeping watch
+  (`keep watch`, `watch the fire`) and working a fishing line are the same kind (documents 06, 07). (2026-09-28, 2026-10-03)
 - **The game ends on day 7** (2026-09-29): the rescuers find everyone still alive, and a rescuer entering
   a room rescues whoever is in it; early routes (the radio, a signal seen) get out sooner, and the last
   24 hours before the day-7 rescue are the hardest, so they are worth the work. Nothing runs past day 7.
@@ -532,7 +532,7 @@ it says so. When a decision changes, this list and every document it touches cha
   stamina and blood. A wound is never a meter; it is named. The `status` screen still reports the body in words
   (document 08 §4.9). (2026-09-18, 2026-09-27)
 - `make` is the one aim-verb; `use X on Y` is silent; the forms are finalized before the loops run;
-  vocabulary is written word-first with its synonyms; every line is in the world's voice; quantities are
+  vocabulary is written word-first with its synonyms; what happens in the world speaks in the world's voice, and help and unknown-word lines stay out of character; quantities are
   budgets (a handful, some, all); a gathered quantity is one aggregate; inventory is limited by weight and
   space, and bulk comes from density; distinguishable names are enforced. (2026-09-18)
 - Things are named by their most common name, with the technical and other names as synonyms; the

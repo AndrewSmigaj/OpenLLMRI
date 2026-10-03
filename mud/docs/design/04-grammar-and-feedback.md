@@ -10,6 +10,9 @@
 
 ### Andrew's decisions
 
+- **(2026-10-03)** Verbs that name a tool's work (`saw`, `spear`, `net`) work with anything that can
+  really do the job; help and unknown-word lines stay out of character; carrying capacity is on the
+  containers and on the body, part of the character's stats.
 - **(2026-10-02)** `all` always names a kind of thing — `take all the shirts`, `take all the gravel`,
   `take all from the duffel` — never a bare `take all` that sweeps up a room (§3.11).
 - **(2026-10-02)** Soft, porous things take their as-found density, and compression is a state — a
@@ -36,8 +39,9 @@
   in advance. `help grammar` is written once, when the forms
   are final.
 - **`use X on Y` stays (2026-09-18)**, silent.
-- **Every line is in the world's voice (2026-09-18)** — "How do you mean to make a fire?", here and
-  in every other line the game speaks.
+- **The world's voice (2026-09-18, 2026-10-03)** — "How do you mean to make a fire?": everything that
+  happens in the world speaks in the world's voice; help and unknown-word lines stay plainly out of
+  character.
 - **Vocabulary is written word-first (2026-09-18)** — the canonical word, then its synonyms in the
   same pass, before the loops run; the gaps log is the backstop (§3.7).
 - **Quantities are budgets (2026-09-18)** — counts and measures (a handful, some, all); `all` is
@@ -124,8 +128,8 @@ single-target-only commands.
    including its parts (`cut the seat's cover`). Two of a kind? The game asks `Which seat do you
    mean?` — nothing more — and you say it more exactly (`the wrenched seat`, `1b`, `the can in the
    bag`). Identical things (three shards) never ask.
-3. **Tools are anything with the capability.** `with` names the tool; bare hands are the default.
-   Anything with an edge cuts; anything rigid and long levers; anything long and flexible ties.
+3. **Tools are anything with the capability.** `with` names the tool; bare hands are the default. The
+   guide never names what a thing is for (2026-09-28).
 
 ### 3.3 How it says no — clarification only, never options
 
@@ -403,7 +407,8 @@ spent (`wedge a stone under the runner`) or when one stops being interchangeable
 blood on it earns its own identity, which is the same *individuate what a player would individuate*
 rule the rooms use (document 17).
 
-**Capacity lives on containers, not on a character stat.** Your hands hold a couple of things; your
+**Capacity lives on the containers and on the body** (2026-10-03): how much a person can carry is part of
+their stats — strength, and what tiredness and injury take from it. Your hands hold a couple of things; your
 pockets hold small ones; a backpack, a duffel or a laptop bag holds what its capacity says; a seat
 frame dragged behind you (document 16) hauls far more and costs you speed. What you can carry is the
 sum of what you are holding, wearing and hauling. Exceeding it is never a refusal: you take what

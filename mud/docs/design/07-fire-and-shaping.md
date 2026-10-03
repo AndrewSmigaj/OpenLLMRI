@@ -84,8 +84,7 @@ Fire is an **ignition source × a receptive material × air × time**. The game 
 
 ### 4.2 The ignition check
 An additive, transparent score: `score = source_strength + receptivity(material, form) + air − wet −
-wind`, checked against a threshold; *(Claude's, not yet decided: every term visible in the failure line —
-failure lines give the physics, case by case)*. *"The flame licks at the
+wind`, checked against a threshold; failure lines are case by case (2026-10-03): some carry a hint, others only describe what happened. *"The flame licks at the
 bark and blackens it, but a wrist-thick branch won't take from a flame this small. Something finer
 would."* Failure **costs** something — a match, a minute, stamina on the bow — never a silent retry.
 
