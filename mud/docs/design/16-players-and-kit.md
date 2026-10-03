@@ -119,6 +119,13 @@ device — the hand radio's loose wire — at once, where anyone else finds it m
 says so (document 14 §3.2). Which slot is good at what is content still to be written with the slots
 (document 14 §3.8).
 
+**What a person knows about themselves** (2026-10-03). Stats are fine as long as none is psychic: a person
+knows what they can sense. Shown — the seven body meters (hunger, thirst, warmth, rest, pain, stamina,
+blood), named wounds, **strength** in words (strong, average, slight) and **the load** as a feeling
+(light, heavy, about all you can carry; capacity is on the containers and the body — document 04
+§3.11). Hidden — the skill sheet below, every number and roll behind the words, a germ or a poison dose
+before the body shows it, and the exact core temperature (felt as cold and shivering).
+
 **The hidden skill sheet** (2026-10-02). Every character carries a sheet of skills the player never
 sees, one for each kind of act whose outcome involves chance — throwing, aiming a sling, setting a
 snare, fishing, friction fire, striking a spark, fighting, closing a wound, climbing, and any other the

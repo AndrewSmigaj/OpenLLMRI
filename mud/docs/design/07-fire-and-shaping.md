@@ -23,8 +23,8 @@
   handed over (§4.6).
 - **(2026-09-07)** State the act, not the aim: a player says what they do (`shake thermos`), not what
   they want. The one aim-verb is `make` (below).
-- **(2026-09-16)** Never a menu, applied to fire: no reply lists what would work, and mastery is never
-  packed into a command the game hands the player — a ritual shortcut such as `make fire with bow
+- **(2026-09-16, 2026-10-03)** Never a menu, applied to fire: no reply lists what would work, and mastery is never
+  packed into a command — not even one earned by practice (2026-10-03) the game hands the player — a ritual shortcut such as `make fire with bow
   drill`, unlocked once learned, would be the game offering an option.
 - **(2026-09-18)** `make` is the one aim-verb (document 04 §3.9): `make fire` alone asks how, and
   nothing else; given the means, it performs the first act they imply. Fire's goal rows are §4.9.

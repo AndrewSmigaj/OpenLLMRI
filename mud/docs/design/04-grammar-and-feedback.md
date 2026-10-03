@@ -10,6 +10,7 @@
 
 ### Andrew's decisions
 
+- **(2026-10-03)** A bare `VERB` form — an act with no object (`sleep`, `wait`, `listen`, `keep watch`).
 - **(2026-10-03)** Verbs that name a tool's work (`saw`, `spear`, `net`) work with anything that can
   really do the job; help and unknown-word lines stay out of character; carrying capacity is on the
   containers and on the body, part of the character's stats.
@@ -88,6 +89,7 @@ a list of what's reachable, and never handed a verb they didn't type themselves.
 
 | shape | example | what the engine gets |
 |---|---|---|
+| `VERB` | `sleep` · `wait` · `listen` · `keep watch` · `sit down` | `{verb}` — an act with no object (2026-10-03); phrasings like *keep watch* fold onto a verb as particles do |
 | `VERB thing` | `examine the radio` · `break bottle` | `{verb, X}` |
 | `VERB thing WITH tool` | `cut the cushion with the shard` | `{verb, X, tool}` |
 | `VERB thing RELATION thing [WITH tool]` | `put the branch on the fire` · `tie the paracord to the frame` · `take the wire from the panel` | `{verb, X, relation, Y, tool?}` |
@@ -100,7 +102,8 @@ a list of what's reachable, and never handed a verb they didn't type themselves.
 | `VERB <quantity> of X` | `take two rocks` · `grab a handful of rocks` · `pick up some branches` · `take all the bark from the birch` · `carry as much wood as I can` | a quantity is a **budget**, not a number — §3.11 |
 | meta | `propose fast forward` · `status` · `help` · `look` · `inventory` | out-of-world commands; they never interrupt an activity |
 
-The movement, goal, quantity and meta forms were added with Andrew on 2026-09-18.
+The movement, goal, quantity and meta forms were added with Andrew on 2026-09-18, and the bare `VERB`
+form on 2026-10-03.
 
 Everything else is the tolerance layer folding real phrasings onto these: particles (`pick
 up`, `cut open`, `put on`), synonyms (`grab`, `find`, `place`), plurals, body parts (`bandage my

@@ -252,6 +252,7 @@ and the rules; there is no verb list.
 | `VERB <quantity> of X` | `take two rocks` · `grab a handful of berries` · `take all the bark from the birch` | 📐 a quantity is a budget, not a number (document 04 §3.11) |
 | `say / whisper / call / shout …` | `shout for help` | ✅ by range |
 | `VERB thing, then VERB thing` | `take the shard and cut the cover` | ✅ |
+| `VERB` | `sleep` · `wait` · `listen` · `keep watch` | 📐 an act with no object (2026-10-03) |
 | meta | `propose fast forward` · `status` · `help` · `look` · `inventory` | 📐 out-of-world; they never interrupt an activity |
 
 **The rules the guide states out loud** 📐 (document 04 §3.2): state the act, not the aim

@@ -518,6 +518,8 @@ it says so. When a decision changes, this list and every document it touches cha
 - **Being next to something**: a person can approach a thing and be next to it — sit next to the fire —
   and the position is real (who gets the heat, who can reach what); the room's prose says it. Tricky,
   and doable in a text world (documents 03, 08, 17). (2026-09-28)
+- **Finding** (2026-10-03): what is there is fixed, never luck — a thorough search always finds it, a quick look can
+  miss small things, and skill makes a search faster, not luckier.
 - **Searching is an activity**: a body, the wreckage, any pile or container is gone through a pocket, a
   compartment or a layer at a time, a line for each find, and it can be stopped; a search aimed at one
   place goes straight there; rummaging through the wreckage can cut you on something sharp. Taking a
@@ -530,7 +532,9 @@ it says so. When a decision changes, this list and every document it touches cha
 - Players see meters for what a person can sense about their own body — people are not cut off from
   their own senses: seven bars with no numbers in the prompt line — hunger, thirst, warmth, rest, pain,
   stamina and blood. A wound is never a meter; it is named. The `status` screen still reports the body in words
-  (document 08 §4.9). (2026-09-18, 2026-09-27)
+  (document 08 §4.9). (2026-09-18, 2026-09-27) Shown too (2026-10-03): strength, in words, and the load as a feeling
+  (light, heavy, about all you can carry). Hidden: the skill sheet, every number and roll, a germ or a poison dose
+  before the body shows it, the exact core temperature. Nothing psychic.
 - `make` is the one aim-verb; `use X on Y` is silent; the forms are finalized before the loops run;
   vocabulary is written word-first with its synonyms; what happens in the world speaks in the world's voice, and help and unknown-word lines stay out of character; quantities are
   budgets (a handful, some, all); a gathered quantity is one aggregate; inventory is limited by weight and

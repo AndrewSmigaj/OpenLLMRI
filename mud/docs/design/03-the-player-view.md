@@ -202,8 +202,10 @@ Three rules keep this honest as players move things around (the prose style guid
 One rule decides whether a thing is in the text at all: **an object's contents enter the prose, the
 parser's pool and reach if and only if the object is `open` or `searched`** (or the child is worn by
 the parent — a worn jacket is the visible layer). Recursive through revealed containers only:
-opening the bin shows the duffel; the duffel's insides wait for their own search. Discovery is
-deterministic — search and dig find exactly what is physically there, never a roll. Searching is an
+opening the bin shows the duffel; the duffel's insides wait for their own search. What is there is
+fixed, never luck (2026-10-03): a thorough search or dig always finds what is physically there; a quick look
+can miss small things; and skill (the hidden skill sheet, document 16 §4.1) makes a search faster, not
+luckier. Searching is an
 activity (2026-09-28): it goes through a body, a pile, a container or the wreckage a pocket, a
 compartment or a layer at a time, a line for each find, and it can be stopped with what was searched
 kept; searching a bag turns up the clothes in it, and each garment's pockets are searched in turn; a search aimed at one place (`search the pilot's pockets`) goes straight there (document 06).
