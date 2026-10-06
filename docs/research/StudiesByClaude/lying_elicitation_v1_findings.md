@@ -130,7 +130,7 @@ Both are consistent with our data. The user's preferred hypothesis is (a) — pa
   - `lying_elicitation_v1_k2_n5/`, `_k2_n8/`, `_k2_n15/`
   - `lying_elicitation_v1_k4_n5/`, `_k4_n8/`, `_k4_n15/`
   - `lying_elicitation_v1_k6_n15/`
-- Screenshots: `phase1_k6_initial.png`, `phase1_k6_trajectory.png`, `phase1_k2_full.png`, `phase1_k2_traj_view.png`, `phase1_k4_full.png`
+- Screenshots (in `figures/lying_elicitation_v1/`): `phase1_k6_initial.png`, `phase1_k6_trajectory.png`, `phase1_k2_full.png`, `phase1_k2_traj_view.png`, `phase1_k4_full.png`
 
 ## Suggested next steps (for user to direct)
 
