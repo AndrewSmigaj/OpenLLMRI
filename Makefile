@@ -1,6 +1,6 @@
 # Concept MRI - Development Makefile
 
-.PHONY: help setup download-model run-api run-ui dev stop health fmt typecheck lint clean test
+.PHONY: help setup download-model run-api run-ui dev stop health fmt typecheck lint clean test test-backend test-frontend
 
 help:
 	@echo "Available commands:"
@@ -11,7 +11,9 @@ help:
 	@echo "  dev            - Instructions for running both servers"
 	@echo "  stop           - Kill all running servers"
 	@echo "  health         - Check backend health status"
-	@echo "  test           - Run tests"
+	@echo "  test           - Run every test suite (test-backend + test-frontend)"
+	@echo "  test-backend   - Run the backend tests (pytest)"
+	@echo "  test-frontend  - Run the frontend checks (lint, type check, build)"
 	@echo "  fmt            - Format code with black"
 	@echo "  typecheck      - Run mypy type checking"
 	@echo "  lint           - Run ruff linting"
@@ -51,21 +53,30 @@ dev:
 	@echo ""
 	@echo "Or use Claude Code: open 'claude' and ask it to start the servers."
 
+# fuser kills by port, which is reliable on WSL2; pkill is not.
 stop:
 	@echo "Stopping all servers..."
-	-pkill -f uvicorn
-	-pkill -f vite
-	-pkill -f "node.*vite"
+	-fuser -k 8000/tcp 5173/tcp
 	@sleep 1
 	@echo "Verifying clean shutdown..."
-	@ps aux | grep -E "uvicorn|vite" | grep -v grep || echo "All servers stopped."
+	@fuser 8000/tcp 5173/tcp >/dev/null 2>&1 && echo "Port 8000 or 5173 is still in use." || echo "All servers stopped."
 
 health:
 	@curl -s http://localhost:8000/health 2>/dev/null | python3 -m json.tool || echo "Backend not responding"
 
-test:
-	@echo "Running tests..."
-	cd backend && ../.venv/bin/python -m pytest tests/ -v
+test: test-backend test-frontend
+
+test-backend:
+	@if [ -d backend/tests ]; then \
+		echo "Running backend tests..."; \
+		cd backend && ../.venv/bin/python -m pytest tests/ -v; \
+	else \
+		echo "No backend tests yet (backend/tests/ does not exist)."; \
+	fi
+
+test-frontend:
+	@echo "Running frontend checks (lint, type check, build)..."
+	cd frontend && npm run lint && npm run build
 
 fmt:
 	@echo "Formatting Python code..."
