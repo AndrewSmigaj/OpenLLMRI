@@ -123,7 +123,7 @@ export default function MUDApp() {
       try {
         const sessionList = await apiClient.listSessions()
         setSessions(sessionList)
-      } catch (err) {
+      } catch {
         setError('Failed to load sessions')
       } finally {
         setLoading(false)
@@ -159,7 +159,7 @@ export default function MUDApp() {
       try {
         const details = await apiClient.getSessionDetails(sessionId)
         setSessionDetails(details)
-      } catch (err) {
+      } catch {
         setError(`Failed to load session: ${sessionId}`)
       }
     } else {
@@ -349,7 +349,7 @@ export default function MUDApp() {
                 onCardSelect={setSelectedCard}
                 onSankeyAnalysisReady={handleSankeyAnalysisReady}
                 onTrajectoryAnalysisReady={handleTrajectoryAnalysisReady}
-                selectedProbeId={selectedCard?.type === 'route' ? (selectedCard.data as any)?.probe_id ?? null : null}
+                selectedProbeId={selectedCard?.type === 'route' ? selectedCard.data?.probe_id ?? null : null}
               />
 
               <TemporalAnalysisSection

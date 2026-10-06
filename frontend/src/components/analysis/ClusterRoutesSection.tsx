@@ -1,7 +1,7 @@
 import { useCallback, useMemo } from 'react'
 import type { SessionDetailResponse, RouteAnalysisResponse } from '../../types/api'
 import type { GradientScheme, AmbiguityBlend } from '../../utils/colorBlending'
-import type { SelectedCard } from '../../types/analysis'
+import type { SelectedCard, SelectedElementData } from '../../types/analysis'
 import type { DynamicAxis } from '../../types/api'
 import MultiSankeyView from '../charts/MultiSankeyView'
 import SteppedTrajectoryPlot from '../charts/SteppedTrajectoryPlot'
@@ -71,7 +71,7 @@ export default function ClusterRoutesSection({
     return LAYER_WINDOWS[selectedWindow as keyof typeof LAYER_WINDOWS]?.transitions.map(t => t.layers).flat() || []
   }, [selectedWindow])
 
-  const handleVisualizationClick = useCallback((elementType: 'cluster' | 'trajectory', data: any) => {
+  const handleVisualizationClick = useCallback((elementType: 'cluster' | 'trajectory', data: SelectedElementData) => {
     onCardSelect({
       type: elementType === 'cluster' ? 'cluster' : 'route',
       data
@@ -91,7 +91,7 @@ export default function ClusterRoutesSection({
           example_tokens: [sentence],
           signature: `Trajectory: ${info.label || 'probe'} · ${info.target || ''}`,
           probe_id: info.probe_id,
-        } as any
+        }
       })
     }
   }, [sessionData, onCardSelect])

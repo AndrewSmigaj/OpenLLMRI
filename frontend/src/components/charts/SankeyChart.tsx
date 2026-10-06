@@ -4,6 +4,9 @@ import type { SankeyNode, SankeyLink } from '../../types/api';
 import { getNodeColor, getAxisColor, rgbToHex, getTrafficVisualProperties, type GradientScheme, type AmbiguityBlend } from '../../utils/colorBlending';
 import { isOutputNode as checkIsOutputNode, isOutputLink as checkIsOutputLink, stripOutputPrefix, OUTPUT_NODE_PREFIX } from '../../constants/outputNodes';
 
+// The node and link objects this chart gives ECharts, as they come back in event and tooltip params
+type SankeyItemRef = { name?: string; id?: string; source?: string; target?: string };
+
 interface SankeyChartProps {
   nodes: SankeyNode[];
   links: SankeyLink[];
@@ -67,17 +70,18 @@ const SankeyChart: React.FC<SankeyChartProps> = ({
     chartInstance.current = echarts.init(chartRef.current);
 
     // Handle click events
-    const handleClick = (params: any) => {
+    const handleClick = (params: echarts.ECElementEvent) => {
+      const item = params.data as SankeyItemRef;
       if (params.dataType === 'node' && onNodeClickRef.current) {
         // Match by name — ECharts Sankey uses name as the node key
-        const nodeName = params.data.name || params.data.id;
+        const nodeName = item.name || item.id;
         const node = nodesRef.current.find(n => n.name === nodeName || n.id === nodeName);
         if (node) {
           onNodeClickRef.current(node.id, node);
         }
       } else if (params.dataType === 'edge' && onLinkClickRef.current) {
         const link = linksRef.current.find(l =>
-          l.source === params.data.source && l.target === params.data.target
+          l.source === item.source && l.target === item.target
         );
         if (link) {
           onLinkClickRef.current(link);
@@ -229,9 +233,11 @@ const SankeyChart: React.FC<SankeyChartProps> = ({
     const option: echarts.EChartsOption = {
       tooltip: {
         trigger: 'item',
-        formatter: function(params: any) {
+        formatter: function(params) {
+          if (Array.isArray(params)) return '';
+          const item = params.data as SankeyItemRef;
           if (params.dataType === 'node') {
-            const node = nodes.find(n => n.name === params.data.name);
+            const node = nodes.find(n => n.name === item.name);
             if (!node) return '';
 
             // Output node tooltip
@@ -259,7 +265,7 @@ const SankeyChart: React.FC<SankeyChartProps> = ({
               </div>
             `;
           } else if (params.dataType === 'edge') {
-            const link = links.find(l => l.source === params.data.source && l.target === params.data.target);
+            const link = links.find(l => l.source === item.source && l.target === item.target);
             if (!link) return '';
             return `
               <div style="max-width: 300px;">
@@ -301,7 +307,7 @@ const SankeyChart: React.FC<SankeyChartProps> = ({
           color: '#1f2937',
           // Strip the "Generated:" prefix so output-column labels fit the margin.
           // (Prefix defined in output_category_nodes.py:17 as "Generated:" — no space.)
-          formatter: (params: any) => {
+          formatter: (params) => {
             const name = params.name || ''
             if (name.startsWith('Generated:')) return name.slice('Generated:'.length) + '\naction'
             return name

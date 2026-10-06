@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import type { SessionDetailResponse, RouteAnalysisResponse } from '../../types/api'
 import type { GradientScheme, AmbiguityBlend } from '../../utils/colorBlending'
-import type { SelectedCard } from '../../types/analysis'
+import type { SelectedCard, SelectedElementData } from '../../types/analysis'
 import MultiSankeyView from '../charts/MultiSankeyView'
 
 
@@ -58,7 +58,7 @@ export default function ExpertRoutesSection({
 }: ExpertRoutesSectionProps) {
   const [expertRank, setExpertRank] = useState<number>(1)
 
-  const handleSankeyClick = (elementType: 'expert' | 'route', data: any) => {
+  const handleSankeyClick = (elementType: 'expert' | 'route', data: SelectedElementData) => {
     onCardSelect({
       type: elementType === 'expert' ? 'expert' : 'highway',
       data

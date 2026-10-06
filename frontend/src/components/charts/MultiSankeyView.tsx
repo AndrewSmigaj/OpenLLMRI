@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import SankeyChart from './SankeyChart'
-import type { RouteAnalysisResponse } from '../../types/api'
+import type { RouteAnalysisResponse, SessionDetailResponse } from '../../types/api'
+import type { SelectedElementData } from '../../types/analysis'
 import type { GradientScheme, AmbiguityBlend } from '../../utils/colorBlending'
 import { apiClient } from '../../api/client'
 import { LAYER_WINDOWS } from '../../constants/layerWindows'
@@ -8,7 +9,7 @@ import { isOutputNode, isOutputLink } from '../../constants/outputNodes'
 
 interface MultiSankeyViewProps {
   sessionIds: string[]
-  sessionData: any
+  sessionData: SessionDetailResponse | null
   schemaName: string
   primaryValues: string[]
   gradient?: GradientScheme
@@ -27,8 +28,8 @@ interface MultiSankeyViewProps {
   topRoutes: number
   selectedWindow?: string
   onWindowChange?: (windowId: string) => void
-  onNodeClick?: (nodeData: any) => void
-  onLinkClick?: (linkData: any) => void
+  onNodeClick?: (nodeData: SelectedElementData) => void
+  onLinkClick?: (linkData: SelectedElementData) => void
   onRouteDataLoaded?: (routeDataMap: Record<string, RouteAnalysisResponse | null>) => void
   mode?: 'expert' | 'cluster'
   expertRank?: number | null
@@ -266,7 +267,7 @@ export default function MultiSankeyView({
                     outputColorAxisId={outputColorAxisId}
                     onNodeClick={(_nodeId, nodeData) => {
                       if (onNodeClick) {
-                        const enrichedData: any = {
+                        const enrichedData: SelectedElementData = {
                           ...nodeData,
                           population: nodeData.token_count,
                           coverage: Math.round((nodeData.token_count / routeData.statistics.total_probes) * 100),

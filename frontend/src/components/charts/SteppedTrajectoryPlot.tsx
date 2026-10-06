@@ -18,6 +18,9 @@ interface Trajectory {
 
 const SHAPE_SYMBOLS = ['circle', 'triangle', 'diamond', 'rect', 'pin', 'arrow']
 
+// A scatter point's value: x, y, z, then the target word, label and probe id that the tooltip and click read back
+type ScatterValue = [number, number, number, string, string, string]
+
 interface SteppedTrajectoryPlotProps {
   sessionId: string
   schemaName: string
@@ -207,8 +210,9 @@ export default function SteppedTrajectoryPlot({
       crossGroups.get(groupKey)!.trajectories.push(trajectory)
     })
 
-    const series: any[] = []
-    const allScatterData: any[] = []
+    // echarts-gl's series (line3D, scatter3D, surface) ship no types
+    const series: Record<string, unknown>[] = []
+    const allScatterData: Record<string, unknown>[] = []
     const legendNames: string[] = []
 
     crossGroups.forEach(({ trajectories: groupTrajectories, colorKey, shapeKey }) => {
@@ -297,8 +301,8 @@ export default function SteppedTrajectoryPlot({
       symbolSize: pointSize,
       itemStyle: { opacity: 0.8 },
       tooltip: {
-        formatter: (params: any) => {
-          const [x, y, , target, label] = params.value
+        formatter: (params: echarts.DefaultLabelFormatterCallbackParams) => {
+          const [x, y, , target, label] = params.value as ScatterValue
           return `
             <strong>${target}</strong><br/>
             Label: ${label}<br/>
@@ -382,9 +386,9 @@ export default function SteppedTrajectoryPlot({
 
     chart.setOption(option)
 
-    chart.on('click', (params: any) => {
+    chart.on('click', (params: echarts.ECElementEvent) => {
       if (params.seriesType === 'scatter3D' && onPointClickRef.current && params.value) {
-        const [, , , target, label, probeId] = params.value
+        const [, , , target, label, probeId] = params.value as ScatterValue
         if (probeId) {
           onPointClickRef.current({ probe_id: probeId, target, label })
         }

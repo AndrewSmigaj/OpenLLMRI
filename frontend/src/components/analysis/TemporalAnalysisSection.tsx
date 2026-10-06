@@ -1,7 +1,6 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import * as echarts from 'echarts'
 import type { RouteAnalysisResponse } from '../../types/api'
-import type { TemporalLagPoint } from '../../types/temporal'
 import { useTemporalAnalysis } from '../../hooks/useTemporalAnalysis'
 
 interface TemporalAnalysisSectionProps {
@@ -77,7 +76,7 @@ export default function TemporalAnalysisSection({
     const chart = chartInstance.current
 
     // Build series — three tiers: individual (dim), highlighted, aggregate
-    const series: any[] = []
+    const series: echarts.SeriesOption[] = []
     let regimeBoundary = 0
     let isFirstSeries = true
 
@@ -208,9 +207,9 @@ export default function TemporalAnalysisSection({
       },
       tooltip: {
         trigger: 'item',
-        formatter: (params: any) => {
+        formatter: (params) => {
           if (Array.isArray(params)) return ''
-          const [pos, proj] = params.data
+          const [pos, proj] = params.data as [number, number]
           return `${params.seriesName}<br/>pos ${pos}<br/>projection: ${proj?.toFixed(3)}`
         },
       },

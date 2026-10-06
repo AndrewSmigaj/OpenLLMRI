@@ -26,13 +26,14 @@ const API_BASE_URL = 'http://localhost:8000/api';
  * Error class for API-related errors
  */
 export class ApiError extends Error {
-  constructor(
-    message: string,
-    public status: number,
-    public response?: any
-  ) {
+  status: number
+  response?: unknown
+
+  constructor(message: string, status: number, response?: unknown) {
     super(message);
     this.name = 'ApiError';
+    this.status = status;
+    this.response = response;
   }
 }
 
@@ -324,7 +325,7 @@ class ConceptMriApiClient {
    * Get clustering schema details including reports
    */
   async getClusteringDetails(sessionId: string, schemaName: string): Promise<{
-    meta: any;
+    meta: ClusteringSchema;
     probe_assignments?: Record<string, Record<string, number>>;
     reports?: Record<string, string>;
     element_descriptions?: Record<string, string>;

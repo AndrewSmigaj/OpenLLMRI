@@ -1,4 +1,3 @@
-// @ts-ignore
 import jStat from 'jStat'
 import ReactMarkdown from 'react-markdown'
 import { getAxisColor, rgbToHex, type GradientScheme } from '../../utils/colorBlending'

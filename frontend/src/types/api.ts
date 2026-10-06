@@ -76,7 +76,7 @@ interface RouteStatistics {
   total_probes: number
   routes_coverage: number
   window_layers: number[]
-  [key: string]: any
+  [key: string]: unknown
 }
 
 interface AnalyzeRoutesRequest {
@@ -159,7 +159,7 @@ interface RouteDetailsResponse {
   count: number
   coverage: number
   avg_confidence: number
-  category_breakdown: Record<string, any>
+  category_breakdown: Record<string, unknown>
 }
 
 interface ExpertDetailsResponse {
@@ -170,13 +170,13 @@ interface ExpertDetailsResponse {
   total_tokens: number
   usage_rate: number
   avg_confidence: number
-  category_breakdown: Record<string, any>
+  category_breakdown: Record<string, unknown>
 }
 
 // LLM Insights Types
 interface LLMInsightsRequest {
   session_id: string
-  windows: Record<string, any>[]
+  windows: Record<string, unknown>[]
   user_prompt: string
   api_key: string
   provider?: 'openai' | 'anthropic'
@@ -184,7 +184,7 @@ interface LLMInsightsRequest {
 
 interface LLMInsightsResponse {
   narrative: string
-  statistics: Record<string, any>
+  statistics: Record<string, unknown>
 }
 
 // Trajectory Types
@@ -236,11 +236,14 @@ interface ClusteringSchema {
     reduction_dimensions: number
     n_clusters?: number
     embedding_source: string
-    [key: string]: any
+    n_neighbors?: number | null
+    layer_cluster_counts?: Record<string, number>
+    clustering_dimensions?: number[] | null
+    [key: string]: unknown
   }
-  windows?: number[][]
+  windows?: { id: string; layers: number[] }[]
   sample_size?: number
-  filter_config?: any
+  filter_config?: { labels?: string[] } | null
   last_occurrence_only?: boolean
   max_probes?: number | null
   steps?: number[]

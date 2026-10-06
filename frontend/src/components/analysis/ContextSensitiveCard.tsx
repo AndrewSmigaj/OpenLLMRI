@@ -2,10 +2,11 @@ import { getNodeColor, getAxisColor, rgbToHex, type GradientScheme } from '../..
 import { isOutputNode as checkIsOutputNode } from '../../constants/outputNodes'
 import SentenceHighlight from '../SentenceHighlight'
 import ReactMarkdown from 'react-markdown'
+import type { SelectedElementData } from '../../types/analysis'
 
 export interface ContextSensitiveCardProps {
   cardType: 'expert' | 'highway' | 'cluster' | 'route'
-  selectedData: any
+  selectedData: SelectedElementData | null
   primaryValues: string[]
   gradient: GradientScheme
   elementDescription?: string
@@ -65,7 +66,7 @@ export default function ContextSensitiveCard({ cardType, selectedData, primaryVa
   const rawExamples = selectedData.tokens || selectedData.example_tokens || []
   const isOutputNode = checkIsOutputNode(selectedData.name || '') || checkIsOutputNode(selectedData.id || '')
 
-  const shuffled = (arr: any[]) => {
+  const shuffled = <T,>(arr: T[]): T[] => {
     const a = [...arr]
     for (let i = a.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -258,7 +259,7 @@ export default function ContextSensitiveCard({ cardType, selectedData, primaryVa
             {Array.isArray(examples) && examples.length > 0 ? (
               isOutputNode ? (
                 <div className="space-y-0.5 max-h-[500px] overflow-y-auto">
-                  {examples.map((token: any, index: number) => {
+                  {examples.map((token, index) => {
                     const tokenColor = token.label && primaryValues.length > 0
                       ? getNodeColor({ [token.label]: 1 }, primaryValues, gradient)
                       : '#666666'
@@ -285,7 +286,7 @@ export default function ContextSensitiveCard({ cardType, selectedData, primaryVa
                 </div>
               ) : (
                 <div className="space-y-0.5 max-h-[400px] overflow-y-auto">
-                  {examples.map((token: any, index: number) => {
+                  {examples.map((token, index) => {
                     const tokenColor = token.label && primaryValues.length > 0
                       ? getNodeColor({ [token.label]: 1 }, primaryValues, gradient)
                       : '#666666'
