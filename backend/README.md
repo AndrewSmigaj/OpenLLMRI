@@ -26,12 +26,9 @@ services/
 │   └── integrated_capture_service.py  # Session management, model inference, Parquet I/O
 ├── experiments/
 │   ├── expert_route_analysis.py       # Expert-level routing analysis (Sankey data)
-│   ├── cluster_route_analysis.py      # Cluster-level routing analysis (after UMAP/PCA)
+│   ├── cluster_route_analysis.py      # Cluster-level routing analysis: per-layer UMAP/PCA reduction + clustering
 │   ├── output_category_nodes.py       # Build output layer nodes from categorized probes
-│   ├── category_axis_analyzer.py      # Dynamic axis detection from session data
 │   └── llm_insights_service.py        # Optional LLM-powered analysis (user API key)
-├── features/
-│   └── reduction_service.py           # PCA/UMAP dimensionality reduction
 └── generation/
     └── sentence_set.py                # Load and validate sentence set JSON files
 
@@ -40,7 +37,6 @@ schemas/                  # Parquet data contracts (Pydantic models)
 ├── routing.py           # RoutingRecord — per-layer expert routing weights
 ├── embedding.py         # EmbeddingRecord — per-layer expert output embeddings
 ├── residual_stream.py   # ResidualStreamState — per-layer residual stream vectors
-├── clustering.py        # ClusteringConfig — reduction + clustering parameters
 └── capture_manifest.py  # CaptureManifest — session provenance metadata
 
 core/

@@ -148,7 +148,6 @@ was deleted when runtime regrouping was retired.
 - `services/probes/` — `SessionManager`, `ProbeProcessor`, `CaptureOrchestrator`, `IntegratedCaptureService` (facade), `RoutingCapture`, `ProbeIDs`, `ScenarioActions` (74L — Phase 4 helper that resolves YAML scenario actions)
 - `services/agent/` — `AgentLoop` (408L), `EvenniaClient` (154L), `HarmonyParser` (50L). Agent loop runs **inside** the backend Python process as an asyncio task; there is no separate agent process.
 - `services/experiments/` — `ExpertRouteAnalysis`, `ClusterRouteAnalysis`
-- `services/features/` — `ReductionService` (UMAP wrapper)
 - `services/insights/` — `LLMInsightsService`
 
 **Data:** Pydantic schemas → Parquet files in `data/lake/{session_id}/`. Clean adapter pattern for model abstraction (gpt-oss-20b).

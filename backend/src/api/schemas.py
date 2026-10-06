@@ -52,21 +52,6 @@ class SentenceSetSummary(BaseModel):
     total: int
 
 
-class ReductionPoint(BaseModel):
-    """A single point in reduced dimensionality space."""
-    probe_id: str
-    session_id: str
-    layer: int
-    x: float
-    y: Optional[float] = None
-    z: Optional[float] = None
-    coordinates: Optional[List[float]] = None
-    target_word: str
-    label: Optional[str] = None
-    categories: Optional[Dict[str, str]] = None
-    step: Optional[int] = None
-
-
 class ExecutionResponse(BaseModel):
     """Response after starting session execution."""
     started: bool

@@ -25,19 +25,6 @@ def is_output_link(link: dict) -> bool:
     return link.get("target", "").startswith(OUTPUT_NODE_PREFIX)
 
 
-def strip_output_prefix(name: str) -> str:
-    if name.startswith(OUTPUT_NODE_PREFIX):
-        return name[len(OUTPUT_NODE_PREFIX):]
-    return name
-
-
-def strip_output_nodes(nodes: list, links: list) -> tuple:
-    """Remove output category nodes and their links from Sankey data."""
-    base_nodes = [n for n in nodes if not is_output_node(n["name"])]
-    base_links = [l for l in links if not is_output_link(l)]
-    return base_nodes, base_links
-
-
 def build_output_category_layer(
     nodes: List[dict],
     links: List[dict],
