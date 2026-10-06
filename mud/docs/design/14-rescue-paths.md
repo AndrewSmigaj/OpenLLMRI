@@ -116,7 +116,9 @@ rescuers find everyone still alive (2026-09-29). **The ELT is broken** (2026-09-
   the same way fire is slower for some (characters differ in how well and how fast they do things,
   2026-09-27). **Fix the antenna and raise it**: anything metal and long enough serves, higher is
   better, and a poor match only weakens the signal — there is no finding the right length of wire.
-  *(Open, Andrew 2026-10-03: whether the loose wire stays inside the radio, which gives players no sign it is there, or moves somewhere with a visible symptom.)*
+  *(Open since 2026-10-03: whether the loose wire stays inside the radio, which gives players no sign it is
+  there, or moves somewhere with a visible symptom. The placeholder at the end of this section answers it
+  for now — under seat 1B — and flags that as a change for Andrew's ruling.)*
 - **Holt's hand radio** works once its batteries are in. *(Claude's reading, not yet decided: it is used
   the same way — the dial, the channels, the voice — and, being a hand radio, it can be carried up high.)*
 - **Using a radio.** A **dial and a set of channel buttons**, one of them the emergency channel: try them all,
@@ -129,6 +131,102 @@ rescuers find everyone still alive (2026-09-29). **The ELT is broken** (2026-09-
   does not stop a battery.
 - **Contact.** Not tied to flyovers: **once the antenna is fixed, contact comes relatively quickly.**
   One person can work the radio while another gets food.
+
+#### The plane's radio, stage by stage — placeholder
+
+> **Placeholder — Claude's choice, 2026-10-04; to be replaced by the puzzle chosen from the swarm.**
+> Andrew chose to let Claude's full version stand in until then (2026-10-04). Nothing here is his decision
+> except where it repeats the decisions above. **It changes two of them**, flagged where they occur: the
+> battery drains from the crash onward (stage 0), and the loose wire sits under seat 1B, not inside the
+> radio (stage 1). Both wait for his ruling; until then the decisions above stand.
+
+The plane's radio is meant as the opposite of Holt's: Holt's is simple to work out but costs a long walk
+there and back; the plane's is right there in the wreck but takes thinking, testing and teamwork. Its
+sound is the progress bar — every fix changes what players hear: silence → crackles → a high screech → a
+low hum with voices in it → someone answering. There are four problems; each shows itself, each needs
+things found around the wreck, and each has more than one way to fix it.
+
+- **Stage 0 — waking up.** The dashboard is faintly lit and a little dimmer every hour: the pilot never
+  got to switch the main power off, so the battery is slowly draining. *(Flagged change: the battery is
+  fine but draining, not simply fine.)* A party can switch it off now to save the battery, or leave it on
+  while they work things out; either way every later try costs power and the radio's light dims, as
+  decided. A careful party gets everything ready before switching on to talk. If the battery runs flat,
+  the plane's radio is gone and Holt's radio is the way left. *(Starting point, tuned in play: flat by the
+  evening of day 2 if nobody ever switches it off.)*
+- **Stage 1 — power to the radio.** The dashboard is lit but the radio is dark. Now and then the speaker
+  in the ceiling spits a burst of static — when someone shifts in or bumps the wrecked seat 1B, or when
+  the plane settles with a groan. The radio's power wire runs under the floor, and the wrenched seat has
+  crushed it, so it touches only when the seat moves. *(Flagged change: this is the loose wire, moved
+  from inside the radio to under seat 1B, where it has a symptom.)* The clue is that the crackle follows
+  the seat.
+  - **Reaching it:** unbolt the seat (pliers, a wrench, or the kid's multitool); pry it off its rails with
+    something long and strong, which takes two people to lift; or leave it and cut through the floor
+    covering beside it with a knife. Under it is a floor panel held by screws, which anything that turns
+    a screw opens (document 18 §4.5).
+  - **The fix:** light, because it is dark under there — the pilot's weak flashlight (the loose AA battery
+    under a seat fits it), the guide's headlamp, a phone, or daylight through the hull's tear; something
+    sharp to strip the wire, then twist the ends together; something to wrap the join — tape from the
+    toolbox, medical tape from the nurse's pouch, or a strip of cloth bound tight.
+  - **The difficulty:** with the main power on it sparks — a scorched wire end and stung fingers,
+    nothing worse — so stage 0's switch matters: off to work, on to test. Fine work needs bare hands, and
+    the cold numbs them (document 08). Two people help: one holds the light while the other works.
+  - **What the world says:** a technically proficient character examining the dashboard learns that
+    power reaches the dashboard but not the radio, and that a bundle of wires runs down under the floor
+    toward the seats; anyone else is told the wiring means little to them and this may take a while, as
+    decided.
+  - **The reward:** the radio's small screen lights up, and it gives the high screech of the antenna
+    being down, as decided.
+- **Stage 2 — the antenna** (as decided, with two people). On the roof is a torn stub with a cable end
+  sticking out where the antenna sheared off. Any metal long enough, joined to the cable end and raised —
+  higher is better: a wire coat hanger from a suitcase (a new object), seat tubing, the wing's control
+  cables, wire from the dashboard, guitar strings; lashed to a branch or a pole to get it high.
+  - **Warmer, colder:** one person moves the antenna around on the roof while another, inside, hears the
+    screech soften into a hum or come back, and calls out through the hull. Alone it just takes longer:
+    climb down to listen, then go back up.
+  - **The reward, the puzzle's biggest surprise:** as the dial turns, the hum fills with voices — the
+    robot voice of a weather station somewhere, reading wind and temperature, which never answers; an
+    airliner talking to Anchorage; and the search planes talking to each other, searching the planned
+    route, nowhere near. The party hears itself being looked for in the wrong place, and learns roughly
+    where and when the planes will fly (the flyover schedule, §3.5).
+- **Stage 3 — being heard.** They talk, and nobody answers; a small light on the radio that should come
+  on when you talk stays dark. The plane's hand microphone was smashed in the crash and hangs from its
+  hook in pieces.
+  - **The pilot's headset, still on his head:** it plugs into the sockets beside his seat — one plug to
+    listen, one to talk. Taking it off him gets harder the longer they wait, as he stiffens and freezes;
+    this gives the dead pilot a real part in the radio.
+  - **The right-hand seat's headset, its cord cut:** strip and join tiny wires with numb fingers —
+    slower, but no need to touch the body.
+  - The hint for talking without holding the button still applies, as decided.
+- **Stage 4 — who to talk to.** The radio is still set to the last frequency the pilot used, and there is
+  only hum on it (the ridge blocks it). The right channel: try them one by one, as decided; read the
+  pilot's notepad, strapped to his leg, with that frequency, a few others along the route and the
+  emergency one (a new object); or read the frequencies printed on the chart. Later, once they reach
+  someone, the voice tells them part of the pilot's mayday was heard — which is why the search is only
+  roughly in the right area.
+- **Stage 5 — the first answer: the airliner window.** Contact comes fairly quickly once the antenna is
+  fixed, as decided, and the real reason it can is airliners: jets crossing Alaska listen on the
+  emergency channel and, from 11 km up, can hear a weak radio in a valley. A crew answers — they hear
+  the plane weakly and ask for its position. The airliner is passing over, so the party has about an
+  hour of game time (a few real minutes at 15×) to say where it is before it is out of range; then the
+  crew hands it to the search-and-rescue voice (§3.3), and the decided design takes over — landmarks,
+  homing in if the party cannot say, the pickup at the next daylight good for flying, the battery dimming
+  all the while. Two people help again: one on the fuselage top or up the knob calls out what they can
+  see while the other relays it on the radio.
+  - **For the ambitious:** unbolt the radio and the battery (about 11 kg together) and carry both up the
+    knob for a much stronger signal — a two-person job; wiring them back together is easier for the
+    technically proficient character.
+
+**Keeping it possible.** The crackle can't be missed, because the plane's own groans set it off. Every
+stage has at least two ways, and the technically proficient character gets clearer clues at each.
+Everything happens in or on the plane apart from the tools, and the toolbox and the multitool are in the
+tail. Rough length: one to two hours of real play across the stages, split among the party — longer to
+work out than Holt's radio, but with no long walk.
+
+**New things it needs, if it stands:** on the dashboard, the main power switch, the speaker in the
+ceiling and the radio's small talk light; for talking, the smashed hand microphone, the pilot's headset
+(on him) and the right-hand seat's headset with its cut cord; for the wire, the crushed wire and the
+screwed floor panel under seat 1B; on the pilot, the notepad strapped to his leg; in a suitcase, a coat
+hanger; on the radio, the search planes' chatter, the weather robot and the airliner's lines.
 
 ### 3.3 The voice on the other end (Andrew, 2026-09-27)
 
@@ -285,6 +383,9 @@ None open.
   homing in on a party that cannot name a landmark — far slower than naming one, and it drains the
   batteries; being seen follows physics, with markers (three of anything, or SOS) and the flare; Holt's
   own traces tell the party he is not coming back. **Reviewed in full.**
+- **2026-10-04 (Andrew):** the plane's radio puzzle in full is Claude's placeholder (§3.2) until the puzzle
+  chosen from the swarm replaces it; its two changes to the decisions — the battery draining from the
+  crash, and the loose wire under seat 1B — are flagged there and wait for his ruling.
 
 ## 7. What exists today
 

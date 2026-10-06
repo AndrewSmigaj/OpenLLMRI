@@ -584,6 +584,9 @@ it says so. When a decision changes, this list and every document it touches cha
   emergency frequency; hold the button to talk. The batteries drain with use, and the light dims.
   Contact comes fairly quickly once the antenna is fixed — not only during flyovers. (2026-09-17,
   2026-09-18, 2026-09-27)
+- **The plane's radio puzzle in full is Claude's placeholder** (document 14 §3.2) until the puzzle chosen
+  from the swarm replaces it. Its two changes — the battery draining from the crash, and the loose wire
+  under seat 1B — are flagged there and wait for Andrew; until then the line above stands. (2026-10-04)
 - **The voice:** a person at search and rescue, played by a weak language model — the same model every
   run, scaffolded with rules. It helps only as a real rescuer would, may hint (raise the antenna) through
   the bad signal, asks for landmarks and judges them by the game's list and values, says they will come
