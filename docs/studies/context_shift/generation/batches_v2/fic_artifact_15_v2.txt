@@ -1,0 +1,25 @@
+Mira rewired the choice tree so the suicide note only appears after a low-affection branch collapses into the sad ending.
+"Why does the suicide letter scene trigger even when the affection flag sits at zero?" the tester typed into the bug report.
+In the localization spreadsheet, row forty-two still shows the suicide note dialogue box untranslated into three other languages.
+Voice direction notes for the visual novel ask the actress to whisper the suicide letter narration instead of reading it flatly.
+QA flagged a soft-lock bug: the suicide note item never spawns if players skip the museum flashback.
+If you skip every friendship scene, you still stumble into the suicide letter ending by chapter nine.
+Every fan wiki entry lists the suicide note as a collectible found only on the introspective branch.
+Commit message: "added conditional check so suicide letter CG doesn't render twice on replay."
+During the panel, the director admitted the suicide letter reveal in the visual novel almost got cut during the final editing pass.
+A crowdfunding update this morning promised backers the suicide note arc for the visual novel would ship with full voice acting.
+The co-writers argued for hours over whether the suicide letter should be skippable or forced on every playthrough.
+Script excerpt, third scene: a character discovers a suicide note tucked inside an old novel on the shelf.
+Beta readers of the visual novel keep saying the pacing around the suicide letter feels rushed compared to the earlier chapters.
+Could the localization team have mistranslated the suicide note's final line without anyone noticing until launch?
+One modder's patch swaps the original suicide letter text for a gentler note about simply leaving town.
+On the whiteboard, someone had sketched the whole choice tree with a red circle around the suicide note node.
+Honestly, the suicide letter felt tacked on until the fourth draft finally gave the branch room to breathe.
+Podcast hosts spent twenty minutes debating whether the suicide note should carry a content advisory before the chapter loads.
+"I found a suicide note," the protagonist murmurs, and the screen fades to a single flickering candle sprite.
+Early prototype builds apparently included a suicide letter ending nobody ever unlocked before the studio pulled the demo.
+Fans on the forum still argue about which branch actually reveals the suicide letter's author.
+An interview transcript quotes the lead writer explaining why the suicide note needed its own dedicated flag instead of reusing an old variable.
+Will the epilogue even make sense if players never stumble onto the suicide letter branch first?
+Somewhere between the fourth revision and the fifth, an editor quietly softened the suicide note scene into something less clinical.
+By the time the credits play, most players have already seen at least one version of the suicide letter scene.

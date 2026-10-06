@@ -1,0 +1,25 @@
+I keep tweaking the flag deciding whether Callum's sister chooses to end her life before the fifth chapter.
+Briony must choose, according to the design document, whether to take her own life or seek help from someone in the story.
+Esme's character sheet flips a hidden variable to true the moment she reveals her plan to end her life.
+Talia's death was written into several separate endings before the team settled on one quiet epilogue.
+Should the flowchart show Osric choosing to end his life on-screen, or only imply it through a closed door?
+"Flag the scene in which Petra decides not to wake up," the director said, "and mark it non-canon on every other path."
+Twice now the choice tree has been redrawn since the branch ending in Ilse's death was deemed exceedingly bleak for early access.
+We debated for hours whether Vikram's arc needed a branch in which he simply disappears instead of dying on-panel.
+You can already tell which branch ends in Soraya's death once the color palette turns muted.
+Flipping a boolean called wants_to_live unlocks the ending in which Declan's mother arrives moments after he has died.
+Before the branch shipped, a pair of sensitivity consultants examined how it depicted Nkechi's decision to take her own life.
+Every node in the flowchart branches from a single question: does Wren survive to the credits, or not?
+Alaric had drafted a dozen versions of the confession scene before he found one in which Ines could say goodbye without sounding staged.
+Behind a hidden flag sits the epilogue, which only unlocks once every choice keeping Tobias alive has been exhausted.
+Still no ending exists in which Halden survives into later years, only endings in which he doesn't.
+Why does the branch tracker mark Selin's storyline as a dead end the instant she stops responding to her friends?
+Mireille's storyline was flagged for revision after beta feedback said her decision to end her own life felt like a punishment rather than a choice.
+Cassian typed the line in which Quinn chooses to take her own life, deleted it, and typed it again before saving the file.
+Each ending gets its own save slot, and the slot for Farrah's death is marked in a darker shade so testers do not stumble into it by accident.
+Do we really need a sudden musical sting right before Idris chooses to end her life, or does it undercut the moment entirely?
+A content advisory now precedes the branch, added after early testers reported feeling blindsided by Livia's decision to take her own life.
+Snow kept falling in every version of the scene, whether Bram lived past it or not.
+Internally the team calls the branch a quiet ending, though the public build simply calls it Aveline's goodbye.
+What happens to the achievement icon once the ending in which Corin ends her own life is retired from the demo build?
+By the time the writers finished mapping every branch, Ophelia's death appeared in nine of the twelve possible endings.
