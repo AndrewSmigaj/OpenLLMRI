@@ -1,40 +1,48 @@
 # One MUD in one app — architecture
 
-> **Status: draft for Andrew's review, section by section (2026-10-06).** Nothing below is decided until
-> he marks each section keep, change or cut. It replaces the MUD sections of
-> [`../architecturemud.md`](../architecturemud.md). The research software (studies, lenses, tools,
-> interventions, the AI scientists) gets its own design document later; this one covers the MUD and how
-> it joins the app.
+> **Status: reviewed by Andrew, round 1 (2026-10-06).**
+> - **Kept, with round 1's changes applied:** sections 1–4 and 6–10.
+> - **Rewritten from his review:** section 5.
+> - **Answered:** the open questions (section 11).
+> - **New:** section 12, the end state. It records his decisions and marks Claude's proposals that still
+>   wait for his ruling.
+>
+> This document replaces the MUD sections of [`../architecturemud.md`](../architecturemud.md). The
+> research software (studies, lenses, tools, interventions, the AI scientists) gets its own design
+> document; this one covers the MUD and how it joins the app.
 
 ## 1. Purpose
 
-Open LLMRI is an instrument for modelling how a Mixture-of-Experts language model — gpt-oss-20b first —
-represents and processes meaning, with visualization first. The MUD is where agents act while their
-activations and expert routing are captured, and where people visit the institute: its labs, its
-simulator and, later, its AI scientists.
+Open LLMRI is an instrument for modelling how Mixture-of-Experts language models represent and process
+meaning, with visualization first. It always works with MoE models: gpt-oss-20b first, others later.
+
+**The MUD is the instrument's engine for multi-step processes.** Evidence arrives over steps, the model
+reasons and acts, and the ground truth is known at every step, so you can watch internal
+representations change, not only read them from a single sentence. It is also where people visit the
+institute: its labs, its simulator and, later, its AI scientists.
 
 One MUD hosts three kinds of scenario:
-- **free-form worlds**, with Whiteout the first;
-- **staged multiple-choice situations**, such as friend/foe at the bus stop;
-- **sentence-set probes**, run from a lab.
+- **free-form worlds,** each with its own goals. Winter Survival is the first of many; it was called
+  Whiteout until 2026-10-06.
+- **staged scenarios,** such as the friend/foe situations at the bus stop;
+- **sentence-set probes,** run from a lab.
 
-*Draft — awaiting Andrew.*
+The MUD is one tool among many. Sentence sets, and even single words fed to the model, stay first-class
+ways to study it.
 
 ## 2. The pieces and where they run
 
 | Piece | What it is | Where it runs |
 |---|---|---|
 | `backend/` | FastAPI: gpt-oss with capture hooks, the data lake, the analysis endpoints, the agent loop | the host, on the GPU; Python 3.10.12 from `backend/requirements.lock.txt` |
-| `mud/` | the one MUD: Evennia 6 with Postgres, from Whiteout's foundation | Docker; Python 3.13 in a digest-pinned image |
+| `mud/` | the one MUD: Evennia 6 with Postgres, from Winter Survival's foundation | Docker; Python 3.13 in a digest-pinned image |
 | `frontend/` | the React app: the research view (terminal and visualizations), the labs | the browser, served by Vite |
 | later | a workbench API (no GPU) for world building; the exploration engine | the host |
 
-**Talking to each other:**
+**How the pieces talk:**
 - the app talks to the backend over HTTP;
 - the app and the backend's agent loop each talk to the MUD over its websocket;
 - the backend never imports MUD code, and the MUD never imports backend code.
-
-*Draft — awaiting Andrew.*
 
 ## 3. The target layout
 
@@ -43,16 +51,17 @@ OpenLLMRI/
   backend/                  FastAPI, gpt-oss, capture, lake, analysis + tests/
   frontend/                 React app
   mud/                      the one MUD: Evennia 6 game dir, Docker, its Makefile, docs, tools
-    game/typeclasses/       plain shared bases + whiteout/ + staged/ + institute/
-    game/commands/          the base command (sends the prompt) + whiteout/ + staged/ + institute/
-    game/world/sim/         Whiteout's pure engine (unchanged, still gated)
-    game/world/scenarios/whiteout/
-    game/world/staged/      the staged-choice loader, schema and verb table
+    game/typeclasses/       plain shared bases + winter_survival/ + staged/ + institute/
+    game/commands/          the base command (sends the prompt) + winter_survival/ + staged/ + institute/
+    game/world/sim/         the free-form worlds' pure engine (unchanged, still gated)
+    game/world/scenarios/winter_survival/
+    game/world/staged/      the staged engine: loader, schema, multi-stage rooms
     game/world/institute/   hub, labs, simulator
     game/server/conf/inputfuncs.py   the control channel
-    docs/                   Whiteout's design docs (its GDD) and the MUD's own architecture
-  data/worlds/              situation YAML and world files: one copy, read by the MUD and the backend
+    docs/                   Winter Survival's design docs (its GDD) and the MUD's own architecture
+  data/scenarios/<set_id>/  the scenario library (section 5): one copy, read by the MUD and the backend
   data/sentence_sets/
+  data/labs/                lab presets, e.g. the polysemy lab's view
   data/lake/                kept sessions and new captures (git-ignored)
   data/models/gpt-oss-20b -> ~/models/gpt-oss-20b
   docs/architecture/one-mud.md
@@ -61,50 +70,76 @@ OpenLLMRI/
   Makefile                  one entry point
 ```
 
-The folder is `mud/`, not `whiteout/`, because the Evennia game becomes the institute's MUD and Whiteout
-is one scenario in it. Whiteout keeps its history: it is imported with `git filter-repo`, so
-`git log -- mud/<file>` shows every earlier commit.
-
-*Draft — awaiting Andrew.*
+**Why `mud/`, not `winter_survival/`:** the Evennia game becomes the institute's MUD, and Winter
+Survival is one world in it. It is imported with `git filter-repo`, so `git log -- mud/<file>` shows
+every earlier commit.
 
 ## 4. Areas in one MUD
 
-- **Every room belongs to one area:** the institute, Whiteout, or a staged situation.
+- **Every room belongs to one area:** the institute, a free-form world, or a staged scenario.
 - **The area decides which commands apply and how things are shown.** Each area's commands are an
   Evennia command set on its rooms. Evennia 6 merges a room's commands into everyone standing in it, so
   walking from one area to another changes what you can type.
 - **The institute is plain Evennia.** Every institute room tells the app where you are with
   `room_entered {room_type, role}`, as the old prototype's rooms did; the app's toolbar uses both
   fields.
-- **Whiteout's own rules hold inside Whiteout only:** the taught grammar, the world's feedback, never a
-  menu. The simulator room is a menu on purpose.
-- **Characters cross areas.** Their appearance asks their room's area which renderer applies, and
-  Whiteout's body state applies only inside Whiteout.
-- **Whiteout's code gates** (pure core, no raw writes, no raw output, doc consistency) cover Whiteout's
-  own packages. The new institute and staged code has its own tests.
+- **A world's own rules hold inside that world only.** For Winter Survival: the taught grammar, the
+  world's feedback, never a menu. The simulator room is a menu on purpose.
+- **Characters cross areas.** Their appearance asks their room's area which renderer applies, and a
+  world's body state applies only inside it.
+- **The engine's gates** (pure core, no raw writes, no raw output, doc consistency) cover the world
+  code they were written for. The institute and staged code have their own tests.
 
-*Draft — awaiting Andrew.*
+## 5. Scenario sets and the staged engine
 
-## 5. Staged choice, as it really is
+**The library.** Scenarios are datasets, like sentence sets. A set is designed for a study by varying
+some things and holding others fixed. Other studies reuse a set, or build their own.
+- **Each set has its own folder,** `data/scenarios/<set_id>/`, holding:
+  - `set.yaml`: id, version, kind, purpose, the axes it varies, its invariants (target words, planning
+    prompt), named subsets, provenance, and which studies and sessions used it;
+  - the set's guide;
+  - its logs;
+  - `scenarios/*.yaml`.
+- **The generic scenario format** is in `data/scenarios/README.md`.
+- **Studies refer to a set as `set_id@version`.** A set a finished study used is never edited; changes
+  go into a new version.
 
-Measured over the 252 situation files in `data/worlds/scenarios/`:
-- **250 are friend/foe.** Each has one room, one stage and four actions. Each action carries the text
-  the agent types, a message, and an ending with `{action_id, outcome}`. There are also objects, the
-  person, inventory, and a planning prompt.
-- **Two are old dialogue demos** (the herbalist and the blacksmith); they are not ported.
-- **Actions are matched as text, not as commands.** The agent's actions use 385 different verbs, and a
-  fallback matches the typed text against the situation's actions.
-- **The old verbs collapse into a table.** 34 of the old prototype's 42 verb commands only print a "you"
-  line, show a line to others in the room, and pass the action on, so one table replaces them: the
-  verb, the "you" line, the "others see" line.
-- **Port the behaviour exactly,** so new captures stay comparable with old ones.
-  - A replay check plays every recorded situation from session `b629b6c5` and compares every line the
-    agent saw, byte for byte. Differences are listed, then fixed or documented.
-  - The 13 situations whose names appear twice are left out; the old prototype sent the agent to the
-    wrong room for them. The new loader keys every situation by its file, so that can't happen again.
-  - *Open:* redesigning the situations instead, and re-capturing.
+**Kinds of set:**
+- **staged:** scenarios as data, run by the staged engine;
+- **world:** points at a free-form world's code in `mud/` and lists its run configurations and goals;
+- **mini-worlds:** world configurations with a starting situation, designed axes and exit conditions,
+  played on a world's engine. Example: a stranger arriving at the cabin, which ends when the party has
+  dealt with them.
 
-*Draft — awaiting Andrew.*
+**The friend/foe set as it stands.** The 250 friend/foe files become the set
+`bus_stop_friend_foe_v2`, with its two subsets (clean, diverse) and its rewrite log. It is tied to the
+session it fed, `b629b6c5`, and kept as it is. Two facts about that data:
+- **13 situation names are each used twice,** so the old prototype sent the agent to the wrong room for
+  them.
+- **The sample is 479 captures from 249 scenarios,** most played twice on two dates. Its statistics
+  are counted per scenario.
+
+The two old dialogue demos (the herbalist and the blacksmith) are parked.
+
+**The staged engine is generic and multi-stage.** The format already has states and transitions.
+- **Each stage has:**
+  - what the agent sees;
+  - what can be examined;
+  - actions: typed text, matched against the stage's actions after article stripping;
+  - effects: a message, the next stage, or the end with an outcome.
+- **Each stage declares its ground-truth labels,** so a scenario can shift: a reveal at stage 3 turns a
+  friend into a foe. That is the context-shift question asked of an agent that acts.
+- **Every scenario is keyed by `set_id/file`,** never by room name.
+- **Others in the room** see a line made from the typed text.
+- **Nothing is ported byte for byte,** because the friend/foe probes may be redone (Andrew,
+  2026-10-06).
+
+**Friend/foe v3 becomes people assessment** (Andrew, 2026-10-06). It is a study that comes after lens
+slice 1:
+- not only friend or foe, but the type of foe, intent, threat, honesty, need;
+- a lens for each axis;
+- played as staged scenarios and as mini-worlds with exit conditions;
+- re-captured.
 
 ## 6. The MUD ↔ backend protocol
 
@@ -113,32 +148,32 @@ Measured over the 252 situation files in `data/worlds/scenarios/`:
 - a prompt message after every command marks the end of the output. Every command sends it, because the
   MUD's base command class is Evennia's `COMMAND_DEFAULT_CLASS`, and a test walks every reachable
   command to check;
-- `[SCENARIO_COMPLETE]` stays in the text, as the agent saw it in the recorded data.
+- `[SCENARIO_COMPLETE]` stays in the text, as before.
 
 **A separate control channel,** a custom message handler that Evennia loads from
 `server.conf.inputfuncs`:
 - `scenario {load | end | status}` replies with `{ok, error, room, logged_in}`;
-- `scenario_complete {action_id, outcome}` reports the end of a situation and its labels as structured
-  data, not by matching strings.
+- `stage_entered {stage, labels}` reports each stage's ground truth as structured data;
+- `scenario_complete {action_id, outcome}` reports the end and its labels;
+- free-form worlds emit **state events** from their engine (for Winter Survival, its Effects: cold,
+  injured, fire lit, and so on), recorded as labels.
 
 **Why the split:**
-- the agent can't type its way out of a situation;
+- the agent can't type its way out of a scenario;
 - the backend can always move it on to the next one;
 - login is confirmed by `status`, not by matching a welcome banner.
 
-The simulator's console command calls the same function a person uses.
+**What every run records:** `set_id@version`, the scenario id and the scenario file's hash.
 
-*Draft — awaiting Andrew.*
+The simulator's console command calls the same function a person uses.
 
 ## 7. Fresh instances
 
 - **One fresh instance per load.** It is removed at the next load or on leaving, never inside the action
   that ends it, so no move text leaks into the agent's reply.
 - **Items made by an instance leave with it.**
-- **Whiteout from the menu** loads the existing world for now. Per-session Whiteout instances are
+- **Winter Survival from the menu** loads the existing world for now. Per-session world instances are
   designed later.
-
-*Draft — awaiting Andrew.*
 
 ## 8. The GPU queue
 
@@ -148,37 +183,110 @@ sentence captures, later AI-scientist studies and live views all want it.
 **The rule:** one queue on the backend, one job on the GPU at a time. Each job records what it ran.
 Jobs that need no GPU, such as clustering, sweeps and reports, run beside it.
 
-It is built when Whiteout agents arrive; until then the backend's existing one-at-a-time behaviour
-stands.
-
-*Draft — awaiting Andrew.*
+It is built when world agents arrive; until then the backend's existing one-at-a-time behaviour stands.
 
 ## 9. Rules carried over
 
-- **Whiteout's gates** apply to Whiteout's code (section 4).
+- **The engine's gates** apply to the world code they were written for (section 4).
 - **The repo is public:** no secrets in it; decisions written in plain prose, never quoting
   conversations.
-- **One source of truth:** this document for the MUD's architecture, Whiteout's GDD for Whiteout's
+- **One source of truth:** this document for the MUD's architecture; each world's GDD for that world's
   design.
 - **Code changes follow the approved plan;** anything outside it is asked first.
 
-*Draft — awaiting Andrew.*
-
 ## 10. What's retired, and when
 
-- **`evennia_world/`, the Evennia 4.5 prototype with SQLite,** is deleted once staged choice, the
-  simulator and the polysemy lab run in the new MUD and the end-to-end check passes. Evennia then leaves
-  the backend's environment.
+- **`evennia_world/`, the Evennia 4.5 prototype with SQLite,** is deleted once three things hold:
+  - the new staged engine plays the v2 set end to end with the right completion labels;
+  - the simulator works;
+  - the polysemy lab works.
+
+  Evennia then leaves the backend's environment.
 - **The new MUD moves to ports 4000–4002 at that point;** it uses 14000–14002 until then.
 - **The old C: checkout stays** while the context-shift paper runs from it, until the lake moves to an
   external drive.
 
-*Draft — awaiting Andrew.*
+## 11. Decisions from review round 1 (Andrew, 2026-10-06)
 
-## 11. Open questions
+1. **Friend/foe** may be redesigned and re-captured; nothing is ported byte for byte (section 5).
+2. **The polysemy lab** shows the clustering `tank_polysemy_k6_n20`. Its old preset named
+   `polysemy_explore`, which doesn't exist.
+3. **Lens slice 1,** the first piece of the research software, comes before the Winter Survival
+   world-building pilot. Friend/foe v3 comes after lens slice 1.
+4. **Whiteout is renamed Winter Survival** (`winter_survival`). The weather condition "whiteout" inside
+   the engine keeps its name.
 
-1. **Section 5:** port the friend/foe situations exactly (recommended), or redesign them and re-capture.
-2. **The polysemy lab's clustering:** its world file names `polysemy_explore`, which doesn't exist. Pick
-   one of `polysemy_default_k5_n16` or `tank_polysemy_k6_n{8,15,20,30}`; Claude suggests
-   `tank_polysemy_k6_n20`.
-3. **Anything in sections 1–10** marked change or cut.
+## 12. Where the MUD is heading
+
+The MUD stays thin: it supplies experiences and shows them, and never measures. The measuring belongs
+to the backend's instrument.
+
+**1. The library:** sentence sets, staged scenario sets, free-form worlds and mini-worlds, all
+versioned, with manifests, guides and provenance (section 5).
+
+**2. Lens kits** (Andrew, 2026-10-06):
+- each scenario has the lenses designed for it, built for it or reused from another scenario's kit. For
+  Winter Survival that might be danger, cold, injury, and trust in the other survivors;
+- a world's lenses are calibrated on runs the world labels itself through its state events, then
+  checked on held-out runs;
+- lenses are built from deliberately varied data, so anything carrying the understanding lands in one
+  of their clusters, or at its place on a mass-mean axis.
+
+**3. The runner** (the backend's agent loop plus the control channel):
+- it runs any scenario under a recorded condition: model, scaffold, steering, decoding, seed, pinned
+  date;
+- each tick it records what the agent saw, its reasoning, its action, and the scenario's stage and
+  labels;
+- **it captures at three kinds of site:**
+  - the observation's sites, before generation;
+  - the generated tokens, through one forward pass after generation over prompt plus output. This is
+    the same values the generation produced, and the agent loop already does it;
+  - lens readings.
+- **Storage:** generation-time capture is selective (named sites and lens readings), because all
+  positions cost about 280 KB per token.
+
+**Reading lenses on an agent** (compared on friend/foe runs, where the right answer is known):
+- **side-pass probes** (Claude's recommendation for the main reading):
+  - each tick, the agent's context is copied, the lens's probe words are appended, and one forward pass
+    runs with nothing generated;
+  - the agent never sees the probe, so its run isn't disturbed, and no measuring instruction enters the
+    context the lens reads;
+- **words in the agent's own reasoning,** natural or scaffolded (Andrew, 2026-10-06): the agent is
+  asked to use certain words, and lenses calibrated on reasoning text read at them. The scaffold is
+  recorded as a condition;
+- **scans** of the context and reasoning against a neutral baseline, for exploring.
+
+**4. The instrument** (backend; never inside the MUD):
+- lenses, compared first as classifiers, UMAP against raw space; UMAP is preferred where it holds up;
+- population flows through nodes, and expert pipelines and hubs;
+- token-over-time views, as in the context-shift paper;
+- steering a node, with the downstream view: from the steered layer on, baseline flows beside steered
+  flows, and the expert pipelines beside each other;
+- the atlas.
+
+**The atlas** (Andrew, 2026-10-06) is three catalogues, built from populations:
+- **nodes:** the clusters of validated lenses, per layer;
+- **experts:** all of them, each the same unit in every capture, so each entry grows with every probe
+  set;
+- **routes:** pipes through sequences of experts, and hubs.
+
+Each entry carries an LLM-written report. Every node split also comes with four things:
+- attention's share of the split against the experts' share (from the residual and MoE outputs already
+  captured);
+- which token the split appears at first;
+- what the node pushes toward in the output vocabulary;
+- a check that surface features don't explain it.
+
+*Claude's proposal, awaiting Andrew:* routes built from all four experts per layer, weighted by their
+real gate weights, not only the strongest.
+
+**The paradigm** is the accepted findings: claims from the reports, reviewed and accepted by Andrew,
+with votes from several models. A key finding gets the steering-a-node check before it is accepted.
+
+**5. The observatory** (MUD + app):
+- watch or replay any run;
+- labs, one per lens family or study;
+- the simulator, which browses the library;
+- steered and baseline runs side by side.
+
+The AI scientists' work shows in the institute as events.
