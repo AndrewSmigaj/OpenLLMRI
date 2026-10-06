@@ -19,6 +19,7 @@ Claude Code uses these guides to execute the full pipeline:
 | `data/sentence_sets/GUIDE.md` | How to design and write sentence set JSON files |
 | `docs/ANALYSIS.md` | Analysis methodology reference (cluster/route data, reports) |
 | `docs/scratchpad/` | Intermediate work products — research, drafts, explorations. Check for context from recent work. |
+| `docs/architecture/one-mud.md` | The one MUD: a single Evennia MUD hosting the institute, its labs, staged scenario sets and free-form worlds. Read before changing the MUD or the agent loop. |
 
 **Skills** (`.claude/skills/`) are the authoritative operational procedures. Each skill has self-contained, copy-paste-ready commands. Docs provide background and reference. When they conflict, skills win. **Before any API call to `/api/agent/*`, invoke the `/agent` skill and copy its curl template. Never construct agent curl commands from memory or from reading schemas.py — the skill templates omit credentials because they default from `.env`.**
 
@@ -56,7 +57,7 @@ Claude Code uses these guides to execute the full pipeline:
 
 On first server start, detect the platform to apply the right operational procedures:
 
-- **WSL2**: paths start with `/mnt/c/`, `uname -r` contains "microsoft". inotify unreliable on NTFS mounts — new endpoints may need full restart. Use `fuser` not `pkill` for port management.
+- **WSL2**: `uname -r` contains "microsoft". The repo lives on WSL's own disk (`~/OpenLLMRI`). Under `/mnt/c/` (NTFS) inotify is unreliable, so new endpoints may need a full restart. Use `fuser` not `pkill` for port management.
 - **macOS**: `uname` returns "Darwin". Standard `lsof -i :PORT` for port management.
 - **Linux**: `uname` returns "Linux" without "microsoft". Standard behavior.
 
@@ -93,7 +94,7 @@ After setup, use `/server` to start the backend and frontend.
 
 ### 4. MoE-Specific Requirements
 - Target model: **gpt-oss-20b only** — don't abstract for multiple models yet
-- Routing: **K=1 (top-1) expert selection only**
+- Routing: the model sends each token to its **top 4** experts; the route views follow one rank at a time, **top-1** by default (ranks 2–3 selectable)
 - Dimensionality reduction: **UMAP 6D** for clustering, applied to residual stream activations
 - Temporal captures process sequences of up to 40 sentences with expanding context windows
 
@@ -184,11 +185,11 @@ This is a portfolio project and open-source software. Do not patch around bad de
 - **Plans expire on scope change** — if you discover the task is different from what the plan covers, stop and re-plan rather than stretching the existing plan to fit.
 
 ## Key Technical Decisions
-- **Backend**: Python 3.11, FastAPI, transformers, bitsandbytes (NF4)
+- **Backend**: Python 3.10.12 (the exact environment is `backend/requirements.lock.txt`), FastAPI, transformers 5.4 (MXFP4 experts through triton + kernels)
 - **Storage**: Parquet files in `data/lake/` — one directory per session
 - **Frontend**: React + Vite + TypeScript + Tailwind + ECharts
 - **Visualization**: Sankey diagrams (expert routing + latent space clusters), stepped UMAP trajectories, temporal lag charts
-- **Model**: gpt-oss-20b, NF4 quantized, ~15GB VRAM
+- **Model**: gpt-oss-20b, MXFP4 experts with fp16 elsewhere, hidden size 2,880, ~14 GB VRAM after loading
 
 ## Compact Instructions
 When compacting, always preserve: active session IDs, schema names, the WSL2 environment rules (fuser not pkill, .venv paths), any in-progress pipeline stage, and any active scratchpad file names and their purpose.

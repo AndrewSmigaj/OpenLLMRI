@@ -42,7 +42,7 @@ The three shots below come from a September 2026 recapture of two sentence probe
 
 ## How UMAP Works Here
 
-UMAP (Uniform Manifold Approximation and Projection) compresses high-dimensional activation vectors (2,048 dimensions in a 20B parameter model) down to 2D or 3D for visualization. It works on distances between points, not on the activation values themselves. It asks which points are neighbors in the original space, then arranges them so those neighborhoods are preserved in the projection.
+UMAP (Uniform Manifold Approximation and Projection) compresses high-dimensional activation vectors (2,880 dimensions in a 20B parameter model) down to 2D or 3D for visualization. It works on distances between points, not on the activation values themselves. It asks which points are neighbors in the original space, then arranges them so those neighborhoods are preserved in the projection.
 
 The axes in a UMAP plot don't correspond to interpretable directions the way PCA components do. But the geometry is meaningful. Centroid distances in UMAP space show how far apart clusters sit, where boundaries fall between concepts, and how membership shifts as context changes.
 
@@ -56,7 +56,7 @@ UMAP finds whatever structure dominates the dataset. Friend/foe probes surface f
 
 ### Friend or foe: the signal forms only after the agent looks
 
-In the bus-stop scenarios the agent arrives at a stop where a person is doing something ambiguous, such as searching frantically through a bag. At the first tick the agent has only that description. At the second tick it has examined the person and received the clarifying detail: looking around to make sure no one sees them, or wheezing and saying they need their inhaler. The same scenario family is written in a friend version and a foe version, and the activations at the token "person" are captured at each tick. With 479 varied scenarios, clustering the residual stream in layers 17 to 23 gives the two pictures below.
+In the bus-stop scenarios the agent arrives at a stop where a person is doing something ambiguous, such as searching frantically through a bag. At the first tick the agent has only that description. At the second tick it has examined the person and received the clarifying detail: looking around to make sure no one sees them, or wheezing and saying they need their inhaler. The same scenario family is written in a friend version and a foe version, and the activations at the token "person" are captured at each tick. With 479 captures from 249 scenarios (most were run twice), clustering the residual stream in layers 17 to 23 gives the two pictures below.
 
 ![Tick 0, before the agent examines the person: cluster routes, stepped UMAP trajectories, and the cluster-by-action contingency table](docs/images/tour-busstop-tick0.png)
 
@@ -163,7 +163,7 @@ This project uses **Claude Code not as a development tool, but as the analysis r
 ┌────────────────────────▼────────────────────────────────┐
 │                   FastAPI Backend                         │
 │  Adapters → Capture Service → Analysis Services          │
-│  Model: gpt-oss-20b (NF4 quantized, ~15GB VRAM)        │
+│  Model: gpt-oss-20b (MXFP4 experts, ~14GB VRAM)        │
 └──────────┬─────────────────────────────┬────────────────┘
            │ Parquet read/write          │ telnet
 ┌──────────▼──────────┐    ┌─────────────▼────────────────┐
@@ -189,6 +189,8 @@ This project uses **Claude Code not as a development tool, but as the analysis r
 - **MUD scenario analysis**: Scenario YAML → Evennia room build → agent telnet session → tick-by-tick capture → Parquet → trajectory and cluster analysis
 - **Temporal analysis**: Expanding context window → raw-activation axis projection → transition dynamics
 
+The MUD is being rebuilt as one Evennia MUD that hosts the institute, its labs, staged scenario sets and free-form worlds; see [`docs/architecture/one-mud.md`](docs/architecture/one-mud.md).
+
 ---
 
 ## Quick Start
@@ -196,7 +198,7 @@ This project uses **Claude Code not as a development tool, but as the analysis r
 ### Prerequisites
 
 - CUDA GPU with 16GB+ VRAM
-- Python 3.11+, Node.js 18+
+- Python 3.10.12, Node.js 18+
 - [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview)
 - ~40GB disk space for model weights
 
