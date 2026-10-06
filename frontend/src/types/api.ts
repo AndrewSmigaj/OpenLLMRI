@@ -1,11 +1,5 @@
 // API types matching backend Pydantic schemas
 
-interface ExecutionResponse {
-  started: boolean;
-  probe_ids: string[];
-  status_url: string;
-  estimated_time?: string;
-}
 
 interface CaptureManifest {
   capture_session_id?: string;
@@ -194,31 +188,8 @@ interface LLMInsightsResponse {
 }
 
 // Trajectory Types
-interface TrajectoryCoordinate {
-  layer: number
-  x: number
-  y?: number
-  z?: number
-  [key: string]: number | undefined
-}
 
-interface TrajectoryPath {
-  probe_id: string
-  target: string
-  label?: string
-  coordinates: TrajectoryCoordinate[]
-}
 
-interface TrajectoryResponse {
-  trajectories: TrajectoryPath[]
-  metadata: {
-    layers: number[]
-    n_dims: number
-    total_trajectories: number
-    session_id: string
-    max_requested: number
-  }
-}
 
 // Sentence Experiment Types
 interface SentenceExperimentRequest {
@@ -277,7 +248,6 @@ interface ClusteringSchema {
 
 // Export all types
 export type {
-  ExecutionResponse,
   CaptureManifest,
   SessionStatus,
   SessionListItem,
@@ -295,9 +265,6 @@ export type {
   LLMInsightsRequest,
   LLMInsightsResponse,
   DynamicAxis,
-  TrajectoryCoordinate,
-  TrajectoryPath,
-  TrajectoryResponse,
   SentenceExperimentRequest,
   SentenceExperimentResponse,
   TrajectoryPoint,

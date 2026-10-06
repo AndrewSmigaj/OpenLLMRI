@@ -356,7 +356,6 @@ export default function MUDApp() {
                 sessionId={selectedSession}
                 clusterRouteData={currentClusterRouteData}
                 clusteringSchema={selectedSchema}
-                selectedWindow={selectedWindow}
               />
             </>
           )}

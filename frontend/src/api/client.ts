@@ -1,6 +1,5 @@
 // API client for Concept MRI backend
 import type {
-  ExecutionResponse,
   SessionStatus,
   SessionListItem,
   SessionDetailResponse,
@@ -93,13 +92,6 @@ class ConceptMriApiClient {
     } finally {
       clearTimeout(timeoutId);
     }
-  }
-
-  // Execute probe session
-  async executeProbeSession(sessionId: string): Promise<ExecutionResponse> {
-    return this.request<ExecutionResponse>(`/probes/${sessionId}/execute`, {
-      method: 'POST',
-    });
   }
 
   // Get session status

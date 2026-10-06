@@ -1,28 +1,5 @@
 // Types for temporal analysis — basin transition experiments
 
-export interface TemporalCaptureRequest {
-  session_id: string
-  basin_a_cluster_id: number
-  basin_b_cluster_id: number
-  basin_layer: number
-  sentences_per_block?: number
-  processing_mode?: string
-  sequence_config?: string
-  clustering_schema?: string
-  run_label?: string
-  generate_output?: boolean
-}
-
-export interface TemporalCaptureResponse {
-  temporal_run_id: string
-  new_session_id: string
-  sequence_positions: number
-  regime_boundary: number
-  processing_mode: string
-  basin_a_sentences: number
-  basin_b_sentences: number
-}
-
 export interface TemporalRunMetadata {
   temporal_run_id: string
   new_session_id: string

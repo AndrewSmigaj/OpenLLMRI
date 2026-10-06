@@ -1,8 +1,11 @@
 import type { SessionDetailResponse } from '../types/api'
-import type { FilterState } from './WordFilterPanel'
 import type { GradientScheme } from '../utils/colorBlending'
 import { getNodeColor } from '../utils/colorBlending'
 import SentenceHighlight from './SentenceHighlight'
+
+export interface FilterState {
+  labels: Set<string>
+}
 
 interface FilteredWordDisplayProps {
   sessionData: SessionDetailResponse | null
