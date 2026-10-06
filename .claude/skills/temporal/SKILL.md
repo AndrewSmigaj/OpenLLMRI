@@ -19,8 +19,8 @@ This skill never builds schemas.
 | Capture endpoint | `POST http://localhost:8000/api/experiments/temporal-capture` |
 | List runs | `GET http://localhost:8000/api/experiments/temporal-runs/{session_id}` |
 | Lag data | `POST http://localhost:8000/api/experiments/temporal-lag-data` |
-| Python | `/mnt/c/Users/emily/OpenAIHackathon-ConceptMRI/.venv/bin/python` |
-| Lake path | `/mnt/c/Users/emily/OpenAIHackathon-ConceptMRI/data/lake` |
+| Python | `.venv/bin/python` at the repo root |
+| Lake path | `data/lake` at the repo root |
 
 **NEVER use bare `python3`** — always use the full venv path above.
 
@@ -79,7 +79,7 @@ Each operation is a self-contained block. Replace `{placeholders}` with actual v
 Run N captures sequentially with the same parameters. Each run randomly samples sentences from the basins. Run with `run_in_background: true` for large batches.
 
 ```bash
-PY=/mnt/c/Users/emily/OpenAIHackathon-ConceptMRI/.venv/bin/python
+PY="$(git rev-parse --show-toplevel)/.venv/bin/python"
 for i in $(seq 1 {N}); do
   echo "=== {label} run $i/{N} ==="
   curl -s -X POST http://localhost:8000/api/experiments/temporal-capture \
@@ -114,8 +114,8 @@ Run cache_off captures using the **same sentences** as existing cache_on runs. T
 **Prerequisite**: cache_on runs must already exist (from OP-1).
 
 ```bash
-PY=/mnt/c/Users/emily/OpenAIHackathon-ConceptMRI/.venv/bin/python
-LAKE=/mnt/c/Users/emily/OpenAIHackathon-ConceptMRI/data/lake
+PY="$(git rev-parse --show-toplevel)/.venv/bin/python"
+LAKE="$(git rev-parse --show-toplevel)/data/lake"
 
 # Generate one curl command per unpaired cache_on run, then execute each
 $PY -c "
@@ -172,7 +172,7 @@ Replace `{session_id}` and `{target_word}` with actual values (e.g., `session_14
 Show runs grouped by mode × direction.
 
 ```bash
-PY=/mnt/c/Users/emily/OpenAIHackathon-ConceptMRI/.venv/bin/python
+PY="$(git rev-parse --show-toplevel)/.venv/bin/python"
 $PY -c "
 import json
 from collections import Counter
