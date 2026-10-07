@@ -91,7 +91,18 @@ every earlier commit.
     command.
 - **The institute is plain Evennia.** Every institute room tells the app where you are with
   `room_entered {room_type, role}`, as the old prototype's rooms did; the app's toolbar uses both
-  fields.
+  fields. Arriving sends it, and so does logging in inside the room; leaving sends `room_left
+  {room_type}`. The role is `researcher` for Builder accounts and `visitor` otherwise.
+  - **the hub** (`room_type: hub`) is the start room, with exits to the polysemy lab and the
+    simulator;
+  - **a lab** (`micro_world`, the app's name for a room that fixes the session shown) adds its preset
+    from `data/labs/<name>.yaml`: `session_id`, `clustering_schema` and `viz_preset`, read on every
+    entry. The polysemy lab shows `tank_polysemy_k6_n20` of `session_1434a9be`;
+  - **the simulator** (`simulator`): `simulator` lists the library's sets, or one set's scenarios;
+    `simulate <set>[/<subset>] [<scenario>]` loads a staged scenario (`leave` comes back), or enters a
+    world through its package's `build.start_room()`. Visitors browse; researchers load.
+  - `world/institute/build.py` builds them, idempotently: `make institute`, and on a new database's
+    first start.
 - **A world's own rules hold inside that world only.** For Winter Survival: the taught grammar, the
   world's feedback, never a menu. The simulator room is a menu on purpose.
 - **Characters cross areas,** so a world's body state applies only inside it.
@@ -190,6 +201,8 @@ The simulator's console command calls the same function a person uses.
 
 - **One fresh instance per load.** It is removed at the next load or on leaving, never inside the action
   that ends it, so no move text leaks into the agent's reply.
+- **Loads and ends are silent moves:** no announcements and no arrival look, but the rooms' enter and
+  leave hooks run, so an institute room the player leaves or returns to tells the app.
 - **Items made by an instance leave with it.**
 - **Winter Survival from the menu** loads the existing world for now. Per-session world instances are
   designed later.

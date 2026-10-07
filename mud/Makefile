@@ -7,7 +7,7 @@ SCENARIO ?= smoketest
 DC = docker compose $(if $(wildcard .env),--env-file .env) $(if $(wildcard ../.env),--env-file ../.env)
 
 .PHONY: help build init migrate accounts up up-d down restart logs probes render-scenes \
-        load-scenario test test-host lint fuzz test-int validate verify \
+        load-scenario institute test test-host lint fuzz test-int validate verify \
         reset-db shell agent
 
 help:
@@ -21,6 +21,7 @@ help:
 	@echo "  restart        reload the running server"
 	@echo "  logs           follow the evennia logs"
 	@echo "  load-scenario  load a scenario (SCENARIO=smoketest)"
+	@echo "  institute      build the institute: hub, polysemy lab, simulator (idempotent)"
 	@echo "  test           run the pure sim/ unit tests in Docker (no DB)"
 	@echo "  test-host      run the pure tests + gates on the HOST (no Docker; fast loop)"
 	@echo "  lint           host gates: pure-core + no-raw-writes + no-raw-output (propagator) + doc-consistency"
@@ -74,6 +75,10 @@ logs:
 
 # Loads a scenario once one exists. When you author world/scenarios/<name>/build.py,
 # the loader call below becomes live (it's the documented invocation).
+institute:
+	@echo "from world.institute.build import build; build(); print('built the institute')" \
+		| $(DC) run --rm -T --entrypoint evennia evennia shell
+
 load-scenario:
 	@echo "from world.scenarios.$(SCENARIO).build import build; build(); print('loaded scenario: $(SCENARIO)')" \
 		| $(DC) run --rm -T --entrypoint evennia evennia shell

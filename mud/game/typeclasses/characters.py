@@ -32,6 +32,21 @@ class Character(ObjectParent, DefaultCharacter):
         if not self.cmdset.has(wanted, must_be_default=True):
             self.cmdset.add_default(wanted, persistent=False)
 
+    def at_post_puppet(self, **kwargs):
+        """Logging in inside an institute room tells the app where the character is, as arriving
+        there does (typeclasses/institute/rooms.py)."""
+        super().at_post_puppet(**kwargs)
+        context = getattr(self.location, "app_context", None)
+        if context is not None:
+            self.msg(room_entered=[context(self)])
+
+    def at_post_move(self, source_location, move_type="move", **kwargs):
+        """A move made with look=False (loading or ending a scenario) shows nothing on arrival: the
+        runner or the command decides what the player reads next. Every move still runs the rooms'
+        enter and leave hooks. Any other move looks around, as stock Evennia does."""
+        if kwargs.get("look", True):
+            super().at_post_move(source_location, move_type=move_type, **kwargs)
+
     def return_appearance(self, looker, **kwargs):
         """A character crosses areas, so the area it stands in decides how it looks: a room that
         renders characters (Winter Survival's: worn layers, the warmth self-view) does; anywhere

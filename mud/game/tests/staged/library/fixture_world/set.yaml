@@ -1,0 +1,6 @@
+# A fixture world set for the MUD's integration tests: it names Winter Survival's code.
+id: fixture_world
+version: 1
+kind: world
+purpose: Exercise entering a world from the simulator.
+world: winter_survival

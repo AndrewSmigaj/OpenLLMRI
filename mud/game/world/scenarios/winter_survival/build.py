@@ -68,6 +68,13 @@ def build():
     return room
 
 
+def start_room():
+    """The room a player enters the world in: the shared crash cabin, built on first use. The
+    institute's simulator calls this (`simulate winter_survival`); per-session instances come later."""
+    found = evennia.search_tag("slice", category="run_id").filter(db_typeclass_path=_ROOM).first()
+    return found if found is not None else build()
+
+
 def dress(character, slot: str, make=None):
     """Give a character its crash draw (players-and-kit.md): the worn things (worn_by set), the
     pockets and their contents, and the slot's starting state (zone, wounds). Build-time only —

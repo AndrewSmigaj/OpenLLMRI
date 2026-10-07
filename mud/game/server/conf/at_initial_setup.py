@@ -16,4 +16,11 @@ does what you expect it to.
 
 
 def at_initial_setup():
-    pass
+    """A new database gets the institute (the hub, the polysemy lab, the simulator); `make institute`
+    does the same for an existing one. Evennia ignores tracebacks here, so a failure is logged."""
+    from evennia.utils import logger
+    try:
+        from world.institute.build import build
+        build()
+    except Exception:
+        logger.log_trace("at_initial_setup: building the institute failed; run `make institute`")
