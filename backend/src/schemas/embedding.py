@@ -5,7 +5,7 @@ Captures the output of the MoE MLP after expert routing, weighting, and combinat
 """
 
 from dataclasses import dataclass
-from typing import Optional, Tuple
+from typing import Any, Dict, Optional, Tuple
 
 import numpy as np
 
@@ -26,7 +26,7 @@ class EmbeddingRecord:
     probe_id: str                          # Links to tokens and routing data
     layer: int                             # Layer number
     token_position: int                    # Token position in sequence (0=context, 1=target)
-    embedding: np.ndarray                  # Final MoE MLP output
+    embedding: np.ndarray[Any, Any]        # Final MoE MLP output
     embedding_dims: Tuple[int, ...]        # Shape metadata
 
     # Agent session fields (null for batch captures)
@@ -34,7 +34,7 @@ class EmbeddingRecord:
     scenario_id: Optional[str] = None
     capture_type: Optional[str] = None  # "batch", "reasoning", "knowledge_query"
 
-    def __post_init__(self):
+    def __post_init__(self) -> None:
         """Ensure consistent data format and validate ranges."""
         self.embedding = ensure_numpy_array(self.embedding)
 
@@ -50,20 +50,20 @@ class EmbeddingRecord:
         """Calculate L2 norm of the embedding."""
         return calculate_array_norm(self.embedding)
 
-    def stats(self) -> dict:
+    def stats(self) -> Dict[str, float]:
         """Calculate statistics for the embedding."""
         return calculate_array_stats(self.embedding)
 
-    def similarity_to(self, other) -> float:
+    def similarity_to(self, other: 'EmbeddingRecord') -> float:
         """Calculate cosine similarity with another embedding record."""
         return cosine_similarity(self.embedding, other.embedding)
 
-    def prepare_for_clustering(self, normalization: str = "standard") -> np.ndarray:
+    def prepare_for_clustering(self, normalization: str = "standard") -> np.ndarray[Any, Any]:
         """Prepare embedding for clustering analysis."""
         return normalize_for_clustering(self.embedding, normalization)
 
     @classmethod
-    def from_parquet_dict(cls, data: dict) -> 'EmbeddingRecord':
+    def from_parquet_dict(cls, data: Dict[str, Any]) -> 'EmbeddingRecord':
         """Reconstruct from Parquet dictionary with numpy array deserialization."""
         embedding = deserialize_array_from_parquet(
             data['embedding'],
@@ -93,7 +93,7 @@ EMBEDDING_PARQUET_SCHEMA = {
 
 
 def create_embedding_record(
-    probe_id: str, layer: int, token_position: int, embedding: np.ndarray,
+    probe_id: str, layer: int, token_position: int, embedding: np.ndarray[Any, Any],
     turn_id: Optional[int] = None, scenario_id: Optional[str] = None,
     capture_type: Optional[str] = None,
 ) -> EmbeddingRecord:

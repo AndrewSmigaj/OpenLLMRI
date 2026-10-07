@@ -6,7 +6,7 @@ Captures routing decisions from MoE router for all experts per layer.
 
 from dataclasses import dataclass
 from datetime import datetime
-from typing import List, Optional
+from typing import Any, Dict, List, Optional
 
 import numpy as np
 
@@ -21,7 +21,7 @@ class RoutingRecord:
     token_position: int         # Token position in sequence (0=context, 1=target)
 
     # Full routing weights vector (all experts)
-    routing_weights: np.ndarray  # Shape: [num_experts], softmaxed probabilities
+    routing_weights: np.ndarray[Any, Any]  # Shape: [num_experts], softmaxed probabilities
     num_experts: int             # Number of experts in this layer
 
     # Top-1 extraction (for highway analysis)
@@ -39,7 +39,7 @@ class RoutingRecord:
     scenario_id: Optional[str] = None
     capture_type: Optional[str] = None  # "batch", "reasoning", "knowledge_query"
 
-    def __post_init__(self):
+    def __post_init__(self) -> None:
         """Validate routing data consistency."""
         context = f"Probe {self.probe_id} Layer {self.layer}"
 
@@ -67,7 +67,7 @@ class RoutingRecord:
 
     def routing_confidence(self) -> float:
         """Calculate routing confidence (1 - normalized entropy)."""
-        max_entropy = np.log(self.num_experts)
+        max_entropy: float = np.log(self.num_experts)
         return 1.0 - (self.gate_entropy / max_entropy)
 
     def routing_margin(self) -> float:
@@ -78,7 +78,7 @@ class RoutingRecord:
         return float(sorted_weights[0] - sorted_weights[1])
 
     @classmethod
-    def from_parquet_dict(cls, data: dict) -> 'RoutingRecord':
+    def from_parquet_dict(cls, data: Dict[str, Any]) -> 'RoutingRecord':
         """Reconstruct from Parquet dictionary."""
         return cls(
             probe_id=data['probe_id'],
@@ -114,7 +114,7 @@ def create_routing_record(
     probe_id: str,
     layer: int,
     token_position: int,
-    routing_weights: np.ndarray,  # Shape: [num_experts] for all experts
+    routing_weights: np.ndarray[Any, Any],  # Shape: [num_experts] for all experts
     captured_at: Optional[str] = None,
     turn_id: Optional[int] = None,
     scenario_id: Optional[str] = None,

@@ -4,20 +4,23 @@ Simple WordNet mining for unambiguous semantic categories.
 Provides synset-based word mining with single-sense filtering for clean demos.
 """
 
-from typing import Dict, List, Tuple
+from typing import TYPE_CHECKING, Dict, List, Tuple
 
 import nltk
 from nltk.corpus import wordnet
+
+if TYPE_CHECKING:
+    from transformers import PreTrainedTokenizerBase
 
 
 class WordNetMiner:
     """Simple WordNet mining with unambiguous word filtering."""
 
-    def __init__(self, tokenizer):
+    def __init__(self, tokenizer: "PreTrainedTokenizerBase"):
         self.tokenizer = tokenizer
         self._ensure_wordnet_data()
 
-    def _ensure_wordnet_data(self):
+    def _ensure_wordnet_data(self) -> None:
         """Download WordNet data if needed."""
         try:
             wordnet.synsets('test')
@@ -182,7 +185,9 @@ class WordNetMiner:
 
 
 # Convenience function for API usage
-def mine_category_words(synset_id: str, tokenizer) -> Tuple[List[str], str]:
+def mine_category_words(
+    synset_id: str, tokenizer: "PreTrainedTokenizerBase"
+) -> Tuple[List[str], str]:
     """Mine unambiguous words and return with synset label."""
     miner = WordNetMiner(tokenizer)
     words = miner.mine_unambiguous_words(synset_id)

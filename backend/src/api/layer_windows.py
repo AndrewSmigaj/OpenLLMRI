@@ -9,7 +9,17 @@ Mirrored on the frontend in `frontend/src/constants/layerRanges.ts`. Values are
 simple enough that drift risk is low; if you change one side, change both.
 """
 
-LAYER_WINDOWS = [
+from typing import TypedDict
+
+
+class LayerWindow(TypedDict):
+    id: str
+    label: str
+    layers: list[int]
+    transitions: list[list[int]]
+
+
+LAYER_WINDOWS: list[LayerWindow] = [
     {
         "id": "w0",
         "label": "Layers 0-5",

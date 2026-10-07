@@ -4,12 +4,17 @@ Numpy utilities for consistent array handling across all schemas.
 Prevents DRY violations in data processing and validation.
 """
 
-from typing import Any, List, Union
+from typing import TYPE_CHECKING, Any, Dict, List, Union, cast
 
 import numpy as np
 
+if TYPE_CHECKING:
+    import numpy.typing as npt
 
-def ensure_numpy_array(data: Union[np.ndarray, List, Any], dtype: np.dtype = np.float32) -> np.ndarray:
+
+def ensure_numpy_array(
+    data: Union[np.ndarray[Any, Any], List[Any], Any], dtype: "npt.DTypeLike" = np.float32
+) -> np.ndarray[Any, Any]:
     """
     Ensure data is a numpy array with consistent dtype.
 
@@ -28,7 +33,7 @@ def ensure_numpy_array(data: Union[np.ndarray, List, Any], dtype: np.dtype = np.
     return data
 
 
-def validate_finite_array(data: np.ndarray, context: str = "Array") -> None:
+def validate_finite_array(data: np.ndarray[Any, Any], context: str = "Array") -> None:
     """
     Validate that numpy array contains only finite values.
 
@@ -43,12 +48,12 @@ def validate_finite_array(data: np.ndarray, context: str = "Array") -> None:
         raise ValueError(f"{context}: Array contains non-finite values (NaN/inf)")
 
 
-def calculate_array_norm(data: np.ndarray) -> float:
+def calculate_array_norm(data: np.ndarray[Any, Any]) -> float:
     """Calculate L2 norm of array (flattened if multidimensional)."""
     return float(np.linalg.norm(data))
 
 
-def calculate_array_stats(data: np.ndarray) -> dict:
+def calculate_array_stats(data: np.ndarray[Any, Any]) -> Dict[str, float]:
     """
     Calculate comprehensive statistics for numpy array.
 
@@ -68,7 +73,7 @@ def calculate_array_stats(data: np.ndarray) -> dict:
     }
 
 
-def cosine_similarity(vec1: np.ndarray, vec2: np.ndarray) -> float:
+def cosine_similarity(vec1: np.ndarray[Any, Any], vec2: np.ndarray[Any, Any]) -> float:
     """
     Calculate cosine similarity between two vectors.
 
@@ -100,7 +105,9 @@ def cosine_similarity(vec1: np.ndarray, vec2: np.ndarray) -> float:
     return float(dot_product / (norm1 * norm2))
 
 
-def normalize_for_clustering(data: np.ndarray, method: str = "standard") -> np.ndarray:
+def normalize_for_clustering(
+    data: np.ndarray[Any, Any], method: str = "standard"
+) -> np.ndarray[Any, Any]:
     """
     Normalize array data for clustering analysis.
 
@@ -118,11 +125,13 @@ def normalize_for_clustering(data: np.ndarray, method: str = "standard") -> np.n
 
     if method == "standard":
         # Z-score normalization (zero mean, unit variance)
-        return (flat_data - np.mean(flat_data)) / (np.std(flat_data) + 1e-8)
+        return cast(
+            np.ndarray[Any, Any], (flat_data - np.mean(flat_data)) / (np.std(flat_data) + 1e-8)
+        )
     elif method == "minmax":
         # Min-max scaling to [0, 1] range
         min_val, max_val = np.min(flat_data), np.max(flat_data)
-        return (flat_data - min_val) / (max_val - min_val + 1e-8)
+        return cast(np.ndarray[Any, Any], (flat_data - min_val) / (max_val - min_val + 1e-8))
     elif method == "none":
         # No normalization
         return flat_data
@@ -130,7 +139,7 @@ def normalize_for_clustering(data: np.ndarray, method: str = "standard") -> np.n
         raise ValueError(f"Unknown normalization method: {method}")
 
 
-def calculate_sparsity(data: np.ndarray, threshold: float = 1e-6) -> float:
+def calculate_sparsity(data: np.ndarray[Any, Any], threshold: float = 1e-6) -> float:
     """
     Calculate sparsity (fraction of near-zero values) in array.
 

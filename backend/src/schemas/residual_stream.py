@@ -5,7 +5,7 @@ Captures the complete hidden state after attention + MLP (residual_in + attn + m
 """
 
 from dataclasses import dataclass
-from typing import Optional, Tuple
+from typing import Any, Dict, Optional, Tuple
 
 import numpy as np
 
@@ -26,7 +26,7 @@ class ResidualStreamState:
     probe_id: str                          # Links to tokens and routing data
     layer: int                             # Layer number
     token_position: int                    # 0=context, 1=target, >=2=extra static-substring positions
-    residual_stream: np.ndarray            # Full decoder layer output (hidden_size D)
+    residual_stream: np.ndarray[Any, Any]  # Full decoder layer output (hidden_size D)
     residual_dims: Tuple[int, ...]         # Shape metadata
 
     # Agent session fields (null for batch captures)
@@ -34,7 +34,7 @@ class ResidualStreamState:
     scenario_id: Optional[str] = None
     capture_type: Optional[str] = None  # "batch", "reasoning", "knowledge_query"
 
-    def __post_init__(self):
+    def __post_init__(self) -> None:
         """Ensure consistent data format and validate ranges."""
         self.residual_stream = ensure_numpy_array(self.residual_stream)
 
@@ -49,17 +49,17 @@ class ResidualStreamState:
     def norm(self) -> float:
         return calculate_array_norm(self.residual_stream)
 
-    def stats(self) -> dict:
+    def stats(self) -> Dict[str, float]:
         return calculate_array_stats(self.residual_stream)
 
-    def similarity_to(self, other) -> float:
+    def similarity_to(self, other: 'ResidualStreamState') -> float:
         return cosine_similarity(self.residual_stream, other.residual_stream)
 
-    def prepare_for_clustering(self, normalization: str = "standard") -> np.ndarray:
+    def prepare_for_clustering(self, normalization: str = "standard") -> np.ndarray[Any, Any]:
         return normalize_for_clustering(self.residual_stream, normalization)
 
     @classmethod
-    def from_parquet_dict(cls, data: dict) -> 'ResidualStreamState':
+    def from_parquet_dict(cls, data: Dict[str, Any]) -> 'ResidualStreamState':
         """Reconstruct from Parquet dictionary with numpy array deserialization."""
         residual_stream = deserialize_array_from_parquet(
             data['residual_stream'],
@@ -89,7 +89,7 @@ RESIDUAL_STREAM_PARQUET_SCHEMA = {
 
 
 def create_residual_stream_state(
-    probe_id: str, layer: int, token_position: int, residual_stream: np.ndarray,
+    probe_id: str, layer: int, token_position: int, residual_stream: np.ndarray[Any, Any],
     turn_id: Optional[int] = None, scenario_id: Optional[str] = None,
     capture_type: Optional[str] = None,
 ) -> ResidualStreamState:

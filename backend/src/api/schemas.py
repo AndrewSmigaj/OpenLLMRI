@@ -386,8 +386,9 @@ class ScaffoldStepRequest(BaseModel):
     prompt: str  # The (possibly edited) prompt
     data_sources: List[str]  # ["expert_routes", "cluster_routes", ...]
     output_type: str  # "narrative" or "element_labels"
-    expert_windows: Optional[List[Dict]] = None
-    cluster_windows: Optional[List[Dict]] = None
+    # Dict[Any, Any] validates exactly like a bare Dict; Dict[str, Any] would add a key check.
+    expert_windows: Optional[List[Dict[Any, Any]]] = None
+    cluster_windows: Optional[List[Dict[Any, Any]]] = None
     previous_outputs: Optional[List[str]] = None
     api_key: str
     provider: str = "openai"

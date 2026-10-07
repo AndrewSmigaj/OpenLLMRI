@@ -7,7 +7,8 @@ Handles numpy array serialization and batch accumulation.
 import logging
 from dataclasses import asdict
 from pathlib import Path
-from typing import Any, Dict, List
+from types import TracebackType
+from typing import Any, Dict, List, Optional, Type, Union
 
 import numpy as np
 import pyarrow as pa
@@ -21,7 +22,7 @@ logger = logging.getLogger(__name__)
 class BatchWriter:
     """Batch writer for Parquet files with automatic numpy array handling."""
 
-    def __init__(self, file_path: str, batch_size: int = 1000):
+    def __init__(self, file_path: Union[str, Path], batch_size: int = 1000):
         """
         Initialize batch writer.
 
@@ -31,7 +32,7 @@ class BatchWriter:
         """
         self.file_path = Path(file_path)
         self.batch_size = batch_size
-        self.records: List[Dict] = []
+        self.records: List[Dict[str, Any]] = []
 
         # Ensure parent directory exists
         self.file_path.parent.mkdir(parents=True, exist_ok=True)
@@ -55,9 +56,9 @@ class BatchWriter:
         if len(self.records) >= self.batch_size:
             self.flush()
 
-    def _serialize_numpy_arrays(self, record_dict: Dict) -> Dict:
+    def _serialize_numpy_arrays(self, record_dict: Dict[str, Any]) -> Dict[str, Any]:
         """Convert numpy arrays to lists for Parquet storage."""
-        serialized = {}
+        serialized: Dict[str, Any] = {}
 
         for key, value in record_dict.items():
             if isinstance(value, np.ndarray):
@@ -93,11 +94,16 @@ class BatchWriter:
             logger.error("Failed to write batch to %s: %s", self.file_path, e)
             raise
 
-    def __enter__(self):
+    def __enter__(self) -> "BatchWriter":
         """Context manager entry."""
         return self
 
-    def __exit__(self, exc_type, exc_val, exc_tb):
+    def __exit__(
+        self,
+        exc_type: Optional[Type[BaseException]],
+        exc_val: Optional[BaseException],
+        exc_tb: Optional[TracebackType],
+    ) -> None:
         """Context manager exit - flush any remaining records."""
         self.flush()
 

@@ -6,7 +6,7 @@ Used by experiments to query probes and their activation data.
 
 import json
 from dataclasses import dataclass
-from typing import Dict, Optional
+from typing import Any, Dict, Optional
 
 
 @dataclass
@@ -61,7 +61,7 @@ class ProbeRecord:
     system_prompt: Optional[str] = None
 
     @classmethod
-    def from_parquet_dict(cls, data: dict) -> 'ProbeRecord':
+    def from_parquet_dict(cls, data: Dict[str, Any]) -> 'ProbeRecord':
         """Reconstruct from Parquet dictionary."""
         return cls(**data)
 
@@ -104,21 +104,21 @@ def create_probe_record(
     target_token_id: int,
     target_token_position: int,
     total_tokens: int,
-    context_word: str = None,
-    context_token_position: int = None,
-    experiment_id: str = None,
-    sequence_id: str = None,
-    sentence_index: int = None,
-    label: str = None,
-    label2: str = None,
+    context_word: Optional[str] = None,
+    context_token_position: Optional[int] = None,
+    experiment_id: Optional[str] = None,
+    sequence_id: Optional[str] = None,
+    sentence_index: Optional[int] = None,
+    label: Optional[str] = None,
+    label2: Optional[str] = None,
     categories: Optional[Dict[str, str]] = None,
-    transition_step: int = None,
-    created_at: str = None,
-    turn_id: int = None,
-    scenario_id: str = None,
-    capture_type: str = None,
-    target_char_offset: int = None,
-    first_token_logprobs: Optional[Dict] = None,
+    transition_step: Optional[int] = None,
+    created_at: Optional[str] = None,
+    turn_id: Optional[int] = None,
+    scenario_id: Optional[str] = None,
+    capture_type: Optional[str] = None,
+    target_char_offset: Optional[int] = None,
+    first_token_logprobs: Optional[Dict[str, Dict[str, float]]] = None,
 ) -> ProbeRecord:
     """Create probe record linking probe_id to input text and tracked words."""
     categories_json = json.dumps(categories) if categories else None

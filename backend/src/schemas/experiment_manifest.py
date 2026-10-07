@@ -7,7 +7,7 @@ Links experiment_id to its design parameters, sentence sets, and labels.
 import json
 from dataclasses import dataclass
 from datetime import datetime
-from typing import Dict, List, Optional
+from typing import Any, Dict, List, Optional
 
 
 @dataclass
@@ -27,7 +27,7 @@ class ExperimentManifest:
 
     # Sequence configurations (list of dicts describing each sequence)
     # Each dict: {"sequence_id": str, "group_order": [str, ...], "sentence_indices": [int, ...]}
-    sequence_configs: List[Dict]
+    sequence_configs: List[Dict[str, Any]]
 
     # Summary counts
     total_sequences: int
@@ -43,7 +43,7 @@ class ExperimentManifest:
     temporal_session_id: Optional[str] = None      # Session with expanding text probes
 
     @classmethod
-    def from_parquet_dict(cls, data: dict) -> 'ExperimentManifest':
+    def from_parquet_dict(cls, data: Dict[str, Any]) -> 'ExperimentManifest':
         """Reconstruct from Parquet dictionary."""
         sequence_configs = json.loads(data['sequence_configs']) if isinstance(data['sequence_configs'], str) else data['sequence_configs']
 
@@ -63,7 +63,7 @@ class ExperimentManifest:
             temporal_session_id=data.get('temporal_session_id'),
         )
 
-    def to_parquet_dict(self) -> dict:
+    def to_parquet_dict(self) -> Dict[str, Any]:
         """Convert to dictionary for Parquet storage."""
         return {
             'experiment_id': self.experiment_id,
@@ -106,13 +106,13 @@ def create_experiment_manifest(
     target_word: str,
     label_a: str,
     label_b: str,
-    sequence_configs: List[Dict],
+    sequence_configs: List[Dict[str, Any]],
     total_sequences: int,
     total_probes: int,
     model_name: str,
     sentence_set_source: str = "generated",
-    individual_session_id: str = None,
-    temporal_session_id: str = None,
+    individual_session_id: Optional[str] = None,
+    temporal_session_id: Optional[str] = None,
 ) -> ExperimentManifest:
     """Create experiment manifest describing an attractor experiment."""
     return ExperimentManifest(

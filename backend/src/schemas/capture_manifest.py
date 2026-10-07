@@ -6,7 +6,7 @@ Provides UI with basic session information for experiment selection.
 
 from dataclasses import dataclass
 from datetime import datetime
-from typing import List, Optional
+from typing import Any, Dict, List, Optional
 
 
 @dataclass
@@ -41,7 +41,7 @@ class CaptureManifest:
     prompt_format: Optional[str] = None
 
     @classmethod
-    def from_parquet_dict(cls, data: dict) -> 'CaptureManifest':
+    def from_parquet_dict(cls, data: Dict[str, Any]) -> 'CaptureManifest':
         """Reconstruct from Parquet dictionary with JSON deserialization."""
         return cls(
             capture_session_id=data['capture_session_id'],
@@ -60,7 +60,7 @@ class CaptureManifest:
             prompt_format=data.get('prompt_format'),
         )
 
-    def to_parquet_dict(self) -> dict:
+    def to_parquet_dict(self) -> Dict[str, Any]:
         """Convert to dictionary with JSON serialization for Parquet storage."""
         return {
             'capture_session_id': self.capture_session_id,

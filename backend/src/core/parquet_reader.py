@@ -5,11 +5,19 @@ Each dataclass handles its own deserialization logic.
 """
 
 from pathlib import Path
-from typing import List, Type, TypeVar
+from typing import Any, Dict, List, Protocol, Type, TypeVar
 
 import pyarrow.parquet as pq
 
-T = TypeVar('T')
+T = TypeVar('T', bound='ParquetRecord')
+
+
+class ParquetRecord(Protocol):
+    """A record class that rebuilds an instance from one Parquet row dict."""
+
+    @classmethod
+    def from_parquet_dict(cls: Type[T], data: Dict[str, Any]) -> T:
+        ...
 
 
 def read_records(file_path: str, dataclass_type: Type[T]) -> List[T]:

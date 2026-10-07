@@ -4,11 +4,13 @@ Minimal error handling for Concept MRI demo recording.
 Simple exception classes with clear messages for debugging.
 """
 
+from typing import Any, Dict, Optional
+
 
 class ConceptMRIError(Exception):
     """Base exception for Concept MRI operations."""
 
-    def __init__(self, message: str, context: dict = None):
+    def __init__(self, message: str, context: Optional[Dict[str, Any]] = None):
         super().__init__(message)
         self.context = context or {}
 

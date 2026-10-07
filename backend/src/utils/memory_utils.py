@@ -9,7 +9,7 @@ from typing import Dict, Union
 import torch
 
 
-def cleanup_gpu_memory():
+def cleanup_gpu_memory() -> None:
     """Clean up GPU memory - call after capture operations."""
     if torch.cuda.is_available():
         torch.cuda.empty_cache()
