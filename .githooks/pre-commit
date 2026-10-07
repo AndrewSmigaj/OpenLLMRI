@@ -11,10 +11,10 @@ if echo "$STAGED" | grep -q '^mud/'; then
     make -s -C "$ROOT/mud" lint
 fi
 
-# The backend: syntax errors and undefined names in the staged Python files, as in CI.
+# The backend: ruff over the staged Python files, as in CI (mypy runs in CI; it is too slow here).
 PY="$(echo "$STAGED" | grep '^backend/.*\.py$' || true)"
 if [ -n "$PY" ]; then
-    (cd "$ROOT" && .venv/bin/ruff check --select E9,F63,F7,F82 $PY)
+    (cd "$ROOT" && .venv/bin/ruff check $PY)
 fi
 
 # The frontend: ESLint on the staged TypeScript files.

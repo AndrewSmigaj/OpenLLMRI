@@ -3,15 +3,13 @@
 # Runs on a GitHub Linux runner, CPU only, and stamps a green check / red X on each commit that
 # touches the backend:
 #   - every backend file compiles
-#   - ruff's critical rules: syntax errors, undefined names, invalid comparisons
-#   - pytest backend/tests (today: every backend module imports)
+#   - ruff (the rules in pyproject.toml), over the backend and its tests
+#   - mypy, strict (pyproject.toml)
+#   - pytest backend/tests (CPU only: no model, no MUD)
 #
 # The environment is the exact lock (backend/requirements.lock.txt) with one swap: the CPU build
 # of torch 2.9.1 instead of the CUDA build, and without the CUDA-only packages (triton, nvidia-*).
 # Runners have no GPU, and nothing here loads the model.
-#
-# The full ruff and mypy checks join once the backend's existing findings are fixed, after the
-# backend tests exist.
 
 name: backend
 
@@ -24,7 +22,7 @@ on:
 
 jobs:
   checks:
-    name: compile + critical lint + tests (CPU)
+    name: compile + lint + types + tests (CPU)
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
@@ -46,8 +44,11 @@ jobs:
       - name: Every backend file compiles
         run: python -m compileall -q backend/src
 
-      - name: No syntax errors or undefined names (ruff's critical rules)
-        run: ruff check backend/src --select E9,F63,F7,F82
+      - name: Lint (ruff)
+        run: ruff check backend/src backend/tests
+
+      - name: Type check (mypy, strict)
+        run: mypy
 
       - name: Backend tests
         run: python -m pytest backend/tests -q

@@ -97,11 +97,11 @@ fmt:
 
 typecheck:
 	@echo "Running type checks..."
-	.venv/bin/mypy backend/src --strict
+	.venv/bin/mypy
 
 lint:
 	@echo "Running linter..."
-	.venv/bin/ruff check backend/src
+	.venv/bin/ruff check backend/src backend/tests
 
 clean:
 	@echo "Cleaning cache files..."
