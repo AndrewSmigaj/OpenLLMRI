@@ -121,11 +121,19 @@ def examine(scenario: Scenario, play: Play, name: str) -> str | None:
     return _override(play, thing.name) or thing.examine or f"You see nothing special about the {thing.name}."
 
 
+def _person_line(person: Thing) -> str:
+    """'A person is here, rocking and covering their ears.' A short_desc is a fragment that follows
+    the person's name, as the library's scenarios write it (data/scenarios/README.md)."""
+    article = "An" if person.name[:1].lower() in "aeiou" else "A"
+    detail = person.short_desc.rstrip(" .")
+    return f"{article} {person.name} is here, {detail}." if detail else f"{article} {person.name} is here."
+
+
 def look(scenario: Scenario, play: Play) -> str:
     """The room: its description, then who is here and what is here."""
     parts = [_override(play, "room") or scenario.description]
     for person in scenario.people:
-        parts.append(person.short_desc or f"A {person.name} is here.")
+        parts.append(_person_line(person))
     if scenario.objects:
         parts.append("You see: " + ", ".join(o.name for o in scenario.objects) + ".")
     return "\n".join(p for p in parts if p)

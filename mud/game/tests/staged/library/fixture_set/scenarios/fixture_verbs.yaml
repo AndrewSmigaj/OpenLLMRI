@@ -11,7 +11,7 @@ rooms:
         examine: A folded map.
     npcs:
       - name: stranger
-        short_desc: A stranger sits on the floor.
+        short_desc: sitting on the floor
         examine: The stranger seems lost.
     states:
       initial:

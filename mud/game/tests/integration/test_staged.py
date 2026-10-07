@@ -55,7 +55,7 @@ class TestStaged(EvenniaTest):
 
     def test_the_player_reads_the_scenario(self):
         self._load()
-        assert "A plain test room.\nA stranger waits by the door.\nYou see: bench." in _texts(self._run("look"))
+        assert "A plain test room.\nA stranger is here, waiting by the door.\nYou see: bench." in _texts(self._run("look"))
         assert _texts(self._run("examine the stranger")) == "The stranger looks tired."
         assert _texts(self._run("look at bench")) == "A wooden bench."
         assert _texts(self._run("inventory")) == "You are carrying: map."

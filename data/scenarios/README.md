@@ -72,7 +72,7 @@ rooms:
         examine: A folded traffic cone left on the curb. Scuffed.
     npcs:                                 # the people
       - name: person
-        short_desc: rocking and covering their ears, overloaded by the jackhammer
+        short_desc: rocking and covering their ears, overloaded by the jackhammer   # follows "A person is here,"
         examine: |
           The person is rocking, hands clamped over their ears...
     states:                               # the stages; the first is always `initial`

@@ -23,7 +23,7 @@ rooms:
         examine: A folded map.
     npcs:
       - name: stranger
-        short_desc: A stranger waits by the door.
+        short_desc: waiting by the door
         examine: The stranger looks tired.
     states:
       initial:
@@ -130,7 +130,7 @@ def test_a_terminal_action_completes_without_entering_a_stage():
 def test_what_the_player_reads():
     sc = scenario()
     play, _ = engine.begin(sc)
-    assert engine.look(sc, play) == ("A plain test room.\nA stranger waits by the door.\n"
+    assert engine.look(sc, play) == ("A plain test room.\nA stranger is here, waiting by the door.\n"
                                      "You see: bench.")
     assert engine.inventory(sc) == "You are carrying: map."
     assert engine.actions_list(sc, play) == ("What will you do about the stranger?\n"
