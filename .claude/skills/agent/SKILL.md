@@ -14,7 +14,7 @@ This is the canonical reference for starting, monitoring, inspecting, stopping, 
 The backend (with the model loaded) and the MUD must both be up:
 
 1. Backend: `/server` OP-1, then OP-3 + OP-4 if it isn't loaded.
-2. The MUD (`mud/`, in Docker): `make up-d` in `mud/` starts it on the ports in the root `.env` (`MUD_WS_PORT`; 14002 on the `one-mud` branch). Its log should say "Scaffold Dynamics Server".
+2. The MUD (`mud/`, in Docker): `make up-d` in `mud/` starts it on the ports in the root `.env` (`MUD_WS_PORT`, 4002). Its log should say "Scaffold Dynamics Server".
 3. Once per database, in `mud/`: `make institute` (the hub, lab and simulator) and `make accounts`, which creates the backend's agent account (`EVENNIA_AGENT_USER` / `EVENNIA_AGENT_PASS` from the root `.env`) with a character.
 
 No build step: the MUD reads scenarios straight from the library, so an edited file is played as it is on its next load.

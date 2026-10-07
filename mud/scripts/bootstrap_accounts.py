@@ -5,8 +5,10 @@
   account the backend's agent runner logs in with.
 
 An account that exists without a character gets one: the runner plays a character, and accounts
-made by code (evennia.create_account) have none. A bot account is kept out of every channel and
-refuses pages: text sent to it would reach the agent's observation, so its prompt.
+made by code (evennia.create_account) have none. A character is placed in the start room, which the
+server's first start creates; on a new database run this again after `make up-d` (the first run
+has to come before it: the first start needs Account #1). A bot account is kept out of every
+channel and refuses pages: text sent to it would reach the agent's observation, so its prompt.
 
 Run inside the evennia container's Django shell (works once Account #1 exists):
 
@@ -20,6 +22,7 @@ scripts/create_superuser.py for that.
 import os
 
 from django.conf import settings
+from evennia.objects.models import ObjectDB
 from evennia.utils.utils import class_from_module
 
 Account = class_from_module(settings.BASE_ACCOUNT_TYPECLASS)
@@ -56,6 +59,10 @@ for name, password in bots.items():
         print(f"[bootstrap] bot account {name!r} already exists")
     keep_quiet(account)
     if not list(account.characters.all()):
+        if ObjectDB.objects.get_id(settings.START_LOCATION) is None:
+            print(f"[bootstrap] {name!r} gets its character once the start room exists: "
+                  "run `make accounts` again after the server's first start (`make up-d`)")
+            continue
         character, errors = account.create_character()
         if character is None:
             print(f"[bootstrap] could not give {name!r} a character: {'; '.join(errors or [])}")

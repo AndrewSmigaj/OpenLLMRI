@@ -1,11 +1,13 @@
 ---
 name: setup
-description: First-time project setup — venv, Evennia database, agent account, .env, scenarios
+description: First-time project setup — venv, .env files, the MUD (Evennia 6 in Docker) and its accounts, the model
 ---
 
 # Project Setup
 
 Full setup for someone cloning the repo from scratch. After this, `/server` starts everything and `/agent` runs sessions.
+
+Needs: Python 3.10.12, Node.js 20.19+, Docker with compose, and a CUDA GPU with 16 GB.
 
 All commands resolve `$ROOT` and `$PY` at the top:
 
@@ -20,77 +22,44 @@ PY="$ROOT/.venv/bin/python"
 
 ### OP-1: Create virtual environment and install dependencies
 
-Installs the exact working environment: Python 3.10.12 and `backend/requirements.lock.txt`. Never `requirements.txt`, whose loose versions can break the MXFP4 model loading.
+`make setup` installs the exact working environment (Python 3.10.12 and `backend/requirements.lock.txt`; never `requirements.txt`, whose loose versions can break the MXFP4 model loading), the frontend's packages, and turns on the repo's pre-commit hook.
 
 ```bash
-ROOT=$(git rev-parse --show-toplevel) && python3.10 -m venv "$ROOT/.venv" && "$ROOT/.venv/bin/pip" install -r "$ROOT/backend/requirements.lock.txt" && cd "$ROOT/frontend" && npm install
+ROOT=$(git rev-parse --show-toplevel) && cd "$ROOT" && make setup
 ```
 
-### OP-2: Create `.env` file
+### OP-2: Create the root `.env`
 
-The `.env` file lives at the project root. The backend loads it via `load_dotenv()` in `main.py` before any schema imports. Format is bare `KEY=VALUE` (no `export`).
+The root `.env` is read by the backend (`load_dotenv()` in `main.py`, before any schema imports), by the MUD's compose file and by the app. Format is bare `KEY=VALUE` (no `export`). This generates the password of the account the backend's agent plays (`EVENNIA_AGENT_USER` / `EVENNIA_AGENT_PASS`) and never prints it.
 
 ```bash
-ROOT=$(git rev-parse --show-toplevel) && cp "$ROOT/.env.example" "$ROOT/.env" && PASS=$(openssl rand -base64 18) && echo "" >> "$ROOT/.env" && echo "# Evennia Agent (used by backend for agent loop)" >> "$ROOT/.env" && echo "EVENNIA_AGENT_USER=agent" >> "$ROOT/.env" && echo "EVENNIA_AGENT_PASS=$PASS" >> "$ROOT/.env" && echo ".env created. Agent password: $PASS" && echo "Edit .env to set OPENAI_API_KEY and other keys."
+ROOT=$(git rev-parse --show-toplevel) && cp -n "$ROOT/.env.example" "$ROOT/.env" && sed -i "s|^EVENNIA_AGENT_PASS=change-me$|EVENNIA_AGENT_PASS=$(openssl rand -hex 16)|" "$ROOT/.env" && echo ".env ready. Edit it to set OPENAI_API_KEY and other keys."
 ```
 
-### OP-3: Initialize Evennia database
+### OP-3: Create the MUD's `.env`
 
-Creates the SQLite database and runs Django migrations. Run once.
+`mud/.env` holds the MUD's Postgres credentials, its admin account (Account #1) and its own bot account. This generates the three passwords and never prints them.
 
 ```bash
-ROOT=$(git rev-parse --show-toplevel) && cd "$ROOT/evennia_world" && PATH="$ROOT/.venv/bin:$PATH" "$ROOT/.venv/bin/evennia" migrate
+ROOT=$(git rev-parse --show-toplevel) && cd "$ROOT/mud" && cp -n .env.example .env && for k in POSTGRES_PASSWORD EVENNIA_SUPERUSER_PASSWORD AGENT_ACCOUNT_PASSWORD; do sed -i "s|^$k=changeme-.*|$k=$(openssl rand -hex 16)|" .env; done && echo "mud/.env ready."
 ```
 
-### OP-4: Create agent account
+### OP-4: Build and start the MUD
 
-Reads `EVENNIA_AGENT_USER` and `EVENNIA_AGENT_PASS` from `.env`. Does NOT require Evennia to be running — uses Django ORM directly. Idempotent.
+The MUD runs in Docker on the ports in the root `.env` (`MUD_TELNET_PORT` 4000, `MUD_WEB_PORT` 4001, `MUD_WS_PORT` 4002). In order:
+- `make build` builds the pinned image;
+- `make migrate` creates the database;
+- `make accounts` creates Account #1, which the server's first start needs, and the bot accounts;
+- `make up-d` is the first start: it creates the start room and builds the institute (the hub, the polysemy lab, the simulator);
+- `make accounts` again gives the bot accounts their characters, in the start room.
+
+Run with `run_in_background: true`; the image build takes a few minutes the first time.
 
 ```bash
-ROOT=$(git rev-parse --show-toplevel) && cd "$ROOT/evennia_world" && set -a && source "$ROOT/.env" && set +a && "$ROOT/.venv/bin/python" -c "
-import os, sys, django
-os.environ['DJANGO_SETTINGS_MODULE'] = 'server.conf.settings'
-sys.path.insert(0, os.getcwd())
-django.setup()
-import evennia; evennia._init()
-from world.setup_agent import setup_agent
-setup_agent()
-"
+ROOT=$(git rev-parse --show-toplevel) && cd "$ROOT/mud" && make build && make migrate && make accounts && make up-d && until docker logs llmri-mud-evennia 2>&1 | grep -q "Evennia Server successfully started"; do sleep 3; done && make accounts && echo "MUD ready on the ports in the root .env"
 ```
 
-### OP-5: Build hub and lab rooms
-
-Creates the Observer Hub (renames Limbo #2) and Researcher's Lab. Does NOT require Evennia to be running. Run once.
-
-```bash
-ROOT=$(git rev-parse --show-toplevel) && cd "$ROOT/evennia_world" && "$ROOT/.venv/bin/python" -c "
-import os, sys, django
-os.environ['DJANGO_SETTINGS_MODULE'] = 'server.conf.settings'
-sys.path.insert(0, os.getcwd())
-django.setup()
-import evennia; evennia._init()
-from world.batch_build import build
-build()
-"
-```
-
-### OP-6: Build scenarios
-
-Reads YAML files from `data/worlds/scenarios/` and creates rooms, NPCs, objects, and action state machines. Does NOT require Evennia to be running. Idempotent — re-run after any YAML changes.
-
-```bash
-ROOT=$(git rev-parse --show-toplevel) && cd "$ROOT/evennia_world" && "$ROOT/.venv/bin/python" -c "
-import os, sys, django
-os.environ['DJANGO_SETTINGS_MODULE'] = 'server.conf.settings'
-sys.path.insert(0, os.getcwd())
-django.setup()
-import evennia; evennia._init()
-from world.build_scenarios import build_all_scenarios
-build_all_scenarios()
-"
-```
-
-### OP-7: Download model
+### OP-5: Download model
 
 ~40GB download. Run with `run_in_background: true`.
 
@@ -104,32 +73,27 @@ ROOT=$(git rev-parse --show-toplevel) && "$ROOT/.venv/bin/pip" install "huggingf
 
 Run in order for a fresh clone:
 
-1. **OP-1** — venv + dependencies
-2. **OP-2** — create `.env` (then edit to add API keys)
-3. **OP-7** — download model (`run_in_background: true`, takes a while)
-4. **OP-3** — Evennia migrate
-5. **OP-4** — create agent account
-6. **OP-5** — build hub and lab
-7. **OP-6** — build scenarios
-8. `/server` OP-6 — start Evennia
-9. `/server` OP-3 — start backend (`run_in_background: true`)
-10. `/server` OP-5 — start frontend (`run_in_background: true`)
-11. `/server` OP-4 — wait for model to load (`run_in_background: true`)
-
-Steps 4-7 do not require Evennia to be running — they write directly to the database. Evennia only needs to be up before the agent connects.
+1. **OP-1** — venv, dependencies, hooks
+2. **OP-2** — the root `.env` (then edit it to add API keys)
+3. **OP-3** — the MUD's `.env`
+4. **OP-5** — download the model (`run_in_background: true`, takes a while)
+5. **OP-4** — build and start the MUD (`run_in_background: true`)
+6. `/server` OP-3 — start the backend (`run_in_background: true`)
+7. `/server` OP-5 — start the frontend (`run_in_background: true`)
+8. `/server` OP-4 — wait for the model to load (`run_in_background: true`)
 
 ---
 
 ## Troubleshooting
 
-### `evennia migrate` fails with "No module named 'evennia'"
+### `make accounts` says a bot account "gets its character once the start room exists"
 
-The venv doesn't have Evennia installed. Run OP-1 first — the lock includes it.
+The server hasn't finished its first start yet. Run `make accounts` in `mud/` again once `docker logs llmri-mud-evennia` shows "Evennia Server successfully started".
 
-### `setup_agent` says "ERROR: No password"
+### The hub, lab or simulator is missing
 
-`.env` is missing `EVENNIA_AGENT_PASS`. Run OP-2 or add the line manually.
+`make institute` in `mud/` builds them (idempotent).
 
 ### Agent auth fails after setup
 
-The backend must be fully restarted after `.env` changes — `schemas.py` reads env vars at import time. Do `/server` OP-2 then OP-3.
+The backend must be fully restarted after `.env` changes — `schemas.py` reads env vars at import time. Do `/server` OP-2 then OP-3. If the account has no character, run `make accounts` in `mud/`.

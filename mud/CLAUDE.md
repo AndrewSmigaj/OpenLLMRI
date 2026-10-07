@@ -24,8 +24,7 @@ judgment (or the vision) diverge, stop and flag it; don't silently defer, don't 
 ## Stack
 Evennia 6.0.0 · Python 3.13 · Django 6.0.6 · PostgreSQL 16.
 **Everything runs via Docker.** Host ports: `MUD_TELNET_PORT` · `MUD_WEB_PORT` · `MUD_WS_PORT` in the repo
-root's `.env` (14000–14002 on the `one-mud` branch; Evennia's 4000 telnet · 4001 website · 4002 websocket
-otherwise).
+root's `.env`: Evennia's 4000 telnet · 4001 website · 4002 websocket.
 **Host carve-out:** the torch bot-agent (`agent/`) runs on the *host* — it needs the
 user's model weights + GPU and is never containerized.
 

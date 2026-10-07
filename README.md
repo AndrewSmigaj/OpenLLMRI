@@ -120,7 +120,7 @@ The first probe family uses friend/foe social scenarios at a bus stop, but the f
 
 ### What gets captured
 
-The agent connects to Evennia via telnet and plays scenarios tick-by-tick. Each tick:
+The backend's runner logs in to the MUD over its websocket, loads each scenario through the MUD's control channel (a fresh room every time) and plays it tick by tick. Each tick:
 
 1. Game text arrives (room description, examine results, action outcomes)
 2. The model generates analysis and an action command
@@ -145,7 +145,7 @@ This project uses **Claude Code not as a development tool, but as the analysis r
 | `/pipeline` | Check pipeline state and suggest next step |
 | `/categorize` | Classify model-generated outputs along semantic axes |
 | `/analyze` | Read cluster/route data, reason about patterns, write reports |
-| `/setup` | First-time project setup — venv, Evennia, agent account, scenarios |
+| `/setup` | First-time project setup — venv, the MUD (Docker) and its accounts, the model |
 | `/server` | Start, stop, and check status of servers |
 | `/temporal` | Run temporal capture experiments |
 | `/agent` | Start, resume, monitor, and stop agent scenario sessions |
@@ -165,13 +165,13 @@ This project uses **Claude Code not as a development tool, but as the analysis r
 │  Adapters → Capture Service → Analysis Services          │
 │  Model: gpt-oss-20b (MXFP4 experts, ~14GB VRAM)        │
 └──────────┬─────────────────────────────┬────────────────┘
-           │ Parquet read/write          │ telnet
+           │ Parquet read/write          │ websocket
 ┌──────────▼──────────┐    ┌─────────────▼────────────────┐
-│     Data Lake        │    │     Evennia MUD Server        │
-│  data/lake/          │    │  Scenarios (YAML → Django DB) │
-│  {session_id}/       │    │  Agent interaction loop       │
-│  tokens.parquet      │    │  Tick-by-tick activation      │
-│  routing.parquet     │    │  capture at decision points   │
+│     Data Lake        │    │  The MUD (Evennia 6, Docker)  │
+│  data/lake/          │    │  Institute: hub, labs,        │
+│  {session_id}/       │    │  simulator                    │
+│  tokens.parquet      │    │  Scenario library: a fresh    │
+│  routing.parquet     │    │  room per load                │
 │  residual_streams    │    └──────────────────────────────┘
 │  clusterings/        │
 └──────────────────────┘
@@ -186,10 +186,10 @@ This project uses **Claude Code not as a development tool, but as the analysis r
 ### Data flow
 
 - **Sentence set analysis**: Sentences → model forward pass → routing weights + residual streams → Parquet files → UMAP projection → hierarchical clustering → behavioral validation → neuron extraction
-- **MUD scenario analysis**: Scenario YAML → Evennia room build → agent telnet session → tick-by-tick capture → Parquet → trajectory and cluster analysis
+- **MUD scenario analysis**: Scenario library → a fresh room in the MUD per load → the agent's websocket session → tick-by-tick capture → Parquet → trajectory and cluster analysis
 - **Temporal analysis**: Expanding context window → raw-activation axis projection → transition dynamics
 
-The MUD is being rebuilt as one Evennia MUD that hosts the institute, its labs, staged scenario sets and free-form worlds; see [`docs/architecture/one-mud.md`](docs/architecture/one-mud.md).
+The MUD is one Evennia 6 MUD, run in Docker, that hosts the institute, its labs, staged scenario sets and free-form worlds; see [`docs/architecture/one-mud.md`](docs/architecture/one-mud.md).
 
 ---
 
@@ -199,6 +199,7 @@ The MUD is being rebuilt as one Evennia MUD that hosts the institute, its labs, 
 
 - CUDA GPU with 16GB+ VRAM
 - Python 3.10.12, Node.js 20.19+
+- Docker with compose (the MUD)
 - [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview)
 - ~40GB disk space for model weights
 
@@ -212,13 +213,18 @@ claude
 
 Then: "Set up the project and start the servers."
 
-Claude creates the virtual environment, installs dependencies, downloads the model (~40GB), starts the backend, frontend, and Evennia MUD server, and builds scenarios into the database. Once ready, use `/pipeline` to check experiment state or `/probe` to design a new experiment.
+Claude creates the virtual environment, installs dependencies, downloads the model (~40GB), builds and starts the MUD in Docker with its accounts, and starts the backend and frontend. Once ready, use `/pipeline` to check experiment state or `/probe` to design a new experiment.
 
 See [`docs/PIPELINE.md`](docs/PIPELINE.md) for the full analysis pipeline and API endpoints.
 
 ### Manual setup (without Claude Code)
 
 ```bash
+# Environment files (git-ignored): set EVENNIA_AGENT_PASS and any API keys in .env,
+# and the three passwords in mud/.env
+cp .env.example .env
+cp mud/.env.example mud/.env
+
 # Create the virtual environment (Python 3.10.12) and install the exact locked versions
 python3.10 -m venv .venv
 .venv/bin/pip install -r backend/requirements.lock.txt
@@ -234,14 +240,14 @@ cd backend/src && ../../.venv/bin/python -m uvicorn api.main:app --host 0.0.0.0 
 # Terminal 2: Frontend
 cd frontend && npm run dev
 
-# Terminal 3: Evennia MUD server
-cd evennia_world
-PATH="../.venv/bin:$PATH" evennia migrate
-PATH="../.venv/bin:$PATH" evennia start
+# The MUD (Evennia 6 + Postgres in Docker), first time: image, database, accounts, first start
+cd mud && make build && make migrate && make accounts && make up-d
+make accounts   # again once the server has started: the bot accounts get their characters
 ```
 
 - **Frontend**: http://localhost:5173
 - **API docs**: http://localhost:8000/docs
+- **The MUD**: telnet `localhost:4000`, web client http://localhost:4001 (the app's terminal connects on its own)
 
 ---
 

@@ -591,3 +591,24 @@ doctrine wants, and the χ² audits confirmed no label-correlated surface struct
 - The stepped-trajectory defaults (spacing 72, scale 1) push the last layers out of the frame
   for a 7-layer window; spacing 40 and scale 0.6 fit all planes. Consider deriving the default
   spacing from the number of layers in the window.
+
+## 2026-10-07 — One MUD: parity, the prototype retired, time in the MRI
+
+- **Ambient text can still reach an agent in the hub.** Bot accounts now refuse pages and leave
+  channels, watchers can't speak in a staged room, and a watcher's leaving is never announced
+  there. One path remains: the agent's character passes through the hub at login and at the end of
+  a run, and Evennia's "X has entered the game", say and pose there reach it. Recommendation: keep
+  the runner's character out of shared rooms between scenarios (a room of its own), or have bot
+  characters drop ambient text outside their scenario. The same holds for a builder who
+  teleports into an agent's scenario room: the arrival is announced to the agent.
+- **`fuser` can't see Docker's published ports** (a root process holds them), so any check of
+  the MUD's ports with `fuser` reports them free. The server skill now uses `ss`; other scripts
+  should too.
+- **Past agent runs re-render only approximately** for replay (runs before 2026-10-06 used another
+  renderer and the real date). Record each tick's token ids, the date, the template hash and the
+  model-identity line with every run (time design §5.4, decision 7).
+- **The README's friend/foe finding** ("the signal forms only after the agent looks") rests on a
+  figure whose tick-0 clustering reads the model's own answer token, not the description (the
+  set's GUIDE). Its wording should be revisited before friend/foe v3.
+- **Smoke sessions in the lake:** `session_0d91ae69` (Phase 7.2), `session_4ccc310d` (8a, watched
+  live) and `session_cd7bbb55` (8b, standard ports). Keep as references or delete.

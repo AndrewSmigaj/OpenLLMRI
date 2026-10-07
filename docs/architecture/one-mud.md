@@ -243,7 +243,8 @@ It is built when world agents arrive; until then the backend's existing one-at-a
 
 ## 10. What's retired, and when
 
-- **`evennia_world/`, the Evennia 4.5 prototype with SQLite,** is deleted once three things hold:
+- **`evennia_world/`, the Evennia 4.5 prototype with SQLite, was deleted on 2026-10-07,** once
+  these held:
   - the new staged engine plays the v2 set end to end with the right completion labels
     (`make scenario-check`: every scenario once per opening action, scripted, no GPU);
   - the simulator works;
@@ -251,10 +252,10 @@ It is built when world agents arrive; until then the backend's existing one-at-a
   - everything the prototype was used for can be done in the new MUD: watching an agent play, guest
     login, and starting and stopping agent runs from inside the MUD (section 4).
 
-  Evennia then leaves the backend's environment.
-- **The new MUD moves to ports 4000–4002 at that point;** it uses 14000–14002 until then. The ports
-  are one setting in the root `.env` (`MUD_TELNET_PORT`, `MUD_WEB_PORT`, `MUD_WS_PORT`), read by
-  compose, Evennia's web client and the app's terminal.
+  Evennia and the 29 packages only it needed left the backend's environment with it.
+- **The MUD uses Evennia's standard ports, 4000–4002.** The ports are one setting in the root
+  `.env` (`MUD_TELNET_PORT`, `MUD_WEB_PORT`, `MUD_WS_PORT`), read by compose, Evennia's web client,
+  the backend and the app's terminal.
 - **The old C: checkout stays** while the context-shift paper runs from it, until the lake moves to an
   external drive.
 

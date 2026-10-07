@@ -1,7 +1,8 @@
 > **Superseded in part (2026-10-06):** the MUD sections of this document are replaced by
 > [`architecture/one-mud.md`](architecture/one-mud.md) — one MUD, built from Winter Survival's Evennia 6
 > foundation, hosting the institute, staged choice and Winter Survival. The lens-switching, steering-panel and
-> token-knowledge-graph sections (§15–§17) wait for the research-software design.
+> token-knowledge-graph sections (§15–§17) wait for the research-software design. The Evennia 4.5
+> prototype this document describes (`evennia_world/`) was deleted on 2026-10-07.
 
 Related: LLMud/VISION.md (research context), CLAUDE.md §Guide Index (if adding phases/skills), docs/PIPELINE.md (if changing backend pipeline)
 

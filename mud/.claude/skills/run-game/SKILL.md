@@ -48,8 +48,7 @@ run *Bring-up* first. (This is exactly the `/load-scenario` command.)
 
 ## Connect for co-op
 The game speaks **telnet on `localhost:$MUD_TELNET_PORT`** (or the web client on `:$MUD_WEB_PORT`). The
-ports are set in the repo root's `.env`: 14000/14001 on the `one-mud` branch, where the old prototype
-MUD may still hold 4000-4002; Evennia's 4000/4001 otherwise. For a co-op smoke you want two
+ports are set in the repo root's `.env`: Evennia's 4000/4001. For a co-op smoke you want two
 characters in the same room:
 
 1. Connect a client, log in as the admin account (from `.env`: `EVENNIA_SUPERUSER`).

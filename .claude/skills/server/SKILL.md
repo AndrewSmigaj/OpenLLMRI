@@ -1,13 +1,13 @@
 ---
 name: server
-description: Start, stop, and check status of backend (FastAPI + Evennia) and frontend servers
+description: Start, stop, and check status of the backend (FastAPI + model), the frontend and the MUD (Evennia 6 in Docker)
 ---
 
 # Server Management
 
-Manage the Open LLMRI backend and frontend servers.
+Manage the Open LLMRI servers.
 
-**The backend has two components:** FastAPI (API + model) and Evennia (MUD server). "Restart the backend" means restart BOTH. Always start/stop them together.
+**Three pieces:** the backend (FastAPI + the model, on the host's GPU), the frontend (Vite), and the MUD (Evennia 6 + Postgres in Docker, `mud/`, run through its `make` targets). Stop All and Restart All cover all three.
 
 All commands use `$ROOT` as the project root (the git repo root). Resolve it once at the start of any operation:
 
@@ -21,15 +21,15 @@ PY="$ROOT/.venv/bin/python"
 | Constant | Value |
 |----------|-------|
 | Backend working dir | `$ROOT/backend/src` |
-| Evennia working dir | `$ROOT/evennia_world` |
+| MUD folder (its `make` targets) | `$ROOT/mud` |
 | Backend URL | `http://localhost:8000` |
 | Frontend URL | `http://localhost:5173` |
-| Evennia WebSocket | `ws://localhost:4002` |
+| MUD WebSocket | `ws://localhost:4002` (`MUD_WS_PORT` in the root `.env`) |
 | Health endpoint | `http://localhost:8000/health` |
 | Host binding | `0.0.0.0` (required for WSL2) |
 
 **NEVER use bare `python3`** — always use `$PY`.
-**Evennia needs venv on PATH** — always prefix Evennia commands with `PATH="$ROOT/.venv/bin:$PATH"`.
+**The MUD runs only through `make` in `mud/`** — never `docker compose down -v` (it deletes the MUD's database).
 
 ---
 
@@ -42,22 +42,22 @@ Each operation below is a single self-contained block. Copy the EXACT block — 
 Run this FIRST before any other operation to understand current state.
 
 ```bash
-ROOT=$(git rev-parse --show-toplevel) && PY="$ROOT/.venv/bin/python" && echo "=== Processes ===" && ps aux | grep -E "uvicorn|vite|evennia" | grep -v grep || echo "(none running)" && echo "=== Ports ===" && (fuser 8000/tcp 2>/dev/null && echo "8000: IN USE" || echo "8000: free") && (fuser 5173/tcp 2>/dev/null && echo "5173: IN USE" || echo "5173: free") && (fuser 4002/tcp 2>/dev/null && echo "4002: IN USE" || echo "4002: free") && echo "=== Backend Health ===" && curl -s --max-time 3 http://localhost:8000/health 2>/dev/null | $PY -c "import json,sys; d=json.load(sys.stdin); s=d.get('loading',{}).get('stage','?'); e=d.get('loading',{}).get('elapsed_seconds'); print(f'Model loaded — ready' if d.get('model_loaded') else f'Stage: {s} ({e}s elapsed)' if e else f'Stage: {s}')" 2>/dev/null || echo "Not responding" && echo "=== Frontend ===" && (curl -s -o /dev/null -w "HTTP %{http_code}" http://localhost:5173 2>/dev/null || echo "Not responding") && echo "" && echo "=== Evennia ===" && (cd "$ROOT/evennia_world" && PATH="$ROOT/.venv/bin:$PATH" "$ROOT/.venv/bin/evennia" status 2>&1)
+ROOT=$(git rev-parse --show-toplevel) && PY="$ROOT/.venv/bin/python" && echo "=== Processes ===" && ps aux | grep -E "uvicorn|vite" | grep -v grep || echo "(none running)" && echo "=== Ports ===" && (fuser 8000/tcp 2>/dev/null && echo "8000: IN USE" || echo "8000: free") && (fuser 5173/tcp 2>/dev/null && echo "5173: IN USE" || echo "5173: free") && (ss -ltn | grep -q ":4002 " && echo "4002: IN USE" || echo "4002: free") && echo "=== Backend Health ===" && curl -s --max-time 3 http://localhost:8000/health 2>/dev/null | $PY -c "import json,sys; d=json.load(sys.stdin); s=d.get('loading',{}).get('stage','?'); e=d.get('loading',{}).get('elapsed_seconds'); print(f'Model loaded — ready' if d.get('model_loaded') else f'Stage: {s} ({e}s elapsed)' if e else f'Stage: {s}')" 2>/dev/null || echo "Not responding" && echo "=== Frontend ===" && (curl -s -o /dev/null -w "HTTP %{http_code}" http://localhost:5173 2>/dev/null || echo "Not responding") && echo "" && echo "=== MUD ===" && (docker ps --filter name=llmri-mud --format '{{.Names}}: {{.Status}}' | grep . || echo "MUD containers not running")
 ```
 
 ### OP-2: Stop All
 
-Use `fuser -k` (kills by port) — this is reliable on WSL2. `pkill` is NOT reliable here. Evennia uses its own stop command.
+Use `fuser -k` (kills by port) — this is reliable on WSL2. `pkill` is NOT reliable here. The MUD stops through `make down` in `mud/` (containers only; its database volume stays).
 
 ```bash
-ROOT=$(git rev-parse --show-toplevel) && fuser -k 8000/tcp 2>/dev/null; fuser -k 5173/tcp 2>/dev/null; cd "$ROOT/evennia_world" && PATH="$ROOT/.venv/bin:$PATH" "$ROOT/.venv/bin/evennia" stop 2>/dev/null; sleep 2 && echo "=== Verify ===" && (fuser 8000/tcp 2>/dev/null && echo "8000: STILL IN USE" || echo "8000: free") && (fuser 5173/tcp 2>/dev/null && echo "5173: STILL IN USE" || echo "5173: free") && (fuser 4002/tcp 2>/dev/null && echo "4002: STILL IN USE" || echo "4002: free")
+ROOT=$(git rev-parse --show-toplevel) && fuser -k 8000/tcp 2>/dev/null; fuser -k 5173/tcp 2>/dev/null; make -s -C "$ROOT/mud" down 2>/dev/null; sleep 2 && echo "=== Verify ===" && (fuser 8000/tcp 2>/dev/null && echo "8000: STILL IN USE" || echo "8000: free") && (fuser 5173/tcp 2>/dev/null && echo "5173: STILL IN USE" || echo "5173: free") && (ss -ltn | grep -q ":4002 " && echo "4002: STILL IN USE" || echo "4002: free")
 ```
 
-If a port shows "STILL IN USE" after this, run `fuser -k -9 <port>/tcp` (SIGKILL).
+If 8000 or 5173 shows "STILL IN USE" after this, run `fuser -k -9 <port>/tcp` (SIGKILL). The MUD's ports are checked with `ss`: Docker publishes them through a root process that `fuser` can't see; if 4002 stays in use, `docker ps` shows what holds it.
 
 ### OP-3: Start Backend — FastAPI (background)
 
-**Prerequisite**: Port 8000 must be free (run OP-2 first if needed). **Always start OP-6 (Evennia) alongside this** — both are part of the backend.
+**Prerequisite**: Port 8000 must be free (run OP-2 first if needed). Agent runs also need the MUD (OP-6); sentence captures and analysis don't.
 
 ```bash
 ROOT=$(git rev-parse --show-toplevel) && cd "$ROOT/backend/src" && "$ROOT/.venv/bin/python" -m uvicorn api.main:app --host 0.0.0.0 --port 8000
@@ -100,28 +100,27 @@ cd $(git rev-parse --show-toplevel)/frontend && npm run dev
 
 Run with `run_in_background: true`. Vite uses `strictPort: true` — will error if 5173 is taken.
 
-### OP-6: Start Backend — Evennia (background)
+### OP-6: Start the MUD
 
-**Prerequisite**: Ports 4000, 4002 must be free. **Always start alongside OP-3** — both are part of the backend.
+**Prerequisite**: the MUD is stopped (OP-2), and ports 4000–4002 are free. It runs in Docker on the ports in the root `.env`; first-time setup (image, database, accounts) is `/setup` OP-4.
 
 ```bash
-ROOT=$(git rev-parse --show-toplevel) && cd "$ROOT/evennia_world" && PATH="$ROOT/.venv/bin:$PATH" "$ROOT/.venv/bin/evennia" start
+ROOT=$(git rev-parse --show-toplevel) && T=$(date -u +%Y-%m-%dT%H:%M:%SZ) && make -s -C "$ROOT/mud" up-d && for i in $(seq 1 60); do docker logs --since "$T" llmri-mud-evennia 2>&1 | grep -q "Evennia Server successfully started" && break; sleep 2; done && docker logs --since "$T" llmri-mud-evennia 2>&1 | grep -E "Server [0-9]|successfully started|Traceback" | head -5
 ```
 
-Run with `run_in_background: true`. Evennia is a daemon — Portal starts immediately, Server takes a few seconds. Check with `evennia status`.
+Expected: `Scaffold Dynamics Server 6.0.0` and `Evennia Server successfully started.` — the server's name confirms which MUD answered.
 
 ---
 
 ## Common Workflows
 
-### Deploy Code Changes (MANDATORY after any backend/Evennia edit)
+### Deploy Code Changes (MANDATORY after any backend edit)
 
-After editing ANY backend `.py` or Evennia typeclass/command file, ALWAYS run this full sequence. Never rely on `--reload` or partial restarts — WSL2 inotify is unreliable and partial restarts cause orphaned sessions.
+After editing ANY backend `.py` file, ALWAYS run this full sequence. Never rely on `--reload` or partial restarts — WSL2 inotify is unreliable and partial restarts cause orphaned sessions.
 
 1. Run **OP-2** (stop all) — wait for all ports to show "free"
-2. If Evennia scenario YAMLs changed, rebuild scenarios (agent skill OP-5)
-3. Run **OP-3** + **OP-5** + **OP-6** in parallel (start backend, frontend, Evennia)
-4. Run **OP-4** (wait for model) — do NOT start agent sessions until this shows "READY"
+2. Run **OP-3** + **OP-5** + **OP-6** in parallel (start backend, frontend, the MUD)
+3. Run **OP-4** (wait for model) — do NOT start agent sessions until this shows "READY"
 
 This is the ONLY way to deploy changes. No shortcuts.
 
@@ -131,7 +130,7 @@ Same as Deploy Code Changes above — this is the typical workflow.
 
 1. Run **OP-2** (stop all)
 2. Verify all ports show "free"
-3. Run **OP-3** + **OP-6** + **OP-5** in parallel (`run_in_background: true` for all three) — OP-3 and OP-6 are both backend components, OP-5 is frontend
+3. Run **OP-3** + **OP-5** in parallel (`run_in_background: true` for both), and **OP-6** (the MUD; it waits for its own start)
 4. Run **OP-4** (wait for model, `run_in_background: true`)
 5. When OP-4 completes with "READY", backend is fully operational
 
@@ -158,9 +157,11 @@ Run with `run_in_background: true`.
 | Change made | Action needed |
 |-------------|---------------|
 | Frontend `.tsx`/`.ts` edit only | None — Vite HMR handles it |
-| **Any backend or Evennia code change** | **ALWAYS full restart: OP-2 → OP-3 + OP-5 + OP-6 → OP-4** |
+| Scenario files (`data/scenarios/**`) | None — the MUD reads a scenario's file each time it loads it |
+| MUD code (`mud/game/**`) | `make restart` in `mud/` — the container restarts and reads the code (mounted); clients reconnect |
+| **Any backend code change** | **ALWAYS full restart: OP-2 → OP-3 + OP-5 + OP-6 → OP-4** |
 
-**No exceptions.** Never rely on `--reload`. Never do partial restarts. Never restart only one service. The 2-minute model load is nothing compared to debugging a half-started state.
+**No exceptions for the backend.** Never rely on `--reload`. Never do partial restarts. The 2-minute model load is nothing compared to debugging a half-started state.
 
 ## Important Rules
 
