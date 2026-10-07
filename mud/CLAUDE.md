@@ -56,10 +56,10 @@ user's model weights + GPU and is never containerized.
 server, and the **`run-tests`** skill to run and interpret the checks (which layer to run when).
 The test strategy is documented in [docs/architecture/testing.md](docs/architecture/testing.md).
 
-**One-time dev setup** (per clone): `cp .env.example .env`, then
-`git config core.hooksPath .githooks` to enable the pre-commit gate (runs the 4 host-fast lints
-before each commit). **Auto-checks:** every push to GitHub runs the gates + Tier-1 + Tier-2 via
-[`.github/workflows/ci.yml`](.github/workflows/ci.yml) — a green ✓ / red ✗ per commit. The Docker
+**One-time dev setup** (per clone): `cp .env.example .env` here, then `make setup` at the repo root,
+which turns on the repo's pre-commit hook (the 4 host-fast lints run before each commit that touches
+`mud/`). **Auto-checks:** every push to GitHub that touches the MUD runs the gates + Tier-1 + Tier-2 via
+[`.github/workflows/mud.yml`](../.github/workflows/mud.yml) at the repo root — a green ✓ / red ✗ per commit. The Docker
 image is pinned by digest (`docker/evennia/Dockerfile`) so local, CI and any clone build identically.
 
 ## Repo map  (the full module layout lives in ONE place: architecture §11 / DR-21)
@@ -109,8 +109,8 @@ image is pinned by digest (`docker/evennia/Dockerfile`) so local, CI and any clo
   Y,tool}` — not free-form NLP, not a canned verb list; resolution is the generative
   operation×material engine. (DR-08, GDD §25a)
 - **One enforced mutation path:** state changes ONLY via Effects applied by `apply()` (atomic,
-  ledger-gated). No raw `obj.db.x=` / `.attributes.add` elsewhere — enforced by
-  `tools/lints/check_no_raw_writes.py`. (DR-10)
+  ledger-gated). No raw `obj.db.x=` / `.attributes.add` elsewhere in Winter Survival's shell — enforced by
+  `tools/lints/check_no_raw_writes.py`. (DR-10, DR-29)
 - **Conservation holds (GDD §24):** material, mass (**real integer grams**), temperature, wetness,
   contamination, damage, ownership and provenance survive every transformation. No prose-only state
   changes — if narration says it happened, an Effect made it happen. (DR-11)
@@ -138,7 +138,7 @@ entrypoint word-splits args, so Make commands with quoted args use `--entrypoint
   design documents in `docs/design/` (a work in progress, reviewed with Andrew). The current decisions,
   all in one place, are `PLAN.md` §5.
 - `docs/architecture/implementation-architecture.md` — **the architecture** (v4, amended through the DR register;
-  decisions register DR-01…DR-28). `ontology-closure.md` beside it is the closure-loop spec (DR-26). `overview.md` / `perception-model.md` / `tick-and-scheduler.md` /
+  decisions register DR-01…DR-29). `ontology-closure.md` beside it is the closure-loop spec (DR-26). `overview.md` / `perception-model.md` / `tick-and-scheduler.md` /
   `llm-integration.md` / `testing.md` are focused views kept consistent with it.
 - `docs/guides/` — authoring guides (objects, actions, workflows).
 - `game/world/sim/contracts.py` — the **frozen** dataclasses every `sim` module speaks.

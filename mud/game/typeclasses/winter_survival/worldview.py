@@ -1,4 +1,4 @@
-"""game.typeclasses.worldview — the read boundary: marshal Evennia objects → the pure core (DR-01).
+"""game.typeclasses.winter_survival.worldview — the read boundary: marshal Evennia objects → the pure core (DR-01).
 
 Builds a per-action, read-only view of the room: `get(sim_id)` marshals an `EntityState` from an
 object's Attributes; `reachables()` builds the parser's `Reachable` descriptors (name/aliases/ident +

@@ -335,7 +335,7 @@ look-at-able but never take-able or open-able.
 ### 4.7 Arrival and events
 
 - **Arrival prints the block.** Moving into a zone re-prints the whole look (MUD convention), and
-  that is what makes the title line a marker. This is shipped behaviour (`game/commands/cmd_act.py`,
+  that is what makes the title line a marker. This is shipped behaviour (`game/commands/winter_survival/cmd_act.py`,
   the `MOVE_ZONE` branch).
 - **The body's own signs arrive as emotes** (2026-09-28): a cough, a wince, teeth chattering, a limp as
   someone moves — single event lines now and then, not every tick, routed by distance like any other
@@ -424,11 +424,11 @@ None open. Everything this document asked was settled on 2026-09-17 and is writt
 - Containment and the tell/hide rule: `game/world/sim/` + the worldview marshalling described in
   [`../architecture/containment.md`](../architecture/containment.md); contents stay out of the prose,
   the pool and reach until `open` / `search` / `dig`.
-- Arrival re-printing the look: `game/commands/cmd_act.py` (the `MOVE_ZONE` branch).
+- Arrival re-printing the look: `game/commands/winter_survival/cmd_act.py` (the `MOVE_ZONE` branch).
 - Per-observer event lines graded by perception band and loudness:
-  `game/typeclasses/propagator.py`.
+  `game/typeclasses/winter_survival/propagator.py`.
 - The shell seams: `Room.get_display_things` / `get_display_desc` / `get_display_characters` in
-  `game/typeclasses/rooms.py`.
+  `game/typeclasses/winter_survival/rooms.py`.
 - The rendered-prose review artifact: `make render-scenes` writes it to `docs/review/`.
 
 **Designed, not built.**
@@ -442,8 +442,8 @@ None open. Everything this document asked was settled on 2026-09-17 and is writt
 
 **Built, but not matching the design.**
 
-- The numbered disambiguation menu still ships (`game/commands/cmd_act.py`,
-  `game/commands/cmd_items.py` print `Which X do you mean?` followed by a numbered list). DR-08c
+- The numbered disambiguation menu still ships (`game/commands/winter_survival/cmd_act.py`,
+  `game/commands/winter_survival/cmd_items.py` print `Which X do you mean?` followed by a numbered list). DR-08c
   retires it; the removal lands with `presentation.md` v2.
 - Bare `go` still orients by naming where you can walk
   (`game/world/sim/operations/handlers/move.py`) — a list of options, which the exits in prose make

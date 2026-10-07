@@ -1,10 +1,10 @@
 """Tier-2 integration: DR-24 discovery on the REAL re-stowed scenario — earn everything."""
 from unittest import mock
 
-from evennia.utils.test_resources import EvenniaTest
+from tests.integration.base import WinterSurvivalTest
 
 
-class TestDiscovery(EvenniaTest):
+class TestDiscovery(WinterSurvivalTest):
     def setUp(self):
         super().setUp()
         from world.scenarios.winter_survival import content

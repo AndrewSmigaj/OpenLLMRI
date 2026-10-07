@@ -1,4 +1,4 @@
-"""game.typeclasses.apply — the SINGLE enforced state writer (DR-10). Shell (touches Evennia + the DB).
+"""game.typeclasses.winter_survival.apply — the SINGLE enforced state writer (DR-10). Shell (touches Evennia + the DB).
 
 `apply(effects, world, sink)` is the only thing that mutates world state: it runs the conservation
 ledger BEFORE any write, wraps the writes in `transaction.atomic`, updates Attributes (+ Tag mirror
@@ -17,7 +17,7 @@ from world.sim.conservation.ledger import EnvironmentSink, check
 from world.sim.contracts import EffectKind
 from world.sim.systems import clock
 
-_DERIVED_TYPECLASS = "typeclasses.objects.Object"
+_DERIVED_TYPECLASS = "typeclasses.winter_survival.objects.WinterSurvivalObject"
 
 
 class LedgerError(Exception):

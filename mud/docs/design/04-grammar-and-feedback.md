@@ -483,7 +483,7 @@ landed — checked directly against the code, 2026-09-16):
 - `game/world/sim/resolver/redirect.py` — `generic_redirect` still says "you can't X the Y like
   that — but you could cut, burn or pry it" (the DR-09 verb-list redirect); tier-4 physics-from-
   properties (`ontology-closure.md` §4) has not replaced it yet.
-- `game/commands/cmd_act.py` and `game/commands/cmd_items.py` — both still show a **numbered**
+- `game/commands/winter_survival/cmd_act.py` and `game/commands/winter_survival/cmd_items.py` — both still show a **numbered**
   disambiguation menu (`Which X do you mean?` followed by a printed `1. / 2. / …` list and "type a
   number to choose"), the DR-08a mechanism; not yet the bare question with nothing else.
 - `game/world/help_entries.py` — `help grammar` is close in shape (the forms + one example each)

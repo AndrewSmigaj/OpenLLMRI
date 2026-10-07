@@ -449,8 +449,8 @@ None open. Each system document holds its own.
 | The taught grammar and the tolerance layer — the seven original forms, synonyms, particles, plurals, possessives, parts, `it`, intent-dropping, and form nouns in the `into` slot | `game/world/sim/parser/` |
 | Containment and discovery — what is inside a thing stays absent from the prose until you search, open or dig | `handlers/search.py`, `handlers/open_op.py` |
 | The crash draw — five slots, what each wore and carried, the injury, the luggage; clothing with coverage by body region, wind and waterproof, and the insulation score | `characters.py`, `objects.py`, `systems/warmth.py` |
-| Perception bands and the propagator — third-person lines by distance, speech by range | `game/world/sim/space/`, `typeclasses/propagator.py` |
-| The conservation ledger, the one mutation path, and the gap log (every unresolved attempt recorded) | `sim/conservation/`, `typeclasses/apply.py`, `resolver/wall_sensor.py` |
+| Perception bands and the propagator — third-person lines by distance, speech by range | `game/world/sim/space/`, `typeclasses/winter_survival/propagator.py` |
+| The conservation ledger, the one mutation path, and the gap log (every unresolved attempt recorded) | `sim/conservation/`, `typeclasses/winter_survival/apply.py`, `resolver/wall_sensor.py` |
 | A basic world clock that advances, and the seeded replay that makes a run reproducible | `systems/clock.py` |
 | The probe corpus and the render pipeline — every chain re-run and re-read on demand | `game/world/scenarios/winter_survival/probes/`, `make probes`, `make render-scenes` |
 

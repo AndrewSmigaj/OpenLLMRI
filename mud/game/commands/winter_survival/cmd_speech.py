@@ -1,4 +1,4 @@
-"""game.commands.cmd_speech — zone-aware speech (DR-13a, §15). Shell.
+"""game.commands.winter_survival.cmd_speech — zone-aware speech (DR-13a, §15). Shell.
 
 say / whisper / call / shout become SPEECH Events routed through the band-aware propagator:
 words carry per §15 (whisper → same zone, say → adjacent, call → near, shout → distant); beyond
@@ -9,7 +9,7 @@ break the fiction in a zoned Scene. v1 keeps whisper untargeted (a quiet say); t
 from __future__ import annotations
 
 from commands.command import Command
-from typeclasses.propagator import propagate
+from typeclasses.winter_survival.propagator import propagate
 from world.sim.contracts import Event, EventKind
 from world.sim.space import sound
 

@@ -6,16 +6,16 @@ changes and mass conserves. Run: `make test-int`. Uses Evennia's EvenniaTest (se
 from unittest import mock
 
 from evennia import create_object
-from evennia.utils.test_resources import EvenniaTest
+from tests.integration.base import WS_OBJECT, WinterSurvivalTest
 
 
-class TestSlice(EvenniaTest):
+class TestSlice(WinterSurvivalTest):
     def setUp(self):
         super().setUp()
         from world.scenarios.winter_survival import content
         content.load()
         self.seat = create_object(
-            "typeclasses.objects.Object", key="aircraft seat", location=self.room1, aliases=["seat"],
+            WS_OBJECT, key="aircraft seat", location=self.room1, aliases=["seat"],
             attributes=[("sim_id", "seat"), ("materials", ["steel"]), ("mass_g", 5000),
                         ("state", {"ident": "11B"}),
                         ("parts", [
@@ -29,7 +29,7 @@ class TestSlice(EvenniaTest):
                              "outputs_when_removed": ["loose_foam"]},
                         ])])
         self.tool = create_object(
-            "typeclasses.objects.Object", key="multitool", location=self.room1, aliases=["knife"],
+            WS_OBJECT, key="multitool", location=self.room1, aliases=["knife"],
             attributes=[("sim_id", "multitool"), ("materials", ["steel"]), ("mass_g", 150),
                         ("state", {"edge": 0.8, "leverage": 0.5})])  # mirrors build.py:40-42
 
@@ -80,7 +80,7 @@ class TestSlice(EvenniaTest):
         assert "cover" in said and "bolt" in said and "11b" in said
 
     def test_clock_advances_via_the_shell(self):
-        from typeclasses.apply import advance_clock
+        from typeclasses.winter_survival.apply import advance_clock
         advance_clock(self.room1, 5)
         assert self.room1.db.world_time == 5
         advance_clock(self.room1, 3)
@@ -89,7 +89,7 @@ class TestSlice(EvenniaTest):
     # --- the enriched operations, through the real command → apply → state path ---
 
     def _spawn(self, key, sim_id, materials, mass_g, aliases=(), state=None):
-        return create_object("typeclasses.objects.Object", key=key, location=self.room1,
+        return create_object(WS_OBJECT, key=key, location=self.room1,
                              aliases=list(aliases),
                              attributes=[("sim_id", sim_id), ("materials", materials),
                                          ("mass_g", mass_g), ("state", state or {})])

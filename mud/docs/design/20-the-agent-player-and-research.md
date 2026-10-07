@@ -390,7 +390,7 @@ None open.
   `phrasing.py` (the 294 captured lines as `expect: PARSED` probes), `census.py`, `chain.py`,
   `kit.py`, and the `BASELINE` ratchet.
 - **The wall-sensor**: `_log_gap` in
-  [`game/commands/cmd_act.py`](../../game/commands/cmd_act.py) appends each unanswered attempt to
+  [`game/commands/winter_survival/cmd_act.py`](../../game/commands/winter_survival/cmd_act.py) appends each unanswered attempt to
   `server/logs/gaps.jsonl` — a file, not world state.
 - **Determinism**: seeded runs and the contracts that replay rests on.
 
@@ -410,6 +410,6 @@ not been timed.
   as the bot's preferred channel. Andrew's 2026-09-16 decision removed it: an agent sees exactly what
   a human sees. The guide should be corrected.
 - The numbered disambiguation menu is still live in
-  [`game/commands/cmd_act.py`](../../game/commands/cmd_act.py) (`_show_menu`). Until it is gone, an
+  [`game/commands/winter_survival/cmd_act.py`](../../game/commands/winter_survival/cmd_act.py) (`_show_menu`). Until it is gone, an
   agent connecting to this server would sometimes be shown a list, which is the one thing the research
   framing forbids.

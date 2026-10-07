@@ -6,10 +6,10 @@ the chosen object, leading-count stacking must stay stock, and stale picks must 
 from unittest import mock
 
 from evennia import create_object
-from evennia.utils.test_resources import EvenniaTest
+from tests.integration.base import WS_OBJECT, WinterSurvivalTest
 
 
-class TestStockMenus(EvenniaTest):
+class TestStockMenus(WinterSurvivalTest):
     def setUp(self):
         super().setUp()
         from world.scenarios.winter_survival import content
@@ -29,7 +29,7 @@ class TestStockMenus(EvenniaTest):
     def _spawn_shards(self, n=3, where=None):
         # DR-08b (2026-09-07): IDENTICAL things pick silently; a menu needs DISTINGUISHABLE ones —
         # these shards carry idents so the numbered-menu path stays exercised.
-        return [create_object("typeclasses.objects.Object", key="glass shard",
+        return [create_object(WS_OBJECT, key="glass shard",
                               location=(where or self.room1),
                               attributes=[("sim_id", f"bottle:shard{i}:loose"),
                                           ("materials", ["glass"]), ("mass_g", 100),

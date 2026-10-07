@@ -14,8 +14,8 @@ import evennia
 from world.scenarios.winter_survival.characters import character_state, outfit
 from world.scenarios.winter_survival.objects import OBJECT_TABLE
 
-_OBJ = "typeclasses.objects.Object"
-_ROOM = "typeclasses.rooms.Room"
+_OBJ = "typeclasses.winter_survival.objects.WinterSurvivalObject"
+_ROOM = "typeclasses.winter_survival.rooms.WinterSurvivalRoom"
 _TAGS = [("slice", "run_id")]
 _ROOM_DESC = ("The crushed cabin of a downed light plane. Frost creeps across bent aluminium; "
               "torn seats and scattered kit lie where the impact flung them.")

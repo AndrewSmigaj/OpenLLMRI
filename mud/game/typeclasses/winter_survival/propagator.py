@@ -1,4 +1,4 @@
-"""game.typeclasses.propagator — the message propagator (DR-8/DR-13a). Shell.
+"""game.typeclasses.winter_survival.propagator — the message propagator (DR-8/DR-13a). Shell.
 
 Routes each pure `Event` to the OTHER characters in the room, rendered PER OBSERVER by perception
 band × loudness (§14): full third-person line → direction-framed → "…is working at something." →
@@ -33,7 +33,7 @@ def propagate(room, events, actor):
                 obs.msg(line)
         return
 
-    from typeclasses.worldview import zone_of
+    from typeclasses.winter_survival.worldview import zone_of
     for obs in observers:
         ozone = zone_of(obs, room)
         lines = []
@@ -48,7 +48,7 @@ def propagate(room, events, actor):
 
 
 def _source_zone(ev, room, actor):
-    from typeclasses.worldview import zone_of
+    from typeclasses.winter_survival.worldview import zone_of
     for o in room.contents:
         if (o.db.sim_id or o.key) == ev.source_id:
             return zone_of(o, room)

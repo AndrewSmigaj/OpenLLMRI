@@ -108,6 +108,7 @@ written out below the table or in the section that owns them.
 | DR-26 | Ontology closure | **forms** on every minted object + **derived capabilities** (material × form × state, capped, authored wins) + tier-4 generic physics + the **probe corpus** as the coverage definition — full spec: [`ontology-closure.md`](ontology-closure.md) |
 | DR-27 | Activities & processes | *(designed 2026-09 in `docs/design/06-time-sleep-and-the-clock.md`; promoted here when that document is finalized)* attended activities with start/tick/interrupt/complete feedback + unattended processes (fire, drying, cold), both driven by the single persistent heartbeat; deadlines in world-time, progress in Attributes |
 | DR-28 | Moral & social logging | *(designed 2026-09 in `docs/design/15-moral-and-social-layer.md`; promoted here when that document is finalized)* ownership + spatial witness in the event log; no moral tags — a language model reads the playthrough after the run (2026-09-28); observational only, never a reward; no run-level consent flag — the engine never gates physics (2026-09-16) |
+| DR-29 | Areas in one MUD | Winter Survival is one area of the one MUD (Scaffold Dynamics, the institute). Its rendering lives in its own room and object classes (`typeclasses/winter_survival/`); a character crosses areas, so the room it stands in names the character's command set and renders it (`Character.at_cmdset_get` / `return_appearance`), and a plain room is stock Evennia. The shell gates (DR-10 single writer, no raw output) scan Winter Survival's own packages and docs. Every command, and every unmatched, ambiguous or empty input, ends with a prompt — the end-of-output marker clients read (2026-10-06) |
 
 > **DR-14a / DR-14b — the clock (2026-09-07, 2026-09-17, 2026-09-27; design: document 06).** The
 > clock runs continuously and never freezes, at **15 game-minutes per real minute**. **Fast forward**,
@@ -601,10 +602,16 @@ game/
     space/{zones,spaces,perception,direction,sound}.py
     systems/{clock,scheduler,rescue,fire,warmth,water,shelter,injury,weather}.py
     validation/                   # content-lint (build-time + load-time)
-  typeclasses/                    # SHELL: Object(bridge to/from EntityState, apply effects),
-                                  #        Room(=Scene, perception return_appearance),
-                                  #        Character(zone attr), Script(heartbeat/instance-reaper)
-  commands/                       # cmdset: parse entry, the verbs, the propagator hook, `observe`
+  typeclasses/                    # SHELL: plain shared bases (Room, Object, Script; Character asks the
+                                  #        room it stands in for its commands and how it looks — DR-29)
+    winter_survival/              #   Winter Survival's shell: WinterSurvivalObject (bridge to/from
+                                  #   EntityState), WinterSurvivalRoom (=Scene, perception
+                                  #   return_appearance, the character renderer + command set),
+                                  #   apply (the single writer), worldview, propagator, heartbeat
+  commands/                       # the base command (ends every command with the prompt), the system
+                                  # commands, the stock command sets
+    winter_survival/              #   the character command set inside Winter Survival: parse entry, the
+                                  #   verbs, the propagator hook, `observe`
   world/scenarios/winter_survival/       # CONTENT TABLES (loaded at boot, DR-17a): objects.py, materials/table.py, zones.py, spaces.py, appearance.py, responses/, probes/, rescue.def, build.py
 tools/                            # BUILD-TIME (offline): probes.py, fuzz.py, render_scenes.py, lints/
 game/tests/{sim,integration}/     # the two tiers

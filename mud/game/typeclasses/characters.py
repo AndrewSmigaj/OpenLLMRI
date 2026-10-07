@@ -8,6 +8,7 @@ creation commands.
 
 """
 
+from django.conf import settings
 from evennia.objects.objects import DefaultCharacter
 
 from .objects import ObjectParent
@@ -23,17 +24,19 @@ class Character(ObjectParent, DefaultCharacter):
 
     """
 
+    def at_cmdset_get(self, **kwargs):
+        """A character crosses areas, so the room it stands in decides its commands: a room that
+        names a character command set (Winter Survival's) gets it; anywhere else, the stock set.
+        Evennia calls this before every command lookup; the switch is never stored."""
+        wanted = getattr(self.location, "character_cmdset", None) or settings.CMDSET_CHARACTER
+        if not self.cmdset.has(wanted, must_be_default=True):
+            self.cmdset.add_default(wanted, persistent=False)
+
     def return_appearance(self, looker, **kwargs):
-        """DR-23/DR-25: the unified renderer for characters too — describe() weaves worn layers
-        ('The pilot wears a flight jacket'); looking at YOURSELF appends the shared warmth
-        summary, so `look at me` ≡ `examine me` byte-for-byte (one pure helper behind both)."""
-        from typeclasses.worldview import to_entity_state
-        from world.scenarios.winter_survival import content
-        from world.sim import presentation
-        from world.sim.systems import warmth
-        me = to_entity_state(self)
-        if looker is self:
-            worn = [to_entity_state(o) for o in self.contents
-                    if (o.db.state or {}).get("worn_by")]
-            return warmth.self_view(me, worn, content.MATERIALS)   # the ONE self-view helper
-        return presentation.describe(me)
+        """A character crosses areas, so the area it stands in decides how it looks: a room that
+        renders characters (Winter Survival's: worn layers, the warmth self-view) does; anywhere
+        else it is stock Evennia."""
+        render = getattr(self.location, "render_character", None)
+        if render is not None:
+            return render(self, looker, **kwargs)
+        return super().return_appearance(looker, **kwargs)

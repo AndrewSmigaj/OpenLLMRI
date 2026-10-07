@@ -62,11 +62,13 @@ authoritative Python realization.
 ## Repo layout
 
 ```
-MUDExperiments/
+mud/                         # the MUD, in the Open LLMRI repo
   game/                      # the Evennia game dir (bind-mounted into Docker)
     server/conf/             # Evennia settings, at_initial_setup, etc.
-    typeclasses/             # Object / Character / Room / Script SHELL classes
-    commands/                # CmdSets — Stage A parsing -> ActionAttempt
+    typeclasses/             # plain shared Object / Character / Room / Script classes
+      winter_survival/       #   Winter Survival's SHELL classes (its room, object, apply, propagator)
+    commands/                # the base command, system commands, stock CmdSets
+      winter_survival/       #   Winter Survival's CmdSet — Stage A parsing -> ActionAttempt
     world/
       sim/                   # ===== PURE FUNCTIONAL CORE — no Evennia/Django =====
         contracts.py         #   the dataclasses both layers speak

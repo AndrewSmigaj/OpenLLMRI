@@ -417,15 +417,15 @@ None open.
   → the compass phrase), `spaces.py`.
 - The bands and the perception result are contracts in
   [`game/world/sim/contracts.py`](../../game/world/sim/contracts.py).
-- The message propagator: [`game/typeclasses/propagator.py`](../../game/typeclasses/propagator.py),
-  driven from [`game/typeclasses/heartbeat.py`](../../game/typeclasses/heartbeat.py); no game output
+- The message propagator: [`game/typeclasses/winter_survival/propagator.py`](../../game/typeclasses/winter_survival/propagator.py),
+  driven from [`game/typeclasses/winter_survival/heartbeat.py`](../../game/typeclasses/winter_survival/heartbeat.py); no game output
   bypasses it (a lint enforces it).
-- Speech by range: [`game/commands/cmd_speech.py`](../../game/commands/cmd_speech.py), using the pure
+- Speech by range: [`game/commands/winter_survival/cmd_speech.py`](../../game/commands/winter_survival/cmd_speech.py), using the pure
   loudness table.
 - The reach gate and the "too far to {verb} from here" answer in the resolver, plus the item-command
   pre-flight and the per-observer appearance hook.
 - Zone state through the single writer: the `MOVE_ZONE` branch of
-  [`game/typeclasses/apply.py`](../../game/typeclasses/apply.py), with the zone tag mirror.
+  [`game/typeclasses/winter_survival/apply.py`](../../game/typeclasses/winter_survival/apply.py), with the zone tag mirror.
 - A **single** run tag: objects are built carrying `("slice", "run_id")`
   ([`game/world/scenarios/winter_survival/build.py`](../../game/world/scenarios/winter_survival/build.py)) and the
   heartbeat finds its rooms by that tag. This is the seam for instancing — one hard-coded run, not a

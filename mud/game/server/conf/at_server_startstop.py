@@ -39,7 +39,7 @@ def at_server_start():
     # Winter Survival: ensure the world-clock heartbeat exists (persistent; DR-14).
     from evennia import create_script, search_script
     if not search_script("winter_survival_heartbeat"):
-        create_script("typeclasses.heartbeat.HeartbeatScript")
+        create_script("typeclasses.winter_survival.heartbeat.HeartbeatScript")
 
 
 def at_server_stop():

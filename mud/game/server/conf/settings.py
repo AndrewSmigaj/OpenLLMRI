@@ -36,6 +36,10 @@ import os
 # This is the name of your game. Make it catchy!
 SERVERNAME = "Scaffold Dynamics"
 
+# Every stock Evennia command subclasses this, so each one ends with the prompt (see
+# commands/command.py), like the game's own commands.
+COMMAND_DEFAULT_CLASS = "commands.command.MuxCommand"
+
 ######################################################################
 # Database — PostgreSQL. Credentials come from the container env
 # (docker-compose.yml env_file: .env). The base image ships psycopg2.

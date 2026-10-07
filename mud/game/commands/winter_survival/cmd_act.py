@@ -1,4 +1,4 @@
-"""game.commands.cmd_act — the taught-grammar action command + the unmatched-input nudge (DR-08, D5).
+"""game.commands.winter_survival.cmd_act — the taught-grammar action command + the unmatched-input nudge (DR-08, D5).
 
 `CmdAction` is keyed on every operation verb (from the registry); `self.cmdstring` is the matched verb.
 It builds a read-only WorldView, parses the line (returning the teaching nudge or a NUMBERED
@@ -16,9 +16,9 @@ from evennia.commands.cmdhandler import CMD_NOMATCH
 from evennia.utils import logger
 
 from commands.command import Command
-from typeclasses.apply import LedgerError, apply, get_sink
-from typeclasses.propagator import propagate
-from typeclasses.worldview import EvenniaWorldView
+from typeclasses.winter_survival.apply import LedgerError, apply, get_sink
+from typeclasses.winter_survival.propagator import propagate
+from typeclasses.winter_survival.worldview import EvenniaWorldView
 from world.scenarios.winter_survival import content
 from world.scenarios.winter_survival.authored import AUTHORED
 from world.sim.contracts import Disambiguation, EffectKind, ParseError
@@ -164,7 +164,7 @@ class CmdNoMatch(Command):
             if 1 <= n <= len(pend["options"]):
                 _PENDING.pop(caller.id, None)
                 if pend.get("kind") == "stock":              # a stock get/drop menu (cmd_items)
-                    from commands.cmd_items import stock_pick
+                    from commands.winter_survival.cmd_items import stock_pick
                     stock_pick(caller, pend, n)
                     return
                 o = pend["options"][n - 1]

@@ -2,13 +2,13 @@
 must match the Evennia world the loader builds from the SAME table — object for object — and stay
 matched after the same effect set is applied by the shell's single writer and by PureWorld.apply().
 This is what lets probes/fuzz/render run on the pure core and mean something about the live game."""
-from evennia.utils.test_resources import EvenniaTest
+from tests.integration.base import WinterSurvivalTest
 
 
 def _evennia_snapshot(room):
     """id → (name, materials, mass, parts, sorted state minus zone, parent sim_id) — the same shape
     as PureWorld.snapshot() — for every object under the room (recursive)."""
-    from typeclasses.worldview import to_entity_state
+    from typeclasses.winter_survival.worldview import to_entity_state
     out = {}
     pool = list(room.contents)
     while pool:
@@ -25,7 +25,7 @@ def _evennia_snapshot(room):
     return out
 
 
-class TestApplyParity(EvenniaTest):
+class TestApplyParity(WinterSurvivalTest):
     def setUp(self):
         super().setUp()
         from world.scenarios.winter_survival import content
@@ -47,8 +47,8 @@ class TestApplyParity(EvenniaTest):
             assert ev[sid] == pw[sid], (sid, ev[sid], pw[sid])
 
     def test_same_effects_same_world_after_apply(self):
-        from typeclasses.apply import apply, get_sink
-        from typeclasses.worldview import EvenniaWorldView
+        from typeclasses.winter_survival.apply import apply, get_sink
+        from typeclasses.winter_survival.worldview import EvenniaWorldView
         from world.scenarios.winter_survival import content
         from world.sim.contracts import ActionAttempt, NounRef
         from world.sim.resolver import resolve

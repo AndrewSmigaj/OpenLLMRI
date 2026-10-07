@@ -6,11 +6,21 @@ Commands describe the input the account can do to the game.
 """
 
 from evennia.commands.command import Command as BaseCommand
+from evennia.commands.default.muxcommand import MuxCommand as BaseMuxCommand
 
 # from evennia import default_cmds
 
 
-class Command(BaseCommand):
+class PromptMixin:
+    """Ends every command with a prompt: the marker a client reads as "this command's output is
+    complete". The backend's agent reads the MUD's text up to it."""
+
+    def at_post_cmd(self):
+        super().at_post_cmd()
+        self.caller.msg(prompt=">")
+
+
+class Command(PromptMixin, BaseCommand):
     """
     Base command (you may see this if a child command had no help text defined)
 
@@ -31,6 +41,11 @@ class Command(BaseCommand):
     #         every command, like prompts.
     #
     pass
+
+
+class MuxCommand(PromptMixin, BaseMuxCommand):
+    """Evennia's MuxCommand with the prompt. settings.COMMAND_DEFAULT_CLASS points here, so every
+    stock Evennia command (look, emote, the builder and account commands) ends with it too."""
 
 
 # -------------------------------------------------------------

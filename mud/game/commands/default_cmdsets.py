@@ -31,25 +31,11 @@ class CharacterCmdSet(default_cmds.CharacterCmdSet):
         Populates the cmdset
         """
         super().at_cmdset_creation()
-        # Winter Survival: the taught-grammar action command (keyed on every operation verb) + the
-        # unmatched-input nudge. (CmdAction's `examine` intentionally overloads the builder examine.)
-        from commands.cmd_act import CmdAction, CmdNoMatch
-        self.add(CmdAction())
-        self.add(CmdNoMatch())
-        # Winter Survival: stock drop/look share the DR-08a numbered disambiguation menu (same-key add
-        # after super() replaces the stock commands); look also strips 'at' (look at X ≡ examine
-        # X, DR-23). GET IS GONE: the taught `take` op owns get/grab (DR-24) — CmdAction (added
-        # above) replaced stock CmdGet at add-time, and adding a get-aliased command AFTER it
-        # would delete the ENTIRE taught set (Evennia de-dupes by key/alias INTERSECTION — the
-        # matchset trap; see containment.md).
-        from commands.cmd_items import CmdDrop, CmdInventory, CmdLook
-        self.add(CmdDrop())
-        self.add(CmdLook())
-        self.add(CmdInventory())     # DR-25: carried/worn split + the warmth band
-        # Winter Survival: zone-aware speech — say/whisper/call/shout as SPEECH events through the
-        # band-routing propagator (DR-13a, §15); replaces the stock room-wide say.
-        from commands.cmd_speech import CmdSpeak
-        self.add(CmdSpeak())
+        #
+        # any commands you add below will overload the default ones.
+        # Winter Survival's commands are not here: its rooms carry them
+        # (commands/winter_survival/cmdset.py), so they apply only inside its rooms.
+        #
 
 
 class AccountCmdSet(default_cmds.AccountCmdSet):
@@ -70,6 +56,12 @@ class AccountCmdSet(default_cmds.AccountCmdSet):
         #
         # any commands you add below will overload the default ones.
         #
+        # Input that matches no command, several, or nothing ends with the prompt too
+        # (commands/system.py). The account set is merged in-character as well.
+        from commands.system import SystemMultimatch, SystemNoInput, SystemNoMatch
+        self.add(SystemNoInput())
+        self.add(SystemNoMatch())
+        self.add(SystemMultimatch())
 
 
 class UnloggedinCmdSet(default_cmds.UnloggedinCmdSet):
@@ -88,6 +80,12 @@ class UnloggedinCmdSet(default_cmds.UnloggedinCmdSet):
         #
         # any commands you add below will overload the default ones.
         #
+        # Input that matches no command, several, or nothing ends with the prompt too
+        # (commands/system.py), on the login screen as well.
+        from commands.system import SystemMultimatch, SystemNoInput, SystemNoMatch
+        self.add(SystemNoInput())
+        self.add(SystemNoMatch())
+        self.add(SystemMultimatch())
 
 
 class SessionCmdSet(default_cmds.SessionCmdSet):

@@ -299,7 +299,7 @@ None open. Every question this document asked was answered on 2026-09-18, and th
 
 ## 8. What exists today
 
-**Built.** [`game/typeclasses/heartbeat.py`](../../game/typeclasses/heartbeat.py) — a persistent global
+**Built.** [`game/typeclasses/winter_survival/heartbeat.py`](../../game/typeclasses/winter_survival/heartbeat.py) — a persistent global
 Script, `interval = 15` real seconds, advancing the world clock by `dt=1` game-minute per tick through
 the allow-listed `apply()` writer, then propagating any events. This is the basic P1 clock; its pace
 (4 game-minutes per real minute) is not yet the design's 15 (a 4-second heartbeat — `PLAN.md` E1).

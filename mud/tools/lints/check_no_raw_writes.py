@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Gate: only the single enforced writer (apply()) mutates Evennia Attributes/Tags (DR-10).
 
-AST-based scan of the Evennia shell (game/typeclasses, game/commands) for raw state writes:
+AST-based scan of Winter Survival's Evennia shell (game/typeclasses/winter_survival,
+game/commands/winter_survival) for raw state writes:
   X.db.<a> = ... / X.ndb.<a> = ...        assignment to a .db/.ndb attribute
   X.db.<a>[k] = ... / X.ndb.<a>[k] = ...  subscript write into a .db/.ndb attribute
   X.db.<a>.append/extend/update/... (...) in-place mutation of a .db/.ndb SaverList/SaverDict
@@ -17,8 +18,8 @@ import pathlib
 import sys
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
-SCAN = [ROOT / "game" / "typeclasses", ROOT / "game" / "commands"]
-ALLOW = {"game/typeclasses/apply.py"}  # THE effects-centric single writer (DR-10)
+SCAN = [ROOT / "game" / "typeclasses" / "winter_survival", ROOT / "game" / "commands" / "winter_survival"]
+ALLOW = {"game/typeclasses/winter_survival/apply.py"}  # THE effects-centric single writer (DR-10)
 
 # in-place mutators on a SaverList/SaverDict held in a .db/.ndb attribute
 MUTATORS = {"append", "extend", "insert", "pop", "remove", "clear", "update",

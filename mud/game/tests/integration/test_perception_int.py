@@ -5,10 +5,10 @@ reach gate) join in P3.3.
 """
 from unittest import mock
 
-from evennia.utils.test_resources import EvenniaTest
+from tests.integration.base import WinterSurvivalTest
 
 
-class TestMovement(EvenniaTest):
+class TestMovement(WinterSurvivalTest):
     def setUp(self):
         super().setUp()
         from world.scenarios.winter_survival import content

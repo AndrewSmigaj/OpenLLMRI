@@ -2,10 +2,10 @@
 worn, pockets searched by their owner, the wound on the character) and the self-view reads it."""
 from unittest import mock
 
-from evennia.utils.test_resources import EvenniaTest
+from tests.integration.base import WinterSurvivalTest
 
 
-class TestKit(EvenniaTest):
+class TestKit(WinterSurvivalTest):
     def setUp(self):
         super().setUp()
         from world.scenarios.winter_survival import content

@@ -1,4 +1,4 @@
-"""game.commands.cmd_items — stock drop/look with the DR-08a numbered disambiguation menu.
+"""game.commands.winter_survival.cmd_items — stock drop/look with the DR-08a numbered disambiguation menu.
 
 Thin subclasses of Evennia's CmdDrop/CmdLook: a pre-flight quiet search detects a TRUE multimatch
 and shows the same numbered menu the taught-grammar commands use; everything else defers to stock.
@@ -17,7 +17,7 @@ from evennia.commands.default.general import (CmdDrop as DefaultCmdDrop,
                                               CmdInventory as DefaultCmdInventory,
                                               CmdLook as DefaultCmdLook)
 
-from commands import cmd_act  # shared pending-menu map; import direction: cmd_items -> cmd_act only
+from commands.winter_survival import cmd_act  # shared pending-menu map; import direction: cmd_items -> cmd_act only
 
 
 _ARTICLES = ("the ", "a ", "an ", "some ")
@@ -90,7 +90,7 @@ def _current_zone(caller):
     room = getattr(caller, "location", None)
     if room is None or not getattr(room.db, "default_zone", None):
         return None
-    from typeclasses.worldview import zone_of
+    from typeclasses.winter_survival.worldview import zone_of
     from world.sim.space import zones as zonemap
     return zone_of(caller, room) if zonemap.loaded() else None
 
@@ -135,8 +135,8 @@ def _place_in_space(caller, objs, zone, sid):
     """Override freshly-dropped objects' space to `sid` via a set_attr Effect, and confirm."""
     if not objs:
         return
-    from typeclasses.apply import apply as apply_effects
-    from typeclasses.worldview import EvenniaWorldView
+    from typeclasses.winter_survival.apply import apply as apply_effects
+    from typeclasses.winter_survival.worldview import EvenniaWorldView
     from world.sim import effects
     from world.sim.space import spaces as spacemap
     room = caller.location
@@ -153,7 +153,7 @@ def _look_space(caller, phrase):
     zone = _current_zone(caller)
     if zone is None or room is None:
         return False
-    from typeclasses.worldview import to_entity_state, zone_of
+    from typeclasses.winter_survival.worldview import to_entity_state, zone_of
     from world.sim import presentation
     ents = []
     for o in room.filter_visible(room.contents_get(content_type="object"), caller):
@@ -198,7 +198,7 @@ class CmdInventory(DefaultCmdInventory):
         if not items:
             caller.msg("You are not carrying anything.")
             return
-        from typeclasses.worldview import to_entity_state
+        from typeclasses.winter_survival.worldview import to_entity_state
         from world.scenarios.winter_survival import content
         from world.sim.systems import warmth
         worn_objs = [o for o in items if (o.db.state or {}).get("worn_by")]

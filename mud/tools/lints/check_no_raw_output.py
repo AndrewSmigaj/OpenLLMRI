@@ -4,7 +4,8 @@
 The architecture replaces plain `room.msg_contents(...)` with a per-observer message **propagator**
 (Event -> rendered by perception band x loudness). That seam is what makes the overlapping perception
 zones (DR-13) a clean drop-in later instead of a rewrite of every output site. This gate enforces it:
-no `.msg_contents(...)` in the shell (game/typeclasses, game/commands) outside the allowlisted propagator
+no `.msg_contents(...)` in Winter Survival's shell (game/typeclasses/winter_survival,
+game/commands/winter_survival) outside the allowlisted propagator
 module(s). Direct 1:1 `caller.msg(...)` replies (parse errors, prompts) are fine and not flagged.
 
 AST-based (comments/docstrings ignored). Host-fast. The shell is currently stock/minimal, so this passes;
@@ -18,8 +19,8 @@ import pathlib
 import sys
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
-SCAN = [ROOT / "game" / "typeclasses", ROOT / "game" / "commands"]
-# The propagator module(s), e.g. "game/typeclasses/rooms.py" or "game/commands/propagator.py" (P1/P3).
+SCAN = [ROOT / "game" / "typeclasses" / "winter_survival", ROOT / "game" / "commands" / "winter_survival"]
+# The propagator module(s), if one ever needs msg_contents (the propagator sends per observer today).
 ALLOW = set()
 
 
