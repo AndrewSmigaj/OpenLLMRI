@@ -1,7 +1,7 @@
 /** Room context sent via OOB room_entered event */
 export interface RoomContext {
   role: 'researcher' | 'visitor'
-  roomType: 'lab' | 'micro_world' | 'hub' | 'social'
+  roomType: 'lab' | 'micro_world' | 'hub' | 'simulator' | 'social'
 }
 
 /** Viz preset fields that map to React hook setters */

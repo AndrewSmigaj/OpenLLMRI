@@ -501,6 +501,8 @@ class TemporalLagDataResponse(BaseModel):
     points: List[TemporalLagPoint]
     regime_boundary: int
     processing_mode: str
+    temporal_run_id: str
+    basin_separation: float  # L2 distance between the two basin centroids (the axis length)
 
 
 # --- Agent session schemas ---

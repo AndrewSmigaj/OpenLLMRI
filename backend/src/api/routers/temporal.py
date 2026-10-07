@@ -443,9 +443,7 @@ async def get_temporal_lag_data(request: TemporalLagDataRequest) -> TemporalLagD
 
         points.sort(key=lambda p: p.position)
 
-        # BUG: TemporalLagDataResponse has no temporal_run_id or basin_separation field, so pydantic
-        # drops both; the frontend reads basin_separation from this response.
-        return TemporalLagDataResponse(  # type: ignore[call-arg]  # BUG: see above
+        return TemporalLagDataResponse(
             points=points,
             regime_boundary=run_meta.get("regime_boundary", len(points) // 2),
             processing_mode=run_meta.get("processing_mode", "unknown"),

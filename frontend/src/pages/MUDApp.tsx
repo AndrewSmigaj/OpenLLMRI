@@ -21,6 +21,7 @@ import WindowAnalysis from '../components/analysis/WindowAnalysis'
 import ContextSensitiveCard from '../components/analysis/ContextSensitiveCard'
 import FilteredWordDisplay from '../components/FilteredWordDisplay'
 import MUDTerminal from '../components/terminal/MUDTerminal'
+import PanelErrorBoundary from '../components/common/PanelErrorBoundary'
 
 export default function MUDApp() {
   // Session state
@@ -89,6 +90,16 @@ export default function MUDApp() {
   const schema = useSchemaManagement(selectedSessions, handleElementDescriptionsLoaded)
   const { availableSchemas, selectedSchema, setSelectedSchema } = schema
 
+  // A lab room loads its view on entry, for visitors too (they can't press Run): once its preset
+  // is applied and every panel has registered its run for the new session, run them once.
+  const [autoRunPending, setAutoRunPending] = useState(false)
+  useEffect(() => {
+    if (autoRunPending && canRunAll && selectedSchema) {
+      setAutoRunPending(false)
+      handleRunAll()
+    }
+  }, [autoRunPending, canRunAll, selectedSchema, handleRunAll])
+
   const selectedSchemaMeta = useMemo(
     () => availableSchemas.find(s => s.name === selectedSchema),
     [availableSchemas, selectedSchema]
@@ -149,6 +160,9 @@ export default function MUDApp() {
 
     setCurrentRouteData(null)
     setCurrentClusterRouteData(null)
+    setRunExpert(null)
+    setRunClusterSankey(null)
+    setRunTrajectory(null)
     setElementDescriptions({})
     setSelectedCard(null)
     setSelectedSchema('')
@@ -239,6 +253,9 @@ export default function MUDApp() {
     if (preset.top_routes) setTopRoutes(preset.top_routes)
   }, [setColorAxisId, setGradient, setSelectedWindow, setSelectedSchema])
 
+  // Error boundaries retry their panel when the session or clustering changes
+  const panelKey = `${selectedSession}:${selectedSchema}`
+
   // Generation counter to handle rapid room navigation
   const navigationGenRef = useRef(0)
 
@@ -257,8 +274,11 @@ export default function MUDApp() {
         resetForNewSession(payload.session_id).then(() => {
           if (gen === navigationGenRef.current && payload.viz_preset) {
             applyPreset(payload.viz_preset)
+            setAutoRunPending(true)
           }
         })
+      } else {
+        setAutoRunPending(false)
       }
     } else if (cmdname === 'room_left') {
       setRoomContext(null)
@@ -297,66 +317,72 @@ export default function MUDApp() {
         <div className="bg-white overflow-y-auto overflow-x-auto p-2 space-y-4">
           {selectedSession && sessionDetails && selectedSchema && (
             <>
-              <ExpertRoutesSection
-                sessionIds={selectedSessions}
-                sessionData={sessionDetails}
-                schemaName={selectedSchema}
-                primaryValues={primaryValues}
-                gradient={gradient}
-                secondaryValues={secondaryValues}
-                secondaryGradient={secondaryGradient}
-                secondaryAxisId={colorAxis2Id !== 'none' ? colorAxis2Id : undefined}
-                ambiguityBlend={ambiguityBlend}
-                outputPrimaryValues={outputPrimaryValues}
-                outputGradient={outputGradient}
-                outputSecondaryValues={outputSecondaryValues}
-                outputSecondaryGradient={outputSecondaryGradient}
-                outputSecondaryAxisId={outputColorAxis2Id !== 'none' ? outputColorAxis2Id : undefined}
-                outputColorAxisId={outputColorAxisId || undefined}
-                outputGroupingAxes={outputGroupingAxes}
-                topRoutes={topRoutes}
-                selectedWindow={selectedWindow}
-                onWindowChange={setSelectedWindow}
-                showAllRoutes={showAllRoutes}
-                onRouteDataLoaded={handleRouteDataLoaded}
-                onCardSelect={setSelectedCard}
-                onExpertAnalysisReady={handleExpertAnalysisReady}
-              />
+              <PanelErrorBoundary key={`expert:${panelKey}`} name="Expert routes">
+                <ExpertRoutesSection
+                  sessionIds={selectedSessions}
+                  sessionData={sessionDetails}
+                  schemaName={selectedSchema}
+                  primaryValues={primaryValues}
+                  gradient={gradient}
+                  secondaryValues={secondaryValues}
+                  secondaryGradient={secondaryGradient}
+                  secondaryAxisId={colorAxis2Id !== 'none' ? colorAxis2Id : undefined}
+                  ambiguityBlend={ambiguityBlend}
+                  outputPrimaryValues={outputPrimaryValues}
+                  outputGradient={outputGradient}
+                  outputSecondaryValues={outputSecondaryValues}
+                  outputSecondaryGradient={outputSecondaryGradient}
+                  outputSecondaryAxisId={outputColorAxis2Id !== 'none' ? outputColorAxis2Id : undefined}
+                  outputColorAxisId={outputColorAxisId || undefined}
+                  outputGroupingAxes={outputGroupingAxes}
+                  topRoutes={topRoutes}
+                  selectedWindow={selectedWindow}
+                  onWindowChange={setSelectedWindow}
+                  showAllRoutes={showAllRoutes}
+                  onRouteDataLoaded={handleRouteDataLoaded}
+                  onCardSelect={setSelectedCard}
+                  onExpertAnalysisReady={handleExpertAnalysisReady}
+                />
+              </PanelErrorBoundary>
 
-              <ClusterRoutesSection
-                sessionIds={selectedSessions}
-                sessionData={sessionDetails}
-                schemaName={selectedSchema}
-                primaryValues={primaryValues}
-                gradient={gradient}
-                secondaryValues={secondaryValues}
-                secondaryGradient={secondaryGradient}
-                secondaryAxisId={colorAxis2Id !== 'none' ? colorAxis2Id : undefined}
-                ambiguityBlend={ambiguityBlend}
-                outputPrimaryValues={outputPrimaryValues}
-                outputGradient={outputGradient}
-                outputSecondaryValues={outputSecondaryValues}
-                outputSecondaryGradient={outputSecondaryGradient}
-                outputSecondaryAxisId={outputColorAxis2Id !== 'none' ? outputColorAxis2Id : undefined}
-                outputColorAxisId={outputColorAxisId || undefined}
-                outputGroupingAxes={outputGroupingAxes}
-                shapeAxisId={shapeAxisId !== 'none' ? shapeAxisId : undefined}
-                shapeAxis={shapeAxis}
-                selectedWindow={selectedWindow}
-                onWindowChange={setSelectedWindow}
-                maxTrajectories={maxTrajectories}
-                onRouteDataLoaded={handleClusterRouteDataLoaded}
-                onCardSelect={setSelectedCard}
-                onSankeyAnalysisReady={handleSankeyAnalysisReady}
-                onTrajectoryAnalysisReady={handleTrajectoryAnalysisReady}
-                selectedProbeId={selectedCard?.type === 'route' ? selectedCard.data?.probe_id ?? null : null}
-              />
+              <PanelErrorBoundary key={`cluster:${panelKey}`} name="Clusters and routes">
+                <ClusterRoutesSection
+                  sessionIds={selectedSessions}
+                  sessionData={sessionDetails}
+                  schemaName={selectedSchema}
+                  primaryValues={primaryValues}
+                  gradient={gradient}
+                  secondaryValues={secondaryValues}
+                  secondaryGradient={secondaryGradient}
+                  secondaryAxisId={colorAxis2Id !== 'none' ? colorAxis2Id : undefined}
+                  ambiguityBlend={ambiguityBlend}
+                  outputPrimaryValues={outputPrimaryValues}
+                  outputGradient={outputGradient}
+                  outputSecondaryValues={outputSecondaryValues}
+                  outputSecondaryGradient={outputSecondaryGradient}
+                  outputSecondaryAxisId={outputColorAxis2Id !== 'none' ? outputColorAxis2Id : undefined}
+                  outputColorAxisId={outputColorAxisId || undefined}
+                  outputGroupingAxes={outputGroupingAxes}
+                  shapeAxisId={shapeAxisId !== 'none' ? shapeAxisId : undefined}
+                  shapeAxis={shapeAxis}
+                  selectedWindow={selectedWindow}
+                  onWindowChange={setSelectedWindow}
+                  maxTrajectories={maxTrajectories}
+                  onRouteDataLoaded={handleClusterRouteDataLoaded}
+                  onCardSelect={setSelectedCard}
+                  onSankeyAnalysisReady={handleSankeyAnalysisReady}
+                  onTrajectoryAnalysisReady={handleTrajectoryAnalysisReady}
+                  selectedProbeId={selectedCard?.type === 'route' ? selectedCard.data?.probe_id ?? null : null}
+                />
+              </PanelErrorBoundary>
 
-              <TemporalAnalysisSection
-                sessionId={selectedSession}
-                clusterRouteData={currentClusterRouteData}
-                clusteringSchema={selectedSchema}
-              />
+              <PanelErrorBoundary key={`temporal:${panelKey}`} name="Temporal analysis">
+                <TemporalAnalysisSection
+                  sessionId={selectedSession}
+                  clusterRouteData={currentClusterRouteData}
+                  clusteringSchema={selectedSchema}
+                />
+              </PanelErrorBoundary>
             </>
           )}
           {selectedSession && sessionDetails && !selectedSchema && (
@@ -387,14 +413,16 @@ export default function MUDApp() {
                   : undefined
                 const report = (synthKey && schema.schemaReports[synthKey]) || (lastReportKey ? schema.schemaReports[lastReportKey] : undefined)
                 return (
-                  <WindowAnalysis
-                    routeData={lastData}
-                    windowLabel={currentWindow.label}
-                    report={report}
-                    selectedSchema={selectedSchema || undefined}
-                    primaryValues={primaryValues}
-                    gradient={gradient}
-                  />
+                  <PanelErrorBoundary key={`window:${panelKey}:${selectedWindow}`} name="Window analysis">
+                    <WindowAnalysis
+                      routeData={lastData}
+                      windowLabel={currentWindow.label}
+                      report={report}
+                      selectedSchema={selectedSchema || undefined}
+                      primaryValues={primaryValues}
+                      gradient={gradient}
+                    />
+                  </PanelErrorBoundary>
                 )
               })()}
 
@@ -418,15 +446,17 @@ export default function MUDApp() {
                 }
 
                 return (
-                  <ContextSensitiveCard
-                    cardType={selectedCard.type}
-                    selectedData={selectedCard.data}
-                    primaryValues={primaryValues}
-                    gradient={gradient}
-                    elementDescription={elementDescriptions[descKey]}
-                    clusterAssignments={clusterAssignments}
-                    onClose={() => setSelectedCard(null)}
-                  />
+                  <PanelErrorBoundary key={`card:${panelKey}:${descKey}`} name="Details card">
+                    <ContextSensitiveCard
+                      cardType={selectedCard.type}
+                      selectedData={selectedCard.data}
+                      primaryValues={primaryValues}
+                      gradient={gradient}
+                      elementDescription={elementDescriptions[descKey]}
+                      clusterAssignments={clusterAssignments}
+                      onClose={() => setSelectedCard(null)}
+                    />
+                  </PanelErrorBoundary>
                 )
               })() : (
                 <div className="flex items-center justify-center py-8">
@@ -439,18 +469,22 @@ export default function MUDApp() {
 
         {/* Q3: Terminal */}
         <div className="bg-gray-900 overflow-hidden">
-          <MUDTerminal onOOB={handleOOB} />
+          <PanelErrorBoundary name="MUD terminal">
+            <MUDTerminal onOOB={handleOOB} />
+          </PanelErrorBoundary>
         </div>
 
         {/* Q4: Sentences */}
         <div className="bg-white overflow-auto p-2 border border-gray-200">
           {selectedSession && sessionDetails && (
-            <FilteredWordDisplay
-              sessionData={sessionDetails}
-              filterState={{ labels: new Set() }}
-              primaryValues={primaryValues}
-              gradient={gradient}
-            />
+            <PanelErrorBoundary key={`sentences:${panelKey}`} name="Sentences">
+              <FilteredWordDisplay
+                sessionData={sessionDetails}
+                filterState={{ labels: new Set() }}
+                primaryValues={primaryValues}
+                gradient={gradient}
+              />
+            </PanelErrorBoundary>
           )}
         </div>
       </div>

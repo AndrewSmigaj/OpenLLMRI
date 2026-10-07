@@ -386,7 +386,9 @@ export default function TemporalAnalysisSection({
                           className="text-[8px] px-1 py-0.5 rounded font-mono font-semibold"
                           style={{ backgroundColor: group.color + '20', color: group.color }}
                         >
-                          {group.runs[0]?.processing_mode?.includes('cache_on') ? 'CACHE ON' : 'CACHE OFF'}
+                          {group.runs[0]?.processing_mode?.includes('cache_on') ? 'CACHE ON'
+                            : group.runs[0]?.processing_mode?.includes('cache_off') ? 'CACHE OFF'
+                            : 'MODE UNKNOWN'}
                         </span>
                         <span className="text-gray-400">({group.runs.length} run{group.runs.length !== 1 ? 's' : ''})</span>
                       </div>
@@ -396,7 +398,7 @@ export default function TemporalAnalysisSection({
                         {group.runs.map((run, idx) => {
                           const isHighlighted = run.temporal_run_id === highlightedRunId
                           const schema = run.clustering_schema || 'default'
-                          const tooltipText = `${run.temporal_run_id}\nsession: ${run.new_session_id}\nschema: ${schema}\nmode: ${run.processing_mode}\nconfig: ${run.sequence_config}\npositions: ${run.sequence_positions}\nboundary: ${run.regime_boundary}`
+                          const tooltipText = `${run.temporal_run_id}\nsession: ${run.new_session_id}\nschema: ${schema}\nmode: ${run.processing_mode ?? 'unknown'}\nconfig: ${run.sequence_config}\npositions: ${run.sequence_positions}\nboundary: ${run.regime_boundary}`
 
                           return (
                             <label

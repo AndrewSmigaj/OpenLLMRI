@@ -3,7 +3,7 @@
 export interface TemporalRunMetadata {
   temporal_run_id: string
   new_session_id: string
-  processing_mode: string
+  processing_mode?: string    // missing from runs captured before the field existed
   sequence_config: string
   basin_a_cluster_id: number
   basin_b_cluster_id: number

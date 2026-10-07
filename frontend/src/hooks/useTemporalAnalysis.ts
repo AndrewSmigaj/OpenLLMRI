@@ -52,9 +52,14 @@ export interface TemporalAnalysisState {
   }
 }
 
+/** A run's processing mode; runs captured before the field existed read as "unknown" */
+function processingMode(run: TemporalRunMetadata): string {
+  return run.processing_mode ?? 'unknown'
+}
+
 /** Build a condition key from a run's metadata */
 function conditionKey(run: TemporalRunMetadata): string {
-  return `${run.clustering_schema || 'default'}_${run.basin_a_cluster_id}_${run.basin_b_cluster_id}_${run.basin_layer}_${run.processing_mode}_${run.sequence_config}`
+  return `${run.clustering_schema || 'default'}_${run.basin_a_cluster_id}_${run.basin_b_cluster_id}_${run.basin_layer}_${processingMode(run)}_${run.sequence_config}`
 }
 
 /** Build a human-readable label for a condition */
@@ -67,7 +72,7 @@ function conditionLabel(run: TemporalRunMetadata, basinOptions?: BasinOption[]):
     fromLabel = basinName(run.basin_a_cluster_id, run.basin_layer, basinOptions) || 'A'
     toLabel = basinName(run.basin_b_cluster_id, run.basin_layer, basinOptions) || 'B'
   }
-  const mode = run.processing_mode.replace('expanding_', '').replace('_', ' ')
+  const mode = processingMode(run).replace('expanding_', '').replace('_', ' ')
   return `${fromLabel}→${toLabel} ${mode}`
 }
 
@@ -87,7 +92,7 @@ const CONDITION_COLORS: Record<string, string> = {
 }
 
 function conditionColor(run: TemporalRunMetadata): string {
-  const modeKey = run.processing_mode.replace('expanding_', '') + '_' + run.sequence_config
+  const modeKey = processingMode(run).replace('expanding_', '') + '_' + run.sequence_config
   return CONDITION_COLORS[modeKey] || '#6b7280'
 }
 
@@ -351,7 +356,7 @@ export function useTemporalAnalysis({ sessionId, clusterRouteData, clusteringSch
         meanLag: mean,
         stdLag: Math.sqrt(variance),
         count: lags.length,
-        mode: group.runs[0].processing_mode,
+        mode: processingMode(group.runs[0]),
       }
     }
 
