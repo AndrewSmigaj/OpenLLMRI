@@ -104,8 +104,16 @@ fuzz:
 	python3 tools/fuzz.py $(SCENARIO)
 
 # Integration tests run through Evennia's own test runner (creates a throwaway test DB).
+# Evennia exits 0 when it cannot start, so the run must also report its tests: a "Ran N tests"
+# line and "OK". The output streams through tee; Evennia's exit code is kept in a file.
 test-int:
-	$(DC) run --rm evennia evennia test --settings settings tests.integration
+	@log=$$(mktemp); ecf=$$(mktemp); \
+	{ $(DC) run --rm evennia evennia test --settings settings tests.integration; echo $$? > $$ecf; } 2>&1 | tee $$log; \
+	ec=$$(cat $$ecf); \
+	if grep -Eq '^Ran [1-9][0-9]* tests? in' $$log && grep -q '^OK' $$log; then ran=yes; else ran=no; fi; \
+	rm -f $$log $$ecf; \
+	if [ "$$ec" != 0 ]; then exit $$ec; fi; \
+	if [ "$$ran" != yes ]; then echo "test-int: FAILED: Evennia exited 0 but reported no test run."; exit 1; fi
 
 CONTENT_SCENARIO ?= whiteout
 
