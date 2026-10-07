@@ -32,6 +32,7 @@ disallow_untyped_defs = true
 
 [tool.pytest.ini_options]
 testpaths = ["backend/tests"]
+pythonpath = ["backend/src"]
 python_files = ["test_*.py"]
 python_functions = ["test_*"]
 asyncio_mode = "auto"
