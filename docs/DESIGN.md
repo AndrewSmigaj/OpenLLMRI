@@ -2,8 +2,7 @@
 
 **Status:** a draft for Andrew's review (2026-10-07). Nothing new is built until he approves it.
 
-**Review progress:** Parts A to E reviewed with Andrew (2026-10-07), except the LLM analysis
-places still proposed (L12).
+**Review progress:** Parts A to F reviewed with Andrew (2026-10-07). Open: L13.
 
 **Contents:**
 - How this document works
@@ -416,7 +415,9 @@ more questions will come]:
 
 ## Part E — The app
 
-**E1. Workspaces** [Decided, 2026-10-07]:
+**E1. Workspaces** [Decided, 2026-10-07]. The app is for analysing: runs that have happened, clusterings, and
+the reports the LLMs write. It also holds the builders. It doesn't start runs; they start in the
+MUD or through Claude Code (F3).
 
 | Workspace | What you do there | Status |
 |---|---|---|
@@ -643,7 +644,7 @@ area can be resized and can fill the screen.
   - a confidence interval from a bootstrap over scene families;
   - the number of runs at each point.
 - **The run list:**
-  - one list, whether a run was started in the MUD or in the app, and marked with which;
+  - one list, whether a run was started in the MUD or through Claude Code, and marked with which;
   - each run's ticks between the bands, its crossing tick, its final class and its outcome, all
     sortable.
 - **Opening a run** replaces the study timeline with that run's timeline, with a way back. A button
@@ -662,7 +663,7 @@ for clusters, experts, routes and expert routes].
 
 LLMs are good at spotting patterns in this data, such as pipes, hubs and split points.
 
-**The panel, the same everywhere** [Proposed]:
+**The panel, the same everywhere** [Decided, 2026-10-07]:
 - it sits beside a view and shows the report on whatever is selected;
 - each report cites the numbers it used, and a checker re-computes them;
 - reports are written in the background when their data is built, kept, and rewritten when the
@@ -675,19 +676,19 @@ LLMs are good at spotting patterns in this data, such as pipes, hubs and split p
 | Where | What the LLM writes | Status |
 |---|---|---|
 | Layers | a card for each cluster, expert, route and expert route | Decided, 2026-10-07 |
-| Layers | a card for each split point: what separates the two populations | Proposed |
-| Layers | a report on the expert Sankey's pipes and hubs | Proposed |
-| Layers | a short note on what each layer transition changes | Proposed |
-| Build | a critic for each new sentence set, catching confounds the numeric audits can't, such as one class always written in the past tense | Proposed |
+| Layers | a card for each split point: what separates the two populations | Decided, 2026-10-07 |
+| Layers | a report on the expert Sankey's pipes and hubs | Decided, 2026-10-07 |
+| Layers | a short note on what each layer transition changes | Decided, 2026-10-07 |
+| Build | a critic for each new sentence set, catching confounds the numeric audits can't, such as one class always written in the past tense | Decided, 2026-10-07 |
 | Build | each lens's report (C7) | Decided, 2026-10-07 |
-| Build | a k advisor that explains the k profile while you choose | Proposed |
-| Watch | a run report: when the understanding formed, where it went wrong, why each flag fired | Proposed |
-| Watch | a short note on a clicked moment | Proposed |
-| Watch | a comparison report for runs side by side | Proposed |
-| Study | a study report on crossings, and on the differences between conditions | Proposed |
-| Atlas | reports connecting lenses, such as an expert or pipe that serves several of them: the start of the coherent model | Proposed |
-| Ideas | what to probe next, from the gaps in the atlas | Proposed |
-| MUD (later) | a guide in each lab who answers questions about the lab's view from the cards | Proposed |
+| Build | a k advisor that explains the k profile while you choose | Decided, 2026-10-07 |
+| Watch | a run report: when the understanding formed, where it went wrong, why each flag fired | Decided, 2026-10-07 |
+| Watch | a short note on a clicked moment | Decided, 2026-10-07 |
+| Watch | a comparison report for runs side by side | Decided, 2026-10-07 |
+| Study | a study report on crossings, and on the differences between conditions | Decided, 2026-10-07 |
+| Atlas | reports connecting lenses, such as an expert or pipe that serves several of them: the start of the coherent model | Decided, 2026-10-07 |
+| Ideas | what to probe next, from the gaps in the atlas | Decided, 2026-10-07 |
+| MUD (later) | a guide in each lab who answers questions about the lab's view from the cards | Decided, 2026-10-07 |
 
 ## Part F — The MUD
 
@@ -729,8 +730,8 @@ LLMs are good at spotting patterns in this data, such as pipes, hubs and split p
 | Winter Survival | the world's grammar: `VERB thing [RELATION thing] [WITH tool]` | play the world |
 | the login screen | `connect guest` | visit as a guest; guests can watch |
 
-**Where agent runs start** (the MUD, the app, or both) is open: question L10. Today `agent` exists
-only in the simulator.
+**Agent runs start in the MUD, with `agent run`, or through Claude Code** [Decided, 2026-10-07]. The app doesn't
+start runs; it analyses them (E1). Today `agent` exists only in the simulator.
 
 **F4. What the MUD plays** [Decided, 2026-10-04 and 2026-10-06]:
 - sentence-set probes;
@@ -760,7 +761,7 @@ watcher does reaches the agent.
 - **Studies, lenses, findings and the paradigm are files in the repo** [Decided, 2026-10-06].
 - **Captures include states after generation starts,** not only before it [Decided, 2026-10-06].
   Agent runs already capture every target word in the generated text [Built].
-- **Each run records** [Proposed]:
+- **Each run records** [Decided, 2026-10-07: principle B12]:
   - its token ids for each tick, its date, its chat-template hash and its model-identity line, so it
     can be replayed exactly;
   - the capture recipe: model, format, decoding, seed, carrier, token sets, scaffold, intervention.
@@ -901,10 +902,14 @@ Stories 1–6 come from the time design; 7–11 were added in its review, which 
 - **L9. The order of work (Part K):**
   - Is the sentence set builder second, and time on sentence runs third, right?
   - Should slices 2–4 come before the world-building pilot, as drawn, or after it?
-- **L10. Where should agent runs start:** the MUD, the app, or both?
+- **L10. Where agent runs start.** Answered 2026-10-07: in the MUD or through Claude Code, never from
+  the app (F3).
 - **L11. One command interface (E7).** Answered 2026-10-07: yes.
-- **L12. LLM analysis (E8):** which of the proposed places should get it, beyond the cards for
-  clusters, experts, routes and expert routes, and lens reports?
+- **L12. LLM analysis (E8).** Answered 2026-10-07: every place in the table.
+- **L13. Live runs in the app?** The app is for analysing runs that have happened (E1). Watch also
+  follows a live run: the heatmap growing tick by tick, live alerts, and the MUD terminal in its
+  drawer. Keep live following in the app, or leave live watching to the MUD and open runs in the
+  app once they finish?
 
 ## Appendix — Decisions by date
 
@@ -978,6 +983,9 @@ Paraphrased from Andrew's own words. His ideas not yet decided are listed separa
   - Part C's details: the audits, the raw-space recipe, relevant-neuron PCA as a third grouping,
     the k profile and the hierarchy idea, scene-family hold-outs, the fair comparison, the
     self-check, keywords, and the kit examples (food, fire and more for Winter Survival);
+  - every place for LLM analysis in E8, and the panel's design;
+  - agent runs start in the MUD or through Claude Code; the app analyses runs, clusterings
+    and reports, and holds the builders;
   - Part E: the workspaces, the screen rules, the builders' steps and the kit editor; Watch's
     layout, lens panels as many as wanted, which token each panel uses, replay, explained
     readings, bookmarks, runs side by side (conditions such as steering, ablation and
