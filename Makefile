@@ -1,6 +1,6 @@
 # Concept MRI - Development Makefile
 
-.PHONY: help setup download-model run-api run-ui dev stop health fmt typecheck lint clean test test-backend test-frontend verify
+.PHONY: help setup download-model run-api run-ui dev stop health fmt typecheck lint clean test test-backend test-frontend verify scenario-check
 
 help:
 	@echo "Available commands:"
@@ -15,6 +15,7 @@ help:
 	@echo "  test-backend   - Run the backend tests (pytest)"
 	@echo "  test-frontend  - Run the frontend checks (lint, type check, build)"
 	@echo "  verify         - Every area's checks: test + the MUD's verify"
+	@echo "  scenario-check - Play every scenario of a set once per action in the running MUD, no GPU (SET=...)"
 	@echo "  mud-<target>   - Run a target of the MUD's Makefile (e.g. make mud-up-d, make mud-test-int)"
 	@echo "  fmt            - Format code with black"
 	@echo "  typecheck      - Run mypy type checking"
@@ -81,6 +82,12 @@ test-backend:
 test-frontend:
 	@echo "Running frontend checks (lint, type check, build)..."
 	cd frontend && npm run lint && npm run build
+
+# Play every scenario of a set (default: the friend/foe set) once per opening action against the
+# running MUD, as the backend's agent account, and check each ending against its file. No GPU.
+SET ?= bus_stop_friend_foe_v2
+scenario-check:
+	.venv/bin/python scripts/scenario_check.py $(SET)
 
 # Every area's checks. The MUD's verify runs its gates, compose config, validate, probes and the
 # pure suite in Docker; its integration tests are `make mud-test-int`.

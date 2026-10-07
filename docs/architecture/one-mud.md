@@ -229,7 +229,8 @@ It is built when world agents arrive; until then the backend's existing one-at-a
 ## 10. What's retired, and when
 
 - **`evennia_world/`, the Evennia 4.5 prototype with SQLite,** is deleted once three things hold:
-  - the new staged engine plays the v2 set end to end with the right completion labels;
+  - the new staged engine plays the v2 set end to end with the right completion labels
+    (`make scenario-check`: every scenario once per opening action, scripted, no GPU);
   - the simulator works;
   - the polysemy lab works.
 
