@@ -25,11 +25,11 @@ Golden-master narration snapshots live inside Tier-1 (assert authored responses 
 | Moment | Run | Why |
 |---|---|---|
 | Editing (inner loop) | `make test-host` | gates + Tier-1 pure on the host in ~seconds; no Docker |
-| On Stop (already wired) | `.claude/hooks/verify.sh` | auto: the 4 gates + `docker compose config -q` |
-| Before each local commit | `.githooks/pre-commit` | the 4 gates — **enable once:** `git config core.hooksPath .githooks` |
+| On Stop (already wired, in the repo root's settings) | `mud/.claude/hooks/verify.sh` | auto, when `mud/` has changes: the 4 gates + `docker compose config -q` |
+| Before each local commit | the repo root's `.githooks/pre-commit` | the 4 gates + their tests when `mud/` files are staged — **enable once:** `make setup` at the repo root |
 | Before a push / full local pass | `make verify` | gates + compose config + Tier-1 (Docker) |
 | "Did I break the shell?" | `make test-int` | Tier-2 Evennia (throwaway test DB) |
-| Every GitHub push | auto (`.github/workflows/ci.yml`) | all of the above, in the cloud, green ✓ / red ✗ per commit |
+| Every GitHub push that touches the MUD | auto (`.github/workflows/mud.yml` at the repo root) | all of the above, in the cloud, green ✓ / red ✗ per commit |
 
 Default inner loop is **`make test-host`**. Run **`make test-int`** whenever you touched anything under
 `game/typeclasses/`, `game/commands/`, or the scenario `build.py` (the shell). The GitHub run is the

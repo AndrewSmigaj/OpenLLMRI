@@ -19,19 +19,19 @@ import pathlib
 import sys
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
-SCAN = [ROOT / "game" / "typeclasses" / "winter_survival", ROOT / "game" / "commands" / "winter_survival"]
+SCAN = [pathlib.Path("game/typeclasses/winter_survival"), pathlib.Path("game/commands/winter_survival")]  # under the root
 # The propagator module(s), if one ever needs msg_contents (the propagator sends per observer today).
 ALLOW = set()
 
 
-def main() -> int:
+def main(root: pathlib.Path = ROOT) -> int:
     violations = []
     scanned = 0
-    for base in SCAN:
+    for base in (root / s for s in SCAN):
         if not base.exists():
             continue
         for path in sorted(base.rglob("*.py")):
-            if str(path.relative_to(ROOT)) in ALLOW:
+            if str(path.relative_to(root)) in ALLOW:
                 continue
             scanned += 1
             tree = ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
@@ -43,7 +43,7 @@ def main() -> int:
     if violations:
         print("NO-RAW-OUTPUT GATE FAILED — game events must go through the message propagator (DR-13):")
         for path, ln in violations:
-            print(f"  {path.relative_to(ROOT)}:{ln}: raw .msg_contents() — route the Event through the propagator")
+            print(f"  {path.relative_to(root)}:{ln}: raw .msg_contents() — route the Event through the propagator")
         print("  This is the seam that keeps overlapping perception zones a clean drop-in. Allowlist the")
         print("  propagator module in ALLOW once it lands.")
         return 1

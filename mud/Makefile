@@ -90,6 +90,7 @@ lint:
 	python3 tools/lints/check_no_raw_writes.py
 	python3 tools/lints/check_no_raw_output.py
 	python3 tools/lints/check_docs.py
+	python3 tools/lints/test_gates.py   # each gate still catches a planted violation, in scope only
 
 # Host-fast pure tests + gates (no Docker). The full pure suite also runs in Docker
 # via `make test`; this is the tight inner loop when host python has pytest.

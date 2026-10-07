@@ -13,5 +13,6 @@ Host-runnable scripts. **None of this runs during play** (the runtime is determi
 | `lints/check_docs.py` | **gate:** live docs don't regress from a current decision (forbids `mass_kg`, `CMD_NOMATCH`, `intent-fallback`, `event-driven`, `Pass N`, `design.md`-as-authoritative) | now |
 
 These four gates are **host-fast** (stdlib only, AST/regex-based — no false positives from comments/
-docstrings) and run in `make lint` / `make verify`, the Stop hook (`.claude/hooks/verify.sh`), and the
-optional pre-commit hook (`.githooks/pre-commit`; enable with `git config core.hooksPath .githooks`).
+docstrings) and run in `make lint` / `make verify`, the Stop hook (`mud/.claude/hooks/verify.sh`), and the
+repo root's pre-commit hook (`.githooks/pre-commit`; enable once with `make setup` at the repo root).
+`test_gates.py` proves each gate still catches a planted violation, inside its scope only (DR-29).

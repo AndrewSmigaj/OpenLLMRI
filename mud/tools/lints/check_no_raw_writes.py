@@ -18,7 +18,7 @@ import pathlib
 import sys
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
-SCAN = [ROOT / "game" / "typeclasses" / "winter_survival", ROOT / "game" / "commands" / "winter_survival"]
+SCAN = [pathlib.Path("game/typeclasses/winter_survival"), pathlib.Path("game/commands/winter_survival")]  # under the root
 ALLOW = {"game/typeclasses/winter_survival/apply.py"}  # THE effects-centric single writer (DR-10)
 
 # in-place mutators on a SaverList/SaverDict held in a .db/.ndb attribute
@@ -60,14 +60,14 @@ def violations_in(path: pathlib.Path):
     return out
 
 
-def main() -> int:
+def main(root: pathlib.Path = ROOT) -> int:
     violations = []
     scanned = 0
-    for base in SCAN:
+    for base in (root / s for s in SCAN):
         if not base.exists():
             continue
         for path in sorted(base.rglob("*.py")):
-            if str(path.relative_to(ROOT)) in ALLOW:
+            if str(path.relative_to(root)) in ALLOW:
                 continue
             scanned += 1
             for lineno, what in violations_in(path):
@@ -76,7 +76,7 @@ def main() -> int:
     if violations:
         print("NO-RAW-WRITES GATE FAILED — state must change only via apply() (DR-10):")
         for path, lineno, what in violations:
-            print(f"  {path.relative_to(ROOT)}:{lineno}: {what}")
+            print(f"  {path.relative_to(root)}:{lineno}: {what}")
         print("  Route it through an Effect + apply(), or allowlist the single-writer module in ALLOW.")
         return 1
 

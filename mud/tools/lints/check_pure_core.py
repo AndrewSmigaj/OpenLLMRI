@@ -16,7 +16,7 @@ import pathlib
 import sys
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
-SIM = ROOT / "game" / "world" / "sim"
+SIM = pathlib.Path("game/world/sim")      # relative to the MUD root
 FORBIDDEN_IMPORTS = {"evennia", "django", "random", "time", "datetime", "uuid", "secrets"}
 FORBIDDEN_FIELD_TOKENS = ("dbid", "uuid", "datetime", "timestamp")
 
@@ -32,9 +32,9 @@ def class_field_names(classdef: ast.ClassDef):
             yield stmt.target.id, stmt.lineno
 
 
-def main() -> int:
+def main(root: pathlib.Path = ROOT) -> int:
     violations = []
-    files = sorted(SIM.rglob("*.py"))
+    files = sorted((root / SIM).rglob("*.py"))
     for path in files:
         tree = ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
         for node in ast.walk(tree):
@@ -54,7 +54,7 @@ def main() -> int:
     if violations:
         print("PURE-CORE GATE FAILED — boundary/determinism violations under game/world/sim:")
         for path, lineno, what in violations:
-            print(f"  {path.relative_to(ROOT)}:{lineno}: {what}")
+            print(f"  {path.relative_to(root)}:{lineno}: {what}")
         print("  world/sim/** is the functional core: stdlib only; no evennia/django; no")
         print("  random/time/datetime/uuid; and no dbid/uuid/datetime field names (DR-12).")
         return 1

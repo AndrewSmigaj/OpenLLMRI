@@ -21,6 +21,7 @@ The authoring guides were rewritten 2026-09-07 (closure loop) and are enforced.
 from __future__ import annotations
 
 import pathlib
+import subprocess
 import re
 import sys
 
@@ -49,15 +50,23 @@ PATTERNS = [
 ]
 
 
+def tracked_docs(root: pathlib.Path) -> list:
+    """The Markdown files git tracks under root, staged ones included. Generated or ignored files on
+    disk (.pytest_cache/README.md, Django's collected static files) are not docs."""
+    out = subprocess.run(["git", "-C", str(root), "ls-files", "-z", "--", "*.md"],
+                         capture_output=True, text=True, check=True).stdout
+    return [root / rel for rel in out.split("\0") if rel and (root / rel).exists()]
+
+
 def is_excluded(rel: str) -> bool:
     return rel in EXCLUDE_FILES or any(rel.startswith(d) for d in EXCLUDE_DIRS)
 
 
-def main() -> int:
+def main(root: pathlib.Path = ROOT) -> int:
     violations = []
-    md_files = [p for p in ROOT.rglob("*.md") if not is_excluded(str(p.relative_to(ROOT)))]
+    md_files = [p for p in tracked_docs(root) if not is_excluded(str(p.relative_to(root)))]
     for path in sorted(md_files):
-        rel = str(path.relative_to(ROOT))
+        rel = str(path.relative_to(root))
         lines = path.read_text(encoding="utf-8").splitlines()
         low = [ln.lower() for ln in lines]
         for i, line in enumerate(lines):

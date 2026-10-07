@@ -7,7 +7,7 @@ authoritative record of *what each layer proves* and *when to run what*.
 
 | Layer | Command | Proves |
 |---|---|---|
-| 4 structural gates (host-fast) | `make lint` | the functional-core boundary + determinism, the single `apply()` writer, the single output path (propagator), doc-consistency |
+| 4 structural gates (host-fast) | `make lint` | the functional-core boundary + determinism, the single `apply()` writer, the single output path (propagator), doc-consistency. The shell gates scan Winter Survival's own packages and the doc gate the docs git tracks (DR-29); `tools/lints/test_gates.py` proves each gate still catches a planted violation, in scope only |
 | Tier 1 — pure unit | `make test-host` (host) / `make test` (Docker) | the pure `world/sim` engine: materials, conservation, resolver, parser, clock |
 | Tier 2 — Evennia integration | `make test-int` | the shell: Attribute↔`EntityState` marshalling, commands, the propagator, the heartbeat Script |
 | Solvability fuzz | `make fuzz` | every attempt resolves + every effect conserves mass; seeded-replay is byte-identical |
@@ -16,11 +16,11 @@ authoritative record of *what each layer proves* and *when to run what*.
 | Moment | Runs | Command |
 |---|---|---|
 | Editing (inner loop) | gates + Tier-1 pure | `make test-host` |
-| On Stop (auto, wired) | 4 gates + compose config | `.claude/hooks/verify.sh` |
-| Before each local commit | 4 gates | `.githooks/pre-commit` — enable once: `git config core.hooksPath .githooks` |
+| On Stop (auto, wired in the repo root's settings) | 4 gates + compose config, when `mud/` has changes | `mud/.claude/hooks/verify.sh` |
+| Before each local commit that touches `mud/` | 4 gates + their tests (`make -C mud lint`) | the repo root's `.githooks/pre-commit` — enabled once per clone by `make setup` at the root |
 | Before a push / full local pass | gates + compose + Tier-1 | `make verify` |
 | Shell / integration check | Tier-2 Evennia | `make test-int` |
-| Every GitHub push | all of the above | `.github/workflows/ci.yml` (auto) |
+| Every GitHub push that touches the MUD | all of the above | `.github/workflows/mud.yml` at the repo root (auto) |
 
 The two detailed tiers follow.
 
@@ -100,4 +100,4 @@ make verify      # make lint  +  docker compose config -q  +  make test
 - [../guides/loop-workflow.md](../guides/loop-workflow.md) — `make verify` in the loop.
 - `.claude/skills/run-tests/` — drive + interpret these checks (which to run when).
 - `.claude/skills/run-game/` — boot + smoke the live server for a manual playtest.
-- `.github/workflows/ci.yml` — the same gates + Tier-1 + Tier-2 run on every GitHub push.
+- `.github/workflows/mud.yml` (at the repo root) — the same gates + Tier-1 + Tier-2 run on every GitHub push that touches the MUD.
