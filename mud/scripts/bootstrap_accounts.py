@@ -5,7 +5,8 @@
   account the backend's agent runner logs in with.
 
 An account that exists without a character gets one: the runner plays a character, and accounts
-made by code (evennia.create_account) have none.
+made by code (evennia.create_account) have none. A bot account is kept out of every channel and
+refuses pages: text sent to it would reach the agent's observation, so its prompt.
 
 Run inside the evennia container's Django shell (works once Account #1 exists):
 
@@ -22,6 +23,16 @@ from django.conf import settings
 from evennia.utils.utils import class_from_module
 
 Account = class_from_module(settings.BASE_ACCOUNT_TYPECLASS)
+
+
+def keep_quiet(account) -> None:
+    """No channel posts and no pages reach a bot account."""
+    from evennia.comms.models import ChannelDB
+    for channel in ChannelDB.objects.get_subscriptions(account):
+        channel.disconnect(account)
+        print(f"[bootstrap] {account.key!r} left the channel {channel.key!r}")
+    account.locks.add("msg:false()")
+
 
 bots = {}
 for name_var, password_var in (("AGENT_ACCOUNT", "AGENT_ACCOUNT_PASSWORD"),
@@ -43,6 +54,7 @@ for name, password in bots.items():
         print(f"[bootstrap] created bot account {name!r}")
     else:
         print(f"[bootstrap] bot account {name!r} already exists")
+    keep_quiet(account)
     if not list(account.characters.all()):
         character, errors = account.create_character()
         if character is None:

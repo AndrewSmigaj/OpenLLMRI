@@ -31,6 +31,7 @@ def role_of(character) -> str:
 class InstituteRoom(Room):
     """An institute room: entering and leaving it tell the app where the character is."""
     room_type = "hub"
+    character_cmdset = "commands.institute.cmdset.InstituteCharacterCmdSet"
 
     def app_context(self, character) -> dict:
         """The `room_entered` payload for `character`."""

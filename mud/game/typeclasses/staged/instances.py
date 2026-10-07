@@ -12,6 +12,7 @@ from __future__ import annotations
 from evennia import create_object
 
 from typeclasses.staged.rooms import StagedRoom
+from typeclasses.watching import carry_watchers
 from world.staged import engine, library
 
 _ROOM = "typeclasses.staged.rooms.StagedRoom"
@@ -23,12 +24,13 @@ def load_scenario(character, key: str) -> tuple[StagedRoom, engine.StageEntered]
     loaded = library.load(key)
     old = character.location if isinstance(character.location, StagedRoom) else None
     room = create_object(_ROOM, key=loaded.scenario.room_name,
-                         attributes=[("scenario_key", key)])
+                         attributes=[("scenario_key", key), ("player", character)])
     room.ndb.loaded = loaded
     entered = room.start()
     if old is None:
         character.db.staged_return = character.location     # where `end` takes the player back
     character.move_to(room, quiet=True, look=False, move_type="scenario")
+    carry_watchers(character, room)               # before the old instance goes
     if old is not None:
         old.delete()
     room.report(character, entered)
@@ -42,6 +44,7 @@ def end_scenario(character) -> bool:
         return False
     back = character.db.staged_return or character.home
     character.move_to(back, quiet=True, look=False, move_type="scenario")
+    carry_watchers(character, back)
     character.attributes.remove("staged_return")
     room.delete()
     return True

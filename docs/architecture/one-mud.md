@@ -81,9 +81,11 @@ every earlier commit.
   Survival's register):
   - **which commands apply:** a room names its area's character command set (`character_cmdset`),
     and the character makes it its default while there, so walking from one area to another changes
-    what you can type. A room-carried command set merged over the stock one does not work: Evennia
-    treats commands as duplicates only when their keys match, so stock commands that share only an
-    alias (`get`, `examine`) stay beside the area's;
+    what you can type. A room can also pick the set per character (`character_cmdset_for`): a staged
+    scenario's room gives its player the scenario's commands and anyone else a watcher's. A
+    room-carried command set merged over the stock one does not work: Evennia treats commands as
+    duplicates only when their keys match, so stock commands that share only an alias (`get`,
+    `examine`) stay beside the area's;
   - **how a character looks:** the room's `render_character`;
   - **which typed lines it claims first:** before any command runs, the room may claim the line
     (`claim_input`). A staged scenario's room claims a line that is one of the open actions, so an
@@ -100,9 +102,18 @@ every earlier commit.
     entry. The polysemy lab shows `tank_polysemy_k6_n20` of `session_1434a9be`;
   - **the simulator** (`simulator`): `simulator` lists the library's sets, or one set's scenarios;
     `simulate <set>[/<subset>] [<scenario>]` loads a staged scenario (`leave` comes back), or enters a
-    world through its package's `build.start_room()`. Visitors browse; researchers load.
+    world through its package's `build.start_room()`. `agent run <set>[/<subset>] [<scenario>]` asks
+    the backend to play scenarios with the model, and `agent stop` stops it (section 6). Visitors
+    browse; researchers load and run agents.
   - `world/institute/build.py` builds them, idempotently: `make institute`, and on a new database's
     first start.
+- **Guests** (`connect guest`) are visitors and arrive in the hub.
+- **Watching.** In any institute room, `watch <name>` follows a character into each scenario
+  instance it loads and back out; `unwatch` returns to where watching started. In a scenario's room a
+  watcher can look, examine and list the actions, and reads every line the player types. It can't
+  act or speak there: only the player's typed lines are claimed as actions, and anything said in the
+  room would reach the player's observation, an agent's prompt. Following into a world waits for a
+  world observer mode.
 - **A world's own rules hold inside that world only.** For Winter Survival: the taught grammar, the
   world's feedback, never a menu. The simulator room is a menu on purpose.
 - **Characters cross areas,** so a world's body state applies only inside it.
@@ -155,7 +166,7 @@ The two old dialogue demos (the herbalist and the blacksmith) are parked.
 - **Each stage declares its ground-truth labels,** so a scenario can shift: a reveal at stage 3 turns a
   friend into a foe. That is the context-shift question asked of an agent that acts.
 - **Every scenario is keyed by `set_id/file`,** never by room name.
-- **Others in the room** see a line made from the typed text.
+- **Watchers in the room** read each line the player types (section 4).
 - **Nothing is ported byte for byte,** because the friend/foe probes may be redone (Andrew,
   2026-10-06).
 
@@ -197,6 +208,10 @@ labels}], {}]`. A load is silent apart from `stage_entered`; the runner decides 
 
 The simulator's console command calls the same function a person uses.
 
+**The other direction:** the simulator's `agent` command calls the backend's HTTP API
+(`/api/agent/start`, `/api/agent/stop`; `BACKEND_URL`, the host as seen from the MUD's container),
+off the server's thread. The backend still owns the GPU and refuses a second run.
+
 ## 7. Fresh instances
 
 - **One fresh instance per load.** It is removed at the next load or on leaving, never inside the action
@@ -232,7 +247,9 @@ It is built when world agents arrive; until then the backend's existing one-at-a
   - the new staged engine plays the v2 set end to end with the right completion labels
     (`make scenario-check`: every scenario once per opening action, scripted, no GPU);
   - the simulator works;
-  - the polysemy lab works.
+  - the polysemy lab works;
+  - everything the prototype was used for can be done in the new MUD: watching an agent play, guest
+    login, and starting and stopping agent runs from inside the MUD (section 4).
 
   Evennia then leaves the backend's environment.
 - **The new MUD moves to ports 4000–4002 at that point;** it uses 14000–14002 until then. The ports

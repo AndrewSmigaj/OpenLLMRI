@@ -168,6 +168,15 @@ written out below the table or in the section that owns them.
 > line, or Andrew's approval — never self-graded. The wall-sensor is persisted (`gaps.jsonl`) and
 > feeds the queue.
 
+> **DR-29a (2026-10-07) — a room can pick commands per character; watchers read but never act.** A
+> room may pick a character's command set per character (`character_cmdset_for`), not only per
+> area (`character_cmdset`). A staged scenario's room gives its player the scenario's commands and
+> anyone else a watcher's set: look, examine, `actions`, help and `unwatch`. Only the player's typed
+> lines are claimed as actions, and a watcher can't speak there, since anything said in the room
+> reaches the player's observation, an agent's prompt. `watch <name>` follows a character into
+> each instance it loads and back out, and watchers read the player's typed lines. Following into a
+> world waits for a world observer mode (`docs/architecture/one-mud.md` §4 at the repo root).
+
 ---
 
 ## 3. System overview

@@ -48,6 +48,10 @@ services:
       # creates it. Empty when there is no root .env (CI).
       EVENNIA_AGENT_USER: ${EVENNIA_AGENT_USER:-}
       EVENNIA_AGENT_PASS: ${EVENNIA_AGENT_PASS:-}
+      # The backend's API, which the simulator's `agent` command calls (the host, from here).
+      BACKEND_URL: ${BACKEND_URL:-http://host.docker.internal:8000}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     depends_on:
       postgres:
         condition: service_healthy

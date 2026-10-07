@@ -36,6 +36,9 @@ import os
 # This is the name of your game. Make it catchy!
 SERVERNAME = "Scaffold Dynamics"
 
+# Guests (`connect guest`) are visitors: they browse the institute and watch agents play.
+GUEST_ENABLED = True
+
 # Every stock Evennia command subclasses this, so each one ends with the prompt (see
 # commands/command.py), like the game's own commands.
 COMMAND_DEFAULT_CLASS = "commands.command.MuxCommand"

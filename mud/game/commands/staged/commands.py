@@ -10,7 +10,17 @@ def _room(caller):
     return room if isinstance(room, StagedRoom) else None
 
 
-class CmdStagedLook(Command):
+class _Shown:
+    """A staged command the player types is shown to watchers in the room, as an action is."""
+
+    def at_post_cmd(self):
+        room = _room(self.caller)
+        if room is not None and room.is_player(self.caller):
+            room.show_observers(self.caller, self.raw_string.strip())
+        super().at_post_cmd()
+
+
+class CmdStagedLook(_Shown, Command):
     """Look around, or at something or someone.
 
     Usage:
@@ -34,7 +44,7 @@ class CmdStagedLook(Command):
             self.caller.msg(room.examine_text(target) or "You don't see that here.")
 
 
-class CmdStagedExamine(Command):
+class CmdStagedExamine(_Shown, Command):
     """Examine something or someone closely.
 
     Usage:
@@ -55,7 +65,7 @@ class CmdStagedExamine(Command):
             self.caller.msg(room.examine_text(target) or "You don't see that here.")
 
 
-class CmdStagedInventory(Command):
+class CmdStagedInventory(_Shown, Command):
     """See what you are carrying.
 
     Usage:
@@ -70,7 +80,7 @@ class CmdStagedInventory(Command):
         self.caller.msg(room.inventory_text() if room else "You are not carrying anything.")
 
 
-class CmdActions(Command):
+class CmdActions(_Shown, Command):
     """List what you can do here. Type the command on the left of the dash.
 
     Usage:

@@ -152,10 +152,10 @@ TEMPORAL FLOW: expanding context window → raw-axis projection → transition d
 - Frontend URL: `http://localhost:5173` (Vite dev server must be running)
 
 **MUD verification (when Claude wants to watch an agent run):**
-- The MUD terminal lives inside the MUDApp page (right pane). Navigate to `http://localhost:5173`, find the terminal `textbox`, type `connect guest` to log in as a read-only observer (no credentials required — Evennia's built-in guest mode).
-- After `connect guest`, you can type `goto Bus Stop N36` (or any other room) to teleport in. Then watch the room's broadcast as the agent loop runs a scenario.
+- The MUD terminal lives inside the MUDApp page (right pane). Navigate to `http://localhost:5173`, find the terminal `textbox`, type `connect guest` to log in as a visitor (no credentials required — Evennia's guest mode). Guests arrive in the hub.
+- `watch agent` follows the agent's character into each scenario it loads and back out; `unwatch` returns. A watcher reads the scenario (`look`, `examine`, `actions`) and every line the agent types, and can't act or speak there: anything said in the room would reach the agent's prompt.
 - The agent's own login uses `EVENNIA_AGENT_USER` / `EVENNIA_AGENT_PASS` from `.env` — never overlap; let Claude observe as guest while the agent runs as `agent`.
-- Built-in MUD verbs (`look`, `examine`, `inventory`, `actions`, `goto`, `say`) produce their own visible broadcast. Scenario-action verbs (`alert bouncer` etc.) are emoted by the agent loop so they're visible too — see `agent_loop.py` BUILTIN_VERBS for the skip-list.
+- Researchers can start and stop runs from the MUD's simulator room: `agent run <set>[/<subset>] [<scenario>]` and `agent stop` ask the backend, which owns the GPU and runs one agent at a time.
 
 ### 11. CRITICAL: Change Management Rules
 - **NO CODE CHANGES WITHOUT EXPLICIT "can change code" MODE.** Source code (anything under `backend/src/`, `frontend/src/`, `evennia_world/`, top-level scripts, `.claude/skills/`, `.claude/hooks/`, settings files, build/config files) is OFF-LIMITS unless the user has explicitly said something like "you can change code" / "code-change mode on" / "go ahead and modify the code" for the current task. **This rule overrides auto mode.** Auto mode authorizes continuous execution of analysis, captures, probe authoring, and report writing — it does NOT authorize source modification. If a task seems to require a code change and you're not in code-change mode, STOP and ask. The default for source code is read-only.
