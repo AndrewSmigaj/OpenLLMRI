@@ -20,10 +20,10 @@ help:
 	@echo "  clean          - Clean cache and temp files"
 
 setup:
-	@echo "Creating Python virtual environment..."
-	python3 -m venv .venv
-	@echo "Installing Python dependencies..."
-	.venv/bin/pip install -r backend/requirements.txt
+	@echo "Creating Python virtual environment (Python 3.10.12)..."
+	python3.10 -m venv .venv
+	@echo "Installing the exact locked Python dependencies..."
+	.venv/bin/pip install -r backend/requirements.lock.txt
 	@echo "Installing frontend dependencies..."
 	cd frontend && npm install
 	@echo "Creating data directories..."
@@ -40,7 +40,7 @@ download-model:
 
 run-api:
 	@echo "Starting FastAPI backend (model takes several minutes to load)..."
-	cd backend/src && ../../.venv/bin/python -m uvicorn api.main:app --reload --host 0.0.0.0 --port 8000
+	cd backend/src && ../../.venv/bin/python -m uvicorn api.main:app --host 0.0.0.0 --port 8000
 
 run-ui:
 	@echo "Starting React frontend..."
@@ -62,7 +62,7 @@ stop:
 	@fuser 8000/tcp 5173/tcp >/dev/null 2>&1 && echo "Port 8000 or 5173 is still in use." || echo "All servers stopped."
 
 health:
-	@curl -s http://localhost:8000/health 2>/dev/null | python3 -m json.tool || echo "Backend not responding"
+	@curl -s http://localhost:8000/health 2>/dev/null | .venv/bin/python -m json.tool || echo "Backend not responding"
 
 test: test-backend test-frontend
 

@@ -198,7 +198,7 @@ The MUD is being rebuilt as one Evennia MUD that hosts the institute, its labs, 
 ### Prerequisites
 
 - CUDA GPU with 16GB+ VRAM
-- Python 3.10.12, Node.js 18+
+- Python 3.10.12, Node.js 20.19+
 - [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview)
 - ~40GB disk space for model weights
 
@@ -219,9 +219,9 @@ See [`docs/PIPELINE.md`](docs/PIPELINE.md) for the full analysis pipeline and AP
 ### Manual setup (without Claude Code)
 
 ```bash
-# Create virtual environment and install dependencies
-python3 -m venv .venv
-.venv/bin/pip install -r backend/requirements.txt
+# Create the virtual environment (Python 3.10.12) and install the exact locked versions
+python3.10 -m venv .venv
+.venv/bin/pip install -r backend/requirements.lock.txt
 cd frontend && npm install && cd ..
 
 # Download model (~40GB)
@@ -229,7 +229,7 @@ cd frontend && npm install && cd ..
 huggingface-cli download openai/gpt-oss-20b --local-dir data/models/gpt-oss-20b
 
 # Terminal 1: Backend (model takes ~2 min to load; check /health for readiness)
-cd backend/src && ../../.venv/bin/python -m uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload
+cd backend/src && ../../.venv/bin/python -m uvicorn api.main:app --host 0.0.0.0 --port 8000
 
 # Terminal 2: Frontend
 cd frontend && npm run dev

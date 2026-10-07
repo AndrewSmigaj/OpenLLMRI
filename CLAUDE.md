@@ -67,8 +67,8 @@ All platforms: use `http://localhost:8000` for API URLs. Backend binds to `0.0.0
 
 If `.venv` does not exist, the project needs initial setup:
 
-1. `python3 -m venv .venv`
-2. `.venv/bin/pip install -r backend/requirements.txt`
+1. `python3.10 -m venv .venv` (Python 3.10.12)
+2. `.venv/bin/pip install -r backend/requirements.lock.txt` (the exact working environment; `requirements.txt` lists only the direct dependencies, with loose versions)
 3. `cd frontend && npm install`
 4. Download model: `.venv/bin/pip install huggingface_hub[cli] && huggingface-cli download openai/gpt-oss-20b --local-dir data/models/gpt-oss-20b`
 
