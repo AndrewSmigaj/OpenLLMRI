@@ -2,7 +2,8 @@
 
 **Status:** a draft for Andrew's review (2026-10-07). Nothing new is built until he approves it.
 
-**Review progress:** Parts A to D reviewed with Andrew (2026-10-07).
+**Review progress:** Parts A to E reviewed with Andrew (2026-10-07), except the LLM analysis
+places still proposed (L12).
 
 **Contents:**
 - How this document works
@@ -415,8 +416,7 @@ more questions will come]:
 
 ## Part E — The app
 
-**E1. Workspaces** [Proposed; Andrew asked for screens organized around what matters, 2026-10-07,
-and said building lenses differs from using them]:
+**E1. Workspaces** [Decided, 2026-10-07]:
 
 | Workspace | What you do there | Status |
 |---|---|---|
@@ -424,32 +424,34 @@ and said building lenses differs from using them]:
 | **Layers** | see how a population flows through the layers: today's main view, improved | improved |
 | **Watch** | follow one run, live or recorded | new |
 | **Study** | compare many runs | new |
-| **MUD** | maintain the MUD and design scenarios, with Claude agents' help | new [Andrew's idea, 2026-10-04] |
+| **MUD** | maintain the MUD and design scenarios, with Claude agents' help | new |
 | **Atlas** | browse nodes, experts and routes, with their reports | later |
 | **Ideas** | track every research idea, generate new ones, follow the AI scientists. The idea evolver's engine moves into this repo | later [Decided, 2026-10-04] |
 
 **E2. Rules for every screen:**
 - **Basic controls first, the rest behind Advanced** [Decided, 2026-10-07]. For example,
   clustering's Advanced holds automatic k detection and the choice of method.
-- **Panels size themselves to the window** [Decided, 2026-10-07]. Dividers can be dragged, and any
-  panel can fill the screen and come back [Proposed].
+- **Panels size themselves to the window** [Decided, 2026-10-07]. Dividers can be dragged, and any panel can fill
+  the screen and come back.
 - **The MUD terminal folds away when it isn't needed** [Decided, 2026-10-07, approved in the time
   review].
 - **The main pane shows one timeline at a time** [Decided, 2026-10-07, approved in the time
-  review]. One chart per panel everywhere [Proposed].
+  review]. One chart per panel everywhere [Decided, 2026-10-07].
 - **Each variable gets one visual channel,** such as colour, shape, pattern or line style, and the
   legend is always on [Decided, 2026-10-07, approved in the time review].
 - **Missing pieces are named** [Decided, 2026-10-07, approved in the time review]:
   - with no validated lens for a site, the view says so and links to where lenses are built;
   - with too few runs at a point, that point is drawn faded.
-- **No sideways scrolling of the page** [Proposed]. Only charts meant to scroll do, such as the
+- **No sideways scrolling of the page** [Decided, 2026-10-07]. Only charts meant to scroll do, such as the
   all-layer Sankeys.
+- **An analysis panel beside each view** [Decided, 2026-10-07]: the LLM-written report on whatever is selected
+  (E8).
 - **Every chart exports its picture (SVG, PNG) and its data (CSV, JSON)** [Decided, 2026-10-07,
   approved in the time review].
 
 **E3. Build.**
-- **The sentence set builder** [Decided, 2026-10-07: it shows the instructions given to the authoring
-  agents and the sets that come back; steps Proposed; who writes, question L1]:
+- **The sentence set builder** [Decided, 2026-10-07: it shows the instructions given to the authoring agents and
+  the sets that come back; one `claude -p` run writes each whole set (C1)]:
   1. Describe the contrast: the target word, the classes, the carrier, the number of sentences per
      class, the scene families, the diversity rules.
   2. Read and edit the brief the authors will receive.
@@ -457,14 +459,13 @@ and said building lenses differs from using them]:
   4. Review the sentences in a table (text, class, scene family) beside the audits (C1). Edit or
      regenerate.
   5. Save the set with a version, then start its capture as a background job.
-- **The scenario builder** [Decided, 2026-10-07; steps Proposed]:
+- **The scenario builder** [Decided, 2026-10-07]:
   - it lists scenario sets and their versions;
   - you edit a scenario's stages, actions and labels, and validate them;
   - you play it yourself in the simulator, or have the agent play it;
-  - Claude agents can draft scenarios to instructions [Andrew's idea, 2026-10-04];
-  - a mini-world builder comes later, with Claude agents and skills [Andrew's idea, 2026-10-04].
-- **The lens builder** [Decided, 2026-10-07: the clustering form, basic and Advanced; steps
-  Proposed]:
+  - Claude agents can draft scenarios to instructions;
+  - a mini-world builder comes later, with Claude agents and skills.
+- **The lens builder** [Decided, 2026-10-07]:
   1. Pick a capture.
   2. **Basic:** UMAP n_neighbors and dimensions, k, a name, Build.
   3. **Advanced:**
@@ -474,7 +475,7 @@ and said building lenses differs from using them]:
   4. The build runs in the background, and the new lens opens when it is ready.
   5. Read the k profile and the held-out scores (C3, C4), then save the lens with its site and
      keywords.
-- **The kit editor** [Proposed]: for a scenario set, choose the lenses and their keywords.
+- **The kit editor** [Decided, 2026-10-07]: for a scenario set, choose the lenses and their keywords.
 
 **E4. Watch: which representations are active over time.**
 
@@ -485,17 +486,16 @@ Andrew's request [Decided, 2026-10-07]:
 - each lens read at the output too, at keywords from the scenario's MUD commands, since the output
   is the best place to capture understanding;
 - for each lens, its own Sankeys: clusters, experts, latent space;
-- while watching, perhaps four Sankey panels [Andrew's idea, 2026-10-07];
+- lens panels, as many as you want, to see which light up;
+- replay, explained readings, bookmarks, runs side by side and live alerts;
 - good use of screen space.
 
-The layout below is [Proposed] (question L6).
-
-**The layout:** the lens heatmap on top, four Sankey panels below it, and a side drawer. Each area
-can be resized and can fill the screen.
+**The layout** [Decided, 2026-10-07]: the lens heatmap on top, the lens panels below it, and a side drawer. Each
+area can be resized and can fill the screen.
 
 ```
 ┌──────────────────────────────────────────────────────────────────────────────────────────┐
-│ run: v3/stranger_reveal_07 (live) · kit: people assessment · ticks opened ▾              │
+│ run: v3/stranger_reveal_07 (live) · kit: people assessment · ◀ ▮▮ ▶ tick 1 of 3          │
 ├──────────────────────────────────────────────────────────────────────────────────────────┤
 │ LENS HEATMAP · brightness: presence · colour: which class                                │
 │ events      │ t0 arrives      ▲   │ t1 reveal           ▲   │ t2 …                       │
@@ -504,18 +504,17 @@ can be resized and can fill the screen.
 │ intent      │     ·  ▒            │     ▒  ▒          ▒    │                             │
 │ threat      │                     │  ▒     ▒  ▒  ▒    ▒    │                             │
 │ honesty     │        ░            │        ░  ▒            │                             │
-│ need        │     ·               │                        │                             │
 │ █ ▒ strong, one class or the other · ░ present, between the classes · · faint            │
 │ A the output reading, at the lens's keywords · ! still between at the output             │
-├─────────────────────────────────────────────┬────────────────────────────────────────────┤
-│ CLUSTERS · friend↔foe · L0 ──────── L23 ▸   │ EXPERTS · friend↔foe · L0 ─────── L23 ▸    │
-│ calibration flows faded; the selected       │ the selected word's experts at each        │
-│ word's path through the nodes in colour     │ layer, as a path over the faded routes     │
-├─────────────────────────────────────────────┼────────────────────────────────────────────┤
-│ CLUSTERS · threat · L0 ──────────── L23 ▸   │ EXPERTS · threat · L0 ─────────── L23 ▸    │
-│ (the lens most active in this tick)         │ (the lens most active in this tick)        │
-└─────────────────────────────────────────────┴────────────────────────────────────────────┘
-  side drawer (folds away): the run's text, each token tinted by the selected lens · MUD
+├──────────────────────────────────────────────────────────────────────────────────────────┤
+│ LENS PANELS · sorted by presence in tick 1 · pinned first · + add lens                   │
+│ ▣ friend↔foe   clusters ⇄ experts   L0 ──────────────────────────────────────── L23 ▸    │
+│     calibration flows faded; the output keyword's path in colour                         │
+│ ▣ threat       clusters ⇄ experts   L0 ──────────────────────────────────────── L23 ▸    │
+│     the strongest token's path (no threat keyword in this action)                        │
+│ ▢ honesty      not present in tick 1: dimmed                                             │
+└──────────────────────────────────────────────────────────────────────────────────────────┘
+  side drawer: the run's text, tokens tinted by the selected lens · bookmarks · MUD
 ```
 
 (The sketch shows ticks opened. By default each tick is one column; see below.)
@@ -526,7 +525,7 @@ can be resized and can fill the screen.
   - A badge says whether the lens is validated where it is read, or exploratory there.
 - **Columns:** time.
   - **By default each tick is one column,** holding the tick's output reading [Decided, 2026-10-07, approved in
-    the time review]. During a live run the newest tick opens by itself [Proposed].
+    the time review]. During a live run the newest tick opens by itself.
   - **Opening a tick shows its parts:** the observation (O), the reasoning sentence by sentence
     (R1, R2, …), and the output (A).
 - **Cells in the observation and the reasoning:** the scan's strongest token in that sentence, for
@@ -538,64 +537,105 @@ can be resized and can fill the screen.
   the concept is present but still between the classes.
 - **The events lane:** stage changes with their labels, and each action coloured by its type in the
   scenario file (friend or enemy in today's set).
-- **The layer:** each lens is read at its best held-out layer by default [Decided, 2026-10-07,
-  approved in the time review]. A selector changes it.
+- **The layer:** each lens is read at its best held-out layer by default [Decided, 2026-10-07, approved in the time
+  review]. A selector changes it.
 
-**The four Sankey panels:**
-- Each panel shows one lens and one kind of Sankey:
+**The lens panels** [Decided, 2026-10-07]:
+- **As many as you want, one lens per panel,** in a column that scrolls and sizes itself.
+- **Each panel shows its lens's cluster Sankey,** with a toggle to its expert Sankey:
   - the cluster Sankey: the lens's calibration items flowing through its nodes, layer by layer;
   - the expert Sankey: their routes through the experts.
-- **Clicking a cell selects its token:** the sentence's strongest token, or the output keyword.
-  Each panel then draws that token's path over the faded calibration flows:
-  - in the cluster Sankey, its node at each layer, found by applying the lens;
-  - in the expert Sankey, the experts it actually used at each layer.
+- **Panels sort by how strongly their lens is present in the selected tick.** Pinned panels stay at
+  the top, and a panel whose lens isn't present dims, so the ones that light up stand out.
 - **A mass-mean lens gets a Sankey too:** at each layer its readings fall into three bins: one
   class, between the classes, the other class.
-- **By default** the two top panels show the clicked lens, and the two bottom panels the lens most
-  active in the current tick. Any panel can be pinned to another lens.
-- **All 24 layers in each panel,** scrolling sideways together, so a layer lines up across the four
-  panels (E5).
+- **All 24 layers in each panel,** scrolling sideways together, so a layer lines up across panels
+  (E5).
+
+**Which token each panel uses** [Decided, 2026-10-07, for now]:
+- **To decide whether a lens lights up in a tick,** the panel takes the tick's strongest token. It
+  compares that token with the strongest token in neutral text of the same length. The strongest of
+  hundreds of tokens always looks fairly strong by chance, so a lens lights up only when it beats
+  that level.
+- **To draw the path, and compare ticks,** the panel takes the output keyword: the same kind of token
+  every tick, at the decision. If the lens has no keyword in that tick's action, the panel falls
+  back to the strongest token and says so.
+- **Clicking any heatmap cell, or any token in the text,** switches the panels to that token. Each
+  panel then draws its path over the faded calibration flows:
+  - in the cluster Sankey, its node at each layer, found by applying the lens;
+  - in the expert Sankey, the experts it actually used at each layer.
+
+**Replay** [Decided, 2026-10-07]:
+- play, pause and step through a recorded run tick by tick;
+- the heatmap, the lens panels, the text and the MUD transcript all move together;
+- it is the app's version of replaying a run in a scenario room (F1).
+
+**A reading explains itself** [Decided, 2026-10-07]:
+- hovering a lit cell shows the lens's own calibration sentences closest to that state;
+- presence already finds those nearest states, so the examples cost nothing extra.
+
+**Bookmarks** [Decided, 2026-10-07]:
+- mark a moment with a note, for example that the agent misread the person here;
+- the note is saved into the study's files, where analyst agents read it as evidence.
+
+**Side by side** [Decided, 2026-10-07]:
+- two runs with their ticks aligned;
+- for example the same scenario with and without steering, ablation or a scaffold, or played by
+  two different agents;
+- Study compares averages; this compares cases.
+
+**Live alerts** [Decided, 2026-10-07]:
+- tell me when a chosen lens lights up, or when a reading is still between the classes at the
+  output;
+- the first step toward monitoring agents (A1).
 
 **The side drawer:**
 - it holds the run's text (observation, reasoning, action), each token tinted by the selected
   lens's scan, so you can see which words lit up;
+- it holds the bookmarks;
 - during a live run it also holds the MUD terminal, where `watch agent` follows the agent;
-- outside a live run it folds away.
+- outside a live run, the terminal folds away.
 
 **What Watch needs from the rest of the software** [Proposed]:
 - the runner captures the kit's keywords in each action, and stores each tick's token ids;
 - the scan runs by replay over each tick's whole text, and stores only the readings: presence and
   position, per token, lens and layer;
-- each lens has a neutral baseline: how each token reads in neutral text, built once per lens;
+- each lens has:
+  - a neutral baseline: how each token reads in neutral text;
+  - the chance level for the strongest token in neutral text of each length;
+  - a nearest-neighbour index over its calibration states, shared by presence and the explained
+    readings;
+- the paths for each tick's default tokens are worked out with the readings;
 - readings are computed once, stored and shown. A live run adds one tick at a time.
 
 **Risks, and what answers them:**
 - **A raw reading at an arbitrary token mostly shows what the token is.** The scan compares each
   token with the same token in neutral text.
+- **The strongest of many tokens looks strong by chance.** Lighting up is judged against the chance
+  level.
 - **The middle of an axis can mean torn or absent.** Presence tells them apart (D4), and presence is
   calibrated on states that include natural in-between ones.
 - **Readings drift as a run grows.** By default the heatmap shows raw readings. With references,
   Advanced shows them against the bands.
 - **A lens not yet validated where it is read** carries the exploratory badge.
-- **Many lenses make the heatmap tall.** Rows can be grouped and folded, and empty rows hide
-  themselves.
+- **Many lenses take space.** Heatmap rows group and fold, empty rows hide, and lens panels sort and
+  dim.
 
-**E5. Layers** (today's main view, improved):
-- **All 24 layers in one view that scrolls sideways** [Andrew's idea, 2026-10-07]. It replaces
-  today's four fixed six-layer windows, whose edges cut flows [Built].
-  - A zoom sets how many layers fit (6, 12 or 24) [Proposed].
-  - An overview strip shows where you are [Proposed].
-- **The cluster Sankey and the expert Sankey are stacked and scroll together** [Proposed].
-- **Clicking a node lists the runs that pass through it, and when** [Decided, 2026-10-07, approved in
-  the time review].
-- **Clustering can be run from this view** [Decided, 2026-10-07], **and from the polysemy lab's
-  room in the MUD** [Decided, 2026-10-04].
+**E5. Layers** (today's main view, improved) [Decided, 2026-10-07]:
+- **All 24 layers in one view that scrolls sideways.** It replaces today's four fixed six-layer
+  windows, whose edges cut flows [Built].
+  - A zoom sets how many layers fit (6, 12 or 24).
+  - An overview strip shows where you are.
+- **The cluster Sankey and the expert Sankey are stacked and scroll together.**
+- **Clicking a node lists the runs that pass through it, and when** [approved in the time review].
+- **Clustering can be run from this view, and from the polysemy lab's room in the MUD** [Decided,
+  2026-10-04].
 - **More visual channels than colour blending,** such as lines shaped by sine waves [Decided,
-  2026-10-06]. Patterned Sankey nodes [Proposed].
-- **Colour by any designed axis** [Proposed]. Today only the label can colour.
+  2026-10-06], and patterned Sankey nodes.
+- **Colour by any designed axis.** Today only the label can colour.
+- **Cards with LLM-written reports** for clusters, experts, routes and expert routes (E8).
 
-**E6. Study** [Decided, 2026-10-07: the parts below were approved in the time review; the time
-design they refine awaits Andrew's ruling, question L4]:
+**E6. Study** [Decided, 2026-10-07: the parts below were approved in the time review]:
 - **A study file sets up the view:** its runs, references, lens, layer, the event to align on, and
   how runs are grouped. You pick a study; Advanced overrides a setting for one look.
 - **The study timeline:**
@@ -607,15 +647,47 @@ design they refine awaits Andrew's ruling, question L4]:
   - each run's ticks between the bands, its crossing tick, its final class and its outcome, all
     sortable.
 - **Opening a run** replaces the study timeline with that run's timeline, with a way back. A button
-  also opens the run in Watch [Proposed].
+  also opens the run in Watch.
 - **Behaviour:** each tick's action, or would-be action, against its reading.
 - **Readings are background jobs,** computed once and stored. A study of 200 runs × 7 ticks takes
   about 25–70 minutes of GPU.
 
 **E7. The app takes commands** [Decided, 2026-10-04: the app updates its views when told to,
-through some syntax]:
-- Claude Code, Claude agents and MUD commands can open a view, run a clustering or choose a lens
-  [Proposed: one small command interface for all three].
+through some syntax; one interface, 2026-10-07]:
+- Claude Code, Claude agents and MUD commands use one small command interface to open a view, run a
+  clustering or choose a lens.
+
+**E8. LLM analysis** [Decided, 2026-10-07: an analysis panel wherever it helps, and cards with LLM-written reports
+for clusters, experts, routes and expert routes].
+
+LLMs are good at spotting patterns in this data, such as pipes, hubs and split points.
+
+**The panel, the same everywhere** [Proposed]:
+- it sits beside a view and shows the report on whatever is selected;
+- each report cites the numbers it used, and a checker re-computes them;
+- reports are written in the background when their data is built, kept, and rewritten when the
+  data changes;
+- a question box asks a follow-up question about the current view;
+- reports are marked as LLM-written. A finding still goes through the paradigm's review (Part H).
+
+**Where analysis goes:**
+
+| Where | What the LLM writes | Status |
+|---|---|---|
+| Layers | a card for each cluster, expert, route and expert route | Decided, 2026-10-07 |
+| Layers | a card for each split point: what separates the two populations | Proposed |
+| Layers | a report on the expert Sankey's pipes and hubs | Proposed |
+| Layers | a short note on what each layer transition changes | Proposed |
+| Build | a critic for each new sentence set, catching confounds the numeric audits can't, such as one class always written in the past tense | Proposed |
+| Build | each lens's report (C7) | Decided, 2026-10-07 |
+| Build | a k advisor that explains the k profile while you choose | Proposed |
+| Watch | a run report: when the understanding formed, where it went wrong, why each flag fired | Proposed |
+| Watch | a short note on a clicked moment | Proposed |
+| Watch | a comparison report for runs side by side | Proposed |
+| Study | a study report on crossings, and on the differences between conditions | Proposed |
+| Atlas | reports connecting lenses, such as an expert or pipe that serves several of them: the start of the coherent model | Proposed |
+| Ideas | what to probe next, from the gaps in the atlas | Proposed |
+| MUD (later) | a guide in each lab who answers questions about the lab's view from the cards | Proposed |
 
 ## Part F — The MUD
 
@@ -782,7 +854,8 @@ Stories 1–6 come from the time design; 7–11 were added in its review, which 
       - the clustering form, basic and Advanced [Decided, 2026-10-07; Andrew left its timing to
         Claude];
       - added by Claude [Proposed]: the all-layer Layers view, colour by any designed axis, study
-        files.
+        files, and the analysis panel with its cards for clusters, experts, routes and expert
+        routes.
    2. **The sentence set builder:** the lens catalogue starts with new sentence sets.
    3. **Time on sentence runs,** checked against the paper's tank results (D7), in Study.
    4. **Provenance and jobs:**
@@ -796,7 +869,8 @@ Stories 1–6 come from the time design; 7–11 were added in its review, which 
       - the scan, with each lens's neutral baseline;
       - replay;
       - scripted runs and would-be actions;
-      - Watch;
+      - Watch, with its lens panels, replay, explained readings, bookmarks, runs side by side and
+        live alerts;
       - the experiments of D6.
    8. **Conditions and interventions:** scaffold studies, steering, ablation.
    9. **Layer transitions and trajectory upgrades,** such as patterned nodes.
@@ -819,21 +893,18 @@ Stories 1–6 come from the time design; 7–11 were added in its review, which 
 - **L4. The time design.** Answered 2026-10-07: the orderings, the project's own rules, presence
   and position, and references for studies (D1–D5).
 - **L5. The retirements in Part G.** Yes?
-- **L6. Watch (E4):**
-  - the heatmap, with ticks closed by default and the live tick opening by itself;
-  - the four Sankey panels;
-  - Sankeys for mass-mean lenses, through three bins.
-
-  Do these work for you?
-- **L7. The workspaces (E1):** Build, Layers, Watch, Study, MUD, and later Atlas and Ideas. Do the
-  names and the split work?
+- **L6. Watch (E4).** Answered 2026-10-07: the layout as drafted, with lens panels as many as
+  wanted, the token rule, replay, explained readings, bookmarks, side by side and live alerts.
+- **L7. The workspaces (E1).** Answered 2026-10-07: as drafted.
 - **L8. Relevant-neuron PCA (C2).** Answered 2026-10-07: yes, as a third kind of grouping, with the
   cautions given.
 - **L9. The order of work (Part K):**
   - Is the sentence set builder second, and time on sentence runs third, right?
   - Should slices 2–4 come before the world-building pilot, as drawn, or after it?
 - **L10. Where should agent runs start:** the MUD, the app, or both?
-- **L11. One command interface (E7)** for Claude Code, Claude agents and the MUD?
+- **L11. One command interface (E7).** Answered 2026-10-07: yes.
+- **L12. LLM analysis (E8):** which of the proposed places should get it, beyond the cards for
+  clusters, experts, routes and expert routes, and lens reports?
 
 ## Appendix — Decisions by date
 
@@ -907,17 +978,20 @@ Paraphrased from Andrew's own words. His ideas not yet decided are listed separa
   - Part C's details: the audits, the raw-space recipe, relevant-neuron PCA as a third grouping,
     the k profile and the hierarchy idea, scene-family hold-outs, the fair comparison, the
     self-check, keywords, and the kit examples (food, fire and more for Winter Survival);
+  - Part E: the workspaces, the screen rules, the builders' steps and the kit editor; Watch's
+    layout, lens panels as many as wanted, which token each panel uses, replay, explained
+    readings, bookmarks, runs side by side (conditions such as steering, ablation and
+    scaffolds, or different agents) and live alerts; the Layers improvements; Study's button
+    to Watch; one command interface; an analysis panel wherever it helps, with LLM cards for
+    clusters, experts, routes and expert routes;
   - Part D: the orderings, with earlier reasoning excluded from later ticks; the project's own
     rules for reading over time; the output reading at keywords from the MUD commands as the
     main reading; the scan over the reasoning; carriers as the controlled comparison; presence
     and position in every reading, with unresolved told apart from absent; the flag for a
     reading still unresolved at the output; references for studies; the experiments left open.
 - **Andrew's ideas, not yet decided:**
-  - **2026-10-04:** a user interface in the MUD; a MUD tab for maintenance and scenario design; Claude
-    agents drafting scenarios; a mini-world builder;
+  - **2026-10-04:** a user interface in the MUD;
   - **2026-10-06:** asking the agent to use set words in its reasoning; giving it words marked as for
     measurement only;
   - **2026-10-07:**
-    - an interface so users can choose the LLM for Claude agents' work;
-    - all layers scrolling sideways;
-    - perhaps four Sankey panels while watching.
+    - an interface so users can choose the LLM for Claude agents' work.
