@@ -63,8 +63,10 @@ up-d:
 down:
 	$(DC) down
 
+# Restart the container: `evennia reload` inside it races the old server for its internal port
+# (4005) and can leave no server running. Connected clients drop and reconnect.
 restart:
-	$(DC) run --rm evennia evennia reload || $(DC) restart evennia
+	$(DC) restart evennia
 
 logs:
 	$(DC) logs -f evennia

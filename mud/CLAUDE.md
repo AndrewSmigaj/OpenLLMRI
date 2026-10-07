@@ -37,7 +37,7 @@ user's model weights + GPU and is never containerized.
 | `make migrate` | run DB migrations |
 | `make accounts` | create admin (Account #1) + bot accounts (idempotent) |
 | `make up` / `make up-d` | run the server (foreground / detached) |
-| `make down` / `make restart` | stop / reload the server |
+| `make down` / `make restart` | stop / restart the server (connected clients reconnect) |
 | `make logs` | follow the evennia logs |
 | `make load-scenario SCENARIO=smoketest` | load a scenario |
 | `make test` | pure `world.sim` unit tests in Docker (no DB, no boot) |

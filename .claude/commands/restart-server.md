@@ -10,8 +10,8 @@ Restart the running Evennia server, then check it recovered.
    make -C mud restart
    ```
 
-   `make -C mud restart` reloads the running server (`evennia reload`), falling back to restarting
-   the container. If that fails or the stack isn't running, fall back to a full cycle:
+   `make -C mud restart` restarts the server's container (connected clients drop and reconnect).
+   If that fails or the stack isn't running, fall back to a full cycle:
 
    ```sh
    make -C mud down && make -C mud up-d

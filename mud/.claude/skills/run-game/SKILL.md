@@ -80,7 +80,7 @@ the grammar (not "Huh?"). Emergent chains are the point â€” *light the tinder â†
 
 ## Restart / logs / shell
 ```sh
-make restart                              # reload the running server (the /restart-server command)
+make restart                              # restart the server's container (the /restart-server command)
 docker compose logs -f evennia            # follow logs (Ctrl-C to stop)
 make shell                                # Evennia/Django shell for inspection
 ```
