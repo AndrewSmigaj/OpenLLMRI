@@ -13,12 +13,18 @@ import logging
 import re
 from datetime import datetime
 from pathlib import Path
+from typing import TYPE_CHECKING, Any, Dict, List, Optional, cast
 
-import yaml
+import yaml  # type: ignore[import-untyped]  # no PyYAML stubs (types-PyYAML) in the venv
 
 from services.agent.evennia_client import EvenniaClient
 from services.agent.harmony_parser import parse_harmony_channels
 from utils.memory_utils import cleanup_gpu_memory, get_gpu_memory_info
+
+if TYPE_CHECKING:
+    from transformers import BatchEncoding
+
+    from services.probes.integrated_capture_service import IntegratedCaptureService
 
 logger = logging.getLogger(__name__)
 
@@ -73,17 +79,17 @@ class AgentLoop:
         self,
         session_id: str,
         scenario_id: str,
-        target_words: list,
+        target_words: List[str],
         agent_name: str,
-        service=None,
-        scenario_list: list = None,
-        data_lake_path: str = None,
+        service: Optional["IntegratedCaptureService"] = None,
+        scenario_list: Optional[List[str]] = None,
+        data_lake_path: Optional[str] = None,
         evennia_url: str = "ws://localhost:4002",
         evennia_username: str = "agent",
         evennia_password: str = "",
         max_ticks: int = 5,
-        system_prompt: str = None,
-        session_name: str = None,
+        system_prompt: Optional[str] = None,
+        session_name: Optional[str] = None,
     ):
         self.session_id = session_id
         self.session_name = session_name or session_id
@@ -100,7 +106,7 @@ class AgentLoop:
         self.system_prompt = system_prompt or DEFAULT_SYSTEM_PROMPT
         self.running = False
 
-    async def run(self):
+    async def run(self) -> None:
         """Connect to Evennia, iterate scenarios, disconnect."""
         self.running = True
         logger.info(f"Agent loop starting for session {self.session_id}")
@@ -151,7 +157,7 @@ class AgentLoop:
             self.running = False
             logger.info(f"Agent loop finished for session {self.session_id}")
 
-    async def _run_one_scenario(self, scenario_name: str, results_path: Path):
+    async def _run_one_scenario(self, scenario_name: str, results_path: Optional[Path]) -> None:
         """Play one scenario with multi-turn Harmony format + probe capture."""
         config = self._load_scenario_config(scenario_name)
         if not config:
@@ -197,7 +203,7 @@ class AgentLoop:
             {"role": "user", "content": look_output + "\n" + inv_output + "\n" + actions_output},
         ]
 
-        tokenizer = self.service.orchestrator.tokenizer
+        tokenizer = cast("IntegratedCaptureService", self.service).orchestrator.tokenizer
         complete = False
         tick = 0
         last_action = ""
@@ -216,17 +222,17 @@ class AgentLoop:
             )
 
             # 1. Tokenize full conversation with Harmony chat template
-            inputs = tokenizer.apply_chat_template(
+            inputs = cast("BatchEncoding", tokenizer.apply_chat_template(
                 messages, add_generation_prompt=True,
                 return_dict=True, return_tensors="pt",
                 model_identity="You are an agent exploring a world.",
-            )
+            ))
             prompt_token_ids = inputs["input_ids"][0].tolist()
             prompt_token_count = len(prompt_token_ids)
 
             # 2. Generate action (hooks OFF)
             generated_text, gen_ids = await asyncio.to_thread(
-                self.service.generate, prompt_token_ids, 800,
+                cast("IntegratedCaptureService", self.service).generate, prompt_token_ids, 800,
             )
             channels = parse_harmony_channels(generated_text)
             last_action = channels["action"] or "look"
@@ -241,17 +247,17 @@ class AgentLoop:
             #    are auto-relabeled "generation" by capture_step).
             full_ids = prompt_token_ids + gen_ids
             if len(messages) > 1:
-                prefix_inputs = tokenizer.apply_chat_template(
+                prefix_inputs = cast("BatchEncoding", tokenizer.apply_chat_template(
                     messages[:-1], add_generation_prompt=False,
                     return_dict=True, return_tensors="pt",
                     model_identity="You are an agent exploring a world.",
-                )
+                ))
                 current_turn_start = prefix_inputs["input_ids"].shape[1]
             else:
                 current_turn_start = 0
 
             records, _ = await asyncio.to_thread(
-                self.service.capture_step,
+                cast("IntegratedCaptureService", self.service).capture_step,
                 self.session_id, full_ids, target_words,
                 target_position_window=(current_turn_start, len(full_ids)),
                 target_occurrence="all",
@@ -353,16 +359,16 @@ class AgentLoop:
             f"({mem.get('utilization_percent', '?')}%)"
         )
 
-    def _load_scenario_config(self, scenario_name: str) -> dict:
+    def _load_scenario_config(self, scenario_name: str) -> Optional[Dict[str, Any]]:
         """Load scenario YAML from data/worlds/scenarios/."""
         yaml_path = SCENARIOS_DIR / f"{scenario_name}.yaml"
         if not yaml_path.exists():
             logger.error(f"Scenario YAML not found: {yaml_path}")
             return None
         with open(yaml_path) as f:
-            return yaml.safe_load(f)
+            return cast(Optional[Dict[str, Any]], yaml.safe_load(f))
 
-    def _build_action_lookup(self, config: dict) -> dict:
+    def _build_action_lookup(self, config: Dict[str, Any]) -> Dict[str, Dict[str, Any]]:
         """Build command string → action metadata dict from scenario config."""
         lookup = {}
         for room in config.get("rooms", []):
@@ -377,14 +383,14 @@ class AgentLoop:
                     }
         return lookup
 
-    def _write_probe_result(self, results_path: Path, data: dict):
+    def _write_probe_result(self, results_path: Optional[Path], data: Dict[str, Any]) -> None:
         """Append one JSON line to probe_results.jsonl."""
         if results_path is None:
             return
         with open(results_path, "a") as f:
             f.write(json.dumps(data) + "\n")
 
-    def _write_session_analysis(self, session_dir: Path):
+    def _write_session_analysis(self, session_dir: Path) -> None:
         """Generate human-readable session_analysis.md from tick_log."""
         tick_log = session_dir / "tick_log.jsonl"
         if not tick_log.exists():
@@ -441,7 +447,7 @@ class AgentLoop:
         (reports_dir / report_name).write_text("\n".join(lines))
         logger.info(f"Session analysis written to {reports_dir / report_name}")
 
-    async def stop(self):
+    async def stop(self) -> None:
         """Signal the loop to stop gracefully."""
         logger.info(f"Stopping agent loop for session {self.session_id}")
         self.running = False

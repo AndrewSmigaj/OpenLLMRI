@@ -9,7 +9,7 @@ import re
 import shutil
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List
+from typing import TYPE_CHECKING, Any, Dict, List, cast
 
 from fastapi import APIRouter, Depends, HTTPException
 
@@ -28,7 +28,11 @@ from api.schemas import (
 from core.parquet_reader import read_records
 from schemas.capture_manifest import CaptureManifest
 from schemas.tokens import ProbeRecord
-from services.probes.integrated_capture_service import IntegratedCaptureService, SessionState
+from services.probes.integrated_capture_service import IntegratedCaptureService
+from services.probes.session_manager import SessionState
+
+if TYPE_CHECKING:
+    from transformers import BatchEncoding
 
 router = APIRouter()
 logger = logging.getLogger(__name__)
@@ -38,12 +42,12 @@ logger = logging.getLogger(__name__)
 async def get_probe_session_status(
     session_id: str,
     service: IntegratedCaptureService = Depends(get_capture_service)
-):
+) -> StatusResponse:
     """Get current status of probe session."""
     try:
         status = service.get_session_status(session_id)
 
-        response_data = {
+        response_data: Dict[str, Any] = {
             "session_id": session_id,
             "state": status.state.value,
             "progress": {
@@ -86,7 +90,7 @@ async def get_probe_session_status(
 @router.get("/probes", response_model=List[SessionListResponse])
 async def list_probe_sessions(
     service: IntegratedCaptureService = Depends(get_capture_service)
-):
+) -> List[SessionListResponse]:
     """List all available probe sessions."""
     try:
         sessions = []
@@ -121,7 +125,7 @@ async def list_probe_sessions(
 async def get_probe_session_details(
     session_id: str,
     service: IntegratedCaptureService = Depends(get_capture_service)
-):
+) -> SessionDetailResponse:
     """Get complete session details including manifest and data lake paths."""
     try:
         status = service.get_session_status(session_id)
@@ -235,7 +239,7 @@ async def get_probe_session_details(
 async def run_sentence_experiment(
     request: SentenceExperimentRequest,
     service: IntegratedCaptureService = Depends(get_capture_service)
-):
+) -> SentenceExperimentResponse:
     """
     Run a sentence experiment: load a sentence set, capture each sentence
     through the model as a probe, and finalize the session.
@@ -279,16 +283,16 @@ async def run_sentence_experiment(
                     # Render as text, pin the template's date line, re-encode. The
                     # token stream equals the tokenize=True path except for the
                     # date tokens themselves (verified: same length, same positions).
-                    text = tokenizer.apply_chat_template(
-                        messages, tokenize=False, add_generation_prompt=True)
+                    text = cast(str, tokenizer.apply_chat_template(
+                        messages, tokenize=False, add_generation_prompt=True))
                     text = re.sub(r"Current date: \d{4}-\d{2}-\d{2}",
                                   f"Current date: {request.pin_date}", text)
                     token_ids = tokenizer.encode(text, add_special_tokens=False)
                 else:
-                    enc = tokenizer.apply_chat_template(
+                    enc = cast("BatchEncoding", tokenizer.apply_chat_template(
                         messages, tokenize=True, add_generation_prompt=True,
                         return_tensors="pt", return_dict=True,
-                    )
+                    ))
                     token_ids = enc["input_ids"][0].tolist()
 
                 # Optional generation (capture-then-generate semantically equivalent
@@ -347,7 +351,7 @@ async def run_sentence_experiment(
 # --- Generated Output Endpoints ---
 
 @router.get("/probes/sessions/{session_id}/generated-outputs")
-async def get_generated_outputs(session_id: str):
+async def get_generated_outputs(session_id: str) -> List[Dict[str, Any]]:
     """Read generated outputs for Claude Code to categorize."""
     import pandas as pd
     tokens_path = DATA_LAKE_PATH / session_id / "tokens.parquet"
@@ -356,11 +360,13 @@ async def get_generated_outputs(session_id: str):
     df = pd.read_parquet(tokens_path)
     cols = ["probe_id", "input_text", "label", "generated_text", "output_category"]
     available = [c for c in cols if c in df.columns]
-    return df[available].to_dict(orient="records")
+    return cast(List[Dict[str, Any]], df[available].to_dict(orient="records"))
 
 
 @router.post("/probes/sessions/{session_id}/output-categories")
-async def update_output_categories(session_id: str, categories: Dict[str, Dict[str, str]]):
+async def update_output_categories(
+    session_id: str, categories: Dict[str, Dict[str, str]]
+) -> Dict[str, int]:
     """Write output categories back to tokens.parquet (Claude Code POSTs after analysis)."""
     import pandas as pd
     tokens_path = DATA_LAKE_PATH / session_id / "tokens.parquet"
@@ -380,7 +386,7 @@ async def update_output_categories(session_id: str, categories: Dict[str, Dict[s
 # --- Clustering Schema Endpoints ---
 
 @router.get("/probes/sessions/{session_id}/clusterings")
-async def list_clusterings(session_id: str):
+async def list_clusterings(session_id: str) -> Dict[str, List[Dict[str, Any]]]:
     """List available named clustering schemas for a session."""
     clusterings_dir = DATA_LAKE_PATH / session_id / "clusterings"
     if not clusterings_dir.exists():
@@ -394,13 +400,13 @@ async def list_clusterings(session_id: str):
 
 
 @router.get("/probes/sessions/{session_id}/clusterings/{schema_name}")
-async def load_clustering(session_id: str, schema_name: str):
+async def load_clustering(session_id: str, schema_name: str) -> Dict[str, Any]:
     """Load a specific clustering schema (meta + probe_assignments + reports)."""
     schema_dir = DATA_LAKE_PATH / session_id / "clusterings" / schema_name
     if not schema_dir.exists():
         raise HTTPException(status_code=404, detail=f"Clustering '{schema_name}' not found")
     meta = json.loads((schema_dir / "meta.json").read_text())
-    result: Dict = {"meta": meta}
+    result: Dict[str, Any] = {"meta": meta}
     pa_path = schema_dir / "probe_assignments.json"
     if pa_path.exists():
         result["probe_assignments"] = json.loads(pa_path.read_text())
@@ -414,7 +420,9 @@ async def load_clustering(session_id: str, schema_name: str):
 
 
 @router.post("/probes/sessions/{session_id}/clusterings/{schema_name}/element-descriptions")
-async def save_element_descriptions(session_id: str, schema_name: str, body: Dict):
+async def save_element_descriptions(
+    session_id: str, schema_name: str, body: Dict[Any, Any]
+) -> Dict[str, int]:
     """Save element descriptions (cluster labels, route labels) for a clustering schema."""
     schema_dir = DATA_LAKE_PATH / session_id / "clusterings" / schema_name
     if not schema_dir.exists():
@@ -428,7 +436,9 @@ async def save_element_descriptions(session_id: str, schema_name: str, body: Dic
 
 
 @router.post("/probes/sessions/{session_id}/clusterings/{schema_name}/reports/{window_key}")
-async def save_report(session_id: str, schema_name: str, window_key: str, body: Dict):
+async def save_report(
+    session_id: str, schema_name: str, window_key: str, body: Dict[Any, Any]
+) -> Dict[str, str]:
     """Save a Claude Code analysis report for a specific window."""
     reports_dir = DATA_LAKE_PATH / session_id / "clusterings" / schema_name / "reports"
     reports_dir.mkdir(parents=True, exist_ok=True)
@@ -440,7 +450,7 @@ async def save_report(session_id: str, schema_name: str, window_key: str, body: 
     "/probes/sessions/{session_id}/clusterings/{schema_name}/trajectory",
     response_model=TrajectoryPointsResponse,
 )
-async def get_trajectory_points(session_id: str, schema_name: str):
+async def get_trajectory_points(session_id: str, schema_name: str) -> TrajectoryPointsResponse:
     """Return the cached UMAP-3D trajectory points baked into a clustering schema.
 
     404 if the schema predates the trajectory_points artifact — caller must
@@ -477,7 +487,7 @@ async def get_trajectory_points(session_id: str, schema_name: str):
 
 
 @router.post("/probes/sessions/{session_id}/clusterings/{schema_name}/archive")
-async def archive_clustering(session_id: str, schema_name: str):
+async def archive_clustering(session_id: str, schema_name: str) -> Dict[str, str]:
     """Move a clustering schema to the `_archive/` folder.
 
     Restoring is a manual `mv` from `_archive/<name>_<ts>` back to
@@ -495,7 +505,9 @@ async def archive_clustering(session_id: str, schema_name: str):
 
 
 @router.delete("/probes/sessions/{session_id}/clusterings/{schema_name}")
-async def delete_clustering(session_id: str, schema_name: str, force: bool = False):
+async def delete_clustering(
+    session_id: str, schema_name: str, force: bool = False
+) -> Dict[str, str]:
     """Permanently delete a clustering schema directory.
 
     Returns 409 if reports/element_descriptions exist unless `force=true`.

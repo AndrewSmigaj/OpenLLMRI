@@ -4,6 +4,7 @@ LLM insights, scaffold steps, and experiments health check endpoints.
 """
 
 import logging
+from typing import Dict
 
 from fastapi import APIRouter, Depends, HTTPException
 
@@ -24,7 +25,7 @@ logger = logging.getLogger(__name__)
 async def generate_llm_insights(
     request: LLMInsightsRequest,
     service: LLMInsightsService = Depends(get_llm_insights_service)
-):
+) -> LLMInsightsResponse:
     """Generate LLM insights from expert routing data."""
     try:
         result = await service.analyze_routing_patterns(
@@ -68,6 +69,6 @@ async def run_scaffold_step(
 
 
 @router.get("/experiments/health")
-async def health_check():
+async def health_check() -> Dict[str, str]:
     """Health check for experiments API."""
     return {"status": "healthy", "service": "expert_route_analysis"}

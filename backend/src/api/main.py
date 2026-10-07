@@ -18,6 +18,7 @@ load_dotenv(_PROJECT_ROOT / ".env")
 
 import logging
 from contextlib import asynccontextmanager
+from typing import Any, AsyncIterator, Dict
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(name)s %(levelname)s %(message)s")
 
@@ -31,7 +32,7 @@ from api.routers import agent, clustering, generation, insights, probes, prompts
 logger = logging.getLogger(__name__)
 
 @asynccontextmanager
-async def lifespan(app: FastAPI):
+async def lifespan(app: FastAPI) -> AsyncIterator[None]:
     logger.info("Starting Concept MRI API")
     await initialize_capture_service()  # starts background thread, returns immediately
     logger.info("API serving — model loading in background")
@@ -61,11 +62,11 @@ app.include_router(prompts.router, prefix="/api")
 app.include_router(agent.router, prefix="/api")
 
 @app.get("/")
-async def root():
+async def root() -> Dict[str, str]:
     return {"message": "Concept MRI API", "status": "running"}
 
 @app.get("/health")
-async def health_check():
+async def health_check() -> Dict[str, Any]:
     return {
         "status": "healthy",
         "model_loaded": is_model_loaded(),

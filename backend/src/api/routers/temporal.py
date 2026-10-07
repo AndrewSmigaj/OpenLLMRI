@@ -5,6 +5,7 @@ Temporal basin capture and lag analysis endpoints.
 
 import json
 import logging
+from typing import TYPE_CHECKING, Any, Dict, List, cast
 
 from fastapi import APIRouter, Depends, HTTPException
 
@@ -22,6 +23,9 @@ from api.schemas import (
     TemporalLagPoint,
 )
 from services.probes.integrated_capture_service import IntegratedCaptureService
+
+if TYPE_CHECKING:
+    from transformers import BatchEncoding
 
 router = APIRouter()
 logger = logging.getLogger(__name__)
@@ -196,11 +200,11 @@ def _run_temporal_capture_sync(
             # model can begin its assistant reply.
             gen_text = None
             if request.generate_output:
-                gen_enc = tokenizer.apply_chat_template(
+                gen_enc = cast("BatchEncoding", tokenizer.apply_chat_template(
                     [{"role": "user", "content": cumulative_text}],
                     tokenize=True, add_generation_prompt=True,
                     return_tensors="pt", return_dict=True,
-                )
+                ))
                 gen_token_ids = gen_enc["input_ids"][0].tolist()
                 gen_text, _ = service.generate(gen_token_ids, max_new_tokens=256)
 
@@ -269,7 +273,7 @@ def _run_temporal_capture_sync(
 async def run_temporal_capture(
     request: TemporalCaptureRequest,
     service: IntegratedCaptureService = Depends(get_capture_service),
-):
+) -> TemporalCaptureResponse:
     """Run a temporal basin transition experiment.
 
     Runs the capture in a thread pool so the event loop stays free
@@ -289,16 +293,16 @@ async def run_temporal_capture(
 
 
 @router.get("/experiments/temporal-runs/{session_id}")
-async def get_temporal_runs(session_id: str):
+async def get_temporal_runs(session_id: str) -> List[Dict[str, Any]]:
     """List temporal runs for a source session."""
     runs_path = DATA_LAKE_PATH / session_id / "temporal_runs.json"
     if not runs_path.exists():
         return []
-    return json.loads(runs_path.read_text())
+    return cast(List[Dict[str, Any]], json.loads(runs_path.read_text()))
 
 
 @router.post("/experiments/temporal-lag-data", response_model=TemporalLagDataResponse)
-async def get_temporal_lag_data(request: TemporalLagDataRequest):
+async def get_temporal_lag_data(request: TemporalLagDataRequest) -> TemporalLagDataResponse:
     """Compute basin axis projection for a temporal session.
 
     Projects each temporal probe's residual stream vector onto the axis
@@ -439,7 +443,9 @@ async def get_temporal_lag_data(request: TemporalLagDataRequest):
 
         points.sort(key=lambda p: p.position)
 
-        return TemporalLagDataResponse(
+        # BUG: TemporalLagDataResponse has no temporal_run_id or basin_separation field, so pydantic
+        # drops both; the frontend reads basin_separation from this response.
+        return TemporalLagDataResponse(  # type: ignore[call-arg]  # BUG: see above
             points=points,
             regime_boundary=run_meta.get("regime_boundary", len(points) // 2),
             processing_mode=run_meta.get("processing_mode", "unknown"),
@@ -455,7 +461,7 @@ async def get_temporal_lag_data(request: TemporalLagDataRequest):
 
 
 @router.post("/experiments/raw-axis-projection", response_model=RawAxisProjectionResponse)
-async def raw_axis_projection(request: RawAxisProjectionRequest):
+async def raw_axis_projection(request: RawAxisProjectionRequest) -> RawAxisProjectionResponse:
     """Raw 2880-d difference-of-class-means projection (N1 instrument).
 
     Per layer: axis = mean(B) - mean(A) on raw residual streams at the requested

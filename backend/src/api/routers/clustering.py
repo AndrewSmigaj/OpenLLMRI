@@ -18,6 +18,8 @@ import os
 import shutil
 import time
 from datetime import datetime
+from pathlib import Path
+from typing import Any, cast
 
 from fastapi import APIRouter, Depends, HTTPException
 
@@ -36,7 +38,7 @@ router = APIRouter()
 logger = logging.getLogger(__name__)
 
 
-def _transition_dir(schema_dir, window_id: str, kind: str):
+def _transition_dir(schema_dir: Path, window_id: str, kind: str) -> Path:
     """`<schema_dir>/windows/<window_id>/<kind>/` (kind = 'cluster' or 'expert')."""
     return schema_dir / "windows" / window_id / kind
 
@@ -46,7 +48,7 @@ def _transition_filename(transition_layers: list[int]) -> str:
     return f"t_{'_'.join(str(layer) for layer in transition_layers)}"
 
 
-def _load_cached_clusters(request: LoadClusteringRequest) -> dict:
+def _load_cached_clusters(request: LoadClusteringRequest) -> dict[str, Any]:
     """Load a cached cluster-route transition from a schema directory."""
     if not request.session_ids:
         raise HTTPException(status_code=400, detail="session_ids is required")
@@ -70,14 +72,14 @@ def _load_cached_clusters(request: LoadClusteringRequest) -> dict:
             detail=f"Transition '{base_name}' not built for schema '{request.schema_name}' (window {window_id})",
         )
 
-    return json.loads(base_path.read_text())
+    return cast(dict[str, Any], json.loads(base_path.read_text()))
 
 
 def _build_schema_atomic(
     request: BuildSchemaRequest,
     cluster_service: ClusterRouteAnalysisService,
     expert_service: ExpertRouteAnalysisService,
-) -> dict:
+) -> dict[str, Any]:
     """Atomically build cluster + expert routes for every window/transition.
 
     Strategy: write everything into a temp dir, then `os.rename` it into place.
@@ -99,9 +101,9 @@ def _build_schema_atomic(
     clustering_config_dict = request.clustering_config.dict(exclude_none=True)
     filter_config_dict = request.filter_config.dict(exclude_none=True) if request.filter_config else None
 
-    centroids_all: dict = {}
-    trajectory_all: dict = {}
-    probe_assignments_all: dict = {}
+    centroids_all: dict[str, dict[str, list[float]]] = {}
+    trajectory_all: dict[str, list[dict[str, Any]]] = {}
+    probe_assignments_all: dict[str, dict[str, int]] = {}
     sample_size = None
     total_probes = None
     transition_count = 0
@@ -222,7 +224,7 @@ def _build_schema_atomic(
 async def analyze_cluster_routes(
     request: LoadClusteringRequest,
     service: ClusterRouteAnalysisService = Depends(get_cluster_analysis_service),
-):
+) -> dict[str, Any]:
     """Load cached cluster-route transition from a schema."""
     try:
         result = _load_cached_clusters(request)
@@ -245,7 +247,7 @@ async def build_schema(
     request: BuildSchemaRequest,
     cluster_service: ClusterRouteAnalysisService = Depends(get_cluster_analysis_service),
     expert_service: ExpertRouteAnalysisService = Depends(get_route_analysis_service),
-):
+) -> dict[str, Any]:
     """Atomic build: cluster + expert routes (ranks 1/2/3) for all 4 fixed windows × 6 transitions in one call."""
     try:
         return _build_schema_atomic(request, cluster_service, expert_service)

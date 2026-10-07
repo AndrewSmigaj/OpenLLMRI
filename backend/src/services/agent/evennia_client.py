@@ -13,6 +13,7 @@ import html
 import json
 import logging
 import re
+from typing import Optional, cast
 
 import websockets
 
@@ -45,11 +46,11 @@ class EvenniaClient:
 
     def __init__(self, url: str = "ws://localhost:4002"):
         self.url = url
-        self.ws = None
-        self._text_buffer: asyncio.Queue = asyncio.Queue()
-        self._reader_task = None
+        self.ws: Optional[websockets.ClientConnection] = None
+        self._text_buffer: asyncio.Queue[Optional[str]] = asyncio.Queue()
+        self._reader_task: Optional[asyncio.Task[None]] = None
 
-    async def connect(self):
+    async def connect(self) -> None:
         """Connect to Evennia and set raw mode."""
         self.ws = await websockets.connect(self.url)
         # Request raw ANSI mode (same as frontend)
@@ -58,10 +59,10 @@ class EvenniaClient:
         self._reader_task = asyncio.create_task(self._read_loop())
         logger.info(f"Connected to Evennia at {self.url}")
 
-    async def _read_loop(self):
+    async def _read_loop(self) -> None:
         """Read messages, route text to buffer, track special messages."""
         try:
-            async for raw_msg in self.ws:
+            async for raw_msg in cast("websockets.ClientConnection", self.ws):
                 try:
                     msg = json.loads(raw_msg)
                     cmdname, args = msg[0], msg[1] if len(msg) > 1 else []
@@ -105,7 +106,7 @@ class EvenniaClient:
         logger.info(f"Authenticated as {username}")
         return welcome
 
-    async def send_command(self, text: str):
+    async def send_command(self, text: str) -> None:
         """Send a text command to Evennia."""
         if self.ws:
             await self.ws.send(json.dumps(["text", [text], {}]))
@@ -133,7 +134,7 @@ class EvenniaClient:
 
         return clean_evennia_text("".join(accumulated))
 
-    async def disconnect(self):
+    async def disconnect(self) -> None:
         """Send quit and close the WebSocket connection."""
         if self.ws:
             try:

@@ -11,7 +11,7 @@ import json
 import logging
 from datetime import datetime
 from pathlib import Path
-from typing import Dict
+from typing import TYPE_CHECKING, Dict, List, cast
 
 from fastapi import APIRouter, Depends, HTTPException
 
@@ -30,16 +30,21 @@ from services.agent.harmony_parser import parse_harmony_channels
 from services.probes.integrated_capture_service import IntegratedCaptureService
 from services.probes.probe_ids import generate_capture_id
 
+if TYPE_CHECKING:
+    from transformers import BatchEncoding
+
 logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/agent", tags=["agent"])
 
 # Single-agent enforcement: only one loop at a time (single GPU, single model)
 _active_loops: Dict[str, AgentLoop] = {}
-_active_tasks: Dict[str, asyncio.Task] = {}
+_active_tasks: Dict[str, asyncio.Task[None]] = {}
 
 
-async def _run_and_cleanup(loop: AgentLoop, session_id: str, service: IntegratedCaptureService):
+async def _run_and_cleanup(
+    loop: AgentLoop, session_id: str, service: IntegratedCaptureService
+) -> None:
     """Wrap agent loop with cleanup on natural completion."""
     try:
         await loop.run()
@@ -61,7 +66,7 @@ async def _run_and_cleanup(loop: AgentLoop, session_id: str, service: Integrated
 async def start_agent_session(
     request: AgentStartRequest,
     service: IntegratedCaptureService = Depends(get_capture_service),
-):
+) -> AgentStartResponse:
     """Create a new agent capture session."""
     # Single-agent enforcement
     if _active_loops:
@@ -112,7 +117,7 @@ async def start_agent_session(
 async def stop_agent_session(
     request: AgentStopRequest,
     service: IntegratedCaptureService = Depends(get_capture_service),
-):
+) -> AgentStopResponse:
     """Stop and finalize an agent session."""
     session_id = request.session_id
 
@@ -153,7 +158,7 @@ async def stop_agent_session(
 async def resume_agent_session(
     request: AgentResumeRequest,
     service: IntegratedCaptureService = Depends(get_capture_service),
-):
+) -> AgentStartResponse:
     """Resume a completed agent session with additional scenarios."""
     if _active_loops:
         active_id = next(iter(_active_loops))
@@ -201,7 +206,7 @@ async def resume_agent_session(
 async def agent_generate(
     request: AgentGenerateRequest,
     service: IntegratedCaptureService = Depends(get_capture_service),
-):
+) -> AgentGenerateResponse:
     """Execute one agent generate tick.
 
     Sequence: generate (hooks OFF) → parse harmony → forward pass (hooks ON) →
@@ -228,11 +233,11 @@ async def agent_generate(
         {"role": "developer", "content": DEFAULT_SYSTEM_PROMPT},
         {"role": "user", "content": request.prompt},
     ]
-    inputs = tokenizer.apply_chat_template(
+    inputs = cast("BatchEncoding", tokenizer.apply_chat_template(
         messages, add_generation_prompt=True,
         return_dict=True, return_tensors="pt",
         model_identity="You are an agent exploring a world.",
-    )
+    ))
     prompt_token_ids = inputs["input_ids"][0].tolist()
     prompt_token_count = len(prompt_token_ids)
 
@@ -262,7 +267,7 @@ async def agent_generate(
         },
     )
     # Re-build target_positions for the response from the records returned
-    target_positions: dict = {}
+    target_positions: Dict[str, List[int]] = {}
     for w in request.target_words:
         target_positions[w] = [r.target_token_position for r in records if r.target_word == w]
 
@@ -270,11 +275,11 @@ async def agent_generate(
     knowledge_capture_id = None
     if request.knowledge_probe and request.target_words:
         try:
-            kp_enc = tokenizer.apply_chat_template(
+            kp_enc = cast("BatchEncoding", tokenizer.apply_chat_template(
                 [{"role": "user", "content": request.knowledge_probe}],
                 tokenize=True, add_generation_prompt=True,
                 return_tensors="pt", return_dict=True,
-            )
+            ))
             kp_token_ids = kp_enc["input_ids"][0].tolist()
             kp_records, _ = service.capture_step(
                 session_id, kp_token_ids, [request.target_words[0]],

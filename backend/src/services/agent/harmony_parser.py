@@ -11,6 +11,7 @@ The 'final' channel contains the user-facing response (mapped to 'action').
 
 import logging
 import re
+from typing import Dict
 
 logger = logging.getLogger(__name__)
 
@@ -22,7 +23,7 @@ _HARMONY_CHANNEL_RE = re.compile(
 )
 
 
-def parse_harmony_channels(text: str) -> dict:
+def parse_harmony_channels(text: str) -> Dict[str, str]:
     """Extract Harmony channels from model output.
 
     Parses <|channel|>name<|message|>content<|end|> patterns from decoded text

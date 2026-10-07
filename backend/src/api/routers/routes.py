@@ -9,6 +9,7 @@ detail GET endpoints.
 
 import json
 import logging
+from typing import Any, Dict, cast
 
 from fastapi import APIRouter, Depends, HTTPException, Query
 
@@ -27,7 +28,7 @@ router = APIRouter()
 logger = logging.getLogger(__name__)
 
 
-def _load_cached_expert_routes(request: LoadExpertRoutesRequest) -> dict:
+def _load_cached_expert_routes(request: LoadExpertRoutesRequest) -> Dict[str, Any]:
     """Load a cached expert-route transition for the requested rank."""
     if not request.session_ids:
         raise HTTPException(status_code=400, detail="session_ids is required")
@@ -52,14 +53,14 @@ def _load_cached_expert_routes(request: LoadExpertRoutesRequest) -> dict:
             detail=f"Expert routes transition '{base_name}' rank {request.expert_rank} not built for schema '{request.schema_name}' (window {window_id})",
         )
 
-    return json.loads(base_path.read_text())
+    return cast(Dict[str, Any], json.loads(base_path.read_text()))
 
 
 @router.post("/experiments/analyze-routes", response_model=RouteAnalysisResponse)
 async def analyze_expert_routes(
     request: LoadExpertRoutesRequest,
     service: ExpertRouteAnalysisService = Depends(get_route_analysis_service),
-):
+) -> Dict[str, Any]:
     """Load cached expert-route transition from a schema."""
     try:
         result = _load_cached_expert_routes(request)
@@ -83,7 +84,7 @@ async def get_route_details(
     signature: str = Query(..., description="Route signature (e.g., L0E18→L1E11→L2E14)"),
     window_layers: str = Query(..., description="Comma-separated layers (e.g., 0,1,2)"),
     service: ExpertRouteAnalysisService = Depends(get_route_analysis_service)
-):
+) -> Dict[str, Any]:
     """Get detailed information about a specific expert route."""
     try:
         try:
@@ -114,7 +115,7 @@ async def get_expert_details(
     layer: int = Query(..., description="Layer number"),
     expert_id: int = Query(..., description="Expert ID"),
     service: ExpertRouteAnalysisService = Depends(get_route_analysis_service)
-):
+) -> Dict[str, Any]:
     """Get details about a specific expert's specialization."""
     try:
         result = service.get_expert_details(

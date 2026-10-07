@@ -8,6 +8,7 @@ import sys
 import threading
 import time
 from pathlib import Path
+from typing import Any, Dict
 
 logger = logging.getLogger(__name__)
 
@@ -36,7 +37,7 @@ _loading_error = None
 _loading_start_time = None
 
 
-def _load_model_sync():
+def _load_model_sync() -> None:
     """Load model in a background thread so the API can serve health checks immediately."""
     global _capture_service, _loading_stage, _loading_error, _loading_start_time
 
@@ -76,7 +77,7 @@ def _load_model_sync():
         logger.warning("API running in limited mode (analysis endpoints work, probe capture won't)")
 
 
-async def initialize_capture_service():
+async def initialize_capture_service() -> None:
     """Start model loading in a background thread. Returns immediately."""
     if _loading_stage != "not_started":
         return  # Already started or completed
@@ -98,7 +99,7 @@ def is_model_loaded() -> bool:
     return _capture_service is not None
 
 
-def get_loading_status() -> dict:
+def get_loading_status() -> Dict[str, Any]:
     """Return current loading status for health endpoint."""
     elapsed = None
     if _loading_start_time is not None:

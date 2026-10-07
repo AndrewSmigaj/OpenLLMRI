@@ -5,7 +5,7 @@ Model adapter for OLMoE-1B-7B (Allen AI's open MoE model).
 Uses OlmoeExperts fused module and OlmoeTopKRouter (nn.Parameter weight, no bias).
 """
 
-from typing import Tuple
+from typing import Tuple, cast
 
 import torch
 import torch.nn as nn
@@ -65,22 +65,22 @@ class OLMoEAdapter(ModelAdapter):
         return model, tokenizer
 
     def get_layer(self, model: PreTrainedModel, layer_idx: int) -> nn.Module:
-        return model.model.layers[layer_idx]
+        return cast(nn.Module, model.model.layers[layer_idx])
 
     def get_moe_block(self, layer: nn.Module) -> nn.Module:
-        return layer.mlp
+        return cast(nn.Module, layer.mlp)
 
     def get_router(self, moe_block: nn.Module) -> nn.Module:
-        return moe_block.gate  # OlmoeTopKRouter with nn.Parameter weight
+        return cast(nn.Module, moe_block.gate)  # OlmoeTopKRouter with nn.Parameter weight
 
     def get_experts_module(self, moe_block: nn.Module) -> nn.Module:
-        return moe_block.experts  # OlmoeExperts fused module
+        return cast(nn.Module, moe_block.experts)  # OlmoeExperts fused module
 
     def compute_routing_weights(self, moe_block: nn.Module, hidden_states: torch.Tensor) -> torch.Tensor:
         batch, seq, dim = hidden_states.shape
         flat = hidden_states.reshape(-1, dim)
         # Manual linear using gate's weight parameter (no bias).
         # Cannot call gate(flat) directly — that triggers full top-k routing.
-        logits = F.linear(flat, moe_block.gate.weight)
+        logits = F.linear(flat, moe_block.gate.weight)  # type: ignore[union-attr, arg-type]  # nn.Module attributes are dynamic
         weights = F.softmax(logits, dim=-1)
         return weights.reshape(batch, seq, -1)
