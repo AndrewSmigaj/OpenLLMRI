@@ -2,8 +2,10 @@
 
 Status: a proposal for Andrew's ruling (2026-10-07). Nothing here is decided. It replaces the
 "temporal tab" question in the one-MUD plan's Phase 7 notes and, once ruled on, feeds the
-research-software design (Phase 10, `docs/architecture/research-platform.md`). Two independent
-reviews checked this version, and every claim it relies on was re-checked at source.
+research-software design (Phase 10, now the one design document). Two independent reviews
+checked this version, and every claim it relies on was re-checked at source. A further review,
+with suggestions for the functionality, the UX and the user stories and a certainty table, is in
+`time_in_the_mri_review.md` (2026-10-07).
 
 **References used below:**
 - §n is a section of this document. A rule is in §2, a story in §3 and a decision in §14.
@@ -45,10 +47,11 @@ in this software, whose purpose is to model how gpt-oss-20b processes meaning, a
 studies and agents?
 
 **The answer, briefly.**
-- **Time is a dimension of readings, not a separate tab.** A saved lens is read at one declared
-  site at each point of a sequence. The app already shows how a token's state changes through the
-  layers; the same lenses, read along a sequence, show how it changes as evidence arrives and as
-  the model acts.
+- **Time is read with the same saved lenses as the rest of the app,** not with an instrument of
+  its own. A saved lens is read at one declared site at each point of a sequence. The app already
+  shows how a token's state changes through the layers; the same lenses, read along a sequence,
+  show how it changes as evidence arrives and as the model acts. In the app, time has its own
+  mode (§10).
 - **Three orderings are time:** context steps, agent ticks, and reasoning steps inside one tick.
   Each tick's reasoning is a branch the next tick never sees (the runner keeps only the action),
   so readings are compared within one ordering, never across a tick.
@@ -255,6 +258,9 @@ Until then, the run timeline shows each tick's reasoning text beside the tick's 
   - that holds only for runs made by the current runner (since 2026-10-06), and only while the
     chat template and the runner's fixed model-identity line stay as they were; neither is
     recorded with the run;
+  - checked on 2026-10-07: for all 10 ticks of the three runs made since then, the re-rendered
+    prompt plus the re-encoded generation matched the recorded token count, and all 136 recorded
+    target positions landed on " person";
   - earlier runs, including the v2 friend/foe session, were rendered differently and with the
     real date, so re-rendering them is approximate and has to be checked against their stored
     target positions;
@@ -265,9 +271,15 @@ Until then, the run timeline shows each tick's reasoning text beside the tick's 
     line (decision 7).
 - **What is stored:** the reading, a few numbers per point, layer and lens. States are stored
   only for calibration items.
-- **Cost:** reading a tick's observation is one forward pass over the prompt (several hundred to
-  a few thousand tokens), much cheaper than the tick's generation of up to 800 tokens. With a lens
-  active, the runner can read each tick live for one extra pass per tick.
+- **Cost (measured 2026-10-07 on one agent run's first tick):**
+  - generation took about 9 seconds;
+  - the capture pass, including writing every row and the MUD round trip, took about 6.7 seconds;
+  - a replay point is one forward pass without those writes, roughly 1–3 seconds (an estimate);
+  - so a study of 200 runs × 7 ticks needs about 25–70 minutes of GPU for its readings, plus
+    about 3.5 hours if every tick also generates a would-be action;
+  - readings are therefore computed as a background job and stored; opening a view never starts
+    a computation;
+  - with a lens active, the runner can read each tick live, for one extra pass per tick.
 
 ## 6. Two kinds of agent study
 
