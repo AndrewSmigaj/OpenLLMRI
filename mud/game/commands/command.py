@@ -15,12 +15,29 @@ class PromptMixin:
     """Ends every command with a prompt: the marker a client reads as "this command's output is
     complete". The backend's agent reads the MUD's text up to it."""
 
-    def at_post_cmd(self):
-        super().at_post_cmd()
+    def send_prompt(self):
         self.caller.msg(prompt=">")
 
+    def at_post_cmd(self):
+        super().at_post_cmd()
+        self.send_prompt()
 
-class Command(PromptMixin, BaseCommand):
+
+class AreaInputMixin:
+    """Before any command runs, the room the caller stands in may claim the typed line: a staged
+    scenario's actions win over any command that shares their verb (give, help, …). A room claims a
+    line by defining `claim_input(caller, raw_string) -> bool`; Winter Survival's rooms and plain
+    rooms define none. A claimed line ends with the prompt like any command."""
+
+    def at_pre_cmd(self):
+        claim = getattr(getattr(self.caller, "location", None), "claim_input", None)
+        if claim is not None and claim(self.caller, self.raw_string):
+            self.send_prompt()
+            return True
+        return super().at_pre_cmd()
+
+
+class Command(AreaInputMixin, PromptMixin, BaseCommand):
     """
     Base command (you may see this if a child command had no help text defined)
 
@@ -43,9 +60,9 @@ class Command(PromptMixin, BaseCommand):
     pass
 
 
-class MuxCommand(PromptMixin, BaseMuxCommand):
-    """Evennia's MuxCommand with the prompt. settings.COMMAND_DEFAULT_CLASS points here, so every
-    stock Evennia command (look, emote, the builder and account commands) ends with it too."""
+class MuxCommand(AreaInputMixin, PromptMixin, BaseMuxCommand):
+    """Evennia's MuxCommand with the prompt and the area's claim. settings.COMMAND_DEFAULT_CLASS points
+    here, so every stock Evennia command (look, emote, the builder and account commands) has both."""
 
 
 # -------------------------------------------------------------

@@ -77,16 +77,24 @@ every earlier commit.
 ## 4. Areas in one MUD
 
 - **Every room belongs to one area:** the institute, a free-form world, or a staged scenario.
-- **The area decides which commands apply and how things are shown.** Each area's commands are an
-  Evennia command set on its rooms. Evennia 6 merges a room's commands into everyone standing in it, so
-  walking from one area to another changes what you can type.
+- **The room a character stands in decides three things, through three hooks** (DR-29 in Winter
+  Survival's register):
+  - **which commands apply:** a room names its area's character command set (`character_cmdset`),
+    and the character makes it its default while there, so walking from one area to another changes
+    what you can type. A room-carried command set merged over the stock one does not work: Evennia
+    treats commands as duplicates only when their keys match, so stock commands that share only an
+    alias (`get`, `examine`) stay beside the area's;
+  - **how a character looks:** the room's `render_character`;
+  - **which typed lines it claims first:** before any command runs, the room may claim the line
+    (`claim_input`). A staged scenario's room claims a line that is one of the open actions, so an
+    action wins over a command that shares its verb (`give`, `help`, …). Every other line runs as a
+    command.
 - **The institute is plain Evennia.** Every institute room tells the app where you are with
   `room_entered {room_type, role}`, as the old prototype's rooms did; the app's toolbar uses both
   fields.
 - **A world's own rules hold inside that world only.** For Winter Survival: the taught grammar, the
   world's feedback, never a menu. The simulator room is a menu on purpose.
-- **Characters cross areas.** Their appearance asks their room's area which renderer applies, and a
-  world's body state applies only inside it.
+- **Characters cross areas,** so a world's body state applies only inside it.
 - **The engine's gates** (pure core, no raw writes, no raw output, doc consistency) cover the world
   code they were written for. The institute and staged code have their own tests.
 
@@ -162,6 +170,11 @@ slice 1:
 - the agent can't type its way out of a scenario;
 - the backend can always move it on to the next one;
 - login is confirmed by `status`, not by matching a welcome banner.
+
+**The structured messages** carry their payload as the first argument, like `room_entered`:
+`["scenario", [{…}], {}]`, `["stage_entered", [{scenario, set, file_hash, stage, labels}], {}]` and
+`["scenario_complete", [{scenario, set, file_hash, action_id, outcome, action_type, correct, labels}],
+{}]`. A load is silent apart from `stage_entered`; the runner decides what the agent reads next.
 
 **What every run records:** `set_id@version`, the scenario id and the scenario file's hash.
 

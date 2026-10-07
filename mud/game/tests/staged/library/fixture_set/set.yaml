@@ -1,0 +1,7 @@
+# A fixture set for the MUD's integration tests; not a study set.
+id: fixture_set
+version: 1
+kind: staged
+purpose: Exercise the staged engine in the MUD (stages, labels, verbs that are also commands).
+subsets:
+  verbs_only: [fixture_verbs]

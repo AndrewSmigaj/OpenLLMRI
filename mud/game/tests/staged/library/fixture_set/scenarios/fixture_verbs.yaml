@@ -1,0 +1,36 @@
+name: fixture_verbs
+scene_id: fixture
+condition: friend
+ground_truth: friend
+target_words: ["stranger"]
+rooms:
+  - name: Verb Room
+    description: A room whose actions share their verbs with ordinary commands.
+    inventory:
+      - name: map
+        examine: A folded map.
+    npcs:
+      - name: stranger
+        short_desc: A stranger sits on the floor.
+        examine: The stranger seems lost.
+    states:
+      initial:
+        actions:
+          - id: 1
+            command: "help stranger"
+            text: Help the stranger up
+            type: friend
+            correct: true
+            effects:
+              - message: You help the stranger to their feet.
+            transitions_to: helped
+      helped:
+        actions:
+          - id: 2
+            command: "give map to stranger"
+            text: Give your map to the stranger
+            type: friend
+            correct: true
+            effects:
+              - message: You hand over the map.
+              - complete: {outcome: friend, action_id: 2}

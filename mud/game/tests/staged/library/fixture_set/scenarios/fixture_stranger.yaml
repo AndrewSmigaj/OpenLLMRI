@@ -1,0 +1,55 @@
+name: fixture_stranger
+scene_id: fixture
+condition: friend
+ground_truth: friend
+target_words: ["stranger"]
+rooms:
+  - name: Test Room
+    description: A plain test room.
+    objects:
+      - name: bench
+        examine: A wooden bench.
+    inventory:
+      - name: map
+        examine: A folded map.
+    npcs:
+      - name: stranger
+        short_desc: A stranger waits by the door.
+        examine: The stranger looks tired.
+    states:
+      initial:
+        planning_prompt: What will you do about the stranger?
+        labels: {intent: unknown}
+        actions:
+          - id: 1
+            command: "greet stranger"
+            text: Greet the stranger
+            type: friend
+            correct: true
+            effects:
+              - message: You greet the stranger.
+              - npc_react: The stranger nods.
+              - set_flag: greeted
+              - update_description: {target: stranger, description: The stranger is smiling.}
+            transitions_to: reveal
+          - id: 2
+            command: "leave"
+            text: Walk away
+            type: enemy
+            correct: false
+            effects:
+              - message: You walk away.
+              - complete: {outcome: enemy, action_id: 2}
+      reveal:
+        planning_prompt: The stranger pulls a knife. What now?
+        labels: {ground_truth: foe, intent: hostile}
+        actions:
+          - id: 3
+            command: "shove stranger"
+            text: Shove the stranger away
+            type: enemy
+            correct: true
+            requires: greeted
+            effects:
+              - message: You shove the stranger.
+              - complete: {outcome: enemy, action_id: 3}

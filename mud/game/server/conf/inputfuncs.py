@@ -50,3 +50,45 @@ as argument.
 #
 #     """
 #     pass
+
+
+def scenario(session, *args, **kwargs):
+    """The control channel for the backend's runner (any client may use it):
+
+      ["scenario", [], {"cmd": "status"}]
+      ["scenario", [], {"cmd": "load", "key": "<set_id>/<file>"}]
+      ["scenario", [], {"cmd": "end"}]
+
+    Each is answered with ["scenario", [{ok, error, logged_in, character, room, ...}], {}]; a load
+    also answers with the scenario, its set (set_id@version), its file's hash and the first stage,
+    and the room sends "stage_entered". The agent can't type its way out of a scenario: only this
+    channel (or a builder's `leave`) ends one. Imports stay inside: Evennia treats every global
+    function in this module as an input handler.
+    """
+    from typeclasses.staged.instances import end_scenario, load_scenario
+    from world.staged.scenario import ScenarioError
+
+    cmd = kwargs.get("cmd") or (args[0] if args else "")
+    character = session.puppet
+    reply = {"ok": False, "error": None, "logged_in": bool(session.logged_in),
+             "character": character.key if character else None}
+    if cmd == "status":
+        reply["ok"] = True
+    elif character is None:
+        reply["error"] = "not playing a character"
+    elif cmd == "load":
+        try:
+            room, entered = load_scenario(character, str(kwargs.get("key", "")))
+            reply.update(ok=True, scenario=room.db.scenario_key, set=room.loaded.set.ref,
+                         file_hash=room.loaded.file_hash, stage=entered.stage)
+        except ScenarioError as err:
+            reply["error"] = str(err)
+    elif cmd == "end":
+        reply["ok"] = end_scenario(character)
+        if not reply["ok"]:
+            reply["error"] = "not in a scenario"
+    else:
+        reply["error"] = f"unknown scenario command {cmd!r} (status, load or end)"
+    if character is not None and character.location is not None:
+        reply["room"] = character.location.key
+    session.msg(scenario=[reply])
