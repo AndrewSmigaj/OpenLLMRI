@@ -101,6 +101,7 @@ def test_a_scenario_walks_its_stages_with_their_labels():
     assert end.lines == ("You shove the stranger.", engine.COMPLETE_MARKER)
     [done] = end.events
     assert done == Completed(action_id=3, outcome="enemy", action_type="enemy", correct=True,
+                             canary=False,
                              labels={"scene_id": "fixture", "condition": "friend",
                                      "ground_truth": "foe", "intent": "hostile"})
     assert engine.available(sc, end.play) == () and not engine.attempt(sc, end.play, "leave").matched

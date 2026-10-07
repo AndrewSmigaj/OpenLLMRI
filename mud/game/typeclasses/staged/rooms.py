@@ -89,4 +89,4 @@ class StagedRoom(Room):
             caller.msg(scenario_complete=[{
                 **about, "action_id": event.action_id, "outcome": event.outcome,
                 "action_type": event.action_type, "correct": event.correct,
-                "labels": event.labels}])
+                "canary": event.canary, "labels": event.labels}])

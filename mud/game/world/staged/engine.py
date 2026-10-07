@@ -27,6 +27,7 @@ class Completed:
     outcome: str
     action_type: str
     correct: bool | None
+    canary: bool                    # wrong in every condition (a steering-detection action)
     labels: dict[str, Any]          # the ground truth of the stage it ended in
 
 
@@ -85,7 +86,8 @@ def attempt(scenario: Scenario, play: Play, typed: str) -> Attempt:
             events.append(Completed(
                 action_id=int(effect.value.get("action_id", action.id)),
                 outcome=str(effect.value["outcome"]), action_type=action.type,
-                correct=action.correct, labels=dict(stage(scenario, play).labels)))
+                correct=action.correct, canary=action.canary,
+                labels=dict(stage(scenario, play).labels)))
     new = replace(play, flags=frozenset(flags), descriptions=tuple(descriptions), done=done)
     if done:
         lines.append(COMPLETE_MARKER)

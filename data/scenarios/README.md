@@ -165,7 +165,7 @@ states:
   and at least one action that completes. A stage nothing can reach is reported as a warning.
 - **In the MUD,** each load is a fresh copy of the scenario's room. The player has `look`, `examine`,
   `inventory` and `actions`; the room sends `stage_entered {scenario, set, file_hash, stage, labels}`
-  on each stage, and `scenario_complete {…, action_id, outcome, action_type, correct, labels}` with the
+  on each stage, and `scenario_complete {…, action_id, outcome, action_type, correct, canary, labels}` with the
   `[SCENARIO_COMPLETE]` marker at the end (`docs/architecture/one-mud.md` §6).
 - **People** browse and load sets in the institute's simulator room; the backend's runner loads them
   through the MUD's control channel. Both call the same function.

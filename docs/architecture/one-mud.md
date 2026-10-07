@@ -190,8 +190,8 @@ slice 1:
 
 **The structured messages** carry their payload as the first argument, like `room_entered`:
 `["scenario", [{…}], {}]`, `["stage_entered", [{scenario, set, file_hash, stage, labels}], {}]` and
-`["scenario_complete", [{scenario, set, file_hash, action_id, outcome, action_type, correct, labels}],
-{}]`. A load is silent apart from `stage_entered`; the runner decides what the agent reads next.
+`["scenario_complete", [{scenario, set, file_hash, action_id, outcome, action_type, correct, canary,
+labels}], {}]`. A load is silent apart from `stage_entered`; the runner decides what the agent reads next.
 
 **What every run records:** `set_id@version`, the scenario id and the scenario file's hash.
 

@@ -87,8 +87,9 @@ class TestStaged(EvenniaTest):
         m = self._run("leave")          # an open action: it wins over the builders' `leave`
         assert _texts(m) == "You walk away.\n[SCENARIO_COMPLETE]"
         [done] = _oob(m, "scenario_complete")
-        assert {k: done[k] for k in ("action_id", "outcome", "action_type", "correct")} == {
-            "action_id": 2, "outcome": "enemy", "action_type": "enemy", "correct": False}
+        assert {k: done[k] for k in ("action_id", "outcome", "action_type", "correct", "canary")} == {
+            "action_id": 2, "outcome": "enemy", "action_type": "enemy", "correct": False,
+            "canary": False}
         assert done["labels"]["intent"] == "unknown" and done["scenario"] == KEY
         assert self.char1.location == room, "no move inside the action that ends the scenario"
 
