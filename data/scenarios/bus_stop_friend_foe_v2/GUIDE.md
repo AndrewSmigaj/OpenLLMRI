@@ -125,5 +125,13 @@ its `tick_log.jsonl`, comparing each run's first game text with today's files:
   `bus_stop_keys_locked_car_friend`, `bus_stop_road_rage_driver_foe`.
 - So the session's two runs of a scenario are two versions of it, not repeats; and only the 23 April
   runs outside the wrong-room 12 correspond to these files.
+- **Which token the README's friend/foe figure reads.** Its clusterings
+  (`bus_stop_paper_k5_n16_step0`, `_step1`) keep the last "person" in each tick's whole sequence,
+  the prompt and the model's generation together. At tick 0 that is the " person" in the model's own
+  final answer, "examine person", for 484 of 499 captures (two tokens from the end of the
+  sequence); 497 of the 499 are in the generation. At tick 1, 420 of 479 are in the generation:
+  the final action when it ends in "person", otherwise a mention inside the reasoning. So the figure
+  compares the model's own output token at tick 0 with a mixture of sites at tick 1, not the
+  description alone with the examined person.
 - The session's per-scenario axis labels (person role, threat modality, urgency, weather, …) are in
   `data/lake/session_b629b6c5/scenario_axes.json`, beside the capture, not in the scenario files.
