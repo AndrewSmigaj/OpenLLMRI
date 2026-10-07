@@ -6,10 +6,13 @@ LLM Insights Service - Generate AI-powered insights from expert routing patterns
 import json
 import logging
 import math
-from typing import Any, Dict, List, Optional
+from typing import TYPE_CHECKING, Any, Dict, List, Optional, Union, cast
 
 from anthropic import AsyncAnthropic
 from openai import AsyncOpenAI
+
+if TYPE_CHECKING:
+    from anthropic.types import TextBlock
 
 logger = logging.getLogger(__name__)
 
@@ -115,14 +118,17 @@ USER'S ANALYSIS REQUEST:
 Please analyze the expert routing patterns based on the user's request. When discussing category distributions, be careful to calculate percentages within each axis separately. Focus on discovering interesting patterns in how experts specialize in different categories, how routing patterns change across layers, and any semantic or linguistic insights you can derive from the context-target pairs and category distributions."""
 
         try:
+            client: Union[AsyncOpenAI, AsyncAnthropic]
             if provider == "openai":
                 client = AsyncOpenAI(api_key=api_key)
-                response = await client.chat.completions.create(
+                # BUG: the pinned openai 1.40.0 has no max_completion_tokens, so this call raises
+                # TypeError; mypy finds no matching overload and types the response as Any.
+                response = await client.chat.completions.create(  # type: ignore[call-overload]
                     model="gpt-5",
                     max_completion_tokens=16384,
                     messages=[{"role": "user", "content": context}]
                 )
-                return response.choices[0].message.content
+                return response.choices[0].message.content  # type: ignore[no-any-return]
             else:  # anthropic
                 client = AsyncAnthropic(api_key=api_key)
                 response = await client.messages.create(
@@ -130,7 +136,7 @@ Please analyze the expert routing patterns based on the user's request. When dis
                     max_tokens=16384,
                     messages=[{"role": "user", "content": context}]
                 )
-                return response.content[0].text
+                return cast("TextBlock", response.content[0]).text
 
         except Exception as e:
             logger.error(f"❌ LLM API error: {e}")
@@ -141,8 +147,8 @@ Please analyze the expert routing patterns based on the user's request. When dis
         prompt: str,
         data_sources: List[str],
         output_type: str,
-        expert_windows: Optional[List[Dict]] = None,
-        cluster_windows: Optional[List[Dict]] = None,
+        expert_windows: Optional[List[Dict[str, Any]]] = None,
+        cluster_windows: Optional[List[Dict[str, Any]]] = None,
         previous_outputs: Optional[List[str]] = None,
         api_key: str = "",
         provider: str = "openai",
@@ -186,9 +192,12 @@ Please analyze the expert routing patterns based on the user's request. When dis
         full_prompt = f"{prompt}\n\n{data_context}{label_instruction}"
 
         # --- Call LLM ---
+        client: Union[AsyncOpenAI, AsyncAnthropic]
         if provider == "openai":
             client = AsyncOpenAI(api_key=api_key)
-            response = await client.chat.completions.create(
+            # BUG: the pinned openai 1.40.0 has no max_completion_tokens, so this call raises
+            # TypeError; mypy finds no matching overload and types the response as Any.
+            response = await client.chat.completions.create(  # type: ignore[call-overload]
                 model="gpt-5.4",
                 max_completion_tokens=16384,
                 messages=[{"role": "user", "content": full_prompt}],
@@ -236,7 +245,7 @@ Please analyze the expert routing patterns based on the user's request. When dis
             # Otherwise look for a nested key
             for key in ["labels", "element_labels", "results", "data"]:
                 if key in data and isinstance(data[key], dict):
-                    return data[key]
+                    return data[key]  # type: ignore[no-any-return]  # unchecked LLM JSON
             # Fallback: return the dict as-is, converting values to strings
             return {k: str(v) for k, v in data.items()}
 

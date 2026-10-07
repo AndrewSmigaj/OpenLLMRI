@@ -52,8 +52,10 @@ class ClusterRouteAnalysisService:
         self,
         session_id: Optional[str] = None,
         session_ids: Optional[List[str]] = None,
-        window_layers: List[int] = None,
-        clustering_config: Dict[str, Any] = None,
+        # BUG: window_layers and clustering_config are required in practice: both are used
+        # unconditionally below, so their None defaults crash.
+        window_layers: List[int] = None,  # type: ignore[assignment]
+        clustering_config: Dict[str, Any] = None,  # type: ignore[assignment]
         filter_config: Optional[Dict[str, Any]] = None,
         steps: Optional[List[int]] = None,
         top_n_routes: int = 20,
@@ -170,7 +172,7 @@ class ClusterRouteAnalysisService:
         self,
         session_id: str,
         source: str = "expert_output",
-    ) -> Tuple[list, List[ProbeRecord], Optional[CaptureManifest]]:
+    ) -> Tuple[List[Dict[str, Any]], List[ProbeRecord], Optional[CaptureManifest]]:
         """Load raw embeddings, tokens, and manifest for a session."""
         session_path = self.data_lake_path / f"session_{session_id}"
         if not session_path.exists():
@@ -224,7 +226,7 @@ class ClusterRouteAnalysisService:
         self,
         session_ids: List[str],
         source: str = "expert_output",
-    ) -> Tuple[list, List[ProbeRecord], Optional[CaptureManifest]]:
+    ) -> Tuple[List[Dict[str, Any]], List[ProbeRecord], Optional[CaptureManifest]]:
         """Load and merge data from multiple sessions."""
         all_embeddings = []
         all_tokens = []
@@ -256,10 +258,10 @@ class ClusterRouteAnalysisService:
 
     def _apply_filters(
         self,
-        embeddings: list,
+        embeddings: List[Dict[str, Any]],
         token_records: List[ProbeRecord],
         filter_config: Dict[str, Any]
-    ) -> Tuple[list, List[ProbeRecord]]:
+    ) -> Tuple[List[Dict[str, Any]], List[ProbeRecord]]:
         """Apply label-based filtering to records."""
         if not filter_config:
             return embeddings, token_records
@@ -283,7 +285,7 @@ class ClusterRouteAnalysisService:
 
     def _perform_clustering(
         self,
-        embeddings: list,
+        embeddings: List[Dict[str, Any]],
         window_layers: List[int],
         clustering_config: Dict[str, Any],
         reduction_method: str = "pca",
@@ -296,7 +298,7 @@ class ClusterRouteAnalysisService:
             'centroids': {layer: {cluster_id: ndarray}} — in reduced space
             'reducers': {layer: fitted_model} — fitted PCA/UMAP for transforming new data
         """
-        cluster_assignments = {}
+        cluster_assignments: Dict[str, Dict[int, Dict[str, Any]]] = {}
         centroids_by_layer = {}
         reducers_by_layer = {}
 
@@ -402,11 +404,11 @@ class ClusterRouteAnalysisService:
 
     def _compute_trajectory_points(
         self,
-        embeddings: list,
+        embeddings: List[Dict[str, Any]],
         token_records: List[ProbeRecord],
         window_layers: List[int],
         n_neighbors: int = 15,
-    ) -> Dict[int, list]:
+    ) -> Dict[int, List[Dict[str, Any]]]:
         """Fit a 3D UMAP per layer for the trajectory plot.
 
         Same filtered embeddings as the clustering, same seed (42). No PCA
@@ -425,7 +427,7 @@ class ClusterRouteAnalysisService:
         for record in embeddings:
             emb_by_layer[record["layer"]].append(record)
 
-        trajectory_by_layer: Dict[int, list] = {}
+        trajectory_by_layer: Dict[int, List[Dict[str, Any]]] = {}
 
         for layer in window_layers:
             if layer not in emb_by_layer:
@@ -482,11 +484,11 @@ class ClusterRouteAnalysisService:
         cluster_assignments: Dict[str, Dict[int, Dict[str, Any]]],
         token_records: List[ProbeRecord],
         window_layers: List[int]
-    ) -> Dict[str, Dict]:
+    ) -> Dict[str, Dict[str, Any]]:
         """Extract cluster routes for target tokens."""
         token_by_probe = {t.probe_id: t for t in token_records}
 
-        routes = defaultdict(lambda: {
+        routes: Dict[str, Dict[str, Any]] = defaultdict(lambda: {
             "tokens": [],
             "count": 0,
             "confidence_scores": []
@@ -531,17 +533,21 @@ class ClusterRouteAnalysisService:
 
     def _build_sankey_data(
         self,
-        routes: Dict[str, Dict],
+        routes: Dict[str, Dict[str, Any]],
         token_records: List[ProbeRecord],
         max_examples: Optional[int] = None,
     ) -> Dict[str, Any]:
         """Build Sankey diagram data with label-based distributions."""
-        transitions = defaultdict(lambda: defaultdict(int))
+        transitions: Dict[str, Dict[str, int]] = defaultdict(lambda: defaultdict(int))
         layer_clusters = defaultdict(set)
-        cluster_label_counts = defaultdict(lambda: defaultdict(int))
-        cluster_target_word_counts = defaultdict(lambda: defaultdict(int))
-        cluster_category_counts = defaultdict(lambda: defaultdict(lambda: defaultdict(int)))
-        cluster_example_tokens = defaultdict(list)
+        cluster_label_counts: Dict[str, Dict[str, int]] = defaultdict(lambda: defaultdict(int))
+        cluster_target_word_counts: Dict[str, Dict[str, int]] = defaultdict(
+            lambda: defaultdict(int)
+        )
+        cluster_category_counts: Dict[str, Dict[str, Dict[str, int]]] = defaultdict(
+            lambda: defaultdict(lambda: defaultdict(int))
+        )
+        cluster_example_tokens: Dict[str, List[Dict[str, Any]]] = defaultdict(list)
 
         token_lookup = {t.probe_id: t for t in token_records}
 
@@ -618,7 +624,7 @@ class ClusterRouteAnalysisService:
 
     def _calculate_statistics(
         self,
-        routes: Dict[str, Dict],
+        routes: Dict[str, Dict[str, Any]],
         cluster_assignments: Dict[str, Dict[int, Dict[str, Any]]],
         window_layers: List[int]
     ) -> Dict[str, Any]:

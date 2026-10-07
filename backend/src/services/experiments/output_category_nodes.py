@@ -9,7 +9,7 @@ Sankey window, showing how latent-space routing correlates with behavioral outco
 
 import json
 from collections import defaultdict
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any, Dict, List, Optional, Set, Tuple, cast
 
 from schemas.tokens import ProbeRecord
 from services.experiments.route_analysis_common import axis_label
@@ -21,18 +21,18 @@ def is_output_node(name: str) -> bool:
     return name.startswith(OUTPUT_NODE_PREFIX)
 
 
-def is_output_link(link: dict) -> bool:
-    return link.get("target", "").startswith(OUTPUT_NODE_PREFIX)
+def is_output_link(link: Dict[str, Any]) -> bool:
+    return cast(str, link.get("target", "")).startswith(OUTPUT_NODE_PREFIX)
 
 
 def build_output_category_layer(
-    nodes: List[dict],
-    links: List[dict],
-    routes: Dict[str, Dict],
+    nodes: List[Dict[str, Any]],
+    links: List[Dict[str, Any]],
+    routes: Dict[str, Dict[str, Any]],
     token_records: List[ProbeRecord],
     window_layers: List[int],
     output_grouping_axes: Optional[List[str]] = None,
-) -> Tuple[List[dict], List[dict], List[Dict[str, Any]]]:
+) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]], List[Dict[str, Any]]]:
     """Build output category nodes and links, appending them to existing Sankey data.
 
     Returns (augmented_nodes, augmented_links, output_available_axes).
@@ -73,6 +73,7 @@ def build_output_category_layer(
             record = record_lookup.get(pid)
             if not record:
                 continue
+            cat: Optional[str]
             if output_grouping_axes:
                 output_cat_json = getattr(record, 'output_category_json', None)
                 if not output_cat_json:
@@ -190,7 +191,7 @@ def build_output_category_layer(
         link_label_dist: Dict[str, int] = defaultdict(int)
         link_tw_dist: Dict[str, int] = defaultdict(int)
         link_cat_dists: Dict[str, Dict[str, int]] = defaultdict(lambda: defaultdict(int))
-        link_examples = []
+        link_examples: List[Dict[str, Any]] = []
 
         for record in records:
             if record.label:
@@ -250,7 +251,7 @@ def _generate_output_specialization(label_dist: Dict[str, int], total: int, cate
 
 def _compute_output_axes(category_groups: Dict[str, List[ProbeRecord]]) -> List[Dict[str, Any]]:
     """Compute available output axes from output_category_json across all categorized probes."""
-    axis_values: Dict[str, set] = defaultdict(set)
+    axis_values: Dict[str, Set[str]] = defaultdict(set)
 
     for records in category_groups.values():
         for record in records:

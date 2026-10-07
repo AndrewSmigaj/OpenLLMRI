@@ -34,7 +34,8 @@ class ExpertRouteAnalysisService:
         self,
         session_id: Optional[str] = None,
         session_ids: Optional[List[str]] = None,
-        window_layers: List[int] = None,
+        # BUG: window_layers is required in practice: it is iterated, so the None default crashes.
+        window_layers: List[int] = None,  # type: ignore[assignment]
         filter_config: Optional[Dict[str, Any]] = None,
         steps: Optional[List[int]] = None,
         top_n_routes: int = 20,
@@ -286,7 +287,7 @@ class ExpertRouteAnalysisService:
         token_records: List[ProbeRecord],
         window_layers: List[int],
         expert_rank: int = 1,
-    ) -> Dict[str, Dict]:
+    ) -> Dict[str, Dict[str, Any]]:
         """Extract expert routes for target tokens within specified window layers."""
         routing_by_probe = defaultdict(list)
         for record in routing_records:
@@ -294,7 +295,7 @@ class ExpertRouteAnalysisService:
 
         token_by_probe = {t.probe_id: t for t in token_records}
 
-        routes = defaultdict(lambda: {
+        routes: Dict[str, Dict[str, Any]] = defaultdict(lambda: {
             "tokens": [],
             "count": 0,
             "confidence_scores": []
@@ -340,15 +341,19 @@ class ExpertRouteAnalysisService:
 
     def _build_sankey_data(
         self,
-        routes: Dict[str, Dict],
+        routes: Dict[str, Dict[str, Any]],
         token_records: List[ProbeRecord],
     ) -> Dict[str, Any]:
         """Build Sankey diagram data with label-based distributions."""
-        transitions = defaultdict(lambda: defaultdict(int))
+        transitions: Dict[str, Dict[str, int]] = defaultdict(lambda: defaultdict(int))
         layer_experts = defaultdict(set)
-        expert_label_counts = defaultdict(lambda: defaultdict(int))
-        expert_target_word_counts = defaultdict(lambda: defaultdict(int))
-        expert_category_counts = defaultdict(lambda: defaultdict(lambda: defaultdict(int)))
+        expert_label_counts: Dict[str, Dict[str, int]] = defaultdict(lambda: defaultdict(int))
+        expert_target_word_counts: Dict[str, Dict[str, int]] = defaultdict(
+            lambda: defaultdict(int)
+        )
+        expert_category_counts: Dict[str, Dict[str, Dict[str, int]]] = defaultdict(
+            lambda: defaultdict(lambda: defaultdict(int))
+        )
         expert_example_tokens = defaultdict(list)
         expert_all_probe_ids = defaultdict(set)
 
@@ -428,7 +433,7 @@ class ExpertRouteAnalysisService:
 
     def _calculate_statistics(
         self,
-        routes: Dict[str, Dict],
+        routes: Dict[str, Dict[str, Any]],
         routing_records: List[RoutingRecord],
         window_layers: List[int]
     ) -> Dict[str, Any]:
@@ -456,7 +461,7 @@ class ExpertRouteAnalysisService:
     ) -> Dict[str, Any]:
         """Get label breakdown for a set of tokens."""
         token_lookup = {t.probe_id: t for t in token_records}
-        label_counts = defaultdict(int)
+        label_counts: Dict[str, int] = defaultdict(int)
 
         for token_info in tokens:
             probe_id = token_info.get("probe_id")

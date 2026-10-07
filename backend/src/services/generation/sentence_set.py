@@ -9,7 +9,7 @@ import os
 import re
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Set
 
 
 @dataclass
@@ -65,7 +65,7 @@ def compute_char_span(text: str, target_word: str) -> List[int]:
 
 def validate_sentence(
     entry: SentenceEntry,
-    existing_texts: Optional[set] = None,
+    existing_texts: Optional[Set[str]] = None,
     set_type: str = "standard",
 ) -> List[str]:
     """Validate a single sentence entry. Returns list of error strings (empty = valid).
@@ -111,7 +111,7 @@ def validate_sentence_set(ss: SentenceSet) -> List[str]:
     noise for cumulative texts by treating them as pools too.
     """
     errors = []
-    existing_texts = set()
+    existing_texts: Set[str] = set()
     set_type = (ss.metadata or {}).get("set_type", "standard")
     if set_type == "assembled":
         set_type = "pool"
@@ -140,8 +140,8 @@ def validate_sentence_set(ss: SentenceSet) -> List[str]:
 
 # --- I/O ---
 
-def _entry_to_dict(entry: SentenceEntry) -> dict:
-    d = {
+def _entry_to_dict(entry: SentenceEntry) -> Dict[str, Any]:
+    d: Dict[str, Any] = {
         "text": entry.text,
         "group": entry.group,
         "target_word": entry.target_word,
@@ -151,7 +151,7 @@ def _entry_to_dict(entry: SentenceEntry) -> dict:
     return d
 
 
-def _entry_from_dict(d: dict) -> SentenceEntry:
+def _entry_from_dict(d: Dict[str, Any]) -> SentenceEntry:
     return SentenceEntry(
         text=d["text"],
         group=d.get("group", ""),
@@ -162,7 +162,7 @@ def _entry_from_dict(d: dict) -> SentenceEntry:
 
 def save_sentence_set(ss: SentenceSet, path: str) -> None:
     """Serialize SentenceSet to JSON file."""
-    data = {
+    data: Dict[str, Any] = {
         "name": ss.name,
         "version": ss.version,
         "target_word": ss.target_word,
@@ -239,7 +239,7 @@ def list_available_sentence_sets(
     base_dir: str = "data/sentence_sets"
 ) -> List[Dict[str, Any]]:
     """List available sentence sets with quick metadata."""
-    results = []
+    results: List[Dict[str, Any]] = []
     base = Path(base_dir)
 
     if not base.exists():

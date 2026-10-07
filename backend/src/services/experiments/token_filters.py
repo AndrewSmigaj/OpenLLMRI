@@ -4,7 +4,7 @@ Query-time token filters shared across expert route, cluster route, and
 reduction services.
 """
 
-from typing import Dict, List, Optional, Set
+from typing import Dict, List, Optional, Set, Tuple
 
 from schemas.tokens import ProbeRecord
 
@@ -18,7 +18,7 @@ def pick_last_occurrence(token_records: List[ProbeRecord]) -> Set[str]:
     populate target_char_offset.
     """
     # group_key -> (max_offset, probe_id)
-    best: Dict[tuple, tuple] = {}
+    best: Dict[Tuple[str, str, str], Tuple[int, str]] = {}
     keep: Set[str] = set()
 
     for t in token_records:

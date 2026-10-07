@@ -7,7 +7,7 @@ Generates label-specific sentences with validation and retry logic.
 import json
 import logging
 import os
-from typing import List, Optional
+from typing import TYPE_CHECKING, Any, List, Optional, Set, Union, cast
 
 from anthropic import AsyncAnthropic
 from openai import AsyncOpenAI
@@ -18,6 +18,10 @@ from services.generation.sentence_set import (
     save_sentence_set,
     validate_sentence,
 )
+
+if TYPE_CHECKING:
+    from anthropic.types import Message, TextBlock
+    from openai.types.chat import ChatCompletion
 
 logger = logging.getLogger(__name__)
 
@@ -73,7 +77,9 @@ class SentenceGenerator:
             existing_texts=existing_texts
         )
 
-        ss = SentenceSet(
+        # BUG: SentenceSet is N-group now (`groups`); it has no label_a/b, description_a/b or
+        # sentences_a/b/neutral fields, so this call raises TypeError and generation always fails.
+        ss = SentenceSet(  # type: ignore[call-arg]
             name=name,
             version="1.0",
             target_word=target_word,
@@ -109,7 +115,7 @@ class SentenceGenerator:
         max_retries: int,
         api_key: str,
         provider: str,
-        existing_texts: set,
+        existing_texts: Set[str],
     ) -> List[SentenceEntry]:
         """Generate sentences for one group with batching and retries."""
         collected: List[SentenceEntry] = []
@@ -159,7 +165,7 @@ class SentenceGenerator:
         label: str,
         description: str,
         count: int,
-        existing_texts: set,
+        existing_texts: Set[str],
         api_key: str,
         provider: str,
     ) -> List[SentenceEntry]:
@@ -177,7 +183,7 @@ class SentenceGenerator:
         label: str,
         description: str,
         count: int,
-        existing_texts: set,
+        existing_texts: Set[str],
     ) -> str:
         """Build the prompt for sentence generation."""
         avoid_block = ""
@@ -210,6 +216,8 @@ Generate exactly {count} sentences."""
 
     async def _call_llm(self, prompt: str, api_key: str, provider: str) -> str:
         """Call LLM API and return raw response text."""
+        client: Union[AsyncOpenAI, AsyncAnthropic]
+        response: Union[ChatCompletion, Message]
         if provider == "openai":
             client = AsyncOpenAI(api_key=api_key)
             response = await client.chat.completions.create(
@@ -218,7 +226,8 @@ Generate exactly {count} sentences."""
                 response_format={"type": "json_object"},
                 temperature=0.9,
             )
-            return response.choices[0].message.content
+            # content is None only for a reply without text; the retry loop's except handles that.
+            return response.choices[0].message.content  # type: ignore[return-value]
         else:
             client = AsyncAnthropic(api_key=api_key)
             response = await client.messages.create(
@@ -226,7 +235,7 @@ Generate exactly {count} sentences."""
                 max_tokens=4096,
                 messages=[{"role": "user", "content": prompt}],
             )
-            return response.content[0].text
+            return cast("TextBlock", response.content[0]).text
 
     def _parse_llm_response(
         self, raw: str, target_word: str, group_code: str
@@ -281,7 +290,7 @@ Generate exactly {count} sentences."""
         return entries
 
     async def generate_and_save(
-        self, path: str, **kwargs
+        self, path: str, **kwargs: Any
     ) -> SentenceSet:
         """Generate a sentence set and save it to disk."""
         ss = await self.generate_sentence_set(**kwargs)

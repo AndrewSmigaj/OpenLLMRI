@@ -15,7 +15,7 @@ from schemas.capture_manifest import CaptureManifest
 from schemas.tokens import ProbeRecord
 
 
-def axis_label(axis_id: str, sorted_values: list) -> str:
+def axis_label(axis_id: str, sorted_values: List[str]) -> str:
     """Generate a display label for a color axis based on its cardinality."""
     if len(sorted_values) == 2:
         return f"{sorted_values[0]} vs {sorted_values[1]}"
@@ -37,7 +37,7 @@ def generate_specialization(label_dist: Dict[str, int], total_tokens: int) -> st
     return " / ".join(parts)
 
 
-def analyze_top_routes(routes: Dict[str, Dict], top_n: int) -> List[Dict[str, Any]]:
+def analyze_top_routes(routes: Dict[str, Dict[str, Any]], top_n: int) -> List[Dict[str, Any]]:
     """Get top N most frequent routes with statistics."""
     sorted_routes = sorted(
         routes.items(),
@@ -72,7 +72,7 @@ def analyze_top_routes(routes: Dict[str, Dict], top_n: int) -> List[Dict[str, An
 def compute_available_axes(
     token_records: List[ProbeRecord],
     manifest: Optional[CaptureManifest]
-) -> List[Dict[str, str]]:
+) -> List[Dict[str, Any]]:
     """Compute available color axes from session data."""
     axes = []
 
@@ -130,7 +130,8 @@ def compute_available_axes(
 
 
 def build_sankey_links(
-    transitions: Dict, routes: Dict, token_lookup: Dict,
+    transitions: Dict[str, Dict[str, int]], routes: Dict[str, Dict[str, Any]],
+    token_lookup: Dict[str, ProbeRecord],
     max_examples: Optional[int] = None,
 ) -> List[Dict[str, Any]]:
     """Build Sankey link data from transitions and route information.
@@ -144,11 +145,11 @@ def build_sankey_links(
         for target, count in transitions[source].items():
             route_signature = f"{source}→{target}"
 
-            link_label_counts = defaultdict(int)
-            link_tw_counts = defaultdict(int)
-            link_category_counts = defaultdict(lambda: defaultdict(int))
+            link_label_counts: Dict[str, int] = defaultdict(int)
+            link_tw_counts: Dict[str, int] = defaultdict(int)
+            link_category_counts: Dict[str, Dict[str, int]] = defaultdict(lambda: defaultdict(int))
             link_token_count = 0
-            link_examples = []
+            link_examples: List[Dict[str, Any]] = []
 
             for sig, route_info in routes.items():
                 if sig == route_signature:
