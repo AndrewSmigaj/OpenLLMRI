@@ -8,13 +8,15 @@ boundary — everything that touches the GPU lives here.
 """
 
 import logging
-from typing import TYPE_CHECKING, Dict, List, Optional, Tuple
+from typing import TYPE_CHECKING, Any, Dict, List, Optional, Tuple, cast
 
 import torch
 
 from services.probes.routing_capture import EnhancedRoutingCapture
 
 if TYPE_CHECKING:
+    from transformers import PreTrainedModel, PreTrainedTokenizerBase
+
     from adapters.base_adapter import ModelAdapter
 
 logger = logging.getLogger(__name__)
@@ -23,7 +25,8 @@ logger = logging.getLogger(__name__)
 class CaptureOrchestrator:
     """Manages model inference, hook lifecycle, and GPU memory."""
 
-    def __init__(self, model, tokenizer, adapter: Optional['ModelAdapter'], layers_to_capture: List[int]):
+    def __init__(self, model: 'PreTrainedModel', tokenizer: 'PreTrainedTokenizerBase',
+                 adapter: Optional['ModelAdapter'], layers_to_capture: List[int]):
         self.model = model
         self.tokenizer = tokenizer
         self.adapter = adapter
@@ -55,15 +58,15 @@ class CaptureOrchestrator:
 
     def run_forward_pass(
         self, input_tensor: torch.Tensor,
-        past_key_values=None, use_cache: bool = False,
+        past_key_values: Optional[object] = None, use_cache: bool = False,
         attention_mask: Optional[torch.Tensor] = None,
-    ) -> Tuple[object, Optional[object]]:
+    ) -> Tuple[Any, Optional[object]]:
         """Run a single forward pass through the model.
 
         Returns (outputs, new_past_key_values or None).
         """
         with torch.no_grad():
-            forward_kwargs = {"input_ids": input_tensor}
+            forward_kwargs: Dict[str, Any] = {"input_ids": input_tensor}
             if attention_mask is not None:
                 forward_kwargs["attention_mask"] = attention_mask
             if past_key_values is not None:
@@ -102,9 +105,11 @@ class CaptureOrchestrator:
                 }
                 if attention_mask is not None:
                     gen_kwargs["attention_mask"] = attention_mask
-                gen_output = self.model.generate(**gen_kwargs)
+                gen_output = self.model.generate(**gen_kwargs)  # type: ignore[operator]  # from GenerationMixin
             generated_ids = gen_output[0, input_tensor.shape[1]:]
-            return self.tokenizer.decode(generated_ids, skip_special_tokens=skip_special_tokens)
+            return cast(str, self.tokenizer.decode(
+                generated_ids, skip_special_tokens=skip_special_tokens
+            ))
         finally:
             if self.routing_capture is not None:
                 self.routing_capture.register_hooks(verbose=False)
@@ -143,18 +148,22 @@ class CaptureOrchestrator:
                 if seed is not None:
                     torch.manual_seed(seed)
                     torch.cuda.manual_seed_all(seed)
-                gen_output = self.model.generate(**gen_kwargs)
+                gen_output = self.model.generate(**gen_kwargs)  # type: ignore[operator]  # from GenerationMixin
             generated_ids = gen_output[0, input_tensor.shape[1]:]
-            text = self.tokenizer.decode(generated_ids, skip_special_tokens=skip_special_tokens)
+            text = cast(str, self.tokenizer.decode(
+                generated_ids, skip_special_tokens=skip_special_tokens
+            ))
             return text, generated_ids.tolist()
         finally:
             if self.routing_capture is not None:
                 self.routing_capture.register_hooks(verbose=False)
 
-    def get_captured_data(self) -> Tuple[Dict, Dict, Dict]:
+    def get_captured_data(
+        self,
+    ) -> Tuple[Dict[str, Dict[str, Any]], Dict[str, Dict[str, Any]], Dict[str, Dict[str, Any]]]:
         """Return the three captured data dicts from the last forward pass."""
         return (
-            self.routing_capture.routing_data,
-            self.routing_capture.embedding_data,
-            self.routing_capture.residual_stream_data,
+            self.routing_capture.routing_data,  # type: ignore[union-attr]  # set by initialize_hooks()
+            self.routing_capture.embedding_data,  # type: ignore[union-attr]  # set by initialize_hooks()
+            self.routing_capture.residual_stream_data,  # type: ignore[union-attr]  # set by initialize_hooks()
         )

@@ -26,9 +26,12 @@ Verified invariants (see plan):
 
 from __future__ import annotations
 
-from typing import List
+from typing import TYPE_CHECKING, List, cast
 
 from transformers import PreTrainedTokenizerBase
+
+if TYPE_CHECKING:
+    from transformers import BatchEncoding
 
 SUFFIX_LITERAL = "<|end|><|start|>assistant"
 
@@ -58,14 +61,14 @@ class HarmonyKVChain:
     def first_step_tokens(self, content: str) -> List[int]:
         """Full harmony chat-template wrap MINUS the trailing suffix tokens.
         The cache after the forward pass covers `<system_prefix> + content`."""
-        enc = self._tok.apply_chat_template(
+        enc = cast("BatchEncoding", self._tok.apply_chat_template(
             [{"role": "user", "content": content}],
             tokenize=True,
             add_generation_prompt=True,
             return_tensors="pt",
             return_dict=True,
-        )
-        full_ids = enc["input_ids"][0].tolist()
+        ))
+        full_ids: List[int] = enc["input_ids"][0].tolist()
         return full_ids[: -self._suffix_len]
 
     def next_step_tokens(self, sentence: str) -> List[int]:
@@ -75,4 +78,4 @@ class HarmonyKVChain:
 
         Leading space is required — BPE tokenizes ' B.' differently from
         'B.' and the cumulative cache-off tokenization expects ' '+next."""
-        return self._tok.encode(" " + sentence, add_special_tokens=False)
+        return cast(List[int], self._tok.encode(" " + sentence, add_special_tokens=False))

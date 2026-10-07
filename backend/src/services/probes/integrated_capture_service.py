@@ -10,7 +10,7 @@ Public API is unchanged: same methods, same signatures. All existing callers
 import gc
 import logging
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from typing import TYPE_CHECKING, Any, Dict, List, Optional, Tuple, Union, cast
 
 import torch
 
@@ -24,6 +24,17 @@ from services.probes.session_manager import SessionManager, SessionState, Sessio
 
 # Schema imports needed by SessionBatchWriters
 from utils.memory_utils import cleanup_gpu_memory
+
+if TYPE_CHECKING:
+    from transformers import PreTrainedModel, PreTrainedTokenizerBase
+
+    from adapters.base_adapter import ModelAdapter
+    from schemas.capture_manifest import CaptureManifest
+    from schemas.embedding import EmbeddingRecord
+    from schemas.residual_stream import ResidualStreamState
+    from schemas.routing import RoutingRecord
+    from schemas.tokens import ProbeRecord
+    from utils.wordnet_mining import WordNetMiner
 
 logger = logging.getLogger(__name__)
 
@@ -48,6 +59,7 @@ class SessionBatchWriters:
             raise RuntimeError("Writers have been closed")
         try:
             self.tokens_writer.add_record(probe_data.probe_record)
+            r: Union['RoutingRecord', 'EmbeddingRecord', 'ResidualStreamState']
             for r in probe_data.routing_records:
                 self.routing_writer.add_record(r)
             for r in probe_data.embedding_records:
@@ -84,9 +96,11 @@ class IntegratedCaptureService:
       - CaptureOrchestrator: model inference, hooks, GPU memory
     """
 
-    def __init__(self, model, tokenizer, layers_to_capture: Optional[List[int]] = None,
+    def __init__(self, model: 'PreTrainedModel', tokenizer: 'PreTrainedTokenizerBase',
+                 layers_to_capture: Optional[List[int]] = None,
                  *, data_lake_path: str, batch_size: int = 1000,
-                 wordnet_miner=None, adapter=None):
+                 wordnet_miner: Optional['WordNetMiner'] = None,
+                 adapter: Optional['ModelAdapter'] = None):
         self.adapter = adapter
 
         if layers_to_capture is None:
@@ -121,20 +135,21 @@ class IntegratedCaptureService:
 
     # --- Property delegates for router compatibility ---
     @property
-    def data_lake_path(self):
+    def data_lake_path(self) -> str:
         return self.session_mgr.data_lake_path
 
     @property
-    def sessions_dir(self):
+    def sessions_dir(self) -> Path:
         return self.session_mgr.sessions_dir
 
     @property
-    def active_sessions(self):
+    def active_sessions(self) -> Dict[str, SessionStatus]:
         return self.session_mgr.active_sessions
 
     def create_sentence_session(
         self, session_name: str, total_probes: int, target_word: str,
-        labels: List[str], experiment_id: str = None, sentence_set_name: str = None,
+        labels: List[str], experiment_id: Optional[str] = None,
+        sentence_set_name: Optional[str] = None,
     ) -> str:
         session_id = self.session_mgr.create_session(
             session_name, total_probes, target_word, labels, experiment_id, sentence_set_name
@@ -177,15 +192,15 @@ class IntegratedCaptureService:
         token_ids: List[int],
         target_words: List[str],
         *,
-        past_kv=None,
+        past_kv: Optional[object] = None,
         use_cache: bool = False,
         capture_static_substring: Optional[str] = None,
         target_position_window: Optional[Tuple[int, int]] = None,
         target_occurrence: str = "last",
         prompt_token_count: int = 0,
-        metadata: Optional[Dict] = None,
+        metadata: Optional[Dict[str, Any]] = None,
         logit_token_sets: Optional[Dict[str, List[str]]] = None,
-    ) -> Tuple[list, any]:
+    ) -> Tuple[List['ProbeRecord'], Optional[object]]:
         """One capture forward pass with hooks ON; finds target words; writes
         ProbeRecord(s); returns (records, new_past_kv)."""
         if metadata is None:
@@ -243,7 +258,7 @@ class IntegratedCaptureService:
                 logger.warning(f"logit_token_sets computation failed: {e}")
 
         # input_text: caller can override (e.g. agent stores game_text); default = decoded
-        decoded = self.processor.tokenizer.decode(token_ids, skip_special_tokens=True)
+        decoded = cast(str, self.processor.tokenizer.decode(token_ids, skip_special_tokens=True))
         input_text = metadata.get("input_text") or decoded
 
         def _char_offset(text: str, word: str, occurrence_idx: int) -> Optional[int]:
@@ -334,12 +349,12 @@ class IntegratedCaptureService:
         token_ids: List[int],
         max_new_tokens: int,
         *,
-        attention_mask=None,
+        attention_mask: Optional[torch.Tensor] = None,
         skip_special_tokens: bool = True,
         do_sample: bool = False,
         temperature: float = 1.0,
         top_p: float = 1.0,
-        seed=None,
+        seed: Optional[int] = None,
     ) -> Tuple[str, List[int]]:
         """Generation forward pass with hooks OFF. Returns (text, generated_ids).
         Wraps orchestrator.generate_continuation_with_ids; lifts hook
@@ -362,7 +377,7 @@ class IntegratedCaptureService:
     # END NEW PRIMITIVES
     # ====================================================================
 
-    def finalize_session(self, session_id: str):
+    def finalize_session(self, session_id: str) -> 'CaptureManifest':
         if session_id not in self.session_mgr.active_sessions:
             raise ValueError(f"Session {session_id} not active")
 

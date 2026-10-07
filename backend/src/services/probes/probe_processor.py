@@ -9,7 +9,7 @@ No model inference, no I/O, no GPU state.
 import logging
 from dataclasses import dataclass
 from datetime import datetime
-from typing import TYPE_CHECKING, Dict, List, Optional, Tuple
+from typing import TYPE_CHECKING, Any, Dict, List, Optional, Tuple
 
 from schemas.embedding import EmbeddingRecord, create_embedding_record
 from schemas.residual_stream import ResidualStreamState, create_residual_stream_state
@@ -17,6 +17,8 @@ from schemas.routing import RoutingRecord, create_routing_record
 from schemas.tokens import ProbeRecord, create_probe_record
 
 if TYPE_CHECKING:
+    from transformers import PreTrainedTokenizerBase
+
     from adapters.base_adapter import ModelAdapter
 
 logger = logging.getLogger(__name__)
@@ -36,7 +38,8 @@ class ProbeCapture:
 class ProbeProcessor:
     """Text processing and schema conversion for probe captures."""
 
-    def __init__(self, tokenizer, adapter: Optional['ModelAdapter'], layers_to_capture: List[int]):
+    def __init__(self, tokenizer: 'PreTrainedTokenizerBase', adapter: Optional['ModelAdapter'],
+                 layers_to_capture: List[int]):
         self.tokenizer = tokenizer
         self.adapter = adapter
         self.layers_to_capture = layers_to_capture
@@ -54,7 +57,7 @@ class ProbeProcessor:
                     ids.append(tokens[0])
         return ids
 
-    def find_word_token_position(self, token_ids: list, word: str) -> Tuple[int, int]:
+    def find_word_token_position(self, token_ids: List[int], word: str) -> Tuple[int, int]:
         """Find a word's token position in a tokenized sequence.
 
         Returns (position, token_id). Picks last occurrence if multiple matches.
@@ -80,7 +83,9 @@ class ProbeProcessor:
         positions.sort(key=lambda p: p[0])
         return positions[-1]
 
-    def find_substring_token_range(self, token_ids: list, substring: str) -> Optional[List[int]]:
+    def find_substring_token_range(
+        self, token_ids: List[int], substring: str,
+    ) -> Optional[List[int]]:
         """Find a substring's token positions in a tokenized sequence.
 
         Returns a list of token positions (one per substring-token), corresponding
@@ -112,7 +117,9 @@ class ProbeProcessor:
                         last_match = candidate_match
         return last_match
 
-    def find_all_word_token_positions(self, token_ids: list, word: str) -> List[Tuple[int, int]]:
+    def find_all_word_token_positions(
+        self, token_ids: List[int], word: str,
+    ) -> List[Tuple[int, int]]:
         """Find ALL positions where a word appears in a tokenized sequence.
 
         Like find_word_token_position but returns every occurrence, not just the last.
@@ -147,24 +154,24 @@ class ProbeProcessor:
         target_token_id: int,
         target_token_position: int,
         total_tokens: int,
-        routing_data: Dict,
-        embedding_data: Dict,
-        residual_stream_data: Dict,
-        context_word: str = None,
-        context_token_position: int = None,
-        experiment_id: str = None,
-        sequence_id: str = None,
-        sentence_index: int = None,
-        label: str = None,
-        label2: str = None,
+        routing_data: Dict[str, Dict[str, Any]],
+        embedding_data: Dict[str, Dict[str, Any]],
+        residual_stream_data: Dict[str, Dict[str, Any]],
+        context_word: Optional[str] = None,
+        context_token_position: Optional[int] = None,
+        experiment_id: Optional[str] = None,
+        sequence_id: Optional[str] = None,
+        sentence_index: Optional[int] = None,
+        label: Optional[str] = None,
+        label2: Optional[str] = None,
         categories: Optional[Dict[str, str]] = None,
-        transition_step: int = None,
-        turn_id: int = None,
-        scenario_id: str = None,
-        capture_type: str = None,
-        target_char_offset: int = None,
+        transition_step: Optional[int] = None,
+        turn_id: Optional[int] = None,
+        scenario_id: Optional[str] = None,
+        capture_type: Optional[str] = None,
+        target_char_offset: Optional[int] = None,
         extra_positions: Optional[List[int]] = None,
-        first_token_logprobs: Optional[Dict] = None,
+        first_token_logprobs: Optional[Dict[str, Dict[str, float]]] = None,
     ) -> ProbeCapture:
         """Convert raw capture data to schema records.
 

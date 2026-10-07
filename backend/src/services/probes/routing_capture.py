@@ -5,13 +5,16 @@ Simple approach: register all hooks upfront, no complex dynamic registration.
 """
 
 import logging
-from typing import TYPE_CHECKING, Dict, List, Optional
+from typing import TYPE_CHECKING, Any, Callable, Dict, List, Optional, Tuple, cast
 
 import torch
 
 logger = logging.getLogger(__name__)
 
 if TYPE_CHECKING:
+    from torch.utils.hooks import RemovableHandle
+    from transformers import PreTrainedModel
+
     from adapters.base_adapter import ModelAdapter
 
 
@@ -24,16 +27,16 @@ class EnhancedRoutingCapture:
     - Configurable layer windows for UI flexibility
     """
 
-    def __init__(self, model, layers_to_capture: Optional[List[int]] = None,
+    def __init__(self, model: 'PreTrainedModel', layers_to_capture: Optional[List[int]] = None,
                  adapter: Optional['ModelAdapter'] = None):
         self.model = model
         self.adapter = adapter
-        self.hooks = []
+        self.hooks: List['RemovableHandle'] = []
 
         # Data storage organized for schema conversion
-        self.routing_data = {}        # For RoutingRecord schema
-        self.embedding_data = {}      # For EmbeddingRecord schema
-        self.residual_stream_data = {} # For ResidualStreamState schema
+        self.routing_data: Dict[str, Dict[str, Any]] = {}        # For RoutingRecord schema
+        self.embedding_data: Dict[str, Dict[str, Any]] = {}      # For EmbeddingRecord schema
+        self.residual_stream_data: Dict[str, Dict[str, Any]] = {} # For ResidualStreamState schema
 
         # Use adapter for defaults, fall back to legacy hardcoded values
         if layers_to_capture is None:
@@ -42,7 +45,7 @@ class EnhancedRoutingCapture:
         self.layers_to_capture = layers_to_capture
         logger.info(f"Enhanced capture for layers: {self.layers_to_capture}")
 
-    def register_hooks(self, verbose: bool = True):
+    def register_hooks(self, verbose: bool = True) -> None:
         """Register all hooks upfront - simple approach."""
         for layer_idx in self.layers_to_capture:
             try:
@@ -51,7 +54,7 @@ class EnhancedRoutingCapture:
                     moe_block = self.adapter.get_moe_block(layer)
                 else:
                     layer = self.model.model.layers[layer_idx]
-                    moe_block = layer.mlp
+                    moe_block = cast(torch.nn.Module, layer.mlp)
 
                 # 1. MLP hook (captures both routing computation and output)
                 mlp_hook = moe_block.register_forward_hook(
@@ -71,9 +74,11 @@ class EnhancedRoutingCapture:
             except Exception as e:
                 logger.error(f"Failed to register hooks for layer {layer_idx}: {e}")
 
-    def _make_mlp_combined_hook(self, layer_id: int):
+    def _make_mlp_combined_hook(
+        self, layer_id: int,
+    ) -> Callable[[torch.nn.Module, Tuple[Any, ...], Any], None]:
         """Create combined MLP hook that extracts routing and output data."""
-        def mlp_combined_hook(module, input, output):
+        def mlp_combined_hook(module: torch.nn.Module, input: Tuple[Any, ...], output: Any) -> None:
             try:
                 # Extract input hidden states
                 if isinstance(input, tuple):
@@ -89,8 +94,8 @@ class EnhancedRoutingCapture:
                     hidden_states_flat = hidden_states.reshape(-1, hidden_dim)
                     router_logits = torch.nn.functional.linear(
                         hidden_states_flat,
-                        module.router.weight,
-                        module.router.bias
+                        module.router.weight,  # type: ignore[union-attr, arg-type]  # nn.Module __getattr__
+                        module.router.bias  # type: ignore[union-attr, arg-type]  # nn.Module __getattr__
                     )
                     router_logits = router_logits.reshape(batch_size, seq_len, -1)
                     routing_weights = torch.softmax(router_logits, dim=-1)
@@ -126,9 +131,11 @@ class EnhancedRoutingCapture:
         return mlp_combined_hook
 
 
-    def _make_residual_hook(self, layer_id: int):
+    def _make_residual_hook(
+        self, layer_id: int,
+    ) -> Callable[[torch.nn.Module, Tuple[Any, ...], Any], None]:
         """Create hook for decoder layer to capture full residual stream."""
-        def residual_hook(module, input, output):
+        def residual_hook(module: torch.nn.Module, input: Tuple[Any, ...], output: Any) -> None:
             try:
                 # GptOssDecoderLayer.forward() returns plain torch.Tensor
                 # Handle both cases defensively
@@ -154,13 +161,13 @@ class EnhancedRoutingCapture:
         entropy = -torch.sum(routing_weights * log_probs, dim=-1)
         return entropy
 
-    def clear_data(self):
+    def clear_data(self) -> None:
         """Clear all captured data."""
         self.routing_data.clear()
         self.embedding_data.clear()
         self.residual_stream_data.clear()
 
-    def remove_hooks(self):
+    def remove_hooks(self) -> None:
         """Remove all registered hooks."""
         for hook in self.hooks:
             hook.remove()
@@ -188,9 +195,9 @@ class EnhancedRoutingCapture:
 
         return highways
 
-    def get_summary(self) -> Dict:
+    def get_summary(self) -> Dict[str, Dict[str, Dict[str, Any]]]:
         """Get comprehensive summary of captured data."""
-        summary = {
+        summary: Dict[str, Dict[str, Dict[str, Any]]] = {
             "routing_summary": {},
             "activation_summary": {}
         }

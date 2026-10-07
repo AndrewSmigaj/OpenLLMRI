@@ -12,7 +12,7 @@ from dataclasses import dataclass
 from datetime import datetime
 from enum import Enum
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Any, Dict, List, Optional
 
 import pyarrow as pa
 import pyarrow.parquet as pq
@@ -83,8 +83,8 @@ class SessionManager:
         total_probes: int,
         target_word: str,
         labels: List[str],
-        experiment_id: str = None,
-        sentence_set_name: str = None,
+        experiment_id: Optional[str] = None,
+        sentence_set_name: Optional[str] = None,
     ) -> str:
         """Create a new capture session. Returns session_id."""
         session_id = generate_capture_id("session")
@@ -128,7 +128,7 @@ class SessionManager:
         target_words: List[str],
         bootstrap_session_id: str,
         agent_name: str,
-        capture_type_config: List[str] = None,
+        capture_type_config: Optional[List[str]] = None,
     ) -> str:
         """Create a new agent capture session. Returns session_id."""
         if capture_type_config is None:
@@ -294,7 +294,7 @@ class SessionManager:
             del self.active_sessions[session_id]
         logger.info(f"Session {session_id} aborted")
 
-    def _restore_session(self, session_id: str, metadata: dict) -> None:
+    def _restore_session(self, session_id: str, metadata: Dict[str, Any]) -> None:
         """Restore an active session from persisted metadata."""
         # For agent sessions, recover turn_id from tick_log line count
         turn_id = 0
