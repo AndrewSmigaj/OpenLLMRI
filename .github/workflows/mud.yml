@@ -1,29 +1,36 @@
-# Whiteout MUD — continuous integration (the "auto-checks on every push").
+# The MUD — continuous integration (the "auto-checks on every push").
 #
-# This runs the SAME checks we run locally, on a GitHub Linux runner, on every push, and
-# stamps a green check / red X on each commit:
+# This runs the SAME checks we run locally, on a GitHub Linux runner, on every push that touches
+# the MUD or the scenario data, and stamps a green check / red X on each commit:
 #   - make lint      the 4 host-fast structural gates
 #   - make test      Tier-1 pure sim unit tests (no DB)
+#   - make migrate   create the schema in the runner's fresh Postgres (Evennia needs it to start)
 #   - make test-int  Tier-2 Evennia integration tests (throwaway test DB)
 #
-# It reuses the EXACT SAME Docker image + make targets as local dev. The image base is
-# pinned by digest (docker/evennia/Dockerfile), so there is no "works on my machine" drift:
+# It reuses the EXACT SAME Docker image + make targets as local dev, from mud/. The image base is
+# pinned by digest (mud/docker/evennia/Dockerfile), so there is no "works on my machine" drift:
 # GitHub builds and runs the identical container you run at home.
 #
 # There is intentionally NO deploy (CD) step — this experiment runs locally over telnet and
 # has nowhere to deploy to. If the MUD is ever hosted, add a deploy job after the checks pass.
 
-name: ci
+name: mud
 
 on:
   push:
-  # To also gate pull requests, uncomment:
-  # pull_request:
+    paths:
+      - 'mud/**'
+      - 'data/scenarios/**'
+      - 'data/labs/**'
+      - '.github/workflows/mud.yml'
 
 jobs:
   checks:
     name: gates + unit + integration
     runs-on: ubuntu-latest   # ships make, Docker Engine, Compose v2 and python3
+    defaults:
+      run:
+        working-directory: mud
     steps:
       - name: Check out the repo
         uses: actions/checkout@v4
@@ -39,6 +46,9 @@ jobs:
 
       - name: Tier-1 — pure sim unit tests (no DB, no Evennia boot)
         run: make test
+
+      - name: Create the database schema (a fresh Postgres on every run)
+        run: make migrate
 
       - name: Tier-2 — Evennia integration tests (Postgres service + throwaway test DB)
         run: make test-int
