@@ -2,6 +2,8 @@
 
 **Status:** a draft for Andrew's review (2026-10-07). Nothing new is built until he approves it.
 
+**Review progress:** Part A reviewed with Andrew (2026-10-07).
+
 **Contents:**
 - How this document works
 - Terms
@@ -88,6 +90,7 @@
 | **tick** | one agent turn: an observation, the model's reasoning, its action |
 | **reasoning stream** | the model's own reasoning text in a tick (gpt-oss's analysis channel) |
 | **ordering** | what a sequence of readings steps through: context steps, ticks, or reasoning steps inside one tick |
+| **scaffold** | text that guides how the agent reasons, such as a system prompt, a persona or a planning prompt |
 | **references** | runs whose label never changes, read with the same lens. They show where each class's readings sit at each point |
 | **band** | the range holding most of one class's reference readings at one point |
 | **between the bands** | a reading between the two classes' bands at that point: the state is unresolved. Drawn grey |
@@ -108,47 +111,57 @@
 
 ## Part A — What the software is for
 
-**A1. The goal** [Decided, 2026-10-04 and 2026-10-06; the failure points, 2026-10-07]:
-- build an evidence-based account of how gpt-oss-20b processes meaning, then use it to monitor
-  the model;
-- the account covers:
+**A1. The goal** [Decided, 2026-10-04, 2026-10-06 and 2026-10-07]:
+- **Build an evidence-based paradigm of how gpt-oss-20b understands the world, and how it makes
+  decisions from that understanding.** It covers:
   - which internal representations exist;
   - where they form: which layers, which tokens;
   - how each layer transforms them;
   - how tokens move through them, across layers and over time;
   - how experts route them, through pipelines and hubs;
-  - how all of it connects to behaviour, including the points where reasoning fails. The context
-    shift the paper studied is one of them;
-- the software also studies how scaffolds, and steering from outside and inside the model, change
-  those movements [Decided, 2026-10-06];
-- visual knowledge discovery comes first: cluster trajectory Sankeys, the words that travel
-  through each node, colour blending, and more visual channels;
-- another MoE model may be compared later [Decided, 2026-10-06].
+  - how they lead to behaviour, including the points where reasoning fails. The context shift the
+    paper studied is one of them.
+- **The AI scientists work toward it with several tools:** lenses on sentence sets and scenarios,
+  scaffolding experiments, steering from outside and inside the model, and ablation.
+  - Scaffolding experiments show how a scaffold changes the way trajectories form, for example by
+    suppressing a writing style. That is evidence about how the model works.
+- **The paradigm makes it possible to monitor agents visually:** which understandings are active
+  as they reason and act. This also helps in building effective scaffolds.
+- **Visual knowledge discovery comes first:** cluster trajectory Sankeys, the words that travel
+  through each node, colour blending, and more visual channels.
+- **Another MoE model may be compared later** [Decided, 2026-10-06].
 
-**A2. The central research question** [Decided: the project's question, in CLAUDE.md].
-When a contextual understanding shifts, what is the in-between state? Three possibilities:
-- a **learned state**: a stable intermediate representation the model has and uses;
-- a **passage**: a brief crossing from one state to another;
-- an **off-manifold state**: something outside the states the model normally takes.
-
-**A3. Who uses it** [Decided, 2026-10-04 and 2026-10-06]:
+**A2. Who uses it** [Decided, 2026-10-04 and 2026-10-06]:
 - **Andrew,** through the app, Claude Code and the MUD;
 - **Claude agents** (`claude -p`), as analysts and AI scientists:
   - they use the same tools as Andrew, and their actions appear in the MUD as events;
   - they work in teams by topic: grammar, emotional salience, kinds of reasoning, safeguards and
     alignment;
   - they design sentence sets and scenarios from their own hypotheses and run studies on them;
+- **researchers who install the software** [Decided, 2026-10-04 and 2026-10-07]:
+  - they run their own app and backend;
+  - they connect to Scaffold Dynamics by default, or to a MUD they run themselves, usually on
+    localhost, by entering its address (F6);
 - **visitors** to the MUD. A Mudlet package with simple views comes later.
 
-**A4. Its pieces** [Decided, 2026-10-04 and 2026-10-06; Built]:
+**A3. Its pieces** [Decided, 2026-10-04 and 2026-10-06; Built]:
 - **the app:** React, with a FastAPI backend that runs the model on the GPU;
-- **the MUD:** the institute, Evennia in Docker;
+  - the backend also runs Claude agents with `claude -p`, as often as it needs [Decided,
+    2026-10-07];
+  - an interface could let a user choose another LLM for those agents [Andrew's idea, 2026-10-07];
+- **the MUD:** Scaffold Dynamics, the institute, running Evennia in Docker. Which server the app
+  connects to is configurable (F6);
 - **the data lake:** captures, kept outside git;
 - **libraries and records, as files in one repo:** sentence sets, scenario sets, lab presets,
   studies, lenses, findings, the paradigm.
 
-**A5. The first research it carries is the lens catalogue** [Decided, 2026-10-06]. Part K gives
-the order of what follows.
+**A4. The first research it carries is the lens catalogue** [Decided, 2026-10-06]:
+- building validated lenses for many candidate contrasts;
+- finding internal representations is the aim of one kind of study, and many studies stay
+  exploratory until every representation we can think of has been worked through [Decided,
+  2026-10-04].
+
+Part K gives the order of what follows.
 
 ## Part B — Principles
 
@@ -330,6 +343,13 @@ software; rules 7 and 8 are new]:
 - Andrew noted that the paper's no-shift runs were specific to the paper [2026-10-07]. References
   are the general form of the need behind them: readings drift as context grows, whatever the
   class.
+- **The context-shift study's own question** [Decided, 2026-10-07: it belongs to that study, not to
+  the software as a whole]: when an understanding shifts, what is the state in between?
+  - a **learned state:** a stable intermediate representation the model has and uses;
+  - a **passage:** a brief crossing from one state to another;
+  - an **off-manifold state:** something outside the states the model normally takes.
+
+  It is an example of a study that reads over time.
 - **Agent studies come in two kinds:**
   - **scripted runs,** where every run has the same ticks, for claims about change over time;
   - **free play,** for behaviour, always showing how many runs reach each point.
@@ -598,6 +618,11 @@ only in the simulator.
 **F5. The agent in the MUD** [Built]: the runner plays through a control channel, and nothing a
 watcher does reaches the agent.
 
+**F6. Which MUD** [Decided, 2026-10-07]:
+- by default the app and the backend connect to Scaffold Dynamics, the project's server;
+- a user can run their own MUD instead, usually on localhost, and enter its address;
+- today the address comes from the root `.env` and is always localhost [Built].
+
 ## Part G — Data and records
 
 - **The data lake** [Decided, 2026-10-04: not copied wholesale; 2026-10-06: the six sessions kept]:
@@ -632,8 +657,8 @@ watcher does reaches the agent.
   - **experts:** all 24 × 32;
   - **routes:** pipelines and hubs. Today's routes follow only the top-1 expert.
 - **Time adds node dynamics** [Proposed]: how long runs stay in a node, what comes before and after
-  it, and what the model does while in it. This is how the central question (A2) gets answered,
-  node by node.
+  it, and what the model does while in it. This is how a question like the context-shift study's
+  (D4) gets answered, node by node.
 - **The paradigm is the accepted findings** [Decided, 2026-10-04 and 2026-10-06]:
   - the AI scientists propose findings, attack them and give evidence;
   - several models vote, and when most of them agree, the finding goes to Andrew for review;
@@ -645,6 +670,8 @@ watcher does reaches the agent.
 - **Steering a node and seeing what changes downstream** [Decided, 2026-10-06].
 - **Scaffolds, and steering from outside and inside the model:** how each changes trajectories
   [Decided, 2026-10-06].
+- **A scaffold comparison includes a neutral scaffold** of the same length and format [Proposed].
+  Added text alone shifts readings, so this separates a scaffold's content from its presence.
 - **How interventions are done** [Proposed]:
   - routing drift is always recorded;
   - an option to steer only in directions the router doesn't use;
@@ -803,6 +830,14 @@ Paraphrased from Andrew's own words. His ideas not yet decided are listed separa
   - the names Winter Survival and Scaffold Dynamics;
   - text joining a measured dataset written in the main conversation, never by subagents.
 - **2026-10-07 decisions:**
+  - the goal (A1): an evidence-based paradigm of how gpt-oss-20b understands the world and decides.
+    Scaffolding experiments are one of the AI scientists' tools toward it, and monitoring agents
+    is what the paradigm makes possible;
+  - the in-between-state question belongs to the context-shift study, not to the software as a
+    whole;
+  - researchers who install the software connect to Scaffold Dynamics by default, or to their
+    own MUD, whose address they enter;
+  - the backend runs Claude agents with `claude -p` as often as it needs; no separate runner;
   - the old prototype retired once everything works in the MUD;
   - the clustering form, and manual and automatic k;
   - re-try the elbow method on the tank set;
@@ -823,6 +858,7 @@ Paraphrased from Andrew's own words. His ideas not yet decided are listed separa
   - **2026-10-06:** asking the agent to use set words in its reasoning; giving it words marked as for
     measurement only;
   - **2026-10-07:**
+    - an interface so users can choose the LLM for Claude agents' work;
     - all layers scrolling sideways;
     - the lens heatmap over the reasoning stream, and per-lens Sankeys;
     - perhaps four Sankey panels while watching;
