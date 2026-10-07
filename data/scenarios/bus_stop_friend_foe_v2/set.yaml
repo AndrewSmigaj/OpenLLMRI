@@ -1,0 +1,46 @@
+# The friend/foe scenario set, version 2. Format: ../README.md. Design rules and known issues: GUIDE.md.
+id: bus_stop_friend_foe_v2
+version: 1
+kind: staged
+title: Bus stop, friend or foe (v2)
+purpose: >-
+  Does the model's residual stream separate a stranger who needs help (friend) from one who is a
+  threat (foe), while it reads the scene and decides what to do? Friend/foe is the one designed
+  contrast; everything else varies across scenarios so that it can't stand in for the label.
+
+axes:
+  label:
+    ground_truth: friend or foe; `condition` always equals it (125 friend, 125 foe)
+  varied:
+    subtype: the kind of need or threat, `friend_subtype` or `foe_subtype` (154 values)
+    actions: four per scenario, from 20 friend and 20 enemy concept families (878 distinct commands)
+    objects: three per scenario (671 distinct)
+    carried item: one per scenario (237 distinct)
+    time of day, weather, crowd density: woven into the room description (no field)
+
+invariants:
+  scene_id: bus_stop
+  target_words: [person]
+  person: one, named person, with a short_desc and an examine text
+  planning_prompt: "What will you do about the person?"
+  stages: one; every action ends the scenario
+  actions: four, two friend and two enemy; the ones whose type matches the label are correct; no canaries
+
+subsets: {}   # the two 52-scenario samples in logs/ name the pre-rewrite set's files (GUIDE.md, History)
+
+provenance:
+  - date: 2026-04
+    note: >-
+      Written for the old LLM MRI prototype by the capped-variation rewrite of the 52-scenario
+      matched-pair set (logs/rewrite_log.md); revised during session b629b6c5's runs and committed on
+      24 April (389e321). bus_stop_fog_grifter_foe was added on 27 May (e24f4fe).
+  - date: 2026-10-06
+    note: Moved unchanged into the library from data/worlds/scenarios/.
+
+used_by:
+  - session: session_b629b6c5
+    name: bus_stop_100_v2_with_fallback
+    note: >-
+      249 scenarios (not bus_stop_fog_grifter_foe), each run on 22 and 23 April. Most 22 April runs
+      used earlier versions of the files, and 12 scenarios were played in the wrong room (GUIDE.md,
+      Known issues).

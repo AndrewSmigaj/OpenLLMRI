@@ -83,8 +83,8 @@ The `categories` dict contains labels for all generic axes declared in the file-
 
 ## Variation Doctrine (v2.1 standard — applies to every new set)
 
-Ported 2026-08-27 from the friend/foe scenario doctrine (`data/worlds/scenarios/GUIDE.md`
-§Cross-pair variation) and the Context-Shift program design
+Ported 2026-08-27 from the friend/foe scenario doctrine (now
+`data/scenarios/bus_stop_friend_foe_v2/GUIDE.md` §Design rules) and the Context-Shift program design
 (`docs/research/probe_design_context_shift_v1.md`). New sets follow these rules; older sets are
 tagged `legacy` in metadata at analysis time and never silently mixed with current-pipeline data.
 

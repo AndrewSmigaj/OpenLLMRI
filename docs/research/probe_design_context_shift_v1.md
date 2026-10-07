@@ -2,7 +2,7 @@
 
 **Date:** 2026-08-27 (v1.2, 2026-08-28: tank carrier simplified to Q1) · **Status:** FROZEN — all
 carriers decided (Q1, S1–S3) · **Parents:** Research Plan v2, `docs/SOFTWARE_OVERVIEW.md` (Rules 1+2),
-`data/worlds/scenarios/GUIDE.md` §Cross-pair variation (doctrine to be ported to sentence sets).
+`data/scenarios/bus_stop_friend_foe_v2/GUIDE.md` §Design rules (doctrine to be ported to sentence sets).
 
 ## 0. Decisions (made 2026-08-27)
 

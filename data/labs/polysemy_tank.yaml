@@ -1,0 +1,20 @@
+# The polysemy lab: entering its room in the MUD loads this session and clustering into the app's
+# panels, for researchers and visitors alike. The lab room (mud/game/typeclasses/institute/rooms.py)
+# reads this file each time someone enters, and sends it to the app in its room_entered message.
+
+name: Polysemy Lab
+description: >
+  A lab dedicated to polysemous words, tokens that shift meaning with their context. The panels show
+  how the model routes the same surface form differently. (Placeholder description.)
+
+# The capture and clustering shown
+session_id: session_1434a9be
+clustering_schema: tank_polysemy_k6_n20
+
+# The panels' settings (the app's view preset)
+viz_preset:
+  primary_axis: label
+  gradient: red-blue
+  window: w0
+  clustering_schema: tank_polysemy_k6_n20
+  top_routes: 10

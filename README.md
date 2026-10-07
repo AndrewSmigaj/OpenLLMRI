@@ -129,7 +129,7 @@ The agent connects to Evennia via telnet and plays scenarios tick-by-tick. Each 
 
 The full trajectory — examine, deliberate, act — produces capture data at every decision point, building a dataset of how internal states evolve as the model processes information and makes decisions.
 
-See [`data/worlds/scenarios/GUIDE.md`](data/worlds/scenarios/GUIDE.md) for scenario authoring.
+See [`data/scenarios/README.md`](data/scenarios/README.md) for the scenario library and format, and each set's `GUIDE.md` for its design rules (the friend/foe set's: [`data/scenarios/bus_stop_friend_foe_v2/GUIDE.md`](data/scenarios/bus_stop_friend_foe_v2/GUIDE.md)).
 
 ---
 

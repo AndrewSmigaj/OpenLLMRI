@@ -72,6 +72,8 @@ def load_set(set_id: str, root: Path | None = None) -> ScenarioSet:
         raise ScenarioError(f"{manifest_path}: kind must be one of {sorted(KINDS)}, not {kind!r}")
     if manifest.get("version") in (None, ""):
         raise ScenarioError(f"{manifest_path}: needs a version")
+    if kind in ("world", "mini-world") and not manifest.get("world"):
+        raise ScenarioError(f"{manifest_path}: a {kind} set names its world (`world:`)")
     return ScenarioSet(id=set_id, version=manifest["version"], kind=kind, folder=folder,
                        manifest=manifest)
 

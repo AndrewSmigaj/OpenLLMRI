@@ -17,7 +17,7 @@ Primarily used for debugging failed scenarios, but works for any scenario.
 | Sessions dir | `$ROOT/data/lake/<session_id>/` |
 | Tick log | `$ROOT/data/lake/<session_id>/tick_log.jsonl` |
 | Probe results | `$ROOT/data/lake/<session_id>/probe_results.jsonl` |
-| Scenario YAMLs | `$ROOT/data/worlds/scenarios/<scenario_name>.yaml` |
+| Scenario YAMLs | `$ROOT/data/scenarios/<set_id>/scenarios/<scenario_name>.yaml` (the friend/foe set: `bus_stop_friend_foe_v2`) |
 
 ## Inputs
 

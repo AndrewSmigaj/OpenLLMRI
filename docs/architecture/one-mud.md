@@ -119,13 +119,19 @@ some things and holding others fixed. Other studies reuse a set, or build their 
   played on a world's engine. Example: a stranger arriving at the cabin, which ends when the party has
   dealt with them.
 
-**The friend/foe set as it stands.** The 250 friend/foe files become the set
-`bus_stop_friend_foe_v2`, with its two subsets (clean, diverse) and its rewrite log. It is tied to the
-session it fed, `b629b6c5`, and kept as it is. Two facts about that data:
-- **13 situation names are each used twice,** so the old prototype sent the agent to the wrong room for
-  them.
-- **The sample is 479 captures from 249 scenarios,** most played twice on two dates. Its statistics
-  are counted per scenario.
+**The friend/foe set as it stands.** The 250 friend/foe files are the set `bus_stop_friend_foe_v2`,
+with its rewrite log. It is tied to the session it fed, `b629b6c5`, and kept as it is. Its guide
+records what that session's data holds (checked against its tick log, 2026-10-06):
+- **the two runs of a scenario are two versions of it.** The files were revised between the two run
+  days; most first-day runs used earlier versions, whose actions often named the person by role
+  (`block extortionist`), so the prompt gave the label away;
+- **12 scenarios were played in the wrong room.** 13 room names are each used by two files; the old
+  prototype found rooms by name, so 12 scenarios got the other file's room with their own person and
+  actions (the 13th pair's second file came later);
+- **the sample is 479 captures from 249 scenarios.** Its statistics are counted per scenario.
+
+The two "subsets" (clean, diverse) name the earlier 52-scenario set's files, so they are kept in the
+set's logs, not as subsets.
 
 The two old dialogue demos (the herbalist and the blacksmith) are parked.
 

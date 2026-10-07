@@ -41,11 +41,16 @@ services:
     environment:
       # The web client connects to the websocket's HOST port, not the container's.
       WEBSOCKET_CLIENT_PROXY_PORT: ${MUD_WS_PORT:-4002}
+      # The scenario library and the lab presets: one copy each in the repo, mounted read-only below.
+      SCENARIO_LIBRARY: /usr/src/scenarios
+      LAB_PRESETS: /usr/src/labs
     depends_on:
       postgres:
         condition: service_healthy
     volumes:
       - ./game:/usr/src/game
+      - ../data/scenarios:/usr/src/scenarios:ro
+      - ../data/labs:/usr/src/labs:ro
     working_dir: /usr/src/game
     stdin_open: true
     tty: true

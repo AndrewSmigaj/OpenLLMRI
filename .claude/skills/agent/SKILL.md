@@ -204,7 +204,7 @@ You forgot `"auto_start": true`. The session exists as a record but the loop nev
 
 ### Probe results all show `correct: false` despite obvious scenarios
 
-Look at `session_analysis.md` tick 0 game text — if the short_desc for the NPC leaks friend/foe before the agent has a chance to examine, the agent skips the examine step and guesses from vibes. Fix the YAML short_desc, rebuild (OP-5 + reload), re-run. See `data/worlds/scenarios/GUIDE.md` for the short_desc / examine rule.
+Look at `session_analysis.md` tick 0 game text — if the short_desc for the NPC leaks friend/foe before the agent has a chance to examine, the agent skips the examine step and guesses from vibes. Fix the YAML short_desc, rebuild (OP-5 + reload), re-run. See `data/scenarios/bus_stop_friend_foe_v2/GUIDE.md` for the short_desc / examine rule.
 
 ---
 

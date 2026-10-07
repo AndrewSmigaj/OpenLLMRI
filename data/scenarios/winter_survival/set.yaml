@@ -1,0 +1,16 @@
+# Winter Survival, the first free-form world. Its engine and content live in the MUD; this entry puts
+# it in the library, so the simulator lists it and runs can cite it. Format: ../README.md.
+id: winter_survival
+version: 1
+kind: world
+title: Winter Survival
+purpose: >-
+  Survivors of a plane crash in the Alaskan fall improvise with the world to outlast cold, injury,
+  hunger and the coming winter. Ground truth comes from the world itself: its engine reports state
+  changes (cold, injured, fire lit, and so on) as events.
+world: winter_survival    # mud/game/world/scenarios/winter_survival/; design: mud/docs/scenarios/winter_survival/GDD.md
+
+provenance:
+  - Built as the Whiteout MUD (its own repo until 2026-10-06), imported into mud/ and renamed Winter Survival.
+
+used_by: []

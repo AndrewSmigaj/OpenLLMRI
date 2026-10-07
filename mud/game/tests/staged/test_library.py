@@ -66,3 +66,10 @@ def test_a_bad_manifest_fails_with_the_reason(root, manifest, problem):
     (root / "fixture_set" / "set.yaml").write_text(manifest)
     with pytest.raises(ScenarioError, match=problem):
         library.load_set("fixture_set", root)
+
+
+def test_a_world_set_must_name_its_world(root):
+    (root / "a_world").mkdir()
+    (root / "a_world" / "set.yaml").write_text("id: a_world\nversion: 1\nkind: world\npurpose: x\n")
+    with pytest.raises(ScenarioError, match="names its world"):
+        library.load_set("a_world", root)
