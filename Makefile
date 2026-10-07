@@ -1,6 +1,6 @@
 # Concept MRI - Development Makefile
 
-.PHONY: help setup download-model run-api run-ui dev stop health fmt typecheck lint clean test test-backend test-frontend
+.PHONY: help setup download-model run-api run-ui dev stop health fmt typecheck lint clean test test-backend test-frontend verify
 
 help:
 	@echo "Available commands:"
@@ -14,6 +14,8 @@ help:
 	@echo "  test           - Run every test suite (test-backend + test-frontend)"
 	@echo "  test-backend   - Run the backend tests (pytest)"
 	@echo "  test-frontend  - Run the frontend checks (lint, type check, build)"
+	@echo "  verify         - Every area's checks: test + the MUD's verify"
+	@echo "  mud-<target>   - Run a target of the MUD's Makefile (e.g. make mud-up-d, make mud-test-int)"
 	@echo "  fmt            - Format code with black"
 	@echo "  typecheck      - Run mypy type checking"
 	@echo "  lint           - Run ruff linting"
@@ -26,6 +28,8 @@ setup:
 	.venv/bin/pip install -r backend/requirements.lock.txt
 	@echo "Installing frontend dependencies..."
 	cd frontend && npm install
+	@echo "Turning on the pre-commit checks..."
+	git config core.hooksPath .githooks
 	@echo "Creating data directories..."
 	mkdir -p data/lake data/experiments data/models
 	@echo ""
@@ -77,6 +81,14 @@ test-backend:
 test-frontend:
 	@echo "Running frontend checks (lint, type check, build)..."
 	cd frontend && npm run lint && npm run build
+
+# Every area's checks. The MUD's verify runs its gates, compose config, validate, probes and the
+# pure suite in Docker; its integration tests are `make mud-test-int`.
+verify: test mud-verify
+
+# The MUD keeps its own Makefile in mud/; `make mud-<target>` runs `make -C mud <target>`.
+mud-%:
+	$(MAKE) -C mud $*
 
 fmt:
 	@echo "Formatting Python code..."

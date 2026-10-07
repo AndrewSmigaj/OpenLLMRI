@@ -1,0 +1,24 @@
+#!/bin/sh
+# Pre-commit: each area's fast checks, only for the areas that have staged files.
+# Enable once per clone with `make setup` (it runs `git config core.hooksPath .githooks`).
+set -e
+ROOT="$(git rev-parse --show-toplevel)"
+STAGED="$(git diff --cached --name-only --diff-filter=ACMR)"
+
+# The MUD: its four host-fast gates (pure-core boundary, no-raw-writes, no-raw-output, docs).
+# Stdlib only, milliseconds.
+if echo "$STAGED" | grep -q '^mud/'; then
+    make -s -C "$ROOT/mud" lint
+fi
+
+# The backend: syntax errors and undefined names in the staged Python files, as in CI.
+PY="$(echo "$STAGED" | grep '^backend/.*\.py$' || true)"
+if [ -n "$PY" ]; then
+    (cd "$ROOT" && .venv/bin/ruff check --select E9,F63,F7,F82 $PY)
+fi
+
+# The frontend: ESLint on the staged TypeScript files.
+TS="$(echo "$STAGED" | grep -E '^frontend/.*\.(ts|tsx)$' | sed 's|^frontend/||' || true)"
+if [ -n "$TS" ]; then
+    (cd "$ROOT/frontend" && npx eslint $TS)
+fi
