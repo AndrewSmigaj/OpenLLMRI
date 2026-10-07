@@ -118,7 +118,9 @@ class TestInstitute(EvenniaTest):
         assert isinstance(room, StagedRoom) and room.db.scenario_key == "fixture_set/fixture_verbs"
         assert _oob(m, "room_left") == [{"room_type": "simulator"}]
         assert _oob(m, "stage_entered")[0]["scenario"] == "fixture_set/fixture_verbs"
-        assert room.return_appearance(self.char1) in _texts(m), "the command shows the room"
+        agent_sees = "\n".join(_texts(self._run(c)) for c in ("look", "inventory", "actions"))
+        assert agent_sees in _texts(m), "it shows what the runner reads first: the room, the inventory, the choices"
+        assert "help stranger — Help the stranger up" in agent_sees
         m = self._run("leave")
         assert self.char1.location == self.sim
         assert _oob(m, "room_entered") == [{"room_type": "simulator", "role": "researcher"}]

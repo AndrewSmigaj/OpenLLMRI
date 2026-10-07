@@ -83,7 +83,8 @@ class CmdSimulate(Command):
       simulate <set>/<subset>        the subset's first scenario
       simulate <set> <scenario>      one scenario, by its file name
 
-    In a staged scenario, |wleave|n brings you back here.
+    A staged scenario starts by showing what the agent sees at its start: the room, what you carry
+    and the choices. Type a choice's command to take it; |wleave|n brings you back here.
     """
     key = "simulate"
     locks = "cmd:all()"
@@ -119,7 +120,10 @@ class CmdSimulate(Command):
         if key not in keys:
             raise ScenarioError(f"{sset.ref}{'/' + subset if subset else ''}: no scenario {name!r}")
         room, _ = load_scenario(self.caller, key)
-        self.caller.msg(room.return_appearance(self.caller))
+        # What the agent reads at a scenario's start: the backend's runner types look, inventory and
+        # actions first.
+        self.caller.msg("\n".join([room.return_appearance(self.caller), room.inventory_text(),
+                                   room.actions_text()]))
 
 
 # --- running the model as an agent, through the backend ------------------------------------------

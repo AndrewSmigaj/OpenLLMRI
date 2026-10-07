@@ -101,8 +101,9 @@ every earlier commit.
     from `data/labs/<name>.yaml`: `session_id`, `clustering_schema` and `viz_preset`, read on every
     entry. The polysemy lab shows `tank_polysemy_k6_n20` of `session_1434a9be`;
   - **the simulator** (`simulator`): `simulator` lists the library's sets, or one set's scenarios;
-    `simulate <set>[/<subset>] [<scenario>]` loads a staged scenario (`leave` comes back), or enters a
-    world through its package's `build.start_room()`. `agent run <set>[/<subset>] [<scenario>]` asks
+    `simulate <set>[/<subset>] [<scenario>]` loads a staged scenario and shows what the agent sees at
+    its start, the room, the inventory and the choices (`leave` comes back); or it enters a world
+    through its package's `build.start_room()`. `agent run <set>[/<subset>] [<scenario>]` asks
     the backend to play scenarios with the model, and `agent stop` stops it (section 6). Visitors
     browse; researchers load and run agents.
   - `world/institute/build.py` builds them, idempotently: `make institute`, and on a new database's
