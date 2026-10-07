@@ -2,7 +2,7 @@
 
 **Status:** a draft for Andrew's review (2026-10-07). Nothing new is built until he approves it.
 
-**Review progress:** Parts A to F reviewed with Andrew (2026-10-07). Open: L13.
+**Review progress:** Parts A to G reviewed with Andrew (2026-10-07). Still open: L3, L9.
 
 **Contents:**
 - How this document works
@@ -55,7 +55,7 @@
 |---|---|
 | **gpt-oss-20b** | the model studied: a mixture-of-experts (MoE) model with 24 layers |
 | **expert** | one of the 32 sub-networks in each layer; each token is sent to 4 of them |
-| **expert route** | the experts a token is sent to, layer by layer. "Top-1" is the expert with the highest weight |
+| **expert route** | the experts a token is sent to, layer by layer: four in each layer, whose weights add up to 1. "Top-1" is the expert with the highest weight |
 | **pipeline** | a sequence of experts that many tokens follow through consecutive layers |
 | **hub** | an expert that many different routes pass through |
 | **residual stream** | a token's state at a layer: 2,880 numbers that each layer reads and adds to |
@@ -417,7 +417,7 @@ more questions will come]:
 
 **E1. Workspaces** [Decided, 2026-10-07]. The app is for analysing: runs that have happened, clusterings, and
 the reports the LLMs write. It also holds the builders. It doesn't start runs; they start in the
-MUD or through Claude Code (F3).
+MUD or through Claude Code (F3). It follows a run in progress one saved tick at a time (E4).
 
 | Workspace | What you do there | Status |
 |---|---|---|
@@ -590,6 +590,14 @@ area can be resized and can fill the screen.
   output;
 - the first step toward monitoring agents (A1).
 
+**A run in progress** [Decided, 2026-10-07]:
+- Watch opens it like a finished run. Each tick appears once it is saved, with its keyword
+  readings.
+- The scan never slows the agent. Its readings fill in as they are computed, at the latest when
+  the run ends.
+- Alerts fire as soon as the readings they watch exist.
+- The agent's play is watched in the MUD (`watch agent`), in the drawer's terminal.
+
 **The side drawer:**
 - it holds the run's text (observation, reasoning, action), each token tinted by the selected
   lens's scan, so you can see which words lit up;
@@ -628,6 +636,10 @@ area can be resized and can fill the screen.
   - A zoom sets how many layers fit (6, 12 or 24).
   - An overview strip shows where you are.
 - **The cluster Sankey and the expert Sankey are stacked and scroll together.**
+- **Expert weights are the model's own** [Decided, 2026-10-07]:
+  - wherever a weight is shown, it is the expert's weight among the token's four, not a figure
+    computed over all 32 experts, as today's are;
+  - all four ranks can be chosen; today only the first three can.
 - **Clicking a node lists the runs that pass through it, and when** [approved in the time review].
 - **Clustering can be run from this view, and from the polysemy lab's room in the MUD** [Decided,
   2026-10-04].
@@ -765,13 +777,20 @@ watcher does reaches the agent.
   - its token ids for each tick, its date, its chat-template hash and its model-identity line, so it
     can be replayed exactly;
   - the capture recipe: model, format, decoding, seed, carrier, token sets, scaffold, intervention.
-- **The full top-4 routing,** with each expert's gate weight, not only the strongest expert
-  [Proposed].
-- **Retirements** [Proposed: the time design's decision 6]:
-  - the basin-era temporal panel and its two endpoints;
-  - the old sequence-capture route and its cache helper;
-  - the `/temporal` skill;
-  - the raw-axis endpoint, once saved lenses replace it.
+- **Routing is recorded in full** [Built]: every capture stores all 32 routing weights for each
+  captured token at every layer. The model's own weights for its four experts are computed from
+  them (the top four, scaled to add up to 1), so using all four ranks needs nothing new captured
+  (E5, H).
+- **Retirements** [Decided, 2026-10-07]:
+  - **when building starts:**
+    - the basin-era temporal panel and its two endpoints, replaced by the run and study timelines
+      (E6) and Watch (E4);
+    - the old sequence-capture route and its cache helper. The paper's method stays (cumulative
+      texts with a carrier, through the sentence-experiment route), and agent runs use replay;
+    - the `/temporal` skill, replaced by a skill for sentence runs over time;
+  - **when saved mass-mean lenses replace it:** the raw-axis endpoint;
+  - the suicide-letter study's capture scripts call the old sequence-capture route. They stay, as
+    the record of how those captures were made.
 
 ## Part H — The atlas and the paradigm
 
@@ -779,7 +798,9 @@ watcher does reaches the agent.
   Claude agent:
   - **nodes:** every node of every validated lens, layer by layer;
   - **experts:** all 24 × 32;
-  - **routes:** pipelines and hubs. Today's routes follow only the top-1 expert.
+  - **routes:** pipelines and hubs, built from all four of each token's experts and weighted by the
+    model's own weights [Decided, 2026-10-07]. Today's routes follow only the top-1 expert; the
+    top-1 Sankey stays as one view of them.
 - **Time adds node dynamics** [Proposed]: how long runs stay in a node, what comes before and after
   it, and what the model does while in it. This is how a question like the context-shift study's
   (D5) gets answered, node by node.
@@ -818,8 +839,8 @@ Stories 1–6 come from the time design; 7–11 were added in its review, which 
 3. **A sentence study.** Sentence sequences with a fixed carrier, and references, in Study.
 4. **The atlas.** A Claude analyst reads each node's dwell, neighbours and actions, and writes the
    node's report.
-5. **Watching live.** `watch agent` in the MUD; in Watch, the heatmap grows tick by tick. Needs lens
-   kits.
+5. **Watching live.** `watch agent` in the MUD; in Watch, each tick appears once it is saved, and
+   its scan fills in as it is computed. Needs lens kits.
 6. **Steering.** Steered and unsteered runs as two conditions on one timeline.
 7. **Check the instrument.** Reproduce the paper's per-run tank results in Study (D7). Every later
    story rests on this one.
@@ -855,14 +876,13 @@ Stories 1–6 come from the time design; 7–11 were added in its review, which 
       - the clustering form, basic and Advanced [Decided, 2026-10-07; Andrew left its timing to
         Claude];
       - added by Claude [Proposed]: the all-layer Layers view, colour by any designed axis, study
-        files, and the analysis panel with its cards for clusters, experts, routes and expert
-        routes.
+        files, the analysis panel with its cards for clusters, experts, routes and expert
+        routes, and the model's own expert weights with all four ranks.
    2. **The sentence set builder:** the lens catalogue starts with new sentence sets.
    3. **Time on sentence runs,** checked against the paper's tank results (D7), in Study.
    4. **Provenance and jobs:**
       - the capture recipe and per-run token ids;
-      - the GPU job queue;
-      - the full top-4 routing.
+      - the GPU job queue.
    5. **The world-building pilot** [Decided, 2026-10-06: after the lens core].
    6. **The scenario builder,** then friend/foe v3 [Decided, 2026-10-06: v3 after the lens core].
    7. **Agents:**
@@ -893,7 +913,8 @@ Stories 1–6 come from the time design; 7–11 were added in its review, which 
   it?** You asked for one design document; this draft keeps the world's own document separate.
 - **L4. The time design.** Answered 2026-10-07: the orderings, the project's own rules, presence
   and position, and references for studies (D1–D5).
-- **L5. The retirements in Part G.** Yes?
+- **L5. The retirements in Part G.** Answered 2026-10-07: yes; three when building starts, the
+  raw-axis endpoint when saved lenses replace it (G).
 - **L6. Watch (E4).** Answered 2026-10-07: the layout as drafted, with lens panels as many as
   wanted, the token rule, replay, explained readings, bookmarks, side by side and live alerts.
 - **L7. The workspaces (E1).** Answered 2026-10-07: as drafted.
@@ -906,10 +927,8 @@ Stories 1–6 come from the time design; 7–11 were added in its review, which 
   the app (F3).
 - **L11. One command interface (E7).** Answered 2026-10-07: yes.
 - **L12. LLM analysis (E8).** Answered 2026-10-07: every place in the table.
-- **L13. Live runs in the app?** The app is for analysing runs that have happened (E1). Watch also
-  follows a live run: the heatmap growing tick by tick, live alerts, and the MUD terminal in its
-  drawer. Keep live following in the app, or leave live watching to the MUD and open runs in the
-  app once they finish?
+- **L13. Live runs in the app?** Answered 2026-10-07: Watch follows a run in progress one saved tick
+  at a time; the scan never slows the agent; the agent's play is watched in the MUD (E4).
 
 ## Appendix — Decisions by date
 
@@ -996,7 +1015,10 @@ Paraphrased from Andrew's own words. His ideas not yet decided are listed separa
     rules for reading over time; the output reading at keywords from the MUD commands as the
     main reading; the scan over the reasoning; carriers as the controlled comparison; presence
     and position in every reading, with unresolved told apart from absent; the flag for a
-    reading still unresolved at the output; references for studies; the experiments left open.
+    reading still unresolved at the output; references for studies; the experiments left open;
+  - Part G: expert weights read as the model's own, over each token's four experts, with all four
+    ranks, and routes built from all four; the retirements of the basin-era temporal tools;
+  - Watch follows a run in progress one saved tick at a time, and the scan never slows the agent.
 - **Andrew's ideas, not yet decided:**
   - **2026-10-04:** a user interface in the MUD;
   - **2026-10-06:** asking the agent to use set words in its reasoning; giving it words marked as for
