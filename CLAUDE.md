@@ -19,6 +19,7 @@ Claude Code uses these guides to execute the full pipeline:
 | `data/sentence_sets/GUIDE.md` | How to design and write sentence set JSON files |
 | `docs/ANALYSIS.md` | Analysis methodology reference (cluster/route data, reports) |
 | `docs/scratchpad/` | Intermediate work products — research, drafts, explorations. Check for context from recent work. |
+| `mud/CLAUDE.md` | The MUD's own guide (Evennia 6 in Docker; Whiteout is its first scenario): its make targets, gates and docs. Read before changing anything under `mud/`. |
 | `docs/architecture/one-mud.md` | The one MUD: a single Evennia MUD hosting the institute, its labs, staged scenario sets and free-form worlds. Read before changing the MUD or the agent loop. |
 
 **Skills** (`.claude/skills/`) are the authoritative operational procedures. Each skill has self-contained, copy-paste-ready commands. Docs provide background and reference. When they conflict, skills win. **Before any API call to `/api/agent/*`, invoke the `/agent` skill and copy its curl template. Never construct agent curl commands from memory or from reading schemas.py — the skill templates omit credentials because they default from `.env`.**
