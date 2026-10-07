@@ -193,7 +193,7 @@ None open.
   "real warmth/fire/cold-death is P5". There is no death, no rescue, no run-end condition.
 - No event log: nothing writes an applied `ActionResult` anywhere (the log is designed in document 20
   §4.4).
-- A run-lifecycle seam exists, and only a seam: `game/world/scenarios/whiteout/build.py` tags
+- A run-lifecycle seam exists, and only a seam: `game/world/scenarios/winter_survival/build.py` tags
   everything it loads with `run_id = "slice"`, and the heartbeat and `apply()` carry that tag through
   — so a run is addressable, but there is one hard-coded run and no lifecycle, no pause, no close.
 

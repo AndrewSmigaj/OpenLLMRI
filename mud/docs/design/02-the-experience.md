@@ -1,4 +1,4 @@
-# 02 — The experience: what a run of Whiteout is like
+# 02 — The experience: what a run of Winter Survival is like
 
 ## 1. Status
 
@@ -146,7 +146,7 @@ The sample week in prose is rewritten once the design is finalized.
 **Who you are.** Up to five people play; a seat nobody plays holds a dead character whose clothes and
 pockets can be searched, and AI agents may play any seat. Five slots are authored and the run seed deals
 them, permuting who gets which so nobody is always the unlucky one 📐 (document 16 §4.1; the slots and
-their kit are built ✅ — `game/world/scenarios/whiteout/characters.py`). Nobody has a back story.
+their kit are built ✅ — `game/world/scenarios/winter_survival/characters.py`). Nobody has a back story.
 
 | slot | seat | wore | pockets | the crash left them |
 |---|---|---|---|---|
@@ -170,7 +170,7 @@ supplies, not a way out.
 
 Nine zones of the crash cluster are built and readable today ✅ — cockpit, mid cabin, rear cabin,
 outside the nose, the top of the fuselage, the torn tail opening, the debris trail, the severed tail
-section, the treeline (`game/world/scenarios/whiteout/zones.py`). The outdoor places across twelve
+section, the treeline (`game/world/scenarios/winter_survival/zones.py`). The outdoor places across twelve
 more regions — the scar, the ridge, the north wood, the muskeg, the lake, the burn, the birch slope, the
 creek, the bear's country, the beaver pond, Holt's trail and the homestead — are designed place by place 📐 in [`01-premise-and-world.md`](01-premise-and-world.md), and
 all of them are in the first complete run.
@@ -444,7 +444,7 @@ None open. Each system document holds its own.
 
 | what | where |
 |---|---|
-| The nine crash-cluster zones, with walk and see edges and composed scene prose | `game/world/scenarios/whiteout/zones.py`, `spaces.py`, `appearance.py`; read the render at `docs/review/render-2026-09-07.md` |
+| The nine crash-cluster zones, with walk and see edges and composed scene prose | `game/world/scenarios/winter_survival/zones.py`, `spaces.py`, `appearance.py`; read the render at `docs/review/render-2026-09-07.md` |
 | Twenty-seven operations (a floor, not a ceiling): cut, tear, break, bend, pry, burn, light, melt, pour, tie, wrap, take, put, open, close, search, dig, wear, remove, eat, drink, read, examine, talk, move, use, make | `game/world/sim/operations/handlers/` |
 | The taught grammar and the tolerance layer — the seven original forms, synonyms, particles, plurals, possessives, parts, `it`, intent-dropping, and form nouns in the `into` slot | `game/world/sim/parser/` |
 | Containment and discovery — what is inside a thing stays absent from the prose until you search, open or dig | `handlers/search.py`, `handlers/open_op.py` |
@@ -452,7 +452,7 @@ None open. Each system document holds its own.
 | Perception bands and the propagator — third-person lines by distance, speech by range | `game/world/sim/space/`, `typeclasses/propagator.py` |
 | The conservation ledger, the one mutation path, and the gap log (every unresolved attempt recorded) | `sim/conservation/`, `typeclasses/apply.py`, `resolver/wall_sensor.py` |
 | A basic world clock that advances, and the seeded replay that makes a run reproducible | `systems/clock.py` |
-| The probe corpus and the render pipeline — every chain re-run and re-read on demand | `game/world/scenarios/whiteout/probes/`, `make probes`, `make render-scenes` |
+| The probe corpus and the render pipeline — every chain re-run and re-read on demand | `game/world/scenarios/winter_survival/probes/`, `make probes`, `make render-scenes` |
 
 **Designed 📐, not built** — with the document that owns each: the look, exits as entities, groups
 (03) · the new forms, `make` as the aim-verb, quantities, `help grammar` without a verb list (04) · the

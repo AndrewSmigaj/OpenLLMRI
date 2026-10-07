@@ -1,5 +1,5 @@
 ---
-description: Restart the Whiteout server and tail logs briefly to confirm it came back.
+description: Restart the Winter Survival server and tail logs briefly to confirm it came back.
 ---
 
 Restart the running Evennia server, then check it recovered.

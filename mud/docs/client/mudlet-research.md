@@ -3,9 +3,9 @@
 **Status:** research in progress (findings pass pending).
 **Lens:** how people *running* MUDs use Mudlet — the server-side / operator integration surface —
 **not** a player how-to. The goal is to know exactly what leverage Mudlet gives a MUD server so we can
-decide what Whiteout should light up (see the companion `mudlet-brainstorm.md`).
+decide what Winter Survival should light up (see the companion `mudlet-brainstorm.md`).
 
-Whiteout runs on **Evennia 6.0**, so a recurring question in each section is: *what does Evennia already
+Winter Survival runs on **Evennia 6.0**, so a recurring question in each section is: *what does Evennia already
 expose, and what would we have to send ourselves?*
 
 ---
@@ -49,7 +49,7 @@ _(GMCP/MSDP/OOB, MXP, MSSP, MCCP, TTYPE; the concrete API to emit GMCP from Even
 ## 8. Who does this well (exemplar MUDs & packages)
 _(IRE games etc. and what their packages do. To fill.)_
 
-## 9. Key takeaways for Whiteout
+## 9. Key takeaways for Winter Survival
 _(Bridge into the brainstorm doc. To fill.)_
 
 ## Sources

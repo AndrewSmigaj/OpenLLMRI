@@ -4,7 +4,7 @@
 > [`ontology-closure.md`](../architecture/ontology-closure.md) §2–§3 (forms, derived capabilities) and
 > [`implementation-architecture.md`](../architecture/implementation-architecture.md) §4 (DR-04, the
 > material model). The table in §4.3 is a transcription of what is loaded at boot
-> (`game/world/scenarios/whiteout/materials/table.py`; the forms and the derivation in
+> (`game/world/scenarios/winter_survival/materials/table.py`; the forms and the derivation in
 > `game/world/sim/affordances.py`; how a row is authored in
 > [`authoring-objects.md`](../guides/authoring-objects.md)). What *is* open is everything about its
 > growth: which natural materials come next, which property axes, and who adds them.
@@ -126,7 +126,7 @@ cordage, `metal` is what makes a sheet reflective.
 
 ### 4.3 The table today — 32 materials in plain words
 
-*(`game/world/scenarios/whiteout/materials/table.py`, read 2026-09-16. A floor, not a target.)*
+*(`game/world/scenarios/winter_survival/materials/table.py`, read 2026-09-16. A floor, not a target.)*
 
 **Aircraft and cabin**
 
@@ -558,9 +558,9 @@ were kept in the 2026-10-02 audit (the porous things' bulk, the acrylic windows,
 ## 8. What exists today
 
 **Built.**
-- `game/world/scenarios/whiteout/materials/table.py` — **32 materials** (the count at the top of §4.3),
+- `game/world/scenarios/winter_survival/materials/table.py` — **32 materials** (the count at the top of §4.3),
   using **12 property axes** and **27 tags**. A floor.
-- Loaded at boot: `game/world/scenarios/whiteout/content.py` calls
+- Loaded at boot: `game/world/scenarios/winter_survival/content.py` calls
   `world.sim.materials.load_materials(MATERIAL_TABLE)` at import and `content.load()` runs from
   `game/server/conf/at_server_startstop.py`; the same `MATERIALS` map is what the commands
   (`cmd_act.py`, `cmd_items.py`) and the pure tests use, so the shell and the probes cannot drift.

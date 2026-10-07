@@ -1,7 +1,7 @@
 """Tier-1: the material loader maps ordinals→numbers and preserves tags (DR-04, P1.1)."""
 import pytest
 
-from world.scenarios.whiteout.materials.table import MATERIAL_TABLE
+from world.scenarios.winter_survival.materials.table import MATERIAL_TABLE
 from world.sim.contracts import ORDINAL, Material
 from world.sim.materials import load_materials
 

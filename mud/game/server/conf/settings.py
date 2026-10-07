@@ -34,7 +34,7 @@ from evennia.settings_default import *
 import os
 
 # This is the name of your game. Make it catchy!
-SERVERNAME = "Whiteout"
+SERVERNAME = "Scaffold Dynamics"
 
 ######################################################################
 # Database — PostgreSQL. Credentials come from the container env
@@ -60,10 +60,10 @@ WEBSOCKET_CLIENT_INTERFACE = "0.0.0.0"
 ALLOWED_HOSTS = ["*"]  # dev only
 
 ######################################################################
-# Whiteout subsystems.
+# Winter Survival subsystems.
 #   world.sim is PURE PYTHON (no Django app) — imported directly, never installed.
 #   Register a scenario's Django app here ONLY if it needs its own DB tables, e.g.:
-#       INSTALLED_APPS += ("world.scenarios.whiteout.app",)
+#       INSTALLED_APPS += ("world.scenarios.winter_survival.app",)
 ######################################################################
 
 

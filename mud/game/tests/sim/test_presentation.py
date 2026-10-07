@@ -3,9 +3,9 @@
 Golden-ish substring asserts (the prose is Andrew-tunable content; tests pin the STRUCTURE:
 space grouping + survey order, empty-space omission, frame number-agreement, overflow cap,
 aggregation, state-conditioning, part weaving, and the banded cross-zone fade)."""
-from world.scenarios.whiteout.appearance import APPEARANCE
-from world.scenarios.whiteout.responses.slice import RESPONSES
-from world.scenarios.whiteout.spaces import SPACE_TABLE
+from world.scenarios.winter_survival.appearance import APPEARANCE
+from world.scenarios.winter_survival.responses.slice import RESPONSES
+from world.scenarios.winter_survival.spaces import SPACE_TABLE
 from world.sim import narrator, presentation
 from world.sim.contracts import EntityState, Part
 from world.sim.space import spaces

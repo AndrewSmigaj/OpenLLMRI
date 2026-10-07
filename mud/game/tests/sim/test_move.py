@@ -1,6 +1,6 @@
 """Tier-1: the move operation over the REAL crash-site zone map (DR-13a, §18). Pure fixtures."""
-from world.scenarios.whiteout.responses.slice import RESPONSES
-from world.scenarios.whiteout.zones import ZONE_TABLE
+from world.scenarios.winter_survival.responses.slice import RESPONSES
+from world.scenarios.winter_survival.zones import ZONE_TABLE
 from world.sim import narrator
 from world.sim.contracts import ActionAttempt, EffectKind, EntityState, NounRef, Resolution
 from world.sim.operations.handlers import move
@@ -125,7 +125,7 @@ def test_reach_gate_exempts_move_and_unzoned_worlds():
 
 
 def test_heat_across_zones_no_longer_counts():
-    from world.scenarios.whiteout.content import MATERIALS
+    from world.scenarios.winter_survival.content import MATERIALS
     from world.sim.operations.handlers import melt
 
     class ZonedWorld(FakeWorld):

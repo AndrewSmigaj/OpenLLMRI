@@ -5,7 +5,7 @@
 > aggregate at ≥2** · **no authored hiding in v1** (deferred to the P3 perception work) · **object
 > phrases only** (the room desc stays static in v1) · **moderate property hints** · **frames are a
 > small per-room set** (`_frames`). Implementation: pure `game/world/sim/presentation.py`
-> (composer + `describe`), content in `game/world/scenarios/whiteout/appearance.py` (Andrew-tunable
+> (composer + `describe`), content in `game/world/scenarios/winter_survival/appearance.py` (Andrew-tunable
 > voice), shell seams `Room.get_display_things` / `Object.return_appearance`. Reconstructed from
 > the archived seed (§11/§13/§17/§38.2), lenses GD3/GD20/GD25, and prior-art. **Orthogonal to
 > item-interaction** and **NOT** the P3 multi-zone perception system (DR-13 stays deferred) — this

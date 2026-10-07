@@ -6,7 +6,7 @@
 > [`implementation-architecture.md`](../architecture/implementation-architecture.md) §6 (DR-13,
 > DR-13a), §7 (DR-14, DR-15, DR-15a), §13 (DR-22) ·
 > [`adr/0004-zone-as-attribute-perception.md`](../architecture/adr/0004-zone-as-attribute-perception.md).
-> **Sources:** [`GDD.md`](../scenarios/whiteout/GDD.md) §9/§16; [`VISION.md`](../../VISION.md).
+> **Sources:** [`GDD.md`](../scenarios/winter_survival/GDD.md) §9/§16; [`VISION.md`](../../VISION.md).
 
 ---
 
@@ -99,7 +99,7 @@ or three hours, which you can pause and come back to.
 
 ### 4.1 A run is an instance
 
-**Where a run starts: the institute's sim rooms** (Andrew, 2026-09-29). Whiteout is played inside another MUD, the institute, which is still being designed and knows it is a MUD — it fakes no reality and needs no ontologically sufficient world; only the survival simulation does. In its main room an AI robot tells players that when they are ready, up to five can go into a sim room. There are about three sim rooms. Each is an empty room with a sign giving the basic instructions — get everyone who is playing into the room, then run the command to start — and starting loads them into the tutorial rooms, then the run. While a run is going the door is locked and nobody else can enter; if more than five people are in the room, the run does not start until five or fewer are.
+**Where a run starts: the institute's sim rooms** (Andrew, 2026-09-29). Winter Survival is played inside another MUD, the institute, which is still being designed and knows it is a MUD — it fakes no reality and needs no ontologically sufficient world; only the survival simulation does. In its main room an AI robot tells players that when they are ready, up to five can go into a sim room. There are about three sim rooms. Each is an empty room with a sign giving the basic instructions — get everyone who is playing into the room, then run the command to start — and starting loads them into the tutorial rooms, then the run. While a run is going the door is locked and nobody else can enter; if more than five people are in the room, the run does not start until five or fewer are.
 
 Around that (2026-09-29): **a short countdown on start** — *"Starting in 10 seconds with Mara, Cal and
 Jo — step out now if you're not playing"* — so nobody idling in the room is pulled into a two-hour run;
@@ -111,7 +111,7 @@ most of the institute's robots and characters; the institute's scientists, who k
 by heavy models — the institute's own design.
 
 A **run** is one party's private copy of the world: a fresh world-state spawned from a prototype set
-and tagged with a `run_id` (DR-15). Two parties playing Whiteout at the same time are in two
+and tagged with a `run_id` (DR-15). Two parties playing Winter Survival at the same time are in two
 unconnected valleys. Solo is a one-player instance — the same code path, a party of one.
 
 The lifecycle (**proposal**, DR-15):
@@ -427,7 +427,7 @@ None open.
 - Zone state through the single writer: the `MOVE_ZONE` branch of
   [`game/typeclasses/apply.py`](../../game/typeclasses/apply.py), with the zone tag mirror.
 - A **single** run tag: objects are built carrying `("slice", "run_id")`
-  ([`game/world/scenarios/whiteout/build.py`](../../game/world/scenarios/whiteout/build.py)) and the
+  ([`game/world/scenarios/winter_survival/build.py`](../../game/world/scenarios/winter_survival/build.py)) and the
   heartbeat finds its rooms by that tag. This is the seam for instancing — one hard-coded run, not a
   lifecycle.
 

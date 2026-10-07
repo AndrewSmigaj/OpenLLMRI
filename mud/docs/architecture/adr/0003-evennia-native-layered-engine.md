@@ -5,7 +5,7 @@
 
 ## Context
 
-Whiteout's design is a deep *systemic* simulation: materials, parts, conservation,
+Winter Survival's design is a deep *systemic* simulation: materials, parts, conservation,
 graded perception, scheduled multiplayer time, an action-resolution priority
 ladder (§25–27). We need that simulation to be **rigorously testable** and
 **portable across scenarios**, while still getting Evennia's mature MUD plumbing
@@ -48,7 +48,7 @@ Adopt **Evennia-native, layered**: a **functional core / imperative shell**.
 - **Tier-1 tests need no DB and no server** (`make test`), so the bulk of the
   game's logic verifies in milliseconds. This is the architecture's main payoff;
   see [../testing.md](../testing.md).
-- **Rules are scenario-portable.** `world/sim` is the reusable engine; Whiteout
+- **Rules are scenario-portable.** `world/sim` is the reusable engine; Winter Survival
   is one scenario's content on top of it (see
   [../../guides/adding-a-scenario.md](../../guides/adding-a-scenario.md)).
 - **A discipline to hold:** the core must stay import-clean. If a pure module ever

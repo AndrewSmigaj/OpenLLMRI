@@ -1,6 +1,6 @@
 """world.sim.materials — the material library + the ordinal→numeric map (DR-04). Pure: stdlib only.
 
-The authored table (the quality anchor, e.g. `scenarios/whiteout/materials/table.py`) uses ordinal
+The authored table (the quality anchor, e.g. `scenarios/winter_survival/materials/table.py`) uses ordinal
 WORDS; `load_materials` maps them to numbers via `ORDINAL`. Props are INTENSIVE (gates / rank-relations),
 never summed; conserved mass is real integer grams on EntityState/Part, never here.
 

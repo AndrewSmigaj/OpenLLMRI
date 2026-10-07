@@ -10,7 +10,7 @@ from world.sim.validation.content_lint import validate
 
 def main(argv=None) -> int:
     argv = list(sys.argv[1:] if argv is None else argv)
-    name = argv[0] if argv else "whiteout"
+    name = argv[0] if argv else "winter_survival"
     if name == "smoketest":
         print("validate: smoketest has no authored tables — nothing to lint.")
         return 0

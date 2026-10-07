@@ -1,7 +1,7 @@
 """Tier-1: the conservation ledger (DR-11) — mass balances, sink monotonic, bugs rejected (P1.3)."""
 import pytest
 
-from world.scenarios.whiteout.materials.table import MATERIAL_TABLE
+from world.scenarios.winter_survival.materials.table import MATERIAL_TABLE
 from world.sim import effects, narrator
 from world.sim.conservation.ledger import EnvironmentSink, check
 from world.sim.contracts import ActionAttempt, EntityState, NounRef, Part

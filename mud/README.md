@@ -1,13 +1,13 @@
-# Whiteout
+# Winter Survival
 
-**Whiteout** is a text-forward, multiplayer, *systemic* survival-puzzle MUD on
+**Winter Survival** is a text-forward, multiplayer, *systemic* survival-puzzle MUD on
 [Evennia](https://www.evennia.com/). Survivors of a snowy plane crash improvise with every
 object around them to outlast cold, injury, hunger and the coming winter until they are
 rescued or die. You survive by *understanding the world*, not by guessing the author's
 intended verb-object pair.
 
-This repo (`MUDExperiments`) hosts a reusable simulation engine (the "interaction system")
-plus multiple authored scenarios. Whiteout is the first.
+This folder (`mud/` in the Open LLMRI repo) hosts a reusable simulation engine (the "interaction system")
+plus multiple authored scenarios. Winter Survival is the first.
 
 Stack: **Evennia 6.0.0**, Python 3.13, Django 6.0.6, **PostgreSQL 16**. The MUD runs
 entirely in Docker on ports **4000** (telnet), **4001** (website), **4002** (websocket).
@@ -44,7 +44,7 @@ GPU. See `agent/README.md`.
 - [`docs/README.md`](docs/README.md) — **the doc map** (what's authoritative, where things live). Start here.
 - [`BACKLOG.md`](BACKLOG.md) — what's active / next / parked (Now / Next / Later).
 - [`VISION.md`](VISION.md) — what we're building and the non-negotiables.
-- [`docs/scenarios/whiteout/GDD.md`](docs/scenarios/whiteout/GDD.md) — the one game design document; the per-system design lives in `docs/design/`.
+- [`docs/scenarios/winter_survival/GDD.md`](docs/scenarios/winter_survival/GDD.md) — the one game design document; the per-system design lives in `docs/design/`.
 - [`PLAN.md`](PLAN.md) — the order of work and the current decisions.
 - [`docs/`](docs/) — architecture and authoring guides.
 - [`CLAUDE.md`](CLAUDE.md) — orientation for Claude Code working in this repo.

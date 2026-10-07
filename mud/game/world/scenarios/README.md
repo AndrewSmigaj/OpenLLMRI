@@ -1,10 +1,10 @@
 # `world/scenarios/` — authored content
 
-Each scenario is one authored world/experience; the repo hosts many (Whiteout is the first). Content is
+Each scenario is one authored world/experience; the repo hosts many (Winter Survival is the first). Content is
 **cheap objects + ordinal materials + pre-authored operation rules**, with full §43 packets only for
 puzzle-critical objects (radio / beacon / pilot / showcase seat).
 
-> **Status: skeleton (P0).** The Whiteout subpackage layout + a `_template/` are in place; content is
+> **Status: skeleton (P0).** The Winter Survival subpackage layout + a `_template/` are in place; content is
 > authored from P1 on (see
 > [`PLAN.md`](../../../PLAN.md)).
 

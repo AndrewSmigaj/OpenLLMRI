@@ -1,6 +1,6 @@
 # Testing
 
-Whiteout's checks come in **layers, fast → slow**, and the functional-core boundary
+Winter Survival's checks come in **layers, fast → slow**, and the functional-core boundary
 ([overview.md](overview.md)) is precisely what makes the fast layers possible. Day to day you
 drive them through the **`run-tests`** skill (`.claude/skills/run-tests/`); this doc is the
 authoritative record of *what each layer proves* and *when to run what*.

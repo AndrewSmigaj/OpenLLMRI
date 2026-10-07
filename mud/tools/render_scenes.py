@@ -19,7 +19,7 @@ sys.path.insert(0, os.path.join(ROOT, "game"))
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("scenario", nargs="?", default="whiteout")
+    ap.add_argument("scenario", nargs="?", default="winter_survival")
     ap.add_argument("--out", default=None)
     a = ap.parse_args()
     base = f"world.scenarios.{a.scenario}"

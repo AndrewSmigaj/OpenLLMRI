@@ -5,7 +5,7 @@
 
 ## Context
 
-Whiteout targets a reproducible, multiplayer-capable server that any contributor
+Winter Survival targets a reproducible, multiplayer-capable server that any contributor
 can stand up identically. The stack is **Evennia 6.0.0** on **Python 3.13**,
 **Django 6.0.6**, and a real RDBMS. SQLite (Evennia's default) is fine for a
 solo demo but we want production-shaped concurrency and migrations from day one.

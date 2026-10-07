@@ -31,12 +31,12 @@ class CharacterCmdSet(default_cmds.CharacterCmdSet):
         Populates the cmdset
         """
         super().at_cmdset_creation()
-        # Whiteout: the taught-grammar action command (keyed on every operation verb) + the
+        # Winter Survival: the taught-grammar action command (keyed on every operation verb) + the
         # unmatched-input nudge. (CmdAction's `examine` intentionally overloads the builder examine.)
         from commands.cmd_act import CmdAction, CmdNoMatch
         self.add(CmdAction())
         self.add(CmdNoMatch())
-        # Whiteout: stock drop/look share the DR-08a numbered disambiguation menu (same-key add
+        # Winter Survival: stock drop/look share the DR-08a numbered disambiguation menu (same-key add
         # after super() replaces the stock commands); look also strips 'at' (look at X ≡ examine
         # X, DR-23). GET IS GONE: the taught `take` op owns get/grab (DR-24) — CmdAction (added
         # above) replaced stock CmdGet at add-time, and adding a get-aliased command AFTER it
@@ -46,7 +46,7 @@ class CharacterCmdSet(default_cmds.CharacterCmdSet):
         self.add(CmdDrop())
         self.add(CmdLook())
         self.add(CmdInventory())     # DR-25: carried/worn split + the warmth band
-        # Whiteout: zone-aware speech — say/whisper/call/shout as SPEECH events through the
+        # Winter Survival: zone-aware speech — say/whisper/call/shout as SPEECH events through the
         # band-routing propagator (DR-13a, §15); replaces the stock room-wide say.
         from commands.cmd_speech import CmdSpeak
         self.add(CmdSpeak())

@@ -282,7 +282,7 @@ a multi-tick process; there is no stage ladder, no fuel transfer, no heat output
 any reachable heat source, single-shot, mass-conserved. The exact chain Andrew walked on 2026-09-07
 (break bottle → take shard → cut the cover free → burn the fabric) passes end to end as
 `chain.break_bottle` / `chain.shard_cuts_cover` / `chain.burn_the_cover` in
-[`game/world/scenarios/whiteout/probes/chain.py`](../../game/world/scenarios/whiteout/probes/chain.py),
+[`game/world/scenarios/winter_survival/probes/chain.py`](../../game/world/scenarios/winter_survival/probes/chain.py),
 `status: pass`, held in `probes/BASELINE`.
 
 **Designed, not built.** The shaping family — `carve`, `split`, `shave`, `whittle`, `notch`, `string`,

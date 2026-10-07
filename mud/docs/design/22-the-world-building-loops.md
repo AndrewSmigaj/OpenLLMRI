@@ -294,7 +294,7 @@ Local only, one worker (`make ontology-web`). Every action is also a command-lin
 ### 4.10 Probes and coverage
 
 Nothing in these passes writes code, but every proposed command is a future probe. A command becomes a
-probe in `game/world/scenarios/whiteout/probes/` when its zone is finalized for implementation; until
+probe in `game/world/scenarios/winter_survival/probes/` when its zone is finalized for implementation; until
 then it stays a row with its triage result. The probe rules (`ontology-closure.md` §6) hold: passing
 probes are enforced, the passing count never drops, every probe cites its source, and no agent grades
 its own evidence.
@@ -358,7 +358,7 @@ which already feeds a command through the real parser and resolver on an in-memo
 of triage and of the S world; the probe corpus and its ratchet; the wall-sensor writing
 `server/logs/gaps.jsonl`; and the engine's tables, which the R world reads.
 
-**Retired:** the old `whiteout-world-builder` agent and the `ontology-generator` skill (they write
+**Retired:** the old `winter-survival-world-builder` agent and the `ontology-generator` skill (they write
 Python content under the old model), and the July room censuses (an airliner-style cabin).
 
 **A correction owed:** [`loop-workflow.md`](../guides/loop-workflow.md) describes only the

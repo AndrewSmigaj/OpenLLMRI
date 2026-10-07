@@ -14,7 +14,7 @@ appearance overrides, the resolver's reach gate, and the message propagator.
 
 ## Scene-Room + zone attribute
 
-Whiteout rooms are too chunky and pure coordinates too fiddly, so the model is *overlapping
+Winter Survival rooms are too chunky and pure coordinates too fiddly, so the model is *overlapping
 perceptual spaces* ([ADR-0004](adr/0004-zone-as-attribute-perception.md)):
 
 - A **Scene** (e.g. the crash site) is **one Evennia Room**.

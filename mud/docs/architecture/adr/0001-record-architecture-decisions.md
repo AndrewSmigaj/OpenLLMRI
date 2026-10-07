@@ -5,7 +5,7 @@
 
 ## Context
 
-Whiteout makes a handful of load-bearing engineering choices — running the MUD
+Winter Survival makes a handful of load-bearing engineering choices — running the MUD
 only via Docker, layering a pure rules core under Evennia, modelling zones as
 attributes, keeping the LLM external. These need to be discoverable and durable:
 new contributors (and future loop iterations) must be able to find *why* a thing

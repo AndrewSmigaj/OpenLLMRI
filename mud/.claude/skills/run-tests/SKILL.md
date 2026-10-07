@@ -1,12 +1,12 @@
 ---
 name: run-tests
-description: Run and interpret the Whiteout checks — the pure-unit (Tier-1) and Evennia-integration (Tier-2) tests, the 4 structural gates, and the solvability fuzz — and know WHICH to run WHEN. Use whenever the task is to test, verify, check for regressions, or add a test. The authoritative policy lives in docs/architecture/testing.md.
+description: Run and interpret the Winter Survival checks — the pure-unit (Tier-1) and Evennia-integration (Tier-2) tests, the 4 structural gates, and the solvability fuzz — and know WHICH to run WHEN. Use whenever the task is to test, verify, check for regressions, or add a test. The authoritative policy lives in docs/architecture/testing.md.
 allowed-tools: Read, Bash, Grep, Glob
 ---
 
 # Run the tests — the layered check strategy + when to run what
 
-Whiteout's checks come in layers, fast→slow. The functional-core boundary (`world/sim` imports no
+Winter Survival's checks come in layers, fast→slow. The functional-core boundary (`world/sim` imports no
 Evennia) is what makes the fast layers possible. The full policy + rationale is in
 [docs/architecture/testing.md](../../../docs/architecture/testing.md); this skill is how to *drive*
 and *read* it.
@@ -17,7 +17,7 @@ and *read* it.
 | **Gates** (4, host-fast) | `make lint` | boundary/determinism + one-writer + one-output-path + doc-consistency | `tools/lints/*.py` |
 | **Tier-1 pure** (unit) | `make test-host` (host) / `make test` (Docker) | the operation×material engine, ledger, resolver, parser, clock — pure functions | `game/tests/sim/test_*.py` |
 | **Tier-2 Evennia** (integration) | `make test-int` | the shell: Attribute↔`EntityState` marshalling, commands, the propagator, the heartbeat Script | `game/tests/integration/test_*.py` |
-| **Solvability fuzz** | `make fuzz` (or `python3 tools/fuzz.py whiteout`) | every attempt resolves + every effect conserves mass; seeded-replay is byte-identical | `tools/fuzz.py` |
+| **Solvability fuzz** | `make fuzz` (or `python3 tools/fuzz.py winter_survival`) | every attempt resolves + every effect conserves mass; seeded-replay is byte-identical | `tools/fuzz.py` |
 
 Golden-master narration snapshots live inside Tier-1 (assert authored responses stay stable).
 

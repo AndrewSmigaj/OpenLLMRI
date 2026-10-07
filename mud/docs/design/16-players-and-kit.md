@@ -418,21 +418,21 @@ None open.
 
 **Built**
 - The crash draw for all five slots — worn items, pockets, injuries — exactly as §4.1's table:
-  `game/world/scenarios/whiteout/characters.py` (`SLOTS`, `outfit()`, `character_state()`).
+  `game/world/scenarios/winter_survival/characters.py` (`SLOTS`, `outfit()`, `character_state()`).
 - The clothing v2 fields the draw needs (`covers`, `wind`, `waterproof`) and the model that reads
   them (regional loss, wind multiplier, wet fraction, the mitten fine-work gate, warmth bands):
   `game/world/sim/systems/warmth.py`.
-- Dressing at spawn: `game/world/scenarios/whiteout/build.py::dress()` — called with an explicit
+- Dressing at spawn: `game/world/scenarios/winter_survival/build.py::dress()` — called with an explicit
   slot argument (no seed dealing; §4.1).
 - Most of §4.3's luggage: the townie's suitcase and toiletry bag (floss, razor, sanitizer, tampons)
   and paperback; the salesman's laptop bag (laptop, cables, water bottle, snacks); the kid's hockey
   duffel (stick, tape, pads); the mail sack (letters, twine) and the parcel addressed to V. Holt
   (beaver mitts inside); the freight crate and toolbox (pliers, hacksaw blade, shear pins) and the
   dog food; the cooler (frozen fish); the guitar case (a guitar whose strings are wire and neck is
-  wood, as parts) — all in `game/world/scenarios/whiteout/objects.py` (its "the luggage, the mail
+  wood, as parts) — all in `game/world/scenarios/winter_survival/objects.py` (its "the luggage, the mail
   and the freight" section).
 - Tests and probes: `game/tests/sim/test_kit.py` (every slot's rows are sound; luggage is placed and
-  reachable; a dressed actor sees its own pockets); `game/world/scenarios/whiteout/probes/kit.py` —
+  reachable; a dressed actor sees its own pockets); `game/world/scenarios/winter_survival/probes/kit.py` —
   fifteen probes across the five slots and the luggage, all `status: pass`.
 
 **Designed, not built**

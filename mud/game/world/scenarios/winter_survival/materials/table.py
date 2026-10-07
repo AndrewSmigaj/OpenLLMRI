@@ -1,4 +1,4 @@
-"""Whiteout — the hand-curated material table (the quality anchor, DR-04).
+"""Winter Survival — the hand-curated material table (the quality anchor, DR-04).
 
 Ordinal words: none < very_low < low < med < high < very_high < extreme (mapped to numbers at load
 via `world.sim.materials.load_materials`). Props are INTENSIVE (gates / rank-relations), never summed;

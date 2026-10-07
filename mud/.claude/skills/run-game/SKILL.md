@@ -1,6 +1,6 @@
 ---
 name: run-game
-description: Bring the Whiteout MUD up, load a scenario, and connect for co-op play/smoke-testing. Use whenever the task is to run / boot / restart the server, load a world, get into the game, or read the logs. Orchestrates the existing `make` targets + the load-scenario/restart-server commands; it does not reinvent them.
+description: Bring the Winter Survival MUD up, load a scenario, and connect for co-op play/smoke-testing. Use whenever the task is to run / boot / restart the server, load a world, get into the game, or read the logs. Orchestrates the existing `make` targets + the load-scenario/restart-server commands; it does not reinvent them.
 allowed-tools: Read, Bash, Grep, Glob
 ---
 
@@ -41,7 +41,7 @@ docker compose logs --tail=40 evennia    # look for the Evennia startup banner, 
 
 ## Load a scenario
 ```sh
-make load-scenario SCENARIO=whiteout     # runs world.scenarios.whiteout.build:build()
+make load-scenario SCENARIO=winter_survival     # runs world.scenarios.winter_survival.build:build()
 ```
 Report which scenario loaded and surface any traceback. If it fails because the stack/DB isn't up,
 run *Bring-up* first. (This is exactly the `/load-scenario` command.)
@@ -96,5 +96,5 @@ make shell                                # Evennia/Django shell for inspection
 
 ## Graceful degradation (current state)
 `make agent` (bot harness) and `make bake` / `make validate` are stubs until later roadmap phases —
-they print a pointer instead of doing work. `make load-scenario SCENARIO=whiteout` and the smoke above
+they print a pointer instead of doing work. `make load-scenario SCENARIO=winter_survival` and the smoke above
 are live as of P1.

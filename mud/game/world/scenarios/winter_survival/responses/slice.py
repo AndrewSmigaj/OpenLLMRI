@@ -1,4 +1,4 @@
-"""Whiteout — the slice's signature narration templates (DR-09; grows toward ~50 in P1.6).
+"""Winter Survival — the slice's signature narration templates (DR-09; grows toward ~50 in P1.6).
 
 Deterministic templates filled from state by world.sim.narrator. Tunable content — Andrew adjusts the
 voice after P1. Placeholders: {tool} {target} {part} {output} {attachment} {smoke}.

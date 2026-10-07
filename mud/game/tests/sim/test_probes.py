@@ -1,8 +1,8 @@
 """Tier-1: the probe corpus (DR-18a) — every `status: pass` probe passes on the pure core, and the
 passing count never drops below the committed BASELINE (the ratchet)."""
-from world.scenarios.whiteout import characters, content, probes as probes_pkg
-from world.scenarios.whiteout.authored import AUTHORED
-from world.scenarios.whiteout.objects import OBJECT_TABLE
+from world.scenarios.winter_survival import characters, content, probes as probes_pkg
+from world.scenarios.winter_survival.authored import AUTHORED
+from world.scenarios.winter_survival.objects import OBJECT_TABLE
 from world.sim.testing.probes import run_all, run_probe, summarize
 
 MATS = content.load()

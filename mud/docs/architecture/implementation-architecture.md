@@ -1,7 +1,7 @@
-# Whiteout — Implementation Architecture
+# Winter Survival — Implementation Architecture
 
-> **Status: v4 — current; a work in progress, amended through the DR register.** The full implementation blueprint for Whiteout, derived from
-> `docs/scenarios/whiteout/GDD.md`. Supersedes the older sub-docs where they conflict
+> **Status: v4 — current; a work in progress, amended through the DR register.** The full implementation blueprint for Winter Survival, derived from
+> `docs/scenarios/winter_survival/GDD.md`. Supersedes the older sub-docs where they conflict
 > (`overview.md`, `llm-integration.md`, `tick-and-scheduler.md`, `perception-model.md`, `testing.md`
 > remain valid as focused views). **Current decisions: the engine is 100% deterministic and never calls a
 > language model (models build the world and play from outside — GDD §3 rules 2 and 5; the radio
@@ -185,7 +185,7 @@ written out below the table or in the section that owns them.
    │ space/ (perception)   systems/ (clock, scheduler, rescue, fire, ...)   validation/                 │
    └─────────────────────────────────────────────────────────────────────────────────────────────────┘
                                    ▲ loads
-   ┌──────────────── content tables (game/world/scenarios/whiteout/, loaded at boot) ──────────────────┐
+   ┌──────────────── content tables (game/world/scenarios/winter_survival/, loaded at boot) ──────────────────┐
    │ objects.py   materials/table.py   zones.py   spaces.py   appearance.py   responses/   rescue.def   │
    └─────────────────────────────────────────────────────────────────────────────────────────────────┘
                                    ▲ built by
@@ -605,7 +605,7 @@ game/
                                   #        Room(=Scene, perception return_appearance),
                                   #        Character(zone attr), Script(heartbeat/instance-reaper)
   commands/                       # cmdset: parse entry, the verbs, the propagator hook, `observe`
-  world/scenarios/whiteout/       # CONTENT TABLES (loaded at boot, DR-17a): objects.py, materials/table.py, zones.py, spaces.py, appearance.py, responses/, probes/, rescue.def, build.py
+  world/scenarios/winter_survival/       # CONTENT TABLES (loaded at boot, DR-17a): objects.py, materials/table.py, zones.py, spaces.py, appearance.py, responses/, probes/, rescue.def, build.py
 tools/                            # BUILD-TIME (offline): probes.py, fuzz.py, render_scenes.py, lints/
 game/tests/{sim,integration}/     # the two tiers
 ```
@@ -623,7 +623,7 @@ action; the pure core never touches Evennia objects.
 
 ## 13. The seams (DR-22)
 The first vertical slice (built June–July 2026) proved *try-anything → resolves → feels alive* **as
-co-op**, because Whiteout is a MUD on Evennia (multiplayer is the premise, and Evennia gives shared
+co-op**, because Winter Survival is a MUD on Evennia (multiplayer is the premise, and Evennia gives shared
 rooms/sessions nearly free; the single-threaded reactor serializes commands, so shared-object mutation
 can't race). It, and every system after it, is built behind seams — this is what makes each system
 still to come a clean extension, not a refactor:

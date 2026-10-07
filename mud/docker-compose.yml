@@ -1,4 +1,4 @@
-# Whiteout MUD — local dev stack.
+# Winter Survival MUD — local dev stack.
 #
 #   docker compose build        # build the evennia image (psycopg2 + pytest)
 #   make init                   # one-time: scaffold the Evennia game dir

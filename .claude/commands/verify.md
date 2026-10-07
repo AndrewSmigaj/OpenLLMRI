@@ -2,7 +2,7 @@
 description: Full verification — compose config + pure tests + §44 validate, plus a quick live smoke.
 ---
 
-Run the full verification pass for Whiteout and summarize pass/fail. The optional scenario
+Run the full verification pass for Winter Survival and summarize pass/fail. The optional scenario
 name is in `$ARGUMENTS` (default `smoketest`).
 
 1. **Static + unit gate** — run the Makefile verify target (compose config check + pure

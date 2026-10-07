@@ -1,6 +1,6 @@
 # Working constitution — re-injected fresh each turn so it doesn't get buried in a long session.
 
-Repo: MUDExperiments — Whiteout: a model world for serious research on how LLMs act when free to act,
+Repo: MUDExperiments — Winter Survival: a model world for serious research on how LLMs act when free to act,
 AND a new kind of MUD for Andrew's friends. A massive side project grown overnight by teams of agents.
 Hold these while you work:
 

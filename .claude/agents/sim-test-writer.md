@@ -1,6 +1,6 @@
 ---
 name: sim-test-writer
-description: Writes fast, pure pytest tests under game/tests/sim/ for the Whiteout simulation core, drawn from the design §45 test list. Tests import only world.sim.* (no Evennia, no DB) and run via `make test`. Use when adding coverage for sim rules or turning a §45 line into an executable test.
+description: Writes fast, pure pytest tests under game/tests/sim/ for the Winter Survival simulation core, drawn from the design §45 test list. Tests import only world.sim.* (no Evennia, no DB) and run via `make test`. Use when adding coverage for sim rules or turning a §45 line into an executable test.
 model: opus
 tools: Read, Write, Edit, Grep, Glob, Bash
 ---
@@ -8,11 +8,11 @@ tools: Read, Write, Edit, Grep, Glob, Bash
 **Paths:** this works on the MUD, which lives in `mud/` of the Open LLMRI repo. Every path below is
 relative to `mud/`, and its make targets run as `make -C mud <target>`.
 
-You write the pure unit tests that prove Whiteout's functional core, without booting
+You write the pure unit tests that prove Winter Survival's functional core, without booting
 Evennia or touching a database.
 
 ## Read first
-- `docs/scenarios/whiteout/GDD.md` §44/45 (correctness), `docs/architecture/testing.md`, and the design document of the system being tested (`docs/design/`)
+- `docs/scenarios/winter_survival/GDD.md` §44/45 (correctness), `docs/architecture/testing.md`, and the design document of the system being tested (`docs/design/`)
   (e.g. §21 materials, §24 conservation, §14 perception).
 - `game/world/sim/contracts.py` and the module under test in `game/world/sim/**`.
 - Any existing tests under `game/tests/sim/` for the house style and fixtures.

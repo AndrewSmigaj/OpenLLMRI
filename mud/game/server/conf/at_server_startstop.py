@@ -30,15 +30,15 @@ def at_server_start():
     This is called every time the server starts up, regardless of
     how it was shut down.
     """
-    # Whiteout: load the content registries (narration templates + DR-23 appearance) at START —
+    # Winter Survival: load the content registries (narration templates + DR-23 appearance) at START —
     # NOT lazily at first command import. The login auto-look renders the room before any command
     # has ever run on a fresh server; with empty registries it degrades to bare fallbacks
     # ("Scattered around: ... a the pilot") — the bug Andrew hit 2026-07-03.
-    from world.scenarios.whiteout import content
+    from world.scenarios.winter_survival import content
     content.load()
-    # Whiteout: ensure the world-clock heartbeat exists (persistent; DR-14).
+    # Winter Survival: ensure the world-clock heartbeat exists (persistent; DR-14).
     from evennia import create_script, search_script
-    if not search_script("whiteout_heartbeat"):
+    if not search_script("winter_survival_heartbeat"):
         create_script("typeclasses.heartbeat.HeartbeatScript")
 
 

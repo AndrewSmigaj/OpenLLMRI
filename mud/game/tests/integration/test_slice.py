@@ -12,7 +12,7 @@ from evennia.utils.test_resources import EvenniaTest
 class TestSlice(EvenniaTest):
     def setUp(self):
         super().setUp()
-        from world.scenarios.whiteout import content
+        from world.scenarios.winter_survival import content
         content.load()
         self.seat = create_object(
             "typeclasses.objects.Object", key="aircraft seat", location=self.room1, aliases=["seat"],
@@ -231,7 +231,7 @@ class TestSlice(EvenniaTest):
         """Runs the ACTUAL build.build() (17 objects, ZONED as of P3) and drives verbs through the
         command path — now WALKING the crash site between them: the automated equivalent of the
         load-scenario smoke, the scenario regression guard, and an end-to-end P3 exit-gate script."""
-        from world.scenarios.whiteout import build as scenario
+        from world.scenarios.winter_survival import build as scenario
         room = scenario.build()
         self.char1.location = room                   # unzoned char → default zone (mid cabin)
         sims, frontier = set(), list(room.contents)  # DR-24: most loot is NESTED — walk the tree

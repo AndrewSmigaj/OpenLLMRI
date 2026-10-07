@@ -1,6 +1,6 @@
 ---
 name: solvability-fuzz
-description: Drive seeded, reproducible runs over a Whiteout scenario (via the ScriptedBrain / a simulated player) to find UNRESOLVED attempts and GLOBAL softlocks that the per-fact ≥3-paths rule can't catch. Use to assess "can smart players always make progress" and to feed the wall-sensor / crystallize queue. Reports against an oracle of §44 invariants.
+description: Drive seeded, reproducible runs over a Winter Survival scenario (via the ScriptedBrain / a simulated player) to find UNRESOLVED attempts and GLOBAL softlocks that the per-fact ≥3-paths rule can't catch. Use to assess "can smart players always make progress" and to feed the wall-sensor / crystallize queue. Reports against an oracle of §44 invariants.
 allowed-tools: Read, Bash, Write, Grep, Glob
 ---
 

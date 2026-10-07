@@ -1,5 +1,5 @@
 """Tier-1: the resolver tiers + coarse redirect + wall-sensor (DR-09, P1.4)."""
-from world.scenarios.whiteout.materials.table import MATERIAL_TABLE
+from world.scenarios.winter_survival.materials.table import MATERIAL_TABLE
 from world.sim import narrator
 from world.sim.contracts import ActionAttempt, ActionResult, EntityState, NounRef, Part, Resolution
 from world.sim.materials import load_materials

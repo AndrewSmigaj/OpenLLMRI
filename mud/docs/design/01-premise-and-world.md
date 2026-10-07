@@ -7,7 +7,7 @@
 > and Scenes are represented lives in
 > [`../architecture/implementation-architecture.md`](../architecture/implementation-architecture.md)
 > (DR-13a) and [`../architecture/perception-model.md`](../architecture/perception-model.md). The built
-> zones are `game/world/scenarios/whiteout/zones.py`.
+> zones are `game/world/scenarios/winter_survival/zones.py`.
 
 This is the document you read to picture the whole world before anything else: what happened, when
 and where it happened, what country the party is standing in, how big it is, what it costs to cross,
@@ -593,11 +593,11 @@ None open.
 
 ## 8. What exists today
 
-**Built** — nine zones, all at the crash site, in `game/world/scenarios/whiteout/zones.py`: `cockpit`,
+**Built** — nine zones, all at the crash site, in `game/world/scenarios/winter_survival/zones.py`: `cockpit`,
 `mid_cabin`, `rear_cabin`, `outside_nose`, `fuselage_top`, `outside_tail`, `debris_trail`,
 `tail_section`, `treeline`. Each has a position, edges (walk/see), terrain tags and a survey line;
-each has authored spaces in `game/world/scenarios/whiteout/spaces.py` and objects in
-`objects.py` / `objects/`; the probe corpus (`game/world/scenarios/whiteout/probes/`) names those nine
+each has authored spaces in `game/world/scenarios/winter_survival/spaces.py` and objects in
+`objects.py` / `objects/`; the probe corpus (`game/world/scenarios/winter_survival/probes/`) names those nine
 zones and no others. Their full census is the ontology store's work (document 05 §4.5). The crash-site content includes the pilot's body, the sectional chart naming V. Holt's
 cabin, the torn survival duffel, the snapped hatchet, the soaked matchbox, the sleeping bag, the
 snowshoes and the ELT.

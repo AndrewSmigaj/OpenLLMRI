@@ -12,7 +12,7 @@ from evennia.utils.test_resources import EvenniaTest
 class TestStockMenus(EvenniaTest):
     def setUp(self):
         super().setUp()
-        from world.scenarios.whiteout import content
+        from world.scenarios.winter_survival import content
         content.load()
 
     def _said(self, m):

@@ -1,4 +1,4 @@
-"""Whiteout — the player SLOTS (players-and-kit.md; Andrew 2026-09-07): what each survivor wore, carried
+"""Winter Survival — the player SLOTS (players-and-kit.md; Andrew 2026-09-07): what each survivor wore, carried
 in their pockets, and suffered in the crash. A slot is authored; the run seed permutes which player gets
 which. `outfit(slot)` returns OBJECT_TABLE-style rows to load INTO a character (the loader's parent):
 worn items carry `worn_by`; pockets are a container the owner has already searched; the injury is

@@ -11,8 +11,8 @@ from evennia.utils.test_resources import EvenniaTest
 class TestMovement(EvenniaTest):
     def setUp(self):
         super().setUp()
-        from world.scenarios.whiteout import content
-        from world.scenarios.whiteout.build import build
+        from world.scenarios.winter_survival import content
+        from world.scenarios.winter_survival.build import build
         content.load()
         self.scene = build()
         self.char1.location = self.scene    # unzoned character → room default_zone (mid_cabin)

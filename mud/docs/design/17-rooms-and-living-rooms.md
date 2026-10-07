@@ -366,20 +366,20 @@ None open.
 
 **Built**
 - The nine crash rooms, as zones with position, terrain tags, and adjacency:
-  `game/world/scenarios/whiteout/zones.py` (`cockpit`, `mid_cabin`, `rear_cabin`, `outside_nose`,
+  `game/world/scenarios/winter_survival/zones.py` (`cockpit`, `mid_cabin`, `rear_cabin`, `outside_nose`,
   `fuselage_top`, `outside_tail`, `debris_trail`, `tail_section`, `treeline` — all nine, and nothing
   beyond them).
 - Their scene-spaces (property 1's "where things sit"), one `SPACE_TABLE` entry per zone:
-  `game/world/scenarios/whiteout/spaces.py` (e.g. `mid_cabin`'s `seat_rows` / `overhead` / `aisle`).
+  `game/world/scenarios/winter_survival/spaces.py` (e.g. `mid_cabin`'s `seat_rows` / `overhead` / `aisle`).
 - State that persists and shows (property 2), live today: the seat's `residue_cushion: "clipped"`
   state variant renders "Seat 11B stands half-stripped, bared clips showing where its cushion was
-  hacked out" — `game/world/scenarios/whiteout/appearance.py`.
+  hacked out" — `game/world/scenarios/winter_survival/appearance.py`.
 - The aggregation of identical objects into one sentence (part of property 4's "other people's
   traces," and a presentation mechanism, DR-23): two authored `deadfall` branches render as "{count}
   snow-crusted deadfall branches" when both are present — `appearance.py`.
-- A probe corpus over the censuses: `game/world/scenarios/whiteout/probes/census.py` (mixed
+- A probe corpus over the censuses: `game/world/scenarios/winter_survival/probes/census.py` (mixed
   `pass`/`todo` status per candidate command); the coverage floor at
-  `game/world/scenarios/whiteout/probes/BASELINE`.
+  `game/world/scenarios/winter_survival/probes/BASELINE`.
 
 **Designed, not built**
 - The outdoor places for the whole valley (document 01): `zones.py` carries exactly the nine

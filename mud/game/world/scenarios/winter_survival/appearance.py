@@ -1,4 +1,4 @@
-"""Whiteout — appearance content: scene phrases, examine prose, and each object's home space.
+"""Winter Survival — appearance content: scene phrases, examine prose, and each object's home space.
 Tunable content — this is Andrew's voice; rewrite freely. Structure per entry (keyed by sim_id, or
 by display NAME for derived objects so identical deriveds share one entry):
 

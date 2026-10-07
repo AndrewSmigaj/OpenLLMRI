@@ -1,4 +1,4 @@
-# Whiteout — Game Design Document
+# Winter Survival — Game Design Document
 
 > **Status: reviewed with Andrew 2026-09-17; finalized at the close.** The umbrella: the pitch, the
 > vision, the cross-cutting rules and the chapter index. The design of each system lives in its own
@@ -45,7 +45,7 @@ Ideas that are not design yet: [`docs/design/IDEAS.md`](../../design/IDEAS.md).
 ## §1. Pitch & §2. Essential experience
 > *Design:* [`01-premise-and-world`](../../design/01-premise-and-world.md) · [`02-the-experience`](../../design/02-the-experience.md)
 
-**Whiteout** — survivors of a bush-plane crash in interior Alaska, in the first week of October,
+**Winter Survival** — survivors of a bush-plane crash in interior Alaska, in the first week of October,
 improvise with a physically modelled world to stay alive — cold, injury, hunger and the coming winter
 against them — until they are rescued: by getting a radio working and raising someone — the plane's own radio, or a hand radio in a trapper's
 cabin whose batteries are in the plane's tail — by a
@@ -216,7 +216,7 @@ in a first version (DR-13a).
 ## §9/§16. Time, multiplayer, cooperation
 > *Design:* [`06-time-sleep-and-the-clock`](../../design/06-time-sleep-and-the-clock.md) · [`19-multiplayer-and-instances`](../../design/19-multiplayer-and-instances.md) · [`20-the-agent-player-and-research`](../../design/20-the-agent-player-and-research.md) · [`21-endings`](../../design/21-endings.md)
 
-**Where a run starts: the institute's sim rooms** (Andrew, 2026-09-29). Whiteout is played inside another MUD, the institute, which is still being designed and knows it is a MUD — it fakes no reality and needs no ontologically sufficient world; only the survival simulation does. In its main room an AI robot tells players that when they are ready, up to five can go into a sim room. There are about three sim rooms. Each is an empty room with a sign giving the basic instructions — get everyone who is playing into the room, then run the command to start — and starting loads them into the tutorial rooms, then the run. While a run is going the door is locked and nobody else can enter; if more than five people are in the room, the run does not start until five or fewer are. (Document 19 §4.1.)
+**Where a run starts: the institute's sim rooms** (Andrew, 2026-09-29). Winter Survival is played inside another MUD, the institute, which is still being designed and knows it is a MUD — it fakes no reality and needs no ontologically sufficient world; only the survival simulation does. In its main room an AI robot tells players that when they are ready, up to five can go into a sim room. There are about three sim rooms. Each is an empty room with a sign giving the basic instructions — get everyone who is playing into the room, then run the command to start — and starting loads them into the tutorial rooms, then the run. While a run is going the door is locked and nobody else can enter; if more than five people are in the room, the run does not start until five or fewer are. (Document 19 §4.1.)
 
 **The clock (DR-14/14b).** Game time runs on its own at **15 game-minutes per real minute**; nobody can
 stall or yank it. **Fast forward**, proposed and agreed by the players, runs it at about **150×**: awake

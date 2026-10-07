@@ -316,7 +316,7 @@ raises `NotImplementedError` (roadmap P4) — nothing consumes `INTERRUPT_SIGNAL
 files `game/world/sim/systems/{fire,water,shelter,weather}.py` are bare docstrings (roadmap P5); no
 `Activity` dataclass exists in `contracts.py`. `responses/activities.py` (the feedback-grammar
 templates) does not exist — the scenario's narration currently lives in one file,
-`game/world/scenarios/whiteout/responses/slice.py`.
+`game/world/scenarios/winter_survival/responses/slice.py`.
 
 **Nothing.** `sleep`, `rest`, `wait`, fast forward and the command that slows it, the out-of-character
 chat for sleepers, the bedding score and fatigue — no verb handlers, no Attributes, no commands exist

@@ -1,6 +1,6 @@
 # Adding a Scenario
 
-This repo (`MUDExperiments`) is a reusable **simulation engine** that hosts **many scenarios**. Whiteout is
+This folder (`mud/` in the Open LLMRI repo) is a reusable **simulation engine** that hosts **many scenarios**. Winter Survival is
 the first. This guide shows how to add another under `game/world/scenarios/<name>/` and load it.
 
 > The engine (`world/sim/**`) is scenario-agnostic. A scenario is *content*: tables of zones, spaces,

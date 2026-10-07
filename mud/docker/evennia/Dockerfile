@@ -1,4 +1,4 @@
-# Whiteout MUD — Evennia image.
+# Winter Survival MUD — Evennia image.
 #
 # The MUD (Evennia server + web client) runs entirely in this container.
 # The torch bot-agent does NOT run here — it runs on the host where the model

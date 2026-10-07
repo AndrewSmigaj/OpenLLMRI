@@ -1,15 +1,15 @@
 """Tier-1: solvability fuzz (every attempt resolves + conserves) + seeded-replay determinism (P1.10).
 
-Drives the pure resolver over the shared probe grid (world.scenarios.whiteout._probe — the SAME fixture
+Drives the pure resolver over the shared probe grid (world.scenarios.winter_survival._probe — the SAME fixture
 tools/fuzz.py uses, so host harness and unit test can't drift). Asserts: nothing crashes, everything
 resolves to SUCCESS/PARTIAL/REDIRECT, every effect balances in the ledger, and replay is byte-identical.
 """
-from world.scenarios.whiteout._probe import probe_grid, probe_world
+from world.scenarios.winter_survival._probe import probe_grid, probe_world
 from world.sim import narrator
 from world.sim.conservation.ledger import check
 from world.sim.contracts import Resolution
 from world.sim.materials import load_materials
-from world.scenarios.whiteout.materials.table import MATERIAL_TABLE
+from world.scenarios.winter_survival.materials.table import MATERIAL_TABLE
 from world.sim.resolver import resolve
 
 MATS = load_materials(MATERIAL_TABLE)

@@ -1,6 +1,6 @@
 # LLM Integration
 
-Where a language model touches Whiteout — and, decisively, where it does **not**.
+Where a language model touches Winter Survival — and, decisively, where it does **not**.
 
 > **The rule (GDD §3.2 / §41).** **Runtime is fully deterministic. The LLM is a build-time authoring
 > tool only and is NEVER called during play.** All interactions are pre-built. The engine never invents

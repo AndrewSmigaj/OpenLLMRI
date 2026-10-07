@@ -234,7 +234,7 @@ all of it is inside the taught grammar:
 
 **The measured numbers** (the phrasing corpus, measured 2026-09-07, real parser, real nouns — two
 agents, Sonnet 5 and Haiku, seven survival tasks, naive (A) and taught (B) conditions, 294 lines →
-`game/world/scenarios/whiteout/probes/phrasing.py`):
+`game/world/scenarios/winter_survival/probes/phrasing.py`):
 
 | | before (2026-09-07 morning) | after the tolerance layer |
 |---|---|---|
@@ -516,6 +516,6 @@ landed — checked directly against the code, 2026-09-16):
   `docs/design/README.md`'s table, not yet written; `ontology-closure.md` §5 stands in for it.
 
 **Measured (not code, but a real artifact):**
-- `game/world/scenarios/whiteout/probes/phrasing.py` — the phrasing corpus's agent-typed lines as
+- `game/world/scenarios/winter_survival/probes/phrasing.py` — the phrasing corpus's agent-typed lines as
   probes (`expect: "PARSED"`), 302 lines including a small number marked `status: "todo"`; this is
   the artifact §3.7's numbers were measured against.

@@ -408,16 +408,16 @@ world-building or possibility pass. The mid-cabin pilot has not been run.
   values winning, every factor capped, and every form a minting handler produces present as a key.
   Reached through `game/world/sim/operations/_helpers.py` (`capability`), so closure lands wherever a
   verb asks for an affordance.
-- The runtime tables the store will be seeded from: `game/world/scenarios/whiteout/objects.py` (the
-  object table), `game/world/scenarios/whiteout/materials/table.py`,
-  `game/world/scenarios/whiteout/zones.py`, `game/world/scenarios/whiteout/spaces.py`,
-  `game/world/scenarios/whiteout/appearance.py`.
+- The runtime tables the store will be seeded from: `game/world/scenarios/winter_survival/objects.py` (the
+  object table), `game/world/scenarios/winter_survival/materials/table.py`,
+  `game/world/scenarios/winter_survival/zones.py`, `game/world/scenarios/winter_survival/spaces.py`,
+  `game/world/scenarios/winter_survival/appearance.py`.
 
 **Built — the probe corpus.**
 
 - The runner: `game/world/sim/testing/probes.py` (real parser, pure in-memory world, chained steps,
   outcome class and tier prefix compared).
-- The corpus: `game/world/scenarios/whiteout/probes/` — `chain.py` (Andrew's own closure chain,
+- The corpus: `game/world/scenarios/winter_survival/probes/` — `chain.py` (Andrew's own closure chain,
   approved 2026-09-07), `census.py` (candidate commands harvested from the nine room censuses, status
   measured, `todo` rows carrying the queue), `kit.py`, `phrasing.py`, and `BASELINE` (the ratchet).
 - The entry points: `tools/probes.py`, `make probes`; the seeded solvability fuzz `tools/fuzz.py`,
@@ -427,6 +427,6 @@ world-building or possibility pass. The mid-cabin pilot has not been run.
 
 - The valley census's findings, carried into documents 01 (the zones, §4.5; the density gradient and
   the census totals, §4.11) and 18 (the missing materials, §4.7).
-- The `census` probes (`game/world/scenarios/whiteout/probes/census.py`) — drawn from the July room
+- The `census` probes (`game/world/scenarios/winter_survival/probes/census.py`) — drawn from the July room
   censuses, the nearest thing to a Phase 1 output that exists.
 - The mechanism spec: [`../architecture/ontology-closure.md`](../architecture/ontology-closure.md).

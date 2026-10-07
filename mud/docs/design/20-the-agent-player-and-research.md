@@ -19,7 +19,7 @@
 
 - **(2026-10-02)** An agent-only run charges each command the time a person would take to read,
   decide and type it (document 19 §4.6).
-- **The research is the point, equally with the game** (2026-09-16). Whiteout is a model world for
+- **The research is the point, equally with the game** (2026-09-16). Winter Survival is a model world for
   serious academic research: a person, or a language model whose activations are captured and whose
   behaviour is analysed, can do whatever is reasonable in it. [`VISION.md`](../../VISION.md) states it
   as the first of the two purposes: a model acts in it freely, through the same taught grammar a
@@ -80,7 +80,7 @@ settled on 2026-10-02 (§4.3).
 
 ## 3. In one paragraph
 
-An agent plays Whiteout the way a person does: it connects to a normal player account, it is handed
+An agent plays Winter Survival the way a person does: it connects to a normal player account, it is handed
 the same short grammar guide a friend would read, and from then on it gets exactly the text a human
 at that keyboard would get — the title line and the prose, with the people, the animals and the ways
 out written into it, and nothing else. No list of what it could do, no machine-readable summary of the
@@ -386,7 +386,7 @@ None open.
   particles, relation words) and
   [`game/world/sim/parser/grammar.py`](../../game/world/sim/parser/grammar.py).
 - **The probe corpus**, including the agent lines themselves:
-  [`game/world/scenarios/whiteout/probes/`](../../game/world/scenarios/whiteout/probes/) —
+  [`game/world/scenarios/winter_survival/probes/`](../../game/world/scenarios/winter_survival/probes/) —
   `phrasing.py` (the 294 captured lines as `expect: PARSED` probes), `census.py`, `chain.py`,
   `kit.py`, and the `BASELINE` ratchet.
 - **The wall-sensor**: `_log_gap` in

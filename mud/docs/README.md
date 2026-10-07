@@ -8,9 +8,9 @@ Where everything lives, what's authoritative, and where new docs go.
 - [`../VISION.md`](../VISION.md) — the anchor: what we build + the core decisions.
 - [`design/`](design/) — **the design of record, one document per system**, in review order; the index,
   the review procedure and the template are in [`design/README.md`](design/README.md). A system's design
-  (the what and why, Whiteout content included) lives here; its mechanism (the how) lives in
+  (the what and why, Winter Survival content included) lives here; its mechanism (the how) lives in
   `architecture/`. Each document's banner says whether it is a draft, reviewed, or finalized.
-- [`scenarios/whiteout/GDD.md`](scenarios/whiteout/GDD.md) — the umbrella: pitch, vision, cross-cutting rules, and the chapter index into `design/`.
+- [`scenarios/winter_survival/GDD.md`](scenarios/winter_survival/GDD.md) — the umbrella: pitch, vision, cross-cutting rules, and the chapter index into `design/`.
 - [`architecture/`](architecture/) — the architecture. `implementation-architecture.md` is the spine
   (its **DR-01…DR-23 decision register is our ADR log**); `overview.md` / `perception-model.md` /
   `presentation.md` / `tick-and-scheduler.md` / `llm-integration.md` / `testing.md` /

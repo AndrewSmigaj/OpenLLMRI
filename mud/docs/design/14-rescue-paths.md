@@ -390,18 +390,18 @@ None open.
 ## 7. What exists today
 
 **Designed, not built:** everything in §3 exists only as prose. No probe chain exists for any of it:
-`game/world/scenarios/whiteout/probes/` holds `census.py`, `chain.py`, `kit.py` and `phrasing.py`, and
+`game/world/scenarios/winter_survival/probes/` holds `census.py`, `chain.py`, `kit.py` and `phrasing.py`, and
 none of them walks a way home. The valley the rescue relies on — Holt's cabin, the lake shore, the ridge
-— exists only as design: `game/world/scenarios/whiteout/zones.py` holds the nine crash-site zones
+— exists only as design: `game/world/scenarios/winter_survival/zones.py` holds the nine crash-site zones
 (cockpit, mid_cabin, rear_cabin, outside_nose, fuselage_top, outside_tail, debris_trail, tail_section,
 treeline). Building the outdoor places is tracked separately (`PLAN.md`).
 
 **Built, but carrying the retired model** (rewritten when the rescue is built):
 - `game/world/sim/systems/rescue.py` holds one function, `confidence(channels)`, which raises
   `NotImplementedError`; its docstring describes the retired additive-confidence model and a radio
-  state machine. `game/world/scenarios/whiteout/rescue.def` is a comment-only placeholder describing
+  state machine. `game/world/scenarios/winter_survival/rescue.def` is a comment-only placeholder describing
   the same.
-- `game/world/scenarios/whiteout/authored.py` — the authored-rule seam is live (the resolver consults
+- `game/world/scenarios/winter_survival/authored.py` — the authored-rule seam is live (the resolver consults
   `AUTHORED` before the generic handlers), but the dict is empty, and its docstring still names the
   ELT.
 - `objects.py` authors `radio` as a field radio in the cockpit (`plastic`/`copper_wire`, `state:

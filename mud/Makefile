@@ -1,4 +1,4 @@
-# Whiteout MUD — developer entry points. Everything runs through Docker.
+# Winter Survival MUD — developer entry points. Everything runs through Docker.
 # The torch bot-agent is the one exception: it runs on the host (see agent/).
 # The host-fast gates (lint, test-host) also run without Docker, for a tight inner loop.
 
@@ -11,7 +11,7 @@ DC = docker compose $(if $(wildcard .env),--env-file .env) $(if $(wildcard ../.e
         reset-db shell agent
 
 help:
-	@echo "Whiteout MUD make targets:"
+	@echo "Winter Survival MUD make targets:"
 	@echo "  build          build the evennia image"
 	@echo "  init           scaffold the Evennia game dir (one-time)"
 	@echo "  migrate        run DB migrations against Postgres"
@@ -25,7 +25,7 @@ help:
 	@echo "  test-host      run the pure tests + gates on the HOST (no Docker; fast loop)"
 	@echo "  lint           host gates: pure-core + no-raw-writes + no-raw-output (propagator) + doc-consistency"
 	@echo "  test-int       run the Evennia integration tests"
-	@echo "  validate       the §44 content lint over the scenario tables (SCENARIO=whiteout)"
+	@echo "  validate       the §44 content lint over the scenario tables (SCENARIO=winter_survival)"
 	@echo "  probes         run the probe corpus: every pass probe green, BASELINE never drops"
 	@echo "  render-scenes  render every zone/object/probe to docs/review/ for READING"
 	@echo "  fuzz           run the solvability-fuzz harness"
@@ -115,7 +115,7 @@ test-int:
 	if [ "$$ec" != 0 ]; then exit $$ec; fi; \
 	if [ "$$ran" != yes ]; then echo "test-int: FAILED: Evennia exited 0 but reported no test run."; exit 1; fi
 
-CONTENT_SCENARIO ?= whiteout
+CONTENT_SCENARIO ?= winter_survival
 
 validate:
 	PYTHONPATH=game python3 -m world.sim.validation $(CONTENT_SCENARIO)

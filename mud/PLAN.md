@@ -165,7 +165,7 @@ no design.
 ### Phase B — The machine: the harness, the front door, the store (parallel with A; touches no design)
 | status | id | task | owner | design doc | waits on |
 |---|---|---|---|---|---|
-| ☐ | B1 | The agent roster pinned to models (`implementer`, `engine-reviewer`, `requirements-reviewer`, `docs-editor`, `sim-test-writer`; the world-building passes run through `tools/ontology/runner.py`, not repo agents — the old `whiteout-world-builder` agent and `ontology-generator` skill are retired, document 22 §8); the certainty skill's post-implementation mode; the constitution; all hooks consolidated into `.claude/settings.json`; the Opus-4.8 env pin removed. | Fable | 22 | — |
+| ☐ | B1 | The agent roster pinned to models (`implementer`, `engine-reviewer`, `requirements-reviewer`, `docs-editor`, `sim-test-writer`; the world-building passes run through `tools/ontology/runner.py`, not repo agents — the old `winter-survival-world-builder` agent and `ontology-generator` skill are retired, document 22 §8); the certainty skill's post-implementation mode; the constitution; all hooks consolidated into `.claude/settings.json`; the Opus-4.8 env pin removed. | Fable | 22 | — |
 | ☐ | B2 | `docs/harness.md` — the inventory of every hook, gate, skill, agent, command and doc, what each returns to Claude, its cost, and how to change it. | Sonnet draft → Fable | 22 | B1 |
 | ☐ | B3 | `README.md` rewritten: what it is for, no ceiling, never a menu, how it's built, how we work, built with Claude Code deliberately, where we are (no stats), the quickstart fixed. Andrew reads before the push. | Sonnet draft → Fable | — | — |
 | ☐ | B4 | Anchors and quickstart config: `docs/README.md`, `Makefile` default scenario, `docker-compose.yml`, the `.claude/commands`, the guides' scenario names, `CLAUDE.md` commands table. | docs-editor | — | — |
@@ -177,7 +177,7 @@ no design.
 | ☐ | B10 | **M2** — the store's start, from the design (2026-09-30): the engine vocabulary generated from code (`framework.py` → `shared/`); the zone outlines from document 01; the mid-cabin and birch-grove briefs and reference lists, written by reading every document that names the zone and fixing contradictions first, checked by Andrew. No import of the old tables or the July censuses. Each region's roles go in the map data (2026-10-02). | Opus (+ Fable for the briefs) → Andrew | 05, 22 | B9 |
 | ☐ | B11 | **M3/M4** — the review web app (document 22 §4.8; `make ontology-web`, FastAPI + Jinja2, local, one worker): browse, edit with removals kept and a commit button; then the S-world bridge, triage and the probe console. With spikes S4 (five hand-written rows), S6 (Andrew's walk-through), S3 (triage agreement ≥85%) and S5 (what the bridge cannot express). | Opus | 22, 05 | B10 |
 | ☐ | B12 | **M5** — spikes S1 (isolation and flags) and S2 (output size); scaffolds v1 (`docs/ontology/scaffolds/`); the packet, the runner (`claude -p`, isolated, checked from its first event, repair turns, triage, report, asking the run why); run, compare and findings pages. The settled scaffold is promoted to `docs/guides/world-building.md` after the pilot; the queue comes after the pilot (M8). | Fable → Opus | 22 | B11 |
-| ☐ | B15 | The Mudlet write-up and a proposed Whiteout Mudlet setup (the research is done: `docs/client/mudlet-research.md`). | Fable | — | — |
+| ☐ | B15 | The Mudlet write-up and a proposed Winter Survival Mudlet setup (the research is done: `docs/client/mudlet-research.md`). | Fable | — | — |
 | ☐ | B13 | The clarification-only feedback in code (DR-08c): no verb suggestions, no numbered menus, `help verbs` gone, `make`/bare `use` clarify, `use X on Y` silent, the near-miss hint gone, bare `go` no longer lists exits' targets beyond the Exits line, unknown words logged to the wall-sensor; **tier-4 physics answers from properties replace the verb-list redirect**; probes re-authored to name nouns. | Opus implementer | 04, 05 | A1.04 |
 | ☐ | B14 | Shipped narration and binding bugs (found by running the sample week): the article doubler ("the the pilot", "a leather gloves"), `the fire` binding the extinguisher, bare `bin` binding the far bin, `cover X` folding to `wrap`. Bug fixes, not design. | Opus implementer | 03 | — |
 
@@ -382,7 +382,7 @@ it says so. When a decision changes, this list and every document it touches cha
   (2026-09-17, 2026-09-18, 2026-09-26, 2026-09-27)
 
 **Time and the run**
-- **The institute's sim rooms** (2026-09-29): Whiteout is played inside another MUD, the institute, which
+- **The institute's sim rooms** (2026-09-29): Winter Survival is played inside another MUD, the institute, which
   knows it is a MUD and fakes no reality. An AI robot in its main room tells players that up to five can
   go into a sim room when ready; about three sim rooms, each an empty room with a sign — get everyone
   in, run the start command — which loads them into the tutorial rooms, then the run. The door locks

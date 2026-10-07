@@ -1,10 +1,10 @@
-# Whiteout — the design, one document per system
+# Winter Survival — the design, one document per system
 
 > **Status: living index.** This folder holds the game's design, one document per system, numbered in
 > the order we review them. Each document's banner says where it stands: `draft for review` →
 > `reviewed with Andrew <date>` → `finalized <date>`. **Nothing is built and no agent runs a
 > world-building loop until every document here is finalized.** The GDD
-> ([`../scenarios/whiteout/GDD.md`](../scenarios/whiteout/GDD.md)) is the one umbrella document —
+> ([`../scenarios/winter_survival/GDD.md`](../scenarios/winter_survival/GDD.md)) is the one umbrella document —
 > pitch, vision, cross-cutting rules — and points here for every system. *How* the engine does each
 > thing lives in [`../architecture/`](../architecture/); these documents are the *what* and the *why*.
 > The current decisions, all in one place, are `PLAN.md` §5.
@@ -28,7 +28,7 @@ always at least partly cloudy. The same weather every run (document 13 §4.2).
 
 | # | document | system | status | architecture counterpart |
 |---|---|---|---|---|
-| — | [`../scenarios/whiteout/GDD.md`](../scenarios/whiteout/GDD.md) | the umbrella: pitch, vision, cross-cutting rules, chapter index | reviewed with Andrew 2026-09-17 (finalize at the close) | [`implementation-architecture.md`](../architecture/implementation-architecture.md) (the DR register) |
+| — | [`../scenarios/winter_survival/GDD.md`](../scenarios/winter_survival/GDD.md) | the umbrella: pitch, vision, cross-cutting rules, chapter index | reviewed with Andrew 2026-09-17 (finalize at the close) | [`implementation-architecture.md`](../architecture/implementation-architecture.md) (the DR register) |
 | 01 | [`01-premise-and-world.md`](01-premise-and-world.md) | the crash, the valley in early October: regions and their roles, the places, the map | the premise reviewed 2026-09-17; the map redesigned by Claude 2026-10-02, for Andrew's review | — |
 | 02 | [`02-the-experience.md`](02-the-experience.md) | what a run is like — the reference; the sample week is written again once the design is finalized | reviewed with Andrew 2026-09-17 | — |
 | 03 | [`03-the-player-view.md`](03-the-player-view.md) | the look; exits as entities; groups; descriptions composed from state | reviewed with Andrew 2026-09-17 | [`presentation.md`](../architecture/presentation.md) (v2 pending) |
@@ -63,7 +63,7 @@ every food in the valley and everything that makes people sick.
 2. **Decisions** — Andrew's decisions, in plain words, each with its date. Then *Proposals (Claude)*,
    marked as such. Nothing is left unlabelled.
 3. **In one paragraph** — what the player experiences.
-4. **The design** — the rules, then the Whiteout content (objects, events, numbers).
+4. **The design** — the rules, then the Winter Survival content (objects, events, numbers).
 5. **Interactions** — which systems this depends on; which depend on it.
 6. **Open questions** — only questions still open, each with the options and a recommendation.
 7. **Review log** — one line per sitting: the date and what it settled, in plain words.

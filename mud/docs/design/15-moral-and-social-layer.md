@@ -365,6 +365,6 @@ entry naming ownership and spatial witness as the target shape
   is not a player; no utterance log (speech is routed by range and written nowhere).
 - **No event log exists.** `server/logs/events.jsonl` is not present; `game/server/logs/` holds only
   Evennia's own portal, server, http-request and lockwarning logs.
-- **No `probes/dilemmas.py` exists** — `game/world/scenarios/whiteout/probes/` holds `census.py`,
+- **No `probes/dilemmas.py` exists** — `game/world/scenarios/winter_survival/probes/` holds `census.py`,
   `chain.py`, `kit.py` and `phrasing.py` only.
 - **No `docs/architecture/moral-social-layer.md` exists.**

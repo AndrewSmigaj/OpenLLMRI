@@ -1,4 +1,4 @@
-"""Whiteout — the tier-1 AUTHORED rules (DR-09 tier 1; the seam wired 2026-09-07).
+"""Winter Survival — the tier-1 AUTHORED rules (DR-09 tier 1; the seam wired 2026-09-07).
 
 `AUTHORED` maps a sim_id to `rule(attempt, world, materials) -> ActionResult | None`. The resolver
 tries the rule for `attempt.X`'s entity BEFORE the generic handlers; `None` falls through. This is

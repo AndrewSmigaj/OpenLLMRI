@@ -276,24 +276,24 @@ None open. Reviewed in full with Andrew on 2026-09-28.
 ## 8. What exists today
 
 **Built** — the pilot as an object, and the acts the existing general systems already give him:
-- `game/world/scenarios/whiteout/objects.py` — the `pilot` row: materials `['flesh']`, `mass_g`
+- `game/world/scenarios/winter_survival/objects.py` — the `pilot` row: materials `['flesh']`, `mass_g`
   78000, `zone: 'cockpit'`, `state: {'dead': True}`; `lighter` is `in: 'pilot'`; `jacket` is
   `in: 'pilot'` with `state: {'worn_by': 'pilot'}`. The dead start is as designed.
-- `game/world/scenarios/whiteout/appearance.py` — a `pilot` entry anchoring the `left_seat` space, with
+- `game/world/scenarios/winter_survival/appearance.py` — a `pilot` entry anchoring the `left_seat` space, with
   a dead variant and an alive one that the dead start leaves unused.
 - `game/world/sim/presentation.py` switches his scene phrase on `dead` (held by
   `game/tests/sim/test_presentation.py::test_scene_phrase_switches_on_state`).
-- `game/world/scenarios/whiteout/responses/slice.py` — `talk.dead` ("You say it aloud. The {target}
+- `game/world/scenarios/winter_survival/responses/slice.py` — `talk.dead` ("You say it aloud. The {target}
   doesn't answer; nobody will.") and `take.strip_dead`; the honest-silence behaviour is held by
   `game/tests/integration/test_discovery_int.py::test_talking_gets_honest_silence`.
-- Probes in `game/world/scenarios/whiteout/probes/census.py`: `census.cockpit.search_pilot` **pass**,
+- Probes in `game/world/scenarios/winter_survival/probes/census.py`: `census.cockpit.search_pilot` **pass**,
   `census.cockpit.examine_pilot` **pass**; `remove_jacket_from_pilot`, `take_boots`,
   `cover_pilot_with_blanket` are **todo**.
 
 **Designed, not built** — §4.3a: the body's parts and states, its could-become rows, butchering, the
 food states, the animals' smell; unplayed seats as bodies; and a content fix — `objects.py` authors him
 as `materials: ['flesh']`, where §4.3a's materials are skin, fat, muscle, bone, blood and organs
-(`PLAN.md` A12). `game/world/scenarios/whiteout/authored.py` is empty. `butcher` has no handler, and
+(`PLAN.md` A12). `game/world/scenarios/winter_survival/authored.py` is empty. `butcher` has no handler, and
 `cover` resolves to `wrap` in `game/world/sim/parser/vocab.py`.
 
 **Nothing** — no body parts as entities, no per-part heat, no rigor, freezing or spoilage, no smell

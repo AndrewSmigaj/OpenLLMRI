@@ -1,4 +1,4 @@
-"""Whiteout — the per-zone SPACE table (the scene-space model). Tunable content — Andrew's voice;
+"""Winter Survival — the per-zone SPACE table (the scene-space model). Tunable content — Andrew's voice;
 rewrite freely. Loaded by content.load() via spaces.load_spaces().
 
 A space is a physical AREA of a zone (the floor, the footwell, overhead). Its FRAME describes

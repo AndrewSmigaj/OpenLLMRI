@@ -415,10 +415,10 @@ None open. Everything this document asked was settled on 2026-09-17 and is writt
   named space uncapped; `describe` is the one renderer for `look at X` / `examine X`, weaving the
   condition flags and the parts; `_entry` falls back from sim-id to display name to a form-keyed
   generic.
-- The space and zone tables: `game/world/scenarios/whiteout/spaces.py` (the plane and its immediate
-  outside — frames, aliases, caps, overflow), `game/world/scenarios/whiteout/zones.py` (positions,
+- The space and zone tables: `game/world/scenarios/winter_survival/spaces.py` (the plane and its immediate
+  outside — frames, aliases, caps, overflow), `game/world/scenarios/winter_survival/zones.py` (positions,
   `walk` / `see` edges, the authored survey line per zone), `game/world/sim/space/`.
-- The appearance table: `game/world/scenarios/whiteout/appearance.py` — per-object `scene` and
+- The appearance table: `game/world/scenarios/winter_survival/appearance.py` — per-object `scene` and
   `examine` variant lists, `space` homes, anchors, ordering, aggregates. State-keyed variants work
   today (seat 11B's stripped variant is in there and fires).
 - Containment and the tell/hide rule: `game/world/sim/` + the worldview marshalling described in

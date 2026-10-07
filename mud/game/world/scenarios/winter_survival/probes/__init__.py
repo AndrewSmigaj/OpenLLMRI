@@ -1,4 +1,4 @@
-"""Whiteout — the probe corpus (DR-18a): executable coverage. Each module contributes a list of
+"""Winter Survival — the probe corpus (DR-18a): executable coverage. Each module contributes a list of
 probe dicts (see world.sim.testing.probes); `PROBES` is the union; `BASELINE` the committed passing
 count that may never drop (the ratchet). Sources: the room censuses, the example chain, the
 phrasing corpus, the rescue graph, the dilemma set. No self-graded probes: every probe cites its
@@ -7,10 +7,10 @@ from __future__ import annotations
 
 import os
 
-from world.scenarios.whiteout.probes.census import PROBES as _CENSUS
-from world.scenarios.whiteout.probes.chain import PROBES as _CHAIN
-from world.scenarios.whiteout.probes.kit import PROBES as _KIT
-from world.scenarios.whiteout.probes.phrasing import PROBES as _PHRASING
+from world.scenarios.winter_survival.probes.census import PROBES as _CENSUS
+from world.scenarios.winter_survival.probes.chain import PROBES as _CHAIN
+from world.scenarios.winter_survival.probes.kit import PROBES as _KIT
+from world.scenarios.winter_survival.probes.phrasing import PROBES as _PHRASING
 
 PROBES: list[dict] = list(_CHAIN) + list(_CENSUS) + list(_PHRASING) + list(_KIT)
 BASELINE_PATH = os.path.join(os.path.dirname(__file__), "BASELINE")

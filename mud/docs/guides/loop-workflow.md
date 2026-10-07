@@ -7,7 +7,7 @@ The agentic authoring loop: **anchor → author → verify → repeat**, driven 
 Claude Code's built-in `/loop` skill. This is how content is produced one small,
 validated increment at a time.
 
-> Why a loop: Whiteout is built in passes ([PLAN](../../PLAN.md))
+> Why a loop: Winter Survival is built in passes ([PLAN](../../PLAN.md))
 > from authoring *packets* (§43) gated by *validation* (§44). A tight loop that
 > re-anchors on the design every iteration keeps work from drifting away from the
 > non-negotiables.
@@ -28,7 +28,7 @@ Re-read the ground truth *before* each work session so the loop returns to a
 fixed point when it drifts:
 
 - [`../../VISION.md`](../../VISION.md) — the non-negotiables.
-- The authoritative design — [`../scenarios/whiteout/GDD.md`](../scenarios/whiteout/GDD.md)
+- The authoritative design — [`../scenarios/winter_survival/GDD.md`](../scenarios/winter_survival/GDD.md)
   (cite sections as "§N") — and the [PLAN](../../PLAN.md)
   for *which phase (P0–P7)* you're in.
 
@@ -71,10 +71,10 @@ action family, one workflow stage. End an iteration only when the gate is green.
 
 1. **Anchor:** the current `PLAN.md` task (fun is a continuous design judgment, not a gate; friends see
    the finished game).
-2. **Author:** add `scenarios/whiteout/objects/aircraft_seat.py` as an
+2. **Author:** add `scenarios/winter_survival/objects/aircraft_seat.py` as an
    an object row with parts that dismantle several ways, each output a first-class derived object with a form
    with uses or explicit non-uses.
-3. **Verify:** `make verify SCENARIO=whiteout` — pure tests for the dismantle
+3. **Verify:** `make verify SCENARIO=winter_survival` — pure tests for the dismantle
    conservation, validator confirms every output has uses + tests exist.
 4. **Repeat:** next iteration, the seat's outputs feed the splint/shelter
    workflows.

@@ -28,7 +28,7 @@ class Character(ObjectParent, DefaultCharacter):
         ('The pilot wears a flight jacket'); looking at YOURSELF appends the shared warmth
         summary, so `look at me` ≡ `examine me` byte-for-byte (one pure helper behind both)."""
         from typeclasses.worldview import to_entity_state
-        from world.scenarios.whiteout import content
+        from world.scenarios.winter_survival import content
         from world.sim import presentation
         from world.sim.systems import warmth
         me = to_entity_state(self)

@@ -1,4 +1,4 @@
-"""Whiteout — the object table (DR-17a): every authored object as a ROW. This is the authoring
+"""Winter Survival — the object table (DR-17a): every authored object as a ROW. This is the authoring
 surface for objects (docs/guides/authoring-objects.md). The SAME table feeds the Evennia loader
 (`build.py`) and the pure `PureWorld` used by probes and fuzz, so the two can never drift.
 

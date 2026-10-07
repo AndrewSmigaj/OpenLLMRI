@@ -289,7 +289,7 @@ def render_gdd(block: int, idx: int, total: int, current: str, gdd_text: str) ->
     m = re.search(r"^## 5\.[^\n]*\n(.*?)(?=^## 6\.)", plan, re.S | re.M)
     decisions = m.group(1) if m else "_PLAN.md §5 not found._"
     title = "The GDD — the umbrella, and the current decisions"
-    lead = ("Whiteout: survivors of a small-plane crash in an Alaskan valley in the first week of October improvise "
+    lead = ("Winter Survival: survivors of a small-plane crash in an Alaskan valley in the first week of October improvise "
             "with a physically modelled world to outlast cold, injury, hunger and a storm until rescue, or death. "
             "You survive by understanding the world, not by guessing the author's verb; the world answers anything "
             "reasonable, and nothing ever offers you a menu. The GDD is the one umbrella document; each system has "
@@ -316,7 +316,7 @@ def main() -> int:
     total = len(ORDER)
     sections, strip, toc = [], [], []
     last_block = None
-    gdd_text = (ROOT / "docs/scenarios/whiteout/GDD.md").read_text(encoding="utf-8")
+    gdd_text = (ROOT / "docs/scenarios/winter_survival/GDD.md").read_text(encoding="utf-8")
     for idx, (key, block, fname) in enumerate(ORDER, 1):
         if fname is None:
             html_sec, status, title = render_gdd(block, idx, total, a.current, gdd_text)
@@ -333,12 +333,12 @@ def main() -> int:
     done = sum(1 for s in strip if "finalized" in s)
     parked_md = pathlib.Path(a.parked).read_text(encoding="utf-8") if a.parked and pathlib.Path(a.parked).exists() else "_Nothing parked._"
 
-    page = f"""<title>Whiteout Design Review</title>
+    page = f"""<title>Winter Survival Design Review</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>{CSS}</style>
 <div class="wrap">
 <aside class="rail">
-  <div class="brand">Whiteout — the design review</div>
+  <div class="brand">Winter Survival — the design review</div>
   <div class="sub">{done} of {total} finalized · one document at a time, in this order</div>
   <div class="strip">{''.join(strip)}</div>
   <ul class="toc">{''.join(toc)}</ul>

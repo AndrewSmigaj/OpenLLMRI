@@ -9,7 +9,7 @@
 
 ## Context
 
-We want LLM-driven *characters* in Whiteout — for playtesting, for collecting
+We want LLM-driven *characters* in Winter Survival — for playtesting, for collecting
 `(observation, action)` training data against the local OSS-20B torch model, and
 eventually as companions. But the design forbids autonomous in-scenario NPCs
 (§3.3): *the dying pilot is scripted, not an AI.* And §41 forbids the LLM from

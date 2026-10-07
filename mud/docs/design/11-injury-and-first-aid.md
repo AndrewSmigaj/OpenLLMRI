@@ -536,7 +536,7 @@ None open.
   `state['wounds']`, and `wounds_summary(ent)` composes "Your forearm is cut and bleeding; your ankle
   is sprained." with per-kind wording for cut, sprain, concussion, bruised ribs, burn, frostbite and
   shock, plus the bleeding/bound suffixes.
-- `game/world/scenarios/whiteout/characters.py` — the shipped starting draw: one injury per slot
+- `game/world/scenarios/winter_survival/characters.py` — the shipped starting draw: one injury per slot
   (bruised ribs / cut forearm with a bleeding rate / sprained ankle / concussion / shock), each with
   part, severity, bleeding and an authored note, written onto the character as `wounds`.
 - The wound line is woven into the self-view: `warmth.py::self_view` appends `wounds_summary`, so

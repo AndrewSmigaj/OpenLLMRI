@@ -1,4 +1,4 @@
-"""Whiteout — content loading (materials + response templates + appearance), shared by the shell +
+"""Winter Survival — content loading (materials + response templates + appearance), shared by the shell +
 tests.
 
 `MATERIALS` is the baked material table (loaded once). `load()` installs the narration templates and
@@ -7,11 +7,11 @@ and from tests' setUp. Pure-ish: the only side effects populate the loaded-once 
 """
 from __future__ import annotations
 
-from world.scenarios.whiteout.appearance import APPEARANCE
-from world.scenarios.whiteout.materials.table import MATERIAL_TABLE
-from world.scenarios.whiteout.responses.slice import RESPONSES
-from world.scenarios.whiteout.spaces import SPACE_TABLE
-from world.scenarios.whiteout.zones import ZONE_TABLE
+from world.scenarios.winter_survival.appearance import APPEARANCE
+from world.scenarios.winter_survival.materials.table import MATERIAL_TABLE
+from world.scenarios.winter_survival.responses.slice import RESPONSES
+from world.scenarios.winter_survival.spaces import SPACE_TABLE
+from world.scenarios.winter_survival.zones import ZONE_TABLE
 from world.sim import narrator, presentation
 from world.sim.materials import load_materials
 from world.sim.space import spaces, zones

@@ -3,8 +3,8 @@
 Each success asserts the systemic outcome AND that the effects conserve mass (the ledger agrees), so a
 new operation can never silently mint matter. Uses the real scenario responses so narration is exercised.
 """
-from world.scenarios.whiteout.materials.table import MATERIAL_TABLE
-from world.scenarios.whiteout.responses.slice import RESPONSES
+from world.scenarios.winter_survival.materials.table import MATERIAL_TABLE
+from world.scenarios.winter_survival.responses.slice import RESPONSES
 from world.sim import narrator
 from world.sim.conservation.ledger import check
 from world.sim.contracts import ActionAttempt, EffectKind, EntityState, NounRef, Part, Resolution

@@ -1,9 +1,9 @@
-# CLAUDE.md — Whiteout
+# CLAUDE.md — Winter Survival
 
-**Whiteout** is a systemic, multiplayer survival-puzzle MUD on Evennia: survivors of a
+**Winter Survival** is a systemic, multiplayer survival-puzzle MUD on Evennia: survivors of a
 plane crash in the Alaskan fall improvise with the world to outlast cold, injury, hunger and the coming winter.
 This folder, `mud/` in the Open LLMRI repo, is the one MUD: a reusable simulation engine (the
-"interaction system") plus authored scenarios; Whiteout is the first. Run its make targets here, or
+"interaction system") plus authored scenarios; Winter Survival is the first. Run its make targets here, or
 from the repo root as `make mud-<target>`. Its Claude agents and commands live in the root `.claude/`.
 
 This file is a pointer hub. Don't put design detail here — point to the docs.
@@ -69,7 +69,7 @@ image is pinned by digest (`docker/evennia/Dockerfile`) so local, CI and any clo
 - `game/world/sim/` — the **pure functional core**, stdlib only, unit-tested without booting the
   server. **Scaffolded (P0):** a frozen `contracts.py` + interface stubs (`NotImplementedError`, no
   behavior); bodies filled per roadmap phase. See its README.
-- `game/world/scenarios/whiteout/` — authored **content** (skeleton + `_template/`); authored P1+.
+- `game/world/scenarios/winter_survival/` — authored **content** (skeleton + `_template/`); authored P1+.
 - `game/world/llm/` — **build-time** authoring seams only (never runtime).
 - `game/tests/{sim,integration}/` — the two test tiers; `sim/test_contracts.py` locks the contracts.
 - `tools/` — build-time + CI: `fuzz.py`, `probes.py`, `render_scenes.py` + `lints/` (the host-fast gates). (bake is retired, DR-17a.)
@@ -119,7 +119,7 @@ image is pinned by digest (`docker/evennia/Dockerfile`) so local, CI and any clo
   `make verify`. Verbs are Python handlers (DR-05b); capabilities derive from material × form (DR-26).
 - **Read first before authoring or coding:** the doc map (`docs/README.md`) + how we work
   (`docs/process.md`); then `VISION.md` and the authoritative spec for the task
-  (`docs/scenarios/whiteout/GDD.md` for design · `docs/architecture/implementation-architecture.md`
+  (`docs/scenarios/winter_survival/GDD.md` for design · `docs/architecture/implementation-architecture.md`
   for architecture), the relevant `PLAN.md` task, and `docs/guides/`.
 
 ## Gotcha
@@ -134,7 +134,7 @@ entrypoint word-splits args, so Make commands with quoted args use `--entrypoint
   the decisions Andrew must make, how loop additions flow back into design and tasks). Update it in the
   same commit as the work. [`BACKLOG.md`](BACKLOG.md) is its Now slice.
 - `VISION.md` — the anchor: what we build + the core decisions.
-- `docs/scenarios/whiteout/GDD.md` — **the one game design document**: the umbrella over the per-system
+- `docs/scenarios/winter_survival/GDD.md` — **the one game design document**: the umbrella over the per-system
   design documents in `docs/design/` (a work in progress, reviewed with Andrew). The current decisions,
   all in one place, are `PLAN.md` §5.
 - `docs/architecture/implementation-architecture.md` — **the architecture** (v4, amended through the DR register;

@@ -438,7 +438,7 @@ None open.
   with −15 to −20 °C nights, and contains no function, class or state.
 - `game/world/sim/systems/clock.py` advances world time and nothing else, and `scheduler.py` is a
   stub; no scheduler drives a due-events list.
-- No probe or scenario table encodes the ladder or the deck — `game/world/scenarios/whiteout/probes/`
+- No probe or scenario table encodes the ladder or the deck — `game/world/scenarios/winter_survival/probes/`
   holds only `census.py`, `chain.py`, `kit.py` and `phrasing.py`.
 - No `docs/architecture/events.md` exists.
 - The only place weather exists as running code is the perception stub: `visual_band()` and

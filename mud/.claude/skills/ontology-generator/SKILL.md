@@ -1,6 +1,6 @@
 ---
 name: ontology-generator
-description: Generate Whiteout ontology content — materials (property vectors), operations (declarative precondition/effect schemas), and cheap objects — from the design schemas, using generate-then-validate so output passes `make validate`. Use when fleshing out the interaction ontology for the crash scene or adding materials/operations/objects. The LLM proposes; the validator disposes.
+description: Generate Winter Survival ontology content — materials (property vectors), operations (declarative precondition/effect schemas), and cheap objects — from the design schemas, using generate-then-validate so output passes `make validate`. Use when fleshing out the interaction ontology for the crash scene or adding materials/operations/objects. The LLM proposes; the validator disposes.
 allowed-tools: Read, Write, Edit, Bash, Grep, Glob
 ---
 

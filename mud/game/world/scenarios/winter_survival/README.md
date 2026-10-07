@@ -1,12 +1,12 @@
-# `world/scenarios/whiteout/` — the Whiteout scenario (skeleton)
+# `world/scenarios/winter_survival/` — the Winter Survival scenario (skeleton)
 
-The first authored world (the GDD: [`docs/scenarios/whiteout/GDD.md`](../../../../docs/scenarios/whiteout/GDD.md)).
+The first authored world (the GDD: [`docs/scenarios/winter_survival/GDD.md`](../../../../docs/scenarios/winter_survival/GDD.md)).
 **Status: skeleton (P0).** Layout below; content authored from roadmap P1 on.
 
 | Path | What |
 |---|---|
 | `manifest.py` | PURE data: packet lists + metadata (importable without Evennia, so `make validate` lints it) |
-| `build.py` | the Evennia loader: `build()` creates rooms/objects (`make load-scenario SCENARIO=whiteout`) |
+| `build.py` | the Evennia loader: `build()` creates rooms/objects (`make load-scenario SCENARIO=winter_survival`) |
 | `materials/` | the hand-curated material table (~25; the quality anchor, DR-17) |
 | `operations/` | authored operation rules (`*.op`) — the ~20 operation categories |
 | `objects/` | cheap objects + the few §43 packets (radio/beacon/pilot/showcase seat) |

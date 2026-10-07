@@ -1,5 +1,5 @@
 ---
-description: Load a Whiteout scenario into the running stack (default smoketest).
+description: Load a Winter Survival scenario into the running stack (default smoketest).
 ---
 
 Load a scenario via the Makefile. The scenario name is in `$ARGUMENTS`; if it is empty,

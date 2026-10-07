@@ -1,6 +1,6 @@
 > **Superseded in part (2026-10-06):** the MUD sections of this document are replaced by
-> [`architecture/one-mud.md`](architecture/one-mud.md) — one MUD, built from Whiteout's Evennia 6
-> foundation, hosting the institute, staged choice and Whiteout. The lens-switching, steering-panel and
+> [`architecture/one-mud.md`](architecture/one-mud.md) — one MUD, built from Winter Survival's Evennia 6
+> foundation, hosting the institute, staged choice and Winter Survival. The lens-switching, steering-panel and
 > token-knowledge-graph sections (§15–§17) wait for the research-software design.
 
 Related: LLMud/VISION.md (research context), CLAUDE.md §Guide Index (if adding phases/skills), docs/PIPELINE.md (if changing backend pipeline)

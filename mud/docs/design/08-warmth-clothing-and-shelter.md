@@ -263,7 +263,7 @@ their own right: `wind_blocking · insulation · waterproofing · structural_sta
 capacity · smoke_ventilation`. Until then a built shelter is a thing that *writes* the zone's two
 numbers plus capacity — so partial work counts automatically and nothing needs a recipe.
 
-**The shelters Whiteout's own world already implies** (all proposals; each is a floor, not a set):
+**The shelters Winter Survival's own world already implies** (all proposals; each is a floor, not a set):
 
 | shelter | what it is | where |
 |---|---|---|
@@ -455,7 +455,7 @@ None open.
   `remove`/`doff`/`shed`, "take X off" routing, worn things refusing drop, stripping the dead.
 - `game/world/sim/operations/handlers/wrap.py` — `wrap`/`bandage`/`insulate`/`swaddle`; wrapping with
   an insulating material sets `insulated`.
-- `game/world/scenarios/whiteout/characters.py` — the five slots' worn rows carrying `covers`,
+- `game/world/scenarios/winter_survival/characters.py` — the five slots' worn rows carrying `covers`,
   `wind`, `waterproof` and the mittens' `fine_work: False`.
 - The self-view: `worn_summary` / `self_view` in `warmth.py` — what you wear, the band, what is bare,
   what is soaked, behind both `look at me` and `examine me`.

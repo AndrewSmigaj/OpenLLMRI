@@ -1,4 +1,4 @@
-"""Probes from the nine room censuses (docs/scenarios/whiteout/rooms/*.md §3): every
+"""Probes from the nine room censuses (docs/scenarios/winter_survival/rooms/*.md §3): every
 `candidate command` a real person could give in that room. `holds` presumes the census's
 discovery (a stowed thing the command names is in hand). Status is MEASURED: a probe is `pass`
 only if it passes today; `todo` is the queue. Generated 2026-09-07; kept by hand."""

@@ -1,4 +1,4 @@
-"""world.sim — Whiteout's pure functional core (the "interaction system").
+"""world.sim — Winter Survival's pure functional core (the "interaction system").
 
 Deterministic, dependency-light Python. Imports NO Evennia/Django and touches no DB; it speaks the
 dataclasses in `contracts.py`. The Evennia shell marshals state in, runs these pure functions, and

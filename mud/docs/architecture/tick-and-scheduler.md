@@ -1,6 +1,6 @@
 # Tick & Scheduler
 
-> **Status: canonical (LOCKED).** This is Whiteout's clock: a **continuously running real-time clock**
+> **Status: canonical (LOCKED).** This is Winter Survival's clock: a **continuously running real-time clock**
 > — the decided model (GDD §9 / DR-14). Game time advances on its own at a fixed real→game pace; it is
 > never advanced by player actions or chat, and no one can stall or yank it. Event-/turn-based time was
 > considered and **rejected** as clunky for multiplayer. The vertical slice ships the **basic** clock

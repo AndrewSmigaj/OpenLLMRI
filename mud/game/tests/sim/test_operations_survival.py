@@ -1,6 +1,6 @@
 """Tier-1: the survival operations — tie / wrap / drink. Pure fixtures + conservation checks."""
-from world.scenarios.whiteout.materials.table import MATERIAL_TABLE
-from world.scenarios.whiteout.responses.slice import RESPONSES
+from world.scenarios.winter_survival.materials.table import MATERIAL_TABLE
+from world.scenarios.winter_survival.responses.slice import RESPONSES
 from world.sim import narrator
 from world.sim.conservation.ledger import check
 from world.sim.contracts import ActionAttempt, EffectKind, EntityState, NounRef, Resolution

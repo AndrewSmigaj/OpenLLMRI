@@ -1,5 +1,5 @@
 """Tier-1: operation handlers (functions-first) over pure fixtures — cut (D12) + examine (P1.2)."""
-from world.scenarios.whiteout.materials.table import MATERIAL_TABLE
+from world.scenarios.winter_survival.materials.table import MATERIAL_TABLE
 from world.sim import narrator
 from world.sim.contracts import ActionAttempt, EffectKind, EntityState, NounRef, Part, Resolution
 from world.sim.materials import load_materials

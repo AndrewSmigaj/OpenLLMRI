@@ -1,6 +1,6 @@
 """Tier-1: derived capabilities (DR-26 closure) — material × form × state → levels; authored wins;
 capped; the minted-template → form map is closed over what the handlers produce."""
-from world.scenarios.whiteout.materials.table import MATERIAL_TABLE
+from world.scenarios.winter_survival.materials.table import MATERIAL_TABLE
 from world.sim.affordances import FORMS, derive, form_for_template
 from world.sim.contracts import EntityState, NounRef
 from world.sim.materials import load_materials

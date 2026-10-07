@@ -12,11 +12,11 @@ from typeclasses.scripts import Script
 
 
 class HeartbeatScript(Script):
-    """The Whiteout running world clock."""
+    """The Winter Survival running world clock."""
 
     def at_script_creation(self):
-        self.key = "whiteout_heartbeat"
-        self.desc = "Whiteout running world clock (DR-14)"
+        self.key = "winter_survival_heartbeat"
+        self.desc = "Winter Survival running world clock (DR-14)"
         self.interval = 15          # real seconds per tick (the tunable real->game pacing)
         self.persistent = True
         self.start_delay = True

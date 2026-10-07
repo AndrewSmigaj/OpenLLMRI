@@ -29,7 +29,7 @@ ROOT = pathlib.Path(__file__).resolve().parents[2]
 # Historical record + the archived seed + the bannered pre-v4 guides are intentionally NOT enforced.
 EXCLUDE_DIRS = ()
 EXCLUDE_FILES = {
-    "docs/scenarios/whiteout/design.md",
+    "docs/scenarios/winter_survival/design.md",
     "docs/scenarios/_TEMPLATE.md",
     "seed.md",
 }

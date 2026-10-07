@@ -3,9 +3,9 @@
 > **Status: focused view.** The authoritative architecture is
 > [`implementation-architecture.md`](implementation-architecture.md) (v4/FINAL, decisions register
 > DR-01…DR-22) — defer to it on any conflict, and see its §11 for the full module layout. The
-> authoritative *design* is [`../scenarios/whiteout/GDD.md`](../scenarios/whiteout/GDD.md).
+> authoritative *design* is [`../scenarios/winter_survival/GDD.md`](../scenarios/winter_survival/GDD.md).
 
-How the Whiteout *design* (`../scenarios/whiteout/GDD.md`) is realized on
+How the Winter Survival *design* (`../scenarios/winter_survival/GDD.md`) is realized on
 **Evennia 6.0.0** (Python 3.13, Django 6.0.6, PostgreSQL 16), and where every
 system lives in the repo.
 
@@ -15,7 +15,7 @@ record *why*.
 
 ## The one idea: functional core, imperative shell
 
-Whiteout is built as a **functional core / imperative shell**
+Winter Survival is built as a **functional core / imperative shell**
 ([ADR-0003](adr/0003-evennia-native-layered-engine.md)):
 
 - **Imperative shell** — Evennia. It owns entities, persistent state (Postgres
@@ -79,7 +79,7 @@ MUDExperiments/
         systems/             #   §9 clock/scheduler; §31–34 survival; §39 rescue (roadmap)
         actions/             #   §25–27 Stage-B resolver + families/ (roadmap)
         validation/          #   §44 content-lint (roadmap)
-      scenarios/<name>/      # authored content per scenario (Whiteout is one of many)
+      scenarios/<name>/      # authored content per scenario (Winter Survival is one of many)
   agent/                     # external LLM bot-PLAYER harness — runs on the HOST
     brains/                  #   TorchBrain / ClaudeBrain / ScriptedBrain
   docker/evennia/Dockerfile  # extends evennia/evennia:latest (+psycopg2, pytest)

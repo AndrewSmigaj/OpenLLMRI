@@ -1,6 +1,6 @@
-"""Whiteout crash-site loader — the ZONED, CONTAINMENT-FIRST scene (P1.9 → DR-13a → DR-24 → DR-17a).
+"""Winter Survival crash-site loader — the ZONED, CONTAINMENT-FIRST scene (P1.9 → DR-13a → DR-24 → DR-17a).
 
-Run: `make load-scenario SCENARIO=whiteout`. The content is the OBJECT_TABLE in `objects.py` (the
+Run: `make load-scenario SCENARIO=winter_survival`. The content is the OBJECT_TABLE in `objects.py` (the
 authoring surface, docs/guides/authoring-objects.md); this module is the thin imperative loader that
 walks it into Evennia — parents first, so a stowed thing (`in`) lands inside its container (DR-24:
 the scene surfaces fixtures and containers; open/search/dig earn the contents). Each object is tagged
@@ -11,8 +11,8 @@ from __future__ import annotations
 
 import evennia
 
-from world.scenarios.whiteout.characters import character_state, outfit
-from world.scenarios.whiteout.objects import OBJECT_TABLE
+from world.scenarios.winter_survival.characters import character_state, outfit
+from world.scenarios.winter_survival.objects import OBJECT_TABLE
 
 _OBJ = "typeclasses.objects.Object"
 _ROOM = "typeclasses.rooms.Room"

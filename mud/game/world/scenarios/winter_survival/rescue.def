@@ -1,4 +1,4 @@
-# rescue.def — the Whiteout rescue graph (DR-16, §37-39). Authored in roadmap P5.
+# rescue.def — the Winter Survival rescue graph (DR-16, §37-39). Authored in roadmap P5.
 #
 # Additive confidence: confidence = Σ weight·value, capped at 1; rescued = weather_window AND
 # confidence ≥ threshold; monotonic & always-reachable. Channels (beacon/radio/landmark/visual/smoke/

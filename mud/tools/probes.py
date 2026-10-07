@@ -17,7 +17,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("scenario", nargs="?", default="whiteout")
+    ap.add_argument("scenario", nargs="?", default="winter_survival")
     ap.add_argument("-v", "--verbose", action="store_true")
     ap.add_argument("--todo", action="store_true", help="list todo probes that pass (promotable)")
     ap.add_argument("--write-baseline", action="store_true")

@@ -1,4 +1,4 @@
-"""Whiteout — the crash-site zone map (DR-13a): positions, edges, survey prose. Tunable content —
+"""Winter Survival — the crash-site zone map (DR-13a): positions, edges, survey prose. Tunable content —
 Andrew's geography and voice; rewrite freely. Loaded by content.load() via zones.load_zones().
 
 Layout: the plane lies nose-south; the tail breach opens north toward the treeline. Meters,

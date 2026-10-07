@@ -28,13 +28,13 @@ def _evennia_snapshot(room):
 class TestApplyParity(EvenniaTest):
     def setUp(self):
         super().setUp()
-        from world.scenarios.whiteout import content
-        from world.scenarios.whiteout.build import build
+        from world.scenarios.winter_survival import content
+        from world.scenarios.winter_survival.build import build
         content.load()
         self.scene = build()
 
     def _pure(self, actor_zone=None):
-        from world.scenarios.whiteout.objects import OBJECT_TABLE
+        from world.scenarios.winter_survival.objects import OBJECT_TABLE
         from world.sim.testing.pure_world import PureWorld
         return PureWorld.from_table(OBJECT_TABLE, actor_zone=actor_zone)
 
@@ -49,7 +49,7 @@ class TestApplyParity(EvenniaTest):
     def test_same_effects_same_world_after_apply(self):
         from typeclasses.apply import apply, get_sink
         from typeclasses.worldview import EvenniaWorldView
-        from world.scenarios.whiteout import content
+        from world.scenarios.winter_survival import content
         from world.sim.contracts import ActionAttempt, NounRef
         from world.sim.resolver import resolve
         # the actor stands in the rear cabin on both sides

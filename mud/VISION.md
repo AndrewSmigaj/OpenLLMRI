@@ -1,13 +1,13 @@
-# VISION — Whiteout
+# VISION — Winter Survival
 
 > Anchor file. Short on purpose. Read this before any work session; it is the ground
 > truth a loop returns to when work drifts. **Authoritative specs:**
-> `docs/scenarios/whiteout/GDD.md` (the one game design document, over `docs/design/`) ·
+> `docs/scenarios/winter_survival/GDD.md` (the one game design document, over `docs/design/`) ·
 > `docs/architecture/implementation-architecture.md` (architecture, the DR register) · `PLAN.md` (the
 > order of work, and the current decisions in §5). Details live in `docs/`.
 
 ## What we are building
-**Whiteout** — a text-forward, multiplayer, *systemic* survival-puzzle MUD on **Evennia**.
+**Winter Survival** — a text-forward, multiplayer, *systemic* survival-puzzle MUD on **Evennia**.
 Survivors of a bush-plane crash in an Alaskan valley in the first week of October improvise with every object around them to
 survive cold, injury, hunger and the coming winter until they are rescued — the radio, a signal, or
 simply surviving long enough — or die. The only endings are rescued or dead.
@@ -16,8 +16,8 @@ The central promise (design §2):
 > The player survives by **understanding the world**, not by guessing the author's
 > intended verb-object pair.
 
-This repo (`MUDExperiments`) hosts a reusable **simulation engine** (the "interaction
-system") plus **multiple authored scenarios**. Whiteout is the first scenario.
+This folder (`mud/` in the Open LLMRI repo) hosts a reusable **simulation engine** (the "interaction
+system") plus **multiple authored scenarios**. Winter Survival is the first scenario.
 
 **What it is for (Andrew, 2026-09-16).** Two things, both first-class: a **model world for serious
 research** — an LLM acts in it freely, through the same taught grammar a person uses, and its

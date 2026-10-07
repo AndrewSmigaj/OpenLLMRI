@@ -9,7 +9,7 @@ ordinal, recomputed against the manager's stable id-ordered search at pick time.
 `give` is deferred (third use). One pending menu per caller; the latest question wins.
 
 Note: search-lock filtering happens after the manager computes ordinals, so a search-locked object
-could in principle desync the re-issue index — no Whiteout content uses search locks (accepted).
+could in principle desync the re-issue index — no Winter Survival content uses search locks (accepted).
 """
 from __future__ import annotations
 
@@ -199,7 +199,7 @@ class CmdInventory(DefaultCmdInventory):
             caller.msg("You are not carrying anything.")
             return
         from typeclasses.worldview import to_entity_state
-        from world.scenarios.whiteout import content
+        from world.scenarios.winter_survival import content
         from world.sim.systems import warmth
         worn_objs = [o for o in items if (o.db.state or {}).get("worn_by")]
         carried = sorted(o.key for o in items if o not in worn_objs)

@@ -8,8 +8,8 @@ from evennia.utils.test_resources import EvenniaTest
 class TestKit(EvenniaTest):
     def setUp(self):
         super().setUp()
-        from world.scenarios.whiteout import content
-        from world.scenarios.whiteout.build import build, dress
+        from world.scenarios.winter_survival import content
+        from world.scenarios.winter_survival.build import build, dress
         content.load()
         self.scene = build()
         self.char1.move_to(self.scene, quiet=True)

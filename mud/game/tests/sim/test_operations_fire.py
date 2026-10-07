@@ -3,8 +3,8 @@
 Exercises the systemic chain the fun-gate is meant to reward: light the tinder, melt snow off its heat,
 pour water to douse a fire. Every effect-producing result must balance in the ledger.
 """
-from world.scenarios.whiteout.materials.table import MATERIAL_TABLE
-from world.scenarios.whiteout.responses.slice import RESPONSES
+from world.scenarios.winter_survival.materials.table import MATERIAL_TABLE
+from world.scenarios.winter_survival.responses.slice import RESPONSES
 from world.sim import narrator
 from world.sim.conservation.ledger import check
 from world.sim.contracts import ActionAttempt, EffectKind, EntityState, NounRef, Resolution

@@ -14,7 +14,7 @@ make build                      # build the evennia image (psycopg2-binary + pyt
 make init                       # ONE-TIME: scaffold the Evennia game dir
 make migrate                    # create the schema in Postgres
 make accounts                   # create admin (#1, via pty) + bot account
-make load-scenario SCENARIO=whiteout   # load a scenario (defaults to smoketest)
+make load-scenario SCENARIO=winter_survival   # load a scenario (defaults to smoketest)
 make up                         # run the server in the foreground
 telnet localhost 4000           # connect and play
 ```

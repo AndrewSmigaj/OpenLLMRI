@@ -2,7 +2,7 @@
 
 Containment is modeled the way the worldview marshals it: state['in'] on the contained,
 state['contents']/['worn'] on the holder. Uses the real scenario RESPONSES (voice exercised)."""
-from world.scenarios.whiteout.responses.slice import RESPONSES
+from world.scenarios.winter_survival.responses.slice import RESPONSES
 from world.sim import narrator
 from world.sim.contracts import ActionAttempt, EffectKind, EntityState, NounRef, Resolution
 from world.sim.operations.handlers import open_op, search, take

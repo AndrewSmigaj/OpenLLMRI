@@ -19,8 +19,8 @@ from commands.command import Command
 from typeclasses.apply import LedgerError, apply, get_sink
 from typeclasses.propagator import propagate
 from typeclasses.worldview import EvenniaWorldView
-from world.scenarios.whiteout import content
-from world.scenarios.whiteout.authored import AUTHORED
+from world.scenarios.winter_survival import content
+from world.scenarios.winter_survival.authored import AUTHORED
 from world.sim.contracts import Disambiguation, EffectKind, ParseError
 from world.sim.operations.registry import VERB_TO_OP
 from world.sim.parser import parse, split_commands
@@ -77,7 +77,7 @@ def _log_gap(attempt, world):
         with open(path, "a", encoding="utf-8") as fh:
             fh.write(json.dumps(rec) + "\n")
     except Exception as err:                            # logging must never break play
-        logger.log_err(f"[whiteout] wall-sensor write failed: {err}")
+        logger.log_err(f"[winter_survival] wall-sensor write failed: {err}")
 
 
 def _run_action(caller, line, bindings=None):
@@ -111,7 +111,7 @@ def _run_action(caller, line, bindings=None):
         try:
             apply(list(action.effects), world, sink=get_sink(room))
         except LedgerError as err:
-            logger.log_err(f"[whiteout] ledger rejected: {err}  (line={line!r})")
+            logger.log_err(f"[winter_survival] ledger rejected: {err}  (line={line!r})")
             caller.msg("Something about that doesn't add up physically. (Logged for the builders.)")
             return
 

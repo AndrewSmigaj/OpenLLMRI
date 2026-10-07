@@ -5,7 +5,7 @@ a valid Resolution) and every effect-producing action BALANCES in the conservati
 (P1 has no RNG). Exit 0 if clean; 1 with a report otherwise.
 
 Runs on the host (pure core, no Evennia). The fixture + grid live in the shared, pure
-`world.scenarios.whiteout._probe` so this harness and the Tier-1 fuzz test can never drift. The full
+`world.scenarios.winter_survival._probe` so this harness and the Tier-1 fuzz test can never drift. The full
 ScriptedBrain fuzz over live runs is P2.
 """
 import os
@@ -13,8 +13,8 @@ import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "game"))
 
-from world.scenarios.whiteout._probe import probe_grid, probe_world               # noqa: E402
-from world.scenarios.whiteout.materials.table import MATERIAL_TABLE               # noqa: E402
+from world.scenarios.winter_survival._probe import probe_grid, probe_world               # noqa: E402
+from world.scenarios.winter_survival.materials.table import MATERIAL_TABLE               # noqa: E402
 from world.sim import narrator                                                    # noqa: E402
 from world.sim.conservation.ledger import check                                  # noqa: E402
 from world.sim.contracts import Resolution                                        # noqa: E402

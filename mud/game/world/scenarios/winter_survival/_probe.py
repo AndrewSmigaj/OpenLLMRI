@@ -1,4 +1,4 @@
-"""Whiteout — the pure probe world + attempt grid for the solvability fuzz (DR-18).
+"""Winter Survival — the pure probe world + attempt grid for the solvability fuzz (DR-18).
 
 Shared by `tools/fuzz.py` (the host harness) and `game/tests/sim/test_fuzz.py` (Tier-1) so the two can
 never drift. Pure: builds `EntityState` fixtures + a combinatorial grid of `ActionAttempt`s (every verb ×

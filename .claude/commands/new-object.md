@@ -18,7 +18,7 @@ Steps:
    field sets. Skim an existing object under the scenario's `objects/` for house style.
 
 2. **Locate the scenario.** Default scenario is `smoketest`; if the working context points
-   at another scenario (e.g. `whiteout`), use that. The target dir is
+   at another scenario (e.g. `winter_survival`), use that. The target dir is
    `game/world/scenarios/<scenario>/objects/`. Create it (and an `__init__.py`) if missing.
 
 3. **Derive ids/filenames** from `$ARGUMENTS`: snake_case the name for the `id` and the

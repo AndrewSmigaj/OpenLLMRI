@@ -1,7 +1,7 @@
 """Tier-1: the teaching verbs — `use` dispatches through capabilities to the real verb and echoes it;
 `make` says what a thing is made of and never succeeds by itself."""
-from world.scenarios.whiteout.materials.table import MATERIAL_TABLE
-from world.scenarios.whiteout.responses.slice import RESPONSES
+from world.scenarios.winter_survival.materials.table import MATERIAL_TABLE
+from world.scenarios.winter_survival.responses.slice import RESPONSES
 from world.sim import narrator
 from world.sim.contracts import ActionAttempt, EntityState, NounRef, Part, Resolution
 from world.sim.materials import load_materials

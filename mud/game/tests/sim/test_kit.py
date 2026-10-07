@@ -1,8 +1,8 @@
 """Tier-1: the crash draw + luggage (players-and-kit.md; DR-25a) — every slot's rows are sound, the
 pure world dresses an actor, the clothing system reads regions / wind / wet, wounds show."""
-from world.scenarios.whiteout import characters, content
-from world.scenarios.whiteout.materials.table import MATERIAL_TABLE
-from world.scenarios.whiteout.objects import OBJECT_TABLE
+from world.scenarios.winter_survival import characters, content
+from world.scenarios.winter_survival.materials.table import MATERIAL_TABLE
+from world.scenarios.winter_survival.objects import OBJECT_TABLE
 from world.sim.contracts import EntityState
 from world.sim.materials import load_materials
 from world.sim.operations._helpers import CUTTABLE_ATTACH, PRYABLE_ATTACH

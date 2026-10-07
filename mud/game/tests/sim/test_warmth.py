@@ -1,6 +1,6 @@
 """Tier-1: clothing & warmth (DR-25) — wearability derived from materials; insulation-grams."""
-from world.scenarios.whiteout.content import MATERIALS
-from world.scenarios.whiteout.responses.slice import RESPONSES
+from world.scenarios.winter_survival.content import MATERIALS
+from world.scenarios.winter_survival.responses.slice import RESPONSES
 from world.sim import narrator
 from world.sim.contracts import ActionAttempt, EffectKind, EntityState, NounRef, Resolution
 from world.sim.operations.handlers import take, wear
