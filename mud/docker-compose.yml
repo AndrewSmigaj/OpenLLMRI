@@ -1,0 +1,54 @@
+# Whiteout MUD — local dev stack.
+#
+#   docker compose build        # build the evennia image (psycopg2 + pytest)
+#   make init                   # one-time: scaffold the Evennia game dir
+#   make migrate                # create schema in Postgres
+#   make accounts               # create admin + bot accounts (idempotent)
+#   make load-scenario          # load the smoketest world
+#   docker compose up           # run the server (telnet 4000, web 4001)
+#
+# Everything the MUD needs runs here. The torch bot-agent runs on the host.
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: whiteout-postgres
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+    expose:
+      - "5432"
+
+  evennia:
+    build: ./docker/evennia
+    image: whiteout-evennia:latest
+    container_name: whiteout-evennia
+    env_file: .env
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - ./game:/usr/src/game
+    working_dir: /usr/src/game
+    stdin_open: true
+    tty: true
+    ports:
+      - "4000:4000"   # telnet (game)
+      - "4001:4001"   # webserver / website
+      - "4002:4002"   # websocket client
+    # Start in the foreground so the container stays alive and logs to stdout.
+    # The image's entrypoint word-splits its arguments, so we hand it a single
+    # script path rather than a quoted `bash -c "... && ..."` (which would break).
+    # server/docker_start.sh is created during `make init` (see scripts/).
+    command: sh server/docker_start.sh
+
+volumes:
+  pgdata:

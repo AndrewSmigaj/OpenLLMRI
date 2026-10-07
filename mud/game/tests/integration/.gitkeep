@@ -1,0 +1,2 @@
+# tests/integration/ — Evennia integration tests (typeclasses/commands; need the framework + a test DB).
+# Run via `make test-int` (evennia test). Empty until there's shell code to test (roadmap P1+).

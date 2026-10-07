@@ -1,0 +1,86 @@
+# Loop Workflow
+
+> This guide is the **implementation** loop. The world-building passes (census and possibility passes,
+> which write no code) are [document 22](../design/22-the-world-building-loops.md).
+
+The agentic authoring loop: **anchor → author → verify → repeat**, driven by
+Claude Code's built-in `/loop` skill. This is how content is produced one small,
+validated increment at a time.
+
+> Why a loop: Whiteout is built in passes ([PLAN](../../PLAN.md))
+> from authoring *packets* (§43) gated by *validation* (§44). A tight loop that
+> re-anchors on the design every iteration keeps work from drifting away from the
+> non-negotiables.
+
+## The four beats
+
+```
+        ┌─────────────────────────────────────────────┐
+        ▼                                             │
+1. ANCHOR ──► 2. AUTHOR ──► 3. VERIFY ──► (pass?) ────┘
+   read the      write one      make verify / /verify
+   ground truth  small piece    fix until green
+```
+
+### 1. Anchor
+
+Re-read the ground truth *before* each work session so the loop returns to a
+fixed point when it drifts:
+
+- [`../../VISION.md`](../../VISION.md) — the non-negotiables.
+- The authoritative design — [`../scenarios/whiteout/GDD.md`](../scenarios/whiteout/GDD.md)
+  (cite sections as "§N") — and the [PLAN](../../PLAN.md)
+  for *which phase (P0–P7)* you're in.
+
+### 2. Author
+
+Make **one** small, coherent change, from its packet template and guide:
+
+- an object → [authoring-objects.md](authoring-objects.md) (an `OBJECT_TABLE` row)
+- a verb → [authoring-actions.md](authoring-actions.md) (a pure handler + responses + probes)
+- a goal path → the rescue graph → a probe chain (`probes/graph.py`); workflow packets are retired
+
+Keep rules pure (`world/sim/**`); keep the Evennia shell thin
+([../architecture/overview.md](../architecture/overview.md)).
+
+### 3. Verify
+
+Run the gate. Locally that is:
+
+```
+make verify SCENARIO=<name>   # compose config check + make test + make validate
+```
+
+— the fast pure tests ([../architecture/testing.md](../architecture/testing.md))
+plus the §44 content-lint ([validation-rules.md](validation-rules.md)). In Claude
+Code, the **`/verify`** step plays the change and confirms it behaves. Fix until
+green; a red gate is the loop's stop condition, not a suggestion.
+
+### 4. Repeat
+
+Loop back to anchor for the next increment.
+
+## Driving it with `/loop`
+
+Use Claude Code's built-in **`/loop`** skill to run the cycle automatically — e.g.
+self-paced, or on an interval — re-anchoring and re-verifying each pass. Keep each
+iteration's scope to something `make verify` can check in one go: one object, one
+action family, one workflow stage. End an iteration only when the gate is green.
+
+## Concrete example (one iteration)
+
+1. **Anchor:** the current `PLAN.md` task (fun is a continuous design judgment, not a gate; friends see
+   the finished game).
+2. **Author:** add `scenarios/whiteout/objects/aircraft_seat.py` as an
+   an object row with parts that dismantle several ways, each output a first-class derived object with a form
+   with uses or explicit non-uses.
+3. **Verify:** `make verify SCENARIO=whiteout` — pure tests for the dismantle
+   conservation, validator confirms every output has uses + tests exist.
+4. **Repeat:** next iteration, the seat's outputs feed the splint/shelter
+   workflows.
+
+## Related
+
+- [docker-workflow.md](docker-workflow.md) — the commands the loop calls.
+- [validation-rules.md](validation-rules.md) — what `make verify` enforces.
+- [../../PLAN.md](../../PLAN.md) — the order of work.

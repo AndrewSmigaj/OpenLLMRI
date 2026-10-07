@@ -1,0 +1,25 @@
+# Secrets / local env
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+
+# Evennia runtime artifacts (regenerated locally)
+game/server/logs/
+game/server/*.db3
+game/server/conf/secret_settings.py
+game/web/static/
+game/web/media/
+game/.media/
+
+# Agent harness
+agent/.venv/
+agent/logs/
+
+# Misc
+*.log
+.DS_Store

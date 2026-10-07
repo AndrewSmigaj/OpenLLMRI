@@ -1,0 +1,148 @@
+# The food list — everything edible in the valley, and everything that makes people sick
+
+> **Status: living list (started 2026-09-27). It is never finished.** The loops add to it as they flesh
+> out the world — a new berry, a new bug, whatever a zone's census finds (documents 05 and 22). Once the
+> ontology store exists (`docs/ontology/`, document 05 §4.5), this list is **generated from it** — every
+> entity with food properties — so whatever a model adds shows up here; until then, rows are added by
+> hand, each with its source. **How food works** — hunger, food states, cooking, spoilage, storage, and
+> the ways of getting it — is [document 10](10-food-and-hunger.md); **the living things** are
+> [document 23](23-flora-and-fauna.md); **the pilot's body** is [document 12](12-the-pilot-and-bodies.md).
+> Numbers are real starting points; the probes tune them. Rows come from the design documents.
+
+**Status marks:** ✅ built (in the object table) · 📐 designed (in a design document) · ◌ candidate (its
+presence in this valley is still to be checked). **Adding a row:** it must be what realistically lives in a valley this size in the
+first week of October, and every number needs a source. The loops never drop a row for being surplus;
+Andrew removes whatever he chooses.
+
+## 1. On the plane — found by searching
+
+There is no survival kit (Andrew, 2026-09-27). What is aboard is what people carried and what the plane
+was hauling, found by searching the plane (documents 10 §4.3 and 16 §4.1–§4.3).
+
+| food | where | what it gives / what to watch | status |
+|---|---|---|---|
+| a chocolate bar | the guide's pocket | dense sugar and fat | ✅ |
+| a candy bar | the kid's pocket | sugar | ✅ |
+| gum | the townie's pocket | next to nothing | 📐 |
+| a ration tin | the guide's duffel, behind the jammed cargo door (2026-10-02) | dense, long-keeping food | 📐 |
+| trail mix | the salesman's, burst under seat 1B | nuts and fruit: dense | ✅ |
+| whisky | the salesman's hip flask | calories, and it costs body heat (document 08) | 📐 |
+| snacks | the salesman's laptop bag | what they are is content | 📐 |
+| flour | the freight — a 10 lb (4.5 kg) bag | ~16,000 kcal, roughly a day of the party's food; starch, needing water and fire to be worth much | ✅ |
+| coffee | the freight's coffee tin; the cockpit's thermos, the first warm thing anyone drinks | warmth and morale, not calories | ✅ |
+| dog food | a small bag in the freight | food — dog food is food; a small bag, never enough to live on (Andrew, 2026-09-27) | ✅ |
+| frozen salmon | a family's cooler, thrown onto the debris trail — a few fillets, a meal or two, not a larder (2026-09-28) | a real meal; stays frozen only while it stays cold, thaws in a warmed wreck and spoils over days; the cooler is also a vessel | ✅ |
+| a spoiled lunch | a paper sack behind the pilot's seat | **sick-making** — furred bread, slimed meat; it smells before it is opened | 📐 |
+
+## 2. At Holt's cabin — modest stores
+
+Holt's cabin is supplies: some trapline gear and modest stores, not piles of food (Andrew,
+2026-09-27; document 10 §4.4).
+
+| food | where | what it gives / what to watch | status |
+|---|---|---|---|
+| flour, salt, lard, tea | the cabin shelf | starch; fat (lard is worth more than its calories to a party living on lean meat); salt; a hot drink | 📐 |
+| a few tins | the cabin shelf | real food | 📐 |
+| **one bulged can** | among the good tins | **sick-making** — botulism: weakness and paralysis from about a day on; never kills (2026-09-27) | 📐 |
+| some beans and rice, a slab of dry fish | Holt's cache, its ladder stashed under the cabin | the rest of his modest stores; the climb, and carrying it home | 📐 |
+
+## 3. Plants, fungi and lichens
+
+From document 23 §4.2 and document 10 §4.7. The snow on and off through the week covers the low
+plants a little at a time, and the heavier flurry of day 6 buries the lowest mats; what stands above the
+snow stays (document 13 §4.2).
+
+| food | where | what it gives | what to watch | status |
+|---|---|---|---|---|
+| lowbush cranberry (lingonberry) | tussocks, spruce floor | ~44 kcal per 100 g; a real calorie trickle, frost-sweetened | a hand high, it pokes through the week's snow; slower and wetter to pick once snow lies | 📐 |
+| bog cranberry | the muskeg's moss | small, sour | under the snow after day 6 | 📐 |
+| crowberry | muskeg, ridge | bulk, low value; sweeter after frost | easy to overeat | 📐 |
+| bunchberry (dwarf dogwood) | the spruce floor, the birch stand | bland, dry and seedy; a handful | grows in the same shade as baneberry — the safe red berry beside the poison one | 📐 |
+| highbush cranberry | willow bars, the creek | very sour; a few handfuls | stays above the snow | 📐 |
+| rose hips | creek, forest edge | ~160 kcal per 100 g — the richest fruit in the valley; vitamin C | the seeds and their itching hairs must come out | 📐 |
+| mountain ash (rowan) berries | the birch stand — a few shrubs | food once frost and cooking have worked on them | **raw and in quantity, sick-making** (an acid in the raw berries) | 📐 |
+| bearberry (kinnikinnick) | the ridge | mealy, poor; the leaves make a tea | under the snow after day 6 | 📐 |
+| blueberries dried on the bush | muskeg, open spruce | a lucky find | rare by October | 📐 |
+| juniper berries | the ridge | flavouring; a hot drink | — | 📐 |
+| spruce needles and tips | everywhere with spruce | tea: warmth, vitamin C | the safest forage | 📐 |
+| wintergreen / pyrola leaves | under the spruce | tea | — | 📐 |
+| Labrador tea | muskeg | tea | **strong and in quantity, harmful** — the dose matters | 📐 |
+| willow bark | willow bars | a mild painkiller as tea | weak | 📐 |
+| chaga | the old birch | tea | a reach to get it | 📐 |
+| birch polypore, tinder conk | dead and dying birch | a poor tea; a real medicine | — | 📐 |
+| inner bark (spruce, birch) | any live tree | famine food, chewed or boiled; also snare bait | costs the tree | 📐 |
+| spruce pitch | any wounded trunk | chewed | also seals a wound and burns | 📐 |
+| cattail rhizome | the lake's marsh edge, in the mud | real starch | wet, cold digging; water hemlock grows among them | 📐 |
+| wild potato root (Eskimo potato, Indian potato, sweetvetch) | the bench, river bars | starch, sweetish; ounces a plant | the ground crusts each frosty night; a fire thaws it; the grizzly digs the same roots | 📐 |
+| vole root caches | the sedge meadow | small starchy roots, found by the soft ground over a cache | whether this valley has them is for the loops to check | ◌ |
+| velvet foot mushroom | dead aspen, poplar, willow | the one fresh edible mushroom of the season | **the deadly galerina grows nearby and looks like it** | 📐 |
+| the squirrels' dried mushrooms | spruce forks above a midden | food, if you can tell them apart | **edible kinds and fly agaric cached together** | 📐 |
+| reindeer lichen | the ridge, open spruce | famine food after boiling | acid otherwise | 📐 |
+| rock tripe | the boulder field | famine lichen after long boiling | sour and poor | 📐 |
+
+## 4. Animals
+
+From document 23 §4.3, §4.4 and document 10 §4.4, §4.8. How each is taken is document 10 §4.8.
+
+| food | where | what it gives | what to watch | status |
+|---|---|---|---|---|
+| snowshoe hare | willow thickets, the hare runs | ~650–800 kcal each; the pelt | very lean (rabbit starvation, §6); gutting bare-handed risks rabbit fever (tularemia); a middle year of the hare cycle, the same every run | 📐 |
+| willow ptarmigan | willow bars, muskeg edge | ~250–300 kcal a bird | lean | 📐 |
+| spruce grouse | spruce forest | ~250–300 kcal a bird | each one taken is gone for the run | 📐 |
+| ruffed grouse | aspen and birch | ~250–300 kcal a bird | harder to hit | 📐 |
+| red squirrel, and its midden | spruce forest | the animal ~100 kcal; the midden's cached cones, a few hundred kcal an hour's raid once the cones are opened by a fire | — | 📐 |
+| vole | the grass and moss of the tussocks | ~20–30 kcal; better as bait | — | 📐 |
+| wood frog | the leaf litter by the ponds | ~5–10 kcal — not a food source | — | 📐 |
+| beetle grubs | under the bark of dead spruce; rotten logs | ~20–40 kcal a handful; bait | — | 📐 |
+| carpenter ants | rotting logs and stumps | ~10 kcal a handful, sour; bait | — | 📐 |
+| creek larvae (stonefly, caddisfly) | under the creek's stones | a few kcal; bait for fish | cold, wet hands | 📐 |
+| grayling | the lake, the pool | ~150–350 kcal a fish | — | 📐 |
+| whitefish | the lake, the creek | ~400–900 kcal a fish | whether a run comes up the creek is for the loops | 📐 |
+| burbot | the lake, the pool | ~600–1,600 kcal with its liver — the liver's fat is worth more than its calories | bites from sunset to midnight | 📐 |
+| northern pike | the lake | ~500–1,800 kcal a fish | — | 📐 |
+| beaver | the lodge and its feed pile | an 18–32 kg animal: ~10,000–20,000 kcal of rich meat; the tail's fat | wary, hard to take | 📐 |
+| muskrat | the lake's marsh edge | 0.9–1.8 kg: ~600–1,100 kcal | — | 📐 |
+| the bear | wherever food is | the richest food in the valley — 70–100 kg of meat (~110,000–160,000 kcal) and tens of kilograms of fat | the most dangerous thing in the valley; **trichinosis worms in the meat — always cook it through** | 📐 |
+| porcupine | the spruce and birch | ~5,000–10,000 kcal, much of it fat — fattest in fall | clubbed; the quills | 📐 |
+| fox, marten, lynx | tracks everywhere | a pelt; ~4,000–6,000 kcal a lynx, ~1,500–3,000 a fox, a few hundred a marten | rarely seen | 📐 |
+
+## 5. Parts of any kill
+
+| food | what it gives | what to watch | status |
+|---|---|---|---|
+| marrow | the calories the rest of the animal lacks | crack the bone | 📐 |
+| fat (rendered) | worth more than its calories to a party living on lean meat | — | 📐 |
+| liver and organs | dense food (the burbot's liver above all) | — | 📐 |
+| blood | dense calories | it freezes; it has to be caught | 📐 |
+| hide | food, boiled long enough — the real last resort before the body | hours of boiling | 📐 |
+
+## 6. The pilot's body
+
+Document 12 §4.3a. Eating it is taboo, not immoral (Andrew, 2026-09-27); it is mechanically possible,
+slow and grim — butchery is hours of attended work. Roughly 38,000 kcal of muscle in a 78 kg man, plus
+fat and organs: two to three days of food for the party. Fresh raw meat is mostly safe and rotten meat
+sickens (Andrew, 2026-09-27); frozen meat costs body heat to eat. A seat nobody plays is a dead
+character too (document 16).
+
+## 7. What makes people sick — and what does not kill
+
+Poison makes people very sick and never kills (Andrew, 2026-09-27). Everything here is real; how each
+sickness plays is document 11 §4.6.
+
+- **Poisonous plants and fungi** — baneberry (the red berry that makes you sick), water hemlock root, the
+  deadly galerina, the fly agaric; mountain ash raw and in quantity; Labrador tea strong and in quantity.
+- **Spoiled food** — a half-rotten fish (Andrew, 2026-09-27; where it lies is placed with the zones), the
+  lunch behind the pilot's seat, the bulged can, frost-killed mushrooms, and any meat or fish left to rot: most fresh raw meat makes no one sick; rotten meat does (2026-09-27).
+- **Hidden in meat** — trichinosis worms in bear meat, killed only by cooking through; rabbit fever (tularemia) from a hare
+  gutted bare-handed.
+- **Diet itself** — lean meat alone (rabbit starvation): hare and ptarmigan without fat bring nausea
+  and diarrhoea within about a week.
+
+## 8. How this list grows
+
+- **The loops** census every zone to real-world depth (documents 05 and 22). Every edible thing a
+  world-builder finds — a bug, a root, a fungus, a fish — gets a row here and in the ontology store, with
+  its source; the scouts' *food* lens finds the ways people would try to eat it.
+- **The ecology filter** applies to every addition (document 23 §4.1).
+- **When the ontology store exists**, this document is generated from it (`PLAN.md` B9), so nothing a
+  model adds has to be copied here by hand.
