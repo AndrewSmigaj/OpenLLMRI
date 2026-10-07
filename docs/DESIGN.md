@@ -2,7 +2,7 @@
 
 **Status:** a draft for Andrew's review (2026-10-07). Nothing new is built until he approves it.
 
-**Review progress:** Parts A and B reviewed with Andrew (2026-10-07).
+**Review progress:** Parts A, B and C reviewed with Andrew (2026-10-07).
 
 **Contents:**
 - How this document works
@@ -218,11 +218,12 @@ This part covers building; Parts D and E cover using.
 - **Writing them:**
   - in the app, Claude agents generate sentence sets to instructions [Decided, 2026-10-04 and
     2026-10-07];
-  - this conflicts with the 2026-10-06 ruling that anything joining a measured dataset is written
-    in the main conversation, never by subagents (question L1);
+  - **one `claude -p` run writes each whole set,** all classes together, so author differences
+    can't line up with the classes, and the audits check batches anyway [Decided, 2026-10-07]. This refines the
+    2026-10-06 ruling that text joining a measured dataset is never written by subagents;
   - **the blind brief** [Built, as a study script]: authors see only the contrast and the
     diversity rules, as in the paper.
-- **Audits** [Proposed]: balance by class and scene family, length and register, a shuffle test,
+- **Audits** [Decided, 2026-10-07]: balance by class and scene family, length and register, a shuffle test,
   and scene diversity, promoted from the paper's scripts to tools.
 
 **C2. Kinds of lens and grouping.**
@@ -231,9 +232,9 @@ This part covers building; Parts D and E cover using.
 - **Mass-mean lens:** one axis per layer, validated on held-out data [Decided, 2026-10-06].
 - **Raw-space groupings,** designed carefully and compared with UMAP [Decided, 2026-10-06]:
   - **standardized PCA:** centre, standardize each neuron, reduce to 50 dimensions, then
-    cluster with Ward or spectral clustering [Proposed: the best raw-space method in the
+    cluster with Ward or spectral clustering [Decided, 2026-10-07: the best raw-space method in the
     2026-10-06 comparison of two sessions];
-  - **relevant-neuron PCA** [Andrew's idea, 2026-10-07; details Proposed]:
+  - **relevant-neuron PCA** [Decided, 2026-10-07: Andrew's idea, with the details below]:
     - keep the neurons most associated with the sentence set's classes, then reduce them with PCA;
     - the axes are then weighted sums of named neurons, readable in raw-space terms;
     - a new token is read by a simple linear projection, which may suit watching agents;
@@ -249,24 +250,24 @@ This part covers building; Parts D and E cover using.
   senses is known [Decided, 2026-10-07].
   - In the 2026-10-06 comparison, silhouette mostly picked k = 2, which doesn't fit data that
     visibly clusters.
-- **Better automatic methods** [Open]. One idea to test [Proposed]: when clusters are nested,
+- **Better automatic methods** [Open]. One idea to test [Decided, 2026-10-07]: when clusters are nested,
   report every level where the structure is clear (for example 2 at the top and 5 below it),
   not one number.
-- **A k profile per layer** [Proposed]: for each layer and each k, the silhouette, the stability
+- **A k profile per layer** [Decided, 2026-10-07]: for each layer and each k, the silhouette, the stability
   across seeds, and the agreement with each designed axis. The chosen k is saved with the lens.
 
 **C4. Validating and comparing.**
 - **A lens must classify held-out data well** [Decided, 2026-10-06]. The held-out data is whole
-  scene families [Proposed: the paper's method].
+  scene families [Decided, 2026-10-07: the paper's method].
 - **Sankeys from both instruments are compared** on class purity and separation, and the better
   is chosen [Decided, 2026-10-06].
-- **A fair comparison** [Proposed]:
+- **A fair comparison** [Decided, 2026-10-07]:
   - the same k for all candidates;
   - unsupervised groupings compared only with each other;
   - groupings built from the labels shown as the **supervised ceiling**: how separable the classes
     are at all, never a competitor;
   - scores that are held out and corrected for chance.
-- **A self-check** [Proposed]: before lens search is trusted, it must find structure planted in
+- **A self-check** [Decided, 2026-10-07]: before lens search is trusted, it must find structure planted in
   synthetic data.
 
 **C5. What comes with each node.**
@@ -283,10 +284,11 @@ This part covers building; Parts D and E cover using.
 - **Each scenario set gets lenses designed for it, or reuses lenses already built** [Decided,
   2026-10-06; for scenario sets, 2026-10-07].
 - **People assessment:** friend or foe, the type of foe [Decided, 2026-10-06], and others such as
-  intent, threat, honesty and need [Proposed].
-- **Winter Survival:** hunger [Andrew's idea, 2026-10-07]; cold, injury, danger and trust in the
-  others [Proposed].
-- **Each kit lens lists its trigger words** [Proposed]:
+  intent, threat, honesty and need [Decided, 2026-10-07].
+- **Winter Survival:** what the agent is thinking about, such as hunger, food, fire, cold,
+  injury, danger and trust in the others [Decided, 2026-10-07].
+- **More lenses and situations to study will come** as the work goes on [Decided, 2026-10-07].
+- **Each kit lens lists its trigger words** [Decided, 2026-10-07]:
   - for example " person" for the friend/foe lens, and " hungry" or " food" for hunger;
   - kit lenses are calibrated on text like the agent's own reasoning, since that is where they
     will be read.
@@ -767,15 +769,8 @@ Stories 1–6 come from the time design; 7–11 were added in its review, which 
 
 ## Part L — Questions for Andrew
 
-- **L1. Who writes sentence sets and scenario text in the builders?**
-  - You asked for Claude agents to generate sentence sets in the app (2026-10-04 and 2026-10-07).
-  - Your 2026-10-06 ruling says text that joins a measured dataset is written in the main
-    conversation, never by subagents.
-  - The options:
-    1. Claude agents write under the blind brief, and the audits check for differences between
-       batches.
-    2. One Claude session writes each whole set, and the builder shows the brief and the result.
-    3. Something else.
+- **L1. Who writes sentence sets in the builders?** Answered 2026-10-07: one `claude -p` run writes
+  each whole set, all classes together, and the audits check batches (C1).
 - **L2. For watching agents, should the model's own words lead, with carriers as the controlled
   comparison?** Your 2026-10-04 view (carriers don't show real behaviour) and your heatmap idea
   point that way. The time design proposed carriers first.
@@ -792,8 +787,8 @@ Stories 1–6 come from the time design; 7–11 were added in its review, which 
   Do these work for you?
 - **L7. The workspaces (E1):** Build, Layers, Watch, Study, MUD, and later Atlas and Ideas. Do the
   names and the split work?
-- **L8. Relevant-neuron PCA (C2):** add it as a third kind of grouping in the comparison, with the
-  cautions given?
+- **L8. Relevant-neuron PCA (C2).** Answered 2026-10-07: yes, as a third kind of grouping, with the
+  cautions given.
 - **L9. The order of work (Part K):**
   - Is the sentence set builder second, and time on sentence runs third, right?
   - Should slices 2–4 come before the world-building pilot, as drawn, or after it?
@@ -867,7 +862,11 @@ Paraphrased from Andrew's own words. His ideas not yet decided are listed separa
   - building lenses separate from using them;
   - design approved before building;
   - researchers' rooms planned;
-  - Claude agents generating sentence sets (see L1).
+  - Claude agents generating sentence sets: one `claude -p` run writes each whole set, all classes
+    together, and audits check batches;
+  - Part C's details: the audits, the raw-space recipe, relevant-neuron PCA as a third grouping,
+    the k profile and the hierarchy idea, scene-family hold-outs, the fair comparison, the
+    self-check, trigger words, and the kit examples (food, fire and more for Winter Survival).
 - **Andrew's ideas, not yet decided:**
   - **2026-10-04:** a user interface in the MUD; a MUD tab for maintenance and scenario design; Claude
     agents drafting scenarios; a mini-world builder;
@@ -877,6 +876,4 @@ Paraphrased from Andrew's own words. His ideas not yet decided are listed separa
     - an interface so users can choose the LLM for Claude agents' work;
     - all layers scrolling sideways;
     - the lens heatmap over the reasoning stream, and per-lens Sankeys;
-    - perhaps four Sankey panels while watching;
-    - relevant-neuron PCA;
-    - hunger as a Winter Survival lens.
+    - perhaps four Sankey panels while watching.
