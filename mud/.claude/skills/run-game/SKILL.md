@@ -18,7 +18,7 @@ clean the first time. It never bypasses the Makefile.
 First decide whether the stack is already running:
 
 ```sh
-docker compose ps            # is `whiteout-evennia` up?
+docker compose ps            # is `llmri-mud-evennia` up?
 ```
 
 **Already up** → skip to *Load a scenario*.
@@ -30,7 +30,7 @@ cp -n .env.example .env      # 1. env for compose (git-ignored); skip if .env ex
 make build                   # 2. build the pinned image (docker/evennia/Dockerfile)
 make migrate                 # 3. create the Postgres schema
 make accounts                # 4. admin (Account #1) + bot account (idempotent; uses host pexpect)
-make up-d                    # 5. start the server detached (telnet 4000 / web 4001 / ws 4002)
+make up-d                    # 5. start the server detached (host ports: see below)
 ```
 
 Confirm it booted cleanly (don't stream forever):
@@ -47,8 +47,10 @@ Report which scenario loaded and surface any traceback. If it fails because the 
 run *Bring-up* first. (This is exactly the `/load-scenario` command.)
 
 ## Connect for co-op
-The game speaks **telnet on `localhost:4000`** (or the web client on `:4001`). For a co-op smoke you
-want two characters in the same room:
+The game speaks **telnet on `localhost:$MUD_TELNET_PORT`** (or the web client on `:$MUD_WEB_PORT`). The
+ports are set in the repo root's `.env`: 14000/14001 on the `one-mud` branch, where the old prototype
+MUD may still hold 4000-4002; Evennia's 4000/4001 otherwise. For a co-op smoke you want two
+characters in the same room:
 
 1. Connect a client, log in as the admin account (from `.env`: `EVENNIA_SUPERUSER`).
 2. Put your character in the crash cabin: `@tel crash cabin` (Evennia builder command).

@@ -3,7 +3,8 @@
 # The host-fast gates (lint, test-host) also run without Docker, for a tight inner loop.
 
 SCENARIO ?= smoketest
-DC = docker compose
+# Compose reads this folder's .env and, for the MUD's host ports, the repo root's .env.
+DC = docker compose $(if $(wildcard .env),--env-file .env) $(if $(wildcard ../.env),--env-file ../.env)
 
 .PHONY: help build init migrate accounts up up-d down restart logs probes render-scenes \
         load-scenario test test-host lint fuzz test-int validate verify \
@@ -40,7 +41,7 @@ build:
 # volume isn't auto-created empty first (which would make `--init game` refuse).
 # Mounts the repo root at /host and creates ./game there.
 init:
-	docker run --rm -v "$(CURDIR)":/host -w /host --entrypoint evennia whiteout-evennia:latest --init game
+	docker run --rm -v "$(CURDIR)":/host -w /host --entrypoint evennia llmri-mud-evennia:latest --init game
 
 migrate:
 	$(DC) run --rm evennia evennia migrate

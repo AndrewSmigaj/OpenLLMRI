@@ -5,14 +5,20 @@
 #   make migrate                # create schema in Postgres
 #   make accounts               # create admin + bot accounts (idempotent)
 #   make load-scenario          # load the smoketest world
-#   docker compose up           # run the server (telnet 4000, web 4001)
+#   docker compose up           # run the server (telnet, web and websocket on the host ports below)
 #
 # Everything the MUD needs runs here. The torch bot-agent runs on the host.
+#
+# Host ports come from the repo root's .env (MUD_TELNET_PORT, MUD_WEB_PORT, MUD_WS_PORT; the
+# Makefile passes it to compose), defaulting to Evennia's 4000-4002. Inside the container Evennia
+# always listens on 4000-4002.
+
+name: llmri-mud
 
 services:
   postgres:
     image: postgres:16
-    container_name: whiteout-postgres
+    container_name: llmri-mud-postgres
     environment:
       POSTGRES_DB: ${POSTGRES_DB}
       POSTGRES_USER: ${POSTGRES_USER}
@@ -29,9 +35,12 @@ services:
 
   evennia:
     build: ./docker/evennia
-    image: whiteout-evennia:latest
-    container_name: whiteout-evennia
+    image: llmri-mud-evennia:latest
+    container_name: llmri-mud-evennia
     env_file: .env
+    environment:
+      # The web client connects to the websocket's HOST port, not the container's.
+      WEBSOCKET_CLIENT_PROXY_PORT: ${MUD_WS_PORT:-4002}
     depends_on:
       postgres:
         condition: service_healthy
@@ -41,9 +50,9 @@ services:
     stdin_open: true
     tty: true
     ports:
-      - "4000:4000"   # telnet (game)
-      - "4001:4001"   # webserver / website
-      - "4002:4002"   # websocket client
+      - "${MUD_TELNET_PORT:-4000}:4000"   # telnet (game)
+      - "${MUD_WEB_PORT:-4001}:4001"   # webserver / website
+      - "${MUD_WS_PORT:-4002}:4002"   # websocket client
     # Start in the foreground so the container stays alive and logs to stdout.
     # The image's entrypoint word-splits its arguments, so we hand it a single
     # script path rather than a quoted `bash -c "... && ..."` (which would break).
