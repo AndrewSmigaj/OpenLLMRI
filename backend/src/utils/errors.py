@@ -7,7 +7,7 @@ Simple exception classes with clear messages for debugging.
 
 class ConceptMRIError(Exception):
     """Base exception for Concept MRI operations."""
-    
+
     def __init__(self, message: str, context: dict = None):
         super().__init__(message)
         self.context = context or {}

@@ -11,7 +11,7 @@ JSONL schema defined by agent_loop.py:278-294.
 
 import json
 from pathlib import Path
-from typing import Dict, Iterable, Tuple, Any, TYPE_CHECKING
+from typing import TYPE_CHECKING, Any, Dict, Iterable, Tuple
 
 if TYPE_CHECKING:
     from schemas.tokens import ProbeRecord

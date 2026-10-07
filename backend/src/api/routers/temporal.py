@@ -3,18 +3,25 @@
 Temporal basin capture and lag analysis endpoints.
 """
 
-from fastapi import APIRouter, HTTPException, Depends
 import json
 import logging
 
-from api.schemas import (
-    TemporalCaptureRequest, TemporalCaptureResponse,
-    TemporalLagDataRequest, TemporalLagPoint, TemporalLagDataResponse,
-    RawAxisProjectionRequest, RawAxisProjectionResponse, RawAxisPoint, RawAxisLayerReport,
-)
-from api.dependencies import get_capture_service
-from services.probes.integrated_capture_service import IntegratedCaptureService
+from fastapi import APIRouter, Depends, HTTPException
+
 from api.config import DATA_LAKE_PATH
+from api.dependencies import get_capture_service
+from api.schemas import (
+    RawAxisLayerReport,
+    RawAxisPoint,
+    RawAxisProjectionRequest,
+    RawAxisProjectionResponse,
+    TemporalCaptureRequest,
+    TemporalCaptureResponse,
+    TemporalLagDataRequest,
+    TemporalLagDataResponse,
+    TemporalLagPoint,
+)
+from services.probes.integrated_capture_service import IntegratedCaptureService
 
 router = APIRouter()
 logger = logging.getLogger(__name__)
@@ -36,7 +43,9 @@ def _run_temporal_capture_sync(
     """
     import random
     import uuid
+
     import pandas as pd
+
     from services.probes.harmony_kv_chain import HarmonyKVChain
 
     try:
@@ -328,7 +337,7 @@ async def get_temporal_lag_data(request: TemporalLagDataRequest):
         # 2. Re-fit reducer from source data (deterministic with random_state=42)
         meta_path = schema_dir / "meta.json"
         if not meta_path.exists():
-            raise HTTPException(status_code=400, detail=f"Schema meta.json not found")
+            raise HTTPException(status_code=400, detail="Schema meta.json not found")
         meta = json.loads(meta_path.read_text())
         params = meta.get("params", {})
         reduction_method = params.get("reduction_method", "pca")

@@ -13,20 +13,22 @@ from datetime import datetime
 from pathlib import Path
 from typing import Dict
 
-import torch
 from fastapi import APIRouter, Depends, HTTPException
 
 from api.dependencies import get_capture_service
 from api.schemas import (
-    AgentStartRequest, AgentStartResponse,
-    AgentStopRequest, AgentStopResponse,
-    AgentGenerateRequest, AgentGenerateResponse,
+    AgentGenerateRequest,
+    AgentGenerateResponse,
     AgentResumeRequest,
+    AgentStartRequest,
+    AgentStartResponse,
+    AgentStopRequest,
+    AgentStopResponse,
 )
-from services.probes.integrated_capture_service import IntegratedCaptureService, SessionState
-from services.probes.probe_ids import generate_capture_id
+from services.agent.agent_loop import DEFAULT_SYSTEM_PROMPT, AgentLoop
 from services.agent.harmony_parser import parse_harmony_channels
-from services.agent.agent_loop import AgentLoop, DEFAULT_SYSTEM_PROMPT
+from services.probes.integrated_capture_service import IntegratedCaptureService
+from services.probes.probe_ids import generate_capture_id
 
 logger = logging.getLogger(__name__)
 
@@ -161,7 +163,7 @@ async def resume_agent_session(
         )
 
     try:
-        status = service.session_mgr.reactivate_session(request.session_id)
+        service.session_mgr.reactivate_session(request.session_id)
     except ValueError as e:
         raise HTTPException(status_code=404, detail=str(e))
 

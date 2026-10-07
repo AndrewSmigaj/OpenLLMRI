@@ -5,9 +5,10 @@ Captures routing decisions from MoE router for all experts per layer.
 """
 
 from dataclasses import dataclass
-from typing import List, Optional
-import numpy as np
 from datetime import datetime
+from typing import List, Optional
+
+import numpy as np
 
 
 @dataclass

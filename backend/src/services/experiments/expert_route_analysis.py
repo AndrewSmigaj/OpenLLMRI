@@ -4,19 +4,22 @@ Expert Route Analysis Service.
 Analyzes expert routing patterns from captured MoE data for visualization.
 """
 
-from typing import List, Dict, Optional, Tuple, Any
-from pathlib import Path
-from collections import defaultdict
 import json
+from collections import defaultdict
+from pathlib import Path
+from typing import Any, Dict, List, Optional, Tuple
+
 import numpy as np
 
 from core.parquet_reader import read_records
+from schemas.capture_manifest import CaptureManifest
 from schemas.routing import RoutingRecord, highway_signature
 from schemas.tokens import ProbeRecord
-from schemas.capture_manifest import CaptureManifest
 from services.experiments.route_analysis_common import (
-    axis_label, generate_specialization, analyze_top_routes,
-    compute_available_axes, build_sankey_links,
+    analyze_top_routes,
+    build_sankey_links,
+    compute_available_axes,
+    generate_specialization,
 )
 from services.experiments.token_filters import pick_last_occurrence, subsample_probes
 

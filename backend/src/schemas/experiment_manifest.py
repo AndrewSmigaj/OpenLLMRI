@@ -4,10 +4,10 @@ Experiment manifest schema for tracking attractor experiment configurations.
 Links experiment_id to its design parameters, sentence sets, and labels.
 """
 
-from dataclasses import dataclass, field
-from typing import List, Dict, Optional
-from datetime import datetime
 import json
+from dataclasses import dataclass
+from datetime import datetime
+from typing import Dict, List, Optional
 
 
 @dataclass

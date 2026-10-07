@@ -9,12 +9,12 @@ No model inference, no I/O, no GPU state.
 import logging
 from dataclasses import dataclass
 from datetime import datetime
-from typing import Dict, List, Optional, Tuple, TYPE_CHECKING
+from typing import TYPE_CHECKING, Dict, List, Optional, Tuple
 
-from schemas.tokens import ProbeRecord, create_probe_record
-from schemas.routing import RoutingRecord, create_routing_record
 from schemas.embedding import EmbeddingRecord, create_embedding_record
 from schemas.residual_stream import ResidualStreamState, create_residual_stream_state
+from schemas.routing import RoutingRecord, create_routing_record
+from schemas.tokens import ProbeRecord, create_probe_record
 
 if TYPE_CHECKING:
     from adapters.base_adapter import ModelAdapter

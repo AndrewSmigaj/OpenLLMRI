@@ -6,14 +6,15 @@ Captures the complete hidden state after attention + MLP (residual_in + attn + m
 
 from dataclasses import dataclass
 from typing import Optional, Tuple
+
 import numpy as np
 
 from utils.numpy_utils import (
-    ensure_numpy_array,
     calculate_array_norm,
     calculate_array_stats,
     cosine_similarity,
-    normalize_for_clustering
+    ensure_numpy_array,
+    normalize_for_clustering,
 )
 from utils.parquet_utils import deserialize_array_from_parquet
 

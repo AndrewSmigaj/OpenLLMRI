@@ -3,11 +3,12 @@
 Prompts API router - Serve scaffold prompt templates from disk.
 """
 
-from fastapi import APIRouter, HTTPException
-from pathlib import Path
 import json
 import logging
-from typing import List, Dict, Any
+from pathlib import Path
+from typing import Any, Dict, List
+
+from fastapi import APIRouter
 
 router = APIRouter()
 logger = logging.getLogger(__name__)

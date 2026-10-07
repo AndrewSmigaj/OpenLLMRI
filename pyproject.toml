@@ -15,14 +15,23 @@ packages = ["backend.src"]
 
 [tool.black]
 line-length = 100
-target-version = ['py311']
+target-version = ['py310']
 include = '\.pyi?$'
 
 [tool.ruff]
 line-length = 100
+# The backend's own packages (api, services, adapters, …) sort as first-party imports.
+src = ["backend/src"]
 select = ["E", "F", "I", "N", "W"]
-ignore = ["E501"]
-target-version = "py311"
+# N806/N812: maths and ML convention (X for a data matrix, F for torch.nn.functional).
+ignore = ["E501", "N806", "N812"]
+
+target-version = "py310"
+
+[tool.ruff.per-file-ignores]
+# The .env loads, and backend/src joins sys.path, before the imports that need them.
+"backend/src/api/main.py" = ["E402"]
+"backend/src/api/dependencies.py" = ["E402"]
 
 [tool.mypy]
 python_version = "3.10"

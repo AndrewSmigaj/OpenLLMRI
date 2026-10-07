@@ -8,7 +8,6 @@ import sys
 import threading
 import time
 from pathlib import Path
-import torch
 
 logger = logging.getLogger(__name__)
 
@@ -19,11 +18,10 @@ sys.path.insert(0, str(backend_src))
 
 from adapters.registry import get_adapter
 from api.config import DATA_LAKE_PATH
-from services.probes.integrated_capture_service import IntegratedCaptureService
-from services.experiments.expert_route_analysis import ExpertRouteAnalysisService
 from services.experiments.cluster_route_analysis import ClusterRouteAnalysisService
+from services.experiments.expert_route_analysis import ExpertRouteAnalysisService
 from services.experiments.llm_insights_service import LLMInsightsService
-
+from services.probes.integrated_capture_service import IntegratedCaptureService
 
 # Global service instances (simple approach)
 _capture_service = None

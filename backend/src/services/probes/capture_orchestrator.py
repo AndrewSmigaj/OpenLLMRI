@@ -7,9 +7,10 @@ and GPU memory cleanup. The most complex component but with the clearest
 boundary — everything that touches the GPU lives here.
 """
 
-import torch
 import logging
-from typing import Dict, List, Optional, Tuple, TYPE_CHECKING
+from typing import TYPE_CHECKING, Dict, List, Optional, Tuple
+
+import torch
 
 from services.probes.routing_capture import EnhancedRoutingCapture
 

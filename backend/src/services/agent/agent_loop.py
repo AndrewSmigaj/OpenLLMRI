@@ -62,6 +62,9 @@ in the final channel — nothing else, just the command.
 
 SCENARIOS_DIR = Path(__file__).resolve().parents[4] / "data" / "worlds" / "scenarios"
 
+# MUD verbs that already show others what the agent did; any other action is emoted first.
+BUILTIN_VERBS = {"look", "examine", "inventory", "actions", "goto", "say", "pose", "emote"}
+
 
 class AgentLoop:
     """Scenario loop: iterate scenarios, capture activations, play via Harmony format."""
@@ -195,7 +198,6 @@ class AgentLoop:
         ]
 
         tokenizer = self.service.orchestrator.tokenizer
-        device = self.service.orchestrator.model.device
         complete = False
         tick = 0
         last_action = ""
@@ -278,7 +280,6 @@ class AgentLoop:
             # actions like "alert bouncer" that aren't real commands, emote first
             # so observers in the room see what the agent is doing. Temporary
             # until scenario actions become real MUD commands.
-            BUILTIN_VERBS = {"look", "examine", "inventory", "actions", "goto", "say", "pose", "emote"}
             verb = last_action.split()[0].lower() if last_action.strip() else ""
             if verb and verb not in BUILTIN_VERBS:
                 await self.evennia_client.send_command(f"emote {last_action}")
@@ -397,9 +398,9 @@ class AgentLoop:
         lines.append(f"Scenarios: {', '.join(self.scenario_list)}")
         lines.append("")
         lines.append("**System prompt:**")
-        lines.append(f"```")
+        lines.append("```")
         lines.append(self.system_prompt.strip())
-        lines.append(f"```")
+        lines.append("```")
         lines.append("")
 
         for t in ticks:

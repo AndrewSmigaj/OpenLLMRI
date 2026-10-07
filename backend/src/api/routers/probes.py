@@ -3,31 +3,35 @@
 Probes API router - Session management and sentence experiment capture.
 """
 
-from fastapi import APIRouter, HTTPException, Depends
-from pathlib import Path
-from typing import List, Dict
-from datetime import datetime
 import json
 import logging
 import re
 import shutil
+from datetime import datetime
+from pathlib import Path
+from typing import Dict, List
 
-from api.schemas import (
-    ExecutionResponse, StatusResponse,
-    SessionListResponse, SessionDetailResponse,
-    SentenceExperimentRequest, SentenceExperimentResponse,
-    ProbeExample, TrajectoryPointsResponse, TrajectoryPoint,
-)
+from fastapi import APIRouter, Depends, HTTPException
+
+from api.config import DATA_LAKE_PATH
 from api.dependencies import get_capture_service
-from services.probes.integrated_capture_service import IntegratedCaptureService, SessionState
-from schemas.capture_manifest import CaptureManifest
+from api.schemas import (
+    ProbeExample,
+    SentenceExperimentRequest,
+    SentenceExperimentResponse,
+    SessionDetailResponse,
+    SessionListResponse,
+    StatusResponse,
+    TrajectoryPoint,
+    TrajectoryPointsResponse,
+)
 from core.parquet_reader import read_records
+from schemas.capture_manifest import CaptureManifest
 from schemas.tokens import ProbeRecord
+from services.probes.integrated_capture_service import IntegratedCaptureService, SessionState
 
 router = APIRouter()
 logger = logging.getLogger(__name__)
-
-from api.config import DATA_LAKE_PATH
 
 
 @router.get("/probes/{session_id}/status", response_model=StatusResponse)
@@ -323,7 +327,7 @@ async def run_sentence_experiment(
         service.finalize_session(session_id)
 
         total = sum(counts.values())
-        counts_str = " + ".join(f"{c}{l}" for l, c in counts.items())
+        counts_str = " + ".join(f"{c}{label}" for label, c in counts.items())
         logger.info(f"Sentence experiment complete: {session_id} ({counts_str})")
         return SentenceExperimentResponse(
             session_id=session_id,

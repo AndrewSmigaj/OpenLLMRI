@@ -4,9 +4,9 @@ Probe record schema - links probe_id to input text and tracked words.
 Used by experiments to query probes and their activation data.
 """
 
+import json
 from dataclasses import dataclass
 from typing import Dict, Optional
-import json
 
 
 @dataclass

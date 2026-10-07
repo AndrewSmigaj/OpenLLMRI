@@ -5,16 +5,18 @@ Generates label-specific sentences with validation and retry logic.
 """
 
 import json
-import re
-import os
 import logging
-from typing import List, Dict, Any, Optional, Tuple
-from openai import AsyncOpenAI
+import os
+from typing import List, Optional
+
 from anthropic import AsyncAnthropic
+from openai import AsyncOpenAI
 
 from services.generation.sentence_set import (
-    SentenceEntry, SentenceSet,
-    validate_sentence, save_sentence_set
+    SentenceEntry,
+    SentenceSet,
+    save_sentence_set,
+    validate_sentence,
 )
 
 logger = logging.getLogger(__name__)
@@ -233,7 +235,7 @@ Generate exactly {count} sentences."""
         text = raw.strip()
         if text.startswith("```"):
             lines = text.split("\n")
-            lines = [l for l in lines[1:] if not l.strip().startswith("```")]
+            lines = [line for line in lines[1:] if not line.strip().startswith("```")]
             text = "\n".join(lines)
 
         try:

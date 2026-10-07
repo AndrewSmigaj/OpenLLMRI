@@ -64,7 +64,7 @@ class EvenniaClient:
             async for raw_msg in self.ws:
                 try:
                     msg = json.loads(raw_msg)
-                    cmdname, args, kwargs = msg[0], msg[1] if len(msg) > 1 else [], msg[2] if len(msg) > 2 else {}
+                    cmdname, args = msg[0], msg[1] if len(msg) > 1 else []
 
                     if cmdname == "text":
                         text = "".join(str(a) for a in args)

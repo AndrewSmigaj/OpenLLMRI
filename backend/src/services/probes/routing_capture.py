@@ -4,10 +4,10 @@ Enhanced MoE routing capture with full routing weights and individual expert hoo
 Simple approach: register all hooks upfront, no complex dynamic registration.
 """
 
-import torch
-from typing import Dict, List, Optional, TYPE_CHECKING
-import numpy as np
 import logging
+from typing import TYPE_CHECKING, Dict, List, Optional
+
+import torch
 
 logger = logging.getLogger(__name__)
 
@@ -23,7 +23,7 @@ class EnhancedRoutingCapture:
     - All hooks registered upfront
     - Configurable layer windows for UI flexibility
     """
-    
+
     def __init__(self, model, layers_to_capture: Optional[List[int]] = None,
                  adapter: Optional['ModelAdapter'] = None):
         self.model = model
@@ -41,7 +41,7 @@ class EnhancedRoutingCapture:
 
         self.layers_to_capture = layers_to_capture
         logger.info(f"Enhanced capture for layers: {self.layers_to_capture}")
-        
+
     def register_hooks(self, verbose: bool = True):
         """Register all hooks upfront - simple approach."""
         for layer_idx in self.layers_to_capture:
@@ -70,7 +70,7 @@ class EnhancedRoutingCapture:
 
             except Exception as e:
                 logger.error(f"Failed to register hooks for layer {layer_idx}: {e}")
-    
+
     def _make_mlp_combined_hook(self, layer_id: int):
         """Create combined MLP hook that extracts routing and output data."""
         def mlp_combined_hook(module, input, output):
@@ -80,7 +80,7 @@ class EnhancedRoutingCapture:
                     hidden_states = input[0]
                 else:
                     hidden_states = input
-                
+
                 # Compute routing weights via adapter or legacy manual path
                 if self.adapter:
                     routing_weights = self.adapter.compute_routing_weights(module, hidden_states)
@@ -94,7 +94,7 @@ class EnhancedRoutingCapture:
                     )
                     router_logits = router_logits.reshape(batch_size, seq_len, -1)
                     routing_weights = torch.softmax(router_logits, dim=-1)
-                
+
                 # Convert to CPU for analysis
                 routing_weights_cpu = routing_weights.detach().cpu()
 
@@ -108,24 +108,24 @@ class EnhancedRoutingCapture:
                     "shape": routing_weights_cpu.shape,
                     "num_experts": routing_weights_cpu.shape[-1]
                 }
-                
+
                 # Also store MLP output (collective expert output)
                 if isinstance(output, tuple):
                     mlp_output = output[0]
                 else:
                     mlp_output = output
-                
+
                 self.embedding_data[f"layer_{layer_id}"] = {
                     "embedding": mlp_output.detach().cpu(),
                     "shape": mlp_output.shape
                 }
-                
+
             except Exception as e:
                 logger.error(f"MLP combined hook error (layer {layer_id}): {e}")
-        
+
         return mlp_combined_hook
-    
-    
+
+
     def _make_residual_hook(self, layer_id: int):
         """Create hook for decoder layer to capture full residual stream."""
         def residual_hook(module, input, output):
@@ -153,19 +153,19 @@ class EnhancedRoutingCapture:
         log_probs = torch.log(routing_weights + eps)
         entropy = -torch.sum(routing_weights * log_probs, dim=-1)
         return entropy
-    
+
     def clear_data(self):
         """Clear all captured data."""
         self.routing_data.clear()
         self.embedding_data.clear()
         self.residual_stream_data.clear()
-    
+
     def remove_hooks(self):
         """Remove all registered hooks."""
         for hook in self.hooks:
             hook.remove()
         self.hooks.clear()
-    
+
     def extract_highways(self, tokens: List[str], batch_idx: int = 0) -> List[str]:
         """Extract expert highway signatures using top-1 from full routing weights."""
         if not self.routing_data:
@@ -187,14 +187,14 @@ class EnhancedRoutingCapture:
             highways.append(highway_signature)
 
         return highways
-    
+
     def get_summary(self) -> Dict:
         """Get comprehensive summary of captured data."""
         summary = {
             "routing_summary": {},
             "activation_summary": {}
         }
-        
+
         # Routing summary
         for layer_name, data in self.routing_data.items():
             # Expert usage statistics from argmax of full routing weights
@@ -207,12 +207,12 @@ class EnhancedRoutingCapture:
                 "mean_entropy": data["gate_entropy"].mean().item(),
                 "expert_usage": expert_counts.tolist()
             }
-        
+
         # Embedding summary
         for layer_name, data in self.embedding_data.items():
             summary["activation_summary"][layer_name] = {
                 "shape": data["shape"],
                 "activation_norm": torch.norm(data["embedding"]).item()
             }
-        
+
         return summary

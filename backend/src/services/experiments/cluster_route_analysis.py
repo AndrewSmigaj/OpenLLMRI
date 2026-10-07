@@ -4,26 +4,29 @@ Cluster Route Analysis Service - On-demand clustering for latent space visualiza
 Loads raw embeddings, reduces dimensionality, then clusters.
 """
 
-from typing import List, Dict, Optional, Tuple, Any
-from pathlib import Path
-from collections import defaultdict
 import json
-import numpy as np
 import logging
+from collections import defaultdict
+from pathlib import Path
+from typing import Any, Dict, List, Optional, Tuple
 
-logger = logging.getLogger(__name__)
-from sklearn.cluster import KMeans, AgglomerativeClustering, DBSCAN
+import numpy as np
+import pandas as pd
+from sklearn.cluster import DBSCAN, AgglomerativeClustering, KMeans
 from sklearn.decomposition import PCA
 
 from core.parquet_reader import read_records
-from schemas.tokens import ProbeRecord
 from schemas.capture_manifest import CaptureManifest
+from schemas.tokens import ProbeRecord
 from services.experiments.route_analysis_common import (
-    axis_label, generate_specialization, analyze_top_routes,
-    compute_available_axes, build_sankey_links,
+    analyze_top_routes,
+    build_sankey_links,
+    compute_available_axes,
+    generate_specialization,
 )
 from services.experiments.token_filters import pick_last_occurrence, subsample_probes
-import pandas as pd
+
+logger = logging.getLogger(__name__)
 
 
 # Source config: maps source name to parquet filename and column name

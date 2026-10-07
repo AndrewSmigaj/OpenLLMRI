@@ -5,9 +5,8 @@ Provides UI with basic session information for experiment selection.
 """
 
 from dataclasses import dataclass
-from typing import List, Optional, Dict
 from datetime import datetime
-import json
+from typing import List, Optional
 
 
 @dataclass

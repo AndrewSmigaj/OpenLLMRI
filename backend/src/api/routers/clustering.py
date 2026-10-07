@@ -12,24 +12,25 @@ endpoint either succeeds entirely or leaves no trace.
 cached transition from a previously-built schema.
 """
 
-from fastapi import APIRouter, HTTPException, Depends
-from datetime import datetime
 import json
 import logging
 import os
 import shutil
 import time
+from datetime import datetime
 
-from api.schemas import (
-    LoadClusteringRequest,
-    BuildSchemaRequest,
-    RouteAnalysisResponse,
-)
+from fastapi import APIRouter, Depends, HTTPException
+
+from api.config import DATA_LAKE_PATH
 from api.dependencies import get_cluster_analysis_service, get_route_analysis_service
 from api.layer_windows import LAYER_WINDOWS, window_id_for_transition
+from api.schemas import (
+    BuildSchemaRequest,
+    LoadClusteringRequest,
+    RouteAnalysisResponse,
+)
 from services.experiments.cluster_route_analysis import ClusterRouteAnalysisService
 from services.experiments.expert_route_analysis import ExpertRouteAnalysisService
-from api.config import DATA_LAKE_PATH
 
 router = APIRouter()
 logger = logging.getLogger(__name__)
@@ -42,7 +43,7 @@ def _transition_dir(schema_dir, window_id: str, kind: str):
 
 def _transition_filename(transition_layers: list[int]) -> str:
     """`t_<a>_<b>` — the basename for a transition cache file."""
-    return f"t_{'_'.join(str(l) for l in transition_layers)}"
+    return f"t_{'_'.join(str(layer) for layer in transition_layers)}"
 
 
 def _load_cached_clusters(request: LoadClusteringRequest) -> dict:

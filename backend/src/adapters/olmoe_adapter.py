@@ -5,16 +5,24 @@ Model adapter for OLMoE-1B-7B (Allen AI's open MoE model).
 Uses OlmoeExperts fused module and OlmoeTopKRouter (nn.Parameter weight, no bias).
 """
 
+from typing import Tuple
+
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from typing import Tuple
-
-from transformers import AutoModelForCausalLM, AutoTokenizer, PreTrainedModel, PreTrainedTokenizerBase
+from transformers import (
+    AutoModelForCausalLM,
+    AutoTokenizer,
+    PreTrainedModel,
+    PreTrainedTokenizerBase,
+)
 
 from adapters.base_adapter import (
-    ModelAdapter, ModelTopology, ModelCapabilities,
-    RouterStyle, ExpertStyle,
+    ExpertStyle,
+    ModelAdapter,
+    ModelCapabilities,
+    ModelTopology,
+    RouterStyle,
 )
 
 

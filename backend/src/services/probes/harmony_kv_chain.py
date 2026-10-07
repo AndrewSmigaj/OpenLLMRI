@@ -30,7 +30,6 @@ from typing import List
 
 from transformers import PreTrainedTokenizerBase
 
-
 SUFFIX_LITERAL = "<|end|><|start|>assistant"
 
 

@@ -7,12 +7,12 @@ These functions were duplicated verbatim across both services — they take no i
 and operate purely on their parameters.
 """
 
-from typing import List, Dict, Optional, Any
-from collections import defaultdict
 import json
+from collections import defaultdict
+from typing import Any, Dict, List, Optional
 
-from schemas.tokens import ProbeRecord
 from schemas.capture_manifest import CaptureManifest
+from schemas.tokens import ProbeRecord
 
 
 def axis_label(axis_id: str, sorted_values: list) -> str:

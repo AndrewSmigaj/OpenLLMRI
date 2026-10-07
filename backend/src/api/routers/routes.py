@@ -7,20 +7,21 @@ This router serves cached expert-route windows and the per-route / per-expert
 detail GET endpoints.
 """
 
-from fastapi import APIRouter, HTTPException, Depends, Query
 import json
 import logging
 
+from fastapi import APIRouter, Depends, HTTPException, Query
+
+from api.config import DATA_LAKE_PATH
+from api.dependencies import get_route_analysis_service
+from api.layer_windows import window_id_for_transition
 from api.schemas import (
+    ExpertDetailsResponse,
     LoadExpertRoutesRequest,
     RouteAnalysisResponse,
     RouteDetailsResponse,
-    ExpertDetailsResponse,
 )
-from api.dependencies import get_route_analysis_service
-from api.layer_windows import window_id_for_transition
 from services.experiments.expert_route_analysis import ExpertRouteAnalysisService
-from api.config import DATA_LAKE_PATH
 
 router = APIRouter()
 logger = logging.getLogger(__name__)
@@ -41,7 +42,7 @@ def _load_cached_expert_routes(request: LoadExpertRoutesRequest) -> dict:
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
 
-    base_name = f"t_{'_'.join(str(l) for l in request.transition_layers)}"
+    base_name = f"t_{'_'.join(str(layer) for layer in request.transition_layers)}"
     rank_suffix = f"__rank{request.expert_rank}"
     tdir = schema_dir / "windows" / window_id / "expert"
     base_path = tdir / f"{base_name}{rank_suffix}.json"

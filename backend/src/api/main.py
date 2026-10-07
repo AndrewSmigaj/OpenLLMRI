@@ -4,6 +4,7 @@ FastAPI server for Concept MRI - MoE interpretability through Concept Trajectory
 """
 
 from pathlib import Path
+
 from dotenv import load_dotenv
 
 # Load .env from project root BEFORE importing anything that reads env vars
@@ -15,17 +16,17 @@ from dotenv import load_dotenv
 _PROJECT_ROOT = Path(__file__).resolve().parents[3]
 load_dotenv(_PROJECT_ROOT / ".env")
 
-from contextlib import asynccontextmanager
 import logging
-import time
+from contextlib import asynccontextmanager
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(name)s %(levelname)s %(message)s")
 
+import torch
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-import torch
-from api.routers import probes, routes, clustering, insights, temporal, generation, prompts, agent
-from api.dependencies import initialize_capture_service, is_model_loaded, get_loading_status
+
+from api.dependencies import get_loading_status, initialize_capture_service, is_model_loaded
+from api.routers import agent, clustering, generation, insights, probes, prompts, routes, temporal
 
 logger = logging.getLogger(__name__)
 

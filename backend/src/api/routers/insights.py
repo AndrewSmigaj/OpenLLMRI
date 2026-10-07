@@ -3,14 +3,17 @@
 LLM insights, scaffold steps, and experiments health check endpoints.
 """
 
-from fastapi import APIRouter, HTTPException, Depends
 import logging
 
-from api.schemas import (
-    LLMInsightsRequest, LLMInsightsResponse,
-    ScaffoldStepRequest, ScaffoldStepResponse,
-)
+from fastapi import APIRouter, Depends, HTTPException
+
 from api.dependencies import get_llm_insights_service
+from api.schemas import (
+    LLMInsightsRequest,
+    LLMInsightsResponse,
+    ScaffoldStepRequest,
+    ScaffoldStepResponse,
+)
 from services.experiments.llm_insights_service import LLMInsightsService
 
 router = APIRouter()

@@ -5,16 +5,24 @@ Model adapter for gpt-oss-20b (OpenAI's open-source MoE model).
 Uses fused collective experts module and router with bias.
 """
 
+from typing import Tuple
+
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from typing import Tuple
-
-from transformers import AutoModelForCausalLM, AutoTokenizer, PreTrainedModel, PreTrainedTokenizerBase
+from transformers import (
+    AutoModelForCausalLM,
+    AutoTokenizer,
+    PreTrainedModel,
+    PreTrainedTokenizerBase,
+)
 
 from adapters.base_adapter import (
-    ModelAdapter, ModelTopology, ModelCapabilities,
-    RouterStyle, ExpertStyle,
+    ExpertStyle,
+    ModelAdapter,
+    ModelCapabilities,
+    ModelTopology,
+    RouterStyle,
 )
 
 

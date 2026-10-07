@@ -5,11 +5,11 @@ N-group design: supports arbitrary number of groups (not hardcoded A/B/C).
 """
 
 import json
-import re
 import os
+import re
 from dataclasses import dataclass, field
-from typing import List, Dict, Any, Optional
 from pathlib import Path
+from typing import Any, Dict, List, Optional
 
 
 @dataclass

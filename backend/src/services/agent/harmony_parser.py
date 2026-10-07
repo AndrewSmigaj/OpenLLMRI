@@ -9,8 +9,8 @@ The 'analysis' channel contains chain-of-thought reasoning.
 The 'final' channel contains the user-facing response (mapped to 'action').
 """
 
-import re
 import logging
+import re
 
 logger = logging.getLogger(__name__)
 

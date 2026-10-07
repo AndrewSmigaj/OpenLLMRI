@@ -9,7 +9,6 @@ from adapters.base_adapter import ModelAdapter
 from adapters.gptoss_adapter import GptOssAdapter
 from adapters.olmoe_adapter import OLMoEAdapter
 
-
 _REGISTRY: Dict[str, Type[ModelAdapter]] = {}
 
 

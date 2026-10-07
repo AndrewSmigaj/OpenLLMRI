@@ -8,25 +8,22 @@ Public API is unchanged: same methods, same signatures. All existing callers
 """
 
 import gc
-import torch
 import logging
-from typing import Dict, List, Optional, Tuple
 from pathlib import Path
+from typing import Dict, List, Optional, Tuple
+
+import torch
 
 from core.parquet_writer import BatchWriter
+from services.probes.capture_orchestrator import CaptureOrchestrator
 from services.probes.probe_ids import generate_probe_id
-from utils.memory_utils import cleanup_gpu_memory
+from services.probes.probe_processor import ProbeCapture, ProbeProcessor
 
 # Sub-components
 from services.probes.session_manager import SessionManager, SessionState, SessionStatus
-from services.probes.probe_processor import ProbeProcessor, ProbeCapture
-from services.probes.capture_orchestrator import CaptureOrchestrator
 
 # Schema imports needed by SessionBatchWriters
-from schemas.tokens import ProbeRecord
-from schemas.routing import RoutingRecord
-from schemas.embedding import EmbeddingRecord
-from schemas.residual_stream import ResidualStreamState
+from utils.memory_utils import cleanup_gpu_memory
 
 logger = logging.getLogger(__name__)
 

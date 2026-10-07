@@ -7,9 +7,9 @@ Appends an additional column of output-category nodes at the right end of any
 Sankey window, showing how latent-space routing correlates with behavioral outcomes.
 """
 
-from typing import List, Dict, Optional, Tuple, Any
-from collections import defaultdict
 import json
+from collections import defaultdict
+from typing import Any, Dict, List, Optional, Tuple
 
 from schemas.tokens import ProbeRecord
 from services.experiments.route_analysis_common import axis_label
