@@ -17,10 +17,16 @@
       "Bash(wc:*)",
       "Bash(.venv/bin/python:*)",
       "Bash(.venv/bin/pip:*)",
-      "WebSearch"
+      "WebSearch",
+      "Bash(docker:*)",
+      "Bash(docker compose:*)",
+      "Bash(make:*)",
+      "Bash(pytest:*)"
     ],
     "deny": [
-      "Bash(pkill:*)"
+      "Bash(pkill:*)",
+      "Bash(rm -rf:*)",
+      "Bash(docker compose down -v:*)"
     ]
   },
   "hooks": {
@@ -53,6 +59,16 @@
           {
             "type": "command",
             "command": "echo 'REMINDER: WSL2 environment. Use fuser -k (not pkill). Use .venv/bin/python (not python3). Temporal captures always need generate_output: false. Skills are authoritative over docs.'"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cd \"$CLAUDE_PROJECT_DIR\" && if [ -n \"$(git status --porcelain -- mud)\" ]; then sh mud/.claude/hooks/verify.sh; fi"
           }
         ]
       }

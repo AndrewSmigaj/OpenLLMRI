@@ -6,7 +6,8 @@
 
 set -e
 
-cd "${CLAUDE_PROJECT_DIR:-.}"
+# Run from mud/ (this file is mud/.claude/hooks/verify.sh), wherever the hook is called from.
+cd "$(dirname "$0")/../.."
 
 python3 tools/lints/check_pure_core.py
 python3 tools/lints/check_no_raw_writes.py
