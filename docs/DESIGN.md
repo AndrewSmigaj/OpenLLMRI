@@ -2,7 +2,7 @@
 
 **Status:** a draft for Andrew's review (2026-10-07). Nothing new is built until he approves it.
 
-**Review progress:** Part A reviewed with Andrew (2026-10-07).
+**Review progress:** Parts A and B reviewed with Andrew (2026-10-07).
 
 **Contents:**
 - How this document works
@@ -61,7 +61,7 @@
 | **residual stream** | a token's state at a layer: 2,880 numbers that each layer reads and adds to |
 | **neuron** | one of those 2,880 numbers |
 | **agent** | gpt-oss-20b playing scenarios in the MUD |
-| **Claude agent** | a Claude run with `claude -p` that writes or analyses: an analyst, an AI scientist, an author |
+| **Claude agent** | an LLM run that writes or analyses: an analyst, an AI scientist, an author. By default Claude, run with `claude -p` (A3) |
 | **sentence set** | sentences written to vary some properties on purpose and hold the rest fixed. Also called a probe set |
 | **designed axis** | a property a sentence set or scenario set varies on purpose, such as the sense of "tank" |
 | **target word** | the word a sentence set is captured at |
@@ -176,7 +176,7 @@ Part K gives the order of what follows.
    - **Mass-mean lenses measure position on one designed contrast.** Distance along the axis is
      meaningful.
    - **Distances in full raw space are affected by noise.** The instruments read concept
-     membership and contrast positions instead [Proposed: this reading of his point].
+     membership and contrast positions instead [Decided, 2026-10-07].
 3. **Evidence over habit** [Decided, 2026-10-06]. The common habit is to move to raw space because
    UMAP distorts distances. Choices between the instruments are made by comparison instead.
 4. **UMAP is preferred, once it holds up as a classifier against raw-space groupings** [Decided,
@@ -187,9 +187,10 @@ Part K gives the order of what follows.
    - a lens is built from deliberately varied data, so any input that carries the concept lands in
      one of its nodes, or at its place on the axis;
    - new data is read by applying the lens;
-   - nodes are never matched across separately fitted clusterings [Proposed].
+   - nodes are never matched across separately fitted clusterings [Decided, 2026-10-07].
 6. **Always MoE; experts over attention heads** [Decided, 2026-10-06].
-7. **Claude agents analyse, rather than algorithms discovering circuits** [Decided, 2026-10-06]:
+7. **LLM agents analyse, rather than algorithms discovering circuits** [Decided, 2026-10-06; Claude
+   as the default, 2026-10-07]:
    - where a decision is made is read from where a population of tokens splits between nodes, and
      from the expert routes;
    - activation patching and attribution graphs aren't planned. Circuits may come later.
@@ -202,7 +203,7 @@ Part K gives the order of what follows.
 11. **Design first, then build** [Decided, 2026-10-07]: this whole document is reviewed before
     anything new is built.
 12. **Everything records how it was made:** model, format, decoding, seed, date, carrier, scaffold
-    and intervention [Proposed].
+    and intervention [Decided, 2026-10-07].
 
 ## Part C — Building lenses
 
@@ -294,6 +295,14 @@ This part covers building; Parts D and E cover using.
   - **single token:** one word, calibrated on its own;
   - **token collection:** several words or positions calibrated together;
   - **scan:** a sweep through the sentence for any strong signal of the class.
+
+**C7. Every lens gets a report, and lenses come in every size** [Decided, 2026-10-07]:
+- LLM agents write each lens's report from its cluster and expert Sankeys, and agree on what it
+  shows;
+- lenses range from broad to specific. For example, a sentence set built on a taxonomy of animals
+  shows where the model represents that taxonomy, and linguistic phenomena of every kind can be
+  probed the same way;
+- each such lens is a setting an AI scientist can learn from.
 
 ## Part D — Reading over time
 
@@ -659,6 +668,8 @@ watcher does reaches the agent.
 - **Time adds node dynamics** [Proposed]: how long runs stay in a node, what comes before and after
   it, and what the model does while in it. This is how a question like the context-shift study's
   (D4) gets answered, node by node.
+- **Bringing the lenses' findings together into one coherent model is the hard part** [Decided,
+  2026-10-07].
 - **The paradigm is the accepted findings** [Decided, 2026-10-04 and 2026-10-06]:
   - the AI scientists propose findings, attack them and give evidence;
   - several models vote, and when most of them agree, the finding goes to Andrew for review;
@@ -838,6 +849,11 @@ Paraphrased from Andrew's own words. His ideas not yet decided are listed separa
   - researchers who install the software connect to Scaffold Dynamics by default, or to their
     own MUD, whose address they enter;
   - the backend runs Claude agents with `claude -p` as often as it needs; no separate runner;
+  - the principles of Part B, including LLM agents analysing with Claude as the default, and
+    recording how everything was made;
+  - every lens gets a report written and agreed by LLM agents; lenses range from broad (a
+    taxonomy of animals) to specific, across all kinds of linguistic phenomena;
+  - bringing the findings together into one coherent model is the hard part;
   - the old prototype retired once everything works in the MUD;
   - the clustering form, and manual and automatic k;
   - re-try the elbow method on the tank set;
