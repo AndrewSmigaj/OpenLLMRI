@@ -80,7 +80,7 @@ load-scenario:
 
 # Pure unit tests: no Postgres, no Evennia boot. Tolerates 'no tests collected' (exit 5).
 test:
-	@$(DC) run --rm --no-deps evennia pytest -q tests/sim; ec=$$?; \
+	@$(DC) run --rm --no-deps evennia pytest -q tests/sim tests/staged; ec=$$?; \
 	if [ $$ec -eq 5 ]; then echo "(no sim tests yet — see game/tests/README.md)"; else exit $$ec; fi
 
 # Host-fast gates (no Docker, stdlib only): the functional-core boundary/determinism
@@ -96,7 +96,7 @@ lint:
 # via `make test`; this is the tight inner loop when host python has pytest.
 test-host: lint
 	@if PYTHONPATH=game python3 -c "import pytest" >/dev/null 2>&1; then \
-	  PYTHONPATH=game python3 -m pytest -q -p no:django game/tests/sim; ec=$$?; \
+	  PYTHONPATH=game python3 -m pytest -q -p no:django game/tests/sim game/tests/staged; ec=$$?; \
 	  if [ $$ec -eq 5 ]; then echo "(no sim tests yet — see game/tests/README.md)"; else exit $$ec; fi; \
 	else echo "host pytest not installed — gates passed; run 'make test' for the full pure suite in Docker"; fi
 
