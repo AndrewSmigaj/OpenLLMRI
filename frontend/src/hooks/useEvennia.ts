@@ -6,7 +6,7 @@ export type ConnectionStatus = 'disconnected' | 'connecting' | 'connected' | 're
 export type EvenniaMessage = [string, unknown[], Record<string, unknown>]
 
 interface UseEvenniaOptions {
-  /** WebSocket URL (default: ws://localhost:4002) */
+  /** WebSocket URL (default: the MUD's port from the repo root's .env, else Evennia's 4002) */
   url?: string
   /** Called for text/prompt messages — raw text content */
   onText?: (text: string) => void
@@ -18,7 +18,7 @@ interface UseEvenniaOptions {
 
 export function useEvennia(options: UseEvenniaOptions = {}) {
   const {
-    url = 'ws://localhost:4002',
+    url = `ws://localhost:${import.meta.env.MUD_WS_PORT || '4002'}`,
     onText,
     onOOB,
     autoReconnect = true,

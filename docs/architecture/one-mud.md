@@ -234,7 +234,9 @@ It is built when world agents arrive; until then the backend's existing one-at-a
   - the polysemy lab works.
 
   Evennia then leaves the backend's environment.
-- **The new MUD moves to ports 4000–4002 at that point;** it uses 14000–14002 until then.
+- **The new MUD moves to ports 4000–4002 at that point;** it uses 14000–14002 until then. The ports
+  are one setting in the root `.env` (`MUD_TELNET_PORT`, `MUD_WEB_PORT`, `MUD_WS_PORT`), read by
+  compose, Evennia's web client and the app's terminal.
 - **The old C: checkout stays** while the context-shift paper runs from it, until the lake moves to an
   external drive.
 
