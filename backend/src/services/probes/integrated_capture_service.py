@@ -257,9 +257,11 @@ class IntegratedCaptureService:
             except Exception as e:
                 logger.warning(f"logit_token_sets computation failed: {e}")
 
-        # input_text: caller can override (e.g. agent stores game_text); default = decoded
+        # input_text: the decoded sequence, unless the caller stores another text (a sentence, a
+        # prompt without its template); offsets into such a text count the word's occurrences.
         decoded = cast(str, self.processor.tokenizer.decode(token_ids, skip_special_tokens=True))
-        input_text = metadata.get("input_text") or decoded
+        override = metadata.get("input_text")
+        input_text = override or decoded
 
         def _char_offset(text: str, word: str, occurrence_idx: int) -> Optional[int]:
             start = 0
@@ -303,7 +305,14 @@ class IntegratedCaptureService:
                 if prompt_token_count > 0 and pos >= prompt_token_count:
                     cap_type = "generation"
 
-                char_offset = _char_offset(input_text, target_word, abs_idx)
+                if override:
+                    char_offset = _char_offset(input_text, target_word, abs_idx)
+                else:
+                    char_offset = self.processor.target_char_offset(
+                        token_ids, pos, target_word, decoded
+                    )
+                    if char_offset is None:
+                        char_offset = _char_offset(decoded, target_word, abs_idx)
 
                 probe_id = generate_probe_id()
                 probe_data = self.processor.convert_to_schemas(

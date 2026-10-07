@@ -9,7 +9,7 @@ No model inference, no I/O, no GPU state.
 import logging
 from dataclasses import dataclass
 from datetime import datetime
-from typing import TYPE_CHECKING, Any, Dict, List, Optional, Tuple
+from typing import TYPE_CHECKING, Any, Dict, List, Optional, Tuple, cast
 
 from schemas.embedding import EmbeddingRecord, create_embedding_record
 from schemas.residual_stream import ResidualStreamState, create_residual_stream_state
@@ -144,6 +144,20 @@ class ProbeProcessor:
                     results.append((i, tid))
         results.sort(key=lambda p: p[0])
         return results
+
+    def target_char_offset(
+        self, token_ids: List[int], position: int, word: str, text: str,
+    ) -> Optional[int]:
+        """Where the target word captured at token `position` starts in `text`, the decoded
+        sequence (special tokens skipped). Read from the decoded prefix that ends with the target
+        token, so it places the occurrence that was captured even when the word also appears
+        earlier (in a developer prompt) or inside a longer word ("personal"). None when the prefix
+        doesn't line up with the text."""
+        upto = cast(str, self.tokenizer.decode(token_ids[:position + 1], skip_special_tokens=True))
+        start = len(upto) - len(word)
+        if start < 0 or not text.startswith(upto) or upto[start:].lower() != word.lower():
+            return None
+        return start
 
     def convert_to_schemas(
         self,

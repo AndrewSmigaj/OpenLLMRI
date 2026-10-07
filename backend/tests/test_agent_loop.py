@@ -1,14 +1,17 @@
-"""AgentLoop with a fake model service and a fake MUD client: the bootstrap (goto, look, inventory,
-actions), a tick (generate → parse → capture → act), the end of a scenario, and what it records."""
+"""AgentLoop with fake action sources and a fake MUD: a scenario loaded through the control channel
+and played to its scenario_complete event, what a run records (the set, the key, the file hash, the
+stages), the model's channels kept, the pinned date, failed loads, max ticks, and scripted runs."""
+import hashlib
 import json
 from types import SimpleNamespace
 
 import pytest
-import torch
 
-from services.agent import agent_loop
-from services.agent.agent_loop import AgentLoop, strip_articles
+from services.agent import scenario_library
+from services.agent.actions import ModelActions, ScriptedActions
+from services.agent.agent_loop import AgentLoop
 
+KEY = "test_set/test_friend"
 SCENARIO = """\
 name: test_friend
 scene_id: bus_stop
@@ -21,46 +24,63 @@ rooms:
       initial:
         actions:
           - id: 1
-            command: "Help Person"
+            command: "help person"
             type: friend
             correct: true
-          - id: 2
-            command: "alert guard"
-            type: enemy
-            correct: false
+            effects:
+              - complete: {outcome: friend, action_id: 1}
 """
 GENERATED = ("<|channel|>analysis<|message|>They seem kind.<|end|>"
              "<|start|>assistant<|channel|>final<|message|>help the person<|return|>")
+PIN = "2026-04-22"
+DONE = {"scenario": KEY, "set": "test_set@1", "action_id": 1, "outcome": "friend",
+        "action_type": "friend", "correct": True, "canary": False,
+        "labels": {"condition": "friend", "ground_truth": "friend"}}
 
 
 class FakeTokenizer:
-    def apply_chat_template(self, messages, add_generation_prompt, return_dict, return_tensors,
-                            model_identity):
-        n = 10 * len(messages) + (2 if add_generation_prompt else 0)
-        return {"input_ids": torch.zeros((1, n), dtype=torch.long)}
+    """Renders a conversation as text with today's date line, as the real template does."""
+
+    def __init__(self):
+        self.encoded = []
+
+    def apply_chat_template(self, messages, tokenize, add_generation_prompt, model_identity):
+        assert tokenize is False
+        body = "".join(f"<{m['role']}>{m['content']}" for m in messages)
+        return f"Current date: 2026-10-06\n{body}" + ("<assistant>" if add_generation_prompt else "")
+
+    def encode(self, text, add_special_tokens):
+        self.encoded.append(text)
+        return list(range(len(text)))
 
 
 class FakeService:
-    def __init__(self, sessions_dir, generated=GENERATED):
-        self.orchestrator = SimpleNamespace(tokenizer=FakeTokenizer(), model=SimpleNamespace(device="cpu"))
-        self.session_mgr = SimpleNamespace(sessions_dir=str(sessions_dir))
-        self.generated = generated
+    """The model: its channel markers are special tokens, stripped unless the decode keeps them."""
+
+    def __init__(self):
+        self.tokenizer = FakeTokenizer()
+        self.orchestrator = SimpleNamespace(tokenizer=self.tokenizer)
         self.captures = []
 
-    def generate(self, prompt_ids, max_new_tokens):
-        return self.generated, [7, 7, 7]
+    def generate(self, prompt_ids, max_new_tokens, skip_special_tokens=True):
+        if skip_special_tokens:
+            return "analysisThey seem kind.assistantfinalhelp the person", [7, 7, 7]
+        return GENERATED, [7, 7, 7]
 
     def capture_step(self, session_id, full_ids, target_words, **kwargs):
         self.captures.append({"session_id": session_id, "n_ids": len(full_ids), **kwargs})
         return [SimpleNamespace(target_word="person", target_token_position=3)], None
 
 
-class FakeMudClient:
-    """Replies by the prefix of the last command sent; records every command."""
+class FakeMud:
+    """Replies to commands by prefix; answers the control channel; queues scenario events."""
 
-    def __init__(self, replies):
+    def __init__(self, replies, load=None, events_on=None):
         self.replies = replies
-        self.sent = []
+        self.load = load if load is not None else {"ok": True, "scenario": KEY, "set": "test_set@1",
+                                                   "stage": "initial"}
+        self.events_on = events_on or {}      # command prefix → events it triggers
+        self.sent, self.control, self.events = [], [], []
 
     async def connect(self):
         pass
@@ -68,8 +88,20 @@ class FakeMudClient:
     async def authenticate(self, username, password):
         return "You become Scout."
 
+    async def scenario(self, cmd, **kwargs):
+        self.control.append((cmd, kwargs))
+        if cmd == "load":
+            if self.load.get("ok"):
+                self.events.append(("stage_entered", {"scenario": KEY, "stage": "initial",
+                                                      "labels": {}}))
+            return {**self.load, "file_hash": self.file_hash}
+        return {"ok": True}
+
     async def send_command(self, text):
         self.sent.append(text)
+        for prefix, events in self.events_on.items():
+            if text.startswith(prefix):
+                self.events.extend(events)
 
     async def read_until_prompt(self, timeout=30.0):
         for prefix, reply in self.replies:
@@ -77,90 +109,130 @@ class FakeMudClient:
                 return reply
         return ""
 
+    def drain_events(self):
+        events, self.events = self.events, []
+        return events
+
     async def disconnect(self):
         pass
 
 
-BOOTSTRAP = [("goto", "You arrive."), ("look", "A bus stop. A person waits."),
-             ("inventory", "You carry nothing."), ("actions", "help person — offer help"),
-             ("emote", "")]
+BOOTSTRAP = [("look", "A bus stop. A person is here, waiting."),
+             ("inventory", "You are carrying: map."), ("actions", "help person — offer help")]
 
 
 @pytest.fixture
 def world(tmp_path, monkeypatch):
-    scenarios = tmp_path / "scenarios"
-    scenarios.mkdir()
-    (scenarios / "test_friend.yaml").write_text(SCENARIO)
-    monkeypatch.setattr(agent_loop, "SCENARIOS_DIR", scenarios)
+    library = tmp_path / "scenarios"
+    (library / "test_set" / "scenarios").mkdir(parents=True)
+    (library / "test_set" / "set.yaml").write_text("id: test_set\nversion: 1\nkind: staged\n")
+    (library / "test_set" / "scenarios" / "test_friend.yaml").write_text(SCENARIO)
+    monkeypatch.setattr(scenario_library.config, "SCENARIO_LIBRARY", library)
     lake = tmp_path / "lake"
     (lake / "_sessions").mkdir(parents=True)
     (lake / "_sessions" / "session_t.json").write_text(json.dumps({"session_id": "session_t"}))
-    return lake
+    return SimpleNamespace(lake=lake, file_hash=hashlib.sha256(SCENARIO.encode()).hexdigest())
 
 
-def _loop(lake, service, mud, scenarios=("test_friend",), max_ticks=3):
-    loop = AgentLoop("session_t", "bus_stop", ["person"], "agent", service=service,
-                     scenario_list=list(scenarios), data_lake_path=str(lake), max_ticks=max_ticks)
+def _mud(world, replies, **kwargs):
+    mud = FakeMud(replies, **kwargs)
+    mud.file_hash = world.file_hash
+    return mud
+
+
+def _loop(world, actions, mud, keys=(KEY,), max_ticks=3, lake=True):
+    loop = AgentLoop("session_t", "bus_stop", ["person"], "agent", actions=actions,
+                     scenario_list=list(keys), max_ticks=max_ticks,
+                     data_lake_path=str(world.lake) if lake else None,
+                     sessions_dir=world.lake / "_sessions" if lake else None)
     loop.evennia_client = mud
     return loop
 
 
-def _results(lake):
-    return [json.loads(line) for line in (lake / "session_t" / "probe_results.jsonl").read_text().splitlines()]
+def _jsonl(path):
+    return [json.loads(line) for line in path.read_text().splitlines()]
 
 
-async def test_a_scenario_plays_from_bootstrap_to_completion(world):
-    service = FakeService(world / "_sessions")
-    mud = FakeMudClient(BOOTSTRAP + [("help person", "You help them. [SCENARIO_COMPLETE]")])
-    await _loop(world, service, mud).run()
+async def test_a_scenario_is_loaded_and_played_to_its_complete_event(world):
+    service = FakeService()
+    mud = _mud(world, BOOTSTRAP + [("help", "You help them.\n[SCENARIO_COMPLETE]")],
+               events_on={"help": [("scenario_complete", DONE)]})
+    await _loop(world, ModelActions(service, PIN), mud).run()
 
-    assert mud.sent == ["goto Bus Stop T1 scenario=test_friend", "look", "inventory", "actions",
-                        "emote help person", "help person"]
-    [result] = _results(world)
-    assert {k: result[k] for k in ("scenario_name", "scene_id", "condition", "ground_truth",
-                                   "action_id", "action_command", "action_type", "correct",
-                                   "ticks", "error")} == {
-        "scenario_name": "test_friend", "scene_id": "bus_stop", "condition": "friend",
-        "ground_truth": "friend", "action_id": 1, "action_command": "help person",
-        "action_type": "friend", "correct": True, "ticks": 1, "error": None}
-    [tick] = [json.loads(line) for line in (world / "session_t" / "tick_log.jsonl").read_text().splitlines()]
-    assert tick["game_text"] == "A bus stop. A person waits.\nYou carry nothing.\nhelp person — offer help"
-    assert tick["analysis"] == "They seem kind." and tick["action"] == "help person"
+    assert mud.control == [("load", {"key": KEY}), ("end", {})]
+    assert mud.sent == ["look", "inventory", "actions", "help the person"]
+    [result] = _jsonl(world.lake / "session_t" / "probe_results.jsonl")
+    assert {k: result[k] for k in ("scenario_name", "set", "file_hash", "condition", "action_id",
+                                   "action_command", "action_type", "outcome", "correct",
+                                   "canary", "stages", "ticks", "error")} == {
+        "scenario_name": KEY, "set": "test_set@1", "file_hash": world.file_hash,
+        "condition": "friend", "action_id": 1, "action_command": "help the person",
+        "action_type": "friend", "outcome": "friend", "correct": True, "canary": False,
+        "stages": ["initial"], "ticks": 1, "error": None}
+    assert result["labels"] == DONE["labels"]
+    [tick] = _jsonl(world.lake / "session_t" / "tick_log.jsonl")
+    assert tick["game_text"] == ("A bus stop. A person is here, waiting.\nYou are carrying: map.\n"
+                                 "help person — offer help")
+    assert tick["analysis"] == "They seem kind." and tick["action"] == "help the person"
+    assert tick["events"] == [{"event": "scenario_complete", **DONE}]
     [capture] = service.captures
-    assert capture["metadata"]["scenario_id"] == "test_friend"
-    assert capture["metadata"]["label"] == "friend" and capture["metadata"]["turn_id"] == 0
-    assert json.loads((world / "_sessions" / "session_t.json").read_text())["labels"] == ["friend"]
-    assert (world / "session_t" / "session_analysis.md").exists()
+    assert capture["metadata"]["scenario_id"] == KEY and capture["metadata"]["label"] == "friend"
+    assert "input_text" not in capture["metadata"], "offsets are taken against the decoded sequence"
+    labels = json.loads((world.lake / "_sessions" / "session_t.json").read_text())["labels"]
+    assert labels == ["friend"]
+    assert (world.lake / "session_t" / "session_analysis.md").exists()
+
+
+async def test_the_model_output_keeps_its_channel_markers(world):
+    # The markers are special tokens: decoded without them, no channel parses and the whole output
+    # would reach the MUD as the action.
+    mud = _mud(world, BOOTSTRAP, events_on={"help": [("scenario_complete", DONE)]})
+    [result] = await _loop(world, ModelActions(FakeService(), PIN), mud, lake=False).run()
+    assert mud.sent[-1] == "help the person" and result["analysis"] == "They seem kind."
+
+
+async def test_every_turn_shows_the_pinned_date(world):
+    service = FakeService()
+    mud = _mud(world, BOOTSTRAP + [("help", "Nothing happens.")])
+    await _loop(world, ModelActions(service, PIN), mud, max_ticks=2, lake=False).run()
+    assert service.tokenizer.encoded
+    assert all(f"Current date: {PIN}" in t and "2026-10-06" not in t
+               for t in service.tokenizer.encoded)
 
 
 async def test_a_scenario_that_never_completes_stops_at_max_ticks(world):
-    mud = FakeMudClient(BOOTSTRAP + [("help person", "Nothing happens.")])
-    await _loop(world, FakeService(world / "_sessions"), mud, max_ticks=2).run()
-    [result] = _results(world)
+    mud = _mud(world, BOOTSTRAP + [("help", "Nothing happens.")])
+    [result] = await _loop(world, ModelActions(FakeService(), PIN), mud, max_ticks=2).run()
     assert result["ticks"] == 2 and result["error"] == "max_ticks_exceeded"
+    assert result["action_id"] is None and result["outcome"] is None
 
 
-async def test_a_failed_teleport_is_recorded_and_the_scenario_skipped(world):
-    mud = FakeMudClient([("goto", "Could not find room 'Bus Stop T1'.")])
-    await _loop(world, FakeService(world / "_sessions"), mud).run()
-    assert mud.sent == ["goto Bus Stop T1 scenario=test_friend"]
-    assert _results(world)[0]["error"] == "teleport_failed"
-
-
-async def test_a_missing_scenario_file_is_recorded(world):
-    mud = FakeMudClient(BOOTSTRAP)
-    await _loop(world, FakeService(world / "_sessions"), mud, scenarios=("no_such_scenario",)).run()
+async def test_a_failed_load_is_recorded_and_nothing_is_played(world):
+    mud = _mud(world, BOOTSTRAP, load={"ok": False, "error": "test_set: no scenario 'x'"})
+    [result] = await _loop(world, ModelActions(FakeService(), PIN), mud).run()
+    assert result["error"] == "load_failed" and "no scenario" in result["detail"]
     assert mud.sent == []
-    assert _results(world)[0]["error"] == "yaml_not_found"
 
 
-def test_the_action_lookup_matches_commands_case_insensitively(world):
-    loop = _loop(world, FakeService(world / "_sessions"), FakeMudClient([]))
-    lookup = loop._build_action_lookup(loop._load_scenario_config("test_friend"))
-    assert lookup["help person"] == {"action_id": 1, "action_type": "friend", "correct": True,
-                                     "canary": False}
-    assert lookup["alert guard"]["action_type"] == "enemy"
+async def test_an_unknown_key_is_recorded_before_the_mud_is_asked(world):
+    mud = _mud(world, BOOTSTRAP)
+    [result] = await _loop(world, ModelActions(FakeService(), PIN), mud,
+                           keys=("test_set/missing",)).run()
+    assert result["error"] == "scenario_not_found" and mud.control == []
 
 
-def test_articles_are_stripped_from_commands():
-    assert strip_articles("Take the knife from a drawer") == "Take knife from drawer"
+async def test_scripted_actions_play_the_same_loop_without_a_model(world):
+    mud = _mud(world, BOOTSTRAP + [("examine", "The person looks tired.")],
+               events_on={"help": [("stage_entered", {"stage": "after", "labels": {}}),
+                                   ("scenario_complete", DONE)]})
+    scripts = ScriptedActions([["examine person", "help person"]])
+    [result] = await _loop(world, scripts, mud, lake=False).run()
+    assert mud.sent == ["look", "inventory", "actions", "examine person", "help person"]
+    assert result["ticks"] == 2 and result["action_id"] == 1 and result["error"] is None
+    assert result["stages"] == ["initial", "after"]
+
+
+async def test_a_script_that_runs_out_ends_the_scenario(world):
+    mud = _mud(world, BOOTSTRAP)
+    [result] = await _loop(world, ScriptedActions([[]]), mud, lake=False).run()
+    assert result["error"] == "script_exhausted" and result["ticks"] == 0

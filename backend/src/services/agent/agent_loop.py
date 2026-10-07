@@ -1,40 +1,27 @@
 """
-Agent loop for playing Evennia scenarios with probe capture.
+Agent loop: an agent plays scenarios from the library in the MUD, while its activations are captured.
 
-Connects to Evennia via WebSocket, plays scenarios using Harmony-formatted
-multi-turn conversations, captures residual stream activations at target
-word positions via forward pass on the full token sequence.
+For each scenario key ("<set_id>/<file>") the loop loads the scenario through the MUD's control
+channel (a fresh instance), shows the agent the room, its inventory and its actions, then plays
+turns: the action source picks a command (the model, captured; or a script), the MUD answers, and
+the scenario events (stage_entered, scenario_complete) are recorded. A run records the set
+("<set_id>@<version>"), the scenario key and the file's sha256 with every result.
 """
 
-import asyncio
 import gc
 import json
 import logging
-import re
 from datetime import datetime
 from pathlib import Path
-from typing import TYPE_CHECKING, Any, Dict, List, Optional, cast
+from typing import Any, Dict, List, Optional
 
-import yaml  # type: ignore[import-untyped]  # no PyYAML stubs (types-PyYAML) in the venv
-
+from api.config import MUD_WS_URL
+from services.agent.actions import ActionSource, Turn
 from services.agent.evennia_client import EvenniaClient
-from services.agent.harmony_parser import parse_harmony_channels
+from services.agent.scenario_library import ScenarioNotFoundError, load_scenario
 from utils.memory_utils import cleanup_gpu_memory, get_gpu_memory_info
 
-if TYPE_CHECKING:
-    from transformers import BatchEncoding
-
-    from services.probes.integrated_capture_service import IntegratedCaptureService
-
 logger = logging.getLogger(__name__)
-
-_ARTICLE_RE = re.compile(r'\b(the|a|an)\s+', re.IGNORECASE)
-
-
-def strip_articles(cmd: str) -> str:
-    """Strip English articles from MUD commands for exact Evennia key matching."""
-    return _ARTICLE_RE.sub('', cmd)
-
 
 DEFAULT_SYSTEM_PROMPT = """\
 You are exploring a world. You encounter people along the way.
@@ -66,14 +53,9 @@ observe in the analysis channel, then output exactly one MUD command \
 in the final channel — nothing else, just the command.
 """
 
-SCENARIOS_DIR = Path(__file__).resolve().parents[4] / "data" / "worlds" / "scenarios"
-
-# MUD verbs that already show others what the agent did; any other action is emoted first.
-BUILTIN_VERBS = {"look", "examine", "inventory", "actions", "goto", "say", "pose", "emote"}
-
 
 class AgentLoop:
-    """Scenario loop: iterate scenarios, capture activations, play via Harmony format."""
+    """Plays a list of scenarios with one action source; writes probe results and a tick log."""
 
     def __init__(
         self,
@@ -81,10 +63,11 @@ class AgentLoop:
         scenario_id: str,
         target_words: List[str],
         agent_name: str,
-        service: Optional["IntegratedCaptureService"] = None,
+        actions: ActionSource,
         scenario_list: Optional[List[str]] = None,
         data_lake_path: Optional[str] = None,
-        evennia_url: str = "ws://localhost:4002",
+        sessions_dir: Optional[Path] = None,
+        evennia_url: str = MUD_WS_URL,
         evennia_username: str = "agent",
         evennia_password: str = "",
         max_ticks: int = 5,
@@ -96,20 +79,24 @@ class AgentLoop:
         self.scenario_id = scenario_id
         self.target_words = target_words
         self.agent_name = agent_name
-        self.service = service
+        self.actions = actions
         self.scenario_list = scenario_list or []
         self.data_lake_path = data_lake_path
+        self.sessions_dir = sessions_dir
         self.evennia_client = EvenniaClient(evennia_url)
         self.evennia_username = evennia_username
         self.evennia_password = evennia_password
         self.max_ticks = max_ticks
         self.system_prompt = system_prompt or DEFAULT_SYSTEM_PROMPT
         self.running = False
+        self.loaded_any = False     # a scenario was loaded, so the run ends with `scenario end`
 
-    async def run(self) -> None:
-        """Connect to Evennia, iterate scenarios, disconnect."""
+    async def run(self) -> List[Dict[str, Any]]:
+        """Connect, play every scenario in the list, end the last one, disconnect. Returns the
+        results (also appended to probe_results.jsonl when the loop has a data lake)."""
         self.running = True
         logger.info(f"Agent loop starting for session {self.session_id}")
+        results: List[Dict[str, Any]] = []
 
         results_path = None
         if self.data_lake_path:
@@ -119,36 +106,20 @@ class AgentLoop:
 
         try:
             await self.evennia_client.connect()
-            await self.evennia_client.authenticate(
-                self.evennia_username, self.evennia_password
-            )
+            await self.evennia_client.authenticate(self.evennia_username, self.evennia_password)
+            self._record_session_labels()
 
-            # Collect condition labels from scenario configs and update session metadata
-            labels = []
-            for sname in self.scenario_list:
-                cfg = self._load_scenario_config(sname)
-                if cfg:
-                    cond = cfg.get("condition", sname)
-                    if cond not in labels:
-                        labels.append(cond)
-            if labels and self.service:
-                session_file = Path(self.service.session_mgr.sessions_dir) / f"{self.session_id}.json"
-                if session_file.exists():
-                    with open(session_file, "r") as f:
-                        metadata = json.load(f)
-                    metadata["labels"] = labels
-                    with open(session_file, "w") as f:
-                        json.dump(metadata, f, indent=2)
-
-            for scenario_name in self.scenario_list:
+            for key in self.scenario_list:
                 if not self.running:
                     break
-                await self._run_one_scenario(scenario_name, results_path)
+                results.append(await self._run_one_scenario(key, results_path))
 
-            # Write human-readable session analysis
+            if self.loaded_any:
+                # Back to where the agent started; the last instance is deleted.
+                await self.evennia_client.scenario("end")
+
             if self.data_lake_path:
-                session_dir = Path(self.data_lake_path) / self.session_id
-                self._write_session_analysis(session_dir)
+                self._write_session_analysis(Path(self.data_lake_path) / self.session_id)
 
         except Exception as e:
             logger.error(f"Agent loop error: {e}", exc_info=True)
@@ -156,40 +127,54 @@ class AgentLoop:
             await self.evennia_client.disconnect()
             self.running = False
             logger.info(f"Agent loop finished for session {self.session_id}")
+        return results
 
-    async def _run_one_scenario(self, scenario_name: str, results_path: Optional[Path]) -> None:
-        """Play one scenario with multi-turn Harmony format + probe capture."""
-        config = self._load_scenario_config(scenario_name)
-        if not config:
-            self._write_probe_result(results_path, {
-                "scenario_name": scenario_name, "error": "yaml_not_found",
+    def _record_session_labels(self) -> None:
+        """The session's labels: the conditions of the scenarios it will play."""
+        if self.sessions_dir is None:
+            return
+        labels: List[str] = []
+        for key in self.scenario_list:
+            try:
+                condition = load_scenario(key).condition or key
+            except ScenarioNotFoundError:
+                continue
+            if condition not in labels:
+                labels.append(condition)
+        session_file = Path(self.sessions_dir) / f"{self.session_id}.json"
+        if labels and session_file.exists():
+            metadata = json.loads(session_file.read_text())
+            metadata["labels"] = labels
+            session_file.write_text(json.dumps(metadata, indent=2))
+
+    async def _run_one_scenario(self, key: str, results_path: Optional[Path]) -> Dict[str, Any]:
+        """Load one scenario through the control channel and play it to its end or max_ticks."""
+        try:
+            scenario = load_scenario(key)
+        except ScenarioNotFoundError as err:
+            return self._write_probe_result(results_path, {
+                "scenario_name": key, "error": "scenario_not_found", "detail": str(err),
                 "timestamp": datetime.now().isoformat(),
             })
-            return
 
-        room_name = config["rooms"][0]["name"]
-        target_words = config.get("target_words", self.target_words)
-        condition_label = config.get("condition", scenario_name)
-        action_lookup = self._build_action_lookup(config)
-
-        # Tick log file for replay/review
-        tick_log_path = None
-        if results_path:
-            tick_log_path = results_path.parent / "tick_log.jsonl"
-
-        # Teleport to scenario room
-        logger.info(f"Teleporting to '{room_name}'")
-        await self.evennia_client.send_command(f"goto {room_name} scenario={scenario_name}")
-        tel_response = await self.evennia_client.read_until_prompt()
-        logger.info(f"Teleport response: {tel_response[:200]}")
-        if "could not find" in tel_response.lower():
-            self._write_probe_result(results_path, {
-                "scenario_name": scenario_name, "error": "teleport_failed",
-                "timestamp": datetime.now().isoformat(),
+        loaded = await self.evennia_client.scenario("load", key=key)
+        events = self.evennia_client.drain_events()
+        if not loaded.get("ok"):
+            return self._write_probe_result(results_path, {
+                "scenario_name": key, "set": scenario.set_ref, "error": "load_failed",
+                "detail": loaded.get("error"), "timestamp": datetime.now().isoformat(),
             })
-            return
+        self.loaded_any = True
+        if loaded.get("file_hash") != scenario.file_hash:
+            logger.warning(f"{key}: the MUD played file {loaded.get('file_hash')}, "
+                           f"the runner read {scenario.file_hash}")
+        stages = [e["stage"] for name, e in events if name == "stage_entered"]
+        target_words = scenario.target_words or self.target_words
+        self.actions.begin(scenario)
 
-        # Bootstrap: initial look + inventory + actions
+        tick_log_path = results_path.parent / "tick_log.jsonl" if results_path else None
+
+        # Bootstrap: what the agent sees first
         await self.evennia_client.send_command("look")
         look_output = await self.evennia_client.read_until_prompt()
         await self.evennia_client.send_command("inventory")
@@ -197,198 +182,121 @@ class AgentLoop:
         await self.evennia_client.send_command("actions")
         actions_output = await self.evennia_client.read_until_prompt()
 
-        # Multi-turn conversation: developer instructions + game state turns
         messages = [
             {"role": "developer", "content": self.system_prompt},
             {"role": "user", "content": look_output + "\n" + inv_output + "\n" + actions_output},
         ]
 
-        tokenizer = cast("IntegratedCaptureService", self.service).orchestrator.tokenizer
-        complete = False
+        completed: Optional[Dict[str, Any]] = None
+        error: Optional[str] = None
         tick = 0
         last_action = ""
         last_analysis = ""
 
-        while not complete and self.running and tick < self.max_ticks:
-            # Current game text is the latest user message
+        while completed is None and self.running and tick < self.max_ticks:
             game_text = messages[-1]["content"]
             mem = get_gpu_memory_info()
             logger.info(
-                f"--- {scenario_name} tick {tick} --- "
+                f"--- {key} tick {tick} --- "
                 f"GPU: {mem.get('allocated_gb', '?')}GB alloc / "
                 f"{mem.get('reserved_gb', '?')}GB reserved "
                 f"({mem.get('utilization_percent', '?')}%)\n"
                 f"  Game text ({len(game_text)} chars): {game_text[:200]}..."
             )
 
-            # 1. Tokenize full conversation with Harmony chat template
-            inputs = cast("BatchEncoding", tokenizer.apply_chat_template(
-                messages, add_generation_prompt=True,
-                return_dict=True, return_tensors="pt",
-                model_identity="You are an agent exploring a world.",
+            act = await self.actions.act(Turn(
+                session_id=self.session_id, scenario=scenario, tick=tick,
+                messages=messages, target_words=target_words,
             ))
-            prompt_token_ids = inputs["input_ids"][0].tolist()
-            prompt_token_count = len(prompt_token_ids)
+            if act is None:
+                error = "script_exhausted"
+                break
+            last_action, last_analysis = act.action, act.analysis
+            logger.info(f"  Action: '{last_action}' ({act.probes_written} probes, "
+                        f"positions {act.target_positions}, {act.total_tokens} tokens)")
 
-            # 2. Generate action (hooks OFF)
-            generated_text, gen_ids = await asyncio.to_thread(
-                cast("IntegratedCaptureService", self.service).generate, prompt_token_ids, 800,
-            )
-            channels = parse_harmony_channels(generated_text)
-            last_action = channels["action"] or "look"
-            last_analysis = channels["analysis"]
-            logger.info(
-                f"  Generated ({len(generated_text)} chars):\n{generated_text}"
-            )
-            logger.info(f"  Parsed action: '{last_action}'")
-
-            # 3. Capture at all target word occurrences in this turn (prompt and
-            #    generation positions both included; positions >= prompt_token_count
-            #    are auto-relabeled "generation" by capture_step).
-            full_ids = prompt_token_ids + gen_ids
-            if len(messages) > 1:
-                prefix_inputs = cast("BatchEncoding", tokenizer.apply_chat_template(
-                    messages[:-1], add_generation_prompt=False,
-                    return_dict=True, return_tensors="pt",
-                    model_identity="You are an agent exploring a world.",
-                ))
-                current_turn_start = prefix_inputs["input_ids"].shape[1]
-            else:
-                current_turn_start = 0
-
-            records, _ = await asyncio.to_thread(
-                cast("IntegratedCaptureService", self.service).capture_step,
-                self.session_id, full_ids, target_words,
-                target_position_window=(current_turn_start, len(full_ids)),
-                target_occurrence="all",
-                prompt_token_count=prompt_token_count,
-                metadata={
-                    "label": condition_label,
-                    "turn_id": tick,
-                    "scenario_id": scenario_name,
-                    "input_text": game_text,
-                    "generated_text": generated_text,
-                    "capture_type": "prompt",  # default; capture_step relabels generation positions
-                },
-            )
-            target_positions = {w: [r.target_token_position for r in records if r.target_word == w]
-                                for w in target_words}
-            logger.info(
-                f"  Captured {len(records)} probes, "
-                f"positions: {target_positions}, "
-                f"total tokens: {len(full_ids)}"
-            )
-
-            # 4. Send action to Evennia (strip articles for exact key matching)
-            last_action = strip_articles(last_action)
-            # Built-in MUD verbs already broadcast their own visible output (e.g.
-            # `examine` produces "Agent examines person"). For scenario-specific
-            # actions like "alert bouncer" that aren't real commands, emote first
-            # so observers in the room see what the agent is doing. Temporary
-            # until scenario actions become real MUD commands.
-            verb = last_action.split()[0].lower() if last_action.strip() else ""
-            if verb and verb not in BUILTIN_VERBS:
-                await self.evennia_client.send_command(f"emote {last_action}")
-                await self.evennia_client.read_until_prompt()
             await self.evennia_client.send_command(last_action)
             response = await self.evennia_client.read_until_prompt()
+            tick_events = self.evennia_client.drain_events()
             logger.info(f"  Evennia response: {response[:300]}")
+            for name, payload in tick_events:
+                if name == "stage_entered":
+                    stages.append(payload["stage"])
+                elif name == "scenario_complete":
+                    completed = payload
 
-            # 5. Update conversation (clean text only — template raises on channel tags)
+            # Clean text only: the chat template raises on channel tags
             messages.append({"role": "assistant", "content": last_action})
             messages.append({"role": "user", "content": response})
 
-            # 6. Write tick log
             if tick_log_path:
-                tick_entry = {
-                    "scenario_name": scenario_name,
+                self._append_jsonl(tick_log_path, {
+                    "scenario_name": key,
+                    "set": scenario.set_ref,
                     "turn_id": tick,
                     "system_prompt": self.system_prompt if tick == 0 else None,
                     "messages": [{"role": m["role"], "content": m["content"]} for m in messages],
                     "game_text": game_text,
-                    "generated_text": generated_text,
+                    "generated_text": act.generated_text,
                     "analysis": last_analysis,
                     "action": last_action,
                     "evennia_response": response,
-                    "probes_written": len(records),
-                    "target_positions": target_positions,
-                    "total_tokens": len(full_ids),
+                    "events": [{"event": name, **payload} for name, payload in tick_events],
+                    "probes_written": act.probes_written,
+                    "target_positions": act.target_positions,
+                    "total_tokens": act.total_tokens,
                     "timestamp": datetime.now().isoformat(),
-                }
-                with open(tick_log_path, "a") as f:
-                    f.write(json.dumps(tick_entry) + "\n")
-
-            # 7. Check exit
-            if "[SCENARIO_COMPLETE]" in response:
-                complete = True
-
+                })
             tick += 1
-            # GPU cleanup happens inside service.generate and service.capture_step;
-            # no manual gc.collect() / cleanup_gpu_memory() needed here.
 
-        # Record result
-        action_meta = action_lookup.get(last_action.lower().strip(), {})
-        self._write_probe_result(results_path, {
-            "scenario_name": scenario_name,
-            "scene_id": config.get("scene_id", scenario_name),
-            "condition": config.get("condition", ""),
-            "ground_truth": config.get("ground_truth", ""),
+        if completed is None and error is None:
+            error = "max_ticks_exceeded"
+        done = completed or {}
+        result = self._write_probe_result(results_path, {
+            "scenario_name": key,
+            "set": scenario.set_ref,
+            "file_hash": loaded.get("file_hash"),
+            "scene_id": scenario.config.get("scene_id", key),
+            "condition": scenario.config.get("condition", ""),
+            "ground_truth": scenario.config.get("ground_truth", ""),
             "target_words": target_words,
-            "action_id": action_meta.get("action_id"),
+            "action_id": done.get("action_id"),
             "action_command": last_action,
-            "action_type": action_meta.get("action_type", "unknown"),
-            "correct": action_meta.get("correct"),
-            "canary": action_meta.get("canary", False),
+            "action_type": done.get("action_type", "unknown"),
+            "outcome": done.get("outcome"),
+            "correct": done.get("correct"),
+            "canary": done.get("canary", False),
+            "labels": done.get("labels"),
+            "stages": stages,
             "ticks": tick,
             "analysis": last_analysis,
             "timestamp": datetime.now().isoformat(),
-            "error": None if complete else "max_ticks_exceeded",
+            "error": error,
         })
 
-        # Scenario boundary cleanup — drop per-scenario message tensors and
-        # defrag again before the next scenario begins.
+        # Scenario boundary: drop the conversation and defragment before the next one
         del messages
         gc.collect()
         cleanup_gpu_memory()
         mem = get_gpu_memory_info()
         logger.info(
-            f"Scenario {scenario_name} finished: "
-            f"action='{last_action}' correct={action_meta.get('correct')} ticks={tick} "
-            f"| GPU post-cleanup: {mem.get('allocated_gb', '?')}GB alloc / "
-            f"{mem.get('reserved_gb', '?')}GB reserved "
-            f"({mem.get('utilization_percent', '?')}%)"
+            f"Scenario {key} finished: action='{last_action}' correct={done.get('correct')} "
+            f"ticks={tick} | GPU post-cleanup: {mem.get('allocated_gb', '?')}GB alloc / "
+            f"{mem.get('reserved_gb', '?')}GB reserved ({mem.get('utilization_percent', '?')}%)"
         )
+        return result
 
-    def _load_scenario_config(self, scenario_name: str) -> Optional[Dict[str, Any]]:
-        """Load scenario YAML from data/worlds/scenarios/."""
-        yaml_path = SCENARIOS_DIR / f"{scenario_name}.yaml"
-        if not yaml_path.exists():
-            logger.error(f"Scenario YAML not found: {yaml_path}")
-            return None
-        with open(yaml_path) as f:
-            return cast(Optional[Dict[str, Any]], yaml.safe_load(f))
-
-    def _build_action_lookup(self, config: Dict[str, Any]) -> Dict[str, Dict[str, Any]]:
-        """Build command string → action metadata dict from scenario config."""
-        lookup = {}
-        for room in config.get("rooms", []):
-            for state in room.get("states", {}).values():
-                for action in state.get("actions", []):
-                    key = action["command"].lower().strip()
-                    lookup[key] = {
-                        "action_id": action.get("id"),
-                        "action_type": action.get("type", "unknown"),
-                        "correct": action.get("correct"),
-                        "canary": action.get("canary", False),
-                    }
-        return lookup
-
-    def _write_probe_result(self, results_path: Optional[Path], data: Dict[str, Any]) -> None:
-        """Append one JSON line to probe_results.jsonl."""
-        if results_path is None:
-            return
-        with open(results_path, "a") as f:
+    @staticmethod
+    def _append_jsonl(path: Path, data: Dict[str, Any]) -> None:
+        with open(path, "a") as f:
             f.write(json.dumps(data) + "\n")
+
+    def _write_probe_result(self, results_path: Optional[Path],
+                            data: Dict[str, Any]) -> Dict[str, Any]:
+        """Append one result to probe_results.jsonl (when the loop has a lake); return it."""
+        if results_path is not None:
+            self._append_jsonl(results_path, data)
+        return data
 
     def _write_session_analysis(self, session_dir: Path) -> None:
         """Generate human-readable session_analysis.md from tick_log."""

@@ -3,7 +3,12 @@ Async WebSocket client for Evennia.
 
 Speaks the same JSON protocol as the React frontend (useEvennia.ts):
   Send: ["text", ["command"], {}]
-  Recv: ["text", ["..."], {}] / ["prompt", [">>>"], {}]
+  Recv: ["text", ["..."], {}] / ["prompt", [">"], {}]
+
+and the MUD's control channel (docs/architecture/one-mud.md §6):
+  Send: ["scenario", [], {"cmd": "status" | "load" | "end", ...}]
+  Recv: ["scenario", [{ok, error, logged_in, character, room, ...}], {}]
+  Recv: ["stage_entered", [{...}], {}] / ["scenario_complete", [{...}], {}]
 
 Handles auth, ANSI stripping, and message accumulation.
 """
@@ -13,7 +18,7 @@ import html
 import json
 import logging
 import re
-from typing import Optional, cast
+from typing import Any, Dict, List, Optional, Tuple, cast
 
 import websockets
 
@@ -26,6 +31,14 @@ _EVENNIA_MARKUP_RE = re.compile(r'\|\[[a-zA-Z]|\|[rgybmcwxRGYBMCWXnuis*^]')
 
 
 _DBREF_RE = re.compile(r'\(#\d+\)')
+
+# The scenario events the runner records; other out-of-band messages (room_entered, …) are ignored.
+SCENARIO_EVENTS = ("stage_entered", "scenario_complete")
+
+
+def _payload(args: List[Any], kwargs: Dict[str, Any]) -> Dict[str, Any]:
+    """A structured message carries its payload as the first argument."""
+    return args[0] if args and isinstance(args[0], dict) else dict(kwargs)
 
 
 def clean_evennia_text(text: str) -> str:
@@ -48,6 +61,8 @@ class EvenniaClient:
         self.url = url
         self.ws: Optional[websockets.ClientConnection] = None
         self._text_buffer: asyncio.Queue[Optional[str]] = asyncio.Queue()
+        self._scenario_replies: asyncio.Queue[Dict[str, Any]] = asyncio.Queue()
+        self._events: List[Tuple[str, Dict[str, Any]]] = []
         self._reader_task: Optional[asyncio.Task[None]] = None
 
     async def connect(self) -> None:
@@ -66,13 +81,18 @@ class EvenniaClient:
                 try:
                     msg = json.loads(raw_msg)
                     cmdname, args = msg[0], msg[1] if len(msg) > 1 else []
+                    kwargs = msg[2] if len(msg) > 2 and isinstance(msg[2], dict) else {}
 
                     if cmdname == "text":
                         text = "".join(str(a) for a in args)
                         await self._text_buffer.put(text)
                     elif cmdname == "prompt":
                         await self._text_buffer.put(None)  # sentinel for prompt
-                    # OOB events (room_entered, room_left, logged_in, etc.) are silently ignored
+                    elif cmdname == "scenario":
+                        await self._scenario_replies.put(_payload(args, kwargs))
+                    elif cmdname in SCENARIO_EVENTS:
+                        self._events.append((cmdname, _payload(args, kwargs)))
+                    # other OOB messages (room_entered, room_left, logged_in, …) are ignored
                 except (json.JSONDecodeError, IndexError):
                     # Non-JSON or malformed — treat as raw text
                     await self._text_buffer.put(str(raw_msg))
@@ -82,29 +102,32 @@ class EvenniaClient:
             pass
 
     async def authenticate(self, username: str, password: str) -> str:
-        """Log in to Evennia. Verifies the session is actually authenticated
-        by sending a `look` probe and checking the response doesn't contain
-        the unauthenticated welcome banner. Raises RuntimeError on failure.
-        """
+        """Log in to Evennia and confirm it on the control channel: `status` must report a
+        logged-in session playing a character. Raises RuntimeError otherwise."""
         await self.send_command(f"connect {username} {password}")
         welcome = await self.read_until_prompt(timeout=10.0)
-
-        # Verify auth actually succeeded — the welcome banner is distinctive
-        # and only shown to unauthenticated sessions. If we still see it
-        # after a look-probe, auth did not complete.
-        await self.send_command("look")
-        probe = await self.read_until_prompt(timeout=5.0)
-
-        if "Welcome to LLMud Institute" in probe or "connect <username>" in probe:
+        status = await self.scenario("status", timeout=10.0)
+        if not status.get("logged_in") or not status.get("character"):
             raise RuntimeError(
-                f"Evennia authentication failed for {username!r} — still on "
-                "welcome screen after connect. If Evennia has an orphaned "
-                "session for this account, run `evennia restart` (not reload) "
-                "to clear it."
+                f"Evennia login failed for {username!r}: the MUD reports logged_in="
+                f"{status.get('logged_in')}, character={status.get('character')!r}. Check "
+                "EVENNIA_AGENT_USER / EVENNIA_AGENT_PASS in the root .env, and that `make accounts` "
+                "in mud/ has created the account."
             )
-
-        logger.info(f"Authenticated as {username}")
+        logger.info(f"Authenticated as {username}, playing {status['character']}")
         return welcome
+
+    async def scenario(self, cmd: str, timeout: float = 30.0, **kwargs: Any) -> Dict[str, Any]:
+        """Send a control-channel command (status, load, end) and return the MUD's reply."""
+        if self.ws is None:
+            raise RuntimeError("not connected")
+        await self.ws.send(json.dumps(["scenario", [], {"cmd": cmd, **kwargs}]))
+        return await asyncio.wait_for(self._scenario_replies.get(), timeout=timeout)
+
+    def drain_events(self) -> List[Tuple[str, Dict[str, Any]]]:
+        """The scenario events received since the last call (stage_entered, scenario_complete)."""
+        events, self._events = self._events, []
+        return events
 
     async def send_command(self, text: str) -> None:
         """Send a text command to Evennia."""

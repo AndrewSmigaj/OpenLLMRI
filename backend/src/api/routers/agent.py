@@ -9,7 +9,7 @@ extract at all target positions → write to Parquet → return analysis + actio
 import asyncio
 import json
 import logging
-from datetime import datetime
+from datetime import date, datetime
 from pathlib import Path
 from typing import TYPE_CHECKING, Dict, List, cast
 
@@ -25,6 +25,7 @@ from api.schemas import (
     AgentStopRequest,
     AgentStopResponse,
 )
+from services.agent.actions import ModelActions
 from services.agent.agent_loop import DEFAULT_SYSTEM_PROMPT, AgentLoop
 from services.agent.harmony_parser import parse_harmony_channels
 from services.probes.integrated_capture_service import IntegratedCaptureService
@@ -76,6 +77,8 @@ async def start_agent_session(
             detail=f"Agent loop already running for session {active_id}. Stop it first.",
         )
 
+    # Every agent run pins the chat template's date, so a later run sends the same prompt.
+    pin_date = request.pin_date or date.today().isoformat()
     session_id = service.session_mgr.create_agent_session(
         session_name=request.session_name,
         scenario_id=request.scenario_id,
@@ -83,6 +86,7 @@ async def start_agent_session(
         bootstrap_session_id=request.bootstrap_session_id,
         agent_name=request.agent_name,
         capture_type_config=request.capture_type_config,
+        pin_date=pin_date,
     )
 
     # Launch agent loop as background task if requested
@@ -92,9 +96,10 @@ async def start_agent_session(
             scenario_id=request.scenario_id,
             target_words=request.target_words,
             agent_name=request.agent_name,
-            service=service,
+            actions=ModelActions(service, pin_date),
             scenario_list=request.scenario_list,
             data_lake_path=str(service.data_lake_path),
+            sessions_dir=service.session_mgr.sessions_dir,
             evennia_username=request.evennia_username,
             evennia_password=request.evennia_password,
             system_prompt=request.system_prompt,
@@ -176,14 +181,18 @@ async def resume_agent_session(
     with open(session_file, "r") as f:
         metadata = json.load(f)
 
+    # The session's pinned date; a session from before pinning keeps the day it was created.
+    pin_date = (metadata.get("pin_date") or str(metadata.get("created_at", ""))[:10]
+                or date.today().isoformat())
     loop = AgentLoop(
         session_id=request.session_id,
         scenario_id=metadata.get("scenario_id", ""),
         target_words=metadata.get("target_words", []),
         agent_name=metadata.get("agent_name", "agent"),
-        service=service,
+        actions=ModelActions(service, pin_date),
         scenario_list=request.scenario_list,
         data_lake_path=str(service.data_lake_path),
+        sessions_dir=service.session_mgr.sessions_dir,
         evennia_username=request.evennia_username,
         evennia_password=request.evennia_password,
         system_prompt=request.system_prompt,

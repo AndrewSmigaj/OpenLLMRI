@@ -1,5 +1,6 @@
 """EvenniaClient against a fake MUD on a local websocket: raw mode on connect, text gathered until the
-prompt and cleaned for the model, out-of-band events ignored, the timeout, and the login check."""
+prompt and cleaned for the model, other out-of-band messages ignored, the timeout, the control channel
+and its scenario events, and the login confirmed on the control channel."""
 import json
 
 import pytest
@@ -14,8 +15,9 @@ class FakeMud:
     """Answers each ["text", [command], {}] with scripted frames and records every frame received.
     A frame is a [cmdname, args, kwargs] list, or a plain string sent as-is (not JSON)."""
 
-    def __init__(self, replies):
+    def __init__(self, replies, control=None):
         self.replies = replies
+        self.control = control or {}          # control-channel cmd → its reply payload
         self.received = []
 
     async def handler(self, ws):
@@ -26,6 +28,9 @@ class FakeMud:
                 frames = self.replies.get(msg[1][0], [["text", ["ok"], {}], PROMPT])
                 for frame in frames:
                     await ws.send(frame if isinstance(frame, str) else json.dumps(frame))
+            elif msg[0] == "scenario":
+                reply = self.control.get(msg[2]["cmd"], {"ok": False, "error": "unknown"})
+                await ws.send(json.dumps(["scenario", [reply], {}]))
 
 
 @pytest.fixture
@@ -33,8 +38,8 @@ async def mud_session():
     """Start a fake MUD with given replies and a client connected to it; clean both up."""
     opened = []
 
-    async def start(replies):
-        fake = FakeMud(replies)
+    async def start(replies, control=None):
+        fake = FakeMud(replies, control)
         server = await serve(fake.handler, "127.0.0.1", 0)
         port = next(iter(server.sockets)).getsockname()[1]
         client = EvenniaClient(f"ws://127.0.0.1:{port}")
@@ -68,7 +73,7 @@ async def test_text_is_gathered_until_the_prompt_and_cleaned(mud_session):
     assert await client.read_until_prompt(timeout=2) == "A bus stop  <here>"
 
 
-async def test_out_of_band_events_are_ignored(mud_session):
+async def test_other_out_of_band_messages_are_ignored(mud_session):
     fake, client = await mud_session({"north": [
         ["room_entered", [], {"room_type": "lab", "role": "researcher"}],
         ["text", ["You go north."], {}],
@@ -90,20 +95,43 @@ async def test_without_a_prompt_it_times_out_with_what_arrived(mud_session):
     assert await client.read_until_prompt(timeout=0.3) == "partial"
 
 
-async def test_login_succeeds_when_look_shows_the_world(mud_session):
-    fake, client = await mud_session({
-        "connect agent-1 secret": [["text", ["You become Scout."], {}], PROMPT],
-        "look": [["text", ["Limbo"], {}], PROMPT],
-    })
+async def test_login_is_confirmed_on_the_control_channel(mud_session):
+    fake, client = await mud_session(
+        {"connect agent-1 secret": [["text", ["You become Scout."], {}], PROMPT]},
+        control={"status": {"ok": True, "logged_in": True, "character": "Scout"}})
     assert await client.authenticate("agent-1", "secret") == "You become Scout."
+    assert fake.received[-1] == ["scenario", [], {"cmd": "status"}]
 
 
-async def test_login_is_refused_while_the_welcome_banner_shows(mud_session):
-    banner = [["text", ["Welcome to LLMud Institute. Log in with connect <username> <password>"], {}],
-              PROMPT]
-    fake, client = await mud_session({"connect agent-1 wrong": banner, "look": banner})
-    with pytest.raises(RuntimeError, match="authentication failed"):
+async def test_login_fails_when_the_mud_reports_no_character(mud_session):
+    fake, client = await mud_session(
+        {"connect agent-1 wrong": [["text", ["Incorrect login."], {}], PROMPT]},
+        control={"status": {"ok": True, "logged_in": False, "character": None}})
+    with pytest.raises(RuntimeError, match="login failed"):
         await client.authenticate("agent-1", "wrong")
+
+
+async def test_the_control_channel_returns_the_mud_reply(mud_session):
+    loaded = {"ok": True, "scenario": "set/file", "set": "set@1", "stage": "initial"}
+    fake, client = await mud_session({}, control={"load": loaded})
+    assert await client.scenario("load", key="set/file", timeout=2) == loaded
+    assert fake.received[-1] == ["scenario", [], {"cmd": "load", "key": "set/file"}]
+
+
+async def test_scenario_events_are_kept_for_the_runner(mud_session):
+    done = {"action_id": 1, "outcome": "friend"}
+    fake, client = await mud_session({"help person": [
+        ["text", ["You help them."], {}],
+        ["stage_entered", [{"stage": "after"}], {}],
+        ["room_left", [{"room_type": "hub"}], {}],
+        ["scenario_complete", [done], {}],
+        PROMPT,
+    ]})
+    await client.send_command("help person")
+    assert await client.read_until_prompt(timeout=2) == "You help them."
+    assert client.drain_events() == [("stage_entered", {"stage": "after"}),
+                                     ("scenario_complete", done)]
+    assert client.drain_events() == []
 
 
 def test_clean_text_for_the_model():

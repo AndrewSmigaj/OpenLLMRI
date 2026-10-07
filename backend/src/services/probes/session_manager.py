@@ -129,8 +129,10 @@ class SessionManager:
         bootstrap_session_id: str,
         agent_name: str,
         capture_type_config: Optional[List[str]] = None,
+        pin_date: Optional[str] = None,
     ) -> str:
-        """Create a new agent capture session. Returns session_id."""
+        """Create a new agent capture session. Returns session_id. `pin_date` (YYYY-MM-DD) is the
+        date the chat template shows on every turn of the session."""
         if capture_type_config is None:
             capture_type_config = ["reasoning"]
 
@@ -163,6 +165,7 @@ class SessionManager:
             "bootstrap_session_id": bootstrap_session_id,
             "agent_name": agent_name,
             "capture_type_config": capture_type_config,
+            "pin_date": pin_date,
         }
 
         session_file = self.sessions_dir / f"{session_id}.json"

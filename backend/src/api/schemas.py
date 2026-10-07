@@ -523,12 +523,16 @@ class AgentStartRequest(BaseModel):
     evennia_username: str = os.environ.get("EVENNIA_AGENT_USER", "agent")  # from .env — do NOT override
     evennia_password: str = os.environ.get("EVENNIA_AGENT_PASS", "")  # from .env — do NOT override
     scenario_list: Optional[List[str]] = None
+    # Scenario keys from the library, "<set_id>/<file>" (data/scenarios/README.md).
+    pin_date: Optional[str] = None
+    # ISO date (YYYY-MM-DD) the chat template shows on every turn; today when not given. Stored
+    # with the session, so a resumed run, or one on another day, sends the same prompt.
 
 
 class AgentResumeRequest(BaseModel):
     """Resume an existing agent session with additional scenarios."""
     session_id: str
-    scenario_list: List[str]
+    scenario_list: List[str]  # scenario keys, "<set_id>/<file>"
     system_prompt: Optional[str] = None
     evennia_username: str = os.environ.get("EVENNIA_AGENT_USER", "agent")  # from .env — do NOT override
     evennia_password: str = os.environ.get("EVENNIA_AGENT_PASS", "")  # from .env — do NOT override
