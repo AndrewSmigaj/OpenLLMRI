@@ -2,7 +2,7 @@
 
 **Status:** a draft for Andrew's review (2026-10-07). Nothing new is built until he approves it.
 
-**Review progress:** Parts A, B and C reviewed with Andrew (2026-10-07).
+**Review progress:** Parts A to D reviewed with Andrew (2026-10-07).
 
 **Contents:**
 - How this document works
@@ -80,7 +80,8 @@
 | **reading** | what a lens gives for one state: a node, or a position on the axis (the class averages sit at −1 and +1) |
 | **calibration items** | the labelled items a lens is fitted on |
 | **lens kit** | the lenses chosen for a scenario set |
-| **trigger word** | a word in an agent's text at which a kit lens is read |
+| **keyword** | a word from the scenario's MUD commands at which a kit lens is read in the agent's output |
+| **scan** | reading every token of a text through a lens, each compared with how the same token reads in neutral text |
 | **scenario** | a situation the agent plays in the MUD |
 | **staged scenario** | a scenario of multiple-choice stages, with known labels at each stage |
 | **world** | a free-form scenario with its own engine. Winter Survival is the first |
@@ -93,13 +94,14 @@
 | **scaffold** | text that guides how the agent reasons, such as a system prompt, a persona or a planning prompt |
 | **references** | runs whose label never changes, read with the same lens. They show where each class's readings sit at each point |
 | **band** | the range holding most of one class's reference readings at one point |
-| **between the bands** | a reading between the two classes' bands at that point: the state is unresolved. Drawn grey |
+| **between the bands** | a reading whose concept is present but sits between the classes at that point: the state is unresolved |
 | **matched point** | a point in a run and a point in the references that are comparable |
 | **scripted run** | an agent run whose actions follow a fixed script, so every run of a scenario has the same stages at the same ticks |
 | **free play** | an agent run in which the model chooses its own actions |
 | **would-be action** | in a scripted run, the action the model writes at a tick: recorded, not played |
 | **censored** | a stay in a state cut off by the end of the run, so its true length is unknown |
-| **typicality** | how far a state is from everything its lens was calibrated on |
+| **presence** | whether a lens's concept is represented in a state at all |
+| **position** | which class a reading leans to, and how far |
 | **study** | a research question with its sets, runs, lenses, analyses and findings, kept as files in the repo |
 | **atlas** | catalogues of nodes, experts and routes, each entry with a written report |
 | **paradigm** | the accepted findings |
@@ -288,10 +290,12 @@ This part covers building; Parts D and E cover using.
 - **Winter Survival:** what the agent is thinking about, such as hunger, food, fire, cold,
   injury, danger and trust in the others [Decided, 2026-10-07].
 - **More lenses and situations to study will come** as the work goes on [Decided, 2026-10-07].
-- **Each kit lens lists its trigger words** [Decided, 2026-10-07]:
-  - for example " person" for the friend/foe lens, and " hungry" or " food" for hunger;
-  - kit lenses are calibrated on text like the agent's own reasoning, since that is where they
-    will be read.
+- **Each kit lens lists its keywords, drawn from the scenario's MUD commands** [Decided, 2026-10-07]:
+  - for example the object in `greet stranger` for the friend/foe lens, or the words in `eat fish`
+    and `light fire` for food and fire;
+  - the lens is read at those keywords in the agent's output, where the decision is written (D3);
+  - kit lenses are calibrated on text like the agent's own, since that is where they will be
+    read.
 - **How a lens reads a word is one of three modes** [Decided, 2026-10-06: an experiment chooses
   among them]:
   - **single token:** one word, calibrated on its own;
@@ -308,52 +312,80 @@ This part covers building; Parts D and E cover using.
 
 ## Part D — Reading over time
 
-**D1. Three orderings are time** [Proposed]:
+**D1. Three orderings are time** [Decided, 2026-10-07]:
 - context steps: a sentence sequence grows;
 - ticks: the agent's turns;
 - reasoning steps: the reasoning stream grows inside one tick.
 
-Each tick's reasoning is a branch the next tick never sees (the runner keeps only the action), so
-readings are compared within one ordering, never across a tick. Depth (the layer) is not time.
+The next tick's input excludes earlier reasoning streams: the runner hands back only the action as
+the model's turn, which is also the convention of gpt-oss's chat format [Built]. So a reading at the
+end of one tick's reasoning and one at the start of the next come from different inputs. Readings
+are compared within one ordering, never across a tick. Depth (the layer) is not time.
 
-**D2. Rules for any reading over time** [Proposed: the paper's own rules, adopted for the whole
-software; rules 7 and 8 are new]:
-1. The same site and the same carrier, every time.
-2. Validate on held-out scene families.
-3. Compare absolute readings with references at the matched point, since readings drift as context
-   grows, whatever the class.
-4. Check that the axis still points the right way in the context read.
-5. A reading tells where a state sits on the designed contrast. What that position means beyond the
-   contrast needs further contrasts to test.
-6. Statistics at the scene-family level.
-7. One fixed, saved lens reads every point.
-8. Dynamics are computed within one ordering.
+**D2. Rules for reading over time** [Decided, 2026-10-07: the project's own rules, each kept because it earns its
+place; most were learned in the paper]:
+1. **The same kind of site, read the same way every time.** Otherwise a change over time is only a
+   difference between sites.
+2. **Validate on held-out scene families,** to know the lens learned the concept and not the
+   settings.
+3. **Check the lens in the context it reads.** A lens fitted on short sentences may not read the
+   same way deep inside a long run.
+4. **Statistics at the scene-family level.** Items from one scene aren't independent.
+5. **One fixed, saved lens reads every point.** Separately fitted lenses can't be compared.
+6. **Dynamics are computed within one ordering** (D1).
 
-**D3. Reading a run.**
-- **Carriers and Andrew's view of them** [Andrew's view, 2026-10-04]: carrier tokens help with
-  demonstrations, but they don't show how the model would really act.
-- **The model's own words** [Andrew's idea, 2026-10-07]:
-  - the agent's reasoning keeps restating what matters, for example someone waiting by the door,
-    or that it is getting hungry and should look for food;
-  - kit lenses are read at their trigger words in that stream (the lens heatmap, E4).
-- **Two further ideas** [Andrew's ideas, 2026-10-06]:
-  - the agent is asked to use set words in its reasoning;
-  - set words are given to the agent with an instruction that they are for measurement and need no
-    reply.
-- **Replay** [Proposed]: to read a recorded run at a point, take the run's exact context up to that
-  point, add the lens's carrier, run one forward pass with no generation, and read the carrier's
-  token. The run itself is untouched. This gives controlled readings at every tick, and the
-  comparison for the model's own words.
-- **Which method leads for agents is open** (question L2). The first agent experiment compares
-  them (D5).
+References are a tool for studies that compare levels over time (D5), not a rule for every
+reading.
 
-**D4. "Between the bands"** [Proposed]:
-- **A reading is unresolved when it lies between the classes' bands at the matched point.**
+**D3. Where a run is read** [Decided, 2026-10-07]:
+- **At the output: the main reading.**
+  - Each lens is read at its keywords in the agent's action: the scenario's MUD commands, such as
+    the object in `greet stranger`, or the words in `eat fish` and `light fire`.
+  - That is the same kind of site at every tick, right where the decision is written.
+- **Across the reasoning: a scan.**
+  - Every token of the reasoning stream is read through each lens of the kit.
+  - Each token is compared with how the same token reads in neutral text, because a raw reading at
+    an arbitrary token mostly reflects what the token is.
+  - The few tokens with a strong signal light up; most sentences have none.
+- **Carriers, by replay: the controlled comparison.**
+  - To read a recorded run at a point, take the run's exact context up to that point, add the
+    lens's carrier, run one forward pass with no generation, and read the carrier's token. The run
+    is untouched.
+  - Carriers are the controlled comparison in agent studies, and the method for sentence studies.
+- **Why the output leads for agents:**
+  - carrier tokens help with demonstrations, but they don't show how the model would really act
+    [Andrew's view, 2026-10-04];
+  - the output is the best single place to capture understanding [Decided, 2026-10-07].
+- **Two further ideas to test** [Andrew's ideas, 2026-10-06]:
+  - asking the agent to use set words in its reasoning;
+  - giving it words marked as for measurement only.
+
+**D4. Two numbers in every reading** [Decided, 2026-10-07]:
+- **Presence:** whether the lens's concept is represented here at all.
+  - For a UMAP lens: how close the state is to the members of its nodes.
+  - For a mass-mean lens: how strong the signal is, compared with the same token in neutral text.
+- **Position:** which class the reading leans to, and how far.
+- **Unresolved and absent are told apart:**
+  - unresolved means present but between the classes;
+  - absent means the concept isn't there.
+  - One number on one axis can't tell these apart: its middle could mean either.
+- **At the output, a reading should have resolved into its class,** unless there is a real
+  incongruity. A reading that is present but still between the classes at the output is flagged,
+  as something worth opening in Watch.
+- **A caution** [Proposed]: presence must be calibrated on states that include natural in-between
+  ones. On synthetic data, states halfway between two classes looked far from both classes'
+  calibration states. Calibrated on clean classes only, a torn state would look absent.
+
+**D5. "Between the bands" in studies** [Decided, 2026-10-07]:
+- **In a study, "between the classes" is judged against bands,** the range of each class's readings
+  at that point.
 - **The bands come from references:** runs whose label never changes, from scene families the lens
   wasn't fitted on.
-- Andrew noted that the paper's no-shift runs were specific to the paper [2026-10-07]. References
-  are the general form of the need behind them: readings drift as context grows, whatever the
-  class.
+  - References are the general form of what the paper's no-shift runs did, which were specific to
+    the paper: readings drift as context grows, whatever the class.
+- **Agent studies come in two kinds:**
+  - **scripted runs,** where every run has the same ticks, for claims about change over time;
+  - **free play,** for behaviour, always showing how many runs reach each point.
 - **The context-shift study's own question** [Decided, 2026-10-07: it belongs to that study, not to
   the software as a whole]: when an understanding shifts, what is the state in between?
   - a **learned state:** a stable intermediate representation the model has and uses;
@@ -361,21 +393,21 @@ software; rules 7 and 8 are new]:
   - an **off-manifold state:** something outside the states the model normally takes.
 
   It is an example of a study that reads over time.
-- **Agent studies come in two kinds:**
-  - **scripted runs,** where every run has the same ticks, for claims about change over time;
-  - **free play,** for behaviour, always showing how many runs reach each point.
 
-**D5. Questions experiments settle** [Open]:
-- For agents, do the model's own words or the carriers track the scenario's labels earlier and more
-  accurately? This is the first agent experiment.
-- Which reading mode works at trigger words: single token, token collection or scan?
-- Does a carrier work better as a user's question, or as the opening of the model's reasoning?
-- Does the lens's axis rotate as ticks accumulate?
+**D6. Questions experiments settle** [Open; Decided, 2026-10-07: the design stays flexible, and
+more questions will come]:
+- How early and how accurately do the output reading, the scan and the carriers track the
+  scenario's labels, tick by tick? This is the first agent experiment.
+- Which reading mode works at keywords: single token, token collection or scan?
+- What neutral text should the scan compare against, and should it be per token or per kind of
+  token?
+- How is presence best measured, and does it separate absent from unresolved? Test it first on
+  planted synthetic states, then on runs.
+- Does a lens still read the same way as ticks accumulate (rule 3)?
 - Can free-play runs be compared with references at equal context length?
-- Can readings be taken validly inside the reasoning?
-- Does typicality tell anything useful?
+- Does a carrier work better as a user's question, or as the opening of the model's reasoning?
 
-**D6. The first version is tested on known answers** [Decided, 2026-10-07]:
+**D7. The first version is tested on known answers** [Decided, 2026-10-07]:
 - it must reproduce the paper's per-run tank results from the paper's tank runs, before it is used
   on agents. The results are the crossing point, the settled level and the dwell, in
   `tank_d3_metrics_L4.csv`;
@@ -441,34 +473,40 @@ and said building lenses differs from using them]:
      - filters.
   4. The build runs in the background, and the new lens opens when it is ready.
   5. Read the k profile and the held-out scores (C3, C4), then save the lens with its site and
-     trigger words.
-- **The kit editor** [Proposed]: for a scenario set, choose the lenses and their trigger words.
+     keywords.
+- **The kit editor** [Proposed]: for a scenario set, choose the lenses and their keywords.
 
 **E4. Watch: which representations are active over time.**
 
-Andrew's request [Andrew's idea, 2026-10-07; the design below is Proposed]:
+Andrew's request [Decided, 2026-10-07]:
 - for each scenario set, its own panel of lenses;
-- a heatmap of which lenses activate over time, found at words in the agent's reasoning stream;
+- a lens heatmap showing what is active in each sentence: every token is scanned through each lens,
+  and most sentences show nothing;
+- each lens read at the output too, at keywords from the scenario's MUD commands, since the output
+  is the best place to capture understanding;
 - for each lens, its own Sankeys: clusters, experts, latent space;
-- while watching, perhaps four Sankey panels;
+- while watching, perhaps four Sankey panels [Andrew's idea, 2026-10-07];
 - good use of screen space.
+
+The layout below is [Proposed] (question L6).
 
 **The layout:** the lens heatmap on top, four Sankey panels below it, and a side drawer. Each area
 can be resized and can fill the screen.
 
 ```
 ┌──────────────────────────────────────────────────────────────────────────────────────────┐
-│ run: v3/stranger_reveal_07 (live) · kit: people assessment · by sentence ▾               │
+│ run: v3/stranger_reveal_07 (live) · kit: people assessment · ticks opened ▾              │
 ├──────────────────────────────────────────────────────────────────────────────────────────┤
-│ LENS HEATMAP                                                                             │
-│ events      │ t0 arrives        ▲   │ t1 reveal             ▲   │ t2 …                   │
-│             │  O   R1  R2  R3   A   │  O   R1  R2  R3  R4   A   │                        │
-│ friend↔foe  │  ▒       █            │  █   █       ▒   █        │                        │
-│ intent      │      ▒   ▒            │      █   █                │                        │
-│ threat      │                       │  █       █   █   █        │                        │
-│ honesty     │          ░            │          ░   █            │                        │
-│ need        │      ▒                │                           │                        │
-│ █ one end · ▒ the other end · ░ between the bands · blank: not mentioned · ▲ action      │
+│ LENS HEATMAP · brightness: presence · colour: which class                                │
+│ events      │ t0 arrives      ▲   │ t1 reveal           ▲   │ t2 …                       │
+│             │  O  R1 R2 R3   A    │  O  R1 R2 R3 R4   A    │                             │
+│ friend↔foe  │  ·     █       █    │  ▒  ▒     ░  ▒    ░ !  │                             │
+│ intent      │     ·  ▒            │     ▒  ▒          ▒    │                             │
+│ threat      │                     │  ▒     ▒  ▒  ▒    ▒    │                             │
+│ honesty     │        ░            │        ░  ▒            │                             │
+│ need        │     ·               │                        │                             │
+│ █ ▒ strong, one class or the other · ░ present, between the classes · · faint            │
+│ A the output reading, at the lens's keywords · ! still between at the output             │
 ├─────────────────────────────────────────────┬────────────────────────────────────────────┤
 │ CLUSTERS · friend↔foe · L0 ──────── L23 ▸   │ EXPERTS · friend↔foe · L0 ─────── L23 ▸    │
 │ calibration flows faded; the selected       │ the selected word's experts at each        │
@@ -477,28 +515,27 @@ can be resized and can fill the screen.
 │ CLUSTERS · threat · L0 ──────────── L23 ▸   │ EXPERTS · threat · L0 ─────────── L23 ▸    │
 │ (the lens most active in this tick)         │ (the lens most active in this tick)        │
 └─────────────────────────────────────────────┴────────────────────────────────────────────┘
-  side drawer (folds away): the run's text, the selected word highlighted · the MUD terminal
+  side drawer (folds away): the run's text, each token tinted by the selected lens · MUD
 ```
 
-(The sketch shows ticks opened into their sentences. By default each tick is one column; see below.)
+(The sketch shows ticks opened. By default each tick is one column; see below.)
 
 **The lens heatmap:**
 - **Rows:** the kit's lenses, grouped by theme, for example the person, the body, the world.
-  - Each row's label names the lens's two classes and its trigger words.
-  - A badge says whether the lens is validated at those words, or exploratory there.
+  - Each row's label names the lens's classes and its keywords.
+  - A badge says whether the lens is validated where it is read, or exploratory there.
 - **Columns:** time.
-  - **By default each tick is one column,** holding each lens's last reading in that tick
-    [Decided, 2026-10-07, approved in the time review]. During a live run the newest tick opens by
-    itself [Proposed].
+  - **By default each tick is one column,** holding the tick's output reading [Decided, 2026-10-07, approved in
+    the time review]. During a live run the newest tick opens by itself [Proposed].
   - **Opening a tick shows its parts:** the observation (O), the reasoning sentence by sentence
-    (R1, R2, …), and the action (A).
-  - Only sentences that contain a trigger word get a column. The others shrink to a thin divider.
-- **Cells:** a lens's reading at a trigger word.
-  - The colour says which class the reading leans to, and its strength says how far.
-  - Grey means between the bands, once references exist.
-  - Blank means the concept wasn't mentioned there. The heatmap shows evidence and never fills
-    gaps.
-  - A UMAP lens colours each cell by its node.
+    (R1, R2, …), and the output (A).
+- **Cells in the observation and the reasoning:** the scan's strongest token in that sentence, for
+  that lens (D3).
+  - Brightness is presence; colour is position, which class and how far (D4).
+  - A UMAP lens colours by node.
+  - Blank means nothing in that sentence carried the concept, which is the usual case.
+- **The output cell (A):** the lens's reading at its keywords in the action. It is flagged (!) when
+  the concept is present but still between the classes.
 - **The events lane:** stage changes with their labels, and each action coloured by its type in the
   scenario file (friend or enemy in today's set).
 - **The layer:** each lens is read at its best held-out layer by default [Decided, 2026-10-07,
@@ -508,35 +545,38 @@ can be resized and can fill the screen.
 - Each panel shows one lens and one kind of Sankey:
   - the cluster Sankey: the lens's calibration items flowing through its nodes, layer by layer;
   - the expert Sankey: their routes through the experts.
-- **Clicking a cell in the heatmap selects that word.** Each panel then draws the word's path over
-  the faded calibration flows:
-  - in the cluster Sankey, the word's node at each layer, found by applying the lens;
+- **Clicking a cell selects its token:** the sentence's strongest token, or the output keyword.
+  Each panel then draws that token's path over the faded calibration flows:
+  - in the cluster Sankey, its node at each layer, found by applying the lens;
   - in the expert Sankey, the experts it actually used at each layer.
-- **A mass-mean lens gets a Sankey too:** at each layer its readings fall into three bins, one
-  class, between the bands, the other class.
+- **A mass-mean lens gets a Sankey too:** at each layer its readings fall into three bins: one
+  class, between the classes, the other class.
 - **By default** the two top panels show the clicked lens, and the two bottom panels the lens most
   active in the current tick. Any panel can be pinned to another lens.
 - **All 24 layers in each panel,** scrolling sideways together, so a layer lines up across the four
   panels (E5).
 
 **The side drawer:**
-- it holds the run's text (observation, reasoning, action) with the selected word highlighted;
+- it holds the run's text (observation, reasoning, action), each token tinted by the selected
+  lens's scan, so you can see which words lit up;
 - during a live run it also holds the MUD terminal, where `watch agent` follows the agent;
 - outside a live run it folds away.
 
 **What Watch needs from the rest of the software** [Proposed]:
-- the runner captures every trigger word in the scenario set's kit, not only the session's target
-  words;
-- the runner stores each tick's token ids, so a past run can be read again with a new lens (Part G);
+- the runner captures the kit's keywords in each action, and stores each tick's token ids;
+- the scan runs by replay over each tick's whole text, and stores only the readings: presence and
+  position, per token, lens and layer;
+- each lens has a neutral baseline: how each token reads in neutral text, built once per lens;
 - readings are computed once, stored and shown. A live run adds one tick at a time.
 
 **Risks, and what answers them:**
-- **A lens read at words it wasn't calibrated at reads nothing useful.** Such rows carry the
-  exploratory badge until the kit's lenses are validated at their trigger words.
-- **Readings of different words through one axis mostly show the word itself.** The reading modes
-  (C6) handle this; the experiment chooses the mode.
+- **A raw reading at an arbitrary token mostly shows what the token is.** The scan compares each
+  token with the same token in neutral text.
+- **The middle of an axis can mean torn or absent.** Presence tells them apart (D4), and presence is
+  calibrated on states that include natural in-between ones.
 - **Readings drift as a run grows.** By default the heatmap shows raw readings. With references,
   Advanced shows them against the bands.
+- **A lens not yet validated where it is read** carries the exploratory badge.
 - **Many lenses make the heatmap tall.** Rows can be grouped and folded, and empty rows hide
   themselves.
 
@@ -669,7 +709,7 @@ watcher does reaches the agent.
   - **routes:** pipelines and hubs. Today's routes follow only the top-1 expert.
 - **Time adds node dynamics** [Proposed]: how long runs stay in a node, what comes before and after
   it, and what the model does while in it. This is how a question like the context-shift study's
-  (D4) gets answered, node by node.
+  (D5) gets answered, node by node.
 - **Bringing the lenses' findings together into one coherent model is the hard part** [Decided,
   2026-10-07].
 - **The paradigm is the accepted findings** [Decided, 2026-10-04 and 2026-10-06]:
@@ -708,7 +748,7 @@ Stories 1–6 come from the time design; 7–11 were added in its review, which 
 5. **Watching live.** `watch agent` in the MUD; in Watch, the heatmap grows tick by tick. Needs lens
    kits.
 6. **Steering.** Steered and unsteered runs as two conditions on one timeline.
-7. **Check the instrument.** Reproduce the paper's per-run tank results in Study (D6). Every later
+7. **Check the instrument.** Reproduce the paper's per-run tank results in Study (D7). Every later
    story rests on this one.
 8. **Compare the reading methods.** For the same runs, the carrier and the model's own words, as two
    rows.
@@ -725,7 +765,7 @@ Stories 1–6 come from the time design; 7–11 were added in its review, which 
       under Advanced, validate, save the lens.
 13. **Find the right k per layer.** Compare the automatic suggestion and its method with the k
     profile and your own choice, and save the k that classifies held-out data best.
-14. **Build a kit for Winter Survival.** Choose its lenses and their trigger words, and check each lens
+14. **Build a kit for Winter Survival.** Choose its lenses and their keywords, and check each lens
     is validated where it will be read.
 15. **Visit as a guest.** `connect guest`, then `watch agent`, and read the run as it plays.
 
@@ -744,7 +784,7 @@ Stories 1–6 come from the time design; 7–11 were added in its review, which 
       - added by Claude [Proposed]: the all-layer Layers view, colour by any designed axis, study
         files.
    2. **The sentence set builder:** the lens catalogue starts with new sentence sets.
-   3. **Time on sentence runs,** checked against the paper's tank results (D6), in Study.
+   3. **Time on sentence runs,** checked against the paper's tank results (D7), in Study.
    4. **Provenance and jobs:**
       - the capture recipe and per-run token ids;
       - the GPU job queue;
@@ -752,11 +792,12 @@ Stories 1–6 come from the time design; 7–11 were added in its review, which 
    5. **The world-building pilot** [Decided, 2026-10-06: after the lens core].
    6. **The scenario builder,** then friend/foe v3 [Decided, 2026-10-06: v3 after the lens core].
    7. **Agents:**
-      - lens kits and trigger words;
+      - lens kits and keywords;
+      - the scan, with each lens's neutral baseline;
       - replay;
       - scripted runs and would-be actions;
       - Watch;
-      - the experiments of D5.
+      - the experiments of D6.
    8. **Conditions and interventions:** scaffold studies, steering, ablation.
    9. **Layer transitions and trajectory upgrades,** such as patterned nodes.
    10. **A second MoE model.**
@@ -771,13 +812,12 @@ Stories 1–6 come from the time design; 7–11 were added in its review, which 
 
 - **L1. Who writes sentence sets in the builders?** Answered 2026-10-07: one `claude -p` run writes
   each whole set, all classes together, and the audits check batches (C1).
-- **L2. For watching agents, should the model's own words lead, with carriers as the controlled
-  comparison?** Your 2026-10-04 view (carriers don't show real behaviour) and your heatmap idea
-  point that way. The time design proposed carriers first.
+- **L2. Which reading leads for agents?** Answered 2026-10-07: the output reading at keywords
+  leads, the scan shows the reasoning, and carriers are the controlled comparison (D3).
 - **L3. Should Winter Survival's game design document fold into this one, or stay separate under
   it?** You asked for one design document; this draft keeps the world's own document separate.
-- **L4. The time design:** its orderings (D1), its rules (D2) and its references and bands (D4).
-  Yes? You approved its review's suggestions but haven't ruled on the design itself.
+- **L4. The time design.** Answered 2026-10-07: the orderings, the project's own rules, presence
+  and position, and references for studies (D1–D5).
 - **L5. The retirements in Part G.** Yes?
 - **L6. Watch (E4):**
   - the heatmap, with ticks closed by default and the live tick opening by itself;
@@ -866,7 +906,12 @@ Paraphrased from Andrew's own words. His ideas not yet decided are listed separa
     together, and audits check batches;
   - Part C's details: the audits, the raw-space recipe, relevant-neuron PCA as a third grouping,
     the k profile and the hierarchy idea, scene-family hold-outs, the fair comparison, the
-    self-check, trigger words, and the kit examples (food, fire and more for Winter Survival).
+    self-check, keywords, and the kit examples (food, fire and more for Winter Survival);
+  - Part D: the orderings, with earlier reasoning excluded from later ticks; the project's own
+    rules for reading over time; the output reading at keywords from the MUD commands as the
+    main reading; the scan over the reasoning; carriers as the controlled comparison; presence
+    and position in every reading, with unresolved told apart from absent; the flag for a
+    reading still unresolved at the output; references for studies; the experiments left open.
 - **Andrew's ideas, not yet decided:**
   - **2026-10-04:** a user interface in the MUD; a MUD tab for maintenance and scenario design; Claude
     agents drafting scenarios; a mini-world builder;
@@ -875,5 +920,4 @@ Paraphrased from Andrew's own words. His ideas not yet decided are listed separa
   - **2026-10-07:**
     - an interface so users can choose the LLM for Claude agents' work;
     - all layers scrolling sideways;
-    - the lens heatmap over the reasoning stream, and per-lens Sankeys;
     - perhaps four Sankey panels while watching.
