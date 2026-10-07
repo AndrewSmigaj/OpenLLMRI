@@ -2,6 +2,9 @@
 description: Scaffold a new ObjectPacket stub under the current scenario's objects/ from the §43.1 template.
 ---
 
+**Paths:** this works on the MUD, which lives in `mud/` of the Open LLMRI repo. Every path below is
+relative to `mud/`, and its make targets run as `make -C mud <target>`.
+
 Scaffold a new authored object for the current scenario. The object name is in
 `$ARGUMENTS`.
 
@@ -31,4 +34,4 @@ Steps:
    put logic in a typeclass.
 
 5. Report the file path created and list the `TODO`s the author must fill, and remind them
-   to run `make validate` once filled.
+   to run `make -C mud validate` once filled.

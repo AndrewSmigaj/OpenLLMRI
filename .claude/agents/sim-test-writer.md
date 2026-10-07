@@ -5,6 +5,9 @@ model: claude-opus-4-8
 tools: Read, Write, Edit, Grep, Glob, Bash
 ---
 
+**Paths:** this works on the MUD, which lives in `mud/` of the Open LLMRI repo. Every path below is
+relative to `mud/`, and its make targets run as `make -C mud <target>`.
+
 You write the pure unit tests that prove Whiteout's functional core, without booting
 Evennia or touching a database.
 

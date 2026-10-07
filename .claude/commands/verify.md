@@ -9,26 +9,26 @@ name is in `$ARGUMENTS` (default `smoketest`).
    `world.sim` tests + §44 content validate):
 
    ```sh
-   make verify SCENARIO=${ARGUMENTS:-smoketest}
+   make -C mud verify SCENARIO=${ARGUMENTS:-smoketest}
    ```
 
 2. **Live smoke** — make sure the stack is actually up, then probe it:
-   - If nothing is running, boot it: `make up-d` (run `make migrate` first if the DB is
-     fresh, and `make load-scenario SCENARIO=${ARGUMENTS:-smoketest}`).
-   - Confirm the telnet port answers, e.g.:
+   - If nothing is running, boot it: `make -C mud up-d` (run `make -C mud migrate` first if the DB is
+     fresh, and `make -C mud load-scenario SCENARIO=${ARGUMENTS:-smoketest}`).
+   - Confirm the telnet port answers (MUD_TELNET_PORT in the repo root's `.env`), e.g.:
 
      ```sh
-     (echo; sleep 1) | timeout 5 telnet localhost 4000 || true
+     PORT=$(sed -n 's/^MUD_TELNET_PORT=//p' .env); (echo; sleep 1) | timeout 5 telnet localhost "${PORT:-4000}" || true
      ```
 
    - If the scripted bot harness is available, run a short scripted-bot smoke against the
      running server:
 
      ```sh
-     make agent
+     make -C mud agent
      ```
 
-     (host python; scripted brain, `localhost:4000`). Keep it brief.
+     (host python; scripted brain, the telnet port above). Keep it brief.
 
 3. **Summarize** each stage as PASS / FAIL: compose config, pure tests, validate, telnet
    reachable, bot smoke. Quote the key error lines for any failure and point at the likely
