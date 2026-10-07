@@ -62,7 +62,7 @@ stop:
 	@fuser 8000/tcp 5173/tcp >/dev/null 2>&1 && echo "Port 8000 or 5173 is still in use." || echo "All servers stopped."
 
 health:
-	@curl -s http://localhost:8000/health 2>/dev/null | .venv/bin/python -m json.tool || echo "Backend not responding"
+	@curl -s --max-time 5 http://localhost:8000/health 2>/dev/null | .venv/bin/python -m json.tool || echo "Backend not responding"
 
 test: test-backend test-frontend
 

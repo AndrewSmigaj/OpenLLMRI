@@ -20,8 +20,10 @@ PY="$ROOT/.venv/bin/python"
 
 ### OP-1: Create virtual environment and install dependencies
 
+Installs the exact working environment: Python 3.10.12 and `backend/requirements.lock.txt`. Never `requirements.txt`, whose loose versions can break the MXFP4 model loading.
+
 ```bash
-ROOT=$(git rev-parse --show-toplevel) && python3 -m venv "$ROOT/.venv" && "$ROOT/.venv/bin/pip" install -r "$ROOT/backend/requirements.txt" && cd "$ROOT/frontend" && npm install
+ROOT=$(git rev-parse --show-toplevel) && python3.10 -m venv "$ROOT/.venv" && "$ROOT/.venv/bin/pip" install -r "$ROOT/backend/requirements.lock.txt" && cd "$ROOT/frontend" && npm install
 ```
 
 ### OP-2: Create `.env` file
@@ -122,7 +124,7 @@ Steps 4-7 do not require Evennia to be running — they write directly to the da
 
 ### `evennia migrate` fails with "No module named 'evennia'"
 
-The venv doesn't have Evennia installed. Run OP-1 first — `requirements.txt` includes it.
+The venv doesn't have Evennia installed. Run OP-1 first — the lock includes it.
 
 ### `setup_agent` says "ERROR: No password"
 
