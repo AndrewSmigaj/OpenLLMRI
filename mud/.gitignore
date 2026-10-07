@@ -9,7 +9,8 @@ __pycache__/
 .mypy_cache/
 
 # Evennia runtime artifacts (regenerated locally)
-game/server/logs/
+game/server/logs/*
+!game/server/logs/.gitkeep
 game/server/*.db3
 game/server/conf/secret_settings.py
 game/web/static/
