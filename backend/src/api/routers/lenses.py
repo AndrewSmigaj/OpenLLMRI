@@ -7,7 +7,7 @@ the commits that built and served it, so any figure can be made again exactly.
 """
 
 import json
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Tuple
 
 from fastapi import APIRouter, HTTPException, Request
 from pydantic import BaseModel, Field
@@ -113,10 +113,47 @@ def lens_expert_flows(session_id: str, name: str, rank: int = 1, legacy: bool = 
     view = _open(session_id, name, legacy, version)
     grouped = _axes_list(output_axes)
     try:
-        return expert_flows(view, rank, grouped) | {
+        return expert_flows(view, rank, grouped, _expert_order(view)) | {
             "recipe": _recipe(view, kind="expert", rank=rank, output_axes=grouped or None)}
     except ValueError as e:
         raise _fail(e)
+
+
+_ORDERS: Dict[Tuple[str, str, bool], List[List[int]]] = {}
+
+
+def _expert_order(view: LensView) -> List[List[int]]:
+    """The lens's fixed expert order, computed once per lens (it doesn't depend on the version,
+    only on the routing of its items)."""
+    from services.lenses.experts import expert_order
+
+    key = (view.session_id, view.name, view.legacy)
+    if key not in _ORDERS:
+        if len(_ORDERS) >= 16:
+            _ORDERS.pop(next(iter(_ORDERS)))
+        _ORDERS[key] = expert_order(view)
+    return _ORDERS[key]
+
+
+@router.get("/sessions/{session_id}/lenses/{name}/fingerprint")
+def lens_fingerprint(session_id: str, name: str, legacy: bool = False, version: Optional[str] = None,
+                     layer: Optional[int] = None, node: Optional[int] = None,
+                     axis: Optional[str] = None, value: Optional[str] = None) -> Dict[str, Any]:
+    """A population's mean gate weight on each expert at each layer (each row sums to 1): every
+    item, a node (`layer` and `node`), or an axis value (`axis` and `value`)."""
+    from services.lenses.experts import fingerprint, population
+
+    view = _open(session_id, name, legacy, version)
+    try:
+        mask = population(view, layer=layer, node=node, axis=axis, value=value)
+    except ValueError as e:
+        raise _fail(e)
+    grid = fingerprint(view, mask)
+    who: Dict[str, Any] = ({"layer": layer, "node": node} if node is not None
+                           else {"axis": axis, "value": value} if axis else {})
+    return {"layers": view.layers, "experts": grid.shape[1], "grid": grid.round(5).tolist(),
+            "n_items": int(len(view.items) if mask is None else mask.sum()),
+            "recipe": _recipe(view, kind="fingerprint", **who)}
 
 
 @router.get("/sessions/{session_id}/lenses/{name}/members")

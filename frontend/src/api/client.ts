@@ -16,8 +16,8 @@ import type {
   SentenceExperimentResponse,
 } from '../types/api';
 import type {
-  JobView, LensBuildBody, LensDetail, LensFlows, LensMembersPage, LensMethods, LensOptions, LensSummary,
-  LensVersion, MembersQuery,
+  Fingerprint, JobView, LensBuildBody, LensDetail, LensFlows, LensMembersPage, LensMethods, LensOptions, LensSummary,
+  LensVersion, MembersQuery, Population,
 } from '../types/lens';
 
 const API_BASE_URL = 'http://localhost:8000/api';
@@ -319,6 +319,12 @@ class ConceptMriApiClient {
       if (value !== undefined) params.set(key, String(value));
     }
     return this.request<LensMembersPage>(`/sessions/${sessionId}/lenses/${encodeURIComponent(name)}/members?${params}`);
+  }
+
+  async getLensFingerprint(sessionId: string, name: string, legacy: boolean, who: Population): Promise<Fingerprint> {
+    const params = new URLSearchParams({ legacy: String(legacy) });
+    for (const [key, value] of Object.entries(who)) if (value !== undefined) params.set(key, String(value));
+    return this.request<Fingerprint>(`/sessions/${sessionId}/lenses/${encodeURIComponent(name)}/fingerprint?${params}`);
   }
 
   async getLensTrajectory(sessionId: string, name: string, legacy: boolean): Promise<TrajectoryPointsResponse> {

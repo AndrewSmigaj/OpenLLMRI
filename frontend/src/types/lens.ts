@@ -52,6 +52,7 @@ export interface LensFlows {
   links: FlowLink[]
   output: OutputColumn | null
   assignments?: Record<string, Record<string, number>>
+  order?: number[][] // experts: each layer's experts top to bottom, the same at every rank
   recipe: Record<string, unknown>
 }
 
@@ -183,3 +184,15 @@ export interface LensDetail {
   n_items: number
   manifest?: { suggestions: Record<string, KSuggestion>; versions: string[]; current: string | null } & Record<string, unknown>
 }
+
+// A population's mean gate weight on each expert at each layer; each row sums to 1
+export interface Fingerprint {
+  layers: number[]
+  experts: number
+  grid: number[][]
+  n_items: number
+  recipe: Record<string, unknown>
+}
+
+// Every item, a node at a layer, or an axis value
+export type Population = { layer?: number; node?: number; axis?: string; value?: string }

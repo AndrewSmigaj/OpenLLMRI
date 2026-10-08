@@ -7,7 +7,7 @@ import { GRADIENT_SCHEMES, type GradientScheme } from '../color/scheme'
 export const ZOOMS = [6, 12, 24] as const
 export type Zoom = typeof ZOOMS[number]
 export const RANKS = [1, 2, 3, 4] as const
-export type LowerTab = 'members' | 'output' | 'trajectories'
+export type LowerTab = 'members' | 'output' | 'trajectories' | 'experts'
 
 export interface ViewState {
   session: string
@@ -56,7 +56,7 @@ export function parseView(params: URLSearchParams): ViewState {
     rank: int('rank', DEFAULT_VIEW.rank, n => n >= 1 && n <= 4),
     top: get('top') === 'all' ? null : int('top', DEFAULT_VIEW.top ?? 10, n => n > 0),
     sel: get('sel') ?? '',
-    tab: tab === 'output' || tab === 'trajectories' ? tab : 'members',
+    tab: tab === 'output' || tab === 'trajectories' || tab === 'experts' ? tab : 'members',
   }
 }
 

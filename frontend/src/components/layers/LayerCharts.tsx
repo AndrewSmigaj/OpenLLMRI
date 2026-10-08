@@ -117,7 +117,7 @@ export default function LayerCharts({ cluster, expert, view, update, colours, on
         <div className="h-2" />
         {header('Experts', 'expert', rankPicker)}
         {expert.routes
-          ? <AllLayerSankeyView routes={expert.routes} geometry={geometry} colours={colours} top={view.top}
+          ? <AllLayerSankeyView routes={expert.routes} geometry={geometry} colours={colours} top={view.top} keepOrder
               onSelect={select} onChartReady={chart => { charts.current.expert = chart }} />
           : <Status state={expert} height={height} />}
       </div>

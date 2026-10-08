@@ -23,6 +23,7 @@ interface AllLayerSankeyViewProps {
   geometry: SankeyGeometry
   colours: SankeyColours
   top?: number | null // links kept per layer; null or undefined keeps all
+  keepOrder?: boolean // draw the nodes in the order given (the experts' fixed order)
   onSelect: (selection: string) => void
   onChartReady?: (chart: echarts.ECharts | null) => void
 }
@@ -42,8 +43,8 @@ function topLinks(links: SankeyLink[], n: number): SankeyLink[] {
   return kept
 }
 
-export default function AllLayerSankeyView({ routes, geometry, colours, top, onSelect, onChartReady }: AllLayerSankeyViewProps) {
-  const nodes = useMemo(() => orderByBarycentre(routes.nodes, routes.links), [routes])
+export default function AllLayerSankeyView({ routes, geometry, colours, top, keepOrder, onSelect, onChartReady }: AllLayerSankeyViewProps) {
+  const nodes = useMemo(() => (keepOrder ? routes.nodes : orderByBarycentre(routes.nodes, routes.links)), [routes, keepOrder])
   const links = useMemo(() => (top ? topLinks(routes.links, top) : routes.links), [routes, top])
 
   return (

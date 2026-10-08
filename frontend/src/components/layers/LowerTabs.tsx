@@ -8,6 +8,7 @@ const TABS: { id: LowerTab; label: string }[] = [
   { id: 'members', label: 'Members' },
   { id: 'output', label: 'Output' },
   { id: 'trajectories', label: '3-D trajectories' },
+  { id: 'experts', label: 'Expert fingerprints' },
 ]
 
 interface LowerTabsProps {

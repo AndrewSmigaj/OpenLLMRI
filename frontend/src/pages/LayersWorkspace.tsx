@@ -13,7 +13,7 @@ import { useViewState, ZOOMS, type UpdateView, type ViewState } from '../hooks/u
 import { useShell } from '../components/shell/shellContext'
 import { chartPng, chartSvg, dataJson, download, rowsCsv, sankeyRows, type ExportFormat, type Recipe } from '../utils/exportFigure'
 import { columnsOf, lastFirst, stepsInView } from '../utils/layerGeometry'
-import { membersQuery, parseSelection, probeSelection } from '../utils/selection'
+import { membersQuery, parseNodeId, parseSelection, probeSelection } from '../utils/selection'
 import { cardFor } from '../utils/selectionCard'
 import ColourControls from '../components/layers/ColourControls'
 import ColourLegend from '../components/layers/ColourLegend'
@@ -25,6 +25,7 @@ import FilteredWordDisplay from '../components/FilteredWordDisplay'
 import WindowAnalysis from '../components/analysis/WindowAnalysis'
 import SteppedTrajectoryPlot, { type TrajectoryExport } from '../components/charts/SteppedTrajectoryPlot'
 import ExportMenu from '../components/common/ExportMenu'
+import FingerprintPanel from '../components/layers/FingerprintPanel'
 
 const NO_AXES: DynamicAxis[] = []
 const NO_SENTENCES: ProbeExample[] = []
@@ -73,6 +74,8 @@ function LayersView({ view, update, visitor }: { view: ViewState; update: Update
     // eslint-disable-next-line react-hooks/exhaustive-deps -- view.sel stands for the parsed selection
     [view.sel, cluster.routes, expert.routes, sentences, members.items])
   const selectedProbe = selection?.kind === 'probe' ? selection.probeId : null
+  const pickedNode = selection?.kind === 'node' ? parseNodeId(selection.id) : null
+  const selectedClusterNode = pickedNode?.kind === 'cluster' ? { layer: pickedNode.layer, node: pickedNode.index } : undefined
   const clusterPath = selectedProbe ? routes?.probe_assignments?.[selectedProbe] : undefined
   // Each item's node at a layer, for colouring the 3-D points by what the lens counts
   const nodeOf = useCallback((probeId: string, layer: number) => routes?.probe_assignments?.[probeId]?.[String(layer)],
@@ -125,6 +128,10 @@ function LayersView({ view, update, visitor }: { view: ViewState; update: Update
           labelValues={labelValues} gradient={axes.gradient} />,
     output: <WindowAnalysis routeData={routes} labelValues={labelValues} gradient={axes.gradient}
       windowLabel={`Layer ${layers[layers.length - 1] ?? ''} → generated output`} />,
+    experts: (
+      <FingerprintPanel session={view.session} lens={view.lens} legacy={view.legacy} axes={axes.axisValues}
+        selectedNode={selectedClusterNode} />
+    ),
     trajectories: (
       <div className="space-y-1">
         <div className="flex items-center gap-2 text-xs text-gray-600">

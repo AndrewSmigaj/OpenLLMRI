@@ -108,3 +108,21 @@ def test_the_form_reads_a_captures_options_and_the_methods(client: TestClient) -
     methods = client.get("/api/lenses/methods").json()
     assert [m["id"] for m in methods["k_auto"]] == ["elbow", "silhouette", "levels"]
     assert methods["groupings"][0]["id"] == "ward" and methods["defaults"]["k"] == 6
+
+
+def test_expert_flows_keep_one_order_and_fingerprints_sum_to_one(client: TestClient) -> None:
+    run_job(client, client.post("/api/lenses", json=BODY).json()["job_id"])
+    base = f"/api/sessions/{SESSION}/lenses/synth"
+    first = client.get(f"{base}/expert-flows?rank=1").json()
+    fourth = client.get(f"{base}/expert-flows?rank=4").json()
+    assert first["order"] == fourth["order"] and len(first["order"]) == 3  # one order for every rank
+    place = {(li, e): i for li, column in enumerate(first["order"]) for i, e in enumerate(column)}
+    for flows in (first, fourth):
+        for layer in (0, 1, 2):
+            shown = [n["index"] for n in flows["nodes"] if n["layer"] == layer]
+            assert shown == sorted(shown, key=lambda e: place[(layer, e)])
+    for query in ("", "?layer=1&node=0", "?axis=label&value=a"):
+        got = client.get(f"{base}/fingerprint{query}").json()
+        assert len(got["grid"]) == 3 and all(abs(sum(row) - 1) < 1e-3 for row in got["grid"])
+    assert client.get(f"{base}/fingerprint?axis=label&value=a").json()["n_items"] == 20
+    assert client.get(f"{base}/fingerprint?layer=9&node=0").status_code == 400

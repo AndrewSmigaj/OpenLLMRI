@@ -17,7 +17,8 @@ import numpy as np
 from services.lenses.view import Array, LensView
 
 
-def _value(item: Dict[str, Any], axis: str) -> Optional[str]:
+def value_of(item: Dict[str, Any], axis: str) -> Optional[str]:
+    """An item's value on a designed axis (the label, or one of its categories)."""
     raw = item.get("label") if axis == "label" else item.get("categories", {}).get(axis)
     return None if raw is None else str(raw)
 
@@ -25,7 +26,7 @@ def _value(item: Dict[str, Any], axis: str) -> Optional[str]:
 def axes_of(view: LensView) -> Dict[str, List[str]]:
     """The designed axes (the label and every category) with their values."""
     names = ["label"] + sorted({key for item in view.items for key in item.get("categories", {})})
-    found = {name: sorted({v for item in view.items if (v := _value(item, name)) is not None})
+    found = {name: sorted({v for item in view.items if (v := value_of(item, name)) is not None})
              for name in names}
     return {name: values for name, values in found.items() if values}
 
@@ -33,7 +34,7 @@ def axes_of(view: LensView) -> Dict[str, List[str]]:
 def _counts(view: LensView, members: Array, axes: Dict[str, List[str]]) -> Dict[str, Dict[str, int]]:
     out: Dict[str, Dict[str, int]] = {}
     for axis in axes:
-        tally = Counter(v for i in members if (v := _value(view.items[int(i)], axis)) is not None)
+        tally = Counter(v for i in members if (v := value_of(view.items[int(i)], axis)) is not None)
         out[axis] = dict(sorted(tally.items()))
     return out
 
@@ -125,11 +126,18 @@ def cluster_flows(view: LensView, output_axes: Sequence[str] = ()) -> Dict[str, 
     return out
 
 
-def expert_flows(view: LensView, rank: int = 1, output_axes: Sequence[str] = ()) -> Dict[str, Any]:
-    """Each item's expert at `rank` (1 to 4) per layer, with the model's own mean weight per node."""
+def expert_flows(view: LensView, rank: int = 1, output_axes: Sequence[str] = (),
+                 order: Optional[List[List[int]]] = None) -> Dict[str, Any]:
+    """Each item's expert at `rank` (1 to 4) per layer, with the model's own mean weight per node.
+    With `order` (each layer's experts top to bottom), the nodes come in that order."""
     if not 1 <= rank <= view.experts.shape[-1]:
         raise ValueError(f"rank must be 1 to {view.experts.shape[-1]}, got {rank}")
-    return _flows(view, view.experts[:, :, rank - 1], "E", "expert", view.weights[:, :, rank - 1], output_axes)
+    out = _flows(view, view.experts[:, :, rank - 1], "E", "expert", view.weights[:, :, rank - 1], output_axes)
+    if order is not None:
+        place = {(layer, expert): i for li, layer in enumerate(view.layers) for i, expert in enumerate(order[li])}
+        out["nodes"].sort(key=lambda node: (node["layer"], place.get((node["layer"], node["index"]), 10**6)))
+        out["order"] = order
+    return out
 
 
 def members(view: LensView, layer: int, node: Optional[int] = None, expert: Optional[int] = None,
