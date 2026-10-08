@@ -16,3 +16,6 @@ MUD_WS_URL = f"ws://localhost:{os.environ.get('MUD_WS_PORT') or '4002'}"
 
 # The scenario library: one copy, read by the MUD (mounted into its container) and by the runner.
 SCENARIO_LIBRARY = _project_root / "data" / "scenarios"
+
+# Background jobs (lens builds, LLM report runs): one folder per job, in the lake.
+JOBS_PATH = DATA_LAKE_PATH / "_jobs"
