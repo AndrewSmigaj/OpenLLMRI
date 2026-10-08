@@ -56,8 +56,10 @@ class HubRoom(InstituteRoom):
 class LabRoom(InstituteRoom):
     """A lab that shows one capture. Entering sends its preset (data/labs/<db.preset>.yaml: the
     session, the clustering and the panels' settings), so the app loads that view. `micro_world` is
-    the app's name for a room that fixes the session shown: its toolbar locks the session picker."""
+    the app's name for a room that fixes the session shown: its toolbar locks the session picker.
+    Its `lens` command lists, shows and builds the capture's lenses."""
     room_type = "micro_world"
+    character_cmdset = "commands.institute.cmdset.LabCharacterCmdSet"
 
     def preset(self) -> dict:
         """The lab's preset file, read on every entry so an edit applies without a rebuild."""

@@ -2,6 +2,7 @@
 // as a schema summary, and for a legacy schema its /analyze reports and written descriptions.
 import { useEffect, useState } from 'react'
 import { apiClient } from '../api/client'
+import { useShell } from '../components/shell/shellContext'
 import type { ClusteringSchema, SessionDetailResponse } from '../types/api'
 import type { LensSummary } from '../types/lens'
 import { lensAsSchema } from '../utils/lensAsSchema'
@@ -18,6 +19,7 @@ const EMPTY: LensContext = { details: null, summary: undefined, reports: {}, des
 
 export function useLensContext(session: string, lens: string, legacy: boolean): LensContext {
   const [context, setContext] = useState<LensContext>(EMPTY)
+  const { events } = useShell() // a lens change (validated, worked out, cut, saved) reads the listing again
 
   useEffect(() => {
     let current = true
@@ -44,7 +46,7 @@ export function useLensContext(session: string, lens: string, legacy: boolean): 
         .catch(() => undefined)
     }
     return () => { current = false }
-  }, [session, lens, legacy])
+  }, [session, lens, legacy, events.lensRevision])
 
   return context
 }

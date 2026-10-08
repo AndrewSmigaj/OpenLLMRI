@@ -5,7 +5,6 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { apiClient } from '../api/client'
 import type { LensMethods, LensOptions, LensSummary } from '../types/lens'
-import { useJobs } from '../hooks/useJobs'
 import { useViewState, viewQuery } from '../hooks/useViewState'
 import { lensAsSchema } from '../utils/lensAsSchema'
 import SchemaSummary from '../components/analysis/SchemaSummary'
@@ -22,10 +21,9 @@ import { useShell } from '../components/shell/shellContext'
 
 export default function BuildWorkspace() {
   const [view] = useViewState()
-  const { room } = useShell()
+  const { room, events } = useShell()
   const visitor = room?.role === 'visitor' // visitors only look
   const navigate = useNavigate()
-  const jobs = useJobs()
   const [lenses, setLenses] = useState<LensSummary[] | null>(null)
   const [options, setOptions] = useState<LensOptions | null>(null)
   const [methods, setMethods] = useState<LensMethods | null>(null)
@@ -56,7 +54,7 @@ export default function BuildWorkspace() {
       .then(found => { if (current) setLenses(found) })
       .catch(() => { if (current) setLenses([]) })
     return () => { current = false }
-  }, [view.session, jobs.finished, reload])
+  }, [view.session, events.lensRevision, reload])
 
   if (!view.session) {
     return <div className="m-4 text-xs text-slate-700">Choose a capture in the top bar to build a lens on it.</div>

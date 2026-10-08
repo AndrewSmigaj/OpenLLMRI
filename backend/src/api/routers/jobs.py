@@ -23,7 +23,7 @@ def _scheduler(request: Request) -> JobScheduler:
     return scheduler
 
 
-def _view(scheduler: JobScheduler, job: Job) -> JobView:
+def job_view(scheduler: JobScheduler, job: Job) -> JobView:
     tail = scheduler.store.log_tail(job.id) if job.state in ("failed", "interrupted") else None
     return JobView(**job.model_dump(), log_tail=tail)
 
@@ -38,14 +38,14 @@ def list_jobs(request: Request, active: bool = False) -> List[JobView]:
     """Every job, newest first; `active=true` keeps only queued and running ones."""
     scheduler = _scheduler(request)
     jobs = [j for j in reversed(scheduler.store.list()) if not active or j.state in ACTIVE_STATES]
-    return [_view(scheduler, j) for j in jobs]
+    return [job_view(scheduler, j) for j in jobs]
 
 
 @router.get("/jobs/{job_id}", response_model=JobView)
 def get_job(request: Request, job_id: str) -> JobView:
     scheduler = _scheduler(request)
     _known(scheduler, job_id)
-    return _view(scheduler, scheduler.store.load(job_id))
+    return job_view(scheduler, scheduler.store.load(job_id))
 
 
 @router.post("/jobs/{job_id}/cancel", response_model=JobView)
@@ -53,4 +53,4 @@ def cancel_job(request: Request, job_id: str) -> JobView:
     """Cancel a queued job at once, or stop a running one (its whole process group)."""
     scheduler = _scheduler(request)
     _known(scheduler, job_id)
-    return _view(scheduler, scheduler.cancel(job_id))
+    return job_view(scheduler, scheduler.cancel(job_id))

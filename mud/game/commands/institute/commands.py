@@ -3,7 +3,8 @@
 `simulator` lists the library's sets, or one set's scenarios; `simulate` loads a scenario, or enters a
 world. Loading a staged scenario calls the same function as the backend's control channel
 (typeclasses.staged.instances.load_scenario). `agent` asks the backend to run the model on scenarios
-from the library: the backend owns the GPU and runs one agent at a time.
+from the library: the backend owns the GPU and runs one agent at a time. In a lab, `lens` lists,
+shows and builds the lab capture's lenses through the backend.
 """
 from __future__ import annotations
 
@@ -142,10 +143,12 @@ class BackendError(Exception):
     pass
 
 
-def _post(path: str, payload: dict) -> dict:
-    """POST JSON to the backend and return its reply; a refusal raises with the backend's reason."""
-    request = urllib.request.Request(backend_url() + path, data=json.dumps(payload).encode(),
-                                     headers={"Content-Type": "application/json"}, method="POST")
+def _request(path: str, payload: dict | None):
+    """POST JSON to the backend (GET when there's no payload) and return its reply; a refusal
+    raises with the backend's reason."""
+    data = json.dumps(payload).encode() if payload is not None else None
+    request = urllib.request.Request(backend_url() + path, data=data, headers={"Content-Type": "application/json"},
+                                     method="GET" if data is None else "POST")
     try:
         with urllib.request.urlopen(request, timeout=30) as reply:
             return json.loads(reply.read().decode())
@@ -159,10 +162,11 @@ def _post(path: str, payload: dict) -> dict:
         raise BackendError(f"can't reach the backend at {backend_url()} ({err.reason})") from err
 
 
-def ask_backend(path: str, payload: dict, on_reply, on_error) -> None:
-    """Call the backend off the server's thread; the callbacks run back on it."""
+def ask_backend(path: str, payload: dict | None, on_reply, on_error) -> None:
+    """Call the backend off the server's thread (a GET when `payload` is None); the callbacks run
+    back on it."""
     from twisted.internet.threads import deferToThread
-    deferred = deferToThread(_post, path, payload)
+    deferred = deferToThread(_request, path, payload)
     deferred.addCallbacks(on_reply, lambda failure: on_error(str(failure.value)))
 
 
@@ -238,3 +242,142 @@ class CmdAgent(Command):
 
         ask_backend("/api/agent/stop", {"session_id": session_id}, stopped,
                     lambda reason: caller.msg(f"The backend didn't stop it: {reason}"))
+
+
+LENS_POLL_S = 3  # seconds between checks on a build
+LENS_POLL_LIMIT = 400  # checks before giving up on following it (20 minutes)
+
+
+def open_in_app(character, session: str, lens: str, legacy: bool, workspace: str = "layers") -> None:
+    """Show a lens in this character's app (the app's `app_command`, DESIGN.md E7)."""
+    view = {"session": session, "lens": lens, "legacy": legacy, "workspace": workspace}
+    character.msg(app_command=[{"verb": "show", "view": view}])
+
+
+def follow_build(character, job_id: str, session: str, name: str, polls: int = 0) -> None:
+    """Check a build until it ends; then tell the builder, and open the lens in their app."""
+    from evennia.utils.utils import delay
+
+    def seen(job: dict) -> None:
+        state = job.get("state")
+        if state == "done":
+            character.msg(f"Lens |w{name}|n is built.")
+            open_in_app(character, session, name, legacy=False)
+        elif state in ("failed", "cancelled", "interrupted"):
+            character.msg(f"The build of {name} {state}. {job.get('error') or ''}".strip())
+        elif polls >= LENS_POLL_LIMIT:
+            character.msg(f"Still building {name}; |wlens list|n shows it once it's done.")
+        else:
+            delay(LENS_POLL_S, follow_build, character, job_id, session, name, polls + 1)
+
+    ask_backend(f"/api/jobs/{job_id}", None, seen,
+                lambda reason: character.msg(f"Lost track of the build of {name}: {reason}"))
+
+
+def _lens_line(lens: dict) -> str:
+    """One lens in `lens list`."""
+    if lens.get("legacy"):
+        return f"  |w{lens['name']}|n  a legacy schema"
+    if lens.get("kind") == "mass_mean":
+        return f"  |w{lens['name']}|n  a mass-mean axis"
+    ks = sorted(set(lens.get("k_per_layer") or []))
+    k = f"k {ks[0]}" if len(ks) == 1 else (f"k {ks[0]} to {ks[-1]}" if ks else "k ?")
+    marks = [m for m, on in (("validated", lens.get("validation")), ("saved", lens.get("state") == "saved")) if on]
+    return f"  |w{lens['name']}|n  {k}" + (f", {', '.join(marks)}" if marks else "")
+
+
+def build_settings(text: str, defaults: dict) -> dict:
+    """`k=5 n=15 dims=6 as <name>` over the lab's defaults, as the backend's build takes them."""
+    settings = {"k": int(defaults.get("k", 5)), "n_neighbors": int(defaults.get("n_neighbors", 15)),
+                "dimensions": int(defaults.get("dimensions", 6))}
+    words, name = text.split(), None
+    if "as" in words:
+        at = words.index("as")
+        if at + 1 >= len(words):
+            raise ValueError("Name the lens after |was|n.")
+        name, words = words[at + 1], words[:at] + words[at + 2:]
+    keys = {"k": "k", "n": "n_neighbors", "dims": "dimensions"}
+    for word in words:
+        key, eq, value = word.partition("=")
+        if not eq or key not in keys or not value.isdigit():
+            raise ValueError(f"I don't understand {word!r}: use k=, n=, dims= and |was <name>|n.")
+        settings[keys[key]] = int(value)
+    dims = "" if settings["dimensions"] == 6 else f"-d{settings['dimensions']}"
+    settings["name"] = name or f"lab-k{settings['k']}-n{settings['n_neighbors']}{dims}"
+    return settings
+
+
+class CmdLens(Command):
+    """The lab's lenses, through the backend.
+
+    Usage:
+      lens                                        what the lab shows
+      lens list                                   the lab capture's lenses
+      lens show <name>                            open one in your app
+      lens build [k=] [n=] [dims=] [as <name>]    build one in the background (researchers)
+
+    A build's defaults come from the lab's preset: k, the UMAP neighbours (n) and its dimensions
+    (dims). Your app opens the lens when it's built.
+    """
+    key = "lens"
+    locks = "cmd:all()"
+
+    def func(self):
+        room = self.caller.location
+        preset = room.preset() if hasattr(room, "preset") else {}
+        session = preset.get("session_id")
+        if not session:
+            self.caller.msg("This room shows no capture.")
+            return
+        verb, _, rest = self.args.strip().partition(" ")
+        if not verb:
+            self.caller.msg(f"This lab shows {preset.get('clustering_schema') or 'a capture'} of {session}. "
+                            "|wlens list|n, |wlens show <name>|n, |wlens build [k=] [n=] [dims=] [as <name>]|n")
+        elif verb == "list":
+            self._listed(session, self._list)
+        elif verb == "show" and rest.strip():
+            self._listed(session, lambda lenses: self._show(session, rest.strip(), lenses))
+        elif verb == "build":
+            self._build(session, preset, rest.strip())
+        else:
+            self.caller.msg("Usage: |wlens|n, |wlens list|n, |wlens show <name>|n or "
+                            "|wlens build [k=] [n=] [dims=] [as <name>]|n")
+
+    def _listed(self, session: str, then) -> None:
+        caller = self.caller
+        ask_backend(f"/api/sessions/{session}/lenses", None, then,
+                    lambda reason: caller.msg(f"The backend didn't answer: {reason}"))
+
+    def _list(self, lenses: list) -> None:
+        lines = [_lens_line(lens) for lens in lenses]
+        self.caller.msg("\n".join(["The lab capture's lenses:", *lines]) if lines else "No lenses on this capture yet.")
+
+    def _show(self, session: str, name: str, lenses: list) -> None:
+        found = next((lens for lens in lenses if lens.get("name") == name), None)
+        if found is None:
+            self.caller.msg(f"No lens {name!r} here: |wlens list|n shows them.")
+            return
+        open_in_app(self.caller, session, name, bool(found.get("legacy")),
+                    workspace="build" if found.get("kind") == "mass_mean" else "layers")
+        self.caller.msg(f"Opening {name} in your app.")
+
+    def _build(self, session: str, preset: dict, rest: str) -> None:
+        caller = self.caller
+        if role_of(caller) != "researcher":
+            caller.msg("Only researchers can build lenses. |wlens show <name>|n opens one.")
+            return
+        try:
+            settings = build_settings(rest, preset.get("lens_defaults") or {})
+        except ValueError as err:
+            caller.msg(str(err))
+            return
+        name = settings["name"]
+        payload = {"verb": "build", "by": f"mud:{caller.key}", "lens": {"session_id": session, **settings}}
+
+        def started(reply: dict) -> None:
+            caller.msg(f"Building |w{name}|n in the background; your app opens it when it's built.")
+            follow_build(caller, reply["job_id"], reply.get("session_id") or session, name)
+
+        caller.msg(f"Asking the backend to build {name} (k {settings['k']}, n {settings['n_neighbors']}, "
+                   f"dims {settings['dimensions']})...")
+        ask_backend("/api/commands", payload, started, lambda reason: caller.msg(f"The backend didn't build it: {reason}"))

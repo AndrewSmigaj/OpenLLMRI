@@ -18,6 +18,7 @@ load_dotenv(_PROJECT_ROOT / ".env")
 
 import asyncio
 import logging
+import os
 from contextlib import asynccontextmanager
 from typing import Any, AsyncIterator, Dict
 
@@ -27,12 +28,14 @@ import torch
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from api.app_events import AppEvents, watch_jobs
 from api.config import JOBS_PATH
 from api.dependencies import get_loading_status, initialize_capture_service, is_model_loaded
 from api.routers import (
     agent,
     analysis,
     clustering,
+    commands,
     generation,
     insights,
     jobs,
@@ -54,18 +57,24 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
     scheduler = JobScheduler(JobStore(JOBS_PATH))
     scheduler.adopt()  # workers outlive a restart
     app.state.jobs = scheduler
+    app.state.events = AppEvents()  # the open apps' event stream (GET /api/app/events)
     ticking = asyncio.create_task(scheduler.run())
+    watching = asyncio.create_task(watch_jobs(scheduler, app.state.events))
     yield
     ticking.cancel()  # running workers carry on; the next start re-adopts them
+    watching.cancel()
     logger.info("Shutting down Concept MRI API")
 
 # Create FastAPI app
 app = FastAPI(title="Concept MRI API", version="1.0", lifespan=lifespan)
 
-# Add CORS for frontend
+# Only the app may call the API from a browser (APP_ORIGINS in the root .env, comma separated). The
+# MUD calls it from its server and Claude Code with curl, neither of which CORS concerns.
+APP_ORIGINS = [origin.strip() for origin in
+               os.environ.get("APP_ORIGINS", "http://localhost:5173,http://127.0.0.1:5173").split(",") if origin.strip()]
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=APP_ORIGINS,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -82,6 +91,7 @@ app.include_router(agent.router, prefix="/api")
 app.include_router(jobs.router, prefix="/api")
 app.include_router(lenses.router, prefix="/api")
 app.include_router(analysis.router, prefix="/api")
+app.include_router(commands.router, prefix="/api")
 
 @app.get("/")
 async def root() -> Dict[str, str]:

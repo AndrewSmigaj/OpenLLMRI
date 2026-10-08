@@ -8,7 +8,8 @@ import type { LensSummary } from '../../types/lens'
 import type { RoomContext } from '../../types/evennia'
 import type { ConnectionStatus } from '../../hooks/useEvennia'
 import { DEFAULT_VIEW, type UpdateView, type ViewState } from '../../hooks/useViewState'
-import { useJobs } from '../../hooks/useJobs'
+import type { AppEvents } from '../../hooks/useAppEvents'
+import { activeJobs } from '../../utils/jobs'
 import JobsMenu from './JobsMenu'
 
 interface TopBarProps {
@@ -16,6 +17,7 @@ interface TopBarProps {
   update: UpdateView
   room: RoomContext | null
   mudStatus: ConnectionStatus
+  events: AppEvents // live jobs and lens changes
 }
 
 const ctrl = 'px-2 py-1 text-xs border border-gray-300 rounded bg-white disabled:bg-gray-100 disabled:text-gray-400'
@@ -24,10 +26,9 @@ const STATUS_DOT: Record<ConnectionStatus, string> = {
 }
 const lensKey = (legacy: boolean, name: string) => `${legacy ? 'legacy' : 'lens'}:${name}`
 
-export default function TopBar({ view, update, room, mudStatus }: TopBarProps) {
+export default function TopBar({ view, update, room, mudStatus, events }: TopBarProps) {
   const [sessions, setSessions] = useState<SessionListItem[]>([])
   const [lenses, setLenses] = useState<LensSummary[]>([])
-  const jobs = useJobs()
   const { search } = useLocation()
   const visitor = room?.role === 'visitor'
   const locked = room?.roomType === 'micro_world'
@@ -36,7 +37,7 @@ export default function TopBar({ view, update, room, mudStatus }: TopBarProps) {
     apiClient.listSessions().then(setSessions).catch(() => setSessions([]))
   }, [])
 
-  // The lens list reloads when a job ends, so a new build shows up
+  // The lens list reloads when a lens changes, so a new build shows up
   useEffect(() => {
     if (!view.session) { setLenses([]); return }
     let current = true
@@ -44,7 +45,7 @@ export default function TopBar({ view, update, room, mudStatus }: TopBarProps) {
       .then(found => { if (current) setLenses(found) })
       .catch(() => { if (current) setLenses([]) })
     return () => { current = false }
-  }, [view.session, jobs.finished])
+  }, [view.session, events.lensRevision])
 
   const chooseSession = (session: string) => update({
     ...DEFAULT_VIEW, session, zoom: view.zoom, tab: view.tab,
@@ -95,7 +96,7 @@ export default function TopBar({ view, update, room, mudStatus }: TopBarProps) {
         </select>
       </label>
       <div className="flex-1" />
-      <JobsMenu jobs={jobs.active} canCancel={!visitor} />
+      <JobsMenu jobs={activeJobs(events.jobs)} canCancel={!visitor} />
       {room && (
         <span className={`text-[10px] font-medium rounded px-1.5 py-0.5 border ${visitor
           ? 'bg-amber-100 text-amber-800 border-amber-300' : 'bg-green-100 text-green-800 border-green-300'}`}>

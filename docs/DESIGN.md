@@ -816,6 +816,10 @@ LLMs are good at spotting patterns in this data, such as pipes, hubs and split p
 | the simulator | `simulate <set> [<scenario>]` | play a scenario yourself. It opens with what the agent sees: the room, your inventory and the choices. Researchers only |
 | the simulator | `agent run <set> [<scenario>]` | have the agent play scenarios while its activations are captured. Without a scenario it plays the whole set. Researchers only |
 | the simulator | `agent stop` | stop the agent's run |
+| the polysemy lab | `lens` | say what the lab shows |
+| the polysemy lab | `lens list` | list the lab capture's lenses |
+| the polysemy lab | `lens show <name>` | open a lens in your app |
+| the polysemy lab | `lens build [k=] [n=] [dims=] [as <name>]` | build a lens in the background, with the lab's defaults for anything not given; your app opens it when it's built. Researchers only |
 | a staged scenario | `look`, `examine <thing>`, `inventory` | read the situation |
 | a staged scenario | `actions` | list the choices |
 | a staged scenario | a choice's command | take that choice |

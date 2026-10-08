@@ -11,6 +11,12 @@ description: >
 session_id: session_1434a9be
 clustering_schema: tank_polysemy_k6_n20
 
+# What `lens build` uses unless told otherwise: k, the UMAP neighbours and its dimensions
+lens_defaults:
+  k: 5
+  n_neighbors: 15
+  dimensions: 6
+
 # The panels' settings (the app's view preset)
 viz_preset:
   primary_axis: label

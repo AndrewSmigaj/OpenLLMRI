@@ -35,6 +35,13 @@ def _open(session_id: str, name: str, legacy: bool, version: Optional[str]) -> L
         raise _fail(e)
 
 
+def _announce(request: Request, session_id: str, name: str, change: str) -> None:
+    """Tell the open apps a lens changed (the event stream's `lens` event)."""
+    events = getattr(request.app.state, "events", None)
+    if events is not None:
+        events.publish("lens", {"session_id": session_id, "name": name, "change": change})
+
+
 def _axes_list(raw: Optional[str]) -> List[str]:
     return [axis for axis in (raw or "").split(",") if axis]
 
@@ -239,7 +246,7 @@ class SaveRequest(BaseModel):
 
 
 @router.post("/sessions/{session_id}/lenses/{name}/versions")
-def new_lens_version(session_id: str, name: str, body: VersionRequest) -> Dict[str, Any]:
+def new_lens_version(request: Request, session_id: str, name: str, body: VersionRequest) -> Dict[str, Any]:
     """Cut the saved trees at a new k (by hand, per layer, or a named method): a new draft version."""
     from services.lenses.store import lens_dir, read_manifest
     from services.lenses.versions import heldout_best, new_version, resolve_k
@@ -253,9 +260,11 @@ def new_lens_version(session_id: str, name: str, body: VersionRequest) -> Dict[s
             suggestions = {layer: found | ({"heldout": best[layer]} if layer in best else {})
                            for layer, found in suggestions.items()}
         ks, sources = resolve_k(manifest.layers, suggestions, body.k, body.k_per_layer, body.k_auto)
-        return new_version(folder, ks, sources).model_dump()
+        record = new_version(folder, ks, sources).model_dump()
     except (FileNotFoundError, ValueError) as e:
         raise _fail(e)
+    _announce(request, manifest.session_id, name, "version")
+    return record
 
 
 class ValidateRequest(BaseModel):
@@ -428,6 +437,7 @@ def save_lens_version(request: Request, session_id: str, name: str, body: SaveRe
         job = scheduler.submit("lens_analysis", {"session_id": session_id, "name": name, "version": body.version,
                                                  "budget": body.analysis_budget}, created_by=body.created_by)
         record["analysis_job_id"] = job.id
+    _announce(request, session_id, name, "saved")
     return record
 
 

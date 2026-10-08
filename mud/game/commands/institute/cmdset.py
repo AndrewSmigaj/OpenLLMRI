@@ -2,7 +2,8 @@
 
 Every institute room: the stock character commands, plus `watch` and `unwatch` (follow a character
 into the scenarios it plays). The simulator adds `simulator` (browse the scenario library),
-`simulate` (load from it) and `agent` (run the model on scenarios, through the backend)."""
+`simulate` (load from it) and `agent` (run the model on scenarios, through the backend). A lab adds
+`lens` (list, show and build the lab capture's lenses, through the backend)."""
 from commands.default_cmdsets import CharacterCmdSet
 
 
@@ -12,6 +13,13 @@ class InstituteCharacterCmdSet(CharacterCmdSet):
         from commands.watching import CmdUnwatch, CmdWatch
         self.add(CmdWatch())
         self.add(CmdUnwatch())
+
+
+class LabCharacterCmdSet(InstituteCharacterCmdSet):
+    def at_cmdset_creation(self):
+        super().at_cmdset_creation()
+        from commands.institute.commands import CmdLens
+        self.add(CmdLens())
 
 
 class SimulatorCharacterCmdSet(InstituteCharacterCmdSet):

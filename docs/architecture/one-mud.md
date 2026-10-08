@@ -101,7 +101,9 @@ every earlier commit.
     simulator;
   - **a lab** (`micro_world`, the app's name for a room that fixes the session shown) adds its preset
     from `data/labs/<name>.yaml`: `session_id`, `clustering_schema` and `viz_preset`, read on every
-    entry. The polysemy lab shows `tank_polysemy_k6_n20` of `session_1434a9be`;
+    entry. The polysemy lab shows `tank_polysemy_k6_n20` of `session_1434a9be`. Its `lens`
+    command lists, shows and builds the capture's lenses through the backend (section 6), with
+    the preset's `lens_defaults` for a build; everyone lists and shows, researchers build;
   - **the simulator** (`simulator`): `simulator` lists the library's sets, or one set's scenarios;
     `simulate <set>[/<subset>] [<scenario>]` loads a staged scenario and shows what the agent sees at
     its start, the room, the inventory and the choices (`leave` comes back); or it enters a world
@@ -213,7 +215,15 @@ The simulator's console command calls the same function a person uses.
 
 **The other direction:** the simulator's `agent` command calls the backend's HTTP API
 (`/api/agent/start`, `/api/agent/stop`; `BACKEND_URL`, the host as seen from the MUD's container),
-off the server's thread. The backend still owns the GPU and refuses a second run.
+off the server's thread. The backend still owns the GPU and refuses a second run. The lab's `lens`
+command does the same: it reads the capture's lenses (`/api/sessions/<id>/lenses`), sends `build`
+through the backend's command interface (`/api/commands`, DESIGN.md E7), and checks the job
+(`/api/jobs/<id>`) until it ends.
+
+**The MUD to a player's app:** `app_command [{verb, view}]` asks that player's app to show a view
+(`verb: show`; the view as the app's view state names it, plus `workspace`). The app's terminal is
+the player's connection, so it reaches only that player; `lens show` and a finished `lens build`
+send it.
 
 ## 7. Fresh instances
 
