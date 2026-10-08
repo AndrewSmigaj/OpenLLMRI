@@ -2,7 +2,7 @@
 
 **Status:** a draft for Andrew's review (2026-10-07). Nothing new is built until he approves it.
 
-**Review progress:** Parts A to I reviewed with Andrew (2026-10-07). Still open: L3, L9, L14.
+**Review progress:** Parts A to J reviewed with Andrew (2026-10-07). Still open: L3, L9.
 
 **Contents:**
 - How this document works
@@ -104,7 +104,7 @@
 | **presence** | whether a lens's concept is represented in a state at all |
 | **position** | which class a reading leans to, and how far |
 | **study** | a research question with its sets, runs, lenses, analyses and findings, kept as files in the repo |
-| **atlas** | catalogues of nodes, experts and routes, each entry with a written report |
+| **atlas** | catalogues of nodes, experts, routes and analysed scaffolds, each entry with a written report |
 | **paradigm** | the accepted findings, drawn as a map: facts about atlas entries, and links between them (H) |
 | **the paper** | Andrew's context-shift paper (`docs/studies/context_shift/`): how a reading changes when the context switches meaning |
 | **lens catalogue** | the first research the software carries: building validated lenses for many candidate contrasts |
@@ -427,7 +427,7 @@ MUD or through Claude Code (F3). It follows a run in progress one saved tick at 
 | **Watch** | follow one run, live or recorded | new |
 | **Study** | compare many runs | new |
 | **MUD** | maintain the MUD and design scenarios, with Claude agents' help | new |
-| **Atlas** | browse nodes, experts and routes, with their reports, and the paradigm's map | later |
+| **Atlas** | browse nodes, experts, routes and analysed scaffolds, with their reports, and the paradigm's map | later |
 | **Ideas** | track every research idea, generate new ones, follow the AI scientists. The idea evolver's engine moves into this repo | later [Decided, 2026-10-04] |
 
 **E2. Rules for every screen:**
@@ -464,7 +464,8 @@ MUD or through Claude Code (F3). It follows a run in progress one saved tick at 
 - **The scenario builder** [Decided, 2026-10-07]:
   - it lists scenario sets and their versions;
   - you edit a scenario's stages, actions and labels, and validate them;
-  - you play it yourself in the simulator, or have the agent play it;
+  - it opens the MUD terminal with the command ready: you play the scenario yourself (`simulate`)
+    or start the agent on it (`agent run`), so runs still start in the MUD [Decided, 2026-10-07];
   - Claude agents can draft scenarios to instructions;
   - a mini-world builder comes later, with Claude agents and skills.
 - **The lens builder** [Decided, 2026-10-07]:
@@ -700,7 +701,7 @@ LLMs are good at spotting patterns in this data, such as pipes, hubs and split p
 | Watch | a comparison report for runs side by side | Decided, 2026-10-07 |
 | Study | a study report on crossings, and on the differences between conditions | Decided, 2026-10-07 |
 | Atlas | reports connecting lenses, such as an expert or pipe that serves several of them: the start of the coherent model | Decided, 2026-10-07 |
-| Scaffold catalogue (I) | a report for each analysed scaffold, across its types of analysis | Decided, 2026-10-07 |
+| Atlas | a report for each analysed scaffold, across its types of analysis (I) | Decided, 2026-10-07 |
 | Ideas | what to probe next, from the gaps in the atlas | Decided, 2026-10-07 |
 | MUD (later) | a guide in each lab who answers questions about the lab's view from the cards | Decided, 2026-10-07 |
 
@@ -770,6 +771,7 @@ watcher does reaches the agent.
 - **The libraries:**
   - sentence sets and scenario sets, each set in its own folder for its study [Decided,
     2026-10-06];
+  - scaffolds too, as versioned files (I) [Decided, 2026-10-07];
   - scenario sets have versions, guides and provenance. Studies cite a set as `set@version`, and a
     set used by a finished study is never changed [Built].
 - **Studies, lenses, findings and the paradigm are files in the repo** [Decided, 2026-10-06].
@@ -796,13 +798,14 @@ watcher does reaches the agent.
 
 ## Part H — The atlas and the paradigm
 
-- **The atlas has three catalogues** [Decided, 2026-10-06], each entry with a report written by a
-  Claude agent:
+- **The atlas has four catalogues** [Decided, 2026-10-06; scaffolds added 2026-10-07], each entry
+  with a report written by a Claude agent:
   - **nodes:** every node of every validated lens, layer by layer;
   - **experts:** all 24 × 32;
   - **routes:** pipelines and hubs, built from all four of each token's experts and weighted by the
     model's own weights [Decided, 2026-10-07]. Today's routes follow only the top-1 expert; the
-    top-1 Sankey stays as one view of them.
+    top-1 Sankey stays as one view of them;
+  - **scaffolds:** every analysed scaffold, with its analyses (I).
 - **Time adds node dynamics** [Decided, 2026-10-07]: how long runs stay in a node, what comes before
   and after it, and what the model does while in it. Runs that stay in a node for several steps show
   a state the model holds; runs that cross it in one step show a passage. This is how a question
@@ -834,6 +837,7 @@ questions, not findings.
 | shared direction | Do one set's threat axis and another's danger axis point the same way? | the angle between two mass-mean axes |
 | shared machinery | Do two concepts' tokens take the same pipes and hubs? | the expert and route catalogues |
 | use in decisions | Does the reading predict the action, and does steering it change the action? | behaviour by reading (E6) and steering a node (I) |
+| changes | Does a scaffold make a concept form earlier in a run, or suppress a writing style? | the condition comparison, against the scaffold's neutral texts (I) |
 
 ## Part I — Interventions and conditions
 
@@ -867,7 +871,7 @@ questions, not findings.
     runs, so it can't be hooked, but that path reads the bias on every call.
 - **A catalogue of analysed scaffolds** [Decided, 2026-10-07]: each scaffold with its reports and
   different types of analysis.
-  - **Its shape** [Proposed]:
+  - **Its shape** [Decided, 2026-10-07]:
     - the analyses: what the scaffold changes in each lens's readings, and when in a run; in
       routes; and in behaviour, including the style of what the agent writes. Each is measured
       against the scaffold's neutral controls;
@@ -879,7 +883,8 @@ questions, not findings.
 ## Part J — User stories
 
 Stories 1–6 come from the time design; 7–11 were added in its review, which Andrew asked to see
-[2026-10-07]; 12–15 come from his 2026-10-07 requests. The steps in each are [Proposed].
+[2026-10-07]; 12–15 come from his 2026-10-07 requests; 16–19 cover decisions in Parts C, E, H and
+I. The steps in each are [Decided, 2026-10-07].
 
 1. **An agent study.** People-assessment scenarios with and without a reveal, as scripted runs.
    - Study shows the reading at each tick against the bands, and the would-be actions.
@@ -899,8 +904,8 @@ Stories 1–6 come from the time design; 7–11 were added in its review, which 
    rows.
 9. **Follow the reasoning.** Open a tick in Watch's heatmap and see, sentence by sentence, where each
    lens's reading shifts.
-10. **From a moment to the layers.** Click a cell in the heatmap; the four Sankey panels show that
-    word's path through each lens's nodes and experts.
+10. **From a moment to the layers.** Click a cell in the heatmap; the lens panels show that word's
+    path through each lens's nodes and experts.
 11. **Hand a study to an analyst.** Export a study's readings and events; a Claude analyst writes the
     report, and its numbers are re-checked.
 12. **Create a new polysemy sentence set in the app.**
@@ -913,6 +918,18 @@ Stories 1–6 come from the time design; 7–11 were added in its review, which 
 14. **Build a kit for Winter Survival.** Choose its lenses and their keywords, and check each lens
     is validated where it will be read.
 15. **Visit as a guest.** `connect guest`, then `watch agent`, and read the run as it plays.
+16. **Join two lenses.** Read the danger lens on the animal-taxonomy set and see which animals land
+    where. An AI scientist proposes an overlap link, others attack it and vote, and once you
+    accept it, it appears on the map.
+17. **Analyse a scaffold.** From Claude Code, run one scenario set four ways, paired: no scaffold,
+    the scaffold, and two neutral texts of the same length. Study shows what the scaffold changed
+    beyond the neutral texts. A Claude agent writes its report, and the scaffold joins the atlas.
+18. **Check a finding by steering.** Before a key finding is accepted, steer its population into
+    the other node, with random directions as controls and a sweep of strengths. The downstream
+    view shows whether the population stays there, what else changes, and which experts switched.
+19. **Build and test a scenario.** In Build › scenarios, a Claude agent drafts scenarios to your
+    instructions. Edit the stages, actions and labels, validate them, play the scenario in the
+    simulator, have the agent play it there, and save the set with a version.
 
 ## Part K — Order of work [Proposed, except where marked]
 
@@ -981,9 +998,9 @@ Stories 1–6 come from the time design; 7–11 were added in its review, which 
 - **L12. LLM analysis (E8).** Answered 2026-10-07: every place in the table.
 - **L13. Live runs in the app?** Answered 2026-10-07: Watch follows a run in progress one saved tick
   at a time; the scan never slows the agent; the agent's play is watched in the MUD (E4).
-- **L14. The scaffold catalogue's shape (I).** Analyses of readings, routes and behaviour against
-  the neutral controls; the atlas's fourth catalogue, with a seventh kind of link, "changes"; and
-  scaffolds as versioned files in the repo. Yes?
+- **L14. The scaffold catalogue's shape (I).** Answered 2026-10-07: yes; analyses against the
+  neutral texts, the atlas's fourth catalogue with a seventh kind of link ("changes"), and
+  scaffolds as versioned files.
 
 ## Appendix — Decisions by date
 
@@ -1079,7 +1096,11 @@ Paraphrased from Andrew's own words. His ideas not yet decided are listed separa
   - Part I: one idea of a condition; fair comparisons (paired runs, a same-size control without
     the content, with two or three neutral texts for scaffolds, and dose); steering a node tells
     the push from its effects; routing drift, steering the routers ignore, and bias masks; a
-    catalogue of analysed scaffolds, with reports and different types of analysis.
+    catalogue of analysed scaffolds, with reports and different types of analysis: the atlas's
+    fourth catalogue, with a seventh kind of link, "changes", and scaffolds as versioned files;
+  - Part J: the stories' steps, and four new stories (joining two lenses, analysing a scaffold,
+    checking a finding by steering, building and testing a scenario); the scenario builder opens
+    the MUD terminal with the command ready, so runs still start in the MUD.
 - **Andrew's ideas, not yet decided:**
   - **2026-10-04:** a user interface in the MUD;
   - **2026-10-06:** asking the agent to use set words in its reasoning; giving it words marked as for
