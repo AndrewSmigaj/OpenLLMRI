@@ -8,8 +8,10 @@
 >   wait for his ruling.
 >
 > This document replaces the MUD sections of [`../architecturemud.md`](../architecturemud.md). The
-> research software (studies, lenses, tools, interventions, the AI scientists) gets its own design
-> document; this one covers the MUD and how it joins the app.
+> research software (studies, lenses, tools, interventions, the AI scientists) is designed in
+> [`../DESIGN.md`](../DESIGN.md) (approved 2026-10-08), which also holds this document's user-facing
+> parts: what the MUD is for, its rooms and its commands (Part F). This one covers how the MUD is
+> built and how it joins the app.
 
 ## 1. Purpose
 

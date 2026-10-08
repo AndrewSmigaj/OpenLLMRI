@@ -1,6 +1,11 @@
-Related: paper/main.tex (full methodology), docs/PIPELINE.md (operational runbook), docs/RECOMMENDATIONS.md (open improvements), data/sentence_sets/GUIDE.md (probe authoring rules)
+Related: docs/DESIGN.md (the design, approved 2026-10-08), paper/main.tex (full methodology), docs/PIPELINE.md (operational runbook), docs/RECOMMENDATIONS.md (open improvements), data/sentence_sets/GUIDE.md (probe authoring rules)
 
 # Open LLMRI — Conceptual Overview
+
+> **Superseded in part (2026-10-08).** [`DESIGN.md`](DESIGN.md), approved by Andrew, is now the
+> design's source of truth: what the software is for, its principles and its vocabulary. Where the
+> two disagree, DESIGN.md holds. This document stays useful for its probe-authoring rules and
+> anti-patterns.
 
 This is the document you should read **before designing a probe, building a schema, or proposing a code change**. It is the conceptual anchor for the platform. The paper has the full methodology and validation; this doc has the working vocabulary.
 

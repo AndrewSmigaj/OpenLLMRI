@@ -126,7 +126,7 @@ button.filter:focus-visible {{ outline: 2px solid var(--accent); outline-offset:
 <div class="wrap">
   <header>
     <h1>{title_match.group(1) if title_match else "Open LLMRI — the design document"}</h1>
-    <p>A draft for Andrew's review, rendered from <code>docs/DESIGN.md</code>, which stays the source. Every passage carries a mark; pick one to highlight where it appears.</p>
+    <p>Approved by Andrew on 2026-10-08. Rendered from <code>docs/DESIGN.md</code>, which stays the source. Every passage carries a mark; pick one to highlight where it appears.</p>
     <div class="filters" role="group" aria-label="Highlight one kind of mark"><span>Highlight:</span> {summary}</div>
   </header>
   <nav aria-label="Parts"><h2>Parts</h2><ol>{toc_html}</ol></nav>

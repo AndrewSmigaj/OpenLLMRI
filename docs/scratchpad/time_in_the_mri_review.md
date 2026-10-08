@@ -1,5 +1,9 @@
 # Review of "Time in the LLM MRI" (2026-10-07)
 
+> **Superseded (2026-10-08).** Andrew ruled on these suggestions while reviewing
+> [`docs/DESIGN.md`](../DESIGN.md), approved 2026-10-08, which holds the ones he took. This file
+> stays as the record of the review.
+
 Status: a review of the design proposal `docs/scratchpad/time_in_the_mri.md` ("the design"), for
 Andrew. The suggestions need his yes before they enter the design. The factual corrections in
 §8 are already applied.

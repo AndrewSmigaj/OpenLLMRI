@@ -1,5 +1,9 @@
 # Time in the LLM MRI — design proposal
 
+> **Superseded (2026-10-08).** Andrew ruled on this proposal while reviewing
+> [`docs/DESIGN.md`](../DESIGN.md), approved 2026-10-08, whose Part D now holds the design of time.
+> This file stays as the record of the proposal.
+
 Status: a proposal for Andrew's ruling (2026-10-07). Nothing here is decided. It replaces the
 "temporal tab" question in the one-MUD plan's Phase 7 notes and, once ruled on, feeds the
 research-software design (Phase 10, now the one design document). Two independent reviews

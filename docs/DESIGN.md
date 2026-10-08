@@ -1,6 +1,6 @@
 # Open LLMRI — the design document
 
-**Status:** a draft for Andrew's review (2026-10-07). Nothing new is built until he approves it.
+**Status:** approved by Andrew on 2026-10-08. It is the design's source of truth; changes go through him.
 
 **Review progress:** every part reviewed with Andrew (2026-10-07), and Part M's recommendations
 adopted into their parts (2026-10-08).

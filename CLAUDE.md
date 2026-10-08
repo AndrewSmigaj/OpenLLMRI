@@ -1,9 +1,9 @@
-Related: docs/SOFTWARE_OVERVIEW.md (read FIRST before any probe design or platform change), docs/RECOMMENDATIONS.md (open improvements — append after each work session), docs/architecturemud.md (if adding phases/skills), docs/PIPELINE.md (if changing pipeline stages), LLMud/VISION.md (if changing project scope)
+Related: docs/DESIGN.md (the design, approved 2026-10-08: read FIRST before any probe design or platform change), docs/SOFTWARE_OVERVIEW.md (probe-authoring rules and anti-patterns), docs/RECOMMENDATIONS.md (open improvements — append after each work session), docs/architecture/one-mud.md (if changing the MUD or the agent loop), docs/PIPELINE.md (if changing pipeline stages)
 
 # Open LLMRI — Claude Code Context Engineering Guide
 
 ## Project Context
-Independent research tool for studying representational transition dynamics and metastable states in MoE language models. Uses residual-stream capture with two instruments: UMAP projection + clustering as the discovery lens (a detector of separation, never a model of geometry), and raw-activation axis projections as the measurement instrument. Central question: when a contextual understanding shifts, is the in-between a learned state, a passage, or an off-manifold artifact? See docs/research/research_briefing_metastable_states.md for the governing doctrine. Backend (Python FastAPI) captures and analyzes; frontend (React) visualizes. Claude Code is the analysis runtime — it designs probes, runs captures, labels outputs, and generates hypotheses.
+Independent research software for building an evidence-based paradigm of how gpt-oss-20b, a Mixture-of-Experts model, understands the world and makes decisions from that understanding: which internal representations exist, where they form, how each layer transforms them, how experts route them, and how they lead to behaviour. It reads the residual stream and the expert routing with two instruments: UMAP lenses measure conceptual membership in per-layer concept spaces (nodes, and flows between them), and mass-mean lenses measure position on one designed contrast. Lenses are validated on held-out scene families and read sentence sets, scenarios and agents playing in the MUD; scaffolds, steering and ablation are tools for the study. Claude agents analyse, and their reports' numbers are checked. The context-shift question (whether the in-between state is learned, a passage, or off-manifold) belongs to that study, not to the software as a whole. The design is docs/DESIGN.md. Backend (Python FastAPI) captures and analyzes; frontend (React) visualizes. Claude Code is the analysis runtime — it designs probes, runs captures, labels outputs, and generates hypotheses.
 
 ## Guides Index
 
@@ -12,7 +12,8 @@ Claude Code uses these guides to execute the full pipeline:
 | Guide | Purpose |
 |-------|---------|
 | `CLAUDE.md` | Project context, architecture rules, change management (this file) |
-| `docs/SOFTWARE_OVERVIEW.md` | **Conceptual anchor** — what the platform is, lens vocabulary, probe authoring rules, anti-patterns. Read before designing a probe or proposing a code change. |
+| `docs/DESIGN.md` | **The design** (approved 2026-10-08) — what the software is for, its principles, lenses, time, the app, the MUD, data, the atlas, interventions, the stories and the order of work. Read before designing a probe or proposing a platform change. |
+| `docs/SOFTWARE_OVERVIEW.md` | Probe-authoring rules and anti-patterns. Its concepts are superseded by DESIGN.md. |
 | `docs/RECOMMENDATIONS.md` | My recommendations to the user — open improvements, observations. Append after each major work session. |
 | `docs/PIPELINE.md` | Full analysis pipeline — orchestration runbook for Claude Code |
 | `docs/PROBES.md` | How to create and run probes via API |
@@ -83,7 +84,7 @@ After setup, use `/server` to start the backend and frontend.
 
 ### 2. Implementation Strategy
 - **Start with schemas and contracts** — implement data structures first
-- **Build services incrementally** — probe → capture → categorize → schema → analyze → temporal
+- **Build services incrementally** — probe → capture → categorize → schema → analyze; DESIGN.md Part K orders what comes next
 - **Test contracts immediately** — verify Parquet writes, API responses, manifest generation
 - **Logging is non-negotiable** — use structured JSON logging for debugging
 
@@ -91,13 +92,13 @@ After setup, use `/server` to start the backend and frontend.
 - **Break down large services** into single-responsibility functions
 - **Use parallel tool execution** for independent operations (multiple API calls, file operations)
 - **Provide concrete examples** in docstrings and comments for complex algorithms
-- **Reference `docs/research/research_briefing_metastable_states.md`** for methodology doctrine; `paper/main.tex` is the legacy paper (its basin vocabulary is superseded)
+- **Reference `docs/DESIGN.md` (Part B)** for methodology doctrine; the briefing (`docs/research/research_briefing_metastable_states.md`) and `paper/main.tex` are earlier records (their basin vocabulary is superseded)
 
 ### 4. MoE-Specific Requirements
 - Target model: **gpt-oss-20b only** — don't abstract for multiple models yet
 - Routing: the model sends each token to its **top 4** experts; the route views follow one rank at a time, **top-1** by default (ranks 2–3 selectable)
 - Dimensionality reduction: **UMAP 6D** for clustering, applied to residual stream activations
-- Temporal captures process sequences of up to 40 sentences with expanding context windows
+- Time: one saved lens is read at a fixed site along context steps, agent ticks or reasoning steps (DESIGN.md Part D)
 
 ### 5. Error Handling Philosophy
 - **Graceful degradation** - skip failed clusters, continue processing
@@ -109,7 +110,7 @@ After setup, use `/server` to start the backend and frontend.
 ```
 PROBE FLOW: sentence set → capture (forward pass + hooks) → Parquet lake (reusable)
 ANALYSIS FLOW: Parquet → UMAP 6D → hierarchical clustering → behavioral validation → reports
-TEMPORAL FLOW: expanding context window → raw-axis projection → transition dynamics
+TIME FLOW: a saved lens → read at a fixed site along context steps, ticks or reasoning steps → timelines (DESIGN.md D)
 ```
 
 ### 7. File Contracts
@@ -121,7 +122,7 @@ TEMPORAL FLOW: expanding context window → raw-axis projection → transition d
 ### 8. Frontend Integration
 - **API-first design** — frontend consumes clean REST endpoints
 - **State management** — React components reflect backend state accurately
-- **Visualization priority** — Sankey charts (ECharts), stepped UMAP trajectories, and temporal lag charts are the primary UX
+- **Visualization priority** — Sankey charts (ECharts), stepped UMAP trajectories and colour blending are the primary UX; lens heatmaps and timelines are planned (DESIGN.md E)
 
 ### 9. Claude Code as Runtime
 - Claude Code is the analysis runtime — it designs probes, runs analysis, labels outputs, and generates hypotheses
@@ -189,7 +190,7 @@ This is a portfolio project and open-source software. Do not patch around bad de
 - **Backend**: Python 3.10.12 (the exact environment is `backend/requirements.lock.txt`), FastAPI, transformers 5.4 (MXFP4 experts through triton + kernels)
 - **Storage**: Parquet files in `data/lake/` — one directory per session
 - **Frontend**: React + Vite + TypeScript + Tailwind + ECharts
-- **Visualization**: Sankey diagrams (expert routing + latent space clusters), stepped UMAP trajectories, temporal lag charts
+- **Visualization**: Sankey diagrams (expert routing + latent space clusters), stepped UMAP trajectories, colour blending; lens heatmaps and timelines are planned (DESIGN.md E)
 - **Model**: gpt-oss-20b, MXFP4 experts with fp16 elsewhere, hidden size 2,880, ~14 GB VRAM after loading
 
 ## Compact Instructions

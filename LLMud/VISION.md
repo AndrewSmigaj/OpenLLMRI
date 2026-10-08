@@ -1,6 +1,11 @@
-Related: docs/architecturemud.md (implementation phases), LLMud/AI_SYSTEM_DESIGN.md (scaffold details), CLAUDE.md (project context)
+Related: docs/DESIGN.md (the design, approved 2026-10-08; it holds this vision's scope now), docs/architecturemud.md (implementation phases), LLMud/AI_SYSTEM_DESIGN.md (scaffold details), CLAUDE.md (project context)
 
 # LLMUD — Vision
+
+> **Superseded (2026-10-08).** This vision's scope now lives in
+> [`docs/DESIGN.md`](../docs/DESIGN.md), approved by Andrew; the project's goal is its A1. The
+> central question below, about attractor basins, belongs to the basin era. This file stays as
+> history.
 
 ## What It Is
 
