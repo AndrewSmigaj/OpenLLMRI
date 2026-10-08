@@ -2,7 +2,8 @@
 
 **Status:** a draft for Andrew's review (2026-10-07). Nothing new is built until he approves it.
 
-**Review progress:** Parts A to K reviewed with Andrew (2026-10-07). Still open: L3.
+**Review progress:** every part reviewed with Andrew, and every question in Part L answered
+(2026-10-07). Waiting for his final read and approval.
 
 **Contents:**
 - How this document works
@@ -34,20 +35,20 @@
 **Rules:**
 - Andrew's decisions are paraphrased here, never quoted.
 - Every question that needs his answer is collected in Part L.
-- **What this document covers** [Proposed]:
+- **What this document covers** [Decided, 2026-10-07]:
   - it says what the software is, who uses it and how it is used;
   - how things are built stays in technical companions: `docs/architecture/one-mud.md` (the MUD)
     and `mud/docs/architecture/implementation-architecture.md` (Winter Survival's engine);
   - Winter Survival's game design document stays separate under it (question L3);
   - where this document and another disagree, this one wins, and the other is corrected.
-- **Once approved, it replaces** [Proposed]:
+- **Once approved, it replaces** [Decided, 2026-10-07]:
   - the research-software draft in the one-MUD plan;
   - the time design and its review (`docs/scratchpad/time_in_the_mri*.md`);
   - the concepts in `docs/SOFTWARE_OVERVIEW.md`;
   - the user-facing parts of `one-mud.md`;
   - the scope in `LLMud/VISION.md`.
 
-  Each of those keeps a pointer here.
+  Each of those keeps a pointer here, and CLAUDE.md's project summary is rewritten to match A1.
 
 ## Terms
 
@@ -373,7 +374,7 @@ reading.
 - **At the output, a reading should have resolved into its class,** unless there is a real
   incongruity. A reading that is present but still between the classes at the output is flagged,
   as something worth opening in Watch.
-- **A caution** [Proposed]: presence must be calibrated on states that include natural in-between
+- **A caution** [Decided, 2026-10-07]: presence must be calibrated on states that include natural in-between
   ones. On synthetic data, states halfway between two classes looked far from both classes'
   calibration states. Calibrated on clean classes only, a torn state would look absent.
 
@@ -607,10 +608,11 @@ area can be resized and can fill the screen.
 - during a live run it also holds the MUD terminal, where `watch agent` follows the agent;
 - outside a live run, the terminal folds away.
 
-**What Watch needs from the rest of the software** [Proposed]:
+**What Watch needs from the rest of the software** [Decided, 2026-10-07]:
 - the runner captures the kit's keywords in each action, and stores each tick's token ids;
-- the scan runs by replay over each tick's whole text, and stores only the readings: presence and
-  position, per token, lens and layer;
+- the scan runs over each tick's whole text, by replay or during the runner's own capture pass,
+  whichever is cheaper, and stores only the readings: presence and position, per token, lens and
+  layer;
 - each lens has:
   - a neutral baseline: how each token reads in neutral text;
   - the chance level for the strongest token in neutral text of each length;
@@ -997,8 +999,8 @@ I. The steps in each are [Decided, 2026-10-07].
   each whole set, all classes together, and the audits check batches (C1).
 - **L2. Which reading leads for agents?** Answered 2026-10-07: the output reading at keywords
   leads, the scan shows the reasoning, and carriers are the controlled comparison (D3).
-- **L3. Should Winter Survival's game design document fold into this one, or stay separate under
-  it?** You asked for one design document; this draft keeps the world's own document separate.
+- **L3. Winter Survival's game design document.** Answered 2026-10-07: it stays separate, under
+  this one. This document links to it and wins where the two disagree.
 - **L4. The time design.** Answered 2026-10-07: the orderings, the project's own rules, presence
   and position, and references for studies (D1–D5).
 - **L5. The retirements in Part G.** Answered 2026-10-07: yes; three when building starts, the
@@ -1122,7 +1124,11 @@ Paraphrased from Andrew's own words. His ideas not yet decided are listed separa
     the MUD terminal with the command ready, so runs still start in the MUD;
   - Part K: every decided feature placed in a slice; capture and jobs before the sentence set
     builder; a second version of the atlas; slices 1–5 before the world-building pilot; the
-    one-MUD branch merged into main.
+    one-MUD branch merged into main;
+  - Part L and the last proposals: Winter Survival's game design document stays separate, under
+    this one; what this document covers and what it replaces, with CLAUDE.md's project summary
+    rewritten to match A1; presence calibrated on states that include natural in-between ones;
+    what Watch needs, with the scan run by replay or during the runner's capture pass.
 - **Andrew's ideas, not yet decided:**
   - **2026-10-04:** a user interface in the MUD;
   - **2026-10-06:** asking the agent to use set words in its reasoning; giving it words marked as for
