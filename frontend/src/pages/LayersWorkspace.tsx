@@ -1,7 +1,7 @@
 // Layers: a lens across all its layers. The cluster and expert charts scroll sideways together;
 // the selection's details sit beside them; its members, the output table and the 3-D
 // trajectories sit in tabs below. Views load as soon as a lens is chosen.
-import { useMemo, useRef, useState, type ReactNode } from 'react'
+import { useCallback, useMemo, useRef, useState, type ReactNode } from 'react'
 import type * as echarts from 'echarts'
 import { Group, Panel, Separator } from 'react-resizable-panels'
 import type { DynamicAxis, ProbeExample } from '../types/api'
@@ -16,6 +16,7 @@ import { columnsOf, lastFirst, stepsInView } from '../utils/layerGeometry'
 import { membersQuery, parseSelection, probeSelection } from '../utils/selection'
 import { cardFor } from '../utils/selectionCard'
 import ColourControls from '../components/layers/ColourControls'
+import ColourLegend from '../components/layers/ColourLegend'
 import DetailsPanel from '../components/layers/DetailsPanel'
 import LayerCharts from '../components/layers/LayerCharts'
 import { LayerStrip } from '../components/layers/LayerStrip'
@@ -28,6 +29,7 @@ import ExportMenu from '../components/common/ExportMenu'
 const NO_AXES: DynamicAxis[] = []
 const NO_SENTENCES: ProbeExample[] = []
 const NO_LAYERS: number[] = []
+const NO_VALUES: string[] = []
 
 function Hint({ children }: { children: ReactNode }) {
   return <div className="m-4 bg-slate-50 border border-slate-200 rounded-lg p-3 text-xs text-slate-700">{children}</div>
@@ -47,6 +49,7 @@ function LayersView({ view, update, visitor }: { view: ViewState; update: Update
   const [output, setOutput] = useState<OutputColour>(DEFAULT_OUTPUT_COLOUR)
   const [maxTrajectories, setMaxTrajectories] = useState<number | null>(null) // null draws every item
   const trajectoryExport = useRef<TrajectoryExport | null>(null)
+  const [trajectoryColour, setTrajectoryColour] = useState<'axis' | 'node'>('axis')
   const grouping = outputGroupingOf(output)
   const cluster = useLensFlows(view.session, view.lens, view.legacy, 'cluster', 1, grouping)
   const expert = useLensFlows(view.session, view.lens, view.legacy, 'expert', view.rank, grouping)
@@ -71,22 +74,18 @@ function LayersView({ view, update, visitor }: { view: ViewState; update: Update
     [view.sel, cluster.routes, expert.routes, sentences, members.items])
   const selectedProbe = selection?.kind === 'probe' ? selection.probeId : null
   const clusterPath = selectedProbe ? routes?.probe_assignments?.[selectedProbe] : undefined
+  // Each item's node at a layer, for colouring the 3-D points by what the lens counts
+  const nodeOf = useCallback((probeId: string, layer: number) => routes?.probe_assignments?.[probeId]?.[String(layer)],
+    [routes])
 
-  const colours = {
-    primaryValues: axes.primaryValues, gradient: axes.gradient, secondaryValues: axes.secondaryValues,
-    secondaryGradient: axes.secondaryGradient, secondaryAxisId: axes.colorAxis2?.id, ambiguityBlend: axes.ambiguityBlend,
-    outputPrimaryValues: axes.outputPrimaryValues, outputGradient: axes.outputGradient,
-    outputSecondaryValues: axes.outputSecondaryValues, outputSecondaryGradient: axes.outputSecondaryGradient,
-    outputSecondaryAxisId: axes.outputColorAxis2?.id, outputColorAxisId: axes.outputColorAxis?.id,
-  }
+  const colours = useMemo(() => ({ input: axes.input, output: axes.output, stripes: axes.stripes }),
+    [axes.input, axes.output, axes.stripes])
+  const labelValues = axes.axisValues.label ?? NO_VALUES
 
   const recipe = (figure: string, lens: Record<string, unknown> | undefined): Recipe => ({
     app: 'OpenLLMRI', figure, link: window.location.href, exported_at: new Date().toISOString(),
     view, lens: lens ?? null,
-    colours: {
-      axis: axes.colorAxisId, blend: axes.colorAxis2Id, gradient: axes.gradient, shape: axes.shapeAxisId,
-      ambiguity: axes.ambiguityBlend ?? null, output,
-    },
+    colours: { input: axes.input, output: axes.output, stripes: axes.stripes, shape: axes.shapeAxisId },
   })
   const baseName = `${view.session}_${view.lens}`
 
@@ -121,10 +120,10 @@ function LayersView({ view, update, visitor }: { view: ViewState; update: Update
     members: selection && selection.kind !== 'probe'
       ? <FilteredWordDisplay sentences={members.items} heading={`Members of ${selectionName}`}
           targetWord={context.details?.target_word} total={members.total} onLoadMore={members.loadMore}
-          isLoading={members.loading} primaryValues={axes.primaryValues} gradient={axes.gradient} />
+          isLoading={members.loading} labelValues={labelValues} gradient={axes.gradient} />
       : <FilteredWordDisplay sentences={sentences} heading="Sentences" targetWord={context.details?.target_word}
-          primaryValues={axes.primaryValues} gradient={axes.gradient} />,
-    output: <WindowAnalysis routeData={routes} primaryValues={axes.primaryValues} gradient={axes.gradient}
+          labelValues={labelValues} gradient={axes.gradient} />,
+    output: <WindowAnalysis routeData={routes} labelValues={labelValues} gradient={axes.gradient}
       windowLabel={`Layer ${layers[layers.length - 1] ?? ''} → generated output`} />,
     trajectories: (
       <div className="space-y-1">
@@ -136,15 +135,23 @@ function LayersView({ view, update, visitor }: { view: ViewState; update: Update
               title="How many items to draw in the 3-D plot" />
           )}
           <span className="tabular-nums">{shownTrajectories} / {sampleSize}</span>
+          <label className="flex items-center gap-1">
+            Colour by
+            <select value={trajectoryColour} onChange={e => setTrajectoryColour(e.target.value as 'axis' | 'node')}
+              className="px-1 py-0.5 text-xs border border-gray-300 rounded bg-white">
+              <option value="axis">{axes.input.axis}</option>
+              <option value="node">node</option>
+            </select>
+          </label>
           <span className="text-gray-400">layers {layersInView[0]}–{layersInView[layersInView.length - 1]}</span>
           <ExportMenu formats={['png', 'csv', 'json']} onExport={exportTrajectories} />
         </div>
         {layersInView.length >= 2 && (
           <SteppedTrajectoryPlot sessionId={view.session} schemaName={view.lens} legacy={view.legacy}
-            layers={layersInView} colorLabelA={axes.primaryValues[0] || ''} colorLabelB={axes.primaryValues[1] || ''}
-            gradient={axes.gradient} primaryValues={axes.primaryValues} secondaryColorAxisId={axes.colorAxis2?.id}
-            secondaryValues={axes.secondaryValues} shapeAxisId={axes.shapeAxis?.id} shapeValues={axes.shapeAxis?.values}
-            ambiguityBlend={axes.ambiguityBlend} height={360} maxTrajectories={shownTrajectories}
+            layers={layersInView} colour={axes.input} colourBy={trajectoryColour} nodeOf={nodeOf}
+            fitNote={view.legacy ? "the schema's own 3-D fit, separate from the 6-D one it clusters in"
+              : "a 3-D UMAP of each layer with the lens's neighbours and seed, separate from the 6-D one it clusters in"}
+            shapeAxisId={axes.shapeAxis?.id} shapeValues={axes.shapeAxis?.values} height={360} maxTrajectories={shownTrajectories}
             selectedProbeId={selectedProbe} onPointClick={info => update({ sel: probeSelection(info.probe_id) })}
             onExportable={handle => { trajectoryExport.current = handle }} />
         )}
@@ -184,6 +191,9 @@ function LayersView({ view, update, visitor }: { view: ViewState; update: Update
             )}
           </div>
           <div className="px-2 py-1 bg-white border-b border-gray-200">
+            <ColourLegend input={axes.input} output={axes.output} stripes={axes.stripes} />
+          </div>
+          <div className="px-2 py-1 bg-white border-b border-gray-200">
             <LayerStrip columns={columns} first={first} shown={steps + 1}
               onPick={column => update({ layer: Math.min(column, lastFirst(columns.length, steps)) })} />
           </div>
@@ -201,7 +211,7 @@ function LayersView({ view, update, visitor }: { view: ViewState; update: Update
       <Separator className="w-1 bg-gray-200 hover:bg-blue-400" />
       <Panel id="side" defaultSize="26" minSize="15">
         <DetailsPanel summary={context.summary} card={card} descriptions={context.descriptions} reports={context.reports}
-          layer={layers[first] ?? 0} clusterPath={clusterPath} primaryValues={axes.primaryValues} gradient={axes.gradient}
+          layer={layers[first] ?? 0} clusterPath={clusterPath} axisValues={axes.axisValues} gradient={axes.gradient}
           onClose={() => update({ sel: '' })} />
       </Panel>
     </Group>

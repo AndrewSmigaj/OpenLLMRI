@@ -3,6 +3,7 @@
 # Runs the same checks as local development on a GitHub Linux runner, and stamps a green
 # check / red X on each commit that touches the frontend:
 #   - npm run lint    ESLint
+#   - npm test        the unit tests (vitest): the colour and layout maths
 #   - npm run build   the TypeScript type check (tsc -b), then the production build (vite build)
 #
 # The dev server never type-checks, so this is what catches a type error before it ships.
@@ -17,7 +18,7 @@ on:
 
 jobs:
   checks:
-    name: lint + type check + build
+    name: lint + tests + type check + build
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -38,6 +39,9 @@ jobs:
 
       - name: Lint
         run: npm run lint
+
+      - name: Unit tests
+        run: npm test
 
       - name: Type check and production build
         run: npm run build

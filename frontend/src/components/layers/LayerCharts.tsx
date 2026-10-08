@@ -5,11 +5,11 @@ import type * as echarts from 'echarts'
 import type { RouteAnalysisResponse } from '../../types/api'
 import { RANKS, type UpdateView, type ViewState } from '../../hooks/useViewState'
 import { useElementSize } from '../../hooks/useElementSize'
-import type { SankeyColourProps } from '../charts/SankeyChart'
+import type { SankeyColours } from '../charts/SankeyChart'
 import AllLayerSankeyView from '../charts/AllLayerSankeyView'
 import ExportMenu from '../common/ExportMenu'
 import type { ExportFormat } from '../../utils/exportFigure'
-import { LEFT, RIGHT, chartWidth, columnsOf, lastFirst, spacingFor, stepsInView } from '../../utils/layerGeometry'
+import { LEFT, NODE_WIDTH, RIGHT, STRIPED_NODE_WIDTH, chartWidth, columnsOf, lastFirst, spacingFor, stepsInView } from '../../utils/layerGeometry'
 import { parseSelection, selectionKind } from '../../utils/selection'
 import { LayerHeader } from './LayerStrip'
 
@@ -27,7 +27,7 @@ interface LayerChartsProps {
   expert: FlowsState
   view: ViewState
   update: UpdateView
-  colours: SankeyColourProps
+  colours: SankeyColours
   onExport: (kind: 'cluster' | 'expert', format: ExportFormat, chart: echarts.ECharts | null) => void
 }
 
@@ -48,10 +48,11 @@ export default function LayerCharts({ cluster, expert, view, update, colours, on
 
   const columns = columnsOf(cluster.routes ?? expert.routes)
   const steps = stepsInView(columns.length, view.zoom)
-  const spacing = spacingFor(box.width, steps)
-  const width = chartWidth(columns.length, spacing)
+  const nodeWidth = colours.stripes ? STRIPED_NODE_WIDTH : NODE_WIDTH
+  const spacing = spacingFor(box.width, steps, nodeWidth)
+  const width = chartWidth(columns.length, spacing, nodeWidth)
   const height = Math.max(MIN_CHART, Math.floor((box.height - 20 - 2 * CHART_HEADER - 8) / 2))
-  const geometry = { width, height, left: LEFT, right: RIGHT, showLabels: view.zoom <= 12 }
+  const geometry = { width, height, left: LEFT, right: RIGHT, nodeWidth, showLabels: view.zoom <= 12 }
   const first = Math.min(view.layer, lastFirst(columns.length, steps))
 
   // The URL's first layer brings that column into view, unless the user's scrolling set it

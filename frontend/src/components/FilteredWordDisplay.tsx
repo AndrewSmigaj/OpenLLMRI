@@ -1,8 +1,7 @@
 // The sentences in view: every sentence of the capture, or the members of the selected node or
 // link, a page at a time, each with its target word highlighted in its label's colour.
 import type { ProbeExample } from '../types/api'
-import type { GradientScheme } from '../utils/colorBlending'
-import { getNodeColor } from '../utils/colorBlending'
+import { valueColor, type GradientScheme } from '../color/scheme'
 import SentenceHighlight from './SentenceHighlight'
 
 interface FilteredWordDisplayProps {
@@ -12,7 +11,7 @@ interface FilteredWordDisplayProps {
   total?: number // when more exist than are loaded
   onLoadMore?: () => void
   isLoading?: boolean
-  primaryValues: string[]
+  labelValues: string[] // the label axis's values, so each label keeps its colour
   gradient: GradientScheme
 }
 
@@ -23,7 +22,7 @@ export default function FilteredWordDisplay({
   total,
   onLoadMore,
   isLoading = false,
-  primaryValues,
+  labelValues,
   gradient
 }: FilteredWordDisplayProps) {
   const count = total ?? sentences.length
@@ -44,8 +43,8 @@ export default function FilteredWordDisplay({
       {sentences.length > 0 ? (
         <div className="space-y-0.5 max-h-[75vh] overflow-y-auto">
           {sentences.map((sentence, i) => {
-            const color = sentence.label && primaryValues.length > 0
-              ? getNodeColor({ [sentence.label]: 1 }, primaryValues, gradient)
+            const color = sentence.label && labelValues.length > 0
+              ? valueColor(sentence.label, labelValues, gradient)
               : '#666666'
 
             // Use last occurrence for highlighting — target_char_offset from old captures can be wrong

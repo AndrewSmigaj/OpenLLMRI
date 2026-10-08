@@ -7,20 +7,21 @@ import type { RouteAnalysisResponse, SankeyLink } from '../../types/api'
 import { isOutputLink } from '../../constants/outputNodes'
 import { linkSelection, nodeSelection } from '../../utils/selection'
 import { orderByBarycentre } from '../../utils/sankeyOrder'
-import SankeyChart, { type SankeyColourProps } from './SankeyChart'
+import SankeyChart, { type SankeyColours } from './SankeyChart'
 
 export interface SankeyGeometry {
   width: number // the chart's full width, in pixels
   height: number
   left: number // margins, in pixels
   right: number
+  nodeWidth: number
   showLabels: boolean
 }
 
 interface AllLayerSankeyViewProps {
   routes: RouteAnalysisResponse
   geometry: SankeyGeometry
-  colours: SankeyColourProps
+  colours: SankeyColours
   top?: number | null // links kept per layer; null or undefined keeps all
   onSelect: (selection: string) => void
   onChartReady?: (chart: echarts.ECharts | null) => void
@@ -50,11 +51,12 @@ export default function AllLayerSankeyView({ routes, geometry, colours, top, onS
       <SankeyChart
         nodes={nodes}
         links={links}
-        {...colours}
+        colours={colours}
         width={geometry.width}
         height={geometry.height}
         left={geometry.left}
         right={geometry.right}
+        nodeWidth={geometry.nodeWidth}
         showLabels={geometry.showLabels}
         onNodeClick={id => onSelect(nodeSelection(id))}
         onLinkClick={link => onSelect(linkSelection(link.source, link.target))}

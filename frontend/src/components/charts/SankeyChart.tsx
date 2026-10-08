@@ -1,30 +1,33 @@
 import React, { useEffect, useRef } from 'react';
 import * as echarts from 'echarts';
 import type { SankeyNode, SankeyLink } from '../../types/api';
-import { getNodeColor, getAxisColor, rgbToHex, getTrafficVisualProperties, type GradientScheme, type AmbiguityBlend } from '../../utils/colorBlending';
+import { distColor, stripeStops, valueColor, type AxisCounts, type ColourSpec } from '../../color/scheme';
 import { isOutputNode as checkIsOutputNode, isOutputLink as checkIsOutputLink, stripOutputPrefix, OUTPUT_NODE_PREFIX } from '../../constants/outputNodes';
 
 // The node and link objects this chart gives ECharts, as they come back in event and tooltip params
 type SankeyItemRef = { name?: string; id?: string; source?: string; target?: string };
 
-// How nodes and links are coloured: by the input axes, and the output column by its own axes.
-export interface SankeyColourProps {
-  primaryValues: string[];
-  gradient?: GradientScheme;
-  secondaryValues?: string[];
-  secondaryGradient?: GradientScheme;
-  secondaryAxisId?: string;
-  ambiguityBlend?: AmbiguityBlend;
-  outputPrimaryValues?: string[];
-  outputGradient?: GradientScheme;
-  outputSecondaryValues?: string[];
-  outputSecondaryGradient?: GradientScheme;
-  outputSecondaryAxisId?: string;
-  outputColorAxisId?: string;
+// How nodes and links are coloured: by the input spec; the output column by its own spec, or
+// without one by matching its categories to the input's colours. Stripes show exact shares.
+export interface SankeyColours {
+  input: ColourSpec;
+  output: ColourSpec | null;
+  stripes: boolean;
 }
 
-interface SankeyChartProps extends SankeyColourProps {
+const countsOf = (item: SankeyNode | SankeyLink): AxisCounts =>
+  ({ label: item.label_distribution ?? {}, ...(item.category_distributions ?? {}) });
+
+// Busier links are wider and more opaque (square-root scale)
+function trafficStyle(value: number, maxValue: number): { opacity: number; lineWidth: number } {
+  if (maxValue <= 0) return { opacity: 0.3, lineWidth: 1 };
+  const share = Math.sqrt(value) / Math.sqrt(maxValue);
+  return { opacity: 0.3 + share * 0.6, lineWidth: 1 + share * 5 };
+}
+
+interface SankeyChartProps {
   nodes: SankeyNode[];
+  colours: SankeyColours;
   links: SankeyLink[];
   onNodeClick?: (nodeId: string, nodeData: SankeyNode) => void;
   onLinkClick?: (linkData: SankeyLink) => void;
@@ -42,18 +45,7 @@ interface SankeyChartProps extends SankeyColourProps {
 const SankeyChart: React.FC<SankeyChartProps> = ({
   nodes,
   links,
-  primaryValues,
-  gradient = 'red-blue',
-  secondaryValues,
-  secondaryGradient = 'yellow-cyan',
-  secondaryAxisId,
-  ambiguityBlend,
-  outputPrimaryValues,
-  outputGradient = 'purple-green',
-  outputSecondaryValues,
-  outputSecondaryGradient = 'yellow-cyan',
-  outputSecondaryAxisId,
-  outputColorAxisId,
+  colours,
   onNodeClick,
   onLinkClick,
   height = 600,
@@ -153,101 +145,47 @@ const SankeyChart: React.FC<SankeyChartProps> = ({
   useEffect(() => {
     if (!chartInstance.current) return;
 
-    // Get the distribution for a given axis from a node/link
-    const getDistForAxis = (item: { label_distribution?: Record<string, number> | null; target_word_distribution?: Record<string, number> | null; category_distributions?: Record<string, Record<string, number>> | null }, axisId?: string) => {
-      if (!axisId) return undefined;
-      if (axisId === 'label') return item.label_distribution;
-      if (axisId === 'target_word') return item.target_word_distribution;
-      return item.category_distributions?.[axisId];
-    };
+    const { input, output, stripes } = colours;
 
     // Compute depth offset for proper column placement
     const minLayer = nodes.length > 0 ? Math.min(...nodes.map(n => n.layer)) : 0;
 
-    // Build extended values list that includes output categories for "match input" fallback
-    const outputCategories = nodes
-      .filter(n => checkIsOutputNode(n.name))
-      .map(n => stripOutputPrefix(n.name));
-    const extendedPrimaryValues = [...primaryValues];
-    for (const cat of outputCategories) {
-      if (!extendedPrimaryValues.includes(cat)) {
-        extendedPrimaryValues.push(cat);
+    // Without an output spec, output categories match the input's colours by name; categories
+    // the input doesn't have take the next colours, so they stay apart
+    const outputNames = nodes.filter(n => checkIsOutputNode(n.name)).map(n => stripOutputPrefix(n.name));
+    const matchedValues = [...input.values, ...outputNames.filter(c => !input.values.includes(c))];
+
+    const nodeColor = (node: SankeyNode): string | echarts.graphic.LinearGradient => {
+      if (checkIsOutputNode(node.name)) {
+        return output
+          ? distColor(node.output_distributions ?? {}, output)
+          : valueColor(stripOutputPrefix(node.name), matchedValues, input.gradient);
       }
-    }
+      if (!stripes) return distColor(countsOf(node), input);
+      // Bands top to bottom, in the axis's order; a gradient with hard stops
+      return new echarts.graphic.LinearGradient(0, 0, 0, 1, stripeStops(countsOf(node), input));
+    };
+    const linkColor = (link: SankeyLink): string =>
+      checkIsOutputLink(link) && output
+        ? distColor(link.output_distributions ?? {}, output)
+        : distColor(countsOf(link), input);
 
-    // Prepare node data with colors
-    const sankeyNodes = nodes.map(node => {
-      const isOutput = checkIsOutputNode(node.name);
+    const sankeyNodes = nodes.map(node => ({
+      id: node.id,
+      name: node.name,
+      value: Math.max(1, node.token_count),
+      depth: node.layer - minLayer,
+      itemStyle: { color: nodeColor(node) },
+    }));
 
-      let nodeColor: string;
-      if (isOutput) {
-        // Output nodes: use output color axis if configured, otherwise match input colors
-        const outputAxisDist = outputColorAxisId ? getDistForAxis(node, outputColorAxisId) : null;
-        if (outputAxisDist && Object.keys(outputAxisDist).length > 0 && outputPrimaryValues && outputPrimaryValues.length > 0) {
-          const outputSecDist = outputSecondaryAxisId ? getDistForAxis(node, outputSecondaryAxisId) : undefined;
-          nodeColor = getNodeColor(outputAxisDist, outputPrimaryValues, outputGradient, outputSecDist, outputSecondaryValues, outputSecondaryGradient);
-        } else {
-          // Fallback: match category name against input colors (extended to include output-only categories)
-          const category = stripOutputPrefix(node.name);
-          nodeColor = rgbToHex(getAxisColor(category, extendedPrimaryValues, gradient));
-        }
-      } else {
-        // Regular nodes: primary = label_distribution, secondary from axis
-        const primaryDist = node.label_distribution || {};
-        const secondaryDist = getDistForAxis(node, secondaryAxisId);
-        nodeColor = getNodeColor(primaryDist, primaryValues, gradient, secondaryDist, secondaryValues, secondaryGradient, ambiguityBlend);
-      }
-
-      return {
-        id: node.id,
-        name: node.name,
-        value: Math.max(1, node.token_count),
-        depth: node.layer - minLayer,
-        itemStyle: {
-          color: nodeColor
-        }
-      };
-    });
-
-    // Find max value for traffic-based scaling
     const maxLinkValue = Math.max(...links.map(l => l.value));
-
-    // Prepare link data with colors and traffic-based styling
     const sankeyLinks = links.map(link => {
-      const primaryDist = link.label_distribution || {};
-      const secondaryDist = getDistForAxis(link, secondaryAxisId);
-      const isOutput = checkIsOutputLink(link);
-
-      let linkColor: string;
-      if (isOutput && outputColorAxisId && outputPrimaryValues && outputPrimaryValues.length > 0) {
-        const outDist = getDistForAxis(link, outputColorAxisId);
-        if (outDist && Object.keys(outDist).length > 0) {
-          const outSecDist = outputSecondaryAxisId ? getDistForAxis(link, outputSecondaryAxisId) : undefined;
-          linkColor = getNodeColor(outDist, outputPrimaryValues, outputGradient, outSecDist, outputSecondaryValues, outputSecondaryGradient);
-        } else {
-          linkColor = Object.keys(primaryDist).length > 0
-            ? getNodeColor(primaryDist, primaryValues, gradient, secondaryDist, secondaryValues, secondaryGradient)
-            : '#5470c6';
-        }
-      } else {
-        linkColor = Object.keys(primaryDist).length > 0
-          ? getNodeColor(primaryDist, primaryValues, gradient, secondaryDist, secondaryValues, secondaryGradient, ambiguityBlend)
-          : '#5470c6';
-      }
-
-      // Get traffic-based visual properties
-      const { opacity, lineWidth } = getTrafficVisualProperties(link.value, maxLinkValue);
-
+      const { opacity, lineWidth } = trafficStyle(link.value, maxLinkValue);
       return {
         source: link.source,
         target: link.target,
         value: Math.max(0.5, link.value),
-        lineStyle: {
-          color: linkColor,
-          opacity: opacity,
-          width: lineWidth,
-          curveness: 0.3
-        },
+        lineStyle: { color: linkColor(link), opacity, width: lineWidth, curveness: 0.3 },
       };
     });
 
@@ -335,7 +273,7 @@ const SankeyChart: React.FC<SankeyChartProps> = ({
     };
 
     chartInstance.current.setOption(option);
-  }, [nodes, links, primaryValues, gradient, secondaryValues, secondaryGradient, secondaryAxisId, ambiguityBlend, outputPrimaryValues, outputGradient, outputSecondaryValues, outputSecondaryGradient, outputSecondaryAxisId, outputColorAxisId, left, right, showLabels, nodeWidthProp]);
+  }, [nodes, links, colours, left, right, showLabels, nodeWidthProp]);
 
   return (
     <div

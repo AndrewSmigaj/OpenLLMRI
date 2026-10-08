@@ -2,7 +2,7 @@
 // exported figure's recipe and a screenshot all name the same view.
 import { useCallback, useMemo } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { GRADIENT_SCHEMES, type GradientScheme } from '../utils/colorBlending'
+import { GRADIENT_SCHEMES, type GradientScheme } from '../color/scheme'
 
 export const ZOOMS = [6, 12, 24] as const
 export type Zoom = typeof ZOOMS[number]
@@ -16,7 +16,9 @@ export interface ViewState {
   layer: number // the first layer in view
   zoom: Zoom
   color: string // the colour axis
-  color2: string // the blend axis, or 'none'
+  color2: string // a second axis shown in the same colour, or 'none'
+  fade: string // with a second axis: the value it fades toward grey; '' shows it as lightness
+  stripes: boolean // nodes show their exact shares as bands
   gradient: GradientScheme
   rank: number // the expert chart's rank, 1 to 4
   top: number | null // links kept per layer in the expert chart; null keeps all
@@ -25,8 +27,8 @@ export interface ViewState {
 }
 
 export const DEFAULT_VIEW: ViewState = {
-  session: '', lens: '', legacy: false, layer: 0, zoom: 6, color: 'label', color2: 'none',
-  gradient: 'red-blue', rank: 1, top: 10, sel: '', tab: 'members',
+  session: '', lens: '', legacy: false, layer: 0, zoom: 6, color: 'label', color2: 'none', fade: '',
+  stripes: false, gradient: 'red-blue', rank: 1, top: 10, sel: '', tab: 'members',
 }
 
 const isZoom = (n: number): n is Zoom => (ZOOMS as readonly number[]).includes(n)
@@ -48,6 +50,8 @@ export function parseView(params: URLSearchParams): ViewState {
     zoom: int('zoom', DEFAULT_VIEW.zoom, isZoom) as Zoom,
     color: get('color') || DEFAULT_VIEW.color,
     color2: get('color2') || DEFAULT_VIEW.color2,
+    fade: get('fade') ?? DEFAULT_VIEW.fade,
+    stripes: get('stripes') === '1',
     gradient: gradient && gradient in GRADIENT_SCHEMES ? gradient as GradientScheme : DEFAULT_VIEW.gradient,
     rank: int('rank', DEFAULT_VIEW.rank, n => n >= 1 && n <= 4),
     top: get('top') === 'all' ? null : int('top', DEFAULT_VIEW.top ?? 10, n => n > 0),
@@ -68,6 +72,8 @@ export function viewQuery(view: ViewState): URLSearchParams {
   put('zoom', String(view.zoom), String(DEFAULT_VIEW.zoom))
   put('color', view.color, DEFAULT_VIEW.color)
   put('color2', view.color2, DEFAULT_VIEW.color2)
+  put('fade', view.fade, DEFAULT_VIEW.fade)
+  if (view.stripes) out.set('stripes', '1')
   put('grad', view.gradient, DEFAULT_VIEW.gradient)
   put('rank', String(view.rank), String(DEFAULT_VIEW.rank))
   put('top', show(view.top), show(DEFAULT_VIEW.top))

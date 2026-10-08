@@ -2,8 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import * as echarts from 'echarts'
 import 'echarts-gl'
 import type { TrajectoryPoint } from '../../types/api'
-import type { GradientScheme, AmbiguityBlend } from '../../utils/colorBlending'
-import { getPointColor } from '../../utils/colorBlending'
+import { paletteColor, pointColor, valueColor, NEUTRAL, type ColourSpec } from '../../color/scheme'
 import { apiClient } from '../../api/client'
 import { ApiError } from '../../api/client'
 
@@ -33,15 +32,12 @@ interface SteppedTrajectoryPlotProps {
   legacy: boolean
   layers: number[]
   title?: string
-  colorLabelA: string
-  colorLabelB: string
-  gradient?: GradientScheme
-  primaryValues?: string[]
-  secondaryColorAxisId?: string
-  secondaryValues?: string[]
+  colour: ColourSpec // the same colours as the charts
+  colourBy: 'axis' | 'node' // by node: each point takes its node's colour at that layer
+  nodeOf?: (probeId: string, layer: number) => number | undefined
+  fitNote: string // which fit the positions come from
   shapeAxisId?: string
   shapeValues?: string[]
-  ambiguityBlend?: AmbiguityBlend
   className?: string
   height?: number
   maxTrajectories?: number
@@ -56,15 +52,12 @@ export default function SteppedTrajectoryPlot({
   legacy,
   layers,
   title,
-  colorLabelA,
-  colorLabelB,
-  gradient = 'red-blue',
-  primaryValues,
-  secondaryColorAxisId,
-  secondaryValues,
+  colour,
+  colourBy,
+  nodeOf,
+  fitNote,
   shapeAxisId,
   shapeValues,
-  ambiguityBlend,
   className = '',
   height = 400,
   maxTrajectories,
@@ -106,7 +99,7 @@ export default function SteppedTrajectoryPlot({
       chartInstanceRef.current = null
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps -- initializeChart reads exactly these
-  }, [trajectories, colorLabelA, colorLabelB, gradient, primaryValues, secondaryColorAxisId, secondaryValues, shapeAxisId, shapeValues, ambiguityBlend, layerOffset, showLines, pointSize, coordScale, selectedProbeId, maxTrajectories])
+  }, [trajectories, colour, colourBy, nodeOf, shapeAxisId, shapeValues, layerOffset, showLines, pointSize, coordScale, selectedProbeId, maxTrajectories])
 
   const loadTrajectoryData = async () => {
     try {
@@ -166,12 +159,17 @@ export default function SteppedTrajectoryPlot({
     return t.categories?.[axisId]
   }
 
+  // An item's colour by the colour spec, from its value on each axis the spec uses
   const getTrajectoryColor = (trajectory: Trajectory) => {
-    const primaryValue = getAxisValue(trajectory, 'label')
-    if (!primaryValue) return '#666666'
-    const effectivePrimaryValues = primaryValues || [colorLabelA, colorLabelB].filter(Boolean)
-    const secValue = secondaryColorAxisId ? getAxisValue(trajectory, secondaryColorAxisId) : undefined
-    return getPointColor(primaryValue, effectivePrimaryValues, gradient, secValue, secondaryValues, ambiguityBlend)
+    const axes = [colour.axis, colour.lightness?.axis, colour.fade?.axis].filter((a): a is string => !!a)
+    const values = Object.fromEntries(axes.map(a => [a, getAxisValue(trajectory, a)]))
+    return values[colour.axis] === undefined ? NEUTRAL : pointColor(values, colour)
+  }
+  // By node, a point takes its node's colour at that layer (as numbered in the Sankey)
+  const pointColorAt = (trajectory: Trajectory, layer: number, lineColor: string) => {
+    if (colourBy !== 'node') return lineColor
+    const node = nodeOf?.(trajectory.probe_id, layer)
+    return node === undefined ? NEUTRAL : paletteColor(node)
   }
 
   const initializeChart = () => {
@@ -200,7 +198,7 @@ export default function SteppedTrajectoryPlot({
     const crossGroups = new Map<string, { trajectories: Trajectory[]; colorKey: string; shapeKey: string }>()
 
     renderedTrajectories.forEach((trajectory) => {
-      const colorKey = trajectory.label || 'Unknown'
+      const colorKey = getAxisValue(trajectory, colour.axis) || 'Unknown'
       const shapeKey = shapeAxisId ? (getAxisValue(trajectory, shapeAxisId) || 'Unknown') : '_none'
       const groupKey = `${colorKey}|${shapeKey}`
       if (!crossGroups.has(groupKey)) {
@@ -217,10 +215,7 @@ export default function SteppedTrajectoryPlot({
     crossGroups.forEach(({ trajectories: groupTrajectories, colorKey, shapeKey }) => {
       const shapeIndex = shapeValues ? shapeValues.indexOf(shapeKey) : -1
       const symbol = shapeIndex >= 0 ? SHAPE_SYMBOLS[shapeIndex % SHAPE_SYMBOLS.length] : 'circle'
-      const effectivePrimaryValues = primaryValues || [colorLabelA, colorLabelB].filter(Boolean)
-      const groupColor = colorKey
-        ? getPointColor(colorKey, effectivePrimaryValues, gradient)
-        : '#666666'
+      const groupColor = valueColor(colorKey, colour.values, colour.gradient)
       const legendName = shapeAxisId && shapeKey !== '_none'
         ? `${colorKey} · ${shapeKey} (${groupTrajectories.length})`
         : `${colorKey} (${groupTrajectories.length})`
@@ -228,7 +223,7 @@ export default function SteppedTrajectoryPlot({
       legendNames.push(legendName)
 
       groupTrajectories.forEach((trajectory) => {
-        const trajectoryColor = getTrajectoryColor(trajectory)
+        const lineColor = colourBy === 'node' ? NEUTRAL : getTrajectoryColor(trajectory)
         const isSelected = !selectedProbeId || trajectory.probe_id === selectedProbeId
         const pointOpacity = isSelected ? 0.95 : 0.1
         const lineOpacity = isSelected ? 0.9 : 0.08
@@ -246,7 +241,7 @@ export default function SteppedTrajectoryPlot({
               trajectory.label || '',
               trajectory.probe_id,
             ],
-            itemStyle: { color: trajectoryColor, opacity: pointOpacity },
+            itemStyle: { color: pointColorAt(trajectory, coord.layer, lineColor), opacity: pointOpacity },
             symbol: symbol,
             symbolSize: pointSize,
           })
@@ -263,9 +258,9 @@ export default function SteppedTrajectoryPlot({
             type: 'line3D',
             data: trajectoryLineData,
             lineStyle: {
-              color: trajectoryColor,
+              color: lineColor,
               width: 1.5,
-              opacity: lineOpacity,
+              opacity: colourBy === 'node' ? lineOpacity * 0.4 : lineOpacity,
             },
             silent: true,
             animation: false,
@@ -347,9 +342,7 @@ export default function SteppedTrajectoryPlot({
     })
 
     const resolvedTitle = title
-      ?? (primaryValues && primaryValues.length > 2
-        ? `Stepped UMAP — ${primaryValues.length} senses of ${trajectories[0]?.target || 'target'}`
-        : `Stepped UMAP — ${colorLabelA} vs ${colorLabelB}`)
+      ?? `${trajectories[0]?.target || 'Items'} across layers — coloured by ${colourBy === 'node' ? 'node' : colour.axis}`
 
     const option = {
       title: {
@@ -501,9 +494,9 @@ export default function SteppedTrajectoryPlot({
         <div className="mt-2 text-xs text-gray-500 text-center">
           {trajectories.length} trajectories across layers {Array.from(new Set(
             trajectories.flatMap(t => t.coordinates.map(c => c.layer))
-          )).sort((a, b) => a - b).join('→')} • Colored by {primaryValues && primaryValues.length > 2
-            ? primaryValues.join(', ')
-            : `${colorLabelA} vs ${colorLabelB}`}
+          )).sort((a, b) => a - b).join('→')} • colours: {colourBy === 'node'
+            ? "each point's node at its layer (as numbered in the Sankey)"
+            : `${colour.axis}${colour.lightness ? ` × ${colour.lightness.axis}` : ''}`} • positions: {fitNote}
         </div>
       )}
     </div>

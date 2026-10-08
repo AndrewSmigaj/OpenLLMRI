@@ -1,4 +1,4 @@
-import { getNodeColor, getAxisColor, rgbToHex, type GradientScheme } from '../../utils/colorBlending'
+import { valueColor, type GradientScheme } from '../../color/scheme'
 import { isOutputNode as checkIsOutputNode } from '../../constants/outputNodes'
 import SentenceHighlight from '../SentenceHighlight'
 import ReactMarkdown from 'react-markdown'
@@ -7,14 +7,14 @@ import type { SelectedElementData } from '../../types/analysis'
 export interface ContextSensitiveCardProps {
   cardType: 'expert' | 'highway' | 'cluster' | 'route'
   selectedData: SelectedElementData | null
-  primaryValues: string[]
+  valuesByAxis: Record<string, string[]> // every designed axis's values, so a value keeps its colour
   gradient: GradientScheme
   elementDescription?: string
   clusterAssignments?: Record<string, number>
   onClose?: () => void
 }
 
-export default function ContextSensitiveCard({ cardType, selectedData, primaryValues, gradient, elementDescription, clusterAssignments, onClose }: ContextSensitiveCardProps) {
+export default function ContextSensitiveCard({ cardType, selectedData, valuesByAxis, gradient, elementDescription, clusterAssignments, onClose }: ContextSensitiveCardProps) {
   const hasRichData = Boolean(selectedData?._fullData)
   const isRoute = cardType === 'route' || cardType === 'highway'
 
@@ -23,9 +23,14 @@ export default function ContextSensitiveCard({ cardType, selectedData, primaryVa
     ? selectedData.label_distribution as Record<string, number>
     : null
 
-  const axisDistributions = hasRichData && selectedData?.category_distributions
-    ? selectedData.category_distributions as Record<string, Record<string, number>>
-    : null
+  // The designed axes, then the output column's own axes (kept apart: names may repeat)
+  const axisBlocks = hasRichData ? [
+    ...Object.entries(selectedData?.category_distributions ?? {}).map(([axis, dist]) => ({ title: axis, key: axis, dist })),
+    ...Object.entries(selectedData?.output_distributions ?? {}).map(([axis, dist]) => ({ title: `output · ${axis}`, key: `output:${axis}`, dist })),
+  ] : []
+  // A value's colour from its axis's fixed order (an axis the card doesn't know orders its values by name)
+  const colourOf = (axis: string, value: string, present: string[]) =>
+    valueColor(value, valuesByAxis[axis] ?? [...present].sort(), gradient)
 
   if (!selectedData) {
     return (
@@ -133,9 +138,7 @@ export default function ContextSensitiveCard({ cardType, selectedData, primaryVa
               <p className="text-[10px] font-medium text-gray-500 mb-0.5">Input Labels</p>
               <div className="flex rounded overflow-hidden border border-gray-200" style={{ height: 20 }}>
                 {labelStats.map(stat => {
-                  const color = primaryValues.length > 0
-                    ? rgbToHex(getAxisColor(stat.category, primaryValues, gradient))
-                    : '#6366f1'
+                  const color = colourOf('label', stat.category, labelStats.map(x => x.category))
                   return (
                     <div
                       key={stat.category}
@@ -154,9 +157,7 @@ export default function ContextSensitiveCard({ cardType, selectedData, primaryVa
               </div>
               <div className="flex flex-wrap gap-x-2 gap-y-0 mt-0.5">
                 {labelStats.map(stat => {
-                  const color = primaryValues.length > 0
-                    ? rgbToHex(getAxisColor(stat.category, primaryValues, gradient))
-                    : '#6366f1'
+                  const color = colourOf('label', stat.category, labelStats.map(x => x.category))
                   return (
                     <span key={stat.category} className="inline-flex items-center gap-0.5 text-[9px] text-gray-600">
                       <span className="inline-block w-2 h-2 rounded-sm flex-shrink-0" style={{ backgroundColor: color }} />
@@ -170,22 +171,20 @@ export default function ContextSensitiveCard({ cardType, selectedData, primaryVa
           )}
 
           {/* Per-axis category distributions — stacked bars */}
-          {axisDistributions && Object.keys(axisDistributions).length > 0 && (
+          {axisBlocks.length > 0 && (
             <div className="space-y-1">
-              {Object.entries(axisDistributions).map(([axisId, dist]) => {
+              {axisBlocks.map(({ title, key: axisId, dist }) => {
                 const total = Object.values(dist).reduce((s, v) => s + v, 0)
                 if (total === 0) return null
                 const sorted = Object.entries(dist).sort(([, a], [, b]) => b - a)
                 const axisValues = sorted.map(([v]) => v)
                 return (
                   <div key={axisId}>
-                    <p className="text-[10px] font-medium text-gray-500 mb-0.5 capitalize">{axisId}</p>
+                    <p className="text-[10px] font-medium text-gray-500 mb-0.5 capitalize">{title}</p>
                     <div className="flex rounded overflow-hidden border border-gray-200" style={{ height: 20 }}>
                       {sorted.map(([value, count]) => {
                         const pct = (count / total) * 100
-                        const color = axisValues.length > 0
-                          ? rgbToHex(getAxisColor(value, axisValues, gradient))
-                          : '#6366f1'
+                        const color = colourOf(axisId, value, axisValues)
                         return (
                           <div
                             key={value}
@@ -205,9 +204,7 @@ export default function ContextSensitiveCard({ cardType, selectedData, primaryVa
                     <div className="flex flex-wrap gap-x-2 gap-y-0 mt-0.5">
                       {sorted.map(([value, count]) => {
                         const pct = (count / total) * 100
-                        const color = axisValues.length > 0
-                          ? rgbToHex(getAxisColor(value, axisValues, gradient))
-                          : '#6366f1'
+                        const color = colourOf(axisId, value, axisValues)
                         return (
                           <span key={value} className="inline-flex items-center gap-0.5 text-[9px] text-gray-600">
                             <span className="inline-block w-2 h-2 rounded-sm flex-shrink-0" style={{ backgroundColor: color }} />
@@ -261,8 +258,8 @@ export default function ContextSensitiveCard({ cardType, selectedData, primaryVa
               isOutputNode ? (
                 <div className="space-y-0.5 max-h-[500px] overflow-y-auto">
                   {examples.map((token, index) => {
-                    const tokenColor = token.label && primaryValues.length > 0
-                      ? getNodeColor({ [token.label]: 1 }, primaryValues, gradient)
+                    const tokenColor = token.label
+                      ? colourOf('label', token.label, [])
                       : '#666666'
                     return (
                       <div key={token.probe_id || index} className="bg-gray-50 px-1.5 py-0.5 rounded">
@@ -288,8 +285,8 @@ export default function ContextSensitiveCard({ cardType, selectedData, primaryVa
               ) : (
                 <div className="space-y-0.5 max-h-[400px] overflow-y-auto">
                   {examples.map((token, index) => {
-                    const tokenColor = token.label && primaryValues.length > 0
-                      ? getNodeColor({ [token.label]: 1 }, primaryValues, gradient)
+                    const tokenColor = token.label
+                      ? colourOf('label', token.label, [])
                       : '#666666'
 
                     const targetLower = (token.target_word || '').toLowerCase()

@@ -110,6 +110,7 @@ interface SankeyNode {
   tokens?: ProbeExample[]
   probe_ids?: string[]
   weight?: number // experts: the model's own mean gate weight at this rank
+  output_distributions?: Record<string, Record<string, number>> // the output column: counts on the output's own axes
 }
 
 interface SankeyLink {
@@ -121,6 +122,7 @@ interface SankeyLink {
   label_distribution?: Record<string, number>
   target_word_distribution?: Record<string, number>
   category_distributions?: Record<string, Record<string, number>>
+  output_distributions?: Record<string, Record<string, number>> // links into the output column
   token_count: number
   tokens?: ProbeExample[]
 }

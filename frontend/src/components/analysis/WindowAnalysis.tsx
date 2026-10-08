@@ -1,6 +1,6 @@
 import jStat from 'jStat'
 import ReactMarkdown from 'react-markdown'
-import { getAxisColor, rgbToHex, type GradientScheme } from '../../utils/colorBlending'
+import { valueColor, type GradientScheme } from '../../color/scheme'
 import { isOutputNode, isOutputLink, stripOutputPrefix, OUTPUT_NODE_PREFIX } from '../../constants/outputNodes'
 import type { SankeyNode, SankeyLink } from '../../types/api'
 
@@ -13,7 +13,7 @@ interface WindowAnalysisProps {
   windowLabel?: string
   report?: string
   selectedSchema?: string
-  primaryValues?: string[]
+  labelValues?: string[]
   gradient?: GradientScheme
 }
 
@@ -106,7 +106,7 @@ function strengthLabel(v: number): string {
   return 'strong'
 }
 
-export default function WindowAnalysis({ routeData, windowLabel, report, selectedSchema, primaryValues, gradient = 'red-blue' }: WindowAnalysisProps) {
+export default function WindowAnalysis({ routeData, windowLabel, report, selectedSchema, labelValues, gradient = 'red-blue' }: WindowAnalysisProps) {
   if (!routeData) {
     return (
       <div className="bg-gray-50 rounded p-2 mb-2">
@@ -162,8 +162,8 @@ export default function WindowAnalysis({ routeData, windowLabel, report, selecte
               if (sorted.length > 0 && total > 0) {
                 dominantInput = sorted[0][0]
                 dominantPct = Math.round((sorted[0][1] / total) * 100)
-                if (primaryValues && primaryValues.length > 0) {
-                  dominantColor = rgbToHex(getAxisColor(dominantInput, primaryValues, gradient))
+                if (labelValues && labelValues.length > 0) {
+                  dominantColor = valueColor(dominantInput, labelValues, gradient)
                 }
               }
             }

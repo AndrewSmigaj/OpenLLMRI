@@ -3,11 +3,11 @@
 import type { DynamicAxis, RouteAnalysisResponse, SankeyLink, SankeyNode } from '../types/api'
 import type { AxisCounts, FlowLink, FlowNode, LensFlows } from '../types/lens'
 
-// The input label's counts, and the other axes' counts. The output column reads its categories
-// from the output's own axes, as the window files did.
+// The label's counts, the other designed axes' counts, and for the output column the counts on
+// the output's own axes (kept apart: an output axis may share a designed axis's name)
 function split(counts: AxisCounts | undefined, outputCounts?: AxisCounts) {
   const { label, ...categories } = counts ?? {}
-  return { label_distribution: label ?? {}, category_distributions: outputCounts ?? categories }
+  return { label_distribution: label ?? {}, category_distributions: categories, output_distributions: outputCounts }
 }
 
 function toNode(node: FlowNode, layer: number, outputCounts?: AxisCounts): SankeyNode {

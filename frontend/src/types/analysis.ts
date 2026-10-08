@@ -18,6 +18,7 @@ export interface SelectedElementData {
   label_distribution?: Record<string, number>
   target_word_distribution?: Record<string, number>
   category_distributions?: Record<string, Record<string, number>>
+  output_distributions?: Record<string, Record<string, number>> // the output column's own axes
   specialization?: string
   tokens?: ProbeExample[]
   example_tokens?: ProbeExample[]

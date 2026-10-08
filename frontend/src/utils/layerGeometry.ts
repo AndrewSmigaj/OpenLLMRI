@@ -7,6 +7,7 @@ import type { RouteAnalysisResponse } from '../types/api'
 export const LEFT = 8 // pixels before the first column
 export const RIGHT = 110 // room for the last column's labels
 export const NODE_WIDTH = 6
+export const STRIPED_NODE_WIDTH = 14 // wide enough to read a node's bands
 
 // The column labels: every layer, then the output column when the capture has generated outputs
 export function columnsOf(routes: RouteAnalysisResponse | null): string[] {
@@ -19,11 +20,11 @@ export function columnsOf(routes: RouteAnalysisResponse | null): string[] {
 export const stepsInView = (columns: number, zoom: number) => Math.max(1, Math.min(zoom, columns - 1))
 
 // Pixels from one column to the next, so `steps` steps fill the visible width
-export const spacingFor = (visibleWidth: number, steps: number) =>
-  Math.max(24, (visibleWidth - LEFT - RIGHT - NODE_WIDTH) / steps)
+export const spacingFor = (visibleWidth: number, steps: number, nodeWidth = NODE_WIDTH) =>
+  Math.max(24, (visibleWidth - LEFT - RIGHT - nodeWidth) / steps)
 
-export const chartWidth = (columns: number, spacing: number) =>
-  LEFT + RIGHT + NODE_WIDTH + spacing * Math.max(0, columns - 1)
+export const chartWidth = (columns: number, spacing: number, nodeWidth = NODE_WIDTH) =>
+  LEFT + RIGHT + nodeWidth + spacing * Math.max(0, columns - 1)
 
 // The furthest first column, so the last steps still fill the view
 export const lastFirst = (columns: number, steps: number) => Math.max(0, columns - 1 - steps)

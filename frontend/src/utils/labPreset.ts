@@ -1,7 +1,7 @@
 // A lab room's view preset (data/labs/*.yaml, sent with room_entered) as view state. The windows
 // presets name (w0 to w3) were six-layer ranges; each becomes its first layer at zoom 6.
 import type { VizPreset } from '../types/evennia'
-import { GRADIENT_SCHEMES, type GradientScheme } from './colorBlending'
+import { GRADIENT_SCHEMES, type GradientScheme } from '../color/scheme'
 import { DEFAULT_VIEW, type ViewState } from '../hooks/useViewState'
 
 const WINDOW_START: Record<string, number> = { w0: 0, w1: 5, w2: 11, w3: 17 }

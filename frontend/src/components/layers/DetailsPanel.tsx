@@ -2,7 +2,7 @@
 // description of it), and the legacy schema's reports.
 import type { SelectedCard } from '../../types/analysis'
 import type { ClusteringSchema } from '../../types/api'
-import type { GradientScheme } from '../../utils/colorBlending'
+import type { GradientScheme } from '../../color/scheme'
 import { descriptionKey } from '../../utils/selectionCard'
 import ContextSensitiveCard from '../analysis/ContextSensitiveCard'
 import SchemaSummary from '../analysis/SchemaSummary'
@@ -16,20 +16,20 @@ interface DetailsPanelProps {
   reports: Record<string, string>
   layer: number
   clusterPath?: Record<string, number> // an item's cluster at each layer, for an item's card
-  primaryValues: string[]
+  axisValues: Record<string, string[]> // every axis's values, in a fixed order
   gradient: GradientScheme
   onClose: () => void
 }
 
 export default function DetailsPanel({ summary, card, descriptions, reports, layer, clusterPath,
-                                       primaryValues, gradient, onClose }: DetailsPanelProps) {
+                                       axisValues, gradient, onClose }: DetailsPanelProps) {
   const key = card ? descriptionKey(card) : ''
   return (
     <div className="h-full overflow-y-auto overflow-x-hidden p-2 space-y-2 bg-white">
       {summary && <div className="pb-2 border-b border-gray-200"><SchemaSummary schema={summary} /></div>}
       {card ? (
         <PanelErrorBoundary key={key} name="Details card">
-          <ContextSensitiveCard cardType={card.type} selectedData={card.data} primaryValues={primaryValues}
+          <ContextSensitiveCard cardType={card.type} selectedData={card.data} valuesByAxis={axisValues}
             gradient={gradient} elementDescription={descriptions[key]} clusterAssignments={clusterPath} onClose={onClose} />
         </PanelErrorBoundary>
       ) : (
