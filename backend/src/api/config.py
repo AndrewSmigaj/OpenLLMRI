@@ -19,3 +19,7 @@ SCENARIO_LIBRARY = _project_root / "data" / "scenarios"
 
 # Background jobs (lens builds, LLM report runs): one folder per job, in the lake.
 JOBS_PATH = DATA_LAKE_PATH / "_jobs"
+
+# Saved lens versions, copied into the repo as files (DESIGN.md G: lenses are files in the repo).
+LENS_RECORDS_PATH = _project_root / "data" / "lenses"
+PROJECT_ROOT = _project_root

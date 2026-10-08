@@ -14,6 +14,7 @@ import subprocess
 import sys
 import time
 from dataclasses import dataclass
+from pathlib import Path
 from typing import Any, Callable, Dict
 
 from services.jobs.store import JobStore, Progress
@@ -46,6 +47,11 @@ class JobContext:
     def log(self, message: str) -> None:
         print(message, flush=True)
 
+    def add_temp_path(self, path: Path) -> None:
+        """Name an output written under a temporary name, so an unfinished run's leftovers are removed."""
+        job = self.store.load(self.job_id)
+        self.store.update(self.job_id, temp_paths=job.temp_paths + [str(path)])
+
 
 @dataclass(frozen=True)
 class JobKind:
@@ -77,7 +83,14 @@ def _noop(params: Dict[str, Any], ctx: JobContext) -> Dict[str, Any]:
     return {"waited": seconds}
 
 
+def _lens_build(params: Dict[str, Any], ctx: JobContext) -> Dict[str, Any]:
+    from services.lenses.build import build_lens
+
+    return build_lens(params, ctx)
+
+
 KINDS: Dict[str, JobKind] = {
     "noop": JobKind(lane="cpu", run=_noop),
     "noop_llm": JobKind(lane="llm", run=_noop),
+    "lens_build": JobKind(lane="cpu", run=_lens_build),
 }

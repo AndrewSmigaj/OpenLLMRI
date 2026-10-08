@@ -16,6 +16,8 @@ kernels
 # scikit-learn >=1.6 is required by umap-learn 0.5.11.
 scikit-learn==1.7.2
 umap-learn==0.5.11
+scipy==1.15.3  # lens Ward trees
+joblib==1.5.3  # lens reducers, and fitting layers across processes
 numpy<2.0
 pandas==2.1.4
 
