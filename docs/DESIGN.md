@@ -2,7 +2,7 @@
 
 **Status:** a draft for Andrew's review (2026-10-07). Nothing new is built until he approves it.
 
-**Review progress:** Parts A to H reviewed with Andrew (2026-10-07). Still open: L3, L9.
+**Review progress:** Parts A to I reviewed with Andrew (2026-10-07). Still open: L3, L9, L14.
 
 **Contents:**
 - How this document works
@@ -92,6 +92,7 @@
 | **reasoning stream** | the model's own reasoning text in a tick (gpt-oss's analysis channel) |
 | **ordering** | what a sequence of readings steps through: context steps, ticks, or reasoning steps inside one tick |
 | **scaffold** | text that guides how the agent reasons, such as a system prompt, a persona or a planning prompt |
+| **condition** | whatever differs between runs of the same set: a scaffold, a steering vector, an ablation, an expert mask, another model or a decoding setting (I) |
 | **references** | runs whose label never changes, read with the same lens. They show where each class's readings sit at each point |
 | **band** | the range holding most of one class's reference readings at one point |
 | **between the bands** | a reading whose concept is present but sits between the classes at that point: the state is unresolved |
@@ -699,6 +700,7 @@ LLMs are good at spotting patterns in this data, such as pipes, hubs and split p
 | Watch | a comparison report for runs side by side | Decided, 2026-10-07 |
 | Study | a study report on crossings, and on the differences between conditions | Decided, 2026-10-07 |
 | Atlas | reports connecting lenses, such as an expert or pipe that serves several of them: the start of the coherent model | Decided, 2026-10-07 |
+| Scaffold catalogue (I) | a report for each analysed scaffold, across its types of analysis | Decided, 2026-10-07 |
 | Ideas | what to probe next, from the gaps in the atlas | Decided, 2026-10-07 |
 | MUD (later) | a guide in each lab who answers questions about the lab's view from the cards | Decided, 2026-10-07 |
 
@@ -837,14 +839,41 @@ questions, not findings.
 
 - **Steering and ablation, with behaviour studies** [Decided, 2026-10-06].
 - **Steering a node and seeing what changes downstream** [Decided, 2026-10-06].
+  - **The push is told apart from its effects** [Decided, 2026-10-07]. At the steered layer the
+    population lands in the other node by construction. So the view shows whether it stays there
+    at later layers or drifts back (later layers can undo a push, known as self-repair), and what
+    else changes: other lenses, routes and behaviour.
 - **Scaffolds, and steering from outside and inside the model:** how each changes trajectories
   [Decided, 2026-10-06].
-- **A scaffold comparison includes a neutral scaffold** of the same length and format [Proposed].
-  Added text alone shifts readings, so this separates a scaffold's content from its presence.
-- **How interventions are done** [Proposed]:
-  - routing drift is always recorded;
-  - an option to steer only in directions the router doesn't use;
-  - expert masks through the router's bias.
+- **A condition is whatever differs between runs of the same set** [Decided, 2026-10-07]: a
+  scaffold, a steering vector, an ablation, an expert mask, another model or a decoding setting.
+  - All are compared the same way, under one fixed lens: side by side in Watch, and as averages
+    in Study.
+  - Each run records its condition (G).
+- **Comparisons are fair** [Decided, 2026-10-07]:
+  - **paired:** a condition and its baseline share everything else (scenario, decoding, seed,
+    date), so a difference comes from the condition. Where the two runs part ways is itself a
+    result;
+  - **a same-size control without the content:** random directions for steering and ablation,
+    random experts for expert masks, and two or three neutral texts of the same length and format
+    for scaffolds. Added text alone shifts readings, so the neutral texts separate a scaffold's
+    content from its presence;
+  - **dose:** strength and layer are swept, so a result shows how the effect grows.
+- **How interventions are done** [Decided, 2026-10-07]:
+  - routing drift is always recorded: a push can switch experts at later layers, because the
+    routers read the residual stream;
+  - an option to steer only in directions the routers don't use;
+  - expert masks through the router's bias. On the 4-bit loading path the router's own code never
+    runs, so it can't be hooked, but that path reads the bias on every call.
+- **A catalogue of analysed scaffolds** [Decided, 2026-10-07]: each scaffold with its reports and
+  different types of analysis.
+  - **Its shape** [Proposed]:
+    - the analyses: what the scaffold changes in each lens's readings, and when in a run; in
+      routes; and in behaviour, including the style of what the agent writes. Each is measured
+      against the scaffold's neutral controls;
+    - it is the atlas's fourth catalogue, so the map (H) can link a scaffold to what it changes,
+      with a seventh kind of link, "changes", measured by the condition comparison;
+    - scaffolds are kept as versioned files in the repo, like the sentence and scenario sets.
 - **Another MoE model** for comparison [Decided, 2026-10-06].
 
 ## Part J — User stories
@@ -915,7 +944,8 @@ Stories 1–6 come from the time design; 7–11 were added in its review, which 
       - Watch, with its lens panels, replay, explained readings, bookmarks, runs side by side and
         live alerts;
       - the experiments of D6.
-   8. **Conditions and interventions:** scaffold studies, steering, ablation.
+   8. **Conditions and interventions:** scaffold studies and the scaffold catalogue, steering,
+      ablation.
    9. **Layer transitions and trajectory upgrades,** such as patterned nodes.
    10. **A second MoE model.**
    11. **The paradigm and the AI scientists:**
@@ -951,6 +981,9 @@ Stories 1–6 come from the time design; 7–11 were added in its review, which 
 - **L12. LLM analysis (E8).** Answered 2026-10-07: every place in the table.
 - **L13. Live runs in the app?** Answered 2026-10-07: Watch follows a run in progress one saved tick
   at a time; the scan never slows the agent; the agent's play is watched in the MUD (E4).
+- **L14. The scaffold catalogue's shape (I).** Analyses of readings, routes and behaviour against
+  the neutral controls; the atlas's fourth catalogue, with a seventh kind of link, "changes"; and
+  scaffolds as versioned files in the repo. Yes?
 
 ## Appendix — Decisions by date
 
@@ -1042,7 +1075,11 @@ Paraphrased from Andrew's own words. His ideas not yet decided are listed separa
     ranks, and routes built from all four; the retirements of the basin-era temporal tools;
   - Watch follows a run in progress one saved tick at a time, and the scan never slows the agent;
   - Part H: node dynamics in the atlas; the accepted findings form a map, with facts about single
-    entries and links of six kinds between them, scored later on how well it predicts new lenses.
+    entries and links of six kinds between them, scored later on how well it predicts new lenses;
+  - Part I: one idea of a condition; fair comparisons (paired runs, a same-size control without
+    the content, with two or three neutral texts for scaffolds, and dose); steering a node tells
+    the push from its effects; routing drift, steering the routers ignore, and bias masks; a
+    catalogue of analysed scaffolds, with reports and different types of analysis.
 - **Andrew's ideas, not yet decided:**
   - **2026-10-04:** a user interface in the MUD;
   - **2026-10-06:** asking the agent to use set words in its reasoning; giving it words marked as for
