@@ -1,6 +1,6 @@
 ---
 name: cluster
-description: Build, list, archive, and delete clustering schemas — the canonical schema lifecycle owner for sessions
+description: Build lenses (background jobs, k per layer, new k without a refit, save) and manage legacy clustering schemas for sessions
 ---
 
 # Clustering Schema Lifecycle
@@ -46,7 +46,48 @@ leaves no trace; the only legal evolutions are "build a fresh schema" or
 "archive + rebuild." There is no per-window or per-transition rebuild — the
 unit of work is the whole schema.
 
-The frontend has zero schema-management UI. Everything is curl from this skill.
+## Lenses (since 2026-10-08): build these, not schemas
+
+A lens replaces a schema: every layer is fitted once, k can differ per layer and can change
+later without a refit, and the build runs as a background job. Legacy schemas stay readable.
+
+### OP-L1: Build a lens (returns a job at once)
+
+Defaults follow every kept schema: residual stream, 6-D UMAP, Ward, last occurrence.
+Replace `SID`, `NAME` (lowercase, digits, `_`, `-`) and the k you want.
+
+```bash
+curl -s -X POST http://localhost:8000/api/lenses -H "Content-Type: application/json" \
+  -d '{"session_id":"SID","name":"NAME","n_neighbors":15,"dimensions":6,"k":6,"created_by":"claude-code"}'
+```
+
+Other ways to set k: `"k_per_layer":[...24 values...]`, or `"k_auto":"elbow"`, `"silhouette"`
+or `"levels"` (the suggestion each method makes per layer, named in the version).
+
+### OP-L2: Follow the job
+
+```bash
+curl -s http://localhost:8000/api/jobs/JOB_ID
+```
+
+`state` goes queued, running (with `progress`), done. A failure carries `error` and `log_tail`.
+A 24-layer lens takes about a minute.
+
+### OP-L3: List, open, choose a new k, save
+
+```bash
+curl -s http://localhost:8000/api/sessions/SID/lenses
+curl -s "http://localhost:8000/api/sessions/SID/lenses/NAME/flows"
+curl -s -X POST http://localhost:8000/api/sessions/SID/lenses/NAME/versions \
+  -H "Content-Type: application/json" -d '{"k":5}'
+curl -s -X POST http://localhost:8000/api/sessions/SID/lenses/NAME/save \
+  -H "Content-Type: application/json" -d '{"version":"v2","keywords":["tank"]}'
+```
+
+A legacy schema opens through the same endpoints with `?legacy=true`. Saving freezes a
+version and copies its records into `data/lenses/<session>/<name>/` in the repo.
+
+The schema operations below are legacy; their build endpoint retires at the end of slice 1.
 
 ## Prerequisites
 

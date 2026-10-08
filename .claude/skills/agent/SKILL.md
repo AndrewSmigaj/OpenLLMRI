@@ -229,7 +229,7 @@ Proposed clustering schema:
   (covers all 4 windows × 6 transitions × {cluster, expert ranks 1/2/3})
 
 Answer one of:
-  accept                        — build the proposed schema (one /cluster OP-1 call)
+  accept                        — build the proposed lens (one /cluster OP-L1 call)
   sweep <axis> <values>         — build N schemas, one per value, suffixed names
                                   e.g. sweep steps [0],[1],[0,1]
                                        sweep max_probes 50,100,200
@@ -237,15 +237,17 @@ Answer one of:
   skip                          — exit without building
 ```
 
-On `accept`: invoke `/cluster` OP-1 once with the proposed params.
+On `accept`: invoke `/cluster` OP-L1 once with the proposed params.
+The lens request names them: `name` (was `save_as`), `filters.steps`,
+`filters.last_occurrence_only`, `n_neighbors`, `dimensions`, `k`.
 
-On `sweep <axis> <values>`: invoke `/cluster` OP-1 N times in sequence, one per
+On `sweep <axis> <values>`: invoke `/cluster` OP-L1 N times in sequence, one per
 value, with `save_as` suffixed appropriately (e.g. `_step0`, `_step1`,
 `_step01`). Non-interactive after the first prompt — overnight-friendly.
 
 On `custom`: prompt the user for each of `save_as`, `steps`,
 `n_neighbors`, `reduction_dimensions`, `default_k`, showing the proposed
-default in brackets. Then invoke `/cluster` OP-1 once with the resulting
+default in brackets. Then invoke `/cluster` OP-L1 once with the resulting
 params. (A schema always covers all 4 windows × 6 transitions — there is
 no per-window customization.)
 
