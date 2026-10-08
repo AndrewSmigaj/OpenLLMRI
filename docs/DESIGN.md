@@ -2,8 +2,8 @@
 
 **Status:** a draft for Andrew's review (2026-10-07). Nothing new is built until he approves it.
 
-**Review progress:** every part reviewed with Andrew (2026-10-07). Part M adds Claude's certainty
-assessment and recommendations for his final read (L15). Waiting for his final read and approval.
+**Review progress:** every part reviewed with Andrew (2026-10-07), and Part M's recommendations
+adopted into their parts (2026-10-08).
 
 **Contents:**
 - How this document works
@@ -60,6 +60,7 @@ assessment and recommendations for his final read (L15). Waiting for his final r
 | **expert route** | the experts a token is sent to, layer by layer: four in each layer, whose weights add up to 1. "Top-1" is the expert with the highest weight |
 | **pipeline** | a sequence of experts that many tokens follow through consecutive layers |
 | **hub** | an expert that many different routes pass through |
+| **expert fingerprint** | a 24 × 32 grid of how much weight each expert gets at each layer, for one population of tokens |
 | **residual stream** | a token's state at a layer: 2,880 numbers that each layer reads and adds to |
 | **neuron** | one of those 2,880 numbers |
 | **agent** | gpt-oss-20b playing scenarios in the MUD |
@@ -164,7 +165,13 @@ assessment and recommendations for his final read (L15). Waiting for his final r
 - building validated lenses for many candidate contrasts;
 - finding internal representations is the aim of one kind of study, and many studies stay
   exploratory until every representation we can think of has been worked through [Decided,
-  2026-10-04].
+  2026-10-04];
+- **it starts with about twelve lenses across levels of language** [Decided, 2026-10-08]: grammar
+  (tense, number agreement), meaning (the senses of "tank", animacy, an animal taxonomy),
+  pragmatics (irony), feeling (positive or negative), social (friend or foe, intent), knowledge
+  (fact or fiction), safety (harmful or harmless request) and reasoning (negation). Some have
+  published results on other models, which benchmarks the instrument, and the breadth gives each
+  team of AI scientists a start.
 
 Part K gives the order of what follows.
 
@@ -275,7 +282,7 @@ This part covers building; Parts D and E cover using.
 - **A self-check** [Decided, 2026-10-07]: before lens search is trusted, it must find structure planted in
   synthetic data.
 
-**C5. What comes with each node.**
+**C5. What comes with each node and lens.**
 - **The neurons behind it,** found by correlation [Decided, 2026-10-04].
 - **For each split between nodes** [Decided, 2026-10-06]:
   - how much of the split comes from attention, and how much from the experts;
@@ -284,6 +291,15 @@ This part covers building; Parts D and E cover using.
   - a check that surface features (length, first word) don't explain it.
 - **Before a key finding is accepted** [Decided, 2026-10-06]: the population is steered into the
   other node, and what changes downstream is recorded.
+- **Its expert fingerprint** [Decided, 2026-10-08]: how much weight each expert gets at each layer,
+  for the node's population (E5).
+- **How much of each lens the router sees** [Decided, 2026-10-08]: for each mass-mean lens and
+  layer, the share of its axis that lies in what the next router reads. It says whether a concept
+  steers expert choice or rides along as content. The split into what the router reads and what it
+  ignores is Ye, Yuan and Sharkey's (M2).
+- **The published features closest to it** [Decided, 2026-10-08]: from the public sparse
+  autoencoders for gpt-oss-20b (Arditi's, on Neuronpedia). It is a comparison, not circuit
+  discovery (B7), and lets others read the findings in their own vocabulary.
 
 **C6. Lens kits.**
 - **Each scenario set gets lenses designed for it, or reuses lenses already built** [Decided,
@@ -451,7 +467,9 @@ MUD or through Claude Code (F3). It follows a run in progress one saved tick at 
 - **An analysis panel beside each view** [Decided, 2026-10-07]: the LLM-written report on whatever is selected
   (E8).
 - **Every chart exports its picture (SVG, PNG) and its data (CSV, JSON)** [Decided, 2026-10-07,
-  approved in the time review].
+  approved in the time review]. Each export carries a recipe (the lens and its version, the
+  captures, the settings, the commit), so the figure can be made again exactly [Decided,
+  2026-10-08].
 
 **E3. Build.**
 - **The sentence set builder** [Decided, 2026-10-07: it shows the instructions given to the authoring agents and
@@ -573,7 +591,11 @@ area can be resized and can fill the screen.
 **Replay** [Decided, 2026-10-07]:
 - play, pause and step through a recorded run tick by tick;
 - the heatmap, the lens panels, the text and the MUD transcript all move together;
-- it is the app's version of replaying a run in a scenario room (F1).
+- it is the app's version of replaying a run in a scenario room (F1);
+- **branch from any tick** [Decided, 2026-10-08]: replay up to a tick, change one thing (the
+  observation, a scaffold or a steering vector) and let the model continue. The branch is a new
+  run, so it starts through Claude Code or the MUD (F3); it is a condition (I) and opens side by
+  side with the original.
 
 **A reading explains itself** [Decided, 2026-10-07]:
 - hovering a lit cell shows the lens's own calibration sentences closest to that state;
@@ -592,7 +614,10 @@ area can be resized and can fill the screen.
 **Live alerts** [Decided, 2026-10-07]:
 - tell me when a chosen lens lights up, or when a reading is still between the classes at the
   output;
-- the first step toward monitoring agents (A1).
+- the first step toward monitoring agents (A1);
+- **alerts are judged per run** [Decided, 2026-10-08]: by how many runs they catch at an acceptable
+  rate of false alarms, not by AUROC alone. In a 2026 study, probes with AUROC above 0.93 still
+  missed between a fifth and a third of cases at realistic false-alarm limits (M2).
 
 **A run in progress** [Decided, 2026-10-07]:
 - Watch opens it like a finished run. Each tick appears once it is saved, with its keyword
@@ -651,6 +676,34 @@ area can be resized and can fill the screen.
 - **More visual channels than colour blending,** such as lines shaped by sine waves [Decided,
   2026-10-06], and patterned Sankey nodes.
 - **Colour by any designed axis.** Today only the label can colour.
+- **Colour that reads true** [Decided, 2026-10-08]:
+  - colours blend in a perceptual colour space (OKLab), so a half-and-half node looks halfway and
+    mixes stay clean. Today's blend averages RGB values (`colorBlending.ts`), which turns mixes of
+    opposing colours muddy and darker than either class;
+  - an optional striped node shows the exact shares;
+  - two designed axes can share one colour, hue for one and lightness for the other, with a square
+    legend, so one Sankey shows a combination such as frame × voice. Today points can pair a second
+    axis, but nodes can't.
+- **Expert fingerprints** [Decided, 2026-10-08]: for any node, population or condition, a 24 × 32
+  grid of how much weight each expert gets at each layer, and difference grids between two of
+  them.
+- **Expert Sankeys keep one layout** [Decided, 2026-10-08]: experts at each layer are ordered to
+  minimize crossings, computed once from the pooled flows and kept fixed across conditions, so a
+  difference between conditions is real rather than layout. Ye, Yuan and Sharkey lay out expert
+  paths this way.
+- **Where the instruments disagree is marked** [Decided, 2026-10-08]: items whose node differs
+  between the UMAP lens and the best raw-space grouping (C4) are marked on the cluster Sankey, so
+  the picture shows where it could mislead.
+- **The 3-D trajectories show what the lens counts** [Decided, 2026-10-08]. Today's stepped 3-D
+  view fits its own UMAP, separate from the clustering, and colours by label
+  (`cluster_route_analysis.py`), so a point can sit in one bundle and be counted in another node.
+  It colours by node, or draws from the lens's own fit.
+- **Depth heatmaps** [Decided, 2026-10-08], per lens:
+  - tokens × layers for one sentence or tick: where in the text, and at which depth, a concept
+    forms (C5's question of which token made the decision). It opens from here for a sentence and
+    from Watch for a tick;
+  - layers × time for a run or a study: how a reading forms at each depth as evidence arrives
+    (E6).
 - **Cards with LLM-written reports** for clusters, experts, routes and expert routes (E8).
 
 **E6. Study** [Decided, 2026-10-07: the parts below were approved in the time review]:
@@ -667,6 +720,9 @@ area can be resized and can fill the screen.
 - **Opening a run** replaces the study timeline with that run's timeline, with a way back. A button
   also opens the run in Watch.
 - **Behaviour:** each tick's action, or would-be action, against its reading.
+- **Depth over time** [Decided, 2026-10-08]: the layers × time heatmap for the study's lens (E5).
+- **A temporal Sankey** [Decided, 2026-10-08]: node transitions across ticks or context steps, once
+  a study has enough runs and few enough nodes.
 - **Readings are background jobs,** computed once and stored. A study of 200 runs × 7 ticks takes
   about 25–70 minutes of GPU.
 
@@ -686,7 +742,19 @@ LLMs are good at spotting patterns in this data, such as pipes, hubs and split p
 - reports are written in the background when their data is built, kept, and rewritten when the
   data changes;
 - a question box asks a follow-up question about the current view;
-- reports are marked as LLM-written. A finding still goes through the paradigm's review (Part H).
+- reports are marked as LLM-written. A finding still goes through the paradigm's review (Part H);
+- **analysts are tested before they are trusted** [Decided, 2026-10-08], and again whenever prompts
+  or models change:
+  - decoys: cards and Sankeys built from shuffled labels or random groupings, where a sound analyst
+    reports nothing;
+  - planted findings, which a sound analyst finds;
+  - predictive descriptions: given a node's description, another model must pick the node's members
+    from held-out sentences, scored against a simple baseline, as RouterInterp scored its routing
+    descriptions (M2);
+- **reports have a budget** [Decided, 2026-10-08]. Every cluster, split point and route of one lens
+  comes to hundreds of `claude -p` calls (24 layers × about 6 nodes is already 144 cluster cards).
+  Reports are written first for validated lenses and selected items, the rest on demand, with a
+  budget per job.
 
 **Where analysis goes:**
 
@@ -763,7 +831,10 @@ watcher does reaches the agent.
 **F6. Which MUD** [Decided, 2026-10-07]:
 - by default the app and the backend connect to Scaffold Dynamics, the project's server;
 - a user can run their own MUD instead, usually on localhost, and enter its address;
-- today the address comes from the root `.env` and is always localhost [Built].
+- today the address comes from the root `.env` and is always localhost [Built];
+- **hosting Scaffold Dynamics for others is planned before other researchers are invited**
+  [Decided, 2026-10-08]: a server, accounts, abuse handling and cost. Until then the default
+  address is localhost.
 
 ## Part G — Data and records
 
@@ -827,7 +898,13 @@ watcher does reaches the agent.
   - findings connect because each names the entries it links. Contradictions show up as clashing
     links, and each is a study waiting to happen;
   - later, the map is scored on how well it predicts what a new lens will show: a score for the
-    paradigm, never a gate on analysis.
+    paradigm, never a gate on analysis;
+  - every fact and link carries its strength [Decided, 2026-10-08]: supported, tested and absent,
+    or untestable here, so the map shows what was checked and found missing, not only what holds.
+- **The atlas is published** [Decided, 2026-10-08]: exported as a static website (entries,
+  reports, figures and the map), with the sentence sets, lens directions and summary readings on
+  Hugging Face in formats others can load. It is the project's public face, linkable from posts
+  and papers.
 
 **The kinds of link** [Decided, 2026-10-07], each measured by its own tool. The examples are
 questions, not findings.
@@ -838,9 +915,10 @@ questions, not findings.
 | nesting | Does "dog" sit inside "mammal" inside "animal"? | the levels of the k profile's hierarchy (C) |
 | order in depth | Does word sense settle before the scene's threat level? | per-layer held-out scores (C) |
 | shared direction | Do one set's threat axis and another's danger axis point the same way? | the angle between two mass-mean axes |
-| shared machinery | Do two concepts' tokens take the same pipes and hubs? | the expert and route catalogues |
+| shared machinery | Do two concepts' tokens take the same pipes and hubs? | the expert and route catalogues, and expert fingerprints (E5) |
 | use in decisions | Does the reading predict the action, and does steering it change the action? | behaviour by reading (E6) and steering a node (I) |
 | changes | Does a scaffold make a concept form earlier in a run, or suppress a writing style? | the condition comparison, against the scaffold's neutral texts (I) |
+| steers routing | Does the threat axis lie in what the router reads, so that threat changes which experts a token goes to? | the share of the lens's axis in what the next router reads (C5) [Decided, 2026-10-08] |
 
 ## Part I — Interventions and conditions
 
@@ -854,6 +932,7 @@ questions, not findings.
   [Decided, 2026-10-06].
 - **A condition is whatever differs between runs of the same set** [Decided, 2026-10-07]: a
   scaffold, a steering vector, an ablation, an expert mask, another model or a decoding setting.
+  A change made at one tick of a branched run is a condition too (E4) [Decided, 2026-10-08].
   - All are compared the same way, under one fixed lens: side by side in Watch, and as averages
     in Study.
   - Each run records its condition (G).
@@ -872,6 +951,11 @@ questions, not findings.
   - an option to steer only in directions the routers don't use;
   - expert masks through the router's bias. On the 4-bit loading path the router's own code never
     runs, so it can't be hooked, but that path reads the bias on every call.
+- **Replications are named as such** [Decided, 2026-10-08]. Steering where the routers can't see is
+  RARE's method, built on Ye, Yuan and Sharkey's split, and switching experts is SteerMoE's (M2).
+  Both are cited, and each is first reproduced on a published result. For agents, one published
+  gpt-oss result is replicated as a MUD scenario: game probes that stay accurate when the agents
+  know they are watched.
 - **A catalogue of analysed scaffolds** [Decided, 2026-10-07]: each scaffold with its reports and
   different types of analysis.
   - **Its shape** [Decided, 2026-10-07]:
@@ -940,7 +1024,8 @@ I. The steps in each are [Decided, 2026-10-07].
 2. **This document:** reviewed with Andrew section by section, then approved. Nothing new is built
    until then.
 3. **Before the first slice:** the basin-era temporal tools retire (G).
-4. **Then the build, in slices:**
+4. **Then the build, in slices.** Each ends with a showcase: one striking figure and a short
+   findings note [Decided, 2026-10-08].
    1. **The lens core** [Decided, 2026-10-06: before the world-building pilot]:
       - validated, saved lenses, with the self-check on planted structure (C4);
       - k per layer, manual and automatic, with the k profile and the k advisor (C3, E8);
@@ -953,7 +1038,10 @@ I. The steps in each are [Decided, 2026-10-07].
       - atlas nodes, first version;
       - the all-layer Layers view, colour by any designed axis, study files, and the model's own
         expert weights with all four ranks (E5);
-      - the raw-axis endpoint retires once saved mass-mean lenses replace it (G).
+      - the raw-axis endpoint retires once saved mass-mean lenses replace it (G);
+      - the additions of 2026-10-08: colour that reads true, expert fingerprints, one layout for
+        expert Sankeys, marked disagreements, the 3-D fix, figure recipes, the analyst tests, a
+        budget for reports, and how much of each lens the router sees (C5, E2, E5, E8).
    2. **Capture and jobs:**
       - the capture recipe and per-run token ids (G);
       - the GPU job queue;
@@ -962,12 +1050,15 @@ I. The steps in each are [Decided, 2026-10-07].
 
       It comes before the builder because the builder captures each new set as a background job,
       and every capture records how it was made (B12).
-   3. **The sentence set builder,** with its audits and critic (C1, E3).
+   3. **The sentence set builder,** with its audits and critic (C1, E3), then the starter lens
+      catalogue (A4).
    4. **Time on sentence runs,** checked against the paper's tank results (D7), in Study: readings
-      with presence and position, references and bands (D4, D5).
+      with presence and position, references and bands (D4, D5). Depth heatmaps and the temporal
+      Sankey come with it (E5, E6).
    5. **The atlas, second version:** the expert and route catalogues across every capture, node
       dynamics from sentence runs, cross-lens reports, and overlaps by cross-reading (H, E8). By
-      then the builder has produced several lenses to connect.
+      then the builder has produced several lenses to connect. The atlas is published, with its
+      data, and each node lists its nearest published features (C5, H).
    6. **The world-building pilot** [Decided, 2026-10-06: after the lens core; 2026-10-07: after
       slice 5].
    7. **The scenario builder and the MUD workspace,** then friend/foe v3 [Decided, 2026-10-06: v3
@@ -980,19 +1071,25 @@ I. The steps in each are [Decided, 2026-10-07].
       - Watch, with its lens panels, explained readings, bookmarks, runs side by side and live
         alerts;
       - node dynamics from agent runs;
+      - tokens × layers heatmaps for ticks, and alerts judged per run (E4, E5);
+      - one published game-probe result replicated as a MUD scenario (I);
       - the experiments of D6.
    9. **Conditions and interventions:** scaffold studies and the scaffold catalogue; steering,
-      ablation and expert masks; the steering check before a key finding is accepted (C5, I).
+      ablation and expert masks; the steering check before a key finding is accepted;
+      branching a run from any tick; RARE's and SteerMoE's methods reproduced and cited (C5, E4,
+      I).
    10. **Layer transitions and trajectory upgrades:** how much of each split comes from attention
        and how much from the experts (C5); wave lines and patterned nodes (E5).
    11. **A second MoE model.**
    12. **The paradigm and the AI scientists:**
-       - the map: links, votes and the consolidators (H);
+       - the map: links, votes and the consolidators, with a strength on every finding and the
+         eighth kind of link (H);
        - evidence packets for the AI scientists;
        - the Ideas workspace;
        - the scientists' and researchers' rooms (F2);
        - monitoring.
-5. **Later:** the Mudlet package (A2), the lab guide in the MUD (E8) and a mini-world builder (E3).
+5. **Later:** the Mudlet package (A2), the lab guide in the MUD (E8), a mini-world builder (E3), and
+   hosting Scaffold Dynamics before other researchers are invited (F6).
 
 ## Part L — Questions for Andrew
 
@@ -1023,14 +1120,15 @@ I. The steps in each are [Decided, 2026-10-07].
 - **L14. The scaffold catalogue's shape (I).** Answered 2026-10-07: yes; analyses against the
   neutral texts, the atlas's fourth catalogue with a seventh kind of link ("changes"), and
   scaffolds as versioned files.
-- **L15. Part M's recommendations.** Which should the design take? Claude's top five are marked ★.
+- **L15. Part M's recommendations.** Answered 2026-10-08: all adopted and written into their parts;
+  the project keeps the name OpenLLMRI.
 
-## Part M — Claude's final read: certainty and recommendations [Proposed]
+## Part M — Claude's final read: certainty and recommendations [Decided, 2026-10-08: Andrew accepted it]
 
 Written for Andrew's final read (2026-10-07). M1 grades how sure Claude is that the design does what
 it is for. M2 places it among other work on gpt-oss and MoE models, from a survey of 2025–2026 work
-whose main claims were re-read at their sources. M3 lists recommendations. Each is [Proposed] until
-Andrew answers (L15); nothing here changes a decision above.
+whose main claims were re-read at their sources. M3 lists the recommendations: Andrew adopted them
+(2026-10-08), and each is now written into its part.
 
 **M1. How sure the design is.** Certainty follows how a claim was checked: read at the source or
 run, reasoned from checked facts, or taken from the survey.
@@ -1038,18 +1136,19 @@ run, reasoned from checked facts, or taken from the survey.
 | Question | Evidence | Certainty | What would raise it |
 |---|---|---|---|
 | Does it serve the goal (A1)? | Every part of A1 has a home: which representations exist (C, H); where they form (per-layer held-out scores, C4; other token positions, C5); how each layer transforms them (slice 10); how tokens move through them (B2, D, E5, E6); how experts route them (E5, H); behaviour and failure points (D3–D5, E6, I); monitoring (E4, slice 12) | 90% | How each layer transforms them is the thinnest part, and it comes late (slice 10) |
-| Can its readings be trusted? | Held-out scene families, chance-corrected scores, the fair comparison against a supervised ceiling, the self-check on planted structure, the surface check, the steering check, statistics per scene family: the paper's safeguards, made general | 85% | The residual risk is lenses read outside their calibration (agent text, long runs). Kit lenses calibrated on agent-like text, presence and rule 3's check answer it, and D6 measures it |
-| Does reading agents work? | The output reading at keywords is a fixed site at the decision. The scan's neutral baseline, the presence measure and the chance level are open experiments (D6); carriers by replay are the controlled fallback. The rule that a lens lights up on its strongest token matches the max-over-tokens scoring that worked best in a 2026 study of reasoning traces (M2) | 70% | The weakest link, and an experiment by design. D6's first experiment, on scripted runs with known labels, settles it; slice 8 runs it first |
+| Can its readings be trusted? | Held-out scene families, chance-corrected scores, the fair comparison against a supervised ceiling, the self-check on planted structure, the surface check, the steering check, statistics per scene family. In practice, lenses built from large probes have assigned held-out sentences to the right clusters strongly (Andrew, 2026-10-08) | 90% | Held-out families show that a lens generalizes across the kinds of text it was built from. Two things cover the rest: lenses are built from text like the text they will read, with families of it held out (C6, D2 rule 3); and presence flags a state unlike any the lens was built from, which UMAP's transform would still place in some node (D4) |
+| Does reading agents work? | The output reading at keywords is a fixed site at the decision. The scan's neutral baseline, the presence measure and the chance level are open experiments (D6); carriers by replay are the controlled fallback. The rule that a lens lights up on its strongest token matches the max-over-tokens scoring that worked best in a 2026 study of reasoning traces (M2) | 70% | The least certain part, and an experiment by design. D6's first experiment, on scripted runs with known labels, settles it; slice 8 runs it first |
 | Does it run on one 16 GB GPU? | The model uses 14.3 GB; a capture step takes about 6.7 s per tick; a study of 200 runs × 7 ticks takes 25–70 minutes; storing every position (about 280 KB per token) is opt-in; lens fits run on the CPU | 85% | About 1.7 GB of GPU memory is left, which limits how many lenses a scan can hold on the GPU at once. Measured when the scan is built |
-| Are the LLM analysts reliable enough? | Cited numbers are re-computed, several models vote, the surface and steering checks apply, Andrew reviews | 75% | No false-discovery rate has been measured yet: recommendation 13 |
-| Does the order give value early? | Slice 1 alone gives validated lenses, the all-layer Layers view, cards with reports and atlas v1; each slice is usable on its own | 85% | Slices are large, so weeks can pass without something to show: recommendation 11 |
-| Are its visualizations distinctive? | Cluster Sankeys across all 24 layers beside expert Sankeys, colour blending of label mixtures, the lens heatmap over the reasoning, lens panels, the paradigm's map. The survey found no match for blended label colours or for many lenses at once over every token | 80% | The gaps in M3's first group |
-| Is it competitive? | M2 | 75% | Results out early, and in forms others can use: recommendations 10, 11, 15 and 16 |
+| Are the LLM analysts reliable enough? | Cited numbers are re-computed, several models vote, the surface and steering checks apply, Andrew reviews | 75% | No false-discovery rate has been measured yet; the analyst tests measure it (E8) |
+| Does the order give value early? | Slice 1 alone gives validated lenses, the all-layer Layers view, cards with reports and atlas v1; each slice is usable on its own | 85% | Slices are large, so each ends with a showcase (K) |
+| Are its visualizations distinctive? | Cluster Sankeys across all 24 layers beside expert Sankeys, colour blending of label mixtures, the lens heatmap over the reasoning, lens panels, the paradigm's map, and the additions of 2026-10-08: expert fingerprints, depth heatmaps, a temporal Sankey, two-axis colour. The survey found no match for blended label colours or for many lenses at once over every token | 85% | Built and seen on real data |
+| Is it competitive? | M2 | 75% | Results out early, in forms others can use: a showcase per slice (K), the published atlas and data (H), the nearest published features for each node (C5) |
 | Does the record stay honest? | Marks traced to Andrew's words, how everything was made (B12), study files in git, number checks | 90% | — |
 
-**Verdict:** proceed. For the core goal, the weakest load-bearing link is trust in the readings, at
-85%, and the design already says how each residual risk is measured. Agent reading is less certain,
-at 70%, but it is an experiment by design and doesn't block the core.
+**Verdict:** proceed. The readings, the core of the goal, stand at 90%: held-out validation does the
+work, as long as lenses are built from the kinds of text they will read, and presence flags states
+unlike any a lens was built from. The least certain parts are agent reading (70%, an experiment by
+design) and the LLM analysts (75%, until the tests in E8 have run).
 
 **M2. Among other work on gpt-oss and MoE models.**
 - **What others have for gpt-oss-20b:**
@@ -1082,16 +1181,16 @@ at 70%, but it is an experiment by design and doesn't block the core.
   - colour blending of label mixtures;
   - a typed map of concept links built by agents who attack and vote, with every cited number
     re-computed.
-- **Where the design overlaps or is behind:**
+- **Where the design overlapped or was behind,** each now answered:
   - steering in directions the router can't see is RARE's method, and the split it relies on is Ye
-    et al.'s. Ours is a replication, and is cited as one;
-  - steering by switching experts is established (SteerMoE);
-  - the public gpt-oss sparse autoencoders aren't used, so findings can't yet be cross-referenced
-    with what others report;
-  - LLM-written descriptions of routing already have a published bar on gpt-oss-20b, the 81% recall
-    above, which ours should be measured against;
-  - the name: a 2024 Python module called LLM-MRI already exists, also described as a brain scanner
-    for language models.
+    et al.'s: named as replications and cited (I);
+  - steering by switching experts is SteerMoE's: the same (I);
+  - the public gpt-oss sparse autoencoders weren't used: each node now lists its nearest published
+    features (C5);
+  - LLM-written descriptions of routing have a published bar on gpt-oss-20b, the 81% recall above:
+    the analysts' descriptions are tested the same way (E8);
+  - the name: a 2024 Python module is called LLM-MRI. This project is OpenLLMRI, a different name,
+    and keeps it (Andrew, 2026-10-08).
 - **Verdict:** distinctive as a combination. Each piece has neighbours, but nothing found combines
   concept flows beside routing on an MoE model, validated lenses, agents read against ground truth
   and an agent-built map. The field moves fast (many 2026 papers on gpt-oss), so getting results
@@ -1113,95 +1212,33 @@ Sources:
 [MafiaScope](https://arxiv.org/abs/2607.10645) ·
 [LLM-MRI](https://sol.sbc.org.br/index.php/sbbd_estendido/article/view/30782)
 
-**M3. Recommendations** [Proposed]. ★ marks Claude's top five.
+**M3. Recommendations** [Decided, 2026-10-08: all adopted; the name stays]. ★ marks Claude's top
+five. Each is written into the part named.
 
-*Visualizations*
-
-1. **Blend colours in a perceptual colour space.** Today's blend averages RGB values
-   (`colorBlending.ts`). Mixes of opposing colours turn muddy, and a half-and-half node looks darker
-   than either class. Blending in OKLab keeps mixes clean and visibly halfway. An optional striped
-   node shows the exact shares. (E5, slice 1)
-2. **Two axes in one colour.** Hue for one designed axis and lightness for the other, with a small
-   square legend, so one Sankey shows a combination such as frame × voice. Points can already pair a
-   second axis; nodes can't. (E5, slice 1)
-3. **The 3-D trajectories show what the lens counts.** The stepped 3-D view fits its own UMAP,
-   separate from the clustering, and colours by label (`cluster_route_analysis.py`), so a point can
-   sit in one visual bundle and be counted in another node. Colour by node, or draw from the lens's
-   own fit. (E5, slice 1)
-4. ★ **Expert fingerprints.** For any node, population or condition, a 24 × 32 grid of how much
-   weight each expert gets at each layer, and difference grids between two nodes or two conditions.
-   Compact, native to MoE, comparable across lenses, and the evidence behind "shared machinery"
-   links. (Layers cards in slice 1; atlas v2 in slice 5)
-5. ★ **Depth heatmaps.** Per lens: tokens × layers for one sentence or tick, showing where in the
-   text and at which depth a concept forms (C5's question of which token made the decision); and
-   layers × time for a run, showing how a reading forms at each depth as evidence arrives. The time
-   design listed the second as a later view, and it didn't carry into this document. (slices 4 and 8)
-6. **A temporal Sankey:** node transitions across ticks or context steps for a study, once there are
-   enough runs and few enough nodes. Also from the time design, also not carried over. (slice 8)
-7. **Show where the instruments disagree.** On a cluster Sankey, mark the items whose node differs
-   between the UMAP lens and the best raw-space grouping (C4's comparison), so the picture shows
-   where it could mislead. LayerFlow draws this kind of uncertainty; ours would rest on held-out
-   data. (E5, slice 1)
-8. **A fixed, uncluttered layout for expert Sankeys.** Order the experts at each layer to minimize
-   crossings, computed once from the pooled flows and kept fixed across conditions, so differences
-   between conditions are real rather than layout. Ye et al. lay out expert paths this way. (E5,
-   slice 1)
-9. **Figure recipes.** Every exported figure carries a small recipe (lens and version, captures,
-   settings, commit) and can be regenerated exactly, so figures are ready for papers. (E2, slice 1)
-10. ★ **A public atlas and data.** The atlas (entries, reports, figures and the map) exported as a
-    static website, and the sentence sets, lens directions and summary readings published on Hugging
-    Face in formats others can load. The project's public face, linkable from posts and papers.
-    (slice 5)
-11. **A showcase per slice.** Each slice ends with one striking figure and a short findings note:
-    visible progress, and material for posts.
-
-*Method*
-
-12. **A starter lens catalogue across levels of language.** About twelve lenses: grammar (tense,
-    number agreement), meaning (the senses of "tank", animacy, an animal taxonomy), pragmatics
-    (irony), feeling (positive or negative), social (friend or foe, intent), knowledge (fact or
-    fiction), safety (harmful or harmless request), reasoning (negation). Some have published results
-    on other models, which benchmarks the instrument; the breadth fills the atlas early and gives
-    each AI-scientist team a start. (A4, slices 1–3)
-13. ★ **Test the analysts before trusting them.** Three tests, repeated whenever prompts or models
-    change:
-    - decoys: cards and Sankeys built from shuffled labels or random groupings, where a sound analyst
-      reports nothing;
-    - planted findings, which a sound analyst finds;
-    - predictive descriptions: given a node's description, another model must pick the node's members
-      from held-out sentences, scored against a simple baseline, as RouterInterp scored its routing
-      descriptions.
-
-    (E8, slice 1)
-14. ★ **How much of each lens the router sees.** For each mass-mean lens and layer, the share of its
-    axis that lies in what the next router reads (Ye et al.'s split). It says whether a concept steers
-    expert choice or rides along as content: a cheap fact for every lens, native to MoE, and a
-    natural new kind of link. (C5 and H, slice 1)
-15. **Cross-reference the public sparse autoencoders.** For each node or axis, the published features
-    closest to it (Arditi's, on Neuronpedia). This is a comparison, not circuit discovery (B7
-    stands), and it lets others read the findings in their own vocabulary. (slice 5)
-16. **Replicate one published gpt-oss result inside the platform,** such as the game probes that stay
-    accurate when agents know they're watched, played as a MUD scenario, or SteerMoE's expert
-    switching. It checks the instrument against the field and makes comparisons possible. (slices
-    8–9)
-17. **Judge live alerts per run.** Score alerts by how many runs they catch at an acceptable rate of
-    false alarms, not by AUROC alone. In an October 2026 study, probes with AUROC above 0.93 still
-    missed between a fifth and a third of cases at realistic false-alarm limits. (E4, slice 8)
-18. **Branch a run from any tick.** Replay up to tick t, change one thing (the observation, a
-    scaffold, a steering vector) and let the model continue: the counterfactual replay MafiaScope
-    uses for behaviour, here with activations. (Watch and Study, slices 8–9)
-19. **A strength on every finding, absences included.** Each fact and link is marked supported,
-    tested and absent, or untestable here, so the map shows what was checked and found missing, not
-    only what holds. (H, slice 12)
-20. **A budget for LLM reports.** Reports on every cluster, split point and route of every lens run to
-    hundreds of `claude -p` calls per lens (24 layers × about 6 nodes is already 144 cluster cards),
-    and thousands across the catalogue. Write them first for validated lenses and selected items, the
-    rest on demand, with a budget per job. (E8, slice 1)
-21. **Hosting Scaffold Dynamics.** F6 makes it the default server for other researchers, but nothing
-    plans hosting it: a server, accounts, abuse handling, cost. Until that is decided, the default is
-    localhost. (F6, slice 2)
-22. **The name.** A 2024 Python module called LLM-MRI has a similar purpose. Decide whether Open
-    LLMRI needs to stand apart more clearly before public releases.
+| # | Recommendation | Now in | Slice |
+|---|---|---|---|
+| 1 | Colours blended in a perceptual colour space, with optional striped nodes | E5 | 1 |
+| 2 | Two designed axes in one colour | E5 | 1 |
+| 3 | The 3-D trajectories show what the lens counts | E5 | 1 |
+| 4 ★ | Expert fingerprints | C5, E5, H | 1, 5 |
+| 5 ★ | Depth heatmaps: tokens × layers, and layers × time | E5, E6 | 4, 8 |
+| 6 | A temporal Sankey | E6 | 4, 8 |
+| 7 | Where the instruments disagree, marked on the Sankey | E5 | 1 |
+| 8 | One fixed layout for expert Sankeys | E5 | 1 |
+| 9 | Figure recipes | E2 | 1 |
+| 10 ★ | A published atlas, with its data | H | 5 |
+| 11 | A showcase per slice | K | every slice |
+| 12 | A starter lens catalogue across levels of language | A4 | 3 |
+| 13 ★ | Analysts tested before they are trusted | E8 | 1 |
+| 14 ★ | How much of each lens the router sees, and an eighth kind of link | C5, H | 1, 12 |
+| 15 | The published features closest to each node | C5 | 5 |
+| 16 | Published results replicated inside the platform | I | 8, 9 |
+| 17 | Live alerts judged per run | E4 | 8 |
+| 18 | Branching a run from any tick | E4, I | 9 |
+| 19 | A strength on every finding, absences included | H | 12 |
+| 20 | A budget for LLM reports | E8 | 1 |
+| 21 | Hosting Scaffold Dynamics before other researchers are invited | F6 | later |
+| 22 | The name | — | not adopted: the project stays OpenLLMRI |
 
 ## Appendix — Decisions by date
 
@@ -1309,6 +1346,17 @@ Paraphrased from Andrew's own words. His ideas not yet decided are listed separa
     this one; what this document covers and what it replaces, with CLAUDE.md's project summary
     rewritten to match A1; presence calibrated on states that include natural in-between ones;
     what Watch needs, with the scan run by replay or during the runner's capture pass.
+- **2026-10-08 decisions:**
+  - every recommendation in Part M adopted and written into its part: colour that reads true,
+    expert fingerprints, depth heatmaps, a temporal Sankey, marked disagreements, one layout for
+    expert Sankeys, the 3-D fix, figure recipes, a published atlas and data, a showcase per slice,
+    the starter lens catalogue, the analyst tests, how much of each lens the router sees (an eighth
+    kind of link), the nearest published features, replications named and reproduced, alerts
+    judged per run, branching a run from any tick, a strength on every finding, a budget for
+    reports, and hosting before other researchers are invited;
+  - the project keeps the name OpenLLMRI;
+  - held-out sentences are how a lens's reading of new data is judged, and lenses built from large,
+    varied probes have assigned held-out sentences strongly (M1).
 - **Andrew's ideas, not yet decided:**
   - **2026-10-04:** a user interface in the MUD;
   - **2026-10-06:** asking the agent to use set words in its reasoning; giving it words marked as for
