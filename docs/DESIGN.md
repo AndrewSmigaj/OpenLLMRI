@@ -2,7 +2,7 @@
 
 **Status:** a draft for Andrew's review (2026-10-07). Nothing new is built until he approves it.
 
-**Review progress:** Parts A to J reviewed with Andrew (2026-10-07). Still open: L3, L9.
+**Review progress:** Parts A to K reviewed with Andrew (2026-10-07). Still open: L3.
 
 **Contents:**
 - How this document works
@@ -931,46 +931,65 @@ I. The steps in each are [Decided, 2026-10-07].
     instructions. Edit the stages, actions and labels, validate them, play the scenario in the
     simulator, have the agent play it there, and save the set with a version.
 
-## Part K — Order of work [Proposed, except where marked]
+## Part K — Order of work [Decided, 2026-10-07]
 
-1. **Now:** Andrew's walk through the MUD, then the one-MUD branch merges into main. No new features.
-2. **This document:** reviewed with Andrew section by section, then approved.
-3. **Then the build, in slices:**
+1. **Done:** Andrew's walk through the MUD, and the one-MUD branch merged into main (2026-10-07).
+2. **This document:** reviewed with Andrew section by section, then approved. Nothing new is built
+   until then.
+3. **Before the first slice:** the basin-era temporal tools retire (G).
+4. **Then the build, in slices:**
    1. **The lens core** [Decided, 2026-10-06: before the world-building pilot]:
-      - validated, saved lenses;
-      - k per layer, manual and automatic;
-      - the comparison of UMAP with raw-space groupings;
+      - validated, saved lenses, with the self-check on planted structure (C4);
+      - k per layer, manual and automatic, with the k profile and the k advisor (C3, E8);
+      - the comparison of UMAP with raw-space groupings (C2, C4);
+      - the clustering form, basic and Advanced (E3) [Decided, 2026-10-07], and clustering from
+        the polysemy lab in the MUD, through the one command interface (E5, E7);
+      - each lens's report, the analysis panel with its cards for clusters, experts, routes and
+        expert routes, and the number checker behind every report (C7, E8);
+      - the neurons behind each node, the logit lens and the surface check (C5);
       - atlas nodes, first version;
-      - the clustering form, basic and Advanced [Decided, 2026-10-07; Andrew left its timing to
-        Claude];
-      - added by Claude [Proposed]: the all-layer Layers view, colour by any designed axis, study
-        files, the analysis panel with its cards for clusters, experts, routes and expert
-        routes, and the model's own expert weights with all four ranks.
-   2. **The sentence set builder:** the lens catalogue starts with new sentence sets.
-   3. **Time on sentence runs,** checked against the paper's tank results (D7), in Study.
-   4. **Provenance and jobs:**
-      - the capture recipe and per-run token ids;
-      - the GPU job queue.
-   5. **The world-building pilot** [Decided, 2026-10-06: after the lens core].
-   6. **The scenario builder,** then friend/foe v3 [Decided, 2026-10-06: v3 after the lens core].
-   7. **Agents:**
+      - the all-layer Layers view, colour by any designed axis, study files, and the model's own
+        expert weights with all four ranks (E5);
+      - the raw-axis endpoint retires once saved mass-mean lenses replace it (G).
+   2. **Capture and jobs:**
+      - the capture recipe and per-run token ids (G);
+      - the GPU job queue;
+      - more token positions, and states after generation starts for sentence sets too (C5, G);
+      - entering your own MUD's address (F6).
+
+      It comes before the builder because the builder captures each new set as a background job,
+      and every capture records how it was made (B12).
+   3. **The sentence set builder,** with its audits and critic (C1, E3).
+   4. **Time on sentence runs,** checked against the paper's tank results (D7), in Study: readings
+      with presence and position, references and bands (D4, D5).
+   5. **The atlas, second version:** the expert and route catalogues across every capture, node
+      dynamics from sentence runs, cross-lens reports, and overlaps by cross-reading (H, E8). By
+      then the builder has produced several lenses to connect.
+   6. **The world-building pilot** [Decided, 2026-10-06: after the lens core; 2026-10-07: after
+      slice 5].
+   7. **The scenario builder and the MUD workspace,** then friend/foe v3 [Decided, 2026-10-06: v3
+      after the lens core].
+   8. **Agents:**
       - lens kits and keywords;
       - the scan, with each lens's neutral baseline;
-      - replay;
+      - replay, in the app and in a scenario room in the MUD (F1);
       - scripted runs and would-be actions;
-      - Watch, with its lens panels, replay, explained readings, bookmarks, runs side by side and
-        live alerts;
+      - Watch, with its lens panels, explained readings, bookmarks, runs side by side and live
+        alerts;
+      - node dynamics from agent runs;
       - the experiments of D6.
-   8. **Conditions and interventions:** scaffold studies and the scaffold catalogue, steering,
-      ablation.
-   9. **Layer transitions and trajectory upgrades,** such as patterned nodes.
-   10. **A second MoE model.**
-   11. **The paradigm and the AI scientists:**
-       - votes;
-       - evidence packets with number checks;
+   9. **Conditions and interventions:** scaffold studies and the scaffold catalogue; steering,
+      ablation and expert masks; the steering check before a key finding is accepted (C5, I).
+   10. **Layer transitions and trajectory upgrades:** how much of each split comes from attention
+       and how much from the experts (C5); wave lines and patterned nodes (E5).
+   11. **A second MoE model.**
+   12. **The paradigm and the AI scientists:**
+       - the map: links, votes and the consolidators (H);
+       - evidence packets for the AI scientists;
        - the Ideas workspace;
-       - the scientists' rooms;
+       - the scientists' and researchers' rooms (F2);
        - monitoring.
+5. **Later:** the Mudlet package (A2), the lab guide in the MUD (E8) and a mini-world builder (E3).
 
 ## Part L — Questions for Andrew
 
@@ -989,9 +1008,9 @@ I. The steps in each are [Decided, 2026-10-07].
 - **L7. The workspaces (E1).** Answered 2026-10-07: as drafted.
 - **L8. Relevant-neuron PCA (C2).** Answered 2026-10-07: yes, as a third kind of grouping, with the
   cautions given.
-- **L9. The order of work (Part K):**
-  - Is the sentence set builder second, and time on sentence runs third, right?
-  - Should slices 2–4 come before the world-building pilot, as drawn, or after it?
+- **L9. The order of work (Part K).** Answered 2026-10-07: capture and jobs comes before the
+  sentence set builder, a second version of the atlas follows time on sentence runs, and slices
+  1–5 come before the world-building pilot.
 - **L10. Where agent runs start.** Answered 2026-10-07: in the MUD or through Claude Code, never from
   the app (F3).
 - **L11. One command interface (E7).** Answered 2026-10-07: yes.
@@ -1100,7 +1119,10 @@ Paraphrased from Andrew's own words. His ideas not yet decided are listed separa
     fourth catalogue, with a seventh kind of link, "changes", and scaffolds as versioned files;
   - Part J: the stories' steps, and four new stories (joining two lenses, analysing a scaffold,
     checking a finding by steering, building and testing a scenario); the scenario builder opens
-    the MUD terminal with the command ready, so runs still start in the MUD.
+    the MUD terminal with the command ready, so runs still start in the MUD;
+  - Part K: every decided feature placed in a slice; capture and jobs before the sentence set
+    builder; a second version of the atlas; slices 1–5 before the world-building pilot; the
+    one-MUD branch merged into main.
 - **Andrew's ideas, not yet decided:**
   - **2026-10-04:** a user interface in the MUD;
   - **2026-10-06:** asking the agent to use set words in its reasoning; giving it words marked as for
