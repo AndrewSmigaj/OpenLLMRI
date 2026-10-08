@@ -437,8 +437,21 @@ def save_lens_version(request: Request, session_id: str, name: str, body: SaveRe
         job = scheduler.submit("lens_analysis", {"session_id": session_id, "name": name, "version": body.version,
                                                  "budget": body.analysis_budget}, created_by=body.created_by)
         record["analysis_job_id"] = job.id
+    _write_catalogue(session_id, name, body.version)
     _announce(request, session_id, name, "saved")
     return record
+
+
+def _write_catalogue(session_id: str, name: str, version: str) -> None:
+    """A saved version's atlas entries (DESIGN.md H); a failure is logged, never fails the save."""
+    import logging
+
+    from services.lenses.atlas import write_nodes
+
+    try:
+        write_nodes(session_id, name, version)
+    except Exception:
+        logging.getLogger(__name__).exception("Couldn't write the atlas entries of %s %s", name, version)
 
 
 @router.get("/sessions/{session_id}/lenses/{name}/trajectory")

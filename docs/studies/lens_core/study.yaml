@@ -1,0 +1,72 @@
+# The lens core: lens slice 1's own study (DESIGN.md K). Its findings note is the record of the
+# runs; each ledger line stays proposed until it is reviewed (DESIGN.md H).
+id: lens_core
+title: The lens core
+question: >
+  Do saved UMAP lenses find the designed structure of a sentence set on held-out data, how do they
+  compare with raw space and with the paper's mass-mean axis, and can LLM analysts report on their
+  nodes with every number checked?
+status: active
+started: 2026-10-08
+sets:
+  - tank_polysemy_v3
+  - tank_q1_calibration_v1
+  - threatened_framing_v1_carrier
+captures:
+  - session_1434a9be
+  - session_29a80932
+  - session_673360a5
+lenses:
+  - session_1434a9be/tank-k5-n15@v1
+  - session_29a80932/calibration-q1-k2-n15
+  - session_29a80932/aquarium-vs-vehicle-axis-p1
+  - session_673360a5/framing-k4-auto-levels
+findings:
+  - docs/research/lens_core_validation.md
+ledger:
+  - idea: A UMAP lens finds the tank set's five senses.
+    experiment: >
+      tank-k5-n15, k 5 at every layer, scored on held-out items in stratified folds that keep
+      identical texts together (the set has no scene families, so these folds are weaker).
+    finding: >
+      The senses separate most in the middle layers, held-out kappa 0.60 to 0.62 at L11 to L13. No
+      in-sample way of choosing k finds five, and the held-out best k is 7 to 10 at every layer.
+    status: proposed
+    evidence: [docs/research/lens_core_validation.md]
+  - idea: A lens classifies held-out scenes as well as the paper's mass-mean axis.
+    experiment: >
+      calibration-q1-k2-n15 and the mass-mean axis aquarium-vs-vehicle-axis-p1 on the calibration
+      capture, held out by scene family in 12 folds.
+    finding: >
+      The two-cluster lens peaks at L5 with accuracy 0.86; the mass-mean axis scores 0.905 at L4,
+      the paper's figure exactly. With 9 clusters the lens reaches kappa 0.79 to 0.81 in L4 and L5.
+    status: proposed
+    evidence: [docs/research/lens_core_validation.md]
+  - idea: UMAP lenses beat raw space at the same k.
+    experiment: >
+      The fair comparison: standardized raw PCA-50 with Ward or spectral clustering, relevant
+      neurons chosen inside each fold, and a logistic ceiling, on the same folds, k and vote.
+    finding: >
+      Not on these captures. On the calibration scenes at k 2, raw spectral clustering reaches
+      kappa 0.80 at L4 against the lens's 0.66; on the tank senses at k 5 the three unsupervised
+      groupings sit within about 0.1 of each other. Frame against voice is the comparison to run next.
+    status: proposed
+    evidence: [docs/research/lens_core_validation.md]
+  - idea: The routers single out the aquarium-against-vehicle concept.
+    experiment: >
+      The mass-mean axis pushed through each next layer's router, against 1,000 random directions
+      of the same length.
+    finding: >
+      It stays below the random 95th percentile at every layer, at most 1.26 times the random
+      median (L11), and below the median at 19 of 23 layers.
+    status: proposed
+    evidence: [docs/research/lens_core_validation.md]
+  - idea: LLM analysts report on a lens's nodes reliably.
+    experiment: >
+      The analyst tests at L13 of tank-k5-n15: decoys, planted findings, and predictive
+      descriptions scored beside a majority-label baseline.
+    finding: >
+      Passed: no decoy was called a clear pattern, every planted value was named, and members were
+      picked from descriptions with mean accuracy 0.88 against baselines of 0.70 to 0.85.
+    status: proposed
+    evidence: [docs/research/lens_core_validation.md]

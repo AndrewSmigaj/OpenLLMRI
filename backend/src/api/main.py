@@ -34,6 +34,7 @@ from api.dependencies import get_loading_status, initialize_capture_service, is_
 from api.routers import (
     agent,
     analysis,
+    atlas,
     clustering,
     commands,
     generation,
@@ -43,6 +44,7 @@ from api.routers import (
     probes,
     prompts,
     routes,
+    studies,
 )
 from services.jobs.scheduler import JobScheduler
 from services.jobs.store import JobStore
@@ -92,6 +94,8 @@ app.include_router(jobs.router, prefix="/api")
 app.include_router(lenses.router, prefix="/api")
 app.include_router(analysis.router, prefix="/api")
 app.include_router(commands.router, prefix="/api")
+app.include_router(atlas.router, prefix="/api")
+app.include_router(studies.router, prefix="/api")
 
 @app.get("/")
 async def root() -> Dict[str, str]:

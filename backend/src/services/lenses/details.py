@@ -268,5 +268,9 @@ def build_details(params: Dict[str, Any], ctx: Any) -> Dict[str, Any]:
     tmp = folder / "details" / f".{key}.json.tmp"
     tmp.write_text(json.dumps(record), encoding="utf-8")
     os.replace(tmp, folder / "details" / f"{key}.json")
+    if manifest.kind != "mass_mean":
+        from services.llm.cards import refresh_catalogue
+
+        refresh_catalogue(manifest.session_id, name, key)
     return {"session_id": manifest.session_id, "name": name, "version": key,
             "seconds": record["provenance"]["seconds"]}

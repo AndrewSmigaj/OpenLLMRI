@@ -255,9 +255,23 @@ def build_analysis(params: Dict[str, Any], ctx: Any) -> Dict[str, Any]:
             written.append(card_id)
         else:
             failed.append(f"{card_id}: {card['error']}")
+    refresh_catalogue(ev.view.session_id, name, version)
     ctx.progress("done", len(wanted), len(wanted))
     return {"session_id": ev.view.session_id, "name": name, "version": version, "written": written,
             "failed": failed, "skipped": skipped, "calls": budget.used}
+
+
+def refresh_catalogue(session_id: str, name: str, version: str) -> None:
+    """A saved version's atlas entries pick up new reports or details; a failure is printed to the
+    job's log and never fails the job, whose own work is done."""
+    import traceback
+
+    from services.lenses.atlas import write_nodes
+
+    try:
+        write_nodes(session_id, name, version)
+    except Exception:
+        traceback.print_exc()
 
 
 def answer_question(params: Dict[str, Any], ctx: Any) -> Dict[str, Any]:

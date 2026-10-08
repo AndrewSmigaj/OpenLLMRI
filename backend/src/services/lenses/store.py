@@ -179,12 +179,12 @@ def summary(manifest: LensManifest, folder: Path) -> Dict[str, Any]:
         "k_per_layer": current.k_per_layer if current else None,
         "created_at": manifest.provenance.created_at, "created_by": manifest.provenance.created_by,
         "self_check": manifest.self_check,
-        "validation": _validation_headline(folder, manifest, current),
+        "validation": validation_headline(folder, manifest, current),
         "details": sorted(path.stem for path in (folder / "details").glob("*.json")),
     }
 
 
-def _validation_headline(folder: Path, manifest: LensManifest, current: Optional[VersionRecord]) -> Optional[Dict[str, Any]]:
+def validation_headline(folder: Path, manifest: LensManifest, current: Optional[VersionRecord]) -> Optional[Dict[str, Any]]:
     """Whether the lens is validated, and its best held-out layer on the label at its own k."""
     import json
 

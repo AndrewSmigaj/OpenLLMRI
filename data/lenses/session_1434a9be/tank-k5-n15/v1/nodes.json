@@ -1,0 +1,12947 @@
+{
+ "format": 1,
+ "lens": {
+  "session_id": "session_1434a9be",
+  "name": "tank-k5-n15",
+  "version": "v1",
+  "items": 499,
+  "site": {
+   "source": "residual_stream",
+   "token_position": 1
+  },
+  "settings": {
+   "n_neighbors": 15,
+   "dimensions": 6,
+   "min_dist": 0.1,
+   "seed": 42,
+   "grouping": "ward"
+  }
+ },
+ "validation": {
+  "folds": {
+   "kind": "stratified, identical texts kept together",
+   "n_folds": 5,
+   "weaker": true
+  },
+  "best": {
+   "layer": 13,
+   "k": 5,
+   "kappa": 0.6167,
+   "accuracy": 0.6934,
+   "worst_fold": 0.56,
+   "ami": 0.4846
+  },
+  "created_at": "2026-10-08T20:54:00Z"
+ },
+ "nodes": [
+  {
+   "id": "L0C0",
+   "layer": 0,
+   "node": 0,
+   "items": 74,
+   "makeup": {
+    "label": {
+     "aquarium": 28,
+     "vehicle": 6,
+     "scuba": 20,
+     "septic": 16,
+     "clothing": 4
+    },
+    "register": {
+     "narrative": 29,
+     "technical": 29,
+     "casual": 16
+    },
+    "structure": {
+     "action": 42,
+     "description": 32
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "aquarium",
+    "share": 0.378
+   },
+   "from": [],
+   "to": [
+    {
+     "id": "L1C0",
+     "items": 64
+    },
+    {
+     "id": "L1C4",
+     "items": 10
+    }
+   ],
+   "experts": [
+    {
+     "id": "L0E9",
+     "items": 69
+    },
+    {
+     "id": "L0E11",
+     "items": 5
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      2850,
+      -0.5249
+     ],
+     [
+      1444,
+      0.4955
+     ],
+     [
+      1054,
+      0.4924
+     ],
+     [
+      1997,
+      0.4851
+     ],
+     [
+      1588,
+      -0.4833
+     ]
+    ],
+    "tokens": [
+     "Fab",
+     " sands",
+     " sand",
+     " uncomp",
+     "Gross",
+     "tou",
+     "emberg",
+     " peril"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "target position",
+    "routing": {
+     "share": 0.0324,
+     "shift": 0.4676
+    },
+    "layer_routing_effect": 0.1139
+   },
+   "report": null
+  },
+  {
+   "id": "L0C1",
+   "layer": 0,
+   "node": 1,
+   "items": 67,
+   "makeup": {
+    "label": {
+     "aquarium": 20,
+     "scuba": 5,
+     "septic": 34,
+     "clothing": 8
+    },
+    "register": {
+     "narrative": 40,
+     "technical": 17,
+     "casual": 10
+    },
+    "structure": {
+     "action": 32,
+     "description": 35
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "septic",
+    "share": 0.507
+   },
+   "from": [],
+   "to": [
+    {
+     "id": "L1C1",
+     "items": 57
+    },
+    {
+     "id": "L1C2",
+     "items": 10
+    }
+   ],
+   "experts": [
+    {
+     "id": "L0E11",
+     "items": 44
+    },
+    {
+     "id": "L0E0",
+     "items": 20
+    },
+    {
+     "id": "L0E9",
+     "items": 3
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      218,
+      -0.7358
+     ],
+     [
+      363,
+      -0.6996
+     ],
+     [
+      569,
+      0.6981
+     ],
+     [
+      493,
+      0.6953
+     ],
+     [
+      1172,
+      -0.6855
+     ]
+    ],
+    "tokens": [
+     " Kari",
+     " Bip",
+     "\ufffd",
+     " Betty",
+     " Ir",
+     " stray",
+     "adon",
+     " Kemp"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.0345,
+     "shift": 0.5069
+    },
+    "layer_routing_effect": 0.1139
+   },
+   "report": null
+  },
+  {
+   "id": "L0C2",
+   "layer": 0,
+   "node": 2,
+   "items": 144,
+   "makeup": {
+    "label": {
+     "aquarium": 26,
+     "vehicle": 27,
+     "scuba": 22,
+     "septic": 19,
+     "clothing": 50
+    },
+    "register": {
+     "narrative": 103,
+     "technical": 23,
+     "casual": 18
+    },
+    "structure": {
+     "action": 91,
+     "description": 53
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "clothing",
+    "share": 0.347
+   },
+   "from": [],
+   "to": [
+    {
+     "id": "L1C2",
+     "items": 117
+    },
+    {
+     "id": "L1C1",
+     "items": 20
+    },
+    {
+     "id": "L1C4",
+     "items": 4
+    }
+   ],
+   "experts": [
+    {
+     "id": "L0E9",
+     "items": 82
+    },
+    {
+     "id": "L0E11",
+     "items": 48
+    },
+    {
+     "id": "L0E0",
+     "items": 10
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      2272,
+      -0.6362
+     ],
+     [
+      1058,
+      -0.5647
+     ],
+     [
+      2773,
+      0.5485
+     ],
+     [
+      730,
+      -0.5462
+     ],
+     [
+      118,
+      0.541
+     ]
+    ],
+    "tokens": [
+     " Spike",
+     "abat",
+     " don",
+     " cau",
+     " deny",
+     " far",
+     "CD",
+     "wart"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "words",
+    "routing": {
+     "share": 0.0061,
+     "shift": 0.1454
+    },
+    "layer_routing_effect": 0.1139
+   },
+   "report": null
+  },
+  {
+   "id": "L0C3",
+   "layer": 0,
+   "node": 3,
+   "items": 94,
+   "makeup": {
+    "label": {
+     "aquarium": 12,
+     "vehicle": 22,
+     "scuba": 37,
+     "septic": 6,
+     "clothing": 17
+    },
+    "register": {
+     "narrative": 29,
+     "technical": 15,
+     "casual": 50
+    },
+    "structure": {
+     "description": 35,
+     "action": 59
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "scuba",
+    "share": 0.394
+   },
+   "from": [],
+   "to": [
+    {
+     "id": "L1C3",
+     "items": 39
+    },
+    {
+     "id": "L1C4",
+     "items": 39
+    },
+    {
+     "id": "L1C2",
+     "items": 12
+    }
+   ],
+   "experts": [
+    {
+     "id": "L0E9",
+     "items": 93
+    },
+    {
+     "id": "L0E11",
+     "items": 1
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      605,
+      0.4726
+     ],
+     [
+      428,
+      -0.4703
+     ],
+     [
+      2823,
+      -0.4592
+     ],
+     [
+      627,
+      0.4346
+     ],
+     [
+      86,
+      0.4334
+     ]
+    ],
+    "tokens": [
+     " offence",
+     "_mes",
+     "hea",
+     "Pend",
+     "ibor",
+     " \u00ce",
+     " offense",
+     " Kru"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.0298,
+     "shift": 0.398
+    },
+    "layer_routing_effect": 0.1139
+   },
+   "report": null
+  },
+  {
+   "id": "L0C4",
+   "layer": 0,
+   "node": 4,
+   "items": 120,
+   "makeup": {
+    "label": {
+     "aquarium": 14,
+     "vehicle": 45,
+     "scuba": 15,
+     "septic": 25,
+     "clothing": 21
+    },
+    "register": {
+     "narrative": 35,
+     "technical": 50,
+     "casual": 35
+    },
+    "structure": {
+     "description": 63,
+     "action": 57
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "vehicle",
+    "share": 0.375
+   },
+   "from": [],
+   "to": [
+    {
+     "id": "L1C4",
+     "items": 75
+    },
+    {
+     "id": "L1C0",
+     "items": 29
+    },
+    {
+     "id": "L1C3",
+     "items": 16
+    }
+   ],
+   "experts": [
+    {
+     "id": "L0E9",
+     "items": 115
+    },
+    {
+     "id": "L0E11",
+     "items": 5
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      1101,
+      0.6226
+     ],
+     [
+      1255,
+      0.6047
+     ],
+     [
+      870,
+      -0.598
+     ],
+     [
+      979,
+      -0.5715
+     ],
+     [
+      620,
+      0.5674
+     ]
+    ],
+    "tokens": [
+     " ec",
+     "Fab",
+     "tur",
+     "Xe",
+     ".ps",
+     "xic",
+     " pisa",
+     ".aspect"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "target position",
+    "routing": {
+     "share": 0.0111,
+     "shift": 0.2144
+    },
+    "layer_routing_effect": 0.1139
+   },
+   "report": null
+  },
+  {
+   "id": "L1C0",
+   "layer": 1,
+   "node": 0,
+   "items": 98,
+   "makeup": {
+    "label": {
+     "aquarium": 33,
+     "vehicle": 12,
+     "scuba": 22,
+     "septic": 20,
+     "clothing": 11
+    },
+    "register": {
+     "narrative": 37,
+     "technical": 48,
+     "casual": 13
+    },
+    "structure": {
+     "action": 47,
+     "description": 51
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "aquarium",
+    "share": 0.337
+   },
+   "from": [
+    {
+     "id": "L0C0",
+     "items": 64
+    },
+    {
+     "id": "L0C4",
+     "items": 29
+    },
+    {
+     "id": "L0C3",
+     "items": 4
+    }
+   ],
+   "to": [
+    {
+     "id": "L2C0",
+     "items": 76
+    },
+    {
+     "id": "L2C4",
+     "items": 19
+    },
+    {
+     "id": "L2C2",
+     "items": 3
+    }
+   ],
+   "experts": [
+    {
+     "id": "L1E1",
+     "items": 66
+    },
+    {
+     "id": "L1E17",
+     "items": 13
+    },
+    {
+     "id": "L1E7",
+     "items": 10
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      2501,
+      -0.6386
+     ],
+     [
+      1997,
+      0.5612
+     ],
+     [
+      13,
+      -0.5354
+     ],
+     [
+      2868,
+      -0.5343
+     ],
+     [
+      285,
+      0.5208
+     ]
+    ],
+    "tokens": [
+     "nger",
+     "fab",
+     "Ordinal",
+     "Fab",
+     "directive",
+     " Sapphire",
+     "ney",
+     " sapphire"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "target position",
+    "routing": {
+     "share": 0.0163,
+     "shift": 0.2884
+    },
+    "layer_routing_effect": 0.1053
+   },
+   "report": null
+  },
+  {
+   "id": "L1C1",
+   "layer": 1,
+   "node": 1,
+   "items": 77,
+   "makeup": {
+    "label": {
+     "aquarium": 30,
+     "vehicle": 2,
+     "scuba": 6,
+     "septic": 38,
+     "clothing": 1
+    },
+    "register": {
+     "narrative": 42,
+     "technical": 25,
+     "casual": 10
+    },
+    "structure": {
+     "action": 36,
+     "description": 41
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "septic",
+    "share": 0.494
+   },
+   "from": [
+    {
+     "id": "L0C1",
+     "items": 57
+    },
+    {
+     "id": "L0C2",
+     "items": 20
+    }
+   ],
+   "to": [
+    {
+     "id": "L2C1",
+     "items": 48
+    },
+    {
+     "id": "L2C0",
+     "items": 29
+    }
+   ],
+   "experts": [
+    {
+     "id": "L1E1",
+     "items": 40
+    },
+    {
+     "id": "L1E17",
+     "items": 17
+    },
+    {
+     "id": "L1E25",
+     "items": 13
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      218,
+      -0.7091
+     ],
+     [
+      1167,
+      0.6549
+     ],
+     [
+      704,
+      0.6402
+     ],
+     [
+      991,
+      0.6093
+     ],
+     [
+      656,
+      0.608
+     ]
+    ],
+    "tokens": [
+     " Dob",
+     "\ufffd",
+     " Ir",
+     " stray",
+     " Bip",
+     "adon",
+     " Betty",
+     "landa"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.029,
+     "shift": 0.4337
+    },
+    "layer_routing_effect": 0.1053
+   },
+   "report": null
+  },
+  {
+   "id": "L1C2",
+   "layer": 1,
+   "node": 2,
+   "items": 139,
+   "makeup": {
+    "label": {
+     "aquarium": 15,
+     "vehicle": 26,
+     "scuba": 21,
+     "septic": 15,
+     "clothing": 62
+    },
+    "register": {
+     "narrative": 103,
+     "technical": 15,
+     "casual": 21
+    },
+    "structure": {
+     "action": 89,
+     "description": 50
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "clothing",
+    "share": 0.446
+   },
+   "from": [
+    {
+     "id": "L0C2",
+     "items": 117
+    },
+    {
+     "id": "L0C3",
+     "items": 12
+    },
+    {
+     "id": "L0C1",
+     "items": 10
+    }
+   ],
+   "to": [
+    {
+     "id": "L2C3",
+     "items": 85
+    },
+    {
+     "id": "L2C1",
+     "items": 30
+    },
+    {
+     "id": "L2C0",
+     "items": 11
+    }
+   ],
+   "experts": [
+    {
+     "id": "L1E1",
+     "items": 115
+    },
+    {
+     "id": "L1E17",
+     "items": 18
+    },
+    {
+     "id": "L1E28",
+     "items": 3
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      2272,
+      -0.5489
+     ],
+     [
+      1478,
+      0.5121
+     ],
+     [
+      542,
+      -0.5031
+     ],
+     [
+      1442,
+      -0.4999
+     ],
+     [
+      1203,
+      -0.4895
+     ]
+    ],
+    "tokens": [
+     " don",
+     "CD",
+     " Barg",
+     " Ew",
+     " Spike",
+     "CG",
+     "abat",
+     "-r"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "words",
+    "routing": {
+     "share": 0.0167,
+     "shift": 0.245
+    },
+    "layer_routing_effect": 0.1053
+   },
+   "report": null
+  },
+  {
+   "id": "L1C3",
+   "layer": 1,
+   "node": 3,
+   "items": 57,
+   "makeup": {
+    "label": {
+     "aquarium": 9,
+     "vehicle": 25,
+     "scuba": 6,
+     "septic": 3,
+     "clothing": 14
+    },
+    "register": {
+     "narrative": 10,
+     "casual": 43,
+     "technical": 4
+    },
+    "structure": {
+     "description": 25,
+     "action": 32
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "vehicle",
+    "share": 0.439
+   },
+   "from": [
+    {
+     "id": "L0C3",
+     "items": 39
+    },
+    {
+     "id": "L0C4",
+     "items": 16
+    },
+    {
+     "id": "L0C2",
+     "items": 2
+    }
+   ],
+   "to": [
+    {
+     "id": "L2C2",
+     "items": 52
+    },
+    {
+     "id": "L2C3",
+     "items": 5
+    }
+   ],
+   "experts": [
+    {
+     "id": "L1E1",
+     "items": 36
+    },
+    {
+     "id": "L1E28",
+     "items": 11
+    },
+    {
+     "id": "L1E17",
+     "items": 10
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      605,
+      0.5539
+     ],
+     [
+      1156,
+      0.4723
+     ],
+     [
+      2450,
+      -0.4582
+     ],
+     [
+      112,
+      -0.4167
+     ],
+     [
+      2570,
+      -0.4166
+     ]
+    ],
+    "tokens": [
+     " offence",
+     " Rip",
+     "onus",
+     " XT",
+     "Prov",
+     " Len",
+     " Canada's",
+     " Bes"
+    ],
+    "surface_flagged": true,
+    "surface_feature": "target position",
+    "routing": {
+     "share": 0.0381,
+     "shift": 0.5777
+    },
+    "layer_routing_effect": 0.1053
+   },
+   "report": null
+  },
+  {
+   "id": "L1C4",
+   "layer": 1,
+   "node": 4,
+   "items": 128,
+   "makeup": {
+    "label": {
+     "aquarium": 13,
+     "vehicle": 35,
+     "scuba": 44,
+     "septic": 24,
+     "clothing": 12
+    },
+    "register": {
+     "technical": 42,
+     "casual": 42,
+     "narrative": 44
+    },
+    "structure": {
+     "description": 51,
+     "action": 77
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "scuba",
+    "share": 0.344
+   },
+   "from": [
+    {
+     "id": "L0C4",
+     "items": 75
+    },
+    {
+     "id": "L0C3",
+     "items": 39
+    },
+    {
+     "id": "L0C0",
+     "items": 10
+    }
+   ],
+   "to": [
+    {
+     "id": "L2C2",
+     "items": 61
+    },
+    {
+     "id": "L2C4",
+     "items": 45
+    },
+    {
+     "id": "L2C0",
+     "items": 22
+    }
+   ],
+   "experts": [
+    {
+     "id": "L1E1",
+     "items": 95
+    },
+    {
+     "id": "L1E17",
+     "items": 26
+    },
+    {
+     "id": "L1E7",
+     "items": 6
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      570,
+      -0.4895
+     ],
+     [
+      620,
+      0.4576
+     ],
+     [
+      2576,
+      0.4143
+     ],
+     [
+      1920,
+      0.4134
+     ],
+     [
+      979,
+      -0.4113
+     ]
+    ],
+    "tokens": [
+     " Maz",
+     " Kru",
+     " Bark",
+     "-driving",
+     " ec",
+     " rote",
+     "Nz",
+     " Trem"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "words",
+    "routing": {
+     "share": 0.0051,
+     "shift": 0.1408
+    },
+    "layer_routing_effect": 0.1053
+   },
+   "report": null
+  },
+  {
+   "id": "L2C0",
+   "layer": 2,
+   "node": 0,
+   "items": 138,
+   "makeup": {
+    "label": {
+     "aquarium": 65,
+     "vehicle": 4,
+     "scuba": 37,
+     "septic": 24,
+     "clothing": 8
+    },
+    "register": {
+     "narrative": 60,
+     "technical": 59,
+     "casual": 19
+    },
+    "structure": {
+     "action": 78,
+     "description": 60
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "aquarium",
+    "share": 0.471
+   },
+   "from": [
+    {
+     "id": "L1C0",
+     "items": 76
+    },
+    {
+     "id": "L1C1",
+     "items": 29
+    },
+    {
+     "id": "L1C4",
+     "items": 22
+    }
+   ],
+   "to": [
+    {
+     "id": "L3C3",
+     "items": 71
+    },
+    {
+     "id": "L3C0",
+     "items": 50
+    },
+    {
+     "id": "L3C1",
+     "items": 8
+    }
+   ],
+   "experts": [
+    {
+     "id": "L2E10",
+     "items": 136
+    },
+    {
+     "id": "L2E22",
+     "items": 1
+    },
+    {
+     "id": "L2E5",
+     "items": 1
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      851,
+      -0.6032
+     ],
+     [
+      605,
+      -0.5697
+     ],
+     [
+      2266,
+      -0.555
+     ],
+     [
+      402,
+      -0.5391
+     ],
+     [
+      1077,
+      0.5377
+     ]
+    ],
+    "tokens": [
+     " dispersed",
+     " germ",
+     " tou",
+     " aj",
+     " comp",
+     "/testing",
+     "tog",
+     " Lep"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "target position",
+    "routing": {
+     "share": 0.0536,
+     "shift": 0.4401
+    },
+    "layer_routing_effect": 0.1898
+   },
+   "report": null
+  },
+  {
+   "id": "L2C1",
+   "layer": 2,
+   "node": 1,
+   "items": 78,
+   "makeup": {
+    "label": {
+     "aquarium": 8,
+     "vehicle": 7,
+     "scuba": 9,
+     "septic": 45,
+     "clothing": 9
+    },
+    "register": {
+     "narrative": 53,
+     "casual": 13,
+     "technical": 12
+    },
+    "structure": {
+     "action": 45,
+     "description": 33
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "septic",
+    "share": 0.577
+   },
+   "from": [
+    {
+     "id": "L1C1",
+     "items": 48
+    },
+    {
+     "id": "L1C2",
+     "items": 30
+    }
+   ],
+   "to": [
+    {
+     "id": "L3C1",
+     "items": 59
+    },
+    {
+     "id": "L3C2",
+     "items": 8
+    },
+    {
+     "id": "L3C4",
+     "items": 7
+    }
+   ],
+   "experts": [
+    {
+     "id": "L2E10",
+     "items": 74
+    },
+    {
+     "id": "L2E5",
+     "items": 4
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      2179,
+      -0.5763
+     ],
+     [
+      1966,
+      -0.5666
+     ],
+     [
+      1389,
+      -0.5618
+     ],
+     [
+      1337,
+      0.5557
+     ],
+     [
+      704,
+      0.5478
+     ]
+    ],
+    "tokens": [
+     " Dob",
+     " Bale",
+     " Marketplace",
+     "landa",
+     "BDC",
+     " stray",
+     " Dahl",
+     " backstage"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.0434,
+     "shift": 0.5268
+    },
+    "layer_routing_effect": 0.1898
+   },
+   "report": null
+  },
+  {
+   "id": "L2C2",
+   "layer": 2,
+   "node": 2,
+   "items": 120,
+   "makeup": {
+    "label": {
+     "aquarium": 15,
+     "vehicle": 32,
+     "scuba": 33,
+     "septic": 19,
+     "clothing": 21
+    },
+    "register": {
+     "narrative": 31,
+     "technical": 17,
+     "casual": 72
+    },
+    "structure": {
+     "description": 50,
+     "action": 70
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "scuba",
+    "share": 0.275
+   },
+   "from": [
+    {
+     "id": "L1C4",
+     "items": 61
+    },
+    {
+     "id": "L1C3",
+     "items": 52
+    },
+    {
+     "id": "L1C2",
+     "items": 4
+    }
+   ],
+   "to": [
+    {
+     "id": "L3C2",
+     "items": 97
+    },
+    {
+     "id": "L3C3",
+     "items": 15
+    },
+    {
+     "id": "L3C4",
+     "items": 7
+    }
+   ],
+   "experts": [
+    {
+     "id": "L2E10",
+     "items": 101
+    },
+    {
+     "id": "L2E5",
+     "items": 18
+    },
+    {
+     "id": "L2E12",
+     "items": 1
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      605,
+      0.5321
+     ],
+     [
+      979,
+      -0.4807
+     ],
+     [
+      620,
+      0.4398
+     ],
+     [
+      1728,
+      0.4391
+     ],
+     [
+      94,
+      -0.4297
+     ]
+    ],
+    "tokens": [
+     " Kru",
+     " offence",
+     " ec",
+     " signalling",
+     " Kil",
+     "elib",
+     " rote",
+     "uir"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.0541,
+     "shift": 0.4743
+    },
+    "layer_routing_effect": 0.1898
+   },
+   "report": null
+  },
+  {
+   "id": "L2C3",
+   "layer": 2,
+   "node": 3,
+   "items": 90,
+   "makeup": {
+    "label": {
+     "aquarium": 9,
+     "vehicle": 9,
+     "scuba": 15,
+     "septic": 5,
+     "clothing": 52
+    },
+    "register": {
+     "narrative": 60,
+     "casual": 23,
+     "technical": 7
+    },
+    "structure": {
+     "description": 37,
+     "action": 53
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "clothing",
+    "share": 0.578
+   },
+   "from": [
+    {
+     "id": "L1C2",
+     "items": 85
+    },
+    {
+     "id": "L1C3",
+     "items": 5
+    }
+   ],
+   "to": [
+    {
+     "id": "L3C2",
+     "items": 79
+    },
+    {
+     "id": "L3C1",
+     "items": 5
+    },
+    {
+     "id": "L3C3",
+     "items": 4
+    }
+   ],
+   "experts": [
+    {
+     "id": "L2E10",
+     "items": 88
+    },
+    {
+     "id": "L2E5",
+     "items": 2
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      1896,
+      -0.5369
+     ],
+     [
+      1478,
+      0.5041
+     ],
+     [
+      720,
+      -0.4792
+     ],
+     [
+      2501,
+      0.4685
+     ],
+     [
+      1058,
+      -0.4678
+     ]
+    ],
+    "tokens": [
+     " pr\u00f3",
+     " cas",
+     " apro",
+     " don",
+     "ifo",
+     "vf",
+     "emic",
+     " wart"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "words",
+    "routing": {
+     "share": 0.0288,
+     "shift": 0.3995
+    },
+    "layer_routing_effect": 0.1898
+   },
+   "report": null
+  },
+  {
+   "id": "L2C4",
+   "layer": 2,
+   "node": 4,
+   "items": 73,
+   "makeup": {
+    "label": {
+     "aquarium": 3,
+     "vehicle": 48,
+     "scuba": 5,
+     "septic": 7,
+     "clothing": 10
+    },
+    "register": {
+     "technical": 39,
+     "casual": 2,
+     "narrative": 32
+    },
+    "structure": {
+     "description": 38,
+     "action": 35
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "vehicle",
+    "share": 0.658
+   },
+   "from": [
+    {
+     "id": "L1C4",
+     "items": 45
+    },
+    {
+     "id": "L1C0",
+     "items": 19
+    },
+    {
+     "id": "L1C2",
+     "items": 9
+    }
+   ],
+   "to": [
+    {
+     "id": "L3C4",
+     "items": 60
+    },
+    {
+     "id": "L3C3",
+     "items": 11
+    },
+    {
+     "id": "L3C2",
+     "items": 2
+    }
+   ],
+   "experts": [
+    {
+     "id": "L2E10",
+     "items": 44
+    },
+    {
+     "id": "L2E5",
+     "items": 29
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      1066,
+      0.4598
+     ],
+     [
+      8,
+      0.4515
+     ],
+     [
+      955,
+      0.4435
+     ],
+     [
+      448,
+      0.4335
+     ],
+     [
+      1287,
+      -0.4324
+     ]
+    ],
+    "tokens": [
+     " Maz",
+     "Xe",
+     " Mell",
+     " XIV",
+     " tric",
+     ".nt",
+     " barr",
+     " Titus"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.0099,
+     "shift": 0.2607
+    },
+    "layer_routing_effect": 0.1898
+   },
+   "report": null
+  },
+  {
+   "id": "L3C0",
+   "layer": 3,
+   "node": 0,
+   "items": 52,
+   "makeup": {
+    "label": {
+     "aquarium": 47,
+     "scuba": 4,
+     "septic": 1
+    },
+    "register": {
+     "narrative": 29,
+     "technical": 17,
+     "casual": 6
+    },
+    "structure": {
+     "action": 27,
+     "description": 25
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "aquarium",
+    "share": 0.904
+   },
+   "from": [
+    {
+     "id": "L2C0",
+     "items": 50
+    },
+    {
+     "id": "L2C1",
+     "items": 2
+    }
+   ],
+   "to": [
+    {
+     "id": "L4C0",
+     "items": 43
+    },
+    {
+     "id": "L4C2",
+     "items": 8
+    },
+    {
+     "id": "L4C4",
+     "items": 1
+    }
+   ],
+   "experts": [
+    {
+     "id": "L3E31",
+     "items": 52
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      1308,
+      0.6977
+     ],
+     [
+      1099,
+      0.6823
+     ],
+     [
+      546,
+      -0.6508
+     ],
+     [
+      2866,
+      0.641
+     ],
+     [
+      2723,
+      0.6187
+     ]
+    ],
+    "tokens": [
+     " chron",
+     " Alum",
+     " germ",
+     " Perman",
+     "uge",
+     "oproject",
+     " awake",
+     " Dunn"
+    ],
+    "surface_flagged": true,
+    "surface_feature": "target position",
+    "routing": {
+     "share": 0.0755,
+     "shift": 0.8513
+    },
+    "layer_routing_effect": 0.2832
+   },
+   "report": null
+  },
+  {
+   "id": "L3C1",
+   "layer": 3,
+   "node": 1,
+   "items": 73,
+   "makeup": {
+    "label": {
+     "aquarium": 9,
+     "vehicle": 2,
+     "scuba": 9,
+     "septic": 50,
+     "clothing": 3
+    },
+    "register": {
+     "narrative": 48,
+     "technical": 16,
+     "casual": 9
+    },
+    "structure": {
+     "action": 39,
+     "description": 34
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "septic",
+    "share": 0.685
+   },
+   "from": [
+    {
+     "id": "L2C1",
+     "items": 59
+    },
+    {
+     "id": "L2C0",
+     "items": 8
+    },
+    {
+     "id": "L2C3",
+     "items": 5
+    }
+   ],
+   "to": [
+    {
+     "id": "L4C2",
+     "items": 64
+    },
+    {
+     "id": "L4C1",
+     "items": 4
+    },
+    {
+     "id": "L4C4",
+     "items": 3
+    }
+   ],
+   "experts": [
+    {
+     "id": "L3E31",
+     "items": 61
+    },
+    {
+     "id": "L3E16",
+     "items": 11
+    },
+    {
+     "id": "L3E13",
+     "items": 1
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      704,
+      0.647
+     ],
+     [
+      2179,
+      -0.633
+     ],
+     [
+      1337,
+      0.6223
+     ],
+     [
+      596,
+      0.6203
+     ],
+     [
+      218,
+      -0.6107
+     ]
+    ],
+    "tokens": [
+     " Dob",
+     " Marketplace",
+     "agd",
+     " stray",
+     "landa",
+     " Far",
+     " Bale",
+     " Blu"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.0404,
+     "shift": 0.5258
+    },
+    "layer_routing_effect": 0.2832
+   },
+   "report": null
+  },
+  {
+   "id": "L3C2",
+   "layer": 3,
+   "node": 2,
+   "items": 192,
+   "makeup": {
+    "label": {
+     "aquarium": 22,
+     "vehicle": 38,
+     "scuba": 39,
+     "septic": 18,
+     "clothing": 75
+    },
+    "register": {
+     "narrative": 89,
+     "casual": 91,
+     "technical": 12
+    },
+    "structure": {
+     "description": 73,
+     "action": 119
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "clothing",
+    "share": 0.391
+   },
+   "from": [
+    {
+     "id": "L2C2",
+     "items": 97
+    },
+    {
+     "id": "L2C3",
+     "items": 79
+    },
+    {
+     "id": "L2C1",
+     "items": 8
+    }
+   ],
+   "to": [
+    {
+     "id": "L4C1",
+     "items": 151
+    },
+    {
+     "id": "L4C3",
+     "items": 28
+    },
+    {
+     "id": "L4C4",
+     "items": 13
+    }
+   ],
+   "experts": [
+    {
+     "id": "L3E31",
+     "items": 188
+    },
+    {
+     "id": "L3E23",
+     "items": 3
+    },
+    {
+     "id": "L3E8",
+     "items": 1
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      605,
+      0.6412
+     ],
+     [
+      653,
+      -0.6132
+     ],
+     [
+      1896,
+      -0.5774
+     ],
+     [
+      94,
+      -0.5699
+     ],
+     [
+      585,
+      -0.5673
+     ]
+    ],
+    "tokens": [
+     " mom",
+     "etu",
+     "icu",
+     " ec",
+     " Kru",
+     " Ec",
+     " Deo",
+     "blo"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.0382,
+     "shift": 0.3151
+    },
+    "layer_routing_effect": 0.2832
+   },
+   "report": null
+  },
+  {
+   "id": "L3C3",
+   "layer": 3,
+   "node": 3,
+   "items": 103,
+   "makeup": {
+    "label": {
+     "aquarium": 21,
+     "vehicle": 6,
+     "scuba": 42,
+     "septic": 25,
+     "clothing": 9
+    },
+    "register": {
+     "narrative": 36,
+     "technical": 49,
+     "casual": 18
+    },
+    "structure": {
+     "description": 45,
+     "action": 58
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "scuba",
+    "share": 0.408
+   },
+   "from": [
+    {
+     "id": "L2C0",
+     "items": 71
+    },
+    {
+     "id": "L2C2",
+     "items": 15
+    },
+    {
+     "id": "L2C4",
+     "items": 11
+    }
+   ],
+   "to": [
+    {
+     "id": "L4C2",
+     "items": 47
+    },
+    {
+     "id": "L4C1",
+     "items": 30
+    },
+    {
+     "id": "L4C4",
+     "items": 22
+    }
+   ],
+   "experts": [
+    {
+     "id": "L3E31",
+     "items": 92
+    },
+    {
+     "id": "L3E16",
+     "items": 8
+    },
+    {
+     "id": "L3E13",
+     "items": 1
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      285,
+      0.453
+     ],
+     [
+      13,
+      -0.4181
+     ],
+     [
+      2481,
+      -0.4144
+     ],
+     [
+      1997,
+      0.4043
+     ],
+     [
+      925,
+      -0.3815
+     ]
+    ],
+    "tokens": [
+     " trig",
+     "untar",
+     "tog",
+     " conse",
+     "Trig",
+     " comp",
+     " multim",
+     " aj"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "target position",
+    "routing": {
+     "share": 0.0429,
+     "shift": 0.4559
+    },
+    "layer_routing_effect": 0.2832
+   },
+   "report": null
+  },
+  {
+   "id": "L3C4",
+   "layer": 3,
+   "node": 4,
+   "items": 79,
+   "makeup": {
+    "label": {
+     "aquarium": 1,
+     "vehicle": 54,
+     "scuba": 5,
+     "septic": 6,
+     "clothing": 13
+    },
+    "register": {
+     "casual": 5,
+     "narrative": 34,
+     "technical": 40
+    },
+    "structure": {
+     "description": 41,
+     "action": 38
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "vehicle",
+    "share": 0.684
+   },
+   "from": [
+    {
+     "id": "L2C4",
+     "items": 60
+    },
+    {
+     "id": "L2C1",
+     "items": 7
+    },
+    {
+     "id": "L2C2",
+     "items": 7
+    }
+   ],
+   "to": [
+    {
+     "id": "L4C3",
+     "items": 54
+    },
+    {
+     "id": "L4C1",
+     "items": 16
+    },
+    {
+     "id": "L4C2",
+     "items": 9
+    }
+   ],
+   "experts": [
+    {
+     "id": "L3E31",
+     "items": 75
+    },
+    {
+     "id": "L3E16",
+     "items": 2
+    },
+    {
+     "id": "L3E8",
+     "items": 1
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      2407,
+      -0.5066
+     ],
+     [
+      5,
+      0.4832
+     ],
+     [
+      658,
+      -0.4636
+     ],
+     [
+      2460,
+      0.4519
+     ],
+     [
+      1770,
+      -0.4513
+     ]
+    ],
+    "tokens": [
+     " Maz",
+     " overst",
+     " barr",
+     "ikel",
+     " Mell",
+     "Xe",
+     " Mere",
+     "\n///"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.0862,
+     "shift": 0.7377
+    },
+    "layer_routing_effect": 0.2832
+   },
+   "report": null
+  },
+  {
+   "id": "L4C0",
+   "layer": 4,
+   "node": 0,
+   "items": 46,
+   "makeup": {
+    "label": {
+     "aquarium": 44,
+     "scuba": 2
+    },
+    "register": {
+     "narrative": 25,
+     "technical": 14,
+     "casual": 7
+    },
+    "structure": {
+     "action": 26,
+     "description": 20
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "aquarium",
+    "share": 0.957
+   },
+   "from": [
+    {
+     "id": "L3C0",
+     "items": 43
+    },
+    {
+     "id": "L3C3",
+     "items": 2
+    },
+    {
+     "id": "L3C1",
+     "items": 1
+    }
+   ],
+   "to": [
+    {
+     "id": "L5C0",
+     "items": 46
+    }
+   ],
+   "experts": [
+    {
+     "id": "L4E21",
+     "items": 30
+    },
+    {
+     "id": "L4E14",
+     "items": 15
+    },
+    {
+     "id": "L4E0",
+     "items": 1
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      2165,
+      0.6561
+     ],
+     [
+      2866,
+      0.6449
+     ],
+     [
+      2300,
+      -0.6341
+     ],
+     [
+      546,
+      -0.6264
+     ],
+     [
+      1786,
+      0.6209
+     ]
+    ],
+    "tokens": [
+     " Perman",
+     " awake",
+     " chron",
+     " afford",
+     "uge",
+     " Emerald",
+     " entr",
+     "Princip"
+    ],
+    "surface_flagged": true,
+    "surface_feature": "target position",
+    "routing": {
+     "share": 0.0204,
+     "shift": 0.4705
+    },
+    "layer_routing_effect": 0.2476
+   },
+   "report": null
+  },
+  {
+   "id": "L4C1",
+   "layer": 4,
+   "node": 1,
+   "items": 201,
+   "makeup": {
+    "label": {
+     "aquarium": 32,
+     "vehicle": 23,
+     "scuba": 29,
+     "septic": 24,
+     "clothing": 93
+    },
+    "register": {
+     "narrative": 95,
+     "technical": 27,
+     "casual": 79
+    },
+    "structure": {
+     "action": 114,
+     "description": 87
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "clothing",
+    "share": 0.463
+   },
+   "from": [
+    {
+     "id": "L3C2",
+     "items": 151
+    },
+    {
+     "id": "L3C3",
+     "items": 30
+    },
+    {
+     "id": "L3C4",
+     "items": 16
+    }
+   ],
+   "to": [
+    {
+     "id": "L5C1",
+     "items": 106
+    },
+    {
+     "id": "L5C4",
+     "items": 79
+    },
+    {
+     "id": "L5C2",
+     "items": 7
+    }
+   ],
+   "experts": [
+    {
+     "id": "L4E14",
+     "items": 193
+    },
+    {
+     "id": "L4E21",
+     "items": 5
+    },
+    {
+     "id": "L4E25",
+     "items": 2
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      1520,
+      0.6049
+     ],
+     [
+      2715,
+      -0.5866
+     ],
+     [
+      726,
+      0.571
+     ],
+     [
+      1794,
+      0.5569
+     ],
+     [
+      2426,
+      0.5492
+     ]
+    ],
+    "tokens": [
+     " Ec",
+     " Ki",
+     "etu",
+     " mom",
+     " ec",
+     "blo",
+     " bos",
+     "icu"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.0368,
+     "shift": 0.3024
+    },
+    "layer_routing_effect": 0.2476
+   },
+   "report": {
+    "title": "Clothing-leaning, casual-register mix of tank senses",
+    "pattern": "clear",
+    "summary": "L4C1 holds 201 items [F1]. Clothing \"tank\" makes up 46% of them [F5], against 20% across the lens [F6], and casual register makes up 39% [F13], against 26% overall [F14]. Every other sense falls below its lens share, so the node leans toward clothing but is still a mix of senses.",
+    "facts": {
+     "F1": {
+      "id": "F1",
+      "what": "items in L4C1",
+      "value": 201
+     },
+     "F5": {
+      "id": "F5",
+      "what": "share of L4C1 with label = clothing",
+      "value": 0.463
+     },
+     "F6": {
+      "id": "F6",
+      "what": "share of all items with label = clothing",
+      "value": 0.2
+     },
+     "F13": {
+      "id": "F13",
+      "what": "share of L4C1 with register = casual",
+      "value": 0.393
+     },
+     "F14": {
+      "id": "F14",
+      "what": "share of all items with register = casual",
+      "value": 0.259
+     }
+    },
+    "numbers_checked": true,
+    "tested_analyst": true,
+    "written_by": "claude -p",
+    "written_at": "2026-10-08T22:14:58Z"
+   }
+  },
+  {
+   "id": "L4C2",
+   "layer": 4,
+   "node": 2,
+   "items": 128,
+   "makeup": {
+    "label": {
+     "aquarium": 22,
+     "vehicle": 3,
+     "scuba": 25,
+     "septic": 75,
+     "clothing": 3
+    },
+    "register": {
+     "narrative": 56,
+     "technical": 60,
+     "casual": 12
+    },
+    "structure": {
+     "action": 64,
+     "description": 64
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "septic",
+    "share": 0.586
+   },
+   "from": [
+    {
+     "id": "L3C1",
+     "items": 64
+    },
+    {
+     "id": "L3C3",
+     "items": 47
+    },
+    {
+     "id": "L3C4",
+     "items": 9
+    }
+   ],
+   "to": [
+    {
+     "id": "L5C2",
+     "items": 106
+    },
+    {
+     "id": "L5C0",
+     "items": 18
+    },
+    {
+     "id": "L5C1",
+     "items": 3
+    }
+   ],
+   "experts": [
+    {
+     "id": "L4E14",
+     "items": 92
+    },
+    {
+     "id": "L4E25",
+     "items": 35
+    },
+    {
+     "id": "L4E21",
+     "items": 1
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      1451,
+      0.6383
+     ],
+     [
+      1887,
+      0.6285
+     ],
+     [
+      1727,
+      -0.6195
+     ],
+     [
+      1360,
+      -0.5934
+     ],
+     [
+      2321,
+      0.5809
+     ]
+    ],
+    "tokens": [
+     " trough",
+     " taped",
+     " dew",
+     " SERV",
+     " FD",
+     " SAD",
+     "ADR",
+     " daycare"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.0758,
+     "shift": 0.5437
+    },
+    "layer_routing_effect": 0.2476
+   },
+   "report": null
+  },
+  {
+   "id": "L4C3",
+   "layer": 4,
+   "node": 3,
+   "items": 85,
+   "makeup": {
+    "label": {
+     "aquarium": 2,
+     "vehicle": 74,
+     "scuba": 5,
+     "septic": 1,
+     "clothing": 3
+    },
+    "register": {
+     "casual": 20,
+     "narrative": 42,
+     "technical": 23
+    },
+    "structure": {
+     "description": 31,
+     "action": 54
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "vehicle",
+    "share": 0.871
+   },
+   "from": [
+    {
+     "id": "L3C4",
+     "items": 54
+    },
+    {
+     "id": "L3C2",
+     "items": 28
+    },
+    {
+     "id": "L3C3",
+     "items": 2
+    }
+   ],
+   "to": [
+    {
+     "id": "L5C3",
+     "items": 81
+    },
+    {
+     "id": "L5C1",
+     "items": 3
+    },
+    {
+     "id": "L5C4",
+     "items": 1
+    }
+   ],
+   "experts": [
+    {
+     "id": "L4E14",
+     "items": 70
+    },
+    {
+     "id": "L4E17",
+     "items": 15
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      2655,
+      0.7214
+     ],
+     [
+      2475,
+      -0.6983
+     ],
+     [
+      1608,
+      0.6932
+     ],
+     [
+      1168,
+      0.6913
+     ],
+     [
+      2407,
+      -0.6818
+     ]
+    ],
+    "tokens": [
+     " overst",
+     "ikel",
+     " Doll",
+     "\n///",
+     "army",
+     " caric",
+     " armored",
+     " Britain's"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "target position",
+    "routing": {
+     "share": 0.0959,
+     "shift": 0.7502
+    },
+    "layer_routing_effect": 0.2476
+   },
+   "report": null
+  },
+  {
+   "id": "L4C4",
+   "layer": 4,
+   "node": 4,
+   "items": 39,
+   "makeup": {
+    "label": {
+     "scuba": 38,
+     "clothing": 1
+    },
+    "register": {
+     "narrative": 18,
+     "technical": 10,
+     "casual": 11
+    },
+    "structure": {
+     "action": 23,
+     "description": 16
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "scuba",
+    "share": 0.974
+   },
+   "from": [
+    {
+     "id": "L3C3",
+     "items": 22
+    },
+    {
+     "id": "L3C2",
+     "items": 13
+    },
+    {
+     "id": "L3C1",
+     "items": 3
+    }
+   ],
+   "to": [
+    {
+     "id": "L5C2",
+     "items": 37
+    },
+    {
+     "id": "L5C1",
+     "items": 2
+    }
+   ],
+   "experts": [
+    {
+     "id": "L4E14",
+     "items": 35
+    },
+    {
+     "id": "L4E21",
+     "items": 3
+    },
+    {
+     "id": "L4E25",
+     "items": 1
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      833,
+      0.6856
+     ],
+     [
+      959,
+      0.6349
+     ],
+     [
+      2571,
+      -0.591
+     ],
+     [
+      1179,
+      0.5898
+     ],
+     [
+      1392,
+      0.5862
+     ]
+    ],
+    "tokens": [
+     " depleted",
+     " Loren",
+     " hindsight",
+     " colo",
+     " asap",
+     "ch\u00e9",
+     "reno",
+     "ocol"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "target position",
+    "routing": {
+     "share": 0.0186,
+     "shift": 0.4882
+    },
+    "layer_routing_effect": 0.2476
+   },
+   "report": null
+  },
+  {
+   "id": "L5C0",
+   "layer": 5,
+   "node": 0,
+   "items": 69,
+   "makeup": {
+    "label": {
+     "aquarium": 63,
+     "scuba": 4,
+     "septic": 1,
+     "clothing": 1
+    },
+    "register": {
+     "narrative": 37,
+     "technical": 23,
+     "casual": 9
+    },
+    "structure": {
+     "action": 34,
+     "description": 35
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "aquarium",
+    "share": 0.913
+   },
+   "from": [
+    {
+     "id": "L4C0",
+     "items": 46
+    },
+    {
+     "id": "L4C2",
+     "items": 18
+    },
+    {
+     "id": "L4C1",
+     "items": 5
+    }
+   ],
+   "to": [
+    {
+     "id": "L6C0",
+     "items": 69
+    }
+   ],
+   "experts": [
+    {
+     "id": "L5E31",
+     "items": 63
+    },
+    {
+     "id": "L5E24",
+     "items": 2
+    },
+    {
+     "id": "L5E1",
+     "items": 2
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      2220,
+      0.7134
+     ],
+     [
+      546,
+      -0.7001
+     ],
+     [
+      1099,
+      0.6993
+     ],
+     [
+      2866,
+      0.6717
+     ],
+     [
+      1652,
+      0.6616
+     ]
+    ],
+    "tokens": [
+     " Perman",
+     " awake",
+     " accl",
+     " afford",
+     " chron",
+     " inoc",
+     " entr",
+     "uge"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "target position",
+    "routing": {
+     "share": 0.0592,
+     "shift": 0.6544
+    },
+    "layer_routing_effect": 0.3398
+   },
+   "report": null
+  },
+  {
+   "id": "L5C1",
+   "layer": 5,
+   "node": 1,
+   "items": 114,
+   "makeup": {
+    "label": {
+     "aquarium": 25,
+     "vehicle": 22,
+     "scuba": 28,
+     "septic": 24,
+     "clothing": 15
+    },
+    "register": {
+     "narrative": 49,
+     "casual": 58,
+     "technical": 7
+    },
+    "structure": {
+     "description": 46,
+     "action": 68
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "scuba",
+    "share": 0.246
+   },
+   "from": [
+    {
+     "id": "L4C1",
+     "items": 106
+    },
+    {
+     "id": "L4C3",
+     "items": 3
+    },
+    {
+     "id": "L4C2",
+     "items": 3
+    }
+   ],
+   "to": [
+    {
+     "id": "L6C1",
+     "items": 98
+    },
+    {
+     "id": "L6C3",
+     "items": 10
+    },
+    {
+     "id": "L6C0",
+     "items": 4
+    }
+   ],
+   "experts": [
+    {
+     "id": "L5E31",
+     "items": 95
+    },
+    {
+     "id": "L5E24",
+     "items": 11
+    },
+    {
+     "id": "L5E13",
+     "items": 3
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      2745,
+      -0.4654
+     ],
+     [
+      84,
+      0.4519
+     ],
+     [
+      943,
+      0.4368
+     ],
+     [
+      1685,
+      0.4306
+     ],
+     [
+      277,
+      0.4221
+     ]
+    ],
+    "tokens": [
+     " Yi",
+     " Station",
+     "EC",
+     "Hund",
+     "Station",
+     "UC",
+     "zogen",
+     " ec"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.0086,
+     "shift": 0.1943
+    },
+    "layer_routing_effect": 0.3398
+   },
+   "report": null
+  },
+  {
+   "id": "L5C2",
+   "layer": 5,
+   "node": 2,
+   "items": 150,
+   "makeup": {
+    "label": {
+     "aquarium": 8,
+     "vehicle": 4,
+     "scuba": 59,
+     "septic": 73,
+     "clothing": 6
+    },
+    "register": {
+     "narrative": 62,
+     "casual": 23,
+     "technical": 65
+    },
+    "structure": {
+     "description": 73,
+     "action": 77
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "septic",
+    "share": 0.487
+   },
+   "from": [
+    {
+     "id": "L4C2",
+     "items": 106
+    },
+    {
+     "id": "L4C4",
+     "items": 37
+    },
+    {
+     "id": "L4C1",
+     "items": 7
+    }
+   ],
+   "to": [
+    {
+     "id": "L6C0",
+     "items": 109
+    },
+    {
+     "id": "L6C4",
+     "items": 37
+    },
+    {
+     "id": "L6C1",
+     "items": 4
+    }
+   ],
+   "experts": [
+    {
+     "id": "L5E31",
+     "items": 116
+    },
+    {
+     "id": "L5E13",
+     "items": 31
+    },
+    {
+     "id": "L5E29",
+     "items": 2
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      1945,
+      -0.6922
+     ],
+     [
+      2099,
+      0.6359
+     ],
+     [
+      733,
+      0.6219
+     ],
+     [
+      772,
+      0.6204
+     ],
+     [
+      2179,
+      -0.6164
+     ]
+    ],
+    "tokens": [
+     " taut",
+     " trough",
+     " taped",
+     " downg",
+     " Tap",
+     " Jerem",
+     " Braz",
+     " lapse"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.0832,
+     "shift": 0.526
+    },
+    "layer_routing_effect": 0.3398
+   },
+   "report": null
+  },
+  {
+   "id": "L5C3",
+   "layer": 5,
+   "node": 3,
+   "items": 86,
+   "makeup": {
+    "label": {
+     "aquarium": 3,
+     "vehicle": 74,
+     "scuba": 4,
+     "septic": 2,
+     "clothing": 3
+    },
+    "register": {
+     "casual": 19,
+     "narrative": 44,
+     "technical": 23
+    },
+    "structure": {
+     "description": 32,
+     "action": 54
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "vehicle",
+    "share": 0.86
+   },
+   "from": [
+    {
+     "id": "L4C3",
+     "items": 81
+    },
+    {
+     "id": "L4C1",
+     "items": 4
+    },
+    {
+     "id": "L4C2",
+     "items": 1
+    }
+   ],
+   "to": [
+    {
+     "id": "L6C2",
+     "items": 81
+    },
+    {
+     "id": "L6C1",
+     "items": 5
+    }
+   ],
+   "experts": [
+    {
+     "id": "L5E31",
+     "items": 85
+    },
+    {
+     "id": "L5E24",
+     "items": 1
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      2597,
+      0.7535
+     ],
+     [
+      2167,
+      -0.7388
+     ],
+     [
+      1608,
+      0.7323
+     ],
+     [
+      2341,
+      -0.7184
+     ],
+     [
+      1687,
+      -0.7102
+     ]
+    ],
+    "tokens": [
+     " overst",
+     "army",
+     " caric",
+     " Arsenal",
+     " Assault",
+     " Bala",
+     "Army",
+     "iach"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "target position",
+    "routing": {
+     "share": 0.0787,
+     "shift": 0.6759
+    },
+    "layer_routing_effect": 0.3398
+   },
+   "report": null
+  },
+  {
+   "id": "L5C4",
+   "layer": 5,
+   "node": 4,
+   "items": 80,
+   "makeup": {
+    "label": {
+     "aquarium": 1,
+     "scuba": 4,
+     "clothing": 75
+    },
+    "register": {
+     "casual": 20,
+     "narrative": 44,
+     "technical": 16
+    },
+    "structure": {
+     "action": 48,
+     "description": 32
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "clothing",
+    "share": 0.938
+   },
+   "from": [
+    {
+     "id": "L4C1",
+     "items": 79
+    },
+    {
+     "id": "L4C3",
+     "items": 1
+    }
+   ],
+   "to": [
+    {
+     "id": "L6C3",
+     "items": 80
+    }
+   ],
+   "experts": [
+    {
+     "id": "L5E31",
+     "items": 50
+    },
+    {
+     "id": "L5E20",
+     "items": 29
+    },
+    {
+     "id": "L5E6",
+     "items": 1
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      583,
+      -0.7391
+     ],
+     [
+      2862,
+      -0.729
+     ],
+     [
+      1520,
+      0.7281
+     ],
+     [
+      2252,
+      -0.7091
+     ],
+     [
+      2211,
+      0.6714
+     ]
+    ],
+    "tokens": [
+     " conscience",
+     " pajamas",
+     " shirt",
+     "mor",
+     " shirts",
+     " bangs",
+     " feminin",
+     " wardrobe"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.1101,
+     "shift": 0.8286
+    },
+    "layer_routing_effect": 0.3398
+   },
+   "report": null
+  },
+  {
+   "id": "L6C0",
+   "layer": 6,
+   "node": 0,
+   "items": 182,
+   "makeup": {
+    "label": {
+     "aquarium": 73,
+     "vehicle": 3,
+     "scuba": 29,
+     "septic": 72,
+     "clothing": 5
+    },
+    "register": {
+     "narrative": 84,
+     "technical": 77,
+     "casual": 21
+    },
+    "structure": {
+     "action": 91,
+     "description": 91
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "aquarium",
+    "share": 0.401
+   },
+   "from": [
+    {
+     "id": "L5C2",
+     "items": 109
+    },
+    {
+     "id": "L5C0",
+     "items": 69
+    },
+    {
+     "id": "L5C1",
+     "items": 4
+    }
+   ],
+   "to": [
+    {
+     "id": "L7C1",
+     "items": 104
+    },
+    {
+     "id": "L7C0",
+     "items": 75
+    },
+    {
+     "id": "L7C2",
+     "items": 3
+    }
+   ],
+   "experts": [
+    {
+     "id": "L6E30",
+     "items": 144
+    },
+    {
+     "id": "L6E11",
+     "items": 32
+    },
+    {
+     "id": "L6E19",
+     "items": 6
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      187,
+      -0.6649
+     ],
+     [
+      2724,
+      -0.6633
+     ],
+     [
+      2106,
+      0.6568
+     ],
+     [
+      872,
+      0.6549
+     ],
+     [
+      653,
+      0.6545
+     ]
+    ],
+    "tokens": [
+     " Perman",
+     " olig",
+     " Alcal",
+     " Ribe",
+     " accepted",
+     " daycare",
+     " bi",
+     " IRS"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "target position",
+    "routing": {
+     "share": 0.0751,
+     "shift": 0.4538
+    },
+    "layer_routing_effect": 0.2758
+   },
+   "report": null
+  },
+  {
+   "id": "L6C1",
+   "layer": 6,
+   "node": 1,
+   "items": 107,
+   "makeup": {
+    "label": {
+     "aquarium": 23,
+     "vehicle": 21,
+     "scuba": 23,
+     "septic": 28,
+     "clothing": 12
+    },
+    "register": {
+     "narrative": 44,
+     "casual": 55,
+     "technical": 8
+    },
+    "structure": {
+     "description": 44,
+     "action": 63
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "septic",
+    "share": 0.262
+   },
+   "from": [
+    {
+     "id": "L5C1",
+     "items": 98
+    },
+    {
+     "id": "L5C3",
+     "items": 5
+    },
+    {
+     "id": "L5C2",
+     "items": 4
+    }
+   ],
+   "to": [
+    {
+     "id": "L7C2",
+     "items": 79
+    },
+    {
+     "id": "L7C1",
+     "items": 23
+    },
+    {
+     "id": "L7C3",
+     "items": 4
+    }
+   ],
+   "experts": [
+    {
+     "id": "L6E30",
+     "items": 104
+    },
+    {
+     "id": "L6E11",
+     "items": 2
+    },
+    {
+     "id": "L6E23",
+     "items": 1
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      1685,
+      0.4381
+     ],
+     [
+      2260,
+      -0.4342
+     ],
+     [
+      2745,
+      -0.4268
+     ],
+     [
+      277,
+      0.4255
+     ],
+     [
+      577,
+      -0.4065
+     ]
+    ],
+    "tokens": [
+     "Vr",
+     "Hund",
+     "orz",
+     "Zi",
+     " Cron",
+     " rewards",
+     " bloody",
+     "Rail"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.0138,
+     "shift": 0.2535
+    },
+    "layer_routing_effect": 0.2758
+   },
+   "report": null
+  },
+  {
+   "id": "L6C2",
+   "layer": 6,
+   "node": 2,
+   "items": 82,
+   "makeup": {
+    "label": {
+     "aquarium": 2,
+     "vehicle": 74,
+     "scuba": 4,
+     "clothing": 2
+    },
+    "register": {
+     "casual": 19,
+     "narrative": 40,
+     "technical": 23
+    },
+    "structure": {
+     "description": 31,
+     "action": 51
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "vehicle",
+    "share": 0.902
+   },
+   "from": [
+    {
+     "id": "L5C3",
+     "items": 81
+    },
+    {
+     "id": "L5C1",
+     "items": 1
+    }
+   ],
+   "to": [
+    {
+     "id": "L7C3",
+     "items": 82
+    }
+   ],
+   "experts": [
+    {
+     "id": "L6E30",
+     "items": 82
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      2597,
+      0.7662
+     ],
+     [
+      1608,
+      0.7465
+     ],
+     [
+      2341,
+      -0.7427
+     ],
+     [
+      2167,
+      -0.6991
+     ],
+     [
+      377,
+      0.6938
+     ]
+    ],
+    "tokens": [
+     "army",
+     " overst",
+     " Blind",
+     "Army",
+     "Xe",
+     " Arsenal",
+     "iach",
+     "fam"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "target position",
+    "routing": {
+     "share": 0.0188,
+     "shift": 0.3386
+    },
+    "layer_routing_effect": 0.2758
+   },
+   "report": null
+  },
+  {
+   "id": "L6C3",
+   "layer": 6,
+   "node": 3,
+   "items": 90,
+   "makeup": {
+    "label": {
+     "aquarium": 2,
+     "vehicle": 2,
+     "scuba": 6,
+     "clothing": 80
+    },
+    "register": {
+     "narrative": 51,
+     "casual": 23,
+     "technical": 16
+    },
+    "structure": {
+     "action": 54,
+     "description": 36
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "clothing",
+    "share": 0.889
+   },
+   "from": [
+    {
+     "id": "L5C4",
+     "items": 80
+    },
+    {
+     "id": "L5C1",
+     "items": 10
+    }
+   ],
+   "to": [
+    {
+     "id": "L7C4",
+     "items": 79
+    },
+    {
+     "id": "L7C2",
+     "items": 10
+    },
+    {
+     "id": "L7C3",
+     "items": 1
+    }
+   ],
+   "experts": [
+    {
+     "id": "L6E30",
+     "items": 90
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      583,
+      -0.736
+     ],
+     [
+      2290,
+      -0.7075
+     ],
+     [
+      1500,
+      -0.7073
+     ],
+     [
+      675,
+      0.6958
+     ],
+     [
+      1178,
+      0.6908
+     ]
+    ],
+    "tokens": [
+     " conscience",
+     " shirt",
+     " pajamas",
+     " wardrobe",
+     " hoodie",
+     " Kand",
+     " scarf",
+     " shirts"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.1426,
+     "shift": 0.889
+    },
+    "layer_routing_effect": 0.2758
+   },
+   "report": null
+  },
+  {
+   "id": "L6C4",
+   "layer": 6,
+   "node": 4,
+   "items": 38,
+   "makeup": {
+    "label": {
+     "scuba": 37,
+     "clothing": 1
+    },
+    "register": {
+     "narrative": 17,
+     "technical": 10,
+     "casual": 11
+    },
+    "structure": {
+     "action": 22,
+     "description": 16
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "scuba",
+    "share": 0.974
+   },
+   "from": [
+    {
+     "id": "L5C2",
+     "items": 37
+    },
+    {
+     "id": "L5C1",
+     "items": 1
+    }
+   ],
+   "to": [
+    {
+     "id": "L7C2",
+     "items": 37
+    },
+    {
+     "id": "L7C1",
+     "items": 1
+    }
+   ],
+   "experts": [
+    {
+     "id": "L6E30",
+     "items": 21
+    },
+    {
+     "id": "L6E11",
+     "items": 12
+    },
+    {
+     "id": "L6E19",
+     "items": 5
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      1589,
+      -0.6943
+     ],
+     [
+      2365,
+      -0.6776
+     ],
+     [
+      1906,
+      -0.6546
+     ],
+     [
+      833,
+      0.647
+     ],
+     [
+      751,
+      0.625
+     ]
+    ],
+    "tokens": [
+     " accu",
+     " hindsight",
+     " Loren",
+     " depleted",
+     " Moro",
+     " dispo",
+     "illat",
+     "ohle"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "target position",
+    "routing": {
+     "share": 0.0255,
+     "shift": 0.5784
+    },
+    "layer_routing_effect": 0.2758
+   },
+   "report": null
+  },
+  {
+   "id": "L7C0",
+   "layer": 7,
+   "node": 0,
+   "items": 75,
+   "makeup": {
+    "label": {
+     "aquarium": 66,
+     "scuba": 6,
+     "septic": 2,
+     "clothing": 1
+    },
+    "register": {
+     "narrative": 42,
+     "technical": 24,
+     "casual": 9
+    },
+    "structure": {
+     "action": 37,
+     "description": 38
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "aquarium",
+    "share": 0.88
+   },
+   "from": [
+    {
+     "id": "L6C0",
+     "items": 75
+    }
+   ],
+   "to": [
+    {
+     "id": "L8C0",
+     "items": 68
+    },
+    {
+     "id": "L8C1",
+     "items": 7
+    }
+   ],
+   "experts": [
+    {
+     "id": "L7E7",
+     "items": 56
+    },
+    {
+     "id": "L7E4",
+     "items": 17
+    },
+    {
+     "id": "L7E25",
+     "items": 2
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      2220,
+      0.6881
+     ],
+     [
+      176,
+      0.6474
+     ],
+     [
+      2561,
+      -0.6299
+     ],
+     [
+      2092,
+      0.6282
+     ],
+     [
+      546,
+      -0.6255
+     ]
+    ],
+    "tokens": [
+     " Perman",
+     " entr",
+     " accl",
+     " chandelier",
+     " afford",
+     " baki",
+     " chron",
+     " awake"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "target position",
+    "routing": {
+     "share": 0.018,
+     "shift": 0.3465
+    },
+    "layer_routing_effect": 0.361
+   },
+   "report": null
+  },
+  {
+   "id": "L7C1",
+   "layer": 7,
+   "node": 1,
+   "items": 128,
+   "makeup": {
+    "label": {
+     "aquarium": 11,
+     "vehicle": 11,
+     "scuba": 24,
+     "septic": 75,
+     "clothing": 7
+    },
+    "register": {
+     "narrative": 51,
+     "casual": 20,
+     "technical": 57
+    },
+    "structure": {
+     "description": 66,
+     "action": 62
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "septic",
+    "share": 0.586
+   },
+   "from": [
+    {
+     "id": "L6C0",
+     "items": 104
+    },
+    {
+     "id": "L6C1",
+     "items": 23
+    },
+    {
+     "id": "L6C4",
+     "items": 1
+    }
+   ],
+   "to": [
+    {
+     "id": "L8C1",
+     "items": 114
+    },
+    {
+     "id": "L8C2",
+     "items": 14
+    }
+   ],
+   "experts": [
+    {
+     "id": "L7E7",
+     "items": 114
+    },
+    {
+     "id": "L7E4",
+     "items": 10
+    },
+    {
+     "id": "L7E25",
+     "items": 2
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      1451,
+      0.6685
+     ],
+     [
+      2185,
+      0.6259
+     ],
+     [
+      2457,
+      -0.6184
+     ],
+     [
+      1027,
+      -0.5934
+     ],
+     [
+      2305,
+      -0.5661
+     ]
+    ],
+    "tokens": [
+     " DVR",
+     "LER",
+     " storing",
+     " DUR",
+     " trough",
+     " d\u00e9r",
+     " Anad",
+     " Diy"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.1008,
+     "shift": 0.6268
+    },
+    "layer_routing_effect": 0.361
+   },
+   "report": null
+  },
+  {
+   "id": "L7C2",
+   "layer": 7,
+   "node": 2,
+   "items": 129,
+   "makeup": {
+    "label": {
+     "aquarium": 19,
+     "vehicle": 14,
+     "scuba": 60,
+     "septic": 21,
+     "clothing": 15
+    },
+    "register": {
+     "narrative": 53,
+     "casual": 61,
+     "technical": 15
+    },
+    "structure": {
+     "description": 49,
+     "action": 80
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "scuba",
+    "share": 0.465
+   },
+   "from": [
+    {
+     "id": "L6C1",
+     "items": 79
+    },
+    {
+     "id": "L6C4",
+     "items": 37
+    },
+    {
+     "id": "L6C3",
+     "items": 10
+    }
+   ],
+   "to": [
+    {
+     "id": "L8C1",
+     "items": 70
+    },
+    {
+     "id": "L8C2",
+     "items": 59
+    }
+   ],
+   "experts": [
+    {
+     "id": "L7E7",
+     "items": 124
+    },
+    {
+     "id": "L7E4",
+     "items": 4
+    },
+    {
+     "id": "L7E20",
+     "items": 1
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      1514,
+      0.5065
+     ],
+     [
+      89,
+      -0.47
+     ],
+     [
+      436,
+      0.4622
+     ],
+     [
+      1332,
+      0.4621
+     ],
+     [
+      2643,
+      -0.46
+     ]
+    ],
+    "tokens": [
+     " partying",
+     " consum",
+     " hitch",
+     " acumul",
+     "ghi",
+     "quota",
+     " Zip",
+     "tium"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.0151,
+     "shift": 0.2421
+    },
+    "layer_routing_effect": 0.361
+   },
+   "report": null
+  },
+  {
+   "id": "L7C3",
+   "layer": 7,
+   "node": 3,
+   "items": 87,
+   "makeup": {
+    "label": {
+     "aquarium": 3,
+     "vehicle": 75,
+     "scuba": 4,
+     "septic": 2,
+     "clothing": 3
+    },
+    "register": {
+     "casual": 20,
+     "narrative": 44,
+     "technical": 23
+    },
+    "structure": {
+     "description": 33,
+     "action": 54
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "vehicle",
+    "share": 0.862
+   },
+   "from": [
+    {
+     "id": "L6C2",
+     "items": 82
+    },
+    {
+     "id": "L6C1",
+     "items": 4
+    },
+    {
+     "id": "L6C3",
+     "items": 1
+    }
+   ],
+   "to": [
+    {
+     "id": "L8C3",
+     "items": 79
+    },
+    {
+     "id": "L8C2",
+     "items": 8
+    }
+   ],
+   "experts": [
+    {
+     "id": "L7E7",
+     "items": 77
+    },
+    {
+     "id": "L7E4",
+     "items": 9
+    },
+    {
+     "id": "L7E15",
+     "items": 1
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      1872,
+      0.7335
+     ],
+     [
+      377,
+      0.7334
+     ],
+     [
+      2341,
+      -0.7227
+     ],
+     [
+      2167,
+      -0.7209
+     ],
+     [
+      272,
+      0.7022
+     ]
+    ],
+    "tokens": [
+     " overst",
+     "army",
+     " Arsenal",
+     "Xe",
+     "Army",
+     "ashen",
+     " Blind",
+     "uite"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "target position",
+    "routing": {
+     "share": 0.0184,
+     "shift": 0.3249
+    },
+    "layer_routing_effect": 0.361
+   },
+   "report": null
+  },
+  {
+   "id": "L7C4",
+   "layer": 7,
+   "node": 4,
+   "items": 80,
+   "makeup": {
+    "label": {
+     "aquarium": 1,
+     "scuba": 5,
+     "clothing": 74
+    },
+    "register": {
+     "casual": 19,
+     "narrative": 46,
+     "technical": 15
+    },
+    "structure": {
+     "action": 48,
+     "description": 32
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "clothing",
+    "share": 0.925
+   },
+   "from": [
+    {
+     "id": "L6C3",
+     "items": 79
+    },
+    {
+     "id": "L6C1",
+     "items": 1
+    }
+   ],
+   "to": [
+    {
+     "id": "L8C4",
+     "items": 46
+    },
+    {
+     "id": "L8C2",
+     "items": 34
+    }
+   ],
+   "experts": [
+    {
+     "id": "L7E7",
+     "items": 53
+    },
+    {
+     "id": "L7E10",
+     "items": 27
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      2290,
+      -0.7259
+     ],
+     [
+      1452,
+      -0.7156
+     ],
+     [
+      2298,
+      -0.7087
+     ],
+     [
+      1945,
+      0.6955
+     ],
+     [
+      1126,
+      -0.6899
+     ]
+    ],
+    "tokens": [
+     " conscience",
+     " scarf",
+     " shirt",
+     " sleeves",
+     " sweater",
+     " Ki",
+     " pajamas",
+     "\ufffd"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.2086,
+     "shift": 1.1407
+    },
+    "layer_routing_effect": 0.361
+   },
+   "report": null
+  },
+  {
+   "id": "L8C0",
+   "layer": 8,
+   "node": 0,
+   "items": 68,
+   "makeup": {
+    "label": {
+     "aquarium": 65,
+     "scuba": 3
+    },
+    "register": {
+     "narrative": 38,
+     "technical": 21,
+     "casual": 9
+    },
+    "structure": {
+     "action": 33,
+     "description": 35
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "aquarium",
+    "share": 0.956
+   },
+   "from": [
+    {
+     "id": "L7C0",
+     "items": 68
+    }
+   ],
+   "to": [
+    {
+     "id": "L9C0",
+     "items": 68
+    }
+   ],
+   "experts": [
+    {
+     "id": "L8E30",
+     "items": 62
+    },
+    {
+     "id": "L8E9",
+     "items": 3
+    },
+    {
+     "id": "L8E31",
+     "items": 2
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      575,
+      0.6697
+     ],
+     [
+      2092,
+      0.6652
+     ],
+     [
+      2220,
+      0.6504
+     ],
+     [
+      546,
+      -0.613
+     ],
+     [
+      912,
+      -0.6039
+     ]
+    ],
+    "tokens": [
+     " chandelier",
+     " baki",
+     " accl",
+     " Stell",
+     " hopefully",
+     "Princip",
+     " awake",
+     " chron"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "target position",
+    "routing": {
+     "share": 0.0488,
+     "shift": 0.5987
+    },
+    "layer_routing_effect": 0.4359
+   },
+   "report": null
+  },
+  {
+   "id": "L8C1",
+   "layer": 8,
+   "node": 1,
+   "items": 191,
+   "makeup": {
+    "label": {
+     "aquarium": 20,
+     "vehicle": 7,
+     "scuba": 72,
+     "septic": 87,
+     "clothing": 5
+    },
+    "register": {
+     "narrative": 87,
+     "casual": 38,
+     "technical": 66
+    },
+    "structure": {
+     "description": 83,
+     "action": 108
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "septic",
+    "share": 0.455
+   },
+   "from": [
+    {
+     "id": "L7C1",
+     "items": 114
+    },
+    {
+     "id": "L7C2",
+     "items": 70
+    },
+    {
+     "id": "L7C0",
+     "items": 7
+    }
+   ],
+   "to": [
+    {
+     "id": "L9C2",
+     "items": 180
+    },
+    {
+     "id": "L9C0",
+     "items": 9
+    },
+    {
+     "id": "L9C1",
+     "items": 2
+    }
+   ],
+   "experts": [
+    {
+     "id": "L8E30",
+     "items": 165
+    },
+    {
+     "id": "L8E31",
+     "items": 15
+    },
+    {
+     "id": "L8E9",
+     "items": 9
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      1523,
+      -0.6793
+     ],
+     [
+      1662,
+      -0.6658
+     ],
+     [
+      2460,
+      -0.6607
+     ],
+     [
+      2121,
+      0.6588
+     ],
+     [
+      1261,
+      0.6568
+     ]
+    ],
+    "tokens": [
+     " taper",
+     " trough",
+     " taped",
+     " apport",
+     " ull",
+     " taut",
+     " Perman",
+     "LER"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.1132,
+     "shift": 0.5439
+    },
+    "layer_routing_effect": 0.4359
+   },
+   "report": null
+  },
+  {
+   "id": "L8C2",
+   "layer": 8,
+   "node": 2,
+   "items": 115,
+   "makeup": {
+    "label": {
+     "aquarium": 13,
+     "vehicle": 20,
+     "scuba": 21,
+     "septic": 13,
+     "clothing": 48
+    },
+    "register": {
+     "casual": 57,
+     "narrative": 46,
+     "technical": 12
+    },
+    "structure": {
+     "action": 67,
+     "description": 48
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "clothing",
+    "share": 0.417
+   },
+   "from": [
+    {
+     "id": "L7C2",
+     "items": 59
+    },
+    {
+     "id": "L7C4",
+     "items": 34
+    },
+    {
+     "id": "L7C1",
+     "items": 14
+    }
+   ],
+   "to": [
+    {
+     "id": "L9C1",
+     "items": 99
+    },
+    {
+     "id": "L9C2",
+     "items": 13
+    },
+    {
+     "id": "L9C4",
+     "items": 2
+    }
+   ],
+   "experts": [
+    {
+     "id": "L8E9",
+     "items": 60
+    },
+    {
+     "id": "L8E30",
+     "items": 34
+    },
+    {
+     "id": "L8E23",
+     "items": 15
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      1167,
+      -0.575
+     ],
+     [
+      2559,
+      -0.5302
+     ],
+     [
+      2170,
+      0.5055
+     ],
+     [
+      2843,
+      0.5022
+     ],
+     [
+      992,
+      -0.4986
+     ]
+    ],
+    "tokens": [
+     "armor",
+     " Ec",
+     " ec",
+     "wee",
+     " Bog",
+     "Army",
+     " bloody",
+     "ep"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "target position",
+    "routing": {
+     "share": 0.0896,
+     "shift": 0.6235
+    },
+    "layer_routing_effect": 0.4359
+   },
+   "report": null
+  },
+  {
+   "id": "L8C3",
+   "layer": 8,
+   "node": 3,
+   "items": 79,
+   "makeup": {
+    "label": {
+     "aquarium": 2,
+     "vehicle": 73,
+     "scuba": 3,
+     "clothing": 1
+    },
+    "register": {
+     "casual": 18,
+     "narrative": 39,
+     "technical": 22
+    },
+    "structure": {
+     "description": 28,
+     "action": 51
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "vehicle",
+    "share": 0.924
+   },
+   "from": [
+    {
+     "id": "L7C3",
+     "items": 79
+    }
+   ],
+   "to": [
+    {
+     "id": "L9C3",
+     "items": 76
+    },
+    {
+     "id": "L9C1",
+     "items": 3
+    }
+   ],
+   "experts": [
+    {
+     "id": "L8E30",
+     "items": 71
+    },
+    {
+     "id": "L8E9",
+     "items": 8
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      2341,
+      -0.7366
+     ],
+     [
+      272,
+      0.7302
+     ],
+     [
+      1535,
+      0.7147
+     ],
+     [
+      377,
+      0.6803
+     ],
+     [
+      1608,
+      0.6764
+     ]
+    ],
+    "tokens": [
+     " overst",
+     "army",
+     " Arsenal",
+     "ashen",
+     " Blind",
+     "Army",
+     "Xe",
+     "quadr"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.0712,
+     "shift": 0.6704
+    },
+    "layer_routing_effect": 0.4359
+   },
+   "report": null
+  },
+  {
+   "id": "L8C4",
+   "layer": 8,
+   "node": 4,
+   "items": 46,
+   "makeup": {
+    "label": {
+     "clothing": 46
+    },
+    "register": {
+     "narrative": 26,
+     "technical": 13,
+     "casual": 7
+    },
+    "structure": {
+     "action": 22,
+     "description": 24
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "clothing",
+    "share": 1.0
+   },
+   "from": [
+    {
+     "id": "L7C4",
+     "items": 46
+    }
+   ],
+   "to": [
+    {
+     "id": "L9C4",
+     "items": 46
+    }
+   ],
+   "experts": [
+    {
+     "id": "L8E9",
+     "items": 45
+    },
+    {
+     "id": "L8E30",
+     "items": 1
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      2071,
+      -0.751
+     ],
+     [
+      2605,
+      0.7421
+     ],
+     [
+      1176,
+      -0.73
+     ],
+     [
+      1912,
+      0.7297
+     ],
+     [
+      827,
+      0.7184
+     ]
+    ],
+    "tokens": [
+     "\ud83c\udffb",
+     "\ud83c\udffc",
+     " shirt",
+     " shirts",
+     "hood",
+     " polos",
+     " Sami",
+     " mille"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "words",
+    "routing": {
+     "share": 0.1131,
+     "shift": 1.1075
+    },
+    "layer_routing_effect": 0.4359
+   },
+   "report": null
+  },
+  {
+   "id": "L9C0",
+   "layer": 9,
+   "node": 0,
+   "items": 77,
+   "makeup": {
+    "label": {
+     "aquarium": 69,
+     "scuba": 5,
+     "septic": 2,
+     "clothing": 1
+    },
+    "register": {
+     "narrative": 44,
+     "technical": 23,
+     "casual": 10
+    },
+    "structure": {
+     "action": 37,
+     "description": 40
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "aquarium",
+    "share": 0.896
+   },
+   "from": [
+    {
+     "id": "L8C0",
+     "items": 68
+    },
+    {
+     "id": "L8C1",
+     "items": 9
+    }
+   ],
+   "to": [
+    {
+     "id": "L10C0",
+     "items": 75
+    },
+    {
+     "id": "L10C3",
+     "items": 2
+    }
+   ],
+   "experts": [
+    {
+     "id": "L9E26",
+     "items": 71
+    },
+    {
+     "id": "L9E16",
+     "items": 3
+    },
+    {
+     "id": "L9E20",
+     "items": 2
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      2092,
+      0.6945
+     ],
+     [
+      2220,
+      0.6716
+     ],
+     [
+      575,
+      0.6632
+     ],
+     [
+      211,
+      -0.6487
+     ],
+     [
+      1078,
+      0.6422
+     ]
+    ],
+    "tokens": [
+     " aquarium",
+     " Stell",
+     " Mou",
+     " accl",
+     " Aquarium",
+     " Perman",
+     " Oval",
+     " Pond"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "target position",
+    "routing": {
+     "share": 0.0245,
+     "shift": 0.3988
+    },
+    "layer_routing_effect": 0.3512
+   },
+   "report": null
+  },
+  {
+   "id": "L9C1",
+   "layer": 9,
+   "node": 1,
+   "items": 104,
+   "makeup": {
+    "label": {
+     "aquarium": 16,
+     "vehicle": 19,
+     "scuba": 18,
+     "septic": 7,
+     "clothing": 44
+    },
+    "register": {
+     "narrative": 46,
+     "casual": 49,
+     "technical": 9
+    },
+    "structure": {
+     "description": 42,
+     "action": 62
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "clothing",
+    "share": 0.423
+   },
+   "from": [
+    {
+     "id": "L8C2",
+     "items": 99
+    },
+    {
+     "id": "L8C3",
+     "items": 3
+    },
+    {
+     "id": "L8C1",
+     "items": 2
+    }
+   ],
+   "to": [
+    {
+     "id": "L10C1",
+     "items": 53
+    },
+    {
+     "id": "L10C4",
+     "items": 38
+    },
+    {
+     "id": "L10C2",
+     "items": 13
+    }
+   ],
+   "experts": [
+    {
+     "id": "L9E16",
+     "items": 68
+    },
+    {
+     "id": "L9E26",
+     "items": 33
+    },
+    {
+     "id": "L9E18",
+     "items": 2
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      1167,
+      -0.5776
+     ],
+     [
+      2559,
+      -0.5259
+     ],
+     [
+      16,
+      0.5195
+     ],
+     [
+      2450,
+      -0.5168
+     ],
+     [
+      2426,
+      0.5098
+     ]
+    ],
+    "tokens": [
+     "Army",
+     " Army",
+     " Male",
+     " bloody",
+     " Bog",
+     "armor",
+     "amar",
+     "ep"
+    ],
+    "surface_flagged": true,
+    "surface_feature": "target position",
+    "routing": {
+     "share": 0.0169,
+     "shift": 0.2845
+    },
+    "layer_routing_effect": 0.3512
+   },
+   "report": null
+  },
+  {
+   "id": "L9C2",
+   "layer": 9,
+   "node": 2,
+   "items": 193,
+   "makeup": {
+    "label": {
+     "aquarium": 15,
+     "vehicle": 8,
+     "scuba": 73,
+     "septic": 91,
+     "clothing": 6
+    },
+    "register": {
+     "narrative": 80,
+     "casual": 46,
+     "technical": 67
+    },
+    "structure": {
+     "description": 83,
+     "action": 110
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "septic",
+    "share": 0.472
+   },
+   "from": [
+    {
+     "id": "L8C1",
+     "items": 180
+    },
+    {
+     "id": "L8C2",
+     "items": 13
+    }
+   ],
+   "to": [
+    {
+     "id": "L10C3",
+     "items": 136
+    },
+    {
+     "id": "L10C1",
+     "items": 54
+    },
+    {
+     "id": "L10C0",
+     "items": 3
+    }
+   ],
+   "experts": [
+    {
+     "id": "L9E20",
+     "items": 96
+    },
+    {
+     "id": "L9E26",
+     "items": 65
+    },
+    {
+     "id": "L9E16",
+     "items": 21
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      1988,
+      0.6901
+     ],
+     [
+      727,
+      0.6783
+     ],
+     [
+      2460,
+      -0.6706
+     ],
+     [
+      217,
+      0.6432
+     ],
+     [
+      772,
+      0.6373
+     ]
+    ],
+    "tokens": [
+     " trough",
+     " taut",
+     " taper",
+     " apport",
+     " onboard",
+     " ull",
+     " taped",
+     " storing"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.072,
+     "shift": 0.4315
+    },
+    "layer_routing_effect": 0.3512
+   },
+   "report": null
+  },
+  {
+   "id": "L9C3",
+   "layer": 9,
+   "node": 3,
+   "items": 77,
+   "makeup": {
+    "label": {
+     "vehicle": 73,
+     "scuba": 3,
+     "clothing": 1
+    },
+    "register": {
+     "narrative": 38,
+     "technical": 22,
+     "casual": 17
+    },
+    "structure": {
+     "action": 50,
+     "description": 27
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "vehicle",
+    "share": 0.948
+   },
+   "from": [
+    {
+     "id": "L8C3",
+     "items": 76
+    },
+    {
+     "id": "L8C2",
+     "items": 1
+    }
+   ],
+   "to": [
+    {
+     "id": "L10C2",
+     "items": 77
+    }
+   ],
+   "experts": [
+    {
+     "id": "L9E26",
+     "items": 70
+    },
+    {
+     "id": "L9E16",
+     "items": 7
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      272,
+      0.7213
+     ],
+     [
+      1608,
+      0.6981
+     ],
+     [
+      2341,
+      -0.693
+     ],
+     [
+      2407,
+      -0.6825
+     ],
+     [
+      2196,
+      0.6805
+     ]
+    ],
+    "tokens": [
+     "army",
+     " Arsenal",
+     " overst",
+     " armored",
+     "ashen",
+     "Army",
+     " Blind",
+     " Militar"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.1938,
+     "shift": 1.1207
+    },
+    "layer_routing_effect": 0.3512
+   },
+   "report": null
+  },
+  {
+   "id": "L9C4",
+   "layer": 9,
+   "node": 4,
+   "items": 48,
+   "makeup": {
+    "label": {
+     "clothing": 48
+    },
+    "register": {
+     "narrative": 28,
+     "technical": 13,
+     "casual": 7
+    },
+    "structure": {
+     "action": 22,
+     "description": 26
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "clothing",
+    "share": 1.0
+   },
+   "from": [
+    {
+     "id": "L8C4",
+     "items": 46
+    },
+    {
+     "id": "L8C2",
+     "items": 2
+    }
+   ],
+   "to": [
+    {
+     "id": "L10C4",
+     "items": 48
+    }
+   ],
+   "experts": [
+    {
+     "id": "L9E18",
+     "items": 30
+    },
+    {
+     "id": "L9E26",
+     "items": 17
+    },
+    {
+     "id": "L9E16",
+     "items": 1
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      2605,
+      0.7957
+     ],
+     [
+      2433,
+      -0.7656
+     ],
+     [
+      2338,
+      -0.737
+     ],
+     [
+      195,
+      -0.7331
+     ],
+     [
+      827,
+      0.7294
+     ]
+    ],
+    "tokens": [
+     "\ud83c\udffb",
+     "\ud83c\udffc",
+     " shirt",
+     " shirts",
+     " mille",
+     " Sami",
+     " scarf",
+     " polos"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "words",
+    "routing": {
+     "share": 0.0439,
+     "shift": 0.6758
+    },
+    "layer_routing_effect": 0.3512
+   },
+   "report": null
+  },
+  {
+   "id": "L10C0",
+   "layer": 10,
+   "node": 0,
+   "items": 78,
+   "makeup": {
+    "label": {
+     "aquarium": 68,
+     "vehicle": 1,
+     "scuba": 5,
+     "septic": 3,
+     "clothing": 1
+    },
+    "register": {
+     "narrative": 44,
+     "technical": 24,
+     "casual": 10
+    },
+    "structure": {
+     "action": 38,
+     "description": 40
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "aquarium",
+    "share": 0.872
+   },
+   "from": [
+    {
+     "id": "L9C0",
+     "items": 75
+    },
+    {
+     "id": "L9C2",
+     "items": 3
+    }
+   ],
+   "to": [
+    {
+     "id": "L11C0",
+     "items": 75
+    },
+    {
+     "id": "L11C2",
+     "items": 3
+    }
+   ],
+   "experts": [
+    {
+     "id": "L10E15",
+     "items": 61
+    },
+    {
+     "id": "L10E24",
+     "items": 7
+    },
+    {
+     "id": "L10E5",
+     "items": 5
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      546,
+      -0.7064
+     ],
+     [
+      2092,
+      0.6792
+     ],
+     [
+      575,
+      0.6743
+     ],
+     [
+      2513,
+      -0.6315
+     ],
+     [
+      2220,
+      0.6238
+     ]
+    ],
+    "tokens": [
+     " aquarium",
+     " Stell",
+     " accl",
+     " Pyr",
+     " Perman",
+     " responsibly",
+     " Mou",
+     " Pond"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "target position",
+    "routing": {
+     "share": 0.0212,
+     "shift": 0.3685
+    },
+    "layer_routing_effect": 0.3713
+   },
+   "report": null
+  },
+  {
+   "id": "L10C1",
+   "layer": 10,
+   "node": 1,
+   "items": 107,
+   "makeup": {
+    "label": {
+     "aquarium": 20,
+     "vehicle": 19,
+     "scuba": 30,
+     "septic": 24,
+     "clothing": 14
+    },
+    "register": {
+     "narrative": 49,
+     "casual": 50,
+     "technical": 8
+    },
+    "structure": {
+     "description": 41,
+     "action": 66
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "scuba",
+    "share": 0.28
+   },
+   "from": [
+    {
+     "id": "L9C2",
+     "items": 54
+    },
+    {
+     "id": "L9C1",
+     "items": 53
+    }
+   ],
+   "to": [
+    {
+     "id": "L11C1",
+     "items": 90
+    },
+    {
+     "id": "L11C2",
+     "items": 14
+    },
+    {
+     "id": "L11C4",
+     "items": 2
+    }
+   ],
+   "experts": [
+    {
+     "id": "L10E15",
+     "items": 84
+    },
+    {
+     "id": "L10E6",
+     "items": 14
+    },
+    {
+     "id": "L10E19",
+     "items": 5
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      2770,
+      0.5316
+     ],
+     [
+      2123,
+      0.4397
+     ],
+     [
+      1396,
+      -0.4219
+     ],
+     [
+      2260,
+      -0.4138
+     ],
+     [
+      2392,
+      0.3977
+     ]
+    ],
+    "tokens": [
+     " Cron",
+     " exp",
+     " Locations",
+     "inc",
+     "Rail",
+     ".exp",
+     " bloody",
+     " Gambling"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "target position",
+    "routing": {
+     "share": 0.03,
+     "shift": 0.3743
+    },
+    "layer_routing_effect": 0.3713
+   },
+   "report": null
+  },
+  {
+   "id": "L10C2",
+   "layer": 10,
+   "node": 2,
+   "items": 90,
+   "makeup": {
+    "label": {
+     "aquarium": 3,
+     "vehicle": 77,
+     "scuba": 4,
+     "septic": 1,
+     "clothing": 5
+    },
+    "register": {
+     "casual": 22,
+     "narrative": 45,
+     "technical": 23
+    },
+    "structure": {
+     "description": 35,
+     "action": 55
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "vehicle",
+    "share": 0.856
+   },
+   "from": [
+    {
+     "id": "L9C3",
+     "items": 77
+    },
+    {
+     "id": "L9C1",
+     "items": 13
+    }
+   ],
+   "to": [
+    {
+     "id": "L11C3",
+     "items": 80
+    },
+    {
+     "id": "L11C1",
+     "items": 10
+    }
+   ],
+   "experts": [
+    {
+     "id": "L10E19",
+     "items": 28
+    },
+    {
+     "id": "L10E24",
+     "items": 23
+    },
+    {
+     "id": "L10E5",
+     "items": 18
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      272,
+      0.7449
+     ],
+     [
+      1634,
+      0.7368
+     ],
+     [
+      1005,
+      0.7343
+     ],
+     [
+      2341,
+      -0.7112
+     ],
+     [
+      2196,
+      0.7048
+     ]
+    ],
+    "tokens": [
+     " armored",
+     "army",
+     "Army",
+     "\u519b\u4e8b",
+     " Arsenal",
+     " infantry",
+     " Infantry",
+     " Militar"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "target position",
+    "routing": {
+     "share": 0.1141,
+     "shift": 0.7953
+    },
+    "layer_routing_effect": 0.3713
+   },
+   "report": null
+  },
+  {
+   "id": "L10C3",
+   "layer": 10,
+   "node": 3,
+   "items": 138,
+   "makeup": {
+    "label": {
+     "aquarium": 8,
+     "vehicle": 2,
+     "scuba": 53,
+     "septic": 72,
+     "clothing": 3
+    },
+    "register": {
+     "casual": 25,
+     "narrative": 50,
+     "technical": 63
+    },
+    "structure": {
+     "action": 72,
+     "description": 66
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "septic",
+    "share": 0.522
+   },
+   "from": [
+    {
+     "id": "L9C2",
+     "items": 136
+    },
+    {
+     "id": "L9C0",
+     "items": 2
+    }
+   ],
+   "to": [
+    {
+     "id": "L11C2",
+     "items": 137
+    },
+    {
+     "id": "L11C1",
+     "items": 1
+    }
+   ],
+   "experts": [
+    {
+     "id": "L10E15",
+     "items": 138
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      1988,
+      0.6395
+     ],
+     [
+      18,
+      0.6296
+     ],
+     [
+      1636,
+      -0.6225
+     ],
+     [
+      2121,
+      0.6208
+     ],
+     [
+      1259,
+      0.6117
+     ]
+    ],
+    "tokens": [
+     " trough",
+     " STORAGE",
+     " ull",
+     " homeowners",
+     " potable",
+     " anteced",
+     " homeowner",
+     " storing"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.1023,
+     "shift": 0.6081
+    },
+    "layer_routing_effect": 0.3713
+   },
+   "report": null
+  },
+  {
+   "id": "L10C4",
+   "layer": 10,
+   "node": 4,
+   "items": 86,
+   "makeup": {
+    "label": {
+     "aquarium": 1,
+     "vehicle": 1,
+     "scuba": 7,
+     "clothing": 77
+    },
+    "register": {
+     "casual": 22,
+     "narrative": 48,
+     "technical": 16
+    },
+    "structure": {
+     "action": 50,
+     "description": 36
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "clothing",
+    "share": 0.895
+   },
+   "from": [
+    {
+     "id": "L9C4",
+     "items": 48
+    },
+    {
+     "id": "L9C1",
+     "items": 38
+    }
+   ],
+   "to": [
+    {
+     "id": "L11C4",
+     "items": 71
+    },
+    {
+     "id": "L11C1",
+     "items": 15
+    }
+   ],
+   "experts": [
+    {
+     "id": "L10E15",
+     "items": 54
+    },
+    {
+     "id": "L10E19",
+     "items": 31
+    },
+    {
+     "id": "L10E5",
+     "items": 1
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      2605,
+      0.7563
+     ],
+     [
+      1452,
+      -0.7351
+     ],
+     [
+      2298,
+      -0.7348
+     ],
+     [
+      1478,
+      0.7
+     ],
+     [
+      2433,
+      -0.683
+     ]
+    ],
+    "tokens": [
+     " shirt",
+     " sweater",
+     " mille",
+     " bangs",
+     " scarf",
+     " pajamas",
+     " shirts",
+     " feminin"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.1037,
+     "shift": 0.7758
+    },
+    "layer_routing_effect": 0.3713
+   },
+   "report": null
+  },
+  {
+   "id": "L11C0",
+   "layer": 11,
+   "node": 0,
+   "items": 76,
+   "makeup": {
+    "label": {
+     "aquarium": 69,
+     "scuba": 5,
+     "septic": 1,
+     "clothing": 1
+    },
+    "register": {
+     "narrative": 42,
+     "technical": 23,
+     "casual": 11
+    },
+    "structure": {
+     "action": 38,
+     "description": 38
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "aquarium",
+    "share": 0.908
+   },
+   "from": [
+    {
+     "id": "L10C0",
+     "items": 75
+    },
+    {
+     "id": "L10C1",
+     "items": 1
+    }
+   ],
+   "to": [
+    {
+     "id": "L12C0",
+     "items": 76
+    }
+   ],
+   "experts": [
+    {
+     "id": "L11E20",
+     "items": 72
+    },
+    {
+     "id": "L11E23",
+     "items": 4
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      2092,
+      0.7059
+     ],
+     [
+      546,
+      -0.6827
+     ],
+     [
+      575,
+      0.6798
+     ],
+     [
+      1652,
+      0.6679
+     ],
+     [
+      1959,
+      0.6493
+     ]
+    ],
+    "tokens": [
+     " aquarium",
+     " Aquarium",
+     " responsibly",
+     " Stell",
+     " hobby",
+     " accl",
+     " amo",
+     " Perman"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "target position",
+    "routing": {
+     "share": 0.018,
+     "shift": 0.3437
+    },
+    "layer_routing_effect": 0.4868
+   },
+   "report": null
+  },
+  {
+   "id": "L11C1",
+   "layer": 11,
+   "node": 1,
+   "items": 116,
+   "makeup": {
+    "label": {
+     "aquarium": 18,
+     "vehicle": 21,
+     "scuba": 36,
+     "septic": 16,
+     "clothing": 25
+    },
+    "register": {
+     "narrative": 56,
+     "casual": 55,
+     "technical": 5
+    },
+    "structure": {
+     "description": 45,
+     "action": 71
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "scuba",
+    "share": 0.31
+   },
+   "from": [
+    {
+     "id": "L10C1",
+     "items": 90
+    },
+    {
+     "id": "L10C4",
+     "items": 15
+    },
+    {
+     "id": "L10C2",
+     "items": 10
+    }
+   ],
+   "to": [
+    {
+     "id": "L12C1",
+     "items": 88
+    },
+    {
+     "id": "L12C2",
+     "items": 14
+    },
+    {
+     "id": "L12C3",
+     "items": 9
+    }
+   ],
+   "experts": [
+    {
+     "id": "L11E20",
+     "items": 94
+    },
+    {
+     "id": "L11E26",
+     "items": 9
+    },
+    {
+     "id": "L11E30",
+     "items": 5
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      2770,
+      0.4733
+     ],
+     [
+      2123,
+      0.4576
+     ],
+     [
+      1918,
+      -0.4551
+     ],
+     [
+      866,
+      0.4459
+     ],
+     [
+      1083,
+      -0.4443
+     ]
+    ],
+    "tokens": [
+     " bloody",
+     " Cron",
+     " blo",
+     " emper",
+     " Yours",
+     " ec",
+     " Ec",
+     " decre"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.0324,
+     "shift": 0.3735
+    },
+    "layer_routing_effect": 0.4868
+   },
+   "report": null
+  },
+  {
+   "id": "L11C2",
+   "layer": 11,
+   "node": 2,
+   "items": 154,
+   "makeup": {
+    "label": {
+     "aquarium": 11,
+     "vehicle": 4,
+     "scuba": 54,
+     "septic": 83,
+     "clothing": 2
+    },
+    "register": {
+     "narrative": 59,
+     "casual": 30,
+     "technical": 65
+    },
+    "structure": {
+     "description": 72,
+     "action": 82
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "septic",
+    "share": 0.539
+   },
+   "from": [
+    {
+     "id": "L10C3",
+     "items": 137
+    },
+    {
+     "id": "L10C1",
+     "items": 14
+    },
+    {
+     "id": "L10C0",
+     "items": 3
+    }
+   ],
+   "to": [
+    {
+     "id": "L12C3",
+     "items": 128
+    },
+    {
+     "id": "L12C1",
+     "items": 17
+    },
+    {
+     "id": "L12C0",
+     "items": 9
+    }
+   ],
+   "experts": [
+    {
+     "id": "L11E20",
+     "items": 120
+    },
+    {
+     "id": "L11E13",
+     "items": 20
+    },
+    {
+     "id": "L11E23",
+     "items": 11
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      1988,
+      0.6635
+     ],
+     [
+      2121,
+      0.6317
+     ],
+     [
+      1326,
+      -0.6308
+     ],
+     [
+      858,
+      0.6266
+     ],
+     [
+      176,
+      -0.6218
+     ]
+    ],
+    "tokens": [
+     " STORAGE",
+     " ull",
+     "LER",
+     " homeowners",
+     " uncert",
+     " homeowner",
+     " storing",
+     " Perman"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.0985,
+     "shift": 0.5648
+    },
+    "layer_routing_effect": 0.4868
+   },
+   "report": null
+  },
+  {
+   "id": "L11C3",
+   "layer": 11,
+   "node": 3,
+   "items": 80,
+   "makeup": {
+    "label": {
+     "aquarium": 1,
+     "vehicle": 75,
+     "scuba": 3,
+     "clothing": 1
+    },
+    "register": {
+     "narrative": 40,
+     "technical": 23,
+     "casual": 17
+    },
+    "structure": {
+     "description": 29,
+     "action": 51
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "vehicle",
+    "share": 0.938
+   },
+   "from": [
+    {
+     "id": "L10C2",
+     "items": 80
+    }
+   ],
+   "to": [
+    {
+     "id": "L12C2",
+     "items": 80
+    }
+   ],
+   "experts": [
+    {
+     "id": "L11E20",
+     "items": 48
+    },
+    {
+     "id": "L11E21",
+     "items": 21
+    },
+    {
+     "id": "L11E7",
+     "items": 11
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      272,
+      0.7448
+     ],
+     [
+      2196,
+      0.7201
+     ],
+     [
+      2341,
+      -0.7188
+     ],
+     [
+      1612,
+      0.6954
+     ],
+     [
+      1005,
+      0.6911
+     ]
+    ],
+    "tokens": [
+     " armored",
+     "army",
+     "Army",
+     " Militar",
+     " Arsenal",
+     "\u519b\u4e8b",
+     " Tactical",
+     " Infantry"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.1223,
+     "shift": 0.8735
+    },
+    "layer_routing_effect": 0.4868
+   },
+   "report": null
+  },
+  {
+   "id": "L11C4",
+   "layer": 11,
+   "node": 4,
+   "items": 73,
+   "makeup": {
+    "label": {
+     "aquarium": 1,
+     "scuba": 1,
+     "clothing": 71
+    },
+    "register": {
+     "casual": 16,
+     "narrative": 39,
+     "technical": 18
+    },
+    "structure": {
+     "action": 39,
+     "description": 34
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "clothing",
+    "share": 0.973
+   },
+   "from": [
+    {
+     "id": "L10C4",
+     "items": 71
+    },
+    {
+     "id": "L10C1",
+     "items": 2
+    }
+   ],
+   "to": [
+    {
+     "id": "L12C4",
+     "items": 73
+    }
+   ],
+   "experts": [
+    {
+     "id": "L11E20",
+     "items": 67
+    },
+    {
+     "id": "L11E7",
+     "items": 6
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      195,
+      -0.7445
+     ],
+     [
+      2605,
+      0.7443
+     ],
+     [
+      2433,
+      -0.7431
+     ],
+     [
+      2290,
+      -0.7273
+     ],
+     [
+      2298,
+      -0.7247
+     ]
+    ],
+    "tokens": [
+     " shirt",
+     " shirts",
+     " sweater",
+     " pajamas",
+     " scarf",
+     " underwear",
+     " cardigan",
+     " feminin"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.2156,
+     "shift": 1.2139
+    },
+    "layer_routing_effect": 0.4868
+   },
+   "report": null
+  },
+  {
+   "id": "L12C0",
+   "layer": 12,
+   "node": 0,
+   "items": 89,
+   "makeup": {
+    "label": {
+     "aquarium": 75,
+     "vehicle": 2,
+     "scuba": 7,
+     "septic": 3,
+     "clothing": 2
+    },
+    "register": {
+     "narrative": 50,
+     "technical": 24,
+     "casual": 15
+    },
+    "structure": {
+     "action": 43,
+     "description": 46
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "aquarium",
+    "share": 0.843
+   },
+   "from": [
+    {
+     "id": "L11C0",
+     "items": 76
+    },
+    {
+     "id": "L11C2",
+     "items": 9
+    },
+    {
+     "id": "L11C1",
+     "items": 4
+    }
+   ],
+   "to": [
+    {
+     "id": "L13C0",
+     "items": 89
+    }
+   ],
+   "experts": [
+    {
+     "id": "L12E25",
+     "items": 67
+    },
+    {
+     "id": "L12E13",
+     "items": 14
+    },
+    {
+     "id": "L12E21",
+     "items": 6
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      2092,
+      0.7055
+     ],
+     [
+      1655,
+      -0.6835
+     ],
+     [
+      546,
+      -0.6747
+     ],
+     [
+      121,
+      0.6679
+     ],
+     [
+      1652,
+      0.6657
+     ]
+    ],
+    "tokens": [
+     " aquarium",
+     " Aquarium",
+     " Stell",
+     " hobby",
+     " pond",
+     " Oval",
+     " responsibly",
+     " amo"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "target position",
+    "routing": {
+     "share": 0.0093,
+     "shift": 0.2281
+    },
+    "layer_routing_effect": 0.2147
+   },
+   "report": {
+    "title": "Aquarium sense of \"tank\"",
+    "pattern": "clear",
+    "summary": "L12C0 holds 89 items [F1], and 84% of them are labelled aquarium [F3], compared with 20% of all items [F4]. The tokens its centre favours, such as \" aquarium\", \" hobby\", \" pond\", \" accl\" and \" tame\", name the fish-keeping theme. The node is a stable lineage: 76 items come from L11C0 [F23] and all 89 go on to L13C0 [F26].",
+    "facts": {
+     "F1": {
+      "id": "F1",
+      "what": "items in L12C0",
+      "value": 89
+     },
+     "F3": {
+      "id": "F3",
+      "what": "share of L12C0 with label = aquarium",
+      "value": 0.843
+     },
+     "F4": {
+      "id": "F4",
+      "what": "share of all items with label = aquarium",
+      "value": 0.2
+     },
+     "F23": {
+      "id": "F23",
+      "what": "items of L12C0 that were in L11C0 the layer before",
+      "value": 76
+     },
+     "F26": {
+      "id": "F26",
+      "what": "items of L12C0 that go on to L13C0",
+      "value": 89
+     }
+    },
+    "numbers_checked": true,
+    "tested_analyst": true,
+    "written_by": "claude -p",
+    "written_at": "2026-10-08T21:50:30Z"
+   }
+  },
+  {
+   "id": "L12C1",
+   "layer": 12,
+   "node": 1,
+   "items": 105,
+   "makeup": {
+    "label": {
+     "aquarium": 16,
+     "vehicle": 17,
+     "scuba": 25,
+     "septic": 29,
+     "clothing": 18
+    },
+    "register": {
+     "narrative": 47,
+     "casual": 53,
+     "technical": 5
+    },
+    "structure": {
+     "description": 35,
+     "action": 70
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "septic",
+    "share": 0.276
+   },
+   "from": [
+    {
+     "id": "L11C1",
+     "items": 88
+    },
+    {
+     "id": "L11C2",
+     "items": 17
+    }
+   ],
+   "to": [
+    {
+     "id": "L13C1",
+     "items": 54
+    },
+    {
+     "id": "L13C2",
+     "items": 40
+    },
+    {
+     "id": "L13C0",
+     "items": 11
+    }
+   ],
+   "experts": [
+    {
+     "id": "L12E25",
+     "items": 40
+    },
+    {
+     "id": "L12E21",
+     "items": 35
+    },
+    {
+     "id": "L12E13",
+     "items": 26
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      1396,
+      -0.4729
+     ],
+     [
+      2770,
+      0.4532
+     ],
+     [
+      1380,
+      0.4314
+     ],
+     [
+      2256,
+      0.4143
+     ],
+     [
+      2260,
+      -0.4139
+     ]
+    ],
+    "tokens": [
+     " Cron",
+     " Yours",
+     " Puzzle",
+     " Gambling",
+     "Tat",
+     " Viral",
+     "Song",
+     " gamblers"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.0261,
+     "shift": 0.3522
+    },
+    "layer_routing_effect": 0.2147
+   },
+   "report": null
+  },
+  {
+   "id": "L12C2",
+   "layer": 12,
+   "node": 2,
+   "items": 94,
+   "makeup": {
+    "label": {
+     "aquarium": 3,
+     "vehicle": 79,
+     "scuba": 5,
+     "septic": 1,
+     "clothing": 6
+    },
+    "register": {
+     "casual": 25,
+     "narrative": 46,
+     "technical": 23
+    },
+    "structure": {
+     "description": 38,
+     "action": 56
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "vehicle",
+    "share": 0.84
+   },
+   "from": [
+    {
+     "id": "L11C3",
+     "items": 80
+    },
+    {
+     "id": "L11C1",
+     "items": 14
+    }
+   ],
+   "to": [
+    {
+     "id": "L13C3",
+     "items": 79
+    },
+    {
+     "id": "L13C2",
+     "items": 14
+    },
+    {
+     "id": "L13C4",
+     "items": 1
+    }
+   ],
+   "experts": [
+    {
+     "id": "L12E25",
+     "items": 66
+    },
+    {
+     "id": "L12E17",
+     "items": 14
+    },
+    {
+     "id": "L12E21",
+     "items": 10
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      272,
+      0.7404
+     ],
+     [
+      2341,
+      -0.7241
+     ],
+     [
+      2196,
+      0.7138
+     ],
+     [
+      1612,
+      0.7109
+     ],
+     [
+      1005,
+      0.7066
+     ]
+    ],
+    "tokens": [
+     " armored",
+     "Army",
+     " Infantry",
+     " infantry",
+     "\u519b\u4e8b",
+     "army",
+     "iach",
+     " Arsenal"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "target position",
+    "routing": {
+     "share": 0.0259,
+     "shift": 0.3711
+    },
+    "layer_routing_effect": 0.2147
+   },
+   "report": null
+  },
+  {
+   "id": "L12C3",
+   "layer": 12,
+   "node": 3,
+   "items": 137,
+   "makeup": {
+    "label": {
+     "aquarium": 5,
+     "vehicle": 2,
+     "scuba": 61,
+     "septic": 67,
+     "clothing": 2
+    },
+    "register": {
+     "casual": 20,
+     "narrative": 53,
+     "technical": 64
+    },
+    "structure": {
+     "description": 65,
+     "action": 72
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "septic",
+    "share": 0.489
+   },
+   "from": [
+    {
+     "id": "L11C2",
+     "items": 128
+    },
+    {
+     "id": "L11C1",
+     "items": 9
+    }
+   ],
+   "to": [
+    {
+     "id": "L13C1",
+     "items": 137
+    }
+   ],
+   "experts": [
+    {
+     "id": "L12E13",
+     "items": 77
+    },
+    {
+     "id": "L12E25",
+     "items": 50
+    },
+    {
+     "id": "L12E18",
+     "items": 8
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      858,
+      0.6596
+     ],
+     [
+      1787,
+      -0.6055
+     ],
+     [
+      212,
+      0.6042
+     ],
+     [
+      208,
+      0.603
+     ],
+     [
+      1529,
+      0.5944
+     ]
+    ],
+    "tokens": [
+     " uncert",
+     " STORAGE",
+     " onboard",
+     " ull",
+     " potable",
+     " homeowners",
+     " DUR",
+     " Alcal"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.0667,
+     "shift": 0.493
+    },
+    "layer_routing_effect": 0.2147
+   },
+   "report": null
+  },
+  {
+   "id": "L12C4",
+   "layer": 12,
+   "node": 4,
+   "items": 74,
+   "makeup": {
+    "label": {
+     "aquarium": 1,
+     "scuba": 1,
+     "clothing": 72
+    },
+    "register": {
+     "casual": 16,
+     "narrative": 40,
+     "technical": 18
+    },
+    "structure": {
+     "action": 40,
+     "description": 34
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "clothing",
+    "share": 0.973
+   },
+   "from": [
+    {
+     "id": "L11C4",
+     "items": 73
+    },
+    {
+     "id": "L11C1",
+     "items": 1
+    }
+   ],
+   "to": [
+    {
+     "id": "L13C4",
+     "items": 73
+    },
+    {
+     "id": "L13C2",
+     "items": 1
+    }
+   ],
+   "experts": [
+    {
+     "id": "L12E2",
+     "items": 69
+    },
+    {
+     "id": "L12E21",
+     "items": 3
+    },
+    {
+     "id": "L12E25",
+     "items": 2
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      2605,
+      0.7677
+     ],
+     [
+      2298,
+      -0.7551
+     ],
+     [
+      195,
+      -0.7421
+     ],
+     [
+      2290,
+      -0.7363
+     ],
+     [
+      2433,
+      -0.7333
+     ]
+    ],
+    "tokens": [
+     " shirt",
+     " underwear",
+     " shirts",
+     " sweater",
+     " pajamas",
+     " bikini",
+     " wardrobe",
+     " camis"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.0867,
+     "shift": 0.7645
+    },
+    "layer_routing_effect": 0.2147
+   },
+   "report": null
+  },
+  {
+   "id": "L13C0",
+   "layer": 13,
+   "node": 0,
+   "items": 100,
+   "makeup": {
+    "label": {
+     "aquarium": 79,
+     "vehicle": 3,
+     "scuba": 11,
+     "septic": 4,
+     "clothing": 3
+    },
+    "register": {
+     "narrative": 52,
+     "technical": 24,
+     "casual": 24
+    },
+    "structure": {
+     "action": 50,
+     "description": 50
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "aquarium",
+    "share": 0.79
+   },
+   "from": [
+    {
+     "id": "L12C0",
+     "items": 89
+    },
+    {
+     "id": "L12C1",
+     "items": 11
+    }
+   ],
+   "to": [
+    {
+     "id": "L14C0",
+     "items": 71
+    },
+    {
+     "id": "L14C2",
+     "items": 21
+    },
+    {
+     "id": "L14C1",
+     "items": 8
+    }
+   ],
+   "experts": [
+    {
+     "id": "L13E24",
+     "items": 89
+    },
+    {
+     "id": "L13E5",
+     "items": 7
+    },
+    {
+     "id": "L13E0",
+     "items": 4
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      1655,
+      -0.6914
+     ],
+     [
+      546,
+      -0.6642
+     ],
+     [
+      121,
+      0.6608
+     ],
+     [
+      2562,
+      -0.6542
+     ],
+     [
+      2092,
+      0.6499
+     ]
+    ],
+    "tokens": [
+     " aquarium",
+     " Aquarium",
+     " Pond",
+     " aquatic",
+     " Stell",
+     " Pyr",
+     " Perman",
+     " pond"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "target position",
+    "routing": {
+     "share": 0.0193,
+     "shift": 0.3104
+    },
+    "layer_routing_effect": 0.2447
+   },
+   "report": {
+    "title": "Aquarium sense of \"tank\"",
+    "pattern": "clear",
+    "summary": "L13C0 holds 100 items [F1] of the lens's 499 [F2]. Most of them are aquarium sentences: 79% [F3], against 20% of all items [F4]. The node's logit-lens tokens also name an aquatic, hobby-tank theme, while its register and structure stay close to the population's shares.",
+    "facts": {
+     "F1": {
+      "id": "F1",
+      "what": "items in L13C0",
+      "value": 100
+     },
+     "F2": {
+      "id": "F2",
+      "what": "items in the lens",
+      "value": 499
+     },
+     "F3": {
+      "id": "F3",
+      "what": "share of L13C0 with label = aquarium",
+      "value": 0.79
+     },
+     "F4": {
+      "id": "F4",
+      "what": "share of all items with label = aquarium",
+      "value": 0.2
+     }
+    },
+    "numbers_checked": true,
+    "tested_analyst": true,
+    "written_by": "claude -p",
+    "written_at": "2026-10-08T22:06:28Z"
+   }
+  },
+  {
+   "id": "L13C1",
+   "layer": 13,
+   "node": 1,
+   "items": 191,
+   "makeup": {
+    "label": {
+     "aquarium": 12,
+     "vehicle": 12,
+     "scuba": 71,
+     "septic": 91,
+     "clothing": 5
+    },
+    "register": {
+     "narrative": 79,
+     "casual": 44,
+     "technical": 68
+    },
+    "structure": {
+     "description": 85,
+     "action": 106
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "septic",
+    "share": 0.476
+   },
+   "from": [
+    {
+     "id": "L12C3",
+     "items": 137
+    },
+    {
+     "id": "L12C1",
+     "items": 54
+    }
+   ],
+   "to": [
+    {
+     "id": "L14C1",
+     "items": 124
+    },
+    {
+     "id": "L14C2",
+     "items": 67
+    }
+   ],
+   "experts": [
+    {
+     "id": "L13E24",
+     "items": 170
+    },
+    {
+     "id": "L13E0",
+     "items": 18
+    },
+    {
+     "id": "L13E5",
+     "items": 3
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      858,
+      0.6739
+     ],
+     [
+      212,
+      0.6641
+     ],
+     [
+      706,
+      -0.6454
+     ],
+     [
+      2460,
+      -0.6339
+     ],
+     [
+      1787,
+      -0.6334
+     ]
+    ],
+    "tokens": [
+     " onboard",
+     " STORAGE",
+     " potable",
+     " storing",
+     " homeowners",
+     " ull",
+     " Vr",
+     " uncert"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.0447,
+     "shift": 0.3417
+    },
+    "layer_routing_effect": 0.2447
+   },
+   "report": {
+    "title": "Tanks that store fluids: septic and scuba senses",
+    "pattern": "clear",
+    "summary": "L13C1 holds 191 items [F1] of the 499 in the lens [F2]. Most of them are the septic and scuba senses of \"tank\": septic makes up 48% of the node [F9] against 20% of all items [F10], and scuba makes up 37% [F7] against 20% [F8]. The tokens its centre favours are about storage (\" storage\", \" STORAGE\", \" storing\", \" potable\", \" onboard\"), and the example sentences describe containers that hold water, oil or air.",
+    "facts": {
+     "F1": {
+      "id": "F1",
+      "what": "items in L13C1",
+      "value": 191
+     },
+     "F2": {
+      "id": "F2",
+      "what": "items in the lens",
+      "value": 499
+     },
+     "F9": {
+      "id": "F9",
+      "what": "share of L13C1 with label = septic",
+      "value": 0.476
+     },
+     "F10": {
+      "id": "F10",
+      "what": "share of all items with label = septic",
+      "value": 0.2
+     },
+     "F7": {
+      "id": "F7",
+      "what": "share of L13C1 with label = scuba",
+      "value": 0.372
+     },
+     "F8": {
+      "id": "F8",
+      "what": "share of all items with label = scuba",
+      "value": 0.198
+     }
+    },
+    "numbers_checked": true,
+    "tested_analyst": true,
+    "written_by": "claude -p",
+    "written_at": "2026-10-08T22:07:08Z"
+   }
+  },
+  {
+   "id": "L13C2",
+   "layer": 13,
+   "node": 2,
+   "items": 55,
+   "makeup": {
+    "label": {
+     "aquarium": 6,
+     "vehicle": 11,
+     "scuba": 14,
+     "septic": 5,
+     "clothing": 19
+    },
+    "register": {
+     "casual": 29,
+     "narrative": 24,
+     "technical": 2
+    },
+    "structure": {
+     "description": 20,
+     "action": 35
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "clothing",
+    "share": 0.345
+   },
+   "from": [
+    {
+     "id": "L12C1",
+     "items": 40
+    },
+    {
+     "id": "L12C2",
+     "items": 14
+    },
+    {
+     "id": "L12C4",
+     "items": 1
+    }
+   ],
+   "to": [
+    {
+     "id": "L14C2",
+     "items": 39
+    },
+    {
+     "id": "L14C3",
+     "items": 11
+    },
+    {
+     "id": "L14C1",
+     "items": 4
+    }
+   ],
+   "experts": [
+    {
+     "id": "L13E24",
+     "items": 30
+    },
+    {
+     "id": "L13E5",
+     "items": 18
+    },
+    {
+     "id": "L13E0",
+     "items": 4
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      2559,
+      -0.3687
+     ],
+     [
+      1396,
+      -0.3662
+     ],
+     [
+      310,
+      0.36
+     ],
+     [
+      2246,
+      0.3485
+     ],
+     [
+      832,
+      0.3455
+     ]
+    ],
+    "tokens": [
+     "Army",
+     " Cron",
+     " Army",
+     " thrilling",
+     " recor",
+     " bloody",
+     "Epic",
+     "armor"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.0715,
+     "shift": 0.8052
+    },
+    "layer_routing_effect": 0.2447
+   },
+   "report": {
+    "title": "Casual-register tank sentences mixing every sense",
+    "pattern": "weak",
+    "summary": "L13C2 holds 55 of the lens's 499 items [F1, F2] and includes every sense label, with clothing over-represented (34.5% vs 20% overall [F5, F6]). Register sets it apart most: 52.7% of its items are casual, against 25.9% of all items [F13, F14], and technical sentences are nearly absent (3.6% vs 26.9% [F17, F18]). The tokens its centre favours lean toward military and excitement words, but the vehicle sense is no more common here than overall.",
+    "facts": {
+     "F1": {
+      "id": "F1",
+      "what": "items in L13C2",
+      "value": 55
+     },
+     "F2": {
+      "id": "F2",
+      "what": "items in the lens",
+      "value": 499
+     },
+     "F5": {
+      "id": "F5",
+      "what": "share of L13C2 with label = clothing",
+      "value": 0.345
+     },
+     "F6": {
+      "id": "F6",
+      "what": "share of all items with label = clothing",
+      "value": 0.2
+     },
+     "F13": {
+      "id": "F13",
+      "what": "share of L13C2 with register = casual",
+      "value": 0.527
+     },
+     "F14": {
+      "id": "F14",
+      "what": "share of all items with register = casual",
+      "value": 0.259
+     },
+     "F17": {
+      "id": "F17",
+      "what": "share of L13C2 with register = technical",
+      "value": 0.036
+     },
+     "F18": {
+      "id": "F18",
+      "what": "share of all items with register = technical",
+      "value": 0.269
+     }
+    },
+    "numbers_checked": true,
+    "tested_analyst": true,
+    "written_by": "claude -p",
+    "written_at": "2026-10-08T22:07:53Z"
+   }
+  },
+  {
+   "id": "L13C3",
+   "layer": 13,
+   "node": 3,
+   "items": 79,
+   "makeup": {
+    "label": {
+     "aquarium": 2,
+     "vehicle": 74,
+     "scuba": 2,
+     "clothing": 1
+    },
+    "register": {
+     "narrative": 40,
+     "technical": 23,
+     "casual": 16
+    },
+    "structure": {
+     "action": 50,
+     "description": 29
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "vehicle",
+    "share": 0.937
+   },
+   "from": [
+    {
+     "id": "L12C2",
+     "items": 79
+    }
+   ],
+   "to": [
+    {
+     "id": "L14C3",
+     "items": 79
+    }
+   ],
+   "experts": [
+    {
+     "id": "L13E24",
+     "items": 64
+    },
+    {
+     "id": "L13E5",
+     "items": 12
+    },
+    {
+     "id": "L13E0",
+     "items": 3
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      2196,
+      0.7401
+     ],
+     [
+      2294,
+      0.7255
+     ],
+     [
+      272,
+      0.7212
+     ],
+     [
+      1119,
+      -0.6962
+     ],
+     [
+      1005,
+      0.6947
+     ]
+    ],
+    "tokens": [
+     " armored",
+     " Infantry",
+     " infantry",
+     " militar",
+     " Arsenal",
+     "Army",
+     "\u519b\u4e8b",
+     "iach"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.0155,
+     "shift": 0.3132
+    },
+    "layer_routing_effect": 0.2447
+   },
+   "report": {
+    "title": "Military tank sense of \"tank\"",
+    "pattern": "clear",
+    "summary": "L13C3 holds 79 items [F1]. Almost all of them use the armoured-vehicle sense of \"tank\": the vehicle label makes up 94% of the node [F11] but only 20% of all items [F12]. The logit-lens tokens and the example sentences are military. Register and structure stay close to their overall shares (narrative 51% [F15] against 47% [F16]; action 63% [F19] against 56% [F20]), so meaning, not style, is what sets this node apart.",
+    "facts": {
+     "F1": {
+      "id": "F1",
+      "what": "items in L13C3",
+      "value": 79
+     },
+     "F11": {
+      "id": "F11",
+      "what": "share of L13C3 with label = vehicle",
+      "value": 0.937
+     },
+     "F12": {
+      "id": "F12",
+      "what": "share of all items with label = vehicle",
+      "value": 0.2
+     },
+     "F15": {
+      "id": "F15",
+      "what": "share of L13C3 with register = narrative",
+      "value": 0.506
+     },
+     "F16": {
+      "id": "F16",
+      "what": "share of all items with register = narrative",
+      "value": 0.473
+     },
+     "F19": {
+      "id": "F19",
+      "what": "share of L13C3 with structure = action",
+      "value": 0.633
+     },
+     "F20": {
+      "id": "F20",
+      "what": "share of all items with structure = action",
+      "value": 0.563
+     }
+    },
+    "numbers_checked": true,
+    "tested_analyst": true,
+    "written_by": "claude -p",
+    "written_at": "2026-10-08T22:08:38Z"
+   }
+  },
+  {
+   "id": "L13C4",
+   "layer": 13,
+   "node": 4,
+   "items": 74,
+   "makeup": {
+    "label": {
+     "aquarium": 1,
+     "scuba": 1,
+     "clothing": 72
+    },
+    "register": {
+     "casual": 16,
+     "narrative": 41,
+     "technical": 17
+    },
+    "structure": {
+     "action": 40,
+     "description": 34
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "clothing",
+    "share": 0.973
+   },
+   "from": [
+    {
+     "id": "L12C4",
+     "items": 73
+    },
+    {
+     "id": "L12C2",
+     "items": 1
+    }
+   ],
+   "to": [
+    {
+     "id": "L14C4",
+     "items": 74
+    }
+   ],
+   "experts": [
+    {
+     "id": "L13E24",
+     "items": 56
+    },
+    {
+     "id": "L13E5",
+     "items": 18
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      2605,
+      0.7549
+     ],
+     [
+      1452,
+      -0.7477
+     ],
+     [
+      2298,
+      -0.7359
+     ],
+     [
+      2433,
+      -0.735
+     ],
+     [
+      2290,
+      -0.7325
+     ]
+    ],
+    "tokens": [
+     " shirt",
+     " shirts",
+     "shirt",
+     " underwear",
+     " sweater",
+     "-shirt",
+     " pajamas",
+     " veil"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.0937,
+     "shift": 0.7948
+    },
+    "layer_routing_effect": 0.2447
+   },
+   "report": {
+    "title": "\"Tank\" as a piece of clothing",
+    "pattern": "clear",
+    "summary": "L13C4 holds 74 items [F1]. In almost all of them, \"tank\" means a garment: 97% are clothing [F5], compared with 20% of all items [F6]. The node continues a single group from L12C4 into L14C4, and its centre favours garment tokens such as \" shirt\", \" sweater\" and \" pajamas\".",
+    "facts": {
+     "F1": {
+      "id": "F1",
+      "what": "items in L13C4",
+      "value": 74
+     },
+     "F5": {
+      "id": "F5",
+      "what": "share of L13C4 with label = clothing",
+      "value": 0.973
+     },
+     "F6": {
+      "id": "F6",
+      "what": "share of all items with label = clothing",
+      "value": 0.2
+     }
+    },
+    "numbers_checked": true,
+    "tested_analyst": true,
+    "written_by": "claude -p",
+    "written_at": "2026-10-08T22:09:14Z"
+   }
+  },
+  {
+   "id": "L14C0",
+   "layer": 14,
+   "node": 0,
+   "items": 71,
+   "makeup": {
+    "label": {
+     "aquarium": 66,
+     "scuba": 3,
+     "septic": 1,
+     "clothing": 1
+    },
+    "register": {
+     "narrative": 40,
+     "technical": 20,
+     "casual": 11
+    },
+    "structure": {
+     "action": 36,
+     "description": 35
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "aquarium",
+    "share": 0.93
+   },
+   "from": [
+    {
+     "id": "L13C0",
+     "items": 71
+    }
+   ],
+   "to": [
+    {
+     "id": "L15C0",
+     "items": 67
+    },
+    {
+     "id": "L15C1",
+     "items": 4
+    }
+   ],
+   "experts": [
+    {
+     "id": "L14E29",
+     "items": 54
+    },
+    {
+     "id": "L14E4",
+     "items": 6
+    },
+    {
+     "id": "L14E23",
+     "items": 4
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      2562,
+      -0.6857
+     ],
+     [
+      546,
+      -0.6729
+     ],
+     [
+      2092,
+      0.6434
+     ],
+     [
+      575,
+      0.641
+     ],
+     [
+      1833,
+      0.6137
+     ]
+    ],
+    "tokens": [
+     " aquarium",
+     " Aquarium",
+     " Perman",
+     " attracting",
+     " hobby",
+     " aquatic",
+     " Stell",
+     " perman"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "target position",
+    "routing": {
+     "share": 0.0121,
+     "shift": 0.2912
+    },
+    "layer_routing_effect": 0.1851
+   },
+   "report": null
+  },
+  {
+   "id": "L14C1",
+   "layer": 14,
+   "node": 1,
+   "items": 136,
+   "makeup": {
+    "label": {
+     "aquarium": 14,
+     "vehicle": 13,
+     "scuba": 24,
+     "septic": 79,
+     "clothing": 6
+    },
+    "register": {
+     "narrative": 54,
+     "technical": 62,
+     "casual": 20
+    },
+    "structure": {
+     "description": 68,
+     "action": 68
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "septic",
+    "share": 0.581
+   },
+   "from": [
+    {
+     "id": "L13C1",
+     "items": 124
+    },
+    {
+     "id": "L13C0",
+     "items": 8
+    },
+    {
+     "id": "L13C2",
+     "items": 4
+    }
+   ],
+   "to": [
+    {
+     "id": "L15C1",
+     "items": 126
+    },
+    {
+     "id": "L15C2",
+     "items": 9
+    },
+    {
+     "id": "L15C0",
+     "items": 1
+    }
+   ],
+   "experts": [
+    {
+     "id": "L14E29",
+     "items": 119
+    },
+    {
+     "id": "L14E4",
+     "items": 11
+    },
+    {
+     "id": "L14E1",
+     "items": 5
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      2271,
+      0.6331
+     ],
+     [
+      1451,
+      0.6296
+     ],
+     [
+      2457,
+      -0.6041
+     ],
+     [
+      208,
+      0.5456
+     ],
+     [
+      1142,
+      -0.5306
+     ]
+    ],
+    "tokens": [
+     " storing",
+     " STORAGE",
+     " DUR",
+     " homeowners",
+     " capacit",
+     " DVR",
+     " precipit",
+     " storage"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.0924,
+     "shift": 0.5823
+    },
+    "layer_routing_effect": 0.1851
+   },
+   "report": null
+  },
+  {
+   "id": "L14C2",
+   "layer": 14,
+   "node": 2,
+   "items": 127,
+   "makeup": {
+    "label": {
+     "aquarium": 16,
+     "vehicle": 10,
+     "scuba": 66,
+     "septic": 19,
+     "clothing": 16
+    },
+    "register": {
+     "narrative": 56,
+     "casual": 59,
+     "technical": 12
+    },
+    "structure": {
+     "description": 46,
+     "action": 81
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "scuba",
+    "share": 0.52
+   },
+   "from": [
+    {
+     "id": "L13C1",
+     "items": 67
+    },
+    {
+     "id": "L13C2",
+     "items": 39
+    },
+    {
+     "id": "L13C0",
+     "items": 21
+    }
+   ],
+   "to": [
+    {
+     "id": "L15C2",
+     "items": 113
+    },
+    {
+     "id": "L15C4",
+     "items": 11
+    },
+    {
+     "id": "L15C1",
+     "items": 2
+    }
+   ],
+   "experts": [
+    {
+     "id": "L14E29",
+     "items": 112
+    },
+    {
+     "id": "L14E4",
+     "items": 7
+    },
+    {
+     "id": "L14E1",
+     "items": 4
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      436,
+      0.4894
+     ],
+     [
+      723,
+      -0.4783
+     ],
+     [
+      2124,
+      0.478
+     ],
+     [
+      20,
+      0.476
+     ],
+     [
+      74,
+      0.4661
+     ]
+    ],
+    "tokens": [
+     " consum",
+     " replenish",
+     "\u5907\u7528",
+     " replen",
+     " adrenaline",
+     " refill",
+     "quota",
+     "ldata"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.0169,
+     "shift": 0.2575
+    },
+    "layer_routing_effect": 0.1851
+   },
+   "report": null
+  },
+  {
+   "id": "L14C3",
+   "layer": 14,
+   "node": 3,
+   "items": 90,
+   "makeup": {
+    "label": {
+     "aquarium": 3,
+     "vehicle": 77,
+     "scuba": 5,
+     "septic": 1,
+     "clothing": 4
+    },
+    "register": {
+     "casual": 23,
+     "narrative": 44,
+     "technical": 23
+    },
+    "structure": {
+     "description": 35,
+     "action": 55
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "vehicle",
+    "share": 0.856
+   },
+   "from": [
+    {
+     "id": "L13C3",
+     "items": 79
+    },
+    {
+     "id": "L13C2",
+     "items": 11
+    }
+   ],
+   "to": [
+    {
+     "id": "L15C3",
+     "items": 87
+    },
+    {
+     "id": "L15C2",
+     "items": 3
+    }
+   ],
+   "experts": [
+    {
+     "id": "L14E29",
+     "items": 84
+    },
+    {
+     "id": "L14E1",
+     "items": 4
+    },
+    {
+     "id": "L14E4",
+     "items": 2
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      2196,
+      0.7257
+     ],
+     [
+      272,
+      0.7126
+     ],
+     [
+      1005,
+      0.7113
+     ],
+     [
+      2294,
+      0.7058
+     ],
+     [
+      1119,
+      -0.6901
+     ]
+    ],
+    "tokens": [
+     " armored",
+     " Infantry",
+     " militar",
+     " infantry",
+     "Army",
+     "\u519b\u4e8b",
+     " Weapons",
+     " armor"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "target position",
+    "routing": {
+     "share": 0.0374,
+     "shift": 0.4556
+    },
+    "layer_routing_effect": 0.1851
+   },
+   "report": null
+  },
+  {
+   "id": "L14C4",
+   "layer": 14,
+   "node": 4,
+   "items": 75,
+   "makeup": {
+    "label": {
+     "aquarium": 1,
+     "scuba": 1,
+     "clothing": 73
+    },
+    "register": {
+     "casual": 16,
+     "narrative": 42,
+     "technical": 17
+    },
+    "structure": {
+     "action": 41,
+     "description": 34
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "clothing",
+    "share": 0.973
+   },
+   "from": [
+    {
+     "id": "L13C4",
+     "items": 74
+    },
+    {
+     "id": "L13C2",
+     "items": 1
+    }
+   ],
+   "to": [
+    {
+     "id": "L15C4",
+     "items": 75
+    }
+   ],
+   "experts": [
+    {
+     "id": "L14E29",
+     "items": 72
+    },
+    {
+     "id": "L14E6",
+     "items": 2
+    },
+    {
+     "id": "L14E1",
+     "items": 1
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      1452,
+      -0.7518
+     ],
+     [
+      198,
+      -0.7259
+     ],
+     [
+      2298,
+      -0.7244
+     ],
+     [
+      2290,
+      -0.723
+     ],
+     [
+      195,
+      -0.7095
+     ]
+    ],
+    "tokens": [
+     " shirt",
+     " shirts",
+     "shirt",
+     " underwear",
+     "-shirt",
+     " sweater",
+     " wardrobe",
+     " trousers"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.0263,
+     "shift": 0.4183
+    },
+    "layer_routing_effect": 0.1851
+   },
+   "report": null
+  },
+  {
+   "id": "L15C0",
+   "layer": 15,
+   "node": 0,
+   "items": 69,
+   "makeup": {
+    "label": {
+     "aquarium": 64,
+     "scuba": 4,
+     "septic": 1
+    },
+    "register": {
+     "narrative": 39,
+     "technical": 20,
+     "casual": 10
+    },
+    "structure": {
+     "action": 36,
+     "description": 33
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "aquarium",
+    "share": 0.928
+   },
+   "from": [
+    {
+     "id": "L14C0",
+     "items": 67
+    },
+    {
+     "id": "L14C1",
+     "items": 1
+    },
+    {
+     "id": "L14C2",
+     "items": 1
+    }
+   ],
+   "to": [
+    {
+     "id": "L16C0",
+     "items": 60
+    },
+    {
+     "id": "L16C1",
+     "items": 8
+    },
+    {
+     "id": "L16C2",
+     "items": 1
+    }
+   ],
+   "experts": [
+    {
+     "id": "L15E9",
+     "items": 48
+    },
+    {
+     "id": "L15E26",
+     "items": 15
+    },
+    {
+     "id": "L15E28",
+     "items": 6
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      546,
+      -0.6667
+     ],
+     [
+      2092,
+      0.65
+     ],
+     [
+      2562,
+      -0.6429
+     ],
+     [
+      345,
+      0.6427
+     ],
+     [
+      575,
+      0.6352
+     ]
+    ],
+    "tokens": [
+     " aquarium",
+     " Aquarium",
+     " hobby",
+     " Perman",
+     " aquatic",
+     " attracting",
+     " Stell",
+     " Hobby"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "target position",
+    "routing": {
+     "share": 0.018,
+     "shift": 0.3613
+    },
+    "layer_routing_effect": 0.1664
+   },
+   "report": null
+  },
+  {
+   "id": "L15C1",
+   "layer": 15,
+   "node": 1,
+   "items": 132,
+   "makeup": {
+    "label": {
+     "aquarium": 15,
+     "vehicle": 11,
+     "scuba": 24,
+     "septic": 78,
+     "clothing": 4
+    },
+    "register": {
+     "narrative": 55,
+     "technical": 62,
+     "casual": 15
+    },
+    "structure": {
+     "description": 65,
+     "action": 67
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "septic",
+    "share": 0.591
+   },
+   "from": [
+    {
+     "id": "L14C1",
+     "items": 126
+    },
+    {
+     "id": "L14C0",
+     "items": 4
+    },
+    {
+     "id": "L14C2",
+     "items": 2
+    }
+   ],
+   "to": [
+    {
+     "id": "L16C1",
+     "items": 130
+    },
+    {
+     "id": "L16C2",
+     "items": 2
+    }
+   ],
+   "experts": [
+    {
+     "id": "L15E9",
+     "items": 72
+    },
+    {
+     "id": "L15E26",
+     "items": 50
+    },
+    {
+     "id": "L15E4",
+     "items": 7
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      1451,
+      0.6129
+     ],
+     [
+      2457,
+      -0.5876
+     ],
+     [
+      2271,
+      0.5845
+     ],
+     [
+      1142,
+      -0.5438
+     ],
+     [
+      208,
+      0.5307
+     ]
+    ],
+    "tokens": [
+     " storing",
+     " STORAGE",
+     " homeowners",
+     " capacit",
+     " diameter",
+     " homeowner",
+     " potable",
+     "/storage"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.0285,
+     "shift": 0.3283
+    },
+    "layer_routing_effect": 0.1664
+   },
+   "report": null
+  },
+  {
+   "id": "L15C2",
+   "layer": 15,
+   "node": 2,
+   "items": 125,
+   "makeup": {
+    "label": {
+     "aquarium": 16,
+     "vehicle": 13,
+     "scuba": 65,
+     "septic": 20,
+     "clothing": 11
+    },
+    "register": {
+     "narrative": 50,
+     "casual": 63,
+     "technical": 12
+    },
+    "structure": {
+     "description": 51,
+     "action": 74
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "scuba",
+    "share": 0.52
+   },
+   "from": [
+    {
+     "id": "L14C2",
+     "items": 113
+    },
+    {
+     "id": "L14C1",
+     "items": 9
+    },
+    {
+     "id": "L14C3",
+     "items": 3
+    }
+   ],
+   "to": [
+    {
+     "id": "L16C2",
+     "items": 100
+    },
+    {
+     "id": "L16C1",
+     "items": 16
+    },
+    {
+     "id": "L16C3",
+     "items": 9
+    }
+   ],
+   "experts": [
+    {
+     "id": "L15E9",
+     "items": 57
+    },
+    {
+     "id": "L15E26",
+     "items": 57
+    },
+    {
+     "id": "L15E4",
+     "items": 5
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      733,
+      0.4853
+     ],
+     [
+      20,
+      0.4748
+     ],
+     [
+      436,
+      0.4566
+     ],
+     [
+      2245,
+      -0.4476
+     ],
+     [
+      660,
+      -0.442
+     ]
+    ],
+    "tokens": [
+     " consum",
+     "Quota",
+     " replenish",
+     "ldata",
+     " refill",
+     "quota",
+     " replen",
+     "\u5598"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.008,
+     "shift": 0.1783
+    },
+    "layer_routing_effect": 0.1664
+   },
+   "report": null
+  },
+  {
+   "id": "L15C3",
+   "layer": 15,
+   "node": 3,
+   "items": 87,
+   "makeup": {
+    "label": {
+     "aquarium": 3,
+     "vehicle": 76,
+     "scuba": 4,
+     "septic": 1,
+     "clothing": 3
+    },
+    "register": {
+     "casual": 22,
+     "narrative": 43,
+     "technical": 22
+    },
+    "structure": {
+     "description": 33,
+     "action": 54
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "vehicle",
+    "share": 0.874
+   },
+   "from": [
+    {
+     "id": "L14C3",
+     "items": 87
+    }
+   ],
+   "to": [
+    {
+     "id": "L16C3",
+     "items": 84
+    },
+    {
+     "id": "L16C2",
+     "items": 3
+    }
+   ],
+   "experts": [
+    {
+     "id": "L15E28",
+     "items": 50
+    },
+    {
+     "id": "L15E26",
+     "items": 19
+    },
+    {
+     "id": "L15E9",
+     "items": 14
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      2294,
+      0.7219
+     ],
+     [
+      2196,
+      0.7135
+     ],
+     [
+      1005,
+      0.6961
+     ],
+     [
+      1119,
+      -0.6742
+     ],
+     [
+      272,
+      0.6682
+     ]
+    ],
+    "tokens": [
+     " armored",
+     " Infantry",
+     " militar",
+     " infantry",
+     " procession",
+     "\u519b\u4e8b",
+     " convoy",
+     " Weapons"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "target position",
+    "routing": {
+     "share": 0.0074,
+     "shift": 0.2064
+    },
+    "layer_routing_effect": 0.1664
+   },
+   "report": null
+  },
+  {
+   "id": "L15C4",
+   "layer": 15,
+   "node": 4,
+   "items": 86,
+   "makeup": {
+    "label": {
+     "aquarium": 2,
+     "scuba": 2,
+     "clothing": 82
+    },
+    "register": {
+     "narrative": 49,
+     "casual": 19,
+     "technical": 18
+    },
+    "structure": {
+     "action": 50,
+     "description": 36
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "clothing",
+    "share": 0.953
+   },
+   "from": [
+    {
+     "id": "L14C4",
+     "items": 75
+    },
+    {
+     "id": "L14C2",
+     "items": 11
+    }
+   ],
+   "to": [
+    {
+     "id": "L16C4",
+     "items": 74
+    },
+    {
+     "id": "L16C2",
+     "items": 11
+    },
+    {
+     "id": "L16C3",
+     "items": 1
+    }
+   ],
+   "experts": [
+    {
+     "id": "L15E26",
+     "items": 56
+    },
+    {
+     "id": "L15E28",
+     "items": 19
+    },
+    {
+     "id": "L15E9",
+     "items": 8
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      1452,
+      -0.7379
+     ],
+     [
+      2290,
+      -0.7301
+     ],
+     [
+      1478,
+      0.7106
+     ],
+     [
+      2298,
+      -0.6889
+     ],
+     [
+      195,
+      -0.6838
+     ]
+    ],
+    "tokens": [
+     " shirt",
+     "shirt",
+     " underwear",
+     "-shirt",
+     " shirts",
+     " hoodie",
+     " wardrobe",
+     " sweater"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.1045,
+     "shift": 0.7786
+    },
+    "layer_routing_effect": 0.1664
+   },
+   "report": null
+  },
+  {
+   "id": "L16C0",
+   "layer": 16,
+   "node": 0,
+   "items": 60,
+   "makeup": {
+    "label": {
+     "aquarium": 55,
+     "scuba": 4,
+     "septic": 1
+    },
+    "register": {
+     "narrative": 34,
+     "technical": 18,
+     "casual": 8
+    },
+    "structure": {
+     "action": 32,
+     "description": 28
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "aquarium",
+    "share": 0.917
+   },
+   "from": [
+    {
+     "id": "L15C0",
+     "items": 60
+    }
+   ],
+   "to": [
+    {
+     "id": "L17C0",
+     "items": 59
+    },
+    {
+     "id": "L17C1",
+     "items": 1
+    }
+   ],
+   "experts": [
+    {
+     "id": "L16E11",
+     "items": 47
+    },
+    {
+     "id": "L16E21",
+     "items": 6
+    },
+    {
+     "id": "L16E4",
+     "items": 4
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      546,
+      -0.6695
+     ],
+     [
+      345,
+      0.6464
+     ],
+     [
+      2092,
+      0.5962
+     ],
+     [
+      1833,
+      0.5885
+     ],
+     [
+      380,
+      0.5839
+     ]
+    ],
+    "tokens": [
+     " aquarium",
+     " Aquarium",
+     " hobby",
+     " aquatic",
+     " Cau",
+     " Stell",
+     " Perman",
+     "\u00ae."
+    ],
+    "surface_flagged": true,
+    "surface_feature": "target position",
+    "routing": {
+     "share": 0.0106,
+     "shift": 0.2971
+    },
+    "layer_routing_effect": 0.375
+   },
+   "report": null
+  },
+  {
+   "id": "L16C1",
+   "layer": 16,
+   "node": 1,
+   "items": 154,
+   "makeup": {
+    "label": {
+     "aquarium": 28,
+     "vehicle": 11,
+     "scuba": 31,
+     "septic": 79,
+     "clothing": 5
+    },
+    "register": {
+     "narrative": 70,
+     "technical": 65,
+     "casual": 19
+    },
+    "structure": {
+     "description": 78,
+     "action": 76
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "septic",
+    "share": 0.513
+   },
+   "from": [
+    {
+     "id": "L15C1",
+     "items": 130
+    },
+    {
+     "id": "L15C2",
+     "items": 16
+    },
+    {
+     "id": "L15C0",
+     "items": 8
+    }
+   ],
+   "to": [
+    {
+     "id": "L17C0",
+     "items": 87
+    },
+    {
+     "id": "L17C1",
+     "items": 51
+    },
+    {
+     "id": "L17C2",
+     "items": 16
+    }
+   ],
+   "experts": [
+    {
+     "id": "L16E11",
+     "items": 61
+    },
+    {
+     "id": "L16E4",
+     "items": 54
+    },
+    {
+     "id": "L16E0",
+     "items": 23
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      1451,
+      0.5836
+     ],
+     [
+      1561,
+      0.5592
+     ],
+     [
+      2271,
+      0.5566
+     ],
+     [
+      2821,
+      0.5396
+     ],
+     [
+      2457,
+      -0.5218
+     ]
+    ],
+    "tokens": [
+     "/storage",
+     " homeowners",
+     " potable",
+     "/direct",
+     " capacit",
+     " STORAGE",
+     " storing",
+     " ASTM"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.0814,
+     "shift": 0.5135
+    },
+    "layer_routing_effect": 0.375
+   },
+   "report": null
+  },
+  {
+   "id": "L16C2",
+   "layer": 16,
+   "node": 2,
+   "items": 117,
+   "makeup": {
+    "label": {
+     "aquarium": 13,
+     "vehicle": 10,
+     "scuba": 61,
+     "septic": 19,
+     "clothing": 14
+    },
+    "register": {
+     "casual": 59,
+     "narrative": 48,
+     "technical": 10
+    },
+    "structure": {
+     "action": 81,
+     "description": 36
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "scuba",
+    "share": 0.521
+   },
+   "from": [
+    {
+     "id": "L15C2",
+     "items": 100
+    },
+    {
+     "id": "L15C4",
+     "items": 11
+    },
+    {
+     "id": "L15C3",
+     "items": 3
+    }
+   ],
+   "to": [
+    {
+     "id": "L17C2",
+     "items": 100
+    },
+    {
+     "id": "L17C1",
+     "items": 11
+    },
+    {
+     "id": "L17C3",
+     "items": 3
+    }
+   ],
+   "experts": [
+    {
+     "id": "L16E11",
+     "items": 104
+    },
+    {
+     "id": "L16E0",
+     "items": 7
+    },
+    {
+     "id": "L16E4",
+     "items": 2
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      1932,
+      0.4977
+     ],
+     [
+      436,
+      0.4879
+     ],
+     [
+      1345,
+      -0.4721
+     ],
+     [
+      385,
+      -0.4477
+     ],
+     [
+      1642,
+      -0.434
+     ]
+    ],
+    "tokens": [
+     " consum",
+     " refill",
+     "Quota",
+     "ldata",
+     "quota",
+     " depletion",
+     "heta",
+     "Consumed"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.0096,
+     "shift": 0.2019
+    },
+    "layer_routing_effect": 0.375
+   },
+   "report": null
+  },
+  {
+   "id": "L16C3",
+   "layer": 16,
+   "node": 3,
+   "items": 94,
+   "makeup": {
+    "label": {
+     "aquarium": 4,
+     "vehicle": 79,
+     "scuba": 2,
+     "septic": 1,
+     "clothing": 8
+    },
+    "register": {
+     "casual": 28,
+     "narrative": 43,
+     "technical": 23
+    },
+    "structure": {
+     "description": 42,
+     "action": 52
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "vehicle",
+    "share": 0.84
+   },
+   "from": [
+    {
+     "id": "L15C3",
+     "items": 84
+    },
+    {
+     "id": "L15C2",
+     "items": 9
+    },
+    {
+     "id": "L15C4",
+     "items": 1
+    }
+   ],
+   "to": [
+    {
+     "id": "L17C3",
+     "items": 77
+    },
+    {
+     "id": "L17C1",
+     "items": 16
+    },
+    {
+     "id": "L17C2",
+     "items": 1
+    }
+   ],
+   "experts": [
+    {
+     "id": "L16E11",
+     "items": 57
+    },
+    {
+     "id": "L16E4",
+     "items": 18
+    },
+    {
+     "id": "L16E0",
+     "items": 15
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      2294,
+      0.7014
+     ],
+     [
+      2196,
+      0.6885
+     ],
+     [
+      1555,
+      -0.676
+     ],
+     [
+      1136,
+      0.659
+     ],
+     [
+      795,
+      0.6558
+     ]
+    ],
+    "tokens": [
+     " armored",
+     " convoy",
+     " battlefield",
+     " Weapons",
+     " infantry",
+     " Infantry",
+     " Battlefield",
+     " militar"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "target position",
+    "routing": {
+     "share": 0.1606,
+     "shift": 0.9234
+    },
+    "layer_routing_effect": 0.375
+   },
+   "report": null
+  },
+  {
+   "id": "L16C4",
+   "layer": 16,
+   "node": 4,
+   "items": 74,
+   "makeup": {
+    "label": {
+     "scuba": 1,
+     "clothing": 73
+    },
+    "register": {
+     "narrative": 41,
+     "technical": 18,
+     "casual": 15
+    },
+    "structure": {
+     "action": 40,
+     "description": 34
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "clothing",
+    "share": 0.986
+   },
+   "from": [
+    {
+     "id": "L15C4",
+     "items": 74
+    }
+   ],
+   "to": [
+    {
+     "id": "L17C4",
+     "items": 72
+    },
+    {
+     "id": "L17C1",
+     "items": 1
+    },
+    {
+     "id": "L17C2",
+     "items": 1
+    }
+   ],
+   "experts": [
+    {
+     "id": "L16E11",
+     "items": 69
+    },
+    {
+     "id": "L16E4",
+     "items": 3
+    },
+    {
+     "id": "L16E24",
+     "items": 2
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      1452,
+      -0.734
+     ],
+     [
+      195,
+      -0.7064
+     ],
+     [
+      2298,
+      -0.7028
+     ],
+     [
+      594,
+      -0.6965
+     ],
+     [
+      1478,
+      0.6938
+     ]
+    ],
+    "tokens": [
+     " shirt",
+     "shirt",
+     "-shirt",
+     " hoodie",
+     " sweater",
+     " shirts",
+     " underwear",
+     "-style"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.1128,
+     "shift": 0.8721
+    },
+    "layer_routing_effect": 0.375
+   },
+   "report": null
+  },
+  {
+   "id": "L17C0",
+   "layer": 17,
+   "node": 0,
+   "items": 148,
+   "makeup": {
+    "label": {
+     "aquarium": 66,
+     "vehicle": 3,
+     "scuba": 24,
+     "septic": 53,
+     "clothing": 2
+    },
+    "register": {
+     "narrative": 68,
+     "technical": 66,
+     "casual": 14
+    },
+    "structure": {
+     "action": 82,
+     "description": 66
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "aquarium",
+    "share": 0.446
+   },
+   "from": [
+    {
+     "id": "L16C1",
+     "items": 87
+    },
+    {
+     "id": "L16C0",
+     "items": 59
+    },
+    {
+     "id": "L16C2",
+     "items": 2
+    }
+   ],
+   "to": [
+    {
+     "id": "L18C0",
+     "items": 118
+    },
+    {
+     "id": "L18C1",
+     "items": 23
+    },
+    {
+     "id": "L18C2",
+     "items": 7
+    }
+   ],
+   "experts": [
+    {
+     "id": "L17E7",
+     "items": 137
+    },
+    {
+     "id": "L17E25",
+     "items": 9
+    },
+    {
+     "id": "L17E2",
+     "items": 1
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      656,
+      0.6661
+     ],
+     [
+      570,
+      0.6515
+     ],
+     [
+      1068,
+      0.6502
+     ],
+     [
+      605,
+      -0.6359
+     ],
+     [
+      2667,
+      0.6287
+     ]
+    ],
+    "tokens": [
+     ".rdb",
+     ".\u00c2",
+     " hinweg",
+     ".monitor",
+     " Perman",
+     "\u00ae.",
+     ".\r\n\n",
+     "/feed"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "target position",
+    "routing": {
+     "share": 0.0572,
+     "shift": 0.4392
+    },
+    "layer_routing_effect": 0.2344
+   },
+   "report": null
+  },
+  {
+   "id": "L17C1",
+   "layer": 17,
+   "node": 1,
+   "items": 80,
+   "makeup": {
+    "label": {
+     "aquarium": 16,
+     "vehicle": 15,
+     "scuba": 10,
+     "septic": 28,
+     "clothing": 11
+    },
+    "register": {
+     "narrative": 31,
+     "casual": 28,
+     "technical": 21
+    },
+    "structure": {
+     "description": 51,
+     "action": 29
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "septic",
+    "share": 0.35
+   },
+   "from": [
+    {
+     "id": "L16C1",
+     "items": 51
+    },
+    {
+     "id": "L16C3",
+     "items": 16
+    },
+    {
+     "id": "L16C2",
+     "items": 11
+    }
+   ],
+   "to": [
+    {
+     "id": "L18C1",
+     "items": 77
+    },
+    {
+     "id": "L18C2",
+     "items": 3
+    }
+   ],
+   "experts": [
+    {
+     "id": "L17E7",
+     "items": 69
+    },
+    {
+     "id": "L17E25",
+     "items": 9
+    },
+    {
+     "id": "L17E2",
+     "items": 1
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      2271,
+      0.5508
+     ],
+     [
+      819,
+      0.5321
+     ],
+     [
+      1888,
+      0.5108
+     ],
+     [
+      465,
+      -0.4977
+     ],
+     [
+      636,
+      -0.4965
+     ]
+    ],
+    "tokens": [
+     " is",
+     " comprises",
+     " cannot",
+     " can",
+     " undergo",
+     " must",
+     " may",
+     " grows"
+    ],
+    "surface_flagged": true,
+    "surface_feature": "target position",
+    "routing": {
+     "share": 0.0122,
+     "shift": 0.2758
+    },
+    "layer_routing_effect": 0.2344
+   },
+   "report": null
+  },
+  {
+   "id": "L17C2",
+   "layer": 17,
+   "node": 2,
+   "items": 118,
+   "makeup": {
+    "label": {
+     "aquarium": 17,
+     "vehicle": 7,
+     "scuba": 61,
+     "septic": 19,
+     "clothing": 14
+    },
+    "register": {
+     "narrative": 57,
+     "casual": 53,
+     "technical": 8
+    },
+    "structure": {
+     "description": 40,
+     "action": 78
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "scuba",
+    "share": 0.517
+   },
+   "from": [
+    {
+     "id": "L16C2",
+     "items": 100
+    },
+    {
+     "id": "L16C1",
+     "items": 16
+    },
+    {
+     "id": "L16C3",
+     "items": 1
+    }
+   ],
+   "to": [
+    {
+     "id": "L18C2",
+     "items": 96
+    },
+    {
+     "id": "L18C0",
+     "items": 17
+    },
+    {
+     "id": "L18C1",
+     "items": 3
+    }
+   ],
+   "experts": [
+    {
+     "id": "L17E7",
+     "items": 98
+    },
+    {
+     "id": "L17E5",
+     "items": 11
+    },
+    {
+     "id": "L17E25",
+     "items": 9
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      1932,
+      0.4589
+     ],
+     [
+      1642,
+      -0.4549
+     ],
+     [
+      2124,
+      0.4523
+     ],
+     [
+      20,
+      0.4427
+     ],
+     [
+      436,
+      0.4392
+     ]
+    ],
+    "tokens": [
+     "heta",
+     " consum",
+     "raint",
+     "ldata",
+     "\u5907\u7528",
+     "lessly",
+     " beforehand",
+     "iede"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "words",
+    "routing": {
+     "share": 0.0058,
+     "shift": 0.156
+    },
+    "layer_routing_effect": 0.2344
+   },
+   "report": null
+  },
+  {
+   "id": "L17C3",
+   "layer": 17,
+   "node": 3,
+   "items": 80,
+   "makeup": {
+    "label": {
+     "aquarium": 1,
+     "vehicle": 75,
+     "scuba": 3,
+     "clothing": 1
+    },
+    "register": {
+     "casual": 19,
+     "narrative": 39,
+     "technical": 22
+    },
+    "structure": {
+     "description": 28,
+     "action": 52
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "vehicle",
+    "share": 0.938
+   },
+   "from": [
+    {
+     "id": "L16C3",
+     "items": 77
+    },
+    {
+     "id": "L16C2",
+     "items": 3
+    }
+   ],
+   "to": [
+    {
+     "id": "L18C3",
+     "items": 71
+    },
+    {
+     "id": "L18C1",
+     "items": 5
+    },
+    {
+     "id": "L18C2",
+     "items": 4
+    }
+   ],
+   "experts": [
+    {
+     "id": "L17E7",
+     "items": 80
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      2294,
+      0.6875
+     ],
+     [
+      2196,
+      0.6753
+     ],
+     [
+      1119,
+      -0.6478
+     ],
+     [
+      1005,
+      0.6338
+     ],
+     [
+      272,
+      0.6305
+     ]
+    ],
+    "tokens": [
+     " armored",
+     " convoy",
+     " infantry",
+     " battlefield",
+     " Infantry",
+     " Battlefield",
+     " troop",
+     " procession"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.0107,
+     "shift": 0.2584
+    },
+    "layer_routing_effect": 0.2344
+   },
+   "report": null
+  },
+  {
+   "id": "L17C4",
+   "layer": 17,
+   "node": 4,
+   "items": 73,
+   "makeup": {
+    "label": {
+     "scuba": 1,
+     "clothing": 72
+    },
+    "register": {
+     "narrative": 41,
+     "technical": 17,
+     "casual": 15
+    },
+    "structure": {
+     "action": 40,
+     "description": 33
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "clothing",
+    "share": 0.986
+   },
+   "from": [
+    {
+     "id": "L16C4",
+     "items": 72
+    },
+    {
+     "id": "L16C2",
+     "items": 1
+    }
+   ],
+   "to": [
+    {
+     "id": "L18C4",
+     "items": 71
+    },
+    {
+     "id": "L18C2",
+     "items": 1
+    },
+    {
+     "id": "L18C1",
+     "items": 1
+    }
+   ],
+   "experts": [
+    {
+     "id": "L17E7",
+     "items": 40
+    },
+    {
+     "id": "L17E5",
+     "items": 28
+    },
+    {
+     "id": "L17E16",
+     "items": 5
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      2298,
+      -0.727
+     ],
+     [
+      198,
+      -0.7226
+     ],
+     [
+      1452,
+      -0.7215
+     ],
+     [
+      594,
+      -0.7111
+     ],
+     [
+      2290,
+      -0.7034
+     ]
+    ],
+    "tokens": [
+     " shirt",
+     "shirt",
+     "-shirt",
+     " hoodie",
+     " shirts",
+     " sweater",
+     " underwear",
+     " pajamas"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.1485,
+     "shift": 1.0077
+    },
+    "layer_routing_effect": 0.2344
+   },
+   "report": null
+  },
+  {
+   "id": "L18C0",
+   "layer": 18,
+   "node": 0,
+   "items": 135,
+   "makeup": {
+    "label": {
+     "aquarium": 61,
+     "vehicle": 3,
+     "scuba": 20,
+     "septic": 50,
+     "clothing": 1
+    },
+    "register": {
+     "narrative": 77,
+     "technical": 47,
+     "casual": 11
+    },
+    "structure": {
+     "action": 79,
+     "description": 56
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "aquarium",
+    "share": 0.452
+   },
+   "from": [
+    {
+     "id": "L17C0",
+     "items": 118
+    },
+    {
+     "id": "L17C2",
+     "items": 17
+    }
+   ],
+   "to": [
+    {
+     "id": "L19C0",
+     "items": 109
+    },
+    {
+     "id": "L19C2",
+     "items": 22
+    },
+    {
+     "id": "L19C1",
+     "items": 4
+    }
+   ],
+   "experts": [
+    {
+     "id": "L18E14",
+     "items": 82
+    },
+    {
+     "id": "L18E27",
+     "items": 50
+    },
+    {
+     "id": "L18E20",
+     "items": 3
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      656,
+      0.6583
+     ],
+     [
+      570,
+      0.6533
+     ],
+     [
+      2667,
+      0.5856
+     ],
+     [
+      2197,
+      -0.5829
+     ],
+     [
+      859,
+      0.559
+     ]
+    ],
+    "tokens": [
+     ".\u00c2",
+     ".\r\n\n",
+     ".This",
+     "\u00ae.",
+     ".They",
+     ".",
+     ".The",
+     ".\u00ab"
+    ],
+    "surface_flagged": true,
+    "surface_feature": "target position",
+    "routing": {
+     "share": 0.0908,
+     "shift": 0.5793
+    },
+    "layer_routing_effect": 0.2761
+   },
+   "report": null
+  },
+  {
+   "id": "L18C1",
+   "layer": 18,
+   "node": 1,
+   "items": 109,
+   "makeup": {
+    "label": {
+     "aquarium": 24,
+     "vehicle": 17,
+     "scuba": 18,
+     "septic": 37,
+     "clothing": 13
+    },
+    "register": {
+     "narrative": 36,
+     "technical": 42,
+     "casual": 31
+    },
+    "structure": {
+     "description": 71,
+     "action": 38
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "septic",
+    "share": 0.339
+   },
+   "from": [
+    {
+     "id": "L17C1",
+     "items": 77
+    },
+    {
+     "id": "L17C0",
+     "items": 23
+    },
+    {
+     "id": "L17C3",
+     "items": 5
+    }
+   ],
+   "to": [
+    {
+     "id": "L19C1",
+     "items": 103
+    },
+    {
+     "id": "L19C2",
+     "items": 3
+    },
+    {
+     "id": "L19C0",
+     "items": 1
+    }
+   ],
+   "experts": [
+    {
+     "id": "L18E14",
+     "items": 85
+    },
+    {
+     "id": "L18E27",
+     "items": 15
+    },
+    {
+     "id": "L18E20",
+     "items": 7
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      2271,
+      0.5782
+     ],
+     [
+      571,
+      0.5473
+     ],
+     [
+      819,
+      0.5437
+     ],
+     [
+      465,
+      -0.5392
+     ],
+     [
+      55,
+      -0.5381
+     ]
+    ],
+    "tokens": [
+     " is",
+     " can",
+     " cannot",
+     " may",
+     " will",
+     " might",
+     " must",
+     " should"
+    ],
+    "surface_flagged": true,
+    "surface_feature": "target position",
+    "routing": {
+     "share": 0.0096,
+     "shift": 0.2096
+    },
+    "layer_routing_effect": 0.2761
+   },
+   "report": null
+  },
+  {
+   "id": "L18C2",
+   "layer": 18,
+   "node": 2,
+   "items": 111,
+   "makeup": {
+    "label": {
+     "aquarium": 15,
+     "vehicle": 9,
+     "scuba": 59,
+     "septic": 13,
+     "clothing": 15
+    },
+    "register": {
+     "technical": 7,
+     "casual": 57,
+     "narrative": 47
+    },
+    "structure": {
+     "description": 34,
+     "action": 77
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "scuba",
+    "share": 0.532
+   },
+   "from": [
+    {
+     "id": "L17C2",
+     "items": 96
+    },
+    {
+     "id": "L17C0",
+     "items": 7
+    },
+    {
+     "id": "L17C3",
+     "items": 4
+    }
+   ],
+   "to": [
+    {
+     "id": "L19C2",
+     "items": 96
+    },
+    {
+     "id": "L19C0",
+     "items": 10
+    },
+    {
+     "id": "L19C1",
+     "items": 3
+    }
+   ],
+   "experts": [
+    {
+     "id": "L18E14",
+     "items": 100
+    },
+    {
+     "id": "L18E27",
+     "items": 7
+    },
+    {
+     "id": "L18E26",
+     "items": 2
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      436,
+      0.4654
+     ],
+     [
+      1467,
+      0.4441
+     ],
+     [
+      385,
+      -0.428
+     ],
+     [
+      719,
+      -0.4278
+     ],
+     [
+      1932,
+      0.4166
+     ]
+    ],
+    "tokens": [
+     " refill",
+     " stuff",
+     " haha",
+     " ;)",
+     " anyways",
+     " adrenaline",
+     " :)",
+     " stupid"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.0227,
+     "shift": 0.3196
+    },
+    "layer_routing_effect": 0.2761
+   },
+   "report": null
+  },
+  {
+   "id": "L18C3",
+   "layer": 18,
+   "node": 3,
+   "items": 72,
+   "makeup": {
+    "label": {
+     "vehicle": 71,
+     "scuba": 1
+    },
+    "register": {
+     "narrative": 36,
+     "technical": 21,
+     "casual": 15
+    },
+    "structure": {
+     "action": 47,
+     "description": 25
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "vehicle",
+    "share": 0.986
+   },
+   "from": [
+    {
+     "id": "L17C3",
+     "items": 71
+    },
+    {
+     "id": "L17C2",
+     "items": 1
+    }
+   ],
+   "to": [
+    {
+     "id": "L19C3",
+     "items": 72
+    }
+   ],
+   "experts": [
+    {
+     "id": "L18E14",
+     "items": 58
+    },
+    {
+     "id": "L18E27",
+     "items": 11
+    },
+    {
+     "id": "L18E26",
+     "items": 1
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      2196,
+      0.6546
+     ],
+     [
+      2294,
+      0.6132
+     ],
+     [
+      2195,
+      0.6031
+     ],
+     [
+      1119,
+      -0.6001
+     ],
+     [
+      5,
+      0.5861
+     ]
+    ],
+    "tokens": [
+     " convoy",
+     " armored",
+     " battlefield",
+     " infantry",
+     " Battlefield",
+     " troop",
+     " commanders",
+     " Infantry"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.0142,
+     "shift": 0.3136
+    },
+    "layer_routing_effect": 0.2761
+   },
+   "report": null
+  },
+  {
+   "id": "L18C4",
+   "layer": 18,
+   "node": 4,
+   "items": 72,
+   "makeup": {
+    "label": {
+     "scuba": 1,
+     "clothing": 71
+    },
+    "register": {
+     "narrative": 40,
+     "technical": 17,
+     "casual": 15
+    },
+    "structure": {
+     "action": 40,
+     "description": 32
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "clothing",
+    "share": 0.986
+   },
+   "from": [
+    {
+     "id": "L17C4",
+     "items": 71
+    },
+    {
+     "id": "L17C2",
+     "items": 1
+    }
+   ],
+   "to": [
+    {
+     "id": "L19C4",
+     "items": 71
+    },
+    {
+     "id": "L19C2",
+     "items": 1
+    }
+   ],
+   "experts": [
+    {
+     "id": "L18E14",
+     "items": 72
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      594,
+      -0.7354
+     ],
+     [
+      1452,
+      -0.7156
+     ],
+     [
+      2298,
+      -0.7111
+     ],
+     [
+      198,
+      -0.6952
+     ],
+     [
+      2734,
+      -0.6946
+     ]
+    ],
+    "tokens": [
+     " shirt",
+     "shirt",
+     "-shirt",
+     "-style",
+     " hoodie",
+     " pajamas",
+     " shirts",
+     " sweater"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.1388,
+     "shift": 0.9808
+    },
+    "layer_routing_effect": 0.2761
+   },
+   "report": null
+  },
+  {
+   "id": "L19C0",
+   "layer": 19,
+   "node": 0,
+   "items": 120,
+   "makeup": {
+    "label": {
+     "aquarium": 52,
+     "vehicle": 1,
+     "scuba": 27,
+     "septic": 40
+    },
+    "register": {
+     "narrative": 64,
+     "technical": 45,
+     "casual": 11
+    },
+    "structure": {
+     "action": 71,
+     "description": 49
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "aquarium",
+    "share": 0.433
+   },
+   "from": [
+    {
+     "id": "L18C0",
+     "items": 109
+    },
+    {
+     "id": "L18C2",
+     "items": 10
+    },
+    {
+     "id": "L18C1",
+     "items": 1
+    }
+   ],
+   "to": [
+    {
+     "id": "L20C0",
+     "items": 119
+    },
+    {
+     "id": "L20C1",
+     "items": 1
+    }
+   ],
+   "experts": [
+    {
+     "id": "L19E31",
+     "items": 99
+    },
+    {
+     "id": "L19E13",
+     "items": 20
+    },
+    {
+     "id": "L19E22",
+     "items": 1
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      656,
+      0.6924
+     ],
+     [
+      2559,
+      -0.6606
+     ],
+     [
+      570,
+      0.6333
+     ],
+     [
+      2667,
+      0.622
+     ],
+     [
+      859,
+      0.6116
+     ]
+    ],
+    "tokens": [
+     ".",
+     ".\u00c2",
+     ".This",
+     ".They",
+     "\u00ae.",
+     ".\n\n",
+     ".When",
+     ".The"
+    ],
+    "surface_flagged": true,
+    "surface_feature": "target position",
+    "routing": {
+     "share": 0.1076,
+     "shift": 0.6688
+    },
+    "layer_routing_effect": 0.359
+   },
+   "report": null
+  },
+  {
+   "id": "L19C1",
+   "layer": 19,
+   "node": 1,
+   "items": 110,
+   "makeup": {
+    "label": {
+     "aquarium": 24,
+     "vehicle": 16,
+     "scuba": 19,
+     "septic": 39,
+     "clothing": 12
+    },
+    "register": {
+     "narrative": 35,
+     "technical": 47,
+     "casual": 28
+    },
+    "structure": {
+     "description": 70,
+     "action": 40
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "septic",
+    "share": 0.355
+   },
+   "from": [
+    {
+     "id": "L18C1",
+     "items": 103
+    },
+    {
+     "id": "L18C0",
+     "items": 4
+    },
+    {
+     "id": "L18C2",
+     "items": 3
+    }
+   ],
+   "to": [
+    {
+     "id": "L20C1",
+     "items": 107
+    },
+    {
+     "id": "L20C2",
+     "items": 1
+    },
+    {
+     "id": "L20C0",
+     "items": 1
+    }
+   ],
+   "experts": [
+    {
+     "id": "L19E13",
+     "items": 55
+    },
+    {
+     "id": "L19E31",
+     "items": 51
+    },
+    {
+     "id": "L19E22",
+     "items": 4
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      2271,
+      0.6019
+     ],
+     [
+      55,
+      -0.5957
+     ],
+     [
+      819,
+      0.5868
+     ],
+     [
+      571,
+      0.5804
+     ],
+     [
+      41,
+      -0.5606
+     ]
+    ],
+    "tokens": [
+     " is",
+     " can",
+     " may",
+     " cannot",
+     " will",
+     " must",
+     " might",
+     " would"
+    ],
+    "surface_flagged": true,
+    "surface_feature": "target position",
+    "routing": {
+     "share": 0.0484,
+     "shift": 0.4684
+    },
+    "layer_routing_effect": 0.359
+   },
+   "report": null
+  },
+  {
+   "id": "L19C2",
+   "layer": 19,
+   "node": 2,
+   "items": 122,
+   "makeup": {
+    "label": {
+     "aquarium": 24,
+     "vehicle": 12,
+     "scuba": 51,
+     "septic": 21,
+     "clothing": 14
+    },
+    "register": {
+     "narrative": 58,
+     "technical": 3,
+     "casual": 61
+    },
+    "structure": {
+     "description": 40,
+     "action": 82
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "scuba",
+    "share": 0.418
+   },
+   "from": [
+    {
+     "id": "L18C2",
+     "items": 96
+    },
+    {
+     "id": "L18C0",
+     "items": 22
+    },
+    {
+     "id": "L18C1",
+     "items": 3
+    }
+   ],
+   "to": [
+    {
+     "id": "L20C2",
+     "items": 65
+    },
+    {
+     "id": "L20C0",
+     "items": 39
+    },
+    {
+     "id": "L20C3",
+     "items": 8
+    }
+   ],
+   "experts": [
+    {
+     "id": "L19E13",
+     "items": 57
+    },
+    {
+     "id": "L19E31",
+     "items": 37
+    },
+    {
+     "id": "L19E22",
+     "items": 26
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      2516,
+      -0.4439
+     ],
+     [
+      2459,
+      0.4222
+     ],
+     [
+      1467,
+      0.4162
+     ],
+     [
+      2438,
+      0.4091
+     ],
+     [
+      2648,
+      0.4046
+     ]
+    ],
+    "tokens": [
+     " anyways",
+     " haha",
+     " stuff",
+     "of",
+     " stupid",
+     " hehe",
+     " damn",
+     " Of"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.0186,
+     "shift": 0.2755
+    },
+    "layer_routing_effect": 0.359
+   },
+   "report": null
+  },
+  {
+   "id": "L19C3",
+   "layer": 19,
+   "node": 3,
+   "items": 73,
+   "makeup": {
+    "label": {
+     "vehicle": 71,
+     "scuba": 1,
+     "clothing": 1
+    },
+    "register": {
+     "narrative": 36,
+     "technical": 22,
+     "casual": 15
+    },
+    "structure": {
+     "action": 47,
+     "description": 26
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "vehicle",
+    "share": 0.973
+   },
+   "from": [
+    {
+     "id": "L18C3",
+     "items": 72
+    },
+    {
+     "id": "L18C1",
+     "items": 1
+    }
+   ],
+   "to": [
+    {
+     "id": "L20C3",
+     "items": 70
+    },
+    {
+     "id": "L20C1",
+     "items": 1
+    },
+    {
+     "id": "L20C0",
+     "items": 1
+    }
+   ],
+   "experts": [
+    {
+     "id": "L19E13",
+     "items": 36
+    },
+    {
+     "id": "L19E31",
+     "items": 34
+    },
+    {
+     "id": "L19E16",
+     "items": 2
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      2476,
+      0.6865
+     ],
+     [
+      2167,
+      -0.6611
+     ],
+     [
+      1005,
+      0.6292
+     ],
+     [
+      1119,
+      -0.62
+     ],
+     [
+      2196,
+      0.6199
+     ]
+    ],
+    "tokens": [
+     " convoy",
+     " battlefield",
+     " infantry",
+     " troop",
+     " armored",
+     " commanders",
+     " Battlefield",
+     " Infantry"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.0098,
+     "shift": 0.2584
+    },
+    "layer_routing_effect": 0.359
+   },
+   "report": null
+  },
+  {
+   "id": "L19C4",
+   "layer": 19,
+   "node": 4,
+   "items": 74,
+   "makeup": {
+    "label": {
+     "scuba": 1,
+     "clothing": 73
+    },
+    "register": {
+     "narrative": 43,
+     "technical": 17,
+     "casual": 14
+    },
+    "structure": {
+     "action": 41,
+     "description": 33
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "clothing",
+    "share": 0.986
+   },
+   "from": [
+    {
+     "id": "L18C4",
+     "items": 71
+    },
+    {
+     "id": "L18C2",
+     "items": 2
+    },
+    {
+     "id": "L18C1",
+     "items": 1
+    }
+   ],
+   "to": [
+    {
+     "id": "L20C4",
+     "items": 73
+    },
+    {
+     "id": "L20C3",
+     "items": 1
+    }
+   ],
+   "experts": [
+    {
+     "id": "L19E22",
+     "items": 60
+    },
+    {
+     "id": "L19E13",
+     "items": 13
+    },
+    {
+     "id": "L19E31",
+     "items": 1
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      594,
+      -0.7168
+     ],
+     [
+      2298,
+      -0.7147
+     ],
+     [
+      1452,
+      -0.706
+     ],
+     [
+      1321,
+      -0.7008
+     ],
+     [
+      293,
+      0.6912
+     ]
+    ],
+    "tokens": [
+     " shirt",
+     "shirt",
+     "-shirt",
+     " hoodie",
+     " sweater",
+     " shirts",
+     " pajamas",
+     "-shirts"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.1747,
+     "shift": 1.0855
+    },
+    "layer_routing_effect": 0.359
+   },
+   "report": null
+  },
+  {
+   "id": "L20C0",
+   "layer": 20,
+   "node": 0,
+   "items": 160,
+   "makeup": {
+    "label": {
+     "aquarium": 64,
+     "vehicle": 4,
+     "scuba": 42,
+     "septic": 50
+    },
+    "register": {
+     "narrative": 89,
+     "technical": 49,
+     "casual": 22
+    },
+    "structure": {
+     "action": 94,
+     "description": 66
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "aquarium",
+    "share": 0.4
+   },
+   "from": [
+    {
+     "id": "L19C0",
+     "items": 119
+    },
+    {
+     "id": "L19C2",
+     "items": 39
+    },
+    {
+     "id": "L19C3",
+     "items": 1
+    }
+   ],
+   "to": [
+    {
+     "id": "L21C0",
+     "items": 156
+    },
+    {
+     "id": "L21C2",
+     "items": 4
+    }
+   ],
+   "experts": [
+    {
+     "id": "L20E25",
+     "items": 71
+    },
+    {
+     "id": "L20E16",
+     "items": 61
+    },
+    {
+     "id": "L20E31",
+     "items": 26
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      656,
+      0.7045
+     ],
+     [
+      570,
+      0.6686
+     ],
+     [
+      2559,
+      -0.6255
+     ],
+     [
+      859,
+      0.6229
+     ],
+     [
+      1428,
+      0.6209
+     ]
+    ],
+    "tokens": [
+     ".",
+     ".\u00c2",
+     ".\n\n",
+     ".This",
+     ".\\",
+     " whilst",
+     ";",
+     ".\u201d"
+    ],
+    "surface_flagged": true,
+    "surface_feature": "target position",
+    "routing": {
+     "share": 0.1139,
+     "shift": 0.596
+    },
+    "layer_routing_effect": 0.401
+   },
+   "report": null
+  },
+  {
+   "id": "L20C1",
+   "layer": 20,
+   "node": 1,
+   "items": 116,
+   "makeup": {
+    "label": {
+     "aquarium": 24,
+     "vehicle": 18,
+     "scuba": 23,
+     "septic": 39,
+     "clothing": 12
+    },
+    "register": {
+     "narrative": 35,
+     "technical": 46,
+     "casual": 35
+    },
+    "structure": {
+     "description": 72,
+     "action": 44
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "septic",
+    "share": 0.336
+   },
+   "from": [
+    {
+     "id": "L19C1",
+     "items": 107
+    },
+    {
+     "id": "L19C2",
+     "items": 7
+    },
+    {
+     "id": "L19C3",
+     "items": 1
+    }
+   ],
+   "to": [
+    {
+     "id": "L21C1",
+     "items": 115
+    },
+    {
+     "id": "L21C3",
+     "items": 1
+    }
+   ],
+   "experts": [
+    {
+     "id": "L20E31",
+     "items": 63
+    },
+    {
+     "id": "L20E15",
+     "items": 19
+    },
+    {
+     "id": "L20E0",
+     "items": 17
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      571,
+      0.6738
+     ],
+     [
+      819,
+      0.6421
+     ],
+     [
+      41,
+      -0.6288
+     ],
+     [
+      55,
+      -0.605
+     ],
+     [
+      1485,
+      0.5754
+     ]
+    ],
+    "tokens": [
+     " is",
+     " has",
+     " will",
+     " cannot",
+     " can",
+     " may",
+     " would",
+     " must"
+    ],
+    "surface_flagged": true,
+    "surface_feature": "target position",
+    "routing": {
+     "share": 0.1046,
+     "shift": 0.6709
+    },
+    "layer_routing_effect": 0.401
+   },
+   "report": null
+  },
+  {
+   "id": "L20C2",
+   "layer": 20,
+   "node": 2,
+   "items": 67,
+   "makeup": {
+    "label": {
+     "aquarium": 11,
+     "vehicle": 8,
+     "scuba": 29,
+     "septic": 10,
+     "clothing": 9
+    },
+    "register": {
+     "casual": 40,
+     "narrative": 26,
+     "technical": 1
+    },
+    "structure": {
+     "action": 50,
+     "description": 17
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "scuba",
+    "share": 0.433
+   },
+   "from": [
+    {
+     "id": "L19C2",
+     "items": 65
+    },
+    {
+     "id": "L19C1",
+     "items": 1
+    },
+    {
+     "id": "L19C3",
+     "items": 1
+    }
+   ],
+   "to": [
+    {
+     "id": "L21C2",
+     "items": 64
+    },
+    {
+     "id": "L21C0",
+     "items": 2
+    },
+    {
+     "id": "L21C1",
+     "items": 1
+    }
+   ],
+   "experts": [
+    {
+     "id": "L20E15",
+     "items": 32
+    },
+    {
+     "id": "L20E16",
+     "items": 20
+    },
+    {
+     "id": "L20E31",
+     "items": 8
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      2438,
+      0.433
+     ],
+     [
+      1467,
+      0.3867
+     ],
+     [
+      1129,
+      0.3822
+     ],
+     [
+      719,
+      -0.3686
+     ],
+     [
+      627,
+      0.365
+     ]
+    ],
+    "tokens": [
+     "reon",
+     "iful",
+     "yw",
+     "shit",
+     "ething",
+     "ymo",
+     "avio",
+     "ayin"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.0215,
+     "shift": 0.3997
+    },
+    "layer_routing_effect": 0.401
+   },
+   "report": null
+  },
+  {
+   "id": "L20C3",
+   "layer": 20,
+   "node": 3,
+   "items": 80,
+   "makeup": {
+    "label": {
+     "aquarium": 1,
+     "vehicle": 70,
+     "scuba": 3,
+     "septic": 1,
+     "clothing": 5
+    },
+    "register": {
+     "casual": 16,
+     "narrative": 42,
+     "technical": 22
+    },
+    "structure": {
+     "description": 30,
+     "action": 50
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "vehicle",
+    "share": 0.875
+   },
+   "from": [
+    {
+     "id": "L19C3",
+     "items": 70
+    },
+    {
+     "id": "L19C2",
+     "items": 8
+    },
+    {
+     "id": "L19C1",
+     "items": 1
+    }
+   ],
+   "to": [
+    {
+     "id": "L21C3",
+     "items": 54
+    },
+    {
+     "id": "L21C1",
+     "items": 22
+    },
+    {
+     "id": "L21C0",
+     "items": 2
+    }
+   ],
+   "experts": [
+    {
+     "id": "L20E31",
+     "items": 35
+    },
+    {
+     "id": "L20E16",
+     "items": 14
+    },
+    {
+     "id": "L20E15",
+     "items": 13
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      2167,
+      -0.6043
+     ],
+     [
+      1080,
+      -0.5764
+     ],
+     [
+      2560,
+      0.5757
+     ],
+     [
+      2196,
+      0.5555
+     ],
+     [
+      1040,
+      -0.5528
+     ]
+    ],
+    "tokens": [
+     " convoy",
+     " commanders",
+     " battlefield",
+     " troop",
+     " Battlefield",
+     " infantry",
+     " armored",
+     " armies"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.0102,
+     "shift": 0.2522
+    },
+    "layer_routing_effect": 0.401
+   },
+   "report": null
+  },
+  {
+   "id": "L20C4",
+   "layer": 20,
+   "node": 4,
+   "items": 76,
+   "makeup": {
+    "label": {
+     "scuba": 2,
+     "clothing": 74
+    },
+    "register": {
+     "narrative": 44,
+     "casual": 16,
+     "technical": 16
+    },
+    "structure": {
+     "action": 43,
+     "description": 33
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "clothing",
+    "share": 0.974
+   },
+   "from": [
+    {
+     "id": "L19C4",
+     "items": 73
+    },
+    {
+     "id": "L19C2",
+     "items": 3
+    }
+   ],
+   "to": [
+    {
+     "id": "L21C4",
+     "items": 73
+    },
+    {
+     "id": "L21C2",
+     "items": 3
+    }
+   ],
+   "experts": [
+    {
+     "id": "L20E15",
+     "items": 72
+    },
+    {
+     "id": "L20E5",
+     "items": 4
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      1452,
+      -0.7144
+     ],
+     [
+      85,
+      -0.7099
+     ],
+     [
+      369,
+      -0.7029
+     ],
+     [
+      293,
+      0.6952
+     ],
+     [
+      949,
+      0.6891
+     ]
+    ],
+    "tokens": [
+     " shirt",
+     "shirt",
+     "-shirt",
+     " pajamas",
+     " hoodie",
+     "\u88d9",
+     " blouse",
+     "pants"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.1509,
+     "shift": 0.9953
+    },
+    "layer_routing_effect": 0.401
+   },
+   "report": null
+  },
+  {
+   "id": "L21C0",
+   "layer": 21,
+   "node": 0,
+   "items": 160,
+   "makeup": {
+    "label": {
+     "aquarium": 63,
+     "vehicle": 4,
+     "scuba": 43,
+     "septic": 50
+    },
+    "register": {
+     "narrative": 92,
+     "technical": 50,
+     "casual": 18
+    },
+    "structure": {
+     "action": 95,
+     "description": 65
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "aquarium",
+    "share": 0.394
+   },
+   "from": [
+    {
+     "id": "L20C0",
+     "items": 156
+    },
+    {
+     "id": "L20C3",
+     "items": 2
+    },
+    {
+     "id": "L20C2",
+     "items": 2
+    }
+   ],
+   "to": [
+    {
+     "id": "L22C0",
+     "items": 153
+    },
+    {
+     "id": "L22C2",
+     "items": 5
+    },
+    {
+     "id": "L22C1",
+     "items": 1
+    }
+   ],
+   "experts": [
+    {
+     "id": "L21E18",
+     "items": 124
+    },
+    {
+     "id": "L21E13",
+     "items": 26
+    },
+    {
+     "id": "L21E2",
+     "items": 10
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      656,
+      0.688
+     ],
+     [
+      570,
+      0.6365
+     ],
+     [
+      859,
+      0.6202
+     ],
+     [
+      750,
+      -0.5921
+     ],
+     [
+      2822,
+      -0.5811
+     ]
+    ],
+    "tokens": [
+     ".",
+     ".\u00c2",
+     ".\r\n\n",
+     " whilst",
+     ".\n\n",
+     ".[",
+     ".\\",
+     ".|"
+    ],
+    "surface_flagged": true,
+    "surface_feature": "target position",
+    "routing": {
+     "share": 0.0884,
+     "shift": 0.525
+    },
+    "layer_routing_effect": 0.3226
+   },
+   "report": null
+  },
+  {
+   "id": "L21C1",
+   "layer": 21,
+   "node": 1,
+   "items": 138,
+   "makeup": {
+    "label": {
+     "aquarium": 26,
+     "vehicle": 34,
+     "scuba": 24,
+     "septic": 39,
+     "clothing": 15
+    },
+    "register": {
+     "narrative": 48,
+     "technical": 46,
+     "casual": 44
+    },
+    "structure": {
+     "description": 77,
+     "action": 61
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "septic",
+    "share": 0.283
+   },
+   "from": [
+    {
+     "id": "L20C1",
+     "items": 115
+    },
+    {
+     "id": "L20C3",
+     "items": 22
+    },
+    {
+     "id": "L20C2",
+     "items": 1
+    }
+   ],
+   "to": [
+    {
+     "id": "L22C1",
+     "items": 65
+    },
+    {
+     "id": "L22C3",
+     "items": 63
+    },
+    {
+     "id": "L22C2",
+     "items": 9
+    }
+   ],
+   "experts": [
+    {
+     "id": "L21E21",
+     "items": 61
+    },
+    {
+     "id": "L21E2",
+     "items": 45
+    },
+    {
+     "id": "L21E13",
+     "items": 30
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      571,
+      0.6864
+     ],
+     [
+      819,
+      0.651
+     ],
+     [
+      41,
+      -0.6372
+     ],
+     [
+      465,
+      -0.6048
+     ],
+     [
+      1485,
+      0.5811
+     ]
+    ],
+    "tokens": [
+     " is",
+     " has",
+     " cannot",
+     " will",
+     " operates",
+     " behaves",
+     " contains",
+     " was"
+    ],
+    "surface_flagged": true,
+    "surface_feature": "target position",
+    "routing": {
+     "share": 0.0361,
+     "shift": 0.3611
+    },
+    "layer_routing_effect": 0.3226
+   },
+   "report": null
+  },
+  {
+   "id": "L21C2",
+   "layer": 21,
+   "node": 2,
+   "items": 72,
+   "makeup": {
+    "label": {
+     "aquarium": 11,
+     "vehicle": 9,
+     "scuba": 30,
+     "septic": 11,
+     "clothing": 11
+    },
+    "register": {
+     "casual": 47,
+     "narrative": 25
+    },
+    "structure": {
+     "action": 52,
+     "description": 20
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "scuba",
+    "share": 0.417
+   },
+   "from": [
+    {
+     "id": "L20C2",
+     "items": 64
+    },
+    {
+     "id": "L20C0",
+     "items": 4
+    },
+    {
+     "id": "L20C4",
+     "items": 3
+    }
+   ],
+   "to": [
+    {
+     "id": "L22C2",
+     "items": 48
+    },
+    {
+     "id": "L22C4",
+     "items": 11
+    },
+    {
+     "id": "L22C0",
+     "items": 10
+    }
+   ],
+   "experts": [
+    {
+     "id": "L21E2",
+     "items": 23
+    },
+    {
+     "id": "L21E18",
+     "items": 20
+    },
+    {
+     "id": "L21E13",
+     "items": 15
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      2438,
+      0.4182
+     ],
+     [
+      1878,
+      0.3956
+     ],
+     [
+      2712,
+      0.3856
+     ],
+     [
+      719,
+      -0.3764
+     ],
+     [
+      138,
+      0.3694
+     ]
+    ],
+    "tokens": [
+     "shit",
+     " haha",
+     " cuz",
+     "kaart",
+     "ymo",
+     "amela",
+     " conmigo",
+     "ething"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.0242,
+     "shift": 0.4099
+    },
+    "layer_routing_effect": 0.3226
+   },
+   "report": null
+  },
+  {
+   "id": "L21C3",
+   "layer": 21,
+   "node": 3,
+   "items": 55,
+   "makeup": {
+    "label": {
+     "vehicle": 53,
+     "scuba": 1,
+     "clothing": 1
+    },
+    "register": {
+     "narrative": 27,
+     "technical": 21,
+     "casual": 7
+    },
+    "structure": {
+     "action": 31,
+     "description": 24
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "vehicle",
+    "share": 0.964
+   },
+   "from": [
+    {
+     "id": "L20C3",
+     "items": 54
+    },
+    {
+     "id": "L20C1",
+     "items": 1
+    }
+   ],
+   "to": [
+    {
+     "id": "L22C2",
+     "items": 53
+    },
+    {
+     "id": "L22C3",
+     "items": 2
+    }
+   ],
+   "experts": [
+    {
+     "id": "L21E18",
+     "items": 29
+    },
+    {
+     "id": "L21E2",
+     "items": 17
+    },
+    {
+     "id": "L21E21",
+     "items": 5
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      56,
+      -0.5515
+     ],
+     [
+      5,
+      0.5476
+     ],
+     [
+      2476,
+      0.5328
+     ],
+     [
+      1678,
+      -0.5227
+     ],
+     [
+      2726,
+      0.515
+     ]
+    ],
+    "tokens": [
+     " convoy",
+     " infantry",
+     " troop",
+     " commanders",
+     " battlefield",
+     " Infantry",
+     " Battlefield",
+     " plato"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.0175,
+     "shift": 0.3983
+    },
+    "layer_routing_effect": 0.3226
+   },
+   "report": null
+  },
+  {
+   "id": "L21C4",
+   "layer": 21,
+   "node": 4,
+   "items": 74,
+   "makeup": {
+    "label": {
+     "scuba": 1,
+     "clothing": 73
+    },
+    "register": {
+     "narrative": 44,
+     "technical": 17,
+     "casual": 13
+    },
+    "structure": {
+     "action": 42,
+     "description": 32
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "clothing",
+    "share": 0.986
+   },
+   "from": [
+    {
+     "id": "L20C4",
+     "items": 73
+    },
+    {
+     "id": "L20C3",
+     "items": 1
+    }
+   ],
+   "to": [
+    {
+     "id": "L22C4",
+     "items": 71
+    },
+    {
+     "id": "L22C3",
+     "items": 3
+    }
+   ],
+   "experts": [
+    {
+     "id": "L21E30",
+     "items": 50
+    },
+    {
+     "id": "L21E2",
+     "items": 7
+    },
+    {
+     "id": "L21E21",
+     "items": 6
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      2078,
+      0.7166
+     ],
+     [
+      1452,
+      -0.6935
+     ],
+     [
+      1916,
+      0.685
+     ],
+     [
+      1637,
+      -0.6776
+     ],
+     [
+      1478,
+      0.6688
+     ]
+    ],
+    "tokens": [
+     "shirt",
+     " shirt",
+     "-shirt",
+     " sweatshirt",
+     " Shirt",
+     " pajamas",
+     " blouse",
+     "dress"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.1565,
+     "shift": 1.0272
+    },
+    "layer_routing_effect": 0.3226
+   },
+   "report": null
+  },
+  {
+   "id": "L22C0",
+   "layer": 22,
+   "node": 0,
+   "items": 164,
+   "makeup": {
+    "label": {
+     "aquarium": 66,
+     "vehicle": 1,
+     "scuba": 47,
+     "septic": 50
+    },
+    "register": {
+     "narrative": 88,
+     "technical": 47,
+     "casual": 29
+    },
+    "structure": {
+     "action": 101,
+     "description": 63
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "aquarium",
+    "share": 0.402
+   },
+   "from": [
+    {
+     "id": "L21C0",
+     "items": 153
+    },
+    {
+     "id": "L21C2",
+     "items": 10
+    },
+    {
+     "id": "L21C1",
+     "items": 1
+    }
+   ],
+   "to": [
+    {
+     "id": "L23C0",
+     "items": 157
+    },
+    {
+     "id": "L23C2",
+     "items": 7
+    }
+   ],
+   "experts": [
+    {
+     "id": "L22E22",
+     "items": 106
+    },
+    {
+     "id": "L22E15",
+     "items": 21
+    },
+    {
+     "id": "L22E29",
+     "items": 16
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      570,
+      0.6849
+     ],
+     [
+      656,
+      0.6791
+     ],
+     [
+      750,
+      -0.6561
+     ],
+     [
+      554,
+      -0.6376
+     ],
+     [
+      859,
+      0.6254
+     ]
+    ],
+    "tokens": [
+     ".",
+     ".\u00c2",
+     ".\n\n",
+     ".'\n\n",
+     ".',\n",
+     ".\"\n\n",
+     " before",
+     ".*\n\n"
+    ],
+    "surface_flagged": true,
+    "surface_feature": "target position",
+    "routing": {
+     "share": 0.0272,
+     "shift": 0.2876
+    },
+    "layer_routing_effect": 0.3408
+   },
+   "report": null
+  },
+  {
+   "id": "L22C1",
+   "layer": 22,
+   "node": 1,
+   "items": 66,
+   "makeup": {
+    "label": {
+     "aquarium": 19,
+     "vehicle": 2,
+     "scuba": 15,
+     "septic": 29,
+     "clothing": 1
+    },
+    "register": {
+     "narrative": 25,
+     "technical": 29,
+     "casual": 12
+    },
+    "structure": {
+     "description": 40,
+     "action": 26
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "septic",
+    "share": 0.439
+   },
+   "from": [
+    {
+     "id": "L21C1",
+     "items": 65
+    },
+    {
+     "id": "L21C0",
+     "items": 1
+    }
+   ],
+   "to": [
+    {
+     "id": "L23C1",
+     "items": 54
+    },
+    {
+     "id": "L23C2",
+     "items": 12
+    }
+   ],
+   "experts": [
+    {
+     "id": "L22E18",
+     "items": 23
+    },
+    {
+     "id": "L22E22",
+     "items": 21
+    },
+    {
+     "id": "L22E29",
+     "items": 13
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      571,
+      0.5355
+     ],
+     [
+      1129,
+      -0.5318
+     ],
+     [
+      111,
+      0.5204
+     ],
+     [
+      2586,
+      0.502
+     ],
+     [
+      1470,
+      -0.501
+     ]
+    ],
+    "tokens": [
+     " will",
+     " is",
+     " contains",
+     " has",
+     " would",
+     " cannot",
+     " serves",
+     " acts"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "target position",
+    "routing": {
+     "share": 0.0874,
+     "shift": 0.8127
+    },
+    "layer_routing_effect": 0.3408
+   },
+   "report": null
+  },
+  {
+   "id": "L22C2",
+   "layer": 22,
+   "node": 2,
+   "items": 115,
+   "makeup": {
+    "label": {
+     "aquarium": 7,
+     "vehicle": 71,
+     "scuba": 23,
+     "septic": 10,
+     "clothing": 4
+    },
+    "register": {
+     "technical": 22,
+     "casual": 43,
+     "narrative": 50
+    },
+    "structure": {
+     "description": 41,
+     "action": 74
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "vehicle",
+    "share": 0.617
+   },
+   "from": [
+    {
+     "id": "L21C3",
+     "items": 53
+    },
+    {
+     "id": "L21C2",
+     "items": 48
+    },
+    {
+     "id": "L21C1",
+     "items": 9
+    }
+   ],
+   "to": [
+    {
+     "id": "L23C2",
+     "items": 60
+    },
+    {
+     "id": "L23C4",
+     "items": 52
+    },
+    {
+     "id": "L23C0",
+     "items": 3
+    }
+   ],
+   "experts": [
+    {
+     "id": "L22E25",
+     "items": 74
+    },
+    {
+     "id": "L22E11",
+     "items": 16
+    },
+    {
+     "id": "L22E15",
+     "items": 11
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      1105,
+      0.5074
+     ],
+     [
+      2348,
+      0.4847
+     ],
+     [
+      2308,
+      -0.478
+     ],
+     [
+      1985,
+      -0.477
+     ],
+     [
+      2109,
+      0.4765
+     ]
+    ],
+    "tokens": [
+     " convoy",
+     "-driver",
+     " driver's",
+     " troop",
+     " Battlefield",
+     " commanders",
+     " battlefield",
+     " infantry"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "words",
+    "routing": {
+     "share": 0.0214,
+     "shift": 0.3049
+    },
+    "layer_routing_effect": 0.3408
+   },
+   "report": null
+  },
+  {
+   "id": "L22C3",
+   "layer": 22,
+   "node": 3,
+   "items": 72,
+   "makeup": {
+    "label": {
+     "aquarium": 6,
+     "vehicle": 26,
+     "scuba": 10,
+     "septic": 11,
+     "clothing": 19
+    },
+    "register": {
+     "casual": 26,
+     "technical": 21,
+     "narrative": 25
+    },
+    "structure": {
+     "description": 43,
+     "action": 29
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "vehicle",
+    "share": 0.361
+   },
+   "from": [
+    {
+     "id": "L21C1",
+     "items": 63
+    },
+    {
+     "id": "L21C2",
+     "items": 3
+    },
+    {
+     "id": "L21C4",
+     "items": 3
+    }
+   ],
+   "to": [
+    {
+     "id": "L23C2",
+     "items": 71
+    },
+    {
+     "id": "L23C0",
+     "items": 1
+    }
+   ],
+   "experts": [
+    {
+     "id": "L22E25",
+     "items": 27
+    },
+    {
+     "id": "L22E11",
+     "items": 26
+    },
+    {
+     "id": "L22E0",
+     "items": 10
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      1266,
+      0.4467
+     ],
+     [
+      821,
+      -0.4386
+     ],
+     [
+      819,
+      0.4346
+     ],
+     [
+      1083,
+      -0.4339
+     ],
+     [
+      1659,
+      0.4338
+     ]
+    ],
+    "tokens": [
+     " behaves",
+     " destroys",
+     " enters",
+     " operates",
+     " executes",
+     " evolves",
+     " launches",
+     " inherits"
+    ],
+    "surface_flagged": true,
+    "surface_feature": "target position",
+    "routing": {
+     "share": 0.0066,
+     "shift": 0.2139
+    },
+    "layer_routing_effect": 0.3408
+   },
+   "report": null
+  },
+  {
+   "id": "L22C4",
+   "layer": 22,
+   "node": 4,
+   "items": 82,
+   "makeup": {
+    "label": {
+     "aquarium": 2,
+     "scuba": 4,
+     "clothing": 76
+    },
+    "register": {
+     "narrative": 48,
+     "casual": 19,
+     "technical": 15
+    },
+    "structure": {
+     "action": 51,
+     "description": 31
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "clothing",
+    "share": 0.927
+   },
+   "from": [
+    {
+     "id": "L21C4",
+     "items": 71
+    },
+    {
+     "id": "L21C2",
+     "items": 11
+    }
+   ],
+   "to": [
+    {
+     "id": "L23C3",
+     "items": 81
+    },
+    {
+     "id": "L23C2",
+     "items": 1
+    }
+   ],
+   "experts": [
+    {
+     "id": "L22E11",
+     "items": 77
+    },
+    {
+     "id": "L22E25",
+     "items": 5
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      970,
+      0.7616
+     ],
+     [
+      1813,
+      -0.754
+     ],
+     [
+      508,
+      0.7255
+     ],
+     [
+      2078,
+      0.7188
+     ],
+     [
+      1018,
+      -0.718
+     ]
+    ],
+    "tokens": [
+     "\u30c8\u30c3\u30d7",
+     "shirt",
+     " shirt",
+     "top",
+     " cardigan",
+     "inis",
+     " sweatshirt",
+     "-shirt"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": {
+     "share": 0.1983,
+     "shift": 1.0984
+    },
+    "layer_routing_effect": 0.3408
+   },
+   "report": null
+  },
+  {
+   "id": "L23C0",
+   "layer": 23,
+   "node": 0,
+   "items": 161,
+   "makeup": {
+    "label": {
+     "aquarium": 63,
+     "vehicle": 2,
+     "scuba": 46,
+     "septic": 50
+    },
+    "register": {
+     "narrative": 88,
+     "technical": 48,
+     "casual": 25
+    },
+    "structure": {
+     "action": 97,
+     "description": 64
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "aquarium",
+    "share": 0.391
+   },
+   "from": [
+    {
+     "id": "L22C0",
+     "items": 157
+    },
+    {
+     "id": "L22C2",
+     "items": 3
+    },
+    {
+     "id": "L22C3",
+     "items": 1
+    }
+   ],
+   "to": [],
+   "experts": [
+    {
+     "id": "L23E31",
+     "items": 81
+    },
+    {
+     "id": "L23E0",
+     "items": 72
+    },
+    {
+     "id": "L23E18",
+     "items": 5
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      763,
+      0.6529
+     ],
+     [
+      750,
+      -0.6247
+     ],
+     [
+      554,
+      -0.6205
+     ],
+     [
+      859,
+      0.6202
+     ],
+     [
+      2143,
+      -0.6185
+     ]
+    ],
+    "tokens": [
+     ".Creat",
+     ".Other",
+     ".\u00c2",
+     ".When",
+     ".Once",
+     ".\r\n\n",
+     ".Res",
+     ".After"
+    ],
+    "surface_flagged": true,
+    "surface_feature": "target position",
+    "routing": null,
+    "layer_routing_effect": null
+   },
+   "report": null
+  },
+  {
+   "id": "L23C1",
+   "layer": 23,
+   "node": 1,
+   "items": 54,
+   "makeup": {
+    "label": {
+     "aquarium": 17,
+     "scuba": 12,
+     "septic": 24,
+     "clothing": 1
+    },
+    "register": {
+     "narrative": 21,
+     "technical": 23,
+     "casual": 10
+    },
+    "structure": {
+     "description": 34,
+     "action": 20
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "septic",
+    "share": 0.444
+   },
+   "from": [
+    {
+     "id": "L22C1",
+     "items": 54
+    }
+   ],
+   "to": [],
+   "experts": [
+    {
+     "id": "L23E0",
+     "items": 28
+    },
+    {
+     "id": "L23E31",
+     "items": 25
+    },
+    {
+     "id": "L23E10",
+     "items": 1
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      111,
+      0.5053
+     ],
+     [
+      1129,
+      -0.4858
+     ],
+     [
+      1396,
+      0.4739
+     ],
+     [
+      724,
+      -0.4672
+     ],
+     [
+      447,
+      -0.4664
+     ]
+    ],
+    "tokens": [
+     " generates",
+     " acts",
+     " expands",
+     " serves",
+     " emits",
+     " contains",
+     " produces",
+     " needs"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "target position",
+    "routing": null,
+    "layer_routing_effect": null
+   },
+   "report": null
+  },
+  {
+   "id": "L23C2",
+   "layer": 23,
+   "node": 2,
+   "items": 151,
+   "makeup": {
+    "label": {
+     "aquarium": 18,
+     "vehicle": 47,
+     "scuba": 37,
+     "septic": 26,
+     "clothing": 23
+    },
+    "register": {
+     "narrative": 52,
+     "technical": 29,
+     "casual": 70
+    },
+    "structure": {
+     "description": 69,
+     "action": 82
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "vehicle",
+    "share": 0.311
+   },
+   "from": [
+    {
+     "id": "L22C3",
+     "items": 71
+    },
+    {
+     "id": "L22C2",
+     "items": 60
+    },
+    {
+     "id": "L22C1",
+     "items": 12
+    }
+   ],
+   "to": [],
+   "experts": [
+    {
+     "id": "L23E0",
+     "items": 67
+    },
+    {
+     "id": "L23E31",
+     "items": 60
+    },
+    {
+     "id": "L23E18",
+     "items": 17
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      1991,
+      0.5034
+     ],
+     [
+      766,
+      -0.4743
+     ],
+     [
+      656,
+      -0.4736
+     ],
+     [
+      193,
+      0.4401
+     ],
+     [
+      2406,
+      0.4377
+     ]
+    ],
+    "tokens": [
+     " fights",
+     " wins",
+     " attacks",
+     " rallies",
+     " mileage",
+     " fares",
+     " raids",
+     " battle"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "target position",
+    "routing": null,
+    "layer_routing_effect": null
+   },
+   "report": null
+  },
+  {
+   "id": "L23C3",
+   "layer": 23,
+   "node": 3,
+   "items": 81,
+   "makeup": {
+    "label": {
+     "aquarium": 2,
+     "scuba": 3,
+     "clothing": 76
+    },
+    "register": {
+     "narrative": 47,
+     "casual": 19,
+     "technical": 15
+    },
+    "structure": {
+     "action": 50,
+     "description": 31
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "clothing",
+    "share": 0.938
+   },
+   "from": [
+    {
+     "id": "L22C4",
+     "items": 81
+    }
+   ],
+   "to": [],
+   "experts": [
+    {
+     "id": "L23E18",
+     "items": 69
+    },
+    {
+     "id": "L23E31",
+     "items": 10
+    },
+    {
+     "id": "L23E0",
+     "items": 2
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      970,
+      0.7746
+     ],
+     [
+      1813,
+      -0.7552
+     ],
+     [
+      1701,
+      -0.7487
+     ],
+     [
+      2213,
+      0.7454
+     ],
+     [
+      2078,
+      0.7426
+     ]
+    ],
+    "tokens": [
+     "top",
+     " top",
+     " shirt",
+     " dress",
+     "\u30c8\u30c3\u30d7",
+     "-top",
+     "Top",
+     "shirt"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": null,
+    "layer_routing_effect": null
+   },
+   "report": null
+  },
+  {
+   "id": "L23C4",
+   "layer": 23,
+   "node": 4,
+   "items": 52,
+   "makeup": {
+    "label": {
+     "vehicle": 51,
+     "scuba": 1
+    },
+    "register": {
+     "narrative": 28,
+     "technical": 19,
+     "casual": 5
+    },
+    "structure": {
+     "action": 32,
+     "description": 20
+    }
+   },
+   "majority": {
+    "axis": "label",
+    "value": "vehicle",
+    "share": 0.981
+   },
+   "from": [
+    {
+     "id": "L22C2",
+     "items": 52
+    }
+   ],
+   "to": [],
+   "experts": [
+    {
+     "id": "L23E31",
+     "items": 24
+    },
+    {
+     "id": "L23E0",
+     "items": 18
+    },
+    {
+     "id": "L23E18",
+     "items": 10
+    }
+   ],
+   "details": {
+    "neurons": [
+     [
+      2726,
+      0.5738
+     ],
+     [
+      2878,
+      -0.5681
+     ],
+     [
+      1814,
+      0.5389
+     ],
+     [
+      2713,
+      -0.5362
+     ],
+     [
+      2837,
+      -0.5297
+     ]
+    ],
+    "tokens": [
+     " convoy",
+     " crews",
+     " infantry",
+     " troop",
+     " plato",
+     " commanders",
+     " commander",
+     " assault"
+    ],
+    "surface_flagged": false,
+    "surface_feature": "characters",
+    "routing": null,
+    "layer_routing_effect": null
+   },
+   "report": null
+  }
+ ]
+}

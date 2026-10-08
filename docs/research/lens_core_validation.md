@@ -116,6 +116,31 @@ them and loses the groups' distances (in the calibration lens's self-check the 2
 and the hierarchy-levels method can miss an upper level for the same reason. This bears on the
 open question of better automatic methods (DESIGN.md C3).
 
+## How the axis bears on routing (10b.9)
+
+The node details job (`lens_details`) measured how the aquarium-against-vehicle mass-mean axis
+(`aquarium-vs-vehicle-axis-p1`) bears on routing: the spread across experts of the logit change it
+predicts through the next layer's router, against 1,000 random directions of the same length.
+It stays below the random 95th percentile at every layer, at most 1.26 times the random median
+(L11, the 94th percentile). It sits below the median at 19 of 23 layers, and far below it from L13
+to L20 (0.19 to 0.59 times): there the routers see this concept less than a random direction.
+Through the unembedding the axis reads as the two senses from L9 on, among the eight tokens each
+side favours (" armored", " infantry", " convoy" against " aquarium", " fish"), except the
+aquarium side at L19. On the tank lens the nodes explain between 0.11 (L1) and
+0.49 (L11) of the next layer's routing variance, and surface features alone predict the nodes at
+held-out κ 0.14 (L0) to 0.31 (L19).
+
+## The analysts (10b.10)
+
+Analysts (`claude -p`, Claude Opus 5.5) were tested at L13 of `tank-k5-n15` before their cards were
+trusted: no decoy (two random populations and the lens with its labels shuffled) was called a
+clear pattern, every planted value (aquarium, vehicle, septic) was named, and the members picked
+from three nodes' descriptions scored 0.90, 0.90 and 0.85 against majority-label baselines of
+0.70, 0.85 and 0.85 (mean 0.88). The save plan then wrote 13 cards in 23 calls, every number
+traced to its packet: the distinctive tokens and shares name what each node holds (aquarium, army,
+clothing; storage for the node that holds scuba and septic together; nothing clear for the mixed
+node).
+
 ## Caveats
 
 - The tank lens has no scene families, so its held-out scores are from weaker folds.
@@ -127,4 +152,7 @@ open question of better automatic methods (DESIGN.md C3).
 
 - `data/lake/session_1434a9be/lenses/tank-k5-n15/validation.json` (75 s)
 - `data/lake/session_29a80932/lenses/calibration-q1-k2-n15/validation.json` (165 s)
+- `data/lake/session_29a80932/lenses/aquarium-vs-vehicle-axis-p1/details/mass_mean.json`
+- `data/lake/session_1434a9be/lenses/tank-k5-n15/details/v1.json` and `analysis/v1/`
+- `data/lake/_analysts/tests/` (the analyst test runs)
 - Each lens's `lens.json` holds its in-sample suggestions and self-check.
