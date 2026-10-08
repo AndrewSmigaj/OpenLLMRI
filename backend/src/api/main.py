@@ -39,7 +39,6 @@ from api.routers import (
     probes,
     prompts,
     routes,
-    temporal,
 )
 from services.jobs.scheduler import JobScheduler
 from services.jobs.store import JobStore
@@ -76,7 +75,6 @@ app.include_router(probes.router, prefix="/api")
 app.include_router(routes.router, prefix="/api")
 app.include_router(clustering.router, prefix="/api")
 app.include_router(insights.router, prefix="/api")
-app.include_router(temporal.router, prefix="/api")
 app.include_router(generation.router, prefix="/api")
 app.include_router(prompts.router, prefix="/api")
 app.include_router(agent.router, prefix="/api")

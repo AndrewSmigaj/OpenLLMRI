@@ -4,8 +4,9 @@ export type AxisCounts = Record<string, Record<string, number>>
 
 export interface LensSummary {
   name: string
-  kind: string
+  kind: string // 'umap' or 'mass_mean'
   legacy: boolean
+  contrast?: { label_a: string; label_b: string } | null
   session_id: string
   n_items: number | null
   settings: Record<string, unknown>
@@ -224,6 +225,9 @@ export interface KProfileEntry {
   heldout: Record<string, HeldOut>
 }
 
+// The fair comparison at one layer, on the label: raw groupings at every k, and the ceiling
+export type Comparison = Partial<Record<'raw_ward' | 'raw_spectral' | 'neurons', Record<string, HeldOut | null>>> & { ceiling?: HeldOut | null }
+
 export interface Folding {
   kind: string
   n_folds: number
@@ -240,11 +244,29 @@ export interface Validation {
   seeds: number
   vote_neighbours: number
   layers: Record<string, Record<string, KProfileEntry>>
+  comparison?: Record<string, Comparison>
   provenance: { commit: string; dirty: boolean; job_id: string; seconds: number; created_at: string }
 }
 
 export interface ValidationHeadline {
   folds: Folding
-  best: ({ layer: number; k: number } & HeldOut) | null
+  best: ({ layer: number; k?: number; accuracy: number; kappa: number; worst_fold: number; ami?: number }) | null
   created_at: string
+}
+
+// Where the UMAP lens and the best raw grouping disagree, per layer (GET .../marks)
+export interface LensMarks {
+  threshold: number
+  layers: Record<string, { method: string; k: number; marked: string[]; nodes: Record<string, number> }>
+}
+
+// A mass-mean lens's validation.json: held-out scores per layer (the paper's algorithm)
+export interface MassMeanValidation {
+  format: number
+  kind: 'mass_mean'
+  contrast: { label_a: string; label_b: string }
+  folds: Folding
+  layers: Record<string, { accuracy: number; pooled_accuracy: number; kappa: number; worst_fold: number;
+    folds: number; n_a: number; n_b: number; axis_norm: number }>
+  provenance: { seconds: number; created_at: string }
 }

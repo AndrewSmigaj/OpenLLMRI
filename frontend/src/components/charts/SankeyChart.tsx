@@ -38,6 +38,8 @@ interface SankeyChartProps {
   left?: number | string;
   right?: number | string;
   showLabels?: boolean;
+  // Nodes to outline, with a count each (nodes holding items raw space groups differently)
+  outlined?: Record<string, number>;
   // The ECharts instance once it exists (null when it goes), for exports
   onChartReady?: (chart: echarts.ECharts | null) => void;
 }
@@ -54,6 +56,7 @@ const SankeyChart: React.FC<SankeyChartProps> = ({
   left = '2%',
   right = '30%',
   showLabels = true,
+  outlined,
   onChartReady,
 }) => {
   const chartRef = useRef<HTMLDivElement>(null);
@@ -175,7 +178,9 @@ const SankeyChart: React.FC<SankeyChartProps> = ({
       name: node.name,
       value: Math.max(1, node.token_count),
       depth: node.layer - minLayer,
-      itemStyle: { color: nodeColor(node) },
+      itemStyle: outlined?.[node.id]
+        ? { color: nodeColor(node), borderColor: '#111827', borderWidth: 2 }
+        : { color: nodeColor(node) },
     }));
 
     const maxLinkValue = Math.max(...links.map(l => l.value));
@@ -220,6 +225,7 @@ const SankeyChart: React.FC<SankeyChartProps> = ({
                 ${/^L\d+C\d+$/.test(node.id) ? 'Cluster' : 'Expert'}: ${node.expert_id}<br/>
                 Layer: ${node.layer}<br/>
                 Token Count: ${node.token_count}<br/>
+                ${outlined?.[node.id] ? `Outlined: ${outlined[node.id]} of its items are grouped differently in raw space<br/>` : ''}
                 Labels: ${node.label_distribution ? Object.entries(node.label_distribution).map(([k, v]) => `${k}: ${v}`).join(', ') : 'N/A'}
               </div>
             `;
@@ -273,7 +279,7 @@ const SankeyChart: React.FC<SankeyChartProps> = ({
     };
 
     chartInstance.current.setOption(option);
-  }, [nodes, links, colours, left, right, showLabels, nodeWidthProp]);
+  }, [nodes, links, colours, left, right, showLabels, nodeWidthProp, outlined]);
 
   return (
     <div

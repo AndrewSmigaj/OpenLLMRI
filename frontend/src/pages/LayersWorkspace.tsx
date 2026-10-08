@@ -8,6 +8,7 @@ import type { DynamicAxis, ProbeExample } from '../types/api'
 import { DEFAULT_OUTPUT_COLOUR, outputGroupingOf, useAxisControls, type OutputColour } from '../hooks/useAxisControls'
 import { useLensContext } from '../hooks/useLensContext'
 import { useLensFlows } from '../hooks/useLensFlows'
+import { useLensMarks } from '../hooks/useLensMarks'
 import { useSelectionMembers } from '../hooks/useSelectionMembers'
 import { useViewState, ZOOMS, type UpdateView, type ViewState } from '../hooks/useViewState'
 import { useShell } from '../components/shell/shellContext'
@@ -58,6 +59,7 @@ function LayersView({ view, update, visitor }: { view: ViewState; update: Update
   const axes = useAxisControls(routes?.available_axes ?? NO_AXES, routes?.output_available_axes ?? NO_AXES,
     view, update, output, setOutput)
   const context = useLensContext(view.session, view.lens, view.legacy)
+  const outlined = useLensMarks(view.session, view.lens, view.legacy)
   const sentences = context.details?.sentences ?? NO_SENTENCES
 
   const layers = routes?.window_layers ?? NO_LAYERS
@@ -206,7 +208,8 @@ function LayersView({ view, update, visitor }: { view: ViewState; update: Update
           </div>
           <Group orientation="vertical" className="flex-1 min-h-0">
             <Panel id="charts" defaultSize="68" minSize="25">
-              <LayerCharts cluster={cluster} expert={expert} view={view} update={update} colours={colours} onExport={exportFlows} />
+              <LayerCharts cluster={cluster} expert={expert} view={view} update={update} colours={colours}
+                outlined={outlined} onExport={exportFlows} />
             </Panel>
             <Separator className="h-1 bg-gray-200 hover:bg-blue-400" />
             <Panel id="lower" defaultSize="32" minSize="10">

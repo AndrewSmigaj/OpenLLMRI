@@ -54,7 +54,7 @@ export default function TopBar({ view, update, room, mudStatus }: TopBarProps) {
     update({ lens: rest.join(':'), legacy: kind === 'legacy', sel: '' })
   }
   const session = sessions.find(s => s.session_id === view.session)
-  const made = lenses.filter(l => !l.legacy)
+  const made = lenses.filter(l => !l.legacy && l.kind === 'umap') // mass-mean lenses have no clusters to show
   const legacy = lenses.filter(l => l.legacy)
   const tab = ({ isActive }: { isActive: boolean }) =>
     `px-2.5 py-1 text-xs rounded ${isActive ? 'bg-gray-800 text-white' : 'text-gray-700 hover:bg-gray-200'}`

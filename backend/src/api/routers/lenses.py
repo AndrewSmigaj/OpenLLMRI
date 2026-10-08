@@ -7,6 +7,7 @@ the commits that built and served it, so any figure can be made again exactly.
 """
 
 import json
+from collections import Counter
 from typing import Any, Dict, List, Optional, Tuple
 
 from fastapi import APIRouter, HTTPException, Request
@@ -269,12 +270,14 @@ def start_validation(request: Request, session_id: str, name: str, body: Validat
     """Score the lens on held-out data, with its k profile, in the background; returns the job."""
     from services.jobs.scheduler import JobScheduler
     from services.lenses.data import session_dir
-    from services.lenses.store import lens_dir
+    from services.lenses.store import lens_dir, read_manifest
 
     try:
         session = session_dir(session_id).name
         if not (lens_dir(session, name) / "lens.json").exists():
             raise FileNotFoundError(f"Lens '{name}' not found in {session}")
+        if read_manifest(lens_dir(session, name)).kind != "umap":
+            raise ValueError(f"'{name}' is a mass-mean lens: it is validated when it is built")
     except (FileNotFoundError, ValueError) as e:
         raise _fail(e)
     scheduler: JobScheduler = request.app.state.jobs
@@ -285,6 +288,87 @@ def start_validation(request: Request, session_id: str, name: str, body: Validat
     params = body.model_dump(exclude={"created_by"}) | {"session_id": session, "name": name}
     job = scheduler.submit("lens_validate", params, created_by=body.created_by)
     return {"job_id": job.id, "session_id": session, "name": name}
+
+
+class MassMeanRequest(BaseModel):
+    session_id: str
+    name: str
+    label_a: str
+    label_b: str
+    token_position: int = 1
+    family_field: str = "scene"
+    created_by: str = "app"
+
+
+@router.post("/lenses/mass-mean", status_code=202)
+def build_mass_mean_lens(request: Request, body: MassMeanRequest) -> Dict[str, Any]:
+    """Start building a mass-mean lens (one contrast, label A against label B) in the background."""
+    from services.jobs.scheduler import JobScheduler
+    from services.lenses.data import session_dir
+    from services.lenses.store import lens_dir, valid_name
+
+    try:
+        session = session_dir(body.session_id).name
+        if not valid_name(body.name):
+            raise ValueError(f"not a lens name: {body.name!r} (lower-case letters, digits, - and _)")
+        if lens_dir(session, body.name).exists():
+            raise FileExistsError(f"Lens '{body.name}' already exists in {session}")
+    except (FileNotFoundError, FileExistsError, ValueError) as e:
+        raise _fail(e)
+    scheduler: JobScheduler = request.app.state.jobs
+    params = body.model_dump(exclude={"created_by"}) | {"session_id": session}
+    job = scheduler.submit("mass_mean_build", params, created_by=body.created_by)
+    return {"job_id": job.id, "session_id": session, "name": body.name}
+
+
+@router.get("/sessions/{session_id}/lenses/{name}/readings")
+def lens_readings(session_id: str, name: str, target: Optional[str] = None,
+                  position: Optional[int] = None) -> Dict[str, Any]:
+    """Any capture (`target`, the lens's own by default) read through a mass-mean lens: each
+    item's position along the contrast at every layer, class means at -1 and +1."""
+    from services.lenses.massmean import readings
+    from services.lenses.store import lens_dir, read_manifest
+
+    try:
+        folder = lens_dir(session_id, name)
+        if read_manifest(folder).kind != "mass_mean":
+            raise ValueError(f"'{name}' is a UMAP lens: read its clusters with /flows")
+        return readings(folder, target or session_id, position)
+    except (FileNotFoundError, ValueError) as e:
+        raise _fail(e)
+
+
+@router.get("/sessions/{session_id}/lenses/{name}/marks")
+def lens_marks(session_id: str, name: str, version: Optional[str] = None) -> Dict[str, Any]:
+    """Where the UMAP lens and raw space disagree: per layer, the items whose co-members in the
+    lens's node and in the best raw grouping at the same k overlap less than half (Jaccard), and
+    how many sit in each node. Needs the lens validated (the raw groupings come from it)."""
+    import numpy as np
+
+    from services.lenses.raw import MARK_BELOW, co_member_overlap
+    from services.lenses.store import lens_dir
+
+    view = _open(session_id, name, False, version)
+    folder = lens_dir(session_id, name)
+    if not (folder / "raw_cuts.npz").exists() or not (folder / "validation.json").exists():
+        raise HTTPException(status_code=404, detail=f"Lens '{name}' has no raw groupings yet: validate it first")
+    cuts = np.load(folder / "raw_cuts.npz")
+    ks = [int(k) for k in cuts["ks"]]
+    comparison = json.loads((folder / "validation.json").read_text(encoding="utf-8")).get("comparison", {})
+    out: Dict[str, Any] = {"threshold": MARK_BELOW, "layers": {}}
+    for li, layer in enumerate(view.layers):
+        k = int(view.nodes[:, li].max()) + 1
+        if k not in ks:
+            continue
+        scored = comparison.get(str(layer), {})
+        best = max(("raw_ward", "raw_spectral"),
+                   key=lambda m: (scored.get(m, {}).get(str(k)) or {}).get("kappa", -1.0))
+        overlap = co_member_overlap(view.nodes[:, li], cuts[best][li, ks.index(k)])
+        marked = np.flatnonzero(overlap < MARK_BELOW)
+        nodes = Counter(int(view.nodes[i, li]) for i in marked)
+        out["layers"][str(layer)] = {"method": best, "k": k, "marked": [view.items[int(i)]["probe_id"] for i in marked],
+                                     "nodes": {f"L{layer}C{node}": n for node, n in sorted(nodes.items())}}
+    return out
 
 
 @router.get("/sessions/{session_id}/lenses/{name}/validation")

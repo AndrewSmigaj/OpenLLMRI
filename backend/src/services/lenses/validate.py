@@ -171,6 +171,60 @@ def validate_layer(states: Array, embedding: Array, folds: List[Array], codes: D
     return profile
 
 
+RAW_METHODS = ("raw_ward", "raw_spectral", "neurons")
+
+
+def compare_layer(states: Array, folds: List[Array], labels: Array, n_neighbors: int,
+                  seed: int) -> Tuple[Dict[str, Any], Dict[str, Dict[int, Array]]]:
+    """The fair comparison at one layer, on the label: raw groupings scored on the same folds and
+    at every k as the UMAP lens (held-out items assigned by the same vote), the supervised
+    ceiling, and every item's raw cluster at every k on all the data (for disagreement marks)."""
+    from sklearn.metrics import adjusted_mutual_info_score as ami
+
+    from services.lenses.raw import ceiling, neuron_features, pca_features, spectral_cuts, ward_cuts
+
+    n = len(states)
+    ks = [k for k in K_RANGE if k < n]
+    records: Dict[str, Dict[int, Dict[str, List[Any]]]] = {
+        m: {k: {"truth": [], "pred": [], "acc": [], "ami": []} for k in ks} for m in RAW_METHODS}
+    top: Dict[str, List[Any]] = {"truth": [], "pred": [], "acc": [], "ami": []}
+    for test in folds:
+        train = np.setdiff1d(np.arange(n), test)
+        y_train, y_test = labels[train], labels[test]
+        keep = y_test >= 0
+        if not keep.any() or len(set(y_train[y_train >= 0].tolist())) < 2:
+            continue
+        tr50, te50 = pca_features(states[train], states[test], seed)
+        trn, ten = neuron_features(states[train], states[test], y_train, seed)
+        groupings = {"raw_ward": (tr50, te50, ward_cuts(tr50, ks)),
+                     "raw_spectral": (tr50, te50, spectral_cuts(tr50, ks, n_neighbors, seed)),
+                     "neurons": (trn, ten, ward_cuts(trn, ks))}
+        for method, (tr, te, cuts) in groupings.items():
+            for k in ks:
+                assigned = _vote(te, tr, cuts[k], k)
+                truth, predicted = y_test[keep], _majority(cuts[k], y_train, k)[assigned][keep]
+                record = records[method][k]
+                record["truth"].append(truth)
+                record["pred"].append(predicted)
+                record["acc"].append(float((truth == predicted).mean()))
+                record["ami"].append((float(ami(truth, assigned[keep])), int(keep.sum())))
+        known = y_train >= 0
+        predicted = ceiling(states[train][known], y_train[known], states[test], seed)[keep]
+        top["truth"].append(y_test[keep])
+        top["pred"].append(predicted)
+        top["acc"].append(float((y_test[keep] == predicted).mean()))
+        top["ami"].append((float(ami(y_test[keep], predicted)), int(keep.sum())))
+
+    def score(r: Dict[str, List[Any]]) -> Optional[Dict[str, float]]:
+        return _scores(np.concatenate(r["truth"]), np.concatenate(r["pred"]), r["acc"], r["ami"]) if r["truth"] else None
+
+    comparison: Dict[str, Any] = {m: {str(k): score(records[m][k]) for k in ks} for m in RAW_METHODS}
+    comparison["ceiling"] = score(top)
+    everything, _ = pca_features(states, states, seed)
+    full = {"raw_ward": ward_cuts(everything, ks), "raw_spectral": spectral_cuts(everything, ks, n_neighbors, seed)}
+    return comparison, full
+
+
 PLANTED_PASS = 0.9  # ARI of the planted layer's 5-cut with its classes
 NULL_PASS = 0.1  # AMI of the null layer's 5-cut with labels that carry no signal (it wanders to ~0.08 at 100 items)
 LATENT = 8  # the planted structure lives in a small space, so its clarity doesn't depend on the layer's width
@@ -222,12 +276,30 @@ def self_check(n: int, dim: int, n_neighbors: int, dimensions: int, seed: int) -
 
 
 def _validate_one(folder: str, layer: int, embedding: Array, folds: List[Array], codes: Dict[str, Array],
-                  n_neighbors: int, dimensions: int, seed: int, seeds: int) -> Tuple[int, Dict[str, Any]]:
+                  n_neighbors: int, dimensions: int, seed: int,
+                  seeds: int) -> Tuple[int, Dict[str, Any], Dict[str, Any], Dict[str, Dict[int, Array]]]:
     """One layer, in a worker process: its states come from the job's work folder."""
     from pathlib import Path
 
     states = np.load(Path(folder) / f"X_L{layer:02d}.npy")
-    return layer, validate_layer(states, embedding, folds, codes, n_neighbors, dimensions, seed, seeds)
+    profile = validate_layer(states, embedding, folds, codes, n_neighbors, dimensions, seed, seeds)
+    comparison, full = compare_layer(states, folds, codes["label"], n_neighbors, seed) \
+        if "label" in codes and (codes["label"] >= 0).any() else ({}, {})
+    return layer, profile, comparison, full
+
+
+def _write_raw_cuts(folder: Any, layers: List[int], full: Dict[int, Dict[str, Dict[int, Array]]]) -> None:
+    """Every item's raw cluster at every layer and k, on all the data: `raw_cuts.npz` holds, per
+    method, an array [layers, k from 2, items] (for the disagreement marks)."""
+    first = next((cuts for cuts in full.values() if cuts), None)
+    if first is None:
+        return
+    ks = sorted(next(iter(first.values())))
+    arrays = {method: np.stack([np.stack([full[layer][method][k] for k in ks]) for layer in layers]).astype(np.int16)
+              for method in first}
+    tmp = folder / ".raw_cuts.tmp.npz"
+    np.savez_compressed(tmp, ks=np.array(ks), **arrays)
+    tmp.replace(folder / "raw_cuts.npz")
 
 
 def validate_lens(params: Dict[str, Any], ctx: Any) -> Dict[str, Any]:
@@ -268,14 +340,18 @@ def validate_lens(params: Dict[str, Any], ctx: Any) -> Dict[str, Any]:
     tasks = (delayed(_validate_one)(str(work), layer, embeddings[li], folds, codes, s.n_neighbors,
                                     s.dimensions, s.seed, p.seeds) for li, layer in enumerate(view.layers))
     profiles: Dict[str, Any] = {}
+    comparisons: Dict[str, Any] = {}
+    full: Dict[int, Dict[str, Dict[int, Array]]] = {}
     ctx.progress("validating", 0, len(view.layers))
-    for layer, profile in Parallel(n_jobs=workers, backend="loky", return_as="generator_unordered")(tasks):
-        profiles[str(layer)] = profile
+    for layer, profile, comparison, cuts in Parallel(n_jobs=workers, backend="loky", return_as="generator_unordered")(tasks):
+        profiles[str(layer)], comparisons[str(layer)], full[layer] = profile, comparison, cuts
         ctx.progress("validating", len(profiles), len(view.layers))
         ctx.check_cancelled()
+    _write_raw_cuts(folder, view.layers, full)
     commit, dirty = git_state()
     record: Dict[str, Any] = {"format": 1, "folds": folding, "axes": axes, "seeds": p.seeds, "vote_neighbours": VOTE_NEIGHBOURS,
               "layers": {str(layer): profiles[str(layer)] for layer in view.layers},
+              "comparison": {str(layer): comparisons[str(layer)] for layer in view.layers},
               "provenance": {"commit": commit, "dirty": dirty, "job_id": ctx.job_id,
                              "seconds": round(time.time() - started, 1),
                              "created_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())}}

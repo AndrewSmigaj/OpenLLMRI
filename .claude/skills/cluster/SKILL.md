@@ -101,7 +101,21 @@ curl -s http://localhost:8000/api/sessions/SID/lenses/NAME/validation
 
 Once validated, `"k_auto":"heldout"` (OP-L3's versions call) takes each layer's best held-out
 k; it is selection-biased, and the version says so. Every build also records a self-check
-(planted classes found, nothing found in noise) in the lens list.
+(planted classes found, nothing found in noise) in the lens list. A validation also scores raw
+space on the same folds and k (PCA-50 Ward and spectral, relevant neurons, the logistic
+ceiling: `comparison` in the result), and `.../marks` then lists the items where the lens and
+raw space group differently.
+
+### OP-L5: A mass-mean lens (one contrast, A at -1 and B at +1; a job)
+
+Validated on held-out scene families as it is built (the paper's algorithm). Its readings work
+on any capture at its site.
+
+```bash
+curl -s -X POST http://localhost:8000/api/lenses/mass-mean -H "Content-Type: application/json" \
+  -d '{"session_id":"SID","name":"NAME","label_a":"A","label_b":"B","token_position":1,"created_by":"claude-code"}'
+curl -s "http://localhost:8000/api/sessions/SID/lenses/NAME/readings?target=OTHER_SID"
+```
 
 The schema operations below are legacy; their build endpoint retires at the end of slice 1.
 

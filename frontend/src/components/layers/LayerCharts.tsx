@@ -28,6 +28,7 @@ interface LayerChartsProps {
   view: ViewState
   update: UpdateView
   colours: SankeyColours
+  outlined?: Record<string, number> // cluster nodes holding items raw space groups differently
   onExport: (kind: 'cluster' | 'expert', format: ExportFormat, chart: echarts.ECharts | null) => void
 }
 
@@ -39,7 +40,7 @@ function Status({ state, height }: { state: FlowsState; height: number }) {
   )
 }
 
-export default function LayerCharts({ cluster, expert, view, update, colours, onExport }: LayerChartsProps) {
+export default function LayerCharts({ cluster, expert, view, update, colours, outlined, onExport }: LayerChartsProps) {
   const scroller = useRef<HTMLDivElement>(null)
   const box = useElementSize(scroller)
   const charts = useRef<Record<'cluster' | 'expert', echarts.ECharts | null>>({ cluster: null, expert: null })
@@ -109,9 +110,11 @@ export default function LayerCharts({ cluster, expert, view, update, colours, on
         <div className="sticky top-0 z-20">
           <LayerHeader columns={columns} left={LEFT} spacing={spacing} width={width} />
         </div>
-        {header('Clusters', 'cluster')}
+        {header('Clusters', 'cluster', outlined && Object.keys(outlined).length > 0 ? (
+          <span className="text-[10px] text-gray-500">outlined: nodes holding items that raw space groups differently</span>
+        ) : undefined)}
         {cluster.routes
-          ? <AllLayerSankeyView routes={cluster.routes} geometry={geometry} colours={colours} onSelect={select}
+          ? <AllLayerSankeyView routes={cluster.routes} geometry={geometry} colours={colours} outlined={outlined} onSelect={select}
               onChartReady={chart => { charts.current.cluster = chart }} />
           : <Status state={cluster} height={height} />}
         <div className="h-2" />

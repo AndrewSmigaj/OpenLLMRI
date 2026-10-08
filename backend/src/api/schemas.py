@@ -400,48 +400,6 @@ class ScaffoldStepResponse(BaseModel):
     element_labels: Optional[Dict[str, str]] = None
 
 
-# --- Raw-axis projection schemas (retire with the endpoint, DESIGN.md G) ---
-
-class RawAxisProjectionRequest(BaseModel):
-    """Raw 2880-d difference-of-class-means axis projection (N1 instrument).
-
-    Calibrates per-layer axes from a labeled session's raw residuals (class means
-    renormalized to -1/+1), then projects either the same session or a target
-    session onto them. Mirrors docs/studies/context_shift/analysis/axis_projection.py.
-    """
-    calibration_session_id: str
-    label_a: str                      # projects to -1
-    label_b: str                      # projects to +1
-    token_position: int = 1           # semantic capture site (1 = target token)
-    layers: Optional[List[int]] = None  # None = all layers present
-    target_session_id: Optional[str] = None  # None = project calibration session itself
-
-
-class RawAxisPoint(BaseModel):
-    probe_id: str
-    layer: int
-    label: Optional[str] = None
-    sentence_index: Optional[int] = None
-    projection: float
-
-
-class RawAxisLayerReport(BaseModel):
-    layer: int
-    n_a: int
-    n_b: int
-    axis_norm: float
-    mean_proj_a: float
-    mean_proj_b: float
-    std_a: float
-    std_b: float
-
-
-class RawAxisProjectionResponse(BaseModel):
-    convention: str = "mean(A) -> -1, mean(B) -> +1"
-    report: List[RawAxisLayerReport]
-    points: List[RawAxisPoint]
-
-
 # --- Agent session schemas ---
 # CLAUDE: Do NOT pass evennia_username or evennia_password in curl calls.
 # They default from .env via load_dotenv() in main.py. Use the /agent skill

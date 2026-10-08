@@ -70,6 +70,38 @@ class), so 12 folds each hold out one aquarium scene and one vehicle scene. Chan
   and 0.02, with the scene 0.04), while finer cuts still classify (κ 0.71–0.78). The surface
   check (10b.9) is the tool for asking what it follows.
 
+## UMAP against raw space, and the mass-mean axis (10b.8)
+
+The validation now scores raw-space groupings on the same folds and at the same k, on the label:
+standardized PCA-50 with Ward, the same components with spectral clustering, and relevant-neuron
+PCA (the top 200 neurons by ANOVA F chosen inside each training fold, 10 components, Ward). The
+supervised ceiling is logistic regression on the standardized states. Held-out κ on the label:
+
+| Capture, k | Layer | UMAP lens | raw Ward | raw spectral | relevant neurons | ceiling (accuracy) |
+|---|---|---|---|---|---|---|
+| calibration, k = 2 | L4 | 0.66 | 0.48 | 0.80 | 0.81 | 0.88 (0.940) |
+| | L5 | 0.72 | 0.41 | 0.77 | 0.80 | 0.86 (0.928) |
+| | L12 | 0.56 | 0.49 | 0.58 | 0.63 | 0.84 (0.922) |
+| | L21 | −0.15 | 0.45 | 0.45 | 0.51 | 0.83 (0.915) |
+| tank senses, k = 5 | L4 | 0.45 | 0.56 | 0.51 | 0.62 | 0.80 (0.842) |
+| | L8 | 0.54 | 0.54 | 0.55 | 0.49 | 0.82 (0.856) |
+| | L12 | 0.57 | 0.56 | 0.58 | 0.54 | 0.80 (0.844) |
+| | L23 | 0.38 | 0.46 | 0.45 | 0.58 | 0.81 (0.848) |
+
+- On these two captures, at the same k, the UMAP lens doesn't beat raw space. On the calibration
+  scenes at k = 2, raw spectral clustering beats it at L4 (0.80 against 0.66); on the tank senses at
+  k = 5 the three unsupervised groupings sit within about 0.1 of each other at most layers. This
+  matches the design's 2026-10-06 preview, where raw space matched or beat UMAP on one five-way axis
+  and UMAP won only on a combination of two axes (frame × voice). That combination is the next
+  comparison to run.
+- The ceiling stays well above every unsupervised grouping (κ 0.80 to 0.88 at the layers shown; about
+  0.5 at L0): the classes are linearly separable far better than any clustering here recovers them.
+- The mass-mean lens on the calibration capture (aquarium against vehicle, token position 1,
+  12 scene-family folds) scores 0.905 at L4, the paper's figure exactly, built in 3.4 s.
+- Disagreement marks: per layer, items whose co-members in the UMAP node and in the better raw
+  grouping (Ward or spectral, by held-out κ at that k) overlap less than half (Jaccard) are marked,
+  and the nodes holding them are outlined on the cluster Sankey.
+
 ## The self-check, and what it showed about nesting
 
 Every build now fits a planted layer (five classes in two groups) and a null layer, both shaped

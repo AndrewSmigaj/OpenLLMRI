@@ -17,7 +17,7 @@ import type {
 } from '../types/api';
 import type {
   Fingerprint, JobView, LensBuildBody, LensDetail, LensFlows, LensMembersPage, LensMethods, LensOptions, LensSummary,
-  LensVersion, MembersQuery, Population, Validation,
+  LensMarks, LensVersion, MassMeanValidation, MembersQuery, Population, Validation,
 } from '../types/lens';
 
 const API_BASE_URL = 'http://localhost:8000/api';
@@ -367,6 +367,21 @@ class ConceptMriApiClient {
 
   async getLensValidation(sessionId: string, name: string): Promise<Validation> {
     return this.request<Validation>(`/sessions/${sessionId}/lenses/${encodeURIComponent(name)}/validation`);
+  }
+
+  // Where the lens and raw space disagree (needs the lens validated)
+  async getLensMarks(sessionId: string, name: string): Promise<LensMarks> {
+    return this.request<LensMarks>(`/sessions/${sessionId}/lenses/${encodeURIComponent(name)}/marks`);
+  }
+
+  // Starts building a mass-mean lens: label A against label B
+  async buildMassMean(body: { session_id: string; name: string; label_a: string; label_b: string;
+                              token_position?: number; created_by: string }): Promise<{ job_id: string }> {
+    return this.request('/lenses/mass-mean', { method: 'POST', body: JSON.stringify(body) });
+  }
+
+  async getMassMeanValidation(sessionId: string, name: string): Promise<MassMeanValidation> {
+    return this.request<MassMeanValidation>(`/sessions/${sessionId}/lenses/${encodeURIComponent(name)}/validation`);
   }
 
   // Freezes a version with its keywords

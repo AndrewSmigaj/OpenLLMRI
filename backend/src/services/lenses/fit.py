@@ -90,3 +90,18 @@ def suggest_k(embedding: Array, tree: Array, k_max: int = 10,
         "levels": levels,
         "silhouette_by_k": {str(k): round(v, 4) for k, v in silhouettes.items()},
     }
+
+
+def mass_mean_axis(states: Array, is_b: Array) -> Tuple[Array, Array, float]:
+    """A contrast's axis at one layer: the difference of the two classes' mean states (B minus A),
+    their midpoint, and the axis's squared length."""
+    mean_a, mean_b = states[~is_b].mean(axis=0), states[is_b].mean(axis=0)
+    axis = (mean_b - mean_a).astype(np.float32)
+    return axis, ((mean_a + mean_b) / 2).astype(np.float32), float(axis @ axis)
+
+
+def mass_mean_reading(states: Array, axis: Array, mid: Array, norm2: float) -> Array:
+    """Positions along the axis, scaled so the class means land at -1 and +1:
+    2 (x - mid) . axis / |axis|^2 (the paper's formula, and the retired raw-axis endpoint's)."""
+    reading: Array = 2.0 * ((states - mid) @ axis) / max(norm2, 1e-12)
+    return reading

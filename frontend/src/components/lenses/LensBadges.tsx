@@ -22,6 +22,19 @@ export default function LensBadges({ session, lens, disabled, onValidated }: Len
   const headline = lens.validation
   const best = headline?.best
 
+  if (lens.kind === 'mass_mean') {
+    return (
+      <div className="flex flex-wrap items-center gap-2">
+        {best ? (
+          <span className={badge(best.accuracy >= 0.8 ? 'good' : 'none')}
+            title={`${headline?.folds.kind}, ${headline?.folds.n_folds} folds; κ ${best.kappa}, worst fold ${best.worst_fold}`}>
+            held out: accuracy {best.accuracy.toFixed(3)} at L{best.layer}
+            {headline?.folds.weaker ? ' · weaker folds' : ` · ${headline?.folds.n_folds} scene-family folds`}
+          </span>
+        ) : <span className={badge('none')}>no held-out scores</span>}
+      </div>
+    )
+  }
   return (
     <div className="space-y-1">
       <div className="flex flex-wrap items-center gap-2">

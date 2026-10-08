@@ -13,6 +13,8 @@ import LensForm from '../components/lenses/LensForm'
 import LensVersions from '../components/lenses/LensVersions'
 import LensBadges from '../components/lenses/LensBadges'
 import LensValidation from '../components/lenses/LensValidation'
+import MassMeanForm from '../components/lenses/MassMeanForm'
+import MassMeanResults from '../components/lenses/MassMeanResults'
 import { useShell } from '../components/shell/shellContext'
 
 export default function BuildWorkspace() {
@@ -64,6 +66,10 @@ export default function BuildWorkspace() {
         ? <LensForm key={view.session} session={view.session} options={options} methods={methods} disabled={visitor}
             takenNames={(lenses ?? []).map(l => l.name)} onBuilt={name => show(name, false)} />
         : !problem && <p className="text-xs text-gray-500">Reading the capture…</p>}
+      {options && (
+        <MassMeanForm key={`mm:${view.session}`} session={view.session} options={options} disabled={visitor}
+          takenNames={(lenses ?? []).map(l => l.name)} onBuilt={() => setReload(r => r + 1)} />
+      )}
       <h2 className="text-sm font-semibold text-gray-900">Lenses on this capture</h2>
       {lenses === null && <p className="text-xs text-gray-500">Loading…</p>}
       {lenses?.length === 0 && <p className="text-xs text-gray-500">None yet.</p>}
@@ -74,8 +80,12 @@ export default function BuildWorkspace() {
               {lens.legacy
                 ? <div className="text-xs"><span className="font-mono">{lens.name}</span>
                     <span className="ml-2 text-[10px] text-gray-500">legacy schema · {lens.n_items ?? '?'} items</span></div>
-                : <SchemaSummary schema={lensAsSchema(lens)} />}
-              {!lens.legacy && (
+                : lens.kind === 'mass_mean'
+                  ? <div className="text-xs"><span className="font-mono">{lens.name}</span>
+                      <span className="ml-2 text-[10px] text-gray-500">mass-mean: {lens.contrast?.label_a} at −1, {lens.contrast?.label_b} at +1 ·
+                        {' '}{lens.n_items ?? '?'} items · token position {lens.site?.token_position}</span></div>
+                  : <SchemaSummary schema={lensAsSchema(lens)} />}
+              {!lens.legacy && lens.kind !== 'mass_mean' && (
                 <div className="text-[10px] text-gray-500 mt-0.5">
                   {lens.current} {lens.state ?? 'draft'} · {lens.versions?.length ?? 1} version(s) · built{' '}
                   {lens.created_at?.slice(0, 16).replace('T', ' ')} by {lens.created_by}
@@ -93,18 +103,20 @@ export default function BuildWorkspace() {
                 validation {results === lens.name ? '▴' : '▾'}
               </button>
             )}
-            {!lens.legacy && (
+            {!lens.legacy && lens.kind !== 'mass_mean' && (
               <button onClick={() => setOpen(o => (o === lens.name ? null : lens.name))}
                 className="px-2 py-1 text-xs rounded border border-gray-300 text-gray-700 hover:bg-gray-50">
                 k per layer {open === lens.name ? '▴' : '▾'}
               </button>
             )}
-            <button onClick={() => show(lens.name, lens.legacy)} disabled={visitor}
-              className="px-2 py-1 text-xs rounded bg-blue-600 text-white hover:bg-blue-700 disabled:bg-gray-300">Open in Layers</button>
+            {lens.kind !== 'mass_mean' && (
+              <button onClick={() => show(lens.name, lens.legacy)} disabled={visitor}
+                className="px-2 py-1 text-xs rounded bg-blue-600 text-white hover:bg-blue-700 disabled:bg-gray-300">Open in Layers</button>
+            )}
           </div>
-          {results === lens.name && !lens.legacy && lens.validation && (
-            <LensValidation session={view.session} lens={lens} />
-          )}
+          {results === lens.name && !lens.legacy && lens.validation && (lens.kind === 'mass_mean'
+            ? <MassMeanResults session={view.session} lens={lens} />
+            : <LensValidation session={view.session} lens={lens} />)}
           {open === lens.name && !lens.legacy && (
             <LensVersions key={`${lens.name}:${lens.current}`} session={view.session} lens={lens} disabled={visitor}
               onChanged={() => setReload(r => r + 1)} />

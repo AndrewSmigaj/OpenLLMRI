@@ -56,6 +56,8 @@ def open_lens(session_id: str, name: str, version: Optional[str] = None,
     if not (folder / "lens.json").exists():
         raise FileNotFoundError(f"Lens '{name}' not found in {session_id}")
     manifest = read_manifest(folder)
+    if manifest.kind != "umap":
+        raise ValueError(f"'{name}' is a {manifest.kind} lens: it has no clusters (read it with its readings)")
     chosen = version or manifest.current
     if chosen not in manifest.versions:
         raise FileNotFoundError(f"Lens '{name}' has no version {chosen!r}")

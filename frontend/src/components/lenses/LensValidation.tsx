@@ -100,8 +100,37 @@ export default function LensValidation({ session, lens }: { session: string; len
     }
   }, [validation, measure, layers, ks, own, best])
 
+  // The fair comparison (label only): the same folds and the same k for every grouping; the
+  // relevant neurons use the labels, so they stand beside the ceiling, not the unsupervised ones
+  const versus = useMemo<echarts.EChartsOption | null>(() => {
+    const comparison = validation?.comparison
+    if (!validation || !comparison) return null
+    const at = (li: number) => String(own[li])
+    const series = (name: string, read: (li: number) => number | undefined, type: 'solid' | 'dashed' | 'dotted' = 'solid') =>
+      ({ name, type: 'line' as const, connectNulls: true, lineStyle: { type },
+         data: layers.map((_, li) => read(li) ?? null) })
+    const raw = (method: 'raw_ward' | 'raw_spectral' | 'neurons') => (li: number) =>
+      comparison[String(layers[li])]?.[method]?.[at(li)]?.kappa
+    return {
+      title: { text: "UMAP against raw space: held-out κ on label at this version's k", left: 'center', textStyle: { fontSize: 12 } },
+      tooltip: { trigger: 'axis' }, legend: { bottom: 0, textStyle: { fontSize: 10 } },
+      grid: { left: 40, right: 16, top: 28, bottom: 40 },
+      xAxis: { type: 'category', data: layers.map(l => `L${l}`), axisLabel: { fontSize: 9 } },
+      yAxis: { type: 'value', min: -0.2, max: 1, axisLabel: { fontSize: 9 } },
+      series: [
+        series('UMAP lens', li => validation.layers[String(layers[li])]?.[at(li)]?.heldout.label?.kappa),
+        series('raw: PCA-50, Ward', raw('raw_ward')),
+        series('raw: PCA-50, spectral', raw('raw_spectral')),
+        series('relevant neurons (uses labels)', raw('neurons'), 'dashed'),
+        series('ceiling: logistic regression', li => comparison[String(layers[li])]?.ceiling?.kappa, 'dotted'),
+      ],
+      animation: false,
+    }
+  }, [validation, layers, own])
+
   const lineBox = useChart(byLayer)
   const gridBox = useChart(profile)
+  const versusBox = useChart(versus)
   if (error) return <p className="text-xs text-red-600">{error}</p>
   if (!validation) return <p className="text-xs text-gray-500">Loading the validation…</p>
   const select = 'px-1 py-0.5 text-xs border border-gray-300 rounded bg-white'
@@ -127,6 +156,9 @@ export default function LensValidation({ session, lens }: { session: string; len
         <div ref={lineBox} style={{ height: 260 }} />
         <div ref={gridBox} style={{ height: 260 }} />
       </div>
+      {validation.comparison
+        ? <div ref={versusBox} style={{ height: 260 }} />
+        : <p className="text-[11px] text-gray-400">Validate again to compare with raw space (this validation predates it).</p>}
     </div>
   )
 }

@@ -61,7 +61,8 @@ class Provenance(BaseModel):
 class LensManifest(BaseModel):
     format_version: int = FORMAT_VERSION
     name: str
-    kind: Literal["umap"] = "umap"
+    kind: Literal["umap", "mass_mean"] = "umap"
+    contrast: Optional[Dict[str, str]] = None  # mass-mean lenses: {"label_a": ..., "label_b": ...}
     session_id: str
     capture: Dict[str, Any] = Field(default_factory=dict)
     site: LensSite = Field(default_factory=LensSite)
@@ -168,7 +169,7 @@ def summary(manifest: LensManifest, folder: Path) -> Dict[str, Any]:
     """What a lens list shows: name, kind, settings, items, versions and the current k."""
     current = read_version(folder, manifest.current) if manifest.current else None
     return {
-        "name": manifest.name, "kind": manifest.kind, "legacy": False,
+        "name": manifest.name, "kind": manifest.kind, "legacy": False, "contrast": manifest.contrast,
         "session_id": manifest.session_id, "n_items": manifest.n_items,
         "settings": manifest.settings.model_dump(), "site": manifest.site.model_dump(),
         "filters": manifest.filters.model_dump(),
@@ -190,6 +191,11 @@ def _validation_headline(folder: Path, manifest: LensManifest, current: Optional
         return None
     record = json.loads(path.read_text(encoding="utf-8"))
     best: Optional[Dict[str, Any]] = None
+    if manifest.kind == "mass_mean":  # one axis per layer: its best held-out layer
+        for layer, scores in record["layers"].items():
+            if best is None or scores["accuracy"] > best["accuracy"]:
+                best = {"layer": int(layer), **{key: scores[key] for key in ("accuracy", "kappa", "worst_fold")}}
+        return {"folds": record["folds"], "best": best, "created_at": record["provenance"]["created_at"]}
     for li, layer in enumerate(manifest.layers):
         k = current.k_per_layer[li] if current else None
         scores = record["layers"].get(str(layer), {}).get(str(k), {}).get("heldout", {}).get("label")
