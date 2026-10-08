@@ -16,7 +16,6 @@ import { useSchemaManagement } from '../hooks/useSchemaManagement'
 import Toolbar from '../components/toolbar/Toolbar'
 import ExpertRoutesSection from '../components/analysis/ExpertRoutesSection'
 import ClusterRoutesSection from '../components/analysis/ClusterRoutesSection'
-import TemporalAnalysisSection from '../components/analysis/TemporalAnalysisSection'
 import WindowAnalysis from '../components/analysis/WindowAnalysis'
 import ContextSensitiveCard from '../components/analysis/ContextSensitiveCard'
 import FilteredWordDisplay from '../components/FilteredWordDisplay'
@@ -373,14 +372,6 @@ export default function MUDApp() {
                   onSankeyAnalysisReady={handleSankeyAnalysisReady}
                   onTrajectoryAnalysisReady={handleTrajectoryAnalysisReady}
                   selectedProbeId={selectedCard?.type === 'route' ? selectedCard.data?.probe_id ?? null : null}
-                />
-              </PanelErrorBoundary>
-
-              <PanelErrorBoundary key={`temporal:${panelKey}`} name="Temporal analysis">
-                <TemporalAnalysisSection
-                  sessionId={selectedSession}
-                  clusterRouteData={currentClusterRouteData}
-                  clusteringSchema={selectedSchema}
                 />
               </PanelErrorBoundary>
             </>

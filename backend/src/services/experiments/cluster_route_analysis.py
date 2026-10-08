@@ -151,7 +151,7 @@ class ClusterRouteAnalysisService:
 
         # NOTE: probe_assignments is NOT persisted at the session root any more.
         # The schema-dir copy (written by clustering.py save path) is the single
-        # source of truth, and temporal.py reads from it directly.
+        # source of truth.
 
         return {
             "session_id": ids[0] if len(ids) == 1 else ",".join(ids[:3]),

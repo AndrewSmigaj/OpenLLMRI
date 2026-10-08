@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# Retired 2026-10-08: the /api/experiments/temporal-capture route this script calls no longer exists
+# (docs/DESIGN.md G). Kept as the record of how these captures were made.
 # Polysemy paper-protocol via /api/experiments/temporal-capture
 # with processing_mode=expanding_cache_on. 10 orderings x 2 directions = 20 runs.
 

@@ -18,7 +18,6 @@ src/
 │   ├── analysis/
 │   │   ├── ExpertRoutesSection.tsx      # Expert routing panel
 │   │   ├── ClusterRoutesSection.tsx     # Cluster routing panel
-│   │   ├── TemporalAnalysisSection.tsx  # Temporal lag plots
 │   │   ├── WindowAnalysis.tsx           # Per-window written report viewer
 │   │   ├── ContextSensitiveCard.tsx     # Click-to-inspect node/route card
 │   │   └── SchemaSummary.tsx            # Natural-language schema paragraph (rendered in Toolbar)

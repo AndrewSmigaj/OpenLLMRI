@@ -394,7 +394,7 @@ export default function ContextSensitiveCard({ cardType, selectedData, primaryVa
                       )
                     }
 
-                    // Standard card (sentence sets, temporal)
+                    // Standard card (sentence sets)
                     return (
                       <div key={token.probe_id || index} className="bg-gray-50 px-1.5 py-0.5 rounded">
                         <p className="text-[10px] text-gray-700 leading-snug">

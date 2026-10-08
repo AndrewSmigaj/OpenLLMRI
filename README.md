@@ -147,7 +147,6 @@ This project uses **Claude Code not as a development tool, but as the analysis r
 | `/analyze` | Read cluster/route data, reason about patterns, write reports |
 | `/setup` | First-time project setup — venv, the MUD (Docker) and its accounts, the model |
 | `/server` | Start, stop, and check status of servers |
-| `/temporal` | Run temporal capture experiments |
 | `/agent` | Start, resume, monitor, and stop agent scenario sessions |
 | `/cdd` | Uncertainty assessment before implementation |
 
@@ -179,7 +178,7 @@ This project uses **Claude Code not as a development tool, but as the analysis r
 ┌──────────▼──────────────────────────────────────────────┐
 │                  React Frontend                          │
 │  Sankey diagrams · Stepped UMAP trajectories             │
-│  Temporal analysis · Click-to-inspect cards               │
+│  Colour blending · Click-to-inspect cards                │
 └─────────────────────────────────────────────────────────┘
 ```
 
@@ -187,7 +186,7 @@ This project uses **Claude Code not as a development tool, but as the analysis r
 
 - **Sentence set analysis**: Sentences → model forward pass → routing weights + residual streams → Parquet files → UMAP projection → hierarchical clustering → behavioral validation → neuron extraction
 - **MUD scenario analysis**: Scenario library → a fresh room in the MUD per load → the agent's websocket session → tick-by-tick capture → Parquet → trajectory and cluster analysis
-- **Temporal analysis**: Expanding context window → raw-activation axis projection → transition dynamics
+- **Time** (designed, not yet built): one saved lens read at a fixed site along context steps, agent ticks or reasoning steps ([`docs/DESIGN.md`](docs/DESIGN.md) Part D)
 
 The MUD is one Evennia 6 MUD, run in Docker, that hosts the institute, its labs, staged scenario sets and free-form worlds; see [`docs/architecture/one-mud.md`](docs/architecture/one-mud.md).
 

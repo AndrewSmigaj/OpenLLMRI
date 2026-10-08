@@ -11,7 +11,7 @@ api/
 ├── schemas.py           # Pydantic request/response models
 └── routers/
     ├── probes.py        # Session management, probe capture, clustering schemas
-    ├── experiments.py   # Route analysis, cluster analysis, temporal capture, LLM insights
+    ├── experiments.py   # Route analysis, cluster analysis, LLM insights
     ├── generation.py    # Sentence set listing and generation
     └── prompts.py       # Scaffold template delivery
 
@@ -55,7 +55,6 @@ core/
 | `/api/experiments/analyze-routes` | POST | Expert routing analysis (Sankey data) |
 | `/api/experiments/analyze-cluster-routes` | POST | Cluster routing analysis (after reduction) |
 | `/api/experiments/reduce` | POST | PCA/UMAP dimensionality reduction |
-| `/api/experiments/temporal-capture` | POST | Temporal basin transition experiment |
 | `/api/probes/sessions/{id}/clusterings` | GET | List clustering schemas |
 | `/api/probes/sessions/{id}/clusterings/{name}` | GET | Load schema with reports and descriptions |
 

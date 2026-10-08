@@ -400,51 +400,7 @@ class ScaffoldStepResponse(BaseModel):
     element_labels: Optional[Dict[str, str]] = None
 
 
-# --- Temporal Capture Schemas ---
-
-class TemporalCaptureRequest(BaseModel):
-    """Request to run a temporal basin transition experiment.
-
-    Always uses harmony chat-template + KV-cache reuse (verified to produce
-    residuals identical to no-cache within fp16 precision, much faster).
-    """
-    session_id: str
-    basin_a_cluster_id: int
-    basin_b_cluster_id: int
-    basin_layer: int
-    clustering_schema: str  # Required — schema_dir/probe_assignments.json is the only source
-    sentences_per_block: int = 20
-    sequence_config: str = "block_ab"  # block_ab, block_ba, block_aba
-    layers: Optional[List[int]] = None
-    run_label: Optional[str] = None
-    generate_output: bool = False  # rare for temporal protocol; off by default
-    custom_sentences: Optional[List[str]] = None  # Word-by-word or joke experiments
-    custom_target_word: Optional[str] = None  # Override target_word for custom_sentences
-
-
-class TemporalCaptureResponse(BaseModel):
-    """Response from a temporal capture experiment."""
-    temporal_run_id: str
-    new_session_id: str
-    sequence_positions: int
-    regime_boundary: int
-    basin_a_sentences: int
-    basin_b_sentences: int
-
-
-# --- Temporal Lag Data Schemas ---
-
-class TemporalLagDataRequest(BaseModel):
-    """Request to compute basin axis projection for a temporal session."""
-    source_session_id: str           # Original session with clustering
-    temporal_session_id: str         # From temporal capture
-    clustering_schema: str           # Named schema for probe assignments
-    basin_a_cluster_id: int
-    basin_b_cluster_id: int
-    basin_layer: int
-    token_position: int = 1          # semantic capture site: 1 = target token; 2+ = per-token
-                                     # substring span (anchor sites), when the session captured them
-
+# --- Raw-axis projection schemas (retire with the endpoint, DESIGN.md G) ---
 
 class RawAxisProjectionRequest(BaseModel):
     """Raw 2880-d difference-of-class-means axis projection (N1 instrument).
@@ -484,25 +440,6 @@ class RawAxisProjectionResponse(BaseModel):
     convention: str = "mean(A) -> -1, mean(B) -> +1"
     report: List[RawAxisLayerReport]
     points: List[RawAxisPoint]
-
-
-class TemporalLagPoint(BaseModel):
-    """Single data point in the temporal lag chart."""
-    position: int              # sentence_index (sequence position)
-    regime: str                # "A" or "B"
-    projection: float          # basin axis projection: 0.0 = at centroid A, 1.0 = at centroid B
-    sentence_text: str
-    probe_id: str
-    target_word: str
-
-
-class TemporalLagDataResponse(BaseModel):
-    """Response with per-position basin axis projection data."""
-    points: List[TemporalLagPoint]
-    regime_boundary: int
-    processing_mode: str
-    temporal_run_id: str
-    basin_separation: float  # L2 distance between the two basin centroids (the axis length)
 
 
 # --- Agent session schemas ---

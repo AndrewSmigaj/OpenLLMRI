@@ -166,13 +166,13 @@ class IntegratedCaptureService:
     # NEW UNIFIED PRIMITIVES (capture_step + generate)
     #
     # These replace capture_probe and probe_tick. Callers tokenize their
-    # own input via apply_chat_template (the input shape — single message,
-    # cumulative-with-cache-on-splice via HarmonyKVChain, or messages list
-    # — is intrinsic to each caller), then call these primitives.
+    # own input via apply_chat_template (the input shape — a single message
+    # or a messages list — is intrinsic to each caller), then call these
+    # primitives.
     #
     # capture_step semantics:
     #   - target_occurrence="last": one ProbeRecord per target_word at the
-    #     last in-window occurrence (sentence-experiment, temporal-capture)
+    #     last in-window occurrence (sentence-experiment)
     #   - target_occurrence="all": one ProbeRecord per (target_word, occurrence)
     #     for every in-window occurrence (agent loop, /agent/generate)
     #   - target_position_window=(min, max): restrict target search

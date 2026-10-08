@@ -15,10 +15,6 @@ import type {
   SentenceExperimentRequest,
   SentenceExperimentResponse,
 } from '../types/api';
-import type {
-  TemporalRunMetadata,
-  TemporalLagData,
-} from '../types/temporal';
 
 const API_BASE_URL = 'http://localhost:8000/api';
 
@@ -293,27 +289,6 @@ class ConceptMriApiClient {
       body: JSON.stringify(request),
     });
   }
-  // --- Temporal Analysis ---
-
-  async getTemporalRuns(sessionId: string): Promise<TemporalRunMetadata[]> {
-    return this.request<TemporalRunMetadata[]>(`/experiments/temporal-runs/${sessionId}`);
-  }
-
-  async getTemporalLagData(request: {
-    source_session_id: string
-    temporal_session_id: string
-    clustering_schema: string
-    basin_a_cluster_id: number
-    basin_b_cluster_id: number
-    basin_layer: number
-    token_position?: number  // semantic capture site; default 1 = target token
-  }): Promise<TemporalLagData> {
-    return this.request<TemporalLagData>('/experiments/temporal-lag-data', {
-      method: 'POST',
-      body: JSON.stringify(request),
-    });
-  }
-
   /**
    * List available clustering schemas for a session
    */

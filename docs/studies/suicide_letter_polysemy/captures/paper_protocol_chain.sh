@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# Retired 2026-10-08: the /api/experiments/temporal-capture route this script calls no longer exists
+# (docs/DESIGN.md G). Kept as the record of how these captures were made.
 # Paper-protocol captures via the new unified harmony+cache-on path.
 # 10 orderings x 2 directions per probe family. Cache-on means each
 # ordering completes in seconds, not minutes.

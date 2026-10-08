@@ -50,7 +50,7 @@ Run these checks to determine the current stage for a given experiment:
 5. For each schema: check if reports exist
    → Load schema → check reports dict
    → If no reports → Stage 5 (analysis)
-   → If reports exist → Stage 6 (present) or temporal gate
+   → If reports exist → Stage 6 (present)
 ```
 
 ### Finding the probe guide
@@ -327,15 +327,9 @@ Present summary to user. User selects which reports to review in detail.
 
 ---
 
-## USER GATE: Temporal Analysis
+## Time
 
-User specifies:
-1. Which schema to use
-2. Two basin clusters (cluster IDs at a specific layer)
-
-**Use the `/temporal` skill** for full workflow — single captures, batch experiments (10x cache_on + 10x cache_off), and verification. The UI generates a copy-paste instruction with all parameters.
-
-Returns `new_session_id` per run. Each run creates its own session.
+The basin-era temporal gate and the `/temporal` skill were retired on 2026-10-08. Reading over time is designed in `docs/DESIGN.md` Part D, and arrives with slice 4 (time on sentence runs).
 
 ---
 

@@ -41,7 +41,7 @@ Run these checks in order:
    - If empty → USER GATE (user needs to explore clustering in UI)
 5. **Load each schema** — check for reports:
    - If no reports → Stage 5 (analysis — protocol TBD)
-   - If reports exist → Stage 6 (present reports) or temporal gate
+   - If reports exist → Stage 6 (present reports)
 
 ## Step 4: Report & Suggest
 

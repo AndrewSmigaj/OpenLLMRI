@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# Retired 2026-10-08: the /api/experiments/temporal-capture route this script calls no longer exists
+# (docs/DESIGN.md G). Kept as the record of how these captures were made.
 # Suicide letter paper protocol WITH generate_output=true.
 # Fires the 12 missing sessions: ord 4..9 x {block_ba, block_ab}.
 #

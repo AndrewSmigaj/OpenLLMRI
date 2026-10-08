@@ -38,7 +38,7 @@ Spawn up to 3 agents in parallel per batch. Each agent gets:
 ```
 You are reviewing a software architecture document for [specific concern].
 
-Project: Open LLMRI is a research tool for studying attractor basin dynamics in MoE language models. It has a Python/FastAPI backend, React frontend, and uses Claude Code as the analysis runtime. The design under review is for adding a MUD-based interface layer.
+Project: Open LLMRI is research software for building an evidence-based paradigm of how gpt-oss-20b, a Mixture-of-Experts model, understands the world and makes decisions (docs/DESIGN.md). It has a Python/FastAPI backend, React frontend, and uses Claude Code as the analysis runtime. The design under review is for adding a MUD-based interface layer.
 
 Read the file at: [target path]
 

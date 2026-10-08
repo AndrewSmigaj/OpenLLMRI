@@ -34,7 +34,6 @@ Claude Code uses these guides to execute the full pipeline:
 | `/probe` | Co-design a new experiment |
 | `/categorize` | Classify model-generated outputs |
 | `/analyze` | Read cluster/route data, write reports and element descriptions |
-| `/temporal` | Run temporal capture experiments (legacy 'basin' naming in the skill) |
 | `/pipeline` | Check pipeline state, suggest next step |
 | `/cdd` | Uncertainty assessment before implementation |
 | `/devils-advocate` | Challenge a design — find real weaknesses, not performative objections |

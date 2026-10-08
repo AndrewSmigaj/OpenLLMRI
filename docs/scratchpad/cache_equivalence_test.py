@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# Retired 2026-10-08: services/probes/harmony_kv_chain.py, which this script imports, was removed
+# with the temporal-capture route (docs/DESIGN.md G). Kept as the record of the check it made.
 """Empirically verify cache-on (HarmonyKVChain) and cache-off (cumulative
 apply_chat_template) produce identical residuals at the target word position
 across all 24 layers, beyond the 128-token sliding window boundary."""
