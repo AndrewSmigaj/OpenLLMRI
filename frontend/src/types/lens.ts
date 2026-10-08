@@ -113,3 +113,73 @@ export interface MembersQuery {
   offset?: number
   limit?: number
 }
+
+// What a capture offers a lens (GET /captures/{sid}/lens-options)
+export interface LensOptions {
+  session_id: string
+  n_records: number
+  target_words: Record<string, number>
+  labels: Record<string, number>
+  steps: Record<string, number>
+  sources: Record<string, number[]> // each captured source, with its token positions
+  default_items: number
+  max_items: number
+}
+
+// The methods a build can use (GET /lenses/methods)
+export interface LensMethods {
+  reductions: { id: string; label: string; defaults: Record<string, number> }[]
+  groupings: { id: string; label: string }[]
+  k_auto: { id: string; note: string }[]
+  defaults: { k: number; seed: number; source: string; token_position: number; last_occurrence_only: boolean }
+}
+
+export interface LensFiltersBody {
+  labels?: string[] | null
+  steps?: number[] | null
+  last_occurrence_only?: boolean
+  max_items?: number | null
+}
+
+// POST /lenses: exactly one of k, k_per_layer or k_auto chooses each layer's k
+export interface LensBuildBody {
+  session_id: string
+  name: string
+  n_neighbors: number
+  dimensions: number
+  k?: number
+  k_per_layer?: number[]
+  k_auto?: string
+  source: string
+  token_position: number
+  filters: LensFiltersBody
+  seed: number
+  created_by: string
+}
+
+export interface LensVersion {
+  version: string
+  k_per_layer: number[]
+  k_source: string[]
+  state: 'draft' | 'saved'
+  keywords: string[]
+  created_at: string
+  saved_at?: string | null
+}
+
+// A layer's in-sample k suggestions, from the build
+export interface KSuggestion {
+  elbow: number
+  silhouette: number
+  levels: number[]
+  silhouette_by_k: Record<string, number>
+}
+
+export interface LensDetail {
+  name: string
+  legacy: boolean
+  layers: number[]
+  axes: Record<string, string[]>
+  n_items: number
+  manifest?: { suggestions: Record<string, KSuggestion>; versions: string[]; current: string | null } & Record<string, unknown>
+}

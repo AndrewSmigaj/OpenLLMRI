@@ -141,6 +141,26 @@ def lens_members(session_id: str, name: str, layer: int, node: Optional[int] = N
     return page
 
 
+@router.get("/captures/{session_id}/lens-options")
+def capture_lens_options(session_id: str) -> Dict[str, Any]:
+    """What a capture offers a lens: its labels and steps, sources and token positions, and how
+    many items the default filters keep."""
+    from services.lenses.options import capture_options
+
+    try:
+        return capture_options(session_id)
+    except (FileNotFoundError, ValueError) as e:
+        raise _fail(e)
+
+
+@router.get("/lenses/methods")
+def lens_build_methods() -> Dict[str, Any]:
+    """The reductions, groupings and automatic k methods a lens build can use, with defaults."""
+    from services.lenses.options import lens_methods
+
+    return lens_methods()
+
+
 class LensBuildRequest(LensBuildParams):
     created_by: str = "app"
 

@@ -15,7 +15,10 @@ import type {
   SentenceExperimentRequest,
   SentenceExperimentResponse,
 } from '../types/api';
-import type { JobView, LensFlows, LensMembersPage, LensSummary, MembersQuery } from '../types/lens';
+import type {
+  JobView, LensBuildBody, LensDetail, LensFlows, LensMembersPage, LensMethods, LensOptions, LensSummary,
+  LensVersion, MembersQuery,
+} from '../types/lens';
 
 const API_BASE_URL = 'http://localhost:8000/api';
 
@@ -323,10 +326,46 @@ class ConceptMriApiClient {
       `/sessions/${sessionId}/lenses/${encodeURIComponent(name)}/trajectory?legacy=${legacy}`);
   }
 
+  async getLens(sessionId: string, name: string, legacy: boolean): Promise<LensDetail> {
+    return this.request<LensDetail>(`/sessions/${sessionId}/lenses/${encodeURIComponent(name)}?legacy=${legacy}`);
+  }
+
+  // --- Building lenses ---
+
+  async getLensOptions(sessionId: string): Promise<LensOptions> {
+    return this.request<LensOptions>(`/captures/${sessionId}/lens-options`);
+  }
+
+  async getLensMethods(): Promise<LensMethods> {
+    return this.request<LensMethods>('/lenses/methods');
+  }
+
+  // Starts a build in the background; the job's id comes back at once
+  async buildLens(body: LensBuildBody): Promise<{ job_id: string; session_id: string; name: string }> {
+    return this.request('/lenses', { method: 'POST', body: JSON.stringify(body) });
+  }
+
+  // A new draft version: the lens's trees cut at another k (one for all, per layer, or a method)
+  async newLensVersion(sessionId: string, name: string,
+                       body: { k?: number; k_per_layer?: number[]; k_auto?: string }): Promise<LensVersion> {
+    return this.request<LensVersion>(`/sessions/${sessionId}/lenses/${encodeURIComponent(name)}/versions`,
+      { method: 'POST', body: JSON.stringify(body) });
+  }
+
+  // Freezes a version with its keywords
+  async saveLensVersion(sessionId: string, name: string, version: string, keywords: string[]): Promise<LensVersion> {
+    return this.request<LensVersion>(`/sessions/${sessionId}/lenses/${encodeURIComponent(name)}/save`,
+      { method: 'POST', body: JSON.stringify({ version, keywords }) });
+  }
+
   // --- Background jobs ---
 
   async listJobs(active = false): Promise<JobView[]> {
     return this.request<JobView[]>(`/jobs${active ? '?active=true' : ''}`);
+  }
+
+  async getJob(jobId: string): Promise<JobView> {
+    return this.request<JobView>(`/jobs/${jobId}`);
   }
 
   async cancelJob(jobId: string): Promise<JobView> {

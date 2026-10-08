@@ -110,7 +110,7 @@ export default function WindowAnalysis({ routeData, windowLabel, report, selecte
   if (!routeData) {
     return (
       <div className="bg-gray-50 rounded p-2 mb-2">
-        <p className="text-[10px] text-gray-400 italic">Run analysis to see window statistics</p>
+        <p className="text-[10px] text-gray-400 italic">Loading the flows…</p>
       </div>
     )
   }

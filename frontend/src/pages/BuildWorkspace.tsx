@@ -1,13 +1,16 @@
-// Build: the capture's lenses, newest builds and legacy schemas alike; opening one shows it in
-// Layers. (The build form joins this page in 10b.4.)
+// Build: make a lens from a form, then see the capture's lenses, newest builds and legacy schemas
+// alike. A built lens's k can be changed layer by layer (a new version) and saved. A finished
+// build opens in Layers.
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { apiClient } from '../api/client'
-import type { LensSummary } from '../types/lens'
+import type { LensMethods, LensOptions, LensSummary } from '../types/lens'
 import { useJobs } from '../hooks/useJobs'
 import { useViewState, viewQuery } from '../hooks/useViewState'
 import { lensAsSchema } from '../utils/lensAsSchema'
 import SchemaSummary from '../components/analysis/SchemaSummary'
+import LensForm from '../components/lenses/LensForm'
+import LensVersions from '../components/lenses/LensVersions'
 import { useShell } from '../components/shell/shellContext'
 
 export default function BuildWorkspace() {
@@ -17,6 +20,25 @@ export default function BuildWorkspace() {
   const navigate = useNavigate()
   const jobs = useJobs()
   const [lenses, setLenses] = useState<LensSummary[] | null>(null)
+  const [options, setOptions] = useState<LensOptions | null>(null)
+  const [methods, setMethods] = useState<LensMethods | null>(null)
+  const [problem, setProblem] = useState<string | null>(null)
+  const [reload, setReload] = useState(0)
+  const [open, setOpen] = useState<string | null>(null) // the lens whose k table is shown
+
+  useEffect(() => {
+    apiClient.getLensMethods().then(setMethods).catch(err => setProblem(String(err)))
+  }, [])
+
+  useEffect(() => {
+    if (!view.session) return
+    let current = true
+    setOptions(null)
+    apiClient.getLensOptions(view.session)
+      .then(found => { if (current) setOptions(found) })
+      .catch(err => { if (current) setProblem(err instanceof Error ? err.message : String(err)) })
+    return () => { current = false }
+  }, [view.session])
 
   useEffect(() => {
     if (!view.session) return
@@ -25,34 +47,51 @@ export default function BuildWorkspace() {
       .then(found => { if (current) setLenses(found) })
       .catch(() => { if (current) setLenses([]) })
     return () => { current = false }
-  }, [view.session, jobs.finished])
+  }, [view.session, jobs.finished, reload])
 
   if (!view.session) {
-    return <div className="m-4 text-xs text-slate-700">Choose a capture in the top bar to see its lenses.</div>
+    return <div className="m-4 text-xs text-slate-700">Choose a capture in the top bar to build a lens on it.</div>
   }
-  const open = (lens: LensSummary) =>
-    navigate({ pathname: '/layers', search: `?${viewQuery({ ...view, lens: lens.name, legacy: lens.legacy, sel: '', layer: 0 })}` })
-
+  const show = (name: string, legacy: boolean) =>
+    navigate({ pathname: '/layers', search: `?${viewQuery({ ...view, lens: name, legacy, sel: '', layer: 0 })}` })
   return (
-    <div className="h-full overflow-y-auto p-3 space-y-2">
+    <div className="h-full overflow-y-auto p-3 space-y-3">
+      {problem && <p className="text-xs text-red-600">{problem}</p>}
+      {options && methods
+        ? <LensForm key={view.session} session={view.session} options={options} methods={methods} disabled={visitor}
+            takenNames={(lenses ?? []).map(l => l.name)} onBuilt={name => show(name, false)} />
+        : !problem && <p className="text-xs text-gray-500">Reading the capture…</p>}
       <h2 className="text-sm font-semibold text-gray-900">Lenses on this capture</h2>
       {lenses === null && <p className="text-xs text-gray-500">Loading…</p>}
-      {lenses?.length === 0 && <p className="text-xs text-gray-500">None yet. The /cluster skill builds one from Claude Code.</p>}
+      {lenses?.length === 0 && <p className="text-xs text-gray-500">None yet.</p>}
       {lenses?.map(lens => (
-        <div key={`${lens.legacy}:${lens.name}`} className="bg-white border border-gray-200 rounded p-2 flex items-start gap-3">
-          <div className="flex-1 min-w-0">
-            {lens.legacy
-              ? <div className="text-xs"><span className="font-mono">{lens.name}</span>
-                  <span className="ml-2 text-[10px] text-gray-500">legacy schema · {lens.n_items ?? '?'} items</span></div>
-              : <SchemaSummary schema={lensAsSchema(lens)} />}
+        <div key={`${lens.legacy}:${lens.name}`} className="bg-white border border-gray-200 rounded p-2">
+          <div className="flex items-start gap-3">
+            <div className="flex-1 min-w-0">
+              {lens.legacy
+                ? <div className="text-xs"><span className="font-mono">{lens.name}</span>
+                    <span className="ml-2 text-[10px] text-gray-500">legacy schema · {lens.n_items ?? '?'} items</span></div>
+                : <SchemaSummary schema={lensAsSchema(lens)} />}
+              {!lens.legacy && (
+                <div className="text-[10px] text-gray-500 mt-0.5">
+                  {lens.current} {lens.state ?? 'draft'} · {lens.versions?.length ?? 1} version(s) · built{' '}
+                  {lens.created_at?.slice(0, 16).replace('T', ' ')} by {lens.created_by}
+                </div>
+              )}
+            </div>
             {!lens.legacy && (
-              <div className="text-[10px] text-gray-500 mt-0.5">
-                {lens.state ?? 'draft'} {lens.current} · built {lens.created_at?.slice(0, 16).replace('T', ' ')} by {lens.created_by}
-              </div>
+              <button onClick={() => setOpen(o => (o === lens.name ? null : lens.name))}
+                className="px-2 py-1 text-xs rounded border border-gray-300 text-gray-700 hover:bg-gray-50">
+                k per layer {open === lens.name ? '▴' : '▾'}
+              </button>
             )}
+            <button onClick={() => show(lens.name, lens.legacy)} disabled={visitor}
+              className="px-2 py-1 text-xs rounded bg-blue-600 text-white hover:bg-blue-700 disabled:bg-gray-300">Open in Layers</button>
           </div>
-          <button onClick={() => open(lens)} disabled={visitor}
-            className="px-2 py-1 text-xs rounded bg-blue-600 text-white hover:bg-blue-700 disabled:bg-gray-300">Open in Layers</button>
+          {open === lens.name && !lens.legacy && (
+            <LensVersions key={`${lens.name}:${lens.current}`} session={view.session} lens={lens} disabled={visitor}
+              onChanged={() => setReload(r => r + 1)} />
+          )}
         </div>
       ))}
     </div>

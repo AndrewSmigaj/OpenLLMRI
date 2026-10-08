@@ -97,3 +97,14 @@ def test_trajectories_and_assignments_come_with_a_lens(client: TestClient) -> No
     assert set(trajectory["points_by_layer"]["0"][0]) >= {"probe_id", "x", "y", "z", "label"}
     flows = client.get(f"/api/sessions/{SESSION}/lenses/synth/flows").json()
     assert len(flows["assignments"]) == 40 and set(flows["assignments"]["p000"]) == {"0", "1", "2"}
+
+
+def test_the_form_reads_a_captures_options_and_the_methods(client: TestClient) -> None:
+    options = client.get(f"/api/captures/{SESSION}/lens-options").json()
+    assert options["n_records"] == 40 and options["labels"] == {"a": 20, "b": 20}
+    assert options["sources"] == {"residual_stream": [1]} and options["default_items"] == 40
+    assert options["max_items"] == 4095
+    assert client.get("/api/captures/session_nothere/lens-options").status_code == 404
+    methods = client.get("/api/lenses/methods").json()
+    assert [m["id"] for m in methods["k_auto"]] == ["elbow", "silhouette", "levels"]
+    assert methods["groupings"][0]["id"] == "ward" and methods["defaults"]["k"] == 6
