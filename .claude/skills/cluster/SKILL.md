@@ -87,6 +87,22 @@ curl -s -X POST http://localhost:8000/api/sessions/SID/lenses/NAME/save \
 A legacy schema opens through the same endpoints with `?legacy=true`. Saving freezes a
 version and copies its records into `data/lenses/<session>/<name>/` in the repo.
 
+### OP-L4: Validate a lens (held-out scores and the k profile; a job)
+
+Folds hold out whole scene families when the items name one (`categories.scene`); otherwise
+they are stratified with identical texts kept together, and marked weaker. Every k from 2 to
+10 is scored at every layer. A 24-layer lens takes a few minutes.
+
+```bash
+curl -s -X POST http://localhost:8000/api/sessions/SID/lenses/NAME/validate \
+  -H "Content-Type: application/json" -d '{"created_by":"claude-code"}'
+curl -s http://localhost:8000/api/sessions/SID/lenses/NAME/validation
+```
+
+Once validated, `"k_auto":"heldout"` (OP-L3's versions call) takes each layer's best held-out
+k; it is selection-biased, and the version says so. Every build also records a self-check
+(planted classes found, nothing found in noise) in the lens list.
+
 The schema operations below are legacy; their build endpoint retires at the end of slice 1.
 
 ## Prerequisites

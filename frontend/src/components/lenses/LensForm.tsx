@@ -3,8 +3,10 @@
 // filters. Defaults come from the backend, and the capture's own labels, steps and token
 // positions fill the choices. The build runs in the background while the app stays usable.
 import { useState } from 'react'
-import type { JobView, LensMethods, LensOptions } from '../../types/lens'
-import { useBuildJob } from '../../hooks/useBuildJob'
+import { apiClient } from '../../api/client'
+import type { LensMethods, LensOptions } from '../../types/lens'
+import JobProgress from './JobProgress'
+import { useJobRunner } from '../../hooks/useJobRunner'
 
 interface LensFormProps {
   session: string
@@ -24,26 +26,6 @@ function toggle<T>(list: T[], value: T): T[] {
   return list.includes(value) ? list.filter(v => v !== value) : [...list, value]
 }
 
-// A build's progress while it runs, and what went wrong if it failed
-function JobProgress({ job, onCancel }: { job: JobView; onCancel?: () => void }) {
-  const { stage, done, total } = job.progress
-  const share = total > 0 ? Math.round((100 * done) / total) : 0
-  return (
-    <div className="border-t border-gray-200 pt-2 space-y-1">
-      <div className="flex items-center gap-2 text-xs">
-        <span className="font-medium text-gray-800">Build {job.state}</span>
-        {stage && <span className="text-gray-500">{stage} {total > 0 ? `${done}/${total}` : ''}</span>}
-        {onCancel && <button onClick={onCancel} className="text-red-600 hover:underline">cancel</button>}
-      </div>
-      {total > 0 && job.state === 'running' && (
-        <div className="h-1.5 bg-gray-200 rounded"><div className="h-1.5 bg-blue-500 rounded" style={{ width: `${share}%` }} /></div>
-      )}
-      {job.error && <p className="text-xs text-red-600">{job.error}</p>}
-      {job.log_tail && <pre className="text-[10px] bg-gray-50 border border-gray-200 rounded p-1 max-h-40 overflow-auto">{job.log_tail}</pre>}
-    </div>
-  )
-}
-
 export default function LensForm({ session, options, methods, takenNames, disabled, onBuilt }: LensFormProps) {
   const umap = methods.reductions[0]?.defaults ?? {}
   const sources = Object.keys(options.sources)
@@ -61,7 +43,7 @@ export default function LensForm({ session, options, methods, takenNames, disabl
   const [lastOnly, setLastOnly] = useState(methods.defaults.last_occurrence_only)
   const [maxItems, setMaxItems] = useState('')
   const [seed, setSeed] = useState(methods.defaults.seed)
-  const build = useBuildJob(job => onBuilt(String(job.params.name)))
+  const build = useJobRunner(job => onBuilt(String(job.params.name)))
 
   const target = Object.keys(options.target_words)[0] ?? 'lens'
   const finalName = name || slug(`${target}-${kAuto ? `k-${kAuto}` : `k${k}`}-n${n}`)
@@ -69,7 +51,7 @@ export default function LensForm({ session, options, methods, takenNames, disabl
     : takenNames.includes(finalName) ? 'a lens of this name exists' : ''
   const tooMany = !maxItems && !steps.length && !labels.length && options.default_items > options.max_items
 
-  const submit = () => build.start({
+  const submit = () => build.start(() => apiClient.buildLens({
     session_id: session, name: finalName, n_neighbors: n, dimensions: dims,
     ...(kAuto ? { k_auto: kAuto } : { k }),
     source, token_position: position, seed, created_by: 'app',
@@ -77,7 +59,7 @@ export default function LensForm({ session, options, methods, takenNames, disabl
       labels: labels.length ? labels : null, steps: steps.length ? steps : null,
       last_occurrence_only: lastOnly, max_items: maxItems ? Number(maxItems) : null,
     },
-  })
+  }))
   const locked = disabled || build.running || build.starting
 
   return (
@@ -199,7 +181,7 @@ export default function LensForm({ session, options, methods, takenNames, disabl
         </div>
       )}
       {build.error && <p className="text-xs text-red-600">Could not start the build: {build.error}</p>}
-      {build.job && <JobProgress job={build.job} onCancel={build.running ? build.cancel : undefined} />}
+      {build.job && <JobProgress job={build.job} title="Build" onCancel={build.running ? build.cancel : undefined} />}
     </div>
   )
 }

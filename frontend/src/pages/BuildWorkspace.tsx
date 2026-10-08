@@ -11,6 +11,8 @@ import { lensAsSchema } from '../utils/lensAsSchema'
 import SchemaSummary from '../components/analysis/SchemaSummary'
 import LensForm from '../components/lenses/LensForm'
 import LensVersions from '../components/lenses/LensVersions'
+import LensBadges from '../components/lenses/LensBadges'
+import LensValidation from '../components/lenses/LensValidation'
 import { useShell } from '../components/shell/shellContext'
 
 export default function BuildWorkspace() {
@@ -25,6 +27,7 @@ export default function BuildWorkspace() {
   const [problem, setProblem] = useState<string | null>(null)
   const [reload, setReload] = useState(0)
   const [open, setOpen] = useState<string | null>(null) // the lens whose k table is shown
+  const [results, setResults] = useState<string | null>(null) // the lens whose validation is shown
 
   useEffect(() => {
     apiClient.getLensMethods().then(setMethods).catch(err => setProblem(String(err)))
@@ -78,7 +81,18 @@ export default function BuildWorkspace() {
                   {lens.created_at?.slice(0, 16).replace('T', ' ')} by {lens.created_by}
                 </div>
               )}
+              {!lens.legacy && (
+                <div className="mt-1">
+                  <LensBadges session={view.session} lens={lens} disabled={visitor} onValidated={() => setReload(r => r + 1)} />
+                </div>
+              )}
             </div>
+            {!lens.legacy && lens.validation && (
+              <button onClick={() => setResults(o => (o === lens.name ? null : lens.name))}
+                className="px-2 py-1 text-xs rounded border border-gray-300 text-gray-700 hover:bg-gray-50">
+                validation {results === lens.name ? '▴' : '▾'}
+              </button>
+            )}
             {!lens.legacy && (
               <button onClick={() => setOpen(o => (o === lens.name ? null : lens.name))}
                 className="px-2 py-1 text-xs rounded border border-gray-300 text-gray-700 hover:bg-gray-50">
@@ -88,6 +102,9 @@ export default function BuildWorkspace() {
             <button onClick={() => show(lens.name, lens.legacy)} disabled={visitor}
               className="px-2 py-1 text-xs rounded bg-blue-600 text-white hover:bg-blue-700 disabled:bg-gray-300">Open in Layers</button>
           </div>
+          {results === lens.name && !lens.legacy && lens.validation && (
+            <LensValidation session={view.session} lens={lens} />
+          )}
           {open === lens.name && !lens.legacy && (
             <LensVersions key={`${lens.name}:${lens.current}`} session={view.session} lens={lens} disabled={visitor}
               onChanged={() => setReload(r => r + 1)} />

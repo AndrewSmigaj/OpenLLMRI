@@ -4,6 +4,7 @@
 import { useEffect, useState } from 'react'
 import { apiClient } from '../../api/client'
 import type { KSuggestion, LensSummary } from '../../types/lens'
+import { heldoutBest } from '../../utils/validation'
 
 interface LensVersionsProps {
   session: string
@@ -37,6 +38,17 @@ export default function LensVersions({ session, lens, disabled, onChanged }: Len
     return () => { current = false }
   }, [session, lens.name])
 
+  // Once validated, each layer's k that classified held-out data best (selection-biased)
+  const [heldout, setHeldout] = useState<Record<string, number> | null>(null)
+  useEffect(() => {
+    if (!lens.validation) return
+    let current = true
+    apiClient.getLensValidation(session, lens.name)
+      .then(found => { if (current) setHeldout(heldoutBest(found)) })
+      .catch(() => undefined)
+    return () => { current = false }
+  }, [session, lens.name, lens.validation])
+
   const act = async (work: () => Promise<unknown>) => {
     setBusy(true); setError(null)
     try { await work(); onChanged() } catch (err) { setError(err instanceof Error ? err.message : String(err)) }
@@ -47,10 +59,16 @@ export default function LensVersions({ session, lens, disabled, onChanged }: Len
 
   if (error && !suggestions) return <p className="text-xs text-red-600">{error}</p>
   if (!suggestions) return <p className="text-xs text-gray-500">Loading the suggestions…</p>
-  const rows: [string, (s: KSuggestion) => string][] = [
-    ['elbow', s => String(s.elbow)],
-    ['silhouette', s => String(s.silhouette)],
-    ['levels', s => s.levels.join(' ') || '–'],
+  // Each row: its name, what it shows at a layer, and the k it gives that layer
+  const fromSuggestion = (show: (s: KSuggestion) => string, method: string) =>
+    [(l: number) => (suggestions[String(l)] ? show(suggestions[String(l)]) : ''),
+     (l: number) => byMethod(suggestions[String(l)], method)] as const
+  const rows: [string, (l: number) => string, (l: number) => number | undefined][] = [
+    ['elbow', ...fromSuggestion(s => String(s.elbow), 'elbow')],
+    ['silhouette', ...fromSuggestion(s => String(s.silhouette), 'silhouette')],
+    ['levels', ...fromSuggestion(s => s.levels.join(' ') || '–', 'levels')],
+    ...(heldout ? [['held-out best', (l: number) => String(heldout[String(l)] ?? ''),
+      (l: number) => heldout[String(l)]] as [string, (l: number) => string, (l: number) => number | undefined]] : []),
   ]
   return (
     <div className="space-y-2 pt-2 border-t border-gray-100">
@@ -63,14 +81,15 @@ export default function LensVersions({ session, lens, disabled, onChanged }: Len
             </tr>
           </thead>
           <tbody>
-            {rows.map(([method, show]) => (
+            {rows.map(([method, show, pick]) => (
               <tr key={method} className="text-gray-600">
-                <td className="pr-2">
+                <td className="pr-2 whitespace-nowrap">
                   <button disabled={disabled} className="hover:underline text-blue-700 disabled:text-gray-500"
-                    title={`Take every layer's ${method} suggestion`}
-                    onClick={() => setKs(layers.map(l => byMethod(suggestions[String(l)], method)))}>{method}</button>
+                    title={method === 'held-out best' ? "Take every layer's best held-out k (chosen on the held-out data, so selection-biased)"
+                      : `Take every layer's ${method} suggestion`}
+                    onClick={() => setKs(layers.map((l, i) => pick(l) ?? ks[i]))}>{method}</button>
                 </td>
-                {layers.map(l => <td key={l} className={cell}>{suggestions[String(l)] ? show(suggestions[String(l)]) : ''}</td>)}
+                {layers.map(l => <td key={l} className={cell}>{show(l)}</td>)}
               </tr>
             ))}
             <tr>

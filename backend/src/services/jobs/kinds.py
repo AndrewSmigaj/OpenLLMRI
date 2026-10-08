@@ -89,8 +89,15 @@ def _lens_build(params: Dict[str, Any], ctx: JobContext) -> Dict[str, Any]:
     return build_lens(params, ctx)
 
 
+def _lens_validate(params: Dict[str, Any], ctx: JobContext) -> Dict[str, Any]:
+    from services.lenses.validate import validate_lens
+
+    return validate_lens(params, ctx)
+
+
 KINDS: Dict[str, JobKind] = {
     "noop": JobKind(lane="cpu", run=_noop),
     "noop_llm": JobKind(lane="llm", run=_noop),
     "lens_build": JobKind(lane="cpu", run=_lens_build),
+    "lens_validate": JobKind(lane="cpu", run=_lens_validate),
 }

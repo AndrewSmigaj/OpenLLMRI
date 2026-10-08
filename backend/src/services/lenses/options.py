@@ -23,7 +23,9 @@ AUTO_METHOD_NOTES = {
     "elbow": "the k after which the clusters' spread stops falling steeply",
     "silhouette": "the k whose clusters are best separated (in-sample)",
     "levels": "the finest clear level of the merge tree; a layer without one takes the silhouette's k",
+    "heldout": "the k that classifies held-out data best (selection-biased; needs a validated lens)",
 }
+BUILD_METHODS = ("elbow", "silhouette", "levels")  # the held-out best needs a validation first
 
 
 def _positions(path: Path) -> List[int]:
@@ -57,7 +59,9 @@ def lens_methods() -> Dict[str, Any]:
     return {
         "reductions": [{"id": "umap", "label": "UMAP", "defaults": {"n_neighbors": 15, "dimensions": 6}}],
         "groupings": [{"id": "ward", "label": "Ward (hierarchical); any k is a cut of its tree"}],
-        "k_auto": [{"id": m, "note": AUTO_METHOD_NOTES.get(m, "")} for m in AUTO_METHODS],
+        "k_auto": [{"id": m, "note": AUTO_METHOD_NOTES.get(m, "")} for m in BUILD_METHODS],
+        "k_auto_validated": [{"id": m, "note": AUTO_METHOD_NOTES.get(m, "")} for m in AUTO_METHODS
+                             if m not in BUILD_METHODS],
         "defaults": {"k": 6, "seed": 42, "source": "residual_stream", "token_position": 1,
                      "last_occurrence_only": True},
     }

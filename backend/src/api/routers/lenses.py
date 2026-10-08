@@ -240,15 +240,66 @@ class SaveRequest(BaseModel):
 def new_lens_version(session_id: str, name: str, body: VersionRequest) -> Dict[str, Any]:
     """Cut the saved trees at a new k (by hand, per layer, or a named method): a new draft version."""
     from services.lenses.store import lens_dir, read_manifest
-    from services.lenses.versions import new_version, resolve_k
+    from services.lenses.versions import heldout_best, new_version, resolve_k
 
     try:
         folder = lens_dir(session_id, name)
         manifest = read_manifest(folder)
-        ks, sources = resolve_k(manifest.layers, manifest.suggestions, body.k, body.k_per_layer, body.k_auto)
+        suggestions = manifest.suggestions
+        if body.k_auto == "heldout" and (folder / "validation.json").exists():
+            best = heldout_best(json.loads((folder / "validation.json").read_text(encoding="utf-8")))
+            suggestions = {layer: found | ({"heldout": best[layer]} if layer in best else {})
+                           for layer, found in suggestions.items()}
+        ks, sources = resolve_k(manifest.layers, suggestions, body.k, body.k_per_layer, body.k_auto)
         return new_version(folder, ks, sources).model_dump()
     except (FileNotFoundError, ValueError) as e:
         raise _fail(e)
+
+
+class ValidateRequest(BaseModel):
+    family_field: str = "scene"
+    n_folds: int = Field(5, ge=2, le=20)
+    seeds: int = Field(3, ge=1, le=10)
+    workers: Optional[int] = None
+    created_by: str = "app"
+
+
+@router.post("/sessions/{session_id}/lenses/{name}/validate", status_code=202)
+def start_validation(request: Request, session_id: str, name: str, body: ValidateRequest) -> Dict[str, Any]:
+    """Score the lens on held-out data, with its k profile, in the background; returns the job."""
+    from services.jobs.scheduler import JobScheduler
+    from services.lenses.data import session_dir
+    from services.lenses.store import lens_dir
+
+    try:
+        session = session_dir(session_id).name
+        if not (lens_dir(session, name) / "lens.json").exists():
+            raise FileNotFoundError(f"Lens '{name}' not found in {session}")
+    except (FileNotFoundError, ValueError) as e:
+        raise _fail(e)
+    scheduler: JobScheduler = request.app.state.jobs
+    for job in scheduler.store.list():
+        if job.kind == "lens_validate" and job.state in ("queued", "running") and \
+                job.params.get("name") == name and job.params.get("session_id") == session:
+            raise HTTPException(status_code=409, detail=f"Lens '{name}' is already being validated ({job.id})")
+    params = body.model_dump(exclude={"created_by"}) | {"session_id": session, "name": name}
+    job = scheduler.submit("lens_validate", params, created_by=body.created_by)
+    return {"job_id": job.id, "session_id": session, "name": name}
+
+
+@router.get("/sessions/{session_id}/lenses/{name}/validation")
+def lens_validation(session_id: str, name: str) -> Dict[str, Any]:
+    """The lens's held-out scores and k profile, per layer and k (404 until it is validated)."""
+    from services.lenses.store import lens_dir
+
+    try:
+        path = lens_dir(session_id, name) / "validation.json"
+    except (FileNotFoundError, ValueError) as e:
+        raise _fail(e)
+    if not path.exists():
+        raise HTTPException(status_code=404, detail=f"Lens '{name}' has not been validated")
+    result: Dict[str, Any] = json.loads(path.read_text(encoding="utf-8"))
+    return result
 
 
 @router.post("/sessions/{session_id}/lenses/{name}/save")

@@ -28,11 +28,21 @@ def fit_layer(states: Array, n_neighbors: int, dimensions: int, seed: int,
     """
     import umap
 
+    reducer, embedding = fit_reducer(states, n_neighbors, dimensions, seed, min_dist)
+    n = _neighbours(n_neighbors, len(states))
+    view = umap.UMAP(n_components=3, n_neighbors=n, min_dist=0.1, random_state=seed).fit_transform(states)
+    return reducer, embedding, np.asarray(view, dtype=np.float32)
+
+
+def fit_reducer(states: Array, n_neighbors: int, dimensions: int, seed: int,
+                min_dist: float = 0.1) -> Tuple[Any, Array]:
+    """The layer's UMAP alone, and its embedding [N, dims] float32 (validation refits it per fold)."""
+    import umap
+
     n = _neighbours(n_neighbors, len(states))
     dims = max(1, min(dimensions, len(states) - 1, states.shape[1]))
     reducer = umap.UMAP(n_components=dims, n_neighbors=n, min_dist=min_dist, random_state=seed).fit(states)
-    view = umap.UMAP(n_components=3, n_neighbors=n, min_dist=0.1, random_state=seed).fit_transform(states)
-    return reducer, np.asarray(reducer.embedding_, dtype=np.float32), np.asarray(view, dtype=np.float32)
+    return reducer, np.asarray(reducer.embedding_, dtype=np.float32)
 
 
 def ward_tree(embedding: Array) -> Array:

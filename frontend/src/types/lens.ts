@@ -17,6 +17,8 @@ export interface LensSummary {
   k_per_layer?: number[] | null
   created_at?: string | null
   created_by?: string | null
+  self_check?: SelfCheck | null
+  validation?: ValidationHeadline | null
 }
 
 export interface FlowNode {
@@ -196,3 +198,53 @@ export interface Fingerprint {
 
 // Every item, a node at a layer, or an axis value
 export type Population = { layer?: number; node?: number; axis?: string; value?: string }
+
+// The self-check every build runs: planted classes found, nothing found in noise
+export interface SelfCheck {
+  passed: boolean
+  items: number
+  dims: number
+  planted: { ari_k5: number; passed: boolean; groups_ari_k2: number; levels: number[] }
+  null: { ami_k5: number; passed: boolean }
+  thresholds: { planted_ari: number; null_ami: number }
+}
+
+export interface HeldOut {
+  kappa: number
+  accuracy: number
+  worst_fold: number
+  ami: number
+}
+
+// One k at one layer: in-sample measures and held-out scores per axis
+export interface KProfileEntry {
+  silhouette: number
+  seed_ari: number | null
+  agreement: Record<string, number> // per axis and per pair of axes ("a×b")
+  heldout: Record<string, HeldOut>
+}
+
+export interface Folding {
+  kind: string
+  n_folds: number
+  weaker: boolean
+  field?: string
+  families?: Record<string, string[]>
+}
+
+// A lens's validation.json: per layer, per k
+export interface Validation {
+  format: number
+  folds: Folding
+  axes: Record<string, string[]>
+  seeds: number
+  vote_neighbours: number
+  layers: Record<string, Record<string, KProfileEntry>>
+  provenance: { commit: string; dirty: boolean; job_id: string; seconds: number; created_at: string }
+}
+
+export interface ValidationHeadline {
+  folds: Folding
+  best: ({ layer: number; k: number } & HeldOut) | null
+  created_at: string
+}

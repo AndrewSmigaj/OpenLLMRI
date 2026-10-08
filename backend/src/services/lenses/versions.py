@@ -7,7 +7,7 @@ draft until it is saved.
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from typing import Any, Dict, List, Optional, Tuple
 
 import numpy as np
 
@@ -20,7 +20,18 @@ from services.lenses.store import (
     write_version,
 )
 
-AUTO_METHODS = ("elbow", "silhouette", "levels")
+AUTO_METHODS = ("elbow", "silhouette", "levels", "heldout")
+
+
+def heldout_best(validation: Dict[str, Any], axis: str = "label") -> Dict[str, int]:
+    """Each layer's k with the best held-out kappa on an axis (from a lens's validation.json).
+    Choosing k by its held-out score is selection-biased, and the k's source says so."""
+    best: Dict[str, int] = {}
+    for layer, profile in validation["layers"].items():
+        scored = [(entry["heldout"][axis]["kappa"], int(k)) for k, entry in profile.items() if axis in entry["heldout"]]
+        if scored:
+            best[layer] = max(scored, key=lambda pair: (pair[0], -pair[1]))[1]  # ties go to the smaller k
+    return best
 
 
 def resolve_k(layers: List[int], suggestions: Dict[str, Dict[str, object]], k: Optional[int] = None,
@@ -29,7 +40,8 @@ def resolve_k(layers: List[int], suggestions: Dict[str, Dict[str, object]], k: O
     """k for each layer, and where each came from: chosen by hand, or a named method's suggestion.
 
     `levels` takes the finest clear level of the tree; a layer without one falls back to the
-    silhouette's choice, and says so.
+    silhouette's choice, and says so. `heldout` needs the lens validated (its best held-out k is
+    merged into the suggestions as "heldout").
     """
     if k_per_layer is not None:
         if len(k_per_layer) != len(layers):
@@ -43,6 +55,12 @@ def resolve_k(layers: List[int], suggestions: Dict[str, Dict[str, object]], k: O
     sources: List[str] = []
     for layer in layers:
         found = suggestions[str(layer)]
+        if k_auto == "heldout":
+            if "heldout" not in found:
+                raise ValueError("the held-out best needs a validated lens; validate it first")
+            ks.append(int(str(found["heldout"])))
+            sources.append("auto:heldout (selection-biased)")
+            continue
         if k_auto == "levels":
             levels = found.get("levels") or []
             if isinstance(levels, list) and levels:

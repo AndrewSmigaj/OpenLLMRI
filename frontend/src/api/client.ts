@@ -17,7 +17,7 @@ import type {
 } from '../types/api';
 import type {
   Fingerprint, JobView, LensBuildBody, LensDetail, LensFlows, LensMembersPage, LensMethods, LensOptions, LensSummary,
-  LensVersion, MembersQuery, Population,
+  LensVersion, MembersQuery, Population, Validation,
 } from '../types/lens';
 
 const API_BASE_URL = 'http://localhost:8000/api';
@@ -356,6 +356,17 @@ class ConceptMriApiClient {
                        body: { k?: number; k_per_layer?: number[]; k_auto?: string }): Promise<LensVersion> {
     return this.request<LensVersion>(`/sessions/${sessionId}/lenses/${encodeURIComponent(name)}/versions`,
       { method: 'POST', body: JSON.stringify(body) });
+  }
+
+  // Scores the lens on held-out data, with its k profile, in the background
+  async validateLens(sessionId: string, name: string,
+                     body: { family_field?: string; n_folds?: number; seeds?: number } = {}): Promise<{ job_id: string }> {
+    return this.request(`/sessions/${sessionId}/lenses/${encodeURIComponent(name)}/validate`,
+      { method: 'POST', body: JSON.stringify(body) });
+  }
+
+  async getLensValidation(sessionId: string, name: string): Promise<Validation> {
+    return this.request<Validation>(`/sessions/${sessionId}/lenses/${encodeURIComponent(name)}/validation`);
   }
 
   // Freezes a version with its keywords

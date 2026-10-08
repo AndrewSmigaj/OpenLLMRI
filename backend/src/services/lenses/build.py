@@ -80,12 +80,18 @@ def build_lens(params: Dict[str, Any], ctx: Any) -> Dict[str, Any]:
     ids = [r.probe_id for r in items]
     states = load_states(p.session_id, ids, p.source, p.token_position)
     layers = sorted(states)
+    dim = int(states[layers[0]].shape[1])
     for layer in layers:
         np.save(tmp / "work" / f"X_L{layer:02d}.npy", states[layer])
     del states
     ctx.check_cancelled()
     fits = _fit_layers(str(tmp), layers, p, ctx)
-    _write_lens(tmp, p, items, layers, fits, ctx, started)
+    ctx.progress("self-check", 0, 1)
+    from services.lenses.validate import self_check
+
+    check = self_check(len(items), dim, p.n_neighbors, p.dimensions, p.seed)
+    ctx.log(f"self-check: {'passed' if check['passed'] else 'FAILED'} {check['planted']} {check['null']}")
+    _write_lens(tmp, p, items, layers, fits, ctx, started, check)
     shutil.rmtree(tmp / "work")
     os.replace(tmp, final)
     return {"session_id": p.session_id, "name": p.name, "version": "v1",
@@ -108,7 +114,7 @@ def _fit_layers(folder: str, layers: List[int], p: LensBuildParams, ctx: Any) ->
 
 
 def _write_lens(tmp: Path, p: LensBuildParams, items: List[Any], layers: List[int],
-                fits: Dict[int, Dict[str, Any]], ctx: Any, started: float) -> None:
+                fits: Dict[int, Dict[str, Any]], ctx: Any, started: float, check: Dict[str, Any]) -> None:
     from services.lenses.data import load_routing, own_top4
 
     ctx.progress("writing", 0, 1)
@@ -120,7 +126,7 @@ def _write_lens(tmp: Path, p: LensBuildParams, items: List[Any], layers: List[in
     np.savez_compressed(tmp / "fit" / "top4.npz", experts=experts, weights=weights.astype(np.float16))
     _write_items(tmp / "items.parquet", items)
     _write_manifest(tmp, p, items, layers, {str(layer): fits[layer]["suggestions"] for layer in layers},
-                    ctx, started)
+                    ctx, started, check)
     from services.lenses.versions import new_version, resolve_k
 
     k_per_layer, k_source = resolve_k(layers, {str(layer): fits[layer]["suggestions"] for layer in layers},
@@ -152,7 +158,8 @@ def _session_info(session_id: str) -> Dict[str, Any]:
 
 
 def _write_manifest(tmp: Path, p: LensBuildParams, items: List[Any], layers: List[int],
-                    suggestions: Dict[str, Dict[str, Any]], ctx: Any, started: float) -> None:
+                    suggestions: Dict[str, Dict[str, Any]], ctx: Any, started: float,
+                    check: Dict[str, Any]) -> None:
     import sklearn
     import umap
 
@@ -171,7 +178,7 @@ def _write_manifest(tmp: Path, p: LensBuildParams, items: List[Any], layers: Lis
         name=p.name, session_id=session_dir(p.session_id).name, capture=_session_info(p.session_id),
         site=LensSite(source=p.source, token_position=p.token_position), filters=p.filters,
         settings=LensSettings(n_neighbors=p.n_neighbors, dimensions=p.dimensions, seed=p.seed),
-        n_items=len(items), layers=layers, suggestions=suggestions,
+        n_items=len(items), layers=layers, suggestions=suggestions, self_check=check,
         provenance=Provenance(
             commit=commit, dirty=dirty, job_id=ctx.job_id,
             created_by=ctx.store.load(ctx.job_id).created_by,

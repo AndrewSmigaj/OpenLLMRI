@@ -73,6 +73,7 @@ class LensManifest(BaseModel):
     versions: List[str] = Field(default_factory=list)
     current: Optional[str] = None
     provenance: Provenance = Field(default_factory=Provenance)
+    self_check: Optional[Dict[str, Any]] = None  # planted and null layers, with the build's settings
 
 
 class VersionRecord(BaseModel):
@@ -175,4 +176,23 @@ def summary(manifest: LensManifest, folder: Path) -> Dict[str, Any]:
         "state": current.state if current else None,
         "k_per_layer": current.k_per_layer if current else None,
         "created_at": manifest.provenance.created_at, "created_by": manifest.provenance.created_by,
+        "self_check": manifest.self_check,
+        "validation": _validation_headline(folder, manifest, current),
     }
+
+
+def _validation_headline(folder: Path, manifest: LensManifest, current: Optional[VersionRecord]) -> Optional[Dict[str, Any]]:
+    """Whether the lens is validated, and its best held-out layer on the label at its own k."""
+    import json
+
+    path = folder / "validation.json"
+    if not path.exists():
+        return None
+    record = json.loads(path.read_text(encoding="utf-8"))
+    best: Optional[Dict[str, Any]] = None
+    for li, layer in enumerate(manifest.layers):
+        k = current.k_per_layer[li] if current else None
+        scores = record["layers"].get(str(layer), {}).get(str(k), {}).get("heldout", {}).get("label")
+        if scores and (best is None or scores["kappa"] > best["kappa"]):
+            best = {"layer": layer, "k": k, **scores}
+    return {"folds": record["folds"], "best": best, "created_at": record["provenance"]["created_at"]}
