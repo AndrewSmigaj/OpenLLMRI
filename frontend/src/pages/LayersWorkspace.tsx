@@ -8,6 +8,7 @@ import type { DynamicAxis, ProbeExample } from '../types/api'
 import { DEFAULT_OUTPUT_COLOUR, outputGroupingOf, useAxisControls, type OutputColour } from '../hooks/useAxisControls'
 import { useLensContext } from '../hooks/useLensContext'
 import { useLensFlows } from '../hooks/useLensFlows'
+import { useCardList } from '../hooks/useCard'
 import { useLensDetails } from '../hooks/useLensDetails'
 import { useLensMarks } from '../hooks/useLensMarks'
 import { useSelectionMembers } from '../hooks/useSelectionMembers'
@@ -16,11 +17,13 @@ import { useShell } from '../components/shell/shellContext'
 import { chartPng, chartSvg, dataJson, download, rowsCsv, sankeyRows, type ExportFormat, type Recipe } from '../utils/exportFigure'
 import { columnsOf, lastFirst, stepsInView } from '../utils/layerGeometry'
 import { membersQuery, parseNodeId, parseSelection, probeSelection } from '../utils/selection'
+import { cardIdFor, splitCardFor } from '../utils/cardId'
 import { cardFor } from '../utils/selectionCard'
 import ColourControls from '../components/layers/ColourControls'
 import ColourLegend from '../components/layers/ColourLegend'
 import DetailsPanel from '../components/layers/DetailsPanel'
 import NodeDetails from '../components/layers/NodeDetails'
+import AnalysisReport from '../components/analysis/AnalysisReport'
 import LayerCharts from '../components/layers/LayerCharts'
 import { LayerStrip } from '../components/layers/LayerStrip'
 import LowerTabs from '../components/layers/LowerTabs'
@@ -127,15 +130,54 @@ function LayersView({ view, update, visitor }: { view: ViewState; update: Update
   const shownTrajectories = Math.min(maxTrajectories ?? sampleSize, sampleSize)
   const selectionName = selection?.kind === 'node' ? selection.id
     : selection?.kind === 'link' ? `${selection.source} → ${selection.target}` : ''
+
+  // The analysis panel (DESIGN.md E8): the report on the selection, or on the lens when nothing is
+  // selected, and for a node whose items part ways, the split point's report too
+  const cards = useCardList(view.session, view.lens, !view.legacy)
+  const cardId = view.legacy ? null : cardIdFor(selection, view.rank)
+  const splitId = !view.legacy && selection?.kind === 'node' && cluster.flows
+    ? splitCardFor(selection.id, cluster.flows.nodes, cluster.flows.links) : null
+  const reportOn = (id: string, label: string) => (
+    <PanelErrorBoundary key={id} name="Report">
+      <AnalysisReport session={view.session} lens={view.lens} cardId={id} label={label}
+        listed={cards.ids ? cards.ids.has(id) : undefined} onWritten={cards.reload} disabled={visitor} />
+    </PanelErrorBoundary>
+  )
+  const report = cardId && (
+    <>
+      {reportOn(cardId, cardId === 'lens' ? 'Report on this lens'
+        : `Report on ${selectionName}${/r\d$/.test(cardId) ? ` at rank ${view.rank}` : ''}`)}
+      {splitId && reportOn(splitId, `Where ${selectionName}'s items part ways`)}
+    </>
+  )
+  // The Members and Output tabs open the report on what they show: the selection, or the lens
+  const openReport = (on: string | null, clear: boolean) => on && (
+    <button onClick={() => {
+      if (clear) update({ sel: '' })
+      requestAnimationFrame(() => document.getElementById('analysis-report')?.scrollIntoView({ behavior: 'smooth', block: 'start' }))
+    }} className="text-[11px] text-violet-700 hover:underline">
+      {on === 'lens' ? 'Report on this lens' : `Report on ${selectionName}`} ▸
+    </button>
+  )
   const panels = {
-    members: selection && selection.kind !== 'probe'
-      ? <FilteredWordDisplay sentences={members.items} heading={`Members of ${selectionName}`}
-          targetWord={context.details?.target_word} total={members.total} onLoadMore={members.loadMore}
-          isLoading={members.loading} labelValues={labelValues} gradient={axes.gradient} />
-      : <FilteredWordDisplay sentences={sentences} heading="Sentences" targetWord={context.details?.target_word}
-          labelValues={labelValues} gradient={axes.gradient} />,
-    output: <WindowAnalysis routeData={routes} labelValues={labelValues} gradient={axes.gradient}
-      windowLabel={`Layer ${layers[layers.length - 1] ?? ''} → generated output`} />,
+    members: (
+      <div className="space-y-1">
+        {openReport(cardId, false)}
+        {selection && selection.kind !== 'probe'
+          ? <FilteredWordDisplay sentences={members.items} heading={`Members of ${selectionName}`}
+              targetWord={context.details?.target_word} total={members.total} onLoadMore={members.loadMore}
+              isLoading={members.loading} labelValues={labelValues} gradient={axes.gradient} />
+          : <FilteredWordDisplay sentences={sentences} heading="Sentences" targetWord={context.details?.target_word}
+              labelValues={labelValues} gradient={axes.gradient} />}
+      </div>
+    ),
+    output: (
+      <div className="space-y-1">
+        {openReport(view.legacy ? null : 'lens', true)}
+        <WindowAnalysis routeData={routes} labelValues={labelValues} gradient={axes.gradient}
+          windowLabel={`Layer ${layers[layers.length - 1] ?? ''} → generated output`} />
+      </div>
+    ),
     experts: (
       <FingerprintPanel session={view.session} lens={view.lens} legacy={view.legacy} axes={axes.axisValues}
         selectedNode={selectedClusterNode} />
@@ -175,7 +217,6 @@ function LayersView({ view, update, visitor }: { view: ViewState; update: Update
   }
 
   const btn = (on: boolean) => `px-1.5 py-0.5 text-[11px] rounded ${on ? 'bg-gray-800 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`
-  const analyze = `/analyze ${view.session} schema ${view.lens} transition ${layers[first] ?? 0}-${layers[first + 1] ?? 1}`
 
   return (
     <Group orientation="horizontal" className="h-full">
@@ -198,12 +239,6 @@ function LayersView({ view, update, visitor }: { view: ViewState; update: Update
               <button onClick={() => update({ top: null })} className={btn(view.top === null)}>all</button>
             </span>
             <ColourControls axes={axes} disabled={visitor} />
-            {view.legacy && (
-              <span className="text-[11px] font-mono bg-blue-50 border border-blue-200 rounded px-1.5 py-0.5 cursor-pointer hover:bg-blue-100"
-                title="Copy, then paste into Claude Code" onClick={() => navigator.clipboard?.writeText(analyze)}>
-                {analyze}
-              </span>
-            )}
           </div>
           <div className="px-2 py-1 bg-white border-b border-gray-200">
             <ColourLegend input={axes.input} output={axes.output} stripes={axes.stripes} />
@@ -228,6 +263,7 @@ function LayersView({ view, update, visitor }: { view: ViewState; update: Update
       <Panel id="side" defaultSize="26" minSize="15">
         <DetailsPanel summary={context.summary} card={card} descriptions={context.descriptions} reports={context.reports}
           layer={layers[first] ?? 0} clusterPath={clusterPath} axisValues={axes.axisValues} gradient={axes.gradient}
+          report={report} legacy={view.legacy}
           nodeDetails={!view.legacy && pickedNode?.kind === 'cluster' && (
             <PanelErrorBoundary name="Node details">
               <NodeDetails state={nodeDetails} layer={pickedNode.layer} node={pickedNode.index} disabled={visitor} />

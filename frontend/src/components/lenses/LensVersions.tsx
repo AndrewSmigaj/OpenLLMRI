@@ -5,6 +5,9 @@ import { useEffect, useState } from 'react'
 import { apiClient } from '../../api/client'
 import type { KSuggestion, LensSummary } from '../../types/lens'
 import { heldoutBest } from '../../utils/validation'
+import { useJobRunner } from '../../hooks/useJobRunner'
+import JobProgress from './JobProgress'
+import LensReport from './LensReport'
 
 interface LensVersionsProps {
   session: string
@@ -25,6 +28,7 @@ export default function LensVersions({ session, lens, disabled, onChanged }: Len
   const [keywords, setKeywords] = useState('')
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const reports = useJobRunner(() => onChanged()) // a save's reports (DESIGN.md E8)
 
   useEffect(() => {
     let current = true
@@ -121,9 +125,14 @@ export default function LensVersions({ session, lens, disabled, onChanged }: Len
             <input value={keywords} onChange={e => setKeywords(e.target.value)} disabled={disabled || busy}
               placeholder="keywords, comma separated" className="px-1.5 py-0.5 border border-gray-300 rounded w-56" />
             <button disabled={disabled || busy || changed || !lens.current}
-              title={changed ? 'Cut the new version first, or reset' : 'Freeze this version and copy its records into the repo'}
-              onClick={() => act(() => apiClient.saveLensVersion(session, lens.name, lens.current ?? '',
-                keywords.split(',').map(w => w.trim()).filter(Boolean)))}
+              title={changed ? 'Cut the new version first, or reset'
+                : 'Freeze this version and copy its records into the repo; its reports are then written (up to 25 calls on the Claude subscription)'}
+              onClick={() => act(async () => {
+                const record = await apiClient.saveLensVersion(session, lens.name, lens.current ?? '',
+                  keywords.split(',').map(w => w.trim()).filter(Boolean))
+                const job = record.analysis_job_id
+                if (job) await reports.start(async () => ({ job_id: job }))
+              })}
               className="px-2 py-1 rounded border border-green-600 text-green-700 hover:bg-green-50 disabled:border-gray-300 disabled:text-gray-400">
               Save {lens.current}
             </button>
@@ -131,6 +140,8 @@ export default function LensVersions({ session, lens, disabled, onChanged }: Len
         )}
       </div>
       {error && <p className="text-xs text-red-600">{error}</p>}
+      {reports.job && <JobProgress job={reports.job} title="Reports" onCancel={reports.running ? reports.cancel : undefined} />}
+      {lens.validation && <LensReport session={session} lens={lens.name} cardId="k" label="k advisor" disabled={disabled} />}
     </div>
   )
 }

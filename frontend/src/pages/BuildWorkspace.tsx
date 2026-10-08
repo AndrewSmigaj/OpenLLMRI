@@ -10,6 +10,8 @@ import { useViewState, viewQuery } from '../hooks/useViewState'
 import { lensAsSchema } from '../utils/lensAsSchema'
 import SchemaSummary from '../components/analysis/SchemaSummary'
 import LensForm from '../components/lenses/LensForm'
+import LensReport from '../components/lenses/LensReport'
+import AnalystStatus from '../components/lenses/AnalystStatus'
 import LensVersions from '../components/lenses/LensVersions'
 import LensBadges from '../components/lenses/LensBadges'
 import LensValidation from '../components/lenses/LensValidation'
@@ -31,6 +33,7 @@ export default function BuildWorkspace() {
   const [reload, setReload] = useState(0)
   const [open, setOpen] = useState<string | null>(null) // the lens whose k table is shown
   const [results, setResults] = useState<string | null>(null) // the lens whose validation is shown
+  const [report, setReport] = useState<string | null>(null) // the lens whose LLM report is shown
 
   useEffect(() => {
     apiClient.getLensMethods().then(setMethods).catch(err => setProblem(String(err)))
@@ -72,6 +75,9 @@ export default function BuildWorkspace() {
           takenNames={(lenses ?? []).map(l => l.name)} onBuilt={() => setReload(r => r + 1)} />
       )}
       <h2 className="text-sm font-semibold text-gray-900">Lenses on this capture</h2>
+      {lenses && <AnalystStatus session={view.session} disabled={visitor}
+        lens={(lenses.find(l => !l.legacy && l.kind === 'umap' && l.name === view.lens)
+          ?? lenses.find(l => !l.legacy && l.kind === 'umap'))?.name ?? null} />}
       {lenses === null && <p className="text-xs text-gray-500">Loading…</p>}
       {lenses?.length === 0 && <p className="text-xs text-gray-500">None yet.</p>}
       {lenses?.map(lens => (
@@ -105,6 +111,12 @@ export default function BuildWorkspace() {
               </button>
             )}
             {!lens.legacy && lens.kind !== 'mass_mean' && (
+              <button onClick={() => setReport(o => (o === lens.name ? null : lens.name))} aria-label={`Report on ${lens.name}`}
+                className="px-2 py-1 text-xs rounded border border-violet-300 text-violet-800 hover:bg-violet-50">
+                report {report === lens.name ? '▴' : '▾'}
+              </button>
+            )}
+            {!lens.legacy && lens.kind !== 'mass_mean' && (
               <button onClick={() => setOpen(o => (o === lens.name ? null : lens.name))}
                 className="px-2 py-1 text-xs rounded border border-gray-300 text-gray-700 hover:bg-gray-50">
                 k per layer {open === lens.name ? '▴' : '▾'}
@@ -119,6 +131,10 @@ export default function BuildWorkspace() {
             ? <><MassMeanResults session={view.session} lens={lens} />
                 <MassMeanDetails session={view.session} lens={lens} disabled={visitor} /></>
             : <LensValidation session={view.session} lens={lens} />)}
+          {report === lens.name && !lens.legacy && (
+            <div className="mt-2"><LensReport session={view.session} lens={lens.name} cardId="lens"
+              label="Report on this lens" disabled={visitor} /></div>
+          )}
           {open === lens.name && !lens.legacy && (
             <LensVersions key={`${lens.name}:${lens.current}`} session={view.session} lens={lens} disabled={visitor}
               onChanged={() => setReload(r => r + 1)} />

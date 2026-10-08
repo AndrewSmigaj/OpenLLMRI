@@ -14,9 +14,10 @@ export interface ContextSensitiveCardProps {
   clusterAssignments?: Record<string, number>
   onClose?: () => void
   children?: ReactNode // more about the element (a lens node's details), shown above its examples
+  legacyHint?: boolean // say how a legacy schema gets its descriptions when it has none
 }
 
-export default function ContextSensitiveCard({ cardType, selectedData, valuesByAxis, gradient, elementDescription, clusterAssignments, onClose, children }: ContextSensitiveCardProps) {
+export default function ContextSensitiveCard({ cardType, selectedData, valuesByAxis, gradient, elementDescription, clusterAssignments, onClose, children, legacyHint = true }: ContextSensitiveCardProps) {
   const hasRichData = Boolean(selectedData?._fullData)
   const isRoute = cardType === 'route' || cardType === 'highway'
 
@@ -245,9 +246,9 @@ export default function ContextSensitiveCard({ cardType, selectedData, valuesByA
                 <ReactMarkdown>{elementDescription}</ReactMarkdown>
               </div>
             </div>
-          ) : (cardType === 'cluster' || cardType === 'expert') ? (
+          ) : legacyHint && (cardType === 'cluster' || cardType === 'expert') ? (
             <p className="text-[9px] text-gray-400 italic border-t border-gray-100 pt-1">
-              No AI description. Run /analyze with a saved schema to generate cluster labels.
+              No written description for this element of the legacy schema.
             </p>
           ) : null}
 

@@ -16,7 +16,8 @@ for UMAP lenses: by a vote of their nearest training items in that grouping's ow
 
 from __future__ import annotations
 
-from typing import Any, Dict, List, Tuple
+from pathlib import Path
+from typing import Any, Dict, List, Optional, Tuple
 
 import numpy as np
 
@@ -102,3 +103,32 @@ def co_member_overlap(umap_nodes: Array, raw_clusters: Array) -> Array:
     both = table[u, v]
     overlap: Array = both / (table.sum(axis=1)[u] + table.sum(axis=0)[v] - both)
     return overlap
+
+
+def lens_marks(view: Any, folder: Path) -> Optional[Dict[str, Any]]:
+    """Where a UMAP lens and raw space disagree, per layer: the items whose co-members in the
+    lens's node and in the better raw grouping at the same k overlap less than MARK_BELOW
+    (Jaccard), and how many sit in each node. None until the lens is validated (the raw
+    groupings come from its validation)."""
+    import json
+    from collections import Counter
+
+    if not (folder / "raw_cuts.npz").exists() or not (folder / "validation.json").exists():
+        return None
+    cuts = np.load(folder / "raw_cuts.npz")
+    ks = [int(k) for k in cuts["ks"]]
+    comparison = json.loads((folder / "validation.json").read_text(encoding="utf-8")).get("comparison", {})
+    out: Dict[str, Any] = {"threshold": MARK_BELOW, "layers": {}}
+    for li, layer in enumerate(view.layers):
+        k = int(view.nodes[:, li].max()) + 1
+        if k not in ks:
+            continue
+        scored = comparison.get(str(layer), {})
+        best = max(("raw_ward", "raw_spectral"),
+                   key=lambda m: (scored.get(m, {}).get(str(k)) or {}).get("kappa", -1.0))
+        overlap = co_member_overlap(view.nodes[:, li], cuts[best][li, ks.index(k)])
+        marked = np.flatnonzero(overlap < MARK_BELOW)
+        nodes = Counter(int(view.nodes[i, li]) for i in marked)
+        out["layers"][str(layer)] = {"method": best, "k": k, "marked": [view.items[int(i)]["probe_id"] for i in marked],
+                                     "nodes": {f"L{layer}C{node}": n for node, n in sorted(nodes.items())}}
+    return out

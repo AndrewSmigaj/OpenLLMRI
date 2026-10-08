@@ -1,5 +1,6 @@
-// Beside the charts: what the lens is, the card for the selection (with a legacy schema's written
-// description of it, or a lens node's details), and the legacy schema's reports.
+// Beside the charts: what the lens is, the LLM report on the selection (a lens's analysis panel),
+// the card for the selection (with a legacy schema's written description of it, or a lens node's
+// details), and the legacy schema's reports.
 import type { ReactNode } from 'react'
 import type { SelectedCard } from '../../types/analysis'
 import type { ClusteringSchema } from '../../types/api'
@@ -20,19 +21,22 @@ interface DetailsPanelProps {
   axisValues: Record<string, string[]> // every axis's values, in a fixed order
   gradient: GradientScheme
   nodeDetails?: ReactNode // a lens's cluster node: its neurons, logit lens, surface check, routing
+  report?: ReactNode // a lens's LLM report on the selection, or on the lens when nothing is selected
+  legacy: boolean // a legacy schema: its written descriptions stand in for reports
   onClose: () => void
 }
 
 export default function DetailsPanel({ summary, card, descriptions, reports, layer, clusterPath,
-                                       axisValues, gradient, nodeDetails, onClose }: DetailsPanelProps) {
+                                       axisValues, gradient, nodeDetails, report, legacy, onClose }: DetailsPanelProps) {
   const key = card ? descriptionKey(card) : ''
   return (
     <div className="h-full overflow-y-auto overflow-x-hidden p-2 space-y-2 bg-white">
       {summary && <div className="pb-2 border-b border-gray-200"><SchemaSummary schema={summary} /></div>}
+      {report}
       {card ? (
         <PanelErrorBoundary key={key} name="Details card">
           <ContextSensitiveCard cardType={card.type} selectedData={card.data} valuesByAxis={axisValues}
-            gradient={gradient} elementDescription={descriptions[key]} clusterAssignments={clusterPath} onClose={onClose}>
+            gradient={gradient} elementDescription={descriptions[key]} clusterAssignments={clusterPath} legacyHint={legacy} onClose={onClose}>
             {nodeDetails}
           </ContextSensitiveCard>
         </PanelErrorBoundary>

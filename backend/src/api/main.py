@@ -31,6 +31,7 @@ from api.config import JOBS_PATH
 from api.dependencies import get_loading_status, initialize_capture_service, is_model_loaded
 from api.routers import (
     agent,
+    analysis,
     clustering,
     generation,
     insights,
@@ -80,6 +81,7 @@ app.include_router(prompts.router, prefix="/api")
 app.include_router(agent.router, prefix="/api")
 app.include_router(jobs.router, prefix="/api")
 app.include_router(lenses.router, prefix="/api")
+app.include_router(analysis.router, prefix="/api")
 
 @app.get("/")
 async def root() -> Dict[str, str]:

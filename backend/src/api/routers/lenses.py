@@ -7,7 +7,6 @@ the commits that built and served it, so any figure can be made again exactly.
 """
 
 import json
-from collections import Counter
 from typing import Any, Dict, List, Optional, Tuple
 
 from fastapi import APIRouter, HTTPException, Request
@@ -235,6 +234,8 @@ class VersionRequest(BaseModel):
 class SaveRequest(BaseModel):
     version: str
     keywords: List[str] = Field(default_factory=list)
+    analysis_budget: int = Field(default=25, ge=0, le=200)  # calls for the version's reports; 0 for none
+    created_by: str = "app"
 
 
 @router.post("/sessions/{session_id}/lenses/{name}/versions")
@@ -343,32 +344,14 @@ def lens_marks(session_id: str, name: str, version: Optional[str] = None) -> Dic
     """Where the UMAP lens and raw space disagree: per layer, the items whose co-members in the
     lens's node and in the best raw grouping at the same k overlap less than half (Jaccard), and
     how many sit in each node. Needs the lens validated (the raw groupings come from it)."""
-    import numpy as np
-
-    from services.lenses.raw import MARK_BELOW, co_member_overlap
+    from services.lenses.raw import lens_marks as find_marks
     from services.lenses.store import lens_dir
 
     view = _open(session_id, name, False, version)
-    folder = lens_dir(session_id, name)
-    if not (folder / "raw_cuts.npz").exists() or not (folder / "validation.json").exists():
+    found = find_marks(view, lens_dir(session_id, name))
+    if found is None:
         raise HTTPException(status_code=404, detail=f"Lens '{name}' has no raw groupings yet: validate it first")
-    cuts = np.load(folder / "raw_cuts.npz")
-    ks = [int(k) for k in cuts["ks"]]
-    comparison = json.loads((folder / "validation.json").read_text(encoding="utf-8")).get("comparison", {})
-    out: Dict[str, Any] = {"threshold": MARK_BELOW, "layers": {}}
-    for li, layer in enumerate(view.layers):
-        k = int(view.nodes[:, li].max()) + 1
-        if k not in ks:
-            continue
-        scored = comparison.get(str(layer), {})
-        best = max(("raw_ward", "raw_spectral"),
-                   key=lambda m: (scored.get(m, {}).get(str(k)) or {}).get("kappa", -1.0))
-        overlap = co_member_overlap(view.nodes[:, li], cuts[best][li, ks.index(k)])
-        marked = np.flatnonzero(overlap < MARK_BELOW)
-        nodes = Counter(int(view.nodes[i, li]) for i in marked)
-        out["layers"][str(layer)] = {"method": best, "k": k, "marked": [view.items[int(i)]["probe_id"] for i in marked],
-                                     "nodes": {f"L{layer}C{node}": n for node, n in sorted(nodes.items())}}
-    return out
+    return found
 
 
 class DetailsRequest(BaseModel):
@@ -430,14 +413,22 @@ def lens_validation(session_id: str, name: str) -> Dict[str, Any]:
 
 
 @router.post("/sessions/{session_id}/lenses/{name}/save")
-def save_lens_version(session_id: str, name: str, body: SaveRequest) -> Dict[str, Any]:
-    """Freeze a version, with its keywords, and copy its records into the repo."""
+def save_lens_version(request: Request, session_id: str, name: str, body: SaveRequest) -> Dict[str, Any]:
+    """Freeze a version, with its keywords, and copy its records into the repo. Its reports are
+    then written in the background within `analysis_budget` calls (DESIGN.md E8; 0 for none)."""
+    from services.jobs.scheduler import JobScheduler
     from services.lenses.store import save_version
 
     try:
-        return save_version(session_id, name, body.version, body.keywords).model_dump()
+        record = save_version(session_id, name, body.version, body.keywords).model_dump()
     except (FileNotFoundError, ValueError) as e:
         raise _fail(e)
+    if body.analysis_budget > 0:
+        scheduler: JobScheduler = request.app.state.jobs
+        job = scheduler.submit("lens_analysis", {"session_id": session_id, "name": name, "version": body.version,
+                                                 "budget": body.analysis_budget}, created_by=body.created_by)
+        record["analysis_job_id"] = job.id
+    return record
 
 
 @router.get("/sessions/{session_id}/lenses/{name}/trajectory")

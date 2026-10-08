@@ -19,6 +19,7 @@ import type {
   Fingerprint, JobView, LensBuildBody, LensDetail, LensFlows, LensMembersPage, LensMethods, LensOptions, LensSummary,
   LensMarks, LensNodeDetails, LensVersion, MassMeanDetails, MassMeanValidation, MembersQuery, Population, Validation,
 } from '../types/lens';
+import type { AnalystTests, Card, QuestionAnswer } from '../types/cards';
 
 const API_BASE_URL = 'http://localhost:8000/api';
 
@@ -399,6 +400,41 @@ class ConceptMriApiClient {
   async saveLensVersion(sessionId: string, name: string, version: string, keywords: string[]): Promise<LensVersion> {
     return this.request<LensVersion>(`/sessions/${sessionId}/lenses/${encodeURIComponent(name)}/save`,
       { method: 'POST', body: JSON.stringify({ version, keywords }) });
+  }
+
+  // --- LLM analysis ---
+
+  // Writes cards in the background: these card ids, or a save's plan when none are given
+  async startAnalysis(sessionId: string, name: string, cards: string[], budget: number): Promise<{ job_id: string }> {
+    return this.request(`/sessions/${sessionId}/lenses/${encodeURIComponent(name)}/analysis`,
+      { method: 'POST', body: JSON.stringify({ cards, budget }) });
+  }
+
+  // The current version's cards in brief
+  async listCards(sessionId: string, name: string): Promise<{ version: string; cards: { card_id: string }[] }> {
+    return this.request(`/sessions/${sessionId}/lenses/${encodeURIComponent(name)}/cards`);
+  }
+
+  // A card on the current version, with the facts it cites (404 until written)
+  async getCard(sessionId: string, name: string, cardId: string): Promise<Card> {
+    return this.request<Card>(`/sessions/${sessionId}/lenses/${encodeURIComponent(name)}/cards/${cardId}`);
+  }
+
+  async askQuestion(sessionId: string, name: string, cardId: string, question: string): Promise<{ job_id: string }> {
+    return this.request(`/sessions/${sessionId}/lenses/${encodeURIComponent(name)}/ask`,
+      { method: 'POST', body: JSON.stringify({ card_id: cardId, question }) });
+  }
+
+  async listQuestions(sessionId: string, name: string, cardId: string): Promise<{ questions: QuestionAnswer[] }> {
+    return this.request(`/sessions/${sessionId}/lenses/${encodeURIComponent(name)}/questions?card_id=${cardId}`);
+  }
+
+  async getAnalystTests(): Promise<AnalystTests> {
+    return this.request<AnalystTests>('/analysts/tests');
+  }
+
+  async startAnalystTests(sessionId: string, name: string): Promise<{ job_id: string }> {
+    return this.request('/analysts/tests', { method: 'POST', body: JSON.stringify({ session_id: sessionId, name }) });
   }
 
   // --- Background jobs ---

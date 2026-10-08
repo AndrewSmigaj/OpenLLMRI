@@ -107,6 +107,24 @@ def _lens_details(params: Dict[str, Any], ctx: JobContext) -> Dict[str, Any]:
     return build_details(params, ctx)
 
 
+def _lens_analysis(params: Dict[str, Any], ctx: JobContext) -> Dict[str, Any]:
+    from services.llm.cards import build_analysis
+
+    return build_analysis(params, ctx)
+
+
+def _lens_question(params: Dict[str, Any], ctx: JobContext) -> Dict[str, Any]:
+    from services.llm.cards import answer_question
+
+    return answer_question(params, ctx)
+
+
+def _analyst_tests(params: Dict[str, Any], ctx: JobContext) -> Dict[str, Any]:
+    from services.llm.analyst_tests import run_tests
+
+    return run_tests(params, ctx)
+
+
 KINDS: Dict[str, JobKind] = {
     "noop": JobKind(lane="cpu", run=_noop),
     "noop_llm": JobKind(lane="llm", run=_noop),
@@ -114,4 +132,7 @@ KINDS: Dict[str, JobKind] = {
     "lens_validate": JobKind(lane="cpu", run=_lens_validate),
     "mass_mean_build": JobKind(lane="cpu", run=_mass_mean_build),
     "lens_details": JobKind(lane="cpu", run=_lens_details),
+    "lens_analysis": JobKind(lane="llm", run=_lens_analysis),
+    "lens_question": JobKind(lane="llm", run=_lens_question),
+    "analyst_tests": JobKind(lane="llm", run=_analyst_tests),
 }

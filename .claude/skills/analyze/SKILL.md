@@ -1,222 +1,162 @@
 ---
 name: analyze
-description: Analyze a saved clustering schema — read data, reason about patterns, write reports
+description: Analyse a lens with checked reports — read a card's evidence packet, write the card here and submit it through the number checker, or have the backend's analysts write cards in the background
 ---
 
-# Schema Analysis
+# Lens analysis
 
-Analyze cluster/route data from an Open LLMRI session. This is an LLM reasoning task — read actual sentences, distributions, and route patterns. NO keyword/regex hacks.
+Reports on a lens are **cards** (DESIGN.md E8). A card is about one thing in a lens: the lens
+itself, its k profile, a cluster node, an expert, a route, an expert route or a split point. It is
+written from that thing's **evidence packet**: numbered facts (the only numbers a card may cite),
+plus example sentences, tokens and notes.
 
-**Schemas are immutable artifacts on disk.** This skill reads them; it never
-creates, modifies, or deletes them. Use `/cluster` for the schema lifecycle
-(OP-1 build, OP-1B extend, OP-4 archive, OP-5 delete).
+A checker re-computes every number. Each numeral must be followed, in its sentence, by the id of
+the fact it comes from (`89 items [F1]`, `84% [F4]`, `0.33–0.79 [F4, F5]`), and must equal that
+fact at the precision written; a share may be written as a percentage.
 
-## Invocation
+Two ways to write cards:
+- **In the background** (OP-2), by `claude -p` analysts on the Claude subscription. A card whose
+  numbers don't trace is retried once, then kept and flagged. The lens report is two independent
+  drafts, reconciled.
+- **Here in Claude Code** (OP-3, OP-4): read the packet, write the card, submit it. The backend
+  keeps it only when every number traces; otherwise it answers 422 with the failures to fix.
 
-Can be invoked as `/analyze {session_id} schema {schema_name} transition {start}-{end}`, e.g.:
-```
-/analyze session_1434a9be schema polysemy_explore transition 22-23
-```
+Analysts are tested before they are trusted (OP-5): cards by an analyst without a passing test
+for its model and prompt version are marked untested.
 
-When invoked with parameters, skip the identification step and go straight to loading the probe guide.
-When `transition` is specified, only analyze that 2-layer pair — do NOT process other transitions.
+Cards are for lenses (built with `/cluster`). Legacy schemas keep their old reports and
+descriptions, which the app still shows.
 
-**Terminology**: a *window* is a 6-layer range (one of `w0=[0,5]`, `w1=[5,11]`, `w2=[11,17]`, `w3=[17,23]`); a *transition* is a 2-layer pair within a window (e.g. `[22,23]`). Each schema covers all 4 windows × 6 transitions × {cluster + expert ranks 1/2/3}.
+## Card ids
 
-## Workflow
+| Id | The card is about |
+|---|---|
+| `lens` | the lens across its layers: the lens report |
+| `k` | the k profile: which k to cut at each layer (the lens must be validated) |
+| `L12C0` | cluster node 0 at layer 12 |
+| `L12E5r1` | expert 5 at layer 12, at rank 1 |
+| `L12C0-L13C2` | the route from L12C0 to L13C2 |
+| `L12E5-L13E7r1` | the expert route from L12E5 to L13E7, at rank 1 |
+| `split-L12C1` | the split point: where L12C1's items part ways at the next layer |
 
-### 1. Identify Session & Schema
+All operations read the lens's current version unless `version` is given.
 
-Ask the user which session and schema to analyze, or detect from context.
+## Before writing: the probe guide
 
-```bash
-# List available schemas
-curl http://localhost:8000/api/probes/sessions/{session_id}/clusterings
-```
-
-### 2. Load Probe Guide (ALWAYS DO THIS FIRST)
-
-From session metadata, get `sentence_set_name`:
-```bash
-curl http://localhost:8000/api/probes/{session_id}
-```
-
-Then read the probe guide for experiment-specific analysis focus:
-```
-glob data/sentence_sets/**/{sentence_set_name}.md
-```
-
-**Read the guide carefully** — it explains what the probe is testing, what to look for in the data, and how to interpret routing patterns. This context is essential for meaningful labeling.
-
-### 3. Analyze Transitions
-
-If a `transition` parameter was given, analyze only that 2-layer pair. Otherwise start with the last-layer transition (e.g., [22,23]) and work backward.
-
-For each transition, load cached data:
-```bash
-curl -X POST http://localhost:8000/api/experiments/analyze-cluster-routes \
-  -H "Content-Type: application/json" \
-  -d '{
-    "session_ids": ["..."],
-    "schema_name": "SCHEMA_NAME",
-    "transition_layers": [X, Y],
-    "top_n_routes": 20
-  }'
-```
-
-The right column buckets (output nodes) are baked at build time as
-`ground_truth` (friend / foe / unknown). The frontend's color-axis dropdown
-recolors these existing nodes locally — it never refetches.
-
-Examine the response:
-
-**Nodes** (clusters): Read `label_distribution`, `category_distributions`, and **ALL sentences** in `tokens`. The API now returns every sentence in each cluster (no cap). Read them all — don't skip or sample. Understanding the full distribution is critical for accurate labeling.
-
-**Links** (transitions): Read `probability`, `label_distribution`, and **ALL link examples**. Identify pure vs mixed routes.
-
-**Top Routes**: Read ALL `example_tokens`, `coverage`, `avg_confidence`. Understand what sentences follow each path.
-
-**Output Nodes** (if present): Which clusters route to which output categories? Any input/output mismatches?
-
-### 4. Deep-Dive on Interesting Routes
-
-For routes with confusion or unexpected patterns:
-```bash
-curl "http://localhost:8000/api/experiments/route-details?session_id=...&signature=ROUTE_SIG&window_layers=X,Y"
-```
-
-Read ALL sentences. Identify structural patterns, semantic themes, reasons for misclassification.
-
-### 5. Write Reports
-
-Per-transition report (see docs/ANALYSIS.md for full template):
-
-```markdown
-# Transition L{start}→L{end} Analysis
-
-## Cluster Summary
-- **C0** (N probes): [name]. [label] ([purity]%). [description]
-
-## Key Findings
-1. [Most striking pattern]
-2. [Anomalies]
-
-## Routing Patterns
-- [Top route interpretation]
-- [Output category correlations]
-
-## Sentence-Level Observations
-- [Common patterns in key routes]
-- [Why misrouted sentences confuse the model]
-```
-
-### 6. Save Reports
+The capture's sentence set has a guide saying what it tests and what to look for. Read it first:
 
 ```bash
-curl -X POST http://localhost:8000/api/probes/sessions/{id}/clusterings/{schema}/reports/w_{start}_{end} \
-  -H "Content-Type: application/json" \
-  -d '{"report": "..."}'
+ROOT=$(git rev-parse --show-toplevel) && PY="$ROOT/.venv/bin/python" && curl -s http://localhost:8000/api/probes/SESSION_ID | $PY -c "import json,sys; print(json.load(sys.stdin).get('sentence_set_name'))"
 ```
 
-### 7. Generate Element Descriptions
+Then `Glob data/sentence_sets/**/<name>.md` and read it.
 
-After analyzing each transition, generate 1-2 sentence descriptions for every cluster node and top route visible in that transition. These populate the click-to-inspect cards in the frontend.
+## Operations
 
-**Approach — comparative, not isolated:**
-1. First read ALL sentences in ALL clusters for the transition layer pair
-2. Identify what makes each cluster distinct from the others (not just what's in it, but what's NOT in it)
-3. For each cluster: what input types does it capture? How is it different from neighboring clusters?
-4. For each route: what distinguishes the sentences that take this path? If a cluster splits into multiple destinations, explain what causes the split.
-5. For output links: which clusters route cleanly to one output vs split? What explains the confusion?
-6. Reference findings from the probe guide — the guide tells you what semantic dimensions to look for
-
-**Key format** matches frontend `descKey`:
-- Clusters: `cluster-{id}-L{layer}` (e.g., `cluster-3-L22`)
-- Routes: `route-{signature}` (e.g., `route-L22C3→L23C1`)
+### OP-1: List a lens's cards
 
 ```bash
-curl -X POST http://localhost:8000/api/probes/sessions/{id}/clusterings/{schema}/element-descriptions \
-  -H "Content-Type: application/json" \
-  -d '{"descriptions": {"cluster-3-L22": "Vehicle-dominant cluster...", "route-L22C3→L23C1": "Pure vehicle route..."}}'
+ROOT=$(git rev-parse --show-toplevel) && PY="$ROOT/.venv/bin/python" && curl -s "http://localhost:8000/api/sessions/SESSION_ID/lenses/LENS/cards" | $PY -m json.tool
 ```
 
-Descriptions are merged with any existing ones (safe to call incrementally per transition).
+One card in full, with the facts it cites, whether its analyst is tested, and whether its
+evidence has changed since it was written (`stale`):
 
-**Fallback**: If the API endpoint returns 404 (WSL2 reload issue — see server TROUBLESHOOTING.md), write directly to disk:
+```bash
+ROOT=$(git rev-parse --show-toplevel) && PY="$ROOT/.venv/bin/python" && curl -s "http://localhost:8000/api/sessions/SESSION_ID/lenses/LENS/cards/CARD_ID" | $PY -m json.tool
 ```
-data/lake/{session_id}/clusterings/{schema}/element_descriptions.json
+
+### OP-2: Write cards in the background
+
+`cards` lists card ids; leave it empty for a save's plan (the lens report, the k advisor, the
+five biggest split points, then the nodes at the best layer). `budget` caps the calls: a card
+takes one or two, the lens report three to six. Saving a version runs the plan with a budget of
+25 on its own.
+
+```bash
+ROOT=$(git rev-parse --show-toplevel) && PY="$ROOT/.venv/bin/python" && curl -s -X POST "http://localhost:8000/api/sessions/SESSION_ID/lenses/LENS/analysis" -H "Content-Type: application/json" -d '{"cards": ["L12C0", "split-L12C1"], "budget": 6, "created_by": "claude-code"}' | $PY -m json.tool
 ```
-The file is a flat JSON dict of `{descKey: description}`. Merge with existing content if the file already exists.
 
-**IMPORTANT**: This step is NOT optional. Every `/analyze` run MUST produce element descriptions alongside the report. The descriptions populate the click-to-inspect cards in the frontend — without them, users see "No AI description" on every card.
+Follow the job with `curl -s http://localhost:8000/api/jobs/JOB_ID`; its result lists the cards
+written, failed and skipped.
 
-### 8. Per-Window Synthesis (covers all 6 transitions in a window)
+### OP-3: Read a card's packet
 
-Every schema covers all 4 windows × 6 transitions per window. For each
-window the user works in, produce a multi-lens synthesis that the frontend
-surfaces preferentially over the last-transition report whenever the user
-selects the full window's layer range.
+The same evidence the background analysts read: `text` is the packet as they see it.
 
-**Filename convention.** Save the synthesis under the schema's `reports/`
-directory as `w_<first>_<last>.md` (e.g. `reports/w_17_23.md` for window
-`w3`). The frontend looks up reports by file stem via
-`useSchemaManagement.schemaReports`; when `currentWindow.transitions.length > 1`
-MUDApp prefers `w_<first>_<last>` over `w_<lastTransition>`. The "synthesis"
-phrasing belongs in the report's H1, not in the filename.
+```bash
+ROOT=$(git rev-parse --show-toplevel) && PY="$ROOT/.venv/bin/python" && curl -s "http://localhost:8000/api/sessions/SESSION_ID/lenses/LENS/packets/CARD_ID" | $PY -c "import json,sys; print(json.load(sys.stdin)['text'])"
+```
 
-**Six lenses** — each is a section the synthesis must cover:
-1. **Layer-by-layer narrative** — basin sizes per layer table; one paragraph per
-   layer summarising what changed since the previous layer.
-2. **Basin topology evolution** — count of probes that change basin per
-   transition (L→L+1). Identify the transition(s) where most topology change
-   happens; everything else is stable refinement.
-3. **Semantic stability** — for each canonical basin, list the dominant
-   scenario types / subtypes; verify they match across layers (basin = stable
-   semantic category, not drifting content).
-4. **Correctness alignment** — which basins map cleanly to correct output,
-   which leak. Use `probe_results.jsonl` for `correct` field.
-5. **Leakage dynamics** — trace any pole-leak probes (probes whose basin pole
-   disagrees with their ground-truth label) across all layers. Cite
-   `reports/leakage_analysis.md` if it exists.
-6. **Cross-layer basin identity** — map cluster IDs across layers via
-   majority-overlap of probe membership; produce an identity-preservation
-   table (basin × transition) showing the fraction of probes that remain in
-   the canonical successor basin at the next layer.
+### OP-4: Submit a card written here
 
-**Synthesis section.** End with a 2–4 paragraph synthesis section that ties
-the six lenses together — what's the headline finding, what's the story of
-the model's representation as it flows through these layers.
+Write the card from the packet alone, by the analysts' rules:
+- say only what the evidence shows;
+- every number copied from a fact (rounding is fine) and cited right after it, in its sentence;
+  no computed numbers (sums, differences, ratios);
+- layers, nodes and experts by their ids (L12, L12C0, L12E5), never as bare numbers; no dates;
+- quoted sentences and tokens inside double quotes;
+- `pattern`: `clear` for a specific pattern, `weak` for a tendency, `none` for a mix. A card that
+  reports nothing is the right card when there is nothing;
+- `title`: at most eight words, no numbers; `summary`: two or three sentences; `points`: up to
+  five; `caveats`: up to three.
 
-**Cluster-ID stability across layers.** Hierarchical clustering renumbers
-clusters per layer — basin "pure-foe" may be C0 at L17, C2 at L18, C5 at
-L22, etc. Construct a canonical basin map by reading
-`probe_assignments.json` and grouping cluster IDs across layers by
-majority-overlap of their probe sets. Reference the canonical name (e.g.
-"pure-foe") in the synthesis, not the renumbered cluster ID.
+Save the card as JSON in the scratchpad, e.g. `card.json`:
 
-**Save** with the same `POST .../reports/w_<first>_<last>` endpoint as
-per-transition reports.
+```json
+{"output": {"title": "...", "pattern": "clear", "summary": "...", "points": ["..."], "caveats": []},
+ "model": "Claude Code"}
+```
 
-## Key Principles
+Then submit it:
 
-- **Read actual sentences** — never summarize by keywords alone
-- **Reason about WHY** — don't just report distributions, explain what drives routing
-- **Follow the probe guide** — each experiment has specific analysis focus areas
-- **Start from output** — last-layer routes to output nodes show the model's final decision
-- **Work backward** — trace interesting patterns to earlier layers
-- **Never claim "collapse" or "loss of encoding" from cluster purities alone.** Fixed-k hierarchical clustering picks the k most-separable cuts in the dendrogram. If two design axes have shifting relative variance across layers, k can pick axis-A cuts at one layer and axis-B cuts at the next, even when both axes are equally encoded throughout. Before claiming a representation change, verify with at least one of:
-  - **Within-cluster linear probe**: train logistic regression on residual streams of probes inside a single cluster, predicting the design axis. If accuracy is high inside the cluster, the axis is preserved — the algorithm just merged it.
-  - **k-sweep**: rebuild the schema at k=8 or k=12. If finer partitions recover the supposedly-lost axis, the original "loss" was algorithmic.
-  - **Layer-by-layer linear probe**: train at every layer separately. A flat-near-ceiling curve means information is preserved; clustering structure changes are visualization artifacts. A real drop means something genuinely changed.
+```bash
+ROOT=$(git rev-parse --show-toplevel) && PY="$ROOT/.venv/bin/python" && curl -s -X POST "http://localhost:8000/api/sessions/SESSION_ID/lenses/LENS/cards/CARD_ID" -H "Content-Type: application/json" -d @CARD_FILE | $PY -m json.tool
+```
 
-  This is methodologically critical for composition / orthogonality / preservation claims. Cluster reorganization between layers ≠ representation reorganization.
+A 422 lists each failure: the numeral, its context and the reason (no citation, an unknown fact,
+or the value it doesn't match). Fix those sentences and submit again. A stored card shows in the
+app as written in Claude Code.
 
-## Data-contract notes
+### OP-5: Test the analysts
 
-- **Cluster-ID renumbering is per-layer.** Always build a canonical basin
-  map (Step 8 lens 6) before making cross-layer claims. Renaming
-  C0→C2→C5 is a renumbering artefact, not migration.
-- **Reports are keyed by file stem.** Save per-transition as `w_X_Y.md`
-  (where X,Y is the 2-layer pair) and the per-window synthesis as
-  `w_<first>_<last>.md` (covering all 6 transitions in that window). The
-  frontend lookup is `schemaReports[stem]`.
+Before trusting the background analysts, and again whenever their prompts or model change. At one
+layer of a lens (its best by default), about 20 calls:
+- decoys: random populations and the lens with its labels shuffled; a sound analyst calls none
+  of them a clear pattern;
+- planted findings: populations built around one label value; a sound analyst names it;
+- predictive descriptions: from a node's card, a second call picks the node's members out of
+  held-out sentences (half are members), scored beside a majority-label baseline.
+
+```bash
+ROOT=$(git rev-parse --show-toplevel) && PY="$ROOT/.venv/bin/python" && curl -s -X POST http://localhost:8000/api/analysts/tests -H "Content-Type: application/json" -d '{"session_id": "SESSION_ID", "name": "LENS", "created_by": "claude-code"}' | $PY -m json.tool
+```
+
+The latest run, and which model and prompt versions have passed:
+
+```bash
+ROOT=$(git rev-parse --show-toplevel) && PY="$ROOT/.venv/bin/python" && curl -s http://localhost:8000/api/analysts/tests | $PY -m json.tool
+```
+
+### OP-6: Ask about a card's subject
+
+An analyst answers from the card's packet, in the background; the answer's numbers are checked.
+
+```bash
+ROOT=$(git rev-parse --show-toplevel) && PY="$ROOT/.venv/bin/python" && curl -s -X POST "http://localhost:8000/api/sessions/SESSION_ID/lenses/LENS/ask" -H "Content-Type: application/json" -d '{"card_id": "L12C0", "question": "Which register leans into this node?"}' | $PY -m json.tool
+```
+
+The answers, newest first:
+
+```bash
+ROOT=$(git rev-parse --show-toplevel) && PY="$ROOT/.venv/bin/python" && curl -s "http://localhost:8000/api/sessions/SESSION_ID/lenses/LENS/questions?card_id=L12C0" | $PY -m json.tool
+```
+
+## Key principles
+
+- **The packet is the evidence.** A claim the packet can't support stays out of the card, however
+  plausible.
+- **A node is a group the lens made at one layer**, measured against designed labels; say which
+  instrument a claim rests on (the UMAP lens's nodes, raw space, the routing).
+- **Nothing to report is a finding.** Decoys exist because analysts find patterns in noise.
+- **Cards are LLM-written.** A finding still goes through the paradigm's review (DESIGN.md H).

@@ -170,6 +170,7 @@ export interface LensVersion {
   keywords: string[]
   created_at: string
   saved_at?: string | null
+  analysis_job_id?: string // a save's reports, being written in the background
 }
 
 // A layer's in-sample k suggestions, from the build

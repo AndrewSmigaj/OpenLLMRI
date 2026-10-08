@@ -33,7 +33,7 @@ Claude Code uses these guides to execute the full pipeline:
 | `/agent-report` | Generate formatted markdown walkthrough of agent session scenarios — what the LLM saw and how it reasoned |
 | `/probe` | Co-design a new experiment |
 | `/categorize` | Classify model-generated outputs |
-| `/analyze` | Read cluster/route data, write reports and element descriptions |
+| `/analyze` | Lens reports: read a card's evidence packet, write cards through the number checker, run the analysts in the background, test them |
 | `/pipeline` | Check pipeline state, suggest next step |
 | `/cdd` | Uncertainty assessment before implementation |
 | `/devils-advocate` | Challenge a design — find real weaknesses, not performative objections |
