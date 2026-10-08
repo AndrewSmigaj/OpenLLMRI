@@ -612,3 +612,20 @@ doctrine wants, and the χ² audits confirmed no label-correlated surface struct
   set's GUIDE). Its wording should be revisited before friend/foe v3.
 - **Smoke sessions in the lake:** `session_0d91ae69` (Phase 7.2), `session_4ccc310d` (8a, watched
   live) and `session_cd7bbb55` (8b, standard ports). Keep as references or delete.
+
+## 2026-10-07 — The design's final read: certainty and 22 recommendations
+
+**Scope**: `docs/DESIGN.md` Part M (question L15).
+
+For Andrew's final read of the design, Part M grades how sure the design is, places it among
+2025–2026 work on gpt-oss and MoE models (a survey whose main claims were re-read at their sources),
+and lists 22 recommendations, the top five starred:
+- expert fingerprints;
+- depth heatmaps;
+- a public atlas and data release;
+- tests of the LLM analysts (decoys, planted findings, predictive descriptions);
+- each lens's share in what the router reads.
+
+The verdict: proceed. Trust in the readings, the weakest link for the core goal, stands at 85%;
+agent reading stands at 70%, an experiment by design. The design is distinctive as a combination;
+getting results out early matters as much as the design.
