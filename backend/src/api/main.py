@@ -35,6 +35,7 @@ from api.routers import (
     generation,
     insights,
     jobs,
+    lenses,
     probes,
     prompts,
     routes,
@@ -80,6 +81,7 @@ app.include_router(generation.router, prefix="/api")
 app.include_router(prompts.router, prefix="/api")
 app.include_router(agent.router, prefix="/api")
 app.include_router(jobs.router, prefix="/api")
+app.include_router(lenses.router, prefix="/api")
 
 @app.get("/")
 async def root() -> Dict[str, str]:
