@@ -199,3 +199,48 @@ def test_items_follow_todays_filters(lake: Path) -> None:
     small = load_items(SESSION, LensFilters(max_items=10))
     larger = load_items(SESSION, LensFilters(max_items=12))
     assert len(small) == 10 and {r.probe_id for r in small} <= {r.probe_id for r in larger}
+
+
+def test_members_follow_a_link_an_expert_link_and_the_output_column(lake: Path) -> None:
+    from services.lenses.flows import members
+    from services.lenses.view import open_lens
+
+    build(lake)
+    view = open_lens(SESSION, "synth")
+    for i, item in enumerate(view.items):
+        item["output_category"] = "yes" if i % 2 else "no"
+    nodes, experts = view.nodes, view.experts[:, :, 0]
+    a, b = int(nodes[0, 0]), int(nodes[0, 1])
+    link = members(view, 0, node=a, to_node=b, limit=500)
+    assert link["total"] == int(((nodes[:, 0] == a) & (nodes[:, 1] == b)).sum())
+    e, f = int(experts[0, 0]), int(experts[0, 1])
+    expert_link = members(view, 0, expert=e, to_expert=f, limit=500)
+    assert expert_link["total"] == int(((experts[:, 0] == e) & (experts[:, 1] == f)).sum())
+    assert members(view, 2, output="yes")["total"] == sum(i % 2 for i in range(len(view.items)))
+    both = members(view, 2, node=int(nodes[1, 2]), output="yes", limit=500)
+    assert all(item["output_category"] == "yes" for item in both["items"])
+    with pytest.raises(ValueError):
+        members(view, 0)
+
+
+def test_the_output_column_groups_by_output_axes_and_counts_them(lake: Path) -> None:
+    from services.lenses.flows import cluster_flows
+    from services.lenses.view import open_lens
+
+    build(lake)
+    view = open_lens(SESSION, "synth")
+    for i, item in enumerate(view.items):
+        item["output_category"] = "go" if i % 2 else "stay"
+        item["output_categories"] = {"move": item["output_category"], "fast": "yes" if i < 10 else "no"}
+    plain = cluster_flows(view)["output"]
+    assert plain["axes"] == {"fast": ["no", "yes"], "move": ["go", "stay"]}
+    assert [(n["value"], n["count"]) for n in plain["nodes"]] == [("go", 20), ("stay", 20)]
+    assert plain["nodes"][0]["output_counts"]["fast"] == {"no": 15, "yes": 5}
+    grouped = cluster_flows(view, ["move", "fast"])["output"]
+    assert {n["value"]: n["count"] for n in grouped["nodes"]} == {
+        "go_no": 15, "go_yes": 5, "stay_no": 15, "stay_yes": 5}
+    assert sum(link["count"] for link in grouped["links"]) == 40
+    for i, item in enumerate(view.items[:10]):  # combinations nobody takes still get a node
+        item["output_categories"]["fast"] = "yes" if i % 2 == 0 else "no"
+    regrouped = cluster_flows(view, ["move", "fast"])["output"]["nodes"]
+    assert {n["value"]: n["count"] for n in regrouped} == {"go_no": 20, "go_yes": 0, "stay_no": 15, "stay_yes": 5}

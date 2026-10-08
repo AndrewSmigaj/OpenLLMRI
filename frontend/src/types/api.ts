@@ -109,6 +109,7 @@ interface SankeyNode {
   specialization: string
   tokens?: ProbeExample[]
   probe_ids?: string[]
+  weight?: number // experts: the model's own mean gate weight at this rank
 }
 
 interface SankeyLink {

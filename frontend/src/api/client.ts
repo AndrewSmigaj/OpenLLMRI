@@ -15,6 +15,7 @@ import type {
   SentenceExperimentRequest,
   SentenceExperimentResponse,
 } from '../types/api';
+import type { JobView, LensFlows, LensMembersPage, LensSummary, MembersQuery } from '../types/lens';
 
 const API_BASE_URL = 'http://localhost:8000/api';
 
@@ -289,6 +290,49 @@ class ConceptMriApiClient {
       body: JSON.stringify(request),
     });
   }
+  // --- Lenses (lenses and legacy schemas through one shape; `legacy` picks which) ---
+
+  async listLenses(sessionId: string): Promise<LensSummary[]> {
+    return this.request<LensSummary[]>(`/sessions/${sessionId}/lenses`);
+  }
+
+  // `outputAxes` groups the output column by those output axes instead of the output category.
+  async getLensFlows(sessionId: string, name: string, legacy: boolean, outputAxes: string[] = []): Promise<LensFlows> {
+    const params = new URLSearchParams({ legacy: String(legacy) });
+    if (outputAxes.length) params.set('output_axes', outputAxes.join(','));
+    return this.request<LensFlows>(`/sessions/${sessionId}/lenses/${encodeURIComponent(name)}/flows?${params}`);
+  }
+
+  async getLensExpertFlows(sessionId: string, name: string, legacy: boolean, rank: number,
+                           outputAxes: string[] = []): Promise<LensFlows> {
+    const params = new URLSearchParams({ legacy: String(legacy), rank: String(rank) });
+    if (outputAxes.length) params.set('output_axes', outputAxes.join(','));
+    return this.request<LensFlows>(`/sessions/${sessionId}/lenses/${encodeURIComponent(name)}/expert-flows?${params}`);
+  }
+
+  async getLensMembers(sessionId: string, name: string, legacy: boolean, query: MembersQuery): Promise<LensMembersPage> {
+    const params = new URLSearchParams({ legacy: String(legacy) });
+    for (const [key, value] of Object.entries(query)) {
+      if (value !== undefined) params.set(key, String(value));
+    }
+    return this.request<LensMembersPage>(`/sessions/${sessionId}/lenses/${encodeURIComponent(name)}/members?${params}`);
+  }
+
+  async getLensTrajectory(sessionId: string, name: string, legacy: boolean): Promise<TrajectoryPointsResponse> {
+    return this.request<TrajectoryPointsResponse>(
+      `/sessions/${sessionId}/lenses/${encodeURIComponent(name)}/trajectory?legacy=${legacy}`);
+  }
+
+  // --- Background jobs ---
+
+  async listJobs(active = false): Promise<JobView[]> {
+    return this.request<JobView[]>(`/jobs${active ? '?active=true' : ''}`);
+  }
+
+  async cancelJob(jobId: string): Promise<JobView> {
+    return this.request<JobView>(`/jobs/${jobId}/cancel`, { method: 'POST' });
+  }
+
   /**
    * List available clustering schemas for a session
    */

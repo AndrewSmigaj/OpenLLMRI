@@ -7,9 +7,8 @@ import { isOutputNode as checkIsOutputNode, isOutputLink as checkIsOutputLink, s
 // The node and link objects this chart gives ECharts, as they come back in event and tooltip params
 type SankeyItemRef = { name?: string; id?: string; source?: string; target?: string };
 
-interface SankeyChartProps {
-  nodes: SankeyNode[];
-  links: SankeyLink[];
+// How nodes and links are coloured: by the input axes, and the output column by its own axes.
+export interface SankeyColourProps {
   primaryValues: string[];
   gradient?: GradientScheme;
   secondaryValues?: string[];
@@ -22,11 +21,22 @@ interface SankeyChartProps {
   outputSecondaryGradient?: GradientScheme;
   outputSecondaryAxisId?: string;
   outputColorAxisId?: string;
+}
+
+interface SankeyChartProps extends SankeyColourProps {
+  nodes: SankeyNode[];
+  links: SankeyLink[];
   onNodeClick?: (nodeId: string, nodeData: SankeyNode) => void;
   onLinkClick?: (linkData: SankeyLink) => void;
   height?: number;
   width?: number;
   nodeWidth?: number;
+  // The series' margins, in pixels or as a percentage string; charts that must line up share them
+  left?: number | string;
+  right?: number | string;
+  showLabels?: boolean;
+  // The ECharts instance once it exists (null when it goes), for exports
+  onChartReady?: (chart: echarts.ECharts | null) => void;
 }
 
 const SankeyChart: React.FC<SankeyChartProps> = ({
@@ -48,7 +58,11 @@ const SankeyChart: React.FC<SankeyChartProps> = ({
   onLinkClick,
   height = 600,
   width = 800,
-  nodeWidth: nodeWidthProp = 6
+  nodeWidth: nodeWidthProp = 6,
+  left = '2%',
+  right = '30%',
+  showLabels = true,
+  onChartReady,
 }) => {
   const chartRef = useRef<HTMLDivElement>(null);
   const chartInstance = useRef<echarts.ECharts | null>(null);
@@ -56,18 +70,24 @@ const SankeyChart: React.FC<SankeyChartProps> = ({
   const linksRef = useRef(links);
   const onNodeClickRef = useRef(onNodeClick);
   const onLinkClickRef = useRef(onLinkClick);
+  const onChartReadyRef = useRef(onChartReady);
 
   // Update refs when props change
   nodesRef.current = nodes;
   linksRef.current = links;
   onNodeClickRef.current = onNodeClick;
   onLinkClickRef.current = onLinkClick;
+  onChartReadyRef.current = onChartReady;
 
   useEffect(() => {
     if (!chartRef.current) return;
 
-    // Initialize chart
-    chartInstance.current = echarts.init(chartRef.current);
+    // Initialize chart. A wide all-layer chart is thousands of pixels across, so the pixel ratio
+    // is capped to keep the canvas within browser limits.
+    chartInstance.current = echarts.init(chartRef.current, undefined, {
+      devicePixelRatio: Math.min(window.devicePixelRatio || 1, 2),
+    });
+    onChartReadyRef.current?.(chartInstance.current);
 
     // Handle click events
     const handleClick = (params: echarts.ECElementEvent) => {
@@ -111,6 +131,7 @@ const SankeyChart: React.FC<SankeyChartProps> = ({
       chartInstance.current?.off('click', handleClick);
       window.removeEventListener('resize', handleResize);
       resizeObserver.disconnect();
+      onChartReadyRef.current?.(null);
       chartInstance.current?.dispose();
     };
   }, []);
@@ -258,7 +279,7 @@ const SankeyChart: React.FC<SankeyChartProps> = ({
               <div style="max-width: 300px;">
                 <strong>${node.name}</strong><br/>
                 <hr style="margin: 4px 0;"/>
-                Expert: ${node.expert_id}<br/>
+                ${/^L\d+C\d+$/.test(node.id) ? 'Cluster' : 'Expert'}: ${node.expert_id}<br/>
                 Layer: ${node.layer}<br/>
                 Token Count: ${node.token_count}<br/>
                 Labels: ${node.label_distribution ? Object.entries(node.label_distribution).map(([k, v]) => `${k}: ${v}`).join(', ') : 'N/A'}
@@ -296,22 +317,17 @@ const SankeyChart: React.FC<SankeyChartProps> = ({
         nodeGap: 8,
         nodeWidth: nodeWidthProp,
         layoutIterations: 0,
-        left: '2%',
-        right: '30%',
+        left,
+        right,
         top: '2%',
         bottom: '2%',
         label: {
-          show: true,
+          show: showLabels,
           position: 'right',
           fontSize: 11,
           color: '#1f2937',
-          // Strip the "Generated:" prefix so output-column labels fit the margin.
-          // (Prefix defined in output_category_nodes.py:17 as "Generated:" — no space.)
-          formatter: (params) => {
-            const name = params.name || ''
-            if (name.startsWith('Generated:')) return name.slice('Generated:'.length) + '\naction'
-            return name
-          }
+          // The output column shows its categories without the "Generated:" prefix
+          formatter: (params) => stripOutputPrefix(params.name || '')
         }
       }],
       animation: true,
@@ -319,7 +335,7 @@ const SankeyChart: React.FC<SankeyChartProps> = ({
     };
 
     chartInstance.current.setOption(option);
-  }, [nodes, links, primaryValues, gradient, secondaryValues, secondaryGradient, secondaryAxisId, ambiguityBlend, outputPrimaryValues, outputGradient, outputSecondaryValues, outputSecondaryGradient, outputSecondaryAxisId, outputColorAxisId]);
+  }, [nodes, links, primaryValues, gradient, secondaryValues, secondaryGradient, secondaryAxisId, ambiguityBlend, outputPrimaryValues, outputGradient, outputSecondaryValues, outputSecondaryGradient, outputSecondaryAxisId, outputColorAxisId, left, right, showLabels, nodeWidthProp]);
 
   return (
     <div

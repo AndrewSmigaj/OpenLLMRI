@@ -56,6 +56,7 @@ def test_a_build_starts_as_a_job_and_the_lens_then_opens(client: TestClient) -> 
     assert client.get(f"/api/sessions/{SESSION}/lenses/synth/expert-flows?rank=5").status_code == 400
     page = client.get(f"/api/sessions/{SESSION}/lenses/synth/members?layer=0&node=0&limit=5").json()
     assert page["total"] == 20 and len(page["items"]) == 5
+    assert {"generated_text", "target_char_offset", "game_text", "action"} <= set(page["items"][0])
 
 
 def test_a_new_k_and_a_save(client: TestClient) -> None:
@@ -87,3 +88,12 @@ def test_errors_name_what_is_missing(client: TestClient) -> None:
     assert client.get(f"/api/sessions/{SESSION}/lenses/nothing/flows").status_code == 404
     assert client.post("/api/lenses", json=BODY | {"name": "Bad Name"}).status_code == 400
     assert client.post("/api/lenses", json=BODY | {"session_id": "session_nothere"}).status_code == 404
+
+
+def test_trajectories_and_assignments_come_with_a_lens(client: TestClient) -> None:
+    run_job(client, client.post("/api/lenses", json=BODY).json()["job_id"])
+    trajectory = client.get(f"/api/sessions/{SESSION}/lenses/synth/trajectory").json()
+    assert trajectory["layers"] == [0, 1, 2] and len(trajectory["points_by_layer"]["0"]) == 40
+    assert set(trajectory["points_by_layer"]["0"][0]) >= {"probe_id", "x", "y", "z", "label"}
+    flows = client.get(f"/api/sessions/{SESSION}/lenses/synth/flows").json()
+    assert len(flows["assignments"]) == 40 and set(flows["assignments"]["p000"]) == {"0", "1", "2"}

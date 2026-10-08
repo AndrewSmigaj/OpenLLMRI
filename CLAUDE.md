@@ -95,7 +95,7 @@ After setup, use `/server` to start the backend and frontend.
 
 ### 4. MoE-Specific Requirements
 - Target model: **gpt-oss-20b only** — don't abstract for multiple models yet
-- Routing: the model sends each token to its **top 4** experts; the route views follow one rank at a time, **top-1** by default (ranks 2–3 selectable)
+- Routing: the model sends each token to its **top 4** experts, with its own gate weights (a softmax over those four); the expert view follows one rank at a time, **rank 1** by default (ranks 1–4 selectable)
 - Dimensionality reduction: **UMAP 6D** for clustering, applied to residual stream activations
 - Time: one saved lens is read at a fixed site along context steps, agent ticks or reasoning steps (DESIGN.md Part D)
 
@@ -152,7 +152,7 @@ TIME FLOW: a saved lens → read at a fixed site along context steps, ticks or r
 - Frontend URL: `http://localhost:5173` (Vite dev server must be running)
 
 **MUD verification (when Claude wants to watch an agent run):**
-- The MUD terminal lives inside the MUDApp page (right pane). Navigate to `http://localhost:5173`, find the terminal `textbox`, type `connect guest` to log in as a visitor (no credentials required — Evennia's guest mode). Guests arrive in the hub.
+- The MUD terminal lives in the dock along the bottom of the app (its header line folds and opens it; folded, it stays connected). Navigate to `http://localhost:5173`, find the terminal `textbox`, type `connect guest` to log in as a visitor (no credentials required — Evennia's guest mode). Guests arrive in the hub.
 - `watch agent` follows the agent's character into each scenario it loads and back out; `unwatch` returns. A watcher reads the scenario (`look`, `examine`, `actions`) and every line the agent types, and can't act or speak there: anything said in the room would reach the agent's prompt.
 - The agent's own login uses `EVENNIA_AGENT_USER` / `EVENNIA_AGENT_PASS` from `.env` — never overlap; let Claude observe as guest while the agent runs as `agent`.
 - Researchers can start and stop runs from the MUD's simulator room: `agent run <set>[/<subset>] [<scenario>]` and `agent stop` ask the backend, which owns the GPU and runs one agent at a time.

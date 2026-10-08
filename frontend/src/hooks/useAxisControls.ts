@@ -1,101 +1,73 @@
-import { useState, useMemo } from 'react'
+// The colour controls. The input colour axis, blend axis and gradient live in the URL, since they
+// change the figure a link names; the shape axis and the ambiguity blend are the page's own. The
+// output colours are held by the page too, since they also regroup the output column the flows
+// are loaded with. The axes themselves come from the loaded flows.
+import { useMemo, useState } from 'react'
 import type { DynamicAxis } from '../types/api'
-import type { GradientScheme } from '../utils/colorBlending'
+import type { AmbiguityBlend, GradientScheme } from '../utils/colorBlending'
 import { GRADIENT_AUTO_PAIRS } from '../utils/colorBlending'
+import type { UpdateView, ViewState } from './useViewState'
 
-export interface AxisControlsState {
-  // Input axes
-  allAxes: DynamicAxis[]
-  colorAxisId: string
-  colorAxis2Id: string
-  shapeAxisId: string
+const valuesOf = (axis: DynamicAxis | undefined) => axis ? (axis.values || [axis.label_a, axis.label_b]) : undefined
+
+export interface OutputColour {
+  axis: string // '' matches the input colours
+  axis2: string // 'none' for no blend
   gradient: GradientScheme
-  selectedWindow: string
-  // Output axes
-  outputAxes: DynamicAxis[]
-  outputColorAxisId: string
-  outputColorAxis2Id: string
-  outputGradient: GradientScheme
-  // Derived values
-  colorAxis: DynamicAxis | undefined
-  colorAxis2: DynamicAxis | undefined
-  shapeAxis: DynamicAxis | undefined
-  secondaryGradient: GradientScheme
-  primaryValues: string[]
-  secondaryValues: string[] | undefined
-  outputColorAxis: DynamicAxis | undefined
-  outputColorAxis2: DynamicAxis | undefined
-  outputSecondaryGradient: GradientScheme
-  outputPrimaryValues: string[]
-  outputSecondaryValues: string[] | undefined
-  outputGroupingAxes: string[] | undefined
-  // Setters
-  setAllAxes: React.Dispatch<React.SetStateAction<DynamicAxis[]>>
-  setColorAxisId: React.Dispatch<React.SetStateAction<string>>
-  setColorAxis2Id: React.Dispatch<React.SetStateAction<string>>
-  setShapeAxisId: React.Dispatch<React.SetStateAction<string>>
-  setGradient: React.Dispatch<React.SetStateAction<GradientScheme>>
-  setSelectedWindow: React.Dispatch<React.SetStateAction<string>>
-  setOutputAxes: React.Dispatch<React.SetStateAction<DynamicAxis[]>>
-  setOutputColorAxisId: React.Dispatch<React.SetStateAction<string>>
-  setOutputColorAxis2Id: React.Dispatch<React.SetStateAction<string>>
-  setOutputGradient: React.Dispatch<React.SetStateAction<GradientScheme>>
 }
 
-export function useAxisControls(): AxisControlsState {
-  const [allAxes, setAllAxes] = useState<DynamicAxis[]>([])
-  const [colorAxisId, setColorAxisId] = useState<string>('label')
-  const [colorAxis2Id, setColorAxis2Id] = useState<string>('none')
-  const [shapeAxisId, setShapeAxisId] = useState<string>('none')
-  const [gradient, setGradient] = useState<GradientScheme>('red-blue')
-  const [selectedWindow, setSelectedWindow] = useState<string>('w0')
+export const DEFAULT_OUTPUT_COLOUR: OutputColour = { axis: '', axis2: 'none', gradient: 'purple-green' }
 
-  const [outputAxes, setOutputAxes] = useState<DynamicAxis[]>([])
-  const [outputColorAxisId, setOutputColorAxisId] = useState<string>('')
-  const [outputColorAxis2Id, setOutputColorAxis2Id] = useState<string>('none')
-  const [outputGradient, setOutputGradient] = useState<GradientScheme>('purple-green')
+// The output axes the output column is grouped by: the ones chosen for its colour
+export const outputGroupingOf = (output: OutputColour) => [output.axis, output.axis2].filter(a => a && a !== 'none')
 
-  const colorAxis = allAxes.find(a => a.id === colorAxisId)
-  const colorAxis2 = allAxes.find(a => a.id === colorAxis2Id)
+export function useAxisControls(allAxes: DynamicAxis[], outputAxes: DynamicAxis[], view: ViewState, update: UpdateView,
+                                output: OutputColour, setOutput: (output: OutputColour) => void) {
+  const [shapeAxisId, setShapeAxisId] = useState('none')
+  const [blendOn, setAmbiguityBlendEnabled] = useState(false)
+  const [blendPole, setAmbiguousValue] = useState('')
+  const { axis: outputColorAxisId, axis2: outputColorAxis2Id, gradient: outputGradient } = output
+
+  // A colour axis this capture doesn't have falls back to its first axis
+  const colorAxis = allAxes.find(a => a.id === view.color) ?? allAxes[0]
+  const colorAxis2 = allAxes.find(a => a.id === view.color2)
   const shapeAxis = allAxes.find(a => a.id === shapeAxisId)
-  const secondaryGradient = GRADIENT_AUTO_PAIRS[gradient]
-
-  const primaryValues = useMemo(() =>
-    colorAxis?.values || (colorAxis ? [colorAxis.label_a, colorAxis.label_b] : []),
-    [colorAxis]
-  )
-  const secondaryValues = useMemo(() =>
-    colorAxis2?.values || (colorAxis2 ? [colorAxis2.label_a, colorAxis2.label_b] : undefined),
-    [colorAxis2]
-  )
-
   const outputColorAxis = outputAxes.find(a => a.id === outputColorAxisId)
   const outputColorAxis2 = outputAxes.find(a => a.id === outputColorAxis2Id)
-  const outputSecondaryGradient = GRADIENT_AUTO_PAIRS[outputGradient]
-  const outputPrimaryValues = useMemo(() =>
-    outputColorAxis?.values || (outputColorAxis ? [outputColorAxis.label_a, outputColorAxis.label_b] : []),
-    [outputColorAxis]
-  )
-  const outputSecondaryValues = useMemo(() =>
-    outputColorAxis2?.values || (outputColorAxis2 ? [outputColorAxis2.label_a, outputColorAxis2.label_b] : undefined),
-    [outputColorAxis2]
-  )
 
-  const outputGroupingAxes = useMemo(() => {
-    const axes: string[] = []
-    if (outputColorAxisId && outputColorAxisId !== 'none') axes.push(outputColorAxisId)
-    if (outputColorAxis2Id && outputColorAxis2Id !== 'none') axes.push(outputColorAxis2Id)
-    return axes.length > 0 ? axes : undefined
-  }, [outputColorAxisId, outputColorAxis2Id])
+  const primaryValues = useMemo(() => valuesOf(colorAxis) ?? [], [colorAxis])
+  const secondaryValues = useMemo(() => valuesOf(colorAxis2), [colorAxis2])
+  const outputPrimaryValues = useMemo(() => valuesOf(outputColorAxis) ?? [], [outputColorAxis])
+  const outputSecondaryValues = useMemo(() => valuesOf(outputColorAxis2), [outputColorAxis2])
+
+  // The ambiguity blend applies to a two-valued blend axis; its pole defaults to the first value
+  const canBlend = secondaryValues?.length === 2
+  const ambiguousValue = canBlend && secondaryValues.includes(blendPole) ? blendPole : secondaryValues?.[0] ?? ''
+  const ambiguityBlendEnabled = canBlend && blendOn
+  const ambiguityBlend = useMemo<AmbiguityBlend | undefined>(
+    () => (ambiguityBlendEnabled ? { enabled: true, ambiguousValue, mixRatio: 0.6 } : undefined),
+    [ambiguityBlendEnabled, ambiguousValue])
 
   return {
-    allAxes, colorAxisId, colorAxis2Id, shapeAxisId, gradient, selectedWindow,
-    outputAxes, outputColorAxisId, outputColorAxis2Id, outputGradient,
-    colorAxis, colorAxis2, shapeAxis, secondaryGradient,
+    allAxes, outputAxes,
+    colorAxisId: colorAxis?.id ?? view.color, colorAxis2Id: colorAxis2 ? colorAxis2.id : 'none',
+    gradient: view.gradient, secondaryGradient: GRADIENT_AUTO_PAIRS[view.gradient],
+    colorAxis, colorAxis2, shapeAxis, shapeAxisId: shapeAxis ? shapeAxisId : 'none',
     primaryValues, secondaryValues,
-    outputColorAxis, outputColorAxis2, outputSecondaryGradient,
-    outputPrimaryValues, outputSecondaryValues, outputGroupingAxes,
-    setAllAxes, setColorAxisId, setColorAxis2Id, setShapeAxisId, setGradient, setSelectedWindow,
-    setOutputAxes, setOutputColorAxisId, setOutputColorAxis2Id, setOutputGradient,
+    canBlend, ambiguityBlendEnabled, ambiguousValue, ambiguityBlend,
+    outputColorAxisId: outputColorAxis ? outputColorAxisId : '',
+    outputColorAxis2Id: outputColorAxis2 ? outputColorAxis2Id : 'none',
+    outputColorAxis, outputColorAxis2, outputGradient,
+    outputSecondaryGradient: GRADIENT_AUTO_PAIRS[outputGradient],
+    outputPrimaryValues, outputSecondaryValues,
+    setColorAxisId: (id: string) => update({ color: id }),
+    setColorAxis2Id: (id: string) => update({ color2: id }),
+    setGradient: (gradient: GradientScheme) => update({ gradient }),
+    setShapeAxisId, setAmbiguityBlendEnabled, setAmbiguousValue,
+    setOutputColorAxisId: (axis: string) => setOutput({ ...output, axis }),
+    setOutputColorAxis2Id: (axis2: string) => setOutput({ ...output, axis2 }),
+    setOutputGradient: (gradient: GradientScheme) => setOutput({ ...output, gradient }),
   }
 }
+
+export type AxisControlsState = ReturnType<typeof useAxisControls>

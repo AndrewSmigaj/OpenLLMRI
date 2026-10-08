@@ -8,6 +8,7 @@ clusterings exactly.
 
 from __future__ import annotations
 
+import functools
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Sequence
 
@@ -48,6 +49,31 @@ def session_dir(session_id: str, lake: Optional[Path] = None) -> Path:
         if candidate.is_dir():
             return candidate
     raise FileNotFoundError(f"Session '{session_id}' not found")
+
+
+# What the app shows beside an item, beyond what a lens keeps: its generated text, where the target
+# word sits, and for agent runs the tick's game text, analysis channel and action.
+DISPLAY_FIELDS = ("generated_text", "target_char_offset", "turn_id", "capture_type",
+                  "game_text", "analysis", "action", "previous_action", "system_prompt")
+
+
+def display_fields(session_id: str, lake: Optional[Path] = None) -> Dict[str, Dict[str, Any]]:
+    """Each item's display fields, by probe id (cached while the capture's files are unchanged)."""
+    folder = session_dir(session_id, lake)
+    tokens, ticks = folder / "tokens.parquet", folder / "tick_log.jsonl"
+    stamp = (tokens.stat().st_mtime_ns, ticks.stat().st_mtime_ns if ticks.exists() else 0)
+    return _display_fields(str(folder), stamp)
+
+
+@functools.lru_cache(maxsize=4)
+def _display_fields(folder: str, stamp: tuple[int, int]) -> Dict[str, Dict[str, Any]]:
+    from services.probes.scenario_actions import enrich_records_with_scenario_actions
+    from services.probes.tick_log_enrichment import enrich_records_with_tick_log
+
+    records = read_records(str(Path(folder) / "tokens.parquet"), ProbeRecord)
+    enrich_records_with_scenario_actions(records, Path(folder))
+    enrich_records_with_tick_log(records, Path(folder))
+    return {r.probe_id: {f: getattr(r, f) for f in DISPLAY_FIELDS} for r in records}
 
 
 def load_items(session_id: str, filters: LensFilters, lake: Optional[Path] = None) -> List[ProbeRecord]:

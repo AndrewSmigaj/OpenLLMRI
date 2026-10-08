@@ -25,7 +25,7 @@ class LensView:
     legacy: bool
     version: Optional[str]
     layers: List[int]
-    items: List[Dict[str, Any]]  # probe_id, label, categories (dict), output_category, input_text, target_word
+    items: List[Dict[str, Any]]  # probe_id, label, categories, output_category, output_categories, input_text, target_word, step
     nodes: Array  # [N, L] int16
     experts: Array  # [N, L, 4] int16, rank 1 first
     weights: Array  # [N, L, 4] float32, each row sums to 1
@@ -34,12 +34,14 @@ class LensView:
 
 
 def _item_dict(row: Dict[str, Any]) -> Dict[str, Any]:
-    raw = row.get("categories_json")
+    raw, out = row.get("categories_json"), row.get("output_category_json")
     return {
         "probe_id": row["probe_id"], "label": row.get("label"),
         "categories": json.loads(raw) if raw else {},
         "output_category": row.get("output_category"),
+        "output_categories": json.loads(out) if out else {},
         "input_text": row.get("input_text"), "target_word": row.get("target_word"),
+        "step": row.get("turn_id") if row.get("turn_id") is not None else row.get("sentence_index"),
     }
 
 
@@ -75,6 +77,7 @@ def open_legacy(session_id: str, schema: str, lake: Optional[Path] = None) -> Le
     from core.parquet_reader import read_records
     from schemas.tokens import ProbeRecord
     from services.lenses.data import load_routing, own_top4, session_dir
+    from services.probes.scenario_actions import enrich_records_with_scenario_actions
 
     folder = session_dir(session_id, lake) / "clusterings" / schema
     if not (folder / "probe_assignments.json").exists():
@@ -83,6 +86,8 @@ def open_legacy(session_id: str, schema: str, lake: Optional[Path] = None) -> Le
     meta = json.loads((folder / "meta.json").read_text()) if (folder / "meta.json").exists() else {}
     records = [r for r in read_records(str(session_dir(session_id, lake) / "tokens.parquet"), ProbeRecord)
                if r.probe_id in assignments]
+    # Agent runs keep each scenario's outcome beside the capture; lenses join it the same way.
+    enrich_records_with_scenario_actions(records, session_dir(session_id, lake))
     ids = [r.probe_id for r in records]
     layers = sorted(int(layer) for layer in assignments[ids[0]])
     nodes = np.array([[assignments[pid][str(layer)] for layer in layers] for pid in ids], dtype=np.int16)

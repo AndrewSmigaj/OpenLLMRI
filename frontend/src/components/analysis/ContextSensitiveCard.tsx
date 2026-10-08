@@ -104,6 +104,13 @@ export default function ContextSensitiveCard({ cardType, selectedData, primaryVa
               <span className="text-gray-500">Cov </span>
               <span className="font-semibold text-gray-900">{selectedData.coverage ?? 0}%</span>
             </div>
+            {typeof selectedData.weight === 'number' && (
+              <div className="bg-gray-50 px-1.5 py-0.5 rounded flex-1"
+                title="The model's own gate weight for this expert at this rank, averaged over its items (the top four weights sum to 1)">
+                <span className="text-gray-500">Weight </span>
+                <span className="font-semibold text-gray-900">{(selectedData.weight * 100).toFixed(0)}%</span>
+              </div>
+            )}
           </div>
 
           {isRoute && (
@@ -112,12 +119,6 @@ export default function ContextSensitiveCard({ cardType, selectedData, primaryVa
                 <span className="text-gray-500">Flow </span>
                 <span className="font-semibold text-gray-900">{selectedData.value || selectedData.count || 0}</span>
               </div>
-              {typeof selectedData.avg_confidence === 'number' && (
-                <div className="bg-gray-50 px-1.5 py-0.5 rounded flex-1">
-                  <span className="text-gray-500">Conf </span>
-                  <span className="font-semibold text-gray-900">{(selectedData.avg_confidence * 100).toFixed(0)}%</span>
-                </div>
-              )}
             </div>
           )}
 

@@ -170,6 +170,7 @@ def summary(manifest: LensManifest, folder: Path) -> Dict[str, Any]:
         "name": manifest.name, "kind": manifest.kind, "legacy": False,
         "session_id": manifest.session_id, "n_items": manifest.n_items,
         "settings": manifest.settings.model_dump(), "site": manifest.site.model_dump(),
+        "filters": manifest.filters.model_dump(),
         "versions": manifest.versions, "current": manifest.current,
         "state": current.state if current else None,
         "k_per_layer": current.k_per_layer if current else None,

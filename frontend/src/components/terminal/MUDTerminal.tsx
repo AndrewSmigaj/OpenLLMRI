@@ -7,6 +7,7 @@ import { evenniaToAnsi } from '../../utils/evenniaAnsi'
 
 interface MUDTerminalProps {
   onOOB?: (cmdname: string, args: unknown[], kwargs: Record<string, unknown>) => void
+  onStatus?: (status: ConnectionStatus) => void
 }
 
 const STATUS_COLORS: Record<ConnectionStatus, string> = {
@@ -16,7 +17,7 @@ const STATUS_COLORS: Record<ConnectionStatus, string> = {
   disconnected: '\x1b[31m',  // red
 }
 
-export default function MUDTerminal({ onOOB }: MUDTerminalProps) {
+export default function MUDTerminal({ onOOB, onStatus }: MUDTerminalProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const terminalRef = useRef<Terminal | null>(null)
   const fitAddonRef = useRef<FitAddon | null>(null)
@@ -41,6 +42,8 @@ export default function MUDTerminal({ onOOB }: MUDTerminalProps) {
     onText: handleText,
     onOOB,
   })
+
+  useEffect(() => { onStatus?.(status) }, [status, onStatus])
 
   // Show status changes in terminal
   useEffect(() => {

@@ -1,66 +1,42 @@
-import type { SessionDetailResponse } from '../types/api'
+// The sentences in view: every sentence of the capture, or the members of the selected node or
+// link, a page at a time, each with its target word highlighted in its label's colour.
+import type { ProbeExample } from '../types/api'
 import type { GradientScheme } from '../utils/colorBlending'
 import { getNodeColor } from '../utils/colorBlending'
 import SentenceHighlight from './SentenceHighlight'
 
-export interface FilterState {
-  labels: Set<string>
-}
-
 interface FilteredWordDisplayProps {
-  sessionData: SessionDetailResponse | null
-  filterState: FilterState
+  sentences: ProbeExample[]
+  heading: string
+  targetWord?: string
+  total?: number // when more exist than are loaded
+  onLoadMore?: () => void
   isLoading?: boolean
   primaryValues: string[]
   gradient: GradientScheme
 }
 
 export default function FilteredWordDisplay({
-  sessionData,
-  filterState,
+  sentences,
+  heading,
+  targetWord,
+  total,
+  onLoadMore,
   isLoading = false,
   primaryValues,
   gradient
 }: FilteredWordDisplayProps) {
-
-  if (isLoading) {
-    return (
-      <div className="bg-white rounded-xl shadow-md p-6">
-        <div className="animate-pulse">
-          <div className="h-4 bg-gray-200 rounded mb-4"></div>
-          <div className="space-y-2">
-            {[1, 2, 3, 4].map(i => (
-              <div key={i} className="h-3 bg-gray-200 rounded"></div>
-            ))}
-          </div>
-        </div>
-      </div>
-    )
-  }
-
-  if (!sessionData) {
-    return (
-      <div className="bg-white rounded-xl shadow-md p-6">
-        <p className="text-gray-500 text-sm">No session data available</p>
-      </div>
-    )
-  }
-
-  const hasFilters = filterState.labels.size > 0
-  const sentences = (sessionData.sentences || []).filter(s => {
-    if (!hasFilters) return true
-    return s.label ? filterState.labels.has(s.label) : false
-  })
+  const count = total ?? sentences.length
 
   return (
     <div className="bg-white rounded-xl shadow-md p-2 space-y-1">
       {/* Header */}
       <div className="flex items-center justify-between">
         <h4 className="font-medium text-gray-900 text-xs">
-          Sentences {sessionData.target_word && <span className="text-gray-500 font-normal">— {sessionData.target_word}</span>}
+          {heading} {targetWord && <span className="text-gray-500 font-normal">— {targetWord}</span>}
         </h4>
         <span className="text-[10px] text-gray-500">
-          {sentences.length}{hasFilters ? ' filtered' : ''}
+          {sentences.length < count ? `${sentences.length} of ${count}` : count}
         </span>
       </div>
 
@@ -116,8 +92,14 @@ export default function FilteredWordDisplay({
         </div>
       ) : (
         <p className="text-[10px] text-gray-500">
-          {hasFilters ? 'No sentences match the current filters' : 'No sentences available'}
+          {isLoading ? 'Loading…' : 'No sentences'}
         </p>
+      )}
+      {onLoadMore && sentences.length < count && (
+        <button onClick={onLoadMore} disabled={isLoading}
+          className="w-full text-[10px] text-blue-700 hover:underline disabled:text-gray-400 py-1">
+          {isLoading ? 'Loading…' : `Show ${Math.min(50, count - sentences.length)} more`}
+        </button>
       )}
     </div>
   )

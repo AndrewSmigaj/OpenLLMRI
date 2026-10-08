@@ -35,6 +35,10 @@ def _open(session_id: str, name: str, legacy: bool, version: Optional[str]) -> L
         raise _fail(e)
 
 
+def _axes_list(raw: Optional[str]) -> List[str]:
+    return [axis for axis in (raw or "").split(",") if axis]
+
+
 def _recipe(view: LensView, **params: Any) -> Dict[str, Any]:
     from services.lenses.store import git_state
 
@@ -89,24 +93,28 @@ def get_lens(session_id: str, name: str, legacy: bool = False) -> Dict[str, Any]
 
 
 @router.get("/sessions/{session_id}/lenses/{name}/flows")
-def lens_flows(session_id: str, name: str, legacy: bool = False,
-               version: Optional[str] = None) -> Dict[str, Any]:
-    """Cluster nodes and links for every layer, plus the output column."""
+def lens_flows(session_id: str, name: str, legacy: bool = False, version: Optional[str] = None,
+               output_axes: Optional[str] = None) -> Dict[str, Any]:
+    """Cluster nodes and links for every layer, plus the output column (grouped by the
+    comma-separated `output_axes` when given)."""
     from services.lenses.flows import cluster_flows
 
     view = _open(session_id, name, legacy, version)
-    return cluster_flows(view) | {"recipe": _recipe(view, kind="cluster")}
+    grouped = _axes_list(output_axes)
+    return cluster_flows(view, grouped) | {"recipe": _recipe(view, kind="cluster", output_axes=grouped or None)}
 
 
 @router.get("/sessions/{session_id}/lenses/{name}/expert-flows")
 def lens_expert_flows(session_id: str, name: str, rank: int = 1, legacy: bool = False,
-                      version: Optional[str] = None) -> Dict[str, Any]:
+                      version: Optional[str] = None, output_axes: Optional[str] = None) -> Dict[str, Any]:
     """Expert nodes and links at one rank (1 to 4), with the model's own weights."""
     from services.lenses.flows import expert_flows
 
     view = _open(session_id, name, legacy, version)
+    grouped = _axes_list(output_axes)
     try:
-        return expert_flows(view, rank) | {"recipe": _recipe(view, kind="expert", rank=rank)}
+        return expert_flows(view, rank, grouped) | {
+            "recipe": _recipe(view, kind="expert", rank=rank, output_axes=grouped or None)}
     except ValueError as e:
         raise _fail(e)
 
@@ -114,17 +122,23 @@ def lens_expert_flows(session_id: str, name: str, rank: int = 1, legacy: bool = 
 @router.get("/sessions/{session_id}/lenses/{name}/members")
 def lens_members(session_id: str, name: str, layer: int, node: Optional[int] = None,
                  expert: Optional[int] = None, rank: int = 1, to_node: Optional[int] = None,
+                 to_expert: Optional[int] = None, output: Optional[str] = None,
                  offset: int = 0, limit: int = 50, legacy: bool = False,
                  version: Optional[str] = None) -> Dict[str, Any]:
-    """The items in a node (or a link, with `to_node`), or routed to an expert at a rank."""
+    """The items in a node or routed to an expert at a rank; with `to_node` or `to_expert`, a link;
+    with `output`, those whose generated output is that category."""
+    from services.lenses.data import display_fields
     from services.lenses.flows import members
 
     view = _open(session_id, name, legacy, version)
     try:
-        return members(view, layer, node=node, expert=expert, rank=rank, to_node=to_node,
-                       offset=offset, limit=min(limit, 500))
+        page = members(view, layer, node=node, expert=expert, rank=rank, to_node=to_node,
+                       to_expert=to_expert, output=output, offset=offset, limit=min(limit, 500))
     except ValueError as e:
         raise _fail(e)
+    shown = display_fields(view.session_id)
+    page["items"] = [item | shown.get(item["probe_id"], {}) for item in page["items"]]
+    return page
 
 
 class LensBuildRequest(LensBuildParams):
@@ -189,3 +203,33 @@ def save_lens_version(session_id: str, name: str, body: SaveRequest) -> Dict[str
         return save_version(session_id, name, body.version, body.keywords).model_dump()
     except (FileNotFoundError, ValueError) as e:
         raise _fail(e)
+
+
+@router.get("/sessions/{session_id}/lenses/{name}/trajectory")
+def lens_trajectory(session_id: str, name: str, legacy: bool = False) -> Dict[str, Any]:
+    """The 3-D points per layer for the trajectory view, in the legacy endpoint's shape."""
+    import numpy as np
+
+    from services.lenses.data import session_dir
+    from services.lenses.store import lens_dir
+
+    try:
+        if legacy:
+            folder = session_dir(session_id) / "clusterings" / name
+            points = json.loads((folder / "trajectory_points.json").read_text())
+            meta = json.loads((folder / "meta.json").read_text()) if (folder / "meta.json").exists() else {}
+            return {"schema_name": name, "sample_size": int(meta.get("sample_size") or 0),
+                    "layers": sorted(int(k) for k in points), "points_by_layer": points}
+        view = _open(session_id, name, False, None)
+        view3d = np.load(lens_dir(session_id, name) / "fit" / "embed.npz")["view3d"]
+    except (FileNotFoundError, ValueError) as e:
+        raise _fail(e)
+    by_layer: Dict[str, List[Dict[str, Any]]] = {}
+    for li, layer in enumerate(view.layers):
+        by_layer[str(layer)] = [
+            {"probe_id": item["probe_id"], "x": float(p[0]), "y": float(p[1]), "z": float(p[2]),
+             "label": item["label"], "target_word": item["target_word"], "step": item.get("step"),
+             "categories_json": json.dumps(item["categories"]) if item["categories"] else None}
+            for item, p in zip(view.items, view3d[li])]
+    return {"schema_name": name, "sample_size": len(view.items), "layers": view.layers,
+            "points_by_layer": by_layer}

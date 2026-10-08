@@ -21,9 +21,16 @@ const SHAPE_SYMBOLS = ['circle', 'triangle', 'diamond', 'rect', 'pin', 'arrow']
 // A scatter point's value: x, y, z, then the target word, label and probe id that the tooltip and click read back
 type ScatterValue = [number, number, number, string, string, string]
 
+// What an export needs: the drawn chart and one row per item and layer
+export interface TrajectoryExport {
+  chart: echarts.ECharts
+  rows: Record<string, unknown>[]
+}
+
 interface SteppedTrajectoryPlotProps {
   sessionId: string
   schemaName: string
+  legacy: boolean
   layers: number[]
   title?: string
   colorLabelA: string
@@ -38,8 +45,7 @@ interface SteppedTrajectoryPlotProps {
   className?: string
   height?: number
   maxTrajectories?: number
-  manualTrigger?: boolean
-  onAnalysisReady?: (runAnalysis: () => void) => void
+  onExportable?: (handle: TrajectoryExport | null) => void
   onPointClick?: (info: { probe_id: string; target: string; label?: string }) => void
   selectedProbeId?: string | null
 }
@@ -47,6 +53,7 @@ interface SteppedTrajectoryPlotProps {
 export default function SteppedTrajectoryPlot({
   sessionId,
   schemaName,
+  legacy,
   layers,
   title,
   colorLabelA,
@@ -61,15 +68,12 @@ export default function SteppedTrajectoryPlot({
   className = '',
   height = 400,
   maxTrajectories,
-  manualTrigger = false,
-  onAnalysisReady,
+  onExportable,
   onPointClick,
   selectedProbeId,
 }: SteppedTrajectoryPlotProps) {
   const chartRef = useRef<HTMLDivElement>(null)
   const chartInstanceRef = useRef<echarts.ECharts | null>(null)
-  const onPointClickRef = useRef(onPointClick)
-  onPointClickRef.current = onPointClick
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [missingArtifact, setMissingArtifact] = useState(false)
@@ -79,34 +83,29 @@ export default function SteppedTrajectoryPlot({
   const [pointSize, setPointSize] = useState(2)
   const [coordScale, setCoordScale] = useState(1)
 
-  useEffect(() => {
-    if (manualTrigger) {
-      if (onAnalysisReady) {
-        onAnalysisReady(() => {
-          if (sessionId && schemaName && layers.length >= 2) {
-            loadTrajectoryData()
-          }
-        })
-      }
-      return
-    }
+  const onPointClickRef = useRef(onPointClick)
+  onPointClickRef.current = onPointClick
+  const onExportableRef = useRef(onExportable)
+  onExportableRef.current = onExportable
 
+  // The trajectories load when the lens or the layers in view change
+  const layersKey = layers.join(',')
+  useEffect(() => {
     if (!sessionId || !schemaName || layers.length < 2) return
-
     loadTrajectoryData()
-  }, [sessionId, schemaName, layers, manualTrigger, onAnalysisReady])
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- layersKey stands for layers
+  }, [sessionId, schemaName, legacy, layersKey])
 
   useEffect(() => {
-    if (trajectories.length > 0 && chartRef.current) {
-      initializeChart()
-    }
-
+    if (trajectories.length === 0 || !chartRef.current) return
+    const removeListeners = initializeChart()
     return () => {
-      if (chartInstanceRef.current) {
-        chartInstanceRef.current.dispose()
-        chartInstanceRef.current = null
-      }
+      removeListeners?.()
+      onExportableRef.current?.(null)
+      chartInstanceRef.current?.dispose()
+      chartInstanceRef.current = null
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- initializeChart reads exactly these
   }, [trajectories, colorLabelA, colorLabelB, gradient, primaryValues, secondaryColorAxisId, secondaryValues, shapeAxisId, shapeValues, ambiguityBlend, layerOffset, showLines, pointSize, coordScale, selectedProbeId, maxTrajectories])
 
   const loadTrajectoryData = async () => {
@@ -115,7 +114,7 @@ export default function SteppedTrajectoryPlot({
       setError(null)
       setMissingArtifact(false)
 
-      const response = await apiClient.getTrajectoryEmbedding(sessionId, schemaName)
+      const response = await apiClient.getLensTrajectory(sessionId, schemaName, legacy)
 
       const requestedLayers = new Set(layers)
       const trajectoryMap = new Map<string, Array<TrajectoryPoint & { layer: number }>>()
@@ -393,6 +392,14 @@ export default function SteppedTrajectoryPlot({
           onPointClickRef.current({ probe_id: probeId, target, label })
         }
       }
+    })
+
+    onExportableRef.current?.({
+      chart,
+      rows: renderedTrajectories.flatMap(t => t.coordinates.map(c => ({
+        probe_id: t.probe_id, label: t.label, target: t.target, step: t.step, ...t.categories,
+        layer: c.layer, x: c.dims[0], y: c.dims[1], z: c.dims[2],
+      }))),
     })
 
     const handleResize = () => { chart.resize() }

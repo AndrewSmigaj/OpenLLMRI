@@ -1,9 +1,8 @@
-import type { ProbeExample, SankeyLink, SankeyNode, TopRoute } from './api'
+import type { ProbeExample, SankeyLink, SankeyNode } from './api'
 
 /**
- * What a click on a Sankey node, a Sankey link or a trajectory point hands to the card.
- * The node and link fields come from the route analysis; the rest is added by the click
- * handlers (MultiSankeyView, ClusterRoutesSection).
+ * What the card shows for a selected node, link or item. The node and link fields come from
+ * the flows; the rest is added when the card is built (utils/selectionCard.ts).
  */
 export interface SelectedElementData {
   name?: string
@@ -32,13 +31,11 @@ export interface SelectedElementData {
   population?: number
   coverage?: number
   flow?: number
-  avg_confidence?: number
+  weight?: number
   clusterId?: number
   expertId?: number
   _fullData?: SankeyNode | SankeyLink | ProbeExample
-  _routeInfo?: TopRoute
   _totalProbes?: number
-  _window?: string
 }
 
 export type SelectedCard = {

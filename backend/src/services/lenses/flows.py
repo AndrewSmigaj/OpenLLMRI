@@ -8,8 +8,9 @@ designed axis, which the app's colours blend.
 
 from __future__ import annotations
 
+import itertools
 from collections import Counter
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Sequence
 
 import numpy as np
 
@@ -38,7 +39,7 @@ def _counts(view: LensView, members: Array, axes: Dict[str, List[str]]) -> Dict[
 
 
 def _flows(view: LensView, codes: Array, prefix: str, kind: str,
-           weights: Optional[Array] = None) -> Dict[str, Any]:
+           weights: Optional[Array] = None, output_axes: Sequence[str] = ()) -> Dict[str, Any]:
     """Nodes and links from one code per item and layer (a cluster, or an expert at one rank)."""
     axes = axes_of(view)
     nodes: List[Dict[str, Any]] = []
@@ -58,51 +59,103 @@ def _flows(view: LensView, codes: Array, prefix: str, kind: str,
                 links.append({"source": f"L{layer}{prefix}{a}", "target": f"L{nxt}{prefix}{b}",
                               "count": n, "counts": _counts(view, members, axes)})
     return {"kind": kind, "layers": view.layers, "axes": axes, "nodes": nodes, "links": links,
-            "output": _output_column(view, codes, prefix, axes)}
+            "output": _output_column(view, codes, prefix, axes, output_axes)}
 
 
-def _output_column(view: LensView, codes: Array, prefix: str,
-                   axes: Dict[str, List[str]]) -> Optional[Dict[str, Any]]:
-    """The column after the last layer: each item's generated-output category, when captured."""
-    outputs = [item.get("output_category") for item in view.items]
-    if not any(outputs):
+def output_axes_of(view: LensView) -> Dict[str, List[str]]:
+    """The generated outputs' own axes (from their categorization), with their values."""
+    names = sorted({key for item in view.items for key in item.get("output_categories", {})})
+    return {name: sorted({str(v) for item in view.items
+                          if (v := item.get("output_categories", {}).get(name)) is not None})
+            for name in names}
+
+
+def _output_key(item: Dict[str, Any], group_by: Sequence[str]) -> Optional[str]:
+    """An item's output node: its output category, or its values on the chosen output axes."""
+    if not group_by:
+        return item.get("output_category") or None
+    values = item.get("output_categories") or {}
+    return "_".join(str(values.get(axis, "unknown")) for axis in group_by) if values else None
+
+
+def _output_counts(view: LensView, members: Array, out_axes: Dict[str, List[str]]) -> Dict[str, Dict[str, int]]:
+    out: Dict[str, Dict[str, int]] = {}
+    for axis in out_axes:
+        tally = Counter(str(v) for i in members
+                        if (v := view.items[int(i)].get("output_categories", {}).get(axis)) is not None)
+        out[axis] = dict(sorted(tally.items()))
+    return out
+
+
+def _output_column(view: LensView, codes: Array, prefix: str, axes: Dict[str, List[str]],
+                   group_by: Sequence[str] = ()) -> Optional[Dict[str, Any]]:
+    """The column after the last layer: each item's generated output, by its category or by its
+    values on the chosen output axes (every combination of their values gets a node, as before).
+    Nodes and links count the designed axes (`counts`) and the output axes (`output_counts`)."""
+    keys = [_output_key(item, group_by) for item in view.items]
+    if not any(keys):
         return None
+    out_axes = output_axes_of(view)
+    totals = Counter(k for k in keys if k)
+    if group_by:
+        for combo in itertools.product(*(out_axes.get(axis, ["unknown"]) for axis in group_by)):
+            totals.setdefault("_".join(combo), 0)
     last = view.layers[-1]
-    nodes = [{"id": f"Out:{value}", "value": value, "count": n,
-              "counts": _counts(view, np.array([i for i, o in enumerate(outputs) if o == value]), axes)}
-             for value, n in sorted(Counter(o for o in outputs if o).items())]
-    pairs = Counter((int(codes[i, -1]), o) for i, o in enumerate(outputs) if o)
-    links = [{"source": f"L{last}{prefix}{code}", "target": f"Out:{value}", "count": n}
+
+    def side(members: Array) -> Dict[str, Any]:
+        return {"counts": _counts(view, members, axes), "output_counts": _output_counts(view, members, out_axes)}
+
+    nodes = [{"id": f"Generated:{value}", "value": value, "count": n,
+              **side(np.array([i for i, k in enumerate(keys) if k == value], dtype=int))}
+             for value, n in sorted(totals.items())]
+    pairs = Counter((int(codes[i, -1]), k) for i, k in enumerate(keys) if k)
+    links = [{"source": f"L{last}{prefix}{code}", "target": f"Generated:{value}", "count": n,
+              **side(np.array([i for i, k in enumerate(keys) if k == value and int(codes[i, -1]) == code], dtype=int))}
              for (code, value), n in sorted(pairs.items())]
-    return {"nodes": nodes, "links": links}
+    return {"axes": out_axes, "nodes": nodes, "links": links}
 
 
-def cluster_flows(view: LensView) -> Dict[str, Any]:
-    return _flows(view, view.nodes, "C", "cluster")
+def cluster_flows(view: LensView, output_axes: Sequence[str] = ()) -> Dict[str, Any]:
+    """Cluster flows, plus each item's node at every layer (for route cards and trajectories).
+    `output_axes` groups the output column by those output axes instead of the output category."""
+    out = _flows(view, view.nodes, "C", "cluster", output_axes=output_axes)
+    out["assignments"] = {item["probe_id"]: {str(layer): int(view.nodes[i, li])
+                                              for li, layer in enumerate(view.layers)}
+                          for i, item in enumerate(view.items)}
+    return out
 
 
-def expert_flows(view: LensView, rank: int = 1) -> Dict[str, Any]:
+def expert_flows(view: LensView, rank: int = 1, output_axes: Sequence[str] = ()) -> Dict[str, Any]:
     """Each item's expert at `rank` (1 to 4) per layer, with the model's own mean weight per node."""
     if not 1 <= rank <= view.experts.shape[-1]:
         raise ValueError(f"rank must be 1 to {view.experts.shape[-1]}, got {rank}")
-    return _flows(view, view.experts[:, :, rank - 1], "E", "expert", view.weights[:, :, rank - 1])
+    return _flows(view, view.experts[:, :, rank - 1], "E", "expert", view.weights[:, :, rank - 1], output_axes)
 
 
 def members(view: LensView, layer: int, node: Optional[int] = None, expert: Optional[int] = None,
-            rank: int = 1, to_node: Optional[int] = None, offset: int = 0, limit: int = 50) -> Dict[str, Any]:
-    """The items in a cluster (and, with `to_node`, those going on to a node at the next layer),
-    or routed to an expert at a rank, a page at a time."""
+            rank: int = 1, to_node: Optional[int] = None, to_expert: Optional[int] = None,
+            output: Optional[str] = None, offset: int = 0, limit: int = 50) -> Dict[str, Any]:
+    """The items in a cluster or routed to an expert at a rank, a page at a time. `to_node` and
+    `to_expert` keep those going on to that node or expert at the next layer (a link); `output`
+    keeps those whose generated output is that category (the output column)."""
     if layer not in view.layers:
         raise ValueError(f"layer {layer} is not in this lens")
     li = view.layers.index(layer)
+    has_next = li + 1 < len(view.layers)
     if expert is not None:
         mask = view.experts[:, li, rank - 1] == expert
+        if to_expert is not None and has_next:
+            mask &= view.experts[:, li + 1, rank - 1] == to_expert
     elif node is not None:
         mask = view.nodes[:, li] == node
-        if to_node is not None and li + 1 < len(view.layers):
+        if to_node is not None and has_next:
             mask &= view.nodes[:, li + 1] == to_node
+    elif output is not None:
+        mask = np.ones(len(view.items), dtype=bool)
     else:
-        raise ValueError("give a node or an expert")
+        raise ValueError("give a node, an expert or an output")
+    if output is not None:
+        mask &= np.array([item.get("output_category") == output for item in view.items], dtype=bool)
     found = np.flatnonzero(mask)
     page = found[offset:offset + limit]
     return {"total": int(found.size), "offset": offset,
