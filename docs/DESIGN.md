@@ -2,7 +2,7 @@
 
 **Status:** a draft for Andrew's review (2026-10-07). Nothing new is built until he approves it.
 
-**Review progress:** Parts A to G reviewed with Andrew (2026-10-07). Still open: L3, L9.
+**Review progress:** Parts A to H reviewed with Andrew (2026-10-07). Still open: L3, L9.
 
 **Contents:**
 - How this document works
@@ -104,7 +104,7 @@
 | **position** | which class a reading leans to, and how far |
 | **study** | a research question with its sets, runs, lenses, analyses and findings, kept as files in the repo |
 | **atlas** | catalogues of nodes, experts and routes, each entry with a written report |
-| **paradigm** | the accepted findings |
+| **paradigm** | the accepted findings, drawn as a map: facts about atlas entries, and links between them (H) |
 | **the paper** | Andrew's context-shift paper (`docs/studies/context_shift/`): how a reading changes when the context switches meaning |
 | **lens catalogue** | the first research the software carries: building validated lenses for many candidate contrasts |
 | **friend/foe v3** | the friend/foe scenarios redesigned as people assessment: multi-step, re-captured |
@@ -426,7 +426,7 @@ MUD or through Claude Code (F3). It follows a run in progress one saved tick at 
 | **Watch** | follow one run, live or recorded | new |
 | **Study** | compare many runs | new |
 | **MUD** | maintain the MUD and design scenarios, with Claude agents' help | new |
-| **Atlas** | browse nodes, experts and routes, with their reports | later |
+| **Atlas** | browse nodes, experts and routes, with their reports, and the paradigm's map | later |
 | **Ideas** | track every research idea, generate new ones, follow the AI scientists. The idea evolver's engine moves into this repo | later [Decided, 2026-10-04] |
 
 **E2. Rules for every screen:**
@@ -801,15 +801,37 @@ watcher does reaches the agent.
   - **routes:** pipelines and hubs, built from all four of each token's experts and weighted by the
     model's own weights [Decided, 2026-10-07]. Today's routes follow only the top-1 expert; the
     top-1 Sankey stays as one view of them.
-- **Time adds node dynamics** [Proposed]: how long runs stay in a node, what comes before and after
-  it, and what the model does while in it. This is how a question like the context-shift study's
-  (D5) gets answered, node by node.
+- **Time adds node dynamics** [Decided, 2026-10-07]: how long runs stay in a node, what comes before
+  and after it, and what the model does while in it. Runs that stay in a node for several steps show
+  a state the model holds; runs that cross it in one step show a passage. This is how a question
+  like the context-shift study's (D5) gets answered, node by node.
 - **Bringing the lenses' findings together into one coherent model is the hard part** [Decided,
   2026-10-07].
 - **The paradigm is the accepted findings** [Decided, 2026-10-04 and 2026-10-06]:
   - the AI scientists propose findings, attack them and give evidence;
   - several models vote, and when most of them agree, the finding goes to Andrew for review;
   - knowledge consolidators extract the insights.
+- **The accepted findings form a map, the shape of the coherent model** [Decided, 2026-10-07]:
+  - the atlas gives the entries. A finding is either a fact about one entry, written into its
+    report, or a link between entries, of one of the kinds below;
+  - the map lays the accepted links over the atlas by the layer where each concept forms. It is
+    drawn in the Atlas workspace, and the consolidators write the story over it;
+  - findings connect because each names the entries it links. Contradictions show up as clashing
+    links, and each is a study waiting to happen;
+  - later, the map is scored on how well it predicts what a new lens will show: a score for the
+    paradigm, never a gate on analysis.
+
+**The kinds of link** [Decided, 2026-10-07], each measured by its own tool. The examples are
+questions, not findings.
+
+| Link | Example | Measured by |
+|---|---|---|
+| overlap | Does the danger lens, read on the animal-taxonomy sentences, put predators in "dangerous"? | one saved lens reading another lens's data (C), with presence (D4) saying whether its concept is there at all |
+| nesting | Does "dog" sit inside "mammal" inside "animal"? | the levels of the k profile's hierarchy (C) |
+| order in depth | Does word sense settle before the scene's threat level? | per-layer held-out scores (C) |
+| shared direction | Do one set's threat axis and another's danger axis point the same way? | the angle between two mass-mean axes |
+| shared machinery | Do two concepts' tokens take the same pipes and hubs? | the expert and route catalogues |
+| use in decisions | Does the reading predict the action, and does steering it change the action? | behaviour by reading (E6) and steering a node (I) |
 
 ## Part I — Interventions and conditions
 
@@ -1018,7 +1040,9 @@ Paraphrased from Andrew's own words. His ideas not yet decided are listed separa
     reading still unresolved at the output; references for studies; the experiments left open;
   - Part G: expert weights read as the model's own, over each token's four experts, with all four
     ranks, and routes built from all four; the retirements of the basin-era temporal tools;
-  - Watch follows a run in progress one saved tick at a time, and the scan never slows the agent.
+  - Watch follows a run in progress one saved tick at a time, and the scan never slows the agent;
+  - Part H: node dynamics in the atlas; the accepted findings form a map, with facts about single
+    entries and links of six kinds between them, scored later on how well it predicts new lenses.
 - **Andrew's ideas, not yet decided:**
   - **2026-10-04:** a user interface in the MUD;
   - **2026-10-06:** asking the agent to use set words in its reasoning; giving it words marked as for
