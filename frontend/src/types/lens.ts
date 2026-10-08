@@ -20,6 +20,7 @@ export interface LensSummary {
   created_by?: string | null
   self_check?: SelfCheck | null
   validation?: ValidationHeadline | null
+  details?: string[] // the versions with node details worked out ('mass_mean' for a mass-mean lens)
 }
 
 export interface FlowNode {
@@ -269,4 +270,59 @@ export interface MassMeanValidation {
   layers: Record<string, { accuracy: number; pooled_accuracy: number; kappa: number; worst_fold: number;
     folds: number; n_a: number; n_b: number; axis_norm: number }>
   provenance: { seconds: number; created_at: string }
+}
+
+// A token and its logit (or its logit above a baseline), as the logit lens reads them
+export type TokenScore = [string, number]
+
+export interface Provenance {
+  commit: string
+  dirty: boolean
+  job_id: string
+  seconds: number
+  created_at: string
+}
+
+// What comes with one cluster node (DESIGN.md C5)
+export interface NodeDetail {
+  neurons: [number, number][] // neuron index, correlation of its value with membership
+  logit_lens: { top: TokenScore[]; distinctive: TokenScore[] }
+  surface: {
+    flagged: boolean
+    feature: string // the numeric surface feature that separates the node most
+    auc: number
+    members_mean: number | null
+    others_mean: number | null
+    first_word: { word: string; in_node: number; outside: number }
+  } | null
+  routing: { share: number; shift: number } | null // null at the last layer
+}
+
+// A UMAP lens version's node details (GET .../details)
+export interface LensNodeDetails {
+  kind: 'umap'
+  layers: Record<string, {
+    surface_kappa: number | null // surface features alone predicting the layer's nodes, held out
+    routing_effect: number | null // the nodes' share of the next layer's routing variance
+    nodes: Record<string, NodeDetail>
+  }>
+  provenance: Provenance
+}
+
+// The routing change an axis predicts through the next layer's router, against random directions
+// of the same length (ratio to their median; the share of them it exceeds)
+export interface RouterAlignment {
+  ratio: number
+  percentile: number
+  random_95: number
+}
+
+// A mass-mean lens's layer details (GET .../details)
+export interface MassMeanDetails {
+  kind: 'mass_mean'
+  layers: Record<string, {
+    router_alignment?: RouterAlignment // absent at the last layer
+    logit_lens: { b_over_a: TokenScore[]; a_over_b: TokenScore[] }
+  }>
+  provenance: Provenance
 }

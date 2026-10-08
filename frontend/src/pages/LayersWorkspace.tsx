@@ -8,6 +8,7 @@ import type { DynamicAxis, ProbeExample } from '../types/api'
 import { DEFAULT_OUTPUT_COLOUR, outputGroupingOf, useAxisControls, type OutputColour } from '../hooks/useAxisControls'
 import { useLensContext } from '../hooks/useLensContext'
 import { useLensFlows } from '../hooks/useLensFlows'
+import { useLensDetails } from '../hooks/useLensDetails'
 import { useLensMarks } from '../hooks/useLensMarks'
 import { useSelectionMembers } from '../hooks/useSelectionMembers'
 import { useViewState, ZOOMS, type UpdateView, type ViewState } from '../hooks/useViewState'
@@ -19,6 +20,7 @@ import { cardFor } from '../utils/selectionCard'
 import ColourControls from '../components/layers/ColourControls'
 import ColourLegend from '../components/layers/ColourLegend'
 import DetailsPanel from '../components/layers/DetailsPanel'
+import NodeDetails from '../components/layers/NodeDetails'
 import LayerCharts from '../components/layers/LayerCharts'
 import { LayerStrip } from '../components/layers/LayerStrip'
 import LowerTabs from '../components/layers/LowerTabs'
@@ -26,6 +28,7 @@ import FilteredWordDisplay from '../components/FilteredWordDisplay'
 import WindowAnalysis from '../components/analysis/WindowAnalysis'
 import SteppedTrajectoryPlot, { type TrajectoryExport } from '../components/charts/SteppedTrajectoryPlot'
 import ExportMenu from '../components/common/ExportMenu'
+import PanelErrorBoundary from '../components/common/PanelErrorBoundary'
 import FingerprintPanel from '../components/layers/FingerprintPanel'
 
 const NO_AXES: DynamicAxis[] = []
@@ -59,7 +62,10 @@ function LayersView({ view, update, visitor }: { view: ViewState; update: Update
   const axes = useAxisControls(routes?.available_axes ?? NO_AXES, routes?.output_available_axes ?? NO_AXES,
     view, update, output, setOutput)
   const context = useLensContext(view.session, view.lens, view.legacy)
-  const outlined = useLensMarks(view.session, view.lens, view.legacy)
+  const listing = context.lens
+  const outlined = useLensMarks(view.session, view.lens, view.legacy, listing && !!listing.validation)
+  const nodeDetails = useLensDetails(view.session, view.lens, view.legacy,
+    listing && !!listing.current && !!listing.details?.includes(listing.current))
   const sentences = context.details?.sentences ?? NO_SENTENCES
 
   const layers = routes?.window_layers ?? NO_LAYERS
@@ -222,6 +228,11 @@ function LayersView({ view, update, visitor }: { view: ViewState; update: Update
       <Panel id="side" defaultSize="26" minSize="15">
         <DetailsPanel summary={context.summary} card={card} descriptions={context.descriptions} reports={context.reports}
           layer={layers[first] ?? 0} clusterPath={clusterPath} axisValues={axes.axisValues} gradient={axes.gradient}
+          nodeDetails={!view.legacy && pickedNode?.kind === 'cluster' && (
+            <PanelErrorBoundary name="Node details">
+              <NodeDetails state={nodeDetails} layer={pickedNode.layer} node={pickedNode.index} disabled={visitor} />
+            </PanelErrorBoundary>
+          )}
           onClose={() => update({ sel: '' })} />
       </Panel>
     </Group>

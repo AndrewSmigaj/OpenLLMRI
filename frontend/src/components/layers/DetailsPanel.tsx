@@ -1,5 +1,6 @@
 // Beside the charts: what the lens is, the card for the selection (with a legacy schema's written
-// description of it), and the legacy schema's reports.
+// description of it, or a lens node's details), and the legacy schema's reports.
+import type { ReactNode } from 'react'
 import type { SelectedCard } from '../../types/analysis'
 import type { ClusteringSchema } from '../../types/api'
 import type { GradientScheme } from '../../color/scheme'
@@ -18,11 +19,12 @@ interface DetailsPanelProps {
   clusterPath?: Record<string, number> // an item's cluster at each layer, for an item's card
   axisValues: Record<string, string[]> // every axis's values, in a fixed order
   gradient: GradientScheme
+  nodeDetails?: ReactNode // a lens's cluster node: its neurons, logit lens, surface check, routing
   onClose: () => void
 }
 
 export default function DetailsPanel({ summary, card, descriptions, reports, layer, clusterPath,
-                                       axisValues, gradient, onClose }: DetailsPanelProps) {
+                                       axisValues, gradient, nodeDetails, onClose }: DetailsPanelProps) {
   const key = card ? descriptionKey(card) : ''
   return (
     <div className="h-full overflow-y-auto overflow-x-hidden p-2 space-y-2 bg-white">
@@ -30,7 +32,9 @@ export default function DetailsPanel({ summary, card, descriptions, reports, lay
       {card ? (
         <PanelErrorBoundary key={key} name="Details card">
           <ContextSensitiveCard cardType={card.type} selectedData={card.data} valuesByAxis={axisValues}
-            gradient={gradient} elementDescription={descriptions[key]} clusterAssignments={clusterPath} onClose={onClose} />
+            gradient={gradient} elementDescription={descriptions[key]} clusterAssignments={clusterPath} onClose={onClose}>
+            {nodeDetails}
+          </ContextSensitiveCard>
         </PanelErrorBoundary>
       ) : (
         <p className="text-[10px] text-gray-400 py-6 text-center">Click a node or a flow for its details</p>

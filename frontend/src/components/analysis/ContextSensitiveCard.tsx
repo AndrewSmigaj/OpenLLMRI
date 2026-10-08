@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import { valueColor, type GradientScheme } from '../../color/scheme'
 import { isOutputNode as checkIsOutputNode } from '../../constants/outputNodes'
 import SentenceHighlight from '../SentenceHighlight'
@@ -12,9 +13,10 @@ export interface ContextSensitiveCardProps {
   elementDescription?: string
   clusterAssignments?: Record<string, number>
   onClose?: () => void
+  children?: ReactNode // more about the element (a lens node's details), shown above its examples
 }
 
-export default function ContextSensitiveCard({ cardType, selectedData, valuesByAxis, gradient, elementDescription, clusterAssignments, onClose }: ContextSensitiveCardProps) {
+export default function ContextSensitiveCard({ cardType, selectedData, valuesByAxis, gradient, elementDescription, clusterAssignments, onClose, children }: ContextSensitiveCardProps) {
   const hasRichData = Boolean(selectedData?._fullData)
   const isRoute = cardType === 'route' || cardType === 'highway'
 
@@ -248,6 +250,8 @@ export default function ContextSensitiveCard({ cardType, selectedData, valuesByA
               No AI description. Run /analyze with a saved schema to generate cluster labels.
             </p>
           ) : null}
+
+          {children}
 
           {/* Examples */}
           <div className="border-t border-gray-100 pt-1">

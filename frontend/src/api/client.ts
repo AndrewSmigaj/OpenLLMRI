@@ -17,7 +17,7 @@ import type {
 } from '../types/api';
 import type {
   Fingerprint, JobView, LensBuildBody, LensDetail, LensFlows, LensMembersPage, LensMethods, LensOptions, LensSummary,
-  LensMarks, LensVersion, MassMeanValidation, MembersQuery, Population, Validation,
+  LensMarks, LensNodeDetails, LensVersion, MassMeanDetails, MassMeanValidation, MembersQuery, Population, Validation,
 } from '../types/lens';
 
 const API_BASE_URL = 'http://localhost:8000/api';
@@ -382,6 +382,17 @@ class ConceptMriApiClient {
 
   async getMassMeanValidation(sessionId: string, name: string): Promise<MassMeanValidation> {
     return this.request<MassMeanValidation>(`/sessions/${sessionId}/lenses/${encodeURIComponent(name)}/validation`);
+  }
+
+  // Works out what comes with each node (a mass-mean lens: each layer) in the background
+  async computeLensDetails(sessionId: string, name: string): Promise<{ job_id: string }> {
+    return this.request(`/sessions/${sessionId}/lenses/${encodeURIComponent(name)}/details`,
+      { method: 'POST', body: JSON.stringify({}) });
+  }
+
+  // The current version's node details, or a mass-mean lens's layer details (404 until worked out)
+  async getLensDetails(sessionId: string, name: string): Promise<LensNodeDetails | MassMeanDetails> {
+    return this.request<LensNodeDetails | MassMeanDetails>(`/sessions/${sessionId}/lenses/${encodeURIComponent(name)}/details`);
   }
 
   // Freezes a version with its keywords

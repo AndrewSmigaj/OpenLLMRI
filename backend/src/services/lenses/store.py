@@ -166,7 +166,8 @@ def save_version(session_id: str, name: str, version: str, keywords: List[str],
 
 
 def summary(manifest: LensManifest, folder: Path) -> Dict[str, Any]:
-    """What a lens list shows: name, kind, settings, items, versions and the current k."""
+    """What a lens list shows: name, kind, settings, items, versions and the current k, and what has
+    been worked out for it (its validation headline; the versions with node details)."""
     current = read_version(folder, manifest.current) if manifest.current else None
     return {
         "name": manifest.name, "kind": manifest.kind, "legacy": False, "contrast": manifest.contrast,
@@ -179,6 +180,7 @@ def summary(manifest: LensManifest, folder: Path) -> Dict[str, Any]:
         "created_at": manifest.provenance.created_at, "created_by": manifest.provenance.created_by,
         "self_check": manifest.self_check,
         "validation": _validation_headline(folder, manifest, current),
+        "details": sorted(path.stem for path in (folder / "details").glob("*.json")),
     }
 
 

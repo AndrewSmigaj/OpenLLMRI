@@ -3,11 +3,13 @@
 import { useEffect, useState } from 'react'
 import { apiClient } from '../api/client'
 import type { ClusteringSchema, SessionDetailResponse } from '../types/api'
+import type { LensSummary } from '../types/lens'
 import { lensAsSchema } from '../utils/lensAsSchema'
 
 export interface LensContext {
   details: SessionDetailResponse | null
   summary: ClusteringSchema | undefined
+  lens?: LensSummary // a lens's own listing (not a legacy schema's): what has been worked out for it
   reports: Record<string, string>
   descriptions: Record<string, string>
 }
@@ -37,7 +39,7 @@ export function useLensContext(session: string, lens: string, legacy: boolean): 
       apiClient.listLenses(session)
         .then(all => {
           const found = all.find(l => !l.legacy && l.name === lens)
-          if (current) setContext(c => ({ ...c, summary: found ? lensAsSchema(found) : undefined, reports: {}, descriptions: {} }))
+          if (current) setContext(c => ({ ...c, summary: found ? lensAsSchema(found) : undefined, lens: found, reports: {}, descriptions: {} }))
         })
         .catch(() => undefined)
     }

@@ -14,6 +14,7 @@ import LensVersions from '../components/lenses/LensVersions'
 import LensBadges from '../components/lenses/LensBadges'
 import LensValidation from '../components/lenses/LensValidation'
 import MassMeanForm from '../components/lenses/MassMeanForm'
+import MassMeanDetails from '../components/lenses/MassMeanDetails'
 import MassMeanResults from '../components/lenses/MassMeanResults'
 import { useShell } from '../components/shell/shellContext'
 
@@ -100,7 +101,7 @@ export default function BuildWorkspace() {
             {!lens.legacy && lens.validation && (
               <button onClick={() => setResults(o => (o === lens.name ? null : lens.name))}
                 className="px-2 py-1 text-xs rounded border border-gray-300 text-gray-700 hover:bg-gray-50">
-                validation {results === lens.name ? '▴' : '▾'}
+                {lens.kind === 'mass_mean' ? 'results' : 'validation'} {results === lens.name ? '▴' : '▾'}
               </button>
             )}
             {!lens.legacy && lens.kind !== 'mass_mean' && (
@@ -115,7 +116,8 @@ export default function BuildWorkspace() {
             )}
           </div>
           {results === lens.name && !lens.legacy && lens.validation && (lens.kind === 'mass_mean'
-            ? <MassMeanResults session={view.session} lens={lens} />
+            ? <><MassMeanResults session={view.session} lens={lens} />
+                <MassMeanDetails session={view.session} lens={lens} disabled={visitor} /></>
             : <LensValidation session={view.session} lens={lens} />)}
           {open === lens.name && !lens.legacy && (
             <LensVersions key={`${lens.name}:${lens.current}`} session={view.session} lens={lens} disabled={visitor}

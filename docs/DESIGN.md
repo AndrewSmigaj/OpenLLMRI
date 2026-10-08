@@ -293,10 +293,17 @@ This part covers building; Parts D and E cover using.
   other node, and what changes downstream is recorded.
 - **Its expert fingerprint** [Decided, 2026-10-08]: how much weight each expert gets at each layer,
   for the node's population (E5).
-- **How much of each lens the router sees** [Decided, 2026-10-08]: for each mass-mean lens and
-  layer, the share of its axis that lies in what the next router reads. It says whether a concept
-  steers expert choice or rides along as content. The split into what the router reads and what it
-  ignores is Ye, Yuan and Sharkey's (M2).
+- **How each lens bears on routing** [Decided, 2026-10-08]: whether a concept steers expert choice
+  or rides along as content, measured two ways at each layer:
+  - **routing effect:** how much of the item-to-item difference in the next layer's routing lines
+    up with the lens's nodes. It is read from the recorded routing, so it holds for every lens;
+  - **router alignment** (mass-mean lenses): the routing change the axis predicts through the next
+    layer's router, against random directions of the same length. Above the random 95th
+    percentile, the routers single the concept out; inside the random range, it rides in the
+    content they mostly ignore. That split into what the router reads and what it ignores is Ye,
+    Yuan and Sharkey's (M2). The prediction skips the next layer's attention, which costs little
+    (it tracks the recorded routing at r = 0.96–0.998). A plain share of the axis in what the
+    router reads can't tell concepts apart: a random direction's share is as large.
 - **The published features closest to it** [Decided, 2026-10-08]: from the public sparse
   autoencoders for gpt-oss-20b (Arditi's, on Neuronpedia). It is a comparison, not circuit
   discovery (B7), and lets others read the findings in their own vocabulary.
@@ -918,7 +925,7 @@ questions, not findings.
 | shared machinery | Do two concepts' tokens take the same pipes and hubs? | the expert and route catalogues, and expert fingerprints (E5) |
 | use in decisions | Does the reading predict the action, and does steering it change the action? | behaviour by reading (E6) and steering a node (I) |
 | changes | Does a scaffold make a concept form earlier in a run, or suppress a writing style? | the condition comparison, against the scaffold's neutral texts (I) |
-| steers routing | Does the threat axis lie in what the router reads, so that threat changes which experts a token goes to? | the share of the lens's axis in what the next router reads (C5) [Decided, 2026-10-08] |
+| steers routing | Does the threat axis lie in what the router reads, so that threat changes which experts a token goes to? | the routing effect of the lens's nodes on the next layer, and the axis's router alignment against random directions (C5) [Decided, 2026-10-08] |
 
 ## Part I — Interventions and conditions
 
@@ -1041,7 +1048,7 @@ I. The steps in each are [Decided, 2026-10-07].
       - the raw-axis endpoint retires once saved mass-mean lenses replace it (G);
       - the additions of 2026-10-08: colour that reads true, expert fingerprints, one layout for
         expert Sankeys, marked disagreements, the 3-D fix, figure recipes, the analyst tests, a
-        budget for reports, and how much of each lens the router sees (C5, E2, E5, E8).
+        budget for reports, and how each lens bears on routing (C5, E2, E5, E8).
    2. **Capture and jobs:**
       - the capture recipe and per-run token ids (G);
       - the GPU job queue;
@@ -1230,7 +1237,7 @@ five. Each is written into the part named.
 | 11 | A showcase per slice | K | every slice |
 | 12 | A starter lens catalogue across levels of language | A4 | 3 |
 | 13 ★ | Analysts tested before they are trusted | E8 | 1 |
-| 14 ★ | How much of each lens the router sees, and an eighth kind of link | C5, H | 1, 12 |
+| 14 ★ | How each lens bears on routing, and an eighth kind of link | C5, H | 1, 12 |
 | 15 | The published features closest to each node | C5 | 5 |
 | 16 | Published results replicated inside the platform | I | 8, 9 |
 | 17 | Live alerts judged per run | E4 | 8 |
@@ -1350,7 +1357,7 @@ Paraphrased from Andrew's own words. His ideas not yet decided are listed separa
   - every recommendation in Part M adopted and written into its part: colour that reads true,
     expert fingerprints, depth heatmaps, a temporal Sankey, marked disagreements, one layout for
     expert Sankeys, the 3-D fix, figure recipes, a published atlas and data, a showcase per slice,
-    the starter lens catalogue, the analyst tests, how much of each lens the router sees (an eighth
+    the starter lens catalogue, the analyst tests, how each lens bears on routing (an eighth
     kind of link), the nearest published features, replications named and reproduced, alerts
     judged per run, branching a run from any tick, a strength on every finding, a budget for
     reports, and hosting before other researchers are invited;

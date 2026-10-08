@@ -371,6 +371,49 @@ def lens_marks(session_id: str, name: str, version: Optional[str] = None) -> Dic
     return out
 
 
+class DetailsRequest(BaseModel):
+    version: Optional[str] = None
+    created_by: str = "app"
+
+
+@router.post("/sessions/{session_id}/lenses/{name}/details", status_code=202)
+def start_details(request: Request, session_id: str, name: str, body: DetailsRequest) -> Dict[str, Any]:
+    """Work out what comes with each node (or each layer of a mass-mean lens) in the background:
+    neurons, the logit lens, the surface check and the routing measures."""
+    from services.jobs.scheduler import JobScheduler
+    from services.lenses.data import session_dir
+    from services.lenses.store import lens_dir
+
+    try:
+        session = session_dir(session_id).name
+        if not (lens_dir(session, name) / "lens.json").exists():
+            raise FileNotFoundError(f"Lens '{name}' not found in {session}")
+    except (FileNotFoundError, ValueError) as e:
+        raise _fail(e)
+    scheduler: JobScheduler = request.app.state.jobs
+    params = {"session_id": session, "name": name, "version": body.version}
+    job = scheduler.submit("lens_details", params, created_by=body.created_by)
+    return {"job_id": job.id, "session_id": session, "name": name}
+
+
+@router.get("/sessions/{session_id}/lenses/{name}/details")
+def lens_details(session_id: str, name: str, version: Optional[str] = None) -> Dict[str, Any]:
+    """A lens version's node details (a mass-mean lens's layer details); 404 until worked out."""
+    from services.lenses.store import lens_dir, read_manifest
+
+    try:
+        folder = lens_dir(session_id, name)
+        manifest = read_manifest(folder)
+    except (FileNotFoundError, ValueError) as e:
+        raise _fail(e)
+    key = "mass_mean" if manifest.kind == "mass_mean" else (version or manifest.current or "")
+    path = folder / "details" / f"{key}.json"
+    if not path.exists():
+        raise HTTPException(status_code=404, detail=f"No details for '{name}' {key} yet")
+    result: Dict[str, Any] = json.loads(path.read_text(encoding="utf-8"))
+    return result
+
+
 @router.get("/sessions/{session_id}/lenses/{name}/validation")
 def lens_validation(session_id: str, name: str) -> Dict[str, Any]:
     """The lens's held-out scores and k profile, per layer and k (404 until it is validated)."""
