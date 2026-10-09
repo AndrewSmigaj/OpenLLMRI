@@ -110,6 +110,16 @@ Tradeoffs vs Pattern A:
 
 Documented in `docs/research/help_probe_findings.md` as a candidate. Rejected because pronoun and modal swaps still produce surface clustering. Use only when surface-form must vary by design (e.g., minimal pairs to study syntactic effects directly).
 
+### Pattern D — Single words (lexical sets)
+
+Each item is one word alone as the user's message, a space first (`" eagle"`), so it is one token: the word with no context, the same token it has in sentences. Use when the question is what the model carries for a word itself (category, the levels above it, feeling), or to fit a lens that later reads sentence captures. Rules (GUIDE.md "Single-word sets"):
+- audit every word before the capture: one token, and the capture's target on the user's word (the capture drops split words silently);
+- keep words out that the prompt itself contains, and words whose main sense isn't their category;
+- families in `categories.family`, passed as `"family_field": "family"` to every lens job;
+- check feeling, length and suffixes by category; after the capture, check the session's item count against the set.
+
+Worked example: `data/sentence_sets/lexical/nouns_meaning_feeling_v1.md`.
+
 ## Step 5: Design Input Axes
 
 Propose orthogonal category dimensions. Common axes:

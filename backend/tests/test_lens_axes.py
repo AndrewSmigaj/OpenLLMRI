@@ -75,6 +75,19 @@ def test_attributes_correlated_by_design_but_encoded_apart_keep_their_axes_apart
     assert found["null_cosines"]["high"][0][1] < -0.4 < found["cosines"][0][1]
 
 
+def test_a_nested_attribute_gets_its_whole_effect_not_a_share_of_the_category() -> None:
+    rng = np.random.default_rng(5)
+    n = 400
+    category = rng.integers(0, 4, n)
+    animate = (category < 2).astype(int)  # a function of the category, as animacy is
+    basis = np.linalg.qr(rng.normal(size=(DIM, DIM)))[0]
+    own = 2.0 * np.stack([basis[1], -basis[1], basis[2], -basis[2]])  # each category's own offset, none for animacy
+    states = rng.normal(size=(n, DIM)) + 3.0 * np.outer(2 * animate - 1, basis[0]) + own[category]
+    found = partial_axes(states, {"category": category, "animacy": animate})["animacy"][0]
+    assert abs(found @ basis[0]) / np.linalg.norm(found) > 0.95
+    assert abs(np.linalg.norm(found) - 6.0) < 0.6  # the planted difference, not a share of it
+
+
 def test_an_attribute_carried_only_by_family_offsets_is_not_recovered_held_out() -> None:
     rng = np.random.default_rng(3)
     n, families = 240, 24
@@ -132,3 +145,18 @@ def test_validation_scores_decoys_and_keeps_its_own_results(client: Any) -> None
     entry = record["layers"]["0"]["2"]
     assert set(entry["heldout"]) == {"label", "register"}  # the real axes only
     assert len(entry["decoys"]["label"]["kappa"]) == 5 and record["decoys"]["count"] == 5
+
+
+def test_the_family_field_groups_items_and_is_never_an_attribute(client: Any) -> None:  # noqa: F811
+    from services.jobs.kinds import JobContext
+    from services.lenses.axes import run_axes
+
+    run_job(client, client.post("/api/lenses", json={"session_id": SESSION, "name": "synth", "n_neighbors": 10,
+                                                     "k": 2, "workers": 1}).json()["job_id"])
+    started = client.post(f"/api/sessions/{SESSION}/lenses/synth/axes", json={"family_field": "register", "workers": 1})
+    store = client.app.state.jobs.store
+    run_axes(store.load(started.json()["job_id"]).params, JobContext(store, started.json()["job_id"]))
+    found = client.get(f"/api/sessions/{SESSION}/lenses/synth/axes").json()
+    assert list(found["attributes"]) == ["label"] and found["decoys"]["given_per"] == "families"
+    assert "grouped" in found["folds"]["kind"]  # each register holds both labels, so whole registers are held out
+    assert found["umap"] is None and found["recovered"]["probe"]  # not validated: no UMAP rows

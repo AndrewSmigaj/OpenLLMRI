@@ -154,6 +154,28 @@ sentence level; matching at the assembly level.
   adverbials/imperatives, and a context sentence ending in a noun phrase can create an unintended
   parse across the join.
 
+## Single-word sets
+
+A third shape (DESIGN.md C1). Each item is one word given alone as the user's message, with a space
+first (`" eagle"`), so that it is one token: the same token the word has inside sentences. They live
+in `lexical/`; `lexical/nouns_meaning_feeling_v1.md` is the worked example.
+
+- **One token, checked.** Every `" word"` must encode to one token, and the capture's target must
+  land on the user's word. The capture drops a word that splits and still counts it, so audit
+  every word before the capture and check the session's item count after it.
+- **No word from the prompt's own text:** the system block (model, date, reasoning, channels,
+  analysis, message) and "assistant", which follows the user's turn.
+- **Ambiguous words out.** A word alone carries all its senses; keep words whose main sense is
+  their category.
+- **Families in `categories.family`,** held out whole: pass `"family_field": "family"` to the lens
+  jobs. A family name of more than two underscore parts needs `"whole_families": true`.
+- **Audit by category:** feeling, length and derivational suffixes. Abstract nouns carry suffixes
+  (-ness, -tion, -ity …) that concrete ones lack: keep them few, and measure what's left after the
+  capture.
+- **The validator's warnings don't apply:** it expects 10 to 30 words, and one target word for the
+  whole file.
+- Capture with `generate_output: false` and a pinned date; no output axes.
+
 ## Validation Checklist
 
 Run after **every batch** of additions:

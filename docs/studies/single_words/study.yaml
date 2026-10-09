@@ -1,0 +1,61 @@
+# Single words: lens slice 1b's study of words given alone (DESIGN.md C1, C8; K, slice 1b).
+# Its findings note is the record of the runs; each ledger line stays proposed until it is
+# reviewed (DESIGN.md H).
+id: single_words
+title: Single words
+question: >
+  What does the model carry for a noun given on its own: its category, the levels above it
+  (animacy and concreteness) and its feeling? Which techniques find them, how do single words
+  route, and can a lens fitted on words alone read the word inside sentences?
+status: active
+started: 2026-10-09
+sets:
+  - nouns_meaning_feeling_v1
+captures:
+  - session_8f536bea
+lenses:
+  - session_8f536bea/words-k8-n15
+  - session_8f536bea/words-k8-n15-tuned
+findings:
+  - docs/research/single_words.md
+ledger:
+  - idea: A tuned UMAP lens recovers the category of a word alone, on whole held-out families.
+    experiment: >
+      words-k8-n15 tuned on the category: settings and k per layer chosen by held-out AMI on
+      selection folds of whole families, then scored on one held-out family per category (171
+      words).
+    finding: >
+      Test AMI 0.40 to 0.63, peaking at L7. The untuned lens (k 8 at every layer) peaks at 0.70
+      (L8), and tuning gains nothing on average (better at 10 layers, worse at 12). A logistic
+      probe reaches 0.76 to 0.90 on the same families.
+    status: proposed
+    evidence: [docs/research/single_words.md]
+  - idea: The levels above the category show in the lens's first split.
+    experiment: >
+      Each layer's tuned embedding cut into two nodes, compared with the category, animacy and
+      concreteness.
+    finding: >
+      Concrete against abstract at L0 to L7 (people join the abstract side at L4); food and
+      animals against the rest at L8 to L17; physical things against people and abstractions at
+      L18 to L23. Animacy never makes the first split (in-sample AMI at most 0.12).
+    status: proposed
+    evidence: [docs/research/single_words.md]
+  - idea: A word alone carries its feeling, beyond its category.
+    experiment: >
+      The axes analysis on words-k8-n15-tuned (decoys per family), and a probe on valence with
+      each category's training mean taken out of its words.
+    finding: >
+      The category alone predicts valence at kappa 0.187, and the lens's nodes at 0.22 to 0.35.
+      With each category's mean taken out, a probe still reads valence at 0.489 to 0.598.
+    status: proposed
+    evidence: [docs/research/single_words.md]
+  - idea: A lens fitted on single words reads the word inside sentences.
+    experiment: >
+      The tank set (499 sentences, five senses) read through words-k8-n15-tuned at the target
+      token.
+    finding: >
+      The sentences' tank tokens lie beyond the lens's own neighbourhoods from L1 on (median
+      distance percentile 98.7, then 99.9 to 100), so the nodes they land in only say which words
+      are least far.
+    status: proposed
+    evidence: [docs/research/single_words.md]

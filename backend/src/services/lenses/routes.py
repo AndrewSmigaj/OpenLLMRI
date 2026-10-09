@@ -220,7 +220,7 @@ def compute_routes(view: LensView, family_field: str = "scene", seed: int = 42,
     weights = dense(view)
     n = len(view.items)
     floor = min_items(n)
-    axes = axes_of(view)
+    axes = {axis: values for axis, values in axes_of(view).items() if axis != family_field}  # families group, not describe
     halves = _halves(view.items, family_field, seed, whole)
 
     def makeup(mask: Array) -> Dict[str, Dict[str, int]]:

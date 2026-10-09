@@ -14,8 +14,9 @@ backwards scores below zero, not one. The techniques:
 - **a linear probe** on the residual stream (logistic regression): the ceiling;
 - **partial directions**: each attribute's own axis with the other attributes held fixed, from a
   joint least-squares fit on effect-coded attributes (the mass-mean axis in a balanced design), so
-  design confounds don't read as one shared direction; held-out items take the nearest training
-  mean along the attribute's axes;
+  design confounds don't read as one shared direction; an attribute nested with another (animacy
+  above a category) is fitted without it; held-out items take the nearest training mean along the
+  attribute's axes;
 - **a principal component**: the one of the first 20 that best separates the attribute on the
   training items; held-out items take the nearest training mean along it.
 
@@ -114,20 +115,42 @@ def effect_design(codes: Dict[str, Array]) -> Tuple[Array, List[Tuple[str, int]]
     return np.stack(columns, axis=1), names
 
 
+def nested_with(codes: Dict[str, Array]) -> Dict[str, List[str]]:
+    """For each attribute, the others it nests with: one is a function of the other wherever both
+    are known (animacy above a semantic category, say). Holding a category fixed leaves animacy
+    nothing to vary, so the two are never fitted together."""
+    def function_of(a: str, b: str) -> bool:
+        known = (codes[a] >= 0) & (codes[b] >= 0)
+        pairs = set(zip(codes[b][known].tolist(), codes[a][known].tolist()))
+        return len(pairs) == len({x for x, _ in pairs})
+
+    return {a: [b for b in codes if b != a and (function_of(a, b) or function_of(b, a))] for a in codes}
+
+
 def partial_axes(states: Array, codes: Dict[str, Array]) -> Dict[str, Array]:
     """Each attribute's directions with the others held fixed: for a two-valued attribute, the
     difference of its values' means (one row); for more values, each value's mean against the
-    grand mean (one row per value), from one joint least-squares fit."""
-    design, names = effect_design(codes)
+    grand mean (one row per value), from a joint least-squares fit. An attribute's fit leaves out
+    the attributes it nests with (`nested_with`); without nesting, all share one fit. An attribute
+    with one value among these items (a decoy, say, on one fold's training items) has no axis: a
+    row of zeros."""
+    live = {a: c for a, c in codes.items() if len(np.unique(c[c >= 0])) >= 2}
+    nested = nested_with(live)
     centred = states - states.mean(axis=0)
-    coef, *_ = np.linalg.lstsq(np.column_stack([np.ones(len(states)), design]), centred, rcond=None)
-    effects = coef[1:]
+    fits: Dict[Tuple[str, ...], Tuple[Array, List[Tuple[str, int]]]] = {}
     out: Dict[str, Array] = {}
-    for axis, c in codes.items():
-        rows = [i for i, (a, _) in enumerate(names) if a == axis]
-        mine = effects[rows]
-        last = -mine.sum(axis=0, keepdims=True)
-        full = np.vstack([mine, last])  # every value's effect
+    for axis in codes:
+        if axis not in live:
+            out[axis] = np.zeros((1, states.shape[1]))
+            continue
+        included = tuple(a for a in live if a == axis or a not in nested[axis])
+        if included not in fits:
+            design, names = effect_design({a: live[a] for a in included})
+            coef, *_ = np.linalg.lstsq(np.column_stack([np.ones(len(states)), design]), centred, rcond=None)
+            fits[included] = (coef[1:], names)
+        effects, names = fits[included]
+        mine = effects[[i for i, (a, _) in enumerate(names) if a == axis]]
+        full = np.vstack([mine, -mine.sum(axis=0, keepdims=True)])  # every value's effect
         out[axis] = (full[0] - full[1])[None, :] if len(full) == 2 else full
     return out
 
@@ -303,7 +326,8 @@ def run_axes(params: Dict[str, Any], ctx: Any) -> Dict[str, Any]:
     if manifest.kind != "umap":
         raise ValueError(f"'{name}' is a {manifest.kind} lens: the axes analysis reads a UMAP lens's capture")
     view = open_lens(session, name)
-    values = {axis: v for axis, v in axes_of(view).items() if len(v) >= 2}
+    # the family field groups items for folds and decoys; held out whole, it is never an attribute
+    values = {axis: v for axis, v in axes_of(view).items() if len(v) >= 2 and axis != family_field}
     real = attributes(view.items, values)
     if not real:
         raise ValueError("the items carry no designed attribute with two values or more")
