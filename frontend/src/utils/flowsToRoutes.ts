@@ -46,5 +46,6 @@ export function flowsToRoutes(flows: LensFlows, sessionId: string): RouteAnalysi
     statistics: { total_routes: links.length, total_probes: totalProbes, routes_coverage: 1, window_layers: flows.layers },
     available_axes: axesOf(flows.axes), output_available_axes: flows.output ? axesOf(flows.output.axes) : [],
     probe_assignments: flows.assignments,
+    output_of: flows.output_of,
   }
 }

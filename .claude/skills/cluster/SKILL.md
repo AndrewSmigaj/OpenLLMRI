@@ -154,6 +154,28 @@ the test portion. Quote the test scores: the tuned lens's own validation reuses 
 its settings. Advanced fields: `grid` (`n_neighbors`, `dimensions`, `min_dist` lists, at most 60
 settings), `k_min`/`k_max`, `test_share`, `n_folds`, `seed`, `name`.
 
+### OP-L8: Read a capture through a lens (a job)
+
+Places each item of a capture in a saved UMAP lens's space at every layer, with its 15 nearest
+lens items; its node is their vote, worked out when the reading is served, so a new version (k)
+re-votes without reading again. The lens's own items keep their nodes. The usual use is a step the
+lens wasn't built on: a lens on friend/foe tick 1 reading tick 0 (`"filters":{"steps":[0]}`, the
+lens's own capture by default); `target` reads another capture at the lens's site. A reading also
+says how far out its items sit: in the residual stream, each item's distance to its nearest lens
+items as a percentile of the lens's own, with a warning when a layer's median passes the 75th
+(the lens reading outside the context it was built from). About 40 seconds for 500 items.
+
+```bash
+curl -s -X POST http://localhost:8000/api/sessions/SID/lenses/NAME/readings \
+  -H "Content-Type: application/json" -d '{"filters":{"steps":[0]},"created_by":"claude-code"}'
+curl -s "http://localhost:8000/api/sessions/SID/lenses/NAME/readings?key=KEY&rank=1"
+```
+
+The POST returns the reading's `key` (for example `b629b6c5-steps-0`); the lens list names every
+reading under `readings`. The GET gives each item's node per layer with the winner's share of the
+vote (null for the lens's own items), its percentile per layer, and its expert at `rank`. In the
+app, Layers' tick control offers the reading for a step the lens doesn't cover.
+
 ### Reports
 
 LLM-written cards on the lens, its k profile, nodes, experts, routes and split points, every

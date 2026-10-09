@@ -54,7 +54,7 @@ def session_dir(session_id: str, lake: Optional[Path] = None) -> Path:
 # What the app shows beside an item, beyond what a lens keeps: its generated text, where the target
 # word sits, and for agent runs the tick's game text, analysis channel and action.
 DISPLAY_FIELDS = ("generated_text", "target_char_offset", "turn_id", "capture_type",
-                  "game_text", "analysis", "action", "previous_action", "system_prompt")
+                  "game_text", "analysis", "action", "previous_action", "system_prompt", "run")
 
 
 def display_fields(session_id: str, lake: Optional[Path] = None) -> Dict[str, Dict[str, Any]]:
@@ -74,6 +74,12 @@ def _display_fields(folder: str, stamp: tuple[int, int]) -> Dict[str, Dict[str, 
     enrich_records_with_scenario_actions(records, Path(folder))
     enrich_records_with_tick_log(records, Path(folder))
     return {r.probe_id: {f: getattr(r, f) for f in DISPLAY_FIELDS} for r in records}
+
+
+def run_keys(session_id: str, lake: Optional[Path] = None) -> Dict[str, Optional[str]]:
+    """Each item's run, by probe id: "<scenario>#<n>" for agent runs (a scenario played twice has
+    runs #1 and #2), a sentence run's sequence id, or None."""
+    return {pid: fields["run"] for pid, fields in display_fields(session_id, lake).items()}
 
 
 def load_items(session_id: str, filters: LensFilters, lake: Optional[Path] = None) -> List[ProbeRecord]:

@@ -13,6 +13,7 @@ from fastapi import APIRouter, HTTPException, Request
 from pydantic import BaseModel, Field
 
 from services.lenses.build import LensBuildParams
+from services.lenses.data import LensFilters
 from services.lenses.search import SearchGrid
 from services.lenses.view import LensView
 
@@ -402,19 +403,68 @@ def build_mass_mean_lens(request: Request, body: MassMeanRequest) -> Dict[str, A
     return {"job_id": job.id, "session_id": session, "name": body.name}
 
 
+class ReadRequest(BaseModel):
+    target: Optional[str] = None  # the capture to read; the lens's own (its other steps) by default
+    key: Optional[str] = None  # the reading's name; made from the target and filters when not given
+    filters: LensFilters = Field(default_factory=LensFilters)
+    position: Optional[int] = None  # the token position read; the lens's own by default
+    created_by: str = "app"
+
+
+@router.post("/sessions/{session_id}/lenses/{name}/readings", status_code=202)
+def start_reading(request: Request, session_id: str, name: str, body: ReadRequest) -> Dict[str, Any]:
+    """Read a capture through a saved UMAP lens in the background (DESIGN.md B5): each item placed
+    in the lens's space at every layer, with its nearest lens items. Returns the job at once."""
+    from services.jobs.scheduler import JobScheduler
+    from services.lenses.data import session_dir
+    from services.lenses.readout import reading_key, readings_dir, valid_key
+    from services.lenses.store import lens_dir, read_manifest
+
+    try:
+        session = session_dir(session_id).name
+        folder = lens_dir(session, name)
+        if not (folder / "lens.json").exists():
+            raise FileNotFoundError(f"Lens '{name}' not found in {session}")
+        if read_manifest(folder).kind != "umap":
+            raise ValueError(f"'{name}' is a mass-mean lens: GET its readings with ?target=<capture>")
+        target = session_dir(body.target or session).name
+        key = body.key or reading_key(target, body.filters)
+        if not valid_key(key):
+            raise ValueError(f"not a reading name: {key!r} (lowercase letters, digits, '_' and '-')")
+        if (readings_dir(folder) / key).exists():
+            raise FileExistsError(f"Lens '{name}' already has a reading {key!r}")
+    except (FileNotFoundError, FileExistsError, ValueError) as e:
+        raise _fail(e)
+    scheduler: JobScheduler = request.app.state.jobs
+    for job in scheduler.store.list():
+        if job.kind == "lens_read" and job.state in ("queued", "running") and job.params.get("session_id") == session \
+                and job.params.get("name") == name and job.params.get("key") == key:
+            raise HTTPException(status_code=409, detail=f"Reading {key!r} is already being made ({job.id})")
+    params = body.model_dump(exclude={"created_by", "target", "key"}) | {
+        "session_id": session, "name": name, "target": target, "key": key, "created_by": body.created_by}
+    job = scheduler.submit("lens_read", params, created_by=body.created_by)
+    return {"job_id": job.id, "session_id": session, "name": name, "key": key}
+
+
 @router.get("/sessions/{session_id}/lenses/{name}/readings")
-def lens_readings(session_id: str, name: str, target: Optional[str] = None,
-                  position: Optional[int] = None) -> Dict[str, Any]:
-    """Any capture (`target`, the lens's own by default) read through a mass-mean lens: each
-    item's position along the contrast at every layer, class means at -1 and +1."""
+def lens_readings(session_id: str, name: str, target: Optional[str] = None, position: Optional[int] = None,
+                  key: Optional[str] = None, version: Optional[str] = None, rank: int = 1) -> Dict[str, Any]:
+    """A lens's readings. A mass-mean lens reads any capture (`target`, its own by default) at once:
+    each item's position along the contrast at every layer, class means at -1 and +1. A UMAP lens
+    serves a reading made by POST (`key`; the summary lists them): each item's node at every
+    layer at `version`, its share of the vote, how far out it sits, and its expert at `rank`."""
     from services.lenses.massmean import readings
+    from services.lenses.readout import list_readings, serve_reading
     from services.lenses.store import lens_dir, read_manifest
 
     try:
         folder = lens_dir(session_id, name)
-        if read_manifest(folder).kind != "mass_mean":
-            raise ValueError(f"'{name}' is a UMAP lens: read its clusters with /flows")
-        return readings(folder, target or session_id, position)
+        if read_manifest(folder).kind == "mass_mean":
+            return readings(folder, target or session_id, position)
+        if key is None:
+            made = [r["key"] for r in list_readings(folder)]
+            raise ValueError(f"name a reading with ?key= ({', '.join(made) if made else 'none made yet: POST one'})")
+        return serve_reading(folder, key, version, rank)
     except (FileNotFoundError, ValueError) as e:
         raise _fail(e)
 

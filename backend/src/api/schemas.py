@@ -85,6 +85,7 @@ class ProbeExample(BaseModel):
     turn_id: Optional[int] = None
     capture_type: Optional[str] = None
     step: Optional[int] = None
+    run: Optional[str] = None  # "<scenario>#<n>" for agent runs, a sentence run's sequence id
     game_text: Optional[str] = None
     analysis: Optional[str] = None
     action: Optional[str] = None

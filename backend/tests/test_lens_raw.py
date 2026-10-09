@@ -19,7 +19,7 @@ from services.lenses.raw import (
     relevant_neurons,
     ward_cuts,
 )
-from services.lenses.validate import _majority, _vote, compare_layer, make_folds
+from services.lenses.validate import _majority, compare_layer, make_folds, nearest, vote
 
 
 def _items(labels: Any) -> list:
@@ -39,7 +39,7 @@ def test_neurons_chosen_inside_the_fold_keep_a_null_at_chance_and_a_leak_inflate
                 keep = relevant_neurons(states, labels) if chosen_with_all else relevant_neurons(states[train], labels[train])
                 tr, te = pca_features(states[train][:, keep], states[test][:, keep], 42, NEURON_PCS)
                 cut = ward_cuts(tr, [2])[2]
-                guess = _majority(cut, labels[train], 2)[_vote(te, tr, cut, 2)]
+                guess = _majority(cut, labels[train], 2)[vote(*nearest(te, tr), cut, 2)[0]]
                 accuracies.append(float((guess == labels[test]).mean()))
             (leaked if chosen_with_all else inside).append(np.mean(accuracies))
     assert np.mean(inside) < 0.65 and np.mean(leaked) > 0.9

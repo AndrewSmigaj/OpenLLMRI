@@ -16,10 +16,12 @@ import { useViewState, ZOOMS, type UpdateView, type ViewState } from '../hooks/u
 import { useShell } from '../components/shell/shellContext'
 import { chartPng, chartSvg, dataJson, download, rowsCsv, sankeyRows, type ExportFormat, type Recipe } from '../utils/exportFigure'
 import { columnsOf, lastFirst, stepsInView } from '../utils/layerGeometry'
-import { membersQuery, parseNodeId, parseSelection, probeSelection } from '../utils/selection'
+import { membersQuery, parseNodeId, parseSelection, probeSelection, type Selection } from '../utils/selection'
 import { cardIdFor, splitCardFor } from '../utils/cardId'
 import { cardFor } from '../utils/selectionCard'
 import { isOutputNode, stripOutputPrefix } from '../constants/outputNodes'
+import { atStep, clusterPath as clusterPathOf, expertPath, ghostFlows, linkKey, litFlows, litItems, placesOf, readMaps } from '../utils/lighting'
+import { useStepReading } from '../hooks/useStepReading'
 import ColourControls from '../components/layers/ColourControls'
 import ColourLegend from '../components/layers/ColourLegend'
 import DetailsPanel from '../components/layers/DetailsPanel'
@@ -34,11 +36,15 @@ import SteppedTrajectoryPlot, { type TrajectoryExport } from '../components/char
 import ExportMenu from '../components/common/ExportMenu'
 import PanelErrorBoundary from '../components/common/PanelErrorBoundary'
 import FingerprintPanel from '../components/layers/FingerprintPanel'
+import ItemPath from '../components/layers/ItemPath'
+import StepControl from '../components/layers/StepControl'
 
 const NO_AXES: DynamicAxis[] = []
 const NO_SENTENCES: ProbeExample[] = []
 const NO_LAYERS: number[] = []
 const NO_VALUES: string[] = []
+const nameOf = (selection: Selection | null) => selection?.kind === 'node' ? selection.id
+  : selection?.kind === 'link' ? `${selection.source} → ${selection.target}` : ''
 
 function Hint({ children }: { children: ReactNode }) {
   return <div className="m-4 bg-slate-50 border border-slate-200 rounded-lg p-3 text-xs text-slate-700">{children}</div>
@@ -71,26 +77,92 @@ function LayersView({ view, update, visitor }: { view: ViewState; update: Update
   const nodeDetails = useLensDetails(view.session, view.lens, view.legacy,
     listing && !!listing.current && !!listing.details?.includes(listing.current))
   const sentences = context.details?.sentences ?? NO_SENTENCES
+  // A step the lens doesn't cover is read through it (DESIGN.md B5); then its items light too
+  const stepReading = useStepReading(view.session, view.lens, view.legacy ? undefined : listing, view.step,
+    listing?.current ?? undefined, view.rank)
+  const reading = stepReading.reading
 
   const layers = routes?.window_layers ?? NO_LAYERS
   const columns = columnsOf(routes)
   const answers = useMemo(() => (routes?.nodes ?? []).filter(n => isOutputNode(n.name)).map(n => stripOutputPrefix(n.name)),
     [routes])
+  // Every item lighting can use: the lens's own, and a read step's items with their voted nodes
+  const maps = useMemo(() => {
+    const read = reading ? readMaps(reading) : null
+    const byCategory = grouping.length === 0 // read items know their output category, not other output keys
+    const outputOf = routes?.output_of ? { ...routes.output_of, ...(byCategory ? read?.outputOf : {}) } : undefined
+    return {
+      read, outputOf, readOutputOf: routes?.output_of && byCategory ? read?.outputOf : undefined,
+      assignments: { ...routes?.probe_assignments, ...read?.assignments },
+      experts: { ...expert.routes?.probe_assignments, ...read?.experts },
+      // only items with a path: a tick writes several records, and only the lens's and the reading's have nodes
+      places: placesOf(sentences.filter(sentence => routes?.probe_assignments?.[sentence.probe_id]), reading?.items ?? []),
+    }
+  }, [reading, routes, expert.routes, sentences, grouping.length])
+  // What the selection lights (DESIGN.md E5): its items' paths in both charts, over faded flows; with
+  // a step chosen, its items at that step (an item stands for its run's item there)
+  const litList = useMemo(() => atStep(litItems(view.sel, maps.assignments, maps.outputOf, maps.experts),
+    view.sel, view.step, maps.places), [view.sel, view.step, maps])
+  const lit = useMemo(() => litList.length ? {
+    cluster: litFlows(litList, clusterPathOf(maps.assignments, layers, maps.outputOf)),
+    expert: litFlows(litList, expertPath(maps.experts, layers, maps.outputOf)),
+  } : { cluster: null, expert: null }, [litList, maps, layers])
+  // What only the read items take, drawn as ghosts while the reading is shown
+  const ghosts = useMemo(() => {
+    if (!maps.read || !routes || !expert.routes) return { cluster: null, expert: null }
+    const present = (r: typeof routes) => [new Set(r.nodes.flatMap(n => [n.id, n.name])),
+      new Set(r.links.map(l => linkKey(l.source, l.target)))] as const
+    return {
+      cluster: ghostFlows(maps.read.ids, clusterPathOf(maps.read.assignments, layers, maps.readOutputOf), ...present(routes)),
+      expert: ghostFlows(maps.read.ids, expertPath(maps.read.experts, layers, maps.readOutputOf), ...present(expert.routes)),
+    }
+  }, [maps, routes, expert.routes, layers])
   const steps = stepsInView(columns.length, view.zoom)
   const first = Math.min(view.layer, lastFirst(columns.length, steps))
   const layersInView = useMemo(() => layers.slice(first, first + steps + 1), [layers, first, steps])
 
   const selection = parseSelection(view.sel)
-  const query = selection ? membersQuery(selection, layers[layers.length - 1] ?? 0, view.rank) : null
+  // A sentence picked from a node's or a link's members keeps that list in view, so the others can
+  // be picked in turn; picked anywhere else (a 3-D point, the URL), the list is every sentence
+  const [pickedFrom, setPickedFrom] = useState('')
+  const listSel = selection?.kind === 'probe' ? pickedFrom : view.sel
+  const listSelection = parseSelection(listSel)
+  const pick = (probeId: string, from: string) => {
+    setPickedFrom(from)
+    update({ sel: probeSelection(probeId) })
+  }
+  const query = listSelection ? membersQuery(listSelection, layers[layers.length - 1] ?? 0, view.rank) : null
   const members = useSelectionMembers(view.session, view.lens, view.legacy, query)
-  const card = useMemo(
-    () => (selection ? cardFor(selection, cluster.routes, expert.routes, sentences, members.items) : null),
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- view.sel stands for the parsed selection
-    [view.sel, cluster.routes, expert.routes, sentences, members.items])
   const selectedProbe = selection?.kind === 'probe' ? selection.probeId : null
+  // An item's card shows the lit item: with a step chosen, its run's item at that step
+  const shownProbe = selectedProbe && view.step !== null ? litList[0] ?? selectedProbe : selectedProbe
+  const card = useMemo(
+    () => (selection ? cardFor(shownProbe ? { kind: 'probe', probeId: shownProbe } : selection,
+                               cluster.routes, expert.routes, sentences, members.items) : null),
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- view.sel stands for the parsed selection
+    [view.sel, shownProbe, cluster.routes, expert.routes, sentences, members.items])
+  // At a step read through the lens, the Members tab lists that step's items the list's selection
+  // stands for (every read item when nothing is selected)
+  const readList = useMemo(() => {
+    if (!reading) return null
+    const ids = listSel ? atStep(litItems(listSel, maps.assignments, maps.outputOf, maps.experts), listSel, view.step, maps.places)
+      : reading.items.map(item => item.probe_id)
+    const bySentence = new Map(sentences.map(sentence => [sentence.probe_id, sentence]))
+    return ids.flatMap(id => bySentence.get(id) ?? [])
+  }, [reading, listSel, maps, view.step, sentences])
+  // The capture's steps (ticks for an agent run, context steps for a sentence run)
+  const allSteps = useMemo(() => [...new Set(sentences.flatMap(s => (s.step === undefined || s.step === null ? [] : [s.step])))]
+    .sort((a, b) => a - b), [sentences])
+  const stepLabel = sentences.some(s => s.turn_id !== undefined && s.turn_id !== null) ? 'Tick' : 'Step'
+  const shownRead = shownProbe && reading ? reading.items.findIndex(item => item.probe_id === shownProbe) : -1
+  const shownRun = shownProbe ? maps.places[shownProbe]?.run : null
+  // The run's steps in the capture, read or not (an unread one offers its reading)
+  const runSteps = useMemo(() => (shownRun ? [...new Set(sentences.flatMap(sentence =>
+    sentence.run === shownRun && sentence.step !== undefined && sentence.step !== null ? [sentence.step] : []))]
+    .sort((a, b) => a - b) : []), [sentences, shownRun])
   const pickedNode = selection?.kind === 'node' ? parseNodeId(selection.id) : null
   const selectedClusterNode = pickedNode?.kind === 'cluster' ? { layer: pickedNode.layer, node: pickedNode.index } : undefined
-  const clusterPath = selectedProbe ? routes?.probe_assignments?.[selectedProbe] : undefined
+  const clusterPath = shownProbe ? routes?.probe_assignments?.[shownProbe] : undefined
   // Each item's node at a layer, for colouring the 3-D points by what the lens counts
   const nodeOf = useCallback((probeId: string, layer: number) => routes?.probe_assignments?.[probeId]?.[String(layer)],
     [routes])
@@ -131,8 +203,7 @@ function LayersView({ view, update, visitor }: { view: ViewState; update: Update
 
   const sampleSize = context.summary?.sample_size ?? routes?.statistics.total_probes ?? 0
   const shownTrajectories = Math.min(maxTrajectories ?? sampleSize, sampleSize)
-  const selectionName = selection?.kind === 'node' ? selection.id
-    : selection?.kind === 'link' ? `${selection.source} → ${selection.target}` : ''
+  const selectionName = nameOf(selection)
 
   // The analysis panel (DESIGN.md E8): the report on the selection, or on the lens when nothing is
   // selected, and for a node whose items part ways, the split point's report too
@@ -166,12 +237,21 @@ function LayersView({ view, update, visitor }: { view: ViewState; update: Update
     members: (
       <div className="space-y-1">
         {openReport(cardId, false)}
-        {selection && selection.kind !== 'probe'
-          ? <FilteredWordDisplay sentences={members.items} heading={`Members of ${selectionName}`}
+        {readList
+          ? <FilteredWordDisplay sentences={readList} targetWord={context.details?.target_word}
+              heading={listSelection && listSelection.kind !== 'probe'
+                ? `Members of ${nameOf(listSelection)} at ${stepLabel.toLowerCase()} ${view.step}, read through the lens`
+                : `${stepLabel} ${view.step}, read through the lens`}
+              labelValues={labelValues} gradient={axes.gradient}
+              onPick={id => pick(id, listSel)} pickedId={shownProbe ?? undefined} />
+          : listSelection && listSelection.kind !== 'probe'
+          ? <FilteredWordDisplay sentences={members.items} heading={`Members of ${nameOf(listSelection)}`}
               targetWord={context.details?.target_word} total={members.total} onLoadMore={members.loadMore}
-              isLoading={members.loading} labelValues={labelValues} gradient={axes.gradient} />
+              isLoading={members.loading} labelValues={labelValues} gradient={axes.gradient}
+              onPick={id => pick(id, listSel)} pickedId={shownProbe ?? undefined} />
           : <FilteredWordDisplay sentences={sentences} heading="Sentences" targetWord={context.details?.target_word}
-              labelValues={labelValues} gradient={axes.gradient} />}
+              labelValues={labelValues} gradient={axes.gradient}
+              onPick={id => pick(id, '')} pickedId={shownProbe ?? undefined} />}
       </div>
     ),
     output: (
@@ -212,7 +292,7 @@ function LayersView({ view, update, visitor }: { view: ViewState; update: Update
             fitNote={view.legacy ? "the schema's own 3-D fit, separate from the 6-D one it clusters in"
               : "a 3-D UMAP of each layer with the lens's neighbours and seed, separate from the 6-D one it clusters in"}
             shapeAxisId={axes.shapeAxis?.id} shapeValues={axes.shapeAxis?.values} height={360} maxTrajectories={shownTrajectories}
-            selectedProbeId={selectedProbe} onPointClick={info => update({ sel: probeSelection(info.probe_id) })}
+            selectedProbeId={selectedProbe} onPointClick={info => pick(info.probe_id, '')}
             onExportable={handle => { trajectoryExport.current = handle }} />
         )}
       </div>
@@ -241,6 +321,10 @@ function LayersView({ view, update, visitor }: { view: ViewState; update: Update
               )}
               <button onClick={() => update({ top: null })} className={btn(view.top === null)}>all</button>
             </span>
+            {allSteps.length > 1 && (
+              <StepControl label={stepLabel} steps={allSteps} step={view.step} onStep={step => update({ step })}
+                reading={stepReading} disabled={visitor} />
+            )}
             <ColourControls axes={axes} disabled={visitor} />
           </div>
           <div className="px-2 py-1 bg-white border-b border-gray-200">
@@ -253,7 +337,7 @@ function LayersView({ view, update, visitor }: { view: ViewState; update: Update
           <Group orientation="vertical" className="flex-1 min-h-0">
             <Panel id="charts" defaultSize="68" minSize="25">
               <LayerCharts cluster={cluster} expert={expert} view={view} update={update} colours={colours}
-                outlined={outlined} onExport={exportFlows} />
+                outlined={outlined} lit={lit} ghosts={ghosts} onExport={exportFlows} />
             </Panel>
             <Separator className="h-1 bg-gray-200 hover:bg-blue-400" />
             <Panel id="lower" defaultSize="32" minSize="10">
@@ -271,6 +355,12 @@ function LayersView({ view, update, visitor }: { view: ViewState; update: Update
             <PanelErrorBoundary name="Node details">
               <NodeDetails state={nodeDetails} layer={pickedNode.layer} node={pickedNode.index} disabled={visitor} />
             </PanelErrorBoundary>
+          )}
+          itemPath={shownProbe && (
+            <ItemPath experts={maps.experts[shownProbe]} rank={view.rank} output={maps.outputOf?.[shownProbe]}
+              read={reading && shownRead >= 0 ? { layers: reading.layers, nodes: reading.nodes[shownRead],
+                shares: reading.shares[shownRead], pct: reading.pct[shownRead] } : undefined}
+              stepLabel={stepLabel} steps={runSteps} step={view.step} onStep={step => update({ step })} />
           )}
           onClose={() => update({ sel: '' })} />
       </Panel>

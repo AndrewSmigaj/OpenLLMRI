@@ -117,12 +117,16 @@ def _output_column(view: LensView, codes: Array, prefix: str, axes: Dict[str, Li
 
 
 def cluster_flows(view: LensView, output_axes: Sequence[str] = ()) -> Dict[str, Any]:
-    """Cluster flows, plus each item's node at every layer (for route cards and trajectories).
-    `output_axes` groups the output column by those output axes instead of the output category."""
+    """Cluster flows, plus each item's node at every layer (for route cards, trajectories and lit
+    paths) and its output node. `output_axes` groups the output column by those output axes
+    instead of the output category."""
     out = _flows(view, view.nodes, "C", "cluster", output_axes=output_axes)
     out["assignments"] = {item["probe_id"]: {str(layer): int(view.nodes[i, li])
                                               for li, layer in enumerate(view.layers)}
                           for i, item in enumerate(view.items)}
+    if out["output"]:
+        out["output_of"] = {item["probe_id"]: key for item in view.items
+                            if (key := _output_key(item, output_axes)) is not None}
     return out
 
 
@@ -133,6 +137,10 @@ def expert_flows(view: LensView, rank: int = 1, output_axes: Sequence[str] = (),
     if not 1 <= rank <= view.experts.shape[-1]:
         raise ValueError(f"rank must be 1 to {view.experts.shape[-1]}, got {rank}")
     out = _flows(view, view.experts[:, :, rank - 1], "E", "expert", view.weights[:, :, rank - 1], output_axes)
+    # each item's expert at this rank, layer by layer (for lit paths)
+    out["assignments"] = {item["probe_id"]: {str(layer): int(view.experts[i, li, rank - 1])
+                                              for li, layer in enumerate(view.layers)}
+                          for i, item in enumerate(view.items)}
     if order is not None:
         place = {(layer, expert): i for li, layer in enumerate(view.layers) for i, expert in enumerate(order[li])}
         out["nodes"].sort(key=lambda node: (node["layer"], place.get((node["layer"], node["index"]), 10**6)))

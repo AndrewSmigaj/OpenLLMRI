@@ -1,5 +1,8 @@
 // The sentences in view: every sentence of the capture, or the members of the selected node or
-// link, a page at a time, each with its target word highlighted in its label's colour.
+// link, a page at a time, each with its target word highlighted in its label's colour. Clicking a
+// sentence selects it, so its path lights up in the charts (DESIGN.md E5); a search box finds one
+// by its text or id among those loaded.
+import { useEffect, useRef, useState } from 'react'
 import type { ProbeExample } from '../types/api'
 import { valueColor, type GradientScheme } from '../color/scheme'
 import SentenceHighlight from './SentenceHighlight'
@@ -13,6 +16,8 @@ interface FilteredWordDisplayProps {
   isLoading?: boolean
   labelValues: string[] // the label axis's values, so each label keeps its colour
   gradient: GradientScheme
+  onPick?: (probeId: string) => void // select one sentence
+  pickedId?: string // the selected sentence, ringed
 }
 
 export default function FilteredWordDisplay({
@@ -23,8 +28,18 @@ export default function FilteredWordDisplay({
   onLoadMore,
   isLoading = false,
   labelValues,
-  gradient
+  gradient,
+  onPick,
+  pickedId,
 }: FilteredWordDisplayProps) {
+  const [query, setQuery] = useState('')
+  // A sentence picked elsewhere (a 3-D point, the URL) is scrolled into view
+  const pickedRow = useRef<HTMLDivElement>(null)
+  useEffect(() => { pickedRow.current?.scrollIntoView({ block: 'nearest' }) }, [pickedId])
+  const needle = query.trim().toLowerCase()
+  const shown = needle
+    ? sentences.filter(s => s.input_text?.toLowerCase().includes(needle) || s.probe_id.toLowerCase().includes(needle))
+    : sentences
   const count = total ?? sentences.length
 
   return (
@@ -34,15 +49,20 @@ export default function FilteredWordDisplay({
         <h4 className="font-medium text-gray-900 text-xs">
           {heading} {targetWord && <span className="text-gray-500 font-normal">— {targetWord}</span>}
         </h4>
-        <span className="text-[10px] text-gray-500">
-          {sentences.length < count ? `${sentences.length} of ${count}` : count}
+        <span className="flex items-center gap-2 text-[10px] text-gray-500">
+          {onPick && (
+            <input value={query} onChange={e => setQuery(e.target.value)} placeholder="find a sentence…"
+              aria-label="Find a sentence by its text or id"
+              className="px-1 py-0.5 w-40 text-[10px] border border-gray-300 rounded bg-white" />
+          )}
+          {needle ? `${shown.length} found in ${sentences.length}` : sentences.length < count ? `${sentences.length} of ${count}` : count}
         </span>
       </div>
 
       {/* Sentence List */}
-      {sentences.length > 0 ? (
+      {shown.length > 0 ? (
         <div className="space-y-0.5 max-h-[75vh] overflow-y-auto">
-          {sentences.map((sentence, i) => {
+          {shown.map((sentence, i) => {
             const color = sentence.label && labelValues.length > 0
               ? valueColor(sentence.label, labelValues, gradient)
               : '#666666'
@@ -63,7 +83,10 @@ export default function FilteredWordDisplay({
             }
 
             return (
-              <div key={sentence.probe_id || i} className="bg-gray-50 rounded px-1.5 py-1">
+              <div key={sentence.probe_id || i} ref={pickedId === sentence.probe_id ? pickedRow : undefined} onClick={onPick ? () => onPick(sentence.probe_id) : undefined}
+                title={onPick ? 'Select this sentence: its path lights up in the charts' : undefined}
+                className={`rounded px-1.5 py-1 ${pickedId === sentence.probe_id ? 'bg-amber-50 ring-1 ring-amber-400' : 'bg-gray-50'}
+                  ${onPick ? 'cursor-pointer hover:bg-blue-50' : ''}`}>
                 <p className="text-[10px] text-gray-700 leading-snug">
                   {sentence.label && (
                     <span
@@ -91,7 +114,7 @@ export default function FilteredWordDisplay({
         </div>
       ) : (
         <p className="text-[10px] text-gray-500">
-          {isLoading ? 'Loading…' : 'No sentences'}
+          {isLoading ? 'Loading…' : needle ? 'No sentence matches' : 'No sentences'}
         </p>
       )}
       {onLoadMore && sentences.length < count && (

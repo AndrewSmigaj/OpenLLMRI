@@ -182,17 +182,14 @@ async def get_probe_session_details(
         if tokens_path.exists():
             try:
                 from services.probes.scenario_actions import enrich_records_with_scenario_actions
-                from services.probes.tick_log_enrichment import load_tick_log
+                from services.probes.tick_log_enrichment import enrich_records_with_tick_log
                 token_records = read_records(str(tokens_path), ProbeRecord)
                 enrich_records_with_scenario_actions(token_records, session_dir)
-                tick_data, system_prompts = load_tick_log(session_dir)
+                enrich_records_with_tick_log(token_records, session_dir)  # each record's own tick and run
 
                 def _build_example(t: ProbeRecord) -> ProbeExample:
                     turn_id = getattr(t, 'turn_id', None)
                     step = turn_id if turn_id is not None else getattr(t, 'sentence_index', None)
-                    scenario_id = getattr(t, 'scenario_id', '') or ''
-                    tick_key = (scenario_id, turn_id if turn_id is not None else -1)
-                    tick = tick_data.get(tick_key, {})
                     return ProbeExample(
                         target_word=t.target_word,
                         label=t.label,
@@ -204,10 +201,11 @@ async def get_probe_session_details(
                         turn_id=turn_id,
                         capture_type=getattr(t, 'capture_type', None),
                         step=step,
-                        game_text=tick.get('game_text'),
-                        analysis=tick.get('analysis'),
-                        action=tick.get('action'),
-                        system_prompt=system_prompts.get(scenario_id),
+                        run=t.run,
+                        game_text=t.game_text,
+                        analysis=t.analysis,
+                        action=t.action,
+                        system_prompt=t.system_prompt,
                     )
 
                 sentences = [_build_example(t) for t in token_records]

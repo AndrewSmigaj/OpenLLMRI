@@ -59,6 +59,7 @@ class ProbeRecord:
     action: Optional[str] = None
     previous_action: Optional[str] = None
     system_prompt: Optional[str] = None
+    run: Optional[str] = None  # the item's run: "<scenario>#<n>" for agent runs, a sentence run's sequence id
 
     @classmethod
     def from_parquet_dict(cls, data: Dict[str, Any]) -> 'ProbeRecord':

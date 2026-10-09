@@ -102,8 +102,8 @@ export default function ContextSensitiveCard({ cardType, selectedData, valuesByA
 
       {hasRichData ? (
         <div className="flex-1 overflow-y-auto space-y-1.5" style={{ overflowWrap: 'break-word', wordBreak: 'break-word' }}>
-          {/* Quick metrics */}
-          <div className="flex gap-1.5 text-[10px]">
+          {/* Quick metrics, for a node or a link (one item has no population to count) */}
+          {!selectedData.probe_id && <div className="flex gap-1.5 text-[10px]">
             <div className="bg-gray-50 px-1.5 py-0.5 rounded flex-1">
               <span className="text-gray-500">Tokens </span>
               <span className="font-semibold text-gray-900">{selectedData.token_count ?? 0}</span>
@@ -119,9 +119,9 @@ export default function ContextSensitiveCard({ cardType, selectedData, valuesByA
                 <span className="font-semibold text-gray-900">{(selectedData.weight * 100).toFixed(0)}%</span>
               </div>
             )}
-          </div>
+          </div>}
 
-          {isRoute && (
+          {isRoute && !selectedData.probe_id && (
             <div className="flex gap-1.5 text-[10px]">
               <div className="bg-gray-50 px-1.5 py-0.5 rounded flex-1">
                 <span className="text-gray-500">Flow </span>

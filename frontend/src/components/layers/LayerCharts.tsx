@@ -5,8 +5,9 @@ import type * as echarts from 'echarts'
 import type { RouteAnalysisResponse } from '../../types/api'
 import { RANKS, type UpdateView, type ViewState } from '../../hooks/useViewState'
 import { useElementSize } from '../../hooks/useElementSize'
-import type { SankeyColours } from '../charts/SankeyChart'
+import type { SankeyColours } from '../charts/sankeyOption'
 import AllLayerSankeyView from '../charts/AllLayerSankeyView'
+import type { Lit } from '../../utils/lighting'
 import ExportMenu from '../common/ExportMenu'
 import type { ExportFormat } from '../../utils/exportFigure'
 import { LEFT, NODE_WIDTH, RIGHT, STRIPED_NODE_WIDTH, chartWidth, columnsOf, lastFirst, spacingFor, stepsInView } from '../../utils/layerGeometry'
@@ -29,6 +30,8 @@ interface LayerChartsProps {
   update: UpdateView
   colours: SankeyColours
   outlined?: Record<string, number> // cluster nodes holding items raw space groups differently
+  lit?: { cluster: Lit | null; expert: Lit | null } // what the selection lights in each chart
+  ghosts?: { cluster: Lit | null; expert: Lit | null } // what only read items take, in each chart
   onExport: (kind: 'cluster' | 'expert', format: ExportFormat, chart: echarts.ECharts | null) => void
 }
 
@@ -40,7 +43,7 @@ function Status({ state, height }: { state: FlowsState; height: number }) {
   )
 }
 
-export default function LayerCharts({ cluster, expert, view, update, colours, outlined, onExport }: LayerChartsProps) {
+export default function LayerCharts({ cluster, expert, view, update, colours, outlined, lit, ghosts, onExport }: LayerChartsProps) {
   const scroller = useRef<HTMLDivElement>(null)
   const box = useElementSize(scroller)
   const charts = useRef<Record<'cluster' | 'expert', echarts.ECharts | null>>({ cluster: null, expert: null })
@@ -114,13 +117,13 @@ export default function LayerCharts({ cluster, expert, view, update, colours, ou
           <span className="text-[10px] text-gray-500">outlined: nodes holding items that raw space groups differently</span>
         ) : undefined)}
         {cluster.routes
-          ? <AllLayerSankeyView routes={cluster.routes} geometry={geometry} colours={colours} outlined={outlined} onSelect={select}
+          ? <AllLayerSankeyView routes={cluster.routes} geometry={geometry} colours={colours} outlined={outlined} lit={lit?.cluster} ghosts={ghosts?.cluster} onSelect={select}
               onChartReady={chart => { charts.current.cluster = chart }} />
           : <Status state={cluster} height={height} />}
         <div className="h-2" />
         {header('Experts', 'expert', rankPicker)}
         {expert.routes
-          ? <AllLayerSankeyView routes={expert.routes} geometry={geometry} colours={colours} top={view.top} keepOrder
+          ? <AllLayerSankeyView routes={expert.routes} geometry={geometry} colours={colours} top={view.top} keepOrder lit={lit?.expert} ghosts={ghosts?.expert}
               onSelect={select} onChartReady={chart => { charts.current.expert = chart }} />
           : <Status state={expert} height={height} />}
       </div>

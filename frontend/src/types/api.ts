@@ -65,6 +65,7 @@ interface ProbeExample {
   turn_id?: number
   capture_type?: string
   step?: number
+  run?: string | null // "<scenario>#<n>" for agent runs, a sentence run's sequence id
   game_text?: string
   analysis?: string
   action?: string
@@ -134,6 +135,7 @@ interface RouteAnalysisResponse {
   available_axes?: DynamicAxis[]
   output_available_axes?: DynamicAxis[]
   probe_assignments?: Record<string, Record<string, number>>
+  output_of?: Record<string, string> // each item's output node, where the chart has an output column
 }
 
 // Trajectory Types

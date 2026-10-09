@@ -84,15 +84,23 @@ def axis_codes(items: Sequence[Dict[str, Any]], axes: Dict[str, List[str]]) -> D
             for axis, values in axes.items()}
 
 
-def _vote(test_emb: Array, train_emb: Array, train_cut: Array, k: int) -> Array:
-    """Each held-out item's cluster: a vote of its nearest training items, weighted by 1/distance."""
-    distance = np.linalg.norm(test_emb[:, None, :] - train_emb[None, :, :], axis=-1)
-    near = np.argsort(distance, axis=1)[:, :VOTE_NEIGHBOURS]
-    weight = 1.0 / (np.take_along_axis(distance, near, axis=1) + 1e-9)
-    votes = np.zeros((len(test_emb), k))
-    np.add.at(votes, (np.repeat(np.arange(len(test_emb)), near.shape[1]), train_cut[near].ravel()), weight.ravel())
+def nearest(points: Array, reference: Array, n: int = VOTE_NEIGHBOURS) -> Tuple[Array, Array]:
+    """Each point's `n` nearest reference points, nearest first: their indices and distances."""
+    distance = np.linalg.norm(points[:, None, :] - reference[None, :, :], axis=-1)
+    near = np.argsort(distance, axis=1)[:, :n]
+    return near, np.take_along_axis(distance, near, axis=1)
+
+
+def vote(near: Array, dist: Array, cut: Array, k: int) -> Tuple[Array, Array]:
+    """Each point's cluster by a vote of its nearest reference points (`nearest`), weighted by
+    1/distance, and the winning cluster's share of the vote. Held-out items in validation and
+    items read through a lens are assigned the same way."""
+    weight = 1.0 / (dist + 1e-9)
+    votes = np.zeros((len(near), k))
+    np.add.at(votes, (np.repeat(np.arange(len(near)), near.shape[1]), cut[near].ravel()), weight.ravel())
     assigned: Array = votes.argmax(axis=1)
-    return assigned
+    share: Array = votes.max(axis=1) / votes.sum(axis=1)
+    return assigned, share
 
 
 def _majority(cut: Array, codes: Array, k: int) -> Array:
@@ -136,9 +144,10 @@ def heldout_scores(states: Array, folds: List[Array], codes: Dict[str, Array], n
         reducer, train_emb = fit_reducer(states[train], n_neighbors, dimensions, seed, min_dist)
         test_emb = np.asarray(reducer.transform(states[test]), dtype=np.float32)
         train_tree = ward_tree(train_emb)
+        near, dist = nearest(test_emb, train_emb)
         for k in ks:
             train_cut = cut(train_tree, k)
-            assigned = _vote(test_emb, train_emb, train_cut, k)
+            assigned = vote(near, dist, train_cut, k)[0]
             for axis, c in codes.items():
                 keep = c[test] >= 0
                 if not keep.any():
@@ -217,8 +226,9 @@ def compare_layer(states: Array, folds: List[Array], labels: Array, n_neighbors:
                      "raw_spectral": (tr50, te50, spectral_cuts(tr50, ks, n_neighbors, seed)),
                      "neurons": (trn, ten, ward_cuts(trn, ks))}
         for method, (tr, te, cuts) in groupings.items():
+            near, dist = nearest(te, tr)
             for k in ks:
-                assigned = _vote(te, tr, cuts[k], k)
+                assigned = vote(near, dist, cuts[k], k)[0]
                 truth, predicted = y_test[keep], _majority(cuts[k], y_train, k)[assigned][keep]
                 record = records[method][k]
                 record["truth"].append(truth)

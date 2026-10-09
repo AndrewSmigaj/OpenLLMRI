@@ -21,13 +21,14 @@ interface DetailsPanelProps {
   axisValues: Record<string, string[]> // every axis's values, in a fixed order
   gradient: GradientScheme
   nodeDetails?: ReactNode // a lens's cluster node: its neurons, logit lens, surface check, routing
+  itemPath?: ReactNode // one item: its expert path and output, below its cluster path
   report?: ReactNode // a lens's LLM report on the selection, or on the lens when nothing is selected
   legacy: boolean // a legacy schema: its written descriptions stand in for reports
   onClose: () => void
 }
 
 export default function DetailsPanel({ summary, card, descriptions, reports, layer, clusterPath,
-                                       axisValues, gradient, nodeDetails, report, legacy, onClose }: DetailsPanelProps) {
+                                       axisValues, gradient, nodeDetails, itemPath, report, legacy, onClose }: DetailsPanelProps) {
   const key = card ? descriptionKey(card) : ''
   return (
     <div className="h-full overflow-y-auto overflow-x-hidden p-2 space-y-2 bg-white">
@@ -38,6 +39,7 @@ export default function DetailsPanel({ summary, card, descriptions, reports, lay
           <ContextSensitiveCard cardType={card.type} selectedData={card.data} valuesByAxis={axisValues}
             gradient={gradient} elementDescription={descriptions[key]} clusterAssignments={clusterPath} legacyHint={legacy} onClose={onClose}>
             {nodeDetails}
+            {itemPath}
           </ContextSensitiveCard>
         </PanelErrorBoundary>
       ) : (

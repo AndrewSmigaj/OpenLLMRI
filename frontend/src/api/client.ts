@@ -11,7 +11,7 @@ import type {
 import type {
   Fingerprint, JobView, LensBuildBody, LensDetail, LensFlows, LensMembersPage, LensMethods, LensOptions, LensSearch,
   LensSummary, LensMarks, LensNodeDetails, LensVersion, MassMeanDetails, MassMeanValidation, MembersQuery, Population,
-  TuneBody, Validation,
+  LensReading, ReadBody, TuneBody, Validation,
 } from '../types/lens';
 import type { AnalystTests, Card, QuestionAnswer } from '../types/cards';
 
@@ -286,6 +286,18 @@ class ConceptMriApiClient {
 
   async getLensSearch(sessionId: string, name: string): Promise<LensSearch> {
     return this.request<LensSearch>(`/sessions/${sessionId}/lenses/${encodeURIComponent(name)}/search`);
+  }
+
+  // Reads a capture through a saved UMAP lens in the background (DESIGN.md B5)
+  async readLens(sessionId: string, name: string, body: ReadBody): Promise<{ job_id: string; session_id: string; name: string; key: string }> {
+    return this.request(`/sessions/${sessionId}/lenses/${encodeURIComponent(name)}/readings`,
+      { method: 'POST', body: JSON.stringify(body) });
+  }
+
+  async getLensReading(sessionId: string, name: string, key: string, version?: string, rank = 1): Promise<LensReading> {
+    const params = new URLSearchParams({ key, rank: String(rank) });
+    if (version) params.set('version', version);
+    return this.request<LensReading>(`/sessions/${sessionId}/lenses/${encodeURIComponent(name)}/readings?${params}`);
   }
 
   async getLensValidation(sessionId: string, name: string): Promise<Validation> {

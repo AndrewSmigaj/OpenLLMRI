@@ -23,12 +23,13 @@ export interface ViewState {
   rank: number // the expert chart's rank, 1 to 4
   top: number | null // links kept per layer in the expert chart; null keeps all
   sel: string // the selected node, link ("source>target") or item ("probe:<id>"); '' for none
+  step: number | null // the step (an agent's tick, a context step) the selection lights; null for every step
   tab: LowerTab
 }
 
 export const DEFAULT_VIEW: ViewState = {
   session: '', lens: '', legacy: false, layer: 0, zoom: 6, color: 'label', color2: 'none', fade: '',
-  stripes: false, gradient: 'red-blue', rank: 1, top: 10, sel: '', tab: 'members',
+  stripes: false, gradient: 'red-blue', rank: 1, top: 10, sel: '', step: null, tab: 'members',
 }
 
 const isZoom = (n: number): n is Zoom => (ZOOMS as readonly number[]).includes(n)
@@ -42,6 +43,7 @@ export function parseView(params: URLSearchParams): ViewState {
   }
   const gradient = get('grad')
   const tab = get('tab')
+  const step = int('step', -1, n => n >= 0)
   return {
     session: get('session') ?? '',
     lens: get('lens') ?? '',
@@ -56,6 +58,7 @@ export function parseView(params: URLSearchParams): ViewState {
     rank: int('rank', DEFAULT_VIEW.rank, n => n >= 1 && n <= 4),
     top: get('top') === 'all' ? null : int('top', DEFAULT_VIEW.top ?? 10, n => n > 0),
     sel: get('sel') ?? '',
+    step: step < 0 ? null : step,
     tab: tab === 'output' || tab === 'trajectories' || tab === 'experts' ? tab : 'members',
   }
 }
@@ -78,6 +81,7 @@ export function viewQuery(view: ViewState): URLSearchParams {
   put('rank', String(view.rank), String(DEFAULT_VIEW.rank))
   put('top', show(view.top), show(DEFAULT_VIEW.top))
   put('sel', view.sel, DEFAULT_VIEW.sel)
+  if (view.step !== null) out.set('step', String(view.step))
   put('tab', view.tab, DEFAULT_VIEW.tab)
   return out
 }

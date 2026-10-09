@@ -1,29 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import * as echarts from 'echarts';
 import type { SankeyNode, SankeyLink } from '../../types/api';
-import { answerColours, distColor, stripeStops, type AxisCounts, type ColourSpec } from '../../color/scheme';
-import { isOutputNode as checkIsOutputNode, isOutputLink as checkIsOutputLink, stripOutputPrefix, OUTPUT_NODE_PREFIX } from '../../constants/outputNodes';
-
-// The node and link objects this chart gives ECharts, as they come back in event and tooltip params
-type SankeyItemRef = { name?: string; id?: string; source?: string; target?: string };
-
-// How nodes and links are coloured: by the input spec; the output column by its own spec, or
-// without one by matching its categories to the input's colours. Stripes show exact shares.
-export interface SankeyColours {
-  input: ColourSpec;
-  output: ColourSpec | null;
-  stripes: boolean;
-}
-
-const countsOf = (item: SankeyNode | SankeyLink): AxisCounts =>
-  ({ label: item.label_distribution ?? {}, ...(item.category_distributions ?? {}) });
-
-// Busier links are wider and more opaque (square-root scale)
-function trafficStyle(value: number, maxValue: number): { opacity: number; lineWidth: number } {
-  if (maxValue <= 0) return { opacity: 0.3, lineWidth: 1 };
-  const share = Math.sqrt(value) / Math.sqrt(maxValue);
-  return { opacity: 0.3 + share * 0.6, lineWidth: 1 + share * 5 };
-}
+import type { Lit } from '../../utils/lighting';
+import { sankeyOption, type SankeyColours, type SankeyItemRef } from './sankeyOption';
 
 interface SankeyChartProps {
   nodes: SankeyNode[];
@@ -40,6 +19,11 @@ interface SankeyChartProps {
   showLabels?: boolean;
   // Nodes to outline, with a count each (nodes holding items raw space groups differently)
   outlined?: Record<string, number>;
+  // What a selection lights (utils/lighting): lit nodes and links keep their colours, links by their
+  // share of the lit items; the rest fade. Node sizes don't change, so nothing moves.
+  lit?: Lit | null;
+  // Nodes and links only read items take, drawn grey and dashed (utils/lighting ghostFlows)
+  ghosts?: Lit | null;
   // The ECharts instance once it exists (null when it goes), for exports
   onChartReady?: (chart: echarts.ECharts | null) => void;
 }
@@ -57,6 +41,8 @@ const SankeyChart: React.FC<SankeyChartProps> = ({
   right = '30%',
   showLabels = true,
   outlined,
+  lit,
+  ghosts,
   onChartReady,
 }) => {
   const chartRef = useRef<HTMLDivElement>(null);
@@ -148,136 +134,10 @@ const SankeyChart: React.FC<SankeyChartProps> = ({
   useEffect(() => {
     if (!chartInstance.current) return;
 
-    const { input, output, stripes } = colours;
-
-    // Compute depth offset for proper column placement
-    const minLayer = nodes.length > 0 ? Math.min(...nodes.map(n => n.layer)) : 0;
-
-    // Without an output spec, output categories take the input's colours by name (answerColours)
-    const answers = answerColours(input, nodes.filter(n => checkIsOutputNode(n.name)).map(n => stripOutputPrefix(n.name)));
-
-    const nodeColor = (node: SankeyNode): string | echarts.graphic.LinearGradient => {
-      if (checkIsOutputNode(node.name)) {
-        return output
-          ? distColor(node.output_distributions ?? {}, output)
-          : answers[stripOutputPrefix(node.name)];
-      }
-      if (!stripes) return distColor(countsOf(node), input);
-      // Bands top to bottom, in the axis's order; a gradient with hard stops
-      return new echarts.graphic.LinearGradient(0, 0, 0, 1, stripeStops(countsOf(node), input));
-    };
-    const linkColor = (link: SankeyLink): string =>
-      checkIsOutputLink(link) && output
-        ? distColor(link.output_distributions ?? {}, output)
-        : distColor(countsOf(link), input);
-
-    const sankeyNodes = nodes.map(node => ({
-      id: node.id,
-      name: node.name,
-      value: Math.max(1, node.token_count),
-      depth: node.layer - minLayer,
-      itemStyle: outlined?.[node.id]
-        ? { color: nodeColor(node), borderColor: '#111827', borderWidth: 2 }
-        : { color: nodeColor(node) },
+    chartInstance.current.setOption(sankeyOption({
+      nodes, links, colours, nodeWidth: nodeWidthProp, left, right, showLabels, outlined, lit, ghosts,
     }));
-
-    const maxLinkValue = Math.max(...links.map(l => l.value));
-    const sankeyLinks = links.map(link => {
-      const { opacity, lineWidth } = trafficStyle(link.value, maxLinkValue);
-      return {
-        source: link.source,
-        target: link.target,
-        value: Math.max(0.5, link.value),
-        lineStyle: { color: linkColor(link), opacity, width: lineWidth, curveness: 0.3 },
-      };
-    });
-
-    const option: echarts.EChartsOption = {
-      tooltip: {
-        trigger: 'item',
-        formatter: function(params) {
-          if (Array.isArray(params)) return '';
-          const item = params.data as SankeyItemRef;
-          if (params.dataType === 'node') {
-            const node = nodes.find(n => n.name === item.name);
-            if (!node) return '';
-
-            // Output node tooltip
-            if (checkIsOutputNode(node.name)) {
-              const category = stripOutputPrefix(node.name);
-              return `
-                <div style="max-width: 300px;">
-                  <strong>${OUTPUT_NODE_PREFIX}${category}</strong><br/>
-                  <hr style="margin: 4px 0;"/>
-                  Probes: ${node.token_count}<br/>
-                  Labels: ${node.label_distribution ? Object.entries(node.label_distribution).map(([k, v]) => `${k}: ${v}`).join(', ') : 'N/A'}
-                  ${node.category_distributions ? '<br/>Categories: ' + Object.entries(node.category_distributions).map(([axis, dist]) => `${axis}: ${Object.entries(dist).map(([k, v]) => `${k}(${v})`).join(', ')}`).join('; ') : ''}
-                </div>
-              `;
-            }
-
-            return `
-              <div style="max-width: 300px;">
-                <strong>${node.name}</strong><br/>
-                <hr style="margin: 4px 0;"/>
-                ${/^L\d+C\d+$/.test(node.id) ? 'Cluster' : 'Expert'}: ${node.expert_id}<br/>
-                Layer: ${node.layer}<br/>
-                Token Count: ${node.token_count}<br/>
-                ${outlined?.[node.id] ? `Outlined: ${outlined[node.id]} of its items are grouped differently in raw space<br/>` : ''}
-                Labels: ${node.label_distribution ? Object.entries(node.label_distribution).map(([k, v]) => `${k}: ${v}`).join(', ') : 'N/A'}
-              </div>
-            `;
-          } else if (params.dataType === 'edge') {
-            const link = links.find(l => l.source === item.source && l.target === item.target);
-            if (!link) return '';
-            return `
-              <div style="max-width: 300px;">
-                <strong>Route</strong><br/>
-                <hr style="margin: 4px 0;"/>
-                ${link.source} → ${link.target}<br/>
-                Flow: ${link.value} tokens<br/>
-                Route: ${link.route_signature}
-              </div>
-            `;
-          }
-          return '';
-        }
-      },
-      series: [{
-        type: 'sankey',
-        emphasis: {
-          focus: 'adjacency',
-          label: {
-            fontWeight: 'bold',
-            fontSize: 11,
-            color: '#1f2937'
-          }
-        },
-        data: sankeyNodes,
-        links: sankeyLinks,
-        nodeAlign: 'justify',
-        nodeGap: 8,
-        nodeWidth: nodeWidthProp,
-        layoutIterations: 0,
-        left,
-        right,
-        top: '2%',
-        bottom: '2%',
-        label: {
-          show: showLabels,
-          position: 'right',
-          fontSize: 11,
-          color: '#1f2937',
-          // The output column shows its categories without the "Generated:" prefix
-          formatter: (params) => stripOutputPrefix(params.name || '')
-        }
-      }],
-      animation: true,
-      animationDuration: 1000
-    };
-
-    chartInstance.current.setOption(option);
-  }, [nodes, links, colours, left, right, showLabels, nodeWidthProp, outlined]);
+  }, [nodes, links, colours, left, right, showLabels, nodeWidthProp, outlined, lit, ghosts]);
 
   return (
     <div

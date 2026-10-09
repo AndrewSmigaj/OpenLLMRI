@@ -195,7 +195,14 @@ def summary(manifest: LensManifest, folder: Path) -> Dict[str, Any]:
         "validation": validation_headline(folder, manifest, current),
         "tuning": _tuning(folder),
         "details": sorted(path.stem for path in (folder / "details").glob("*.json")),
+        "readings": _readings(folder),
     }
+
+
+def _readings(folder: Path) -> List[Dict[str, Any]]:
+    from services.lenses.readout import list_readings
+
+    return list_readings(folder)
 
 
 def _tuning(folder: Path) -> Optional[Dict[str, Any]]:

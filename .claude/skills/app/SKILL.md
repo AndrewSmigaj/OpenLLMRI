@@ -30,7 +30,8 @@ A view is the app's view state; give only what differs from the defaults, `sessi
 | `layer`, `zoom` | the first layer in view; 6, 12 or 24 steps in view |
 | `color`, `color2`, `fade`, `stripes`, `gradient` | the colour axis, a second axis, the value it fades, stripes, the palette |
 | `rank`, `top` | the expert chart's rank (1 to 4); expert links kept per layer (null for all) |
-| `sel`, `tab` | the selection (`L12C0`, `L12C0>L13C2`, `probe:<id>`); the lower tab |
+| `sel`, `tab` | the selection (`L12C0`, `L12C0>L13C2`, `probe:<id>`), whose path lights up in both charts; the lower tab |
+| `step` | the tick (agent runs) or context step the selection lights: an item stands for its run's item at that step, a node for its members there. A step the lens wasn't built on lights through a reading of it (`/cluster` OP-L8); omit for every step |
 | `workspace` | `layers` (the default) or `build` |
 
 ## Operations

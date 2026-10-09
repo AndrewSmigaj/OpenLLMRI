@@ -22,6 +22,59 @@ export interface LensSummary {
   validation?: ValidationHeadline | null
   tuning?: TuningHeadline | null // a tuned lens: its headline layer (picked on selection folds) and that layer's test scores
   details?: string[] // the versions with node details worked out ('mass_mean' for a mass-mean lens)
+  readings?: ReadingListing[] // a UMAP lens: the captures read through it
+}
+
+// A capture read through a UMAP lens (DESIGN.md B5), as the lens's summary lists it
+export interface ReadingListing {
+  key: string
+  target: string // the capture read
+  n_items: number
+  n_in_lens: number // of them, the lens's own items (they keep their stored nodes)
+  filters: { labels?: string[] | null; steps?: number[] | null; last_occurrence_only?: boolean; max_items?: number | null }
+  steps: number[] | null
+  far_out: boolean // the capture's median sits beyond the 75th percentile of the lens's own at some layer
+  max_median_percentile: number | null
+  created_at: string
+}
+
+export interface ReadingItem {
+  probe_id: string
+  label: string | null
+  categories: Record<string, string>
+  output_category: string | null
+  input_text: string | null
+  target_word: string | null
+  step: number | null
+  run: string | null
+}
+
+// A reading at one of the lens's versions: per item and layer, its node (voted from its nearest
+// lens items, or stored for the lens's own), the winner's share of the vote (null for lens items),
+// how far out it sits (a percentile, in the residual stream) and its expert at the rank
+export interface LensReading {
+  key: string
+  lens: string
+  version: string
+  target: string
+  site: { source: string; token_position: number }
+  layers: number[]
+  rank: number
+  items: ReadingItem[]
+  in_lens: number[]
+  nodes: number[][]
+  shares: (number | null)[][]
+  pct: number[][]
+  experts: number[][]
+  distance: { median_percentile: number[]; far_out: boolean[]; threshold: number; measure: string }
+}
+
+export interface ReadBody {
+  target?: string // the capture to read; the lens's own (its other steps) by default
+  key?: string
+  filters?: { steps?: number[] | null; labels?: string[] | null; last_occurrence_only?: boolean; max_items?: number | null }
+  position?: number
+  created_by?: string
 }
 
 export interface UmapSettings {
@@ -143,6 +196,7 @@ export interface LensFlows {
   links: FlowLink[]
   output: OutputColumn | null
   assignments?: Record<string, Record<string, number>> // each item's node (or expert at the rank) per layer
+  output_of?: Record<string, string> // cluster flows: each item's output node
   order?: number[][] // experts: each layer's experts top to bottom, the same at every rank
   recipe: Record<string, unknown>
 }
