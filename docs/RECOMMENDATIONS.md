@@ -629,3 +629,27 @@ and lists 22 recommendations, the top five starred:
 The verdict: proceed. Trust in the readings, the weakest link for the core goal, stands at 85%;
 agent reading stands at 70%, an experiment by design. The design is distinctive as a combination;
 getting results out early matters as much as the design.
+
+## 2026-10-08 — Lens slice 1 complete: parked items and next comparisons
+
+**Scope**: lens slice 1 (`docs/DESIGN.md` K), the plan's Phase 10b; the showcase in
+`docs/studies/lens_core/showcase/`.
+
+Parked during the slice, each waiting for a ruling:
+- `/experiments/health` still reports on a retired service;
+- seven client methods have no callers (getSessionStatus, pollSessionUntilComplete,
+  getTrajectoryEmbedding, archiveClustering, deleteClustering, runSentenceExperiment,
+  listClusterings), and the `ExecutionResponse` schema is unused;
+- the SessionStart hook still says temporal captures need `generate_output: false` (a settings
+  file);
+- the test lens `lab-k4-n15`, built from the MUD's lab in 10b.11, is still in the lake;
+- the README's findings sections keep the retired "basin" wording;
+- after a backend restart, the capture list fails (`GET /api/probes` returns 500) until the model
+  has loaded;
+- `docs/images/` holds images nothing references, the old tour's four among them.
+
+Next comparisons the showcase points to:
+- frame × voice in the fair UMAP-against-raw comparison (the study ledger's open line);
+- on the tank set the UMAP lens and the better raw grouping score alike against the senses but
+  disagree about half the items at a typical layer: worth a look at which items they disagree on;
+- automatic k still doesn't find the five senses (held-out best 7 to 10), so C3 stays open.
