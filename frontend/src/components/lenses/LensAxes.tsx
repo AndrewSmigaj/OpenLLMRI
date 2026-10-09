@@ -84,6 +84,10 @@ export default function LensAxes({ session, lens, disabled }: { session: string;
     return () => { current = false }
   }, [session, name, version, events.lensRevision])
 
+  // a re-run starts from the family field the analysis used (single words: 'family')
+  const usedField = axes?.folds.field
+  useEffect(() => { if (usedField) setFamily(usedField) }, [usedField])
+
   const start = () => {
     setError(null)
     apiClient.workOutAxes(session, lens.name, { family_field: family, whole_families: whole })

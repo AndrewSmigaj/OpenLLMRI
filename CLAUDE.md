@@ -98,7 +98,7 @@ After setup, use `/server` to start the backend and frontend.
 ### 4. MoE-Specific Requirements
 - Target model: **gpt-oss-20b only** — don't abstract for multiple models yet
 - Routing: the model sends each token to its **top 4** experts, with its own gate weights (a softmax over those four); the expert view follows one rank at a time, **rank 1** by default (ranks 1–4 selectable)
-- Dimensionality reduction: **UMAP 6D** for clustering, applied to residual stream activations
+- Dimensionality reduction: **UMAP** for clustering, applied to residual stream activations: 6-D by default, or tuned per layer (3- to 12-D, chosen by held-out AMI)
 - Time: one saved lens is read at a fixed site along context steps, agent ticks or reasoning steps (DESIGN.md Part D)
 
 ### 5. Error Handling Philosophy
@@ -110,7 +110,8 @@ After setup, use `/server` to start the backend and frontend.
 ### 6. Data Flow
 ```
 PROBE FLOW: sentence set → capture (forward pass + hooks) → Parquet lake (reusable)
-ANALYSIS FLOW: Parquet → lens (UMAP 6D + Ward per layer, k per layer) → held-out validation, raw space → node details → checked reports
+ANALYSIS FLOW: Parquet → lens (UMAP + Ward per layer, k per layer; tuned by held-out AMI) → held-out validation, raw space → node details, pipelines and hubs, the axes analysis → checked reports
+READING FLOW: a saved UMAP lens → reads another capture item by item (how far out each item sits, in raw space) → lit paths, 3-D in the lens's own space
 TIME FLOW: a saved lens → read at a fixed site along context steps, ticks or reasoning steps → timelines (DESIGN.md D)
 ```
 

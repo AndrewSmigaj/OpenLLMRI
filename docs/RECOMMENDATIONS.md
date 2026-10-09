@@ -674,3 +674,44 @@ Next comparisons the showcase points to:
 - **Parked:** with 6–10 nodes per layer, nearly every node of a tuned lens holds an item raw space
   groups differently, so the outline (any such item) marks almost every node. An outline by share
   would say more.
+
+## 2026-10-09 — Lens slice 1b complete: experts, axes, single words (10c.4–10c.7)
+
+**Scope**: pipelines and hubs in every lens report, the axes analysis, the single-word lens and the
+slice's showcase. Runs: `docs/research/lens_core_validation.md` (the threatened set's axes) and
+`docs/research/single_words.md`.
+
+- **A lens should remember its family field** (for a ruling). Validation, tuning, routes and axes
+  each take `family_field`, defaulting to `scene`, but a lens doesn't record it. So a build's
+  routes and the app's Validate fall back to random-per-item grouping on a set whose families sit
+  elsewhere: the single words need `family`, and their routes had to be worked out again. Recording
+  it in `lens.json` at the build, as every later job's default, would close this.
+- **A stricter line beside "beyond the decoys"** (for a ruling). On a set without families the
+  decoys are random per item, and even with family decoys the single words' four attributes pass
+  for nearly every technique at every layer. The count then says little, and the strengths carry
+  the finding. A second line, such as half the probe's κ, would count attributes a technique reads
+  well, not merely above chance.
+- **Decoys that keep the design's correlations.** Valence follows the category by design, so a
+  technique that reads the category earns valence credit its decoys (random per family) don't get.
+  The single words' valence check took the category's mean out by hand (κ 0.49 to 0.60 left).
+  Decoys shuffled within each category would make that the analysis's own test.
+- **Found and fixed on the way:**
+  - the number checker read only the first of two adjacent citation groups ("[F25][F22]");
+  - an attribute nested above another (animacy above the category) got an arbitrary share of the
+    category's effect in the joint fit (4.64 of a planted 6.0); it is now fitted without the
+    attribute it nests with;
+  - the family field was scored as an attribute, and described in routes;
+  - the angles between partial axes had no null: a design-correlated pair's permuted-row band sits
+    far below zero (−0.97 to −0.84 for scale and threat scope), so each pair now has its own band;
+  - the backend tests ran BLAS with every core on tiny matrices (the axes tests took 143 s, now 17).
+- **What the single words say about reading in context.** Read through the word lens, the tank
+  set's "tank" tokens sit beyond every word's neighbourhood from L1 on. A lexical lens can't place
+  a word in a sentence; reading in context needs lenses calibrated in context (DESIGN.md D2, rule 3).
+- **Parked:**
+  - the validator warns twice on every single-word item (one word, not 10 to 30; each item's own
+    target); a lexical set type would skip those checks;
+  - the folds' label reads "scene families" for any family field;
+  - the weighted all-ranks expert chart draws all 32 experts per layer for single words, and its
+    labels crowd;
+  - the one-token rule leaves vehicles (59) and animals (96) thinner than the other categories; a
+    capture that reads a word's last token would let multi-token words in, as a separate design.

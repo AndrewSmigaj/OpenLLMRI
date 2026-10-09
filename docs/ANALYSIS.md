@@ -14,10 +14,13 @@ writes reports. This document is the reference for the methodology behind them.
 ## Pipeline overview
 
 1. **Categorize outputs** — read each generated text, classify it, POST the categories back.
-2. **Build a lens** and choose k per layer from the k profile.
+2. **Build a lens** and choose k per layer from the k profile, or tune it (settings and k per
+   layer by held-out AMI, with a test score the search never saw).
 3. **Validate it** — held-out scores, the k profile, raw space on the same folds and k.
-4. **Work out node details** — neurons, the logit lens, the surface check, routing.
-5. **Read it** — the flows, the expert flows, the split points (below).
+4. **Work out node details** — neurons, the logit lens, the surface check, routing; and its
+   pipelines and hubs.
+5. **Read it** — the flows, the expert flows, the split points, lit paths (below); count its axes
+   when the set has several designed attributes.
 6. **Write reports** — cards, every number checked against its evidence packet.
 
 ## Output categorization
@@ -81,6 +84,8 @@ labels; only held-out scores say it generalizes.
 - **Raw space on the same folds and k** (PCA-50 Ward and spectral, relevant neurons, the logistic
   ceiling): when raw space matches the lens, say so; marked nodes hold items the two group
   differently.
+- **A tuned lens:** quote its test scores, on families the search never saw; its own validation
+  reused the items that chose its settings. The runners-up show how flat the choice was.
 
 **Then the flows** (Layers):
 1. **Purity:** does a node specialize in one label? Above 80% one label is strong specialization;
@@ -90,8 +95,24 @@ labels; only held-out scores say it generalizes.
    branches follow.
 4. **Other axes:** check whether register, structure or a scene axis line up with the nodes in
    their own right.
-5. **Experts:** the expert flows at ranks 1 to 4 (the model's own weights) and the fingerprints:
-   whether populations take their own experts, and where routing doesn't follow the nodes.
+5. **Experts:** the expert flows at ranks 1 to 4 (the model's own weights) or all four weighted,
+   and the fingerprints: whether populations take their own experts, and where routing doesn't
+   follow the nodes.
+6. **Pipelines and hubs** (the Pipes and hubs tab): a pipeline is a chain of experts a bundle of
+   items follows for three layers or more; one every class takes is a trunk, not a pattern. A hub
+   is an expert whose items arrive from several experts, counted between items. The experts
+   involved are those whose weight differs by designed value beyond a permutation threshold.
+7. **Paths:** choosing an item lights its path through the nodes, its experts and the 3-D view;
+   a node, a link or a pipeline lights its members' bundle. Items read from another capture land
+   in the lens's nodes by a vote of their nearest lens items, and say how far out they sit (in raw
+   space, against the lens's own neighbour distances): far out means the nodes only say which lens
+   items are least far.
+
+**The axes** (Build's "axes"): for a set with several designed attributes, how many each technique
+recovers at each layer, held out and beyond its decoys. When the decoys are random per item (no
+families), the line is low and the linear techniques pass for nearly every attribute: read the
+strengths. Angles between the attributes' partial axes are judged against permuted design rows,
+since attributes correlated by design get anti-correlated errors.
 
 **Node details** (Layers' node card): the neurons that track membership, the tokens the node's
 centre favours over the layer's average item, the surface check (a flagged node may be a split by
@@ -99,8 +120,10 @@ sentence shape, not by meaning), and how much of the next layer's routing the no
 
 ## Reports: cards with checked numbers
 
-A **card** is an LLM-written report on one thing in a lens: the lens (the lens report), its k
-profile (the k advisor), a node, an expert at a rank, a route, an expert route or a split point.
+A **card** is an LLM-written report on one thing in a lens: the lens (the lens report, with
+sections on its clusters, its experts, and its pipelines and hubs), its k profile (the k advisor),
+its pipes and hubs (the routes card), a node, an expert at a rank, a route, an expert route or a
+split point.
 Card ids and commands: `/analyze`.
 
 - **Evidence packets.** A card is written from its packet alone: numbered facts (the only numbers
@@ -117,8 +140,9 @@ Card ids and commands: `/analyze`.
 - **Analyst tests.** Decoys (random populations, the lens with its labels shuffled), planted
   findings, and predictive descriptions scored beside a majority-label baseline. Cards by an
   analyst whose model and prompt version haven't passed are marked untested.
-- **Budgets.** A save writes the lens report, the k advisor, the biggest split points and the
-  nodes at the best layer within 25 calls on the Claude subscription; everything else is on demand.
+- **Budgets.** A save writes the lens report, the k advisor, the routes card, the biggest split
+  points and the nodes at the best layer within 28 calls on the Claude subscription; everything
+  else is on demand.
 - **Where they live:** `data/lake/<sid>/lenses/<lens>/analysis/<version>/` (cards, packets,
   questions); a saved version's node reports also join its atlas entries in `data/lenses/`.
 

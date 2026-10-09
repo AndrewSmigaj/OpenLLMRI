@@ -24,7 +24,11 @@ The March 2026 hackathon paper that introduced the platform is in [`paper/main.p
 
 The app has two workspaces, **Layers** and **Build**, with the MUD terminal docked below them. The view's state lives in the URL, so a link, a command or an exported figure names exactly what it shows.
 
-**Layers** reads a lens. Two charts scroll together over all 24 layers and the output column: residual-stream clusters above, and below them the expert each item was routed to (ranks 1 to 4, with the model's own gate weights). The colour legend is always on. Clicking a node, a flow or an expert opens its report on the right. An LLM analyst wrote it from the node's evidence, every number it cites is checked against that evidence, and the badges say whether the analyst passed its tests. The node's details sit beside the report: the neurons that track it, the tokens its centre favours through the unembedding, a surface check, and how it bears on the next layer's routing. The lower tabs hold the members, the output contingency table, 3-D trajectories and expert fingerprints. Above, the tank lens (`tank-k5-n15`: 499 sentences in five senses of "tank") with node L13C1 selected, which holds most of the septic and scuba sentences.
+**Layers** reads a lens. Two charts scroll together over all 24 layers and the output column: residual-stream clusters above, and below them the expert each item was routed to (ranks 1 to 4, with the model's own gate weights). The colour legend is always on. Clicking a node, a flow or an expert opens its report on the right. An LLM analyst wrote it from the node's evidence, every number it cites is checked against that evidence, and the badges say whether the analyst passed its tests. The node's details sit beside the report: the neurons that track it, the tokens its centre favours through the unembedding, a surface check, and how it bears on the next layer's routing. The lower tabs hold the members, the output contingency table, the lens's pipes and hubs, and expert fingerprints. Above, the tank lens (`tank-k5-n15`: 499 sentences in five senses of "tank") with node L13C1 selected, which holds most of the septic and scuba sentences.
+
+![One aquarium sentence's path lit through the tank lens: its nodes in the cluster chart, its experts below, and its trajectory in the 3-D view of the lens's own space, with the sentence's card on the right](docs/images/app-layers-lit-path.png)
+
+**Paths that light up.** Choosing an item lights its path through the nodes, its experts and the 3-D view together, over faded flows; a node or a link lights its members' bundle, and a pipeline its chain. The 3-D view draws the lens's own space (its three main directions, each layer turned to line up with the one before), so its clouds are the nodes the Sankey counts. A saved lens can also read another capture, item by item: a lens fitted on one tick of an agent's run reads the other ticks, a run's steps light up one at a time, and each read item says how far out it sits from the lens's own items. The expert chart has a weighted view of all four ranks, and the **Pipes and hubs** tab lists the lens's expert pipelines (chains of experts a bundle of items follows), its hubs (experts whose items arrive from several experts) and the experts whose weight differs by designed value.
 
 Every chart exports its picture (PNG, and SVG where it can) and its data (CSV, JSON), each file carrying the recipe that made it.
 
@@ -32,13 +36,17 @@ Every chart exports its picture (PNG, and SVG where it can) and its data (CSV, J
 
 **Build** makes lenses. The form asks for the basics (neighbours, dimensions, k, a name); Advanced adds k per layer with automatic suggestions, the grouping and filters. Builds run as background jobs, so the app stays usable, and a finished lens opens in Layers. Validation holds out whole scene families where a set has them. Per layer it reports held-out κ, accuracy, the worst fold and AMI. A k profile scores every k from 2 to 10 beside the elbow, silhouette and hierarchy-level suggestions, and the same folds score raw-space groupings beside the lens: standardized PCA-50 with Ward or spectral clustering, relevant neurons chosen inside each fold, and a logistic-regression ceiling. Mass-mean lenses, one axis per layer held out by the paper's algorithm, are built on the same page.
 
+![Build on the single-word lens: its badges, then the axes analysis: attributes recovered per technique, independent directions and effective dimensionality, the lens's held-out κ per attribute and layer, and the angles between the attributes' partial axes beside the design's own correlations](docs/images/app-build-axes.png)
+
+**Tuning and axes.** `tune` searches UMAP's settings and k layer by layer, chooses each by held-out AMI on selection folds, and scores the winners on a test portion of whole families the search never saw, beside the lens it started from, raw space and the ceiling; the tuned lens is then built and validated. `axes` asks how many of a set's designed attributes each technique recovers at each layer (the lens's nodes, raw groupings, a linear probe, partial directions, a principal component), each against decoys, with the partial axes' angles and independent directions against permuted design rows. Above, the single-word lens: 861 nouns given alone, where a probe reads the category, animacy and concreteness at every layer but the nodes carry concreteness best.
+
 ![Two axes in one colour on the threatened set, frame as hue and voice as lightness, with the expert fingerprint of roleplay minus factual sentences below](docs/images/app-colour-fingerprint.png)
 
 **Colour.** Nodes and flows mix their members' colours in OKLab. Any designed axis can be the colour, a second axis can share it as lightness (with a square legend), and stripes show exact shares. Above, the threatened set (`framing-k4-auto-levels`): roleplay against factual as hue, active against passive as lightness. Voice organizes the nodes at L1, and the frame takes over from L4. The fingerprint tab shows the mean gate weight on each of the 32 experts at each layer, here for roleplay sentences minus factual ones.
 
 **One command channel.** Claude Code drives the app through `POST /api/commands`: `show` opens a view in every open app, and `build` starts a lens job. Jobs and changes reach the app as server-sent events. In the MUD's polysemy lab, researchers build and show lenses with `lens build` and `lens show`, and a finished lens opens in the player's own app.
 
-The lens core's showcase, one figure from these exports with a short findings note, is in [`docs/studies/lens_core/showcase/`](docs/studies/lens_core/showcase/README.md).
+Each lens slice ends with a showcase, one figure from these exports with a short findings note: the lens core's in [`docs/studies/lens_core/showcase/`](docs/studies/lens_core/showcase/README.md), and the tuned lens core's, "how many axes in a word", in [`docs/studies/single_words/showcase/`](docs/studies/single_words/showcase/README.md).
 
 ---
 
@@ -191,7 +199,8 @@ This project uses **Claude Code not as a development tool, but as the analysis r
 
 ### Data flow
 
-- **Sentence set analysis**: Sentences → model forward pass → routing weights + residual streams → Parquet → a lens (UMAP per layer with Ward clustering, or a mass-mean axis), built as a job and validated on held-out items → flows and node details (neurons, logit lens, surface check, routing) → checked reports
+- **Sentence set analysis**: Sentences → model forward pass → routing weights + residual streams → Parquet → a lens (UMAP per layer with Ward clustering, or a mass-mean axis), built as a job, tuned by held-out AMI and validated on held-out items → flows, node details (neurons, logit lens, surface check, routing), pipelines and hubs, the axes analysis → checked reports
+- **Reading**: a saved UMAP lens → another capture, read item by item, with how far out each item sits → lit paths over the lens's flows and in its own 3-D space
 - **MUD scenario analysis**: Scenario library → a fresh room in the MUD per load → the agent's websocket session → tick-by-tick capture → Parquet → lenses on the captured ticks
 - **Time** (designed, not yet built): one saved lens read at a fixed site along context steps, agent ticks or reasoning steps ([`docs/DESIGN.md`](docs/DESIGN.md) Part D)
 

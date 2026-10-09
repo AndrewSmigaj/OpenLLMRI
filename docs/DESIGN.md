@@ -198,10 +198,11 @@ Part K gives the order of what follows.
      separates the classes and classifies held-out data well. A search over the settings and k
      of each layer does the tuning, chosen by held-out AMI and scored on held-out families it never
      saw (C3, C4) [Decided, 2026-10-08; settings per layer and the unseen test families approved
-     with the slice 1b plan];
+     with the slice 1b plan; Built];
    - a lens is built from deliberately varied data, so any input that carries the concept lands in
      one of its nodes, or at its place on the axis;
-   - new data is read by applying the lens;
+   - new data is read by applying the lens [Built: a saved UMAP lens reads another capture, one
+     item at a time];
    - nodes are never matched across separately fitted clusterings [Decided, 2026-10-07].
 6. **Always MoE; experts over attention heads** [Decided, 2026-10-06].
 7. **LLM agents analyse, rather than algorithms discovering circuits** [Decided, 2026-10-06; Claude
@@ -231,11 +232,12 @@ This part covers building; Parts D and E cover using.
 - **A set can be as small as single words,** as a team studying grammar might use [Decided,
   2026-10-06].
   - **A single word is given as the user's message, with a space before it** [Decided,
-    2026-10-08]. It is then one token for nearly every common word, the same token the word has
+    2026-10-08; Built]. It is then one token for nearly every common word, the same token the word has
     inside a sentence. Typed with no space, many common words split into pieces, and the capture
     drops a word that splits.
   - **The first single-word set varies meaning and feeling** [Decided, 2026-10-08; singular nouns
-    and subcategories as held-out families approved with the slice 1b plan]: a semantic category
+    and subcategories as held-out families approved with the slice 1b plan; Built:
+    `nouns_meaning_feeling_v1`, 861 nouns]: a semantic category
     with subcategories, animacy and concreteness, and valence. Grammar and surface form aren't
     varied, so it holds singular nouns. Its subcategories are its held-out families.
 - **Writing them:**
@@ -279,7 +281,7 @@ This part covers building; Parts D and E cover using.
 - **A k profile per layer** [Decided, 2026-10-07; Built]: for each layer and each k, the silhouette, the stability
   across seeds, and the agreement with each designed axis. The chosen k is saved with the lens.
 - **Tuning chooses k, and the settings, by held-out AMI with the designed classes**
-  [Decided, 2026-10-08]:
+  [Decided, 2026-10-08; Built]:
   - held-out accuracy keeps rising with k, because smaller nodes are purer. On the slice-1
     lenses it picked 7 to 10 at nearly every layer;
   - held-out AMI picks close to the designed structure: 6 at most middle layers for the five
@@ -300,7 +302,7 @@ This part covers building; Parts D and E cover using.
   - scores that are held out and corrected for chance.
 - **A self-check** [Decided, 2026-10-07; Built]: before lens search is trusted, it must find structure planted in
   synthetic data.
-- **Lens search** [Decided, 2026-10-08: approved with the slice 1b plan]:
+- **Lens search** [Decided, 2026-10-08: approved with the slice 1b plan; Built]:
   - a search over UMAP's settings (neighbours, dimensions, minimum distance) and k, layer by
     layer, so a tuned lens can use different settings at different depths;
   - settings that fail the self-check drop out;
@@ -362,7 +364,7 @@ This part covers building; Parts D and E cover using.
   shows [Built: two drafts, reconciled];
 - **each lens's report covers its nodes (the latent clusters), the experts involved, and its
   expert pipelines and hubs** [Decided, 2026-10-08; hubs, and per-lens pipelines with the
-  catalogue left to the atlas, approved with the slice 1b plan], with every number checked. The
+  catalogue left to the atlas, approved with the slice 1b plan; Built], with every number checked. The
   pipelines and hubs of one lens come with it; the catalogue across every capture is the atlas's
   (H);
 - lenses range from broad to specific. For example, a sentence set built on a taxonomy of animals
@@ -370,7 +372,8 @@ This part covers building; Parts D and E cover using.
   probed the same way;
 - each such lens is a setting an AI scientist can learn from.
 
-**C8. How many axes** [Decided, 2026-10-08; its method approved with the slice 1b plan]:
+**C8. How many axes** [Decided, 2026-10-08; its method approved with the slice 1b plan; Built:
+checked on the threatened set's eight axes and on the single words]:
 - for a set with several designed axes, an analysis counts how many each technique recovers on
   held-out data, layer by layer: the UMAP lens's nodes, raw-space groupings, a linear probe (the
   ceiling) and PCA, with PCA's effective dimensionality beside the count;
@@ -750,19 +753,19 @@ area can be resized and can fill the screen.
   could sit in one bundle and be counted in another node. It colours by node, and says which fit
   it draws.
 - **The 3-D view draws the lens's own space** [Decided, 2026-10-08; one scale on all axes and its
-  own panel approved with the slice 1b plan]:
+  own panel approved with the slice 1b plan; Built]:
   - the lens's embedding when it has three dimensions, otherwise its three main directions;
   - each layer turned to line up with the one before (a rotation, so no shape changes), with one
     scale on all three axes;
   - items read through the lens land in the same frame;
   - it has its own panel beside the Sankeys, so all three light up together.
 - **A selection lights its path** [Decided, 2026-10-08: Andrew's idea, for a step; the other
-  selections, the expert Sankey and 3-D approved with the slice 1b plan]:
+  selections, the expert Sankey and 3-D approved with the slice 1b plan; Built in Layers]:
   - an item, a node's members, a pipeline, or one step of a run lights its path through the
     nodes over faded flows: in the cluster Sankey, in the expert Sankey (its experts), and in 3-D;
   - Watch draws a tick's path the same way (E4).
 - **The expert Sankey gains a weighted view of all four ranks** [Decided, 2026-10-08: approved
-  with the slice 1b plan], where a pipeline's every step can be drawn.
+  with the slice 1b plan; Built], where a pipeline's every step can be drawn.
 - **Depth heatmaps** [Decided, 2026-10-08], per lens:
   - tokens × layers for one sentence or tick: where in the text, and at which depth, a concept
     forms (C5's question of which token made the decision). It opens from here for a sentence and
@@ -827,7 +830,7 @@ LLMs are good at spotting patterns in this data, such as pipes, hubs and split p
 |---|---|---|
 | Layers | a card for each cluster, expert, route and expert route | Decided, 2026-10-07; Built |
 | Layers | a card for each split point: what separates the two populations | Decided, 2026-10-07; Built |
-| Layers | a report on the expert Sankey's pipes and hubs | Decided, 2026-10-07 |
+| Layers | a report on the expert Sankey's pipes and hubs | Decided, 2026-10-07; Built (the routes card) |
 | Layers | a short note on what each layer transition changes | Decided, 2026-10-07 |
 | Build | a critic for each new sentence set, catching confounds the numeric audits can't, such as one class always written in the past tense | Decided, 2026-10-07 |
 | Build | each lens's report (C7) | Decided, 2026-10-07; Built |
@@ -1115,7 +1118,8 @@ I. The steps in each are [Decided, 2026-10-07].
         expert Sankeys, marked disagreements, the 3-D fix, figure recipes, the analyst tests, a
         budget for reports, and how each lens bears on routing (C5, E2, E5, E8).
       - **Then 1b, the tuned lens core** [Decided, 2026-10-08: Andrew set out what a true lens
-        core needs; its place before slice 2 approved with the slice 1b plan]:
+        core needs; its place before slice 2 approved with the slice 1b plan; Built 2026-10-09,
+        with its showcase in `docs/studies/single_words/showcase/`]:
         - tuned lenses: settings and k per layer chosen by held-out AMI, with a test score the
           search never saw (B5, C3, C4);
         - new data read through a saved lens, and paths that light up for an item, a node or a

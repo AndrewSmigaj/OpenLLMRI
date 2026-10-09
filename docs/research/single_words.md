@@ -158,6 +158,11 @@ techniques apart:
   share structure: animacy and concreteness are themselves contrasts of categories, and the
   categories group by the levels above them. In the threatened set, whose eight attributes cross,
   the real axes span more directions than the null from L5 on.
+- **Angles at L5** (each pair against its own band from permuted design rows): animacy lines up
+  with the people direction at 0.83, above the band (0.42 to 0.72), and with the animals' only at
+  0.36, below theirs (0.41 to 0.66). What the model separates as animate is mostly people. Emotions
+  and ideas share a direction (0.57, against a band of −0.22 to 0.09), and the abstract-against-
+  concrete axis follows them (0.84 and 0.88, above bands of 0.44 to 0.65 and 0.63 to 0.79).
 - **Effective dimensionality** (the participation ratio of the standardized spectrum) is far higher
   than for sentences, and U-shaped: 298 at L0, 51 at its lowest (L15), 163 at L23. Half the
   variance lies in 145 components at L0 and in 32 at L16. The threatened sentences sit at 12.5 to

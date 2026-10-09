@@ -162,9 +162,17 @@ for every layer or layer by layer, is a new version of the same fit (OP-L3), not
    space on the same folds and k. Read the k profile beside the in-sample suggestions; a
    held-out best k is selection-biased.
 2. **Choose k per layer** and cut that version (OP-L3, or "k per layer" in Build).
-3. **Work out node details** (OP-L6): neurons, the logit lens, the surface check, routing.
-4. **Save the version** to keep (OP-L3, or Save in Build): its records and atlas entries go into
-   the repo, and its first reports are written in the background (25 calls on the Claude
+3. **Or tune the lens** (OP-L7, or "tune" in Build): settings and k searched per layer by held-out
+   AMI, then scored on a test portion of whole families the search never saw; the tuned lens is
+   built and validated. Quote its test scores.
+4. **Work out node details** (OP-L6): neurons, the logit lens, the surface check, routing. Every
+   build also works out its pipelines and hubs (OP-L9; run it again with the set's family field).
+5. **Count the axes** (OP-L10, or "axes" in Build) for a set with several designed attributes: how
+   many each technique recovers at each layer, against decoys, with the attributes' angles.
+6. **Read other captures** through the lens when the question needs it (OP-L8): another step of a
+   run, or another set at the same site.
+7. **Save the version** to keep (OP-L3, or Save in Build): its records and atlas entries go into
+   the repo, and its first reports are written in the background (28 calls on the Claude
    subscription).
 
 ---
@@ -177,7 +185,8 @@ every number must trace to the card's evidence packet (`/analyze`).
 1. **Check the analysts are tested** (`/analyze` OP-5): a card by an analyst whose model and prompt
    version haven't passed is marked untested.
 2. **The save plan** (written on save, or `/analyze` OP-2 with no cards named): the lens report (two
-   drafts, reconciled), the k advisor, the biggest split points, then the nodes at the best layer.
+   drafts, reconciled, with sections on its clusters, its experts, and its pipelines and hubs), the
+   k advisor, the routes card, the biggest split points, then the nodes at the best layer.
 3. **Anything else on demand:** a card for a node, an expert, a route or a split point, from the
    app's report panel ("Write report") or `/analyze` OP-2 with its card ids.
 4. **Write one here** when it helps: read the packet (OP-3), write the card, submit it through the

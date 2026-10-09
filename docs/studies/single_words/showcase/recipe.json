@@ -1,0 +1,1242 @@
+{
+ "figure": "how many axes in a word: lens slice 1b's showcase",
+ "script": "docs/studies/single_words/showcase/compose.py",
+ "commit": "9128c35e34e16e30d62bae66bcaf00403a7831c7",
+ "dirty": true,
+ "panels": {
+  "A": {
+   "files": [
+    "a_words_clusters.png"
+   ],
+   "recipes": {
+    "a_words_clusters.png": {
+     "app": "OpenLLMRI",
+     "figure": "cluster flows, all layers",
+     "link": "http://localhost:5173/layers?session=session_8f536bea&lens=words-k8-n15-tuned&zoom=24&color=label&color2=valence&d3=0&fill=charts",
+     "exported_at": "2026-10-09T06:58:38.603Z",
+     "view": {
+      "session": "session_8f536bea",
+      "lens": "words-k8-n15-tuned",
+      "legacy": false,
+      "layer": 0,
+      "zoom": 24,
+      "color": "label",
+      "color2": "valence",
+      "fade": "",
+      "stripes": false,
+      "gradient": "red-blue",
+      "rank": 1,
+      "top": 10,
+      "sel": "",
+      "step": null,
+      "tab": "members",
+      "d3": false,
+      "fill": "charts"
+     },
+     "lens": {
+      "lens": {
+       "session_id": "session_8f536bea",
+       "name": "words-k8-n15-tuned",
+       "legacy": false,
+       "version": "v1"
+      },
+      "settings": {
+       "n_neighbors": 15,
+       "dimensions": 6,
+       "min_dist": 0.1,
+       "seed": 42,
+       "grouping": "ward",
+       "per_layer": [
+        {
+         "n_neighbors": 15,
+         "dimensions": 6,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 3,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 12,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 6,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 12,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 50,
+         "dimensions": 12,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 12,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 3,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 3,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 6,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 5,
+         "dimensions": 3,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 6,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 3,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 5,
+         "dimensions": 6,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 6,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 12,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 12,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 5,
+         "dimensions": 6,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 6,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 12,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 6,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 12,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 12,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 12,
+         "min_dist": 0.1
+        }
+       ],
+       "site": {
+        "source": "residual_stream",
+        "token_position": 1
+       }
+      },
+      "built": {
+       "commit": "c2e62053f113397a67fc85a9241a52ad45ff5924",
+       "dirty": true,
+       "job_id": "job_20261009T063352876230_4e4bc6",
+       "created_by": "claude-code",
+       "created_at": "2026-10-09T06:42:35+00:00",
+       "seconds": 36.6,
+       "libraries": {
+        "umap-learn": "0.5.11",
+        "scikit-learn": "1.7.2",
+        "numpy": "1.26.4"
+       }
+      },
+      "served": {
+       "commit": "c2e62053f113397a67fc85a9241a52ad45ff5924",
+       "dirty": true
+      },
+      "view": {
+       "kind": "cluster"
+      }
+     },
+     "colours": {
+      "input": {
+       "axis": "label",
+       "values": [
+        "animal",
+        "emotion",
+        "food",
+        "idea",
+        "person",
+        "place",
+        "tool",
+        "vehicle"
+       ],
+       "gradient": "red-blue",
+       "lightness": {
+        "axis": "valence",
+        "values": [
+         "negative",
+         "neutral",
+         "positive"
+        ]
+       }
+      },
+      "output": null,
+      "stripes": false,
+      "shape": "none"
+     }
+    }
+   },
+   "crops": {},
+   "legend": "a_words_legend.png: a screenshot of the app's colour legend for this view"
+  },
+  "B": {
+   "files": [
+    "b_axes_probe.png",
+    "b_axes_lens.png"
+   ],
+   "recipes": {
+    "b_axes_probe.png": {
+     "app": "OpenLLMRI",
+     "link": "http://localhost:5173/build?session=session_8f536bea",
+     "exported_at": "2026-10-09T07:01:36.401Z",
+     "figure": "axes: held-out kappa per attribute and layer",
+     "technique": "probe",
+     "lens": {
+      "session": "session_8f536bea",
+      "name": "words-k8-n15-tuned",
+      "version": "v1"
+     },
+     "attributes": {
+      "label": [
+       "animal",
+       "emotion",
+       "food",
+       "idea",
+       "person",
+       "place",
+       "tool",
+       "vehicle"
+      ],
+      "animacy": [
+       "animate",
+       "inanimate"
+      ],
+      "concreteness": [
+       "abstract",
+       "concrete"
+      ],
+      "valence": [
+       "negative",
+       "neutral",
+       "positive"
+      ]
+     },
+     "folds": {
+      "kind": "scene families",
+      "field": "family",
+      "n_folds": 5,
+      "weaker": false,
+      "whole": false,
+      "families": {
+       "animal": [
+        "animal_aquatic",
+        "animal_birds",
+        "animal_domestic",
+        "animal_insects",
+        "animal_wild"
+       ],
+       "person": [
+        "person_age",
+        "person_character",
+        "person_kin",
+        "person_society",
+        "person_work"
+       ],
+       "food": [
+        "food_dishes",
+        "food_drinks",
+        "food_fruit",
+        "food_staples",
+        "food_vegetables"
+       ],
+       "tool": [
+        "tool_devices",
+        "tool_home",
+        "tool_kitchen",
+        "tool_office",
+        "tool_workshop"
+       ],
+       "vehicle": [
+        "vehicle_air",
+        "vehicle_rail",
+        "vehicle_road",
+        "vehicle_small",
+        "vehicle_water"
+       ],
+       "place": [
+        "place_buildings",
+        "place_city",
+        "place_nature",
+        "place_regions",
+        "place_rooms"
+       ],
+       "emotion": [
+        "emotion_arousal",
+        "emotion_basic",
+        "emotion_mood",
+        "emotion_outlook",
+        "emotion_social"
+       ],
+       "idea": [
+        "idea_life",
+        "idea_mind",
+        "idea_science",
+        "idea_society",
+        "idea_values"
+       ]
+      }
+     },
+     "decoys": {
+      "count": 5,
+      "given_per": "families"
+     },
+     "level": 0.95,
+     "probe_decoy_layers": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20
+     ],
+     "job": "job_20261009T064543178234_6a70cb"
+    },
+    "b_axes_lens.png": {
+     "app": "OpenLLMRI",
+     "link": "http://localhost:5173/build?session=session_8f536bea",
+     "exported_at": "2026-10-09T07:02:00.467Z",
+     "figure": "axes: held-out kappa per attribute and layer",
+     "technique": "umap_at_k",
+     "lens": {
+      "session": "session_8f536bea",
+      "name": "words-k8-n15-tuned",
+      "version": "v1"
+     },
+     "attributes": {
+      "label": [
+       "animal",
+       "emotion",
+       "food",
+       "idea",
+       "person",
+       "place",
+       "tool",
+       "vehicle"
+      ],
+      "animacy": [
+       "animate",
+       "inanimate"
+      ],
+      "concreteness": [
+       "abstract",
+       "concrete"
+      ],
+      "valence": [
+       "negative",
+       "neutral",
+       "positive"
+      ]
+     },
+     "folds": {
+      "kind": "scene families",
+      "field": "family",
+      "n_folds": 5,
+      "weaker": false,
+      "whole": false,
+      "families": {
+       "animal": [
+        "animal_aquatic",
+        "animal_birds",
+        "animal_domestic",
+        "animal_insects",
+        "animal_wild"
+       ],
+       "person": [
+        "person_age",
+        "person_character",
+        "person_kin",
+        "person_society",
+        "person_work"
+       ],
+       "food": [
+        "food_dishes",
+        "food_drinks",
+        "food_fruit",
+        "food_staples",
+        "food_vegetables"
+       ],
+       "tool": [
+        "tool_devices",
+        "tool_home",
+        "tool_kitchen",
+        "tool_office",
+        "tool_workshop"
+       ],
+       "vehicle": [
+        "vehicle_air",
+        "vehicle_rail",
+        "vehicle_road",
+        "vehicle_small",
+        "vehicle_water"
+       ],
+       "place": [
+        "place_buildings",
+        "place_city",
+        "place_nature",
+        "place_regions",
+        "place_rooms"
+       ],
+       "emotion": [
+        "emotion_arousal",
+        "emotion_basic",
+        "emotion_mood",
+        "emotion_outlook",
+        "emotion_social"
+       ],
+       "idea": [
+        "idea_life",
+        "idea_mind",
+        "idea_science",
+        "idea_society",
+        "idea_values"
+       ]
+      }
+     },
+     "decoys": {
+      "count": 5,
+      "given_per": "families"
+     },
+     "level": 0.95,
+     "probe_decoy_layers": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20
+     ],
+     "job": "job_20261009T064543178234_6a70cb"
+    }
+   },
+   "crops": {},
+   "legend": null
+  },
+  "C": {
+   "files": [
+    "b_axes_dimensions.png"
+   ],
+   "recipes": {
+    "b_axes_dimensions.png": {
+     "app": "OpenLLMRI",
+     "link": "http://localhost:5173/build?session=session_8f536bea",
+     "exported_at": "2026-10-09T07:01:29.135Z",
+     "figure": "axes: independent directions among the partial axes, and effective dimensionality",
+     "lens": {
+      "session": "session_8f536bea",
+      "name": "words-k8-n15-tuned",
+      "version": "v1"
+     },
+     "attributes": {
+      "label": [
+       "animal",
+       "emotion",
+       "food",
+       "idea",
+       "person",
+       "place",
+       "tool",
+       "vehicle"
+      ],
+      "animacy": [
+       "animate",
+       "inanimate"
+      ],
+      "concreteness": [
+       "abstract",
+       "concrete"
+      ],
+      "valence": [
+       "negative",
+       "neutral",
+       "positive"
+      ]
+     },
+     "folds": {
+      "kind": "scene families",
+      "field": "family",
+      "n_folds": 5,
+      "weaker": false,
+      "whole": false,
+      "families": {
+       "animal": [
+        "animal_aquatic",
+        "animal_birds",
+        "animal_domestic",
+        "animal_insects",
+        "animal_wild"
+       ],
+       "person": [
+        "person_age",
+        "person_character",
+        "person_kin",
+        "person_society",
+        "person_work"
+       ],
+       "food": [
+        "food_dishes",
+        "food_drinks",
+        "food_fruit",
+        "food_staples",
+        "food_vegetables"
+       ],
+       "tool": [
+        "tool_devices",
+        "tool_home",
+        "tool_kitchen",
+        "tool_office",
+        "tool_workshop"
+       ],
+       "vehicle": [
+        "vehicle_air",
+        "vehicle_rail",
+        "vehicle_road",
+        "vehicle_small",
+        "vehicle_water"
+       ],
+       "place": [
+        "place_buildings",
+        "place_city",
+        "place_nature",
+        "place_regions",
+        "place_rooms"
+       ],
+       "emotion": [
+        "emotion_arousal",
+        "emotion_basic",
+        "emotion_mood",
+        "emotion_outlook",
+        "emotion_social"
+       ],
+       "idea": [
+        "idea_life",
+        "idea_mind",
+        "idea_science",
+        "idea_society",
+        "idea_values"
+       ]
+      }
+     },
+     "decoys": {
+      "count": 5,
+      "given_per": "families"
+     },
+     "level": 0.95,
+     "probe_decoy_layers": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20
+     ],
+     "job": "job_20261009T064543178234_6a70cb"
+    }
+   },
+   "crops": {},
+   "legend": null
+  },
+  "D": {
+   "files": [
+    "d_eagle_3d.png"
+   ],
+   "recipes": {
+    "d_eagle_3d.png": {
+     "app": "OpenLLMRI",
+     "figure": "3-D trajectories, layers 4, 5, 6, 7, 8, 9, 10",
+     "link": "http://localhost:5173/layers?session=session_8f536bea&lens=words-k8-n15-tuned&zoom=6&layer=4&color=label&fill=d3&sel=probe%3Aprobe_d5baad4a",
+     "exported_at": "2026-10-09T07:00:22.883Z",
+     "view": {
+      "session": "session_8f536bea",
+      "lens": "words-k8-n15-tuned",
+      "legacy": false,
+      "layer": 4,
+      "zoom": 6,
+      "color": "label",
+      "color2": "none",
+      "fade": "",
+      "stripes": false,
+      "gradient": "red-blue",
+      "rank": 1,
+      "top": 10,
+      "sel": "probe:probe_d5baad4a",
+      "step": null,
+      "tab": "members",
+      "d3": true,
+      "fill": "d3"
+     },
+     "lens": {
+      "lens": {
+       "session_id": "session_8f536bea",
+       "name": "words-k8-n15-tuned",
+       "legacy": false,
+       "version": "v1"
+      },
+      "settings": {
+       "n_neighbors": 15,
+       "dimensions": 6,
+       "min_dist": 0.1,
+       "seed": 42,
+       "grouping": "ward",
+       "per_layer": [
+        {
+         "n_neighbors": 15,
+         "dimensions": 6,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 3,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 12,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 6,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 12,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 50,
+         "dimensions": 12,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 12,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 3,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 3,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 6,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 5,
+         "dimensions": 3,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 6,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 3,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 5,
+         "dimensions": 6,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 6,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 12,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 12,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 5,
+         "dimensions": 6,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 6,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 12,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 6,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 12,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 12,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 12,
+         "min_dist": 0.1
+        }
+       ],
+       "site": {
+        "source": "residual_stream",
+        "token_position": 1
+       }
+      },
+      "built": {
+       "commit": "c2e62053f113397a67fc85a9241a52ad45ff5924",
+       "dirty": true,
+       "job_id": "job_20261009T063352876230_4e4bc6",
+       "created_by": "claude-code",
+       "created_at": "2026-10-09T06:42:35+00:00",
+       "seconds": 36.6,
+       "libraries": {
+        "umap-learn": "0.5.11",
+        "scikit-learn": "1.7.2",
+        "numpy": "1.26.4"
+       }
+      },
+      "served": {
+       "commit": "c2e62053f113397a67fc85a9241a52ad45ff5924",
+       "dirty": true
+      },
+      "view": {
+       "kind": "cluster"
+      }
+     },
+     "colours": {
+      "input": {
+       "axis": "label",
+       "values": [
+        "animal",
+        "emotion",
+        "food",
+        "idea",
+        "person",
+        "place",
+        "tool",
+        "vehicle"
+       ],
+       "gradient": "red-blue"
+      },
+      "output": null,
+      "stripes": false,
+      "shape": "none"
+     },
+     "frame": {
+      "fit": "lens",
+      "note": "the lens's own space on its three main directions (89–100% of the variance); each layer lined up with the one before",
+      "share": [
+       0.8525,
+       1,
+       0.9029,
+       0.9061,
+       0.9196,
+       0.8911,
+       0.9564,
+       1,
+       1,
+       0.9688,
+       1,
+       0.9394,
+       1,
+       0.9337,
+       0.8982,
+       0.9034,
+       0.9283,
+       0.9292,
+       0.945,
+       0.9245,
+       0.8993,
+       0.9249,
+       0.9339,
+       0.9323
+      ]
+     },
+     "camera": {
+      "alpha": 20,
+      "beta": 0,
+      "distance": 273.14999046549707
+     },
+     "sample": 600,
+     "lit": 1,
+     "reading": null
+    }
+   },
+   "crops": {},
+   "legend": "d_words_legend.png: a screenshot of the app's colour legend for this view"
+  },
+  "E": {
+   "files": [
+    "c_angles_L5.png"
+   ],
+   "recipes": {
+    "c_angles_L5.png": {
+     "app": "OpenLLMRI",
+     "link": "http://localhost:5173/build?session=session_8f536bea",
+     "exported_at": "2026-10-09T07:02:07.850Z",
+     "figure": "axes: cosines between the partial axes beside the design's correlations",
+     "layer": 5,
+     "lens": {
+      "session": "session_8f536bea",
+      "name": "words-k8-n15-tuned",
+      "version": "v1"
+     },
+     "attributes": {
+      "label": [
+       "animal",
+       "emotion",
+       "food",
+       "idea",
+       "person",
+       "place",
+       "tool",
+       "vehicle"
+      ],
+      "animacy": [
+       "animate",
+       "inanimate"
+      ],
+      "concreteness": [
+       "abstract",
+       "concrete"
+      ],
+      "valence": [
+       "negative",
+       "neutral",
+       "positive"
+      ]
+     },
+     "folds": {
+      "kind": "scene families",
+      "field": "family",
+      "n_folds": 5,
+      "weaker": false,
+      "whole": false,
+      "families": {
+       "animal": [
+        "animal_aquatic",
+        "animal_birds",
+        "animal_domestic",
+        "animal_insects",
+        "animal_wild"
+       ],
+       "person": [
+        "person_age",
+        "person_character",
+        "person_kin",
+        "person_society",
+        "person_work"
+       ],
+       "food": [
+        "food_dishes",
+        "food_drinks",
+        "food_fruit",
+        "food_staples",
+        "food_vegetables"
+       ],
+       "tool": [
+        "tool_devices",
+        "tool_home",
+        "tool_kitchen",
+        "tool_office",
+        "tool_workshop"
+       ],
+       "vehicle": [
+        "vehicle_air",
+        "vehicle_rail",
+        "vehicle_road",
+        "vehicle_small",
+        "vehicle_water"
+       ],
+       "place": [
+        "place_buildings",
+        "place_city",
+        "place_nature",
+        "place_regions",
+        "place_rooms"
+       ],
+       "emotion": [
+        "emotion_arousal",
+        "emotion_basic",
+        "emotion_mood",
+        "emotion_outlook",
+        "emotion_social"
+       ],
+       "idea": [
+        "idea_life",
+        "idea_mind",
+        "idea_science",
+        "idea_society",
+        "idea_values"
+       ]
+      }
+     },
+     "decoys": {
+      "count": 5,
+      "given_per": "families"
+     },
+     "level": 0.95,
+     "probe_decoy_layers": [
+      0,
+      4,
+      8,
+      12,
+      16,
+      20
+     ],
+     "job": "job_20261009T064543178234_6a70cb"
+    }
+   },
+   "crops": {},
+   "legend": null
+  },
+  "F": {
+   "files": [
+    "e_pipeline_p3.png"
+   ],
+   "recipes": {
+    "e_pipeline_p3.png": {
+     "app": "OpenLLMRI",
+     "figure": "expert flows at rank 1, all layers",
+     "link": "http://localhost:5173/layers?session=session_8f536bea&lens=words-k8-n15-tuned&zoom=6&color=label&d3=0&fill=charts&rank=1&sel=pipe%3AP3",
+     "exported_at": "2026-10-09T06:59:32.682Z",
+     "view": {
+      "session": "session_8f536bea",
+      "lens": "words-k8-n15-tuned",
+      "legacy": false,
+      "layer": 0,
+      "zoom": 6,
+      "color": "label",
+      "color2": "none",
+      "fade": "",
+      "stripes": false,
+      "gradient": "red-blue",
+      "rank": 1,
+      "top": 10,
+      "sel": "pipe:P3",
+      "step": null,
+      "tab": "members",
+      "d3": false,
+      "fill": "charts"
+     },
+     "lens": {
+      "lens": {
+       "session_id": "session_8f536bea",
+       "name": "words-k8-n15-tuned",
+       "legacy": false,
+       "version": "v1"
+      },
+      "settings": {
+       "n_neighbors": 15,
+       "dimensions": 6,
+       "min_dist": 0.1,
+       "seed": 42,
+       "grouping": "ward",
+       "per_layer": [
+        {
+         "n_neighbors": 15,
+         "dimensions": 6,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 3,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 12,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 6,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 12,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 50,
+         "dimensions": 12,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 12,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 3,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 3,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 6,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 5,
+         "dimensions": 3,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 6,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 3,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 5,
+         "dimensions": 6,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 6,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 12,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 12,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 5,
+         "dimensions": 6,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 6,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 12,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 6,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 12,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 12,
+         "min_dist": 0.1
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 12,
+         "min_dist": 0.1
+        }
+       ],
+       "site": {
+        "source": "residual_stream",
+        "token_position": 1
+       }
+      },
+      "built": {
+       "commit": "c2e62053f113397a67fc85a9241a52ad45ff5924",
+       "dirty": true,
+       "job_id": "job_20261009T063352876230_4e4bc6",
+       "created_by": "claude-code",
+       "created_at": "2026-10-09T06:42:35+00:00",
+       "seconds": 36.6,
+       "libraries": {
+        "umap-learn": "0.5.11",
+        "scikit-learn": "1.7.2",
+        "numpy": "1.26.4"
+       }
+      },
+      "served": {
+       "commit": "c2e62053f113397a67fc85a9241a52ad45ff5924",
+       "dirty": true
+      },
+      "view": {
+       "kind": "expert",
+       "rank": 1
+      }
+     },
+     "colours": {
+      "input": {
+       "axis": "label",
+       "values": [
+        "animal",
+        "emotion",
+        "food",
+        "idea",
+        "person",
+        "place",
+        "tool",
+        "vehicle"
+       ],
+       "gradient": "red-blue"
+      },
+      "output": null,
+      "stripes": false,
+      "shape": "none"
+     }
+    }
+   },
+   "crops": {
+    "e_pipeline_p3.png": [
+     0,
+     0,
+     3420,
+     null
+    ]
+   },
+   "legend": "d_words_legend.png: a screenshot of the app's colour legend for this view"
+  },
+  "G": {
+   "files": [
+    "f_tank_tuning.png"
+   ],
+   "recipes": {
+    "f_tank_tuning.png": {
+     "app": "OpenLLMRI",
+     "link": "http://localhost:5173/build?session=session_1434a9be",
+     "exported_at": "2026-10-09T07:02:44.375Z",
+     "figure": "tuning: held-out scores per layer",
+     "lens": {
+      "session": "session_1434a9be",
+      "name": "tank-k5-n15-tuned",
+      "version": "v1"
+     },
+     "source": {
+      "name": "tank-k5-n15",
+      "version": "v1"
+     },
+     "target_axis": "label",
+     "measure": "ami",
+     "grid": {
+      "n_neighbors": [
+       5,
+       15,
+       50
+      ],
+      "dimensions": [
+       3,
+       6,
+       12
+      ],
+      "min_dist": [
+       0.1
+      ]
+     },
+     "split": {
+      "kind": "stratified, identical texts kept together",
+      "n_items": 100,
+      "weaker": true
+     },
+     "job": "job_20261009T031558840037_041527"
+    }
+   },
+   "crops": {},
+   "legend": null
+  }
+ }
+}
