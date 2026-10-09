@@ -49,7 +49,23 @@ ledger:
     finding: >
       Not on these captures. On the calibration scenes at k 2, raw spectral clustering reaches
       kappa 0.80 at L4 against the lens's 0.66; on the tank senses at k 5 the three unsupervised
-      groupings sit within about 0.1 of each other. Frame against voice is the comparison to run next.
+      groupings sit within about 0.1 of each other. Frame against voice, held out per attribute at
+      the threatened lens's own k, gives the same picture: UMAP and the better raw grouping are
+      within 0.05 kappa on the frame at 18 of 24 layers and on voice at 10, though at L20 only
+      UMAP keeps both.
+    status: proposed
+    evidence: [docs/research/lens_core_validation.md]
+  - idea: A UMAP lens's nodes carry only some of a set's designed attributes.
+    experiment: >
+      The axes analysis on framing-k4-auto-levels: the threatened set's eight attributes, each
+      technique scored held out per layer against five decoys per attribute (random per item, as
+      the set has no families), with the partial axes' angles against permuted design rows.
+    finding: >
+      A linear probe reads all eight at every layer (kappa 0.67 to 1.00). The lens's nodes carry
+      the label (0.86 to 0.97 from L4 to L22), scale and threat scope in the middle layers, and
+      voice early and again from L9; agent type and violence weakly (at most 0.47); specificity
+      only at L2 and L3; consequence never above 0.08. The partial axes span more independent
+      directions than permuted design rows from L5 on, at most 6.64 of 8 (L19).
     status: proposed
     evidence: [docs/research/lens_core_validation.md]
   - idea: The routers single out the aquarium-against-vehicle concept.

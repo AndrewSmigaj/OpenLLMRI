@@ -35,6 +35,7 @@ class MassMeanParams(BaseModel):
     token_position: int = 1
     filters: LensFilters = Field(default_factory=LensFilters)
     family_field: str = "scene"
+    whole_families: bool = False  # family names as they are, not their first two tokens
     n_folds: int = Field(5, ge=2, le=20)
     seed: int = 42
 
@@ -97,7 +98,8 @@ def build_mass_mean(params: Dict[str, Any], ctx: Any) -> Dict[str, Any]:
                          "a mass-mean lens needs both labels and 10 items or more")
     states = load_states(p.session_id, [r.probe_id for r in items], p.source, p.token_position)
     layers = sorted(states)
-    folds, folding = make_folds([_item_dict(vars(r)) for r in items], p.family_field, p.n_folds, p.seed)
+    folds, folding = make_folds([_item_dict(vars(r)) for r in items], p.family_field, p.n_folds, p.seed,
+                                p.whole_families)
     tmp = final.parent / f".tmp-{p.name}-{ctx.job_id}"
     ctx.add_temp_path(tmp)
     (tmp / "fit").mkdir(parents=True)

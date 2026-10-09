@@ -23,6 +23,7 @@ export interface LensSummary {
   tuning?: TuningHeadline | null // a tuned lens: its headline layer (picked on selection folds) and that layer's test scores
   details?: string[] // the versions with node details worked out ('mass_mean' for a mass-mean lens)
   readings?: ReadingListing[] // a UMAP lens: the captures read through it
+  axes?: boolean // a UMAP lens: whether the axes analysis has run on it
 }
 
 // A capture read through a UMAP lens (DESIGN.md B5), as the lens's summary lists it
@@ -106,6 +107,45 @@ export interface LensRoutes {
   pipelines: RoutePipeline[]
   hubs: RouteHub[]
   involved: Record<string, Record<string, { n: number; threshold: number; permuted: string; experts: InvolvedExpert[] }>>
+}
+
+// The axes analysis (DESIGN.md C8): per layer and designed attribute, each technique's held-out
+// kappa against decoys; the spectrum; the partial axes' angles beside the design's correlations
+export type AxesTechnique = 'raw_ward' | 'raw_spectral' | 'probe' | 'directions' | 'component'
+export interface AxesSpectrum { shares: number[]; participation_ratio: number; for_half: number; for_90: number }
+export interface AxesGeometry {
+  names: string[] // one row per two-valued attribute, one per value of a larger one
+  cosines: number[][]
+  null_cosines?: { low: number[][]; high: number[][] } // permuted design rows: each pair's 5th and 95th percentile
+  independent: number // the independent directions among the partial axes (participation ratio)
+  null: [number, number, number] // the same with design rows permuted: 5th, 50th, 95th percentile
+}
+export interface LensAxes {
+  format_version: number
+  lens: string
+  version: string
+  layers: number[]
+  attributes: Record<string, string[]>
+  folds: { kind: string; n_folds: number; weaker: boolean; field?: string }
+  techniques: AxesTechnique[]
+  level: number
+  decoys: { count: number; given_per: 'families' | 'texts' }
+  probe_decoy_layers: number[]
+  scores: Record<AxesTechnique, Record<string, Record<string, number>>[]> // per layer: code set (real, decoy1…) → attribute → kappa
+  chosen_component: Record<string, number>[] // per layer: attribute → its best-matching component, from 1
+  thresholds: Record<AxesTechnique, Record<string, number | null>>
+  spectrum: AxesSpectrum[]
+  geometry: AxesGeometry[]
+  design: { names: string[]; correlations: number[][] }
+  provenance: { commit: string; dirty: boolean; job_id: string; seconds: number }
+  umap: {
+    at_k: Record<string, number>[]
+    best_k: Record<string, { k: number; kappa: number }>[]
+    thresholds: { at_k: Record<string, number | null>; best_k: Record<string, number | null> }
+    decoys: boolean // whether the lens's validation scored decoys (else no UMAP threshold)
+  } | null
+  k_per_layer: number[]
+  recovered: Record<string, number[]> // per technique (and umap_at_k, umap_best_k): attributes recovered per layer
 }
 
 // The 3-D view's points (DESIGN.md E5): every item at every layer in the lens's own frame, each

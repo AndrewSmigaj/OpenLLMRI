@@ -36,6 +36,16 @@ def test_the_test_portion_holds_whole_families_the_same_share_of_every_label() -
     assert again.tolist() == test.tolist()  # the seed decides
 
 
+def test_when_a_family_holds_several_labels_the_test_portion_takes_it_whole() -> None:
+    items = [{"probe_id": f"p{i}", "label": f"c{i % 3}", "input_text": f"w{i}",
+              "categories": {"family": f"fam_{i // 6}"}} for i in range(90)]  # 15 families, three labels each
+    codes = np.arange(90) % 3
+    test, how = split_test(items, codes, "family", 0.2, 7)
+    assert "grouped" in how["kind"] and not how["weaker"] and 0.1 < len(test) / 90 < 0.35
+    held = {items[j]["categories"]["family"] for j in test}
+    assert not held & {items[j]["categories"]["family"] for j in set(range(90)) - set(test.tolist())}
+
+
 def test_without_families_the_test_share_is_stratified_and_keeps_texts_together() -> None:
     items = [{"probe_id": f"p{i}", "label": "ab"[i % 2], "input_text": f"text {i // 2}", "categories": {}}
              for i in range(60)]

@@ -1,6 +1,6 @@
 // Build: make a lens from a form, then see the capture's lenses, newest builds and legacy schemas
-// alike. A built lens's k can be changed layer by layer (a new version) and saved, and a UMAP lens
-// can be tuned (DESIGN.md C4). A finished build opens in Layers.
+// alike. A built lens's k can be changed layer by layer (a new version) and saved, a UMAP lens can
+// be tuned (DESIGN.md C4), and its capture's axes counted (C8). A finished build opens in Layers.
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { apiClient } from '../api/client'
@@ -16,6 +16,7 @@ import LensBadges from '../components/lenses/LensBadges'
 import LensValidation from '../components/lenses/LensValidation'
 import LensTune from '../components/lenses/LensTune'
 import LensTuning from '../components/lenses/LensTuning'
+import LensAxes from '../components/lenses/LensAxes'
 import MassMeanForm from '../components/lenses/MassMeanForm'
 import MassMeanDetails from '../components/lenses/MassMeanDetails'
 import MassMeanResults from '../components/lenses/MassMeanResults'
@@ -36,6 +37,7 @@ export default function BuildWorkspace() {
   const [report, setReport] = useState<string | null>(null) // the lens whose LLM report is shown
   const [tuneFor, setTuneFor] = useState<string | null>(null) // the lens whose tune form is open
   const [tuning, setTuning] = useState<string | null>(null) // the tuned lens whose search is shown
+  const [axesFor, setAxesFor] = useState<string | null>(null) // the lens whose axes analysis is shown
 
   useEffect(() => {
     apiClient.getLensMethods().then(setMethods).catch(err => setProblem(String(err)))
@@ -113,6 +115,13 @@ export default function BuildWorkspace() {
               </button>
             )}
             {!lens.legacy && lens.kind !== 'mass_mean' && (
+              <button onClick={() => setAxesFor(o => (o === lens.name ? null : lens.name))}
+                title="How many designed attributes each technique recovers per layer, against decoys"
+                className="px-2 py-1 text-xs rounded border border-gray-300 text-gray-700 hover:bg-gray-50">
+                axes{lens.axes ? '' : ' (not run)'} {axesFor === lens.name ? '▴' : '▾'}
+              </button>
+            )}
+            {!lens.legacy && lens.kind !== 'mass_mean' && (
               <button onClick={() => setReport(o => (o === lens.name ? null : lens.name))} aria-label={`Report on ${lens.name}`}
                 className="px-2 py-1 text-xs rounded border border-violet-300 text-violet-800 hover:bg-violet-50">
                 report {report === lens.name ? '▴' : '▾'}
@@ -147,6 +156,8 @@ export default function BuildWorkspace() {
                 <MassMeanDetails session={view.session} lens={lens} disabled={visitor} /></>
             : <LensValidation session={view.session} lens={lens} />)}
           {tuning === lens.name && !lens.legacy && lens.tuning && <LensTuning session={view.session} lens={lens} />}
+          {axesFor === lens.name && !lens.legacy && lens.kind !== 'mass_mean' &&
+            <LensAxes session={view.session} lens={lens} disabled={visitor} />}
           {tuneFor === lens.name && !lens.legacy && methods && (
             <LensTune session={view.session} lens={lens} methods={methods} disabled={visitor}
               takenNames={(lenses ?? []).map(l => l.name)}

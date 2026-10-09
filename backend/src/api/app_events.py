@@ -22,7 +22,7 @@ logger = logging.getLogger(__name__)
 Event = Tuple[str, Dict[str, Any]]
 QUEUE_SIZE = 500
 LENS_KINDS = {"lens_build", "mass_mean_build", "lens_validate", "lens_details", "lens_analysis", "lens_search",
-              "lens_read", "lens_routes"}
+              "lens_read", "lens_routes", "lens_axes"}
 
 
 class AppEvents:

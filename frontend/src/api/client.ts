@@ -11,7 +11,7 @@ import type {
 import type {
   Fingerprint, JobView, LensBuildBody, LensDetail, LensFlows, LensMembersPage, LensMethods, LensOptions, LensSearch,
   LensSummary, LensMarks, LensNodeDetails, LensVersion, MassMeanDetails, MassMeanValidation, MembersQuery, Population,
-  LensReading, LensRoutes, LensTrajectory, ReadBody, TuneBody, Validation,
+  LensAxes, LensReading, LensRoutes, LensTrajectory, ReadBody, TuneBody, Validation,
 } from '../types/lens';
 import type { AnalystTests, Card, QuestionAnswer } from '../types/cards';
 
@@ -312,6 +312,17 @@ class ConceptMriApiClient {
   async workOutRoutes(sessionId: string, name: string): Promise<{ job_id: string }> {
     return this.request(`/sessions/${sessionId}/lenses/${encodeURIComponent(name)}/routes`,
       { method: 'POST', body: JSON.stringify({ created_by: 'app' }) });
+  }
+
+  async getLensAxes(sessionId: string, name: string, version?: string): Promise<LensAxes> {
+    const params = new URLSearchParams();
+    if (version) params.set('version', version);
+    return this.request<LensAxes>(`/sessions/${sessionId}/lenses/${encodeURIComponent(name)}/axes?${params}`);
+  }
+
+  async workOutAxes(sessionId: string, name: string, body: { family_field?: string; whole_families?: boolean } = {}): Promise<{ job_id: string }> {
+    return this.request(`/sessions/${sessionId}/lenses/${encodeURIComponent(name)}/axes`,
+      { method: 'POST', body: JSON.stringify({ ...body, created_by: 'app' }) });
   }
 
   async getLensValidation(sessionId: string, name: string): Promise<Validation> {

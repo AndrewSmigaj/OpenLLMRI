@@ -38,23 +38,52 @@ class ValidateParams(BaseModel):
     session_id: str
     name: str
     family_field: str = "scene"  # the categories field naming each item's scene family
+    whole_families: bool = False  # family names as they are, not their first two tokens
     n_folds: int = Field(5, ge=2, le=20)  # stratified folds, used when there are no families
     seeds: int = Field(3, ge=1, le=10)  # the lens's own seed and the ones after it
     workers: Optional[int] = None
 
 
-def family_key(name: str) -> str:
-    """A scene family from a scene name: its first two tokens (the paper's rule)."""
-    return "_".join(str(name).split("_")[:2])
+def family_key(name: str, whole: bool = False) -> str:
+    """A scene family from a scene name: its first two tokens (the paper's rule), or the whole name
+    when asked (for family names with more than two parts that name different families)."""
+    return str(name) if whole else "_".join(str(name).split("_")[:2])
 
 
-def make_folds(items: Sequence[Dict[str, Any]], family_field: str, n_folds: int,
-               seed: int) -> Tuple[List[Array], Dict[str, Any]]:
-    """Each fold's held-out item indices, and how the folds were made."""
+def family_keys(items: Sequence[Dict[str, Any]], family_field: str, whole: bool = False) -> Optional[List[str]]:
+    """Each item's family, or None unless every item names one."""
+    names = [item.get("categories", {}).get(family_field) for item in items]
+    if any(name is None for name in names):
+        return None
+    return [family_key(str(name), whole) for name in names]
+
+
+def crossing_families(labels: Sequence[str], keys: Sequence[str]) -> List[str]:
+    """The families that hold more than one label."""
+    seen: Dict[str, set[str]] = {}
+    for label, key in zip(labels, keys):
+        seen.setdefault(key, set()).add(label)
+    return sorted(key for key, found in seen.items() if len(found) > 1)
+
+
+def make_folds(items: Sequence[Dict[str, Any]], family_field: str, n_folds: int, seed: int,
+               whole: bool = False) -> Tuple[List[Array], Dict[str, Any]]:
+    """Each fold's held-out item indices, and how the folds were made. When a family holds more than
+    one label, holding out family i of every label would leave its other items in training, so the
+    folds hold out whole families instead, stratified by label as far as the families allow."""
+    from sklearn.model_selection import StratifiedGroupKFold
+
     labels = [str(item.get("label")) for item in items]
-    scenes = [item.get("categories", {}).get(family_field) for item in items]
-    if all(scene is not None for scene in scenes):
-        keys = [family_key(scene) for scene in scenes]
+    keys = family_keys(items, family_field, whole)
+    crossing = crossing_families(labels, keys) if keys is not None else []
+    if keys is not None and crossing and len(set(keys)) >= 2:
+        count = min(n_folds, len(set(keys)))
+        splitter = StratifiedGroupKFold(n_splits=count, shuffle=True, random_state=seed)
+        folds = [np.sort(np.asarray(test)) for _, test in splitter.split(np.zeros(len(items)), labels, groups=keys)]
+        return folds, {"kind": "whole scene families, grouped (a family holds more than one label)",
+                       "field": family_field, "n_folds": count, "weaker": False, "whole": whole,
+                       "crossing": crossing[:20], "n_crossing": len(crossing)}
+    if keys is not None and not crossing:
         families: Dict[str, List[str]] = {}
         for label, key in zip(labels, keys):
             if key not in families.setdefault(label, []):
@@ -67,9 +96,7 @@ def make_folds(items: Sequence[Dict[str, Any]], family_field: str, n_folds: int,
             held = {(label, found[i]) for label, found in families.items() if i < len(found)}
             folds.append(np.array([j for j, pair in enumerate(zip(labels, keys)) if pair in held]))
         return folds, {"kind": "scene families", "field": family_field, "n_folds": count,
-                       "weaker": False, "families": families}
-    from sklearn.model_selection import StratifiedGroupKFold
-
+                       "weaker": False, "whole": whole, "families": families}
     texts = [item.get("input_text") or item["probe_id"] for item in items]
     splitter = StratifiedGroupKFold(n_splits=n_folds, shuffle=True, random_state=seed)
     folds = [np.asarray(test) for _, test in splitter.split(np.zeros(len(items)), labels, groups=texts)]
@@ -164,9 +191,11 @@ def heldout_scores(states: Array, folds: List[Array], codes: Dict[str, Array], n
 
 def validate_layer(states: Array, embedding: Array, folds: List[Array], codes: Dict[str, Array],
                    n_neighbors: int, dimensions: int, seed: int, seeds: int,
-                   min_dist: float = 0.1) -> Dict[str, Any]:
+                   min_dist: float = 0.1, decoy_codes: Optional[Dict[str, List[Array]]] = None) -> Dict[str, Any]:
     """One layer's k profile: in-sample measures on the lens's own embedding, agreement across
-    seeds, and held-out scores, for every k."""
+    seeds, and held-out scores, for every k. With `decoy_codes` (random values per axis, the axes
+    analysis's chance level), each k also holds the decoys' held-out AMI and kappa per axis: the
+    same folds and fits score them, so they cost no fit."""
     from sklearn.metrics import adjusted_mutual_info_score as ami
     from sklearn.metrics import adjusted_rand_score as ari
     from sklearn.metrics import silhouette_score
@@ -183,7 +212,8 @@ def validate_layer(states: Array, embedding: Array, folds: List[Array], codes: D
     joint = {f"{a}×{b}": np.where((codes[a] >= 0) & (codes[b] >= 0), codes[a] * 1000 + codes[b], -1)
              for a, b in itertools.combinations(codes, 2)}
     every = {**codes, **joint}
-    held = heldout_scores(states, folds, codes, n_neighbors, dimensions, seed, min_dist, ks)
+    fake = {f"{axis}#{i}": c for axis, found in (decoy_codes or {}).items() for i, c in enumerate(found)}
+    held = heldout_scores(states, folds, {**codes, **fake}, n_neighbors, dimensions, seed, min_dist, ks)
 
     profile: Dict[str, Any] = {}
     for k in ks:
@@ -191,8 +221,12 @@ def validate_layer(states: Array, embedding: Array, folds: List[Array], codes: D
             "silhouette": round(float(silhouette_score(embedding, cuts[k])), 4),
             "seed_ari": round(float(np.mean([ari(cuts[k], other[k]) for other in seed_cuts])), 4) if seed_cuts else None,
             "agreement": {name: round(float(ami(v[v >= 0], cuts[k][v >= 0])), 4) for name, v in every.items() if (v >= 0).any()},
-            "heldout": held[k],
+            "heldout": {axis: scores for axis, scores in held[k].items() if axis not in fake},
         }
+        if decoy_codes:
+            profile[str(k)]["decoys"] = {
+                axis: {measure: [held[k][f"{axis}#{i}"][measure] for i in range(len(found)) if f"{axis}#{i}" in held[k]]
+                       for measure in ("ami", "kappa")} for axis, found in decoy_codes.items()}
     return profile
 
 
@@ -306,14 +340,15 @@ def self_check(n: int, dim: int, n_neighbors: int, dimensions: int, seed: int,
 
 
 def _validate_one(folder: str, layer: int, embedding: Array, folds: List[Array], codes: Dict[str, Array],
-                  n_neighbors: int, dimensions: int, seed: int, seeds: int,
-                  min_dist: float = 0.1) -> Tuple[int, Dict[str, Any], Dict[str, Any], Dict[str, Dict[int, Array]]]:
+                  n_neighbors: int, dimensions: int, seed: int, seeds: int, min_dist: float = 0.1,
+                  decoy_codes: Optional[Dict[str, List[Array]]] = None
+                  ) -> Tuple[int, Dict[str, Any], Dict[str, Any], Dict[str, Dict[int, Array]]]:
     """One layer, in a worker process: its states come from the job's work folder."""
     from pathlib import Path
 
     states = np.load(Path(folder) / f"X_L{layer:02d}.npy")
     profile = validate_layer(states, embedding[:, :dimensions], folds, codes, n_neighbors, dimensions, seed,
-                             seeds, min_dist)
+                             seeds, min_dist, decoy_codes)
     comparison, full = compare_layer(states, folds, codes["label"], n_neighbors, seed) \
         if "label" in codes and (codes["label"] >= 0).any() else ({}, {})
     return layer, profile, comparison, full
@@ -343,6 +378,7 @@ def validate_lens(params: Dict[str, Any], ctx: Any) -> Dict[str, Any]:
 
     from joblib import Parallel, delayed
 
+    from services.lenses.axes import DECOYS, decoys, groups_of
     from services.lenses.data import load_states
     from services.lenses.flows import axes_of
     from services.lenses.store import git_state, lens_dir, read_manifest
@@ -355,7 +391,11 @@ def validate_lens(params: Dict[str, Any], ctx: Any) -> Dict[str, Any]:
     view = open_lens(p.session_id, p.name)
     axes = axes_of(view)
     codes = axis_codes(view.items, axes)
-    folds, folding = make_folds(view.items, p.family_field, p.n_folds, manifest.settings.seed)
+    folds, folding = make_folds(view.items, p.family_field, p.n_folds, manifest.settings.seed, p.whole_families)
+    # Random values per family (or text), the axes analysis's chance level (services/lenses/axes.py)
+    (groups, given_per), rng = (groups_of(view.items, p.family_field, p.whole_families),
+                                np.random.default_rng(manifest.settings.seed))
+    decoy_codes = {axis: decoys(c, groups, rng, DECOYS) for axis, c in codes.items() if len(axes[axis]) >= 2}
     ctx.progress("loading", 0, 1)
     work = folder / f".tmp-validate-{ctx.job_id}"
     ctx.add_temp_path(work)
@@ -369,7 +409,7 @@ def validate_lens(params: Dict[str, Any], ctx: Any) -> Dict[str, Any]:
     s = manifest.settings
     workers = p.workers or max(1, min(6, (os.cpu_count() or 2) - 2))
     tasks = (delayed(_validate_one)(str(work), layer, embeddings[li], folds, codes, s.at(li).n_neighbors,
-                                    s.at(li).dimensions, s.seed, p.seeds, s.at(li).min_dist)
+                                    s.at(li).dimensions, s.seed, p.seeds, s.at(li).min_dist, decoy_codes)
              for li, layer in enumerate(view.layers))
     profiles: Dict[str, Any] = {}
     comparisons: Dict[str, Any] = {}
@@ -382,6 +422,7 @@ def validate_lens(params: Dict[str, Any], ctx: Any) -> Dict[str, Any]:
     _write_raw_cuts(folder, view.layers, full)
     commit, dirty = git_state()
     record: Dict[str, Any] = {"format": 1, "folds": folding, "axes": axes, "seeds": p.seeds, "vote_neighbours": VOTE_NEIGHBOURS,
+              "decoys": {"count": DECOYS, "given_per": given_per},
               "layers": {str(layer): profiles[str(layer)] for layer in view.layers},
               "comparison": {str(layer): comparisons[str(layer)] for layer in view.layers},
               "provenance": {"commit": commit, "dirty": dirty, "job_id": ctx.job_id,

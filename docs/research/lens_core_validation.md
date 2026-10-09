@@ -1,11 +1,13 @@
 # Lens validation: first runs (lens slice 1, 10b.7, 2026-10-08)
 
-Related: docs/DESIGN.md (C3 choosing k, C4 validating and tuning), backend/src/services/lenses/validate.py,
-backend/src/services/lenses/search.py
+Related: docs/DESIGN.md (C3 choosing k, C4 validating and tuning, C8 the axes analysis),
+backend/src/services/lenses/validate.py, backend/src/services/lenses/search.py,
+backend/src/services/lenses/axes.py
 
-What the k profile and held-out scores show on two captures, beside the in-sample automatic k
-methods. Every number here comes from the lenses' `validation.json` and `lens.json` files in the
-lake (paths below), produced by the `lens_validate` job and the build's self-check.
+What the k profile and held-out scores show on three captures, beside the in-sample automatic k
+methods. Every number here comes from the lenses' `validation.json`, `lens.json`, `search.json`
+and `axes.json` files in the lake (paths below), produced by the lens jobs and the build's
+self-check.
 
 ## How the scores are made
 
@@ -248,9 +250,148 @@ data, which matches the planning measurement that settings move held-out AMI les
 The search still gives each lens an honest held-out score, and its runners-up show how flat the
 choice is.
 
+## The axes analysis (lens slice 1b, 10c.5, 2026-10-09)
+
+A `lens_axes` job asks how many of a capture's designed attributes each technique recovers at each
+layer. Every score is a held-out kappa on the lens's folds:
+- the UMAP lens at its version's k, and at each attribute's best k (from the lens's validation);
+- raw Ward and spectral groupings on standardized PCA-50, at the same k;
+- a linear probe, the ceiling;
+- each attribute's partial direction (its effect with the other attributes held fixed);
+- the principal component that best separates it on the training items.
+
+Chance comes from five decoys per attribute: random values in the attribute's proportions, given
+per family, or per item when the items name no family. An attribute counts as recovered by a
+technique when its score passes the 95th percentile of that technique's decoy scores, pooled over
+layers. The partial axes' angles and the number of independent directions they span are judged
+against 50 permutations of whole design rows, which keep the design's own correlations.
+
+### Threatened framing, eight attributes (`session_673360a5`, lens `framing-k4-auto-levels`)
+
+- **The set:** 400 sentences built around "threatened", each with eight two-valued attributes:
+  the label (factual or roleplay), agent type, consequence, scale, specificity, threat scope,
+  violence and voice.
+- **The site:** the repeat of "threatened" in the question at the end of the prompt, so the whole
+  sentence is in view at every layer.
+- **The design's own correlations:** scale with threat scope 0.92, consequence with violence
+  0.64, label with agent type 0.60, label with violence 0.29; every other pair at |r| ≤ 0.22.
+- **Folds and decoys:** the set has no scene families, so the folds are stratified with
+  identical texts kept together (weaker), and the decoys are random per item.
+- **Runs:** the lens was validated first (67 s; validation now scores the decoys too), then the
+  analysis ran (48.5 s).
+
+Attributes recovered, of 8, per technique:
+
+| Layer | k | UMAP lens (its k) | UMAP lens (best k) | raw Ward | raw spectral | component | partial directions | probe |
+|---|---|---|---|---|---|---|---|---|
+| L0 | 3 | 4 | 8 | 4 | 4 | 8 | 5 | 8 |
+| L1 | 2 | 1 | 8 | 1 | 1 | 8 | 8 | 8 |
+| L2 | 4 | 6 | 8 | 7 | 7 | 8 | 8 | 8 |
+| L3 | 6 | 8 | 8 | 8 | 8 | 8 | 8 | 8 |
+| L4 | 5 | 6 | 8 | 6 | 6 | 8 | 8 | 8 |
+| L5 | 5 | 6 | 8 | 6 | 7 | 8 | 8 | 8 |
+| L6 | 5 | 6 | 8 | 7 | 6 | 8 | 8 | 8 |
+| L7 | 2 | 3 | 8 | 4 | 6 | 8 | 8 | 8 |
+| L8 | 4 | 6 | 7 | 6 | 7 | 8 | 8 | 8 |
+| L9 | 7 | 6 | 6 | 7 | 8 | 8 | 8 | 8 |
+| L10 | 7 | 6 | 7 | 7 | 7 | 8 | 8 | 8 |
+| L11 | 4 | 5 | 7 | 7 | 5 | 8 | 8 | 8 |
+| L12 | 8 | 6 | 8 | 7 | 8 | 8 | 8 | 8 |
+| L13 | 7 | 6 | 6 | 7 | 6 | 8 | 8 | 8 |
+| L14 | 7 | 6 | 7 | 7 | 7 | 8 | 8 | 8 |
+| L15 | 7 | 6 | 6 | 7 | 6 | 8 | 8 | 8 |
+| L16 | 7 | 6 | 7 | 7 | 6 | 8 | 8 | 8 |
+| L17 | 7 | 6 | 7 | 6 | 6 | 8 | 8 | 8 |
+| L18 | 7 | 6 | 7 | 6 | 6 | 8 | 8 | 8 |
+| L19 | 7 | 6 | 7 | 6 | 7 | 8 | 8 | 8 |
+| L20 | 4 | 6 | 7 | 6 | 6 | 8 | 8 | 8 |
+| L21 | 6 | 6 | 7 | 6 | 8 | 8 | 8 | 8 |
+| L22 | 2 | 3 | 7 | 6 | 5 | 8 | 8 | 8 |
+| L23 | 2 | 5 | 7 | 4 | 5 | 8 | 7 | 8 |
+
+**The counts saturate for the linear techniques.** With per-item decoys the line is low: the
+decoys' 95th percentiles run from 0.00 to 0.15 across techniques and attributes. So on a set
+without families, the linear techniques pass for nearly every attribute, and their strengths are
+what tell them apart:
+- the probe reads all eight at every layer, at κ 0.67 to 1.00;
+- its weakest are consequence (0.67 to 0.85), agent type (0.75 to 0.91) and violence (0.77 to
+  0.87);
+- the other five are at 0.92 or more at every layer;
+- the partial directions read consequence at only 0.08 to 0.30.
+
+The UMAP lens's held-out kappa at its k, per attribute:
+
+| Layer | k | label | agent type | consequence | scale | specificity | threat scope | violence | voice |
+|---|---|---|---|---|---|---|---|---|---|
+| L0 | 3 | 0.17 | 0.00 | 0.00 | 0.28 | 0.15 | 0.30 | -0.01 | -0.10 |
+| L1 | 2 | -0.12 | 0.00 | 0.00 | -0.07 | -0.06 | 0.00 | 0.00 | 0.99 |
+| L2 | 4 | 0.17 | 0.00 | 0.00 | 0.27 | 0.56 | 0.31 | 0.04 | 0.97 |
+| L3 | 6 | 0.74 | 0.23 | 0.08 | 0.46 | 0.42 | 0.49 | 0.36 | 0.54 |
+| L4 | 5 | 0.95 | 0.43 | -0.01 | 0.90 | 0.26 | 0.86 | 0.42 | -0.20 |
+| L5 | 5 | 0.95 | 0.46 | 0.03 | 0.95 | 0.19 | 0.91 | 0.38 | -0.15 |
+| L6 | 5 | 0.96 | 0.40 | 0.03 | 0.93 | 0.16 | 0.90 | 0.37 | -0.16 |
+| L7 | 2 | 0.91 | 0.47 | 0.00 | 0.00 | -0.01 | 0.07 | 0.31 | -0.12 |
+| L8 | 4 | 0.91 | 0.42 | 0.00 | 0.66 | -0.01 | 0.61 | 0.38 | 0.13 |
+| L9 | 7 | 0.95 | 0.39 | -0.02 | 0.92 | -0.12 | 0.89 | 0.36 | 0.74 |
+| L10 | 7 | 0.97 | 0.38 | -0.01 | 0.94 | -0.09 | 0.91 | 0.37 | 0.71 |
+| L11 | 4 | 0.96 | 0.40 | 0.02 | 0.77 | -0.04 | 0.78 | 0.37 | 0.04 |
+| L12 | 8 | 0.96 | 0.41 | 0.02 | 0.92 | 0.07 | 0.89 | 0.35 | 0.74 |
+| L13 | 7 | 0.95 | 0.38 | -0.01 | 0.92 | -0.10 | 0.89 | 0.35 | 0.73 |
+| L14 | 7 | 0.95 | 0.40 | -0.00 | 0.94 | -0.10 | 0.90 | 0.35 | 0.75 |
+| L15 | 7 | 0.94 | 0.38 | -0.00 | 0.92 | -0.08 | 0.89 | 0.34 | 0.76 |
+| L16 | 7 | 0.94 | 0.34 | -0.01 | 0.94 | -0.12 | 0.90 | 0.33 | 0.75 |
+| L17 | 7 | 0.94 | 0.35 | -0.03 | 0.95 | -0.11 | 0.92 | 0.36 | 0.78 |
+| L18 | 7 | 0.95 | 0.35 | -0.01 | 0.92 | -0.10 | 0.89 | 0.34 | 0.79 |
+| L19 | 7 | 0.96 | 0.36 | -0.01 | 0.88 | -0.12 | 0.88 | 0.35 | 0.80 |
+| L20 | 4 | 0.86 | 0.39 | 0.00 | 0.28 | -0.07 | 0.39 | 0.32 | 0.71 |
+| L21 | 6 | 0.92 | 0.31 | 0.03 | 0.65 | -0.04 | 0.67 | 0.34 | 0.80 |
+| L22 | 2 | 0.94 | 0.39 | 0.00 | -0.04 | -0.07 | 0.01 | 0.26 | -0.12 |
+| L23 | 2 | 0.72 | 0.41 | 0.00 | 0.18 | -0.01 | 0.24 | 0.14 | -0.02 |
+
+**What the lens's nodes carry:**
+- **Label:** 0.86 to 0.97 from L4 to L22, and 0.72 at L23.
+- **Scale and threat scope:** 0.86 to 0.95 at L4 to L6, and 0.88 to 0.95 at L9 to L19 apart
+  from L11 (0.77 and 0.78, at k 4). They drop to 0.00 and 0.07 at the merge to two nodes at L7.
+- **Voice:** 0.99 at L1 and 0.97 at L2. It falls to 0.13 or below from L4 to L8, then returns
+  at 0.71 to 0.80 from L9 to L21, apart from L11 (0.04).
+- **Agent type and violence:** weakly from L3 on, at 0.23 to 0.47 and 0.14 to 0.42.
+- **Specificity:** only early, 0.56 at L2 and 0.42 at L3; from L7 on, −0.12 to 0.07.
+- **Consequence:** never more than 0.08.
+
+**Frame against voice, against raw space** (the comparison the ledger named next):
+- Held out, per attribute and at the lens's own k, UMAP and the better of raw Ward and spectral
+  are within 0.05 κ on the label at 18 of 24 layers (median difference 0.00). On voice they are
+  within 0.05 at 10 layers, UMAP ahead at 6 and behind at 8 (median −0.02).
+- At L20 only UMAP keeps both: the label 0.86 and voice 0.71, where Ward has the label at 0.58
+  and spectral has voice at 0.50.
+- Over all eight attributes and 24 layers, UMAP is more than 0.05 ahead in 23 of 192 cells and
+  more than 0.05 behind in 54. The largest gap is specificity, median −0.11.
+
+**Geometry:**
+- **Independent directions:** the eight partial axes span 4.40 at L0 and 3.60 at L1 (the
+  permuted rows' median there is 3.95). From L5 on they span more than the permuted rows' 95th
+  percentile at every layer, as at L3 (L4 is level with it: 5.16 against 5.17). The peak is 6.64
+  at L19.
+- **Effective dimensionality** (the participation ratio of the standardized spectrum): 12.5 at
+  L0, 15.8 to 21.7 from L1 to L22, and 25.2 at L23. Half the variance lies in 5 to 13
+  components, and 90% in 47 to 133.
+- **Components:** PC1 is the label's best component from L2 to L23. Agent type and violence share
+  it at L4 and L12, where scale and threat scope share another (PC2 at L4, PC3 at L12). Voice is
+  PC2 from L9 to L23.
+- **Angles:** between 3 and 12 of the 28 pairs of partial axes lie outside the band the
+  permuted rows give at each layer.
+- **Design-correlated pairs:** their bands sit far from zero, because the errors of two
+  attributes fitted together are anti-correlated. For scale and threat scope the band runs from
+  −0.97 to −0.84 at L4 and from −0.96 to −0.81 at L12. Their real cosines, 0.35 and 0.26, lie
+  above it. Label and agent type at L4: 0.32, above a band of −0.78 to −0.31. Read on its own,
+  the cosine of a pair the design correlates would mislead.
+
 ## Caveats
 
 - The tank lens has no scene families, so its held-out scores are from weaker folds.
+- The threatened set has no families either: its held-out scores are from weaker folds, and its
+  decoys are random per item. Near-identical sentences across folds can lift the linear
+  techniques' scores.
 - `carrier_id` and `n_context` hold one value each in the calibration capture; they appear as
   axes but carry no information.
 - Two lenses, one model; these are first readings of the instrument, not results about meaning.
@@ -266,3 +407,5 @@ choice is.
 - `data/lake/session_1434a9be/lenses/tank-k5-n15-tuned/search.json` and
   `data/lake/session_29a80932/lenses/calibration-q1-k2-n15-tuned/search.json` (the tuning: the
   split, every candidate's selection scores, the winners and runners-up, the test scores)
+- `data/lake/session_673360a5/lenses/framing-k4-auto-levels/validation.json` (67 s, with decoys)
+  and `axes.json` (48.5 s; GET `.../axes` merges in the UMAP rows)

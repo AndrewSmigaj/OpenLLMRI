@@ -145,14 +145,14 @@ def find_hubs(weights: Array, floor: int) -> List[Dict[str, Any]]:
     return sorted(hubs, key=lambda h: -h["sources"])[:MAX_HUBS]
 
 
-def _groups(items: Sequence[Dict[str, Any]], family_field: str, codes: Array) -> Tuple[Array, str]:
+def _groups(items: Sequence[Dict[str, Any]], family_field: str, codes: Array,
+            whole: bool = False) -> Tuple[Array, str]:
     """What moves together under permutation: whole families when each family holds one value,
     else items with the same text. Returns each item's group index and the kind of grouping."""
-    from services.lenses.validate import family_key
+    from services.lenses.validate import family_keys
 
-    families = [item.get("categories", {}).get(family_field) for item in items]
-    if all(f is not None for f in families):
-        keys = [family_key(str(f)) for f in families]
+    keys = family_keys(items, family_field, whole)
+    if keys is not None:
         pure = all(len({int(c) for c, k in zip(codes, keys) if k == key}) == 1 for key in set(keys))
         if pure:
             index = {key: i for i, key in enumerate(sorted(set(keys)))}
@@ -163,7 +163,7 @@ def _groups(items: Sequence[Dict[str, Any]], family_field: str, codes: Array) ->
 
 
 def find_involved(weights: Array, items: Sequence[Dict[str, Any]], axes: Dict[str, List[str]],
-                  family_field: str, seed: int) -> Dict[str, Any]:
+                  family_field: str, seed: int, whole: bool = False) -> Dict[str, Any]:
     """Per designed axis and value: the experts whose mean weight differs from the rest's beyond the
     permutation threshold, largest difference first."""
     from sklearn.metrics import roc_auc_score
@@ -180,7 +180,7 @@ def find_involved(weights: Array, items: Sequence[Dict[str, Any]], axes: Dict[st
         codes = np.array([values.index(v) if v in values else -1 for v in raw])
         if known.sum() < 2 * MIN_ITEMS or len(set(codes[known].tolist())) < 2:
             continue
-        groups, kind = _groups([items[i] for i in np.flatnonzero(known)], family_field, codes[known])
+        groups, kind = _groups([items[i] for i in np.flatnonzero(known)], family_field, codes[known], whole)
         x, c = flat[known], codes[known]
         found: Dict[str, Any] = {}
         for vi, value in enumerate(values):
@@ -204,15 +204,16 @@ def find_involved(weights: Array, items: Sequence[Dict[str, Any]], axes: Dict[st
     return out
 
 
-def _halves(items: Sequence[Dict[str, Any]], family_field: str, seed: int) -> List[Array]:
+def _halves(items: Sequence[Dict[str, Any]], family_field: str, seed: int, whole: bool = False) -> List[Array]:
     from services.lenses.search import merge_folds
     from services.lenses.validate import make_folds
 
-    folds, _ = make_folds(items, family_field, 2, seed)
+    folds, _ = make_folds(items, family_field, 2, seed, whole)
     return merge_folds(folds, 2)[0]
 
 
-def compute_routes(view: LensView, family_field: str = "scene", seed: int = 42) -> Dict[str, Any]:
+def compute_routes(view: LensView, family_field: str = "scene", seed: int = 42,
+                   whole: bool = False) -> Dict[str, Any]:
     """Pipelines, hubs and the experts involved, as `routes.json` holds them (layers by number)."""
     from services.lenses.flows import axes_of, value_of
 
@@ -220,7 +221,7 @@ def compute_routes(view: LensView, family_field: str = "scene", seed: int = 42) 
     n = len(view.items)
     floor = min_items(n)
     axes = axes_of(view)
-    halves = _halves(view.items, family_field, seed)
+    halves = _halves(view.items, family_field, seed, whole)
 
     def makeup(mask: Array) -> Dict[str, Dict[str, int]]:
         out: Dict[str, Dict[str, int]] = {}
@@ -264,7 +265,7 @@ def compute_routes(view: LensView, family_field: str = "scene", seed: int = 42) 
     for i, pipeline in enumerate(pipelines):
         pipeline["id"] = f"P{i + 1}"
     hubs = [{"id": f"H{i + 1}", "layer": view.layers[h.pop("li")], **h} for i, h in enumerate(find_hubs(weights, floor))]
-    involved = find_involved(weights, view.items, axes, family_field, seed)
+    involved = find_involved(weights, view.items, axes, family_field, seed, whole)
     for found in involved.values():
         for value in found.values():
             for cell in value["experts"]:
@@ -272,10 +273,11 @@ def compute_routes(view: LensView, family_field: str = "scene", seed: int = 42) 
     return {"format_version": FORMAT_VERSION, "n_items": n, "layers": view.layers, "min_items": floor,
             "base": makeup(np.ones(n, dtype=bool)), "pipelines": pipelines, "hubs": hubs, "involved": involved,
             "rules": {"min_share": MIN_SHARE, "min_items": MIN_ITEMS, "min_length": MIN_LENGTH,
-                      "hub_sources": HUB_SOURCES, "permutations": PERMUTATIONS}}
+                      "hub_sources": HUB_SOURCES, "permutations": PERMUTATIONS, "family_field": family_field,
+                      "whole_families": whole}}
 
 
-def write_routes(session_id: str, name: str, family_field: str = "scene") -> Dict[str, Any]:
+def write_routes(session_id: str, name: str, family_field: str = "scene", whole: bool = False) -> Dict[str, Any]:
     """Work out a lens's routes and write `routes.json` (atomically); returns what was written."""
     from services.lenses.store import lens_dir, read_manifest
     from services.lenses.view import open_lens
@@ -283,7 +285,7 @@ def write_routes(session_id: str, name: str, family_field: str = "scene") -> Dic
     folder = lens_dir(session_id, name)
     manifest = read_manifest(folder)
     started = time.time()
-    routes = compute_routes(open_lens(session_id, name), family_field, manifest.settings.seed)
+    routes = compute_routes(open_lens(session_id, name), family_field, manifest.settings.seed, whole)
     routes["seconds"] = round(time.time() - started, 2)
     tmp = folder / ".routes.json.tmp"
     tmp.write_text(json.dumps(routes, indent=1), encoding="utf-8")
@@ -294,7 +296,8 @@ def write_routes(session_id: str, name: str, family_field: str = "scene") -> Dic
 def routes_job(params: Dict[str, Any], ctx: Any) -> Dict[str, Any]:
     """The `lens_routes` job: write a lens's routes."""
     ctx.progress("routes", 0, 1)
-    routes = write_routes(params["session_id"], params["name"], params.get("family_field", "scene"))
+    routes = write_routes(params["session_id"], params["name"], params.get("family_field", "scene"),
+                          bool(params.get("whole_families", False)))
     return {"session_id": params["session_id"], "name": params["name"], "pipelines": len(routes["pipelines"]),
             "hubs": len(routes["hubs"]), "seconds": routes["seconds"]}
 

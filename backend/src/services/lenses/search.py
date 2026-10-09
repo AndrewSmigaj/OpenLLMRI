@@ -73,6 +73,7 @@ class LensSearchParams(BaseModel):
     k_max: int = Field(default=10, ge=2, le=10)
     test_share: float = Field(default=0.2, ge=0.1, le=0.5)
     family_field: str = "scene"
+    whole_families: bool = False  # family names as they are, not their first two tokens
     n_folds: int = Field(default=5, ge=2, le=10)
     seed: Optional[int] = None  # the source lens's seed when not given
     workers: Optional[int] = None
@@ -91,15 +92,26 @@ def estimate_seconds(n_items: int, n_layers: int, n_settings: int, n_folds: int,
 
 
 def split_test(items: Sequence[Dict[str, Any]], codes: Array, family_field: str, share: float,
-               seed: int) -> Tuple[Array, Dict[str, Any]]:
+               seed: int, whole: bool = False) -> Tuple[Array, Dict[str, Any]]:
     """The test portion's item indices, and how they were drawn. Whole families per label when every
-    item names one (and each label has at least three), else a stratified share grouped by text."""
-    from services.lenses.validate import family_key
+    item names one (and each label has at least three); whole families stratified by label when a
+    family holds more than one label (as `make_folds` does); else a stratified share grouped by text."""
+    from sklearn.model_selection import StratifiedGroupKFold
+
+    from services.lenses.validate import crossing_families, family_keys
 
     labels = [str(item.get("label")) for item in items]
-    scenes = [item.get("categories", {}).get(family_field) for item in items]
-    if all(scene is not None for scene in scenes):
-        keys = [family_key(scene) for scene in scenes]
+    keys = family_keys(items, family_field, whole)
+    crossing = crossing_families(labels, keys) if keys is not None else []
+    if keys is not None and crossing and len(set(keys)) >= 2:
+        splitter = StratifiedGroupKFold(n_splits=min(len(set(keys)), max(2, round(1 / share))), shuffle=True,
+                                        random_state=seed)
+        _, drawn = next(splitter.split(np.zeros(len(items)), labels, groups=keys))
+        grouped = np.sort(np.asarray(drawn))
+        return grouped, {"kind": "whole scene families, grouped (a family holds more than one label)",
+                         "field": family_field, "weaker": False, "families": None, "whole": whole,
+                         "n_items": int(len(grouped)), "share": round(len(grouped) / len(items), 4)}
+    if keys is not None:
         families: Dict[str, List[str]] = {}
         for label, key in zip(labels, keys):
             if key not in families.setdefault(label, []):
@@ -112,10 +124,8 @@ def split_test(items: Sequence[Dict[str, Any]], codes: Array, family_field: str,
                 take = min(len(found) - 2, max(1, round(share * len(found))))
                 held[label] = sorted(found[i] for i in rng.permutation(len(found))[:take])
             test = np.array([j for j, (label, key) in enumerate(zip(labels, keys)) if key in held[label]])
-            return test, {"kind": "scene families", "field": family_field, "weaker": False,
+            return test, {"kind": "scene families", "field": family_field, "weaker": False, "whole": whole,
                           "families": held, "n_items": int(len(test)), "share": round(len(test) / len(items), 4)}
-    from sklearn.model_selection import StratifiedGroupKFold
-
     texts = [item.get("input_text") or item["probe_id"] for item in items]
     splitter = StratifiedGroupKFold(n_splits=max(2, round(1 / share)), shuffle=True, random_state=seed)
     _, test = next(splitter.split(np.zeros(len(items)), codes, groups=texts))
@@ -250,9 +260,10 @@ def run_search(params: Dict[str, Any], ctx: Any) -> Dict[str, Any]:
     workers = p.workers or max(1, min(6, (os.cpu_count() or 2) - 2))
 
     ctx.progress("split", 0, 1)
-    test, test_info = split_test(view.items, codes, p.family_field, p.test_share, seed)
+    test, test_info = split_test(view.items, codes, p.family_field, p.test_share, seed, p.whole_families)
     selection = np.setdiff1d(np.arange(len(view.items)), test)
-    folds, folding = make_folds([view.items[int(i)] for i in selection], p.family_field, p.n_folds, seed)
+    folds, folding = make_folds([view.items[int(i)] for i in selection], p.family_field, p.n_folds, seed,
+                                p.whole_families)
     folds, merged = merge_folds(folds, p.n_folds)
     folding = {key: value for key, value in folding.items() if key != "families"} | {"n_folds": len(folds)}
     if merged:
@@ -361,6 +372,7 @@ def run_search(params: Dict[str, Any], ctx: Any) -> Dict[str, Any]:
     record["provenance"]["seconds"] = round(time.time() - started, 1)
     _write_json(lens_dir(manifest.session_id, name) / "search.json", record)
     validate_lens({"session_id": manifest.session_id, "name": name, "family_field": p.family_field,
+                   "whole_families": p.whole_families,
                    "n_folds": p.n_folds, "workers": p.workers}, _Prefixed(ctx, "validate"))
     return {"session_id": manifest.session_id, "source": p.source_lens, "name": name,
             "test_items": int(len(test)), "seconds": round(time.time() - started, 1)}

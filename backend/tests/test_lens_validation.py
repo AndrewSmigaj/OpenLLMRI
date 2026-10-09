@@ -31,6 +31,30 @@ def test_folds_hold_out_whole_scene_families_of_every_class() -> None:
     assert sorted(np.concatenate(folds).tolist()) == list(range(60))
 
 
+def test_a_family_holding_two_labels_is_held_out_whole() -> None:
+    # every family holds both labels: holding out family i of each label would train on its other half
+    items = [{"probe_id": f"p{i}", "label": "ab"[i % 2], "input_text": f"t{i}",
+              "categories": {"scene": f"fam_{i // 10}"}} for i in range(80)]
+    folds, how = make_folds(items, "scene", 4, 42)
+    assert "grouped" in how["kind"] and not how["weaker"] and how["n_crossing"] == 8 and how["n_folds"] == 4
+    for test in folds:
+        held = {items[j]["categories"]["scene"] for j in test}
+        assert not held & {items[j]["categories"]["scene"] for j in set(range(80)) - set(test.tolist())}
+        assert {items[j]["label"] for j in test} == {"a", "b"}
+    assert sorted(np.concatenate(folds).tolist()) == list(range(80))
+
+
+def test_family_names_are_kept_whole_when_asked() -> None:
+    # three-part names: the paper's rule reads both labels' four families as one each
+    items = [{"probe_id": f"p{i}", "label": "ab"[i // 40], "input_text": f"t{i}",
+              "categories": {"scene": f"{'ab'[i // 40]}_birds_{'xyzw'[i % 4]}"}} for i in range(80)]
+    _, how = make_folds(items, "scene", 4, 42)
+    assert how["n_folds"] == 1 and how["families"] == {"a": ["a_birds"], "b": ["b_birds"]}
+    folds, how = make_folds(items, "scene", 4, 42, whole=True)
+    assert how["n_folds"] == 4 and how["whole"] and len(how["families"]["a"]) == 4
+    assert all({items[j]["label"] for j in test} == {"a", "b"} for test in folds)
+
+
 def test_without_families_folds_keep_identical_texts_together_and_say_so() -> None:
     items = [{"probe_id": f"p{i}", "label": "ab"[i % 2], "input_text": f"text {i // 2}", "categories": {}}
              for i in range(40)]

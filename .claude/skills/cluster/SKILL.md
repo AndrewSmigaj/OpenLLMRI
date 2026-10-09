@@ -87,9 +87,13 @@ version and copies its records into `data/lenses/<session>/<name>/` in the repo.
 
 ### OP-L4: Validate a lens (held-out scores and the k profile; a job)
 
-Folds hold out whole scene families when the items name one (`categories.scene`); otherwise
-they are stratified with identical texts kept together, and marked weaker. Every k from 2 to
-10 is scored at every layer. A 24-layer lens takes a few minutes.
+Folds hold out whole scene families when the items name one (`categories.scene`, or the field
+given as `family_field`); otherwise they are stratified with identical texts kept together, and
+marked weaker. A family is keyed by the first two parts of its name unless `whole_families` is
+set. When a family holds more than one label, fold i can't hold out family i of every label
+without training on the family's other items, so the folds hold out whole families grouped
+across labels instead (the result says so). Every k from 2 to 10 is scored at every layer, with
+five decoys per axis for the axes analysis (OP-L10). A 24-layer lens takes a few minutes.
 
 ```bash
 curl -s -X POST http://localhost:8000/api/sessions/SID/lenses/NAME/validate \
@@ -196,6 +200,31 @@ curl -s "http://localhost:8000/api/sessions/SID/lenses/NAME/routes"
 In the app: the Pipes and hubs tab, the pipeline chips in the expert chart's header (a pipeline
 lights its chain and its members), the expert chart's "all" rank (every expert sized by the
 weight its items give it), and the fingerprint's "the rest (by class)".
+
+### OP-L10: The axes analysis (a job)
+
+How many of the capture's designed attributes (every axis with two values or more) each technique
+recovers at each layer, held out on the lens's folds (DESIGN.md C8): the UMAP lens (from its
+validation, at the version's k and at each attribute's best k), raw Ward and spectral groupings, a
+linear probe (the ceiling), the attributes' partial directions and their best principal component.
+Each score is a held-out kappa; an attribute counts as recovered beyond the 95th percentile of the
+technique's scores for five decoys (random values given per family, or per text when the items
+name none), pooled over layers. Beside it: effective dimensionality, the partial axes' angles beside
+the design's own correlations, and their independent directions, both against permuted design
+rows. About a minute for 400 items. The UMAP rows need a validation made since decoys were added
+(OP-L4 again on older lenses). For a set whose families sit in another field (single words:
+`family`), pass it; `whole_families` keeps names of more than two parts whole. OP-L4, OP-L7 and
+OP-L9 take the same two fields.
+
+```bash
+curl -s -X POST http://localhost:8000/api/sessions/SID/lenses/NAME/axes \
+  -H "Content-Type: application/json" -d '{"family_field":"scene","created_by":"claude-code"}'
+curl -s "http://localhost:8000/api/sessions/SID/lenses/NAME/axes"
+```
+
+On a set without families the decoys are random per item, so the line is low and the linear
+techniques often pass it for every attribute: read the strengths (the heatmap), not only the
+counts. In the app: Build › the lens card's `axes ▾`.
 
 ### Reports
 

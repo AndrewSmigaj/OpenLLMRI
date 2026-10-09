@@ -196,6 +196,7 @@ def summary(manifest: LensManifest, folder: Path) -> Dict[str, Any]:
         "tuning": _tuning(folder),
         "details": sorted(path.stem for path in (folder / "details").glob("*.json")),
         "readings": _readings(folder),
+        "axes": (folder / "axes.json").exists(),
     }
 
 

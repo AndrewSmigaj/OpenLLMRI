@@ -273,6 +273,7 @@ def new_lens_version(request: Request, session_id: str, name: str, body: Version
 
 class ValidateRequest(BaseModel):
     family_field: str = "scene"
+    whole_families: bool = False  # family names as they are, not their first two tokens
     n_folds: int = Field(5, ge=2, le=20)
     seeds: int = Field(3, ge=1, le=10)
     workers: Optional[int] = None
@@ -312,6 +313,7 @@ class TuneRequest(BaseModel):
     k_max: int = Field(10, ge=2, le=10)
     test_share: float = Field(0.2, ge=0.1, le=0.5)
     family_field: str = "scene"
+    whole_families: bool = False
     n_folds: int = Field(5, ge=2, le=10)
     seed: Optional[int] = None
     workers: Optional[int] = None
@@ -381,6 +383,7 @@ class MassMeanRequest(BaseModel):
     label_b: str
     token_position: int = 1
     family_field: str = "scene"
+    whole_families: bool = False
     created_by: str = "app"
 
 
@@ -600,6 +603,7 @@ def lens_routes(session_id: str, name: str, legacy: bool = False, version: Optio
 
 class RoutesRequest(BaseModel):
     family_field: str = "scene"
+    whole_families: bool = False
     created_by: str = "app"
 
 
@@ -620,9 +624,57 @@ def start_routes(request: Request, session_id: str, name: str, body: RoutesReque
     except (FileNotFoundError, ValueError) as e:
         raise _fail(e)
     scheduler: JobScheduler = request.app.state.jobs
-    job = scheduler.submit("lens_routes", {"session_id": session, "name": name, "family_field": body.family_field},
-                           created_by=body.created_by)
+    job = scheduler.submit("lens_routes", {"session_id": session, "name": name, "family_field": body.family_field,
+                                           "whole_families": body.whole_families}, created_by=body.created_by)
     return {"job_id": job.id, "session_id": session, "name": name}
+
+
+class AxesRequest(BaseModel):
+    family_field: str = "scene"
+    whole_families: bool = False
+    n_folds: int = Field(5, ge=2, le=10)
+    workers: Optional[int] = None
+    created_by: str = "app"
+
+
+@router.post("/sessions/{session_id}/lenses/{name}/axes", status_code=202)
+def start_axes(request: Request, session_id: str, name: str, body: AxesRequest) -> Dict[str, Any]:
+    """The axes analysis of a UMAP lens's capture (DESIGN.md C8), in the background: how many
+    designed attributes each technique recovers, layer by layer, against decoys."""
+    from services.jobs.scheduler import JobScheduler
+    from services.lenses.data import session_dir
+    from services.lenses.store import lens_dir, read_manifest
+
+    try:
+        session = session_dir(session_id).name
+        folder = lens_dir(session, name)
+        if not (folder / "lens.json").exists():
+            raise FileNotFoundError(f"Lens '{name}' not found in {session}")
+        if read_manifest(folder).kind != "umap":
+            raise ValueError(f"'{name}' is a mass-mean lens: the axes analysis reads a UMAP lens's capture")
+    except (FileNotFoundError, ValueError) as e:
+        raise _fail(e)
+    scheduler: JobScheduler = request.app.state.jobs
+    for job in scheduler.store.list():
+        if job.kind == "lens_axes" and job.state in ("queued", "running") and job.params.get("session_id") == session \
+                and job.params.get("name") == name:
+            raise HTTPException(status_code=409, detail=f"The axes of '{name}' are already being worked out ({job.id})")
+    params = body.model_dump(exclude={"created_by"}) | {"session_id": session, "name": name}
+    job = scheduler.submit("lens_axes", params, created_by=body.created_by)
+    return {"job_id": job.id, "session_id": session, "name": name}
+
+
+@router.get("/sessions/{session_id}/lenses/{name}/axes")
+def lens_axes(session_id: str, name: str, version: Optional[str] = None) -> Dict[str, Any]:
+    """The axes analysis, with the UMAP lens's own rows from its validation at `version`."""
+    from services.lenses.axes import serve_axes
+    from services.lenses.store import lens_dir
+
+    view = _open(session_id, name, False, version)
+    try:
+        return serve_axes(lens_dir(session_id, name), view)
+    except (FileNotFoundError, ValueError) as e:
+        raise _fail(e)
 
 
 @router.get("/sessions/{session_id}/lenses/{name}/trajectory")
