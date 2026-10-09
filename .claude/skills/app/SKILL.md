@@ -32,6 +32,7 @@ A view is the app's view state; give only what differs from the defaults, `sessi
 | `rank`, `top` | the expert chart's rank (1 to 4); expert links kept per layer (null for all) |
 | `sel`, `tab` | the selection (`L12C0`, `L12C0>L13C2`, `probe:<id>`), whose path lights up in both charts; the lower tab |
 | `step` | the tick (agent runs) or context step the selection lights: an item stands for its run's item at that step, a node for its members there. A step the lens wasn't built on lights through a reading of it (`/cluster` OP-L8); omit for every step |
+| `d3`, `fill` | `d3: false` folds the 3-D view of the lens's own space (shown by default, between the charts and the tabs); `fill` makes one panel fill the workspace: `charts`, `d3`, `lower` or `side` |
 | `workspace` | `layers` (the default) or `build` |
 
 ## Operations

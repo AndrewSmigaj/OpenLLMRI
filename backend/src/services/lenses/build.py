@@ -58,16 +58,15 @@ def _fit_one(folder: str, layer: int, settings: Dict[str, Any], seed: int) -> Di
     """
     import joblib
 
-    from services.lenses.fit import fit_layer, suggest_k, ward_tree
+    from services.lenses.fit import fit_reducer, suggest_k, ward_tree
 
     states = np.load(Path(folder) / "work" / f"X_L{layer:02d}.npy")
-    reducer, embedding, view = fit_layer(states, settings["n_neighbors"], settings["dimensions"], seed,
-                                         settings["min_dist"])
+    reducer, embedding = fit_reducer(states, settings["n_neighbors"], settings["dimensions"], seed,
+                                     settings["min_dist"])
     reducer._raw_data = None
     joblib.dump(reducer, Path(folder) / "fit" / f"umap_L{layer:02d}.joblib", compress=3)
     tree = ward_tree(embedding)
-    return {"layer": layer, "embedding": embedding, "view": view, "tree": tree,
-            "suggestions": suggest_k(embedding, tree)}
+    return {"layer": layer, "embedding": embedding, "tree": tree, "suggestions": suggest_k(embedding, tree)}
 
 
 def build_lens(params: Dict[str, Any], ctx: Any) -> Dict[str, Any]:
@@ -163,8 +162,7 @@ def _write_lens(tmp: Path, p: LensBuildParams, items: List[Any], layers: List[in
     width = max(int(fits[layer]["embedding"].shape[1]) for layer in layers)
     padded = [np.pad(fits[layer]["embedding"], ((0, 0), (0, width - fits[layer]["embedding"].shape[1])))
               for layer in layers]
-    np.savez_compressed(tmp / "fit" / "embed.npz", embedding=np.stack(padded),
-                        view3d=np.stack([fits[layer]["view"] for layer in layers]))
+    np.savez_compressed(tmp / "fit" / "embed.npz", embedding=np.stack(padded))  # the 3-D view draws this (frame.py)
     np.savez_compressed(tmp / "fit" / "ward.npz", trees=np.stack([fits[layer]["tree"] for layer in layers]))
     experts, weights = own_top4(load_routing(p.session_id, [r.probe_id for r in items], p.token_position))
     np.savez_compressed(tmp / "fit" / "top4.npz", experts=experts, weights=weights.astype(np.float16))

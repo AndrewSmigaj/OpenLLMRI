@@ -7,7 +7,9 @@ import { GRADIENT_SCHEMES, type GradientScheme } from '../color/scheme'
 export const ZOOMS = [6, 12, 24] as const
 export type Zoom = typeof ZOOMS[number]
 export const RANKS = [1, 2, 3, 4] as const
-export type LowerTab = 'members' | 'output' | 'trajectories' | 'experts'
+export type LowerTab = 'members' | 'output' | 'experts'
+export const FILLS = ['charts', 'd3', 'lower', 'side'] as const
+export type Fill = typeof FILLS[number] | '' // a Layers panel filling the workspace (DESIGN.md E2)
 
 export interface ViewState {
   session: string
@@ -25,11 +27,13 @@ export interface ViewState {
   sel: string // the selected node, link ("source>target") or item ("probe:<id>"); '' for none
   step: number | null // the step (an agent's tick, a context step) the selection lights; null for every step
   tab: LowerTab
+  d3: boolean // the 3-D view's panel is shown (folded when false)
+  fill: Fill
 }
 
 export const DEFAULT_VIEW: ViewState = {
   session: '', lens: '', legacy: false, layer: 0, zoom: 6, color: 'label', color2: 'none', fade: '',
-  stripes: false, gradient: 'red-blue', rank: 1, top: 10, sel: '', step: null, tab: 'members',
+  stripes: false, gradient: 'red-blue', rank: 1, top: 10, sel: '', step: null, tab: 'members', d3: true, fill: '',
 }
 
 const isZoom = (n: number): n is Zoom => (ZOOMS as readonly number[]).includes(n)
@@ -59,7 +63,9 @@ export function parseView(params: URLSearchParams): ViewState {
     top: get('top') === 'all' ? null : int('top', DEFAULT_VIEW.top ?? 10, n => n > 0),
     sel: get('sel') ?? '',
     step: step < 0 ? null : step,
-    tab: tab === 'output' || tab === 'trajectories' || tab === 'experts' ? tab : 'members',
+    tab: tab === 'output' || tab === 'experts' ? tab : 'members',
+    d3: get('d3') !== '0',
+    fill: (FILLS as readonly string[]).includes(get('fill') ?? '') ? get('fill') as Fill : '',
   }
 }
 
@@ -83,6 +89,8 @@ export function viewQuery(view: ViewState): URLSearchParams {
   put('sel', view.sel, DEFAULT_VIEW.sel)
   if (view.step !== null) out.set('step', String(view.step))
   put('tab', view.tab, DEFAULT_VIEW.tab)
+  if (!view.d3) out.set('d3', '0')
+  put('fill', view.fill, DEFAULT_VIEW.fill)
   return out
 }
 

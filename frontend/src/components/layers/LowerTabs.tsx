@@ -1,5 +1,5 @@
-// The tabs under the charts: the members of the selection, the output table, and the 3-D
-// trajectories. Only the open tab is drawn; which one is open is kept in the URL.
+// The tabs under the charts: the members of the selection, the output table and the expert
+// fingerprints. Only the open tab is drawn; which one is open is kept in the URL.
 import type { ReactNode } from 'react'
 import type { LowerTab } from '../../hooks/useViewState'
 import PanelErrorBoundary from '../common/PanelErrorBoundary'
@@ -7,7 +7,6 @@ import PanelErrorBoundary from '../common/PanelErrorBoundary'
 const TABS: { id: LowerTab; label: string }[] = [
   { id: 'members', label: 'Members' },
   { id: 'output', label: 'Output' },
-  { id: 'trajectories', label: '3-D trajectories' },
   { id: 'experts', label: 'Expert fingerprints' },
 ]
 
@@ -15,9 +14,10 @@ interface LowerTabsProps {
   tab: LowerTab
   onTab: (tab: LowerTab) => void
   panels: Record<LowerTab, ReactNode>
+  extra?: ReactNode // on the tab bar's right
 }
 
-export default function LowerTabs({ tab, onTab, panels }: LowerTabsProps) {
+export default function LowerTabs({ tab, onTab, panels, extra }: LowerTabsProps) {
   return (
     <div className="h-full flex flex-col bg-white">
       <div className="flex gap-1 px-2 pt-1 border-b border-gray-200 flex-shrink-0">
@@ -28,6 +28,7 @@ export default function LowerTabs({ tab, onTab, panels }: LowerTabsProps) {
             {t.label}
           </button>
         ))}
+        {extra && <span className="ml-auto self-center">{extra}</span>}
       </div>
       <div className="flex-1 min-h-0 overflow-auto p-2">
         <PanelErrorBoundary key={tab} name={TABS.find(t => t.id === tab)?.label ?? tab}>

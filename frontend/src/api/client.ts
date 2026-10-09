@@ -11,7 +11,7 @@ import type {
 import type {
   Fingerprint, JobView, LensBuildBody, LensDetail, LensFlows, LensMembersPage, LensMethods, LensOptions, LensSearch,
   LensSummary, LensMarks, LensNodeDetails, LensVersion, MassMeanDetails, MassMeanValidation, MembersQuery, Population,
-  LensReading, ReadBody, TuneBody, Validation,
+  LensReading, LensTrajectory, ReadBody, TuneBody, Validation,
 } from '../types/lens';
 import type { AnalystTests, Card, QuestionAnswer } from '../types/cards';
 
@@ -239,10 +239,12 @@ class ConceptMriApiClient {
     return this.request<Fingerprint>(`/sessions/${sessionId}/lenses/${encodeURIComponent(name)}/fingerprint?${params}`);
   }
 
-  async getLensTrajectory(sessionId: string, name: string, legacy: boolean): Promise<TrajectoryPointsResponse> {
-    return this.request<TrajectoryPointsResponse>(
-      `/sessions/${sessionId}/lenses/${encodeURIComponent(name)}/trajectory?legacy=${legacy}`);
+  async getLensTrajectory(sessionId: string, name: string, legacy: boolean, reading?: string): Promise<LensTrajectory> {
+    const params = new URLSearchParams({ legacy: String(legacy) });
+    if (reading) params.set('reading', reading);
+    return this.request<LensTrajectory>(`/sessions/${sessionId}/lenses/${encodeURIComponent(name)}/trajectory?${params}`);
   }
+
 
   async getLens(sessionId: string, name: string, legacy: boolean): Promise<LensDetail> {
     return this.request<LensDetail>(`/sessions/${sessionId}/lenses/${encodeURIComponent(name)}?legacy=${legacy}`);

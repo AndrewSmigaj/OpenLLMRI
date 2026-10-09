@@ -23,7 +23,7 @@ router = APIRouter()
 
 # The app's view state (frontend/src/hooks/useViewState.ts), plus which workspace shows it
 VIEW_KEYS = {"session", "lens", "legacy", "layer", "zoom", "color", "color2", "fade", "stripes", "gradient",
-             "rank", "top", "sel", "step", "tab", "workspace"}
+             "rank", "top", "sel", "step", "tab", "d3", "fill", "workspace"}
 
 
 class Command(BaseModel):

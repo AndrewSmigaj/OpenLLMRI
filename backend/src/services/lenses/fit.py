@@ -20,23 +20,10 @@ def _neighbours(n_neighbors: int, n_items: int) -> int:
     return max(2, min(n_neighbors, n_items - 1))
 
 
-def fit_layer(states: Array, n_neighbors: int, dimensions: int, seed: int,
-              min_dist: float = 0.1) -> Tuple[Any, Array, Array]:
-    """Fit the layer's UMAP (returned for saving) and a 3-D UMAP for the trajectory view.
-
-    Returns (reducer, embedding [N, dims] float32, embedding_3d [N, 3] float32).
-    """
-    import umap
-
-    reducer, embedding = fit_reducer(states, n_neighbors, dimensions, seed, min_dist)
-    n = _neighbours(n_neighbors, len(states))
-    view = umap.UMAP(n_components=3, n_neighbors=n, min_dist=0.1, random_state=seed).fit_transform(states)
-    return reducer, embedding, np.asarray(view, dtype=np.float32)
-
-
 def fit_reducer(states: Array, n_neighbors: int, dimensions: int, seed: int,
                 min_dist: float = 0.1) -> Tuple[Any, Array]:
-    """The layer's UMAP alone, and its embedding [N, dims] float32 (validation refits it per fold)."""
+    """The layer's UMAP, saved with the lens, and its embedding [N, dims] float32 (validation
+    refits it per fold)."""
     import umap
 
     n = _neighbours(n_neighbors, len(states))

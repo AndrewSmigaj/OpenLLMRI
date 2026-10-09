@@ -44,6 +44,9 @@ export const FADED_LINK = 0.04;
 const countsOf = (item: SankeyNode | SankeyLink): AxisCounts =>
   ({ label: item.label_distribution ?? {}, ...(item.category_distributions ?? {}) });
 
+// A node's colour as the Sankey draws it without stripes (the 3-D view colours points by node with it)
+export const nodeFill = (node: SankeyNode, colours: SankeyColours): string => distColor(countsOf(node), colours.input);
+
 // Busier links are wider and more opaque (square-root scale)
 function trafficStyle(value: number, maxValue: number): { opacity: number; lineWidth: number } {
   if (maxValue <= 0) return { opacity: 0.3, lineWidth: 1 };

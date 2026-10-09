@@ -93,8 +93,8 @@ def test_errors_name_what_is_missing(client: TestClient) -> None:
 def test_trajectories_and_assignments_come_with_a_lens(client: TestClient) -> None:
     run_job(client, client.post("/api/lenses", json=BODY).json()["job_id"])
     trajectory = client.get(f"/api/sessions/{SESSION}/lenses/synth/trajectory").json()
-    assert trajectory["layers"] == [0, 1, 2] and len(trajectory["points_by_layer"]["0"]) == 40
-    assert set(trajectory["points_by_layer"]["0"][0]) >= {"probe_id", "x", "y", "z", "label"}
+    assert trajectory["layers"] == [0, 1, 2] and len(trajectory["points"]) == 40  # [item][layer][3], in the lens's frame
+    assert set(trajectory["items"][0]) >= {"probe_id", "label", "categories"} and len(trajectory["points"][0][0]) == 3
     flows = client.get(f"/api/sessions/{SESSION}/lenses/synth/flows").json()
     assert len(flows["assignments"]) == 40 and set(flows["assignments"]["p000"]) == {"0", "1", "2"}
 

@@ -69,6 +69,27 @@ export interface LensReading {
   distance: { median_percentile: number[]; far_out: boolean[]; threshold: number; measure: string }
 }
 
+// The 3-D view's points (DESIGN.md E5): every item at every layer in the lens's own frame, each
+// layer lined up with the one before; a reading's items in the same frame
+export interface TrajectoryItem {
+  probe_id: string
+  label: string | null
+  categories: Record<string, string>
+  step: number | null
+  target_word: string | null
+}
+
+export interface LensTrajectory {
+  lens: string
+  legacy: boolean
+  fit: 'lens' | 'separate' // a legacy schema's own 3-D fit is separate from the space it clusters in
+  layers: number[]
+  share: number[] // per layer, the share of the embedding's variance the three directions hold
+  items: TrajectoryItem[]
+  points: [number, number, number][][] // [item][layer]
+  read?: { key: string; items: TrajectoryItem[]; points: [number, number, number][][] }
+}
+
 export interface ReadBody {
   target?: string // the capture to read; the lens's own (its other steps) by default
   key?: string

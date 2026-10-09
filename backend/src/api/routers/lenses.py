@@ -576,30 +576,52 @@ def _write_catalogue(session_id: str, name: str, version: str) -> None:
 
 
 @router.get("/sessions/{session_id}/lenses/{name}/trajectory")
-def lens_trajectory(session_id: str, name: str, legacy: bool = False) -> Dict[str, Any]:
-    """The 3-D points per layer for the trajectory view, in the legacy endpoint's shape."""
+def lens_trajectory(session_id: str, name: str, legacy: bool = False, reading: Optional[str] = None) -> Dict[str, Any]:
+    """The 3-D view's points (DESIGN.md E5): every item at every layer in the lens's own space, on
+    its three main directions, each layer turned to line up with the one before (frame.py), with
+    the items of a reading (`reading`, its key) placed in the same frame. A legacy schema's own
+    3-D fit is lined up the same way, and said to be a separate fit."""
     import numpy as np
 
     from services.lenses.data import session_dir
-    from services.lenses.store import lens_dir
+    from services.lenses.frame import lens_frame
+    from services.lenses.readout import readings_dir, valid_key
+    from services.lenses.store import lens_dir, read_manifest
+    from services.lenses.view import _item_dict
 
+    view = _open(session_id, name, legacy, None)
     try:
         if legacy:
-            folder = session_dir(session_id) / "clusterings" / name
-            points = json.loads((folder / "trajectory_points.json").read_text())
-            meta = json.loads((folder / "meta.json").read_text()) if (folder / "meta.json").exists() else {}
-            return {"schema_name": name, "sample_size": int(meta.get("sample_size") or 0),
-                    "layers": sorted(int(k) for k in points), "points_by_layer": points}
-        view = _open(session_id, name, False, None)
-        view3d = np.load(lens_dir(session_id, name) / "fit" / "embed.npz")["view3d"]
+            points = json.loads((session_dir(session_id) / "clusterings" / name / "trajectory_points.json").read_text())
+            at = [{p["probe_id"]: (p["x"], p["y"], p["z"]) for p in points.get(str(layer), [])} for layer in view.layers]
+            items = [item for item in view.items if all(item["probe_id"] in layer for layer in at)]
+            embeddings = [np.array([layer[item["probe_id"]] for item in items], dtype=np.float64) for layer in at]
+        else:
+            folder = lens_dir(session_id, name)
+            manifest = read_manifest(folder)
+            embed = np.load(folder / "fit" / "embed.npz")["embedding"].astype(np.float64)
+            items = view.items
+            embeddings = [embed[li][:, :min(manifest.settings.at(li).dimensions, len(items) - 1)]
+                          for li in range(len(view.layers))]
+        frame = lens_frame(embeddings)
+
+        def shown(item: Dict[str, Any]) -> Dict[str, Any]:
+            return {key: item.get(key) for key in ("probe_id", "label", "categories", "step", "target_word")}
+
+        out: Dict[str, Any] = {
+            "lens": name, "legacy": legacy, "fit": "separate" if legacy else "lens", "layers": view.layers,
+            "share": frame.shares, "items": [shown(item) for item in items],
+            "points": np.round(np.stack([frame.project(li, e) for li, e in enumerate(embeddings)], axis=1), 4).tolist()}
+        if reading is not None:
+            if legacy or not valid_key(reading) or not (readings_dir(folder) / reading / "read.npz").exists():
+                raise FileNotFoundError(f"Lens '{name}' has no reading {reading!r}")
+            import pyarrow.parquet as pq
+
+            placed = np.load(readings_dir(folder) / reading / "read.npz")["embedding"].astype(np.float64)
+            read_items = [_item_dict(row) for row in pq.read_table(readings_dir(folder) / reading / "items.parquet").to_pylist()]
+            out["read"] = {"key": reading, "items": [shown(item) for item in read_items],
+                           "points": np.round(np.stack([frame.project(li, placed[:, li]) for li in range(len(view.layers))],
+                                                       axis=1), 4).tolist()}
     except (FileNotFoundError, ValueError) as e:
         raise _fail(e)
-    by_layer: Dict[str, List[Dict[str, Any]]] = {}
-    for li, layer in enumerate(view.layers):
-        by_layer[str(layer)] = [
-            {"probe_id": item["probe_id"], "x": float(p[0]), "y": float(p[1]), "z": float(p[2]),
-             "label": item["label"], "target_word": item["target_word"], "step": item.get("step"),
-             "categories_json": json.dumps(item["categories"]) if item["categories"] else None}
-            for item, p in zip(view.items, view3d[li])]
-    return {"schema_name": name, "sample_size": len(view.items), "layers": view.layers,
-            "points_by_layer": by_layer}
+    return out

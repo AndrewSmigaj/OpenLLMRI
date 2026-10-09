@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import type { SankeyLink, SankeyNode } from '../../types/api'
 import { clusterPath, litFlows, litItems } from '../../utils/lighting'
-import { FADED_LINK, FADED_NODE, sankeyOption, topLinks, type SankeyColours } from './sankeyOption'
+import { FADED_LINK, FADED_NODE, nodeFill, sankeyOption, topLinks, type SankeyColours } from './sankeyOption'
 
 // Three items over two layers: a and b take L0C0 → L1C0, c takes L0C1 → L1C1
 const node = (id: string, layer: number, count: number): SankeyNode =>
@@ -14,7 +14,7 @@ const assignments = { a: { '0': 0, '1': 0 }, b: { '0': 0, '1': 0 }, c: { '0': 1,
 const colours: SankeyColours = { input: { axis: 'label', values: ['x'], gradient: 'red-blue' }, output: null, stripes: false }
 const layout = { nodeWidth: 6, left: 0, right: 0, showLabels: true }
 
-type Series = { data: { id: string; value: number; itemStyle: { opacity?: number; borderWidth?: number } }[];
+type Series = { data: { id: string; value: number; itemStyle: { color?: unknown; opacity?: number; borderWidth?: number } }[];
                 links: { source: string; lineStyle: { opacity: number } }[] }
 const seriesOf = (option: ReturnType<typeof sankeyOption>) => (option.series as Series[])[0]
 
@@ -45,5 +45,12 @@ describe('sankeyOption', () => {
     expect(topLinks(links, 1).map(l => l.source)).toEqual(['L0C0'])
     const lit = litFlows(['c'], clusterPath(assignments, [0, 1]))
     expect(topLinks(links, 1, lit).map(l => l.source).sort()).toEqual(['L0C0', 'L0C1'])
+  })
+
+  it("the 3-D view colours a node's points as the Sankey colours the node", () => {
+    const drawn = seriesOf(sankeyOption({ nodes, links, colours, ...layout }))
+    for (const node of nodes) {
+      expect(drawn.data.find(n => n.id === node.id)?.itemStyle.color).toBe(nodeFill(node, colours))
+    }
   })
 })

@@ -1,504 +1,228 @@
-import { useEffect, useRef, useState } from 'react'
+// The 3-D view in the lens's own space (DESIGN.md E5): each item's trajectory through the layers in
+// view, every layer's cloud on the lens's three main directions, lined up with the layer before
+// (the backend's frame), drawn side by side with one scale on all three axes so every cloud keeps
+// its true shape. One chart instance, so the camera survives redraws until Fit; one line series for
+// every trajectory; lit items drawn over faded ones; items read through the lens with their own
+// marker. Colours, the sample and the lit items come from the page, so the view says nothing of
+// any one study.
+import { useEffect, useMemo, useRef, useState } from 'react'
 import * as echarts from 'echarts'
 import 'echarts-gl'
-import type { TrajectoryPoint } from '../../types/api'
-import { paletteColor, pointColor, valueColor, NEUTRAL, type ColourSpec } from '../../color/scheme'
-import { apiClient } from '../../api/client'
-import { ApiError } from '../../api/client'
+import type { LensTrajectory, TrajectoryItem } from '../../types/lens'
+import { layout3d, sample3d, type Point3 } from '../../utils/trajectory3d'
 
-interface Trajectory {
-  probe_id: string
-  target: string
-  label?: string
-  categories?: Record<string, string>
-  coordinates: Array<{ layer: number; dims: number[] }>
-  step?: number
-}
-
-const SHAPE_SYMBOLS = ['circle', 'triangle', 'diamond', 'rect', 'pin', 'arrow']
-
-// A scatter point's value: x, y, z, then the target word, label and probe id that the tooltip and click read back
-type ScatterValue = [number, number, number, string, string, string]
-
-// What an export needs: the drawn chart and one row per item and layer
+// What an export needs: the drawn chart, one row per item and layer, and the camera
 export interface TrajectoryExport {
   chart: echarts.ECharts
   rows: Record<string, unknown>[]
+  camera: Record<string, unknown> | null
+  sample: number
 }
 
 interface SteppedTrajectoryPlotProps {
-  sessionId: string
-  schemaName: string
-  legacy: boolean
-  layers: number[]
-  title?: string
-  colour: ColourSpec // the same colours as the charts
-  colourBy: 'axis' | 'node' // by node: each point takes its node's colour at that layer
-  nodeOf?: (probeId: string, layer: number) => number | undefined
-  fitNote: string // which fit the positions come from
-  shapeAxisId?: string
+  data: LensTrajectory
+  layers: number[] // the layers in view, as the Sankeys show them
+  colourOf: (item: TrajectoryItem, layer: number) => string // a point's colour at a layer
+  groupOf: (item: TrajectoryItem) => string // its colour value, so the sample keeps each value's share
+  nodeOf: (probeId: string, layer: number) => number | undefined
+  shapeOf?: (item: TrajectoryItem) => string | undefined // a value on the shape axis, drawn as a symbol
   shapeValues?: string[]
-  className?: string
-  height?: number
-  maxTrajectories?: number
+  sampleSize: number
+  lit: Set<string> // drawn over everything else, which fades
+  showRead: boolean // draw the reading's items
+  onPick: (probeId: string) => void
   onExportable?: (handle: TrajectoryExport | null) => void
-  onPointClick?: (info: { probe_id: string; target: string; label?: string }) => void
-  selectedProbeId?: string | null
 }
 
-export default function SteppedTrajectoryPlot({
-  sessionId,
-  schemaName,
-  legacy,
-  layers,
-  title,
-  colour,
-  colourBy,
-  nodeOf,
-  fitNote,
-  shapeAxisId,
-  shapeValues,
-  className = '',
-  height = 400,
-  maxTrajectories,
-  onExportable,
-  onPointClick,
-  selectedProbeId,
-}: SteppedTrajectoryPlotProps) {
-  const chartRef = useRef<HTMLDivElement>(null)
-  const chartInstanceRef = useRef<echarts.ECharts | null>(null)
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
-  const [missingArtifact, setMissingArtifact] = useState(false)
-  const [trajectories, setTrajectories] = useState<Trajectory[]>([])
-  const [layerOffset, setLayerOffset] = useState(72)
-  const [showLines, setShowLines] = useState(true)
-  const [pointSize, setPointSize] = useState(2)
-  const [coordScale, setCoordScale] = useState(1)
+// A scatter point's value: x, y, z, then what the tooltip and a click read back
+type PointValue = [number, number, number, string, number, string]
 
-  const onPointClickRef = useRef(onPointClick)
-  onPointClickRef.current = onPointClick
+const READ_MARK = 'diamond'
+const HALO = '#111827'
+const SHAPE_SYMBOLS = ['circle', 'triangle', 'diamond', 'rect', 'pin', 'arrow']
+// The camera starts nearly in front of the layers, which run left to right, and far enough back to
+// fit the scene to the canvas (echarts-gl's camera sees 50 degrees from top to bottom)
+const CAMERA = { alpha: 20, beta: 0 }
+const HALF_FOV = Math.tan((50 / 2) * Math.PI / 180)
+function fitDistance(box: { boxWidth: number; boxDepth: number; boxHeight: number }, width: number, height: number) {
+  const aspect = Math.max(0.2, width / Math.max(1, height))
+  return 1.35 * Math.max(box.boxWidth / 2 / (HALF_FOV * aspect), box.boxHeight / 2 / HALF_FOV) + box.boxDepth / 2
+}
+
+interface Drawn { item: TrajectoryItem; points: Point3[]; read: boolean }
+
+export default function SteppedTrajectoryPlot({ data, layers, colourOf, groupOf, nodeOf, shapeOf, shapeValues, sampleSize,
+                                               lit, showRead, onPick, onExportable }: SteppedTrajectoryPlotProps) {
+  const boxRef = useRef<HTMLDivElement>(null)
+  const chartRef = useRef<echarts.ECharts | null>(null)
+  const placedOnce = useRef(false) // the camera is set on the first draw and by Fit, never by a redraw
+  const [spacing, setSpacing] = useState(1.2)
+  const [scale, setScale] = useState(1)
+  const [pointSize, setPointSize] = useState(3)
+  const [showLines, setShowLines] = useState(true)
+  const [fitTick, setFitTick] = useState(0)
+  const onPickRef = useRef(onPick)
+  onPickRef.current = onPick
   const onExportableRef = useRef(onExportable)
   onExportableRef.current = onExportable
 
-  // The trajectories load when the lens or the layers in view change
-  const layersKey = layers.join(',')
+  // One chart for the life of the view; it follows its panel's size
   useEffect(() => {
-    if (!sessionId || !schemaName || layers.length < 2) return
-    loadTrajectoryData()
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- layersKey stands for layers
-  }, [sessionId, schemaName, legacy, layersKey])
-
-  useEffect(() => {
-    if (trajectories.length === 0 || !chartRef.current) return
-    const removeListeners = initializeChart()
+    if (!boxRef.current) return
+    const chart = echarts.init(boxRef.current)
+    chartRef.current = chart
+    chart.on('click', params => {
+      const value = params.value as PointValue | undefined
+      if (params.seriesType === 'scatter3D' && value?.[3]) onPickRef.current(value[3])
+    })
+    const observer = new ResizeObserver(() => requestAnimationFrame(() => chart.resize()))
+    observer.observe(boxRef.current)
     return () => {
-      removeListeners?.()
+      observer.disconnect()
       onExportableRef.current?.(null)
-      chartInstanceRef.current?.dispose()
-      chartInstanceRef.current = null
+      chart.dispose()
+      chartRef.current = null
+      placedOnce.current = false
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- initializeChart reads exactly these
-  }, [trajectories, colour, colourBy, nodeOf, shapeAxisId, shapeValues, layerOffset, showLines, pointSize, coordScale, selectedProbeId, maxTrajectories])
+  }, [])
 
-  const loadTrajectoryData = async () => {
-    try {
-      setLoading(true)
-      setError(null)
-      setMissingArtifact(false)
+  // The items drawn and their frame points at the layers in view
+  const drawn = useMemo(() => {
+    const at = layers.map(layer => data.layers.indexOf(layer)).filter(li => li >= 0)
+    const pick = (items: TrajectoryItem[], points: Point3[][], read: boolean): Drawn[] =>
+      sample3d(items.map(item => item.probe_id), i => groupOf(items[i]), sampleSize, lit)
+        .map(i => ({ item: items[i], points: at.map(li => points[i][li]), read }))
+    const own = pick(data.items, data.points, false)
+    const read = showRead && data.read ? pick(data.read.items, data.read.points, true) : []
+    return { own, read, layers: at.map(li => data.layers[li]) }
+  }, [data, layers, groupOf, sampleSize, lit, showRead])
 
-      const response = await apiClient.getLensTrajectory(sessionId, schemaName, legacy)
+  useEffect(() => {
+    const chart = chartRef.current
+    if (!chart || !drawn.own.length || drawn.layers.length < 1) return
+    const layout = layout3d(drawn.own.map(d => d.points), spacing, scale)
+    const everything = [...drawn.own, ...drawn.read]
+    const placed = everything.map(d => d.points.map((p, li) => layout.place(p, li)))
+    const all = placed.flat()
+    const range = (i: number): [number, number] => [Math.min(...all.map(p => p[i])), Math.max(...all.map(p => p[i]))]
+    const [x, y, z] = [range(0), range(1), range(2)]
+    const unit = 100 / Math.max(y[1] - y[0], z[1] - z[0], 1e-9) // one scale on all three axes
+    const box = { boxWidth: Math.max(1, unit * (x[1] - x[0])), boxDepth: unit * (y[1] - y[0]), boxHeight: unit * (z[1] - z[0]) }
+    const anyLit = everything.some(d => lit.has(d.item.probe_id))
 
-      const requestedLayers = new Set(layers)
-      const trajectoryMap = new Map<string, Array<TrajectoryPoint & { layer: number }>>()
-
-      for (const [layerStr, points] of Object.entries(response.points_by_layer)) {
-        const layer = parseInt(layerStr, 10)
-        if (!requestedLayers.has(layer)) continue
-        for (const point of points) {
-          if (!trajectoryMap.has(point.probe_id)) trajectoryMap.set(point.probe_id, [])
-          trajectoryMap.get(point.probe_id)!.push({ ...point, layer })
-        }
-      }
-
-      const built: Trajectory[] = Array.from(trajectoryMap.entries()).map(([probeId, points]) => {
-        const sorted = points.sort((a, b) => a.layer - b.layer)
-        const first = sorted[0]
-        let categories: Record<string, string> | undefined
-        if (first?.categories_json) {
-          try { categories = JSON.parse(first.categories_json) } catch { /* ignore */ }
-        }
-        return {
-          probe_id: probeId,
-          target: first?.target_word || '',
-          label: first?.label,
-          categories,
-          step: first?.step,
-          coordinates: sorted.map(p => ({ layer: p.layer, dims: [p.x, p.y, p.z] })),
-        }
-      })
-
-      setTrajectories(built)
-    } catch (err) {
-      if (err instanceof ApiError && err.status === 404) {
-        setMissingArtifact(true)
-      } else {
-        console.error('Failed to load trajectory data:', err)
-        setError(err instanceof Error ? err.message : 'Failed to load trajectory data')
-      }
-    } finally {
-      setLoading(false)
+    // A point's symbol: its shape-axis value's, else a read item's own marker; with a shape axis,
+    // read items keep their value's symbol and are outlined instead
+    const shaped = !!shapeOf && !!shapeValues?.length
+    const symbolOf = (d: Drawn) => {
+      const i = shaped ? shapeValues!.indexOf(shapeOf!(d.item) ?? '') : -1
+      return i >= 0 ? SHAPE_SYMBOLS[i % SHAPE_SYMBOLS.length] : d.read && !shaped ? READ_MARK : 'circle'
     }
-  }
-
-  const getAxisValue = (t: Trajectory, axisId?: string): string | undefined => {
-    if (!axisId) return undefined
-    if (axisId === 'label') return t.label
-    if (axisId === 'target_word') return t.target
-    if (axisId === 'step') return t.step != null ? String(t.step) : undefined
-    return t.categories?.[axisId]
-  }
-
-  // An item's colour by the colour spec, from its value on each axis the spec uses
-  const getTrajectoryColor = (trajectory: Trajectory) => {
-    const axes = [colour.axis, colour.lightness?.axis, colour.fade?.axis].filter((a): a is string => !!a)
-    const values = Object.fromEntries(axes.map(a => [a, getAxisValue(trajectory, a)]))
-    return values[colour.axis] === undefined ? NEUTRAL : pointColor(values, colour)
-  }
-  // By node, a point takes its node's colour at that layer (as numbered in the Sankey)
-  const pointColorAt = (trajectory: Trajectory, layer: number, lineColor: string) => {
-    if (colourBy !== 'node') return lineColor
-    const node = nodeOf?.(trajectory.probe_id, layer)
-    return node === undefined ? NEUTRAL : paletteColor(node)
-  }
-
-  const initializeChart = () => {
-    if (!chartRef.current || trajectories.length === 0) return
-
-    if (chartInstanceRef.current) {
-      chartInstanceRef.current.dispose()
-    }
-
-    const chart = echarts.init(chartRef.current)
-    chartInstanceRef.current = chart
-
-    const layerOffsetStep = layerOffset
-
-    let renderedTrajectories = trajectories
-    if (maxTrajectories != null && maxTrajectories < trajectories.length) {
-      const sorted = [...trajectories].sort((a, b) => a.probe_id.localeCompare(b.probe_id))
-      renderedTrajectories = sorted.slice(0, maxTrajectories)
-    }
-
-    const actualLayers = Array.from(new Set(
-      renderedTrajectories.flatMap(t => t.coordinates.map(c => c.layer))
-    )).sort((a, b) => a - b)
-
-    // Cross-product grouping: (colorGroup, shapeGroup) → separate series
-    const crossGroups = new Map<string, { trajectories: Trajectory[]; colorKey: string; shapeKey: string }>()
-
-    renderedTrajectories.forEach((trajectory) => {
-      const colorKey = getAxisValue(trajectory, colour.axis) || 'Unknown'
-      const shapeKey = shapeAxisId ? (getAxisValue(trajectory, shapeAxisId) || 'Unknown') : '_none'
-      const groupKey = `${colorKey}|${shapeKey}`
-      if (!crossGroups.has(groupKey)) {
-        crossGroups.set(groupKey, { trajectories: [], colorKey, shapeKey })
-      }
-      crossGroups.get(groupKey)!.trajectories.push(trajectory)
+    const pointsOf = (ds: Drawn[], offset: number, lighted: boolean) => ds.flatMap((d, k) => {
+      if (anyLit ? lit.has(d.item.probe_id) !== lighted : lighted) return []
+      return placed[offset + k].map((p, li) => ({
+        value: [...p, d.item.probe_id, drawn.layers[li], d.read ? 'read' : 'lens'] as PointValue,
+        symbol: symbolOf(d),
+        itemStyle: { color: colourOf(d.item, drawn.layers[li]), opacity: anyLit && !lighted ? 0.08 : 0.9,
+                     ...(d.read && shaped ? { borderWidth: 1, borderColor: '#111827' } : {}) },
+      }))
     })
-
-    // echarts-gl's series (line3D, scatter3D, surface) ship no types
-    const series: Record<string, unknown>[] = []
-    const allScatterData: Record<string, unknown>[] = []
-    const legendNames: string[] = []
-
-    crossGroups.forEach(({ trajectories: groupTrajectories, colorKey, shapeKey }) => {
-      const shapeIndex = shapeValues ? shapeValues.indexOf(shapeKey) : -1
-      const symbol = shapeIndex >= 0 ? SHAPE_SYMBOLS[shapeIndex % SHAPE_SYMBOLS.length] : 'circle'
-      const groupColor = valueColor(colorKey, colour.values, colour.gradient)
-      const legendName = shapeAxisId && shapeKey !== '_none'
-        ? `${colorKey} · ${shapeKey} (${groupTrajectories.length})`
-        : `${colorKey} (${groupTrajectories.length})`
-
-      legendNames.push(legendName)
-
-      groupTrajectories.forEach((trajectory) => {
-        const lineColor = colourBy === 'node' ? NEUTRAL : getTrajectoryColor(trajectory)
-        const isSelected = !selectedProbeId || trajectory.probe_id === selectedProbeId
-        const pointOpacity = isSelected ? 0.95 : 0.1
-        const lineOpacity = isSelected ? 0.9 : 0.08
-
-        trajectory.coordinates.forEach((coord) => {
-          const layerIndex = actualLayers.indexOf(coord.layer)
-          const xOffset = layerIndex * layerOffsetStep
-
-          allScatterData.push({
-            value: [
-              (coord.dims[0] || 0) * coordScale + xOffset,
-              (coord.dims[1] || 0) * coordScale,
-              (coord.dims[2] || 0) * coordScale,
-              trajectory.target,
-              trajectory.label || '',
-              trajectory.probe_id,
-            ],
-            itemStyle: { color: pointColorAt(trajectory, coord.layer, lineColor), opacity: pointOpacity },
-            symbol: symbol,
-            symbolSize: pointSize,
-          })
-        })
-
-        if (showLines && trajectory.coordinates.length > 1) {
-          const trajectoryLineData = trajectory.coordinates.map((coord) => {
-            const layerIndex = actualLayers.indexOf(coord.layer)
-            const xOffset = layerIndex * layerOffsetStep
-            return [(coord.dims[0] || 0) * coordScale + xOffset, (coord.dims[1] || 0) * coordScale, (coord.dims[2] || 0) * coordScale]
-          })
-
-          series.push({
-            type: 'line3D',
-            data: trajectoryLineData,
-            lineStyle: {
-              color: lineColor,
-              width: 1.5,
-              opacity: colourBy === 'node' ? lineOpacity * 0.4 : lineOpacity,
-            },
-            silent: true,
-            animation: false,
-            legendHoverLink: false,
-            emphasis: { disabled: true },
-          })
-        }
-      })
-
-      // Legend-only series (no data — just for legend entry)
-      series.push({
-        type: 'scatter3D',
-        coordinateSystem: 'cartesian3D',
-        name: legendName,
-        data: [],
-        itemStyle: { color: groupColor, opacity: 0.8 },
-        symbol: symbol,
-        symbolSize: pointSize,
-      })
+    // Every trajectory in one polyline: between two trajectories, a fully transparent bridge
+    const lineOf = (lighted: boolean, halo = false) => everything.flatMap((d, k) => {
+      if (anyLit ? lit.has(d.item.probe_id) !== lighted : lighted) return []
+      const opacity = lighted ? 0.95 : anyLit ? 0.025 : 0.35 // faded lines pile up in bundles, so they fade far
+      const steps = placed[k].map((p, li) => ({ value: p, lineStyle: { color: halo ? HALO : colourOf(d.item, drawn.layers[li]), opacity } }))
+      return [{ value: steps[0].value, lineStyle: { color: steps[0].lineStyle.color, opacity: 0 } }, ...steps,
+              { value: steps[steps.length - 1].value, lineStyle: { color: steps[0].lineStyle.color, opacity: 0 } }]
     })
-
-    // Shuffle scatter data so neither class dominates at shared depths
-    for (let i = allScatterData.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [allScatterData[i], allScatterData[j]] = [allScatterData[j], allScatterData[i]]
-    }
-
-    series.push({
-      type: 'scatter3D',
-      coordinateSystem: 'cartesian3D',
-      data: allScatterData,
-      symbolSize: pointSize,
-      itemStyle: { opacity: 0.8 },
+    const scatter = (name: string, values: ReturnType<typeof pointsOf>, symbol: string, size: number) =>
+      ({ type: 'scatter3D', name, data: values, symbol, symbolSize: size, emphasis: { itemStyle: { opacity: 1 } } })
+    const line = (name: string, values: ReturnType<typeof lineOf>, width: number) =>
+      ({ type: 'line3D', name, data: values, lineStyle: { width }, silent: true, animation: false })
+    const labels = drawn.layers.map((layer, li) => ({
+      value: [layout.origins[li], y[1], z[1]], label: { show: true, formatter: `L${layer}`, fontSize: 11, color: '#374151' },
+    }))
+    // A lit path keeps its colours over a dark halo, so it stands out of bundles of the same colour
+    const series: Record<string, unknown>[] = [
+      ...(showLines ? [line('trajectories', lineOf(false), 1), line('lit halo', lineOf(true, true), 6), line('lit', lineOf(true), 3)] : []),
+      scatter('items', pointsOf(drawn.own, 0, false), 'circle', pointSize),
+      scatter('read', pointsOf(drawn.read, drawn.own.length, false), READ_MARK, pointSize + 1),
+      scatter('lit items', pointsOf(drawn.own, 0, true), 'circle', pointSize + 3),
+      scatter('lit read', pointsOf(drawn.read, drawn.own.length, true), READ_MARK, pointSize + 4),
+      { type: 'scatter3D', name: 'layers', data: labels, symbolSize: 0, silent: true },
+    ]
+    const hidden = { axisLabel: { show: false }, axisTick: { show: false }, splitLine: { show: false },
+                     axisLine: { lineStyle: { color: '#d1d5db' } }, axisPointer: { show: false }, name: '' }
+    const distance = fitDistance(box, boxRef.current?.clientWidth ?? 800, boxRef.current?.clientHeight ?? 300)
+    const camera = { ...CAMERA, distance, minDistance: 5, maxDistance: distance * 8 }
+    chart.setOption({
       tooltip: {
         formatter: (params: echarts.DefaultLabelFormatterCallbackParams) => {
-          const [x, y, , target, label] = params.value as ScatterValue
-          return `
-            <strong>${target}</strong><br/>
-            Label: ${label}<br/>
-            Coords: (${x.toFixed(3)}, ${y.toFixed(3)})<br/>
-            <em>Click for sentence</em>
-          `
+          const [, , , probeId, layer, kind] = params.value as PointValue
+          if (!probeId) return ''
+          const item = everything.find(d => d.item.probe_id === probeId)?.item
+          const node = nodeOf(probeId, layer)
+          return `<strong>${item?.label ?? ''}</strong> · ${probeId}<br/>L${layer}${node !== undefined ? ` · node C${node}` : ''}
+            ${kind === 'read' ? '<br/>read through the lens' : ''}<br/><em>Click to light its path</em>`
         },
       },
-    })
-
-    actualLayers.forEach((_layer, index) => {
-      const xOffset = index * layerOffsetStep
-
-      series.push({
-        type: 'line3D',
-        data: [
-          [xOffset, 0, -10],
-          [xOffset, 0, 10],
-        ],
-        lineStyle: { color: '#333333', width: 2, opacity: 0.6 },
-        silent: true,
-        animation: false,
-        emphasis: { disabled: true },
-      })
-
-      series.push({
-        type: 'surface',
-        silent: true,
-        parametric: true,
-        wireframe: {
-          show: true,
-          lineStyle: { color: '#e0e0e0', width: 1, opacity: 0.2 },
-        },
-        itemStyle: { color: '#f8f8f8', opacity: 0.02 },
-        parametricEquation: {
-          u: { min: -8, max: 8, step: 16 },
-          v: { min: -8, max: 8, step: 16 },
-          x: () => xOffset,
-          y: (u: number) => u,
-          z: (_u: number, v: number) => v,
-        },
-      })
-    })
-
-    const resolvedTitle = title
-      ?? `${trajectories[0]?.target || 'Items'} across layers — coloured by ${colourBy === 'node' ? 'node' : colour.axis}`
-
-    const option = {
-      title: {
-        text: resolvedTitle,
-        left: 'center',
-        top: 10,
-        textStyle: { fontSize: 14, fontWeight: 'bold' },
-      },
-      tooltip: { trigger: 'item' },
-      legend: {
-        show: true,
-        orient: 'vertical',
-        left: 'right',
-        top: 'middle',
-        data: legendNames,
-        textStyle: { fontSize: 10 },
-      },
-      xAxis3D: { type: 'value', name: 'Dim 1', nameTextStyle: { fontSize: 10 } },
-      yAxis3D: { type: 'value', name: 'Dim 2', nameTextStyle: { fontSize: 10 } },
-      zAxis3D: { type: 'value', name: 'Dim 3', nameTextStyle: { fontSize: 10 } },
+      xAxis3D: { type: 'value', min: x[0], max: x[1], ...hidden },
+      yAxis3D: { type: 'value', min: y[0], max: y[1], ...hidden },
+      zAxis3D: { type: 'value', min: z[0], max: z[1], ...hidden },
       grid3D: {
-        boxWidth: (actualLayers.length - 1) * layerOffsetStep + 200,
-        boxHeight: 200,
-        boxDepth: 200,
-        viewControl: { autoRotate: false, distance: 300, alpha: 25, beta: 35 },
-        light: {
-          main: { intensity: 1.0, shadow: true, shadowQuality: 'medium' },
-          ambient: { intensity: 0.4 },
-        },
+        ...box, axisPointer: { show: false },
+        ...(placedOnce.current ? {} : { viewControl: camera }),
+        light: { main: { intensity: 1.0 }, ambient: { intensity: 0.5 } },
       },
-      series: series,
-    }
+      series,
+    }, { replaceMerge: ['series'] })
+    placedOnce.current = true
 
-    chart.setOption(option)
-
-    chart.on('click', (params: echarts.ECElementEvent) => {
-      if (params.seriesType === 'scatter3D' && onPointClickRef.current && params.value) {
-        const [, , , target, label, probeId] = params.value as ScatterValue
-        if (probeId) {
-          onPointClickRef.current({ probe_id: probeId, target, label })
-        }
-      }
-    })
-
+    const viewControl = (chart.getOption() as { grid3D?: { viewControl?: Record<string, unknown> }[] }).grid3D?.[0]?.viewControl
     onExportableRef.current?.({
-      chart,
-      rows: renderedTrajectories.flatMap(t => t.coordinates.map(c => ({
-        probe_id: t.probe_id, label: t.label, target: t.target, step: t.step, ...t.categories,
-        layer: c.layer, x: c.dims[0], y: c.dims[1], z: c.dims[2],
+      chart, sample: sampleSize,
+      camera: viewControl ? { alpha: viewControl.alpha, beta: viewControl.beta, distance: viewControl.distance } : null,
+      rows: everything.flatMap(d => d.points.map((p, li) => ({
+        probe_id: d.item.probe_id, label: d.item.label, step: d.item.step, ...d.item.categories,
+        layer: drawn.layers[li], node: nodeOf(d.item.probe_id, drawn.layers[li]), colour: colourOf(d.item, drawn.layers[li]),
+        frame_1: p[0], frame_2: p[1], frame_3: p[2], lit: lit.has(d.item.probe_id), read: d.read,
       }))),
     })
+  }, [drawn, spacing, scale, pointSize, showLines, colourOf, nodeOf, shapeOf, shapeValues, lit, sampleSize])
 
-    const handleResize = () => { chart.resize() }
-    window.addEventListener('resize', handleResize)
+  // Fit puts the camera back where it starts, fitted to the panel's size now
+  useEffect(() => {
+    if (!fitTick || !chartRef.current) return
+    const grid = (chartRef.current.getOption() as { grid3D?: { boxWidth: number; boxDepth: number; boxHeight: number }[] }).grid3D?.[0]
+    if (!grid) return
+    const distance = fitDistance(grid, boxRef.current?.clientWidth ?? 800, boxRef.current?.clientHeight ?? 300)
+    chartRef.current.setOption({ grid3D: { viewControl: { ...CAMERA, distance, maxDistance: distance * 8 } } })
+  }, [fitTick])
 
-    return () => {
-      window.removeEventListener('resize', handleResize)
-    }
-  }
-
-  if (loading) {
-    return (
-      <div className={`flex items-center justify-center ${className}`} style={{ height }}>
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mb-2"></div>
-          <p className="text-sm text-gray-600">Loading trajectories...</p>
-        </div>
-      </div>
-    )
-  }
-
-  if (missingArtifact) {
-    return (
-      <div className={`flex items-center justify-center ${className}`} style={{ height }}>
-        <div className="text-center max-w-md">
-          <p className="text-sm text-gray-600">
-            This schema was built before trajectory points were persisted.
-            Rebuild via <code>/cluster</code> OP-5 + OP-1 to enable the trajectory plot.
-          </p>
-        </div>
-      </div>
-    )
-  }
-
-  if (error) {
-    return (
-      <div className={`flex items-center justify-center ${className}`} style={{ height }}>
-        <div className="text-center">
-          <p className="text-sm text-red-600">Error: {error}</p>
-        </div>
-      </div>
-    )
-  }
-
+  const range = 'w-20 accent-blue-600'
   return (
-    <div className={className}>
-      <div className="mb-2 flex flex-wrap items-center gap-4">
-        <div className="flex items-center gap-1">
-          <label className="text-xs text-gray-500">Spacing:</label>
-          <input
-            type="range"
-            min="20"
-            max="150"
-            value={layerOffset}
-            onChange={(e) => setLayerOffset(Number(e.target.value))}
-            className="w-20"
-          />
-        </div>
-        <div className="flex items-center gap-1">
-          <label className="text-xs text-gray-500">Scale:</label>
-          <input
-            type="range"
-            min="0.1"
-            max="2"
-            step="0.1"
-            value={coordScale}
-            onChange={(e) => setCoordScale(Number(e.target.value))}
-            className="w-20"
-          />
-        </div>
-        <div className="flex items-center gap-1">
-          <label className="text-xs text-gray-500">Points:</label>
-          <input
-            type="range"
-            min="0"
-            max="8"
-            step="0.5"
-            value={pointSize}
-            onChange={(e) => setPointSize(Number(e.target.value))}
-            className="w-20"
-          />
-          <span className="text-xs text-gray-400 w-4">{pointSize}</span>
-        </div>
-        <label className="flex items-center gap-1 text-xs text-gray-500 cursor-pointer">
-          <input
-            type="checkbox"
-            checked={showLines}
-            onChange={(e) => setShowLines(e.target.checked)}
-            className="w-3 h-3 cursor-pointer"
-          />
+    <div className="h-full flex flex-col min-h-0">
+      <div className="flex flex-wrap items-center gap-3 text-xs text-gray-500 flex-shrink-0">
+        <label className="flex items-center gap-1" title="The gap between layers, as a factor on the gap that keeps clouds apart">
+          Spacing
+          <input type="range" min="1" max="5" step="0.1" value={spacing} onChange={e => setSpacing(Number(e.target.value))} className={range} />
+        </label>
+        <label className="flex items-center gap-1" title="Each cloud's size, the same on all three axes, so its shape holds">
+          Scale
+          <input type="range" min="0.5" max="3" step="0.1" value={scale} onChange={e => setScale(Number(e.target.value))} className={range} />
+        </label>
+        <label className="flex items-center gap-1">
+          Points
+          <input type="range" min="1" max="10" step="0.5" value={pointSize} onChange={e => setPointSize(Number(e.target.value))} className={range} />
+        </label>
+        <label className="flex items-center gap-1 cursor-pointer">
+          <input type="checkbox" checked={showLines} onChange={e => setShowLines(e.target.checked)} className="w-3 h-3" />
           Lines
         </label>
+        <button onClick={() => setFitTick(t => t + 1)} className="px-1.5 py-0.5 rounded bg-gray-100 text-gray-700 hover:bg-gray-200"
+          title="Put the camera back where it starts">Fit</button>
+        {showRead && data.read && <span className="text-gray-400">◆ read through the lens</span>}
       </div>
-      <div
-        ref={chartRef}
-        style={{ height, width: '100%' }}
-      />
-      {trajectories.length > 0 && (
-        <div className="mt-2 text-xs text-gray-500 text-center">
-          {trajectories.length} trajectories across layers {Array.from(new Set(
-            trajectories.flatMap(t => t.coordinates.map(c => c.layer))
-          )).sort((a, b) => a - b).join('→')} • colours: {colourBy === 'node'
-            ? "each point's node at its layer (as numbered in the Sankey)"
-            : `${colour.axis}${colour.lightness ? ` × ${colour.lightness.axis}` : ''}`} • positions: {fitNote}
-        </div>
-      )}
+      <div ref={boxRef} className="flex-1 min-h-0" />
     </div>
   )
 }

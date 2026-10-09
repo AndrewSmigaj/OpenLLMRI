@@ -12,7 +12,11 @@ import { useCardList } from '../hooks/useCard'
 import { useLensDetails } from '../hooks/useLensDetails'
 import { useLensMarks } from '../hooks/useLensMarks'
 import { useSelectionMembers } from '../hooks/useSelectionMembers'
-import { useViewState, ZOOMS, type UpdateView, type ViewState } from '../hooks/useViewState'
+import { useViewState, ZOOMS, type Fill, type UpdateView, type ViewState } from '../hooks/useViewState'
+import { useLensTrajectory } from '../hooks/useLensTrajectory'
+import { NEUTRAL, pointColor } from '../color/scheme'
+import { nodeFill } from '../components/charts/sankeyOption'
+import type { TrajectoryItem } from '../types/lens'
 import { useShell } from '../components/shell/shellContext'
 import { chartPng, chartSvg, dataJson, download, rowsCsv, sankeyRows, type ExportFormat, type Recipe } from '../utils/exportFigure'
 import { columnsOf, lastFirst, stepsInView } from '../utils/layerGeometry'
@@ -43,6 +47,7 @@ const NO_AXES: DynamicAxis[] = []
 const NO_SENTENCES: ProbeExample[] = []
 const NO_LAYERS: number[] = []
 const NO_VALUES: string[] = []
+const DEFAULT_SAMPLE = 600 // trajectories drawn in 3-D until the slider asks for more
 const nameOf = (selection: Selection | null) => selection?.kind === 'node' ? selection.id
   : selection?.kind === 'link' ? `${selection.source} → ${selection.target}` : ''
 
@@ -62,9 +67,9 @@ export default function LayersWorkspace() {
 
 function LayersView({ view, update, visitor }: { view: ViewState; update: UpdateView; visitor: boolean }) {
   const [output, setOutput] = useState<OutputColour>(DEFAULT_OUTPUT_COLOUR)
-  const [maxTrajectories, setMaxTrajectories] = useState<number | null>(null) // null draws every item
+  const [maxTrajectories, setMaxTrajectories] = useState<number | null>(null) // null draws the default sample
   const trajectoryExport = useRef<TrajectoryExport | null>(null)
-  const [trajectoryColour, setTrajectoryColour] = useState<'axis' | 'node'>('axis')
+  const [trajectoryColour, setTrajectoryColour] = useState<'axis' | 'node'>('node')
   const grouping = outputGroupingOf(output)
   const cluster = useLensFlows(view.session, view.lens, view.legacy, 'cluster', 1, grouping)
   const expert = useLensFlows(view.session, view.lens, view.legacy, 'expert', view.rank, grouping)
@@ -163,9 +168,29 @@ function LayersView({ view, update, visitor }: { view: ViewState; update: Update
   const pickedNode = selection?.kind === 'node' ? parseNodeId(selection.id) : null
   const selectedClusterNode = pickedNode?.kind === 'cluster' ? { layer: pickedNode.layer, node: pickedNode.index } : undefined
   const clusterPath = shownProbe ? routes?.probe_assignments?.[shownProbe] : undefined
-  // Each item's node at a layer, for colouring the 3-D points by what the lens counts
-  const nodeOf = useCallback((probeId: string, layer: number) => routes?.probe_assignments?.[probeId]?.[String(layer)],
-    [routes])
+  // The 3-D view (DESIGN.md E5): the lens's own space, with the shown reading's items in it
+  const trajectory = useLensTrajectory(view.session, view.lens, view.legacy, reading ? stepReading.listed?.key : undefined)
+  const nodeOf = useCallback((probeId: string, layer: number) => maps.assignments[probeId]?.[String(layer)], [maps])
+  // A point's colour: its node's, as the Sankey draws the node, or its own value on the colour axis
+  const nodeColours = useMemo(() => Object.fromEntries((routes?.nodes ?? []).map(n =>
+    [n.id, nodeFill(n, { input: axes.input, output: axes.output, stripes: false })])), [routes, axes.input, axes.output])
+  const valueOf = useCallback((item: TrajectoryItem, axis: string) => axis === 'label' ? item.label ?? undefined
+    : axis === 'step' ? (item.step === null ? undefined : String(item.step)) : item.categories?.[axis], [])
+  const colourOf = useCallback((item: TrajectoryItem, layer: number) => {
+    if (trajectoryColour === 'node') {
+      const node = maps.assignments[item.probe_id]?.[String(layer)]
+      return node === undefined ? NEUTRAL : nodeColours[`L${layer}C${node}`] ?? NEUTRAL
+    }
+    const spec = axes.input
+    const values = Object.fromEntries([spec.axis, spec.lightness?.axis, spec.fade?.axis]
+      .filter((a): a is string => !!a).map(a => [a, valueOf(item, a)]))
+    return values[spec.axis] === undefined ? NEUTRAL : pointColor(values, spec)
+  }, [trajectoryColour, maps, nodeColours, axes.input, valueOf])
+  const groupOf = useCallback((item: TrajectoryItem) => valueOf(item, axes.input.axis) ?? '', [valueOf, axes.input.axis])
+  const shapeAxisId = axes.shapeAxis?.id
+  const shapeOf = useMemo(() => (shapeAxisId ? (item: TrajectoryItem) => valueOf(item, shapeAxisId) : undefined),
+    [shapeAxisId, valueOf])
+  const litSet = useMemo(() => new Set(litList), [litList])
 
   const colours = useMemo(() => ({ input: axes.input, output: axes.output, stripes: axes.stripes }),
     [axes.input, axes.output, axes.stripes])
@@ -194,15 +219,22 @@ function LayersView({ view, update, visitor }: { view: ViewState; update: Update
     const handle = trajectoryExport.current
     if (!handle) return
     const made = { ...recipe(`3-D trajectories, layers ${layersInView.join(', ')}`, cluster.flows?.recipe),
-      fit: "the lens's own 3-D fit, separate from the 6-D one it clusters in" }
+      frame: { fit: trajectory.data?.fit, note: frameNote, share: trajectory.data?.share }, camera: handle.camera,
+      sample: handle.sample, lit: litList.length, reading: trajectory.data?.read?.key ?? null }
     const name = `${baseName}_trajectories_L${layersInView[0]}-${layersInView[layersInView.length - 1]}`
     if (format === 'png') download(`${name}.png`, chartPng(handle.chart, made))
     if (format === 'csv') download(`${name}.csv`, rowsCsv(handle.rows, made))
     if (format === 'json') download(`${name}.json`, dataJson({ points: handle.rows }, made))
   }
 
-  const sampleSize = context.summary?.sample_size ?? routes?.statistics.total_probes ?? 0
-  const shownTrajectories = Math.min(maxTrajectories ?? sampleSize, sampleSize)
+  const sampleSize = trajectory.data?.items.length ?? context.summary?.sample_size ?? routes?.statistics.total_probes ?? 0
+  const shownTrajectories = Math.min(maxTrajectories ?? DEFAULT_SAMPLE, sampleSize)
+  // What the 3-D positions are, for the panel and the export's recipe
+  const inView = trajectory.data ? layersInView.map(l => trajectory.data!.layers.indexOf(l)).filter(i => i >= 0) : []
+  const shares = inView.map(i => trajectory.data!.share[i])
+  const frameNote = trajectory.data?.fit === 'separate'
+    ? "the schema's own 3-D fit, separate from the space it clusters in; each layer lined up with the one before"
+    : `the lens's own space on its three main directions (${shares.length ? `${Math.round(100 * Math.min(...shares))}–${Math.round(100 * Math.max(...shares))}% of the variance` : ''}); each layer lined up with the one before`
   const selectionName = nameOf(selection)
 
   // The analysis panel (DESIGN.md E8): the report on the selection, or on the lens when nothing is
@@ -265,105 +297,151 @@ function LayersView({ view, update, visitor }: { view: ViewState; update: Update
       <FingerprintPanel session={view.session} lens={view.lens} legacy={view.legacy} axes={axes.axisValues}
         selectedNode={selectedClusterNode} />
     ),
-    trajectories: (
-      <div className="space-y-1">
-        <div className="flex items-center gap-2 text-xs text-gray-600">
-          <span>Trajectories</span>
-          {sampleSize > 0 && (
-            <input type="range" min={Math.min(10, sampleSize)} max={sampleSize} step={1} value={shownTrajectories}
-              onChange={e => setMaxTrajectories(Number(e.target.value))} className="w-40 accent-blue-600"
-              title="How many items to draw in the 3-D plot" />
-          )}
-          <span className="tabular-nums">{shownTrajectories} / {sampleSize}</span>
-          <label className="flex items-center gap-1">
-            Colour by
-            <select value={trajectoryColour} onChange={e => setTrajectoryColour(e.target.value as 'axis' | 'node')}
-              className="px-1 py-0.5 text-xs border border-gray-300 rounded bg-white">
-              <option value="axis">{axes.input.axis}</option>
-              <option value="node">node</option>
-            </select>
-          </label>
-          <span className="text-gray-400">layers {layersInView[0]}–{layersInView[layersInView.length - 1]}</span>
-          <ExportMenu formats={['png', 'csv', 'json']} onExport={exportTrajectories} />
-        </div>
-        {layersInView.length >= 2 && (
-          <SteppedTrajectoryPlot sessionId={view.session} schemaName={view.lens} legacy={view.legacy}
-            layers={layersInView} colour={axes.input} colourBy={trajectoryColour} nodeOf={nodeOf}
-            fitNote={view.legacy ? "the schema's own 3-D fit, separate from the 6-D one it clusters in"
-              : "a 3-D UMAP of each layer with the lens's neighbours and seed, separate from the 6-D one it clusters in"}
-            shapeAxisId={axes.shapeAxis?.id} shapeValues={axes.shapeAxis?.values} height={360} maxTrajectories={shownTrajectories}
-            selectedProbeId={selectedProbe} onPointClick={info => pick(info.probe_id, '')}
-            onExportable={handle => { trajectoryExport.current = handle }} />
-        )}
-      </div>
-    ),
   }
 
   const btn = (on: boolean) => `px-1.5 py-0.5 text-[11px] rounded ${on ? 'bg-gray-800 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`
+  // Any panel can fill the workspace and come back (DESIGN.md E2)
+  const fillButton = (id: Fill) => (
+    <button onClick={() => update({ fill: view.fill === id ? '' : id })} aria-label={view.fill === id ? 'Back to the layout' : 'Fill the workspace'}
+      title={view.fill === id ? 'Back to the layout' : 'Fill the workspace'}
+      className="px-1 text-[13px] leading-none text-gray-400 hover:text-gray-800">{view.fill === id ? '⤡' : '⤢'}</button>
+  )
 
+  const toolbar = (
+    <div className="flex flex-wrap items-center gap-3 px-2 py-1 border-b border-gray-200 bg-gray-50">
+      <span className="flex items-center gap-1 text-[11px] text-gray-600">
+        Steps in view
+        {ZOOMS.map(zoom => <button key={zoom} onClick={() => update({ zoom })} className={btn(view.zoom === zoom)}
+          aria-label={`${zoom} steps in view`}>{zoom}</button>)}
+      </span>
+      <span className={`flex items-center gap-1 text-[11px] text-gray-600 ${visitor ? 'opacity-50 pointer-events-none' : ''}`}>
+        Expert links
+        <button onClick={() => update({ top: view.top ?? 10 })} className={btn(view.top !== null)}>top</button>
+        {view.top !== null && (
+          <input type="number" min={1} max={100} value={view.top}
+            onChange={e => update({ top: Math.max(1, Number(e.target.value) || 1) }, { replace: true })}
+            className="w-12 px-1 py-0.5 text-[11px] border border-gray-300 rounded" />
+        )}
+        <button onClick={() => update({ top: null })} className={btn(view.top === null)}>all</button>
+      </span>
+      {allSteps.length > 1 && (
+        <StepControl label={stepLabel} steps={allSteps} step={view.step} onStep={step => update({ step })}
+          reading={stepReading} disabled={visitor} />
+      )}
+      <button onClick={() => update({ d3: !view.d3, fill: view.fill === 'd3' ? '' : view.fill })} className={btn(view.d3)}
+        title="The 3-D view of the lens's own space, between the charts and the tabs">3-D</button>
+      <ColourControls axes={axes} disabled={visitor} />
+    </div>
+  )
+  const legend = (
+    <div className="px-2 py-1 bg-white border-b border-gray-200">
+      <ColourLegend input={axes.input} output={axes.output} stripes={axes.stripes} answers={answers} />
+    </div>
+  )
+  const strip = (
+    <div className="px-2 py-1 bg-white border-b border-gray-200">
+      <LayerStrip columns={columns} first={first} shown={steps + 1}
+        onPick={column => update({ layer: Math.min(column, lastFirst(columns.length, steps)) })} />
+    </div>
+  )
+  const charts = (
+    <div className="relative h-full">
+      <span className="absolute top-0.5 right-1 z-10">{fillButton('charts')}</span>
+      <LayerCharts cluster={cluster} expert={expert} view={view} update={update} colours={colours}
+        outlined={outlined} lit={lit} ghosts={ghosts} onExport={exportFlows} />
+    </div>
+  )
+  const space3d = (
+    <div className="h-full flex flex-col min-h-0 bg-white px-2 py-1 border-t border-gray-100">
+      <div className="flex flex-wrap items-center gap-2 text-xs text-gray-600 flex-shrink-0">
+        <span className="font-medium text-gray-800">3-D</span>
+        {sampleSize > 0 && (
+          <label className="flex items-center gap-1" title="How many items to draw; the lit ones always are">
+            Trajectories
+            <input type="range" min={Math.min(10, sampleSize)} max={sampleSize} step={1} value={shownTrajectories}
+              onChange={e => setMaxTrajectories(Number(e.target.value))} className="w-32 accent-blue-600" />
+            <span className="tabular-nums">{shownTrajectories} / {sampleSize}</span>
+          </label>
+        )}
+        <label className="flex items-center gap-1">
+          Colour by
+          <select value={trajectoryColour} onChange={e => setTrajectoryColour(e.target.value as 'axis' | 'node')}
+            className="px-1 py-0.5 text-xs border border-gray-300 rounded bg-white">
+            <option value="node">node</option>
+            <option value="axis">{axes.input.axis}</option>
+          </select>
+        </label>
+        <span className="text-gray-400">layers {layersInView[0]}–{layersInView[layersInView.length - 1]}</span>
+        <span className="text-gray-400 truncate min-w-0 flex-1" title={frameNote}>{frameNote}</span>
+        <ExportMenu formats={['png', 'csv', 'json']} onExport={exportTrajectories} />
+        {fillButton('d3')}
+      </div>
+      <div className="flex-1 min-h-0">
+        {trajectory.data && layersInView.length >= 1 ? (
+          <SteppedTrajectoryPlot data={trajectory.data} layers={layersInView} colourOf={colourOf} groupOf={groupOf}
+            nodeOf={nodeOf} shapeOf={shapeOf} shapeValues={axes.shapeAxis?.values} sampleSize={shownTrajectories}
+            lit={litSet} showRead={!!reading} onPick={probeId => pick(probeId, '')}
+            onExportable={handle => { trajectoryExport.current = handle }} />
+        ) : (
+          <p className="text-xs text-gray-500 p-2">
+            {trajectory.missing ? 'This schema was built before its 3-D points were kept.'
+              : trajectory.error ?? 'Loading the 3-D view…'}
+          </p>
+        )}
+      </div>
+    </div>
+  )
+  const lower = <LowerTabs tab={view.tab} onTab={tab => update({ tab })} panels={panels} extra={fillButton('lower')} />
+  const side = (
+    <div className="relative h-full">
+      <span className="absolute top-0.5 right-1 z-10">{fillButton('side')}</span>
+      <DetailsPanel summary={context.summary} card={card} descriptions={context.descriptions} reports={context.reports}
+        layer={layers[first] ?? 0} clusterPath={clusterPath} axisValues={axes.axisValues} gradient={axes.gradient}
+        report={report} legacy={view.legacy}
+        nodeDetails={!view.legacy && pickedNode?.kind === 'cluster' && (
+          <PanelErrorBoundary name="Node details">
+            <NodeDetails state={nodeDetails} layer={pickedNode.layer} node={pickedNode.index} disabled={visitor} />
+          </PanelErrorBoundary>
+        )}
+        itemPath={shownProbe && (
+          <ItemPath experts={maps.experts[shownProbe]} rank={view.rank} output={maps.outputOf?.[shownProbe]}
+            read={reading && shownRead >= 0 ? { layers: reading.layers, nodes: reading.nodes[shownRead],
+              shares: reading.shares[shownRead], pct: reading.pct[shownRead] } : undefined}
+            stepLabel={stepLabel} steps={runSteps} step={view.step} onStep={step => update({ step })} />
+        )}
+        onClose={() => update({ sel: '' })} />
+    </div>
+  )
+
+  if (view.fill) {
+    const filled = { charts, d3: space3d, lower, side }[view.fill]
+    return (
+      <div className="h-full flex flex-col min-w-0">
+        {view.fill !== 'side' && toolbar}
+        {(view.fill === 'charts' || view.fill === 'd3') && legend}
+        {view.fill === 'charts' && strip}
+        <div className="flex-1 min-h-0">{filled}</div>
+      </div>
+    )
+  }
   return (
     <Group orientation="horizontal" className="h-full">
       <Panel id="main" defaultSize="74" minSize="40">
         <div className="h-full flex flex-col min-w-0">
-          <div className="flex flex-wrap items-center gap-3 px-2 py-1 border-b border-gray-200 bg-gray-50">
-            <span className="flex items-center gap-1 text-[11px] text-gray-600">
-              Steps in view
-              {ZOOMS.map(zoom => <button key={zoom} onClick={() => update({ zoom })} className={btn(view.zoom === zoom)}
-                aria-label={`${zoom} steps in view`}>{zoom}</button>)}
-            </span>
-            <span className={`flex items-center gap-1 text-[11px] text-gray-600 ${visitor ? 'opacity-50 pointer-events-none' : ''}`}>
-              Expert links
-              <button onClick={() => update({ top: view.top ?? 10 })} className={btn(view.top !== null)}>top</button>
-              {view.top !== null && (
-                <input type="number" min={1} max={100} value={view.top}
-                  onChange={e => update({ top: Math.max(1, Number(e.target.value) || 1) }, { replace: true })}
-                  className="w-12 px-1 py-0.5 text-[11px] border border-gray-300 rounded" />
-              )}
-              <button onClick={() => update({ top: null })} className={btn(view.top === null)}>all</button>
-            </span>
-            {allSteps.length > 1 && (
-              <StepControl label={stepLabel} steps={allSteps} step={view.step} onStep={step => update({ step })}
-                reading={stepReading} disabled={visitor} />
-            )}
-            <ColourControls axes={axes} disabled={visitor} />
-          </div>
-          <div className="px-2 py-1 bg-white border-b border-gray-200">
-            <ColourLegend input={axes.input} output={axes.output} stripes={axes.stripes} answers={answers} />
-          </div>
-          <div className="px-2 py-1 bg-white border-b border-gray-200">
-            <LayerStrip columns={columns} first={first} shown={steps + 1}
-              onPick={column => update({ layer: Math.min(column, lastFirst(columns.length, steps)) })} />
-          </div>
+          {toolbar}
+          {legend}
+          {strip}
           <Group orientation="vertical" className="flex-1 min-h-0">
-            <Panel id="charts" defaultSize="68" minSize="25">
-              <LayerCharts cluster={cluster} expert={expert} view={view} update={update} colours={colours}
-                outlined={outlined} lit={lit} ghosts={ghosts} onExport={exportFlows} />
-            </Panel>
+            <Panel id="charts" defaultSize={view.d3 ? '42' : '68'} minSize="20">{charts}</Panel>
+            {view.d3 && <Separator className="h-1 bg-gray-200 hover:bg-blue-400" />}
+            {view.d3 && <Panel id="d3" defaultSize="36" minSize="12">{space3d}</Panel>}
             <Separator className="h-1 bg-gray-200 hover:bg-blue-400" />
-            <Panel id="lower" defaultSize="32" minSize="10">
-              <LowerTabs tab={view.tab} onTab={tab => update({ tab })} panels={panels} />
-            </Panel>
+            <Panel id="lower" defaultSize={view.d3 ? '22' : '32'} minSize="10">{lower}</Panel>
           </Group>
         </div>
       </Panel>
       <Separator className="w-1 bg-gray-200 hover:bg-blue-400" />
-      <Panel id="side" defaultSize="26" minSize="15">
-        <DetailsPanel summary={context.summary} card={card} descriptions={context.descriptions} reports={context.reports}
-          layer={layers[first] ?? 0} clusterPath={clusterPath} axisValues={axes.axisValues} gradient={axes.gradient}
-          report={report} legacy={view.legacy}
-          nodeDetails={!view.legacy && pickedNode?.kind === 'cluster' && (
-            <PanelErrorBoundary name="Node details">
-              <NodeDetails state={nodeDetails} layer={pickedNode.layer} node={pickedNode.index} disabled={visitor} />
-            </PanelErrorBoundary>
-          )}
-          itemPath={shownProbe && (
-            <ItemPath experts={maps.experts[shownProbe]} rank={view.rank} output={maps.outputOf?.[shownProbe]}
-              read={reading && shownRead >= 0 ? { layers: reading.layers, nodes: reading.nodes[shownRead],
-                shares: reading.shares[shownRead], pct: reading.pct[shownRead] } : undefined}
-              stepLabel={stepLabel} steps={runSteps} step={view.step} onStep={step => update({ step })} />
-          )}
-          onClose={() => update({ sel: '' })} />
-      </Panel>
+      <Panel id="side" defaultSize="26" minSize="15">{side}</Panel>
     </Group>
   )
 }
