@@ -37,7 +37,7 @@ lake (paths below), produced by the `lens_validate` job and the build's self-che
 | L23 | 0.38 | 0.51 | 0.43 | 8 (0.51) | 3 | 3 | 3, 4, 7 |
 
 - The senses separate most in the middle layers: held-out κ at k = 5 rises from 0.15 at L0 to
-  0.60–0.62 at L11–L13, then falls to about 0.4 by L20–L23.
+  0.57–0.62 at L11–L13 (0.60, 0.57, 0.62), then falls to about 0.4 by L20–L23.
 - The in-sample methods still don't find five. Elbow picks 2 at 20 of 24 layers; silhouette
   wanders between 2 and 8; hierarchy levels include 5 only at L18 and L19.
 - The held-out best k is 7 to 10 at every layer, above the five senses: finer clusters are purer,

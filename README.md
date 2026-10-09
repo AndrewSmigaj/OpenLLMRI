@@ -20,23 +20,25 @@ The March 2026 hackathon paper that introduced the platform is in [`paper/main.p
 
 ## The platform
 
-![MUDApp — the bus stop scenario after the agent has examined the person, layers 17–23, with the 99%-foe cluster L23C1 selected and its card open](docs/images/hero-mudapp-bus-stop.png)
+![The Layers workspace on the tank lens: cluster and expert flows over all 24 layers, the colour legend, node L13C1's report with its checked citations, and the node's members](docs/images/app-layers-tank.png)
 
-The main view is one page. The toolbar at the top-left names the session and the clustering schema, and prints the schema as a sentence (number of probes, filters, clustering method, reduction, embedding source, each parameter color-coded). Below it are two rows of Sankey diagrams, one per layer transition in the selected six-layer window: **Expert Routes** shows which MoE expert each probe's target token was routed to at each layer, **Clusters & Routes** shows which cluster of the residual stream it fell into. The rightmost column of each row is the outcome: for a sentence probe, the category the model's delivered answer was classified into; for an agent run, the action the agent chose. The top-right panel sets the visual encoding: a Color Axis for the primary label, a Blend Axis for a second one, and separate color and blend axes for the output column. The analysis panel on the right holds the per-window contingency table with χ² and Cramér's V, the window synthesis written by Claude Code, and the card for whatever node or route was last clicked. The MUD terminal sits at the bottom-left for live agent runs.
+The app has two workspaces, **Layers** and **Build**, with the MUD terminal docked below them. The view's state lives in the URL, so a link, a command or an exported figure names exactly what it shows.
 
-The three shots below come from a September 2026 recapture of two sentence probes in the model's chat format, with the paper's carrier question appended to every sentence and the capture taken at the carrier's own token, so the delivered answer is a direct commitment the classifier can read.
+**Layers** reads a lens. Two charts scroll together over all 24 layers and the output column: residual-stream clusters above, and below them the expert each item was routed to (ranks 1 to 4, with the model's own gate weights). The colour legend is always on. Clicking a node, a flow or an expert opens its report on the right. An LLM analyst wrote it from the node's evidence, every number it cites is checked against that evidence, and the badges say whether the analyst passed its tests. The node's details sit beside the report: the neurons that track it, the tokens its centre favours through the unembedding, a surface check, and how it bears on the next layer's routing. The lower tabs hold the members, the output contingency table, 3-D trajectories and expert fingerprints. Above, the tank lens (`tank-k5-n15`: 499 sentences in five senses of "tank") with node L13C1 selected, which holds most of the septic and scuba sentences.
 
-**Cluster routes and stepped UMAP trajectories.** The probe is the five-sense tank set: 500 sentences, 100 each for the aquarium, armored vehicle, scuba cylinder, septic or storage tank, and sleeveless-top senses, each followed by "What is the meaning of the word tank?". Every probe's residual stream at that token is projected with UMAP at each layer and drawn as a polyline across the window, colored by its design sense. The Sankeys above the plot show the same probes as flows between per-layer clusters, ending in the sense the model's answer settled on. Aquarium, vehicle and clothing each hold a clean basin from layer 17 to 23; scuba and septic never get basins of their own at this cluster count, because the model groups them by register instead, technical pressure-vessel language in one basin and narrative handling and storage in another, and the generic "container" answer is the single most common answer in the run.
+Every chart exports its picture (PNG, and SVG where it can) and its data (CSV, JSON), each file carrying the recipe that made it.
 
-![Cluster-route Sankeys for layers 17–23 above the stepped UMAP trajectories of the five senses of "tank"](docs/images/tour-umap-tank.png)
+![The Build workspace: the lens form, the mass-mean form, the lenses on the capture with their badges, and tank-k5-n15's validation: held-out scores by layer, the k profile, and UMAP against raw space](docs/images/app-build-validation.png)
 
-**Route cards.** Hovering a ribbon in a Sankey highlights that route and shows its flow; clicking it opens the card. The card gives the route's token count, coverage and confidence, stacked bars for the composition of its members on the design label and on every secondary category (here structure and register), a description written by Claude Code through the analyze skill, and the member sentences with the model's full completion, reasoning channel followed by the delivered answer. The route shown is the aquarium basin carrying itself from layer 22 to 23: 82 sentences, 93% aquarium-labeled, and 77 of them answered "aquarium".
+**Build** makes lenses. The form asks for the basics (neighbours, dimensions, k, a name); Advanced adds k per layer with automatic suggestions, the grouping and filters. Builds run as background jobs, so the app stays usable, and a finished lens opens in Layers. Validation holds out whole scene families where a set has them. Per layer it reports held-out κ, accuracy, the worst fold and AMI. A k profile scores every k from 2 to 10 beside the elbow, silhouette and hierarchy-level suggestions, and the same folds score raw-space groupings beside the lens: standardized PCA-50 with Ward or spectral clustering, relevant neurons chosen inside each fold, and a logistic-regression ceiling. Mass-mean lenses, one axis per layer held out by the paper's algorithm, are built on the same page.
 
-![The hovered route highlighted in the last transition with its tooltip, and its card below: composition bars, description, and example completions](docs/images/tour-route-card-tank.png)
+![Two axes in one colour on the threatened set, frame as hue and voice as lightness, with the expert fingerprint of roleplay minus factual sentences below](docs/images/app-colour-fingerprint.png)
 
-**Color blending.** The probe is the threatened-framing set: 400 sentences that use "threatened" in either a roleplay frame (fantasy, science fiction, myth) or a factual one (courts, politics, crime), balanced on grammatical voice, scale and specificity, each followed by "Is the word threatened used here in fiction or in a factual account?". The Color Axis carries the frame and the Blend Axis carries voice, which gives the four corner colors in the legend. Each Sankey node takes a weighted mix of its members' colors, so a cluster pure on both axes is saturated and a mixed cluster sits between, and the trajectory plot draws every probe's path in the same blended color. The blend exposes structure the primary axis hides: the six late-layer clusters are frame by voice, three roleplay and three factual, and nearly every one is also pure on active versus passive. Voice was chosen by trying each balanced axis in the toolbar and keeping the one whose blended nodes separated most visibly, which is what the feature is for.
+**Colour.** Nodes and flows mix their members' colours in OKLab. Any designed axis can be the colour, a second axis can share it as lightness (with a square legend), and stripes show exact shares. Above, the threatened set (`framing-k4-auto-levels`): roleplay against factual as hue, active against passive as lightness. Voice organizes the nodes at L1, and the frame takes over from L4. The fingerprint tab shows the mean gate weight on each of the 32 experts at each layer, here for roleplay sentences minus factual ones.
 
-![Color blending — factual vs roleplay as the color axis and active vs passive blended in, on the Sankeys and on the trajectory plot](docs/images/tour-blend-threatened.png)
+**One command channel.** Claude Code drives the app through `POST /api/commands`: `show` opens a view in every open app, and `build` starts a lens job. Jobs and changes reach the app as server-sent events. In the MUD's polysemy lab, researchers build and show lenses with `lens build` and `lens show`, and a finished lens opens in the player's own app.
+
+The lens core's showcase, one figure from these exports with a short findings note, is in [`docs/studies/lens_core/showcase/`](docs/studies/lens_core/showcase/README.md).
 
 ---
 
@@ -44,9 +46,11 @@ The three shots below come from a September 2026 recapture of two sentence probe
 
 UMAP (Uniform Manifold Approximation and Projection) compresses high-dimensional activation vectors (2,880 dimensions in a 20B parameter model) down to 2D or 3D for visualization. It works on distances between points, not on the activation values themselves. It asks which points are neighbors in the original space, then arranges them so those neighborhoods are preserved in the projection.
 
-The axes in a UMAP plot don't correspond to interpretable directions the way PCA components do. But the geometry is meaningful. Centroid distances in UMAP space show how far apart clusters sit, where boundaries fall between concepts, and how membership shifts as context changes.
+The axes in a UMAP plot don't correspond to interpretable directions the way PCA components do, and they are never read. A UMAP lens measures membership: which node of a layer's clustering a state falls in, and how membership flows from layer to layer. Each layer gets its own fit, because the directions that separate concepts change with depth, and a lens is judged like any model: on held-out items, beside raw-space groupings fitted on the same folds.
 
 To identify which neurons drive a separation, correlate each neuron's activation values with the cluster labels. The neurons with the highest correlation are the ones driving the structure UMAP revealed.
+
+The second instrument is the mass-mean lens: one axis per layer, the difference between two classes' mean activations, scaled so the classes sit at −1 and +1. Distance along that axis is meaningful, so it measures position on one designed contrast, where a UMAP lens measures membership. Distances in full raw space are affected by noise, so neither instrument uses them.
 
 UMAP finds whatever structure dominates the dataset. Friend/foe probes surface friend/foe geometry. Polysemy probes surface word-sense geometry. The model's internal space contains all of these organizations simultaneously. Each probe family is a different lens on the same geometry. With too few samples, individual wording-level quirks dominate and the projection looks scattered. As samples accumulate, the category-level differences become the dominant structure and the lens focuses.
 
@@ -144,7 +148,9 @@ This project uses **Claude Code not as a development tool, but as the analysis r
 | `/probe` | Co-design a new experiment — target word, sentence groups, sentence generation |
 | `/pipeline` | Check pipeline state and suggest next step |
 | `/categorize` | Classify model-generated outputs along semantic axes |
-| `/analyze` | Read cluster/route data, reason about patterns, write reports |
+| `/cluster` | Build, validate and save lenses as background jobs: UMAP lenses with k per layer, and mass-mean axes |
+| `/analyze` | Analyse a lens: write cards from its evidence packets, every cited number checked |
+| `/app` | Steer the open app: show a view, start a lens build, watch its event stream |
 | `/setup` | First-time project setup — venv, the MUD (Docker) and its accounts, the model |
 | `/server` | Start, stop, and check status of servers |
 | `/agent` | Start, resume, monitor, and stop agent scenario sessions |
@@ -153,39 +159,40 @@ This project uses **Claude Code not as a development tool, but as the analysis r
 ### Architecture
 
 ```
-┌─────────────────────────────────────────────────────────┐
-│                    Claude Code (Runtime)                  │
-│  Skills: /probe  /pipeline  /categorize  /analyze        │
-│  Scaffold: CLAUDE.md → PIPELINE.md → Probe Guides        │
-└────────────────────────┬────────────────────────────────┘
-                         │ natural language + API calls
-┌────────────────────────▼────────────────────────────────┐
-│                   FastAPI Backend                         │
-│  Adapters → Capture Service → Analysis Services          │
-│  Model: gpt-oss-20b (MXFP4 experts, ~14GB VRAM)        │
-└──────────┬─────────────────────────────┬────────────────┘
-           │ Parquet read/write          │ websocket
-┌──────────▼──────────┐    ┌─────────────▼────────────────┐
-│     Data Lake        │    │  The MUD (Evennia 6, Docker)  │
-│  data/lake/          │    │  Institute: hub, labs,        │
-│  {session_id}/       │    │  simulator                    │
-│  tokens.parquet      │    │  Scenario library: a fresh    │
-│  routing.parquet     │    │  room per load                │
-│  residual_streams    │    └──────────────────────────────┘
-│  clusterings/        │
-└──────────────────────┘
-           │ REST API
-┌──────────▼──────────────────────────────────────────────┐
-│                  React Frontend                          │
-│  Sankey diagrams · Stepped UMAP trajectories             │
-│  Colour blending · Click-to-inspect cards                │
-└─────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────┐
+│                  Claude Code (runtime)                   │
+│  Skills: /probe /cluster /analyze /app /agent /pipeline  │
+│  Scaffold: CLAUDE.md → PIPELINE.md → probe guides        │
+└────────────────────────────┬─────────────────────────────┘
+                             │ natural language, API calls, commands
+┌────────────────────────────▼─────────────────────────────┐
+│                     FastAPI backend                      │
+│  Capture: gpt-oss-20b (MXFP4 experts, ~14 GB VRAM)       │
+│  Lenses, built and validated as background jobs          │
+│  Analysts: claude -p, every cited number checked         │
+└───────────┬──────────────────────────────┬───────────────┘
+            │ Parquet read/write           │ websocket + control channel
+┌───────────▼─────────────┐  ┌─────────────▼───────────────┐
+│ Data lake               │  │ The MUD (Evennia 6, Docker) │
+│ data/lake/<session>/    │  │ Institute: hub, labs,       │
+│   tokens, routing,      │  │ simulator                   │
+│   residual streams      │  │ Scenario library: a fresh   │
+│   lenses/               │  │ room per load               │
+│   clusterings/ (legacy) │  └─────────────────────────────┘
+└───────────┬─────────────┘
+            │ REST API + event stream
+┌───────────▼──────────────────────────────────────────────┐
+│                      React frontend                      │
+│  Layers: cluster and expert flows over all 24 layers     │
+│  Build: lens forms, validation, reports                  │
+│  Colour by any axis · exports with recipes               │
+└──────────────────────────────────────────────────────────┘
 ```
 
 ### Data flow
 
-- **Sentence set analysis**: Sentences → model forward pass → routing weights + residual streams → Parquet files → UMAP projection → hierarchical clustering → behavioral validation → neuron extraction
-- **MUD scenario analysis**: Scenario library → a fresh room in the MUD per load → the agent's websocket session → tick-by-tick capture → Parquet → trajectory and cluster analysis
+- **Sentence set analysis**: Sentences → model forward pass → routing weights + residual streams → Parquet → a lens (UMAP per layer with Ward clustering, or a mass-mean axis), built as a job and validated on held-out items → flows and node details (neurons, logit lens, surface check, routing) → checked reports
+- **MUD scenario analysis**: Scenario library → a fresh room in the MUD per load → the agent's websocket session → tick-by-tick capture → Parquet → lenses on the captured ticks
 - **Time** (designed, not yet built): one saved lens read at a fixed site along context steps, agent ticks or reasoning steps ([`docs/DESIGN.md`](docs/DESIGN.md) Part D)
 
 The MUD is one Evennia 6 MUD, run in Docker, that hosts the institute, its labs, staged scenario sets and free-form worlds; see [`docs/architecture/one-mud.md`](docs/architecture/one-mud.md).

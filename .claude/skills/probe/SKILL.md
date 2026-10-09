@@ -172,56 +172,42 @@ Run backend validation or manually check:
 - **For Pattern A**: joint distribution of (design axis × balance axis) for every pair — chi-square should be non-significant (axes are independent). If a balance axis correlates with the design axis, you have a confound that will drive surface clustering.
 - **For Pattern B**: scene format uniformity — all third-person, all past tense, length in target range, no target word in scene
 
-## Step 11: Post-run clustering
+## Step 11: A lens on the run
 
-After the capture writes its session under `data/lake/<session_id>/`, this skill
-prompts the user once for how to cluster the run. Defaults come from the YAML
-block in `/cluster/SKILL.md`. Probe sessions default to `steps=[0]`.
-
-Print the proposed schema and prompt:
+After the capture writes its session under `data/lake/<session_id>/`, propose a lens once, from
+the defaults in `/cluster/SKILL.md`. Sentence sets leave the step filter out (their token rows
+have no step).
 
 ```
 Session complete — <N> probes captured. Session: <session_id>.
 
-Proposed clustering schema:
-  save_as:           <sentence_set_name>_k6_n15
-  steps:             [0]
-  last_occurrence_only: true
-  reduction:         UMAP, 6D, n_neighbors=15
-  clustering:        hierarchical, k=6 per layer
-  (covers all 4 windows × 6 transitions × {cluster, expert ranks 1/2/3})
+Proposed lens:
+  name:     <set-name>-k6-n15     (lowercase letters, digits, _ and -)
+  k:        6 at every layer
+  UMAP:     6 dimensions, 15 neighbours
+  filters:  the last occurrence of the word
 
 Answer one of:
-  accept                        — build the proposed lens (one /cluster OP-L1 call)
-  sweep <axis> <values>         — build N schemas, one per value, suffixed names
-                                  e.g. sweep steps [0],[1],[0,1]
-                                       sweep max_probes 50,100,200
-  custom                        — prompt for each parameter (defaults in brackets)
-  skip                          — exit without building
+  accept                  — build it (one /cluster OP-L1 call)
+  sweep <axis> <values>   — one lens per value, names suffixed
+                            e.g. sweep k 4,5,6   or   sweep n_neighbors 10,15,20
+  custom                  — ask for each setting, defaults in brackets
+  skip                    — build nothing
 ```
 
-On `accept`: invoke `/cluster` OP-L1 once with the proposed params.
-The lens request names them: `name` (was `save_as`), `filters.steps`,
-`filters.last_occurrence_only`, `n_neighbors`, `dimensions`, `k`.
+On `accept`: `/cluster` OP-L1 once (`name`, `k`, `n_neighbors`, `dimensions`, `filters`).
+On `sweep`: OP-L1 once per value with a suffixed name (`-k4`, `-n10`). Each build is a job, so
+they queue and run one after another; non-interactive after the prompt, overnight-friendly.
+On `custom`: ask for the name, k (one for all layers, one per layer, or an automatic method),
+`n_neighbors`, `dimensions` and the filters, then OP-L1.
+On `skip`: print the session id and stop.
 
-On `sweep <axis> <values>`: invoke `/cluster` OP-L1 N times in sequence, one per
-value, with `save_as` suffixed appropriately (e.g. `_step0`, `_step1`,
-`_step01`). Non-interactive after the first prompt — overnight-friendly.
-
-On `custom`: prompt the user for each of `save_as`, `steps`,
-`n_neighbors`, `reduction_dimensions`, `default_k`, showing the proposed
-default in brackets. Then invoke `/cluster` OP-L1 once with the resulting
-params. (A schema always covers all 4 windows × 6 transitions — there is
-no per-window customization.)
-
-On `skip`: print the session id and exit.
-
-After all builds complete, print the schema names and exit. The user can then
-invoke `/analyze` manually.
+Then validate the lens (`/cluster` OP-L4) and save the version to keep (OP-L3); saving writes its
+first reports (`/analyze`).
 
 ## References
 
 - Read `data/sentence_sets/GUIDE.md` for quality rules, schema format, confound documentation
 - Read existing probe guides in `data/sentence_sets/` for naming and structure examples
 - Read `docs/PIPELINE.md` for what happens after experiment design (capture → categorize → analyze)
-- Read `/cluster/SKILL.md` for the schema lifecycle invoked at Step 11
+- Read `/cluster/SKILL.md` for the lens lifecycle invoked at Step 11

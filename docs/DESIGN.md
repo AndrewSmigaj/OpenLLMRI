@@ -240,13 +240,13 @@ This part covers building; Parts D and E cover using.
 
 **C2. Kinds of lens and grouping.**
 - **UMAP lens:** usually 6 dimensions per layer, clustered, with k chosen per layer [Decided,
-  2026-10-06; Built: today's schemas, with one k for every layer].
-- **Mass-mean lens:** one axis per layer, validated on held-out data [Decided, 2026-10-06].
+  2026-10-06; Built: saved lenses, with k per layer].
+- **Mass-mean lens:** one axis per layer, validated on held-out data [Decided, 2026-10-06; Built].
 - **Raw-space groupings,** designed carefully and compared with UMAP [Decided, 2026-10-06]:
   - **standardized PCA:** centre, standardize each neuron, reduce to 50 dimensions, then
     cluster with Ward or spectral clustering [Decided, 2026-10-07: the best raw-space method in the
-    2026-10-06 comparison of two sessions];
-  - **relevant-neuron PCA** [Decided, 2026-10-07: Andrew's idea, with the details below]:
+    2026-10-06 comparison of two sessions; Built];
+  - **relevant-neuron PCA** [Decided, 2026-10-07: Andrew's idea, with the details below; Built]:
     - keep the neurons most associated with the sentence set's classes, then reduce them with PCA;
     - the axes are then weighted sums of named neurons, readable in raw-space terms;
     - a new token is read by a simple linear projection, which may suit watching agents;
@@ -255,45 +255,46 @@ This part covers building; Parts D and E cover using.
       and it is compared with the supervised ceiling (C4), never with unsupervised groupings.
 
 **C3. Choosing k per layer.**
-- **Manual and automatic, both kept as tools** [Decided, 2026-10-07]:
+- **Manual and automatic, both kept as tools** [Decided, 2026-10-07; Built]:
   - you pick k for each layer by hand;
   - or the app suggests k for each layer and names its method.
 - **Re-try the elbow method and the others on the tank polysemy sentence set,** where the number of
-  senses is known [Decided, 2026-10-07].
+  senses is known [Decided, 2026-10-07; Built: `docs/research/lens_core_validation.md`].
   - In the 2026-10-06 comparison, silhouette mostly picked k = 2, which doesn't fit data that
     visibly clusters.
-- **Better automatic methods** [Open]. One idea to test [Decided, 2026-10-07]: when clusters are nested,
+- **Better automatic methods** [Open]. One idea to test [Decided, 2026-10-07; Built: the levels method]: when clusters are nested,
   report every level where the structure is clear (for example 2 at the top and 5 below it),
   not one number.
-- **A k profile per layer** [Decided, 2026-10-07]: for each layer and each k, the silhouette, the stability
+- **A k profile per layer** [Decided, 2026-10-07; Built]: for each layer and each k, the silhouette, the stability
   across seeds, and the agreement with each designed axis. The chosen k is saved with the lens.
 
 **C4. Validating and comparing.**
-- **A lens must classify held-out data well** [Decided, 2026-10-06]. The held-out data is whole
-  scene families [Decided, 2026-10-07: the paper's method].
+- **A lens must classify held-out data well** [Decided, 2026-10-06; Built]. The held-out data is whole
+  scene families [Decided, 2026-10-07: the paper's method; Built].
 - **Sankeys from both instruments are compared** on class purity and separation, and the better
-  is chosen [Decided, 2026-10-06].
-- **A fair comparison** [Decided, 2026-10-07]:
+  is chosen [Decided, 2026-10-06; Built: scores on the same folds, and marked disagreements].
+- **A fair comparison** [Decided, 2026-10-07; Built]:
   - the same k for all candidates;
   - unsupervised groupings compared only with each other;
   - groupings built from the labels shown as the **supervised ceiling**: how separable the classes
     are at all, never a competitor;
   - scores that are held out and corrected for chance.
-- **A self-check** [Decided, 2026-10-07]: before lens search is trusted, it must find structure planted in
+- **A self-check** [Decided, 2026-10-07; Built]: before lens search is trusted, it must find structure planted in
   synthetic data.
 
 **C5. What comes with each node and lens.**
-- **The neurons behind it,** found by correlation [Decided, 2026-10-04].
+- **The neurons behind it,** found by correlation [Decided, 2026-10-04; Built].
 - **For each split between nodes** [Decided, 2026-10-06]:
   - how much of the split comes from attention, and how much from the experts;
   - the other token positions that carry the same signal;
-  - what the node pushes toward, through the output vocabulary (the logit lens);
-  - a check that surface features (length, first word) don't explain it.
+  - what the node pushes toward, through the output vocabulary (the logit lens) [Built, for each
+    node];
+  - a check that surface features (length, first word) don't explain it [Built, for each node].
 - **Before a key finding is accepted** [Decided, 2026-10-06]: the population is steered into the
   other node, and what changes downstream is recorded.
-- **Its expert fingerprint** [Decided, 2026-10-08]: how much weight each expert gets at each layer,
+- **Its expert fingerprint** [Decided, 2026-10-08; Built]: how much weight each expert gets at each layer,
   for the node's population (E5).
-- **How each lens bears on routing** [Decided, 2026-10-08]: whether a concept steers expert choice
+- **How each lens bears on routing** [Decided, 2026-10-08; Built]: whether a concept steers expert choice
   or rides along as content, measured two ways at each layer:
   - **routing effect:** how much of the item-to-item difference in the next layer's routing lines
     up with the lens's nodes. It is read from the recorded routing, so it holds for every lens;
@@ -330,7 +331,7 @@ This part covers building; Parts D and E cover using.
 
 **C7. Every lens gets a report, and lenses come in every size** [Decided, 2026-10-07]:
 - LLM agents write each lens's report from its cluster and expert Sankeys, and agree on what it
-  shows;
+  shows [Built: two drafts, reconciled];
 - lenses range from broad to specific. For example, a sentence set built on a taxonomy of animals
   shows where the model represents that taxonomy, and linguistic phenomena of every kind can be
   probed the same way;
@@ -447,8 +448,8 @@ MUD or through Claude Code (F3). It follows a run in progress one saved tick at 
 
 | Workspace | What you do there | Status |
 |---|---|---|
-| **Build** | write sentence sets and scenarios; build lenses and kits | new |
-| **Layers** | see how a population flows through the layers: today's main view, improved | improved |
+| **Build** | write sentence sets and scenarios; build lenses and kits | Built for lenses; the builders are new |
+| **Layers** | see how a population flows through the layers: today's main view, improved | Built |
 | **Watch** | follow one run, live or recorded | new |
 | **Study** | compare many runs | new |
 | **MUD** | maintain the MUD and design scenarios, with Claude agents' help | new |
@@ -456,27 +457,27 @@ MUD or through Claude Code (F3). It follows a run in progress one saved tick at 
 | **Ideas** | track every research idea, generate new ones, follow the AI scientists. The idea evolver's engine moves into this repo | later [Decided, 2026-10-04] |
 
 **E2. Rules for every screen:**
-- **Basic controls first, the rest behind Advanced** [Decided, 2026-10-07]. For example,
+- **Basic controls first, the rest behind Advanced** [Decided, 2026-10-07; Built]. For example,
   clustering's Advanced holds automatic k detection and the choice of method.
-- **Panels size themselves to the window** [Decided, 2026-10-07]. Dividers can be dragged, and any panel can fill
-  the screen and come back.
+- **Panels size themselves to the window** [Decided, 2026-10-07; Built, apart from filling the
+  screen]. Dividers can be dragged, and any panel can fill the screen and come back.
 - **The MUD terminal folds away when it isn't needed** [Decided, 2026-10-07, approved in the time
-  review].
+  review; Built].
 - **The main pane shows one timeline at a time** [Decided, 2026-10-07, approved in the time
   review]. One chart per panel everywhere [Decided, 2026-10-07].
 - **Each variable gets one visual channel,** such as colour, shape, pattern or line style, and the
-  legend is always on [Decided, 2026-10-07, approved in the time review].
+  legend is always on [Decided, 2026-10-07, approved in the time review; Built].
 - **Missing pieces are named** [Decided, 2026-10-07, approved in the time review]:
   - with no validated lens for a site, the view says so and links to where lenses are built;
   - with too few runs at a point, that point is drawn faded.
-- **No sideways scrolling of the page** [Decided, 2026-10-07]. Only charts meant to scroll do, such as the
+- **No sideways scrolling of the page** [Decided, 2026-10-07; Built]. Only charts meant to scroll do, such as the
   all-layer Sankeys.
-- **An analysis panel beside each view** [Decided, 2026-10-07]: the LLM-written report on whatever is selected
-  (E8).
+- **An analysis panel beside each view** [Decided, 2026-10-07; Built in Layers and Build]: the LLM-written
+  report on whatever is selected (E8).
 - **Every chart exports its picture (SVG, PNG) and its data (CSV, JSON)** [Decided, 2026-10-07,
   approved in the time review]. Each export carries a recipe (the lens and its version, the
   captures, the settings, the commit), so the figure can be made again exactly [Decided,
-  2026-10-08].
+  2026-10-08; Built].
 
 **E3. Build.**
 - **The sentence set builder** [Decided, 2026-10-07: it shows the instructions given to the authoring agents and
@@ -495,7 +496,7 @@ MUD or through Claude Code (F3). It follows a run in progress one saved tick at 
     or start the agent on it (`agent run`), so runs still start in the MUD [Decided, 2026-10-07];
   - Claude agents can draft scenarios to instructions;
   - a mini-world builder comes later, with Claude agents and skills.
-- **The lens builder** [Decided, 2026-10-07]:
+- **The lens builder** [Decided, 2026-10-07; Built, with UMAP and Ward as its one reduction and grouping]:
   1. Pick a capture.
   2. **Basic:** UMAP n_neighbors and dimensions, k, a name, Build.
   3. **Advanced:**
@@ -668,50 +669,49 @@ area can be resized and can fill the screen.
   dim.
 
 **E5. Layers** (today's main view, improved) [Decided, 2026-10-07]:
-- **All 24 layers in one view that scrolls sideways.** It replaces today's four fixed six-layer
-  windows, whose edges cut flows [Built].
+- **All 24 layers in one view that scrolls sideways** [Built]. It replaced the old view's four
+  fixed six-layer windows, whose edges cut flows.
   - A zoom sets how many layers fit (6, 12 or 24).
   - An overview strip shows where you are.
-- **The cluster Sankey and the expert Sankey are stacked and scroll together.**
-- **Expert weights are the model's own** [Decided, 2026-10-07]:
+- **The cluster Sankey and the expert Sankey are stacked and scroll together** [Built].
+- **Expert weights are the model's own** [Decided, 2026-10-07; Built]:
   - wherever a weight is shown, it is the expert's weight among the token's four, not a figure
-    computed over all 32 experts, as today's are;
-  - all four ranks can be chosen; today only the first three can.
+    computed over all 32 experts, as the old view's were;
+  - all four ranks can be chosen; the old view offered only the first three.
 - **Clicking a node lists the runs that pass through it, and when** [approved in the time review].
 - **Clustering can be run from this view, and from the polysemy lab's room in the MUD** [Decided,
-  2026-10-04].
+  2026-10-04; Built: from Build and from the lab].
 - **More visual channels than colour blending,** such as lines shaped by sine waves [Decided,
   2026-10-06], and patterned Sankey nodes.
-- **Colour by any designed axis.** Today only the label can colour.
-- **Colour that reads true** [Decided, 2026-10-08]:
+- **Colour by any designed axis** [Built]. The old view coloured by the label only.
+- **Colour that reads true** [Decided, 2026-10-08; Built]:
   - colours blend in a perceptual colour space (OKLab), so a half-and-half node looks halfway and
-    mixes stay clean. Today's blend averages RGB values (`colorBlending.ts`), which turns mixes of
-    opposing colours muddy and darker than either class;
+    mixes stay clean. The old blend averaged RGB values, which turned mixes of opposing colours
+    muddy and darker than either class;
   - an optional striped node shows the exact shares;
   - two designed axes can share one colour, hue for one and lightness for the other, with a square
-    legend, so one Sankey shows a combination such as frame × voice. Today points can pair a second
-    axis, but nodes can't.
-- **Expert fingerprints** [Decided, 2026-10-08]: for any node, population or condition, a 24 × 32
+    legend, so one Sankey shows a combination such as frame × voice.
+- **Expert fingerprints** [Decided, 2026-10-08; Built]: for any node, population or condition, a 24 × 32
   grid of how much weight each expert gets at each layer, and difference grids between two of
   them.
-- **Expert Sankeys keep one layout** [Decided, 2026-10-08]: experts at each layer are ordered to
+- **Expert Sankeys keep one layout** [Decided, 2026-10-08; Built]: experts at each layer are ordered to
   minimize crossings, computed once from the pooled flows and kept fixed across conditions, so a
   difference between conditions is real rather than layout. Ye, Yuan and Sharkey lay out expert
   paths this way.
-- **Where the instruments disagree is marked** [Decided, 2026-10-08]: items whose node differs
+- **Where the instruments disagree is marked** [Decided, 2026-10-08; Built]: items whose node differs
   between the UMAP lens and the best raw-space grouping (C4) are marked on the cluster Sankey, so
   the picture shows where it could mislead.
-- **The 3-D trajectories show what the lens counts** [Decided, 2026-10-08]. Today's stepped 3-D
-  view fits its own UMAP, separate from the clustering, and colours by label
-  (`cluster_route_analysis.py`), so a point can sit in one bundle and be counted in another node.
-  It colours by node, or draws from the lens's own fit.
+- **The 3-D trajectories show what the lens counts** [Decided, 2026-10-08; Built]. The old stepped
+  3-D view fitted its own UMAP, separate from the clustering, and coloured by label, so a point
+  could sit in one bundle and be counted in another node. It colours by node, and says which fit
+  it draws.
 - **Depth heatmaps** [Decided, 2026-10-08], per lens:
   - tokens × layers for one sentence or tick: where in the text, and at which depth, a concept
     forms (C5's question of which token made the decision). It opens from here for a sentence and
     from Watch for a tick;
   - layers × time for a run or a study: how a reading forms at each depth as evidence arrives
     (E6).
-- **Cards with LLM-written reports** for clusters, experts, routes and expert routes (E8).
+- **Cards with LLM-written reports** for clusters, experts, routes and expert routes (E8) [Built].
 
 **E6. Study** [Decided, 2026-10-07: the parts below were approved in the time review]:
 - **A study file sets up the view:** its runs, references, lens, layer, the event to align on, and
@@ -734,7 +734,7 @@ area can be resized and can fill the screen.
   about 25–70 minutes of GPU.
 
 **E7. The app takes commands** [Decided, 2026-10-04: the app updates its views when told to,
-through some syntax; one interface, 2026-10-07]:
+through some syntax; one interface, 2026-10-07; Built]:
 - Claude Code, Claude agents and MUD commands use one small command interface to open a view, run a
   clustering or choose a lens.
 
@@ -743,14 +743,14 @@ for clusters, experts, routes and expert routes].
 
 LLMs are good at spotting patterns in this data, such as pipes, hubs and split points.
 
-**The panel, the same everywhere** [Decided, 2026-10-07]:
+**The panel, the same everywhere** [Decided, 2026-10-07; Built]:
 - it sits beside a view and shows the report on whatever is selected;
 - each report cites the numbers it used, and a checker re-computes them;
 - reports are written in the background when their data is built, kept, and rewritten when the
   data changes;
 - a question box asks a follow-up question about the current view;
 - reports are marked as LLM-written. A finding still goes through the paradigm's review (Part H);
-- **analysts are tested before they are trusted** [Decided, 2026-10-08], and again whenever prompts
+- **analysts are tested before they are trusted** [Decided, 2026-10-08; Built], and again whenever prompts
   or models change:
   - decoys: cards and Sankeys built from shuffled labels or random groupings, where a sound analyst
     reports nothing;
@@ -758,7 +758,7 @@ LLMs are good at spotting patterns in this data, such as pipes, hubs and split p
   - predictive descriptions: given a node's description, another model must pick the node's members
     from held-out sentences, scored against a simple baseline, as RouterInterp scored its routing
     descriptions (M2);
-- **reports have a budget** [Decided, 2026-10-08]. Every cluster, split point and route of one lens
+- **reports have a budget** [Decided, 2026-10-08; Built]. Every cluster, split point and route of one lens
   comes to hundreds of `claude -p` calls (24 layers × about 6 nodes is already 144 cluster cards).
   Reports are written first for validated lenses and selected items, the rest on demand, with a
   budget per job.
@@ -767,13 +767,13 @@ LLMs are good at spotting patterns in this data, such as pipes, hubs and split p
 
 | Where | What the LLM writes | Status |
 |---|---|---|
-| Layers | a card for each cluster, expert, route and expert route | Decided, 2026-10-07 |
-| Layers | a card for each split point: what separates the two populations | Decided, 2026-10-07 |
+| Layers | a card for each cluster, expert, route and expert route | Decided, 2026-10-07; Built |
+| Layers | a card for each split point: what separates the two populations | Decided, 2026-10-07; Built |
 | Layers | a report on the expert Sankey's pipes and hubs | Decided, 2026-10-07 |
 | Layers | a short note on what each layer transition changes | Decided, 2026-10-07 |
 | Build | a critic for each new sentence set, catching confounds the numeric audits can't, such as one class always written in the past tense | Decided, 2026-10-07 |
-| Build | each lens's report (C7) | Decided, 2026-10-07 |
-| Build | a k advisor that explains the k profile while you choose | Decided, 2026-10-07 |
+| Build | each lens's report (C7) | Decided, 2026-10-07; Built |
+| Build | a k advisor that explains the k profile while you choose | Decided, 2026-10-07; Built |
 | Watch | a run report: when the understanding formed, where it went wrong, why each flag fired | Decided, 2026-10-07 |
 | Watch | a short note on a clicked moment | Decided, 2026-10-07 |
 | Watch | a comparison report for runs side by side | Decided, 2026-10-07 |
@@ -859,7 +859,8 @@ watcher does reaches the agent.
   - scaffolds too, as versioned files (I) [Decided, 2026-10-07];
   - scenario sets have versions, guides and provenance. Studies cite a set as `set@version`, and a
     set used by a finished study is never changed [Built].
-- **Studies, lenses, findings and the paradigm are files in the repo** [Decided, 2026-10-06].
+- **Studies, lenses, findings and the paradigm are files in the repo** [Decided, 2026-10-06; Built
+  for lenses (`data/lenses/`) and studies (`docs/studies/<id>/study.yaml`)].
 - **Captures include states after generation starts,** not only before it [Decided, 2026-10-06].
   Agent runs already capture every target word in the generated text [Built].
 - **Each run records** [Decided, 2026-10-07: principle B12]:
@@ -885,7 +886,8 @@ watcher does reaches the agent.
 
 - **The atlas has four catalogues** [Decided, 2026-10-06; scaffolds added 2026-10-07], each entry
   with a report written by a Claude agent:
-  - **nodes:** every node of every validated lens, layer by layer;
+  - **nodes:** every node of every validated lens, layer by layer [Built: atlas v1, every saved
+    lens version's nodes, with their reports];
   - **experts:** all 24 × 32;
   - **routes:** pipelines and hubs, built from all four of each token's experts and weighted by the
     model's own weights [Decided, 2026-10-07]. Today's routes follow only the top-1 expert; the
@@ -1037,7 +1039,8 @@ I. The steps in each are [Decided, 2026-10-07].
 3. **Before the first slice:** the basin-era temporal tools retire (G).
 4. **Then the build, in slices.** Each ends with a showcase: one striking figure and a short
    findings note [Decided, 2026-10-08].
-   1. **The lens core** [Decided, 2026-10-06: before the world-building pilot]:
+   1. **The lens core** [Decided, 2026-10-06: before the world-building pilot; Built 2026-10-08,
+      with its showcase in `docs/studies/lens_core/`]:
       - validated, saved lenses, with the self-check on planted structure (C4);
       - k per layer, manual and automatic, with the k profile and the k advisor (C3, E8);
       - the comparison of UMAP with raw-space groupings (C2, C4);

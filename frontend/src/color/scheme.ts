@@ -44,6 +44,16 @@ export function valueColor(value: string, values: string[], gradient: GradientSc
 // A distinct colour per index (nodes of one layer, for example)
 export const paletteColor = (i: number) => CATEGORICAL[((i % CATEGORICAL.length) + CATEGORICAL.length) % CATEGORICAL.length]
 
+// The output column's colours when it has no colour axis of its own: a category named like a value
+// of the colour axis takes that value's colour, and the others take the palette's next colours in
+// name order, so each category keeps one colour in every chart and layout
+export function answerColours(input: ColourSpec, categories: string[]): Record<string, string> {
+  const others = [...new Set(categories.filter(c => !input.values.includes(c)))].sort()
+  return Object.fromEntries(categories.map(c => [c, input.values.includes(c)
+    ? valueColor(c, input.values, input.gradient)
+    : paletteColor(input.values.length + others.indexOf(c))]))
+}
+
 // Lightness for each value of the second axis, darker to lighter, in a range where hues stay clear
 export function lightnessLevels(n: number): number[] {
   if (n <= 1) return [0.65]

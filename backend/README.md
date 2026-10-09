@@ -6,31 +6,39 @@ FastAPI server that captures MoE routing patterns and provides analysis endpoint
 
 ```
 api/
-├── main.py              # FastAPI app, lifespan (model loading), CORS, health endpoint
-├── dependencies.py      # Service initialization and dependency injection
+├── main.py              # FastAPI app, lifespan (model loading, the job scheduler, the app's event stream), CORS
+├── app_events.py        # The server-sent event stream open apps listen on (show, job, lens, ping)
+├── dependencies.py      # The capture service and its model loading
 ├── schemas.py           # Pydantic request/response models
 └── routers/
-    ├── probes.py        # Session management, probe capture, clustering schemas
-    ├── experiments.py   # Route analysis, cluster analysis, LLM insights
+    ├── probes.py        # Sessions, captures, sentence experiments, legacy clustering schemas
+    ├── lenses.py        # Lenses: build, versions, save, flows, members, fingerprints, validation, details
+    ├── analysis.py      # LLM cards, packets, questions, the analyst tests
+    ├── jobs.py          # Background jobs: list, status, cancel
+    ├── commands.py      # The command interface (show, build) and the event stream
+    ├── atlas.py         # The atlas's node catalogue
+    ├── studies.py       # Study files
+    ├── agent.py         # Agent runs in the MUD
     ├── generation.py    # Sentence set listing and generation
-    └── prompts.py       # Scaffold template delivery
+    ├── prompts.py       # Scaffold template delivery
+    └── insights.py      # The experiments health check
+
+services/
+├── probes/              # Capture: sessions, model inference, routing capture, Parquet I/O
+├── lenses/              # Lens build (UMAP + Ward per layer), versions, flows, experts, validation,
+│                        #   raw space, mass-mean axes, node details, the model's weights, atlas entries
+├── llm/                 # Analysts (claude -p), evidence packets, the number checker, cards, analyst tests
+├── jobs/                # The job store, the scheduler (lanes) and the worker process
+├── agent/               # The agent loop, the MUD client, the harmony parser, the scenario library
+├── experiments/         # token_filters.py: last-occurrence and subsampling filters
+├── generation/          # Sentence set loading and generation
+└── studies.py           # Study files (docs/studies/<id>/study.yaml)
 
 adapters/
 ├── base_adapter.py      # ModelAdapter ABC — abstracts model-specific behavior
 ├── gptoss_adapter.py    # gpt-oss-20b: 24 layers, 32 experts, top-4, TOPK_THEN_SOFTMAX
 ├── olmoe_adapter.py     # OLMoE-1B-7B: 16 layers, 64 experts, top-8, SOFTMAX_THEN_TOPK
 └── registry.py          # Adapter registration and lookup
-
-services/
-├── probes/
-│   └── integrated_capture_service.py  # Session management, model inference, Parquet I/O
-├── experiments/
-│   ├── expert_route_analysis.py       # Expert-level routing analysis (Sankey data)
-│   ├── cluster_route_analysis.py      # Cluster-level routing analysis: per-layer UMAP/PCA reduction + clustering
-│   ├── output_category_nodes.py       # Build output layer nodes from categorized probes
-│   └── llm_insights_service.py        # Optional LLM-powered analysis (user API key)
-└── generation/
-    └── sentence_set.py                # Load and validate sentence set JSON files
 
 schemas/                  # Parquet data contracts (Pydantic models)
 ├── tokens.py            # ProbeRecord — input text, label, generated output
@@ -51,21 +59,33 @@ core/
 | `/health` | GET | Model load state, GPU availability |
 | `/api/probes` | GET | List all probe sessions |
 | `/api/probes/{id}` | GET | Session details with sentences |
-| `/api/probes/sentence-experiment` | POST | Run full sentence capture experiment |
-| `/api/experiments/analyze-routes` | POST | Expert routing analysis (Sankey data) |
-| `/api/experiments/analyze-cluster-routes` | POST | Cluster routing analysis (after reduction) |
-| `/api/experiments/reduce` | POST | PCA/UMAP dimensionality reduction |
-| `/api/probes/sessions/{id}/clusterings` | GET | List clustering schemas |
-| `/api/probes/sessions/{id}/clusterings/{name}` | GET | Load schema with reports and descriptions |
+| `/api/probes/sentence-experiment` | POST | Run a full sentence capture experiment |
+| `/api/lenses` | POST | Build a lens (a background job; 202 with the job) |
+| `/api/sessions/{id}/lenses` | GET | A session's lenses, with legacy schemas |
+| `/api/sessions/{id}/lenses/{name}/flows` | GET | Cluster or expert flows over every layer |
+| `/api/sessions/{id}/lenses/{name}/validate` | POST | Held-out scores and the k profile (a job) |
+| `/api/sessions/{id}/lenses/{name}/details` | POST | Neurons, logit lens, surface check, routing (a job) |
+| `/api/sessions/{id}/lenses/{name}/save` | POST | Freeze a version; its reports follow (a job) |
+| `/api/sessions/{id}/lenses/{name}/cards/{card}` | GET | An LLM-written card, its numbers checked |
+| `/api/jobs/{id}` | GET | A background job's state and progress |
+| `/api/commands` | POST | Show a view in the open apps, or build a lens |
+| `/api/app/events` | GET | The open apps' event stream |
+| `/api/atlas/nodes` | GET | The atlas's node catalogue |
+| `/api/studies` | GET | The study files |
+| `/api/probes/sessions/{id}/clusterings` | GET | List legacy clustering schemas |
+
+The skills hold the full, copy-paste procedures: `/cluster` (lenses), `/analyze` (reports),
+`/app` (commands), `/agent` (agent runs).
 
 ## Running
 
 ```bash
 cd backend/src
-../../.venv/bin/python -m uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload
+../../.venv/bin/python -m uvicorn api.main:app --host 0.0.0.0 --port 8000
 ```
 
-Model loading takes several minutes. Check `/health` — `model_loaded: true` means ready.
+Model loading takes a minute or more. Check `/health`: `model_loaded: true` means ready. After a
+code change, restart fully (the `/server` skill); don't use `--reload`.
 
 ## The Adapter Pattern
 

@@ -1,54 +1,57 @@
 # Open LLMRI — Frontend
 
-React + Vite + TypeScript visualization for MoE routing patterns and latent
-trajectories. The canonical UI is `MUDApp.tsx`, served at `/`.
+React + Vite + TypeScript app for reading lenses on gpt-oss-20b's internal states: cluster and
+expert flows over every layer, validation, node details and LLM-written reports, with the MUD's
+terminal docked below. The shell (`MUDApp.tsx`) holds two workspaces, Layers (`/layers`) and Build
+(`/build`).
 
 ## Layout
 
 ```
 src/
+├── App.tsx, main.tsx            # The routes: the shell with /layers and /build
 ├── pages/
-│   └── MUDApp.tsx                       # Canonical UI: toolbar + analysis grid + MUD terminal
+│   ├── MUDApp.tsx               # The shell: top bar, a workspace, the MUD terminal's dock, the event stream
+│   ├── LayersWorkspace.tsx      # Layers: both charts over every layer, the details panel, the lower tabs
+│   └── BuildWorkspace.tsx       # Build: the lens form, mass-mean lenses, validation, versions, reports
 ├── components/
-│   ├── toolbar/Toolbar.tsx              # Session/schema/axis controls + SchemaSummary
-│   ├── charts/
-│   │   ├── SankeyChart.tsx              # ECharts Sankey (single transition)
-│   │   ├── MultiSankeyView.tsx          # 6-transition window orchestrator
-│   │   └── SteppedTrajectoryPlot.tsx    # Three.js 3D stepped UMAP trajectory
-│   ├── analysis/
-│   │   ├── ExpertRoutesSection.tsx      # Expert routing panel
-│   │   ├── ClusterRoutesSection.tsx     # Cluster routing panel
-│   │   ├── WindowAnalysis.tsx           # Per-window written report viewer
-│   │   ├── ContextSensitiveCard.tsx     # Click-to-inspect node/route card
-│   │   └── SchemaSummary.tsx            # Natural-language schema paragraph (rendered in Toolbar)
-│   └── terminal/MUDTerminal.tsx         # Embedded Evennia client
-├── hooks/
-│   ├── useAxisControls.ts               # Color/blend/shape axis state
-│   └── useSchemaManagement.ts           # Schema list + selection + reports cache
-├── api/client.ts                        # Typed API client
-├── types/api.ts                         # TypeScript interfaces matching backend responses
-├── utils/colorBlending.ts               # Gradients + categorical palettes
-└── constants/layerWindows.ts            # The 4 fixed windows (w0–w3) and their transitions
+│   ├── shell/                   # TopBar, JobsMenu, TerminalDock, the shell's context
+│   ├── layers/                  # LayerCharts, LayerStrip, colour controls and legend, DetailsPanel,
+│   │                            #   NodeDetails, FingerprintPanel, LowerTabs, LegacyReports
+│   ├── lenses/                  # LensForm, LensVersions, LensBadges, LensValidation, LensReport,
+│   │                            #   AnalystStatus, the mass-mean form, results and details, JobProgress
+│   ├── analysis/                # AnalysisReport, CardBody, CardQuestions, CitedText (the LLM cards);
+│   │                            #   ContextSensitiveCard, SchemaSummary, WindowAnalysis
+│   ├── charts/                  # AllLayerSankeyView, SankeyChart, SteppedTrajectoryPlot (3-D)
+│   ├── common/                  # ExportMenu, PanelErrorBoundary, Tokens
+│   └── terminal/MUDTerminal.tsx # The embedded MUD client
+├── hooks/                       # The view state (in the URL), lens flows, context, details, marks and
+│                                #   members, cards, jobs, the event stream, the MUD connection
+├── color/                       # OKLab mixing, colour schemes and the legend (unit-tested)
+├── api/client.ts                # The typed API client
+├── types/                       # Its types (lens, cards, api, evennia)
+└── utils/                       # Selections and card ids, layer geometry, exports with recipes, lab presets
 ```
 
 ## Running
 
 ```bash
-npm install
-npm run dev    # http://localhost:5173
+npm ci
+npm run dev     # http://localhost:5173
+npm run lint && npx tsc -b && npm run test && npm run build   # what CI runs
 ```
 
-Backend expected at `http://localhost:8000/api`.
+The backend is expected at `http://localhost:8000/api`, and only accepts browser calls from the
+app's origin (`APP_ORIGINS` in the root `.env`).
 
-WSL2 note: `vite.config.ts` enables `usePolling: true` for file watching on
-NTFS — HMR works on the Windows filesystem out of the box.
+WSL2 note: `vite.config.ts` enables `usePolling: true` for file watching, so changes appear
+without a refresh.
 
-## Architecture conventions
+## Conventions
 
-- The right column of every Sankey is fixed at build time as **friend / foe /
-  unknown** (driven by `ground_truth`). Color-axis dropdown changes paint
-  these existing nodes locally — no refetch.
-- `output_grouping_axes` is no longer a runtime parameter; the request field
-  is ignored if sent.
-- A schema covers all 4 fixed windows × 6 transitions × {cluster + 3 expert
-  ranks}. Per-window reports populate `WindowAnalysis` automatically.
+- **The view's state lives in the URL** (capture, lens, layer, zoom, colours, rank, selection,
+  tab), so links, commands and exported figures share it.
+- **The app listens to the backend's event stream:** `show` commands open a view, `job` events
+  keep jobs current, `lens` events make views re-read what changed. Nothing polls while it's open.
+- **Every chart exports** its picture and its data, each carrying its recipe.
+- **Visitors read only;** a lab room in the MUD locks the capture it shows.

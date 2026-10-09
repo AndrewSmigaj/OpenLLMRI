@@ -4,8 +4,10 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import * as echarts from 'echarts'
 import { apiClient } from '../../api/client'
-import type { KProfileEntry, LensSummary, Validation } from '../../types/lens'
+import type { KProfileEntry, KSuggestion, LensSummary, Validation } from '../../types/lens'
 import { heldoutBest } from '../../utils/validation'
+import { exportElementChart } from '../../utils/exportFigure'
+import ExportMenu from '../common/ExportMenu'
 
 const NO_KS: number[] = []
 
@@ -39,6 +41,15 @@ export default function LensValidation({ session, lens }: { session: string; len
   const [error, setError] = useState<string | null>(null)
   const [axis, setAxis] = useState('label')
   const [measureId, setMeasureId] = useState('kappa')
+  // The build's in-sample suggestions (elbow, silhouette, hierarchy levels), marked beside the profile
+  const [suggestions, setSuggestions] = useState<Record<string, KSuggestion>>({})
+  useEffect(() => {
+    let current = true
+    apiClient.getLens(session, lens.name, false)
+      .then(found => { if (current) setSuggestions(found.manifest?.suggestions ?? {}) })
+      .catch(() => undefined)
+    return () => { current = false }
+  }, [session, lens.name])
 
   useEffect(() => {
     let current = true
@@ -83,7 +94,8 @@ export default function LensValidation({ session, lens }: { session: string; len
     return {
       title: { text: `k profile: ${measure.label}`, left: 'center', textStyle: { fontSize: 12 } },
       tooltip: { formatter: p => { const v = (p as { value: (number | string)[] }).value; return `L${layers[v[0] as number]}, k ${ks[v[1] as number]}: ${v[2] ?? ''}` } },
-      legend: { bottom: 0, textStyle: { fontSize: 10 }, data: ["this version's k", 'held-out best (selection-biased)'] },
+      legend: { bottom: 0, textStyle: { fontSize: 10 }, data: ["this version's k", 'held-out best (selection-biased)',
+        'elbow (in-sample)', 'silhouette (in-sample)', 'hierarchy levels (in-sample)'] },
       grid: { left: 40, right: 70, top: 28, bottom: 40 },
       xAxis: { type: 'category', data: layers.map(l => `L${l}`), axisLabel: { fontSize: 9 } },
       yAxis: { type: 'category', data: ks.map(k => `k ${k}`), axisLabel: { fontSize: 9 } },
@@ -95,10 +107,17 @@ export default function LensValidation({ session, lens }: { session: string; len
           itemStyle: { color: 'transparent', borderColor: '#111', borderWidth: 1.5 }, z: 3 },
         { name: 'held-out best (selection-biased)', type: 'scatter', data: marks(layer => best[String(layer)]),
           symbol: 'diamond', symbolSize: 7, itemStyle: { color: '#f59e0b', borderColor: '#111', borderWidth: 0.5 }, z: 4 },
+        { name: 'elbow (in-sample)', type: 'scatter', data: marks(layer => suggestions[String(layer)]?.elbow), symbol: 'circle',
+          symbolSize: 6, symbolOffset: [-11, 0], itemStyle: { color: '#ffffff', borderColor: '#111', borderWidth: 1 }, z: 5 },
+        { name: 'silhouette (in-sample)', type: 'scatter', data: marks(layer => suggestions[String(layer)]?.silhouette),
+          symbol: 'triangle', symbolSize: 7, symbolOffset: [11, 0], itemStyle: { color: '#22c55e', borderColor: '#111', borderWidth: 0.5 }, z: 5 },
+        { name: 'hierarchy levels (in-sample)', type: 'scatter', symbol: 'rect', symbolSize: [10, 2], symbolOffset: [0, 7],
+          itemStyle: { color: '#7c3aed' }, z: 5,
+          data: layers.flatMap((layer, li) => (suggestions[String(layer)]?.levels ?? []).filter(k => ks.includes(k)).map(k => [li, ks.indexOf(k)])) },
       ],
       animation: false,
     }
-  }, [validation, measure, layers, ks, own, best])
+  }, [validation, measure, layers, ks, own, best, suggestions])
 
   // The fair comparison (label only): the same folds and the same k for every grouping; the
   // relevant neurons use the labels, so they stand beside the ceiling, not the unsupervised ones
@@ -134,6 +153,15 @@ export default function LensValidation({ session, lens }: { session: string; len
   if (error) return <p className="text-xs text-red-600">{error}</p>
   if (!validation) return <p className="text-xs text-gray-500">Loading the validation…</p>
   const select = 'px-1 py-0.5 text-xs border border-gray-300 rounded bg-white'
+  // Each chart exports its picture and its rows, with the lens, the validation and the view in its recipe
+  const exporter = (box: { current: HTMLDivElement | null }, option: echarts.EChartsOption | null, figure: string, file: string) => (
+    <div className="flex justify-end">
+      <ExportMenu formats={['png', 'svg', 'csv', 'json']} disabled={!option}
+        onExport={format => exportElementChart(format, box.current, `${session}_${lens.name}_${file}`, {
+          figure, lens: { session, name: lens.name, version: lens.current }, axis, measure: measure?.label,
+          validation: { folds: validation.folds, created_at: validation.provenance.created_at } }, option)} />
+    </div>
+  )
   return (
     <div className="space-y-2 pt-2 border-t border-gray-100">
       <div className="flex flex-wrap items-center gap-3 text-xs text-gray-600">
@@ -153,11 +181,14 @@ export default function LensValidation({ session, lens }: { session: string; len
         </span>
       </div>
       <div className="grid grid-cols-2 gap-3">
-        <div ref={lineBox} style={{ height: 260 }} />
-        <div ref={gridBox} style={{ height: 260 }} />
+        <div>{exporter(lineBox, byLayer, `held out on ${axis}, at this version's k`, 'heldout')}
+          <div ref={lineBox} style={{ height: 260 }} /></div>
+        <div>{exporter(gridBox, profile, `k profile: ${measure?.label ?? ''}`, 'k_profile')}
+          <div ref={gridBox} style={{ height: 260 }} /></div>
       </div>
       {validation.comparison
-        ? <div ref={versusBox} style={{ height: 260 }} />
+        ? <div>{exporter(versusBox, versus, 'UMAP against raw space', 'versus_raw')}
+            <div ref={versusBox} style={{ height: 260 }} /></div>
         : <p className="text-[11px] text-gray-400">Validate again to compare with raw space (this validation predates it).</p>}
     </div>
   )

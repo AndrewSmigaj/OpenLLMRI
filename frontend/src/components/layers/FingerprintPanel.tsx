@@ -49,9 +49,9 @@ function heatmapOption(grid: number[][], layers: number[], difference: boolean, 
     yAxis: { type: 'category', data: layers.map(l => `L${l}`), inverse: true, axisLabel: { fontSize: 9 } },
     visualMap: difference
       ? { min: -extreme, max: extreme, calculable: true, orient: 'vertical', right: 0, top: 'middle', itemHeight: 120,
-          inRange: { color: ['#2166ac', '#f7f7f7', '#b2182b'] }, textStyle: { fontSize: 9 } }
+          precision: 2, inRange: { color: ['#2166ac', '#f7f7f7', '#b2182b'] }, textStyle: { fontSize: 9 } }
       : { min: 0, max: extreme, calculable: true, orient: 'vertical', right: 0, top: 'middle', itemHeight: 120,
-          inRange: { color: ['#ffffff', '#08306b'] }, textStyle: { fontSize: 9 } },
+          precision: 2, inRange: { color: ['#ffffff', '#08306b'] }, textStyle: { fontSize: 9 } },
     series: [{ type: 'heatmap', data, progressive: 0, emphasis: { itemStyle: { borderColor: '#111', borderWidth: 1 } } }],
     animation: false,
   }

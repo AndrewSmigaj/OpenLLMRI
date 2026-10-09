@@ -114,24 +114,23 @@ def test_a_saved_reducer_is_stripped_and_reads_new_data_once_reattached(lake: Pa
 
 
 def test_partitions_match_the_legacy_clustering(lake: Path) -> None:
+    """The legacy schemas' recipe (the retired build-schema route): UMAP to 6 dimensions with seed
+    42 and min_dist 0.1, then Ward clustering of the embedding. A lens cuts the same partitions."""
+    import umap
+    from sklearn.cluster import AgglomerativeClustering
     from sklearn.metrics import adjusted_rand_score
 
-    from services.experiments.cluster_route_analysis import ClusterRouteAnalysisService
     from services.lenses.data import load_states
 
     build(lake, k=3)
     folder = lens(lake)
     ids = pq.read_table(folder / "items.parquet", columns=["probe_id"]).column("probe_id").to_pylist()
     states = load_states(SESSION, ids)
-    embeddings = [{"probe_id": pid, "layer": layer, "vector": states[layer][i]}
-                  for layer in range(3) for i, pid in enumerate(ids)]
-    legacy = ClusterRouteAnalysisService(str(lake))._perform_clustering(
-        embeddings, [0, 1, 2],
-        {"clustering_method": "hierarchical", "layer_cluster_counts": {0: 3, 1: 3, 2: 3}, "n_neighbors": 10},
-        reduction_method="umap", reduction_dims=6)
     nodes = np.load(folder / "v1" / "assign.npz")["nodes"]
     for layer in range(3):
-        old = [legacy["assignments"][pid][layer]["cluster_id"] for pid in ids]
+        rows = np.asarray(states[layer], dtype=np.float32)
+        embedded = umap.UMAP(n_components=6, random_state=42, n_neighbors=10, min_dist=0.1).fit_transform(rows)
+        old = AgglomerativeClustering(n_clusters=3).fit_predict(embedded)
         assert adjusted_rand_score(old, nodes[:, layer]) == 1.0
 
 

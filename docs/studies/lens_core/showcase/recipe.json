@@ -1,0 +1,336 @@
+{
+ "figure": "the lens core's showcase (lens slice 1)",
+ "script": "docs/studies/lens_core/showcase/compose.py",
+ "commit": "3605c073cb02661e9de101e7eb9c2afa73139b06",
+ "dirty": true,
+ "panels": {
+  "A": {
+   "file": "a_tank_clusters.png",
+   "recipe": {
+    "app": "OpenLLMRI",
+    "figure": "cluster flows, all layers",
+    "link": "http://localhost:5173/layers?session=session_1434a9be&lens=tank-k5-n15&zoom=24",
+    "exported_at": "2026-10-08T23:56:21.815Z",
+    "view": {
+     "session": "session_1434a9be",
+     "lens": "tank-k5-n15",
+     "legacy": false,
+     "layer": 0,
+     "zoom": 24,
+     "color": "label",
+     "color2": "none",
+     "fade": "",
+     "stripes": false,
+     "gradient": "red-blue",
+     "rank": 1,
+     "top": 10,
+     "sel": "",
+     "tab": "members"
+    },
+    "lens": {
+     "lens": {
+      "session_id": "session_1434a9be",
+      "name": "tank-k5-n15",
+      "legacy": false,
+      "version": "v1"
+     },
+     "settings": {
+      "n_neighbors": 15,
+      "dimensions": 6,
+      "min_dist": 0.1,
+      "seed": 42,
+      "grouping": "ward",
+      "site": {
+       "source": "residual_stream",
+       "token_position": 1
+      }
+     },
+     "built": {
+      "commit": "e5b4f6e48d258394b9fcca8a29401894df977e36",
+      "dirty": true,
+      "job_id": "job_20261008T193315233435_008d5a",
+      "created_by": "app",
+      "created_at": "2026-10-08T19:33:54+00:00",
+      "seconds": 38.3,
+      "libraries": {
+       "umap-learn": "0.5.11",
+       "scikit-learn": "1.7.2",
+       "numpy": "1.26.4"
+      }
+     },
+     "served": {
+      "commit": "26633c425d9e97f1e46b7db4eb99d14514d3b908",
+      "dirty": true
+     },
+     "view": {
+      "kind": "cluster"
+     }
+    },
+    "colours": {
+     "input": {
+      "axis": "label",
+      "values": [
+       "aquarium",
+       "clothing",
+       "scuba",
+       "septic",
+       "vehicle"
+      ],
+      "gradient": "red-blue"
+     },
+     "output": null,
+     "stripes": false,
+     "shape": "none"
+    }
+   },
+   "legend": "a_tank_legend.png: a screenshot of the app's colour legend for this view"
+  },
+  "B": {
+   "file": "b_tank_k_profile.png",
+   "recipe": {
+    "app": "OpenLLMRI",
+    "link": "http://localhost:5173/build?session=session_1434a9be&lens=tank-k5-n15",
+    "exported_at": "2026-10-08T23:43:26.694Z",
+    "figure": "k profile: held-out κ (label)",
+    "lens": {
+     "session": "session_1434a9be",
+     "name": "tank-k5-n15",
+     "version": "v1"
+    },
+    "axis": "label",
+    "measure": "held-out κ (label)",
+    "validation": {
+     "folds": {
+      "kind": "stratified, identical texts kept together",
+      "n_folds": 5,
+      "weaker": true
+     },
+     "created_at": "2026-10-08T20:54:00Z"
+    }
+   },
+   "legend": null
+  },
+  "E": {
+   "file": "e_fingerprint_aquarium_vehicle.png",
+   "recipe": {
+    "app": "OpenLLMRI",
+    "figure": "expert fingerprint",
+    "link": "http://localhost:5173/layers?session=session_1434a9be&lens=tank-k5-n15&tab=experts",
+    "exported_at": "2026-10-08T23:46:41.297Z",
+    "populations": {
+     "a": "label = aquarium",
+     "b": "label = vehicle"
+    },
+    "lens": {
+     "lens": {
+      "session_id": "session_1434a9be",
+      "name": "tank-k5-n15",
+      "legacy": false,
+      "version": "v1"
+     },
+     "settings": {
+      "n_neighbors": 15,
+      "dimensions": 6,
+      "min_dist": 0.1,
+      "seed": 42,
+      "grouping": "ward",
+      "site": {
+       "source": "residual_stream",
+       "token_position": 1
+      }
+     },
+     "built": {
+      "commit": "e5b4f6e48d258394b9fcca8a29401894df977e36",
+      "dirty": true,
+      "job_id": "job_20261008T193315233435_008d5a",
+      "created_by": "app",
+      "created_at": "2026-10-08T19:33:54+00:00",
+      "seconds": 38.3,
+      "libraries": {
+       "umap-learn": "0.5.11",
+       "scikit-learn": "1.7.2",
+       "numpy": "1.26.4"
+      }
+     },
+     "served": {
+      "commit": "26633c425d9e97f1e46b7db4eb99d14514d3b908",
+      "dirty": true
+     },
+     "view": {
+      "kind": "fingerprint",
+      "axis": "label",
+      "value": "aquarium"
+     }
+    }
+   },
+   "legend": null
+  },
+  "C": {
+   "file": "c_calibration_heldout.png",
+   "recipe": {
+    "app": "OpenLLMRI",
+    "link": "http://localhost:5173/build?session=session_29a80932",
+    "exported_at": "2026-10-08T23:43:54.284Z",
+    "figure": "mass-mean axis, held out",
+    "lens": {
+     "session": "session_29a80932",
+     "name": "aquarium-vs-vehicle-axis-p1",
+     "contrast": {
+      "label_a": "aquarium",
+      "label_b": "vehicle"
+     }
+    },
+    "validation": {
+     "folds": {
+      "kind": "scene families",
+      "field": "scene",
+      "n_folds": 12,
+      "weaker": false,
+      "families": {
+       "aquarium": [
+        "aquascaping",
+        "breeding_room",
+        "classroom",
+        "home_hobbyist",
+        "koi_yard",
+        "maintenance_route",
+        "public_aquarium",
+        "quarantine_vet",
+        "reef_club",
+        "restaurant",
+        "shop_retail",
+        "wet_lab"
+       ],
+       "vehicle": [
+        "archaeology",
+        "assembly_plant",
+        "film_set",
+        "memoir",
+        "model_bench",
+        "museum",
+        "news_report",
+        "parade",
+        "procurement",
+        "rail_depot",
+        "squad_chat",
+        "training_range"
+       ]
+      }
+     },
+     "created_at": "2026-10-08T20:49:37+00:00"
+    }
+   },
+   "legend": null
+  },
+  "D": {
+   "file": "d_frame_voice.png",
+   "recipe": {
+    "app": "OpenLLMRI",
+    "figure": "cluster flows, all layers",
+    "link": "http://localhost:5173/layers?session=session_673360a5&lens=framing-k4-auto-levels&zoom=24&color=label&color2=voice",
+    "exported_at": "2026-10-08T23:56:00.424Z",
+    "view": {
+     "session": "session_673360a5",
+     "lens": "framing-k4-auto-levels",
+     "legacy": false,
+     "layer": 0,
+     "zoom": 24,
+     "color": "label",
+     "color2": "voice",
+     "fade": "",
+     "stripes": false,
+     "gradient": "red-blue",
+     "rank": 1,
+     "top": 10,
+     "sel": "",
+     "tab": "members"
+    },
+    "lens": {
+     "lens": {
+      "session_id": "session_673360a5",
+      "name": "framing-k4-auto-levels",
+      "legacy": false,
+      "version": "v1"
+     },
+     "settings": {
+      "n_neighbors": 15,
+      "dimensions": 6,
+      "min_dist": 0.1,
+      "seed": 42,
+      "grouping": "ward",
+      "site": {
+       "source": "residual_stream",
+       "token_position": 1
+      }
+     },
+     "built": {
+      "commit": "a2e2ed6a0a2086f1601c1225359f5816f1a59db7",
+      "dirty": true,
+      "job_id": "job_20261008T183828302653_0b125e",
+      "created_by": "claude-code:10b.2-live-check",
+      "created_at": "2026-10-08T18:39:11+00:00",
+      "seconds": 43,
+      "libraries": {
+       "umap-learn": "0.5.11",
+       "scikit-learn": "1.7.2",
+       "numpy": "1.26.4"
+      }
+     },
+     "served": {
+      "commit": "26633c425d9e97f1e46b7db4eb99d14514d3b908",
+      "dirty": true
+     },
+     "view": {
+      "kind": "cluster"
+     }
+    },
+    "colours": {
+     "input": {
+      "axis": "label",
+      "values": [
+       "factual",
+       "roleplay"
+      ],
+      "gradient": "red-blue",
+      "lightness": {
+       "axis": "voice",
+       "values": [
+        "active",
+        "passive"
+       ]
+      }
+     },
+     "output": null,
+     "stripes": false,
+     "shape": "none"
+    }
+   },
+   "legend": "d_frame_voice_legend.png: a screenshot of the app's colour legend for this view"
+  },
+  "F": {
+   "file": "f_router_alignment.png",
+   "recipe": {
+    "app": "OpenLLMRI",
+    "link": "http://localhost:5173/build?session=session_29a80932",
+    "exported_at": "2026-10-08T23:43:54.417Z",
+    "figure": "the axis's effect on the next layer's routing, against random directions",
+    "lens": {
+     "session": "session_29a80932",
+     "name": "aquarium-vs-vehicle-axis-p1",
+     "contrast": {
+      "label_a": "aquarium",
+      "label_b": "vehicle"
+     }
+    },
+    "details": {
+     "commit": "28db627db09431aa834e8f74362e50cec7fcf6b7",
+     "dirty": true,
+     "job_id": "job_20261008T211117671838_01b423",
+     "seconds": 7.5,
+     "created_at": "2026-10-08T21:11:48Z"
+    }
+   },
+   "legend": null
+  }
+ }
+}

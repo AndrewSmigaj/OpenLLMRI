@@ -19,6 +19,7 @@ import { columnsOf, lastFirst, stepsInView } from '../utils/layerGeometry'
 import { membersQuery, parseNodeId, parseSelection, probeSelection } from '../utils/selection'
 import { cardIdFor, splitCardFor } from '../utils/cardId'
 import { cardFor } from '../utils/selectionCard'
+import { isOutputNode, stripOutputPrefix } from '../constants/outputNodes'
 import ColourControls from '../components/layers/ColourControls'
 import ColourLegend from '../components/layers/ColourLegend'
 import DetailsPanel from '../components/layers/DetailsPanel'
@@ -73,6 +74,8 @@ function LayersView({ view, update, visitor }: { view: ViewState; update: Update
 
   const layers = routes?.window_layers ?? NO_LAYERS
   const columns = columnsOf(routes)
+  const answers = useMemo(() => (routes?.nodes ?? []).filter(n => isOutputNode(n.name)).map(n => stripOutputPrefix(n.name)),
+    [routes])
   const steps = stepsInView(columns.length, view.zoom)
   const first = Math.min(view.layer, lastFirst(columns.length, steps))
   const layersInView = useMemo(() => layers.slice(first, first + steps + 1), [layers, first, steps])
@@ -241,7 +244,7 @@ function LayersView({ view, update, visitor }: { view: ViewState; update: Update
             <ColourControls axes={axes} disabled={visitor} />
           </div>
           <div className="px-2 py-1 bg-white border-b border-gray-200">
-            <ColourLegend input={axes.input} output={axes.output} stripes={axes.stripes} />
+            <ColourLegend input={axes.input} output={axes.output} stripes={axes.stripes} answers={answers} />
           </div>
           <div className="px-2 py-1 bg-white border-b border-gray-200">
             <LayerStrip columns={columns} first={first} shown={steps + 1}

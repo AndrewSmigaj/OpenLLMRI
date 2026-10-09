@@ -79,24 +79,6 @@ interface RouteStatistics {
   [key: string]: unknown
 }
 
-interface AnalyzeRoutesRequest {
-  session_ids: string[]
-  schema_name: string
-  transition_layers: number[]
-  expert_rank?: number
-  output_grouping_axes?: string[]
-  top_n_routes?: number
-}
-
-interface AnalyzeClusterRoutesRequest {
-  session_ids: string[]
-  schema_name: string
-  transition_layers: number[]
-  output_grouping_axes?: string[]
-  top_n_routes?: number
-  max_examples_per_node?: number
-}
-
 interface SankeyNode {
   name: string
   id: string
@@ -131,7 +113,6 @@ interface TopRoute {
   signature: string
   count: number
   coverage: number
-  avg_confidence: number
   example_tokens: ProbeExample[]
 }
 
@@ -153,41 +134,6 @@ interface RouteAnalysisResponse {
   available_axes?: DynamicAxis[]
   output_available_axes?: DynamicAxis[]
   probe_assignments?: Record<string, Record<string, number>>
-}
-
-interface RouteDetailsResponse {
-  signature: string
-  window_layers: number[]
-  tokens: ProbeExample[]
-  count: number
-  coverage: number
-  avg_confidence: number
-  category_breakdown: Record<string, unknown>
-}
-
-interface ExpertDetailsResponse {
-  layer: number
-  expert_id: number
-  node_name: string
-  tokens: ProbeExample[]
-  total_tokens: number
-  usage_rate: number
-  avg_confidence: number
-  category_breakdown: Record<string, unknown>
-}
-
-// LLM Insights Types
-interface LLMInsightsRequest {
-  session_id: string
-  windows: Record<string, unknown>[]
-  user_prompt: string
-  api_key: string
-  provider?: 'openai' | 'anthropic'
-}
-
-interface LLMInsightsResponse {
-  narrative: string
-  statistics: Record<string, unknown>
 }
 
 // Trajectory Types
@@ -260,16 +206,10 @@ export type {
   SessionDetailResponse,
   ProbeExample,
   RouteStatistics,
-  AnalyzeRoutesRequest,
-  AnalyzeClusterRoutesRequest,
   RouteAnalysisResponse,
   SankeyNode,
   SankeyLink,
   TopRoute,
-  RouteDetailsResponse,
-  ExpertDetailsResponse,
-  LLMInsightsRequest,
-  LLMInsightsResponse,
   DynamicAxis,
   SentenceExperimentRequest,
   SentenceExperimentResponse,

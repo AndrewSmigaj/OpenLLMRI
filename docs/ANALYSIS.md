@@ -1,28 +1,26 @@
-Related: docs/PIPELINE.md (orchestration context), docs/PROBES.md (probe creation), data/sentence_sets/GUIDE.md (sentence set design)
+Related: docs/PIPELINE.md (orchestration context), docs/DESIGN.md (C lenses, E8 LLM analysis), docs/PROBES.md (probe creation), data/sentence_sets/GUIDE.md (sentence set design)
 
-# Analysis Guide — Claude Code Cluster & Route Analysis
+# Analysis Guide — reading lenses and writing checked reports
 
-**Primary workflow:** The `/analyze` skill (`.claude/skills/analyze/SKILL.md`) is the operational procedure. This document provides reference detail on methodology, data structures, and report formats.
-
-This guide teaches Claude Code how to analyze cluster/route data from Open LLMRI sessions and write reports.
+**Primary workflow:** the `/cluster` skill builds, validates and saves lenses; the `/analyze` skill
+writes reports. This document is the reference for the methodology behind them.
 
 ## Prerequisites
 
-- A completed probe session (run via `POST /api/probes/sentence-experiment`)
-- Cluster analysis results (run via `POST /api/experiments/analyze-cluster-routes`)
+- A completed probe session (run via `POST /api/probes/sentence-experiment`), its outputs
+  categorized when the set has output axes (below).
+- A lens on it (`/cluster` OP-L1), validated (OP-L4) before its scores are read as results.
 
-## Pipeline Overview
+## Pipeline overview
 
-After capturing probes:
+1. **Categorize outputs** — read each generated text, classify it, POST the categories back.
+2. **Build a lens** and choose k per layer from the k profile.
+3. **Validate it** — held-out scores, the k profile, raw space on the same folds and k.
+4. **Work out node details** — neurons, the logit lens, the surface check, routing.
+5. **Read it** — the flows, the expert flows, the split points (below).
+6. **Write reports** — cards, every number checked against its evidence packet.
 
-1. **Generate outputs** — already captured with `generate_output=True`
-2. **Read outputs** — `GET /api/probes/sessions/{id}/generated-outputs`
-3. **Categorize outputs** — read each generated text, classify, POST categories back
-4. **Run cluster analysis** for each window with `save_as` parameter
-5. **Analyze each window** — read the data, identify patterns, write report
-6. **Save reports** — `POST /api/probes/sessions/{id}/clusterings/{schema}/reports/{window_key}`
-
-## Step 2-3: Output Categorization
+## Output categorization
 
 Read generated texts:
 ```
@@ -70,216 +68,63 @@ Both fields are written to existing columns on ProbeRecord in tokens.parquet. Th
 
 For multi-axis output designs (e.g., 2×2 factorial), the `output_category` is typically a composite: `{axis1_value}_{axis2_value}` (e.g., `fictional_physical`). For single-axis designs, `output_category` is just the axis value directly (e.g., `aquarium`).
 
-## Step 4: Running Cluster Analysis
+## Reading a lens
 
-For each window in the session's layer range, call:
+**Scores first.** A node is a group the lens made at one layer, measured against the designed
+labels; only held-out scores say it generalizes.
+- **Held-out κ per layer** at the version's k: where the designed axis separates, and where it
+  doesn't. Folds that hold out whole scene families are the real test; stratified folds (sets
+  with no scene families) are weaker, and say so.
+- **The k profile** (k 2 to 10 at every layer): held-out κ and AMI per axis, silhouette, seed
+  agreement. In-sample methods (elbow, silhouette, hierarchy levels) don't use the labels; a k
+  chosen by its held-out score is selection-biased.
+- **Raw space on the same folds and k** (PCA-50 Ward and spectral, relevant neurons, the logistic
+  ceiling): when raw space matches the lens, say so; marked nodes hold items the two group
+  differently.
 
-```
-POST /api/experiments/analyze-cluster-routes
-{
-  "session_id": "...",
-  "window_layers": [0, 1],
-  "clustering_config": {
-    "reduction_dimensions": 5,
-    "clustering_method": "hierarchical",
-    "embedding_source": "residual_stream",
-    "reduction_method": "umap",
-    "layer_cluster_counts": {"0": 6, "1": 6}
-  },
-  "save_as": "default_umap_h6"
-}
-```
+**Then the flows** (Layers):
+1. **Purity:** does a node specialize in one label? Above 80% one label is strong specialization;
+   50/50 is shared processing (interesting).
+2. **Continuity:** do items stay in "the same kind" of node across layers, or diverge?
+3. **Split points:** where a node's items part ways at the next layer, and which axis the
+   branches follow.
+4. **Other axes:** check whether register, structure or a scene axis line up with the nodes in
+   their own right.
+5. **Experts:** the expert flows at ranks 1 to 4 (the model's own weights) and the fingerprints:
+   whether populations take their own experts, and where routing doesn't follow the nodes.
 
-Repeat for each window: `[0,1]`, `[1,2]`, `[2,3]`, etc.
+**Node details** (Layers' node card): the neurons that track membership, the tokens the node's
+centre favours over the layer's average item, the surface check (a flagged node may be a split by
+sentence shape, not by meaning), and how much of the next layer's routing the nodes explain.
 
-To load from a previously saved schema (no need to re-specify clustering config):
-```
-POST /api/experiments/analyze-cluster-routes
-{
-  "session_id": "...",
-  "window_layers": [22, 23],
-  "clustering_schema": "default_umap_h6",
-  "output_grouping_axes": ["topic"],
-  "top_n_routes": 20
-}
-```
+## Reports: cards with checked numbers
 
-- `clustering_schema` loads the saved config from the schema's `meta.json`
-- `output_grouping_axes` adds output category nodes to the response; values are axis IDs from the sentence set's `output_axes` (e.g., `["topic"]`)
+A **card** is an LLM-written report on one thing in a lens: the lens (the lens report), its k
+profile (the k advisor), a node, an expert at a rank, a route, an expert route or a split point.
+Card ids and commands: `/analyze`.
 
-Also run expert routes:
-```
-POST /api/experiments/analyze-routes
-{
-  "session_id": "...",
-  "window_layers": [0, 1],
-  "top_n_routes": 20
-}
-```
+- **Evidence packets.** A card is written from its packet alone: numbered facts (the only numbers
+  it may cite), example sentences in proportion to their labels, the node's tokens and notes.
+  Packets are hashed and kept with the card, so a card names what it was written from, and a card
+  whose evidence has changed since shows as out of date.
+- **The number checker.** Every numeral must be followed, in its sentence, by the id of the fact it
+  comes from, and must equal it at the precision written; a share may be written as a percentage.
+  Identifiers (L12, L12C0, rank 2) and quoted sentences are skipped. A card that fails is retried
+  once with the failures listed, then kept and flagged; Claude Code's cards are refused until they
+  pass.
+- **Agreement.** The lens report is two independent drafts, reconciled, with their differences
+  listed. Other cards have one analyst and say so.
+- **Analyst tests.** Decoys (random populations, the lens with its labels shuffled), planted
+  findings, and predictive descriptions scored beside a majority-label baseline. Cards by an
+  analyst whose model and prompt version haven't passed are marked untested.
+- **Budgets.** A save writes the lens report, the k advisor, the biggest split points and the
+  nodes at the best layer within 25 calls on the Claude subscription; everything else is on demand.
+- **Where they live:** `data/lake/<sid>/lenses/<lens>/analysis/<version>/` (cards, packets,
+  questions); a saved version's node reports also join its atlas entries in `data/lenses/`.
 
-## Step 5: Analyzing a Window
+Cards are LLM-written: a finding still goes through the paradigm's review (DESIGN.md H).
 
-Each window's response contains:
+## Legacy schemas
 
-### Nodes (clusters)
-```json
-{
-  "name": "L0C3",
-  "layer": 0,
-  "expert_id": 3,
-  "token_count": 15,
-  "label_distribution": {"roleplay": 12, "factual": 3},
-  "category_distributions": {"voice": {"first_person": 8, "third_person": 7}},
-  "specialization": "roleplay (80%) / factual (20%)",
-  "tokens": [{"target_word": "threatened", "label": "roleplay", "input_text": "...", "probe_id": "..."}]
-}
-```
-
-### Links (transitions between clusters across layers)
-```json
-{
-  "source": "L0C3",
-  "target": "L1C5",
-  "value": 10,
-  "probability": 0.67,
-  "label_distribution": {"roleplay": 9, "factual": 1}
-}
-```
-
-### Top Routes (most common paths)
-```json
-{
-  "signature": "L0C3→L1C5",
-  "count": 10,
-  "coverage": 0.25,
-  "avg_confidence": 0.85,
-  "example_tokens": [...]
-}
-```
-
-### What to Look For
-
-1. **Cluster purity**: Does a cluster specialize in one label? High purity = the model's representation space separates semantic categories.
-   - >80% one label = strong specialization
-   - 50/50 = shared processing (interesting!)
-
-2. **Cross-layer consistency**: Do probes stay in "the same kind" of cluster across layers, or do they diverge? Consistent routing = stable representation.
-
-3. **Label-specific routes**: Do all roleplay probes follow the same path? Or multiple paths? Multiple paths suggest sub-categories within a label.
-
-4. **Category interactions**: When `category_distributions` shows additional axes (voice, specificity, etc.), check if these correlate with routing differently than the primary label.
-
-5. **Transition probabilities**: A link with probability 0.9 means that cluster is highly predictive of the next layer's cluster. Low probability = the representation diverges.
-
-6. **Route coverage**: If the top 5 routes cover 80%+ of probes, routing is concentrated. If they cover <50%, routing is distributed.
-
-### Report Format
-
-Write a markdown report for each window:
-
-```markdown
-# Window L{start}-L{end} Analysis
-
-## Cluster Summary
-- **C0** (N probes): [dominant label] ([purity]%). [1-sentence description of what this cluster captures]
-- **C1** (N probes): ...
-
-## Key Findings
-1. [Most striking pattern — usually label separation quality]
-2. [Secondary pattern — routing concentration or distribution]
-3. [Any anomalies or unexpected groupings]
-
-## Routing Patterns
-- [Top route and what it means]
-- [Any label-specific routing paths]
-- [Transition probability highlights]
-
-## Category Axis Interactions
-- [If additional axes exist, note correlations with clusters]
-```
-
-## Step 6: Saving Reports
-
-```
-POST /api/probes/sessions/{id}/clusterings/{schema_name}/reports/w_0_1
-Body: {"report": "# Window L0-L1 Analysis\n\n..."}
-```
-
-## Step 7: Element Descriptions
-
-Element descriptions are short human-written labels for each cluster node in a schema. They appear in the UI as tooltips/labels on Sankey nodes.
-
-### Endpoint
-
-```
-POST /api/probes/sessions/{session_id}/clusterings/{schema_name}/element-descriptions
-Content-Type: application/json
-Body: {
-  "descriptions": {
-    "cluster-0-L22": "Spatial/physical contexts — locations and movement",
-    "cluster-1-L22": "Abstract/metaphorical usage",
-    "cluster-3-L23": "Mixed financial and temporal senses"
-  }
-}
-```
-
-### Key format
-
-**Clusters**: `cluster-{N}-L{layer}`
-- `{N}` is the cluster index (0-based), `{layer}` is the layer number
-- Examples: `cluster-0-L22`, `cluster-5-L23`
-- Note: This is NOT the Sankey node label format (`L22C0`). The key format uses dashes and spells out `cluster-`.
-
-**Routes**: `route-{signature}`
-- Signature uses the Sankey node labels joined by `→`
-- Examples: `route-L22C3→L23C4`, `route-L22C0→L23C1`
-
-Both types go in the same `descriptions` dict:
-```json
-{
-  "descriptions": {
-    "cluster-3-L22": "Vehicle-dominant cluster (95%) — military and recreational tank contexts",
-    "route-L22C3→L23C4": "Pure vehicle route — formal combat and operational narratives"
-  }
-}
-```
-
-### Semantics
-
-- **PATCH/merge behavior**: Descriptions are merged with any existing descriptions. You can POST a subset of clusters and existing descriptions for other clusters are preserved.
-- **Overwrite**: Posting a key that already exists overwrites that description.
-- **No delete**: To clear a description, POST an empty string for that key.
-
-### When to write descriptions
-
-Write element descriptions during Stage 5 analysis, after examining each cluster's `label_distribution`, `tokens`, and `category_distributions`. Each description should capture the semantic theme of the cluster in 5-15 words.
-
-### Fallback: Direct disk write
-
-If the API endpoint returns 404 (WSL2 reload issue — see `.claude/skills/server/TROUBLESHOOTING.md`), write directly to disk:
-
-```
-data/lake/{session_id}/clusterings/{schema}/element_descriptions.json
-```
-
-This is a flat JSON dict of `{descKey: description}`. Merge with existing content if the file already exists.
-
-## Default Parameters
-
-| Parameter | Default | Notes |
-|-----------|---------|-------|
-| clustering_method | hierarchical | Better for non-spherical clusters |
-| reduction_method | umap | Better separation than PCA for visualization |
-| reduction_dimensions | 5 | 5D for clustering (trajectory viz uses 3D projection) |
-| n_clusters | 6 | Start here, adjust if clusters are too granular or too coarse |
-| embedding_source | residual_stream | Primary source; expert_output is alternative |
-| schema_name | default_umap_h6 | Naming convention: {method}_{reduction}_{clustering_initial}{n} |
-
-## Naming Convention for Schemas
-
-`{purpose}_{reduction}_{clustering_method_initial}{n_clusters}`
-
-Examples:
-- `default_umap_h6` — default analysis, UMAP reduction, hierarchical, 6 clusters
-- `fine_umap_h12` — finer analysis with 12 clusters
-- `expert_pca_k4` — expert output source, PCA, kmeans, 4 clusters
+Schemas built before lenses keep their window reports and written descriptions, which the app
+still shows beside them. New analysis goes into lens cards.

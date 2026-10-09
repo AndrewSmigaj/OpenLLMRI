@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { hexToOklab } from './oklab'
-import { GRADIENT_SCHEMES, NEUTRAL, distColor, legendOf, lightnessLevels, pointColor, stripeStops, valueColor, type ColourSpec } from './scheme'
+import { GRADIENT_SCHEMES, NEUTRAL, answerColours, distColor, legendOf, lightnessLevels, pointColor, stripeStops, valueColor, type ColourSpec } from './scheme'
 
 const senses = ['aquarium', 'clothing', 'scuba', 'septic', 'vehicle']
 const byLabel: ColourSpec = { axis: 'label', values: ['fact', 'fiction'], gradient: 'red-blue' }
@@ -11,6 +11,15 @@ describe('value colours', () => {
     expect(valueColor('fiction', byLabel.values, 'red-blue')).toBe(GRADIENT_SCHEMES['red-blue'].end)
     expect(new Set(senses.map(s => valueColor(s, senses, 'red-blue'))).size).toBe(5)
     expect(valueColor('other', senses, 'red-blue')).toBe(NEUTRAL)
+  })
+
+  it('output categories keep one colour whatever their order, matching the axis by name', () => {
+    const answers = ['unsure', 'fact', 'no_answer', 'fictional']
+    const colours = answerColours(byLabel, answers)
+    expect(answerColours(byLabel, [...answers].reverse())).toEqual(colours)
+    expect(colours.fact).toBe(GRADIENT_SCHEMES['red-blue'].start)
+    expect(new Set(Object.values(colours)).size).toBe(4)
+    expect(Object.values(colours)).not.toContain(GRADIENT_SCHEMES['red-blue'].end)
   })
 })
 

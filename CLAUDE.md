@@ -18,7 +18,7 @@ Claude Code uses these guides to execute the full pipeline:
 | `docs/PIPELINE.md` | Full analysis pipeline — orchestration runbook for Claude Code |
 | `docs/PROBES.md` | How to create and run probes via API |
 | `data/sentence_sets/GUIDE.md` | How to design and write sentence set JSON files |
-| `docs/ANALYSIS.md` | Analysis methodology reference (cluster/route data, reports) |
+| `docs/ANALYSIS.md` | Analysis methodology: reading a lens (scores, flows, node details) and its checked reports |
 | `docs/scratchpad/` | Intermediate work products — research, drafts, explorations. Check for context from recent work. |
 | `mud/CLAUDE.md` | The MUD's own guide (Evennia 6 in Docker; Winter Survival is its first scenario): its make targets, gates and docs. Read before changing anything under `mud/`. |
 | `docs/architecture/one-mud.md` | The one MUD: a single Evennia MUD hosting the institute, its labs, staged scenario sets and free-form worlds. Read before changing the MUD or the agent loop. |
@@ -33,6 +33,7 @@ Claude Code uses these guides to execute the full pipeline:
 | `/agent-report` | Generate formatted markdown walkthrough of agent session scenarios — what the LLM saw and how it reasoned |
 | `/probe` | Co-design a new experiment |
 | `/categorize` | Classify model-generated outputs |
+| `/cluster` | Lenses: build (background jobs), choose k per layer, validate, work out node details, save; legacy schemas |
 | `/app` | Steer the open app: show a view, build a lens through the command channel, watch its event stream |
 | `/analyze` | Lens reports: read a card's evidence packet, write cards through the number checker, run the analysts in the background, test them |
 | `/pipeline` | Check pipeline state, suggest next step |
@@ -84,7 +85,7 @@ After setup, use `/server` to start the backend and frontend.
 
 ### 2. Implementation Strategy
 - **Start with schemas and contracts** — implement data structures first
-- **Build services incrementally** — probe → capture → categorize → schema → analyze; DESIGN.md Part K orders what comes next
+- **Build services incrementally** — probe → capture → categorize → lens → validate → analyze; DESIGN.md Part K orders what comes next
 - **Test contracts immediately** — verify Parquet writes, API responses, manifest generation
 - **Logging is non-negotiable** — use structured JSON logging for debugging
 
@@ -109,7 +110,7 @@ After setup, use `/server` to start the backend and frontend.
 ### 6. Data Flow
 ```
 PROBE FLOW: sentence set → capture (forward pass + hooks) → Parquet lake (reusable)
-ANALYSIS FLOW: Parquet → UMAP 6D → hierarchical clustering → behavioral validation → reports
+ANALYSIS FLOW: Parquet → lens (UMAP 6D + Ward per layer, k per layer) → held-out validation, raw space → node details → checked reports
 TIME FLOW: a saved lens → read at a fixed site along context steps, ticks or reasoning steps → timelines (DESIGN.md D)
 ```
 

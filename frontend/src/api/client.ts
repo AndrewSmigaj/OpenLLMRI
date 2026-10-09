@@ -3,13 +3,6 @@ import type {
   SessionStatus,
   SessionListItem,
   SessionDetailResponse,
-  AnalyzeRoutesRequest,
-  AnalyzeClusterRoutesRequest,
-  RouteAnalysisResponse,
-  RouteDetailsResponse,
-  ExpertDetailsResponse,
-  LLMInsightsRequest,
-  LLMInsightsResponse,
   TrajectoryPointsResponse,
   ClusteringSchema,
   SentenceExperimentRequest,
@@ -153,89 +146,6 @@ class ConceptMriApiClient {
       };
 
       poll();
-    });
-  }
-
-  // Expert Route Analysis Methods
-
-  /**
-   * Analyze expert routes for a session within a specified layer transition
-   * @param request - Route analysis request with session_id, transition_layers, filters, etc.
-   * @returns Route analysis response with Sankey data and statistics
-   * @throws ApiError with status 404 if session not found, 500 for server errors
-   */
-  async analyzeRoutes(request: AnalyzeRoutesRequest): Promise<RouteAnalysisResponse> {
-    return this.request<RouteAnalysisResponse>('/experiments/analyze-routes', {
-      method: 'POST',
-      body: JSON.stringify(request),
-    });
-  }
-
-  /**
-   * Analyze cluster routes for a session within a specified layer transition using reduced features
-   * @param request - Cluster route analysis request with session_id, transition_layers, clustering_config, etc.
-   * @returns Route analysis response with Sankey data and statistics (same format as expert routes)
-   * @throws ApiError with status 404 if session not found, 500 for server errors
-   */
-  async analyzeClusterRoutes(request: AnalyzeClusterRoutesRequest): Promise<RouteAnalysisResponse> {
-    return this.request<RouteAnalysisResponse>('/experiments/analyze-cluster-routes', {
-      method: 'POST',
-      body: JSON.stringify(request),
-    }, 300000);
-  }
-
-  /**
-   * Get detailed information about a specific expert route
-   * @param sessionId - Session identifier
-   * @param signature - Route signature (e.g., "L0E18→L1E11→L2E14")
-   * @param windowLayers - Array of layer numbers (e.g., [0, 1, 2])
-   * @returns Detailed route information with tokens and category breakdown
-   * @throws ApiError with status 400 for invalid layers, 404 if route not found
-   */
-  async getRouteDetails(
-    sessionId: string, 
-    signature: string, 
-    windowLayers: number[]
-  ): Promise<RouteDetailsResponse> {
-    const params = new URLSearchParams({
-      session_id: sessionId,
-      signature: signature,
-      window_layers: windowLayers.join(',')
-    });
-    return this.request<RouteDetailsResponse>(`/experiments/route-details?${params.toString()}`);
-  }
-
-  /**
-   * Get expert specialization details
-   * @param sessionId - Session identifier
-   * @param layer - Layer number (e.g., 0, 1, 2)
-   * @param expertId - Expert identifier (e.g., 18, 11, 14)
-   * @returns Expert specialization information with usage statistics
-   * @throws ApiError with status 404 if expert not found
-   */
-  async getExpertDetails(
-    sessionId: string,
-    layer: number, 
-    expertId: number
-  ): Promise<ExpertDetailsResponse> {
-    const params = new URLSearchParams({
-      session_id: sessionId,
-      layer: layer.toString(),
-      expert_id: expertId.toString()
-    });
-    return this.request<ExpertDetailsResponse>(`/experiments/expert-details?${params.toString()}`);
-  }
-
-  /**
-   * Generate LLM insights from expert routing data
-   * @param request - LLM insights request with nodes, links, user prompt, and API key
-   * @returns LLM-generated insights and statistics
-   * @throws ApiError with status 500 for LLM API errors
-   */
-  async generateLLMInsights(request: LLMInsightsRequest): Promise<LLMInsightsResponse> {
-    return this.request<LLMInsightsResponse>('/experiments/llm-insights', {
-      method: 'POST',
-      body: JSON.stringify(request),
     });
   }
 

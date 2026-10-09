@@ -7,6 +7,8 @@ import * as echarts from 'echarts'
 import { useLensDetails } from '../../hooks/useLensDetails'
 import type { LensSummary } from '../../types/lens'
 import Tokens from '../common/Tokens'
+import ExportMenu from '../common/ExportMenu'
+import { exportElementChart } from '../../utils/exportFigure'
 import JobProgress from './JobProgress'
 
 export default function MassMeanDetails({ session, lens, disabled }: { session: string; lens: LensSummary; disabled: boolean }) {
@@ -79,6 +81,14 @@ export default function MassMeanDetails({ session, lens, disabled }: { session: 
       {error && <p className="text-xs text-red-600">{error}</p>}
       {runner.error && <p className="text-xs text-red-600">{runner.error}</p>}
       {runner.job && <JobProgress job={runner.job} title="Routing and tokens" onCancel={runner.running ? runner.cancel : undefined} />}
+      {found && (
+        <div className="flex justify-end">
+          <ExportMenu formats={['png', 'svg', 'csv', 'json']}
+            onExport={format => exportElementChart(format, box.current, `${session}_${lens.name}_router_alignment`, {
+              figure: "the axis's effect on the next layer's routing, against random directions",
+              lens: { session, name: lens.name, contrast: lens.contrast }, details: found.provenance }, option)} />
+        </div>
+      )}
       <div ref={box} style={{ height: found ? 220 : 0 }} />
       {found && (
         <p className="text-[11px] text-gray-500">

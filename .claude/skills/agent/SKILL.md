@@ -208,53 +208,39 @@ Look at `session_analysis.md` tick 0 game text — if the short_desc for the NPC
 
 ---
 
-## OP-6: Post-run clustering
+## OP-6: A lens on the run
 
-When a session finishes (`probe_results.jsonl` line count == `len(scenario_list)`),
-this skill prompts the user once for how to cluster the run. Defaults come
-from the YAML block in `/cluster/SKILL.md`. Agent sessions default to
-`steps=[1]` (the post-examine tick).
-
-Print the proposed schema and prompt:
+When a session finishes (`probe_results.jsonl` line count == `len(scenario_list)`), propose a
+lens once, from the defaults in `/cluster/SKILL.md`. Agent runs read the post-examine tick
+(`steps: [1]`).
 
 ```
 Session complete — <N> scenarios captured. Session: <session_id>.
 
-Proposed clustering schema:
-  save_as:           <session_name>_k6_n15
-  steps:             [1]
-  last_occurrence_only: true
-  reduction:         UMAP, 6D, n_neighbors=15
-  clustering:        hierarchical, k=6 per layer
-  (covers all 4 windows × 6 transitions × {cluster, expert ranks 1/2/3})
+Proposed lens:
+  name:     <session-name>-k6-n15   (lowercase letters, digits, _ and -)
+  k:        6 at every layer
+  UMAP:     6 dimensions, 15 neighbours
+  filters:  step 1, the last occurrence of the word
 
 Answer one of:
-  accept                        — build the proposed lens (one /cluster OP-L1 call)
-  sweep <axis> <values>         — build N schemas, one per value, suffixed names
-                                  e.g. sweep steps [0],[1],[0,1]
-                                       sweep max_probes 50,100,200
-  custom                        — prompt for each parameter (defaults in brackets)
-  skip                          — exit without building
+  accept                  — build it (one /cluster OP-L1 call)
+  sweep <axis> <values>   — one lens per value, names suffixed
+                            e.g. sweep steps [0],[1],[0,1]   or   sweep k 4,5,6
+  custom                  — ask for each setting, defaults in brackets
+  skip                    — build nothing
 ```
 
-On `accept`: invoke `/cluster` OP-L1 once with the proposed params.
-The lens request names them: `name` (was `save_as`), `filters.steps`,
-`filters.last_occurrence_only`, `n_neighbors`, `dimensions`, `k`.
+On `accept`: `/cluster` OP-L1 once (`name`, `k`, `n_neighbors`, `dimensions`, `filters.steps`,
+`filters.last_occurrence_only`).
+On `sweep`: OP-L1 once per value with a suffixed name (`-step0`, `-step01`, `-k4`). Each build is
+a job, so they queue and run one after another; non-interactive after the prompt.
+On `custom`: ask for the name, the steps, k (one for all layers, one per layer, or an automatic
+method), `n_neighbors` and `dimensions`, then OP-L1.
+On `skip`: print the session id and stop.
 
-On `sweep <axis> <values>`: invoke `/cluster` OP-L1 N times in sequence, one per
-value, with `save_as` suffixed appropriately (e.g. `_step0`, `_step1`,
-`_step01`). Non-interactive after the first prompt — overnight-friendly.
-
-On `custom`: prompt the user for each of `save_as`, `steps`,
-`n_neighbors`, `reduction_dimensions`, `default_k`, showing the proposed
-default in brackets. Then invoke `/cluster` OP-L1 once with the resulting
-params. (A schema always covers all 4 windows × 6 transitions — there is
-no per-window customization.)
-
-On `skip`: print the session id and exit.
-
-After all builds complete, print the schema names and exit. The user can then
-invoke `/analyze` manually.
+Then validate the lens (`/cluster` OP-L4) and save the version to keep (OP-L3); saving writes its
+first reports (`/analyze`).
 
 ---
 

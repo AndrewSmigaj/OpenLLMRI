@@ -19,16 +19,10 @@ sys.path.insert(0, str(backend_src))
 
 from adapters.registry import get_adapter
 from api.config import DATA_LAKE_PATH
-from services.experiments.cluster_route_analysis import ClusterRouteAnalysisService
-from services.experiments.expert_route_analysis import ExpertRouteAnalysisService
-from services.experiments.llm_insights_service import LLMInsightsService
 from services.probes.integrated_capture_service import IntegratedCaptureService
 
 # Global service instances (simple approach)
 _capture_service = None
-_route_analysis_service = None
-_cluster_analysis_service = None
-_llm_insights_service = None
 
 # Loading stage tracking — readable by health endpoint while model loads in background thread.
 # Stages: not_started → initializing → loading_model → creating_service → ready | failed
@@ -109,33 +103,3 @@ def get_loading_status() -> Dict[str, Any]:
         "elapsed_seconds": elapsed,
         "error": _loading_error,
     }
-
-
-def get_route_analysis_service() -> ExpertRouteAnalysisService:
-    """Get the route analysis service (lazy initialization)."""
-    global _route_analysis_service
-
-    if _route_analysis_service is None:
-        _route_analysis_service = ExpertRouteAnalysisService(str(DATA_LAKE_PATH))
-
-    return _route_analysis_service
-
-
-def get_cluster_analysis_service() -> ClusterRouteAnalysisService:
-    """Get the cluster analysis service (lazy initialization)."""
-    global _cluster_analysis_service
-
-    if _cluster_analysis_service is None:
-        _cluster_analysis_service = ClusterRouteAnalysisService(str(DATA_LAKE_PATH))
-
-    return _cluster_analysis_service
-
-
-def get_llm_insights_service() -> LLMInsightsService:
-    """Get the LLM insights service (lazy initialization)."""
-    global _llm_insights_service
-
-    if _llm_insights_service is None:
-        _llm_insights_service = LLMInsightsService(str(DATA_LAKE_PATH))
-
-    return _llm_insights_service

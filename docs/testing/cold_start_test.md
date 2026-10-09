@@ -1,5 +1,9 @@
 # Cold-Start Scaffolding Test
 
+> **Out of date in its clustering steps:** written for the window-era pipeline. Clustering now
+> means building a lens (`/cluster` OP-L1) and reports are lens cards (`/analyze`); see
+> `docs/PIPELINE.md` Stages 4 to 7. The schema build route this test calls retired on 2026-10-08.
+
 Test that a fresh Claude Code session can run the **full pipeline** — from server start through temporal capture — using only the scaffolding (CLAUDE.md, skills, docs). No conversation history, no memory, no plan files.
 
 ## Timing

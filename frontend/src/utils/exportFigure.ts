@@ -115,3 +115,27 @@ export function sankeyRows(nodes: SankeyNode[], links: SankeyLink[]): Record<str
       ...spread(l.label_distribution, l.category_distributions) })),
   ]
 }
+
+// The rows behind a chart drawn from a category axis: one row per category with a column per line
+// series, or, for a heatmap, one row per cell
+export function optionRows(option: echarts.EChartsOption): Record<string, unknown>[] {
+  const labels = (axis: unknown) => ((Array.isArray(axis) ? axis[0] : axis) as { data?: unknown[] } | undefined)?.data ?? []
+  const x = labels(option.xAxis)
+  const y = labels(option.yAxis)
+  const series = (Array.isArray(option.series) ? option.series : [option.series]) as { type?: string; name?: string; data?: unknown[] }[]
+  const heat = series.find(s => s?.type === 'heatmap')
+  if (heat) return ((heat.data ?? []) as [number, number, unknown][]).map(([xi, yi, value]) => ({ x: x[xi], y: y[yi], value }))
+  const lines = series.filter(s => s?.type === 'line')
+  return x.map((label, i) => Object.fromEntries([['x', label], ...lines.map(s => [s.name ?? 'value', s.data?.[i] ?? null])]))
+}
+
+// Export the chart drawn in an element (its picture, or the rows behind it), with its recipe
+export function exportElementChart(format: ExportFormat, element: HTMLElement | null, name: string, recipe: Recipe,
+                                   option: echarts.EChartsOption | null): void {
+  const chart = element ? echarts.getInstanceByDom(element) : undefined
+  const made = { app: 'OpenLLMRI', link: window.location.href, exported_at: new Date().toISOString(), ...recipe }
+  if (format === 'png' && chart) download(`${name}.png`, chartPng(chart, made))
+  if (format === 'svg' && chart) download(`${name}.svg`, chartSvg(chart, made))
+  if (format === 'csv' && option) download(`${name}.csv`, rowsCsv(optionRows(option), made))
+  if (format === 'json' && option) download(`${name}.json`, dataJson({ rows: optionRows(option) }, made))
+}

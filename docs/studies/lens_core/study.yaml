@@ -29,7 +29,7 @@ ledger:
       tank-k5-n15, k 5 at every layer, scored on held-out items in stratified folds that keep
       identical texts together (the set has no scene families, so these folds are weaker).
     finding: >
-      The senses separate most in the middle layers, held-out kappa 0.60 to 0.62 at L11 to L13. No
+      The senses separate most in the middle layers, held-out kappa 0.57 to 0.62 at L11 to L13. No
       in-sample way of choosing k finds five, and the held-out best k is 7 to 10 at every layer.
     status: proposed
     evidence: [docs/research/lens_core_validation.md]

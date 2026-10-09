@@ -1,7 +1,7 @@
 // The legend, always on: what every colour means. One axis gets a swatch per value; two axes in
 // one colour get a square grid (hue across, lightness down); fade mode shows a faded swatch. The
-// output column's own colours follow when it has them.
-import { legendOf, type ColourSpec, type Legend } from '../../color/scheme'
+// output column's colours follow: its own axis's, or its categories in the colour axis's colours.
+import { answerColours, legendOf, type ColourSpec, type Legend } from '../../color/scheme'
 
 const swatch = (color: string) => (
   <span className="inline-block w-3 h-3 rounded-sm border border-gray-300 flex-shrink-0" style={{ backgroundColor: color }} />
@@ -46,12 +46,18 @@ function LegendBlock({ title, legend }: { title: string; legend: Legend }) {
   )
 }
 
-export default function ColourLegend({ input, output, stripes }: { input: ColourSpec; output: ColourSpec | null; stripes: boolean }) {
+export default function ColourLegend({ input, output, stripes, answers }: {
+  input: ColourSpec; output: ColourSpec | null; stripes: boolean
+  answers: string[] // the output column's categories
+}) {
+  const colours = answerColours(input, answers)
+  const byCategory: Legend = { axis: 'category', entries: [...answers].sort().map(a => ({ label: a, color: colours[a] })) }
   return (
     <div className="flex flex-wrap items-start gap-x-6 gap-y-1">
       <LegendBlock title="Colour" legend={legendOf(input)} />
       {stripes && <span className="text-[11px] text-gray-500">Stripes: each node's bands are its exact shares</span>}
       {output && <LegendBlock title="Output" legend={legendOf(output)} />}
+      {!output && answers.length > 0 && <LegendBlock title="Output" legend={byCategory} />}
     </div>
   )
 }

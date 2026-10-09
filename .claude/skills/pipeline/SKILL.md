@@ -37,11 +37,12 @@ Run these checks in order:
 2. **Session state != 'completed'** → Stage 2 (capture in progress or failed)
 3. **`GET /api/probes/sessions/{id}/generated-outputs`** — check `output_category` field:
    - If null/empty on most probes → Stage 3 (categorize outputs with `/categorize`)
-4. **`GET /api/probes/sessions/{id}/clusterings`** — list schemas:
-   - If empty → USER GATE (user needs to explore clustering in UI)
-5. **Load each schema** — check for reports:
-   - If no reports → Stage 5 (analysis — protocol TBD)
-   - If reports exist → Stage 6 (present reports)
+4. **`GET /api/sessions/{id}/lenses`** — the session's lenses (legacy schemas show with `legacy: true`):
+   - No lens → USER GATE, then Stage 4 (build one: `/cluster` OP-L1, or the app's Build page)
+5. **For each lens** — its `validation`, its `state`, and `GET /api/sessions/{id}/lenses/{lens}/cards`:
+   - Not validated → Stage 5 (validate and work out details: `/cluster` OP-L4, OP-L6)
+   - No cards → Stage 6 (reports: `/analyze`)
+   - Cards exist → Stage 7 (present them)
 
 ## Step 4: Report & Suggest
 

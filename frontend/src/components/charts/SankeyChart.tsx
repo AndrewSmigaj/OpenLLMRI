@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import * as echarts from 'echarts';
 import type { SankeyNode, SankeyLink } from '../../types/api';
-import { distColor, stripeStops, valueColor, type AxisCounts, type ColourSpec } from '../../color/scheme';
+import { answerColours, distColor, stripeStops, type AxisCounts, type ColourSpec } from '../../color/scheme';
 import { isOutputNode as checkIsOutputNode, isOutputLink as checkIsOutputLink, stripOutputPrefix, OUTPUT_NODE_PREFIX } from '../../constants/outputNodes';
 
 // The node and link objects this chart gives ECharts, as they come back in event and tooltip params
@@ -153,16 +153,14 @@ const SankeyChart: React.FC<SankeyChartProps> = ({
     // Compute depth offset for proper column placement
     const minLayer = nodes.length > 0 ? Math.min(...nodes.map(n => n.layer)) : 0;
 
-    // Without an output spec, output categories match the input's colours by name; categories
-    // the input doesn't have take the next colours, so they stay apart
-    const outputNames = nodes.filter(n => checkIsOutputNode(n.name)).map(n => stripOutputPrefix(n.name));
-    const matchedValues = [...input.values, ...outputNames.filter(c => !input.values.includes(c))];
+    // Without an output spec, output categories take the input's colours by name (answerColours)
+    const answers = answerColours(input, nodes.filter(n => checkIsOutputNode(n.name)).map(n => stripOutputPrefix(n.name)));
 
     const nodeColor = (node: SankeyNode): string | echarts.graphic.LinearGradient => {
       if (checkIsOutputNode(node.name)) {
         return output
           ? distColor(node.output_distributions ?? {}, output)
-          : valueColor(stripOutputPrefix(node.name), matchedValues, input.gradient);
+          : answers[stripOutputPrefix(node.name)];
       }
       if (!stripes) return distColor(countsOf(node), input);
       // Bands top to bottom, in the axis's order; a gradient with hard stops

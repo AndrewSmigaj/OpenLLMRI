@@ -35,7 +35,6 @@ from api.routers import (
     agent,
     analysis,
     atlas,
-    clustering,
     commands,
     generation,
     insights,
@@ -43,7 +42,6 @@ from api.routers import (
     lenses,
     probes,
     prompts,
-    routes,
     studies,
 )
 from services.jobs.scheduler import JobScheduler
@@ -84,8 +82,6 @@ app.add_middleware(
 
 # Include routers
 app.include_router(probes.router, prefix="/api")
-app.include_router(routes.router, prefix="/api")
-app.include_router(clustering.router, prefix="/api")
 app.include_router(insights.router, prefix="/api")
 app.include_router(generation.router, prefix="/api")
 app.include_router(prompts.router, prefix="/api")

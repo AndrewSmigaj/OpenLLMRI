@@ -4,6 +4,8 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import * as echarts from 'echarts'
 import { apiClient } from '../../api/client'
 import type { LensSummary, MassMeanValidation } from '../../types/lens'
+import { exportElementChart } from '../../utils/exportFigure'
+import ExportMenu from '../common/ExportMenu'
 
 export default function MassMeanResults({ session, lens }: { session: string; lens: LensSummary }) {
   const [validation, setValidation] = useState<MassMeanValidation | null>(null)
@@ -58,6 +60,12 @@ export default function MassMeanResults({ session, lens }: { session: string; le
         {validation.folds.kind}, {validation.folds.n_folds} folds{validation.folds.weaker ? ' (weaker: no scene families)' : ''};
         each fold's axis comes from its training items; held-out items are classified by the sign of their reading
       </p>
+      <div className="flex justify-end">
+        <ExportMenu formats={['png', 'svg', 'csv', 'json']} disabled={!option}
+          onExport={format => exportElementChart(format, box.current, `${session}_${lens.name}_heldout`, {
+            figure: 'mass-mean axis, held out', lens: { session, name: lens.name, contrast: validation.contrast },
+            validation: { folds: validation.folds, created_at: validation.provenance.created_at } }, option)} />
+      </div>
       <div ref={box} style={{ height: 240 }} />
     </div>
   )

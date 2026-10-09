@@ -6,7 +6,7 @@ Simple Pydantic schemas for API requests/responses.
 import os
 from typing import Any, Dict, List, Optional
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel
 
 
 class ProgressInfo(BaseModel):
@@ -15,24 +15,6 @@ class ProgressInfo(BaseModel):
     total: int
     failed: int
     percent: float
-
-
-class RouteStatistics(BaseModel):
-    """Statistics for a route analysis window."""
-    total_routes: int
-    total_probes: int
-    routes_coverage: float
-    window_layers: List[int]
-    avg_route_confidence: float
-
-
-class DynamicAxis(BaseModel):
-    """A color/shape axis available for visualization."""
-    id: str
-    label: str
-    label_a: str
-    label_b: str
-    values: List[str]
 
 
 class SentenceEntry(BaseModel):
@@ -89,62 +71,7 @@ class SessionDetailResponse(BaseModel):
     sentences: Optional[List['ProbeExample']] = None
 
 
-# Experiment Analysis Schemas
-class FilterConfig(BaseModel):
-    """Configuration for filtering probes by label."""
-    labels: Optional[List[str]] = None
-
-
-class ClusteringConfig(BaseModel):
-    """Configuration for clustering analysis."""
-    reduction_dimensions: int = 128
-    clustering_method: str = "kmeans"  # "kmeans", "hierarchical", "dbscan"
-    layer_cluster_counts: Dict[int, int] = {}  # {layer: num_clusters}
-    embedding_source: str = "expert_output"  # "expert_output" or "residual_stream"
-    reduction_method: str = "pca"  # "pca" or "umap"
-    clustering_dimensions: Optional[List[int]] = None  # 0-indexed dim subset; None = all
-    n_neighbors: Optional[int] = None  # UMAP n_neighbors; None = 15
-
-
-# --- Schema build/load requests ---
-# Build is atomic: one call writes cluster + expert routes (ranks 1/2/3) for all
-# windows under a new schema directory. Load endpoints read cached artifacts.
-
-class LoadClusteringRequest(BaseModel):
-    """Load a cached cluster-route transition from a schema. Filters baked in at build."""
-    session_ids: List[str]
-    schema_name: str
-    transition_layers: List[int]
-    output_grouping_axes: Optional[List[str]] = None
-    top_n_routes: int = 20
-    max_examples_per_node: Optional[int] = None
-
-
-class LoadExpertRoutesRequest(BaseModel):
-    """Load a cached expert-route transition from a schema. Filters baked in at build."""
-    session_ids: List[str]
-    schema_name: str
-    transition_layers: List[int]
-    expert_rank: int = Field(1, ge=1, le=3)
-    output_grouping_axes: Optional[List[str]] = None
-    top_n_routes: int = 20
-
-
-class BuildSchemaRequest(BaseModel):
-    """Build a full clustering schema atomically. Always builds all 4 fixed
-    windows × 6 transitions × {cluster, expert ranks 1/2/3}. The schema
-    directory is the unit of work — succeeds entirely or fails entirely."""
-    session_id: str
-    save_as: str
-    clustering_config: ClusteringConfig
-    filter_config: Optional[FilterConfig] = None
-    steps: Optional[List[int]] = None
-    last_occurrence_only: bool = False
-    max_probes: Optional[int] = None
-    output_grouping_axes: Optional[List[str]] = None
-    top_n_routes: int = 20
-    max_examples_per_node: Optional[int] = None
-
+# --- A capture's sentences ---
 
 class ProbeExample(BaseModel):
     """Example probe for route display."""
@@ -165,95 +92,6 @@ class ProbeExample(BaseModel):
 
 # Resolve forward reference in SessionDetailResponse
 SessionDetailResponse.model_rebuild()
-
-
-class SankeyNode(BaseModel):
-    """Sankey diagram node with enhanced data."""
-    name: str
-    id: str
-    layer: int
-    expert_id: int
-    token_count: int
-    label_distribution: Optional[Dict[str, int]] = None
-    target_word_distribution: Optional[Dict[str, int]] = None
-    category_distributions: Optional[Dict[str, Dict[str, int]]] = None
-    specialization: str
-    tokens: Optional[List[ProbeExample]] = None
-    probe_ids: Optional[List[str]] = None
-
-
-class SankeyLink(BaseModel):
-    """Sankey diagram link with enhanced data."""
-    source: str
-    target: str
-    value: int
-    probability: float
-    route_signature: str
-    label_distribution: Optional[Dict[str, int]] = None
-    target_word_distribution: Optional[Dict[str, int]] = None
-    category_distributions: Optional[Dict[str, Dict[str, int]]] = None
-    token_count: int
-    tokens: Optional[List[ProbeExample]] = None
-
-
-class TopRoute(BaseModel):
-    """Top route with statistics."""
-    signature: str
-    count: int
-    coverage: float
-    avg_confidence: float
-    example_tokens: List[ProbeExample]
-
-
-class RouteAnalysisResponse(BaseModel):
-    """Response for route analysis."""
-    session_id: str
-    window_layers: List[int]
-    nodes: List[SankeyNode]
-    links: List[SankeyLink]
-    top_routes: List[TopRoute]
-    statistics: RouteStatistics
-    available_axes: Optional[List[DynamicAxis]] = None
-    output_available_axes: Optional[List[DynamicAxis]] = None
-    probe_assignments: Optional[Dict[str, Dict[str, int]]] = None
-
-
-class RouteDetailsResponse(BaseModel):
-    """Response for specific route details."""
-    signature: str
-    window_layers: List[int]
-    tokens: List[Dict[str, str]]
-    count: int
-    coverage: float
-    avg_confidence: float
-    category_breakdown: Dict[str, Dict[str, int]]
-
-
-class ExpertDetailsResponse(BaseModel):
-    """Response for expert specialization details."""
-    layer: int
-    expert_id: int
-    node_name: str
-    tokens: List[ProbeExample]
-    total_tokens: int
-    usage_rate: float
-    avg_confidence: float
-    category_breakdown: Dict[str, Dict[str, int]]
-
-
-class LLMInsightsRequest(BaseModel):
-    """Request for LLM insights generation."""
-    session_id: str
-    windows: List[Dict[str, Any]]  # Array of window data with nodes/links
-    user_prompt: str
-    api_key: str
-    provider: str = "openai"
-
-
-class LLMInsightsResponse(BaseModel):
-    """Response from LLM insights generation."""
-    narrative: str
-    statistics: Dict[str, Any]
 
 
 # --- Sentence Generation Schemas ---
@@ -375,29 +213,6 @@ class TrajectoryPointsResponse(BaseModel):
     sample_size: int
     layers: List[int]
     points_by_layer: Dict[str, List[TrajectoryPoint]]
-
-
-# --- Scaffold Step Schemas ---
-
-class ScaffoldStepRequest(BaseModel):
-    """Request to run a single scaffold step via LLM."""
-    session_id: str
-    step_id: str
-    prompt: str  # The (possibly edited) prompt
-    data_sources: List[str]  # ["expert_routes", "cluster_routes", ...]
-    output_type: str  # "narrative" or "element_labels"
-    # Dict[Any, Any] validates exactly like a bare Dict; Dict[str, Any] would add a key check.
-    expert_windows: Optional[List[Dict[Any, Any]]] = None
-    cluster_windows: Optional[List[Dict[Any, Any]]] = None
-    previous_outputs: Optional[List[str]] = None
-    api_key: str
-    provider: str = "openai"
-
-
-class ScaffoldStepResponse(BaseModel):
-    """Response from a scaffold step."""
-    narrative: Optional[str] = None
-    element_labels: Optional[Dict[str, str]] = None
 
 
 # --- Agent session schemas ---
