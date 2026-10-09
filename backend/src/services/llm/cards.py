@@ -191,8 +191,8 @@ SPLIT_CARDS = 5  # split points a save writes, the biggest second branch first
 
 
 def best_layer(ev: LensEvidence) -> int:
-    """The layer a save writes node cards for: the best held-out label kappa at the version's k,
-    or, before validation, the best in-sample agreement of the nodes with the label."""
+    """The layer a save writes node cards for: the best held-out AMI with the label at the version's
+    k (DESIGN.md C3), or, before validation, the best in-sample agreement of the nodes with the label."""
     from sklearn.metrics import adjusted_mutual_info_score
 
     view, scores = ev.view, {}
@@ -201,7 +201,7 @@ def best_layer(ev: LensEvidence) -> int:
         entry = (ev.validation or {}).get("layers", {}).get(str(layer), {}).get(str(k)) or {}
         held = (entry.get("heldout") or {}).get("label")
         if held:
-            scores[layer] = float(held["kappa"])
+            scores[layer] = float(held["ami"])
     if not scores:
         labels = [str(item.get("label")) for item in view.items]
         scores = {layer: float(adjusted_mutual_info_score(labels, view.nodes[:, li]))

@@ -40,12 +40,25 @@ class LensSite(BaseModel):
     token_position: int = 1
 
 
-class LensSettings(BaseModel):
-    n_neighbors: int = 15
-    dimensions: int = 6
-    min_dist: float = 0.1
+class UmapSettings(BaseModel):
+    """UMAP's settings for one layer."""
+    n_neighbors: int = Field(default=15, ge=2, le=200)
+    dimensions: int = Field(default=6, ge=2, le=50)
+    min_dist: float = Field(default=0.1, ge=0.0, le=0.99)
+
+
+class LensSettings(UmapSettings):
+    """A lens's settings. A tuned lens keeps each layer's own in `per_layer` (aligned with the
+    manifest's layers), and the lens-wide values record where its tuning started."""
     seed: int = 42
     grouping: Literal["ward"] = "ward"
+    per_layer: Optional[List[UmapSettings]] = None
+
+    def at(self, li: int) -> UmapSettings:
+        """The settings of the li-th layer."""
+        if self.per_layer is not None:
+            return self.per_layer[li]
+        return UmapSettings(n_neighbors=self.n_neighbors, dimensions=self.dimensions, min_dist=self.min_dist)
 
 
 class Provenance(BaseModel):
@@ -180,8 +193,15 @@ def summary(manifest: LensManifest, folder: Path) -> Dict[str, Any]:
         "created_at": manifest.provenance.created_at, "created_by": manifest.provenance.created_by,
         "self_check": manifest.self_check,
         "validation": validation_headline(folder, manifest, current),
+        "tuning": _tuning(folder),
         "details": sorted(path.stem for path in (folder / "details").glob("*.json")),
     }
+
+
+def _tuning(folder: Path) -> Optional[Dict[str, Any]]:
+    from services.lenses.search import tuning_headline
+
+    return tuning_headline(folder)
 
 
 def validation_headline(folder: Path, manifest: LensManifest, current: Optional[VersionRecord]) -> Optional[Dict[str, Any]]:

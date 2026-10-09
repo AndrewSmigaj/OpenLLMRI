@@ -95,6 +95,12 @@ def _lens_validate(params: Dict[str, Any], ctx: JobContext) -> Dict[str, Any]:
     return validate_lens(params, ctx)
 
 
+def _lens_search(params: Dict[str, Any], ctx: JobContext) -> Dict[str, Any]:
+    from services.lenses.search import run_search
+
+    return run_search(params, ctx)
+
+
 def _mass_mean_build(params: Dict[str, Any], ctx: JobContext) -> Dict[str, Any]:
     from services.lenses.massmean import build_mass_mean
 
@@ -130,6 +136,7 @@ KINDS: Dict[str, JobKind] = {
     "noop_llm": JobKind(lane="llm", run=_noop),
     "lens_build": JobKind(lane="cpu", run=_lens_build),
     "lens_validate": JobKind(lane="cpu", run=_lens_validate),
+    "lens_search": JobKind(lane="cpu", run=_lens_search),
     "mass_mean_build": JobKind(lane="cpu", run=_mass_mean_build),
     "lens_details": JobKind(lane="cpu", run=_lens_details),
     "lens_analysis": JobKind(lane="llm", run=_lens_analysis),

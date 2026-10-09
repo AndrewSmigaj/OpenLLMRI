@@ -24,11 +24,13 @@ AUTO_METHODS = ("elbow", "silhouette", "levels", "heldout")
 
 
 def heldout_best(validation: Dict[str, Any], axis: str = "label") -> Dict[str, int]:
-    """Each layer's k with the best held-out kappa on an axis (from a lens's validation.json).
-    Choosing k by its held-out score is selection-biased, and the k's source says so."""
+    """Each layer's k with the best held-out AMI on an axis (from a lens's validation.json): the
+    nodes that best match the designed classes on held-out items (DESIGN.md C3; held-out accuracy
+    keeps rising with k, since smaller nodes are purer). Choosing k by its held-out score is
+    selection-biased, and the k's source says so; a tuned lens's test score is the honest one."""
     best: Dict[str, int] = {}
     for layer, profile in validation["layers"].items():
-        scored = [(entry["heldout"][axis]["kappa"], int(k)) for k, entry in profile.items() if axis in entry["heldout"]]
+        scored = [(entry["heldout"][axis]["ami"], int(k)) for k, entry in profile.items() if axis in entry["heldout"]]
         if scored:
             best[layer] = max(scored, key=lambda pair: (pair[0], -pair[1]))[1]  # ties go to the smaller k
     return best

@@ -1,6 +1,7 @@
 # Lens validation: first runs (lens slice 1, 10b.7, 2026-10-08)
 
-Related: docs/DESIGN.md (C3 choosing k, C4 validating), backend/src/services/lenses/validate.py
+Related: docs/DESIGN.md (C3 choosing k, C4 validating and tuning), backend/src/services/lenses/validate.py,
+backend/src/services/lenses/search.py
 
 What the k profile and held-out scores show on two captures, beside the in-sample automatic k
 methods. Every number here comes from the lenses' `validation.json` and `lens.json` files in the
@@ -141,6 +142,112 @@ traced to its packet: the distinctive tokens and shares name what each node hold
 clothing; storage for the node that holds scuba and septic together; nothing clear for the mixed
 node).
 
+## Tuned lenses (lens slice 1b, 10c.1, 2026-10-09)
+
+A `lens_search` job tunes a lens. It first holds out a test portion: whole scene families per
+label when the items name them, otherwise a stratified 20% (marked weaker). On at most five
+selection folds of the rest it scores every UMAP setting (n_neighbors 5, 15 or 50 × 3, 6 or 12
+dimensions, `min_dist` 0.1) and every k from 2 to 10 at every layer, and picks each layer's
+highest held-out AMI. Then it scores the winner, the lens it started from, the raw-space
+groupings and the logistic ceiling on the test portion, which never entered the choice, and
+builds the tuned lens. All 9 settings passed the self-check on both captures.
+
+### Tank polysemy (`tank-k5-n15-tuned`)
+
+The test portion is 100 items, stratified (the set has no families); the other 399 make five
+selection folds. The job took 8 minutes.
+
+| Layer | settings (n, dims) | k | AMI chosen on | test AMI | test accuracy | untuned test AMI (k = 5) | raw Ward test AMI | ceiling test AMI |
+|---|---|---|---|---|---|---|---|---|
+| L0 | 50, 12-D | 10 | 0.11 | 0.10 | 0.43 | 0.09 | 0.07 | 0.25 |
+| L1 | 15, 12-D | 10 | 0.13 | 0.19 | 0.51 | 0.16 | 0.16 | 0.45 |
+| L2 | 15, 12-D | 9 | 0.20 | 0.24 | 0.54 | 0.18 | 0.18 | 0.59 |
+| L3 | 15, 12-D | 10 | 0.29 | 0.35 | 0.66 | 0.32 | 0.36 | 0.66 |
+| L4 | 15, 3-D | 10 | 0.40 | 0.43 | 0.66 | 0.38 | 0.48 | 0.64 |
+| L5 | 15, 3-D | 6 | 0.48 | 0.54 | 0.69 | 0.46 | 0.48 | 0.66 |
+| L6 | 15, 3-D | 6 | 0.49 | 0.49 | 0.68 | 0.44 | 0.48 | 0.66 |
+| L7 | 15, 12-D | 6 | 0.48 | 0.51 | 0.73 | 0.47 | 0.57 | 0.65 |
+| L8 | 15, 12-D | 5 | 0.48 | 0.54 | 0.66 | 0.54 | 0.49 | 0.65 |
+| L9 | 50, 12-D | 6 | 0.48 | 0.53 | 0.67 | 0.54 | 0.57 | 0.63 |
+| L10 | 15, 12-D | 6 | 0.48 | 0.57 | 0.73 | 0.51 | 0.55 | 0.70 |
+| L11 | 15, 6-D | 6 | 0.51 | 0.57 | 0.73 | 0.57 | 0.58 | 0.69 |
+| L12 | 15, 12-D | 6 | 0.51 | 0.55 | 0.74 | 0.52 | 0.56 | 0.69 |
+| L13 | 15, 12-D | 6 | 0.50 | 0.49 | 0.74 | 0.52 | 0.57 | 0.75 |
+| L14 | 5, 12-D | 6 | 0.48 | 0.47 | 0.67 | 0.51 | 0.60 | 0.66 |
+| L15 | 15, 6-D | 6 | 0.47 | 0.51 | 0.75 | 0.51 | 0.55 | 0.63 |
+| L16 | 15, 3-D | 4 | 0.43 | 0.34 | 0.55 | 0.47 | 0.50 | 0.66 |
+| L17 | 15, 12-D | 4 | 0.42 | 0.50 | 0.59 | 0.42 | 0.51 | 0.69 |
+| L18 | 5, 3-D | 6 | 0.40 | 0.32 | 0.61 | 0.48 | 0.52 | 0.68 |
+| L19 | 15, 6-D | 5 | 0.39 | 0.39 | 0.61 | 0.39 | 0.53 | 0.63 |
+| L20 | 15, 6-D | 5 | 0.35 | 0.37 | 0.56 | 0.37 | 0.44 | 0.66 |
+| L21 | 15, 6-D | 9 | 0.40 | 0.41 | 0.64 | 0.36 | 0.59 | 0.65 |
+| L22 | 15, 6-D | 8 | 0.41 | 0.45 | 0.70 | 0.35 | 0.51 | 0.65 |
+| L23 | 15, 6-D | 9 | 0.39 | 0.46 | 0.68 | 0.36 | 0.50 | 0.67 |
+
+- On the test portion the tuned lens beats the untuned one at 15 layers, trails it at 6 and ties
+  at 3; the median difference is +0.02 AMI. Both peak at L11 (0.57).
+- The search chose k = 6 at L5–L15 apart from L8 (5): one node more than the five senses. It
+  chose 9–10 at L0–L4 and 8–9 at L21–L23, where it gains most over the untuned lens's 5 nodes
+  (+0.06 to +0.10 at L21–L23).
+- It loses most at L16 (−0.13) and L18 (−0.16). There the winner led its best runner-up by 0.012
+  and 0.007 AMI on the selection folds: near-ties, as at 22 of the 24 layers, where the winner
+  leads by less than 0.02.
+- Twelve dimensions won at 12 layers, six at 7 and three at 5; 15 neighbours won at 20 layers.
+
+### Tank calibration (`calibration-q1-k2-n15-tuned`)
+
+The test portion is two scene families per class (aquarium: aquascaping and quarantine_vet;
+vehicle: museum and training_range), 100 items. The other 10 families per class make five
+selection folds of 500 items. The job took 17 minutes.
+
+| Layer | settings (n, dims) | k | AMI chosen on | test AMI | test accuracy | untuned test AMI (k = 2) | raw Ward test AMI | ceiling test AMI |
+|---|---|---|---|---|---|---|---|---|
+| L0 | 50, 3-D | 6 | 0.11 | 0.03 | 0.64 | -0.02 | 0.01 | 0.21 |
+| L1 | 15, 3-D | 2 | 0.22 | 0.31 | 0.73 | 0.31 | 0.05 | 0.47 |
+| L2 | 15, 6-D | 3 | 0.23 | 0.35 | 0.70 | 0.31 | 0.12 | 0.50 |
+| L3 | 15, 12-D | 2 | 0.41 | 0.55 | 0.87 | 0.29 | 0.55 | 0.58 |
+| L4 | 50, 12-D | 2 | 0.52 | 0.69 | 0.94 | 0.83 | 0.47 | 0.58 |
+| L5 | 50, 6-D | 2 | 0.54 | 0.45 | 0.82 | 0.63 | 0.51 | 0.58 |
+| L6 | 15, 12-D | 2 | 0.52 | 0.42 | 0.83 | 0.44 | 0.51 | 0.58 |
+| L7 | 15, 6-D | 2 | 0.45 | 0.37 | 0.80 | 0.37 | 0.49 | 0.58 |
+| L8 | 5, 3-D | 2 | 0.46 | 0.34 | 0.80 | 0.48 | 0.43 | 0.63 |
+| L9 | 5, 6-D | 2 | 0.45 | 0.37 | 0.77 | 0.35 | 0.47 | 0.66 |
+| L10 | 5, 6-D | 2 | 0.42 | 0.70 | 0.93 | 0.38 | 0.51 | 0.69 |
+| L11 | 50, 6-D | 4 | 0.41 | 0.46 | 0.87 | 0.40 | 0.47 | 0.69 |
+| L12 | 50, 3-D | 3 | 0.40 | 0.46 | 0.85 | 0.55 | 0.41 | 0.67 |
+| L13 | 50, 3-D | 3 | 0.42 | 0.45 | 0.73 | 0.49 | 0.39 | 0.76 |
+| L14 | 50, 6-D | 2 | 0.44 | 0.53 | 0.86 | 0.30 | 0.47 | 0.76 |
+| L15 | 50, 3-D | 3 | 0.39 | 0.45 | 0.90 | 0.57 | 0.43 | 0.72 |
+| L16 | 15, 6-D | 2 | 0.40 | 0.30 | 0.76 | 0.30 | 0.32 | 0.69 |
+| L17 | 15, 3-D | 3 | 0.42 | 0.36 | 0.69 | 0.49 | 0.39 | 0.69 |
+| L18 | 50, 12-D | 2 | 0.42 | 0.53 | 0.86 | 0.64 | 0.34 | 0.67 |
+| L19 | 50, 12-D | 3 | 0.40 | 0.48 | 0.89 | 0.57 | 0.35 | 0.71 |
+| L20 | 50, 6-D | 2 | 0.41 | 0.48 | 0.86 | 0.46 | 0.32 | 0.71 |
+| L21 | 15, 12-D | 8 | 0.33 | 0.34 | 0.82 | 0.08 | 0.29 | 0.64 |
+| L22 | 50, 12-D | 2 | 0.37 | 0.38 | 0.78 | 0.04 | 0.45 | 0.72 |
+| L23 | 50, 3-D | 3 | 0.32 | 0.49 | 0.87 | 0.43 | 0.29 | 0.64 |
+
+- Tuning gains nothing reliable here. The tuned lens beats the untuned one at 11 layers, trails
+  it at 10 and ties at 3; the median difference is 0.00, and the differences run from −0.18 to
+  +0.34.
+- The test portion disagrees with the selection folds. At L4 the selection folds preferred the
+  tuned settings (50 neighbours, 12-D) to the untuned ones (15, 6-D) by 0.52 to 0.33 AMI at
+  k = 2. On the test portion the untuned lens scores 0.83 (accuracy 0.97) and the tuned one 0.69
+  (0.94). Slice 1's validation over all 12 scene folds gave the untuned lens accuracy 0.83 at L4,
+  in line with the selection folds: the four test scenes are easy for it at L4.
+- With two families per class, which scenes are held out moves the score more than the settings
+  do: the winners' AMI moves by −0.12 to +0.27 between the selection folds and the test portion.
+  One test portion is unbiased but imprecise. Repeating the split, so that every family serves in
+  a test portion once, would give the test score a spread (RECOMMENDATIONS.md).
+- The search chose k = 2 at 14 layers and 3 at 7; 4 at L11, 6 at L0 and 8 at L21.
+
+### What the two runs show
+
+On these two captures, settings chosen per layer don't beat the default settings on held-out
+data, which matches the planning measurement that settings move held-out AMI less than k does.
+The search still gives each lens an honest held-out score, and its runners-up show how flat the
+choice is.
+
 ## Caveats
 
 - The tank lens has no scene families, so its held-out scores are from weaker folds.
@@ -156,3 +263,6 @@ node).
 - `data/lake/session_1434a9be/lenses/tank-k5-n15/details/v1.json` and `analysis/v1/`
 - `data/lake/_analysts/tests/` (the analyst test runs)
 - Each lens's `lens.json` holds its in-sample suggestions and self-check.
+- `data/lake/session_1434a9be/lenses/tank-k5-n15-tuned/search.json` and
+  `data/lake/session_29a80932/lenses/calibration-q1-k2-n15-tuned/search.json` (the tuning: the
+  split, every candidate's selection scores, the winners and runners-up, the test scores)

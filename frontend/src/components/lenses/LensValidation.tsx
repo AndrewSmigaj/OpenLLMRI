@@ -1,12 +1,14 @@
 // A validated lens's results: held-out scores across the layers at its own k, and the k profile,
-// a layers × k grid of one measure, with the lens's k and the held-out best marked. Choosing k by
-// its held-out score is selection-biased; the chart says so.
-import { useEffect, useMemo, useRef, useState } from 'react'
-import * as echarts from 'echarts'
+// a layers × k grid of one measure, with the lens's k and the held-out best (by AMI, DESIGN.md C3)
+// marked. Choosing k by its held-out score is selection-biased; the chart says so. A tuned lens's
+// own validation is partly selection-biased too, and says so: its tuning's test score is the honest one.
+import { useEffect, useMemo, useState } from 'react'
+import type * as echarts from 'echarts'
 import { apiClient } from '../../api/client'
 import type { KProfileEntry, KSuggestion, LensSummary, Validation } from '../../types/lens'
 import { heldoutBest } from '../../utils/validation'
 import { exportElementChart } from '../../utils/exportFigure'
+import { useEChart } from '../../hooks/useEChart'
 import ExportMenu from '../common/ExportMenu'
 
 const NO_KS: number[] = []
@@ -24,23 +26,11 @@ function measuresFor(validation: Validation, axis: string): Measure[] {
   ]
 }
 
-function useChart(option: echarts.EChartsOption | null) {
-  const box = useRef<HTMLDivElement>(null)
-  const chart = useRef<echarts.ECharts | null>(null)
-  useEffect(() => {
-    if (!box.current || !option) return
-    chart.current ??= echarts.init(box.current)
-    chart.current.setOption(option, true)
-  }, [option])
-  useEffect(() => () => { chart.current?.dispose(); chart.current = null }, [])
-  return box
-}
-
 export default function LensValidation({ session, lens }: { session: string; lens: LensSummary }) {
   const [validation, setValidation] = useState<Validation | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [axis, setAxis] = useState('label')
-  const [measureId, setMeasureId] = useState('kappa')
+  const [measureId, setMeasureId] = useState('ami')
   // The build's in-sample suggestions (elbow, silhouette, hierarchy levels), marked beside the profile
   const [suggestions, setSuggestions] = useState<Record<string, KSuggestion>>({})
   useEffect(() => {
@@ -94,7 +84,7 @@ export default function LensValidation({ session, lens }: { session: string; len
     return {
       title: { text: `k profile: ${measure.label}`, left: 'center', textStyle: { fontSize: 12 } },
       tooltip: { formatter: p => { const v = (p as { value: (number | string)[] }).value; return `L${layers[v[0] as number]}, k ${ks[v[1] as number]}: ${v[2] ?? ''}` } },
-      legend: { bottom: 0, textStyle: { fontSize: 10 }, data: ["this version's k", 'held-out best (selection-biased)',
+      legend: { bottom: 0, textStyle: { fontSize: 10 }, data: ["this version's k", 'held-out best by AMI (selection-biased)',
         'elbow (in-sample)', 'silhouette (in-sample)', 'hierarchy levels (in-sample)'] },
       grid: { left: 40, right: 70, top: 28, bottom: 40 },
       xAxis: { type: 'category', data: layers.map(l => `L${l}`), axisLabel: { fontSize: 9 } },
@@ -105,7 +95,7 @@ export default function LensValidation({ session, lens }: { session: string; len
         { type: 'heatmap', data: values, progressive: 0 },
         { name: "this version's k", type: 'scatter', data: marks((_, li) => own[li]), symbol: 'rect', symbolSize: 12,
           itemStyle: { color: 'transparent', borderColor: '#111', borderWidth: 1.5 }, z: 3 },
-        { name: 'held-out best (selection-biased)', type: 'scatter', data: marks(layer => best[String(layer)]),
+        { name: 'held-out best by AMI (selection-biased)', type: 'scatter', data: marks(layer => best[String(layer)]),
           symbol: 'diamond', symbolSize: 7, itemStyle: { color: '#f59e0b', borderColor: '#111', borderWidth: 0.5 }, z: 4 },
         { name: 'elbow (in-sample)', type: 'scatter', data: marks(layer => suggestions[String(layer)]?.elbow), symbol: 'circle',
           symbolSize: 6, symbolOffset: [-11, 0], itemStyle: { color: '#ffffff', borderColor: '#111', borderWidth: 1 }, z: 5 },
@@ -147,9 +137,9 @@ export default function LensValidation({ session, lens }: { session: string; len
     }
   }, [validation, layers, own])
 
-  const lineBox = useChart(byLayer)
-  const gridBox = useChart(profile)
-  const versusBox = useChart(versus)
+  const lineBox = useEChart(byLayer)
+  const gridBox = useEChart(profile)
+  const versusBox = useEChart(versus)
   if (error) return <p className="text-xs text-red-600">{error}</p>
   if (!validation) return <p className="text-xs text-gray-500">Loading the validation…</p>
   const select = 'px-1 py-0.5 text-xs border border-gray-300 rounded bg-white'
@@ -180,6 +170,12 @@ export default function LensValidation({ session, lens }: { session: string; len
           each held-out item votes by its {validation.vote_neighbours} nearest training items; {validation.provenance.seconds} s
         </span>
       </div>
+      {lens.tuning && (
+        <p className="text-[11px] text-amber-700">
+          This lens was tuned, so its own validation reuses items that chose its settings and is partly
+          selection-biased. Its tuning's scores on the test portion, which the search never saw, are the honest ones.
+        </p>
+      )}
       <div className="grid grid-cols-2 gap-3">
         <div>{exporter(lineBox, byLayer, `held out on ${axis}, at this version's k`, 'heldout')}
           <div ref={lineBox} style={{ height: 260 }} /></div>

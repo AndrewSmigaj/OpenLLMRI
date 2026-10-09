@@ -84,6 +84,7 @@ class LensEvidence:
     details: Optional[Dict[str, Any]]
     validation: Optional[Dict[str, Any]]
     marks: Optional[Dict[str, Any]]
+    search: Optional[Dict[str, Any]] = None  # a tuned lens's search (search.json)
 
     @property
     def lens(self) -> Dict[str, Any]:
@@ -107,7 +108,7 @@ def load_evidence(session_id: str, name: str, version: Optional[str] = None) -> 
     base = {axis: dict(Counter(v for item in view.items if (v := value_of(item, axis)) is not None)) for axis in axes}
     return LensEvidence(view, folder, axes, base, _read(folder / "lens.json") or {},
                         _read(folder / "details" / f"{view.version}.json"), _read(folder / "validation.json"),
-                        lens_marks(view, folder))
+                        lens_marks(view, folder), _read(folder / "search.json"))
 
 
 MANY_VALUES = 8  # an axis with more values shows only the five the population holds most
@@ -388,6 +389,10 @@ def _lens_layer(p: Packet, ev: LensEvidence, li: int, axis_values: Dict[str, Lis
     nodes, tag = view.nodes[:, li], f"L{layer}:"
     k = int(nodes.max()) + 1
     p.fact(f"{tag} nodes", k)
+    per_layer = (ev.manifest.get("settings") or {}).get("per_layer")
+    if per_layer:  # a tuned lens: this layer's own UMAP settings (untuned lenses keep their facts)
+        p.fact(f"{tag} UMAP neighbours (tuned)", per_layer[li]["n_neighbors"])
+        p.fact(f"{tag} UMAP dimensions (tuned)", per_layer[li]["dimensions"])
     for axis, values in axis_values.items():
         p.fact(f"{tag} agreement of the nodes with {axis} (AMI, in-sample)", _ami(values, nodes))
     if li + 1 < len(view.layers):
@@ -438,8 +443,9 @@ def lens_packet(ev: LensEvidence) -> Packet:
     p.fact("items in the lens", len(view.items))
     p.fact("layers in the lens", len(view.layers))
     settings = ev.manifest.get("settings", {})
-    p.fact("UMAP neighbours (n_neighbors)", settings.get("n_neighbors", float("nan")))
-    p.fact("UMAP dimensions", settings.get("dimensions", float("nan")))
+    if not settings.get("per_layer"):  # a tuned lens states each layer's own settings instead
+        p.fact("UMAP neighbours (n_neighbors)", settings.get("n_neighbors", float("nan")))
+        p.fact("UMAP dimensions", settings.get("dimensions", float("nan")))
     for axis, counts in ev.base.items():
         for value, n in sorted(counts.items(), key=lambda kv: -kv[1])[:MANY_VALUES]:
             p.fact(f"items with {axis} = {value}", n)
@@ -475,18 +481,22 @@ def k_packet(ev: LensEvidence) -> Packet:
     p.fact("items in the lens", len(view.items))
     p.fact("folds in the validation", validation["folds"]["n_folds"])
     suggestions = ev.manifest.get("suggestions", {})
+    tuned = {int(w["layer"]): w for w in (ev.search or {}).get("winners", [])}
     for li, layer in enumerate(view.layers):
         tag, k = f"L{layer}:", int(view.nodes[:, li].max()) + 1
         profile = validation["layers"].get(str(layer), {})
-        kappas = {int(kk): e["heldout"]["label"]["kappa"] for kk, e in profile.items()
-                  if (e.get("heldout") or {}).get("label")}
+        held = {int(kk): e["heldout"]["label"] for kk, e in profile.items() if (e.get("heldout") or {}).get("label")}
         p.fact(f"{tag} k in this version", k)
-        if k in kappas:
-            p.fact(f"{tag} held-out kappa with the label at this version's k", kappas[k])
-        if kappas:
-            best = max(kappas, key=lambda kk: kappas[kk])
-            p.fact(f"{tag} the k with the best held-out kappa (choosing by it is selection-biased)", best)
-            p.fact(f"{tag} that best held-out kappa", kappas[best])
+        if k in held:
+            p.fact(f"{tag} held-out AMI with the label at this version's k", held[k]["ami"])
+            p.fact(f"{tag} held-out kappa with the label at this version's k", held[k]["kappa"])
+        if held:
+            best = max(held, key=lambda kk: (held[kk]["ami"], -kk))
+            p.fact(f"{tag} the k with the best held-out AMI (choosing by it is selection-biased)", best)
+            p.fact(f"{tag} that best held-out AMI", held[best]["ami"])
+        if layer in tuned and tuned[layer].get("test"):
+            p.fact(f"{tag} the tuning's k, chosen by held-out AMI on selection folds", tuned[layer]["k"])
+            p.fact(f"{tag} the tuned layer's AMI on the test portion the tuning never saw", tuned[layer]["test"]["ami"])
         seed = (profile.get(str(k)) or {}).get("seed_ari")
         if seed is not None:
             p.fact(f"{tag} agreement across seeds at this version's k (ARI)", seed)
@@ -500,7 +510,10 @@ def k_packet(ev: LensEvidence) -> Packet:
     folds = validation["folds"]
     p.context["validation"] = [f"held out by {folds['kind']}"
                                + (", weaker than holding out scene families" if folds.get("weaker") else "")]
-    p.context["choosing k"] = ["held-out kappa uses the labels, so picking the k that maximises it is selection-biased",
+    p.context["choosing k"] = ["held-out AMI scores how well the nodes match the classes on held-out items; held-out "
+                               "kappa keeps rising with k because smaller nodes are purer",
+                               "picking the k that maximises a held-out score is selection-biased; a tuned lens's test "
+                               "score was never used in choosing",
                                "the elbow, silhouette and hierarchy levels don't use the labels"]
     return p
 

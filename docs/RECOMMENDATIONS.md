@@ -653,3 +653,24 @@ Next comparisons the showcase points to:
 - on the tank set the UMAP lens and the better raw grouping score alike against the senses but
   disagree about half the items at a typical layer: worth a look at which items they disagree on;
 - automatic k still doesn't find the five senses (held-out best 7 to 10), so C3 stays open.
+
+## 2026-10-09 — Tuned lenses (lens slice 1b, 10c.1)
+
+**Scope**: the `lens_search` job; its first runs are in `docs/research/lens_core_validation.md`.
+
+- **Repeat the test split** (for a ruling). One test portion of two families per class is unbiased
+  but imprecise. On the calibration capture the winners' AMI moved by −0.12 to +0.27 between the
+  selection folds and the test portion, and at L4 the untuned lens scored 0.83 on the four test
+  scenes against 0.33 on the selection folds. Letting every family serve in a test portion once
+  (nested cross-validation) would give the test score a spread, at about six times the cost.
+- **Found and fixed on the way:** a backend restart could end a live job. The scheduler knew a
+  worker by the start time psutil reports, which is the boot time plus ticks, and WSL2 steps its
+  clock under load (the boot time moved 13 s in ten minutes). After a restart a live worker looked
+  like a stranger: it was marked interrupted and its temporary files were removed under it. A
+  worker is now known by its command line, which names its job's folder (two tests; checked live,
+  the calibration tuning was re-adopted across a restart).
+- **Parked:** CPU jobs slow the model's load from about half a minute to 4–10 minutes (the search
+  runs six worker processes on eight cores).
+- **Parked:** with 6–10 nodes per layer, nearly every node of a tuned lens holds an item raw space
+  groups differently, so the outline (any such item) marks almost every node. An outline by share
+  would say more.

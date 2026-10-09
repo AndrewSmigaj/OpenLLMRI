@@ -13,6 +13,7 @@ from fastapi import APIRouter, HTTPException, Request
 from pydantic import BaseModel, Field
 
 from services.lenses.build import LensBuildParams
+from services.lenses.search import SearchGrid
 from services.lenses.view import LensView
 
 router = APIRouter()
@@ -225,7 +226,7 @@ def build_lens(request: Request, body: LensBuildRequest) -> Dict[str, Any]:
     scheduler: JobScheduler = request.app.state.jobs
     for job in scheduler.store.list():
         same = job.params.get("name") == body.name and job.params.get("session_id") in (session, body.session_id)
-        if job.kind == "lens_build" and job.state in ("queued", "running") and same:
+        if job.kind in ("lens_build", "lens_search") and job.state in ("queued", "running") and same:
             raise HTTPException(status_code=409, detail=f"Lens '{body.name}' is already being built ({job.id})")
     params = body.model_dump(exclude={"created_by"}) | {"session_id": session}
     job = scheduler.submit("lens_build", params, created_by=body.created_by)
@@ -298,6 +299,76 @@ def start_validation(request: Request, session_id: str, name: str, body: Validat
     params = body.model_dump(exclude={"created_by"}) | {"session_id": session, "name": name}
     job = scheduler.submit("lens_validate", params, created_by=body.created_by)
     return {"job_id": job.id, "session_id": session, "name": name}
+
+
+class TuneRequest(BaseModel):
+    name: Optional[str] = None  # the tuned lens; "<lens>-tuned" when not given
+    target_axis: str = "label"
+    grid: Optional[SearchGrid] = None
+    k_min: int = Field(2, ge=2, le=10)
+    k_max: int = Field(10, ge=2, le=10)
+    test_share: float = Field(0.2, ge=0.1, le=0.5)
+    family_field: str = "scene"
+    n_folds: int = Field(5, ge=2, le=10)
+    seed: Optional[int] = None
+    workers: Optional[int] = None
+    created_by: str = "app"
+
+
+@router.post("/sessions/{session_id}/lenses/{name}/tune", status_code=202)
+def start_tuning(request: Request, session_id: str, name: str, body: TuneRequest) -> Dict[str, Any]:
+    """Tune a UMAP lens in the background (DESIGN.md C4): search its settings and k per layer, build
+    the tuned lens and validate it. Returns the job at once."""
+    from services.jobs.scheduler import JobScheduler
+    from services.lenses.data import session_dir
+    from services.lenses.flows import axes_of
+    from services.lenses.search import tuned_name
+    from services.lenses.store import lens_dir, read_manifest
+    from services.lenses.view import open_lens
+
+    grid = body.grid or SearchGrid()
+    try:
+        session = session_dir(session_id).name
+        if not (lens_dir(session, name) / "lens.json").exists():
+            raise FileNotFoundError(f"Lens '{name}' not found in {session}")
+        if read_manifest(lens_dir(session, name)).kind != "umap":
+            raise ValueError(f"'{name}' is a mass-mean lens; only UMAP lenses are tuned")
+        tuned = tuned_name(name, body.name)
+        if lens_dir(session, tuned).exists():
+            raise FileExistsError(f"Lens '{tuned}' already exists in {session}")
+        grid.settings()  # an empty or oversized grid is refused here, not in the job
+        if body.k_min > body.k_max:
+            raise ValueError(f"k_min {body.k_min} is above k_max {body.k_max}")
+        axes = axes_of(open_lens(session, name))
+        if body.target_axis not in axes or len(axes[body.target_axis]) < 2:
+            raise ValueError(f"'{name}' has no axis '{body.target_axis}' with two values or more")
+    except (FileNotFoundError, FileExistsError, ValueError) as e:
+        raise _fail(e)
+    scheduler: JobScheduler = request.app.state.jobs
+    for job in scheduler.store.list():
+        if job.kind in ("lens_build", "lens_search") and job.state in ("queued", "running") and \
+                job.params.get("session_id") == session and job.params.get("name") == tuned:
+            raise HTTPException(status_code=409, detail=f"Lens '{tuned}' is already being built or tuned ({job.id})")
+    params = body.model_dump(exclude={"created_by", "grid"}) | {
+        "session_id": session, "source_lens": name, "name": tuned, "grid": grid.model_dump()}
+    job = scheduler.submit("lens_search", params, created_by=body.created_by)
+    return {"job_id": job.id, "session_id": session, "source": name, "name": tuned}
+
+
+@router.get("/sessions/{session_id}/lenses/{name}/search")
+def lens_search_record(session_id: str, name: str) -> Dict[str, Any]:
+    """A tuned lens's search: every candidate's scores, the winners and their test scores (404 for
+    a lens that wasn't tuned)."""
+    from services.lenses.store import lens_dir
+
+    try:
+        path = lens_dir(session_id, name) / "search.json"
+    except (FileNotFoundError, ValueError) as e:
+        raise _fail(e)
+    if not path.exists():
+        raise HTTPException(status_code=404, detail=f"Lens '{name}' was not made by a tuning")
+    result: Dict[str, Any] = json.loads(path.read_text(encoding="utf-8"))
+    return result
 
 
 class MassMeanRequest(BaseModel):

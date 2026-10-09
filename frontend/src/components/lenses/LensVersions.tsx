@@ -89,7 +89,7 @@ export default function LensVersions({ session, lens, disabled, onChanged }: Len
               <tr key={method} className="text-gray-600">
                 <td className="pr-2 whitespace-nowrap">
                   <button disabled={disabled} className="hover:underline text-blue-700 disabled:text-gray-500"
-                    title={method === 'held-out best' ? "Take every layer's best held-out k (chosen on the held-out data, so selection-biased)"
+                    title={method === 'held-out best' ? "Take every layer's k with the best held-out AMI (chosen on the held-out data, so selection-biased)"
                       : `Take every layer's ${method} suggestion`}
                     onClick={() => setKs(layers.map((l, i) => pick(l) ?? ks[i]))}>{method}</button>
                 </td>

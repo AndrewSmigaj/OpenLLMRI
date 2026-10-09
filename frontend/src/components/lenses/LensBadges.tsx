@@ -53,6 +53,14 @@ export default function LensBadges({ session, lens, disabled, onValidated }: Len
             {headline.folds.weaker ? ' · weaker folds' : ` · ${headline.folds.n_folds} scene-family folds`}
           </span>
         ) : <span className={badge('none')}>not validated</span>}
+        {lens.tuning && (
+          <span className={badge(lens.tuning.test && (lens.tuning.test.ami ?? 0) >= 0.5 ? 'good' : 'none')}
+            title={`Tuned from ${lens.tuning.source.name} on ${lens.tuning.target_axis}: settings and k per layer chosen by held-out AMI; `
+              + `the test portion (${lens.tuning.test_items} items) never entered the choice. The layer shown was picked on the selection folds.`}>
+            tuned: test AMI {lens.tuning.test?.ami?.toFixed(2) ?? '?'} at L{lens.tuning.layer} (k {lens.tuning.k})
+            {' '}· {lens.tuning.test_items} test items{lens.tuning.weaker ? ' (weaker)' : ''}
+          </span>
+        )}
         <button onClick={() => runner.start(() => apiClient.validateLens(session, lens.name))}
           disabled={disabled || runner.running || runner.starting}
           className="px-2 py-0.5 text-[11px] rounded border border-blue-500 text-blue-700 hover:bg-blue-50 disabled:border-gray-300 disabled:text-gray-400">

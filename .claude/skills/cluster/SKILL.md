@@ -97,8 +97,9 @@ curl -s -X POST http://localhost:8000/api/sessions/SID/lenses/NAME/validate \
 curl -s http://localhost:8000/api/sessions/SID/lenses/NAME/validation
 ```
 
-Once validated, `"k_auto":"heldout"` (OP-L3's versions call) takes each layer's best held-out
-k; it is selection-biased, and the version says so. Every build also records a self-check
+Once validated, `"k_auto":"heldout"` (OP-L3's versions call) takes each layer's k with the best
+held-out AMI (the nodes that best match the classes; held-out accuracy keeps rising with k); it
+is selection-biased, and the version says so. For an unbiased choice, tune the lens (OP-L7). Every build also records a self-check
 (planted classes found, nothing found in noise) in the lens list. A validation also scores raw
 space on the same folds and k (PCA-50 Ward and spectral, relevant neurons, the logistic
 ceiling: `comparison` in the result), and `.../marks` then lists the items where the lens and
@@ -130,6 +131,28 @@ curl -s http://localhost:8000/api/sessions/SID/lenses/NAME/details
 ```
 
 The details join the node cards, the reports' evidence and the atlas entries.
+
+### OP-L7: Tune a lens (settings and k per layer, honestly scored; a job)
+
+A search over UMAP's settings and k at every layer, chosen by held-out AMI on selection folds and
+scored on a test portion the search never sees (whole families per label when the items name
+them, else a stratified share, marked weaker). Settings that fail the self-check drop out. The
+job then builds the tuned lens (`NAME-tuned` unless `name` is given) with each layer's winning
+settings and k as v1, and validates it. The default grid is 9 settings (n_neighbors 5, 15, 50 ×
+dimensions 3, 6, 12): about 8 minutes for 500 items, 17 for 1,000. The CPU lane runs one job at a
+time, so builds queue behind it.
+
+```bash
+curl -s -X POST http://localhost:8000/api/sessions/SID/lenses/NAME/tune \
+  -H "Content-Type: application/json" -d '{"target_axis":"label","family_field":"scene","created_by":"claude-code"}'
+curl -s http://localhost:8000/api/sessions/SID/lenses/NAME-tuned/search
+```
+
+`search.json` holds every candidate's selection scores, each layer's winner and runners-up, the
+test scores of the winner and of the lens it started from, and the raw groupings and ceiling on
+the test portion. Quote the test scores: the tuned lens's own validation reuses items that chose
+its settings. Advanced fields: `grid` (`n_neighbors`, `dimensions`, `min_dist` lists, at most 60
+settings), `k_min`/`k_max`, `test_share`, `n_folds`, `seed`, `name`.
 
 ### Reports
 

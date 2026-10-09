@@ -20,7 +20,94 @@ export interface LensSummary {
   created_by?: string | null
   self_check?: SelfCheck | null
   validation?: ValidationHeadline | null
+  tuning?: TuningHeadline | null // a tuned lens: its headline layer (picked on selection folds) and that layer's test scores
   details?: string[] // the versions with node details worked out ('mass_mean' for a mass-mean lens)
+}
+
+export interface UmapSettings {
+  n_neighbors: number
+  dimensions: number
+  min_dist: number
+}
+
+export interface SearchScores {
+  ami: number | null
+  kappa: number | null
+  accuracy: number | null
+  worst_fold: number | null
+}
+
+export interface TuningHeadline {
+  source: { name: string; version: string | null }
+  target_axis: string
+  layer: number
+  k: number
+  test: SearchScores | null
+  test_items: number
+  weaker: boolean
+}
+
+export interface SearchGrid {
+  n_neighbors: number[]
+  dimensions: number[]
+  min_dist: number[]
+}
+
+// What a lens search starts from, and the numbers its time estimate uses (GET /lenses/methods)
+export interface TuningDefaults {
+  grid: SearchGrid
+  k_min: number
+  k_max: number
+  test_share: number
+  n_folds: number
+  family_field: string
+  max_settings: number
+  seconds_per_fit: [number, number]
+  workers: number
+}
+
+export interface TuneBody {
+  name?: string
+  target_axis?: string
+  grid?: SearchGrid
+  k_min?: number
+  k_max?: number
+  test_share?: number
+  family_field?: string
+  n_folds?: number
+  seed?: number | null
+  created_by?: string
+}
+
+// A tuned lens's search (search.json): every candidate's scores, the winners and their test scores
+export interface LensSearch {
+  format: number
+  source: { name: string; version: string | null }
+  tuned: string
+  target_axis: string
+  values: string[]
+  n_items: number
+  grid: SearchGrid
+  ks: number[]
+  configs: (UmapSettings & { id: number; eligible: boolean; self_check: { passed: boolean; ari_k5: number; ami_k5: number } })[]
+  split: {
+    test: { kind: string; weaker: boolean; n_items: number; share: number; families: Record<string, string[]> | null }
+    selection: { n_items: number; folds: { kind: string; n_folds: number; weaker: boolean; merged_from?: number } }
+  }
+  layers: number[]
+  winners: {
+    layer: number
+    config: number
+    settings: UmapSettings
+    k: number
+    selection: SearchScores
+    test: SearchScores | null
+    runners_up: { config: number; settings: UmapSettings; k: number; ami: number }[]
+  }[]
+  baseline: { name: string; version: string | null; layers: { settings: UmapSettings; k: number; test: SearchScores | null }[] }
+  comparison: { k: number; raw_ward: SearchScores | null; raw_spectral: SearchScores | null; neurons: SearchScores | null; ceiling: SearchScores | null }[]
+  notes: string[]
+  provenance: Record<string, unknown>
 }
 
 export interface FlowNode {
@@ -55,7 +142,7 @@ export interface LensFlows {
   nodes: FlowNode[]
   links: FlowLink[]
   output: OutputColumn | null
-  assignments?: Record<string, Record<string, number>>
+  assignments?: Record<string, Record<string, number>> // each item's node (or expert at the rank) per layer
   order?: number[][] // experts: each layer's experts top to bottom, the same at every rank
   recipe: Record<string, unknown>
 }
@@ -137,6 +224,7 @@ export interface LensMethods {
   groupings: { id: string; label: string }[]
   k_auto: { id: string; note: string }[]
   defaults: { k: number; seed: number; source: string; token_position: number; last_occurrence_only: boolean }
+  tuning?: TuningDefaults
 }
 
 export interface LensFiltersBody {

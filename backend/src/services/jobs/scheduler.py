@@ -6,9 +6,9 @@ The backend ticks the scheduler once a second. Each tick:
 2. force-kills a cancelled job whose process group outlived the grace period;
 3. starts queued jobs, oldest first, while their lane has a free slot.
 
-Jobs outlive a backend restart. On start, `adopt` takes over every worker still alive (same pid
-and the same process start time) and marks the rest interrupted. A worker runs in its own session,
-so a cancel ends its whole process group, children included.
+Jobs outlive a backend restart. On start, `adopt` takes over every worker still alive (the same
+pid, running the worker on its job's folder) and marks the rest interrupted. A worker runs in its
+own session, so a cancel ends its whole process group, children included.
 """
 
 from __future__ import annotations
@@ -95,7 +95,7 @@ class JobScheduler:
                     if job.state == "running":
                         self._finish(job.id, cancelled=False)
                     continue
-                process = self._same_process(record)
+                process = self._same_process(job.id, record)
                 if process is not None:
                     self._running[job.id] = _Running(job.lane, process)
                     logger.info("Re-adopted job %s (pid %d)", job.id, record.pid)
@@ -117,7 +117,7 @@ class JobScheduler:
                 record = self.store.proc(job_id)
                 if (record is not None and record.cancel_requested_at is not None
                         and time.time() - record.cancel_requested_at > self.kill_after):
-                    self._signal_group(record, signal.SIGKILL)
+                    self._signal_group(job_id, record, signal.SIGKILL)
             busy: Dict[str, int] = {}
             for running in self._running.values():
                 busy[running.lane] = busy.get(running.lane, 0) + 1
@@ -142,7 +142,7 @@ class JobScheduler:
             if record is not None:
                 record.cancel_requested_at = time.time()
                 self.store.save_proc(job_id, record)
-                self._signal_group(record, signal.SIGTERM)
+                self._signal_group(job_id, record, signal.SIGTERM)
             return self.store.load(job_id)
 
     async def run(self, interval: float = 1.0) -> None:
@@ -188,22 +188,25 @@ class JobScheduler:
                         path.unlink()
         self.store.clear_proc(job_id)
 
-    @staticmethod
-    def _same_process(record: ProcRecord) -> Optional[psutil.Process]:
-        """The live process a record names, or None once its pid is gone or reused."""
+    def _same_process(self, job_id: str, record: ProcRecord) -> Optional[psutil.Process]:
+        """The live worker a record names, or None once its pid is gone or reused. A worker is known
+        by its command line, which ends with its job's folder: the start time psutil reports is the
+        boot time plus ticks, and the boot time moves when the clock is stepped (WSL2 steps it by
+        seconds under load), so it can't tell a worker from a stranger across a restart."""
         try:
             process = psutil.Process(record.pid)
-            if abs(float(process.create_time()) - record.create_time) > 1.0:
-                return None
             if process.status() == psutil.STATUS_ZOMBIE:
                 return None
+            args = process.cmdline()
+            if not args or Path(args[-1]).resolve() != self.store.job_dir(job_id).resolve():
+                return None
             return process
-        except psutil.NoSuchProcess:
+        except psutil.Error:  # gone, a zombie, or another user's process
             return None
 
-    def _signal_group(self, record: ProcRecord, sig: int) -> None:
+    def _signal_group(self, job_id: str, record: ProcRecord, sig: int) -> None:
         """Signal a worker's whole process group, after checking the pid is still that worker."""
-        if self._same_process(record) is None:
+        if self._same_process(job_id, record) is None:
             return
         try:
             os.killpg(record.pid, sig)

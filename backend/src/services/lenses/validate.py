@@ -117,32 +117,23 @@ def _scores(truth: Array, predicted: Array, fold_acc: List[float], fold_ami: Lis
             "ami": round(float(sum(a * size for a, size in fold_ami) / sizes), 4) if sizes else 0.0}
 
 
-def validate_layer(states: Array, embedding: Array, folds: List[Array], codes: Dict[str, Array],
-                   n_neighbors: int, dimensions: int, seed: int, seeds: int) -> Dict[str, Any]:
-    """One layer's k profile: in-sample measures on the lens's own embedding, agreement across
-    seeds, and held-out scores, for every k."""
+def heldout_scores(states: Array, folds: List[Array], codes: Dict[str, Array], n_neighbors: int,
+                   dimensions: int, seed: int, min_dist: float = 0.1,
+                   ks: Optional[Sequence[int]] = None) -> Dict[int, Dict[str, Dict[str, float]]]:
+    """Held-out scores per k and axis (see the module notes): for each fold, UMAP and Ward fitted on
+    the training items, the held-out items placed and assigned by the vote. Validation and lens
+    search score the same way. Every k is a cut of one tree per fold."""
     from sklearn.metrics import adjusted_mutual_info_score as ami
-    from sklearn.metrics import adjusted_rand_score as ari
-    from sklearn.metrics import silhouette_score
 
     from services.lenses.fit import cut, fit_reducer, ward_tree
 
     n = len(states)
-    ks = [k for k in K_RANGE if k < n]
-    cuts = {k: cut(ward_tree(embedding), k) for k in ks}
-    seed_cuts = []
-    for extra in range(1, seeds):
-        tree = ward_tree(fit_reducer(states, n_neighbors, dimensions, seed + extra)[1])
-        seed_cuts.append({k: cut(tree, k) for k in ks})
-    joint = {f"{a}×{b}": np.where((codes[a] >= 0) & (codes[b] >= 0), codes[a] * 1000 + codes[b], -1)
-             for a, b in itertools.combinations(codes, 2)}
-    every = {**codes, **joint}
-
+    ks = [k for k in (ks if ks is not None else K_RANGE) if k < n]
     held: Dict[int, Dict[str, Dict[str, List[Any]]]] = {
         k: {axis: {"truth": [], "pred": [], "acc": [], "ami": []} for axis in codes} for k in ks}
     for test in folds:
         train = np.setdiff1d(np.arange(n), test)
-        reducer, train_emb = fit_reducer(states[train], n_neighbors, dimensions, seed)
+        reducer, train_emb = fit_reducer(states[train], n_neighbors, dimensions, seed, min_dist)
         test_emb = np.asarray(reducer.transform(states[test]), dtype=np.float32)
         train_tree = ward_tree(train_emb)
         for k in ks:
@@ -158,6 +149,32 @@ def validate_layer(states: Array, embedding: Array, folds: List[Array], codes: D
                 record["pred"].append(predicted)
                 record["acc"].append(float((truth == predicted).mean()))
                 record["ami"].append((float(ami(truth, assigned[keep])), int(keep.sum())))
+    return {k: {axis: _scores(np.concatenate(r["truth"]), np.concatenate(r["pred"]), r["acc"], r["ami"])
+                for axis, r in held[k].items() if r["truth"]} for k in ks}
+
+
+def validate_layer(states: Array, embedding: Array, folds: List[Array], codes: Dict[str, Array],
+                   n_neighbors: int, dimensions: int, seed: int, seeds: int,
+                   min_dist: float = 0.1) -> Dict[str, Any]:
+    """One layer's k profile: in-sample measures on the lens's own embedding, agreement across
+    seeds, and held-out scores, for every k."""
+    from sklearn.metrics import adjusted_mutual_info_score as ami
+    from sklearn.metrics import adjusted_rand_score as ari
+    from sklearn.metrics import silhouette_score
+
+    from services.lenses.fit import cut, fit_reducer, ward_tree
+
+    n = len(states)
+    ks = [k for k in K_RANGE if k < n]
+    cuts = {k: cut(ward_tree(embedding), k) for k in ks}
+    seed_cuts = []
+    for extra in range(1, seeds):
+        tree = ward_tree(fit_reducer(states, n_neighbors, dimensions, seed + extra, min_dist)[1])
+        seed_cuts.append({k: cut(tree, k) for k in ks})
+    joint = {f"{a}×{b}": np.where((codes[a] >= 0) & (codes[b] >= 0), codes[a] * 1000 + codes[b], -1)
+             for a, b in itertools.combinations(codes, 2)}
+    every = {**codes, **joint}
+    held = heldout_scores(states, folds, codes, n_neighbors, dimensions, seed, min_dist, ks)
 
     profile: Dict[str, Any] = {}
     for k in ks:
@@ -165,8 +182,7 @@ def validate_layer(states: Array, embedding: Array, folds: List[Array], codes: D
             "silhouette": round(float(silhouette_score(embedding, cuts[k])), 4),
             "seed_ari": round(float(np.mean([ari(cuts[k], other[k]) for other in seed_cuts])), 4) if seed_cuts else None,
             "agreement": {name: round(float(ami(v[v >= 0], cuts[k][v >= 0])), 4) for name, v in every.items() if (v >= 0).any()},
-            "heldout": {axis: _scores(np.concatenate(r["truth"]), np.concatenate(r["pred"]), r["acc"], r["ami"])
-                        for axis, r in held[k].items() if r["truth"]},
+            "heldout": held[k],
         }
     return profile
 
@@ -175,10 +191,11 @@ RAW_METHODS = ("raw_ward", "raw_spectral", "neurons")
 
 
 def compare_layer(states: Array, folds: List[Array], labels: Array, n_neighbors: int,
-                  seed: int) -> Tuple[Dict[str, Any], Dict[str, Dict[int, Array]]]:
+                  seed: int, full_cuts: bool = True) -> Tuple[Dict[str, Any], Dict[str, Dict[int, Array]]]:
     """The fair comparison at one layer, on the label: raw groupings scored on the same folds and
     at every k as the UMAP lens (held-out items assigned by the same vote), the supervised
-    ceiling, and every item's raw cluster at every k on all the data (for disagreement marks)."""
+    ceiling, and every item's raw cluster at every k on all the data (for disagreement marks;
+    skipped with `full_cuts=False`)."""
     from sklearn.metrics import adjusted_mutual_info_score as ami
 
     from services.lenses.raw import ceiling, neuron_features, pca_features, spectral_cuts, ward_cuts
@@ -220,6 +237,8 @@ def compare_layer(states: Array, folds: List[Array], labels: Array, n_neighbors:
 
     comparison: Dict[str, Any] = {m: {str(k): score(records[m][k]) for k in ks} for m in RAW_METHODS}
     comparison["ceiling"] = score(top)
+    if not full_cuts:
+        return comparison, {}
     everything, _ = pca_features(states, states, seed)
     full = {"raw_ward": ward_cuts(everything, ks), "raw_spectral": spectral_cuts(everything, ks, n_neighbors, seed)}
     return comparison, full
@@ -248,7 +267,8 @@ def planted_layers(n: int, dim: int, seed: int) -> Tuple[Array, Array, Array, Ar
     return planted.astype(np.float32), classes, null.astype(np.float32), rng.integers(0, 5, size=n)
 
 
-def self_check(n: int, dim: int, n_neighbors: int, dimensions: int, seed: int) -> Dict[str, Any]:
+def self_check(n: int, dim: int, n_neighbors: int, dimensions: int, seed: int,
+               min_dist: float = 0.1) -> Dict[str, Any]:
     """The build's own settings must find the planted classes, and nothing in a null layer.
 
     It runs at the lens's own item count, so settings too coarse for classes of that size (more
@@ -262,11 +282,11 @@ def self_check(n: int, dim: int, n_neighbors: int, dimensions: int, seed: int) -
     from services.lenses.fit import cut, fit_reducer, suggest_k, ward_tree
 
     planted, classes, null, labels = planted_layers(n, dim, seed)
-    embedding = fit_reducer(planted, n_neighbors, dimensions, seed)[1]
+    embedding = fit_reducer(planted, n_neighbors, dimensions, seed, min_dist)[1]
     tree = ward_tree(embedding)
     found5 = float(ari(classes, cut(tree, 5)))
     found2 = float(ari(np.array([0, 0, 1, 1, 1])[classes], cut(tree, 2)))
-    null_ami = float(ami(labels, cut(ward_tree(fit_reducer(null, n_neighbors, dimensions, seed)[1]), 5)))
+    null_ami = float(ami(labels, cut(ward_tree(fit_reducer(null, n_neighbors, dimensions, seed, min_dist)[1]), 5)))
     planted_ok, null_ok = found5 >= PLANTED_PASS, null_ami <= NULL_PASS
     return {"passed": bool(planted_ok and null_ok), "items": n, "dims": dim,
             "planted": {"ari_k5": round(found5, 4), "passed": bool(planted_ok),
@@ -276,13 +296,14 @@ def self_check(n: int, dim: int, n_neighbors: int, dimensions: int, seed: int) -
 
 
 def _validate_one(folder: str, layer: int, embedding: Array, folds: List[Array], codes: Dict[str, Array],
-                  n_neighbors: int, dimensions: int, seed: int,
-                  seeds: int) -> Tuple[int, Dict[str, Any], Dict[str, Any], Dict[str, Dict[int, Array]]]:
+                  n_neighbors: int, dimensions: int, seed: int, seeds: int,
+                  min_dist: float = 0.1) -> Tuple[int, Dict[str, Any], Dict[str, Any], Dict[str, Dict[int, Array]]]:
     """One layer, in a worker process: its states come from the job's work folder."""
     from pathlib import Path
 
     states = np.load(Path(folder) / f"X_L{layer:02d}.npy")
-    profile = validate_layer(states, embedding, folds, codes, n_neighbors, dimensions, seed, seeds)
+    profile = validate_layer(states, embedding[:, :dimensions], folds, codes, n_neighbors, dimensions, seed,
+                             seeds, min_dist)
     comparison, full = compare_layer(states, folds, codes["label"], n_neighbors, seed) \
         if "label" in codes and (codes["label"] >= 0).any() else ({}, {})
     return layer, profile, comparison, full
@@ -337,8 +358,9 @@ def validate_lens(params: Dict[str, Any], ctx: Any) -> Dict[str, Any]:
     embeddings = np.load(folder / "fit" / "embed.npz")["embedding"]
     s = manifest.settings
     workers = p.workers or max(1, min(6, (os.cpu_count() or 2) - 2))
-    tasks = (delayed(_validate_one)(str(work), layer, embeddings[li], folds, codes, s.n_neighbors,
-                                    s.dimensions, s.seed, p.seeds) for li, layer in enumerate(view.layers))
+    tasks = (delayed(_validate_one)(str(work), layer, embeddings[li], folds, codes, s.at(li).n_neighbors,
+                                    s.at(li).dimensions, s.seed, p.seeds, s.at(li).min_dist)
+             for li, layer in enumerate(view.layers))
     profiles: Dict[str, Any] = {}
     comparisons: Dict[str, Any] = {}
     full: Dict[int, Dict[str, Dict[int, Array]]] = {}

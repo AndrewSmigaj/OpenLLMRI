@@ -3,8 +3,18 @@
 import type { ClusteringSchema } from '../types/api'
 import type { LensSummary } from '../types/lens'
 
+const span = (values: number[]) => {
+  const low = Math.min(...values)
+  const high = Math.max(...values)
+  return low === high ? `${low}` : `${low}–${high}`
+}
+
 export function lensAsSchema(lens: LensSummary): ClusteringSchema {
-  const settings = lens.settings as { n_neighbors?: number; dimensions?: number; grouping?: string }
+  const settings = lens.settings as {
+    n_neighbors?: number; dimensions?: number; grouping?: string
+    per_layer?: { n_neighbors: number; dimensions: number }[] | null
+  }
+  const perLayer = settings.per_layer ?? []
   return {
     name: lens.name,
     created_at: lens.created_at ?? '',
@@ -14,6 +24,9 @@ export function lensAsSchema(lens: LensSummary): ClusteringSchema {
       reduction_method: lens.kind,
       reduction_dimensions: settings.dimensions ?? 0,
       n_neighbors: settings.n_neighbors,
+      // A tuned lens: each layer has its own settings
+      tuned_settings: perLayer.length
+        ? `tuned per layer (${span(perLayer.map(l => l.dimensions))}D, n=${span(perLayer.map(l => l.n_neighbors))})` : undefined,
       embedding_source: lens.site?.source ?? 'residual_stream',
       layer_cluster_counts: Object.fromEntries((lens.k_per_layer ?? []).map((k, i) => [String(i), k])),
     },

@@ -1,6 +1,6 @@
 // Build: make a lens from a form, then see the capture's lenses, newest builds and legacy schemas
-// alike. A built lens's k can be changed layer by layer (a new version) and saved. A finished
-// build opens in Layers.
+// alike. A built lens's k can be changed layer by layer (a new version) and saved, and a UMAP lens
+// can be tuned (DESIGN.md C4). A finished build opens in Layers.
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { apiClient } from '../api/client'
@@ -14,6 +14,8 @@ import AnalystStatus from '../components/lenses/AnalystStatus'
 import LensVersions from '../components/lenses/LensVersions'
 import LensBadges from '../components/lenses/LensBadges'
 import LensValidation from '../components/lenses/LensValidation'
+import LensTune from '../components/lenses/LensTune'
+import LensTuning from '../components/lenses/LensTuning'
 import MassMeanForm from '../components/lenses/MassMeanForm'
 import MassMeanDetails from '../components/lenses/MassMeanDetails'
 import MassMeanResults from '../components/lenses/MassMeanResults'
@@ -32,6 +34,8 @@ export default function BuildWorkspace() {
   const [open, setOpen] = useState<string | null>(null) // the lens whose k table is shown
   const [results, setResults] = useState<string | null>(null) // the lens whose validation is shown
   const [report, setReport] = useState<string | null>(null) // the lens whose LLM report is shown
+  const [tuneFor, setTuneFor] = useState<string | null>(null) // the lens whose tune form is open
+  const [tuning, setTuning] = useState<string | null>(null) // the tuned lens whose search is shown
 
   useEffect(() => {
     apiClient.getLensMethods().then(setMethods).catch(err => setProblem(String(err)))
@@ -114,6 +118,19 @@ export default function BuildWorkspace() {
                 report {report === lens.name ? '▴' : '▾'}
               </button>
             )}
+            {!lens.legacy && lens.tuning && (
+              <button onClick={() => setTuning(o => (o === lens.name ? null : lens.name))}
+                className="px-2 py-1 text-xs rounded border border-gray-300 text-gray-700 hover:bg-gray-50">
+                tuning {tuning === lens.name ? '▴' : '▾'}
+              </button>
+            )}
+            {!lens.legacy && lens.kind !== 'mass_mean' && (
+              <button onClick={() => setTuneFor(o => (o === lens.name ? null : lens.name))} disabled={visitor}
+                title="Search UMAP's settings and k per layer on held-out data, then build the tuned lens"
+                className="px-2 py-1 text-xs rounded border border-gray-300 text-gray-700 hover:bg-gray-50 disabled:text-gray-300">
+                tune {tuneFor === lens.name ? '▴' : '▾'}
+              </button>
+            )}
             {!lens.legacy && lens.kind !== 'mass_mean' && (
               <button onClick={() => setOpen(o => (o === lens.name ? null : lens.name))}
                 className="px-2 py-1 text-xs rounded border border-gray-300 text-gray-700 hover:bg-gray-50">
@@ -129,6 +146,12 @@ export default function BuildWorkspace() {
             ? <><MassMeanResults session={view.session} lens={lens} />
                 <MassMeanDetails session={view.session} lens={lens} disabled={visitor} /></>
             : <LensValidation session={view.session} lens={lens} />)}
+          {tuning === lens.name && !lens.legacy && lens.tuning && <LensTuning session={view.session} lens={lens} />}
+          {tuneFor === lens.name && !lens.legacy && methods && (
+            <LensTune session={view.session} lens={lens} methods={methods} disabled={visitor}
+              takenNames={(lenses ?? []).map(l => l.name)}
+              onTuned={name => { setTuneFor(null); setTuning(name); setReload(r => r + 1) }} />
+          )}
           {report === lens.name && !lens.legacy && (
             <div className="mt-2"><LensReport session={view.session} lens={lens.name} cardId="lens"
               label="Report on this lens" disabled={visitor} /></div>

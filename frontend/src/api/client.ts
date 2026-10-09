@@ -9,8 +9,9 @@ import type {
   SentenceExperimentResponse,
 } from '../types/api';
 import type {
-  Fingerprint, JobView, LensBuildBody, LensDetail, LensFlows, LensMembersPage, LensMethods, LensOptions, LensSummary,
-  LensMarks, LensNodeDetails, LensVersion, MassMeanDetails, MassMeanValidation, MembersQuery, Population, Validation,
+  Fingerprint, JobView, LensBuildBody, LensDetail, LensFlows, LensMembersPage, LensMethods, LensOptions, LensSearch,
+  LensSummary, LensMarks, LensNodeDetails, LensVersion, MassMeanDetails, MassMeanValidation, MembersQuery, Population,
+  TuneBody, Validation,
 } from '../types/lens';
 import type { AnalystTests, Card, QuestionAnswer } from '../types/cards';
 
@@ -274,6 +275,17 @@ class ConceptMriApiClient {
                      body: { family_field?: string; n_folds?: number; seeds?: number } = {}): Promise<{ job_id: string }> {
     return this.request(`/sessions/${sessionId}/lenses/${encodeURIComponent(name)}/validate`,
       { method: 'POST', body: JSON.stringify(body) });
+  }
+
+  // Tunes a UMAP lens in the background: a search over its settings and k per layer, then the
+  // tuned lens is built and validated (DESIGN.md C4)
+  async tuneLens(sessionId: string, name: string, body: TuneBody): Promise<{ job_id: string; session_id: string; source: string; name: string }> {
+    return this.request(`/sessions/${sessionId}/lenses/${encodeURIComponent(name)}/tune`,
+      { method: 'POST', body: JSON.stringify(body) });
+  }
+
+  async getLensSearch(sessionId: string, name: string): Promise<LensSearch> {
+    return this.request<LensSearch>(`/sessions/${sessionId}/lenses/${encodeURIComponent(name)}/search`);
   }
 
   async getLensValidation(sessionId: string, name: string): Promise<Validation> {

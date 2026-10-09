@@ -6,6 +6,7 @@ token positions, the sources it captured) and the methods named here are the one
 
 from __future__ import annotations
 
+import os
 from collections import Counter
 from pathlib import Path
 from typing import Any, Dict, List, Optional
@@ -23,7 +24,7 @@ AUTO_METHOD_NOTES = {
     "elbow": "the k after which the clusters' spread stops falling steeply",
     "silhouette": "the k whose clusters are best separated (in-sample)",
     "levels": "the finest clear level of the merge tree; a layer without one takes the silhouette's k",
-    "heldout": "the k that classifies held-out data best (selection-biased; needs a validated lens)",
+    "heldout": "the k whose nodes best match the classes on held-out data, by AMI (selection-biased; needs a validated lens)",
 }
 BUILD_METHODS = ("elbow", "silhouette", "levels")  # the held-out best needs a validation first
 
@@ -64,4 +65,16 @@ def lens_methods() -> Dict[str, Any]:
                              if m not in BUILD_METHODS],
         "defaults": {"k": 6, "seed": 42, "source": "residual_stream", "token_position": 1,
                      "last_occurrence_only": True},
+        "tuning": _tuning_defaults(),
     }
+
+
+def _tuning_defaults() -> Dict[str, Any]:
+    """What a lens search starts from (DESIGN.md C4), and the numbers its time estimate uses."""
+    from services.lenses.search import MAX_SETTINGS, SECONDS_PER_FIT, LensSearchParams
+
+    defaults = LensSearchParams(session_id="", source_lens="")
+    return {"grid": defaults.grid.model_dump(), "k_min": defaults.k_min, "k_max": defaults.k_max,
+            "test_share": defaults.test_share, "n_folds": defaults.n_folds, "family_field": defaults.family_field,
+            "max_settings": MAX_SETTINGS, "seconds_per_fit": list(SECONDS_PER_FIT),
+            "workers": max(1, min(6, (os.cpu_count() or 2) - 2))}

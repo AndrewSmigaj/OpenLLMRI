@@ -6,6 +6,8 @@ GPU or data. Each test uses its own job folder under pytest's tmp_path.
 
 import os
 import signal
+import subprocess
+import sys
 import time
 from pathlib import Path
 from typing import Callable, Iterator
@@ -14,7 +16,7 @@ import psutil
 import pytest
 
 from services.jobs.scheduler import JobScheduler
-from services.jobs.store import Job, JobStore
+from services.jobs.store import Job, JobStore, ProcRecord
 
 
 @pytest.fixture
@@ -77,7 +79,8 @@ def test_a_failure_records_its_message_and_keeps_the_traceback_in_the_log(schedu
 def test_cancel_ends_the_whole_process_group(scheduler: JobScheduler) -> None:
     job = scheduler.submit("noop", {"seconds": 60, "steps": 600, "spawn_child": True}, created_by="test")
     child_file = scheduler.store.job_dir(job.id) / "child.pid"
-    wait_until(scheduler, child_file.exists)
+    # the pid written, not just the file made (the two are separate steps)
+    wait_until(scheduler, lambda: child_file.exists() and child_file.read_text().strip() != "")
     child = int(child_file.read_text())
     assert psutil.pid_exists(child)
     scheduler.cancel(job.id)
@@ -115,6 +118,38 @@ def test_a_new_scheduler_re_adopts_a_live_worker(scheduler: JobScheduler) -> Non
     assert state(restarted, later) == "queued"  # the adopted worker still holds the cpu slot
     wait_until(restarted, lambda: state(restarted, job) == "done")
     wait_until(restarted, lambda: state(restarted, later) == "done")
+
+
+def test_a_live_worker_is_re_adopted_after_the_clock_moves(scheduler: JobScheduler) -> None:
+    # WSL2 steps its clock under load, which moves the start time psutil reports for a process
+    # (the boot time plus ticks) by seconds; the live worker is still the job's after a restart
+    job = scheduler.submit("noop", {"seconds": 3, "steps": 30}, created_by="test")
+    wait_until(scheduler, lambda: state(scheduler, job) == "running")
+    record = scheduler.store.proc(job.id)
+    assert record is not None
+    record.create_time -= 5.0
+    scheduler.store.save_proc(job.id, record)
+    restarted = JobScheduler(scheduler.store, kill_after=1.0)
+    restarted.adopt()
+    assert state(restarted, job) == "running"
+    wait_until(restarted, lambda: state(restarted, job) == "done")
+
+
+def test_a_reused_pid_is_not_taken_for_the_worker(scheduler: JobScheduler) -> None:
+    # A live process that isn't the job's worker, even with the recorded start time
+    stranger = subprocess.Popen([sys.executable, "-c", "import time; time.sleep(30)"], start_new_session=True)
+    try:
+        job = scheduler.submit("noop", {"seconds": 0.1}, created_by="test")
+        scheduler.store.update(job.id, state="running")
+        scheduler.store.save_proc(job.id, ProcRecord(pid=stranger.pid,
+                                                     create_time=psutil.Process(stranger.pid).create_time()))
+        restarted = JobScheduler(scheduler.store, kill_after=1.0)
+        restarted.adopt()
+        assert state(restarted, job) == "interrupted"
+        assert stranger.poll() is None  # and it is left alone
+    finally:
+        stranger.kill()
+        stranger.wait()
 
 
 def test_an_interrupted_job_leaves_no_temporary_output(scheduler: JobScheduler, tmp_path: Path) -> None:
