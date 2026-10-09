@@ -195,7 +195,10 @@ Part K gives the order of what follows.
    2026-10-06].
 5. **A lens is a model** [Decided, 2026-10-06]:
    - a UMAP configuration (its settings, its number of clusters) is tuned like any model, until it
-     separates the classes and classifies held-out data well;
+     separates the classes and classifies held-out data well. A search over the settings and k
+     of each layer does the tuning, chosen by held-out AMI and scored on held-out families it never
+     saw (C3, C4) [Decided, 2026-10-08; settings per layer and the unseen test families approved
+     with the slice 1b plan];
    - a lens is built from deliberately varied data, so any input that carries the concept lands in
      one of its nodes, or at its place on the axis;
    - new data is read by applying the lens;
@@ -227,6 +230,14 @@ This part covers building; Parts D and E cover using.
   captured at a target word or a carrier.
 - **A set can be as small as single words,** as a team studying grammar might use [Decided,
   2026-10-06].
+  - **A single word is given as the user's message, with a space before it** [Decided,
+    2026-10-08]. It is then one token for nearly every common word, the same token the word has
+    inside a sentence. Typed with no space, many common words split into pieces, and the capture
+    drops a word that splits.
+  - **The first single-word set varies meaning and feeling** [Decided, 2026-10-08; singular nouns
+    and subcategories as held-out families approved with the slice 1b plan]: a semantic category
+    with subcategories, animacy and concreteness, and valence. Grammar and surface form aren't
+    varied, so it holds singular nouns. Its subcategories are its held-out families.
 - **Writing them:**
   - in the app, Claude agents generate sentence sets to instructions [Decided, 2026-10-04 and
     2026-10-07];
@@ -267,6 +278,14 @@ This part covers building; Parts D and E cover using.
   not one number.
 - **A k profile per layer** [Decided, 2026-10-07; Built]: for each layer and each k, the silhouette, the stability
   across seeds, and the agreement with each designed axis. The chosen k is saved with the lens.
+- **Tuning chooses k, and the settings, by held-out AMI with the designed classes**
+  [Decided, 2026-10-08]:
+  - held-out accuracy keeps rising with k, because smaller nodes are purer. On the slice-1
+    lenses it picked 7 to 10 at nearly every layer;
+  - held-out AMI picks close to the designed structure: 6 at most middle layers for the five
+    tank senses, 2 to 5 for the two calibration classes;
+  - accuracy and κ are shown beside it, and the k profile's held-out best follows AMI too
+    (approved with the slice 1b plan).
 
 **C4. Validating and comparing.**
 - **A lens must classify held-out data well** [Decided, 2026-10-06; Built]. The held-out data is whole
@@ -281,6 +300,15 @@ This part covers building; Parts D and E cover using.
   - scores that are held out and corrected for chance.
 - **A self-check** [Decided, 2026-10-07; Built]: before lens search is trusted, it must find structure planted in
   synthetic data.
+- **Lens search** [Decided, 2026-10-08: approved with the slice 1b plan]:
+  - a search over UMAP's settings (neighbours, dimensions, minimum distance) and k, layer by
+    layer, so a tuned lens can use different settings at different depths;
+  - settings that fail the self-check drop out;
+  - the winners are chosen on selection folds, then scored on a test portion of whole families
+    the search never saw, beside the lens it started from, the raw-space groupings and the
+    ceiling;
+  - the tuned lens is built from the winners. Its own validation is partly selection-biased,
+    because its items chose its settings, and says so; the test score is the honest one.
 
 **C5. What comes with each node and lens.**
 - **The neurons behind it,** found by correlation [Decided, 2026-10-04; Built].
@@ -332,10 +360,25 @@ This part covers building; Parts D and E cover using.
 **C7. Every lens gets a report, and lenses come in every size** [Decided, 2026-10-07]:
 - LLM agents write each lens's report from its cluster and expert Sankeys, and agree on what it
   shows [Built: two drafts, reconciled];
+- **each lens's report covers its nodes (the latent clusters), the experts involved, and its
+  expert pipelines and hubs** [Decided, 2026-10-08; hubs, and per-lens pipelines with the
+  catalogue left to the atlas, approved with the slice 1b plan], with every number checked. The
+  pipelines and hubs of one lens come with it; the catalogue across every capture is the atlas's
+  (H);
 - lenses range from broad to specific. For example, a sentence set built on a taxonomy of animals
   shows where the model represents that taxonomy, and linguistic phenomena of every kind can be
   probed the same way;
 - each such lens is a setting an AI scientist can learn from.
+
+**C8. How many axes** [Decided, 2026-10-08; its method approved with the slice 1b plan]:
+- for a set with several designed axes, an analysis counts how many each technique recovers on
+  held-out data, layer by layer: the UMAP lens's nodes, raw-space groupings, a linear probe (the
+  ceiling) and PCA, with PCA's effective dimensionality beside the count;
+- chance comes from decoy axes with each axis's proportions, assigned by family;
+- angles between axes use partial axes (each axis's difference with the others held fixed), shown
+  beside the design's own correlations, with a null from permuted design rows. So axes correlated
+  by design don't read as shared representation;
+- it is built for the single-word set (C1), and checked first on the threatened set's eight axes.
 
 ## Part D — Reading over time
 
@@ -652,7 +695,8 @@ area can be resized and can fill the screen.
   - the chance level for the strongest token in neutral text of each length;
   - a nearest-neighbour index over its calibration states, shared by presence and the explained
     readings;
-- the paths for each tick's default tokens are worked out with the readings;
+- the paths for each tick's default tokens are worked out with the readings, as Layers lights a
+  selection's path (E5);
 - readings are computed once, stored and shown. A live run adds one tick at a time.
 
 **Risks, and what answers them:**
@@ -705,6 +749,20 @@ area can be resized and can fill the screen.
   3-D view fitted its own UMAP, separate from the clustering, and coloured by label, so a point
   could sit in one bundle and be counted in another node. It colours by node, and says which fit
   it draws.
+- **The 3-D view draws the lens's own space** [Decided, 2026-10-08; one scale on all axes and its
+  own panel approved with the slice 1b plan]:
+  - the lens's embedding when it has three dimensions, otherwise its three main directions;
+  - each layer turned to line up with the one before (a rotation, so no shape changes), with one
+    scale on all three axes;
+  - items read through the lens land in the same frame;
+  - it has its own panel beside the Sankeys, so all three light up together.
+- **A selection lights its path** [Decided, 2026-10-08: Andrew's idea, for a step; the other
+  selections, the expert Sankey and 3-D approved with the slice 1b plan]:
+  - an item, a node's members, a pipeline, or one step of a run lights its path through the
+    nodes over faded flows: in the cluster Sankey, in the expert Sankey (its experts), and in 3-D;
+  - Watch draws a tick's path the same way (E4).
+- **The expert Sankey gains a weighted view of all four ranks** [Decided, 2026-10-08: approved
+  with the slice 1b plan], where a pipeline's every step can be drawn.
 - **Depth heatmaps** [Decided, 2026-10-08], per lens:
   - tokens × layers for one sentence or tick: where in the text, and at which depth, a concept
     forms (C5's question of which token made the decision). It opens from here for a sentence and
@@ -1056,6 +1114,15 @@ I. The steps in each are [Decided, 2026-10-07].
       - the additions of 2026-10-08: colour that reads true, expert fingerprints, one layout for
         expert Sankeys, marked disagreements, the 3-D fix, figure recipes, the analyst tests, a
         budget for reports, and how each lens bears on routing (C5, E2, E5, E8).
+      - **Then 1b, the tuned lens core** [Decided, 2026-10-08: Andrew set out what a true lens
+        core needs; its place before slice 2 approved with the slice 1b plan]:
+        - tuned lenses: settings and k per layer chosen by held-out AMI, with a test score the
+          search never saw (B5, C3, C4);
+        - new data read through a saved lens, and paths that light up for an item, a node or a
+          step of a run (B5, E5);
+        - the 3-D view in the lens's own space (E5);
+        - each lens's report on its nodes, experts, and pipelines and hubs (C7, E8);
+        - the axes analysis (C8) and a single-word lens (C1), with their showcase.
    2. **Capture and jobs:**
       - the capture recipe and per-run token ids (G);
       - the GPU job queue;
@@ -1370,7 +1437,16 @@ Paraphrased from Andrew's own words. His ideas not yet decided are listed separa
     reports, and hosting before other researchers are invited;
   - the project keeps the name OpenLLMRI;
   - held-out sentences are how a lens's reading of new data is judged, and lenses built from large,
-    varied probes have assigned held-out sentences strongly (M1).
+    varied probes have assigned held-out sentences strongly (M1);
+  - after slice 1's showcase, the lens core is finished as slice 1b, before slice 2 (K; the order,
+    settings per layer, the test families and hubs approved with the slice 1b plan):
+    - lenses tuned by a search over settings and k per layer, chosen by held-out AMI, and scored
+      on held-out families the search never saw (B5, C3, C4);
+    - each lens's report covers its nodes, the experts involved, and its pipelines and hubs (C7);
+    - a lens of single words, given with a space first, varying meaning and feeling, and an
+      analysis of how many axes each technique recovers (C1, C8);
+    - the 3-D view draws the lens's own space (E5);
+    - a selection lights its path (E5; Andrew's idea, approved with the slice 1b plan).
 - **Andrew's ideas, not yet decided:**
   - **2026-10-04:** a user interface in the MUD;
   - **2026-10-06:** asking the agent to use set words in its reasoning; giving it words marked as for
