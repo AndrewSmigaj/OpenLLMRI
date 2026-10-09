@@ -272,8 +272,8 @@ def new_lens_version(request: Request, session_id: str, name: str, body: Version
 
 
 class ValidateRequest(BaseModel):
-    family_field: str = "scene"
-    whole_families: bool = False  # family names as they are, not their first two tokens
+    family_field: Optional[str] = None  # the lens's hold-out design when not given; "" for none
+    whole_families: Optional[bool] = None  # family names as they are, not their first two tokens
     n_folds: int = Field(5, ge=2, le=20)
     seeds: int = Field(3, ge=1, le=10)
     workers: Optional[int] = None
@@ -311,9 +311,9 @@ class TuneRequest(BaseModel):
     grid: Optional[SearchGrid] = None
     k_min: int = Field(2, ge=2, le=10)
     k_max: int = Field(10, ge=2, le=10)
-    test_share: float = Field(0.2, ge=0.1, le=0.5)
-    family_field: str = "scene"
-    whole_families: bool = False
+    test_share: Optional[float] = Field(None, ge=0.1, le=0.5)  # the lens's hold-out design when not given
+    family_field: Optional[str] = None
+    whole_families: Optional[bool] = None
     n_folds: int = Field(5, ge=2, le=10)
     seed: Optional[int] = None
     workers: Optional[int] = None
@@ -382,8 +382,8 @@ class MassMeanRequest(BaseModel):
     label_a: str
     label_b: str
     token_position: int = 1
-    family_field: str = "scene"
-    whole_families: bool = False
+    family_field: Optional[str] = None  # the capture's declared hold-out design when not given
+    whole_families: Optional[bool] = None
     created_by: str = "app"
 
 
@@ -602,8 +602,8 @@ def lens_routes(session_id: str, name: str, legacy: bool = False, version: Optio
 
 
 class RoutesRequest(BaseModel):
-    family_field: str = "scene"
-    whole_families: bool = False
+    family_field: Optional[str] = None  # the lens's hold-out design when not given
+    whole_families: Optional[bool] = None
     created_by: str = "app"
 
 
@@ -630,8 +630,8 @@ def start_routes(request: Request, session_id: str, name: str, body: RoutesReque
 
 
 class AxesRequest(BaseModel):
-    family_field: str = "scene"
-    whole_families: bool = False
+    family_field: Optional[str] = None  # the lens's hold-out design when not given
+    whole_families: Optional[bool] = None
     n_folds: int = Field(5, ge=2, le=10)
     workers: Optional[int] = None
     created_by: str = "app"

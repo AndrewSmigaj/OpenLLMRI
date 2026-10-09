@@ -145,7 +145,7 @@ def find_hubs(weights: Array, floor: int) -> List[Dict[str, Any]]:
     return sorted(hubs, key=lambda h: -h["sources"])[:MAX_HUBS]
 
 
-def _groups(items: Sequence[Dict[str, Any]], family_field: str, codes: Array,
+def _groups(items: Sequence[Dict[str, Any]], family_field: Optional[str], codes: Array,
             whole: bool = False) -> Tuple[Array, str]:
     """What moves together under permutation: whole families when each family holds one value,
     else items with the same text. Returns each item's group index and the kind of grouping."""
@@ -163,7 +163,7 @@ def _groups(items: Sequence[Dict[str, Any]], family_field: str, codes: Array,
 
 
 def find_involved(weights: Array, items: Sequence[Dict[str, Any]], axes: Dict[str, List[str]],
-                  family_field: str, seed: int, whole: bool = False) -> Dict[str, Any]:
+                  family_field: Optional[str], seed: int, whole: bool = False) -> Dict[str, Any]:
     """Per designed axis and value: the experts whose mean weight differs from the rest's beyond the
     permutation threshold, largest difference first."""
     from sklearn.metrics import roc_auc_score
@@ -204,15 +204,14 @@ def find_involved(weights: Array, items: Sequence[Dict[str, Any]], axes: Dict[st
     return out
 
 
-def _halves(items: Sequence[Dict[str, Any]], family_field: str, seed: int, whole: bool = False) -> List[Array]:
-    from services.lenses.search import merge_folds
-    from services.lenses.validate import make_folds
+def _halves(items: Sequence[Dict[str, Any]], family_field: Optional[str], seed: int, whole: bool = False) -> List[Array]:
+    from services.lenses.validate import make_folds, merge_folds
 
     folds, _ = make_folds(items, family_field, 2, seed, whole)
     return merge_folds(folds, 2)[0]
 
 
-def compute_routes(view: LensView, family_field: str = "scene", seed: int = 42,
+def compute_routes(view: LensView, family_field: Optional[str] = "scene", seed: int = 42,
                    whole: bool = False) -> Dict[str, Any]:
     """Pipelines, hubs and the experts involved, as `routes.json` holds them (layers by number)."""
     from services.lenses.flows import axes_of, value_of
@@ -277,15 +276,19 @@ def compute_routes(view: LensView, family_field: str = "scene", seed: int = 42,
                       "whole_families": whole}}
 
 
-def write_routes(session_id: str, name: str, family_field: str = "scene", whole: bool = False) -> Dict[str, Any]:
-    """Work out a lens's routes and write `routes.json` (atomically); returns what was written."""
-    from services.lenses.store import lens_dir, read_manifest
+def write_routes(session_id: str, name: str, family_field: Optional[str] = None,
+                 whole: Optional[bool] = None) -> Dict[str, Any]:
+    """Work out a lens's routes and write `routes.json` (atomically); returns what was written. The
+    families come from the lens's hold-out design unless named."""
+    from services.lenses.store import lens_dir, read_manifest, resolve_holdout
     from services.lenses.view import open_lens
 
     folder = lens_dir(session_id, name)
     manifest = read_manifest(folder)
+    design = resolve_holdout(folder, manifest, family_field, whole)
     started = time.time()
-    routes = compute_routes(open_lens(session_id, name), family_field, manifest.settings.seed, whole)
+    routes = compute_routes(open_lens(session_id, name), design.family_field, manifest.settings.seed,
+                            design.whole_families)
     routes["seconds"] = round(time.time() - started, 2)
     tmp = folder / ".routes.json.tmp"
     tmp.write_text(json.dumps(routes, indent=1), encoding="utf-8")
@@ -296,8 +299,8 @@ def write_routes(session_id: str, name: str, family_field: str = "scene", whole:
 def routes_job(params: Dict[str, Any], ctx: Any) -> Dict[str, Any]:
     """The `lens_routes` job: write a lens's routes."""
     ctx.progress("routes", 0, 1)
-    routes = write_routes(params["session_id"], params["name"], params.get("family_field", "scene"),
-                          bool(params.get("whole_families", False)))
+    routes = write_routes(params["session_id"], params["name"], params.get("family_field"),
+                          params.get("whole_families"))
     return {"session_id": params["session_id"], "name": params["name"], "pipelines": len(routes["pipelines"]),
             "hubs": len(routes["hubs"]), "seconds": routes["seconds"]}
 

@@ -14,6 +14,7 @@ A lens is a folder in its capture's session: `<session>/lenses/<name>/`.
 from __future__ import annotations
 
 import functools
+import json
 import os
 import re
 import subprocess
@@ -40,25 +41,77 @@ class LensSite(BaseModel):
     token_position: int = 1
 
 
+Metric = Literal["euclidean", "cosine", "correlation", "manhattan"]
+METRICS: tuple[Metric, ...] = ("euclidean", "cosine", "correlation", "manhattan")
+
+
 class UmapSettings(BaseModel):
-    """UMAP's settings for one layer."""
+    """UMAP's settings for one layer. Lenses built before the metric existed read as Euclidean."""
     n_neighbors: int = Field(default=15, ge=2, le=200)
     dimensions: int = Field(default=6, ge=2, le=50)
     min_dist: float = Field(default=0.1, ge=0.0, le=0.99)
+    metric: Metric = "euclidean"
+
+    @classmethod
+    def of(cls, settings: Any) -> "UmapSettings":
+        """The UMAP settings held in any settings object or dict, copied whole so that no field is
+        dropped on the way (a lens's settings, a build's, a point of a search's grid)."""
+        data = settings.model_dump() if isinstance(settings, BaseModel) else dict(settings)
+        return cls.model_validate({key: value for key, value in data.items() if key in cls.model_fields})
+
+
+# Where a layer's settings came from: the form's lens-wide values, the per-layer table, a preview
+# (in-sample, or held out), or a search. Held-out previews and searches chose them on held-out
+# scores, so the lens's own validation is selection-biased.
+SettingsSource = Literal["form", "table", "preview", "preview held out", "tuned"]
+CHOSEN_ON_HELDOUT = ("preview held out", "tuned")
 
 
 class LensSettings(UmapSettings):
-    """A lens's settings. A tuned lens keeps each layer's own in `per_layer` (aligned with the
-    manifest's layers), and the lens-wide values record where its tuning started."""
+    """A lens's settings. A lens tuned or set by hand per layer keeps each layer's own in
+    `per_layer` (aligned with the manifest's layers), and where each came from in `sources`; the
+    lens-wide values record where it started. Lenses built before `sources` existed read as tuned
+    when they have settings per layer (only a search made those), else as the form's."""
     seed: int = 42
     grouping: Literal["ward"] = "ward"
     per_layer: Optional[List[UmapSettings]] = None
+    sources: Optional[List[SettingsSource]] = None
 
     def at(self, li: int) -> UmapSettings:
         """The settings of the li-th layer."""
         if self.per_layer is not None:
             return self.per_layer[li]
-        return UmapSettings(n_neighbors=self.n_neighbors, dimensions=self.dimensions, min_dist=self.min_dist)
+        return UmapSettings.of(self)
+
+    def source_at(self, li: int) -> str:
+        if self.sources is not None:
+            return self.sources[li]
+        return "tuned" if self.per_layer is not None else "form"
+
+    def origin(self) -> str:
+        """"tuned" when a search chose every layer's settings, "form" when they are the form's,
+        else "by hand"."""
+        n = len(self.per_layer) if self.per_layer is not None else 1
+        found = {self.source_at(li) for li in range(n)}
+        return "tuned" if found == {"tuned"} else "form" if found == {"form"} else "by hand"
+
+    def chosen_on_heldout(self) -> bool:
+        """Whether any layer's settings were chosen on held-out scores of these items."""
+        n = len(self.per_layer) if self.per_layer is not None else 1
+        return any(self.source_at(li) in CHOSEN_ON_HELDOUT for li in range(n))
+
+
+class HoldoutDesign(BaseModel):
+    """How a lens is held out, recorded so that later jobs on it use it (DESIGN.md C4).
+
+    Whole families named by a categories field (none: stratified folds, marked weaker); the names
+    whole or by their first two underscore parts; at most `max_folds` family folds, more merging
+    round-robin (none: one fold per family index, as before); and the share of families a search's
+    test portion takes, drawn by the lens's seed, which previews leave out too."""
+    family_field: Optional[str] = "scene"
+    whole_families: bool = False
+    max_folds: Optional[int] = Field(default=12, ge=2, le=50)
+    test_share: float = Field(default=0.2, ge=0.1, le=0.5)
 
 
 class Provenance(BaseModel):
@@ -88,6 +141,7 @@ class LensManifest(BaseModel):
     current: Optional[str] = None
     provenance: Provenance = Field(default_factory=Provenance)
     self_check: Optional[Dict[str, Any]] = None  # planted and null layers, with the build's settings
+    holdout: Optional[HoldoutDesign] = None  # lenses built before the record: see `holdout_of`
 
 
 class VersionRecord(BaseModel):
@@ -132,6 +186,50 @@ def read_version(folder: Path, version: str) -> VersionRecord:
 def write_version(folder: Path, record: VersionRecord) -> None:
     (folder / record.version).mkdir(parents=True, exist_ok=True)
     _write_text_atomic(folder / record.version / "version.json", record.model_dump_json(indent=2))
+
+
+def declared_holdout(session_id: str, lake: Optional[Path] = None) -> Optional[HoldoutDesign]:
+    """The hold-out design a capture's sentence set declared (its `metadata.holdout`, kept in the
+    session file by the capture), or None."""
+    folder = session_dir(session_id, lake)
+    path = folder.parent / "_sessions" / f"{folder.name}.json"
+    if not path.exists():
+        return None
+    declared = json.loads(path.read_text(encoding="utf-8")).get("holdout")
+    return HoldoutDesign.model_validate(declared) if declared else None
+
+
+def default_holdout(session_id: str, lake: Optional[Path] = None) -> HoldoutDesign:
+    """A new lens's hold-out design: the one its capture's set declared, else the defaults (whole
+    families by `scene`, which become stratified folds when the items name none)."""
+    return declared_holdout(session_id, lake) or HoldoutDesign()
+
+
+def holdout_of(folder: Path, manifest: LensManifest) -> HoldoutDesign:
+    """A lens's hold-out design: its own record. A lens built before records existed takes the
+    families field its validation used, else its capture's declaration, else the defaults, always
+    without a fold cap, so its folds stay as they were."""
+    if manifest.holdout is not None:
+        return manifest.holdout
+    path = folder / "validation.json"
+    if path.exists():
+        folds = json.loads(path.read_text(encoding="utf-8")).get("folds") or {}
+        if folds.get("field"):
+            return HoldoutDesign(family_field=folds["field"], whole_families=bool(folds.get("whole")), max_folds=None)
+    declared = declared_holdout(manifest.session_id)
+    return (declared or HoldoutDesign()).model_copy(update={"max_folds": None})
+
+
+def resolve_holdout(folder: Path, manifest: LensManifest, family_field: Optional[str] = None,
+                    whole_families: Optional[bool] = None) -> HoldoutDesign:
+    """The design a job on a lens uses: what the request names, over the lens's own. An empty
+    families field asks for no families (stratified folds)."""
+    update: Dict[str, Any] = {}
+    if family_field is not None:
+        update["family_field"] = family_field or None
+    if whole_families is not None:
+        update["whole_families"] = whole_families
+    return holdout_of(folder, manifest).model_copy(update=update)
 
 
 def list_lenses(session_id: str, lake: Optional[Path] = None) -> List[LensManifest]:
@@ -186,6 +284,9 @@ def summary(manifest: LensManifest, folder: Path) -> Dict[str, Any]:
         "name": manifest.name, "kind": manifest.kind, "legacy": False, "contrast": manifest.contrast,
         "session_id": manifest.session_id, "n_items": manifest.n_items,
         "settings": manifest.settings.model_dump(), "site": manifest.site.model_dump(),
+        "settings_origin": manifest.settings.origin(),
+        "selection_biased": manifest.settings.chosen_on_heldout(),
+        "holdout": holdout_of(folder, manifest).model_dump(),
         "filters": manifest.filters.model_dump(),
         "versions": manifest.versions, "current": manifest.current,
         "state": current.state if current else None,

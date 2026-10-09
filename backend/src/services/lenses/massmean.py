@@ -34,8 +34,8 @@ class MassMeanParams(BaseModel):
     source: str = "residual_stream"
     token_position: int = 1
     filters: LensFilters = Field(default_factory=LensFilters)
-    family_field: str = "scene"
-    whole_families: bool = False  # family names as they are, not their first two tokens
+    family_field: Optional[str] = None  # the capture's declared hold-out design, else "scene"
+    whole_families: Optional[bool] = None  # family names as they are, not their first two tokens
     n_folds: int = Field(5, ge=2, le=20)
     seed: int = 42
 
@@ -77,6 +77,7 @@ def build_mass_mean(params: Dict[str, Any], ctx: Any) -> Dict[str, Any]:
         LensManifest,
         LensSite,
         Provenance,
+        default_holdout,
         git_state,
         lens_dir,
         write_manifest,
@@ -98,8 +99,13 @@ def build_mass_mean(params: Dict[str, Any], ctx: Any) -> Dict[str, Any]:
                          "a mass-mean lens needs both labels and 10 items or more")
     states = load_states(p.session_id, [r.probe_id for r in items], p.source, p.token_position)
     layers = sorted(states)
-    folds, folding = make_folds([_item_dict(vars(r)) for r in items], p.family_field, p.n_folds, p.seed,
-                                p.whole_families)
+    design = default_holdout(p.session_id)
+    if p.family_field is not None:
+        design = design.model_copy(update={"family_field": p.family_field or None})
+    if p.whole_families is not None:
+        design = design.model_copy(update={"whole_families": p.whole_families})
+    folds, folding = make_folds([_item_dict(vars(r)) for r in items], design.family_field, p.n_folds, p.seed,
+                                design.whole_families, design.max_folds)
     tmp = final.parent / f".tmp-{p.name}-{ctx.job_id}"
     ctx.add_temp_path(tmp)
     (tmp / "fit").mkdir(parents=True)
@@ -123,7 +129,7 @@ def build_mass_mean(params: Dict[str, Any], ctx: Any) -> Dict[str, Any]:
     write_manifest(tmp, LensManifest(
         name=p.name, kind="mass_mean", contrast=contrast, session_id=session_dir(p.session_id).name,
         capture=_session_info(p.session_id), site=LensSite(source=p.source, token_position=p.token_position),
-        filters=filters, n_items=len(items), layers=layers, provenance=provenance))
+        filters=filters, n_items=len(items), layers=layers, provenance=provenance, holdout=design))
     record = {"format": 1, "kind": "mass_mean", "contrast": contrast, "folds": folding, "layers": scores,
               "provenance": {"commit": commit, "dirty": dirty, "job_id": ctx.job_id,
                              "seconds": provenance.seconds, "created_at": provenance.created_at}}

@@ -16,20 +16,24 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 import numpy as np
-from pydantic import Field
+from pydantic import Field, model_validator
 
 from services.lenses.data import LensFilters
-from services.lenses.store import UmapSettings
+from services.lenses.store import HoldoutDesign, SettingsSource, UmapSettings
 
 MAX_ITEMS = 4095  # UMAP's exact small-data path, which keeps its training rows
 
 
 class LensBuildParams(UmapSettings):
-    """A build: the lens-wide UMAP settings (n_neighbors, dimensions, min_dist), or each layer's
-    own in `per_layer` (a tuned lens, one per layer in capture order), and the k for v1."""
+    """A build: the lens-wide UMAP settings (n_neighbors, dimensions, min_dist, metric), or each
+    layer's own in `per_layer` (one per layer in capture order) with where each came from in
+    `sources`, the k for v1, and the hold-out design later jobs use (the capture's declared one
+    when not given)."""
     session_id: str
     name: str
     per_layer: Optional[List[UmapSettings]] = None
+    sources: Optional[List[SettingsSource]] = None
+    holdout: Optional[HoldoutDesign] = None
     k: Optional[int] = Field(None, ge=1, le=50)
     k_per_layer: Optional[List[int]] = None
     k_auto: Optional[str] = None
@@ -43,11 +47,18 @@ class LensBuildParams(UmapSettings):
     def layer_settings(self, n_layers: int) -> List[UmapSettings]:
         """Each layer's settings: its own when tuned per layer, else the lens-wide ones."""
         if self.per_layer is None:
-            return [UmapSettings(n_neighbors=self.n_neighbors, dimensions=self.dimensions,
-                                 min_dist=self.min_dist)] * n_layers
+            return [UmapSettings.of(self)] * n_layers
         if len(self.per_layer) != n_layers:
             raise ValueError(f"per_layer has {len(self.per_layer)} settings for {n_layers} layers")
         return list(self.per_layer)
+
+    @model_validator(mode="after")
+    def _one_source_per_setting(self) -> "LensBuildParams":
+        wanted = len(self.per_layer) if self.per_layer is not None else 1
+        if self.sources is not None and len(self.sources) != wanted:
+            raise ValueError(f"sources has {len(self.sources)} entries for {wanted} settings: one per layer of "
+                             "per_layer, or one for the lens-wide settings")
+        return self
 
 
 def _fit_one(folder: str, layer: int, settings: Dict[str, Any], seed: int) -> Dict[str, Any]:
@@ -61,8 +72,7 @@ def _fit_one(folder: str, layer: int, settings: Dict[str, Any], seed: int) -> Di
     from services.lenses.fit import fit_reducer, suggest_k, ward_tree
 
     states = np.load(Path(folder) / "work" / f"X_L{layer:02d}.npy")
-    reducer, embedding = fit_reducer(states, settings["n_neighbors"], settings["dimensions"], seed,
-                                     settings["min_dist"])
+    reducer, embedding = fit_reducer(states, UmapSettings.of(settings), seed)
     reducer._raw_data = None
     joblib.dump(reducer, Path(folder) / "fit" / f"umap_L{layer:02d}.joblib", compress=3)
     tree = ward_tree(embedding)
@@ -151,9 +161,9 @@ def _self_checks(n: int, dim: int, settings: List[UmapSettings], p: LensBuildPar
 
     from services.lenses.validate import self_check
 
-    distinct = list(dict.fromkeys((s.n_neighbors, s.dimensions, s.min_dist) for s in settings))
+    distinct = list({s.model_dump_json(): s for s in settings}.values())  # whole settings, metric included
     checks = Parallel(n_jobs=min(_workers(p), len(distinct)), backend="loky")(
-        delayed(self_check)(n, dim, nn, dims, p.seed, md) for nn, dims, md in distinct)
+        delayed(self_check)(n, dim, s, p.seed) for s in distinct)
     if len(checks) == 1:
         only: Dict[str, Any] = checks[0]
         return only
@@ -161,9 +171,8 @@ def _self_checks(n: int, dim: int, settings: List[UmapSettings], p: LensBuildPar
     worst["passed"] = all(check["passed"] for check in checks)
     worst["planted"] = min((check["planted"] for check in checks), key=lambda c: c["ari_k5"])
     worst["null"] = max((check["null"] for check in checks), key=lambda c: c["ami_k5"])
-    worst["per_settings"] = [{"n_neighbors": nn, "dimensions": dims, "min_dist": md, "passed": check["passed"],
-                              "planted": check["planted"], "null": check["null"]}
-                             for (nn, dims, md), check in zip(distinct, checks)]
+    worst["per_settings"] = [s.model_dump() | {"passed": check["passed"], "planted": check["planted"],
+                                                "null": check["null"]} for s, check in zip(distinct, checks)]
     return worst
 
 
@@ -229,6 +238,7 @@ def _write_manifest(tmp: Path, p: LensBuildParams, items: List[Any], layers: Lis
         LensSettings,
         LensSite,
         Provenance,
+        default_holdout,
         git_state,
         write_manifest,
     )
@@ -237,8 +247,9 @@ def _write_manifest(tmp: Path, p: LensBuildParams, items: List[Any], layers: Lis
     manifest = LensManifest(
         name=p.name, session_id=session_dir(p.session_id).name, capture=_session_info(p.session_id),
         site=LensSite(source=p.source, token_position=p.token_position), filters=p.filters,
-        settings=LensSettings(n_neighbors=p.n_neighbors, dimensions=p.dimensions, min_dist=p.min_dist,
-                              seed=p.seed, per_layer=p.per_layer),
+        settings=LensSettings(**UmapSettings.of(p).model_dump(), seed=p.seed, per_layer=p.per_layer,
+                              sources=p.sources),
+        holdout=p.holdout or default_holdout(p.session_id),
         n_items=len(items), layers=layers, suggestions=suggestions, self_check=check,
         provenance=Provenance(
             commit=commit, dirty=dirty, job_id=ctx.job_id,

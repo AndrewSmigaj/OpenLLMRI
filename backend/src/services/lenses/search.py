@@ -38,7 +38,8 @@ from typing import Any, Dict, List, Optional, Sequence, Tuple
 import numpy as np
 from pydantic import BaseModel, Field
 
-from services.lenses.store import UmapSettings
+from services.lenses.store import Metric, UmapSettings
+from services.lenses.validate import merge_folds
 
 Array = np.ndarray[Any, Any]
 
@@ -47,15 +48,18 @@ SECONDS_PER_FIT = (0.005, 0.25)  # a fit, placement and cuts take about a·n + b
 
 
 class SearchGrid(BaseModel):
-    """The settings searched: every combination of the three lists."""
+    """The settings searched: every combination of the lists. With no metrics named, the search keeps
+    the source lens's own."""
     n_neighbors: List[int] = Field(default_factory=lambda: [5, 15, 50])
     dimensions: List[int] = Field(default_factory=lambda: [3, 6, 12])
     min_dist: List[float] = Field(default_factory=lambda: [0.1])
+    metric: Optional[List[Metric]] = None
 
-    def settings(self) -> List[UmapSettings]:
-        found = [UmapSettings(n_neighbors=n, dimensions=d, min_dist=m)
-                 for n, d, m in itertools.product(sorted(set(self.n_neighbors)), sorted(set(self.dimensions)),
-                                                  sorted(set(self.min_dist)))]
+    def settings(self, default_metric: Metric = "euclidean") -> List[UmapSettings]:
+        metrics = sorted(set(self.metric)) if self.metric else [default_metric]
+        found = [UmapSettings(n_neighbors=n, dimensions=d, min_dist=m, metric=metric)
+                 for n, d, m, metric in itertools.product(sorted(set(self.n_neighbors)), sorted(set(self.dimensions)),
+                                                          sorted(set(self.min_dist)), metrics)]
         if not found:
             raise ValueError("the grid is empty")
         if len(found) > MAX_SETTINGS:
@@ -71,9 +75,9 @@ class LensSearchParams(BaseModel):
     grid: SearchGrid = Field(default_factory=SearchGrid)
     k_min: int = Field(default=2, ge=2, le=10)
     k_max: int = Field(default=10, ge=2, le=10)
-    test_share: float = Field(default=0.2, ge=0.1, le=0.5)
-    family_field: str = "scene"
-    whole_families: bool = False  # family names as they are, not their first two tokens
+    test_share: Optional[float] = Field(default=None, ge=0.1, le=0.5)  # the lens's hold-out design when not given
+    family_field: Optional[str] = None  # the lens's hold-out design when not given
+    whole_families: Optional[bool] = None  # family names as they are, not their first two tokens
     n_folds: int = Field(default=5, ge=2, le=10)
     seed: Optional[int] = None  # the source lens's seed when not given
     workers: Optional[int] = None
@@ -91,7 +95,7 @@ def estimate_seconds(n_items: int, n_layers: int, n_settings: int, n_folds: int,
     return n_settings * n_layers * n_folds * (a * train + b) / max(1, workers)
 
 
-def split_test(items: Sequence[Dict[str, Any]], codes: Array, family_field: str, share: float,
+def split_test(items: Sequence[Dict[str, Any]], codes: Array, family_field: Optional[str], share: float,
                seed: int, whole: bool = False) -> Tuple[Array, Dict[str, Any]]:
     """The test portion's item indices, and how they were drawn. Whole families per label when every
     item names one (and each label has at least three); whole families stratified by label when a
@@ -134,14 +138,6 @@ def split_test(items: Sequence[Dict[str, Any]], codes: Array, family_field: str,
                   "n_items": int(len(test)), "share": round(len(test) / len(items), 4)}
 
 
-def merge_folds(folds: List[Array], n_folds: int) -> Tuple[List[Array], Optional[int]]:
-    """At most n_folds folds: family folds are merged round-robin (each still holds out whole
-    families), so a set with many families doesn't multiply the search's cost."""
-    if len(folds) <= n_folds:
-        return folds, None
-    return [np.sort(np.concatenate(folds[i::n_folds])) for i in range(n_folds)], len(folds)
-
-
 def _score(found: Optional[Dict[str, float]]) -> Optional[Dict[str, float]]:
     return {key: found[key] for key in ("ami", "kappa", "accuracy", "worst_fold")} if found else None
 
@@ -152,8 +148,7 @@ def _search_one(folder: str, layer: int, li: int, config: int, settings: Dict[st
     from services.lenses.validate import heldout_scores
 
     states = np.load(Path(folder) / f"X_L{layer:02d}.npy")[selection]
-    scores = heldout_scores(states, folds, {"target": codes}, settings["n_neighbors"], settings["dimensions"],
-                            seed, settings["min_dist"], ks)
+    scores = heldout_scores(states, folds, {"target": codes}, UmapSettings.of(settings), seed, ks)
     return li, config, {k: _score(scores[k].get("target")) for k in scores}
 
 
@@ -165,10 +160,9 @@ def _test_one(folder: str, layer: int, li: int, test: Array, codes: Array, winne
 
     states = np.load(Path(folder) / f"X_L{layer:02d}.npy")
     target = {"target": codes}
-    won = heldout_scores(states, [test], target, winner["n_neighbors"], winner["dimensions"], seed,
-                         winner["min_dist"], [k]).get(k, {}).get("target")
-    base = heldout_scores(states, [test], target, baseline["n_neighbors"], baseline["dimensions"], seed,
-                          baseline["min_dist"], [baseline_k]).get(baseline_k, {}).get("target")
+    won = heldout_scores(states, [test], target, UmapSettings.of(winner), seed, [k]).get(k, {}).get("target")
+    base = heldout_scores(states, [test], target, UmapSettings.of(baseline), seed,
+                          [baseline_k]).get(baseline_k, {}).get("target")
     comparison, _ = compare_layer(states, [test], codes, winner["n_neighbors"], seed, full_cuts=False)
     raw = {method: _score((comparison.get(method) or {}).get(str(k))) for method in ("raw_ward", "raw_spectral", "neurons")}
     return li, {"test": _score(won), "baseline": _score(base), "comparison": {"k": k, **raw, "ceiling": _score(comparison.get("ceiling"))}}
@@ -235,7 +229,7 @@ def run_search(params: Dict[str, Any], ctx: Any) -> Dict[str, Any]:
     from services.lenses.build import build_lens
     from services.lenses.data import load_states
     from services.lenses.flows import axes_of
-    from services.lenses.store import git_state, lens_dir, read_manifest
+    from services.lenses.store import git_state, lens_dir, read_manifest, resolve_holdout
     from services.lenses.validate import axis_codes, make_folds, self_check, validate_lens
     from services.lenses.view import open_lens
 
@@ -245,12 +239,15 @@ def run_search(params: Dict[str, Any], ctx: Any) -> Dict[str, Any]:
     manifest = read_manifest(source)
     if manifest.kind != "umap":
         raise ValueError(f"'{p.source_lens}' is a mass-mean lens; only UMAP lenses are tuned")
+    design = resolve_holdout(source, manifest, p.family_field, p.whole_families)
+    if p.test_share is not None:
+        design = design.model_copy(update={"test_share": p.test_share})
     name = tuned_name(p.source_lens, p.name)
     if lens_dir(manifest.session_id, name).exists():
         raise FileExistsError(f"lens {name!r} already exists in {manifest.session_id}")
     if p.k_min > p.k_max:
         raise ValueError(f"k_min {p.k_min} is above k_max {p.k_max}")
-    configs = p.grid.settings()
+    configs = p.grid.settings(manifest.settings.metric)
     view = open_lens(manifest.session_id, p.source_lens)
     axes = axes_of(view)
     if p.target_axis not in axes or len(axes[p.target_axis]) < 2:
@@ -260,10 +257,11 @@ def run_search(params: Dict[str, Any], ctx: Any) -> Dict[str, Any]:
     workers = p.workers or max(1, min(6, (os.cpu_count() or 2) - 2))
 
     ctx.progress("split", 0, 1)
-    test, test_info = split_test(view.items, codes, p.family_field, p.test_share, seed, p.whole_families)
+    test, test_info = split_test(view.items, codes, design.family_field, design.test_share, seed,
+                                 design.whole_families)
     selection = np.setdiff1d(np.arange(len(view.items)), test)
-    folds, folding = make_folds([view.items[int(i)] for i in selection], p.family_field, p.n_folds, seed,
-                                p.whole_families)
+    folds, folding = make_folds([view.items[int(i)] for i in selection], design.family_field, p.n_folds, seed,
+                                design.whole_families)
     folds, merged = merge_folds(folds, p.n_folds)
     folding = {key: value for key, value in folding.items() if key != "families"} | {"n_folds": len(folds)}
     if merged:
@@ -287,7 +285,7 @@ def run_search(params: Dict[str, Any], ctx: Any) -> Dict[str, Any]:
     t = time.time()
     ctx.progress("self-check", 0, len(configs))
     checks = Parallel(n_jobs=min(workers, len(configs)), backend="loky")(
-        delayed(self_check)(len(view.items), dim, s.n_neighbors, s.dimensions, seed, s.min_dist) for s in configs)
+        delayed(self_check)(len(view.items), dim, s, seed) for s in configs)
     eligible = [i for i, check in enumerate(checks) if check["passed"]]
     if not eligible:
         raise ValueError("no setting in the grid passed the self-check: none finds the planted structure")
@@ -345,6 +343,7 @@ def run_search(params: Dict[str, Any], ctx: Any) -> Dict[str, Any]:
                                     "ami_k5": checks[i]["null"]["ami_k5"]}} for i, s in enumerate(configs)],
         "split": {"test": test_info | {"probe_ids": [view.items[int(i)]["probe_id"] for i in test]},
                   "selection": {"n_items": int(len(selection)), "folds": folding}},
+        "holdout": design.model_dump(),
         "layers": layers,
         "selection": {measure: [[[((scores[li].get(c) or {}).get(k) or {}).get(measure) for k in ks]
                                  for c in range(len(configs))] for li in range(len(layers))]
@@ -363,17 +362,17 @@ def run_search(params: Dict[str, Any], ctx: Any) -> Dict[str, Any]:
     }
     _write_json(Path(ctx.job_dir) / "search.json", record)
 
-    build_lens({"session_id": manifest.session_id, "name": name, "n_neighbors": manifest.settings.n_neighbors,
-                "dimensions": manifest.settings.dimensions, "min_dist": manifest.settings.min_dist,
-                "per_layer": [w["settings"] for w in winners], "k_per_layer": [w["k"] for w in winners],
-                "k_source": f"tuned: held-out AMI on {p.target_axis}", "source": manifest.site.source,
-                "token_position": manifest.site.token_position, "filters": manifest.filters.model_dump(),
-                "seed": seed, "workers": p.workers}, _Prefixed(ctx, "build"))
+    build_lens(UmapSettings.of(manifest.settings).model_dump() | {
+        "session_id": manifest.session_id, "name": name,
+        "per_layer": [w["settings"] for w in winners], "sources": ["tuned"] * len(winners),
+        "k_per_layer": [w["k"] for w in winners], "k_source": f"tuned: held-out AMI on {p.target_axis}",
+        "source": manifest.site.source, "token_position": manifest.site.token_position,
+        "filters": manifest.filters.model_dump(), "seed": seed, "holdout": design.model_dump(),
+        "workers": p.workers}, _Prefixed(ctx, "build"))
     record["provenance"]["seconds"] = round(time.time() - started, 1)
     _write_json(lens_dir(manifest.session_id, name) / "search.json", record)
-    validate_lens({"session_id": manifest.session_id, "name": name, "family_field": p.family_field,
-                   "whole_families": p.whole_families,
-                   "n_folds": p.n_folds, "workers": p.workers}, _Prefixed(ctx, "validate"))
+    validate_lens({"session_id": manifest.session_id, "name": name, "n_folds": p.n_folds, "workers": p.workers},
+                  _Prefixed(ctx, "validate"))  # with the tuned lens's own hold-out design: the source's
     return {"session_id": manifest.session_id, "source": p.source_lens, "name": name,
             "test_items": int(len(test)), "seconds": round(time.time() - started, 1)}
 

@@ -2,6 +2,38 @@
 
 export type AxisCounts = Record<string, Record<string, number>>
 
+// UMAP's distance metrics (a lens built before the metric existed reads as Euclidean)
+export type Metric = 'euclidean' | 'cosine' | 'correlation' | 'manhattan'
+
+// One layer's UMAP settings
+export interface UmapSettings {
+  n_neighbors: number
+  dimensions: number
+  min_dist: number
+  metric: Metric
+}
+
+// Where a layer's settings came from: the form, the per-layer table, a preview (in-sample or held
+// out) or a search. Held-out previews and searches make the lens's own validation selection-biased.
+export type SettingsSource = 'form' | 'table' | 'preview' | 'preview held out' | 'tuned'
+
+// A UMAP lens's settings, as its manifest holds them
+export interface LensSettings extends Partial<UmapSettings> {
+  seed?: number
+  grouping?: string
+  per_layer?: UmapSettings[] | null
+  sources?: SettingsSource[] | null
+}
+
+// How a lens is held out (DESIGN.md C4): whole families by a categories field (null: stratified
+// folds, marked weaker), at most max_folds family folds, and the share a search's test portion takes
+export interface HoldoutDesign {
+  family_field: string | null
+  whole_families: boolean
+  max_folds: number | null
+  test_share: number
+}
+
 export interface LensSummary {
   name: string
   kind: string // 'umap' or 'mass_mean'
@@ -9,7 +41,10 @@ export interface LensSummary {
   contrast?: { label_a: string; label_b: string } | null
   session_id: string
   n_items: number | null
-  settings: Record<string, unknown>
+  settings: LensSettings
+  settings_origin?: 'tuned' | 'by hand' | 'form' // only a search's settings read as tuned
+  selection_biased?: boolean // some layer's settings were chosen on held-out scores of these items
+  holdout?: HoldoutDesign // the lens's own design (older lenses: the one their validation used)
   site?: { source: string; token_position: number }
   filters?: { labels?: string[] | null; steps?: number[] | null; last_occurrence_only?: boolean; max_items?: number | null }
   current?: string | null
@@ -204,6 +239,7 @@ export interface SearchGrid {
   n_neighbors: number[]
   dimensions: number[]
   min_dist: number[]
+  metric?: Metric[] | null // none: the source lens's own metric
 }
 
 // What a lens search starts from, and the numbers its time estimate uses (GET /lenses/methods)
@@ -213,7 +249,7 @@ export interface TuningDefaults {
   k_max: number
   test_share: number
   n_folds: number
-  family_field: string
+  family_field: string | null // null: each lens's own hold-out design
   max_settings: number
   seconds_per_fit: [number, number]
   workers: number
@@ -370,6 +406,9 @@ export interface LensOptions {
   sources: Record<string, number[]> // each captured source, with its token positions
   default_items: number
   max_items: number
+  layers: number[] // the captured layers
+  category_fields: Record<string, number> // each categories field, with its number of values
+  declared_holdout: HoldoutDesign | null // the hold-out design the capture's sentence set declared
 }
 
 // The methods a build can use (GET /lenses/methods)
@@ -377,7 +416,9 @@ export interface LensMethods {
   reductions: { id: string; label: string; defaults: Record<string, number> }[]
   groupings: { id: string; label: string }[]
   k_auto: { id: string; note: string }[]
-  defaults: { k: number; seed: number; source: string; token_position: number; last_occurrence_only: boolean }
+  defaults: UmapSettings & { k: number; seed: number; source: string; token_position: number; last_occurrence_only: boolean }
+  metrics: Metric[]
+  holdout: HoldoutDesign // the defaults for a capture that declares none
   tuning?: TuningDefaults
 }
 
@@ -394,6 +435,11 @@ export interface LensBuildBody {
   name: string
   n_neighbors: number
   dimensions: number
+  min_dist: number
+  metric: Metric
+  per_layer?: UmapSettings[] | null // each layer's own settings, with where each came from in sources
+  sources?: SettingsSource[] | null
+  holdout?: HoldoutDesign
   k?: number
   k_per_layer?: number[]
   k_auto?: string
@@ -477,7 +523,9 @@ export interface Folding {
   n_folds: number
   weaker: boolean
   field?: string
+  whole?: boolean
   families?: Record<string, string[]>
+  merged_from?: number // family folds merged round-robin beyond the lens's fold cap
 }
 
 // A lens's validation.json: per layer, per k

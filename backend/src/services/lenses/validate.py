@@ -23,10 +23,13 @@ synthetic layer shaped like residuals (5 classes in 2 groups), and find none in 
 from __future__ import annotations
 
 import itertools
-from typing import Any, Dict, List, Optional, Sequence, Tuple
+from typing import TYPE_CHECKING, Any, Dict, List, Optional, Sequence, Tuple
 
 import numpy as np
 from pydantic import BaseModel, Field
+
+if TYPE_CHECKING:
+    from services.lenses.store import UmapSettings
 
 Array = np.ndarray[Any, Any]
 
@@ -37,8 +40,8 @@ VOTE_NEIGHBOURS = 15
 class ValidateParams(BaseModel):
     session_id: str
     name: str
-    family_field: str = "scene"  # the categories field naming each item's scene family
-    whole_families: bool = False  # family names as they are, not their first two tokens
+    family_field: Optional[str] = None  # the categories field naming each item's family; the lens's design when not given
+    whole_families: Optional[bool] = None  # family names as they are, not their first two tokens
     n_folds: int = Field(5, ge=2, le=20)  # stratified folds, used when there are no families
     seeds: int = Field(3, ge=1, le=10)  # the lens's own seed and the ones after it
     workers: Optional[int] = None
@@ -50,8 +53,10 @@ def family_key(name: str, whole: bool = False) -> str:
     return str(name) if whole else "_".join(str(name).split("_")[:2])
 
 
-def family_keys(items: Sequence[Dict[str, Any]], family_field: str, whole: bool = False) -> Optional[List[str]]:
-    """Each item's family, or None unless every item names one."""
+def family_keys(items: Sequence[Dict[str, Any]], family_field: Optional[str], whole: bool = False) -> Optional[List[str]]:
+    """Each item's family, or None unless every item names one (or no field is given)."""
+    if not family_field:
+        return None
     names = [item.get("categories", {}).get(family_field) for item in items]
     if any(name is None for name in names):
         return None
@@ -66,11 +71,21 @@ def crossing_families(labels: Sequence[str], keys: Sequence[str]) -> List[str]:
     return sorted(key for key, found in seen.items() if len(found) > 1)
 
 
-def make_folds(items: Sequence[Dict[str, Any]], family_field: str, n_folds: int, seed: int,
-               whole: bool = False) -> Tuple[List[Array], Dict[str, Any]]:
+def merge_folds(folds: List[Array], n_folds: Optional[int]) -> Tuple[List[Array], Optional[int]]:
+    """At most n_folds folds: family folds are merged round-robin (each still holds out whole
+    families), so a set with many families doesn't multiply the cost. Returns the folds and how
+    many they were merged from (None when nothing merged)."""
+    if n_folds is None or len(folds) <= n_folds:
+        return folds, None
+    return [np.sort(np.concatenate(folds[i::n_folds])) for i in range(n_folds)], len(folds)
+
+
+def make_folds(items: Sequence[Dict[str, Any]], family_field: Optional[str], n_folds: int, seed: int,
+               whole: bool = False, max_folds: Optional[int] = None) -> Tuple[List[Array], Dict[str, Any]]:
     """Each fold's held-out item indices, and how the folds were made. When a family holds more than
     one label, holding out family i of every label would leave its other items in training, so the
-    folds hold out whole families instead, stratified by label as far as the families allow."""
+    folds hold out whole families instead, stratified by label as far as the families allow.
+    Family folds beyond `max_folds` merge round-robin (`merged_from` says how many there were)."""
     from sklearn.model_selection import StratifiedGroupKFold
 
     labels = [str(item.get("label")) for item in items]
@@ -95,8 +110,12 @@ def make_folds(items: Sequence[Dict[str, Any]], family_field: str, n_folds: int,
         for i in range(count):
             held = {(label, found[i]) for label, found in families.items() if i < len(found)}
             folds.append(np.array([j for j, pair in enumerate(zip(labels, keys)) if pair in held]))
-        return folds, {"kind": "scene families", "field": family_field, "n_folds": count,
-                       "weaker": False, "whole": whole, "families": families}
+        folds, merged = merge_folds(folds, max_folds)
+        how: Dict[str, Any] = {"kind": "scene families", "field": family_field, "n_folds": len(folds),
+                               "weaker": False, "whole": whole, "families": families}
+        if merged:
+            how["merged_from"] = merged
+        return folds, how
     texts = [item.get("input_text") or item["probe_id"] for item in items]
     splitter = StratifiedGroupKFold(n_splits=n_folds, shuffle=True, random_state=seed)
     folds = [np.asarray(test) for _, test in splitter.split(np.zeros(len(items)), labels, groups=texts)]
@@ -152,9 +171,8 @@ def _scores(truth: Array, predicted: Array, fold_acc: List[float], fold_ami: Lis
             "ami": round(float(sum(a * size for a, size in fold_ami) / sizes), 4) if sizes else 0.0}
 
 
-def heldout_scores(states: Array, folds: List[Array], codes: Dict[str, Array], n_neighbors: int,
-                   dimensions: int, seed: int, min_dist: float = 0.1,
-                   ks: Optional[Sequence[int]] = None) -> Dict[int, Dict[str, Dict[str, float]]]:
+def heldout_scores(states: Array, folds: List[Array], codes: Dict[str, Array], settings: UmapSettings,
+                   seed: int, ks: Optional[Sequence[int]] = None) -> Dict[int, Dict[str, Dict[str, float]]]:
     """Held-out scores per k and axis (see the module notes): for each fold, UMAP and Ward fitted on
     the training items, the held-out items placed and assigned by the vote. Validation and lens
     search score the same way. Every k is a cut of one tree per fold."""
@@ -168,7 +186,7 @@ def heldout_scores(states: Array, folds: List[Array], codes: Dict[str, Array], n
         k: {axis: {"truth": [], "pred": [], "acc": [], "ami": []} for axis in codes} for k in ks}
     for test in folds:
         train = np.setdiff1d(np.arange(n), test)
-        reducer, train_emb = fit_reducer(states[train], n_neighbors, dimensions, seed, min_dist)
+        reducer, train_emb = fit_reducer(states[train], settings, seed)
         test_emb = np.asarray(reducer.transform(states[test]), dtype=np.float32)
         train_tree = ward_tree(train_emb)
         near, dist = nearest(test_emb, train_emb)
@@ -190,8 +208,8 @@ def heldout_scores(states: Array, folds: List[Array], codes: Dict[str, Array], n
 
 
 def validate_layer(states: Array, embedding: Array, folds: List[Array], codes: Dict[str, Array],
-                   n_neighbors: int, dimensions: int, seed: int, seeds: int,
-                   min_dist: float = 0.1, decoy_codes: Optional[Dict[str, List[Array]]] = None) -> Dict[str, Any]:
+                   settings: UmapSettings, seed: int, seeds: int,
+                   decoy_codes: Optional[Dict[str, List[Array]]] = None) -> Dict[str, Any]:
     """One layer's k profile: in-sample measures on the lens's own embedding, agreement across
     seeds, and held-out scores, for every k. With `decoy_codes` (random values per axis, the axes
     analysis's chance level), each k also holds the decoys' held-out AMI and kappa per axis: the
@@ -207,13 +225,13 @@ def validate_layer(states: Array, embedding: Array, folds: List[Array], codes: D
     cuts = {k: cut(ward_tree(embedding), k) for k in ks}
     seed_cuts = []
     for extra in range(1, seeds):
-        tree = ward_tree(fit_reducer(states, n_neighbors, dimensions, seed + extra, min_dist)[1])
+        tree = ward_tree(fit_reducer(states, settings, seed + extra)[1])
         seed_cuts.append({k: cut(tree, k) for k in ks})
     joint = {f"{a}×{b}": np.where((codes[a] >= 0) & (codes[b] >= 0), codes[a] * 1000 + codes[b], -1)
              for a, b in itertools.combinations(codes, 2)}
     every = {**codes, **joint}
     fake = {f"{axis}#{i}": c for axis, found in (decoy_codes or {}).items() for i, c in enumerate(found)}
-    held = heldout_scores(states, folds, {**codes, **fake}, n_neighbors, dimensions, seed, min_dist, ks)
+    held = heldout_scores(states, folds, {**codes, **fake}, settings, seed, ks)
 
     profile: Dict[str, Any] = {}
     for k in ks:
@@ -311,8 +329,7 @@ def planted_layers(n: int, dim: int, seed: int) -> Tuple[Array, Array, Array, Ar
     return planted.astype(np.float32), classes, null.astype(np.float32), rng.integers(0, 5, size=n)
 
 
-def self_check(n: int, dim: int, n_neighbors: int, dimensions: int, seed: int,
-               min_dist: float = 0.1) -> Dict[str, Any]:
+def self_check(n: int, dim: int, settings: UmapSettings, seed: int) -> Dict[str, Any]:
     """The build's own settings must find the planted classes, and nothing in a null layer.
 
     It runs at the lens's own item count, so settings too coarse for classes of that size (more
@@ -326,11 +343,11 @@ def self_check(n: int, dim: int, n_neighbors: int, dimensions: int, seed: int,
     from services.lenses.fit import cut, fit_reducer, suggest_k, ward_tree
 
     planted, classes, null, labels = planted_layers(n, dim, seed)
-    embedding = fit_reducer(planted, n_neighbors, dimensions, seed, min_dist)[1]
+    embedding = fit_reducer(planted, settings, seed)[1]
     tree = ward_tree(embedding)
     found5 = float(ari(classes, cut(tree, 5)))
     found2 = float(ari(np.array([0, 0, 1, 1, 1])[classes], cut(tree, 2)))
-    null_ami = float(ami(labels, cut(ward_tree(fit_reducer(null, n_neighbors, dimensions, seed, min_dist)[1]), 5)))
+    null_ami = float(ami(labels, cut(ward_tree(fit_reducer(null, settings, seed)[1]), 5)))
     planted_ok, null_ok = found5 >= PLANTED_PASS, null_ami <= NULL_PASS
     return {"passed": bool(planted_ok and null_ok), "items": n, "dims": dim,
             "planted": {"ari_k5": round(found5, 4), "passed": bool(planted_ok),
@@ -340,16 +357,16 @@ def self_check(n: int, dim: int, n_neighbors: int, dimensions: int, seed: int,
 
 
 def _validate_one(folder: str, layer: int, embedding: Array, folds: List[Array], codes: Dict[str, Array],
-                  n_neighbors: int, dimensions: int, seed: int, seeds: int, min_dist: float = 0.1,
+                  settings: UmapSettings, seed: int, seeds: int,
                   decoy_codes: Optional[Dict[str, List[Array]]] = None
                   ) -> Tuple[int, Dict[str, Any], Dict[str, Any], Dict[str, Dict[int, Array]]]:
     """One layer, in a worker process: its states come from the job's work folder."""
     from pathlib import Path
 
     states = np.load(Path(folder) / f"X_L{layer:02d}.npy")
-    profile = validate_layer(states, embedding[:, :dimensions], folds, codes, n_neighbors, dimensions, seed,
-                             seeds, min_dist, decoy_codes)
-    comparison, full = compare_layer(states, folds, codes["label"], n_neighbors, seed) \
+    profile = validate_layer(states, embedding[:, :settings.dimensions], folds, codes, settings, seed, seeds,
+                             decoy_codes)
+    comparison, full = compare_layer(states, folds, codes["label"], settings.n_neighbors, seed) \
         if "label" in codes and (codes["label"] >= 0).any() else ({}, {})
     return layer, profile, comparison, full
 
@@ -381,19 +398,22 @@ def validate_lens(params: Dict[str, Any], ctx: Any) -> Dict[str, Any]:
     from services.lenses.axes import DECOYS, decoys, groups_of
     from services.lenses.data import load_states
     from services.lenses.flows import axes_of
-    from services.lenses.store import git_state, lens_dir, read_manifest
+    from services.lenses.store import git_state, lens_dir, read_manifest, resolve_holdout
     from services.lenses.view import open_lens
 
     started = time.time()
     p = ValidateParams.model_validate(params)
     folder = lens_dir(p.session_id, p.name)
     manifest = read_manifest(folder)
+    design = resolve_holdout(folder, manifest, p.family_field, p.whole_families)
     view = open_lens(p.session_id, p.name)
-    axes = axes_of(view)
+    # The families field groups the items for holding out; it describes none of them (axes, routes)
+    axes = {axis: values for axis, values in axes_of(view).items() if axis != design.family_field}
     codes = axis_codes(view.items, axes)
-    folds, folding = make_folds(view.items, p.family_field, p.n_folds, manifest.settings.seed, p.whole_families)
+    folds, folding = make_folds(view.items, design.family_field, p.n_folds, manifest.settings.seed,
+                                design.whole_families, design.max_folds)
     # Random values per family (or text), the axes analysis's chance level (services/lenses/axes.py)
-    (groups, given_per), rng = (groups_of(view.items, p.family_field, p.whole_families),
+    (groups, given_per), rng = (groups_of(view.items, design.family_field, design.whole_families),
                                 np.random.default_rng(manifest.settings.seed))
     decoy_codes = {axis: decoys(c, groups, rng, DECOYS) for axis, c in codes.items() if len(axes[axis]) >= 2}
     ctx.progress("loading", 0, 1)
@@ -408,8 +428,8 @@ def validate_lens(params: Dict[str, Any], ctx: Any) -> Dict[str, Any]:
     embeddings = np.load(folder / "fit" / "embed.npz")["embedding"]
     s = manifest.settings
     workers = p.workers or max(1, min(6, (os.cpu_count() or 2) - 2))
-    tasks = (delayed(_validate_one)(str(work), layer, embeddings[li], folds, codes, s.at(li).n_neighbors,
-                                    s.at(li).dimensions, s.seed, p.seeds, s.at(li).min_dist, decoy_codes)
+    tasks = (delayed(_validate_one)(str(work), layer, embeddings[li], folds, codes, s.at(li), s.seed, p.seeds,
+                                    decoy_codes)
              for li, layer in enumerate(view.layers))
     profiles: Dict[str, Any] = {}
     comparisons: Dict[str, Any] = {}
@@ -422,6 +442,10 @@ def validate_lens(params: Dict[str, Any], ctx: Any) -> Dict[str, Any]:
     _write_raw_cuts(folder, view.layers, full)
     commit, dirty = git_state()
     record: Dict[str, Any] = {"format": 1, "folds": folding, "axes": axes, "seeds": p.seeds, "vote_neighbours": VOTE_NEIGHBOURS,
+              "holdout": design.model_dump(),
+              # Settings chosen on held-out scores of these items (a search, a held-out preview)
+              # make these scores optimistic; a search's test portion is the honest one
+              "selection_biased": manifest.settings.chosen_on_heldout(),
               "decoys": {"count": DECOYS, "given_per": given_per},
               "layers": {str(layer): profiles[str(layer)] for layer in view.layers},
               "comparison": {str(layer): comparisons[str(layer)] for layer in view.layers},

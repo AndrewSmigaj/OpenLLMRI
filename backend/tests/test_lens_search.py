@@ -138,7 +138,7 @@ def test_settings_per_layer_survive_the_build_and_old_lenses_read_as_before(lake
     build(lake, name="perlayer", per_layer=per_layer)
     folder = lens(lake, "perlayer")
     manifest = json.loads((folder / "lens.json").read_text())
-    assert manifest["settings"]["per_layer"] == per_layer
+    assert manifest["settings"]["per_layer"] == [dict(s, metric="euclidean") for s in per_layer]
     for li, wanted in enumerate(per_layer):
         reducer = joblib.load(folder / "fit" / f"umap_L{li:02d}.joblib")
         assert (reducer.n_neighbors, reducer.n_components, reducer.min_dist) == \

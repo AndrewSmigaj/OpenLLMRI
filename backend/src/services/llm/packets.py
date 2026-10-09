@@ -23,6 +23,8 @@ from typing import Any, Dict, List, Optional
 
 import numpy as np
 
+from services.lenses.store import LensSettings
+
 Array = np.ndarray[Any, Any]
 
 EXAMPLES = 8
@@ -391,10 +393,11 @@ def _lens_layer(p: Packet, ev: LensEvidence, li: int, axis_values: Dict[str, Lis
     nodes, tag = view.nodes[:, li], f"L{layer}:"
     k = int(nodes.max()) + 1
     p.fact(f"{tag} nodes", k)
-    per_layer = (ev.manifest.get("settings") or {}).get("per_layer")
-    if per_layer:  # a tuned lens: this layer's own UMAP settings (untuned lenses keep their facts)
-        p.fact(f"{tag} UMAP neighbours (tuned)", per_layer[li]["n_neighbors"])
-        p.fact(f"{tag} UMAP dimensions (tuned)", per_layer[li]["dimensions"])
+    settings = LensSettings.model_validate(ev.manifest.get("settings") or {})
+    if settings.per_layer is not None:  # this layer's own UMAP settings, tuned or set by hand
+        how = "tuned" if settings.source_at(li) == "tuned" else "set by hand"
+        p.fact(f"{tag} UMAP neighbours ({how})", settings.per_layer[li].n_neighbors)
+        p.fact(f"{tag} UMAP dimensions ({how})", settings.per_layer[li].dimensions)
     for axis, values in axis_values.items():
         p.fact(f"{tag} agreement of the nodes with {axis} (AMI, in-sample)", _ami(values, nodes))
     if li + 1 < len(view.layers):

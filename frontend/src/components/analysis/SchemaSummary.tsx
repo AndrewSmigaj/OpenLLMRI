@@ -69,7 +69,7 @@ export default function SchemaSummary({ schema }: Props) {
   const nNeighbors = params.n_neighbors
   const embedding  = formatEmbeddingSource(params.embedding_source)
   const isUmap     = params.reduction_method === 'umap'
-  const tuned      = typeof params.tuned_settings === 'string' ? params.tuned_settings : null
+  const note       = typeof params.settings_note === 'string' ? params.settings_note : null // a lens's settings, when the usual words don't say them
 
   const filterText = [stepClause, lastOcc ? 'last-occurrence' : ''].filter(Boolean).join(', ')
 
@@ -86,7 +86,7 @@ export default function SchemaSummary({ schema }: Props) {
         <span style={TAG_CLUSTERING}>{k} {method} clusters/layer</span>
         <span>over</span>
         <span style={TAG_REDUCTION}>
-          {reduction} {tuned ?? `${dim}D${isUmap && nNeighbors != null ? `, n=${nNeighbors}` : ''}`}
+          {reduction} {note ?? `${dim}D${isUmap && nNeighbors != null ? `, n=${nNeighbors}` : ''}`}
         </span>
         <span>of</span>
         <span style={TAG_EMBEDDING}>{embedding}</span>

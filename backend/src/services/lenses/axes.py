@@ -70,7 +70,7 @@ def attributes(items: Sequence[Dict[str, Any]], axes: Dict[str, List[str]]) -> D
     return out
 
 
-def groups_of(items: Sequence[Dict[str, Any]], family_field: str, whole: bool = False) -> Tuple[Array, str]:
+def groups_of(items: Sequence[Dict[str, Any]], family_field: Optional[str], whole: bool = False) -> Tuple[Array, str]:
     """What a decoy value is given to: each item's family when every item names one, else its text;
     and which of the two it was."""
     from services.lenses.validate import family_keys
@@ -314,17 +314,24 @@ def run_axes(params: Dict[str, Any], ctx: Any) -> Dict[str, Any]:
 
     from services.lenses.data import load_states
     from services.lenses.flows import axes_of
-    from services.lenses.store import git_state, lens_dir, read_manifest, read_version
+    from services.lenses.store import (
+        git_state,
+        lens_dir,
+        read_manifest,
+        read_version,
+        resolve_holdout,
+    )
     from services.lenses.validate import make_folds
     from services.lenses.view import open_lens
 
     started = time.time()
     session, name = params["session_id"], params["name"]
-    family_field, whole = params.get("family_field", "scene"), bool(params.get("whole_families", False))
     folder = lens_dir(session, name)
     manifest = read_manifest(folder)
     if manifest.kind != "umap":
         raise ValueError(f"'{name}' is a {manifest.kind} lens: the axes analysis reads a UMAP lens's capture")
+    design = resolve_holdout(folder, manifest, params.get("family_field"), params.get("whole_families"))
+    family_field, whole = design.family_field, design.whole_families
     view = open_lens(session, name)
     # the family field groups items for folds and decoys; held out whole, it is never an attribute
     values = {axis: v for axis, v in axes_of(view).items() if len(v) >= 2 and axis != family_field}
@@ -337,7 +344,7 @@ def run_axes(params: Dict[str, Any], ctx: Any) -> Dict[str, Any]:
     code_sets: Dict[str, Dict[str, Array]] = {"real": real}
     for d in range(DECOYS):
         code_sets[f"decoy{d + 1}"] = {axis: decoys(c, groups, rng, 1)[0] for axis, c in real.items()}
-    folds, how = make_folds(view.items, family_field, int(params.get("n_folds", 5)), seed, whole)
+    folds, how = make_folds(view.items, family_field, int(params.get("n_folds", 5)), seed, whole, design.max_folds)
     k_per_layer = read_version(folder, str(view.version)).k_per_layer
 
     work = folder / f".tmp-axes-{ctx.job_id}"
@@ -364,7 +371,8 @@ def run_axes(params: Dict[str, Any], ctx: Any) -> Dict[str, Any]:
     commit, dirty = git_state()
     result = {
         "format_version": FORMAT_VERSION, "lens": name, "version": view.version, "layers": view.layers,
-        "attributes": values, "folds": how, "techniques": list(TECHNIQUES), "level": LEVEL,
+        "attributes": values, "folds": how, "holdout": design.model_dump(), "techniques": list(TECHNIQUES),
+        "level": LEVEL,
         "decoys": {"count": DECOYS, "given_per": given_per},
         "probe_decoy_layers": [view.layers[li] for li in range(len(view.layers)) if li % PROBE_DECOY_EVERY == 0],
         "scores": {technique: [layer["scores"][technique] for layer in layers] for technique in TECHNIQUES},

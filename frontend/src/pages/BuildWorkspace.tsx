@@ -1,14 +1,15 @@
 // Build: make a lens from a form, then see the capture's lenses, newest builds and legacy schemas
 // alike. A built lens's k can be changed layer by layer (a new version) and saved, a UMAP lens can
-// be tuned (DESIGN.md C4), and its capture's axes counted (C8). A finished build opens in Layers.
-import { useEffect, useState } from 'react'
+// be tuned (DESIGN.md C4), rebuilt with other settings (E3), and its capture's axes counted (C8).
+// A finished build opens in Layers.
+import { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { apiClient } from '../api/client'
 import type { LensMethods, LensOptions, LensSummary } from '../types/lens'
 import { useViewState, viewQuery } from '../hooks/useViewState'
 import { lensAsSchema } from '../utils/lensAsSchema'
 import SchemaSummary from '../components/analysis/SchemaSummary'
-import LensForm from '../components/lenses/LensForm'
+import LensForm, { type LensFormStart } from '../components/lenses/LensForm'
 import LensReport from '../components/lenses/LensReport'
 import AnalystStatus from '../components/lenses/AnalystStatus'
 import LensVersions from '../components/lenses/LensVersions'
@@ -38,6 +39,10 @@ export default function BuildWorkspace() {
   const [tuneFor, setTuneFor] = useState<string | null>(null) // the lens whose tune form is open
   const [tuning, setTuning] = useState<string | null>(null) // the tuned lens whose search is shown
   const [axesFor, setAxesFor] = useState<string | null>(null) // the lens whose axes analysis is shown
+  const [rebuildFrom, setRebuildFrom] = useState<LensSummary | null>(null) // the lens the form starts from
+  const top = useRef<HTMLDivElement>(null)
+
+  useEffect(() => setRebuildFrom(null), [view.session])
 
   useEffect(() => {
     apiClient.getLensMethods().then(setMethods).catch(err => setProblem(String(err)))
@@ -67,12 +72,18 @@ export default function BuildWorkspace() {
   }
   const show = (name: string, legacy: boolean) =>
     navigate({ pathname: '/layers', search: `?${viewQuery({ ...view, lens: name, legacy, sel: '', layer: 0 })}` })
+  const start: LensFormStart | null = rebuildFrom && {
+    from: rebuildFrom.name, settings: rebuildFrom.settings, k_per_layer: rebuildFrom.k_per_layer ?? null,
+    site: rebuildFrom.site ?? { source: 'residual_stream', token_position: 1 },
+    filters: rebuildFrom.filters ?? {}, holdout: rebuildFrom.holdout ?? null,
+  }
   return (
-    <div className="h-full overflow-y-auto p-3 space-y-3">
+    <div ref={top} className="h-full overflow-y-auto p-3 space-y-3">
       {problem && <p className="text-xs text-red-600">{problem}</p>}
       {options && methods
-        ? <LensForm key={view.session} session={view.session} options={options} methods={methods} disabled={visitor}
-            takenNames={(lenses ?? []).map(l => l.name)} onBuilt={name => show(name, false)} />
+        ? <LensForm key={`${view.session}:${rebuildFrom?.name ?? ''}`} session={view.session} options={options}
+            methods={methods} disabled={visitor} start={start} onClearStart={() => setRebuildFrom(null)}
+            takenNames={(lenses ?? []).map(l => l.name)} onBuilt={name => { setRebuildFrom(null); show(name, false) }} />
         : !problem && <p className="text-xs text-gray-500">Reading the capture…</p>}
       {options && (
         <MassMeanForm key={`mm:${view.session}`} session={view.session} options={options} disabled={visitor}
@@ -138,6 +149,13 @@ export default function BuildWorkspace() {
                 title="Search UMAP's settings and k per layer on held-out data, then build the tuned lens"
                 className="px-2 py-1 text-xs rounded border border-gray-300 text-gray-700 hover:bg-gray-50 disabled:text-gray-300">
                 tune {tuneFor === lens.name ? '▴' : '▾'}
+              </button>
+            )}
+            {!lens.legacy && lens.kind !== 'mass_mean' && (
+              <button onClick={() => { setRebuildFrom(lens); top.current?.scrollTo({ top: 0, behavior: 'smooth' }) }}
+                disabled={visitor} title="Open the build form filled in from this lens: its settings, k, site, filters and held-out families"
+                className="px-2 py-1 text-xs rounded border border-gray-300 text-gray-700 hover:bg-gray-50 disabled:text-gray-300">
+                rebuild with…
               </button>
             )}
             {!lens.legacy && lens.kind !== 'mass_mean' && (

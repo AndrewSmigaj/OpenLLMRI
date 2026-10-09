@@ -7,11 +7,14 @@ n_neighbors clamped to the item count), so a lens reproduces a clustering built 
 
 from __future__ import annotations
 
-from typing import Any, Dict, List, Tuple
+from typing import TYPE_CHECKING, Any, Dict, List, Tuple
 
 import numpy as np
 from scipy.cluster.hierarchy import fcluster, linkage
 from sklearn.metrics import silhouette_score
+
+if TYPE_CHECKING:
+    from services.lenses.store import UmapSettings
 
 Array = np.ndarray[Any, Any]
 
@@ -20,15 +23,16 @@ def _neighbours(n_neighbors: int, n_items: int) -> int:
     return max(2, min(n_neighbors, n_items - 1))
 
 
-def fit_reducer(states: Array, n_neighbors: int, dimensions: int, seed: int,
-                min_dist: float = 0.1) -> Tuple[Any, Array]:
-    """The layer's UMAP, saved with the lens, and its embedding [N, dims] float32 (validation
-    refits it per fold)."""
+def fit_reducer(states: Array, settings: UmapSettings, seed: int) -> Tuple[Any, Array]:
+    """The layer's UMAP with one layer's settings, saved with the lens, and its embedding [N, dims]
+    float32 (validation refits it per fold). It keeps its metric, so items it reads later are
+    placed with the same distances."""
     import umap
 
-    n = _neighbours(n_neighbors, len(states))
-    dims = max(1, min(dimensions, len(states) - 1, states.shape[1]))
-    reducer = umap.UMAP(n_components=dims, n_neighbors=n, min_dist=min_dist, random_state=seed).fit(states)
+    n = _neighbours(settings.n_neighbors, len(states))
+    dims = max(1, min(settings.dimensions, len(states) - 1, states.shape[1]))
+    reducer = umap.UMAP(n_components=dims, n_neighbors=n, min_dist=settings.min_dist, metric=settings.metric,
+                        random_state=seed).fit(states)
     return reducer, np.asarray(reducer.embedding_, dtype=np.float32)
 
 

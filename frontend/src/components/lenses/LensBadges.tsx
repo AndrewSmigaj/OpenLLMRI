@@ -1,13 +1,17 @@
-// A lens's checks at a glance: the build's self-check, and its held-out score once validated, with
-// a button that validates it in the background.
+// A lens's checks at a glance: the build's self-check, its held-out score once validated (with the
+// families it was held out by), whether its settings were set by hand, and a button that validates
+// it in the background.
 import { apiClient } from '../../api/client'
-import type { LensSummary } from '../../types/lens'
+import type { Folding, LensSummary } from '../../types/lens'
 import { useJobRunner } from '../../hooks/useJobRunner'
 import JobProgress from './JobProgress'
 
 const badge = (tone: 'good' | 'bad' | 'none') => `text-[10px] rounded px-1.5 py-0.5 border ${
   tone === 'good' ? 'bg-green-50 text-green-800 border-green-300'
     : tone === 'bad' ? 'bg-red-50 text-red-800 border-red-300' : 'bg-gray-50 text-gray-600 border-gray-300'}`
+
+const foldsIn = (folds: Folding | undefined) => !folds ? '' : folds.weaker ? ' · weaker folds'
+  : ` · ${folds.n_folds} folds of whole ${folds.field ?? 'scene'} families${folds.merged_from ? ` (merged from ${folds.merged_from})` : ''}`
 
 interface LensBadgesProps {
   session: string
@@ -29,7 +33,7 @@ export default function LensBadges({ session, lens, disabled, onValidated }: Len
           <span className={badge(best.accuracy >= 0.8 ? 'good' : 'none')}
             title={`${headline?.folds.kind}, ${headline?.folds.n_folds} folds; κ ${best.kappa}, worst fold ${best.worst_fold}`}>
             held out: accuracy {best.accuracy.toFixed(3)} at L{best.layer}
-            {headline?.folds.weaker ? ' · weaker folds' : ` · ${headline?.folds.n_folds} scene-family folds`}
+            {foldsIn(headline?.folds)}
           </span>
         ) : <span className={badge('none')}>no held-out scores</span>}
       </div>
@@ -50,9 +54,18 @@ export default function LensBadges({ session, lens, disabled, onValidated }: Len
           <span className={badge(best && best.kappa >= 0.6 ? 'good' : 'none')}
             title={`${headline.folds.kind}, ${headline.folds.n_folds} folds${headline.folds.weaker ? ' (weaker than scene families)' : ''}`}>
             held out: {best ? `κ ${best.kappa.toFixed(2)} at L${best.layer} (k ${best.k})` : 'no label scores'}
-            {headline.folds.weaker ? ' · weaker folds' : ` · ${headline.folds.n_folds} scene-family folds`}
+            {foldsIn(headline.folds)}
           </span>
         ) : <span className={badge('none')}>not validated</span>}
+        {lens.settings_origin === 'by hand' && (
+          <span className={badge('none')}
+            title={lens.selection_biased
+              ? 'Some layers\' settings were chosen on held-out scores of these items (a held-out preview or a search), so the '
+                + 'held-out scores above are optimistic. Tune from this lens for an honest test score of its own settings.'
+              : 'Settings set per layer by hand, not chosen on held-out scores.'}>
+            settings by hand{lens.selection_biased ? ' · chosen on held-out scores' : ''}
+          </span>
+        )}
         {lens.tuning && (
           <span className={badge(lens.tuning.test && (lens.tuning.test.ami ?? 0) >= 0.5 ? 'good' : 'none')}
             title={`Tuned from ${lens.tuning.source.name} on ${lens.tuning.target_axis}: settings and k per layer chosen by held-out AMI; `

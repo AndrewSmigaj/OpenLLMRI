@@ -6,6 +6,7 @@ token positions, the sources it captured) and the methods named here are the one
 
 from __future__ import annotations
 
+import json
 import os
 from collections import Counter
 from pathlib import Path
@@ -18,6 +19,7 @@ from core.parquet_reader import read_records
 from schemas.tokens import ProbeRecord
 from services.lenses.build import MAX_ITEMS
 from services.lenses.data import SOURCES, LensFilters, load_items, session_dir
+from services.lenses.store import METRICS, HoldoutDesign, UmapSettings, declared_holdout
 from services.lenses.versions import AUTO_METHODS
 
 AUTO_METHOD_NOTES = {
@@ -37,12 +39,21 @@ def _positions(path: Path) -> List[int]:
 
 
 def capture_options(session_id: str, lake: Optional[Path] = None) -> Dict[str, Any]:
-    """A capture's labels and steps (with counts), its sources and token positions, and how many
-    items the default filters keep."""
+    """A capture's labels and steps (with counts), its sources and token positions, how many items
+    the default filters keep, its categories fields (each with its number of values, for the
+    held-out families), and the hold-out design its set declared, if any."""
     folder = session_dir(session_id, lake)
     records = read_records(str(folder / "tokens.parquet"), ProbeRecord)
     steps = Counter(s for r in records if (s := r.turn_id if r.turn_id is not None else r.sentence_index) is not None)
     sources = {name: _positions(folder / file) for name, (file, _) in SOURCES.items() if (folder / file).exists()}
+    values: Dict[str, set[str]] = {}
+    for r in records:
+        for key, value in (json.loads(r.categories_json) if r.categories_json else {}).items():
+            values.setdefault(key, set()).add(str(value))
+    declared = declared_holdout(session_id, lake)
+    stored = next((folder / file for file, _ in SOURCES.values() if (folder / file).exists()), None)
+    layers = sorted(int(v) for v in pc.unique(pq.read_table(stored, columns=["layer"]).column(0)).to_pylist()) \
+        if stored else []
     return {
         "session_id": folder.name,
         "n_records": len(records),
@@ -52,6 +63,9 @@ def capture_options(session_id: str, lake: Optional[Path] = None) -> Dict[str, A
         "sources": sources,
         "default_items": len(load_items(session_id, LensFilters(), lake)),
         "max_items": MAX_ITEMS,
+        "layers": layers,
+        "category_fields": {key: len(found) for key, found in sorted(values.items())},
+        "declared_holdout": declared.model_dump() if declared else None,
     }
 
 
@@ -64,7 +78,9 @@ def lens_methods() -> Dict[str, Any]:
         "k_auto_validated": [{"id": m, "note": AUTO_METHOD_NOTES.get(m, "")} for m in AUTO_METHODS
                              if m not in BUILD_METHODS],
         "defaults": {"k": 6, "seed": 42, "source": "residual_stream", "token_position": 1,
-                     "last_occurrence_only": True},
+                     "last_occurrence_only": True, **UmapSettings().model_dump()},
+        "metrics": list(METRICS),
+        "holdout": HoldoutDesign().model_dump(),
         "tuning": _tuning_defaults(),
     }
 
@@ -75,6 +91,7 @@ def _tuning_defaults() -> Dict[str, Any]:
 
     defaults = LensSearchParams(session_id="", source_lens="")
     return {"grid": defaults.grid.model_dump(), "k_min": defaults.k_min, "k_max": defaults.k_max,
-            "test_share": defaults.test_share, "n_folds": defaults.n_folds, "family_field": defaults.family_field,
+            "test_share": HoldoutDesign().test_share, "n_folds": defaults.n_folds,
+            "family_field": None,  # each lens's own hold-out design
             "max_settings": MAX_SETTINGS, "seconds_per_fit": list(SECONDS_PER_FIT),
             "workers": max(1, min(6, (os.cpu_count() or 2) - 2))}

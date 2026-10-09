@@ -65,8 +65,8 @@ export default function LensAxes({ session, lens, disabled }: { session: string;
   const [missing, setMissing] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [working, setWorking] = useState<string | null>(null) // the job working them out
-  const [family, setFamily] = useState('scene')
-  const [whole, setWhole] = useState(false)
+  const [family, setFamily] = useState(lens.holdout?.family_field ?? '') // the lens's own design to start
+  const [whole, setWhole] = useState(lens.holdout?.whole_families ?? false)
   const [technique, setTechnique] = useState<Row>('probe')
   const [chosenLayer, setChosenLayer] = useState<number | null>(null)
 

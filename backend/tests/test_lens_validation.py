@@ -10,11 +10,12 @@ from test_lenses import SESSION
 
 from services.jobs.kinds import JobContext
 from services.jobs.store import JobStore
+from services.lenses.store import UmapSettings
 from services.lenses.validate import axis_codes, make_folds, self_check, validate_layer
 
 
 def test_the_self_check_finds_planted_classes_and_nothing_in_noise() -> None:
-    check = self_check(100, 64, 15, 6, 42)  # small, as CI runs it
+    check = self_check(100, 64, UmapSettings(n_neighbors=15, dimensions=6), 42)  # small, as CI runs it
     assert check["passed"] and check["planted"]["ari_k5"] >= 0.9 and check["null"]["ami_k5"] <= 0.05
 
 
@@ -77,8 +78,9 @@ def test_held_out_scores_tell_planted_classes_from_noise() -> None:
 
     scores = {}
     for name, states in (("planted", planted), ("noise", noise)):
-        embedding = fit_reducer(states.astype(np.float32), 10, 4, 42)[1]
-        profile = validate_layer(states.astype(np.float32), embedding, folds, codes, 10, 4, 42, 2)
+        settings = UmapSettings(n_neighbors=10, dimensions=4)
+        embedding = fit_reducer(states.astype(np.float32), settings, 42)[1]
+        profile = validate_layer(states.astype(np.float32), embedding, folds, codes, settings, 42, 2)
         scores[name] = profile["2"]
     assert scores["planted"]["heldout"]["label"]["kappa"] > 0.9
     assert scores["noise"]["heldout"]["label"]["kappa"] < 0.4
