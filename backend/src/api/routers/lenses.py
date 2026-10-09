@@ -14,6 +14,7 @@ from pydantic import BaseModel, Field
 
 from services.lenses.build import LensBuildParams
 from services.lenses.data import LensFilters
+from services.lenses.preview import PreviewParams
 from services.lenses.search import SearchGrid
 from services.lenses.view import LensView
 
@@ -234,6 +235,43 @@ def build_lens(request: Request, body: LensBuildRequest) -> Dict[str, Any]:
     params = body.model_dump(exclude={"created_by"}) | {"session_id": session}
     job = scheduler.submit("lens_build", params, created_by=body.created_by)
     return {"job_id": job.id, "session_id": session, "name": body.name}
+
+
+class PreviewRequest(PreviewParams):
+    created_by: str = "app"
+
+
+@router.post("/lenses/preview", status_code=202)
+def start_preview(request: Request, body: PreviewRequest) -> Dict[str, Any]:
+    """Fit one layer of a capture with the form's settings in the background (DESIGN.md E3): its 3-D
+    view, its nodes at k and how well they match each axis, held out on request. Returns the job at
+    once; previews run one at a time in their own lane."""
+    from services.jobs.scheduler import JobScheduler
+    from services.lenses.data import session_dir
+
+    try:
+        session = session_dir(body.session_id).name
+    except (FileNotFoundError, ValueError) as e:
+        raise _fail(e)
+    scheduler: JobScheduler = request.app.state.jobs
+    params = body.model_dump(exclude={"created_by"}) | {"session_id": session}
+    job = scheduler.submit("lens_preview", params, created_by=body.created_by)
+    return {"job_id": job.id, "session_id": session, "layer": body.layer}
+
+
+@router.get("/lenses/previews/{job_id}")
+def preview_result(request: Request, job_id: str) -> Dict[str, Any]:
+    """A finished preview: the layer's points, nodes and scores (404 until it has finished)."""
+    from services.jobs.scheduler import JobScheduler
+
+    scheduler: JobScheduler = request.app.state.jobs
+    if not scheduler.store.exists(job_id) or scheduler.store.load(job_id).kind != "lens_preview":
+        raise HTTPException(status_code=404, detail=f"no preview {job_id}")
+    path = scheduler.store.job_dir(job_id) / "preview.json"
+    if not path.exists():
+        raise HTTPException(status_code=404, detail=f"preview {job_id} hasn't finished")
+    result: Dict[str, Any] = json.loads(path.read_text(encoding="utf-8"))
+    return result
 
 
 class VersionRequest(BaseModel):

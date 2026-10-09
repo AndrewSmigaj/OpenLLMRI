@@ -11,7 +11,7 @@ import type {
 import type {
   Fingerprint, JobView, LensBuildBody, LensDetail, LensFlows, LensMembersPage, LensMethods, LensOptions, LensSearch,
   LensSummary, LensMarks, LensNodeDetails, LensVersion, MassMeanDetails, MassMeanValidation, MembersQuery, Population,
-  LensAxes, LensReading, LensRoutes, LensTrajectory, ReadBody, TuneBody, Validation,
+  LayerPreview, LensAxes, LensReading, LensRoutes, LensTrajectory, PreviewBody, ReadBody, TuneBody, Validation,
 } from '../types/lens';
 import type { AnalystTests, Card, QuestionAnswer } from '../types/cards';
 
@@ -263,6 +263,15 @@ class ConceptMriApiClient {
   // Starts a build in the background; the job's id comes back at once
   async buildLens(body: LensBuildBody): Promise<{ job_id: string; session_id: string; name: string }> {
     return this.request('/lenses', { method: 'POST', body: JSON.stringify(body) });
+  }
+
+  // Fits one layer with the form's settings in the background (DESIGN.md E3)
+  async previewLayer(body: PreviewBody): Promise<{ job_id: string; session_id: string; layer: number }> {
+    return this.request('/lenses/preview', { method: 'POST', body: JSON.stringify(body) });
+  }
+
+  async getPreview(jobId: string): Promise<LayerPreview> {
+    return this.request<LayerPreview>(`/lenses/previews/${encodeURIComponent(jobId)}`);
   }
 
   // A new draft version: the lens's trees cut at another k (one for all, per layer, or a method)

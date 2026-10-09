@@ -2,14 +2,16 @@
 // and distance metric, k and a name. Advanced holds settings per layer (each row saying where its
 // settings came from), k per layer by a named method or from that table, the held-out families, the
 // grouping, the site and the filters. "Rebuild with…" on a lens card opens the form filled in from
-// that lens (DESIGN.md E3). Defaults come from the backend, and the capture's own labels, steps,
-// layers and categories fields fill the choices. The build runs in the background.
+// that lens, and a one-layer preview tries settings in seconds before a build (DESIGN.md E3).
+// Defaults come from the backend, and the capture's own labels, steps, layers and categories fields
+// fill the choices. The build runs in the background.
 import { useState } from 'react'
 import { apiClient } from '../../api/client'
 import type {
   HoldoutDesign, LensFiltersBody, LensMethods, LensOptions, LensSettings, Metric, SettingsSource, UmapSettings,
 } from '../../types/lens'
 import JobProgress from './JobProgress'
+import LayerPreview from './LayerPreview'
 import { useJobRunner } from '../../hooks/useJobRunner'
 
 // A lens to rebuild with other settings: everything the form can carry over from it
@@ -90,6 +92,7 @@ export default function LensForm({ session, options, methods, takenNames, disabl
   const [holdout, setHoldout] = useState<HoldoutDesign>(start?.holdout ?? defaultHoldout(options, methods))
   const [name, setName] = useState('') // '' takes the suggested name
   const [advanced, setAdvanced] = useState(rows !== null)
+  const [previewing, setPreviewing] = useState(false)
   const [source, setSource] = useState(start?.site.source
     ?? (sources.includes(methods.defaults.source) ? methods.defaults.source : sources[0] ?? ''))
   const positions = options.sources[source] ?? [methods.defaults.token_position]
@@ -133,15 +136,24 @@ export default function LensForm({ session, options, methods, takenNames, disabl
     if (!on) setKFromTable(false)
   }
 
+  // A preview's settings and k fill its layer's row, marked as from a preview (held out or not)
+  const usePreview = (li: number, values: UmapSettings & { k: number }, heldOut: boolean) => {
+    const from: SettingsSource = heldOut ? 'preview held out' : 'preview'
+    setRows(current => (current ?? layers.map(() => ({ n_neighbors: n, dimensions: dims, min_dist: minDist, metric, k, source: 'form' as const })))
+      .map((r, i) => (i === li ? { ...settingsOf(values), k: values.k, source: from } : r)))
+    if (values.k !== (rows?.[li]?.k ?? k)) { setKAuto(''); setKFromTable(true) }
+    setAdvanced(true)
+  }
+
+  const filters: LensFiltersBody = {
+    labels: labels.length ? labels : null, steps: steps.length ? steps : null,
+    last_occurrence_only: lastOnly, max_items: maxItems ? Number(maxItems) : null,
+  }
   const submit = () => build.start(() => apiClient.buildLens({
     session_id: session, name: finalName, n_neighbors: n, dimensions: dims, min_dist: minDist, metric,
     ...(rows ? { per_layer: rows.map(settingsOf), sources: rows.map(r => r.source) } : {}),
     ...(kAuto ? { k_auto: kAuto } : kFromTable && rows ? { k_per_layer: rows.map(r => r.k) } : { k }),
-    holdout, source, token_position: position, seed, created_by: 'app',
-    filters: {
-      labels: labels.length ? labels : null, steps: steps.length ? steps : null,
-      last_occurrence_only: lastOnly, max_items: maxItems ? Number(maxItems) : null,
-    },
+    holdout, source, token_position: position, seed, created_by: 'app', filters,
   }))
   const locked = disabled || build.running || build.starting
 
@@ -194,7 +206,17 @@ export default function LensForm({ session, options, methods, takenNames, disabl
         <button onClick={() => setAdvanced(a => !a)} className="text-xs text-blue-700 hover:underline">
           Advanced {advanced ? '▴' : '▾'}
         </button>
+        <button onClick={() => setPreviewing(p => !p)} className="text-xs text-blue-700 hover:underline"
+          title="Fit one layer with these settings in seconds: its clusters in 3-D and how well they match each axis">
+          Preview a layer {previewing ? '▴' : '▾'}
+        </button>
       </div>
+      {previewing && (
+        <LayerPreview layers={layers} metrics={methods.metrics} disabled={locked} onUse={usePreview}
+          initial={li => (rows ? { ...settingsOf(rows[li]), k: rows[li].k }
+            : { n_neighbors: n, dimensions: dims, min_dist: minDist, metric, k })}
+          base={{ session_id: session, seed, source, token_position: position, filters, holdout }} />
+      )}
       {nameProblem && <p className="text-[11px] text-red-600">Name: {nameProblem}.</p>}
       {tooMany && (
         <p className="text-[11px] text-amber-700">
@@ -357,9 +379,10 @@ export default function LensForm({ session, options, methods, takenNames, disabl
                             {methods.metrics.map(m => <option key={m} value={m}>{m}</option>)}
                           </select>
                         </td>
-                        <td className="pr-2"><input type="number" min={1} max={50} value={row.k} disabled={locked || !kFromTable}
+                        <td className="pr-2"><input type={kAuto ? 'text' : 'number'} min={1} max={50}
+                          value={kFromTable ? row.k : kAuto ? kAuto : k} disabled={locked || !kFromTable}
                           title={kFromTable ? '' : 'Choose "Each layer\'s k from the table" to set it here'}
-                          onChange={e => editRow(li, { k: Number(e.target.value) || 1 })} className={`${input} w-12`} /></td>
+                          onChange={e => editRow(li, { k: Number(e.target.value) || 1 })} className={`${input} w-16`} /></td>
                         <td className="text-gray-500" title={SOURCE_NOTES[row.source]}>{row.source}</td>
                       </tr>
                     ))}

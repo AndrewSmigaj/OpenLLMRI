@@ -11,7 +11,7 @@ const badge = (tone: 'good' | 'bad' | 'none') => `text-[10px] rounded px-1.5 py-
     : tone === 'bad' ? 'bg-red-50 text-red-800 border-red-300' : 'bg-gray-50 text-gray-600 border-gray-300'}`
 
 const foldsIn = (folds: Folding | undefined) => !folds ? '' : folds.weaker ? ' · weaker folds'
-  : ` · ${folds.n_folds} folds of whole ${folds.field ?? 'scene'} families${folds.merged_from ? ` (merged from ${folds.merged_from})` : ''}`
+  : ` · ${folds.n_folds} folds${folds.merged_from ? ` (merged from ${folds.merged_from})` : ''}, whole families by "${folds.field ?? 'scene'}"`
 
 interface LensBadgesProps {
   session: string

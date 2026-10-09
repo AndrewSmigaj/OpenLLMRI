@@ -450,6 +450,42 @@ export interface LensBuildBody {
   created_by: string
 }
 
+// POST /lenses/preview: one layer of a capture fitted with these settings (DESIGN.md E3)
+export interface PreviewBody {
+  session_id: string
+  layer: number
+  settings: UmapSettings
+  k: number
+  seed: number
+  source: string
+  token_position: number
+  filters: LensFiltersBody
+  holdout?: HoldoutDesign
+  held_out: boolean
+  created_by: string
+}
+
+// A finished preview (GET /lenses/previews/{job}): the layer's points on its three main directions,
+// its nodes at k, and its scores, none of them taken on the test portion a tune would hold out
+export interface LayerPreview {
+  layer: number
+  settings: UmapSettings
+  k: number
+  n_items: number
+  axes: Record<string, string[]>
+  share: number // the layer's variance its three main directions hold
+  ks: number[]
+  items: { probe_id: string; label: string | null; categories: Record<string, string>; input_text: string | null }[]
+  points: [number, number, number][]
+  nodes: number[]
+  in_sample: { ami: Record<string, Record<string, number>>; silhouette: Record<string, number> }
+  test: { n_items: number; weaker: boolean; kind: string; families?: Record<string, string[]> | null }
+  heldout: Record<string, Record<string, { ami: number; kappa: number; accuracy: number }>> | null
+  folds: Folding | null
+  holdout: HoldoutDesign
+  seconds: number
+}
+
 export interface LensVersion {
   version: string
   k_per_layer: number[]

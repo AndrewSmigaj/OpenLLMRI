@@ -25,8 +25,13 @@ def value_of(item: Dict[str, Any], axis: str) -> Optional[str]:
 
 def axes_of(view: LensView) -> Dict[str, List[str]]:
     """The designed axes (the label and every category) with their values."""
-    names = ["label"] + sorted({key for item in view.items for key in item.get("categories", {})})
-    found = {name: sorted({v for item in view.items if (v := value_of(item, name)) is not None})
+    return axes_of_items(view.items)
+
+
+def axes_of_items(items: Sequence[Dict[str, Any]]) -> Dict[str, List[str]]:
+    """The designed axes of any items (a lens's, or a capture's before a lens is built)."""
+    names = ["label"] + sorted({key for item in items for key in item.get("categories", {})})
+    found = {name: sorted({v for item in items if (v := value_of(item, name)) is not None})
              for name in names}
     return {name: values for name, values in found.items() if values}
 

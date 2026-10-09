@@ -18,6 +18,7 @@ import LensValidation from '../components/lenses/LensValidation'
 import LensTune from '../components/lenses/LensTune'
 import LensTuning from '../components/lenses/LensTuning'
 import LensAxes from '../components/lenses/LensAxes'
+import LensCompare from '../components/lenses/LensCompare'
 import MassMeanForm from '../components/lenses/MassMeanForm'
 import MassMeanDetails from '../components/lenses/MassMeanDetails'
 import MassMeanResults from '../components/lenses/MassMeanResults'
@@ -40,6 +41,7 @@ export default function BuildWorkspace() {
   const [tuning, setTuning] = useState<string | null>(null) // the tuned lens whose search is shown
   const [axesFor, setAxesFor] = useState<string | null>(null) // the lens whose axes analysis is shown
   const [rebuildFrom, setRebuildFrom] = useState<LensSummary | null>(null) // the lens the form starts from
+  const [comparing, setComparing] = useState(false)
   const top = useRef<HTMLDivElement>(null)
 
   useEffect(() => setRebuildFrom(null), [view.session])
@@ -89,7 +91,14 @@ export default function BuildWorkspace() {
         <MassMeanForm key={`mm:${view.session}`} session={view.session} options={options} disabled={visitor}
           takenNames={(lenses ?? []).map(l => l.name)} onBuilt={() => setReload(r => r + 1)} />
       )}
-      <h2 className="text-sm font-semibold text-gray-900">Lenses on this capture</h2>
+      <div className="flex items-center gap-3">
+        <h2 className="text-sm font-semibold text-gray-900">Lenses on this capture</h2>
+        <button onClick={() => setComparing(c => !c)} title="Held-out scores per layer for several lenses on one chart"
+          className="px-2 py-0.5 text-xs rounded border border-gray-300 text-gray-700 hover:bg-gray-50">
+          compare {comparing ? '▴' : '▾'}
+        </button>
+      </div>
+      {comparing && lenses && <LensCompare key={view.session} session={view.session} lenses={lenses} />}
       {lenses && <AnalystStatus session={view.session} disabled={visitor}
         lens={(lenses.find(l => !l.legacy && l.kind === 'umap' && l.name === view.lens)
           ?? lenses.find(l => !l.legacy && l.kind === 'umap'))?.name ?? null} />}

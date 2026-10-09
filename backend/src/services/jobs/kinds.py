@@ -5,7 +5,8 @@ progress through `ctx`, and checks `ctx.check_cancelled()` between steps. Kinds 
 modules inside `run`, so the worker and the backend start quickly.
 
 Lanes limit how many jobs of a kind run at once: `cpu` for builds that fill the processor, `llm`
-for jobs that call Claude. Slice 2 adds a GPU lane.
+for jobs that call Claude, `preview` for one-layer previews (so a preview never waits behind a
+search). Slice 2 adds a GPU lane.
 """
 
 from __future__ import annotations
@@ -19,7 +20,7 @@ from typing import Any, Callable, Dict
 
 from services.jobs.store import JobStore, Progress
 
-LANES: Dict[str, int] = {"cpu": 1, "llm": 1}
+LANES: Dict[str, int] = {"cpu": 1, "llm": 1, "preview": 1}
 
 
 class JobCancelledError(Exception):
@@ -107,6 +108,12 @@ def _lens_routes(params: Dict[str, Any], ctx: JobContext) -> Dict[str, Any]:
     return routes_job(params, ctx)
 
 
+def _lens_preview(params: Dict[str, Any], ctx: JobContext) -> Dict[str, Any]:
+    from services.lenses.preview import run_preview
+
+    return run_preview(params, ctx)
+
+
 def _lens_axes(params: Dict[str, Any], ctx: JobContext) -> Dict[str, Any]:
     from services.lenses.axes import run_axes
 
@@ -158,6 +165,7 @@ KINDS: Dict[str, JobKind] = {
     "lens_read": JobKind(lane="cpu", run=_lens_read),
     "lens_routes": JobKind(lane="cpu", run=_lens_routes),
     "lens_axes": JobKind(lane="cpu", run=_lens_axes),
+    "lens_preview": JobKind(lane="preview", run=_lens_preview),
     "mass_mean_build": JobKind(lane="cpu", run=_mass_mean_build),
     "lens_details": JobKind(lane="cpu", run=_lens_details),
     "lens_analysis": JobKind(lane="llm", run=_lens_analysis),
