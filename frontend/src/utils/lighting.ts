@@ -64,11 +64,13 @@ export function expertPath(experts: Record<string, Record<string, number>> | und
 type Assignments = Record<string, Record<string, number>>
 
 // The items a selection stands for: an item; a cluster node's, an expert's (at the chart's rank)
-// or a link's members; an output node's items
+// or a link's members; an output node's items; a pipeline's members
 export function litItems(selection: string, assignments: Assignments | undefined,
-                         outputOf?: Record<string, string>, experts?: Assignments): string[] {
+                         outputOf?: Record<string, string>, experts?: Assignments,
+                         pipelines?: Record<string, string[]>): string[] {
   if (!selection) return []
   if (selection.startsWith('probe:')) return [selection.slice('probe:'.length)]
+  if (selection.startsWith('pipe:')) return pipelines?.[selection.slice('pipe:'.length)] ?? []
   const items = Object.keys(assignments ?? experts ?? {})
   const at = (id: string): ((item: string) => boolean) | null => {
     if (id.startsWith('Generated:')) {
@@ -141,4 +143,15 @@ export function placesOf(...sources: { probe_id: string; step?: number | null; r
     for (const item of source) places[item.probe_id] = { step: item.step ?? null, run: item.run ?? null }
   }
   return places
+}
+
+// A pipeline's own chain in the expert chart: its experts and the links between them, each
+// counted by its members (the expert chart lights the chain itself, not each member's own path)
+export function chainLit(chain: { layers: number[]; experts: number[] }, members: number): Lit {
+  const ids = chain.layers.map((layer, i) => `L${layer}E${chain.experts[i]}`)
+  return {
+    nodes: Object.fromEntries(ids.map(id => [id, members])),
+    links: Object.fromEntries(ids.slice(1).map((id, i) => [linkKey(ids[i], id), members])),
+    total: members,
+  }
 }

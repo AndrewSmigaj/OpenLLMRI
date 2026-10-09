@@ -1,5 +1,5 @@
-// The tabs under the charts: the members of the selection, the output table and the expert
-// fingerprints. Only the open tab is drawn; which one is open is kept in the URL.
+// The tabs under the charts: the members of the selection, the output table, the pipes and hubs,
+// and the expert fingerprints. Only the open tab is drawn; which one is open is kept in the URL.
 import type { ReactNode } from 'react'
 import type { LowerTab } from '../../hooks/useViewState'
 import PanelErrorBoundary from '../common/PanelErrorBoundary'
@@ -7,6 +7,7 @@ import PanelErrorBoundary from '../common/PanelErrorBoundary'
 const TABS: { id: LowerTab; label: string }[] = [
   { id: 'members', label: 'Members' },
   { id: 'output', label: 'Output' },
+  { id: 'routes', label: 'Pipes and hubs' },
   { id: 'experts', label: 'Expert fingerprints' },
 ]
 

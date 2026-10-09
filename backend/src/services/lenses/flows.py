@@ -148,20 +148,101 @@ def expert_flows(view: LensView, rank: int = 1, output_axes: Sequence[str] = (),
     return out
 
 
+LINK_FLOOR = 0.5  # a weighted link carries at least half an item's worth of weight
+
+
+def weighted_expert_flows(view: LensView, output_axes: Sequence[str] = (),
+                          order: Optional[List[List[int]]] = None) -> Dict[str, Any]:
+    """All four ranks at once (DESIGN.md E5), weighted by the model's own weights: an expert node
+    holds the gate weight its items give it, and a link between experts at consecutive layers the
+    weight that flows along it (each item's weight on the first times its weight on the second),
+    so a pipeline is drawn wherever all its steps exist. Axis counts are weighted the same way.
+    Each item's path, for lighting, follows its rank-1 expert."""
+    from services.lenses.routes import dense
+
+    weights = dense(view)
+    axes = axes_of(view)
+    values = {axis: [value_of(item, axis) for item in view.items] for axis in axes}
+
+    def counts(w: Array) -> Dict[str, Dict[str, float]]:
+        out: Dict[str, Dict[str, float]] = {}
+        for axis in axes:
+            tally: Dict[str, float] = {}
+            for v, x in zip(values[axis], w):
+                if v is not None and x > 0:
+                    tally[v] = tally.get(v, 0.0) + float(x)
+            out[axis] = {v: round(x, 3) for v, x in sorted(tally.items())}
+        return out
+
+    nodes: List[Dict[str, Any]] = []
+    links: List[Dict[str, Any]] = []
+    for li, layer in enumerate(view.layers):
+        for expert in np.flatnonzero(weights[:, li, :].sum(axis=0) > 0):
+            w = weights[:, li, expert]
+            nodes.append({"id": f"L{layer}E{expert}", "layer": layer, "index": int(expert),
+                          "count": round(float(w.sum()), 3), "weight": round(float(w[w > 0].mean()), 4),
+                          "counts": counts(w)})
+        if li + 1 < len(view.layers):
+            flow = weights[:, li, :].T @ weights[:, li + 1, :]  # [E, E]: weight flowing from a to b
+            for a, b in zip(*np.nonzero(flow >= LINK_FLOOR)):
+                links.append({"source": f"L{layer}E{a}", "target": f"L{view.layers[li + 1]}E{b}",
+                              "count": round(float(flow[a, b]), 3),
+                              "counts": counts(weights[:, li, a] * weights[:, li + 1, b])})
+    out: Dict[str, Any] = {"kind": "expert", "weighted": True, "layers": view.layers, "axes": axes, "nodes": nodes,
+                           "links": links, "output": _weighted_output(view, weights, axes, counts, output_axes)}
+    out["assignments"] = {item["probe_id"]: {str(layer): int(view.experts[i, li, 0]) for li, layer in enumerate(view.layers)}
+                          for i, item in enumerate(view.items)}
+    if order is not None:
+        place = {(layer, expert): i for li, layer in enumerate(view.layers) for i, expert in enumerate(order[li])}
+        out["nodes"].sort(key=lambda node: (node["layer"], place.get((node["layer"], node["index"]), 10**6)))
+        out["order"] = order
+    return out
+
+
+def _weighted_output(view: LensView, weights: Array, axes: Dict[str, List[str]], counts: Any,
+                     group_by: Sequence[str]) -> Optional[Dict[str, Any]]:
+    """The output column for the weighted view: each item reaches its output with all its weight
+    on the last layer's experts."""
+    keys = [_output_key(item, group_by) for item in view.items]
+    if not any(keys):
+        return None
+    out_axes = output_axes_of(view)
+    last = view.layers[-1]
+    nodes = []
+    links = []
+    for value in sorted({k for k in keys if k}):
+        mask = np.array([k == value for k in keys], dtype=float)
+        members = np.flatnonzero(mask)
+        nodes.append({"id": f"Generated:{value}", "value": value, "count": int(members.size),
+                      "counts": counts(mask), "output_counts": _output_counts(view, members, out_axes)})
+        flow = mask @ weights[:, -1, :]
+        for expert in np.flatnonzero(flow >= LINK_FLOOR):
+            w = weights[:, -1, expert] * mask
+            links.append({"source": f"L{last}E{expert}", "target": f"Generated:{value}", "count": round(float(flow[expert]), 3),
+                          "counts": counts(w), "output_counts": _output_counts(view, np.flatnonzero(w > 0), out_axes)})
+    return {"axes": out_axes, "nodes": nodes, "links": links}
+
+
 def members(view: LensView, layer: int, node: Optional[int] = None, expert: Optional[int] = None,
             rank: int = 1, to_node: Optional[int] = None, to_expert: Optional[int] = None,
             output: Optional[str] = None, offset: int = 0, limit: int = 50) -> Dict[str, Any]:
-    """The items in a cluster or routed to an expert at a rank, a page at a time. `to_node` and
-    `to_expert` keep those going on to that node or expert at the next layer (a link); `output`
-    keeps those whose generated output is that category (the output column)."""
+    """The items in a cluster or routed to an expert at a rank (rank 0: at any of the four, as the
+    weighted view draws them), a page at a time. `to_node` and `to_expert` keep those going on to
+    that node or expert at the next layer (a link); `output` keeps those whose generated output is
+    that category (the output column)."""
     if layer not in view.layers:
         raise ValueError(f"layer {layer} is not in this lens")
     li = view.layers.index(layer)
     has_next = li + 1 < len(view.layers)
+
+    def routed(at: int, chosen: int) -> Array:
+        found: Array = (view.experts[:, at, :] == chosen).any(axis=1) if rank == 0 else view.experts[:, at, rank - 1] == chosen
+        return found
+
     if expert is not None:
-        mask = view.experts[:, li, rank - 1] == expert
+        mask = routed(li, expert)
         if to_expert is not None and has_next:
-            mask &= view.experts[:, li + 1, rank - 1] == to_expert
+            mask &= routed(li + 1, to_expert)
     elif node is not None:
         mask = view.nodes[:, li] == node
         if to_node is not None and has_next:

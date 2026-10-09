@@ -176,6 +176,27 @@ reading under `readings`. The GET gives each item's node per layer with the winn
 vote (null for the lens's own items), its percentile per layer, and its expert at `rank`. In the
 app, Layers' tick control offers the reading for a step the lens doesn't cover.
 
+### OP-L9: Pipes and hubs (a job; every build also does it)
+
+A lens's expert pipelines, its hubs and the experts involved in each designed value, from all four
+of each item's experts and their gate weights (DESIGN.md C7). A pipeline follows the bundle: from
+every (layer, expert) that 5% of the items (10 at least) have among their four, toward the expert
+the members weight most at each next layer, kept at three layers or more; it says whether it is
+found again in both halves of the folds. A hub is an expert whose items arrive from two experts or
+more, counted between items. The experts involved differ by mean weight beyond a permutation
+threshold (whole families move together when each holds one value). Seconds. Lenses built before
+routes existed need the POST once; legacy schemas' are worked out when asked.
+
+```bash
+curl -s -X POST http://localhost:8000/api/sessions/SID/lenses/NAME/routes \
+  -H "Content-Type: application/json" -d '{"created_by":"claude-code"}'
+curl -s "http://localhost:8000/api/sessions/SID/lenses/NAME/routes"
+```
+
+In the app: the Pipes and hubs tab, the pipeline chips in the expert chart's header (a pipeline
+lights its chain and its members), the expert chart's "all" rank (every expert sized by the
+weight its items give it), and the fingerprint's "the rest (by class)".
+
 ### Reports
 
 LLM-written cards on the lens, its k profile, nodes, experts, routes and split points, every

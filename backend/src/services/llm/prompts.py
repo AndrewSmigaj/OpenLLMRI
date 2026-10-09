@@ -11,7 +11,10 @@ from typing import Any, Dict, List
 INTRO = """You are an analyst for OpenLLMRI, a tool that studies how the language model gpt-oss-20b \
 represents meaning. A lens groups sentences by the model's internal state at one word (the target \
 word), layer by layer; each group at a layer is a node. Experts are the model's routed \
-sub-networks: at each layer the router sends each word to four of them, ranked by gate weight.
+sub-networks: at each layer the router sends each word to four of them, ranked by gate weight. \
+A pipeline (P1, P2, ...) is a chain of experts across consecutive layers that a group of items \
+keeps among its four; a hub (H1, H2, ...) is an expert whose items arrive from different experts \
+at the layer before.
 
 """
 
@@ -35,6 +38,8 @@ above its share of all items, or tokens that name a theme; "weak" for a tendency
 the population looks like a mix. A card that reports nothing is the right card when there is \
 nothing to report.
 - title: what the subject is about, in at most eight words, with no numbers.
+- sections (the lens report only): clusters, experts, and pipelines_and_hubs, two to four \
+sentences each, under the same rules.
 - summary: two or three sentences. points: up to five short findings. caveats: up to three \
 things a reader should be careful about (a surface feature, weaker folds, small numbers, \
 disagreement with raw space), or none.
@@ -54,7 +59,14 @@ QUESTIONS = {
              "from the branch shares, the agreement facts and the examples.",
     "lens": "Across the layers: where do the designed axes separate, where do nodes split or merge, how do "
             "the experts line up with the nodes, and what should a reader be careful about (surface "
-            "features, weaker folds, disagreement with raw space, the self-check)?",
+            "features, weaker folds, disagreement with raw space, the self-check)? In the sections: the "
+            "clusters (where and how the nodes separate the designed values), the experts (which differ "
+            "by designed value, and how well), and the pipelines and hubs (which groups of items keep "
+            "which experts, and whether any stand apart from all items' shares).",
+    "routes": "Which pipelines and hubs stand out, and what sets their items apart? Compare each pipeline's "
+              "shares with all items' shares; say which experts differ by designed value, and how well. A "
+              "pipeline that every value takes in about its usual share is a trunk: report it, but it is "
+              "not a pattern.",
     "k": "Advise which k to cut at each layer, or at runs of layers, and why, from the k profile. Say where "
          "the labels and the label-free methods agree and where they don't.",
 }
@@ -78,6 +90,24 @@ RECONCILED_SCHEMA: Dict[str, Any] = {
                    "disagreements": {"type": "array", "items": {"type": "string"}, "maxItems": 5}},
     "required": [*CARD_SCHEMA["required"], "disagreements"],
 }
+
+# The lens report's sections (DESIGN.md C7): its clusters, the experts involved, its pipelines and hubs
+SECTIONS = ("clusters", "experts", "pipelines_and_hubs")
+SECTIONS_SCHEMA: Dict[str, Any] = {"type": "object", "properties": {key: {"type": "string"} for key in SECTIONS},
+                                   "required": list(SECTIONS), "additionalProperties": False}
+
+
+def with_sections(schema: Dict[str, Any]) -> Dict[str, Any]:
+    return {**schema, "properties": {**schema["properties"], "sections": SECTIONS_SCHEMA},
+            "required": [*schema["required"], "sections"]}
+
+
+def card_schema(kind: str) -> Dict[str, Any]:
+    return with_sections(CARD_SCHEMA) if kind == "lens" else CARD_SCHEMA
+
+
+def reconciled_schema(kind: str) -> Dict[str, Any]:
+    return with_sections(RECONCILED_SCHEMA) if kind == "lens" else RECONCILED_SCHEMA
 
 ANSWER_SCHEMA: Dict[str, Any] = {"type": "object", "properties": {"answer": {"type": "string"}},
                                  "required": ["answer"], "additionalProperties": False}
@@ -128,5 +158,5 @@ def pick_prompt(title: str, summary: str, sentences: List[str]) -> str:
 # What the analyst tests exercise (cards, the reconciled report, picking members); answers to
 # questions aren't tested, so their prompt stays out of it
 PROMPT_VERSION = hashlib.sha256(json.dumps(
-    [RULES, QUESTIONS, CARD_SCHEMA, RECONCILED_SCHEMA, PICK_SCHEMA, RECONCILE, PICK],
+    [RULES, QUESTIONS, CARD_SCHEMA, RECONCILED_SCHEMA, SECTIONS_SCHEMA, PICK_SCHEMA, RECONCILE, PICK],
     sort_keys=True).encode()).hexdigest()[:12]

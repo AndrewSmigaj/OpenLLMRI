@@ -1,10 +1,12 @@
 // Expert fingerprints: a population's mean gate weight on each of the 32 experts at each layer,
 // from the model's own top-four weights (each row sums to 1). With a second population the grid
-// shows their difference. Populations: every item, the selected node, or one value of an axis.
+// shows their difference. Populations: every item, the selected node, or one value of an axis; an
+// axis value can be set against the rest of the items (by class), with the experts whose weight
+// differs beyond chance outlined (the lens's experts involved, DESIGN.md C7).
 import { useEffect, useMemo, useRef, useState } from 'react'
 import * as echarts from 'echarts'
 import { apiClient } from '../../api/client'
-import type { Fingerprint, Population } from '../../types/lens'
+import type { Fingerprint, LensRoutes, Population } from '../../types/lens'
 import ExportMenu from '../common/ExportMenu'
 import { chartPng, chartSvg, dataJson, download, rowsCsv, type ExportFormat } from '../../utils/exportFigure'
 
@@ -14,11 +16,13 @@ interface FingerprintPanelProps {
   legacy: boolean
   axes: Record<string, string[]> // the designed axes and their values
   selectedNode?: { layer: number; node: number } // a selected cluster node, offered as a population
+  involved?: LensRoutes['involved'] // the experts beyond chance per axis value, outlined by class
 }
 
 const ALL = 'all'
 const NODE = 'node'
 const NONE = 'none'
+const REST = 'rest' // the items outside the first population's axis value
 
 function populationOf(choice: string, selectedNode?: { layer: number; node: number }): Population | null {
   if (choice === ALL) return {}
@@ -36,9 +40,13 @@ function describe(choice: string, selectedNode?: { layer: number; node: number }
   return choice.startsWith('axis:') ? choice.slice(5).replace('=', ' = ') : ''
 }
 
-// The heatmap's option: one population's weights, or a difference on a scale centred at zero
-function heatmapOption(grid: number[][], layers: number[], difference: boolean, title: string): echarts.EChartsOption {
-  const data = grid.flatMap((row, li) => row.map((v, e) => [e, li, Number(v.toFixed(4))]))
+// The heatmap's option: one population's weights, or a difference on a scale centred at zero;
+// `outlined` cells (layer index, expert) get a dark border
+function heatmapOption(grid: number[][], layers: number[], difference: boolean, title: string,
+                       outlined: Set<string> = new Set()): echarts.EChartsOption {
+  const data = grid.flatMap((row, li) => row.map((v, e) => (outlined.has(`${li}:${e}`)
+    ? { value: [e, li, Number(v.toFixed(4))], itemStyle: { borderColor: '#111827', borderWidth: 1.5 } }
+    : [e, li, Number(v.toFixed(4))])))
   const extreme = Math.max(1e-6, ...grid.flat().map(Math.abs))
   return {
     title: { text: title, left: 'center', top: 0, textStyle: { fontSize: 12 } },
@@ -57,15 +65,16 @@ function heatmapOption(grid: number[][], layers: number[], difference: boolean, 
   }
 }
 
-export default function FingerprintPanel({ session, lens, legacy, axes, selectedNode }: FingerprintPanelProps) {
+export default function FingerprintPanel({ session, lens, legacy, axes, selectedNode, involved }: FingerprintPanelProps) {
   const [a, setA] = useState(ALL)
   const [b, setB] = useState(NONE)
   const [prints, setPrints] = useState<{ a: Fingerprint | null; b: Fingerprint | null }>({ a: null, b: null })
   const [error, setError] = useState<string | null>(null)
   const box = useRef<HTMLDivElement>(null)
   const chart = useRef<echarts.ECharts | null>(null)
+  const byClass = b === REST && a.startsWith('axis:')
   const keyA = JSON.stringify(populationOf(a, selectedNode))
-  const keyB = JSON.stringify(populationOf(b, selectedNode))
+  const keyB = JSON.stringify(byClass ? {} : populationOf(b, selectedNode)) // by class: every item, for the rest
 
   useEffect(() => {
     let current = true
@@ -81,16 +90,29 @@ export default function FingerprintPanel({ session, lens, legacy, axes, selected
   const grid = useMemo(() => {
     if (!prints.a) return null
     const other = prints.b
-    return other ? prints.a.grid.map((row, li) => row.map((v, e) => v - other.grid[li][e])) : prints.a.grid
-  }, [prints])
-  const title = !prints.a ? '' : difference ? `${describe(a, selectedNode)} − ${describe(b, selectedNode)}`
-    : `${describe(a, selectedNode)} (${prints.a.n_items} items)`
+    if (!other) return prints.a.grid
+    if (byClass) {  // the rest's mean from every item's and the value's: (N·all − n·value) / (N − n)
+      const n = prints.a.n_items
+      const rest = other.n_items - n
+      return prints.a.grid.map((row, li) => row.map((v, e) => (rest > 0 ? v - (other.n_items * other.grid[li][e] - n * v) / rest : 0)))
+    }
+    return prints.a.grid.map((row, li) => row.map((v, e) => v - other.grid[li][e]))
+  }, [prints, byClass])
+  // By class, the experts whose weight differs beyond chance (the lens's routes) are outlined
+  const outlined = useMemo(() => {
+    if (!byClass || !prints.a) return new Set<string>()
+    const [axis, value] = a.slice(5).split('=')
+    const layers = prints.a.layers
+    return new Set((involved?.[axis]?.[value]?.experts ?? []).map(c => `${layers.indexOf(c.layer)}:${c.expert}`))
+  }, [byClass, a, involved, prints.a])
+  const title = !prints.a ? '' : byClass ? `${describe(a, selectedNode)} − the rest${outlined.size ? ' (outlined: beyond chance)' : ''}`
+    : difference ? `${describe(a, selectedNode)} − ${describe(b, selectedNode)}` : `${describe(a, selectedNode)} (${prints.a.n_items} items)`
 
   useEffect(() => {
     if (!box.current || !grid || !prints.a) return
     chart.current ??= echarts.init(box.current)
-    chart.current.setOption(heatmapOption(grid, prints.a.layers, difference, title), true)
-  }, [grid, prints.a, difference, title])
+    chart.current.setOption(heatmapOption(grid, prints.a.layers, difference, title, outlined), true)
+  }, [grid, prints.a, difference, title, outlined])
   useEffect(() => {
     const element = box.current
     if (!element) return
@@ -103,7 +125,8 @@ export default function FingerprintPanel({ session, lens, legacy, axes, selected
     if (!grid || !prints.a) return
     const recipe = {
       app: 'OpenLLMRI', figure: 'expert fingerprint', link: window.location.href, exported_at: new Date().toISOString(),
-      populations: { a: describe(a, selectedNode), b: difference ? describe(b, selectedNode) : null },
+      populations: { a: describe(a, selectedNode), b: byClass ? 'the rest' : difference ? describe(b, selectedNode) : null },
+      outlined: byClass ? [...outlined] : undefined,
       lens: prints.a.recipe,
     }
     const name = `${session}_${lens}_fingerprint`
@@ -132,6 +155,7 @@ export default function FingerprintPanel({ session, lens, legacy, axes, selected
         <span>minus</span>
         <select value={b} onChange={e => setB(e.target.value)} className={select}>
           <option value={NONE}>nothing</option>
+          {a.startsWith('axis:') && <option value={REST}>the rest (by class)</option>}
           {choices.map(c => <option key={c.id} value={c.id}>{c.label}</option>)}
         </select>
         <ExportMenu formats={['png', 'svg', 'csv', 'json']} onExport={exportGrid} disabled={!grid} />

@@ -14,7 +14,8 @@
    "dimensions": 6,
    "min_dist": 0.1,
    "seed": 42,
-   "grouping": "ward"
+   "grouping": "ward",
+   "per_layer": null
   }
  },
  "validation": {
@@ -81,6 +82,26 @@
     {
      "id": "L0E11",
      "items": 5
+    }
+   ],
+   "experts_by_weight": [
+    {
+     "id": "L0E9",
+     "weight": 0.46
+    },
+    {
+     "id": "L0E11",
+     "weight": 0.263
+    },
+    {
+     "id": "L0E0",
+     "weight": 0.14
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 63
     }
    ],
    "details": {
@@ -176,6 +197,26 @@
     {
      "id": "L0E9",
      "items": 3
+    }
+   ],
+   "experts_by_weight": [
+    {
+     "id": "L0E11",
+     "weight": 0.406
+    },
+    {
+     "id": "L0E0",
+     "weight": 0.348
+    },
+    {
+     "id": "L0E9",
+     "weight": 0.084
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 65
     }
    ],
    "details": {
@@ -278,6 +319,26 @@
      "items": 10
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L0E9",
+     "weight": 0.339
+    },
+    {
+     "id": "L0E11",
+     "weight": 0.287
+    },
+    {
+     "id": "L0E0",
+     "weight": 0.18
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 92
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -374,6 +435,26 @@
      "items": 1
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L0E9",
+     "weight": 0.486
+    },
+    {
+     "id": "L0E11",
+     "weight": 0.22
+    },
+    {
+     "id": "L0E18",
+     "weight": 0.145
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 64
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -468,6 +549,26 @@
     {
      "id": "L0E11",
      "items": 5
+    }
+   ],
+   "experts_by_weight": [
+    {
+     "id": "L0E9",
+     "weight": 0.484
+    },
+    {
+     "id": "L0E11",
+     "weight": 0.246
+    },
+    {
+     "id": "L0E18",
+     "weight": 0.153
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 77
     }
    ],
    "details": {
@@ -583,6 +684,26 @@
      "items": 10
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L1E1",
+     "weight": 0.338
+    },
+    {
+     "id": "L1E17",
+     "weight": 0.248
+    },
+    {
+     "id": "L1E7",
+     "weight": 0.158
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 79
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -686,6 +807,26 @@
     {
      "id": "L1E25",
      "items": 13
+    }
+   ],
+   "experts_by_weight": [
+    {
+     "id": "L1E1",
+     "weight": 0.335
+    },
+    {
+     "id": "L1E17",
+     "weight": 0.27
+    },
+    {
+     "id": "L1E7",
+     "weight": 0.143
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 73
     }
    ],
    "details": {
@@ -801,6 +942,26 @@
      "items": 3
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L1E1",
+     "weight": 0.382
+    },
+    {
+     "id": "L1E17",
+     "weight": 0.243
+    },
+    {
+     "id": "L1E28",
+     "weight": 0.185
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 87
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -908,6 +1069,26 @@
     {
      "id": "L1E17",
      "items": 10
+    }
+   ],
+   "experts_by_weight": [
+    {
+     "id": "L1E1",
+     "weight": 0.356
+    },
+    {
+     "id": "L1E28",
+     "weight": 0.255
+    },
+    {
+     "id": "L1E17",
+     "weight": 0.223
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 32
     }
    ],
    "details": {
@@ -1023,6 +1204,26 @@
      "items": 6
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L1E1",
+     "weight": 0.38
+    },
+    {
+     "id": "L1E17",
+     "weight": 0.249
+    },
+    {
+     "id": "L1E28",
+     "weight": 0.165
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 90
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -1136,6 +1337,26 @@
      "items": 1
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L2E10",
+     "weight": 0.405
+    },
+    {
+     "id": "L2E5",
+     "weight": 0.251
+    },
+    {
+     "id": "L2E22",
+     "weight": 0.176
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 124
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -1239,6 +1460,26 @@
     {
      "id": "L2E5",
      "items": 4
+    }
+   ],
+   "experts_by_weight": [
+    {
+     "id": "L2E10",
+     "weight": 0.39
+    },
+    {
+     "id": "L2E5",
+     "weight": 0.261
+    },
+    {
+     "id": "L2E22",
+     "weight": 0.185
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 69
     }
    ],
    "details": {
@@ -1354,6 +1595,26 @@
      "items": 1
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L2E10",
+     "weight": 0.374
+    },
+    {
+     "id": "L2E5",
+     "weight": 0.281
+    },
+    {
+     "id": "L2E31",
+     "weight": 0.139
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 84
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -1457,6 +1718,26 @@
     {
      "id": "L2E5",
      "items": 2
+    }
+   ],
+   "experts_by_weight": [
+    {
+     "id": "L2E10",
+     "weight": 0.429
+    },
+    {
+     "id": "L2E5",
+     "weight": 0.242
+    },
+    {
+     "id": "L2E31",
+     "weight": 0.161
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 53
     }
    ],
    "details": {
@@ -1568,6 +1849,26 @@
      "items": 29
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L2E10",
+     "weight": 0.373
+    },
+    {
+     "id": "L2E5",
+     "weight": 0.331
+    },
+    {
+     "id": "L2E22",
+     "weight": 0.123
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 31
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -1665,6 +1966,30 @@
     {
      "id": "L3E31",
      "items": 52
+    }
+   ],
+   "experts_by_weight": [
+    {
+     "id": "L3E31",
+     "weight": 0.406
+    },
+    {
+     "id": "L3E16",
+     "weight": 0.212
+    },
+    {
+     "id": "L3E23",
+     "weight": 0.205
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 47
+    },
+    {
+     "id": "P3",
+     "items": 1
     }
    ],
    "details": {
@@ -1780,6 +2105,30 @@
      "items": 1
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L3E31",
+     "weight": 0.384
+    },
+    {
+     "id": "L3E16",
+     "weight": 0.23
+    },
+    {
+     "id": "L3E23",
+     "weight": 0.206
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 68
+    },
+    {
+     "id": "P3",
+     "items": 13
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -1891,6 +2240,30 @@
     {
      "id": "L3E8",
      "items": 1
+    }
+   ],
+   "experts_by_weight": [
+    {
+     "id": "L3E31",
+     "weight": 0.41
+    },
+    {
+     "id": "L3E23",
+     "weight": 0.281
+    },
+    {
+     "id": "L3E25",
+     "weight": 0.133
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 121
+    },
+    {
+     "id": "P3",
+     "items": 4
     }
    ],
    "details": {
@@ -2006,6 +2379,30 @@
      "items": 1
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L3E31",
+     "weight": 0.39
+    },
+    {
+     "id": "L3E23",
+     "weight": 0.219
+    },
+    {
+     "id": "L3E16",
+     "weight": 0.184
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 95
+    },
+    {
+     "id": "P3",
+     "items": 9
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -2119,6 +2516,30 @@
      "items": 1
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L3E31",
+     "weight": 0.384
+    },
+    {
+     "id": "L3E23",
+     "weight": 0.253
+    },
+    {
+     "id": "L3E8",
+     "weight": 0.112
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 30
+    },
+    {
+     "id": "P3",
+     "items": 4
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -2218,6 +2639,30 @@
     },
     {
      "id": "L4E0",
+     "items": 1
+    }
+   ],
+   "experts_by_weight": [
+    {
+     "id": "L4E21",
+     "weight": 0.343
+    },
+    {
+     "id": "L4E14",
+     "weight": 0.315
+    },
+    {
+     "id": "L4E25",
+     "weight": 0.15
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 41
+    },
+    {
+     "id": "P3",
      "items": 1
     }
    ],
@@ -2332,6 +2777,30 @@
     {
      "id": "L4E25",
      "items": 2
+    }
+   ],
+   "experts_by_weight": [
+    {
+     "id": "L4E14",
+     "weight": 0.433
+    },
+    {
+     "id": "L4E21",
+     "weight": 0.184
+    },
+    {
+     "id": "L4E24",
+     "weight": 0.165
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 139
+    },
+    {
+     "id": "P3",
+     "items": 3
     }
    ],
    "details": {
@@ -2482,6 +2951,30 @@
      "items": 1
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L4E14",
+     "weight": 0.394
+    },
+    {
+     "id": "L4E25",
+     "weight": 0.31
+    },
+    {
+     "id": "L4E21",
+     "weight": 0.113
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 119
+    },
+    {
+     "id": "P3",
+     "items": 25
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -2591,6 +3084,30 @@
      "items": 15
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L4E14",
+     "weight": 0.411
+    },
+    {
+     "id": "L4E17",
+     "weight": 0.252
+    },
+    {
+     "id": "L4E24",
+     "weight": 0.145
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 26
+    },
+    {
+     "id": "P3",
+     "items": 1
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -2697,6 +3214,30 @@
      "items": 1
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L4E14",
+     "weight": 0.383
+    },
+    {
+     "id": "L4E25",
+     "weight": 0.229
+    },
+    {
+     "id": "L4E21",
+     "weight": 0.214
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 36
+    },
+    {
+     "id": "P3",
+     "items": 1
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -2799,6 +3340,30 @@
     {
      "id": "L5E1",
      "items": 2
+    }
+   ],
+   "experts_by_weight": [
+    {
+     "id": "L5E31",
+     "weight": 0.383
+    },
+    {
+     "id": "L5E29",
+     "weight": 0.169
+    },
+    {
+     "id": "L5E6",
+     "weight": 0.162
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 63
+    },
+    {
+     "id": "P3",
+     "items": 5
     }
    ],
    "details": {
@@ -2914,6 +3479,34 @@
      "items": 3
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L5E31",
+     "weight": 0.373
+    },
+    {
+     "id": "L5E29",
+     "weight": 0.168
+    },
+    {
+     "id": "L5E6",
+     "weight": 0.156
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 90
+    },
+    {
+     "id": "P3",
+     "items": 3
+    },
+    {
+     "id": "P2",
+     "items": 2
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -3027,6 +3620,30 @@
      "items": 2
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L5E31",
+     "weight": 0.364
+    },
+    {
+     "id": "L5E13",
+     "weight": 0.245
+    },
+    {
+     "id": "L5E29",
+     "weight": 0.142
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 140
+    },
+    {
+     "id": "P3",
+     "items": 22
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -3132,6 +3749,30 @@
      "items": 1
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L5E31",
+     "weight": 0.427
+    },
+    {
+     "id": "L5E6",
+     "weight": 0.18
+    },
+    {
+     "id": "L5E18",
+     "weight": 0.152
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 25
+    },
+    {
+     "id": "P3",
+     "items": 1
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -3229,6 +3870,30 @@
     {
      "id": "L5E6",
      "items": 1
+    }
+   ],
+   "experts_by_weight": [
+    {
+     "id": "L5E31",
+     "weight": 0.363
+    },
+    {
+     "id": "L5E20",
+     "weight": 0.269
+    },
+    {
+     "id": "L5E29",
+     "weight": 0.135
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P2",
+     "items": 66
+    },
+    {
+     "id": "P1",
+     "items": 43
     }
    ],
    "details": {
@@ -3344,6 +4009,30 @@
      "items": 6
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L6E30",
+     "weight": 0.383
+    },
+    {
+     "id": "L6E11",
+     "weight": 0.319
+    },
+    {
+     "id": "L6E19",
+     "weight": 0.124
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 169
+    },
+    {
+     "id": "P3",
+     "items": 26
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -3457,6 +4146,30 @@
      "items": 1
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L6E30",
+     "weight": 0.407
+    },
+    {
+     "id": "L6E11",
+     "weight": 0.279
+    },
+    {
+     "id": "L6E3",
+     "weight": 0.063
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 86
+    },
+    {
+     "id": "P3",
+     "items": 3
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -3547,6 +4260,30 @@
     {
      "id": "L6E30",
      "items": 82
+    }
+   ],
+   "experts_by_weight": [
+    {
+     "id": "L6E30",
+     "weight": 0.426
+    },
+    {
+     "id": "L6E11",
+     "weight": 0.283
+    },
+    {
+     "id": "L6E7",
+     "weight": 0.164
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 21
+    },
+    {
+     "id": "P3",
+     "items": 1
     }
    ],
    "details": {
@@ -3647,6 +4384,30 @@
     {
      "id": "L6E30",
      "items": 90
+    }
+   ],
+   "experts_by_weight": [
+    {
+     "id": "L6E30",
+     "weight": 0.55
+    },
+    {
+     "id": "L6E11",
+     "weight": 0.214
+    },
+    {
+     "id": "L6E7",
+     "weight": 0.065
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P2",
+     "items": 68
+    },
+    {
+     "id": "P1",
+     "items": 50
     }
    ],
    "details": {
@@ -3751,6 +4512,30 @@
      "items": 5
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L6E30",
+     "weight": 0.332
+    },
+    {
+     "id": "L6E11",
+     "weight": 0.293
+    },
+    {
+     "id": "L6E19",
+     "weight": 0.235
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 35
+    },
+    {
+     "id": "P3",
+     "items": 1
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -3849,6 +4634,30 @@
     {
      "id": "L7E25",
      "items": 2
+    }
+   ],
+   "experts_by_weight": [
+    {
+     "id": "L7E7",
+     "weight": 0.366
+    },
+    {
+     "id": "L7E4",
+     "weight": 0.307
+    },
+    {
+     "id": "L7E15",
+     "weight": 0.121
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 68
+    },
+    {
+     "id": "P3",
+     "items": 6
     }
    ],
    "details": {
@@ -3960,6 +4769,30 @@
      "items": 2
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L7E7",
+     "weight": 0.393
+    },
+    {
+     "id": "L7E4",
+     "weight": 0.287
+    },
+    {
+     "id": "L7E10",
+     "weight": 0.159
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 116
+    },
+    {
+     "id": "P3",
+     "items": 22
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -4067,6 +4900,34 @@
     {
      "id": "L7E20",
      "items": 1
+    }
+   ],
+   "experts_by_weight": [
+    {
+     "id": "L7E7",
+     "weight": 0.401
+    },
+    {
+     "id": "L7E4",
+     "weight": 0.239
+    },
+    {
+     "id": "L7E10",
+     "weight": 0.187
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 109
+    },
+    {
+     "id": "P2",
+     "items": 2
+    },
+    {
+     "id": "P3",
+     "items": 2
     }
    ],
    "details": {
@@ -4178,6 +5039,34 @@
      "items": 1
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L7E7",
+     "weight": 0.339
+    },
+    {
+     "id": "L7E4",
+     "weight": 0.268
+    },
+    {
+     "id": "L7E10",
+     "weight": 0.199
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 24
+    },
+    {
+     "id": "P2",
+     "items": 1
+    },
+    {
+     "id": "P3",
+     "items": 1
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -4277,6 +5166,30 @@
      "items": 27
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L7E7",
+     "weight": 0.352
+    },
+    {
+     "id": "L7E10",
+     "weight": 0.325
+    },
+    {
+     "id": "L7E4",
+     "weight": 0.173
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P2",
+     "items": 65
+    },
+    {
+     "id": "P1",
+     "items": 44
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -4369,6 +5282,30 @@
     {
      "id": "L8E31",
      "items": 2
+    }
+   ],
+   "experts_by_weight": [
+    {
+     "id": "L8E30",
+     "weight": 0.338
+    },
+    {
+     "id": "L8E31",
+     "weight": 0.267
+    },
+    {
+     "id": "L8E9",
+     "weight": 0.175
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 62
+    },
+    {
+     "id": "P3",
+     "items": 5
     }
    ],
    "details": {
@@ -4484,6 +5421,30 @@
      "items": 9
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L8E30",
+     "weight": 0.341
+    },
+    {
+     "id": "L8E31",
+     "weight": 0.266
+    },
+    {
+     "id": "L8E23",
+     "weight": 0.128
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 179
+    },
+    {
+     "id": "P3",
+     "items": 23
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -4597,6 +5558,34 @@
      "items": 15
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L8E9",
+     "weight": 0.282
+    },
+    {
+     "id": "L8E30",
+     "weight": 0.259
+    },
+    {
+     "id": "L8E23",
+     "weight": 0.228
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 78
+    },
+    {
+     "id": "P2",
+     "items": 23
+    },
+    {
+     "id": "P3",
+     "items": 2
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -4693,6 +5682,30 @@
      "items": 8
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L8E30",
+     "weight": 0.354
+    },
+    {
+     "id": "L8E31",
+     "weight": 0.235
+    },
+    {
+     "id": "L8E9",
+     "weight": 0.224
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 18
+    },
+    {
+     "id": "P3",
+     "items": 1
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -4780,6 +5793,30 @@
     {
      "id": "L8E30",
      "items": 1
+    }
+   ],
+   "experts_by_weight": [
+    {
+     "id": "L8E9",
+     "weight": 0.423
+    },
+    {
+     "id": "L8E30",
+     "weight": 0.242
+    },
+    {
+     "id": "L8E20",
+     "weight": 0.17
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P2",
+     "items": 45
+    },
+    {
+     "id": "P1",
+     "items": 24
     }
    ],
    "details": {
@@ -4884,6 +5921,30 @@
     {
      "id": "L9E20",
      "items": 2
+    }
+   ],
+   "experts_by_weight": [
+    {
+     "id": "L9E26",
+     "weight": 0.371
+    },
+    {
+     "id": "L9E30",
+     "weight": 0.189
+    },
+    {
+     "id": "L9E16",
+     "weight": 0.167
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 71
+    },
+    {
+     "id": "P3",
+     "items": 6
     }
    ],
    "details": {
@@ -4999,6 +6060,34 @@
      "items": 2
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L9E16",
+     "weight": 0.363
+    },
+    {
+     "id": "L9E26",
+     "weight": 0.303
+    },
+    {
+     "id": "L9E20",
+     "weight": 0.087
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 68
+    },
+    {
+     "id": "P2",
+     "items": 21
+    },
+    {
+     "id": "P3",
+     "items": 3
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -5108,6 +6197,30 @@
      "items": 21
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L9E20",
+     "weight": 0.278
+    },
+    {
+     "id": "L9E26",
+     "weight": 0.274
+    },
+    {
+     "id": "L9E16",
+     "weight": 0.187
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 181
+    },
+    {
+     "id": "P3",
+     "items": 21
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -5201,6 +6314,30 @@
     {
      "id": "L9E16",
      "items": 7
+    }
+   ],
+   "experts_by_weight": [
+    {
+     "id": "L9E26",
+     "weight": 0.376
+    },
+    {
+     "id": "L9E16",
+     "weight": 0.262
+    },
+    {
+     "id": "L9E30",
+     "weight": 0.211
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 16
+    },
+    {
+     "id": "P3",
+     "items": 1
     }
    ],
    "details": {
@@ -5298,6 +6435,30 @@
     {
      "id": "L9E16",
      "items": 1
+    }
+   ],
+   "experts_by_weight": [
+    {
+     "id": "L9E18",
+     "weight": 0.32
+    },
+    {
+     "id": "L9E26",
+     "weight": 0.307
+    },
+    {
+     "id": "L9E16",
+     "weight": 0.217
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P2",
+     "items": 47
+    },
+    {
+     "id": "P1",
+     "items": 25
     }
    ],
    "details": {
@@ -5402,6 +6563,30 @@
     },
     {
      "id": "L10E5",
+     "items": 5
+    }
+   ],
+   "experts_by_weight": [
+    {
+     "id": "L10E15",
+     "weight": 0.323
+    },
+    {
+     "id": "L10E24",
+     "weight": 0.175
+    },
+    {
+     "id": "L10E19",
+     "weight": 0.16
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 72
+    },
+    {
+     "id": "P3",
      "items": 5
     }
    ],
@@ -5514,6 +6699,30 @@
      "items": 5
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L10E15",
+     "weight": 0.354
+    },
+    {
+     "id": "L10E19",
+     "weight": 0.224
+    },
+    {
+     "id": "L10E5",
+     "weight": 0.131
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 85
+    },
+    {
+     "id": "P3",
+     "items": 5
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -5619,6 +6828,34 @@
      "items": 18
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L10E19",
+     "weight": 0.232
+    },
+    {
+     "id": "L10E24",
+     "weight": 0.226
+    },
+    {
+     "id": "L10E8",
+     "weight": 0.214
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 25
+    },
+    {
+     "id": "P2",
+     "items": 1
+    },
+    {
+     "id": "P3",
+     "items": 1
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -5714,6 +6951,30 @@
     {
      "id": "L10E15",
      "items": 138
+    }
+   ],
+   "experts_by_weight": [
+    {
+     "id": "L10E15",
+     "weight": 0.423
+    },
+    {
+     "id": "L10E19",
+     "weight": 0.211
+    },
+    {
+     "id": "L10E21",
+     "weight": 0.087
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 131
+    },
+    {
+     "id": "P3",
+     "items": 20
     }
    ],
    "details": {
@@ -5820,6 +7081,30 @@
      "items": 1
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L10E15",
+     "weight": 0.349
+    },
+    {
+     "id": "L10E19",
+     "weight": 0.309
+    },
+    {
+     "id": "L10E5",
+     "weight": 0.133
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P2",
+     "items": 67
+    },
+    {
+     "id": "P1",
+     "items": 48
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -5914,6 +7199,30 @@
     {
      "id": "L11E23",
      "items": 4
+    }
+   ],
+   "experts_by_weight": [
+    {
+     "id": "L11E20",
+     "weight": 0.359
+    },
+    {
+     "id": "L11E13",
+     "weight": 0.198
+    },
+    {
+     "id": "L11E30",
+     "weight": 0.145
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 70
+    },
+    {
+     "id": "P3",
+     "items": 5
     }
    ],
    "details": {
@@ -6029,6 +7338,34 @@
      "items": 5
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L11E20",
+     "weight": 0.36
+    },
+    {
+     "id": "L11E30",
+     "weight": 0.152
+    },
+    {
+     "id": "L11E13",
+     "weight": 0.124
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 88
+    },
+    {
+     "id": "P2",
+     "items": 6
+    },
+    {
+     "id": "P3",
+     "items": 3
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -6142,6 +7479,30 @@
      "items": 11
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L11E20",
+     "weight": 0.325
+    },
+    {
+     "id": "L11E13",
+     "weight": 0.262
+    },
+    {
+     "id": "L11E23",
+     "weight": 0.182
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 147
+    },
+    {
+     "id": "P3",
+     "items": 22
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -6238,6 +7599,30 @@
      "items": 11
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L11E20",
+     "weight": 0.3
+    },
+    {
+     "id": "L11E21",
+     "weight": 0.254
+    },
+    {
+     "id": "L11E7",
+     "weight": 0.243
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 17
+    },
+    {
+     "id": "P3",
+     "items": 1
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -6331,6 +7716,30 @@
     {
      "id": "L11E7",
      "items": 6
+    }
+   ],
+   "experts_by_weight": [
+    {
+     "id": "L11E20",
+     "weight": 0.395
+    },
+    {
+     "id": "L11E7",
+     "weight": 0.265
+    },
+    {
+     "id": "L11E25",
+     "weight": 0.123
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P2",
+     "items": 62
+    },
+    {
+     "id": "P1",
+     "items": 39
     }
    ],
    "details": {
@@ -6435,6 +7844,30 @@
     },
     {
      "id": "L12E21",
+     "items": 6
+    }
+   ],
+   "experts_by_weight": [
+    {
+     "id": "L12E25",
+     "weight": 0.314
+    },
+    {
+     "id": "L12E13",
+     "weight": 0.241
+    },
+    {
+     "id": "L12E18",
+     "weight": 0.175
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 82
+    },
+    {
+     "id": "P3",
      "items": 6
     }
    ],
@@ -6582,6 +8015,34 @@
      "items": 26
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L12E25",
+     "weight": 0.275
+    },
+    {
+     "id": "L12E21",
+     "weight": 0.247
+    },
+    {
+     "id": "L12E13",
+     "weight": 0.221
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 83
+    },
+    {
+     "id": "P2",
+     "items": 5
+    },
+    {
+     "id": "P3",
+     "items": 5
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -6691,6 +8152,34 @@
      "items": 10
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L12E25",
+     "weight": 0.311
+    },
+    {
+     "id": "L12E17",
+     "weight": 0.25
+    },
+    {
+     "id": "L12E13",
+     "weight": 0.182
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 27
+    },
+    {
+     "id": "P2",
+     "items": 1
+    },
+    {
+     "id": "P3",
+     "items": 1
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -6790,6 +8279,30 @@
     {
      "id": "L12E18",
      "items": 8
+    }
+   ],
+   "experts_by_weight": [
+    {
+     "id": "L12E13",
+     "weight": 0.309
+    },
+    {
+     "id": "L12E25",
+     "weight": 0.293
+    },
+    {
+     "id": "L12E18",
+     "weight": 0.229
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 129
+    },
+    {
+     "id": "P3",
+     "items": 19
     }
    ],
    "details": {
@@ -6893,6 +8406,30 @@
     {
      "id": "L12E25",
      "items": 2
+    }
+   ],
+   "experts_by_weight": [
+    {
+     "id": "L12E2",
+     "weight": 0.368
+    },
+    {
+     "id": "L12E25",
+     "weight": 0.277
+    },
+    {
+     "id": "L12E21",
+     "weight": 0.197
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P2",
+     "items": 62
+    },
+    {
+     "id": "P1",
+     "items": 40
     }
    ],
    "details": {
@@ -7002,6 +8539,30 @@
     {
      "id": "L13E0",
      "items": 4
+    }
+   ],
+   "experts_by_weight": [
+    {
+     "id": "L13E24",
+     "weight": 0.335
+    },
+    {
+     "id": "L13E5",
+     "weight": 0.246
+    },
+    {
+     "id": "L13E0",
+     "weight": 0.242
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 92
+    },
+    {
+     "id": "P3",
+     "items": 6
     }
    ],
    "details": {
@@ -7137,6 +8698,30 @@
     {
      "id": "L13E5",
      "items": 3
+    }
+   ],
+   "experts_by_weight": [
+    {
+     "id": "L13E24",
+     "weight": 0.341
+    },
+    {
+     "id": "L13E0",
+     "weight": 0.265
+    },
+    {
+     "id": "L13E5",
+     "weight": 0.198
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 175
+    },
+    {
+     "id": "P3",
+     "items": 23
     }
    ],
    "details": {
@@ -7292,6 +8877,34 @@
      "items": 4
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L13E24",
+     "weight": 0.297
+    },
+    {
+     "id": "L13E5",
+     "weight": 0.287
+    },
+    {
+     "id": "L13E0",
+     "weight": 0.234
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 38
+    },
+    {
+     "id": "P2",
+     "items": 5
+    },
+    {
+     "id": "P3",
+     "items": 1
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -7438,6 +9051,30 @@
      "items": 3
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L13E24",
+     "weight": 0.341
+    },
+    {
+     "id": "L13E5",
+     "weight": 0.299
+    },
+    {
+     "id": "L13E0",
+     "weight": 0.21
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 17
+    },
+    {
+     "id": "P3",
+     "items": 1
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -7578,6 +9215,30 @@
      "items": 18
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L13E24",
+     "weight": 0.365
+    },
+    {
+     "id": "L13E5",
+     "weight": 0.34
+    },
+    {
+     "id": "L13E0",
+     "weight": 0.112
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P2",
+     "items": 63
+    },
+    {
+     "id": "P1",
+     "items": 39
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -7703,6 +9364,30 @@
      "items": 4
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L14E29",
+     "weight": 0.297
+    },
+    {
+     "id": "L14E4",
+     "weight": 0.222
+    },
+    {
+     "id": "L14E1",
+     "weight": 0.221
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 66
+    },
+    {
+     "id": "P3",
+     "items": 5
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -7814,6 +9499,30 @@
     {
      "id": "L14E1",
      "items": 5
+    }
+   ],
+   "experts_by_weight": [
+    {
+     "id": "L14E29",
+     "weight": 0.339
+    },
+    {
+     "id": "L14E1",
+     "weight": 0.238
+    },
+    {
+     "id": "L14E4",
+     "weight": 0.225
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 121
+    },
+    {
+     "id": "P3",
+     "items": 23
     }
    ],
    "details": {
@@ -7929,6 +9638,34 @@
      "items": 4
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L14E29",
+     "weight": 0.335
+    },
+    {
+     "id": "L14E1",
+     "weight": 0.202
+    },
+    {
+     "id": "L14E6",
+     "weight": 0.158
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 110
+    },
+    {
+     "id": "P2",
+     "items": 5
+    },
+    {
+     "id": "P3",
+     "items": 2
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -8034,6 +9771,30 @@
      "items": 2
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L14E29",
+     "weight": 0.349
+    },
+    {
+     "id": "L14E1",
+     "weight": 0.235
+    },
+    {
+     "id": "L14E4",
+     "weight": 0.17
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 25
+    },
+    {
+     "id": "P3",
+     "items": 1
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -8131,6 +9892,30 @@
     {
      "id": "L14E1",
      "items": 1
+    }
+   ],
+   "experts_by_weight": [
+    {
+     "id": "L14E29",
+     "weight": 0.354
+    },
+    {
+     "id": "L14E6",
+     "weight": 0.235
+    },
+    {
+     "id": "L14E1",
+     "weight": 0.217
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P2",
+     "items": 63
+    },
+    {
+     "id": "P1",
+     "items": 39
     }
    ],
    "details": {
@@ -8244,6 +10029,30 @@
      "items": 6
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L15E9",
+     "weight": 0.304
+    },
+    {
+     "id": "L15E26",
+     "weight": 0.288
+    },
+    {
+     "id": "L15E28",
+     "weight": 0.248
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 63
+    },
+    {
+     "id": "P3",
+     "items": 4
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -8351,6 +10160,30 @@
     {
      "id": "L15E4",
      "items": 7
+    }
+   ],
+   "experts_by_weight": [
+    {
+     "id": "L15E9",
+     "weight": 0.291
+    },
+    {
+     "id": "L15E26",
+     "weight": 0.291
+    },
+    {
+     "id": "L15E28",
+     "weight": 0.167
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 123
+    },
+    {
+     "id": "P3",
+     "items": 24
     }
    ],
    "details": {
@@ -8466,6 +10299,34 @@
      "items": 5
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L15E26",
+     "weight": 0.296
+    },
+    {
+     "id": "L15E9",
+     "weight": 0.291
+    },
+    {
+     "id": "L15E28",
+     "weight": 0.179
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 103
+    },
+    {
+     "id": "P2",
+     "items": 2
+    },
+    {
+     "id": "P3",
+     "items": 2
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -8565,6 +10426,30 @@
     {
      "id": "L15E9",
      "items": 14
+    }
+   ],
+   "experts_by_weight": [
+    {
+     "id": "L15E28",
+     "weight": 0.285
+    },
+    {
+     "id": "L15E26",
+     "weight": 0.27
+    },
+    {
+     "id": "L15E9",
+     "weight": 0.261
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 24
+    },
+    {
+     "id": "P3",
+     "items": 1
     }
    ],
    "details": {
@@ -8674,6 +10559,30 @@
      "items": 8
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L15E26",
+     "weight": 0.292
+    },
+    {
+     "id": "L15E9",
+     "weight": 0.264
+    },
+    {
+     "id": "L15E28",
+     "weight": 0.258
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P2",
+     "items": 66
+    },
+    {
+     "id": "P1",
+     "items": 48
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -8771,6 +10680,30 @@
     {
      "id": "L16E4",
      "items": 4
+    }
+   ],
+   "experts_by_weight": [
+    {
+     "id": "L16E11",
+     "weight": 0.284
+    },
+    {
+     "id": "L16E21",
+     "weight": 0.228
+    },
+    {
+     "id": "L16E4",
+     "weight": 0.179
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 55
+    },
+    {
+     "id": "P3",
+     "items": 3
     }
    ],
    "details": {
@@ -8886,6 +10819,30 @@
      "items": 23
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L16E11",
+     "weight": 0.27
+    },
+    {
+     "id": "L16E0",
+     "weight": 0.23
+    },
+    {
+     "id": "L16E4",
+     "weight": 0.21
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 144
+    },
+    {
+     "id": "P3",
+     "items": 25
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -8996,6 +10953,34 @@
     },
     {
      "id": "L16E4",
+     "items": 2
+    }
+   ],
+   "experts_by_weight": [
+    {
+     "id": "L16E11",
+     "weight": 0.315
+    },
+    {
+     "id": "L16E0",
+     "weight": 0.189
+    },
+    {
+     "id": "L16E4",
+     "weight": 0.138
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 99
+    },
+    {
+     "id": "P2",
+     "items": 6
+    },
+    {
+     "id": "P3",
      "items": 2
     }
    ],
@@ -9112,6 +11097,34 @@
      "items": 15
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L16E11",
+     "weight": 0.289
+    },
+    {
+     "id": "L16E4",
+     "weight": 0.222
+    },
+    {
+     "id": "L16E0",
+     "weight": 0.207
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 23
+    },
+    {
+     "id": "P2",
+     "items": 1
+    },
+    {
+     "id": "P3",
+     "items": 1
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -9212,6 +11225,30 @@
     {
      "id": "L16E24",
      "items": 2
+    }
+   ],
+   "experts_by_weight": [
+    {
+     "id": "L16E11",
+     "weight": 0.345
+    },
+    {
+     "id": "L16E24",
+     "weight": 0.195
+    },
+    {
+     "id": "L16E0",
+     "weight": 0.14
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P2",
+     "items": 61
+    },
+    {
+     "id": "P1",
+     "items": 40
     }
    ],
    "details": {
@@ -9327,6 +11364,30 @@
      "items": 1
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L17E7",
+     "weight": 0.333
+    },
+    {
+     "id": "L17E25",
+     "weight": 0.274
+    },
+    {
+     "id": "L17E16",
+     "weight": 0.202
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 138
+    },
+    {
+     "id": "P3",
+     "items": 13
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -9433,6 +11494,34 @@
     },
     {
      "id": "L17E2",
+     "items": 1
+    }
+   ],
+   "experts_by_weight": [
+    {
+     "id": "L17E7",
+     "weight": 0.322
+    },
+    {
+     "id": "L17E25",
+     "weight": 0.223
+    },
+    {
+     "id": "L17E16",
+     "weight": 0.162
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 66
+    },
+    {
+     "id": "P3",
+     "items": 14
+    },
+    {
+     "id": "P2",
      "items": 1
     }
    ],
@@ -9549,6 +11638,34 @@
      "items": 9
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L17E7",
+     "weight": 0.322
+    },
+    {
+     "id": "L17E25",
+     "weight": 0.231
+    },
+    {
+     "id": "L17E16",
+     "weight": 0.187
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 101
+    },
+    {
+     "id": "P2",
+     "items": 5
+    },
+    {
+     "id": "P3",
+     "items": 3
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -9647,6 +11764,30 @@
     {
      "id": "L17E7",
      "items": 80
+    }
+   ],
+   "experts_by_weight": [
+    {
+     "id": "L17E7",
+     "weight": 0.349
+    },
+    {
+     "id": "L17E25",
+     "weight": 0.236
+    },
+    {
+     "id": "L17E5",
+     "weight": 0.209
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 18
+    },
+    {
+     "id": "P3",
+     "items": 1
     }
    ],
    "details": {
@@ -9753,6 +11894,30 @@
     {
      "id": "L17E16",
      "items": 5
+    }
+   ],
+   "experts_by_weight": [
+    {
+     "id": "L17E7",
+     "weight": 0.291
+    },
+    {
+     "id": "L17E5",
+     "weight": 0.276
+    },
+    {
+     "id": "L17E16",
+     "weight": 0.25
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P2",
+     "items": 62
+    },
+    {
+     "id": "P1",
+     "items": 38
     }
    ],
    "details": {
@@ -9862,6 +12027,30 @@
     {
      "id": "L18E20",
      "items": 3
+    }
+   ],
+   "experts_by_weight": [
+    {
+     "id": "L18E14",
+     "weight": 0.291
+    },
+    {
+     "id": "L18E27",
+     "weight": 0.274
+    },
+    {
+     "id": "L18E20",
+     "weight": 0.23
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 129
+    },
+    {
+     "id": "P3",
+     "items": 10
     }
    ],
    "details": {
@@ -9977,6 +12166,30 @@
      "items": 7
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L18E14",
+     "weight": 0.303
+    },
+    {
+     "id": "L18E20",
+     "weight": 0.231
+    },
+    {
+     "id": "L18E27",
+     "weight": 0.231
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 88
+    },
+    {
+     "id": "P3",
+     "items": 18
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -10090,6 +12303,34 @@
      "items": 2
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L18E14",
+     "weight": 0.329
+    },
+    {
+     "id": "L18E27",
+     "weight": 0.209
+    },
+    {
+     "id": "L18E1",
+     "weight": 0.176
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 94
+    },
+    {
+     "id": "P2",
+     "items": 6
+    },
+    {
+     "id": "P3",
+     "items": 2
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -10188,6 +12429,30 @@
      "items": 1
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L18E14",
+     "weight": 0.3
+    },
+    {
+     "id": "L18E27",
+     "weight": 0.221
+    },
+    {
+     "id": "L18E1",
+     "weight": 0.22
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 14
+    },
+    {
+     "id": "P3",
+     "items": 1
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -10280,6 +12545,30 @@
     {
      "id": "L18E14",
      "items": 72
+    }
+   ],
+   "experts_by_weight": [
+    {
+     "id": "L18E14",
+     "weight": 0.346
+    },
+    {
+     "id": "L18E1",
+     "weight": 0.26
+    },
+    {
+     "id": "L18E26",
+     "weight": 0.164
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P2",
+     "items": 62
+    },
+    {
+     "id": "P1",
+     "items": 36
     }
    ],
    "details": {
@@ -10388,6 +12677,34 @@
     {
      "id": "L19E22",
      "items": 1
+    }
+   ],
+   "experts_by_weight": [
+    {
+     "id": "L19E31",
+     "weight": 0.336
+    },
+    {
+     "id": "L19E13",
+     "weight": 0.277
+    },
+    {
+     "id": "L19E6",
+     "weight": 0.088
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 114
+    },
+    {
+     "id": "P4",
+     "items": 21
+    },
+    {
+     "id": "P3",
+     "items": 10
     }
    ],
    "details": {
@@ -10503,6 +12820,34 @@
      "items": 4
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L19E31",
+     "weight": 0.294
+    },
+    {
+     "id": "L19E13",
+     "weight": 0.29
+    },
+    {
+     "id": "L19E6",
+     "weight": 0.145
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 89
+    },
+    {
+     "id": "P3",
+     "items": 19
+    },
+    {
+     "id": "P4",
+     "items": 3
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -10616,6 +12961,34 @@
      "items": 26
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L19E13",
+     "weight": 0.286
+    },
+    {
+     "id": "L19E31",
+     "weight": 0.249
+    },
+    {
+     "id": "L19E22",
+     "weight": 0.213
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 105
+    },
+    {
+     "id": "P4",
+     "items": 13
+    },
+    {
+     "id": "P2",
+     "items": 5
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -10723,6 +13096,34 @@
      "items": 2
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L19E31",
+     "weight": 0.293
+    },
+    {
+     "id": "L19E13",
+     "weight": 0.288
+    },
+    {
+     "id": "L19E6",
+     "weight": 0.212
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 15
+    },
+    {
+     "id": "P4",
+     "items": 4
+    },
+    {
+     "id": "P3",
+     "items": 1
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -10827,6 +13228,30 @@
     {
      "id": "L19E31",
      "items": 1
+    }
+   ],
+   "experts_by_weight": [
+    {
+     "id": "L19E22",
+     "weight": 0.313
+    },
+    {
+     "id": "L19E13",
+     "weight": 0.274
+    },
+    {
+     "id": "L19E6",
+     "weight": 0.246
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P2",
+     "items": 63
+    },
+    {
+     "id": "P1",
+     "items": 38
     }
    ],
    "details": {
@@ -10937,6 +13362,34 @@
      "items": 26
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L20E16",
+     "weight": 0.282
+    },
+    {
+     "id": "L20E25",
+     "weight": 0.276
+    },
+    {
+     "id": "L20E31",
+     "weight": 0.262
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 154
+    },
+    {
+     "id": "P4",
+     "items": 28
+    },
+    {
+     "id": "P3",
+     "items": 11
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -11044,6 +13497,34 @@
     {
      "id": "L20E0",
      "items": 17
+    }
+   ],
+   "experts_by_weight": [
+    {
+     "id": "L20E31",
+     "weight": 0.277
+    },
+    {
+     "id": "L20E0",
+     "weight": 0.206
+    },
+    {
+     "id": "L20E16",
+     "weight": 0.197
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 92
+    },
+    {
+     "id": "P3",
+     "items": 19
+    },
+    {
+     "id": "P4",
+     "items": 5
     }
    ],
    "details": {
@@ -11159,6 +13640,34 @@
      "items": 8
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L20E15",
+     "weight": 0.247
+    },
+    {
+     "id": "L20E16",
+     "weight": 0.243
+    },
+    {
+     "id": "L20E31",
+     "weight": 0.231
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 55
+    },
+    {
+     "id": "P4",
+     "items": 4
+    },
+    {
+     "id": "P2",
+     "items": 3
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -11272,6 +13781,34 @@
      "items": 13
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L20E31",
+     "weight": 0.273
+    },
+    {
+     "id": "L20E16",
+     "weight": 0.219
+    },
+    {
+     "id": "L20E25",
+     "weight": 0.173
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 19
+    },
+    {
+     "id": "P4",
+     "items": 4
+    },
+    {
+     "id": "P2",
+     "items": 1
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -11368,6 +13905,30 @@
     {
      "id": "L20E5",
      "items": 4
+    }
+   ],
+   "experts_by_weight": [
+    {
+     "id": "L20E15",
+     "weight": 0.326
+    },
+    {
+     "id": "L20E5",
+     "weight": 0.251
+    },
+    {
+     "id": "L20E31",
+     "weight": 0.228
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P2",
+     "items": 64
+    },
+    {
+     "id": "P1",
+     "items": 41
     }
    ],
    "details": {
@@ -11480,6 +14041,34 @@
     {
      "id": "L21E2",
      "items": 10
+    }
+   ],
+   "experts_by_weight": [
+    {
+     "id": "L21E18",
+     "weight": 0.308
+    },
+    {
+     "id": "L21E13",
+     "weight": 0.265
+    },
+    {
+     "id": "L21E2",
+     "weight": 0.257
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 154
+    },
+    {
+     "id": "P4",
+     "items": 27
+    },
+    {
+     "id": "P3",
+     "items": 11
     }
    ],
    "details": {
@@ -11595,6 +14184,34 @@
      "items": 30
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L21E21",
+     "weight": 0.266
+    },
+    {
+     "id": "L21E2",
+     "weight": 0.265
+    },
+    {
+     "id": "L21E13",
+     "weight": 0.24
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 96
+    },
+    {
+     "id": "P3",
+     "items": 19
+    },
+    {
+     "id": "P4",
+     "items": 6
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -11707,6 +14324,34 @@
      "items": 15
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L21E2",
+     "weight": 0.259
+    },
+    {
+     "id": "L21E13",
+     "weight": 0.219
+    },
+    {
+     "id": "L21E18",
+     "weight": 0.216
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 60
+    },
+    {
+     "id": "P2",
+     "items": 5
+    },
+    {
+     "id": "P4",
+     "items": 5
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -11810,6 +14455,34 @@
      "items": 5
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L21E2",
+     "weight": 0.267
+    },
+    {
+     "id": "L21E18",
+     "weight": 0.246
+    },
+    {
+     "id": "L21E13",
+     "weight": 0.223
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 13
+    },
+    {
+     "id": "P4",
+     "items": 3
+    },
+    {
+     "id": "P3",
+     "items": 1
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -11910,6 +14583,30 @@
     {
      "id": "L21E21",
      "items": 6
+    }
+   ],
+   "experts_by_weight": [
+    {
+     "id": "L21E30",
+     "weight": 0.271
+    },
+    {
+     "id": "L21E2",
+     "weight": 0.24
+    },
+    {
+     "id": "L21E13",
+     "weight": 0.223
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P2",
+     "items": 62
+    },
+    {
+     "id": "P1",
+     "items": 38
     }
    ],
    "details": {
@@ -12020,6 +14717,34 @@
      "items": 16
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L22E22",
+     "weight": 0.274
+    },
+    {
+     "id": "L22E15",
+     "weight": 0.266
+    },
+    {
+     "id": "L22E25",
+     "weight": 0.164
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 157
+    },
+    {
+     "id": "P4",
+     "items": 30
+    },
+    {
+     "id": "P3",
+     "items": 11
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -12123,6 +14848,34 @@
     {
      "id": "L22E29",
      "items": 13
+    }
+   ],
+   "experts_by_weight": [
+    {
+     "id": "L22E15",
+     "weight": 0.244
+    },
+    {
+     "id": "L22E18",
+     "weight": 0.242
+    },
+    {
+     "id": "L22E22",
+     "weight": 0.225
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 60
+    },
+    {
+     "id": "P3",
+     "items": 17
+    },
+    {
+     "id": "P4",
+     "items": 2
     }
    ],
    "details": {
@@ -12238,6 +14991,34 @@
      "items": 11
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L22E25",
+     "weight": 0.287
+    },
+    {
+     "id": "L22E15",
+     "weight": 0.235
+    },
+    {
+     "id": "L22E22",
+     "weight": 0.126
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 55
+    },
+    {
+     "id": "P4",
+     "items": 8
+    },
+    {
+     "id": "P2",
+     "items": 2
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -12347,6 +15128,34 @@
      "items": 10
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L22E15",
+     "weight": 0.22
+    },
+    {
+     "id": "L22E25",
+     "weight": 0.202
+    },
+    {
+     "id": "L22E0",
+     "weight": 0.186
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 43
+    },
+    {
+     "id": "P2",
+     "items": 2
+    },
+    {
+     "id": "P3",
+     "items": 2
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -12444,6 +15253,30 @@
     {
      "id": "L22E25",
      "items": 5
+    }
+   ],
+   "experts_by_weight": [
+    {
+     "id": "L22E11",
+     "weight": 0.363
+    },
+    {
+     "id": "L22E25",
+     "weight": 0.247
+    },
+    {
+     "id": "L22E0",
+     "weight": 0.189
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P2",
+     "items": 64
+    },
+    {
+     "id": "P1",
+     "items": 46
     }
    ],
    "details": {
@@ -12545,6 +15378,34 @@
      "items": 5
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L23E31",
+     "weight": 0.295
+    },
+    {
+     "id": "L23E0",
+     "weight": 0.289
+    },
+    {
+     "id": "L23E18",
+     "weight": 0.21
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 154
+    },
+    {
+     "id": "P4",
+     "items": 29
+    },
+    {
+     "id": "P3",
+     "items": 11
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -12631,6 +15492,34 @@
     {
      "id": "L23E10",
      "items": 1
+    }
+   ],
+   "experts_by_weight": [
+    {
+     "id": "L23E0",
+     "weight": 0.3
+    },
+    {
+     "id": "L23E31",
+     "weight": 0.285
+    },
+    {
+     "id": "L23E10",
+     "weight": 0.212
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 50
+    },
+    {
+     "id": "P3",
+     "items": 12
+    },
+    {
+     "id": "P4",
+     "items": 2
     }
    ],
    "details": {
@@ -12730,6 +15619,34 @@
      "items": 17
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L23E0",
+     "weight": 0.285
+    },
+    {
+     "id": "L23E31",
+     "weight": 0.283
+    },
+    {
+     "id": "L23E18",
+     "weight": 0.23
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 103
+    },
+    {
+     "id": "P3",
+     "items": 8
+    },
+    {
+     "id": "P4",
+     "items": 6
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -12817,6 +15734,30 @@
      "items": 2
     }
    ],
+   "experts_by_weight": [
+    {
+     "id": "L23E18",
+     "weight": 0.306
+    },
+    {
+     "id": "L23E31",
+     "weight": 0.272
+    },
+    {
+     "id": "L23E0",
+     "weight": 0.21
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P2",
+     "items": 64
+    },
+    {
+     "id": "P1",
+     "items": 45
+    }
+   ],
    "details": {
     "neurons": [
      [
@@ -12901,6 +15842,30 @@
     {
      "id": "L23E18",
      "items": 10
+    }
+   ],
+   "experts_by_weight": [
+    {
+     "id": "L23E31",
+     "weight": 0.295
+    },
+    {
+     "id": "L23E0",
+     "weight": 0.28
+    },
+    {
+     "id": "L23E18",
+     "weight": 0.276
+    }
+   ],
+   "pipelines": [
+    {
+     "id": "P1",
+     "items": 9
+    },
+    {
+     "id": "P4",
+     "items": 4
     }
    ],
    "details": {

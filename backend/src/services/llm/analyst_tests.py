@@ -1,10 +1,12 @@
 """Analyst tests (DESIGN.md E8): analysts are tested before they are trusted, and again whenever
 their prompts or model change. Three kinds, at one layer of a real lens:
 
-- decoys: populations with no real pattern (random samples of the layer's items, and the whole
-  lens with its items' designed values shuffled); a sound analyst doesn't call a pattern clear;
+- decoys: populations with no real pattern (random samples of the layer's items, the whole lens
+  with its items' designed values shuffled, and that lens's pipes and hubs worked out again); a
+  sound analyst doesn't call a pattern clear;
 - planted findings: populations built around one label value (it makes up 70% of the items, the
-  rest are random); a sound analyst names it;
+  rest are random), and a pipeline whose members are planted the same way, around a value no
+  real pipeline leans to; a sound analyst names it;
 - predictive descriptions, after RouterInterp: from a real node's card, a second call picks the
   node's members out of held-out sentences (half are members), scored beside a simple baseline
   that picks the sentences carrying the node's majority label.
@@ -30,6 +32,7 @@ from services.llm.packets import (
     load_evidence,
     node_packet,
     population_packet,
+    routes_packet,
 )
 from services.llm.prompts import PICK_SCHEMA, PROMPT_VERSION, pick_prompt
 from services.llm.runner import ClaudeRunner, Runner
@@ -40,7 +43,7 @@ DECOYS, PLANTED, PREDICTED = 2, 3, 3  # random decoys (plus the shuffled lens), 
 PLANTED_SHARE = 0.7
 HELD_OUT = 10  # held-out members, and as many others, per predicted node
 PREDICT_PASS = 0.7  # mean accuracy the descriptions must reach (half the sentences are members)
-DEFAULT_TEST_BUDGET = 24
+DEFAULT_TEST_BUDGET = 28
 
 
 def shuffled(ev: LensEvidence, rng: np.random.Generator) -> LensEvidence:
@@ -70,7 +73,13 @@ def decoy_packets(ev: LensEvidence, li: int, rng: np.random.Generator, size: int
     k = int(view.nodes[:, li].max()) + 1
     found = [population_packet(ev, li, _mask(n, rng.choice(n, size, replace=False)),
                                f"L{view.layers[li]}C{k + i}").as_dict() for i in range(DECOYS)]
-    return found + [lens_packet(shuffled(ev, rng)).as_dict()]
+    fake = shuffled(ev, rng)
+    found.append(lens_packet(fake).as_dict())
+    if ev.routes:  # the shuffled lens's pipes and hubs: the same routing, values that no longer go with it
+        from services.lenses.routes import compute_routes
+
+        found.append(routes_packet(dataclasses.replace(fake, routes=compute_routes(fake.view))).as_dict())
+    return found
 
 
 def planted_packets(ev: LensEvidence, li: int, rng: np.random.Generator, size: int) -> List[Tuple[str, Dict[str, Any]]]:
@@ -85,7 +94,34 @@ def planted_packets(ev: LensEvidence, li: int, rng: np.random.Generator, size: i
         picked = np.concatenate([rng.choice(have, take, replace=False),
                                  rng.choice(rest, min(size - take, len(rest)), replace=False)])
         found.append((value, population_packet(ev, li, _mask(n, picked), f"L{view.layers[li]}C{k + i}").as_dict()))
-    return found
+    planted = planted_routes(ev, rng)
+    return found + ([planted] if planted else [])
+
+
+def planted_routes(ev: LensEvidence, rng: np.random.Generator) -> Optional[Tuple[str, Dict[str, Any]]]:
+    """The lens's routes with its first pipeline's members replaced by a planted group, around the
+    label value that real pipelines lean to least, so naming it can only come from the plant."""
+    import copy
+
+    real = ev.routes
+    if not real or not real["pipelines"]:
+        return None
+    view = ev.view
+    labels = np.array([str(item.get("label")) for item in view.items])
+    ids = np.array([item["probe_id"] for item in view.items])
+
+    def lean(value: str) -> float:
+        shares = [float(np.mean(labels[np.isin(ids, p["member_ids"])] == value)) for p in real["pipelines"][1:]]
+        return max(shares, default=0.0)
+
+    value = min(sorted(set(labels.tolist())), key=lean)
+    routes = copy.deepcopy(real)
+    size = max(len(routes["pipelines"][0]["member_ids"]) // 2, 20)
+    have, rest = np.flatnonzero(labels == value), np.flatnonzero(labels != value)
+    take = min(int(round(PLANTED_SHARE * size)), len(have))
+    picked = np.concatenate([rng.choice(have, take, replace=False), rng.choice(rest, min(size - take, len(rest)), replace=False)])
+    routes["pipelines"][0]["member_ids"] = ids[picked].tolist()
+    return value, routes_packet(dataclasses.replace(ev, routes=routes)).as_dict()
 
 
 def predict(runner: Runner, ev: LensEvidence, li: int, node: int, rng: np.random.Generator,
@@ -140,7 +176,7 @@ def run_tests(params: Dict[str, Any], ctx: Any) -> Dict[str, Any]:
     runner = ClaudeRunner(model=params.get("model"))
     budget = Budget(int(params.get("budget") or DEFAULT_TEST_BUDGET))
     size = int(np.median(list(Counter(view.nodes[:, li].tolist()).values())))
-    steps, models = DECOYS + 1 + PLANTED + PREDICTED, Counter[str]()
+    steps, models = DECOYS + 1 + PLANTED + PREDICTED + (2 if ev.routes else 0), Counter[str]()
     decoys: List[Dict[str, Any]] = []
     for packet in decoy_packets(ev, li, rng, size):
         ctx.progress("decoys", len(decoys), steps)

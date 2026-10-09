@@ -1,5 +1,6 @@
 // An LLM card's marks and text (DESIGN.md E8): who wrote it and how it was checked, then its
-// title, pattern, summary, findings, caveats and, for a reconciled report, where its drafts differed.
+// title, pattern, summary, the lens report's sections (clusters, experts, pipelines and hubs),
+// findings, caveats and, for a reconciled report, where its drafts differed.
 import type { Card, CardOutput, Fact } from '../../types/cards'
 import CitedText from './CitedText'
 
@@ -36,6 +37,11 @@ export function CardText({ output, facts }: { output: CardOutput; facts: Record<
         <span className={`text-[9px] rounded px-1 ${tone[output.pattern]}`}>{output.pattern === 'none' ? 'no clear pattern' : `${output.pattern} pattern`}</span>
       </div>
       <p><CitedText text={output.summary} facts={facts} /></p>
+      {output.sections && ([['Clusters', output.sections.clusters], ['Experts', output.sections.experts],
+        ['Pipelines and hubs', output.sections.pipelines_and_hubs]] as const).map(([title, text]) => (
+        <div key={title}><div className="text-[10px] font-medium text-gray-500">{title}</div>
+          <p><CitedText text={text} facts={facts} /></p></div>
+      ))}
       {output.points.length > 0 && list(output.points, '•', 'text-gray-800')}
       {output.caveats.length > 0 && list(output.caveats, '!', 'text-amber-800')}
       {output.disagreements && output.disagreements.length > 0 && (

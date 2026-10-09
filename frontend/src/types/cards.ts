@@ -10,6 +10,7 @@ export interface CardOutput {
   points: string[]
   caveats: string[]
   disagreements?: string[] // the lens report's two drafts, where they differed
+  sections?: { clusters: string; experts: string; pipelines_and_hubs: string } // the lens report's
 }
 
 export interface NumberFailure {

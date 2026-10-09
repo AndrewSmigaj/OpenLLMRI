@@ -27,6 +27,9 @@ FACTS = {"F1": 89, "F2": 0.843, "F3": -0.72, "F4": 0.33, "F5": 0.79}
     ("See [F9].", False),  # no such fact
     ("Twice as many: 178 [F1].", False),  # computed numbers don't trace
     ("The rank-1 expert takes 89 items [F1]; Card 2 and draft 1 agree.", True),  # identifiers
+    ("P2 and pipeline 3 reach hub 2; H1 and the top-1 expert hold 89 items [F1].", True),  # route ids
+    ("84% of its 89 members [F2][F1], and 89 more [F1] [F2].", True),  # adjacent groups are one
+    ("84% of its 89 members [F2]. Then [F1].", False),  # a group ends at the sentence
 ])
 def test_every_numeral_must_trace_to_a_cited_fact(text: str, passed: bool) -> None:
     assert check_numbers(text, FACTS)["passed"] is passed
@@ -235,3 +238,43 @@ def test_a_sound_analyst_passes_the_tests_and_an_overclaiming_one_fails(client: 
     base = f"/api/sessions/{SESSION}/lenses/synth"
     _run(client, client.post(f"{base}/analysis", json={"cards": ["L1C0"], "budget": 2}).json()["job_id"], build_analysis)
     assert client.get(f"{base}/cards/L1C0").json()["tested"] is True
+
+
+def _with_routes(ev: Any) -> Any:
+    """The evidence with routes holding one pipeline over the first half of its items."""
+    import dataclasses
+
+    ids = [item["probe_id"] for item in ev.view.items]
+    pipeline = {"id": "P1", "layers": [0, 1, 2], "experts": [3, 4, 5], "members": len(ids) // 2, "weighted": 5.0,
+                "mean_weight": 0.3, "rank1": 0, "replicated": True, "before": [], "after": [],
+                "member_ids": ids[: len(ids) // 2]}
+    routes = {"n_items": len(ids), "min_items": 10, "pipelines": [pipeline], "hubs": [], "involved": {}}
+    return dataclasses.replace(ev, routes=routes)
+
+
+def test_the_routes_packet_and_the_save_plan_cover_pipes_and_hubs(client: Any) -> None:
+    from services.llm.cards import plan_cards
+    from services.llm.packets import build_packet, lens_packet
+
+    ev = _evidence()
+    assert ev.routes is not None and plan_cards(ev)[:2] == ["lens", "routes"]  # the build worked them out
+    packet = build_packet(ev, "routes").as_dict()
+    assert {f["what"] for f in packet["facts"]} >= {"items in the lens", "pipelines found", "hubs found"}
+    planted = build_packet(_with_routes(ev), "routes").as_dict()
+    shares = {f["what"]: f["value"] for f in planted["facts"]}
+    assert shares["P1: members (items keeping its experts among their four)"] == 20
+    assert "P1: L0E3 > L1E4 > L2E5" in planted["context"]["pipelines"][0]
+    assert any(f["what"] == "expert pipelines found" for f in lens_packet(ev).as_dict()["facts"])
+
+
+def test_a_planted_pipeline_is_named_and_a_shuffled_lens_routes_are_no_pattern(client: Any) -> None:
+    from services.llm.analyst_tests import planted_routes, shuffled
+    from services.llm.packets import render, routes_packet
+
+    ev = _with_routes(_evidence())
+    value, packet = planted_routes(ev, np.random.default_rng(0))  # type: ignore[misc]
+    card = sound_analyst(render(packet), {"properties": {}})
+    assert card is not None and card["pattern"] == "clear" and value in card["title"]
+    fake = shuffled(ev, np.random.default_rng(1))
+    decoy = sound_analyst(render(routes_packet(fake).as_dict()), {"properties": {}})
+    assert decoy is not None and decoy["pattern"] == "none"

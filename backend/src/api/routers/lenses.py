@@ -116,14 +116,16 @@ def lens_flows(session_id: str, name: str, legacy: bool = False, version: Option
 @router.get("/sessions/{session_id}/lenses/{name}/expert-flows")
 def lens_expert_flows(session_id: str, name: str, rank: int = 1, legacy: bool = False,
                       version: Optional[str] = None, output_axes: Optional[str] = None) -> Dict[str, Any]:
-    """Expert nodes and links at one rank (1 to 4), with the model's own weights."""
-    from services.lenses.flows import expert_flows
+    """Expert nodes and links at one rank (1 to 4), with the model's own weights; rank 0 draws all
+    four ranks at once, weighted by those weights."""
+    from services.lenses.flows import expert_flows, weighted_expert_flows
 
     view = _open(session_id, name, legacy, version)
     grouped = _axes_list(output_axes)
     try:
-        return expert_flows(view, rank, grouped, _expert_order(view)) | {
-            "recipe": _recipe(view, kind="expert", rank=rank, output_axes=grouped or None)}
+        found = (weighted_expert_flows(view, grouped, _expert_order(view)) if rank == 0
+                 else expert_flows(view, rank, grouped, _expert_order(view)))
+        return found | {"recipe": _recipe(view, kind="expert", rank=rank, output_axes=grouped or None)}
     except ValueError as e:
         raise _fail(e)
 
@@ -573,6 +575,54 @@ def _write_catalogue(session_id: str, name: str, version: str) -> None:
         write_nodes(session_id, name, version)
     except Exception:
         logging.getLogger(__name__).exception("Couldn't write the atlas entries of %s %s", name, version)
+
+
+@router.get("/sessions/{session_id}/lenses/{name}/routes")
+def lens_routes(session_id: str, name: str, legacy: bool = False, version: Optional[str] = None) -> Dict[str, Any]:
+    """The lens's expert pipelines, hubs and the experts involved in each designed value (DESIGN.md
+    C7), with the nodes each pipeline's items sit in at `version`. A lens keeps them in
+    `routes.json` (written by its build or the `lens_routes` job); a legacy schema's are worked out
+    when asked, in about a second."""
+    from services.lenses.routes import compute_routes, serve_routes
+    from services.lenses.store import lens_dir
+
+    view = _open(session_id, name, legacy, version)
+    try:
+        if legacy:
+            return serve_routes(view, compute_routes(view))
+        path = lens_dir(session_id, name) / "routes.json"
+        if not path.exists():
+            raise FileNotFoundError(f"Lens '{name}' has no routes yet: POST to work them out")
+        return serve_routes(view, json.loads(path.read_text(encoding="utf-8")))
+    except (FileNotFoundError, ValueError) as e:
+        raise _fail(e)
+
+
+class RoutesRequest(BaseModel):
+    family_field: str = "scene"
+    created_by: str = "app"
+
+
+@router.post("/sessions/{session_id}/lenses/{name}/routes", status_code=202)
+def start_routes(request: Request, session_id: str, name: str, body: RoutesRequest) -> Dict[str, Any]:
+    """Work out (again) a UMAP lens's pipelines, hubs and the experts involved, in the background."""
+    from services.jobs.scheduler import JobScheduler
+    from services.lenses.data import session_dir
+    from services.lenses.store import lens_dir, read_manifest
+
+    try:
+        session = session_dir(session_id).name
+        folder = lens_dir(session, name)
+        if not (folder / "lens.json").exists():
+            raise FileNotFoundError(f"Lens '{name}' not found in {session}")
+        if read_manifest(folder).kind != "umap":
+            raise ValueError(f"'{name}' is a mass-mean lens: it has no expert routes of its own")
+    except (FileNotFoundError, ValueError) as e:
+        raise _fail(e)
+    scheduler: JobScheduler = request.app.state.jobs
+    job = scheduler.submit("lens_routes", {"session_id": session, "name": name, "family_field": body.family_field},
+                           created_by=body.created_by)
+    return {"job_id": job.id, "session_id": session, "name": name}
 
 
 @router.get("/sessions/{session_id}/lenses/{name}/trajectory")

@@ -11,7 +11,7 @@ import type {
 import type {
   Fingerprint, JobView, LensBuildBody, LensDetail, LensFlows, LensMembersPage, LensMethods, LensOptions, LensSearch,
   LensSummary, LensMarks, LensNodeDetails, LensVersion, MassMeanDetails, MassMeanValidation, MembersQuery, Population,
-  LensReading, LensTrajectory, ReadBody, TuneBody, Validation,
+  LensReading, LensRoutes, LensTrajectory, ReadBody, TuneBody, Validation,
 } from '../types/lens';
 import type { AnalystTests, Card, QuestionAnswer } from '../types/cards';
 
@@ -300,6 +300,18 @@ class ConceptMriApiClient {
     const params = new URLSearchParams({ key, rank: String(rank) });
     if (version) params.set('version', version);
     return this.request<LensReading>(`/sessions/${sessionId}/lenses/${encodeURIComponent(name)}/readings?${params}`);
+  }
+
+  // A lens's expert pipelines, hubs and experts involved; a legacy schema's are worked out when asked
+  async getLensRoutes(sessionId: string, name: string, legacy: boolean, version?: string): Promise<LensRoutes> {
+    const params = new URLSearchParams({ legacy: String(legacy) });
+    if (version) params.set('version', version);
+    return this.request<LensRoutes>(`/sessions/${sessionId}/lenses/${encodeURIComponent(name)}/routes?${params}`);
+  }
+
+  async workOutRoutes(sessionId: string, name: string): Promise<{ job_id: string }> {
+    return this.request(`/sessions/${sessionId}/lenses/${encodeURIComponent(name)}/routes`,
+      { method: 'POST', body: JSON.stringify({ created_by: 'app' }) });
   }
 
   async getLensValidation(sessionId: string, name: string): Promise<Validation> {

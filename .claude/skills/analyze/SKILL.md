@@ -6,9 +6,17 @@ description: Analyse a lens with checked reports — read a card's evidence pack
 # Lens analysis
 
 Reports on a lens are **cards** (DESIGN.md E8). A card is about one thing in a lens: the lens
-itself, its k profile, a cluster node, an expert, a route, an expert route or a split point. It is
-written from that thing's **evidence packet**: numbered facts (the only numbers a card may cite),
-plus example sentences, tokens and notes.
+itself, its k profile, its pipes and hubs, a cluster node, an expert, a route, an expert route or a
+split point. It is written from that thing's **evidence packet**: numbered facts (the only numbers
+a card may cite), plus example sentences, tokens and notes.
+
+The lens report has three sections beside its summary (DESIGN.md C7): **clusters** (where and how
+the nodes separate the designed values), **experts** (which differ by designed value, and how
+well) and **pipelines and hubs** (which groups of items keep which experts, and whether any stand
+apart from all items' shares). A pipeline (P1, P2, ...) is a chain of experts across consecutive
+layers that a group of items keeps among its four; a hub (H1, ...) is an expert whose items arrive
+from different experts at the layer before. A pipeline every value takes in about its usual share
+is a trunk, not a pattern: with one target word, routing is close to the same for every item.
 
 A checker re-computes every number. Each numeral must be followed, in its sentence, by the id of
 the fact it comes from (`89 items [F1]`, `84% [F4]`, `0.33–0.79 [F4, F5]`), and must equal that
@@ -33,13 +41,18 @@ descriptions, which the app still shows.
 |---|---|
 | `lens` | the lens across its layers: the lens report |
 | `k` | the k profile: which k to cut at each layer (the lens must be validated) |
+| `routes` | the pipes and hubs: the lens's expert pipelines, its hubs and the experts involved in each designed value (`/cluster` OP-L9 works them out; every build does) |
 | `L12C0` | cluster node 0 at layer 12 |
 | `L12E5r1` | expert 5 at layer 12, at rank 1 |
 | `L12C0-L13C2` | the route from L12C0 to L13C2 |
 | `L12E5-L13E7r1` | the expert route from L12E5 to L13E7, at rank 1 |
 | `split-L12C1` | the split point: where L12C1's items part ways at the next layer |
 
-All operations read the lens's current version unless `version` is given.
+All operations read the lens's current version unless `version` is given. "P2", "pipeline 3",
+"hub 2" and "top-1" are references, not numbers: they need no citation.
+
+A save writes, within 28 calls: the lens report, the k advisor (once validated), the pipes and
+hubs, the biggest split points, then the nodes at the best layer.
 
 ## Before writing: the probe guide
 

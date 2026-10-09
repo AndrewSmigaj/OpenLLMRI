@@ -7,7 +7,8 @@ Card ids name what a card is about:
 - `lens`: the lens report; `k`: the k advisor;
 - `L12C0`: a cluster node; `L12E5r1`: an expert at a rank;
 - `L12C0-L13C2`: a route between nodes; `L12E5-L13E7r1`: an expert route at a rank;
-- `split-L12C1`: a split point, a node whose items part ways at the next layer.
+- `split-L12C1`: a split point, a node whose items part ways at the next layer;
+- `routes`: the lens's expert pipelines, hubs and the experts involved in each designed value.
 """
 
 from __future__ import annotations
@@ -85,6 +86,7 @@ class LensEvidence:
     validation: Optional[Dict[str, Any]]
     marks: Optional[Dict[str, Any]]
     search: Optional[Dict[str, Any]] = None  # a tuned lens's search (search.json)
+    routes: Optional[Dict[str, Any]] = None  # its pipelines, hubs and experts involved (routes.json)
 
     @property
     def lens(self) -> Dict[str, Any]:
@@ -108,7 +110,7 @@ def load_evidence(session_id: str, name: str, version: Optional[str] = None) -> 
     base = {axis: dict(Counter(v for item in view.items if (v := value_of(item, axis)) is not None)) for axis in axes}
     return LensEvidence(view, folder, axes, base, _read(folder / "lens.json") or {},
                         _read(folder / "details" / f"{view.version}.json"), _read(folder / "validation.json"),
-                        lens_marks(view, folder), _read(folder / "search.json"))
+                        lens_marks(view, folder), _read(folder / "search.json"), _read(folder / "routes.json"))
 
 
 MANY_VALUES = 8  # an axis with more values shows only the five the population holds most
@@ -470,7 +472,109 @@ def lens_packet(ev: LensEvidence) -> Packet:
         p.context["validation"] = ["not validated yet: there are no held-out scores"]
     if not ev.details:
         p.context["node details"] = ["not worked out yet: no routing or surface measures"]
+    _routes_digest(p, ev)
     return p
+
+
+ROUTE_PIPELINES = 8  # pipelines a routes packet describes, the strongest first
+ROUTE_EXPERTS = 2  # experts involved a routes packet lists per designed value
+
+
+def _chain(pipeline: Dict[str, Any]) -> str:
+    steps = [f"L{layer}E{expert}" for layer, expert in zip(pipeline["layers"], pipeline["experts"])]
+    return " > ".join(steps if len(steps) <= 8 else steps[:4] + ["..."] + steps[-3:])
+
+
+def _members_of(ev: LensEvidence, pipeline: Dict[str, Any]) -> Array:
+    index = {item["probe_id"]: i for i, item in enumerate(ev.view.items)}
+    mask = np.zeros(len(ev.view.items), dtype=bool)
+    mask[[index[m] for m in pipeline["member_ids"] if m in index]] = True
+    return mask
+
+
+def _route_makeup(p: Packet, ev: LensEvidence, tag: str, mask: Array) -> None:
+    """A pipeline's members' shares on each designed axis, beside all items' shares: the two values
+    of each axis that its members hold most, worked out from the evidence's own items (so a decoy
+    with shuffled values shows shuffled shares)."""
+    from services.lenses.flows import value_of
+
+    n, total = int(mask.sum()), len(ev.view.items)
+    for axis in ev.axes:
+        tally = Counter(v for i in np.flatnonzero(mask) if (v := value_of(ev.view.items[int(i)], axis)) is not None)
+        for value, count in tally.most_common(2):
+            p.fact(f"{tag}: share of its members with {axis} = {value}", count / n)
+            p.fact(f"{tag}: share of all items with {axis} = {value}", ev.base[axis].get(value, 0) / total)
+
+
+def routes_packet(ev: LensEvidence) -> Packet:
+    if not ev.routes:
+        raise ValueError("work out the lens's routes first (POST .../routes)")
+    view, routes = ev.view, ev.routes
+    p = Packet("routes", "routes", f"the expert pipelines, hubs and experts involved in {view.name}", ev.lens)
+    p.fact("items in the lens", len(view.items))
+    p.fact("items a pipeline or hub must hold at least", routes["min_items"])
+    p.fact("pipelines found", len(routes["pipelines"]))
+    p.fact("hubs found", len(routes["hubs"]))
+    chains: List[str] = []
+    for pipeline in routes["pipelines"][:ROUTE_PIPELINES]:
+        tag = pipeline["id"]
+        mask = _members_of(ev, pipeline)
+        p.fact(f"{tag}: layers it spans", len(pipeline["layers"]))
+        p.fact(f"{tag}: members (items keeping its experts among their four)", int(mask.sum()))
+        p.fact(f"{tag}: its members' mean credit (the geometric mean of their weights along it)", pipeline["mean_weight"])
+        p.fact(f"{tag}: members taking it as their top expert at every layer", pipeline["rank1"])
+        _route_makeup(p, ev, tag, mask)
+        before = ", ".join(f"L{b['layer']}E{b['expert']}" for b in pipeline["before"]) or "none"
+        after = ", ".join(f"L{a['layer']}E{a['expert']}" for a in pipeline["after"]) or "none"
+        chains.append(f"{tag}: {_chain(pipeline)}; {'found again' if pipeline['replicated'] else 'not found again'} in "
+                      f"both halves of the folds; experts before it: {before}; after it: {after}")
+    p.context["pipelines"] = chains or ["none: no group of items keeps the same experts for three layers"]
+    hubs: List[str] = []
+    for hub in routes["hubs"]:
+        tag = f"{hub['id']} (L{hub['layer']}E{hub['expert']})"
+        p.fact(f"{tag}: effective number of sources, between items", hub["sources"])
+        p.fact(f"{tag}: weighted items", hub["weighted"])
+        hubs.append(f"{tag}: from " + ", ".join(f"L{hub['layer'] - 1}E{f['expert']}" for f in hub["from"]))
+    p.context["hubs"] = hubs or ["none: at every expert the items arrive from much the same experts"]
+    involved: List[str] = []
+    for axis, values in routes["involved"].items():
+        for value, found in values.items():
+            p.fact(f"{axis} = {value}: experts whose weight differs from the rest beyond chance", len(found["experts"]))
+            for cell in found["experts"][:ROUTE_EXPERTS]:
+                tag = f"{axis} = {value}: L{cell['layer']}E{cell['expert']}"
+                p.fact(f"{tag}, mean weight difference (positive: more weight on {value})", cell["diff"])
+                p.fact(f"{tag}, how well its weight tells {value} apart (AUC)", cell["auc"])
+            if found["experts"]:
+                involved.append(f"{axis} = {value}: permutations moved {found['permuted']} together")
+    p.context["experts involved"] = involved or ["none beyond chance"]
+    p.context["reading these"] = ["a pipeline every value takes in about its usual share is a trunk, not a pattern",
+                                  "a pipeline found again in both halves of the folds is less likely to be chance"]
+    return p
+
+
+def _routes_digest(p: Packet, ev: LensEvidence) -> None:
+    """The lens report's facts on pipelines, hubs and the experts involved (the routes card has more)."""
+    from services.lenses.flows import value_of
+
+    if not ev.routes:
+        p.context["pipelines and hubs"] = ["not worked out yet"]
+        return
+    routes = ev.routes
+    p.fact("expert pipelines found", len(routes["pipelines"]))
+    p.fact("hubs found", len(routes["hubs"]))
+    lines: List[str] = []
+    for pipeline in routes["pipelines"][:3]:
+        tag = pipeline["id"]
+        mask = _members_of(ev, pipeline)
+        p.fact(f"{tag}: members", int(mask.sum()))
+        p.fact(f"{tag}: layers it spans", len(pipeline["layers"]))
+        if "label" in ev.axes:
+            top, count = Counter(str(value_of(ev.view.items[int(i)], "label")) for i in np.flatnonzero(mask)).most_common(1)[0]
+            p.fact(f"{tag}: share of its members with label = {top}", count / max(1, int(mask.sum())))
+        lines.append(f"{tag}: {_chain(pipeline)}")
+    for value, found in (routes["involved"].get("label") or {}).items():
+        p.fact(f"label = {value}: experts whose weight differs from the rest beyond chance", len(found["experts"]))
+    p.context["pipelines and hubs"] = lines or ["no pipeline: no group of items keeps the same experts for three layers"]
 
 
 def k_packet(ev: LensEvidence) -> Packet:
@@ -518,7 +622,7 @@ def k_packet(ev: LensEvidence) -> Packet:
     return p
 
 
-CARD_IDS = "lens, k, L12C0, L12E5r1, L12C0-L13C2, L12E5-L13E7r1 or split-L12C1"
+CARD_IDS = "lens, k, routes, L12C0, L12E5r1, L12C0-L13C2, L12E5-L13E7r1 or split-L12C1"
 
 
 def build_packet(ev: LensEvidence, card_id: str) -> Packet:
@@ -527,6 +631,8 @@ def build_packet(ev: LensEvidence, card_id: str) -> Packet:
         return lens_packet(ev)
     if card_id == "k":
         return k_packet(ev)
+    if card_id == "routes":
+        return routes_packet(ev)
     if m := re.fullmatch(r"split-L(\d+)C(\d+)", card_id):
         return split_packet(ev, int(m[1]), int(m[2]))
     if m := re.fullmatch(r"L(\d+)C(\d+)", card_id):

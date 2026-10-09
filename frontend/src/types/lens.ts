@@ -69,6 +69,45 @@ export interface LensReading {
   distance: { median_percentile: number[]; far_out: boolean[]; threshold: number; measure: string }
 }
 
+// A lens's expert pipelines, hubs and the experts involved in each designed value (DESIGN.md C7)
+export interface RouteStep { layer: number; expert: number; share: number }
+export interface RoutePipeline {
+  id: string // P1, P2, ... strongest first
+  layers: number[]
+  experts: number[] // the chain, one expert per layer
+  members: number // items keeping every expert of the chain among their four
+  weighted: number // the members' credit: the geometric mean of their weights along the chain
+  mean_weight: number
+  rank1: number // members taking the chain as their top expert all the way
+  makeup: Record<string, Record<string, number>>
+  replicated: boolean // found again by following the bundle in each half of the folds
+  before: RouteStep[]
+  after: RouteStep[]
+  member_ids: string[]
+  nodes: Record<string, number>[] // at each of its layers: node -> members, at the served version
+}
+export interface RouteHub {
+  id: string
+  layer: number
+  expert: number
+  weighted: number
+  items: number
+  sources: number // effective number of sources, between items
+  from: { expert: number; share: number }[]
+  to: { expert: number; share: number }[]
+}
+export interface InvolvedExpert { layer: number; expert: number; diff: number; favours: string; auc: number }
+export interface LensRoutes {
+  version: string | null
+  n_items: number
+  layers: number[]
+  min_items: number
+  base: Record<string, Record<string, number>>
+  pipelines: RoutePipeline[]
+  hubs: RouteHub[]
+  involved: Record<string, Record<string, { n: number; threshold: number; permuted: string; experts: InvolvedExpert[] }>>
+}
+
 // The 3-D view's points (DESIGN.md E5): every item at every layer in the lens's own frame, each
 // layer lined up with the one before; a reading's items in the same frame
 export interface TrajectoryItem {

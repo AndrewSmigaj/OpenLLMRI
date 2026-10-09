@@ -3,8 +3,10 @@ layer, with what it holds, where its items come from and go, its experts, its wo
 and its report.
 
 Each saved version's catalogue is a file in the repo, beside the version's records:
-`data/lenses/<session>/<lens>/<version>/nodes.json`. It is written when the version is saved and
-again when its details or reports are worked out; `GET /api/atlas/nodes` reads them all.
+`data/lenses/<session>/<lens>/<version>/nodes.json`, with the version's expert pipelines, hubs and
+experts involved beside it (`routes.json`, without the members' ids). Both are written when the
+version is saved and again when its details or reports are worked out; `GET /api/atlas/nodes`
+reads the nodes.
 """
 
 from __future__ import annotations
@@ -55,6 +57,24 @@ def _report(folder: Path, version: str, card: Optional[Dict[str, Any]], tested: 
             "written_by": card.get("written_by"), "written_at": card.get("created_at")}
 
 
+def _by_weight(view: Any, mask: Any, li: int, layer: int) -> List[Dict[str, Any]]:
+    """The experts the node's items weight most at its layer, over all four ranks (mean weight)."""
+    totals: Dict[int, float] = {}
+    for experts, weights in zip(view.experts[mask, li, :], view.weights[mask, li, :]):
+        for expert, weight in zip(experts.tolist(), weights.tolist()):
+            totals[int(expert)] = totals.get(int(expert), 0.0) + float(weight)
+    n = max(1, int(mask.sum()))
+    top = sorted(totals.items(), key=lambda kv: -kv[1])[:TOP]
+    return [{"id": f"L{layer}E{e}", "weight": round(w / n, 3)} for e, w in top]
+
+
+def _pipelines_at(routes: Dict[str, Any], rows: Dict[str, Any], mask: Any, layer: int) -> List[Dict[str, Any]]:
+    """The pipelines running through the node's layer that hold some of its items, most items first."""
+    found = [{"id": p["id"], "items": int(mask[rows[p["id"]]].sum())} for p in routes["pipelines"]
+             if layer in p["layers"] and rows[p["id"]].size]
+    return sorted([f for f in found if f["items"]], key=lambda f: -f["items"])[:TOP]
+
+
 def node_entries(session_id: str, name: str, version: str) -> Dict[str, Any]:
     """One saved version's node catalogue."""
     from services.lenses.flows import axes_of, value_of
@@ -68,6 +88,11 @@ def node_entries(session_id: str, name: str, version: str) -> Dict[str, Any]:
     path = folder / "details" / f"{view.version}.json"
     details = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
     passing, axes, entries = passing_analysts(), axes_of(view), []
+    routes_path = folder / "routes.json"
+    routes = json.loads(routes_path.read_text(encoding="utf-8")) if routes_path.exists() else None
+    index = {item["probe_id"]: i for i, item in enumerate(view.items)}
+    pipeline_rows = {p["id"]: np.array([index[m] for m in p["member_ids"] if m in index], dtype=int)
+                     for p in (routes or {}).get("pipelines", [])}
     for li, layer in enumerate(view.layers):
         codes = view.nodes[:, li]
         layer_details = (details.get("layers") or {}).get(str(layer), {})
@@ -86,6 +111,8 @@ def node_entries(session_id: str, name: str, version: str) -> Dict[str, Any]:
                 "from": _top(view.nodes[mask, li - 1], f"L{view.layers[li - 1]}C") if li > 0 else [],
                 "to": _top(view.nodes[mask, li + 1], f"L{view.layers[li + 1]}C") if li + 1 < len(view.layers) else [],
                 "experts": _top(view.experts[mask, li, 0], f"L{layer}E"),
+                "experts_by_weight": _by_weight(view, mask, li, layer),
+                "pipelines": None if routes is None else _pipelines_at(routes, pipeline_rows, mask, layer),
                 "details": _details(layer_details, int(node)),
                 "report": _report(folder, str(view.version), card, tested)})
     return {"format": FORMAT,
@@ -114,7 +141,26 @@ def write_nodes(session_id: str, name: str, version: str, records: Optional[Path
     tmp = path.with_name(".nodes.json.tmp")
     tmp.write_text(json.dumps(catalogue, indent=1) + "\n", encoding="utf-8")
     os.replace(tmp, path)
+    _write_routes_record(session_id, name, version, path.parent)
     return path
+
+
+def _write_routes_record(session_id: str, name: str, version: str, folder: Path) -> None:
+    """The version's routes beside its nodes, with the nodes each pipeline's items sit in at this
+    version and without the members' ids (the lake keeps those)."""
+    from services.lenses.routes import serve_routes
+    from services.lenses.store import lens_dir
+    from services.lenses.view import open_lens
+
+    source = lens_dir(session_id, name) / "routes.json"
+    if not source.exists():
+        return
+    served = serve_routes(open_lens(session_id, name, version), json.loads(source.read_text(encoding="utf-8")))
+    served["pipelines"] = [{k: v for k, v in p.items() if k != "member_ids"} for p in served["pipelines"]]
+    served.pop("seconds", None)  # no time stamps: writing again unchanged leaves no difference for git
+    tmp = folder / ".routes.json.tmp"
+    tmp.write_text(json.dumps(served, indent=1) + "\n", encoding="utf-8")
+    os.replace(tmp, folder / "routes.json")
 
 
 def atlas_nodes(records: Optional[Path] = None) -> List[Dict[str, Any]]:

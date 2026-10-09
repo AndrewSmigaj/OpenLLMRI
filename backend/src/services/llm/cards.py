@@ -21,15 +21,16 @@ from services.llm.packets import LensEvidence, fact_values, packet_hash, render,
 from services.llm.prompts import (
     CARD_SCHEMA,
     PROMPT_VERSION,
-    RECONCILED_SCHEMA,
     card_prompt,
+    card_schema,
     reconcile_prompt,
+    reconciled_schema,
     retry_prompt,
 )
 from services.llm.runner import ClaudeRunner, Runner, RunResult
 
-TEXT_FIELDS = ("title", "summary", "points", "caveats", "disagreements")
-DEFAULT_BUDGET = 25  # calls a save may make (DESIGN.md E8)
+TEXT_FIELDS = ("title", "summary", "sections", "points", "caveats", "disagreements")
+DEFAULT_BUDGET = 28  # calls a save may make (DESIGN.md E8): the lens report, k, routes, splits, nodes
 
 
 class Budget:
@@ -50,6 +51,8 @@ def card_text(output: Dict[str, Any]) -> str:
     lines: List[str] = []
     for key in TEXT_FIELDS:
         value = output.get(key)
+        if isinstance(value, dict):  # the lens report's sections
+            value = list(value.values())
         lines += [str(v) for v in value] if isinstance(value, list) else ([str(value)] if value else [])
     return "\n".join(lines)
 
@@ -95,7 +98,8 @@ def write_card(runner: Runner, packet: Dict[str, Any], budget: Budget) -> Option
     if not budget.take():
         return None
     runs: List[RunResult] = []
-    output, check = _checked(runner, card_prompt(render(packet), packet["kind"]), CARD_SCHEMA, packet, budget, runs)
+    output, check = _checked(runner, card_prompt(render(packet), packet["kind"]), card_schema(packet["kind"]),
+                             packet, budget, runs)
     return _record(packet, output, check, runs, analysts=1)
 
 
@@ -112,7 +116,7 @@ def write_report(runner: Runner, packet: Dict[str, Any], budget: Budget) -> Opti
         return drafts[0]
     runs: List[RunResult] = []
     prompt = reconcile_prompt(render(packet), packet["kind"], [d["output"] for d in drafts])
-    output, check = _checked(runner, prompt, RECONCILED_SCHEMA, packet, budget, runs)
+    output, check = _checked(runner, prompt, reconciled_schema(packet["kind"]), packet, budget, runs)
     if output is None:
         return drafts[0]
     card = _record(packet, output, check, runs, analysts=2, drafts=[d["output"] for d in drafts])
@@ -211,10 +215,10 @@ def best_layer(ev: LensEvidence) -> int:
 
 def plan_cards(ev: LensEvidence) -> List[str]:
     """What a save writes, in order, until its budget runs out (DESIGN.md E8): the lens report,
-    the k advisor once the lens is validated, the biggest split points, then the nodes at the
-    best layer."""
+    the k advisor once the lens is validated, the pipes and hubs once the routes are worked out,
+    the biggest split points, then the nodes at the best layer."""
     view = ev.view
-    order = ["lens"] + (["k"] if ev.validation else [])
+    order = ["lens"] + (["k"] if ev.validation else []) + (["routes"] if ev.routes else [])
     order += [f"split-L{layer}C{node}" for layer, node, _ in split_points(view)[:SPLIT_CARDS]]
     layer = best_layer(ev)
     order += [f"L{layer}C{node}" for node in sorted(set(view.nodes[:, view.layers.index(layer)].tolist()))]

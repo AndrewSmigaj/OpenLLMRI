@@ -105,8 +105,23 @@ def build_lens(params: Dict[str, Any], ctx: Any) -> Dict[str, Any]:
     _write_lens(tmp, p, items, layers, fits, ctx, started, check)
     shutil.rmtree(tmp / "work")
     os.replace(tmp, final)
+    _write_routes(p.session_id, p.name, ctx)
     return {"session_id": p.session_id, "name": p.name, "version": "v1",
             "n_items": len(items), "seconds": round(time.time() - started, 1)}
+
+
+def _write_routes(session_id: str, name: str, ctx: Any) -> None:
+    """The new lens's pipelines, hubs and experts involved (seconds). The lens is already whole, so
+    a failure is logged and leaves it to the `lens_routes` job."""
+    import traceback
+
+    from services.lenses.routes import write_routes
+
+    ctx.progress("routes", 0, 1)
+    try:
+        write_routes(session_id, name)
+    except Exception:
+        traceback.print_exc()
 
 
 def _workers(p: LensBuildParams) -> int:

@@ -19,6 +19,7 @@ export function cardFor(selection: Selection, cluster: RouteAnalysisResponse | n
       },
     }
   }
+  if (selection.kind === 'pipe') return null // its report is the card on pipes and hubs
   const id = selection.kind === 'node' ? selection.id : selection.source
   const kind = isOutputNode(id) ? 'cluster' : parseNodeId(id)?.kind
   const routes = kind === 'expert' ? expert : cluster

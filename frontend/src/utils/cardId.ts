@@ -1,22 +1,24 @@
 // Which LLM card a Layers selection opens (backend/src/services/llm/packets.py names them): a
 // cluster node (L12C0), an expert at the chart's rank (L12E5r1), a route between nodes
 // (L12C0-L13C2) or experts (L12E5-L13E7r1), and, for a node whose items part ways at the next
-// layer, its split point (split-L12C0). Nothing selected opens the lens report; output nodes and
-// single items have no card.
+// layer, its split point (split-L12C0). Nothing selected opens the lens report and a pipeline the
+// card on pipes and hubs (routes); output nodes, single items and the weighted view's experts
+// (rank 0) have no card.
 import type { FlowLink, FlowNode } from '../types/lens'
 import { parseNodeId, type Selection } from './selection'
 
 export function cardIdFor(selection: Selection | null, rank: number): string | null {
   if (!selection) return 'lens'
   if (selection.kind === 'probe') return null
+  if (selection.kind === 'pipe') return 'routes'
   if (selection.kind === 'node') {
     const node = parseNodeId(selection.id)
-    if (!node) return null
+    if (!node || (node.kind === 'expert' && rank === 0)) return null
     return node.kind === 'cluster' ? selection.id : `${selection.id}r${rank}`
   }
   const from = parseNodeId(selection.source)
   const to = parseNodeId(selection.target)
-  if (!from || !to || from.kind !== to.kind) return null
+  if (!from || !to || from.kind !== to.kind || (from.kind === 'expert' && rank === 0)) return null
   return `${selection.source}-${selection.target}${from.kind === 'expert' ? `r${rank}` : ''}`
 }
 

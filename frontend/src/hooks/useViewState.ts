@@ -7,7 +7,8 @@ import { GRADIENT_SCHEMES, type GradientScheme } from '../color/scheme'
 export const ZOOMS = [6, 12, 24] as const
 export type Zoom = typeof ZOOMS[number]
 export const RANKS = [1, 2, 3, 4] as const
-export type LowerTab = 'members' | 'output' | 'experts'
+export const ALL_RANKS = 0 // the expert chart's weighted view of all four ranks
+export type LowerTab = 'members' | 'output' | 'routes' | 'experts'
 export const FILLS = ['charts', 'd3', 'lower', 'side'] as const
 export type Fill = typeof FILLS[number] | '' // a Layers panel filling the workspace (DESIGN.md E2)
 
@@ -22,7 +23,7 @@ export interface ViewState {
   fade: string // with a second axis: the value it fades toward grey; '' shows it as lightness
   stripes: boolean // nodes show their exact shares as bands
   gradient: GradientScheme
-  rank: number // the expert chart's rank, 1 to 4
+  rank: number // the expert chart's rank, 1 to 4, or 0 for all four weighted by the model's own weights
   top: number | null // links kept per layer in the expert chart; null keeps all
   sel: string // the selected node, link ("source>target") or item ("probe:<id>"); '' for none
   step: number | null // the step (an agent's tick, a context step) the selection lights; null for every step
@@ -59,11 +60,11 @@ export function parseView(params: URLSearchParams): ViewState {
     fade: get('fade') ?? DEFAULT_VIEW.fade,
     stripes: get('stripes') === '1',
     gradient: gradient && gradient in GRADIENT_SCHEMES ? gradient as GradientScheme : DEFAULT_VIEW.gradient,
-    rank: int('rank', DEFAULT_VIEW.rank, n => n >= 1 && n <= 4),
+    rank: int('rank', DEFAULT_VIEW.rank, n => n >= 0 && n <= 4),
     top: get('top') === 'all' ? null : int('top', DEFAULT_VIEW.top ?? 10, n => n > 0),
     sel: get('sel') ?? '',
     step: step < 0 ? null : step,
-    tab: tab === 'output' || tab === 'experts' ? tab : 'members',
+    tab: tab === 'output' || tab === 'routes' || tab === 'experts' ? tab : 'members',
     d3: get('d3') !== '0',
     fill: (FILLS as readonly string[]).includes(get('fill') ?? '') ? get('fill') as Fill : '',
   }

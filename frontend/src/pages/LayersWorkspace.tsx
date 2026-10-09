@@ -24,7 +24,11 @@ import { membersQuery, parseNodeId, parseSelection, probeSelection, type Selecti
 import { cardIdFor, splitCardFor } from '../utils/cardId'
 import { cardFor } from '../utils/selectionCard'
 import { isOutputNode, stripOutputPrefix } from '../constants/outputNodes'
-import { atStep, clusterPath as clusterPathOf, expertPath, ghostFlows, linkKey, litFlows, litItems, placesOf, readMaps } from '../utils/lighting'
+import { atStep, chainLit, clusterPath as clusterPathOf, expertPath, ghostFlows, linkKey, litFlows, litItems, placesOf, readMaps } from '../utils/lighting'
+import { useLensRoutes } from '../hooks/useLensRoutes'
+import { useJobRunner } from '../hooks/useJobRunner'
+import { apiClient } from '../api/client'
+import RoutesPanel from '../components/layers/RoutesPanel'
 import { useStepReading } from '../hooks/useStepReading'
 import ColourControls from '../components/layers/ColourControls'
 import ColourLegend from '../components/layers/ColourLegend'
@@ -49,7 +53,8 @@ const NO_LAYERS: number[] = []
 const NO_VALUES: string[] = []
 const DEFAULT_SAMPLE = 600 // trajectories drawn in 3-D until the slider asks for more
 const nameOf = (selection: Selection | null) => selection?.kind === 'node' ? selection.id
-  : selection?.kind === 'link' ? `${selection.source} → ${selection.target}` : ''
+  : selection?.kind === 'link' ? `${selection.source} → ${selection.target}`
+  : selection?.kind === 'pipe' ? `pipeline ${selection.id}` : ''
 
 function Hint({ children }: { children: ReactNode }) {
   return <div className="m-4 bg-slate-50 border border-slate-200 rounded-lg p-3 text-xs text-slate-700">{children}</div>
@@ -104,14 +109,20 @@ function LayersView({ view, update, visitor }: { view: ViewState; update: Update
       places: placesOf(sentences.filter(sentence => routes?.probe_assignments?.[sentence.probe_id]), reading?.items ?? []),
     }
   }, [reading, routes, expert.routes, sentences, grouping.length])
+  // The lens's pipes and hubs (DESIGN.md C7): a pipeline lights its members, and its own chain
+  const routesState = useLensRoutes(view.session, view.lens, view.legacy, view.legacy ? undefined : listing?.current ?? undefined)
+  const pipelines = routesState.routes?.pipelines
+  const pipeMembers = useMemo(() => Object.fromEntries((pipelines ?? []).map(p => [p.id, p.member_ids])), [pipelines])
+  const routesJob = useJobRunner(() => undefined) // the lens event reads the routes again
   // What the selection lights (DESIGN.md E5): its items' paths in both charts, over faded flows; with
   // a step chosen, its items at that step (an item stands for its run's item there)
-  const litList = useMemo(() => atStep(litItems(view.sel, maps.assignments, maps.outputOf, maps.experts),
-    view.sel, view.step, maps.places), [view.sel, view.step, maps])
+  const litList = useMemo(() => atStep(litItems(view.sel, maps.assignments, maps.outputOf, maps.experts, pipeMembers),
+    view.sel, view.step, maps.places), [view.sel, view.step, maps, pipeMembers])
+  const chosenPipe = view.sel.startsWith('pipe:') ? pipelines?.find(p => `pipe:${p.id}` === view.sel) : undefined
   const lit = useMemo(() => litList.length ? {
     cluster: litFlows(litList, clusterPathOf(maps.assignments, layers, maps.outputOf)),
-    expert: litFlows(litList, expertPath(maps.experts, layers, maps.outputOf)),
-  } : { cluster: null, expert: null }, [litList, maps, layers])
+    expert: chosenPipe ? chainLit(chosenPipe, litList.length) : litFlows(litList, expertPath(maps.experts, layers, maps.outputOf)),
+  } : { cluster: null, expert: null }, [litList, maps, layers, chosenPipe])
   // What only the read items take, drawn as ghosts while the reading is shown
   const ghosts = useMemo(() => {
     if (!maps.read || !routes || !expert.routes) return { cluster: null, expert: null }
@@ -148,6 +159,12 @@ function LayersView({ view, update, visitor }: { view: ViewState; update: Update
     [view.sel, shownProbe, cluster.routes, expert.routes, sentences, members.items])
   // At a step read through the lens, the Members tab lists that step's items the list's selection
   // stands for (every read item when nothing is selected)
+  // A pipeline's members, listed from the capture's sentences
+  const pipeList = useMemo(() => {
+    if (listSelection?.kind !== 'pipe') return null
+    const wanted = new Set(pipeMembers[listSelection.id] ?? [])
+    return sentences.filter(sentence => wanted.has(sentence.probe_id))
+  }, [listSelection, pipeMembers, sentences])
   const readList = useMemo(() => {
     if (!reading) return null
     const ids = listSel ? atStep(litItems(listSel, maps.assignments, maps.outputOf, maps.experts), listSel, view.step, maps.places)
@@ -240,7 +257,8 @@ function LayersView({ view, update, visitor }: { view: ViewState; update: Update
   // The analysis panel (DESIGN.md E8): the report on the selection, or on the lens when nothing is
   // selected, and for a node whose items part ways, the split point's report too
   const cards = useCardList(view.session, view.lens, !view.legacy)
-  const cardId = view.legacy ? null : cardIdFor(selection, view.rank)
+  // With the Pipes and hubs tab open and nothing selected, the panel shows the report on them
+  const cardId = view.legacy ? null : !selection && view.tab === 'routes' ? 'routes' : cardIdFor(selection, view.rank)
   const splitId = !view.legacy && selection?.kind === 'node' && cluster.flows
     ? splitCardFor(selection.id, cluster.flows.nodes, cluster.flows.links) : null
   const reportOn = (id: string, label: string) => (
@@ -251,7 +269,7 @@ function LayersView({ view, update, visitor }: { view: ViewState; update: Update
   )
   const report = cardId && (
     <>
-      {reportOn(cardId, cardId === 'lens' ? 'Report on this lens'
+      {reportOn(cardId, cardId === 'lens' ? 'Report on this lens' : cardId === 'routes' ? 'Report on pipes and hubs'
         : `Report on ${selectionName}${/r\d$/.test(cardId) ? ` at rank ${view.rank}` : ''}`)}
       {splitId && reportOn(splitId, `Where ${selectionName}'s items part ways`)}
     </>
@@ -262,14 +280,18 @@ function LayersView({ view, update, visitor }: { view: ViewState; update: Update
       if (clear) update({ sel: '' })
       requestAnimationFrame(() => document.getElementById('analysis-report')?.scrollIntoView({ behavior: 'smooth', block: 'start' }))
     }} className="text-[11px] text-violet-700 hover:underline">
-      {on === 'lens' ? 'Report on this lens' : `Report on ${selectionName}`} ▸
+      {on === 'lens' ? 'Report on this lens' : on === 'routes' ? 'Report on pipes and hubs' : `Report on ${selectionName}`} ▸
     </button>
   )
   const panels = {
     members: (
       <div className="space-y-1">
         {openReport(cardId, false)}
-        {readList
+        {pipeList && !readList
+          ? <FilteredWordDisplay sentences={pipeList} targetWord={context.details?.target_word}
+              heading={`Members of ${nameOf(listSelection)}`} labelValues={labelValues} gradient={axes.gradient}
+              onPick={id => pick(id, listSel)} pickedId={shownProbe ?? undefined} />
+          : readList
           ? <FilteredWordDisplay sentences={readList} targetWord={context.details?.target_word}
               heading={listSelection && listSelection.kind !== 'probe'
                 ? `Members of ${nameOf(listSelection)} at ${stepLabel.toLowerCase()} ${view.step}, read through the lens`
@@ -293,9 +315,17 @@ function LayersView({ view, update, visitor }: { view: ViewState; update: Update
           windowLabel={`Layer ${layers[layers.length - 1] ?? ''} → generated output`} />
       </div>
     ),
+    routes: (
+      <RoutesPanel state={routesState} axis={axes.input.axis} axisValues={axes.axisValues} gradient={axes.gradient}
+        selected={view.sel} onPipeline={id => update({ sel: view.sel === `pipe:${id}` ? '' : `pipe:${id}` })}
+        onHub={(layer, expert) => update({ rank: 0, sel: `L${layer}E${expert}` })}
+        onWorkOut={() => void routesJob.start(() => apiClient.workOutRoutes(view.session, view.lens))}
+        working={routesJob.running || routesJob.starting} disabled={visitor || view.legacy}
+        report={view.legacy ? undefined : openReport('routes', false)} />
+    ),
     experts: (
       <FingerprintPanel session={view.session} lens={view.lens} legacy={view.legacy} axes={axes.axisValues}
-        selectedNode={selectedClusterNode} />
+        selectedNode={selectedClusterNode} involved={routesState.routes?.involved} />
     ),
   }
 
@@ -348,7 +378,9 @@ function LayersView({ view, update, visitor }: { view: ViewState; update: Update
     <div className="relative h-full">
       <span className="absolute top-0.5 right-1 z-10">{fillButton('charts')}</span>
       <LayerCharts cluster={cluster} expert={expert} view={view} update={update} colours={colours}
-        outlined={outlined} lit={lit} ghosts={ghosts} onExport={exportFlows} />
+        outlined={outlined} lit={lit} ghosts={ghosts} onExport={exportFlows}
+        pipelines={(pipelines ?? []).slice(0, 3).map(p => ({ id: p.id, members: p.members,
+          title: `${p.id}: L${p.layers[0]}–L${p.layers[p.layers.length - 1]}, ${p.members} members` }))} />
     </div>
   )
   const space3d = (

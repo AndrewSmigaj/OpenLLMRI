@@ -3,7 +3,7 @@
 import { useEffect, useRef, type ReactNode } from 'react'
 import type * as echarts from 'echarts'
 import type { RouteAnalysisResponse } from '../../types/api'
-import { RANKS, type UpdateView, type ViewState } from '../../hooks/useViewState'
+import { ALL_RANKS, RANKS, type UpdateView, type ViewState } from '../../hooks/useViewState'
 import { useElementSize } from '../../hooks/useElementSize'
 import type { SankeyColours } from '../charts/sankeyOption'
 import AllLayerSankeyView from '../charts/AllLayerSankeyView'
@@ -32,6 +32,7 @@ interface LayerChartsProps {
   outlined?: Record<string, number> // cluster nodes holding items raw space groups differently
   lit?: { cluster: Lit | null; expert: Lit | null } // what the selection lights in each chart
   ghosts?: { cluster: Lit | null; expert: Lit | null } // what only read items take, in each chart
+  pipelines?: { id: string; members: number; title: string }[] // the strongest, as chips in the expert header
   onExport: (kind: 'cluster' | 'expert', format: ExportFormat, chart: echarts.ECharts | null) => void
 }
 
@@ -43,7 +44,7 @@ function Status({ state, height }: { state: FlowsState; height: number }) {
   )
 }
 
-export default function LayerCharts({ cluster, expert, view, update, colours, outlined, lit, ghosts, onExport }: LayerChartsProps) {
+export default function LayerCharts({ cluster, expert, view, update, colours, outlined, lit, ghosts, pipelines, onExport }: LayerChartsProps) {
   const scroller = useRef<HTMLDivElement>(null)
   const box = useElementSize(scroller)
   const charts = useRef<Record<'cluster' | 'expert', echarts.ECharts | null>>({ cluster: null, expert: null })
@@ -103,6 +104,23 @@ export default function LayerCharts({ cluster, expert, view, update, colours, ou
           {rank}
         </button>
       ))}
+      <button onClick={() => update({ rank: ALL_RANKS, ...(expertSelected ? { sel: '' } : {}) })} aria-label="All four ranks"
+        title="All four ranks, each expert sized by the gate weight its items give it: a pipeline shows wherever all its steps exist"
+        className={`px-1 h-5 rounded ${view.rank === ALL_RANKS ? 'bg-gray-800 text-white' : 'bg-gray-100 hover:bg-gray-200'}`}>
+        all
+      </button>
+    </span>
+  )
+  // The strongest pipelines: choosing one lights its chain
+  const chips = pipelines && pipelines.length > 0 && (
+    <span className="flex items-center gap-0.5 text-[10px] text-gray-600">
+      Pipelines
+      {pipelines.map(p => (
+        <button key={p.id} onClick={() => update({ sel: view.sel === `pipe:${p.id}` ? '' : `pipe:${p.id}` })} title={p.title}
+          className={`px-1 h-5 rounded ${view.sel === `pipe:${p.id}` ? 'bg-gray-800 text-white' : 'bg-amber-50 text-amber-800 hover:bg-amber-100'}`}>
+          {p.id}
+        </button>
+      ))}
     </span>
   )
   const select = (sel: string) => update({ sel })
@@ -121,7 +139,7 @@ export default function LayerCharts({ cluster, expert, view, update, colours, ou
               onChartReady={chart => { charts.current.cluster = chart }} />
           : <Status state={cluster} height={height} />}
         <div className="h-2" />
-        {header('Experts', 'expert', rankPicker)}
+        {header('Experts', 'expert', <>{rankPicker}{chips}</>)}
         {expert.routes
           ? <AllLayerSankeyView routes={expert.routes} geometry={geometry} colours={colours} top={view.top} keepOrder lit={lit?.expert} ghosts={ghosts?.expert}
               onSelect={select} onChartReady={chart => { charts.current.expert = chart }} />

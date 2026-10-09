@@ -2,11 +2,12 @@
 numeral an analyst writes must trace to a fact in its evidence packet, cited right after it.
 
 A citation is a bracketed group of fact ids after the numerals it supports, in the same sentence:
-"89 items [F1]", "84% aquarium and 8% scuba [F5, F6]". A numeral passes when it equals one of the
-group's facts at the precision written; a share (a fraction) may be written as a percentage.
-Skipped: numerals inside double quotes (quoted sentences) and identifiers (L12, L12C0, E5, n2092,
-"layer 12", "rank 2", "rank-1", "Card 2", the reconciler's name for a draft). A sign is compared
-only when it is written.
+"89 items [F1]", "84% aquarium and 8% scuba [F5, F6]"; adjacent groups count as one ("[F5][F6]").
+A numeral passes when it equals one of the group's facts at the precision written; a share (a
+fraction) may be written as a percentage.
+Skipped: numerals inside double quotes (quoted sentences) and identifiers (L12, L12C0, E5, P2, H1,
+n2092, "layer 12", "rank 2", "rank-1", "top-1", "pipeline 3", "hub 2", "Card 2", the reconciler's
+name for a draft). A sign is compared only when it is written.
 """
 
 from __future__ import annotations
@@ -17,7 +18,8 @@ from typing import Any, Dict, List, Mapping, Optional
 NUM = re.compile(r"(?<![\w.#])([+−-]?)(\d[\d,]*(?:\.\d+)?)(?![\w])")
 CITE = re.compile(r"\[(F\d+(?:\s*,\s*F\d+)*)\]")
 QUOTED = re.compile(r"\"[^\"]*\"|“[^”]*”")
-REF = re.compile(r"\b(?:[Ll]ayers?|[Rr]anks?|[Ee]xperts?|[Cc]ards?|[Dd]rafts?)[\s-]+\d+(?:\s*(?:–|-|to|and)\s*\d+)?")
+REF = re.compile(r"\b(?:[Ll]ayers?|[Rr]anks?|[Ee]xperts?|[Cc]ards?|[Dd]rafts?|[Pp]ipelines?|[Hh]ubs?|[Tt]op)"
+                 r"[\s-]+\d+(?:\s*(?:–|-|to|and)\s*\d+)?")
 SENTENCE_END = re.compile(r"[.;!?](?=\s|$)|\n")
 
 
@@ -70,7 +72,12 @@ def check_numbers(text: str, facts: Mapping[str, float]) -> Dict[str, Any]:
         if cite is None or cite.start() > end:
             failures.append({"numeral": shown, "context": context, "reason": "no citation in its sentence"})
             continue
-        ids = [fid for fid in re.findall(r"F\d+", cite.group(1)) if fid in facts]
+        group = [cite]
+        for after in cites[cites.index(cite) + 1:]:
+            if plain[group[-1].end():after.start()].strip():
+                break
+            group.append(after)
+        ids = [fid for c in group for fid in re.findall(r"F\d+", c.group(1)) if fid in facts]
         if not any(_matches(written, sign, percent, float(facts[fid])) for fid in ids):
             listed = ", ".join(f"{fid} = {facts[fid]}" for fid in ids) or "no known fact"
             failures.append({"numeral": shown, "context": context, "reason": f"doesn't match {listed}"})

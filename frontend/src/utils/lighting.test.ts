@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { atStep, clusterPath, expertPath, ghostFlows, linkKey, litFlows, litItems, litOpacity, placesOf, readMaps } from './lighting'
+import { atStep, chainLit, clusterPath, expertPath, ghostFlows, linkKey, litFlows, litItems, litOpacity, placesOf, readMaps } from './lighting'
 
 const assignments = {
   a: { '0': 0, '1': 1, '2': 0 },
@@ -73,5 +73,13 @@ describe('lighting', () => {
     const items = atStep(litItems('probe:a', all), 'probe:a', 0, places)
     expect(items).toEqual(['a0'])
     expect(Object.keys(litFlows(items, clusterPath(all, layers)).nodes).sort()).toEqual(['L0C1', 'L1C0', 'L2C1'])
+  })
+
+  it("a pipeline lights its members' bundle, and its own chain in the expert chart", () => {
+    expect(litItems('pipe:P1', assignments, outputOf, undefined, { P1: ['a', 'c'] })).toEqual(['a', 'c'])
+    expect(litItems('pipe:P9', assignments, outputOf, undefined, { P1: ['a'] })).toEqual([])
+    const chain = chainLit({ layers: [0, 1, 2], experts: [5, 7, 7] }, 2)
+    expect(chain.nodes).toEqual({ L0E5: 2, L1E7: 2, L2E7: 2 })
+    expect(chain.links).toEqual({ [linkKey('L0E5', 'L1E7')]: 2, [linkKey('L1E7', 'L2E7')]: 2 })
   })
 })
