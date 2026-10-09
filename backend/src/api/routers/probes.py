@@ -268,11 +268,13 @@ async def run_sentence_experiment(
             target_word=ss.target_word,
             labels=labels,
             sentence_set_name=ss.name,
+            holdout=ss.metadata.get("holdout"),
         )
 
         # Capture each sentence (harmony format, no cache; generation optional)
         tokenizer = service.processor.tokenizer
         counts = {g.label: 0 for g in ss.groups}
+        dropped: List[Dict[str, str]] = []
         for entry, label in sentences:
             try:
                 # Harmony chat-template wrap of the user content
@@ -309,10 +311,11 @@ async def run_sentence_experiment(
                     token_ids = token_ids + tokenizer.encode(
                         "<|channel|>final<|message|>", add_special_tokens=False)
 
-                service.capture_step(
+                written, _ = service.capture_step(
                     session_id, token_ids, [entry.target_word],
                     capture_static_substring=request.capture_static_substring,
                     logit_token_sets=request.logit_token_sets,
+                    split_words=True,
                     metadata={
                         "label": label,
                         "categories": getattr(entry, "categories", None),
@@ -320,8 +323,18 @@ async def run_sentence_experiment(
                         "generated_text": gen_text,
                     },
                 )
-                counts[label] += 1
+                if written:
+                    counts[label] += 1
+                else:
+                    reason = f"target {entry.target_word!r} not found in {entry.text!r}"
+                    dropped.append({"word": entry.target_word, "label": label, "text": entry.text, "reason": reason})
+                    service.session_mgr.record_probe_failure(session_id, reason)
+                    logger.warning(f"Dropped a sentence ({label}): {reason}")
             except Exception as e:
+                reason = f"capture failed for {entry.text!r}: {e}"
+                dropped.append({"word": entry.target_word, "label": label, "text": entry.text, "reason": reason})
+                if session_id in service.session_mgr.active_sessions:
+                    service.session_mgr.record_probe_failure(session_id, reason)
                 logger.warning(f"Skipping failed sentence: {e}")
                 continue
 
@@ -330,13 +343,14 @@ async def run_sentence_experiment(
 
         total = sum(counts.values())
         counts_str = " + ".join(f"{c}{label}" for label, c in counts.items())
-        logger.info(f"Sentence experiment complete: {session_id} ({counts_str})")
+        logger.info(f"Sentence experiment complete: {session_id} ({counts_str}; {len(dropped)} dropped)")
         return SentenceExperimentResponse(
             session_id=session_id,
             session_name=session_name,
             total_probes=total,
             labels=labels,
             counts=counts,
+            dropped=dropped,
         )
 
     except FileNotFoundError:

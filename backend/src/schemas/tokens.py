@@ -51,6 +51,7 @@ class ProbeRecord:
     scenario_id: Optional[str] = None
     capture_type: Optional[str] = None  # "prompt", "generation", "batch", "knowledge_query"
     target_char_offset: Optional[int] = None  # Character position of target word in input_text
+    target_token_count: int = 1  # tokens the target word took; a word that splits is read at its last
 
     # Tick-log enrichments (runtime-only; populated by enrich_records_with_tick_log
     # after load, never persisted to Parquet).
@@ -63,7 +64,10 @@ class ProbeRecord:
 
     @classmethod
     def from_parquet_dict(cls, data: Dict[str, Any]) -> 'ProbeRecord':
-        """Reconstruct from Parquet dictionary."""
+        """Reconstruct from Parquet dictionary. Rows written before `target_token_count` existed
+        read as one token, whether their file lacks the column or a later append added it."""
+        if data.get("target_token_count") is None:
+            data = {**data, "target_token_count": 1}
         return cls(**data)
 
 
@@ -94,6 +98,7 @@ PROBE_RECORD_PARQUET_SCHEMA = {
     "scenario_id": "string",
     "capture_type": "string",
     "target_char_offset": "int32",
+    "target_token_count": "int32",
 }
 
 
@@ -120,6 +125,7 @@ def create_probe_record(
     capture_type: Optional[str] = None,
     target_char_offset: Optional[int] = None,
     first_token_logprobs: Optional[Dict[str, Dict[str, float]]] = None,
+    target_token_count: int = 1,
 ) -> ProbeRecord:
     """Create probe record linking probe_id to input text and tracked words."""
     categories_json = json.dumps(categories) if categories else None
@@ -147,4 +153,5 @@ def create_probe_record(
         capture_type=capture_type,
         target_char_offset=target_char_offset,
         first_token_logprobs_json=first_token_logprobs_json,
+        target_token_count=target_token_count,
     )

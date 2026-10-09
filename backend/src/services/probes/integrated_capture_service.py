@@ -150,9 +150,10 @@ class IntegratedCaptureService:
         self, session_name: str, total_probes: int, target_word: str,
         labels: List[str], experiment_id: Optional[str] = None,
         sentence_set_name: Optional[str] = None,
+        holdout: Optional[Dict[str, Any]] = None,
     ) -> str:
         session_id = self.session_mgr.create_session(
-            session_name, total_probes, target_word, labels, experiment_id, sentence_set_name
+            session_name, total_probes, target_word, labels, experiment_id, sentence_set_name, holdout
         )
         self.session_writers[session_id] = SessionBatchWriters(
             session_id, self.session_mgr.data_lake_path, self.session_mgr.batch_size
@@ -184,6 +185,11 @@ class IntegratedCaptureService:
     #   - target_char_offset is computed from input_text + occurrence_idx and
     #     populated on EVERY record (was previously probe_tick-only — caused
     #     last_occurrence_only filter to "always keep" sentence/temporal records).
+    #     With a stored text (metadata input_text) found in the sequence, the offset
+    #     is read from the token position inside it; counting is the fallback.
+    #   - split_words: a target whose one-token forms aren't in the sequence is
+    #     looked for as a run of tokens and read at its last token, with
+    #     target_token_count recorded (the sentence route; agent captures don't ask).
     # ====================================================================
 
     def capture_step(
@@ -200,6 +206,7 @@ class IntegratedCaptureService:
         prompt_token_count: int = 0,
         metadata: Optional[Dict[str, Any]] = None,
         logit_token_sets: Optional[Dict[str, List[str]]] = None,
+        split_words: bool = False,
     ) -> Tuple[List['ProbeRecord'], Optional[object]]:
         """One capture forward pass with hooks ON; finds target words; writes
         ProbeRecord(s); returns (records, new_past_kv)."""
@@ -275,12 +282,27 @@ class IntegratedCaptureService:
                 start = pos + 1
             return None
 
+        stored_at = decoded.rfind(override) if override else -1  # the stored text inside the sequence
+
+        def _offset_in_stored_text(pos: int, word: str) -> Optional[int]:
+            # The captured occurrence, placed from its token position, so an earlier look-alike
+            # ("Tanks" before "tank") can't move it. None when it falls outside the stored text.
+            at = self.processor.target_char_offset(token_ids, pos, word, decoded)
+            if at is None or stored_at < 0 or not stored_at <= at <= stored_at + len(input_text) - len(word):
+                return None
+            return at - stored_at
+
         records = []
         first_record_for_call = True  # extra_positions attaches to first record only
 
         for target_word in target_words:
             # Find ALL occurrences first (gives us absolute occurrence_idx for char_offset)
             all_positions = self.processor.find_all_word_token_positions(token_ids, target_word)
+            token_counts: Dict[int, int] = {}
+            if not all_positions and split_words:
+                split = self.processor.find_split_word_positions(token_ids, target_word)
+                all_positions = [(pos, tid) for pos, tid, _ in split]
+                token_counts = {pos: n for pos, _, n in split}
             if not all_positions:
                 logger.debug(f"Target word '{target_word}' not found in token_ids")
                 continue
@@ -306,7 +328,9 @@ class IntegratedCaptureService:
                     cap_type = "generation"
 
                 if override:
-                    char_offset = _char_offset(input_text, target_word, abs_idx)
+                    char_offset = _offset_in_stored_text(pos, target_word)
+                    if char_offset is None:
+                        char_offset = _char_offset(input_text, target_word, abs_idx)
                 else:
                     char_offset = self.processor.target_char_offset(
                         token_ids, pos, target_word, decoded
@@ -335,6 +359,7 @@ class IntegratedCaptureService:
                     target_char_offset=char_offset,
                     extra_positions=extra_positions if first_record_for_call else None,
                     first_token_logprobs=first_token_logprobs,
+                    target_token_count=token_counts.get(pos, 1),
                 )
                 # Optional: attach generated_text (caller-supplied via metadata)
                 gen_text = metadata.get("generated_text")

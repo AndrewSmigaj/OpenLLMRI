@@ -189,9 +189,10 @@ class SentenceExperimentResponse(BaseModel):
     """Response after running a sentence experiment."""
     session_id: str
     session_name: str
-    total_probes: int
+    total_probes: int  # the items captured
     labels: List[str]
     counts: Dict[str, int]
+    dropped: List[Dict[str, str]] = []  # items with no record: their word, label, text and why
 
 
 # --- Trajectory Points (cached UMAP-3D from a clustering schema) ---

@@ -8,7 +8,7 @@ No knowledge of model inference, hooks, or writers.
 
 import json
 import logging
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from datetime import datetime
 from enum import Enum
 from pathlib import Path
@@ -42,6 +42,7 @@ class SessionStatus:
     current_probe: Optional[str] = None
     error_message: Optional[str] = None
     current_turn_id: int = 0  # Agent sessions: auto-incremented per generate call
+    failures: List[str] = field(default_factory=list)  # why each failed item failed, kept in the session file
 
     @property
     def progress_percent(self) -> float:
@@ -85,8 +86,11 @@ class SessionManager:
         labels: List[str],
         experiment_id: Optional[str] = None,
         sentence_set_name: Optional[str] = None,
+        holdout: Optional[Dict[str, Any]] = None,
     ) -> str:
-        """Create a new capture session. Returns session_id."""
+        """Create a new capture session. Returns session_id. `holdout` is the sentence set's
+        declared hold-out design (its families field and whether names are kept whole), which
+        lenses on the capture take as their default."""
         session_id = generate_capture_id("session")
 
         session_status = SessionStatus(
@@ -98,7 +102,7 @@ class SessionManager:
         )
         self.active_sessions[session_id] = session_status
 
-        session_metadata = {
+        session_metadata: Dict[str, Any] = {
             "session_id": session_id,
             "session_name": session_name,
             "sentence_set_name": sentence_set_name,
@@ -113,6 +117,8 @@ class SessionManager:
             "experiment_type": "sentence",
             "experiment_id": experiment_id,
         }
+        if holdout:
+            session_metadata["holdout"] = holdout
 
         session_file = self.sessions_dir / f"{session_id}.json"
         with open(session_file, "w") as f:
@@ -245,6 +251,7 @@ class SessionManager:
         status.failed_pairs += 1
         status.current_probe = None
         status.error_message = error_msg
+        status.failures.append(error_msg)
 
     def finalize_session(self, session_id: str) -> CaptureManifest:
         """Finalize session state, create and write manifest. Returns manifest."""
@@ -279,6 +286,8 @@ class SessionManager:
         metadata["state"] = SessionState.COMPLETED.value
         metadata["completed_pairs"] = session_status.completed_pairs
         metadata["failed_pairs"] = session_status.failed_pairs
+        if session_status.failures:
+            metadata["failures"] = metadata.get("failures", []) + session_status.failures
 
         with open(session_file, "w") as f:
             json.dump(metadata, f, indent=2)

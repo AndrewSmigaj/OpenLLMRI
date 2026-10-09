@@ -79,9 +79,10 @@ class BatchWriter:
 
             # Handle appending for older PyArrow versions
             if self.file_path.exists():
-                # Read existing data and combine
+                # Read existing data and combine. A column added since the file was started
+                # (a session resumed after a schema change) is joined, with nulls for the old rows.
                 existing_table = pq.read_table(self.file_path)
-                combined_table = pa.concat_tables([existing_table, table])
+                combined_table = pa.concat_tables([existing_table, table], promote_options="default")
                 pq.write_table(combined_table, self.file_path)
             else:
                 pq.write_table(table, self.file_path)

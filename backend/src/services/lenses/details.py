@@ -75,8 +75,8 @@ SURFACE_FLAG_WORD = 0.4  # or a first word this much more common inside the node
 
 
 def surface_features(items: Sequence[Dict[str, Any]]) -> Tuple[Dict[str, Array], List[str]]:
-    """Numeric surface features per item (length, punctuation, where the target word sits) and
-    each item's first word."""
+    """Numeric surface features per item (length, punctuation, where the target word sits, how
+    many tokens it took) and each item's first word."""
     texts = [str(item.get("input_text") or "") for item in items]
     targets = [str(item.get("target_word") or "").lower() for item in items]
     position = [t.lower().rfind(w) / max(len(t), 1) if w and w in t.lower() else -1.0 for t, w in zip(texts, targets)]
@@ -86,6 +86,7 @@ def surface_features(items: Sequence[Dict[str, Any]]) -> Tuple[Dict[str, Array],
         "commas": np.array([t.count(",") for t in texts], dtype=float),
         "question": np.array([t.rstrip().endswith("?") for t in texts], dtype=float),
         "target position": np.array(position, dtype=float),
+        "target tokens": np.array([float(item.get("target_token_count") or 1) for item in items]),
     }
     first = [(t.split() or [""])[0].strip(".,!?\"'").lower() for t in texts]
     return numeric, first

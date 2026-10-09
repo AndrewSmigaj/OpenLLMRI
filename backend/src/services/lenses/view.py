@@ -42,6 +42,7 @@ def _item_dict(row: Dict[str, Any]) -> Dict[str, Any]:
         "output_categories": json.loads(out) if out else {},
         "input_text": row.get("input_text"), "target_word": row.get("target_word"),
         "step": row.get("turn_id") if row.get("turn_id") is not None else row.get("sentence_index"),
+        "target_token_count": row.get("target_token_count") or 1,  # older lenses and captures: one token
     }
 
 

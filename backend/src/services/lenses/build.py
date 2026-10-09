@@ -194,7 +194,8 @@ def _write_lens(tmp: Path, p: LensBuildParams, items: List[Any], layers: List[in
 
 
 _ITEM_FIELDS = ("probe_id", "label", "categories_json", "output_category", "output_category_json",
-                "input_text", "target_word", "sentence_index", "turn_id", "scenario_id", "capture_type")
+                "input_text", "target_word", "sentence_index", "turn_id", "scenario_id", "capture_type",
+                "target_token_count")
 
 
 def _write_items(path: Path, items: List[Any]) -> None:

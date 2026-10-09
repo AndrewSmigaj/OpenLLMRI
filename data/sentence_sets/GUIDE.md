@@ -157,18 +157,29 @@ sentence level; matching at the assembly level.
 ## Single-word sets
 
 A third shape (DESIGN.md C1). Each item is one word given alone as the user's message, with a space
-first (`" eagle"`), so that it is one token: the same token the word has inside sentences. They live
-in `lexical/`; `lexical/nouns_meaning_feeling_v1.md` is the worked example.
+first (`" eagle"`), so that a common word is one token: the same token the word has inside
+sentences. They live in `lexical/`; `lexical/nouns_meaning_feeling_v1.md` is the worked example.
 
-- **One token, checked.** Every `" word"` must encode to one token, and the capture's target must
-  land on the user's word. The capture drops a word that splits and still counts it, so audit
-  every word before the capture and check the session's item count after it.
+- **A word that splits is read at its last token.** When none of a word's one-token forms is in
+  the item, the capture finds the word as a run of tokens (" jag" + "uar") and reads it at its last
+  piece, which has taken in the whole word. Each record keeps `target_token_count`.
+  - Most animal names and many harmful objects split, so a set can't simply leave them out.
+  - Record it in the set as a `tokens` category (`one` or `several`), and balance split words
+    across the classes as far as the words allow. The surface check flags a node that follows the
+    token count.
+  - Early layers may group split words by their last piece (goldfish, catfish, starfish); the
+    set's analysis checks it.
+- **Audit before the capture, check after it.** The capture's target must land on the user's
+  word. The route counts only the items it captured, returns the words it dropped, and keeps them
+  in the session file's `failures`.
 - **No word from the prompt's own text:** the system block (model, date, reasoning, channels,
   analysis, message) and "assistant", which follows the user's turn.
 - **Ambiguous words out.** A word alone carries all its senses; keep words whose main sense is
   their category.
-- **Families in `categories.family`,** held out whole: pass `"family_field": "family"` to the lens
-  jobs. A family name of more than two underscore parts needs `"whole_families": true`.
+- **Families in a category of their own,** held out whole. Declare them in the set's metadata,
+  `"holdout": {"family_field": "family", "whole_families": true}`. The capture keeps the
+  declaration, and every lens on the capture uses it unless told otherwise. Without
+  `whole_families`, a family name keeps only its first two underscore parts.
 - **Audit by category:** feeling, length and derivational suffixes. Abstract nouns carry suffixes
   (-ness, -tion, -ity …) that concrete ones lack: keep them few, and measure what's left after the
   capture.

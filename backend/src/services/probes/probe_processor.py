@@ -134,7 +134,7 @@ class ProbeProcessor:
         candidates = self._candidate_token_ids(word)
         if not candidates:
             logger.warning(
-                f"Word '{word}' is not single-token in any case/whitespace variant — skipping"
+                f"Word '{word}' has no one-token form; only a capture that reads split words finds it"
             )
             return []
         results: List[Tuple[int, int]] = []
@@ -144,6 +144,51 @@ class ProbeProcessor:
                     results.append((i, tid))
         results.sort(key=lambda p: p[0])
         return results
+
+    def _split_forms(self, word: str) -> List[Tuple[List[int], bool]]:
+        """The word's forms that split into several tokens (as written, lower case, capitalised;
+        with and without a leading space), each with whether it starts with the space."""
+        forms: List[Tuple[List[int], bool]] = []
+        for variant in (word, word.lower(), word.capitalize()):
+            for prefix in (" ", ""):
+                tokens = self.tokenizer.encode(f"{prefix}{variant}", add_special_tokens=False)
+                if len(tokens) > 1 and all(tokens != f for f, _ in forms):
+                    forms.append((tokens, prefix == " "))
+        return forms
+
+    def _runs_into_word(self, token_id: int, after: bool) -> bool:
+        """Whether a neighbouring token joins the word: the token after it starts with a letter or
+        digit, or the token before it ends with one. Special tokens decode to nothing and never do."""
+        text = cast(str, self.tokenizer.decode([token_id], skip_special_tokens=True))
+        if not text:
+            return False
+        return (text[0] if after else text[-1]).isalnum()
+
+    def find_split_word_positions(
+        self, token_ids: List[int], word: str,
+    ) -> List[Tuple[int, int, int]]:
+        """Every occurrence of a word as a run of several tokens, in order: (the position of its last
+        token, that token's id, how many tokens the word took).
+
+        A word that splits is read at its last token, which has taken in the whole word. A match
+        must stand alone as a word: the next token can't start with a letter or digit (" jaguar"
+        isn't found inside " jaguars"), and before a form without its leading space the previous
+        token can't end with one. Callers use it only when the word's one-token forms aren't there
+        (`find_all_word_token_positions`).
+        """
+        found: Dict[int, Tuple[int, int, int]] = {}
+        for form, spaced in self._split_forms(word):
+            n = len(form)
+            for i in range(len(token_ids) - n + 1):
+                if token_ids[i:i + n] != form:
+                    continue
+                end = i + n - 1
+                if end + 1 < len(token_ids) and self._runs_into_word(token_ids[end + 1], after=True):
+                    continue
+                if not spaced and i > 0 and self._runs_into_word(token_ids[i - 1], after=False):
+                    continue
+                found.setdefault(end, (end, token_ids[end], n))
+        return [found[pos] for pos in sorted(found)]
 
     def target_char_offset(
         self, token_ids: List[int], position: int, word: str, text: str,
@@ -186,6 +231,7 @@ class ProbeProcessor:
         target_char_offset: Optional[int] = None,
         extra_positions: Optional[List[int]] = None,
         first_token_logprobs: Optional[Dict[str, Dict[str, float]]] = None,
+        target_token_count: int = 1,
     ) -> ProbeCapture:
         """Convert raw capture data to schema records.
 
@@ -217,6 +263,7 @@ class ProbeProcessor:
             capture_type=capture_type,
             target_char_offset=target_char_offset,
             first_token_logprobs=first_token_logprobs,
+            target_token_count=target_token_count,
         )
 
         routing_records = []
