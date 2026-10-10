@@ -21,6 +21,7 @@ import LensAxes from '../components/lenses/LensAxes'
 import LensCompare from '../components/lenses/LensCompare'
 import MassMeanForm from '../components/lenses/MassMeanForm'
 import MassMeanDetails from '../components/lenses/MassMeanDetails'
+import MassMeanReadings from '../components/lenses/MassMeanReadings'
 import MassMeanResults from '../components/lenses/MassMeanResults'
 import { useShell } from '../components/shell/shellContext'
 
@@ -180,6 +181,7 @@ export default function BuildWorkspace() {
           </div>
           {results === lens.name && !lens.legacy && lens.validation && (lens.kind === 'mass_mean'
             ? <><MassMeanResults session={view.session} lens={lens} />
+                <MassMeanReadings session={view.session} lens={lens} />
                 <MassMeanDetails session={view.session} lens={lens} disabled={visitor} /></>
             : <LensValidation session={view.session} lens={lens} />)}
           {tuning === lens.name && !lens.legacy && lens.tuning && <LensTuning session={view.session} lens={lens} />}

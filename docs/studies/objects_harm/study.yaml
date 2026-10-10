@@ -1,0 +1,53 @@
+# Objects and harm: lens slice 1c's study of object names given alone (DESIGN.md C1, C3, C8; K,
+# slice 1c). Its findings note is the record of the runs; each ledger line stays proposed until it
+# is reviewed (DESIGN.md H).
+id: objects_harm
+title: Objects, harmful, dual-purpose and benign
+question: >
+  Does the model keep harmful, dual-purpose and benign objects apart in domains it was never
+  fitted on, and where do the dual-purpose objects sit between harmful and benign?
+status: active
+started: 2026-10-09
+sets:
+  - objects_harm_v1
+captures:
+  - session_2be574c4
+lenses:
+  - session_2be574c4/objects-k3-n15
+  - session_2be574c4/objects-k3-n15-tuned
+  - session_2be574c4/harm-axis
+findings:
+  - docs/research/objects_harm.md
+ledger:
+  - idea: A UMAP lens recovers the three classes in held-out domains.
+    experiment: >
+      objects-k3-n15 validated on 5 grouped folds of whole domains; objects-k3-n15-tuned tuned on
+      the class with 79 objects of whole domains as the test portion.
+    finding: >
+      Hardly: held-out AMI −0.01 to 0.18 (k 3; κ below zero at 19 of 24 layers), tuned test AMI at
+      most 0.27 (L11). Even a logistic probe on the raw states reaches only 0.16 to 0.35.
+    status: proposed
+    evidence: [docs/research/objects_harm.md]
+  - idea: Harmful and benign separate along one direction in held-out domains.
+    experiment: >
+      harm-axis, a mass-mean lens (benign −1, harmful +1) validated on the same grouped folds; its
+      router alignment against 1,000 random directions; its logit lens.
+    finding: >
+      Held-out accuracy 0.90 or more from L4 to L15 (0.93 at L5 and L11, κ 0.78). At L9 to L12 the
+      axis moves the next layer's routing more than 97 to 100% of random directions (2.06 times
+      their median at L11). The harmful side favours forms of "weapon", "violence" and
+      "retaliation".
+    status: proposed
+    evidence: [docs/research/objects_harm.md]
+  - idea: The dual-purpose objects sit between harmful and benign, sorted by how weapon-like they
+      are.
+    experiment: >
+      The 96 dual-purpose objects, never fitted, read on the harm axis at every layer; their
+      medians by how they harm and by domain.
+    finding: >
+      Their median runs from −0.29 to +0.17 across the layers. At L5 the machete, javelin,
+      fentanyl, oxycodone and epee read beyond +1.1; the airplane, tractor, rope and car below
+      −0.65. Explosive, chemical and medical objects lean harmful; blunt objects, restraints,
+      vehicles and household objects lean benign.
+    status: proposed
+    evidence: [docs/research/objects_harm.md]

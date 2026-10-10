@@ -10,7 +10,7 @@ import type {
 } from '../types/api';
 import type {
   Fingerprint, JobView, LensBuildBody, LensDetail, LensFlows, LensMembersPage, LensMethods, LensOptions, LensSearch,
-  LensSummary, LensMarks, LensNodeDetails, LensVersion, MassMeanDetails, MassMeanValidation, MembersQuery, Population,
+  LensSummary, LensMarks, LensNodeDetails, LensVersion, MassMeanDetails, MassMeanReadings, MassMeanValidation, MembersQuery, Population,
   LayerPreview, LensAxes, LensReading, LensRoutes, LensTrajectory, PreviewBody, ReadBody, TuneBody, Validation,
 } from '../types/lens';
 import type { AnalystTests, Card, QuestionAnswer } from '../types/cards';
@@ -351,6 +351,13 @@ class ConceptMriApiClient {
 
   async getMassMeanValidation(sessionId: string, name: string): Promise<MassMeanValidation> {
     return this.request<MassMeanValidation>(`/sessions/${sessionId}/lenses/${encodeURIComponent(name)}/validation`);
+  }
+
+  // A capture (the lens's own when none is named) read through a mass-mean lens at its site
+  async getMassMeanReadings(sessionId: string, name: string, target?: string): Promise<MassMeanReadings> {
+    const params = new URLSearchParams();
+    if (target) params.set('target', target);
+    return this.request<MassMeanReadings>(`/sessions/${sessionId}/lenses/${encodeURIComponent(name)}/readings?${params}`);
   }
 
   // Works out what comes with each node (a mass-mean lens: each layer) in the background

@@ -1,0 +1,881 @@
+{
+  "format_version": 1,
+  "name": "objects-k3-n15-tuned",
+  "kind": "umap",
+  "contrast": null,
+  "session_id": "session_2be574c4",
+  "capture": {
+    "sentence_set_name": "objects_harm_v1",
+    "model_name": "gpt-oss-20b",
+    "prompt_format": "harmony@a4c9919cbbd4",
+    "target_word": "(each item's own word)"
+  },
+  "site": {
+    "source": "residual_stream",
+    "token_position": 1
+  },
+  "filters": {
+    "labels": null,
+    "steps": null,
+    "last_occurrence_only": true,
+    "max_items": null
+  },
+  "settings": {
+    "n_neighbors": 15,
+    "dimensions": 6,
+    "min_dist": 0.1,
+    "metric": "euclidean",
+    "seed": 42,
+    "grouping": "ward",
+    "per_layer": [
+      {
+        "n_neighbors": 15,
+        "dimensions": 12,
+        "min_dist": 0.1,
+        "metric": "euclidean"
+      },
+      {
+        "n_neighbors": 15,
+        "dimensions": 6,
+        "min_dist": 0.1,
+        "metric": "euclidean"
+      },
+      {
+        "n_neighbors": 5,
+        "dimensions": 3,
+        "min_dist": 0.1,
+        "metric": "euclidean"
+      },
+      {
+        "n_neighbors": 5,
+        "dimensions": 6,
+        "min_dist": 0.1,
+        "metric": "euclidean"
+      },
+      {
+        "n_neighbors": 15,
+        "dimensions": 12,
+        "min_dist": 0.1,
+        "metric": "euclidean"
+      },
+      {
+        "n_neighbors": 15,
+        "dimensions": 12,
+        "min_dist": 0.1,
+        "metric": "euclidean"
+      },
+      {
+        "n_neighbors": 15,
+        "dimensions": 12,
+        "min_dist": 0.1,
+        "metric": "euclidean"
+      },
+      {
+        "n_neighbors": 15,
+        "dimensions": 12,
+        "min_dist": 0.1,
+        "metric": "euclidean"
+      },
+      {
+        "n_neighbors": 15,
+        "dimensions": 3,
+        "min_dist": 0.1,
+        "metric": "euclidean"
+      },
+      {
+        "n_neighbors": 50,
+        "dimensions": 6,
+        "min_dist": 0.1,
+        "metric": "euclidean"
+      },
+      {
+        "n_neighbors": 15,
+        "dimensions": 3,
+        "min_dist": 0.1,
+        "metric": "euclidean"
+      },
+      {
+        "n_neighbors": 50,
+        "dimensions": 12,
+        "min_dist": 0.1,
+        "metric": "euclidean"
+      },
+      {
+        "n_neighbors": 50,
+        "dimensions": 12,
+        "min_dist": 0.1,
+        "metric": "euclidean"
+      },
+      {
+        "n_neighbors": 5,
+        "dimensions": 12,
+        "min_dist": 0.1,
+        "metric": "euclidean"
+      },
+      {
+        "n_neighbors": 5,
+        "dimensions": 12,
+        "min_dist": 0.1,
+        "metric": "euclidean"
+      },
+      {
+        "n_neighbors": 5,
+        "dimensions": 3,
+        "min_dist": 0.1,
+        "metric": "euclidean"
+      },
+      {
+        "n_neighbors": 15,
+        "dimensions": 12,
+        "min_dist": 0.1,
+        "metric": "euclidean"
+      },
+      {
+        "n_neighbors": 5,
+        "dimensions": 3,
+        "min_dist": 0.1,
+        "metric": "euclidean"
+      },
+      {
+        "n_neighbors": 5,
+        "dimensions": 6,
+        "min_dist": 0.1,
+        "metric": "euclidean"
+      },
+      {
+        "n_neighbors": 5,
+        "dimensions": 3,
+        "min_dist": 0.1,
+        "metric": "euclidean"
+      },
+      {
+        "n_neighbors": 5,
+        "dimensions": 12,
+        "min_dist": 0.1,
+        "metric": "euclidean"
+      },
+      {
+        "n_neighbors": 5,
+        "dimensions": 6,
+        "min_dist": 0.1,
+        "metric": "euclidean"
+      },
+      {
+        "n_neighbors": 5,
+        "dimensions": 6,
+        "min_dist": 0.1,
+        "metric": "euclidean"
+      },
+      {
+        "n_neighbors": 5,
+        "dimensions": 6,
+        "min_dist": 0.1,
+        "metric": "euclidean"
+      }
+    ],
+    "sources": [
+      "tuned",
+      "tuned",
+      "tuned",
+      "tuned",
+      "tuned",
+      "tuned",
+      "tuned",
+      "tuned",
+      "tuned",
+      "tuned",
+      "tuned",
+      "tuned",
+      "tuned",
+      "tuned",
+      "tuned",
+      "tuned",
+      "tuned",
+      "tuned",
+      "tuned",
+      "tuned",
+      "tuned",
+      "tuned",
+      "tuned",
+      "tuned"
+    ]
+  },
+  "n_items": 321,
+  "layers": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+  ],
+  "suggestions": {
+    "0": {
+      "elbow": 2,
+      "silhouette": 2,
+      "levels": [
+        2,
+        3
+      ],
+      "silhouette_by_k": {
+        "2": 0.5347,
+        "3": 0.4097,
+        "4": 0.3514,
+        "5": 0.3357,
+        "6": 0.3122,
+        "7": 0.3142,
+        "8": 0.316,
+        "9": 0.2955,
+        "10": 0.3059
+      }
+    },
+    "1": {
+      "elbow": 2,
+      "silhouette": 2,
+      "levels": [
+        2
+      ],
+      "silhouette_by_k": {
+        "2": 0.6417,
+        "3": 0.3669,
+        "4": 0.3511,
+        "5": 0.3551,
+        "6": 0.3608,
+        "7": 0.3524,
+        "8": 0.336,
+        "9": 0.2307,
+        "10": 0.2351
+      }
+    },
+    "2": {
+      "elbow": 2,
+      "silhouette": 2,
+      "levels": [
+        2,
+        3
+      ],
+      "silhouette_by_k": {
+        "2": 0.5192,
+        "3": 0.4404,
+        "4": 0.4228,
+        "5": 0.3914,
+        "6": 0.3922,
+        "7": 0.4003,
+        "8": 0.3841,
+        "9": 0.3934,
+        "10": 0.3985
+      }
+    },
+    "3": {
+      "elbow": 2,
+      "silhouette": 3,
+      "levels": [
+        3
+      ],
+      "silhouette_by_k": {
+        "2": 0.4921,
+        "3": 0.5683,
+        "4": 0.383,
+        "5": 0.3739,
+        "6": 0.3475,
+        "7": 0.3518,
+        "8": 0.3392,
+        "9": 0.3515,
+        "10": 0.3691
+      }
+    },
+    "4": {
+      "elbow": 2,
+      "silhouette": 2,
+      "levels": [
+        2,
+        5
+      ],
+      "silhouette_by_k": {
+        "2": 0.4988,
+        "3": 0.4247,
+        "4": 0.3554,
+        "5": 0.3615,
+        "6": 0.301,
+        "7": 0.2786,
+        "8": 0.2686,
+        "9": 0.2701,
+        "10": 0.2691
+      }
+    },
+    "5": {
+      "elbow": 2,
+      "silhouette": 2,
+      "levels": [
+        2,
+        5
+      ],
+      "silhouette_by_k": {
+        "2": 0.4323,
+        "3": 0.4295,
+        "4": 0.3379,
+        "5": 0.3531,
+        "6": 0.3271,
+        "7": 0.3178,
+        "8": 0.295,
+        "9": 0.297,
+        "10": 0.2714
+      }
+    },
+    "6": {
+      "elbow": 2,
+      "silhouette": 2,
+      "levels": [
+        2
+      ],
+      "silhouette_by_k": {
+        "2": 0.4668,
+        "3": 0.4559,
+        "4": 0.3377,
+        "5": 0.3422,
+        "6": 0.3406,
+        "7": 0.2859,
+        "8": 0.292,
+        "9": 0.3017,
+        "10": 0.3035
+      }
+    },
+    "7": {
+      "elbow": 2,
+      "silhouette": 2,
+      "levels": [
+        2,
+        5
+      ],
+      "silhouette_by_k": {
+        "2": 0.4644,
+        "3": 0.407,
+        "4": 0.3494,
+        "5": 0.378,
+        "6": 0.325,
+        "7": 0.2911,
+        "8": 0.2786,
+        "9": 0.277,
+        "10": 0.2737
+      }
+    },
+    "8": {
+      "elbow": 2,
+      "silhouette": 2,
+      "levels": [
+        2
+      ],
+      "silhouette_by_k": {
+        "2": 0.4942,
+        "3": 0.3473,
+        "4": 0.3394,
+        "5": 0.3691,
+        "6": 0.3494,
+        "7": 0.3259,
+        "8": 0.3282,
+        "9": 0.3331,
+        "10": 0.3338
+      }
+    },
+    "9": {
+      "elbow": 2,
+      "silhouette": 2,
+      "levels": [
+        2
+      ],
+      "silhouette_by_k": {
+        "2": 0.292,
+        "3": 0.2489,
+        "4": 0.2375,
+        "5": 0.218,
+        "6": 0.2228,
+        "7": 0.2159,
+        "8": 0.2015,
+        "9": 0.2039,
+        "10": 0.2029
+      }
+    },
+    "10": {
+      "elbow": 2,
+      "silhouette": 2,
+      "levels": [
+        2
+      ],
+      "silhouette_by_k": {
+        "2": 0.3267,
+        "3": 0.2787,
+        "4": 0.307,
+        "5": 0.3147,
+        "6": 0.3013,
+        "7": 0.3092,
+        "8": 0.3148,
+        "9": 0.3222,
+        "10": 0.3105
+      }
+    },
+    "11": {
+      "elbow": 2,
+      "silhouette": 2,
+      "levels": [],
+      "silhouette_by_k": {
+        "2": 0.2584,
+        "3": 0.2422,
+        "4": 0.2485,
+        "5": 0.2282,
+        "6": 0.2141,
+        "7": 0.2148,
+        "8": 0.2097,
+        "9": 0.2023,
+        "10": 0.2034
+      }
+    },
+    "12": {
+      "elbow": 2,
+      "silhouette": 2,
+      "levels": [
+        2
+      ],
+      "silhouette_by_k": {
+        "2": 0.2974,
+        "3": 0.244,
+        "4": 0.2685,
+        "5": 0.2592,
+        "6": 0.2529,
+        "7": 0.2279,
+        "8": 0.2141,
+        "9": 0.2084,
+        "10": 0.2097
+      }
+    },
+    "13": {
+      "elbow": 2,
+      "silhouette": 10,
+      "levels": [
+        2
+      ],
+      "silhouette_by_k": {
+        "2": 0.4004,
+        "3": 0.3148,
+        "4": 0.3376,
+        "5": 0.3541,
+        "6": 0.3875,
+        "7": 0.4009,
+        "8": 0.4197,
+        "9": 0.4151,
+        "10": 0.4327
+      }
+    },
+    "14": {
+      "elbow": 2,
+      "silhouette": 2,
+      "levels": [
+        2
+      ],
+      "silhouette_by_k": {
+        "2": 0.527,
+        "3": 0.3538,
+        "4": 0.3521,
+        "5": 0.387,
+        "6": 0.3844,
+        "7": 0.3915,
+        "8": 0.3913,
+        "9": 0.3973,
+        "10": 0.3842
+      }
+    },
+    "15": {
+      "elbow": 2,
+      "silhouette": 9,
+      "levels": [
+        2,
+        3
+      ],
+      "silhouette_by_k": {
+        "2": 0.4207,
+        "3": 0.4367,
+        "4": 0.3558,
+        "5": 0.3872,
+        "6": 0.419,
+        "7": 0.4133,
+        "8": 0.4259,
+        "9": 0.4369,
+        "10": 0.4337
+      }
+    },
+    "16": {
+      "elbow": 2,
+      "silhouette": 2,
+      "levels": [
+        2,
+        4
+      ],
+      "silhouette_by_k": {
+        "2": 0.4665,
+        "3": 0.4427,
+        "4": 0.374,
+        "5": 0.3492,
+        "6": 0.3624,
+        "7": 0.3434,
+        "8": 0.3299,
+        "9": 0.3147,
+        "10": 0.3145
+      }
+    },
+    "17": {
+      "elbow": 2,
+      "silhouette": 3,
+      "levels": [
+        2,
+        3,
+        4
+      ],
+      "silhouette_by_k": {
+        "2": 0.6868,
+        "3": 0.7357,
+        "4": 0.5199,
+        "5": 0.4999,
+        "6": 0.5063,
+        "7": 0.4314,
+        "8": 0.4238,
+        "9": 0.4264,
+        "10": 0.4379
+      }
+    },
+    "18": {
+      "elbow": 2,
+      "silhouette": 2,
+      "levels": [
+        2,
+        3,
+        4
+      ],
+      "silhouette_by_k": {
+        "2": 0.8249,
+        "3": 0.7677,
+        "4": 0.5574,
+        "5": 0.4811,
+        "6": 0.4171,
+        "7": 0.4343,
+        "8": 0.4165,
+        "9": 0.4299,
+        "10": 0.4356
+      }
+    },
+    "19": {
+      "elbow": 2,
+      "silhouette": 3,
+      "levels": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "silhouette_by_k": {
+        "2": 0.7209,
+        "3": 0.794,
+        "4": 0.6088,
+        "5": 0.5894,
+        "6": 0.469,
+        "7": 0.4033,
+        "8": 0.403,
+        "9": 0.4212,
+        "10": 0.4206
+      }
+    },
+    "20": {
+      "elbow": 2,
+      "silhouette": 3,
+      "levels": [
+        2,
+        3,
+        4
+      ],
+      "silhouette_by_k": {
+        "2": 0.7298,
+        "3": 0.7748,
+        "4": 0.5662,
+        "5": 0.5146,
+        "6": 0.4724,
+        "7": 0.4708,
+        "8": 0.4638,
+        "9": 0.3142,
+        "10": 0.3191
+      }
+    },
+    "21": {
+      "elbow": 2,
+      "silhouette": 3,
+      "levels": [
+        2,
+        3,
+        4
+      ],
+      "silhouette_by_k": {
+        "2": 0.552,
+        "3": 0.6379,
+        "4": 0.538,
+        "5": 0.5059,
+        "6": 0.4978,
+        "7": 0.3905,
+        "8": 0.3998,
+        "9": 0.4069,
+        "10": 0.3922
+      }
+    },
+    "22": {
+      "elbow": 3,
+      "silhouette": 3,
+      "levels": [
+        3
+      ],
+      "silhouette_by_k": {
+        "2": 0.5129,
+        "3": 0.5985,
+        "4": 0.4183,
+        "5": 0.3909,
+        "6": 0.3953,
+        "7": 0.333,
+        "8": 0.3357,
+        "9": 0.3456,
+        "10": 0.3467
+      }
+    },
+    "23": {
+      "elbow": 2,
+      "silhouette": 2,
+      "levels": [
+        2,
+        5
+      ],
+      "silhouette_by_k": {
+        "2": 0.6089,
+        "3": 0.44,
+        "4": 0.449,
+        "5": 0.4003,
+        "6": 0.4029,
+        "7": 0.3569,
+        "8": 0.3546,
+        "9": 0.3452,
+        "10": 0.3513
+      }
+    }
+  },
+  "versions": [
+    "v1"
+  ],
+  "current": "v1",
+  "provenance": {
+    "commit": "34ae2cbe2406e4d9b86200865f81fc7dd3c01edd",
+    "dirty": true,
+    "job_id": "job_20261010T012750460450_522606",
+    "created_by": "claude-code",
+    "created_at": "2026-10-10T01:34:15+00:00",
+    "seconds": 15.7,
+    "libraries": {
+      "umap-learn": "0.5.11",
+      "scikit-learn": "1.7.2",
+      "numpy": "1.26.4"
+    }
+  },
+  "self_check": {
+    "passed": true,
+    "items": 321,
+    "dims": 2880,
+    "planted": {
+      "ari_k5": 1.0,
+      "passed": true,
+      "groups_ari_k2": 0.0256,
+      "levels": [
+        5
+      ]
+    },
+    "null": {
+      "ami_k5": 0.0009,
+      "passed": true
+    },
+    "thresholds": {
+      "planted_ari": 0.9,
+      "null_ami": 0.1
+    },
+    "per_settings": [
+      {
+        "n_neighbors": 15,
+        "dimensions": 12,
+        "min_dist": 0.1,
+        "metric": "euclidean",
+        "passed": true,
+        "planted": {
+          "ari_k5": 1.0,
+          "passed": true,
+          "groups_ari_k2": 0.0256,
+          "levels": [
+            5
+          ]
+        },
+        "null": {
+          "ami_k5": -0.0067,
+          "passed": true
+        }
+      },
+      {
+        "n_neighbors": 15,
+        "dimensions": 6,
+        "min_dist": 0.1,
+        "metric": "euclidean",
+        "passed": true,
+        "planted": {
+          "ari_k5": 1.0,
+          "passed": true,
+          "groups_ari_k2": 1.0,
+          "levels": [
+            5
+          ]
+        },
+        "null": {
+          "ami_k5": -0.001,
+          "passed": true
+        }
+      },
+      {
+        "n_neighbors": 5,
+        "dimensions": 3,
+        "min_dist": 0.1,
+        "metric": "euclidean",
+        "passed": true,
+        "planted": {
+          "ari_k5": 1.0,
+          "passed": true,
+          "groups_ari_k2": 0.0368,
+          "levels": [
+            5
+          ]
+        },
+        "null": {
+          "ami_k5": -0.002,
+          "passed": true
+        }
+      },
+      {
+        "n_neighbors": 5,
+        "dimensions": 6,
+        "min_dist": 0.1,
+        "metric": "euclidean",
+        "passed": true,
+        "planted": {
+          "ari_k5": 1.0,
+          "passed": true,
+          "groups_ari_k2": 0.0342,
+          "levels": [
+            5
+          ]
+        },
+        "null": {
+          "ami_k5": -0.0097,
+          "passed": true
+        }
+      },
+      {
+        "n_neighbors": 15,
+        "dimensions": 3,
+        "min_dist": 0.1,
+        "metric": "euclidean",
+        "passed": true,
+        "planted": {
+          "ari_k5": 1.0,
+          "passed": true,
+          "groups_ari_k2": 0.0368,
+          "levels": [
+            2,
+            4,
+            5
+          ]
+        },
+        "null": {
+          "ami_k5": 0.0009,
+          "passed": true
+        }
+      },
+      {
+        "n_neighbors": 50,
+        "dimensions": 6,
+        "min_dist": 0.1,
+        "metric": "euclidean",
+        "passed": true,
+        "planted": {
+          "ari_k5": 1.0,
+          "passed": true,
+          "groups_ari_k2": 0.0368,
+          "levels": [
+            5
+          ]
+        },
+        "null": {
+          "ami_k5": -0.0048,
+          "passed": true
+        }
+      },
+      {
+        "n_neighbors": 50,
+        "dimensions": 12,
+        "min_dist": 0.1,
+        "metric": "euclidean",
+        "passed": true,
+        "planted": {
+          "ari_k5": 1.0,
+          "passed": true,
+          "groups_ari_k2": 0.3514,
+          "levels": [
+            5
+          ]
+        },
+        "null": {
+          "ami_k5": -0.0099,
+          "passed": true
+        }
+      },
+      {
+        "n_neighbors": 5,
+        "dimensions": 12,
+        "min_dist": 0.1,
+        "metric": "euclidean",
+        "passed": true,
+        "planted": {
+          "ari_k5": 1.0,
+          "passed": true,
+          "groups_ari_k2": 0.0342,
+          "levels": [
+            5
+          ]
+        },
+        "null": {
+          "ami_k5": -0.0023,
+          "passed": true
+        }
+      }
+    ]
+  },
+  "holdout": {
+    "family_field": "domain",
+    "whole_families": true,
+    "max_folds": 12,
+    "test_share": 0.2
+  }
+}

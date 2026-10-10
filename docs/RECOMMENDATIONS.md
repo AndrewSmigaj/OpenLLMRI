@@ -715,3 +715,41 @@ slice's showcase. Runs: `docs/research/lens_core_validation.md` (the threatened 
     labels crowd;
   - the one-token rule leaves vehicles (59) and animals (96) thinner than the other categories; a
     capture that reads a word's last token would let multi-token words in, as a separate design.
+
+## 2026-10-09 — Animals and objects: what reading a split word at its last token does (10d.5–10d.6)
+
+**Scope**: the two single-word sets of lens slice 1c, their lenses and analyses. Runs:
+`docs/research/animals.md` and `docs/research/objects_harm.md`.
+
+- **Read each single word at the token after it** (for a ruling). Slice 1c reads a word that splits
+  at its last token (DESIGN.md C1). On both sets the token count then splits the space at every
+  layer: one-token animal names' nearest neighbours are 86 to 100% other one-token names (chance
+  18%), the lenses' nodes read the token count at κ 0.81 to 1.00 (animals) and 0.43 to 1.00
+  (objects), and taking out each token count's mean doesn't remove it. Kinship and harm still show
+  within each kind of name, but every UMAP lens on these captures spends nodes on it. A word's last
+  piece is a word-internal token, a one-token word a whole word with its space: the two read
+  differently all the way up. Reading every item at the token after the word (the message's end
+  marker, the same token for every item, which has seen the whole word) would make the read site
+  identical for all words, as the paper's carrier captures did for sentences. It needs a capture
+  option and a re-capture of the two sets; the analyses would run unchanged.
+- **Three harm classes don't carry over to new domains; one axis does.** Held out by whole domains,
+  even a logistic probe reads harmful, dual-purpose and benign at only 0.16 to 0.35 test AMI, while
+  a mass-mean axis from benign to harmful reaches 0.90 or more held-out accuracy from L4 to L15. For
+  harm, axes look like the better instrument, and the dual-purpose objects are read along them.
+- **Grouped folds with uneven class mixes give κ below zero.** Weapons live in a few domains, so a
+  fold holding out the armoury trains on few harmful objects; the object lens's held-out κ is below
+  zero at 19 of 24 layers. Balancing each grouped fold's class mix (choosing which domains go
+  together) would make the held-out scores fairer to the lens.
+- **Check a taxonomy match by its common name too.** The Catalogue of Life matched "Anthophila" (the
+  bees' clade) to a moth genus of the same name, and the audit's group-from-class rule couldn't see
+  it (a moth is an insect too). COL lists vernacular names: an audit could require each matched
+  taxon to carry the set's word among them, or at least report when it doesn't.
+- **Found and fixed on the way:**
+  - the mass-mean readings chart drew a band below zero up from zero (ECharts stacks across signs
+    only when told to: `stackStrategy: 'all'`);
+  - the lexical README still said the capture drops words that split.
+- **Parked:**
+  - a sentence capture doesn't record its pinned date in the session file (agent runs do); slice
+    2's capture recipe;
+  - the folds' label still reads "scene families" for any family field (noted in slice 1b);
+  - the analyst reports of both tuned lenses were still being written when this entry was made.

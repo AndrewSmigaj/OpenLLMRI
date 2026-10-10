@@ -599,6 +599,18 @@ export interface MassMeanValidation {
   provenance: { seconds: number; created_at: string }
 }
 
+// A capture read through a mass-mean lens (GET .../readings?target=): each item's position along the
+// contrast at every layer, `readings[item][layer index]` (the lens's own classes average -1 and +1)
+export interface MassMeanReadings {
+  lens: string
+  contrast: { label_a: string; label_b: string }
+  target: string
+  position: number
+  layers: number[]
+  items: { probe_id: string; label: string; categories: Record<string, string> | null; step: number | null }[]
+  readings: number[][]
+}
+
 // A token and its logit (or its logit above a baseline), as the logit lens reads them
 export type TokenScore = [string, number]
 
