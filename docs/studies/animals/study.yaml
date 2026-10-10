@@ -1,0 +1,74 @@
+# Animals: lens slice 1c's study of animal names given alone (DESIGN.md C1, C3, C8; K, slice 1c).
+# Its findings note is the record of the runs; each ledger line stays proposed until it is
+# reviewed (DESIGN.md H).
+id: animals
+title: Animals, kinship and way of life
+question: >
+  Does the model group animals by kinship (their taxonomy, down to the genus) or by how they live
+  (habitat, movement, diet), and where does that change across the layers? And what does reading
+  a name that splits into several tokens at its last token do to the lens?
+status: active
+started: 2026-10-09
+sets:
+  - animals_kinship_v1
+captures:
+  - session_6e485e10
+lenses:
+  - session_6e485e10/animals-k8-n15
+  - session_6e485e10/animals-k8-n15-tuned
+findings:
+  - docs/research/animals.md
+ledger:
+  - idea: A UMAP lens recovers an animal's group on whole held-out orders.
+    experiment: >
+      animals-k8-n15 validated on 12 folds of whole orders; animals-k8-n15-tuned tuned on the
+      group with 36 whole orders (119 animals) as the test portion.
+    finding: >
+      Held-out AMI 0.37 to 0.40 at L6 to L12 (k 8), weak at L0 to L2 and L18 to L22. Tuned test AMI
+      peaks at 0.36 (L6), as does the untuned lens; tuning is better at 10 layers and worse at 14.
+      A logistic probe reaches 0.48 to 0.88.
+    status: proposed
+    evidence: [docs/research/animals.md]
+  - idea: The model's animal neighbourhoods follow the taxonomy, rank by rank.
+    experiment: >
+      For each animal and layer, the share of its 10 nearest neighbours sharing its group, class,
+      order, family and genus, in the lens and in raw space, against shuffled taxonomy.
+    finding: >
+      At L6 to L13, 67 to 71% of neighbours share the group in the lens (chance 20%), 20 to 23%
+      the order (chance 3%) and 6 to 7% the family (chance 1%). In raw space the group's share is
+      already 0.64 at L2. All ranks dip at L18 to L20.
+    status: proposed
+    evidence: [docs/research/animals.md]
+  - idea: Where kinship and way of life disagree, the model follows kinship.
+    experiment: >
+      33 animals whose way of life is another group's (swimming and flying mammals, birds that
+      don't fly, named "fish", legless animals, the mudskipper): neighbours among kin without the
+      trait against look-alikes from other groups, against shuffled positions.
+    finding: >
+      Every kind leans to kin beyond chance at many layers (swimming mammals at 18 lens layers and
+      20 raw), and none leans to its look-alikes beyond chance except the legless animals at raw
+      L3. The whales are the exception animal by animal (the humpback leans to fish at 12 lens
+      layers), and the eel sits with the snakes in raw space at L10 to L18.
+    status: proposed
+    evidence: [docs/research/animals.md]
+  - idea: A name read at its last token groups by that piece in early layers.
+    experiment: >
+      Split names sharing a last piece, and the 23 names ending in "fish", against their
+      neighbours' last pieces, layer by layer.
+    finding: >
+      34% of neighbours share the last piece at L0 (chance 1%), 15 to 17% at L8 to L16. The "-fish"
+      names cluster almost entirely by the piece at L0 and again at L20 to L23 in raw space, with
+      the lowest share at L8 to L13: a U across the layers.
+    status: proposed
+    evidence: [docs/research/animals.md]
+  - idea: Whether a name split shapes the lens.
+    experiment: >
+      A probe on one token against several; one-token names' neighbours; the same with each token
+      count's mean taken out; the axes analysis and the node details.
+    finding: >
+      The token count is read at balanced accuracy 0.96 or more at every layer, one-token names'
+      neighbours are 86 to 100% one-token names (chance 18%), and the lens's nodes read it at κ
+      0.81 to 1.00. Taking out the means leaves 77 to 99% through L18. Kinship holds within each
+      kind of name. Reading at the token after the word is proposed (RECOMMENDATIONS.md).
+    status: proposed
+    evidence: [docs/research/animals.md]

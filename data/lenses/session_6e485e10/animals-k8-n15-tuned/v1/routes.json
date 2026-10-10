@@ -1,0 +1,2146 @@
+{
+ "format_version": 1,
+ "n_items": 524,
+ "layers": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  14,
+  15,
+  16,
+  17,
+  18,
+  19,
+  20,
+  21,
+  22,
+  23
+ ],
+ "min_items": 27,
+ "base": {
+  "label": {
+   "mammal": 165,
+   "bird": 122,
+   "reptile": 32,
+   "amphibian": 15,
+   "fish": 79,
+   "insect": 53,
+   "arachnid": 10,
+   "other_invertebrate": 48
+  },
+  "diet": {
+   "carnivore": 252,
+   "omnivore": 109,
+   "herbivore": 163
+  },
+  "habitat": {
+   "land": 331,
+   "land and water": 51,
+   "sea": 104,
+   "fresh water": 38
+  },
+  "movement": {
+   "walks": 221,
+   "swims": 120,
+   "flies": 139,
+   "crawls": 35,
+   "stays put": 9
+  },
+  "tokens": {
+   "one": 94,
+   "several": 430
+  },
+  "wild_or_domestic": {
+   "wild": 493,
+   "domestic": 31
+  }
+ },
+ "pipelines": [
+  {
+   "layers": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+   ],
+   "experts": [
+    28,
+    10,
+    31,
+    24,
+    15,
+    30,
+    10,
+    20,
+    16,
+    19,
+    25,
+    21,
+    5,
+    29,
+    28,
+    11,
+    5,
+    14,
+    13,
+    5,
+    11,
+    13,
+    2
+   ],
+   "members": 388,
+   "weighted": 126.81,
+   "mean_weight": 0.327,
+   "rank1": 0,
+   "makeup": {
+    "label": {
+     "mammal": 136,
+     "bird": 93,
+     "reptile": 20,
+     "amphibian": 10,
+     "fish": 50,
+     "insect": 33,
+     "arachnid": 9,
+     "other_invertebrate": 37
+    },
+    "diet": {
+     "carnivore": 174,
+     "omnivore": 81,
+     "herbivore": 133
+    },
+    "habitat": {
+     "land": 255,
+     "land and water": 37,
+     "sea": 72,
+     "fresh water": 24
+    },
+    "movement": {
+     "walks": 182,
+     "swims": 77,
+     "flies": 96,
+     "crawls": 26,
+     "stays put": 7
+    },
+    "tokens": {
+     "one": 70,
+     "several": 318
+    },
+    "wild_or_domestic": {
+     "wild": 367,
+     "domestic": 21
+    }
+   },
+   "replicated": true,
+   "before": [
+    {
+     "layer": 0,
+     "expert": 24,
+     "share": 0.167
+    },
+    {
+     "layer": 0,
+     "expert": 9,
+     "share": 0.136
+    },
+    {
+     "layer": 0,
+     "expert": 11,
+     "share": 0.107
+    }
+   ],
+   "after": [],
+   "id": "P1",
+   "nodes": [
+    {
+     "0": 72,
+     "1": 86,
+     "2": 62,
+     "3": 55,
+     "4": 55,
+     "5": 58
+    },
+    {
+     "0": 69,
+     "1": 70,
+     "2": 54,
+     "3": 31,
+     "4": 69,
+     "5": 12,
+     "6": 41,
+     "7": 26,
+     "8": 6,
+     "9": 10
+    },
+    {
+     "0": 69,
+     "1": 106,
+     "2": 94,
+     "3": 73,
+     "4": 22,
+     "5": 9,
+     "6": 15
+    },
+    {
+     "0": 70,
+     "1": 38,
+     "2": 83,
+     "3": 27,
+     "4": 67,
+     "5": 17,
+     "6": 28,
+     "7": 14,
+     "8": 34,
+     "9": 10
+    },
+    {
+     "0": 71,
+     "1": 66,
+     "2": 62,
+     "3": 46,
+     "4": 56,
+     "5": 42,
+     "6": 35,
+     "7": 10
+    },
+    {
+     "0": 70,
+     "1": 87,
+     "2": 40,
+     "3": 21,
+     "4": 28,
+     "5": 26,
+     "6": 43,
+     "7": 35,
+     "8": 38
+    },
+    {
+     "0": 70,
+     "1": 106,
+     "2": 50,
+     "3": 55,
+     "4": 64,
+     "5": 43
+    },
+    {
+     "0": 73,
+     "1": 108,
+     "2": 43,
+     "3": 61,
+     "4": 65,
+     "5": 38
+    },
+    {
+     "0": 47,
+     "1": 39,
+     "2": 78,
+     "3": 45,
+     "4": 23,
+     "5": 65,
+     "6": 52,
+     "7": 39
+    },
+    {
+     "0": 51,
+     "1": 27,
+     "2": 91,
+     "3": 42,
+     "4": 25,
+     "5": 56,
+     "6": 64,
+     "7": 32
+    },
+    {
+     "0": 93,
+     "1": 77,
+     "2": 27,
+     "3": 65,
+     "4": 31,
+     "5": 39,
+     "6": 56
+    },
+    {
+     "0": 43,
+     "1": 84,
+     "2": 30,
+     "3": 28,
+     "4": 38,
+     "5": 65,
+     "6": 37,
+     "7": 63
+    },
+    {
+     "0": 57,
+     "1": 32,
+     "2": 49,
+     "3": 54,
+     "4": 7,
+     "5": 27,
+     "6": 60,
+     "7": 21,
+     "8": 40,
+     "9": 41
+    },
+    {
+     "0": 54,
+     "1": 71,
+     "2": 22,
+     "3": 52,
+     "4": 10,
+     "5": 60,
+     "6": 10,
+     "7": 25,
+     "8": 47,
+     "9": 37
+    },
+    {
+     "0": 68,
+     "1": 39,
+     "2": 47,
+     "3": 58,
+     "4": 6,
+     "5": 53,
+     "6": 61,
+     "7": 56
+    },
+    {
+     "0": 53,
+     "1": 26,
+     "2": 24,
+     "3": 32,
+     "4": 65,
+     "5": 49,
+     "6": 53,
+     "7": 46,
+     "8": 40
+    },
+    {
+     "0": 70,
+     "1": 65,
+     "2": 25,
+     "3": 68,
+     "4": 52,
+     "5": 48,
+     "6": 20,
+     "7": 40
+    },
+    {
+     "0": 70,
+     "1": 15,
+     "2": 55,
+     "3": 17,
+     "4": 89,
+     "5": 23,
+     "6": 37,
+     "7": 31,
+     "8": 17,
+     "9": 34
+    },
+    {
+     "0": 71,
+     "1": 14,
+     "2": 90,
+     "3": 19,
+     "4": 65,
+     "5": 34,
+     "6": 43,
+     "7": 12,
+     "8": 13,
+     "9": 27
+    },
+    {
+     "0": 63,
+     "1": 17,
+     "2": 39,
+     "3": 15,
+     "4": 35,
+     "5": 59,
+     "6": 91,
+     "7": 39,
+     "8": 30
+    },
+    {
+     "0": 56,
+     "1": 74,
+     "2": 73,
+     "3": 28,
+     "4": 34,
+     "5": 23,
+     "6": 32,
+     "7": 34,
+     "8": 26,
+     "9": 8
+    },
+    {
+     "0": 59,
+     "1": 59,
+     "2": 37,
+     "3": 71,
+     "4": 15,
+     "5": 21,
+     "6": 39,
+     "7": 24,
+     "8": 35,
+     "9": 28
+    },
+    {
+     "0": 73,
+     "1": 44,
+     "2": 28,
+     "3": 107,
+     "4": 36,
+     "5": 30,
+     "6": 34,
+     "7": 36
+    }
+   ]
+  },
+  {
+   "layers": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+   ],
+   "experts": [
+    24,
+    7,
+    9,
+    16,
+    19,
+    25,
+    21,
+    5,
+    6,
+    28,
+    11,
+    5,
+    14,
+    13,
+    5,
+    11,
+    13,
+    2
+   ],
+   "members": 221,
+   "weighted": 72.57,
+   "mean_weight": 0.328,
+   "rank1": 0,
+   "makeup": {
+    "label": {
+     "mammal": 101,
+     "bird": 55,
+     "reptile": 8,
+     "amphibian": 6,
+     "fish": 17,
+     "insect": 20,
+     "arachnid": 4,
+     "other_invertebrate": 10
+    },
+    "diet": {
+     "carnivore": 87,
+     "omnivore": 52,
+     "herbivore": 82
+    },
+    "habitat": {
+     "land": 168,
+     "land and water": 19,
+     "sea": 26,
+     "fresh water": 8
+    },
+    "movement": {
+     "walks": 122,
+     "swims": 32,
+     "flies": 57,
+     "crawls": 10
+    },
+    "tokens": {
+     "one": 46,
+     "several": 175
+    },
+    "wild_or_domestic": {
+     "wild": 205,
+     "domestic": 16
+    }
+   },
+   "replicated": true,
+   "before": [
+    {
+     "layer": 5,
+     "expert": 15,
+     "share": 0.323
+    },
+    {
+     "layer": 5,
+     "expert": 31,
+     "share": 0.318
+    },
+    {
+     "layer": 5,
+     "expert": 6,
+     "share": 0.154
+    }
+   ],
+   "after": [],
+   "id": "P2",
+   "nodes": [
+    {
+     "0": 46,
+     "1": 66,
+     "2": 21,
+     "3": 6,
+     "4": 11,
+     "5": 20,
+     "6": 22,
+     "7": 12,
+     "8": 17
+    },
+    {
+     "0": 46,
+     "1": 76,
+     "2": 21,
+     "3": 18,
+     "4": 40,
+     "5": 20
+    },
+    {
+     "0": 48,
+     "1": 75,
+     "2": 19,
+     "3": 23,
+     "4": 39,
+     "5": 17
+    },
+    {
+     "0": 37,
+     "1": 21,
+     "2": 57,
+     "3": 20,
+     "4": 9,
+     "5": 40,
+     "6": 18,
+     "7": 19
+    },
+    {
+     "0": 40,
+     "1": 12,
+     "2": 70,
+     "3": 14,
+     "4": 13,
+     "5": 19,
+     "6": 39,
+     "7": 14
+    },
+    {
+     "0": 64,
+     "1": 57,
+     "2": 5,
+     "3": 40,
+     "4": 19,
+     "5": 18,
+     "6": 18
+    },
+    {
+     "0": 31,
+     "1": 62,
+     "2": 4,
+     "3": 19,
+     "4": 26,
+     "5": 39,
+     "6": 19,
+     "7": 21
+    },
+    {
+     "0": 47,
+     "1": 27,
+     "2": 17,
+     "3": 39,
+     "4": 3,
+     "5": 12,
+     "6": 34,
+     "7": 5,
+     "8": 21,
+     "9": 16
+    },
+    {
+     "0": 42,
+     "1": 53,
+     "2": 3,
+     "3": 36,
+     "4": 4,
+     "5": 37,
+     "6": 2,
+     "7": 12,
+     "8": 13,
+     "9": 19
+    },
+    {
+     "0": 44,
+     "1": 28,
+     "2": 22,
+     "3": 41,
+     "4": 3,
+     "5": 26,
+     "6": 40,
+     "7": 17
+    },
+    {
+     "0": 41,
+     "1": 16,
+     "2": 5,
+     "3": 18,
+     "4": 45,
+     "5": 35,
+     "6": 17,
+     "7": 27,
+     "8": 17
+    },
+    {
+     "0": 46,
+     "1": 52,
+     "2": 6,
+     "3": 32,
+     "4": 31,
+     "5": 30,
+     "6": 6,
+     "7": 18
+    },
+    {
+     "0": 46,
+     "1": 12,
+     "2": 31,
+     "3": 3,
+     "4": 57,
+     "5": 12,
+     "6": 22,
+     "7": 18,
+     "8": 6,
+     "9": 14
+    },
+    {
+     "0": 47,
+     "1": 11,
+     "2": 66,
+     "3": 7,
+     "4": 37,
+     "5": 12,
+     "6": 17,
+     "7": 8,
+     "8": 7,
+     "9": 9
+    },
+    {
+     "0": 47,
+     "1": 8,
+     "2": 26,
+     "3": 6,
+     "4": 19,
+     "5": 38,
+     "6": 50,
+     "7": 17,
+     "8": 10
+    },
+    {
+     "0": 42,
+     "1": 48,
+     "2": 46,
+     "3": 13,
+     "4": 18,
+     "5": 11,
+     "6": 18,
+     "7": 14,
+     "8": 8,
+     "9": 3
+    },
+    {
+     "0": 44,
+     "1": 34,
+     "2": 26,
+     "3": 41,
+     "4": 10,
+     "5": 7,
+     "6": 24,
+     "7": 15,
+     "8": 9,
+     "9": 11
+    },
+    {
+     "0": 49,
+     "1": 29,
+     "2": 14,
+     "3": 69,
+     "4": 15,
+     "5": 17,
+     "6": 19,
+     "7": 9
+    }
+   ]
+  },
+  {
+   "layers": [
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+   ],
+   "experts": [
+    30,
+    19,
+    7,
+    25,
+    24,
+    29,
+    28,
+    11,
+    5,
+    14,
+    13,
+    5,
+    4,
+    13,
+    2
+   ],
+   "members": 206,
+   "weighted": 66.2,
+   "mean_weight": 0.321,
+   "rank1": 0,
+   "makeup": {
+    "label": {
+     "mammal": 67,
+     "bird": 40,
+     "reptile": 14,
+     "amphibian": 5,
+     "fish": 29,
+     "insect": 22,
+     "arachnid": 5,
+     "other_invertebrate": 24
+    },
+    "diet": {
+     "carnivore": 94,
+     "omnivore": 35,
+     "herbivore": 77
+    },
+    "habitat": {
+     "land": 130,
+     "sea": 44,
+     "land and water": 18,
+     "fresh water": 14
+    },
+    "movement": {
+     "walks": 91,
+     "swims": 47,
+     "flies": 48,
+     "crawls": 16,
+     "stays put": 4
+    },
+    "tokens": {
+     "several": 202,
+     "one": 4
+    },
+    "wild_or_domestic": {
+     "wild": 198,
+     "domestic": 8
+    }
+   },
+   "replicated": true,
+   "before": [
+    {
+     "layer": 8,
+     "expert": 30,
+     "share": 0.287
+    },
+    {
+     "layer": 8,
+     "expert": 20,
+     "share": 0.249
+    },
+    {
+     "layer": 8,
+     "expert": 9,
+     "share": 0.245
+    }
+   ],
+   "after": [],
+   "id": "P3",
+   "nodes": [
+    {
+     "0": 4,
+     "1": 27,
+     "2": 58,
+     "3": 3,
+     "5": 39,
+     "6": 43,
+     "7": 32
+    },
+    {
+     "0": 4,
+     "2": 64,
+     "3": 4,
+     "4": 22,
+     "5": 45,
+     "6": 40,
+     "7": 27
+    },
+    {
+     "0": 5,
+     "1": 52,
+     "2": 3,
+     "3": 43,
+     "4": 23,
+     "5": 36,
+     "6": 44
+    },
+    {
+     "0": 2,
+     "1": 59,
+     "2": 7,
+     "3": 2,
+     "4": 15,
+     "5": 40,
+     "6": 32,
+     "7": 49
+    },
+    {
+     "0": 6,
+     "1": 14,
+     "2": 3,
+     "3": 44,
+     "5": 24,
+     "6": 38,
+     "7": 8,
+     "8": 33,
+     "9": 36
+    },
+    {
+     "0": 5,
+     "1": 56,
+     "2": 3,
+     "3": 11,
+     "5": 40,
+     "7": 36,
+     "8": 28,
+     "9": 27
+    },
+    {
+     "0": 6,
+     "1": 22,
+     "2": 2,
+     "3": 47,
+     "5": 42,
+     "6": 40,
+     "7": 47
+    },
+    {
+     "0": 4,
+     "1": 23,
+     "2": 3,
+     "4": 54,
+     "5": 17,
+     "6": 43,
+     "7": 30,
+     "8": 32
+    },
+    {
+     "0": 4,
+     "1": 43,
+     "2": 3,
+     "3": 16,
+     "4": 42,
+     "5": 36,
+     "6": 29,
+     "7": 33
+    },
+    {
+     "0": 4,
+     "1": 5,
+     "2": 36,
+     "3": 3,
+     "4": 62,
+     "5": 3,
+     "6": 10,
+     "7": 27,
+     "8": 29,
+     "9": 27
+    },
+    {
+     "0": 4,
+     "1": 5,
+     "2": 66,
+     "3": 4,
+     "4": 21,
+     "5": 29,
+     "6": 35,
+     "7": 7,
+     "8": 22,
+     "9": 13
+    },
+    {
+     "0": 4,
+     "1": 3,
+     "2": 35,
+     "3": 5,
+     "4": 23,
+     "5": 34,
+     "6": 34,
+     "7": 24,
+     "8": 44
+    },
+    {
+     "0": 6,
+     "1": 54,
+     "2": 28,
+     "3": 18,
+     "4": 12,
+     "5": 19,
+     "6": 1,
+     "7": 31,
+     "8": 32,
+     "9": 5
+    },
+    {
+     "0": 4,
+     "1": 42,
+     "2": 28,
+     "3": 24,
+     "4": 8,
+     "6": 25,
+     "7": 10,
+     "8": 38,
+     "9": 27
+    },
+    {
+     "0": 6,
+     "1": 17,
+     "2": 7,
+     "3": 71,
+     "4": 32,
+     "5": 13,
+     "6": 23,
+     "7": 37
+    }
+   ]
+  },
+  {
+   "layers": [
+    19,
+    20,
+    21,
+    22,
+    23
+   ],
+   "experts": [
+    19,
+    5,
+    23,
+    2,
+    12
+   ],
+   "members": 51,
+   "weighted": 12.4,
+   "mean_weight": 0.243,
+   "rank1": 0,
+   "makeup": {
+    "label": {
+     "mammal": 9,
+     "bird": 22,
+     "reptile": 4,
+     "amphibian": 1,
+     "fish": 2,
+     "insect": 6,
+     "arachnid": 2,
+     "other_invertebrate": 5
+    },
+    "diet": {
+     "carnivore": 23,
+     "herbivore": 21,
+     "omnivore": 7
+    },
+    "habitat": {
+     "land": 37,
+     "land and water": 7,
+     "sea": 5,
+     "fresh water": 2
+    },
+    "movement": {
+     "walks": 16,
+     "swims": 5,
+     "flies": 26,
+     "crawls": 3,
+     "stays put": 1
+    },
+    "tokens": {
+     "several": 51
+    },
+    "wild_or_domestic": {
+     "wild": 51
+    }
+   },
+   "replicated": true,
+   "before": [
+    {
+     "layer": 18,
+     "expert": 14,
+     "share": 0.388
+    },
+    {
+     "layer": 18,
+     "expert": 1,
+     "share": 0.358
+    },
+    {
+     "layer": 18,
+     "expert": 29,
+     "share": 0.11
+    }
+   ],
+   "after": [],
+   "id": "P4",
+   "nodes": [
+    {
+     "1": 1,
+     "2": 16,
+     "4": 1,
+     "5": 8,
+     "6": 17,
+     "7": 5,
+     "8": 2,
+     "9": 1
+    },
+    {
+     "1": 1,
+     "2": 12,
+     "4": 18,
+     "5": 1,
+     "7": 9,
+     "8": 10
+    },
+    {
+     "0": 1,
+     "1": 8,
+     "2": 1,
+     "3": 8,
+     "5": 14,
+     "7": 16,
+     "8": 2,
+     "9": 1
+    },
+    {
+     "0": 1,
+     "1": 11,
+     "2": 3,
+     "4": 1,
+     "6": 18,
+     "8": 4,
+     "9": 13
+    },
+    {
+     "0": 1,
+     "1": 9,
+     "3": 11,
+     "4": 12,
+     "6": 15,
+     "7": 3
+    }
+   ]
+  }
+ ],
+ "hubs": [
+  {
+   "id": "H1",
+   "layer": 1,
+   "expert": 11,
+   "weighted": 153.23,
+   "items": 497,
+   "sources": 6.574,
+   "from": [
+    {
+     "expert": 24,
+     "share": 0.168
+    },
+    {
+     "expert": 11,
+     "share": 0.118
+    },
+    {
+     "expert": 9,
+     "share": 0.082
+    }
+   ],
+   "to": [
+    {
+     "expert": 10,
+     "share": 0.305
+    },
+    {
+     "expert": 31,
+     "share": 0.251
+    },
+    {
+     "expert": 14,
+     "share": 0.197
+    }
+   ]
+  },
+  {
+   "id": "H2",
+   "layer": 1,
+   "expert": 1,
+   "weighted": 42.06,
+   "items": 257,
+   "sources": 5.606,
+   "from": [
+    {
+     "expert": 24,
+     "share": 0.163
+    },
+    {
+     "expert": 9,
+     "share": 0.149
+    },
+    {
+     "expert": 11,
+     "share": 0.114
+    }
+   ],
+   "to": [
+    {
+     "expert": 10,
+     "share": 0.314
+    },
+    {
+     "expert": 31,
+     "share": 0.247
+    },
+    {
+     "expert": 14,
+     "share": 0.162
+    }
+   ]
+  },
+  {
+   "id": "H3",
+   "layer": 1,
+   "expert": 15,
+   "weighted": 28.02,
+   "items": 142,
+   "sources": 5.298,
+   "from": [
+    {
+     "expert": 9,
+     "share": 0.143
+    },
+    {
+     "expert": 24,
+     "share": 0.137
+    },
+    {
+     "expert": 11,
+     "share": 0.121
+    }
+   ],
+   "to": [
+    {
+     "expert": 10,
+     "share": 0.288
+    },
+    {
+     "expert": 31,
+     "share": 0.264
+    },
+    {
+     "expert": 14,
+     "share": 0.221
+    }
+   ]
+  },
+  {
+   "id": "H4",
+   "layer": 1,
+   "expert": 28,
+   "weighted": 159.14,
+   "items": 507,
+   "sources": 5.232,
+   "from": [
+    {
+     "expert": 9,
+     "share": 0.205
+    },
+    {
+     "expert": 24,
+     "share": 0.152
+    },
+    {
+     "expert": 5,
+     "share": 0.102
+    }
+   ],
+   "to": [
+    {
+     "expert": 10,
+     "share": 0.297
+    },
+    {
+     "expert": 31,
+     "share": 0.257
+    },
+    {
+     "expert": 14,
+     "share": 0.175
+    }
+   ]
+  },
+  {
+   "id": "H5",
+   "layer": 2,
+   "expert": 31,
+   "weighted": 132.44,
+   "items": 496,
+   "sources": 2.554,
+   "from": [
+    {
+     "expert": 28,
+     "share": 0.308
+    },
+    {
+     "expert": 11,
+     "share": 0.29
+    },
+    {
+     "expert": 1,
+     "share": 0.079
+    }
+   ],
+   "to": [
+    {
+     "expert": 31,
+     "share": 0.353
+    },
+    {
+     "expert": 23,
+     "share": 0.321
+    },
+    {
+     "expert": 25,
+     "share": 0.073
+    }
+   ]
+  },
+  {
+   "id": "H6",
+   "layer": 2,
+   "expert": 10,
+   "weighted": 159.27,
+   "items": 521,
+   "sources": 2.538,
+   "from": [
+    {
+     "expert": 28,
+     "share": 0.297
+    },
+    {
+     "expert": 11,
+     "share": 0.294
+    },
+    {
+     "expert": 1,
+     "share": 0.083
+    }
+   ],
+   "to": [
+    {
+     "expert": 31,
+     "share": 0.353
+    },
+    {
+     "expert": 23,
+     "share": 0.319
+    },
+    {
+     "expert": 8,
+     "share": 0.076
+    }
+   ]
+  },
+  {
+   "id": "H7",
+   "layer": 2,
+   "expert": 14,
+   "weighted": 97.11,
+   "items": 401,
+   "sources": 2.47,
+   "from": [
+    {
+     "expert": 11,
+     "share": 0.31
+    },
+    {
+     "expert": 28,
+     "share": 0.287
+    },
+    {
+     "expert": 1,
+     "share": 0.07
+    }
+   ],
+   "to": [
+    {
+     "expert": 31,
+     "share": 0.354
+    },
+    {
+     "expert": 23,
+     "share": 0.325
+    },
+    {
+     "expert": 8,
+     "share": 0.082
+    }
+   ]
+  },
+  {
+   "id": "H8",
+   "layer": 2,
+   "expert": 26,
+   "weighted": 67.08,
+   "items": 331,
+   "sources": 2.316,
+   "from": [
+    {
+     "expert": 28,
+     "share": 0.33
+    },
+    {
+     "expert": 11,
+     "share": 0.278
+    },
+    {
+     "expert": 1,
+     "share": 0.077
+    }
+   ],
+   "to": [
+    {
+     "expert": 23,
+     "share": 0.334
+    },
+    {
+     "expert": 31,
+     "share": 0.328
+    },
+    {
+     "expert": 8,
+     "share": 0.102
+    }
+   ]
+  },
+  {
+   "id": "H9",
+   "layer": 2,
+   "expert": 5,
+   "weighted": 28.17,
+   "items": 161,
+   "sources": 2.171,
+   "from": [
+    {
+     "expert": 28,
+     "share": 0.328
+    },
+    {
+     "expert": 11,
+     "share": 0.252
+    },
+    {
+     "expert": 1,
+     "share": 0.121
+    }
+   ],
+   "to": [
+    {
+     "expert": 31,
+     "share": 0.363
+    },
+    {
+     "expert": 23,
+     "share": 0.308
+    },
+    {
+     "expert": 8,
+     "share": 0.062
+    }
+   ]
+  },
+  {
+   "id": "H10",
+   "layer": 7,
+   "expert": 5,
+   "weighted": 49.87,
+   "items": 216,
+   "sources": 2.133,
+   "from": [
+    {
+     "expert": 30,
+     "share": 0.27
+    },
+    {
+     "expert": 24,
+     "share": 0.157
+    },
+    {
+     "expert": 28,
+     "share": 0.147
+    }
+   ],
+   "to": [
+    {
+     "expert": 20,
+     "share": 0.275
+    },
+    {
+     "expert": 9,
+     "share": 0.263
+    },
+    {
+     "expert": 30,
+     "share": 0.205
+    }
+   ]
+  },
+  {
+   "id": "H11",
+   "layer": 5,
+   "expert": 24,
+   "weighted": 53.8,
+   "items": 282,
+   "sources": 2.092,
+   "from": [
+    {
+     "expert": 24,
+     "share": 0.282
+    },
+    {
+     "expert": 14,
+     "share": 0.209
+    },
+    {
+     "expert": 21,
+     "share": 0.188
+    }
+   ],
+   "to": [
+    {
+     "expert": 30,
+     "share": 0.29
+    },
+    {
+     "expert": 27,
+     "share": 0.156
+    },
+    {
+     "expert": 24,
+     "share": 0.15
+    }
+   ]
+  }
+ ],
+ "involved": {
+  "label": {
+   "amphibian": {
+    "n": 15,
+    "threshold": 0.2927,
+    "permuted": "families",
+    "experts": []
+   },
+   "arachnid": {
+    "n": 10,
+    "threshold": 0.1468,
+    "permuted": "families",
+    "experts": []
+   },
+   "bird": {
+    "n": 122,
+    "threshold": 0.0675,
+    "permuted": "families",
+    "experts": []
+   },
+   "fish": {
+    "n": 79,
+    "threshold": 0.0679,
+    "permuted": "families",
+    "experts": [
+     {
+      "expert": 15,
+      "diff": 0.1458,
+      "favours": "fish",
+      "auc": 0.603,
+      "layer": 0
+     },
+     {
+      "expert": 4,
+      "diff": 0.0993,
+      "favours": "fish",
+      "auc": 0.705,
+      "layer": 23
+     },
+     {
+      "expert": 9,
+      "diff": -0.0735,
+      "favours": "rest",
+      "auc": 0.326,
+      "layer": 23
+     }
+    ]
+   },
+   "insect": {
+    "n": 53,
+    "threshold": 0.0968,
+    "permuted": "families",
+    "experts": [
+     {
+      "expert": 26,
+      "diff": 0.1008,
+      "favours": "insect",
+      "auc": 0.616,
+      "layer": 1
+     }
+    ]
+   },
+   "mammal": {
+    "n": 165,
+    "threshold": 0.0817,
+    "permuted": "families",
+    "experts": [
+     {
+      "expert": 13,
+      "diff": 0.1426,
+      "favours": "mammal",
+      "auc": 0.788,
+      "layer": 4
+     }
+    ]
+   },
+   "other_invertebrate": {
+    "n": 48,
+    "threshold": 0.0745,
+    "permuted": "families",
+    "experts": [
+     {
+      "expert": 6,
+      "diff": 0.1054,
+      "favours": "other_invertebrate",
+      "auc": 0.728,
+      "layer": 8
+     },
+     {
+      "expert": 31,
+      "diff": 0.0848,
+      "favours": "other_invertebrate",
+      "auc": 0.701,
+      "layer": 20
+     },
+     {
+      "expert": 11,
+      "diff": 0.0826,
+      "favours": "other_invertebrate",
+      "auc": 0.771,
+      "layer": 6
+     },
+     {
+      "expert": 13,
+      "diff": 0.0786,
+      "favours": "other_invertebrate",
+      "auc": 0.687,
+      "layer": 21
+     }
+    ]
+   },
+   "reptile": {
+    "n": 32,
+    "threshold": 0.2633,
+    "permuted": "families",
+    "experts": []
+   }
+  },
+  "diet": {
+   "carnivore": {
+    "n": 252,
+    "threshold": 0.0423,
+    "permuted": "texts",
+    "experts": [
+     {
+      "expert": 13,
+      "diff": -0.0495,
+      "favours": "rest",
+      "auc": 0.397,
+      "layer": 4
+     }
+    ]
+   },
+   "herbivore": {
+    "n": 163,
+    "threshold": 0.0464,
+    "permuted": "texts",
+    "experts": []
+   },
+   "omnivore": {
+    "n": 109,
+    "threshold": 0.0514,
+    "permuted": "texts",
+    "experts": []
+   }
+  },
+  "habitat": {
+   "fresh water": {
+    "n": 38,
+    "threshold": 0.0807,
+    "permuted": "texts",
+    "experts": [
+     {
+      "expert": 15,
+      "diff": 0.1088,
+      "favours": "fresh water",
+      "auc": 0.595,
+      "layer": 0
+     },
+     {
+      "expert": 4,
+      "diff": 0.0843,
+      "favours": "fresh water",
+      "auc": 0.678,
+      "layer": 23
+     }
+    ]
+   },
+   "land": {
+    "n": 331,
+    "threshold": 0.0433,
+    "permuted": "texts",
+    "experts": [
+     {
+      "expert": 15,
+      "diff": -0.0769,
+      "favours": "rest",
+      "auc": 0.448,
+      "layer": 0
+     },
+     {
+      "expert": 13,
+      "diff": 0.0659,
+      "favours": "land",
+      "auc": 0.637,
+      "layer": 4
+     },
+     {
+      "expert": 4,
+      "diff": -0.0531,
+      "favours": "rest",
+      "auc": 0.392,
+      "layer": 23
+     },
+     {
+      "expert": 24,
+      "diff": 0.0506,
+      "favours": "land",
+      "auc": 0.609,
+      "layer": 6
+     }
+    ]
+   },
+   "land and water": {
+    "n": 51,
+    "threshold": 0.0629,
+    "permuted": "texts",
+    "experts": []
+   },
+   "sea": {
+    "n": 104,
+    "threshold": 0.0577,
+    "permuted": "texts",
+    "experts": [
+     {
+      "expert": 15,
+      "diff": 0.0882,
+      "favours": "sea",
+      "auc": 0.557,
+      "layer": 0
+     },
+     {
+      "expert": 13,
+      "diff": -0.0617,
+      "favours": "rest",
+      "auc": 0.372,
+      "layer": 4
+     },
+     {
+      "expert": 24,
+      "diff": -0.0594,
+      "favours": "rest",
+      "auc": 0.372,
+      "layer": 6
+     }
+    ]
+   }
+  },
+  "movement": {
+   "crawls": {
+    "n": 35,
+    "threshold": 0.082,
+    "permuted": "texts",
+    "experts": [
+     {
+      "expert": 11,
+      "diff": 0.1247,
+      "favours": "crawls",
+      "auc": 0.587,
+      "layer": 0
+     }
+    ]
+   },
+   "flies": {
+    "n": 139,
+    "threshold": 0.0467,
+    "permuted": "texts",
+    "experts": [
+     {
+      "expert": 4,
+      "diff": -0.0614,
+      "favours": "rest",
+      "auc": 0.374,
+      "layer": 23
+     },
+     {
+      "expert": 14,
+      "diff": 0.0583,
+      "favours": "flies",
+      "auc": 0.635,
+      "layer": 2
+     },
+     {
+      "expert": 22,
+      "diff": 0.0506,
+      "favours": "flies",
+      "auc": 0.636,
+      "layer": 16
+     },
+     {
+      "expert": 18,
+      "diff": 0.0496,
+      "favours": "flies",
+      "auc": 0.614,
+      "layer": 6
+     },
+     {
+      "expert": 10,
+      "diff": 0.0495,
+      "favours": "flies",
+      "auc": 0.613,
+      "layer": 20
+     },
+     {
+      "expert": 6,
+      "diff": -0.0484,
+      "favours": "rest",
+      "auc": 0.391,
+      "layer": 8
+     }
+    ]
+   },
+   "swims": {
+    "n": 120,
+    "threshold": 0.0493,
+    "permuted": "texts",
+    "experts": [
+     {
+      "expert": 15,
+      "diff": 0.1087,
+      "favours": "swims",
+      "auc": 0.577,
+      "layer": 0
+     },
+     {
+      "expert": 4,
+      "diff": 0.076,
+      "favours": "swims",
+      "auc": 0.654,
+      "layer": 23
+     },
+     {
+      "expert": 9,
+      "diff": -0.0531,
+      "favours": "rest",
+      "auc": 0.375,
+      "layer": 23
+     }
+    ]
+   },
+   "walks": {
+    "n": 221,
+    "threshold": 0.0433,
+    "permuted": "texts",
+    "experts": [
+     {
+      "expert": 13,
+      "diff": 0.0909,
+      "favours": "walks",
+      "auc": 0.68,
+      "layer": 4
+     },
+     {
+      "expert": 15,
+      "diff": -0.0517,
+      "favours": "rest",
+      "auc": 0.462,
+      "layer": 0
+     },
+     {
+      "expert": 14,
+      "diff": -0.0509,
+      "favours": "rest",
+      "auc": 0.37,
+      "layer": 2
+     },
+     {
+      "expert": 24,
+      "diff": 0.0475,
+      "favours": "walks",
+      "auc": 0.6,
+      "layer": 6
+     }
+    ]
+   }
+  },
+  "tokens": {
+   "one": {
+    "n": 94,
+    "threshold": 0.0527,
+    "permuted": "texts",
+    "experts": [
+     {
+      "expert": 9,
+      "diff": 0.4355,
+      "favours": "one",
+      "auc": 0.958,
+      "layer": 0
+     },
+     {
+      "expert": 5,
+      "diff": 0.2481,
+      "favours": "one",
+      "auc": 0.989,
+      "layer": 7
+     },
+     {
+      "expert": 5,
+      "diff": 0.2464,
+      "favours": "one",
+      "auc": 0.966,
+      "layer": 0
+     },
+     {
+      "expert": 28,
+      "diff": 0.2447,
+      "favours": "one",
+      "auc": 0.98,
+      "layer": 1
+     },
+     {
+      "expert": 30,
+      "diff": 0.2348,
+      "favours": "one",
+      "auc": 0.98,
+      "layer": 11
+     },
+     {
+      "expert": 25,
+      "diff": -0.2275,
+      "favours": "rest",
+      "auc": 0.141,
+      "layer": 7
+     },
+     {
+      "expert": 23,
+      "diff": 0.2232,
+      "favours": "one",
+      "auc": 0.967,
+      "layer": 12
+     },
+     {
+      "expert": 11,
+      "diff": -0.2099,
+      "favours": "rest",
+      "auc": 0.019,
+      "layer": 1
+     },
+     {
+      "expert": 13,
+      "diff": 0.1982,
+      "favours": "one",
+      "auc": 0.918,
+      "layer": 15
+     },
+     {
+      "expert": 12,
+      "diff": -0.1764,
+      "favours": "rest",
+      "auc": 0.12,
+      "layer": 23
+     }
+    ]
+   },
+   "several": {
+    "n": 430,
+    "threshold": 0.0515,
+    "permuted": "texts",
+    "experts": [
+     {
+      "expert": 9,
+      "diff": -0.4355,
+      "favours": "rest",
+      "auc": 0.042,
+      "layer": 0
+     },
+     {
+      "expert": 5,
+      "diff": -0.2481,
+      "favours": "rest",
+      "auc": 0.011,
+      "layer": 7
+     },
+     {
+      "expert": 5,
+      "diff": -0.2464,
+      "favours": "rest",
+      "auc": 0.034,
+      "layer": 0
+     },
+     {
+      "expert": 28,
+      "diff": -0.2447,
+      "favours": "rest",
+      "auc": 0.02,
+      "layer": 1
+     },
+     {
+      "expert": 30,
+      "diff": -0.2348,
+      "favours": "rest",
+      "auc": 0.02,
+      "layer": 11
+     },
+     {
+      "expert": 25,
+      "diff": 0.2275,
+      "favours": "several",
+      "auc": 0.859,
+      "layer": 7
+     },
+     {
+      "expert": 23,
+      "diff": -0.2232,
+      "favours": "rest",
+      "auc": 0.033,
+      "layer": 12
+     },
+     {
+      "expert": 11,
+      "diff": 0.2099,
+      "favours": "several",
+      "auc": 0.981,
+      "layer": 1
+     },
+     {
+      "expert": 13,
+      "diff": -0.1982,
+      "favours": "rest",
+      "auc": 0.082,
+      "layer": 15
+     },
+     {
+      "expert": 12,
+      "diff": 0.1764,
+      "favours": "several",
+      "auc": 0.88,
+      "layer": 23
+     }
+    ]
+   }
+  },
+  "wild_or_domestic": {
+   "domestic": {
+    "n": 31,
+    "threshold": 0.0909,
+    "permuted": "texts",
+    "experts": [
+     {
+      "expert": 13,
+      "diff": 0.1408,
+      "favours": "domestic",
+      "auc": 0.772,
+      "layer": 4
+     },
+     {
+      "expert": 9,
+      "diff": 0.1382,
+      "favours": "domestic",
+      "auc": 0.661,
+      "layer": 0
+     },
+     {
+      "expert": 30,
+      "diff": 0.1206,
+      "favours": "domestic",
+      "auc": 0.749,
+      "layer": 11
+     },
+     {
+      "expert": 21,
+      "diff": -0.1187,
+      "favours": "rest",
+      "auc": 0.284,
+      "layer": 4
+     },
+     {
+      "expert": 11,
+      "diff": -0.1059,
+      "favours": "rest",
+      "auc": 0.289,
+      "layer": 1
+     },
+     {
+      "expert": 28,
+      "diff": 0.0956,
+      "favours": "domestic",
+      "auc": 0.695,
+      "layer": 1
+     },
+     {
+      "expert": 24,
+      "diff": 0.0925,
+      "favours": "domestic",
+      "auc": 0.758,
+      "layer": 5
+     }
+    ]
+   },
+   "wild": {
+    "n": 493,
+    "threshold": 0.0889,
+    "permuted": "texts",
+    "experts": [
+     {
+      "expert": 13,
+      "diff": -0.1408,
+      "favours": "rest",
+      "auc": 0.228,
+      "layer": 4
+     },
+     {
+      "expert": 9,
+      "diff": -0.1382,
+      "favours": "rest",
+      "auc": 0.339,
+      "layer": 0
+     },
+     {
+      "expert": 30,
+      "diff": -0.1206,
+      "favours": "rest",
+      "auc": 0.251,
+      "layer": 11
+     },
+     {
+      "expert": 21,
+      "diff": 0.1187,
+      "favours": "wild",
+      "auc": 0.716,
+      "layer": 4
+     },
+     {
+      "expert": 11,
+      "diff": 0.1059,
+      "favours": "wild",
+      "auc": 0.711,
+      "layer": 1
+     },
+     {
+      "expert": 28,
+      "diff": -0.0956,
+      "favours": "rest",
+      "auc": 0.305,
+      "layer": 1
+     },
+     {
+      "expert": 24,
+      "diff": -0.0925,
+      "favours": "rest",
+      "auc": 0.242,
+      "layer": 5
+     }
+    ]
+   }
+  }
+ },
+ "rules": {
+  "min_share": 0.05,
+  "min_items": 10,
+  "min_length": 3,
+  "hub_sources": 2.0,
+  "permutations": 200,
+  "family_field": "order",
+  "whole_families": true
+ },
+ "version": "v1"
+}

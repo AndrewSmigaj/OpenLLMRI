@@ -1,0 +1,2778 @@
+{
+ "session": "session_6e485e10",
+ "lens": "animals-k8-n15",
+ "items": 524,
+ "neighbours": 10,
+ "split": 430,
+ "one_token": 94,
+ "shared_pieces": {
+  "fish": 23,
+  "fly": 13,
+  "bird": 11,
+  "worm": 9,
+  "et": 5,
+  "ch": 5,
+  "ot": 4,
+  "al": 4,
+  "ine": 4,
+  "ary": 4,
+  "o": 4,
+  "bug": 4,
+  "at": 3,
+  "ill": 3,
+  "in": 3,
+  "is": 3,
+  "ouse": 3,
+  "on": 3,
+  "ard": 3,
+  "bill": 3,
+  "wing": 3,
+  "tail": 3,
+  "ah": 2,
+  "cat": 2,
+  "ole": 2,
+  "ret": 2,
+  "unk": 2,
+  "illa": 2,
+  "e": 2,
+  "oon": 2,
+  "ur": 2,
+  "aver": 2,
+  "og": 2,
+  "rew": 2,
+  "aco": 2,
+  "ala": 2,
+  "ater": 2,
+  "um": 2,
+  "us": 2,
+  "na": 2,
+  "k": 2,
+  "rey": 2,
+  "rel": 2,
+  "aw": 2,
+  "ling": 2,
+  "ail": 2,
+  "a": 2,
+  "u": 2,
+  "iper": 2,
+  "an": 2,
+  "se": 2,
+  "mouth": 2,
+  "nake": 2,
+  "ana": 2,
+  "head": 2,
+  "ad": 2,
+  "frog": 2,
+  "ppy": 2,
+  "el": 2,
+  "per": 2,
+  "ish": 2,
+  "le": 2,
+  "orm": 2,
+  "bee": 2,
+  "id": 2,
+  "hopper": 2,
+  "ede": 2
+ },
+ "fish_piece_names": {
+  "fish": [
+   "dogfish",
+   "sawfish",
+   "goldfish",
+   "catfish",
+   "swordfish",
+   "sailfish",
+   "clownfish",
+   "paddlefish",
+   "hagfish",
+   "lungfish",
+   "pufferfish",
+   "stonefish",
+   "lionfish",
+   "anglerfish",
+   "archerfish",
+   "triggerfish",
+   "parrotfish",
+   "monkfish"
+  ],
+  "not fish": [
+   "silverfish",
+   "cuttlefish",
+   "crayfish",
+   "jellyfish",
+   "starfish"
+  ]
+ },
+ "spaces": {
+  "lens": {
+   "0": {
+    "last_piece": {
+     "observed": 0.36,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.9888888888888889,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 1.0,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": 0.9740722414646215,
+    "kin": {
+     "split": {
+      "observed": 0.33744186046511626,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.32340425531914896,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.9927906976744186,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.9340425531914893,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "1": {
+    "last_piece": {
+     "observed": 0.33904761904761904,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.9944444444444445,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.98,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": 0.9946808510638299,
+    "kin": {
+     "split": {
+      "observed": 0.3444186046511628,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.32127659574468087,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.9990697674418605,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.9893617021276596,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "2": {
+    "last_piece": {
+     "observed": 0.29,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.9833333333333333,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.9,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": 1.0,
+    "kin": {
+     "split": {
+      "observed": 0.4062790697674419,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.3606382978723404,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 1.0,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 1.0,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "3": {
+    "last_piece": {
+     "observed": 0.26476190476190475,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.9833333333333333,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.8,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": 1.0,
+    "kin": {
+     "split": {
+      "observed": 0.4727906976744186,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.4372340425531915,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 1.0,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 1.0,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "4": {
+    "last_piece": {
+     "observed": 0.24428571428571427,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.9611111111111111,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.8,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": 1.0,
+    "kin": {
+     "split": {
+      "observed": 0.6093023255813953,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.42127659574468085,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 1.0,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 1.0,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "5": {
+    "last_piece": {
+     "observed": 0.2338095238095238,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.9222222222222223,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.68,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": 0.9976744186046511,
+    "kin": {
+     "split": {
+      "observed": 0.7025581395348838,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.44148936170212766,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.9958139534883721,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.9989361702127659,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "6": {
+    "last_piece": {
+     "observed": 0.20476190476190476,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.8833333333333333,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.62,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": 0.9988372093023256,
+    "kin": {
+     "split": {
+      "observed": 0.761860465116279,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.42872340425531913,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.998139534883721,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 1.0,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "7": {
+    "last_piece": {
+     "observed": 0.1980952380952381,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.8833333333333333,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.74,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": 1.0,
+    "kin": {
+     "split": {
+      "observed": 0.7555813953488372,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.44680851063829785,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 1.0,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 1.0,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "8": {
+    "last_piece": {
+     "observed": 0.16476190476190475,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.75,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.56,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": 0.9965116279069768,
+    "kin": {
+     "split": {
+      "observed": 0.7646511627906977,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.42340425531914894,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.9932558139534884,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.9904255319148936,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "9": {
+    "last_piece": {
+     "observed": 0.1757142857142857,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.7388888888888889,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.6,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": 0.9900296882731321,
+    "kin": {
+     "split": {
+      "observed": 0.7504651162790698,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.42127659574468085,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.9916279069767442,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.9712765957446808,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "10": {
+    "last_piece": {
+     "observed": 0.15285714285714286,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.5888888888888889,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.52,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": 0.9930232558139536,
+    "kin": {
+     "split": {
+      "observed": 0.772093023255814,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.43829787234042555,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.9897674418604652,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.9670212765957447,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "11": {
+    "last_piece": {
+     "observed": 0.15428571428571428,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.6611111111111111,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.54,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": 0.9883720930232558,
+    "kin": {
+     "split": {
+      "observed": 0.748139534883721,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.41914893617021276,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.9839534883720931,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.95,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "12": {
+    "last_piece": {
+     "observed": 0.14,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.5666666666666667,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.34,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": 0.9788965858485899,
+    "kin": {
+     "split": {
+      "observed": 0.7504651162790698,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.3414893617021277,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.9865116279069768,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.924468085106383,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "13": {
+    "last_piece": {
+     "observed": 0.14714285714285713,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.6111111111111112,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.42,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": 0.9807273626917368,
+    "kin": {
+     "split": {
+      "observed": 0.75,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.39893617021276595,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.9802325581395349,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.9351063829787234,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "14": {
+    "last_piece": {
+     "observed": 0.16047619047619047,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.6833333333333333,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.44,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": 0.9965116279069768,
+    "kin": {
+     "split": {
+      "observed": 0.7013953488372093,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.37127659574468086,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.9932558139534884,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.9819148936170212,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "15": {
+    "last_piece": {
+     "observed": 0.15,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.6833333333333333,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.56,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": 0.9941860465116279,
+    "kin": {
+     "split": {
+      "observed": 0.6883720930232559,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.3638297872340426,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.9934883720930232,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.9723404255319149,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "16": {
+    "last_piece": {
+     "observed": 0.15142857142857144,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.6666666666666666,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.46,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": 0.9895348837209302,
+    "kin": {
+     "split": {
+      "observed": 0.686046511627907,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.34361702127659577,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.9872093023255814,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.9627659574468085,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "17": {
+    "last_piece": {
+     "observed": 0.16047619047619047,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.6777777777777778,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.6,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": 0.9965116279069768,
+    "kin": {
+     "split": {
+      "observed": 0.6344186046511628,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.37127659574468086,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.9944186046511628,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 1.0,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "18": {
+    "last_piece": {
+     "observed": 0.1595238095238095,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.6277777777777778,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.68,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": 0.9976744186046511,
+    "kin": {
+     "split": {
+      "observed": 0.5032558139534884,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.3351063829787234,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.9958139534883721,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.9968085106382979,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "19": {
+    "last_piece": {
+     "observed": 0.16952380952380952,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.7611111111111111,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.9,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": 1.0,
+    "kin": {
+     "split": {
+      "observed": 0.5174418604651163,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.3074468085106383,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 1.0,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 1.0,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "20": {
+    "last_piece": {
+     "observed": 0.16714285714285715,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.6944444444444444,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.7,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": 0.9965116279069768,
+    "kin": {
+     "split": {
+      "observed": 0.4804651162790698,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.3425531914893617,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.9923255813953489,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.9914893617021276,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "21": {
+    "last_piece": {
+     "observed": 0.18047619047619048,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.7333333333333333,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.86,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": 0.9853785254824344,
+    "kin": {
+     "split": {
+      "observed": 0.5567441860465117,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.43829787234042555,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.9895348837209302,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.9648936170212766,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "22": {
+    "last_piece": {
+     "observed": 0.1376190476190476,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.6388888888888888,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.64,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": 0.9853785254824344,
+    "kin": {
+     "split": {
+      "observed": 0.5769767441860465,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.3861702127659574,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.9839534883720931,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.9372340425531915,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "23": {
+    "last_piece": {
+     "observed": 0.15428571428571428,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.6611111111111111,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.64,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": 0.98421573478476,
+    "kin": {
+     "split": {
+      "observed": 0.553953488372093,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.38085106382978723,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.9897674418604652,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.9702127659574468,
+      "chance": 0.17782026768642448
+     }
+    }
+   }
+  },
+  "raw": {
+   "0": {
+    "last_piece": {
+     "observed": 0.3342857142857143,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.9722222222222222,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.9,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": 0.9941860465116279,
+    "kin": {
+     "split": {
+      "observed": 0.3623255813953488,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.48404255319148937,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.9951162790697674,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.997872340425532,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "1": {
+    "last_piece": {
+     "observed": 0.31333333333333335,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.9944444444444445,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.96,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": 0.9988372093023256,
+    "kin": {
+     "split": {
+      "observed": 0.3902325581395349,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.44361702127659575,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.997906976744186,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 1.0,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "2": {
+    "last_piece": {
+     "observed": 0.27666666666666667,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.9555555555555556,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.88,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": 1.0,
+    "kin": {
+     "split": {
+      "observed": 0.6530232558139535,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.597872340425532,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.958139534883721,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.9744680851063829,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "3": {
+    "last_piece": {
+     "observed": 0.26571428571428574,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.9277777777777778,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.82,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": 0.9988372093023256,
+    "kin": {
+     "split": {
+      "observed": 0.6753488372093023,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.55,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.9474418604651162,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.9276595744680851,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "4": {
+    "last_piece": {
+     "observed": 0.20333333333333334,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.7833333333333333,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.56,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": 1.0,
+    "kin": {
+     "split": {
+      "observed": 0.7416279069767442,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.5468085106382978,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.9318604651162791,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.9308510638297872,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "5": {
+    "last_piece": {
+     "observed": 0.17809523809523808,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.6722222222222223,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.5,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": 1.0,
+    "kin": {
+     "split": {
+      "observed": 0.748139534883721,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.5340425531914894,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.9274418604651162,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.9351063829787234,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "6": {
+    "last_piece": {
+     "observed": 0.17142857142857143,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.6055555555555555,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.44,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": 1.0,
+    "kin": {
+     "split": {
+      "observed": 0.7416279069767442,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.5223404255319148,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.9625581395348837,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.9840425531914894,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "7": {
+    "last_piece": {
+     "observed": 0.1523809523809524,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.5722222222222222,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.4,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": 1.0,
+    "kin": {
+     "split": {
+      "observed": 0.7267441860465116,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.5148936170212766,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.9788372093023255,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.9574468085106383,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "8": {
+    "last_piece": {
+     "observed": 0.13666666666666666,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.4388888888888889,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.34,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": 1.0,
+    "kin": {
+     "split": {
+      "observed": 0.713953488372093,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.5053191489361702,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.9693023255813954,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.948936170212766,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "9": {
+    "last_piece": {
+     "observed": 0.12857142857142856,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.45555555555555555,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.36,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": 1.0,
+    "kin": {
+     "split": {
+      "observed": 0.6990697674418604,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.48404255319148937,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.9597674418604651,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.9202127659574468,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "10": {
+    "last_piece": {
+     "observed": 0.1295238095238095,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.4777777777777778,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.4,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": 1.0,
+    "kin": {
+     "split": {
+      "observed": 0.7146511627906976,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.475531914893617,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.9653488372093023,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.9361702127659575,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "11": {
+    "last_piece": {
+     "observed": 0.12380952380952381,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.45555555555555555,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.36,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": 1.0,
+    "kin": {
+     "split": {
+      "observed": 0.696046511627907,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.4595744680851064,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.9613953488372093,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.9393617021276596,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "12": {
+    "last_piece": {
+     "observed": 0.12238095238095238,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.4722222222222222,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.34,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": 1.0,
+    "kin": {
+     "split": {
+      "observed": 0.6906976744186046,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.4521276595744681,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.9723255813953489,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.9648936170212766,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "13": {
+    "last_piece": {
+     "observed": 0.12714285714285714,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.49444444444444446,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.3,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": 1.0,
+    "kin": {
+     "split": {
+      "observed": 0.6772093023255814,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.44680851063829785,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.9630232558139535,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.9808510638297873,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "14": {
+    "last_piece": {
+     "observed": 0.13428571428571429,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.5833333333333334,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.38,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": 1.0,
+    "kin": {
+     "split": {
+      "observed": 0.6506976744186046,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.44361702127659575,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.9902325581395349,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.9946808510638298,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "15": {
+    "last_piece": {
+     "observed": 0.1319047619047619,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.5722222222222222,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.36,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": 1.0,
+    "kin": {
+     "split": {
+      "observed": 0.6523255813953488,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.42340425531914894,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.9865116279069768,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.9925531914893617,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "16": {
+    "last_piece": {
+     "observed": 0.15047619047619049,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.6277777777777778,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.46,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": 1.0,
+    "kin": {
+     "split": {
+      "observed": 0.673953488372093,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.4478723404255319,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.9823255813953489,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.9914893617021276,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "17": {
+    "last_piece": {
+     "observed": 0.18666666666666668,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.7555555555555555,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.56,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": 1.0,
+    "kin": {
+     "split": {
+      "observed": 0.6658139534883721,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.4340425531914894,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.9913953488372093,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.9914893617021276,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "18": {
+    "last_piece": {
+     "observed": 0.21523809523809523,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.8444444444444444,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.74,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": 1.0,
+    "kin": {
+     "split": {
+      "observed": 0.6048837209302326,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.41702127659574467,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.9904651162790697,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.9989361702127659,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "19": {
+    "last_piece": {
+     "observed": 0.2561904761904762,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.9,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.88,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": 1.0,
+    "kin": {
+     "split": {
+      "observed": 0.5832558139534884,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.4,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.9867441860465116,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.9702127659574468,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "20": {
+    "last_piece": {
+     "observed": 0.2623809523809524,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.8888888888888888,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.94,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": 1.0,
+    "kin": {
+     "split": {
+      "observed": 0.5458139534883721,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.4127659574468085,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.9783720930232558,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.9457446808510638,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "21": {
+    "last_piece": {
+     "observed": 0.2509523809523809,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.8888888888888888,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.9,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": 0.9976744186046511,
+    "kin": {
+     "split": {
+      "observed": 0.6246511627906977,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.46914893617021275,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.968139534883721,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.8861702127659574,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "22": {
+    "last_piece": {
+     "observed": 0.23095238095238096,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.8833333333333333,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.74,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": 0.9953488372093023,
+    "kin": {
+     "split": {
+      "observed": 0.6323255813953489,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.46808510638297873,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.958139534883721,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.8872340425531915,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "23": {
+    "last_piece": {
+     "observed": 0.22952380952380952,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.8666666666666667,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.78,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": 0.9988372093023256,
+    "kin": {
+     "split": {
+      "observed": 0.6237209302325581,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.46170212765957447,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.9637209302325581,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.898936170212766,
+      "chance": 0.17782026768642448
+     }
+    }
+   }
+  },
+  "raw, token count centred": {
+   "0": {
+    "last_piece": {
+     "observed": 0.3295238095238095,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.9777777777777777,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.84,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": null,
+    "kin": {
+     "split": {
+      "observed": 0.3969767441860465,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.48404255319148937,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.6106976744186047,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.9936170212765958,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "1": {
+    "last_piece": {
+     "observed": 0.2995238095238095,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.9944444444444445,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.92,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": null,
+    "kin": {
+     "split": {
+      "observed": 0.4425581395348837,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.4531914893617021,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.513953488372093,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.9946808510638298,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "2": {
+    "last_piece": {
+     "observed": 0.25666666666666665,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.9222222222222223,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.68,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": null,
+    "kin": {
+     "split": {
+      "observed": 0.6902325581395349,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.6478723404255319,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.5176744186046511,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.8851063829787233,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "3": {
+    "last_piece": {
+     "observed": 0.24904761904761905,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.9055555555555556,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.68,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": null,
+    "kin": {
+     "split": {
+      "observed": 0.6890697674418604,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.6031914893617021,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.6120930232558139,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.7893617021276595,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "4": {
+    "last_piece": {
+     "observed": 0.18142857142857144,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.6944444444444444,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.38,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": null,
+    "kin": {
+     "split": {
+      "observed": 0.7286046511627907,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.575531914893617,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.6158139534883721,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.8553191489361702,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "5": {
+    "last_piece": {
+     "observed": 0.15571428571428572,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.5777777777777777,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.34,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": null,
+    "kin": {
+     "split": {
+      "observed": 0.7406976744186047,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.5893617021276596,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.6183720930232558,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.8414893617021276,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "6": {
+    "last_piece": {
+     "observed": 0.14047619047619048,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.5166666666666667,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.34,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": null,
+    "kin": {
+     "split": {
+      "observed": 0.7297674418604652,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.5659574468085107,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.5937209302325581,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.902127659574468,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "7": {
+    "last_piece": {
+     "observed": 0.13142857142857142,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.5055555555555555,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.3,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": null,
+    "kin": {
+     "split": {
+      "observed": 0.7337209302325581,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.5829787234042553,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.7023255813953488,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.7691489361702127,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "8": {
+    "last_piece": {
+     "observed": 0.11095238095238096,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.39444444444444443,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.18,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": null,
+    "kin": {
+     "split": {
+      "observed": 0.718139534883721,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.5595744680851064,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.6718604651162791,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.8085106382978723,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "9": {
+    "last_piece": {
+     "observed": 0.10761904761904761,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.36666666666666664,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.28,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": null,
+    "kin": {
+     "split": {
+      "observed": 0.7020930232558139,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.5276595744680851,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.6890697674418604,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.8031914893617021,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "10": {
+    "last_piece": {
+     "observed": 0.10666666666666667,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.39444444444444443,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.28,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": null,
+    "kin": {
+     "split": {
+      "observed": 0.7088372093023256,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.5074468085106383,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.6946511627906977,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.8563829787234043,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "11": {
+    "last_piece": {
+     "observed": 0.10047619047619048,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.3611111111111111,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.24,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": null,
+    "kin": {
+     "split": {
+      "observed": 0.69,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.4851063829787234,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.6813953488372093,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.8861702127659574,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "12": {
+    "last_piece": {
+     "observed": 0.10476190476190476,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.39444444444444443,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.18,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": null,
+    "kin": {
+     "split": {
+      "observed": 0.6823255813953488,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.47127659574468084,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.7062790697674418,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.9117021276595745,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "13": {
+    "last_piece": {
+     "observed": 0.09857142857142857,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.36666666666666664,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.14,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": null,
+    "kin": {
+     "split": {
+      "observed": 0.6593023255813953,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.4542553191489362,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.6527906976744186,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.9574468085106383,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "14": {
+    "last_piece": {
+     "observed": 0.10666666666666667,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.4444444444444444,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.24,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": null,
+    "kin": {
+     "split": {
+      "observed": 0.6458139534883721,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.4542553191489362,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.6769767441860465,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.9595744680851064,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "15": {
+    "last_piece": {
+     "observed": 0.10904761904761905,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.4666666666666667,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.26,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": null,
+    "kin": {
+     "split": {
+      "observed": 0.6469767441860466,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.43617021276595747,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.6793023255813954,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.9617021276595744,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "16": {
+    "last_piece": {
+     "observed": 0.1219047619047619,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.5111111111111111,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.26,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": null,
+    "kin": {
+     "split": {
+      "observed": 0.68,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.46063829787234045,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.6713953488372093,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.9617021276595744,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "17": {
+    "last_piece": {
+     "observed": 0.18095238095238095,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.7388888888888889,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.58,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": null,
+    "kin": {
+     "split": {
+      "observed": 0.6767441860465117,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.5148936170212766,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.8525581395348837,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.8170212765957446,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "18": {
+    "last_piece": {
+     "observed": 0.20809523809523808,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.8444444444444444,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.68,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": null,
+    "kin": {
+     "split": {
+      "observed": 0.6230232558139535,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.48936170212765956,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.8313953488372093,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.8382978723404255,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "19": {
+    "last_piece": {
+     "observed": 0.2538095238095238,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.9055555555555556,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.9,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": null,
+    "kin": {
+     "split": {
+      "observed": 0.5988372093023255,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.5287234042553192,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.9204651162790698,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.5648936170212766,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "20": {
+    "last_piece": {
+     "observed": 0.2580952380952381,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.8944444444444445,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.94,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": null,
+    "kin": {
+     "split": {
+      "observed": 0.5525581395348838,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.4957446808510638,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.91,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.42659574468085104,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "21": {
+    "last_piece": {
+     "observed": 0.25,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.8944444444444445,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.86,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": null,
+    "kin": {
+     "split": {
+      "observed": 0.6372093023255814,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.5808510638297872,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.8686046511627907,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.46063829787234045,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "22": {
+    "last_piece": {
+     "observed": 0.22285714285714286,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.8611111111111112,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.72,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": null,
+    "kin": {
+     "split": {
+      "observed": 0.642093023255814,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.5563829787234043,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.8206976744186046,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.5563829787234043,
+      "chance": 0.17782026768642448
+     }
+    }
+   },
+   "23": {
+    "last_piece": {
+     "observed": 0.22333333333333333,
+     "chance": 0.01007010834926705
+    },
+    "fish_piece": {
+     "fish": {
+      "observed": 0.8611111111111112,
+      "chance": 0.04206500956022944
+     },
+     "not fish": {
+      "observed": 0.72,
+      "chance": 0.04206500956022945
+     }
+    },
+    "tokens_probe": null,
+    "kin": {
+     "split": {
+      "observed": 0.6367441860465116,
+      "chance": 0.19395259904842366
+     },
+     "one token": {
+      "observed": 0.5542553191489362,
+      "chance": 0.2170375493267158
+     }
+    },
+    "same_count": {
+     "split": {
+      "observed": 0.8032558139534883,
+      "chance": 0.8202676864244741
+     },
+     "one token": {
+      "observed": 0.5765957446808511,
+      "chance": 0.17782026768642448
+     }
+    }
+   }
+  }
+ }
+}
