@@ -29,9 +29,14 @@ adopted into their parts (2026-10-08).
 - **[Decided, date]**: Andrew decided it, in his own words, on that date;
 - **[Andrew's idea, date]**: Andrew suggested it but didn't decide it. The design adopts it as a
   proposal until he confirms;
+- **[Andrew's view, date]**: his opinion, recorded as context;
 - **[Built]**: it exists in the software today;
 - **[Proposed]**: Claude's, not yet decided. It needs Andrew's yes;
 - **[Open]**: an experiment or a question settles it.
+
+**Two documents** [Decided, 2026-10-10: the goal]: eventually one coherent architecture document,
+like the ones Andrew writes with Claude in claude.ai, and one coherent design-and-requirements
+document, unless Claude sees a better approach. How is open (L24).
 
 **Rules:**
 - Andrew's decisions are paraphrased here, never quoted.
@@ -476,9 +481,13 @@ reading.
   - carrier tokens help with demonstrations, but they don't show how the model would really act
     [Andrew's view, 2026-10-04];
   - the output is the best single place to capture understanding [Decided, 2026-10-07].
-- **Two further ideas to test** [Andrew's ideas, 2026-10-06]:
-  - asking the agent to use set words in its reasoning;
-  - giving it words marked as for measurement only.
+- **The reasoning streams are analysed first** [Decided, 2026-10-10]: before the agent is asked to
+  use any word, its reasoning streams are analysed, mostly for frequent words, to see whether it
+  already uses some words a lot when it thinks things through. Words it uses often become
+  candidate read sites [Proposed, 2026-10-10].
+- **Asking the agent to use set words is a last resort** [Decided, 2026-10-10], for information no
+  other site gives. Giving it words marked as for measurement only stays an idea to test [Andrew's
+  idea, 2026-10-06].
 
 **D4. Two numbers in every reading** [Decided, 2026-10-07]:
 - **Presence:** whether the lens's concept is represented here at all.
@@ -535,6 +544,21 @@ more questions will come]:
 
 ## Part E — The app
 
+**E0. The app is rebuilt** [Decided, 2026-10-10]:
+- **completely, rather than by changing the current one,** as long as everything it does today
+  comes back: the Sankeys, looking at routes and the rest. The approach is left to Claude, since
+  Claude works better with some setups;
+- **more of it visual** [Decided, 2026-10-10]: interfaces where things are typed are unfriendly to
+  Andrew (clustering was his example), and he is glad the clustering controls came back;
+- **ways to get there** [Andrew's idea, 2026-10-10]: perhaps controls that fold, and perhaps doing
+  things from the MUD as well, for the fun of it. He asked Claude to think about it too;
+- **Claude's approach** [Proposed, 2026-10-10]: a new app built room by room beside the current
+  one. Everything you see and touch is new; the code behind the charts (the Sankey layout, the
+  expert order, the colour maths, lit paths) is carried over with its tests. The current app
+  retires once the new one does everything it did. Part L's assessment says how.
+
+The workspaces below say what the app must do; the rooms are how they would be reached (L20).
+
 **E1. Workspaces** [Decided, 2026-10-07]. The app is for analysing: runs that have happened, clusterings, and
 the reports the LLMs write. It also holds the builders. It doesn't start runs; they start in the
 MUD or through Claude Code (F3). It follows a run in progress one saved tick at a time (E4).
@@ -582,6 +606,9 @@ MUD or through Claude Code (F3). It follows a run in progress one saved tick at 
   4. Review the sentences in a table (text, class, scene family) beside the audits (C1). Edit or
      regenerate.
   5. Save the set with a version, then start its capture as a background job.
+- **A probe builder that tries `claude -p`** [Andrew's idea, 2026-10-10] for labelled text sets and
+  for scenarios. A friend/foe scenario gives the model the scene and the list of commands at each
+  tick, which can be built there. One builder for both is Claude's proposal (L22).
 - **The scenario builder** [Decided, 2026-10-07]:
   - it lists scenario sets and their versions;
   - you edit a scenario's stages, actions and labels, and validate them;
@@ -917,6 +944,13 @@ LLMs are good at spotting patterns in this data, such as pipes, hubs and split p
 ## Part F — The MUD
 
 **F1. What it is for** [Decided, 2026-10-04 and 2026-10-07]:
+- **first, putting agents through scenarios, with and without people** [Andrew's idea, 2026-10-10]
+  (L23);
+- **second, a way to move around the app** [Andrew's idea, 2026-10-10]: the app is navigated by
+  moving between rooms, and entering a room can even bring different colours and interface parts
+  (the polysemy lab was his example) (L20). He finds it a neat, flexible way to navigate [Andrew's
+  view, 2026-10-10];
+- Winter Survival, the free-form world, is a different undertaking [Andrew's view, 2026-10-10];
 - experiencing, playing and watching: the institute, its labs, the simulator, and later the AI
   scientists' rooms and their events;
 - entering a scenario room to replay a run and watch which internal representations light up
@@ -1255,6 +1289,296 @@ I. The steps in each are [Decided, 2026-10-07].
 
 ## Part L — Questions for Andrew
 
+The open questions come first, each with its choices; the answered ones are at the end. In the
+published page every open question is a form: pick a choice, add a note when you pick "Other" or
+want to say more, and the answer saves as you go, where Claude reads it. In this file, `( )` marks
+one choice among several and `[ ]` any number of them.
+
+### Stepping back: Claude's assessment and the way forward [Proposed, 2026-10-10]
+
+**Where the project stands:**
+- **The instrument works.** Lenses are built, tuned, validated on held-out data, compared with raw
+  space, read across captures and explained by reports whose numbers are checked. The showcases
+  have produced real findings: the tank senses, the words' meaning and feeling, the animals'
+  kinship, the harm axis, and the read-site test. That core is worth keeping as it is.
+- **The app is the weak part.** It grew screen by screen on the first page's frame: dense panels,
+  small text, controls scattered. It does a lot, and it is hard to use. Rebuilding it is the right
+  call. What's wrong is how it is organised and shown, not what it computes, so the new app keeps
+  the computation (the backend, and the app's tested chart and colour logic) and rebuilds
+  everything you see and touch.
+- **The design document has outgrown one file.** It mixes requirements, design, how it is built,
+  what is built and the dated history of decisions, and its questions pile up. Two documents (what
+  and why; how), with the decisions in a dated log and open questions answered in a form like this
+  one, would each read straight through (L24).
+- **Agents in scenarios have waited longest,** though you put them first among the MUD's purposes.
+  The order of work puts agents eighth, and the friend/foe captures date from April. If agents come first,
+  the order should move them up (L21).
+- **Process:** large plans approved unread leave many of Claude's choices waiting for you, and
+  this form should make them quick to settle. Claude now tests a proposal itself before asking you
+  to rule on it, whenever today's tools can: the read-site test turned a proposal around.
+
+**The new app** (L20):
+- **Rooms as places.** Your idea, moving around the app by rooms, fits the institute. The details
+  here are Claude's: each room a place in the app with its own colours and tools (the polysemy lab,
+  an observatory where the Sankeys and routes are read, a lens workshop, a library with the builder,
+  the simulator for agents, a studies room); a map and a quick-jump box (which also takes
+  MUD-style commands) reaching any room at once, so rooms never slow you down; with the MUD open,
+  moving in either one moves the other; with it closed, the app still works.
+- **Visual first:** sliders, toggles and charts you click, instead of typed values; controls in
+  panels that fold, the basic ones open and the rest folded; a selection opens an inspector beside
+  its chart.
+- **How Claude would build it** (you left the approach to Claude):
+  - React and TypeScript with Vite, as now: the setup Claude builds best with;
+  - a small kit of accessible controls on Radix primitives, styled with Tailwind, and each room's
+    colours drawn from one set of design tokens;
+  - server data through TanStack Query;
+  - ECharts kept for the Sankeys, heatmaps and 3-D views, with today's tested chart logic carried
+    over with its tests (the Sankey layout, the expert order, the colour maths, lit paths);
+  - every room walked in a browser, with screenshots, before it is called done;
+  - built beside the current app, room by room, until it does everything the current one does.
+    Then the current one retires, with the list of what goes, for your yes.
+- **The honest risk:** a rebuild is long and can lose features quietly, and everything after it
+  moves back, the world-building pilot included. The guard against lost features is a checklist of
+  every current feature, walked in the browser room by room.
+
+**The way forward** (L21):
+1. Your answers here.
+2. The two documents, with the new app's rooms designed in them.
+3. The new app, room by room, until it does everything today's does.
+4. Slice 2 (capture and jobs), which the builder needs.
+5. The builder for sets and scenarios (L22).
+6. Agents in scenarios: first the reasoning streams' frequent words (D3), then friend/foe v3 drafted
+   in the builder, then Watch.
+7. Then time on sentence runs and the atlas, as Part K has them. Winter Survival stays its own
+   undertaking.
+
+### L16. Slice 1c's details [Open]
+
+You approved the slice 1c plan without reviewing its details. For each of Claude's details below:
+keep it, change it (say how in the note), or drop it.
+
+#### L16.1. The animal set's scope, label, naming rule and habitat values
+
+524 one-word animal names in 8 groups; each name entered with the narrowest taxon holding
+what it commonly refers to; habitat as land, fresh water, sea, or land and water, with air left to
+how it moves (C1).
+
+- ( ) Keep (recommended)
+- ( ) Change
+- ( ) Drop
+- ( ) Other
+
+#### L16.2. The taxonomy kept beside the designed axes
+
+Genus, family and the rest are stored with each animal but aren't categories, so genus doesn't
+become an axis in every chart (C1).
+
+- ( ) Keep (recommended)
+- ( ) Change
+- ( ) Drop
+- ( ) Other
+
+#### L16.3. The capture's one-token-first rule
+
+A target word is looked for as one token first, and only then as several (C1).
+
+- ( ) Keep (recommended)
+- ( ) Change
+- ( ) Drop
+- ( ) Other
+
+#### L16.4. Honest hand tuning, and a lens that remembers how it is held out
+
+Each layer's settings record where they came from; a lens whose settings were chosen on held-out
+scores says it is selection-biased; each lens records its hold-out design (C4).
+
+- ( ) Keep (recommended)
+- ( ) Change
+- ( ) Drop
+- ( ) Other
+
+#### L16.5. The builder's extras
+
+The hold-out design in the form, the preview's held-out mode run as a background job, the tuned
+lens's test line in the comparison chart, and the readings chart for mass-mean lenses (E3).
+
+- ( ) Keep (recommended)
+- ( ) Change
+- ( ) Drop
+- ( ) Other
+
+#### L16.6. Details settled while building the sets
+
+The naming rule's second branch (the one species a name most commonly means), the objects'
+piercing harm, the 33 animals whose kinship and way of life disagree (the examples given, extended
+by one rule), and 321 objects rather than about 400 (single-word names of harmful things ran out)
+(C1).
+
+- ( ) Keep (recommended)
+- ( ) Change
+- ( ) Drop
+- ( ) Other
+
+#### L16.7. Where a single word is read
+
+Read at its last token, a one-token word and a split word sit apart at every layer. The token after
+the word (the message's end marker) was tested on 2026-10-09: the two kinds of name remain
+distinguishable there, and the word's meaning is much weaker (`docs/research/read_site.md`).
+
+- ( ) Keep the last token, and handle the divide in the sets and the analyses (recommended)
+- ( ) Read at the end marker anyway
+- ( ) Test a full stop after the word next
+- ( ) Other
+
+### L17. The studies area [Open]
+
+You asked for a clear area showing the studies in progress, where their designs can be iterated on
+(E6), and on 2026-10-09 set its timing aside. With the app being rebuilt, the question is where it
+comes.
+
+#### L17.1. When it comes
+
+- ( ) As one of the new app's first rooms (recommended)
+- ( ) Later, with Study's timelines (slice 4)
+- ( ) Other
+
+#### L17.2. What its first version does
+
+- ( ) Shows each study (question, sets, captures, lenses, findings, ledger); designs are edited with the builder later (recommended)
+- ( ) Also edits a study's design from the start, with a `claude -p` helper
+- ( ) Other
+
+### L18. Smaller method choices [Open]
+
+Each is in RECOMMENDATIONS.md (2026-10-09) with its reasons.
+
+#### L18.1. Repeat the tuning's test split on several draws, so one small test portion isn't the whole honest score
+
+- ( ) Adopt (recommended)
+- ( ) Not now
+- ( ) Other
+
+#### L18.2. A stricter line beside "beyond the decoys" (for example half the probe's κ), since nearly every attribute passes the decoys
+
+- ( ) Adopt (recommended)
+- ( ) Not now
+- ( ) Other
+
+#### L18.3. Decoys that keep the design's correlations (shuffled within each category)
+
+- ( ) Adopt (recommended)
+- ( ) Not now
+- ( ) Other
+
+#### L18.4. Grouped folds that balance each fold's class mix, where domains and classes go together
+
+- ( ) Adopt (recommended)
+- ( ) Not now
+- ( ) Other
+
+#### L18.5. Checking a taxonomy match against its common names, after a homonym slipped through
+
+- ( ) Adopt (recommended)
+- ( ) Not now
+- ( ) Other
+
+### L19. Slice 2: capture and jobs [Open]
+
+The draft plan is in `docs/scratchpad/slice_2_plan.md`, published at
+https://claude.ai/artifact/7x3XfQ3rPUNeTjHcJgow1c. Its studies-area choice is L17 here.
+
+#### L19.1. Where GPU jobs run
+
+Captures, agent runs and generation become background jobs either way, one GPU job at a time.
+
+- ( ) A lane inside the backend, which keeps the model where it is (recommended)
+- ( ) A separate worker process that holds the model
+- ( ) Other
+
+#### L19.2. Which extra positions sentence sets capture (choose any)
+
+- [ ] Named sites in the message, such as a carrier's words or the end marker (recommended)
+- [ ] Every position of the message, opt-in, with the size shown before it starts (recommended)
+- [ ] States after generation starts: words in the generated text and the answer's first token (recommended)
+- [ ] Other
+
+#### L19.3. Entering a MUD's address
+
+- ( ) In the app, checked with the MUD before it is saved; localhost stays the default (recommended)
+- ( ) In a settings file only, with no screen for it
+- ( ) Other
+
+#### L19.4. What an agent record keeps as its text
+
+Today each record holds the whole conversation, and the app repeats the system prompt with every
+record: in the largest run (`b629b6c5`) they take 21 MB and 10 MB of an item list of about 40 MB.
+
+- ( ) The tick's observation; the whole conversation once per tick in the run's token ids; the system prompt once per run (recommended)
+- ( ) Keep the whole conversation in every record
+- ( ) Other
+
+#### L19.5. The leftovers
+
+A health check reporting on a retired service; seven app functions nothing calls and an unused
+schema; the session-start reminder about temporal captures (that route retired); the test lens
+`lab-k4-n15`; the README's "basin" wording; 13 images in `docs/images/` that nothing in the repo
+uses (posts outside it may link to them).
+
+- ( ) Remove all six (recommended)
+- ( ) Keep all six
+- ( ) Other
+
+### L20. Moving around the app by rooms [Open]
+
+Your idea: the app is navigated by moving between rooms, and a room can bring its own colours and
+tools (F1).
+
+- ( ) Rooms are the app's places, each with its own colours and tools; a map and a quick-jump box reach any room at once; with the MUD open, moving in either moves the other; the app also works with the MUD closed (recommended)
+- ( ) Rooms only: you get around by moving through rooms, as in the MUD
+- ( ) Rooms as looks only: the app keeps its own tabs
+- ( ) Other
+
+### L21. The order of work [Open]
+
+- ( ) The two documents; the new app, room by room, to parity; slice 2 (capture and jobs); the builder for sets and scenarios; agents in scenarios; then time on sentence runs and the atlas (recommended)
+- ( ) Slice 2 first, then the new app, then the rest as above
+- ( ) Agents in scenarios first (the builder, friend/foe v3, Watch), with the new app's rooms built as they're needed
+- ( ) Other
+
+### L22. The builder for sets and scenarios [Open]
+
+Your idea: a probe builder that tries `claude -p` for labelled text sets and for scenarios; a
+friend/foe scenario gives the model the scene and the list of commands at each tick (E3). One
+builder for both is Claude's proposal.
+
+- ( ) One builder for both: `claude -p` drafts a set or a scenario, you review it in a table beside its audits, edit or redraft it, and save it as a version (recommended)
+- ( ) Two builders, as designed: sets first, scenarios later
+- ( ) Other
+
+### L23. People with agents in scenarios [Open]
+
+Your idea: agents go through scenarios with and without people (F1).
+
+- ( ) Chosen per scenario: people only watch (as now), or play a character the agent meets, with their lines recorded as part of the run's conditions (recommended)
+- ( ) People only watch
+- ( ) Other
+
+### L24. The two documents [Open]
+
+Decided: eventually one coherent architecture document, like the ones you write with Claude in
+claude.ai, and one coherent design-and-requirements document, unless Claude sees a better
+approach. How?
+
+- ( ) Both in the repo, each published as a page with comments and a form like this one for its open questions; decisions in a dated log at the end of each (recommended)
+- ( ) Living documents in claude.ai (Claude Docs), like the ones you write with Claude there, as the source while designing, copied into the repo when approved
+- ( ) Other
+
+### L25. Anything else [Open]
+
+Anything you want Claude to know, change or look at.
+
+### Answered
+
 - **L1. Who writes sentence sets in the builders?** Answered 2026-10-07: one `claude -p` run writes
   each whole set, all classes together, and the audits check batches (C1).
 - **L2. Which reading leads for agents?** Answered 2026-10-07: the output reading at keywords
@@ -1284,49 +1608,6 @@ I. The steps in each are [Decided, 2026-10-07].
   scaffolds as versioned files.
 - **L15. Part M's recommendations.** Answered 2026-10-08: all adopted and written into their parts;
   the project keeps the name OpenLLMRI.
-- **L16. Slice 1c's details** (open; Andrew approved the plan without reviewing them): keep, change
-  or drop each of Claude's details marked Proposed on 2026-10-09:
-  - the animal set's scope and label, its naming rule, and its habitat values (air left to how it
-    moves) (C1);
-  - the taxonomy kept beside the designed axes (C1);
-  - the capture's one-token-first rule (C1);
-  - keeping hand tuning honest, and a lens that remembers how it is held out (C4);
-  - the builder's hold-out design, the preview's held-out mode and job, the tuned lens's test line
-    in the comparison, and the readings chart for mass-mean lenses (E3);
-  - details settled while building the sets (C1): the naming rule's second branch (the one
-    species a name most commonly means), the objects' piercing harm, the 33 animals whose kinship
-    and way of life disagree (the examples given, extended by one rule), and 321 objects rather
-    than about 400 (single-word names of harmful things run out);
-  - **where a single word is read** (C1, found in slice 1c): read at its last token, a split word
-    and a one-token word sit apart at every layer, and every lens on the two sets spends nodes on
-    that difference (`docs/research/animals.md`). Reading at the token after the word, the
-    message's end marker, was tested on 2026-10-09 and doesn't help: the two kinds of name remain
-    distinguishable there, and the word's meaning is much weaker (`docs/research/read_site.md`).
-    Claude's recommendation is to keep the last token and handle the divide in the sets and the
-    analyses (RECOMMENDATIONS.md, 2026-10-09).
-- **L17. The studies area** (open; Andrew asked for it on 2026-10-09 and set its timing aside):
-  where it goes in the order of work (K), for example beside slice 2 or before Study's timelines in
-  slice 4; and whether its first version only lists and shows the studies, or also edits their
-  designs (E6).
-- **L18. Smaller method choices** (open; each in RECOMMENDATIONS.md, 2026-10-09, with its reasons):
-  - repeat the tuning's test split on several draws, so one small test portion isn't the whole
-    honest score;
-  - a stricter line beside "beyond the decoys" (for example half the probe's κ), since nearly
-    every attribute passes the decoys;
-  - decoys that keep the design's correlations (shuffled within each category);
-  - grouped folds that balance each fold's class mix, where domains and classes go together;
-  - checking a taxonomy match against its common names, after a homonym slipped through.
-- **L19. Slice 2's plan** (open; a draft for Andrew's review, 2026-10-09, in
-  `docs/scratchpad/slice_2_plan.md`, published at https://claude.ai/artifact/7x3XfQ3rPUNeTjHcJgow1c):
-  six decisions, each with Claude's recommendation:
-  1. where GPU jobs run: a lane inside the backend (recommended) or a separate worker process;
-  2. which extra positions sentence sets capture: named sites, every position of the message
-     (opt-in) and states after generation starts (all three recommended);
-  3. entering a MUD's address in the app's top bar, checked before it is saved;
-  4. agent records keeping the tick's observation as their text, with the whole conversation in the
-     run's token ids;
-  5. the studies area at the end of slice 2 (recommended) or with Study's timelines (L17);
-  6. one yes or no for a list of leftovers to remove.
 
 ## Part M — Claude's final read: certainty and recommendations [Decided, 2026-10-08: Andrew accepted it]
 
@@ -1588,9 +1869,25 @@ Paraphrased from Andrew's own words. His ideas not yet decided are listed separa
     are marked Proposed until he confirms them (L16).
   - a clear area for the studies in progress, to see which studies there are and iterate on their
     designs; its place in the order of work is open (E6, L17).
+- **2026-10-10 decisions:**
+  - the app is rebuilt completely rather than changed, as long as everything it does today comes
+    back; the approach is left to Claude; more of it visual (E0);
+  - things can change at this point, tools and approaches included, as long as the functions stay:
+    the Sankeys, looking at routes and the rest;
+  - the agents' reasoning streams are analysed for the words the model already uses often before
+    it is asked to use any; set words are a last resort (D3);
+  - eventually one coherent architecture document and one coherent design-and-requirements
+    document, unless Claude sees a better approach (how: L24);
+  - open questions are filled in rather than typed in the terminal: a choice from a list where the
+    options are clear, always with an Other and a note. The aim is a living, interactive
+    document.
 - **Andrew's ideas, not yet decided:**
   - **2026-10-04:** a user interface in the MUD;
-  - **2026-10-06:** asking the agent to use set words in its reasoning; giving it words marked as for
-    measurement only;
+  - **2026-10-06:** giving the agent words marked as for measurement only (asking it to use set
+    words became a last resort on 2026-10-10);
+  - **2026-10-10:** the MUD first puts agents through scenarios, with and without people, and
+    second is a way to move around the app by rooms, where a room can even bring its own colours
+    and interface parts; a probe builder that tries `claude -p` for sets and scenarios; perhaps
+    controls that fold, and doing things from the MUD too;
   - **2026-10-07:**
     - an interface so users can choose the LLM for Claude agents' work.
