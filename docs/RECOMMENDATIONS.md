@@ -721,17 +721,8 @@ slice's showcase. Runs: `docs/research/lens_core_validation.md` (the threatened 
 **Scope**: the two single-word sets of lens slice 1c, their lenses and analyses. Runs:
 `docs/research/animals.md` and `docs/research/objects_harm.md`.
 
-- **Read each single word at the token after it** (for a ruling). Slice 1c reads a word that splits
-  at its last token (DESIGN.md C1). On both sets the token count then splits the space at every
-  layer: one-token animal names' nearest neighbours are 86 to 100% other one-token names (chance
-  18%), the lenses' nodes read the token count at κ 0.81 to 1.00 (animals) and 0.43 to 1.00
-  (objects), and taking out each token count's mean doesn't remove it. Kinship and harm still show
-  within each kind of name, but every UMAP lens on these captures spends nodes on it. A word's last
-  piece is a word-internal token, a one-token word a whole word with its space: the two read
-  differently all the way up. Reading every item at the token after the word (the message's end
-  marker, the same token for every item, which has seen the whole word) would make the read site
-  identical for all words, as the paper's carrier captures did for sentences. It needs a capture
-  option and a re-capture of the two sets; the analyses would run unchanged.
+- **Read each single word at the token after it:** tested later the same day and withdrawn (the
+  next entry).
 - **Three harm classes don't carry over to new domains; one axis does.** Held out by whole domains,
   even a logistic probe reads harmful, dual-purpose and benign at only 0.16 to 0.35 test AMI, while
   a mass-mean axis from benign to harmful reaches 0.90 or more held-out accuracy from L4 to L15. For
@@ -763,3 +754,30 @@ slice's showcase. Runs: `docs/research/lens_core_validation.md` (the threatened 
   - the folds' label still reads "scene families" for any family field (noted in slice 1b);
   - the Layers view took 15 to 30 s to show a lens on its first load while report jobs ran, though
     the lens list answers in 0.01 s alone; worth a look.
+
+## 2026-10-09 — Where a single word is read: the end marker tested
+
+**Scope**: the read-site proposal of 2026-10-09, tested on both single-word sets of lens slice 1c.
+Runs: `docs/research/read_site.md`; the study `docs/studies/read_site/study.yaml`.
+
+- **Keep reading single words at their last token** (for a ruling, DESIGN.md L16). Both sets were
+  captured again with the message's end marker as a second site, and the same lenses were built
+  there. At the end marker the divide between one-token and split names stays (in the lens,
+  one-token animal names' nearest neighbours are 66 to 100% one-token names, chance 18%; a
+  raw-space probe tells the two apart at 0.99 or more at every layer), and the meaning is much
+  weaker: animals' neighbours share their group 25 to 32% of the time at L4–L17 in the lens (58 to
+  71% at the last token), the lens's nodes read the group at held-out AMI 0.10 at most (0.40), a
+  linear probe reads every attribute of meaning less at every layer from L4, and harm is read well
+  only at L10 to L12 (held-out accuracy 0.87 to 0.91, against 0.90 or more from L4 to L15 at the
+  last token). The divide is better handled in the sets (split names balanced across the
+  classes, as both sets are) and in the analyses (group claims re-counted within each token count;
+  a one-token set where a question needs neighbourhoods free of it).
+- **The capture can already store a second site.** `capture_static_substring` keeps any fixed
+  substring's tokens as positions 2 and on, and a lens reads any position. Slice 2's "more token
+  positions" can start from it. Neither the session file nor the lens records which substring
+  position 2 is (here only the session's name says so): the capture recipe's job.
+- **Not tested:** a plain token after the word (a full stop) instead of the special end marker, and
+  whether the divide at the end marker comes from the word's pieces or from the marker sitting one
+  position later for every extra piece.
+- **Found and fixed on the way:** the animal study's raw-space analyses read position 1 whatever
+  the lens's site; they now read each lens's own position.

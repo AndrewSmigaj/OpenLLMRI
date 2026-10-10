@@ -145,7 +145,7 @@ def main(session: str, lens: str) -> None:
     masks = {i: sets_for(kind, i, items) for kind, idx in members.items() for i in idx}
     embedding = lens_embedding(session, lens)
     layers = list(range(embedding.shape[0]))
-    raw = raw_layers(session, [it["probe_id"] for it in items], layers)
+    raw = raw_layers(session, lens, [it["probe_id"] for it in items], layers)
     results: Dict[str, Any] = {"session": session, "lens": lens, "items": len(items), "neighbours": NEIGHBOURS,
                                "shuffles": SHUFFLES, "kinds": KINDS, "missing": missing,
                                "sizes": {words[i]: {"kin": int(masks[i][0].sum()), "look": int(masks[i][1].sum())}

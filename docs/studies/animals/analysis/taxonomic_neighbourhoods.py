@@ -68,7 +68,7 @@ def main(session: str, lens: str) -> None:
     vals = values_of(items)
     embedding = lens_embedding(session, lens)
     layers = list(range(embedding.shape[0]))
-    raw = raw_layers(session, [it["probe_id"] for it in items], layers)
+    raw = raw_layers(session, lens, [it["probe_id"] for it in items], layers)
     rng = np.random.default_rng(SEED)
     results = {"session": session, "lens": lens, "items": len(items), "neighbours": NEIGHBOURS,
                "shuffles": SHUFFLES, "levels": list(LEVELS),

@@ -154,9 +154,9 @@ with each token count's mean taken out.
 **Why it matters:** the lens's main division at every layer is whether a name split, not what
 the animal is. A one-token name is a whole word that starts with a space; a split name is read at a
 word-internal piece. The kinship results stand within each kind of name, but every lens on this
-capture mixes the two. A proposal for Andrew is in RECOMMENDATIONS.md: read each word at the token
-after it (the end of the message), which is the same token for every item and has taken in the
-whole word.
+capture mixes the two. Reading each word at the token after it instead (the end of the message)
+was tested afterwards: the two kinds of name remain distinguishable there, and the meaning is much
+weaker (`docs/research/read_site.md`).
 
 ## The axes analysis (`animals-k8-n15-tuned`)
 

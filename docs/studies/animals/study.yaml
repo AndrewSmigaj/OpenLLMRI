@@ -70,6 +70,7 @@ ledger:
       The token count is read at balanced accuracy 0.96 or more at every layer, one-token names'
       neighbours are 86 to 100% one-token names (chance 18%), and the lens's nodes read it at κ
       0.81 to 1.00. Taking out the means leaves 77 to 99% through L18. Kinship holds within each
-      kind of name. Reading at the token after the word is proposed (RECOMMENDATIONS.md).
+      kind of name. Read at the token after the word, the two kinds of name remain distinguishable
+      and the meaning is much weaker (the read_site study).
     status: proposed
     evidence: [docs/research/animals.md]

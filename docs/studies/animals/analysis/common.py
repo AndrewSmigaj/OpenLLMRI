@@ -60,16 +60,23 @@ def lens_embedding(session: str, lens: str) -> np.ndarray:
     return np.load(lens_folder(session, lens) / "fit" / "embed.npz")["embedding"]
 
 
-def raw_layers(session: str, probe_ids: List[str], layers: List[int],
+def lens_site(session: str, lens: str) -> int:
+    """The token position a lens reads: 1 is the target word, 2 the capture's second site (the
+    message's end marker in the `_endmarker` captures)."""
+    manifest = json.loads((lens_folder(session, lens) / "lens.json").read_text(encoding="utf-8"))
+    return int(manifest["site"]["token_position"])
+
+
+def raw_layers(session: str, lens: str, probe_ids: List[str], layers: List[int],
                centre_within: np.ndarray | None = None) -> Dict[int, np.ndarray]:
-    """{layer: [items, 50]}: the residual stream at the target token, standardized, then its 50
+    """{layer: [items, 50]}: the residual stream at the lens's site, standardized, then its 50
     principal components (the validation's raw recipe, fitted on every item). With
     `centre_within` (a group per item), each group's mean is taken out first, which removes any
     offset between the groups."""
     from services.lenses.data import load_states
     from services.lenses.raw import pca_features
 
-    states = load_states(session, probe_ids, layers=layers)
+    states = load_states(session, probe_ids, token_position=lens_site(session, lens), layers=layers)
     out = {}
     for layer in layers:
         x = states[layer]

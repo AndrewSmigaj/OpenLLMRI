@@ -1,0 +1,53 @@
+# Where a single word is read (DESIGN.md C1, L16): a method study on lens slice 1c's two sets.
+# Its findings note is the record of the runs; each ledger line stays proposed until it is
+# reviewed (DESIGN.md H).
+id: read_site
+title: Where a single word is read
+question: >
+  Read at its last token, a word that splits into several tokens and a one-token word sit apart at
+  every layer. Does reading every word at the token after it, the message's end marker (the same
+  token for every item), remove that divide, and does it keep what the word means?
+status: active
+started: 2026-10-09
+sets:
+  - animals_kinship_v1
+  - objects_harm_v1
+captures:
+  - session_6e485e10
+  - session_5ce62b52
+  - session_2be574c4
+  - session_079e85fb
+lenses:
+  - session_6e485e10/animals-k8-n15
+  - session_5ce62b52/animals-end-k8-n15
+  - session_2be574c4/objects-k3-n15
+  - session_079e85fb/objects-end-k3-n15
+  - session_2be574c4/harm-axis
+  - session_079e85fb/harm-axis-end
+findings:
+  - docs/research/read_site.md
+ledger:
+  - idea: Reading at the message's end marker removes the divide between one-token and split names.
+    experiment: >
+      Both sets captured again with the end marker as a second site; the same lenses, settings,
+      seed and folds at both sites; validation, the axes analysis, and the studies' split-word,
+      taxonomic and kinship analyses.
+    finding: >
+      It doesn't. At the end marker one-token animal names' neighbours are still 66 to 100%
+      one-token names in the lens (chance 18%), a raw-space probe tells the two kinds apart at 0.99
+      or more at every layer, and the animal lens's nodes follow the token count at held-out κ 0.86
+      to 1.00 through L12.
+    status: proposed
+    evidence: [docs/research/read_site.md]
+  - idea: The end marker keeps what the word means.
+    experiment: >
+      The same comparison, on the animals' group, kinship and way of life, and on the objects'
+      harm axis and three classes.
+    finding: >
+      Much less of it. Animals' neighbours share their group 25 to 32% of the time at L4 to L17 in
+      the lens (58 to 71% at the last token); the lens's nodes read the group at held-out AMI 0.10 at most (0.40)
+      and a logistic probe at 0.57 at most (0.82); every kind of animal but those named "fish"
+      leans to kin at far fewer layers. Harm is read well only at L10 to L12 (held-out accuracy 0.87
+      to 0.91), against 0.90 or more from L4 to L15 at the last token.
+    status: proposed
+    evidence: [docs/research/read_site.md]

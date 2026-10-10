@@ -75,5 +75,6 @@ Reading a split name at its last token lets every animal and object in, but it d
 site neutral. A word's last piece is a word-internal token, and a one-token word is a whole word
 with its space; the two read differently at every layer, and every UMAP lens on these captures
 spends nodes on that difference. Kinship and harm show within each kind of name, and on a single
-axis harm carries over to domains the lens never saw. `docs/RECOMMENDATIONS.md` (2026-10-09)
-proposes reading each word at the token after it, the same token for every item.
+axis harm carries over to domains the lens never saw. Read at the token after it instead, the
+message's end marker, the two kinds of name remain distinguishable and the meaning is much weaker
+(`docs/research/read_site.md`), so the last token stays the read site.

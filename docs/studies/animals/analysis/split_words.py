@@ -87,8 +87,8 @@ def main(session: str, lens: str) -> None:
                   "not fish": np.flatnonzero(fish_piece & (group != "fish"))}
     embedding = lens_embedding(session, lens)
     layers = list(range(embedding.shape[0]))
-    raw = raw_layers(session, [it["probe_id"] for it in items], layers)
-    centred = raw_layers(session, [it["probe_id"] for it in items], layers, centre_within=split)
+    raw = raw_layers(session, lens, [it["probe_id"] for it in items], layers)
+    centred = raw_layers(session, lens, [it["probe_id"] for it in items], layers, centre_within=split)
     results: Dict[str, Any] = {
         "session": session, "lens": lens, "items": len(items), "neighbours": NEIGHBOURS,
         "split": int(split.sum()), "one_token": int((~split).sum()),

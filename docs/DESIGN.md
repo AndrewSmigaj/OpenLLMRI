@@ -837,6 +837,14 @@ area can be resized and can fill the screen.
 - **Cards with LLM-written reports** for clusters, experts, routes and expert routes (E8) [Built].
 
 **E6. Study** [Decided, 2026-10-07: the parts below were approved in the time review]:
+- **The studies in progress** [Decided, 2026-10-09: Andrew asked for a clear area showing which
+  studies there are, where their designs can be iterated on; its place in the order of work is
+  open, L17]:
+  - **What it shows** [Proposed, 2026-10-09]: every study from its study file, with its status,
+    question, sets, captures, lenses, findings, ledger and showcase; opening one shows its design,
+    and its runs' timelines once it has runs. Study opens on this list.
+  - **Iterating on a design** [Proposed, 2026-10-09]: the study file is changed through Claude
+    Code, an agent started from the area, or by hand; git keeps each earlier design.
 - **A study file sets up the view:** its runs, references, lens, layer, the event to align on, and
   how runs are grouped. You pick a study; Advanced overrides a setting for one look.
 - **The study timeline:**
@@ -1291,8 +1299,34 @@ I. The steps in each are [Decided, 2026-10-07].
     than about 400 (single-word names of harmful things run out);
   - **where a single word is read** (C1, found in slice 1c): read at its last token, a split word
     and a one-token word sit apart at every layer, and every lens on the two sets spends nodes on
-    that difference (`docs/research/animals.md`). Reading every word at the token after it, the
-    same token for every item, is proposed in RECOMMENDATIONS.md (2026-10-09).
+    that difference (`docs/research/animals.md`). Reading at the token after the word, the
+    message's end marker, was tested on 2026-10-09 and doesn't help: the two kinds of name remain
+    distinguishable there, and the word's meaning is much weaker (`docs/research/read_site.md`).
+    Claude's recommendation is to keep the last token and handle the divide in the sets and the
+    analyses (RECOMMENDATIONS.md, 2026-10-09).
+- **L17. The studies area** (open; Andrew asked for it on 2026-10-09 and set its timing aside):
+  where it goes in the order of work (K), for example beside slice 2 or before Study's timelines in
+  slice 4; and whether its first version only lists and shows the studies, or also edits their
+  designs (E6).
+- **L18. Smaller method choices** (open; each in RECOMMENDATIONS.md, 2026-10-09, with its reasons):
+  - repeat the tuning's test split on several draws, so one small test portion isn't the whole
+    honest score;
+  - a stricter line beside "beyond the decoys" (for example half the probe's κ), since nearly
+    every attribute passes the decoys;
+  - decoys that keep the design's correlations (shuffled within each category);
+  - grouped folds that balance each fold's class mix, where domains and classes go together;
+  - checking a taxonomy match against its common names, after a homonym slipped through.
+- **L19. Slice 2's plan** (open; a draft for Andrew's review, 2026-10-09, in
+  `docs/scratchpad/slice_2_plan.md`, published at https://claude.ai/artifact/7x3XfQ3rPUNeTjHcJgow1c):
+  six decisions, each with Claude's recommendation:
+  1. where GPU jobs run: a lane inside the backend (recommended) or a separate worker process;
+  2. which extra positions sentence sets capture: named sites, every position of the message
+     (opt-in) and states after generation starts (all three recommended);
+  3. entering a MUD's address in the app's top bar, checked before it is saved;
+  4. agent records keeping the tick's observation as their text, with the whole conversation in the
+     run's token ids;
+  5. the studies area at the end of slice 2 (recommended) or with Study's timelines (L17);
+  6. one yes or no for a list of leftovers to remove.
 
 ## Part M — Claude's final read: certainty and recommendations [Decided, 2026-10-08: Andrew accepted it]
 
@@ -1552,6 +1586,8 @@ Paraphrased from Andrew's own words. His ideas not yet decided are listed separa
     (C4, E3);
   - Andrew approved the slice 1c plan without reviewing its details. The details Claude added
     are marked Proposed until he confirms them (L16).
+  - a clear area for the studies in progress, to see which studies there are and iterate on their
+    designs; its place in the order of work is open (E6, L17).
 - **Andrew's ideas, not yet decided:**
   - **2026-10-04:** a user interface in the MUD;
   - **2026-10-06:** asking the agent to use set words in its reasoning; giving it words marked as for

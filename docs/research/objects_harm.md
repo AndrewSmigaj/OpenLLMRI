@@ -85,8 +85,8 @@ in practice.
 As with the animals, the token count is one of the strongest things in every object lens (above),
 and it is strongest early and late, weaker at L9 to L16. The harmful class splits as often as the
 benign one (80% and 79%), so the class differences above aren't the token count's; but every
-UMAP lens on this capture spends its early and late nodes on it. The proposal in
-RECOMMENDATIONS.md (read each word at the token after it) applies here too.
+UMAP lens on this capture spends its early and late nodes on it. Reading each word at the token
+after it doesn't help: tested on both sets in `docs/research/read_site.md`.
 
 ## Files
 
