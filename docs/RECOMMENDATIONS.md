@@ -747,9 +747,19 @@ slice's showcase. Runs: `docs/research/lens_core_validation.md` (the threatened 
 - **Found and fixed on the way:**
   - the mass-mean readings chart drew a band below zero up from zero (ECharts stacks across signs
     only when told to: `stackStrategy: 'all'`);
-  - the lexical README still said the capture drops words that split.
+  - the lexical README still said the capture drops words that split;
+  - the kinship analysis's null bands came from 200 shuffles drawn from one stream across both
+    counts, so a borderline layer could flip between runs; they now take 1,000 shuffles from a
+    stream of their own per count, space and layer (the earlier "legless animals lean to snakes at
+    raw L3" was that noise);
+  - the layer preview had no export, and its exports now name their colour axis.
+- **Both tuned lenses' reports** were written and checked after the commits of 10d.5 and 10d.6
+  (16 animal cards and 12 object cards, every number traced). Their analysts saw the token count
+  on their own: two animal nodes at L10 are "single-token animal names", and the object lens's
+  report is titled "tokens dominate, labels separate weakly".
 - **Parked:**
   - a sentence capture doesn't record its pinned date in the session file (agent runs do); slice
     2's capture recipe;
   - the folds' label still reads "scene families" for any family field (noted in slice 1b);
-  - the analyst reports of both tuned lenses were still being written when this entry was made.
+  - the Layers view took 15 to 30 s to show a lens on its first load while report jobs ran, though
+    the lens list answers in 0.01 s alone; worth a look.

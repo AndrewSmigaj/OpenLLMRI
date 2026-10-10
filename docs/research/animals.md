@@ -93,21 +93,27 @@ neighbours among its kin without the trait that sets it apart (for a dolphin, ma
 swim), against its look-alikes from other groups (non-mammals that swim), each against chance
 (`analysis/kinship_or_way_of_life.py`). The index is above 0 when the neighbours lean to kin.
 "Beyond chance" means outside the middle 95% of the same index with the items' positions shuffled
-200 times.
+1,000 times. Because whether a name split divides the space (below), the index is also counted
+within the animal's own token count: only neighbours with its token count, against chance in that
+pool, with positions shuffled within each token count. Five of the 33 are one-token names (whale,
+dolphin, seal, bat, eel).
 
-| Kind | lens: kin beyond chance | raw: kin beyond chance | look-alikes beyond chance |
+| Kind | lens: kin beyond chance | raw: kin beyond chance | within token count (lens, raw) |
 |---|---|---|---|
-| mammals that swim (16) | 18 layers (L0, L1, L4–L7, L9–L20) | 20 layers (L2–L18, L21–L23) | none |
-| mammals that fly (2) | 13 layers | 12 layers | none |
-| birds that don't fly (6) | 8 layers (L7–L13, L21) | 5 layers | none |
-| named "fish", not fish (5) | 14 layers (L6–L19) | 17 layers (L2–L18) | none |
-| legless, not snakes (3) | L7, L10 | L5, L8 | raw L3 |
-| a fish that walks (1) | 20 layers | 21 layers | none |
+| mammals that swim (16) | 18 layers (L0, L1, L4–L7, L9–L20) | 20 layers (L2–L18, L21–L23) | the same 18 and 20 |
+| mammals that fly (2) | 12 layers | 12 layers | 5 and 10 |
+| birds that don't fly (6) | 7 layers (L7–L13) | 5 layers | 8 (L7–L13, L21) and 6 |
+| named "fish", not fish (5) | 16 layers (L4, L6–L20) | 17 layers (L2–L18) | 14 (L6–L19) and 15 |
+| legless, not snakes (3) | L7, L8, L10 | none | L7, L8, L10 and L5, L8 |
+| a fish that walks (1) | 20 layers | 22 layers (L2–L23) | 19 and 21 |
 
-- **The kinds lean to kin.** No kind leans to its look-alikes beyond chance at any layer but one
-  (the legless animals in raw space at L3). Swimming mammals sit among land mammals rather than
-  among fish, and the named "fish" (starfish, jellyfish, cuttlefish, crayfish, silverfish) sit with
-  their own groups rather than with fish whose names don't end in "fish".
+- **The kinds lean to kin.** No kind leans to its look-alikes beyond chance at any layer, in either
+  space or either count. Swimming mammals sit among land mammals rather than among fish, and the
+  named "fish" (starfish, jellyfish, cuttlefish, crayfish, silverfish) sit with their own groups
+  rather than with fish whose names don't end in "fish".
+- **Not the token count's doing:** counted within each token count, the swimming mammals lean to
+  kin at the very same layers. Only the flying mammals lose much (5 lens layers instead of 12): the
+  bat is a one-token name, and the one-token names are mostly mammals.
 - **Animal by animal, the whales are the exception.** The humpback leans to its look-alikes (index
   −2 or below) at 12 layers in the lens and at 8 in raw space (L1, L8, L15, L19–L23); the porpoise
   at L14, L16 and L21–L23 in the lens and L9 and L21–L23 raw; the whale at L6, L9, L11 and L14 in

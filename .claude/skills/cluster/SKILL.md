@@ -62,6 +62,19 @@ curl -s -X POST http://localhost:8000/api/lenses -H "Content-Type: application/j
 Other ways to set k: `"k_per_layer":[...24 values...]`, or `"k_auto":"elbow"`, `"silhouette"`
 or `"levels"` (the suggestion each method makes per layer, named in the version).
 
+More UMAP settings (DESIGN.md E3): `"min_dist"` (0.1 by default) and `"metric"` (`euclidean`,
+`cosine`, `correlation` or `manhattan`), or each layer's own in `"per_layer":[{"n_neighbors":15,
+"dimensions":6,"min_dist":0.1,"metric":"euclidean"}, ...24...]` with `"sources"` saying where each
+came from (`form`, `table`, `preview`, `preview held out`). Only a search's settings read as
+tuned; settings chosen on held-out previews mark the lens's validation selection-biased.
+
+**The hold-out design** (DESIGN.md C4): the lens records it, and every later job on it (validate,
+tune, routes, axes) uses it unless the request names another. When the build names none, the lens
+takes the one its capture's set declared (`metadata.holdout`, kept in the session file), else
+whole `scene` families when the items have them, else stratified folds. To set it:
+`"holdout":{"family_field":"order","whole_families":true,"max_folds":12,"test_share":0.2}`.
+Family folds beyond `max_folds` merge round-robin, each still holding out whole families.
+
 ### OP-L2: Follow the job
 
 ```bash
@@ -87,9 +100,9 @@ version and copies its records into `data/lenses/<session>/<name>/` in the repo.
 
 ### OP-L4: Validate a lens (held-out scores and the k profile; a job)
 
-Folds hold out whole scene families when the items name one (`categories.scene`, or the field
-given as `family_field`); otherwise they are stratified with identical texts kept together, and
-marked weaker. A family is keyed by the first two parts of its name unless `whole_families` is
+Folds follow the lens's hold-out design (OP-L1): whole families of its families field, or the
+field given as `family_field` (`""` for none); without families they are stratified with
+identical texts kept together, and marked weaker. A family is keyed by the first two parts of its name unless `whole_families` is
 set. When a family holds more than one label, fold i can't hold out family i of every label
 without training on the family's other items, so the folds hold out whole families grouped
 across labels instead (the result says so). Every k from 2 to 10 is scored at every layer, with
@@ -225,6 +238,35 @@ curl -s "http://localhost:8000/api/sessions/SID/lenses/NAME/axes"
 On a set without families the decoys are random per item, so the line is low and the linear
 techniques often pass it for every attribute: read the strengths (the heatmap), not only the
 counts. In the app: Build › the lens card's `axes ▾`.
+
+### OP-L11: Preview one layer (a job, in seconds)
+
+Fit one layer with given settings and k before building all 24 (DESIGN.md E3): its points on the
+layer's three main directions, its nodes at k, and AMI with every designed axis at every k; with
+`"held_out":true`, held-out AMI and κ too, on family folds of the items a tune would select from.
+No label-based score ever sees the test portion a later tune holds out, so that tune's test score
+stays honest. It runs as a job in its own lane (pinned like a build, so it equals a build's layer):
+about 10 s at 500 items, about 20 s held out.
+
+```bash
+curl -s -X POST http://localhost:8000/api/lenses/preview -H "Content-Type: application/json" \
+  -d '{"session_id":"SID","layer":6,"settings":{"n_neighbors":15,"dimensions":6,"min_dist":0.1,"metric":"euclidean"},"k":8,"held_out":true,"created_by":"claude-code"}'
+curl -s http://localhost:8000/api/lenses/previews/JOB_ID
+```
+
+In the app: Build › the form › Preview a layer (its 3-D view coloured by node or any axis, with
+exports), and "Use for L…" copies the settings into the form's per-layer table.
+
+### In the app: rebuild and compare
+
+- **Rebuild with…** on each UMAP lens card opens the form filled in from the lens: its settings
+  (per layer if it has them) with their sources, its k per layer, site, filters, seed and hold-out
+  design, under a new name.
+- **compare** above the lens list draws held-out scores per layer for the capture's lenses on one
+  chart (AMI, κ or accuracy, on any axis), with a tuned lens's test line and its source's on the
+  same items, and warns when the lenses were held out differently or hold other items.
+- **A mass-mean lens's results** show its readings: each class's median and middle half along the
+  axis per layer, for its own capture or any other (OP-L5's readings), with exports.
 
 ### Reports
 

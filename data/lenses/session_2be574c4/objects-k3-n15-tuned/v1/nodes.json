@@ -11236,7 +11236,52 @@
     },
     "layer_routing_effect": 0.2214
    },
-   "report": null
+   "report": {
+    "title": "Short single-token object words, leaning benign",
+    "pattern": "weak",
+    "summary": "L11C0 holds 81 items [F1] of the lens's 321 [F2]. It contains benign, dual and harmful objects but leans benign: 53% benign [F3] against 40% of all items [F4]. A surface feature sets it apart more than meaning does: 53% of its items are single-token words [F33] against 24% of all items [F34], and character count alone separates the node from the rest (AUC 0.195 [F60]).",
+    "facts": {
+     "F1": {
+      "id": "F1",
+      "what": "items in L11C0",
+      "value": 81
+     },
+     "F2": {
+      "id": "F2",
+      "what": "items in the lens",
+      "value": 321
+     },
+     "F3": {
+      "id": "F3",
+      "what": "share of L11C0 with label = benign",
+      "value": 0.531
+     },
+     "F4": {
+      "id": "F4",
+      "what": "share of all items with label = benign",
+      "value": 0.396
+     },
+     "F33": {
+      "id": "F33",
+      "what": "share of L11C0 with tokens = one",
+      "value": 0.531
+     },
+     "F34": {
+      "id": "F34",
+      "what": "share of all items with tokens = one",
+      "value": 0.243
+     },
+     "F60": {
+      "id": "F60",
+      "what": "how well characters alone separates the node from the rest (AUC; 0.5 is not at all)",
+      "value": 0.195
+     }
+    },
+    "numbers_checked": true,
+    "tested_analyst": true,
+    "written_by": "claude -p",
+    "written_at": "2026-10-10T01:52:45Z"
+   }
   },
   {
    "id": "L11C1",
@@ -11395,7 +11440,37 @@
     },
     "layer_routing_effect": 0.2214
    },
-   "report": null
+   "report": {
+    "title": "Weapons and armed-force gear, mostly harmful",
+    "pattern": "clear",
+    "summary": "L11C1 holds 91 items [F1] out of 321 [F2] in the lens. Most of them are weapons, such as \"blowgun\", \"howitzer\", \"tomahawk\" and \"bazooka\", with a few dual or benign items like \"snowmobile\" and \"breastplate\". Harmful items make up 62% [F7] of the node, against 31% [F8] of all items, and the tokens favoured at the node's centre are about weapons and warfare.",
+    "facts": {
+     "F1": {
+      "id": "F1",
+      "what": "items in L11C1",
+      "value": 91
+     },
+     "F2": {
+      "id": "F2",
+      "what": "items in the lens",
+      "value": 321
+     },
+     "F7": {
+      "id": "F7",
+      "what": "share of L11C1 with label = harmful",
+      "value": 0.615
+     },
+     "F8": {
+      "id": "F8",
+      "what": "share of all items with label = harmful",
+      "value": 0.305
+     }
+    },
+    "numbers_checked": true,
+    "tested_analyst": true,
+    "written_by": "claude -p",
+    "written_at": "2026-10-10T01:53:11Z"
+   }
   },
   {
    "id": "L11C2",
@@ -11557,7 +11632,67 @@
     },
     "layer_routing_effect": 0.2214
    },
-   "report": null
+   "report": {
+    "title": "Benign everyday objects, harmful items nearly absent",
+    "pattern": "clear",
+    "summary": "L11C2 holds 75 of the lens's 321 items [F1, F2]. It is strongly benign: 79% of its items are benign, against 40% of all items [F3, F4], while harmful items drop to 3%, against 31% overall [F7, F8]. It covers 18 of the 19 domains [F9, F10], so it is not organised around one domain. Most of its items come from L10C5 (61 items [F37]) and most go on to L12C7 (55 items [F41]).",
+    "facts": {
+     "F1": {
+      "id": "F1",
+      "what": "items in L11C2",
+      "value": 75
+     },
+     "F2": {
+      "id": "F2",
+      "what": "items in the lens",
+      "value": 321
+     },
+     "F3": {
+      "id": "F3",
+      "what": "share of L11C2 with label = benign",
+      "value": 0.787
+     },
+     "F4": {
+      "id": "F4",
+      "what": "share of all items with label = benign",
+      "value": 0.396
+     },
+     "F7": {
+      "id": "F7",
+      "what": "share of L11C2 with label = harmful",
+      "value": 0.027
+     },
+     "F8": {
+      "id": "F8",
+      "what": "share of all items with label = harmful",
+      "value": 0.305
+     },
+     "F9": {
+      "id": "F9",
+      "what": "distinct values of domain in L11C2",
+      "value": 18
+     },
+     "F10": {
+      "id": "F10",
+      "what": "distinct values of domain in all items",
+      "value": 19
+     },
+     "F37": {
+      "id": "F37",
+      "what": "items of L11C2 that were in L10C5 the layer before",
+      "value": 61
+     },
+     "F41": {
+      "id": "F41",
+      "what": "items of L11C2 that go on to L12C7",
+      "value": 55
+     }
+    },
+    "numbers_checked": true,
+    "tested_analyst": true,
+    "written_by": "claude -p",
+    "written_at": "2026-10-10T01:53:34Z"
+   }
   },
   {
    "id": "L11C3",
@@ -11714,7 +11849,62 @@
     },
     "layer_routing_effect": 0.2214
    },
-   "report": null
+   "report": {
+    "title": "Toxic chemicals and drugs, leaning dual-use",
+    "pattern": "clear",
+    "summary": "L11C3 holds 74 of 321 items [F1][F2]. It has far more chemical-harm items than the lens as a whole, 45% against 11% [F23][F24], and more dual-use items, 53% against 30% [F5][F6], while benign items drop to 15% against 40% [F3][F4]. The tokens it favours under the logit lens point to toxins and drugs. Most of its items arrive from L10C4 (40 [F37]) and split across several L12 nodes.",
+    "facts": {
+     "F1": {
+      "id": "F1",
+      "what": "items in L11C3",
+      "value": 74
+     },
+     "F2": {
+      "id": "F2",
+      "what": "items in the lens",
+      "value": 321
+     },
+     "F23": {
+      "id": "F23",
+      "what": "share of L11C3 with harm = chemical",
+      "value": 0.446
+     },
+     "F24": {
+      "id": "F24",
+      "what": "share of all items with harm = chemical",
+      "value": 0.106
+     },
+     "F5": {
+      "id": "F5",
+      "what": "share of L11C3 with label = dual",
+      "value": 0.527
+     },
+     "F6": {
+      "id": "F6",
+      "what": "share of all items with label = dual",
+      "value": 0.299
+     },
+     "F3": {
+      "id": "F3",
+      "what": "share of L11C3 with label = benign",
+      "value": 0.149
+     },
+     "F4": {
+      "id": "F4",
+      "what": "share of all items with label = benign",
+      "value": 0.396
+     },
+     "F37": {
+      "id": "F37",
+      "what": "items of L11C3 that were in L10C4 the layer before",
+      "value": 40
+     }
+    },
+    "numbers_checked": true,
+    "tested_analyst": true,
+    "written_by": "claude -p",
+    "written_at": "2026-10-10T01:54:14Z"
+   }
   },
   {
    "id": "L12C0",

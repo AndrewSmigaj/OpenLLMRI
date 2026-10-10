@@ -1,0 +1,1242 @@
+{
+ "figure": "kinship or way of life: lens slice 1c's showcase",
+ "script": "docs/studies/animals/showcase/compose.py",
+ "commit": "82e1b0ba65aacbe677f0be60b097b0e7bde8660a",
+ "dirty": true,
+ "panels": {
+  "A": {
+   "files": [
+    "a_animals_clusters.png"
+   ],
+   "recipes": {
+    "a_animals_clusters.png": {
+     "app": "OpenLLMRI",
+     "figure": "cluster flows, all layers",
+     "link": "http://localhost:5173/layers?session=session_6e485e10&lens=animals-k8-n15-tuned&zoom=24&color=label&sel=probe:probe_954de4f5&fill=charts",
+     "exported_at": "2026-10-10T01:48:03.576Z",
+     "view": {
+      "session": "session_6e485e10",
+      "lens": "animals-k8-n15-tuned",
+      "legacy": false,
+      "layer": 0,
+      "zoom": 24,
+      "color": "label",
+      "color2": "none",
+      "fade": "",
+      "stripes": false,
+      "gradient": "red-blue",
+      "rank": 1,
+      "top": 10,
+      "sel": "probe:probe_954de4f5",
+      "step": null,
+      "tab": "members",
+      "d3": true,
+      "fill": "charts"
+     },
+     "lens": {
+      "lens": {
+       "session_id": "session_6e485e10",
+       "name": "animals-k8-n15-tuned",
+       "legacy": false,
+       "version": "v1"
+      },
+      "settings": {
+       "n_neighbors": 15,
+       "dimensions": 6,
+       "min_dist": 0.1,
+       "metric": "euclidean",
+       "seed": 42,
+       "grouping": "ward",
+       "per_layer": [
+        {
+         "n_neighbors": 15,
+         "dimensions": 3,
+         "min_dist": 0.1,
+         "metric": "euclidean"
+        },
+        {
+         "n_neighbors": 50,
+         "dimensions": 3,
+         "min_dist": 0.1,
+         "metric": "euclidean"
+        },
+        {
+         "n_neighbors": 5,
+         "dimensions": 3,
+         "min_dist": 0.1,
+         "metric": "euclidean"
+        },
+        {
+         "n_neighbors": 5,
+         "dimensions": 12,
+         "min_dist": 0.1,
+         "metric": "euclidean"
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 6,
+         "min_dist": 0.1,
+         "metric": "euclidean"
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 12,
+         "min_dist": 0.1,
+         "metric": "euclidean"
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 6,
+         "min_dist": 0.1,
+         "metric": "euclidean"
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 12,
+         "min_dist": 0.1,
+         "metric": "euclidean"
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 6,
+         "min_dist": 0.1,
+         "metric": "euclidean"
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 3,
+         "min_dist": 0.1,
+         "metric": "euclidean"
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 12,
+         "min_dist": 0.1,
+         "metric": "euclidean"
+        },
+        {
+         "n_neighbors": 5,
+         "dimensions": 6,
+         "min_dist": 0.1,
+         "metric": "euclidean"
+        },
+        {
+         "n_neighbors": 5,
+         "dimensions": 6,
+         "min_dist": 0.1,
+         "metric": "euclidean"
+        },
+        {
+         "n_neighbors": 5,
+         "dimensions": 12,
+         "min_dist": 0.1,
+         "metric": "euclidean"
+        },
+        {
+         "n_neighbors": 5,
+         "dimensions": 6,
+         "min_dist": 0.1,
+         "metric": "euclidean"
+        },
+        {
+         "n_neighbors": 5,
+         "dimensions": 6,
+         "min_dist": 0.1,
+         "metric": "euclidean"
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 12,
+         "min_dist": 0.1,
+         "metric": "euclidean"
+        },
+        {
+         "n_neighbors": 5,
+         "dimensions": 12,
+         "min_dist": 0.1,
+         "metric": "euclidean"
+        },
+        {
+         "n_neighbors": 5,
+         "dimensions": 3,
+         "min_dist": 0.1,
+         "metric": "euclidean"
+        },
+        {
+         "n_neighbors": 5,
+         "dimensions": 3,
+         "min_dist": 0.1,
+         "metric": "euclidean"
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 6,
+         "min_dist": 0.1,
+         "metric": "euclidean"
+        },
+        {
+         "n_neighbors": 5,
+         "dimensions": 12,
+         "min_dist": 0.1,
+         "metric": "euclidean"
+        },
+        {
+         "n_neighbors": 5,
+         "dimensions": 12,
+         "min_dist": 0.1,
+         "metric": "euclidean"
+        },
+        {
+         "n_neighbors": 5,
+         "dimensions": 12,
+         "min_dist": 0.1,
+         "metric": "euclidean"
+        }
+       ],
+       "sources": [
+        "tuned",
+        "tuned",
+        "tuned",
+        "tuned",
+        "tuned",
+        "tuned",
+        "tuned",
+        "tuned",
+        "tuned",
+        "tuned",
+        "tuned",
+        "tuned",
+        "tuned",
+        "tuned",
+        "tuned",
+        "tuned",
+        "tuned",
+        "tuned",
+        "tuned",
+        "tuned",
+        "tuned",
+        "tuned",
+        "tuned",
+        "tuned"
+       ],
+       "site": {
+        "source": "residual_stream",
+        "token_position": 1
+       }
+      },
+      "built": {
+       "commit": "34ae2cbe2406e4d9b86200865f81fc7dd3c01edd",
+       "dirty": true,
+       "job_id": "job_20261010T010812147936_2deaaa",
+       "created_by": "claude-code",
+       "created_at": "2026-10-10T01:16:58+00:00",
+       "seconds": 18.7,
+       "libraries": {
+        "umap-learn": "0.5.11",
+        "scikit-learn": "1.7.2",
+        "numpy": "1.26.4"
+       }
+      },
+      "served": {
+       "commit": "8ddfb434cf1a992b54b34afcf366577a077229f3",
+       "dirty": true
+      },
+      "view": {
+       "kind": "cluster"
+      }
+     },
+     "colours": {
+      "input": {
+       "axis": "label",
+       "values": [
+        "amphibian",
+        "arachnid",
+        "bird",
+        "fish",
+        "insect",
+        "mammal",
+        "other_invertebrate",
+        "reptile"
+       ],
+       "gradient": "red-blue"
+      },
+      "output": null,
+      "stripes": false,
+      "shape": "none"
+     }
+    }
+   },
+   "crops": {},
+   "trimmed": [],
+   "legend": "a_animals_legend.png: a screenshot of the app's colour legend for this view"
+  },
+  "B": {
+   "files": [
+    "b_taxonomic.png"
+   ],
+   "recipes": {
+    "b_taxonomic.png": {
+     "figure": "docs/studies/animals/analysis/figures/taxonomic_neighbourhoods_animals-k8-n15-tuned.png",
+     "script": "docs/studies/animals/analysis/taxonomic_neighbourhoods.py",
+     "results": "docs/studies/animals/analysis/results/taxonomic_neighbourhoods_animals-k8-n15-tuned.json",
+     "run": ".venv/bin/python docs/studies/animals/analysis/taxonomic_neighbourhoods.py session_6e485e10 animals-k8-n15-tuned"
+    }
+   },
+   "crops": {},
+   "trimmed": [],
+   "legend": null
+  },
+  "C": {
+   "files": [
+    "c_kinship.png"
+   ],
+   "recipes": {
+    "c_kinship.png": {
+     "figure": "docs/studies/animals/analysis/figures/kinship_or_way_of_life_animals-k8-n15-tuned.png",
+     "script": "docs/studies/animals/analysis/kinship_or_way_of_life.py",
+     "results": "docs/studies/animals/analysis/results/kinship_or_way_of_life_animals-k8-n15-tuned.json",
+     "run": ".venv/bin/python docs/studies/animals/analysis/kinship_or_way_of_life.py session_6e485e10 animals-k8-n15-tuned"
+    }
+   },
+   "crops": {},
+   "trimmed": [],
+   "legend": null
+  },
+  "D": {
+   "files": [
+    "d_preview_label.png",
+    "d_preview_tokens.png",
+    "d_dolphin_3d.png"
+   ],
+   "recipes": {
+    "d_preview_label.png": {
+     "app": "OpenLLMRI",
+     "figure": "one-layer preview, L6",
+     "link": "http://localhost:5173/build?session=session_6e485e10",
+     "exported_at": "2026-10-10T01:47:15.686Z",
+     "capture": "session_6e485e10",
+     "site": {
+      "source": "residual_stream",
+      "token_position": 1
+     },
+     "filters": {
+      "labels": null,
+      "steps": null,
+      "last_occurrence_only": true,
+      "max_items": null
+     },
+     "seed": 42,
+     "layer": 6,
+     "settings": {
+      "n_neighbors": 15,
+      "dimensions": 6,
+      "min_dist": 0.1,
+      "metric": "euclidean"
+     },
+     "k": 8,
+     "colour_by": "label",
+     "held_out": true,
+     "share": 0.8813,
+     "test": {
+      "n_items": 119,
+      "weaker": false
+     },
+     "holdout": {
+      "family_field": "order",
+      "whole_families": true,
+      "max_folds": 12,
+      "test_share": 0.2
+     },
+     "seconds": 18.1
+    },
+    "d_preview_tokens.png": {
+     "app": "OpenLLMRI",
+     "figure": "one-layer preview, L6",
+     "link": "http://localhost:5173/build?session=session_6e485e10",
+     "exported_at": "2026-10-10T01:47:10.903Z",
+     "capture": "session_6e485e10",
+     "site": {
+      "source": "residual_stream",
+      "token_position": 1
+     },
+     "filters": {
+      "labels": null,
+      "steps": null,
+      "last_occurrence_only": true,
+      "max_items": null
+     },
+     "seed": 42,
+     "layer": 6,
+     "settings": {
+      "n_neighbors": 15,
+      "dimensions": 6,
+      "min_dist": 0.1,
+      "metric": "euclidean"
+     },
+     "k": 8,
+     "colour_by": "tokens",
+     "held_out": true,
+     "share": 0.8813,
+     "test": {
+      "n_items": 119,
+      "weaker": false
+     },
+     "holdout": {
+      "family_field": "order",
+      "whole_families": true,
+      "max_folds": 12,
+      "test_share": 0.2
+     },
+     "seconds": 18.1
+    },
+    "d_dolphin_3d.png": {
+     "app": "OpenLLMRI",
+     "figure": "3-D trajectories, layers 6, 7, 8, 9, 10, 11, 12",
+     "link": "http://localhost:5173/layers?session=session_6e485e10&lens=animals-k8-n15-tuned&zoom=6&layer=6&color=label&sel=probe:probe_954de4f5&fill=d3",
+     "exported_at": "2026-10-10T01:53:03.798Z",
+     "view": {
+      "session": "session_6e485e10",
+      "lens": "animals-k8-n15-tuned",
+      "legacy": false,
+      "layer": 6,
+      "zoom": 6,
+      "color": "label",
+      "color2": "none",
+      "fade": "",
+      "stripes": false,
+      "gradient": "red-blue",
+      "rank": 1,
+      "top": 10,
+      "sel": "probe:probe_954de4f5",
+      "step": null,
+      "tab": "members",
+      "d3": true,
+      "fill": "d3"
+     },
+     "lens": {
+      "lens": {
+       "session_id": "session_6e485e10",
+       "name": "animals-k8-n15-tuned",
+       "legacy": false,
+       "version": "v1"
+      },
+      "settings": {
+       "n_neighbors": 15,
+       "dimensions": 6,
+       "min_dist": 0.1,
+       "metric": "euclidean",
+       "seed": 42,
+       "grouping": "ward",
+       "per_layer": [
+        {
+         "n_neighbors": 15,
+         "dimensions": 3,
+         "min_dist": 0.1,
+         "metric": "euclidean"
+        },
+        {
+         "n_neighbors": 50,
+         "dimensions": 3,
+         "min_dist": 0.1,
+         "metric": "euclidean"
+        },
+        {
+         "n_neighbors": 5,
+         "dimensions": 3,
+         "min_dist": 0.1,
+         "metric": "euclidean"
+        },
+        {
+         "n_neighbors": 5,
+         "dimensions": 12,
+         "min_dist": 0.1,
+         "metric": "euclidean"
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 6,
+         "min_dist": 0.1,
+         "metric": "euclidean"
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 12,
+         "min_dist": 0.1,
+         "metric": "euclidean"
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 6,
+         "min_dist": 0.1,
+         "metric": "euclidean"
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 12,
+         "min_dist": 0.1,
+         "metric": "euclidean"
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 6,
+         "min_dist": 0.1,
+         "metric": "euclidean"
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 3,
+         "min_dist": 0.1,
+         "metric": "euclidean"
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 12,
+         "min_dist": 0.1,
+         "metric": "euclidean"
+        },
+        {
+         "n_neighbors": 5,
+         "dimensions": 6,
+         "min_dist": 0.1,
+         "metric": "euclidean"
+        },
+        {
+         "n_neighbors": 5,
+         "dimensions": 6,
+         "min_dist": 0.1,
+         "metric": "euclidean"
+        },
+        {
+         "n_neighbors": 5,
+         "dimensions": 12,
+         "min_dist": 0.1,
+         "metric": "euclidean"
+        },
+        {
+         "n_neighbors": 5,
+         "dimensions": 6,
+         "min_dist": 0.1,
+         "metric": "euclidean"
+        },
+        {
+         "n_neighbors": 5,
+         "dimensions": 6,
+         "min_dist": 0.1,
+         "metric": "euclidean"
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 12,
+         "min_dist": 0.1,
+         "metric": "euclidean"
+        },
+        {
+         "n_neighbors": 5,
+         "dimensions": 12,
+         "min_dist": 0.1,
+         "metric": "euclidean"
+        },
+        {
+         "n_neighbors": 5,
+         "dimensions": 3,
+         "min_dist": 0.1,
+         "metric": "euclidean"
+        },
+        {
+         "n_neighbors": 5,
+         "dimensions": 3,
+         "min_dist": 0.1,
+         "metric": "euclidean"
+        },
+        {
+         "n_neighbors": 15,
+         "dimensions": 6,
+         "min_dist": 0.1,
+         "metric": "euclidean"
+        },
+        {
+         "n_neighbors": 5,
+         "dimensions": 12,
+         "min_dist": 0.1,
+         "metric": "euclidean"
+        },
+        {
+         "n_neighbors": 5,
+         "dimensions": 12,
+         "min_dist": 0.1,
+         "metric": "euclidean"
+        },
+        {
+         "n_neighbors": 5,
+         "dimensions": 12,
+         "min_dist": 0.1,
+         "metric": "euclidean"
+        }
+       ],
+       "sources": [
+        "tuned",
+        "tuned",
+        "tuned",
+        "tuned",
+        "tuned",
+        "tuned",
+        "tuned",
+        "tuned",
+        "tuned",
+        "tuned",
+        "tuned",
+        "tuned",
+        "tuned",
+        "tuned",
+        "tuned",
+        "tuned",
+        "tuned",
+        "tuned",
+        "tuned",
+        "tuned",
+        "tuned",
+        "tuned",
+        "tuned",
+        "tuned"
+       ],
+       "site": {
+        "source": "residual_stream",
+        "token_position": 1
+       }
+      },
+      "built": {
+       "commit": "34ae2cbe2406e4d9b86200865f81fc7dd3c01edd",
+       "dirty": true,
+       "job_id": "job_20261010T010812147936_2deaaa",
+       "created_by": "claude-code",
+       "created_at": "2026-10-10T01:16:58+00:00",
+       "seconds": 18.7,
+       "libraries": {
+        "umap-learn": "0.5.11",
+        "scikit-learn": "1.7.2",
+        "numpy": "1.26.4"
+       }
+      },
+      "served": {
+       "commit": "8ddfb434cf1a992b54b34afcf366577a077229f3",
+       "dirty": true
+      },
+      "view": {
+       "kind": "cluster"
+      }
+     },
+     "colours": {
+      "input": {
+       "axis": "label",
+       "values": [
+        "amphibian",
+        "arachnid",
+        "bird",
+        "fish",
+        "insect",
+        "mammal",
+        "other_invertebrate",
+        "reptile"
+       ],
+       "gradient": "red-blue"
+      },
+      "output": null,
+      "stripes": false,
+      "shape": "none"
+     },
+     "frame": {
+      "fit": "lens",
+      "note": "the lens's own space on its three main directions (86–100% of the variance); each layer lined up with the one before",
+      "share": [
+       1,
+       1,
+       1,
+       0.9353,
+       0.8947,
+       0.8912,
+       0.8813,
+       0.8878,
+       0.8683,
+       1,
+       0.9192,
+       0.8648,
+       0.8722,
+       0.8721,
+       0.9087,
+       0.91,
+       0.9168,
+       0.9624,
+       1,
+       1,
+       0.9548,
+       0.9488,
+       0.9316,
+       0.9223
+      ]
+     },
+     "camera": {
+      "alpha": 20,
+      "beta": 0,
+      "distance": 362.8083735757802
+     },
+     "sample": 524,
+     "lit": 1,
+     "reading": null
+    }
+   },
+   "crops": {},
+   "trimmed": [
+    "d_preview_label.png",
+    "d_preview_tokens.png",
+    "d_dolphin_3d.png"
+   ],
+   "legend": null
+  },
+  "E": {
+   "files": [
+    "e_split_words.png"
+   ],
+   "recipes": {
+    "e_split_words.png": {
+     "figure": "docs/studies/animals/analysis/figures/split_words_animals-k8-n15-tuned.png",
+     "script": "docs/studies/animals/analysis/split_words.py",
+     "results": "docs/studies/animals/analysis/results/split_words_animals-k8-n15-tuned.json",
+     "run": ".venv/bin/python docs/studies/animals/analysis/split_words.py session_6e485e10 animals-k8-n15-tuned"
+    }
+   },
+   "crops": {
+    "e_split_words.png": [
+     0,
+     0,
+     null,
+     1140
+    ]
+   },
+   "trimmed": [],
+   "legend": null
+  },
+  "F": {
+   "files": [
+    "f_harm_readings.png"
+   ],
+   "recipes": {
+    "f_harm_readings.png": {
+     "app": "OpenLLMRI",
+     "link": "http://localhost:5173/build?session=session_2be574c4",
+     "exported_at": "2026-10-10T01:54:46.312Z",
+     "figure": "mass-mean readings: median and middle half per class",
+     "lens": {
+      "session": "session_2be574c4",
+      "name": "harm-axis",
+      "contrast": {
+       "label_a": "benign",
+       "label_b": "harmful"
+      }
+     },
+     "target": "session_2be574c4",
+     "position": 1,
+     "classes": [
+      {
+       "name": "harmful",
+       "n": 98
+      },
+      {
+       "name": "dual",
+       "n": 96
+      },
+      {
+       "name": "benign",
+       "n": 127
+      }
+     ]
+    }
+   },
+   "crops": {},
+   "trimmed": [],
+   "legend": null
+  },
+  "G": {
+   "files": [
+    "g_compare.png"
+   ],
+   "recipes": {
+    "g_compare.png": {
+     "app": "OpenLLMRI",
+     "link": "http://localhost:5173/build?session=session_6e485e10",
+     "exported_at": "2026-10-10T01:45:37.770Z",
+     "figure": "compare lenses: held-out scores per layer",
+     "session": "session_6e485e10",
+     "axis": "label",
+     "measure": "ami",
+     "lenses": [
+      {
+       "name": "animals-k8-n15",
+       "version": "v1",
+       "k_per_layer": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+       ],
+       "settings_origin": "form",
+       "selection_biased": false,
+       "folds": {
+        "kind": "scene families",
+        "field": "order",
+        "n_folds": 12,
+        "weaker": false,
+        "whole": true,
+        "families": {
+         "mammal": [
+          "Afrosoricida",
+          "Artiodactyla",
+          "Carnivora",
+          "Cetacea",
+          "Chiroptera",
+          "Cingulata",
+          "Dasyuromorphia",
+          "Dermoptera",
+          "Didelphimorphia",
+          "Diprotodontia",
+          "Eulipotyphla",
+          "Hyracoidea",
+          "Lagomorpha",
+          "Monotremata",
+          "Peramelemorphia",
+          "Perissodactyla",
+          "Pholidota",
+          "Pilosa",
+          "Primates",
+          "Proboscidea",
+          "Rodentia",
+          "Scandentia",
+          "Sirenia",
+          "Tubulidentata"
+         ],
+         "bird": [
+          "Accipitriformes",
+          "Anseriformes",
+          "Apodiformes",
+          "Bucerotiformes",
+          "Caprimulgiformes",
+          "Casuariiformes",
+          "Charadriiformes",
+          "Ciconiiformes",
+          "Coliiformes",
+          "Columbiformes",
+          "Coraciiformes",
+          "Cuculiformes",
+          "Falconiformes",
+          "Galliformes",
+          "Gaviiformes",
+          "Gruiformes",
+          "Musophagiformes",
+          "Nyctibiiformes",
+          "Opisthocomiformes",
+          "Otidiformes",
+          "Passeriformes",
+          "Pelecaniformes",
+          "Phoenicopteriformes",
+          "Piciformes",
+          "Podicipediformes",
+          "Procellariiformes",
+          "Psittaciformes",
+          "Rheiformes",
+          "Sphenisciformes",
+          "Strigiformes",
+          "Struthioniformes",
+          "Suliformes",
+          "Trogoniformes"
+         ],
+         "reptile": [
+          "Crocodylia",
+          "Sphenodontidae",
+          "Squamata",
+          "Testudines"
+         ],
+         "amphibian": [
+          "Anura",
+          "Caudata",
+          "Gymnophiona"
+         ],
+         "fish": [
+          "Acipenseriformes",
+          "Amiiformes",
+          "Anabantiformes",
+          "Anguilliformes",
+          "Blenniiformes",
+          "Carangiformes",
+          "Carcharhiniformes",
+          "Ceratodontiformes",
+          "Characiformes",
+          "Cichliformes",
+          "Clupeiformes",
+          "Coelacanthiformes",
+          "Cypriniformes",
+          "Cyprinodontiformes",
+          "Elopiformes",
+          "Gadiformes",
+          "Gobiiformes",
+          "Labridae",
+          "Lamniformes",
+          "Lampriformes",
+          "Lepisosteiformes",
+          "Lophiiformes",
+          "Lutjanidae",
+          "Myliobatiformes",
+          "Myxini",
+          "Osmeriformes",
+          "Osteoglossiformes",
+          "Perciformes",
+          "Petromyzontiformes",
+          "Pleuronectiformes",
+          "Pomacentridae",
+          "Rhinopristiformes",
+          "Salmoniformes",
+          "Scombriformes",
+          "Selachii",
+          "Siluriformes",
+          "Sphyraenidae",
+          "Squaliformes",
+          "Syngnathiformes",
+          "Tetraodontiformes",
+          "Toxotidae"
+         ],
+         "insect": [
+          "Blattodea",
+          "Coleoptera",
+          "Dermaptera",
+          "Diptera",
+          "Ephemeroptera",
+          "Hemiptera",
+          "Hymenoptera",
+          "Lepidoptera",
+          "Mantodea",
+          "Mecoptera",
+          "Megaloptera",
+          "Neuroptera",
+          "Odonata",
+          "Orthoptera",
+          "Plecoptera",
+          "Psocodea",
+          "Siphonaptera",
+          "Thysanoptera",
+          "Trichoptera",
+          "Zygentoma"
+         ],
+         "arachnid": [
+          "Acariformes",
+          "Araneae",
+          "Opiliones",
+          "Pseudoscorpiones",
+          "Scorpiones",
+          "Solifugae",
+          "Trombidiformes",
+          "Uropygi"
+         ],
+         "other_invertebrate": [
+          "Adapedonta",
+          "Anthozoa",
+          "Arenicolidae",
+          "Arhynchobdellida",
+          "Asteroidea",
+          "Bivalvia",
+          "Cardiida",
+          "Cestoda",
+          "Chilopoda",
+          "Cirripedia",
+          "Collembola",
+          "Copepoda",
+          "Crassiclitellata",
+          "Decapoda",
+          "Diplopoda",
+          "Diplostraca",
+          "Euphausiacea",
+          "Gastropoda",
+          "Isopoda",
+          "Lepetellida",
+          "Littorinimorpha",
+          "Myopsida",
+          "Mytilida",
+          "Nautilida",
+          "Neogastropoda",
+          "Nudibranchia",
+          "Octopodidae",
+          "Ophiuroidea",
+          "Ostreida",
+          "Patellogastropoda",
+          "Pectinida",
+          "Phyllodocida",
+          "Polyplacophora",
+          "Rhabditida",
+          "Scyphozoa",
+          "Sepiida",
+          "Teredinidae",
+          "Tricladida"
+         ]
+        },
+        "merged_from": 41
+       },
+       "validated_at": "2026-10-10T01:10:38Z"
+      },
+      {
+       "name": "animals-k8-n15-tuned",
+       "version": "v1",
+       "k_per_layer": [
+        9,
+        6,
+        10,
+        7,
+        10,
+        8,
+        9,
+        6,
+        6,
+        8,
+        8,
+        7,
+        8,
+        10,
+        10,
+        8,
+        9,
+        8,
+        10,
+        10,
+        9,
+        10,
+        10,
+        8
+       ],
+       "settings_origin": "tuned",
+       "selection_biased": true,
+       "folds": {
+        "kind": "scene families",
+        "field": "order",
+        "n_folds": 12,
+        "weaker": false,
+        "whole": true,
+        "families": {
+         "mammal": [
+          "Afrosoricida",
+          "Artiodactyla",
+          "Carnivora",
+          "Cetacea",
+          "Chiroptera",
+          "Cingulata",
+          "Dasyuromorphia",
+          "Dermoptera",
+          "Didelphimorphia",
+          "Diprotodontia",
+          "Eulipotyphla",
+          "Hyracoidea",
+          "Lagomorpha",
+          "Monotremata",
+          "Peramelemorphia",
+          "Perissodactyla",
+          "Pholidota",
+          "Pilosa",
+          "Primates",
+          "Proboscidea",
+          "Rodentia",
+          "Scandentia",
+          "Sirenia",
+          "Tubulidentata"
+         ],
+         "bird": [
+          "Accipitriformes",
+          "Anseriformes",
+          "Apodiformes",
+          "Bucerotiformes",
+          "Caprimulgiformes",
+          "Casuariiformes",
+          "Charadriiformes",
+          "Ciconiiformes",
+          "Coliiformes",
+          "Columbiformes",
+          "Coraciiformes",
+          "Cuculiformes",
+          "Falconiformes",
+          "Galliformes",
+          "Gaviiformes",
+          "Gruiformes",
+          "Musophagiformes",
+          "Nyctibiiformes",
+          "Opisthocomiformes",
+          "Otidiformes",
+          "Passeriformes",
+          "Pelecaniformes",
+          "Phoenicopteriformes",
+          "Piciformes",
+          "Podicipediformes",
+          "Procellariiformes",
+          "Psittaciformes",
+          "Rheiformes",
+          "Sphenisciformes",
+          "Strigiformes",
+          "Struthioniformes",
+          "Suliformes",
+          "Trogoniformes"
+         ],
+         "reptile": [
+          "Crocodylia",
+          "Sphenodontidae",
+          "Squamata",
+          "Testudines"
+         ],
+         "amphibian": [
+          "Anura",
+          "Caudata",
+          "Gymnophiona"
+         ],
+         "fish": [
+          "Acipenseriformes",
+          "Amiiformes",
+          "Anabantiformes",
+          "Anguilliformes",
+          "Blenniiformes",
+          "Carangiformes",
+          "Carcharhiniformes",
+          "Ceratodontiformes",
+          "Characiformes",
+          "Cichliformes",
+          "Clupeiformes",
+          "Coelacanthiformes",
+          "Cypriniformes",
+          "Cyprinodontiformes",
+          "Elopiformes",
+          "Gadiformes",
+          "Gobiiformes",
+          "Labridae",
+          "Lamniformes",
+          "Lampriformes",
+          "Lepisosteiformes",
+          "Lophiiformes",
+          "Lutjanidae",
+          "Myliobatiformes",
+          "Myxini",
+          "Osmeriformes",
+          "Osteoglossiformes",
+          "Perciformes",
+          "Petromyzontiformes",
+          "Pleuronectiformes",
+          "Pomacentridae",
+          "Rhinopristiformes",
+          "Salmoniformes",
+          "Scombriformes",
+          "Selachii",
+          "Siluriformes",
+          "Sphyraenidae",
+          "Squaliformes",
+          "Syngnathiformes",
+          "Tetraodontiformes",
+          "Toxotidae"
+         ],
+         "insect": [
+          "Blattodea",
+          "Coleoptera",
+          "Dermaptera",
+          "Diptera",
+          "Ephemeroptera",
+          "Hemiptera",
+          "Hymenoptera",
+          "Lepidoptera",
+          "Mantodea",
+          "Mecoptera",
+          "Megaloptera",
+          "Neuroptera",
+          "Odonata",
+          "Orthoptera",
+          "Plecoptera",
+          "Psocodea",
+          "Siphonaptera",
+          "Thysanoptera",
+          "Trichoptera",
+          "Zygentoma"
+         ],
+         "arachnid": [
+          "Acariformes",
+          "Araneae",
+          "Opiliones",
+          "Pseudoscorpiones",
+          "Scorpiones",
+          "Solifugae",
+          "Trombidiformes",
+          "Uropygi"
+         ],
+         "other_invertebrate": [
+          "Adapedonta",
+          "Anthozoa",
+          "Arenicolidae",
+          "Arhynchobdellida",
+          "Asteroidea",
+          "Bivalvia",
+          "Cardiida",
+          "Cestoda",
+          "Chilopoda",
+          "Cirripedia",
+          "Collembola",
+          "Copepoda",
+          "Crassiclitellata",
+          "Decapoda",
+          "Diplopoda",
+          "Diplostraca",
+          "Euphausiacea",
+          "Gastropoda",
+          "Isopoda",
+          "Lepetellida",
+          "Littorinimorpha",
+          "Myopsida",
+          "Mytilida",
+          "Nautilida",
+          "Neogastropoda",
+          "Nudibranchia",
+          "Octopodidae",
+          "Ophiuroidea",
+          "Ostreida",
+          "Patellogastropoda",
+          "Pectinida",
+          "Phyllodocida",
+          "Polyplacophora",
+          "Rhabditida",
+          "Scyphozoa",
+          "Sepiida",
+          "Teredinidae",
+          "Tricladida"
+         ]
+        },
+        "merged_from": 41
+       },
+       "validated_at": "2026-10-10T01:18:52Z"
+      }
+     ],
+     "gaps": [],
+     "warnings": []
+    }
+   },
+   "crops": {},
+   "trimmed": [],
+   "legend": null
+  }
+ }
+}

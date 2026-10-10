@@ -14871,7 +14871,57 @@
     },
     "layer_routing_effect": 0.3249
    },
-   "report": null
+   "report": {
+    "title": "Single-token animal names sharing one expert",
+    "pattern": "clear",
+    "summary": "L10C0 holds 61 items [F1]. Every one has a target word that is a single token: the share is 100% [F55], against 18% of all items [F56]. Mammals (49% [F13] vs 32% [F14]) and domestic animals (21% [F59] vs 6% [F60]) are also over-represented, and almost all items share expert L10E19 at rank 1 (59 items [F67]).",
+    "facts": {
+     "F1": {
+      "id": "F1",
+      "what": "items in L10C0",
+      "value": 61
+     },
+     "F55": {
+      "id": "F55",
+      "what": "share of L10C0 with tokens = one",
+      "value": 1
+     },
+     "F56": {
+      "id": "F56",
+      "what": "share of all items with tokens = one",
+      "value": 0.179
+     },
+     "F13": {
+      "id": "F13",
+      "what": "share of L10C0 with label = mammal",
+      "value": 0.492
+     },
+     "F14": {
+      "id": "F14",
+      "what": "share of all items with label = mammal",
+      "value": 0.315
+     },
+     "F59": {
+      "id": "F59",
+      "what": "share of L10C0 with wild_or_domestic = domestic",
+      "value": 0.213
+     },
+     "F60": {
+      "id": "F60",
+      "what": "share of all items with wild_or_domestic = domestic",
+      "value": 0.059
+     },
+     "F67": {
+      "id": "F67",
+      "what": "items of L10C0 routed to L10E19 at rank 1",
+      "value": 59
+     }
+    },
+    "numbers_checked": true,
+    "tested_analyst": true,
+    "written_by": "claude -p",
+    "written_at": "2026-10-10T01:40:38Z"
+   }
   },
   {
    "id": "L10C1",
@@ -15052,7 +15102,42 @@
     },
     "layer_routing_effect": 0.3249
    },
-   "report": null
+   "report": {
+    "title": "Single-token animal names, mixed across classes",
+    "pattern": "clear",
+    "summary": "L10C1 holds 43 items [F1]. What sets it apart is token count: 77% of its items are one token [F55], against 18% of all items [F56]. Its animal-class, diet, habitat, movement and wild/domestic shares stay close to the lens-wide shares, so the grouping follows the form of the word rather than its meaning. Most items come from L9C4, at 33 items [F63], and 41 items go on to L11C0 [F66].",
+    "facts": {
+     "F1": {
+      "id": "F1",
+      "what": "items in L10C1",
+      "value": 43
+     },
+     "F55": {
+      "id": "F55",
+      "what": "share of L10C1 with tokens = one",
+      "value": 0.767
+     },
+     "F56": {
+      "id": "F56",
+      "what": "share of all items with tokens = one",
+      "value": 0.179
+     },
+     "F63": {
+      "id": "F63",
+      "what": "items of L10C1 that were in L9C4 the layer before",
+      "value": 33
+     },
+     "F66": {
+      "id": "F66",
+      "what": "items of L10C1 that go on to L11C0",
+      "value": 41
+     }
+    },
+    "numbers_checked": true,
+    "tested_analyst": true,
+    "written_by": "claude -p",
+    "written_at": "2026-10-10T01:41:03Z"
+   }
   },
   {
    "id": "L10C2",
@@ -15222,7 +15307,52 @@
     },
     "layer_routing_effect": 0.3249
    },
-   "report": null
+   "report": {
+    "title": "Walking land mammals with multi-token names",
+    "pattern": "clear",
+    "summary": "L10C2 holds 99 items [F1], and every one is a mammal (100% [F13]), against 31.5% of all items [F14]. These mammals mostly walk (88% [F41] vs 42% [F42]) and live on land (88% [F27] vs 63% [F28]), with herbivores and the orders Artiodactyla, Carnivora, Primates and Rodentia overrepresented. The node is fed mainly by L9C2 and passes most of its items on to L11C1, and its routing is led by L10E19.",
+    "facts": {
+     "F1": {
+      "id": "F1",
+      "what": "items in L10C2",
+      "value": 99
+     },
+     "F13": {
+      "id": "F13",
+      "what": "share of L10C2 with label = mammal",
+      "value": 1
+     },
+     "F14": {
+      "id": "F14",
+      "what": "share of all items with label = mammal",
+      "value": 0.315
+     },
+     "F41": {
+      "id": "F41",
+      "what": "share of L10C2 with movement = walks",
+      "value": 0.879
+     },
+     "F42": {
+      "id": "F42",
+      "what": "share of all items with movement = walks",
+      "value": 0.422
+     },
+     "F27": {
+      "id": "F27",
+      "what": "share of L10C2 with habitat = land",
+      "value": 0.879
+     },
+     "F28": {
+      "id": "F28",
+      "what": "share of all items with habitat = land",
+      "value": 0.632
+     }
+    },
+    "numbers_checked": true,
+    "tested_analyst": true,
+    "written_by": "claude -p",
+    "written_at": "2026-10-10T01:41:24Z"
+   }
   },
   {
    "id": "L10C3",
@@ -15426,7 +15556,67 @@
     },
     "layer_routing_effect": 0.3249
    },
-   "report": null
+   "report": {
+    "title": "Multi-token animal names, leaning toward carnivores",
+    "pattern": "weak",
+    "summary": "L10C3 holds 70 of the lens's 524 items [F1, F2]. Its animal classes sit close to their overall shares, but every item is a multi-token word (100% vs 82% of all items [F57, F58]), and carnivores are over-represented (63% vs 48% [F19, F20]). Routing is highly concentrated: 67 items have L10E19 as their rank-1 expert [F71]. Most items arrive from L9C3 (59 [F63]) and split between L11C2 (42 [F67]) and L11C0 (23 [F68]).",
+    "facts": {
+     "F1": {
+      "id": "F1",
+      "what": "items in L10C3",
+      "value": 70
+     },
+     "F2": {
+      "id": "F2",
+      "what": "items in the lens",
+      "value": 524
+     },
+     "F57": {
+      "id": "F57",
+      "what": "share of L10C3 with tokens = several",
+      "value": 1
+     },
+     "F58": {
+      "id": "F58",
+      "what": "share of all items with tokens = several",
+      "value": 0.821
+     },
+     "F19": {
+      "id": "F19",
+      "what": "share of L10C3 with diet = carnivore",
+      "value": 0.629
+     },
+     "F20": {
+      "id": "F20",
+      "what": "share of all items with diet = carnivore",
+      "value": 0.481
+     },
+     "F71": {
+      "id": "F71",
+      "what": "items of L10C3 routed to L10E19 at rank 1",
+      "value": 67
+     },
+     "F63": {
+      "id": "F63",
+      "what": "items of L10C3 that were in L9C3 the layer before",
+      "value": 59
+     },
+     "F67": {
+      "id": "F67",
+      "what": "items of L10C3 that go on to L11C2",
+      "value": 42
+     },
+     "F68": {
+      "id": "F68",
+      "what": "items of L10C3 that go on to L11C0",
+      "value": 23
+     }
+    },
+    "numbers_checked": true,
+    "tested_analyst": true,
+    "written_by": "claude -p",
+    "written_at": "2026-10-10T01:41:48Z"
+   }
   },
   {
    "id": "L10C4",
@@ -15586,7 +15776,67 @@
     },
     "layer_routing_effect": 0.3249
    },
-   "report": null
+   "report": {
+    "title": "Reptiles and amphibians, mostly carnivores",
+    "pattern": "clear",
+    "summary": "L10C4 holds 33 items [F1]. Most are reptiles: 58% of the node [F17], against 6% of all items [F18]. Amphibians make up 21% [F3], against 3% of all items [F4]. The node has no birds [F7], fish [F9] or other invertebrates [F15]. Nearly all its items are carnivores, at 91% [F19] against 48% of all items [F20], and the logit lens favours the tokens \" venom\" and \" lethal\".",
+    "facts": {
+     "F1": {
+      "id": "F1",
+      "what": "items in L10C4",
+      "value": 33
+     },
+     "F17": {
+      "id": "F17",
+      "what": "share of L10C4 with label = reptile",
+      "value": 0.576
+     },
+     "F18": {
+      "id": "F18",
+      "what": "share of all items with label = reptile",
+      "value": 0.061
+     },
+     "F3": {
+      "id": "F3",
+      "what": "share of L10C4 with label = amphibian",
+      "value": 0.212
+     },
+     "F4": {
+      "id": "F4",
+      "what": "share of all items with label = amphibian",
+      "value": 0.029
+     },
+     "F7": {
+      "id": "F7",
+      "what": "share of L10C4 with label = bird",
+      "value": 0
+     },
+     "F9": {
+      "id": "F9",
+      "what": "share of L10C4 with label = fish",
+      "value": 0
+     },
+     "F15": {
+      "id": "F15",
+      "what": "share of L10C4 with label = other_invertebrate",
+      "value": 0
+     },
+     "F19": {
+      "id": "F19",
+      "what": "share of L10C4 with diet = carnivore",
+      "value": 0.909
+     },
+     "F20": {
+      "id": "F20",
+      "what": "share of all items with diet = carnivore",
+      "value": 0.481
+     }
+    },
+    "numbers_checked": true,
+    "tested_analyst": true,
+    "written_by": "claude -p",
+    "written_at": "2026-10-10T01:42:10Z"
+   }
   },
   {
    "id": "L10C5",
@@ -15805,7 +16055,62 @@
     },
     "layer_routing_effect": 0.3249
    },
-   "report": null
+   "report": {
+    "title": "Water-dwelling animals, mostly fish",
+    "pattern": "clear",
+    "summary": "L10C5 holds 85 items [F1]. They are water animals: fish make up 67% of the node against 15% of all items [F9][F10], and other invertebrates such as \"geoduck\" and \"cockle\" make up 26% against 9% [F15][F16]. What sets the node apart from the rest of L10 is water: 79% of its items swim, against 23% of all items [F39][F40], and only 2% live on land, against 63% [F27][F28]. The node is a stable chain that comes almost whole from L9C6 and goes on to L11C6.",
+    "facts": {
+     "F1": {
+      "id": "F1",
+      "what": "items in L10C5",
+      "value": 85
+     },
+     "F9": {
+      "id": "F9",
+      "what": "share of L10C5 with label = fish",
+      "value": 0.671
+     },
+     "F10": {
+      "id": "F10",
+      "what": "share of all items with label = fish",
+      "value": 0.151
+     },
+     "F15": {
+      "id": "F15",
+      "what": "share of L10C5 with label = other_invertebrate",
+      "value": 0.259
+     },
+     "F16": {
+      "id": "F16",
+      "what": "share of all items with label = other_invertebrate",
+      "value": 0.092
+     },
+     "F39": {
+      "id": "F39",
+      "what": "share of L10C5 with movement = swims",
+      "value": 0.788
+     },
+     "F40": {
+      "id": "F40",
+      "what": "share of all items with movement = swims",
+      "value": 0.229
+     },
+     "F27": {
+      "id": "F27",
+      "what": "share of L10C5 with habitat = land",
+      "value": 0.024
+     },
+     "F28": {
+      "id": "F28",
+      "what": "share of all items with habitat = land",
+      "value": 0.632
+     }
+    },
+    "numbers_checked": true,
+    "tested_analyst": true,
+    "written_by": "claude -p",
+    "written_at": "2026-10-10T01:42:34Z"
+   }
   },
   {
    "id": "L10C6",
@@ -15975,7 +16280,52 @@
     },
     "layer_routing_effect": 0.3249
    },
-   "report": null
+   "report": {
+    "title": "A bird-only group, mostly of flying species",
+    "pattern": "clear",
+    "summary": "L10C6 holds 85 items [F1], and every one is labelled bird (share 1 [F7]), compared with 23% of all items [F8]. Flying is also much more common here: 87% of its items fly [F35], against 27% across the lens [F36]. The tokens its centre favours name the theme (\" wings\", \"Bird\", \" birds\", \"\u7fbd\"). The group stays together across layers: 84 items arrive from L9C5 [F63] and 82 go on to L11C3 [F65].",
+    "facts": {
+     "F1": {
+      "id": "F1",
+      "what": "items in L10C6",
+      "value": 85
+     },
+     "F7": {
+      "id": "F7",
+      "what": "share of L10C6 with label = bird",
+      "value": 1
+     },
+     "F8": {
+      "id": "F8",
+      "what": "share of all items with label = bird",
+      "value": 0.233
+     },
+     "F35": {
+      "id": "F35",
+      "what": "share of L10C6 with movement = flies",
+      "value": 0.871
+     },
+     "F36": {
+      "id": "F36",
+      "what": "share of all items with movement = flies",
+      "value": 0.265
+     },
+     "F63": {
+      "id": "F63",
+      "what": "items of L10C6 that were in L9C5 the layer before",
+      "value": 84
+     },
+     "F65": {
+      "id": "F65",
+      "what": "items of L10C6 that go on to L11C3",
+      "value": 82
+     }
+    },
+    "numbers_checked": true,
+    "tested_analyst": true,
+    "written_by": "claude -p",
+    "written_at": "2026-10-10T01:42:54Z"
+   }
   },
   {
    "id": "L10C7",
@@ -16148,7 +16498,72 @@
     },
     "layer_routing_effect": 0.3249
    },
-   "report": null
+   "report": {
+    "title": "Insects and other invertebrates",
+    "pattern": "clear",
+    "summary": "L10C7 holds 48 items [F1]. About 69% are insects [F11], against 10% of all items [F12], and the rest are mostly other invertebrates at 23% [F15] plus arachnids at 6% [F5]. It has no birds [F7], fish [F9], mammals [F13] or amphibians [F3]. The group is stable across layers: all 48 items came from L9C7 [F63], and 46 go on to L11C5 [F64].",
+    "facts": {
+     "F1": {
+      "id": "F1",
+      "what": "items in L10C7",
+      "value": 48
+     },
+     "F11": {
+      "id": "F11",
+      "what": "share of L10C7 with label = insect",
+      "value": 0.688
+     },
+     "F12": {
+      "id": "F12",
+      "what": "share of all items with label = insect",
+      "value": 0.101
+     },
+     "F15": {
+      "id": "F15",
+      "what": "share of L10C7 with label = other_invertebrate",
+      "value": 0.229
+     },
+     "F5": {
+      "id": "F5",
+      "what": "share of L10C7 with label = arachnid",
+      "value": 0.062
+     },
+     "F7": {
+      "id": "F7",
+      "what": "share of L10C7 with label = bird",
+      "value": 0
+     },
+     "F9": {
+      "id": "F9",
+      "what": "share of L10C7 with label = fish",
+      "value": 0
+     },
+     "F13": {
+      "id": "F13",
+      "what": "share of L10C7 with label = mammal",
+      "value": 0
+     },
+     "F3": {
+      "id": "F3",
+      "what": "share of L10C7 with label = amphibian",
+      "value": 0
+     },
+     "F63": {
+      "id": "F63",
+      "what": "items of L10C7 that were in L9C7 the layer before",
+      "value": 48
+     },
+     "F64": {
+      "id": "F64",
+      "what": "items of L10C7 that go on to L11C5",
+      "value": 46
+     }
+    },
+    "numbers_checked": true,
+    "tested_analyst": true,
+    "written_by": "claude -p",
+    "written_at": "2026-10-10T01:43:16Z"
+   }
   },
   {
    "id": "L11C0",

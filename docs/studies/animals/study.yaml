@@ -46,9 +46,10 @@ ledger:
       trait against look-alikes from other groups, against shuffled positions.
     finding: >
       Every kind leans to kin beyond chance at many layers (swimming mammals at 18 lens layers and
-      20 raw), and none leans to its look-alikes beyond chance except the legless animals at raw
-      L3. The whales are the exception animal by animal (the humpback leans to fish at 12 lens
-      layers), and the eel sits with the snakes in raw space at L10 to L18.
+      20 raw), and none leans to its look-alikes beyond chance at any layer. Counted within each
+      token count, the swimming mammals lean to kin at the same layers. The whales are the
+      exception animal by animal (the humpback leans to fish at 12 lens layers), and the eel sits
+      with the snakes in raw space at L10 to L18.
     status: proposed
     evidence: [docs/research/animals.md]
   - idea: A name read at its last token groups by that piece in early layers.

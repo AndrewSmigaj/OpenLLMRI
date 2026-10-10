@@ -114,12 +114,13 @@ Documented in `docs/research/help_probe_findings.md` as a candidate. Rejected be
 
 Each item is one word alone as the user's message, a space first (`" eagle"`), so a common word is one token: the word with no context, the same token it has in sentences. Use when the question is what the model carries for a word itself (category, the levels above it, feeling), or to fit a lens that later reads sentence captures. Rules (GUIDE.md "Single-word sets"):
 - a word that splits (" jag" + "uar") is read at its last token, and each record keeps `target_token_count`; record it in the set as a `tokens` category and balance split words across classes as far as the words allow;
-- audit every word before the capture: the capture's target on the user's word;
+- audit every word before the capture with `docs/studies/lexical_audit.py` (shape, duplicates, tokens, each word through the real capture step, the prompt's own words, counts), and add the set's own checks in its study's `analysis/audit_set.py`;
 - keep words out that the prompt itself contains, and words whose main sense isn't their category;
 - declare the held-out families in the set's metadata, `"holdout": {"family_field": "family", "whole_families": true}`; lenses on the capture use it;
-- check feeling, length and suffixes by category; after the capture, check the route's counts and the words it dropped (the session file's `failures`).
+- check feeling, length and suffixes by category; after the capture, check the route's counts and the words it dropped (the session file's `failures`);
+- expect the token count to show in every lens: read at their last token, split words and one-token words sit apart at every layer (`docs/research/animals.md`), so analyse kinds within each token count too.
 
-Worked example: `data/sentence_sets/lexical/nouns_meaning_feeling_v1.md`.
+Worked examples: `data/sentence_sets/lexical/nouns_meaning_feeling_v1.md` (one-token words), `animals_kinship_v1.md` (a taxonomy beside the categories, checked against the Catalogue of Life) and `objects_harm_v1.md` (classes balanced in token count and length).
 
 ## Step 5: Design Input Axes
 

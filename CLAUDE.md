@@ -98,7 +98,7 @@ After setup, use `/server` to start the backend and frontend.
 ### 4. MoE-Specific Requirements
 - Target model: **gpt-oss-20b only** — don't abstract for multiple models yet
 - Routing: the model sends each token to its **top 4** experts, with its own gate weights (a softmax over those four); the expert view follows one rank at a time, **rank 1** by default (ranks 1–4 selectable)
-- Dimensionality reduction: **UMAP** for clustering, applied to residual stream activations: 6-D by default, or tuned per layer (3- to 12-D, chosen by held-out AMI)
+- Dimensionality reduction: **UMAP** for clustering, applied to residual stream activations: 6-D by default, or tuned per layer (3- to 12-D, chosen by held-out AMI), or set by hand per layer (minimum distance and distance metric too), with a one-layer preview before a build
 - Time: one saved lens is read at a fixed site along context steps, agent ticks or reasoning steps (DESIGN.md Part D)
 
 ### 5. Error Handling Philosophy

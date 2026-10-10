@@ -4,13 +4,15 @@
 // later tune would hold out, so the tune's test score stays honest. "Use for this layer" copies the
 // settings, and k, into the form's per-layer table.
 import { useMemo, useState } from 'react'
-import type * as echarts from 'echarts'
+import * as echarts from 'echarts'
 import 'echarts-gl'
 import { apiClient } from '../../api/client'
 import type { LayerPreview as Preview, Metric, PreviewBody, UmapSettings } from '../../types/lens'
 import { paletteColor } from '../../color/scheme'
 import { useEChart } from '../../hooks/useEChart'
 import { useJobRunner } from '../../hooks/useJobRunner'
+import { chartPng, dataJson, download, rowsCsv, type ExportFormat } from '../../utils/exportFigure'
+import ExportMenu from '../common/ExportMenu'
 import JobProgress from './JobProgress'
 
 type Values = UmapSettings & { k: number }
@@ -79,6 +81,23 @@ export default function LayerPreview({ layers, metrics, initial, base, disabled,
   }, [result, colourBy])
   const box = useEChart(option)
 
+  // The 3-D view draws with WebGL, so it exports PNG, CSV and JSON (no SVG), as the trajectory view does
+  const exportPreview = (format: ExportFormat) => {
+    if (!result) return
+    const made = { app: 'OpenLLMRI', figure: `one-layer preview, L${result.layer}`, link: window.location.href,
+      exported_at: new Date().toISOString(), capture: base.session_id, site: { source: base.source, token_position: base.token_position },
+      filters: base.filters, seed: base.seed, layer: result.layer, settings: result.settings, k: result.k, colour_by: colourBy,
+      held_out: !!result.heldout, share: result.share, test: { n_items: result.test.n_items, weaker: result.test.weaker },
+      holdout: result.holdout, seconds: result.seconds }
+    const rows = result.items.map((item, j) => ({ item: item.probe_id, text: item.input_text, label: item.label,
+      node: result.nodes[j], x: result.points[j][0], y: result.points[j][1], z: result.points[j][2], ...item.categories }))
+    const name = `${base.session_id}_preview_L${result.layer}_${colourBy}`
+    const chart = box.current ? echarts.getInstanceByDom(box.current) : undefined
+    if (format === 'png' && chart) download(`${name}.png`, chartPng(chart, made))
+    if (format === 'csv') download(`${name}.csv`, rowsCsv(rows, made))
+    if (format === 'json') download(`${name}.json`, dataJson({ rows, in_sample: result.in_sample, heldout: result.heldout }, made))
+  }
+
   const at = result ? String(result.k) : ''
   const held = result?.heldout?.[at]
   const axes = result ? Object.keys(result.axes) : []
@@ -136,6 +155,7 @@ export default function LayerPreview({ layers, metrics, initial, base, disabled,
               disabled={disabled} title="Copy these settings and k into the form's per-layer table, marked as from a preview"
               className="px-2 py-0.5 text-xs rounded border border-gray-400 text-gray-800 hover:bg-white disabled:text-gray-300">
               Use for L{result.layer}</button>
+            <div className="ml-auto"><ExportMenu formats={['png', 'csv', 'json']} onExport={exportPreview} /></div>
           </div>
           <div ref={box} style={{ height: 320 }} className="bg-white border border-gray-200 rounded" />
           <table className="text-[11px] text-gray-700">

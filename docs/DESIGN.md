@@ -235,7 +235,7 @@ This part covers building; Parts D and E cover using.
     2026-10-08; Built]. It is then one token for nearly every common word, the same token the word has
     inside a sentence. Typed with no space, many common words split into pieces.
   - **A word that splits into several tokens is read at its last token,** which has taken in the
-    whole word [Decided, 2026-10-09]:
+    whole word [Decided, 2026-10-09; Built]:
     - whether it split is recorded and balanced across classes;
     - the analysis checks whether early layers group split words by their last piece (goldfish,
       catfish and starfish all end in "fish");
@@ -244,21 +244,23 @@ This part covers building; Parts D and E cover using.
       of 36 benign ones. A set of one-token words would leave most animals out and tie harm to
       word length.
     - The capture tries the word's one-token forms first and reads a split form only when they
-      aren't in the sentence, so captures of words that don't split keep their tokens [Proposed, 2026-10-09: to be built in slice 1c].
+      aren't in the sentence, so captures of words that don't split keep their tokens [Proposed, 2026-10-09; Built in slice 1c].
   - **The first single-word set varies meaning and feeling** [Decided, 2026-10-08; singular nouns
     and subcategories as held-out families approved with the slice 1b plan; Built:
     `nouns_meaning_feeling_v1`, 861 nouns]: a semantic category
     with subcategories, animacy and concreteness, and valence. Grammar and surface form aren't
     varied, so it holds singular nouns. Its subcategories are its held-out families.
-  - **Two more single-word sets** [Decided, 2026-10-09]:
+  - **Two more single-word sets** [Decided, 2026-10-09; Built: `animals_kinship_v1`, 524 animals,
+    and `objects_harm_v1`, 321 objects]:
     - **animals,** each with its taxonomy (class, order, family and genus) and its way of life
       (habitat, how it moves, diet, wild or domestic). They include animals whose kinship and way
       of life disagree, such as whales, bats and penguins, so the lens shows whether the model
       groups animals by kinship or by how they live.
-      - **Details** [Proposed, 2026-10-09: to be built in slice 1c]:
-        - about 500 one-word names, each entered with the narrowest taxon that holds everything
-          it names, as the Catalogue of Life has it (a bat is the order Chiroptera, so it has no
-          family or genus). A name whose kinds span several classes is left out;
+      - **Details** [Proposed, 2026-10-09; Built in slice 1c]:
+        - 524 one-word names, each entered with the narrowest taxon that holds what it commonly
+          names, or the one species it most commonly means (salmon, *Salmo salar*), as the
+          Catalogue of Life has it (a bat is the order Chiroptera, so it has no family or genus).
+          A name whose kinds span several classes is left out;
         - the label is a familiar group of eight (mammal, bird, reptile, amphibian, fish,
           insect, arachnid, other invertebrate), and whole taxonomic orders are the held-out
           families;
@@ -267,9 +269,10 @@ This part covers building; Parts D and E cover using.
         - habitat is land, fresh water, sea, or land and water. Air is left to how it moves:
           every flier lives on land or water.
     - **objects:** harmful, dual-purpose or benign, each with how it harms (cutting, blunt, fire,
-      explosive, chemical, projectile, restraint or none) and its domain (kitchen, workshop,
-      garden, medical, military, sport and more). Whole domains are held out, and a
-      harmful-against-benign axis shows where the dual-purpose objects sit between the two.
+      explosive, chemical, projectile, restraint or none; the set adds piercing [Proposed, 2026-10-09; Built in slice 1c])
+      and its domain (kitchen, workshop, garden, medical, military, sport and more). Whole domains
+      are held out, and a harmful-against-benign axis shows where the dual-purpose objects sit
+      between the two.
 - **Writing them:**
   - in the app, Claude agents generate sentence sets to instructions [Decided, 2026-10-04 and
     2026-10-07];
@@ -342,15 +345,15 @@ This part covers building; Parts D and E cover using.
   - the tuned lens is built from the winners. Its own validation is partly selection-biased,
     because its items chose its settings, and says so; the test score is the honest one.
 - **Tuning by hand** [Decided, 2026-10-09: being able to adjust UMAP's settings himself matters to
-  Andrew, to get better clusters]: more settings in the form, a one-layer preview, and a chart
+  Andrew, to get better clusters; Built]: more settings in the form, a one-layer preview, and a chart
   comparing lenses (E3).
-  - **Keeping it honest** [Proposed, 2026-10-09: to be built in slice 1c]:
+  - **Keeping it honest** [Proposed, 2026-10-09; Built in slice 1c]:
     - settings chosen by hand are recorded as such: only a search's settings count as tuned;
     - a lens whose settings were chosen on held-out scores says its validation is
       selection-biased;
     - previews never score the test portion, so a search started from that lens still gives its
       own settings an honest test score.
-- **A lens remembers how it is held out** [Proposed, 2026-10-09: to be built in slice 1c]:
+- **A lens remembers how it is held out** [Proposed, 2026-10-09; Built in slice 1c]:
   - a sentence set declares its held-out families, and its capture keeps the declaration;
   - each lens records its own hold-out design: the families field, whole names, a fold cap and
     the test split. Later jobs on the lens use it;
@@ -589,28 +592,28 @@ MUD or through Claude Code (F3). It follows a run in progress one saved tick at 
 - **The lens builder** [Decided, 2026-10-07; Built, with UMAP and Ward as its one reduction and grouping]:
   1. Pick a capture.
   2. **Basic:** UMAP n_neighbors and dimensions, k, a name, Build. Minimum distance and the
-     distance metric sit beside neighbours and dimensions [Decided, 2026-10-09].
+     distance metric sit beside neighbours and dimensions [Decided, 2026-10-09; Built].
   3. **Advanced:**
-     - settings per layer [Decided, 2026-10-09];
+     - settings per layer [Decided, 2026-10-09; Built];
      - k per layer, with the automatic suggestion and its method;
      - the reduction and grouping methods (C2);
-     - the hold-out design (C4) [Proposed, 2026-10-09: to be built in slice 1c];
+     - the hold-out design (C4) [Proposed, 2026-10-09; Built in slice 1c];
      - filters.
   4. The build runs in the background, and the new lens opens when it is ready.
   5. Read the k profile and the held-out scores (C3, C4), then save the lens with its site and
      keywords.
   - **"Rebuild with…"** on each lens card opens the form prefilled with its settings and builds a
-    new lens in about a minute [Decided, 2026-10-09].
-  - **A one-layer preview** [Decided, 2026-10-09]: pick a layer, change its settings, and see that
+    new lens in about a minute [Decided, 2026-10-09; Built].
+  - **A one-layer preview** [Decided, 2026-10-09; Built]: pick a layer, change its settings, and see that
     layer's clusters in seconds, before building all 24 layers: its 3-D view coloured by any axis,
     the cut at k, and how well the clusters match each axis.
     - Held out on request; its settings copied into that layer's row; run as a background job,
-      so it matches a build exactly [Proposed, 2026-10-09: to be built in slice 1c].
-  - **Compare lenses** [Decided, 2026-10-09]: held-out scores per layer for several lenses of one
+      so it matches a build exactly [Proposed, 2026-10-09; Built in slice 1c].
+  - **Compare lenses** [Decided, 2026-10-09; Built]: held-out scores per layer for several lenses of one
     capture on one chart, so the better settings show at a glance.
-    - A tuned lens's test score shows beside them [Proposed, 2026-10-09: to be built in slice 1c].
+    - A tuned lens's test score shows beside them [Proposed, 2026-10-09; Built in slice 1c].
   - **A mass-mean lens's readings by class,** per layer, so the dual-purpose objects' place on
-    the harm axis shows (C1) [Proposed, 2026-10-09: to be built in slice 1c].
+    the harm axis shows (C1) [Proposed, 2026-10-09; Built in slice 1c].
 - **The kit editor** [Decided, 2026-10-07]: for a scenario set, choose the lenses and their keywords.
 
 **E4. Watch: which representations are active over time.**
@@ -1187,12 +1190,12 @@ I. The steps in each are [Decided, 2026-10-07].
         - each lens's report on its nodes, experts, and pipelines and hubs (C7, E8);
         - the axes analysis (C8) and a single-word lens (C1), with their showcase.
       - **Then 1c, animals, objects and tuning by hand** [Decided, 2026-10-09: Andrew asked for
-        it next]:
+        it next; Built 2026-10-09, with its showcase in `docs/studies/animals/showcase/`]:
         - words that split, read at their last token (C1);
         - minimum distance and the distance metric in the form, settings per layer, "Rebuild
           with…", a one-layer preview and a chart comparing lenses (C4, E3);
         - the animal and object lenses, with the harm axis, and their showcase (C1);
-        - a lens that remembers its hold-out design (C4) [Proposed, 2026-10-09: to be built in slice 1c].
+        - a lens that remembers its hold-out design (C4) [Proposed, 2026-10-09; Built in slice 1c].
    2. **Capture and jobs:**
       - the capture recipe and per-run token ids (G);
       - the GPU job queue;
@@ -1281,7 +1284,15 @@ I. The steps in each are [Decided, 2026-10-07].
   - the capture's one-token-first rule (C1);
   - keeping hand tuning honest, and a lens that remembers how it is held out (C4);
   - the builder's hold-out design, the preview's held-out mode and job, the tuned lens's test line
-    in the comparison, and the readings chart for mass-mean lenses (E3).
+    in the comparison, and the readings chart for mass-mean lenses (E3);
+  - details settled while building the sets (C1): the naming rule's second branch (the one
+    species a name most commonly means), the objects' piercing harm, the 33 animals whose kinship
+    and way of life disagree (the examples given, extended by one rule), and 321 objects rather
+    than about 400 (single-word names of harmful things run out);
+  - **where a single word is read** (C1, found in slice 1c): read at its last token, a split word
+    and a one-token word sit apart at every layer, and every lens on the two sets spends nodes on
+    that difference (`docs/research/animals.md`). Reading every word at the token after it, the
+    same token for every item, is proposed in RECOMMENDATIONS.md (2026-10-09).
 
 ## Part M — Claude's final read: certainty and recommendations [Decided, 2026-10-08: Andrew accepted it]
 

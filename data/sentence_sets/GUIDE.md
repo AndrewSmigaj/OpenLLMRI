@@ -158,7 +158,9 @@ sentence level; matching at the assembly level.
 
 A third shape (DESIGN.md C1). Each item is one word given alone as the user's message, with a space
 first (`" eagle"`), so that a common word is one token: the same token the word has inside
-sentences. They live in `lexical/`; `lexical/nouns_meaning_feeling_v1.md` is the worked example.
+sentences. They live in `lexical/`; `lexical/nouns_meaning_feeling_v1.md` is the worked example for
+one-token words, and `animals_kinship_v1.md` and `objects_harm_v1.md` for sets where most words
+split.
 
 - **A word that splits is read at its last token.** When none of a word's one-token forms is in
   the item, the capture finds the word as a run of tokens (" jag" + "uar") and reads it at its last
@@ -168,7 +170,14 @@ sentences. They live in `lexical/`; `lexical/nouns_meaning_feeling_v1.md` is the
     across the classes as far as the words allow. The surface check flags a node that follows the
     token count.
   - Early layers may group split words by their last piece (goldfish, catfish, starfish); the
-    set's analysis checks it.
+    set's analysis checks it. On the animals they do, early and again late.
+  - Read at their last token, split words and one-token words sit apart at every layer, and every
+    lens spends nodes on it (`docs/research/animals.md`). Analyse each kind within its token count
+    too.
+- **Audit with the shared checks:** `docs/studies/lexical_audit.py` runs every word through the
+  sentence route's prompt and the real capture step (a stand-in model), and checks shape,
+  duplicates, tokens, the prompt's own words and counts; a study's `analysis/audit_set.py` adds the
+  set's own (the animals' taxonomy against the Catalogue of Life, field by field).
 - **Audit before the capture, check after it.** The capture's target must land on the user's
   word. The route counts only the items it captured, returns the words it dropped, and keeps them
   in the session file's `failures`.

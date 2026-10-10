@@ -15,7 +15,13 @@ its chance level (10 times the set's share of the other animals). The index
 is above 0 when the neighbours lean to kin, below 0 when they lean to look-alikes.
 
 The null: the same index with the animals' positions shuffled (each item takes another's place)
-200 times; the band is the middle 95% of each kind's mean index.
+1,000 times, from a seeded stream of its own for each count, space and layer; the band is the
+middle 95% of each kind's mean index.
+
+Whether a name split divides the space at every layer (split_words.py), and the one-token names
+are mostly mammals, so the index is also counted within the animal's own token count: only the
+neighbours with the animal's token count are counted, against chance in that pool, and the null
+shuffles positions within each token count.
 
 Two spaces: the lens's own embedding, and the residual stream in the validation's raw recipe.
 
@@ -49,7 +55,7 @@ KINDS = {
     "a fish that walks": ["mudskipper"],
 }
 SNAKE_TAXA = {"Serpentes", "Elapidae", "Viperidae", "Boidae", "Colubridae"}
-SHUFFLES = 200
+SHUFFLES = 1000
 
 
 def is_snake(entry: Dict[str, Any]) -> bool:
@@ -77,27 +83,46 @@ def sets_for(kind: str, i: int, items: List[Dict[str, Any]]) -> tuple[np.ndarray
     return kin, look
 
 
-def index_of(nn_row: np.ndarray, kin: np.ndarray, look: np.ndarray, others: int) -> tuple[float, int, int]:
-    k, w = int(kin[nn_row].sum()), int(look[nn_row].sum())
-    ek, ew = NEIGHBOURS * kin.sum() / others, NEIGHBOURS * look.sum() / others
+def index_of(nn_row: np.ndarray, kin: np.ndarray, look: np.ndarray, pool: np.ndarray) -> tuple[float, int, int]:
+    """The index among the neighbours in the pool (the items that may count, never the animal),
+    against chance in the pool."""
+    counted = nn_row[pool[nn_row]]
+    k, w = int(kin[counted].sum()), int(look[counted].sum())
+    size = pool.sum()
+    ek, ew = len(counted) * (kin & pool).sum() / size, len(counted) * (look & pool).sum() / size
     return float(np.log2((k + 0.5) / (ek + 0.5)) - np.log2((w + 0.5) / (ew + 0.5))), k, w
 
 
-def space_scores(points: np.ndarray, members: Dict[str, List[int]], masks, rng) -> Dict[str, Any]:
+def shuffled_places(rng, classes: np.ndarray) -> np.ndarray:
+    """A permutation of the items that keeps each one within its class."""
+    place = np.arange(len(classes))
+    for c in np.unique(classes):
+        idx = np.flatnonzero(classes == c)
+        place[idx] = rng.permutation(idx)
+    return place
+
+
+def space_scores(points: np.ndarray, members: Dict[str, List[int]], masks, rng,
+                 classes: np.ndarray) -> Dict[str, Any]:
+    """`classes` limits the count to the animal's own class (all zeros: every item counts)."""
     nn = neighbours(points)
-    others = len(points) - 1
+    pools = {}
+    for idx in members.values():
+        for i in idx:
+            pools[i] = classes == classes[i]
+            pools[i][i] = False
     per_animal, per_kind = {}, {}
     for kind, idx in members.items():
         values = []
         for i in idx:
             kin, look = masks[i]
-            value, k, w = index_of(nn[i], kin, look, others)
+            value, k, w = index_of(nn[i], kin, look, pools[i])
             per_animal[i] = {"index": value, "kin": k, "look": w}
             values.append(value)
         per_kind[kind] = {"mean": float(np.mean(values))}
     nulls = {kind: [] for kind in members}
     for _ in range(SHUFFLES):
-        place = rng.permutation(len(points))  # item j now sits where item place[j] was
+        place = shuffled_places(rng, classes)  # item j now sits where item place[j] was
         where = np.empty_like(place)
         where[place] = np.arange(len(points))
         for kind, idx in members.items():
@@ -105,7 +130,7 @@ def space_scores(points: np.ndarray, members: Dict[str, List[int]], masks, rng) 
             for i in idx:
                 kin, look = masks[i]
                 row = where[nn[place[i]]]  # the items now sitting next to item i's new place
-                vals.append(index_of(row, kin, look, others)[0])
+                vals.append(index_of(row, kin, look, pools[i])[0])
             nulls[kind].append(float(np.mean(vals)))
     for kind in members:
         per_kind[kind]["band"] = band(np.array(nulls[kind]))
@@ -121,32 +146,42 @@ def main(session: str, lens: str) -> None:
     embedding = lens_embedding(session, lens)
     layers = list(range(embedding.shape[0]))
     raw = raw_layers(session, [it["probe_id"] for it in items], layers)
-    rng = np.random.default_rng(SEED)
     results: Dict[str, Any] = {"session": session, "lens": lens, "items": len(items), "neighbours": NEIGHBOURS,
                                "shuffles": SHUFFLES, "kinds": KINDS, "missing": missing,
                                "sizes": {words[i]: {"kin": int(masks[i][0].sum()), "look": int(masks[i][1].sum())}
                                          for idx in members.values() for i in idx},
-                               "spaces": {"lens": {}, "raw": {}}}
+                               "one_token": [w for w in words if items[words.index(w)]["entry"]["categories"]["tokens"] == "one"
+                                             and any(w in names for names in KINDS.values())],
+                               "spaces": {"lens": {}, "raw": {}},
+                               "within_token_count": {"spaces": {"lens": {}, "raw": {}}}}
+    every = np.zeros(len(items), dtype=np.int64)
+    token_count = np.array([it["entry"]["categories"]["tokens"] == "several" for it in items], dtype=np.int64)
     for layer in layers:
-        for space, points in (("lens", embedding[layer]), ("raw", raw[layer])):
-            scores = space_scores(points, members, masks, rng)
-            scores["animals"] = {words[i]: v for i, v in scores["animals"].items()}
-            results["spaces"][space][layer] = scores
+        for si, (space, points) in enumerate((("lens", embedding[layer]), ("raw", raw[layer]))):
+            for mi, (where_to, classes) in enumerate(((results["spaces"], every),
+                                                      (results["within_token_count"]["spaces"], token_count))):
+                rng = np.random.default_rng([SEED, mi, si, layer])
+                scores = space_scores(points, members, masks, rng, classes)
+                scores["animals"] = {words[i]: v for i, v in scores["animals"].items()}
+                where_to[space][layer] = scores
         print(f"L{layer:02d} lens " + "  ".join(f"{kind[:14]} {results['spaces']['lens'][layer]['kinds'][kind]['mean']:+.2f}"
                                                for kind in members))
-    results["beyond_chance"] = {space: {kind: {
-        "kin": [layer for layer in layers if by_layer[layer]["kinds"][kind]["mean"] > by_layer[layer]["kinds"][kind]["band"][1]],
-        "look-alikes": [layer for layer in layers if by_layer[layer]["kinds"][kind]["mean"] < by_layer[layer]["kinds"][kind]["band"][0]],
-    } for kind in members} for space, by_layer in results["spaces"].items()}
+    for block in (results, results["within_token_count"]):
+        block["beyond_chance"] = {space: {kind: {
+            "kin": [layer for layer in layers if by_layer[layer]["kinds"][kind]["mean"] > by_layer[layer]["kinds"][kind]["band"][1]],
+            "look-alikes": [layer for layer in layers if by_layer[layer]["kinds"][kind]["mean"] < by_layer[layer]["kinds"][kind]["band"][0]],
+        } for kind in members} for space, by_layer in block["spaces"].items()}
     path = write_results(f"kinship_or_way_of_life_{lens}", results)
-    chart(results, lens)
+    chart(results, lens, "", "")
+    chart({**results, **results["within_token_count"]}, lens, "_within_token_count", ", counted within each token count")
     print(f"wrote {path}")
-    for space, kinds in results["beyond_chance"].items():
-        for kind, sides in kinds.items():
-            print(f"{space:4s} {kind:28s} kin beyond chance at {sides['kin']}; look-alikes at {sides['look-alikes']}")
+    for name, block in (("all names", results), ("within token count", results["within_token_count"])):
+        for space, kinds in block["beyond_chance"].items():
+            for kind, sides in kinds.items():
+                print(f"{name:18s} {space:4s} {kind:28s} kin beyond chance at {sides['kin']}; look-alikes at {sides['look-alikes']}")
 
 
-def chart(results: Dict[str, Any], lens: str) -> None:
+def chart(results: Dict[str, Any], lens: str, suffix: str, note: str) -> None:
     """Two figures: each kind's mean index with its own null band (a row per space), and every
     animal's index per layer."""
     import matplotlib
@@ -173,9 +208,9 @@ def chart(results: Dict[str, Any], lens: str) -> None:
             if row == 1:
                 ax.set_xlabel("layer")
         axes[row][0].set_ylabel(f"{title}\nmean index (+ kin, − look-alikes)", fontsize=9)
-    fig.suptitle(f"Kinship or way of life: {lens} (grey: positions shuffled, middle 95%)", fontsize=12)
+    fig.suptitle(f"Kinship or way of life: {lens}{note} (grey: positions shuffled, middle 95%)", fontsize=12)
     fig.tight_layout()
-    fig.savefig(figure_path(f"kinship_or_way_of_life_{lens}"), dpi=150)
+    fig.savefig(figure_path(f"kinship_or_way_of_life_{lens}{suffix}"), dpi=150)
 
     fig, axes = plt.subplots(1, 2, figsize=(13, 7.5))
     for ax, (space, title) in zip(axes, spaces):
@@ -189,8 +224,8 @@ def chart(results: Dict[str, Any], lens: str) -> None:
         ax.set_xlabel("layer")
         ax.set_title(title, fontsize=11)
     fig.colorbar(image, ax=axes, shrink=0.8, label="index: blue leans to kin, red to look-alikes")
-    fig.suptitle(f"Kinship or way of life, animal by animal: {lens}", fontsize=12)
-    fig.savefig(figure_path(f"kinship_or_way_of_life_animals_{lens}"), dpi=150, bbox_inches="tight")
+    fig.suptitle(f"Kinship or way of life, animal by animal: {lens}{note}", fontsize=12)
+    fig.savefig(figure_path(f"kinship_or_way_of_life_animals_{lens}{suffix}"), dpi=150, bbox_inches="tight")
 
 
 if __name__ == "__main__":

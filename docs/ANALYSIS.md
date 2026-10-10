@@ -85,7 +85,12 @@ labels; only held-out scores say it generalizes.
   ceiling): when raw space matches the lens, say so; marked nodes hold items the two group
   differently.
 - **A tuned lens:** quote its test scores, on families the search never saw; its own validation
-  reused the items that chose its settings. The runners-up show how flat the choice was.
+  reused the items that chose its settings. The runners-up show how flat the choice was. A lens
+  whose settings were chosen by hand on held-out previews says its validation is selection-biased
+  too; a search started from it gives its settings an honest test score.
+- **Single words that split** are read at their last token. Check the token count (the `tokens`
+  axis and the surface check's "target tokens"): on the animals it splits the space at every
+  layer, so compare kinds within each token count as well.
 
 **Then the flows** (Layers):
 1. **Purity:** does a node specialize in one label? Above 80% one label is strong specialization;

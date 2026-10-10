@@ -153,18 +153,26 @@ Build it as a background job and follow it (`/cluster` OP-L1, OP-L2), or let the
 do it. A 24-layer lens takes about a minute; the app opens it in Layers when it's done. A new k,
 for every layer or layer by layer, is a new version of the same fit (OP-L3), not a rebuild.
 
+- **Settings by hand:** minimum distance and the distance metric beside neighbours and dimensions,
+  and each layer's own settings under Advanced. Preview a layer first (OP-L11, or "Preview a layer"
+  in the form): its clusters in seconds, held out on request; "Rebuild with…" starts a new lens
+  from any lens's settings.
+- **The hold-out design:** the lens takes the one its set declared (`metadata.holdout`), else whole
+  `scene` families, and records it; every later job uses it unless told otherwise.
+
 ---
 
 ## Stage 5: Validate and work out the details
 
-1. **Validate** (`/cluster` OP-L4, or Validate in Build): held-out scores by scene family (weaker
-   stratified folds when the set names none), the k profile from 2 to 10 at every layer, and raw
+1. **Validate** (`/cluster` OP-L4, or Validate in Build): held-out scores by the lens's held-out
+   families (weaker stratified folds when the set names none), the k profile from 2 to 10 at every layer, and raw
    space on the same folds and k. Read the k profile beside the in-sample suggestions; a
    held-out best k is selection-biased.
 2. **Choose k per layer** and cut that version (OP-L3, or "k per layer" in Build).
 3. **Or tune the lens** (OP-L7, or "tune" in Build): settings and k searched per layer by held-out
    AMI, then scored on a test portion of whole families the search never saw; the tuned lens is
-   built and validated. Quote its test scores.
+   built and validated. Quote its test scores. "compare" in Build puts several lenses' held-out
+   scores per layer on one chart, with the tuned lens's test line.
 4. **Work out node details** (OP-L6): neurons, the logit lens, the surface check, routing. Every
    build also works out its pipelines and hubs (OP-L9; run it again with the set's family field).
 5. **Count the axes** (OP-L10, or "axes" in Build) for a set with several designed attributes: how
