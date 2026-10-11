@@ -1,0 +1,3973 @@
+# OpenLLMRI's requirements: every decision, idea, view, proposal and open question, numbered by
+# area (DESIGN.md L26.2, 2026-10-11). Both documents are written from this list and cite its ids:
+# docs/design/design.md (design and requirements) and docs/architecture/plan.md (plan and
+# architecture). Decisions are paraphrased: Andrew's own words never appear in the repo.
+#
+# Fields:
+#   id       AREA-n. Ids are never reused; a replaced requirement stays, with status retired.
+#   text     the requirement, paraphrased.
+#   status   decided | idea (Andrew suggested it, not yet decided) | view (his opinion, as
+#            context) | proposed (Claude's, waiting for his yes) | open (an experiment or a
+#            question settles it) | built (it exists; no separate decision is recorded) |
+#            retired (replaced; see replaced_by)
+#   built    yes | partly | no. Left out for views.
+#   dates    when it was decided, suggested or proposed.
+#   source   what settled it: a question in the design's form (L16.4), his message that day
+#            (message), the section-by-section review of DESIGN.md (design review), the time
+#            design (time design) or its review (time review), a plan he approved (the slice 1b
+#            plan), Claude's final read (Part M), or Claude's proposal (Claude). "In DESIGN.md's
+#            appendix" means DESIGN.md recorded the decision only in its appendix of decisions.
+#   from     the lines of docs/DESIGN.md, at the commit named in `snapshot`, that carry the
+#            passage's mark. `docs/pages/check.py` shows every marked line mapped to an id. Empty
+#            when the passage carries no mark: a decision recorded only in the appendix, a working
+#            rule from Claude's notes, or a plan's detail.
+#   section  where the passage is designed: design.md#<anchor> or plan.md#<anchor>.
+#   replaced_by  for a retired requirement.
+snapshot: 25875ff
+areas:
+  DOC: the two documents and their rules
+  WAY: how we work
+  GOAL: what OpenLLMRI is for, who uses it, its pieces
+  PRIN: principles
+  SET: sentence sets, how they are written and audited
+  LENS: "building lenses: kinds, k, validation, tuning, details, kits, reports, axes"
+  TIME: reading over time
+  APP: "the app: the rebuild, rooms, workspaces, screen rules, Layers, commands"
+  BUILD: the builders
+  WATCH: Watch, following agent runs
+  STUDY: studies
+  LLM: LLM analysis in the app
+  MUD: the MUD and agents in scenarios
+  DATA: data and records
+  ATLAS: the atlas and the paradigm
+  INT: interventions and conditions
+  STORY: user stories
+  ORDER: the order of work
+  ROOM: "the new app's rooms (Claude's proposal, 2026-10-11)"
+  ARCH: "how the software is built: its architecture decisions"
+requirements:
+
+# ---- DOC: the two documents and their rules ----
+- id: DOC-1
+  text: >-
+    Every requirement carries one mark: decided (with its date), Andrew's idea, Andrew's view,
+    Claude's proposal, open, or built. A passage marked decided says only what Andrew decided.
+  status: decided
+  built: yes
+  dates: [2026-10-11]
+  source: L26.2
+  from: [29, 30, 32, 33, 34, 35, 52]
+  section: design.md#how-to-use
+- id: DOC-2
+  text: >-
+    Two documents, each consistent throughout: a design-and-requirements document and a
+    plan-and-architecture document, modelled on the pages Andrew keeps in claude.ai, unless Claude
+    sees a better approach. Both live in the repo, each published as a web page with comments and a
+    form for its open questions, and each ends with a dated log of its decisions.
+  status: decided
+  built: partly
+  dates: [2026-10-10, 2026-10-11]
+  source: message (2026-10-10); L24
+  from: [37]
+  section: design.md#how-to-use
+- id: DOC-3
+  text: >-
+    The two documents come first in the order of work; until they exist, DESIGN.md stays the
+    source of truth.
+  status: decided
+  built: partly
+  dates: [2026-10-11]
+  source: L21
+  from: [37]
+  section: plan.md#phases
+- id: DOC-4
+  text: >-
+    Their shape: the design-and-requirements document holds what OpenLLMRI is for and how it works
+    for Andrew (the design, his numbered requirements, the open questions, the decisions); the
+    plan-and-architecture document holds where we are, how we work, the phases, a register of known
+    problems, how the software is built and its decisions. Each is one long page with an index down
+    the side, a box to write in under every section (saved as he types, collected in a last
+    section), and questions as cards with their choices and Claude's recommendation.
+  status: decided
+  built: partly
+  dates: [2026-10-11]
+  source: L26.1
+  from: [43]
+  section: design.md#how-to-use
+- id: DOC-5
+  text: >-
+    The two documents replace DESIGN.md and one-mud.md, which keep a pointer to them. Claude Code's
+    how-to guides (the skills, PIPELINE, PROBES, ANALYSIS), Winter Survival's game design document,
+    and the research notes and study files stay as they are.
+  status: decided
+  built: no
+  dates: [2026-10-11]
+  source: L26.1
+  from: [43]
+  section: plan.md#where-things-go
+- id: DOC-6
+  text: >-
+    Requirements first: every decision is a numbered requirement with its date, the question or
+    message that settled it, and its mark; both documents are written from the list and cite its
+    numbers.
+  status: decided
+  built: partly
+  dates: [2026-10-11]
+  source: L26.2
+  from: [52]
+  section: design.md#requirements
+- id: DOC-7
+  text: >-
+    A page check flags any page that cites a replaced requirement or uses wording the design has
+    retired.
+  status: decided
+  built: partly
+  dates: [2026-10-11]
+  source: L26.2
+  from: [52]
+  section: plan.md#documents
+- id: DOC-8
+  text: >-
+    Andrew's own words appear only on a published page, read from the page's private store, never
+    in the repo, which is public: decisions are paraphrased in files and commit messages.
+  status: decided
+  built: yes
+  dates: [2026-09-27, 2026-10-11]
+  source: message (2026-09-27); L26.2
+  from: [52]
+  section: design.md#how-to-use
+- id: DOC-9
+  text: >-
+    The order of work and each phase's plan (its goal, steps, tests, what Andrew reviews and when it
+    is done) live in the plan-and-architecture document, where he approves each phase, instead of
+    in Claude Code's own plan file.
+  status: decided
+  built: no
+  dates: [2026-10-11]
+  source: L26.3
+  from: [59]
+  section: plan.md#phases
+- id: DOC-10
+  text: >-
+    Before Andrew reads a document, it gets an independent audit of its marks against his own
+    words, a readability review and the page checks; then he reviews it section by section.
+  status: decided
+  built: partly
+  dates: [2026-10-11]
+  source: L26
+  from: [62]
+  section: plan.md#how-we-work
+- id: DOC-11
+  text: >-
+    The documents' plan details are Claude's: the files, the build script, the page checks' rules
+    and the order of the steps (docs/scratchpad/two_documents_plan.md). Claude builds the documents
+    that way and Andrew reviews the details with them.
+  status: proposed
+  built: partly
+  dates: [2026-10-11]
+  source: Claude
+  from: [65]
+  section: plan.md#phases
+- id: DOC-12
+  text: >-
+    Every question that needs Andrew's answer goes into a page's form, not the terminal: a choice
+    from a list where the options are clear, always with an Other and a note, so the design becomes
+    a page he answers in and Claude updates.
+  status: decided
+  built: yes
+  dates: [2026-10-10]
+  source: message
+  from: []
+  section: design.md#how-to-use
+- id: DOC-13
+  text: >-
+    The design says what the software is, who uses it and how it is used. How things are built
+    lives in technical companions: the plan-and-architecture document (which takes over from
+    one-mud.md) and Winter Survival's own implementation architecture.
+  status: decided
+  built: yes
+  dates: [2026-10-07, 2026-10-11]
+  source: design review; L26.1
+  from: [72]
+  section: design.md#how-to-use
+- id: DOC-14
+  text: >-
+    Winter Survival's game design document stays separate, under the design: the design links to
+    it and wins where the two disagree.
+  status: decided
+  built: yes
+  dates: [2026-10-07]
+  source: L3
+  from: [72]
+  section: design.md#how-to-use
+- id: DOC-15
+  text: >-
+    Where the design and another document disagree, the design wins and the other is corrected.
+  status: decided
+  built: yes
+  dates: [2026-10-07]
+  source: design review
+  from: [72]
+  section: design.md#how-to-use
+- id: DOC-16
+  text: >-
+    The design replaced the research-software draft in the one-MUD plan, the time design and its
+    review, the concepts in SOFTWARE_OVERVIEW.md, the user-facing parts of one-mud.md and the scope
+    in LLMud/VISION.md; each keeps a pointer, and CLAUDE.md's project summary matches the goal.
+  status: decided
+  built: yes
+  dates: [2026-10-07]
+  source: design review
+  from: [79]
+  section: plan.md#documents
+
+# ---- WAY: how we work (Andrew's standing rulings) ----
+- id: WAY-1
+  text: >-
+    A plan Andrew has approved and told Claude to start is permission for the changes it lists and
+    nothing outside it; anything else needs Andrew's OK first.
+  status: decided
+  built: yes
+  dates: [2026-10-06]
+  source: message
+  from: []
+  section: plan.md#how-we-work
+- id: WAY-2
+  text: >-
+    Source code changes only when Andrew has said that code may change for the task (code-change
+    mode); auto mode alone doesn't grant it. Sentence sets, research notes, scratchpads and memory
+    are exempt.
+  status: decided
+  built: yes
+  dates: [standing]
+  source: CLAUDE.md
+  from: []
+  section: plan.md#how-we-work
+- id: WAY-3
+  text: >-
+    Design first, then build: a design is worked out in scratchpads, promoted into the design
+    documents, and only then built, with the building itself done step by step (agile on
+    implementation); deferred work is still designed, so later parts fit.
+  status: decided
+  built: yes
+  dates: [standing, 2026-10-07]
+  source: message (standing); design review
+  from: [254]
+  section: plan.md#how-we-work
+- id: WAY-4
+  text: >-
+    A fixed order of work, the same procedure for every phase, progress Andrew can see, and a
+    parked list with an owner for every item; no deadlines and no time boxes.
+  status: decided
+  built: yes
+  dates: [2026-09-17]
+  source: message
+  from: []
+  section: plan.md#how-we-work
+- id: WAY-5
+  text: >-
+    Documents show the current design only: superseded content is removed rather than annotated
+    (git keeps the history), and a decision reaches every document that describes the thing it
+    touches. The requirements list is the one exception: a replaced requirement stays in it, marked
+    retired, so a page that still cites it can be caught.
+  status: decided
+  built: yes
+  dates: [2026-09-27, 2026-10-11]
+  source: message; L26.2 (replaced requirements)
+  from: []
+  section: plan.md#how-we-work
+- id: WAY-6
+  text: >-
+    Nothing of Claude's enters the design as decided without Andrew's yes. A decision applies
+    exactly its own scope, with no knock-on decisions; his examples show the kind of thing he wants
+    and are never implemented word for word.
+  status: decided
+  built: yes
+  dates: [2026-09-27, 2026-10-03]
+  source: message
+  from: []
+  section: plan.md#how-we-work
+- id: WAY-7
+  text: >-
+    Claude is a design partner: it gives real pushback and ideas and never rationalizes a choice to
+    fit. A real problem with a decision is said once, plainly, with alternatives; then Andrew's
+    decision stands.
+  status: decided
+  built: yes
+  dates: [2026-09-27]
+  source: message
+  from: []
+  section: plan.md#how-we-work
+- id: WAY-8
+  text: >-
+    No question goes to Andrew that he has already answered; every question, an agent's included,
+    is checked against the recorded decisions first.
+  status: decided
+  built: yes
+  dates: [2026-09-27]
+  source: message
+  from: []
+  section: plan.md#how-we-work
+- id: WAY-9
+  text: >-
+    Discussion before change: a finding comes to Andrew with a concrete proposal, and the change
+    follows his ruling. Auto mode removes approval clicks, not his say.
+  status: decided
+  built: yes
+  dates: [2026-09-01]
+  source: message
+  from: []
+  section: plan.md#how-we-work
+- id: WAY-10
+  text: >-
+    Clearly right fixes to tooling and configuration are Claude's to make and mention; design
+    changes, deletions and data decisions go to Andrew.
+  status: decided
+  built: yes
+  dates: [2026-10-07]
+  source: message
+  from: []
+  section: plan.md#how-we-work
+- id: WAY-11
+  text: >-
+    A deletion goes to Andrew with a verdict for each item: left out on purpose or missed, needed or
+    not, and what replaces it; then one yes or no.
+  status: decided
+  built: yes
+  dates: [2026-10-07]
+  source: message
+  from: []
+  section: plan.md#how-we-work
+- id: WAY-12
+  text: >-
+    Within approved work, Claude keeps going through every step, committing at milestones, and
+    stops only for a decision Andrew must make or a real blocker.
+  status: decided
+  built: yes
+  dates: [standing]
+  source: message
+  from: []
+  section: plan.md#how-we-work
+- id: WAY-13
+  text: >-
+    When Andrew approves a plan without reading it, Claude thinks every step through at the source
+    rather than by pattern.
+  status: decided
+  built: yes
+  dates: [2026-10-09]
+  source: message
+  from: []
+  section: plan.md#how-we-work
+- id: WAY-14
+  text: >-
+    No approach is chosen because it is faster; the correct one is chosen.
+  status: decided
+  built: yes
+  dates: [standing]
+  source: message
+  from: []
+  section: plan.md#how-we-work
+- id: WAY-15
+  text: >-
+    Exploratory analysis is first-class: no analysis waits on a prediction or a pre-registration.
+  status: decided
+  built: yes
+  dates: [2026-08-28]
+  source: message
+  from: []
+  section: plan.md#how-we-work
+- id: WAY-16
+  text: >-
+    Every result that can be charted gets a figure as the work goes.
+  status: decided
+  built: yes
+  dates: [2026-08-28]
+  source: message
+  from: []
+  section: plan.md#how-we-work
+- id: WAY-17
+  text: >-
+    Paper prose and the two documents are plain technical English without rhetorical flourishes;
+    a readability review reads them before Andrew does, and advises only.
+  status: decided
+  built: yes
+  dates: [2026-09-01, 2026-09-08, 2026-10-11]
+  source: message; L26 (the two documents)
+  from: []
+  section: plan.md#how-we-work
+- id: WAY-18
+  text: >-
+    Infrastructure is explained plainly, with acronyms spelled out, before anything is proposed on
+    it.
+  status: decided
+  built: yes
+  dates: [standing]
+  source: message
+  from: []
+  section: plan.md#how-we-work
+- id: WAY-19
+  text: >-
+    Lake data is never deleted without Andrew's OK.
+  status: decided
+  built: yes
+  dates: [standing]
+  source: the one-MUD plan
+  from: []
+  section: plan.md#how-we-work
+- id: WAY-20
+  text: >-
+    Commits bundle a unit of work; pushes happen at shippable points or when Andrew asks; no pull
+    requests for solo work.
+  status: decided
+  built: yes
+  dates: [standing]
+  source: CLAUDE.md
+  from: []
+  section: plan.md#how-we-work
+- id: WAY-21
+  text: >-
+    After any code change (the backend, the MUD or the app), every service is fully restarted, never
+    partly.
+  status: decided
+  built: yes
+  dates: [standing]
+  source: message
+  from: []
+  section: plan.md#how-we-work
+- id: WAY-22
+  text: >-
+    Live tests log in with the agent account or throwaway accounts, never as admin.
+  status: proposed
+  built: yes
+  dates: [standing]
+  source: Claude
+  from: []
+  section: plan.md#how-we-work
+- id: WAY-23
+  text: >-
+    Claude agents run through the user's Claude Code login (`claude -p`); the runner keeps any API
+    key out of their environment.
+  status: decided
+  built: yes
+  dates: [2026-10-08]
+  source: message, recorded in the one-MUD plan
+  from: []
+  section: plan.md#how-we-work
+- id: WAY-24
+  text: >-
+    When Andrew interrupts, Claude stops and waits for him.
+  status: decided
+  built: yes
+  dates: [standing]
+  source: message
+  from: []
+  section: plan.md#how-we-work
+- id: WAY-25
+  text: >-
+    The design is a work in progress: Andrew's new ideas update it, and are never framed as
+    clashing with a locked or frozen rule.
+  status: decided
+  built: yes
+  dates: [2026-09-26]
+  source: message
+  from: []
+  section: plan.md#how-we-work
+- id: WAY-26
+  text: >-
+    Documents can be wrong: Claude flags errors and better ideas when it reads one, and never
+    follows a document against reasoned judgment, nor quietly overrides one: it raises the
+    disagreement.
+  status: decided
+  built: yes
+  dates: [standing]
+  source: message
+  from: []
+  section: plan.md#how-we-work
+- id: WAY-27
+  text: >-
+    Operations (the servers, captures, agent runs, lens jobs) follow the skills' procedures, copied
+    exactly; for how an operation is run, a skill wins over other documents.
+  status: decided
+  built: yes
+  dates: [standing]
+  source: CLAUDE.md
+  from: []
+  section: plan.md#how-we-work
+- id: WAY-28
+  text: >-
+    Before a method proposal goes to Andrew for a ruling, Claude tests it if today's tools can,
+    and gives the evidence with the question.
+  status: proposed
+  built: yes
+  dates: [2026-10-09]
+  source: Claude
+  from: []
+  section: plan.md#how-we-work
+- id: WAY-29
+  text: >-
+    Every number that goes into a note, a figure or a page is recomputed from the data at every
+    layer it names; when a covariate turns out to dominate, earlier claims are re-checked within
+    its levels.
+  status: proposed
+  built: yes
+  dates: [2026-10-08, 2026-10-09]
+  source: Claude
+  from: []
+  section: plan.md#how-we-work
+
+# ---- GOAL: what OpenLLMRI is for, who uses it, its pieces ----
+- id: GOAL-1
+  text: >-
+    Build an evidence-based paradigm of how gpt-oss-20b understands the world and makes decisions
+    from that understanding: which internal representations exist; where they form (which layers,
+    which tokens); how each layer transforms them; how tokens move through them, across layers and
+    over time; how experts route them, through pipelines and hubs; and how they lead to behaviour,
+    including the points where reasoning fails, such as the context shift the paper studied.
+  status: decided
+  built: partly
+  dates: [2026-10-04, 2026-10-06, 2026-10-07]
+  source: message
+  from: [155]
+  section: design.md#purpose
+- id: GOAL-2
+  text: >-
+    The AI scientists work toward the paradigm with lenses on sentence sets and scenarios,
+    scaffolding experiments, steering from outside and inside the model, and ablation. How a
+    scaffold changes the way trajectories form (for example, suppressing a writing style) is
+    evidence about how the model works.
+  status: decided
+  built: partly
+  dates: [2026-10-04, 2026-10-07]
+  source: message
+  from: [155]
+  section: design.md#purpose
+- id: GOAL-3
+  text: >-
+    The paradigm makes it possible to monitor agents visually: which understandings are active as
+    they reason and act. This also helps in building effective scaffolds.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: message
+  from: [155]
+  section: design.md#purpose
+- id: GOAL-4
+  text: >-
+    Visual knowledge discovery comes first: cluster trajectory Sankeys, the words that travel
+    through each node, colour blending, and more visual channels.
+  status: decided
+  built: partly
+  dates: [2026-10-06, 2026-10-07]
+  source: message
+  from: [155]
+  section: design.md#purpose
+- id: GOAL-5
+  text: >-
+    Another mixture-of-experts model may be compared later.
+  status: decided
+  built: no
+  dates: [2026-10-06]
+  source: message
+  from: [173]
+  section: design.md#purpose
+- id: GOAL-6
+  text: >-
+    Andrew uses OpenLLMRI through the app, Claude Code and the MUD.
+  status: decided
+  built: yes
+  dates: [2026-10-04, 2026-10-06]
+  source: message
+  from: [175]
+  section: design.md#purpose
+- id: GOAL-7
+  text: >-
+    Claude agents (`claude -p`) work as analysts and AI scientists: they use the same tools as
+    Andrew, their actions appear in the MUD as events, they work in teams by topic (grammar,
+    emotional salience, kinds of reasoning, safeguards and alignment), and they design sentence
+    sets and scenarios from their own hypotheses and run studies on them.
+  status: decided
+  built: partly
+  dates: [2026-10-04, 2026-10-06]
+  source: message
+  from: [175]
+  section: design.md#purpose
+- id: GOAL-8
+  text: >-
+    Researchers who install the software run their own app and backend, and connect to Scaffold
+    Dynamics by default or to a MUD they run themselves, usually on localhost, by entering its
+    address.
+  status: decided
+  built: partly
+  dates: [2026-10-04, 2026-10-07]
+  source: message
+  from: [182]
+  section: design.md#purpose
+- id: GOAL-9
+  text: >-
+    Visitors come to the MUD; a Mudlet package with simple views comes later.
+  status: decided
+  built: partly
+  dates: [2026-10-04]
+  source: message
+  from: [175]
+  section: design.md#purpose
+- id: GOAL-10
+  text: >-
+    Its pieces: the app (React, with a FastAPI backend that runs the model on the GPU); the MUD,
+    Scaffold Dynamics, running Evennia in Docker, with the server the app connects to configurable;
+    the data lake of captures, kept outside git; and libraries and records as files in one repo
+    (sentence sets, scenario sets, lab presets, studies, lenses, findings, the paradigm).
+  status: decided
+  built: partly
+  dates: [2026-10-04, 2026-10-06]
+  source: message
+  from: [188]
+  section: design.md#purpose
+- id: GOAL-11
+  text: >-
+    The backend runs Claude agents with `claude -p` as often as it needs; there is no separate
+    runner.
+  status: decided
+  built: yes
+  dates: [2026-10-07]
+  source: message
+  from: [190]
+  section: plan.md#llm-analysts
+- id: GOAL-12
+  text: >-
+    An interface could let a user choose another LLM for the Claude agents' work.
+  status: idea
+  built: no
+  dates: [2026-10-07]
+  source: message
+  from: [192]
+  section: design.md#purpose
+- id: GOAL-13
+  text: >-
+    The first research OpenLLMRI carries is the lens catalogue: validated lenses for many
+    candidate contrasts.
+  status: decided
+  built: partly
+  dates: [2026-10-06]
+  source: message
+  from: [199]
+  section: design.md#purpose
+- id: GOAL-14
+  text: >-
+    Finding internal representations is the aim of one kind of study, and many studies stay
+    exploratory until every representation we can think of has been worked through.
+  status: decided
+  built: partly
+  dates: [2026-10-04]
+  source: message
+  from: [202]
+  section: design.md#purpose
+- id: GOAL-15
+  text: >-
+    The lens catalogue starts with about twelve lenses across levels of language: grammar (tense,
+    number agreement), meaning (the senses of "tank", animacy, an animal taxonomy), pragmatics
+    (irony), feeling (positive or negative), social (friend or foe, intent), knowledge (fact or
+    fiction), safety (harmful or harmless request) and reasoning (negation). Some have published
+    results on other models, which benchmarks the instrument, and the breadth gives each team of AI
+    scientists a start.
+  status: decided
+  built: partly
+  dates: [2026-10-08]
+  source: Part M
+  from: [204]
+  section: design.md#purpose
+
+# ---- PRIN: principles ----
+- id: PRIN-1
+  text: >-
+    Visual knowledge discovery first: every analysis has a view.
+  status: decided
+  built: partly
+  dates: [2026-10-06]
+  source: message
+  from: [215]
+  section: design.md#principles
+- id: PRIN-2
+  text: >-
+    Two instruments, each measuring something different. UMAP lenses measure conceptual
+    membership: fitted per layer, because the directions that separate concepts change with depth;
+    what counts is which node a state falls in, never the UMAP axes; two designed axes can give four
+    nodes, showing how the two are used together; a trajectory is a path through each layer's
+    nodes. Mass-mean lenses measure position on one designed contrast, where distance along the
+    axis means something.
+  status: decided
+  built: yes
+  dates: [2026-10-06]
+  source: message
+  from: [216]
+  section: design.md#principles
+- id: PRIN-3
+  text: >-
+    Distances in full raw space are affected by noise, so the instruments read concept membership
+    and contrast positions instead.
+  status: decided
+  built: yes
+  dates: [2026-10-07]
+  source: message
+  from: [226]
+  section: design.md#principles
+- id: PRIN-4
+  text: >-
+    Evidence over habit: choices between the instruments are made by comparison, not by the
+    common habit of moving to raw space because UMAP distorts distances.
+  status: decided
+  built: yes
+  dates: [2026-10-06]
+  source: message
+  from: [227]
+  section: design.md#principles
+- id: PRIN-5
+  text: >-
+    UMAP is preferred, once it holds up as a classifier against raw-space groupings.
+  status: decided
+  built: yes
+  dates: [2026-10-06]
+  source: message
+  from: [229]
+  section: design.md#principles
+- id: PRIN-6
+  text: >-
+    A lens is a model: its configuration (settings and number of clusters) is tuned like any model
+    until it separates the classes and classifies held-out data well. The tuning is a search over
+    the settings and k of each layer, chosen by held-out AMI and scored on held-out families the
+    search never saw.
+  status: decided
+  built: yes
+  dates: [2026-10-06, 2026-10-08]
+  source: message; the slice 1b plan (settings per layer, unseen test families)
+  from: [231, 235]
+  section: design.md#principles
+- id: PRIN-7
+  text: >-
+    A lens is built from deliberately varied data, so any input that carries the concept lands in
+    one of its nodes, or at its place on the axis.
+  status: decided
+  built: yes
+  dates: [2026-10-06]
+  source: message
+  from: [231]
+  section: design.md#principles
+- id: PRIN-8
+  text: >-
+    New data is read by applying a saved lens.
+  status: decided
+  built: yes
+  dates: [2026-10-06]
+  source: message
+  from: [239]
+  section: design.md#principles
+- id: PRIN-9
+  text: >-
+    Nodes are never matched across separately fitted clusterings.
+  status: decided
+  built: yes
+  dates: [2026-10-07]
+  source: message
+  from: [241]
+  section: design.md#principles
+- id: PRIN-10
+  text: >-
+    Always mixture-of-experts models; experts over attention heads.
+  status: decided
+  built: yes
+  dates: [2026-10-06]
+  source: message
+  from: [242]
+  section: design.md#principles
+- id: PRIN-11
+  text: >-
+    LLM agents analyse, rather than algorithms discovering circuits: where a decision is made is
+    read from where a population of tokens splits between nodes, and from the expert routes.
+    Activation patching and attribution graphs aren't planned; circuits may come later. Claude is
+    the default analyst.
+  status: decided
+  built: yes
+  dates: [2026-10-06, 2026-10-07]
+  source: message
+  from: [243]
+  section: design.md#principles
+- id: PRIN-12
+  text: >-
+    Claude-centred: Claude Code for Andrew's research and `claude -p` for Claude agents, with the
+    same tools for both.
+  status: decided
+  built: yes
+  dates: [2026-10-06]
+  source: message
+  from: [248]
+  section: design.md#principles
+- id: PRIN-13
+  text: >-
+    Screens show what matters: basic controls first and the rest behind an Advanced button;
+    panels that size themselves to the window.
+  status: decided
+  built: yes
+  dates: [2026-10-07]
+  source: message
+  from: [250]
+  section: design.md#principles
+- id: PRIN-14
+  text: >-
+    The simplest design that meets every requirement, with as few moving parts as possible.
+  status: decided
+  built: yes
+  dates: [standing]
+  source: message
+  from: [252]
+  section: design.md#principles
+- id: PRIN-15
+  text: >-
+    Design first, then build: the design is reviewed before anything new is built.
+  status: decided
+  built: yes
+  dates: [2026-10-07]
+  source: message
+  from: [254]
+  section: design.md#principles
+- id: PRIN-16
+  text: >-
+    Everything records how it was made: model, format, decoding, seed, date, carrier, scaffold and
+    intervention.
+  status: decided
+  built: partly
+  dates: [2026-10-07]
+  source: message
+  from: [257]
+  section: design.md#principles
+
+# ---- SET: sentence sets, how they are written and audited ----
+- id: SET-1
+  text: >-
+    A sentence set is sentences that vary designed axes and hold the rest fixed, captured at a
+    target word or a carrier.
+  status: built
+  built: yes
+  dates: []
+  source: ""
+  from: [265]
+  section: design.md#sets
+- id: SET-2
+  text: >-
+    A set can be as small as single words, as a team studying grammar might use.
+  status: decided
+  built: yes
+  dates: [2026-10-06]
+  source: message
+  from: [267]
+  section: design.md#sets
+- id: SET-3
+  text: >-
+    A single word is given as the user's message with a space before it, so it is one token for
+    nearly every common word: the same token the word has inside a sentence.
+  status: decided
+  built: yes
+  dates: [2026-10-08]
+  source: message
+  from: [269]
+  section: design.md#sets
+- id: SET-4
+  text: >-
+    A word that splits into several tokens is read at its last token, which has taken in the whole
+    word. Whether it split is recorded and balanced across classes, and the analysis checks whether
+    early layers group split words by their last piece (goldfish, catfish and starfish all end in
+    "fish").
+  status: decided
+  built: yes
+  dates: [2026-10-09]
+  source: message
+  from: [273]
+  section: design.md#sets
+- id: SET-5
+  text: >-
+    The capture tries a word's one-token forms first and reads a split form only when they aren't
+    in the sentence, so captures of words that don't split keep their tokens.
+  status: decided
+  built: yes
+  dates: [2026-10-11]
+  source: L16.3
+  from: [282]
+  section: design.md#sets
+- id: SET-6
+  text: >-
+    A single word stays read at its last token, and the gap between one-token and split names is
+    handled in the sets and the analyses. Read there, the two kinds of name sit apart at every
+    layer; the token after the word was tested and carries the meaning much more weakly.
+  status: decided
+  built: partly
+  dates: [2026-10-11]
+  source: L16.7
+  from: [284]
+  section: design.md#sets
+- id: SET-7
+  text: >-
+    How the gap is handled in the analyses: they compare within each token count (balancing split
+    names across the classes is SET-4).
+  status: proposed
+  built: partly
+  dates: [2026-10-09]
+  source: Claude
+  from: [286]
+  section: design.md#sets
+- id: SET-8
+  text: >-
+    The first single-word set varies meaning and feeling: a semantic category with subcategories,
+    animacy and concreteness, and valence. Grammar and surface form aren't varied, so it holds
+    singular nouns, and its subcategories are its held-out families.
+  status: decided
+  built: yes
+  dates: [2026-10-08]
+  source: message; the slice 1b plan (singular nouns, subcategories as families)
+  from: [289]
+  section: design.md#sets
+- id: SET-9
+  text: >-
+    Two more single-word sets: animals, and harmful, dual-purpose and benign objects.
+  status: decided
+  built: yes
+  dates: [2026-10-09]
+  source: message
+  from: [294]
+  section: design.md#sets
+- id: SET-10
+  text: >-
+    Each animal carries its taxonomy (class, order, family and genus) and its way of life
+    (habitat, how it moves, diet, wild or domestic).
+  status: decided
+  built: yes
+  dates: [2026-10-09]
+  source: message
+  from: [297]
+  section: design.md#sets
+- id: SET-11
+  text: >-
+    The animal set framed as a contest between kinship by descent and way of life, around animals
+    where the two disagree (Claude's recommended option, which Andrew picked).
+  status: retired
+  built: yes
+  dates: [2026-10-09, 2026-10-11]
+  source: message (2026-10-09); L16.1 and L16.6 (2026-10-11)
+  from: []
+  section: design.md#retired
+  replaced_by: [SET-12, SET-15]
+- id: SET-12
+  text: >-
+    Many ways of organizing animals, not one framing: each animal gets a label in many ways, a
+    small ontology of the animal words, so the space is explored rather than fitted to one framing
+    chosen in advance. Claude looks into ways of organizing animals and proposes some; the model's
+    states then show which ones it follows most, as evidence for that way.
+  status: decided
+  built: partly
+  dates: [2026-10-11]
+  source: L16.1, L16.6
+  from: [301]
+  section: design.md#sets
+- id: SET-13
+  text: >-
+    Claude gives the reasons the first animal set centred on descent against way of life
+    (docs/research/animal_ontology.md).
+  status: decided
+  built: yes
+  dates: [2026-10-11]
+  source: L16.6
+  from: [301]
+  section: design.md#sets
+- id: SET-14
+  text: >-
+    People group animals for practical reasons: an animal seen for a moment is identified from a
+    few cues.
+  status: view
+  dates: [2026-10-11]
+  source: L16.1
+  from: [311]
+  section: design.md#sets
+- id: SET-15
+  text: >-
+    The animal ontology: all 524 names labelled in nine ways (fourteen axes): descent (the group
+    of eight and the taxonomic order); everyday kind (beast, bird, fish-like, snake-like,
+    lizard-like, bug, shellfish, worm-like, sea creature); body covering (fur or hair, feathers,
+    scales, bare skin, shell or hard case, soft body); size (tiny, small, medium, large, huge, by
+    typical adult weight); legs (none, two, four, six, eight, more than eight); where people meet
+    it (home, farm, town and gardens, countryside, sea or shore, far away); relation to people
+    (companion, kept for work or food, dangerous, pest, wild); danger to people (harmless, can
+    hurt, can kill) and how people feel about it (liked, neutral, feared or disliked); way of life
+    (habitat, movement, diet, wild or domestic).
+  status: decided
+  built: no
+  dates: [2026-10-11]
+  source: L27
+  from: [314]
+  section: design.md#sets
+- id: SET-16
+  text: >-
+    A way of organizing leads at a layer when it accounts for more than any other way of which
+    animals sit near each other there, with the other ways and the token count held fixed. Three
+    measures judge it (neighbours beyond chance, held-out reading with whole orders left out, and
+    each way's own share of the distances); every label is an axis to colour by in the app; the
+    animals where the ways disagree are examples, not the frame.
+  status: decided
+  built: no
+  dates: [2026-10-11]
+  source: L27
+  from: [314]
+  section: design.md#sets
+- id: SET-17
+  text: >-
+    Claude labels the 524 names by hand and captures them again; a lens, the analyses and a
+    findings note follow, alongside the two documents, mostly while Andrew reviews them.
+  status: decided
+  built: no
+  dates: [2026-10-11]
+  source: L27
+  from: [314]
+  section: plan.md#phases
+- id: SET-18
+  text: >-
+    The animal set holds 524 one-word names, each entered with the narrowest taxon that holds what
+    it commonly names, or the one species it most commonly means (salmon, Salmo salar).
+  status: decided
+  built: yes
+  dates: [2026-10-11]
+  source: L28
+  from: [344]
+  section: design.md#sets
+- id: SET-19
+  text: >-
+    The taxa are the Catalogue of Life's (a bat is the order Chiroptera, so it has no family or
+    genus), and a name whose kinds span several classes is left out.
+  status: proposed
+  built: yes
+  dates: [2026-10-09]
+  source: Claude
+  from: [347]
+  section: design.md#sets
+- id: SET-20
+  text: >-
+    The animals' label is the familiar group of eight (mammal, bird, reptile, amphibian, fish,
+    insect, arachnid, other invertebrate), kept as the descent axis but no longer the only
+    grouping; whole taxonomic orders are the held-out families.
+  status: decided
+  built: yes
+  dates: [2026-10-11]
+  source: L16.1, L16.6, L27
+  from: [350]
+  section: design.md#sets
+- id: SET-21
+  text: >-
+    The taxonomy is kept beside the designed axes, not among them, since genus alone has hundreds
+    of values.
+  status: decided
+  built: yes
+  dates: [2026-10-11]
+  source: L16.2
+  from: [353]
+  section: design.md#sets
+- id: SET-22
+  text: >-
+    Habitat is land, fresh water, sea, or land and water; flying is left to how an animal moves,
+    since every flier lives on land or water.
+  status: decided
+  built: yes
+  dates: [2026-10-11]
+  source: L28
+  from: [355]
+  section: design.md#sets
+- id: SET-23
+  text: >-
+    Objects are harmful, dual-purpose or benign, each with how it harms and its domain (kitchen,
+    workshop, garden, medical, military, sport and more). Whole domains are held out, and a
+    harmful-against-benign axis shows where the dual-purpose objects sit between the two.
+  status: decided
+  built: yes
+  dates: [2026-10-09]
+  source: message
+  from: [294]
+  section: design.md#sets
+- id: SET-24
+  text: >-
+    How an object harms: cutting, piercing, blunt, fire, explosive, chemical, projectile,
+    restraint or none (piercing added by the set).
+  status: decided
+  built: yes
+  dates: [2026-10-11]
+  source: L28
+  from: [360]
+  section: design.md#sets
+- id: SET-25
+  text: >-
+    The object set holds 321 objects rather than about 400, because single-word names of harmful
+    things ran out.
+  status: decided
+  built: yes
+  dates: [2026-10-11]
+  source: L28
+  from: [362]
+  section: design.md#sets
+- id: SET-26
+  text: >-
+    In the app, Claude agents generate sentence sets to instructions.
+  status: decided
+  built: no
+  dates: [2026-10-04, 2026-10-07]
+  source: message
+  from: [364]
+  section: design.md#builder
+- id: SET-27
+  text: >-
+    Each whole set is written by one `claude -p` run, all classes together, or by a team whose
+    every agent works across all the classes, so author differences can't line up with the
+    classes; the audits check batches anyway.
+  status: decided
+  built: no
+  dates: [2026-10-07, 2026-10-11]
+  source: L1; L29
+  from: [368, 371]
+  section: design.md#builder
+- id: SET-28
+  text: >-
+    Text that joins a measured dataset is never written by subagents: Claude writes it in the main
+    conversation. Claude agents may build structured world data. (The app's builder follows SET-27.)
+  status: decided
+  built: yes
+  dates: [2026-10-06]
+  source: message
+  from: []
+  section: design.md#sets
+- id: SET-29
+  text: >-
+    The blind brief: authors see only the contrast and the diversity rules, as in the paper.
+  status: built
+  built: partly
+  dates: []
+  source: ""
+  from: [373]
+  section: design.md#builder
+- id: SET-30
+  text: >-
+    Audits for every set: balance by class and scene family, length and register, a shuffle test,
+    and scene diversity, promoted from the paper's scripts to tools.
+  status: decided
+  built: partly
+  dates: [2026-10-07]
+  source: design review
+  from: [375]
+  section: design.md#sets
+
+# ---- LENS: building lenses ----
+- id: LENS-1
+  text: >-
+    Building lenses and using them to watch an agent are different activities.
+  status: decided
+  built: yes
+  dates: [2026-10-07]
+  source: message
+  from: [261]
+  section: design.md#lenses
+- id: LENS-2
+  text: >-
+    A UMAP lens has usually 6 dimensions per layer, is clustered, and has k chosen per layer.
+  status: decided
+  built: yes
+  dates: [2026-10-06]
+  source: message
+  from: [379]
+  section: design.md#lenses
+- id: LENS-3
+  text: >-
+    A mass-mean lens is one axis per layer, validated on held-out data.
+  status: decided
+  built: yes
+  dates: [2026-10-06]
+  source: message
+  from: [381]
+  section: design.md#lenses
+- id: LENS-4
+  text: >-
+    Raw-space groupings are designed carefully and compared with UMAP.
+  status: decided
+  built: yes
+  dates: [2026-10-06]
+  source: message
+  from: [382]
+  section: design.md#lenses
+- id: LENS-5
+  text: >-
+    Standardized PCA: centre, standardize each neuron, reduce to 50 dimensions, then cluster with
+    Ward or spectral clustering (the best raw-space method in the 2026-10-06 comparison).
+  status: decided
+  built: yes
+  dates: [2026-10-07]
+  source: design review
+  from: [384]
+  section: design.md#lenses
+- id: LENS-6
+  text: >-
+    Relevant-neuron PCA, a third grouping: keep the neurons most associated with the set's
+    classes, then reduce them with PCA, so the axes are weighted sums of named neurons and a new
+    token is read by a linear projection. Because the classes choose the neurons, they are chosen
+    inside each training fold, judged only held out, and compared with the supervised ceiling,
+    never with unsupervised groupings.
+  status: decided
+  built: yes
+  dates: [2026-10-07]
+  source: L8
+  from: [386]
+  section: design.md#lenses
+- id: LENS-7
+  text: >-
+    k per layer, by hand or suggested automatically with its method named; both stay as tools.
+  status: decided
+  built: yes
+  dates: [2026-10-07]
+  source: message
+  from: [395]
+  section: design.md#lenses
+- id: LENS-8
+  text: >-
+    The elbow method and the others are re-tried on the tank polysemy set, where the number of
+    senses is known.
+  status: decided
+  built: yes
+  dates: [2026-10-07]
+  source: message
+  from: [399]
+  section: design.md#lenses
+- id: LENS-9
+  text: >-
+    Better automatic methods for choosing k.
+  status: open
+  built: no
+  dates: []
+  source: ""
+  from: [402]
+  section: design.md#open-questions
+- id: LENS-10
+  text: >-
+    When clusters are nested, report every level where the structure is clear (for example 2 at
+    the top and 5 below it), not one number.
+  status: decided
+  built: yes
+  dates: [2026-10-07]
+  source: message
+  from: [402]
+  section: design.md#lenses
+- id: LENS-11
+  text: >-
+    A k profile per layer: for each layer and k, the silhouette, the stability across seeds and the
+    agreement with each designed axis; the chosen k is saved with the lens.
+  status: decided
+  built: yes
+  dates: [2026-10-07]
+  source: design review
+  from: [405]
+  section: design.md#lenses
+- id: LENS-12
+  text: >-
+    Tuning chooses k, and the settings, by held-out AMI with the designed classes (held-out
+    accuracy keeps rising with k); accuracy and kappa are shown beside it, and the k profile's
+    held-out best follows AMI too.
+  status: decided
+  built: yes
+  dates: [2026-10-08]
+  source: message; the slice 1b plan (the held-out best)
+  from: [408]
+  section: design.md#lenses
+- id: LENS-13
+  text: >-
+    A lens must classify held-out data well, and the held-out data is whole scene families (the
+    paper's method).
+  status: decided
+  built: yes
+  dates: [2026-10-06, 2026-10-07]
+  source: message
+  from: [417, 418]
+  section: design.md#lenses
+- id: LENS-14
+  text: >-
+    Sankeys from both instruments are compared on class purity and separation, and the better is
+    chosen.
+  status: decided
+  built: yes
+  dates: [2026-10-06]
+  source: message
+  from: [420]
+  section: design.md#lenses
+- id: LENS-15
+  text: >-
+    A fair comparison: the same k for all candidates; unsupervised groupings compared only with
+    each other; groupings built from the labels shown as the supervised ceiling, never as a
+    competitor; scores held out and corrected for chance.
+  status: decided
+  built: yes
+  dates: [2026-10-07]
+  source: design review
+  from: [421]
+  section: design.md#lenses
+- id: LENS-16
+  text: >-
+    A self-check: before lens search is trusted, it must find structure planted in synthetic data.
+  status: decided
+  built: yes
+  dates: [2026-10-07]
+  source: design review
+  from: [427]
+  section: design.md#lenses
+- id: LENS-17
+  text: >-
+    Lens search: a search over UMAP's settings (neighbours, dimensions, minimum distance) and k,
+    layer by layer; settings that fail the self-check drop out; winners are chosen on selection
+    folds and scored on a test portion of whole families the search never saw, beside the source
+    lens, the raw-space groupings and the ceiling; the tuned lens says its own validation is partly
+    selection-biased.
+  status: decided
+  built: yes
+  dates: [2026-10-08]
+  source: the slice 1b plan
+  from: [429]
+  section: design.md#lenses
+- id: LENS-18
+  text: >-
+    Tuning by hand: Andrew can adjust UMAP's settings himself to get better clusters, with more
+    settings in the form, a one-layer preview and a chart comparing lenses.
+  status: decided
+  built: yes
+  dates: [2026-10-09]
+  source: message
+  from: [438]
+  section: design.md#lenses
+- id: LENS-19
+  text: >-
+    Hand tuning stays honest: settings chosen by hand are recorded as such (only a search's count
+    as tuned); a lens whose settings were chosen on held-out scores says its validation is
+    selection-biased; previews never score the test portion.
+  status: decided
+  built: yes
+  dates: [2026-10-11]
+  source: L16.4
+  from: [441]
+  section: design.md#lenses
+- id: LENS-20
+  text: >-
+    A lens remembers how it is held out: a set declares its held-out families and its capture keeps
+    the declaration; each lens records its families field, whole names, a fold cap and the test
+    split, and later jobs use it; family folds beyond the cap merge round-robin.
+  status: decided
+  built: yes
+  dates: [2026-10-11]
+  source: L16.4
+  from: [447]
+  section: design.md#lenses
+- id: LENS-21
+  text: >-
+    The tuning's test split is repeated over several draws, so a single small test portion isn't
+    the whole honest score.
+  status: decided
+  built: no
+  dates: [2026-10-11]
+  source: L18.1
+  from: [452]
+  section: design.md#lenses
+- id: LENS-22
+  text: >-
+    A stricter line beside "beyond the decoys", such as half the kappa a linear probe reaches, since
+    nearly every attribute passes the decoys.
+  status: decided
+  built: no
+  dates: [2026-10-11]
+  source: L18.2
+  from: [452]
+  section: design.md#lenses
+- id: LENS-23
+  text: >-
+    Decoys that keep the design's correlations, shuffled within each category.
+  status: decided
+  built: no
+  dates: [2026-10-11]
+  source: L18.3
+  from: [452]
+  section: design.md#lenses
+- id: LENS-24
+  text: >-
+    Folds that hold out whole domains but keep each class's share about equal in every fold.
+  status: decided
+  built: no
+  dates: [2026-10-11]
+  source: L18.4
+  from: [452]
+  section: design.md#lenses
+- id: LENS-25
+  text: >-
+    Each taxonomy match is checked against the animal's common names (the name "bee" once matched
+    a moth genus).
+  status: decided
+  built: no
+  dates: [2026-10-11]
+  source: L18.5
+  from: [452]
+  section: design.md#sets
+- id: LENS-26
+  text: >-
+    The first four method changes (LENS-21 to LENS-24) are built with slice 2, capture and jobs.
+  status: proposed
+  built: no
+  dates: [2026-10-11]
+  source: Claude
+  from: [463, 1408]
+  section: plan.md#phases
+- id: LENS-27
+  text: >-
+    The taxonomy check (LENS-25) runs first as a study script, in the animal ontology's audit.
+  status: proposed
+  built: no
+  dates: [2026-10-11]
+  source: Claude (step 1 of the animal ontology proposal)
+  from: [464]
+  section: plan.md#phases
+- id: LENS-28
+  text: >-
+    The taxonomy check joins the set audits with the builder, slice 3.
+  status: proposed
+  built: no
+  dates: [2026-10-11]
+  source: Claude
+  from: [465]
+  section: plan.md#phases
+- id: LENS-29
+  text: >-
+    The neurons behind each node, found by correlation.
+  status: decided
+  built: yes
+  dates: [2026-10-04]
+  source: message
+  from: [468]
+  section: design.md#lenses
+- id: LENS-30
+  text: >-
+    For each split between nodes: how much comes from attention and how much from the experts,
+    and the other token positions that carry the same signal.
+  status: decided
+  built: no
+  dates: [2026-10-06]
+  source: message
+  from: [469]
+  section: design.md#lenses
+- id: LENS-31
+  text: >-
+    What each node pushes toward, through the output vocabulary (the logit lens).
+  status: decided
+  built: yes
+  dates: [2026-10-06]
+  source: message
+  from: [472]
+  section: design.md#lenses
+- id: LENS-32
+  text: >-
+    A check, for each node, that surface features (length, first word) don't explain it.
+  status: decided
+  built: yes
+  dates: [2026-10-06]
+  source: message
+  from: [474]
+  section: design.md#lenses
+- id: LENS-33
+  text: >-
+    Before a key finding is accepted, its population is steered into the other node, and what
+    changes downstream is recorded.
+  status: decided
+  built: no
+  dates: [2026-10-06]
+  source: message
+  from: [475]
+  section: design.md#interventions
+- id: LENS-34
+  text: >-
+    Each node's expert fingerprint: how much weight each expert gets at each layer, for the node's
+    population.
+  status: decided
+  built: yes
+  dates: [2026-10-08]
+  source: Part M
+  from: [477]
+  section: design.md#lenses
+- id: LENS-35
+  text: >-
+    How each lens bears on routing, at each layer: the routing effect (how much of the next layer's
+    item-to-item routing difference lines up with the nodes) and, for mass-mean lenses, router
+    alignment (the routing change the axis predicts through the next router, against random
+    directions of the same length).
+  status: decided
+  built: yes
+  dates: [2026-10-08]
+  source: Part M; the slice 1 plan (the two measures)
+  from: [479]
+  section: design.md#lenses
+- id: LENS-36
+  text: >-
+    Each node lists the published features closest to it, from the public sparse autoencoders for
+    gpt-oss-20b: a comparison, not circuit discovery.
+  status: decided
+  built: no
+  dates: [2026-10-08]
+  source: Part M
+  from: [490]
+  section: design.md#lenses
+- id: LENS-37
+  text: >-
+    Each scenario set gets a kit of lenses designed for it, or reuses lenses already built.
+  status: decided
+  built: no
+  dates: [2026-10-06, 2026-10-07]
+  source: message
+  from: [495]
+  section: design.md#agents
+- id: LENS-38
+  text: >-
+    People assessment lenses: friend or foe and the type of foe, and others such as intent, threat,
+    honesty and need.
+  status: decided
+  built: no
+  dates: [2026-10-06, 2026-10-07]
+  source: message
+  from: [497, 498]
+  section: design.md#agents
+- id: LENS-39
+  text: >-
+    Winter Survival's kit: what the agent is thinking about, such as hunger, food, fire, cold,
+    injury, danger and trust in the others.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: message
+  from: [500]
+  section: design.md#agents
+- id: LENS-40
+  text: >-
+    More lenses and situations to study will come as the work goes on.
+  status: decided
+  built: partly
+  dates: [2026-10-07]
+  source: message
+  from: [501]
+  section: design.md#agents
+- id: LENS-41
+  text: >-
+    Each kit lens lists its keywords, drawn from the scenario's MUD commands (the object in
+    `greet stranger`, the words in `eat fish`); the lens is read at those keywords in the agent's
+    output, and kit lenses are calibrated on text like the agent's own.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: design review
+  from: [502]
+  section: design.md#agents
+- id: LENS-42
+  text: >-
+    How a lens reads a word is one of three modes, chosen by experiment: a single token, a token
+    collection calibrated together, or a scan through the text for any strong signal.
+  status: decided
+  built: partly
+  dates: [2026-10-06]
+  source: message
+  from: [508]
+  section: design.md#lenses
+- id: LENS-43
+  text: >-
+    Every lens gets a report written by LLM agents from its cluster and expert Sankeys, who agree
+    on what it shows. Lenses range from broad (a taxonomy of animals) to specific, across every
+    kind of linguistic phenomenon, and each is a setting an AI scientist can learn from.
+  status: decided
+  built: yes
+  dates: [2026-10-07]
+  source: message
+  from: [514, 516]
+  section: design.md#analysis
+- id: LENS-44
+  text: >-
+    Each lens's report covers its nodes (the latent clusters), the experts involved, and its
+    expert pipelines and hubs, with every number checked; one lens's pipelines and hubs come with
+    it, and the catalogue across every capture is the atlas's.
+  status: decided
+  built: yes
+  dates: [2026-10-08]
+  source: message; the slice 1b plan (hubs, per-lens pipelines)
+  from: [518]
+  section: design.md#analysis
+- id: LENS-45
+  text: >-
+    How many axes: for a set with several designed axes, an analysis counts how many each technique
+    recovers on held-out data, layer by layer (the UMAP lens's nodes, raw-space groupings, a linear
+    probe as the ceiling, and PCA with its effective dimensionality), against decoy axes, with the
+    angles between partial axes shown beside the design's own correlations.
+  status: decided
+  built: yes
+  dates: [2026-10-08]
+  source: message; the slice 1b plan (its method)
+  from: [527]
+  section: design.md#lenses
+
+- id: LENS-46
+  text: >-
+    A lens's reading of new data is judged on held-out sentences; in Andrew's experience, lenses
+    built from large, varied probes have placed held-out sentences in the right clusters strongly.
+  status: decided
+  built: yes
+  dates: [2026-10-08]
+  source: Part M (M1), in DESIGN.md's appendix
+  from: []
+  section: design.md#lenses
+# ---- TIME: reading over time ----
+- id: TIME-1
+  text: >-
+    Three orderings are time: context steps (a sentence sequence grows), ticks (the agent's turns)
+    and reasoning steps (the reasoning stream grows inside one tick). Readings are compared within
+    one ordering, never from one tick's reasoning to the next tick's, and depth (the layer) is not
+    time.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: L4
+  from: [540]
+  section: design.md#time
+- id: TIME-2
+  text: >-
+    The next tick's input excludes earlier reasoning streams: the runner hands back only the action
+    as the model's turn, as gpt-oss's chat format does.
+  status: built
+  built: yes
+  dates: []
+  source: ""
+  from: [546]
+  section: design.md#time
+- id: TIME-3
+  text: >-
+    The project's own rules for reading over time, each kept because it earns its place: the same
+    kind of site read the same way every time; validation on held-out scene families; the lens
+    checked in the context it reads; statistics at the scene-family level; one fixed, saved lens
+    reads every point; dynamics computed within one ordering. References are a tool for studies,
+    not a rule for every reading.
+  status: decided
+  built: partly
+  dates: [2026-10-07]
+  source: L4
+  from: [550]
+  section: design.md#time
+- id: TIME-4
+  text: >-
+    For an agent run, the main reading is at the output: each lens is read at its keywords in the
+    agent's action (the scenario's MUD commands), the same kind of site every tick, where the
+    decision is written.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: L2
+  from: [565]
+  section: design.md#time
+- id: TIME-5
+  text: >-
+    Across the reasoning, a scan: every token of the reasoning stream is read through each lens of
+    the kit and compared with how the same token reads in neutral text; the few tokens with a strong
+    signal light up.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: L2
+  from: [565]
+  section: design.md#time
+- id: TIME-6
+  text: >-
+    Carriers, by replay, are the controlled comparison: to read a recorded run at a point, take its
+    exact context up to that point, add the lens's carrier, run one forward pass with no
+    generation, and read the carrier's token. Carriers are also the method for sentence studies.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: L2
+  from: [565]
+  section: design.md#time
+- id: TIME-7
+  text: >-
+    Carrier tokens help with demonstrations, but they don't show how the model would really act.
+  status: view
+  dates: [2026-10-04]
+  source: message
+  from: [582]
+  section: design.md#time
+- id: TIME-8
+  text: >-
+    The output is the best single place to capture understanding.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: message
+  from: [583]
+  section: design.md#time
+- id: TIME-9
+  text: >-
+    The agents' reasoning streams are analysed first, mostly for frequent words, before the agent
+    is asked to use any word: to find words that already recur in its reasoning.
+  status: decided
+  built: no
+  dates: [2026-10-10]
+  source: message
+  from: [584]
+  section: design.md#time
+- id: TIME-10
+  text: >-
+    Words the agent uses often become candidate read sites.
+  status: proposed
+  built: no
+  dates: [2026-10-10]
+  source: Claude
+  from: [587]
+  section: design.md#time
+- id: TIME-11
+  text: >-
+    Asking the agent to use words chosen for it is a last resort, for information no other site
+    gives.
+  status: decided
+  built: no
+  dates: [2026-10-10]
+  source: message
+  from: [588]
+  section: design.md#time
+- id: TIME-12
+  text: >-
+    Giving the agent words marked as for measurement only, as an idea to test.
+  status: idea
+  built: no
+  dates: [2026-10-06]
+  source: message
+  from: [589]
+  section: design.md#time
+- id: TIME-13
+  text: >-
+    Two numbers in every reading: presence (whether the lens's concept is represented at all) and
+    position (which class it leans to, and how far). Unresolved (present but between the classes)
+    and absent are told apart; a reading still between the classes at the output is flagged as
+    worth opening in Watch.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: L4
+  from: [592]
+  section: design.md#time
+- id: TIME-14
+  text: >-
+    Presence is calibrated on states that include natural in-between ones; calibrated on clean
+    classes only, a torn state would look absent.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: design review
+  from: [604]
+  section: design.md#time
+- id: TIME-15
+  text: >-
+    In a study, "between the classes" is judged against bands: the range of each class's readings
+    at that point, from references (runs whose label never changes, from scene families the lens
+    wasn't fitted on). Agent studies come as scripted runs, for claims about change over time, and
+    free play, for behaviour, always showing how many runs reach each point.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: L4
+  from: [608]
+  section: design.md#time
+- id: TIME-16
+  text: >-
+    The context-shift study's own question (when an understanding shifts, is the state in between a
+    learned state, a passage, or off the model's usual states?) belongs to that study, not to the
+    software as a whole.
+  status: decided
+  built: yes
+  dates: [2026-10-07]
+  source: message
+  from: [618]
+  section: design.md#time
+- id: TIME-17
+  text: >-
+    Questions experiments settle, with more to come as the design stays flexible: how early and
+    accurately the output reading, the scan and the carriers track a scenario's labels, tick by
+    tick (the first agent experiment); which reading mode works at keywords; what neutral text the
+    scan compares against; how presence is best measured; whether a lens reads the same way as
+    ticks accumulate; whether free play can be compared with references at equal context length;
+    whether a carrier works better as a user's question or as the opening of the reasoning.
+  status: open
+  built: no
+  dates: [2026-10-07]
+  source: time review
+  from: [626]
+  section: design.md#open-questions
+- id: TIME-18
+  text: >-
+    The first version of time is tested on known answers: it must reproduce the paper's per-run
+    tank results (the crossing point, the settled level and the dwell) from the paper's tank runs
+    before it is used on agents; a subset of those sessions is copied from the C: drive for this.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: time review
+  from: [639]
+  section: design.md#time
+
+# ---- APP: the app ----
+- id: APP-1
+  text: >-
+    The app is rebuilt from the ground up rather than changed, as long as everything it does today
+    comes back (the Sankeys, looking at routes and the rest); the approach is left to Claude. Tools
+    and approaches may change at this point, as long as the functions stay.
+  status: decided
+  built: no
+  dates: [2026-10-10]
+  source: message; the last sentence in DESIGN.md's appendix
+  from: [647]
+  section: design.md#app
+- id: APP-2
+  text: >-
+    More of the app is visual: values are set with visual controls rather than typed (clustering is
+    the example).
+  status: decided
+  built: partly
+  dates: [2026-10-10]
+  source: message
+  from: [651]
+  section: design.md#app
+- id: APP-3
+  text: >-
+    Ways to get there: perhaps folding controls, and perhaps using the MUD for some of it too,
+    because that would be fun; Claude is asked to consider it as well.
+  status: idea
+  built: no
+  dates: [2026-10-10]
+  source: message
+  from: [653]
+  section: design.md#app
+- id: APP-4
+  text: >-
+    Rooms are the app's places: each room has its own colours and tools; a map and a quick-jump box
+    reach any room at once; with the MUD open, moving in either one moves the other; the app also
+    works with the MUD closed.
+  status: decided
+  built: no
+  dates: [2026-10-11]
+  source: L20
+  from: [655]
+  section: design.md#app
+- id: APP-5
+  text: >-
+    The new app is built room by room until it does everything today's app does, straight after
+    the two documents.
+  status: decided
+  built: no
+  dates: [2026-10-11]
+  source: L21
+  from: [658]
+  section: plan.md#phases
+- id: APP-6
+  text: >-
+    Claude's approach to the new app: built beside the current one, with everything you see and
+    touch new and the code behind the charts (the Sankey layout, the expert order, the colour
+    maths, lit paths) carried over with its tests; the same tools (React, TypeScript, Vite,
+    ECharts), with a small kit of accessible controls and each room's colours from one set of
+    design tokens; visual first (sliders, toggles and clickable charts instead of typed values,
+    folding panels with the basic controls open, an inspector beside the chart for a selection);
+    the rooms (the polysemy lab, an observatory for reading Sankeys and routes, a lens workshop, a
+    library with the builder, the simulator for agents, a studies room), with a quick-jump box that
+    also takes MUD-style commands; every room walked in a browser against a checklist of every
+    current feature before it is called done; the current app retires once the checklist is done,
+    with the list of what goes, for Andrew's yes.
+  status: proposed
+  built: no
+  dates: [2026-10-10]
+  source: Claude
+  from: [660]
+  section: design.md#app
+- id: APP-7
+  text: >-
+    The app is for analysing: runs that have happened, clusterings and the reports the LLMs write;
+    it also holds the builders. It doesn't start runs (they start in the MUD or through Claude
+    Code), and it follows a run in progress one saved tick at a time. Its workspaces: Build,
+    Layers, Watch, Study, MUD (maintaining the MUD and designing scenarios with Claude agents'
+    help), Atlas and Ideas.
+  status: decided
+  built: partly
+  dates: [2026-10-07]
+  source: L7
+  from: [679]
+  section: design.md#app
+- id: APP-8
+  text: >-
+    Later, an Ideas workspace: track every research idea, generate new ones and follow the AI
+    scientists; an existing idea-tracking engine moves into this repo for it.
+  status: decided
+  built: no
+  dates: [2026-10-04]
+  source: message
+  from: [691]
+  section: design.md#app
+- id: APP-9
+  text: >-
+    Basic controls first, the rest behind Advanced (for example, clustering's Advanced holds
+    automatic k detection and the choice of method).
+  status: decided
+  built: yes
+  dates: [2026-10-07]
+  source: message
+  from: [694]
+  section: design.md#app
+- id: APP-10
+  text: >-
+    Panels size themselves to the window; dividers can be dragged, and any panel can fill the
+    screen and come back.
+  status: decided
+  built: partly
+  dates: [2026-10-07]
+  source: message
+  from: [696]
+  section: design.md#app
+- id: APP-11
+  text: >-
+    The MUD terminal folds away when it isn't needed.
+  status: decided
+  built: yes
+  dates: [2026-10-07]
+  source: time review
+  from: [698]
+  section: design.md#app
+- id: APP-12
+  text: >-
+    The main pane shows one timeline at a time, and every panel holds one chart.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: time review; message
+  from: [700, 701]
+  section: design.md#app
+- id: APP-13
+  text: >-
+    Each variable gets one visual channel (colour, shape, pattern or line style), and the legend
+    is always on.
+  status: decided
+  built: yes
+  dates: [2026-10-07]
+  source: time review
+  from: [703]
+  section: design.md#app
+- id: APP-14
+  text: >-
+    Missing pieces are named: with no validated lens for a site, the view says so and links to
+    where lenses are built; with too few runs at a point, that point is drawn faded.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: time review
+  from: [704]
+  section: design.md#app
+- id: APP-15
+  text: >-
+    The page never scrolls sideways; only charts meant to scroll do, such as the all-layer
+    Sankeys.
+  status: decided
+  built: yes
+  dates: [2026-10-07]
+  source: message
+  from: [707]
+  section: design.md#app
+- id: APP-16
+  text: >-
+    An analysis panel sits beside each view, with the LLM-written report on whatever is selected.
+  status: decided
+  built: partly
+  dates: [2026-10-07]
+  source: message
+  from: [709]
+  section: design.md#analysis
+- id: APP-17
+  text: >-
+    Every chart exports its picture (SVG, PNG) and its data (CSV, JSON), each export carrying a
+    recipe (the lens and its version, the captures, the settings, the commit) so the figure can be
+    made again exactly.
+  status: decided
+  built: yes
+  dates: [2026-10-07, 2026-10-08]
+  source: time review; Part M
+  from: [711, 713]
+  section: design.md#app
+- id: APP-18
+  text: >-
+    Layers, today's main view, improved: all 24 layers in one view that scrolls sideways, with a
+    zoom (6, 12 or 24 layers) and an overview strip, replacing the old four fixed windows whose
+    edges cut flows; the cluster Sankey and the expert Sankey stacked and scrolling together.
+  status: decided
+  built: yes
+  dates: [2026-10-07]
+  source: design review
+  from: [937, 938, 942]
+  section: design.md#layers
+- id: APP-19
+  text: >-
+    Expert weights are the model's own: wherever a weight is shown, it is the expert's weight among
+    the token's four, and all four ranks can be chosen.
+  status: decided
+  built: yes
+  dates: [2026-10-07]
+  source: message
+  from: [943]
+  section: design.md#layers
+- id: APP-20
+  text: >-
+    Clicking a node lists the runs that pass through it, and when.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: time review
+  from: [947]
+  section: design.md#layers
+- id: APP-21
+  text: >-
+    Clustering can be run from Layers, and from the polysemy lab's room in the MUD.
+  status: decided
+  built: partly
+  dates: [2026-10-04]
+  source: message
+  from: [948]
+  section: design.md#layers
+- id: APP-22
+  text: >-
+    More visual channels than colour blending, such as lines shaped by sine waves and patterned
+    Sankey nodes.
+  status: decided
+  built: no
+  dates: [2026-10-06, 2026-10-07]
+  source: message
+  from: [950]
+  section: design.md#layers
+- id: APP-23
+  text: >-
+    Colour by any designed axis.
+  status: decided
+  built: yes
+  dates: [2026-10-07]
+  source: design review
+  from: [952]
+  section: design.md#layers
+- id: APP-24
+  text: >-
+    Colour that reads true: colours blend in a perceptual colour space (OKLab); an optional striped
+    node shows the exact shares; two designed axes can share one colour (hue and lightness) with a
+    square legend.
+  status: decided
+  built: yes
+  dates: [2026-10-08]
+  source: Part M
+  from: [953]
+  section: design.md#layers
+- id: APP-25
+  text: >-
+    Expert fingerprints: for any node, population or condition, a 24 × 32 grid of how much weight
+    each expert gets at each layer, and difference grids between two of them.
+  status: decided
+  built: yes
+  dates: [2026-10-08]
+  source: Part M
+  from: [960]
+  section: design.md#layers
+- id: APP-26
+  text: >-
+    Expert Sankeys keep one layout: experts at each layer are ordered to minimize crossings, once,
+    from the pooled flows, and kept fixed across conditions, so a difference is real rather than
+    layout.
+  status: decided
+  built: yes
+  dates: [2026-10-08]
+  source: Part M
+  from: [963]
+  section: design.md#layers
+- id: APP-27
+  text: >-
+    Where the instruments disagree is marked: items whose node differs between the UMAP lens and the
+    best raw-space grouping are marked on the cluster Sankey.
+  status: decided
+  built: yes
+  dates: [2026-10-08]
+  source: Part M
+  from: [967]
+  section: design.md#layers
+- id: APP-28
+  text: >-
+    The 3-D trajectories show what the lens counts: they colour by node and say which fit they
+    draw.
+  status: decided
+  built: yes
+  dates: [2026-10-08]
+  source: Part M
+  from: [970]
+  section: design.md#layers
+- id: APP-29
+  text: >-
+    The 3-D view draws the lens's own space: its embedding when it has three dimensions, otherwise
+    its three main directions; each layer turned to line up with the one before, with one scale on
+    all three axes; items read through the lens land in the same frame; its own panel beside the
+    Sankeys.
+  status: decided
+  built: yes
+  dates: [2026-10-08]
+  source: message; the slice 1b plan (one scale, its own panel)
+  from: [974]
+  section: design.md#layers
+- id: APP-30
+  text: >-
+    A selection lights its path: an item, a node's members, a pipeline or one step of a run lights
+    its path through the nodes over faded flows, in the cluster Sankey, the expert Sankey and 3-D;
+    Watch draws a tick's path the same way.
+  status: decided
+  built: partly
+  dates: [2026-10-08]
+  source: his idea for a step; the slice 1b plan (the rest)
+  from: [981]
+  section: design.md#layers
+- id: APP-31
+  text: >-
+    The expert Sankey has a weighted view of all four ranks, where a pipeline's every step can be
+    drawn.
+  status: decided
+  built: yes
+  dates: [2026-10-08]
+  source: the slice 1b plan
+  from: [986]
+  section: design.md#layers
+- id: APP-32
+  text: >-
+    Depth heatmaps, per lens: tokens × layers for one sentence or tick (where in the text, and at
+    which depth, a concept forms), and layers × time for a run or a study.
+  status: decided
+  built: no
+  dates: [2026-10-08]
+  source: Part M
+  from: [988]
+  section: design.md#layers
+- id: APP-33
+  text: >-
+    Cards with LLM-written reports for clusters, experts, routes and expert routes.
+  status: retired
+  built: yes
+  dates: []
+  source: ""
+  from: [994]
+  section: design.md#retired
+  replaced_by: [LLM-5]
+- id: APP-34
+  text: >-
+    The app takes commands: Claude Code, Claude agents and MUD commands use one small command
+    interface to open a view, run a clustering or choose a lens.
+  status: decided
+  built: yes
+  dates: [2026-10-04, 2026-10-07]
+  source: message; L11
+  from: [1025]
+  section: design.md#app
+
+# ---- BUILD: the builders ----
+- id: BUILD-1
+  text: >-
+    One builder for sentence sets and scenarios: `claude -p` drafts a labelled text set or a
+    scenario; you review it in a table beside its audits, edit or redraft it, and save it as a
+    version. A friend/foe scenario gives the model the scene and the list of commands at each tick,
+    so the builder can draft one.
+  status: decided
+  built: no
+  dates: [2026-10-10, 2026-10-11]
+  source: his idea (2026-10-10); L22
+  from: [717]
+  section: design.md#builder
+- id: BUILD-2
+  text: >-
+    For scenarios the builder stays open to experiment: several authoring setups and teams of
+    Claude agents can be tried until the scenarios meet their criteria, instead of a single bare
+    request.
+  status: decided
+  built: no
+  dates: [2026-10-11]
+  source: L22
+  from: [722]
+  section: design.md#builder
+- id: BUILD-3
+  text: >-
+    Teams of agents may write sentence sets too, each agent working across all the classes.
+  status: decided
+  built: no
+  dates: [2026-10-11]
+  source: L29
+  from: [726]
+  section: design.md#builder
+- id: BUILD-4
+  text: >-
+    Later the builder also edits a study's design.
+  status: decided
+  built: no
+  dates: [2026-10-11]
+  source: L17.2
+  from: [727]
+  section: design.md#builder
+- id: BUILD-5
+  text: >-
+    The sentence set builder and the scenario builder are the one builder's two halves.
+  status: proposed
+  built: no
+  dates: [2026-10-11]
+  source: Claude
+  from: [729]
+  section: design.md#builder
+- id: BUILD-6
+  text: >-
+    The sentence set builder shows the instructions given to the authoring agents and the sets that
+    come back. Its steps: describe the contrast (target word, classes, carrier, sentences per class,
+    scene families, diversity rules); read and edit the brief; generate; review the sentences in a
+    table beside the audits, editing or regenerating; save the set with a version and start its
+    capture as a background job.
+  status: decided
+  built: no
+  dates: [2026-10-07, 2026-10-11]
+  source: message; L29
+  from: [731]
+  section: design.md#builder
+- id: BUILD-7
+  text: >-
+    The scenario builder lists scenario sets and their versions; you edit a scenario's stages,
+    actions and labels and validate them; it opens the MUD terminal with the command ready, so you
+    play the scenario yourself (`simulate`) or start the agent on it (`agent run`) and runs still
+    start in the MUD; Claude agents can draft scenarios to instructions; a mini-world builder comes
+    later.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: message
+  from: [742, 746]
+  section: design.md#builder
+- id: BUILD-8
+  text: >-
+    The lens builder: pick a capture; Basic holds UMAP's neighbours and dimensions, minimum distance
+    and distance metric, k and a name; Advanced holds settings per layer, k per layer with the
+    automatic suggestion and its method, the reduction and grouping methods, the hold-out design and
+    filters; the build runs in the background and the new lens opens when ready; read the k profile
+    and held-out scores, then save the lens with its site and keywords.
+  status: decided
+  built: partly
+  dates: [2026-10-07, 2026-10-09, 2026-10-11]
+  source: message; L16.5 (the hold-out design)
+  from: [749, 752, 754, 757]
+  section: design.md#builder
+- id: BUILD-9
+  text: >-
+    "Rebuild with…" on each lens card opens the form prefilled with its settings and builds a new
+    lens in about a minute.
+  status: decided
+  built: yes
+  dates: [2026-10-09]
+  source: message
+  from: [763]
+  section: design.md#builder
+- id: BUILD-10
+  text: >-
+    A one-layer preview: pick a layer, change its settings, and see that layer's clusters in
+    seconds before building all 24 layers (its 3-D view coloured by any axis, the cut at k, how
+    well the clusters match each axis); held out on request, its settings copied into that layer's
+    row, run as a background job so it matches a build exactly.
+  status: decided
+  built: yes
+  dates: [2026-10-09, 2026-10-11]
+  source: message; L16.5
+  from: [764, 768]
+  section: design.md#builder
+- id: BUILD-11
+  text: >-
+    Compare lenses: held-out scores per layer for several lenses of one capture on one chart, with
+    a tuned lens's test score beside them.
+  status: decided
+  built: yes
+  dates: [2026-10-09, 2026-10-11]
+  source: message; L16.5
+  from: [769, 771]
+  section: design.md#builder
+- id: BUILD-12
+  text: >-
+    A mass-mean lens's readings by class, per layer, so the dual-purpose objects show their place
+    on the harm axis.
+  status: decided
+  built: yes
+  dates: [2026-10-11]
+  source: L16.5
+  from: [773]
+  section: design.md#builder
+- id: BUILD-13
+  text: >-
+    The kit editor: for a scenario set, choose the lenses and their keywords.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: message
+  from: [774]
+  section: design.md#builder
+
+# ---- WATCH: following agent runs ----
+- id: WATCH-1
+  text: >-
+    Watch shows which representations are active over time: for each scenario set its own panel of
+    lenses; a lens heatmap in which every token is scanned through each lens (most sentences show
+    nothing); each lens also read at the output, at keywords from the scenario's MUD commands; for
+    each lens its own Sankeys; lens panels, as many as wanted; replay, explained readings,
+    bookmarks, runs side by side and live alerts; good use of screen space.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: message; L6
+  from: [778]
+  section: design.md#watch
+- id: WATCH-2
+  text: >-
+    Watch's layout: the lens heatmap on top, the lens panels below it, and a side drawer (the run's
+    text tinted by the selected lens, the bookmarks, and the MUD terminal during a live run); each
+    area resizes and can fill the screen.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: L6
+  from: [789]
+  section: design.md#watch
+- id: WATCH-3
+  text: >-
+    The lens heatmap: rows are the kit's lenses grouped by theme (each naming its classes and
+    keywords, with a badge saying whether it is validated where it is read); by default each tick is
+    one column holding its output reading, and opening a tick shows the observation, the reasoning
+    sentence by sentence and the output; brightness is presence and colour is position; the output
+    cell is flagged when the concept is present but still between the classes; an events lane shows
+    stage changes and actions.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: L6; time review (one column per tick)
+  from: [823]
+  section: design.md#watch
+- id: WATCH-4
+  text: >-
+    Each lens is read at its best held-out layer by default, and a selector changes it.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: time review
+  from: [836]
+  section: design.md#watch
+- id: WATCH-5
+  text: >-
+    The lens panels: as many as wanted, one lens per panel; each shows its lens's cluster Sankey with
+    a toggle to its expert Sankey; panels sort by how strongly their lens is present in the selected
+    tick, pinned panels stay on top and absent ones dim; a mass-mean lens gets a three-bin Sankey; all
+    24 layers scroll sideways together across panels.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: L6
+  from: [839]
+  section: design.md#watch
+- id: WATCH-6
+  text: >-
+    Which token each panel uses, for now: a lens lights up in a tick only when its strongest token
+    beats the strongest token in neutral text of the same length; its path is drawn from the output
+    keyword (or the strongest token, said so, when there is none); clicking any heatmap cell or
+    token switches the panels to that token, drawn over the faded calibration flows.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: L6
+  from: [851]
+  section: design.md#watch
+- id: WATCH-7
+  text: >-
+    Replay: play, pause and step through a recorded run tick by tick, with the heatmap, the panels,
+    the text and the MUD transcript moving together.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: L6
+  from: [864]
+  section: design.md#watch
+- id: WATCH-8
+  text: >-
+    Branch from any tick: replay up to a tick, change one thing (the observation, a scaffold or a
+    steering vector) and let the model continue; the branch is a new run and a condition, started
+    through Claude Code or the MUD, and opens side by side with the original.
+  status: decided
+  built: no
+  dates: [2026-10-08]
+  source: Part M
+  from: [868]
+  section: design.md#watch
+- id: WATCH-9
+  text: >-
+    A reading explains itself: hovering a lit cell shows the lens's calibration sentences closest to
+    that state.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: L6
+  from: [873]
+  section: design.md#watch
+- id: WATCH-10
+  text: >-
+    Bookmarks: a moment marked with a note, saved into the study's files, where analyst agents read
+    it as evidence.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: L6
+  from: [877]
+  section: design.md#watch
+- id: WATCH-11
+  text: >-
+    Side by side: two runs with their ticks aligned, such as a scenario with and without steering,
+    ablation or a scaffold, or played by two different agents.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: L6
+  from: [881]
+  section: design.md#watch
+- id: WATCH-12
+  text: >-
+    Live alerts: when a chosen lens lights up, or a reading is still between the classes at the
+    output; the first step toward monitoring agents. Alerts are judged per run, by how many runs
+    they catch at an acceptable false-alarm rate, not by AUROC alone.
+  status: decided
+  built: no
+  dates: [2026-10-07, 2026-10-08]
+  source: L6; Part M
+  from: [887, 891]
+  section: design.md#watch
+- id: WATCH-13
+  text: >-
+    A run in progress opens like a finished run: each tick appears once saved, with its keyword
+    readings; the scan never slows the agent; alerts fire as soon as their readings exist; the
+    agent's play is watched in the MUD.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: L13
+  from: [895]
+  section: design.md#watch
+- id: WATCH-14
+  text: >-
+    What Watch needs: the runner captures the kit's keywords in each action and stores each tick's
+    token ids; the scan runs by replay or during the runner's capture pass, whichever is cheaper,
+    and stores only the readings; each lens has a neutral baseline, a chance level for the strongest
+    token and a nearest-neighbour index over its calibration states; readings are computed once and
+    stored.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: design review
+  from: [910]
+  section: design.md#watch
+
+- id: WATCH-15
+  text: >-
+    Watch's risks and what answers them: the scan compares each token with the same token in
+    neutral text; lighting up is judged against the chance level; presence tells a torn reading from
+    an absent concept; the heatmap shows raw readings by default, and with references Advanced shows
+    them against the bands; a lens not yet validated where it is read carries the exploratory badge;
+    heatmap rows group and fold, empty rows hide, and lens panels sort and dim.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: L6 (approved with Watch's layout)
+  from: []
+  section: design.md#watch
+# ---- STUDY: studies ----
+- id: STUDY-1
+  text: >-
+    Study compares many runs: a study file sets up the view (its runs, references, lens, layer, the
+    event to align on and how runs are grouped); the study timeline shows readings over time by
+    condition against the bands, with a bootstrap over scene families and the number of runs at each
+    point; one run list, marked by where each run was started, sortable by ticks between the bands,
+    crossing tick, final class and outcome; opening a run shows its timeline and a button to Watch;
+    behaviour shows each tick's action against its reading; readings are background jobs, computed
+    once and stored.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: time review
+  from: [996]
+  section: design.md#studies
+- id: STUDY-2
+  text: >-
+    A clear area for the studies in progress, showing which studies there are and where their
+    designs are iterated on; it is one of the new app's first rooms.
+  status: decided
+  built: no
+  dates: [2026-10-09, 2026-10-11]
+  source: message; L17.1
+  from: [997]
+  section: design.md#studies
+- id: STUDY-3
+  text: >-
+    The studies area's first version shows each study with its question, sets, captures, lenses,
+    findings and ledger; designs are edited with the builder later.
+  status: decided
+  built: no
+  dates: [2026-10-11]
+  source: L17.2
+  from: [1000]
+  section: design.md#studies
+- id: STUDY-4
+  text: >-
+    Each study's status and showcase show too; opening one shows its design, and its runs'
+    timelines once it has runs; Study opens on this list; until the builder edits designs, a study
+    file changes through Claude Code or by hand, and git keeps each earlier design.
+  status: proposed
+  built: no
+  dates: [2026-10-09]
+  source: Claude
+  from: [1002]
+  section: design.md#studies
+- id: STUDY-5
+  text: >-
+    Depth over time: the layers × time heatmap for a study's lens.
+  status: decided
+  built: no
+  dates: [2026-10-08]
+  source: Part M
+  from: [1019]
+  section: design.md#studies
+- id: STUDY-6
+  text: >-
+    A temporal Sankey: node transitions across ticks or context steps, once a study has enough runs
+    and few enough nodes.
+  status: decided
+  built: no
+  dates: [2026-10-08]
+  source: Part M
+  from: [1020]
+  section: design.md#studies
+
+# ---- LLM: LLM analysis in the app ----
+- id: LLM-1
+  text: >-
+    LLM analysis wherever it helps: an analysis panel, and cards with LLM-written reports for
+    clusters, experts, routes and expert routes. LLMs are good at spotting patterns such as pipes,
+    hubs and split points.
+  status: decided
+  built: partly
+  dates: [2026-10-07]
+  source: message; L12
+  from: [1030]
+  section: design.md#analysis
+- id: LLM-2
+  text: >-
+    The panel is the same everywhere: beside a view, showing the report on whatever is selected;
+    each report cites its numbers and a checker re-computes them; reports are written in the
+    background when their data is built, kept, and rewritten when the data changes; a question box
+    asks follow-ups; reports are marked as LLM-written, and a finding still goes through the
+    paradigm's review.
+  status: decided
+  built: yes
+  dates: [2026-10-07]
+  source: design review
+  from: [1035]
+  section: design.md#analysis
+- id: LLM-3
+  text: >-
+    Analysts are tested before they are trusted, and again whenever prompts or models change:
+    decoys (where a sound analyst reports nothing), planted findings, and predictive descriptions
+    scored against a simple baseline.
+  status: decided
+  built: yes
+  dates: [2026-10-08]
+  source: Part M
+  from: [1042]
+  section: design.md#analysis
+- id: LLM-4
+  text: >-
+    Reports have a budget: they are written first for validated lenses and selected items, the rest
+    on demand, with a budget per job.
+  status: decided
+  built: yes
+  dates: [2026-10-08]
+  source: Part M
+  from: [1050]
+  section: design.md#analysis
+- id: LLM-5
+  text: >-
+    In Layers: a card for each cluster, expert, route and expert route.
+  status: decided
+  built: yes
+  dates: [2026-10-07]
+  source: L12
+  from: [1059]
+  section: design.md#analysis
+- id: LLM-6
+  text: >-
+    In Layers: a card for each split point, saying what separates the two populations.
+  status: decided
+  built: yes
+  dates: [2026-10-07]
+  source: L12
+  from: [1060]
+  section: design.md#analysis
+- id: LLM-7
+  text: >-
+    In Layers: a report on the expert Sankey's pipes and hubs (the routes card).
+  status: decided
+  built: yes
+  dates: [2026-10-07]
+  source: L12
+  from: [1061]
+  section: design.md#analysis
+- id: LLM-8
+  text: >-
+    In Layers: a short note on what each layer transition changes.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: L12
+  from: [1062]
+  section: design.md#analysis
+- id: LLM-9
+  text: >-
+    In Build: a critic for each new sentence set, catching confounds the numeric audits can't (such
+    as one class always written in the past tense).
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: L12
+  from: [1063]
+  section: design.md#builder
+- id: LLM-10
+  text: >-
+    In Build: each lens's report.
+  status: decided
+  built: yes
+  dates: [2026-10-07]
+  source: L12
+  from: [1064]
+  section: design.md#analysis
+- id: LLM-11
+  text: >-
+    In Build: a k advisor that explains the k profile while you choose.
+  status: decided
+  built: yes
+  dates: [2026-10-07]
+  source: L12
+  from: [1065]
+  section: design.md#analysis
+- id: LLM-12
+  text: >-
+    In Watch: a run report (when the understanding formed, where it went wrong, why each flag
+    fired), a short note on a clicked moment, and a comparison report for runs side by side.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: L12
+  from: [1066, 1067, 1068]
+  section: design.md#watch
+- id: LLM-13
+  text: >-
+    In Study: a study report on crossings and on the differences between conditions.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: L12
+  from: [1069]
+  section: design.md#studies
+- id: LLM-14
+  text: >-
+    In the Atlas: reports connecting lenses (an expert or pipe serving several of them, the start
+    of the coherent model), and a report for each analysed scaffold.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: L12
+  from: [1070, 1071]
+  section: design.md#atlas
+- id: LLM-15
+  text: >-
+    In Ideas: what to probe next, from the gaps in the atlas.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: L12
+  from: [1072]
+  section: design.md#atlas
+- id: LLM-16
+  text: >-
+    Later, in the MUD: a guide in each lab who answers questions about the lab's view from the
+    cards.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: L12
+  from: [1073]
+  section: design.md#mud
+
+# ---- MUD: the MUD and agents in scenarios ----
+- id: MUD-1
+  text: >-
+    One repo and one MUD, hosting the institute, its labs and the scenarios.
+  status: decided
+  built: yes
+  dates: [2026-10-04]
+  source: message, in DESIGN.md's appendix
+  from: []
+  section: design.md#mud
+- id: MUD-2
+  text: >-
+    The MUD's first job is running agents in scenarios, alone or with people taking part.
+  status: idea
+  built: partly
+  dates: [2026-10-10]
+  source: message
+  from: [1078]
+  section: design.md#mud
+- id: MUD-3
+  text: >-
+    How people take part with agents is chosen per scenario: they only watch, as now, or play a
+    character the agent meets, and their lines are recorded as part of the run's conditions.
+  status: decided
+  built: partly
+  dates: [2026-10-11]
+  source: L23
+  from: [1079]
+  section: design.md#mud
+- id: MUD-4
+  text: >-
+    The MUD's second purpose is a way to move around the app: entering a room can bring its own
+    colours and interface parts (the polysemy lab was his example); decided as the app's rooms.
+  status: decided
+  built: no
+  dates: [2026-10-10, 2026-10-11]
+  source: his idea (2026-10-10); L20
+  from: [1082]
+  section: design.md#app
+- id: MUD-5
+  text: >-
+    Andrew likes moving between rooms as a way to get around the app.
+  status: view
+  dates: [2026-10-10]
+  source: message
+  from: [1085]
+  section: design.md#app
+- id: MUD-6
+  text: >-
+    Winter Survival, the free-form world, is a different undertaking.
+  status: view
+  dates: [2026-10-10]
+  source: message
+  from: [1086, 1439]
+  section: design.md#mud
+- id: MUD-7
+  text: >-
+    The MUD is for experiencing, playing and watching: the institute, its labs, the simulator, and
+    later the AI scientists' rooms and their events.
+  status: decided
+  built: partly
+  dates: [2026-10-04, 2026-10-07]
+  source: message
+  from: [1077]
+  section: design.md#mud
+- id: MUD-8
+  text: >-
+    Entering a scenario room to replay a run and watch which internal representations light up.
+  status: decided
+  built: no
+  dates: [2026-10-04]
+  source: message
+  from: [1090]
+  section: design.md#mud
+- id: MUD-9
+  text: >-
+    A user interface can live in the MUD.
+  status: idea
+  built: no
+  dates: [2026-10-04]
+  source: message
+  from: [1091]
+  section: design.md#mud
+- id: MUD-10
+  text: >-
+    Sentence sets and scenarios are written in the app's builders, not in the MUD.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: message
+  from: [1092]
+  section: design.md#mud
+- id: MUD-11
+  text: >-
+    The institute's rooms: the hub, where everyone starts; the polysemy lab, which opens its view
+    on entry (the clustering `tank_polysemy_k6_n20` of session 1434a9be); the simulator, the scenario
+    library's menu.
+  status: decided
+  built: yes
+  dates: [2026-10-04, 2026-10-06]
+  source: message (2026-10-04, the institute and its rooms; 2026-10-06, the lab's clustering)
+  from: [1096, 1098, 1099]
+  section: design.md#mud
+- id: MUD-12
+  text: >-
+    The AI scientists' rooms.
+  status: decided
+  built: no
+  dates: [2026-10-04]
+  source: message
+  from: [1100]
+  section: design.md#mud
+- id: MUD-13
+  text: >-
+    Researchers' rooms, planned.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: message
+  from: [1101]
+  section: design.md#mud
+- id: MUD-14
+  text: >-
+    Every MUD command is documented: look; watch and unwatch; in a watched scenario a watcher reads
+    but can't act or speak; simulator, simulate, agent run and agent stop in the simulator; lens,
+    lens list, lens show and lens build in the polysemy lab; look, examine, inventory, actions, a
+    choice's command and leave in a staged scenario; the world's grammar in Winter Survival; connect
+    guest at login. Only researchers may simulate, start agent runs or build lenses.
+  status: decided
+  built: yes
+  dates: [2026-10-07]
+  source: message
+  from: [1103]
+  section: design.md#mud
+- id: MUD-15
+  text: >-
+    Agent runs start in the MUD, with `agent run`, or through Claude Code; the app doesn't start
+    runs, it analyses them.
+  status: decided
+  built: yes
+  dates: [2026-10-07]
+  source: L10
+  from: [1128]
+  section: design.md#mud
+- id: MUD-16
+  text: >-
+    What the MUD plays: sentence-set probes; staged scenarios (multiple choice, in stages, with
+    known labels at each stage); worlds, Winter Survival the first of many; mini-worlds (a
+    starting situation on a world's engine, with exit conditions).
+  status: decided
+  built: partly
+  dates: [2026-10-04, 2026-10-06]
+  source: message
+  from: [1131]
+  section: design.md#mud
+- id: MUD-17
+  text: >-
+    The runner plays through a control channel, and nothing a watcher does reaches the agent.
+  status: built
+  built: yes
+  dates: []
+  source: ""
+  from: [1137]
+  section: design.md#mud
+- id: MUD-18
+  text: >-
+    Once Scaffold Dynamics, the project's server, is hosted for others (MUD-20), the app and the
+    backend connect to it by default; a user can run their own MUD instead, usually on localhost,
+    and enter its address.
+  status: decided
+  built: partly
+  dates: [2026-10-07]
+  source: message
+  from: [1140, 1143]
+  section: design.md#mud
+- id: MUD-19
+  text: >-
+    The MUD's address is entered in the app and checked with the MUD before it is saved; localhost
+    stays the default.
+  status: decided
+  built: no
+  dates: [2026-10-11]
+  source: L19.3
+  from: [1145]
+  section: design.md#mud
+- id: MUD-20
+  text: >-
+    Hosting Scaffold Dynamics for others (a server, accounts, abuse handling and cost) is planned
+    before other researchers are invited; until then the default address is localhost.
+  status: decided
+  built: no
+  dates: [2026-10-08]
+  source: Part M
+  from: [1147]
+  section: design.md#mud
+- id: MUD-21
+  text: >-
+    The names: the free-form world is Winter Survival, and the institute's MUD is Scaffold
+    Dynamics.
+  status: decided
+  built: yes
+  dates: [2026-10-06]
+  source: message, in DESIGN.md's appendix
+  from: []
+  section: design.md#mud
+- id: MUD-22
+  text: >-
+    The old prototype MUD retires once everything works in the new one; `simulate` shows what the
+    agent sees when a scenario loads.
+  status: decided
+  built: yes
+  dates: [2026-10-07]
+  source: message, in DESIGN.md's appendix
+  from: []
+  section: design.md#mud
+
+# ---- DATA: data and records ----
+- id: DATA-1
+  text: >-
+    The data lake: captures stay outside git; the lake on WSL's disk holds the six kept sessions
+    and every new capture, and is not copied wholesale; the paper's lake stays on the C: drive.
+  status: decided
+  built: yes
+  dates: [2026-10-04, 2026-10-06]
+  source: message
+  from: [1152]
+  section: design.md#data
+- id: DATA-2
+  text: >-
+    Sentence sets and scenario sets live in libraries, each set in its own folder for its study.
+  status: decided
+  built: partly
+  dates: [2026-10-06]
+  source: message
+  from: [1157]
+  section: design.md#data
+- id: DATA-3
+  text: >-
+    Scaffolds are kept as versioned files too.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: L14
+  from: [1159]
+  section: design.md#data
+- id: DATA-4
+  text: >-
+    Scenario sets have versions, guides and provenance; studies cite a set as set@version, and a
+    set used by a finished study is never changed.
+  status: built
+  built: yes
+  dates: []
+  source: ""
+  from: [1161]
+  section: design.md#data
+- id: DATA-5
+  text: >-
+    Studies, lenses, findings and the paradigm are files in the repo.
+  status: decided
+  built: partly
+  dates: [2026-10-06]
+  source: message
+  from: [1162]
+  section: design.md#data
+- id: DATA-6
+  text: >-
+    Captures include states after generation starts, not only before it; agent runs already capture
+    every target word in the generated text.
+  status: decided
+  built: partly
+  dates: [2026-10-06]
+  source: message
+  from: [1164, 1165]
+  section: design.md#data
+- id: DATA-7
+  text: >-
+    Sentence sets capture, as well as the target word: named sites in the message (a carrier's
+    words, the end marker); every position of the message, opt-in, with the capture's size shown
+    before it starts; and states after generation starts (words in the generated text and the
+    answer's first token).
+  status: decided
+  built: no
+  dates: [2026-10-11]
+  source: L19.2
+  from: [1166]
+  section: design.md#data
+- id: DATA-8
+  text: >-
+    GPU jobs: captures, agent runs and generation become background jobs, run one at a time inside
+    the backend process, where the model is already loaded.
+  status: decided
+  built: no
+  dates: [2026-10-11]
+  source: L19.1
+  from: [1170]
+  section: plan.md#jobs
+- id: DATA-9
+  text: >-
+    Each captured item of an agent run keeps the tick's observation as its text; the whole
+    conversation is stored once per tick, as the run's token ids, and the system prompt once per
+    run.
+  status: decided
+  built: no
+  dates: [2026-10-11]
+  source: L19.4
+  from: [1173]
+  section: design.md#data
+- id: DATA-10
+  text: >-
+    Each run records its token ids for each tick, its date, its chat-template hash and its
+    model-identity line, so it can be replayed exactly, and the capture recipe: model, format,
+    decoding, seed, carrier, token sets, scaffold, intervention.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: design review (principle B12)
+  from: [1176]
+  section: design.md#data
+- id: DATA-11
+  text: >-
+    Routing is recorded in full: every capture stores all 32 routing weights for each captured
+    token at every layer, so the model's own top-four weights are computed from them.
+  status: built
+  built: yes
+  dates: []
+  source: ""
+  from: [1180]
+  section: design.md#data
+- id: DATA-12
+  text: >-
+    Retirements of the old temporal tools, each with what replaces it: the temporal panel and its
+    two endpoints (the run and study timelines, and Watch); the old sequence-capture route and its
+    cache helper (the paper's method stays, cumulative texts with a carrier through the
+    sentence-experiment route, and agent runs use replay); the /temporal skill (a skill for sentence
+    runs over time, not yet written); and, once saved mass-mean lenses replaced it, the raw-axis
+    endpoint. The suicide-letter study's capture scripts stay as the record of how its captures
+    were made.
+  status: decided
+  built: partly
+  dates: [2026-10-07]
+  source: L5
+  from: [1184]
+  section: design.md#retired
+- id: DATA-13
+  text: >-
+    The leftovers are removed, with slice 2: a health check reporting on a retired service; seven
+    app functions nothing calls and an unused schema; the session-start reminder about temporal
+    captures; the test lens lab-k4-n15; the README's "basin" wording; 13 unused images in
+    docs/images/.
+  status: decided
+  built: no
+  dates: [2026-10-11]
+  source: L19.5
+  from: [1194, 1407]
+  section: plan.md#phases
+
+# ---- ATLAS: the atlas and the paradigm ----
+- id: ATLAS-1
+  text: >-
+    The atlas has four catalogues, each entry with a report written by a Claude agent: nodes (every
+    node of every validated lens, layer by layer), experts (all 24 × 32), routes (pipelines and
+    hubs) and analysed scaffolds.
+  status: decided
+  built: partly
+  dates: [2026-10-06, 2026-10-07]
+  source: message
+  from: [1202, 1204]
+  section: design.md#atlas
+- id: ATLAS-2
+  text: >-
+    Routes are built from all four of each token's experts, weighted by the model's own weights;
+    the top-1 Sankey stays as one view of them.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: message
+  from: [1208]
+  section: design.md#atlas
+- id: ATLAS-3
+  text: >-
+    Time adds node dynamics: how long runs stay in a node, what comes before and after it, and what
+    the model does while in it; staying several steps shows a held state, crossing in one step a
+    passage.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: design review
+  from: [1211]
+  section: design.md#atlas
+- id: ATLAS-4
+  text: >-
+    Bringing the lenses' findings together into one coherent model is the hard part.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: message
+  from: [1215]
+  section: design.md#atlas
+- id: ATLAS-5
+  text: >-
+    The paradigm is the accepted findings: AI scientists propose findings, attack them and give
+    evidence; several models vote, and when most agree the finding goes to Andrew for review;
+    knowledge consolidators extract the insights.
+  status: decided
+  built: no
+  dates: [2026-10-04, 2026-10-06]
+  source: message
+  from: [1217]
+  section: design.md#atlas
+- id: ATLAS-6
+  text: >-
+    The accepted findings form a map, the shape of the coherent model: a finding is a fact about one
+    atlas entry or a typed link between entries; the map lays the links over the atlas by the layer
+    where each concept forms, drawn in the Atlas workspace, with the consolidators' story over it;
+    contradictions show as clashing links; later the map is scored on how well it predicts what a
+    new lens shows, never as a gate.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: design review
+  from: [1221]
+  section: design.md#atlas
+- id: ATLAS-7
+  text: >-
+    Every fact and link carries its strength: supported, tested and absent, or untestable here.
+  status: decided
+  built: no
+  dates: [2026-10-08]
+  source: Part M
+  from: [1230]
+  section: design.md#atlas
+- id: ATLAS-8
+  text: >-
+    The atlas is published as a static website (entries, reports, figures and the map), with the
+    sentence sets, lens directions and summary readings on Hugging Face in formats others can load.
+  status: decided
+  built: no
+  dates: [2026-10-08]
+  source: Part M
+  from: [1232]
+  section: design.md#atlas
+- id: ATLAS-9
+  text: >-
+    The kinds of link, each measured by its own tool: overlap (one saved lens reading another
+    lens's data, with presence saying whether its concept is there at all); nesting (the levels of
+    the k profile's hierarchy); order in depth (per-layer held-out scores); shared direction (the
+    angle between two mass-mean axes); shared machinery (the expert and route catalogues, and
+    expert fingerprints); use in decisions (behaviour by reading, and steering a node); changes
+    (the condition comparison, against a scaffold's neutral texts); and steers routing (the routing
+    effect of a lens's nodes on the next layer, and an axis's router alignment against random
+    directions).
+  status: decided
+  built: no
+  dates: [2026-10-07, 2026-10-08]
+  source: design review; L14 (changes); Part M (steers routing)
+  from: [1237, 1249]
+  section: design.md#atlas
+
+# ---- INT: interventions and conditions ----
+- id: INT-1
+  text: >-
+    Steering and ablation, with behaviour studies.
+  status: decided
+  built: no
+  dates: [2026-10-06]
+  source: message
+  from: [1253]
+  section: design.md#interventions
+- id: INT-2
+  text: >-
+    Steering a node and seeing what changes downstream; the push is told apart from its effects
+    (whether the population stays in the other node at later layers or drifts back, and what else
+    changes: other lenses, routes and behaviour).
+  status: decided
+  built: no
+  dates: [2026-10-06, 2026-10-07]
+  source: message
+  from: [1254, 1255]
+  section: design.md#interventions
+- id: INT-3
+  text: >-
+    Scaffolds, and steering from outside and inside the model: how each changes trajectories.
+  status: decided
+  built: no
+  dates: [2026-10-06]
+  source: message
+  from: [1260]
+  section: design.md#interventions
+- id: INT-4
+  text: >-
+    A condition is whatever differs between runs of the same set (a scaffold, a steering vector, an
+    ablation, an expert mask, another model, a decoding setting, or a change at one tick of a
+    branched run); all are compared the same way under one fixed lens, and each run records its
+    condition.
+  status: decided
+  built: no
+  dates: [2026-10-07, 2026-10-08]
+  source: design review; Part M
+  from: [1261, 1263]
+  section: design.md#interventions
+- id: INT-5
+  text: >-
+    Comparisons are fair: paired runs that share everything else; a same-size control without the
+    content (random directions, random experts, two or three neutral texts of the same length and
+    format for scaffolds); and dose, sweeping strength and layer.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: design review
+  from: [1267]
+  section: design.md#interventions
+- id: INT-6
+  text: >-
+    How interventions are done: routing drift is always recorded; an option steers only in
+    directions the routers don't use; expert masks go through the router's bias, which the 4-bit
+    loading path reads on every call.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: design review
+  from: [1276]
+  section: design.md#interventions
+- id: INT-7
+  text: >-
+    Replications are named as such: RARE's and SteerMoE's methods are cited and first reproduced on
+    a published result, and one published gpt-oss result (game probes that stay accurate when the
+    agents know they are watched) is replicated as a MUD scenario.
+  status: decided
+  built: no
+  dates: [2026-10-08]
+  source: Part M
+  from: [1282]
+  section: design.md#interventions
+- id: INT-8
+  text: >-
+    A catalogue of analysed scaffolds, each with its reports and analyses (what it changes in each
+    lens's readings and when, in routes, and in behaviour, against its neutral controls): the
+    atlas's fourth catalogue, linked by "changes", with scaffolds as versioned files.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: L14
+  from: [1287, 1289]
+  section: design.md#interventions
+- id: INT-9
+  text: >-
+    Another mixture-of-experts model, for comparison.
+  status: decided
+  built: no
+  dates: [2026-10-06]
+  source: message
+  from: [1296]
+  section: design.md#interventions
+
+# ---- STORY: user stories ----
+- id: STORY-1
+  text: >-
+    An agent study: people-assessment scenarios with and without a reveal, as scripted runs; Study
+    shows the reading at each tick against the bands and the would-be actions; free play then shows
+    what the agent did with those states.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: time design
+  from: [1302]
+  section: design.md#stories
+- id: STORY-2
+  text: >-
+    One run: sort Study's run list by ticks between the bands, open the top run, and see where its
+    reading sat between the bands, what the agent reasoned there and what it did.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: time design
+  from: [1302]
+  section: design.md#stories
+- id: STORY-3
+  text: >-
+    A sentence study: sentence sequences with a fixed carrier, and references, in Study.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: time design
+  from: [1302]
+  section: design.md#stories
+- id: STORY-4
+  text: >-
+    The atlas: a Claude analyst reads each node's dwell, neighbours and actions, and writes the
+    node's report.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: time design
+  from: [1302]
+  section: design.md#stories
+- id: STORY-5
+  text: >-
+    Watching live: `watch agent` in the MUD; in Watch each tick appears once saved, and its scan
+    fills in as computed.
+  status: decided
+  built: partly
+  dates: [2026-10-07]
+  source: time design
+  from: [1302]
+  section: design.md#stories
+- id: STORY-6
+  text: >-
+    Steering: steered and unsteered runs as two conditions on one timeline.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: time design
+  from: [1302]
+  section: design.md#stories
+- id: STORY-7
+  text: >-
+    Check the instrument: reproduce the paper's per-run tank results in Study; every later story
+    rests on this one.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: time review
+  from: [1302]
+  section: design.md#stories
+- id: STORY-8
+  text: >-
+    Compare the reading methods: for the same runs, the carrier and the model's own words as two
+    rows.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: time review
+  from: [1302]
+  section: design.md#stories
+- id: STORY-9
+  text: >-
+    Follow the reasoning: open a tick in Watch's heatmap and see, sentence by sentence, where each
+    lens's reading shifts.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: time review
+  from: [1302]
+  section: design.md#stories
+- id: STORY-10
+  text: >-
+    From a moment to the layers: click a heatmap cell, and the lens panels show that word's path
+    through each lens's nodes and experts.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: time review
+  from: [1302]
+  section: design.md#stories
+- id: STORY-11
+  text: >-
+    Hand a study to an analyst: export a study's readings and events; a Claude analyst writes the
+    report, and its numbers are re-checked.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: time review
+  from: [1302]
+  section: design.md#stories
+- id: STORY-12
+  text: >-
+    Create a new polysemy sentence set in the app: describe the contrast, read the brief, generate,
+    review with the audits, save, capture; then cluster with the basic form, see the Sankeys across
+    all layers, set k per layer, validate, and save the lens.
+  status: decided
+  built: partly
+  dates: [2026-10-07]
+  source: message
+  from: [1302]
+  section: design.md#stories
+- id: STORY-13
+  text: >-
+    Find the right k per layer: compare the automatic suggestion and its method with the k profile
+    and your own choice, and save the k that classifies held-out data best.
+  status: decided
+  built: yes
+  dates: [2026-10-07]
+  source: message
+  from: [1302]
+  section: design.md#stories
+- id: STORY-14
+  text: >-
+    Build a kit for Winter Survival: choose its lenses and their keywords, and check each lens is
+    validated where it will be read.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: message
+  from: [1302]
+  section: design.md#stories
+- id: STORY-15
+  text: >-
+    Visit as a guest: `connect guest`, then `watch agent`, and read the run as it plays.
+  status: decided
+  built: yes
+  dates: [2026-10-07]
+  source: message
+  from: [1302]
+  section: design.md#stories
+- id: STORY-16
+  text: >-
+    Join two lenses: read the danger lens on the animal-taxonomy set and see which animals land
+    where; an AI scientist proposes an overlap link, others attack it and vote, and once Andrew
+    accepts it, it appears on the map.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: design review
+  from: [1302]
+  section: design.md#stories
+- id: STORY-17
+  text: >-
+    Analyse a scaffold: from Claude Code, run one scenario set four ways, paired (no scaffold, the
+    scaffold, two neutral texts of the same length); Study shows what the scaffold changed beyond
+    the neutral texts; a Claude agent writes its report, and it joins the atlas.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: design review
+  from: [1302]
+  section: design.md#stories
+- id: STORY-18
+  text: >-
+    Check a finding by steering: before a key finding is accepted, steer its population into the
+    other node, with random directions as controls and a sweep of strengths; the downstream view
+    shows whether the population stays, what else changes, and which experts switched.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: design review
+  from: [1302]
+  section: design.md#stories
+- id: STORY-19
+  text: >-
+    Build and test a scenario: a Claude agent drafts scenarios to your instructions; edit the
+    stages, actions and labels, validate them, play the scenario in the simulator, have the agent
+    play it there, and save the set with a version.
+  status: decided
+  built: no
+  dates: [2026-10-07]
+  source: design review
+  from: [1302]
+  section: design.md#stories
+
+# ---- ORDER: the order of work ----
+- id: ORDER-1
+  text: >-
+    The order of work is decided by Andrew and reordered by him: done first were his walk through
+    the MUD and the one-MUD merge, the design's review and approval, and the basin-era tools'
+    retirement; then the build, in slices.
+  status: decided
+  built: yes
+  dates: [2026-10-07, 2026-10-11]
+  source: L9; L21
+  from: [1349]
+  section: plan.md#phases
+- id: ORDER-2
+  text: >-
+    Each slice ends with a showcase: one striking figure and a short findings note.
+  status: decided
+  built: yes
+  dates: [2026-10-08]
+  source: Part M
+  from: [1356]
+  section: plan.md#phases
+- id: ORDER-3
+  text: >-
+    Slice 1, the lens core, comes before the world-building pilot; then 1b, the tuned lens core,
+    and 1c, animals, objects and tuning by hand.
+  status: decided
+  built: yes
+  dates: [2026-10-06, 2026-10-08, 2026-10-09, 2026-10-11]
+  source: message; the slice 1b plan; L16.4 (the hold-out record kept)
+  from: [1357, 1374, 1384, 1390]
+  section: plan.md#phases
+- id: ORDER-4
+  text: >-
+    The clustering form, basic and Advanced, came with the lens core.
+  status: decided
+  built: yes
+  dates: [2026-10-07]
+  source: message
+  from: [1362]
+  section: plan.md#phases
+- id: ORDER-5
+  text: >-
+    Before slice 2, two steps that are not slices: the two documents, then the new app, room by
+    room, until it does everything today's app does. They end with the documents approved and the
+    current app retired (how it retires: ORDER-6), rather than with a showcase.
+  status: decided
+  built: no
+  dates: [2026-10-11]
+  source: L21
+  from: [1391, 1393, 1397]
+  section: plan.md#phases
+- id: ORDER-6
+  text: >-
+    The current app retires once every current feature has been walked in the new one, with the
+    list of what goes, for Andrew's yes.
+  status: proposed
+  built: no
+  dates: [2026-10-10]
+  source: Claude
+  from: [1400]
+  section: plan.md#phases
+- id: ORDER-7
+  text: >-
+    Slice 2, capture and jobs: the capture recipe and per-run token ids; the GPU job queue inside
+    the backend; more token positions and states after generation starts for sentence sets; what
+    each agent-run item keeps as its text; entering a MUD's address in the app; the leftovers. It
+    comes before the builder, which captures each new set as a background job.
+  status: decided
+  built: no
+  dates: [2026-10-07, 2026-10-11]
+  source: L9; L19; L21
+  from: [1349]
+  section: plan.md#phases
+- id: ORDER-8
+  text: >-
+    Slice 3, the builder for sets and scenarios, with its audits and critic, then the starter lens
+    catalogue; later it also edits studies' designs.
+  status: decided
+  built: no
+  dates: [2026-10-11]
+  source: L21, L22, L17.2
+  from: [1413, 1415]
+  section: plan.md#phases
+- id: ORDER-9
+  text: >-
+    Slice 4, agents in scenarios (friend/foe v3 after the lens core).
+  status: decided
+  built: no
+  dates: [2026-10-06, 2026-10-11]
+  source: message; L21
+  from: [1416]
+  section: plan.md#phases
+- id: ORDER-10
+  text: >-
+    Slice 4, agents in scenarios, holds: lens kits and keywords; the scan, with each lens's neutral
+    baseline; replay, in the app and in a scenario room in the MUD; scripted runs and would-be
+    actions; Watch; node dynamics from agent runs; tokens × layers heatmaps for ticks, and alerts
+    judged per run; one published game-probe result replicated as a MUD scenario; and the
+    experiments of D6.
+  status: decided
+  built: no
+  dates: [2026-10-07, 2026-10-08]
+  source: design review (Part K); Part M (the heatmaps, the replication, alerts per run)
+  from: [1349]
+  section: plan.md#phases
+- id: ORDER-11
+  text: >-
+    Slice 5, time on sentence runs, checked against the paper's tank results, in Study, with depth
+    heatmaps and the temporal Sankey; slice 6, the atlas's second version (expert and route
+    catalogues across every capture, node dynamics from sentence runs, cross-lens reports, overlaps,
+    publication, nearest published features).
+  status: decided
+  built: no
+  dates: [2026-10-07, 2026-10-11]
+  source: L9; L21
+  from: [1349]
+  section: plan.md#phases
+- id: ORDER-12
+  text: >-
+    Slice 7, the world-building pilot, after time on sentence runs and the atlas's second version.
+  status: decided
+  built: no
+  dates: [2026-10-06, 2026-10-07]
+  source: message; L9
+  from: [1437]
+  section: plan.md#phases
+- id: ORDER-13
+  text: >-
+    Then slice 8, conditions and interventions; 9, layer transitions and trajectory upgrades; 10, a
+    second MoE model; 11, the paradigm and the AI scientists (the map, evidence packets, the Ideas
+    workspace, the scientists' and researchers' rooms, monitoring); later, the Mudlet package, the
+    lab guide in the MUD, a mini-world builder, and hosting before other researchers are invited.
+  status: decided
+  built: no
+  dates: [2026-10-07, 2026-10-11]
+  source: L9; L21
+  from: [1349]
+  section: plan.md#phases
+- id: ORDER-14
+  text: >-
+    Studies run beside the slices whenever today's tools can carry them.
+  status: proposed
+  built: partly
+  dates: [2026-10-11]
+  source: Claude
+  from: [1455]
+  section: plan.md#phases
+- id: ORDER-15
+  text: >-
+    The animal ontology study runs beside the two documents.
+  status: decided
+  built: no
+  dates: [2026-10-11]
+  source: L27
+  from: [1456]
+  section: plan.md#phases
+- id: ORDER-16
+  text: >-
+    The research-software review and design came before the pilot, and the lens catalogue first.
+  status: decided
+  built: partly
+  dates: [2026-10-06]
+  source: message, in DESIGN.md's appendix
+  from: []
+  section: plan.md#phases
+- id: ORDER-17
+  text: >-
+    One design document with a web view, and planned work kept in Claude Code's plan file.
+  status: retired
+  built: yes
+  dates: [2026-10-07, 2026-10-11]
+  source: message (2026-10-07); L24, L26.3 (2026-10-11)
+  from: []
+  section: design.md#retired
+  replaced_by: [DOC-2, DOC-9]
+- id: ORDER-18
+  text: >-
+    A UX pass over the app and the MUD: what is done where; common tasks easy; screens not crowded
+    with parameters.
+  status: decided
+  built: partly
+  dates: [2026-10-07]
+  source: message, in DESIGN.md's appendix; its details from the one-MUD plan (Phase 10)
+  from: []
+  section: design.md#app
+
+- id: ORDER-19
+  text: >-
+    The order within slice 4: first the reasoning streams' frequent words, then friend/foe v3
+    drafted in the builder, people with agents chosen per scenario and the MUD workspace; then the
+    rest of the slice (ORDER-10).
+  status: proposed
+  built: no
+  dates: [2026-10-10]
+  source: Claude
+  from: [1417]
+  section: plan.md#phases
+# ---- Claude's final read of 2026-10-07, and the open question ----
+- id: DOC-17
+  text: >-
+    Claude's final read of the design (how sure it is that the design does its job, where it stands
+    among other work on gpt-oss and mixture-of-experts models, and 22 recommendations) is accepted;
+    every recommendation adopted was written into its part, and the project keeps the name
+    OpenLLMRI.
+  status: decided
+  built: yes
+  dates: [2026-10-08]
+  source: L15
+  from: [1555, 1644]
+  section: plan.md#how-sure
+- id: DOC-18
+  text: >-
+    The last question of every form asks for anything else Andrew wants Claude to know, change or
+    look at.
+  status: built
+  built: yes
+  dates: [2026-10-10]
+  source: Claude
+  from: [1467]
+  section: design.md#decisions-needed
+
+# ---- ROOM: the new app's rooms (Claude's proposal, for Andrew's yes: L30) ----
+- id: ROOM-1
+  text: >-
+    The app's rooms: the hub, with the map; the observatory; the lens workshop; the library; the
+    polysemy lab; the simulator; and the studies room. The MUD workspace (APP-7) is shared out:
+    designing scenarios goes to the builder in the library, and keeping the MUD running to the
+    simulator. Later rooms: the atlas, ideas, and the AI scientists' and researchers' rooms.
+  status: proposed
+  built: no
+  dates: [2026-10-11]
+  source: Claude
+  from: []
+  section: design.md#rooms
+- id: ROOM-2
+  text: >-
+    The hub is where the app opens: the map of the institute, every room a place to click, each
+    showing what is new in it (captures, lenses, jobs running, studies), and the quick-jump box.
+  status: proposed
+  built: no
+  dates: [2026-10-11]
+  source: Claude
+  from: []
+  section: design.md#rooms
+- id: ROOM-3
+  text: >-
+    The observatory is where a lens is read across its layers: everything in today's Layers view
+    (the cluster and expert Sankeys, the 3-D view, members, the output table, pipes and hubs,
+    fingerprints, the analysis panel, colour, steps and exports); later the depth heatmaps and the
+    runs through a node.
+  status: proposed
+  built: no
+  dates: [2026-10-11]
+  source: Claude
+  from: []
+  section: design.md#rooms
+- id: ROOM-4
+  text: >-
+    The lens workshop is where lenses are made and judged: everything in today's Build view (the
+    form, the layer preview, compare, validation and the k profile, the k advisor, versions and
+    saving, tuning, the axes analysis, mass-mean lenses and their readings, starting the node
+    details, and "Rebuild with…"). The observatory shows the details and routes once worked out.
+  status: proposed
+  built: no
+  dates: [2026-10-11]
+  source: Claude
+  from: []
+  section: design.md#rooms
+- id: ROOM-5
+  text: >-
+    The library is what OpenLLMRI holds: sentence sets with their guides and audits, scenario sets,
+    captures and saved lenses, and later scaffolds. The builder (slice 3) works here.
+  status: proposed
+  built: no
+  dates: [2026-10-11]
+  source: Claude
+  from: []
+  section: design.md#rooms
+- id: ROOM-6
+  text: >-
+    The polysemy lab is the observatory set up for its lens: opened on entry, its capture locked,
+    read-only for visitors, with the lab's `lens` commands in the MUD.
+  status: proposed
+  built: no
+  dates: [2026-10-11]
+  source: Claude
+  from: []
+  section: design.md#rooms
+- id: ROOM-7
+  text: >-
+    The simulator is where agents play: the scenario library's sets and scenarios, the agent runs
+    captured so far, and the MUD terminal open, where `simulate` and `agent run` start things.
+    Watch arrives here with slice 4.
+  status: proposed
+  built: no
+  dates: [2026-10-11]
+  source: Claude
+  from: []
+  section: design.md#rooms
+- id: ROOM-8
+  text: >-
+    The studies room is the studies area (STUDY-2, STUDY-3): every study with its question, sets,
+    captures, lenses, findings and ledger. Claude proposes adding each study's status and showcase.
+  status: proposed
+  built: no
+  dates: [2026-10-11]
+  source: Claude
+  from: []
+  section: design.md#rooms
+- id: ROOM-9
+  text: >-
+    Every app room has a room of the same name in the MUD's institute, so walking there in the MUD
+    opens it in the app, and choosing it in the app moves your character there; with the MUD
+    closed, the map and the quick-jump box move you.
+  status: proposed
+  built: no
+  dates: [2026-10-11]
+  source: Claude
+  from: []
+  section: design.md#rooms
+- id: ROOM-10
+  text: >-
+    The quick-jump box takes a room's name or a MUD-style command, such as `go workshop`,
+    `lens show tank-k5-n15` or `study animals`.
+  status: proposed
+  built: no
+  dates: [2026-10-11]
+  source: Claude
+  from: []
+  section: design.md#rooms
+- id: ROOM-11
+  text: >-
+    Each room has its own accent colour and header, drawn from one set of design tokens (this
+    narrows APP-4's own colours and tools to the accent and header); the colours that carry data
+    (classes, nodes, experts) never change between rooms, so a chart reads the same everywhere.
+  status: proposed
+  built: no
+  dates: [2026-10-11]
+  source: Claude
+  from: []
+  section: design.md#rooms
+- id: ROOM-12
+  text: >-
+    Inside a room, controls sit in panels that fold (the basic ones open), numbers are set with
+    sliders and toggles, and whatever is selected opens in a details panel beside its chart.
+  status: proposed
+  built: no
+  dates: [2026-10-11]
+  source: Claude
+  from: []
+  section: design.md#rooms
+- id: ROOM-13
+  text: >-
+    What every room shares: the top bar (the room, the capture and lens where they apply,
+    background jobs, the MUD's connection and your role), the MUD terminal dock that folds, deep
+    links (the view's state in the address), and commands from Claude Code and the MUD.
+  status: proposed
+  built: no
+  dates: [2026-10-11]
+  source: Claude
+  from: []
+  section: design.md#rooms
+- id: ROOM-14
+  text: >-
+    In every room, visitors read and researchers act; a lab room locks its capture.
+  status: proposed
+  built: no
+  dates: [2026-10-11]
+  source: Claude
+  from: []
+  section: design.md#rooms
+
+# ---- ARCH: architecture decisions (the plans Andrew approved, and Claude's new proposals) ----
+- id: ARCH-1
+  text: >-
+    One repo on WSL's own disk holds the backend, the app, the MUD, the libraries and the records;
+    the backend's environment is an exact copy of the working one (Python 3.10.12, the lock file,
+    CUDA 12.8 torch), and moving to a newer Python is a separate, deliberate step.
+  status: decided
+  built: yes
+  dates: [2026-10-04, 2026-10-06]
+  source: the one-MUD plan
+  from: []
+  section: plan.md#architecture
+- id: ARCH-2
+  text: >-
+    CPU and LLM jobs and the one-layer preview run as background jobs in separate worker
+    processes, one lane per kind, each lane one job at a time; jobs are tracked as files in the
+    lake, can be cancelled, and outlive a backend restart. Workers pin their maths libraries to one
+    thread, so results repeat exactly. GPU jobs run on a lane inside the backend (DATA-8).
+  status: decided
+  built: yes
+  dates: [2026-10-08, 2026-10-09, 2026-10-11]
+  source: the slice 1 plan; the slice 1c plan (the preview lane, kept by L16.5)
+  from: []
+  section: plan.md#jobs
+- id: ARCH-3
+  text: >-
+    A lens lives in the lake beside its capture, as derived data, with immutable versions; saving a
+    version copies its records and its atlas entries into data/lenses/ in the repo. Legacy schemas
+    stay readable through the same endpoints.
+  status: decided
+  built: yes
+  dates: [2026-10-08]
+  source: the slice 1 plan
+  from: []
+  section: plan.md#lenses
+- id: ARCH-4
+  text: >-
+    One command interface: POST /api/commands (show a view, build a lens) and a server-sent event
+    stream to every open app (show, job and lens events); the MUD sends the same to one player's
+    app as app_command; every command is logged.
+  status: decided
+  built: yes
+  dates: [2026-10-08]
+  source: the slice 1 plan
+  from: []
+  section: plan.md#commands
+- id: ARCH-5
+  text: >-
+    The app's view state lives in the address (URL), so a deep link, a command, a figure's recipe
+    and a screenshot name the same view.
+  status: decided
+  built: yes
+  dates: [2026-10-08]
+  source: the slice 1 plan
+  from: []
+  section: plan.md#the-app-today
+- id: ARCH-6
+  text: >-
+    LLM analysts run as `claude -p` with a JSON schema, no tools, no project instructions and no
+    saved session, from an empty folder, with an allowlisted environment and no API key; evidence
+    packets are hashed and stored, and a number checker re-computes every cited number.
+  status: decided
+  built: yes
+  dates: [2026-10-08]
+  source: the slice 1 plan
+  from: []
+  section: plan.md#llm-analysts
+- id: ARCH-7
+  text: >-
+    The MUD is Evennia 6 in Docker, with areas: Winter Survival's behaviour only in its own rooms,
+    plain Evennia elsewhere, a prompt after every command, scenarios loaded fresh through a control
+    channel (load, end, status) that the agent can't type into, and the scenario library mounted
+    read-only from the repo.
+  status: decided
+  built: yes
+  dates: [2026-10-06]
+  source: the one-MUD plan
+  from: []
+  section: plan.md#the-mud
+- id: ARCH-8
+  text: >-
+    Continuous integration on GitHub for each area: the backend (compile, ruff, mypy strict, tests
+    on a CPU-only install), the app (lint, type check, unit tests, build) and the MUD (its gates and
+    test tiers), with one pre-commit hook that runs each area's checks.
+  status: decided
+  built: yes
+  dates: [2026-10-06, 2026-10-08]
+  source: >-
+    Andrew's Phase 3 rulings (the backend's first checks; ruff and mypy blocking); the one-MUD
+    plan's Phases 4 and 6 (the MUD's CI, one pre-commit hook, strict mypy); the slice 1 plan (the
+    app's unit tests)
+  from: []
+  section: plan.md#testing
+- id: ARCH-9
+  text: >-
+    The two documents are markdown in the repo plus the requirements list, built into two private
+    web pages by one script (docs/pages/build.py): an index rail, requirement chips, question cards,
+    a box to write in under every section saved to the page's private store, and the collected
+    writing; the design page keeps its address and its answers.
+  status: proposed
+  built: partly
+  dates: [2026-10-11]
+  source: Claude
+  from: []
+  section: plan.md#documents
+- id: ARCH-10
+  text: >-
+    The new app is built inside today's frontend as new pages, one per room, beside today's views
+    until they are removed; the chart code (Sankey options, expert order, colour maths, lit paths, the
+    3-D layout, exports) moves over with its unit tests; styles come from design tokens (CSS
+    variables), one accent set per room.
+  status: proposed
+  built: no
+  dates: [2026-10-11]
+  source: Claude
+  from: []
+  section: plan.md#the-new-app
+- id: ARCH-11
+  text: >-
+    A small kit of accessible controls (buttons, toggles, sliders, tabs, folding panels, popovers,
+    the details panel) on headless primitives from Radix UI, styled with the design tokens, instead of
+    building keyboard and screen-reader support by hand.
+  status: proposed
+  built: no
+  dates: [2026-10-11]
+  source: Claude
+  from: []
+  section: plan.md#the-new-app
+- id: ARCH-12
+  text: >-
+    Moving rooms both ways: the MUD's room_entered already moves the app; a new control-channel
+    message from the app (move to a room) moves the player's character, and the institute gains a
+    room for each app room.
+  status: proposed
+  built: no
+  dates: [2026-10-11]
+  source: Claude
+  from: []
+  section: plan.md#the-new-app

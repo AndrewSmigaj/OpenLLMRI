@@ -34,9 +34,9 @@ adopted into their parts (2026-10-08).
 - **[Proposed]**: Claude's, not yet decided. It needs Andrew's yes;
 - **[Open]**: an experiment or a question settles it.
 
-**Two documents** [Decided, 2026-10-10: the goal; 2026-10-11: how, L24]: eventually one coherent
+**Two documents** [Decided, 2026-10-10: the goal; 2026-10-11: how, L24]: eventually one consistent
 architecture document (the plan-and-architecture document below), like the ones Andrew writes with
-Claude in claude.ai, and one coherent design-and-requirements document, unless Claude sees a better
+Claude in claude.ai, and one consistent design-and-requirements document, unless Claude sees a better
 approach. Both live in the repo, each published as a web page with comments and a form for its open
 questions, and each ends with a dated log of its decisions. They come first in the order of work
 (K). Until they exist, this document stays the source of truth.
@@ -461,8 +461,8 @@ This part covers building; Parts D and E cover using.
     moth genus.
 
   Timing: the first four are built with slice 2, capture and jobs [Proposed, 2026-10-11]. The
-  taxonomy check runs first as a study script, in the animal ontology's audit [Decided, 2026-10-11:
-  L27] (C1), and joins the set audits with the builder, slice 3 [Proposed, 2026-10-11].
+  taxonomy check runs first as a study script, in the animal ontology's audit (C1), and joins the
+  set audits with the builder, slice 3 [Proposed, 2026-10-11].
 
 **C5. What comes with each node and lens.**
 - **The neurons behind it,** found by correlation [Decided, 2026-10-04; Built].
@@ -585,7 +585,7 @@ reading.
   use any word, its reasoning streams are analysed, mostly for frequent words, to see whether it
   already uses some words a lot when it thinks things through. Words it uses often become
   candidate read sites [Proposed, 2026-10-10].
-- **Asking the agent to use set words is a last resort** [Decided, 2026-10-10], for information no
+- **Asking the agent to use words chosen for it is a last resort** [Decided, 2026-10-10], for information no
   other site gives. Giving it words marked as for measurement only stays an idea to test [Andrew's
   idea, 2026-10-06].
 
@@ -650,8 +650,8 @@ more questions will come]:
   Claude works better with some setups;
 - **more of it visual** [Decided, 2026-10-10]: interfaces where things are typed are unfriendly to
   Andrew (clustering was his example), and he is glad the clustering controls came back;
-- **ways to get there** [Andrew's idea, 2026-10-10]: perhaps controls that fold, and perhaps doing
-  things from the MUD as well, for the fun of it. He asked Claude to think about it too;
+- **ways to get there** [Andrew's idea, 2026-10-10]: perhaps folding controls, and perhaps using
+  the MUD for some of it too, because that would be fun. He asked Claude to consider it as well;
 - **Rooms are the app's places** [Decided, 2026-10-11: L20]: each room has its own colours and
   tools; a map and a quick-jump box reach any room at once; with the MUD open, moving in either
   one moves the other; the app also works with the MUD closed.
@@ -688,7 +688,7 @@ MUD or through Claude Code (F3). It follows a run in progress one saved tick at 
 | **Study** | compare many runs | new |
 | **MUD** | maintain the MUD and design scenarios, with Claude agents' help | new |
 | **Atlas** | browse nodes, experts, routes and analysed scaffolds, with their reports, and the paradigm's map | later |
-| **Ideas** | track every research idea, generate new ones, follow the AI scientists. The idea evolver's engine moves into this repo | later [Decided, 2026-10-04] |
+| **Ideas** | track every research idea, generate new ones, follow the AI scientists. An existing idea-tracking engine moves into this repo | later [Decided, 2026-10-04] |
 
 **E2. Rules for every screen:**
 - **Basic controls first, the rest behind Advanced** [Decided, 2026-10-07; Built]. For example,
@@ -1075,7 +1075,8 @@ LLMs are good at spotting patterns in this data, such as pipes, hubs and split p
 ## Part F — The MUD
 
 **F1. What it is for** [Decided, 2026-10-04 and 2026-10-07]:
-- **first, putting agents through scenarios, with and without people** [Andrew's idea, 2026-10-10].
+- **first, running agents in scenarios, alone or with people taking part** [Andrew's idea,
+  2026-10-10].
   How people take part is chosen per scenario [Decided, 2026-10-11: L23]: they only watch, as now,
   or play a character the agent meets, and their lines are recorded as part of the run's
   conditions;
@@ -1680,7 +1681,7 @@ Paraphrased from Andrew's own words. His ideas not yet decided are listed separa
   - teams of AI scientists, with a paradigm voted on;
   - running clustering from the polysemy lab;
   - an app that takes commands;
-  - a conceptual exploration tab, and the idea evolver's engine moving in later;
+  - a conceptual exploration tab, and an existing idea-tracking engine moving in later;
   - replaying runs in a scenario room;
   - a Mudlet package later;
   - the data lake not copied wholesale;
@@ -1819,8 +1820,8 @@ Paraphrased from Andrew's own words. His ideas not yet decided are listed separa
   - things can change at this point, tools and approaches included, as long as the functions stay:
     the Sankeys, looking at routes and the rest;
   - the agents' reasoning streams are analysed for the words the model already uses often before
-    it is asked to use any; set words are a last resort (D3);
-  - eventually one coherent architecture document and one coherent design-and-requirements
+    it is asked to use any; words chosen for it are a last resort (D3);
+  - eventually one consistent architecture document and one consistent design-and-requirements
     document, unless Claude sees a better approach (how: L24);
   - open questions are filled in rather than typed in the terminal: a choice from a list where the
     options are clear, always with an Other and a note. The aim is a living, interactive
@@ -1855,8 +1856,7 @@ Paraphrased from Andrew's own words. His ideas not yet decided are listed separa
     and proposed by Claude; the model's states show which ways it follows most (C1);
   - the ontology as Claude proposed it: nine ways of organizing animals, with every one of the 524
     names labelled in each (fourteen labels), and three measures of which way leads, run beside
-    the documents; the taxonomy check against common names runs first in its audit (C1, C4, K,
-    L27);
+    the documents (C1, C4, K, L27);
   - teams of Claude agents may write sentence sets, with every agent working across all the
     classes (C1, E3, L29);
   - slice 1c's details kept: the taxonomy beside the designed axes, the one-token-first capture,
@@ -1870,9 +1870,10 @@ Paraphrased from Andrew's own words. His ideas not yet decided are listed separa
     runs' items without the repeated conversation; the leftovers removed (F6, G).
 - **Andrew's ideas, not yet decided:**
   - **2026-10-04:** a user interface in the MUD;
-  - **2026-10-06:** giving the agent words marked as for measurement only (asking it to use set
-    words became a last resort on 2026-10-10);
-  - **2026-10-10:** the MUD first puts agents through scenarios, with and without people;
+  - **2026-10-06:** giving the agent words marked as for measurement only (asking it to use words
+    chosen for it became a last resort on 2026-10-10);
+  - **2026-10-10:** running agents in scenarios, alone or with people taking part, as the MUD's
+    first job;
     perhaps controls that fold, and doing things from the MUD too;
   - **2026-10-07:**
     - an interface so users can choose the LLM for Claude agents' work.
