@@ -792,5 +792,10 @@ the list is DESIGN.md L's "Answered", and the new order of work is Part K.
 - **For his rulings, in the form:** the shape of the two documents (L26), the animal ontology
   study (L27, proposal in `docs/research/animal_ontology.md`), the slice 1c details his notes
   didn't address (L28), and whether teams of Claude agents may write sentence sets (L29).
+  **Answered the same day, each as recommended:** the documents' shape as proposed, requirements
+  first, and the plan moved into the plan-and-architecture document (L26; the plan's details stay
+  Claude's, reviewed with the documents); the ontology as listed (L27; its list holds fourteen
+  labels, not the ten the question counted); the details kept (L28); teams for sets, every agent
+  across all the classes (L29).
 - **New:** when the four lens method changes are built (with slice 2, capture and jobs) is Claude's
   proposal, not part of his answer (C4).

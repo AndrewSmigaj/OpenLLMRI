@@ -35,11 +35,36 @@ adopted into their parts (2026-10-08).
 - **[Open]**: an experiment or a question settles it.
 
 **Two documents** [Decided, 2026-10-10: the goal; 2026-10-11: how, L24]: eventually one coherent
-architecture document, like the ones Andrew writes with Claude in claude.ai, and one coherent
-design-and-requirements document, unless Claude sees a better approach. Both live in the repo, each
-published as a page with comments and a form for its open questions, and each ends with a dated
-log of its decisions. They come first in the order of work (K). Until they exist, this document
-stays the source of truth. Their plan is question L26.
+architecture document (the plan-and-architecture document below), like the ones Andrew writes with
+Claude in claude.ai, and one coherent design-and-requirements document, unless Claude sees a better
+approach. Both live in the repo, each published as a web page with comments and a form for its open
+questions, and each ends with a dated log of its decisions. They come first in the order of work
+(K). Until they exist, this document stays the source of truth.
+- **Their shape** [Decided, 2026-10-11: L26.1]: a design-and-requirements document (what OpenLLMRI
+  is for and how it works for Andrew: the design, his numbered requirements, the open questions,
+  the decisions) and a plan-and-architecture document (where we are, how we work, the phases, a
+  register of known problems, how the software is built, its decisions). Each is one long page
+  with an index down the side, a box to write in under every section (saved as he types, and
+  collected in a last section), and questions as cards, each with its choices and the one Claude
+  recommends. The two documents replace this document and `one-mud.md`; both keep a pointer to
+  them. Claude Code's how-to guides (the skills, PIPELINE, PROBES, ANALYSIS), Winter Survival's
+  game design document, and the research notes and study files stay as they are.
+- **Requirements first** [Decided, 2026-10-11: L26.2]: every decision becomes a numbered
+  requirement, with its date, the question or message that settled it, and its mark (decided, his
+  idea, his view, Claude's proposal, open, built). Both documents are written from the list and
+  cite its numbers. A check (the page checks) flags any
+  page that cites a replaced requirement or uses wording the design has retired. Requirements are
+  paraphrased: Andrew's own words appear only on the published page, read from the page's private
+  store, never in the repo.
+- **The plan where he can see it** [Decided, 2026-10-11: L26.3]: the order of work and each
+  phase's plan (its goal, steps, tests, what he reviews and when it is done) move from Claude
+  Code's own plan file into the plan-and-architecture document, where he approves each phase.
+- **Checks before he reads** [Decided, 2026-10-11: L26, as its question stated]: each document
+  gets an independent audit of its marks against Andrew's own words, a readability review and the
+  page checks; then he reviews it section by section.
+- **The plan's other details** [Proposed, 2026-10-11]: the files, the build script, the page
+  checks' rules and the order of the steps, in `docs/scratchpad/two_documents_plan.md`. Claude
+  builds the documents that way, and Andrew reviews the details with them.
 
 **Rules:**
 - Andrew's decisions are paraphrased here, never quoted.
@@ -47,7 +72,8 @@ stays the source of truth. Their plan is question L26.
 - **What this document covers** [Decided, 2026-10-07]:
   - it says what the software is, who uses it and how it is used;
   - how things are built stays in technical companions: `docs/architecture/one-mud.md` (the MUD)
-    and `mud/docs/architecture/implementation-architecture.md` (Winter Survival's engine);
+    and `mud/docs/architecture/implementation-architecture.md` (Winter Survival's engine). From
+    2026-10-11 the plan-and-architecture document takes over from `one-mud.md` (L26.1);
   - Winter Survival's game design document stays separate under it (question L3);
   - where this document and another disagree, this one wins, and the other is corrected.
 - **Once approved, it replaces** [Decided, 2026-10-07]:
@@ -280,40 +306,70 @@ This part covers building; Parts D and E cover using.
         - Claude looks into ways of organizing animals and proposes some; the model's states then
           show which ones it follows most, as evidence for that way of organizing them;
         - Andrew asked Claude to justify the focus on kinship, and to explain why the set went
-          straight to kinship against way of life. The answer and the proposed ways are in
-          `docs/research/animal_ontology.md` (L27).
+          straight to kinship against way of life. The answer, and the ways adopted in L27, are in
+          `docs/research/animal_ontology.md`.
       - **Grouping animals is pragmatic** [Andrew's view, 2026-10-11]: an animal seen only for a
         moment has to be guessed from a few cues: a dog? a cat?
-      - **Claude's proposals** [Proposed, 2026-10-11, L27]: the group of eight stays, as the
-        descent axis; the animals where the ways disagree stay in the set, as examples rather than
-        the frame.
-      - **Details** [Proposed, 2026-10-09; Built in slice 1c. Those not marked otherwise wait for
-        Andrew's yes, L28: his notes on L16.1 and L16.6 didn't address them]:
+      - **The animal ontology: nine ways of organizing animals, with all 524 names labelled in
+        each** [Decided, 2026-10-11: L27, Claude's proposal in `docs/research/animal_ontology.md`,
+        as listed]:
+        1. **descent:** the group of eight (mammal, bird, reptile, amphibian, fish, insect,
+           arachnid, other invertebrate) and the taxonomic order (as before);
+        2. **everyday kind,** modelled on folk biology: beast, bird, fish-like, snake-like,
+           lizard-like, bug, shellfish, worm-like, sea creature;
+        3. **body covering:** fur or hair, feathers, scales, bare skin, shell or hard case, soft
+           body;
+        4. **size:** tiny, small, medium, large or huge, by typical adult weight;
+        5. **legs:** none, two, four, six, eight, or more than eight;
+        6. **where people meet it:** at home, on the farm, in town and gardens, in the countryside,
+           at sea or on the shore, or far away;
+        7. **relation to people:** companion, kept for work or food, dangerous, pest, or wild;
+        8. **danger and feeling:** danger to people (harmless, can hurt, can kill), and how people
+           feel about it (liked, neutral, feared or disliked);
+        9. **way of life:** habitat, movement, diet, wild or domestic (as before).
+
+        That is fourteen labels: eight new ones beside the six the set already has. (L27's
+        question counted ten; the list it showed holds fourteen.) A way **leads** at a layer when
+        it accounts for more than any other way of which animals sit near each other there, with
+        the other ways and the token count held fixed. Three measures judge it (details in the
+        note); the held-out one leaves whole taxonomic orders out. Every label is an axis to colour
+        by in the app. The animals where the ways disagree (whales, bats, flightless birds) are
+        examples, not the organizing frame.
+
+        Claude labels the names by hand and captures them again; a lens, the analyses and a
+        findings note follow. The work runs alongside the two documents, mostly while Andrew
+        reviews them (K).
+      - **Details,** each with its own mark:
         - 524 one-word names, each entered with the narrowest taxon that holds what it commonly
-          names, or the one species it most commonly means (salmon, *Salmo salar*), as the
-          Catalogue of Life has it (a bat is the order Chiroptera, so it has no family or genus).
-          A name whose kinds span several classes is left out;
+          names, or the one species it most commonly means (salmon, *Salmo salar*) [Decided,
+          2026-10-11: kept, L28; Built in slice 1c]. The taxa are the Catalogue of Life's (a bat
+          is the order Chiroptera, so it has no family or genus), and a name whose kinds span
+          several classes is left out [Proposed, 2026-10-09; Built in slice 1c];
         - the label is a familiar group of eight (mammal, bird, reptile, amphibian, fish,
           insect, arachnid, other invertebrate), and whole taxonomic orders are the held-out
-          families. It is no longer the set's only grouping [Decided, 2026-10-11];
+          families [Decided, 2026-10-11: no longer the only grouping, L16.1 and L16.6; the
+          descent axis, with whole orders held out, L27; Built in slice 1c];
         - the taxonomy is kept beside the designed axes, not among them, since genus alone has
           hundreds of values [Decided, 2026-10-11: kept, L16.2];
         - habitat is land, fresh water, sea, or land and water. Air is left to how it moves:
-          every flier lives on land or water.
-    - **objects:** harmful, dual-purpose or benign, each with how it harms (cutting, blunt, fire,
-      explosive, chemical, projectile, restraint or none; the set adds piercing [Proposed, 2026-10-09; Built in slice 1c; L28])
-      and its domain (kitchen, workshop, garden, medical, military, sport and more). Whole domains
-      are held out, and a harmful-against-benign axis shows where the dual-purpose objects sit
-      between the two.
+          every flier lives on land or water [Decided, 2026-10-11: kept, L28; Built in slice 1c].
+    - **objects:** harmful, dual-purpose or benign, each with how it harms and its domain
+      (kitchen, workshop, garden, medical, military, sport and more). Whole domains are held out,
+      and a harmful-against-benign axis shows where the dual-purpose objects sit between the two.
+      - How it harms: cutting, blunt, fire, explosive, chemical, projectile, restraint or none,
+        and piercing, which the set added [Decided, 2026-10-11: kept, L28; Built in slice 1c].
+      - The set holds 321 objects rather than about 400, because single-word names of harmful
+        things ran out [Decided, 2026-10-11: kept, L28].
 - **Writing them:**
   - in the app, Claude agents generate sentence sets to instructions [Decided, 2026-10-04 and
     2026-10-07];
-  - **one `claude -p` run writes each whole set,** all classes together, so author differences
-    can't line up with the classes, and the audits check batches anyway [Decided, 2026-10-07]. This refines the
+  - **one `claude -p` run, or a team as below, writes each whole set,** all classes together, so
+    author differences can't line up with the classes, and the audits check batches anyway
+    [Decided, 2026-10-07; teams 2026-10-11, L29]. This refines the
     2026-10-06 ruling that text joining a measured dataset is never written by subagents;
-  - **if teams of Claude agents may write sets too** (L29), the rule's aim still holds when every
-    agent in a team works across all the classes, so authorship never lines up with a class
-    [Proposed, 2026-10-11];
+  - **teams of Claude agents may write a set too,** with every agent in a team working across all
+    the classes [Decided, 2026-10-11: L29], so author differences still can't line up with the
+    classes;
   - **the blind brief** [Built, as a study script]: authors see only the contrast and the
     diversity rules, as in the paper.
 - **Audits** [Decided, 2026-10-07]: balance by class and scene family, length and register, a shuffle test,
@@ -404,9 +460,9 @@ This part covers building; Parts D and E cover using.
   - each taxonomy match checked against the animal's common names, after the name "bee" matched a
     moth genus.
 
-  When [Proposed, 2026-10-11]: the first four are built with slice 2 (capture and jobs); the
-  taxonomy check runs first as a study script, in the animal ontology's audit (C1), and joins the
-  set audits with the builder (slice 3).
+  Timing: the first four are built with slice 2, capture and jobs [Proposed, 2026-10-11]. The
+  taxonomy check runs first as a study script, in the animal ontology's audit [Decided, 2026-10-11:
+  L27] (C1), and joins the set audits with the builder, slice 3 [Proposed, 2026-10-11].
 
 **C5. What comes with each node and lens.**
 - **The neurons behind it,** found by correlation [Decided, 2026-10-04; Built].
@@ -607,7 +663,7 @@ more questions will come]:
     over with its tests;
   - the same tools as now (React, TypeScript, Vite and ECharts), with a small kit of accessible
     controls and each room's colours drawn from one set of design tokens; the details go in the
-    architecture document;
+    plan-and-architecture document;
   - visual first: sliders, toggles and charts you click instead of typed values; controls in
     panels that fold, the basic ones open and the rest folded; a selection opens an inspector
     beside its chart;
@@ -665,13 +721,17 @@ MUD or through Claude Code (F3). It follows a run in progress one saved tick at 
     scene and the list of commands at each tick, so the builder can draft one;
   - **for scenarios, it stays open to experiment** [Decided, 2026-10-11: L22]: several authoring
     setups and teams of Claude agents can be tried until the scenarios meet their criteria,
-    instead of a single bare request. Whether sentence sets get the same is L29;
+    instead of a single bare request;
+  - **teams of agents may write sentence sets too,** each agent working across all the classes
+    [Decided, 2026-10-11: L29] (C1);
   - later it also edits a study's design (E6) [Decided, 2026-10-11: L17.2].
 
   The sentence set builder and the scenario builder below are its two halves [Proposed,
   2026-10-11].
-- **The sentence set builder** [Decided, 2026-10-07: it shows the instructions given to the authoring agents and
-  the sets that come back; one `claude -p` run writes each whole set (C1)]:
+- **The sentence set builder** [Decided, 2026-10-07; authoring teams 2026-10-11, L29]: it shows
+  the instructions given to the authoring agents and the sets that come back. Each whole set is
+  written by one `claude -p` run, or by a team whose every agent works across all the classes (C1).
+  The steps:
   1. Describe the contrast: the target word, the classes, the carrier, the number of sentences per
      class, the scene families, the diversity rules.
   2. Read and edit the brief the authors will receive.
@@ -1330,9 +1390,10 @@ I. The steps in each are [Decided, 2026-10-07].
         - a lens that remembers its hold-out design (C4) [Decided, 2026-10-11: kept, L16.4; Built in slice 1c].
    - **Before slice 2, two steps that are not slices** [Decided, 2026-10-11: L21]. They end with
      the documents approved and the current app retired, rather than with a showcase:
-     - **the two documents** [Decided, 2026-10-11: L21, L24]: the design-and-requirements document
-       and the architecture document, each a page in the repo with comments and a form for its
-       open questions. Their shape is L26;
+     - **the two documents** [Decided, 2026-10-11: L21, L24, L26]: the design-and-requirements
+       document and the plan-and-architecture document, each a page in the repo with comments and
+       a form for its open questions, written from the numbered requirements (How this document
+       works);
      - **the new app, room by room, until it does everything today's app does** [Decided,
        2026-10-11: L20, L21]: the rooms (E0), with the studies room among the first (E6). The
        current app retires once every current feature has been walked in the new one, with the
@@ -1391,8 +1452,8 @@ I. The steps in each are [Decided, 2026-10-07].
        - the scientists' and researchers' rooms (F2);
        - monitoring.
 
-   Studies run beside the slices whenever today's tools can carry them, such as the animal
-   ontology (C1, L27) [Proposed, 2026-10-11].
+   Studies run beside the slices whenever today's tools can carry them [Proposed, 2026-10-11].
+   The animal ontology runs beside the two documents [Decided, 2026-10-11: L27] (C1).
 5. **Later:** the Mudlet package (A2), the lab guide in the MUD (E8), a mini-world builder (E3), and
    hosting Scaffold Dynamics before other researchers are invited (F6).
 
@@ -1403,129 +1464,32 @@ published page every open question is a form: pick a choice, add a note when you
 want to say more, and the answer saves as you go, where Claude reads it. In this file, `( )` marks
 one choice among several and `[ ]` any number of them.
 
-### L26. The two documents [Open]
-
-You chose two documents in the repo, each a page with comments and a form (L24). Claude read the
-two documents you updated most recently in claude.ai, and proposes the same shape here. The full
-plan is in `docs/scratchpad/two_documents_plan.md`. Before each document reaches you, it gets the
-independent marks audit, a readability review and the page checks; then you review it section by
-section.
-
-#### L26.1. Their shape
-
-A **design and requirements** document (what OpenLLMRI is for and how it works for you: the design,
-your numbered requirements, the questions open, the decisions) and a **plan and architecture**
-document (where we are, how we work, the phases, a register of known problems, how the software is
-built, its decisions). Each is one long page with an index down the side, a box to write in under
-every section (saved as you type, collected at the end), and questions as cards with Claude's pick,
-like yours. They replace this document and `one-mud.md`, which keep pointers. Claude Code's how-to
-guides (the skills, PIPELINE, PROBES, ANALYSIS), Winter Survival's game design document, and the
-research notes and study files stay as they are.
-
-- ( ) Build them this way (recommended)
-- ( ) Change
-- ( ) Other
-
-#### L26.2. Requirements first
-
-Every decision becomes a numbered requirement, with its date, the question or message that settled
-it, and its mark (decided, your idea, your view, Claude's proposal, open, built). Both documents are
-written from that list and cite its numbers, and a check flags any page that cites a replaced
-requirement or uses retired wording. Requirements are paraphrased: your own words appear only on
-the page, from its private store, never in the repo, which is public.
-
-- ( ) Adopt (recommended)
-- ( ) Not now
-- ( ) Other
-
-#### L26.3. The plan where you can see it
-
-The order of work, and each phase's plan (its goal, steps, tests, what you review and when it is
-done), move from Claude Code's own plan file, which you don't see, into the plan-and-architecture
-page. You approve each phase there.
-
-- ( ) Adopt (recommended)
-- ( ) Keep the plan in Claude Code's file
-- ( ) Other
-
-### L27. The animal ontology [Open]
-
-Your change (L16.1, L16.6): many labels for each animal, so the space is explored rather than
-fitted to one framing. Claude's research and full proposal: `docs/research/animal_ontology.md`.
-
-**Why the first study centred on kinship** (you asked for a justification): you asked for the
-animals' taxonomy; adding their way of life and the animals where the two disagree, framed as
-kinship against way of life, was Claude's recommended option, which you picked. "Kinship" meant
-descent (a whale is a mammal), not the social sense, and the word is dropped. Taxonomy keeps a
-place because it is the one way of organizing animals that comes from science rather than from
-looks or daily life: text states descent, and a glimpse doesn't show it. The framing was too
-narrow. The animals where descent and way of life disagree mostly sat with their kin, the whales
-being the exception, but the strongest structure was neither: it was how many tokens a name has.
-
-**In-group and out-group:** among animals, the nearest thing is their relation to people (way 7 below);
-among people, it is friend or foe, which the agent scenarios study (C6).
-
-**Ten labels in nine ways,** on all 524 names:
-1. **descent:** the group of eight and the taxonomic order (as now);
-2. **everyday kind,** modelled on folk biology: beast, bird, fish-like, snake-like, lizard-like,
-   bug, shellfish, worm-like, sea creature;
-3. **body covering:** fur or hair, feathers, scales, bare skin, shell or hard case, soft body;
-4. **size:** tiny, small, medium, large or huge, by typical adult weight;
-5. **legs:** none, two, four, six, eight, or more than eight;
-6. **where people meet it:** at home, on the farm, in town and gardens, in the countryside, at sea
-   or on the shore, or far away. Where you are is one more cue for a glimpse (Claude's addition);
-7. **relation to people:** companion, kept for work or food, dangerous, pest, or wild;
-8. **danger and feeling:** danger to people (harmless, can hurt, can kill), and how people feel
-   about it (liked, neutral, feared or disliked);
-9. **way of life:** habitat, movement, diet, wild or domestic (as now).
-
-**What leads:** a way of organizing leads at a layer when it explains most about which animals sit
-near each other there, with the other ways and the token count held fixed. It is measured three
-ways, with whole taxonomic orders held out (details in the note). In the app, every label is an
-axis to colour by.
-
-**The work:** Claude labels the 524 names by hand (the longest step), then captures them again,
-builds a lens, runs the analyses and writes the note, beside the documents, while you review them.
-
-- ( ) Yes, as listed (recommended)
-- ( ) Yes, with changes (say which in the note)
-- ( ) Other
-
-### L28. The details your L16 notes didn't address [Open]
-
-You changed L16.1 and L16.6, and your notes covered the animals' grouping and framing. These parts
-of the two bundles weren't in the notes, so they wait for your yes (C1):
-- the 524 one-word names, and the naming rule: each name gets the narrowest taxon holding what it
-  commonly refers to, or the one species it most commonly means (salmon);
-- habitat as land, fresh water, sea, or land and water, with flying left to how an animal moves;
-- the objects' added harm, piercing;
-- 321 objects rather than about 400, because single-word names of harmful things ran out.
-
-- ( ) Keep them all (recommended)
-- ( ) Change some (say which in the note)
-- ( ) Other
-
-### L29. Teams of agents for sentence sets [Open]
-
-For scenarios, you asked the builder to stay open to experiment: several authoring setups and teams
-of Claude agents, not one bare request (L22). Sentence sets have a rule of their own: one
-`claude -p` run writes each whole set, all classes together, so differences between authors can't
-line up with the classes (L1, C1).
-
-- ( ) Teams for sets too, with every agent in a team working across all the classes (recommended)
-- ( ) Sets keep one run per whole set
-- ( ) Other
-
 ### L25. Anything else [Open]
 
 Always the last question: anything you want Claude to know, change or look at.
 
 ### Answered
 
+- **L26–L29,** answered 2026-10-11, each written into its part:
+  - **L26.1, as proposed:** the two documents: design and requirements, plan and architecture,
+    each one long page with an index, a box to write in under every section, and questions as
+    cards; they replace this document and `one-mud.md` (How this document works).
+  - **L26.2, adopted:** requirements first: every decision a numbered requirement, both documents
+    written from the list, and a check for replaced requirements and retired wording (How this
+    document works).
+  - **L26.3, adopted:** the order of work and each phase's plan move into the plan-and-architecture
+    document, where Andrew approves each phase (How this document works).
+  - **L27, as listed:** the animal ontology, nine ways of organizing animals with every one of the
+    524 names labelled in each (fourteen labels; the question counted ten), three measures of
+    which way leads, run beside the documents (C1, C4, K).
+  - **L28, all kept:** the 524 names and their naming rule, habitat's four values, the objects'
+    added harm (piercing), and 321 objects (C1).
+  - **L29:** teams of Claude agents may write sentence sets too, with every agent working across
+    all the classes (C1, E3).
 - **L16–L24,** answered 2026-10-11, each written into its part:
   - **L16.1 and L16.6, changed:** the animal set's grouping and its framing. Each animal gets a
     label in many ways of organizing animals, a small ontology, with a justification of the focus
-    on kinship (C1, L27). The parts of both bundles the notes didn't address wait in L28.
+    on kinship (C1, L27). The parts of L16.1 and L16.6 his notes didn't address were kept (L28).
   - **L16.2, kept:** the taxonomy beside the designed axes (C1).
   - **L16.3, kept:** the capture looks for a word's one-token forms first (C1).
   - **L16.4, kept:** honest hand tuning, and a lens that records how it is held out (C4).
@@ -1549,7 +1513,7 @@ Always the last question: anything you want Claude to know, change or look at.
     everything today's app does; capture and jobs; the builder; agents in scenarios; then time on
     sentence runs and the atlas (K).
   - **L22:** one builder for sets and scenarios. For scenarios it stays open to experiment, with
-    several authoring setups and teams of Claude agents (E3; sets: L29).
+    several authoring setups and teams of Claude agents (E3; teams for sets: L29).
   - **L23:** how people take part with agents is chosen per scenario: they only watch, or play a
     character the agent meets, and their lines are recorded as part of the run's conditions (F1).
   - **L24:** both documents live in the repo, each published as a page with comments and a form
@@ -1557,7 +1521,8 @@ Always the last question: anything you want Claude to know, change or look at.
   - These answered the questions raised by Claude's assessment of 2026-10-10 (in git history). Its
     proposals for the new app are now in E0.
 - **L1. Who writes sentence sets in the builders?** Answered 2026-10-07: one `claude -p` run writes
-  each whole set, all classes together, and the audits check batches (C1).
+  each whole set, all classes together, and the audits check batches (C1). Teams too since
+  2026-10-11, each agent across all the classes (L29).
 - **L2. Which reading leads for agents?** Answered 2026-10-07: the output reading at keywords
   leads, the scan shows the reasoning, and carriers are the controlled comparison (D3).
 - **L3. Winter Survival's game design document.** Answered 2026-10-07: it stays separate, under
@@ -1860,9 +1825,20 @@ Paraphrased from Andrew's own words. His ideas not yet decided are listed separa
   - open questions are filled in rather than typed in the terminal: a choice from a list where the
     options are clear, always with an Other and a note. The aim is a living, interactive
     document.
-- **2026-10-11 decisions** (Part L's form, L16–L24):
+- **2026-10-11 decisions** (Part L's form, L16–L29):
   - the two documents live in the repo, each published as a page with comments and a form for its
     open questions, with decisions in a dated log at the end of each;
+  - their shape: design and requirements, plan and architecture, each one long page with an index,
+    a box to write in under every section and questions as cards; they replace this document and
+    `one-mud.md`, which keep pointers; the how-to guides, Winter Survival's game design document,
+    the research notes and the study files stay as they are (L26.1);
+  - requirements first: every decision a numbered requirement that both documents cite, with a
+    check for replaced requirements and retired wording; Andrew's own words only on the page, from
+    its private store (L26.2);
+  - the order of work and each phase's plan move into the plan-and-architecture document, where
+    he approves each phase (L26.3);
+  - before he reads each document, it gets an independent audit of its marks, a readability review
+    and the page checks; then he reviews it section by section (L26);
   - the order of work: the two documents; the new app, room by room, until it does everything
     today's app does; capture and jobs; one builder for sets and scenarios; agents in scenarios;
     then time on sentence runs and the atlas (K);
@@ -1877,9 +1853,17 @@ Paraphrased from Andrew's own words. His ideas not yet decided are listed separa
   - the animal set changes from one framing (kinship against way of life) to many ways of
     organizing animals: a small ontology, with a label for each animal in every way, researched
     and proposed by Claude; the model's states show which ways it follows most (C1);
+  - the ontology as Claude proposed it: nine ways of organizing animals, with every one of the 524
+    names labelled in each (fourteen labels), and three measures of which way leads, run beside
+    the documents; the taxonomy check against common names runs first in its audit (C1, C4, K,
+    L27);
+  - teams of Claude agents may write sentence sets, with every agent working across all the
+    classes (C1, E3, L29);
   - slice 1c's details kept: the taxonomy beside the designed axes, the one-token-first capture,
     honest hand tuning, the hold-out record, the builder's extras, and the last token as the read
     site (C1, C4, E3);
+  - slice 1c's remaining details kept: the 524 names and their naming rule, habitat's four values,
+    piercing among the objects' harms, and 321 objects (C1, L28);
   - five method changes adopted (C4);
   - the decisions for capture and jobs: GPU jobs inside the backend; named sites, every position
     (opt-in) and states after generation starts; the MUD's address entered in the app; agent

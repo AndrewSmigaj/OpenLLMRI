@@ -1,10 +1,12 @@
-# The two documents — a draft plan for Andrew's review (2026-10-11)
+# The two documents — Claude's plan (2026-10-11)
 
-Related: docs/DESIGN.md (the header's "Two documents", K, L24, L26), docs/architecture/one-mud.md,
+Related: docs/DESIGN.md (How this document works, K, L24, L26), docs/architecture/one-mud.md,
 docs/scratchpad/build_design_page.py
 
-Nothing here starts until Andrew answers DESIGN.md L26. It is the first step in the order of work
-(L21).
+On 2026-10-11 Andrew adopted the documents' shape, requirements first, and the plan's move into the
+plan-and-architecture document (DESIGN.md L26.1 to L26.3, each as recommended), and the checks
+before he reads each one. The details below (files, scripts, the steps' order) are Claude's; he
+reviews them with the documents. It is the first step in the order of work (L21).
 
 ## What he asked for
 

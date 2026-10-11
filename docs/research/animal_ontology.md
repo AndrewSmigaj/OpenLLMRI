@@ -5,8 +5,8 @@ first animal study), docs/research/read_site.md (why a word stays read at its la
 data/sentence_sets/lexical/animals_kinship_v1.md (the set's names, rules and audits),
 docs/studies/animal_ontology/study.yaml
 
-**Status:** a proposal, waiting for Andrew's answer (DESIGN.md L27). Nothing has been labelled or
-captured yet.
+**Status:** Claude's proposal, adopted by Andrew on 2026-10-11 as listed (DESIGN.md C1, L27). The
+work below is under way; its results will go in a findings note beside this one.
 
 ## Why
 
@@ -77,9 +77,10 @@ study's focus on kinship, including why the set went straight to kinship against
 
 ## The proposed ontology
 
-The same 524 names as `animals_kinship_v1`. Each way of organizing below is one or two designed
-axes, and every animal gets a value on each: ten axes in nine ways. Ways 1 and 9 are in the set
-already; 2 to 8 are new. Because every axis is in the capture, the app colours by any of them and
+The same 524 names as `animals_kinship_v1`. Each way of organizing below is one or more designed
+axes, and every animal gets a value on each: fourteen labels in nine ways, eight of them new
+(ways 2 to 8) beside the six the set already has (ways 1 and 9). The proposal Andrew approved
+counted ten; the list was the same. Because every axis is in the capture, the app colours by any of them and
 the axes analysis reads each one. One author (Claude) labels every animal, in one pass, by hand.
 The set's guide records each rule and lists the borderline cases.
 
