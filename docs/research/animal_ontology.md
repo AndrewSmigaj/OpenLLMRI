@@ -6,7 +6,7 @@ data/sentence_sets/lexical/animals_kinship_v1.md (the set's names, rules and aud
 docs/studies/animal_ontology/study.yaml
 
 **Status:** Claude's proposal, adopted by Andrew on 2026-10-11 as listed (DESIGN.md C1, L27). The
-work below is under way; its results will go in a findings note beside this one.
+work below is done; its results are in `docs/research/animal_ontology_findings.md`.
 
 ## Why
 

@@ -799,3 +799,31 @@ the list is DESIGN.md L's "Answered", and the new order of work is Part K.
   across all the classes (L29).
 - **New:** when the four lens method changes are built (with slice 2, capture and jobs) is Claude's
   proposal, not part of his answer (C4).
+
+## 2026-10-11 — The two documents, and the animal ontology study
+
+**Scope**: Phase 10f (the design-and-requirements document and the plan-and-architecture document,
+drafted from the requirements list and published for Andrew's review) and the animal ontology
+study run beside it (`docs/research/animal_ontology_findings.md`).
+
+- **For his rulings, as cards on the pages:** the new app's rooms (L30, design page), the new app's
+  plan (L31) and which superseded documents to delete (L32, with a verdict for each), both on the
+  plan page; and his review of both documents through the boxes under each section.
+- **What the checks before his read caught:** Claude's working rules filed as his rulings (now
+  proposed: live tests never as admin, testing a proposal before a ruling, recomputing every
+  number); decided marks that said more than his answer (the taxonomy check's timing, now
+  proposed); near-quotes of his words, six words and up, reworded; built values that overstated
+  what exists; a false fact on the L32 card (three superseded documents carry no pointer); and the
+  infrastructure words both documents used unexplained (each now has Terms).
+- **The ontology study's main results:** descent and the ways that go with it (everyday kind,
+  legs, covering) lead an animal's neighbourhood at every layer; every way, the people-centred
+  ones included, can be read on orders a linear probe never saw; what each way adds with the
+  others held fixed is small, and danger keeps an own share at L4 to L16 that graded size doesn't
+  explain.
+- **Recommended next, for a ruling when it is reached:** a set that varies danger within each kind
+  (venomous and harmless snakes, dangerous and harmless large mammals), to tell predators, venom
+  and size apart in the danger signal; and the same ways read in sentences, where context picks
+  the sense.
+- **Found on the way:** the lens's space puts one-token and split names in separate clouds at L1,
+  L2, L18 and L19 (the token count alone explains 93 to 98% of the distances there), which is why
+  every share in the note is given as a part of what the token count and name length leave.

@@ -997,7 +997,7 @@ requirements:
     hurt, can kill) and how people feel about it (liked, neutral, feared or disliked); way of life
     (habitat, movement, diet, wild or domestic).
   status: decided
-  built: no
+  built: yes
   dates: [2026-10-11]
   source: L27
   from: [314]
@@ -1010,7 +1010,7 @@ requirements:
     each way's own share of the distances); every label is an axis to colour by in the app; the
     animals where the ways disagree are examples, not the frame.
   status: decided
-  built: no
+  built: yes
   dates: [2026-10-11]
   source: L27
   from: [314]
@@ -1020,7 +1020,7 @@ requirements:
     Claude labels the 524 names by hand and captures them again; a lens, the analyses and a
     findings note follow, alongside the two documents, mostly while Andrew reviews them.
   status: decided
-  built: no
+  built: yes
   dates: [2026-10-11]
   source: L27
   from: [314]

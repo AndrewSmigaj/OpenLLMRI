@@ -1,0 +1,5560 @@
+{
+ "session": "session_5cd7091d",
+ "lens": "onto-k8-n15",
+ "layers": [
+  2,
+  6,
+  12,
+  18,
+  23
+ ],
+ "compared": [
+  "group",
+  "kind",
+  "covering",
+  "legs",
+  "habitat",
+  "movement",
+  "tokens"
+ ],
+ "animals": {
+  "whale": {
+   "values": {
+    "group": "mammal",
+    "kind": "fish-like",
+    "covering": "bare skin",
+    "legs": "none",
+    "habitat": "sea",
+    "movement": "swims",
+    "tokens": "one"
+   },
+   "rows": [
+    {
+     "space": "raw",
+     "layer": 2,
+     "nearest": [
+      "dolphin",
+      "elephant",
+      "zebra",
+      "bear",
+      "deer"
+     ],
+     "share": {
+      "group": 0.9,
+      "kind": 0.2,
+      "covering": 0.3,
+      "legs": 0.2,
+      "habitat": 0.3,
+      "movement": 0.3,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 6,
+     "nearest": [
+      "dolphin",
+      "shark",
+      "seal",
+      "bear",
+      "elephant"
+     ],
+     "share": {
+      "group": 0.8,
+      "kind": 0.2,
+      "covering": 0.4,
+      "legs": 0.3,
+      "habitat": 0.4,
+      "movement": 0.4,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 12,
+     "nearest": [
+      "dolphin",
+      "shark",
+      "horse",
+      "lion",
+      "bear"
+     ],
+     "share": {
+      "group": 0.7,
+      "kind": 0.2,
+      "covering": 0.3,
+      "legs": 0.3,
+      "habitat": 0.3,
+      "movement": 0.2,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 18,
+     "nearest": [
+      "dolphin",
+      "coral",
+      "shark",
+      "elephant",
+      "goat"
+     ],
+     "share": {
+      "group": 0.8,
+      "kind": 0.2,
+      "covering": 0.3,
+      "legs": 0.3,
+      "habitat": 0.4,
+      "movement": 0.3,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 23,
+     "nearest": [
+      "dolphin",
+      "elephant",
+      "shark",
+      "deer",
+      "wolf"
+     ],
+     "share": {
+      "group": 0.9,
+      "kind": 0.2,
+      "covering": 0.3,
+      "legs": 0.2,
+      "habitat": 0.3,
+      "movement": 0.3,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 2,
+     "nearest": [
+      "sheep",
+      "deer",
+      "hamster",
+      "dog",
+      "mouse"
+     ],
+     "share": {
+      "group": 0.8,
+      "kind": 0.0,
+      "covering": 0.0,
+      "legs": 0.0,
+      "habitat": 0.0,
+      "movement": 0.0,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 6,
+     "nearest": [
+      "trout",
+      "dolphin",
+      "salmon",
+      "shark",
+      "coral"
+     ],
+     "share": {
+      "group": 0.2,
+      "kind": 0.5,
+      "covering": 0.2,
+      "legs": 0.7,
+      "habitat": 0.7,
+      "movement": 0.6,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 12,
+     "nearest": [
+      "shark",
+      "salmon",
+      "dolphin",
+      "trout",
+      "pig"
+     ],
+     "share": {
+      "group": 0.4,
+      "kind": 0.4,
+      "covering": 0.3,
+      "legs": 0.4,
+      "habitat": 0.5,
+      "movement": 0.5,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 18,
+     "nearest": [
+      "crab",
+      "snail",
+      "chicken",
+      "oyster",
+      "shrimp"
+     ],
+     "share": {
+      "group": 0.1,
+      "kind": 0.2,
+      "covering": 0.1,
+      "legs": 0.4,
+      "habitat": 0.5,
+      "movement": 0.3,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 23,
+     "nearest": [
+      "coral",
+      "bee",
+      "seal",
+      "snake",
+      "shark"
+     ],
+     "share": {
+      "group": 0.3,
+      "kind": 0.1,
+      "covering": 0.1,
+      "legs": 0.3,
+      "habitat": 0.3,
+      "movement": 0.2,
+      "tokens": 1.0
+     }
+    }
+   ]
+  },
+  "dolphin": {
+   "values": {
+    "group": "mammal",
+    "kind": "fish-like",
+    "covering": "bare skin",
+    "legs": "none",
+    "habitat": "sea",
+    "movement": "swims",
+    "tokens": "one"
+   },
+   "rows": [
+    {
+     "space": "raw",
+     "layer": 2,
+     "nearest": [
+      "whale",
+      "elephant",
+      "panda",
+      "zebra",
+      "leopard"
+     ],
+     "share": {
+      "group": 0.9,
+      "kind": 0.2,
+      "covering": 0.3,
+      "legs": 0.2,
+      "habitat": 0.2,
+      "movement": 0.2,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 6,
+     "nearest": [
+      "whale",
+      "shark",
+      "seal",
+      "owl",
+      "elephant"
+     ],
+     "share": {
+      "group": 0.8,
+      "kind": 0.2,
+      "covering": 0.3,
+      "legs": 0.2,
+      "habitat": 0.3,
+      "movement": 0.3,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 12,
+     "nearest": [
+      "whale",
+      "shark",
+      "tiger",
+      "lion",
+      "monkey"
+     ],
+     "share": {
+      "group": 0.8,
+      "kind": 0.2,
+      "covering": 0.2,
+      "legs": 0.2,
+      "habitat": 0.2,
+      "movement": 0.2,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 18,
+     "nearest": [
+      "whale",
+      "elephant",
+      "lion",
+      "frog",
+      "horse"
+     ],
+     "share": {
+      "group": 0.7,
+      "kind": 0.2,
+      "covering": 0.4,
+      "legs": 0.2,
+      "habitat": 0.2,
+      "movement": 0.2,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 23,
+     "nearest": [
+      "whale",
+      "elephant",
+      "penguin",
+      "turtle",
+      "donkey"
+     ],
+     "share": {
+      "group": 0.7,
+      "kind": 0.1,
+      "covering": 0.2,
+      "legs": 0.1,
+      "habitat": 0.2,
+      "movement": 0.3,
+      "tokens": 0.9
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 2,
+     "nearest": [
+      "flea",
+      "tiger",
+      "leopard",
+      "shrimp",
+      "salmon"
+     ],
+     "share": {
+      "group": 0.2,
+      "kind": 0.2,
+      "covering": 0.2,
+      "legs": 0.3,
+      "habitat": 0.3,
+      "movement": 0.3,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 6,
+     "nearest": [
+      "shark",
+      "lion",
+      "whale",
+      "tiger",
+      "fox"
+     ],
+     "share": {
+      "group": 0.7,
+      "kind": 0.3,
+      "covering": 0.2,
+      "legs": 0.3,
+      "habitat": 0.3,
+      "movement": 0.3,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 12,
+     "nearest": [
+      "shark",
+      "whale",
+      "salmon",
+      "trout",
+      "shrimp"
+     ],
+     "share": {
+      "group": 0.3,
+      "kind": 0.5,
+      "covering": 0.2,
+      "legs": 0.6,
+      "habitat": 0.7,
+      "movement": 0.6,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 18,
+     "nearest": [
+      "monkey",
+      "pigeon",
+      "tiger",
+      "horse",
+      "deer"
+     ],
+     "share": {
+      "group": 0.7,
+      "kind": 0.2,
+      "covering": 0.2,
+      "legs": 0.2,
+      "habitat": 0.1,
+      "movement": 0.2,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 23,
+     "nearest": [
+      "hamster",
+      "termite",
+      "deer",
+      "leopard",
+      "squirrel"
+     ],
+     "share": {
+      "group": 0.4,
+      "kind": 0.1,
+      "covering": 0.0,
+      "legs": 0.4,
+      "habitat": 0.3,
+      "movement": 0.1,
+      "tokens": 1.0
+     }
+    }
+   ]
+  },
+  "orca": {
+   "values": {
+    "group": "mammal",
+    "kind": "fish-like",
+    "covering": "bare skin",
+    "legs": "none",
+    "habitat": "sea",
+    "movement": "swims",
+    "tokens": "several"
+   },
+   "rows": [
+    {
+     "space": "raw",
+     "layer": 2,
+     "nearest": [
+      "jaguar",
+      "beluga",
+      "hyena",
+      "manatee",
+      "beaver"
+     ],
+     "share": {
+      "group": 0.7,
+      "kind": 0.2,
+      "covering": 0.2,
+      "legs": 0.2,
+      "habitat": 0.2,
+      "movement": 0.4,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 6,
+     "nearest": [
+      "beluga",
+      "whale",
+      "narwhal",
+      "dolphin",
+      "penguin"
+     ],
+     "share": {
+      "group": 0.8,
+      "kind": 0.6,
+      "covering": 0.7,
+      "legs": 0.6,
+      "habitat": 0.8,
+      "movement": 0.9,
+      "tokens": 0.7
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 12,
+     "nearest": [
+      "beluga",
+      "dolphin",
+      "bonobo",
+      "eland",
+      "otter"
+     ],
+     "share": {
+      "group": 0.8,
+      "kind": 0.3,
+      "covering": 0.3,
+      "legs": 0.3,
+      "habitat": 0.5,
+      "movement": 0.4,
+      "tokens": 0.7
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 18,
+     "nearest": [
+      "minnow",
+      "beaver",
+      "gorilla",
+      "beluga",
+      "nutria"
+     ],
+     "share": {
+      "group": 0.8,
+      "kind": 0.2,
+      "covering": 0.1,
+      "legs": 0.2,
+      "habitat": 0.1,
+      "movement": 0.5,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 23,
+     "nearest": [
+      "remora",
+      "fossa",
+      "osprey",
+      "albatross",
+      "betta"
+     ],
+     "share": {
+      "group": 0.5,
+      "kind": 0.3,
+      "covering": 0.1,
+      "legs": 0.4,
+      "habitat": 0.4,
+      "movement": 0.4,
+      "tokens": 0.9
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 2,
+     "nearest": [
+      "remora",
+      "barracuda",
+      "wallaby",
+      "kea",
+      "okapi"
+     ],
+     "share": {
+      "group": 0.4,
+      "kind": 0.2,
+      "covering": 0.0,
+      "legs": 0.2,
+      "habitat": 0.3,
+      "movement": 0.3,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 6,
+     "nearest": [
+      "oryx",
+      "beaver",
+      "eland",
+      "moose",
+      "dromedary"
+     ],
+     "share": {
+      "group": 1.0,
+      "kind": 0.0,
+      "covering": 0.2,
+      "legs": 0.0,
+      "habitat": 0.1,
+      "movement": 0.2,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 12,
+     "nearest": [
+      "dromedary",
+      "porpoise",
+      "walrus",
+      "manatee",
+      "beluga"
+     ],
+     "share": {
+      "group": 1.0,
+      "kind": 0.5,
+      "covering": 0.6,
+      "legs": 0.5,
+      "habitat": 0.6,
+      "movement": 0.6,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 18,
+     "nearest": [
+      "canary",
+      "beaver",
+      "jaguar",
+      "sparrow",
+      "finch"
+     ],
+     "share": {
+      "group": 0.4,
+      "kind": 0.0,
+      "covering": 0.0,
+      "legs": 0.0,
+      "habitat": 0.0,
+      "movement": 0.1,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 23,
+     "nearest": [
+      "hyena",
+      "remora",
+      "gibbon",
+      "oryx",
+      "myna"
+     ],
+     "share": {
+      "group": 0.5,
+      "kind": 0.1,
+      "covering": 0.0,
+      "legs": 0.1,
+      "habitat": 0.2,
+      "movement": 0.1,
+      "tokens": 1.0
+     }
+    }
+   ]
+  },
+  "narwhal": {
+   "values": {
+    "group": "mammal",
+    "kind": "fish-like",
+    "covering": "bare skin",
+    "legs": "none",
+    "habitat": "sea",
+    "movement": "swims",
+    "tokens": "several"
+   },
+   "rows": [
+    {
+     "space": "raw",
+     "layer": 2,
+     "nearest": [
+      "cheetah",
+      "hippopotamus",
+      "manatee",
+      "wildebeest",
+      "axolotl"
+     ],
+     "share": {
+      "group": 0.5,
+      "kind": 0.2,
+      "covering": 0.3,
+      "legs": 0.2,
+      "habitat": 0.4,
+      "movement": 0.4,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 6,
+     "nearest": [
+      "hippopotamus",
+      "porpoise",
+      "rhinoceros",
+      "walrus",
+      "axolotl"
+     ],
+     "share": {
+      "group": 0.8,
+      "kind": 0.3,
+      "covering": 0.7,
+      "legs": 0.3,
+      "habitat": 0.5,
+      "movement": 0.8,
+      "tokens": 0.9
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 12,
+     "nearest": [
+      "platypus",
+      "axolotl",
+      "hippopotamus",
+      "rhinoceros",
+      "walrus"
+     ],
+     "share": {
+      "group": 0.7,
+      "kind": 0.2,
+      "covering": 0.7,
+      "legs": 0.2,
+      "habitat": 0.3,
+      "movement": 0.6,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 18,
+     "nearest": [
+      "platypus",
+      "axolotl",
+      "hippopotamus",
+      "hedgehog",
+      "dugong"
+     ],
+     "share": {
+      "group": 0.9,
+      "kind": 0.1,
+      "covering": 0.5,
+      "legs": 0.1,
+      "habitat": 0.1,
+      "movement": 0.3,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 23,
+     "nearest": [
+      "walrus",
+      "manatee",
+      "hornbill",
+      "dugong",
+      "razorbill"
+     ],
+     "share": {
+      "group": 0.7,
+      "kind": 0.3,
+      "covering": 0.6,
+      "legs": 0.3,
+      "habitat": 0.5,
+      "movement": 0.5,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 2,
+     "nearest": [
+      "gazelle",
+      "wildebeest",
+      "mackerel",
+      "bandicoot",
+      "chimpanzee"
+     ],
+     "share": {
+      "group": 0.9,
+      "kind": 0.1,
+      "covering": 0.0,
+      "legs": 0.1,
+      "habitat": 0.1,
+      "movement": 0.1,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 6,
+     "nearest": [
+      "manatee",
+      "walrus",
+      "terrapin",
+      "gharial",
+      "dugong"
+     ],
+     "share": {
+      "group": 0.7,
+      "kind": 0.3,
+      "covering": 0.4,
+      "legs": 0.3,
+      "habitat": 0.4,
+      "movement": 0.6,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 12,
+     "nearest": [
+      "gharial",
+      "manatee",
+      "platypus",
+      "chimpanzee",
+      "tuatara"
+     ],
+     "share": {
+      "group": 0.7,
+      "kind": 0.2,
+      "covering": 0.4,
+      "legs": 0.2,
+      "habitat": 0.2,
+      "movement": 0.5,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 18,
+     "nearest": [
+      "opossum",
+      "wildebeest",
+      "piranha",
+      "platypus",
+      "cheetah"
+     ],
+     "share": {
+      "group": 0.9,
+      "kind": 0.1,
+      "covering": 0.2,
+      "legs": 0.1,
+      "habitat": 0.0,
+      "movement": 0.2,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 23,
+     "nearest": [
+      "rhinoceros",
+      "porpoise",
+      "bighorn",
+      "aardwolf",
+      "wildebeest"
+     ],
+     "share": {
+      "group": 0.9,
+      "kind": 0.2,
+      "covering": 0.4,
+      "legs": 0.2,
+      "habitat": 0.2,
+      "movement": 0.2,
+      "tokens": 1.0
+     }
+    }
+   ]
+  },
+  "manatee": {
+   "values": {
+    "group": "mammal",
+    "kind": "fish-like",
+    "covering": "bare skin",
+    "legs": "none",
+    "habitat": "sea",
+    "movement": "swims",
+    "tokens": "several"
+   },
+   "rows": [
+    {
+     "space": "raw",
+     "layer": 2,
+     "nearest": [
+      "antelope",
+      "alligator",
+      "kangaroo",
+      "reindeer",
+      "axolotl"
+     ],
+     "share": {
+      "group": 0.5,
+      "kind": 0.2,
+      "covering": 0.2,
+      "legs": 0.2,
+      "habitat": 0.2,
+      "movement": 0.5,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 6,
+     "nearest": [
+      "dugong",
+      "porpoise",
+      "narwhal",
+      "tarpon",
+      "stingray"
+     ],
+     "share": {
+      "group": 0.7,
+      "kind": 0.6,
+      "covering": 0.5,
+      "legs": 0.6,
+      "habitat": 0.6,
+      "movement": 0.8,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 12,
+     "nearest": [
+      "dugong",
+      "tapir",
+      "narwhal",
+      "orca",
+      "muskrat"
+     ],
+     "share": {
+      "group": 0.8,
+      "kind": 0.4,
+      "covering": 0.3,
+      "legs": 0.4,
+      "habitat": 0.4,
+      "movement": 0.7,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 18,
+     "nearest": [
+      "dugong",
+      "coati",
+      "polecat",
+      "alligator",
+      "muskrat"
+     ],
+     "share": {
+      "group": 0.9,
+      "kind": 0.1,
+      "covering": 0.1,
+      "legs": 0.1,
+      "habitat": 0.1,
+      "movement": 0.3,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 23,
+     "nearest": [
+      "porpoise",
+      "colugo",
+      "muskrat",
+      "alligator",
+      "chamois"
+     ],
+     "share": {
+      "group": 0.9,
+      "kind": 0.1,
+      "covering": 0.3,
+      "legs": 0.1,
+      "habitat": 0.1,
+      "movement": 0.3,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 2,
+     "nearest": [
+      "tarpon",
+      "wrasse",
+      "wren",
+      "caracal",
+      "tenrec"
+     ],
+     "share": {
+      "group": 0.3,
+      "kind": 0.3,
+      "covering": 0.1,
+      "legs": 0.3,
+      "habitat": 0.2,
+      "movement": 0.3,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 6,
+     "nearest": [
+      "dugong",
+      "narwhal",
+      "walrus",
+      "platypus",
+      "chimpanzee"
+     ],
+     "share": {
+      "group": 1.0,
+      "kind": 0.2,
+      "covering": 0.3,
+      "legs": 0.2,
+      "habitat": 0.3,
+      "movement": 0.4,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 12,
+     "nearest": [
+      "dugong",
+      "bonobo",
+      "chimpanzee",
+      "cheetah",
+      "orca"
+     ],
+     "share": {
+      "group": 1.0,
+      "kind": 0.2,
+      "covering": 0.3,
+      "legs": 0.2,
+      "habitat": 0.2,
+      "movement": 0.2,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 18,
+     "nearest": [
+      "dugong",
+      "coati",
+      "marmot",
+      "orangutan",
+      "koala"
+     ],
+     "share": {
+      "group": 1.0,
+      "kind": 0.1,
+      "covering": 0.1,
+      "legs": 0.1,
+      "habitat": 0.1,
+      "movement": 0.2,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 23,
+     "nearest": [
+      "gharial",
+      "crocodile",
+      "giraffe",
+      "hoatzin",
+      "alligator"
+     ],
+     "share": {
+      "group": 0.4,
+      "kind": 0.2,
+      "covering": 0.1,
+      "legs": 0.2,
+      "habitat": 0.2,
+      "movement": 0.6,
+      "tokens": 1.0
+     }
+    }
+   ]
+  },
+  "seal": {
+   "values": {
+    "group": "mammal",
+    "kind": "beast",
+    "covering": "fur or hair",
+    "legs": "four",
+    "habitat": "sea",
+    "movement": "swims",
+    "tokens": "one"
+   },
+   "rows": [
+    {
+     "space": "raw",
+     "layer": 2,
+     "nearest": [
+      "sable",
+      "cod",
+      "bat",
+      "elk",
+      "tern"
+     ],
+     "share": {
+      "group": 0.4,
+      "kind": 0.4,
+      "covering": 0.4,
+      "legs": 0.3,
+      "habitat": 0.3,
+      "movement": 0.3,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 6,
+     "nearest": [
+      "bat",
+      "ant",
+      "whale",
+      "rat",
+      "dolphin"
+     ],
+     "share": {
+      "group": 0.6,
+      "kind": 0.4,
+      "covering": 0.4,
+      "legs": 0.3,
+      "habitat": 0.3,
+      "movement": 0.2,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 12,
+     "nearest": [
+      "bat",
+      "clam",
+      "manta",
+      "gull",
+      "loon"
+     ],
+     "share": {
+      "group": 0.4,
+      "kind": 0.4,
+      "covering": 0.3,
+      "legs": 0.3,
+      "habitat": 0.2,
+      "movement": 0.2,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 18,
+     "nearest": [
+      "slug",
+      "clam",
+      "rat",
+      "coral",
+      "bear"
+     ],
+     "share": {
+      "group": 0.5,
+      "kind": 0.4,
+      "covering": 0.4,
+      "legs": 0.3,
+      "habitat": 0.4,
+      "movement": 0.3,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 23,
+     "nearest": [
+      "slug",
+      "eel",
+      "snail",
+      "camel",
+      "spider"
+     ],
+     "share": {
+      "group": 0.5,
+      "kind": 0.5,
+      "covering": 0.5,
+      "legs": 0.5,
+      "habitat": 0.2,
+      "movement": 0.1,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 2,
+     "nearest": [
+      "clam",
+      "snail",
+      "coral",
+      "rat",
+      "bat"
+     ],
+     "share": {
+      "group": 0.5,
+      "kind": 0.5,
+      "covering": 0.5,
+      "legs": 0.4,
+      "habitat": 0.3,
+      "movement": 0.0,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 6,
+     "nearest": [
+      "eel",
+      "bee",
+      "carp",
+      "genet",
+      "mite"
+     ],
+     "share": {
+      "group": 0.5,
+      "kind": 0.5,
+      "covering": 0.5,
+      "legs": 0.5,
+      "habitat": 0.1,
+      "movement": 0.2,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 12,
+     "nearest": [
+      "crow",
+      "coral",
+      "slug",
+      "hare",
+      "spider"
+     ],
+     "share": {
+      "group": 0.4,
+      "kind": 0.4,
+      "covering": 0.3,
+      "legs": 0.3,
+      "habitat": 0.1,
+      "movement": 0.0,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 18,
+     "nearest": [
+      "cat",
+      "crow",
+      "rat",
+      "slug",
+      "bat"
+     ],
+     "share": {
+      "group": 0.5,
+      "kind": 0.5,
+      "covering": 0.4,
+      "legs": 0.4,
+      "habitat": 0.0,
+      "movement": 0.0,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 23,
+     "nearest": [
+      "camel",
+      "clam",
+      "coral",
+      "snake",
+      "bear"
+     ],
+     "share": {
+      "group": 0.5,
+      "kind": 0.4,
+      "covering": 0.4,
+      "legs": 0.4,
+      "habitat": 0.4,
+      "movement": 0.2,
+      "tokens": 1.0
+     }
+    }
+   ]
+  },
+  "walrus": {
+   "values": {
+    "group": "mammal",
+    "kind": "beast",
+    "covering": "bare skin",
+    "legs": "four",
+    "habitat": "sea",
+    "movement": "swims",
+    "tokens": "several"
+   },
+   "rows": [
+    {
+     "space": "raw",
+     "layer": 2,
+     "nearest": [
+      "beluga",
+      "gazelle",
+      "giraffe",
+      "koala",
+      "hippopotamus"
+     ],
+     "share": {
+      "group": 0.9,
+      "kind": 0.8,
+      "covering": 0.2,
+      "legs": 0.7,
+      "habitat": 0.1,
+      "movement": 0.1,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 6,
+     "nearest": [
+      "narwhal",
+      "beaver",
+      "moose",
+      "hippopotamus",
+      "beluga"
+     ],
+     "share": {
+      "group": 0.9,
+      "kind": 0.6,
+      "covering": 0.5,
+      "legs": 0.6,
+      "habitat": 0.4,
+      "movement": 0.7,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 12,
+     "nearest": [
+      "penguin",
+      "beluga",
+      "badger",
+      "puffin",
+      "otter"
+     ],
+     "share": {
+      "group": 0.6,
+      "kind": 0.5,
+      "covering": 0.1,
+      "legs": 0.4,
+      "habitat": 0.4,
+      "movement": 0.3,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 18,
+     "nearest": [
+      "hyrax",
+      "pelican",
+      "otter",
+      "puffin",
+      "narwhal"
+     ],
+     "share": {
+      "group": 0.5,
+      "kind": 0.4,
+      "covering": 0.2,
+      "legs": 0.4,
+      "habitat": 0.4,
+      "movement": 0.3,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 23,
+     "nearest": [
+      "wallaby",
+      "pelican",
+      "polecat",
+      "partridge",
+      "lemming"
+     ],
+     "share": {
+      "group": 0.7,
+      "kind": 0.7,
+      "covering": 0.0,
+      "legs": 0.6,
+      "habitat": 0.1,
+      "movement": 0.0,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 2,
+     "nearest": [
+      "moose",
+      "tortoise",
+      "hippopotamus",
+      "octopus",
+      "rhinoceros"
+     ],
+     "share": {
+      "group": 0.5,
+      "kind": 0.5,
+      "covering": 0.2,
+      "legs": 0.6,
+      "habitat": 0.1,
+      "movement": 0.2,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 6,
+     "nearest": [
+      "manatee",
+      "narwhal",
+      "porpoise",
+      "dromedary",
+      "rhinoceros"
+     ],
+     "share": {
+      "group": 1.0,
+      "kind": 0.6,
+      "covering": 0.6,
+      "legs": 0.6,
+      "habitat": 0.4,
+      "movement": 0.5,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 12,
+     "nearest": [
+      "lemming",
+      "porpoise",
+      "orca",
+      "jackal",
+      "coyote"
+     ],
+     "share": {
+      "group": 1.0,
+      "kind": 0.7,
+      "covering": 0.3,
+      "legs": 0.7,
+      "habitat": 0.3,
+      "movement": 0.3,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 18,
+     "nearest": [
+      "gazelle",
+      "antelope",
+      "salamander",
+      "toucan",
+      "pheasant"
+     ],
+     "share": {
+      "group": 0.5,
+      "kind": 0.5,
+      "covering": 0.1,
+      "legs": 0.6,
+      "habitat": 0.1,
+      "movement": 0.1,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 23,
+     "nearest": [
+      "gerbil",
+      "ferret",
+      "caracal",
+      "hyrax",
+      "muskrat"
+     ],
+     "share": {
+      "group": 1.0,
+      "kind": 1.0,
+      "covering": 0.0,
+      "legs": 0.9,
+      "habitat": 0.0,
+      "movement": 0.1,
+      "tokens": 1.0
+     }
+    }
+   ]
+  },
+  "otter": {
+   "values": {
+    "group": "mammal",
+    "kind": "beast",
+    "covering": "fur or hair",
+    "legs": "four",
+    "habitat": "land and water",
+    "movement": "swims",
+    "tokens": "several"
+   },
+   "rows": [
+    {
+     "space": "raw",
+     "layer": 2,
+     "nearest": [
+      "beaver",
+      "porcupine",
+      "newt",
+      "ferret",
+      "marten"
+     ],
+     "share": {
+      "group": 0.8,
+      "kind": 0.8,
+      "covering": 0.8,
+      "legs": 1.0,
+      "habitat": 0.3,
+      "movement": 0.2,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 6,
+     "nearest": [
+      "porcupine",
+      "badger",
+      "weasel",
+      "civet",
+      "beluga"
+     ],
+     "share": {
+      "group": 0.9,
+      "kind": 0.8,
+      "covering": 0.8,
+      "legs": 0.8,
+      "habitat": 0.1,
+      "movement": 0.2,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 12,
+     "nearest": [
+      "badger",
+      "weasel",
+      "loris",
+      "marten",
+      "toad"
+     ],
+     "share": {
+      "group": 0.7,
+      "kind": 0.7,
+      "covering": 0.7,
+      "legs": 0.9,
+      "habitat": 0.1,
+      "movement": 0.0,
+      "tokens": 0.9
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 18,
+     "nearest": [
+      "badger",
+      "egret",
+      "ferret",
+      "walrus",
+      "ibex"
+     ],
+     "share": {
+      "group": 0.7,
+      "kind": 0.7,
+      "covering": 0.6,
+      "legs": 0.7,
+      "habitat": 0.2,
+      "movement": 0.2,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 23,
+     "nearest": [
+      "egret",
+      "boar",
+      "newt",
+      "walrus",
+      "bobcat"
+     ],
+     "share": {
+      "group": 0.5,
+      "kind": 0.5,
+      "covering": 0.4,
+      "legs": 0.6,
+      "habitat": 0.2,
+      "movement": 0.2,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 2,
+     "nearest": [
+      "parrot",
+      "ferret",
+      "hornet",
+      "bighorn",
+      "heron"
+     ],
+     "share": {
+      "group": 0.6,
+      "kind": 0.6,
+      "covering": 0.6,
+      "legs": 0.7,
+      "habitat": 0.1,
+      "movement": 0.1,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 6,
+     "nearest": [
+      "loris",
+      "civet",
+      "okapi",
+      "marmoset",
+      "eland"
+     ],
+     "share": {
+      "group": 0.9,
+      "kind": 0.8,
+      "covering": 0.8,
+      "legs": 0.9,
+      "habitat": 0.0,
+      "movement": 0.1,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 12,
+     "nearest": [
+      "weasel",
+      "loris",
+      "bobcat",
+      "shrew",
+      "warthog"
+     ],
+     "share": {
+      "group": 0.7,
+      "kind": 0.7,
+      "covering": 0.6,
+      "legs": 0.7,
+      "habitat": 0.1,
+      "movement": 0.0,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 18,
+     "nearest": [
+      "gopher",
+      "viper",
+      "newt",
+      "badger",
+      "boar"
+     ],
+     "share": {
+      "group": 0.4,
+      "kind": 0.4,
+      "covering": 0.4,
+      "legs": 0.5,
+      "habitat": 0.1,
+      "movement": 0.1,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 23,
+     "nearest": [
+      "badger",
+      "osprey",
+      "goby",
+      "weasel",
+      "jackal"
+     ],
+     "share": {
+      "group": 0.7,
+      "kind": 0.7,
+      "covering": 0.7,
+      "legs": 0.7,
+      "habitat": 0.0,
+      "movement": 0.1,
+      "tokens": 1.0
+     }
+    }
+   ]
+  },
+  "platypus": {
+   "values": {
+    "group": "mammal",
+    "kind": "beast",
+    "covering": "fur or hair",
+    "legs": "four",
+    "habitat": "land and water",
+    "movement": "swims",
+    "tokens": "several"
+   },
+   "rows": [
+    {
+     "space": "raw",
+     "layer": 2,
+     "nearest": [
+      "albatross",
+      "nautilus",
+      "otter",
+      "barracuda",
+      "porcupine"
+     ],
+     "share": {
+      "group": 0.5,
+      "kind": 0.4,
+      "covering": 0.3,
+      "legs": 0.4,
+      "habitat": 0.2,
+      "movement": 0.5,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 6,
+     "nearest": [
+      "hippopotamus",
+      "narwhal",
+      "walrus",
+      "axolotl",
+      "penguin"
+     ],
+     "share": {
+      "group": 0.8,
+      "kind": 0.7,
+      "covering": 0.3,
+      "legs": 0.8,
+      "habitat": 0.2,
+      "movement": 0.5,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 12,
+     "nearest": [
+      "narwhal",
+      "axolotl",
+      "hippopotamus",
+      "rhinoceros",
+      "hedgehog"
+     ],
+     "share": {
+      "group": 0.7,
+      "kind": 0.6,
+      "covering": 0.2,
+      "legs": 0.8,
+      "habitat": 0.1,
+      "movement": 0.5,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 18,
+     "nearest": [
+      "hippopotamus",
+      "narwhal",
+      "axolotl",
+      "opossum",
+      "hedgehog"
+     ],
+     "share": {
+      "group": 0.8,
+      "kind": 0.7,
+      "covering": 0.3,
+      "legs": 0.8,
+      "habitat": 0.1,
+      "movement": 0.2,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 23,
+     "nearest": [
+      "hippopotamus",
+      "albatross",
+      "cassowary",
+      "porpoise",
+      "axolotl"
+     ],
+     "share": {
+      "group": 0.3,
+      "kind": 0.2,
+      "covering": 0.1,
+      "legs": 0.5,
+      "habitat": 0.2,
+      "movement": 0.3,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 2,
+     "nearest": [
+      "hippopotamus",
+      "nautilus",
+      "rhinoceros",
+      "lynx",
+      "parrot"
+     ],
+     "share": {
+      "group": 0.7,
+      "kind": 0.7,
+      "covering": 0.4,
+      "legs": 0.7,
+      "habitat": 0.1,
+      "movement": 0.2,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 6,
+     "nearest": [
+      "rhinoceros",
+      "hippopotamus",
+      "ostrich",
+      "sloth",
+      "manatee"
+     ],
+     "share": {
+      "group": 0.9,
+      "kind": 0.8,
+      "covering": 0.6,
+      "legs": 0.7,
+      "habitat": 0.1,
+      "movement": 0.1,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 12,
+     "nearest": [
+      "hippopotamus",
+      "chimpanzee",
+      "rhinoceros",
+      "hedgehog",
+      "gharial"
+     ],
+     "share": {
+      "group": 0.8,
+      "kind": 0.7,
+      "covering": 0.5,
+      "legs": 0.8,
+      "habitat": 0.3,
+      "movement": 0.3,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 18,
+     "nearest": [
+      "chimpanzee",
+      "hippopotamus",
+      "giraffe",
+      "wolverine",
+      "rhinoceros"
+     ],
+     "share": {
+      "group": 0.8,
+      "kind": 0.7,
+      "covering": 0.5,
+      "legs": 0.9,
+      "habitat": 0.2,
+      "movement": 0.3,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 23,
+     "nearest": [
+      "hippopotamus",
+      "kookaburra",
+      "cheetah",
+      "echidna",
+      "chickadee"
+     ],
+     "share": {
+      "group": 0.3,
+      "kind": 0.3,
+      "covering": 0.2,
+      "legs": 0.3,
+      "habitat": 0.1,
+      "movement": 0.0,
+      "tokens": 1.0
+     }
+    }
+   ]
+  },
+  "bat": {
+   "values": {
+    "group": "mammal",
+    "kind": "beast",
+    "covering": "fur or hair",
+    "legs": "two",
+    "habitat": "land",
+    "movement": "flies",
+    "tokens": "one"
+   },
+   "rows": [
+    {
+     "space": "raw",
+     "layer": 2,
+     "nearest": [
+      "cat",
+      "ant",
+      "cod",
+      "seal",
+      "genet"
+     ],
+     "share": {
+      "group": 0.7,
+      "kind": 0.7,
+      "covering": 0.7,
+      "legs": 0.0,
+      "habitat": 0.7,
+      "movement": 0.0,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 6,
+     "nearest": [
+      "ant",
+      "genet",
+      "hare",
+      "cod",
+      "slug"
+     ],
+     "share": {
+      "group": 0.6,
+      "kind": 0.6,
+      "covering": 0.6,
+      "legs": 0.1,
+      "habitat": 0.7,
+      "movement": 0.1,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 12,
+     "nearest": [
+      "carp",
+      "gull",
+      "clam",
+      "seal",
+      "ant"
+     ],
+     "share": {
+      "group": 0.2,
+      "kind": 0.2,
+      "covering": 0.2,
+      "legs": 0.3,
+      "habitat": 0.4,
+      "movement": 0.3,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 18,
+     "nearest": [
+      "ant",
+      "rat",
+      "cat",
+      "cod",
+      "carp"
+     ],
+     "share": {
+      "group": 0.4,
+      "kind": 0.4,
+      "covering": 0.4,
+      "legs": 0.1,
+      "habitat": 0.6,
+      "movement": 0.2,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 23,
+     "nearest": [
+      "rat",
+      "cat",
+      "ant",
+      "bear",
+      "rabbit"
+     ],
+     "share": {
+      "group": 0.8,
+      "kind": 0.8,
+      "covering": 0.7,
+      "legs": 0.1,
+      "habitat": 1.0,
+      "movement": 0.1,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 2,
+     "nearest": [
+      "cat",
+      "rat",
+      "genet",
+      "cod",
+      "carp"
+     ],
+     "share": {
+      "group": 0.5,
+      "kind": 0.5,
+      "covering": 0.4,
+      "legs": 0.1,
+      "habitat": 0.7,
+      "movement": 0.1,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 6,
+     "nearest": [
+      "rat",
+      "cat",
+      "slug",
+      "mink",
+      "yak"
+     ],
+     "share": {
+      "group": 0.7,
+      "kind": 0.7,
+      "covering": 0.7,
+      "legs": 0.1,
+      "habitat": 0.8,
+      "movement": 0.1,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 12,
+     "nearest": [
+      "cat",
+      "clam",
+      "gull",
+      "carp",
+      "jay"
+     ],
+     "share": {
+      "group": 0.3,
+      "kind": 0.3,
+      "covering": 0.3,
+      "legs": 0.3,
+      "habitat": 0.5,
+      "movement": 0.3,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 18,
+     "nearest": [
+      "gull",
+      "gar",
+      "jay",
+      "genet",
+      "yak"
+     ],
+     "share": {
+      "group": 0.2,
+      "kind": 0.2,
+      "covering": 0.2,
+      "legs": 0.4,
+      "habitat": 0.5,
+      "movement": 0.4,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 23,
+     "nearest": [
+      "cat",
+      "owl",
+      "rat",
+      "cow",
+      "ant"
+     ],
+     "share": {
+      "group": 0.7,
+      "kind": 0.7,
+      "covering": 0.6,
+      "legs": 0.1,
+      "habitat": 1.0,
+      "movement": 0.1,
+      "tokens": 1.0
+     }
+    }
+   ]
+  },
+  "penguin": {
+   "values": {
+    "group": "bird",
+    "kind": "bird",
+    "covering": "feathers",
+    "legs": "two",
+    "habitat": "sea",
+    "movement": "swims",
+    "tokens": "several"
+   },
+   "rows": [
+    {
+     "space": "raw",
+     "layer": 2,
+     "nearest": [
+      "peacock",
+      "kangaroo",
+      "kookaburra",
+      "reindeer",
+      "macaw"
+     ],
+     "share": {
+      "group": 0.6,
+      "kind": 0.6,
+      "covering": 0.6,
+      "legs": 0.7,
+      "habitat": 0.2,
+      "movement": 0.2,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 6,
+     "nearest": [
+      "puffin",
+      "panda",
+      "dolphin",
+      "pelican",
+      "gecko"
+     ],
+     "share": {
+      "group": 0.4,
+      "kind": 0.4,
+      "covering": 0.4,
+      "legs": 0.4,
+      "habitat": 0.4,
+      "movement": 0.4,
+      "tokens": 0.7
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 12,
+     "nearest": [
+      "walrus",
+      "puffin",
+      "kangaroo",
+      "toucan",
+      "flamingo"
+     ],
+     "share": {
+      "group": 0.4,
+      "kind": 0.4,
+      "covering": 0.4,
+      "legs": 0.5,
+      "habitat": 0.3,
+      "movement": 0.2,
+      "tokens": 0.8
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 18,
+     "nearest": [
+      "flamingo",
+      "gorilla",
+      "walrus",
+      "pelican",
+      "dolphin"
+     ],
+     "share": {
+      "group": 0.5,
+      "kind": 0.5,
+      "covering": 0.5,
+      "legs": 0.5,
+      "habitat": 0.3,
+      "movement": 0.2,
+      "tokens": 0.9
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 23,
+     "nearest": [
+      "dolphin",
+      "pigeon",
+      "squirrel",
+      "peacock",
+      "pelican"
+     ],
+     "share": {
+      "group": 0.6,
+      "kind": 0.6,
+      "covering": 0.6,
+      "legs": 0.6,
+      "habitat": 0.1,
+      "movement": 0.1,
+      "tokens": 0.5
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 2,
+     "nearest": [
+      "skunk",
+      "falcon",
+      "raccoon",
+      "jaguar",
+      "reindeer"
+     ],
+     "share": {
+      "group": 0.2,
+      "kind": 0.2,
+      "covering": 0.2,
+      "legs": 0.2,
+      "habitat": 0.1,
+      "movement": 0.1,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 6,
+     "nearest": [
+      "bustard",
+      "galah",
+      "albatross",
+      "toucan",
+      "heron"
+     ],
+     "share": {
+      "group": 0.9,
+      "kind": 0.9,
+      "covering": 0.9,
+      "legs": 0.9,
+      "habitat": 0.1,
+      "movement": 0.0,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 12,
+     "nearest": [
+      "flamingo",
+      "ostrich",
+      "galah",
+      "vulture",
+      "kakapo"
+     ],
+     "share": {
+      "group": 1.0,
+      "kind": 1.0,
+      "covering": 1.0,
+      "legs": 1.0,
+      "habitat": 0.1,
+      "movement": 0.0,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 18,
+     "nearest": [
+      "gorilla",
+      "moose",
+      "parrot",
+      "gecko",
+      "beaver"
+     ],
+     "share": {
+      "group": 0.4,
+      "kind": 0.4,
+      "covering": 0.4,
+      "legs": 0.4,
+      "habitat": 0.0,
+      "movement": 0.1,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 23,
+     "nearest": [
+      "prawn",
+      "reindeer",
+      "moose",
+      "gorilla",
+      "swan"
+     ],
+     "share": {
+      "group": 0.2,
+      "kind": 0.2,
+      "covering": 0.2,
+      "legs": 0.2,
+      "habitat": 0.1,
+      "movement": 0.1,
+      "tokens": 1.0
+     }
+    }
+   ]
+  },
+  "ostrich": {
+   "values": {
+    "group": "bird",
+    "kind": "bird",
+    "covering": "feathers",
+    "legs": "two",
+    "habitat": "land",
+    "movement": "walks",
+    "tokens": "several"
+   },
+   "rows": [
+    {
+     "space": "raw",
+     "layer": 2,
+     "nearest": [
+      "penguin",
+      "antelope",
+      "reindeer",
+      "pheasant",
+      "gazelle"
+     ],
+     "share": {
+      "group": 0.3,
+      "kind": 0.3,
+      "covering": 0.3,
+      "legs": 0.4,
+      "habitat": 0.8,
+      "movement": 0.8,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 6,
+     "nearest": [
+      "quail",
+      "pheasant",
+      "bustard",
+      "tapir",
+      "giraffe"
+     ],
+     "share": {
+      "group": 0.6,
+      "kind": 0.6,
+      "covering": 0.6,
+      "legs": 0.6,
+      "habitat": 0.7,
+      "movement": 0.7,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 12,
+     "nearest": [
+      "flamingo",
+      "kangaroo",
+      "pheasant",
+      "peacock",
+      "walrus"
+     ],
+     "share": {
+      "group": 0.7,
+      "kind": 0.7,
+      "covering": 0.7,
+      "legs": 0.8,
+      "habitat": 0.7,
+      "movement": 0.6,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 18,
+     "nearest": [
+      "giraffe",
+      "flamingo",
+      "lemming",
+      "aardvark",
+      "pheasant"
+     ],
+     "share": {
+      "group": 0.2,
+      "kind": 0.2,
+      "covering": 0.2,
+      "legs": 0.2,
+      "habitat": 0.8,
+      "movement": 0.8,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 23,
+     "nearest": [
+      "osprey",
+      "pheasant",
+      "albatross",
+      "peacock",
+      "tortoise"
+     ],
+     "share": {
+      "group": 0.8,
+      "kind": 0.8,
+      "covering": 0.8,
+      "legs": 0.8,
+      "habitat": 0.9,
+      "movement": 0.5,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 2,
+     "nearest": [
+      "skunk",
+      "rhinoceros",
+      "tortoise",
+      "hippopotamus",
+      "walrus"
+     ],
+     "share": {
+      "group": 0.2,
+      "kind": 0.2,
+      "covering": 0.2,
+      "legs": 0.2,
+      "habitat": 0.6,
+      "movement": 0.7,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 6,
+     "nearest": [
+      "tapir",
+      "aardvark",
+      "platypus",
+      "dromedary",
+      "sloth"
+     ],
+     "share": {
+      "group": 0.0,
+      "kind": 0.0,
+      "covering": 0.0,
+      "legs": 0.1,
+      "habitat": 0.9,
+      "movement": 0.9,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 12,
+     "nearest": [
+      "flamingo",
+      "buzzard",
+      "kakapo",
+      "potoo",
+      "albatross"
+     ],
+     "share": {
+      "group": 1.0,
+      "kind": 1.0,
+      "covering": 1.0,
+      "legs": 1.0,
+      "habitat": 0.8,
+      "movement": 0.3,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 18,
+     "nearest": [
+      "iguana",
+      "kangaroo",
+      "flamingo",
+      "giraffe",
+      "salamander"
+     ],
+     "share": {
+      "group": 0.1,
+      "kind": 0.1,
+      "covering": 0.1,
+      "legs": 0.2,
+      "habitat": 0.7,
+      "movement": 0.8,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 23,
+     "nearest": [
+      "flamingo",
+      "nuthatch",
+      "blackbird",
+      "finch",
+      "springbok"
+     ],
+     "share": {
+      "group": 0.9,
+      "kind": 0.9,
+      "covering": 0.9,
+      "legs": 0.9,
+      "habitat": 0.9,
+      "movement": 0.1,
+      "tokens": 1.0
+     }
+    }
+   ]
+  },
+  "emu": {
+   "values": {
+    "group": "bird",
+    "kind": "bird",
+    "covering": "feathers",
+    "legs": "two",
+    "habitat": "land",
+    "movement": "walks",
+    "tokens": "several"
+   },
+   "rows": [
+    {
+     "space": "raw",
+     "layer": 2,
+     "nearest": [
+      "gannet",
+      "weasel",
+      "fossa",
+      "boa",
+      "gopher"
+     ],
+     "share": {
+      "group": 0.2,
+      "kind": 0.2,
+      "covering": 0.2,
+      "legs": 0.2,
+      "habitat": 0.8,
+      "movement": 0.6,
+      "tokens": 0.5
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 6,
+     "nearest": [
+      "newt",
+      "adder",
+      "okapi",
+      "plover",
+      "gecko"
+     ],
+     "share": {
+      "group": 0.3,
+      "kind": 0.3,
+      "covering": 0.3,
+      "legs": 0.3,
+      "habitat": 0.7,
+      "movement": 0.6,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 12,
+     "nearest": [
+      "coot",
+      "canary",
+      "toad",
+      "loris",
+      "plover"
+     ],
+     "share": {
+      "group": 0.5,
+      "kind": 0.5,
+      "covering": 0.5,
+      "legs": 0.5,
+      "habitat": 0.7,
+      "movement": 0.4,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 18,
+     "nearest": [
+      "adder",
+      "kea",
+      "mantis",
+      "serval",
+      "coot"
+     ],
+     "share": {
+      "group": 0.4,
+      "kind": 0.4,
+      "covering": 0.4,
+      "legs": 0.4,
+      "habitat": 0.7,
+      "movement": 0.3,
+      "tokens": 0.6
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 23,
+     "nearest": [
+      "kudu",
+      "ibis",
+      "boa",
+      "kea",
+      "fossa"
+     ],
+     "share": {
+      "group": 0.3,
+      "kind": 0.3,
+      "covering": 0.3,
+      "legs": 0.3,
+      "habitat": 0.9,
+      "movement": 0.5,
+      "tokens": 0.5
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 2,
+     "nearest": [
+      "kea",
+      "mako",
+      "potoo",
+      "barracuda",
+      "amphiuma"
+     ],
+     "share": {
+      "group": 0.3,
+      "kind": 0.3,
+      "covering": 0.3,
+      "legs": 0.3,
+      "habitat": 0.4,
+      "movement": 0.1,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 6,
+     "nearest": [
+      "cavy",
+      "newt",
+      "kea",
+      "okapi",
+      "fossa"
+     ],
+     "share": {
+      "group": 0.2,
+      "kind": 0.2,
+      "covering": 0.2,
+      "legs": 0.3,
+      "habitat": 0.7,
+      "movement": 0.6,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 12,
+     "nearest": [
+      "gopher",
+      "plover",
+      "prawn",
+      "grasshopper",
+      "fossa"
+     ],
+     "share": {
+      "group": 0.4,
+      "kind": 0.4,
+      "covering": 0.4,
+      "legs": 0.4,
+      "habitat": 0.7,
+      "movement": 0.6,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 18,
+     "nearest": [
+      "kea",
+      "mako",
+      "toad",
+      "coot",
+      "mantis"
+     ],
+     "share": {
+      "group": 0.4,
+      "kind": 0.4,
+      "covering": 0.4,
+      "legs": 0.4,
+      "habitat": 0.5,
+      "movement": 0.3,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 23,
+     "nearest": [
+      "kudu",
+      "ibis",
+      "pika",
+      "agama",
+      "vole"
+     ],
+     "share": {
+      "group": 0.1,
+      "kind": 0.1,
+      "covering": 0.1,
+      "legs": 0.1,
+      "habitat": 0.7,
+      "movement": 0.5,
+      "tokens": 0.1
+     }
+    }
+   ]
+  },
+  "cassowary": {
+   "values": {
+    "group": "bird",
+    "kind": "bird",
+    "covering": "feathers",
+    "legs": "two",
+    "habitat": "land",
+    "movement": "walks",
+    "tokens": "several"
+   },
+   "rows": [
+    {
+     "space": "raw",
+     "layer": 2,
+     "nearest": [
+      "peccary",
+      "quetzal",
+      "macaw",
+      "muntjac",
+      "hornbill"
+     ],
+     "share": {
+      "group": 0.5,
+      "kind": 0.5,
+      "covering": 0.5,
+      "legs": 0.5,
+      "habitat": 0.8,
+      "movement": 0.5,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 6,
+     "nearest": [
+      "quetzal",
+      "echidna",
+      "quoll",
+      "albatross",
+      "hyrax"
+     ],
+     "share": {
+      "group": 0.4,
+      "kind": 0.4,
+      "covering": 0.4,
+      "legs": 0.4,
+      "habitat": 0.7,
+      "movement": 0.6,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 12,
+     "nearest": [
+      "armadillo",
+      "pelican",
+      "hyrax",
+      "echidna",
+      "gopher"
+     ],
+     "share": {
+      "group": 0.3,
+      "kind": 0.3,
+      "covering": 0.3,
+      "legs": 0.4,
+      "habitat": 0.8,
+      "movement": 0.7,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 18,
+     "nearest": [
+      "porcupine",
+      "albatross",
+      "lyrebird",
+      "mandrill",
+      "armadillo"
+     ],
+     "share": {
+      "group": 0.4,
+      "kind": 0.4,
+      "covering": 0.4,
+      "legs": 0.4,
+      "habitat": 0.8,
+      "movement": 0.6,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 23,
+     "nearest": [
+      "albatross",
+      "armadillo",
+      "grasshopper",
+      "nautilus",
+      "seahorse"
+     ],
+     "share": {
+      "group": 0.3,
+      "kind": 0.3,
+      "covering": 0.3,
+      "legs": 0.4,
+      "habitat": 0.5,
+      "movement": 0.5,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 2,
+     "nearest": [
+      "macaque",
+      "ibex",
+      "macaw",
+      "tapir",
+      "gorilla"
+     ],
+     "share": {
+      "group": 0.1,
+      "kind": 0.1,
+      "covering": 0.1,
+      "legs": 0.1,
+      "habitat": 1.0,
+      "movement": 0.9,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 6,
+     "nearest": [
+      "porcupine",
+      "hyrax",
+      "coqui",
+      "bilby",
+      "alpaca"
+     ],
+     "share": {
+      "group": 0.2,
+      "kind": 0.2,
+      "covering": 0.2,
+      "legs": 0.2,
+      "habitat": 0.7,
+      "movement": 0.6,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 12,
+     "nearest": [
+      "armadillo",
+      "alpaca",
+      "ocelot",
+      "echidna",
+      "gopher"
+     ],
+     "share": {
+      "group": 0.1,
+      "kind": 0.1,
+      "covering": 0.1,
+      "legs": 0.1,
+      "habitat": 0.9,
+      "movement": 0.8,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 18,
+     "nearest": [
+      "porcupine",
+      "echidna",
+      "armadillo",
+      "ocelot",
+      "albatross"
+     ],
+     "share": {
+      "group": 0.3,
+      "kind": 0.3,
+      "covering": 0.3,
+      "legs": 0.3,
+      "habitat": 0.7,
+      "movement": 0.5,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 23,
+     "nearest": [
+      "petrel",
+      "bilby",
+      "nautilus",
+      "lynx",
+      "capybara"
+     ],
+     "share": {
+      "group": 0.3,
+      "kind": 0.3,
+      "covering": 0.3,
+      "legs": 0.3,
+      "habitat": 0.6,
+      "movement": 0.5,
+      "tokens": 1.0
+     }
+    }
+   ]
+  },
+  "starfish": {
+   "values": {
+    "group": "other_invertebrate",
+    "kind": "sea creature",
+    "covering": "shell or hard case",
+    "legs": "none",
+    "habitat": "sea",
+    "movement": "crawls",
+    "tokens": "several"
+   },
+   "rows": [
+    {
+     "space": "raw",
+     "layer": 2,
+     "nearest": [
+      "jellyfish",
+      "pufferfish",
+      "swordfish",
+      "crayfish",
+      "catfish"
+     ],
+     "share": {
+      "group": 0.3,
+      "kind": 0.2,
+      "covering": 0.1,
+      "legs": 0.9,
+      "habitat": 0.6,
+      "movement": 0.0,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 6,
+     "nearest": [
+      "jellyfish",
+      "triggerfish",
+      "pufferfish",
+      "brittlestar",
+      "clownfish"
+     ],
+     "share": {
+      "group": 0.3,
+      "kind": 0.2,
+      "covering": 0.2,
+      "legs": 0.8,
+      "habitat": 0.9,
+      "movement": 0.1,
+      "tokens": 0.9
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 12,
+     "nearest": [
+      "octopus",
+      "brittlestar",
+      "jellyfish",
+      "chiton",
+      "pufferfish"
+     ],
+     "share": {
+      "group": 0.8,
+      "kind": 0.3,
+      "covering": 0.7,
+      "legs": 0.6,
+      "habitat": 0.6,
+      "movement": 0.3,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 18,
+     "nearest": [
+      "jellyfish",
+      "octopus",
+      "cuttlefish",
+      "monkfish",
+      "clownfish"
+     ],
+     "share": {
+      "group": 0.3,
+      "kind": 0.3,
+      "covering": 0.0,
+      "legs": 1.0,
+      "habitat": 1.0,
+      "movement": 0.0,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 23,
+     "nearest": [
+      "stonefish",
+      "jellyfish",
+      "stingray",
+      "dogfish",
+      "sturgeon"
+     ],
+     "share": {
+      "group": 0.2,
+      "kind": 0.2,
+      "covering": 0.2,
+      "legs": 0.9,
+      "habitat": 0.8,
+      "movement": 0.1,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 2,
+     "nearest": [
+      "archerfish",
+      "parrotfish",
+      "swordfish",
+      "anglerfish",
+      "sailfish"
+     ],
+     "share": {
+      "group": 0.1,
+      "kind": 0.1,
+      "covering": 0.0,
+      "legs": 1.0,
+      "habitat": 0.8,
+      "movement": 0.0,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 6,
+     "nearest": [
+      "jellyfish",
+      "cuttlefish",
+      "triggerfish",
+      "lionfish",
+      "hagfish"
+     ],
+     "share": {
+      "group": 0.3,
+      "kind": 0.3,
+      "covering": 0.0,
+      "legs": 1.0,
+      "habitat": 0.9,
+      "movement": 0.0,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 12,
+     "nearest": [
+      "octopus",
+      "nudibranch",
+      "planarian",
+      "chiton",
+      "axolotl"
+     ],
+     "share": {
+      "group": 0.6,
+      "kind": 0.3,
+      "covering": 0.2,
+      "legs": 0.8,
+      "habitat": 0.6,
+      "movement": 0.3,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 18,
+     "nearest": [
+      "jellyfish",
+      "parrotfish",
+      "lionfish",
+      "anglerfish",
+      "clownfish"
+     ],
+     "share": {
+      "group": 0.2,
+      "kind": 0.2,
+      "covering": 0.0,
+      "legs": 1.0,
+      "habitat": 0.9,
+      "movement": 0.0,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 23,
+     "nearest": [
+      "lamprey",
+      "pufferfish",
+      "octopus",
+      "geoduck",
+      "nudibranch"
+     ],
+     "share": {
+      "group": 0.3,
+      "kind": 0.2,
+      "covering": 0.1,
+      "legs": 1.0,
+      "habitat": 0.9,
+      "movement": 0.1,
+      "tokens": 1.0
+     }
+    }
+   ]
+  },
+  "jellyfish": {
+   "values": {
+    "group": "other_invertebrate",
+    "kind": "sea creature",
+    "covering": "soft body",
+    "legs": "none",
+    "habitat": "sea",
+    "movement": "swims",
+    "tokens": "several"
+   },
+   "rows": [
+    {
+     "space": "raw",
+     "layer": 2,
+     "nearest": [
+      "starfish",
+      "pufferfish",
+      "crayfish",
+      "swordfish",
+      "clownfish"
+     ],
+     "share": {
+      "group": 0.2,
+      "kind": 0.1,
+      "covering": 0.0,
+      "legs": 0.9,
+      "habitat": 0.6,
+      "movement": 0.8,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 6,
+     "nearest": [
+      "starfish",
+      "pufferfish",
+      "stonefish",
+      "triggerfish",
+      "narwhal"
+     ],
+     "share": {
+      "group": 0.2,
+      "kind": 0.2,
+      "covering": 0.1,
+      "legs": 1.0,
+      "habitat": 1.0,
+      "movement": 0.9,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 12,
+     "nearest": [
+      "pufferfish",
+      "starfish",
+      "octopus",
+      "stonefish",
+      "anglerfish"
+     ],
+     "share": {
+      "group": 0.2,
+      "kind": 0.2,
+      "covering": 0.1,
+      "legs": 0.9,
+      "habitat": 0.9,
+      "movement": 0.8,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 18,
+     "nearest": [
+      "cuttlefish",
+      "starfish",
+      "anglerfish",
+      "pufferfish",
+      "lionfish"
+     ],
+     "share": {
+      "group": 0.3,
+      "kind": 0.3,
+      "covering": 0.2,
+      "legs": 1.0,
+      "habitat": 1.0,
+      "movement": 0.9,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 23,
+     "nearest": [
+      "pufferfish",
+      "stonefish",
+      "silverfish",
+      "swordfish",
+      "anglerfish"
+     ],
+     "share": {
+      "group": 0.1,
+      "kind": 0.1,
+      "covering": 0.0,
+      "legs": 0.9,
+      "habitat": 0.8,
+      "movement": 0.8,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 2,
+     "nearest": [
+      "sawfish",
+      "goldfish",
+      "sailfish",
+      "hagfish",
+      "catfish"
+     ],
+     "share": {
+      "group": 0.0,
+      "kind": 0.0,
+      "covering": 0.0,
+      "legs": 1.0,
+      "habitat": 0.7,
+      "movement": 1.0,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 6,
+     "nearest": [
+      "starfish",
+      "cuttlefish",
+      "zebrafish",
+      "lionfish",
+      "triggerfish"
+     ],
+     "share": {
+      "group": 0.3,
+      "kind": 0.2,
+      "covering": 0.1,
+      "legs": 0.9,
+      "habitat": 0.7,
+      "movement": 0.8,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 12,
+     "nearest": [
+      "pufferfish",
+      "nudibranch",
+      "cuttlefish",
+      "stonefish",
+      "oarfish"
+     ],
+     "share": {
+      "group": 0.3,
+      "kind": 0.3,
+      "covering": 0.3,
+      "legs": 1.0,
+      "habitat": 0.9,
+      "movement": 0.8,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 18,
+     "nearest": [
+      "starfish",
+      "cuttlefish",
+      "lionfish",
+      "parrotfish",
+      "clownfish"
+     ],
+     "share": {
+      "group": 0.2,
+      "kind": 0.2,
+      "covering": 0.1,
+      "legs": 1.0,
+      "habitat": 0.9,
+      "movement": 0.9,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 23,
+     "nearest": [
+      "hagfish",
+      "crayfish",
+      "archerfish",
+      "lionfish",
+      "lungfish"
+     ],
+     "share": {
+      "group": 0.1,
+      "kind": 0.0,
+      "covering": 0.0,
+      "legs": 0.9,
+      "habitat": 0.6,
+      "movement": 0.9,
+      "tokens": 1.0
+     }
+    }
+   ]
+  },
+  "cuttlefish": {
+   "values": {
+    "group": "other_invertebrate",
+    "kind": "sea creature",
+    "covering": "soft body",
+    "legs": "none",
+    "habitat": "sea",
+    "movement": "swims",
+    "tokens": "several"
+   },
+   "rows": [
+    {
+     "space": "raw",
+     "layer": 2,
+     "nearest": [
+      "jellyfish",
+      "starfish",
+      "crayfish",
+      "octopus",
+      "swordfish"
+     ],
+     "share": {
+      "group": 0.4,
+      "kind": 0.3,
+      "covering": 0.2,
+      "legs": 0.9,
+      "habitat": 0.9,
+      "movement": 0.8,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 6,
+     "nearest": [
+      "octopus",
+      "jellyfish",
+      "squid",
+      "crayfish",
+      "starfish"
+     ],
+     "share": {
+      "group": 0.6,
+      "kind": 0.4,
+      "covering": 0.3,
+      "legs": 0.9,
+      "habitat": 0.9,
+      "movement": 0.8,
+      "tokens": 0.9
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 12,
+     "nearest": [
+      "octopus",
+      "scallop",
+      "pufferfish",
+      "mussel",
+      "crayfish"
+     ],
+     "share": {
+      "group": 0.6,
+      "kind": 0.1,
+      "covering": 0.1,
+      "legs": 0.8,
+      "habitat": 0.9,
+      "movement": 0.6,
+      "tokens": 0.9
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 18,
+     "nearest": [
+      "pufferfish",
+      "jellyfish",
+      "starfish",
+      "anglerfish",
+      "octopus"
+     ],
+     "share": {
+      "group": 0.3,
+      "kind": 0.3,
+      "covering": 0.2,
+      "legs": 1.0,
+      "habitat": 1.0,
+      "movement": 0.9,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 23,
+     "nearest": [
+      "jellyfish",
+      "pufferfish",
+      "octopus",
+      "anglerfish",
+      "oarfish"
+     ],
+     "share": {
+      "group": 0.3,
+      "kind": 0.3,
+      "covering": 0.2,
+      "legs": 1.0,
+      "habitat": 0.9,
+      "movement": 0.9,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 2,
+     "nearest": [
+      "pufferfish",
+      "swordfish",
+      "paddlefish",
+      "parrotfish",
+      "archerfish"
+     ],
+     "share": {
+      "group": 0.1,
+      "kind": 0.1,
+      "covering": 0.0,
+      "legs": 0.9,
+      "habitat": 0.7,
+      "movement": 0.8,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 6,
+     "nearest": [
+      "starfish",
+      "pufferfish",
+      "jellyfish",
+      "lionfish",
+      "clownfish"
+     ],
+     "share": {
+      "group": 0.3,
+      "kind": 0.3,
+      "covering": 0.2,
+      "legs": 1.0,
+      "habitat": 1.0,
+      "movement": 0.9,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 12,
+     "nearest": [
+      "dogfish",
+      "hagfish",
+      "jellyfish",
+      "pufferfish",
+      "triggerfish"
+     ],
+     "share": {
+      "group": 0.4,
+      "kind": 0.3,
+      "covering": 0.3,
+      "legs": 1.0,
+      "habitat": 0.9,
+      "movement": 0.8,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 18,
+     "nearest": [
+      "jellyfish",
+      "zebrafish",
+      "clownfish",
+      "starfish",
+      "parrotfish"
+     ],
+     "share": {
+      "group": 0.2,
+      "kind": 0.2,
+      "covering": 0.1,
+      "legs": 1.0,
+      "habitat": 0.7,
+      "movement": 0.9,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 23,
+     "nearest": [
+      "anglerfish",
+      "clownfish",
+      "zebrafish",
+      "archerfish",
+      "lionfish"
+     ],
+     "share": {
+      "group": 0.2,
+      "kind": 0.2,
+      "covering": 0.2,
+      "legs": 1.0,
+      "habitat": 0.8,
+      "movement": 1.0,
+      "tokens": 1.0
+     }
+    }
+   ]
+  },
+  "crayfish": {
+   "values": {
+    "group": "other_invertebrate",
+    "kind": "shellfish",
+    "covering": "shell or hard case",
+    "legs": "more than eight",
+    "habitat": "fresh water",
+    "movement": "walks",
+    "tokens": "several"
+   },
+   "rows": [
+    {
+     "space": "raw",
+     "layer": 2,
+     "nearest": [
+      "jellyfish",
+      "goldfish",
+      "starfish",
+      "clownfish",
+      "pufferfish"
+     ],
+     "share": {
+      "group": 0.4,
+      "kind": 0.2,
+      "covering": 0.5,
+      "legs": 0.2,
+      "habitat": 0.2,
+      "movement": 0.3,
+      "tokens": 0.8
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 6,
+     "nearest": [
+      "lobster",
+      "shrimp",
+      "langoustine",
+      "paddlefish",
+      "axolotl"
+     ],
+     "share": {
+      "group": 0.4,
+      "kind": 0.4,
+      "covering": 0.6,
+      "legs": 0.4,
+      "habitat": 0.3,
+      "movement": 0.4,
+      "tokens": 0.7
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 12,
+     "nearest": [
+      "mussel",
+      "lobster",
+      "whelk",
+      "scallop",
+      "monkfish"
+     ],
+     "share": {
+      "group": 0.7,
+      "kind": 0.6,
+      "covering": 0.8,
+      "legs": 0.3,
+      "habitat": 0.0,
+      "movement": 0.2,
+      "tokens": 0.8
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 18,
+     "nearest": [
+      "langoustine",
+      "woodlouse",
+      "scallop",
+      "cockroach",
+      "cuttlefish"
+     ],
+     "share": {
+      "group": 0.5,
+      "kind": 0.3,
+      "covering": 0.6,
+      "legs": 0.3,
+      "habitat": 0.1,
+      "movement": 0.5,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 23,
+     "nearest": [
+      "langoustine",
+      "shrimp",
+      "monkfish",
+      "woodlouse",
+      "lobster"
+     ],
+     "share": {
+      "group": 0.5,
+      "kind": 0.4,
+      "covering": 0.6,
+      "legs": 0.4,
+      "habitat": 0.3,
+      "movement": 0.4,
+      "tokens": 0.8
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 2,
+     "nearest": [
+      "zebrafish",
+      "kingsnake",
+      "oarfish",
+      "goldfish",
+      "mudskipper"
+     ],
+     "share": {
+      "group": 0.0,
+      "kind": 0.0,
+      "covering": 0.1,
+      "legs": 0.0,
+      "habitat": 0.5,
+      "movement": 0.2,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 6,
+     "nearest": [
+      "daphnia",
+      "planarian",
+      "zebrafish",
+      "jellyfish",
+      "hagfish"
+     ],
+     "share": {
+      "group": 0.7,
+      "kind": 0.1,
+      "covering": 0.2,
+      "legs": 0.0,
+      "habitat": 0.3,
+      "movement": 0.0,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 12,
+     "nearest": [
+      "planarian",
+      "chiton",
+      "starfish",
+      "daphnia",
+      "lamprey"
+     ],
+     "share": {
+      "group": 0.9,
+      "kind": 0.4,
+      "covering": 0.5,
+      "legs": 0.1,
+      "habitat": 0.3,
+      "movement": 0.0,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 18,
+     "nearest": [
+      "daphnia",
+      "lamprey",
+      "hagfish",
+      "nudibranch",
+      "zebrafish"
+     ],
+     "share": {
+      "group": 0.5,
+      "kind": 0.2,
+      "covering": 0.3,
+      "legs": 0.1,
+      "habitat": 0.5,
+      "movement": 0.1,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 23,
+     "nearest": [
+      "lionfish",
+      "goldfish",
+      "jellyfish",
+      "archerfish",
+      "clownfish"
+     ],
+     "share": {
+      "group": 0.1,
+      "kind": 0.0,
+      "covering": 0.0,
+      "legs": 0.0,
+      "habitat": 0.5,
+      "movement": 0.0,
+      "tokens": 1.0
+     }
+    }
+   ]
+  },
+  "silverfish": {
+   "values": {
+    "group": "insect",
+    "kind": "bug",
+    "covering": "shell or hard case",
+    "legs": "six",
+    "habitat": "land",
+    "movement": "walks",
+    "tokens": "several"
+   },
+   "rows": [
+    {
+     "space": "raw",
+     "layer": 2,
+     "nearest": [
+      "goldfish",
+      "crayfish",
+      "jellyfish",
+      "swordfish",
+      "stonefish"
+     ],
+     "share": {
+      "group": 0.1,
+      "kind": 0.1,
+      "covering": 0.3,
+      "legs": 0.1,
+      "habitat": 0.1,
+      "movement": 0.2,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 6,
+     "nearest": [
+      "firebrat",
+      "cockroach",
+      "earwig",
+      "bedbug",
+      "mealworm"
+     ],
+     "share": {
+      "group": 0.7,
+      "kind": 1.0,
+      "covering": 0.9,
+      "legs": 0.8,
+      "habitat": 1.0,
+      "movement": 0.8,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 12,
+     "nearest": [
+      "firebrat",
+      "earwig",
+      "cockroach",
+      "woodlouse",
+      "bedbug"
+     ],
+     "share": {
+      "group": 0.5,
+      "kind": 0.9,
+      "covering": 0.7,
+      "legs": 0.7,
+      "habitat": 0.9,
+      "movement": 0.8,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 18,
+     "nearest": [
+      "stonefish",
+      "lionfish",
+      "paddlefish",
+      "lungfish",
+      "earwig"
+     ],
+     "share": {
+      "group": 0.3,
+      "kind": 0.3,
+      "covering": 0.3,
+      "legs": 0.3,
+      "habitat": 0.2,
+      "movement": 0.1,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 23,
+     "nearest": [
+      "stonefish",
+      "paddlefish",
+      "archerfish",
+      "triggerfish",
+      "pufferfish"
+     ],
+     "share": {
+      "group": 0.0,
+      "kind": 0.0,
+      "covering": 0.0,
+      "legs": 0.0,
+      "habitat": 0.0,
+      "movement": 0.0,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 2,
+     "nearest": [
+      "cuttlefish",
+      "pufferfish",
+      "swordfish",
+      "archerfish",
+      "hagfish"
+     ],
+     "share": {
+      "group": 0.0,
+      "kind": 0.0,
+      "covering": 0.1,
+      "legs": 0.0,
+      "habitat": 0.0,
+      "movement": 0.0,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 6,
+     "nearest": [
+      "springtail",
+      "earwig",
+      "pillbug",
+      "copepod",
+      "mealworm"
+     ],
+     "share": {
+      "group": 0.5,
+      "kind": 0.9,
+      "covering": 0.9,
+      "legs": 0.6,
+      "habitat": 0.9,
+      "movement": 0.8,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 12,
+     "nearest": [
+      "firebrat",
+      "earwig",
+      "woodlouse",
+      "pillbug",
+      "mealworm"
+     ],
+     "share": {
+      "group": 0.5,
+      "kind": 0.9,
+      "covering": 0.7,
+      "legs": 0.6,
+      "habitat": 1.0,
+      "movement": 0.7,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 18,
+     "nearest": [
+      "vinegaroon",
+      "scorpionfly",
+      "muskox",
+      "monkfish",
+      "slowworm"
+     ],
+     "share": {
+      "group": 0.1,
+      "kind": 0.2,
+      "covering": 0.2,
+      "legs": 0.2,
+      "habitat": 0.4,
+      "movement": 0.2,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 23,
+     "nearest": [
+      "tapeworm",
+      "lugworm",
+      "pinworm",
+      "nudibranch",
+      "hookworm"
+     ],
+     "share": {
+      "group": 0.1,
+      "kind": 0.2,
+      "covering": 0.1,
+      "legs": 0.1,
+      "habitat": 0.6,
+      "movement": 0.1,
+      "tokens": 1.0
+     }
+    }
+   ]
+  },
+  "eel": {
+   "values": {
+    "group": "fish",
+    "kind": "snake-like",
+    "covering": "bare skin",
+    "legs": "none",
+    "habitat": "sea",
+    "movement": "swims",
+    "tokens": "one"
+   },
+   "rows": [
+    {
+     "space": "raw",
+     "layer": 2,
+     "nearest": [
+      "seal",
+      "carp",
+      "cod",
+      "elk",
+      "bat"
+     ],
+     "share": {
+      "group": 0.4,
+      "kind": 0.0,
+      "covering": 0.0,
+      "legs": 0.4,
+      "habitat": 0.4,
+      "movement": 0.5,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 6,
+     "nearest": [
+      "seal",
+      "mink",
+      "bat",
+      "carp",
+      "hare"
+     ],
+     "share": {
+      "group": 0.1,
+      "kind": 0.0,
+      "covering": 0.0,
+      "legs": 0.2,
+      "habitat": 0.2,
+      "movement": 0.2,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 12,
+     "nearest": [
+      "mink",
+      "snake",
+      "cobra",
+      "squid",
+      "rat"
+     ],
+     "share": {
+      "group": 0.0,
+      "kind": 0.2,
+      "covering": 0.0,
+      "legs": 0.4,
+      "habitat": 0.1,
+      "movement": 0.1,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 18,
+     "nearest": [
+      "seal",
+      "owl",
+      "hare",
+      "clam",
+      "snake"
+     ],
+     "share": {
+      "group": 0.0,
+      "kind": 0.2,
+      "covering": 0.2,
+      "legs": 0.5,
+      "habitat": 0.3,
+      "movement": 0.2,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 23,
+     "nearest": [
+      "seal",
+      "owl",
+      "snail",
+      "deer",
+      "eagle"
+     ],
+     "share": {
+      "group": 0.0,
+      "kind": 0.0,
+      "covering": 0.0,
+      "legs": 0.2,
+      "habitat": 0.1,
+      "movement": 0.2,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 2,
+     "nearest": [
+      "hare",
+      "mite",
+      "vole",
+      "sable",
+      "hake"
+     ],
+     "share": {
+      "group": 0.1,
+      "kind": 0.0,
+      "covering": 0.1,
+      "legs": 0.1,
+      "habitat": 0.1,
+      "movement": 0.2,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 6,
+     "nearest": [
+      "seal",
+      "hare",
+      "mite",
+      "dove",
+      "yak"
+     ],
+     "share": {
+      "group": 0.0,
+      "kind": 0.0,
+      "covering": 0.0,
+      "legs": 0.0,
+      "habitat": 0.1,
+      "movement": 0.1,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 12,
+     "nearest": [
+      "mink",
+      "squid",
+      "oyster",
+      "panda",
+      "crab"
+     ],
+     "share": {
+      "group": 0.2,
+      "kind": 0.0,
+      "covering": 0.0,
+      "legs": 0.4,
+      "habitat": 0.6,
+      "movement": 0.4,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 18,
+     "nearest": [
+      "hare",
+      "rat",
+      "boa",
+      "mink",
+      "robin"
+     ],
+     "share": {
+      "group": 0.0,
+      "kind": 0.1,
+      "covering": 0.0,
+      "legs": 0.1,
+      "habitat": 0.0,
+      "movement": 0.0,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 23,
+     "nearest": [
+      "camel",
+      "brill",
+      "bat",
+      "seal",
+      "slug"
+     ],
+     "share": {
+      "group": 0.1,
+      "kind": 0.0,
+      "covering": 0.0,
+      "legs": 0.3,
+      "habitat": 0.3,
+      "movement": 0.2,
+      "tokens": 1.0
+     }
+    }
+   ]
+  },
+  "lamprey": {
+   "values": {
+    "group": "fish",
+    "kind": "snake-like",
+    "covering": "bare skin",
+    "legs": "none",
+    "habitat": "fresh water",
+    "movement": "swims",
+    "tokens": "several"
+   },
+   "rows": [
+    {
+     "space": "raw",
+     "layer": 2,
+     "nearest": [
+      "anchovy",
+      "herring",
+      "minnow",
+      "tilapia",
+      "sturgeon"
+     ],
+     "share": {
+      "group": 0.8,
+      "kind": 0.0,
+      "covering": 0.0,
+      "legs": 0.8,
+      "habitat": 0.5,
+      "movement": 0.8,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 6,
+     "nearest": [
+      "hagfish",
+      "loach",
+      "paddlefish",
+      "sturgeon",
+      "minnow"
+     ],
+     "share": {
+      "group": 0.7,
+      "kind": 0.1,
+      "covering": 0.3,
+      "legs": 0.8,
+      "habitat": 0.5,
+      "movement": 0.7,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 12,
+     "nearest": [
+      "hagfish",
+      "sturgeon",
+      "lungfish",
+      "paddlefish",
+      "loach"
+     ],
+     "share": {
+      "group": 0.5,
+      "kind": 0.2,
+      "covering": 0.3,
+      "legs": 0.8,
+      "habitat": 0.4,
+      "movement": 0.5,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 18,
+     "nearest": [
+      "hagfish",
+      "lungfish",
+      "caecilian",
+      "bowfin",
+      "springtail"
+     ],
+     "share": {
+      "group": 0.5,
+      "kind": 0.2,
+      "covering": 0.3,
+      "legs": 0.9,
+      "habitat": 0.3,
+      "movement": 0.5,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 23,
+     "nearest": [
+      "hagfish",
+      "lungfish",
+      "planarian",
+      "bowfin",
+      "starfish"
+     ],
+     "share": {
+      "group": 0.6,
+      "kind": 0.1,
+      "covering": 0.4,
+      "legs": 0.9,
+      "habitat": 0.4,
+      "movement": 0.7,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 2,
+     "nearest": [
+      "limpet",
+      "grebe",
+      "hellbender",
+      "mackerel",
+      "mussel"
+     ],
+     "share": {
+      "group": 0.1,
+      "kind": 0.0,
+      "covering": 0.1,
+      "legs": 0.3,
+      "habitat": 0.1,
+      "movement": 0.2,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 6,
+     "nearest": [
+      "piranha",
+      "hellbender",
+      "caecilian",
+      "tsetse",
+      "axolotl"
+     ],
+     "share": {
+      "group": 0.3,
+      "kind": 0.2,
+      "covering": 0.4,
+      "legs": 0.7,
+      "habitat": 0.5,
+      "movement": 0.6,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 12,
+     "nearest": [
+      "chiton",
+      "limpet",
+      "shipworm",
+      "planarian",
+      "whelk"
+     ],
+     "share": {
+      "group": 0.1,
+      "kind": 0.1,
+      "covering": 0.1,
+      "legs": 0.9,
+      "habitat": 0.2,
+      "movement": 0.1,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 18,
+     "nearest": [
+      "planarian",
+      "harvestman",
+      "daphnia",
+      "copepod",
+      "crayfish"
+     ],
+     "share": {
+      "group": 0.1,
+      "kind": 0.1,
+      "covering": 0.1,
+      "legs": 0.3,
+      "habitat": 0.3,
+      "movement": 0.3,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 23,
+     "nearest": [
+      "nudibranch",
+      "starfish",
+      "pufferfish",
+      "hagfish",
+      "planarian"
+     ],
+     "share": {
+      "group": 0.5,
+      "kind": 0.1,
+      "covering": 0.3,
+      "legs": 1.0,
+      "habitat": 0.2,
+      "movement": 0.6,
+      "tokens": 1.0
+     }
+    }
+   ]
+  },
+  "hagfish": {
+   "values": {
+    "group": "fish",
+    "kind": "snake-like",
+    "covering": "bare skin",
+    "legs": "none",
+    "habitat": "sea",
+    "movement": "swims",
+    "tokens": "several"
+   },
+   "rows": [
+    {
+     "space": "raw",
+     "layer": 2,
+     "nearest": [
+      "lungfish",
+      "sawfish",
+      "jellyfish",
+      "clownfish",
+      "triggerfish"
+     ],
+     "share": {
+      "group": 0.7,
+      "kind": 0.0,
+      "covering": 0.4,
+      "legs": 0.9,
+      "habitat": 0.7,
+      "movement": 0.8,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 6,
+     "nearest": [
+      "lamprey",
+      "oarfish",
+      "anglerfish",
+      "dogfish",
+      "coelacanth"
+     ],
+     "share": {
+      "group": 0.9,
+      "kind": 0.2,
+      "covering": 0.7,
+      "legs": 1.0,
+      "habitat": 0.5,
+      "movement": 0.9,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 12,
+     "nearest": [
+      "lamprey",
+      "lungfish",
+      "oarfish",
+      "tenrec",
+      "bowfin"
+     ],
+     "share": {
+      "group": 0.5,
+      "kind": 0.2,
+      "covering": 0.3,
+      "legs": 0.7,
+      "habitat": 0.3,
+      "movement": 0.5,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 18,
+     "nearest": [
+      "lamprey",
+      "lungfish",
+      "anglerfish",
+      "caecilian",
+      "oarfish"
+     ],
+     "share": {
+      "group": 0.6,
+      "kind": 0.2,
+      "covering": 0.5,
+      "legs": 1.0,
+      "habitat": 0.7,
+      "movement": 0.7,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 23,
+     "nearest": [
+      "lamprey",
+      "lungfish",
+      "jellyfish",
+      "dogfish",
+      "anglerfish"
+     ],
+     "share": {
+      "group": 0.8,
+      "kind": 0.1,
+      "covering": 0.6,
+      "legs": 1.0,
+      "habitat": 0.8,
+      "movement": 0.9,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 2,
+     "nearest": [
+      "pufferfish",
+      "archerfish",
+      "sawfish",
+      "sailfish",
+      "swordfish"
+     ],
+     "share": {
+      "group": 0.9,
+      "kind": 0.0,
+      "covering": 0.5,
+      "legs": 1.0,
+      "habitat": 0.7,
+      "movement": 1.0,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 6,
+     "nearest": [
+      "zebrafish",
+      "dogfish",
+      "cuttlefish",
+      "lungfish",
+      "goldfish"
+     ],
+     "share": {
+      "group": 0.8,
+      "kind": 0.0,
+      "covering": 0.3,
+      "legs": 1.0,
+      "habitat": 0.7,
+      "movement": 1.0,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 12,
+     "nearest": [
+      "cuttlefish",
+      "chiton",
+      "dogfish",
+      "lamprey",
+      "pufferfish"
+     ],
+     "share": {
+      "group": 0.5,
+      "kind": 0.1,
+      "covering": 0.4,
+      "legs": 1.0,
+      "habitat": 0.8,
+      "movement": 0.7,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 18,
+     "nearest": [
+      "lungfish",
+      "zebrafish",
+      "crayfish",
+      "cuttlefish",
+      "lamprey"
+     ],
+     "share": {
+      "group": 0.5,
+      "kind": 0.1,
+      "covering": 0.2,
+      "legs": 0.9,
+      "habitat": 0.5,
+      "movement": 0.8,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 23,
+     "nearest": [
+      "jellyfish",
+      "nudibranch",
+      "lungfish",
+      "planarian",
+      "pufferfish"
+     ],
+     "share": {
+      "group": 0.5,
+      "kind": 0.1,
+      "covering": 0.3,
+      "legs": 0.9,
+      "habitat": 0.5,
+      "movement": 0.6,
+      "tokens": 1.0
+     }
+    }
+   ]
+  },
+  "slowworm": {
+   "values": {
+    "group": "reptile",
+    "kind": "snake-like",
+    "covering": "scales",
+    "legs": "none",
+    "habitat": "land",
+    "movement": "crawls",
+    "tokens": "several"
+   },
+   "rows": [
+    {
+     "space": "raw",
+     "layer": 2,
+     "nearest": [
+      "ragworm",
+      "winkle",
+      "glowworm",
+      "blenny",
+      "lugworm"
+     ],
+     "share": {
+      "group": 0.2,
+      "kind": 0.1,
+      "covering": 0.2,
+      "legs": 0.6,
+      "habitat": 0.6,
+      "movement": 0.7,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 6,
+     "nearest": [
+      "ragworm",
+      "earthworm",
+      "glowworm",
+      "earwig",
+      "mealworm"
+     ],
+     "share": {
+      "group": 0.0,
+      "kind": 0.0,
+      "covering": 0.0,
+      "legs": 0.4,
+      "habitat": 0.7,
+      "movement": 0.6,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 12,
+     "nearest": [
+      "ragworm",
+      "glowworm",
+      "earthworm",
+      "lugworm",
+      "pillbug"
+     ],
+     "share": {
+      "group": 0.0,
+      "kind": 0.0,
+      "covering": 0.0,
+      "legs": 0.5,
+      "habitat": 0.5,
+      "movement": 0.6,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 18,
+     "nearest": [
+      "ragworm",
+      "glowworm",
+      "lugworm",
+      "earthworm",
+      "kingsnake"
+     ],
+     "share": {
+      "group": 0.1,
+      "kind": 0.1,
+      "covering": 0.1,
+      "legs": 0.6,
+      "habitat": 0.6,
+      "movement": 0.7,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 23,
+     "nearest": [
+      "ragworm",
+      "glowworm",
+      "earthworm",
+      "lugworm",
+      "shipworm"
+     ],
+     "share": {
+      "group": 0.1,
+      "kind": 0.1,
+      "covering": 0.1,
+      "legs": 0.5,
+      "habitat": 0.7,
+      "movement": 0.6,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 2,
+     "nearest": [
+      "ragworm",
+      "glowworm",
+      "lugworm",
+      "earthworm",
+      "pinworm"
+     ],
+     "share": {
+      "group": 0.0,
+      "kind": 0.0,
+      "covering": 0.0,
+      "legs": 0.6,
+      "habitat": 0.7,
+      "movement": 0.7,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 6,
+     "nearest": [
+      "glowworm",
+      "silkworm",
+      "lugworm",
+      "earthworm",
+      "tapeworm"
+     ],
+     "share": {
+      "group": 0.0,
+      "kind": 0.0,
+      "covering": 0.0,
+      "legs": 0.7,
+      "habitat": 0.7,
+      "movement": 0.8,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 12,
+     "nearest": [
+      "earthworm",
+      "glowworm",
+      "tapeworm",
+      "pinworm",
+      "silkworm"
+     ],
+     "share": {
+      "group": 0.0,
+      "kind": 0.0,
+      "covering": 0.0,
+      "legs": 0.5,
+      "habitat": 0.9,
+      "movement": 0.7,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 18,
+     "nearest": [
+      "ragworm",
+      "glowworm",
+      "bullfrog",
+      "silkworm",
+      "dobsonfly"
+     ],
+     "share": {
+      "group": 0.0,
+      "kind": 0.0,
+      "covering": 0.0,
+      "legs": 0.3,
+      "habitat": 0.6,
+      "movement": 0.5,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 23,
+     "nearest": [
+      "pseudoscorpion",
+      "pillbug",
+      "harvestman",
+      "silkworm",
+      "ragworm"
+     ],
+     "share": {
+      "group": 0.0,
+      "kind": 0.0,
+      "covering": 0.0,
+      "legs": 0.2,
+      "habitat": 0.6,
+      "movement": 0.2,
+      "tokens": 1.0
+     }
+    }
+   ]
+  },
+  "caecilian": {
+   "values": {
+    "group": "amphibian",
+    "kind": "snake-like",
+    "covering": "bare skin",
+    "legs": "none",
+    "habitat": "land",
+    "movement": "crawls",
+    "tokens": "several"
+   },
+   "rows": [
+    {
+     "space": "raw",
+     "layer": 2,
+     "nearest": [
+      "axolotl",
+      "tuatara",
+      "caiman",
+      "cichlid",
+      "lizard"
+     ],
+     "share": {
+      "group": 0.2,
+      "kind": 0.1,
+      "covering": 0.2,
+      "legs": 0.3,
+      "habitat": 0.5,
+      "movement": 0.2,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 6,
+     "nearest": [
+      "hellbender",
+      "salamander",
+      "spadefoot",
+      "axolotl",
+      "chiton"
+     ],
+     "share": {
+      "group": 0.4,
+      "kind": 0.4,
+      "covering": 0.6,
+      "legs": 0.5,
+      "habitat": 0.4,
+      "movement": 0.3,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 12,
+     "nearest": [
+      "hellbender",
+      "tenrec",
+      "lamprey",
+      "hagfish",
+      "lungfish"
+     ],
+     "share": {
+      "group": 0.3,
+      "kind": 0.3,
+      "covering": 0.5,
+      "legs": 0.6,
+      "habitat": 0.3,
+      "movement": 0.1,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 18,
+     "nearest": [
+      "hellbender",
+      "hagfish",
+      "lamprey",
+      "pseudoscorpion",
+      "gharial"
+     ],
+     "share": {
+      "group": 0.3,
+      "kind": 0.2,
+      "covering": 0.5,
+      "legs": 0.3,
+      "habitat": 0.3,
+      "movement": 0.0,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 23,
+     "nearest": [
+      "salamander",
+      "tuatara",
+      "hellbender",
+      "planarian",
+      "coelacanth"
+     ],
+     "share": {
+      "group": 0.4,
+      "kind": 0.3,
+      "covering": 0.6,
+      "legs": 0.6,
+      "habitat": 0.1,
+      "movement": 0.1,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 2,
+     "nearest": [
+      "harvestman",
+      "geoduck",
+      "pseudoscorpion",
+      "abalone",
+      "mandrill"
+     ],
+     "share": {
+      "group": 0.0,
+      "kind": 0.0,
+      "covering": 0.0,
+      "legs": 0.2,
+      "habitat": 0.7,
+      "movement": 0.1,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 6,
+     "nearest": [
+      "axolotl",
+      "hellbender",
+      "lamprey",
+      "tsetse",
+      "piranha"
+     ],
+     "share": {
+      "group": 0.4,
+      "kind": 0.2,
+      "covering": 0.5,
+      "legs": 0.4,
+      "habitat": 0.3,
+      "movement": 0.1,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 12,
+     "nearest": [
+      "axolotl",
+      "amphiuma",
+      "tuatara",
+      "hellbender",
+      "octopus"
+     ],
+     "share": {
+      "group": 0.4,
+      "kind": 0.1,
+      "covering": 0.5,
+      "legs": 0.6,
+      "habitat": 0.1,
+      "movement": 0.2,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 18,
+     "nearest": [
+      "tuatara",
+      "cichlid",
+      "pseudoscorpion",
+      "hoatzin",
+      "hellbender"
+     ],
+     "share": {
+      "group": 0.1,
+      "kind": 0.0,
+      "covering": 0.1,
+      "legs": 0.3,
+      "habitat": 0.5,
+      "movement": 0.1,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 23,
+     "nearest": [
+      "tuatara",
+      "hellbender",
+      "amphiuma",
+      "salamander",
+      "chuckwalla"
+     ],
+     "share": {
+      "group": 0.4,
+      "kind": 0.2,
+      "covering": 0.4,
+      "legs": 0.4,
+      "habitat": 0.4,
+      "movement": 0.1,
+      "tokens": 1.0
+     }
+    }
+   ]
+  },
+  "amphiuma": {
+   "values": {
+    "group": "amphibian",
+    "kind": "snake-like",
+    "covering": "bare skin",
+    "legs": "none",
+    "habitat": "fresh water",
+    "movement": "swims",
+    "tokens": "several"
+   },
+   "rows": [
+    {
+     "space": "raw",
+     "layer": 2,
+     "nearest": [
+      "avocet",
+      "solifuge",
+      "emu",
+      "fossa",
+      "axolotl"
+     ],
+     "share": {
+      "group": 0.1,
+      "kind": 0.1,
+      "covering": 0.1,
+      "legs": 0.3,
+      "habitat": 0.1,
+      "movement": 0.3,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 6,
+     "nearest": [
+      "solifuge",
+      "axolotl",
+      "emu",
+      "taipan",
+      "mudpuppy"
+     ],
+     "share": {
+      "group": 0.2,
+      "kind": 0.2,
+      "covering": 0.2,
+      "legs": 0.3,
+      "habitat": 0.3,
+      "movement": 0.3,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 12,
+     "nearest": [
+      "mudpuppy",
+      "axolotl",
+      "solifuge",
+      "katydid",
+      "salamander"
+     ],
+     "share": {
+      "group": 0.3,
+      "kind": 0.0,
+      "covering": 0.5,
+      "legs": 0.3,
+      "habitat": 0.3,
+      "movement": 0.5,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 18,
+     "nearest": [
+      "echidna",
+      "katydid",
+      "axolotl",
+      "solifuge",
+      "mudpuppy"
+     ],
+     "share": {
+      "group": 0.2,
+      "kind": 0.0,
+      "covering": 0.2,
+      "legs": 0.1,
+      "habitat": 0.3,
+      "movement": 0.4,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 23,
+     "nearest": [
+      "caecilian",
+      "tuatara",
+      "hellbender",
+      "mudpuppy",
+      "chuckwalla"
+     ],
+     "share": {
+      "group": 0.5,
+      "kind": 0.1,
+      "covering": 0.5,
+      "legs": 0.3,
+      "habitat": 0.5,
+      "movement": 0.5,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 2,
+     "nearest": [
+      "pacu",
+      "kea",
+      "peccary",
+      "coati",
+      "emu"
+     ],
+     "share": {
+      "group": 0.0,
+      "kind": 0.0,
+      "covering": 0.1,
+      "legs": 0.2,
+      "habitat": 0.1,
+      "movement": 0.2,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 6,
+     "nearest": [
+      "hellbender",
+      "axolotl",
+      "arowana",
+      "wolverine",
+      "remora"
+     ],
+     "share": {
+      "group": 0.2,
+      "kind": 0.1,
+      "covering": 0.3,
+      "legs": 0.5,
+      "habitat": 0.5,
+      "movement": 0.6,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 12,
+     "nearest": [
+      "hellbender",
+      "salamander",
+      "caecilian",
+      "tuatara",
+      "mudpuppy"
+     ],
+     "share": {
+      "group": 0.7,
+      "kind": 0.1,
+      "covering": 0.7,
+      "legs": 0.1,
+      "habitat": 0.3,
+      "movement": 0.3,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 18,
+     "nearest": [
+      "mudpuppy",
+      "katydid",
+      "axolotl",
+      "hippopotamus",
+      "octopus"
+     ],
+     "share": {
+      "group": 0.2,
+      "kind": 0.0,
+      "covering": 0.4,
+      "legs": 0.3,
+      "habitat": 0.3,
+      "movement": 0.5,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 23,
+     "nearest": [
+      "salamander",
+      "axolotl",
+      "caecilian",
+      "chuckwalla",
+      "tuatara"
+     ],
+     "share": {
+      "group": 0.5,
+      "kind": 0.2,
+      "covering": 0.5,
+      "legs": 0.2,
+      "habitat": 0.3,
+      "movement": 0.3,
+      "tokens": 1.0
+     }
+    }
+   ]
+  },
+  "mudskipper": {
+   "values": {
+    "group": "fish",
+    "kind": "fish-like",
+    "covering": "scales",
+    "legs": "none",
+    "habitat": "land and water",
+    "movement": "walks",
+    "tokens": "several"
+   },
+   "rows": [
+    {
+     "space": "raw",
+     "layer": 2,
+     "nearest": [
+      "arapaima",
+      "cichlid",
+      "sandpiper",
+      "minnow",
+      "oarfish"
+     ],
+     "share": {
+      "group": 0.7,
+      "kind": 0.7,
+      "covering": 0.5,
+      "legs": 0.7,
+      "habitat": 0.2,
+      "movement": 0.0,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 6,
+     "nearest": [
+      "archerfish",
+      "bowfin",
+      "goby",
+      "oarfish",
+      "gurnard"
+     ],
+     "share": {
+      "group": 0.9,
+      "kind": 0.8,
+      "covering": 0.5,
+      "legs": 0.9,
+      "habitat": 0.0,
+      "movement": 0.1,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 12,
+     "nearest": [
+      "archerfish",
+      "parrotfish",
+      "lungfish",
+      "goby",
+      "jerboa"
+     ],
+     "share": {
+      "group": 0.7,
+      "kind": 0.7,
+      "covering": 0.5,
+      "legs": 0.8,
+      "habitat": 0.0,
+      "movement": 0.2,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 18,
+     "nearest": [
+      "mudpuppy",
+      "hellbender",
+      "woodpecker",
+      "sandpiper",
+      "kingfisher"
+     ],
+     "share": {
+      "group": 0.3,
+      "kind": 0.3,
+      "covering": 0.2,
+      "legs": 0.3,
+      "habitat": 0.3,
+      "movement": 0.0,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "raw",
+     "layer": 23,
+     "nearest": [
+      "swordtail",
+      "clownfish",
+      "lungfish",
+      "parrotfish",
+      "dogfish"
+     ],
+     "share": {
+      "group": 1.0,
+      "kind": 1.0,
+      "covering": 0.6,
+      "legs": 1.0,
+      "habitat": 0.0,
+      "movement": 0.0,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 2,
+     "nearest": [
+      "zebrafish",
+      "lungfish",
+      "clownfish",
+      "lionfish",
+      "paddlefish"
+     ],
+     "share": {
+      "group": 1.0,
+      "kind": 1.0,
+      "covering": 0.5,
+      "legs": 1.0,
+      "habitat": 0.0,
+      "movement": 0.0,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 6,
+     "nearest": [
+      "goldfish",
+      "stonefish",
+      "parrotfish",
+      "lungfish",
+      "clownfish"
+     ],
+     "share": {
+      "group": 1.0,
+      "kind": 1.0,
+      "covering": 0.5,
+      "legs": 1.0,
+      "habitat": 0.0,
+      "movement": 0.0,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 12,
+     "nearest": [
+      "parrotfish",
+      "anglerfish",
+      "stonefish",
+      "archerfish",
+      "lionfish"
+     ],
+     "share": {
+      "group": 0.9,
+      "kind": 0.9,
+      "covering": 0.5,
+      "legs": 1.0,
+      "habitat": 0.0,
+      "movement": 0.0,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 18,
+     "nearest": [
+      "cichlid",
+      "boomslang",
+      "coelacanth",
+      "tuatara",
+      "hellbender"
+     ],
+     "share": {
+      "group": 0.5,
+      "kind": 0.5,
+      "covering": 0.7,
+      "legs": 0.8,
+      "habitat": 0.0,
+      "movement": 0.1,
+      "tokens": 1.0
+     }
+    },
+    {
+     "space": "lens",
+     "layer": 23,
+     "nearest": [
+      "cichlid",
+      "oarfish",
+      "tilapia",
+      "arowana",
+      "monkfish"
+     ],
+     "share": {
+      "group": 1.0,
+      "kind": 1.0,
+      "covering": 0.7,
+      "legs": 1.0,
+      "habitat": 0.0,
+      "movement": 0.0,
+      "tokens": 1.0
+     }
+    }
+   ]
+  }
+ }
+}

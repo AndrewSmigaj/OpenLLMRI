@@ -20,8 +20,10 @@ The steps are under [The two documents](plan.md#phase-documents). After the revi
 DESIGN.md and `one-mud.md` become pointers (each keeps only a short note naming the documents that
 replaced it). Until then the old DESIGN.md remains the source of truth.
 
-**Beside it: the animal ontology study** [ORDER-15]: the 524 names labelled by hand in the nine
-ways, then the capture, the lens and the analyses, mostly while Andrew reviews the documents.
+**Beside it: the animal ontology study** [ORDER-15], done: the 524 names labelled by hand in the
+nine ways, captured again, a lens, the three measures and a findings note
+(`docs/research/animal_ontology_findings.md`). In short, descent and the ways that go with it
+lead, and every way can be read on orders the reader never saw.
 
 **Next: the new app, room by room** ([its plan](plan.md#the-new-app), for Andrew's yes: L31), then
 slice 2 (capture and jobs).
@@ -268,14 +270,14 @@ documents are the source of truth.
 **Goal:** which ways of organizing animals the model's states follow, layer by layer
 [SET-15, SET-16]. **Why:** Andrew changed the animal set's framing to many ways [SET-12].
 
-| Step | What |
-|---|---|
-| S0 | The set `animals_ontology_v1`: the same 524 entries as `animals_kinship_v1`, plus eight new axes, written by hand by Claude in one pass, with its guide (every rule and the borderline cases) [SET-17, SET-28] |
-| S1 | Its audit, with the taxonomy checked against each animal's common names [LENS-27] |
-| S2 | The capture, with the date pinned to 2026-09-16, so every state equals the first capture's |
-| S3 | A lens with whole orders held out; validation, the axes analysis, routes, node details, reports |
-| S4 | The three measures (neighbours beyond chance, held out, each way's own share), within each token count, in raw space and the lens's space, with figures [WAY-16] |
-| S5 | A findings note, the study's ledger, a figure |
+| Step | What | State |
+|---|---|---|
+| S0 | The set `animals_ontology_v1`: the same 524 entries as `animals_kinship_v1`, plus eight new axes, written by hand by Claude in one pass, with its guide (every rule and the borderline cases) [SET-17, SET-28] | done |
+| S1 | Its audit, with the taxonomy checked against each animal's common names [LENS-27] | done: no problems; 22 common names differ, all checked and right |
+| S2 | The capture, with the date pinned to 2026-09-16, so every state equals the first capture's | done: `session_5cd7091d`, identical at all 24 layers |
+| S3 | A lens with whole orders held out; validation, the axes analysis, routes, node details, reports | done: `onto-k8-n15`, saved with its reports |
+| S4 | The three measures (neighbours beyond chance, held out, each way's own share), within each token count, in raw space and the lens's space, with figures [WAY-16] | done |
+| S5 | A findings note, the study's ledger, a figure | done: `docs/research/animal_ontology_findings.md` |
 
 ### Next: the new app, room by room {#the-new-app}
 

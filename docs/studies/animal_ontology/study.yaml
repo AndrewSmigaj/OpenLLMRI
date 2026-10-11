@@ -12,10 +12,53 @@ question: >
   follow most, layer by layer, once the others and the token count are accounted for?
 status: active
 started: 2026-10-11
-# The set animals_ontology_v1 is labelled by hand; its capture and lenses follow.
-sets: []
-captures: []
-lenses: []
+sets:
+  - animals_ontology_v1
+captures:
+  - session_5cd7091d
+lenses:
+  - session_5cd7091d/onto-k8-n15
 findings:
   - docs/research/animal_ontology.md
-ledger: []
+  - docs/research/animal_ontology_findings.md
+ledger:
+  - idea: >
+      With every animal labelled in nine ways, the model's animal neighbourhoods follow descent and
+      the ways that go with it more than the ways that are about people.
+    experiment: >
+      For each of the fourteen axes and each layer, the share of an animal's 10 nearest neighbours
+      that share its value, as agreement beyond chance (1,000 shuffles within each token count), in
+      raw space and in onto-k8-n15's space.
+    finding: >
+      Averaged over L4 to L16, the group, everyday kind and legs reach 0.57 to 0.59 and covering
+      0.53 to 0.54 in both spaces; movement 0.48 to 0.50 and habitat 0.39 to 0.41 come next;
+      relation, where met, feeling and danger stay at 0.11 to 0.33. Every axis dips at L18 to L20.
+    status: proposed
+    evidence: [docs/research/animal_ontology_findings.md]
+  - idea: Every way can be read on taxonomic orders the reader never saw.
+    experiment: >
+      The axes analysis of onto-k8-n15 with whole orders held out (12 folds): κ for a linear probe
+      and for the lens's nodes at k 8, against each reader's decoy line.
+    finding: >
+      The probe passes its line at every layer for every axis but danger (22 layers): the group and
+      everyday kind at 0.82 to 0.87 (L4 to L16), the people-centred ways at 0.49 to 0.65, danger at
+      0.22 to 0.33. The lens's nodes carry the descent-tied ways (0.32 to 0.58) and hardly any of the
+      people-centred ones; danger and wild or domestic not at all.
+    status: proposed
+    evidence: [docs/research/animal_ontology_findings.md]
+  - idea: >
+      What each way adds to the distance between two animals, with every other way held fixed, says
+      which ways the model keeps apart.
+    experiment: >
+      Every pair's distance modelled from whether the two differ on each axis, with the token count
+      and name length; each axis's unique share, 1,000 permutations within each token count; beside
+      it, each axis fitted alone.
+    finding: >
+      The descent-tied ways explain the distances largely together (the group alone up to 5.6% raw
+      and 17.0% lens of what the controls leave; held with the others, at most 0.23% and 0.72%).
+      Covering and legs add nothing in raw space. Size, the order, diet and feeling add a little at
+      most layers; danger adds 0.76% at raw L4 and is significant at every layer from L4 to L16 in
+      the lens, and with size and danger graded it still holds (10 raw layers, L4 to L17 in the
+      lens).
+    status: proposed
+    evidence: [docs/research/animal_ontology_findings.md]

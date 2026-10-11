@@ -132,7 +132,8 @@ A short tour of what exists on 2026-10-11. Each part's section says what of it i
   preview, compare, validation, tuning, the axes analysis, mass-mean lenses), with the MUD terminal
   folding along the bottom [APP-18, BUILD-8].
 - **Studies,** as files in the repo (`docs/studies/`), each with a showcase where its slice ended
-  in one: the lens core, single words, and animals with the harm axis [DATA-5, ORDER-2].
+  in one: the lens core, single words, and animals with the harm axis [DATA-5, ORDER-2]; and the
+  animal ontology, run beside the two documents, with its findings note [SET-17].
 
 ## Principles {#principles}
 
@@ -221,8 +222,7 @@ framing chosen in advance, and the model's states show which ways it follows mos
 Andrew's view, people group animals for practical reasons: an animal seen for a moment is
 identified from a few cues [SET-14]. Why the first animal study compared descent with way of life,
 and why that was too narrow, is answered in `docs/research/animal_ontology.md` [SET-13]. All 524
-names will be labelled in nine ways, with fourteen axes in all, since some ways have two
-[SET-15]:
+names are labelled in nine ways, with fourteen axes in all, since some ways have two [SET-15]:
 
 | Way | Axes and their values |
 |---|---|
@@ -240,8 +240,8 @@ A way **leads** at a layer when it explains more than any other way does about w
 near each other there, with the other ways and the token count held fixed. Three measures judge it:
 neighbours beyond chance, held-out reading with whole orders left out, and each way's own share of
 the distances. Every axis can colour the app's charts, and the animals where the ways disagree
-(whales, bats, flightless birds) are examples, not the frame [SET-16]. The study runs
-beside the two documents [SET-17]. The first set's single framing is retired (see
+(whales, bats, flightless birds) are examples, not the frame [SET-16]. The study ran beside the
+two documents; its findings are in `docs/research/animal_ontology_findings.md` [SET-17]. The first set's single framing is retired (see
 [Rejected and retired](design.md#retired)).
 
 ## Lenses {#lenses}
