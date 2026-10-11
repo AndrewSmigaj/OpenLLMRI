@@ -781,3 +781,16 @@ Runs: `docs/research/read_site.md`; the study `docs/studies/read_site/study.yaml
   position later for every extra piece.
 - **Found and fixed on the way:** the animal study's raw-space analyses read position 1 whatever
   the lens's site; they now read each lens's own position.
+
+## 2026-10-11 — Andrew's answers to Part L
+
+**Scope**: his answers in the design page's form (DESIGN.md L16–L24), all written into the design;
+the list is DESIGN.md L's "Answered", and the new order of work is Part K.
+
+- **The 2026-10-09 recommendations, settled:** the five method changes are adopted (C4), and single
+  words stay read at their last token (L16.7), as "Where a single word is read" above recommended.
+- **For his rulings, in the form:** the shape of the two documents (L26), the animal ontology
+  study (L27, proposal in `docs/research/animal_ontology.md`), the slice 1c details his notes
+  didn't address (L28), and whether teams of Claude agents may write sentence sets (L29).
+- **New:** when the four lens method changes are built (with slice 2, capture and jobs) is Claude's
+  proposal, not part of his answer (C4).

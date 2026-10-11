@@ -202,7 +202,7 @@ main p, main li {{ max-width: 68ch; }}
 main ul, main ol {{ padding-left: 1.3rem; }}
 main li {{ margin: .2rem 0; }}
 main li > ul, main li > ol {{ margin: .2rem 0; }}
-code {{ font: .88em var(--mono); background: var(--surface); border: 1px solid var(--line); border-radius: 3px; padding: 0 .25em; }}
+code {{ font: .88em var(--mono); background: var(--surface); border: 1px solid var(--line); border-radius: 3px; padding: 0 .25em; overflow-wrap: anywhere; }}
 pre {{ overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 1rem; line-height: 1.2; }}
 pre code {{ font: 12px/1.2 var(--sketch); border: 0; background: none; padding: 0; white-space: pre; }}
 .table-wrap {{ overflow-x: auto; margin: 1rem 0; }}

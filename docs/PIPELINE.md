@@ -214,7 +214,7 @@ or `/analyze` OP-6.
 
 ## Time
 
-The basin-era temporal gate and the `/temporal` skill were retired on 2026-10-08. Reading over time is designed in `docs/DESIGN.md` Part D, and arrives with slice 4 (time on sentence runs).
+The basin-era temporal gate and the `/temporal` skill were retired on 2026-10-08. Reading over time is designed in `docs/DESIGN.md` Part D, and arrives with slice 5 (time on sentence runs; DESIGN.md K).
 
 ---
 

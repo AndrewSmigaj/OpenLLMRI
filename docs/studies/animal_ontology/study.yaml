@@ -1,0 +1,20 @@
+# How the model organizes animals: several ways of grouping, each animal labelled along all of them
+# (DESIGN.md C1, L27). Proposed on 2026-10-11 after Andrew changed the animal set's grouping and
+# framing; it follows the animals study (docs/studies/animals/), whose findings stand. Each ledger
+# line stays proposed until it is reviewed (DESIGN.md H).
+id: animal_ontology
+title: How the model organizes animals
+question: >
+  Animals can be grouped in many ways: by descent, by everyday kind, by how they look (covering,
+  size, legs), by where people meet them, by their relation to people, by danger and feeling, and
+  by way of life. With every animal labelled along all of them, which ways do the model's states
+  follow most, layer by layer, once the others and the token count are accounted for?
+status: proposed
+started: 2026-10-11
+# The set animals_ontology_v1 is made once Andrew answers L27.
+sets: []
+captures: []
+lenses: []
+findings:
+  - docs/research/animal_ontology.md
+ledger: []

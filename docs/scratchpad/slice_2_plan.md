@@ -3,9 +3,17 @@
 Related: docs/DESIGN.md (K slice 2; B12, C5, F6, G; L17), docs/research/read_site.md,
 docs/RECOMMENDATIONS.md
 
-Nothing here is decided until Andrew answers. The six decisions come first, each with Claude's
-recommendation; the steps after them follow the recommendations, and say what changes if he picks
-otherwise.
+**Andrew's answers (2026-10-11, DESIGN.md L17 and L19):** decisions 1, 2 (all three kinds of
+position), 3, 4 and 6 as recommended. Decision 5 changed: the studies area becomes one of the new
+app's first rooms (L17). He also set a new order of work (L21): this slice now follows the two
+documents and the new app.
+
+**Claude's notes on the answers (2026-10-11):** step 7 (the studies area) leaves this slice; the
+four lens method changes adopted in L18 are proposed to join it (DESIGN.md C4); the MUD address
+would go in the new app's top bar. The plan is rewritten from this draft when the slice is reached.
+
+The six decisions come first, each with Claude's recommendation; the steps after them follow the
+recommendations, and say what changes if he picks otherwise.
 
 ## What slice 2 is for
 
@@ -115,7 +123,7 @@ exactly.
 - **(a) At the end of slice 2:** a first version that lists the studies and shows each one's
   question, sets, captures, lenses, findings and ledger, read only. The studies already exist as
   files, and `GET /api/studies` already serves them.
-- **(b) With Study's timelines in slice 4.**
+- **(b) With Study's timelines in slice 4** (slice 5 since 2026-10-11).
 
 Editing a study's design would come with the builder (slice 3), whose authoring agent already
 designs sets.
@@ -283,6 +291,6 @@ designs sets.
 ## Not in this slice
 
 - the sentence set builder and its capture form (slice 3);
-- time on sentence runs, Study's timelines, references and bands (slice 4);
+- time on sentence runs, Study's timelines, references and bands (slice 5);
 - hosting Scaffold Dynamics for others (F6, before other researchers are invited);
-- interventions (slice 9).
+- interventions (slice 8).
