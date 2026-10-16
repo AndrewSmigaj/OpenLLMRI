@@ -97,8 +97,10 @@ CAPTIONS = {
          "probe, the ceiling; below, the lens's nodes. The probe reads the category (0.84 to 0.91), animacy "
          "(0.86 to 0.92) and concreteness (0.90 to 0.95) at every layer, and valence at 0.55 to 0.69. The nodes "
          "carry concreteness best (0.67 to 0.90) and valence least (0.22 to 0.35), little above the 0.19 that the "
-         "category alone gives valence. Every technique passes its decoys (random per family) for all four "
-         "attributes at nearly every layer, so the strengths say more than the count.",
+         "category alone gives valence. Every technique passes its decoys for the category, animacy and "
+         "concreteness at every layer; valence, its decoys drawn within each category (re-scored 2026-10-16), "
+         "passes for the probe and the partial directions at every layer and for the rest at 9 to 18, so the "
+         "strengths say more than the count.",
     "C": "C  The attributes' partial axes span 5.3 to 6.1 independent directions, fewer than permuted design rows "
          "give (95th percentile 7.2 to 7.5): the categories share structure. The words' effective dimensionality "
          "is U-shaped, 298 at L0, 51 at L15 and 163 at L23.",

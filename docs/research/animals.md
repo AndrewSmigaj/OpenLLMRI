@@ -160,7 +160,8 @@ weaker (`docs/research/read_site.md`).
 
 ## The axes analysis (`animals-k8-n15-tuned`)
 
-Held out on the lens's 12 folds of whole orders, against five decoys per attribute:
+Held out on the lens's 12 folds of whole orders, against five decoys per attribute (drawn within
+each animal's group since the re-scoring of 2026-10-16; the κ values are unchanged):
 
 | Attribute | probe κ (L0) | probe κ (L4–L23) | the lens's nodes κ (L4–L16) |
 |---|---|---|---|
@@ -171,9 +172,12 @@ Held out on the lens's 12 folds of whole orders, against five decoys per attribu
 | wild or domestic | 0.17 | 0.29 to 0.65 (peak L11) | 0 |
 | tokens | 1.00 | 0.99 to 1.00 | 0.81 to 0.99 |
 
-A linear probe reads every attribute above its decoys from L0. Habitat and movement are read
-nearly as well as the group, though they follow the group in most animals (fish swim, birds fly):
-only the 33 disagreeing animals tell them apart, and those lean to kin.
+A linear probe reads every attribute above its decoys at every layer (movement from L1). The
+decoys are drawn within each group, so habitat and movement pass by what they add beyond the group,
+though they follow the group in most animals (fish swim, birds fly): only the 33 disagreeing
+animals tell them apart, and those lean to kin. Beyond the group, the lens's nodes read habitat at
+6 layers (L7, L8, L10 to L13) and movement at 3 (L6, L7, L11), and diet and wild or domestic at
+none.
 
 ## Node details and routing
 

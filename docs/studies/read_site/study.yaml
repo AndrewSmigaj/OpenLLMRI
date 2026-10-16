@@ -24,6 +24,8 @@ lenses:
   - session_079e85fb/objects-end-k3-n15
   - session_2be574c4/harm-axis
   - session_079e85fb/harm-axis-end
+  - session_2be574c4/harm-axis-v2
+  - session_079e85fb/harm-axis-end-v2
 findings:
   - docs/research/read_site.md
 ledger:
@@ -47,7 +49,8 @@ ledger:
       Much less of it. Animals' neighbours share their group 25 to 32% of the time at L4 to L17 in
       the lens (58 to 71% at the last token); the lens's nodes read the group at held-out AMI 0.10 at most (0.40)
       and a logistic probe at 0.57 at most (0.82); every kind of animal but those named "fish"
-      leans to kin at far fewer layers. Harm is read well only at L10 to L12 (held-out accuracy 0.87
-      to 0.91), against 0.90 or more from L4 to L15 at the last token.
+      leans to kin at far fewer layers. Harm is read well only at L10 to L12 (held-out accuracy 0.90
+      to 0.91 on folds balanced by class, re-scored 2026-10-16), against 0.90 to 0.95 from L4 to L16
+      at the last token.
     status: proposed
     evidence: [docs/research/read_site.md]

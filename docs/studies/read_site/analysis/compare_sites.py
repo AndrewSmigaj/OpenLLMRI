@@ -40,7 +40,8 @@ OBJECT_RESULTS = ROOT / "docs/studies/objects_harm/analysis/results"
 SITES = {"last": "the word's last token", "end": "the end marker"}
 ANIMALS = {"last": ("session_6e485e10", "animals-k8-n15"), "end": ("session_5ce62b52", "animals-end-k8-n15")}
 OBJECTS = {"last": ("session_2be574c4", "objects-k3-n15"), "end": ("session_079e85fb", "objects-end-k3-n15")}
-HARM = {"last": ("session_2be574c4", "harm-axis"), "end": ("session_079e85fb", "harm-axis-end")}
+# the -v2 harm axes are the same axes (bit for bit), validated on folds balanced by class (2026-10-16)
+HARM = {"last": ("session_2be574c4", "harm-axis-v2"), "end": ("session_079e85fb", "harm-axis-end-v2")}
 ANIMAL_K, OBJECT_K = "8", "3"
 LAYERS = list(range(24))
 COLOURS = {"last": "#1d4ed8", "end": "#d97706"}

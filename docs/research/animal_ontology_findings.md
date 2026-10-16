@@ -10,6 +10,11 @@ docs/design/design.md (sentence sets: the animal ontology)
 below is read from the result files in `docs/studies/animal_ontology/analysis/results/`, at the
 layers it names; the scripts and figures sit beside them.
 
+**Re-scored 2026-10-16:** the axes analysis was run again after two method changes: decoys drawn
+within each animal's group, and a stricter line beside them (decided 2026-10-11). The κ values are
+unchanged; the lines and the counts in section 3, and the figures `held_out.png` and
+`leading.png`, are the new ones.
+
 ## What was run
 
 - **The set** `animals_ontology_v1`: the first animal set's 524 one-word names, labelled by hand in
@@ -29,7 +34,7 @@ layers it names; the scripts and figures sit beside them.
   1. **neighbours:** how often an animal's 10 nearest neighbours share its value, as agreement
      beyond chance; chance from 1,000 shuffles within each token count;
   2. **held out:** κ on orders never seen, for a linear probe and for the lens's nodes, against
-     each reader's decoy line;
+     each reader's decoy line (decoys drawn within each animal's group);
   3. **own share:** a model of the distance between every pair of animals from whether they differ
      on each axis, the token count and the names' length; an axis's own share is what it explains
      with every other axis held fixed, tested with 1,000 permutations within each token count. A
@@ -47,9 +52,11 @@ Figures: `neighbours.png`, `shares.png`, `held_out.png`, `leading.png` in
   other way, in raw space and in the lens; how it moves and where it lives come next. The ways
   that are about people (its relation to us, where we meet it, how we feel about it, its danger)
   are there beyond chance at nearly every layer, but at half the strength or less.
-- **On orders the reader never saw, every way can be read.** A linear probe reads the group and the
-  everyday kind best (κ 0.82 to 0.87 at L4 to L16) and danger least (0.22 to 0.33). The lens's eight
-  nodes carry the descent-tied ways (0.32 to 0.58) and almost none of the people-centred ones.
+- **On orders the reader never saw, every way can be read, most of them beyond what the animal's
+  group alone gives.** A linear probe reads the group and the everyday kind best (κ 0.82 to 0.87 at
+  L4 to L16) and danger least (0.22 to 0.33); against decoys drawn within each group it passes at
+  most layers for every way but legs (8 of 24). The lens's eight nodes carry the descent-tied ways
+  (0.32 to 0.58), but beyond the group almost nothing: at most 5 layers for any way.
 - **What a way adds on its own is small.** The descent-tied ways explain the distances largely
   together: in raw space, covering and legs add nothing beyond descent and everyday kind at any
   layer. Size, the order, diet, feeling and the group add a little at most layers. Danger has the
@@ -166,15 +173,25 @@ length) leave (figure `shares.png`).
 | diet | 0.43 to 0.55 | −0.06 to 0.12 |
 | danger | 0.22 to 0.33 | 0.00 |
 
-- **The probe** passes its decoy line at every layer for every axis but danger (22 layers). A linear
-  readout of the residual stream carries all nine ways on orders it never saw, the people-centred
-  ones included.
-- **The lens's nodes,** cut at k 8 for the group, carry the descent-tied ways, movement and habitat
-  at every layer, size at 23 and where met at 22; relation (13 layers), diet (11) and feeling (9)
-  only weakly; danger at one layer and wild or domestic at none.
-- **What "held out" rules out:** a reader that memorized an order's members. It doesn't rule out a
-  shortcut through the class: pests are mostly insects, companions mostly mammals, birds and fish,
-  so a people-centred axis read on unseen orders may still be read partly through descent.
+- **The decoys are drawn within each animal's group:** a decoy keeps an axis's link to the group,
+  so a reader that knows only the group gets the decoys' credit too, and an axis passes only by
+  what it reads beyond the group. For the ways that follow descent the probe's line is high:
+  covering 0.74, everyday kind 0.77, legs 0.78.
+- **The probe** passes its line at all 24 layers for diet, feeling, habitat, relation, size, where
+  met and wild or domestic; at 23 for movement, 22 for everyday kind and danger, 18 for covering,
+  and 8 for legs (6 of L4 to L16). A linear readout of the residual stream carries all nine ways on
+  orders it never saw, most of them beyond what the group gives; legs it reads mostly through the
+  group. The stricter line (half the probe's best κ for the axis at any layer) leaves the counts
+  the same except diet (23), relation (22) and wild or domestic (19).
+- **The lens's nodes,** cut at k 8 for the group, carry the group and the token count at every
+  layer. Beyond what the group gives, they carry where met at 5 layers, habitat at 4, everyday kind
+  at 3, legs and size at 2, movement and relation at 1, and covering, danger, diet, feeling and
+  wild or domestic at none. With the earlier decoys, in overall proportions, the descent-tied ways
+  passed at every layer.
+- **What "held out" rules out:** a reader that memorized an order's members. Drawing the decoys
+  within each group also takes out the shortcut through the class (pests are mostly insects,
+  companions mostly mammals, birds and fish): an axis passes only by what it reads beyond the
+  group.
 
 ## 4. Animals where the ways disagree
 

@@ -59,8 +59,9 @@ flying mammals, birds that don't fly, animals named "fish", legless animals, the
   group at L4 to L17.
 
 **F. The harm axis on 321 objects** (`session_2be574c4`, `harm-axis`).
-- **The axis:** benign at −1 and harmful at +1. Held out by whole domains, its accuracy is 0.90 or
-  more at L4 to L15.
+- **The axis:** benign at −1 and harmful at +1. Held out by whole domains, on folds that keep each
+  class about as common as overall (re-scored 2026-10-16 as `harm-axis-v2`, the same axis), its
+  accuracy is 0.90 or more at L4 to L14 and L16 (0.898 at L15).
 - **The dual-purpose objects,** never fitted, sit between the two ends at every layer (median −0.29
   to +0.17). At L5 the machete, javelin, fentanyl and oxycodone read near the harmful end; the
   airplane, tractor and rope near the benign one.

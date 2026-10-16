@@ -1,7 +1,7 @@
 {
  "figure": "how many axes in a word: lens slice 1b's showcase",
  "script": "docs/studies/single_words/showcase/compose.py",
- "commit": "9128c35e34e16e30d62bae66bcaf00403a7831c7",
+ "commit": "eabda532830cc13d67f03cb8a41265ff28e58908",
  "dirty": true,
  "panels": {
   "A": {
@@ -235,7 +235,7 @@
     "b_axes_probe.png": {
      "app": "OpenLLMRI",
      "link": "http://localhost:5173/build?session=session_8f536bea",
-     "exported_at": "2026-10-09T07:01:36.401Z",
+     "exported_at": "2026-10-16T23:11:01.729Z",
      "figure": "axes: held-out kappa per attribute and layer",
      "technique": "probe",
      "lens": {
@@ -335,6 +335,17 @@
      },
      "decoys": {
       "count": 5,
+      "within": "label",
+      "grain": {
+       "animacy": "families",
+       "concreteness": "families",
+       "label": "families",
+       "valence": "texts"
+      },
+      "nested": [
+       "animacy",
+       "concreteness"
+      ],
       "given_per": "families"
      },
      "level": 0.95,
@@ -346,12 +357,12 @@
       16,
       20
      ],
-     "job": "job_20261009T064543178234_6a70cb"
+     "job": "job_20261016T194251609006_e3718e"
     },
     "b_axes_lens.png": {
      "app": "OpenLLMRI",
      "link": "http://localhost:5173/build?session=session_8f536bea",
-     "exported_at": "2026-10-09T07:02:00.467Z",
+     "exported_at": "2026-10-16T23:11:11.117Z",
      "figure": "axes: held-out kappa per attribute and layer",
      "technique": "umap_at_k",
      "lens": {
@@ -451,6 +462,17 @@
      },
      "decoys": {
       "count": 5,
+      "within": "label",
+      "grain": {
+       "animacy": "families",
+       "concreteness": "families",
+       "label": "families",
+       "valence": "texts"
+      },
+      "nested": [
+       "animacy",
+       "concreteness"
+      ],
       "given_per": "families"
      },
      "level": 0.95,
@@ -462,7 +484,7 @@
       16,
       20
      ],
-     "job": "job_20261009T064543178234_6a70cb"
+     "job": "job_20261016T194251609006_e3718e"
     }
    },
    "crops": {},

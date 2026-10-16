@@ -16,24 +16,31 @@ lenses:
   - session_2be574c4/objects-k3-n15
   - session_2be574c4/objects-k3-n15-tuned
   - session_2be574c4/harm-axis
+  - session_2be574c4/objects-k3-n15-tuned-v2
+  - session_2be574c4/harm-axis-v2
 findings:
   - docs/research/objects_harm.md
 ledger:
   - idea: A UMAP lens recovers the three classes in held-out domains.
     experiment: >
-      objects-k3-n15 validated on 5 grouped folds of whole domains; objects-k3-n15-tuned tuned on
-      the class with 79 objects of whole domains as the test portion.
+      objects-k3-n15 validated on 5 grouped folds of whole domains; objects-k3-n15-tuned-v2 tuned on
+      the class and tested on the five folds in turn; every fold keeps each class about as common
+      as overall (re-scored 2026-10-16).
     finding: >
-      Hardly: held-out AMI −0.01 to 0.18 (k 3; κ below zero at 19 of 24 layers), tuned test AMI at
-      most 0.27 (L11). Even a logistic probe on the raw states reaches only 0.16 to 0.35.
+      The lens's nodes hardly: held-out AMI 0.01 to 0.16 (k 3; κ below zero at 7 of 24 layers), the
+      tuned lens's mean test AMI at most 0.20 (L7). A logistic probe on the raw states reads the
+      class at a mean test AMI of 0.21 to 0.51 (κ 0.44 to 0.70), so the split carries over
+      linearly. On the earlier, unbalanced folds: κ below zero at 19 layers, the probe at 0.16 to
+      0.35.
     status: proposed
     evidence: [docs/research/objects_harm.md]
   - idea: Harmful and benign separate along one direction in held-out domains.
     experiment: >
-      harm-axis, a mass-mean lens (benign −1, harmful +1) validated on the same grouped folds; its
-      router alignment against 1,000 random directions; its logit lens.
+      harm-axis, a mass-mean lens (benign −1, harmful +1), validated again on the balanced folds as
+      harm-axis-v2 (the same axis); its router alignment against 1,000 random directions; its logit
+      lens.
     finding: >
-      Held-out accuracy 0.90 or more from L4 to L15 (0.93 at L5 and L11, κ 0.78). At L9 to L12 the
+      Held-out accuracy 0.90 or more at L4 to L14 and L16 (best 0.947 at L7, κ 0.88). At L9 to L12 the
       axis moves the next layer's routing more than 97 to 100% of random directions (2.06 times
       their median at L11). The harmful side favours forms of "weapon", "violence" and
       "retaliation".
@@ -45,9 +52,10 @@ ledger:
       The 96 dual-purpose objects, never fitted, read on the harm axis at every layer; their
       medians by how they harm and by domain.
     finding: >
-      Their median runs from −0.29 to +0.17 across the layers. At L5 the machete, javelin,
-      fentanyl, oxycodone and epee read beyond +1.1; the airplane, tractor, rope and car below
-      −0.65. Explosive, chemical and medical objects lean harmful; blunt objects, restraints,
-      vehicles and household objects lean benign.
+      Their median runs from −0.29 to +0.17 across the layers. At L7, where the axis separates its
+      classes best held out, fentanyl, the javelin, machete, ketamine, oxycodone and dynamite read
+      beyond +1.1; the lawnmower, grater, rope and tractor below −0.74. Projectile, chemical and
+      explosive objects and the medical and laboratory domains lean harmful; blunt objects,
+      restraints and the transport and bathroom domains lean benign.
     status: proposed
     evidence: [docs/research/objects_harm.md]

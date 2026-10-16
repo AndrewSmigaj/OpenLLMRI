@@ -11,6 +11,12 @@ token for every item, and it comes after all of the word's tokens. This note tes
 both sets. Every number here comes from the files listed at the end, and was re-read from them at
 every layer it names.
 
+**Re-scored 2026-10-16:** the object lenses and the harm axes were validated again on folds that
+keep each class about as common in every fold as overall, and the axes analyses run again with
+decoys drawn within each label (decided 2026-10-11). The harm axes are the same axes, bit for bit,
+under new names (`harm-axis-v2`, `harm-axis-end-v2`); the animals' folds and numbers are unchanged.
+The objects' rows below are the new ones, and the last token's best harm layer moved from L5 to L7.
+
 ## The captures
 
 - **Both sets again, with a second site.** `animals_kinship_v1` (`session_5ce62b52`, 524 of 524
@@ -24,10 +30,10 @@ every layer it names.
 - **The same lenses at both sites,** with the same settings, seed, items and folds:
   - animals: k 8, 15 neighbours, 6-D, held out on 12 folds of whole orders (`animals-k8-n15`,
     `animals-end-k8-n15`);
-  - objects: k 3, held out on 5 grouped folds of whole domains (`objects-k3-n15`,
-    `objects-end-k3-n15`);
-  - the harm axis, benign at −1 and harmful at +1, on the same folds (`harm-axis`,
-    `harm-axis-end`).
+  - objects: k 3, held out on 5 grouped folds of whole domains, each class about as common in every
+    fold as overall (`objects-k3-n15`, `objects-end-k3-n15`);
+  - the harm axis, benign at −1 and harmful at +1, on the same folds (`harm-axis-v2`,
+    `harm-axis-end-v2`).
 
   Each was validated and given the axes analysis, and the studies' scripts ran on both sites.
 
@@ -41,7 +47,7 @@ Every layer unless the cell names layers.
 | the same, raw space | 0.89 to 1.00 | 0.85 to 1.00 at L0–L12, 0.76 to 0.89 at L13–L23 |
 | animals: a probe on one token against several, raw space (balanced accuracy) | 0.99 to 1.00 | 0.99 to 1.00 |
 | animals: the lens's nodes on the token count, held out (κ) | 0.83 to 1.00 | 0.86 to 1.00 at L0–L12, 0.39 to 0.81 at L13–L23 |
-| objects: the lens's nodes on the token count, held out (κ) | 0.79 to 1.00 at L0–L8, 0.00 to 0.71 at L9–L16, 0.95 to 0.98 at L17–L23 | 0.90 to 1.00 at L0–L5, 0.32 to 0.72 at L6–L19, 0.00 to 0.13 at L20–L23 |
+| objects: the lens's nodes on the token count, held out (κ) | 0.80 to 1.00 at L0–L8, 0.00 to 0.68 at L9–L16, 0.95 to 0.99 at L17–L23 | 0.94 to 0.99 at L0–L5, 0.34 to 0.76 at L6–L19, 0.00 to 0.04 at L20–L23 |
 
 - **One-token and split names remain distinguishable at the end marker.** A raw-space probe tells
   them apart at 0.99 or more at every layer, one-token animal names keep 0.66 or more one-token
@@ -64,13 +70,13 @@ Every layer unless the cell names layers.
 | the same, raw space, L4–L17 | 0.61 to 0.71 | 0.29 to 0.40 |
 | animals: the group on held-out orders, the lens's nodes (AMI) | 0.07 to 0.40 (0.32 to 0.40 at L5–L13) | 0.00 to 0.10 |
 | animals: the group, a logistic probe held out (the ceiling, AMI) | 0.45 to 0.82 (0.71 to 0.82 at L2–L19) | 0.07 to 0.57 (0.07 to 0.20 at L0–L3) |
-| objects: the harm axis on held-out domains (accuracy, chance 0.50) | 0.62 to 0.85 at L0–L3, 0.90 to 0.93 at L4–L15, 0.74 to 0.90 at L16–L23 | 0.52 to 0.57 at L0–L3, 0.65 to 0.88 at L4–L10, 0.91 at L11, 0.57 to 0.87 at L12–L23 |
-| objects: three classes on held-out domains, the lens's nodes (AMI) | −0.01 to 0.18 | −0.01 to 0.04 |
+| objects: the harm axis on held-out domains (accuracy, chance 0.50) | 0.66 to 0.86 at L0–L3, 0.90 to 0.95 at L4–L15, 0.77 to 0.90 at L16–L23 | 0.55 to 0.65 at L0–L3, 0.72 to 0.86 at L4–L9, 0.90 to 0.91 at L10–L12, 0.65 to 0.88 at L13–L23 |
+| objects: three classes on held-out domains, the lens's nodes (AMI) | 0.01 to 0.16 | −0.01 to 0.07 |
 
 - **Little of the word is read at the end marker in the early layers.** At L0 to L3 the logistic
-  ceiling reads the animal's group at AMI 0.07 to 0.20, and the harm axis is at 0.52 to 0.57
-  accuracy (chance 0.50). Harm is read well there only at L10 to L12 (0.87 to 0.91), where the last
-  token reads it at 0.90 or more from L4 to L15. The group's ceiling peaks at 0.57 at the end marker,
+  ceiling reads the animal's group at AMI 0.07 to 0.20, and the harm axis is at 0.55 to 0.65
+  accuracy (chance 0.50). Harm is read well there only at L10 to L12 (0.90 to 0.91), where the last
+  token reads it at 0.90 to 0.95 from L4 to L16. The group's ceiling peaks at 0.57 at the end marker,
   against 0.82 at the last token.
 - **The lens's nodes follow the group much less** (AMI at most 0.10, against up to 0.40); through
   L12 they follow the token count as closely as at the last token (κ 0.86 to 1.00).
@@ -97,14 +103,14 @@ Every layer unless the cell names layers.
     fentanyl +2.10, ketamine +2.08, thermite +2.01, oxycodone +2.00, warfarin +1.89 and chloroform
     +1.87, beyond the harmful median (+0.94). The most benign are vehicles, wire and chain: the car
     −1.91, airplane −1.16, bus −1.05, wire −1.05, motorcycle −0.99 and chain −0.86;
-  - at the last token's best layer (L5) the most harmful readings were weapon-shaped objects and
-    opioids: the machete +1.40, javelin +1.39, fentanyl +1.26, oxycodone +1.18 and epee +1.14.
+  - at the last token's best layer (L7) the most harmful readings are drugs and weapon-shaped
+    objects: fentanyl +1.75, the javelin +1.29, machete +1.19, ketamine +1.16 and oxycodone +1.15.
 
 ## What a linear probe reads at each site
 
 Held out on the same folds (the axes analysis), a linear probe reads every attribute of meaning
 less at the end marker, at each of the 20 layers from L4 to L23 (compared layer by layer), while
-whether the name split is read at 0.98 to 1.00 at both sites. Mean κ over L4–L23, with its range:
+whether the name split is read at 0.99 to 1.00 at both sites. Mean κ over L4–L23, with its range:
 
 | Attribute | last token | end marker |
 |---|---|---|
@@ -114,9 +120,9 @@ whether the name split is read at 0.98 to 1.00 at both sites. Mean κ over L4–
 | animals: wild or domestic | 0.54 (0.29 to 0.65) | 0.33 (0.19 to 0.52) |
 | animals: diet | 0.43 (0.30 to 0.55) | 0.24 (0.12 to 0.36) |
 | animals: whether the name split | 1.00 (0.99 to 1.00) | 1.00 (0.99 to 1.00) |
-| objects: class (harmful, dual-purpose, benign) | 0.55 (0.47 to 0.60) | 0.48 (0.36 to 0.54) |
-| objects: how it harms (9 kinds) | 0.57 (0.54 to 0.61) | 0.43 (0.32 to 0.52) |
-| objects: whether the name split | 0.99 (0.98 to 1.00) | 1.00 (0.99 to 1.00) |
+| objects: class (harmful, dual-purpose, benign) | 0.64 (0.56 to 0.70) | 0.57 (0.44 to 0.63) |
+| objects: how it harms (9 kinds) | 0.60 (0.57 to 0.65) | 0.45 (0.33 to 0.56) |
+| objects: whether the name split | 1.00 (1.00 to 1.00) | 1.00 (0.99 to 1.00) |
 
 ## What it means
 
@@ -143,10 +149,10 @@ whether the name split is read at 0.98 to 1.00 at both sites. Mean κ over L4–
 - The captures: `data/lake/session_5ce62b52/` and `data/lake/session_079e85fb/`, with their
   `_sessions` files; the earlier ones, `session_6e485e10` and `session_2be574c4`.
 - The lenses: `animals-end-k8-n15` (`validation.json`, `axes.json`), `objects-end-k3-n15`
-  (`validation.json`, `axes.json`) and `harm-axis-end` (`validation.json`) beside their last-token
-  counterparts `animals-k8-n15`, `objects-k3-n15` and `harm-axis` (each `axes.json` made on
-  2026-10-09 for this comparison).
+  (`validation.json`, `axes.json`) and `harm-axis-end-v2` (`validation.json`) beside their last-token
+  counterparts `animals-k8-n15`, `objects-k3-n15` and `harm-axis-v2` (each `axes.json` first made on
+  2026-10-09 for this comparison, and made again on 2026-10-16).
 - The studies' scripts on the end-marker lenses: `docs/studies/animals/analysis/results/*_animals-end-k8-n15.json`
-  and `docs/studies/objects_harm/analysis/results/harm_axis_harm-axis-end.json`, with their figures.
+  and `docs/studies/objects_harm/analysis/results/harm_axis_harm-axis-end-v2.json`, with their figures.
 - The comparison: `docs/studies/read_site/analysis/compare_sites.py`, its
   `results/compare_sites.json` and `figures/compare_sites.png`.

@@ -42,11 +42,13 @@ ledger:
     evidence: [docs/research/single_words.md]
   - idea: A word alone carries its feeling, beyond its category.
     experiment: >
-      The axes analysis on words-k8-n15-tuned (decoys per family), and a probe on valence with
-      each category's training mean taken out of its words.
+      The axes analysis on words-k8-n15-tuned (valence's decoys drawn within each category since
+      2026-10-16), and a probe on valence with each category's training mean taken out of its
+      words.
     finding: >
-      The category alone predicts valence at kappa 0.187, and the lens's nodes at 0.22 to 0.35.
-      With each category's mean taken out, a probe still reads valence at 0.489 to 0.598.
+      The category alone predicts valence at kappa 0.187, and the lens's nodes at 0.22 to 0.35,
+      passing the within-category decoys at 15 layers. With each category's mean taken out, a probe
+      still reads valence at 0.489 to 0.598.
     status: proposed
     evidence: [docs/research/single_words.md]
   - idea: A lens fitted on single words reads the word inside sentences.

@@ -260,10 +260,13 @@ layer. Every score is a held-out kappa on the lens's folds:
 - each attribute's partial direction (its effect with the other attributes held fixed);
 - the principal component that best separates it on the training items.
 
-Chance comes from five decoys per attribute: random values in the attribute's proportions, given
-per family, or per item when the items name no family. An attribute counts as recovered by a
-technique when its score passes the 95th percentile of that technique's decoy scores, pooled over
-layers. The partial axes' angles and the number of independent directions they span are judged
+Chance comes from five decoys per attribute. Since 2026-10-16 (decided 2026-10-11), a decoy's
+values are drawn in the attribute's proportions within each label value, so a reader that knows
+only the label gets the decoys' credit too; they are given per family when the attribute is
+constant within families, else per item, and an attribute that follows from the label keeps
+decoys in overall proportions. An attribute counts as recovered by a technique when its score
+passes the 95th percentile of that technique's decoy scores, pooled over layers; a stricter line
+also asks for half the best κ the probe reaches for the attribute at any layer. The partial axes' angles and the number of independent directions they span are judged
 against 50 permutations of whole design rows, which keep the design's own correlations.
 
 ### Threatened framing, eight attributes (`session_673360a5`, lens `framing-k4-auto-levels`)
@@ -276,43 +279,47 @@ against 50 permutations of whole design rows, which keep the design's own correl
 - **The design's own correlations:** scale with threat scope 0.92, consequence with violence
   0.64, label with agent type 0.60, label with violence 0.29; every other pair at |r| ≤ 0.22.
 - **Folds and decoys:** the set has no scene families, so the folds are stratified with
-  identical texts kept together (weaker), and the decoys are random per item.
+  identical texts kept together (weaker), and the decoys are drawn per item within each label
+  value (re-scored 2026-10-16; the κ values are unchanged).
 - **Runs:** the lens was validated first (67 s; validation now scores the decoys too), then the
   analysis ran (48.5 s).
 
-Attributes recovered, of 8, per technique:
+Attributes recovered, of 8, per technique (beside the stricter line in brackets):
 
 | Layer | k | UMAP lens (its k) | UMAP lens (best k) | raw Ward | raw spectral | component | partial directions | probe |
 |---|---|---|---|---|---|---|---|---|
-| L0 | 3 | 4 | 8 | 4 | 4 | 8 | 5 | 8 |
-| L1 | 2 | 1 | 8 | 1 | 1 | 8 | 8 | 8 |
-| L2 | 4 | 6 | 8 | 7 | 7 | 8 | 8 | 8 |
-| L3 | 6 | 8 | 8 | 8 | 8 | 8 | 8 | 8 |
-| L4 | 5 | 6 | 8 | 6 | 6 | 8 | 8 | 8 |
-| L5 | 5 | 6 | 8 | 6 | 7 | 8 | 8 | 8 |
-| L6 | 5 | 6 | 8 | 7 | 6 | 8 | 8 | 8 |
-| L7 | 2 | 3 | 8 | 4 | 6 | 8 | 8 | 8 |
-| L8 | 4 | 6 | 7 | 6 | 7 | 8 | 8 | 8 |
-| L9 | 7 | 6 | 6 | 7 | 8 | 8 | 8 | 8 |
-| L10 | 7 | 6 | 7 | 7 | 7 | 8 | 8 | 8 |
-| L11 | 4 | 5 | 7 | 7 | 5 | 8 | 8 | 8 |
-| L12 | 8 | 6 | 8 | 7 | 8 | 8 | 8 | 8 |
-| L13 | 7 | 6 | 6 | 7 | 6 | 8 | 8 | 8 |
-| L14 | 7 | 6 | 7 | 7 | 7 | 8 | 8 | 8 |
-| L15 | 7 | 6 | 6 | 7 | 6 | 8 | 8 | 8 |
-| L16 | 7 | 6 | 7 | 7 | 6 | 8 | 8 | 8 |
-| L17 | 7 | 6 | 7 | 6 | 6 | 8 | 8 | 8 |
-| L18 | 7 | 6 | 7 | 6 | 6 | 8 | 8 | 8 |
-| L19 | 7 | 6 | 7 | 6 | 7 | 8 | 8 | 8 |
-| L20 | 4 | 6 | 7 | 6 | 6 | 8 | 8 | 8 |
-| L21 | 6 | 6 | 7 | 6 | 8 | 8 | 8 | 8 |
-| L22 | 2 | 3 | 7 | 6 | 5 | 8 | 8 | 8 |
-| L23 | 2 | 5 | 7 | 4 | 5 | 8 | 7 | 8 |
+| L0 | 3 | 4 (0) | 5 (0) | 4 (0) | 4 (0) | 7 (2) | 5 (1) | 8 (8) |
+| L1 | 2 | 1 (1) | 5 (3) | 1 (1) | 1 (1) | 8 (4) | 6 (3) | 8 (8) |
+| L2 | 4 | 5 (2) | 7 (3) | 5 (1) | 6 (2) | 7 (4) | 7 (4) | 8 (8) |
+| L3 | 6 | 6 (2) | 6 (5) | 8 (3) | 7 (3) | 7 (3) | 7 (6) | 8 (8) |
+| L4 | 5 | 5 (3) | 7 (4) | 5 (3) | 5 (3) | 7 (4) | 7 (6) | 8 (8) |
+| L5 | 5 | 5 (3) | 7 (5) | 5 (3) | 6 (3) | 7 (5) | 8 (7) | 8 (8) |
+| L6 | 5 | 5 (3) | 6 (4) | 5 (3) | 5 (3) | 7 (3) | 7 (6) | 8 (8) |
+| L7 | 2 | 3 (1) | 6 (5) | 3 (1) | 4 (1) | 6 (2) | 7 (6) | 8 (8) |
+| L8 | 4 | 5 (3) | 6 (4) | 5 (3) | 5 (3) | 7 (2) | 7 (6) | 8 (8) |
+| L9 | 7 | 5 (4) | 5 (4) | 6 (4) | 6 (4) | 7 (5) | 7 (6) | 8 (8) |
+| L10 | 7 | 5 (4) | 6 (4) | 6 (4) | 6 (3) | 7 (4) | 7 (6) | 8 (8) |
+| L11 | 4 | 4 (3) | 6 (4) | 4 (3) | 4 (3) | 7 (4) | 7 (6) | 8 (8) |
+| L12 | 8 | 5 (4) | 6 (4) | 6 (4) | 6 (4) | 7 (5) | 7 (6) | 8 (8) |
+| L13 | 7 | 5 (4) | 5 (4) | 6 (4) | 5 (4) | 7 (5) | 7 (6) | 8 (8) |
+| L14 | 7 | 5 (4) | 5 (4) | 6 (4) | 5 (4) | 7 (5) | 7 (6) | 8 (8) |
+| L15 | 7 | 5 (4) | 5 (4) | 6 (4) | 5 (4) | 7 (5) | 7 (6) | 8 (8) |
+| L16 | 7 | 5 (4) | 6 (4) | 6 (4) | 5 (4) | 7 (5) | 7 (6) | 8 (8) |
+| L17 | 7 | 5 (4) | 6 (4) | 5 (4) | 5 (4) | 7 (5) | 7 (6) | 8 (8) |
+| L18 | 7 | 5 (4) | 6 (4) | 5 (4) | 5 (4) | 7 (5) | 7 (6) | 8 (8) |
+| L19 | 7 | 5 (4) | 6 (4) | 5 (4) | 6 (4) | 7 (5) | 7 (6) | 8 (8) |
+| L20 | 4 | 5 (2) | 6 (4) | 5 (2) | 5 (3) | 6 (5) | 7 (5) | 8 (8) |
+| L21 | 6 | 5 (4) | 6 (4) | 5 (4) | 6 (4) | 7 (5) | 7 (5) | 8 (8) |
+| L22 | 2 | 1 (1) | 6 (4) | 4 (1) | 4 (1) | 7 (4) | 6 (6) | 8 (8) |
+| L23 | 2 | 3 (1) | 6 (4) | 3 (0) | 3 (1) | 7 (3) | 6 (4) | 8 (8) |
 
-**The counts saturate for the linear techniques.** With per-item decoys the line is low: the
-decoys' 95th percentiles run from 0.00 to 0.15 across techniques and attributes. So on a set
-without families, the linear techniques pass for nearly every attribute, and their strengths are
-what tell them apart:
+**Agent type goes with the label by design (0.60),** so with decoys drawn within the label its
+line is high for every technique (0.395 to 0.498). Only the probe passes it, at every layer; the
+UMAP lens at its k misses it at every layer, raw Ward, raw spectral and the partial directions at
+23, the best component at 20. Before the re-scoring, with decoys in overall proportions, the
+lines ran from 0.00 to 0.15 and the linear techniques passed for nearly every attribute. The probe
+still passes for all eight at every layer, against both lines, and the strengths tell the
+techniques apart:
 - the probe reads all eight at every layer, at κ 0.67 to 1.00;
 - its weakest are consequence (0.67 to 0.85), agent type (0.75 to 0.91) and violence (0.77 to
   0.87);

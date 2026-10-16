@@ -109,11 +109,17 @@ share on the side that holds the ideas:
 ## The axes (DESIGN.md C8)
 
 The four attributes are the category, animacy, concreteness and valence. The family field groups
-items, so it is not scored as an attribute. Decoys are random per family, five per attribute.
+items, so it is not scored as an attribute. Five decoys per attribute. Since the re-scoring of
+2026-10-16, valence's decoys are drawn within each category, per word (valence varies within
+families), so they keep its link to the category; animacy and concreteness follow from the
+category, so their decoys keep overall proportions, per family. The κ values are unchanged.
 
-**Recovered:** every technique passes the decoy line for all four attributes at nearly every
-layer. Raw Ward misses one at L0 and L10, and raw spectral one at L13. The strengths tell the
-techniques apart:
+**Recovered:** every technique passes the decoy line for the category, animacy and concreteness at
+every layer. Valence passes for the probe and the partial directions at every layer, for raw Ward
+at 18 layers, the lens's nodes at 15, the best principal component at 13 and raw spectral at 9.
+Beside the stricter line (half the probe's best κ for the attribute at any layer), valence passes
+only for the probe (24 layers), the directions (22) and the lens's nodes (1). The strengths tell
+the techniques apart:
 
 | Layer | k | UMAP lens: category / animacy / concreteness / valence | probe: category / animacy / concreteness / valence | independent directions (95th permuted) | effective dimensionality |
 |---|---|---|---|---|---|
@@ -149,7 +155,8 @@ techniques apart:
 - **Valence follows the category by design** (tools and vehicles are almost all neutral, emotions
   rarely). The category alone predicts valence at κ 0.187: each held-out word takes its
   category's most common valence in training. So the nodes' valence (0.22 to 0.35) is little more
-  than the category's. The model carries valence beyond the category all the same: with each
+  than the category's; against decoys drawn within each category it passes at 15 layers, and the
+  stricter line at one. The model carries valence beyond the category all the same: with each
   category's training mean taken out of its words, a probe still reads valence at κ 0.489 (L0),
   0.598 (L4), 0.595 (L8), 0.575 (L12), 0.571 (L16), 0.557 (L20) and 0.524 (L23).
 - **Fewer independent directions than random contrasts.** The partial axes span 5.32 to 6.06

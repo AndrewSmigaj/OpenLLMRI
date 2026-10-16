@@ -5,8 +5,8 @@ chance):
   - a linear probe on the residual stream: the ceiling, what is linearly there;
   - the lens's nodes at the version's k (from its validation).
 Beside each, the line an axis must beat: the 95th percentile of the same reader's scores for decoy
-axes (random values given per family), pooled over layers. An axis read on unseen orders is the
-strongest evidence that the model carries it beyond descent.
+axes, pooled over layers. Decoys are drawn within each animal's group (per family or per animal,
+services/lenses/axes.py), so an axis passes only by what it reads beyond the group.
 
 Usage, from the repo root (the backend running, the lens validated and its axes analysed):
   .venv/bin/python docs/studies/animal_ontology/analysis/held_out.py SESSION LENS

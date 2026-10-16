@@ -38,12 +38,14 @@ ledger:
   - idea: Every way can be read on taxonomic orders the reader never saw.
     experiment: >
       The axes analysis of onto-k8-n15 with whole orders held out (12 folds): κ for a linear probe
-      and for the lens's nodes at k 8, against each reader's decoy line.
+      and for the lens's nodes at k 8, against each reader's decoy line (decoys drawn within each
+      animal's group since 2026-10-16).
     finding: >
-      The probe passes its line at every layer for every axis but danger (22 layers): the group and
-      everyday kind at 0.82 to 0.87 (L4 to L16), the people-centred ways at 0.49 to 0.65, danger at
-      0.22 to 0.33. The lens's nodes carry the descent-tied ways (0.32 to 0.58) and hardly any of the
-      people-centred ones; danger and wild or domestic not at all.
+      The probe reads the group and everyday kind at 0.82 to 0.87 (L4 to L16), the people-centred
+      ways at 0.48 to 0.65, danger at 0.22 to 0.33. Against decoys drawn within each animal's group
+      (re-scored 2026-10-16), it passes at most layers for every way but legs (8 of 24). The lens's
+      nodes carry the descent-tied ways (0.32 to 0.58), but beyond the group at most 5 layers for any
+      way.
     status: proposed
     evidence: [docs/research/animal_ontology_findings.md]
   - idea: >

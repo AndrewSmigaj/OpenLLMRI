@@ -2113,162 +2113,162 @@
   "last": {
    "session": "session_2be574c4",
    "lens": "objects-k3-n15",
-   "harm_lens": "harm-axis",
+   "harm_lens": "harm-axis-v2",
    "class_nodes_ami": [
-    0.0165,
-    -0.0072,
-    0.0332,
-    0.0295,
+    0.0178,
+    0.0244,
+    0.0209,
+    0.0437,
+    0.061,
+    0.085,
+    0.1041,
+    0.1206,
+    0.045,
+    0.0815,
     0.0772,
-    0.0448,
-    0.0561,
-    0.0654,
-    0.0606,
-    0.0899,
-    0.0617,
-    0.1805,
-    0.1045,
-    0.1305,
-    0.0814,
-    0.05,
-    0.0511,
-    0.0161,
-    0.021,
-    -0.0107,
-    0.0205,
-    0.0106,
-    0.0249,
-    0.0172
+    0.159,
+    0.1073,
+    0.1161,
+    0.054,
+    0.06,
+    0.0822,
+    0.0329,
+    0.0334,
+    0.0363,
+    0.0295,
+    0.0114,
+    0.0316,
+    0.0226
    ],
    "class_ceiling_ami": [
-    0.2232,
-    0.2651,
-    0.409,
-    0.3831,
-    0.4176,
-    0.3874,
-    0.3903,
-    0.4039,
-    0.3948,
-    0.4056,
-    0.4334,
-    0.4271,
-    0.4423,
-    0.4151,
-    0.4133,
-    0.4078,
-    0.4012,
-    0.4438,
-    0.4141,
-    0.3875,
-    0.3722,
-    0.3842,
-    0.3894,
-    0.3369
+    0.2159,
+    0.3253,
+    0.3866,
+    0.3896,
+    0.4161,
+    0.3825,
+    0.4006,
+    0.4086,
+    0.4465,
+    0.4592,
+    0.4414,
+    0.4685,
+    0.4785,
+    0.4686,
+    0.4837,
+    0.4315,
+    0.4584,
+    0.4024,
+    0.4254,
+    0.3938,
+    0.4013,
+    0.4028,
+    0.3648,
+    0.3422
    ],
    "tokens_nodes_ami": [
-    0.6663,
-    0.6891,
-    0.6668,
-    0.8438,
-    0.7857,
-    0.687,
-    0.7153,
-    0.7348,
-    0.5794,
-    0.2556,
-    0.3127,
-    0.0874,
-    0.4627,
-    0.2092,
-    0.4263,
-    0.5401,
-    0.3676,
-    0.7837,
-    0.7991,
-    0.6441,
-    0.7682,
-    0.6122,
-    0.7123,
-    0.6065
+    0.6967,
+    0.7096,
+    0.6798,
+    0.8545,
+    0.8282,
+    0.7008,
+    0.6602,
+    0.5912,
+    0.5524,
+    0.2959,
+    0.4037,
+    0.0989,
+    0.4459,
+    0.2027,
+    0.507,
+    0.5351,
+    0.3077,
+    0.797,
+    0.786,
+    0.7586,
+    0.774,
+    0.6214,
+    0.7486,
+    0.6373
    ],
    "tokens_nodes_kappa": [
-    0.9832,
+    0.9915,
     1.0,
     1.0,
     1.0,
-    0.9749,
+    0.9915,
+    0.8377,
+    0.8649,
     0.8733,
-    0.9425,
-    0.9586,
-    0.7938,
-    0.3945,
-    0.5211,
+    0.7954,
+    0.5089,
+    0.6648,
     0.0,
-    0.6933,
-    0.5355,
-    0.5432,
-    0.7065,
-    0.5272,
+    0.6814,
+    0.3261,
+    0.6696,
+    0.679,
+    0.4087,
     0.9832,
     0.9832,
-    0.9832,
-    0.9745,
-    0.9667,
-    0.9492,
-    0.9578
+    0.9916,
+    0.9749,
+    0.9586,
+    0.9575,
+    0.9492
    ],
    "harm_heldout_accuracy": [
-    0.6156,
-    0.6689,
-    0.8159,
-    0.8461,
-    0.9117,
-    0.9345,
-    0.9262,
-    0.9207,
-    0.9271,
-    0.9296,
-    0.932,
-    0.9345,
-    0.921,
-    0.926,
-    0.9068,
-    0.9014,
-    0.8955,
-    0.8507,
-    0.8426,
-    0.7594,
-    0.743,
-    0.8069,
-    0.7979,
-    0.7879
+    0.6572,
+    0.7778,
+    0.8395,
+    0.8646,
+    0.9318,
+    0.9422,
+    0.944,
+    0.947,
+    0.93,
+    0.9366,
+    0.9306,
+    0.9308,
+    0.9089,
+    0.9199,
+    0.9139,
+    0.8979,
+    0.9023,
+    0.8669,
+    0.8454,
+    0.7806,
+    0.7928,
+    0.8352,
+    0.8008,
+    0.7696
    ],
    "harm_heldout_kappa": [
-    0.0506,
-    0.1861,
-    0.4339,
-    0.5229,
-    0.6928,
-    0.7789,
-    0.7594,
-    0.7409,
-    0.7492,
-    0.7588,
-    0.7684,
-    0.7774,
-    0.73,
-    0.7486,
-    0.7003,
-    0.6815,
-    0.671,
-    0.526,
-    0.5058,
-    0.3788,
-    0.3631,
-    0.483,
-    0.4413,
-    0.415
+    0.1977,
+    0.4781,
+    0.6228,
+    0.7363,
+    0.8447,
+    0.872,
+    0.872,
+    0.8815,
+    0.8447,
+    0.8537,
+    0.8346,
+    0.8244,
+    0.7879,
+    0.8063,
+    0.7874,
+    0.7695,
+    0.7779,
+    0.6942,
+    0.6386,
+    0.5188,
+    0.5547,
+    0.6525,
+    0.5666,
+    0.505
    ],
    "dual_median": [
     0.08385000000000001,
@@ -2322,637 +2322,637 @@
     40,
     42
    ],
-   "harm_best_layer": 5,
+   "harm_best_layer": 7,
    "dual_ranked_at_best": [
     {
-     "word": "machete",
-     "harm": "cutting",
-     "domain": "garden",
-     "reading": 1.4
+     "word": "fentanyl",
+     "harm": "chemical",
+     "domain": "medical",
+     "reading": 1.749
     },
     {
      "word": "javelin",
      "harm": "piercing",
      "domain": "sport",
-     "reading": 1.387
+     "reading": 1.29
     },
     {
-     "word": "fentanyl",
-     "harm": "chemical",
-     "domain": "medical",
-     "reading": 1.258
-    },
-    {
-     "word": "oxycodone",
-     "harm": "chemical",
-     "domain": "medical",
-     "reading": 1.183
-    },
-    {
-     "word": "epee",
-     "harm": "piercing",
-     "domain": "sport",
-     "reading": 1.143
-    },
-    {
-     "word": "nailgun",
-     "harm": "piercing",
-     "domain": "workshop",
-     "reading": 1.097
-    },
-    {
-     "word": "dynamite",
-     "harm": "explosive",
-     "domain": "construction",
-     "reading": 1.025
-    },
-    {
-     "word": "tranquilizer",
-     "harm": "chemical",
-     "domain": "medical",
-     "reading": 0.99
-    },
-    {
-     "word": "axe",
-     "harm": "cutting",
-     "domain": "workshop",
-     "reading": 0.87
-    },
-    {
-     "word": "detonator",
-     "harm": "explosive",
-     "domain": "construction",
-     "reading": 0.823
-    },
-    {
-     "word": "scythe",
+     "word": "machete",
      "harm": "cutting",
      "domain": "garden",
-     "reading": 0.806
+     "reading": 1.185
     },
     {
      "word": "ketamine",
      "harm": "chemical",
      "domain": "medical",
-     "reading": 0.798
+     "reading": 1.16
     },
     {
-     "word": "sickle",
-     "harm": "cutting",
-     "domain": "garden",
-     "reading": 0.796
+     "word": "oxycodone",
+     "harm": "chemical",
+     "domain": "medical",
+     "reading": 1.153
+    },
+    {
+     "word": "dynamite",
+     "harm": "explosive",
+     "domain": "construction",
+     "reading": 1.104
+    },
+    {
+     "word": "epee",
+     "harm": "piercing",
+     "domain": "sport",
+     "reading": 1.059
     },
     {
      "word": "barbiturate",
      "harm": "chemical",
      "domain": "medical",
-     "reading": 0.724
+     "reading": 1.035
     },
     {
-     "word": "thermite",
-     "harm": "fire",
-     "domain": "laboratory",
-     "reading": 0.715
-    },
-    {
-     "word": "hatchet",
-     "harm": "cutting",
-     "domain": "outdoors",
-     "reading": 0.637
-    },
-    {
-     "word": "lancet",
-     "harm": "piercing",
+     "word": "tranquilizer",
+     "harm": "chemical",
      "domain": "medical",
-     "reading": 0.579
-    },
-    {
-     "word": "slingshot",
-     "harm": "projectile",
-     "domain": "hunting",
-     "reading": 0.576
-    },
-    {
-     "word": "nitroglycerin",
-     "harm": "explosive",
-     "domain": "laboratory",
-     "reading": 0.539
-    },
-    {
-     "word": "barbwire",
-     "harm": "cutting",
-     "domain": "garden",
-     "reading": 0.535
+     "reading": 0.947
     },
     {
      "word": "morphine",
      "harm": "chemical",
      "domain": "medical",
-     "reading": 0.527
+     "reading": 0.927
     },
     {
-     "word": "sedative",
-     "harm": "chemical",
-     "domain": "medical",
-     "reading": 0.508
+     "word": "nailgun",
+     "harm": "piercing",
+     "domain": "workshop",
+     "reading": 0.893
     },
     {
-     "word": "billhook",
-     "harm": "cutting",
-     "domain": "garden",
-     "reading": 0.507
+     "word": "thermite",
+     "harm": "fire",
+     "domain": "laboratory",
+     "reading": 0.887
     },
     {
      "word": "warfarin",
      "harm": "chemical",
      "domain": "medical",
-     "reading": 0.484
+     "reading": 0.872
     },
     {
-     "word": "cleaver",
+     "word": "sickle",
      "harm": "cutting",
-     "domain": "kitchen",
-     "reading": 0.482
-    },
-    {
-     "word": "rocket",
-     "harm": "explosive",
-     "domain": "military",
-     "reading": 0.433
-    },
-    {
-     "word": "pickaxe",
-     "harm": "piercing",
-     "domain": "workshop",
-     "reading": 0.391
-    },
-    {
-     "word": "knife",
-     "harm": "cutting",
-     "domain": "kitchen",
-     "reading": 0.356
+     "domain": "garden",
+     "reading": 0.85
     },
     {
      "word": "chloroform",
      "harm": "chemical",
      "domain": "laboratory",
-     "reading": 0.291
+     "reading": 0.816
     },
     {
-     "word": "lye",
-     "harm": "chemical",
-     "domain": "household",
-     "reading": 0.281
-    },
-    {
-     "word": "firecracker",
+     "word": "nitroglycerin",
      "harm": "explosive",
-     "domain": "celebration",
-     "reading": 0.272
-    },
-    {
-     "word": "sledgehammer",
-     "harm": "blunt",
-     "domain": "workshop",
-     "reading": 0.234
-    },
-    {
-     "word": "acid",
-     "harm": "chemical",
      "domain": "laboratory",
-     "reading": 0.23
+     "reading": 0.799
     },
     {
-     "word": "ammonia",
-     "harm": "chemical",
-     "domain": "household",
-     "reading": 0.219
-    },
-    {
-     "word": "phosphorus",
-     "harm": "fire",
-     "domain": "laboratory",
-     "reading": 0.218
-    },
-    {
-     "word": "kerosene",
-     "harm": "fire",
-     "domain": "household",
-     "reading": 0.202
+     "word": "scythe",
+     "harm": "cutting",
+     "domain": "garden",
+     "reading": 0.703
     },
     {
      "word": "jackhammer",
      "harm": "blunt",
      "domain": "construction",
-     "reading": 0.183
+     "reading": 0.647
     },
     {
-     "word": "anesthetic",
-     "harm": "chemical",
-     "domain": "medical",
-     "reading": 0.148
-    },
-    {
-     "word": "bleach",
-     "harm": "chemical",
-     "domain": "household",
-     "reading": 0.126
-    },
-    {
-     "word": "blowtorch",
-     "harm": "fire",
-     "domain": "workshop",
-     "reading": 0.107
-    },
-    {
-     "word": "skewer",
-     "harm": "piercing",
-     "domain": "kitchen",
-     "reading": 0.086
-    },
-    {
-     "word": "gasoline",
-     "harm": "fire",
-     "domain": "household",
-     "reading": 0.076
-    },
-    {
-     "word": "scalpel",
-     "harm": "cutting",
-     "domain": "medical",
-     "reading": 0.046
-    },
-    {
-     "word": "boomerang",
-     "harm": "blunt",
-     "domain": "hunting",
-     "reading": 0.034
-    },
-    {
-     "word": "awl",
-     "harm": "piercing",
-     "domain": "workshop",
-     "reading": 0.033
-    },
-    {
-     "word": "bulldozer",
-     "harm": "blunt",
-     "domain": "construction",
-     "reading": 0.014
-    },
-    {
-     "word": "fishhook",
-     "harm": "piercing",
-     "domain": "hunting",
-     "reading": -0.028
-    },
-    {
-     "word": "corkscrew",
-     "harm": "piercing",
-     "domain": "kitchen",
-     "reading": -0.032
-    },
-    {
-     "word": "methanol",
-     "harm": "chemical",
-     "domain": "laboratory",
-     "reading": -0.04
-    },
-    {
-     "word": "firework",
+     "word": "detonator",
      "harm": "explosive",
-     "domain": "celebration",
-     "reading": -0.046
+     "domain": "construction",
+     "reading": 0.644
     },
     {
-     "word": "benzene",
-     "harm": "chemical",
-     "domain": "laboratory",
-     "reading": -0.052
+     "word": "barbwire",
+     "harm": "cutting",
+     "domain": "garden",
+     "reading": 0.629
+    },
+    {
+     "word": "hatchet",
+     "harm": "cutting",
+     "domain": "outdoors",
+     "reading": 0.61
+    },
+    {
+     "word": "billhook",
+     "harm": "cutting",
+     "domain": "garden",
+     "reading": 0.599
+    },
+    {
+     "word": "axe",
+     "harm": "cutting",
+     "domain": "workshop",
+     "reading": 0.586
     },
     {
      "word": "formaldehyde",
      "harm": "chemical",
      "domain": "laboratory",
-     "reading": -0.063
+     "reading": 0.577
+    },
+    {
+     "word": "phosphorus",
+     "harm": "fire",
+     "domain": "laboratory",
+     "reading": 0.539
+    },
+    {
+     "word": "lye",
+     "harm": "chemical",
+     "domain": "household",
+     "reading": 0.538
+    },
+    {
+     "word": "cleaver",
+     "harm": "cutting",
+     "domain": "kitchen",
+     "reading": 0.509
+    },
+    {
+     "word": "slingshot",
+     "harm": "projectile",
+     "domain": "hunting",
+     "reading": 0.433
+    },
+    {
+     "word": "kerosene",
+     "harm": "fire",
+     "domain": "household",
+     "reading": 0.43
+    },
+    {
+     "word": "ammonia",
+     "harm": "chemical",
+     "domain": "household",
+     "reading": 0.426
+    },
+    {
+     "word": "acid",
+     "harm": "chemical",
+     "domain": "laboratory",
+     "reading": 0.415
+    },
+    {
+     "word": "rocket",
+     "harm": "explosive",
+     "domain": "military",
+     "reading": 0.365
+    },
+    {
+     "word": "firecracker",
+     "harm": "explosive",
+     "domain": "celebration",
+     "reading": 0.362
+    },
+    {
+     "word": "sedative",
+     "harm": "chemical",
+     "domain": "medical",
+     "reading": 0.361
+    },
+    {
+     "word": "bleach",
+     "harm": "chemical",
+     "domain": "household",
+     "reading": 0.36
+    },
+    {
+     "word": "lancet",
+     "harm": "piercing",
+     "domain": "medical",
+     "reading": 0.344
+    },
+    {
+     "word": "sledgehammer",
+     "harm": "blunt",
+     "domain": "workshop",
+     "reading": 0.217
     },
     {
      "word": "chainsaw",
      "harm": "cutting",
      "domain": "workshop",
-     "reading": -0.066
+     "reading": 0.21
     },
     {
-     "word": "hammer",
-     "harm": "blunt",
-     "domain": "workshop",
-     "reading": -0.066
-    },
-    {
-     "word": "propane",
-     "harm": "explosive",
+     "word": "gasoline",
+     "harm": "fire",
      "domain": "household",
-     "reading": -0.09
+     "reading": 0.191
+    },
+    {
+     "word": "scalpel",
+     "harm": "cutting",
+     "domain": "medical",
+     "reading": 0.188
+    },
+    {
+     "word": "knife",
+     "harm": "cutting",
+     "domain": "kitchen",
+     "reading": 0.181
+    },
+    {
+     "word": "pickaxe",
+     "harm": "piercing",
+     "domain": "workshop",
+     "reading": 0.144
+    },
+    {
+     "word": "benzene",
+     "harm": "chemical",
+     "domain": "laboratory",
+     "reading": 0.131
     },
     {
      "word": "asbestos",
      "harm": "chemical",
      "domain": "construction",
-     "reading": -0.092
+     "reading": 0.127
+    },
+    {
+     "word": "firework",
+     "harm": "explosive",
+     "domain": "celebration",
+     "reading": 0.118
+    },
+    {
+     "word": "awl",
+     "harm": "piercing",
+     "domain": "workshop",
+     "reading": 0.112
+    },
+    {
+     "word": "methanol",
+     "harm": "chemical",
+     "domain": "laboratory",
+     "reading": 0.099
+    },
+    {
+     "word": "propane",
+     "harm": "explosive",
+     "domain": "household",
+     "reading": 0.09
+    },
+    {
+     "word": "anesthetic",
+     "harm": "chemical",
+     "domain": "medical",
+     "reading": 0.074
+    },
+    {
+     "word": "blowtorch",
+     "harm": "fire",
+     "domain": "workshop",
+     "reading": 0.048
     },
     {
      "word": "boxcutter",
      "harm": "cutting",
      "domain": "workshop",
-     "reading": -0.118
+     "reading": 0.037
     },
     {
-     "word": "snowmobile",
-     "harm": "blunt",
-     "domain": "transport",
-     "reading": -0.126
-    },
-    {
-     "word": "scissors",
-     "harm": "cutting",
-     "domain": "household",
-     "reading": -0.136
-    },
-    {
-     "word": "icepick",
-     "harm": "piercing",
-     "domain": "outdoors",
-     "reading": -0.147
-    },
-    {
-     "word": "chisel",
-     "harm": "cutting",
-     "domain": "workshop",
-     "reading": -0.15
-    },
-    {
-     "word": "crowbar",
-     "harm": "blunt",
-     "domain": "workshop",
-     "reading": -0.161
-    },
-    {
-     "word": "pitchfork",
-     "harm": "piercing",
-     "domain": "garden",
-     "reading": -0.166
-    },
-    {
-     "word": "sparkler",
-     "harm": "fire",
-     "domain": "celebration",
-     "reading": -0.182
-    },
-    {
-     "word": "antifreeze",
-     "harm": "chemical",
-     "domain": "household",
-     "reading": -0.192
-    },
-    {
-     "word": "excavator",
+     "word": "bulldozer",
      "harm": "blunt",
      "domain": "construction",
-     "reading": -0.193
+     "reading": 0.036
     },
     {
      "word": "turpentine",
      "harm": "chemical",
      "domain": "household",
-     "reading": -0.206
+     "reading": 0.035
     },
     {
-     "word": "insulin",
+     "word": "corkscrew",
+     "harm": "piercing",
+     "domain": "kitchen",
+     "reading": 0.035
+    },
+    {
+     "word": "hammer",
+     "harm": "blunt",
+     "domain": "workshop",
+     "reading": 0.031
+    },
+    {
+     "word": "fishhook",
+     "harm": "piercing",
+     "domain": "hunting",
+     "reading": -0.018
+    },
+    {
+     "word": "antifreeze",
      "harm": "chemical",
-     "domain": "medical",
-     "reading": -0.224
-    },
-    {
-     "word": "chain",
-     "harm": "restraint",
      "domain": "household",
-     "reading": -0.225
+     "reading": -0.033
     },
     {
-     "word": "shears",
-     "harm": "cutting",
-     "domain": "garden",
-     "reading": -0.233
+     "word": "icepick",
+     "harm": "piercing",
+     "domain": "outdoors",
+     "reading": -0.053
     },
     {
-     "word": "hacksaw",
+     "word": "boomerang",
+     "harm": "blunt",
+     "domain": "hunting",
+     "reading": -0.058
+    },
+    {
+     "word": "chisel",
      "harm": "cutting",
      "domain": "workshop",
-     "reading": -0.245
+     "reading": -0.069
+    },
+    {
+     "word": "excavator",
+     "harm": "blunt",
+     "domain": "construction",
+     "reading": -0.095
+    },
+    {
+     "word": "crowbar",
+     "harm": "blunt",
+     "domain": "workshop",
+     "reading": -0.095
     },
     {
      "word": "helicopter",
      "harm": "blunt",
      "domain": "transport",
-     "reading": -0.267
+     "reading": -0.118
     },
     {
-     "word": "wrench",
-     "harm": "blunt",
-     "domain": "workshop",
-     "reading": -0.268
-    },
-    {
-     "word": "discus",
-     "harm": "blunt",
-     "domain": "sport",
-     "reading": -0.282
-    },
-    {
-     "word": "screwdriver",
-     "harm": "piercing",
-     "domain": "workshop",
-     "reading": -0.312
-    },
-    {
-     "word": "wire",
+     "word": "chain",
      "harm": "restraint",
      "domain": "household",
-     "reading": -0.322
+     "reading": -0.145
     },
     {
-     "word": "dart",
-     "harm": "piercing",
-     "domain": "sport",
-     "reading": -0.336
-    },
-    {
-     "word": "secateurs",
-     "harm": "cutting",
-     "domain": "garden",
-     "reading": -0.355
-    },
-    {
-     "word": "motorcycle",
+     "word": "snowmobile",
      "harm": "blunt",
      "domain": "transport",
-     "reading": -0.355
+     "reading": -0.171
     },
     {
-     "word": "razor",
+     "word": "shears",
      "harm": "cutting",
-     "domain": "bathroom",
-     "reading": -0.367
+     "domain": "garden",
+     "reading": -0.19
     },
     {
-     "word": "mallet",
-     "harm": "blunt",
-     "domain": "kitchen",
-     "reading": -0.374
-    },
-    {
-     "word": "syringe",
-     "harm": "piercing",
+     "word": "insulin",
+     "harm": "chemical",
      "domain": "medical",
-     "reading": -0.376
+     "reading": -0.194
+    },
+    {
+     "word": "skewer",
+     "harm": "piercing",
+     "domain": "kitchen",
+     "reading": -0.202
+    },
+    {
+     "word": "scissors",
+     "harm": "cutting",
+     "domain": "household",
+     "reading": -0.212
     },
     {
      "word": "speedboat",
      "harm": "blunt",
      "domain": "transport",
-     "reading": -0.397
+     "reading": -0.263
     },
     {
-     "word": "truck",
+     "word": "hacksaw",
+     "harm": "cutting",
+     "domain": "workshop",
+     "reading": -0.263
+    },
+    {
+     "word": "sparkler",
+     "harm": "fire",
+     "domain": "celebration",
+     "reading": -0.264
+    },
+    {
+     "word": "wire",
+     "harm": "restraint",
+     "domain": "household",
+     "reading": -0.298
+    },
+    {
+     "word": "mallet",
      "harm": "blunt",
-     "domain": "transport",
-     "reading": -0.407
+     "domain": "kitchen",
+     "reading": -0.304
     },
     {
      "word": "needle",
      "harm": "piercing",
      "domain": "medical",
-     "reading": -0.428
-    },
-    {
-     "word": "bus",
-     "harm": "blunt",
-     "domain": "transport",
-     "reading": -0.521
-    },
-    {
-     "word": "penknife",
-     "harm": "cutting",
-     "domain": "outdoors",
-     "reading": -0.57
-    },
-    {
-     "word": "grater",
-     "harm": "cutting",
-     "domain": "kitchen",
-     "reading": -0.575
-    },
-    {
-     "word": "cord",
-     "harm": "restraint",
-     "domain": "household",
-     "reading": -0.596
+     "reading": -0.321
     },
     {
      "word": "mothballs",
      "harm": "chemical",
      "domain": "household",
-     "reading": -0.621
+     "reading": -0.332
+    },
+    {
+     "word": "dart",
+     "harm": "piercing",
+     "domain": "sport",
+     "reading": -0.339
+    },
+    {
+     "word": "pitchfork",
+     "harm": "piercing",
+     "domain": "garden",
+     "reading": -0.344
+    },
+    {
+     "word": "cord",
+     "harm": "restraint",
+     "domain": "household",
+     "reading": -0.404
+    },
+    {
+     "word": "truck",
+     "harm": "blunt",
+     "domain": "transport",
+     "reading": -0.408
+    },
+    {
+     "word": "motorcycle",
+     "harm": "blunt",
+     "domain": "transport",
+     "reading": -0.415
+    },
+    {
+     "word": "discus",
+     "harm": "blunt",
+     "domain": "sport",
+     "reading": -0.428
+    },
+    {
+     "word": "wrench",
+     "harm": "blunt",
+     "domain": "workshop",
+     "reading": -0.467
+    },
+    {
+     "word": "secateurs",
+     "harm": "cutting",
+     "domain": "garden",
+     "reading": -0.508
+    },
+    {
+     "word": "razor",
+     "harm": "cutting",
+     "domain": "bathroom",
+     "reading": -0.526
     },
     {
      "word": "car",
      "harm": "blunt",
      "domain": "transport",
-     "reading": -0.678
+     "reading": -0.532
     },
     {
-     "word": "lawnmower",
+     "word": "penknife",
      "harm": "cutting",
-     "domain": "garden",
-     "reading": -0.748
+     "domain": "outdoors",
+     "reading": -0.562
     },
     {
-     "word": "matchstick",
-     "harm": "fire",
-     "domain": "household",
-     "reading": -0.756
-    },
-    {
-     "word": "rope",
-     "harm": "restraint",
-     "domain": "household",
-     "reading": -0.825
-    },
-    {
-     "word": "tractor",
+     "word": "bus",
      "harm": "blunt",
-     "domain": "garden",
-     "reading": -0.857
+     "domain": "transport",
+     "reading": -0.564
+    },
+    {
+     "word": "screwdriver",
+     "harm": "piercing",
+     "domain": "workshop",
+     "reading": -0.564
     },
     {
      "word": "airplane",
      "harm": "blunt",
      "domain": "transport",
-     "reading": -0.872
+     "reading": -0.621
+    },
+    {
+     "word": "matchstick",
+     "harm": "fire",
+     "domain": "household",
+     "reading": -0.688
+    },
+    {
+     "word": "syringe",
+     "harm": "piercing",
+     "domain": "medical",
+     "reading": -0.713
+    },
+    {
+     "word": "tractor",
+     "harm": "blunt",
+     "domain": "garden",
+     "reading": -0.751
+    },
+    {
+     "word": "rope",
+     "harm": "restraint",
+     "domain": "household",
+     "reading": -0.759
+    },
+    {
+     "word": "grater",
+     "harm": "cutting",
+     "domain": "kitchen",
+     "reading": -0.767
+    },
+    {
+     "word": "lawnmower",
+     "harm": "cutting",
+     "domain": "garden",
+     "reading": -0.838
     }
    ],
    "probe_kappa": {
     "label": [
-     0.3037,
-     0.324,
-     0.4783,
-     0.4886,
-     0.5458,
-     0.5125,
-     0.5378,
-     0.5429,
-     0.5387,
-     0.548,
-     0.5621,
-     0.5756,
-     0.5802,
-     0.5668,
-     0.5625,
-     0.5619,
-     0.5666,
-     0.5955,
-     0.5569,
-     0.533,
-     0.5385,
-     0.5428,
-     0.5376,
-     0.4706
+     0.4237,
+     0.5462,
+     0.5945,
+     0.6047,
+     0.6057,
+     0.5769,
+     0.6056,
+     0.6059,
+     0.6488,
+     0.6486,
+     0.644,
+     0.6916,
+     0.6966,
+     0.6915,
+     0.692,
+     0.6592,
+     0.6825,
+     0.6347,
+     0.6441,
+     0.6394,
+     0.6446,
+     0.6297,
+     0.5963,
+     0.5629
     ],
     "harm": [
-     0.2776,
-     0.3901,
-     0.5291,
-     0.5714,
-     0.6146,
+     0.3124,
+     0.3905,
+     0.5449,
+     0.6273,
+     0.6502,
+     0.6421,
+     0.6258,
      0.5898,
-     0.5928,
+     0.5985,
+     0.5809,
+     0.6141,
+     0.6359,
+     0.6068,
+     0.6141,
+     0.5875,
+     0.6021,
+     0.6134,
+     0.6,
+     0.5935,
+     0.5672,
      0.5685,
-     0.5822,
-     0.5798,
-     0.5847,
-     0.5836,
-     0.605,
-     0.574,
-     0.5541,
-     0.5421,
-     0.5687,
-     0.5701,
-     0.5518,
-     0.5419,
-     0.5496,
-     0.5856,
-     0.5646,
-     0.5459
+     0.6022,
+     0.5901,
+     0.5692
     ],
     "tokens": [
      1.0,
@@ -2964,14 +2964,14 @@
      1.0,
      1.0,
      1.0,
-     0.9915,
-     0.9831,
-     0.9832,
-     0.9832,
-     0.9832,
-     0.9916,
-     0.9832,
-     0.9832,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
      1.0,
      1.0,
      1.0,
@@ -2985,161 +2985,161 @@
   "end": {
    "session": "session_079e85fb",
    "lens": "objects-end-k3-n15",
-   "harm_lens": "harm-axis-end",
+   "harm_lens": "harm-axis-end-v2",
    "class_nodes_ami": [
-    0.005,
-    0.0065,
-    0.0035,
-    0.0006,
-    0.0159,
-    -0.0004,
-    0.0122,
-    0.0109,
-    0.0048,
-    -0.0068,
-    0.0079,
-    0.0025,
-    -0.0111,
-    0.0056,
-    0.0121,
-    0.0084,
-    0.0271,
-    0.0277,
-    0.0328,
-    0.0356,
+    0.029,
+    0.0152,
     0.0231,
-    -0.0088,
-    -0.0008,
-    0.0093
+    0.0177,
+    0.024,
+    0.0217,
+    0.0045,
+    0.0194,
+    0.0211,
+    0.0104,
+    -0.0058,
+    -0.0017,
+    0.0007,
+    -0.0012,
+    0.0049,
+    0.0161,
+    0.0554,
+    0.0705,
+    0.0435,
+    0.0585,
+    0.0578,
+    0.0029,
+    -0.0027,
+    0.0199
    ],
    "class_ceiling_ami": [
-    0.0148,
-    0.0796,
-    0.1611,
-    0.1841,
-    0.3999,
-    0.3562,
-    0.354,
-    0.2904,
-    0.3484,
-    0.3497,
-    0.3877,
-    0.3783,
-    0.3718,
-    0.3626,
-    0.3331,
-    0.3247,
-    0.3087,
-    0.3074,
+    0.0253,
+    0.0502,
+    0.159,
+    0.2046,
     0.3105,
-    0.2751,
-    0.2438,
-    0.2681,
-    0.2516,
-    0.1743
+    0.3147,
+    0.3708,
+    0.3579,
+    0.3595,
+    0.3399,
+    0.3821,
+    0.4194,
+    0.4192,
+    0.3915,
+    0.3796,
+    0.3702,
+    0.3097,
+    0.332,
+    0.3489,
+    0.3199,
+    0.3393,
+    0.3053,
+    0.315,
+    0.2115
    ],
    "tokens_nodes_ami": [
-    0.6862,
-    0.756,
-    0.6698,
-    0.5946,
-    0.6039,
-    0.6222,
-    0.3853,
-    0.3238,
-    0.2449,
-    0.3203,
+    0.6828,
+    0.6796,
+    0.6467,
+    0.6263,
+    0.6718,
+    0.5823,
+    0.408,
+    0.2494,
+    0.2261,
+    0.3618,
+    0.201,
+    0.1905,
+    0.1827,
+    0.213,
+    0.2471,
+    0.3427,
     0.2564,
-    0.1737,
-    0.2467,
-    0.2298,
-    0.2567,
-    0.2706,
-    0.3079,
-    0.3324,
-    0.2408,
-    0.2416,
-    0.0479,
-    0.0964,
-    0.094,
-    0.1024
+    0.2203,
+    0.2194,
+    0.246,
+    0.042,
+    0.0866,
+    0.0824,
+    0.07
    ],
    "tokens_nodes_kappa": [
+    0.9829,
+    0.9831,
+    0.9655,
+    0.9415,
     0.9915,
-    1.0,
-    0.9915,
-    0.9001,
-    0.9582,
-    0.9743,
-    0.6064,
-    0.7087,
-    0.4874,
-    0.701,
-    0.6031,
-    0.3229,
-    0.5766,
-    0.5967,
-    0.6412,
-    0.6583,
-    0.7096,
-    0.7193,
-    0.585,
-    0.6311,
+    0.9478,
+    0.6737,
+    0.4671,
+    0.3436,
+    0.7599,
+    0.3998,
+    0.3506,
+    0.3716,
+    0.4774,
+    0.6482,
+    0.6842,
+    0.6594,
+    0.5717,
+    0.5917,
+    0.6136,
     0.0,
-    0.1288,
-    0.1288,
-    0.12
+    0.0258,
+    0.0427,
+    0.0427
    ],
    "harm_heldout_accuracy": [
-    0.574,
-    0.575,
-    0.5221,
-    0.5744,
-    0.651,
-    0.6608,
-    0.7199,
-    0.6793,
-    0.7807,
-    0.8177,
-    0.8757,
-    0.9143,
-    0.8691,
-    0.8391,
-    0.8056,
-    0.7797,
-    0.7703,
-    0.7618,
-    0.733,
-    0.7235,
-    0.661,
-    0.5674,
-    0.6041,
-    0.6384
+    0.5532,
+    0.589,
+    0.619,
+    0.652,
+    0.7176,
+    0.7552,
+    0.8027,
+    0.7712,
+    0.8602,
+    0.8647,
+    0.9074,
+    0.9119,
+    0.8997,
+    0.878,
+    0.8613,
+    0.8294,
+    0.7586,
+    0.7649,
+    0.741,
+    0.7393,
+    0.725,
+    0.6768,
+    0.646,
+    0.6705
    ],
    "harm_heldout_kappa": [
-    0.026,
-    0.0398,
-    -0.0893,
-    -0.0222,
-    0.1383,
-    0.1714,
-    0.3272,
-    0.3168,
-    0.4394,
-    0.5188,
-    0.6201,
-    0.7237,
-    0.6016,
-    0.5696,
-    0.4928,
-    0.4149,
-    0.4149,
-    0.3848,
-    0.3289,
-    0.322,
-    0.2548,
-    0.1443,
-    0.1628,
+    0.0817,
+    0.1684,
+    0.1946,
+    0.23,
+    0.3133,
+    0.4245,
+    0.5255,
+    0.4505,
+    0.6525,
+    0.6708,
+    0.7889,
+    0.8077,
+    0.78,
+    0.7357,
+    0.689,
+    0.6044,
+    0.3863,
+    0.3948,
+    0.3475,
+    0.3321,
+    0.3116,
+    0.2436,
+    0.2015,
     0.2162
    ],
    "dual_median": [
@@ -3775,56 +3775,56 @@
    ],
    "probe_kappa": {
     "label": [
-     0.0693,
-     0.1761,
-     0.2242,
-     0.2908,
-     0.4787,
-     0.4635,
-     0.4714,
-     0.467,
-     0.4724,
-     0.5013,
-     0.5295,
-     0.5385,
-     0.5348,
-     0.5382,
-     0.533,
-     0.5003,
-     0.5087,
-     0.5011,
-     0.4823,
-     0.4721,
-     0.44,
-     0.421,
-     0.4163,
-     0.3643
+     0.1347,
+     0.2543,
+     0.3637,
+     0.4365,
+     0.5465,
+     0.5612,
+     0.5924,
+     0.5735,
+     0.6116,
+     0.535,
+     0.5962,
+     0.6297,
+     0.6348,
+     0.6104,
+     0.6201,
+     0.6116,
+     0.5586,
+     0.5679,
+     0.5587,
+     0.5411,
+     0.5594,
+     0.4977,
+     0.5267,
+     0.4385
     ],
     "harm": [
-     0.107,
-     0.2039,
-     0.275,
-     0.3397,
-     0.4258,
-     0.4544,
-     0.4425,
-     0.4178,
-     0.485,
-     0.4785,
-     0.5187,
-     0.4829,
-     0.4984,
-     0.4383,
-     0.4405,
-     0.4556,
-     0.418,
-     0.4174,
-     0.3982,
-     0.3867,
-     0.3597,
-     0.3674,
-     0.3453,
-     0.3207
+     0.0846,
+     0.1992,
+     0.2766,
+     0.3305,
+     0.4165,
+     0.4349,
+     0.4475,
+     0.4108,
+     0.5097,
+     0.5629,
+     0.5629,
+     0.5243,
+     0.517,
+     0.4722,
+     0.4733,
+     0.4656,
+     0.4679,
+     0.4439,
+     0.4183,
+     0.4034,
+     0.3732,
+     0.3768,
+     0.3485,
+     0.3314
     ],
     "tokens": [
      1.0,
@@ -3842,10 +3842,10 @@
      0.9915,
      0.9915,
      1.0,
-     0.9916,
      1.0,
-     0.9916,
-     0.9916,
+     1.0,
+     1.0,
+     1.0,
      1.0,
      1.0,
      1.0,

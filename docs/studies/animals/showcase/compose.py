@@ -139,7 +139,8 @@ CAPTIONS = {
          "at 0.96 or more at every layer, and one-token names' neighbours are 86 to 100% one-token names "
          "(chance 18%; dashed). Within that split, split names sit with their group (61 to 77% at L4 to L17).",
     "F": "F  The harm axis on 321 objects (harm-axis: benign at −1, harmful at +1, held out by whole domains, "
-         "accuracy 0.90 or more at L4 to L15). Read on its own capture, the 96 dual-purpose objects, never "
+         "on folds balanced by class: accuracy 0.90 or more at L4 to L14 and L16). Read on its own capture, "
+         "the 96 dual-purpose objects, never "
          "fitted, sit between the two ends at every layer (median −0.29 to +0.17). At L5 the machete, javelin, "
          "fentanyl and oxycodone read near the harmful end; the airplane, tractor and rope near the benign one.",
     "G": "G  Comparing lenses on the animals: held-out AMI on the group per layer for the untuned lens (k 8) "

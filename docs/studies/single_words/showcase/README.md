@@ -28,16 +28,18 @@ The runs behind the numbers are in `docs/research/single_words.md` (the single w
 
   Animacy never makes that first split.
 
-**B. What each technique reads.** Held-out κ per attribute and layer, with decoys given per
-family:
+**B. What each technique reads.** Held-out κ per attribute and layer, against five decoys per
+attribute (valence's drawn within each category since the re-scoring of 2026-10-16; the κ values
+are unchanged):
 - **The probe** reads the category at 0.84 to 0.91, animacy at 0.86 to 0.92 and concreteness at
   0.90 to 0.95 at every layer, and valence at 0.55 to 0.69.
 - **The lens's nodes** carry concreteness best (0.67 to 0.90) and valence least (0.22 to 0.35).
   The category alone gives valence 0.19.
 - **The model still carries valence beyond the category:** with each category's mean taken out
   of its words, a probe reads it at 0.49 to 0.60.
-- **The count saturates.** Every technique passes its decoys for all four attributes at nearly
-  every layer, so the strengths, not the count, tell the techniques apart.
+- **The count says little.** Every technique passes its decoys for the category, animacy and
+  concreteness at every layer; valence passes for the probe and the partial directions at every
+  layer and for the rest at 9 to 18. The strengths, not the count, tell the techniques apart.
 
 **C. Directions and dimensionality.**
 - **Fewer independent directions than random:** the attributes' partial axes span 5.3 to 6.1
