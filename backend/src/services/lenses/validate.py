@@ -82,11 +82,103 @@ def merge_folds(folds: List[Array], n_folds: Optional[int]) -> Tuple[List[Array]
     return [np.sort(np.concatenate(folds[i::n_folds])) for i in range(n_folds)], len(folds)
 
 
+BALANCE_STARTS = 8  # the splitter's assignment and seven seeded random ones
+
+
+def balanced_groups(labels: Sequence[str], keys: Sequence[str], n_folds: int, seed: int) -> List[Array]:
+    """Whole families into `n_folds` folds, each held-out fold's class shares as near the overall
+    shares as the families allow (DESIGN.md C4, LENS-24).
+
+    From `StratifiedGroupKFold`'s seeded assignment, and from seeded random ones, it moves single
+    families and swaps pairs between folds while that lowers, in order: how far fold sizes fall
+    outside half to one and a half times the average; the largest gap between any fold's class
+    shares and the overall ones; and the size-weighted sum of every fold's squared gaps. The last
+    keeps the search moving when a change leaves the worst fold as it is. The best assignment over
+    the starts is kept; deterministic for a seed. Returns each fold's item indices."""
+    from sklearn.model_selection import StratifiedGroupKFold
+
+    names = sorted(set(keys))
+    classes = sorted(set(labels))
+    family = {name: i for i, name in enumerate(names)}
+    counts = np.zeros((len(names), len(classes)))
+    for label, key in zip(labels, keys):
+        counts[family[key], classes.index(label)] += 1
+    total = counts.sum(axis=0)
+    share = total / total.sum()
+    low, high = 0.5 * total.sum() / n_folds, 1.5 * total.sum() / n_folds
+
+    def cost(assign: Array) -> Tuple[float, float, float]:
+        sums = np.stack([counts[assign == k].sum(axis=0) for k in range(n_folds)])
+        sizes = sums.sum(axis=1)
+        if (sizes == 0).any():
+            return (float("inf"), float("inf"), float("inf"))
+        excess = float(np.clip(low - sizes, 0, None).sum() + np.clip(sizes - high, 0, None).sum())
+        gaps = sums / sizes[:, None] - share
+        return (round(excess, 9), round(float(np.abs(gaps).max()), 9),
+                round(float((sizes[:, None] * gaps ** 2).sum()), 9))
+
+    def improve(fold_of: Array) -> Tuple[Array, Tuple[float, float, float]]:
+        best = cost(fold_of)
+        improved = True
+        while improved:
+            improved = False
+            for i in range(len(names)):
+                for k in range(n_folds):
+                    if k != fold_of[i]:
+                        trial = fold_of.copy()
+                        trial[i] = k
+                        found = cost(trial)
+                        if found < best:
+                            fold_of, best, improved = trial, found, True
+            for i, j in itertools.combinations(range(len(names)), 2):
+                if fold_of[i] != fold_of[j]:
+                    trial = fold_of.copy()
+                    trial[i], trial[j] = fold_of[j], fold_of[i]
+                    found = cost(trial)
+                    if found < best:
+                        fold_of, best, improved = trial, found, True
+        return fold_of, best
+
+    start = np.zeros(len(names), dtype=int)
+    splitter = StratifiedGroupKFold(n_splits=n_folds, shuffle=True, random_state=seed)
+    for k, (_, held) in enumerate(splitter.split(np.zeros(len(labels)), labels, groups=keys)):
+        for j in held:
+            start[family[keys[j]]] = k
+    rng = np.random.default_rng(seed)
+    best_fold_of, best_cost = improve(start)
+    for _ in range(BALANCE_STARTS - 1):
+        fold_of, found = improve(rng.integers(0, n_folds, len(names)))
+        if found < best_cost:
+            best_fold_of, best_cost = fold_of, found
+    item_fold = np.array([best_fold_of[family[key]] for key in keys])
+    return [np.flatnonzero(item_fold == k) for k in range(n_folds)]
+
+
+def class_balance(labels: Sequence[str], folds: Sequence[Array]) -> Dict[str, Any]:
+    """Each fold's class shares, held out and in training, and the worst gap of each from the
+    overall shares: how evenly folds of whole families hold the classes."""
+    classes = sorted(set(labels))
+    codes = np.array([classes.index(label) for label in labels])
+    overall = np.bincount(codes, minlength=len(classes)) / len(codes)
+    everything = np.arange(len(codes))
+    held, trained = [], []
+    for fold in folds:
+        rest = np.setdiff1d(everything, fold)
+        held.append(np.bincount(codes[fold], minlength=len(classes)) / max(1, len(fold)))
+        trained.append(np.bincount(codes[rest], minlength=len(classes)) / max(1, len(rest)))
+    return {"classes": classes,
+            "held_out": [[round(float(v), 4) for v in row] for row in held],
+            "training": [[round(float(v), 4) for v in row] for row in trained],
+            "worst_held_out_gap": round(float(np.abs(np.array(held) - overall).max()), 4),
+            "worst_training_gap": round(float(np.abs(np.array(trained) - overall).max()), 4)}
+
+
 def make_folds(items: Sequence[Dict[str, Any]], family_field: Optional[str], n_folds: int, seed: int,
                whole: bool = False, max_folds: Optional[int] = None) -> Tuple[List[Array], Dict[str, Any]]:
     """Each fold's held-out item indices, and how the folds were made. When a family holds more than
     one label, holding out family i of every label would leave its other items in training, so the
-    folds hold out whole families instead, stratified by label as far as the families allow.
+    folds hold out whole families instead, with each fold's class shares kept as near the overall
+    shares as the families allow (`balanced_groups`; `balance` records how near).
     Family folds beyond `max_folds` merge round-robin (`merged_from` says how many there were)."""
     from sklearn.model_selection import StratifiedGroupKFold
 
@@ -95,11 +187,11 @@ def make_folds(items: Sequence[Dict[str, Any]], family_field: Optional[str], n_f
     crossing = crossing_families(labels, keys) if keys is not None else []
     if keys is not None and crossing and len(set(keys)) >= 2:
         count = min(n_folds, len(set(keys)))
-        splitter = StratifiedGroupKFold(n_splits=count, shuffle=True, random_state=seed)
-        folds = [np.sort(np.asarray(test)) for _, test in splitter.split(np.zeros(len(items)), labels, groups=keys)]
+        folds = balanced_groups(labels, keys, count, seed)
         return folds, {"kind": "whole scene families, grouped (a family holds more than one label)",
                        "field": family_field, "n_folds": count, "weaker": False, "whole": whole,
-                       "crossing": crossing[:20], "n_crossing": len(crossing)}
+                       "crossing": crossing[:20], "n_crossing": len(crossing),
+                       "balance": class_balance(labels, folds)}
     if keys is not None and not crossing:
         families: Dict[str, List[str]] = {}
         for label, key in zip(labels, keys):

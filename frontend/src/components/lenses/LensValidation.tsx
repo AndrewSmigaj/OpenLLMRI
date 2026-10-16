@@ -166,7 +166,11 @@ export default function LensValidation({ session, lens }: { session: string; len
           </select>
         </label>
         <span className="text-gray-400">
-          {validation.folds.kind}, {validation.folds.n_folds} folds{validation.folds.weaker ? ' (weaker: no scene families)' : ''};
+          {validation.folds.kind}, {validation.folds.n_folds} folds{validation.folds.weaker ? ' (weaker: no scene families)' : ''}
+          {validation.folds.balance && (
+            <> (class shares within {Math.round(validation.folds.balance.worst_held_out_gap * 100)} points of the
+              overall ones held out, {Math.round(validation.folds.balance.worst_training_gap * 100)} in training)</>
+          )};
           each held-out item votes by its {validation.vote_neighbours} nearest training items; {validation.provenance.seconds} s
         </span>
       </div>

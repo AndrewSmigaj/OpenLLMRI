@@ -103,19 +103,23 @@ def split_test(items: Sequence[Dict[str, Any]], codes: Array, family_field: Opti
     family holds more than one label (as `make_folds` does); else a stratified share grouped by text."""
     from sklearn.model_selection import StratifiedGroupKFold
 
-    from services.lenses.validate import crossing_families, family_keys
+    from services.lenses.validate import (
+        balanced_groups,
+        class_balance,
+        crossing_families,
+        family_keys,
+    )
 
     labels = [str(item.get("label")) for item in items]
     keys = family_keys(items, family_field, whole)
     crossing = crossing_families(labels, keys) if keys is not None else []
     if keys is not None and crossing and len(set(keys)) >= 2:
-        splitter = StratifiedGroupKFold(n_splits=min(len(set(keys)), max(2, round(1 / share))), shuffle=True,
-                                        random_state=seed)
-        _, drawn = next(splitter.split(np.zeros(len(items)), labels, groups=keys))
-        grouped = np.sort(np.asarray(drawn))
+        groups = balanced_groups(labels, keys, min(len(set(keys)), max(2, round(1 / share))), seed)
+        grouped = groups[0]
         return grouped, {"kind": "whole scene families, grouped (a family holds more than one label)",
                          "field": family_field, "weaker": False, "families": None, "whole": whole,
-                         "n_items": int(len(grouped)), "share": round(len(grouped) / len(items), 4)}
+                         "n_items": int(len(grouped)), "share": round(len(grouped) / len(items), 4),
+                         "balance": class_balance(labels, groups[:1])}
     if keys is not None:
         families: Dict[str, List[str]] = {}
         for label, key in zip(labels, keys):

@@ -562,6 +562,17 @@ export interface Folding {
   whole?: boolean
   families?: Record<string, string[]>
   merged_from?: number // family folds merged round-robin beyond the lens's fold cap
+  balance?: FoldBalance // grouped folds: how near each fold's class shares are to the overall ones
+}
+
+// Folds of whole families that hold several labels: each fold's class shares, held out and in
+// training, and the worst gap of each from the overall shares (DESIGN.md C4, LENS-24)
+export interface FoldBalance {
+  classes: string[]
+  held_out: number[][]
+  training: number[][]
+  worst_held_out_gap: number
+  worst_training_gap: number
 }
 
 // A lens's validation.json: per layer, per k

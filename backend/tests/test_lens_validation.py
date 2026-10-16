@@ -45,6 +45,53 @@ def test_a_family_holding_two_labels_is_held_out_whole() -> None:
     assert sorted(np.concatenate(folds).tolist()) == list(range(80))
 
 
+def _skewed_domains() -> list:
+    """Domains whose class mix is skewed, as in the objects set: a few hold most of one class. One
+    of each skewed kind and two mixed domains per fold balance exactly."""
+    mixes = [(12, 0, 3)] * 5 + [(0, 10, 5)] * 5 + [(1, 3, 6)] * 10  # (harmful, dual, benign) per domain
+    items = []
+    for d, mix in enumerate(mixes):
+        for label, n in zip(("harmful", "dual", "benign"), mix):
+            items += [{"probe_id": f"p{len(items) + i}", "label": label, "input_text": f"t{len(items) + i}",
+                       "categories": {"domain": f"domain{d}"}} for i in range(n)]
+    return items
+
+
+def test_grouped_folds_keep_each_class_share_near_the_overall_one() -> None:
+    from sklearn.model_selection import StratifiedGroupKFold
+
+    from services.lenses.validate import class_balance
+
+    items = _skewed_domains()
+    labels = [item["label"] for item in items]
+    keys = [item["categories"]["domain"] for item in items]
+    plain = [test for _, test in StratifiedGroupKFold(n_splits=5, shuffle=True, random_state=42)
+             .split(np.zeros(len(items)), labels, groups=keys)]
+    folds, how = make_folds(items, "domain", 5, 42, whole=True)
+    balance = how["balance"]
+    assert balance == class_balance(labels, folds)
+    assert balance["worst_held_out_gap"] < class_balance(labels, plain)["worst_held_out_gap"]
+    assert balance["worst_held_out_gap"] <= 0.05 and balance["worst_training_gap"] <= 0.02
+    sizes = [len(fold) for fold in folds]
+    assert min(sizes) >= 0.5 * len(items) / 5 and max(sizes) <= 1.5 * len(items) / 5
+    for fold in folds:  # whole domains, every item once
+        assert not {keys[j] for j in fold} & {keys[j] for j in set(range(len(items))) - set(fold.tolist())}
+    assert sorted(np.concatenate(folds).tolist()) == list(range(len(items)))
+    again, _ = make_folds(items, "domain", 5, 42, whole=True)
+    assert all((a == b).all() for a, b in zip(folds, again))
+
+
+def test_the_grouped_test_portion_is_a_balanced_fold() -> None:
+    from services.lenses.search import split_test
+
+    items = _skewed_domains()
+    codes = np.array([("harmful", "dual", "benign").index(item["label"]) for item in items])
+    test, info = split_test(items, codes, "domain", 0.2, 42, whole=True)
+    assert "grouped" in info["kind"] and info["balance"]["worst_held_out_gap"] <= 0.05
+    held = {items[j]["categories"]["domain"] for j in test}
+    assert not held & {items[j]["categories"]["domain"] for j in set(range(len(items))) - set(test.tolist())}
+
+
 def test_family_names_are_kept_whole_when_asked() -> None:
     # three-part names: the paper's rule reads both labels' four families as one each
     items = [{"probe_id": f"p{i}", "label": "ab"[i // 40], "input_text": f"t{i}",
