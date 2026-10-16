@@ -12,6 +12,9 @@ documents and the new app.
 four lens method changes adopted in L18 are proposed to join it (DESIGN.md C4); the MUD address
 would go in the new app's top bar. The plan is rewritten from this draft when the slice is reached.
 
+**2026-10-16:** the four method changes left this slice. Andrew moved them ahead, to be built while
+the machine is shared with other work (ORDER-20; plan.md, "Work that needs no model").
+
 The six decisions come first, each with Claude's recommendation; the steps after them follow the
 recommendations, and say what changes if he picks otherwise.
 

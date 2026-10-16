@@ -5,7 +5,10 @@ plan and architecture), docs/pages/build.py (the pages), docs/pages/check.py (th
 
 **Status:** drafted on 2026-10-11 from the requirements list, for Andrew's review section by
 section. Once he has reviewed it, it replaces `docs/DESIGN.md` as the design's source of truth;
-until then DESIGN.md remains the source of truth [DOC-3, DOC-11].
+until then DESIGN.md remains the source of truth for the decisions made up to 2026-10-11
+[DOC-3, DOC-11]. Decisions made since are recorded here and in the plan-and-architecture document,
+and DESIGN.md's header names the placements of its own that they replace (Claude's arrangement
+while the review waits) [ORDER-20].
 
 ## How to use this page {#how-to-use}
 
@@ -297,8 +300,8 @@ building [LENS-1].
 - **new data is judged on held-out sentences;** in Andrew's experience, lenses built from large,
   varied probes place held-out sentences in the right clusters strongly [LENS-46].
 
-**Five method changes,** decided [LENS-21 to LENS-25]; Claude proposes building the first four
-with slice 2, which adds capture and background jobs [LENS-26]:
+**Five method changes,** decided [LENS-21 to LENS-25]. The first four come first, ahead of the new
+app: they need no model, and Andrew is using the machine for other work [ORDER-20]:
 - the tuning's test split repeated over several draws [LENS-21];
 - a stricter line beside "beyond the decoys", such as half the κ a linear probe reaches [LENS-22];
 - decoys that keep the design's correlations [LENS-23];
@@ -312,7 +315,10 @@ with slice 2, which adds capture and background jobs [LENS-26]:
 - what each node pushes toward through the output vocabulary (the logit lens) [LENS-31];
 - a check that surface features (length, first word) don't explain the node [LENS-32];
 - for each split between nodes, the share that comes from attention and the share from the
-  experts, and the other token positions that carry the same signal [LENS-30];
+  experts, and the other token positions that carry the same signal [LENS-30]. Andrew moved the
+  shares ahead [ORDER-20]; Claude's plan measures them first in a study on the stored captures.
+  The other positions wait for the extra token positions that slice 2 records (Claude's placement)
+  [DATA-7];
 - the lens's expert fingerprints [LENS-34];
 - how the lens bears on routing: the routing effect, and for mass-mean lenses the router alignment
   against random directions [LENS-35];
@@ -1003,6 +1009,9 @@ What the design replaced, and with what:
 - **The old prototype MUD,** retired once everything worked in the new one [MUD-22].
 - **Layers' report cards as a requirement of their own:** the same cards are LLM analysis's
   requirement for Layers, so the duplicate was retired [APP-33].
+- **Building the first four method changes with slice 2** (Claude's timing, 2026-10-11): replaced
+  when Andrew moved them ahead, to be built while the machine is shared with other work
+  [LENS-26, ORDER-20].
 
 ## Terms {#terms}
 
@@ -1109,6 +1118,8 @@ What the design replaced, and with what:
 - **2026-10-11:** this document drafted from the requirements list, with the rooms proposed (L30);
   checked by three independent audits and two readability reviews before Andrew's first read, and
   their fixes applied.
+- **2026-10-16:** the four method changes and the attention-and-experts shares moved ahead in the
+  order of work.
 
 ## Decision log {#decision-log}
 
@@ -1198,3 +1209,6 @@ Every decision, by date, paraphrased. Each requirement holds its own date and so
     - the builder's extras [BUILD-8 to BUILD-12];
   - five method changes [LENS-21 to LENS-25];
   - the decisions for capture and jobs [DATA-7 to DATA-9, DATA-13, MUD-19].
+- **2026-10-16:**
+  - while Andrew uses the machine for other work, the four method changes and the
+    attention-and-experts shares move ahead in the order, since neither needs the model [ORDER-20].

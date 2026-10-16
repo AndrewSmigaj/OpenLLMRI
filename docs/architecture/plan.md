@@ -14,11 +14,20 @@ built. What the software is for, and its requirements, are in
 
 ## Where we are {#where-we-are}
 
-**Now (2026-10-11): the two documents** [DOC-3, ORDER-5]. The requirements list, both documents,
-their pages and the checks before Andrew reads are done; his review, section by section, is next.
-The steps are under [The two documents](plan.md#phase-documents). After the review, the old
-DESIGN.md and `one-mud.md` become pointers (each keeps only a short note naming the documents that
-replaced it). Until then the old DESIGN.md remains the source of truth.
+**Now (2026-10-16): work that needs no model** [ORDER-20]. While Andrew uses the machine for other
+work, two items move ahead: the four lens method changes, and the attention-and-experts shares (for
+each split between nodes, how much attention writes and how much the experts write). Claude's plan
+measures the shares first in a study on the stored captures, and starts the backend without the
+model, so lens work runs in little memory [ARCH-13]. The steps are under
+[Work that needs no model](plan.md#phase-model-free).
+
+**Waiting for Andrew: the two documents** [DOC-3, ORDER-5]. The requirements list, both documents,
+their pages and the checks before Andrew reads are done; his review, section by section, waits for
+when he has time. The steps are under [The two documents](plan.md#phase-documents). After the
+review, the old DESIGN.md and `one-mud.md` become pointers (each keeps only a short note naming the
+documents that replaced it). Until then the old DESIGN.md governs the decisions made up to
+2026-10-11, and the decisions made since are recorded in these two documents; DESIGN.md's header
+names the placements of its own they replace (Claude's arrangement while the review waits).
 
 **Beside it: the animal ontology study** [ORDER-15], done: the 524 names labelled by hand in the
 nine ways, captured again, a lens, the three measures and a findings note
@@ -26,7 +35,11 @@ nine ways, captured again, a lens, the three measures and a findings note
 lead, and every way can be read on orders the reader never saw.
 
 **Next: the new app, room by room** ([its plan](plan.md#the-new-app), for Andrew's yes: L31), then
-slice 2 (capture and jobs).
+slice 2 (capture and jobs). Once approved, the new app can be built without the model too
+[ARCH-13].
+
+**What needs the GPU** (when Andrew says the machine is free): new captures, agent runs, and slice
+2's capture work.
 
 **What needs Andrew:**
 - **L30,** the new app's rooms: a card among [the design's decisions](design.md#decisions-needed);
@@ -197,8 +210,9 @@ slices whenever today's tools can carry them [ORDER-14].
 | 10b | Slice 1, the lens core | done 2026-10-08 |
 | 10c | Slice 1b, the tuned lens core | done 2026-10-09 |
 | 10d | Slice 1c, animals, objects and tuning by hand | done 2026-10-09 |
-| 10f | The two documents | **now** |
-| — | The animal ontology study | beside 10f |
+| 10f | The two documents | drafted; Andrew's review waiting |
+| — | The animal ontology study | done 2026-10-11, beside 10f |
+| 10g | Work that needs no model: the four method changes, and attention and the experts | **now** (moved ahead by Andrew, 2026-10-16) |
 | — | The new app, room by room | next, plan below (L31) |
 | 10e | Slice 2, capture and jobs | after the new app (numbered before 10f, then moved later by L21) |
 | — | Slices 3 to 11 | in order, each planned here when reached |
@@ -241,7 +255,63 @@ slices whenever today's tools can carry them [ORDER-14].
   - showcase: `docs/studies/animals/showcase/`;
   - afterwards, the read site was tested without code and kept at the last token [SET-6].
 
-### Now: the two documents (10f) {#phase-documents}
+### Now: work that needs no model (10g) {#phase-model-free}
+
+**Goal:** the four lens method changes built, and the attention-and-experts shares measured, while
+Andrew uses the machine for other work [ORDER-20, LENS-21 to LENS-24, LENS-30].
+
+**Why:** his other work held about 18 of the machine's 23 GB on 2026-10-16, so the model can't
+load, and neither item needs it. The method changes make every lens score more trustworthy before
+the new app shows them. The shares close one of the gaps Claude named on 2026-10-06, answering
+Andrew's question whether watching where populations split is enough to see where the model makes
+its decisions [ORDER-20, LENS-30].
+
+The steps, their order and their details are Claude's, in the plan Andrew let go ahead on
+2026-10-16; the move itself is his [ORDER-20]. Claude's details include the study coming first, the
+stricter line's level (half the best κ a probe reaches), reading the shares against random halves
+of the same items, and step 7's condition.
+
+| Step | What | State |
+|---|---|---|
+| 0 | This record: the move in the requirements and both documents | done |
+| 1 | The backend without the model, and one setting for how many workers a job uses [ARCH-13] | done |
+| 2 | Folds (the parts of a capture held out in turn) that hold out whole domains, with each class about as common in every fold as overall [LENS-24] | **now** |
+| 3 | Decoys drawn within each label value, and a stricter line at half the best κ (Cohen's kappa, agreement beyond chance) a linear probe reaches [LENS-23, LENS-22] | |
+| 4 | The tuning's test portion drawn several times (draws), and the tuned lenses re-scored [LENS-21] | |
+| 5 | The affected lenses' validation, axes analysis and tuning run again, and every changed number corrected where it is cited | |
+| 6 | A study: the attention-and-experts shares, layer by layer, read against random halves of the same items [LENS-30] | |
+| 7 | If the study's checks hold: the shares in node details, the split card and the atlas [LENS-30] | |
+
+**Tests:**
+- every change is tested on planted data;
+- what mustn't change is pinned: the first draw of the test portion, and the folds of designs whose
+  families don't cross labels;
+- a search gives the same result with one worker or two;
+- the backend's endpoints work with no model;
+- a browser check of every changed view, run without the model.
+
+**Andrew reviews:**
+- the re-scored numbers in the findings notes;
+- the study's findings;
+- three details of Claude's, with the documents:
+  - starting the backend without the model [ARCH-13];
+  - the stricter line at half the best κ a probe reaches at any layer [LENS-22];
+  - when an attribute differs from word to word, each word gets its own random decoy value, not one
+    per family [LENS-23].
+
+**Done when** the method changes are built and checked, every affected number is corrected, and the
+study's note is written. The shares go into the node card only if the study's checks pass.
+
+**How sure:**
+
+| Claim | Evidence | Certainty |
+|---|---|---|
+| The backend runs lens work without the model | the lens endpoints and jobs never touch the model, and the capture list needs only the lake's folder (read 2026-10-16); started that way, it held 779 MB and served the app (2026-10-16) | 95% |
+| The first draw of the repeated test portion is today's | recomputed for all five tuned lenses: identical (2026-10-16) | 95% |
+| The shares add up | each layer's output is its input plus attention's output plus the experts' output, nothing scaled (read); on two captures the parts sum to the difference between the two groups' mean states to within one part in 10^16, and the stored values' rounding could shift that difference by at most 3.2% (2026-10-16) | 95% |
+| A share says who wrote the split | between random halves of the same items, the experts write 65–73% of the difference, so each share is read against random halves; the tank's sense split is beyond that band at L6 and L14 (2026-10-16) | 90% |
+
+### Waiting for Andrew: the two documents (10f) {#phase-documents}
 
 **Goal:** the design-and-requirements document and this document, as pages with comments and forms,
 written from the numbered requirements, replacing the old DESIGN.md and `one-mud.md`
@@ -258,7 +328,7 @@ his own pages, first in the order of work [DOC-2, DOC-3, DOC-9].
 | 2 | This document | done |
 | 3 | The pages: one build script (index rail, requirement chips, question cards, a box to write in under every section, everything written collected at the end) and the page checks | done |
 | 4 | The checks before Andrew reads: three independent audits of the requirements and the documents against his words and the code, two readability reviews, the page checks, and a browser walk of both pages at desktop and phone width | done |
-| 5 | Andrew's review, section by section, through the boxes | **now** |
+| 5 | Andrew's review, section by section, through the boxes | waiting for Andrew |
 | 6 | After the review: the old DESIGN.md and `one-mud.md` become pointers, and CLAUDE.md points to the new documents; the superseded documents Andrew approves for deletion (L32) are deleted | waiting |
 
 The details (files, scripts, the steps' order) are Claude's, reviewed with the documents [DOC-11].
@@ -345,7 +415,11 @@ Each is planned in detail here when it is reached [DOC-9].
   - agent-run items keeping the observation [DATA-9];
   - the MUD's network address entered in the app [MUD-19];
   - the leftovers removed [DATA-13];
-  - the first four method changes [LENS-26].
+  - the other token positions that carry a split's signal, read with the extra positions (Claude's
+    placement) [LENS-30, DATA-7].
+
+  The first four method changes, planned for this slice, now come earlier, in the work that needs
+  no model [ORDER-20].
 - **Slice 3, the builder for sets and scenarios** [ORDER-8, BUILD-1 to BUILD-7]:
   - its audits and critic [SET-30, LLM-9];
   - then the starter lens catalogue [GOAL-15];
@@ -377,8 +451,9 @@ Each is planned in detail here when it is reached [DOC-9].
   - steering, ablation and expert masks [INT-1, INT-2, INT-6];
   - the steering check before a key finding [LENS-33]; branching a run [WATCH-8];
   - RARE's and SteerMoE's methods reproduced [INT-7].
-- **Slice 9, layer transitions and trajectory upgrades:** how much of each split comes from
-  attention and how much from the experts [LENS-30]; wave lines and patterned nodes [APP-22].
+- **Slice 9, layer transitions and trajectory upgrades:** wave lines and patterned nodes [APP-22].
+  How much of each split comes from attention and how much from the experts moved ahead to the work
+  that needs no model [ORDER-20].
 - **Slice 10, a second mixture-of-experts model** [GOAL-5, INT-9].
 - **Slice 11, the paradigm and the AI scientists:**
   - the map, with links, votes, consolidators and a strength on every finding
@@ -396,7 +471,7 @@ due.
 
 | Problem | Where it was found | Fixed in |
 |---|---|---|
-| After a backend restart, the capture list fails (`GET /api/probes` returns 500) until the model has loaded, and the sentences wait for it | slice 1 | slice 2 (the capture recipe and jobs) |
+| After a backend restart, the capture list fails (`GET /api/probes` returns 500) until the model has loaded, and the sentences wait for it | slice 1 | the work that needs no model (10g, step 1) [ARCH-13] |
 | One shared capture state: a finish or abort from another request during a threaded capture clears the hooks mid-run | Phase 6 | slice 2 (the GPU job queue) [DATA-8] |
 | An agent capture's sentence list is about 40 MB, the system prompt repeated on every record, and holds other requests for seconds | slice 1b | slice 2 [DATA-9] |
 | A sentence capture doesn't record its pinned date in the session file (agent runs do) | slice 1c | slice 2 [DATA-10] |
@@ -477,6 +552,11 @@ flowchart LR
   in 4-bit MXFP4 and the rest in 16-bit, through transformers 5.4 and the triton and kernels
   packages that run the 4-bit experts; it takes about 14.3 of the GPU's 16 GB. `GET /health`
   reports each loading stage.
+- **Without the model:** `LOAD_MODEL=0` starts the backend with the model left out, for lens work
+  while another program holds the GPU or the memory. The lens endpoints, the jobs, the capture list
+  and the app's views work as usual; endpoints that need the model answer 503 (service unavailable)
+  and say why. Lens jobs use one default number of worker processes, up to six, which
+  `JOB_WORKERS` sets to another number [ARCH-13].
 - **The adapter** (`adapters/gptoss_adapter.py`) hooks the residual stream after each layer, the
   mixture-of-experts output and the routing, recomputing the router's logits so routing is the same
   on every loading path.
@@ -671,7 +751,8 @@ room is done when each of its lines works there.
 ### Running, builds and branches {#running}
 
 - **Start and stop** with the server skill: the backend on port 8000, the app on 5173, the MUD with
-  `make up-d` in `mud/`; a full restart after any code change [WAY-21, WAY-27].
+  `make up-d` in `mud/`; a full restart after any code change [WAY-21, WAY-27]. While the machine is
+  shared with other work, the backend starts without the model (the skill's OP-3b) [ARCH-13].
 - **The environment:** `.venv` on Python 3.10.12 from `backend/requirements.lock.txt`; Node 20.19 or
   later with `npm ci` [ARCH-1].
 - **Branches:** work goes on `main`; a branch only for a large refactor; no pull requests; pushes at
@@ -758,6 +839,8 @@ The plan's own decisions, by date. The design's decisions are in its
 - **2026-10-11:** the order of work [ORDER-5]; capture and jobs' decisions [DATA-7 to DATA-9]; the
   two documents, requirements first, and the plan moved here [DOC-4, DOC-6, DOC-9]; the animal
   ontology beside the documents [ORDER-15].
+- **2026-10-16:** while Andrew uses the machine for other work, the four method changes and the
+  attention-and-experts shares move ahead in the order of work [ORDER-20].
 
 ## Risks {#risks}
 
@@ -778,7 +861,7 @@ Claude's grading of 2026-10-07, accepted with the final read [DOC-17], with what
 
 | Question | Certainty then | Since |
 |---|---|---|
-| Does the design serve the goal? | 90% | unchanged; how each layer transforms representations is still the least developed part, and comes late (slice 9) |
+| Does the design serve the goal? | 90% | unchanged; how each layer transforms representations is still the least developed part. Its first piece, the attention-and-experts shares, moved ahead to 10g [ORDER-20] |
 | Can its readings be trusted? | 90% | held-out families, the fair comparison and the self-check are built, and used on every lens so far |
 | Does reading agents work? | 70% | unchanged: the first agent experiment settles it (slice 4) |
 | Does it run on one 16 GB GPU? | 85% | the model takes 14.3 GB; lens work runs on the CPU, so it has fit so far |

@@ -1412,12 +1412,13 @@ requirements:
 - id: LENS-26
   text: >-
     The first four method changes (LENS-21 to LENS-24) are built with slice 2, capture and jobs.
-  status: proposed
+  status: retired
   built: no
-  dates: [2026-10-11]
-  source: Claude
+  dates: [2026-10-11, 2026-10-16]
+  source: Claude (2026-10-11); message (2026-10-16)
   from: [463, 1408]
-  section: plan.md#phases
+  section: design.md#retired
+  replaced_by: [ORDER-20]
 - id: LENS-27
   text: >-
     The taxonomy check (LENS-25) runs first as a study script, in the animal ontology's audit.
@@ -3611,7 +3612,7 @@ requirements:
   text: >-
     The animal ontology study runs beside the two documents.
   status: decided
-  built: no
+  built: yes
   dates: [2026-10-11]
   source: L27
   from: [1456]
@@ -3657,6 +3658,18 @@ requirements:
   source: Claude
   from: [1417]
   section: plan.md#phases
+- id: ORDER-20
+  text: >-
+    While Andrew uses the machine for other work, two items move ahead in the order of work, since
+    neither needs the model: the four lens method changes (LENS-21 to LENS-24), and for each split
+    between nodes, how much comes from attention and how much from the experts (the first part of
+    LENS-30).
+  status: decided
+  built: no
+  dates: [2026-10-16]
+  source: message
+  from: []
+  section: plan.md#phase-model-free
 # ---- Claude's final read of 2026-10-07, and the open question ----
 - id: DOC-17
   text: >-
@@ -3971,3 +3984,15 @@ requirements:
   source: Claude
   from: []
   section: plan.md#the-new-app
+- id: ARCH-13
+  text: >-
+    The backend can start without loading the model (LOAD_MODEL=0) for work that doesn't need it:
+    the lens endpoints and jobs, the capture list and the app's views. Endpoints that need the model
+    then answer HTTP 503 (service unavailable) and say why. Lens jobs use one default number of
+    worker processes (up to six, leaving two cores free), which JOB_WORKERS sets to another number.
+  status: proposed
+  built: yes
+  dates: [2026-10-16]
+  source: Claude
+  from: []
+  section: plan.md#backend

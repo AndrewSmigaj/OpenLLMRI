@@ -1,6 +1,12 @@
 # Open LLMRI — the design document
 
 **Status:** approved by Andrew on 2026-10-08. It is the design's source of truth; changes go through him.
+Claude keeps this file as it was on 2026-10-11 until Andrew has reviewed the two documents that
+replace it; it governs the decisions made up to then. Decisions since are in `docs/design/design.md`
+and `docs/architecture/plan.md`. The first of them (2026-10-16, ORDER-20 in
+`docs/design/requirements.yaml`) moves two items ahead and replaces their placements here: C4's
+four method changes, timed below with slice 2, and K's slice-9 item on how much of each split comes
+from attention and how much from the experts.
 
 **Review progress:** every part reviewed with Andrew (2026-10-07), and Part M's recommendations
 adopted into their parts (2026-10-08).
