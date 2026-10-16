@@ -23,6 +23,7 @@ from typing import Any, Dict, List, Optional
 
 import numpy as np
 
+from services.lenses.splits import SPLIT_MIN_ITEMS, SPLIT_MIN_SHARE, branches_of
 from services.lenses.store import LensSettings
 
 Array = np.ndarray[Any, Any]
@@ -325,28 +326,6 @@ def link_packet(ev: LensEvidence, layer: int, a: int, layer2: int, b: int, rank:
     if rest.any():
         p.context[f"example sentences from {start}'s other items"] = _examples(ev, rest, card + "-rest", 4)
     return p
-
-
-SPLIT_MIN_ITEMS, SPLIT_MIN_SHARE = 5, 0.15  # a branch holds at least this many items and this share
-
-
-def branches_of(view: Any, li: int, node: int) -> List[Any]:
-    """The next-layer nodes that take a real share of a node's items: (node, items), biggest first."""
-    mask = view.nodes[:, li] == node
-    floor = max(SPLIT_MIN_ITEMS, SPLIT_MIN_SHARE * int(mask.sum()))
-    return [(int(b), n) for b, n in Counter(view.nodes[mask, li + 1].tolist()).most_common() if n >= floor]
-
-
-def split_points(view: Any) -> List[Any]:
-    """Every node whose items part ways at the next layer: (layer, node, items in its second
-    branch), the biggest second branch first."""
-    found = []
-    for li in range(len(view.layers) - 1):
-        for node in np.unique(view.nodes[:, li]).tolist():
-            branches = branches_of(view, li, int(node))
-            if len(branches) >= 2:
-                found.append((view.layers[li], int(node), branches[1][1]))
-    return sorted(found, key=lambda s: -s[2])
 
 
 def split_packet(ev: LensEvidence, layer: int, node: int) -> Packet:

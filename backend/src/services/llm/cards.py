@@ -16,8 +16,9 @@ import time
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
+from services.lenses.splits import split_points
 from services.llm.numbers import check_numbers
-from services.llm.packets import LensEvidence, fact_values, packet_hash, render, split_points
+from services.llm.packets import LensEvidence, fact_values, packet_hash, render
 from services.llm.prompts import (
     CARD_SCHEMA,
     PROMPT_VERSION,

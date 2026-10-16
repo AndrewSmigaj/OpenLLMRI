@@ -121,7 +121,8 @@ def _evidence() -> Any:
 
 
 def test_packets_build_for_every_card_type_and_split_points_are_found(client: Any) -> None:
-    from services.llm.packets import build_packet, split_points
+    from services.lenses.splits import split_points
+    from services.llm.packets import build_packet
 
     ev = _evidence()
     e0, e1 = int(ev.view.experts[0, 0, 0]), int(ev.view.experts[0, 1, 0])
