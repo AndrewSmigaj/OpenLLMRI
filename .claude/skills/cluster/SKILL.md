@@ -105,8 +105,10 @@ field given as `family_field` (`""` for none); without families they are stratif
 identical texts kept together, and marked weaker. A family is keyed by the first two parts of its name unless `whole_families` is
 set. When a family holds more than one label, fold i can't hold out family i of every label
 without training on the family's other items, so the folds hold out whole families grouped
-across labels instead (the result says so). Every k from 2 to 10 is scored at every layer, with
-five decoys per axis for the axes analysis (OP-L10). A 24-layer lens takes a few minutes.
+across labels instead (the result says so), placed so that each class is about as common in
+every fold as overall (`folds.balance` gives each fold's class shares and the worst gaps). Every
+k from 2 to 10 is scored at every layer, with five decoys per axis for the axes analysis (OP-L10),
+the same draw it scores. A 24-layer lens takes a few minutes.
 
 ```bash
 curl -s -X POST http://localhost:8000/api/sessions/SID/lenses/NAME/validate \
@@ -155,9 +157,12 @@ A search over UMAP's settings and k at every layer, chosen by held-out AMI on se
 scored on a test portion the search never sees (whole families per label when the items name
 them, else a stratified share, marked weaker). Settings that fail the self-check drop out. The
 job then builds the tuned lens (`NAME-tuned` unless `name` is given) with each layer's winning
-settings and k as v1, and validates it. The default grid is 9 settings (n_neighbors 5, 15, 50 ×
-dimensions 3, 6, 12): about 8 minutes for 500 items, 17 for 1,000. The CPU lane runs one job at a
-time, so builds queue behind it.
+settings and k as v1, and validates it. It draws `draws` test portions (default 5; disjoint, the
+first exactly the single portion of earlier searches): the tuned lens comes from draw 1, and the
+others repeat the search to give each layer's test scores a spread (`spread`: mean, lowest,
+highest). The default grid is 9 settings (n_neighbors 5, 15, 50 × dimensions 3, 6, 12): 5 to 8
+minutes a draw for 500 items with six workers, so 25 to 40 at five draws. The CPU lane runs one
+job at a time, so builds queue behind it.
 
 ```bash
 curl -s -X POST http://localhost:8000/api/sessions/SID/lenses/NAME/tune \
@@ -167,9 +172,19 @@ curl -s http://localhost:8000/api/sessions/SID/lenses/NAME-tuned/search
 
 `search.json` holds every candidate's selection scores, each layer's winner and runners-up, the
 test scores of the winner and of the lens it started from, and the raw groupings and ceiling on
-the test portion. Quote the test scores: the tuned lens's own validation reuses items that chose
-its settings. Advanced fields: `grid` (`n_neighbors`, `dimensions`, `min_dist` lists, at most 60
-settings), `k_min`/`k_max`, `test_share`, `n_folds`, `seed`, `name`.
+the test portion; `draws` holds every draw and `spread` each score's range over them. Quote the
+test scores with their spread: the tuned lens's own validation reuses items that chose its
+settings. Advanced fields: `grid` (`n_neighbors`, `dimensions`, `min_dist` lists, at most 60
+settings), `k_min`/`k_max`, `test_share`, `n_folds`, `seed`, `draws`, `name`.
+
+To add draws to a lens tuned before draws existed, re-score it (a job; nothing is built). It
+repeats the stored search, refuses unless draw 1 reproduces the stored test portion and winners,
+and keeps the earlier record as `search.single.json`:
+
+```bash
+curl -s -X POST http://localhost:8000/api/sessions/SID/lenses/NAME-tuned/rescore \
+  -H "Content-Type: application/json" -d '{"draws":5,"created_by":"claude-code"}'
+```
 
 ### OP-L8: Read a capture through a lens (a job)
 
@@ -221,8 +236,13 @@ recovers at each layer, held out on the lens's folds (DESIGN.md C8): the UMAP le
 validation, at the version's k and at each attribute's best k), raw Ward and spectral groupings, a
 linear probe (the ceiling), the attributes' partial directions and their best principal component.
 Each score is a held-out kappa; an attribute counts as recovered beyond the 95th percentile of the
-technique's scores for five decoys (random values given per family, or per text when the items
-name none), pooled over layers. Beside it: effective dimensionality, the partial axes' angles beside
+technique's scores for five decoys, pooled over layers. A decoy's values are drawn in the
+attribute's proportions within each label value, so reading the label alone earns an attribute
+nothing; they go per family when the attribute is constant within families, else per text; the
+label, and attributes it determines (`decoys.nested`), keep decoys in overall proportions. A
+second, stricter line counts an attribute only at or above half the best kappa the linear probe
+reaches for it at any layer (`recovered_strict`, `strict_limits`), since nearly every attribute
+passes the decoys. Beside it: effective dimensionality, the partial axes' angles beside
 the design's own correlations, and their independent directions, both against permuted design
 rows. About a minute for 400 items. The UMAP rows need a validation made since decoys were added
 (OP-L4 again on older lenses). For a set whose families sit in another field (single words:
@@ -235,9 +255,10 @@ curl -s -X POST http://localhost:8000/api/sessions/SID/lenses/NAME/axes \
 curl -s "http://localhost:8000/api/sessions/SID/lenses/NAME/axes"
 ```
 
-On a set without families the decoys are random per item, so the line is low and the linear
-techniques often pass it for every attribute: read the strengths (the heatmap), not only the
-counts. In the app: Build › the lens card's `axes ▾`.
+On a set without families the decoys are random per item, so the decoys' line is low and the
+linear techniques often pass it for every attribute: read the stricter count and the strengths
+(the heatmap), not only the decoys' count. In the app: Build › the lens card's `axes ▾`, with a
+Count selector for the two lines.
 
 ### OP-L11: Preview one layer (a job, in seconds)
 
