@@ -164,7 +164,11 @@ export interface LensAxes {
   folds: { kind: string; n_folds: number; weaker: boolean; field?: string }
   techniques: AxesTechnique[]
   level: number
-  decoys: { count: number; given_per: 'families' | 'texts' }
+  // within: decoys drawn in each attribute's proportions within each label value (LENS-23); grain:
+  // whether an attribute's decoy values go per family or per text; nested: attributes the label
+  // determines, whose decoys keep the overall proportions. Older analyses carry count and given_per only.
+  decoys: { count: number; given_per: 'families' | 'texts'; within?: 'label' | null;
+    grain?: Record<string, 'families' | 'texts'>; nested?: string[] }
   probe_decoy_layers: number[]
   scores: Record<AxesTechnique, Record<string, Record<string, number>>[]> // per layer: code set (real, decoy1…) → attribute → kappa
   chosen_component: Record<string, number>[] // per layer: attribute → its best-matching component, from 1
@@ -181,6 +185,11 @@ export interface LensAxes {
   } | null
   k_per_layer: number[]
   recovered: Record<string, number[]> // per technique (and umap_at_k, umap_best_k): attributes recovered per layer
+  // The stricter line beside the decoys' (LENS-22): strict_share of the best κ the probe reaches for
+  // each attribute at any layer; recovered_strict counts the attributes past both lines
+  recovered_strict?: Record<string, number[]>
+  strict_limits?: Record<string, number | null>
+  strict_share?: number
 }
 
 // The 3-D view's points (DESIGN.md E5): every item at every layer in the lens's own frame, each

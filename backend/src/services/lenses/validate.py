@@ -489,7 +489,7 @@ def validate_lens(params: Dict[str, Any], ctx: Any) -> Dict[str, Any]:
 
     from joblib import Parallel, delayed
 
-    from services.lenses.axes import DECOYS, decoys, groups_of
+    from services.lenses.axes import decoy_sets, decoy_units
     from services.lenses.data import load_states
     from services.lenses.flows import axes_of
     from services.lenses.store import git_state, lens_dir, read_manifest, resolve_holdout
@@ -506,10 +506,11 @@ def validate_lens(params: Dict[str, Any], ctx: Any) -> Dict[str, Any]:
     codes = axis_codes(view.items, axes)
     folds, folding = make_folds(view.items, design.family_field, p.n_folds, manifest.settings.seed,
                                 design.whole_families, design.max_folds)
-    # Random values per family (or text), the axes analysis's chance level (services/lenses/axes.py)
-    (groups, given_per), rng = (groups_of(view.items, design.family_field, design.whole_families),
-                                np.random.default_rng(manifest.settings.seed))
-    decoy_codes = {axis: decoys(c, groups, rng, DECOYS) for axis, c in codes.items() if len(axes[axis]) >= 2}
+    # Decoys drawn within each label value, the axes analysis's chance level: the same draw it scores
+    # (services/lenses/axes.py, decoy_sets)
+    families, texts = decoy_units(view.items, design.family_field, design.whole_families)
+    decoy_codes, decoy_record = decoy_sets({axis: c for axis, c in codes.items() if len(axes[axis]) >= 2},
+                                           families, texts, manifest.settings.seed)
     ctx.progress("loading", 0, 1)
     work = folder / f".tmp-validate-{ctx.job_id}"
     ctx.add_temp_path(work)
@@ -540,7 +541,7 @@ def validate_lens(params: Dict[str, Any], ctx: Any) -> Dict[str, Any]:
               # Settings chosen on held-out scores of these items (a search, a held-out preview)
               # make these scores optimistic; a search's test portion is the honest one
               "selection_biased": manifest.settings.chosen_on_heldout(),
-              "decoys": {"count": DECOYS, "given_per": given_per},
+              "decoys": {**decoy_record, "given_per": "families" if families is not None else "texts"},
               "layers": {str(layer): profiles[str(layer)] for layer in view.layers},
               "comparison": {str(layer): comparisons[str(layer)] for layer in view.layers},
               "provenance": {"commit": commit, "dirty": dirty, "job_id": ctx.job_id,

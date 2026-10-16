@@ -11,6 +11,7 @@ from test_lenses import SESSION
 
 from services.lenses.axes import (
     attributes,
+    decoy_sets,
     decoys,
     geometry,
     groups_of,
@@ -130,6 +131,61 @@ def test_decoys_keep_proportions_and_families_together() -> None:
     for d in found:
         assert (d[-2:] == -1).all() and (d[:40] >= 0).all()
         assert all(d[i] == d[i + 1] for i in range(0, 40, 2))  # a group shares its value
+
+
+def _word_design() -> tuple:
+    """160 words in 8 families, four under each of two labels: mood follows the label (mostly 1 under
+    label 1) and varies within families; kind is constant within each family, either way under each
+    label; living is the label itself (nested in it)."""
+    rng = np.random.default_rng(0)
+    label = np.repeat([0, 1], 80)
+    families = np.repeat(np.arange(8), 20)
+    mood = np.where(label == 1, rng.random(160) < 0.8, rng.random(160) < 0.2).astype(int)
+    kind = np.repeat([0, 1, 0, 1, 1, 0, 1, 0], 20)
+    return {"label": label, "mood": mood, "kind": kind, "living": label.copy()}, families, np.arange(160)
+
+
+def test_decoys_keep_each_attributes_link_to_the_label_at_its_own_grain() -> None:
+    codes, families, texts = _word_design()
+    sets, record = decoy_sets(codes, families, texts, seed=1)
+    assert record["within"] == "label" and record["nested"] == ["living"]
+    assert record["grain"] == {"kind": "families", "label": "families", "living": "families", "mood": "texts"}
+    label = codes["label"]
+    for decoy in sets["mood"]:  # per word, in mood's proportions within each label value
+        for value in (0, 1):
+            assert abs(decoy[label == value].mean() - codes["mood"][label == value].mean()) < 0.15
+    for decoy in sets["kind"]:  # one value per family
+        assert all(len(set(decoy[families == f].tolist())) == 1 for f in range(8))
+    again, _ = decoy_sets(codes, families, texts, seed=1)  # validation and the axes analysis draw the same
+    assert all((a == b).all() for axis in sets for a, b in zip(sets[axis], again[axis]))
+
+
+def test_a_reader_of_the_label_alone_earns_mood_no_credit_beyond_its_decoys() -> None:
+    from sklearn.metrics import cohen_kappa_score
+
+    codes, families, texts = _word_design()
+    guess = codes["label"].copy()  # knows only the label: label 1 means mood 1
+    real = cohen_kappa_score(codes["mood"], guess)
+    within, _ = decoy_sets(codes, families, texts, seed=2, count=200)
+    fair = [cohen_kappa_score(d, guess) for d in within["mood"]]
+    old = [cohen_kappa_score(d, guess) for d in decoys(codes["mood"], texts, np.random.default_rng(2), 200)]
+    assert np.percentile(fair, 5) < real < np.percentile(fair, 95)  # the label's credit is shared
+    assert real > np.percentile(old, 95)  # decoys in overall proportions would have counted it
+
+
+def test_the_stricter_line_counts_fewer_and_drops_a_weak_attribute() -> None:
+    from services.lenses.axes import recovered, strict_limits
+
+    analysis = {"attributes": {"strong": ["a", "b"], "weak": ["a", "b"]},
+                "scores": {"probe": [{"real": {"strong": 0.9, "weak": 0.8}}, {"real": {"strong": 0.6, "weak": 0.3}}],
+                           "raw_ward": [{"real": {"strong": 0.7, "weak": 0.2}}, {"real": {"strong": 0.3, "weak": 0.1}}]},
+                "thresholds": {"probe": {"strong": 0.1, "weak": 0.1}, "raw_ward": {"strong": 0.05, "weak": 0.05}}}
+    strict = strict_limits(analysis)
+    assert strict == {"strong": 0.45, "weak": 0.4}
+    lenient, firm = recovered(analysis), recovered(analysis, strict)
+    assert lenient["raw_ward"] == [2, 2] and firm["raw_ward"] == [1, 0]
+    assert lenient["probe"] == [2, 2] and firm["probe"] == [2, 1]  # the probe falls below its own best
+    assert all(f <= n for t in firm for f, n in zip(firm[t], lenient[t]))
 
 
 def test_validation_scores_decoys_and_keeps_its_own_results(client: Any) -> None:  # noqa: F811

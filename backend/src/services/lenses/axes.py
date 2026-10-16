@@ -95,6 +95,67 @@ def decoys(codes: Array, groups: Array, rng: np.random.Generator, count: int = D
     return out
 
 
+def decoy_units(items: Sequence[Dict[str, Any]], family_field: Optional[str],
+                whole: bool = False) -> Tuple[Optional[Array], Array]:
+    """What a decoy value can be given to: each item's family (None unless every item names one),
+    and each item's text (identical texts together)."""
+    groups, given_per = groups_of(items, family_field, whole)
+    texts, _ = groups_of(items, None)
+    return (groups if given_per == "families" else None), texts
+
+
+def nested_in(codes: Array, label: Array) -> bool:
+    """Whether an attribute is a function of the label: one value (where known) per label value."""
+    known = codes >= 0
+    return all(len(np.unique(codes[known & (label == v)])) <= 1 for v in np.unique(label))
+
+
+def decoy_sets(codes: Dict[str, Array], families: Optional[Array], texts: Array, seed: int,
+               count: int = DECOYS) -> Tuple[Dict[str, List[Array]], Dict[str, Any]]:
+    """Each attribute's decoys (DESIGN.md C8, LENS-23), the one draw validation and the axes analysis
+    both score: one random stream from the seed, attributes in name order.
+
+    A decoy's values are drawn in the attribute's proportions within each label value, so it keeps
+    the attribute's link to the label: a technique that reads only the label gets the same credit
+    from the decoys as from the attribute, and "beyond the decoys" means beyond what the label
+    explains. A value is given per family when the attribute is constant within every family (as
+    scene-level attributes are), else per text, so a decoy varies as the attribute does; where a
+    family holds several labels, its items under each label get their own value. The label, and
+    attributes it determines (nested in it), keep decoys in their overall proportions."""
+    rng = np.random.default_rng(seed)
+    label = codes.get("label")
+    sets: Dict[str, List[Array]] = {}
+    grain: Dict[str, str] = {}
+    nested: List[str] = []
+    for axis in sorted(codes):
+        c = codes[axis]
+        known = c >= 0
+        by_family = families is not None and all(
+            len(np.unique(c[known & (families == g)])) <= 1 for g in np.unique(families))
+        units = families if by_family and families is not None else texts
+        grain[axis] = "families" if by_family else "texts"
+        if label is None or axis == "label" or nested_in(c, label):
+            if label is not None and axis != "label":
+                nested.append(axis)
+            sets[axis] = decoys(c, units, rng, count)
+            continue
+        drawn: List[Array] = []
+        for _ in range(count):
+            decoy = np.full(len(c), -1)
+            for value in np.unique(label):
+                here = label == value
+                values, counts = np.unique(c[known & here], return_counts=True)
+                if len(values) == 0:
+                    continue
+                these = np.unique(units[here])
+                given = dict(zip(these.tolist(), rng.choice(values, size=len(these), p=counts / counts.sum()).tolist()))
+                decoy[here] = [given[unit] for unit in units[here].tolist()]
+            drawn.append(np.where(known, decoy, -1))
+        sets[axis] = drawn
+    return sets, {"count": count, "within": "label" if label is not None else None, "grain": grain,
+                  "nested": nested}
+
+
 def _kappa(truth: List[Array], predicted: List[Array]) -> float:
     """Cohen's kappa over every held-out item, the folds pooled (0 when only one value is held out)."""
     from sklearn.metrics import cohen_kappa_score
@@ -341,11 +402,11 @@ def run_axes(params: Dict[str, Any], ctx: Any) -> Dict[str, Any]:
     if not real:
         raise ValueError("the items carry no designed attribute with two values or more")
     seed = manifest.settings.seed
-    rng = np.random.default_rng(seed)
-    groups, given_per = groups_of(view.items, family_field, whole)
+    families, texts = decoy_units(view.items, family_field, whole)
+    drawn, decoy_record = decoy_sets(real, families, texts, seed)
     code_sets: Dict[str, Dict[str, Array]] = {"real": real}
     for d in range(DECOYS):
-        code_sets[f"decoy{d + 1}"] = {axis: decoys(c, groups, rng, 1)[0] for axis, c in real.items()}
+        code_sets[f"decoy{d + 1}"] = {axis: drawn[axis][d] for axis in real}
     folds, how = make_folds(view.items, family_field, int(params.get("n_folds", 5)), seed, whole, design.max_folds)
     k_per_layer = read_version(folder, str(view.version)).k_per_layer
 
@@ -375,7 +436,7 @@ def run_axes(params: Dict[str, Any], ctx: Any) -> Dict[str, Any]:
         "format_version": FORMAT_VERSION, "lens": name, "version": view.version, "layers": view.layers,
         "attributes": values, "folds": how, "holdout": design.model_dump(), "techniques": list(TECHNIQUES),
         "level": LEVEL,
-        "decoys": {"count": DECOYS, "given_per": given_per},
+        "decoys": {**decoy_record, "given_per": "families" if families is not None else "texts"},
         "probe_decoy_layers": [view.layers[li] for li in range(len(view.layers)) if li % PROBE_DECOY_EVERY == 0],
         "scores": {technique: [layer["scores"][technique] for layer in layers] for technique in TECHNIQUES},
         "chosen_component": [layer["scores"]["chosen_component"] for layer in layers],
@@ -412,13 +473,41 @@ def _clean(value: Any) -> Any:
     return value
 
 
-def recovered(analysis: Dict[str, Any]) -> Dict[str, List[int]]:
-    """Per technique: how many attributes pass their decoy threshold at each layer."""
+STRICT_SHARE = 0.5  # the stricter line: this share of the best kappa the probe reaches
+
+
+def strict_limits(analysis: Dict[str, Any]) -> Dict[str, Optional[float]]:
+    """The stricter line beside the decoys' (DESIGN.md C8, LENS-22): half the best kappa the linear
+    probe reaches for each attribute at any layer (None when the probe never reads it). It stays
+    the same for every technique and layer, so the probe itself can fall below it where it is weak."""
+    probe = analysis["scores"].get("probe") or []
+    out: Dict[str, Optional[float]] = {}
+    for axis in analysis["attributes"]:
+        found = [layer["real"][axis] for layer in probe if (layer.get("real") or {}).get(axis) is not None]
+        best = max(found) if found else None
+        out[axis] = round(STRICT_SHARE * best, 4) if best is not None and best > 0 else None
+    return out
+
+
+def _passes(score: Optional[float], decoy: Optional[float], strict: Optional[Dict[str, Optional[float]]],
+            axis: str) -> bool:
+    """Beyond the decoys' line, and at or above the stricter line when one is asked for."""
+    if score is None or decoy is None or not score > decoy:
+        return False
+    if strict is None:
+        return True
+    line = strict.get(axis)
+    return line is not None and score >= line
+
+
+def recovered(analysis: Dict[str, Any], strict: Optional[Dict[str, Optional[float]]] = None) -> Dict[str, List[int]]:
+    """Per technique: how many attributes pass their decoy threshold at each layer, and the stricter
+    line too when `strict` gives it."""
     out: Dict[str, List[int]] = {}
     for technique, layers in analysis["scores"].items():
         limits = analysis["thresholds"].get(technique, {})
         out[technique] = [sum(1 for axis, score in (layer.get("real") or {}).items()
-                              if limits.get(axis) is not None and score > limits[axis]) for layer in layers]
+                              if _passes(score, limits.get(axis), strict, axis)) for layer in layers]
     return out
 
 
@@ -474,7 +563,9 @@ def serve_axes(folder: Any, view: Any) -> Dict[str, Any]:
     umap = umap_rows(validation, analysis["layers"], k_per_layer, attrs)
     analysis["umap"] = umap
     analysis["k_per_layer"] = k_per_layer
+    strict = strict_limits(analysis)
     counted = recovered(analysis)
+    counted_strict = recovered(analysis, strict)
     if umap and umap["decoys"]:
         for which in ("at_k", "best_k"):
             limits = umap["thresholds"][which]
@@ -484,8 +575,13 @@ def serve_axes(folder: Any, view: Any) -> Dict[str, Any]:
                 found: Optional[float] = value if which == "at_k" else (value or {}).get("kappa")
                 return found
 
-            counted[f"umap_{which}"] = [
-                sum(1 for axis in attrs if limits.get(axis) is not None and (v := kappa(row, axis)) is not None and v > limits[axis])
+            counted[f"umap_{which}"] = [sum(1 for axis in attrs if _passes(kappa(row, axis), limits.get(axis), None, axis))
+                                        for row in umap[which]]
+            counted_strict[f"umap_{which}"] = [
+                sum(1 for axis in attrs if _passes(kappa(row, axis), limits.get(axis), strict, axis))
                 for row in umap[which]]
     analysis["recovered"] = counted
+    analysis["recovered_strict"] = counted_strict
+    analysis["strict_limits"] = strict
+    analysis["strict_share"] = STRICT_SHARE
     return analysis

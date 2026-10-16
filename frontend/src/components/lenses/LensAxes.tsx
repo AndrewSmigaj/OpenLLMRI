@@ -1,6 +1,8 @@
 // The axes analysis (DESIGN.md C8): how many of a capture's designed attributes each technique
-// recovers at each layer, scored on held-out items and judged against decoys (random values given
-// per family or per text, in each attribute's proportions). Beside the count, the layer's effective
+// recovers at each layer, scored on held-out items and judged against decoys (random values drawn in
+// each attribute's proportions within each label value, given per family or per text as the
+// attribute itself varies: LENS-23), and against a stricter line, half the best κ the probe reaches
+// for the attribute (LENS-22). Beside the count, the layer's effective
 // dimensionality and how many independent directions the attributes' partial axes span, against
 // permuted design rows; a heatmap of every attribute's score for one technique; and at one layer,
 // the angles between the partial axes beside the design's own correlations, and the spectrum with
@@ -68,6 +70,7 @@ export default function LensAxes({ session, lens, disabled }: { session: string;
   const [family, setFamily] = useState(lens.holdout?.family_field ?? '') // the lens's own design to start
   const [whole, setWhole] = useState(lens.holdout?.whole_families ?? false)
   const [technique, setTechnique] = useState<Row>('probe')
+  const [line, setLine] = useState<'strict' | 'decoys'>('strict') // which count the first chart shows
   const [chosenLayer, setChosenLayer] = useState<number | null>(null)
 
   const name = lens.name, version = lens.current ?? undefined
@@ -114,18 +117,24 @@ export default function LensAxes({ session, lens, disabled }: { session: string;
     decoys: axes.decoys, level: axes.level, probe_decoy_layers: axes.probe_decoy_layers, job: axes.provenance.job_id,
   } : {}), [axes, session, lens.name])
 
-  const recoveredOption = useMemo<echarts.EChartsOption | null>(() => axes && {
-    title: { text: `Attributes recovered (of ${attrs.length}), held out, beyond the decoys`, left: 'center', textStyle: { fontSize: 12 } },
-    tooltip: { trigger: 'axis' }, legend: { bottom: 0, textStyle: { fontSize: 10 } },
-    grid: { left: 36, right: 12, top: 28, bottom: 76 },
-    xAxis: { type: 'category', data: axes.layers.map(l => `L${l}`), axisLabel: { fontSize: 9 } },
-    yAxis: { type: 'value', min: 0, max: attrs.length, minInterval: 1, axisLabel: { fontSize: 9 } },
-    series: rows.map(r => ({
-      name: r.label, type: 'line' as const, data: axes.recovered[r.id], symbolSize: 4,
-      itemStyle: { color: r.color }, lineStyle: { color: r.color, type: r.type, width: r.id === 'umap_at_k' ? 2.5 : 1.5 },
-    })),
-    animation: false,
-  }, [axes, attrs, rows])
+  const recoveredOption = useMemo<echarts.EChartsOption | null>(() => {
+    if (!axes) return null
+    const strict = line === 'strict' ? axes.recovered_strict : undefined
+    const counts = strict ?? axes.recovered
+    const past = strict ? `beyond the decoys and at half the probe's best κ` : 'beyond the decoys'
+    return {
+      title: { text: `Attributes recovered (of ${attrs.length}), held out, ${past}`, left: 'center', textStyle: { fontSize: 12 } },
+      tooltip: { trigger: 'axis' }, legend: { bottom: 0, textStyle: { fontSize: 10 } },
+      grid: { left: 36, right: 12, top: 28, bottom: 76 },
+      xAxis: { type: 'category', data: axes.layers.map(l => `L${l}`), axisLabel: { fontSize: 9 } },
+      yAxis: { type: 'value', min: 0, max: attrs.length, minInterval: 1, axisLabel: { fontSize: 9 } },
+      series: rows.map(r => ({
+        name: r.label, type: 'line' as const, data: counts[r.id] ?? [], symbolSize: 4,
+        itemStyle: { color: r.color }, lineStyle: { color: r.color, type: r.type, width: r.id === 'umap_at_k' ? 2.5 : 1.5 },
+      })),
+      animation: false,
+    }
+  }, [axes, attrs, rows, line])
 
   const dimensionOption = useMemo<echarts.EChartsOption | null>(() => {
     if (!axes) return null
@@ -174,16 +183,24 @@ export default function LensAxes({ session, lens, disabled }: { session: string;
       if (kappa === null) return []
       const limit = limitOf(axes, row.id, attribute)
       const passed = limit !== null && kappa > limit
-      return [{ value: [li, ai, Math.max(0, kappa)], kappa, limit, attribute, layer: axes.layers[li],
-        itemStyle: { borderColor: '#ffffff', borderWidth: 1, opacity: passed ? 1 : 0.3 } }]
+      const strict = axes.strict_limits?.[attribute] ?? null
+      const strong = passed && strict !== null && kappa >= strict
+      // three levels: within the decoys' range, beyond it, and beyond the stricter line as well
+      const opacity = !axes.strict_limits ? (passed ? 1 : 0.3) : strong ? 1 : passed ? 0.6 : 0.25
+      return [{ value: [li, ai, Math.max(0, kappa)], kappa, limit, strict, attribute, layer: axes.layers[li],
+        itemStyle: { borderColor: '#ffffff', borderWidth: 1, opacity } }]
     }))
+    const fading = axes.strict_limits
+      ? "faded: within the decoys' range; half-faded: beyond it, under half the probe's best κ"
+      : "faded: within the decoys' range"
     return {
-      title: { text: `${row.label}: held-out κ per attribute (faded: within the decoys' range)`, left: 'center', textStyle: { fontSize: 12 } },
+      title: { text: `${row.label}: held-out κ per attribute (${fading})`, left: 'center', textStyle: { fontSize: 12 } },
       tooltip: {
         formatter: (raw: unknown) => {
-          const d = (raw as { data: { kappa: number; limit: number | null; attribute: string; layer: number } }).data
+          const d = (raw as { data: { kappa: number; limit: number | null; strict: number | null; attribute: string; layer: number } }).data
           return `${d.attribute} at L${d.layer}: κ ${d.kappa.toFixed(3)}` +
-            (d.limit === null ? ' (no decoy threshold)' : `; the decoys' ${Math.round(100 * axes.level)}th percentile ${d.limit.toFixed(3)}`)
+            (d.limit === null ? ' (no decoy threshold)' : `; the decoys' ${Math.round(100 * axes.level)}th percentile ${d.limit.toFixed(3)}`) +
+            (d.strict === null ? '' : `; half the probe's best ${d.strict.toFixed(3)}`)
         },
       },
       grid: { left: 110, right: 16, top: 28, bottom: 44 },
@@ -308,7 +325,10 @@ export default function LensAxes({ session, lens, disabled }: { session: string;
       <div className="flex flex-wrap items-center gap-3 text-[11px] text-gray-600">
         <span>
           Held out over {axes.folds.n_folds} folds ({axes.folds.kind}{axes.folds.weaker ? ', weaker: no families' : ''}); chance from
-          {' '}{axes.decoys.count} decoys per attribute, given per {axes.decoys.given_per === 'families' ? 'family' : 'text'}; recovered
+          {' '}{axes.decoys.count} decoys per attribute, {axes.decoys.within
+            ? <>drawn within each label value (so reading the label alone earns an attribute nothing), per family or per text as
+              the attribute varies{axes.decoys.nested?.length ? <>; {axes.decoys.nested.join(', ')} nested in the label</> : null}</>
+            : <>given per {axes.decoys.given_per === 'families' ? 'family' : 'text'} (an older analysis: decoys in overall proportions)</>}; recovered
           {' '}means above the {Math.round(100 * axes.level)}th percentile of the technique's decoy scores, pooled over layers
           (the probe's decoys at {axes.probe_decoy_layers.map(l => `L${l}`).join(', ')}).
         </span>
@@ -316,9 +336,19 @@ export default function LensAxes({ session, lens, disabled }: { session: string;
         <span className="ml-auto">{form}</span>
       </div>
       {error && <p className="text-xs text-red-600">{error}</p>}
+      <label className="flex items-center gap-1 text-xs text-gray-600"
+        title="Nearly every attribute passes the decoys; the stricter line also asks for half the best κ the linear probe reaches for it at any layer">
+        Count
+        <select value={line} onChange={e => setLine(e.target.value as 'strict' | 'decoys')} className={select}
+          disabled={!axes.recovered_strict}>
+          <option value="strict">beyond the decoys and at half the probe's best κ</option>
+          <option value="decoys">beyond the decoys</option>
+        </select>
+      </label>
       <div className="grid grid-cols-1 xl:grid-cols-2 gap-2">
-        <AxesChart option={recoveredOption} height={300} file={`${session}_${lens.name}_axes_recovered`}
-          recipe={{ figure: 'axes: attributes recovered per layer and technique', ...recipe }} />
+        <AxesChart option={recoveredOption} height={300} file={`${session}_${lens.name}_axes_recovered_${line}`}
+          recipe={{ figure: 'axes: attributes recovered per layer and technique', count: line,
+            strict_limits: axes.strict_limits, ...recipe }} />
         <AxesChart option={dimensionOption} height={300} file={`${session}_${lens.name}_axes_dimensions`}
           recipe={{ figure: 'axes: independent directions among the partial axes, and effective dimensionality', ...recipe }} />
       </div>
