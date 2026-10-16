@@ -46,6 +46,8 @@ from typing import Any, Dict, List, Optional, Sequence, Tuple
 
 import numpy as np
 
+from services.jobs.workers import default_workers
+
 Array = np.ndarray[Any, Any]
 
 DECOYS = 5
@@ -357,7 +359,7 @@ def run_axes(params: Dict[str, Any], ctx: Any) -> Dict[str, Any]:
         np.save(work / f"X_L{layer:02d}.npy", states[layer])
     del states
     ctx.progress("scoring", 0, len(view.layers))
-    workers = int(params.get("workers") or max(1, min(6, (os.cpu_count() or 2) - 2)))
+    workers = int(params.get("workers") or default_workers())
     jobs = (delayed(_axes_one)(str(work), layer, li, folds, code_sets, k_per_layer[li],
                                manifest.settings.at(li).n_neighbors, seed, li % PROBE_DECOY_EVERY == 0, values)
             for li, layer in enumerate(view.layers))

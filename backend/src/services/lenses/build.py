@@ -18,6 +18,7 @@ from typing import Any, Dict, List, Optional
 import numpy as np
 from pydantic import Field, model_validator
 
+from services.jobs.workers import default_workers
 from services.lenses.data import LensFilters
 from services.lenses.store import HoldoutDesign, SettingsSource, UmapSettings
 
@@ -135,7 +136,7 @@ def _write_routes(session_id: str, name: str, ctx: Any) -> None:
 
 
 def _workers(p: LensBuildParams) -> int:
-    return p.workers or max(1, min(6, (os.cpu_count() or 2) - 2))
+    return p.workers or default_workers()
 
 
 def _fit_layers(folder: str, layers: List[int], settings: List[UmapSettings], p: LensBuildParams,

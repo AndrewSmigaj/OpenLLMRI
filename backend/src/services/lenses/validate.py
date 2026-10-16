@@ -28,6 +28,8 @@ from typing import TYPE_CHECKING, Any, Dict, List, Optional, Sequence, Tuple
 import numpy as np
 from pydantic import BaseModel, Field
 
+from services.jobs.workers import default_workers
+
 if TYPE_CHECKING:
     from services.lenses.store import UmapSettings
 
@@ -427,7 +429,7 @@ def validate_lens(params: Dict[str, Any], ctx: Any) -> Dict[str, Any]:
     del states
     embeddings = np.load(folder / "fit" / "embed.npz")["embedding"]
     s = manifest.settings
-    workers = p.workers or max(1, min(6, (os.cpu_count() or 2) - 2))
+    workers = p.workers or default_workers()
     tasks = (delayed(_validate_one)(str(work), layer, embeddings[li], folds, codes, s.at(li), s.seed, p.seeds,
                                     decoy_codes)
              for li, layer in enumerate(view.layers))

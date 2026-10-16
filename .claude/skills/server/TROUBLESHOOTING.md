@@ -51,6 +51,11 @@ Then hard-refresh browser (Ctrl+Shift+R).
 3. If OOM: kill backend, ensure no other GPU processes, restart
 4. If CUDA error: kill backend, wait 10s, restart
 
+### `stage: skipped`, and captures answer 503
+
+The backend was started without the model (`LOAD_MODEL=0`, OP-3b). Lens work and the app's views
+work; to capture or run agents, stop it (OP-2) and start it with OP-3.
+
 ### API responds but model never loads
 
 The FastAPI app starts regardless of model status. Experiment/analysis endpoints (reading from disk) work fine. Only probe capture needs the model.

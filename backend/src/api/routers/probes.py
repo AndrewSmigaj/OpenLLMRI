@@ -14,7 +14,7 @@ from typing import TYPE_CHECKING, Any, Dict, List, cast
 from fastapi import APIRouter, Depends, HTTPException
 
 from api.config import DATA_LAKE_PATH
-from api.dependencies import get_capture_service
+from api.dependencies import get_capture_service, get_sessions
 from api.schemas import (
     ProbeExample,
     SentenceExperimentRequest,
@@ -29,7 +29,7 @@ from core.parquet_reader import read_records
 from schemas.capture_manifest import CaptureManifest
 from schemas.tokens import ProbeRecord
 from services.probes.integrated_capture_service import IntegratedCaptureService
-from services.probes.session_manager import SessionState
+from services.probes.session_manager import SessionManager, SessionState
 
 if TYPE_CHECKING:
     from transformers import BatchEncoding
@@ -41,11 +41,11 @@ logger = logging.getLogger(__name__)
 @router.get("/probes/{session_id}/status", response_model=StatusResponse)
 async def get_probe_session_status(
     session_id: str,
-    service: IntegratedCaptureService = Depends(get_capture_service)
+    sessions: SessionManager = Depends(get_sessions)
 ) -> StatusResponse:
     """Get current status of probe session."""
     try:
-        status = service.get_session_status(session_id)
+        status = sessions.get_session_status(session_id)
 
         response_data: Dict[str, Any] = {
             "session_id": session_id,
@@ -59,9 +59,9 @@ async def get_probe_session_status(
         }
 
         if status.state == SessionState.COMPLETED:
-            manifest = service.finalize_session(session_id)
+            manifest = get_capture_service().finalize_session(session_id)
 
-            session_dir = Path(service.data_lake_path) / session_id
+            session_dir = Path(sessions.data_lake_path) / session_id
             data_lake_paths = {
                 "tokens": str(session_dir / "tokens.parquet"),
                 "routing": str(session_dir / "routing.parquet"),
@@ -83,18 +83,20 @@ async def get_probe_session_status(
 
         return StatusResponse(**response_data)
 
+    except HTTPException:
+        raise  # 503 when finalizing needs the model and there is none
     except Exception as e:
         raise HTTPException(status_code=404, detail=f"Session not found: {str(e)}")
 
 
 @router.get("/probes", response_model=List[SessionListResponse])
 async def list_probe_sessions(
-    service: IntegratedCaptureService = Depends(get_capture_service)
+    sessions: SessionManager = Depends(get_sessions)
 ) -> List[SessionListResponse]:
-    """List all available probe sessions."""
+    """List all available probe sessions (no model needed: it reads the lake's session files)."""
     try:
-        sessions = []
-        sessions_dir = Path(service.data_lake_path) / "_sessions"
+        listed = []
+        sessions_dir = Path(sessions.data_lake_path) / "_sessions"
 
         if sessions_dir.exists():
             for session_file in sessions_dir.glob("*.json"):
@@ -102,7 +104,7 @@ async def list_probe_sessions(
                     with open(session_file, 'r') as f:
                         metadata = json.load(f)
 
-                    sessions.append(SessionListResponse(
+                    listed.append(SessionListResponse(
                         session_id=metadata["session_id"],
                         session_name=metadata["session_name"],
                         created_at=metadata["created_at"],
@@ -115,7 +117,7 @@ async def list_probe_sessions(
                     logger.warning("Skipping session %s: %s", metadata.get("session_id", session_file.stem), e)
                     continue
 
-        return sorted(sessions, key=lambda x: x.created_at, reverse=True)
+        return sorted(listed, key=lambda x: x.created_at, reverse=True)
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to list sessions: {str(e)}")
@@ -124,20 +126,20 @@ async def list_probe_sessions(
 @router.get("/probes/{session_id}", response_model=SessionDetailResponse)
 async def get_probe_session_details(
     session_id: str,
-    service: IntegratedCaptureService = Depends(get_capture_service)
+    sessions: SessionManager = Depends(get_sessions)
 ) -> SessionDetailResponse:
     """Get complete session details including manifest and data lake paths."""
     try:
-        status = service.get_session_status(session_id)
+        status = sessions.get_session_status(session_id)
 
         if status.state != SessionState.COMPLETED:
             raise HTTPException(status_code=400, detail="Session not completed yet")
 
-        if session_id in service.active_sessions:
-            manifest = service.finalize_session(session_id)
+        if session_id in sessions.active_sessions:  # only while the model is loaded
+            manifest = get_capture_service().finalize_session(session_id)
         else:
             # Load existing manifest from session metadata
-            session_file = Path(service.sessions_dir) / f"{session_id}.json"
+            session_file = Path(sessions.sessions_dir) / f"{session_id}.json"
             if not session_file.exists():
                 raise HTTPException(status_code=404, detail="Session metadata file not found")
 
@@ -156,7 +158,7 @@ async def get_probe_session_details(
             )
 
         # Generate data lake paths
-        session_dir = Path(service.data_lake_path) / session_id
+        session_dir = Path(sessions.data_lake_path) / session_id
         data_lake_paths = {
             "tokens": str(session_dir / "tokens.parquet"),
             "routing": str(session_dir / "routing.parquet"),

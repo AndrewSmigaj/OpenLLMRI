@@ -7,7 +7,6 @@ token positions, the sources it captured) and the methods named here are the one
 from __future__ import annotations
 
 import json
-import os
 from collections import Counter
 from pathlib import Path
 from typing import Any, Dict, List, Optional
@@ -17,6 +16,7 @@ import pyarrow.parquet as pq
 
 from core.parquet_reader import read_records
 from schemas.tokens import ProbeRecord
+from services.jobs.workers import default_workers
 from services.lenses.build import MAX_ITEMS
 from services.lenses.data import SOURCES, LensFilters, load_items, session_dir
 from services.lenses.store import METRICS, HoldoutDesign, UmapSettings, declared_holdout
@@ -94,4 +94,4 @@ def _tuning_defaults() -> Dict[str, Any]:
             "test_share": HoldoutDesign().test_share, "n_folds": defaults.n_folds,
             "family_field": None,  # each lens's own hold-out design
             "max_settings": MAX_SETTINGS, "seconds_per_fit": list(SECONDS_PER_FIT),
-            "workers": max(1, min(6, (os.cpu_count() or 2) - 2))}
+            "workers": default_workers()}

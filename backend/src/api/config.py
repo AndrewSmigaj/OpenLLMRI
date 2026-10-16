@@ -20,6 +20,11 @@ SCENARIO_LIBRARY = _project_root / "data" / "scenarios"
 # Background jobs (lens builds, LLM report runs): one folder per job, in the lake.
 JOBS_PATH = DATA_LAKE_PATH / "_jobs"
 
+# Whether the backend loads the model when it starts. LOAD_MODEL=0 (or false, no, off) leaves it
+# out, for lens work while the GPU or the memory is in use elsewhere: the lens routes, the jobs and
+# the capture list need no model; captures and agent runs then answer 503.
+LOAD_MODEL = os.environ.get("LOAD_MODEL", "1").strip().lower() not in ("0", "false", "no", "off")
+
 # Saved lens versions, copied into the repo as files (DESIGN.md G: lenses are files in the repo).
 LENS_RECORDS_PATH = _project_root / "data" / "lenses"
 PROJECT_ROOT = _project_root

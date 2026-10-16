@@ -38,6 +38,7 @@ from typing import Any, Dict, List, Optional, Sequence, Tuple
 import numpy as np
 from pydantic import BaseModel, Field
 
+from services.jobs.workers import default_workers
 from services.lenses.store import Metric, UmapSettings
 from services.lenses.validate import merge_folds
 
@@ -254,7 +255,7 @@ def run_search(params: Dict[str, Any], ctx: Any) -> Dict[str, Any]:
         raise ValueError(f"the lens has no axis {p.target_axis!r} with two values or more; it has {sorted(axes)}")
     codes = axis_codes(view.items, {p.target_axis: axes[p.target_axis]})[p.target_axis]
     seed = p.seed if p.seed is not None else manifest.settings.seed
-    workers = p.workers or max(1, min(6, (os.cpu_count() or 2) - 2))
+    workers = p.workers or default_workers()
 
     ctx.progress("split", 0, 1)
     test, test_info = split_test(view.items, codes, design.family_field, design.test_share, seed,

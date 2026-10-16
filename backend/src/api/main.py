@@ -29,7 +29,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from api.app_events import AppEvents, watch_jobs
-from api.config import JOBS_PATH
+from api.config import JOBS_PATH, LOAD_MODEL
 from api.dependencies import get_loading_status, initialize_capture_service, is_model_loaded
 from api.routers import (
     agent,
@@ -53,7 +53,10 @@ logger = logging.getLogger(__name__)
 async def lifespan(app: FastAPI) -> AsyncIterator[None]:
     logger.info("Starting Concept MRI API")
     await initialize_capture_service()  # starts background thread, returns immediately
-    logger.info("API serving — model loading in background")
+    if LOAD_MODEL:
+        logger.info("API serving — model loading in background")
+    else:
+        logger.info("API serving without the model (LOAD_MODEL=0)")
     scheduler = JobScheduler(JobStore(JOBS_PATH))
     scheduler.adopt()  # workers outlive a restart
     app.state.jobs = scheduler
@@ -99,12 +102,15 @@ async def root() -> Dict[str, str]:
 
 @app.get("/health")
 async def health_check() -> Dict[str, Any]:
+    # Without the model the GPU isn't queried, so the API never opens a CUDA context
+    gpu = torch.cuda.is_available() if LOAD_MODEL else None
     return {
         "status": "healthy",
         "model_loaded": is_model_loaded(),
+        "model_enabled": LOAD_MODEL,
         "loading": get_loading_status(),
-        "gpu_available": torch.cuda.is_available(),
-        "gpu_name": torch.cuda.get_device_name(0) if torch.cuda.is_available() else None,
+        "gpu_available": gpu,
+        "gpu_name": torch.cuda.get_device_name(0) if gpu else None,
         "sessions_available": True,
     }
 

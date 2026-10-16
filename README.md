@@ -255,6 +255,8 @@ huggingface-cli download openai/gpt-oss-20b --local-dir data/models/gpt-oss-20b
 
 # Terminal 1: Backend (model takes ~2 min to load; check /health for readiness)
 cd backend/src && ../../.venv/bin/python -m uvicorn api.main:app --host 0.0.0.0 --port 8000
+# ...or without the model, for lens work while the GPU or the memory is busy (captures answer 503):
+# cd backend/src && LOAD_MODEL=0 ../../.venv/bin/python -m uvicorn api.main:app --host 0.0.0.0 --port 8000
 
 # Terminal 2: Frontend
 cd frontend && npm run dev

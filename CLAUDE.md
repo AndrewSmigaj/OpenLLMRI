@@ -66,6 +66,8 @@ On first server start, detect the platform to apply the right operational proced
 
 All platforms: use `http://localhost:8000` for API URLs. Backend binds to `0.0.0.0` (the `--host` flag in uvicorn).
 
+Without a GPU or memory to spare (another program holding them), start the backend with `LOAD_MODEL=0` (`/server` OP-3b): lens routes, jobs and the app's views run without the model, and captures and agent runs answer 503. `JOB_WORKERS=2` keeps lens jobs small.
+
 ## First-Time Setup
 
 If `.venv` does not exist, the project needs initial setup:

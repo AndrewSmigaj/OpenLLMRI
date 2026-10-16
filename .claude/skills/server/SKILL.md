@@ -67,6 +67,16 @@ Run with `run_in_background: true`.
 
 **Do NOT add `--reload`.** The WatchFiles reloader interacts badly with the model-load thread on WSL2 — the worker can bind the port but leave the event loop wedged, so connections hang even though the process looks healthy. After any code change, do a full restart (OP-2 → OP-3 + OP-5 + OP-6 → OP-4). No shortcuts.
 
+### OP-3b: Start Backend without the model (background)
+
+For lens work while another program holds the GPU or the memory: lens routes, jobs, the capture list and the app's views work; captures and agent runs answer 503 saying the model was left out. `JOB_WORKERS=2` keeps lens jobs' worker processes few (results don't change). Same prerequisite as OP-3; OP-4 then reports SKIPPED at once.
+
+```bash
+ROOT=$(git rev-parse --show-toplevel) && cd "$ROOT/backend/src" && LOAD_MODEL=0 JOB_WORKERS=2 "$ROOT/.venv/bin/python" -m uvicorn api.main:app --host 0.0.0.0 --port 8000
+```
+
+Run with `run_in_background: true`. To load the model later, do a full restart with OP-3.
+
 ### OP-4: Wait for Model
 
 **Run AFTER OP-3.** Must use `run_in_background: true` — takes ~2-3 minutes.
@@ -74,7 +84,7 @@ Run with `run_in_background: true`.
 The health endpoint now reports loading stage in real time (the API serves immediately while model loads in background). No need to read log files.
 
 ```bash
-PY=$(git rev-parse --show-toplevel)/.venv/bin/python; for i in $(seq 1 60); do H=$(curl -s --max-time 3 http://localhost:8000/health 2>/dev/null); if [ -z "$H" ]; then echo "[$i] Waiting for API..."; sleep 5; continue; fi; STAGE=$(echo "$H" | $PY -c "import json,sys; print(json.load(sys.stdin).get('loading',{}).get('stage','unknown'))"); ELAPSED=$(echo "$H" | $PY -c "import json,sys; print(json.load(sys.stdin).get('loading',{}).get('elapsed_seconds','?'))"); if [ "$STAGE" = "ready" ]; then echo "READY — model loaded in ${ELAPSED}s"; exit 0; fi; if [ "$STAGE" = "failed" ]; then echo "FAILED — check backend logs"; exit 1; fi; echo "[$i] Stage: $STAGE (${ELAPSED}s elapsed)"; sleep 5; done; echo "TIMEOUT — model did not load in 5 minutes"
+PY=$(git rev-parse --show-toplevel)/.venv/bin/python; for i in $(seq 1 60); do H=$(curl -s --max-time 3 http://localhost:8000/health 2>/dev/null); if [ -z "$H" ]; then echo "[$i] Waiting for API..."; sleep 5; continue; fi; STAGE=$(echo "$H" | $PY -c "import json,sys; print(json.load(sys.stdin).get('loading',{}).get('stage','unknown'))"); ELAPSED=$(echo "$H" | $PY -c "import json,sys; print(json.load(sys.stdin).get('loading',{}).get('elapsed_seconds','?'))"); if [ "$STAGE" = "ready" ]; then echo "READY — model loaded in ${ELAPSED}s"; exit 0; fi; if [ "$STAGE" = "failed" ]; then echo "FAILED — check backend logs"; exit 1; fi; if [ "$STAGE" = "skipped" ]; then echo "SKIPPED — started without the model (LOAD_MODEL=0)"; exit 0; fi; echo "[$i] Stage: $STAGE (${ELAPSED}s elapsed)"; sleep 5; done; echo "TIMEOUT — model did not load in 5 minutes"
 ```
 
 **Expected output:**
@@ -88,7 +98,7 @@ PY=$(git rev-parse --show-toplevel)/.venv/bin/python; for i in $(seq 1 60); do H
 [26] READY — model loaded in 123.4s
 ```
 
-**Stages**: `not_started → initializing → loading_model → creating_service → ready | failed`
+**Stages**: `not_started → initializing → loading_model → creating_service → ready | failed`, or `skipped` when started with OP-3b (`LOAD_MODEL=0`)
 
 ### OP-5: Start Frontend (background)
 
