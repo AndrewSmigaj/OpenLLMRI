@@ -41,6 +41,24 @@ describe('comparing lenses', () => {
     expect(compareLenses([tuned], 'register', 'ami').lines).toHaveLength(1)
   })
 
+  it("gives a tuned lens's test lines their range over the search's draws, and none to a single draw", () => {
+    const spread = (lo: number, hi: number) => ({ ami: { mean: (lo + hi) / 2, min: lo, max: hi, n: 3 } })
+    const search = {
+      target_axis: 'label', layers: [0, 1], source: { name: 'a', version: 'v1' },
+      winners: [{ test: { ami: 0.8, kappa: 0.7, accuracy: 0.9, worst_fold: 0 } }, { test: { ami: 0.6, kappa: 0.5, accuracy: 0.7, worst_fold: 0 } }],
+      baseline: { name: 'a', version: 'v1', layers: [{ test: null }, { test: null }] },
+      draws: [{}, {}, {}],
+      spread: [{ layer: 0, winner: spread(0.7, 0.85), baseline: spread(0.5, 0.6) },
+        { layer: 1, winner: spread(0.5, 0.65), baseline: null }],
+    } as unknown as LensSearch
+    const tuned = { lens: lens('a-tuned', [2, 2]), validation: validation({ 0: { 2: 0.9 }, 1: { 2: 0.9 } }), search }
+    const [, test, source] = compareLenses([tuned], 'label', 'ami').lines
+    expect(test.range).toEqual({ low: [0.7, 0.5], high: [0.85, 0.65], draws: 3 })
+    expect(source.range).toEqual({ low: [0.5, null], high: [0.6, null], draws: 3 })
+    const single = { ...tuned, search: { ...search, draws: [{}] } as unknown as LensSearch }
+    expect(compareLenses([single], 'label', 'ami').lines[1].range).toBeUndefined()
+  })
+
   it('warns when the lenses were held out differently or hold other items', () => {
     const a = { lens: lens('a', [2]), validation: validation({ 0: { 2: 0.5 } }), search: null }
     const b = { lens: lens('b', [2], { n_items: 80 }), validation: validation({ 0: { 2: 0.5 } }, { field: 'order', merged_from: 30, n_folds: 12 }), search: null }

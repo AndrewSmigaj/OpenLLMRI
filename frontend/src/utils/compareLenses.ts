@@ -1,7 +1,8 @@
 // Comparing lenses of one capture (DESIGN.md E3): each lens's held-out score per layer at its
 // version's k, read from its validation; a tuned lens's test score and its source lens's on the same
 // test items, read from its search; the gaps where a layer's k lies outside what validation scores;
-// and warnings where the lenses can't be compared fairly (other folds, filters or items).
+// and warnings where the lenses can't be compared fairly (other folds, filters or items). A search
+// that drew several test portions gives its test lines their range over the draws (LENS-21).
 import type { LensSearch, LensSummary, Validation } from '../types/lens'
 
 export type CompareMeasure = 'ami' | 'kappa' | 'accuracy'
@@ -18,6 +19,7 @@ export interface CompareLine {
   kind: 'held out' | 'test' | 'source on test'
   values: (number | null)[] // one per layer of the comparison
   biased: boolean // the lens's settings were chosen on held-out scores of these items
+  range?: { low: (number | null)[]; high: (number | null)[]; draws: number } // over a search's test draws
 }
 
 export interface LensComparison {
@@ -57,10 +59,15 @@ export function compareLenses(chosen: ComparedLens[], axis: string, measure: Com
         const i = search.layers.indexOf(layer)
         return i < 0 ? null : values[i]
       })
+      const spread = search.spread
+      const draws = search.draws?.length ?? 1
+      const range = (who: 'winner' | 'baseline') => (spread && draws > 1 ? {
+        low: at(spread.map(row => row[who]?.[measure]?.min ?? null)),
+        high: at(spread.map(row => row[who]?.[measure]?.max ?? null)), draws } : undefined)
       lines.push({ name: `${lens.name}, on its test portion`, lens: lens.name, kind: 'test',
-        values: at(search.winners.map(w => read(w.test))), biased: false })
+        values: at(search.winners.map(w => read(w.test))), biased: false, range: range('winner') })
       lines.push({ name: `${search.source.name}, on the same test portion`, lens: lens.name, kind: 'source on test',
-        values: at(search.baseline.layers.map(b => read(b.test))), biased: false })
+        values: at(search.baseline.layers.map(b => read(b.test))), biased: false, range: range('baseline') })
     }
   }
 

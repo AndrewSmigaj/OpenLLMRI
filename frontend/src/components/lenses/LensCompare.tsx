@@ -7,6 +7,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import type * as echarts from 'echarts'
 import { apiClient } from '../../api/client'
 import type { LensSearch, LensSummary, Validation } from '../../types/lens'
+import { bandSeries, legendNames } from '../../utils/bands'
 import { compareLenses, type CompareMeasure, type ComparedLens } from '../../utils/compareLenses'
 import { exportElementChart } from '../../utils/exportFigure'
 import { paletteColor } from '../../color/scheme'
@@ -52,18 +53,27 @@ export default function LensCompare({ session, lenses }: { session: string; lens
     if (!found.lines.length) return null
     const label = MEASURES.find(m => m.id === measure)?.label ?? measure
     const colour = (lens: string) => paletteColor(Math.max(0, picked.indexOf(lens)))
-    return {
-      title: { text: `Held-out ${label} on ${axis}, per layer`, left: 'center', textStyle: { fontSize: 12 } },
-      tooltip: { trigger: 'axis' }, legend: { bottom: 0, type: 'scroll', textStyle: { fontSize: 10 } },
-      grid: { left: 40, right: 16, top: 28, bottom: 56 },
-      xAxis: { type: 'category', data: found.layers.map(l => `L${l}`), axisLabel: { fontSize: 9 } },
-      yAxis: { type: 'value', min: measure === 'accuracy' ? 0 : -0.2, max: 1, axisLabel: { fontSize: 9 } },
-      series: found.lines.map(line => ({
+    const series: echarts.LineSeriesOption[] = [
+      ...found.lines.map(line => ({
         name: line.name, type: 'line' as const, data: line.values, connectNulls: false,
         itemStyle: { color: colour(line.lens) },
         lineStyle: { color: colour(line.lens), width: line.kind === 'test' ? 2.5 : 1.5,
           type: line.kind === 'held out' ? 'solid' as const : line.kind === 'test' ? 'dashed' as const : 'dotted' as const },
       })),
+      // a test line's range over its search's draws (LENS-21)
+      ...found.lines.flatMap(line => (line.range
+        ? bandSeries(`${line.name}: range over ${line.range.draws} draws`, line.range.low, line.range.high,
+          colour(line.lens), `band-${line.name}`)
+        : [])),
+    ]
+    return {
+      title: { text: `Held-out ${label} on ${axis}, per layer`, left: 'center', textStyle: { fontSize: 12 } },
+      tooltip: { trigger: 'axis' },
+      legend: { bottom: 0, type: 'scroll', textStyle: { fontSize: 10 }, data: legendNames(series) },
+      grid: { left: 40, right: 16, top: 28, bottom: 56 },
+      xAxis: { type: 'category', data: found.layers.map(l => `L${l}`), axisLabel: { fontSize: 9 } },
+      yAxis: { type: 'value', min: measure === 'accuracy' ? 0 : -0.2, max: 1, axisLabel: { fontSize: 9 } },
+      series,
       animation: false,
     }
   }, [found, measure, axis, picked])

@@ -94,4 +94,4 @@ def _tuning_defaults() -> Dict[str, Any]:
             "test_share": HoldoutDesign().test_share, "n_folds": defaults.n_folds,
             "family_field": None,  # each lens's own hold-out design
             "max_settings": MAX_SETTINGS, "seconds_per_fit": list(SECONDS_PER_FIT),
-            "workers": default_workers()}
+            "workers": default_workers(), "draws": defaults.draws}

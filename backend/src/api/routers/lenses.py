@@ -355,6 +355,7 @@ class TuneRequest(BaseModel):
     n_folds: int = Field(5, ge=2, le=10)
     seed: Optional[int] = None
     workers: Optional[int] = None
+    draws: int = Field(5, ge=1, le=10)  # test portions drawn; the tuned lens is built from the first
     created_by: str = "app"
 
 
@@ -396,6 +397,37 @@ def start_tuning(request: Request, session_id: str, name: str, body: TuneRequest
         "session_id": session, "source_lens": name, "name": tuned, "grid": grid.model_dump()}
     job = scheduler.submit("lens_search", params, created_by=body.created_by)
     return {"job_id": job.id, "session_id": session, "source": name, "name": tuned}
+
+
+class RescoreRequest(BaseModel):
+    draws: int = Field(5, ge=1, le=10)
+    workers: Optional[int] = None
+    created_by: str = "app"
+
+
+@router.post("/sessions/{session_id}/lenses/{name}/rescore", status_code=202)
+def start_rescore(request: Request, session_id: str, name: str, body: RescoreRequest) -> Dict[str, Any]:
+    """Run a tuned lens's search again with several test draws (DESIGN.md C4, LENS-21), building
+    nothing: the spread of its honest scores. Refused (in the job) if the first draw doesn't
+    reproduce the stored search. Returns the job at once."""
+    from services.jobs.scheduler import JobScheduler
+    from services.lenses.data import session_dir
+    from services.lenses.store import lens_dir
+
+    try:
+        session = session_dir(session_id).name
+        if not (lens_dir(session, name) / "search.json").exists():
+            raise FileNotFoundError(f"Lens '{name}' in {session} wasn't made by a tuning")
+    except (FileNotFoundError, ValueError) as e:
+        raise _fail(e)
+    scheduler: JobScheduler = request.app.state.jobs
+    for job in scheduler.store.list():
+        if job.kind in ("lens_search", "lens_rescore") and job.state in ("queued", "running") and \
+                job.params.get("session_id") == session and job.params.get("name") == name:
+            raise HTTPException(status_code=409, detail=f"Lens '{name}' is already being tuned or re-scored ({job.id})")
+    params = {"session_id": session, "name": name, "draws": body.draws, "workers": body.workers}
+    job = scheduler.submit("lens_rescore", params, created_by=body.created_by)
+    return {"job_id": job.id, "session_id": session, "name": name}
 
 
 @router.get("/sessions/{session_id}/lenses/{name}/search")

@@ -70,7 +70,11 @@ export default function LensBadges({ session, lens, disabled, onValidated }: Len
           <span className={badge(lens.tuning.test && (lens.tuning.test.ami ?? 0) >= 0.5 ? 'good' : 'none')}
             title={`Tuned from ${lens.tuning.source.name} on ${lens.tuning.target_axis}: settings and k per layer chosen by held-out AMI; `
               + `the test portion (${lens.tuning.test_items} items) never entered the choice. The layer shown was picked on the selection folds.`}>
-            tuned: test AMI {lens.tuning.test?.ami?.toFixed(2) ?? '?'} at L{lens.tuning.layer} (k {lens.tuning.k})
+            tuned: test AMI {lens.tuning.test?.ami?.toFixed(2) ?? '?'}
+            {lens.tuning.test_spread?.ami && (lens.tuning.draws ?? 1) > 1
+              ? ` (${lens.tuning.test_spread.ami.min.toFixed(2)}–${lens.tuning.test_spread.ami.max.toFixed(2)} over ${lens.tuning.draws} draws)`
+              : ''}
+            {' '}at L{lens.tuning.layer} (k {lens.tuning.k})
             {' '}· {lens.tuning.test_items} test items{lens.tuning.weaker ? ' (weaker)' : ''}
           </span>
         )}

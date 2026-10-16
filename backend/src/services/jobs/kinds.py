@@ -102,6 +102,12 @@ def _lens_search(params: Dict[str, Any], ctx: JobContext) -> Dict[str, Any]:
     return run_search(params, ctx)
 
 
+def _lens_rescore(params: Dict[str, Any], ctx: JobContext) -> Dict[str, Any]:
+    from services.lenses.search import rescore_search
+
+    return rescore_search(params, ctx)
+
+
 def _lens_routes(params: Dict[str, Any], ctx: JobContext) -> Dict[str, Any]:
     from services.lenses.routes import routes_job
 
@@ -162,6 +168,7 @@ KINDS: Dict[str, JobKind] = {
     "lens_build": JobKind(lane="cpu", run=_lens_build),
     "lens_validate": JobKind(lane="cpu", run=_lens_validate),
     "lens_search": JobKind(lane="cpu", run=_lens_search),
+    "lens_rescore": JobKind(lane="cpu", run=_lens_rescore),
     "lens_read": JobKind(lane="cpu", run=_lens_read),
     "lens_routes": JobKind(lane="cpu", run=_lens_routes),
     "lens_axes": JobKind(lane="cpu", run=_lens_axes),

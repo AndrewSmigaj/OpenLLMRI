@@ -13,7 +13,15 @@ from test_lenses import SESSION, build, lake, lens  # noqa: F401  (lake is a fix
 
 from services.jobs.kinds import JobContext
 from services.jobs.store import JobStore
-from services.lenses.search import choose, merge_folds, run_search, split_test
+from services.lenses.search import (
+    choose,
+    merge_folds,
+    rescore_search,
+    run_search,
+    split_test,
+    split_tests,
+    tuning_headline,
+)
 from services.lenses.store import LensSettings, UmapSettings
 
 
@@ -44,6 +52,43 @@ def test_when_a_family_holds_several_labels_the_test_portion_takes_it_whole() ->
     assert "grouped" in how["kind"] and not how["weaker"] and 0.1 < len(test) / 90 < 0.35
     held = {items[j]["categories"]["family"] for j in test}
     assert not held & {items[j]["categories"]["family"] for j in set(range(90)) - set(test.tolist())}
+
+
+def test_the_first_draw_is_the_single_split_of_before() -> None:
+    from sklearn.model_selection import StratifiedGroupKFold
+
+    items = family_items(families=6)
+    codes = np.array([int(item["label"][1]) for item in items])
+    # whole families per label, as the single split drew them: one seeded permutation per label in turn
+    rng = np.random.default_rng(7)
+    held = {}
+    for label in sorted({item["label"] for item in items}):
+        found = sorted({item["categories"]["family"] for item in items if item["label"] == label})
+        take = min(len(found) - 2, max(1, round(0.2 * len(found))))
+        held[label] = {found[i] for i in rng.permutation(len(found))[:take]}
+    before = [j for j, item in enumerate(items) if item["categories"]["family"] in held[item["label"]]]
+    first, _ = split_tests(items, codes, "family", 0.2, 7, draws=4)[0]
+    assert first.tolist() == before
+    # without families: the splitter's first fold
+    flat = [{"probe_id": f"p{i}", "label": "ab"[i % 2], "input_text": f"text {i // 2}", "categories": {}}
+            for i in range(60)]
+    flat_codes = np.arange(60) % 2
+    _, fold = next(StratifiedGroupKFold(n_splits=5, shuffle=True, random_state=3).split(
+        np.zeros(60), flat_codes, groups=[item["input_text"] for item in flat]))
+    assert split_tests(flat, flat_codes, None, 0.2, 3, draws=3)[0][0].tolist() == sorted(fold.tolist())
+
+
+def test_later_draws_hold_out_other_families_until_a_label_runs_out() -> None:
+    items = family_items(families=5)  # one family per label per draw: five disjoint draws, then round again
+    codes = np.array([int(item["label"][1]) for item in items])
+    draws = split_tests(items, codes, "family", 0.2, 7, draws=6)
+    assert [info["draw"] for _, info in draws] == [1, 2, 3, 4, 5, 6]
+    seen = [{items[j]["categories"]["family"] for j in test} for test, _ in draws]
+    assert all(not seen[a] & seen[b] for a in range(5) for b in range(a + 1, 5))  # disjoint
+    assert set().union(*seen[:5]) == {item["categories"]["family"] for item in items}  # every family once
+    assert seen[5] == seen[0] and draws[5][1]["repeated"] == ["c0", "c1", "c2"] and not draws[4][1]["repeated"]
+    for test, _ in draws:  # each still holds out whole families of every label
+        assert {items[j]["label"] for j in test} == {"c0", "c1", "c2"}
 
 
 def test_without_families_the_test_share_is_stratified_and_keeps_texts_together() -> None:
@@ -104,21 +149,27 @@ def test_a_search_never_fits_on_test_items_and_finds_the_planted_k(lake: Path, m
 
     monkeypatch.setattr(fit, "fit_reducer", spy)
     store = JobStore(lake / "_jobs")
-    params = {"session_id": SESSION, "source_lens": "synth", "workers": 1,
+    params = {"session_id": SESSION, "source_lens": "synth", "workers": 1, "draws": 2,
               "grid": {"n_neighbors": [5, 10], "dimensions": [3], "min_dist": [0.1]}}
     job = store.submit("lens_search", "cpu", params, created_by="test")
     result = run_search(params, _Ctx(store, job.id))
-    assert result["name"] == "synth-tuned"
+    assert result["name"] == "synth-tuned" and result["draws"] == 2
 
     record = json.loads((lens(lake, "synth-tuned") / "search.json").read_text())
     from services.lenses.data import load_states
 
-    test_rows = {row.tobytes() for layer_rows in load_states(SESSION, record["split"]["test"]["probe_ids"]).values()
-                 for row in np.asarray(layer_rows, dtype=np.float32)}
-    searched = [rows for stage, rows in fits if stage == "searching"]
-    assert searched and all(not rows & test_rows for rows in searched)  # no test item in any selection fit
-    tested = [rows for stage, rows in fits if stage == "testing"]
-    assert tested and all(not rows & test_rows for rows in tested)  # the test stage fits on the selection
+    assert record["draws"][0]["test"]["probe_ids"] == record["split"]["test"]["probe_ids"]  # draw 1 is the split
+    for draw in record["draws"]:  # no draw's selection or test-stage fit holds its own test items
+        test_rows = {row.tobytes() for layer_rows in load_states(SESSION, draw["test"]["probe_ids"]).values()
+                     for row in np.asarray(layer_rows, dtype=np.float32)}
+        stage = f"draw {draw['draw']} of 2: "
+        searched = [rows for name, rows in fits if name == f"{stage}searching"]
+        assert searched and all(not rows & test_rows for rows in searched)
+        tested = [rows for name, rows in fits if name == f"{stage}testing"]
+        assert tested and all(not rows & test_rows for rows in tested)
+    assert not set(record["draws"][0]["test"]["probe_ids"]) & set(record["draws"][1]["test"]["probe_ids"])
+    spread = record["spread"][0]["winner"]["ami"]
+    assert spread["n"] == 2 and spread["min"] <= spread["mean"] <= spread["max"]
     assert record["split"]["test"]["weaker"]  # the synthetic capture names no families
     for winner in record["winners"]:
         assert winner["k"] == 2 and winner["test"]["ami"] > 0.9  # two planted classes, found on the test items
@@ -173,3 +224,46 @@ def test_tuning_endpoints(client: TestClient) -> None:  # noqa: F811
     started = client.post("/api/sessions/session_synth/lenses/synth/tune", json={"workers": 1})
     assert started.status_code == 202 and started.json()["name"] == "synth-tuned"
     assert client.post("/api/sessions/session_synth/lenses/synth/tune", json={}).status_code == 409  # already queued
+
+
+def _tune(root: Path, name: str, workers: int, draws: int) -> Dict[str, Any]:
+    store = JobStore(root / "_jobs")
+    params = {"session_id": SESSION, "source_lens": "synth", "name": name, "workers": workers, "draws": draws,
+              "grid": {"n_neighbors": [5, 10], "dimensions": [3], "min_dist": [0.1]}}
+    run_search(params, JobContext(store, store.submit("lens_search", "cpu", params, created_by="test").id))
+    return json.loads((lens(root, name) / "search.json").read_text())
+
+
+def test_a_search_gives_the_same_result_with_one_worker_or_two(lake: Path) -> None:  # noqa: F811
+    build(lake)
+    one, two = _tune(lake, "synth-one", 1, 1), _tune(lake, "synth-two", 2, 1)
+    assert one["selection"] == two["selection"]
+    assert [(w["settings"], w["k"], w["test"]) for w in one["winners"]] == \
+        [(w["settings"], w["k"], w["test"]) for w in two["winners"]]
+
+
+def test_a_rescore_adds_draws_when_the_first_reproduces_and_refuses_otherwise(lake: Path) -> None:  # noqa: F811
+    build(lake)
+    before = _tune(lake, "synth-tuned", 1, 1)
+    store = JobStore(lake / "_jobs")
+    params = {"session_id": SESSION, "name": "synth-tuned", "draws": 3, "workers": 1}
+    rescore_search(params, JobContext(store, store.submit("lens_rescore", "cpu", params, created_by="test").id))
+    after = json.loads((lens(lake, "synth-tuned") / "search.json").read_text())
+    assert len(after["draws"]) == 3 and after["rescored"]["earlier"] == "search.single.json"
+    assert after["split"]["test"]["probe_ids"] == before["split"]["test"]["probe_ids"]
+    assert [(w["settings"], w["k"]) for w in after["winners"]] == [(w["settings"], w["k"]) for w in before["winners"]]
+    assert json.loads((lens(lake, "synth-tuned") / "search.single.json").read_text()) == before
+
+    altered = dict(after, winners=[dict(w, k=w["k"] + 1) for w in after["winners"]])  # a record it can't reproduce
+    (lens(lake, "synth-tuned") / "search.json").write_text(json.dumps(altered))
+    with pytest.raises(ValueError, match="doesn't reproduce"):
+        rescore_search(params, JobContext(store, store.submit("lens_rescore", "cpu", params, created_by="test").id))
+
+
+def test_an_older_search_record_reads_with_one_draw(tmp_path: Path) -> None:
+    record = {"source": {"name": "a", "version": "v1"}, "target_axis": "label",
+              "winners": [{"layer": 3, "k": 2, "selection": {"ami": 0.5}, "test": {"ami": 0.4}}],
+              "split": {"test": {"n_items": 10, "weaker": True}}}
+    (tmp_path / "search.json").write_text(json.dumps(record))
+    headline = tuning_headline(tmp_path)
+    assert headline is not None and headline["draws"] == 1 and headline["test_spread"] is None

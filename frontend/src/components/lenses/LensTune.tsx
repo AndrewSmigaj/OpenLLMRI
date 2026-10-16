@@ -2,8 +2,9 @@
 // by held-out AMI on selection folds and scored on a test portion the search never sees; then the
 // tuned lens is built and validated. Basic asks for the axis to tune for and a name; Advanced holds
 // the grid (metrics too), the k range, the test share, the folds, the family field and the seed,
-// starting from the lens's own hold-out design and metric. The estimate is the search alone:
-// building and validating the tuned lens add a few minutes.
+// starting from the lens's own hold-out design and metric, and how many test portions to draw (the
+// tuned lens is built from the first; the others give its test scores a spread, LENS-21). The
+// estimate is the search alone: building and validating the tuned lens add a few minutes.
 import { useEffect, useState } from 'react'
 import { apiClient } from '../../api/client'
 import type { LensMethods, LensSummary, Metric, TuneBody } from '../../types/lens'
@@ -41,6 +42,7 @@ export default function LensTune({ session, lens, methods, takenNames, disabled,
   const [folds, setFolds] = useState(defaults?.n_folds ?? 5)
   const [family, setFamily] = useState(lens.holdout?.family_field ?? '') // '' holds out no families
   const [seed, setSeed] = useState('')
+  const [draws, setDraws] = useState(defaults?.draws ?? 5)
   const tune = useJobRunner(() => onTuned(name))
 
   useEffect(() => {
@@ -58,19 +60,20 @@ export default function LensTune({ session, lens, methods, takenNames, disabled,
   const items = lens.n_items ?? 0
   const [perItem, perFit] = defaults?.seconds_per_fit ?? [0.005, 0.25]
   const train = items * (1 - share) * (1 - 1 / folds)
-  const minutes = Math.max(1, Math.round((settings * layers * folds * (perItem * train + perFit)) / (defaults?.workers ?? 6) / 60))
+  const minutes = Math.max(1, Math.round((draws * settings * layers * folds * (perItem * train + perFit)) / (defaults?.workers ?? 6) / 60))
   const tunable = Object.entries(axes).filter(([, values]) => values.length >= 2).map(([id]) => id)
   const problem = !NAME.test(name) ? 'the name takes lower-case letters, digits, - and _ only'
     : takenNames.includes(name) ? 'a lens of this name exists'
     : metricList.some(m => !methods.metrics.includes(m)) ? `metrics are ${methods.metrics.join(', ')}`
     : settings === 0 ? 'the grid is empty'
     : settings > (defaults?.max_settings ?? 60) ? `the grid has ${settings} settings; at most ${defaults?.max_settings ?? 60}`
-    : kMin > kMax ? 'the smallest k is above the largest' : ''
+    : kMin > kMax ? 'the smallest k is above the largest'
+    : draws < 1 || draws > 10 ? 'draw between 1 and 10 test portions' : ''
   const locked = disabled || tune.running || tune.starting
 
   const body: TuneBody = {
     name, target_axis: axis, grid, k_min: kMin, k_max: kMax, test_share: share, n_folds: folds,
-    family_field: family, seed: seed === '' ? null : Number(seed), created_by: 'app',
+    family_field: family, seed: seed === '' ? null : Number(seed), draws, created_by: 'app',
   }
   return (
     <div className="mt-2 pt-2 border-t border-gray-100 space-y-2">
@@ -92,7 +95,7 @@ export default function LensTune({ session, lens, methods, takenNames, disabled,
           {tune.starting ? 'Starting…' : 'Tune'}
         </button>
         <span className="text-gray-400">
-          {settings} settings × {layers} layers × {folds} folds: about {minutes} min to search, then the tuned lens is built and validated
+          {settings} settings × {layers} layers × {folds} folds × {draws} test draws: about {minutes} min to search, then the tuned lens is built and validated
         </span>
       </div>
       {advanced && (
@@ -122,6 +125,9 @@ export default function LensTune({ session, lens, methods, takenNames, disabled,
           </label>
           <label className="flex items-center gap-1" title="The categories field naming each item's family (the lens's own to start); empty: no families, so the split is stratified and weaker">Family field
             <input value={family} onChange={e => setFamily(e.target.value)} disabled={locked} placeholder="none" className={`${input} w-24 font-mono`} />
+          </label>
+          <label className="flex items-center gap-1" title="Test portions to draw: the tuned lens is built from the first, and the others show how much its honest score moves with the portion">Test draws
+            <input type="number" min={1} max={10} value={draws} onChange={e => setDraws(Number(e.target.value))} disabled={locked} className={`${input} w-12`} />
           </label>
           <label className="flex items-center gap-1" title="Empty: the lens's own seed">Seed
             <input value={seed} onChange={e => setSeed(e.target.value.replace(/[^0-9]/g, ''))} disabled={locked} className={`${input} w-16`} />

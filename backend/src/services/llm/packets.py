@@ -587,8 +587,13 @@ def k_packet(ev: LensEvidence) -> Packet:
     p = Packet("k", "k", f"the k profile of {view.name}: how many nodes to cut at each layer", ev.lens)
     p.fact("items in the lens", len(view.items))
     p.fact("folds in the validation", validation["folds"]["n_folds"])
+    search = ev.search or {}
+    draws = len(search.get("draws") or [])
+    if draws > 1:
+        p.fact("test draws in the tuning", draws)
     suggestions = ev.manifest.get("suggestions", {})
-    tuned = {int(w["layer"]): w for w in (ev.search or {}).get("winners", [])}
+    tuned = {int(w["layer"]): w for w in search.get("winners", [])}
+    spread = {int(row["layer"]): (row.get("winner") or {}).get("ami") for row in search.get("spread") or []}
     for li, layer in enumerate(view.layers):
         tag, k = f"L{layer}:", int(view.nodes[:, li].max()) + 1
         profile = validation["layers"].get(str(layer), {})
@@ -604,6 +609,11 @@ def k_packet(ev: LensEvidence) -> Packet:
         if layer in tuned and tuned[layer].get("test"):
             p.fact(f"{tag} the tuning's k, chosen by held-out AMI on selection folds", tuned[layer]["k"])
             p.fact(f"{tag} the tuned layer's AMI on the test portion the tuning never saw", tuned[layer]["test"]["ami"])
+            over = spread.get(layer)
+            if draws > 1 and over:
+                p.fact(f"{tag} the tuning's test AMI over {draws} test draws: mean", over["mean"])
+                p.fact(f"{tag} the tuning's test AMI over {draws} test draws: lowest", over["min"])
+                p.fact(f"{tag} the tuning's test AMI over {draws} test draws: highest", over["max"])
         seed = (profile.get(str(k)) or {}).get("seed_ari")
         if seed is not None:
             p.fact(f"{tag} agreement across seeds at this version's k (ARI)", seed)
@@ -621,6 +631,9 @@ def k_packet(ev: LensEvidence) -> Packet:
                                "kappa keeps rising with k because smaller nodes are purer",
                                "picking the k that maximises a held-out score is selection-biased; a tuned lens's test "
                                "score was never used in choosing",
+                               "when the tuning drew several test portions, the tuned lens comes from the first; the "
+                               "others repeat the tuning, so their spread shows how much its test score moves with the "
+                               "portion",
                                "the elbow, silhouette and hierarchy levels don't use the labels"]
     return p
 

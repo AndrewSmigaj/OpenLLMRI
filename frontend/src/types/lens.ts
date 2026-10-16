@@ -242,7 +242,13 @@ export interface TuningHeadline {
   test: SearchScores | null
   test_items: number
   weaker: boolean
+  test_spread?: SearchSpread | null // the winner's test scores over the search's draws, when it drew several
+  draws?: number
 }
+
+// A score's mean, minimum and maximum over a search's test draws (LENS-21), and how many draws had it
+export interface ScoreSpread { mean: number; min: number; max: number; n: number }
+export type SearchSpread = Partial<Record<'ami' | 'kappa' | 'accuracy', ScoreSpread>>
 
 export interface SearchGrid {
   n_neighbors: number[]
@@ -262,6 +268,7 @@ export interface TuningDefaults {
   max_settings: number
   seconds_per_fit: [number, number]
   workers: number
+  draws?: number // test portions a search draws by default
 }
 
 export interface TuneBody {
@@ -274,6 +281,7 @@ export interface TuneBody {
   family_field?: string
   n_folds?: number
   seed?: number | null
+  draws?: number
   created_by?: string
 }
 
@@ -304,6 +312,26 @@ export interface LensSearch {
   }[]
   baseline: { name: string; version: string | null; layers: { settings: UmapSettings; k: number; test: SearchScores | null }[] }
   comparison: { k: number; raw_ward: SearchScores | null; raw_spectral: SearchScores | null; neurons: SearchScores | null; ceiling: SearchScores | null }[]
+  // Every test draw (LENS-21; searches made before draws have none): its portion, winners and test
+  // scores, and per layer each score's spread over the draws. The tuned lens comes from draw 1.
+  draws_requested?: number
+  draws?: {
+    draw: number
+    test: { kind: string; weaker: boolean; n_items: number; share: number; families: Record<string, string[]> | null }
+    winners: { layer: number; config: number; settings: UmapSettings; k: number; selection: SearchScores; test: SearchScores | null }[]
+    baseline: (SearchScores | null)[]
+    baseline_selection_biased: boolean
+  }[]
+  spread?: {
+    layer: number
+    winner: SearchSpread | null
+    baseline: SearchSpread | null
+    raw_ward: SearchSpread | null
+    raw_spectral: SearchSpread | null
+    neurons: SearchSpread | null
+    ceiling: SearchSpread | null
+  }[]
+  rescored?: { job_id: string; earlier: string }
   notes: string[]
   provenance: Record<string, unknown>
 }

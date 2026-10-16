@@ -1,16 +1,19 @@
 // A tuned lens's search (DESIGN.md C4): per layer, the winner's score on the selection folds it was
 // chosen on (optimistic, so dashed), its score on the test portion the search never saw (the honest
 // one), the lens it started from on the same test portion, and the raw-space groupings and the
-// ceiling there too; then a table of each layer's winning settings and k, with the runners-up.
+// ceiling there too; when the search drew several test portions (LENS-21), shaded bands give the
+// range of the tuned and the source scores over them. Then a table of each layer's winning
+// settings and k, with the runners-up and the test AMI's spread over the draws.
 import { useEffect, useMemo, useState } from 'react'
 import type * as echarts from 'echarts'
 import { apiClient } from '../../api/client'
 import type { LensSearch, LensSummary, SearchScores, UmapSettings } from '../../types/lens'
+import { bandSeries, legendNames } from '../../utils/bands'
 import { exportElementChart } from '../../utils/exportFigure'
 import { useEChart } from '../../hooks/useEChart'
 import ExportMenu from '../common/ExportMenu'
 
-type Measure = keyof SearchScores
+type Measure = 'ami' | 'kappa' | 'accuracy' // the measures a search's draws spread too
 const MEASURES: { id: Measure; label: string }[] = [
   { id: 'ami', label: 'AMI' }, { id: 'kappa', label: 'κ' }, { id: 'accuracy', label: 'accuracy' },
 ]
@@ -38,21 +41,30 @@ export default function LensTuning({ session, lens }: { session: string; lens: L
     const line = (name: string, data: (number | null)[], color: string, type: 'solid' | 'dashed' | 'dotted' = 'solid', width = 1.5) =>
       ({ name, type: 'line' as const, data, connectNulls: true, itemStyle: { color }, lineStyle: { color, type, width } })
     const label = MEASURES.find(m => m.id === measure)?.label ?? measure
+    const draws = search.draws?.length ?? 1
+    const bands = search.spread && draws > 1 ? [
+      ...bandSeries(`tuned: range over ${draws} test draws`, search.spread.map(r => r.winner?.[measure]?.min ?? null),
+        search.spread.map(r => r.winner?.[measure]?.max ?? null), '#5470c6', 'winner'),
+      ...bandSeries(`${search.source.name}: range over ${draws} test draws`, search.spread.map(r => r.baseline?.[measure]?.min ?? null),
+        search.spread.map(r => r.baseline?.[measure]?.max ?? null), '#9a60b4', 'baseline'),
+    ] : []
+    const series: echarts.LineSeriesOption[] = [
+      line('tuned, on the folds it was chosen on (optimistic)', search.winners.map(w => read(w.selection)), '#5470c6', 'dashed'),
+      line(`tuned, on the test portion${draws > 1 ? ' (draw 1)' : ''}`, search.winners.map(w => read(w.test)), '#5470c6', 'solid', 2.5),
+      line(`${search.source.name}, on the test portion${draws > 1 ? ' (draw 1)' : ''}`, search.baseline.layers.map(b => read(b.test)), '#9a60b4'),
+      line("raw: PCA-50, Ward (the winner's k)", search.comparison.map(c => read(c.raw_ward)), '#91cc75'),
+      line("raw: PCA-50, spectral (the winner's k)", search.comparison.map(c => read(c.raw_spectral)), '#fac858'),
+      line('relevant neurons (uses labels)', search.comparison.map(c => read(c.neurons)), '#ee6666', 'dashed'),
+      line('ceiling: logistic regression', search.comparison.map(c => read(c.ceiling)), '#73c0de', 'dotted'),
+      ...bands,
+    ]
     return {
       title: { text: `Tuned on ${search.target_axis}: held-out ${label}`, left: 'center', textStyle: { fontSize: 12 } },
-      tooltip: { trigger: 'axis' }, legend: { bottom: 0, textStyle: { fontSize: 10 } },
+      tooltip: { trigger: 'axis' }, legend: { bottom: 0, textStyle: { fontSize: 10 }, data: legendNames(series) },
       grid: { left: 40, right: 16, top: 28, bottom: 56 },
       xAxis: { type: 'category', data: search.layers.map(l => `L${l}`), axisLabel: { fontSize: 9 } },
       yAxis: { type: 'value', min: -0.2, max: 1, axisLabel: { fontSize: 9 } },
-      series: [
-        line('tuned, on the folds it was chosen on (optimistic)', search.winners.map(w => read(w.selection)), '#5470c6', 'dashed'),
-        line('tuned, on the test portion', search.winners.map(w => read(w.test)), '#5470c6', 'solid', 2.5),
-        line(`${search.source.name}, on the test portion`, search.baseline.layers.map(b => read(b.test)), '#9a60b4'),
-        line("raw: PCA-50, Ward (the winner's k)", search.comparison.map(c => read(c.raw_ward)), '#91cc75'),
-        line("raw: PCA-50, spectral (the winner's k)", search.comparison.map(c => read(c.raw_spectral)), '#fac858'),
-        line('relevant neurons (uses labels)', search.comparison.map(c => read(c.neurons)), '#ee6666', 'dashed'),
-        line('ceiling: logistic regression', search.comparison.map(c => read(c.ceiling)), '#73c0de', 'dotted'),
-      ],
+      series,
       animation: false,
     }
   }, [search, measure])
@@ -94,6 +106,11 @@ export default function LensTuning({ session, lens }: { session: string; lens: L
               <th className="text-right pr-3 font-normal">k</th>
               <th className="text-right pr-3 font-normal" title="On the folds it was chosen on">AMI chosen on</th>
               <th className="text-right pr-3 font-normal">test AMI</th>
+              {(search.draws?.length ?? 1) > 1 && (
+                <th className="text-right pr-3 font-normal" title="The tuning repeated on other test portions: the mean, and the lowest and highest">
+                  test AMI over {search.draws?.length} draws
+                </th>
+              )}
               <th className="text-right pr-3 font-normal">test κ</th>
               <th className="text-right pr-3 font-normal">test accuracy</th>
               <th className="text-right pr-3 font-normal">{search.source.name} test AMI</th>
@@ -108,6 +125,11 @@ export default function LensTuning({ session, lens }: { session: string; lens: L
                 <td className="text-right pr-3">{w.k}</td>
                 <td className="text-right pr-3 text-gray-500">{num(w.selection.ami)}</td>
                 <td className="text-right pr-3 font-medium">{num(w.test?.ami)}</td>
+                {(search.draws?.length ?? 1) > 1 && (() => {
+                  const spread = search.spread?.[li]?.winner?.ami
+                  return <td className="text-right pr-3 whitespace-nowrap">
+                    {spread ? `${num(spread.mean)} (${num(spread.min)}–${num(spread.max)})` : ''}</td>
+                })()}
                 <td className="text-right pr-3">{num(w.test?.kappa)}</td>
                 <td className="text-right pr-3">{num(w.test?.accuracy)}</td>
                 <td className="text-right pr-3">{num(search.baseline.layers[li]?.test?.ami)}</td>
