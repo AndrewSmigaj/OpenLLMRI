@@ -16,10 +16,12 @@ built. What the software is for, and its requirements, are in
 
 **Now (2026-10-16): work that needs no model** [ORDER-20]. While Andrew uses the machine for other
 work, two items move ahead: the four lens method changes, and the attention-and-experts shares (for
-each split between nodes, how much attention writes and how much the experts write). Claude's plan
-measures the shares first in a study on the stored captures, and starts the backend without the
-model, so lens work runs in little memory [ARCH-13]. The steps are under
-[Work that needs no model](plan.md#phase-model-free).
+each split between nodes, how much attention writes and how much the experts write). The backend
+starts without the model, so lens work runs in little memory [ARCH-13]. The four method changes are
+built; the lenses they affect are being run again, and the numbers they change will be corrected
+where they are cited. The study of the shares is done (`docs/research/attention_and_experts.md`):
+they depend on the direction a split is measured along, so the node card waits for Andrew's answer
+to L33 [LENS-47]. The steps are under [Work that needs no model](plan.md#phase-model-free).
 
 **Waiting for Andrew: the two documents** [DOC-3, ORDER-5]. The requirements list, both documents,
 their pages and the checks before Andrew reads are done; his review, section by section, waits for
@@ -32,7 +34,8 @@ names the placements of its own they replace (Claude's arrangement while the rev
 **Beside it: the animal ontology study** [ORDER-15], done: the 524 names labelled by hand in the
 nine ways, captured again, a lens, the three measures and a findings note
 (`docs/research/animal_ontology_findings.md`). In short, descent and the ways that go with it
-lead, and every way can be read on orders the reader never saw.
+lead, and every way can be read on orders the reader never saw, most of them beyond what the
+animal's group alone gives (re-scored on 2026-10-16 with the fairer decoys).
 
 **Next: the new app, room by room** ([its plan](plan.md#the-new-app), for Andrew's yes: L31), then
 slice 2 (capture and jobs). Once approved, the new app can be built without the model too
@@ -42,7 +45,8 @@ slice 2 (capture and jobs). Once approved, the new app can be built without the 
 2's capture work.
 
 **What needs Andrew:**
-- **L30,** the new app's rooms: a card among [the design's decisions](design.md#decisions-needed);
+- **L30,** the new app's rooms, and **L33,** how the node card reads who wrote a split: cards among
+  [the design's decisions](design.md#decisions-needed);
 - **L31,** the new app's plan, and **L32,** the superseded documents to delete, with a verdict for
   each: cards among [this document's decisions](plan.md#decisions-needed) [WAY-11];
 - the two documents' review, section by section, through the boxes under each section.
@@ -268,19 +272,19 @@ its decisions [ORDER-20, LENS-30].
 
 The steps, their order and their details are Claude's, in the plan Andrew let go ahead on
 2026-10-16; the move itself is his [ORDER-20]. Claude's details include the study coming first, the
-stricter line's level (half the best κ a probe reaches), reading the shares against random halves
+stricter line's level (half the best κ a probe reaches), reading the shares against random splits
 of the same items, and step 7's condition.
 
 | Step | What | State |
 |---|---|---|
 | 0 | This record: the move in the requirements and both documents | done |
 | 1 | The backend without the model, and one setting for how many workers a job uses [ARCH-13] | done |
-| 2 | Folds (the parts of a capture held out in turn) that hold out whole domains, with each class about as common in every fold as overall [LENS-24] | **now** |
-| 3 | Decoys drawn within each label value, and a stricter line at half the best κ (Cohen's kappa, agreement beyond chance) a linear probe reaches [LENS-23, LENS-22] | |
-| 4 | The tuning's test portion drawn several times (draws), and the tuned lenses re-scored [LENS-21] | |
-| 5 | The affected lenses' validation, axes analysis and tuning run again, and every changed number corrected where it is cited | |
-| 6 | A study: the attention-and-experts shares, layer by layer, read against random halves of the same items [LENS-30] | |
-| 7 | If the study's checks hold: the shares in node details, the split card and the atlas [LENS-30] | |
+| 2 | Folds (the parts of a capture held out in turn) that hold out whole domains, with each class about as common in every fold as overall [LENS-24] | done |
+| 3 | Decoys drawn within each label value, and a stricter line at half the best κ (Cohen's kappa, agreement beyond chance) a linear probe reaches [LENS-23, LENS-22] | done |
+| 4 | The tuning's test portion drawn several times (draws), and the tuned lenses re-scored [LENS-21] | done |
+| 5 | The affected lenses' validation, axes analysis and tuning run again, and every changed number corrected where it is cited | **running** |
+| 6 | A study: the attention-and-experts shares, layer by layer, read against random splits of the same items (shuffled into groups of the same sizes) [LENS-30] | done |
+| 7 | If the study's checks hold: the shares in node details (shown on the node card), the split report card and the atlas [LENS-30] | built, waiting for L33 [LENS-47] |
 
 **Tests:**
 - every change is tested on planted data;
@@ -300,7 +304,9 @@ of the same items, and step 7's condition.
     per family [LENS-23].
 
 **Done when** the method changes are built and checked, every affected number is corrected, and the
-study's note is written. The shares go into the node card only if the study's checks pass.
+study's note is written. The shares go into the node card only if the study's checks pass. The
+checks of the rounding and the read tokens passed; the second direction showed that the shares
+depend on the direction measured along, which is why step 7 waits for L33.
 
 **How sure:**
 
@@ -308,8 +314,9 @@ study's note is written. The shares go into the node card only if the study's ch
 |---|---|---|
 | The backend runs lens work without the model | the lens endpoints and jobs never touch the model, and the capture list needs only the lake's folder (read 2026-10-16); started that way, it held 779 MB and served the app (2026-10-16) | 95% |
 | The first draw of the repeated test portion is today's | recomputed for all five tuned lenses: identical (2026-10-16) | 95% |
-| The shares add up | each layer's output is its input plus attention's output plus the experts' output, nothing scaled (read); on two captures the parts sum to the difference between the two groups' mean states to within one part in 10^16, and the stored values' rounding could shift that difference by at most 3.2% (2026-10-16) | 95% |
-| A share says who wrote the split | between random halves of the same items, the experts write 65–73% of the difference, so each share is read against random halves; the tank's sense split is beyond that band at L6 and L14 (2026-10-16) | 90% |
+| The shares add up | each layer's output is its input plus attention's output plus the experts' output, nothing scaled (read); in all seven captures of the study the parts sum to one within 0.0001, and the stored values' rounding could shift a split by at most 5.4% (2026-10-16) | 95% |
+| A share's place against random splits says who wrote a lens's designed split | attention's share up to each target: along a second direction, 71 of the 156 marked targets are marked too, on the same side, 67 of them in the tank sentences (2026-10-16) | 60% |
+| A share's place against random splits says who wrote a node split | attention's share at the parting layer: along the second direction, 26 of the 197 marked branches are marked too; counting the node card's five shares, 74 of the 487 branches with a mark (2026-10-16); hence L33 | 40% |
 
 ### Waiting for Andrew: the two documents (10f) {#phase-documents}
 

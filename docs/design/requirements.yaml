@@ -1620,6 +1620,19 @@ requirements:
   source: Part M (M1), in DESIGN.md's appendix
   from: []
   section: design.md#lenses
+- id: LENS-47
+  text: >-
+    How the node card reads who wrote a split (Claude's proposal, for Andrew's answer: L33): the
+    shares are measured along the line between the two groups' mean states (the axis a mass-mean
+    lens uses), each beside the same share for random splits of the same items, and a share is
+    marked only where a second direction, the shrinkage discriminant, also puts it outside its
+    random range, on the same side.
+  status: proposed
+  built: no
+  dates: [2026-10-16]
+  source: Claude
+  from: []
+  section: design.md#lenses
 # ---- TIME: reading over time ----
 - id: TIME-1
   text: >-

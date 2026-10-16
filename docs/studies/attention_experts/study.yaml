@@ -1,0 +1,114 @@
+# Who writes each split, attention or the experts (LENS-30's first part): a study on stored captures,
+# moved ahead in the order of work while the machine is shared (ORDER-20). It needs no model: every
+# capture stores each layer's output and the experts' output at the read token. Its findings note is
+# the record of the runs; each ledger line stays proposed until it is reviewed (DESIGN.md H). Which
+# direction the node card measures along waits for Andrew (L33).
+id: attention_experts
+title: Who writes each split, attention or the experts
+question: >
+  When a lens's classes or nodes part, which part of the model writes the difference into the read
+  token's state: attention, which brings in the other tokens, or the experts, which transform the
+  token itself, and at which layers? Each layer adds both, unscaled, so the difference between two
+  groups' mean states divides exactly into the embedding's, attention's and the experts' parts,
+  layer by layer. The experts write the larger updates everywhere, so every share is read against
+  the same share for random splits of the same items.
+status: active
+started: 2026-10-16
+sets:
+  - tank_polysemy_v3
+  - tank_q1_calibration_v1
+  - threatened_framing_v1_carrier
+  - bus_stop_friend_foe_v2
+  - nouns_meaning_feeling_v1
+  - animals_ontology_v1
+  - objects_harm_v1
+captures:
+  - session_1434a9be
+  - session_29a80932
+  - session_673360a5
+  - session_b629b6c5
+  - session_8f536bea
+  - session_5cd7091d
+  - session_2be574c4
+lenses:
+  - session_1434a9be/tank-k5-n15@v1
+  - session_29a80932/calibration-q1-k2-n15@v1
+  - session_673360a5/framing-k4-auto-levels@v1
+  - session_b629b6c5/friend-foe-t1@v1
+  - session_8f536bea/words-k8-n15-tuned@v1
+  - session_5cd7091d/onto-k8-n15@v1
+  - session_2be574c4/objects-k3-n15-tuned@v1
+findings:
+  - docs/research/attention_and_experts.md
+ledger:
+  - idea: >
+      The experts write most of any split in the read token's state, but they also write most of
+      random splits of the same items, so their share alone says little.
+    experiment: >
+      The account in seven captures (sentences, agent runs and single words), for every designed
+      split at every layer, beside the same shares for 200 random splits of the same items drawn at
+      the split's grain.
+    finding: >
+      From L4 to L20 the experts write 0.56 to 1.10 of the designed splits' separations, and random
+      splits give them a median of 0.45 to 0.96, depending on the capture. The parts add up within
+      0.0001; fp16 rounding moves a separation by at most 5.4%.
+    status: proposed
+    evidence: [docs/research/attention_and_experts.md]
+  - idea: >
+      In sentences, attention writes less of a word's sense splits than of random differences
+      between the same sentences, so the experts write more of them.
+    experiment: >
+      Attention's share of the tank's seven sense splits against its random band from L4 to L20,
+      along the mean difference and along the shrinkage discriminant; the same for the calibration
+      scenes, the framing set and friend/foe.
+    finding: >
+      In the tank sentences attention's share is below its band at 104 of 119 targets along the
+      mean difference and at 74 along the discriminant, at 67 in both, and above it at none. In the
+      calibration scenes, the framing set and friend/foe it is below its band at 9, 5 and 4 of 17
+      layers along the mean difference, and at none along the discriminant.
+    status: proposed
+    evidence: [docs/research/attention_and_experts.md]
+  - idea: >
+      In single words, the word's own embedding row writes the early split and the experts the
+      rest, while attention writes about what it writes for random splits.
+    experiment: The same account for the single nouns, the animal names and the object names.
+    finding: >
+      The embedding row's share of the three main splits falls from 0.63 to 0.87 at L0 to 0.11 to
+      0.28 at L4 and at most 0.034 at L12. Along the mean difference attention falls outside its band
+      at about the rate chance gives (17 of 136, 17 of 119 and 0 of 68 targets from L4 to L20);
+      other invertebrates (11 layers below) and places (6 above) are the clearest exceptions. Along
+      the discriminant it is outside at 6 of the 323 targets.
+    status: proposed
+    evidence: [docs/research/attention_and_experts.md]
+  - idea: >
+      The shares, and how they compare with random splits, don't depend on the direction a split is
+      measured along.
+    experiment: >
+      Every designed split at every layer measured along its shrinkage discriminant as well, with
+      each random split measured along its own discriminant in the same metric.
+    finding: >
+      The absolute shares do in the sets with context: attention's share is larger along the
+      discriminant by a median of 0.128 (up to 0.554), against -0.004 in single words. Its place
+      against random splits partly does: of the 156 targets the mean difference puts outside their
+      band (attention's share up to the target), 71 are outside along the discriminant too (67 of
+      them in the tank sentences), and none on the other side.
+    status: proposed
+    evidence: [docs/research/attention_and_experts.md]
+  - idea: >
+      For each node split, attention's share at the layer where its branches part, read against
+      random splits of the node's items, says whether attention or the experts wrote that split.
+    experiment: >
+      Every branch of every split point of the seven lenses, at the layer where it parts: attention's
+      share there against 200 random splits of the node's items, along the mean difference and along
+      the shrinkage discriminant.
+    finding: >
+      Along the mean difference attention's share is outside its band at 197 of 662 branches (127 of
+      307 split points); along the discriminant, whose random bands are a median 1.05 to 1.96 times
+      as wide, at 42 (28); in both, on the same side, at 26 (17), and never on opposite sides: 13% of
+      the marks hold, against 39% for the designed splits on the same share at each target layer.
+      Counting all five shares the node card shows, at least one is marked at 487 branches, and one
+      holds at 74. In the calibration scenes 5 of 14 split
+      points have attention writing less than random splits in both directions; in the single nouns
+      9 of 70 have it writing more.
+    status: proposed
+    evidence: [docs/research/attention_and_experts.md]

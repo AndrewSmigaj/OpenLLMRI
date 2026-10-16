@@ -114,6 +114,52 @@ change between rooms. The section [The rooms](design.md#rooms) describes each on
 - ( ) Change some rooms (say which in the note)
 - ( ) Other
 
+### L33. How the node card reads who wrote a split [Open]
+
+Each layer adds two things to a token's state: attention's output, which moves information between
+positions, and the experts' output. Measured along a line through two groups' mean states, the gap
+between them divides exactly into what attention added, what the experts added and the embedding of
+the token the lens reads: three shares that add up to 1. The node card is to show these shares for
+each split between nodes [LENS-30]. A split point is a node whose items go to different nodes at
+the next layer; each part holding at least 15% of the node's items (and at least 5) is a branch,
+read against the node's other items. Claude measured the shares first in a study on seven stored
+captures (`docs/research/attention_and_experts.md`); the node card is built and waits for this
+answer [LENS-47]. The study found:
+- **The experts write most of almost every gap, random ones included.** Random splits (the same
+  items shuffled into groups of the same sizes) give the experts a similar share: about half in
+  friend/foe, more in the six other captures. So the card shows each share beside its random
+  range, the random splits' 5th to 95th percentile, and marks a share that lies outside it.
+- **Which line the gap is measured along matters.** The card measures along the line between the
+  two groups' mean states, the axis a mass-mean lens uses. Along a second direction, the
+  discriminant, which gives more weight to directions in which each group's items vary little,
+  attention's share in sentences and agent runs is larger by 0.13 at the median and by up to 0.55
+  (out of 1).
+- **Most of the card's marks don't hold along the second direction.** A mark holds when the second
+  direction also puts the share outside its random range, on the same side. In the study, the card
+  as built would mark at least one of a branch's five shares at 487 of the 662 node-split branches,
+  and a mark would hold at 74. The lens's designed classes do better: for attention's share up to
+  each layer, 71 of 156 marks hold, 67 of them in the tank sentences. The shares these counts use
+  never lie on opposite sides of their range in the two directions; among all the shares of all
+  the splits, 4 do.
+
+What each answer means:
+- **Both directions:** the numbers stay the mean-state ones, and a share is marked only where both
+  directions put it outside its random range on the same side: in the study, 74 of the 662 branches
+  would carry a mark. An unmarked share is inside its random range along at least one direction,
+  and the card claims nothing about it. The second direction adds about 1.5 s a branch (the tank
+  lens's 70 branches: two to three minutes instead of under one).
+- **As built:** the mean-state line alone: 487 of the 662 branches marked, 413 of them with no mark
+  the second direction confirms, and a note added that the marks depend on the direction.
+- **Not on the node card for now:** the study's findings stand, and the shares stay a study tool.
+
+The study drew 200 random splits for each split and the card draws 100, so the card's counts would
+differ a little.
+
+- ( ) Both directions: mark a share only where both put it outside its random range on the same side (recommended)
+- ( ) As built: the mean-state line alone
+- ( ) Not on the node card for now
+- ( ) Other
+
 ### L25. Anything else [Open]
 
 Always the last question: anything you want Claude to know, change or look at [DOC-18].
@@ -316,7 +362,9 @@ app: they need no model, and Andrew is using the machine for other work [ORDER-2
 - a check that surface features (length, first word) don't explain the node [LENS-32];
 - for each split between nodes, the share that comes from attention and the share from the
   experts, and the other token positions that carry the same signal [LENS-30]. Andrew moved the
-  shares ahead [ORDER-20]; Claude's plan measures them first in a study on the stored captures.
+  shares ahead [ORDER-20]. Claude's study on the stored captures
+  (`docs/research/attention_and_experts.md`) found that they depend on the direction a split is
+  measured along, so how the node card reads them waits for Andrew's answer to L33 [LENS-47].
   The other positions wait for the extra token positions that slice 2 records (Claude's placement)
   [DATA-7];
 - the lens's expert fingerprints [LENS-34];
@@ -1119,7 +1167,8 @@ What the design replaced, and with what:
   checked by three independent audits and two readability reviews before Andrew's first read, and
   their fixes applied.
 - **2026-10-16:** the four method changes and the attention-and-experts shares moved ahead in the
-  order of work.
+  order of work; the attention-and-experts study done, and how the node card reads its shares put
+  to Andrew (L33).
 
 ## Decision log {#decision-log}
 
