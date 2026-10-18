@@ -312,7 +312,7 @@ clothing split, and attention's share at L9 itself in the animals' danger split.
 
 - **Direct writers only.** The experts read the state after attention has added to it, so a split
   the experts write can still depend on what attention brought in. The account can't say what
-  caused a split; steering or patching would.
+  caused a split; steering or ablation would.
 - **One read token.** Attention's part is what it moved into that token's state from every position
   it reads, the token itself included. In a one-word prompt the items differ only in the word, so
   there attention's part comes from the word's own token, or from its earlier pieces when it

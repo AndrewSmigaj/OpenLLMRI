@@ -1627,9 +1627,25 @@ requirements:
     lens uses), each beside the same share for random splits of the same items, and a share is
     marked only where a second direction, the shrinkage discriminant, also puts it outside its
     random range, on the same side.
-  status: proposed
+  status: retired
   built: no
   dates: [2026-10-16]
+  source: Claude
+  from: []
+  section: design.md#retired
+  replaced_by: [LENS-48]
+- id: LENS-48
+  text: >-
+    Who writes each split stays off the node card for now (Claude's revised proposal, 2026-10-18,
+    for Andrew's answer: L33): the attention-and-experts study and its findings stand; the
+    node-card code built for it goes to a branch rather than into main; the question returns with
+    the extra token positions of slice 2 and with the interventions of slice 8. Reasons: most
+    node-split readings change with the direction measured along; along the second direction they
+    are flagged no more often than chance; and random splits are not a like-for-like comparison for
+    splits the clustering picks.
+  status: proposed
+  built: no
+  dates: [2026-10-18]
   source: Claude
   from: []
   section: design.md#lenses
@@ -2940,6 +2956,66 @@ requirements:
   source: message, in DESIGN.md's appendix
   from: []
   section: design.md#mud
+- id: MUD-23
+  text: >-
+    Users and guests are greeted by an AI when they arrive at the institute.
+  status: decided
+  built: no
+  dates: [2026-10-18]
+  source: L30
+  from: []
+  section: design.md#rooms
+- id: MUD-24
+  text: >-
+    Most visitors come to play Winter Survival in a simulation room, so the institute has public
+    simulation rooms (Andrew suggested three), and every lab has its own simulation room.
+  status: decided
+  built: no
+  dates: [2026-10-18]
+  source: L30
+  from: []
+  section: design.md#rooms
+- id: MUD-25
+  text: >-
+    The institute has four departments, which Andrew also calls labs: linguistics, general
+    mechanistic interpretability, alignment, and discordant studies. Each has its AI scientists, a
+    description of the place, its simulation room, boards, and whatever else suits it.
+  status: decided
+  built: no
+  dates: [2026-10-18]
+  source: L30
+  from: []
+  section: design.md#rooms
+- id: MUD-26
+  text: >-
+    A lounge to spend time in.
+  status: decided
+  built: no
+  dates: [2026-10-18]
+  source: L30
+  from: []
+  section: design.md#rooms
+- id: MUD-27
+  text: >-
+    A meeting room where different AIs discuss things, among them adding something to what Andrew
+    called the OSS model (gpt-oss-20b itself, or the project's account of it: L34.3), and other
+    matters too.
+  status: decided
+  built: no
+  dates: [2026-10-18]
+  source: L30
+  from: []
+  section: design.md#rooms
+- id: MUD-28
+  text: >-
+    In the long run, the AI scientists design the institute themselves, around what the research
+    shows it needs to be organized around to study gpt-oss-20b.
+  status: decided
+  built: no
+  dates: [2026-10-18]
+  source: L30
+  from: []
+  section: design.md#rooms
 
 # ---- DATA: data and records ----
 - id: DATA-1
@@ -3710,23 +3786,27 @@ requirements:
 # ---- ROOM: the new app's rooms (Claude's proposal, for Andrew's yes: L30) ----
 - id: ROOM-1
   text: >-
-    The app's rooms: the hub, with the map; the observatory; the lens workshop; the library; the
-    polysemy lab; the simulator; and the studies room. The MUD workspace (APP-7) is shared out:
-    designing scenarios goes to the builder in the library, and keeping the MUD running to the
-    simulator. Later rooms: the atlas, ideas, and the AI scientists' and researchers' rooms.
+    The app's rooms, revised for Andrew's layout of the institute (MUD-23 to MUD-28): the entrance
+    hall, with the map; the public simulation rooms; a room for each department, with its lab, its
+    simulation room and its boards; the observatory, the lens workshop, the library and the studies
+    room, shared by every department; the lounge; and the meeting room. The MUD workspace (APP-7)
+    is shared out: designing scenarios goes to the builder in the library, and keeping the MUD
+    running to the simulation rooms. Later rooms: the atlas, ideas (in the department of
+    discordant studies) and researchers' rooms.
   status: proposed
   built: no
-  dates: [2026-10-11]
+  dates: [2026-10-11, 2026-10-18]
   source: Claude
   from: []
   section: design.md#rooms
 - id: ROOM-2
   text: >-
-    The hub is where the app opens: the map of the institute, every room a place to click, each
-    showing what is new in it (captures, lenses, jobs running, studies), and the quick-jump box.
+    The entrance hall (today's hub) is where the app opens and everyone arrives: the greeter (with
+    the AI scientists), the map of the institute, every room a place to click, each showing what is
+    new in it (captures, lenses, jobs running, studies), and the quick-jump box.
   status: proposed
   built: no
-  dates: [2026-10-11]
+  dates: [2026-10-11, 2026-10-18]
   source: Claude
   from: []
   section: design.md#rooms
@@ -3766,32 +3846,34 @@ requirements:
   section: design.md#rooms
 - id: ROOM-6
   text: >-
-    The polysemy lab is the observatory set up for its lens: opened on entry, its capture locked,
-    read-only for visitors, with the lab's `lens` commands in the MUD.
+    The polysemy lab, a room of the linguistics department, is the observatory set up for its lens:
+    opened on entry, its capture locked, read-only for visitors, with the lab's `lens` commands in
+    the MUD.
   status: proposed
   built: no
-  dates: [2026-10-11]
+  dates: [2026-10-11, 2026-10-18]
   source: Claude
   from: []
   section: design.md#rooms
 - id: ROOM-7
   text: >-
-    The simulator is where agents play: the scenario library's sets and scenarios, the agent runs
-    captured so far, and the MUD terminal open, where `simulate` and `agent run` start things.
-    Watch arrives here with slice 4.
+    The simulation rooms (the public ones and each department's) are where people and agents
+    play: the scenario library's sets and scenarios, the agent runs captured so far, and the MUD
+    terminal open, where `simulate` and `agent run` start things. Watch arrives here with slice 4.
   status: proposed
   built: no
-  dates: [2026-10-11]
+  dates: [2026-10-11, 2026-10-18]
   source: Claude
   from: []
   section: design.md#rooms
 - id: ROOM-8
   text: >-
     The studies room is the studies area (STUDY-2, STUDY-3): every study with its question, sets,
-    captures, lenses, findings and ledger. Claude proposes adding each study's status and showcase.
+    captures, lenses, findings and ledger. Claude proposes adding each study's status, its showcase
+    and the department that holds it.
   status: proposed
   built: no
-  dates: [2026-10-11]
+  dates: [2026-10-11, 2026-10-18]
   source: Claude
   from: []
   section: design.md#rooms
@@ -3799,10 +3881,10 @@ requirements:
   text: >-
     Every app room has a room of the same name in the MUD's institute, so walking there in the MUD
     opens it in the app, and choosing it in the app moves your character there; with the MUD
-    closed, the map and the quick-jump box move you.
+    closed, the map and the quick-jump box move you. The lounge is in the MUD alone.
   status: proposed
   built: no
-  dates: [2026-10-11]
+  dates: [2026-10-11, 2026-10-18]
   source: Claude
   from: []
   section: design.md#rooms
@@ -3854,6 +3936,55 @@ requirements:
   status: proposed
   built: no
   dates: [2026-10-11]
+  source: Claude
+  from: []
+  section: design.md#rooms
+- id: ROOM-15
+  text: >-
+    A department (which is also a lab) opens the shared rooms (the observatory, the lens workshop,
+    the library, the studies room) with its own studies loaded, as the polysemy lab does now, and
+    has its own simulation room, its boards (its studies, open questions, findings proposed, recent
+    results) and its AI scientists from slice 11 (L34.1).
+  status: proposed
+  built: no
+  dates: [2026-10-18]
+  source: Claude
+  from: []
+  section: design.md#rooms
+- id: ROOM-16
+  text: >-
+    The institute's layout is data: one file lists its departments and rooms and the MUD builds the
+    institute from it, as the lab presets are today, so a department or a room can be added,
+    renamed or moved without changing code (what MUD-28 needs); each study names its department in
+    its study.yaml.
+  status: proposed
+  built: no
+  dates: [2026-10-18]
+  source: Claude
+  from: []
+  section: design.md#rooms
+- id: ROOM-17
+  text: >-
+    Which department holds each study (L34.2): linguistics the single words, animals, the animal
+    ontology, the read site and the polysemy lab; general mechanistic interpretability the lens
+    core, who writes each split and the context-shift paper; alignment objects and the harm axis,
+    the suicide letter, and friend/foe with people assessment; discordant studies the Ideas
+    workspace and its idea-tracking engine.
+  status: proposed
+  built: no
+  dates: [2026-10-18]
+  source: Claude
+  from: []
+  section: design.md#rooms
+- id: ROOM-18
+  text: >-
+    The layout is built in stages (L34.4): the layout file, the map and every room's place in the
+    MUD (its description, its exits, a department's board listing its studies) with the new app's
+    rooms; the greeter, the AI scientists and the meetings with slice 11; public play in Winter
+    Survival, one world per public room, with the Winter Survival pilot and hosting (MUD-20).
+  status: proposed
+  built: no
+  dates: [2026-10-18]
   source: Claude
   from: []
   section: design.md#rooms

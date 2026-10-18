@@ -101,63 +101,172 @@ of AI scientists a start [GOAL-15].
 
 The open questions, as cards. The answered ones are in the decision log at the end.
 
-### L30. The new app's rooms [Open]
+### L33. Who adds each split: show it on the node card? [Open]
 
-The app is rebuilt as rooms you move between, each with its own colours and tools, reached from a
-map or a quick-jump box, and moving with the MUD when it is open (decided, L20). Claude proposes
-seven rooms: the hub with the map, the observatory (today's Layers), the lens workshop (today's
-Build), the library, the polysemy lab, the simulator and the studies room. It also proposes how
-they work, including a room of the same name in the MUD for each, and data colours that never
-change between rooms. The section [The rooms](design.md#rooms) describes each one.
+*Rewritten on 2026-10-18, after Andrew's questions about attention and about what this is for.*
 
-- ( ) Build these rooms (recommended)
-- ( ) Change some rooms (say which in the note)
-- ( ) Other
+**Attention in this model.** Attention works here as in any transformer; only the other step is a
+mixture of experts. Each of gpt-oss-20b's 24 layers does two steps in turn and adds each step's
+output to the token's state (its vector at that layer):
+- **attention:** 64 parallel readers (heads), with one set of weights for every token, look back
+  over the text and bring what they find into this token; every second layer looks back only over
+  the last 128 tokens. It is the only step in which a token takes in anything from other tokens,
+  and it also reads the token itself;
+- **the experts:** a router picks 4 of the 32 experts for this token, and their weighted outputs
+  are added. They work on this token's state alone. In an ordinary transformer, this step is one
+  feed-forward block.
 
-### L33. How the node card reads who wrote a split [Open]
+This was checked in the model's code and in what the capture stores.
 
-Each layer adds two things to a token's state: attention's output, which moves information between
-positions, and the experts' output. Measured along a line through two groups' mean states, the gap
-between them divides exactly into what attention added, what the experts added and the embedding of
-the token the lens reads: three shares that add up to 1. The node card is to show these shares for
-each split between nodes [LENS-30]. A split point is a node whose items go to different nodes at
-the next layer; each part holding at least 15% of the node's items (and at least 5) is a branch,
-read against the node's other items. Claude measured the shares first in a study on seven stored
-captures (`docs/research/attention_and_experts.md`); the node card is built and waits for this
-answer [LENS-47]. The study found:
-- **The experts write most of almost every gap, random ones included.** Random splits (the same
-  items shuffled into groups of the same sizes) give the experts a similar share: about half in
-  friend/foe, more in the six other captures. So the card shows each share beside its random
-  range, the random splits' 5th to 95th percentile, and marks a share that lies outside it.
-- **Which line the gap is measured along matters.** The card measures along the line between the
-  two groups' mean states, the axis a mass-mean lens uses. Along a second direction, the
-  discriminant, which gives more weight to directions in which each group's items vary little,
-  attention's share in sentences and agent runs is larger by 0.13 at the median and by up to 0.55
-  (out of 1).
-- **Most of the card's marks don't hold along the second direction.** A mark holds when the second
-  direction also puts the share outside its random range, on the same side. In the study, the card
-  as built would mark at least one of a branch's five shares at 487 of the 662 node-split branches,
-  and a mark would hold at 74. The lens's designed classes do better: for attention's share up to
-  each layer, 71 of 156 marks hold, 67 of them in the tank sentences. The shares these counts use
-  never lie on opposite sides of their range in the two directions; among all the shares of all
-  the splits, 4 do.
+**What it is for.** A lens shows at which layer two groups of items come apart: "tank" in fish-tank
+sentences and in army sentences, say. The difference between the two groups' average states at
+that layer is exactly the sum of what each layer's attention step and experts step added (plus,
+when the items are different words, the words' own starting vectors). This
+measurement splits the difference into those parts, so it says how much of it the experts added
+and how much attention added. It matters because the expert views (routing, pipelines, the
+experts involved) are read as explaining a split, and they explain it most directly where the
+experts themselves add the difference. It is one of the gaps Claude named on 2026-10-06, when
+Andrew asked whether watching where groups split is enough to locate the model's decisions
+[LENS-30].
+
+**Terms.** A **split** is a cut of items into two groups: a lens's classes, or a node's items that
+go on to the same node at the next layer, against the node's other items. Its **difference** is the
+gap between the two groups' average states. A **direction** is the line the difference is measured
+along. The study used two: the line between the two averages (the node card's), and the
+discriminant, which gives more weight to directions in which each group's items vary little. A
+share is **flagged** when it falls outside the range that random groups give: the same items
+shuffled into groups of the same sizes, 5th to 95th percentile.
+
+**What the study found** (`docs/research/attention_and_experts.md`, seven captures):
+- **The experts add most of the difference, even between random groups.** In six of the seven
+  captures, the experts' part varies more from item to item than attention's, so the experts add
+  most of any difference, random ones included; in friend/foe the two vary about as much, and the
+  experts add about half. A share says nothing until it is compared with random groups of the same
+  items.
+- **One result holds against random groups.** In the tank sentences, the experts add more of the
+  difference between the senses than of a random difference, along both directions, at 67 of the
+  119 cases tested (a case is one split at one layer, layers 4 to 20). "Tank" is the same word in
+  every sentence, so what differs between the senses can only come from the surrounding words and
+  the word's position in the sentence, which only attention brings in; the experts then add more
+  of the difference than random groups would give them.
+- **Elsewhere, few cases hold in both directions.** No other sentence set or agent run's classes
+  differ from random groups in both directions, and among the single words, 4 of 323 cases do. In
+  one-word prompts, the rest of the prompt is the same for every word, so attention's part comes
+  from the word itself, and attention adds about what it adds for random groups.
+- **For the node card, the result depends on the direction.** The node card is the panel that
+  describes one node of a lens; for each node split it would show five shares (the starting
+  vector's, and attention's and the experts' at the layer where the groups part and up to it). Of
+  the 662 node splits in the study, 487 would have at least one share flagged along the line
+  between the averages, and 74 along both directions; for attention's share at the parting layer
+  alone, 197 and 26. Along the discriminant alone, attention's share is flagged at 6% of node
+  splits, fewer than the 10% that chance gives. Node splits are also picked by the clustering from
+  the states themselves, and random groups are not, so the random range is not a like-for-like
+  comparison for them (a limit the study lists; how much it matters was not measured).
+
+**What it can't say.** It says which step added the difference to the token's state, not which
+caused it: the experts read what attention has already brought in. Finding which words of the text
+carry a split first needs the capture to keep more token positions (slice 2, capture and jobs).
+Finding what causes a split needs experiments that change the model's activity and see what
+follows (steering or ablation, slice 8).
+
+**Claude's recommendation: keep it off the node card for now** [LENS-48]. On 2026-10-16 Claude
+recommended flagging a share where both directions agree. On review: most node-split results change
+with the direction; along the second direction they are flagged no more often than chance; and the
+random range is not a like-for-like comparison for splits the clustering picks. So a flag on the
+card would mean little. The study and its findings stay. The node-card code, built and held, would
+go on a separate git branch, out of the main code. The question comes back with more token
+positions (slice 2) and with interventions (slice 8), which can show what causes a split.
 
 What each answer means:
-- **Both directions:** the numbers stay the mean-state ones, and a share is marked only where both
-  directions put it outside its random range on the same side: in the study, 74 of the 662 branches
-  would carry a mark. An unmarked share is inside its random range along at least one direction,
-  and the card claims nothing about it. The second direction adds about 1.5 s a branch (the tank
-  lens's 70 branches: two to three minutes instead of under one).
-- **As built:** the mean-state line alone: 487 of the 662 branches marked, 413 of them with no mark
-  the second direction confirms, and a note added that the marks depend on the direction.
-- **Not on the node card for now:** the study's findings stand, and the shares stay a study tool.
+- **Not on the node card for now:** the node card stays as it is; the first part of LENS-30 stays
+  a study.
+- **Both directions:** a share is flagged only when both directions put it outside the random
+  groups' range on the same side (higher, or lower): 74 of the 662 node splits in the study. The
+  tank lens's node details would take two to three minutes to work out instead of under one
+  (Claude's estimate: the card as built took 48.5 s for the tank lens's 70 node splits, and the
+  second direction cost about 1.5 s a split in the study's code).
+- **As built:** flags along the line between the averages alone: 487 of the 662 node splits
+  flagged, 413 of them not confirmed by the second direction. The tank lens's node details take
+  under a minute.
 
-The study drew 200 random splits for each split and the card draws 100, so the card's counts would
-differ a little.
+- ( ) Not on the node card for now: keep the study; the held code goes on a git branch, out of the main code (recommended)
+- ( ) Both directions: flag a share only when both directions put it outside the random range, on the same side
+- ( ) As built: flag along the line between the averages alone
+- ( ) Other
 
-- ( ) Both directions: mark a share only where both put it outside its random range on the same side (recommended)
-- ( ) As built: the mean-state line alone
-- ( ) Not on the node card for now
+### L34. The institute's layout [Open]
+
+Andrew's answer to L30 (2026-10-18) changes the rooms; what he set is recorded under
+[The rooms](design.md#rooms) [MUD-23 to MUD-28]. In short: an AI greets users and guests. Most
+visitors come to play Winter Survival in public simulation rooms. There are four departments
+(linguistics, general mechanistic interpretability, alignment, and discordant studies), which he
+also calls labs, each with its AI scientists, simulation room and boards. There is a lounge, and a
+meeting room where different AIs discuss things. In the long run, the AI scientists design the
+institute themselves.
+
+Claude's proposal for fitting the earlier rooms to this layout is in the same section:
+- the entrance hall replaces the hub;
+- the observatory, the lens workshop, the library and the studies room are shared by every
+  department;
+- the polysemy lab becomes a room of the linguistics department;
+- the simulator becomes the public simulation rooms, plus one for each department.
+
+Four questions follow; anything else about the layout goes in this box.
+
+#### L34.1. Where the tools sit [Open]
+
+The tools for reading and making lenses are the same in every department.
+
+- ( ) Shared: the observatory, the lens workshop, the library and the studies room serve every department, and a department opens them with its own studies already loaded, as the polysemy lab does now (recommended)
+- ( ) In each department: every department has its own copy of the tools
+- ( ) Other
+
+#### L34.2. Which department each study belongs to [Open]
+
+Claude's proposal; a study can move later. In the institute's first vision (`LLMud/VISION.md`, now
+superseded), a Department of Discordant Research brought discord into the research on purpose, by
+inverting assumptions and setting frames against each other; Claude assumes the department of
+discordant studies has the same role. It has no study yet, so Claude proposes that the Ideas
+workspace and its idea-tracking engine live there [APP-8, ROOM-17].
+
+| Department | Studies |
+|---|---|
+| linguistics | single words; animals; the animal ontology; the read site (where a single word is read); and the polysemy lab, with the tank lens from the lens core |
+| general mechanistic interpretability | the lens core (the instrument and its checks); the attention-and-experts study (L33); the context-shift paper |
+| alignment | objects and the harm axis; the suicide letter; friend/foe, with the people-assessment set planned after it |
+| discordant studies | the Ideas workspace |
+
+- ( ) As proposed (recommended)
+- ( ) Change some (say which in the note)
+- ( ) Other
+
+#### L34.3. What the meeting room adds to [Open]
+
+Andrew's answer counts an addition to the OSS model among the meeting room's topics. It could
+mean gpt-oss-20b itself, or the paradigm: the project's account of how the model works, made of
+accepted findings, where AI scientists propose findings, attack them and give evidence, several
+models vote, and a finding most of them agree on goes to Andrew [ATLAS-5]. Claude reads it as the
+paradigm. Tick both if both are meant.
+
+- [ ] The paradigm: findings proposed, debated and voted on (recommended)
+- [ ] Changes to gpt-oss-20b itself, such as a steering vector or a scaffold
+- [ ] Other
+
+#### L34.4. When the layout is built [Open]
+
+Two parts cost more than rooms do:
+- **the greeter:** Claude assumes it would be a Claude agent, as the AI scientists are [GOAL-7],
+  so every visitor's conversation would use the subscription;
+- **playing in public rooms** needs one Winter Survival world per room (today there is one shared
+  world, and separate copies were set aside for later), and guests who play rather than only
+  watch: today only researchers may load a scenario, and visitors only watch [MUD-14, ROOM-14].
+
+Claude proposes both for when the MUD is hosted for others, which is planned before anyone is
+invited [MUD-20], and the Winter Survival pilot [ROOM-18]. Slice 11 is the paradigm and the AI
+scientists, later in the order of work.
+
+- ( ) In stages: first the layout file, the map and every room in the MUD (description, exits, boards), with the new app's rooms; later the greeter, the AI scientists and the meetings with slice 11, and public play with hosting and the Winter Survival pilot (recommended)
+- ( ) All of it with slice 11
 - ( ) Other
 
 ### L25. Anything else [Open]
@@ -364,7 +473,8 @@ app: they need no model, and Andrew is using the machine for other work [ORDER-2
   experts, and the other token positions that carry the same signal [LENS-30]. Andrew moved the
   shares ahead [ORDER-20]. Claude's study on the stored captures
   (`docs/research/attention_and_experts.md`) found that they depend on the direction a split is
-  measured along, so how the node card reads them waits for Andrew's answer to L33 [LENS-47].
+  measured along; Claude now proposes keeping them off the node card for now, for Andrew's answer
+  to L33 [LENS-48].
   The other positions wait for the extra token positions that slice 2 records (Claude's placement)
   [DATA-7];
 - the lens's expert fingerprints [LENS-34];
@@ -469,26 +579,52 @@ shapes the rooms [ORDER-18].
 **Rooms are the app's places** [APP-4, MUD-4]: each room has its own colours and tools; a map and a
 quick-jump box reach any room at once; with the MUD open, moving in either one moves the other;
 and the app works with the MUD closed. Andrew likes moving between rooms as a way to get around
-the app [MUD-5]. Claude's proposal for the rooms, for Andrew's yes (L30) [ROOM-1]:
+the app [MUD-5].
+
+**The institute's layout** (Andrew's answer to L30, 2026-10-18):
+- **an AI greets** users and guests when they arrive [MUD-23];
+- **public simulation rooms:** most visitors come to play Winter Survival, so the institute has
+  public simulation rooms (Andrew suggested three), and every lab has its own [MUD-24];
+- **four departments,** which he also calls labs: linguistics, general mechanistic
+  interpretability, alignment, and discordant studies; each has its AI scientists, a description
+  of the place, its simulation room, its boards and whatever else suits it [MUD-25];
+- **a lounge** to spend time in [MUD-26];
+- **a meeting room** where different AIs discuss things, among them adding something to what
+  Andrew called the OSS model (gpt-oss-20b itself, or the paradigm: L34.3), and other matters too
+  [MUD-27];
+- **in the long run,** the AI scientists design the institute themselves, around what the research
+  finds the study of gpt-oss-20b needs [MUD-28].
+
+Claude's proposal for the rooms, revised for this layout; it waits for Andrew's answers to L34
+[ROOM-1]:
 
 | Room | What you do there | Today's part it holds |
 |---|---|---|
-| **the hub** | the map: every room to click, with what is new in each; the quick-jump box [ROOM-2] | new |
+| **the entrance hall** | where everyone arrives: the greeter (built with the AI scientists, slice 11), the map of the institute with what is new in each room, the quick-jump box [ROOM-2, MUD-23] | the hub |
+| **the public simulation rooms** | visitors play Winter Survival; researchers watch, or start agent runs; Watch from slice 4 [ROOM-7, MUD-24] | the MUD's simulator |
+| **a department** (four; each is also a lab) | opens the shared rooms with its own studies loaded; its own simulation room; its boards (its studies, open questions, findings proposed, recent results); its AI scientists from slice 11 [ROOM-15, MUD-25] | the polysemy lab joins linguistics |
 | **the observatory** | read a lens across its layers: the Sankeys, 3-D, members, the output table, pipelines and hubs, fingerprints, node details, the analysis panel [ROOM-3] | Layers |
 | **the lens workshop** | make and judge lenses: the form, preview, compare, validation, tuning, axes, mass-mean lenses; start node details [ROOM-4] | Build |
 | **the library** | the sentence sets with their guides and audits, the scenario sets, captures and saved lenses; the builder for sets and scenarios from slice 3 [ROOM-5] | new |
-| **the polysemy lab** | the observatory set up for its lens, opened on entry, its capture locked [ROOM-6] | the lab's preset |
-| **the simulator** | scenario sets, agent runs, the MUD terminal open, keeping the MUD running; Watch from slice 4 [ROOM-7] | the MUD's simulator |
-| **the studies room** | every study: question, sets, captures, lenses, findings, ledger, status, showcase [ROOM-8, STUDY-2] | new |
+| **the studies room** | every study: question, sets, captures, lenses, findings, ledger, status, showcase, and the department that holds it [ROOM-8, STUDY-2] | new |
+| **the lounge** | spend time and talk, with people and with the AIs; it has no tools, so the app stays where it is [MUD-26] | new |
+| **the meeting room** | the AIs' discussions, findings proposed to the paradigm among them; their agenda and record shown in the app from slice 11 [MUD-27] | new |
 
-The MUD workspace's two jobs are shared out: designing scenarios goes to the library's builder,
-and keeping the MUD running to the simulator [ROOM-1]. Later rooms: the atlas, ideas, and the AI
-scientists' and researchers' rooms [ROOM-1, MUD-12, MUD-13].
+The observatory, the lens workshop, the library and the studies room are shared by every department
+(L34.1). Which department holds each study is L34.2 [ROOM-17]; when each part is built is L34.4
+[ROOM-18]. The MUD workspace of the earlier design did two jobs, now split: designing scenarios
+moves to the library's builder, and keeping the MUD running to the simulation rooms [ROOM-1]. Later rooms: the atlas,
+ideas (in the department of discordant studies, L34.2), and researchers' rooms [ROOM-1, MUD-13].
+
+**The layout is data** (Claude's proposal): the institute is built from one file listing its
+departments and rooms, as the lab presets are today (`data/labs/`). A department or a room can then
+be added, renamed or moved without changing code; the AI scientists will need this to redesign the
+institute [ROOM-16, MUD-28]. Each study names its department in its `study.yaml`.
 
 **How rooms work** (Claude's proposal):
 - **one room in the MUD for each:** walking there in the MUD opens it in the app, and choosing it
-  in the app moves your character; with the MUD closed, the map and the quick-jump box move you
-  [ROOM-9];
+  in the app moves your character; with the MUD closed, the map and the quick-jump box move you;
+  the lounge is in the MUD alone [ROOM-9];
 - **the quick-jump box** takes a room's name or a MUD-style command: `go workshop`,
   `lens show tank-k5-n15`, `study animals` [ROOM-10];
 - **each room's look:** its own accent colour and header from one set of design tokens; the colours
@@ -773,9 +909,13 @@ scenarios; its first free-form world is Winter Survival [MUD-21]. The old protot
 once everything worked in the new one [MUD-22], and `simulate` shows what the agent sees when a
 scenario loads [MUD-22].
 
-**The institute's rooms:** the hub, where everyone starts; the polysemy lab, which opens its view on
-entry; the simulator, the scenario library's menu [MUD-11]; later the AI scientists' rooms [MUD-12]
-and researchers' rooms [MUD-13]. Claude proposes a room for each of the app's rooms too [ROOM-9].
+**The institute's rooms,** built today: the hub, where everyone starts; the polysemy lab, which
+opens its view on entry; the simulator, the scenario library's menu [MUD-11]. Andrew's layout of
+2026-10-18 adds a greeter, public simulation rooms, four departments with their AI scientists, a
+lounge and a meeting room [MUD-23 to MUD-28]; Claude reads the departments as the AI scientists'
+rooms decided earlier [MUD-12]. Researchers' rooms come later
+[MUD-13]. Each is described under [The rooms](design.md#rooms), and Claude proposes a room in the
+MUD for each of the app's rooms [ROOM-9].
 
 **What the MUD plays:** sentence sets; staged scenarios, multiple choice in stages with known
 labels at each stage; worlds, Winter Survival the first of many; mini-worlds, a starting situation
@@ -1060,6 +1200,9 @@ What the design replaced, and with what:
 - **Building the first four method changes with slice 2** (Claude's timing, 2026-10-11): replaced
   when Andrew moved them ahead, to be built while the machine is shared with other work
   [LENS-26, ORDER-20].
+- **Marking who wrote a split where both directions agree** (Claude's proposal, 2026-10-16):
+  replaced by Claude's revised proposal to keep the shares off the node card for now, for Andrew's
+  answer to L33 [LENS-47, LENS-48].
 
 ## Terms {#terms}
 
@@ -1169,6 +1312,9 @@ What the design replaced, and with what:
 - **2026-10-16:** the four method changes and the attention-and-experts shares moved ahead in the
   order of work; the attention-and-experts study done, and how the node card reads its shares put
   to Andrew (L33).
+- **2026-10-18:** Andrew's layout for the institute (L30) written in, with Claude's rooms revised
+  around it and four follow-up questions (L34); L33 rewritten after his questions about attention,
+  with Claude's recommendation changed.
 
 ## Decision log {#decision-log}
 
@@ -1261,3 +1407,7 @@ Every decision, by date, paraphrased. Each requirement holds its own date and so
 - **2026-10-16:**
   - while Andrew uses the machine for other work, the four method changes and the
     attention-and-experts shares move ahead in the order, since neither needs the model [ORDER-20].
+- **2026-10-18:** the institute's layout (L30): an AI greeting users and guests, public simulation
+  rooms and one in every lab, four departments (also called labs) with their AI scientists, a
+  lounge, a meeting room for different AIs, and in the long run an institute the AI scientists
+  design themselves [MUD-23 to MUD-28].

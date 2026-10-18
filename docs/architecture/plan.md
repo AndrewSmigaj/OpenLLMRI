@@ -18,10 +18,13 @@ built. What the software is for, and its requirements, are in
 work, two items move ahead: the four lens method changes, and the attention-and-experts shares (for
 each split between nodes, how much attention writes and how much the experts write). The backend
 starts without the model, so lens work runs in little memory [ARCH-13]. The four method changes are
-built; the lenses they affect are being run again, and the numbers they change will be corrected
-where they are cited. The study of the shares is done (`docs/research/attention_and_experts.md`):
-they depend on the direction a split is measured along, so the node card waits for Andrew's answer
-to L33 [LENS-47]. The steps are under [Work that needs no model](plan.md#phase-model-free).
+built. Most of the lenses they affect have been run again and the numbers they changed corrected;
+the last four re-scores stopped on 2026-10-16, when the backend was stopped for lack of memory,
+and resume when Andrew says the machine is free. The study of the shares is done
+(`docs/research/attention_and_experts.md`): they depend on the direction a split is measured
+along. On 2026-10-18 Andrew asked how attention fits an MoE model and what the shares are for; L33
+now answers both, and Claude recommends keeping the shares off the node card for now [LENS-48].
+The steps are under [Work that needs no model](plan.md#phase-model-free).
 
 **Waiting for Andrew: the two documents** [DOC-3, ORDER-5]. The requirements list, both documents,
 their pages and the checks before Andrew reads are done; his review, section by section, waits for
@@ -45,7 +48,8 @@ slice 2 (capture and jobs). Once approved, the new app can be built without the 
 2's capture work.
 
 **What needs Andrew:**
-- **L30,** the new app's rooms, and **L33,** how the node card reads who wrote a split: cards among
+- **L33,** who writes each split, rewritten with plain answers to his questions, and **L34,** the
+  institute's layout, four questions that follow from his answer to L30: cards among
   [the design's decisions](design.md#decisions-needed);
 - **L31,** the new app's plan, and **L32,** the superseded documents to delete, with a verdict for
   each: cards among [this document's decisions](plan.md#decisions-needed) [WAY-11];
@@ -66,6 +70,10 @@ The plan for the new app, room by room, is under [The new app](plan.md#the-new-a
 Claude's main choice: the rooms are built as new pages inside today's frontend, not as a separate
 app, so the chart code carries over with its tests. Approving the plan lets this work start,
 including the MUD changes, once you have reviewed the two documents [WAY-1].
+
+Andrew's answer to L30 (2026-10-18) changes the rooms: it adds a greeter, four departments, public
+simulation rooms, a lounge and a meeting room, and Claude proposes an entrance hall in place of the
+hub. Steps 1, 2, 6 and 7 are rewritten once L34 is answered; the other steps stand.
 
 - ( ) Approve the plan (recommended)
 - ( ) Change it (say what in the note)
@@ -282,9 +290,9 @@ of the same items, and step 7's condition.
 | 2 | Folds (the parts of a capture held out in turn) that hold out whole domains, with each class about as common in every fold as overall [LENS-24] | done |
 | 3 | Decoys drawn within each label value, and a stricter line at half the best κ (Cohen's kappa, agreement beyond chance) a linear probe reaches [LENS-23, LENS-22] | done |
 | 4 | The tuning's test portion drawn several times (draws), and the tuned lenses re-scored [LENS-21] | done |
-| 5 | The affected lenses' validation, axes analysis and tuning run again, and every changed number corrected where it is cited | **running** |
+| 5 | The affected lenses' validation, axes analysis and tuning run again, and every changed number corrected where it is cited | most done and corrected; four re-scores **stopped** until memory is free |
 | 6 | A study: the attention-and-experts shares, layer by layer, read against random splits of the same items (shuffled into groups of the same sizes) [LENS-30] | done |
-| 7 | If the study's checks hold: the shares in node details (shown on the node card), the split report card and the atlas [LENS-30] | built, waiting for L33 [LENS-47] |
+| 7 | If the study's checks hold: the shares in node details (shown on the node card), the split report card and the atlas [LENS-30] | built and held; Claude now recommends leaving it off the node card (L33) [LENS-48] |
 
 **Tests:**
 - every change is tested on planted data;
@@ -372,7 +380,8 @@ a place to move around, with the MUD when it is open [APP-2, APP-4, MUD-4, ORDER
   primitives [ARCH-11];
 - the MUD gains a room for each app room, and the app can move the player's character
   [ARCH-12, ROOM-9];
-- the rooms themselves are L30's proposal [ROOM-1 to ROOM-14].
+- the rooms themselves are Claude's proposal, revised for Andrew's layout of the institute
+  (L34) [ROOM-1 to ROOM-18, MUD-23 to MUD-28].
 
 | Step | What | Ends with |
 |---|---|---|
