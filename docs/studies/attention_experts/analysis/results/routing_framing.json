@@ -1,0 +1,1370 @@
+{
+ "capture": "framing",
+ "session": "session_673360a5",
+ "lens": "framing-k4-auto-levels",
+ "version": "v1",
+ "items": 400,
+ "min_node": 20,
+ "fdr": 0.05,
+ "layers": [
+  {
+   "layer": 0,
+   "match_four": 0.9975,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.5875,
+   "own_first_changed": 0.0,
+   "all_swapped_of_four": 2.4925,
+   "all_first_changed": 1.0,
+   "ami_first_label": 0.0,
+   "ami_first_label_without_own": 0.0,
+   "own_first_changed_by_label": {
+    "factual": 0.0,
+    "roleplay": 0.0
+   }
+  },
+  {
+   "layer": 1,
+   "match_four": 1.0,
+   "match_first": 0.9975,
+   "own_swapped_of_four": 0.01,
+   "own_first_changed": 0.28,
+   "all_swapped_of_four": 0.03,
+   "all_first_changed": 0.3025,
+   "ami_first_label": 0.1410023413456489,
+   "ami_first_label_without_own": 0.023934353736360308,
+   "own_first_changed_by_label": {
+    "factual": 0.39,
+    "roleplay": 0.17
+   }
+  },
+  {
+   "layer": 2,
+   "match_four": 1.0,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.08,
+   "own_first_changed": 0.25,
+   "all_swapped_of_four": 0.6775,
+   "all_first_changed": 0.26,
+   "ami_first_label": 0.12600548955504776,
+   "ami_first_label_without_own": 0.043600217530941246,
+   "own_first_changed_by_label": {
+    "factual": 0.4,
+    "roleplay": 0.1
+   }
+  },
+  {
+   "layer": 3,
+   "match_four": 1.0,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.2225,
+   "own_first_changed": 0.0,
+   "all_swapped_of_four": 0.23,
+   "all_first_changed": 0.0,
+   "ami_first_label": 0.0,
+   "ami_first_label_without_own": 0.0,
+   "own_first_changed_by_label": {
+    "factual": 0.0,
+    "roleplay": 0.0
+   }
+  },
+  {
+   "layer": 4,
+   "match_four": 0.995,
+   "match_first": 0.9975,
+   "own_swapped_of_four": 0.2325,
+   "own_first_changed": 0.18,
+   "all_swapped_of_four": 0.58,
+   "all_first_changed": 0.355,
+   "ami_first_label": 0.37857332081289097,
+   "ami_first_label_without_own": 0.19051781053811487,
+   "own_first_changed_by_label": {
+    "factual": 0.035,
+    "roleplay": 0.325
+   }
+  },
+  {
+   "layer": 5,
+   "match_four": 1.0,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.155,
+   "own_first_changed": 0.0,
+   "all_swapped_of_four": 0.5,
+   "all_first_changed": 0.0,
+   "ami_first_label": 0.0,
+   "ami_first_label_without_own": 0.0,
+   "own_first_changed_by_label": {
+    "factual": 0.0,
+    "roleplay": 0.0
+   }
+  },
+  {
+   "layer": 6,
+   "match_four": 1.0,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.25,
+   "own_first_changed": 0.08,
+   "all_swapped_of_four": 0.6,
+   "all_first_changed": 0.225,
+   "ami_first_label": 0.23519466399313405,
+   "ami_first_label_without_own": 0.253198772945106,
+   "own_first_changed_by_label": {
+    "factual": 0.085,
+    "roleplay": 0.075
+   }
+  },
+  {
+   "layer": 7,
+   "match_four": 1.0,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.045,
+   "own_first_changed": 0.125,
+   "all_swapped_of_four": 0.05,
+   "all_first_changed": 0.175,
+   "ami_first_label": 0.06486171725878385,
+   "ami_first_label_without_own": 0.057993028072345076,
+   "own_first_changed_by_label": {
+    "factual": 0.16,
+    "roleplay": 0.09
+   }
+  },
+  {
+   "layer": 8,
+   "match_four": 1.0,
+   "match_first": 0.9975,
+   "own_swapped_of_four": 0.1275,
+   "own_first_changed": 0.1375,
+   "all_swapped_of_four": 0.1575,
+   "all_first_changed": 0.3975,
+   "ami_first_label": 0.10532067347971226,
+   "ami_first_label_without_own": 0.03241746814704774,
+   "own_first_changed_by_label": {
+    "factual": 0.19,
+    "roleplay": 0.085
+   }
+  },
+  {
+   "layer": 9,
+   "match_four": 1.0,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.245,
+   "own_first_changed": 0.09,
+   "all_swapped_of_four": 0.25,
+   "all_first_changed": 0.09,
+   "ami_first_label": 0.01570608365989699,
+   "ami_first_label_without_own": -0.0014746657518761518,
+   "own_first_changed_by_label": {
+    "factual": 0.14,
+    "roleplay": 0.04
+   }
+  },
+  {
+   "layer": 10,
+   "match_four": 1.0,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.075,
+   "own_first_changed": 0.0275,
+   "all_swapped_of_four": 0.04,
+   "all_first_changed": 0.4825,
+   "ami_first_label": 0.05496740229906009,
+   "ami_first_label_without_own": 0.018749349356140036,
+   "own_first_changed_by_label": {
+    "factual": 0.0,
+    "roleplay": 0.055
+   }
+  },
+  {
+   "layer": 11,
+   "match_four": 0.995,
+   "match_first": 0.9975,
+   "own_swapped_of_four": 0.18,
+   "own_first_changed": 0.0775,
+   "all_swapped_of_four": 0.455,
+   "all_first_changed": 0.1275,
+   "ami_first_label": 0.07862051643275564,
+   "ami_first_label_without_own": 0.048928902619346674,
+   "own_first_changed_by_label": {
+    "factual": 0.11,
+    "roleplay": 0.045
+   }
+  },
+  {
+   "layer": 12,
+   "match_four": 1.0,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.0625,
+   "own_first_changed": 0.0325,
+   "all_swapped_of_four": 0.2425,
+   "all_first_changed": 0.185,
+   "ami_first_label": 0.3001880230617622,
+   "ami_first_label_without_own": 0.33588564607402366,
+   "own_first_changed_by_label": {
+    "factual": 0.055,
+    "roleplay": 0.01
+   }
+  },
+  {
+   "layer": 13,
+   "match_four": 0.9975,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.0825,
+   "own_first_changed": 0.02,
+   "all_swapped_of_four": 0.075,
+   "all_first_changed": 0.03,
+   "ami_first_label": 0.0988938894710561,
+   "ami_first_label_without_own": 0.08509408182477081,
+   "own_first_changed_by_label": {
+    "factual": 0.04,
+    "roleplay": 0.0
+   }
+  },
+  {
+   "layer": 14,
+   "match_four": 1.0,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.0175,
+   "own_first_changed": 0.0075,
+   "all_swapped_of_four": 0.225,
+   "all_first_changed": 0.035,
+   "ami_first_label": 0.03638275598677832,
+   "ami_first_label_without_own": 0.04043586824350923,
+   "own_first_changed_by_label": {
+    "factual": 0.015,
+    "roleplay": 0.0
+   }
+  },
+  {
+   "layer": 15,
+   "match_four": 0.9975,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.11,
+   "own_first_changed": 0.0,
+   "all_swapped_of_four": 0.355,
+   "all_first_changed": 0.0,
+   "ami_first_label": 0.0,
+   "ami_first_label_without_own": 0.0,
+   "own_first_changed_by_label": {
+    "factual": 0.0,
+    "roleplay": 0.0
+   }
+  },
+  {
+   "layer": 16,
+   "match_four": 0.9975,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.1475,
+   "own_first_changed": 0.0,
+   "all_swapped_of_four": 0.3975,
+   "all_first_changed": 0.0,
+   "ami_first_label": 0.0,
+   "ami_first_label_without_own": 0.0,
+   "own_first_changed_by_label": {
+    "factual": 0.0,
+    "roleplay": 0.0
+   }
+  },
+  {
+   "layer": 17,
+   "match_four": 1.0,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.0125,
+   "own_first_changed": 0.0,
+   "all_swapped_of_four": 0.02,
+   "all_first_changed": 0.01,
+   "ami_first_label": 0.0,
+   "ami_first_label_without_own": 0.0,
+   "own_first_changed_by_label": {
+    "factual": 0.0,
+    "roleplay": 0.0
+   }
+  },
+  {
+   "layer": 18,
+   "match_four": 1.0,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.0,
+   "own_first_changed": 0.0,
+   "all_swapped_of_four": 0.0,
+   "all_first_changed": 0.0,
+   "ami_first_label": 0.0,
+   "ami_first_label_without_own": 0.0,
+   "own_first_changed_by_label": {
+    "factual": 0.0,
+    "roleplay": 0.0
+   }
+  },
+  {
+   "layer": 19,
+   "match_four": 0.9975,
+   "match_first": 0.995,
+   "own_swapped_of_four": 0.0125,
+   "own_first_changed": 0.065,
+   "all_swapped_of_four": 0.015,
+   "all_first_changed": 0.1,
+   "ami_first_label": 0.16893006482967052,
+   "ami_first_label_without_own": 0.1224536144723767,
+   "own_first_changed_by_label": {
+    "factual": 0.055,
+    "roleplay": 0.075
+   }
+  },
+  {
+   "layer": 20,
+   "match_four": 0.995,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.03,
+   "own_first_changed": 0.0,
+   "all_swapped_of_four": 0.1675,
+   "all_first_changed": 0.0,
+   "ami_first_label": 0.0,
+   "ami_first_label_without_own": 0.0,
+   "own_first_changed_by_label": {
+    "factual": 0.0,
+    "roleplay": 0.0
+   }
+  },
+  {
+   "layer": 21,
+   "match_four": 1.0,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.1,
+   "own_first_changed": 0.0,
+   "all_swapped_of_four": 0.28,
+   "all_first_changed": 0.0,
+   "ami_first_label": 0.0,
+   "ami_first_label_without_own": 0.0,
+   "own_first_changed_by_label": {
+    "factual": 0.0,
+    "roleplay": 0.0
+   }
+  },
+  {
+   "layer": 22,
+   "match_four": 0.9975,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.07,
+   "own_first_changed": 0.0,
+   "all_swapped_of_four": 0.15,
+   "all_first_changed": 0.0,
+   "ami_first_label": 0.0,
+   "ami_first_label_without_own": 0.0,
+   "own_first_changed_by_label": {
+    "factual": 0.0,
+    "roleplay": 0.0
+   }
+  },
+  {
+   "layer": 23,
+   "match_four": 0.9975,
+   "match_first": 0.9975,
+   "own_swapped_of_four": 0.0225,
+   "own_first_changed": 0.06,
+   "all_swapped_of_four": 0.365,
+   "all_first_changed": 0.1,
+   "ami_first_label": 0.08700501830784463,
+   "ami_first_label_without_own": 0.02692083736378258,
+   "own_first_changed_by_label": {
+    "factual": 0.02,
+    "roleplay": 0.1
+   }
+  }
+ ],
+ "nodes": [
+  {
+   "layer": 0,
+   "expert": 9,
+   "items": 400,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.0,
+   "labels": {
+    "factual": 200,
+    "roleplay": 200
+   },
+   "brought_labels": {
+    "factual": 0,
+    "roleplay": 0
+   }
+  },
+  {
+   "layer": 1,
+   "expert": 0,
+   "items": 121,
+   "brought": 89,
+   "pushed_out": 23,
+   "share": 0.7355371900826446,
+   "layer_share": 0.28,
+   "labels": {
+    "factual": 99,
+    "roleplay": 22
+   },
+   "brought_labels": {
+    "factual": 69,
+    "roleplay": 20
+   },
+   "p": 3.6828906639337807e-25,
+   "beyond_chance": true
+  },
+  {
+   "layer": 1,
+   "expert": 10,
+   "items": 279,
+   "brought": 23,
+   "pushed_out": 89,
+   "share": 0.08243727598566308,
+   "layer_share": 0.28,
+   "labels": {
+    "factual": 101,
+    "roleplay": 178
+   },
+   "brought_labels": {
+    "factual": 9,
+    "roleplay": 14
+   },
+   "p": 4.3401328011933984e-16,
+   "beyond_chance": true
+  },
+  {
+   "layer": 2,
+   "expert": 3,
+   "items": 11,
+   "brought": 9,
+   "pushed_out": 0,
+   "share": 0.8181818181818182,
+   "layer_share": 0.25,
+   "labels": {
+    "factual": 2,
+    "roleplay": 9
+   },
+   "brought_labels": {
+    "factual": 2,
+    "roleplay": 7
+   }
+  },
+  {
+   "layer": 2,
+   "expert": 5,
+   "items": 63,
+   "brought": 48,
+   "pushed_out": 22,
+   "share": 0.7619047619047619,
+   "layer_share": 0.25,
+   "labels": {
+    "factual": 56,
+    "roleplay": 7
+   },
+   "brought_labels": {
+    "factual": 42,
+    "roleplay": 6
+   },
+   "p": 2.2916313264190026e-17,
+   "beyond_chance": true
+  },
+  {
+   "layer": 2,
+   "expert": 10,
+   "items": 32,
+   "brought": 18,
+   "pushed_out": 7,
+   "share": 0.5625,
+   "layer_share": 0.25,
+   "labels": {
+    "factual": 27,
+    "roleplay": 5
+   },
+   "brought_labels": {
+    "factual": 17,
+    "roleplay": 1
+   },
+   "p": 0.00026069631444602595,
+   "beyond_chance": true
+  },
+  {
+   "layer": 2,
+   "expert": 22,
+   "items": 294,
+   "brought": 25,
+   "pushed_out": 71,
+   "share": 0.08503401360544217,
+   "layer_share": 0.25,
+   "labels": {
+    "factual": 115,
+    "roleplay": 179
+   },
+   "brought_labels": {
+    "factual": 19,
+    "roleplay": 6
+   },
+   "p": 6.029429336520977e-13,
+   "beyond_chance": true
+  },
+  {
+   "layer": 3,
+   "expert": 31,
+   "items": 400,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.0,
+   "labels": {
+    "factual": 200,
+    "roleplay": 200
+   },
+   "brought_labels": {
+    "factual": 0,
+    "roleplay": 0
+   }
+  },
+  {
+   "layer": 4,
+   "expert": 14,
+   "items": 157,
+   "brought": 71,
+   "pushed_out": 0,
+   "share": 0.45222929936305734,
+   "layer_share": 0.18,
+   "labels": {
+    "factual": 12,
+    "roleplay": 145
+   },
+   "brought_labels": {
+    "factual": 6,
+    "roleplay": 65
+   },
+   "p": 3.9662523638131095e-15,
+   "beyond_chance": true
+  },
+  {
+   "layer": 4,
+   "expert": 17,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.18,
+   "labels": {
+    "factual": 1,
+    "roleplay": 0
+   },
+   "brought_labels": {
+    "factual": 1,
+    "roleplay": 0
+   }
+  },
+  {
+   "layer": 4,
+   "expert": 18,
+   "items": 242,
+   "brought": 0,
+   "pushed_out": 72,
+   "share": 0.0,
+   "layer_share": 0.18,
+   "labels": {
+    "factual": 187,
+    "roleplay": 55
+   },
+   "brought_labels": {
+    "factual": 0,
+    "roleplay": 0
+   },
+   "p": 2.677256750109865e-21,
+   "beyond_chance": true
+  },
+  {
+   "layer": 5,
+   "expert": 6,
+   "items": 400,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.0,
+   "labels": {
+    "factual": 200,
+    "roleplay": 200
+   },
+   "brought_labels": {
+    "factual": 0,
+    "roleplay": 0
+   }
+  },
+  {
+   "layer": 6,
+   "expert": 4,
+   "items": 152,
+   "brought": 15,
+   "pushed_out": 16,
+   "share": 0.09868421052631579,
+   "layer_share": 0.08,
+   "labels": {
+    "factual": 113,
+    "roleplay": 39
+   },
+   "brought_labels": {
+    "factual": 8,
+    "roleplay": 7
+   },
+   "p": 0.3695499448397713,
+   "beyond_chance": false
+  },
+  {
+   "layer": 6,
+   "expert": 7,
+   "items": 43,
+   "brought": 6,
+   "pushed_out": 5,
+   "share": 0.13953488372093023,
+   "layer_share": 0.08,
+   "labels": {
+    "factual": 42,
+    "roleplay": 1
+   },
+   "brought_labels": {
+    "factual": 5,
+    "roleplay": 1
+   },
+   "p": 0.1537307340436168,
+   "beyond_chance": false
+  },
+  {
+   "layer": 6,
+   "expert": 27,
+   "items": 205,
+   "brought": 11,
+   "pushed_out": 11,
+   "share": 0.05365853658536585,
+   "layer_share": 0.08,
+   "labels": {
+    "factual": 45,
+    "roleplay": 160
+   },
+   "brought_labels": {
+    "factual": 4,
+    "roleplay": 7
+   },
+   "p": 0.1968984864944273,
+   "beyond_chance": false
+  },
+  {
+   "layer": 7,
+   "expert": 5,
+   "items": 140,
+   "brought": 26,
+   "pushed_out": 16,
+   "share": 0.18571428571428572,
+   "layer_share": 0.125,
+   "labels": {
+    "factual": 86,
+    "roleplay": 54
+   },
+   "brought_labels": {
+    "factual": 17,
+    "roleplay": 9
+   },
+   "p": 0.03960082633549664,
+   "beyond_chance": false
+  },
+  {
+   "layer": 7,
+   "expert": 10,
+   "items": 242,
+   "brought": 19,
+   "pushed_out": 27,
+   "share": 0.07851239669421488,
+   "layer_share": 0.125,
+   "labels": {
+    "factual": 96,
+    "roleplay": 146
+   },
+   "brought_labels": {
+    "factual": 10,
+    "roleplay": 9
+   },
+   "p": 0.025404527923453234,
+   "beyond_chance": true
+  },
+  {
+   "layer": 7,
+   "expert": 15,
+   "items": 12,
+   "brought": 3,
+   "pushed_out": 4,
+   "share": 0.25,
+   "layer_share": 0.125,
+   "labels": {
+    "factual": 12,
+    "roleplay": 0
+   },
+   "brought_labels": {
+    "factual": 3,
+    "roleplay": 0
+   }
+  },
+  {
+   "layer": 7,
+   "expert": 23,
+   "items": 6,
+   "brought": 2,
+   "pushed_out": 3,
+   "share": 0.3333333333333333,
+   "layer_share": 0.125,
+   "labels": {
+    "factual": 6,
+    "roleplay": 0
+   },
+   "brought_labels": {
+    "factual": 2,
+    "roleplay": 0
+   }
+  },
+  {
+   "layer": 8,
+   "expert": 9,
+   "items": 320,
+   "brought": 24,
+   "pushed_out": 27,
+   "share": 0.075,
+   "layer_share": 0.1375,
+   "labels": {
+    "factual": 132,
+    "roleplay": 188
+   },
+   "brought_labels": {
+    "factual": 10,
+    "roleplay": 14
+   },
+   "p": 0.0006220643775301565,
+   "beyond_chance": true
+  },
+  {
+   "layer": 8,
+   "expert": 18,
+   "items": 3,
+   "brought": 2,
+   "pushed_out": 0,
+   "share": 0.6666666666666666,
+   "layer_share": 0.1375,
+   "labels": {
+    "factual": 3,
+    "roleplay": 0
+   },
+   "brought_labels": {
+    "factual": 2,
+    "roleplay": 0
+   }
+  },
+  {
+   "layer": 8,
+   "expert": 20,
+   "items": 67,
+   "brought": 23,
+   "pushed_out": 28,
+   "share": 0.34328358208955223,
+   "layer_share": 0.1375,
+   "labels": {
+    "factual": 55,
+    "roleplay": 12
+   },
+   "brought_labels": {
+    "factual": 20,
+    "roleplay": 3
+   },
+   "p": 1.67952836076593e-05,
+   "beyond_chance": true
+  },
+  {
+   "layer": 8,
+   "expert": 23,
+   "items": 10,
+   "brought": 6,
+   "pushed_out": 0,
+   "share": 0.6,
+   "layer_share": 0.1375,
+   "labels": {
+    "factual": 10,
+    "roleplay": 0
+   },
+   "brought_labels": {
+    "factual": 6,
+    "roleplay": 0
+   }
+  },
+  {
+   "layer": 9,
+   "expert": 13,
+   "items": 72,
+   "brought": 31,
+   "pushed_out": 5,
+   "share": 0.4305555555555556,
+   "layer_share": 0.09,
+   "labels": {
+    "factual": 47,
+    "roleplay": 25
+   },
+   "brought_labels": {
+    "factual": 25,
+    "roleplay": 6
+   },
+   "p": 2.0329384551414316e-14,
+   "beyond_chance": true
+  },
+  {
+   "layer": 9,
+   "expert": 16,
+   "items": 328,
+   "brought": 5,
+   "pushed_out": 31,
+   "share": 0.01524390243902439,
+   "layer_share": 0.09,
+   "labels": {
+    "factual": 153,
+    "roleplay": 175
+   },
+   "brought_labels": {
+    "factual": 3,
+    "roleplay": 2
+   },
+   "p": 2.095167052233623e-08,
+   "beyond_chance": true
+  },
+  {
+   "layer": 10,
+   "expert": 5,
+   "items": 385,
+   "brought": 1,
+   "pushed_out": 10,
+   "share": 0.0025974025974025974,
+   "layer_share": 0.0275,
+   "labels": {
+    "factual": 200,
+    "roleplay": 185
+   },
+   "brought_labels": {
+    "factual": 0,
+    "roleplay": 1
+   },
+   "p": 0.0004738774843902283,
+   "beyond_chance": true
+  },
+  {
+   "layer": 10,
+   "expert": 10,
+   "items": 4,
+   "brought": 2,
+   "pushed_out": 0,
+   "share": 0.5,
+   "layer_share": 0.0275,
+   "labels": {
+    "factual": 0,
+    "roleplay": 4
+   },
+   "brought_labels": {
+    "factual": 0,
+    "roleplay": 2
+   }
+  },
+  {
+   "layer": 10,
+   "expert": 19,
+   "items": 11,
+   "brought": 8,
+   "pushed_out": 1,
+   "share": 0.7272727272727273,
+   "layer_share": 0.0275,
+   "labels": {
+    "factual": 0,
+    "roleplay": 11
+   },
+   "brought_labels": {
+    "factual": 0,
+    "roleplay": 8
+   }
+  },
+  {
+   "layer": 11,
+   "expert": 7,
+   "items": 5,
+   "brought": 3,
+   "pushed_out": 2,
+   "share": 0.6,
+   "layer_share": 0.0775,
+   "labels": {
+    "factual": 5,
+    "roleplay": 0
+   },
+   "brought_labels": {
+    "factual": 3,
+    "roleplay": 0
+   }
+  },
+  {
+   "layer": 11,
+   "expert": 11,
+   "items": 38,
+   "brought": 11,
+   "pushed_out": 6,
+   "share": 0.2894736842105263,
+   "layer_share": 0.0775,
+   "labels": {
+    "factual": 19,
+    "roleplay": 19
+   },
+   "brought_labels": {
+    "factual": 5,
+    "roleplay": 6
+   },
+   "p": 0.00010124676528227368,
+   "beyond_chance": true
+  },
+  {
+   "layer": 11,
+   "expert": 20,
+   "items": 20,
+   "brought": 10,
+   "pushed_out": 1,
+   "share": 0.5,
+   "layer_share": 0.0775,
+   "labels": {
+    "factual": 20,
+    "roleplay": 0
+   },
+   "brought_labels": {
+    "factual": 10,
+    "roleplay": 0
+   },
+   "p": 6.970819803222048e-07,
+   "beyond_chance": true
+  },
+  {
+   "layer": 11,
+   "expert": 21,
+   "items": 22,
+   "brought": 3,
+   "pushed_out": 0,
+   "share": 0.13636363636363635,
+   "layer_share": 0.0775,
+   "labels": {
+    "factual": 18,
+    "roleplay": 4
+   },
+   "brought_labels": {
+    "factual": 3,
+    "roleplay": 0
+   },
+   "p": 0.24071983309812117,
+   "beyond_chance": false
+  },
+  {
+   "layer": 11,
+   "expert": 25,
+   "items": 312,
+   "brought": 3,
+   "pushed_out": 22,
+   "share": 0.009615384615384616,
+   "layer_share": 0.0775,
+   "labels": {
+    "factual": 138,
+    "roleplay": 174
+   },
+   "brought_labels": {
+    "factual": 1,
+    "roleplay": 2
+   },
+   "p": 6.444952657472815e-08,
+   "beyond_chance": true
+  },
+  {
+   "layer": 11,
+   "expert": 30,
+   "items": 3,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 0.3333333333333333,
+   "layer_share": 0.0775,
+   "labels": {
+    "factual": 0,
+    "roleplay": 3
+   },
+   "brought_labels": {
+    "factual": 0,
+    "roleplay": 1
+   }
+  },
+  {
+   "layer": 12,
+   "expert": 3,
+   "items": 114,
+   "brought": 6,
+   "pushed_out": 7,
+   "share": 0.05263157894736842,
+   "layer_share": 0.0325,
+   "labels": {
+    "factual": 109,
+    "roleplay": 5
+   },
+   "brought_labels": {
+    "factual": 4,
+    "roleplay": 2
+   },
+   "p": 0.2792450096558285,
+   "beyond_chance": false
+  },
+  {
+   "layer": 12,
+   "expert": 21,
+   "items": 286,
+   "brought": 7,
+   "pushed_out": 6,
+   "share": 0.024475524475524476,
+   "layer_share": 0.0325,
+   "labels": {
+    "factual": 91,
+    "roleplay": 195
+   },
+   "brought_labels": {
+    "factual": 7,
+    "roleplay": 0
+   },
+   "p": 0.6144150697749204,
+   "beyond_chance": false
+  },
+  {
+   "layer": 13,
+   "expert": 16,
+   "items": 26,
+   "brought": 6,
+   "pushed_out": 2,
+   "share": 0.23076923076923078,
+   "layer_share": 0.02,
+   "labels": {
+    "factual": 26,
+    "roleplay": 0
+   },
+   "brought_labels": {
+    "factual": 6,
+    "roleplay": 0
+   },
+   "p": 1.0439580232177446e-05,
+   "beyond_chance": true
+  },
+  {
+   "layer": 13,
+   "expert": 24,
+   "items": 374,
+   "brought": 2,
+   "pushed_out": 6,
+   "share": 0.0053475935828877,
+   "layer_share": 0.02,
+   "labels": {
+    "factual": 174,
+    "roleplay": 200
+   },
+   "brought_labels": {
+    "factual": 2,
+    "roleplay": 0
+   },
+   "p": 0.039712476028160706,
+   "beyond_chance": false
+  },
+  {
+   "layer": 14,
+   "expert": 1,
+   "items": 9,
+   "brought": 1,
+   "pushed_out": 2,
+   "share": 0.1111111111111111,
+   "layer_share": 0.0075,
+   "labels": {
+    "factual": 9,
+    "roleplay": 0
+   },
+   "brought_labels": {
+    "factual": 1,
+    "roleplay": 0
+   }
+  },
+  {
+   "layer": 14,
+   "expert": 6,
+   "items": 391,
+   "brought": 2,
+   "pushed_out": 1,
+   "share": 0.005115089514066497,
+   "layer_share": 0.0075,
+   "labels": {
+    "factual": 191,
+    "roleplay": 200
+   },
+   "brought_labels": {
+    "factual": 2,
+    "roleplay": 0
+   },
+   "p": 1.0,
+   "beyond_chance": false
+  },
+  {
+   "layer": 15,
+   "expert": 26,
+   "items": 400,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.0,
+   "labels": {
+    "factual": 200,
+    "roleplay": 200
+   },
+   "brought_labels": {
+    "factual": 0,
+    "roleplay": 0
+   }
+  },
+  {
+   "layer": 16,
+   "expert": 11,
+   "items": 400,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.0,
+   "labels": {
+    "factual": 200,
+    "roleplay": 200
+   },
+   "brought_labels": {
+    "factual": 0,
+    "roleplay": 0
+   }
+  },
+  {
+   "layer": 17,
+   "expert": 5,
+   "items": 400,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.0,
+   "labels": {
+    "factual": 200,
+    "roleplay": 200
+   },
+   "brought_labels": {
+    "factual": 0,
+    "roleplay": 0
+   }
+  },
+  {
+   "layer": 18,
+   "expert": 14,
+   "items": 400,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.0,
+   "labels": {
+    "factual": 200,
+    "roleplay": 200
+   },
+   "brought_labels": {
+    "factual": 0,
+    "roleplay": 0
+   }
+  },
+  {
+   "layer": 19,
+   "expert": 6,
+   "items": 274,
+   "brought": 18,
+   "pushed_out": 6,
+   "share": 0.06569343065693431,
+   "layer_share": 0.065,
+   "labels": {
+    "factual": 93,
+    "roleplay": 181
+   },
+   "brought_labels": {
+    "factual": 5,
+    "roleplay": 13
+   },
+   "p": 0.9025508963139881,
+   "beyond_chance": false
+  },
+  {
+   "layer": 19,
+   "expert": 13,
+   "items": 115,
+   "brought": 4,
+   "pushed_out": 18,
+   "share": 0.034782608695652174,
+   "layer_share": 0.065,
+   "labels": {
+    "factual": 97,
+    "roleplay": 18
+   },
+   "brought_labels": {
+    "factual": 3,
+    "roleplay": 1
+   },
+   "p": 0.2537412298404703,
+   "beyond_chance": false
+  },
+  {
+   "layer": 19,
+   "expert": 22,
+   "items": 11,
+   "brought": 4,
+   "pushed_out": 2,
+   "share": 0.36363636363636365,
+   "layer_share": 0.065,
+   "labels": {
+    "factual": 10,
+    "roleplay": 1
+   },
+   "brought_labels": {
+    "factual": 3,
+    "roleplay": 1
+   }
+  },
+  {
+   "layer": 20,
+   "expert": 10,
+   "items": 400,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.0,
+   "labels": {
+    "factual": 200,
+    "roleplay": 200
+   },
+   "brought_labels": {
+    "factual": 0,
+    "roleplay": 0
+   }
+  },
+  {
+   "layer": 21,
+   "expert": 23,
+   "items": 400,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.0,
+   "labels": {
+    "factual": 200,
+    "roleplay": 200
+   },
+   "brought_labels": {
+    "factual": 0,
+    "roleplay": 0
+   }
+  },
+  {
+   "layer": 22,
+   "expert": 13,
+   "items": 400,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.0,
+   "labels": {
+    "factual": 200,
+    "roleplay": 200
+   },
+   "brought_labels": {
+    "factual": 0,
+    "roleplay": 0
+   }
+  },
+  {
+   "layer": 23,
+   "expert": 12,
+   "items": 3,
+   "brought": 3,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.06,
+   "labels": {
+    "factual": 1,
+    "roleplay": 2
+   },
+   "brought_labels": {
+    "factual": 1,
+    "roleplay": 2
+   }
+  },
+  {
+   "layer": 23,
+   "expert": 13,
+   "items": 29,
+   "brought": 14,
+   "pushed_out": 4,
+   "share": 0.4827586206896552,
+   "layer_share": 0.06,
+   "labels": {
+    "factual": 1,
+    "roleplay": 28
+   },
+   "brought_labels": {
+    "factual": 0,
+    "roleplay": 14
+   },
+   "p": 2.5648687694208493e-10,
+   "beyond_chance": true
+  },
+  {
+   "layer": 23,
+   "expert": 21,
+   "items": 9,
+   "brought": 2,
+   "pushed_out": 1,
+   "share": 0.2222222222222222,
+   "layer_share": 0.06,
+   "labels": {
+    "factual": 1,
+    "roleplay": 8
+   },
+   "brought_labels": {
+    "factual": 0,
+    "roleplay": 2
+   }
+  },
+  {
+   "layer": 23,
+   "expert": 24,
+   "items": 359,
+   "brought": 5,
+   "pushed_out": 19,
+   "share": 0.013927576601671309,
+   "layer_share": 0.06,
+   "labels": {
+    "factual": 197,
+    "roleplay": 162
+   },
+   "brought_labels": {
+    "factual": 3,
+    "roleplay": 2
+   },
+   "p": 2.9657881588640154e-05,
+   "beyond_chance": true
+  }
+ ],
+ "summary": {
+  "match_four_min": 0.995,
+  "match_first_min": 0.995,
+  "own_first_changed_range": [
+   0.0,
+   0.28
+  ],
+  "own_swapped_range": [
+   0.0,
+   0.5875
+  ],
+  "all_first_changed_range": [
+   0.0,
+   1.0
+  ],
+  "nodes_tested": 30,
+  "nodes_beyond_chance": 19,
+  "nodes_beyond_above": 10
+ }
+}

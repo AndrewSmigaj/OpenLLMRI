@@ -1,7 +1,8 @@
-# Who writes each split, attention or the experts: findings (2026-10-16)
+# Who writes each split, attention or the experts: findings (2026-10-16; sections 9 and 10, 2026-10-19)
 
 Related: docs/studies/attention_experts/study.yaml (the study and its ledger),
-docs/design/design.md (lenses: what comes with each split; the decision card L33),
+docs/design/design.md (lenses: what comes with each split; the decision card L33; attention in the
+analysis, card L35),
 docs/architecture/plan.md (phase 10g, step 6),
 backend/src/services/lenses/writers.py (the same account for the node card, held for L33)
 
@@ -307,6 +308,151 @@ splits) never lie on opposite sides of their bands in the two directions. Among 
 all the splits, 4 do: attention's and the experts' shares up to the parting layer at two node splits
 in the single nouns (L7C1 and L7C2 into L8C1), the experts' share at L6 itself in the tank's
 clothing split, and attention's share at L9 itself in the animals' danger split.
+
+## 9. Attention and routing (added 2026-10-19)
+
+Written for the proposal under "Attention in the analysis" in `docs/design/design.md` (card L35).
+Script: `analysis/routing.py`; results `results/routing_<capture>.json`; figure
+`figures/attention_routing.png`.
+
+**What was run.** At layer L the router reads the state after that layer's attention, normed, and
+picks four experts. The capture stores the layer's output and the experts' output at the read
+token, so the router's input is their difference, and the state before the layer's attention is the
+previous layer's output (the embedding row before L0). With each router's weights and the norm's
+gain read from the model's files on the CPU, the routing was worked out three ways at every layer
+of the seven captures: as captured; with the item's own attention at L replaced by its mean over the
+lens's items (what attention adds to every item alike stays, what it adds to this item goes); and
+with attention at L removed altogether. It changes nothing downstream of L: it is the router's
+choice, not what the model would then do.
+
+**The check.** The recomputed four experts equal the captured four for 98.8% to 100% of items at
+every layer of every capture (the lowest, 98.8%, is the object names at L23), and the first expert
+for 99.0% to 100%.
+
+**How often an item's own attention changes its first expert** (median over the layers, and the
+largest):
+
+| Capture | Median | Largest | Without any attention at the layer, largest |
+|---|---|---|---|
+| tank senses | 7.0% | 27.9% (L1) | 94.0% (L0) |
+| tank: aquarium or vehicle (calibration) | 2.4% | 9.8% (L0) | 91.7% (L0) |
+| framing | 2.4% | 28.0% (L1) | 100% (L0) |
+| friend or foe | 10.3% | 39.0% (L2) | 72.0% (L1) |
+| single nouns | 2.7% | 11.0% (L4) | 95.1% (L0) |
+| animal names | 5.3% | 42.2% (L0) | 41.6% (L0) |
+| object names | 5.3% | 43.0% (L0) | 43.9% (L0) |
+
+Removing attention altogether gives the router a state it never sees in use, so the middle column
+is the fair one.
+
+**Expert nodes.** For every expert node (first expert, layer) with 20 items or more, at layers
+where the layer's share isn't zero (all 79 such nodes in the tank senses; 39 of 43 in the
+calibration scenes, 30 of 40 in framing, 74 of 75 in the animal names, every one elsewhere), the
+share of
+its items that their own attention brought there was compared with the layer's share (a two-sided
+binomial test, Benjamini-Hochberg at 5% over every node of the capture; items of one family are not
+independent, so this is a first look). It differs beyond chance at 46 of 79 nodes in the tank
+senses (26 above the layer's share), 21 of 39 in the calibration scenes (12), 19 of 30 in framing
+(10), 41 of 83 in friend or foe (21), 15 of 82 in the single nouns (9), 18 of 74 in the animal names
+(12) and 6 of 64 in the object names (3). The nodes below the layer's share are large (a median of
+237 to 554 items, by capture): the router sends their items there whatever their own context. The
+nodes above it are small (a median of 28 to 69 items), side branches of the expert Sankey that
+context fills. For example:
+- tank senses: expert 5 at L2, 54 items, 48 brought by their own attention, 39 of the 54 vehicle
+  sentences; expert 16 at L3, 21 items, 19 brought, 16 septic;
+- calibration: expert 21 at L4, 35 items, all aquarium scenes, 23 brought;
+- framing: expert 5 at L2, 63 items, 56 factual, 48 brought; expert 13 at L23, 29 items, 28
+  roleplay, 14 brought;
+- friend or foe: expert 21 at L20, 39 items, 30 friend, 18 brought.
+
+**The class in the routing, with and without the item's own attention** (adjusted mutual
+information between the first expert and the label). In the tank senses, 0.048, 0.082 and 0.046 at
+L1 to L3, against 0.011, 0.018 and 0.001 without; in framing, 0.141, 0.126 and 0.379 at L1, L2
+and L4, against 0.024, 0.044 and 0.191; in the calibration scenes, 0.114 against 0.041 at L4. From
+L4 on the two stay within 0.025 in the tank senses (the class is by then in the state the token
+arrives with); in framing and the calibration scenes they still differ at some later layers
+(framing L8: 0.105 with, 0.032 without; L23: 0.087 and 0.027; calibration L14: 0.029 and 0.067).
+In friend or foe the first expert carries little of the label at any layer (at most 0.054, L16).
+
+## 10. Attention, word by word (added 2026-10-19)
+
+Also written for the proposal (card L35). Scripts: `analysis/cpu_pass.py` (the pass) and
+`analysis/attention_words.py` (the analysis); results `results/cpu_pass_tank.json` and
+`results/attention_words_tank.json`; the per-source arrays in
+`data/lake/session_1434a9be/studies/attention_cpu_pass.npz` (not in git); figures
+`figures/attention_words_items.png` and `figures/attention_words_weights.png`.
+
+**What was run.** Captures keep each layer's state at the read token only, and attention at a layer
+reads every earlier position's state, so the 499 tank sentences (the sentences alone, with no chat
+template, so their tokens can be rebuilt exactly and checked against the capture's record) were run
+through gpt-oss-20b on the CPU, one decoder layer at a time: each layer's weights read from the
+model's files (attention, norms and router in BF16; the experts' MXFP4 blocks dequantized with
+transformers' own converter), used for every sentence and dropped; float32 arithmetic, written out
+step by step as in transformers 5.4's `modeling_gpt_oss.py`. It took 8 minutes on four cores. At the
+read token, attention's output at each layer is exactly the sum of one part per earlier position
+(each head's weight on it times its value, through the output projection) plus the projection's
+bias; the pass keeps each part's length (the amount), its share along attention's output, the
+heads' mean weight, its part of each router score, and the amounts between every pair of positions
+up to the read token.
+
+**The checks.** At the read token the recomputed state differs from the captured one by a median of
+0.04% to 0.11% of its length, by layer (95th percentile at most 3.6%, largest 11%: sentences whose
+expert changed at a near tie earlier on); the recomputed four experts equal the captured ones for
+98.4% to 100% of sentences at every layer; the parts add up to attention's output, and to the
+router's scores, within a few millionths.
+
+**Weights are not amounts** (medians over the sentences, `figures/attention_words_weights.png`):
+- the heads' sinks take 20% to 82% of the weight, more than half at 18 of the 24 layers;
+- " tank" itself takes 1% to 18% of the weight and 8% to 48% of the amount;
+- the sentence's first token takes 13% to 31% of the weight at the odd layers L7 to L17 and 44% of
+  the amount at L9, and at L19 and L21 only 1% to 2% of the weight but 28% and 23% of the amount.
+
+**What single sentences drew on** reads sensibly (`figures/attention_words_items.png`): in "An enemy
+rocket struck the side armor of the tank", " tank" drew most on "the", "armor" and "enemy" at L0
+and on "rocket" at L5 (22%); in "The children pressed their faces against the glass of the enormous
+shark tank", on "shark" (38% at L0, 22% at L2). One step back is exact too: in "A column of smoke
+rose from the burning tank", " tank" drew most on "burning" at L2, and at L1 "burning" had drawn
+41% of its own amount from "smoke".
+
+**The three words each sentence drew on most carry its sense.** A logistic regression from those
+three words (the sentence's first word left out) to the sense, held out in five stratified folds,
+reaches a balanced accuracy of 0.42 to 0.52 by layer (median 0.47; chance 0.20), against 0.50 from
+all the sentence's words before " tank" (within 0.02 at 11 of the 24 layers, at most 0.08 below)
+and 0.30 to 0.38 from
+three of its words picked at random (lower at every layer, by at least 0.04).
+
+**A test word by word finds mostly small words.** Only 101 words appear before " tank" in five
+sentences or more. Each sense against the rest, and each of the lens's 70 branches against its
+node's other items (shuffled 1,000 times; a word counts when it beats the 95th percentile of the
+largest difference any word reaches): the senses' words beyond chance at any layer were "in" and
+"reef" (aquarium), "this", "she", "he" and "gives" (clothing), "dive" and "diver" (scuba), "fuel",
+"septic" and "the" (septic), "the" and "a" (vehicle); the branches' were "the" at 18 branches, "a"
+at 4, "reef" at 3, and "planted", "dive", "diver", "each" and "i" at 2. Split halves of the
+sentences agree on the senses' word rankings at Spearman -0.20 to 0.74 by sense and layer (median
+0.31).
+
+**Where attention draws from differs at 44 of the 70 branches** beyond chance (the read word itself,
+the token before it, the first token and the other words, both directions, over the layers up to
+the branch's own), mostly in the share from the other words.
+
+**Tracing back fails.** Chaining each layer's amounts back to layer 0 (every position's state split
+among its own earlier state and the positions it drew on, in proportion to their lengths) gives the
+read token's own share a median of 0.72 at L0 and under 0.01 from L18, and piles the rest onto the
+first token: at L20 it holds a median of 74% of the other words' traced share (middle half 70% to
+78%, over the 499 sentences). The traced top
+three words predict the sense as well as the direct ones or better up to L6, and less well from L7
+(0.33 to 0.46 against 0.42 to 0.52).
+
+**The words that pushed toward an expert.** For the eight expert nodes furthest above their layer's
+brought share (section 9), each word's part of the expert's router score minus its mean part over
+the 32 experts, the node's items against the layer's others: beyond chance, "septic" (expert 0 at
+L0), "reef" and "water" (expert 11, L0), "reef" (expert 25, L1), "buried" and "steel" (expert 16,
+L3), "the" (expert 5 at L2, and expert 25 at L4), and none for experts 7 and 17 at L1.
+
+**Limits.** One capture, read mid-sentence, so " tank" sees only the words before it (a median of 9
+tokens); no template, so the sink and first-token patterns may differ in chat-template captures.
+The calibration and framing captures, read after the sentence and in the chat template, are the
+next to run.
 
 ## Limits
 

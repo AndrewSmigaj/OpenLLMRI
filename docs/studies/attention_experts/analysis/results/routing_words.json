@@ -1,0 +1,8588 @@
+{
+ "capture": "words",
+ "session": "session_8f536bea",
+ "lens": "words-k8-n15-tuned",
+ "version": "v1",
+ "items": 861,
+ "min_node": 20,
+ "fdr": 0.05,
+ "layers": [
+  {
+   "layer": 0,
+   "match_four": 0.9965156794425087,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.27177700348432055,
+   "own_first_changed": 0.041811846689895474,
+   "all_swapped_of_four": 2.443670150987224,
+   "all_first_changed": 0.9512195121951219,
+   "ami_first_label": 0.0114244440669242,
+   "ami_first_label_without_own": -0.0018092653716383453,
+   "own_first_changed_by_label": {
+    "animal": 0.0625,
+    "emotion": 0.043010752688172046,
+    "food": 0.024,
+    "idea": 0.152,
+    "person": 0.008130081300813009,
+    "place": 0.008,
+    "tool": 0.017391304347826087,
+    "vehicle": 0.0
+   }
+  },
+  {
+   "layer": 1,
+   "match_four": 0.9965156794425087,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.3310104529616725,
+   "own_first_changed": 0.020905923344947737,
+   "all_swapped_of_four": 1.0336817653890824,
+   "all_first_changed": 0.11033681765389082,
+   "ami_first_label": 0.037489519557739,
+   "ami_first_label_without_own": 0.03366483087116729,
+   "own_first_changed_by_label": {
+    "animal": 0.0,
+    "emotion": 0.03225806451612903,
+    "food": 0.008,
+    "idea": 0.056,
+    "person": 0.032520325203252036,
+    "place": 0.0,
+    "tool": 0.02608695652173913,
+    "vehicle": 0.0
+   }
+  },
+  {
+   "layer": 2,
+   "match_four": 0.9988385598141696,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.2264808362369338,
+   "own_first_changed": 0.08013937282229965,
+   "all_swapped_of_four": 0.6480836236933798,
+   "all_first_changed": 0.19279907084785133,
+   "ami_first_label": 0.1042568377470458,
+   "ami_first_label_without_own": 0.0865496719686805,
+   "own_first_changed_by_label": {
+    "animal": 0.09375,
+    "emotion": 0.010752688172043012,
+    "food": 0.056,
+    "idea": 0.12,
+    "person": 0.08943089430894309,
+    "place": 0.08,
+    "tool": 0.10434782608695652,
+    "vehicle": 0.06779661016949153
+   }
+  },
+  {
+   "layer": 3,
+   "match_four": 0.9976771196283392,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.18815331010452963,
+   "own_first_changed": 0.05226480836236934,
+   "all_swapped_of_four": 0.47619047619047616,
+   "all_first_changed": 0.09291521486643438,
+   "ami_first_label": 0.04936643260193199,
+   "ami_first_label_without_own": 0.0632351687125865,
+   "own_first_changed_by_label": {
+    "animal": 0.07291666666666667,
+    "emotion": 0.010752688172043012,
+    "food": 0.088,
+    "idea": 0.088,
+    "person": 0.024390243902439025,
+    "place": 0.056,
+    "tool": 0.034782608695652174,
+    "vehicle": 0.01694915254237288
+   }
+  },
+  {
+   "layer": 4,
+   "match_four": 0.9988385598141696,
+   "match_first": 0.9988385598141696,
+   "own_swapped_of_four": 0.23577235772357724,
+   "own_first_changed": 0.11033681765389082,
+   "all_swapped_of_four": 0.7874564459930313,
+   "all_first_changed": 0.3240418118466899,
+   "ami_first_label": 0.1803737389586453,
+   "ami_first_label_without_own": 0.17840360028564772,
+   "own_first_changed_by_label": {
+    "animal": 0.11458333333333333,
+    "emotion": 0.15053763440860216,
+    "food": 0.136,
+    "idea": 0.12,
+    "person": 0.08943089430894309,
+    "place": 0.112,
+    "tool": 0.0782608695652174,
+    "vehicle": 0.06779661016949153
+   }
+  },
+  {
+   "layer": 5,
+   "match_four": 1.0,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.08246225319396051,
+   "own_first_changed": 0.08710801393728224,
+   "all_swapped_of_four": 0.18234610917537747,
+   "all_first_changed": 0.19396051103368175,
+   "ami_first_label": 0.18185441149308404,
+   "ami_first_label_without_own": 0.18501565070388115,
+   "own_first_changed_by_label": {
+    "animal": 0.09375,
+    "emotion": 0.07526881720430108,
+    "food": 0.064,
+    "idea": 0.064,
+    "person": 0.13821138211382114,
+    "place": 0.096,
+    "tool": 0.0782608695652174,
+    "vehicle": 0.0847457627118644
+   }
+  },
+  {
+   "layer": 6,
+   "match_four": 1.0,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.2508710801393728,
+   "own_first_changed": 0.06155632984901278,
+   "all_swapped_of_four": 0.5632984901277585,
+   "all_first_changed": 0.10220673635307782,
+   "ami_first_label": 0.34113665844682556,
+   "ami_first_label_without_own": 0.32726612383872167,
+   "own_first_changed_by_label": {
+    "animal": 0.09375,
+    "emotion": 0.10752688172043011,
+    "food": 0.016,
+    "idea": 0.056,
+    "person": 0.032520325203252036,
+    "place": 0.056,
+    "tool": 0.11304347826086956,
+    "vehicle": 0.01694915254237288
+   }
+  },
+  {
+   "layer": 7,
+   "match_four": 0.9988385598141696,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.07549361207897794,
+   "own_first_changed": 0.05574912891986063,
+   "all_swapped_of_four": 0.0975609756097561,
+   "all_first_changed": 0.1289198606271777,
+   "ami_first_label": 0.14478951002122656,
+   "ami_first_label_without_own": 0.13566412526269986,
+   "own_first_changed_by_label": {
+    "animal": 0.041666666666666664,
+    "emotion": 0.03225806451612903,
+    "food": 0.072,
+    "idea": 0.056,
+    "person": 0.11382113821138211,
+    "place": 0.016,
+    "tool": 0.05217391304347826,
+    "vehicle": 0.05084745762711865
+   }
+  },
+  {
+   "layer": 8,
+   "match_four": 0.9988385598141696,
+   "match_first": 0.9988385598141696,
+   "own_swapped_of_four": 0.09872241579558652,
+   "own_first_changed": 0.06620209059233449,
+   "all_swapped_of_four": 0.19279907084785133,
+   "all_first_changed": 0.1289198606271777,
+   "ami_first_label": 0.1254795092917352,
+   "ami_first_label_without_own": 0.13117006285722133,
+   "own_first_changed_by_label": {
+    "animal": 0.0625,
+    "emotion": 0.07526881720430108,
+    "food": 0.088,
+    "idea": 0.072,
+    "person": 0.0975609756097561,
+    "place": 0.04,
+    "tool": 0.05217391304347826,
+    "vehicle": 0.01694915254237288
+   }
+  },
+  {
+   "layer": 9,
+   "match_four": 1.0,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.13704994192799072,
+   "own_first_changed": 0.010452961672473868,
+   "all_swapped_of_four": 0.36585365853658536,
+   "all_first_changed": 0.010452961672473868,
+   "ami_first_label": 0.009689147423631937,
+   "ami_first_label_without_own": 0.009971906031818533,
+   "own_first_changed_by_label": {
+    "animal": 0.010416666666666666,
+    "emotion": 0.03225806451612903,
+    "food": 0.008,
+    "idea": 0.0,
+    "person": 0.0,
+    "place": 0.0,
+    "tool": 0.017391304347826087,
+    "vehicle": 0.03389830508474576
+   }
+  },
+  {
+   "layer": 10,
+   "match_four": 1.0,
+   "match_first": 0.9988385598141696,
+   "own_swapped_of_four": 0.07549361207897794,
+   "own_first_changed": 0.023228803716608595,
+   "all_swapped_of_four": 0.24738675958188153,
+   "all_first_changed": 0.13704994192799072,
+   "ami_first_label": 0.08554133095097104,
+   "ami_first_label_without_own": 0.08602297793402391,
+   "own_first_changed_by_label": {
+    "animal": 0.010416666666666666,
+    "emotion": 0.03225806451612903,
+    "food": 0.024,
+    "idea": 0.032,
+    "person": 0.024390243902439025,
+    "place": 0.016,
+    "tool": 0.02608695652173913,
+    "vehicle": 0.01694915254237288
+   }
+  },
+  {
+   "layer": 11,
+   "match_four": 0.9965156794425087,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.15098722415795587,
+   "own_first_changed": 0.04065040650406504,
+   "all_swapped_of_four": 0.32752613240418116,
+   "all_first_changed": 0.12195121951219512,
+   "ami_first_label": 0.06909381424615611,
+   "ami_first_label_without_own": 0.05256315269847106,
+   "own_first_changed_by_label": {
+    "animal": 0.03125,
+    "emotion": 0.010752688172043012,
+    "food": 0.088,
+    "idea": 0.0,
+    "person": 0.0,
+    "place": 0.064,
+    "tool": 0.06086956521739131,
+    "vehicle": 0.0847457627118644
+   }
+  },
+  {
+   "layer": 12,
+   "match_four": 1.0,
+   "match_first": 0.9976771196283392,
+   "own_swapped_of_four": 0.06155632984901278,
+   "own_first_changed": 0.027874564459930314,
+   "all_swapped_of_four": 0.21602787456445993,
+   "all_first_changed": 0.16144018583042974,
+   "ami_first_label": 0.046892448707168084,
+   "ami_first_label_without_own": 0.04881876264707673,
+   "own_first_changed_by_label": {
+    "animal": 0.010416666666666666,
+    "emotion": 0.0,
+    "food": 0.024,
+    "idea": 0.024,
+    "person": 0.04065040650406504,
+    "place": 0.04,
+    "tool": 0.034782608695652174,
+    "vehicle": 0.05084745762711865
+   }
+  },
+  {
+   "layer": 13,
+   "match_four": 1.0,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.05574912891986063,
+   "own_first_changed": 0.032520325203252036,
+   "all_swapped_of_four": 0.16260162601626016,
+   "all_first_changed": 0.09291521486643438,
+   "ami_first_label": 0.11033242262663319,
+   "ami_first_label_without_own": 0.10004766848961504,
+   "own_first_changed_by_label": {
+    "animal": 0.03125,
+    "emotion": 0.043010752688172046,
+    "food": 0.04,
+    "idea": 0.024,
+    "person": 0.04065040650406504,
+    "place": 0.008,
+    "tool": 0.043478260869565216,
+    "vehicle": 0.03389830508474576
+   }
+  },
+  {
+   "layer": 14,
+   "match_four": 0.9988385598141696,
+   "match_first": 0.9988385598141696,
+   "own_swapped_of_four": 0.06620209059233449,
+   "own_first_changed": 0.024390243902439025,
+   "all_swapped_of_four": 0.1916376306620209,
+   "all_first_changed": 0.05226480836236934,
+   "ami_first_label": 0.024818484751267546,
+   "ami_first_label_without_own": 0.022968225386488218,
+   "own_first_changed_by_label": {
+    "animal": 0.010416666666666666,
+    "emotion": 0.0,
+    "food": 0.04,
+    "idea": 0.0,
+    "person": 0.032520325203252036,
+    "place": 0.056,
+    "tool": 0.02608695652173913,
+    "vehicle": 0.01694915254237288
+   }
+  },
+  {
+   "layer": 15,
+   "match_four": 0.9976771196283392,
+   "match_first": 0.9988385598141696,
+   "own_swapped_of_four": 0.08130081300813008,
+   "own_first_changed": 0.006968641114982578,
+   "all_swapped_of_four": 0.20092915214866433,
+   "all_first_changed": 0.020905923344947737,
+   "ami_first_label": 0.09301763281867483,
+   "ami_first_label_without_own": 0.08567396273930457,
+   "own_first_changed_by_label": {
+    "animal": 0.0,
+    "emotion": 0.021505376344086023,
+    "food": 0.0,
+    "idea": 0.024,
+    "person": 0.0,
+    "place": 0.0,
+    "tool": 0.008695652173913044,
+    "vehicle": 0.0
+   }
+  },
+  {
+   "layer": 16,
+   "match_four": 0.9988385598141696,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.041811846689895474,
+   "own_first_changed": 0.012775842044134728,
+   "all_swapped_of_four": 0.10104529616724739,
+   "all_first_changed": 0.023228803716608595,
+   "ami_first_label": 0.007512745292344058,
+   "ami_first_label_without_own": 0.004923595476599602,
+   "own_first_changed_by_label": {
+    "animal": 0.010416666666666666,
+    "emotion": 0.021505376344086023,
+    "food": 0.0,
+    "idea": 0.024,
+    "person": 0.008130081300813009,
+    "place": 0.016,
+    "tool": 0.017391304347826087,
+    "vehicle": 0.0
+   }
+  },
+  {
+   "layer": 17,
+   "match_four": 0.9988385598141696,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.0743321718931475,
+   "own_first_changed": 0.012775842044134728,
+   "all_swapped_of_four": 0.156794425087108,
+   "all_first_changed": 0.012775842044134728,
+   "ami_first_label": 0.007054894186096415,
+   "ami_first_label_without_own": 0.028796517551620673,
+   "own_first_changed_by_label": {
+    "animal": 0.0,
+    "emotion": 0.0,
+    "food": 0.08,
+    "idea": 0.0,
+    "person": 0.008130081300813009,
+    "place": 0.0,
+    "tool": 0.0,
+    "vehicle": 0.0
+   }
+  },
+  {
+   "layer": 18,
+   "match_four": 0.9988385598141696,
+   "match_first": 0.9988385598141696,
+   "own_swapped_of_four": 0.04645760743321719,
+   "own_first_changed": 0.022067363530778164,
+   "all_swapped_of_four": 0.15447154471544716,
+   "all_first_changed": 0.04529616724738676,
+   "ami_first_label": 0.02592945462382796,
+   "ami_first_label_without_own": 0.030631060356481266,
+   "own_first_changed_by_label": {
+    "animal": 0.020833333333333332,
+    "emotion": 0.010752688172043012,
+    "food": 0.04,
+    "idea": 0.024,
+    "person": 0.016260162601626018,
+    "place": 0.032,
+    "tool": 0.0,
+    "vehicle": 0.03389830508474576
+   }
+  },
+  {
+   "layer": 19,
+   "match_four": 1.0,
+   "match_first": 0.9965156794425087,
+   "own_swapped_of_four": 0.04994192799070848,
+   "own_first_changed": 0.018583042973286876,
+   "all_swapped_of_four": 0.12775842044134728,
+   "all_first_changed": 0.026713124274099883,
+   "ami_first_label": 0.06835598675972065,
+   "ami_first_label_without_own": 0.06814310936890308,
+   "own_first_changed_by_label": {
+    "animal": 0.041666666666666664,
+    "emotion": 0.03225806451612903,
+    "food": 0.024,
+    "idea": 0.0,
+    "person": 0.032520325203252036,
+    "place": 0.008,
+    "tool": 0.008695652173913044,
+    "vehicle": 0.0
+   }
+  },
+  {
+   "layer": 20,
+   "match_four": 0.9988385598141696,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.08130081300813008,
+   "own_first_changed": 0.011614401858304297,
+   "all_swapped_of_four": 0.1173054587688734,
+   "all_first_changed": 0.026713124274099883,
+   "ami_first_label": 0.09417524007803797,
+   "ami_first_label_without_own": 0.09111936542298511,
+   "own_first_changed_by_label": {
+    "animal": 0.0,
+    "emotion": 0.010752688172043012,
+    "food": 0.016,
+    "idea": 0.008,
+    "person": 0.008130081300813009,
+    "place": 0.032,
+    "tool": 0.0,
+    "vehicle": 0.01694915254237288
+   }
+  },
+  {
+   "layer": 21,
+   "match_four": 1.0,
+   "match_first": 0.9976771196283392,
+   "own_swapped_of_four": 0.1254355400696864,
+   "own_first_changed": 0.026713124274099883,
+   "all_swapped_of_four": 0.21138211382113822,
+   "all_first_changed": 0.04413472706155633,
+   "ami_first_label": 0.09035946215374652,
+   "ami_first_label_without_own": 0.08595074363042532,
+   "own_first_changed_by_label": {
+    "animal": 0.03125,
+    "emotion": 0.043010752688172046,
+    "food": 0.056,
+    "idea": 0.016,
+    "person": 0.008130081300813009,
+    "place": 0.0,
+    "tool": 0.034782608695652174,
+    "vehicle": 0.03389830508474576
+   }
+  },
+  {
+   "layer": 22,
+   "match_four": 0.9976771196283392,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.05110336817653891,
+   "own_first_changed": 0.006968641114982578,
+   "all_swapped_of_four": 0.14750290360046459,
+   "all_first_changed": 0.006968641114982578,
+   "ami_first_label": 0.04262981150029038,
+   "ami_first_label_without_own": 0.046573729200015256,
+   "own_first_changed_by_label": {
+    "animal": 0.0,
+    "emotion": 0.0,
+    "food": 0.04,
+    "idea": 0.0,
+    "person": 0.0,
+    "place": 0.0,
+    "tool": 0.008695652173913044,
+    "vehicle": 0.0
+   }
+  },
+  {
+   "layer": 23,
+   "match_four": 0.9930313588850174,
+   "match_first": 0.9941927990708479,
+   "own_swapped_of_four": 0.25667828106852497,
+   "own_first_changed": 0.0743321718931475,
+   "all_swapped_of_four": 1.0197444831591174,
+   "all_first_changed": 0.2264808362369338,
+   "ami_first_label": 0.1419140144761353,
+   "ami_first_label_without_own": 0.1473903637895782,
+   "own_first_changed_by_label": {
+    "animal": 0.08333333333333333,
+    "emotion": 0.0967741935483871,
+    "food": 0.032,
+    "idea": 0.08,
+    "person": 0.08943089430894309,
+    "place": 0.112,
+    "tool": 0.05217391304347826,
+    "vehicle": 0.03389830508474576
+   }
+  }
+ ],
+ "nodes": [
+  {
+   "layer": 0,
+   "expert": 1,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.041811846689895474,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 0,
+   "expert": 4,
+   "items": 3,
+   "brought": 3,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.041811846689895474,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 3,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 3,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 0,
+   "expert": 5,
+   "items": 14,
+   "brought": 10,
+   "pushed_out": 7,
+   "share": 0.7142857142857143,
+   "layer_share": 0.041811846689895474,
+   "labels": {
+    "animal": 5,
+    "emotion": 1,
+    "food": 0,
+    "idea": 4,
+    "person": 1,
+    "place": 0,
+    "tool": 3,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 5,
+    "emotion": 1,
+    "food": 0,
+    "idea": 3,
+    "person": 0,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 0,
+   "expert": 8,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.041811846689895474,
+   "labels": {
+    "animal": 0,
+    "emotion": 1,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 1,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 0,
+   "expert": 9,
+   "items": 826,
+   "brought": 8,
+   "pushed_out": 26,
+   "share": 0.009685230024213076,
+   "layer_share": 0.041811846689895474,
+   "labels": {
+    "animal": 91,
+    "emotion": 89,
+    "food": 125,
+    "idea": 105,
+    "person": 122,
+    "place": 125,
+    "tool": 110,
+    "vehicle": 59
+   },
+   "brought_labels": {
+    "animal": 1,
+    "emotion": 1,
+    "food": 3,
+    "idea": 1,
+    "person": 1,
+    "place": 1,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "p": 7.604479288592571e-08,
+   "beyond_chance": true
+  },
+  {
+   "layer": 0,
+   "expert": 10,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.041811846689895474,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 0,
+   "expert": 12,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.041811846689895474,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 0,
+   "expert": 14,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.041811846689895474,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 0,
+   "expert": 15,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.041811846689895474,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 0,
+   "expert": 16,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.041811846689895474,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 0,
+   "expert": 17,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 1,
+   "share": 1.0,
+   "layer_share": 0.041811846689895474,
+   "labels": {
+    "animal": 0,
+    "emotion": 1,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 1,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 0,
+   "expert": 19,
+   "items": 3,
+   "brought": 3,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.041811846689895474,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 3,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 3,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 0,
+   "expert": 20,
+   "items": 2,
+   "brought": 2,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.041811846689895474,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 2,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 2,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 0,
+   "expert": 21,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.041811846689895474,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 0,
+   "expert": 24,
+   "items": 2,
+   "brought": 0,
+   "pushed_out": 1,
+   "share": 0.0,
+   "layer_share": 0.041811846689895474,
+   "labels": {
+    "animal": 0,
+    "emotion": 1,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 0,
+   "expert": 27,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.041811846689895474,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 0,
+   "expert": 29,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.041811846689895474,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 1,
+   "expert": 0,
+   "items": 5,
+   "brought": 0,
+   "pushed_out": 1,
+   "share": 0.0,
+   "layer_share": 0.020905923344947737,
+   "labels": {
+    "animal": 0,
+    "emotion": 3,
+    "food": 0,
+    "idea": 2,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 1,
+   "expert": 1,
+   "items": 12,
+   "brought": 3,
+   "pushed_out": 0,
+   "share": 0.25,
+   "layer_share": 0.020905923344947737,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 3,
+    "place": 3,
+    "tool": 5,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 2,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 1,
+   "expert": 3,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.020905923344947737,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 1,
+   "expert": 5,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.020905923344947737,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 1,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 1,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 1,
+   "expert": 8,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 1,
+   "share": 0.0,
+   "layer_share": 0.020905923344947737,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 1,
+   "expert": 9,
+   "items": 2,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.020905923344947737,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 1,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 1,
+   "expert": 10,
+   "items": 22,
+   "brought": 3,
+   "pushed_out": 6,
+   "share": 0.13636363636363635,
+   "layer_share": 0.020905923344947737,
+   "labels": {
+    "animal": 0,
+    "emotion": 10,
+    "food": 0,
+    "idea": 10,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 2
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 2,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "p": 0.0104521209006204,
+   "beyond_chance": false
+  },
+  {
+   "layer": 1,
+   "expert": 14,
+   "items": 2,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.020905923344947737,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 2,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 1,
+   "expert": 19,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 1,
+   "share": 1.0,
+   "layer_share": 0.020905923344947737,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 1,
+   "expert": 21,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.020905923344947737,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 1,
+   "expert": 22,
+   "items": 6,
+   "brought": 0,
+   "pushed_out": 1,
+   "share": 0.0,
+   "layer_share": 0.020905923344947737,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 5,
+    "person": 1,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 1,
+   "expert": 24,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.020905923344947737,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 1,
+   "expert": 28,
+   "items": 803,
+   "brought": 9,
+   "pushed_out": 8,
+   "share": 0.0112079701120797,
+   "layer_share": 0.020905923344947737,
+   "labels": {
+    "animal": 96,
+    "emotion": 80,
+    "food": 125,
+    "idea": 99,
+    "person": 117,
+    "place": 120,
+    "tool": 109,
+    "vehicle": 57
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 1,
+    "food": 1,
+    "idea": 5,
+    "person": 1,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 0
+   },
+   "p": 0.0624142018328134,
+   "beyond_chance": false
+  },
+  {
+   "layer": 1,
+   "expert": 30,
+   "items": 2,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.020905923344947737,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 2,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 1,
+   "expert": 31,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.020905923344947737,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 2,
+   "expert": 0,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.08013937282229965,
+   "labels": {
+    "animal": 0,
+    "emotion": 1,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 2,
+   "expert": 1,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 1,
+   "share": 0.0,
+   "layer_share": 0.08013937282229965,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 1,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 2,
+   "expert": 2,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.08013937282229965,
+   "labels": {
+    "animal": 1,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 1,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 2,
+   "expert": 5,
+   "items": 56,
+   "brought": 13,
+   "pushed_out": 1,
+   "share": 0.23214285714285715,
+   "layer_share": 0.08013937282229965,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 19,
+    "person": 13,
+    "place": 22,
+    "tool": 1,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 7,
+    "person": 4,
+    "place": 2,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "p": 0.00039552539280380243,
+   "beyond_chance": true
+  },
+  {
+   "layer": 2,
+   "expert": 10,
+   "items": 363,
+   "brought": 29,
+   "pushed_out": 25,
+   "share": 0.07988980716253444,
+   "layer_share": 0.08013937282229965,
+   "labels": {
+    "animal": 40,
+    "emotion": 7,
+    "food": 77,
+    "idea": 18,
+    "person": 62,
+    "place": 62,
+    "tool": 62,
+    "vehicle": 35
+   },
+   "brought_labels": {
+    "animal": 4,
+    "emotion": 0,
+    "food": 7,
+    "idea": 2,
+    "person": 5,
+    "place": 4,
+    "tool": 5,
+    "vehicle": 2
+   },
+   "p": 1.0,
+   "beyond_chance": false
+  },
+  {
+   "layer": 2,
+   "expert": 16,
+   "items": 2,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.08013937282229965,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 2,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 2,
+   "expert": 18,
+   "items": 7,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 0.14285714285714285,
+   "layer_share": 0.08013937282229965,
+   "labels": {
+    "animal": 1,
+    "emotion": 1,
+    "food": 1,
+    "idea": 2,
+    "person": 0,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 1,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 2,
+   "expert": 19,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.08013937282229965,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 2,
+   "expert": 21,
+   "items": 42,
+   "brought": 6,
+   "pushed_out": 2,
+   "share": 0.14285714285714285,
+   "layer_share": 0.08013937282229965,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 1,
+    "idea": 21,
+    "person": 5,
+    "place": 3,
+    "tool": 11,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 4,
+    "person": 0,
+    "place": 0,
+    "tool": 2,
+    "vehicle": 0
+   },
+   "p": 0.14646959353208422,
+   "beyond_chance": false
+  },
+  {
+   "layer": 2,
+   "expert": 23,
+   "items": 2,
+   "brought": 0,
+   "pushed_out": 1,
+   "share": 0.0,
+   "layer_share": 0.08013937282229965,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 2,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 2,
+   "expert": 24,
+   "items": 3,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.08013937282229965,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 2,
+    "person": 1,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 2,
+   "expert": 25,
+   "items": 2,
+   "brought": 0,
+   "pushed_out": 1,
+   "share": 0.0,
+   "layer_share": 0.08013937282229965,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 1,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 2,
+   "expert": 26,
+   "items": 26,
+   "brought": 5,
+   "pushed_out": 0,
+   "share": 0.19230769230769232,
+   "layer_share": 0.08013937282229965,
+   "labels": {
+    "animal": 8,
+    "emotion": 0,
+    "food": 6,
+    "idea": 0,
+    "person": 1,
+    "place": 2,
+    "tool": 9,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 2,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 1,
+    "place": 0,
+    "tool": 2,
+    "vehicle": 0
+   },
+   "p": 0.05266599650157301,
+   "beyond_chance": false
+  },
+  {
+   "layer": 2,
+   "expert": 27,
+   "items": 3,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.08013937282229965,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 1,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 2,
+   "expert": 31,
+   "items": 351,
+   "brought": 14,
+   "pushed_out": 37,
+   "share": 0.039886039886039885,
+   "layer_share": 0.08013937282229965,
+   "labels": {
+    "animal": 46,
+    "emotion": 84,
+    "food": 39,
+    "idea": 56,
+    "person": 40,
+    "place": 35,
+    "tool": 30,
+    "vehicle": 21
+   },
+   "brought_labels": {
+    "animal": 2,
+    "emotion": 0,
+    "food": 0,
+    "idea": 2,
+    "person": 1,
+    "place": 4,
+    "tool": 3,
+    "vehicle": 2
+   },
+   "p": 0.004096729552372955,
+   "beyond_chance": true
+  },
+  {
+   "layer": 3,
+   "expert": 0,
+   "items": 7,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.05226480836236934,
+   "labels": {
+    "animal": 0,
+    "emotion": 1,
+    "food": 0,
+    "idea": 3,
+    "person": 0,
+    "place": 0,
+    "tool": 3,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 3,
+   "expert": 2,
+   "items": 7,
+   "brought": 0,
+   "pushed_out": 2,
+   "share": 0.0,
+   "layer_share": 0.05226480836236934,
+   "labels": {
+    "animal": 0,
+    "emotion": 1,
+    "food": 0,
+    "idea": 5,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 3,
+   "expert": 3,
+   "items": 2,
+   "brought": 1,
+   "pushed_out": 1,
+   "share": 0.5,
+   "layer_share": 0.05226480836236934,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 2,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 1,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 3,
+   "expert": 5,
+   "items": 10,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.05226480836236934,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 1,
+    "idea": 1,
+    "person": 1,
+    "place": 2,
+    "tool": 4,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 3,
+   "expert": 7,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 1,
+   "share": 0.0,
+   "layer_share": 0.05226480836236934,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 3,
+   "expert": 9,
+   "items": 2,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.05226480836236934,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 1,
+    "tool": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 3,
+   "expert": 11,
+   "items": 7,
+   "brought": 1,
+   "pushed_out": 1,
+   "share": 0.14285714285714285,
+   "layer_share": 0.05226480836236934,
+   "labels": {
+    "animal": 1,
+    "emotion": 0,
+    "food": 1,
+    "idea": 1,
+    "person": 2,
+    "place": 1,
+    "tool": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 3,
+   "expert": 12,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.05226480836236934,
+   "labels": {
+    "animal": 0,
+    "emotion": 1,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 3,
+   "expert": 13,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.05226480836236934,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 3,
+   "expert": 14,
+   "items": 2,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.05226480836236934,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 3,
+   "expert": 15,
+   "items": 5,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 0.2,
+   "layer_share": 0.05226480836236934,
+   "labels": {
+    "animal": 1,
+    "emotion": 0,
+    "food": 0,
+    "idea": 2,
+    "person": 0,
+    "place": 1,
+    "tool": 0,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "animal": 1,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 3,
+   "expert": 17,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.05226480836236934,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 3,
+   "expert": 18,
+   "items": 2,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.05226480836236934,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 2,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 3,
+   "expert": 20,
+   "items": 2,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.05226480836236934,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 3,
+   "expert": 21,
+   "items": 5,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 0.2,
+   "layer_share": 0.05226480836236934,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 2,
+    "person": 0,
+    "place": 1,
+    "tool": 2,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 3,
+   "expert": 23,
+   "items": 177,
+   "brought": 18,
+   "pushed_out": 15,
+   "share": 0.1016949152542373,
+   "layer_share": 0.05226480836236934,
+   "labels": {
+    "animal": 28,
+    "emotion": 3,
+    "food": 51,
+    "idea": 3,
+    "person": 13,
+    "place": 41,
+    "tool": 24,
+    "vehicle": 14
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 1,
+    "food": 4,
+    "idea": 2,
+    "person": 2,
+    "place": 6,
+    "tool": 3,
+    "vehicle": 0
+   },
+   "p": 0.006352195486224438,
+   "beyond_chance": true
+  },
+  {
+   "layer": 3,
+   "expert": 24,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.05226480836236934,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 3,
+   "expert": 25,
+   "items": 4,
+   "brought": 2,
+   "pushed_out": 0,
+   "share": 0.5,
+   "layer_share": 0.05226480836236934,
+   "labels": {
+    "animal": 2,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 1,
+    "tool": 0,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 1,
+    "tool": 0,
+    "vehicle": 1
+   }
+  },
+  {
+   "layer": 3,
+   "expert": 26,
+   "items": 2,
+   "brought": 1,
+   "pushed_out": 2,
+   "share": 0.5,
+   "layer_share": 0.05226480836236934,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 2,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 3,
+   "expert": 27,
+   "items": 2,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.05226480836236934,
+   "labels": {
+    "animal": 0,
+    "emotion": 1,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 3,
+   "expert": 28,
+   "items": 7,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.05226480836236934,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 5,
+    "person": 1,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 3,
+   "expert": 29,
+   "items": 2,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.05226480836236934,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 1,
+    "tool": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 3,
+   "expert": 30,
+   "items": 7,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 0.14285714285714285,
+   "layer_share": 0.05226480836236934,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 3,
+    "person": 1,
+    "place": 1,
+    "tool": 2,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 3,
+   "expert": 31,
+   "items": 604,
+   "brought": 16,
+   "pushed_out": 23,
+   "share": 0.026490066225165563,
+   "layer_share": 0.05226480836236934,
+   "labels": {
+    "animal": 64,
+    "emotion": 86,
+    "food": 72,
+    "idea": 90,
+    "person": 103,
+    "place": 75,
+    "tool": 73,
+    "vehicle": 41
+   },
+   "brought_labels": {
+    "animal": 6,
+    "emotion": 0,
+    "food": 7,
+    "idea": 2,
+    "person": 0,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 0
+   },
+   "p": 0.0032331700233968934,
+   "beyond_chance": true
+  },
+  {
+   "layer": 4,
+   "expert": 0,
+   "items": 13,
+   "brought": 1,
+   "pushed_out": 1,
+   "share": 0.07692307692307693,
+   "layer_share": 0.11033681765389082,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 2,
+    "idea": 1,
+    "person": 1,
+    "place": 0,
+    "tool": 9,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 1,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 4,
+   "expert": 3,
+   "items": 2,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 0.5,
+   "layer_share": 0.11033681765389082,
+   "labels": {
+    "animal": 0,
+    "emotion": 1,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 4,
+   "expert": 4,
+   "items": 3,
+   "brought": 2,
+   "pushed_out": 0,
+   "share": 0.6666666666666666,
+   "layer_share": 0.11033681765389082,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 1,
+    "idea": 1,
+    "person": 1,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 1,
+    "idea": 0,
+    "person": 1,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 4,
+   "expert": 5,
+   "items": 3,
+   "brought": 3,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.11033681765389082,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 1,
+    "tool": 2,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 1,
+    "tool": 2,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 4,
+   "expert": 6,
+   "items": 79,
+   "brought": 7,
+   "pushed_out": 19,
+   "share": 0.08860759493670886,
+   "layer_share": 0.11033681765389082,
+   "labels": {
+    "animal": 2,
+    "emotion": 22,
+    "food": 2,
+    "idea": 27,
+    "person": 15,
+    "place": 8,
+    "tool": 2,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 2,
+    "food": 1,
+    "idea": 1,
+    "person": 1,
+    "place": 2,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "p": 0.7184551424121358,
+   "beyond_chance": false
+  },
+  {
+   "layer": 4,
+   "expert": 7,
+   "items": 8,
+   "brought": 2,
+   "pushed_out": 0,
+   "share": 0.25,
+   "layer_share": 0.11033681765389082,
+   "labels": {
+    "animal": 1,
+    "emotion": 1,
+    "food": 0,
+    "idea": 1,
+    "person": 3,
+    "place": 1,
+    "tool": 0,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "animal": 1,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 1
+   }
+  },
+  {
+   "layer": 4,
+   "expert": 8,
+   "items": 3,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.11033681765389082,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 1,
+    "idea": 1,
+    "person": 1,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 4,
+   "expert": 9,
+   "items": 2,
+   "brought": 2,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.11033681765389082,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 1,
+    "tool": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 1,
+    "tool": 1,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 4,
+   "expert": 11,
+   "items": 2,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.11033681765389082,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 2,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 4,
+   "expert": 13,
+   "items": 60,
+   "brought": 3,
+   "pushed_out": 7,
+   "share": 0.05,
+   "layer_share": 0.11033681765389082,
+   "labels": {
+    "animal": 17,
+    "emotion": 0,
+    "food": 0,
+    "idea": 4,
+    "person": 37,
+    "place": 2,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 1,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 2,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "p": 0.2111661710459739,
+   "beyond_chance": false
+  },
+  {
+   "layer": 4,
+   "expert": 14,
+   "items": 323,
+   "brought": 22,
+   "pushed_out": 37,
+   "share": 0.06811145510835913,
+   "layer_share": 0.11033681765389082,
+   "labels": {
+    "animal": 28,
+    "emotion": 13,
+    "food": 73,
+    "idea": 23,
+    "person": 27,
+    "place": 64,
+    "tool": 58,
+    "vehicle": 37
+   },
+   "brought_labels": {
+    "animal": 4,
+    "emotion": 0,
+    "food": 8,
+    "idea": 1,
+    "person": 3,
+    "place": 4,
+    "tool": 1,
+    "vehicle": 1
+   },
+   "p": 0.012769205608436723,
+   "beyond_chance": false
+  },
+  {
+   "layer": 4,
+   "expert": 15,
+   "items": 44,
+   "brought": 8,
+   "pushed_out": 3,
+   "share": 0.18181818181818182,
+   "layer_share": 0.11033681765389082,
+   "labels": {
+    "animal": 1,
+    "emotion": 1,
+    "food": 1,
+    "idea": 16,
+    "person": 5,
+    "place": 2,
+    "tool": 16,
+    "vehicle": 2
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 1,
+    "food": 0,
+    "idea": 4,
+    "person": 0,
+    "place": 0,
+    "tool": 3,
+    "vehicle": 0
+   },
+   "p": 0.14378384255045046,
+   "beyond_chance": false
+  },
+  {
+   "layer": 4,
+   "expert": 16,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.11033681765389082,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 4,
+   "expert": 17,
+   "items": 35,
+   "brought": 5,
+   "pushed_out": 0,
+   "share": 0.14285714285714285,
+   "layer_share": 0.11033681765389082,
+   "labels": {
+    "animal": 1,
+    "emotion": 0,
+    "food": 0,
+    "idea": 16,
+    "person": 8,
+    "place": 10,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 2,
+    "person": 1,
+    "place": 2,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "p": 0.5844564380825339,
+   "beyond_chance": false
+  },
+  {
+   "layer": 4,
+   "expert": 18,
+   "items": 67,
+   "brought": 12,
+   "pushed_out": 0,
+   "share": 0.1791044776119403,
+   "layer_share": 0.11033681765389082,
+   "labels": {
+    "animal": 0,
+    "emotion": 43,
+    "food": 0,
+    "idea": 15,
+    "person": 9,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 8,
+    "food": 0,
+    "idea": 3,
+    "person": 1,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "p": 0.07869932640941232,
+   "beyond_chance": false
+  },
+  {
+   "layer": 4,
+   "expert": 19,
+   "items": 3,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.11033681765389082,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 1,
+    "idea": 1,
+    "person": 0,
+    "place": 1,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 4,
+   "expert": 21,
+   "items": 10,
+   "brought": 5,
+   "pushed_out": 0,
+   "share": 0.5,
+   "layer_share": 0.11033681765389082,
+   "labels": {
+    "animal": 2,
+    "emotion": 0,
+    "food": 4,
+    "idea": 0,
+    "person": 1,
+    "place": 2,
+    "tool": 0,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 4,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 1
+   }
+  },
+  {
+   "layer": 4,
+   "expert": 22,
+   "items": 2,
+   "brought": 0,
+   "pushed_out": 1,
+   "share": 0.0,
+   "layer_share": 0.11033681765389082,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 1,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 4,
+   "expert": 23,
+   "items": 4,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.11033681765389082,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 3,
+    "person": 1,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 4,
+   "expert": 24,
+   "items": 176,
+   "brought": 17,
+   "pushed_out": 27,
+   "share": 0.09659090909090909,
+   "layer_share": 0.11033681765389082,
+   "labels": {
+    "animal": 44,
+    "emotion": 7,
+    "food": 39,
+    "idea": 5,
+    "person": 10,
+    "place": 30,
+    "tool": 25,
+    "vehicle": 16
+   },
+   "brought_labels": {
+    "animal": 5,
+    "emotion": 2,
+    "food": 2,
+    "idea": 2,
+    "person": 1,
+    "place": 3,
+    "tool": 1,
+    "vehicle": 1
+   },
+   "p": 0.6314196383362902,
+   "beyond_chance": false
+  },
+  {
+   "layer": 4,
+   "expert": 25,
+   "items": 2,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 0.5,
+   "layer_share": 0.11033681765389082,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 1,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 4,
+   "expert": 26,
+   "items": 2,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.11033681765389082,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 1,
+    "tool": 0,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 4,
+   "expert": 28,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.11033681765389082,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 1,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 1,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 4,
+   "expert": 31,
+   "items": 16,
+   "brought": 2,
+   "pushed_out": 0,
+   "share": 0.125,
+   "layer_share": 0.11033681765389082,
+   "labels": {
+    "animal": 0,
+    "emotion": 5,
+    "food": 0,
+    "idea": 6,
+    "person": 4,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 1,
+    "food": 0,
+    "idea": 0,
+    "person": 1,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 5,
+   "expert": 3,
+   "items": 4,
+   "brought": 2,
+   "pushed_out": 0,
+   "share": 0.5,
+   "layer_share": 0.08710801393728224,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 1,
+    "place": 0,
+    "tool": 2,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 1
+   }
+  },
+  {
+   "layer": 5,
+   "expert": 5,
+   "items": 2,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 0.5,
+   "layer_share": 0.08710801393728224,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 5,
+   "expert": 6,
+   "items": 163,
+   "brought": 16,
+   "pushed_out": 13,
+   "share": 0.09815950920245399,
+   "layer_share": 0.08710801393728224,
+   "labels": {
+    "animal": 0,
+    "emotion": 63,
+    "food": 1,
+    "idea": 49,
+    "person": 45,
+    "place": 2,
+    "tool": 1,
+    "vehicle": 2
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 2,
+    "food": 0,
+    "idea": 4,
+    "person": 8,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 1
+   },
+   "p": 0.5784678119930191,
+   "beyond_chance": false
+  },
+  {
+   "layer": 5,
+   "expert": 11,
+   "items": 3,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.08710801393728224,
+   "labels": {
+    "animal": 0,
+    "emotion": 1,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 5,
+   "expert": 12,
+   "items": 16,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 0.0625,
+   "layer_share": 0.08710801393728224,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 11,
+    "tool": 3,
+    "vehicle": 2
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 1,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 5,
+   "expert": 13,
+   "items": 4,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.08710801393728224,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 2,
+    "idea": 1,
+    "person": 0,
+    "place": 1,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 5,
+   "expert": 15,
+   "items": 153,
+   "brought": 10,
+   "pushed_out": 6,
+   "share": 0.06535947712418301,
+   "layer_share": 0.08710801393728224,
+   "labels": {
+    "animal": 55,
+    "emotion": 7,
+    "food": 37,
+    "idea": 5,
+    "person": 11,
+    "place": 10,
+    "tool": 14,
+    "vehicle": 14
+   },
+   "brought_labels": {
+    "animal": 3,
+    "emotion": 2,
+    "food": 3,
+    "idea": 0,
+    "person": 0,
+    "place": 1,
+    "tool": 0,
+    "vehicle": 1
+   },
+   "p": 0.39196237546834445,
+   "beyond_chance": false
+  },
+  {
+   "layer": 5,
+   "expert": 16,
+   "items": 4,
+   "brought": 1,
+   "pushed_out": 1,
+   "share": 0.25,
+   "layer_share": 0.08710801393728224,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 2,
+    "person": 0,
+    "place": 0,
+    "tool": 2,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 5,
+   "expert": 18,
+   "items": 4,
+   "brought": 0,
+   "pushed_out": 1,
+   "share": 0.0,
+   "layer_share": 0.08710801393728224,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 1,
+    "place": 1,
+    "tool": 2,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 5,
+   "expert": 20,
+   "items": 9,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.08710801393728224,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 7,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 2,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 5,
+   "expert": 21,
+   "items": 5,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.08710801393728224,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 3,
+    "person": 1,
+    "place": 1,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 5,
+   "expert": 22,
+   "items": 9,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.08710801393728224,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 4,
+    "person": 0,
+    "place": 1,
+    "tool": 1,
+    "vehicle": 3
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 5,
+   "expert": 23,
+   "items": 7,
+   "brought": 2,
+   "pushed_out": 1,
+   "share": 0.2857142857142857,
+   "layer_share": 0.08710801393728224,
+   "labels": {
+    "animal": 1,
+    "emotion": 0,
+    "food": 0,
+    "idea": 2,
+    "person": 0,
+    "place": 1,
+    "tool": 2,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "animal": 1,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 1,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 5,
+   "expert": 24,
+   "items": 176,
+   "brought": 14,
+   "pushed_out": 27,
+   "share": 0.07954545454545454,
+   "layer_share": 0.08710801393728224,
+   "labels": {
+    "animal": 10,
+    "emotion": 13,
+    "food": 15,
+    "idea": 37,
+    "person": 29,
+    "place": 22,
+    "tool": 48,
+    "vehicle": 2
+   },
+   "brought_labels": {
+    "animal": 3,
+    "emotion": 2,
+    "food": 4,
+    "idea": 0,
+    "person": 1,
+    "place": 2,
+    "tool": 2,
+    "vehicle": 0
+   },
+   "p": 0.8933243986886821,
+   "beyond_chance": false
+  },
+  {
+   "layer": 5,
+   "expert": 25,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.08710801393728224,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 5,
+   "expert": 27,
+   "items": 6,
+   "brought": 1,
+   "pushed_out": 1,
+   "share": 0.16666666666666666,
+   "layer_share": 0.08710801393728224,
+   "labels": {
+    "animal": 0,
+    "emotion": 2,
+    "food": 0,
+    "idea": 3,
+    "person": 0,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 5,
+   "expert": 28,
+   "items": 3,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.08710801393728224,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 3,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 5,
+   "expert": 29,
+   "items": 7,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 0.14285714285714285,
+   "layer_share": 0.08710801393728224,
+   "labels": {
+    "animal": 1,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 6,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 5,
+   "expert": 30,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 2,
+   "share": 0.0,
+   "layer_share": 0.08710801393728224,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 1,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 5,
+   "expert": 31,
+   "items": 284,
+   "brought": 25,
+   "pushed_out": 23,
+   "share": 0.0880281690140845,
+   "layer_share": 0.08710801393728224,
+   "labels": {
+    "animal": 29,
+    "emotion": 7,
+    "food": 63,
+    "idea": 13,
+    "person": 35,
+    "place": 74,
+    "tool": 29,
+    "vehicle": 34
+   },
+   "brought_labels": {
+    "animal": 2,
+    "emotion": 1,
+    "food": 1,
+    "idea": 2,
+    "person": 8,
+    "place": 7,
+    "tool": 2,
+    "vehicle": 2
+   },
+   "p": 0.9162156553828853,
+   "beyond_chance": false
+  },
+  {
+   "layer": 6,
+   "expert": 1,
+   "items": 3,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.06155632984901278,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 3,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 6,
+   "expert": 2,
+   "items": 30,
+   "brought": 4,
+   "pushed_out": 5,
+   "share": 0.13333333333333333,
+   "layer_share": 0.06155632984901278,
+   "labels": {
+    "animal": 7,
+    "emotion": 1,
+    "food": 4,
+    "idea": 4,
+    "person": 1,
+    "place": 4,
+    "tool": 6,
+    "vehicle": 3
+   },
+   "brought_labels": {
+    "animal": 1,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 3,
+    "vehicle": 0
+   },
+   "p": 0.11012250853203277,
+   "beyond_chance": false
+  },
+  {
+   "layer": 6,
+   "expert": 3,
+   "items": 30,
+   "brought": 1,
+   "pushed_out": 6,
+   "share": 0.03333333333333333,
+   "layer_share": 0.06155632984901278,
+   "labels": {
+    "animal": 0,
+    "emotion": 3,
+    "food": 0,
+    "idea": 25,
+    "person": 0,
+    "place": 1,
+    "tool": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 1,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "p": 1.0,
+   "beyond_chance": false
+  },
+  {
+   "layer": 6,
+   "expert": 4,
+   "items": 5,
+   "brought": 0,
+   "pushed_out": 2,
+   "share": 0.0,
+   "layer_share": 0.06155632984901278,
+   "labels": {
+    "animal": 0,
+    "emotion": 1,
+    "food": 1,
+    "idea": 2,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 6,
+   "expert": 5,
+   "items": 10,
+   "brought": 5,
+   "pushed_out": 9,
+   "share": 0.5,
+   "layer_share": 0.06155632984901278,
+   "labels": {
+    "animal": 1,
+    "emotion": 4,
+    "food": 0,
+    "idea": 2,
+    "person": 0,
+    "place": 0,
+    "tool": 3,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 2,
+    "food": 0,
+    "idea": 2,
+    "person": 0,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 6,
+   "expert": 6,
+   "items": 2,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.06155632984901278,
+   "labels": {
+    "animal": 1,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 6,
+   "expert": 7,
+   "items": 151,
+   "brought": 10,
+   "pushed_out": 3,
+   "share": 0.06622516556291391,
+   "layer_share": 0.06155632984901278,
+   "labels": {
+    "animal": 1,
+    "emotion": 73,
+    "food": 0,
+    "idea": 56,
+    "person": 11,
+    "place": 6,
+    "tool": 2,
+    "vehicle": 2
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 4,
+    "food": 0,
+    "idea": 3,
+    "person": 0,
+    "place": 1,
+    "tool": 2,
+    "vehicle": 0
+   },
+   "p": 0.7351171396455078,
+   "beyond_chance": false
+  },
+  {
+   "layer": 6,
+   "expert": 9,
+   "items": 14,
+   "brought": 1,
+   "pushed_out": 4,
+   "share": 0.07142857142857142,
+   "layer_share": 0.06155632984901278,
+   "labels": {
+    "animal": 0,
+    "emotion": 3,
+    "food": 5,
+    "idea": 5,
+    "person": 0,
+    "place": 1,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 6,
+   "expert": 11,
+   "items": 13,
+   "brought": 0,
+   "pushed_out": 1,
+   "share": 0.0,
+   "layer_share": 0.06155632984901278,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 9,
+    "tool": 1,
+    "vehicle": 2
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 6,
+   "expert": 12,
+   "items": 4,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 0.25,
+   "layer_share": 0.06155632984901278,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 2,
+    "person": 0,
+    "place": 0,
+    "tool": 2,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 6,
+   "expert": 13,
+   "items": 10,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.06155632984901278,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 1,
+    "tool": 2,
+    "vehicle": 6
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 6,
+   "expert": 14,
+   "items": 8,
+   "brought": 2,
+   "pushed_out": 2,
+   "share": 0.25,
+   "layer_share": 0.06155632984901278,
+   "labels": {
+    "animal": 0,
+    "emotion": 2,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 6,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 1,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 6,
+   "expert": 15,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.06155632984901278,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 1,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 6,
+   "expert": 16,
+   "items": 3,
+   "brought": 0,
+   "pushed_out": 1,
+   "share": 0.0,
+   "layer_share": 0.06155632984901278,
+   "labels": {
+    "animal": 0,
+    "emotion": 1,
+    "food": 0,
+    "idea": 2,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 6,
+   "expert": 17,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.06155632984901278,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 6,
+   "expert": 19,
+   "items": 13,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.06155632984901278,
+   "labels": {
+    "animal": 0,
+    "emotion": 1,
+    "food": 0,
+    "idea": 4,
+    "person": 0,
+    "place": 2,
+    "tool": 6,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 6,
+   "expert": 22,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.06155632984901278,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 1,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 6,
+   "expert": 23,
+   "items": 4,
+   "brought": 0,
+   "pushed_out": 1,
+   "share": 0.0,
+   "layer_share": 0.06155632984901278,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 1,
+    "place": 2,
+    "tool": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 6,
+   "expert": 24,
+   "items": 152,
+   "brought": 9,
+   "pushed_out": 1,
+   "share": 0.05921052631578947,
+   "layer_share": 0.06155632984901278,
+   "labels": {
+    "animal": 30,
+    "emotion": 0,
+    "food": 1,
+    "idea": 8,
+    "person": 107,
+    "place": 3,
+    "tool": 2,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "animal": 5,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 4,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "p": 1.0,
+   "beyond_chance": false
+  },
+  {
+   "layer": 6,
+   "expert": 27,
+   "items": 9,
+   "brought": 3,
+   "pushed_out": 3,
+   "share": 0.3333333333333333,
+   "layer_share": 0.06155632984901278,
+   "labels": {
+    "animal": 4,
+    "emotion": 2,
+    "food": 0,
+    "idea": 0,
+    "person": 1,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "animal": 2,
+    "emotion": 1,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 6,
+   "expert": 28,
+   "items": 91,
+   "brought": 7,
+   "pushed_out": 4,
+   "share": 0.07692307692307693,
+   "layer_share": 0.06155632984901278,
+   "labels": {
+    "animal": 10,
+    "emotion": 1,
+    "food": 6,
+    "idea": 7,
+    "person": 2,
+    "place": 21,
+    "tool": 36,
+    "vehicle": 8
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 1,
+    "food": 1,
+    "idea": 1,
+    "person": 0,
+    "place": 3,
+    "tool": 1,
+    "vehicle": 0
+   },
+   "p": 0.5094871664562514,
+   "beyond_chance": false
+  },
+  {
+   "layer": 6,
+   "expert": 30,
+   "items": 306,
+   "brought": 10,
+   "pushed_out": 11,
+   "share": 0.032679738562091505,
+   "layer_share": 0.06155632984901278,
+   "labels": {
+    "animal": 42,
+    "emotion": 1,
+    "food": 107,
+    "idea": 1,
+    "person": 0,
+    "place": 74,
+    "tool": 46,
+    "vehicle": 35
+   },
+   "brought_labels": {
+    "animal": 1,
+    "emotion": 0,
+    "food": 1,
+    "idea": 0,
+    "person": 0,
+    "place": 3,
+    "tool": 4,
+    "vehicle": 1
+   },
+   "p": 0.03190465663153684,
+   "beyond_chance": false
+  },
+  {
+   "layer": 7,
+   "expert": 2,
+   "items": 2,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.05574912891986063,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 2,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 7,
+   "expert": 5,
+   "items": 504,
+   "brought": 11,
+   "pushed_out": 32,
+   "share": 0.021825396825396824,
+   "layer_share": 0.05574912891986063,
+   "labels": {
+    "animal": 34,
+    "emotion": 77,
+    "food": 37,
+    "idea": 100,
+    "person": 83,
+    "place": 91,
+    "tool": 56,
+    "vehicle": 26
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 2,
+    "food": 4,
+    "idea": 4,
+    "person": 1,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "p": 0.00029614940958836637,
+   "beyond_chance": true
+  },
+  {
+   "layer": 7,
+   "expert": 6,
+   "items": 4,
+   "brought": 2,
+   "pushed_out": 0,
+   "share": 0.5,
+   "layer_share": 0.05574912891986063,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 2,
+    "idea": 2,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 1,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 7,
+   "expert": 7,
+   "items": 198,
+   "brought": 9,
+   "pushed_out": 3,
+   "share": 0.045454545454545456,
+   "layer_share": 0.05574912891986063,
+   "labels": {
+    "animal": 59,
+    "emotion": 0,
+    "food": 63,
+    "idea": 1,
+    "person": 0,
+    "place": 13,
+    "tool": 49,
+    "vehicle": 13
+   },
+   "brought_labels": {
+    "animal": 3,
+    "emotion": 0,
+    "food": 2,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 3,
+    "vehicle": 1
+   },
+   "p": 0.642440734558888,
+   "beyond_chance": false
+  },
+  {
+   "layer": 7,
+   "expert": 10,
+   "items": 130,
+   "brought": 20,
+   "pushed_out": 12,
+   "share": 0.15384615384615385,
+   "layer_share": 0.05574912891986063,
+   "labels": {
+    "animal": 2,
+    "emotion": 5,
+    "food": 20,
+    "idea": 16,
+    "person": 37,
+    "place": 21,
+    "tool": 9,
+    "vehicle": 20
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 1,
+    "idea": 1,
+    "person": 12,
+    "place": 2,
+    "tool": 2,
+    "vehicle": 2
+   },
+   "p": 3.668123612859756e-05,
+   "beyond_chance": true
+  },
+  {
+   "layer": 7,
+   "expert": 15,
+   "items": 5,
+   "brought": 2,
+   "pushed_out": 0,
+   "share": 0.4,
+   "layer_share": 0.05574912891986063,
+   "labels": {
+    "animal": 0,
+    "emotion": 2,
+    "food": 0,
+    "idea": 2,
+    "person": 1,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 1,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 7,
+   "expert": 22,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.05574912891986063,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 7,
+   "expert": 23,
+   "items": 13,
+   "brought": 1,
+   "pushed_out": 1,
+   "share": 0.07692307692307693,
+   "layer_share": 0.05574912891986063,
+   "labels": {
+    "animal": 0,
+    "emotion": 9,
+    "food": 0,
+    "idea": 4,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 1,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 7,
+   "expert": 25,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.05574912891986063,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 1,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 1,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 7,
+   "expert": 26,
+   "items": 3,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 0.3333333333333333,
+   "layer_share": 0.05574912891986063,
+   "labels": {
+    "animal": 1,
+    "emotion": 0,
+    "food": 2,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 1,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 8,
+   "expert": 6,
+   "items": 7,
+   "brought": 0,
+   "pushed_out": 3,
+   "share": 0.0,
+   "layer_share": 0.06620209059233449,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 4,
+    "idea": 2,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 8,
+   "expert": 9,
+   "items": 345,
+   "brought": 20,
+   "pushed_out": 16,
+   "share": 0.057971014492753624,
+   "layer_share": 0.06620209059233449,
+   "labels": {
+    "animal": 46,
+    "emotion": 69,
+    "food": 64,
+    "idea": 56,
+    "person": 46,
+    "place": 38,
+    "tool": 25,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "animal": 2,
+    "emotion": 4,
+    "food": 6,
+    "idea": 2,
+    "person": 3,
+    "place": 1,
+    "tool": 2,
+    "vehicle": 0
+   },
+   "p": 0.6641066048847795,
+   "beyond_chance": false
+  },
+  {
+   "layer": 8,
+   "expert": 12,
+   "items": 11,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.06620209059233449,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 6,
+    "tool": 5,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 8,
+   "expert": 16,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.06620209059233449,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 8,
+   "expert": 17,
+   "items": 151,
+   "brought": 14,
+   "pushed_out": 14,
+   "share": 0.09271523178807947,
+   "layer_share": 0.06620209059233449,
+   "labels": {
+    "animal": 14,
+    "emotion": 5,
+    "food": 6,
+    "idea": 39,
+    "person": 24,
+    "place": 34,
+    "tool": 18,
+    "vehicle": 11
+   },
+   "brought_labels": {
+    "animal": 1,
+    "emotion": 2,
+    "food": 2,
+    "idea": 5,
+    "person": 2,
+    "place": 2,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "p": 0.1886561605903299,
+   "beyond_chance": false
+  },
+  {
+   "layer": 8,
+   "expert": 18,
+   "items": 4,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.06620209059233449,
+   "labels": {
+    "animal": 0,
+    "emotion": 1,
+    "food": 0,
+    "idea": 2,
+    "person": 0,
+    "place": 1,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 8,
+   "expert": 20,
+   "items": 203,
+   "brought": 16,
+   "pushed_out": 12,
+   "share": 0.07881773399014778,
+   "layer_share": 0.06620209059233449,
+   "labels": {
+    "animal": 33,
+    "emotion": 2,
+    "food": 49,
+    "idea": 6,
+    "person": 15,
+    "place": 31,
+    "tool": 48,
+    "vehicle": 19
+   },
+   "brought_labels": {
+    "animal": 3,
+    "emotion": 0,
+    "food": 2,
+    "idea": 1,
+    "person": 3,
+    "place": 2,
+    "tool": 4,
+    "vehicle": 1
+   },
+   "p": 0.4781561224814599,
+   "beyond_chance": false
+  },
+  {
+   "layer": 8,
+   "expert": 23,
+   "items": 65,
+   "brought": 5,
+   "pushed_out": 8,
+   "share": 0.07692307692307693,
+   "layer_share": 0.06620209059233449,
+   "labels": {
+    "animal": 0,
+    "emotion": 16,
+    "food": 0,
+    "idea": 14,
+    "person": 28,
+    "place": 2,
+    "tool": 3,
+    "vehicle": 2
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 1,
+    "food": 0,
+    "idea": 0,
+    "person": 4,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "p": 0.6193155762589205,
+   "beyond_chance": false
+  },
+  {
+   "layer": 8,
+   "expert": 30,
+   "items": 74,
+   "brought": 2,
+   "pushed_out": 3,
+   "share": 0.02702702702702703,
+   "layer_share": 0.06620209059233449,
+   "labels": {
+    "animal": 3,
+    "emotion": 0,
+    "food": 2,
+    "idea": 5,
+    "person": 10,
+    "place": 13,
+    "tool": 16,
+    "vehicle": 25
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 1,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "p": 0.24044193855737506,
+   "beyond_chance": false
+  },
+  {
+   "layer": 9,
+   "expert": 0,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.010452961672473868,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 9,
+   "expert": 1,
+   "items": 2,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 0.5,
+   "layer_share": 0.010452961672473868,
+   "labels": {
+    "animal": 2,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 1,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 9,
+   "expert": 8,
+   "items": 5,
+   "brought": 0,
+   "pushed_out": 2,
+   "share": 0.0,
+   "layer_share": 0.010452961672473868,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 3,
+    "person": 1,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 9,
+   "expert": 9,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.010452961672473868,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 9,
+   "expert": 16,
+   "items": 839,
+   "brought": 8,
+   "pushed_out": 1,
+   "share": 0.009535160905840286,
+   "layer_share": 0.010452961672473868,
+   "labels": {
+    "animal": 93,
+    "emotion": 92,
+    "food": 124,
+    "idea": 122,
+    "person": 115,
+    "place": 124,
+    "tool": 112,
+    "vehicle": 57
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 3,
+    "food": 1,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 2,
+    "vehicle": 2
+   },
+   "p": 1.0,
+   "beyond_chance": false
+  },
+  {
+   "layer": 9,
+   "expert": 19,
+   "items": 3,
+   "brought": 0,
+   "pushed_out": 1,
+   "share": 0.0,
+   "layer_share": 0.010452961672473868,
+   "labels": {
+    "animal": 1,
+    "emotion": 1,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 9,
+   "expert": 25,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 2,
+   "share": 0.0,
+   "layer_share": 0.010452961672473868,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 1,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 9,
+   "expert": 26,
+   "items": 8,
+   "brought": 0,
+   "pushed_out": 1,
+   "share": 0.0,
+   "layer_share": 0.010452961672473868,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 6,
+    "place": 1,
+    "tool": 0,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 9,
+   "expert": 31,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.010452961672473868,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 1,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 10,
+   "expert": 5,
+   "items": 23,
+   "brought": 4,
+   "pushed_out": 1,
+   "share": 0.17391304347826086,
+   "layer_share": 0.023228803716608595,
+   "labels": {
+    "animal": 0,
+    "emotion": 10,
+    "food": 0,
+    "idea": 11,
+    "person": 2,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 2,
+    "food": 0,
+    "idea": 2,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "p": 0.001809874272035455,
+   "beyond_chance": true
+  },
+  {
+   "layer": 10,
+   "expert": 6,
+   "items": 25,
+   "brought": 3,
+   "pushed_out": 3,
+   "share": 0.12,
+   "layer_share": 0.023228803716608595,
+   "labels": {
+    "animal": 2,
+    "emotion": 0,
+    "food": 0,
+    "idea": 2,
+    "person": 2,
+    "place": 7,
+    "tool": 11,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "animal": 1,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 1,
+    "place": 1,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "p": 0.01968085245349641,
+   "beyond_chance": false
+  },
+  {
+   "layer": 10,
+   "expert": 8,
+   "items": 5,
+   "brought": 0,
+   "pushed_out": 1,
+   "share": 0.0,
+   "layer_share": 0.023228803716608595,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 4,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 10,
+   "expert": 10,
+   "items": 305,
+   "brought": 5,
+   "pushed_out": 4,
+   "share": 0.01639344262295082,
+   "layer_share": 0.023228803716608595,
+   "labels": {
+    "animal": 20,
+    "emotion": 50,
+    "food": 16,
+    "idea": 76,
+    "person": 57,
+    "place": 40,
+    "tool": 32,
+    "vehicle": 14
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 1,
+    "idea": 1,
+    "person": 1,
+    "place": 1,
+    "tool": 0,
+    "vehicle": 1
+   },
+   "p": 0.5675519328657053,
+   "beyond_chance": false
+  },
+  {
+   "layer": 10,
+   "expert": 12,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.023228803716608595,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 10,
+   "expert": 13,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.023228803716608595,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 10,
+   "expert": 15,
+   "items": 17,
+   "brought": 3,
+   "pushed_out": 1,
+   "share": 0.17647058823529413,
+   "layer_share": 0.023228803716608595,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 6,
+    "idea": 0,
+    "person": 0,
+    "place": 3,
+    "tool": 8,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 2,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 10,
+   "expert": 19,
+   "items": 478,
+   "brought": 4,
+   "pushed_out": 10,
+   "share": 0.008368200836820083,
+   "layer_share": 0.023228803716608595,
+   "labels": {
+    "animal": 74,
+    "emotion": 33,
+    "food": 103,
+    "idea": 30,
+    "person": 58,
+    "place": 73,
+    "tool": 63,
+    "vehicle": 44
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 1,
+    "food": 0,
+    "idea": 1,
+    "person": 1,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 0
+   },
+   "p": 0.03130967885209737,
+   "beyond_chance": false
+  },
+  {
+   "layer": 10,
+   "expert": 24,
+   "items": 6,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.023228803716608595,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 4,
+    "person": 0,
+    "place": 2,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 11,
+   "expert": 5,
+   "items": 5,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.04065040650406504,
+   "labels": {
+    "animal": 1,
+    "emotion": 1,
+    "food": 2,
+    "idea": 0,
+    "person": 1,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 11,
+   "expert": 7,
+   "items": 16,
+   "brought": 8,
+   "pushed_out": 0,
+   "share": 0.5,
+   "layer_share": 0.04065040650406504,
+   "labels": {
+    "animal": 7,
+    "emotion": 0,
+    "food": 5,
+    "idea": 0,
+    "person": 0,
+    "place": 2,
+    "tool": 0,
+    "vehicle": 2
+   },
+   "brought_labels": {
+    "animal": 3,
+    "emotion": 0,
+    "food": 3,
+    "idea": 0,
+    "person": 0,
+    "place": 1,
+    "tool": 0,
+    "vehicle": 1
+   }
+  },
+  {
+   "layer": 11,
+   "expert": 13,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.04065040650406504,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 11,
+   "expert": 16,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.04065040650406504,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 1
+   }
+  },
+  {
+   "layer": 11,
+   "expert": 18,
+   "items": 15,
+   "brought": 8,
+   "pushed_out": 0,
+   "share": 0.5333333333333333,
+   "layer_share": 0.04065040650406504,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 13,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 2,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 7,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 11,
+   "expert": 19,
+   "items": 4,
+   "brought": 0,
+   "pushed_out": 2,
+   "share": 0.0,
+   "layer_share": 0.04065040650406504,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 4,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 11,
+   "expert": 20,
+   "items": 29,
+   "brought": 4,
+   "pushed_out": 3,
+   "share": 0.13793103448275862,
+   "layer_share": 0.04065040650406504,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 7,
+    "tool": 13,
+    "vehicle": 9
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 2,
+    "tool": 2,
+    "vehicle": 0
+   },
+   "p": 0.028804475791760674,
+   "beyond_chance": false
+  },
+  {
+   "layer": 11,
+   "expert": 21,
+   "items": 9,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 0.1111111111111111,
+   "layer_share": 0.04065040650406504,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 4,
+    "person": 1,
+    "place": 4,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 1,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 11,
+   "expert": 22,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.04065040650406504,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 11,
+   "expert": 23,
+   "items": 4,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 0.25,
+   "layer_share": 0.04065040650406504,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 2,
+    "tool": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 1,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 11,
+   "expert": 24,
+   "items": 3,
+   "brought": 2,
+   "pushed_out": 0,
+   "share": 0.6666666666666666,
+   "layer_share": 0.04065040650406504,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 1,
+    "tool": 2,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 1,
+    "tool": 1,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 11,
+   "expert": 25,
+   "items": 16,
+   "brought": 5,
+   "pushed_out": 1,
+   "share": 0.3125,
+   "layer_share": 0.04065040650406504,
+   "labels": {
+    "animal": 8,
+    "emotion": 1,
+    "food": 2,
+    "idea": 0,
+    "person": 1,
+    "place": 2,
+    "tool": 2,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 1,
+    "food": 1,
+    "idea": 0,
+    "person": 0,
+    "place": 2,
+    "tool": 1,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 11,
+   "expert": 30,
+   "items": 757,
+   "brought": 5,
+   "pushed_out": 29,
+   "share": 0.0066050198150594455,
+   "layer_share": 0.04065040650406504,
+   "labels": {
+    "animal": 80,
+    "emotion": 91,
+    "food": 103,
+    "idea": 119,
+    "person": 120,
+    "place": 107,
+    "tool": 90,
+    "vehicle": 47
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 2,
+    "vehicle": 3
+   },
+   "p": 1.7630715738824524e-08,
+   "beyond_chance": true
+  },
+  {
+   "layer": 12,
+   "expert": 2,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.027874564459930314,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 12,
+   "expert": 3,
+   "items": 4,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.027874564459930314,
+   "labels": {
+    "animal": 0,
+    "emotion": 2,
+    "food": 0,
+    "idea": 1,
+    "person": 1,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 12,
+   "expert": 21,
+   "items": 484,
+   "brought": 8,
+   "pushed_out": 14,
+   "share": 0.01652892561983471,
+   "layer_share": 0.027874564459930314,
+   "labels": {
+    "animal": 72,
+    "emotion": 72,
+    "food": 90,
+    "idea": 41,
+    "person": 78,
+    "place": 64,
+    "tool": 45,
+    "vehicle": 22
+   },
+   "brought_labels": {
+    "animal": 1,
+    "emotion": 0,
+    "food": 0,
+    "idea": 2,
+    "person": 1,
+    "place": 1,
+    "tool": 2,
+    "vehicle": 1
+   },
+   "p": 0.1646254489073581,
+   "beyond_chance": false
+  },
+  {
+   "layer": 12,
+   "expert": 22,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.027874564459930314,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 12,
+   "expert": 23,
+   "items": 205,
+   "brought": 5,
+   "pushed_out": 9,
+   "share": 0.024390243902439025,
+   "layer_share": 0.027874564459930314,
+   "labels": {
+    "animal": 16,
+    "emotion": 12,
+    "food": 11,
+    "idea": 63,
+    "person": 27,
+    "place": 26,
+    "tool": 37,
+    "vehicle": 13
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 2,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 2
+   },
+   "p": 1.0,
+   "beyond_chance": false
+  },
+  {
+   "layer": 12,
+   "expert": 25,
+   "items": 165,
+   "brought": 11,
+   "pushed_out": 1,
+   "share": 0.06666666666666667,
+   "layer_share": 0.027874564459930314,
+   "labels": {
+    "animal": 8,
+    "emotion": 7,
+    "food": 23,
+    "idea": 20,
+    "person": 17,
+    "place": 35,
+    "tool": 31,
+    "vehicle": 24
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 3,
+    "idea": 1,
+    "person": 2,
+    "place": 4,
+    "tool": 1,
+    "vehicle": 0
+   },
+   "p": 0.00690166787031115,
+   "beyond_chance": true
+  },
+  {
+   "layer": 12,
+   "expert": 31,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.027874564459930314,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 1,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 13,
+   "expert": 0,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.032520325203252036,
+   "labels": {
+    "animal": 0,
+    "emotion": 1,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 13,
+   "expert": 1,
+   "items": 24,
+   "brought": 4,
+   "pushed_out": 1,
+   "share": 0.16666666666666666,
+   "layer_share": 0.032520325203252036,
+   "labels": {
+    "animal": 0,
+    "emotion": 3,
+    "food": 0,
+    "idea": 0,
+    "person": 21,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 2,
+    "food": 0,
+    "idea": 0,
+    "person": 2,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "p": 0.007056032053783096,
+   "beyond_chance": true
+  },
+  {
+   "layer": 13,
+   "expert": 5,
+   "items": 262,
+   "brought": 8,
+   "pushed_out": 9,
+   "share": 0.030534351145038167,
+   "layer_share": 0.032520325203252036,
+   "labels": {
+    "animal": 57,
+    "emotion": 12,
+    "food": 77,
+    "idea": 5,
+    "person": 17,
+    "place": 50,
+    "tool": 14,
+    "vehicle": 30
+   },
+   "brought_labels": {
+    "animal": 3,
+    "emotion": 0,
+    "food": 3,
+    "idea": 0,
+    "person": 1,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 0
+   },
+   "p": 1.0,
+   "beyond_chance": false
+  },
+  {
+   "layer": 13,
+   "expert": 16,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.032520325203252036,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 13,
+   "expert": 21,
+   "items": 403,
+   "brought": 7,
+   "pushed_out": 8,
+   "share": 0.017369727047146403,
+   "layer_share": 0.032520325203252036,
+   "labels": {
+    "animal": 27,
+    "emotion": 54,
+    "food": 24,
+    "idea": 103,
+    "person": 63,
+    "place": 59,
+    "tool": 55,
+    "vehicle": 18
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 2,
+    "food": 0,
+    "idea": 3,
+    "person": 1,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 0
+   },
+   "p": 0.09133133616067061,
+   "beyond_chance": false
+  },
+  {
+   "layer": 13,
+   "expert": 23,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.032520325203252036,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 13,
+   "expert": 24,
+   "items": 169,
+   "brought": 9,
+   "pushed_out": 9,
+   "share": 0.05325443786982249,
+   "layer_share": 0.032520325203252036,
+   "labels": {
+    "animal": 12,
+    "emotion": 23,
+    "food": 24,
+    "idea": 16,
+    "person": 22,
+    "place": 16,
+    "tool": 45,
+    "vehicle": 11
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 2,
+    "idea": 0,
+    "person": 1,
+    "place": 1,
+    "tool": 3,
+    "vehicle": 2
+   },
+   "p": 0.12680127268352756,
+   "beyond_chance": false
+  },
+  {
+   "layer": 14,
+   "expert": 6,
+   "items": 783,
+   "brought": 14,
+   "pushed_out": 7,
+   "share": 0.017879948914431672,
+   "layer_share": 0.024390243902439025,
+   "labels": {
+    "animal": 92,
+    "emotion": 92,
+    "food": 120,
+    "idea": 121,
+    "person": 107,
+    "place": 116,
+    "tool": 87,
+    "vehicle": 48
+   },
+   "brought_labels": {
+    "animal": 1,
+    "emotion": 0,
+    "food": 4,
+    "idea": 0,
+    "person": 1,
+    "place": 5,
+    "tool": 2,
+    "vehicle": 1
+   },
+   "p": 0.29539998262502865,
+   "beyond_chance": false
+  },
+  {
+   "layer": 14,
+   "expert": 29,
+   "items": 78,
+   "brought": 7,
+   "pushed_out": 14,
+   "share": 0.08974358974358974,
+   "layer_share": 0.024390243902439025,
+   "labels": {
+    "animal": 4,
+    "emotion": 1,
+    "food": 5,
+    "idea": 4,
+    "person": 16,
+    "place": 9,
+    "tool": 28,
+    "vehicle": 11
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 1,
+    "idea": 0,
+    "person": 3,
+    "place": 2,
+    "tool": 1,
+    "vehicle": 0
+   },
+   "p": 0.002993189277275797,
+   "beyond_chance": true
+  },
+  {
+   "layer": 15,
+   "expert": 0,
+   "items": 3,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.006968641114982578,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 1,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 15,
+   "expert": 11,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.006968641114982578,
+   "labels": {
+    "animal": 0,
+    "emotion": 1,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 15,
+   "expert": 13,
+   "items": 96,
+   "brought": 2,
+   "pushed_out": 0,
+   "share": 0.020833333333333332,
+   "layer_share": 0.006968641114982578,
+   "labels": {
+    "animal": 10,
+    "emotion": 12,
+    "food": 4,
+    "idea": 35,
+    "person": 6,
+    "place": 5,
+    "tool": 16,
+    "vehicle": 8
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 2,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "p": 0.144700942641078,
+   "beyond_chance": false
+  },
+  {
+   "layer": 15,
+   "expert": 17,
+   "items": 20,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 0.05,
+   "layer_share": 0.006968641114982578,
+   "labels": {
+    "animal": 3,
+    "emotion": 0,
+    "food": 2,
+    "idea": 0,
+    "person": 1,
+    "place": 2,
+    "tool": 9,
+    "vehicle": 3
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 0
+   },
+   "p": 0.13052066310166047,
+   "beyond_chance": false
+  },
+  {
+   "layer": 15,
+   "expert": 22,
+   "items": 30,
+   "brought": 1,
+   "pushed_out": 1,
+   "share": 0.03333333333333333,
+   "layer_share": 0.006968641114982578,
+   "labels": {
+    "animal": 0,
+    "emotion": 27,
+    "food": 0,
+    "idea": 2,
+    "person": 1,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 1,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "p": 0.18924637669697472,
+   "beyond_chance": false
+  },
+  {
+   "layer": 15,
+   "expert": 26,
+   "items": 23,
+   "brought": 2,
+   "pushed_out": 1,
+   "share": 0.08695652173913043,
+   "layer_share": 0.006968641114982578,
+   "labels": {
+    "animal": 0,
+    "emotion": 12,
+    "food": 0,
+    "idea": 6,
+    "person": 1,
+    "place": 1,
+    "tool": 3,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 1,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "p": 0.01114801633505494,
+   "beyond_chance": false
+  },
+  {
+   "layer": 15,
+   "expert": 28,
+   "items": 685,
+   "brought": 0,
+   "pushed_out": 4,
+   "share": 0.0,
+   "layer_share": 0.006968641114982578,
+   "labels": {
+    "animal": 83,
+    "emotion": 40,
+    "food": 118,
+    "idea": 79,
+    "person": 114,
+    "place": 117,
+    "tool": 87,
+    "vehicle": 47
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "p": 0.01808346818720128,
+   "beyond_chance": false
+  },
+  {
+   "layer": 15,
+   "expert": 30,
+   "items": 3,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.006968641114982578,
+   "labels": {
+    "animal": 0,
+    "emotion": 1,
+    "food": 0,
+    "idea": 2,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 16,
+   "expert": 2,
+   "items": 54,
+   "brought": 7,
+   "pushed_out": 4,
+   "share": 0.12962962962962962,
+   "layer_share": 0.012775842044134728,
+   "labels": {
+    "animal": 12,
+    "emotion": 7,
+    "food": 4,
+    "idea": 10,
+    "person": 6,
+    "place": 1,
+    "tool": 7,
+    "vehicle": 7
+   },
+   "brought_labels": {
+    "animal": 1,
+    "emotion": 1,
+    "food": 0,
+    "idea": 3,
+    "person": 1,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 0
+   },
+   "p": 5.813814722948558e-06,
+   "beyond_chance": true
+  },
+  {
+   "layer": 16,
+   "expert": 4,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 7,
+   "share": 0.0,
+   "layer_share": 0.012775842044134728,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 16,
+   "expert": 11,
+   "items": 801,
+   "brought": 4,
+   "pushed_out": 0,
+   "share": 0.004993757802746567,
+   "layer_share": 0.012775842044134728,
+   "labels": {
+    "animal": 84,
+    "emotion": 83,
+    "food": 121,
+    "idea": 114,
+    "person": 116,
+    "place": 123,
+    "tool": 108,
+    "vehicle": 52
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 1,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 2,
+    "tool": 1,
+    "vehicle": 0
+   },
+   "p": 0.05603668174726939,
+   "beyond_chance": false
+  },
+  {
+   "layer": 16,
+   "expert": 27,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.012775842044134728,
+   "labels": {
+    "animal": 0,
+    "emotion": 1,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 16,
+   "expert": 31,
+   "items": 4,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.012775842044134728,
+   "labels": {
+    "animal": 0,
+    "emotion": 2,
+    "food": 0,
+    "idea": 0,
+    "person": 1,
+    "place": 1,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 17,
+   "expert": 5,
+   "items": 848,
+   "brought": 11,
+   "pushed_out": 0,
+   "share": 0.012971698113207548,
+   "layer_share": 0.012775842044134728,
+   "labels": {
+    "animal": 96,
+    "emotion": 92,
+    "food": 121,
+    "idea": 121,
+    "person": 120,
+    "place": 125,
+    "tool": 114,
+    "vehicle": 59
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 10,
+    "idea": 0,
+    "person": 1,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "p": 0.8782758292455306,
+   "beyond_chance": false
+  },
+  {
+   "layer": 17,
+   "expert": 11,
+   "items": 7,
+   "brought": 0,
+   "pushed_out": 1,
+   "share": 0.0,
+   "layer_share": 0.012775842044134728,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 3,
+    "person": 3,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 17,
+   "expert": 15,
+   "items": 2,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.012775842044134728,
+   "labels": {
+    "animal": 0,
+    "emotion": 1,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 17,
+   "expert": 16,
+   "items": 4,
+   "brought": 0,
+   "pushed_out": 10,
+   "share": 0.0,
+   "layer_share": 0.012775842044134728,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 4,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 18,
+   "expert": 1,
+   "items": 123,
+   "brought": 6,
+   "pushed_out": 13,
+   "share": 0.04878048780487805,
+   "layer_share": 0.022067363530778164,
+   "labels": {
+    "animal": 25,
+    "emotion": 4,
+    "food": 15,
+    "idea": 6,
+    "person": 29,
+    "place": 29,
+    "tool": 4,
+    "vehicle": 11
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 3,
+    "idea": 2,
+    "person": 0,
+    "place": 1,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "p": 0.05581381627645151,
+   "beyond_chance": false
+  },
+  {
+   "layer": 18,
+   "expert": 14,
+   "items": 738,
+   "brought": 13,
+   "pushed_out": 6,
+   "share": 0.017615176151761516,
+   "layer_share": 0.022067363530778164,
+   "labels": {
+    "animal": 71,
+    "emotion": 89,
+    "food": 110,
+    "idea": 119,
+    "person": 94,
+    "place": 96,
+    "tool": 111,
+    "vehicle": 48
+   },
+   "brought_labels": {
+    "animal": 2,
+    "emotion": 1,
+    "food": 2,
+    "idea": 1,
+    "person": 2,
+    "place": 3,
+    "tool": 0,
+    "vehicle": 2
+   },
+   "p": 0.5291798516022506,
+   "beyond_chance": false
+  },
+  {
+   "layer": 19,
+   "expert": 6,
+   "items": 109,
+   "brought": 6,
+   "pushed_out": 8,
+   "share": 0.05504587155963303,
+   "layer_share": 0.018583042973286876,
+   "labels": {
+    "animal": 28,
+    "emotion": 23,
+    "food": 14,
+    "idea": 2,
+    "person": 36,
+    "place": 5,
+    "tool": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 1,
+    "emotion": 3,
+    "food": 1,
+    "idea": 0,
+    "person": 1,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "p": 0.016469373139403057,
+   "beyond_chance": false
+  },
+  {
+   "layer": 19,
+   "expert": 13,
+   "items": 596,
+   "brought": 9,
+   "pushed_out": 7,
+   "share": 0.015100671140939598,
+   "layer_share": 0.018583042973286876,
+   "labels": {
+    "animal": 53,
+    "emotion": 40,
+    "food": 104,
+    "idea": 98,
+    "person": 73,
+    "place": 107,
+    "tool": 78,
+    "vehicle": 43
+   },
+   "brought_labels": {
+    "animal": 3,
+    "emotion": 0,
+    "food": 2,
+    "idea": 0,
+    "person": 3,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 0
+   },
+   "p": 0.648917437752254,
+   "beyond_chance": false
+  },
+  {
+   "layer": 19,
+   "expert": 15,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.018583042973286876,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 19,
+   "expert": 22,
+   "items": 149,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 0.006711409395973154,
+   "layer_share": 0.018583042973286876,
+   "labels": {
+    "animal": 15,
+    "emotion": 29,
+    "food": 7,
+    "idea": 21,
+    "person": 12,
+    "place": 13,
+    "tool": 36,
+    "vehicle": 16
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 1,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "p": 0.5342112684140952,
+   "beyond_chance": false
+  },
+  {
+   "layer": 19,
+   "expert": 24,
+   "items": 2,
+   "brought": 0,
+   "pushed_out": 1,
+   "share": 0.0,
+   "layer_share": 0.018583042973286876,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 2,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 19,
+   "expert": 26,
+   "items": 4,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.018583042973286876,
+   "labels": {
+    "animal": 0,
+    "emotion": 1,
+    "food": 0,
+    "idea": 3,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 20,
+   "expert": 1,
+   "items": 41,
+   "brought": 3,
+   "pushed_out": 0,
+   "share": 0.07317073170731707,
+   "layer_share": 0.011614401858304297,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 10,
+    "person": 6,
+    "place": 20,
+    "tool": 1,
+    "vehicle": 4
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 1,
+    "place": 1,
+    "tool": 0,
+    "vehicle": 1
+   },
+   "p": 0.012021819467015847,
+   "beyond_chance": false
+  },
+  {
+   "layer": 20,
+   "expert": 4,
+   "items": 4,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.011614401858304297,
+   "labels": {
+    "animal": 0,
+    "emotion": 3,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 20,
+   "expert": 5,
+   "items": 521,
+   "brought": 2,
+   "pushed_out": 7,
+   "share": 0.003838771593090211,
+   "layer_share": 0.011614401858304297,
+   "labels": {
+    "animal": 76,
+    "emotion": 75,
+    "food": 109,
+    "idea": 38,
+    "person": 48,
+    "place": 48,
+    "tool": 84,
+    "vehicle": 43
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 2,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "p": 0.14498332400455455,
+   "beyond_chance": false
+  },
+  {
+   "layer": 20,
+   "expert": 9,
+   "items": 3,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 0.3333333333333333,
+   "layer_share": 0.011614401858304297,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 3,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 20,
+   "expert": 10,
+   "items": 46,
+   "brought": 2,
+   "pushed_out": 0,
+   "share": 0.043478260869565216,
+   "layer_share": 0.011614401858304297,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 3,
+    "idea": 7,
+    "person": 24,
+    "place": 10,
+    "tool": 1,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 2,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "p": 0.09990587168507242,
+   "beyond_chance": false
+  },
+  {
+   "layer": 20,
+   "expert": 14,
+   "items": 5,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.011614401858304297,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 1,
+    "tool": 3,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 20,
+   "expert": 15,
+   "items": 217,
+   "brought": 1,
+   "pushed_out": 2,
+   "share": 0.004608294930875576,
+   "layer_share": 0.011614401858304297,
+   "labels": {
+    "animal": 19,
+    "emotion": 14,
+    "food": 13,
+    "idea": 57,
+    "person": 42,
+    "place": 43,
+    "tool": 21,
+    "vehicle": 8
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 1,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "p": 0.5275245949398142,
+   "beyond_chance": false
+  },
+  {
+   "layer": 20,
+   "expert": 19,
+   "items": 5,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.011614401858304297,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 3,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 20,
+   "expert": 26,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.011614401858304297,
+   "labels": {
+    "animal": 1,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 20,
+   "expert": 31,
+   "items": 18,
+   "brought": 1,
+   "pushed_out": 1,
+   "share": 0.05555555555555555,
+   "layer_share": 0.011614401858304297,
+   "labels": {
+    "animal": 0,
+    "emotion": 1,
+    "food": 0,
+    "idea": 9,
+    "person": 0,
+    "place": 3,
+    "tool": 3,
+    "vehicle": 2
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 1,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 21,
+   "expert": 4,
+   "items": 6,
+   "brought": 1,
+   "pushed_out": 5,
+   "share": 0.16666666666666666,
+   "layer_share": 0.026713124274099883,
+   "labels": {
+    "animal": 2,
+    "emotion": 0,
+    "food": 3,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 1,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 21,
+   "expert": 11,
+   "items": 175,
+   "brought": 8,
+   "pushed_out": 6,
+   "share": 0.045714285714285714,
+   "layer_share": 0.026713124274099883,
+   "labels": {
+    "animal": 45,
+    "emotion": 10,
+    "food": 50,
+    "idea": 2,
+    "person": 15,
+    "place": 9,
+    "tool": 23,
+    "vehicle": 21
+   },
+   "brought_labels": {
+    "animal": 1,
+    "emotion": 2,
+    "food": 4,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 1
+   },
+   "p": 0.14962210083628008,
+   "beyond_chance": false
+  },
+  {
+   "layer": 21,
+   "expert": 12,
+   "items": 3,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.026713124274099883,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 1,
+    "idea": 0,
+    "person": 0,
+    "place": 1,
+    "tool": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 21,
+   "expert": 13,
+   "items": 5,
+   "brought": 3,
+   "pushed_out": 0,
+   "share": 0.6,
+   "layer_share": 0.026713124274099883,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 1,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 4,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 1,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 2,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 21,
+   "expert": 19,
+   "items": 5,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.026713124274099883,
+   "labels": {
+    "animal": 1,
+    "emotion": 0,
+    "food": 1,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 3,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 21,
+   "expert": 20,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.026713124274099883,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 21,
+   "expert": 23,
+   "items": 591,
+   "brought": 7,
+   "pushed_out": 11,
+   "share": 0.011844331641285956,
+   "layer_share": 0.026713124274099883,
+   "labels": {
+    "animal": 47,
+    "emotion": 50,
+    "food": 64,
+    "idea": 108,
+    "person": 104,
+    "place": 113,
+    "tool": 74,
+    "vehicle": 31
+   },
+   "brought_labels": {
+    "animal": 2,
+    "emotion": 0,
+    "food": 1,
+    "idea": 1,
+    "person": 1,
+    "place": 0,
+    "tool": 2,
+    "vehicle": 0
+   },
+   "p": 0.0208615069870293,
+   "beyond_chance": false
+  },
+  {
+   "layer": 21,
+   "expert": 26,
+   "items": 2,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.026713124274099883,
+   "labels": {
+    "animal": 1,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 21,
+   "expert": 29,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.026713124274099883,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 1
+   }
+  },
+  {
+   "layer": 21,
+   "expert": 30,
+   "items": 72,
+   "brought": 3,
+   "pushed_out": 1,
+   "share": 0.041666666666666664,
+   "layer_share": 0.026713124274099883,
+   "labels": {
+    "animal": 0,
+    "emotion": 33,
+    "food": 5,
+    "idea": 14,
+    "person": 4,
+    "place": 2,
+    "tool": 10,
+    "vehicle": 4
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 2,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "p": 0.44463116741505393,
+   "beyond_chance": false
+  },
+  {
+   "layer": 22,
+   "expert": 11,
+   "items": 85,
+   "brought": 1,
+   "pushed_out": 5,
+   "share": 0.011764705882352941,
+   "layer_share": 0.006968641114982578,
+   "labels": {
+    "animal": 14,
+    "emotion": 1,
+    "food": 31,
+    "idea": 0,
+    "person": 2,
+    "place": 7,
+    "tool": 24,
+    "vehicle": 6
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 1,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "p": 0.4481108216571751,
+   "beyond_chance": false
+  },
+  {
+   "layer": 22,
+   "expert": 13,
+   "items": 769,
+   "brought": 5,
+   "pushed_out": 1,
+   "share": 0.006501950585175552,
+   "layer_share": 0.006968641114982578,
+   "labels": {
+    "animal": 80,
+    "emotion": 92,
+    "food": 94,
+    "idea": 125,
+    "person": 120,
+    "place": 117,
+    "tool": 89,
+    "vehicle": 52
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 4,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 0
+   },
+   "p": 1.0,
+   "beyond_chance": false
+  },
+  {
+   "layer": 22,
+   "expert": 27,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.006968641114982578,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 22,
+   "expert": 28,
+   "items": 6,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.006968641114982578,
+   "labels": {
+    "animal": 2,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 1,
+    "place": 1,
+    "tool": 2,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 23,
+   "expert": 1,
+   "items": 4,
+   "brought": 0,
+   "pushed_out": 2,
+   "share": 0.0,
+   "layer_share": 0.0743321718931475,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 1,
+    "idea": 1,
+    "person": 1,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 23,
+   "expert": 2,
+   "items": 127,
+   "brought": 8,
+   "pushed_out": 11,
+   "share": 0.06299212598425197,
+   "layer_share": 0.0743321718931475,
+   "labels": {
+    "animal": 43,
+    "emotion": 11,
+    "food": 10,
+    "idea": 4,
+    "person": 15,
+    "place": 18,
+    "tool": 15,
+    "vehicle": 11
+   },
+   "brought_labels": {
+    "animal": 3,
+    "emotion": 1,
+    "food": 1,
+    "idea": 0,
+    "person": 0,
+    "place": 2,
+    "tool": 1,
+    "vehicle": 0
+   },
+   "p": 0.7367840121796769,
+   "beyond_chance": false
+  },
+  {
+   "layer": 23,
+   "expert": 3,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.0743321718931475,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 23,
+   "expert": 4,
+   "items": 131,
+   "brought": 2,
+   "pushed_out": 7,
+   "share": 0.015267175572519083,
+   "layer_share": 0.0743321718931475,
+   "labels": {
+    "animal": 8,
+    "emotion": 4,
+    "food": 92,
+    "idea": 1,
+    "person": 3,
+    "place": 14,
+    "tool": 8,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 1,
+    "idea": 0,
+    "person": 0,
+    "place": 1,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "p": 0.0065587888752571336,
+   "beyond_chance": true
+  },
+  {
+   "layer": 23,
+   "expert": 6,
+   "items": 89,
+   "brought": 3,
+   "pushed_out": 4,
+   "share": 0.033707865168539325,
+   "layer_share": 0.0743321718931475,
+   "labels": {
+    "animal": 6,
+    "emotion": 20,
+    "food": 6,
+    "idea": 15,
+    "person": 18,
+    "place": 9,
+    "tool": 8,
+    "vehicle": 7
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 1,
+    "food": 0,
+    "idea": 0,
+    "person": 1,
+    "place": 1,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "p": 0.2197386752386355,
+   "beyond_chance": false
+  },
+  {
+   "layer": 23,
+   "expert": 7,
+   "items": 35,
+   "brought": 2,
+   "pushed_out": 4,
+   "share": 0.05714285714285714,
+   "layer_share": 0.0743321718931475,
+   "labels": {
+    "animal": 1,
+    "emotion": 1,
+    "food": 2,
+    "idea": 2,
+    "person": 0,
+    "place": 5,
+    "tool": 17,
+    "vehicle": 7
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 1
+   },
+   "p": 1.0,
+   "beyond_chance": false
+  },
+  {
+   "layer": 23,
+   "expert": 9,
+   "items": 21,
+   "brought": 3,
+   "pushed_out": 1,
+   "share": 0.14285714285714285,
+   "layer_share": 0.0743321718931475,
+   "labels": {
+    "animal": 5,
+    "emotion": 1,
+    "food": 3,
+    "idea": 2,
+    "person": 1,
+    "place": 5,
+    "tool": 3,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 1,
+    "tool": 1,
+    "vehicle": 0
+   },
+   "p": 0.20202468737348847,
+   "beyond_chance": false
+  },
+  {
+   "layer": 23,
+   "expert": 11,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.0743321718931475,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 23,
+   "expert": 12,
+   "items": 35,
+   "brought": 14,
+   "pushed_out": 0,
+   "share": 0.4,
+   "layer_share": 0.0743321718931475,
+   "labels": {
+    "animal": 3,
+    "emotion": 4,
+    "food": 0,
+    "idea": 9,
+    "person": 8,
+    "place": 6,
+    "tool": 3,
+    "vehicle": 2
+   },
+   "brought_labels": {
+    "animal": 1,
+    "emotion": 3,
+    "food": 0,
+    "idea": 3,
+    "person": 5,
+    "place": 2,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "p": 8.102000060807932e-08,
+   "beyond_chance": true
+  },
+  {
+   "layer": 23,
+   "expert": 13,
+   "items": 79,
+   "brought": 9,
+   "pushed_out": 6,
+   "share": 0.11392405063291139,
+   "layer_share": 0.0743321718931475,
+   "labels": {
+    "animal": 5,
+    "emotion": 8,
+    "food": 2,
+    "idea": 8,
+    "person": 9,
+    "place": 16,
+    "tool": 17,
+    "vehicle": 14
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 1,
+    "food": 1,
+    "idea": 3,
+    "person": 1,
+    "place": 1,
+    "tool": 2,
+    "vehicle": 0
+   },
+   "p": 0.19253252999576087,
+   "beyond_chance": false
+  },
+  {
+   "layer": 23,
+   "expert": 18,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 1,
+   "share": 0.0,
+   "layer_share": 0.0743321718931475,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 23,
+   "expert": 19,
+   "items": 11,
+   "brought": 0,
+   "pushed_out": 4,
+   "share": 0.0,
+   "layer_share": 0.0743321718931475,
+   "labels": {
+    "animal": 1,
+    "emotion": 5,
+    "food": 1,
+    "idea": 2,
+    "person": 1,
+    "place": 1,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 23,
+   "expert": 21,
+   "items": 17,
+   "brought": 1,
+   "pushed_out": 1,
+   "share": 0.058823529411764705,
+   "layer_share": 0.0743321718931475,
+   "labels": {
+    "animal": 3,
+    "emotion": 1,
+    "food": 1,
+    "idea": 1,
+    "person": 3,
+    "place": 2,
+    "tool": 6,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 1,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 23,
+   "expert": 23,
+   "items": 2,
+   "brought": 0,
+   "pushed_out": 1,
+   "share": 0.0,
+   "layer_share": 0.0743321718931475,
+   "labels": {
+    "animal": 1,
+    "emotion": 0,
+    "food": 0,
+    "idea": 1,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 23,
+   "expert": 24,
+   "items": 247,
+   "brought": 22,
+   "pushed_out": 9,
+   "share": 0.08906882591093117,
+   "layer_share": 0.0743321718931475,
+   "labels": {
+    "animal": 16,
+    "emotion": 31,
+    "food": 7,
+    "idea": 62,
+    "person": 54,
+    "place": 31,
+    "tool": 32,
+    "vehicle": 14
+   },
+   "brought_labels": {
+    "animal": 4,
+    "emotion": 3,
+    "food": 1,
+    "idea": 3,
+    "person": 4,
+    "place": 5,
+    "tool": 1,
+    "vehicle": 1
+   },
+   "p": 0.3940528693024463,
+   "beyond_chance": false
+  },
+  {
+   "layer": 23,
+   "expert": 26,
+   "items": 41,
+   "brought": 0,
+   "pushed_out": 7,
+   "share": 0.0,
+   "layer_share": 0.0743321718931475,
+   "labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 16,
+    "person": 8,
+    "place": 17,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "p": 0.07221809176973651,
+   "beyond_chance": false
+  },
+  {
+   "layer": 23,
+   "expert": 27,
+   "items": 8,
+   "brought": 0,
+   "pushed_out": 5,
+   "share": 0.0,
+   "layer_share": 0.0743321718931475,
+   "labels": {
+    "animal": 1,
+    "emotion": 4,
+    "food": 0,
+    "idea": 1,
+    "person": 1,
+    "place": 1,
+    "tool": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 23,
+   "expert": 28,
+   "items": 2,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.0743321718931475,
+   "labels": {
+    "animal": 1,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 23,
+   "expert": 29,
+   "items": 3,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.0743321718931475,
+   "labels": {
+    "animal": 1,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 2,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 23,
+   "expert": 30,
+   "items": 6,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.0743321718931475,
+   "labels": {
+    "animal": 1,
+    "emotion": 3,
+    "food": 0,
+    "idea": 0,
+    "person": 1,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "animal": 0,
+    "emotion": 0,
+    "food": 0,
+    "idea": 0,
+    "person": 0,
+    "place": 0,
+    "tool": 0,
+    "vehicle": 0
+   }
+  }
+ ],
+ "summary": {
+  "match_four_min": 0.9930313588850174,
+  "match_first_min": 0.9941927990708479,
+  "own_first_changed_range": [
+   0.006968641114982578,
+   0.11033681765389082
+  ],
+  "own_swapped_range": [
+   0.041811846689895474,
+   0.3310104529616725
+  ],
+  "all_first_changed_range": [
+   0.006968641114982578,
+   0.9512195121951219
+  ],
+  "nodes_tested": 82,
+  "nodes_beyond_chance": 15,
+  "nodes_beyond_above": 9
+ }
+}

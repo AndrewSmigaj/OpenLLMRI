@@ -1,0 +1,251 @@
+{
+ "capture": "tank",
+ "session": "session_1434a9be",
+ "lens": "tank-k5-n15",
+ "items": 499,
+ "threads": 4,
+ "seconds": 488.2,
+ "layers": [
+  {
+   "layer": 0,
+   "seconds": 17.8,
+   "relative_error_median": 0.0004368813242763281,
+   "relative_error_p95": 0.0007497901213355362,
+   "relative_error_max": 0.0016384159680455923,
+   "match_four": 1.0,
+   "parts_sum_error_max": 4.2242081121912634e-07,
+   "router_parts_error_max": 1.1920928955078125e-06
+  },
+  {
+   "layer": 1,
+   "seconds": 17.5,
+   "relative_error_median": 0.0006162032368592918,
+   "relative_error_p95": 0.0009218009712640195,
+   "relative_error_max": 0.04389789327979088,
+   "match_four": 0.9979959919839679,
+   "parts_sum_error_max": 1.2861154345955583e-06,
+   "router_parts_error_max": 9.5367431640625e-07
+  },
+  {
+   "layer": 2,
+   "seconds": 18.7,
+   "relative_error_median": 0.0006780879921279848,
+   "relative_error_p95": 0.003772859671153111,
+   "relative_error_max": 0.044609520584344864,
+   "match_four": 0.9959919839679359,
+   "parts_sum_error_max": 6.493685305031249e-07,
+   "router_parts_error_max": 1.6689300537109375e-06
+  },
+  {
+   "layer": 3,
+   "seconds": 18.4,
+   "relative_error_median": 0.0008209460065700114,
+   "relative_error_p95": 0.008422644063830352,
+   "relative_error_max": 0.04356307163834572,
+   "match_four": 1.0,
+   "parts_sum_error_max": 1.1525906984388712e-06,
+   "router_parts_error_max": 2.1457672119140625e-06
+  },
+  {
+   "layer": 4,
+   "seconds": 20.1,
+   "relative_error_median": 0.0008124515879899263,
+   "relative_error_p95": 0.012385961227118967,
+   "relative_error_max": 0.04466032236814499,
+   "match_four": 0.9979959919839679,
+   "parts_sum_error_max": 1.1264627346463385e-06,
+   "router_parts_error_max": 2.1457672119140625e-06
+  },
+  {
+   "layer": 5,
+   "seconds": 19.9,
+   "relative_error_median": 0.0008493392379023135,
+   "relative_error_p95": 0.014525837264955035,
+   "relative_error_max": 0.0654744952917099,
+   "match_four": 0.9919839679358717,
+   "parts_sum_error_max": 7.639500267941912e-07,
+   "router_parts_error_max": 1.430511474609375e-06
+  },
+  {
+   "layer": 6,
+   "seconds": 19.1,
+   "relative_error_median": 0.0008272293489426374,
+   "relative_error_p95": 0.018322666920721518,
+   "relative_error_max": 0.05747325345873833,
+   "match_four": 0.9919839679358717,
+   "parts_sum_error_max": 1.2071984656358836e-06,
+   "router_parts_error_max": 1.6689300537109375e-06
+  },
+  {
+   "layer": 7,
+   "seconds": 19.8,
+   "relative_error_median": 0.0009216845501214266,
+   "relative_error_p95": 0.020588644221425038,
+   "relative_error_max": 0.05830118805170059,
+   "match_four": 0.9959919839679359,
+   "parts_sum_error_max": 6.887237873343111e-07,
+   "router_parts_error_max": 2.384185791015625e-06
+  },
+  {
+   "layer": 8,
+   "seconds": 17.2,
+   "relative_error_median": 0.0008565625175833702,
+   "relative_error_p95": 0.021480587124824525,
+   "relative_error_max": 0.06736630201339722,
+   "match_four": 0.9939879759519038,
+   "parts_sum_error_max": 1.0028217047874932e-06,
+   "router_parts_error_max": 2.1457672119140625e-06
+  },
+  {
+   "layer": 9,
+   "seconds": 17.6,
+   "relative_error_median": 0.0009679096983745694,
+   "relative_error_p95": 0.026490289717912625,
+   "relative_error_max": 0.08644463866949081,
+   "match_four": 0.9899799599198397,
+   "parts_sum_error_max": 8.581502584092959e-07,
+   "router_parts_error_max": 2.1457672119140625e-06
+  },
+  {
+   "layer": 10,
+   "seconds": 17.0,
+   "relative_error_median": 0.0008989371708594263,
+   "relative_error_p95": 0.02656265646219244,
+   "relative_error_max": 0.08772098273038864,
+   "match_four": 0.9839679358717435,
+   "parts_sum_error_max": 9.437733865524933e-07,
+   "router_parts_error_max": 2.86102294921875e-06
+  },
+  {
+   "layer": 11,
+   "seconds": 21.1,
+   "relative_error_median": 0.0010210773907601833,
+   "relative_error_p95": 0.033993819728493635,
+   "relative_error_max": 0.1134212464094162,
+   "match_four": 0.9919839679358717,
+   "parts_sum_error_max": 7.664972372367629e-07,
+   "router_parts_error_max": 2.1457672119140625e-06
+  },
+  {
+   "layer": 12,
+   "seconds": 18.6,
+   "relative_error_median": 0.0009030642686411738,
+   "relative_error_p95": 0.031036864966154088,
+   "relative_error_max": 0.08917241543531418,
+   "match_four": 0.9919839679358717,
+   "parts_sum_error_max": 1.2535812174974126e-06,
+   "router_parts_error_max": 2.6226043701171875e-06
+  },
+  {
+   "layer": 13,
+   "seconds": 21.7,
+   "relative_error_median": 0.0010838564485311508,
+   "relative_error_p95": 0.036078029870986905,
+   "relative_error_max": 0.0936252698302269,
+   "match_four": 0.9959919839679359,
+   "parts_sum_error_max": 8.936954714044987e-07,
+   "router_parts_error_max": 1.5497207641601562e-06
+  },
+  {
+   "layer": 14,
+   "seconds": 17.9,
+   "relative_error_median": 0.0009976064320653677,
+   "relative_error_p95": 0.03250682689249516,
+   "relative_error_max": 0.07983417063951492,
+   "match_four": 0.9979959919839679,
+   "parts_sum_error_max": 1.1693688293235027e-06,
+   "router_parts_error_max": 2.384185791015625e-06
+  },
+  {
+   "layer": 15,
+   "seconds": 19.7,
+   "relative_error_median": 0.0010723266750574112,
+   "relative_error_p95": 0.03330181874334812,
+   "relative_error_max": 0.07351196557283401,
+   "match_four": 0.9939879759519038,
+   "parts_sum_error_max": 1.0343867415940622e-06,
+   "router_parts_error_max": 1.5497207641601562e-06
+  },
+  {
+   "layer": 16,
+   "seconds": 18.5,
+   "relative_error_median": 0.000904903921764344,
+   "relative_error_p95": 0.02780763376504181,
+   "relative_error_max": 0.08809313923120499,
+   "match_four": 0.9899799599198397,
+   "parts_sum_error_max": 1.4354020549944835e-06,
+   "router_parts_error_max": 2.6226043701171875e-06
+  },
+  {
+   "layer": 17,
+   "seconds": 25.1,
+   "relative_error_median": 0.0009354851208627224,
+   "relative_error_p95": 0.027467197924852343,
+   "relative_error_max": 0.07350105047225952,
+   "match_four": 1.0,
+   "parts_sum_error_max": 9.34899787807808e-07,
+   "router_parts_error_max": 1.5497207641601562e-06
+  },
+  {
+   "layer": 18,
+   "seconds": 19.3,
+   "relative_error_median": 0.0008128592744469643,
+   "relative_error_p95": 0.022807875834405415,
+   "relative_error_max": 0.07662402838468552,
+   "match_four": 0.9979959919839679,
+   "parts_sum_error_max": 9.316062801190128e-07,
+   "router_parts_error_max": 1.3113021850585938e-06
+  },
+  {
+   "layer": 19,
+   "seconds": 20.5,
+   "relative_error_median": 0.000819896871689707,
+   "relative_error_p95": 0.020951980911195267,
+   "relative_error_max": 0.07954039424657822,
+   "match_four": 0.9939879759519038,
+   "parts_sum_error_max": 7.678480642425711e-07,
+   "router_parts_error_max": 1.6689300537109375e-06
+  },
+  {
+   "layer": 20,
+   "seconds": 20.2,
+   "relative_error_median": 0.000754194741602987,
+   "relative_error_p95": 0.01877119652926919,
+   "relative_error_max": 0.09877120703458786,
+   "match_four": 0.9939879759519038,
+   "parts_sum_error_max": 1.0816665962920524e-06,
+   "router_parts_error_max": 9.5367431640625e-07
+  },
+  {
+   "layer": 21,
+   "seconds": 20.7,
+   "relative_error_median": 0.0007721919100731611,
+   "relative_error_p95": 0.019629223458468886,
+   "relative_error_max": 0.09158501029014587,
+   "match_four": 0.9879759519038076,
+   "parts_sum_error_max": 6.596080197596166e-07,
+   "router_parts_error_max": 1.0728836059570312e-06
+  },
+  {
+   "layer": 22,
+   "seconds": 32.1,
+   "relative_error_median": 0.0006870633806101978,
+   "relative_error_p95": 0.01605522632598874,
+   "relative_error_max": 0.10031289607286453,
+   "match_four": 0.9939879759519038,
+   "parts_sum_error_max": 1.3127772717780317e-06,
+   "router_parts_error_max": 9.5367431640625e-07
+  },
+  {
+   "layer": 23,
+   "seconds": 25.6,
+   "relative_error_median": 0.0010316220577806234,
+   "relative_error_p95": 0.020297793112695205,
+   "relative_error_max": 0.09941955655813217,
+   "match_four": 0.9939879759519038,
+   "parts_sum_error_max": 5.901284225728887e-07,
+   "router_parts_error_max": 1.3113021850585938e-06
+  }
+ ],
+ "array_file": "data/lake/session_1434a9be/studies/attention_cpu_pass.npz"
+}

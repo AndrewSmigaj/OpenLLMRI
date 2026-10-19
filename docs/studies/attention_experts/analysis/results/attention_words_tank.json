@@ -1,0 +1,10659 @@
+{
+ "capture": "tank",
+ "session": "session_1434a9be",
+ "lens": "tank-k5-n15",
+ "items": 499,
+ "words": 101,
+ "roles": [
+  "the read word itself",
+  "the token just before it",
+  "the first token",
+  "the other words"
+ ],
+ "traced_self_median": [
+  0.7170558412059511,
+  0.5374857184379522,
+  0.40221516964996556,
+  0.31408572708864363,
+  0.2596592339005131,
+  0.21073073359854358,
+  0.15899739264083093,
+  0.1224240237772725,
+  0.0980387675521362,
+  0.0692263456559737,
+  0.056798072412306624,
+  0.046627879451083154,
+  0.03846735486160467,
+  0.030284559104461494,
+  0.021965393271083655,
+  0.017273542798955686,
+  0.013057719224881494,
+  0.010843150231602972,
+  0.008390566007052151,
+  0.0067824670184398975,
+  0.0056295980805340755,
+  0.004503830134815725,
+  0.003975870530660289,
+  0.003362227933634645
+ ],
+ "traced_first_token_quartiles": [
+  [
+   0.03209425361192327,
+   0.06622424516173865,
+   0.11910939276780892
+  ],
+  [
+   0.058993845697929356,
+   0.09004613963097285,
+   0.14423392827611664
+  ],
+  [
+   0.0872103325336578,
+   0.1285851943298574,
+   0.19148072723882723
+  ],
+  [
+   0.10958246541460004,
+   0.15112357990405595,
+   0.21211734747284325
+  ],
+  [
+   0.12038918446646624,
+   0.16082715260928251,
+   0.22280436825717875
+  ],
+  [
+   0.14205662055711327,
+   0.18402128207721702,
+   0.24704011352960564
+  ],
+  [
+   0.16597754553307825,
+   0.21414607072429329,
+   0.2808798961770017
+  ],
+  [
+   0.25700768106558064,
+   0.3069899665541889,
+   0.37030127053101525
+  ],
+  [
+   0.2890381698044957,
+   0.3432482068402985,
+   0.4088532386248701
+  ],
+  [
+   0.4067187718677864,
+   0.4588655489630913,
+   0.5209205374399317
+  ],
+  [
+   0.4334548149473343,
+   0.4865135140566109,
+   0.545403965946575
+  ],
+  [
+   0.4677200244432074,
+   0.5172332658119491,
+   0.5750678802193447
+  ],
+  [
+   0.4841880813747291,
+   0.5313699327016282,
+   0.5913965340111371
+  ],
+  [
+   0.5341642742343828,
+   0.5808178973405614,
+   0.6313525612336084
+  ],
+  [
+   0.5575408230888173,
+   0.6057755703820003,
+   0.654093975250166
+  ],
+  [
+   0.5940962883400074,
+   0.6374628435682914,
+   0.6840862800806089
+  ],
+  [
+   0.6153711263545869,
+   0.660627869813761,
+   0.7060037812881855
+  ],
+  [
+   0.6398424871434603,
+   0.6823460456418735,
+   0.7250037355804178
+  ],
+  [
+   0.6530527826188468,
+   0.6940509185161888,
+   0.7359901068390169
+  ],
+  [
+   0.6837946866674656,
+   0.7237418531117538,
+   0.7645607052634108
+  ],
+  [
+   0.6976879195243075,
+   0.7350694956793191,
+   0.7751475433628006
+  ],
+  [
+   0.721557768843637,
+   0.7584778204163074,
+   0.7954521489686662
+  ],
+  [
+   0.728977905219882,
+   0.7639142638568996,
+   0.8009317655375863
+  ],
+  [
+   0.7396138586892262,
+   0.772667427104958,
+   0.8077979280038228
+  ]
+ ],
+ "examples": [
+  {
+   "label": "aquarium",
+   "text": "The marine biologist carefully monitored the temperature inside the tank",
+   "layers": [
+    {
+     "layer": 0,
+     "drew_on": [
+      [
+       "temperature",
+       0.23
+      ],
+      [
+       "the",
+       0.18
+      ],
+      [
+       "inside",
+       0.15
+      ],
+      [
+       "marine",
+       0.12
+      ]
+     ],
+     "its_top_word_one_layer_earlier_drew_on": [],
+     "traced": [
+      [
+       "temperature",
+       0.24
+      ],
+      [
+       "the",
+       0.19
+      ],
+      [
+       "inside",
+       0.15
+      ],
+      [
+       "marine",
+       0.13
+      ]
+     ]
+    },
+    {
+     "layer": 2,
+     "drew_on": [
+      [
+       "tank",
+       0.27
+      ],
+      [
+       "the",
+       0.14
+      ],
+      [
+       "inside",
+       0.13
+      ],
+      [
+       "carefully",
+       0.11
+      ]
+     ],
+     "its_top_word_one_layer_earlier_drew_on": [
+      [
+       "the",
+       0.24
+      ],
+      [
+       "inside",
+       0.15
+      ],
+      [
+       "marine",
+       0.1
+      ]
+     ],
+     "traced": [
+      [
+       "marine",
+       0.16
+      ],
+      [
+       "inside",
+       0.14
+      ],
+      [
+       "The",
+       0.13
+      ],
+      [
+       "temperature",
+       0.13
+      ]
+     ]
+    },
+    {
+     "layer": 5,
+     "drew_on": [
+      [
+       "tank",
+       0.31
+      ],
+      [
+       "inside",
+       0.16
+      ],
+      [
+       "ologist",
+       0.1
+      ],
+      [
+       "the",
+       0.07
+      ]
+     ],
+     "its_top_word_one_layer_earlier_drew_on": [
+      [
+       "inside",
+       0.44
+      ],
+      [
+       "temperature",
+       0.2
+      ],
+      [
+       "monitored",
+       0.12
+      ]
+     ],
+     "traced": [
+      [
+       "marine",
+       0.2
+      ],
+      [
+       "The",
+       0.18
+      ],
+      [
+       "ologist",
+       0.1
+      ],
+      [
+       "inside",
+       0.1
+      ]
+     ]
+    },
+    {
+     "layer": 9,
+     "drew_on": [
+      [
+       "The",
+       0.32
+      ],
+      [
+       "tank",
+       0.12
+      ],
+      [
+       "ologist",
+       0.1
+      ],
+      [
+       "inside",
+       0.08
+      ]
+     ],
+     "its_top_word_one_layer_earlier_drew_on": [
+      [
+       "The",
+       1.0
+      ]
+     ],
+     "traced": [
+      [
+       "The",
+       0.44
+      ],
+      [
+       "marine",
+       0.15
+      ],
+      [
+       "carefully",
+       0.09
+      ],
+      [
+       "ologist",
+       0.08
+      ]
+     ]
+    },
+    {
+     "layer": 14,
+     "drew_on": [
+      [
+       "tank",
+       0.32
+      ],
+      [
+       "inside",
+       0.16
+      ],
+      [
+       "carefully",
+       0.15
+      ],
+      [
+       "temperature",
+       0.11
+      ]
+     ],
+     "its_top_word_one_layer_earlier_drew_on": [
+      [
+       "The",
+       0.23
+      ],
+      [
+       "inside",
+       0.2
+      ],
+      [
+       "temperature",
+       0.13
+      ]
+     ],
+     "traced": [
+      [
+       "The",
+       0.59
+      ],
+      [
+       "marine",
+       0.14
+      ],
+      [
+       "carefully",
+       0.07
+      ],
+      [
+       "ologist",
+       0.06
+      ]
+     ]
+    },
+    {
+     "layer": 20,
+     "drew_on": [
+      [
+       "tank",
+       0.27
+      ],
+      [
+       "monitored",
+       0.18
+      ],
+      [
+       "temperature",
+       0.13
+      ],
+      [
+       "inside",
+       0.1
+      ]
+     ],
+     "its_top_word_one_layer_earlier_drew_on": [
+      [
+       "The",
+       0.29
+      ],
+      [
+       "ologist",
+       0.21
+      ],
+      [
+       "monitored",
+       0.17
+      ]
+     ],
+     "traced": [
+      [
+       "The",
+       0.74
+      ],
+      [
+       "marine",
+       0.1
+      ],
+      [
+       "carefully",
+       0.04
+      ],
+      [
+       "ologist",
+       0.04
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "label": "aquarium",
+   "text": "The children pressed their faces against the glass of the enormous shark tank",
+   "layers": [
+    {
+     "layer": 0,
+     "drew_on": [
+      [
+       "shark",
+       0.38
+      ],
+      [
+       "pressed",
+       0.13
+      ],
+      [
+       "enormous",
+       0.11
+      ],
+      [
+       "children",
+       0.11
+      ]
+     ],
+     "its_top_word_one_layer_earlier_drew_on": [],
+     "traced": [
+      [
+       "shark",
+       0.4
+      ],
+      [
+       "pressed",
+       0.13
+      ],
+      [
+       "enormous",
+       0.12
+      ],
+      [
+       "children",
+       0.11
+      ]
+     ]
+    },
+    {
+     "layer": 2,
+     "drew_on": [
+      [
+       "tank",
+       0.25
+      ],
+      [
+       "shark",
+       0.22
+      ],
+      [
+       "enormous",
+       0.13
+      ],
+      [
+       "The",
+       0.1
+      ]
+     ],
+     "its_top_word_one_layer_earlier_drew_on": [
+      [
+       "shark",
+       0.27
+      ],
+      [
+       "pressed",
+       0.12
+      ],
+      [
+       "glass",
+       0.12
+      ]
+     ],
+     "traced": [
+      [
+       "shark",
+       0.26
+      ],
+      [
+       "The",
+       0.12
+      ],
+      [
+       "enormous",
+       0.12
+      ],
+      [
+       "pressed",
+       0.11
+      ]
+     ]
+    },
+    {
+     "layer": 5,
+     "drew_on": [
+      [
+       "tank",
+       0.26
+      ],
+      [
+       "shark",
+       0.24
+      ],
+      [
+       "enormous",
+       0.19
+      ],
+      [
+       "pressed",
+       0.06
+      ]
+     ],
+     "its_top_word_one_layer_earlier_drew_on": [
+      [
+       "shark",
+       0.46
+      ],
+      [
+       "enormous",
+       0.19
+      ],
+      [
+       "of",
+       0.12
+      ]
+     ],
+     "traced": [
+      [
+       "shark",
+       0.17
+      ],
+      [
+       "The",
+       0.14
+      ],
+      [
+       "enormous",
+       0.12
+      ],
+      [
+       "pressed",
+       0.12
+      ]
+     ]
+    },
+    {
+     "layer": 9,
+     "drew_on": [
+      [
+       "The",
+       0.35
+      ],
+      [
+       "tank",
+       0.13
+      ],
+      [
+       "enormous",
+       0.1
+      ],
+      [
+       "shark",
+       0.08
+      ]
+     ],
+     "its_top_word_one_layer_earlier_drew_on": [
+      [
+       "The",
+       1.0
+      ]
+     ],
+     "traced": [
+      [
+       "The",
+       0.38
+      ],
+      [
+       "children",
+       0.11
+      ],
+      [
+       "pressed",
+       0.1
+      ],
+      [
+       "shark",
+       0.07
+      ]
+     ]
+    },
+    {
+     "layer": 14,
+     "drew_on": [
+      [
+       "tank",
+       0.3
+      ],
+      [
+       "shark",
+       0.18
+      ],
+      [
+       "glass",
+       0.11
+      ],
+      [
+       "enormous",
+       0.1
+      ]
+     ],
+     "its_top_word_one_layer_earlier_drew_on": [
+      [
+       "The",
+       0.35
+      ],
+      [
+       "shark",
+       0.29
+      ],
+      [
+       "enormous",
+       0.09
+      ]
+     ],
+     "traced": [
+      [
+       "The",
+       0.56
+      ],
+      [
+       "children",
+       0.11
+      ],
+      [
+       "pressed",
+       0.09
+      ],
+      [
+       "faces",
+       0.04
+      ]
+     ]
+    },
+    {
+     "layer": 20,
+     "drew_on": [
+      [
+       "tank",
+       0.24
+      ],
+      [
+       "against",
+       0.11
+      ],
+      [
+       "glass",
+       0.1
+      ],
+      [
+       "enormous",
+       0.09
+      ]
+     ],
+     "its_top_word_one_layer_earlier_drew_on": [
+      [
+       "The",
+       0.39
+      ],
+      [
+       "against",
+       0.17
+      ],
+      [
+       "faces",
+       0.16
+      ]
+     ],
+     "traced": [
+      [
+       "The",
+       0.71
+      ],
+      [
+       "children",
+       0.1
+      ],
+      [
+       "pressed",
+       0.07
+      ],
+      [
+       "faces",
+       0.02
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "label": "aquarium",
+   "text": "He gently lowered the new angelfish into the tank",
+   "layers": [
+    {
+     "layer": 0,
+     "drew_on": [
+      [
+       "gently",
+       0.25
+      ],
+      [
+       "the",
+       0.23
+      ],
+      [
+       "into",
+       0.12
+      ],
+      [
+       "elf",
+       0.1
+      ]
+     ],
+     "its_top_word_one_layer_earlier_drew_on": [],
+     "traced": [
+      [
+       "gently",
+       0.28
+      ],
+      [
+       "the",
+       0.25
+      ],
+      [
+       "into",
+       0.13
+      ],
+      [
+       "elf",
+       0.11
+      ]
+     ]
+    },
+    {
+     "layer": 2,
+     "drew_on": [
+      [
+       "tank",
+       0.27
+      ],
+      [
+       "ish",
+       0.17
+      ],
+      [
+       "the",
+       0.17
+      ],
+      [
+       "into",
+       0.13
+      ]
+     ],
+     "its_top_word_one_layer_earlier_drew_on": [
+      [
+       "ish",
+       0.21
+      ],
+      [
+       "new",
+       0.18
+      ],
+      [
+       "elf",
+       0.16
+      ]
+     ],
+     "traced": [
+      [
+       "gently",
+       0.17
+      ],
+      [
+       "ish",
+       0.13
+      ],
+      [
+       "the",
+       0.13
+      ],
+      [
+       "into",
+       0.13
+      ]
+     ]
+    },
+    {
+     "layer": 5,
+     "drew_on": [
+      [
+       "ish",
+       0.26
+      ],
+      [
+       "tank",
+       0.23
+      ],
+      [
+       "into",
+       0.16
+      ],
+      [
+       "elf",
+       0.08
+      ]
+     ],
+     "its_top_word_one_layer_earlier_drew_on": [
+      [
+       "ish",
+       0.44
+      ],
+      [
+       "new",
+       0.18
+      ],
+      [
+       "elf",
+       0.14
+      ]
+     ],
+     "traced": [
+      [
+       "gently",
+       0.17
+      ],
+      [
+       "He",
+       0.16
+      ],
+      [
+       "lowered",
+       0.11
+      ],
+      [
+       "ish",
+       0.11
+      ]
+     ]
+    },
+    {
+     "layer": 9,
+     "drew_on": [
+      [
+       "He",
+       0.47
+      ],
+      [
+       "ish",
+       0.13
+      ],
+      [
+       "tank",
+       0.12
+      ],
+      [
+       "into",
+       0.11
+      ]
+     ],
+     "its_top_word_one_layer_earlier_drew_on": [
+      [
+       "He",
+       1.0
+      ]
+     ],
+     "traced": [
+      [
+       "He",
+       0.47
+      ],
+      [
+       "gently",
+       0.13
+      ],
+      [
+       "lowered",
+       0.09
+      ],
+      [
+       "new",
+       0.07
+      ]
+     ]
+    },
+    {
+     "layer": 14,
+     "drew_on": [
+      [
+       "tank",
+       0.38
+      ],
+      [
+       "into",
+       0.21
+      ],
+      [
+       "ish",
+       0.11
+      ],
+      [
+       "the",
+       0.11
+      ]
+     ],
+     "its_top_word_one_layer_earlier_drew_on": [
+      [
+       "He",
+       0.28
+      ],
+      [
+       "into",
+       0.23
+      ],
+      [
+       "ish",
+       0.2
+      ]
+     ],
+     "traced": [
+      [
+       "He",
+       0.59
+      ],
+      [
+       "gently",
+       0.13
+      ],
+      [
+       "lowered",
+       0.07
+      ],
+      [
+       "new",
+       0.05
+      ]
+     ]
+    },
+    {
+     "layer": 20,
+     "drew_on": [
+      [
+       "tank",
+       0.29
+      ],
+      [
+       "into",
+       0.18
+      ],
+      [
+       "lowered",
+       0.12
+      ],
+      [
+       "ish",
+       0.1
+      ]
+     ],
+     "its_top_word_one_layer_earlier_drew_on": [
+      [
+       "ish",
+       0.34
+      ],
+      [
+       "He",
+       0.23
+      ],
+      [
+       "into",
+       0.17
+      ]
+     ],
+     "traced": [
+      [
+       "He",
+       0.75
+      ],
+      [
+       "gently",
+       0.11
+      ],
+      [
+       "lowered",
+       0.05
+      ],
+      [
+       "new",
+       0.03
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "label": "aquarium",
+   "text": "The pet store employee scooped a goldfish from the display tank",
+   "layers": [
+    {
+     "layer": 0,
+     "drew_on": [
+      [
+       "display",
+       0.24
+      ],
+      [
+       "fish",
+       0.16
+      ],
+      [
+       "pet",
+       0.11
+      ],
+      [
+       "employee",
+       0.09
+      ]
+     ],
+     "its_top_word_one_layer_earlier_drew_on": [],
+     "traced": [
+      [
+       "display",
+       0.25
+      ],
+      [
+       "fish",
+       0.17
+      ],
+      [
+       "pet",
+       0.12
+      ],
+      [
+       "employee",
+       0.09
+      ]
+     ]
+    },
+    {
+     "layer": 2,
+     "drew_on": [
+      [
+       "display",
+       0.23
+      ],
+      [
+       "tank",
+       0.17
+      ],
+      [
+       "the",
+       0.11
+      ],
+      [
+       "The",
+       0.11
+      ]
+     ],
+     "its_top_word_one_layer_earlier_drew_on": [
+      [
+       "display",
+       0.3
+      ],
+      [
+       "from",
+       0.18
+      ],
+      [
+       "the",
+       0.09
+      ]
+     ],
+     "traced": [
+      [
+       "display",
+       0.17
+      ],
+      [
+       "The",
+       0.13
+      ],
+      [
+       "pet",
+       0.11
+      ],
+      [
+       "fish",
+       0.1
+      ]
+     ]
+    },
+    {
+     "layer": 5,
+     "drew_on": [
+      [
+       "tank",
+       0.24
+      ],
+      [
+       "display",
+       0.17
+      ],
+      [
+       "fish",
+       0.15
+      ],
+      [
+       "store",
+       0.09
+      ]
+     ],
+     "its_top_word_one_layer_earlier_drew_on": [
+      [
+       "display",
+       0.45
+      ],
+      [
+       "store",
+       0.14
+      ],
+      [
+       "from",
+       0.14
+      ]
+     ],
+     "traced": [
+      [
+       "The",
+       0.18
+      ],
+      [
+       "pet",
+       0.13
+      ],
+      [
+       "store",
+       0.12
+      ],
+      [
+       "display",
+       0.1
+      ]
+     ]
+    },
+    {
+     "layer": 9,
+     "drew_on": [
+      [
+       "The",
+       0.29
+      ],
+      [
+       "tank",
+       0.16
+      ],
+      [
+       "fish",
+       0.14
+      ],
+      [
+       "display",
+       0.07
+      ]
+     ],
+     "its_top_word_one_layer_earlier_drew_on": [
+      [
+       "The",
+       1.0
+      ]
+     ],
+     "traced": [
+      [
+       "The",
+       0.41
+      ],
+      [
+       "pet",
+       0.12
+      ],
+      [
+       "store",
+       0.11
+      ],
+      [
+       "employee",
+       0.08
+      ]
+     ]
+    },
+    {
+     "layer": 14,
+     "drew_on": [
+      [
+       "tank",
+       0.3
+      ],
+      [
+       "display",
+       0.17
+      ],
+      [
+       "from",
+       0.13
+      ],
+      [
+       "fish",
+       0.12
+      ]
+     ],
+     "its_top_word_one_layer_earlier_drew_on": [
+      [
+       "The",
+       0.22
+      ],
+      [
+       "display",
+       0.17
+      ],
+      [
+       "fish",
+       0.12
+      ]
+     ],
+     "traced": [
+      [
+       "The",
+       0.59
+      ],
+      [
+       "pet",
+       0.11
+      ],
+      [
+       "store",
+       0.09
+      ],
+      [
+       "employee",
+       0.06
+      ]
+     ]
+    },
+    {
+     "layer": 20,
+     "drew_on": [
+      [
+       "tank",
+       0.27
+      ],
+      [
+       "from",
+       0.14
+      ],
+      [
+       "oped",
+       0.13
+      ],
+      [
+       "fish",
+       0.1
+      ]
+     ],
+     "its_top_word_one_layer_earlier_drew_on": [
+      [
+       "fish",
+       0.25
+      ],
+      [
+       "The",
+       0.17
+      ],
+      [
+       "from",
+       0.15
+      ]
+     ],
+     "traced": [
+      [
+       "The",
+       0.73
+      ],
+      [
+       "pet",
+       0.09
+      ],
+      [
+       "store",
+       0.07
+      ],
+      [
+       "employee",
+       0.04
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "label": "aquarium",
+   "text": "The hobbyist tested the ammonia levels in the tank",
+   "layers": [
+    {
+     "layer": 0,
+     "drew_on": [
+      [
+       "hobby",
+       0.27
+      ],
+      [
+       "the",
+       0.2
+      ],
+      [
+       "in",
+       0.13
+      ],
+      [
+       "ammonia",
+       0.1
+      ]
+     ],
+     "its_top_word_one_layer_earlier_drew_on": [],
+     "traced": [
+      [
+       "hobby",
+       0.29
+      ],
+      [
+       "the",
+       0.21
+      ],
+      [
+       "in",
+       0.14
+      ],
+      [
+       "ammonia",
+       0.11
+      ]
+     ]
+    },
+    {
+     "layer": 2,
+     "drew_on": [
+      [
+       "tank",
+       0.24
+      ],
+      [
+       "the",
+       0.2
+      ],
+      [
+       "The",
+       0.14
+      ],
+      [
+       "in",
+       0.1
+      ]
+     ],
+     "its_top_word_one_layer_earlier_drew_on": [
+      [
+       "the",
+       0.22
+      ],
+      [
+       "The",
+       0.12
+      ],
+      [
+       "tested",
+       0.11
+      ]
+     ],
+     "traced": [
+      [
+       "hobby",
+       0.19
+      ],
+      [
+       "The",
+       0.17
+      ],
+      [
+       "the",
+       0.14
+      ],
+      [
+       "ammonia",
+       0.12
+      ]
+     ]
+    },
+    {
+     "layer": 5,
+     "drew_on": [
+      [
+       "tank",
+       0.37
+      ],
+      [
+       "in",
+       0.13
+      ],
+      [
+       "levels",
+       0.1
+      ],
+      [
+       "ammonia",
+       0.1
+      ]
+     ],
+     "its_top_word_one_layer_earlier_drew_on": [
+      [
+       "in",
+       0.38
+      ],
+      [
+       "levels",
+       0.16
+      ],
+      [
+       "ammonia",
+       0.13
+      ]
+     ],
+     "traced": [
+      [
+       "hobby",
+       0.22
+      ],
+      [
+       "The",
+       0.19
+      ],
+      [
+       "ammonia",
+       0.13
+      ],
+      [
+       "tested",
+       0.1
+      ]
+     ]
+    },
+    {
+     "layer": 9,
+     "drew_on": [
+      [
+       "The",
+       0.3
+      ],
+      [
+       "levels",
+       0.14
+      ],
+      [
+       "tank",
+       0.14
+      ],
+      [
+       "ammonia",
+       0.14
+      ]
+     ],
+     "its_top_word_one_layer_earlier_drew_on": [
+      [
+       "The",
+       1.0
+      ]
+     ],
+     "traced": [
+      [
+       "The",
+       0.41
+      ],
+      [
+       "hobby",
+       0.18
+      ],
+      [
+       "tested",
+       0.09
+      ],
+      [
+       "ammonia",
+       0.09
+      ]
+     ]
+    },
+    {
+     "layer": 14,
+     "drew_on": [
+      [
+       "tank",
+       0.34
+      ],
+      [
+       "in",
+       0.21
+      ],
+      [
+       "tested",
+       0.11
+      ],
+      [
+       "levels",
+       0.1
+      ]
+     ],
+     "its_top_word_one_layer_earlier_drew_on": [
+      [
+       "in",
+       0.22
+      ],
+      [
+       "The",
+       0.22
+      ],
+      [
+       "ammonia",
+       0.17
+      ]
+     ],
+     "traced": [
+      [
+       "The",
+       0.57
+      ],
+      [
+       "hobby",
+       0.16
+      ],
+      [
+       "tested",
+       0.08
+      ],
+      [
+       "ist",
+       0.06
+      ]
+     ]
+    },
+    {
+     "layer": 20,
+     "drew_on": [
+      [
+       "tank",
+       0.29
+      ],
+      [
+       "levels",
+       0.22
+      ],
+      [
+       "tested",
+       0.16
+      ],
+      [
+       "in",
+       0.11
+      ]
+     ],
+     "its_top_word_one_layer_earlier_drew_on": [
+      [
+       "The",
+       0.34
+      ],
+      [
+       "levels",
+       0.21
+      ],
+      [
+       "tested",
+       0.17
+      ]
+     ],
+     "traced": [
+      [
+       "The",
+       0.71
+      ],
+      [
+       "hobby",
+       0.12
+      ],
+      [
+       "tested",
+       0.05
+      ],
+      [
+       "ist",
+       0.05
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "label": "aquarium",
+   "text": "He carefully scraped the algae off the inner walls of the tank",
+   "layers": [
+    {
+     "layer": 0,
+     "drew_on": [
+      [
+       "algae",
+       0.3
+      ],
+      [
+       "the",
+       0.19
+      ],
+      [
+       "of",
+       0.1
+      ],
+      [
+       "walls",
+       0.1
+      ]
+     ],
+     "its_top_word_one_layer_earlier_drew_on": [],
+     "traced": [
+      [
+       "algae",
+       0.32
+      ],
+      [
+       "the",
+       0.2
+      ],
+      [
+       "of",
+       0.11
+      ],
+      [
+       "walls",
+       0.1
+      ]
+     ]
+    },
+    {
+     "layer": 2,
+     "drew_on": [
+      [
+       "tank",
+       0.27
+      ],
+      [
+       "the",
+       0.14
+      ],
+      [
+       "walls",
+       0.1
+      ],
+      [
+       "algae",
+       0.07
+      ]
+     ],
+     "its_top_word_one_layer_earlier_drew_on": [
+      [
+       "the",
+       0.22
+      ],
+      [
+       "algae",
+       0.12
+      ],
+      [
+       "of",
+       0.12
+      ]
+     ],
+     "traced": [
+      [
+       "algae",
+       0.2
+      ],
+      [
+       "the",
+       0.12
+      ],
+      [
+       "scraped",
+       0.11
+      ],
+      [
+       "carefully",
+       0.09
+      ]
+     ]
+    },
+    {
+     "layer": 5,
+     "drew_on": [
+      [
+       "tank",
+       0.3
+      ],
+      [
+       "of",
+       0.22
+      ],
+      [
+       "algae",
+       0.12
+      ],
+      [
+       "the",
+       0.08
+      ]
+     ],
+     "its_top_word_one_layer_earlier_drew_on": [
+      [
+       "of",
+       0.3
+      ],
+      [
+       "walls",
+       0.16
+      ],
+      [
+       "off",
+       0.13
+      ]
+     ],
+     "traced": [
+      [
+       "algae",
+       0.17
+      ],
+      [
+       "He",
+       0.15
+      ],
+      [
+       "scraped",
+       0.14
+      ],
+      [
+       "carefully",
+       0.12
+      ]
+     ]
+    },
+    {
+     "layer": 9,
+     "drew_on": [
+      [
+       "He",
+       0.29
+      ],
+      [
+       "tank",
+       0.13
+      ],
+      [
+       "of",
+       0.1
+      ],
+      [
+       "algae",
+       0.1
+      ]
+     ],
+     "its_top_word_one_layer_earlier_drew_on": [
+      [
+       "He",
+       1.0
+      ]
+     ],
+     "traced": [
+      [
+       "He",
+       0.41
+      ],
+      [
+       "carefully",
+       0.13
+      ],
+      [
+       "scraped",
+       0.11
+      ],
+      [
+       "algae",
+       0.11
+      ]
+     ]
+    },
+    {
+     "layer": 14,
+     "drew_on": [
+      [
+       "tank",
+       0.32
+      ],
+      [
+       "of",
+       0.18
+      ],
+      [
+       "walls",
+       0.09
+      ],
+      [
+       "the",
+       0.08
+      ]
+     ],
+     "its_top_word_one_layer_earlier_drew_on": [
+      [
+       "He",
+       0.25
+      ],
+      [
+       "algae",
+       0.18
+      ],
+      [
+       "of",
+       0.16
+      ]
+     ],
+     "traced": [
+      [
+       "He",
+       0.57
+      ],
+      [
+       "carefully",
+       0.13
+      ],
+      [
+       "scraped",
+       0.09
+      ],
+      [
+       "algae",
+       0.07
+      ]
+     ]
+    },
+    {
+     "layer": 20,
+     "drew_on": [
+      [
+       "tank",
+       0.25
+      ],
+      [
+       "walls",
+       0.13
+      ],
+      [
+       "off",
+       0.13
+      ],
+      [
+       "scraped",
+       0.12
+      ]
+     ],
+     "its_top_word_one_layer_earlier_drew_on": [
+      [
+       "He",
+       0.28
+      ],
+      [
+       "walls",
+       0.16
+      ],
+      [
+       "off",
+       0.13
+      ]
+     ],
+     "traced": [
+      [
+       "He",
+       0.73
+      ],
+      [
+       "carefully",
+       0.12
+      ],
+      [
+       "scraped",
+       0.06
+      ],
+      [
+       "algae",
+       0.04
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "label": "aquarium",
+   "text": "The aquarist introduced live coral fragments into the reef tank",
+   "layers": [
+    {
+     "layer": 0,
+     "drew_on": [
+      [
+       "reef",
+       0.42
+      ],
+      [
+       "coral",
+       0.16
+      ],
+      [
+       "the",
+       0.08
+      ],
+      [
+       "aqu",
+       0.06
+      ]
+     ],
+     "its_top_word_one_layer_earlier_drew_on": [],
+     "traced": [
+      [
+       "reef",
+       0.45
+      ],
+      [
+       "coral",
+       0.17
+      ],
+      [
+       "the",
+       0.09
+      ],
+      [
+       "aqu",
+       0.06
+      ]
+     ]
+    },
+    {
+     "layer": 2,
+     "drew_on": [
+      [
+       "tank",
+       0.28
+      ],
+      [
+       "reef",
+       0.23
+      ],
+      [
+       "the",
+       0.14
+      ],
+      [
+       "into",
+       0.08
+      ]
+     ],
+     "its_top_word_one_layer_earlier_drew_on": [
+      [
+       "coral",
+       0.28
+      ],
+      [
+       "reef",
+       0.21
+      ],
+      [
+       "into",
+       0.12
+      ]
+     ],
+     "traced": [
+      [
+       "reef",
+       0.27
+      ],
+      [
+       "The",
+       0.12
+      ],
+      [
+       "coral",
+       0.12
+      ],
+      [
+       "the",
+       0.11
+      ]
+     ]
+    },
+    {
+     "layer": 5,
+     "drew_on": [
+      [
+       "tank",
+       0.24
+      ],
+      [
+       "into",
+       0.18
+      ],
+      [
+       "reef",
+       0.16
+      ],
+      [
+       "fragments",
+       0.08
+      ]
+     ],
+     "its_top_word_one_layer_earlier_drew_on": [
+      [
+       "into",
+       0.38
+      ],
+      [
+       "introduced",
+       0.19
+      ],
+      [
+       "fragments",
+       0.16
+      ]
+     ],
+     "traced": [
+      [
+       "The",
+       0.16
+      ],
+      [
+       "reef",
+       0.14
+      ],
+      [
+       "coral",
+       0.11
+      ],
+      [
+       "aqu",
+       0.1
+      ]
+     ]
+    },
+    {
+     "layer": 9,
+     "drew_on": [
+      [
+       "The",
+       0.35
+      ],
+      [
+       "tank",
+       0.14
+      ],
+      [
+       "reef",
+       0.12
+      ],
+      [
+       "into",
+       0.09
+      ]
+     ],
+     "its_top_word_one_layer_earlier_drew_on": [
+      [
+       "The",
+       1.0
+      ]
+     ],
+     "traced": [
+      [
+       "The",
+       0.42
+      ],
+      [
+       "aqu",
+       0.1
+      ],
+      [
+       "introduced",
+       0.09
+      ],
+      [
+       "coral",
+       0.07
+      ]
+     ]
+    },
+    {
+     "layer": 14,
+     "drew_on": [
+      [
+       "tank",
+       0.31
+      ],
+      [
+       "reef",
+       0.22
+      ],
+      [
+       "into",
+       0.18
+      ],
+      [
+       "the",
+       0.06
+      ]
+     ],
+     "its_top_word_one_layer_earlier_drew_on": [
+      [
+       "The",
+       0.23
+      ],
+      [
+       "reef",
+       0.21
+      ],
+      [
+       "coral",
+       0.12
+      ]
+     ],
+     "traced": [
+      [
+       "The",
+       0.58
+      ],
+      [
+       "aqu",
+       0.11
+      ],
+      [
+       "introduced",
+       0.06
+      ],
+      [
+       "ar",
+       0.06
+      ]
+     ]
+    },
+    {
+     "layer": 20,
+     "drew_on": [
+      [
+       "tank",
+       0.28
+      ],
+      [
+       "introduced",
+       0.15
+      ],
+      [
+       "fragments",
+       0.15
+      ],
+      [
+       "into",
+       0.15
+      ]
+     ],
+     "its_top_word_one_layer_earlier_drew_on": [
+      [
+       "ar",
+       0.28
+      ],
+      [
+       "The",
+       0.27
+      ],
+      [
+       "ist",
+       0.21
+      ]
+     ],
+     "traced": [
+      [
+       "The",
+       0.73
+      ],
+      [
+       "aqu",
+       0.09
+      ],
+      [
+       "ar",
+       0.05
+      ],
+      [
+       "introduced",
+       0.04
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "label": "aquarium",
+   "text": "She poured the dechlorinated water slowly into the tank",
+   "layers": [
+    {
+     "layer": 0,
+     "drew_on": [
+      [
+       "water",
+       0.24
+      ],
+      [
+       "the",
+       0.19
+      ],
+      [
+       "She",
+       0.13
+      ],
+      [
+       "slowly",
+       0.12
+      ]
+     ],
+     "its_top_word_one_layer_earlier_drew_on": [],
+     "traced": [
+      [
+       "water",
+       0.24
+      ],
+      [
+       "the",
+       0.2
+      ],
+      [
+       "She",
+       0.14
+      ],
+      [
+       "slowly",
+       0.13
+      ]
+     ]
+    },
+    {
+     "layer": 2,
+     "drew_on": [
+      [
+       "tank",
+       0.25
+      ],
+      [
+       "the",
+       0.19
+      ],
+      [
+       "into",
+       0.14
+      ],
+      [
+       "poured",
+       0.13
+      ]
+     ],
+     "its_top_word_one_layer_earlier_drew_on": [
+      [
+       "the",
+       0.25
+      ],
+      [
+       "She",
+       0.11
+      ],
+      [
+       "poured",
+       0.11
+      ]
+     ],
+     "traced": [
+      [
+       "poured",
+       0.16
+      ],
+      [
+       "She",
+       0.15
+      ],
+      [
+       "water",
+       0.13
+      ],
+      [
+       "the",
+       0.13
+      ]
+     ]
+    },
+    {
+     "layer": 5,
+     "drew_on": [
+      [
+       "tank",
+       0.32
+      ],
+      [
+       "into",
+       0.21
+      ],
+      [
+       "the",
+       0.1
+      ],
+      [
+       "chlor",
+       0.08
+      ]
+     ],
+     "its_top_word_one_layer_earlier_drew_on": [
+      [
+       "into",
+       0.36
+      ],
+      [
+       "slowly",
+       0.16
+      ],
+      [
+       "water",
+       0.15
+      ]
+     ],
+     "traced": [
+      [
+       "She",
+       0.22
+      ],
+      [
+       "poured",
+       0.2
+      ],
+      [
+       "into",
+       0.09
+      ],
+      [
+       "water",
+       0.09
+      ]
+     ]
+    },
+    {
+     "layer": 9,
+     "drew_on": [
+      [
+       "She",
+       0.42
+      ],
+      [
+       "tank",
+       0.13
+      ],
+      [
+       "into",
+       0.09
+      ],
+      [
+       "slowly",
+       0.08
+      ]
+     ],
+     "its_top_word_one_layer_earlier_drew_on": [
+      [
+       "She",
+       1.0
+      ]
+     ],
+     "traced": [
+      [
+       "She",
+       0.47
+      ],
+      [
+       "poured",
+       0.17
+      ],
+      [
+       "the",
+       0.07
+      ],
+      [
+       "chlor",
+       0.06
+      ]
+     ]
+    },
+    {
+     "layer": 14,
+     "drew_on": [
+      [
+       "tank",
+       0.36
+      ],
+      [
+       "into",
+       0.19
+      ],
+      [
+       "water",
+       0.08
+      ],
+      [
+       "poured",
+       0.08
+      ]
+     ],
+     "its_top_word_one_layer_earlier_drew_on": [
+      [
+       "She",
+       0.31
+      ],
+      [
+       "into",
+       0.19
+      ],
+      [
+       "water",
+       0.1
+      ]
+     ],
+     "traced": [
+      [
+       "She",
+       0.62
+      ],
+      [
+       "poured",
+       0.15
+      ],
+      [
+       "the",
+       0.05
+      ],
+      [
+       "chlor",
+       0.04
+      ]
+     ]
+    },
+    {
+     "layer": 20,
+     "drew_on": [
+      [
+       "tank",
+       0.31
+      ],
+      [
+       "slowly",
+       0.19
+      ],
+      [
+       "into",
+       0.13
+      ],
+      [
+       "poured",
+       0.11
+      ]
+     ],
+     "its_top_word_one_layer_earlier_drew_on": [
+      [
+       "She",
+       0.32
+      ],
+      [
+       "slowly",
+       0.21
+      ],
+      [
+       "water",
+       0.19
+      ]
+     ],
+     "traced": [
+      [
+       "She",
+       0.76
+      ],
+      [
+       "poured",
+       0.12
+      ],
+      [
+       "the",
+       0.04
+      ],
+      [
+       "chlor",
+       0.02
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "label": "aquarium",
+   "text": "The filtration system hummed quietly behind the tank",
+   "layers": [
+    {
+     "layer": 0,
+     "drew_on": [
+      [
+       "the",
+       0.2
+      ],
+      [
+       "filtration",
+       0.18
+      ],
+      [
+       "humm",
+       0.17
+      ],
+      [
+       "quietly",
+       0.13
+      ]
+     ],
+     "its_top_word_one_layer_earlier_drew_on": [],
+     "traced": [
+      [
+       "the",
+       0.21
+      ],
+      [
+       "filtration",
+       0.2
+      ],
+      [
+       "humm",
+       0.19
+      ],
+      [
+       "quietly",
+       0.14
+      ]
+     ]
+    },
+    {
+     "layer": 2,
+     "drew_on": [
+      [
+       "tank",
+       0.36
+      ],
+      [
+       "behind",
+       0.16
+      ],
+      [
+       "the",
+       0.15
+      ],
+      [
+       "quietly",
+       0.07
+      ]
+     ],
+     "its_top_word_one_layer_earlier_drew_on": [
+      [
+       "behind",
+       0.26
+      ],
+      [
+       "quietly",
+       0.18
+      ],
+      [
+       "filtration",
+       0.18
+      ]
+     ],
+     "traced": [
+      [
+       "filtration",
+       0.21
+      ],
+      [
+       "The",
+       0.15
+      ],
+      [
+       "behind",
+       0.15
+      ],
+      [
+       "the",
+       0.15
+      ]
+     ]
+    },
+    {
+     "layer": 5,
+     "drew_on": [
+      [
+       "tank",
+       0.23
+      ],
+      [
+       "behind",
+       0.22
+      ],
+      [
+       "system",
+       0.17
+      ],
+      [
+       "the",
+       0.13
+      ]
+     ],
+     "its_top_word_one_layer_earlier_drew_on": [
+      [
+       "behind",
+       0.46
+      ],
+      [
+       "system",
+       0.18
+      ],
+      [
+       "The",
+       0.11
+      ]
+     ],
+     "traced": [
+      [
+       "filtration",
+       0.22
+      ],
+      [
+       "The",
+       0.22
+      ],
+      [
+       "humm",
+       0.12
+      ],
+      [
+       "behind",
+       0.12
+      ]
+     ]
+    },
+    {
+     "layer": 9,
+     "drew_on": [
+      [
+       "The",
+       0.5
+      ],
+      [
+       "behind",
+       0.14
+      ],
+      [
+       "tank",
+       0.12
+      ],
+      [
+       "the",
+       0.07
+      ]
+     ],
+     "its_top_word_one_layer_earlier_drew_on": [
+      [
+       "The",
+       1.0
+      ]
+     ],
+     "traced": [
+      [
+       "The",
+       0.52
+      ],
+      [
+       "filtration",
+       0.17
+      ],
+      [
+       "system",
+       0.08
+      ],
+      [
+       "humm",
+       0.08
+      ]
+     ]
+    },
+    {
+     "layer": 14,
+     "drew_on": [
+      [
+       "tank",
+       0.38
+      ],
+      [
+       "behind",
+       0.27
+      ],
+      [
+       "The",
+       0.08
+      ],
+      [
+       "the",
+       0.08
+      ]
+     ],
+     "its_top_word_one_layer_earlier_drew_on": [
+      [
+       "The",
+       0.33
+      ],
+      [
+       "behind",
+       0.23
+      ],
+      [
+       "humm",
+       0.16
+      ]
+     ],
+     "traced": [
+      [
+       "The",
+       0.65
+      ],
+      [
+       "filtration",
+       0.14
+      ],
+      [
+       "system",
+       0.07
+      ],
+      [
+       "humm",
+       0.05
+      ]
+     ]
+    },
+    {
+     "layer": 20,
+     "drew_on": [
+      [
+       "tank",
+       0.28
+      ],
+      [
+       "behind",
+       0.2
+      ],
+      [
+       "ed",
+       0.16
+      ],
+      [
+       "quietly",
+       0.14
+      ]
+     ],
+     "its_top_word_one_layer_earlier_drew_on": [
+      [
+       "The",
+       0.29
+      ],
+      [
+       "behind",
+       0.25
+      ],
+      [
+       "quietly",
+       0.14
+      ]
+     ],
+     "traced": [
+      [
+       "The",
+       0.76
+      ],
+      [
+       "filtration",
+       0.12
+      ],
+      [
+       "system",
+       0.05
+      ],
+      [
+       "humm",
+       0.03
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "picked_words": [
+  {
+   "layer": 0,
+   "top3": 0.4948484848484848,
+   "random3": 0.3587676767676768,
+   "traced_top3": 0.4948484848484848,
+   "all_words": 0.5008888888888888
+  },
+  {
+   "layer": 1,
+   "top3": 0.506989898989899,
+   "random3": 0.36866666666666664,
+   "traced_top3": 0.5088686868686869,
+   "all_words": 0.5008888888888888
+  },
+  {
+   "layer": 2,
+   "top3": 0.49303030303030304,
+   "random3": 0.30654545454545457,
+   "traced_top3": 0.525090909090909,
+   "all_words": 0.5008888888888888
+  },
+  {
+   "layer": 3,
+   "top3": 0.5209494949494949,
+   "random3": 0.33854545454545454,
+   "traced_top3": 0.525010101010101,
+   "all_words": 0.5008888888888888
+  },
+  {
+   "layer": 4,
+   "top3": 0.503010101010101,
+   "random3": 0.33266666666666667,
+   "traced_top3": 0.5011313131313132,
+   "all_words": 0.5008888888888888
+  },
+  {
+   "layer": 5,
+   "top3": 0.4408282828282829,
+   "random3": 0.3507474747474747,
+   "traced_top3": 0.5031515151515151,
+   "all_words": 0.5008888888888888
+  },
+  {
+   "layer": 6,
+   "top3": 0.43466666666666665,
+   "random3": 0.3524242424242424,
+   "traced_top3": 0.485010101010101,
+   "all_words": 0.5008888888888888
+  },
+  {
+   "layer": 7,
+   "top3": 0.517010101010101,
+   "random3": 0.35854545454545456,
+   "traced_top3": 0.4629090909090909,
+   "all_words": 0.5008888888888888
+  },
+  {
+   "layer": 8,
+   "top3": 0.46086868686868687,
+   "random3": 0.3666060606060606,
+   "traced_top3": 0.4127878787878788,
+   "all_words": 0.5008888888888888
+  },
+  {
+   "layer": 9,
+   "top3": 0.5068888888888889,
+   "random3": 0.3526060606060606,
+   "traced_top3": 0.39474747474747474,
+   "all_words": 0.5008888888888888
+  },
+  {
+   "layer": 10,
+   "top3": 0.49092929292929294,
+   "random3": 0.36866666666666664,
+   "traced_top3": 0.3787676767676768,
+   "all_words": 0.5008888888888888
+  },
+  {
+   "layer": 11,
+   "top3": 0.498969696969697,
+   "random3": 0.3526060606060606,
+   "traced_top3": 0.37872727272727275,
+   "all_words": 0.5008888888888888
+  },
+  {
+   "layer": 12,
+   "top3": 0.48096969696969694,
+   "random3": 0.29648484848484846,
+   "traced_top3": 0.37070707070707076,
+   "all_words": 0.5008888888888888
+  },
+  {
+   "layer": 13,
+   "top3": 0.496989898989899,
+   "random3": 0.33442424242424246,
+   "traced_top3": 0.38272727272727275,
+   "all_words": 0.5008888888888888
+  },
+  {
+   "layer": 14,
+   "top3": 0.46878787878787875,
+   "random3": 0.3746666666666666,
+   "traced_top3": 0.36466666666666664,
+   "all_words": 0.5008888888888888
+  },
+  {
+   "layer": 15,
+   "top3": 0.4667272727272727,
+   "random3": 0.31470707070707066,
+   "traced_top3": 0.36064646464646466,
+   "all_words": 0.5008888888888888
+  },
+  {
+   "layer": 16,
+   "top3": 0.45488888888888895,
+   "random3": 0.3607676767676768,
+   "traced_top3": 0.3446262626262626,
+   "all_words": 0.5008888888888888
+  },
+  {
+   "layer": 17,
+   "top3": 0.4347676767676768,
+   "random3": 0.33252525252525256,
+   "traced_top3": 0.3446262626262626,
+   "all_words": 0.5008888888888888
+  },
+  {
+   "layer": 18,
+   "top3": 0.4628484848484849,
+   "random3": 0.36454545454545456,
+   "traced_top3": 0.3446262626262626,
+   "all_words": 0.5008888888888888
+  },
+  {
+   "layer": 19,
+   "top3": 0.4246868686868687,
+   "random3": 0.36478787878787877,
+   "traced_top3": 0.33460606060606063,
+   "all_words": 0.5008888888888888
+  },
+  {
+   "layer": 20,
+   "top3": 0.4208282828282828,
+   "random3": 0.37868686868686874,
+   "traced_top3": 0.3385858585858586,
+   "all_words": 0.5008888888888888
+  },
+  {
+   "layer": 21,
+   "top3": 0.4167878787878788,
+   "random3": 0.35854545454545456,
+   "traced_top3": 0.33058585858585865,
+   "all_words": 0.5008888888888888
+  },
+  {
+   "layer": 22,
+   "top3": 0.5028686868686869,
+   "random3": 0.33860606060606063,
+   "traced_top3": 0.3326060606060606,
+   "all_words": 0.5008888888888888
+  },
+  {
+   "layer": 23,
+   "top3": 0.4627878787878788,
+   "random3": 0.3586060606060606,
+   "traced_top3": 0.32858585858585865,
+   "all_words": 0.5008888888888888
+  }
+ ],
+ "shuffles": 1000,
+ "weights_vs_amounts": [
+  {
+   "layer": 0,
+   "first_token_weight": 0.010868482291698456,
+   "first_token_amount": 0.059629034250974655,
+   "self_weight": 0.013140404596924782,
+   "self_amount": 0.07740612328052521,
+   "sink_weight": 0.7677901983261108
+  },
+  {
+   "layer": 1,
+   "first_token_weight": 0.014695938676595688,
+   "first_token_amount": 0.039864037185907364,
+   "self_weight": 0.11446689069271088,
+   "self_amount": 0.281649112701416,
+   "sink_weight": 0.5768358707427979
+  },
+  {
+   "layer": 2,
+   "first_token_weight": 0.008713631890714169,
+   "first_token_amount": 0.05203268676996231,
+   "self_weight": 0.08503788709640503,
+   "self_amount": 0.2993709146976471,
+   "sink_weight": 0.6604528427124023
+  },
+  {
+   "layer": 3,
+   "first_token_weight": 0.008889994584023952,
+   "first_token_amount": 0.020619848743081093,
+   "self_weight": 0.12403876334428787,
+   "self_amount": 0.4291779696941376,
+   "sink_weight": 0.602197527885437
+  },
+  {
+   "layer": 4,
+   "first_token_weight": 0.0027931490913033485,
+   "first_token_amount": 0.009748915210366249,
+   "self_weight": 0.12526513636112213,
+   "self_amount": 0.46366745233535767,
+   "sink_weight": 0.715408205986023
+  },
+  {
+   "layer": 5,
+   "first_token_weight": 0.00850046705454588,
+   "first_token_amount": 0.030485594645142555,
+   "self_weight": 0.14190398156642914,
+   "self_amount": 0.2893339693546295,
+   "sink_weight": 0.6358330249786377
+  },
+  {
+   "layer": 6,
+   "first_token_weight": 0.008439276367425919,
+   "first_token_amount": 0.027247147634625435,
+   "self_weight": 0.14046888053417206,
+   "self_amount": 0.33277028799057007,
+   "sink_weight": 0.509940505027771
+  },
+  {
+   "layer": 7,
+   "first_token_weight": 0.212987020611763,
+   "first_token_amount": 0.24930739402770996,
+   "self_weight": 0.1427970826625824,
+   "self_amount": 0.3488984704017639,
+   "sink_weight": 0.4058496952056885
+  },
+  {
+   "layer": 8,
+   "first_token_weight": 0.03604321926832199,
+   "first_token_amount": 0.10633998364210129,
+   "self_weight": 0.1479063630104065,
+   "self_amount": 0.3827994763851166,
+   "sink_weight": 0.5338807702064514
+  },
+  {
+   "layer": 9,
+   "first_token_weight": 0.15244311094284058,
+   "first_token_amount": 0.43528369069099426,
+   "self_weight": 0.11960438638925552,
+   "self_amount": 0.14973101019859314,
+   "sink_weight": 0.44785112142562866
+  },
+  {
+   "layer": 10,
+   "first_token_weight": 0.05046147480607033,
+   "first_token_amount": 0.12057428061962128,
+   "self_weight": 0.1376623511314392,
+   "self_amount": 0.3689819872379303,
+   "sink_weight": 0.5290476083755493
+  },
+  {
+   "layer": 11,
+   "first_token_weight": 0.3099046051502228,
+   "first_token_amount": 0.136860653758049,
+   "self_weight": 0.17796215415000916,
+   "self_amount": 0.45663613080978394,
+   "sink_weight": 0.22781896591186523
+  },
+  {
+   "layer": 12,
+   "first_token_weight": 0.02879386767745018,
+   "first_token_amount": 0.055902861058712006,
+   "self_weight": 0.12989692389965057,
+   "self_amount": 0.4658561646938324,
+   "sink_weight": 0.5379756689071655
+  },
+  {
+   "layer": 13,
+   "first_token_weight": 0.2879244089126587,
+   "first_token_amount": 0.2861555814743042,
+   "self_weight": 0.159155935049057,
+   "self_amount": 0.26534709334373474,
+   "sink_weight": 0.19500577449798584
+  },
+  {
+   "layer": 14,
+   "first_token_weight": 0.04541724547743797,
+   "first_token_amount": 0.05781501159071922,
+   "self_weight": 0.15102967619895935,
+   "self_amount": 0.34794536232948303,
+   "sink_weight": 0.36552000045776367
+  },
+  {
+   "layer": 15,
+   "first_token_weight": 0.2165776640176773,
+   "first_token_amount": 0.18892231583595276,
+   "self_weight": 0.11232537031173706,
+   "self_amount": 0.21997033059597015,
+   "sink_weight": 0.4117727279663086
+  },
+  {
+   "layer": 16,
+   "first_token_weight": 0.020755164325237274,
+   "first_token_amount": 0.07041003555059433,
+   "self_weight": 0.1222095787525177,
+   "self_amount": 0.36330944299697876,
+   "sink_weight": 0.5465693473815918
+  },
+  {
+   "layer": 17,
+   "first_token_weight": 0.13057249784469604,
+   "first_token_amount": 0.1525355726480484,
+   "self_weight": 0.11837275326251984,
+   "self_amount": 0.38811805844306946,
+   "sink_weight": 0.5004563331604004
+  },
+  {
+   "layer": 18,
+   "first_token_weight": 0.007451352663338184,
+   "first_token_amount": 0.019379600882530212,
+   "self_weight": 0.15294471383094788,
+   "self_amount": 0.34896692633628845,
+   "sink_weight": 0.5545259714126587
+  },
+  {
+   "layer": 19,
+   "first_token_weight": 0.02090279757976532,
+   "first_token_amount": 0.27844804525375366,
+   "self_weight": 0.060228556394577026,
+   "self_amount": 0.19600927829742432,
+   "sink_weight": 0.7773432731628418
+  },
+  {
+   "layer": 20,
+   "first_token_weight": 0.014199445024132729,
+   "first_token_amount": 0.0379614420235157,
+   "self_weight": 0.16075655817985535,
+   "self_amount": 0.30498602986335754,
+   "sink_weight": 0.5536260604858398
+  },
+  {
+   "layer": 21,
+   "first_token_weight": 0.011592769995331764,
+   "first_token_amount": 0.2330641895532608,
+   "self_weight": 0.052831344306468964,
+   "self_amount": 0.15520289540290833,
+   "sink_weight": 0.8212457299232483
+  },
+  {
+   "layer": 22,
+   "first_token_weight": 0.008813651278614998,
+   "first_token_amount": 0.043126218020915985,
+   "self_weight": 0.17157034575939178,
+   "self_amount": 0.4124510884284973,
+   "sink_weight": 0.6290709972381592
+  },
+  {
+   "layer": 23,
+   "first_token_weight": 0.01342068426311016,
+   "first_token_amount": 0.03222505375742912,
+   "self_weight": 0.08856759965419769,
+   "self_amount": 0.48106706142425537,
+   "sink_weight": 0.7691457271575928
+  }
+ ],
+ "senses": {
+  "aquarium": [
+   {
+    "layer": 0,
+    "line": 0.0236,
+    "beyond": 1,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": 0.03579895685158843,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.0109,
+     "the token just before it": -0.0054,
+     "the first token": -0.0097,
+     "the other words": 0.026
+    },
+    "split_half_spearman": -0.0030820293978188716,
+    "amount_vs_signed_spearman": 0.9886201991465149,
+    "top": [
+     {
+      "word": "reef",
+      "difference": 0.0258,
+      "presence_difference": 0.057
+     }
+    ]
+   },
+   {
+    "layer": 1,
+    "line": 0.0153,
+    "beyond": 1,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": 0.037695590327169265,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": 0.0019,
+     "the token just before it": 0.0017,
+     "the first token": 0.0021,
+     "the other words": -0.0057
+    },
+    "split_half_spearman": 0.06899004267425318,
+    "amount_vs_signed_spearman": 0.8646277856804172,
+    "top": [
+     {
+      "word": "in",
+      "difference": 0.0181,
+      "presence_difference": 0.175
+     }
+    ]
+   },
+   {
+    "layer": 2,
+    "line": 0.0201,
+    "beyond": 0,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": 0.1728307254623044,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.0208,
+     "the token just before it": -0.0016,
+     "the first token": -0.001,
+     "the other words": 0.0234
+    },
+    "split_half_spearman": 0.45708866761498335,
+    "amount_vs_signed_spearman": 0.9623044096728307,
+    "top": []
+   },
+   {
+    "layer": 3,
+    "line": 0.0164,
+    "beyond": 0,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": -0.1341868183973447,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.0197,
+     "the token just before it": 0.0068,
+     "the first token": -0.0036,
+     "the other words": 0.0165
+    },
+    "split_half_spearman": 0.09649122807017542,
+    "amount_vs_signed_spearman": 0.8805120910384067,
+    "top": []
+   },
+   {
+    "layer": 4,
+    "line": 0.0145,
+    "beyond": 1,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": 0.18752963489805594,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.0188,
+     "the token just before it": -0.0078,
+     "the first token": 0.003,
+     "the other words": 0.0236
+    },
+    "split_half_spearman": 0.17472735893788524,
+    "amount_vs_signed_spearman": 0.8397344713134186,
+    "top": [
+     {
+      "word": "in",
+      "difference": 0.0212,
+      "presence_difference": 0.175
+     }
+    ]
+   },
+   {
+    "layer": 5,
+    "line": 0.0186,
+    "beyond": 1,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": 0.04267425320056899,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.0253,
+     "the token just before it": -0.0049,
+     "the first token": 0.0025,
+     "the other words": 0.0277
+    },
+    "split_half_spearman": 0.09009009009009009,
+    "amount_vs_signed_spearman": 0.9393077287814129,
+    "top": [
+     {
+      "word": "in",
+      "difference": 0.0202,
+      "presence_difference": 0.175
+     }
+    ]
+   },
+   {
+    "layer": 6,
+    "line": 0.0214,
+    "beyond": 1,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": -0.33570412517780934,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.0226,
+     "the token just before it": -0.0285,
+     "the first token": 0.0075,
+     "the other words": 0.0436
+    },
+    "split_half_spearman": 0.06306306306306306,
+    "amount_vs_signed_spearman": 0.9381223328591748,
+    "top": [
+     {
+      "word": "in",
+      "difference": 0.0278,
+      "presence_difference": 0.175
+     }
+    ]
+   },
+   {
+    "layer": 7,
+    "line": 0.0268,
+    "beyond": 0,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": -0.0040303461356092935,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.0144,
+     "the token just before it": -0.014,
+     "the first token": 0.0082,
+     "the other words": 0.0202
+    },
+    "split_half_spearman": -0.09672830725462303,
+    "amount_vs_signed_spearman": 0.5184921763869131,
+    "top": []
+   },
+   {
+    "layer": 8,
+    "line": 0.0183,
+    "beyond": 1,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": -0.06021811284969179,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.0187,
+     "the token just before it": -0.0136,
+     "the first token": -0.006,
+     "the other words": 0.0383
+    },
+    "split_half_spearman": 0.02513039355144618,
+    "amount_vs_signed_spearman": 0.6773352299668087,
+    "top": [
+     {
+      "word": "in",
+      "difference": 0.0218,
+      "presence_difference": 0.175
+     }
+    ]
+   },
+   {
+    "layer": 9,
+    "line": 0.0419,
+    "beyond": 0,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": -0.1557610241820768,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.0086,
+     "the token just before it": -0.0031,
+     "the first token": -0.0132,
+     "the other words": 0.0249
+    },
+    "split_half_spearman": -0.20056899004267423,
+    "amount_vs_signed_spearman": 0.8195827406353722,
+    "top": []
+   },
+   {
+    "layer": 10,
+    "line": 0.0175,
+    "beyond": 0,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": 0.06827880512091038,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": 0.0103,
+     "the token just before it": -0.0181,
+     "the first token": -0.0057,
+     "the other words": 0.0134
+    },
+    "split_half_spearman": 0.3816974869606448,
+    "amount_vs_signed_spearman": 0.7702702702702702,
+    "top": []
+   },
+   {
+    "layer": 11,
+    "line": 0.0155,
+    "beyond": 0,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": -0.2413466097676624,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": 0.0106,
+     "the token just before it": -0.0207,
+     "the first token": 0.0108,
+     "the other words": -0.0007
+    },
+    "split_half_spearman": -0.033428165007112376,
+    "amount_vs_signed_spearman": 0.8655761024182075,
+    "top": []
+   },
+   {
+    "layer": 12,
+    "line": 0.0172,
+    "beyond": 1,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": 0.03508771929824561,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.0038,
+     "the token just before it": -0.029,
+     "the first token": 0.0033,
+     "the other words": 0.0294
+    },
+    "split_half_spearman": 0.09838786154575627,
+    "amount_vs_signed_spearman": 0.08440018966334754,
+    "top": [
+     {
+      "word": "in",
+      "difference": 0.0186,
+      "presence_difference": 0.175
+     }
+    ]
+   },
+   {
+    "layer": 13,
+    "line": 0.0265,
+    "beyond": 0,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": -0.25746799431009953,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": 0.0164,
+     "the token just before it": -0.0247,
+     "the first token": -0.0118,
+     "the other words": 0.0202
+    },
+    "split_half_spearman": -0.09364627785680416,
+    "amount_vs_signed_spearman": 0.9293504030346136,
+    "top": []
+   },
+   {
+    "layer": 14,
+    "line": 0.0182,
+    "beyond": 1,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": -0.06685633001422475,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.0121,
+     "the token just before it": -0.0311,
+     "the first token": 0.0081,
+     "the other words": 0.0351
+    },
+    "split_half_spearman": 0.20886676149834044,
+    "amount_vs_signed_spearman": 0.8864390706495968,
+    "top": [
+     {
+      "word": "in",
+      "difference": 0.0262,
+      "presence_difference": 0.175
+     }
+    ]
+   },
+   {
+    "layer": 15,
+    "line": 0.0232,
+    "beyond": 0,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": -0.03200568990042674,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.0045,
+     "the token just before it": -0.0324,
+     "the first token": -0.0092,
+     "the other words": 0.046
+    },
+    "split_half_spearman": 0.11450924608819343,
+    "amount_vs_signed_spearman": 0.9220009483167377,
+    "top": []
+   },
+   {
+    "layer": 16,
+    "line": 0.0168,
+    "beyond": 1,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": -0.2382645803698435,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.0162,
+     "the token just before it": -0.0397,
+     "the first token": 0.0007,
+     "the other words": 0.0552
+    },
+    "split_half_spearman": 0.15291607396870552,
+    "amount_vs_signed_spearman": 0.9746325272641062,
+    "top": [
+     {
+      "word": "in",
+      "difference": 0.0273,
+      "presence_difference": 0.175
+     }
+    ]
+   },
+   {
+    "layer": 17,
+    "line": 0.0181,
+    "beyond": 0,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": 0.051683262209578,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.0118,
+     "the token just before it": -0.0257,
+     "the first token": 0.0028,
+     "the other words": 0.0348
+    },
+    "split_half_spearman": 0.12825983878615457,
+    "amount_vs_signed_spearman": 0.8605974395448079,
+    "top": []
+   },
+   {
+    "layer": 18,
+    "line": 0.0216,
+    "beyond": 1,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": -0.23944997629208153,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.0185,
+     "the token just before it": -0.0332,
+     "the first token": 0.0102,
+     "the other words": 0.0415
+    },
+    "split_half_spearman": 0.3115220483641536,
+    "amount_vs_signed_spearman": 0.975343764817449,
+    "top": [
+     {
+      "word": "in",
+      "difference": 0.0217,
+      "presence_difference": 0.175
+     }
+    ]
+   },
+   {
+    "layer": 19,
+    "line": 0.0316,
+    "beyond": 0,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": -0.3067804646752015,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": 0.0002,
+     "the token just before it": -0.0267,
+     "the first token": -0.0345,
+     "the other words": 0.0611
+    },
+    "split_half_spearman": -0.08771929824561402,
+    "amount_vs_signed_spearman": 0.9841156946420103,
+    "top": []
+   },
+   {
+    "layer": 20,
+    "line": 0.0167,
+    "beyond": 0,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": -0.012091038406827879,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.0298,
+     "the token just before it": -0.0329,
+     "the first token": 0.013,
+     "the other words": 0.0497
+    },
+    "split_half_spearman": 0.015173067804646752,
+    "amount_vs_signed_spearman": 0.9466571834992886,
+    "top": []
+   },
+   {
+    "layer": 21,
+    "line": 0.0291,
+    "beyond": 0,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": -0.2828354670459933,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": 0.0133,
+     "the token just before it": -0.0197,
+     "the first token": -0.0412,
+     "the other words": 0.0477
+    },
+    "split_half_spearman": -0.13229018492176386,
+    "amount_vs_signed_spearman": 0.9713134186818396,
+    "top": []
+   },
+   {
+    "layer": 22,
+    "line": 0.0132,
+    "beyond": 0,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": -0.4115694642010431,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.0543,
+     "the token just before it": -0.0136,
+     "the first token": 0.0084,
+     "the other words": 0.0594
+    },
+    "split_half_spearman": 0.30227596017069697,
+    "amount_vs_signed_spearman": 0.8710289236605024,
+    "top": []
+   },
+   {
+    "layer": 23,
+    "line": 0.0119,
+    "beyond": 1,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": -0.44144144144144143,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.0363,
+     "the token just before it": -0.0184,
+     "the first token": 0.0065,
+     "the other words": 0.0483
+    },
+    "split_half_spearman": -0.08937885253674727,
+    "amount_vs_signed_spearman": 0.966808914177335,
+    "top": [
+     {
+      "word": "in",
+      "difference": 0.0172,
+      "presence_difference": 0.175
+     }
+    ]
+   }
+  ],
+  "clothing": [
+   {
+    "layer": 0,
+    "line": 0.0247,
+    "beyond": 1,
+    "traced_beyond": 1,
+    "traced_split_half_spearman": 0.7419354838709676,
+    "traced_top": [
+     {
+      "word": "this",
+      "difference": 0.0373,
+      "presence_difference": 0.082
+     }
+    ],
+    "roles_difference": {
+     "the read word itself": 0.0171,
+     "the token just before it": 0.0179,
+     "the first token": -0.0051,
+     "the other words": -0.0299
+    },
+    "split_half_spearman": 0.7446051167964404,
+    "amount_vs_signed_spearman": 0.9555061179087875,
+    "top": [
+     {
+      "word": "this",
+      "difference": 0.0296,
+      "presence_difference": 0.082
+     }
+    ]
+   },
+   {
+    "layer": 1,
+    "line": 0.0146,
+    "beyond": 1,
+    "traced_beyond": 1,
+    "traced_split_half_spearman": 0.47185761957730815,
+    "traced_top": [
+     {
+      "word": "this",
+      "difference": 0.0342,
+      "presence_difference": 0.082
+     }
+    ],
+    "roles_difference": {
+     "the read word itself": -0.0073,
+     "the token just before it": 0.0131,
+     "the first token": 0.0011,
+     "the other words": -0.0069
+    },
+    "split_half_spearman": 0.4967741935483871,
+    "amount_vs_signed_spearman": 0.8709677419354839,
+    "top": [
+     {
+      "word": "this",
+      "difference": 0.0158,
+      "presence_difference": 0.082
+     }
+    ]
+   },
+   {
+    "layer": 2,
+    "line": 0.0194,
+    "beyond": 1,
+    "traced_beyond": 1,
+    "traced_split_half_spearman": 0.525250278086763,
+    "traced_top": [
+     {
+      "word": "this",
+      "difference": 0.0353,
+      "presence_difference": 0.082
+     }
+    ],
+    "roles_difference": {
+     "the read word itself": 0.0113,
+     "the token just before it": 0.001,
+     "the first token": 0.0053,
+     "the other words": -0.0176
+    },
+    "split_half_spearman": 0.6044493882091213,
+    "amount_vs_signed_spearman": 0.9279199110122357,
+    "top": [
+     {
+      "word": "this",
+      "difference": 0.0251,
+      "presence_difference": 0.082
+     }
+    ]
+   },
+   {
+    "layer": 3,
+    "line": 0.0143,
+    "beyond": 0,
+    "traced_beyond": 1,
+    "traced_split_half_spearman": 0.3979977753058954,
+    "traced_top": [
+     {
+      "word": "this",
+      "difference": 0.033,
+      "presence_difference": 0.082
+     }
+    ],
+    "roles_difference": {
+     "the read word itself": 0.0392,
+     "the token just before it": 0.0004,
+     "the first token": 0.0005,
+     "the other words": -0.0401
+    },
+    "split_half_spearman": 0.30233592880978866,
+    "amount_vs_signed_spearman": 0.8634037819799777,
+    "top": []
+   },
+   {
+    "layer": 4,
+    "line": 0.0151,
+    "beyond": 1,
+    "traced_beyond": 1,
+    "traced_split_half_spearman": 0.4269187986651835,
+    "traced_top": [
+     {
+      "word": "this",
+      "difference": 0.0321,
+      "presence_difference": 0.082
+     }
+    ],
+    "roles_difference": {
+     "the read word itself": 0.0382,
+     "the token just before it": 0.0113,
+     "the first token": 0.0005,
+     "the other words": -0.05
+    },
+    "split_half_spearman": 0.5555061179087876,
+    "amount_vs_signed_spearman": 0.7343715239154617,
+    "top": [
+     {
+      "word": "this",
+      "difference": 0.0217,
+      "presence_difference": 0.082
+     }
+    ]
+   },
+   {
+    "layer": 5,
+    "line": 0.018,
+    "beyond": 1,
+    "traced_beyond": 1,
+    "traced_split_half_spearman": 0.5955506117908788,
+    "traced_top": [
+     {
+      "word": "this",
+      "difference": 0.0309,
+      "presence_difference": 0.082
+     }
+    ],
+    "roles_difference": {
+     "the read word itself": 0.0163,
+     "the token just before it": 0.0281,
+     "the first token": 0.0039,
+     "the other words": -0.0484
+    },
+    "split_half_spearman": 0.4589543937708565,
+    "amount_vs_signed_spearman": 0.9599555061179088,
+    "top": [
+     {
+      "word": "this",
+      "difference": 0.0246,
+      "presence_difference": 0.082
+     }
+    ]
+   },
+   {
+    "layer": 6,
+    "line": 0.0229,
+    "beyond": 1,
+    "traced_beyond": 1,
+    "traced_split_half_spearman": 0.6226918798665184,
+    "traced_top": [
+     {
+      "word": "she",
+      "difference": 0.0328,
+      "presence_difference": 0.112
+     }
+    ],
+    "roles_difference": {
+     "the read word itself": -0.0267,
+     "the token just before it": 0.0378,
+     "the first token": 0.0091,
+     "the other words": -0.0202
+    },
+    "split_half_spearman": 0.5154616240266964,
+    "amount_vs_signed_spearman": 0.9750834260289211,
+    "top": [
+     {
+      "word": "this",
+      "difference": 0.0327,
+      "presence_difference": 0.082
+     }
+    ]
+   },
+   {
+    "layer": 7,
+    "line": 0.0251,
+    "beyond": 2,
+    "traced_beyond": 1,
+    "traced_split_half_spearman": 0.4100111234705228,
+    "traced_top": [
+     {
+      "word": "she",
+      "difference": 0.0411,
+      "presence_difference": 0.112
+     }
+    ],
+    "roles_difference": {
+     "the read word itself": 0.0103,
+     "the token just before it": 0.0211,
+     "the first token": 0.002,
+     "the other words": -0.0334
+    },
+    "split_half_spearman": 0.4091212458286986,
+    "amount_vs_signed_spearman": 0.8349276974416019,
+    "top": [
+     {
+      "word": "she",
+      "difference": 0.0272,
+      "presence_difference": 0.112
+     },
+     {
+      "word": "he",
+      "difference": 0.0254,
+      "presence_difference": 0.085
+     }
+    ]
+   },
+   {
+    "layer": 8,
+    "line": 0.0181,
+    "beyond": 1,
+    "traced_beyond": 1,
+    "traced_split_half_spearman": 0.7050055617352614,
+    "traced_top": [
+     {
+      "word": "she",
+      "difference": 0.0444,
+      "presence_difference": 0.112
+     }
+    ],
+    "roles_difference": {
+     "the read word itself": 0.0234,
+     "the token just before it": 0.0323,
+     "the first token": -0.011,
+     "the other words": -0.0447
+    },
+    "split_half_spearman": 0.4113459399332592,
+    "amount_vs_signed_spearman": 0.8171301446051168,
+    "top": [
+     {
+      "word": "this",
+      "difference": 0.0247,
+      "presence_difference": 0.082
+     }
+    ]
+   },
+   {
+    "layer": 9,
+    "line": 0.0416,
+    "beyond": 1,
+    "traced_beyond": 2,
+    "traced_split_half_spearman": 0.6987764182424916,
+    "traced_top": [
+     {
+      "word": "she",
+      "difference": 0.0568,
+      "presence_difference": 0.112
+     },
+     {
+      "word": "he",
+      "difference": 0.046,
+      "presence_difference": 0.085
+     }
+    ],
+    "roles_difference": {
+     "the read word itself": 0.003,
+     "the token just before it": 0.0043,
+     "the first token": 0.0301,
+     "the other words": -0.0374
+    },
+    "split_half_spearman": 0.6885428253615128,
+    "amount_vs_signed_spearman": 0.9621802002224694,
+    "top": [
+     {
+      "word": "she",
+      "difference": 0.051,
+      "presence_difference": 0.112
+     }
+    ]
+   },
+   {
+    "layer": 10,
+    "line": 0.0179,
+    "beyond": 1,
+    "traced_beyond": 1,
+    "traced_split_half_spearman": 0.24048943270300333,
+    "traced_top": [
+     {
+      "word": "she",
+      "difference": 0.0586,
+      "presence_difference": 0.112
+     }
+    ],
+    "roles_difference": {
+     "the read word itself": -0.0501,
+     "the token just before it": 0.0433,
+     "the first token": 0.0069,
+     "the other words": -0.0001
+    },
+    "split_half_spearman": 0.39532814238042263,
+    "amount_vs_signed_spearman": 0.9225806451612902,
+    "top": [
+     {
+      "word": "this",
+      "difference": 0.0195,
+      "presence_difference": 0.082
+     }
+    ]
+   },
+   {
+    "layer": 11,
+    "line": 0.0161,
+    "beyond": 0,
+    "traced_beyond": 2,
+    "traced_split_half_spearman": 0.300111234705228,
+    "traced_top": [
+     {
+      "word": "she",
+      "difference": 0.0609,
+      "presence_difference": 0.112
+     },
+     {
+      "word": "he",
+      "difference": 0.0515,
+      "presence_difference": 0.085
+     }
+    ],
+    "roles_difference": {
+     "the read word itself": -0.0172,
+     "the token just before it": 0.0203,
+     "the first token": 0.0111,
+     "the other words": -0.0142
+    },
+    "split_half_spearman": 0.3014460511679644,
+    "amount_vs_signed_spearman": 0.9515016685205783,
+    "top": []
+   },
+   {
+    "layer": 12,
+    "line": 0.0166,
+    "beyond": 1,
+    "traced_beyond": 2,
+    "traced_split_half_spearman": 0.5746384872080088,
+    "traced_top": [
+     {
+      "word": "she",
+      "difference": 0.0618,
+      "presence_difference": 0.112
+     },
+     {
+      "word": "he",
+      "difference": 0.0528,
+      "presence_difference": 0.085
+     }
+    ],
+    "roles_difference": {
+     "the read word itself": 0.0167,
+     "the token just before it": 0.0538,
+     "the first token": -0.0056,
+     "the other words": -0.0649
+    },
+    "split_half_spearman": 0.3410456062291435,
+    "amount_vs_signed_spearman": 0.33748609566184645,
+    "top": [
+     {
+      "word": "this",
+      "difference": 0.0232,
+      "presence_difference": 0.082
+     }
+    ]
+   },
+   {
+    "layer": 13,
+    "line": 0.0287,
+    "beyond": 2,
+    "traced_beyond": 2,
+    "traced_split_half_spearman": 0.3076751946607342,
+    "traced_top": [
+     {
+      "word": "she",
+      "difference": 0.0657,
+      "presence_difference": 0.112
+     },
+     {
+      "word": "he",
+      "difference": 0.057,
+      "presence_difference": 0.085
+     }
+    ],
+    "roles_difference": {
+     "the read word itself": -0.0017,
+     "the token just before it": 0.0146,
+     "the first token": 0.0278,
+     "the other words": -0.0407
+    },
+    "split_half_spearman": 0.49899888765294764,
+    "amount_vs_signed_spearman": 0.9915461624026695,
+    "top": [
+     {
+      "word": "she",
+      "difference": 0.0362,
+      "presence_difference": 0.112
+     },
+     {
+      "word": "he",
+      "difference": 0.0316,
+      "presence_difference": 0.085
+     }
+    ]
+   },
+   {
+    "layer": 14,
+    "line": 0.0189,
+    "beyond": 1,
+    "traced_beyond": 2,
+    "traced_split_half_spearman": 0.3423804226918799,
+    "traced_top": [
+     {
+      "word": "she",
+      "difference": 0.0671,
+      "presence_difference": 0.112
+     },
+     {
+      "word": "he",
+      "difference": 0.0591,
+      "presence_difference": 0.085
+     }
+    ],
+    "roles_difference": {
+     "the read word itself": 0.0174,
+     "the token just before it": 0.0504,
+     "the first token": -0.0064,
+     "the other words": -0.0614
+    },
+    "split_half_spearman": 0.45850945494994433,
+    "amount_vs_signed_spearman": 0.9372636262513905,
+    "top": [
+     {
+      "word": "this",
+      "difference": 0.0263,
+      "presence_difference": 0.082
+     }
+    ]
+   },
+   {
+    "layer": 15,
+    "line": 0.0229,
+    "beyond": 1,
+    "traced_beyond": 2,
+    "traced_split_half_spearman": 0.20088987764182425,
+    "traced_top": [
+     {
+      "word": "she",
+      "difference": 0.0692,
+      "presence_difference": 0.112
+     },
+     {
+      "word": "he",
+      "difference": 0.0616,
+      "presence_difference": 0.085
+     }
+    ],
+    "roles_difference": {
+     "the read word itself": -0.0049,
+     "the token just before it": 0.0397,
+     "the first token": 0.0151,
+     "the other words": -0.05
+    },
+    "split_half_spearman": 0.4331479421579533,
+    "amount_vs_signed_spearman": 0.8665183537263625,
+    "top": [
+     {
+      "word": "this",
+      "difference": 0.025,
+      "presence_difference": 0.082
+     }
+    ]
+   },
+   {
+    "layer": 16,
+    "line": 0.016,
+    "beyond": 1,
+    "traced_beyond": 2,
+    "traced_split_half_spearman": 0.439377085650723,
+    "traced_top": [
+     {
+      "word": "she",
+      "difference": 0.0706,
+      "presence_difference": 0.112
+     },
+     {
+      "word": "he",
+      "difference": 0.0634,
+      "presence_difference": 0.085
+     }
+    ],
+    "roles_difference": {
+     "the read word itself": 0.0179,
+     "the token just before it": 0.0642,
+     "the first token": -0.0005,
+     "the other words": -0.0815
+    },
+    "split_half_spearman": 0.2502780867630701,
+    "amount_vs_signed_spearman": 0.889210233592881,
+    "top": [
+     {
+      "word": "this",
+      "difference": 0.0202,
+      "presence_difference": 0.082
+     }
+    ]
+   },
+   {
+    "layer": 17,
+    "line": 0.019,
+    "beyond": 1,
+    "traced_beyond": 2,
+    "traced_split_half_spearman": 0.39265850945494996,
+    "traced_top": [
+     {
+      "word": "she",
+      "difference": 0.0722,
+      "presence_difference": 0.112
+     },
+     {
+      "word": "he",
+      "difference": 0.0652,
+      "presence_difference": 0.085
+     }
+    ],
+    "roles_difference": {
+     "the read word itself": 0.0571,
+     "the token just before it": 0.0099,
+     "the first token": 0.0108,
+     "the other words": -0.0778
+    },
+    "split_half_spearman": 0.5221357063403782,
+    "amount_vs_signed_spearman": 0.9541713014460511,
+    "top": [
+     {
+      "word": "this",
+      "difference": 0.019,
+      "presence_difference": 0.082
+     }
+    ]
+   },
+   {
+    "layer": 18,
+    "line": 0.0207,
+    "beyond": 1,
+    "traced_beyond": 2,
+    "traced_split_half_spearman": 0.4887652947719689,
+    "traced_top": [
+     {
+      "word": "she",
+      "difference": 0.0731,
+      "presence_difference": 0.112
+     },
+     {
+      "word": "he",
+      "difference": 0.0663,
+      "presence_difference": 0.085
+     }
+    ],
+    "roles_difference": {
+     "the read word itself": 0.0152,
+     "the token just before it": 0.0564,
+     "the first token": -0.003,
+     "the other words": -0.0686
+    },
+    "split_half_spearman": 0.29521690767519465,
+    "amount_vs_signed_spearman": 0.9519466073414905,
+    "top": [
+     {
+      "word": "this",
+      "difference": 0.0288,
+      "presence_difference": 0.082
+     }
+    ]
+   },
+   {
+    "layer": 19,
+    "line": 0.034,
+    "beyond": 2,
+    "traced_beyond": 2,
+    "traced_split_half_spearman": 0.2863181312569522,
+    "traced_top": [
+     {
+      "word": "she",
+      "difference": 0.0763,
+      "presence_difference": 0.112
+     },
+     {
+      "word": "he",
+      "difference": 0.0695,
+      "presence_difference": 0.085
+     }
+    ],
+    "roles_difference": {
+     "the read word itself": 0.0075,
+     "the token just before it": 0.0154,
+     "the first token": 0.065,
+     "the other words": -0.0879
+    },
+    "split_half_spearman": 0.3414905450500556,
+    "amount_vs_signed_spearman": 0.9621802002224694,
+    "top": [
+     {
+      "word": "she",
+      "difference": 0.0445,
+      "presence_difference": 0.112
+     },
+     {
+      "word": "he",
+      "difference": 0.0395,
+      "presence_difference": 0.085
+     }
+    ]
+   },
+   {
+    "layer": 20,
+    "line": 0.0169,
+    "beyond": 2,
+    "traced_beyond": 2,
+    "traced_split_half_spearman": 0.33659621802002226,
+    "traced_top": [
+     {
+      "word": "she",
+      "difference": 0.077,
+      "presence_difference": 0.112
+     },
+     {
+      "word": "he",
+      "difference": 0.0704,
+      "presence_difference": 0.085
+     }
+    ],
+    "roles_difference": {
+     "the read word itself": 0.0411,
+     "the token just before it": 0.038,
+     "the first token": -0.0018,
+     "the other words": -0.0773
+    },
+    "split_half_spearman": 0.3067853170189099,
+    "amount_vs_signed_spearman": 0.9853170189098998,
+    "top": [
+     {
+      "word": "this",
+      "difference": 0.0227,
+      "presence_difference": 0.082
+     },
+     {
+      "word": "gives",
+      "difference": 0.0182,
+      "presence_difference": 0.047
+     }
+    ]
+   },
+   {
+    "layer": 21,
+    "line": 0.0309,
+    "beyond": 2,
+    "traced_beyond": 2,
+    "traced_split_half_spearman": 0.28097886540600664,
+    "traced_top": [
+     {
+      "word": "she",
+      "difference": 0.0795,
+      "presence_difference": 0.112
+     },
+     {
+      "word": "he",
+      "difference": 0.0728,
+      "presence_difference": 0.085
+     }
+    ],
+    "roles_difference": {
+     "the read word itself": -0.0226,
+     "the token just before it": -0.0165,
+     "the first token": 0.1286,
+     "the other words": -0.0896
+    },
+    "split_half_spearman": 0.4131256952169076,
+    "amount_vs_signed_spearman": 0.9759733036707454,
+    "top": [
+     {
+      "word": "she",
+      "difference": 0.0487,
+      "presence_difference": 0.112
+     },
+     {
+      "word": "he",
+      "difference": 0.0399,
+      "presence_difference": 0.085
+     }
+    ]
+   },
+   {
+    "layer": 22,
+    "line": 0.0141,
+    "beyond": 2,
+    "traced_beyond": 2,
+    "traced_split_half_spearman": 0.5946607341490544,
+    "traced_top": [
+     {
+      "word": "she",
+      "difference": 0.0798,
+      "presence_difference": 0.112
+     },
+     {
+      "word": "he",
+      "difference": 0.0732,
+      "presence_difference": 0.085
+     }
+    ],
+    "roles_difference": {
+     "the read word itself": 0.0629,
+     "the token just before it": 0.0054,
+     "the first token": -0.0037,
+     "the other words": -0.0645
+    },
+    "split_half_spearman": 0.5835372636262514,
+    "amount_vs_signed_spearman": 0.8349276974416019,
+    "top": [
+     {
+      "word": "gives",
+      "difference": 0.0157,
+      "presence_difference": 0.047
+     },
+     {
+      "word": "this",
+      "difference": 0.015,
+      "presence_difference": 0.082
+     }
+    ]
+   },
+   {
+    "layer": 23,
+    "line": 0.0126,
+    "beyond": 0,
+    "traced_beyond": 2,
+    "traced_split_half_spearman": 0.4282536151279199,
+    "traced_top": [
+     {
+      "word": "she",
+      "difference": 0.0801,
+      "presence_difference": 0.112
+     },
+     {
+      "word": "he",
+      "difference": 0.0736,
+      "presence_difference": 0.085
+     }
+    ],
+    "roles_difference": {
+     "the read word itself": 0.0888,
+     "the token just before it": 0.0229,
+     "the first token": -0.0056,
+     "the other words": -0.1061
+    },
+    "split_half_spearman": 0.6333704115684093,
+    "amount_vs_signed_spearman": 0.9621802002224694,
+    "top": []
+   }
+  ],
+  "scuba": [
+   {
+    "layer": 0,
+    "line": 0.0238,
+    "beyond": 0,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": 0.29622448979591837,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.0069,
+     "the token just before it": -0.0492,
+     "the first token": 0.0017,
+     "the other words": 0.0543
+    },
+    "split_half_spearman": 0.2788775510204081,
+    "amount_vs_signed_spearman": 0.9662244897959181,
+    "top": []
+   },
+   {
+    "layer": 1,
+    "line": 0.0157,
+    "beyond": 0,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": 0.3966326530612244,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.0172,
+     "the token just before it": -0.0304,
+     "the first token": -0.0091,
+     "the other words": 0.0567
+    },
+    "split_half_spearman": 0.4090816326530612,
+    "amount_vs_signed_spearman": 0.9529591836734693,
+    "top": []
+   },
+   {
+    "layer": 2,
+    "line": 0.0198,
+    "beyond": 0,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": 0.4055102040816326,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.0164,
+     "the token just before it": -0.0184,
+     "the first token": -0.0166,
+     "the other words": 0.0514
+    },
+    "split_half_spearman": 0.4495918367346938,
+    "amount_vs_signed_spearman": 0.8715306122448978,
+    "top": []
+   },
+   {
+    "layer": 3,
+    "line": 0.0151,
+    "beyond": 2,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": 0.32887755102040817,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.0298,
+     "the token just before it": -0.0386,
+     "the first token": -0.0063,
+     "the other words": 0.0746
+    },
+    "split_half_spearman": 0.23030612244897955,
+    "amount_vs_signed_spearman": 0.8879591836734693,
+    "top": [
+     {
+      "word": "dive",
+      "difference": 0.0213,
+      "presence_difference": 0.141
+     },
+     {
+      "word": "diver",
+      "difference": 0.0159,
+      "presence_difference": 0.091
+     }
+    ]
+   },
+   {
+    "layer": 4,
+    "line": 0.0145,
+    "beyond": 0,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": 0.24367346938775508,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.0319,
+     "the token just before it": -0.0265,
+     "the first token": -0.0081,
+     "the other words": 0.0666
+    },
+    "split_half_spearman": 0.4347959183673469,
+    "amount_vs_signed_spearman": 0.9268367346938775,
+    "top": []
+   },
+   {
+    "layer": 5,
+    "line": 0.0182,
+    "beyond": 0,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": 0.007959183673469388,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.031,
+     "the token just before it": -0.0368,
+     "the first token": -0.0171,
+     "the other words": 0.0849
+    },
+    "split_half_spearman": 0.13428571428571426,
+    "amount_vs_signed_spearman": 0.9434693877551019,
+    "top": []
+   },
+   {
+    "layer": 6,
+    "line": 0.0218,
+    "beyond": 0,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": 0.33428571428571424,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": 0.0008,
+     "the token just before it": -0.0242,
+     "the first token": -0.017,
+     "the other words": 0.0404
+    },
+    "split_half_spearman": 0.39357142857142846,
+    "amount_vs_signed_spearman": 0.9651020408163263,
+    "top": []
+   },
+   {
+    "layer": 7,
+    "line": 0.0273,
+    "beyond": 0,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": 0.28255102040816327,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.0109,
+     "the token just before it": -0.0232,
+     "the first token": -0.0149,
+     "the other words": 0.049
+    },
+    "split_half_spearman": 0.2963265306122449,
+    "amount_vs_signed_spearman": 0.7797959183673469,
+    "top": []
+   },
+   {
+    "layer": 8,
+    "line": 0.0172,
+    "beyond": 0,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": 0.12989795918367344,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": 0.0069,
+     "the token just before it": -0.0265,
+     "the first token": -0.0162,
+     "the other words": 0.0358
+    },
+    "split_half_spearman": 0.17244897959183672,
+    "amount_vs_signed_spearman": 0.8825510204081632,
+    "top": []
+   },
+   {
+    "layer": 9,
+    "line": 0.0434,
+    "beyond": 0,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": 0.11112244897959182,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.0032,
+     "the token just before it": -0.023,
+     "the first token": -0.0373,
+     "the other words": 0.0634
+    },
+    "split_half_spearman": 0.06418367346938775,
+    "amount_vs_signed_spearman": 0.9466326530612243,
+    "top": []
+   },
+   {
+    "layer": 10,
+    "line": 0.0169,
+    "beyond": 0,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": 0.12591836734693876,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.0146,
+     "the token just before it": -0.0239,
+     "the first token": -0.0138,
+     "the other words": 0.0522
+    },
+    "split_half_spearman": 0.2589795918367347,
+    "amount_vs_signed_spearman": 0.8488775510204081,
+    "top": []
+   },
+   {
+    "layer": 11,
+    "line": 0.0171,
+    "beyond": 0,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": 0.03744897959183673,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.0305,
+     "the token just before it": -0.0195,
+     "the first token": -0.0128,
+     "the other words": 0.0628
+    },
+    "split_half_spearman": 0.25357142857142856,
+    "amount_vs_signed_spearman": 0.8691836734693875,
+    "top": []
+   },
+   {
+    "layer": 12,
+    "line": 0.0173,
+    "beyond": 0,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": 0.04479591836734693,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.0402,
+     "the token just before it": -0.0136,
+     "the first token": -0.014,
+     "the other words": 0.0678
+    },
+    "split_half_spearman": 0.2430612244897959,
+    "amount_vs_signed_spearman": 0.5635714285714285,
+    "top": []
+   },
+   {
+    "layer": 13,
+    "line": 0.0282,
+    "beyond": 0,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": 0.3313265306122448,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.0209,
+     "the token just before it": -0.0147,
+     "the first token": -0.0406,
+     "the other words": 0.0762
+    },
+    "split_half_spearman": 0.5241836734693877,
+    "amount_vs_signed_spearman": 0.9785714285714285,
+    "top": []
+   },
+   {
+    "layer": 14,
+    "line": 0.0186,
+    "beyond": 0,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": -0.11142857142857142,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.0092,
+     "the token just before it": -0.0161,
+     "the first token": -0.0194,
+     "the other words": 0.0447
+    },
+    "split_half_spearman": 0.3454081632653061,
+    "amount_vs_signed_spearman": 0.8942857142857142,
+    "top": []
+   },
+   {
+    "layer": 15,
+    "line": 0.0223,
+    "beyond": 0,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": -0.028571428571428567,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.0158,
+     "the token just before it": -0.0258,
+     "the first token": 0.0009,
+     "the other words": 0.0407
+    },
+    "split_half_spearman": -0.011938775510204083,
+    "amount_vs_signed_spearman": 0.9592857142857142,
+    "top": []
+   },
+   {
+    "layer": 16,
+    "line": 0.0163,
+    "beyond": 0,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": 0.030408163265306123,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.019,
+     "the token just before it": -0.015,
+     "the first token": -0.0087,
+     "the other words": 0.0427
+    },
+    "split_half_spearman": 0.33744897959183673,
+    "amount_vs_signed_spearman": 0.9168367346938775,
+    "top": []
+   },
+   {
+    "layer": 17,
+    "line": 0.0191,
+    "beyond": 0,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": -0.06530612244897958,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.0467,
+     "the token just before it": -0.0038,
+     "the first token": -0.003,
+     "the other words": 0.0535
+    },
+    "split_half_spearman": 0.031122448979591832,
+    "amount_vs_signed_spearman": 0.9495918367346938,
+    "top": []
+   },
+   {
+    "layer": 18,
+    "line": 0.021,
+    "beyond": 0,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": 0.0976530612244898,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.0112,
+     "the token just before it": -0.0172,
+     "the first token": -0.0143,
+     "the other words": 0.0427
+    },
+    "split_half_spearman": 0.09387755102040815,
+    "amount_vs_signed_spearman": 0.973469387755102,
+    "top": []
+   },
+   {
+    "layer": 19,
+    "line": 0.0319,
+    "beyond": 0,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": -0.09275510204081633,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.0156,
+     "the token just before it": -0.0091,
+     "the first token": -0.0401,
+     "the other words": 0.0648
+    },
+    "split_half_spearman": 0.021326530612244893,
+    "amount_vs_signed_spearman": 0.951938775510204,
+    "top": []
+   },
+   {
+    "layer": 20,
+    "line": 0.0165,
+    "beyond": 0,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": 0.23795918367346935,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.0252,
+     "the token just before it": 0.003,
+     "the first token": -0.0136,
+     "the other words": 0.0357
+    },
+    "split_half_spearman": 0.20887755102040814,
+    "amount_vs_signed_spearman": 0.9771428571428571,
+    "top": []
+   },
+   {
+    "layer": 21,
+    "line": 0.0304,
+    "beyond": 0,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": -0.09142857142857141,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.0084,
+     "the token just before it": -0.0177,
+     "the first token": -0.0535,
+     "the other words": 0.0796
+    },
+    "split_half_spearman": 0.13214285714285712,
+    "amount_vs_signed_spearman": 0.9497959183673469,
+    "top": []
+   },
+   {
+    "layer": 22,
+    "line": 0.0133,
+    "beyond": 0,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": 0.27091836734693875,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.0542,
+     "the token just before it": 0.011,
+     "the first token": -0.0036,
+     "the other words": 0.0468
+    },
+    "split_half_spearman": 0.2731632653061224,
+    "amount_vs_signed_spearman": 0.8707142857142856,
+    "top": []
+   },
+   {
+    "layer": 23,
+    "line": 0.0131,
+    "beyond": 0,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": -0.26224489795918365,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.0552,
+     "the token just before it": -0.0078,
+     "the first token": -0.0088,
+     "the other words": 0.0718
+    },
+    "split_half_spearman": 0.34989795918367345,
+    "amount_vs_signed_spearman": 0.9256122448979591,
+    "top": []
+   }
+  ],
+  "septic": [
+   {
+    "layer": 0,
+    "line": 0.0234,
+    "beyond": 3,
+    "traced_beyond": 2,
+    "traced_split_half_spearman": 0.6363636363636365,
+    "traced_top": [
+     {
+      "word": "the",
+      "difference": 0.0287,
+      "presence_difference": 0.116
+     },
+     {
+      "word": "fuel",
+      "difference": 0.0286,
+      "presence_difference": 0.08
+     }
+    ],
+    "roles_difference": {
+     "the read word itself": -0.0139,
+     "the token just before it": 0.0407,
+     "the first token": 0.0008,
+     "the other words": -0.0276
+    },
+    "split_half_spearman": 0.5832219251336899,
+    "amount_vs_signed_spearman": 0.9608957219251338,
+    "top": [
+     {
+      "word": "fuel",
+      "difference": 0.0272,
+      "presence_difference": 0.08
+     },
+     {
+      "word": "septic",
+      "difference": 0.0265,
+      "presence_difference": 0.06
+     },
+     {
+      "word": "the",
+      "difference": 0.0253,
+      "presence_difference": 0.116
+     }
+    ]
+   },
+   {
+    "layer": 1,
+    "line": 0.0147,
+    "beyond": 2,
+    "traced_beyond": 1,
+    "traced_split_half_spearman": 0.609625668449198,
+    "traced_top": [
+     {
+      "word": "the",
+      "difference": 0.0291,
+      "presence_difference": 0.116
+     }
+    ],
+    "roles_difference": {
+     "the read word itself": -0.0029,
+     "the token just before it": 0.0092,
+     "the first token": 0.0108,
+     "the other words": -0.0171
+    },
+    "split_half_spearman": 0.5497994652406417,
+    "amount_vs_signed_spearman": 0.9779411764705884,
+    "top": [
+     {
+      "word": "the",
+      "difference": 0.0257,
+      "presence_difference": 0.116
+     },
+     {
+      "word": "septic",
+      "difference": 0.0157,
+      "presence_difference": 0.06
+     }
+    ]
+   },
+   {
+    "layer": 2,
+    "line": 0.0195,
+    "beyond": 1,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": 0.6524064171122995,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.0358,
+     "the token just before it": 0.0055,
+     "the first token": 0.0047,
+     "the other words": 0.0256
+    },
+    "split_half_spearman": 0.6844919786096256,
+    "amount_vs_signed_spearman": 0.9602272727272728,
+    "top": [
+     {
+      "word": "the",
+      "difference": 0.0293,
+      "presence_difference": 0.116
+     }
+    ]
+   },
+   {
+    "layer": 3,
+    "line": 0.0151,
+    "beyond": 0,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": 0.5775401069518717,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.0091,
+     "the token just before it": 0.0147,
+     "the first token": 0.0054,
+     "the other words": -0.011
+    },
+    "split_half_spearman": 0.6233288770053477,
+    "amount_vs_signed_spearman": 0.9147727272727274,
+    "top": []
+   },
+   {
+    "layer": 4,
+    "line": 0.0132,
+    "beyond": 2,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": 0.565173796791444,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.0028,
+     "the token just before it": 0.0052,
+     "the first token": 0.0062,
+     "the other words": -0.0086
+    },
+    "split_half_spearman": 0.6564171122994653,
+    "amount_vs_signed_spearman": 0.9094251336898397,
+    "top": [
+     {
+      "word": "the",
+      "difference": 0.0168,
+      "presence_difference": 0.116
+     },
+     {
+      "word": "septic",
+      "difference": 0.0136,
+      "presence_difference": 0.06
+     }
+    ]
+   },
+   {
+    "layer": 5,
+    "line": 0.0174,
+    "beyond": 1,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": 0.625,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.0037,
+     "the token just before it": 0.0019,
+     "the first token": 0.0087,
+     "the other words": -0.0069
+    },
+    "split_half_spearman": 0.7135695187165776,
+    "amount_vs_signed_spearman": 0.9939839572192513,
+    "top": [
+     {
+      "word": "the",
+      "difference": 0.0255,
+      "presence_difference": 0.116
+     }
+    ]
+   },
+   {
+    "layer": 6,
+    "line": 0.0225,
+    "beyond": 1,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": 0.5865641711229947,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.0118,
+     "the token just before it": -0.0102,
+     "the first token": 0.0082,
+     "the other words": 0.0137
+    },
+    "split_half_spearman": 0.6433823529411765,
+    "amount_vs_signed_spearman": 0.992312834224599,
+    "top": [
+     {
+      "word": "the",
+      "difference": 0.0314,
+      "presence_difference": 0.116
+     }
+    ]
+   },
+   {
+    "layer": 7,
+    "line": 0.0259,
+    "beyond": 0,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": 0.4502005347593583,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.0254,
+     "the token just before it": 0.0106,
+     "the first token": -0.0033,
+     "the other words": 0.0181
+    },
+    "split_half_spearman": 0.2817513368983957,
+    "amount_vs_signed_spearman": 0.822192513368984,
+    "top": []
+   },
+   {
+    "layer": 8,
+    "line": 0.0176,
+    "beyond": 1,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": 0.10895721925133692,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.02,
+     "the token just before it": -0.0064,
+     "the first token": 0.0097,
+     "the other words": 0.0167
+    },
+    "split_half_spearman": 0.3275401069518717,
+    "amount_vs_signed_spearman": 0.8877005347593584,
+    "top": [
+     {
+      "word": "the",
+      "difference": 0.0197,
+      "presence_difference": 0.116
+     }
+    ]
+   },
+   {
+    "layer": 9,
+    "line": 0.0417,
+    "beyond": 0,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": 0.2817513368983957,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.0097,
+     "the token just before it": -0.0031,
+     "the first token": 0.0133,
+     "the other words": -0.0005
+    },
+    "split_half_spearman": 0.24064171122994651,
+    "amount_vs_signed_spearman": 0.9361631016042781,
+    "top": []
+   },
+   {
+    "layer": 10,
+    "line": 0.018,
+    "beyond": 1,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": 0.24398395721925137,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.0027,
+     "the token just before it": -0.0145,
+     "the first token": 0.0059,
+     "the other words": 0.0113
+    },
+    "split_half_spearman": 0.5838903743315509,
+    "amount_vs_signed_spearman": 0.9358288770053478,
+    "top": [
+     {
+      "word": "the",
+      "difference": 0.0237,
+      "presence_difference": 0.116
+     }
+    ]
+   },
+   {
+    "layer": 11,
+    "line": 0.0164,
+    "beyond": 0,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": 0.4217914438502674,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.0233,
+     "the token just before it": 0.0093,
+     "the first token": -0.0034,
+     "the other words": 0.0175
+    },
+    "split_half_spearman": 0.4207887700534759,
+    "amount_vs_signed_spearman": 0.9615641711229947,
+    "top": []
+   },
+   {
+    "layer": 12,
+    "line": 0.0163,
+    "beyond": 1,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": 0.0752005347593583,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.0014,
+     "the token just before it": -0.0213,
+     "the first token": 0.0106,
+     "the other words": 0.0121
+    },
+    "split_half_spearman": 0.5063502673796791,
+    "amount_vs_signed_spearman": 0.3699866310160428,
+    "top": [
+     {
+      "word": "the",
+      "difference": 0.0187,
+      "presence_difference": 0.116
+     }
+    ]
+   },
+   {
+    "layer": 13,
+    "line": 0.0295,
+    "beyond": 0,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": 0.11564171122994654,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.0296,
+     "the token just before it": 0.007,
+     "the first token": 0.0073,
+     "the other words": 0.0154
+    },
+    "split_half_spearman": 0.13001336898395724,
+    "amount_vs_signed_spearman": 0.9782754010695187,
+    "top": []
+   },
+   {
+    "layer": 14,
+    "line": 0.0187,
+    "beyond": 1,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": -0.10327540106951873,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.0131,
+     "the token just before it": -0.021,
+     "the first token": 0.0083,
+     "the other words": 0.0259
+    },
+    "split_half_spearman": 0.38870320855614976,
+    "amount_vs_signed_spearman": 0.9766042780748664,
+    "top": [
+     {
+      "word": "the",
+      "difference": 0.0234,
+      "presence_difference": 0.116
+     }
+    ]
+   },
+   {
+    "layer": 15,
+    "line": 0.0223,
+    "beyond": 0,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": 0.2760695187165776,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.0144,
+     "the token just before it": -0.0062,
+     "the first token": -0.0138,
+     "the other words": 0.0343
+    },
+    "split_half_spearman": 0.6169786096256685,
+    "amount_vs_signed_spearman": 0.9752673796791445,
+    "top": []
+   },
+   {
+    "layer": 16,
+    "line": 0.0157,
+    "beyond": 1,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": 0.24064171122994651,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.008,
+     "the token just before it": -0.0242,
+     "the first token": 0.0038,
+     "the other words": 0.0284
+    },
+    "split_half_spearman": 0.4779411764705883,
+    "amount_vs_signed_spearman": 0.8980614973262033,
+    "top": [
+     {
+      "word": "the",
+      "difference": 0.0188,
+      "presence_difference": 0.116
+     }
+    ]
+   },
+   {
+    "layer": 17,
+    "line": 0.0198,
+    "beyond": 0,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": 0.348596256684492,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.0232,
+     "the token just before it": -0.0099,
+     "the first token": -0.007,
+     "the other words": 0.0401
+    },
+    "split_half_spearman": 0.23195187165775402,
+    "amount_vs_signed_spearman": 0.9341577540106952,
+    "top": []
+   },
+   {
+    "layer": 18,
+    "line": 0.0208,
+    "beyond": 1,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": -0.1129679144385027,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.0147,
+     "the token just before it": -0.0187,
+     "the first token": 0.0107,
+     "the other words": 0.0227
+    },
+    "split_half_spearman": 0.6768048128342247,
+    "amount_vs_signed_spearman": 0.9776069518716579,
+    "top": [
+     {
+      "word": "the",
+      "difference": 0.0217,
+      "presence_difference": 0.116
+     }
+    ]
+   },
+   {
+    "layer": 19,
+    "line": 0.0311,
+    "beyond": 0,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": 0.20421122994652408,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.0084,
+     "the token just before it": -0.0126,
+     "the first token": -0.0228,
+     "the other words": 0.0438
+    },
+    "split_half_spearman": 0.31316844919786097,
+    "amount_vs_signed_spearman": 0.9806149732620322,
+    "top": []
+   },
+   {
+    "layer": 20,
+    "line": 0.0165,
+    "beyond": 1,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": 0.10628342245989306,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.0101,
+     "the token just before it": -0.0285,
+     "the first token": 0.0155,
+     "the other words": 0.0231
+    },
+    "split_half_spearman": 0.3609625668449198,
+    "amount_vs_signed_spearman": 0.9445187165775402,
+    "top": [
+     {
+      "word": "the",
+      "difference": 0.0243,
+      "presence_difference": 0.116
+     }
+    ]
+   },
+   {
+    "layer": 21,
+    "line": 0.0301,
+    "beyond": 0,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": -0.48796791443850274,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": 0.0026,
+     "the token just before it": 0.0055,
+     "the first token": -0.029,
+     "the other words": 0.0208
+    },
+    "split_half_spearman": 0.0752005347593583,
+    "amount_vs_signed_spearman": 0.9578877005347594,
+    "top": []
+   },
+   {
+    "layer": 22,
+    "line": 0.0136,
+    "beyond": 1,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": 0.38001336898395727,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.0231,
+     "the token just before it": -0.0055,
+     "the first token": 0.0088,
+     "the other words": 0.0198
+    },
+    "split_half_spearman": 0.6196524064171124,
+    "amount_vs_signed_spearman": 0.911096256684492,
+    "top": [
+     {
+      "word": "the",
+      "difference": 0.0223,
+      "presence_difference": 0.116
+     }
+    ]
+   },
+   {
+    "layer": 23,
+    "line": 0.0123,
+    "beyond": 1,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": 0.1179812834224599,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": -0.0251,
+     "the token just before it": -0.0135,
+     "the first token": 0.007,
+     "the other words": 0.0316
+    },
+    "split_half_spearman": 0.5975935828877006,
+    "amount_vs_signed_spearman": 0.9592245989304813,
+    "top": [
+     {
+      "word": "the",
+      "difference": 0.0269,
+      "presence_difference": 0.116
+     }
+    ]
+   }
+  ],
+  "vehicle": [
+   {
+    "layer": 0,
+    "line": 0.024,
+    "beyond": 1,
+    "traced_beyond": 1,
+    "traced_split_half_spearman": 0.2417391304347826,
+    "traced_top": [
+     {
+      "word": "the",
+      "difference": 0.0759,
+      "presence_difference": 0.016
+     }
+    ],
+    "roles_difference": {
+     "the read word itself": 0.0146,
+     "the token just before it": -0.0045,
+     "the first token": 0.0123,
+     "the other words": -0.0224
+    },
+    "split_half_spearman": 0.2121739130434782,
+    "amount_vs_signed_spearman": 0.957391304347826,
+    "top": [
+     {
+      "word": "the",
+      "difference": 0.0613,
+      "presence_difference": 0.016
+     }
+    ]
+   },
+   {
+    "layer": 1,
+    "line": 0.0151,
+    "beyond": 1,
+    "traced_beyond": 1,
+    "traced_split_half_spearman": 0.21565217391304345,
+    "traced_top": [
+     {
+      "word": "the",
+      "difference": 0.0607,
+      "presence_difference": 0.016
+     }
+    ],
+    "roles_difference": {
+     "the read word itself": 0.0254,
+     "the token just before it": 0.0062,
+     "the first token": -0.005,
+     "the other words": -0.0266
+    },
+    "split_half_spearman": 0.3017391304347826,
+    "amount_vs_signed_spearman": 0.9634782608695651,
+    "top": [
+     {
+      "word": "the",
+      "difference": 0.0228,
+      "presence_difference": 0.016
+     }
+    ]
+   },
+   {
+    "layer": 2,
+    "line": 0.0189,
+    "beyond": 1,
+    "traced_beyond": 1,
+    "traced_split_half_spearman": 0.5382608695652172,
+    "traced_top": [
+     {
+      "word": "the",
+      "difference": 0.0664,
+      "presence_difference": 0.016
+     }
+    ],
+    "roles_difference": {
+     "the read word itself": 0.0616,
+     "the token just before it": 0.0134,
+     "the first token": 0.0074,
+     "the other words": -0.0825
+    },
+    "split_half_spearman": 0.48,
+    "amount_vs_signed_spearman": 0.9591304347826086,
+    "top": [
+     {
+      "word": "the",
+      "difference": 0.0434,
+      "presence_difference": 0.016
+     }
+    ]
+   },
+   {
+    "layer": 3,
+    "line": 0.0149,
+    "beyond": 1,
+    "traced_beyond": 1,
+    "traced_split_half_spearman": 0.29565217391304344,
+    "traced_top": [
+     {
+      "word": "the",
+      "difference": 0.0626,
+      "presence_difference": 0.016
+     }
+    ],
+    "roles_difference": {
+     "the read word itself": 0.0192,
+     "the token just before it": 0.0164,
+     "the first token": 0.004,
+     "the other words": -0.0396
+    },
+    "split_half_spearman": 0.44695652173913036,
+    "amount_vs_signed_spearman": 0.9139130434782607,
+    "top": [
+     {
+      "word": "the",
+      "difference": 0.032,
+      "presence_difference": 0.016
+     }
+    ]
+   },
+   {
+    "layer": 4,
+    "line": 0.0148,
+    "beyond": 2,
+    "traced_beyond": 1,
+    "traced_split_half_spearman": 0.21826086956521737,
+    "traced_top": [
+     {
+      "word": "the",
+      "difference": 0.0607,
+      "presence_difference": 0.016
+     }
+    ],
+    "roles_difference": {
+     "the read word itself": 0.0151,
+     "the token just before it": 0.0175,
+     "the first token": -0.0016,
+     "the other words": -0.0311
+    },
+    "split_half_spearman": 0.4356521739130434,
+    "amount_vs_signed_spearman": 0.9652173913043477,
+    "top": [
+     {
+      "word": "the",
+      "difference": 0.0363,
+      "presence_difference": 0.016
+     },
+     {
+      "word": "a",
+      "difference": 0.0164,
+      "presence_difference": 0.017
+     }
+    ]
+   },
+   {
+    "layer": 5,
+    "line": 0.0184,
+    "beyond": 1,
+    "traced_beyond": 1,
+    "traced_split_half_spearman": 0.3904347826086956,
+    "traced_top": [
+     {
+      "word": "the",
+      "difference": 0.0594,
+      "presence_difference": 0.016
+     }
+    ],
+    "roles_difference": {
+     "the read word itself": 0.0435,
+     "the token just before it": 0.0114,
+     "the first token": 0.0018,
+     "the other words": -0.0567
+    },
+    "split_half_spearman": 0.37130434782608696,
+    "amount_vs_signed_spearman": 0.9669565217391304,
+    "top": [
+     {
+      "word": "the",
+      "difference": 0.041,
+      "presence_difference": 0.016
+     }
+    ]
+   },
+   {
+    "layer": 6,
+    "line": 0.0218,
+    "beyond": 1,
+    "traced_beyond": 1,
+    "traced_split_half_spearman": 0.10521739130434782,
+    "traced_top": [
+     {
+      "word": "the",
+      "difference": 0.0578,
+      "presence_difference": 0.016
+     }
+    ],
+    "roles_difference": {
+     "the read word itself": 0.0602,
+     "the token just before it": 0.0249,
+     "the first token": -0.008,
+     "the other words": -0.0771
+    },
+    "split_half_spearman": 0.21130434782608692,
+    "amount_vs_signed_spearman": 0.8895652173913042,
+    "top": [
+     {
+      "word": "the",
+      "difference": 0.0457,
+      "presence_difference": 0.016
+     }
+    ]
+   },
+   {
+    "layer": 7,
+    "line": 0.0257,
+    "beyond": 1,
+    "traced_beyond": 1,
+    "traced_split_half_spearman": 0.019130434782608695,
+    "traced_top": [
+     {
+      "word": "the",
+      "difference": 0.0593,
+      "presence_difference": 0.016
+     }
+    ],
+    "roles_difference": {
+     "the read word itself": 0.0403,
+     "the token just before it": 0.0053,
+     "the first token": 0.008,
+     "the other words": -0.0536
+    },
+    "split_half_spearman": 0.02695652173913043,
+    "amount_vs_signed_spearman": 0.7121739130434783,
+    "top": [
+     {
+      "word": "the",
+      "difference": 0.041,
+      "presence_difference": 0.016
+     }
+    ]
+   },
+   {
+    "layer": 8,
+    "line": 0.017,
+    "beyond": 1,
+    "traced_beyond": 1,
+    "traced_split_half_spearman": 0.05391304347826086,
+    "traced_top": [
+     {
+      "word": "the",
+      "difference": 0.0603,
+      "presence_difference": 0.016
+     }
+    ],
+    "roles_difference": {
+     "the read word itself": 0.0084,
+     "the token just before it": 0.0141,
+     "the first token": 0.0233,
+     "the other words": -0.0458
+    },
+    "split_half_spearman": 0.4026086956521739,
+    "amount_vs_signed_spearman": 0.9434782608695651,
+    "top": [
+     {
+      "word": "the",
+      "difference": 0.0441,
+      "presence_difference": 0.016
+     }
+    ]
+   },
+   {
+    "layer": 9,
+    "line": 0.0421,
+    "beyond": 1,
+    "traced_beyond": 1,
+    "traced_split_half_spearman": -0.11130434782608695,
+    "traced_top": [
+     {
+      "word": "the",
+      "difference": 0.0577,
+      "presence_difference": 0.016
+     }
+    ],
+    "roles_difference": {
+     "the read word itself": 0.0184,
+     "the token just before it": 0.0247,
+     "the first token": 0.0068,
+     "the other words": -0.0499
+    },
+    "split_half_spearman": -0.15043478260869564,
+    "amount_vs_signed_spearman": 0.9365217391304346,
+    "top": [
+     {
+      "word": "the",
+      "difference": 0.0514,
+      "presence_difference": 0.016
+     }
+    ]
+   },
+   {
+    "layer": 10,
+    "line": 0.0169,
+    "beyond": 1,
+    "traced_beyond": 1,
+    "traced_split_half_spearman": 0.23826086956521736,
+    "traced_top": [
+     {
+      "word": "the",
+      "difference": 0.058,
+      "presence_difference": 0.016
+     }
+    ],
+    "roles_difference": {
+     "the read word itself": 0.057,
+     "the token just before it": 0.0129,
+     "the first token": 0.0065,
+     "the other words": -0.0764
+    },
+    "split_half_spearman": 0.328695652173913,
+    "amount_vs_signed_spearman": 0.8034782608695652,
+    "top": [
+     {
+      "word": "the",
+      "difference": 0.0338,
+      "presence_difference": 0.016
+     }
+    ]
+   },
+   {
+    "layer": 11,
+    "line": 0.0161,
+    "beyond": 1,
+    "traced_beyond": 1,
+    "traced_split_half_spearman": 0.21478260869565213,
+    "traced_top": [
+     {
+      "word": "the",
+      "difference": 0.0578,
+      "presence_difference": 0.016
+     }
+    ],
+    "roles_difference": {
+     "the read word itself": 0.0602,
+     "the token just before it": 0.0104,
+     "the first token": -0.0058,
+     "the other words": -0.0649
+    },
+    "split_half_spearman": 0.2782608695652174,
+    "amount_vs_signed_spearman": 0.8017391304347825,
+    "top": [
+     {
+      "word": "the",
+      "difference": 0.0222,
+      "presence_difference": 0.016
+     }
+    ]
+   },
+   {
+    "layer": 12,
+    "line": 0.0161,
+    "beyond": 1,
+    "traced_beyond": 1,
+    "traced_split_half_spearman": 0.32695652173913037,
+    "traced_top": [
+     {
+      "word": "the",
+      "difference": 0.0577,
+      "presence_difference": 0.016
+     }
+    ],
+    "roles_difference": {
+     "the read word itself": 0.0284,
+     "the token just before it": 0.0099,
+     "the first token": 0.0055,
+     "the other words": -0.0439
+    },
+    "split_half_spearman": 0.48086956521739127,
+    "amount_vs_signed_spearman": 0.4513043478260869,
+    "top": [
+     {
+      "word": "the",
+      "difference": 0.038,
+      "presence_difference": 0.016
+     }
+    ]
+   },
+   {
+    "layer": 13,
+    "line": 0.0282,
+    "beyond": 1,
+    "traced_beyond": 1,
+    "traced_split_half_spearman": 0.07565217391304348,
+    "traced_top": [
+     {
+      "word": "the",
+      "difference": 0.0591,
+      "presence_difference": 0.016
+     }
+    ],
+    "roles_difference": {
+     "the read word itself": 0.0357,
+     "the token just before it": 0.0177,
+     "the first token": 0.0171,
+     "the other words": -0.0705
+    },
+    "split_half_spearman": 0.308695652173913,
+    "amount_vs_signed_spearman": 0.9739130434782608,
+    "top": [
+     {
+      "word": "the",
+      "difference": 0.0506,
+      "presence_difference": 0.016
+     }
+    ]
+   },
+   {
+    "layer": 14,
+    "line": 0.018,
+    "beyond": 1,
+    "traced_beyond": 1,
+    "traced_split_half_spearman": 0.05739130434782608,
+    "traced_top": [
+     {
+      "word": "the",
+      "difference": 0.0591,
+      "presence_difference": 0.016
+     }
+    ],
+    "roles_difference": {
+     "the read word itself": 0.0169,
+     "the token just before it": 0.0177,
+     "the first token": 0.0093,
+     "the other words": -0.0439
+    },
+    "split_half_spearman": 0.19130434782608693,
+    "amount_vs_signed_spearman": 0.9356521739130433,
+    "top": [
+     {
+      "word": "the",
+      "difference": 0.0465,
+      "presence_difference": 0.016
+     }
+    ]
+   },
+   {
+    "layer": 15,
+    "line": 0.0237,
+    "beyond": 1,
+    "traced_beyond": 1,
+    "traced_split_half_spearman": -0.08086956521739129,
+    "traced_top": [
+     {
+      "word": "the",
+      "difference": 0.0591,
+      "presence_difference": 0.016
+     }
+    ],
+    "roles_difference": {
+     "the read word itself": 0.0394,
+     "the token just before it": 0.0244,
+     "the first token": 0.007,
+     "the other words": -0.0708
+    },
+    "split_half_spearman": 0.40086956521739125,
+    "amount_vs_signed_spearman": 0.9852173913043477,
+    "top": [
+     {
+      "word": "the",
+      "difference": 0.0524,
+      "presence_difference": 0.016
+     }
+    ]
+   },
+   {
+    "layer": 16,
+    "line": 0.0159,
+    "beyond": 1,
+    "traced_beyond": 1,
+    "traced_split_half_spearman": 0.4260869565217391,
+    "traced_top": [
+     {
+      "word": "the",
+      "difference": 0.0589,
+      "presence_difference": 0.016
+     }
+    ],
+    "roles_difference": {
+     "the read word itself": 0.0252,
+     "the token just before it": 0.0146,
+     "the first token": 0.0047,
+     "the other words": -0.0445
+    },
+    "split_half_spearman": 0.2834782608695652,
+    "amount_vs_signed_spearman": 0.9739130434782608,
+    "top": [
+     {
+      "word": "the",
+      "difference": 0.0416,
+      "presence_difference": 0.016
+     }
+    ]
+   },
+   {
+    "layer": 17,
+    "line": 0.0178,
+    "beyond": 1,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": 0.4956521739130434,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": 0.0242,
+     "the token just before it": 0.0295,
+     "the first token": -0.0036,
+     "the other words": -0.0501
+    },
+    "split_half_spearman": 0.19304347826086957,
+    "amount_vs_signed_spearman": 0.9078260869565216,
+    "top": [
+     {
+      "word": "the",
+      "difference": 0.0358,
+      "presence_difference": 0.016
+     }
+    ]
+   },
+   {
+    "layer": 18,
+    "line": 0.0212,
+    "beyond": 1,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": 0.1782608695652174,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": 0.0291,
+     "the token just before it": 0.0126,
+     "the first token": -0.0036,
+     "the other words": -0.0381
+    },
+    "split_half_spearman": 0.2904347826086956,
+    "amount_vs_signed_spearman": 0.9686956521739128,
+    "top": [
+     {
+      "word": "the",
+      "difference": 0.0503,
+      "presence_difference": 0.016
+     }
+    ]
+   },
+   {
+    "layer": 19,
+    "line": 0.0339,
+    "beyond": 1,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": 0.31565217391304345,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": 0.0162,
+     "the token just before it": 0.0329,
+     "the first token": 0.0322,
+     "the other words": -0.0813
+    },
+    "split_half_spearman": 0.05217391304347826,
+    "amount_vs_signed_spearman": 0.9669565217391304,
+    "top": [
+     {
+      "word": "the",
+      "difference": 0.069,
+      "presence_difference": 0.016
+     }
+    ]
+   },
+   {
+    "layer": 20,
+    "line": 0.0162,
+    "beyond": 1,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": -0.11478260869565216,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": 0.0238,
+     "the token just before it": 0.0204,
+     "the first token": -0.0133,
+     "the other words": -0.031
+    },
+    "split_half_spearman": 0.40956521739130425,
+    "amount_vs_signed_spearman": 0.9826086956521738,
+    "top": [
+     {
+      "word": "the",
+      "difference": 0.0239,
+      "presence_difference": 0.016
+     }
+    ]
+   },
+   {
+    "layer": 21,
+    "line": 0.0309,
+    "beyond": 1,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": 0.1678260869565217,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": 0.0149,
+     "the token just before it": 0.0482,
+     "the first token": -0.0053,
+     "the other words": -0.0579
+    },
+    "split_half_spearman": 0.41739130434782606,
+    "amount_vs_signed_spearman": 0.9643478260869565,
+    "top": [
+     {
+      "word": "the",
+      "difference": 0.066,
+      "presence_difference": 0.016
+     }
+    ]
+   },
+   {
+    "layer": 22,
+    "line": 0.0141,
+    "beyond": 1,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": 0.15217391304347824,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": 0.0682,
+     "the token just before it": 0.0029,
+     "the first token": -0.01,
+     "the other words": -0.0611
+    },
+    "split_half_spearman": 0.44260869565217387,
+    "amount_vs_signed_spearman": 0.5869565217391304,
+    "top": [
+     {
+      "word": "the",
+      "difference": 0.0234,
+      "presence_difference": 0.016
+     }
+    ]
+   },
+   {
+    "layer": 23,
+    "line": 0.0122,
+    "beyond": 1,
+    "traced_beyond": 0,
+    "traced_split_half_spearman": -0.11913043478260868,
+    "traced_top": [],
+    "roles_difference": {
+     "the read word itself": 0.0274,
+     "the token just before it": 0.0168,
+     "the first token": 0.0009,
+     "the other words": -0.0451
+    },
+    "split_half_spearman": 0.5478260869565217,
+    "amount_vs_signed_spearman": 0.9782608695652173,
+    "top": [
+     {
+      "word": "the",
+      "difference": 0.0275,
+      "presence_difference": 0.016
+     }
+    ]
+   }
+  ]
+ },
+ "branches": [
+  {
+   "layer": 4,
+   "node": 1,
+   "branch": 1,
+   "items": 106,
+   "pool": 201,
+   "line": 0.0339,
+   "words": 1,
+   "top": [
+    "the"
+   ],
+   "layers_with_words": [
+    0,
+    3,
+    5
+   ],
+   "labels": {
+    "aquarium": 25,
+    "clothing": 14,
+    "scuba": 24,
+    "septic": 23,
+    "vehicle": 20
+   },
+   "roles": [
+    [
+     0,
+     "the other words",
+     -0.102
+    ],
+    [
+     1,
+     "the read word itself",
+     0.075
+    ],
+    [
+     1,
+     "the other words",
+     -0.121
+    ],
+    [
+     2,
+     "the read word itself",
+     0.063
+    ],
+    [
+     2,
+     "the other words",
+     -0.098
+    ],
+    [
+     3,
+     "the other words",
+     -0.084
+    ],
+    [
+     4,
+     "the other words",
+     -0.069
+    ],
+    [
+     5,
+     "the other words",
+     -0.086
+    ]
+   ],
+   "best_layer": 0
+  },
+  {
+   "layer": 4,
+   "node": 1,
+   "branch": 4,
+   "items": 79,
+   "pool": 201,
+   "line": 0.0362,
+   "words": 0,
+   "top": [],
+   "layers_with_words": [],
+   "labels": {
+    "aquarium": 1,
+    "clothing": 74,
+    "scuba": 4,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "roles": [
+    [
+     0,
+     "the other words",
+     0.103
+    ],
+    [
+     1,
+     "the read word itself",
+     -0.076
+    ],
+    [
+     1,
+     "the other words",
+     0.138
+    ],
+    [
+     2,
+     "the read word itself",
+     -0.07
+    ],
+    [
+     2,
+     "the other words",
+     0.11
+    ],
+    [
+     3,
+     "the other words",
+     0.086
+    ],
+    [
+     4,
+     "the other words",
+     0.064
+    ],
+    [
+     5,
+     "the other words",
+     0.084
+    ]
+   ],
+   "best_layer": 0
+  },
+  {
+   "layer": 6,
+   "node": 0,
+   "branch": 1,
+   "items": 104,
+   "pool": 182,
+   "line": 0.0336,
+   "words": 0,
+   "top": [],
+   "layers_with_words": [],
+   "labels": {
+    "aquarium": 7,
+    "clothing": 3,
+    "scuba": 23,
+    "septic": 69,
+    "vehicle": 2
+   },
+   "roles": [],
+   "best_layer": 0
+  },
+  {
+   "layer": 6,
+   "node": 0,
+   "branch": 0,
+   "items": 75,
+   "pool": 182,
+   "line": 0.0353,
+   "words": 1,
+   "top": [
+    "reef"
+   ],
+   "layers_with_words": [
+    0
+   ],
+   "labels": {
+    "aquarium": 66,
+    "clothing": 1,
+    "scuba": 6,
+    "septic": 2,
+    "vehicle": 0
+   },
+   "roles": [],
+   "best_layer": 0
+  },
+  {
+   "layer": 13,
+   "node": 1,
+   "branch": 1,
+   "items": 124,
+   "pool": 191,
+   "line": 0.0544,
+   "words": 1,
+   "top": [
+    "the"
+   ],
+   "layers_with_words": [
+    0,
+    2,
+    6
+   ],
+   "labels": {
+    "aquarium": 9,
+    "clothing": 5,
+    "scuba": 23,
+    "septic": 77,
+    "vehicle": 10
+   },
+   "roles": [
+    [
+     0,
+     "the token just before it",
+     0.096
+    ],
+    [
+     0,
+     "the other words",
+     -0.119
+    ],
+    [
+     1,
+     "the other words",
+     -0.097
+    ],
+    [
+     2,
+     "the other words",
+     -0.087
+    ],
+    [
+     3,
+     "the other words",
+     -0.111
+    ],
+    [
+     4,
+     "the other words",
+     -0.088
+    ],
+    [
+     5,
+     "the other words",
+     -0.108
+    ],
+    [
+     9,
+     "the other words",
+     -0.071
+    ]
+   ],
+   "best_layer": 6
+  },
+  {
+   "layer": 13,
+   "node": 1,
+   "branch": 2,
+   "items": 67,
+   "pool": 191,
+   "line": 0.0583,
+   "words": 0,
+   "top": [],
+   "layers_with_words": [],
+   "labels": {
+    "aquarium": 3,
+    "clothing": 0,
+    "scuba": 48,
+    "septic": 14,
+    "vehicle": 2
+   },
+   "roles": [
+    [
+     0,
+     "the token just before it",
+     -0.096
+    ],
+    [
+     0,
+     "the other words",
+     0.119
+    ],
+    [
+     1,
+     "the other words",
+     0.097
+    ],
+    [
+     2,
+     "the other words",
+     0.087
+    ],
+    [
+     3,
+     "the other words",
+     0.111
+    ],
+    [
+     4,
+     "the other words",
+     0.088
+    ],
+    [
+     5,
+     "the other words",
+     0.108
+    ],
+    [
+     9,
+     "the other words",
+     0.071
+    ]
+   ],
+   "best_layer": 9
+  },
+  {
+   "layer": 21,
+   "node": 1,
+   "branch": 1,
+   "items": 65,
+   "pool": 138,
+   "line": 0.0754,
+   "words": 0,
+   "top": [],
+   "layers_with_words": [],
+   "labels": {
+    "aquarium": 19,
+    "clothing": 1,
+    "scuba": 14,
+    "septic": 29,
+    "vehicle": 2
+   },
+   "roles": [
+    [
+     0,
+     "the other words",
+     0.094
+    ],
+    [
+     1,
+     "the other words",
+     0.104
+    ],
+    [
+     2,
+     "the read word itself",
+     -0.102
+    ],
+    [
+     2,
+     "the other words",
+     0.108
+    ],
+    [
+     5,
+     "the other words",
+     0.097
+    ],
+    [
+     6,
+     "the token just before it",
+     -0.127
+    ],
+    [
+     6,
+     "the other words",
+     0.127
+    ],
+    [
+     8,
+     "the other words",
+     0.113
+    ],
+    [
+     9,
+     "the token just before it",
+     -0.102
+    ],
+    [
+     13,
+     "the other words",
+     0.099
+    ],
+    [
+     14,
+     "the token just before it",
+     -0.113
+    ],
+    [
+     14,
+     "the other words",
+     0.117
+    ],
+    [
+     15,
+     "the other words",
+     0.127
+    ],
+    [
+     16,
+     "the other words",
+     0.113
+    ],
+    [
+     17,
+     "the other words",
+     0.093
+    ],
+    [
+     18,
+     "the other words",
+     0.099
+    ],
+    [
+     19,
+     "the token just before it",
+     -0.117
+    ],
+    [
+     19,
+     "the other words",
+     0.15
+    ],
+    [
+     20,
+     "the token just before it",
+     -0.093
+    ],
+    [
+     20,
+     "the other words",
+     0.111
+    ],
+    [
+     21,
+     "the token just before it",
+     -0.099
+    ],
+    [
+     21,
+     "the other words",
+     0.132
+    ],
+    [
+     22,
+     "the read word itself",
+     -0.096
+    ],
+    [
+     22,
+     "the other words",
+     0.104
+    ]
+   ],
+   "best_layer": 9
+  },
+  {
+   "layer": 21,
+   "node": 1,
+   "branch": 3,
+   "items": 63,
+   "pool": 138,
+   "line": 0.0744,
+   "words": 0,
+   "top": [],
+   "layers_with_words": [],
+   "labels": {
+    "aquarium": 6,
+    "clothing": 14,
+    "scuba": 9,
+    "septic": 9,
+    "vehicle": 25
+   },
+   "roles": [
+    [
+     0,
+     "the other words",
+     -0.134
+    ],
+    [
+     1,
+     "the other words",
+     -0.129
+    ],
+    [
+     2,
+     "the read word itself",
+     0.1
+    ],
+    [
+     2,
+     "the other words",
+     -0.122
+    ],
+    [
+     3,
+     "the other words",
+     -0.104
+    ],
+    [
+     4,
+     "the other words",
+     -0.103
+    ],
+    [
+     5,
+     "the token just before it",
+     0.094
+    ],
+    [
+     5,
+     "the other words",
+     -0.126
+    ],
+    [
+     6,
+     "the token just before it",
+     0.146
+    ],
+    [
+     6,
+     "the other words",
+     -0.138
+    ],
+    [
+     7,
+     "the token just before it",
+     0.094
+    ],
+    [
+     8,
+     "the token just before it",
+     0.108
+    ],
+    [
+     8,
+     "the other words",
+     -0.118
+    ],
+    [
+     9,
+     "the token just before it",
+     0.125
+    ],
+    [
+     10,
+     "the token just before it",
+     0.091
+    ],
+    [
+     10,
+     "the other words",
+     -0.104
+    ],
+    [
+     12,
+     "the token just before it",
+     0.107
+    ],
+    [
+     12,
+     "the other words",
+     -0.094
+    ],
+    [
+     13,
+     "the token just before it",
+     0.094
+    ],
+    [
+     13,
+     "the other words",
+     -0.102
+    ],
+    [
+     14,
+     "the token just before it",
+     0.129
+    ],
+    [
+     14,
+     "the other words",
+     -0.136
+    ],
+    [
+     15,
+     "the token just before it",
+     0.101
+    ],
+    [
+     15,
+     "the other words",
+     -0.138
+    ],
+    [
+     16,
+     "the other words",
+     -0.133
+    ],
+    [
+     17,
+     "the token just before it",
+     0.093
+    ],
+    [
+     17,
+     "the other words",
+     -0.108
+    ],
+    [
+     18,
+     "the token just before it",
+     0.111
+    ],
+    [
+     18,
+     "the other words",
+     -0.126
+    ],
+    [
+     19,
+     "the token just before it",
+     0.139
+    ],
+    [
+     19,
+     "the other words",
+     -0.168
+    ],
+    [
+     20,
+     "the token just before it",
+     0.107
+    ],
+    [
+     20,
+     "the other words",
+     -0.147
+    ],
+    [
+     21,
+     "the token just before it",
+     0.114
+    ],
+    [
+     21,
+     "the other words",
+     -0.154
+    ],
+    [
+     22,
+     "the read word itself",
+     0.103
+    ],
+    [
+     22,
+     "the other words",
+     -0.123
+    ]
+   ],
+   "best_layer": 9
+  },
+  {
+   "layer": 7,
+   "node": 2,
+   "branch": 1,
+   "items": 70,
+   "pool": 129,
+   "line": 0.042,
+   "words": 1,
+   "top": [
+    "the"
+   ],
+   "layers_with_words": [
+    7
+   ],
+   "labels": {
+    "aquarium": 10,
+    "clothing": 1,
+    "scuba": 45,
+    "septic": 11,
+    "vehicle": 3
+   },
+   "roles": [
+    [
+     0,
+     "the other words",
+     0.157
+    ],
+    [
+     1,
+     "the other words",
+     0.149
+    ],
+    [
+     2,
+     "the read word itself",
+     -0.099
+    ],
+    [
+     2,
+     "the other words",
+     0.158
+    ],
+    [
+     3,
+     "the read word itself",
+     -0.106
+    ],
+    [
+     3,
+     "the other words",
+     0.182
+    ],
+    [
+     4,
+     "the other words",
+     0.111
+    ],
+    [
+     5,
+     "the read word itself",
+     -0.072
+    ],
+    [
+     5,
+     "the token just before it",
+     -0.086
+    ],
+    [
+     5,
+     "the other words",
+     0.19
+    ],
+    [
+     6,
+     "the token just before it",
+     -0.087
+    ],
+    [
+     6,
+     "the other words",
+     0.139
+    ],
+    [
+     7,
+     "the first token",
+     -0.069
+    ],
+    [
+     7,
+     "the other words",
+     0.14
+    ],
+    [
+     8,
+     "the token just before it",
+     -0.076
+    ],
+    [
+     8,
+     "the other words",
+     0.137
+    ]
+   ],
+   "best_layer": 7
+  },
+  {
+   "layer": 7,
+   "node": 2,
+   "branch": 2,
+   "items": 59,
+   "pool": 129,
+   "line": 0.0439,
+   "words": 1,
+   "top": [
+    "i"
+   ],
+   "layers_with_words": [
+    7
+   ],
+   "labels": {
+    "aquarium": 9,
+    "clothing": 14,
+    "scuba": 15,
+    "septic": 10,
+    "vehicle": 11
+   },
+   "roles": [
+    [
+     0,
+     "the other words",
+     -0.157
+    ],
+    [
+     1,
+     "the other words",
+     -0.149
+    ],
+    [
+     2,
+     "the read word itself",
+     0.099
+    ],
+    [
+     2,
+     "the other words",
+     -0.158
+    ],
+    [
+     3,
+     "the read word itself",
+     0.106
+    ],
+    [
+     3,
+     "the other words",
+     -0.182
+    ],
+    [
+     4,
+     "the other words",
+     -0.111
+    ],
+    [
+     5,
+     "the read word itself",
+     0.072
+    ],
+    [
+     5,
+     "the token just before it",
+     0.086
+    ],
+    [
+     5,
+     "the other words",
+     -0.19
+    ],
+    [
+     6,
+     "the token just before it",
+     0.087
+    ],
+    [
+     6,
+     "the other words",
+     -0.139
+    ],
+    [
+     7,
+     "the other words",
+     -0.14
+    ],
+    [
+     8,
+     "the token just before it",
+     0.076
+    ],
+    [
+     8,
+     "the other words",
+     -0.137
+    ]
+   ],
+   "best_layer": 7
+  },
+  {
+   "layer": 9,
+   "node": 2,
+   "branch": 3,
+   "items": 136,
+   "pool": 193,
+   "line": 0.0531,
+   "words": 0,
+   "top": [],
+   "layers_with_words": [],
+   "labels": {
+    "aquarium": 7,
+    "clothing": 3,
+    "scuba": 52,
+    "septic": 72,
+    "vehicle": 2
+   },
+   "roles": [],
+   "best_layer": 9
+  },
+  {
+   "layer": 9,
+   "node": 2,
+   "branch": 1,
+   "items": 54,
+   "pool": 193,
+   "line": 0.058,
+   "words": 0,
+   "top": [],
+   "layers_with_words": [],
+   "labels": {
+    "aquarium": 8,
+    "clothing": 3,
+    "scuba": 20,
+    "septic": 18,
+    "vehicle": 5
+   },
+   "roles": [],
+   "best_layer": 9
+  },
+  {
+   "layer": 22,
+   "node": 2,
+   "branch": 2,
+   "items": 60,
+   "pool": 115,
+   "line": 0.0665,
+   "words": 1,
+   "top": [
+    "i"
+   ],
+   "layers_with_words": [
+    9
+   ],
+   "labels": {
+    "aquarium": 7,
+    "clothing": 4,
+    "scuba": 20,
+    "septic": 10,
+    "vehicle": 19
+   },
+   "roles": [
+    [
+     0,
+     "the other words",
+     -0.059
+    ],
+    [
+     1,
+     "the other words",
+     -0.064
+    ],
+    [
+     3,
+     "the other words",
+     -0.067
+    ],
+    [
+     5,
+     "the other words",
+     -0.067
+    ],
+    [
+     7,
+     "the other words",
+     -0.063
+    ],
+    [
+     8,
+     "the read word itself",
+     0.062
+    ],
+    [
+     8,
+     "the other words",
+     -0.077
+    ],
+    [
+     9,
+     "the other words",
+     -0.06
+    ],
+    [
+     13,
+     "the other words",
+     -0.067
+    ],
+    [
+     14,
+     "the other words",
+     -0.068
+    ],
+    [
+     15,
+     "the other words",
+     -0.076
+    ],
+    [
+     18,
+     "the other words",
+     -0.06
+    ],
+    [
+     19,
+     "the other words",
+     -0.074
+    ],
+    [
+     20,
+     "the other words",
+     -0.074
+    ],
+    [
+     21,
+     "the other words",
+     -0.059
+    ],
+    [
+     22,
+     "the other words",
+     -0.067
+    ]
+   ],
+   "best_layer": 9
+  },
+  {
+   "layer": 22,
+   "node": 2,
+   "branch": 4,
+   "items": 52,
+   "pool": 115,
+   "line": 0.0611,
+   "words": 1,
+   "top": [
+    "the"
+   ],
+   "layers_with_words": [
+    0,
+    2,
+    6,
+    9,
+    13,
+    15,
+    16,
+    17,
+    18,
+    19,
+    21,
+    22
+   ],
+   "labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 1,
+    "septic": 0,
+    "vehicle": 51
+   },
+   "roles": [
+    [
+     8,
+     "the other words",
+     0.063
+    ],
+    [
+     15,
+     "the other words",
+     0.06
+    ],
+    [
+     18,
+     "the other words",
+     0.061
+    ],
+    [
+     20,
+     "the other words",
+     0.071
+    ]
+   ],
+   "best_layer": 21
+  },
+  {
+   "layer": 16,
+   "node": 1,
+   "branch": 0,
+   "items": 87,
+   "pool": 154,
+   "line": 0.0602,
+   "words": 0,
+   "top": [],
+   "layers_with_words": [],
+   "labels": {
+    "aquarium": 12,
+    "clothing": 2,
+    "scuba": 19,
+    "septic": 52,
+    "vehicle": 2
+   },
+   "roles": [
+    [
+     0,
+     "the token just before it",
+     -0.135
+    ],
+    [
+     0,
+     "the other words",
+     0.258
+    ],
+    [
+     1,
+     "the token just before it",
+     -0.113
+    ],
+    [
+     1,
+     "the other words",
+     0.241
+    ],
+    [
+     2,
+     "the read word itself",
+     -0.099
+    ],
+    [
+     2,
+     "the other words",
+     0.232
+    ],
+    [
+     3,
+     "the read word itself",
+     -0.094
+    ],
+    [
+     3,
+     "the token just before it",
+     -0.105
+    ],
+    [
+     3,
+     "the other words",
+     0.227
+    ],
+    [
+     4,
+     "the token just before it",
+     -0.097
+    ],
+    [
+     4,
+     "the other words",
+     0.207
+    ],
+    [
+     5,
+     "the token just before it",
+     -0.133
+    ],
+    [
+     5,
+     "the other words",
+     0.259
+    ],
+    [
+     6,
+     "the token just before it",
+     -0.127
+    ],
+    [
+     6,
+     "the other words",
+     0.247
+    ],
+    [
+     7,
+     "the token just before it",
+     -0.093
+    ],
+    [
+     7,
+     "the other words",
+     0.185
+    ],
+    [
+     8,
+     "the token just before it",
+     -0.122
+    ],
+    [
+     8,
+     "the other words",
+     0.213
+    ],
+    [
+     9,
+     "the token just before it",
+     -0.098
+    ],
+    [
+     9,
+     "the other words",
+     0.17
+    ],
+    [
+     10,
+     "the token just before it",
+     -0.105
+    ],
+    [
+     10,
+     "the other words",
+     0.204
+    ],
+    [
+     11,
+     "the read word itself",
+     -0.099
+    ],
+    [
+     11,
+     "the other words",
+     0.189
+    ],
+    [
+     12,
+     "the token just before it",
+     -0.104
+    ],
+    [
+     12,
+     "the other words",
+     0.194
+    ],
+    [
+     13,
+     "the token just before it",
+     -0.09
+    ],
+    [
+     13,
+     "the other words",
+     0.201
+    ],
+    [
+     14,
+     "the token just before it",
+     -0.145
+    ],
+    [
+     14,
+     "the other words",
+     0.234
+    ],
+    [
+     15,
+     "the read word itself",
+     -0.083
+    ],
+    [
+     15,
+     "the token just before it",
+     -0.139
+    ],
+    [
+     15,
+     "the other words",
+     0.269
+    ],
+    [
+     16,
+     "the read word itself",
+     -0.103
+    ],
+    [
+     16,
+     "the token just before it",
+     -0.111
+    ],
+    [
+     16,
+     "the other words",
+     0.236
+    ],
+    [
+     17,
+     "the read word itself",
+     -0.096
+    ],
+    [
+     17,
+     "the other words",
+     0.219
+    ]
+   ],
+   "best_layer": 6
+  },
+  {
+   "layer": 16,
+   "node": 1,
+   "branch": 1,
+   "items": 51,
+   "pool": 154,
+   "line": 0.0699,
+   "words": 1,
+   "top": [
+    "the"
+   ],
+   "layers_with_words": [
+    0,
+    1,
+    6,
+    9,
+    12,
+    14
+   ],
+   "labels": {
+    "aquarium": 12,
+    "clothing": 3,
+    "scuba": 8,
+    "septic": 20,
+    "vehicle": 8
+   },
+   "roles": [
+    [
+     0,
+     "the token just before it",
+     0.173
+    ],
+    [
+     0,
+     "the first token",
+     0.102
+    ],
+    [
+     0,
+     "the other words",
+     -0.328
+    ],
+    [
+     1,
+     "the read word itself",
+     0.092
+    ],
+    [
+     1,
+     "the token just before it",
+     0.128
+    ],
+    [
+     1,
+     "the first token",
+     0.086
+    ],
+    [
+     1,
+     "the other words",
+     -0.306
+    ],
+    [
+     2,
+     "the read word itself",
+     0.124
+    ],
+    [
+     2,
+     "the token just before it",
+     0.096
+    ],
+    [
+     2,
+     "the other words",
+     -0.286
+    ],
+    [
+     3,
+     "the read word itself",
+     0.112
+    ],
+    [
+     3,
+     "the token just before it",
+     0.124
+    ],
+    [
+     3,
+     "the other words",
+     -0.277
+    ],
+    [
+     4,
+     "the token just before it",
+     0.106
+    ],
+    [
+     4,
+     "the other words",
+     -0.228
+    ],
+    [
+     5,
+     "the read word itself",
+     0.118
+    ],
+    [
+     5,
+     "the token just before it",
+     0.148
+    ],
+    [
+     5,
+     "the other words",
+     -0.331
+    ],
+    [
+     6,
+     "the token just before it",
+     0.153
+    ],
+    [
+     6,
+     "the first token",
+     0.086
+    ],
+    [
+     6,
+     "the other words",
+     -0.299
+    ],
+    [
+     7,
+     "the token just before it",
+     0.108
+    ],
+    [
+     7,
+     "the other words",
+     -0.224
+    ],
+    [
+     8,
+     "the token just before it",
+     0.137
+    ],
+    [
+     8,
+     "the other words",
+     -0.246
+    ],
+    [
+     9,
+     "the token just before it",
+     0.123
+    ],
+    [
+     9,
+     "the other words",
+     -0.217
+    ],
+    [
+     10,
+     "the token just before it",
+     0.122
+    ],
+    [
+     10,
+     "the other words",
+     -0.25
+    ],
+    [
+     11,
+     "the read word itself",
+     0.129
+    ],
+    [
+     11,
+     "the other words",
+     -0.233
+    ],
+    [
+     12,
+     "the token just before it",
+     0.11
+    ],
+    [
+     12,
+     "the other words",
+     -0.227
+    ],
+    [
+     13,
+     "the read word itself",
+     0.083
+    ],
+    [
+     13,
+     "the token just before it",
+     0.109
+    ],
+    [
+     13,
+     "the other words",
+     -0.254
+    ],
+    [
+     14,
+     "the token just before it",
+     0.162
+    ],
+    [
+     14,
+     "the other words",
+     -0.281
+    ],
+    [
+     15,
+     "the read word itself",
+     0.087
+    ],
+    [
+     15,
+     "the token just before it",
+     0.167
+    ],
+    [
+     15,
+     "the other words",
+     -0.314
+    ],
+    [
+     16,
+     "the read word itself",
+     0.118
+    ],
+    [
+     16,
+     "the token just before it",
+     0.119
+    ],
+    [
+     16,
+     "the other words",
+     -0.266
+    ],
+    [
+     17,
+     "the read word itself",
+     0.132
+    ],
+    [
+     17,
+     "the token just before it",
+     0.092
+    ],
+    [
+     17,
+     "the other words",
+     -0.276
+    ]
+   ],
+   "best_layer": 14
+  },
+  {
+   "layer": 2,
+   "node": 0,
+   "branch": 3,
+   "items": 71,
+   "pool": 138,
+   "line": 0.0296,
+   "words": 1,
+   "top": [
+    "the"
+   ],
+   "layers_with_words": [
+    0,
+    2
+   ],
+   "labels": {
+    "aquarium": 17,
+    "clothing": 4,
+    "scuba": 28,
+    "septic": 19,
+    "vehicle": 3
+   },
+   "roles": [
+    [
+     0,
+     "the token just before it",
+     -0.064
+    ],
+    [
+     1,
+     "the token just before it",
+     -0.063
+    ],
+    [
+     3,
+     "the token just before it",
+     -0.051
+    ]
+   ],
+   "best_layer": 0
+  },
+  {
+   "layer": 2,
+   "node": 0,
+   "branch": 0,
+   "items": 50,
+   "pool": 138,
+   "line": 0.032,
+   "words": 2,
+   "top": [
+    "reef",
+    "planted"
+   ],
+   "layers_with_words": [
+    0
+   ],
+   "labels": {
+    "aquarium": 45,
+    "clothing": 0,
+    "scuba": 4,
+    "septic": 1,
+    "vehicle": 0
+   },
+   "roles": [
+    [
+     0,
+     "the token just before it",
+     0.054
+    ],
+    [
+     1,
+     "the token just before it",
+     0.054
+    ]
+   ],
+   "best_layer": 0
+  },
+  {
+   "layer": 1,
+   "node": 4,
+   "branch": 2,
+   "items": 61,
+   "pool": 128,
+   "line": 0.0354,
+   "words": 0,
+   "top": [],
+   "layers_with_words": [],
+   "labels": {
+    "aquarium": 8,
+    "clothing": 5,
+    "scuba": 27,
+    "septic": 16,
+    "vehicle": 5
+   },
+   "roles": [
+    [
+     0,
+     "the other words",
+     -0.078
+    ],
+    [
+     1,
+     "the other words",
+     -0.058
+    ]
+   ],
+   "best_layer": 0
+  },
+  {
+   "layer": 1,
+   "node": 4,
+   "branch": 4,
+   "items": 45,
+   "pool": 128,
+   "line": 0.0357,
+   "words": 1,
+   "top": [
+    "the"
+   ],
+   "layers_with_words": [
+    0,
+    1,
+    2
+   ],
+   "labels": {
+    "aquarium": 1,
+    "clothing": 7,
+    "scuba": 3,
+    "septic": 4,
+    "vehicle": 30
+   },
+   "roles": [],
+   "best_layer": 0
+  },
+  {
+   "layer": 1,
+   "node": 4,
+   "branch": 0,
+   "items": 22,
+   "pool": 128,
+   "line": 0.0475,
+   "words": 1,
+   "top": [
+    ","
+   ],
+   "layers_with_words": [
+    1,
+    2
+   ],
+   "labels": {
+    "aquarium": 4,
+    "clothing": 0,
+    "scuba": 14,
+    "septic": 4,
+    "vehicle": 0
+   },
+   "roles": [
+    [
+     2,
+     "the read word itself",
+     -0.075
+    ],
+    [
+     2,
+     "the other words",
+     0.126
+    ]
+   ],
+   "best_layer": 2
+  },
+  {
+   "layer": 12,
+   "node": 1,
+   "branch": 1,
+   "items": 54,
+   "pool": 105,
+   "line": 0.0844,
+   "words": 1,
+   "top": [
+    "the"
+   ],
+   "layers_with_words": [
+    0,
+    1,
+    2,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    12,
+    13
+   ],
+   "labels": {
+    "aquarium": 7,
+    "clothing": 3,
+    "scuba": 10,
+    "septic": 24,
+    "vehicle": 10
+   },
+   "roles": [
+    [
+     0,
+     "the token just before it",
+     0.1
+    ],
+    [
+     0,
+     "the other words",
+     -0.125
+    ],
+    [
+     1,
+     "the other words",
+     -0.109
+    ]
+   ],
+   "best_layer": 9
+  },
+  {
+   "layer": 12,
+   "node": 1,
+   "branch": 2,
+   "items": 40,
+   "pool": 105,
+   "line": 0.0916,
+   "words": 0,
+   "top": [],
+   "layers_with_words": [],
+   "labels": {
+    "aquarium": 5,
+    "clothing": 14,
+    "scuba": 11,
+    "septic": 4,
+    "vehicle": 6
+   },
+   "roles": [],
+   "best_layer": 9
+  },
+  {
+   "layer": 0,
+   "node": 3,
+   "branch": 3,
+   "items": 39,
+   "pool": 94,
+   "line": 0.0358,
+   "words": 1,
+   "top": [
+    "a"
+   ],
+   "layers_with_words": [
+    0,
+    1
+   ],
+   "labels": {
+    "aquarium": 7,
+    "clothing": 7,
+    "scuba": 6,
+    "septic": 2,
+    "vehicle": 17
+   },
+   "roles": [
+    [
+     0,
+     "the other words",
+     -0.079
+    ],
+    [
+     1,
+     "the other words",
+     -0.099
+    ]
+   ],
+   "best_layer": 0
+  },
+  {
+   "layer": 0,
+   "node": 3,
+   "branch": 4,
+   "items": 39,
+   "pool": 94,
+   "line": 0.04,
+   "words": 1,
+   "top": [
+    "each"
+   ],
+   "layers_with_words": [
+    0
+   ],
+   "labels": {
+    "aquarium": 3,
+    "clothing": 4,
+    "scuba": 26,
+    "septic": 3,
+    "vehicle": 3
+   },
+   "roles": [
+    [
+     1,
+     "the other words",
+     0.074
+    ]
+   ],
+   "best_layer": 0
+  },
+  {
+   "layer": 19,
+   "node": 2,
+   "branch": 2,
+   "items": 65,
+   "pool": 122,
+   "line": 0.0722,
+   "words": 0,
+   "top": [],
+   "layers_with_words": [],
+   "labels": {
+    "aquarium": 10,
+    "clothing": 9,
+    "scuba": 29,
+    "septic": 10,
+    "vehicle": 7
+   },
+   "roles": [
+    [
+     5,
+     "the other words",
+     -0.067
+    ],
+    [
+     13,
+     "the other words",
+     -0.065
+    ],
+    [
+     19,
+     "the first token",
+     0.064
+    ],
+    [
+     19,
+     "the other words",
+     -0.07
+    ]
+   ],
+   "best_layer": 9
+  },
+  {
+   "layer": 19,
+   "node": 2,
+   "branch": 0,
+   "items": 39,
+   "pool": 122,
+   "line": 0.0753,
+   "words": 1,
+   "top": [
+    "the"
+   ],
+   "layers_with_words": [
+    9
+   ],
+   "labels": {
+    "aquarium": 12,
+    "clothing": 0,
+    "scuba": 16,
+    "septic": 9,
+    "vehicle": 2
+   },
+   "roles": [
+    [
+     0,
+     "the other words",
+     0.077
+    ],
+    [
+     3,
+     "the other words",
+     0.069
+    ],
+    [
+     5,
+     "the other words",
+     0.097
+    ],
+    [
+     6,
+     "the other words",
+     0.08
+    ],
+    [
+     7,
+     "the other words",
+     0.074
+    ],
+    [
+     8,
+     "the other words",
+     0.08
+    ],
+    [
+     9,
+     "the other words",
+     0.083
+    ],
+    [
+     13,
+     "the other words",
+     0.086
+    ],
+    [
+     14,
+     "the other words",
+     0.071
+    ],
+    [
+     15,
+     "the other words",
+     0.065
+    ],
+    [
+     17,
+     "the other words",
+     0.065
+    ],
+    [
+     19,
+     "the first token",
+     -0.079
+    ],
+    [
+     19,
+     "the other words",
+     0.094
+    ],
+    [
+     20,
+     "the other words",
+     0.067
+    ]
+   ],
+   "best_layer": 9
+  },
+  {
+   "layer": 9,
+   "node": 1,
+   "branch": 1,
+   "items": 53,
+   "pool": 104,
+   "line": 0.0825,
+   "words": 0,
+   "top": [],
+   "layers_with_words": [],
+   "labels": {
+    "aquarium": 12,
+    "clothing": 11,
+    "scuba": 10,
+    "septic": 6,
+    "vehicle": 14
+   },
+   "roles": [
+    [
+     0,
+     "the token just before it",
+     0.14
+    ],
+    [
+     0,
+     "the other words",
+     -0.206
+    ],
+    [
+     1,
+     "the other words",
+     -0.194
+    ],
+    [
+     2,
+     "the other words",
+     -0.147
+    ],
+    [
+     3,
+     "the token just before it",
+     0.115
+    ],
+    [
+     3,
+     "the other words",
+     -0.144
+    ],
+    [
+     4,
+     "the token just before it",
+     0.129
+    ],
+    [
+     4,
+     "the other words",
+     -0.128
+    ],
+    [
+     5,
+     "the token just before it",
+     0.119
+    ],
+    [
+     5,
+     "the other words",
+     -0.173
+    ],
+    [
+     6,
+     "the token just before it",
+     0.14
+    ],
+    [
+     6,
+     "the other words",
+     -0.159
+    ],
+    [
+     7,
+     "the token just before it",
+     0.117
+    ],
+    [
+     7,
+     "the other words",
+     -0.106
+    ],
+    [
+     8,
+     "the token just before it",
+     0.115
+    ],
+    [
+     8,
+     "the other words",
+     -0.138
+    ],
+    [
+     9,
+     "the token just before it",
+     0.151
+    ],
+    [
+     9,
+     "the other words",
+     -0.111
+    ],
+    [
+     10,
+     "the other words",
+     -0.155
+    ]
+   ],
+   "best_layer": 0
+  },
+  {
+   "layer": 9,
+   "node": 1,
+   "branch": 4,
+   "items": 38,
+   "pool": 104,
+   "line": 0.0862,
+   "words": 0,
+   "top": [],
+   "layers_with_words": [],
+   "labels": {
+    "aquarium": 1,
+    "clothing": 29,
+    "scuba": 7,
+    "septic": 0,
+    "vehicle": 1
+   },
+   "roles": [
+    [
+     0,
+     "the token just before it",
+     -0.127
+    ],
+    [
+     0,
+     "the other words",
+     0.208
+    ],
+    [
+     1,
+     "the other words",
+     0.221
+    ],
+    [
+     2,
+     "the other words",
+     0.191
+    ],
+    [
+     3,
+     "the token just before it",
+     -0.104
+    ],
+    [
+     3,
+     "the other words",
+     0.157
+    ],
+    [
+     4,
+     "the token just before it",
+     -0.129
+    ],
+    [
+     4,
+     "the other words",
+     0.15
+    ],
+    [
+     5,
+     "the token just before it",
+     -0.122
+    ],
+    [
+     5,
+     "the other words",
+     0.213
+    ],
+    [
+     6,
+     "the token just before it",
+     -0.129
+    ],
+    [
+     6,
+     "the other words",
+     0.197
+    ],
+    [
+     7,
+     "the token just before it",
+     -0.101
+    ],
+    [
+     7,
+     "the other words",
+     0.124
+    ],
+    [
+     8,
+     "the token just before it",
+     -0.108
+    ],
+    [
+     8,
+     "the other words",
+     0.155
+    ],
+    [
+     9,
+     "the token just before it",
+     -0.129
+    ],
+    [
+     9,
+     "the other words",
+     0.132
+    ],
+    [
+     10,
+     "the read word itself",
+     -0.104
+    ],
+    [
+     10,
+     "the other words",
+     0.177
+    ]
+   ],
+   "best_layer": 9
+  },
+  {
+   "layer": 5,
+   "node": 2,
+   "branch": 0,
+   "items": 109,
+   "pool": 150,
+   "line": 0.0334,
+   "words": 1,
+   "top": [
+    "the"
+   ],
+   "layers_with_words": [
+    0,
+    1,
+    2,
+    4,
+    5,
+    6
+   ],
+   "labels": {
+    "aquarium": 8,
+    "clothing": 4,
+    "scuba": 23,
+    "septic": 71,
+    "vehicle": 3
+   },
+   "roles": [
+    [
+     5,
+     "the other words",
+     -0.084
+    ]
+   ],
+   "best_layer": 6
+  },
+  {
+   "layer": 5,
+   "node": 2,
+   "branch": 4,
+   "items": 37,
+   "pool": 150,
+   "line": 0.0345,
+   "words": 2,
+   "top": [
+    "dive",
+    "diver"
+   ],
+   "layers_with_words": [
+    3,
+    6
+   ],
+   "labels": {
+    "aquarium": 0,
+    "clothing": 1,
+    "scuba": 36,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "roles": [
+    [
+     3,
+     "the other words",
+     0.089
+    ],
+    [
+     5,
+     "the other words",
+     0.1
+    ]
+   ],
+   "best_layer": 3
+  },
+  {
+   "layer": 7,
+   "node": 4,
+   "branch": 4,
+   "items": 46,
+   "pool": 80,
+   "line": 0.0486,
+   "words": 0,
+   "top": [],
+   "layers_with_words": [],
+   "labels": {
+    "aquarium": 0,
+    "clothing": 46,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "roles": [],
+   "best_layer": 6
+  },
+  {
+   "layer": 7,
+   "node": 4,
+   "branch": 2,
+   "items": 34,
+   "pool": 80,
+   "line": 0.0504,
+   "words": 1,
+   "top": [
+    "he"
+   ],
+   "layers_with_words": [
+    7
+   ],
+   "labels": {
+    "aquarium": 1,
+    "clothing": 28,
+    "scuba": 5,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "roles": [],
+   "best_layer": 7
+  },
+  {
+   "layer": 1,
+   "node": 2,
+   "branch": 3,
+   "items": 85,
+   "pool": 139,
+   "line": 0.0219,
+   "words": 1,
+   "top": [
+    "a"
+   ],
+   "layers_with_words": [
+    0,
+    1,
+    2
+   ],
+   "labels": {
+    "aquarium": 7,
+    "clothing": 50,
+    "scuba": 15,
+    "septic": 4,
+    "vehicle": 9
+   },
+   "roles": [
+    [
+     1,
+     "the other words",
+     0.068
+    ]
+   ],
+   "best_layer": 0
+  },
+  {
+   "layer": 1,
+   "node": 2,
+   "branch": 1,
+   "items": 30,
+   "pool": 139,
+   "line": 0.029,
+   "words": 1,
+   "top": [
+    "the"
+   ],
+   "layers_with_words": [
+    0,
+    1,
+    2
+   ],
+   "labels": {
+    "aquarium": 3,
+    "clothing": 8,
+    "scuba": 4,
+    "septic": 9,
+    "vehicle": 6
+   },
+   "roles": [
+    [
+     0,
+     "the other words",
+     -0.093
+    ],
+    [
+     1,
+     "the other words",
+     -0.105
+    ],
+    [
+     2,
+     "the other words",
+     -0.091
+    ]
+   ],
+   "best_layer": 0
+  },
+  {
+   "layer": 3,
+   "node": 3,
+   "branch": 2,
+   "items": 47,
+   "pool": 103,
+   "line": 0.0359,
+   "words": 1,
+   "top": [
+    "the"
+   ],
+   "layers_with_words": [
+    0,
+    2
+   ],
+   "labels": {
+    "aquarium": 9,
+    "clothing": 2,
+    "scuba": 14,
+    "septic": 21,
+    "vehicle": 1
+   },
+   "roles": [],
+   "best_layer": 0
+  },
+  {
+   "layer": 3,
+   "node": 3,
+   "branch": 1,
+   "items": 30,
+   "pool": 103,
+   "line": 0.0378,
+   "words": 0,
+   "top": [],
+   "layers_with_words": [],
+   "labels": {
+    "aquarium": 10,
+    "clothing": 7,
+    "scuba": 6,
+    "septic": 4,
+    "vehicle": 3
+   },
+   "roles": [
+    [
+     3,
+     "the other words",
+     -0.064
+    ]
+   ],
+   "best_layer": 3
+  },
+  {
+   "layer": 3,
+   "node": 3,
+   "branch": 4,
+   "items": 22,
+   "pool": 103,
+   "line": 0.0439,
+   "words": 3,
+   "top": [
+    "dive",
+    "diver",
+    "each"
+   ],
+   "layers_with_words": [
+    0,
+    3,
+    4
+   ],
+   "labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 22,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "roles": [
+    [
+     3,
+     "the other words",
+     0.068
+    ]
+   ],
+   "best_layer": 3
+  },
+  {
+   "layer": 0,
+   "node": 4,
+   "branch": 4,
+   "items": 75,
+   "pool": 120,
+   "line": 0.0432,
+   "words": 0,
+   "top": [],
+   "layers_with_words": [],
+   "labels": {
+    "aquarium": 8,
+    "clothing": 8,
+    "scuba": 10,
+    "septic": 18,
+    "vehicle": 31
+   },
+   "roles": [
+    [
+     0,
+     "the token just before it",
+     -0.122
+    ],
+    [
+     0,
+     "the other words",
+     0.155
+    ],
+    [
+     1,
+     "the other words",
+     0.121
+    ]
+   ],
+   "best_layer": 0
+  },
+  {
+   "layer": 0,
+   "node": 4,
+   "branch": 0,
+   "items": 29,
+   "pool": 120,
+   "line": 0.058,
+   "words": 0,
+   "top": [],
+   "layers_with_words": [],
+   "labels": {
+    "aquarium": 4,
+    "clothing": 7,
+    "scuba": 5,
+    "septic": 6,
+    "vehicle": 7
+   },
+   "roles": [
+    [
+     0,
+     "the other words",
+     0.124
+    ],
+    [
+     1,
+     "the other words",
+     0.147
+    ]
+   ],
+   "best_layer": 1
+  },
+  {
+   "layer": 1,
+   "node": 1,
+   "branch": 1,
+   "items": 48,
+   "pool": 77,
+   "line": 0.0552,
+   "words": 0,
+   "top": [],
+   "layers_with_words": [],
+   "labels": {
+    "aquarium": 5,
+    "clothing": 1,
+    "scuba": 5,
+    "septic": 36,
+    "vehicle": 1
+   },
+   "roles": [],
+   "best_layer": 0
+  },
+  {
+   "layer": 1,
+   "node": 1,
+   "branch": 0,
+   "items": 29,
+   "pool": 77,
+   "line": 0.0548,
+   "words": 2,
+   "top": [
+    "reef",
+    "planted"
+   ],
+   "layers_with_words": [
+    0
+   ],
+   "labels": {
+    "aquarium": 25,
+    "clothing": 0,
+    "scuba": 1,
+    "septic": 2,
+    "vehicle": 1
+   },
+   "roles": [],
+   "best_layer": 0
+  },
+  {
+   "layer": 6,
+   "node": 1,
+   "branch": 2,
+   "items": 79,
+   "pool": 107,
+   "line": 0.0671,
+   "words": 0,
+   "top": [],
+   "layers_with_words": [],
+   "labels": {
+    "aquarium": 18,
+    "clothing": 8,
+    "scuba": 22,
+    "septic": 20,
+    "vehicle": 11
+   },
+   "roles": [
+    [
+     0,
+     "the token just before it",
+     -0.22
+    ],
+    [
+     0,
+     "the other words",
+     0.272
+    ],
+    [
+     1,
+     "the read word itself",
+     -0.123
+    ],
+    [
+     1,
+     "the token just before it",
+     -0.143
+    ],
+    [
+     1,
+     "the other words",
+     0.264
+    ],
+    [
+     2,
+     "the token just before it",
+     -0.124
+    ],
+    [
+     2,
+     "the other words",
+     0.196
+    ],
+    [
+     3,
+     "the token just before it",
+     -0.153
+    ],
+    [
+     3,
+     "the other words",
+     0.209
+    ],
+    [
+     4,
+     "the token just before it",
+     -0.17
+    ],
+    [
+     4,
+     "the other words",
+     0.211
+    ],
+    [
+     5,
+     "the token just before it",
+     -0.148
+    ],
+    [
+     5,
+     "the other words",
+     0.223
+    ],
+    [
+     6,
+     "the token just before it",
+     -0.204
+    ],
+    [
+     6,
+     "the other words",
+     0.184
+    ],
+    [
+     7,
+     "the token just before it",
+     -0.203
+    ],
+    [
+     7,
+     "the first token",
+     0.12
+    ],
+    [
+     7,
+     "the other words",
+     0.122
+    ]
+   ],
+   "best_layer": 7
+  },
+  {
+   "layer": 6,
+   "node": 1,
+   "branch": 1,
+   "items": 23,
+   "pool": 107,
+   "line": 0.0849,
+   "words": 1,
+   "top": [
+    "the"
+   ],
+   "layers_with_words": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "labels": {
+    "aquarium": 4,
+    "clothing": 4,
+    "scuba": 0,
+    "septic": 6,
+    "vehicle": 9
+   },
+   "roles": [
+    [
+     0,
+     "the token just before it",
+     0.257
+    ],
+    [
+     0,
+     "the other words",
+     -0.333
+    ],
+    [
+     1,
+     "the read word itself",
+     0.149
+    ],
+    [
+     1,
+     "the token just before it",
+     0.171
+    ],
+    [
+     1,
+     "the other words",
+     -0.313
+    ],
+    [
+     2,
+     "the token just before it",
+     0.15
+    ],
+    [
+     2,
+     "the other words",
+     -0.24
+    ],
+    [
+     3,
+     "the token just before it",
+     0.189
+    ],
+    [
+     3,
+     "the other words",
+     -0.258
+    ],
+    [
+     4,
+     "the token just before it",
+     0.201
+    ],
+    [
+     4,
+     "the other words",
+     -0.249
+    ],
+    [
+     5,
+     "the token just before it",
+     0.176
+    ],
+    [
+     5,
+     "the other words",
+     -0.264
+    ],
+    [
+     6,
+     "the token just before it",
+     0.256
+    ],
+    [
+     6,
+     "the other words",
+     -0.231
+    ],
+    [
+     7,
+     "the token just before it",
+     0.241
+    ],
+    [
+     7,
+     "the first token",
+     -0.138
+    ],
+    [
+     7,
+     "the other words",
+     -0.159
+    ]
+   ],
+   "best_layer": 6
+  },
+  {
+   "layer": 17,
+   "node": 0,
+   "branch": 0,
+   "items": 118,
+   "pool": 148,
+   "line": 0.0578,
+   "words": 0,
+   "top": [],
+   "layers_with_words": [],
+   "labels": {
+    "aquarium": 56,
+    "clothing": 1,
+    "scuba": 14,
+    "septic": 44,
+    "vehicle": 3
+   },
+   "roles": [
+    [
+     3,
+     "the other words",
+     0.058
+    ],
+    [
+     5,
+     "the other words",
+     0.064
+    ],
+    [
+     6,
+     "the other words",
+     0.062
+    ],
+    [
+     7,
+     "the other words",
+     0.078
+    ],
+    [
+     9,
+     "the other words",
+     0.073
+    ],
+    [
+     10,
+     "the other words",
+     0.075
+    ],
+    [
+     11,
+     "the other words",
+     0.087
+    ],
+    [
+     12,
+     "the other words",
+     0.065
+    ],
+    [
+     13,
+     "the other words",
+     0.086
+    ],
+    [
+     14,
+     "the other words",
+     0.064
+    ],
+    [
+     15,
+     "the other words",
+     0.061
+    ],
+    [
+     17,
+     "the other words",
+     0.09
+    ]
+   ],
+   "best_layer": 9
+  },
+  {
+   "layer": 17,
+   "node": 0,
+   "branch": 1,
+   "items": 23,
+   "pool": 148,
+   "line": 0.0763,
+   "words": 1,
+   "top": [
+    "a"
+   ],
+   "layers_with_words": [
+    9
+   ],
+   "labels": {
+    "aquarium": 7,
+    "clothing": 1,
+    "scuba": 6,
+    "septic": 9,
+    "vehicle": 0
+   },
+   "roles": [
+    [
+     0,
+     "the other words",
+     -0.068
+    ],
+    [
+     2,
+     "the other words",
+     -0.067
+    ],
+    [
+     3,
+     "the other words",
+     -0.077
+    ],
+    [
+     5,
+     "the other words",
+     -0.094
+    ],
+    [
+     6,
+     "the other words",
+     -0.077
+    ],
+    [
+     7,
+     "the other words",
+     -0.093
+    ],
+    [
+     9,
+     "the first token",
+     0.065
+    ],
+    [
+     9,
+     "the other words",
+     -0.1
+    ],
+    [
+     10,
+     "the other words",
+     -0.099
+    ],
+    [
+     11,
+     "the other words",
+     -0.109
+    ],
+    [
+     12,
+     "the other words",
+     -0.08
+    ],
+    [
+     13,
+     "the other words",
+     -0.104
+    ],
+    [
+     14,
+     "the other words",
+     -0.077
+    ],
+    [
+     17,
+     "the other words",
+     -0.099
+    ]
+   ],
+   "best_layer": 9
+  },
+  {
+   "layer": 18,
+   "node": 0,
+   "branch": 0,
+   "items": 109,
+   "pool": 135,
+   "line": 0.062,
+   "words": 0,
+   "top": [],
+   "layers_with_words": [],
+   "labels": {
+    "aquarium": 52,
+    "clothing": 0,
+    "scuba": 16,
+    "septic": 40,
+    "vehicle": 1
+   },
+   "roles": [
+    [
+     0,
+     "the other words",
+     0.063
+    ],
+    [
+     2,
+     "the other words",
+     0.09
+    ],
+    [
+     3,
+     "the read word itself",
+     -0.067
+    ],
+    [
+     3,
+     "the other words",
+     0.104
+    ],
+    [
+     4,
+     "the other words",
+     0.073
+    ],
+    [
+     5,
+     "the other words",
+     0.073
+    ],
+    [
+     6,
+     "the other words",
+     0.076
+    ],
+    [
+     7,
+     "the other words",
+     0.081
+    ],
+    [
+     8,
+     "the other words",
+     0.078
+    ],
+    [
+     9,
+     "the first token",
+     -0.059
+    ],
+    [
+     9,
+     "the other words",
+     0.082
+    ],
+    [
+     10,
+     "the other words",
+     0.095
+    ],
+    [
+     11,
+     "the other words",
+     0.083
+    ],
+    [
+     12,
+     "the read word itself",
+     -0.061
+    ],
+    [
+     12,
+     "the other words",
+     0.09
+    ],
+    [
+     13,
+     "the first token",
+     -0.077
+    ],
+    [
+     13,
+     "the other words",
+     0.104
+    ],
+    [
+     14,
+     "the other words",
+     0.082
+    ],
+    [
+     15,
+     "the other words",
+     0.119
+    ],
+    [
+     16,
+     "the other words",
+     0.087
+    ],
+    [
+     17,
+     "the other words",
+     0.105
+    ],
+    [
+     18,
+     "the other words",
+     0.085
+    ],
+    [
+     19,
+     "the first token",
+     -0.078
+    ],
+    [
+     19,
+     "the other words",
+     0.133
+    ]
+   ],
+   "best_layer": 0
+  },
+  {
+   "layer": 18,
+   "node": 0,
+   "branch": 2,
+   "items": 22,
+   "pool": 135,
+   "line": 0.0747,
+   "words": 0,
+   "top": [],
+   "layers_with_words": [],
+   "labels": {
+    "aquarium": 9,
+    "clothing": 0,
+    "scuba": 4,
+    "septic": 7,
+    "vehicle": 2
+   },
+   "roles": [
+    [
+     2,
+     "the other words",
+     -0.086
+    ],
+    [
+     3,
+     "the other words",
+     -0.099
+    ],
+    [
+     4,
+     "the other words",
+     -0.078
+    ],
+    [
+     5,
+     "the other words",
+     -0.075
+    ],
+    [
+     6,
+     "the other words",
+     -0.083
+    ],
+    [
+     7,
+     "the other words",
+     -0.085
+    ],
+    [
+     8,
+     "the other words",
+     -0.085
+    ],
+    [
+     9,
+     "the other words",
+     -0.072
+    ],
+    [
+     10,
+     "the other words",
+     -0.09
+    ],
+    [
+     11,
+     "the other words",
+     -0.087
+    ],
+    [
+     12,
+     "the other words",
+     -0.093
+    ],
+    [
+     13,
+     "the first token",
+     0.072
+    ],
+    [
+     13,
+     "the other words",
+     -0.093
+    ],
+    [
+     14,
+     "the other words",
+     -0.082
+    ],
+    [
+     15,
+     "the other words",
+     -0.131
+    ],
+    [
+     16,
+     "the other words",
+     -0.101
+    ],
+    [
+     17,
+     "the other words",
+     -0.098
+    ],
+    [
+     18,
+     "the other words",
+     -0.092
+    ],
+    [
+     19,
+     "the first token",
+     0.084
+    ],
+    [
+     19,
+     "the other words",
+     -0.131
+    ]
+   ],
+   "best_layer": 19
+  },
+  {
+   "layer": 20,
+   "node": 3,
+   "branch": 3,
+   "items": 54,
+   "pool": 80,
+   "line": 0.0836,
+   "words": 1,
+   "top": [
+    "the"
+   ],
+   "layers_with_words": [
+    0,
+    2,
+    21
+   ],
+   "labels": {
+    "aquarium": 0,
+    "clothing": 1,
+    "scuba": 1,
+    "septic": 0,
+    "vehicle": 52
+   },
+   "roles": [
+    [
+     0,
+     "the other words",
+     0.089
+    ],
+    [
+     2,
+     "the other words",
+     0.096
+    ],
+    [
+     5,
+     "the other words",
+     0.1
+    ],
+    [
+     6,
+     "the other words",
+     0.112
+    ],
+    [
+     8,
+     "the other words",
+     0.081
+    ],
+    [
+     14,
+     "the other words",
+     0.107
+    ],
+    [
+     15,
+     "the other words",
+     0.097
+    ],
+    [
+     16,
+     "the other words",
+     0.089
+    ],
+    [
+     18,
+     "the other words",
+     0.083
+    ],
+    [
+     20,
+     "the other words",
+     0.113
+    ],
+    [
+     21,
+     "the other words",
+     0.092
+    ]
+   ],
+   "best_layer": 0
+  },
+  {
+   "layer": 20,
+   "node": 3,
+   "branch": 1,
+   "items": 22,
+   "pool": 80,
+   "line": 0.0979,
+   "words": 1,
+   "top": [
+    "a"
+   ],
+   "layers_with_words": [
+    0,
+    5,
+    18,
+    21
+   ],
+   "labels": {
+    "aquarium": 1,
+    "clothing": 3,
+    "scuba": 1,
+    "septic": 0,
+    "vehicle": 17
+   },
+   "roles": [
+    [
+     0,
+     "the other words",
+     -0.111
+    ],
+    [
+     2,
+     "the other words",
+     -0.118
+    ],
+    [
+     5,
+     "the token just before it",
+     0.09
+    ],
+    [
+     5,
+     "the other words",
+     -0.129
+    ],
+    [
+     6,
+     "the other words",
+     -0.147
+    ],
+    [
+     7,
+     "the other words",
+     -0.096
+    ],
+    [
+     8,
+     "the other words",
+     -0.095
+    ],
+    [
+     11,
+     "the other words",
+     -0.092
+    ],
+    [
+     12,
+     "the other words",
+     -0.093
+    ],
+    [
+     13,
+     "the other words",
+     -0.101
+    ],
+    [
+     14,
+     "the other words",
+     -0.125
+    ],
+    [
+     15,
+     "the other words",
+     -0.124
+    ],
+    [
+     16,
+     "the other words",
+     -0.12
+    ],
+    [
+     18,
+     "the other words",
+     -0.1
+    ],
+    [
+     19,
+     "the other words",
+     -0.106
+    ],
+    [
+     20,
+     "the other words",
+     -0.15
+    ],
+    [
+     21,
+     "the other words",
+     -0.111
+    ]
+   ],
+   "best_layer": 21
+  },
+  {
+   "layer": 13,
+   "node": 0,
+   "branch": 0,
+   "items": 71,
+   "pool": 100,
+   "line": 0.0694,
+   "words": 0,
+   "top": [],
+   "layers_with_words": [],
+   "labels": {
+    "aquarium": 66,
+    "clothing": 1,
+    "scuba": 3,
+    "septic": 1,
+    "vehicle": 0
+   },
+   "roles": [
+    [
+     6,
+     "the other words",
+     0.095
+    ]
+   ],
+   "best_layer": 0
+  },
+  {
+   "layer": 13,
+   "node": 0,
+   "branch": 2,
+   "items": 21,
+   "pool": 100,
+   "line": 0.0855,
+   "words": 0,
+   "top": [],
+   "layers_with_words": [],
+   "labels": {
+    "aquarium": 10,
+    "clothing": 2,
+    "scuba": 7,
+    "septic": 1,
+    "vehicle": 1
+   },
+   "roles": [],
+   "best_layer": 9
+  },
+  {
+   "layer": 1,
+   "node": 0,
+   "branch": 0,
+   "items": 76,
+   "pool": 98,
+   "line": 0.0322,
+   "words": 0,
+   "top": [],
+   "layers_with_words": [],
+   "labels": {
+    "aquarium": 31,
+    "clothing": 5,
+    "scuba": 20,
+    "septic": 17,
+    "vehicle": 3
+   },
+   "roles": [
+    [
+     2,
+     "the other words",
+     0.057
+    ]
+   ],
+   "best_layer": 0
+  },
+  {
+   "layer": 1,
+   "node": 0,
+   "branch": 4,
+   "items": 19,
+   "pool": 98,
+   "line": 0.0338,
+   "words": 2,
+   "top": [
+    "the",
+    "of"
+   ],
+   "layers_with_words": [
+    1,
+    2
+   ],
+   "labels": {
+    "aquarium": 2,
+    "clothing": 3,
+    "scuba": 2,
+    "septic": 3,
+    "vehicle": 9
+   },
+   "roles": [],
+   "best_layer": 2
+  },
+  {
+   "layer": 3,
+   "node": 4,
+   "branch": 3,
+   "items": 54,
+   "pool": 79,
+   "line": 0.0391,
+   "words": 0,
+   "top": [],
+   "layers_with_words": [],
+   "labels": {
+    "aquarium": 0,
+    "clothing": 2,
+    "scuba": 1,
+    "septic": 1,
+    "vehicle": 50
+   },
+   "roles": [],
+   "best_layer": 2
+  },
+  {
+   "layer": 3,
+   "node": 4,
+   "branch": 1,
+   "items": 16,
+   "pool": 79,
+   "line": 0.0473,
+   "words": 0,
+   "top": [],
+   "layers_with_words": [],
+   "labels": {
+    "aquarium": 1,
+    "clothing": 11,
+    "scuba": 0,
+    "septic": 1,
+    "vehicle": 3
+   },
+   "roles": [],
+   "best_layer": 4
+  },
+  {
+   "layer": 16,
+   "node": 3,
+   "branch": 3,
+   "items": 77,
+   "pool": 94,
+   "line": 0.0959,
+   "words": 1,
+   "top": [
+    "the"
+   ],
+   "layers_with_words": [
+    0,
+    2,
+    9,
+    13,
+    15
+   ],
+   "labels": {
+    "aquarium": 1,
+    "clothing": 1,
+    "scuba": 1,
+    "septic": 0,
+    "vehicle": 74
+   },
+   "roles": [
+    [
+     0,
+     "the read word itself",
+     -0.123
+    ],
+    [
+     0,
+     "the token just before it",
+     -0.202
+    ],
+    [
+     0,
+     "the other words",
+     0.329
+    ],
+    [
+     1,
+     "the read word itself",
+     -0.152
+    ],
+    [
+     1,
+     "the token just before it",
+     -0.174
+    ],
+    [
+     1,
+     "the other words",
+     0.354
+    ],
+    [
+     2,
+     "the read word itself",
+     -0.184
+    ],
+    [
+     2,
+     "the other words",
+     0.282
+    ],
+    [
+     3,
+     "the read word itself",
+     -0.151
+    ],
+    [
+     3,
+     "the token just before it",
+     -0.118
+    ],
+    [
+     3,
+     "the other words",
+     0.282
+    ],
+    [
+     4,
+     "the token just before it",
+     -0.202
+    ],
+    [
+     4,
+     "the other words",
+     0.264
+    ],
+    [
+     5,
+     "the token just before it",
+     -0.226
+    ],
+    [
+     5,
+     "the other words",
+     0.323
+    ],
+    [
+     6,
+     "the token just before it",
+     -0.256
+    ],
+    [
+     6,
+     "the other words",
+     0.275
+    ],
+    [
+     7,
+     "the token just before it",
+     -0.191
+    ],
+    [
+     7,
+     "the other words",
+     0.186
+    ],
+    [
+     8,
+     "the token just before it",
+     -0.214
+    ],
+    [
+     8,
+     "the other words",
+     0.232
+    ],
+    [
+     9,
+     "the token just before it",
+     -0.245
+    ],
+    [
+     9,
+     "the first token",
+     0.115
+    ],
+    [
+     9,
+     "the other words",
+     0.212
+    ],
+    [
+     10,
+     "the token just before it",
+     -0.173
+    ],
+    [
+     10,
+     "the other words",
+     0.225
+    ],
+    [
+     11,
+     "the read word itself",
+     -0.126
+    ],
+    [
+     11,
+     "the other words",
+     0.18
+    ],
+    [
+     12,
+     "the token just before it",
+     -0.205
+    ],
+    [
+     12,
+     "the other words",
+     0.218
+    ],
+    [
+     13,
+     "the token just before it",
+     -0.176
+    ],
+    [
+     13,
+     "the other words",
+     0.195
+    ],
+    [
+     14,
+     "the token just before it",
+     -0.233
+    ],
+    [
+     14,
+     "the other words",
+     0.284
+    ],
+    [
+     15,
+     "the token just before it",
+     -0.222
+    ],
+    [
+     15,
+     "the other words",
+     0.247
+    ],
+    [
+     16,
+     "the read word itself",
+     -0.146
+    ],
+    [
+     16,
+     "the token just before it",
+     -0.128
+    ],
+    [
+     16,
+     "the other words",
+     0.264
+    ],
+    [
+     17,
+     "the token just before it",
+     -0.176
+    ],
+    [
+     17,
+     "the other words",
+     0.225
+    ]
+   ],
+   "best_layer": 0
+  },
+  {
+   "layer": 16,
+   "node": 3,
+   "branch": 1,
+   "items": 16,
+   "pool": 94,
+   "line": 0.1097,
+   "words": 2,
+   "top": [
+    "that",
+    "this"
+   ],
+   "layers_with_words": [
+    0,
+    1,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    12,
+    13,
+    14,
+    15,
+    17
+   ],
+   "labels": {
+    "aquarium": 2,
+    "clothing": 7,
+    "scuba": 1,
+    "septic": 1,
+    "vehicle": 5
+   },
+   "roles": [
+    [
+     0,
+     "the read word itself",
+     0.129
+    ],
+    [
+     0,
+     "the token just before it",
+     0.209
+    ],
+    [
+     0,
+     "the other words",
+     -0.347
+    ],
+    [
+     1,
+     "the read word itself",
+     0.161
+    ],
+    [
+     1,
+     "the token just before it",
+     0.186
+    ],
+    [
+     1,
+     "the other words",
+     -0.377
+    ],
+    [
+     2,
+     "the read word itself",
+     0.189
+    ],
+    [
+     2,
+     "the other words",
+     -0.296
+    ],
+    [
+     3,
+     "the read word itself",
+     0.164
+    ],
+    [
+     3,
+     "the other words",
+     -0.296
+    ],
+    [
+     4,
+     "the token just before it",
+     0.214
+    ],
+    [
+     4,
+     "the other words",
+     -0.27
+    ],
+    [
+     5,
+     "the token just before it",
+     0.235
+    ],
+    [
+     5,
+     "the other words",
+     -0.334
+    ],
+    [
+     6,
+     "the token just before it",
+     0.275
+    ],
+    [
+     6,
+     "the other words",
+     -0.298
+    ],
+    [
+     7,
+     "the token just before it",
+     0.197
+    ],
+    [
+     7,
+     "the other words",
+     -0.201
+    ],
+    [
+     8,
+     "the token just before it",
+     0.227
+    ],
+    [
+     8,
+     "the other words",
+     -0.252
+    ],
+    [
+     9,
+     "the token just before it",
+     0.254
+    ],
+    [
+     9,
+     "the other words",
+     -0.228
+    ],
+    [
+     10,
+     "the token just before it",
+     0.183
+    ],
+    [
+     10,
+     "the other words",
+     -0.246
+    ],
+    [
+     11,
+     "the read word itself",
+     0.138
+    ],
+    [
+     11,
+     "the other words",
+     -0.195
+    ],
+    [
+     12,
+     "the token just before it",
+     0.213
+    ],
+    [
+     12,
+     "the other words",
+     -0.231
+    ],
+    [
+     13,
+     "the token just before it",
+     0.187
+    ],
+    [
+     13,
+     "the other words",
+     -0.213
+    ],
+    [
+     14,
+     "the token just before it",
+     0.246
+    ],
+    [
+     14,
+     "the other words",
+     -0.306
+    ],
+    [
+     15,
+     "the token just before it",
+     0.23
+    ],
+    [
+     15,
+     "the other words",
+     -0.266
+    ],
+    [
+     16,
+     "the read word itself",
+     0.155
+    ],
+    [
+     16,
+     "the token just before it",
+     0.134
+    ],
+    [
+     16,
+     "the other words",
+     -0.281
+    ],
+    [
+     17,
+     "the token just before it",
+     0.186
+    ],
+    [
+     17,
+     "the other words",
+     -0.239
+    ]
+   ],
+   "best_layer": 9
+  },
+  {
+   "layer": 10,
+   "node": 4,
+   "branch": 4,
+   "items": 71,
+   "pool": 86,
+   "line": 0.0987,
+   "words": 0,
+   "top": [],
+   "layers_with_words": [],
+   "labels": {
+    "aquarium": 1,
+    "clothing": 69,
+    "scuba": 1,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "roles": [],
+   "best_layer": 9
+  },
+  {
+   "layer": 10,
+   "node": 4,
+   "branch": 1,
+   "items": 15,
+   "pool": 86,
+   "line": 0.1215,
+   "words": 0,
+   "top": [],
+   "layers_with_words": [],
+   "labels": {
+    "aquarium": 0,
+    "clothing": 8,
+    "scuba": 6,
+    "septic": 0,
+    "vehicle": 1
+   },
+   "roles": [],
+   "best_layer": 9
+  },
+  {
+   "layer": 22,
+   "node": 1,
+   "branch": 1,
+   "items": 54,
+   "pool": 66,
+   "line": 0.1272,
+   "words": 0,
+   "top": [],
+   "layers_with_words": [],
+   "labels": {
+    "aquarium": 17,
+    "clothing": 1,
+    "scuba": 12,
+    "septic": 24,
+    "vehicle": 0
+   },
+   "roles": [],
+   "best_layer": 9
+  },
+  {
+   "layer": 22,
+   "node": 1,
+   "branch": 2,
+   "items": 12,
+   "pool": 66,
+   "line": 0.1364,
+   "words": 0,
+   "top": [],
+   "layers_with_words": [],
+   "labels": {
+    "aquarium": 2,
+    "clothing": 0,
+    "scuba": 3,
+    "septic": 5,
+    "vehicle": 2
+   },
+   "roles": [],
+   "best_layer": 18
+  },
+  {
+   "layer": 2,
+   "node": 4,
+   "branch": 4,
+   "items": 60,
+   "pool": 73,
+   "line": 0.041,
+   "words": 0,
+   "top": [],
+   "layers_with_words": [],
+   "labels": {
+    "aquarium": 1,
+    "clothing": 8,
+    "scuba": 3,
+    "septic": 4,
+    "vehicle": 44
+   },
+   "roles": [],
+   "best_layer": 1
+  },
+  {
+   "layer": 2,
+   "node": 4,
+   "branch": 3,
+   "items": 11,
+   "pool": 73,
+   "line": 0.0483,
+   "words": 1,
+   "top": [
+    "the"
+   ],
+   "layers_with_words": [
+    2
+   ],
+   "labels": {
+    "aquarium": 2,
+    "clothing": 2,
+    "scuba": 2,
+    "septic": 3,
+    "vehicle": 2
+   },
+   "roles": [],
+   "best_layer": 2
+  },
+  {
+   "layer": 13,
+   "node": 2,
+   "branch": 2,
+   "items": 39,
+   "pool": 55,
+   "line": 0.1015,
+   "words": 0,
+   "top": [],
+   "layers_with_words": [],
+   "labels": {
+    "aquarium": 3,
+    "clothing": 14,
+    "scuba": 11,
+    "septic": 4,
+    "vehicle": 7
+   },
+   "roles": [
+    [
+     0,
+     "the other words",
+     0.124
+    ],
+    [
+     1,
+     "the other words",
+     0.155
+    ],
+    [
+     2,
+     "the other words",
+     0.13
+    ],
+    [
+     5,
+     "the other words",
+     0.16
+    ],
+    [
+     6,
+     "the token just before it",
+     -0.128
+    ],
+    [
+     6,
+     "the other words",
+     0.141
+    ],
+    [
+     9,
+     "the token just before it",
+     -0.131
+    ]
+   ],
+   "best_layer": 9
+  },
+  {
+   "layer": 13,
+   "node": 2,
+   "branch": 3,
+   "items": 11,
+   "pool": 55,
+   "line": 0.1427,
+   "words": 0,
+   "top": [],
+   "layers_with_words": [],
+   "labels": {
+    "aquarium": 1,
+    "clothing": 3,
+    "scuba": 3,
+    "septic": 1,
+    "vehicle": 3
+   },
+   "roles": [],
+   "best_layer": 9
+  },
+  {
+   "layer": 21,
+   "node": 2,
+   "branch": 2,
+   "items": 48,
+   "pool": 72,
+   "line": 0.0991,
+   "words": 0,
+   "top": [],
+   "layers_with_words": [],
+   "labels": {
+    "aquarium": 6,
+    "clothing": 4,
+    "scuba": 20,
+    "septic": 9,
+    "vehicle": 9
+   },
+   "roles": [],
+   "best_layer": 5
+  },
+  {
+   "layer": 21,
+   "node": 2,
+   "branch": 4,
+   "items": 11,
+   "pool": 72,
+   "line": 0.1536,
+   "words": 0,
+   "top": [],
+   "layers_with_words": [],
+   "labels": {
+    "aquarium": 2,
+    "clothing": 6,
+    "scuba": 3,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "roles": [],
+   "best_layer": 9
+  },
+  {
+   "layer": 3,
+   "node": 0,
+   "branch": 0,
+   "items": 43,
+   "pool": 52,
+   "line": 0.0674,
+   "words": 0,
+   "top": [],
+   "layers_with_words": [],
+   "labels": {
+    "aquarium": 41,
+    "clothing": 0,
+    "scuba": 2,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "roles": [],
+   "best_layer": 0
+  },
+  {
+   "layer": 3,
+   "node": 0,
+   "branch": 2,
+   "items": 8,
+   "pool": 52,
+   "line": 0.078,
+   "words": 1,
+   "top": [
+    "the"
+   ],
+   "layers_with_words": [
+    0
+   ],
+   "labels": {
+    "aquarium": 6,
+    "clothing": 0,
+    "scuba": 1,
+    "septic": 1,
+    "vehicle": 0
+   },
+   "roles": [],
+   "best_layer": 0
+  }
+ ],
+ "expert_nodes": [
+  {
+   "layer": 3,
+   "expert": 16,
+   "items": 21,
+   "brought": 19,
+   "labels": {
+    "aquarium": 2,
+    "clothing": 0,
+    "scuba": 3,
+    "septic": 16,
+    "vehicle": 0
+   },
+   "line": 0.012,
+   "top": [
+    {
+     "word": "buried",
+     "difference": 0.0178,
+     "presence_difference": 0.139
+    },
+    {
+     "word": "steel",
+     "difference": 0.0144,
+     "presence_difference": 0.226
+    }
+   ]
+  },
+  {
+   "layer": 2,
+   "expert": 5,
+   "items": 54,
+   "brought": 48,
+   "labels": {
+    "aquarium": 1,
+    "clothing": 5,
+    "scuba": 5,
+    "septic": 4,
+    "vehicle": 39
+   },
+   "line": 0.0175,
+   "top": [
+    {
+     "word": "the",
+     "difference": 0.0181,
+     "presence_difference": 0.032
+    }
+   ]
+  },
+  {
+   "layer": 0,
+   "expert": 0,
+   "items": 30,
+   "brought": 30,
+   "labels": {
+    "aquarium": 5,
+    "clothing": 7,
+    "scuba": 4,
+    "septic": 14,
+    "vehicle": 0
+   },
+   "line": 0.035,
+   "top": [
+    {
+     "word": "septic",
+     "difference": 0.2676,
+     "presence_difference": 0.2
+    }
+   ]
+  },
+  {
+   "layer": 0,
+   "expert": 11,
+   "items": 103,
+   "brought": 103,
+   "labels": {
+    "aquarium": 25,
+    "clothing": 20,
+    "scuba": 15,
+    "septic": 27,
+    "vehicle": 16
+   },
+   "line": 0.0426,
+   "top": [
+    {
+     "word": "reef",
+     "difference": 0.0699,
+     "presence_difference": 0.056
+    },
+    {
+     "word": "water",
+     "difference": 0.061,
+     "presence_difference": 0.074
+    }
+   ]
+  },
+  {
+   "layer": 1,
+   "expert": 7,
+   "items": 25,
+   "brought": 25,
+   "labels": {
+    "aquarium": 2,
+    "clothing": 2,
+    "scuba": 10,
+    "septic": 6,
+    "vehicle": 5
+   },
+   "line": 0.0248,
+   "top": []
+  },
+  {
+   "layer": 1,
+   "expert": 25,
+   "items": 24,
+   "brought": 23,
+   "labels": {
+    "aquarium": 17,
+    "clothing": 1,
+    "scuba": 2,
+    "septic": 4,
+    "vehicle": 0
+   },
+   "line": 0.0134,
+   "top": [
+    {
+     "word": "reef",
+     "difference": 0.0154,
+     "presence_difference": 0.117
+    }
+   ]
+  },
+  {
+   "layer": 4,
+   "expert": 25,
+   "items": 38,
+   "brought": 28,
+   "labels": {
+    "aquarium": 6,
+    "clothing": 1,
+    "scuba": 11,
+    "septic": 19,
+    "vehicle": 1
+   },
+   "line": 0.0112,
+   "top": [
+    {
+     "word": "the",
+     "difference": 0.0133,
+     "presence_difference": 0.109
+    }
+   ]
+  },
+  {
+   "layer": 1,
+   "expert": 17,
+   "items": 84,
+   "brought": 72,
+   "labels": {
+    "aquarium": 13,
+    "clothing": 9,
+    "scuba": 12,
+    "septic": 20,
+    "vehicle": 30
+   },
+   "line": 0.0095,
+   "top": []
+  }
+ ]
+}

@@ -26,6 +26,14 @@ along. On 2026-10-18 Andrew asked how attention fits an MoE model and what the s
 now answers both, and Claude recommends keeping the shares off the node card for now [LENS-48].
 The steps are under [Work that needs no model](plan.md#phase-model-free).
 
+**Attention in the analysis (2026-10-19).** Andrew set attention as more information in the
+analysis, with a row for its visualization below the Sankeys and the 3-D view, and asked whether
+attention can be analysed for each expert node and latent node [LENS-49, LENS-50, APP-35]. Claude's
+proposal is under [Attention in the analysis](design.md#attention), in seven parts for his answer
+(L35). It was tested first without the model: the router worked out again with and without each
+layer's attention in seven captures, and gpt-oss run on the CPU, one layer at a time, over the
+tank sentences, to split attention word by word (`docs/research/attention_and_experts.md`).
+
 **Waiting for Andrew: the two documents** [DOC-3, ORDER-5]. The requirements list, both documents,
 their pages and the checks before Andrew reads are done; his review, section by section, waits for
 when he has time. The steps are under [The two documents](plan.md#phase-documents). After the
@@ -51,6 +59,8 @@ slice 2 (capture and jobs). Once approved, the new app can be built without the 
 - **L33,** who writes each split, rewritten with plain answers to his questions, and **L34,** the
   institute's layout, four questions that follow from his answer to L30: cards among
   [the design's decisions](design.md#decisions-needed);
+- **L35,** attention in the analysis, seven parts to approve or change one by one, also among the
+  design's decisions;
 - **L31,** the new app's plan, and **L32,** the superseded documents to delete, with a verdict for
   each: cards among [this document's decisions](plan.md#decisions-needed) [WAY-11];
 - the two documents' review, section by section, through the boxes under each section.
@@ -432,7 +442,9 @@ Each is planned in detail here when it is reached [DOC-9].
   - the MUD's network address entered in the app [MUD-19];
   - the leftovers removed [DATA-13];
   - the other token positions that carry a split's signal, read with the extra positions (Claude's
-    placement) [LENS-30, DATA-7].
+    placement) [LENS-30, DATA-7];
+  - attention's parts at the read token, recorded during capture, if Andrew approves L35.5
+    [DATA-14, ORDER-21].
 
   The first four method changes, planned for this slice, now come earlier, in the work that needs
   no model [ORDER-20].

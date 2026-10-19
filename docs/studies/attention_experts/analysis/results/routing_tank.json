@@ -1,0 +1,4256 @@
+{
+ "capture": "tank",
+ "session": "session_1434a9be",
+ "lens": "tank-k5-n15",
+ "version": "v1",
+ "items": 499,
+ "min_node": 20,
+ "fdr": 0.05,
+ "layers": [
+  {
+   "layer": 0,
+   "match_four": 1.0,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.3226452905811623,
+   "own_first_changed": 0.2745490981963928,
+   "all_swapped_of_four": 1.1042084168336674,
+   "all_first_changed": 0.9398797595190381,
+   "ami_first_label": 0.027207469869888406,
+   "ami_first_label_without_own": 0.0,
+   "own_first_changed_by_label": {
+    "aquarium": 0.34,
+    "clothing": 0.27,
+    "scuba": 0.1919191919191919,
+    "septic": 0.41,
+    "vehicle": 0.16
+   }
+  },
+  {
+   "layer": 1,
+   "match_four": 1.0,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.5731462925851704,
+   "own_first_changed": 0.2785571142284569,
+   "all_swapped_of_four": 0.7334669338677354,
+   "all_first_changed": 0.3046092184368738,
+   "ami_first_label": 0.04785905429776508,
+   "ami_first_label_without_own": 0.011377598380853742,
+   "own_first_changed_by_label": {
+    "aquarium": 0.33,
+    "clothing": 0.13,
+    "scuba": 0.24242424242424243,
+    "septic": 0.31,
+    "vehicle": 0.38
+   }
+  },
+  {
+   "layer": 2,
+   "match_four": 1.0,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.4348697394789579,
+   "own_first_changed": 0.10420841683366733,
+   "all_swapped_of_four": 0.5651302605210421,
+   "all_first_changed": 0.14228456913827656,
+   "ami_first_label": 0.08160399439772983,
+   "ami_first_label_without_own": 0.018211514838641026,
+   "own_first_changed_by_label": {
+    "aquarium": 0.02,
+    "clothing": 0.05,
+    "scuba": 0.06060606060606061,
+    "septic": 0.05,
+    "vehicle": 0.34
+   }
+  },
+  {
+   "layer": 3,
+   "match_four": 1.0,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.4729458917835671,
+   "own_first_changed": 0.06012024048096192,
+   "all_swapped_of_four": 0.5190380761523046,
+   "all_first_changed": 0.08617234468937876,
+   "ami_first_label": 0.045503233969511364,
+   "ami_first_label_without_own": 0.0014519230562521717,
+   "own_first_changed_by_label": {
+    "aquarium": 0.04,
+    "clothing": 0.04,
+    "scuba": 0.04040404040404041,
+    "septic": 0.16,
+    "vehicle": 0.02
+   }
+  },
+  {
+   "layer": 4,
+   "match_four": 0.9979959919839679,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.24849699398797595,
+   "own_first_changed": 0.1062124248496994,
+   "all_swapped_of_four": 0.2685370741482966,
+   "all_first_changed": 0.10821643286573146,
+   "ami_first_label": 0.12846848187300988,
+   "ami_first_label_without_own": 0.10511268901738523,
+   "own_first_changed_by_label": {
+    "aquarium": 0.12,
+    "clothing": 0.04,
+    "scuba": 0.13131313131313133,
+    "septic": 0.14,
+    "vehicle": 0.1
+   }
+  },
+  {
+   "layer": 5,
+   "match_four": 1.0,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.27054108216432865,
+   "own_first_changed": 0.06412825651302605,
+   "all_swapped_of_four": 0.36072144288577157,
+   "all_first_changed": 0.07014028056112225,
+   "ami_first_label": 0.10722766821742068,
+   "ami_first_label_without_own": 0.10216116989248504,
+   "own_first_changed_by_label": {
+    "aquarium": 0.06,
+    "clothing": 0.07,
+    "scuba": 0.12121212121212122,
+    "septic": 0.04,
+    "vehicle": 0.03
+   }
+  },
+  {
+   "layer": 6,
+   "match_four": 0.9979959919839679,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.2725450901803607,
+   "own_first_changed": 0.06813627254509018,
+   "all_swapped_of_four": 0.31462925851703405,
+   "all_first_changed": 0.14428857715430862,
+   "ami_first_label": 0.09840818556872431,
+   "ami_first_label_without_own": 0.11308728713862885,
+   "own_first_changed_by_label": {
+    "aquarium": 0.18,
+    "clothing": 0.0,
+    "scuba": 0.12121212121212122,
+    "septic": 0.03,
+    "vehicle": 0.01
+   }
+  },
+  {
+   "layer": 7,
+   "match_four": 1.0,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.10220440881763528,
+   "own_first_changed": 0.06212424849699399,
+   "all_swapped_of_four": 0.11823647294589178,
+   "all_first_changed": 0.06813627254509018,
+   "ami_first_label": 0.10646254726099738,
+   "ami_first_label_without_own": 0.10425573202182847,
+   "own_first_changed_by_label": {
+    "aquarium": 0.08,
+    "clothing": 0.08,
+    "scuba": 0.010101010101010102,
+    "septic": 0.06,
+    "vehicle": 0.08
+   }
+  },
+  {
+   "layer": 8,
+   "match_four": 1.0,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.18837675350701402,
+   "own_first_changed": 0.03406813627254509,
+   "all_swapped_of_four": 0.1903807615230461,
+   "all_first_changed": 0.04408817635270541,
+   "ami_first_label": 0.180089114885911,
+   "ami_first_label_without_own": 0.197012084219642,
+   "own_first_changed_by_label": {
+    "aquarium": 0.03,
+    "clothing": 0.01,
+    "scuba": 0.04040404040404041,
+    "septic": 0.06,
+    "vehicle": 0.03
+   }
+  },
+  {
+   "layer": 9,
+   "match_four": 1.0,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.22444889779559118,
+   "own_first_changed": 0.1402805611222445,
+   "all_swapped_of_four": 0.24048096192384769,
+   "all_first_changed": 0.14228456913827656,
+   "ami_first_label": 0.19354446759202631,
+   "ami_first_label_without_own": 0.18134981815930054,
+   "own_first_changed_by_label": {
+    "aquarium": 0.06,
+    "clothing": 0.26,
+    "scuba": 0.1717171717171717,
+    "septic": 0.15,
+    "vehicle": 0.06
+   }
+  },
+  {
+   "layer": 10,
+   "match_four": 1.0,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.24649298597194388,
+   "own_first_changed": 0.07014028056112225,
+   "all_swapped_of_four": 0.24248496993987975,
+   "all_first_changed": 0.09819639278557114,
+   "ami_first_label": 0.21680348197115487,
+   "ami_first_label_without_own": 0.21553471353001924,
+   "own_first_changed_by_label": {
+    "aquarium": 0.11,
+    "clothing": 0.07,
+    "scuba": 0.030303030303030304,
+    "septic": 0.0,
+    "vehicle": 0.14
+   }
+  },
+  {
+   "layer": 11,
+   "match_four": 1.0,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.24448897795591182,
+   "own_first_changed": 0.07214428857715431,
+   "all_swapped_of_four": 0.32064128256513025,
+   "all_first_changed": 0.11222444889779559,
+   "ami_first_label": 0.10338736267794207,
+   "ami_first_label_without_own": 0.08215690199602109,
+   "own_first_changed_by_label": {
+    "aquarium": 0.04,
+    "clothing": 0.04,
+    "scuba": 0.08080808080808081,
+    "septic": 0.09,
+    "vehicle": 0.11
+   }
+  },
+  {
+   "layer": 12,
+   "match_four": 0.9979959919839679,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.07214428857715431,
+   "own_first_changed": 0.09418837675350701,
+   "all_swapped_of_four": 0.08817635270541083,
+   "all_first_changed": 0.20040080160320642,
+   "ami_first_label": 0.2551869182061103,
+   "ami_first_label_without_own": 0.247118238303432,
+   "own_first_changed_by_label": {
+    "aquarium": 0.07,
+    "clothing": 0.07,
+    "scuba": 0.1717171717171717,
+    "septic": 0.13,
+    "vehicle": 0.03
+   }
+  },
+  {
+   "layer": 13,
+   "match_four": 1.0,
+   "match_first": 0.9979959919839679,
+   "own_swapped_of_four": 0.10220440881763528,
+   "own_first_changed": 0.06212424849699399,
+   "all_swapped_of_four": 0.1402805611222445,
+   "all_first_changed": 0.1062124248496994,
+   "ami_first_label": 0.039899339118686546,
+   "ami_first_label_without_own": 0.04419728219416066,
+   "own_first_changed_by_label": {
+    "aquarium": 0.03,
+    "clothing": 0.1,
+    "scuba": 0.050505050505050504,
+    "septic": 0.06,
+    "vehicle": 0.07
+   }
+  },
+  {
+   "layer": 14,
+   "match_four": 0.9979959919839679,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.18036072144288579,
+   "own_first_changed": 0.056112224448897796,
+   "all_swapped_of_four": 0.20841683366733466,
+   "all_first_changed": 0.07014028056112225,
+   "ami_first_label": 0.02900007157825116,
+   "ami_first_label_without_own": 0.02948642508178522,
+   "own_first_changed_by_label": {
+    "aquarium": 0.08,
+    "clothing": 0.03,
+    "scuba": 0.050505050505050504,
+    "septic": 0.09,
+    "vehicle": 0.03
+   }
+  },
+  {
+   "layer": 15,
+   "match_four": 0.9959919839679359,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.10220440881763528,
+   "own_first_changed": 0.0841683366733467,
+   "all_swapped_of_four": 0.15831663326653306,
+   "all_first_changed": 0.156312625250501,
+   "ami_first_label": 0.13869567988673873,
+   "ami_first_label_without_own": 0.12914124657960094,
+   "own_first_changed_by_label": {
+    "aquarium": 0.1,
+    "clothing": 0.11,
+    "scuba": 0.050505050505050504,
+    "septic": 0.08,
+    "vehicle": 0.08
+   }
+  },
+  {
+   "layer": 16,
+   "match_four": 0.9979959919839679,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.14428857715430862,
+   "own_first_changed": 0.07014028056112225,
+   "all_swapped_of_four": 0.22444889779559118,
+   "all_first_changed": 0.13026052104208416,
+   "ami_first_label": 0.04187950548596763,
+   "ami_first_label_without_own": 0.0371607665838558,
+   "own_first_changed_by_label": {
+    "aquarium": 0.11,
+    "clothing": 0.01,
+    "scuba": 0.050505050505050504,
+    "septic": 0.11,
+    "vehicle": 0.07
+   }
+  },
+  {
+   "layer": 17,
+   "match_four": 0.9979959919839679,
+   "match_first": 0.9979959919839679,
+   "own_swapped_of_four": 0.06613226452905811,
+   "own_first_changed": 0.026052104208416832,
+   "all_swapped_of_four": 0.10220440881763528,
+   "all_first_changed": 0.05410821643286573,
+   "ami_first_label": 0.09793484729345317,
+   "ami_first_label_without_own": 0.10403442723999436,
+   "own_first_changed_by_label": {
+    "aquarium": 0.02,
+    "clothing": 0.06,
+    "scuba": 0.030303030303030304,
+    "septic": 0.02,
+    "vehicle": 0.0
+   }
+  },
+  {
+   "layer": 18,
+   "match_four": 1.0,
+   "match_first": 0.9979959919839679,
+   "own_swapped_of_four": 0.09418837675350701,
+   "own_first_changed": 0.06012024048096192,
+   "all_swapped_of_four": 0.11422845691382766,
+   "all_first_changed": 0.06012024048096192,
+   "ami_first_label": 0.04968045044569746,
+   "ami_first_label_without_own": 0.04654678809370817,
+   "own_first_changed_by_label": {
+    "aquarium": 0.08,
+    "clothing": 0.0,
+    "scuba": 0.08080808080808081,
+    "septic": 0.07,
+    "vehicle": 0.07
+   }
+  },
+  {
+   "layer": 19,
+   "match_four": 0.9959919839679359,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.08817635270541083,
+   "own_first_changed": 0.03406813627254509,
+   "all_swapped_of_four": 0.15030060120240482,
+   "all_first_changed": 0.06813627254509018,
+   "ami_first_label": 0.18851928115120387,
+   "ami_first_label_without_own": 0.19282993606894688,
+   "own_first_changed_by_label": {
+    "aquarium": 0.03,
+    "clothing": 0.03,
+    "scuba": 0.030303030303030304,
+    "septic": 0.04,
+    "vehicle": 0.04
+   }
+  },
+  {
+   "layer": 20,
+   "match_four": 1.0,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.10020040080160321,
+   "own_first_changed": 0.08216432865731463,
+   "all_swapped_of_four": 0.1062124248496994,
+   "all_first_changed": 0.15430861723446893,
+   "ami_first_label": 0.20450776436041876,
+   "ami_first_label_without_own": 0.19397116268130257,
+   "own_first_changed_by_label": {
+    "aquarium": 0.12,
+    "clothing": 0.07,
+    "scuba": 0.12121212121212122,
+    "septic": 0.03,
+    "vehicle": 0.07
+   }
+  },
+  {
+   "layer": 21,
+   "match_four": 0.9959919839679359,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.07615230460921844,
+   "own_first_changed": 0.07014028056112225,
+   "all_swapped_of_four": 0.14228456913827656,
+   "all_first_changed": 0.16032064128256512,
+   "ami_first_label": 0.15509921591611917,
+   "ami_first_label_without_own": 0.15561305705619907,
+   "own_first_changed_by_label": {
+    "aquarium": 0.03,
+    "clothing": 0.05,
+    "scuba": 0.1414141414141414,
+    "septic": 0.09,
+    "vehicle": 0.04
+   }
+  },
+  {
+   "layer": 22,
+   "match_four": 1.0,
+   "match_first": 0.9979959919839679,
+   "own_swapped_of_four": 0.08216432865731463,
+   "own_first_changed": 0.05811623246492986,
+   "all_swapped_of_four": 0.1523046092184369,
+   "all_first_changed": 0.09218436873747494,
+   "ami_first_label": 0.22691790358310066,
+   "ami_first_label_without_own": 0.23138234654419954,
+   "own_first_changed_by_label": {
+    "aquarium": 0.11,
+    "clothing": 0.03,
+    "scuba": 0.06060606060606061,
+    "septic": 0.06,
+    "vehicle": 0.03
+   }
+  },
+  {
+   "layer": 23,
+   "match_four": 1.0,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.09619238476953908,
+   "own_first_changed": 0.23046092184368738,
+   "all_swapped_of_four": 0.23847695390781562,
+   "all_first_changed": 0.3867735470941884,
+   "ami_first_label": 0.11972598147245588,
+   "ami_first_label_without_own": 0.12682039571453868,
+   "own_first_changed_by_label": {
+    "aquarium": 0.29,
+    "clothing": 0.13,
+    "scuba": 0.1919191919191919,
+    "septic": 0.29,
+    "vehicle": 0.25
+   }
+  }
+ ],
+ "nodes": [
+  {
+   "layer": 0,
+   "expert": 0,
+   "items": 30,
+   "brought": 30,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.2745490981963928,
+   "labels": {
+    "aquarium": 5,
+    "clothing": 7,
+    "scuba": 4,
+    "septic": 14,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 5,
+    "clothing": 7,
+    "scuba": 4,
+    "septic": 14,
+    "vehicle": 0
+   },
+   "p": 1.4407898687872642e-17,
+   "beyond_chance": true
+  },
+  {
+   "layer": 0,
+   "expert": 9,
+   "items": 362,
+   "brought": 0,
+   "pushed_out": 137,
+   "share": 0.0,
+   "layer_share": 0.2745490981963928,
+   "labels": {
+    "aquarium": 66,
+    "clothing": 73,
+    "scuba": 80,
+    "septic": 59,
+    "vehicle": 84
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "p": 7.37980142486846e-51,
+   "beyond_chance": true
+  },
+  {
+   "layer": 0,
+   "expert": 11,
+   "items": 103,
+   "brought": 103,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.2745490981963928,
+   "labels": {
+    "aquarium": 25,
+    "clothing": 20,
+    "scuba": 15,
+    "septic": 27,
+    "vehicle": 16
+   },
+   "brought_labels": {
+    "aquarium": 25,
+    "clothing": 20,
+    "scuba": 15,
+    "septic": 27,
+    "vehicle": 16
+   },
+   "p": 1.5061291633626757e-58,
+   "beyond_chance": true
+  },
+  {
+   "layer": 0,
+   "expert": 18,
+   "items": 4,
+   "brought": 4,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.2745490981963928,
+   "labels": {
+    "aquarium": 4,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 4,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 1,
+   "expert": 1,
+   "items": 352,
+   "brought": 7,
+   "pushed_out": 130,
+   "share": 0.019886363636363636,
+   "layer_share": 0.2785571142284569,
+   "labels": {
+    "aquarium": 66,
+    "clothing": 84,
+    "scuba": 75,
+    "septic": 69,
+    "vehicle": 58
+   },
+   "brought_labels": {
+    "aquarium": 1,
+    "clothing": 2,
+    "scuba": 0,
+    "septic": 3,
+    "vehicle": 1
+   },
+   "p": 2.9311828192894075e-39,
+   "beyond_chance": true
+  },
+  {
+   "layer": 1,
+   "expert": 7,
+   "items": 25,
+   "brought": 25,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.2785571142284569,
+   "labels": {
+    "aquarium": 2,
+    "clothing": 2,
+    "scuba": 10,
+    "septic": 6,
+    "vehicle": 5
+   },
+   "brought_labels": {
+    "aquarium": 2,
+    "clothing": 2,
+    "scuba": 10,
+    "septic": 6,
+    "vehicle": 5
+   },
+   "p": 1.326955521093352e-14,
+   "beyond_chance": true
+  },
+  {
+   "layer": 1,
+   "expert": 17,
+   "items": 84,
+   "brought": 72,
+   "pushed_out": 8,
+   "share": 0.8571428571428571,
+   "layer_share": 0.2785571142284569,
+   "labels": {
+    "aquarium": 13,
+    "clothing": 9,
+    "scuba": 12,
+    "septic": 20,
+    "vehicle": 30
+   },
+   "brought_labels": {
+    "aquarium": 11,
+    "clothing": 6,
+    "scuba": 12,
+    "septic": 18,
+    "vehicle": 25
+   },
+   "p": 2.5917395976209276e-28,
+   "beyond_chance": true
+  },
+  {
+   "layer": 1,
+   "expert": 25,
+   "items": 24,
+   "brought": 23,
+   "pushed_out": 0,
+   "share": 0.9583333333333334,
+   "layer_share": 0.2785571142284569,
+   "labels": {
+    "aquarium": 17,
+    "clothing": 1,
+    "scuba": 2,
+    "septic": 4,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 17,
+    "clothing": 1,
+    "scuba": 2,
+    "septic": 3,
+    "vehicle": 0
+   },
+   "p": 3.0086547887374315e-12,
+   "beyond_chance": true
+  },
+  {
+   "layer": 1,
+   "expert": 28,
+   "items": 14,
+   "brought": 12,
+   "pushed_out": 1,
+   "share": 0.8571428571428571,
+   "layer_share": 0.2785571142284569,
+   "labels": {
+    "aquarium": 2,
+    "clothing": 4,
+    "scuba": 0,
+    "septic": 1,
+    "vehicle": 7
+   },
+   "brought_labels": {
+    "aquarium": 2,
+    "clothing": 2,
+    "scuba": 0,
+    "septic": 1,
+    "vehicle": 7
+   }
+  },
+  {
+   "layer": 2,
+   "expert": 5,
+   "items": 54,
+   "brought": 48,
+   "pushed_out": 2,
+   "share": 0.8888888888888888,
+   "layer_share": 0.10420841683366733,
+   "labels": {
+    "aquarium": 1,
+    "clothing": 5,
+    "scuba": 5,
+    "septic": 4,
+    "vehicle": 39
+   },
+   "brought_labels": {
+    "aquarium": 1,
+    "clothing": 5,
+    "scuba": 5,
+    "septic": 4,
+    "vehicle": 33
+   },
+   "p": 9.791905710386646e-41,
+   "beyond_chance": true
+  },
+  {
+   "layer": 2,
+   "expert": 10,
+   "items": 443,
+   "brought": 2,
+   "pushed_out": 50,
+   "share": 0.004514672686230248,
+   "layer_share": 0.10420841683366733,
+   "labels": {
+    "aquarium": 98,
+    "clothing": 95,
+    "scuba": 94,
+    "septic": 95,
+    "vehicle": 61
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 1,
+    "septic": 0,
+    "vehicle": 1
+   },
+   "p": 1.537068535022896e-18,
+   "beyond_chance": true
+  },
+  {
+   "layer": 2,
+   "expert": 12,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.10420841683366733,
+   "labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 1,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 2,
+   "expert": 22,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.10420841683366733,
+   "labels": {
+    "aquarium": 1,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 1,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 3,
+   "expert": 8,
+   "items": 3,
+   "brought": 3,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.06012024048096192,
+   "labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 2,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 2,
+    "vehicle": 1
+   }
+  },
+  {
+   "layer": 3,
+   "expert": 13,
+   "items": 2,
+   "brought": 2,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.06012024048096192,
+   "labels": {
+    "aquarium": 2,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 2,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 3,
+   "expert": 16,
+   "items": 21,
+   "brought": 19,
+   "pushed_out": 1,
+   "share": 0.9047619047619048,
+   "layer_share": 0.06012024048096192,
+   "labels": {
+    "aquarium": 2,
+    "clothing": 0,
+    "scuba": 3,
+    "septic": 16,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 2,
+    "clothing": 0,
+    "scuba": 3,
+    "septic": 14,
+    "vehicle": 0
+   },
+   "p": 1.1817753460668806e-21,
+   "beyond_chance": true
+  },
+  {
+   "layer": 3,
+   "expert": 23,
+   "items": 4,
+   "brought": 4,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.06012024048096192,
+   "labels": {
+    "aquarium": 0,
+    "clothing": 3,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 3,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 1
+   }
+  },
+  {
+   "layer": 3,
+   "expert": 26,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.06012024048096192,
+   "labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 1,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 1,
+    "septic": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 3,
+   "expert": 31,
+   "items": 468,
+   "brought": 1,
+   "pushed_out": 29,
+   "share": 0.002136752136752137,
+   "layer_share": 0.06012024048096192,
+   "labels": {
+    "aquarium": 96,
+    "clothing": 97,
+    "scuba": 95,
+    "septic": 82,
+    "vehicle": 98
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 1,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "p": 1.6143003347498188e-11,
+   "beyond_chance": true
+  },
+  {
+   "layer": 4,
+   "expert": 0,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.1062124248496994,
+   "labels": {
+    "aquarium": 1,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 4,
+   "expert": 7,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.1062124248496994,
+   "labels": {
+    "aquarium": 0,
+    "clothing": 1,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 4,
+   "expert": 14,
+   "items": 405,
+   "brought": 9,
+   "pushed_out": 44,
+   "share": 0.022222222222222223,
+   "layer_share": 0.1062124248496994,
+   "labels": {
+    "aquarium": 62,
+    "clothing": 95,
+    "scuba": 84,
+    "septic": 81,
+    "vehicle": 83
+   },
+   "brought_labels": {
+    "aquarium": 4,
+    "clothing": 1,
+    "scuba": 2,
+    "septic": 2,
+    "vehicle": 0
+   },
+   "p": 1.4400830620751572e-10,
+   "beyond_chance": true
+  },
+  {
+   "layer": 4,
+   "expert": 17,
+   "items": 15,
+   "brought": 9,
+   "pushed_out": 0,
+   "share": 0.6,
+   "layer_share": 0.1062124248496994,
+   "labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 15
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 9
+   }
+  },
+  {
+   "layer": 4,
+   "expert": 21,
+   "items": 39,
+   "brought": 7,
+   "pushed_out": 5,
+   "share": 0.1794871794871795,
+   "layer_share": 0.1062124248496994,
+   "labels": {
+    "aquarium": 31,
+    "clothing": 3,
+    "scuba": 4,
+    "septic": 0,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "aquarium": 4,
+    "clothing": 2,
+    "scuba": 1,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "p": 0.18476489088138887,
+   "beyond_chance": false
+  },
+  {
+   "layer": 4,
+   "expert": 25,
+   "items": 38,
+   "brought": 28,
+   "pushed_out": 4,
+   "share": 0.7368421052631579,
+   "layer_share": 0.1062124248496994,
+   "labels": {
+    "aquarium": 6,
+    "clothing": 1,
+    "scuba": 11,
+    "septic": 19,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "aquarium": 4,
+    "clothing": 1,
+    "scuba": 10,
+    "septic": 12,
+    "vehicle": 1
+   },
+   "p": 8.668386357733392e-20,
+   "beyond_chance": true
+  },
+  {
+   "layer": 5,
+   "expert": 1,
+   "items": 2,
+   "brought": 2,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.06412825651302605,
+   "labels": {
+    "aquarium": 1,
+    "clothing": 1,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 1,
+    "clothing": 1,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 5,
+   "expert": 3,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 3,
+   "share": 0.0,
+   "layer_share": 0.06412825651302605,
+   "labels": {
+    "aquarium": 1,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 5,
+   "expert": 6,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.06412825651302605,
+   "labels": {
+    "aquarium": 0,
+    "clothing": 1,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 5,
+   "expert": 13,
+   "items": 35,
+   "brought": 13,
+   "pushed_out": 5,
+   "share": 0.37142857142857144,
+   "layer_share": 0.06412825651302605,
+   "labels": {
+    "aquarium": 3,
+    "clothing": 2,
+    "scuba": 17,
+    "septic": 12,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "aquarium": 1,
+    "clothing": 1,
+    "scuba": 7,
+    "septic": 3,
+    "vehicle": 1
+   },
+   "p": 1.1923517366316506e-07,
+   "beyond_chance": true
+  },
+  {
+   "layer": 5,
+   "expert": 18,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.06412825651302605,
+   "labels": {
+    "aquarium": 1,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 1,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 5,
+   "expert": 20,
+   "items": 30,
+   "brought": 4,
+   "pushed_out": 0,
+   "share": 0.13333333333333333,
+   "layer_share": 0.06412825651302605,
+   "labels": {
+    "aquarium": 1,
+    "clothing": 29,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 1,
+    "clothing": 3,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "p": 0.12306409586082223,
+   "beyond_chance": false
+  },
+  {
+   "layer": 5,
+   "expert": 24,
+   "items": 15,
+   "brought": 5,
+   "pushed_out": 2,
+   "share": 0.3333333333333333,
+   "layer_share": 0.06412825651302605,
+   "labels": {
+    "aquarium": 3,
+    "clothing": 3,
+    "scuba": 0,
+    "septic": 2,
+    "vehicle": 7
+   },
+   "brought_labels": {
+    "aquarium": 1,
+    "clothing": 1,
+    "scuba": 0,
+    "septic": 1,
+    "vehicle": 2
+   }
+  },
+  {
+   "layer": 5,
+   "expert": 29,
+   "items": 5,
+   "brought": 2,
+   "pushed_out": 0,
+   "share": 0.4,
+   "layer_share": 0.06412825651302605,
+   "labels": {
+    "aquarium": 1,
+    "clothing": 0,
+    "scuba": 3,
+    "septic": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 2,
+    "septic": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 5,
+   "expert": 31,
+   "items": 409,
+   "brought": 5,
+   "pushed_out": 22,
+   "share": 0.012224938875305624,
+   "layer_share": 0.06412825651302605,
+   "labels": {
+    "aquarium": 89,
+    "clothing": 64,
+    "scuba": 79,
+    "septic": 85,
+    "vehicle": 92
+   },
+   "brought_labels": {
+    "aquarium": 1,
+    "clothing": 1,
+    "scuba": 3,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "p": 5.004092164554589e-07,
+   "beyond_chance": true
+  },
+  {
+   "layer": 6,
+   "expert": 11,
+   "items": 46,
+   "brought": 11,
+   "pushed_out": 19,
+   "share": 0.2391304347826087,
+   "layer_share": 0.06813627254509018,
+   "labels": {
+    "aquarium": 27,
+    "clothing": 0,
+    "scuba": 16,
+    "septic": 3,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 6,
+    "clothing": 0,
+    "scuba": 3,
+    "septic": 2,
+    "vehicle": 0
+   },
+   "p": 0.00020934210426802044,
+   "beyond_chance": true
+  },
+  {
+   "layer": 6,
+   "expert": 19,
+   "items": 11,
+   "brought": 2,
+   "pushed_out": 0,
+   "share": 0.18181818181818182,
+   "layer_share": 0.06813627254509018,
+   "labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 10,
+    "septic": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 2,
+    "septic": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 6,
+   "expert": 23,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.06813627254509018,
+   "labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 1,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 1,
+    "septic": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 6,
+   "expert": 30,
+   "items": 441,
+   "brought": 20,
+   "pushed_out": 14,
+   "share": 0.045351473922902494,
+   "layer_share": 0.06813627254509018,
+   "labels": {
+    "aquarium": 73,
+    "clothing": 100,
+    "scuba": 72,
+    "septic": 96,
+    "vehicle": 100
+   },
+   "brought_labels": {
+    "aquarium": 12,
+    "clothing": 0,
+    "scuba": 6,
+    "septic": 1,
+    "vehicle": 1
+   },
+   "p": 0.058370207292239545,
+   "beyond_chance": false
+  },
+  {
+   "layer": 7,
+   "expert": 4,
+   "items": 40,
+   "brought": 10,
+   "pushed_out": 10,
+   "share": 0.25,
+   "layer_share": 0.06212424849699399,
+   "labels": {
+    "aquarium": 17,
+    "clothing": 0,
+    "scuba": 2,
+    "septic": 12,
+    "vehicle": 9
+   },
+   "brought_labels": {
+    "aquarium": 2,
+    "clothing": 0,
+    "scuba": 1,
+    "septic": 1,
+    "vehicle": 6
+   },
+   "p": 0.00012868135716113396,
+   "beyond_chance": true
+  },
+  {
+   "layer": 7,
+   "expert": 7,
+   "items": 424,
+   "brought": 11,
+   "pushed_out": 20,
+   "share": 0.025943396226415096,
+   "layer_share": 0.06212424849699399,
+   "labels": {
+    "aquarium": 80,
+    "clothing": 71,
+    "scuba": 97,
+    "septic": 86,
+    "vehicle": 90
+   },
+   "brought_labels": {
+    "aquarium": 4,
+    "clothing": 1,
+    "scuba": 0,
+    "septic": 5,
+    "vehicle": 1
+   },
+   "p": 0.0008436661306429237,
+   "beyond_chance": true
+  },
+  {
+   "layer": 7,
+   "expert": 10,
+   "items": 27,
+   "brought": 6,
+   "pushed_out": 1,
+   "share": 0.2222222222222222,
+   "layer_share": 0.06212424849699399,
+   "labels": {
+    "aquarium": 1,
+    "clothing": 26,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 6,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "p": 0.00547314902853591,
+   "beyond_chance": true
+  },
+  {
+   "layer": 7,
+   "expert": 15,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.06212424849699399,
+   "labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 1
+   }
+  },
+  {
+   "layer": 7,
+   "expert": 20,
+   "items": 3,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 0.3333333333333333,
+   "layer_share": 0.06212424849699399,
+   "labels": {
+    "aquarium": 0,
+    "clothing": 3,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 1,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 7,
+   "expert": 25,
+   "items": 4,
+   "brought": 2,
+   "pushed_out": 0,
+   "share": 0.5,
+   "layer_share": 0.06212424849699399,
+   "labels": {
+    "aquarium": 2,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 2,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 2,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 8,
+   "expert": 8,
+   "items": 3,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 0.3333333333333333,
+   "layer_share": 0.03406813627254509,
+   "labels": {
+    "aquarium": 1,
+    "clothing": 0,
+    "scuba": 2,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 1,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 8,
+   "expert": 9,
+   "items": 125,
+   "brought": 5,
+   "pushed_out": 2,
+   "share": 0.04,
+   "layer_share": 0.03406813627254509,
+   "labels": {
+    "aquarium": 15,
+    "clothing": 84,
+    "scuba": 8,
+    "septic": 5,
+    "vehicle": 13
+   },
+   "brought_labels": {
+    "aquarium": 1,
+    "clothing": 0,
+    "scuba": 1,
+    "septic": 1,
+    "vehicle": 2
+   },
+   "p": 0.620009411461765,
+   "beyond_chance": false
+  },
+  {
+   "layer": 8,
+   "expert": 14,
+   "items": 2,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.03406813627254509,
+   "labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 1,
+    "septic": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 8,
+   "expert": 16,
+   "items": 2,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.03406813627254509,
+   "labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 1,
+    "septic": 0,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 8,
+   "expert": 23,
+   "items": 16,
+   "brought": 4,
+   "pushed_out": 1,
+   "share": 0.25,
+   "layer_share": 0.03406813627254509,
+   "labels": {
+    "aquarium": 3,
+    "clothing": 4,
+    "scuba": 3,
+    "septic": 3,
+    "vehicle": 3
+   },
+   "brought_labels": {
+    "aquarium": 1,
+    "clothing": 0,
+    "scuba": 1,
+    "septic": 1,
+    "vehicle": 1
+   }
+  },
+  {
+   "layer": 8,
+   "expert": 30,
+   "items": 333,
+   "brought": 3,
+   "pushed_out": 12,
+   "share": 0.009009009009009009,
+   "layer_share": 0.03406813627254509,
+   "labels": {
+    "aquarium": 74,
+    "clothing": 12,
+    "scuba": 78,
+    "septic": 86,
+    "vehicle": 83
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 1,
+    "scuba": 1,
+    "septic": 1,
+    "vehicle": 0
+   },
+   "p": 0.00610058844594462,
+   "beyond_chance": true
+  },
+  {
+   "layer": 8,
+   "expert": 31,
+   "items": 18,
+   "brought": 4,
+   "pushed_out": 2,
+   "share": 0.2222222222222222,
+   "layer_share": 0.03406813627254509,
+   "labels": {
+    "aquarium": 7,
+    "clothing": 0,
+    "scuba": 6,
+    "septic": 5,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 1,
+    "septic": 3,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 9,
+   "expert": 0,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.1402805611222445,
+   "labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 9,
+   "expert": 7,
+   "items": 2,
+   "brought": 2,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.1402805611222445,
+   "labels": {
+    "aquarium": 1,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 1,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 1,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 9,
+   "expert": 16,
+   "items": 100,
+   "brought": 13,
+   "pushed_out": 19,
+   "share": 0.13,
+   "layer_share": 0.1402805611222445,
+   "labels": {
+    "aquarium": 14,
+    "clothing": 31,
+    "scuba": 17,
+    "septic": 14,
+    "vehicle": 24
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 6,
+    "scuba": 3,
+    "septic": 2,
+    "vehicle": 2
+   },
+   "p": 0.8857281971499529,
+   "beyond_chance": false
+  },
+  {
+   "layer": 9,
+   "expert": 18,
+   "items": 37,
+   "brought": 11,
+   "pushed_out": 5,
+   "share": 0.2972972972972973,
+   "layer_share": 0.1402805611222445,
+   "labels": {
+    "aquarium": 0,
+    "clothing": 33,
+    "scuba": 4,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 8,
+    "scuba": 3,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "p": 0.014193822791983692,
+   "beyond_chance": true
+  },
+  {
+   "layer": 9,
+   "expert": 20,
+   "items": 98,
+   "brought": 19,
+   "pushed_out": 8,
+   "share": 0.19387755102040816,
+   "layer_share": 0.1402805611222445,
+   "labels": {
+    "aquarium": 13,
+    "clothing": 1,
+    "scuba": 19,
+    "septic": 64,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "aquarium": 4,
+    "clothing": 1,
+    "scuba": 2,
+    "septic": 11,
+    "vehicle": 1
+   },
+   "p": 0.14375423146130725,
+   "beyond_chance": false
+  },
+  {
+   "layer": 9,
+   "expert": 26,
+   "items": 256,
+   "brought": 22,
+   "pushed_out": 35,
+   "share": 0.0859375,
+   "layer_share": 0.1402805611222445,
+   "labels": {
+    "aquarium": 71,
+    "clothing": 35,
+    "scuba": 56,
+    "septic": 19,
+    "vehicle": 75
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 11,
+    "scuba": 7,
+    "septic": 1,
+    "vehicle": 3
+   },
+   "p": 0.01139880490962274,
+   "beyond_chance": true
+  },
+  {
+   "layer": 9,
+   "expert": 27,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.1402805611222445,
+   "labels": {
+    "aquarium": 1,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 1,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 9,
+   "expert": 30,
+   "items": 4,
+   "brought": 2,
+   "pushed_out": 3,
+   "share": 0.5,
+   "layer_share": 0.1402805611222445,
+   "labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 3,
+    "septic": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 2,
+    "septic": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 10,
+   "expert": 2,
+   "items": 2,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.07014028056112225,
+   "labels": {
+    "aquarium": 2,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 10,
+   "expert": 5,
+   "items": 24,
+   "brought": 9,
+   "pushed_out": 1,
+   "share": 0.375,
+   "layer_share": 0.07014028056112225,
+   "labels": {
+    "aquarium": 5,
+    "clothing": 0,
+    "scuba": 1,
+    "septic": 0,
+    "vehicle": 18
+   },
+   "brought_labels": {
+    "aquarium": 3,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 6
+   },
+   "p": 2.0302522460078384e-05,
+   "beyond_chance": true
+  },
+  {
+   "layer": 10,
+   "expert": 6,
+   "items": 14,
+   "brought": 3,
+   "pushed_out": 0,
+   "share": 0.21428571428571427,
+   "layer_share": 0.07014028056112225,
+   "labels": {
+    "aquarium": 2,
+    "clothing": 3,
+    "scuba": 1,
+    "septic": 2,
+    "vehicle": 6
+   },
+   "brought_labels": {
+    "aquarium": 1,
+    "clothing": 2,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 10,
+   "expert": 8,
+   "items": 13,
+   "brought": 5,
+   "pushed_out": 1,
+   "share": 0.38461538461538464,
+   "layer_share": 0.07014028056112225,
+   "labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 1,
+    "septic": 0,
+    "vehicle": 12
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 1,
+    "septic": 0,
+    "vehicle": 4
+   }
+  },
+  {
+   "layer": 10,
+   "expert": 12,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.07014028056112225,
+   "labels": {
+    "aquarium": 1,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 1,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 10,
+   "expert": 15,
+   "items": 343,
+   "brought": 2,
+   "pushed_out": 19,
+   "share": 0.0058309037900874635,
+   "layer_share": 0.07014028056112225,
+   "labels": {
+    "aquarium": 78,
+    "clothing": 62,
+    "scuba": 92,
+    "septic": 98,
+    "vehicle": 13
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 1,
+    "scuba": 1,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "p": 9.052218895686275e-09,
+   "beyond_chance": true
+  },
+  {
+   "layer": 10,
+   "expert": 19,
+   "items": 66,
+   "brought": 10,
+   "pushed_out": 6,
+   "share": 0.15151515151515152,
+   "layer_share": 0.07014028056112225,
+   "labels": {
+    "aquarium": 4,
+    "clothing": 33,
+    "scuba": 3,
+    "septic": 0,
+    "vehicle": 26
+   },
+   "brought_labels": {
+    "aquarium": 2,
+    "clothing": 4,
+    "scuba": 1,
+    "septic": 0,
+    "vehicle": 3
+   },
+   "p": 0.024540269531898536,
+   "beyond_chance": true
+  },
+  {
+   "layer": 10,
+   "expert": 21,
+   "items": 3,
+   "brought": 1,
+   "pushed_out": 1,
+   "share": 0.3333333333333333,
+   "layer_share": 0.07014028056112225,
+   "labels": {
+    "aquarium": 1,
+    "clothing": 0,
+    "scuba": 1,
+    "septic": 0,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "aquarium": 1,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 10,
+   "expert": 24,
+   "items": 33,
+   "brought": 4,
+   "pushed_out": 7,
+   "share": 0.12121212121212122,
+   "layer_share": 0.07014028056112225,
+   "labels": {
+    "aquarium": 7,
+    "clothing": 2,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 24
+   },
+   "brought_labels": {
+    "aquarium": 3,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 1
+   },
+   "p": 0.28907918810064703,
+   "beyond_chance": false
+  },
+  {
+   "layer": 11,
+   "expert": 0,
+   "items": 3,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 0.3333333333333333,
+   "layer_share": 0.07214428857715431,
+   "labels": {
+    "aquarium": 1,
+    "clothing": 0,
+    "scuba": 1,
+    "septic": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 1,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 11,
+   "expert": 7,
+   "items": 17,
+   "brought": 1,
+   "pushed_out": 3,
+   "share": 0.058823529411764705,
+   "layer_share": 0.07214428857715431,
+   "labels": {
+    "aquarium": 0,
+    "clothing": 6,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 11
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 1
+   }
+  },
+  {
+   "layer": 11,
+   "expert": 13,
+   "items": 22,
+   "brought": 8,
+   "pushed_out": 3,
+   "share": 0.36363636363636365,
+   "layer_share": 0.07214428857715431,
+   "labels": {
+    "aquarium": 2,
+    "clothing": 0,
+    "scuba": 7,
+    "septic": 13,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 4,
+    "septic": 4,
+    "vehicle": 0
+   },
+   "p": 9.330486476419873e-05,
+   "beyond_chance": true
+  },
+  {
+   "layer": 11,
+   "expert": 20,
+   "items": 401,
+   "brought": 4,
+   "pushed_out": 30,
+   "share": 0.00997506234413965,
+   "layer_share": 0.07214428857715431,
+   "labels": {
+    "aquarium": 89,
+    "clothing": 90,
+    "scuba": 84,
+    "septic": 79,
+    "vehicle": 59
+   },
+   "brought_labels": {
+    "aquarium": 1,
+    "clothing": 2,
+    "scuba": 0,
+    "septic": 1,
+    "vehicle": 0
+   },
+   "p": 9.893252633572562e-09,
+   "beyond_chance": true
+  },
+  {
+   "layer": 11,
+   "expert": 21,
+   "items": 23,
+   "brought": 8,
+   "pushed_out": 0,
+   "share": 0.34782608695652173,
+   "layer_share": 0.07214428857715431,
+   "labels": {
+    "aquarium": 1,
+    "clothing": 1,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 21
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 8
+   },
+   "p": 0.00013401089650756263,
+   "beyond_chance": true
+  },
+  {
+   "layer": 11,
+   "expert": 23,
+   "items": 15,
+   "brought": 9,
+   "pushed_out": 0,
+   "share": 0.6,
+   "layer_share": 0.07214428857715431,
+   "labels": {
+    "aquarium": 3,
+    "clothing": 1,
+    "scuba": 4,
+    "septic": 6,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 1,
+    "scuba": 3,
+    "septic": 4,
+    "vehicle": 1
+   }
+  },
+  {
+   "layer": 11,
+   "expert": 26,
+   "items": 12,
+   "brought": 2,
+   "pushed_out": 0,
+   "share": 0.16666666666666666,
+   "layer_share": 0.07214428857715431,
+   "labels": {
+    "aquarium": 2,
+    "clothing": 0,
+    "scuba": 3,
+    "septic": 1,
+    "vehicle": 6
+   },
+   "brought_labels": {
+    "aquarium": 1,
+    "clothing": 0,
+    "scuba": 1,
+    "septic": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 11,
+   "expert": 28,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.07214428857715431,
+   "labels": {
+    "aquarium": 1,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 1,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 11,
+   "expert": 30,
+   "items": 5,
+   "brought": 2,
+   "pushed_out": 0,
+   "share": 0.4,
+   "layer_share": 0.07214428857715431,
+   "labels": {
+    "aquarium": 1,
+    "clothing": 2,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 2
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 1,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 1
+   }
+  },
+  {
+   "layer": 12,
+   "expert": 2,
+   "items": 71,
+   "brought": 5,
+   "pushed_out": 1,
+   "share": 0.07042253521126761,
+   "layer_share": 0.09418837675350701,
+   "labels": {
+    "aquarium": 1,
+    "clothing": 69,
+    "scuba": 1,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 5,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "p": 0.6830933248208295,
+   "beyond_chance": false
+  },
+  {
+   "layer": 12,
+   "expert": 13,
+   "items": 119,
+   "brought": 17,
+   "pushed_out": 9,
+   "share": 0.14285714285714285,
+   "layer_share": 0.09418837675350701,
+   "labels": {
+    "aquarium": 15,
+    "clothing": 1,
+    "scuba": 48,
+    "septic": 42,
+    "vehicle": 13
+   },
+   "brought_labels": {
+    "aquarium": 2,
+    "clothing": 0,
+    "scuba": 7,
+    "septic": 7,
+    "vehicle": 1
+   },
+   "p": 0.08195568298074274,
+   "beyond_chance": false
+  },
+  {
+   "layer": 12,
+   "expert": 17,
+   "items": 14,
+   "brought": 1,
+   "pushed_out": 1,
+   "share": 0.07142857142857142,
+   "layer_share": 0.09418837675350701,
+   "labels": {
+    "aquarium": 1,
+    "clothing": 1,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 12
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 1,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 12,
+   "expert": 18,
+   "items": 14,
+   "brought": 6,
+   "pushed_out": 0,
+   "share": 0.42857142857142855,
+   "layer_share": 0.09418837675350701,
+   "labels": {
+    "aquarium": 4,
+    "clothing": 0,
+    "scuba": 7,
+    "septic": 3,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 2,
+    "clothing": 0,
+    "scuba": 3,
+    "septic": 1,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 12,
+   "expert": 21,
+   "items": 55,
+   "brought": 9,
+   "pushed_out": 1,
+   "share": 0.16363636363636364,
+   "layer_share": 0.09418837675350701,
+   "labels": {
+    "aquarium": 8,
+    "clothing": 18,
+    "scuba": 11,
+    "septic": 10,
+    "vehicle": 8
+   },
+   "brought_labels": {
+    "aquarium": 3,
+    "clothing": 1,
+    "scuba": 3,
+    "septic": 1,
+    "vehicle": 1
+   },
+   "p": 0.09956113079490636,
+   "beyond_chance": false
+  },
+  {
+   "layer": 12,
+   "expert": 25,
+   "items": 225,
+   "brought": 9,
+   "pushed_out": 35,
+   "share": 0.04,
+   "layer_share": 0.09418837675350701,
+   "labels": {
+    "aquarium": 71,
+    "clothing": 11,
+    "scuba": 32,
+    "septic": 44,
+    "vehicle": 67
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 4,
+    "septic": 4,
+    "vehicle": 1
+   },
+   "p": 0.0028991479065477175,
+   "beyond_chance": true
+  },
+  {
+   "layer": 12,
+   "expert": 31,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.09418837675350701,
+   "labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 13,
+   "expert": 0,
+   "items": 29,
+   "brought": 12,
+   "pushed_out": 2,
+   "share": 0.41379310344827586,
+   "layer_share": 0.06212424849699399,
+   "labels": {
+    "aquarium": 4,
+    "clothing": 2,
+    "scuba": 5,
+    "septic": 14,
+    "vehicle": 4
+   },
+   "brought_labels": {
+    "aquarium": 2,
+    "clothing": 1,
+    "scuba": 1,
+    "septic": 4,
+    "vehicle": 4
+   },
+   "p": 6.303928576688219e-08,
+   "beyond_chance": true
+  },
+  {
+   "layer": 13,
+   "expert": 5,
+   "items": 59,
+   "brought": 14,
+   "pushed_out": 3,
+   "share": 0.23728813559322035,
+   "layer_share": 0.06212424849699399,
+   "labels": {
+    "aquarium": 9,
+    "clothing": 28,
+    "scuba": 6,
+    "septic": 1,
+    "vehicle": 15
+   },
+   "brought_labels": {
+    "aquarium": 1,
+    "clothing": 8,
+    "scuba": 2,
+    "septic": 1,
+    "vehicle": 2
+   },
+   "p": 1.1752905213820829e-05,
+   "beyond_chance": true
+  },
+  {
+   "layer": 13,
+   "expert": 21,
+   "items": 3,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.06212424849699399,
+   "labels": {
+    "aquarium": 1,
+    "clothing": 1,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 13,
+   "expert": 24,
+   "items": 408,
+   "brought": 5,
+   "pushed_out": 26,
+   "share": 0.012254901960784314,
+   "layer_share": 0.06212424849699399,
+   "labels": {
+    "aquarium": 86,
+    "clothing": 69,
+    "scuba": 88,
+    "septic": 85,
+    "vehicle": 80
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 1,
+    "scuba": 2,
+    "septic": 1,
+    "vehicle": 1
+   },
+   "p": 1.0125436181067044e-06,
+   "beyond_chance": true
+  },
+  {
+   "layer": 14,
+   "expert": 1,
+   "items": 17,
+   "brought": 6,
+   "pushed_out": 6,
+   "share": 0.35294117647058826,
+   "layer_share": 0.056112224448897796,
+   "labels": {
+    "aquarium": 3,
+    "clothing": 1,
+    "scuba": 6,
+    "septic": 3,
+    "vehicle": 4
+   },
+   "brought_labels": {
+    "aquarium": 1,
+    "clothing": 1,
+    "scuba": 2,
+    "septic": 0,
+    "vehicle": 2
+   }
+  },
+  {
+   "layer": 14,
+   "expert": 4,
+   "items": 26,
+   "brought": 9,
+   "pushed_out": 7,
+   "share": 0.34615384615384615,
+   "layer_share": 0.056112224448897796,
+   "labels": {
+    "aquarium": 7,
+    "clothing": 0,
+    "scuba": 7,
+    "septic": 10,
+    "vehicle": 2
+   },
+   "brought_labels": {
+    "aquarium": 2,
+    "clothing": 0,
+    "scuba": 2,
+    "septic": 4,
+    "vehicle": 1
+   },
+   "p": 7.169140583785726e-06,
+   "beyond_chance": true
+  },
+  {
+   "layer": 14,
+   "expert": 6,
+   "items": 6,
+   "brought": 3,
+   "pushed_out": 0,
+   "share": 0.5,
+   "layer_share": 0.056112224448897796,
+   "labels": {
+    "aquarium": 0,
+    "clothing": 3,
+    "scuba": 0,
+    "septic": 2,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 2,
+    "scuba": 0,
+    "septic": 1,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 14,
+   "expert": 7,
+   "items": 3,
+   "brought": 2,
+   "pushed_out": 0,
+   "share": 0.6666666666666666,
+   "layer_share": 0.056112224448897796,
+   "labels": {
+    "aquarium": 3,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 2,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 14,
+   "expert": 15,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.056112224448897796,
+   "labels": {
+    "aquarium": 1,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 1,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 14,
+   "expert": 23,
+   "items": 4,
+   "brought": 1,
+   "pushed_out": 1,
+   "share": 0.25,
+   "layer_share": 0.056112224448897796,
+   "labels": {
+    "aquarium": 4,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 1,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 14,
+   "expert": 26,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.056112224448897796,
+   "labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 1,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 1,
+    "septic": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 14,
+   "expert": 29,
+   "items": 441,
+   "brought": 5,
+   "pushed_out": 14,
+   "share": 0.011337868480725623,
+   "layer_share": 0.056112224448897796,
+   "labels": {
+    "aquarium": 82,
+    "clothing": 96,
+    "scuba": 85,
+    "septic": 85,
+    "vehicle": 93
+   },
+   "brought_labels": {
+    "aquarium": 1,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 4,
+    "vehicle": 0
+   },
+   "p": 2.175616019374314e-06,
+   "beyond_chance": true
+  },
+  {
+   "layer": 15,
+   "expert": 4,
+   "items": 12,
+   "brought": 3,
+   "pushed_out": 0,
+   "share": 0.25,
+   "layer_share": 0.0841683366733467,
+   "labels": {
+    "aquarium": 2,
+    "clothing": 3,
+    "scuba": 0,
+    "septic": 1,
+    "vehicle": 6
+   },
+   "brought_labels": {
+    "aquarium": 1,
+    "clothing": 1,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 1
+   }
+  },
+  {
+   "layer": 15,
+   "expert": 9,
+   "items": 199,
+   "brought": 15,
+   "pushed_out": 10,
+   "share": 0.07537688442211055,
+   "layer_share": 0.0841683366733467,
+   "labels": {
+    "aquarium": 55,
+    "clothing": 11,
+    "scuba": 56,
+    "septic": 61,
+    "vehicle": 16
+   },
+   "brought_labels": {
+    "aquarium": 3,
+    "clothing": 1,
+    "scuba": 3,
+    "septic": 6,
+    "vehicle": 2
+   },
+   "p": 0.7979703361348056,
+   "beyond_chance": false
+  },
+  {
+   "layer": 15,
+   "expert": 22,
+   "items": 9,
+   "brought": 2,
+   "pushed_out": 3,
+   "share": 0.2222222222222222,
+   "layer_share": 0.0841683366733467,
+   "labels": {
+    "aquarium": 0,
+    "clothing": 5,
+    "scuba": 0,
+    "septic": 1,
+    "vehicle": 3
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 2,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 15,
+   "expert": 23,
+   "items": 3,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.0841683366733467,
+   "labels": {
+    "aquarium": 1,
+    "clothing": 0,
+    "scuba": 1,
+    "septic": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 15,
+   "expert": 26,
+   "items": 197,
+   "brought": 9,
+   "pushed_out": 26,
+   "share": 0.04568527918781726,
+   "layer_share": 0.0841683366733467,
+   "labels": {
+    "aquarium": 34,
+    "clothing": 62,
+    "scuba": 40,
+    "septic": 36,
+    "vehicle": 25
+   },
+   "brought_labels": {
+    "aquarium": 3,
+    "clothing": 1,
+    "scuba": 2,
+    "septic": 2,
+    "vehicle": 1
+   },
+   "p": 0.053289909132558745,
+   "beyond_chance": false
+  },
+  {
+   "layer": 15,
+   "expert": 28,
+   "items": 79,
+   "brought": 13,
+   "pushed_out": 3,
+   "share": 0.16455696202531644,
+   "layer_share": 0.0841683366733467,
+   "labels": {
+    "aquarium": 8,
+    "clothing": 19,
+    "scuba": 2,
+    "septic": 0,
+    "vehicle": 50
+   },
+   "brought_labels": {
+    "aquarium": 3,
+    "clothing": 6,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 4
+   },
+   "p": 0.022366190948392796,
+   "beyond_chance": true
+  },
+  {
+   "layer": 16,
+   "expert": 0,
+   "items": 46,
+   "brought": 4,
+   "pushed_out": 6,
+   "share": 0.08695652173913043,
+   "layer_share": 0.07014028056112225,
+   "labels": {
+    "aquarium": 2,
+    "clothing": 1,
+    "scuba": 14,
+    "septic": 14,
+    "vehicle": 15
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 2,
+    "vehicle": 2
+   },
+   "p": 0.5627123471052755,
+   "beyond_chance": false
+  },
+  {
+   "layer": 16,
+   "expert": 3,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.07014028056112225,
+   "labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 1
+   }
+  },
+  {
+   "layer": 16,
+   "expert": 4,
+   "items": 81,
+   "brought": 11,
+   "pushed_out": 4,
+   "share": 0.13580246913580246,
+   "layer_share": 0.07014028056112225,
+   "labels": {
+    "aquarium": 21,
+    "clothing": 11,
+    "scuba": 12,
+    "septic": 20,
+    "vehicle": 17
+   },
+   "brought_labels": {
+    "aquarium": 4,
+    "clothing": 0,
+    "scuba": 2,
+    "septic": 4,
+    "vehicle": 1
+   },
+   "p": 0.02858767783263048,
+   "beyond_chance": true
+  },
+  {
+   "layer": 16,
+   "expert": 11,
+   "items": 338,
+   "brought": 12,
+   "pushed_out": 22,
+   "share": 0.03550295857988166,
+   "layer_share": 0.07014028056112225,
+   "labels": {
+    "aquarium": 69,
+    "clothing": 85,
+    "scuba": 68,
+    "septic": 52,
+    "vehicle": 64
+   },
+   "brought_labels": {
+    "aquarium": 5,
+    "clothing": 0,
+    "scuba": 3,
+    "septic": 2,
+    "vehicle": 2
+   },
+   "p": 0.010151892416457621,
+   "beyond_chance": true
+  },
+  {
+   "layer": 16,
+   "expert": 13,
+   "items": 3,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 0.3333333333333333,
+   "layer_share": 0.07014028056112225,
+   "labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 1,
+    "septic": 1,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 1
+   }
+  },
+  {
+   "layer": 16,
+   "expert": 21,
+   "items": 21,
+   "brought": 3,
+   "pushed_out": 3,
+   "share": 0.14285714285714285,
+   "layer_share": 0.07014028056112225,
+   "labels": {
+    "aquarium": 6,
+    "clothing": 0,
+    "scuba": 3,
+    "septic": 12,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 1,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 2,
+    "vehicle": 0
+   },
+   "p": 0.17939598185129152,
+   "beyond_chance": false
+  },
+  {
+   "layer": 16,
+   "expert": 24,
+   "items": 2,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.07014028056112225,
+   "labels": {
+    "aquarium": 0,
+    "clothing": 2,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 16,
+   "expert": 27,
+   "items": 5,
+   "brought": 2,
+   "pushed_out": 0,
+   "share": 0.4,
+   "layer_share": 0.07014028056112225,
+   "labels": {
+    "aquarium": 2,
+    "clothing": 0,
+    "scuba": 1,
+    "septic": 1,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "aquarium": 1,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 1,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 16,
+   "expert": 31,
+   "items": 2,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 0.5,
+   "layer_share": 0.07014028056112225,
+   "labels": {
+    "aquarium": 0,
+    "clothing": 1,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 1,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 17,
+   "expert": 2,
+   "items": 2,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 0.5,
+   "layer_share": 0.026052104208416832,
+   "labels": {
+    "aquarium": 2,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 1,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 17,
+   "expert": 5,
+   "items": 39,
+   "brought": 1,
+   "pushed_out": 4,
+   "share": 0.02564102564102564,
+   "layer_share": 0.026052104208416832,
+   "labels": {
+    "aquarium": 1,
+    "clothing": 31,
+    "scuba": 3,
+    "septic": 1,
+    "vehicle": 3
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 1,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "p": 1.0,
+   "beyond_chance": false
+  },
+  {
+   "layer": 17,
+   "expert": 7,
+   "items": 425,
+   "brought": 6,
+   "pushed_out": 5,
+   "share": 0.01411764705882353,
+   "layer_share": 0.026052104208416832,
+   "labels": {
+    "aquarium": 92,
+    "clothing": 63,
+    "scuba": 83,
+    "septic": 90,
+    "vehicle": 97
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 3,
+    "scuba": 3,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "p": 0.16672915610080377,
+   "beyond_chance": false
+  },
+  {
+   "layer": 17,
+   "expert": 9,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.026052104208416832,
+   "labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 17,
+   "expert": 16,
+   "items": 5,
+   "brought": 2,
+   "pushed_out": 0,
+   "share": 0.4,
+   "layer_share": 0.026052104208416832,
+   "labels": {
+    "aquarium": 0,
+    "clothing": 5,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 2,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 17,
+   "expert": 25,
+   "items": 27,
+   "brought": 3,
+   "pushed_out": 4,
+   "share": 0.1111111111111111,
+   "layer_share": 0.026052104208416832,
+   "labels": {
+    "aquarium": 5,
+    "clothing": 1,
+    "scuba": 13,
+    "septic": 8,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 1,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 2,
+    "vehicle": 0
+   },
+   "p": 0.0324530808008518,
+   "beyond_chance": false
+  },
+  {
+   "layer": 18,
+   "expert": 1,
+   "items": 2,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 0.5,
+   "layer_share": 0.06012024048096192,
+   "labels": {
+    "aquarium": 1,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 1
+   }
+  },
+  {
+   "layer": 18,
+   "expert": 3,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 1,
+   "share": 0.0,
+   "layer_share": 0.06012024048096192,
+   "labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 18,
+   "expert": 14,
+   "items": 396,
+   "brought": 8,
+   "pushed_out": 21,
+   "share": 0.020202020202020204,
+   "layer_share": 0.06012024048096192,
+   "labels": {
+    "aquarium": 72,
+    "clothing": 100,
+    "scuba": 74,
+    "septic": 64,
+    "vehicle": 86
+   },
+   "brought_labels": {
+    "aquarium": 5,
+    "clothing": 0,
+    "scuba": 2,
+    "septic": 0,
+    "vehicle": 1
+   },
+   "p": 0.00027589508963943977,
+   "beyond_chance": true
+  },
+  {
+   "layer": 18,
+   "expert": 20,
+   "items": 13,
+   "brought": 5,
+   "pushed_out": 0,
+   "share": 0.38461538461538464,
+   "layer_share": 0.06012024048096192,
+   "labels": {
+    "aquarium": 3,
+    "clothing": 0,
+    "scuba": 4,
+    "septic": 5,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "aquarium": 1,
+    "clothing": 0,
+    "scuba": 2,
+    "septic": 2,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 18,
+   "expert": 26,
+   "items": 3,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 0.3333333333333333,
+   "layer_share": 0.06012024048096192,
+   "labels": {
+    "aquarium": 1,
+    "clothing": 0,
+    "scuba": 1,
+    "septic": 0,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 1
+   }
+  },
+  {
+   "layer": 18,
+   "expert": 27,
+   "items": 84,
+   "brought": 15,
+   "pushed_out": 8,
+   "share": 0.17857142857142858,
+   "layer_share": 0.06012024048096192,
+   "labels": {
+    "aquarium": 23,
+    "clothing": 0,
+    "scuba": 20,
+    "septic": 30,
+    "vehicle": 11
+   },
+   "brought_labels": {
+    "aquarium": 2,
+    "clothing": 0,
+    "scuba": 4,
+    "septic": 5,
+    "vehicle": 4
+   },
+   "p": 0.00013612612750224252,
+   "beyond_chance": true
+  },
+  {
+   "layer": 19,
+   "expert": 6,
+   "items": 2,
+   "brought": 2,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.03406813627254509,
+   "labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 1,
+    "septic": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 1,
+    "septic": 1,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 19,
+   "expert": 13,
+   "items": 181,
+   "brought": 7,
+   "pushed_out": 7,
+   "share": 0.03867403314917127,
+   "layer_share": 0.03406813627254509,
+   "labels": {
+    "aquarium": 32,
+    "clothing": 25,
+    "scuba": 42,
+    "septic": 32,
+    "vehicle": 50
+   },
+   "brought_labels": {
+    "aquarium": 3,
+    "clothing": 1,
+    "scuba": 1,
+    "septic": 2,
+    "vehicle": 0
+   },
+   "p": 0.679509553543844,
+   "beyond_chance": false
+  },
+  {
+   "layer": 19,
+   "expert": 16,
+   "items": 2,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 0.5,
+   "layer_share": 0.03406813627254509,
+   "labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 2
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 1
+   }
+  },
+  {
+   "layer": 19,
+   "expert": 22,
+   "items": 92,
+   "brought": 2,
+   "pushed_out": 6,
+   "share": 0.021739130434782608,
+   "layer_share": 0.03406813627254509,
+   "labels": {
+    "aquarium": 2,
+    "clothing": 73,
+    "scuba": 10,
+    "septic": 3,
+    "vehicle": 4
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 1,
+    "scuba": 1,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "p": 0.7729071562463017,
+   "beyond_chance": false
+  },
+  {
+   "layer": 19,
+   "expert": 31,
+   "items": 222,
+   "brought": 5,
+   "pushed_out": 4,
+   "share": 0.02252252252252252,
+   "layer_share": 0.03406813627254509,
+   "labels": {
+    "aquarium": 66,
+    "clothing": 2,
+    "scuba": 46,
+    "septic": 64,
+    "vehicle": 44
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 1,
+    "scuba": 0,
+    "septic": 1,
+    "vehicle": 3
+   },
+   "p": 0.45779746668409105,
+   "beyond_chance": false
+  },
+  {
+   "layer": 20,
+   "expert": 0,
+   "items": 26,
+   "brought": 2,
+   "pushed_out": 4,
+   "share": 0.07692307692307693,
+   "layer_share": 0.08216432865731463,
+   "labels": {
+    "aquarium": 3,
+    "clothing": 1,
+    "scuba": 6,
+    "septic": 9,
+    "vehicle": 7
+   },
+   "brought_labels": {
+    "aquarium": 2,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "p": 1.0,
+   "beyond_chance": false
+  },
+  {
+   "layer": 20,
+   "expert": 5,
+   "items": 6,
+   "brought": 3,
+   "pushed_out": 1,
+   "share": 0.5,
+   "layer_share": 0.08216432865731463,
+   "labels": {
+    "aquarium": 0,
+    "clothing": 5,
+    "scuba": 1,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 2,
+    "scuba": 1,
+    "septic": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 20,
+   "expert": 15,
+   "items": 138,
+   "brought": 10,
+   "pushed_out": 4,
+   "share": 0.07246376811594203,
+   "layer_share": 0.08216432865731463,
+   "labels": {
+    "aquarium": 10,
+    "clothing": 91,
+    "scuba": 16,
+    "septic": 6,
+    "vehicle": 15
+   },
+   "brought_labels": {
+    "aquarium": 1,
+    "clothing": 5,
+    "scuba": 2,
+    "septic": 0,
+    "vehicle": 2
+   },
+   "p": 0.8762560014750875,
+   "beyond_chance": false
+  },
+  {
+   "layer": 20,
+   "expert": 16,
+   "items": 109,
+   "brought": 3,
+   "pushed_out": 18,
+   "share": 0.027522935779816515,
+   "layer_share": 0.08216432865731463,
+   "labels": {
+    "aquarium": 23,
+    "clothing": 0,
+    "scuba": 41,
+    "septic": 27,
+    "vehicle": 18
+   },
+   "brought_labels": {
+    "aquarium": 1,
+    "clothing": 0,
+    "scuba": 2,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "p": 0.03480926288326522,
+   "beyond_chance": false
+  },
+  {
+   "layer": 20,
+   "expert": 21,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.08216432865731463,
+   "labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 1
+   }
+  },
+  {
+   "layer": 20,
+   "expert": 25,
+   "items": 87,
+   "brought": 10,
+   "pushed_out": 1,
+   "share": 0.11494252873563218,
+   "layer_share": 0.08216432865731463,
+   "labels": {
+    "aquarium": 42,
+    "clothing": 0,
+    "scuba": 10,
+    "septic": 22,
+    "vehicle": 13
+   },
+   "brought_labels": {
+    "aquarium": 5,
+    "clothing": 0,
+    "scuba": 3,
+    "septic": 0,
+    "vehicle": 2
+   },
+   "p": 0.24243340969696398,
+   "beyond_chance": false
+  },
+  {
+   "layer": 20,
+   "expert": 31,
+   "items": 132,
+   "brought": 12,
+   "pushed_out": 13,
+   "share": 0.09090909090909091,
+   "layer_share": 0.08216432865731463,
+   "labels": {
+    "aquarium": 22,
+    "clothing": 3,
+    "scuba": 25,
+    "septic": 36,
+    "vehicle": 46
+   },
+   "brought_labels": {
+    "aquarium": 3,
+    "clothing": 0,
+    "scuba": 4,
+    "septic": 3,
+    "vehicle": 2
+   },
+   "p": 0.6361306619871333,
+   "beyond_chance": false
+  },
+  {
+   "layer": 21,
+   "expert": 2,
+   "items": 102,
+   "brought": 7,
+   "pushed_out": 13,
+   "share": 0.06862745098039216,
+   "layer_share": 0.07014028056112225,
+   "labels": {
+    "aquarium": 16,
+    "clothing": 19,
+    "scuba": 12,
+    "septic": 22,
+    "vehicle": 33
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 3,
+    "scuba": 1,
+    "septic": 2,
+    "vehicle": 1
+   },
+   "p": 1.0,
+   "beyond_chance": false
+  },
+  {
+   "layer": 21,
+   "expert": 11,
+   "items": 4,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.07014028056112225,
+   "labels": {
+    "aquarium": 0,
+    "clothing": 4,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 21,
+   "expert": 13,
+   "items": 80,
+   "brought": 17,
+   "pushed_out": 7,
+   "share": 0.2125,
+   "layer_share": 0.07014028056112225,
+   "labels": {
+    "aquarium": 9,
+    "clothing": 7,
+    "scuba": 38,
+    "septic": 20,
+    "vehicle": 6
+   },
+   "brought_labels": {
+    "aquarium": 1,
+    "clothing": 1,
+    "scuba": 8,
+    "septic": 5,
+    "vehicle": 2
+   },
+   "p": 3.371689987752663e-05,
+   "beyond_chance": true
+  },
+  {
+   "layer": 21,
+   "expert": 18,
+   "items": 176,
+   "brought": 4,
+   "pushed_out": 6,
+   "share": 0.022727272727272728,
+   "layer_share": 0.07014028056112225,
+   "labels": {
+    "aquarium": 59,
+    "clothing": 4,
+    "scuba": 37,
+    "septic": 40,
+    "vehicle": 36
+   },
+   "brought_labels": {
+    "aquarium": 1,
+    "clothing": 0,
+    "scuba": 2,
+    "septic": 0,
+    "vehicle": 1
+   },
+   "p": 0.010984775161532965,
+   "beyond_chance": true
+  },
+  {
+   "layer": 21,
+   "expert": 21,
+   "items": 74,
+   "brought": 6,
+   "pushed_out": 7,
+   "share": 0.08108108108108109,
+   "layer_share": 0.07014028056112225,
+   "labels": {
+    "aquarium": 14,
+    "clothing": 12,
+    "scuba": 8,
+    "septic": 17,
+    "vehicle": 23
+   },
+   "brought_labels": {
+    "aquarium": 1,
+    "clothing": 1,
+    "scuba": 2,
+    "septic": 2,
+    "vehicle": 0
+   },
+   "p": 0.6475844868740812,
+   "beyond_chance": false
+  },
+  {
+   "layer": 21,
+   "expert": 23,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.07014028056112225,
+   "labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 1,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 1,
+    "septic": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 21,
+   "expert": 30,
+   "items": 62,
+   "brought": 0,
+   "pushed_out": 2,
+   "share": 0.0,
+   "layer_share": 0.07014028056112225,
+   "labels": {
+    "aquarium": 2,
+    "clothing": 54,
+    "scuba": 3,
+    "septic": 1,
+    "vehicle": 2
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "p": 0.02171344664519921,
+   "beyond_chance": true
+  },
+  {
+   "layer": 22,
+   "expert": 0,
+   "items": 21,
+   "brought": 1,
+   "pushed_out": 1,
+   "share": 0.047619047619047616,
+   "layer_share": 0.05811623246492986,
+   "labels": {
+    "aquarium": 5,
+    "clothing": 5,
+    "scuba": 7,
+    "septic": 4,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 1,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "p": 1.0,
+   "beyond_chance": false
+  },
+  {
+   "layer": 22,
+   "expert": 3,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.05811623246492986,
+   "labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 1,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 22,
+   "expert": 7,
+   "items": 2,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.05811623246492986,
+   "labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 2,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 22,
+   "expert": 8,
+   "items": 4,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.05811623246492986,
+   "labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 2,
+    "septic": 0,
+    "vehicle": 2
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 22,
+   "expert": 11,
+   "items": 121,
+   "brought": 1,
+   "pushed_out": 4,
+   "share": 0.008264462809917356,
+   "layer_share": 0.05811623246492986,
+   "labels": {
+    "aquarium": 7,
+    "clothing": 80,
+    "scuba": 14,
+    "septic": 8,
+    "vehicle": 12
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 1,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "p": 0.010586259943968775,
+   "beyond_chance": true
+  },
+  {
+   "layer": 22,
+   "expert": 15,
+   "items": 37,
+   "brought": 3,
+   "pushed_out": 10,
+   "share": 0.08108108108108109,
+   "layer_share": 0.05811623246492986,
+   "labels": {
+    "aquarium": 11,
+    "clothing": 0,
+    "scuba": 14,
+    "septic": 7,
+    "vehicle": 5
+   },
+   "brought_labels": {
+    "aquarium": 3,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "p": 0.4742052640522207,
+   "beyond_chance": false
+  },
+  {
+   "layer": 22,
+   "expert": 18,
+   "items": 28,
+   "brought": 1,
+   "pushed_out": 5,
+   "share": 0.03571428571428571,
+   "layer_share": 0.05811623246492986,
+   "labels": {
+    "aquarium": 6,
+    "clothing": 0,
+    "scuba": 6,
+    "septic": 12,
+    "vehicle": 4
+   },
+   "brought_labels": {
+    "aquarium": 1,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "p": 1.0,
+   "beyond_chance": false
+  },
+  {
+   "layer": 22,
+   "expert": 22,
+   "items": 133,
+   "brought": 4,
+   "pushed_out": 6,
+   "share": 0.03007518796992481,
+   "layer_share": 0.05811623246492986,
+   "labels": {
+    "aquarium": 53,
+    "clothing": 0,
+    "scuba": 30,
+    "septic": 45,
+    "vehicle": 5
+   },
+   "brought_labels": {
+    "aquarium": 2,
+    "clothing": 0,
+    "scuba": 2,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "p": 0.19606422833792625,
+   "beyond_chance": false
+  },
+  {
+   "layer": 22,
+   "expert": 25,
+   "items": 121,
+   "brought": 12,
+   "pushed_out": 3,
+   "share": 0.09917355371900827,
+   "layer_share": 0.05811623246492986,
+   "labels": {
+    "aquarium": 11,
+    "clothing": 14,
+    "scuba": 16,
+    "septic": 9,
+    "vehicle": 71
+   },
+   "brought_labels": {
+    "aquarium": 2,
+    "clothing": 3,
+    "scuba": 2,
+    "septic": 2,
+    "vehicle": 3
+   },
+   "p": 0.07519401433228162,
+   "beyond_chance": false
+  },
+  {
+   "layer": 22,
+   "expert": 29,
+   "items": 31,
+   "brought": 6,
+   "pushed_out": 0,
+   "share": 0.1935483870967742,
+   "layer_share": 0.05811623246492986,
+   "labels": {
+    "aquarium": 7,
+    "clothing": 1,
+    "scuba": 8,
+    "septic": 14,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "aquarium": 2,
+    "clothing": 0,
+    "scuba": 1,
+    "septic": 3,
+    "vehicle": 0
+   },
+   "p": 0.008055219139252116,
+   "beyond_chance": true
+  },
+  {
+   "layer": 23,
+   "expert": 0,
+   "items": 187,
+   "brought": 67,
+   "pushed_out": 38,
+   "share": 0.3582887700534759,
+   "layer_share": 0.23046092184368738,
+   "labels": {
+    "aquarium": 45,
+    "clothing": 16,
+    "scuba": 39,
+    "septic": 43,
+    "vehicle": 44
+   },
+   "brought_labels": {
+    "aquarium": 27,
+    "clothing": 1,
+    "scuba": 10,
+    "septic": 19,
+    "vehicle": 10
+   },
+   "p": 8.135663759358886e-05,
+   "beyond_chance": true
+  },
+  {
+   "layer": 23,
+   "expert": 10,
+   "items": 9,
+   "brought": 3,
+   "pushed_out": 4,
+   "share": 0.3333333333333333,
+   "layer_share": 0.23046092184368738,
+   "labels": {
+    "aquarium": 2,
+    "clothing": 0,
+    "scuba": 3,
+    "septic": 4,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 2,
+    "septic": 1,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 23,
+   "expert": 15,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.23046092184368738,
+   "labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 23,
+   "expert": 18,
+   "items": 101,
+   "brought": 19,
+   "pushed_out": 11,
+   "share": 0.18811881188118812,
+   "layer_share": 0.23046092184368738,
+   "labels": {
+    "aquarium": 8,
+    "clothing": 67,
+    "scuba": 4,
+    "septic": 2,
+    "vehicle": 20
+   },
+   "brought_labels": {
+    "aquarium": 1,
+    "clothing": 7,
+    "scuba": 1,
+    "septic": 2,
+    "vehicle": 8
+   },
+   "p": 0.3462116865947562,
+   "beyond_chance": false
+  },
+  {
+   "layer": 23,
+   "expert": 24,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.23046092184368738,
+   "labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 1,
+    "septic": 0,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "clothing": 0,
+    "scuba": 0,
+    "septic": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 23,
+   "expert": 31,
+   "items": 200,
+   "brought": 26,
+   "pushed_out": 62,
+   "share": 0.13,
+   "layer_share": 0.23046092184368738,
+   "labels": {
+    "aquarium": 45,
+    "clothing": 17,
+    "scuba": 52,
+    "septic": 50,
+    "vehicle": 36
+   },
+   "brought_labels": {
+    "aquarium": 1,
+    "clothing": 5,
+    "scuba": 6,
+    "septic": 7,
+    "vehicle": 7
+   },
+   "p": 0.0005299728262601379,
+   "beyond_chance": true
+  }
+ ],
+ "summary": {
+  "match_four_min": 0.9959919839679359,
+  "match_first_min": 0.9979959919839679,
+  "own_first_changed_range": [
+   0.026052104208416832,
+   0.2785571142284569
+  ],
+  "own_swapped_range": [
+   0.06613226452905811,
+   0.5731462925851704
+  ],
+  "all_first_changed_range": [
+   0.04408817635270541,
+   0.9398797595190381
+  ],
+  "nodes_tested": 79,
+  "nodes_beyond_chance": 46,
+  "nodes_beyond_above": 26
+ }
+}

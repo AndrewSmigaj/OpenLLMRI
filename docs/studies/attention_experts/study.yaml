@@ -112,3 +112,45 @@ ledger:
       9 of 70 have it writing more.
     status: proposed
     evidence: [docs/research/attention_and_experts.md]
+  - idea: >
+      The router reads each token after that layer's attention, so for each expert node, the share
+      of its tokens that the token's own context sent there can be worked out from what captures
+      store, without the model (for the attention row: design.md, "Attention in the analysis").
+    experiment: >
+      At every layer of the seven captures, the router recomputed on the CPU as captured, with the
+      item's own attention replaced by its mean over the lens's items, and with attention removed;
+      for every first-expert node of 20 items or more, the share its own attention brought there
+      against the layer's share (binomial, Benjamini-Hochberg 5%).
+    finding: >
+      The recomputed four experts match the capture for 98.8% to 100% of items at every layer. The
+      item's own attention changes the first expert for a median 2.4% to 10.3% of items per layer,
+      at most 43.0%. The brought share differs from the layer's beyond chance at 46 of 79 expert
+      nodes tested in the tank senses, 6 to 41 elsewhere; the nodes above it are small (median 28 to 69
+      items), for example expert 5 at L2 in the tank senses (48 of its 54 items brought, 33 of the
+      48 vehicle). In the early layers of the tank and framing sets, the first expert carries the
+      class much more with the item's own attention than without it (tank L2: AMI 0.082 against
+      0.018; framing L4: 0.379 against 0.191).
+    status: proposed
+    evidence: [docs/research/attention_and_experts.md]
+  - idea: >
+      Attention's output at the read token divides exactly into one part per earlier word, so the
+      words each token drew on can be shown per item, per lens branch and per expert node, as long
+      as the other positions' states are known (for the attention row: design.md, "Attention in the
+      analysis").
+    experiment: >
+      gpt-oss-20b run on the CPU one decoder layer at a time over the 499 tank sentences, checked
+      against the capture; each earlier position's part kept at every layer; the three words each
+      sentence drew on most, against random words and all its words, as predictors of the sense
+      (held out); words beyond chance per sense, per branch of the tank lens and per expert node
+      (1,000 shuffles); where attention draws from by role; the amounts chained back to layer 0.
+    finding: >
+      The pass matches the capture (median difference 0.04% to 0.11% of the state, the same four
+      experts for at least 98.4% of sentences) and the parts add up within a few millionths. The top
+      three words predict the sense at 0.42 to 0.52 balanced accuracy, against 0.50 for all words
+      (within 0.02 at 11 of 24 layers) and 0.30 to 0.38 for random ones. Tested word by word, the words beyond chance are mostly
+      "the" (18 of 70 branches), since clue words rarely repeat; where attention draws from differs
+      at 44 of 70 branches; chained back, the shares pile onto the first token (median 74% at L20).
+      The words pushing toward context-filled expert nodes include "septic", "reef", "water",
+      "buried" and "steel".
+    status: proposed
+    evidence: [docs/research/attention_and_experts.md]

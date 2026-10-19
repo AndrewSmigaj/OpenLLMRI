@@ -1,0 +1,3482 @@
+{
+ "capture": "friend_foe",
+ "session": "session_b629b6c5",
+ "lens": "friend-foe-t1",
+ "version": "v1",
+ "items": 479,
+ "min_node": 20,
+ "fdr": 0.05,
+ "layers": [
+  {
+   "layer": 0,
+   "match_four": 1.0,
+   "match_first": 1.0,
+   "own_swapped_of_four": 1.0250521920668059,
+   "own_first_changed": 0.27348643006263046,
+   "all_swapped_of_four": 2.0,
+   "all_first_changed": 0.27348643006263046,
+   "ami_first_label": 0.019197346013376915,
+   "ami_first_label_without_own": -0.001176253685941318,
+   "own_first_changed_by_label": {
+    "foe": 0.2375,
+    "friend": 0.30962343096234307
+   }
+  },
+  {
+   "layer": 1,
+   "match_four": 0.9979123173277662,
+   "match_first": 0.9958246346555324,
+   "own_swapped_of_four": 0.40083507306889354,
+   "own_first_changed": 0.2045929018789144,
+   "all_swapped_of_four": 0.55741127348643,
+   "all_first_changed": 0.7202505219206681,
+   "ami_first_label": 0.0028682543358118993,
+   "ami_first_label_without_own": 0.0010015327123935208,
+   "own_first_changed_by_label": {
+    "foe": 0.22083333333333333,
+    "friend": 0.18828451882845187
+   }
+  },
+  {
+   "layer": 2,
+   "match_four": 1.0,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.2776617954070981,
+   "own_first_changed": 0.3903966597077244,
+   "all_swapped_of_four": 0.605427974947808,
+   "all_first_changed": 0.511482254697286,
+   "ami_first_label": 0.004929422586939648,
+   "ami_first_label_without_own": -0.000799300677356059,
+   "own_first_changed_by_label": {
+    "foe": 0.35833333333333334,
+    "friend": 0.4225941422594142
+   }
+  },
+  {
+   "layer": 3,
+   "match_four": 0.9958246346555324,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.4488517745302714,
+   "own_first_changed": 0.10438413361169102,
+   "all_swapped_of_four": 0.7807933194154488,
+   "all_first_changed": 0.21294363256784968,
+   "ami_first_label": 0.007659036551681195,
+   "ami_first_label_without_own": 0.008734257269380126,
+   "own_first_changed_by_label": {
+    "foe": 0.1125,
+    "friend": 0.09623430962343096
+   }
+  },
+  {
+   "layer": 4,
+   "match_four": 1.0,
+   "match_first": 0.9979123173277662,
+   "own_swapped_of_four": 0.27348643006263046,
+   "own_first_changed": 0.17745302713987474,
+   "all_swapped_of_four": 0.430062630480167,
+   "all_first_changed": 0.430062630480167,
+   "ami_first_label": 0.0028514768469261606,
+   "ami_first_label_without_own": 0.001334418638872954,
+   "own_first_changed_by_label": {
+    "foe": 0.2125,
+    "friend": 0.14225941422594143
+   }
+  },
+  {
+   "layer": 5,
+   "match_four": 0.9958246346555324,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.3966597077244259,
+   "own_first_changed": 0.0020876826722338203,
+   "all_swapped_of_four": 0.7286012526096033,
+   "all_first_changed": 0.014613778705636743,
+   "ami_first_label": 0.00829835359977919,
+   "ami_first_label_without_own": 0.004079940932615247,
+   "own_first_changed_by_label": {
+    "foe": 0.0,
+    "friend": 0.0041841004184100415
+   }
+  },
+  {
+   "layer": 6,
+   "match_four": 0.9979123173277662,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.16701461377870563,
+   "own_first_changed": 0.07306889352818371,
+   "all_swapped_of_four": 0.20041753653444677,
+   "all_first_changed": 0.04175365344467641,
+   "ami_first_label": 0.00046672779181654956,
+   "ami_first_label_without_own": 0.014302524829257581,
+   "own_first_changed_by_label": {
+    "foe": 0.09166666666666666,
+    "friend": 0.05439330543933055
+   }
+  },
+  {
+   "layer": 7,
+   "match_four": 1.0,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.2860125260960334,
+   "own_first_changed": 0.10020876826722339,
+   "all_swapped_of_four": 0.3862212943632568,
+   "all_first_changed": 0.1419624217118998,
+   "ami_first_label": -0.00046868362436655066,
+   "ami_first_label_without_own": 0.017997663785470984,
+   "own_first_changed_by_label": {
+    "foe": 0.10833333333333334,
+    "friend": 0.09205020920502092
+   }
+  },
+  {
+   "layer": 8,
+   "match_four": 0.9958246346555324,
+   "match_first": 0.9979123173277662,
+   "own_swapped_of_four": 0.44676409185803756,
+   "own_first_changed": 0.1022964509394572,
+   "all_swapped_of_four": 0.4321503131524008,
+   "all_first_changed": 0.10438413361169102,
+   "ami_first_label": 0.02784305492602492,
+   "ami_first_label_without_own": 0.02871377047068861,
+   "own_first_changed_by_label": {
+    "foe": 0.11666666666666667,
+    "friend": 0.08786610878661087
+   }
+  },
+  {
+   "layer": 9,
+   "match_four": 0.9958246346555324,
+   "match_first": 0.9979123173277662,
+   "own_swapped_of_four": 0.35490605427974947,
+   "own_first_changed": 0.1941544885177453,
+   "all_swapped_of_four": 0.4592901878914405,
+   "all_first_changed": 0.22338204592901878,
+   "ami_first_label": 0.008154165683385403,
+   "ami_first_label_without_own": 0.01405425640186024,
+   "own_first_changed_by_label": {
+    "foe": 0.25,
+    "friend": 0.13807531380753138
+   }
+  },
+  {
+   "layer": 10,
+   "match_four": 0.9979123173277662,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.38413361169102295,
+   "own_first_changed": 0.04801670146137787,
+   "all_swapped_of_four": 0.4759916492693111,
+   "all_first_changed": 0.11482254697286012,
+   "ami_first_label": 0.0294697261939944,
+   "ami_first_label_without_own": 0.018286943190237766,
+   "own_first_changed_by_label": {
+    "foe": 0.0625,
+    "friend": 0.03347280334728033
+   }
+  },
+  {
+   "layer": 11,
+   "match_four": 0.9979123173277662,
+   "match_first": 0.9895615866388309,
+   "own_swapped_of_four": 0.35073068893528186,
+   "own_first_changed": 0.21085594989561587,
+   "all_swapped_of_four": 0.511482254697286,
+   "all_first_changed": 0.31106471816283926,
+   "ami_first_label": 0.01524117813540596,
+   "ami_first_label_without_own": 0.017827099681637017,
+   "own_first_changed_by_label": {
+    "foe": 0.18333333333333332,
+    "friend": 0.2384937238493724
+   }
+  },
+  {
+   "layer": 12,
+   "match_four": 1.0,
+   "match_first": 0.9979123173277662,
+   "own_swapped_of_four": 0.17745302713987474,
+   "own_first_changed": 0.1315240083507307,
+   "all_swapped_of_four": 0.21085594989561587,
+   "all_first_changed": 0.13778705636743216,
+   "ami_first_label": 0.005027854545169531,
+   "ami_first_label_without_own": 0.009700152693825652,
+   "own_first_changed_by_label": {
+    "foe": 0.14583333333333334,
+    "friend": 0.11715481171548117
+   }
+  },
+  {
+   "layer": 13,
+   "match_four": 0.9958246346555324,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.2797494780793319,
+   "own_first_changed": 0.1524008350730689,
+   "all_swapped_of_four": 0.31315240083507306,
+   "all_first_changed": 0.15031315240083507,
+   "ami_first_label": 0.008420972196680932,
+   "ami_first_label_without_own": 0.00950076047136611,
+   "own_first_changed_by_label": {
+    "foe": 0.20833333333333334,
+    "friend": 0.09623430962343096
+   }
+  },
+  {
+   "layer": 14,
+   "match_four": 0.9979123173277662,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.3569937369519833,
+   "own_first_changed": 0.17954070981210857,
+   "all_swapped_of_four": 0.40083507306889354,
+   "all_first_changed": 0.29227557411273486,
+   "ami_first_label": 0.016955845349600186,
+   "ami_first_label_without_own": 0.02449432693924722,
+   "own_first_changed_by_label": {
+    "foe": 0.17916666666666667,
+    "friend": 0.1799163179916318
+   }
+  },
+  {
+   "layer": 15,
+   "match_four": 1.0,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.23799582463465555,
+   "own_first_changed": 0.0709812108559499,
+   "all_swapped_of_four": 0.2651356993736952,
+   "all_first_changed": 0.09603340292275574,
+   "ami_first_label": 0.010823378312771722,
+   "ami_first_label_without_own": 0.012720517280007325,
+   "own_first_changed_by_label": {
+    "foe": 0.07916666666666666,
+    "friend": 0.06276150627615062
+   }
+  },
+  {
+   "layer": 16,
+   "match_four": 0.9979123173277662,
+   "match_first": 0.9979123173277662,
+   "own_swapped_of_four": 0.19624217118997914,
+   "own_first_changed": 0.11691022964509394,
+   "all_swapped_of_four": 0.2651356993736952,
+   "all_first_changed": 0.1336116910229645,
+   "ami_first_label": 0.05403157439947662,
+   "ami_first_label_without_own": 0.04362317313292524,
+   "own_first_changed_by_label": {
+    "foe": 0.14583333333333334,
+    "friend": 0.08786610878661087
+   }
+  },
+  {
+   "layer": 17,
+   "match_four": 1.0,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.21294363256784968,
+   "own_first_changed": 0.07933194154488518,
+   "all_swapped_of_four": 0.23799582463465555,
+   "all_first_changed": 0.17536534446764093,
+   "ami_first_label": 0.005579193440403057,
+   "ami_first_label_without_own": 0.0022687944852346187,
+   "own_first_changed_by_label": {
+    "foe": 0.0875,
+    "friend": 0.07112970711297072
+   }
+  },
+  {
+   "layer": 18,
+   "match_four": 1.0,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.16701461377870563,
+   "own_first_changed": 0.018789144050104383,
+   "all_swapped_of_four": 0.13778705636743216,
+   "all_first_changed": 0.018789144050104383,
+   "ami_first_label": 0.017181101717407308,
+   "ami_first_label_without_own": 0.01368237292369619,
+   "own_first_changed_by_label": {
+    "foe": 0.016666666666666666,
+    "friend": 0.02092050209205021
+   }
+  },
+  {
+   "layer": 19,
+   "match_four": 0.9979123173277662,
+   "match_first": 0.9979123173277662,
+   "own_swapped_of_four": 0.13778705636743216,
+   "own_first_changed": 0.06471816283924843,
+   "all_swapped_of_four": 0.21711899791231734,
+   "all_first_changed": 0.10855949895615867,
+   "ami_first_label": 0.025538098694350274,
+   "ami_first_label_without_own": 0.006830483659016857,
+   "own_first_changed_by_label": {
+    "foe": 0.041666666666666664,
+    "friend": 0.08786610878661087
+   }
+  },
+  {
+   "layer": 20,
+   "match_four": 1.0,
+   "match_first": 0.9979123173277662,
+   "own_swapped_of_four": 0.11691022964509394,
+   "own_first_changed": 0.05636743215031315,
+   "all_swapped_of_four": 0.12526096033402923,
+   "all_first_changed": 0.031315240083507306,
+   "ami_first_label": 0.02635274698408844,
+   "ami_first_label_without_own": 0.029877882063740993,
+   "own_first_changed_by_label": {
+    "foe": 0.05,
+    "friend": 0.06276150627615062
+   }
+  },
+  {
+   "layer": 21,
+   "match_four": 0.9979123173277662,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.15031315240083507,
+   "own_first_changed": 0.010438413361169102,
+   "all_swapped_of_four": 0.21085594989561587,
+   "all_first_changed": 0.027139874739039668,
+   "ami_first_label": 0.02285130245766695,
+   "ami_first_label_without_own": 0.020236643365674895,
+   "own_first_changed_by_label": {
+    "foe": 0.0125,
+    "friend": 0.008368200836820083
+   }
+  },
+  {
+   "layer": 22,
+   "match_four": 1.0,
+   "match_first": 0.9979123173277662,
+   "own_swapped_of_four": 0.17118997912317327,
+   "own_first_changed": 0.05010438413361169,
+   "all_swapped_of_four": 0.1544885177453027,
+   "all_first_changed": 0.1022964509394572,
+   "ami_first_label": 0.011891309357930892,
+   "ami_first_label_without_own": 0.010111644869570214,
+   "own_first_changed_by_label": {
+    "foe": 0.041666666666666664,
+    "friend": 0.058577405857740586
+   }
+  },
+  {
+   "layer": 23,
+   "match_four": 0.9979123173277662,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.22129436325678498,
+   "own_first_changed": 0.13987473903966596,
+   "all_swapped_of_four": 0.2797494780793319,
+   "all_first_changed": 0.25260960334029225,
+   "ami_first_label": 0.012448978557597188,
+   "ami_first_label_without_own": 0.013052813623561624,
+   "own_first_changed_by_label": {
+    "foe": 0.12916666666666668,
+    "friend": 0.1506276150627615
+   }
+  }
+ ],
+ "nodes": [
+  {
+   "layer": 0,
+   "expert": 0,
+   "items": 4,
+   "brought": 4,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.27348643006263046,
+   "labels": {
+    "foe": 1,
+    "friend": 3
+   },
+   "brought_labels": {
+    "foe": 1,
+    "friend": 3
+   }
+  },
+  {
+   "layer": 0,
+   "expert": 5,
+   "items": 9,
+   "brought": 9,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.27348643006263046,
+   "labels": {
+    "foe": 7,
+    "friend": 2
+   },
+   "brought_labels": {
+    "foe": 7,
+    "friend": 2
+   }
+  },
+  {
+   "layer": 0,
+   "expert": 9,
+   "items": 82,
+   "brought": 82,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.27348643006263046,
+   "labels": {
+    "foe": 38,
+    "friend": 44
+   },
+   "brought_labels": {
+    "foe": 38,
+    "friend": 44
+   },
+   "p": 6.741152372914712e-47,
+   "beyond_chance": true
+  },
+  {
+   "layer": 0,
+   "expert": 11,
+   "items": 346,
+   "brought": 0,
+   "pushed_out": 127,
+   "share": 0.0,
+   "layer_share": 0.27348643006263046,
+   "labels": {
+    "foe": 181,
+    "friend": 165
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 0
+   },
+   "p": 1.663917783122689e-48,
+   "beyond_chance": true
+  },
+  {
+   "layer": 0,
+   "expert": 18,
+   "items": 5,
+   "brought": 5,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.27348643006263046,
+   "labels": {
+    "foe": 4,
+    "friend": 1
+   },
+   "brought_labels": {
+    "foe": 4,
+    "friend": 1
+   }
+  },
+  {
+   "layer": 0,
+   "expert": 24,
+   "items": 30,
+   "brought": 30,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.27348643006263046,
+   "labels": {
+    "foe": 6,
+    "friend": 24
+   },
+   "brought_labels": {
+    "foe": 6,
+    "friend": 24
+   },
+   "p": 1.2825475258970623e-17,
+   "beyond_chance": true
+  },
+  {
+   "layer": 0,
+   "expert": 27,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.27348643006263046,
+   "labels": {
+    "foe": 1,
+    "friend": 0
+   },
+   "brought_labels": {
+    "foe": 1,
+    "friend": 0
+   }
+  },
+  {
+   "layer": 0,
+   "expert": 28,
+   "items": 2,
+   "brought": 0,
+   "pushed_out": 4,
+   "share": 0.0,
+   "layer_share": 0.27348643006263046,
+   "labels": {
+    "foe": 2,
+    "friend": 0
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 0
+   }
+  },
+  {
+   "layer": 1,
+   "expert": 1,
+   "items": 389,
+   "brought": 44,
+   "pushed_out": 54,
+   "share": 0.11311053984575835,
+   "layer_share": 0.2045929018789144,
+   "labels": {
+    "foe": 188,
+    "friend": 201
+   },
+   "brought_labels": {
+    "foe": 18,
+    "friend": 26
+   },
+   "p": 2.166889084853403e-06,
+   "beyond_chance": true
+  },
+  {
+   "layer": 1,
+   "expert": 24,
+   "items": 90,
+   "brought": 54,
+   "pushed_out": 44,
+   "share": 0.6,
+   "layer_share": 0.2045929018789144,
+   "labels": {
+    "foe": 52,
+    "friend": 38
+   },
+   "brought_labels": {
+    "foe": 35,
+    "friend": 19
+   },
+   "p": 3.3626208421045504e-16,
+   "beyond_chance": true
+  },
+  {
+   "layer": 2,
+   "expert": 0,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.3903966597077244,
+   "labels": {
+    "foe": 0,
+    "friend": 1
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 1
+   }
+  },
+  {
+   "layer": 2,
+   "expert": 5,
+   "items": 202,
+   "brought": 3,
+   "pushed_out": 182,
+   "share": 0.01485148514851485,
+   "layer_share": 0.3903966597077244,
+   "labels": {
+    "foe": 112,
+    "friend": 90
+   },
+   "brought_labels": {
+    "foe": 1,
+    "friend": 2
+   },
+   "p": 2.1147864838210442e-38,
+   "beyond_chance": true
+  },
+  {
+   "layer": 2,
+   "expert": 10,
+   "items": 70,
+   "brought": 44,
+   "pushed_out": 2,
+   "share": 0.6285714285714286,
+   "layer_share": 0.3903966597077244,
+   "labels": {
+    "foe": 29,
+    "friend": 41
+   },
+   "brought_labels": {
+    "foe": 19,
+    "friend": 25
+   },
+   "p": 6.762742306215053e-05,
+   "beyond_chance": true
+  },
+  {
+   "layer": 2,
+   "expert": 12,
+   "items": 8,
+   "brought": 8,
+   "pushed_out": 1,
+   "share": 1.0,
+   "layer_share": 0.3903966597077244,
+   "labels": {
+    "foe": 6,
+    "friend": 2
+   },
+   "brought_labels": {
+    "foe": 6,
+    "friend": 2
+   }
+  },
+  {
+   "layer": 2,
+   "expert": 21,
+   "items": 198,
+   "brought": 131,
+   "pushed_out": 2,
+   "share": 0.6616161616161617,
+   "layer_share": 0.3903966597077244,
+   "labels": {
+    "foe": 93,
+    "friend": 105
+   },
+   "brought_labels": {
+    "foe": 60,
+    "friend": 71
+   },
+   "p": 1.467562422649657e-14,
+   "beyond_chance": true
+  },
+  {
+   "layer": 3,
+   "expert": 3,
+   "items": 371,
+   "brought": 11,
+   "pushed_out": 37,
+   "share": 0.029649595687331536,
+   "layer_share": 0.10438413361169102,
+   "labels": {
+    "foe": 174,
+    "friend": 197
+   },
+   "brought_labels": {
+    "foe": 6,
+    "friend": 5
+   },
+   "p": 9.324919468117584e-08,
+   "beyond_chance": true
+  },
+  {
+   "layer": 3,
+   "expert": 22,
+   "items": 5,
+   "brought": 1,
+   "pushed_out": 2,
+   "share": 0.2,
+   "layer_share": 0.10438413361169102,
+   "labels": {
+    "foe": 3,
+    "friend": 2
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 1
+   }
+  },
+  {
+   "layer": 3,
+   "expert": 31,
+   "items": 103,
+   "brought": 38,
+   "pushed_out": 11,
+   "share": 0.36893203883495146,
+   "layer_share": 0.10438413361169102,
+   "labels": {
+    "foe": 63,
+    "friend": 40
+   },
+   "brought_labels": {
+    "foe": 21,
+    "friend": 17
+   },
+   "p": 1.1214053981354708e-12,
+   "beyond_chance": true
+  },
+  {
+   "layer": 4,
+   "expert": 7,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.17745302713987474,
+   "labels": {
+    "foe": 0,
+    "friend": 1
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 1
+   }
+  },
+  {
+   "layer": 4,
+   "expert": 13,
+   "items": 189,
+   "brought": 35,
+   "pushed_out": 38,
+   "share": 0.18518518518518517,
+   "layer_share": 0.17745302713987474,
+   "labels": {
+    "foe": 84,
+    "friend": 105
+   },
+   "brought_labels": {
+    "foe": 20,
+    "friend": 15
+   },
+   "p": 0.7752028792333332,
+   "beyond_chance": false
+  },
+  {
+   "layer": 4,
+   "expert": 14,
+   "items": 269,
+   "brought": 33,
+   "pushed_out": 41,
+   "share": 0.12267657992565056,
+   "layer_share": 0.17745302713987474,
+   "labels": {
+    "foe": 143,
+    "friend": 126
+   },
+   "brought_labels": {
+    "foe": 20,
+    "friend": 13
+   },
+   "p": 0.016629400050276532,
+   "beyond_chance": true
+  },
+  {
+   "layer": 4,
+   "expert": 18,
+   "items": 15,
+   "brought": 11,
+   "pushed_out": 6,
+   "share": 0.7333333333333333,
+   "layer_share": 0.17745302713987474,
+   "labels": {
+    "foe": 10,
+    "friend": 5
+   },
+   "brought_labels": {
+    "foe": 8,
+    "friend": 3
+   }
+  },
+  {
+   "layer": 4,
+   "expert": 24,
+   "items": 5,
+   "brought": 5,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.17745302713987474,
+   "labels": {
+    "foe": 3,
+    "friend": 2
+   },
+   "brought_labels": {
+    "foe": 3,
+    "friend": 2
+   }
+  },
+  {
+   "layer": 5,
+   "expert": 6,
+   "items": 476,
+   "brought": 0,
+   "pushed_out": 1,
+   "share": 0.0,
+   "layer_share": 0.0020876826722338203,
+   "labels": {
+    "foe": 240,
+    "friend": 236
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 0
+   },
+   "p": 1.0,
+   "beyond_chance": false
+  },
+  {
+   "layer": 5,
+   "expert": 31,
+   "items": 3,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 0.3333333333333333,
+   "layer_share": 0.0020876826722338203,
+   "labels": {
+    "foe": 0,
+    "friend": 3
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 1
+   }
+  },
+  {
+   "layer": 6,
+   "expert": 2,
+   "items": 7,
+   "brought": 3,
+   "pushed_out": 1,
+   "share": 0.42857142857142855,
+   "layer_share": 0.07306889352818371,
+   "labels": {
+    "foe": 4,
+    "friend": 3
+   },
+   "brought_labels": {
+    "foe": 3,
+    "friend": 0
+   }
+  },
+  {
+   "layer": 6,
+   "expert": 6,
+   "items": 2,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.07306889352818371,
+   "labels": {
+    "foe": 0,
+    "friend": 2
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 0
+   }
+  },
+  {
+   "layer": 6,
+   "expert": 11,
+   "items": 20,
+   "brought": 7,
+   "pushed_out": 26,
+   "share": 0.35,
+   "layer_share": 0.07306889352818371,
+   "labels": {
+    "foe": 12,
+    "friend": 8
+   },
+   "brought_labels": {
+    "foe": 3,
+    "friend": 4
+   },
+   "p": 0.00036739651386278113,
+   "beyond_chance": true
+  },
+  {
+   "layer": 6,
+   "expert": 24,
+   "items": 450,
+   "brought": 25,
+   "pushed_out": 7,
+   "share": 0.05555555555555555,
+   "layer_share": 0.07306889352818371,
+   "labels": {
+    "foe": 224,
+    "friend": 226
+   },
+   "brought_labels": {
+    "foe": 16,
+    "friend": 9
+   },
+   "p": 0.17367405849703632,
+   "beyond_chance": false
+  },
+  {
+   "layer": 7,
+   "expert": 0,
+   "items": 3,
+   "brought": 2,
+   "pushed_out": 3,
+   "share": 0.6666666666666666,
+   "layer_share": 0.10020876826722339,
+   "labels": {
+    "foe": 1,
+    "friend": 2
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 2
+   }
+  },
+  {
+   "layer": 7,
+   "expert": 3,
+   "items": 2,
+   "brought": 0,
+   "pushed_out": 8,
+   "share": 0.0,
+   "layer_share": 0.10020876826722339,
+   "labels": {
+    "foe": 2,
+    "friend": 0
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 0
+   }
+  },
+  {
+   "layer": 7,
+   "expert": 4,
+   "items": 345,
+   "brought": 12,
+   "pushed_out": 31,
+   "share": 0.034782608695652174,
+   "layer_share": 0.10020876826722339,
+   "labels": {
+    "foe": 172,
+    "friend": 173
+   },
+   "brought_labels": {
+    "foe": 10,
+    "friend": 2
+   },
+   "p": 8.719182920862335e-06,
+   "beyond_chance": true
+  },
+  {
+   "layer": 7,
+   "expert": 5,
+   "items": 63,
+   "brought": 24,
+   "pushed_out": 0,
+   "share": 0.38095238095238093,
+   "layer_share": 0.10020876826722339,
+   "labels": {
+    "foe": 29,
+    "friend": 34
+   },
+   "brought_labels": {
+    "foe": 10,
+    "friend": 14
+   },
+   "p": 3.235451309207743e-09,
+   "beyond_chance": true
+  },
+  {
+   "layer": 7,
+   "expert": 10,
+   "items": 2,
+   "brought": 2,
+   "pushed_out": 1,
+   "share": 1.0,
+   "layer_share": 0.10020876826722339,
+   "labels": {
+    "foe": 2,
+    "friend": 0
+   },
+   "brought_labels": {
+    "foe": 2,
+    "friend": 0
+   }
+  },
+  {
+   "layer": 7,
+   "expert": 15,
+   "items": 3,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 0.3333333333333333,
+   "layer_share": 0.10020876826722339,
+   "labels": {
+    "foe": 1,
+    "friend": 2
+   },
+   "brought_labels": {
+    "foe": 1,
+    "friend": 0
+   }
+  },
+  {
+   "layer": 7,
+   "expert": 20,
+   "items": 61,
+   "brought": 7,
+   "pushed_out": 2,
+   "share": 0.11475409836065574,
+   "layer_share": 0.10020876826722339,
+   "labels": {
+    "foe": 33,
+    "friend": 28
+   },
+   "brought_labels": {
+    "foe": 3,
+    "friend": 4
+   },
+   "p": 0.6685383387011734,
+   "beyond_chance": false
+  },
+  {
+   "layer": 8,
+   "expert": 3,
+   "items": 41,
+   "brought": 19,
+   "pushed_out": 1,
+   "share": 0.4634146341463415,
+   "layer_share": 0.1022964509394572,
+   "labels": {
+    "foe": 14,
+    "friend": 27
+   },
+   "brought_labels": {
+    "foe": 7,
+    "friend": 12
+   },
+   "p": 4.001562348496583e-09,
+   "beyond_chance": true
+  },
+  {
+   "layer": 8,
+   "expert": 9,
+   "items": 5,
+   "brought": 2,
+   "pushed_out": 1,
+   "share": 0.4,
+   "layer_share": 0.1022964509394572,
+   "labels": {
+    "foe": 1,
+    "friend": 4
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 2
+   }
+  },
+  {
+   "layer": 8,
+   "expert": 10,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 2,
+   "share": 1.0,
+   "layer_share": 0.1022964509394572,
+   "labels": {
+    "foe": 1,
+    "friend": 0
+   },
+   "brought_labels": {
+    "foe": 1,
+    "friend": 0
+   }
+  },
+  {
+   "layer": 8,
+   "expert": 19,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.1022964509394572,
+   "labels": {
+    "foe": 0,
+    "friend": 1
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 0
+   }
+  },
+  {
+   "layer": 8,
+   "expert": 20,
+   "items": 101,
+   "brought": 2,
+   "pushed_out": 2,
+   "share": 0.019801980198019802,
+   "layer_share": 0.1022964509394572,
+   "labels": {
+    "foe": 41,
+    "friend": 60
+   },
+   "brought_labels": {
+    "foe": 1,
+    "friend": 1
+   },
+   "p": 0.0026755777942037186,
+   "beyond_chance": true
+  },
+  {
+   "layer": 8,
+   "expert": 23,
+   "items": 14,
+   "brought": 3,
+   "pushed_out": 2,
+   "share": 0.21428571428571427,
+   "layer_share": 0.1022964509394572,
+   "labels": {
+    "foe": 13,
+    "friend": 1
+   },
+   "brought_labels": {
+    "foe": 3,
+    "friend": 0
+   }
+  },
+  {
+   "layer": 8,
+   "expert": 26,
+   "items": 49,
+   "brought": 5,
+   "pushed_out": 22,
+   "share": 0.10204081632653061,
+   "layer_share": 0.1022964509394572,
+   "labels": {
+    "foe": 35,
+    "friend": 14
+   },
+   "brought_labels": {
+    "foe": 3,
+    "friend": 2
+   },
+   "p": 1.0,
+   "beyond_chance": false
+  },
+  {
+   "layer": 8,
+   "expert": 31,
+   "items": 267,
+   "brought": 17,
+   "pushed_out": 19,
+   "share": 0.06367041198501873,
+   "layer_share": 0.1022964509394572,
+   "labels": {
+    "foe": 135,
+    "friend": 132
+   },
+   "brought_labels": {
+    "foe": 13,
+    "friend": 4
+   },
+   "p": 0.033954367284896654,
+   "beyond_chance": false
+  },
+  {
+   "layer": 9,
+   "expert": 5,
+   "items": 44,
+   "brought": 13,
+   "pushed_out": 3,
+   "share": 0.29545454545454547,
+   "layer_share": 0.1941544885177453,
+   "labels": {
+    "foe": 24,
+    "friend": 20
+   },
+   "brought_labels": {
+    "foe": 8,
+    "friend": 5
+   },
+   "p": 0.12393560408871282,
+   "beyond_chance": false
+  },
+  {
+   "layer": 9,
+   "expert": 10,
+   "items": 2,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 0.5,
+   "layer_share": 0.1941544885177453,
+   "labels": {
+    "foe": 1,
+    "friend": 1
+   },
+   "brought_labels": {
+    "foe": 1,
+    "friend": 0
+   }
+  },
+  {
+   "layer": 9,
+   "expert": 13,
+   "items": 6,
+   "brought": 2,
+   "pushed_out": 1,
+   "share": 0.3333333333333333,
+   "layer_share": 0.1941544885177453,
+   "labels": {
+    "foe": 3,
+    "friend": 3
+   },
+   "brought_labels": {
+    "foe": 2,
+    "friend": 0
+   }
+  },
+  {
+   "layer": 9,
+   "expert": 16,
+   "items": 95,
+   "brought": 2,
+   "pushed_out": 4,
+   "share": 0.021052631578947368,
+   "layer_share": 0.1941544885177453,
+   "labels": {
+    "foe": 39,
+    "friend": 56
+   },
+   "brought_labels": {
+    "foe": 1,
+    "friend": 1
+   },
+   "p": 6.935920054256603e-07,
+   "beyond_chance": true
+  },
+  {
+   "layer": 9,
+   "expert": 26,
+   "items": 76,
+   "brought": 35,
+   "pushed_out": 38,
+   "share": 0.4605263157894737,
+   "layer_share": 0.1941544885177453,
+   "labels": {
+    "foe": 51,
+    "friend": 25
+   },
+   "brought_labels": {
+    "foe": 21,
+    "friend": 14
+   },
+   "p": 2.0521128240109801e-07,
+   "beyond_chance": true
+  },
+  {
+   "layer": 9,
+   "expert": 30,
+   "items": 256,
+   "brought": 40,
+   "pushed_out": 46,
+   "share": 0.15625,
+   "layer_share": 0.1941544885177453,
+   "labels": {
+    "foe": 122,
+    "friend": 134
+   },
+   "brought_labels": {
+    "foe": 27,
+    "friend": 13
+   },
+   "p": 0.13343542558904153,
+   "beyond_chance": false
+  },
+  {
+   "layer": 10,
+   "expert": 1,
+   "items": 8,
+   "brought": 5,
+   "pushed_out": 3,
+   "share": 0.625,
+   "layer_share": 0.04801670146137787,
+   "labels": {
+    "foe": 5,
+    "friend": 3
+   },
+   "brought_labels": {
+    "foe": 2,
+    "friend": 3
+   }
+  },
+  {
+   "layer": 10,
+   "expert": 5,
+   "items": 383,
+   "brought": 0,
+   "pushed_out": 5,
+   "share": 0.0,
+   "layer_share": 0.04801670146137787,
+   "labels": {
+    "foe": 202,
+    "friend": 181
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 0
+   },
+   "p": 1.215826076880579e-08,
+   "beyond_chance": true
+  },
+  {
+   "layer": 10,
+   "expert": 8,
+   "items": 2,
+   "brought": 2,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.04801670146137787,
+   "labels": {
+    "foe": 1,
+    "friend": 1
+   },
+   "brought_labels": {
+    "foe": 1,
+    "friend": 1
+   }
+  },
+  {
+   "layer": 10,
+   "expert": 10,
+   "items": 72,
+   "brought": 3,
+   "pushed_out": 14,
+   "share": 0.041666666666666664,
+   "layer_share": 0.04801670146137787,
+   "labels": {
+    "foe": 20,
+    "friend": 52
+   },
+   "brought_labels": {
+    "foe": 1,
+    "friend": 2
+   },
+   "p": 1.0,
+   "beyond_chance": false
+  },
+  {
+   "layer": 10,
+   "expert": 25,
+   "items": 2,
+   "brought": 2,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.04801670146137787,
+   "labels": {
+    "foe": 2,
+    "friend": 0
+   },
+   "brought_labels": {
+    "foe": 2,
+    "friend": 0
+   }
+  },
+  {
+   "layer": 10,
+   "expert": 26,
+   "items": 12,
+   "brought": 11,
+   "pushed_out": 1,
+   "share": 0.9166666666666666,
+   "layer_share": 0.04801670146137787,
+   "labels": {
+    "foe": 10,
+    "friend": 2
+   },
+   "brought_labels": {
+    "foe": 9,
+    "friend": 2
+   }
+  },
+  {
+   "layer": 11,
+   "expert": 0,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.21085594989561587,
+   "labels": {
+    "foe": 1,
+    "friend": 0
+   },
+   "brought_labels": {
+    "foe": 1,
+    "friend": 0
+   }
+  },
+  {
+   "layer": 11,
+   "expert": 7,
+   "items": 118,
+   "brought": 18,
+   "pushed_out": 33,
+   "share": 0.15254237288135594,
+   "layer_share": 0.21085594989561587,
+   "labels": {
+    "foe": 67,
+    "friend": 51
+   },
+   "brought_labels": {
+    "foe": 12,
+    "friend": 6
+   },
+   "p": 0.14171490496604733,
+   "beyond_chance": false
+  },
+  {
+   "layer": 11,
+   "expert": 11,
+   "items": 60,
+   "brought": 21,
+   "pushed_out": 7,
+   "share": 0.35,
+   "layer_share": 0.21085594989561587,
+   "labels": {
+    "foe": 27,
+    "friend": 33
+   },
+   "brought_labels": {
+    "foe": 7,
+    "friend": 14
+   },
+   "p": 0.011232361268460596,
+   "beyond_chance": true
+  },
+  {
+   "layer": 11,
+   "expert": 13,
+   "items": 51,
+   "brought": 10,
+   "pushed_out": 9,
+   "share": 0.19607843137254902,
+   "layer_share": 0.21085594989561587,
+   "labels": {
+    "foe": 25,
+    "friend": 26
+   },
+   "brought_labels": {
+    "foe": 5,
+    "friend": 5
+   },
+   "p": 1.0,
+   "beyond_chance": false
+  },
+  {
+   "layer": 11,
+   "expert": 20,
+   "items": 39,
+   "brought": 9,
+   "pushed_out": 19,
+   "share": 0.23076923076923078,
+   "layer_share": 0.21085594989561587,
+   "labels": {
+    "foe": 29,
+    "friend": 10
+   },
+   "brought_labels": {
+    "foe": 9,
+    "friend": 0
+   },
+   "p": 0.6982828931564696,
+   "beyond_chance": false
+  },
+  {
+   "layer": 11,
+   "expert": 21,
+   "items": 62,
+   "brought": 19,
+   "pushed_out": 21,
+   "share": 0.3064516129032258,
+   "layer_share": 0.21085594989561587,
+   "labels": {
+    "foe": 35,
+    "friend": 27
+   },
+   "brought_labels": {
+    "foe": 3,
+    "friend": 16
+   },
+   "p": 0.08475275488878434,
+   "beyond_chance": false
+  },
+  {
+   "layer": 11,
+   "expert": 30,
+   "items": 148,
+   "brought": 23,
+   "pushed_out": 12,
+   "share": 0.1554054054054054,
+   "layer_share": 0.21085594989561587,
+   "labels": {
+    "foe": 56,
+    "friend": 92
+   },
+   "brought_labels": {
+    "foe": 7,
+    "friend": 16
+   },
+   "p": 0.1068442571105774,
+   "beyond_chance": false
+  },
+  {
+   "layer": 12,
+   "expert": 0,
+   "items": 58,
+   "brought": 27,
+   "pushed_out": 0,
+   "share": 0.46551724137931033,
+   "layer_share": 0.1315240083507307,
+   "labels": {
+    "foe": 25,
+    "friend": 33
+   },
+   "brought_labels": {
+    "foe": 10,
+    "friend": 17
+   },
+   "p": 6.492189510569811e-10,
+   "beyond_chance": true
+  },
+  {
+   "layer": 12,
+   "expert": 1,
+   "items": 29,
+   "brought": 2,
+   "pushed_out": 8,
+   "share": 0.06896551724137931,
+   "layer_share": 0.1315240083507307,
+   "labels": {
+    "foe": 14,
+    "friend": 15
+   },
+   "brought_labels": {
+    "foe": 2,
+    "friend": 0
+   },
+   "p": 0.4197560966409307,
+   "beyond_chance": false
+  },
+  {
+   "layer": 12,
+   "expert": 3,
+   "items": 283,
+   "brought": 9,
+   "pushed_out": 16,
+   "share": 0.03180212014134275,
+   "layer_share": 0.1315240083507307,
+   "labels": {
+    "foe": 136,
+    "friend": 147
+   },
+   "brought_labels": {
+    "foe": 3,
+    "friend": 6
+   },
+   "p": 1.6235972210156436e-08,
+   "beyond_chance": true
+  },
+  {
+   "layer": 12,
+   "expert": 13,
+   "items": 4,
+   "brought": 3,
+   "pushed_out": 0,
+   "share": 0.75,
+   "layer_share": 0.1315240083507307,
+   "labels": {
+    "foe": 4,
+    "friend": 0
+   },
+   "brought_labels": {
+    "foe": 3,
+    "friend": 0
+   }
+  },
+  {
+   "layer": 12,
+   "expert": 14,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 4,
+   "share": 0.0,
+   "layer_share": 0.1315240083507307,
+   "labels": {
+    "foe": 0,
+    "friend": 1
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 0
+   }
+  },
+  {
+   "layer": 12,
+   "expert": 21,
+   "items": 74,
+   "brought": 10,
+   "pushed_out": 16,
+   "share": 0.13513513513513514,
+   "layer_share": 0.1315240083507307,
+   "labels": {
+    "foe": 43,
+    "friend": 31
+   },
+   "brought_labels": {
+    "foe": 10,
+    "friend": 0
+   },
+   "p": 0.8639305538791364,
+   "beyond_chance": false
+  },
+  {
+   "layer": 12,
+   "expert": 24,
+   "items": 7,
+   "brought": 5,
+   "pushed_out": 2,
+   "share": 0.7142857142857143,
+   "layer_share": 0.1315240083507307,
+   "labels": {
+    "foe": 5,
+    "friend": 2
+   },
+   "brought_labels": {
+    "foe": 3,
+    "friend": 2
+   }
+  },
+  {
+   "layer": 12,
+   "expert": 25,
+   "items": 18,
+   "brought": 6,
+   "pushed_out": 13,
+   "share": 0.3333333333333333,
+   "layer_share": 0.1315240083507307,
+   "labels": {
+    "foe": 9,
+    "friend": 9
+   },
+   "brought_labels": {
+    "foe": 4,
+    "friend": 2
+   }
+  },
+  {
+   "layer": 12,
+   "expert": 30,
+   "items": 5,
+   "brought": 1,
+   "pushed_out": 3,
+   "share": 0.2,
+   "layer_share": 0.1315240083507307,
+   "labels": {
+    "foe": 4,
+    "friend": 1
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 1
+   }
+  },
+  {
+   "layer": 13,
+   "expert": 0,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.1524008350730689,
+   "labels": {
+    "foe": 1,
+    "friend": 0
+   },
+   "brought_labels": {
+    "foe": 1,
+    "friend": 0
+   }
+  },
+  {
+   "layer": 13,
+   "expert": 1,
+   "items": 346,
+   "brought": 8,
+   "pushed_out": 59,
+   "share": 0.023121387283236993,
+   "layer_share": 0.1524008350730689,
+   "labels": {
+    "foe": 160,
+    "friend": 186
+   },
+   "brought_labels": {
+    "foe": 7,
+    "friend": 1
+   },
+   "p": 1.3780562238284304e-15,
+   "beyond_chance": true
+  },
+  {
+   "layer": 13,
+   "expert": 3,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.1524008350730689,
+   "labels": {
+    "foe": 0,
+    "friend": 1
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 1
+   }
+  },
+  {
+   "layer": 13,
+   "expert": 9,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.1524008350730689,
+   "labels": {
+    "foe": 1,
+    "friend": 0
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 0
+   }
+  },
+  {
+   "layer": 13,
+   "expert": 10,
+   "items": 4,
+   "brought": 4,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.1524008350730689,
+   "labels": {
+    "foe": 2,
+    "friend": 2
+   },
+   "brought_labels": {
+    "foe": 2,
+    "friend": 2
+   }
+  },
+  {
+   "layer": 13,
+   "expert": 11,
+   "items": 4,
+   "brought": 1,
+   "pushed_out": 1,
+   "share": 0.25,
+   "layer_share": 0.1524008350730689,
+   "labels": {
+    "foe": 2,
+    "friend": 2
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 1
+   }
+  },
+  {
+   "layer": 13,
+   "expert": 14,
+   "items": 13,
+   "brought": 9,
+   "pushed_out": 0,
+   "share": 0.6923076923076923,
+   "layer_share": 0.1524008350730689,
+   "labels": {
+    "foe": 8,
+    "friend": 5
+   },
+   "brought_labels": {
+    "foe": 6,
+    "friend": 3
+   }
+  },
+  {
+   "layer": 13,
+   "expert": 16,
+   "items": 2,
+   "brought": 2,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.1524008350730689,
+   "labels": {
+    "foe": 0,
+    "friend": 2
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 2
+   }
+  },
+  {
+   "layer": 13,
+   "expert": 19,
+   "items": 6,
+   "brought": 2,
+   "pushed_out": 1,
+   "share": 0.3333333333333333,
+   "layer_share": 0.1524008350730689,
+   "labels": {
+    "foe": 2,
+    "friend": 4
+   },
+   "brought_labels": {
+    "foe": 2,
+    "friend": 0
+   }
+  },
+  {
+   "layer": 13,
+   "expert": 24,
+   "items": 98,
+   "brought": 42,
+   "pushed_out": 12,
+   "share": 0.42857142857142855,
+   "layer_share": 0.1524008350730689,
+   "labels": {
+    "foe": 63,
+    "friend": 35
+   },
+   "brought_labels": {
+    "foe": 31,
+    "friend": 11
+   },
+   "p": 5.665807288177833e-11,
+   "beyond_chance": true
+  },
+  {
+   "layer": 13,
+   "expert": 26,
+   "items": 3,
+   "brought": 3,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.1524008350730689,
+   "labels": {
+    "foe": 1,
+    "friend": 2
+   },
+   "brought_labels": {
+    "foe": 1,
+    "friend": 2
+   }
+  },
+  {
+   "layer": 14,
+   "expert": 4,
+   "items": 180,
+   "brought": 3,
+   "pushed_out": 63,
+   "share": 0.016666666666666666,
+   "layer_share": 0.17954070981210857,
+   "labels": {
+    "foe": 94,
+    "friend": 86
+   },
+   "brought_labels": {
+    "foe": 2,
+    "friend": 1
+   },
+   "p": 7.468893343765112e-12,
+   "beyond_chance": true
+  },
+  {
+   "layer": 14,
+   "expert": 6,
+   "items": 16,
+   "brought": 12,
+   "pushed_out": 2,
+   "share": 0.75,
+   "layer_share": 0.17954070981210857,
+   "labels": {
+    "foe": 8,
+    "friend": 8
+   },
+   "brought_labels": {
+    "foe": 7,
+    "friend": 5
+   }
+  },
+  {
+   "layer": 14,
+   "expert": 7,
+   "items": 6,
+   "brought": 1,
+   "pushed_out": 5,
+   "share": 0.16666666666666666,
+   "layer_share": 0.17954070981210857,
+   "labels": {
+    "foe": 5,
+    "friend": 1
+   },
+   "brought_labels": {
+    "foe": 1,
+    "friend": 0
+   }
+  },
+  {
+   "layer": 14,
+   "expert": 10,
+   "items": 2,
+   "brought": 0,
+   "pushed_out": 1,
+   "share": 0.0,
+   "layer_share": 0.17954070981210857,
+   "labels": {
+    "foe": 0,
+    "friend": 2
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 0
+   }
+  },
+  {
+   "layer": 14,
+   "expert": 12,
+   "items": 13,
+   "brought": 1,
+   "pushed_out": 9,
+   "share": 0.07692307692307693,
+   "layer_share": 0.17954070981210857,
+   "labels": {
+    "foe": 10,
+    "friend": 3
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 1
+   }
+  },
+  {
+   "layer": 14,
+   "expert": 15,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.17954070981210857,
+   "labels": {
+    "foe": 1,
+    "friend": 0
+   },
+   "brought_labels": {
+    "foe": 1,
+    "friend": 0
+   }
+  },
+  {
+   "layer": 14,
+   "expert": 19,
+   "items": 73,
+   "brought": 8,
+   "pushed_out": 3,
+   "share": 0.1095890410958904,
+   "layer_share": 0.17954070981210857,
+   "labels": {
+    "foe": 25,
+    "friend": 48
+   },
+   "brought_labels": {
+    "foe": 5,
+    "friend": 3
+   },
+   "p": 0.12896574282056084,
+   "beyond_chance": false
+  },
+  {
+   "layer": 14,
+   "expert": 21,
+   "items": 149,
+   "brought": 48,
+   "pushed_out": 1,
+   "share": 0.3221476510067114,
+   "layer_share": 0.17954070981210857,
+   "labels": {
+    "foe": 71,
+    "friend": 78
+   },
+   "brought_labels": {
+    "foe": 22,
+    "friend": 26
+   },
+   "p": 2.4706841124776102e-05,
+   "beyond_chance": true
+  },
+  {
+   "layer": 14,
+   "expert": 23,
+   "items": 2,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.17954070981210857,
+   "labels": {
+    "foe": 0,
+    "friend": 2
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 0
+   }
+  },
+  {
+   "layer": 14,
+   "expert": 26,
+   "items": 21,
+   "brought": 5,
+   "pushed_out": 1,
+   "share": 0.23809523809523808,
+   "layer_share": 0.17954070981210857,
+   "labels": {
+    "foe": 13,
+    "friend": 8
+   },
+   "brought_labels": {
+    "foe": 1,
+    "friend": 4
+   },
+   "p": 0.5664200688568566,
+   "beyond_chance": false
+  },
+  {
+   "layer": 14,
+   "expert": 29,
+   "items": 16,
+   "brought": 7,
+   "pushed_out": 1,
+   "share": 0.4375,
+   "layer_share": 0.17954070981210857,
+   "labels": {
+    "foe": 13,
+    "friend": 3
+   },
+   "brought_labels": {
+    "foe": 4,
+    "friend": 3
+   }
+  },
+  {
+   "layer": 15,
+   "expert": 2,
+   "items": 5,
+   "brought": 1,
+   "pushed_out": 1,
+   "share": 0.2,
+   "layer_share": 0.0709812108559499,
+   "labels": {
+    "foe": 4,
+    "friend": 1
+   },
+   "brought_labels": {
+    "foe": 1,
+    "friend": 0
+   }
+  },
+  {
+   "layer": 15,
+   "expert": 4,
+   "items": 229,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.0709812108559499,
+   "labels": {
+    "foe": 111,
+    "friend": 118
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 0
+   },
+   "p": 9.096001808527124e-08,
+   "beyond_chance": true
+  },
+  {
+   "layer": 15,
+   "expert": 9,
+   "items": 40,
+   "brought": 11,
+   "pushed_out": 9,
+   "share": 0.275,
+   "layer_share": 0.0709812108559499,
+   "labels": {
+    "foe": 23,
+    "friend": 17
+   },
+   "brought_labels": {
+    "foe": 5,
+    "friend": 6
+   },
+   "p": 7.68532281521554e-05,
+   "beyond_chance": true
+  },
+  {
+   "layer": 15,
+   "expert": 10,
+   "items": 92,
+   "brought": 2,
+   "pushed_out": 3,
+   "share": 0.021739130434782608,
+   "layer_share": 0.0709812108559499,
+   "labels": {
+    "foe": 40,
+    "friend": 52
+   },
+   "brought_labels": {
+    "foe": 2,
+    "friend": 0
+   },
+   "p": 0.06664471382246343,
+   "beyond_chance": false
+  },
+  {
+   "layer": 15,
+   "expert": 18,
+   "items": 16,
+   "brought": 9,
+   "pushed_out": 1,
+   "share": 0.5625,
+   "layer_share": 0.0709812108559499,
+   "labels": {
+    "foe": 11,
+    "friend": 5
+   },
+   "brought_labels": {
+    "foe": 6,
+    "friend": 3
+   }
+  },
+  {
+   "layer": 15,
+   "expert": 22,
+   "items": 3,
+   "brought": 0,
+   "pushed_out": 1,
+   "share": 0.0,
+   "layer_share": 0.0709812108559499,
+   "labels": {
+    "foe": 0,
+    "friend": 3
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 0
+   }
+  },
+  {
+   "layer": 15,
+   "expert": 25,
+   "items": 2,
+   "brought": 2,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.0709812108559499,
+   "labels": {
+    "foe": 0,
+    "friend": 2
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 2
+   }
+  },
+  {
+   "layer": 15,
+   "expert": 26,
+   "items": 78,
+   "brought": 7,
+   "pushed_out": 15,
+   "share": 0.08974358974358974,
+   "layer_share": 0.0709812108559499,
+   "labels": {
+    "foe": 41,
+    "friend": 37
+   },
+   "brought_labels": {
+    "foe": 4,
+    "friend": 3
+   },
+   "p": 0.5041743209770818,
+   "beyond_chance": false
+  },
+  {
+   "layer": 15,
+   "expert": 27,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 1,
+   "share": 0.0,
+   "layer_share": 0.0709812108559499,
+   "labels": {
+    "foe": 1,
+    "friend": 0
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 0
+   }
+  },
+  {
+   "layer": 15,
+   "expert": 28,
+   "items": 11,
+   "brought": 1,
+   "pushed_out": 3,
+   "share": 0.09090909090909091,
+   "layer_share": 0.0709812108559499,
+   "labels": {
+    "foe": 9,
+    "friend": 2
+   },
+   "brought_labels": {
+    "foe": 1,
+    "friend": 0
+   }
+  },
+  {
+   "layer": 15,
+   "expert": 29,
+   "items": 2,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 0.5,
+   "layer_share": 0.0709812108559499,
+   "labels": {
+    "foe": 0,
+    "friend": 2
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 1
+   }
+  },
+  {
+   "layer": 16,
+   "expert": 0,
+   "items": 60,
+   "brought": 6,
+   "pushed_out": 22,
+   "share": 0.1,
+   "layer_share": 0.11691022964509394,
+   "labels": {
+    "foe": 32,
+    "friend": 28
+   },
+   "brought_labels": {
+    "foe": 4,
+    "friend": 2
+   },
+   "p": 0.8414942920611718,
+   "beyond_chance": false
+  },
+  {
+   "layer": 16,
+   "expert": 5,
+   "items": 134,
+   "brought": 17,
+   "pushed_out": 8,
+   "share": 0.12686567164179105,
+   "layer_share": 0.11691022964509394,
+   "labels": {
+    "foe": 38,
+    "friend": 96
+   },
+   "brought_labels": {
+    "foe": 8,
+    "friend": 9
+   },
+   "p": 0.686785326770911,
+   "beyond_chance": false
+  },
+  {
+   "layer": 16,
+   "expert": 10,
+   "items": 93,
+   "brought": 23,
+   "pushed_out": 13,
+   "share": 0.24731182795698925,
+   "layer_share": 0.11691022964509394,
+   "labels": {
+    "foe": 71,
+    "friend": 22
+   },
+   "brought_labels": {
+    "foe": 18,
+    "friend": 5
+   },
+   "p": 0.00048741674215031083,
+   "beyond_chance": true
+  },
+  {
+   "layer": 16,
+   "expert": 11,
+   "items": 85,
+   "brought": 0,
+   "pushed_out": 8,
+   "share": 0.0,
+   "layer_share": 0.11691022964509394,
+   "labels": {
+    "foe": 52,
+    "friend": 33
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 0
+   },
+   "p": 5.397297386722262e-05,
+   "beyond_chance": true
+  },
+  {
+   "layer": 16,
+   "expert": 12,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.11691022964509394,
+   "labels": {
+    "foe": 0,
+    "friend": 1
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 0
+   }
+  },
+  {
+   "layer": 16,
+   "expert": 18,
+   "items": 4,
+   "brought": 2,
+   "pushed_out": 0,
+   "share": 0.5,
+   "layer_share": 0.11691022964509394,
+   "labels": {
+    "foe": 3,
+    "friend": 1
+   },
+   "brought_labels": {
+    "foe": 1,
+    "friend": 1
+   }
+  },
+  {
+   "layer": 16,
+   "expert": 21,
+   "items": 17,
+   "brought": 5,
+   "pushed_out": 2,
+   "share": 0.29411764705882354,
+   "layer_share": 0.11691022964509394,
+   "labels": {
+    "foe": 13,
+    "friend": 4
+   },
+   "brought_labels": {
+    "foe": 3,
+    "friend": 2
+   }
+  },
+  {
+   "layer": 16,
+   "expert": 26,
+   "items": 4,
+   "brought": 2,
+   "pushed_out": 1,
+   "share": 0.5,
+   "layer_share": 0.11691022964509394,
+   "labels": {
+    "foe": 2,
+    "friend": 2
+   },
+   "brought_labels": {
+    "foe": 1,
+    "friend": 1
+   }
+  },
+  {
+   "layer": 16,
+   "expert": 30,
+   "items": 2,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.11691022964509394,
+   "labels": {
+    "foe": 0,
+    "friend": 2
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 0
+   }
+  },
+  {
+   "layer": 16,
+   "expert": 31,
+   "items": 79,
+   "brought": 1,
+   "pushed_out": 2,
+   "share": 0.012658227848101266,
+   "layer_share": 0.11691022964509394,
+   "labels": {
+    "foe": 29,
+    "friend": 50
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 1
+   },
+   "p": 0.0012363853550387384,
+   "beyond_chance": true
+  },
+  {
+   "layer": 17,
+   "expert": 5,
+   "items": 3,
+   "brought": 3,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.07933194154488518,
+   "labels": {
+    "foe": 3,
+    "friend": 0
+   },
+   "brought_labels": {
+    "foe": 3,
+    "friend": 0
+   }
+  },
+  {
+   "layer": 17,
+   "expert": 7,
+   "items": 69,
+   "brought": 6,
+   "pushed_out": 15,
+   "share": 0.08695652173913043,
+   "layer_share": 0.07933194154488518,
+   "labels": {
+    "foe": 38,
+    "friend": 31
+   },
+   "brought_labels": {
+    "foe": 5,
+    "friend": 1
+   },
+   "p": 0.8219482954409156,
+   "beyond_chance": false
+  },
+  {
+   "layer": 17,
+   "expert": 11,
+   "items": 4,
+   "brought": 3,
+   "pushed_out": 0,
+   "share": 0.75,
+   "layer_share": 0.07933194154488518,
+   "labels": {
+    "foe": 2,
+    "friend": 2
+   },
+   "brought_labels": {
+    "foe": 2,
+    "friend": 1
+   }
+  },
+  {
+   "layer": 17,
+   "expert": 12,
+   "items": 99,
+   "brought": 3,
+   "pushed_out": 0,
+   "share": 0.030303030303030304,
+   "layer_share": 0.07933194154488518,
+   "labels": {
+    "foe": 42,
+    "friend": 57
+   },
+   "brought_labels": {
+    "foe": 2,
+    "friend": 1
+   },
+   "p": 0.09026399659153647,
+   "beyond_chance": false
+  },
+  {
+   "layer": 17,
+   "expert": 17,
+   "items": 222,
+   "brought": 20,
+   "pushed_out": 3,
+   "share": 0.09009009009009009,
+   "layer_share": 0.07933194154488518,
+   "labels": {
+    "foe": 105,
+    "friend": 117
+   },
+   "brought_labels": {
+    "foe": 7,
+    "friend": 13
+   },
+   "p": 0.5339439655856348,
+   "beyond_chance": false
+  },
+  {
+   "layer": 17,
+   "expert": 25,
+   "items": 75,
+   "brought": 2,
+   "pushed_out": 20,
+   "share": 0.02666666666666667,
+   "layer_share": 0.07933194154488518,
+   "labels": {
+    "foe": 45,
+    "friend": 30
+   },
+   "brought_labels": {
+    "foe": 1,
+    "friend": 1
+   },
+   "p": 0.1290853130764438,
+   "beyond_chance": false
+  },
+  {
+   "layer": 17,
+   "expert": 30,
+   "items": 7,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 0.14285714285714285,
+   "layer_share": 0.07933194154488518,
+   "labels": {
+    "foe": 5,
+    "friend": 2
+   },
+   "brought_labels": {
+    "foe": 1,
+    "friend": 0
+   }
+  },
+  {
+   "layer": 18,
+   "expert": 1,
+   "items": 3,
+   "brought": 0,
+   "pushed_out": 1,
+   "share": 0.0,
+   "layer_share": 0.018789144050104383,
+   "labels": {
+    "foe": 1,
+    "friend": 2
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 0
+   }
+  },
+  {
+   "layer": 18,
+   "expert": 12,
+   "items": 6,
+   "brought": 1,
+   "pushed_out": 2,
+   "share": 0.16666666666666666,
+   "layer_share": 0.018789144050104383,
+   "labels": {
+    "foe": 1,
+    "friend": 5
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 1
+   }
+  },
+  {
+   "layer": 18,
+   "expert": 14,
+   "items": 64,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 0.015625,
+   "layer_share": 0.018789144050104383,
+   "labels": {
+    "foe": 38,
+    "friend": 26
+   },
+   "brought_labels": {
+    "foe": 1,
+    "friend": 0
+   },
+   "p": 1.0,
+   "beyond_chance": false
+  },
+  {
+   "layer": 18,
+   "expert": 20,
+   "items": 271,
+   "brought": 4,
+   "pushed_out": 3,
+   "share": 0.014760147601476014,
+   "layer_share": 0.018789144050104383,
+   "labels": {
+    "foe": 133,
+    "friend": 138
+   },
+   "brought_labels": {
+    "foe": 2,
+    "friend": 2
+   },
+   "p": 0.8230425843276337,
+   "beyond_chance": false
+  },
+  {
+   "layer": 18,
+   "expert": 24,
+   "items": 82,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.018789144050104383,
+   "labels": {
+    "foe": 30,
+    "friend": 52
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 0
+   },
+   "p": 0.41142848783404046,
+   "beyond_chance": false
+  },
+  {
+   "layer": 18,
+   "expert": 27,
+   "items": 52,
+   "brought": 2,
+   "pushed_out": 3,
+   "share": 0.038461538461538464,
+   "layer_share": 0.018789144050104383,
+   "labels": {
+    "foe": 37,
+    "friend": 15
+   },
+   "brought_labels": {
+    "foe": 1,
+    "friend": 1
+   },
+   "p": 0.2557019253793791,
+   "beyond_chance": false
+  },
+  {
+   "layer": 18,
+   "expert": 29,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.018789144050104383,
+   "labels": {
+    "foe": 0,
+    "friend": 1
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 1
+   }
+  },
+  {
+   "layer": 19,
+   "expert": 3,
+   "items": 120,
+   "brought": 3,
+   "pushed_out": 3,
+   "share": 0.025,
+   "layer_share": 0.06471816283924843,
+   "labels": {
+    "foe": 58,
+    "friend": 62
+   },
+   "brought_labels": {
+    "foe": 1,
+    "friend": 2
+   },
+   "p": 0.09175708305713667,
+   "beyond_chance": false
+  },
+  {
+   "layer": 19,
+   "expert": 9,
+   "items": 50,
+   "brought": 22,
+   "pushed_out": 2,
+   "share": 0.44,
+   "layer_share": 0.06471816283924843,
+   "labels": {
+    "foe": 9,
+    "friend": 41
+   },
+   "brought_labels": {
+    "foe": 4,
+    "friend": 18
+   },
+   "p": 1.0353292011368085e-13,
+   "beyond_chance": true
+  },
+  {
+   "layer": 19,
+   "expert": 12,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 1,
+   "share": 1.0,
+   "layer_share": 0.06471816283924843,
+   "labels": {
+    "foe": 1,
+    "friend": 0
+   },
+   "brought_labels": {
+    "foe": 1,
+    "friend": 0
+   }
+  },
+  {
+   "layer": 19,
+   "expert": 13,
+   "items": 60,
+   "brought": 1,
+   "pushed_out": 1,
+   "share": 0.016666666666666666,
+   "layer_share": 0.06471816283924843,
+   "labels": {
+    "foe": 36,
+    "friend": 24
+   },
+   "brought_labels": {
+    "foe": 1,
+    "friend": 0
+   },
+   "p": 0.18485958067715258,
+   "beyond_chance": false
+  },
+  {
+   "layer": 19,
+   "expert": 24,
+   "items": 3,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.06471816283924843,
+   "labels": {
+    "foe": 1,
+    "friend": 2
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 0
+   }
+  },
+  {
+   "layer": 19,
+   "expert": 27,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.06471816283924843,
+   "labels": {
+    "foe": 0,
+    "friend": 1
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 1
+   }
+  },
+  {
+   "layer": 19,
+   "expert": 31,
+   "items": 244,
+   "brought": 3,
+   "pushed_out": 21,
+   "share": 0.012295081967213115,
+   "layer_share": 0.06471816283924843,
+   "labels": {
+    "foe": 135,
+    "friend": 109
+   },
+   "brought_labels": {
+    "foe": 3,
+    "friend": 0
+   },
+   "p": 0.00013107034644284403,
+   "beyond_chance": true
+  },
+  {
+   "layer": 20,
+   "expert": 0,
+   "items": 236,
+   "brought": 1,
+   "pushed_out": 18,
+   "share": 0.00423728813559322,
+   "layer_share": 0.05636743215031315,
+   "labels": {
+    "foe": 126,
+    "friend": 110
+   },
+   "brought_labels": {
+    "foe": 1,
+    "friend": 0
+   },
+   "p": 2.8845733850218622e-05,
+   "beyond_chance": true
+  },
+  {
+   "layer": 20,
+   "expert": 4,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.05636743215031315,
+   "labels": {
+    "foe": 0,
+    "friend": 1
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 1
+   }
+  },
+  {
+   "layer": 20,
+   "expert": 10,
+   "items": 2,
+   "brought": 0,
+   "pushed_out": 1,
+   "share": 0.0,
+   "layer_share": 0.05636743215031315,
+   "labels": {
+    "foe": 1,
+    "friend": 1
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 0
+   }
+  },
+  {
+   "layer": 20,
+   "expert": 12,
+   "items": 2,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.05636743215031315,
+   "labels": {
+    "foe": 0,
+    "friend": 2
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 0
+   }
+  },
+  {
+   "layer": 20,
+   "expert": 15,
+   "items": 50,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 0.02,
+   "layer_share": 0.05636743215031315,
+   "labels": {
+    "foe": 28,
+    "friend": 22
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 1
+   },
+   "p": 0.5300554175006514,
+   "beyond_chance": false
+  },
+  {
+   "layer": 20,
+   "expert": 16,
+   "items": 49,
+   "brought": 0,
+   "pushed_out": 7,
+   "share": 0.0,
+   "layer_share": 0.05636743215031315,
+   "labels": {
+    "foe": 34,
+    "friend": 15
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 0
+   },
+   "p": 0.11461378521532382,
+   "beyond_chance": false
+  },
+  {
+   "layer": 20,
+   "expert": 21,
+   "items": 39,
+   "brought": 18,
+   "pushed_out": 0,
+   "share": 0.46153846153846156,
+   "layer_share": 0.05636743215031315,
+   "labels": {
+    "foe": 9,
+    "friend": 30
+   },
+   "brought_labels": {
+    "foe": 7,
+    "friend": 11
+   },
+   "p": 6.512248766247177e-13,
+   "beyond_chance": true
+  },
+  {
+   "layer": 20,
+   "expert": 23,
+   "items": 83,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.05636743215031315,
+   "labels": {
+    "foe": 30,
+    "friend": 53
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 0
+   },
+   "p": 0.01498597286280973,
+   "beyond_chance": true
+  },
+  {
+   "layer": 20,
+   "expert": 25,
+   "items": 8,
+   "brought": 5,
+   "pushed_out": 0,
+   "share": 0.625,
+   "layer_share": 0.05636743215031315,
+   "labels": {
+    "foe": 4,
+    "friend": 4
+   },
+   "brought_labels": {
+    "foe": 3,
+    "friend": 2
+   }
+  },
+  {
+   "layer": 20,
+   "expert": 31,
+   "items": 9,
+   "brought": 1,
+   "pushed_out": 1,
+   "share": 0.1111111111111111,
+   "layer_share": 0.05636743215031315,
+   "labels": {
+    "foe": 8,
+    "friend": 1
+   },
+   "brought_labels": {
+    "foe": 1,
+    "friend": 0
+   }
+  },
+  {
+   "layer": 21,
+   "expert": 2,
+   "items": 5,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.010438413361169102,
+   "labels": {
+    "foe": 1,
+    "friend": 4
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 0
+   }
+  },
+  {
+   "layer": 21,
+   "expert": 3,
+   "items": 6,
+   "brought": 0,
+   "pushed_out": 4,
+   "share": 0.0,
+   "layer_share": 0.010438413361169102,
+   "labels": {
+    "foe": 1,
+    "friend": 5
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 0
+   }
+  },
+  {
+   "layer": 21,
+   "expert": 6,
+   "items": 2,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.010438413361169102,
+   "labels": {
+    "foe": 0,
+    "friend": 2
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 0
+   }
+  },
+  {
+   "layer": 21,
+   "expert": 9,
+   "items": 2,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 0.5,
+   "layer_share": 0.010438413361169102,
+   "labels": {
+    "foe": 1,
+    "friend": 1
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 1
+   }
+  },
+  {
+   "layer": 21,
+   "expert": 14,
+   "items": 82,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.010438413361169102,
+   "labels": {
+    "foe": 30,
+    "friend": 52
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 0
+   },
+   "p": 1.0,
+   "beyond_chance": false
+  },
+  {
+   "layer": 21,
+   "expert": 18,
+   "items": 53,
+   "brought": 3,
+   "pushed_out": 0,
+   "share": 0.05660377358490566,
+   "layer_share": 0.010438413361169102,
+   "labels": {
+    "foe": 40,
+    "friend": 13
+   },
+   "brought_labels": {
+    "foe": 3,
+    "friend": 0
+   },
+   "p": 0.018080149461586745,
+   "beyond_chance": true
+  },
+  {
+   "layer": 21,
+   "expert": 21,
+   "items": 270,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 0.003703703703703704,
+   "layer_share": 0.010438413361169102,
+   "labels": {
+    "foe": 133,
+    "friend": 137
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 1
+   },
+   "p": 0.5383029690367461,
+   "beyond_chance": false
+  },
+  {
+   "layer": 21,
+   "expert": 23,
+   "items": 59,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.010438413361169102,
+   "labels": {
+    "foe": 34,
+    "friend": 25
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 0
+   },
+   "p": 1.0,
+   "beyond_chance": false
+  },
+  {
+   "layer": 22,
+   "expert": 7,
+   "items": 16,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.05010438413361169,
+   "labels": {
+    "foe": 12,
+    "friend": 4
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 0
+   }
+  },
+  {
+   "layer": 22,
+   "expert": 11,
+   "items": 6,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.05010438413361169,
+   "labels": {
+    "foe": 1,
+    "friend": 5
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 0
+   }
+  },
+  {
+   "layer": 22,
+   "expert": 13,
+   "items": 60,
+   "brought": 2,
+   "pushed_out": 0,
+   "share": 0.03333333333333333,
+   "layer_share": 0.05010438413361169,
+   "labels": {
+    "foe": 38,
+    "friend": 22
+   },
+   "brought_labels": {
+    "foe": 2,
+    "friend": 0
+   },
+   "p": 0.770156336700353,
+   "beyond_chance": false
+  },
+  {
+   "layer": 22,
+   "expert": 15,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.05010438413361169,
+   "labels": {
+    "foe": 1,
+    "friend": 0
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 0
+   }
+  },
+  {
+   "layer": 22,
+   "expert": 16,
+   "items": 82,
+   "brought": 0,
+   "pushed_out": 1,
+   "share": 0.0,
+   "layer_share": 0.05010438413361169,
+   "labels": {
+    "foe": 30,
+    "friend": 52
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 0
+   },
+   "p": 0.03632506702099381,
+   "beyond_chance": false
+  },
+  {
+   "layer": 22,
+   "expert": 18,
+   "items": 101,
+   "brought": 18,
+   "pushed_out": 1,
+   "share": 0.1782178217821782,
+   "layer_share": 0.05010438413361169,
+   "labels": {
+    "foe": 45,
+    "friend": 56
+   },
+   "brought_labels": {
+    "foe": 6,
+    "friend": 12
+   },
+   "p": 2.6807677623986526e-06,
+   "beyond_chance": true
+  },
+  {
+   "layer": 22,
+   "expert": 22,
+   "items": 51,
+   "brought": 1,
+   "pushed_out": 7,
+   "share": 0.0196078431372549,
+   "layer_share": 0.05010438413361169,
+   "labels": {
+    "foe": 26,
+    "friend": 25
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 1
+   },
+   "p": 0.5199881775937933,
+   "beyond_chance": false
+  },
+  {
+   "layer": 22,
+   "expert": 25,
+   "items": 161,
+   "brought": 2,
+   "pushed_out": 14,
+   "share": 0.012422360248447204,
+   "layer_share": 0.05010438413361169,
+   "labels": {
+    "foe": 87,
+    "friend": 74
+   },
+   "brought_labels": {
+    "foe": 2,
+    "friend": 0
+   },
+   "p": 0.02734659549718927,
+   "beyond_chance": false
+  },
+  {
+   "layer": 22,
+   "expert": 26,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.05010438413361169,
+   "labels": {
+    "foe": 0,
+    "friend": 1
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 1
+   }
+  },
+  {
+   "layer": 23,
+   "expert": 0,
+   "items": 66,
+   "brought": 43,
+   "pushed_out": 0,
+   "share": 0.6515151515151515,
+   "layer_share": 0.13987473903966596,
+   "labels": {
+    "foe": 30,
+    "friend": 36
+   },
+   "brought_labels": {
+    "foe": 16,
+    "friend": 27
+   },
+   "p": 2.199303352228812e-21,
+   "beyond_chance": true
+  },
+  {
+   "layer": 23,
+   "expert": 8,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.13987473903966596,
+   "labels": {
+    "foe": 0,
+    "friend": 1
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 0
+   }
+  },
+  {
+   "layer": 23,
+   "expert": 12,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.13987473903966596,
+   "labels": {
+    "foe": 1,
+    "friend": 0
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 0
+   }
+  },
+  {
+   "layer": 23,
+   "expert": 16,
+   "items": 101,
+   "brought": 19,
+   "pushed_out": 0,
+   "share": 0.18811881188118812,
+   "layer_share": 0.13987473903966596,
+   "labels": {
+    "foe": 40,
+    "friend": 61
+   },
+   "brought_labels": {
+    "foe": 10,
+    "friend": 9
+   },
+   "p": 0.19443301951404418,
+   "beyond_chance": false
+  },
+  {
+   "layer": 23,
+   "expert": 18,
+   "items": 4,
+   "brought": 2,
+   "pushed_out": 6,
+   "share": 0.5,
+   "layer_share": 0.13987473903966596,
+   "labels": {
+    "foe": 4,
+    "friend": 0
+   },
+   "brought_labels": {
+    "foe": 2,
+    "friend": 0
+   }
+  },
+  {
+   "layer": 23,
+   "expert": 21,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.13987473903966596,
+   "labels": {
+    "foe": 1,
+    "friend": 0
+   },
+   "brought_labels": {
+    "foe": 1,
+    "friend": 0
+   }
+  },
+  {
+   "layer": 23,
+   "expert": 24,
+   "items": 60,
+   "brought": 2,
+   "pushed_out": 0,
+   "share": 0.03333333333333333,
+   "layer_share": 0.13987473903966596,
+   "labels": {
+    "foe": 35,
+    "friend": 25
+   },
+   "brought_labels": {
+    "foe": 2,
+    "friend": 0
+   },
+   "p": 0.013909553196140869,
+   "beyond_chance": true
+  },
+  {
+   "layer": 23,
+   "expert": 28,
+   "items": 8,
+   "brought": 0,
+   "pushed_out": 18,
+   "share": 0.0,
+   "layer_share": 0.13987473903966596,
+   "labels": {
+    "foe": 7,
+    "friend": 1
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 0
+   }
+  },
+  {
+   "layer": 23,
+   "expert": 31,
+   "items": 237,
+   "brought": 0,
+   "pushed_out": 43,
+   "share": 0.0,
+   "layer_share": 0.13987473903966596,
+   "labels": {
+    "foe": 122,
+    "friend": 115
+   },
+   "brought_labels": {
+    "foe": 0,
+    "friend": 0
+   },
+   "p": 6.723935140760495e-16,
+   "beyond_chance": true
+  }
+ ],
+ "summary": {
+  "match_four_min": 0.9958246346555324,
+  "match_first_min": 0.9895615866388309,
+  "own_first_changed_range": [
+   0.0020876826722338203,
+   0.3903966597077244
+  ],
+  "own_swapped_range": [
+   0.11691022964509394,
+   1.0250521920668059
+  ],
+  "all_first_changed_range": [
+   0.014613778705636743,
+   0.7202505219206681
+  ],
+  "nodes_tested": 83,
+  "nodes_beyond_chance": 41,
+  "nodes_beyond_above": 21
+ }
+}

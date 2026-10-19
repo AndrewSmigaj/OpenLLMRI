@@ -1,0 +1,1541 @@
+{
+ "capture": "calibration",
+ "session": "session_29a80932",
+ "lens": "calibration-q1-k2-n15",
+ "version": "v1",
+ "items": 600,
+ "min_node": 20,
+ "fdr": 0.05,
+ "layers": [
+  {
+   "layer": 0,
+   "match_four": 1.0,
+   "match_first": 0.9983333333333333,
+   "own_swapped_of_four": 0.0,
+   "own_first_changed": 0.09833333333333333,
+   "all_swapped_of_four": 1.0,
+   "all_first_changed": 0.9166666666666666,
+   "ami_first_label": 0.04711924681612266,
+   "ami_first_label_without_own": 0.0,
+   "own_first_changed_by_label": {
+    "aquarium": 0.15333333333333332,
+    "vehicle": 0.043333333333333335
+   }
+  },
+  {
+   "layer": 1,
+   "match_four": 0.9983333333333333,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.5816666666666667,
+   "own_first_changed": 0.0,
+   "all_swapped_of_four": 0.7983333333333333,
+   "all_first_changed": 0.0,
+   "ami_first_label": 0.0,
+   "ami_first_label_without_own": 0.0,
+   "own_first_changed_by_label": {
+    "aquarium": 0.0,
+    "vehicle": 0.0
+   }
+  },
+  {
+   "layer": 2,
+   "match_four": 1.0,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.05,
+   "own_first_changed": 0.0,
+   "all_swapped_of_four": 0.555,
+   "all_first_changed": 0.03333333333333333,
+   "ami_first_label": 0.0,
+   "ami_first_label_without_own": 0.0,
+   "own_first_changed_by_label": {
+    "aquarium": 0.0,
+    "vehicle": 0.0
+   }
+  },
+  {
+   "layer": 3,
+   "match_four": 0.9983333333333333,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.20166666666666666,
+   "own_first_changed": 0.005,
+   "all_swapped_of_four": 0.23,
+   "all_first_changed": 0.07666666666666666,
+   "ami_first_label": -7.682096923762483e-06,
+   "ami_first_label_without_own": 0.0,
+   "own_first_changed_by_label": {
+    "aquarium": 0.0033333333333333335,
+    "vehicle": 0.006666666666666667
+   }
+  },
+  {
+   "layer": 4,
+   "match_four": 1.0,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.22666666666666666,
+   "own_first_changed": 0.07166666666666667,
+   "all_swapped_of_four": 0.29333333333333333,
+   "all_first_changed": 0.07166666666666667,
+   "ami_first_label": 0.11441576008540008,
+   "ami_first_label_without_own": 0.04113049161773638,
+   "own_first_changed_by_label": {
+    "aquarium": 0.13333333333333333,
+    "vehicle": 0.01
+   }
+  },
+  {
+   "layer": 5,
+   "match_four": 1.0,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.14,
+   "own_first_changed": 0.0033333333333333335,
+   "all_swapped_of_four": 0.21833333333333332,
+   "all_first_changed": 0.005,
+   "ami_first_label": 0.00404618176142472,
+   "ami_first_label_without_own": -0.0009756990040573706,
+   "own_first_changed_by_label": {
+    "aquarium": 0.0033333333333333335,
+    "vehicle": 0.0033333333333333335
+   }
+  },
+  {
+   "layer": 6,
+   "match_four": 1.0,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.11,
+   "own_first_changed": 0.021666666666666667,
+   "all_swapped_of_four": 0.15166666666666667,
+   "all_first_changed": 0.041666666666666664,
+   "ami_first_label": 0.08935097875408787,
+   "ami_first_label_without_own": 0.1078633138030463,
+   "own_first_changed_by_label": {
+    "aquarium": 0.043333333333333335,
+    "vehicle": 0.0
+   }
+  },
+  {
+   "layer": 7,
+   "match_four": 1.0,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.08833333333333333,
+   "own_first_changed": 0.04833333333333333,
+   "all_swapped_of_four": 0.10166666666666667,
+   "all_first_changed": 0.125,
+   "ami_first_label": 0.09504783921305536,
+   "ami_first_label_without_own": 0.06964256760323914,
+   "own_first_changed_by_label": {
+    "aquarium": 0.08333333333333333,
+    "vehicle": 0.013333333333333334
+   }
+  },
+  {
+   "layer": 8,
+   "match_four": 1.0,
+   "match_first": 0.9983333333333333,
+   "own_swapped_of_four": 0.016666666666666666,
+   "own_first_changed": 0.07833333333333334,
+   "all_swapped_of_four": 0.018333333333333333,
+   "all_first_changed": 0.09333333333333334,
+   "ami_first_label": 0.0003668435798971625,
+   "ami_first_label_without_own": 0.01485474154655564,
+   "own_first_changed_by_label": {
+    "aquarium": 0.05,
+    "vehicle": 0.10666666666666667
+   }
+  },
+  {
+   "layer": 9,
+   "match_four": 1.0,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.16333333333333333,
+   "own_first_changed": 0.008333333333333333,
+   "all_swapped_of_four": 0.34833333333333333,
+   "all_first_changed": 0.006666666666666667,
+   "ami_first_label": 0.004059720324734309,
+   "ami_first_label_without_own": -0.00215912692900327,
+   "own_first_changed_by_label": {
+    "aquarium": 0.0033333333333333335,
+    "vehicle": 0.013333333333333334
+   }
+  },
+  {
+   "layer": 10,
+   "match_four": 0.9983333333333333,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.22,
+   "own_first_changed": 0.011666666666666667,
+   "all_swapped_of_four": 0.3516666666666667,
+   "all_first_changed": 0.023333333333333334,
+   "ami_first_label": 0.03613510706482018,
+   "ami_first_label_without_own": 0.04298656291646931,
+   "own_first_changed_by_label": {
+    "aquarium": 0.01,
+    "vehicle": 0.013333333333333334
+   }
+  },
+  {
+   "layer": 11,
+   "match_four": 0.9983333333333333,
+   "match_first": 0.9983333333333333,
+   "own_swapped_of_four": 0.08833333333333333,
+   "own_first_changed": 0.05333333333333334,
+   "all_swapped_of_four": 0.15833333333333333,
+   "all_first_changed": 0.06666666666666667,
+   "ami_first_label": 0.18485443716315036,
+   "ami_first_label_without_own": 0.2078672096514145,
+   "own_first_changed_by_label": {
+    "aquarium": 0.06,
+    "vehicle": 0.04666666666666667
+   }
+  },
+  {
+   "layer": 12,
+   "match_four": 1.0,
+   "match_first": 0.9983333333333333,
+   "own_swapped_of_four": 0.08833333333333333,
+   "own_first_changed": 0.055,
+   "all_swapped_of_four": 0.19166666666666668,
+   "all_first_changed": 0.25166666666666665,
+   "ami_first_label": 0.0036902910029031678,
+   "ami_first_label_without_own": 0.012188505307637262,
+   "own_first_changed_by_label": {
+    "aquarium": 0.06666666666666667,
+    "vehicle": 0.043333333333333335
+   }
+  },
+  {
+   "layer": 13,
+   "match_four": 1.0,
+   "match_first": 0.9983333333333333,
+   "own_swapped_of_four": 0.14,
+   "own_first_changed": 0.08,
+   "all_swapped_of_four": 0.23333333333333334,
+   "all_first_changed": 0.08666666666666667,
+   "ami_first_label": 0.014646855919727012,
+   "ami_first_label_without_own": 0.010614242239538463,
+   "own_first_changed_by_label": {
+    "aquarium": 0.07333333333333333,
+    "vehicle": 0.08666666666666667
+   }
+  },
+  {
+   "layer": 14,
+   "match_four": 1.0,
+   "match_first": 0.9966666666666667,
+   "own_swapped_of_four": 0.19166666666666668,
+   "own_first_changed": 0.06333333333333334,
+   "all_swapped_of_four": 0.33666666666666667,
+   "all_first_changed": 0.225,
+   "ami_first_label": 0.028529282874669135,
+   "ami_first_label_without_own": 0.06706386612110529,
+   "own_first_changed_by_label": {
+    "aquarium": 0.02666666666666667,
+    "vehicle": 0.1
+   }
+  },
+  {
+   "layer": 15,
+   "match_four": 0.995,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.09833333333333333,
+   "own_first_changed": 0.0016666666666666668,
+   "all_swapped_of_four": 0.28833333333333333,
+   "all_first_changed": 0.0033333333333333335,
+   "ami_first_label": -0.0024611243336462732,
+   "ami_first_label_without_own": 0.004247394341323547,
+   "own_first_changed_by_label": {
+    "aquarium": 0.0,
+    "vehicle": 0.0033333333333333335
+   }
+  },
+  {
+   "layer": 16,
+   "match_four": 0.9966666666666667,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.145,
+   "own_first_changed": 0.0,
+   "all_swapped_of_four": 0.595,
+   "all_first_changed": 0.0,
+   "ami_first_label": 0.0,
+   "ami_first_label_without_own": 0.0,
+   "own_first_changed_by_label": {
+    "aquarium": 0.0,
+    "vehicle": 0.0
+   }
+  },
+  {
+   "layer": 17,
+   "match_four": 1.0,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.041666666666666664,
+   "own_first_changed": 0.0,
+   "all_swapped_of_four": 0.045,
+   "all_first_changed": 0.0,
+   "ami_first_label": 0.0,
+   "ami_first_label_without_own": 0.0,
+   "own_first_changed_by_label": {
+    "aquarium": 0.0,
+    "vehicle": 0.0
+   }
+  },
+  {
+   "layer": 18,
+   "match_four": 0.9966666666666667,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.02666666666666667,
+   "own_first_changed": 0.0033333333333333335,
+   "all_swapped_of_four": 0.043333333333333335,
+   "all_first_changed": 0.0016666666666666668,
+   "ami_first_label": 0.0,
+   "ami_first_label_without_own": 0.0032529605246798808,
+   "own_first_changed_by_label": {
+    "aquarium": 0.0,
+    "vehicle": 0.006666666666666667
+   }
+  },
+  {
+   "layer": 19,
+   "match_four": 1.0,
+   "match_first": 0.9983333333333333,
+   "own_swapped_of_four": 0.06666666666666667,
+   "own_first_changed": 0.058333333333333334,
+   "all_swapped_of_four": 0.09666666666666666,
+   "all_first_changed": 0.08,
+   "ami_first_label": -0.00036031137712015903,
+   "ami_first_label_without_own": -0.0012328887659619422,
+   "own_first_changed_by_label": {
+    "aquarium": 0.06333333333333334,
+    "vehicle": 0.05333333333333334
+   }
+  },
+  {
+   "layer": 20,
+   "match_four": 0.9966666666666667,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.021666666666666667,
+   "own_first_changed": 0.023333333333333334,
+   "all_swapped_of_four": 0.051666666666666666,
+   "all_first_changed": 0.16,
+   "ami_first_label": 0.1752609326325673,
+   "ami_first_label_without_own": 0.2004402265972207,
+   "own_first_changed_by_label": {
+    "aquarium": 0.03,
+    "vehicle": 0.016666666666666666
+   }
+  },
+  {
+   "layer": 21,
+   "match_four": 0.9983333333333333,
+   "match_first": 0.995,
+   "own_swapped_of_four": 0.06666666666666667,
+   "own_first_changed": 0.06833333333333333,
+   "all_swapped_of_four": 0.14,
+   "all_first_changed": 0.08666666666666667,
+   "ami_first_label": 0.06472448584461518,
+   "ami_first_label_without_own": 0.036322924067330196,
+   "own_first_changed_by_label": {
+    "aquarium": 0.06666666666666667,
+    "vehicle": 0.07
+   }
+  },
+  {
+   "layer": 22,
+   "match_four": 1.0,
+   "match_first": 0.9983333333333333,
+   "own_swapped_of_four": 0.0,
+   "own_first_changed": 0.025,
+   "all_swapped_of_four": 0.008333333333333333,
+   "all_first_changed": 0.13,
+   "ami_first_label": 0.015285211302703888,
+   "ami_first_label_without_own": 0.015989603209836504,
+   "own_first_changed_by_label": {
+    "aquarium": 0.03,
+    "vehicle": 0.02
+   }
+  },
+  {
+   "layer": 23,
+   "match_four": 1.0,
+   "match_first": 0.9933333333333333,
+   "own_swapped_of_four": 0.028333333333333332,
+   "own_first_changed": 0.03333333333333333,
+   "all_swapped_of_four": 0.33166666666666667,
+   "all_first_changed": 0.12666666666666668,
+   "ami_first_label": 0.01786384554428252,
+   "ami_first_label_without_own": 0.01460809611855192,
+   "own_first_changed_by_label": {
+    "aquarium": 0.043333333333333335,
+    "vehicle": 0.023333333333333334
+   }
+  }
+ ],
+ "nodes": [
+  {
+   "layer": 0,
+   "expert": 0,
+   "items": 50,
+   "brought": 50,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.09833333333333333,
+   "labels": {
+    "aquarium": 43,
+    "vehicle": 7
+   },
+   "brought_labels": {
+    "aquarium": 43,
+    "vehicle": 7
+   },
+   "p": 4.315568981649873e-51,
+   "beyond_chance": true
+  },
+  {
+   "layer": 0,
+   "expert": 11,
+   "items": 541,
+   "brought": 0,
+   "pushed_out": 59,
+   "share": 0.0,
+   "layer_share": 0.09833333333333333,
+   "labels": {
+    "aquarium": 254,
+    "vehicle": 287
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "vehicle": 0
+   },
+   "p": 8.344046881592909e-25,
+   "beyond_chance": true
+  },
+  {
+   "layer": 0,
+   "expert": 18,
+   "items": 9,
+   "brought": 9,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.09833333333333333,
+   "labels": {
+    "aquarium": 3,
+    "vehicle": 6
+   },
+   "brought_labels": {
+    "aquarium": 3,
+    "vehicle": 6
+   }
+  },
+  {
+   "layer": 1,
+   "expert": 1,
+   "items": 600,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.0,
+   "labels": {
+    "aquarium": 300,
+    "vehicle": 300
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 2,
+   "expert": 10,
+   "items": 600,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.0,
+   "labels": {
+    "aquarium": 300,
+    "vehicle": 300
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 3,
+   "expert": 16,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.005,
+   "labels": {
+    "aquarium": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 1,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 3,
+   "expert": 23,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.005,
+   "labels": {
+    "aquarium": 0,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "vehicle": 1
+   }
+  },
+  {
+   "layer": 3,
+   "expert": 25,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.005,
+   "labels": {
+    "aquarium": 0,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "vehicle": 1
+   }
+  },
+  {
+   "layer": 3,
+   "expert": 31,
+   "items": 597,
+   "brought": 0,
+   "pushed_out": 3,
+   "share": 0.0,
+   "layer_share": 0.005,
+   "labels": {
+    "aquarium": 299,
+    "vehicle": 298
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "vehicle": 0
+   },
+   "p": 0.13207141754441315,
+   "beyond_chance": false
+  },
+  {
+   "layer": 4,
+   "expert": 14,
+   "items": 547,
+   "brought": 3,
+   "pushed_out": 40,
+   "share": 0.005484460694698354,
+   "layer_share": 0.07166666666666667,
+   "labels": {
+    "aquarium": 250,
+    "vehicle": 297
+   },
+   "brought_labels": {
+    "aquarium": 3,
+    "vehicle": 0
+   },
+   "p": 5.863175325206154e-14,
+   "beyond_chance": true
+  },
+  {
+   "layer": 4,
+   "expert": 17,
+   "items": 3,
+   "brought": 3,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.07166666666666667,
+   "labels": {
+    "aquarium": 0,
+    "vehicle": 3
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "vehicle": 3
+   }
+  },
+  {
+   "layer": 4,
+   "expert": 21,
+   "items": 35,
+   "brought": 23,
+   "pushed_out": 3,
+   "share": 0.6571428571428571,
+   "layer_share": 0.07166666666666667,
+   "labels": {
+    "aquarium": 35,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 23,
+    "vehicle": 0
+   },
+   "p": 1.6716951383966225e-18,
+   "beyond_chance": true
+  },
+  {
+   "layer": 4,
+   "expert": 24,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.07166666666666667,
+   "labels": {
+    "aquarium": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 1,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 4,
+   "expert": 25,
+   "items": 14,
+   "brought": 13,
+   "pushed_out": 0,
+   "share": 0.9285714285714286,
+   "layer_share": 0.07166666666666667,
+   "labels": {
+    "aquarium": 14,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 13,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 5,
+   "expert": 6,
+   "items": 6,
+   "brought": 1,
+   "pushed_out": 1,
+   "share": 0.16666666666666666,
+   "layer_share": 0.0033333333333333335,
+   "labels": {
+    "aquarium": 1,
+    "vehicle": 5
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "vehicle": 1
+   }
+  },
+  {
+   "layer": 5,
+   "expert": 31,
+   "items": 594,
+   "brought": 1,
+   "pushed_out": 1,
+   "share": 0.0016835016835016834,
+   "layer_share": 0.0033333333333333335,
+   "labels": {
+    "aquarium": 299,
+    "vehicle": 295
+   },
+   "brought_labels": {
+    "aquarium": 1,
+    "vehicle": 0
+   },
+   "p": 1.0,
+   "beyond_chance": false
+  },
+  {
+   "layer": 6,
+   "expert": 11,
+   "items": 34,
+   "brought": 2,
+   "pushed_out": 11,
+   "share": 0.058823529411764705,
+   "layer_share": 0.021666666666666667,
+   "labels": {
+    "aquarium": 34,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 2,
+    "vehicle": 0
+   },
+   "p": 0.16760358158065633,
+   "beyond_chance": false
+  },
+  {
+   "layer": 6,
+   "expert": 29,
+   "items": 2,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 0.5,
+   "layer_share": 0.021666666666666667,
+   "labels": {
+    "aquarium": 2,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 1,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 6,
+   "expert": 30,
+   "items": 564,
+   "brought": 10,
+   "pushed_out": 2,
+   "share": 0.01773049645390071,
+   "layer_share": 0.021666666666666667,
+   "labels": {
+    "aquarium": 264,
+    "vehicle": 300
+   },
+   "brought_labels": {
+    "aquarium": 10,
+    "vehicle": 0
+   },
+   "p": 0.6630993383288972,
+   "beyond_chance": false
+  },
+  {
+   "layer": 7,
+   "expert": 7,
+   "items": 88,
+   "brought": 25,
+   "pushed_out": 4,
+   "share": 0.2840909090909091,
+   "layer_share": 0.04833333333333333,
+   "labels": {
+    "aquarium": 77,
+    "vehicle": 11
+   },
+   "brought_labels": {
+    "aquarium": 22,
+    "vehicle": 3
+   },
+   "p": 3.870180028038145e-13,
+   "beyond_chance": true
+  },
+  {
+   "layer": 7,
+   "expert": 10,
+   "items": 512,
+   "brought": 4,
+   "pushed_out": 25,
+   "share": 0.0078125,
+   "layer_share": 0.04833333333333333,
+   "labels": {
+    "aquarium": 223,
+    "vehicle": 289
+   },
+   "brought_labels": {
+    "aquarium": 3,
+    "vehicle": 1
+   },
+   "p": 4.52920195076281e-07,
+   "beyond_chance": true
+  },
+  {
+   "layer": 8,
+   "expert": 9,
+   "items": 429,
+   "brought": 12,
+   "pushed_out": 15,
+   "share": 0.027972027972027972,
+   "layer_share": 0.07833333333333334,
+   "labels": {
+    "aquarium": 216,
+    "vehicle": 213
+   },
+   "brought_labels": {
+    "aquarium": 2,
+    "vehicle": 10
+   },
+   "p": 1.964430130535191e-05,
+   "beyond_chance": true
+  },
+  {
+   "layer": 8,
+   "expert": 20,
+   "items": 73,
+   "brought": 15,
+   "pushed_out": 26,
+   "share": 0.2054794520547945,
+   "layer_share": 0.07833333333333334,
+   "labels": {
+    "aquarium": 31,
+    "vehicle": 42
+   },
+   "brought_labels": {
+    "aquarium": 9,
+    "vehicle": 6
+   },
+   "p": 0.00046924153887785896,
+   "beyond_chance": true
+  },
+  {
+   "layer": 8,
+   "expert": 30,
+   "items": 98,
+   "brought": 20,
+   "pushed_out": 6,
+   "share": 0.20408163265306123,
+   "layer_share": 0.07833333333333334,
+   "labels": {
+    "aquarium": 53,
+    "vehicle": 45
+   },
+   "brought_labels": {
+    "aquarium": 4,
+    "vehicle": 16
+   },
+   "p": 6.454696968561828e-05,
+   "beyond_chance": true
+  },
+  {
+   "layer": 9,
+   "expert": 16,
+   "items": 590,
+   "brought": 0,
+   "pushed_out": 5,
+   "share": 0.0,
+   "layer_share": 0.008333333333333333,
+   "labels": {
+    "aquarium": 297,
+    "vehicle": 293
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "vehicle": 0
+   },
+   "p": 0.011786761470478942,
+   "beyond_chance": true
+  },
+  {
+   "layer": 9,
+   "expert": 20,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.008333333333333333,
+   "labels": {
+    "aquarium": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 1,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 9,
+   "expert": 26,
+   "items": 9,
+   "brought": 4,
+   "pushed_out": 0,
+   "share": 0.4444444444444444,
+   "layer_share": 0.008333333333333333,
+   "labels": {
+    "aquarium": 2,
+    "vehicle": 7
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "vehicle": 4
+   }
+  },
+  {
+   "layer": 10,
+   "expert": 15,
+   "items": 45,
+   "brought": 5,
+   "pushed_out": 2,
+   "share": 0.1111111111111111,
+   "layer_share": 0.011666666666666667,
+   "labels": {
+    "aquarium": 37,
+    "vehicle": 8
+   },
+   "brought_labels": {
+    "aquarium": 2,
+    "vehicle": 3
+   },
+   "p": 0.00017904292776752242,
+   "beyond_chance": true
+  },
+  {
+   "layer": 10,
+   "expert": 19,
+   "items": 555,
+   "brought": 2,
+   "pushed_out": 5,
+   "share": 0.0036036036036036037,
+   "layer_share": 0.011666666666666667,
+   "labels": {
+    "aquarium": 263,
+    "vehicle": 292
+   },
+   "brought_labels": {
+    "aquarium": 1,
+    "vehicle": 1
+   },
+   "p": 0.07520119265318323,
+   "beyond_chance": false
+  },
+  {
+   "layer": 11,
+   "expert": 7,
+   "items": 151,
+   "brought": 6,
+   "pushed_out": 9,
+   "share": 0.039735099337748346,
+   "layer_share": 0.05333333333333334,
+   "labels": {
+    "aquarium": 10,
+    "vehicle": 141
+   },
+   "brought_labels": {
+    "aquarium": 4,
+    "vehicle": 2
+   },
+   "p": 0.5868081050813312,
+   "beyond_chance": false
+  },
+  {
+   "layer": 11,
+   "expert": 13,
+   "items": 7,
+   "brought": 1,
+   "pushed_out": 1,
+   "share": 0.14285714285714285,
+   "layer_share": 0.05333333333333334,
+   "labels": {
+    "aquarium": 6,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "aquarium": 1,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 11,
+   "expert": 20,
+   "items": 241,
+   "brought": 14,
+   "pushed_out": 12,
+   "share": 0.058091286307053944,
+   "layer_share": 0.05333333333333334,
+   "labels": {
+    "aquarium": 182,
+    "vehicle": 59
+   },
+   "brought_labels": {
+    "aquarium": 8,
+    "vehicle": 6
+   },
+   "p": 0.6678980798154489,
+   "beyond_chance": false
+  },
+  {
+   "layer": 11,
+   "expert": 21,
+   "items": 3,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 0.3333333333333333,
+   "layer_share": 0.05333333333333334,
+   "labels": {
+    "aquarium": 0,
+    "vehicle": 3
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "vehicle": 1
+   }
+  },
+  {
+   "layer": 11,
+   "expert": 23,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.05333333333333334,
+   "labels": {
+    "aquarium": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 11,
+   "expert": 25,
+   "items": 197,
+   "brought": 10,
+   "pushed_out": 10,
+   "share": 0.050761421319796954,
+   "layer_share": 0.05333333333333334,
+   "labels": {
+    "aquarium": 101,
+    "vehicle": 96
+   },
+   "brought_labels": {
+    "aquarium": 5,
+    "vehicle": 5
+   },
+   "p": 1.0,
+   "beyond_chance": false
+  },
+  {
+   "layer": 12,
+   "expert": 13,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.055,
+   "labels": {
+    "aquarium": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 12,
+   "expert": 21,
+   "items": 491,
+   "brought": 9,
+   "pushed_out": 24,
+   "share": 0.018329938900203666,
+   "layer_share": 0.055,
+   "labels": {
+    "aquarium": 254,
+    "vehicle": 237
+   },
+   "brought_labels": {
+    "aquarium": 4,
+    "vehicle": 5
+   },
+   "p": 9.368070602353468e-05,
+   "beyond_chance": true
+  },
+  {
+   "layer": 12,
+   "expert": 25,
+   "items": 108,
+   "brought": 24,
+   "pushed_out": 9,
+   "share": 0.2222222222222222,
+   "layer_share": 0.055,
+   "labels": {
+    "aquarium": 45,
+    "vehicle": 63
+   },
+   "brought_labels": {
+    "aquarium": 16,
+    "vehicle": 8
+   },
+   "p": 4.0482364745955465e-09,
+   "beyond_chance": true
+  },
+  {
+   "layer": 13,
+   "expert": 5,
+   "items": 384,
+   "brought": 21,
+   "pushed_out": 27,
+   "share": 0.0546875,
+   "layer_share": 0.08,
+   "labels": {
+    "aquarium": 171,
+    "vehicle": 213
+   },
+   "brought_labels": {
+    "aquarium": 8,
+    "vehicle": 13
+   },
+   "p": 0.07319563779297673,
+   "beyond_chance": false
+  },
+  {
+   "layer": 13,
+   "expert": 24,
+   "items": 216,
+   "brought": 27,
+   "pushed_out": 21,
+   "share": 0.125,
+   "layer_share": 0.08,
+   "labels": {
+    "aquarium": 129,
+    "vehicle": 87
+   },
+   "brought_labels": {
+    "aquarium": 14,
+    "vehicle": 13
+   },
+   "p": 0.022801829937150943,
+   "beyond_chance": true
+  },
+  {
+   "layer": 14,
+   "expert": 6,
+   "items": 536,
+   "brought": 18,
+   "pushed_out": 20,
+   "share": 0.033582089552238806,
+   "layer_share": 0.06333333333333334,
+   "labels": {
+    "aquarium": 284,
+    "vehicle": 252
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "vehicle": 18
+   },
+   "p": 0.003260009930946841,
+   "beyond_chance": true
+  },
+  {
+   "layer": 14,
+   "expert": 29,
+   "items": 64,
+   "brought": 20,
+   "pushed_out": 18,
+   "share": 0.3125,
+   "layer_share": 0.06333333333333334,
+   "labels": {
+    "aquarium": 16,
+    "vehicle": 48
+   },
+   "brought_labels": {
+    "aquarium": 8,
+    "vehicle": 12
+   },
+   "p": 1.382497046378514e-09,
+   "beyond_chance": true
+  },
+  {
+   "layer": 15,
+   "expert": 26,
+   "items": 593,
+   "brought": 0,
+   "pushed_out": 1,
+   "share": 0.0,
+   "layer_share": 0.0016666666666666668,
+   "labels": {
+    "aquarium": 296,
+    "vehicle": 297
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "vehicle": 0
+   },
+   "p": 1.0,
+   "beyond_chance": false
+  },
+  {
+   "layer": 15,
+   "expert": 28,
+   "items": 3,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.0016666666666666668,
+   "labels": {
+    "aquarium": 1,
+    "vehicle": 2
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 15,
+   "expert": 29,
+   "items": 4,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 0.25,
+   "layer_share": 0.0016666666666666668,
+   "labels": {
+    "aquarium": 3,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "vehicle": 1
+   }
+  },
+  {
+   "layer": 16,
+   "expert": 11,
+   "items": 600,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.0,
+   "labels": {
+    "aquarium": 300,
+    "vehicle": 300
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 17,
+   "expert": 5,
+   "items": 600,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.0,
+   "labels": {
+    "aquarium": 300,
+    "vehicle": 300
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 18,
+   "expert": 14,
+   "items": 600,
+   "brought": 2,
+   "pushed_out": 0,
+   "share": 0.0033333333333333335,
+   "layer_share": 0.0033333333333333335,
+   "labels": {
+    "aquarium": 300,
+    "vehicle": 300
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "vehicle": 2
+   },
+   "p": 1.0,
+   "beyond_chance": false
+  },
+  {
+   "layer": 19,
+   "expert": 13,
+   "items": 374,
+   "brought": 13,
+   "pushed_out": 22,
+   "share": 0.034759358288770054,
+   "layer_share": 0.058333333333333334,
+   "labels": {
+    "aquarium": 182,
+    "vehicle": 192
+   },
+   "brought_labels": {
+    "aquarium": 5,
+    "vehicle": 8
+   },
+   "p": 0.059347483202090705,
+   "beyond_chance": false
+  },
+  {
+   "layer": 19,
+   "expert": 22,
+   "items": 226,
+   "brought": 22,
+   "pushed_out": 13,
+   "share": 0.09734513274336283,
+   "layer_share": 0.058333333333333334,
+   "labels": {
+    "aquarium": 118,
+    "vehicle": 108
+   },
+   "brought_labels": {
+    "aquarium": 14,
+    "vehicle": 8
+   },
+   "p": 0.021558355965970034,
+   "beyond_chance": true
+  },
+  {
+   "layer": 20,
+   "expert": 5,
+   "items": 443,
+   "brought": 8,
+   "pushed_out": 6,
+   "share": 0.01805869074492099,
+   "layer_share": 0.023333333333333334,
+   "labels": {
+    "aquarium": 162,
+    "vehicle": 281
+   },
+   "brought_labels": {
+    "aquarium": 7,
+    "vehicle": 1
+   },
+   "p": 0.6344793542357673,
+   "beyond_chance": false
+  },
+  {
+   "layer": 20,
+   "expert": 15,
+   "items": 157,
+   "brought": 6,
+   "pushed_out": 8,
+   "share": 0.03821656050955414,
+   "layer_share": 0.023333333333333334,
+   "labels": {
+    "aquarium": 138,
+    "vehicle": 19
+   },
+   "brought_labels": {
+    "aquarium": 2,
+    "vehicle": 4
+   },
+   "p": 0.18702223456341333,
+   "beyond_chance": false
+  },
+  {
+   "layer": 21,
+   "expert": 11,
+   "items": 327,
+   "brought": 10,
+   "pushed_out": 21,
+   "share": 0.03058103975535168,
+   "layer_share": 0.06833333333333333,
+   "labels": {
+    "aquarium": 199,
+    "vehicle": 128
+   },
+   "brought_labels": {
+    "aquarium": 5,
+    "vehicle": 5
+   },
+   "p": 0.004176236944668678,
+   "beyond_chance": true
+  },
+  {
+   "layer": 21,
+   "expert": 13,
+   "items": 5,
+   "brought": 5,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.06833333333333333,
+   "labels": {
+    "aquarium": 5,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 5,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 21,
+   "expert": 23,
+   "items": 23,
+   "brought": 5,
+   "pushed_out": 2,
+   "share": 0.21739130434782608,
+   "layer_share": 0.06833333333333333,
+   "labels": {
+    "aquarium": 18,
+    "vehicle": 5
+   },
+   "brought_labels": {
+    "aquarium": 5,
+    "vehicle": 0
+   },
+   "p": 0.01774911822392721,
+   "beyond_chance": true
+  },
+  {
+   "layer": 21,
+   "expert": 30,
+   "items": 245,
+   "brought": 21,
+   "pushed_out": 18,
+   "share": 0.08571428571428572,
+   "layer_share": 0.06833333333333333,
+   "labels": {
+    "aquarium": 78,
+    "vehicle": 167
+   },
+   "brought_labels": {
+    "aquarium": 5,
+    "vehicle": 16
+   },
+   "p": 0.25591928846826173,
+   "beyond_chance": false
+  },
+  {
+   "layer": 22,
+   "expert": 11,
+   "items": 327,
+   "brought": 9,
+   "pushed_out": 6,
+   "share": 0.027522935779816515,
+   "layer_share": 0.025,
+   "labels": {
+    "aquarium": 186,
+    "vehicle": 141
+   },
+   "brought_labels": {
+    "aquarium": 5,
+    "vehicle": 4
+   },
+   "p": 0.7214224065009822,
+   "beyond_chance": false
+  },
+  {
+   "layer": 22,
+   "expert": 13,
+   "items": 273,
+   "brought": 6,
+   "pushed_out": 9,
+   "share": 0.02197802197802198,
+   "layer_share": 0.025,
+   "labels": {
+    "aquarium": 114,
+    "vehicle": 159
+   },
+   "brought_labels": {
+    "aquarium": 4,
+    "vehicle": 2
+   },
+   "p": 1.0,
+   "beyond_chance": false
+  },
+  {
+   "layer": 23,
+   "expert": 2,
+   "items": 59,
+   "brought": 1,
+   "pushed_out": 5,
+   "share": 0.01694915254237288,
+   "layer_share": 0.03333333333333333,
+   "labels": {
+    "aquarium": 40,
+    "vehicle": 19
+   },
+   "brought_labels": {
+    "aquarium": 1,
+    "vehicle": 0
+   },
+   "p": 1.0,
+   "beyond_chance": false
+  },
+  {
+   "layer": 23,
+   "expert": 7,
+   "items": 53,
+   "brought": 10,
+   "pushed_out": 2,
+   "share": 0.18867924528301888,
+   "layer_share": 0.03333333333333333,
+   "labels": {
+    "aquarium": 35,
+    "vehicle": 18
+   },
+   "brought_labels": {
+    "aquarium": 7,
+    "vehicle": 3
+   },
+   "p": 8.862185049022215e-06,
+   "beyond_chance": true
+  },
+  {
+   "layer": 23,
+   "expert": 18,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.03333333333333333,
+   "labels": {
+    "aquarium": 0,
+    "vehicle": 1
+   },
+   "brought_labels": {
+    "aquarium": 0,
+    "vehicle": 1
+   }
+  },
+  {
+   "layer": 23,
+   "expert": 21,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.03333333333333333,
+   "labels": {
+    "aquarium": 1,
+    "vehicle": 0
+   },
+   "brought_labels": {
+    "aquarium": 1,
+    "vehicle": 0
+   }
+  },
+  {
+   "layer": 23,
+   "expert": 24,
+   "items": 486,
+   "brought": 7,
+   "pushed_out": 13,
+   "share": 0.01440329218106996,
+   "layer_share": 0.03333333333333333,
+   "labels": {
+    "aquarium": 224,
+    "vehicle": 262
+   },
+   "brought_labels": {
+    "aquarium": 4,
+    "vehicle": 3
+   },
+   "p": 0.015704270025578743,
+   "beyond_chance": true
+  }
+ ],
+ "summary": {
+  "match_four_min": 0.995,
+  "match_first_min": 0.9933333333333333,
+  "own_first_changed_range": [
+   0.0,
+   0.09833333333333333
+  ],
+  "own_swapped_range": [
+   0.0,
+   0.5816666666666667
+  ],
+  "all_first_changed_range": [
+   0.0,
+   0.9166666666666666
+  ],
+  "nodes_tested": 39,
+  "nodes_beyond_chance": 21,
+  "nodes_beyond_above": 12
+ }
+}

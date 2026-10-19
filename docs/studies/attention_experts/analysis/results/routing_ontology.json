@@ -1,0 +1,7122 @@
+{
+ "capture": "ontology",
+ "session": "session_5cd7091d",
+ "lens": "onto-k8-n15",
+ "version": "v1",
+ "items": 524,
+ "min_node": 20,
+ "fdr": 0.05,
+ "layers": [
+  {
+   "layer": 0,
+   "match_four": 0.9980916030534351,
+   "match_first": 1.0,
+   "own_swapped_of_four": 1.1259541984732824,
+   "own_first_changed": 0.4217557251908397,
+   "all_swapped_of_four": 1.2423664122137406,
+   "all_first_changed": 0.41603053435114506,
+   "ami_first_label": 0.028706544775086485,
+   "ami_first_label_without_own": 0.04346850702842284,
+   "own_first_changed_by_label": {
+    "amphibian": 0.4,
+    "arachnid": 0.4,
+    "bird": 0.32786885245901637,
+    "fish": 0.35443037974683544,
+    "insect": 0.5094339622641509,
+    "mammal": 0.48484848484848486,
+    "other_invertebrate": 0.3958333333333333,
+    "reptile": 0.53125
+   }
+  },
+  {
+   "layer": 1,
+   "match_four": 0.9980916030534351,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.40458015267175573,
+   "own_first_changed": 0.1297709923664122,
+   "all_swapped_of_four": 0.7881679389312977,
+   "all_first_changed": 0.21755725190839695,
+   "ami_first_label": 0.034773986945455214,
+   "ami_first_label_without_own": 0.023172918970623867,
+   "own_first_changed_by_label": {
+    "amphibian": 0.2,
+    "arachnid": 0.1,
+    "bird": 0.13934426229508196,
+    "fish": 0.10126582278481013,
+    "insect": 0.1320754716981132,
+    "mammal": 0.11515151515151516,
+    "other_invertebrate": 0.16666666666666666,
+    "reptile": 0.15625
+   }
+  },
+  {
+   "layer": 2,
+   "match_four": 0.9980916030534351,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.23091603053435114,
+   "own_first_changed": 0.12786259541984732,
+   "all_swapped_of_four": 0.4026717557251908,
+   "all_first_changed": 0.17748091603053434,
+   "ami_first_label": 0.0026260153771856722,
+   "ami_first_label_without_own": 0.0051489948105934566,
+   "own_first_changed_by_label": {
+    "amphibian": 0.13333333333333333,
+    "arachnid": 0.0,
+    "bird": 0.13934426229508196,
+    "fish": 0.13924050632911392,
+    "insect": 0.1509433962264151,
+    "mammal": 0.11515151515151516,
+    "other_invertebrate": 0.16666666666666666,
+    "reptile": 0.0625
+   }
+  },
+  {
+   "layer": 3,
+   "match_four": 1.0,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.28435114503816794,
+   "own_first_changed": 0.07633587786259542,
+   "all_swapped_of_four": 0.3950381679389313,
+   "all_first_changed": 0.15648854961832062,
+   "ami_first_label": 0.017650740451687536,
+   "ami_first_label_without_own": 0.010151216186170438,
+   "own_first_changed_by_label": {
+    "amphibian": 0.13333333333333333,
+    "arachnid": 0.2,
+    "bird": 0.10655737704918032,
+    "fish": 0.08860759493670886,
+    "insect": 0.05660377358490566,
+    "mammal": 0.06060606060606061,
+    "other_invertebrate": 0.041666666666666664,
+    "reptile": 0.03125
+   }
+  },
+  {
+   "layer": 4,
+   "match_four": 0.9980916030534351,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.2633587786259542,
+   "own_first_changed": 0.14885496183206107,
+   "all_swapped_of_four": 0.3301526717557252,
+   "all_first_changed": 0.2595419847328244,
+   "ami_first_label": 0.03700759176760114,
+   "ami_first_label_without_own": 0.05266179732049859,
+   "own_first_changed_by_label": {
+    "amphibian": 0.13333333333333333,
+    "arachnid": 0.0,
+    "bird": 0.1557377049180328,
+    "fish": 0.17721518987341772,
+    "insect": 0.11320754716981132,
+    "mammal": 0.14545454545454545,
+    "other_invertebrate": 0.14583333333333334,
+    "reptile": 0.1875
+   }
+  },
+  {
+   "layer": 5,
+   "match_four": 1.0,
+   "match_first": 0.9942748091603053,
+   "own_swapped_of_four": 0.15648854961832062,
+   "own_first_changed": 0.1316793893129771,
+   "all_swapped_of_four": 0.27099236641221375,
+   "all_first_changed": 0.18702290076335878,
+   "ami_first_label": 0.0028254682819489757,
+   "ami_first_label_without_own": 0.01900726079353543,
+   "own_first_changed_by_label": {
+    "amphibian": 0.2,
+    "arachnid": 0.2,
+    "bird": 0.1557377049180328,
+    "fish": 0.08860759493670886,
+    "insect": 0.09433962264150944,
+    "mammal": 0.14545454545454545,
+    "other_invertebrate": 0.125,
+    "reptile": 0.09375
+   }
+  },
+  {
+   "layer": 6,
+   "match_four": 0.9980916030534351,
+   "match_first": 0.9980916030534351,
+   "own_swapped_of_four": 0.20610687022900764,
+   "own_first_changed": 0.05725190839694656,
+   "all_swapped_of_four": 0.2633587786259542,
+   "all_first_changed": 0.04961832061068702,
+   "ami_first_label": 0.011343564252190791,
+   "ami_first_label_without_own": 0.0064368535662796475,
+   "own_first_changed_by_label": {
+    "amphibian": 0.06666666666666667,
+    "arachnid": 0.1,
+    "bird": 0.07377049180327869,
+    "fish": 0.012658227848101266,
+    "insect": 0.09433962264150944,
+    "mammal": 0.07272727272727272,
+    "other_invertebrate": 0.020833333333333332,
+    "reptile": 0.0
+   }
+  },
+  {
+   "layer": 7,
+   "match_four": 1.0,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.08778625954198473,
+   "own_first_changed": 0.05725190839694656,
+   "all_swapped_of_four": 0.16793893129770993,
+   "all_first_changed": 0.11068702290076336,
+   "ami_first_label": 0.017803007252533407,
+   "ami_first_label_without_own": 0.014987007998878477,
+   "own_first_changed_by_label": {
+    "amphibian": 0.06666666666666667,
+    "arachnid": 0.0,
+    "bird": 0.040983606557377046,
+    "fish": 0.05063291139240506,
+    "insect": 0.05660377358490566,
+    "mammal": 0.07272727272727272,
+    "other_invertebrate": 0.0625,
+    "reptile": 0.0625
+   }
+  },
+  {
+   "layer": 8,
+   "match_four": 1.0,
+   "match_first": 0.9980916030534351,
+   "own_swapped_of_four": 0.07824427480916031,
+   "own_first_changed": 0.07251908396946564,
+   "all_swapped_of_four": 0.08587786259541985,
+   "all_first_changed": 0.08778625954198473,
+   "ami_first_label": 0.034864169264816856,
+   "ami_first_label_without_own": 0.028971839597023992,
+   "own_first_changed_by_label": {
+    "amphibian": 0.13333333333333333,
+    "arachnid": 0.0,
+    "bird": 0.040983606557377046,
+    "fish": 0.0759493670886076,
+    "insect": 0.07547169811320754,
+    "mammal": 0.07878787878787878,
+    "other_invertebrate": 0.08333333333333333,
+    "reptile": 0.125
+   }
+  },
+  {
+   "layer": 9,
+   "match_four": 0.9980916030534351,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.14122137404580154,
+   "own_first_changed": 0.03816793893129771,
+   "all_swapped_of_four": 0.22519083969465647,
+   "all_first_changed": 0.061068702290076333,
+   "ami_first_label": 0.05653073566282612,
+   "ami_first_label_without_own": 0.05622269581955555,
+   "own_first_changed_by_label": {
+    "amphibian": 0.13333333333333333,
+    "arachnid": 0.0,
+    "bird": 0.040983606557377046,
+    "fish": 0.02531645569620253,
+    "insect": 0.07547169811320754,
+    "mammal": 0.03636363636363636,
+    "other_invertebrate": 0.020833333333333332,
+    "reptile": 0.0
+   }
+  },
+  {
+   "layer": 10,
+   "match_four": 0.9961832061068703,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.13358778625954199,
+   "own_first_changed": 0.04961832061068702,
+   "all_swapped_of_four": 0.1984732824427481,
+   "all_first_changed": 0.0916030534351145,
+   "ami_first_label": 0.013426642310061698,
+   "ami_first_label_without_own": 0.027423946847638152,
+   "own_first_changed_by_label": {
+    "amphibian": 0.0,
+    "arachnid": 0.2,
+    "bird": 0.04918032786885246,
+    "fish": 0.06329113924050633,
+    "insect": 0.03773584905660377,
+    "mammal": 0.05454545454545454,
+    "other_invertebrate": 0.041666666666666664,
+    "reptile": 0.0
+   }
+  },
+  {
+   "layer": 11,
+   "match_four": 1.0,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.11068702290076336,
+   "own_first_changed": 0.04198473282442748,
+   "all_swapped_of_four": 0.2767175572519084,
+   "all_first_changed": 0.12213740458015267,
+   "ami_first_label": 0.010639208391633504,
+   "ami_first_label_without_own": 0.019504584829191058,
+   "own_first_changed_by_label": {
+    "amphibian": 0.06666666666666667,
+    "arachnid": 0.0,
+    "bird": 0.07377049180327869,
+    "fish": 0.06329113924050633,
+    "insect": 0.018867924528301886,
+    "mammal": 0.012121212121212121,
+    "other_invertebrate": 0.041666666666666664,
+    "reptile": 0.0625
+   }
+  },
+  {
+   "layer": 12,
+   "match_four": 1.0,
+   "match_first": 0.9980916030534351,
+   "own_swapped_of_four": 0.08587786259541985,
+   "own_first_changed": 0.04007633587786259,
+   "all_swapped_of_four": 0.1297709923664122,
+   "all_first_changed": 0.1049618320610687,
+   "ami_first_label": 0.025505183428756604,
+   "ami_first_label_without_own": 0.035263442412354816,
+   "own_first_changed_by_label": {
+    "amphibian": 0.06666666666666667,
+    "arachnid": 0.1,
+    "bird": 0.05737704918032787,
+    "fish": 0.0379746835443038,
+    "insect": 0.07547169811320754,
+    "mammal": 0.030303030303030304,
+    "other_invertebrate": 0.0,
+    "reptile": 0.0
+   }
+  },
+  {
+   "layer": 13,
+   "match_four": 1.0,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.05725190839694656,
+   "own_first_changed": 0.04389312977099236,
+   "all_swapped_of_four": 0.20801526717557253,
+   "all_first_changed": 0.1316793893129771,
+   "ami_first_label": 0.0059944887882717405,
+   "ami_first_label_without_own": 0.011314482678898586,
+   "own_first_changed_by_label": {
+    "amphibian": 0.06666666666666667,
+    "arachnid": 0.0,
+    "bird": 0.01639344262295082,
+    "fish": 0.0379746835443038,
+    "insect": 0.09433962264150944,
+    "mammal": 0.04242424242424243,
+    "other_invertebrate": 0.0625,
+    "reptile": 0.0625
+   }
+  },
+  {
+   "layer": 14,
+   "match_four": 1.0,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.011450381679389313,
+   "own_first_changed": 0.07442748091603053,
+   "all_swapped_of_four": 0.019083969465648856,
+   "all_first_changed": 0.10687022900763359,
+   "ami_first_label": 0.005013517988298081,
+   "ami_first_label_without_own": 0.010290299135737473,
+   "own_first_changed_by_label": {
+    "amphibian": 0.06666666666666667,
+    "arachnid": 0.1,
+    "bird": 0.08196721311475409,
+    "fish": 0.0759493670886076,
+    "insect": 0.07547169811320754,
+    "mammal": 0.07878787878787878,
+    "other_invertebrate": 0.020833333333333332,
+    "reptile": 0.09375
+   }
+  },
+  {
+   "layer": 15,
+   "match_four": 0.9980916030534351,
+   "match_first": 0.9980916030534351,
+   "own_swapped_of_four": 0.07633587786259542,
+   "own_first_changed": 0.015267175572519083,
+   "all_swapped_of_four": 0.15267175572519084,
+   "all_first_changed": 0.026717557251908396,
+   "ami_first_label": -0.008076125269795826,
+   "ami_first_label_without_own": -0.008763463514807177,
+   "own_first_changed_by_label": {
+    "amphibian": 0.06666666666666667,
+    "arachnid": 0.0,
+    "bird": 0.0,
+    "fish": 0.0379746835443038,
+    "insect": 0.018867924528301886,
+    "mammal": 0.012121212121212121,
+    "other_invertebrate": 0.020833333333333332,
+    "reptile": 0.0
+   }
+  },
+  {
+   "layer": 16,
+   "match_four": 0.9980916030534351,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.10877862595419847,
+   "own_first_changed": 0.0019083969465648854,
+   "all_swapped_of_four": 0.29770992366412213,
+   "all_first_changed": 0.0057251908396946565,
+   "ami_first_label": 0.0011472167865502138,
+   "ami_first_label_without_own": 0.0048229202349755135,
+   "own_first_changed_by_label": {
+    "amphibian": 0.0,
+    "arachnid": 0.0,
+    "bird": 0.0,
+    "fish": 0.0,
+    "insect": 0.018867924528301886,
+    "mammal": 0.0,
+    "other_invertebrate": 0.0,
+    "reptile": 0.0
+   }
+  },
+  {
+   "layer": 17,
+   "match_four": 0.9980916030534351,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.08587786259541985,
+   "own_first_changed": 0.0,
+   "all_swapped_of_four": 0.11259541984732824,
+   "all_first_changed": 0.0,
+   "ami_first_label": 0.0,
+   "ami_first_label_without_own": 0.0,
+   "own_first_changed_by_label": {
+    "amphibian": 0.0,
+    "arachnid": 0.0,
+    "bird": 0.0,
+    "fish": 0.0,
+    "insect": 0.0,
+    "mammal": 0.0,
+    "other_invertebrate": 0.0,
+    "reptile": 0.0
+   }
+  },
+  {
+   "layer": 18,
+   "match_four": 1.0,
+   "match_first": 0.9980916030534351,
+   "own_swapped_of_four": 0.11450381679389313,
+   "own_first_changed": 0.03816793893129771,
+   "all_swapped_of_four": 0.2366412213740458,
+   "all_first_changed": 0.03816793893129771,
+   "ami_first_label": -0.004063918564141303,
+   "ami_first_label_without_own": 0.00013351360258404734,
+   "own_first_changed_by_label": {
+    "amphibian": 0.06666666666666667,
+    "arachnid": 0.0,
+    "bird": 0.03278688524590164,
+    "fish": 0.012658227848101266,
+    "insect": 0.05660377358490566,
+    "mammal": 0.04242424242424243,
+    "other_invertebrate": 0.020833333333333332,
+    "reptile": 0.09375
+   }
+  },
+  {
+   "layer": 19,
+   "match_four": 0.9980916030534351,
+   "match_first": 0.9980916030534351,
+   "own_swapped_of_four": 0.15076335877862596,
+   "own_first_changed": 0.02480916030534351,
+   "all_swapped_of_four": 0.31297709923664124,
+   "all_first_changed": 0.015267175572519083,
+   "ami_first_label": -0.0014529173300787818,
+   "ami_first_label_without_own": -0.0014337281148109667,
+   "own_first_changed_by_label": {
+    "amphibian": 0.06666666666666667,
+    "arachnid": 0.0,
+    "bird": 0.040983606557377046,
+    "fish": 0.0,
+    "insect": 0.03773584905660377,
+    "mammal": 0.030303030303030304,
+    "other_invertebrate": 0.0,
+    "reptile": 0.0
+   }
+  },
+  {
+   "layer": 20,
+   "match_four": 0.9980916030534351,
+   "match_first": 1.0,
+   "own_swapped_of_four": 0.16030534351145037,
+   "own_first_changed": 0.030534351145038167,
+   "all_swapped_of_four": 0.18702290076335878,
+   "all_first_changed": 0.05152671755725191,
+   "ami_first_label": 0.03262344502062338,
+   "ami_first_label_without_own": 0.023529479275431992,
+   "own_first_changed_by_label": {
+    "amphibian": 0.0,
+    "arachnid": 0.1,
+    "bird": 0.03278688524590164,
+    "fish": 0.0379746835443038,
+    "insect": 0.03773584905660377,
+    "mammal": 0.006060606060606061,
+    "other_invertebrate": 0.020833333333333332,
+    "reptile": 0.125
+   }
+  },
+  {
+   "layer": 21,
+   "match_four": 1.0,
+   "match_first": 0.9961832061068703,
+   "own_swapped_of_four": 0.12022900763358779,
+   "own_first_changed": 0.07061068702290077,
+   "all_swapped_of_four": 0.18129770992366412,
+   "all_first_changed": 0.11641221374045801,
+   "ami_first_label": 0.061068665544862046,
+   "ami_first_label_without_own": 0.060122677486339524,
+   "own_first_changed_by_label": {
+    "amphibian": 0.0,
+    "arachnid": 0.1,
+    "bird": 0.05737704918032787,
+    "fish": 0.10126582278481013,
+    "insect": 0.05660377358490566,
+    "mammal": 0.09696969696969697,
+    "other_invertebrate": 0.020833333333333332,
+    "reptile": 0.03125
+   }
+  },
+  {
+   "layer": 22,
+   "match_four": 1.0,
+   "match_first": 0.9961832061068703,
+   "own_swapped_of_four": 0.030534351145038167,
+   "own_first_changed": 0.011450381679389313,
+   "all_swapped_of_four": 0.061068702290076333,
+   "all_first_changed": 0.013358778625954198,
+   "ami_first_label": 0.014593977750268208,
+   "ami_first_label_without_own": 0.014860110660695616,
+   "own_first_changed_by_label": {
+    "amphibian": 0.0,
+    "arachnid": 0.0,
+    "bird": 0.02459016393442623,
+    "fish": 0.012658227848101266,
+    "insect": 0.0,
+    "mammal": 0.012121212121212121,
+    "other_invertebrate": 0.0,
+    "reptile": 0.0
+   }
+  },
+  {
+   "layer": 23,
+   "match_four": 0.9942748091603053,
+   "match_first": 0.9942748091603053,
+   "own_swapped_of_four": 0.3187022900763359,
+   "own_first_changed": 0.13549618320610687,
+   "all_swapped_of_four": 0.9770992366412213,
+   "all_first_changed": 0.3549618320610687,
+   "ami_first_label": 0.05160913277214246,
+   "ami_first_label_without_own": 0.046046556972495094,
+   "own_first_changed_by_label": {
+    "amphibian": 0.06666666666666667,
+    "arachnid": 0.1,
+    "bird": 0.1721311475409836,
+    "fish": 0.0759493670886076,
+    "insect": 0.1509433962264151,
+    "mammal": 0.1393939393939394,
+    "other_invertebrate": 0.08333333333333333,
+    "reptile": 0.21875
+   }
+  }
+ ],
+ "nodes": [
+  {
+   "layer": 0,
+   "expert": 0,
+   "items": 18,
+   "brought": 12,
+   "pushed_out": 10,
+   "share": 0.6666666666666666,
+   "layer_share": 0.4217557251908397,
+   "labels": {
+    "amphibian": 1,
+    "arachnid": 0,
+    "bird": 2,
+    "fish": 3,
+    "insect": 2,
+    "mammal": 9,
+    "other_invertebrate": 1,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 1,
+    "arachnid": 0,
+    "bird": 2,
+    "fish": 2,
+    "insect": 1,
+    "mammal": 6,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 0,
+   "expert": 1,
+   "items": 11,
+   "brought": 3,
+   "pushed_out": 4,
+   "share": 0.2727272727272727,
+   "layer_share": 0.4217557251908397,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 4,
+    "fish": 1,
+    "insect": 0,
+    "mammal": 4,
+    "other_invertebrate": 0,
+    "reptile": 2
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 1,
+    "other_invertebrate": 0,
+    "reptile": 1
+   }
+  },
+  {
+   "layer": 0,
+   "expert": 2,
+   "items": 16,
+   "brought": 1,
+   "pushed_out": 11,
+   "share": 0.0625,
+   "layer_share": 0.4217557251908397,
+   "labels": {
+    "amphibian": 1,
+    "arachnid": 0,
+    "bird": 7,
+    "fish": 3,
+    "insect": 1,
+    "mammal": 3,
+    "other_invertebrate": 0,
+    "reptile": 1
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 1,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 0,
+   "expert": 3,
+   "items": 20,
+   "brought": 10,
+   "pushed_out": 17,
+   "share": 0.5,
+   "layer_share": 0.4217557251908397,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 7,
+    "fish": 3,
+    "insect": 2,
+    "mammal": 4,
+    "other_invertebrate": 3,
+    "reptile": 1
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 2,
+    "fish": 1,
+    "insect": 1,
+    "mammal": 3,
+    "other_invertebrate": 2,
+    "reptile": 1
+   },
+   "p": 0.5036856071629303,
+   "beyond_chance": false
+  },
+  {
+   "layer": 0,
+   "expert": 4,
+   "items": 12,
+   "brought": 1,
+   "pushed_out": 1,
+   "share": 0.08333333333333333,
+   "layer_share": 0.4217557251908397,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 3,
+    "fish": 3,
+    "insect": 2,
+    "mammal": 1,
+    "other_invertebrate": 3,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 1,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 0,
+   "expert": 5,
+   "items": 14,
+   "brought": 8,
+   "pushed_out": 0,
+   "share": 0.5714285714285714,
+   "layer_share": 0.4217557251908397,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 6,
+    "fish": 0,
+    "insect": 1,
+    "mammal": 6,
+    "other_invertebrate": 1,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 3,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 5,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 0,
+   "expert": 6,
+   "items": 10,
+   "brought": 0,
+   "pushed_out": 2,
+   "share": 0.0,
+   "layer_share": 0.4217557251908397,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 1,
+    "insect": 1,
+    "mammal": 7,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 0,
+   "expert": 7,
+   "items": 10,
+   "brought": 0,
+   "pushed_out": 6,
+   "share": 0.0,
+   "layer_share": 0.4217557251908397,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 3,
+    "fish": 2,
+    "insect": 0,
+    "mammal": 3,
+    "other_invertebrate": 2,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 0,
+   "expert": 8,
+   "items": 14,
+   "brought": 0,
+   "pushed_out": 5,
+   "share": 0.0,
+   "layer_share": 0.4217557251908397,
+   "labels": {
+    "amphibian": 3,
+    "arachnid": 0,
+    "bird": 2,
+    "fish": 2,
+    "insect": 1,
+    "mammal": 3,
+    "other_invertebrate": 1,
+    "reptile": 2
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 0,
+   "expert": 9,
+   "items": 121,
+   "brought": 114,
+   "pushed_out": 10,
+   "share": 0.9421487603305785,
+   "layer_share": 0.4217557251908397,
+   "labels": {
+    "amphibian": 3,
+    "arachnid": 3,
+    "bird": 21,
+    "fish": 12,
+    "insect": 11,
+    "mammal": 49,
+    "other_invertebrate": 11,
+    "reptile": 11
+   },
+   "brought_labels": {
+    "amphibian": 3,
+    "arachnid": 3,
+    "bird": 17,
+    "fish": 12,
+    "insect": 11,
+    "mammal": 48,
+    "other_invertebrate": 9,
+    "reptile": 11
+   },
+   "p": 2.5800149123659085e-34,
+   "beyond_chance": true
+  },
+  {
+   "layer": 0,
+   "expert": 10,
+   "items": 9,
+   "brought": 1,
+   "pushed_out": 4,
+   "share": 0.1111111111111111,
+   "layer_share": 0.4217557251908397,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 5,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 3,
+    "other_invertebrate": 1,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 1,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 0,
+   "expert": 11,
+   "items": 70,
+   "brought": 44,
+   "pushed_out": 60,
+   "share": 0.6285714285714286,
+   "layer_share": 0.4217557251908397,
+   "labels": {
+    "amphibian": 2,
+    "arachnid": 0,
+    "bird": 13,
+    "fish": 8,
+    "insect": 15,
+    "mammal": 16,
+    "other_invertebrate": 10,
+    "reptile": 6
+   },
+   "brought_labels": {
+    "amphibian": 2,
+    "arachnid": 0,
+    "bird": 9,
+    "fish": 4,
+    "insect": 12,
+    "mammal": 10,
+    "other_invertebrate": 4,
+    "reptile": 3
+   },
+   "p": 0.0006086803005815873,
+   "beyond_chance": true
+  },
+  {
+   "layer": 0,
+   "expert": 12,
+   "items": 9,
+   "brought": 1,
+   "pushed_out": 3,
+   "share": 0.1111111111111111,
+   "layer_share": 0.4217557251908397,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 2,
+    "fish": 1,
+    "insect": 2,
+    "mammal": 3,
+    "other_invertebrate": 1,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 1,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 0,
+   "expert": 13,
+   "items": 3,
+   "brought": 0,
+   "pushed_out": 4,
+   "share": 0.0,
+   "layer_share": 0.4217557251908397,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 2,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 0,
+   "expert": 14,
+   "items": 6,
+   "brought": 1,
+   "pushed_out": 2,
+   "share": 0.16666666666666666,
+   "layer_share": 0.4217557251908397,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 3,
+    "fish": 1,
+    "insect": 0,
+    "mammal": 1,
+    "other_invertebrate": 0,
+    "reptile": 1
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 0,
+   "expert": 15,
+   "items": 34,
+   "brought": 1,
+   "pushed_out": 8,
+   "share": 0.029411764705882353,
+   "layer_share": 0.4217557251908397,
+   "labels": {
+    "amphibian": 2,
+    "arachnid": 1,
+    "bird": 6,
+    "fish": 18,
+    "insect": 2,
+    "mammal": 1,
+    "other_invertebrate": 4,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 1,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "p": 2.427958444591225e-07,
+   "beyond_chance": true
+  },
+  {
+   "layer": 0,
+   "expert": 16,
+   "items": 8,
+   "brought": 2,
+   "pushed_out": 3,
+   "share": 0.25,
+   "layer_share": 0.4217557251908397,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 3,
+    "fish": 3,
+    "insect": 0,
+    "mammal": 2,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 1,
+    "insect": 0,
+    "mammal": 1,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 0,
+   "expert": 17,
+   "items": 9,
+   "brought": 0,
+   "pushed_out": 5,
+   "share": 0.0,
+   "layer_share": 0.4217557251908397,
+   "labels": {
+    "amphibian": 1,
+    "arachnid": 1,
+    "bird": 1,
+    "fish": 0,
+    "insect": 2,
+    "mammal": 3,
+    "other_invertebrate": 1,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 0,
+   "expert": 18,
+   "items": 4,
+   "brought": 0,
+   "pushed_out": 2,
+   "share": 0.0,
+   "layer_share": 0.4217557251908397,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 2,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 1,
+    "other_invertebrate": 0,
+    "reptile": 1
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 0,
+   "expert": 19,
+   "items": 8,
+   "brought": 2,
+   "pushed_out": 0,
+   "share": 0.25,
+   "layer_share": 0.4217557251908397,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 1,
+    "bird": 0,
+    "fish": 4,
+    "insect": 0,
+    "mammal": 2,
+    "other_invertebrate": 1,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 2,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 0,
+   "expert": 20,
+   "items": 8,
+   "brought": 2,
+   "pushed_out": 1,
+   "share": 0.25,
+   "layer_share": 0.4217557251908397,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 2,
+    "mammal": 5,
+    "other_invertebrate": 0,
+    "reptile": 1
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 2,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 0,
+   "expert": 21,
+   "items": 14,
+   "brought": 0,
+   "pushed_out": 4,
+   "share": 0.0,
+   "layer_share": 0.4217557251908397,
+   "labels": {
+    "amphibian": 1,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 5,
+    "insect": 1,
+    "mammal": 6,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 0,
+   "expert": 22,
+   "items": 9,
+   "brought": 2,
+   "pushed_out": 1,
+   "share": 0.2222222222222222,
+   "layer_share": 0.4217557251908397,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 3,
+    "fish": 1,
+    "insect": 1,
+    "mammal": 3,
+    "other_invertebrate": 1,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 1,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 1,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 0,
+   "expert": 23,
+   "items": 5,
+   "brought": 2,
+   "pushed_out": 1,
+   "share": 0.4,
+   "layer_share": 0.4217557251908397,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 2,
+    "fish": 1,
+    "insect": 0,
+    "mammal": 1,
+    "other_invertebrate": 1,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 2,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 0,
+   "expert": 24,
+   "items": 29,
+   "brought": 11,
+   "pushed_out": 45,
+   "share": 0.3793103448275862,
+   "layer_share": 0.4217557251908397,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 1,
+    "bird": 9,
+    "fish": 3,
+    "insect": 1,
+    "mammal": 10,
+    "other_invertebrate": 2,
+    "reptile": 3
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 3,
+    "fish": 2,
+    "insect": 1,
+    "mammal": 2,
+    "other_invertebrate": 2,
+    "reptile": 1
+   },
+   "p": 0.7098403187947149,
+   "beyond_chance": false
+  },
+  {
+   "layer": 0,
+   "expert": 26,
+   "items": 7,
+   "brought": 0,
+   "pushed_out": 2,
+   "share": 0.0,
+   "layer_share": 0.4217557251908397,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 2,
+    "bird": 1,
+    "fish": 0,
+    "insect": 2,
+    "mammal": 2,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 0,
+   "expert": 27,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 3,
+   "share": 0.0,
+   "layer_share": 0.4217557251908397,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 0,
+   "expert": 28,
+   "items": 21,
+   "brought": 0,
+   "pushed_out": 2,
+   "share": 0.0,
+   "layer_share": 0.4217557251908397,
+   "labels": {
+    "amphibian": 1,
+    "arachnid": 1,
+    "bird": 6,
+    "fish": 0,
+    "insect": 4,
+    "mammal": 5,
+    "other_invertebrate": 2,
+    "reptile": 2
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "p": 1.5778441150627764e-05,
+   "beyond_chance": true
+  },
+  {
+   "layer": 0,
+   "expert": 29,
+   "items": 12,
+   "brought": 0,
+   "pushed_out": 2,
+   "share": 0.0,
+   "layer_share": 0.4217557251908397,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 5,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 6,
+    "other_invertebrate": 1,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 0,
+   "expert": 30,
+   "items": 3,
+   "brought": 0,
+   "pushed_out": 2,
+   "share": 0.0,
+   "layer_share": 0.4217557251908397,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 1,
+    "other_invertebrate": 1,
+    "reptile": 1
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 0,
+   "expert": 31,
+   "items": 9,
+   "brought": 3,
+   "pushed_out": 1,
+   "share": 0.3333333333333333,
+   "layer_share": 0.4217557251908397,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 2,
+    "fish": 4,
+    "insect": 0,
+    "mammal": 3,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 1,
+    "insect": 0,
+    "mammal": 2,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 1,
+   "expert": 0,
+   "items": 2,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.1297709923664122,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 1,
+    "insect": 0,
+    "mammal": 1,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 1,
+   "expert": 1,
+   "items": 2,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 0.5,
+   "layer_share": 0.1297709923664122,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 2,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 1,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 1,
+   "expert": 2,
+   "items": 4,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 0.25,
+   "layer_share": 0.1297709923664122,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 1,
+    "bird": 1,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 2,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 1,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 1,
+   "expert": 3,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.1297709923664122,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 1
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 1,
+   "expert": 6,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.1297709923664122,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 1,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 1,
+   "expert": 7,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.1297709923664122,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 1,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 1,
+   "expert": 8,
+   "items": 4,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.1297709923664122,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 0,
+    "insect": 2,
+    "mammal": 0,
+    "other_invertebrate": 1,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 1,
+   "expert": 9,
+   "items": 13,
+   "brought": 2,
+   "pushed_out": 1,
+   "share": 0.15384615384615385,
+   "layer_share": 0.1297709923664122,
+   "labels": {
+    "amphibian": 1,
+    "arachnid": 0,
+    "bird": 5,
+    "fish": 1,
+    "insect": 0,
+    "mammal": 5,
+    "other_invertebrate": 0,
+    "reptile": 1
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 1,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 1,
+   "expert": 10,
+   "items": 2,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 0.5,
+   "layer_share": 0.1297709923664122,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 1,
+    "other_invertebrate": 1,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 1,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 1,
+   "expert": 11,
+   "items": 201,
+   "brought": 19,
+   "pushed_out": 42,
+   "share": 0.0945273631840796,
+   "layer_share": 0.1297709923664122,
+   "labels": {
+    "amphibian": 8,
+    "arachnid": 2,
+    "bird": 56,
+    "fish": 42,
+    "insect": 10,
+    "mammal": 52,
+    "other_invertebrate": 19,
+    "reptile": 12
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 7,
+    "fish": 5,
+    "insect": 1,
+    "mammal": 3,
+    "other_invertebrate": 2,
+    "reptile": 1
+   },
+   "p": 0.17120647104808118,
+   "beyond_chance": false
+  },
+  {
+   "layer": 1,
+   "expert": 12,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 1,
+   "share": 0.0,
+   "layer_share": 0.1297709923664122,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 1,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 1,
+   "expert": 13,
+   "items": 2,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.1297709923664122,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 2,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 1,
+   "expert": 15,
+   "items": 16,
+   "brought": 2,
+   "pushed_out": 1,
+   "share": 0.125,
+   "layer_share": 0.1297709923664122,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 3,
+    "fish": 2,
+    "insect": 2,
+    "mammal": 7,
+    "other_invertebrate": 1,
+    "reptile": 1
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 1
+   }
+  },
+  {
+   "layer": 1,
+   "expert": 16,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.1297709923664122,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 1,
+   "expert": 17,
+   "items": 2,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.1297709923664122,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 1,
+    "mammal": 0,
+    "other_invertebrate": 1,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 1,
+   "expert": 18,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 1,
+   "share": 0.0,
+   "layer_share": 0.1297709923664122,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 1,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 1,
+   "expert": 19,
+   "items": 5,
+   "brought": 0,
+   "pushed_out": 2,
+   "share": 0.0,
+   "layer_share": 0.1297709923664122,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 2,
+    "insect": 1,
+    "mammal": 1,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 1,
+   "expert": 20,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.1297709923664122,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 1,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 1,
+   "expert": 22,
+   "items": 2,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.1297709923664122,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 2,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 1,
+   "expert": 23,
+   "items": 4,
+   "brought": 0,
+   "pushed_out": 1,
+   "share": 0.0,
+   "layer_share": 0.1297709923664122,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 2,
+    "insect": 0,
+    "mammal": 1,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 1,
+   "expert": 24,
+   "items": 6,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 0.16666666666666666,
+   "layer_share": 0.1297709923664122,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 1,
+    "bird": 1,
+    "fish": 0,
+    "insect": 1,
+    "mammal": 3,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 1,
+   "expert": 25,
+   "items": 6,
+   "brought": 3,
+   "pushed_out": 0,
+   "share": 0.5,
+   "layer_share": 0.1297709923664122,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 3,
+    "mammal": 1,
+    "other_invertebrate": 2,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 2,
+    "mammal": 1,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 1,
+   "expert": 26,
+   "items": 17,
+   "brought": 2,
+   "pushed_out": 0,
+   "share": 0.11764705882352941,
+   "layer_share": 0.1297709923664122,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 2,
+    "bird": 1,
+    "fish": 1,
+    "insect": 11,
+    "mammal": 1,
+    "other_invertebrate": 0,
+    "reptile": 1
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 1,
+    "bird": 0,
+    "fish": 0,
+    "insect": 1,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 1,
+   "expert": 27,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.1297709923664122,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 1,
+   "expert": 28,
+   "items": 209,
+   "brought": 34,
+   "pushed_out": 16,
+   "share": 0.16267942583732056,
+   "layer_share": 0.1297709923664122,
+   "labels": {
+    "amphibian": 4,
+    "arachnid": 4,
+    "bird": 44,
+    "fish": 22,
+    "insect": 20,
+    "mammal": 81,
+    "other_invertebrate": 19,
+    "reptile": 15
+   },
+   "brought_labels": {
+    "amphibian": 1,
+    "arachnid": 0,
+    "bird": 7,
+    "fish": 2,
+    "insect": 3,
+    "mammal": 13,
+    "other_invertebrate": 5,
+    "reptile": 3
+   },
+   "p": 0.17967993996410203,
+   "beyond_chance": false
+  },
+  {
+   "layer": 1,
+   "expert": 29,
+   "items": 2,
+   "brought": 0,
+   "pushed_out": 1,
+   "share": 0.0,
+   "layer_share": 0.1297709923664122,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 1,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 1,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 1,
+   "expert": 30,
+   "items": 8,
+   "brought": 2,
+   "pushed_out": 1,
+   "share": 0.25,
+   "layer_share": 0.1297709923664122,
+   "labels": {
+    "amphibian": 2,
+    "arachnid": 0,
+    "bird": 3,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 1,
+    "other_invertebrate": 2,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 2,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 1,
+   "expert": 31,
+   "items": 9,
+   "brought": 0,
+   "pushed_out": 1,
+   "share": 0.0,
+   "layer_share": 0.1297709923664122,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 3,
+    "fish": 1,
+    "insect": 0,
+    "mammal": 3,
+    "other_invertebrate": 1,
+    "reptile": 1
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 2,
+   "expert": 1,
+   "items": 12,
+   "brought": 3,
+   "pushed_out": 0,
+   "share": 0.25,
+   "layer_share": 0.12786259541984732,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 1,
+    "bird": 2,
+    "fish": 3,
+    "insect": 0,
+    "mammal": 4,
+    "other_invertebrate": 1,
+    "reptile": 1
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 2,
+    "insect": 0,
+    "mammal": 1,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 2,
+   "expert": 2,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.12786259541984732,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 1,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 1,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 2,
+   "expert": 10,
+   "items": 257,
+   "brought": 14,
+   "pushed_out": 36,
+   "share": 0.054474708171206226,
+   "layer_share": 0.12786259541984732,
+   "labels": {
+    "amphibian": 7,
+    "arachnid": 7,
+    "bird": 51,
+    "fish": 32,
+    "insect": 30,
+    "mammal": 81,
+    "other_invertebrate": 34,
+    "reptile": 15
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 4,
+    "fish": 2,
+    "insect": 1,
+    "mammal": 4,
+    "other_invertebrate": 3,
+    "reptile": 0
+   },
+   "p": 0.00016297727489850996,
+   "beyond_chance": true
+  },
+  {
+   "layer": 2,
+   "expert": 11,
+   "items": 4,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.12786259541984732,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 2,
+    "fish": 1,
+    "insect": 0,
+    "mammal": 1,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 2,
+   "expert": 14,
+   "items": 75,
+   "brought": 22,
+   "pushed_out": 10,
+   "share": 0.29333333333333333,
+   "layer_share": 0.12786259541984732,
+   "labels": {
+    "amphibian": 5,
+    "arachnid": 0,
+    "bird": 31,
+    "fish": 11,
+    "insect": 8,
+    "mammal": 13,
+    "other_invertebrate": 4,
+    "reptile": 3
+   },
+   "brought_labels": {
+    "amphibian": 1,
+    "arachnid": 0,
+    "bird": 6,
+    "fish": 3,
+    "insect": 4,
+    "mammal": 6,
+    "other_invertebrate": 2,
+    "reptile": 0
+   },
+   "p": 0.00015669133741772138,
+   "beyond_chance": true
+  },
+  {
+   "layer": 2,
+   "expert": 18,
+   "items": 3,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.12786259541984732,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 1,
+    "insect": 0,
+    "mammal": 1,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 2,
+   "expert": 19,
+   "items": 6,
+   "brought": 0,
+   "pushed_out": 1,
+   "share": 0.0,
+   "layer_share": 0.12786259541984732,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 1,
+    "insect": 0,
+    "mammal": 4,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 2,
+   "expert": 21,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 2,
+   "share": 1.0,
+   "layer_share": 0.12786259541984732,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 2,
+   "expert": 24,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.12786259541984732,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 1,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 2,
+   "expert": 26,
+   "items": 38,
+   "brought": 14,
+   "pushed_out": 4,
+   "share": 0.3684210526315789,
+   "layer_share": 0.12786259541984732,
+   "labels": {
+    "amphibian": 1,
+    "arachnid": 0,
+    "bird": 8,
+    "fish": 7,
+    "insect": 3,
+    "mammal": 13,
+    "other_invertebrate": 2,
+    "reptile": 4
+   },
+   "brought_labels": {
+    "amphibian": 1,
+    "arachnid": 0,
+    "bird": 3,
+    "fish": 3,
+    "insect": 2,
+    "mammal": 4,
+    "other_invertebrate": 0,
+    "reptile": 1
+   },
+   "p": 0.00014662813234812827,
+   "beyond_chance": true
+  },
+  {
+   "layer": 2,
+   "expert": 27,
+   "items": 6,
+   "brought": 1,
+   "pushed_out": 2,
+   "share": 0.16666666666666666,
+   "layer_share": 0.12786259541984732,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 1,
+    "insect": 1,
+    "mammal": 3,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 1,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 2,
+   "expert": 31,
+   "items": 120,
+   "brought": 11,
+   "pushed_out": 12,
+   "share": 0.09166666666666666,
+   "layer_share": 0.12786259541984732,
+   "labels": {
+    "amphibian": 2,
+    "arachnid": 2,
+    "bird": 24,
+    "fish": 22,
+    "insect": 11,
+    "mammal": 44,
+    "other_invertebrate": 6,
+    "reptile": 9
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 3,
+    "fish": 0,
+    "insect": 1,
+    "mammal": 4,
+    "other_invertebrate": 2,
+    "reptile": 1
+   },
+   "p": 0.27477870768921747,
+   "beyond_chance": false
+  },
+  {
+   "layer": 3,
+   "expert": 3,
+   "items": 4,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 0.25,
+   "layer_share": 0.07633587786259542,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 1,
+    "bird": 1,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 1,
+    "other_invertebrate": 0,
+    "reptile": 1
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 1,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 3,
+   "expert": 9,
+   "items": 2,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 0.5,
+   "layer_share": 0.07633587786259542,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 2,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 1,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 3,
+   "expert": 11,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.07633587786259542,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 1,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 3,
+   "expert": 14,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.07633587786259542,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 1
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 1
+   }
+  },
+  {
+   "layer": 3,
+   "expert": 15,
+   "items": 2,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 0.5,
+   "layer_share": 0.07633587786259542,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 1,
+    "bird": 0,
+    "fish": 1,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 1,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 3,
+   "expert": 20,
+   "items": 6,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.07633587786259542,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 2,
+    "insect": 2,
+    "mammal": 2,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 3,
+   "expert": 23,
+   "items": 182,
+   "brought": 18,
+   "pushed_out": 16,
+   "share": 0.0989010989010989,
+   "layer_share": 0.07633587786259542,
+   "labels": {
+    "amphibian": 7,
+    "arachnid": 2,
+    "bird": 53,
+    "fish": 31,
+    "insect": 11,
+    "mammal": 57,
+    "other_invertebrate": 10,
+    "reptile": 11
+   },
+   "brought_labels": {
+    "amphibian": 2,
+    "arachnid": 0,
+    "bird": 5,
+    "fish": 3,
+    "insect": 1,
+    "mammal": 6,
+    "other_invertebrate": 1,
+    "reptile": 0
+   },
+   "p": 0.2617572959017523,
+   "beyond_chance": false
+  },
+  {
+   "layer": 3,
+   "expert": 25,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.07633587786259542,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 1,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 3,
+   "expert": 27,
+   "items": 5,
+   "brought": 3,
+   "pushed_out": 0,
+   "share": 0.6,
+   "layer_share": 0.07633587786259542,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 2,
+    "insect": 1,
+    "mammal": 0,
+    "other_invertebrate": 2,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 1,
+    "insect": 1,
+    "mammal": 0,
+    "other_invertebrate": 1,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 3,
+   "expert": 31,
+   "items": 320,
+   "brought": 15,
+   "pushed_out": 23,
+   "share": 0.046875,
+   "layer_share": 0.07633587786259542,
+   "labels": {
+    "amphibian": 8,
+    "arachnid": 6,
+    "bird": 68,
+    "fish": 42,
+    "insect": 37,
+    "mammal": 104,
+    "other_invertebrate": 36,
+    "reptile": 19
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 8,
+    "fish": 3,
+    "insect": 0,
+    "mammal": 4,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "p": 0.045250154298755146,
+   "beyond_chance": false
+  },
+  {
+   "layer": 4,
+   "expert": 0,
+   "items": 2,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.14885496183206107,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 1,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 4,
+   "expert": 5,
+   "items": 4,
+   "brought": 0,
+   "pushed_out": 1,
+   "share": 0.0,
+   "layer_share": 0.14885496183206107,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 1,
+    "insect": 0,
+    "mammal": 2,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 4,
+   "expert": 6,
+   "items": 2,
+   "brought": 2,
+   "pushed_out": 1,
+   "share": 1.0,
+   "layer_share": 0.14885496183206107,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 1,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 1,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 4,
+   "expert": 7,
+   "items": 4,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.14885496183206107,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 3,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 4,
+   "expert": 9,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.14885496183206107,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 4,
+   "expert": 13,
+   "items": 35,
+   "brought": 2,
+   "pushed_out": 7,
+   "share": 0.05714285714285714,
+   "layer_share": 0.14885496183206107,
+   "labels": {
+    "amphibian": 1,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 2,
+    "insect": 0,
+    "mammal": 31,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 1,
+    "insect": 0,
+    "mammal": 1,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "p": 0.15603451746827865,
+   "beyond_chance": false
+  },
+  {
+   "layer": 4,
+   "expert": 14,
+   "items": 83,
+   "brought": 23,
+   "pushed_out": 3,
+   "share": 0.27710843373493976,
+   "layer_share": 0.14885496183206107,
+   "labels": {
+    "amphibian": 4,
+    "arachnid": 2,
+    "bird": 19,
+    "fish": 16,
+    "insect": 6,
+    "mammal": 22,
+    "other_invertebrate": 6,
+    "reptile": 8
+   },
+   "brought_labels": {
+    "amphibian": 1,
+    "arachnid": 0,
+    "bird": 4,
+    "fish": 7,
+    "insect": 1,
+    "mammal": 7,
+    "other_invertebrate": 2,
+    "reptile": 1
+   },
+   "p": 0.0028291364253736967,
+   "beyond_chance": true
+  },
+  {
+   "layer": 4,
+   "expert": 15,
+   "items": 5,
+   "brought": 3,
+   "pushed_out": 0,
+   "share": 0.6,
+   "layer_share": 0.14885496183206107,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 3,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 1,
+    "other_invertebrate": 1,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 2,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 1,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 4,
+   "expert": 17,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.14885496183206107,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 1,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 4,
+   "expert": 19,
+   "items": 2,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 0.5,
+   "layer_share": 0.14885496183206107,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 2
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 1
+   }
+  },
+  {
+   "layer": 4,
+   "expert": 21,
+   "items": 209,
+   "brought": 26,
+   "pushed_out": 21,
+   "share": 0.12440191387559808,
+   "layer_share": 0.14885496183206107,
+   "labels": {
+    "amphibian": 6,
+    "arachnid": 4,
+    "bird": 57,
+    "fish": 30,
+    "insect": 27,
+    "mammal": 47,
+    "other_invertebrate": 23,
+    "reptile": 15
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 8,
+    "fish": 3,
+    "insect": 0,
+    "mammal": 10,
+    "other_invertebrate": 1,
+    "reptile": 4
+   },
+   "p": 0.3812710708427408,
+   "beyond_chance": false
+  },
+  {
+   "layer": 4,
+   "expert": 22,
+   "items": 5,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 0.2,
+   "layer_share": 0.14885496183206107,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 2,
+    "fish": 1,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 2,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 4,
+   "expert": 24,
+   "items": 171,
+   "brought": 19,
+   "pushed_out": 44,
+   "share": 0.1111111111111111,
+   "layer_share": 0.14885496183206107,
+   "labels": {
+    "amphibian": 4,
+    "arachnid": 4,
+    "bird": 35,
+    "fish": 27,
+    "insect": 20,
+    "mammal": 61,
+    "other_invertebrate": 13,
+    "reptile": 7
+   },
+   "brought_labels": {
+    "amphibian": 1,
+    "arachnid": 0,
+    "bird": 2,
+    "fish": 2,
+    "insect": 5,
+    "mammal": 6,
+    "other_invertebrate": 3,
+    "reptile": 0
+   },
+   "p": 0.19657343167460167,
+   "beyond_chance": false
+  },
+  {
+   "layer": 5,
+   "expert": 1,
+   "items": 3,
+   "brought": 1,
+   "pushed_out": 1,
+   "share": 0.3333333333333333,
+   "layer_share": 0.1316793893129771,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 1,
+    "insect": 1,
+    "mammal": 0,
+    "other_invertebrate": 1,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 1,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 5,
+   "expert": 3,
+   "items": 3,
+   "brought": 2,
+   "pushed_out": 0,
+   "share": 0.6666666666666666,
+   "layer_share": 0.1316793893129771,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 0,
+    "insect": 1,
+    "mammal": 0,
+    "other_invertebrate": 1,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 0,
+    "insect": 1,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 5,
+   "expert": 4,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 1,
+   "share": 0.0,
+   "layer_share": 0.1316793893129771,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 1
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 5,
+   "expert": 6,
+   "items": 4,
+   "brought": 1,
+   "pushed_out": 1,
+   "share": 0.25,
+   "layer_share": 0.1316793893129771,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 3,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 1,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 5,
+   "expert": 12,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.1316793893129771,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 1,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 5,
+   "expert": 15,
+   "items": 253,
+   "brought": 25,
+   "pushed_out": 34,
+   "share": 0.09881422924901186,
+   "layer_share": 0.1316793893129771,
+   "labels": {
+    "amphibian": 8,
+    "arachnid": 5,
+    "bird": 57,
+    "fish": 41,
+    "insect": 21,
+    "mammal": 89,
+    "other_invertebrate": 17,
+    "reptile": 15
+   },
+   "brought_labels": {
+    "amphibian": 3,
+    "arachnid": 1,
+    "bird": 4,
+    "fish": 1,
+    "insect": 3,
+    "mammal": 8,
+    "other_invertebrate": 4,
+    "reptile": 1
+   },
+   "p": 0.1364460413988663,
+   "beyond_chance": false
+  },
+  {
+   "layer": 5,
+   "expert": 16,
+   "items": 2,
+   "brought": 2,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.1316793893129771,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 2,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 2,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 5,
+   "expert": 18,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.1316793893129771,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 1,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 5,
+   "expert": 20,
+   "items": 2,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 0.5,
+   "layer_share": 0.1316793893129771,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 1,
+    "insect": 0,
+    "mammal": 1,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 1,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 5,
+   "expert": 21,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 1,
+   "share": 0.0,
+   "layer_share": 0.1316793893129771,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 1,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 5,
+   "expert": 22,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.1316793893129771,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 1
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 5,
+   "expert": 23,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 1,
+   "share": 0.0,
+   "layer_share": 0.1316793893129771,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 5,
+   "expert": 24,
+   "items": 16,
+   "brought": 8,
+   "pushed_out": 0,
+   "share": 0.5,
+   "layer_share": 0.1316793893129771,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 1,
+    "bird": 3,
+    "fish": 1,
+    "insect": 2,
+    "mammal": 9,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 1,
+    "bird": 2,
+    "fish": 1,
+    "insect": 0,
+    "mammal": 4,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 5,
+   "expert": 25,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.1316793893129771,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 1
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 1
+   }
+  },
+  {
+   "layer": 5,
+   "expert": 27,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.1316793893129771,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 1,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 5,
+   "expert": 29,
+   "items": 11,
+   "brought": 2,
+   "pushed_out": 1,
+   "share": 0.18181818181818182,
+   "layer_share": 0.1316793893129771,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 1,
+    "bird": 1,
+    "fish": 3,
+    "insect": 1,
+    "mammal": 2,
+    "other_invertebrate": 2,
+    "reptile": 1
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 1,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 1,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 5,
+   "expert": 31,
+   "items": 222,
+   "brought": 26,
+   "pushed_out": 28,
+   "share": 0.11711711711711711,
+   "layer_share": 0.1316793893129771,
+   "labels": {
+    "amphibian": 7,
+    "arachnid": 3,
+    "bird": 56,
+    "fish": 32,
+    "insect": 27,
+    "mammal": 57,
+    "other_invertebrate": 27,
+    "reptile": 13
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 11,
+    "fish": 4,
+    "insect": 0,
+    "mammal": 9,
+    "other_invertebrate": 1,
+    "reptile": 1
+   },
+   "p": 0.6192777446514119,
+   "beyond_chance": false
+  },
+  {
+   "layer": 6,
+   "expert": 0,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.05725190839694656,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 1,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 6,
+   "expert": 2,
+   "items": 6,
+   "brought": 4,
+   "pushed_out": 0,
+   "share": 0.6666666666666666,
+   "layer_share": 0.05725190839694656,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 1,
+    "insect": 1,
+    "mammal": 3,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 1,
+    "mammal": 3,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 6,
+   "expert": 5,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 6,
+   "share": 0.0,
+   "layer_share": 0.05725190839694656,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 6,
+   "expert": 6,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.05725190839694656,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 1,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 6,
+   "expert": 7,
+   "items": 2,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.05725190839694656,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 1,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 1,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 6,
+   "expert": 11,
+   "items": 2,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 0.5,
+   "layer_share": 0.05725190839694656,
+   "labels": {
+    "amphibian": 1,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 1,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 1,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 6,
+   "expert": 14,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 1,
+   "share": 0.0,
+   "layer_share": 0.05725190839694656,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 6,
+   "expert": 18,
+   "items": 8,
+   "brought": 3,
+   "pushed_out": 1,
+   "share": 0.375,
+   "layer_share": 0.05725190839694656,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 2,
+    "fish": 1,
+    "insect": 4,
+    "mammal": 1,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 3,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 6,
+   "expert": 24,
+   "items": 40,
+   "brought": 7,
+   "pushed_out": 0,
+   "share": 0.175,
+   "layer_share": 0.05725190839694656,
+   "labels": {
+    "amphibian": 3,
+    "arachnid": 1,
+    "bird": 10,
+    "fish": 1,
+    "insect": 5,
+    "mammal": 18,
+    "other_invertebrate": 1,
+    "reptile": 1
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 1,
+    "bird": 2,
+    "fish": 0,
+    "insect": 1,
+    "mammal": 3,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "p": 0.007073247177446042,
+   "beyond_chance": true
+  },
+  {
+   "layer": 6,
+   "expert": 27,
+   "items": 30,
+   "brought": 6,
+   "pushed_out": 4,
+   "share": 0.2,
+   "layer_share": 0.05725190839694656,
+   "labels": {
+    "amphibian": 1,
+    "arachnid": 1,
+    "bird": 7,
+    "fish": 7,
+    "insect": 0,
+    "mammal": 12,
+    "other_invertebrate": 0,
+    "reptile": 2
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 2,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 4,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "p": 0.00635364183262895,
+   "beyond_chance": true
+  },
+  {
+   "layer": 6,
+   "expert": 28,
+   "items": 53,
+   "brought": 1,
+   "pushed_out": 4,
+   "share": 0.018867924528301886,
+   "layer_share": 0.05725190839694656,
+   "labels": {
+    "amphibian": 1,
+    "arachnid": 0,
+    "bird": 11,
+    "fish": 5,
+    "insect": 6,
+    "mammal": 19,
+    "other_invertebrate": 6,
+    "reptile": 5
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 1,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "p": 0.37099572655913715,
+   "beyond_chance": false
+  },
+  {
+   "layer": 6,
+   "expert": 29,
+   "items": 2,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.05725190839694656,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 1
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 6,
+   "expert": 30,
+   "items": 377,
+   "brought": 8,
+   "pushed_out": 14,
+   "share": 0.021220159151193633,
+   "layer_share": 0.05725190839694656,
+   "labels": {
+    "amphibian": 9,
+    "arachnid": 8,
+    "bird": 88,
+    "fish": 62,
+    "insect": 37,
+    "mammal": 111,
+    "other_invertebrate": 39,
+    "reptile": 23
+   },
+   "brought_labels": {
+    "amphibian": 1,
+    "arachnid": 0,
+    "bird": 5,
+    "fish": 1,
+    "insect": 0,
+    "mammal": 1,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "p": 0.0011748386943934526,
+   "beyond_chance": true
+  },
+  {
+   "layer": 7,
+   "expert": 4,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.05725190839694656,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 1,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 7,
+   "expert": 5,
+   "items": 38,
+   "brought": 2,
+   "pushed_out": 4,
+   "share": 0.05263157894736842,
+   "layer_share": 0.05725190839694656,
+   "labels": {
+    "amphibian": 1,
+    "arachnid": 2,
+    "bird": 7,
+    "fish": 6,
+    "insect": 2,
+    "mammal": 16,
+    "other_invertebrate": 1,
+    "reptile": 3
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 2,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "p": 1.0,
+   "beyond_chance": false
+  },
+  {
+   "layer": 7,
+   "expert": 6,
+   "items": 4,
+   "brought": 1,
+   "pushed_out": 1,
+   "share": 0.25,
+   "layer_share": 0.05725190839694656,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 2,
+    "other_invertebrate": 0,
+    "reptile": 1
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 1,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 7,
+   "expert": 7,
+   "items": 151,
+   "brought": 9,
+   "pushed_out": 9,
+   "share": 0.059602649006622516,
+   "layer_share": 0.05725190839694656,
+   "labels": {
+    "amphibian": 4,
+    "arachnid": 2,
+    "bird": 30,
+    "fish": 12,
+    "insect": 12,
+    "mammal": 65,
+    "other_invertebrate": 14,
+    "reptile": 12
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 1,
+    "insect": 0,
+    "mammal": 5,
+    "other_invertebrate": 1,
+    "reptile": 2
+   },
+   "p": 0.860268040001684,
+   "beyond_chance": false
+  },
+  {
+   "layer": 7,
+   "expert": 8,
+   "items": 2,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.05725190839694656,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 1,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 7,
+   "expert": 10,
+   "items": 141,
+   "brought": 9,
+   "pushed_out": 12,
+   "share": 0.06382978723404255,
+   "layer_share": 0.05725190839694656,
+   "labels": {
+    "amphibian": 5,
+    "arachnid": 2,
+    "bird": 47,
+    "fish": 26,
+    "insect": 14,
+    "mammal": 30,
+    "other_invertebrate": 7,
+    "reptile": 10
+   },
+   "brought_labels": {
+    "amphibian": 1,
+    "arachnid": 0,
+    "bird": 4,
+    "fish": 1,
+    "insect": 0,
+    "mammal": 2,
+    "other_invertebrate": 1,
+    "reptile": 0
+   },
+   "p": 0.7150933601271228,
+   "beyond_chance": false
+  },
+  {
+   "layer": 7,
+   "expert": 25,
+   "items": 152,
+   "brought": 7,
+   "pushed_out": 2,
+   "share": 0.046052631578947366,
+   "layer_share": 0.05725190839694656,
+   "labels": {
+    "amphibian": 5,
+    "arachnid": 2,
+    "bird": 30,
+    "fish": 32,
+    "insect": 21,
+    "mammal": 40,
+    "other_invertebrate": 17,
+    "reptile": 5
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 2,
+    "insect": 2,
+    "mammal": 2,
+    "other_invertebrate": 1,
+    "reptile": 0
+   },
+   "p": 0.7258397315809136,
+   "beyond_chance": false
+  },
+  {
+   "layer": 7,
+   "expert": 26,
+   "items": 35,
+   "brought": 2,
+   "pushed_out": 2,
+   "share": 0.05714285714285714,
+   "layer_share": 0.05725190839694656,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 1,
+    "bird": 6,
+    "fish": 3,
+    "insect": 4,
+    "mammal": 11,
+    "other_invertebrate": 9,
+    "reptile": 1
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 0,
+    "insect": 1,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "p": 1.0,
+   "beyond_chance": false
+  },
+  {
+   "layer": 8,
+   "expert": 6,
+   "items": 39,
+   "brought": 3,
+   "pushed_out": 4,
+   "share": 0.07692307692307693,
+   "layer_share": 0.07251908396946564,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 1,
+    "bird": 2,
+    "fish": 8,
+    "insect": 3,
+    "mammal": 8,
+    "other_invertebrate": 15,
+    "reptile": 2
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 2,
+    "other_invertebrate": 1,
+    "reptile": 0
+   },
+   "p": 0.7595597496158356,
+   "beyond_chance": false
+  },
+  {
+   "layer": 8,
+   "expert": 9,
+   "items": 198,
+   "brought": 13,
+   "pushed_out": 11,
+   "share": 0.06565656565656566,
+   "layer_share": 0.07251908396946564,
+   "labels": {
+    "amphibian": 5,
+    "arachnid": 1,
+    "bird": 65,
+    "fish": 22,
+    "insect": 12,
+    "mammal": 66,
+    "other_invertebrate": 13,
+    "reptile": 14
+   },
+   "brought_labels": {
+    "amphibian": 1,
+    "arachnid": 0,
+    "bird": 2,
+    "fish": 3,
+    "insect": 1,
+    "mammal": 3,
+    "other_invertebrate": 1,
+    "reptile": 2
+   },
+   "p": 0.8905902590810149,
+   "beyond_chance": false
+  },
+  {
+   "layer": 8,
+   "expert": 12,
+   "items": 5,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.07251908396946564,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 1,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 1,
+    "reptile": 2
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 8,
+   "expert": 17,
+   "items": 13,
+   "brought": 3,
+   "pushed_out": 0,
+   "share": 0.23076923076923078,
+   "layer_share": 0.07251908396946564,
+   "labels": {
+    "amphibian": 1,
+    "arachnid": 1,
+    "bird": 3,
+    "fish": 3,
+    "insect": 1,
+    "mammal": 4,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 1,
+    "insect": 0,
+    "mammal": 1,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 8,
+   "expert": 20,
+   "items": 128,
+   "brought": 10,
+   "pushed_out": 10,
+   "share": 0.078125,
+   "layer_share": 0.07251908396946564,
+   "labels": {
+    "amphibian": 4,
+    "arachnid": 3,
+    "bird": 29,
+    "fish": 22,
+    "insect": 8,
+    "mammal": 45,
+    "other_invertebrate": 7,
+    "reptile": 10
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 2,
+    "fish": 1,
+    "insect": 0,
+    "mammal": 4,
+    "other_invertebrate": 1,
+    "reptile": 2
+   },
+   "p": 0.7335417061121914,
+   "beyond_chance": false
+  },
+  {
+   "layer": 8,
+   "expert": 30,
+   "items": 141,
+   "brought": 9,
+   "pushed_out": 13,
+   "share": 0.06382978723404255,
+   "layer_share": 0.07251908396946564,
+   "labels": {
+    "amphibian": 5,
+    "arachnid": 4,
+    "bird": 22,
+    "fish": 23,
+    "insect": 29,
+    "mammal": 42,
+    "other_invertebrate": 12,
+    "reptile": 4
+   },
+   "brought_labels": {
+    "amphibian": 1,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 1,
+    "insect": 3,
+    "mammal": 3,
+    "other_invertebrate": 1,
+    "reptile": 0
+   },
+   "p": 0.8705573511651576,
+   "beyond_chance": false
+  },
+  {
+   "layer": 9,
+   "expert": 1,
+   "items": 61,
+   "brought": 5,
+   "pushed_out": 3,
+   "share": 0.08196721311475409,
+   "layer_share": 0.03816793893129771,
+   "labels": {
+    "amphibian": 2,
+    "arachnid": 4,
+    "bird": 0,
+    "fish": 12,
+    "insect": 18,
+    "mammal": 6,
+    "other_invertebrate": 15,
+    "reptile": 4
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 3,
+    "mammal": 2,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "p": 0.08317862701004262,
+   "beyond_chance": false
+  },
+  {
+   "layer": 9,
+   "expert": 16,
+   "items": 424,
+   "brought": 9,
+   "pushed_out": 8,
+   "share": 0.02122641509433962,
+   "layer_share": 0.03816793893129771,
+   "labels": {
+    "amphibian": 11,
+    "arachnid": 5,
+    "bird": 113,
+    "fish": 62,
+    "insect": 34,
+    "mammal": 143,
+    "other_invertebrate": 30,
+    "reptile": 26
+   },
+   "brought_labels": {
+    "amphibian": 1,
+    "arachnid": 0,
+    "bird": 4,
+    "fish": 1,
+    "insect": 1,
+    "mammal": 2,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "p": 0.07461410079297025,
+   "beyond_chance": false
+  },
+  {
+   "layer": 9,
+   "expert": 25,
+   "items": 7,
+   "brought": 1,
+   "pushed_out": 1,
+   "share": 0.14285714285714285,
+   "layer_share": 0.03816793893129771,
+   "labels": {
+    "amphibian": 1,
+    "arachnid": 0,
+    "bird": 2,
+    "fish": 1,
+    "insect": 1,
+    "mammal": 1,
+    "other_invertebrate": 1,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 1,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 9,
+   "expert": 26,
+   "items": 32,
+   "brought": 5,
+   "pushed_out": 7,
+   "share": 0.15625,
+   "layer_share": 0.03816793893129771,
+   "labels": {
+    "amphibian": 1,
+    "arachnid": 1,
+    "bird": 7,
+    "fish": 4,
+    "insect": 0,
+    "mammal": 15,
+    "other_invertebrate": 2,
+    "reptile": 2
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 1,
+    "insect": 0,
+    "mammal": 2,
+    "other_invertebrate": 1,
+    "reptile": 0
+   },
+   "p": 0.006893506844129364,
+   "beyond_chance": true
+  },
+  {
+   "layer": 10,
+   "expert": 6,
+   "items": 2,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 0.5,
+   "layer_share": 0.04961832061068702,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 1,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 1,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 1,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 10,
+   "expert": 10,
+   "items": 25,
+   "brought": 4,
+   "pushed_out": 0,
+   "share": 0.16,
+   "layer_share": 0.04961832061068702,
+   "labels": {
+    "amphibian": 1,
+    "arachnid": 1,
+    "bird": 5,
+    "fish": 7,
+    "insect": 1,
+    "mammal": 7,
+    "other_invertebrate": 2,
+    "reptile": 1
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 1,
+    "insect": 0,
+    "mammal": 2,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "p": 0.03327438549717899,
+   "beyond_chance": false
+  },
+  {
+   "layer": 10,
+   "expert": 19,
+   "items": 426,
+   "brought": 8,
+   "pushed_out": 18,
+   "share": 0.018779342723004695,
+   "layer_share": 0.04961832061068702,
+   "labels": {
+    "amphibian": 9,
+    "arachnid": 7,
+    "bird": 110,
+    "fish": 55,
+    "insect": 44,
+    "mammal": 142,
+    "other_invertebrate": 35,
+    "reptile": 24
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 1,
+    "bird": 0,
+    "fish": 1,
+    "insect": 2,
+    "mammal": 3,
+    "other_invertebrate": 1,
+    "reptile": 0
+   },
+   "p": 0.0016257242435393188,
+   "beyond_chance": true
+  },
+  {
+   "layer": 10,
+   "expert": 24,
+   "items": 68,
+   "brought": 13,
+   "pushed_out": 7,
+   "share": 0.19117647058823528,
+   "layer_share": 0.04961832061068702,
+   "labels": {
+    "amphibian": 5,
+    "arachnid": 1,
+    "bird": 6,
+    "fish": 16,
+    "insect": 8,
+    "mammal": 15,
+    "other_invertebrate": 10,
+    "reptile": 7
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 5,
+    "fish": 3,
+    "insect": 0,
+    "mammal": 4,
+    "other_invertebrate": 1,
+    "reptile": 0
+   },
+   "p": 2.6405349073788357e-05,
+   "beyond_chance": true
+  },
+  {
+   "layer": 10,
+   "expert": 27,
+   "items": 2,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.04961832061068702,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 1,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 10,
+   "expert": 29,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 1,
+   "share": 0.0,
+   "layer_share": 0.04961832061068702,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 1,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 11,
+   "expert": 5,
+   "items": 6,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.04198473282442748,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 1,
+    "mammal": 3,
+    "other_invertebrate": 1,
+    "reptile": 1
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 11,
+   "expert": 6,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.04198473282442748,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 11,
+   "expert": 7,
+   "items": 162,
+   "brought": 7,
+   "pushed_out": 6,
+   "share": 0.043209876543209874,
+   "layer_share": 0.04198473282442748,
+   "labels": {
+    "amphibian": 6,
+    "arachnid": 4,
+    "bird": 25,
+    "fish": 22,
+    "insect": 26,
+    "mammal": 41,
+    "other_invertebrate": 26,
+    "reptile": 12
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 3,
+    "fish": 2,
+    "insect": 0,
+    "mammal": 1,
+    "other_invertebrate": 0,
+    "reptile": 1
+   },
+   "p": 0.8445002451533701,
+   "beyond_chance": false
+  },
+  {
+   "layer": 11,
+   "expert": 18,
+   "items": 3,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 0.3333333333333333,
+   "layer_share": 0.04198473282442748,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 1,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 1,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 11,
+   "expert": 19,
+   "items": 12,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 0.08333333333333333,
+   "layer_share": 0.04198473282442748,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 2,
+    "fish": 2,
+    "insect": 0,
+    "mammal": 5,
+    "other_invertebrate": 1,
+    "reptile": 2
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 1,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 11,
+   "expert": 20,
+   "items": 4,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 0.25,
+   "layer_share": 0.04198473282442748,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 2,
+    "fish": 1,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 1,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 11,
+   "expert": 21,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.04198473282442748,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 1,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 11,
+   "expert": 22,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.04198473282442748,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 1,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 1,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 11,
+   "expert": 23,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.04198473282442748,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 11,
+   "expert": 25,
+   "items": 249,
+   "brought": 3,
+   "pushed_out": 15,
+   "share": 0.012048192771084338,
+   "layer_share": 0.04198473282442748,
+   "labels": {
+    "amphibian": 7,
+    "arachnid": 5,
+    "bird": 69,
+    "fish": 41,
+    "insect": 21,
+    "mammal": 81,
+    "other_invertebrate": 11,
+    "reptile": 14
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 2,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 1,
+    "reptile": 0
+   },
+   "p": 0.016053525512419065,
+   "beyond_chance": false
+  },
+  {
+   "layer": 11,
+   "expert": 30,
+   "items": 84,
+   "brought": 7,
+   "pushed_out": 0,
+   "share": 0.08333333333333333,
+   "layer_share": 0.04198473282442748,
+   "labels": {
+    "amphibian": 2,
+    "arachnid": 1,
+    "bird": 21,
+    "fish": 11,
+    "insect": 5,
+    "mammal": 34,
+    "other_invertebrate": 7,
+    "reptile": 3
+   },
+   "brought_labels": {
+    "amphibian": 1,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 2,
+    "insect": 1,
+    "mammal": 0,
+    "other_invertebrate": 1,
+    "reptile": 1
+   },
+   "p": 0.09044845936288168,
+   "beyond_chance": false
+  },
+  {
+   "layer": 12,
+   "expert": 21,
+   "items": 325,
+   "brought": 5,
+   "pushed_out": 10,
+   "share": 0.015384615384615385,
+   "layer_share": 0.04007633587786259,
+   "labels": {
+    "amphibian": 9,
+    "arachnid": 5,
+    "bird": 93,
+    "fish": 40,
+    "insect": 21,
+    "mammal": 117,
+    "other_invertebrate": 23,
+    "reptile": 17
+   },
+   "brought_labels": {
+    "amphibian": 1,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 1,
+    "insect": 1,
+    "mammal": 2,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "p": 0.022088949948780683,
+   "beyond_chance": false
+  },
+  {
+   "layer": 12,
+   "expert": 22,
+   "items": 11,
+   "brought": 1,
+   "pushed_out": 1,
+   "share": 0.09090909090909091,
+   "layer_share": 0.04007633587786259,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 4,
+    "fish": 2,
+    "insect": 1,
+    "mammal": 2,
+    "other_invertebrate": 1,
+    "reptile": 1
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 1,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 12,
+   "expert": 23,
+   "items": 12,
+   "brought": 4,
+   "pushed_out": 0,
+   "share": 0.3333333333333333,
+   "layer_share": 0.04007633587786259,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 1,
+    "bird": 3,
+    "fish": 3,
+    "insect": 1,
+    "mammal": 4,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 1,
+    "bird": 2,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 1,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 12,
+   "expert": 25,
+   "items": 171,
+   "brought": 9,
+   "pushed_out": 8,
+   "share": 0.05263157894736842,
+   "layer_share": 0.04007633587786259,
+   "labels": {
+    "amphibian": 6,
+    "arachnid": 4,
+    "bird": 22,
+    "fish": 30,
+    "insect": 29,
+    "mammal": 42,
+    "other_invertebrate": 24,
+    "reptile": 14
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 5,
+    "fish": 1,
+    "insect": 1,
+    "mammal": 2,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "p": 0.430112165288575,
+   "beyond_chance": false
+  },
+  {
+   "layer": 12,
+   "expert": 31,
+   "items": 5,
+   "brought": 2,
+   "pushed_out": 2,
+   "share": 0.4,
+   "layer_share": 0.04007633587786259,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 4,
+    "insect": 1,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 1,
+    "insect": 1,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 13,
+   "expert": 5,
+   "items": 316,
+   "brought": 9,
+   "pushed_out": 13,
+   "share": 0.028481012658227847,
+   "layer_share": 0.04389312977099236,
+   "labels": {
+    "amphibian": 10,
+    "arachnid": 6,
+    "bird": 89,
+    "fish": 48,
+    "insect": 32,
+    "mammal": 96,
+    "other_invertebrate": 23,
+    "reptile": 12
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 3,
+    "mammal": 2,
+    "other_invertebrate": 3,
+    "reptile": 1
+   },
+   "p": 0.21567043831917135,
+   "beyond_chance": false
+  },
+  {
+   "layer": 13,
+   "expert": 18,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.04389312977099236,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 1,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 13,
+   "expert": 21,
+   "items": 26,
+   "brought": 0,
+   "pushed_out": 1,
+   "share": 0.0,
+   "layer_share": 0.04389312977099236,
+   "labels": {
+    "amphibian": 1,
+    "arachnid": 1,
+    "bird": 6,
+    "fish": 5,
+    "insect": 1,
+    "mammal": 9,
+    "other_invertebrate": 2,
+    "reptile": 1
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "p": 0.628438361718505,
+   "beyond_chance": false
+  },
+  {
+   "layer": 13,
+   "expert": 24,
+   "items": 180,
+   "brought": 14,
+   "pushed_out": 8,
+   "share": 0.07777777777777778,
+   "layer_share": 0.04389312977099236,
+   "labels": {
+    "amphibian": 4,
+    "arachnid": 3,
+    "bird": 26,
+    "fish": 26,
+    "insect": 20,
+    "mammal": 59,
+    "other_invertebrate": 23,
+    "reptile": 19
+   },
+   "brought_labels": {
+    "amphibian": 1,
+    "arachnid": 0,
+    "bird": 2,
+    "fish": 3,
+    "insect": 2,
+    "mammal": 5,
+    "other_invertebrate": 0,
+    "reptile": 1
+   },
+   "p": 0.04160830724268193,
+   "beyond_chance": false
+  },
+  {
+   "layer": 13,
+   "expert": 27,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 1,
+   "share": 0.0,
+   "layer_share": 0.04389312977099236,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 14,
+   "expert": 6,
+   "items": 239,
+   "brought": 18,
+   "pushed_out": 21,
+   "share": 0.07531380753138076,
+   "layer_share": 0.07442748091603053,
+   "labels": {
+    "amphibian": 5,
+    "arachnid": 5,
+    "bird": 66,
+    "fish": 34,
+    "insect": 18,
+    "mammal": 83,
+    "other_invertebrate": 15,
+    "reptile": 13
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 1,
+    "bird": 4,
+    "fish": 3,
+    "insect": 3,
+    "mammal": 4,
+    "other_invertebrate": 0,
+    "reptile": 3
+   },
+   "p": 0.9019921508171282,
+   "beyond_chance": false
+  },
+  {
+   "layer": 14,
+   "expert": 29,
+   "items": 285,
+   "brought": 21,
+   "pushed_out": 18,
+   "share": 0.07368421052631578,
+   "layer_share": 0.07442748091603053,
+   "labels": {
+    "amphibian": 10,
+    "arachnid": 5,
+    "bird": 56,
+    "fish": 45,
+    "insect": 35,
+    "mammal": 82,
+    "other_invertebrate": 33,
+    "reptile": 19
+   },
+   "brought_labels": {
+    "amphibian": 1,
+    "arachnid": 0,
+    "bird": 6,
+    "fish": 3,
+    "insect": 1,
+    "mammal": 9,
+    "other_invertebrate": 1,
+    "reptile": 0
+   },
+   "p": 1.0,
+   "beyond_chance": false
+  },
+  {
+   "layer": 15,
+   "expert": 13,
+   "items": 13,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.015267175572519083,
+   "labels": {
+    "amphibian": 1,
+    "arachnid": 0,
+    "bird": 2,
+    "fish": 4,
+    "insect": 1,
+    "mammal": 4,
+    "other_invertebrate": 0,
+    "reptile": 1
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 15,
+   "expert": 17,
+   "items": 42,
+   "brought": 0,
+   "pushed_out": 2,
+   "share": 0.0,
+   "layer_share": 0.015267175572519083,
+   "labels": {
+    "amphibian": 1,
+    "arachnid": 0,
+    "bird": 11,
+    "fish": 4,
+    "insect": 4,
+    "mammal": 14,
+    "other_invertebrate": 4,
+    "reptile": 4
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "p": 1.0,
+   "beyond_chance": false
+  },
+  {
+   "layer": 15,
+   "expert": 26,
+   "items": 21,
+   "brought": 3,
+   "pushed_out": 5,
+   "share": 0.14285714285714285,
+   "layer_share": 0.015267175572519083,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 3,
+    "fish": 5,
+    "insect": 3,
+    "mammal": 6,
+    "other_invertebrate": 2,
+    "reptile": 2
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 2,
+    "insect": 0,
+    "mammal": 1,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "p": 0.0038521452650171883,
+   "beyond_chance": true
+  },
+  {
+   "layer": 15,
+   "expert": 27,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.015267175572519083,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 1,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 15,
+   "expert": 28,
+   "items": 447,
+   "brought": 5,
+   "pushed_out": 1,
+   "share": 0.011185682326621925,
+   "layer_share": 0.015267175572519083,
+   "labels": {
+    "amphibian": 13,
+    "arachnid": 10,
+    "bird": 106,
+    "fish": 66,
+    "insect": 45,
+    "mammal": 140,
+    "other_invertebrate": 42,
+    "reptile": 25
+   },
+   "brought_labels": {
+    "amphibian": 1,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 1,
+    "insect": 1,
+    "mammal": 1,
+    "other_invertebrate": 1,
+    "reptile": 0
+   },
+   "p": 0.6967488963978821,
+   "beyond_chance": false
+  },
+  {
+   "layer": 16,
+   "expert": 2,
+   "items": 14,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 0.07142857142857142,
+   "layer_share": 0.0019083969465648854,
+   "labels": {
+    "amphibian": 1,
+    "arachnid": 0,
+    "bird": 3,
+    "fish": 5,
+    "insect": 1,
+    "mammal": 4,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 1,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 16,
+   "expert": 11,
+   "items": 510,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.0019083969465648854,
+   "labels": {
+    "amphibian": 14,
+    "arachnid": 10,
+    "bird": 119,
+    "fish": 74,
+    "insect": 52,
+    "mammal": 161,
+    "other_invertebrate": 48,
+    "reptile": 32
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "p": 1.0,
+   "beyond_chance": false
+  },
+  {
+   "layer": 17,
+   "expert": 5,
+   "items": 524,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.0,
+   "labels": {
+    "amphibian": 15,
+    "arachnid": 10,
+    "bird": 122,
+    "fish": 79,
+    "insect": 53,
+    "mammal": 165,
+    "other_invertebrate": 48,
+    "reptile": 32
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 18,
+   "expert": 1,
+   "items": 39,
+   "brought": 10,
+   "pushed_out": 10,
+   "share": 0.2564102564102564,
+   "layer_share": 0.03816793893129771,
+   "labels": {
+    "amphibian": 1,
+    "arachnid": 0,
+    "bird": 10,
+    "fish": 5,
+    "insect": 5,
+    "mammal": 14,
+    "other_invertebrate": 2,
+    "reptile": 2
+   },
+   "brought_labels": {
+    "amphibian": 1,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 1,
+    "insect": 1,
+    "mammal": 4,
+    "other_invertebrate": 0,
+    "reptile": 2
+   },
+   "p": 1.5048318335853437e-06,
+   "beyond_chance": true
+  },
+  {
+   "layer": 18,
+   "expert": 14,
+   "items": 485,
+   "brought": 10,
+   "pushed_out": 10,
+   "share": 0.020618556701030927,
+   "layer_share": 0.03816793893129771,
+   "labels": {
+    "amphibian": 14,
+    "arachnid": 10,
+    "bird": 112,
+    "fish": 74,
+    "insect": 48,
+    "mammal": 151,
+    "other_invertebrate": 46,
+    "reptile": 30
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 3,
+    "fish": 0,
+    "insect": 2,
+    "mammal": 3,
+    "other_invertebrate": 1,
+    "reptile": 1
+   },
+   "p": 0.04302008170674214,
+   "beyond_chance": false
+  },
+  {
+   "layer": 19,
+   "expert": 6,
+   "items": 74,
+   "brought": 4,
+   "pushed_out": 7,
+   "share": 0.05405405405405406,
+   "layer_share": 0.02480916030534351,
+   "labels": {
+    "amphibian": 2,
+    "arachnid": 2,
+    "bird": 20,
+    "fish": 14,
+    "insect": 5,
+    "mammal": 26,
+    "other_invertebrate": 3,
+    "reptile": 2
+   },
+   "brought_labels": {
+    "amphibian": 1,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 2,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "p": 0.11211515140853136,
+   "beyond_chance": false
+  },
+  {
+   "layer": 19,
+   "expert": 13,
+   "items": 432,
+   "brought": 9,
+   "pushed_out": 4,
+   "share": 0.020833333333333332,
+   "layer_share": 0.02480916030534351,
+   "labels": {
+    "amphibian": 13,
+    "arachnid": 8,
+    "bird": 100,
+    "fish": 61,
+    "insect": 47,
+    "mammal": 131,
+    "other_invertebrate": 43,
+    "reptile": 29
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 4,
+    "fish": 0,
+    "insect": 2,
+    "mammal": 3,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "p": 0.7560949914659398,
+   "beyond_chance": false
+  },
+  {
+   "layer": 19,
+   "expert": 22,
+   "items": 18,
+   "brought": 0,
+   "pushed_out": 1,
+   "share": 0.0,
+   "layer_share": 0.02480916030534351,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 2,
+    "fish": 4,
+    "insect": 1,
+    "mammal": 8,
+    "other_invertebrate": 2,
+    "reptile": 1
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 20,
+   "expert": 1,
+   "items": 26,
+   "brought": 6,
+   "pushed_out": 1,
+   "share": 0.23076923076923078,
+   "layer_share": 0.030534351145038167,
+   "labels": {
+    "amphibian": 1,
+    "arachnid": 0,
+    "bird": 14,
+    "fish": 3,
+    "insect": 0,
+    "mammal": 4,
+    "other_invertebrate": 0,
+    "reptile": 4
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 2,
+    "fish": 1,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 3
+   },
+   "p": 0.00011010720260377713,
+   "beyond_chance": true
+  },
+  {
+   "layer": 20,
+   "expert": 5,
+   "items": 398,
+   "brought": 3,
+   "pushed_out": 11,
+   "share": 0.007537688442211055,
+   "layer_share": 0.030534351145038167,
+   "labels": {
+    "amphibian": 11,
+    "arachnid": 8,
+    "bird": 84,
+    "fish": 58,
+    "insect": 37,
+    "mammal": 137,
+    "other_invertebrate": 40,
+    "reptile": 23
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 1,
+    "other_invertebrate": 1,
+    "reptile": 0
+   },
+   "p": 0.0032687925698123817,
+   "beyond_chance": true
+  },
+  {
+   "layer": 20,
+   "expert": 9,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.030534351145038167,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 1,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 20,
+   "expert": 10,
+   "items": 36,
+   "brought": 1,
+   "pushed_out": 2,
+   "share": 0.027777777777777776,
+   "layer_share": 0.030534351145038167,
+   "labels": {
+    "amphibian": 3,
+    "arachnid": 0,
+    "bird": 13,
+    "fish": 6,
+    "insect": 3,
+    "mammal": 7,
+    "other_invertebrate": 2,
+    "reptile": 2
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 1,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "p": 1.0,
+   "beyond_chance": false
+  },
+  {
+   "layer": 20,
+   "expert": 14,
+   "items": 11,
+   "brought": 1,
+   "pushed_out": 1,
+   "share": 0.09090909090909091,
+   "layer_share": 0.030534351145038167,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 2,
+    "fish": 0,
+    "insect": 2,
+    "mammal": 4,
+    "other_invertebrate": 1,
+    "reptile": 2
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 1
+   }
+  },
+  {
+   "layer": 20,
+   "expert": 15,
+   "items": 26,
+   "brought": 2,
+   "pushed_out": 0,
+   "share": 0.07692307692307693,
+   "layer_share": 0.030534351145038167,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 1,
+    "bird": 7,
+    "fish": 2,
+    "insect": 4,
+    "mammal": 11,
+    "other_invertebrate": 0,
+    "reptile": 1
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 1,
+    "bird": 1,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "p": 0.18782182150125754,
+   "beyond_chance": false
+  },
+  {
+   "layer": 20,
+   "expert": 26,
+   "items": 2,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.030534351145038167,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 1,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 20,
+   "expert": 31,
+   "items": 24,
+   "brought": 3,
+   "pushed_out": 1,
+   "share": 0.125,
+   "layer_share": 0.030534351145038167,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 1,
+    "bird": 1,
+    "fish": 9,
+    "insect": 7,
+    "mammal": 1,
+    "other_invertebrate": 5,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 2,
+    "insect": 1,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "p": 0.035705602160236445,
+   "beyond_chance": false
+  },
+  {
+   "layer": 21,
+   "expert": 0,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.07061068702290077,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 21,
+   "expert": 4,
+   "items": 73,
+   "brought": 4,
+   "pushed_out": 19,
+   "share": 0.0547945205479452,
+   "layer_share": 0.07061068702290077,
+   "labels": {
+    "amphibian": 3,
+    "arachnid": 2,
+    "bird": 19,
+    "fish": 13,
+    "insect": 2,
+    "mammal": 24,
+    "other_invertebrate": 4,
+    "reptile": 6
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 2,
+    "insect": 0,
+    "mammal": 1,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "p": 0.8186683459386956,
+   "beyond_chance": false
+  },
+  {
+   "layer": 21,
+   "expert": 11,
+   "items": 229,
+   "brought": 19,
+   "pushed_out": 10,
+   "share": 0.08296943231441048,
+   "layer_share": 0.07061068702290077,
+   "labels": {
+    "amphibian": 7,
+    "arachnid": 3,
+    "bird": 47,
+    "fish": 32,
+    "insect": 20,
+    "mammal": 84,
+    "other_invertebrate": 22,
+    "reptile": 14
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 4,
+    "fish": 1,
+    "insect": 0,
+    "mammal": 12,
+    "other_invertebrate": 1,
+    "reptile": 1
+   },
+   "p": 0.4386008278358048,
+   "beyond_chance": false
+  },
+  {
+   "layer": 21,
+   "expert": 12,
+   "items": 4,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 0.25,
+   "layer_share": 0.07061068702290077,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 1,
+    "reptile": 2
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 21,
+   "expert": 13,
+   "items": 49,
+   "brought": 3,
+   "pushed_out": 1,
+   "share": 0.061224489795918366,
+   "layer_share": 0.07061068702290077,
+   "labels": {
+    "amphibian": 1,
+    "arachnid": 1,
+    "bird": 0,
+    "fish": 23,
+    "insect": 11,
+    "mammal": 3,
+    "other_invertebrate": 10,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 2,
+    "insect": 1,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "p": 1.0,
+   "beyond_chance": false
+  },
+  {
+   "layer": 21,
+   "expert": 19,
+   "items": 13,
+   "brought": 2,
+   "pushed_out": 0,
+   "share": 0.15384615384615385,
+   "layer_share": 0.07061068702290077,
+   "labels": {
+    "amphibian": 1,
+    "arachnid": 0,
+    "bird": 2,
+    "fish": 0,
+    "insect": 1,
+    "mammal": 9,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 1,
+    "mammal": 1,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 21,
+   "expert": 23,
+   "items": 146,
+   "brought": 6,
+   "pushed_out": 6,
+   "share": 0.0410958904109589,
+   "layer_share": 0.07061068702290077,
+   "labels": {
+    "amphibian": 3,
+    "arachnid": 4,
+    "bird": 51,
+    "fish": 8,
+    "insect": 16,
+    "mammal": 44,
+    "other_invertebrate": 10,
+    "reptile": 10
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 1,
+    "bird": 1,
+    "fish": 1,
+    "insect": 1,
+    "mammal": 2,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "p": 0.19586846918248774,
+   "beyond_chance": false
+  },
+  {
+   "layer": 21,
+   "expert": 24,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.07061068702290077,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 1,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 21,
+   "expert": 26,
+   "items": 1,
+   "brought": 1,
+   "pushed_out": 0,
+   "share": 1.0,
+   "layer_share": 0.07061068702290077,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 1,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 1,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 21,
+   "expert": 30,
+   "items": 7,
+   "brought": 1,
+   "pushed_out": 1,
+   "share": 0.14285714285714285,
+   "layer_share": 0.07061068702290077,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 2,
+    "insect": 3,
+    "mammal": 0,
+    "other_invertebrate": 1,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 1,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 22,
+   "expert": 2,
+   "items": 122,
+   "brought": 2,
+   "pushed_out": 3,
+   "share": 0.01639344262295082,
+   "layer_share": 0.011450381679389313,
+   "labels": {
+    "amphibian": 7,
+    "arachnid": 4,
+    "bird": 24,
+    "fish": 20,
+    "insect": 18,
+    "mammal": 25,
+    "other_invertebrate": 17,
+    "reptile": 7
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 1,
+    "insect": 0,
+    "mammal": 1,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "p": 0.4079015418435281,
+   "beyond_chance": false
+  },
+  {
+   "layer": 22,
+   "expert": 11,
+   "items": 19,
+   "brought": 0,
+   "pushed_out": 2,
+   "share": 0.0,
+   "layer_share": 0.011450381679389313,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 9,
+    "fish": 2,
+    "insect": 3,
+    "mammal": 3,
+    "other_invertebrate": 2,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 22,
+   "expert": 13,
+   "items": 381,
+   "brought": 4,
+   "pushed_out": 1,
+   "share": 0.010498687664041995,
+   "layer_share": 0.011450381679389313,
+   "labels": {
+    "amphibian": 8,
+    "arachnid": 6,
+    "bird": 89,
+    "fish": 55,
+    "insect": 32,
+    "mammal": 137,
+    "other_invertebrate": 29,
+    "reptile": 25
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 3,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 1,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "p": 1.0,
+   "beyond_chance": false
+  },
+  {
+   "layer": 22,
+   "expert": 27,
+   "items": 2,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.011450381679389313,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 2,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 23,
+   "expert": 1,
+   "items": 2,
+   "brought": 0,
+   "pushed_out": 1,
+   "share": 0.0,
+   "layer_share": 0.13549618320610687,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 1,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 1
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 23,
+   "expert": 2,
+   "items": 205,
+   "brought": 19,
+   "pushed_out": 19,
+   "share": 0.09268292682926829,
+   "layer_share": 0.13549618320610687,
+   "labels": {
+    "amphibian": 4,
+    "arachnid": 2,
+    "bird": 46,
+    "fish": 32,
+    "insect": 21,
+    "mammal": 74,
+    "other_invertebrate": 16,
+    "reptile": 10
+   },
+   "brought_labels": {
+    "amphibian": 1,
+    "arachnid": 0,
+    "bird": 5,
+    "fish": 2,
+    "insect": 1,
+    "mammal": 8,
+    "other_invertebrate": 0,
+    "reptile": 2
+   },
+   "p": 0.08201463917613547,
+   "beyond_chance": false
+  },
+  {
+   "layer": 23,
+   "expert": 4,
+   "items": 51,
+   "brought": 4,
+   "pushed_out": 9,
+   "share": 0.0784313725490196,
+   "layer_share": 0.13549618320610687,
+   "labels": {
+    "amphibian": 2,
+    "arachnid": 0,
+    "bird": 3,
+    "fish": 23,
+    "insect": 0,
+    "mammal": 9,
+    "other_invertebrate": 12,
+    "reptile": 2
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 1,
+    "insect": 0,
+    "mammal": 3,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "p": 0.3066778024749243,
+   "beyond_chance": false
+  },
+  {
+   "layer": 23,
+   "expert": 6,
+   "items": 9,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.13549618320610687,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 4,
+    "fish": 1,
+    "insect": 0,
+    "mammal": 3,
+    "other_invertebrate": 1,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 23,
+   "expert": 7,
+   "items": 15,
+   "brought": 2,
+   "pushed_out": 3,
+   "share": 0.13333333333333333,
+   "layer_share": 0.13549618320610687,
+   "labels": {
+    "amphibian": 1,
+    "arachnid": 0,
+    "bird": 3,
+    "fish": 3,
+    "insect": 2,
+    "mammal": 3,
+    "other_invertebrate": 2,
+    "reptile": 1
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 0,
+    "insect": 1,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 23,
+   "expert": 9,
+   "items": 46,
+   "brought": 10,
+   "pushed_out": 8,
+   "share": 0.21739130434782608,
+   "layer_share": 0.13549618320610687,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 16,
+    "fish": 1,
+    "insect": 3,
+    "mammal": 21,
+    "other_invertebrate": 1,
+    "reptile": 4
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 3,
+    "fish": 1,
+    "insect": 1,
+    "mammal": 4,
+    "other_invertebrate": 0,
+    "reptile": 1
+   },
+   "p": 0.12680338854463385,
+   "beyond_chance": false
+  },
+  {
+   "layer": 23,
+   "expert": 11,
+   "items": 2,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.13549618320610687,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 2,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 23,
+   "expert": 12,
+   "items": 96,
+   "brought": 16,
+   "pushed_out": 8,
+   "share": 0.16666666666666666,
+   "layer_share": 0.13549618320610687,
+   "labels": {
+    "amphibian": 5,
+    "arachnid": 3,
+    "bird": 28,
+    "fish": 8,
+    "insect": 10,
+    "mammal": 27,
+    "other_invertebrate": 4,
+    "reptile": 11
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 1,
+    "bird": 4,
+    "fish": 2,
+    "insect": 1,
+    "mammal": 3,
+    "other_invertebrate": 1,
+    "reptile": 4
+   },
+   "p": 0.37011961922464687,
+   "beyond_chance": false
+  },
+  {
+   "layer": 23,
+   "expert": 13,
+   "items": 34,
+   "brought": 6,
+   "pushed_out": 7,
+   "share": 0.17647058823529413,
+   "layer_share": 0.13549618320610687,
+   "labels": {
+    "amphibian": 1,
+    "arachnid": 1,
+    "bird": 16,
+    "fish": 3,
+    "insect": 5,
+    "mammal": 6,
+    "other_invertebrate": 2,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 5,
+    "fish": 0,
+    "insect": 1,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "p": 0.45236207012115065,
+   "beyond_chance": false
+  },
+  {
+   "layer": 23,
+   "expert": 19,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 2,
+   "share": 0.0,
+   "layer_share": 0.13549618320610687,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 1,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 23,
+   "expert": 21,
+   "items": 3,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.13549618320610687,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 2,
+    "bird": 0,
+    "fish": 1,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 23,
+   "expert": 23,
+   "items": 3,
+   "brought": 1,
+   "pushed_out": 4,
+   "share": 0.3333333333333333,
+   "layer_share": 0.13549618320610687,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 2,
+    "mammal": 1,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 1,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 23,
+   "expert": 24,
+   "items": 18,
+   "brought": 8,
+   "pushed_out": 3,
+   "share": 0.4444444444444444,
+   "layer_share": 0.13549618320610687,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 4,
+    "fish": 1,
+    "insect": 3,
+    "mammal": 5,
+    "other_invertebrate": 3,
+    "reptile": 2
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 2,
+    "fish": 0,
+    "insect": 1,
+    "mammal": 2,
+    "other_invertebrate": 3,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 23,
+   "expert": 27,
+   "items": 6,
+   "brought": 1,
+   "pushed_out": 2,
+   "share": 0.16666666666666666,
+   "layer_share": 0.13549618320610687,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 0,
+    "insect": 2,
+    "mammal": 3,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 1,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  },
+  {
+   "layer": 23,
+   "expert": 28,
+   "items": 32,
+   "brought": 4,
+   "pushed_out": 5,
+   "share": 0.125,
+   "layer_share": 0.13549618320610687,
+   "labels": {
+    "amphibian": 2,
+    "arachnid": 2,
+    "bird": 1,
+    "fish": 6,
+    "insect": 2,
+    "mammal": 11,
+    "other_invertebrate": 7,
+    "reptile": 1
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 1,
+    "fish": 0,
+    "insect": 1,
+    "mammal": 2,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "p": 1.0,
+   "beyond_chance": false
+  },
+  {
+   "layer": 23,
+   "expert": 29,
+   "items": 1,
+   "brought": 0,
+   "pushed_out": 0,
+   "share": 0.0,
+   "layer_share": 0.13549618320610687,
+   "labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 1,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   },
+   "brought_labels": {
+    "amphibian": 0,
+    "arachnid": 0,
+    "bird": 0,
+    "fish": 0,
+    "insect": 0,
+    "mammal": 0,
+    "other_invertebrate": 0,
+    "reptile": 0
+   }
+  }
+ ],
+ "summary": {
+  "match_four_min": 0.9942748091603053,
+  "match_first_min": 0.9942748091603053,
+  "own_first_changed_range": [
+   0.0,
+   0.4217557251908397
+  ],
+  "own_swapped_range": [
+   0.011450381679389313,
+   1.1259541984732824
+  ],
+  "all_first_changed_range": [
+   0.0,
+   0.41603053435114506
+  ],
+  "nodes_tested": 74,
+  "nodes_beyond_chance": 18,
+  "nodes_beyond_above": 12
+ }
+}
