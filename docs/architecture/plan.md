@@ -56,6 +56,8 @@ slice 2 (capture and jobs). Once approved, the new app can be built without the 
 2's capture work.
 
 **What needs Andrew:**
+- **L36,** whether Winter Survival comes back now, and what tonight's run does for it: a card
+  among [this document's decisions](plan.md#decisions-needed);
 - **L33,** who writes each split, rewritten with plain answers to his questions, and **L34,** the
   institute's layout, four questions that follow from his answer to L30: cards among
   [the design's decisions](design.md#decisions-needed);
@@ -66,6 +68,53 @@ slice 2 (capture and jobs). Once approved, the new app can be built without the 
 - the two documents' review, section by section, through the boxes under each section.
 
 ## Decisions needed {#decisions-needed}
+
+### L36. Winter Survival now? [Open]
+
+On 2026-10-19 Andrew asked whether building Winter Survival, and using it, has to wait until the
+research software's remaining slices are through.
+
+In the order of work, the world-building pilot comes seventh [ORDER-12]: after the new app (L31),
+capture and jobs, the builder, agents in scenarios, time on sentence runs and the atlas's second
+version. Each of those ends in reviews by you, and the time the reviews take sets the pace more
+than the building does.
+
+Nothing technical holds the pilot there:
+- it needs neither the model nor the GPU, nor any of those slices. Its runs use `claude -p` on
+  your subscription, and its command checks run on the MUD's own engine;
+- its plan was approved on 2026-10-01, in six steps:
+  - M1: the store's schema and validator;
+  - M2: the zone briefs, after your review of the redesigned map (waiting since 2026-10-02);
+  - M3 and M4: the review pages and the command checks;
+  - M5: trial runs and the runner;
+  - M6: round 1;
+- the one-MUD plan moved its review pages into the app, as pages of their own, so they don't wait
+  for the rest of the new app.
+
+What does need the research software: agents playing Winter Survival while their activations are
+captured (slices 2 and 4). Playing it with friends needs its game systems built, and the pilot's
+findings shape those systems.
+
+Claude's recommendation: one main line of work at a time (Winter Survival or the research
+software), since both end in your reviews. Winter Survival becomes the main line now. The research
+software finishes what is under way (the four re-scores and their write-ups), then waits. You can
+answer its cards (L31 to L35) whenever you like.
+
+- ( ) Winter Survival now; the research software waits after its current work (recommended)
+- ( ) Winter Survival now, and the new app (L31) goes on beside it; the rest of the research software waits
+- ( ) Keep the order
+- ( ) Other
+
+#### L36.1. Tonight [Open]
+
+If Winter Survival goes first, tonight's run can start the pilot. M1 changes code (in
+`mud/tools/ontology/`). The project's rules need your go-ahead for code changes, even though the
+approved pilot plan already lists M1. Getting the map review ready changes no code: Claude checks
+the map page against the current decisions, then republishes it with one answer box per region.
+
+- ( ) Build M1 tonight (your go-ahead to change code for it), and get the map review ready (recommended)
+- ( ) No code changes; only get the map review ready
+- ( ) Other
 
 ### L31. The new app's plan [Open]
 
