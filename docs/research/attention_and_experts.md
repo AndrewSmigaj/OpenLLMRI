@@ -1,10 +1,10 @@
-# Who writes each split, attention or the experts: findings (2026-10-16; sections 9 and 10, 2026-10-19)
+# Who writes each split, attention or the experts: findings (2026-10-16; sections 9 and 10, 2026-10-19; section 11, 2026-10-20)
 
 Related: docs/studies/attention_experts/study.yaml (the study and its ledger),
 docs/design/design.md (lenses: what comes with each split; the decision card L33; attention in the
-analysis, card L35),
+analysis, reworked on 2026-10-20 from section 11, cards L35.1 to L35.4),
 docs/architecture/plan.md (phase 10g, step 6),
-backend/src/services/lenses/writers.py (the same account for the node card, held for L33)
+the git branch `node-card-writers` (the same account for the node card, kept off it: L33)
 
 **Status:** exploratory: no prediction gates any analysis. Every number below is read from the
 result files in `docs/studies/attention_experts/analysis/results/`, at the layers it names; the
@@ -96,6 +96,13 @@ quoted here are gathered in `results/summary.json` (`summary.py`) and `results/v
 - **For node splits, few marks hold in both directions.** Along the mean difference, attention's
   share at the layer where a branch parts is outside its band at 197 of 662 branches; 26 of them
   are outside along the discriminant too, on the same side.
+- **A lens on attention's write can show when a token takes its context in** (section 11). In the
+  framing set, whose read word sits in a question after the sentence, it separates fiction from
+  fact clearly better than the state lens at five layers (6, 14, 16, 18, 19: by 0.08 to 0.55 with
+  two nodes, held out; by 0.09 to 0.35 with each lens's best number of nodes). In the calibration
+  scenes, also read from a question after the text, it is ahead by more than 0.01 at one layer
+  only, and in friend/foe and tank it shows less than the state.
+  Grouping items by where attention reads from follows the read word's position, not its sense.
 
 ## 1. The checks
 
@@ -454,6 +461,79 @@ tokens); no template, so the sink and first-token patterns may differ in chat-te
 The calibration and framing captures, read after the sentence and in the chat template, are the
 next to run.
 
+## 11. Attention as a population (added 2026-10-20)
+
+Andrew asked for an attention Sankey over the population, so that a lens's items can be analysed
+from three views: the latent nodes, the expert routes and attention. Claude tested two readings of
+it.
+
+**Where attention reads from** (`attention_where.py`, `results/attention_where_tank.json`; the tank
+sentences, from the word-by-word run of section 10, which ran the model on the CPU one layer at a
+time). For each item, its share of attention's output at " tank" from each part of the sentence
+was grouped at each layer into five groups (as many as the senses), with Ward clustering. The parts
+were taken two ways: by role (the word itself, the token before it, the first token, the other
+words), and by distance back (the word itself, 1, 2 to 3, 4 to 7, 8 or more tokens, and the first
+token). The groups are worked out on all items (in-sample), which can only flatter them; the probe
+is scored on five stratified held-out folds:
+
+| | Agreement (AMI) with the sense | with where " tank" sits in the sentence (five bins) | Probe for the sense (balanced accuracy) |
+|---|---|---|---|
+| by role | 0.01 to 0.08 | 0.26 to 0.41 | 0.23 to 0.33 |
+| by distance | 0.01 to 0.07 | 0.23 to 0.58 | 0.23 to 0.34 |
+
+Ranges over the 24 layers. The groups agree with the lens's nodes at 0.02 to 0.19, and the lens's
+own nodes agree with the sense at 0.35 to 0.50 from layer 4 on. The probe is a logistic regression
+that reads an item's shares; balanced accuracy is the average of its hit rates per sense. Chance is
+0.20, the read word's position alone gives 0.24, and the shares with the position 0.24 to 0.35. So
+the shares carry at most a trace of the sense beyond the position (up to 0.11 at some layers), and
+grouping by them follows the sentence's shape, not the sense.
+
+**What attention writes** (`attention_lens.py`, `results/attention_lens_<capture>.json`,
+`figures/attention_lens.png`). At each layer, three sources at the lens's read token: the state (the
+layer's output, which the lens reads), attention's write (the output minus the layer's input minus
+the experts' write; at layer 0 minus the word's starting vector), and the experts' write. Each is
+held out exactly as the lens's own validation holds out the state
+(`services.lenses.validate.heldout_scores`: UMAP with the lens's settings and Ward fitted on the
+training folds, the held-out items placed and voted into nodes), on the lens's own folds. The chance
+line comes from the validation's decoys: random labels drawn within each real label value, held out
+the same way; the line is the 95th percentile of their held-out AMI, pooled over layers, and a
+score "beyond the line" beats it. Held-out AMI with the label, at as many nodes as classes:
+
+| Capture (folds) | Read token | State | Attention's write | Experts' write |
+|---|---|---|---|---|
+| framing, 400, fiction or fact (stratified, copies of a text kept together) | "threatened", in the question after the sentence | 0.28 to 0.87 from layer 3; beyond the line at 22 layers | beyond the line at 20 layers. Higher than the state at 9: layers 6 (0.84 against 0.65), 14 (0.85 / 0.76), 16 (0.71 / 0.54), 18 (0.87 / 0.32), 19 (0.54 / 0.46), 21 (0.32 / 0.28) and 20 (0.41 / 0.40), and layers 0 and 2, where the state finds almost nothing (0.11 / 0.01, 0.04 / 0.00). Under 0.06 at layers 1 to 3, 5 and 7 to 9. With each source's best k, higher at the same five clear layers (by 0.09 to 0.35; layer 18: 0.87 / 0.52) and at layer 0 | 0.04 to 0.82 from layer 3 |
+| calibration, 600, aquarium or vehicle (12 folds, each holding out whole scene families) | in the question after the scene | 0.34 to 0.51 at layers 3 to 20; beyond the line (0.27) at 18 layers | beyond the line (0.23) at 11 layers (4 to 6, 8, 15 to 21), up to 0.39 at layer 19 (where the state also has 0.39); higher than the state only at layer 21 (0.28 / 0.09), where the state's two nodes collapse (0.35 at its best k); with each source's best k, higher by more than 0.01 only at layer 19 (0.44 / 0.39) | beyond the line (0.28) at 16 layers, up to 0.57 |
+| friend/foe tick 1, 479 (stratified, copies of a text kept together) | "person" | at most 0.03 | at most 0.01 | at most 0.02 |
+| tank, 499, five senses (stratified, copies of a text kept together) | " tank", in the sentence | 0.26 to 0.48 from layer 3 | 0.02 to 0.28, lower than the state at every layer | 0.22 to 0.48 from layer 3 |
+
+In friend/foe, with two nodes no source groups by friend or foe. With more nodes (the best k from 2
+to 10 at each layer) all three do weakly: at best 0.27 for the state (layer 22), 0.21 for
+attention's write (layer 11) and 0.26 for the experts' write (layer 21), beyond a best-k line of
+about 0.02.
+
+In the framing set the read word sits in a question after the sentence, so everything about the
+sentence reaches it through attention. There attention's write also carries the sentence's own
+attributes. The event's scale and the threat's scope have two values each. With two nodes,
+attention's write matches them at 0.73 and 0.70 at layer 3 (scale 0.73 again at layer 5, scope
+0.63), while the state's two nodes reach at most 0.20 and 0.24 at any layer. With the best k at each
+layer, the state reaches 0.58 and 0.53, at layer 5 with four nodes; attention's write is lower at
+layer 4 (0.45 and 0.44) than at layers 3 and 5. Specificity, which neither source shows with two
+nodes, reaches 0.35 at layer 18 with nine nodes in attention's write; the state's best is 0.22, at
+layer 3, and 0.10 at layer 18. Voice is 0.98 in both at layer 1, and 0.98 again in attention's write
+at layer 7, where the state has 0.00 with two nodes (0.27 at its best k).
+
+The calibration scenes have the same shape (the read word in a question after the text), and there
+attention's write is ahead of the state by more than 0.01 at one layer only (layer 21 with two
+nodes, layer 19 with each source's best k). Where the class sits in the read
+word's own sentence (tank), attention's write shows less than the state at every layer.
+
+What it means: a lens on attention's write can show when a token takes its context in, which the
+state lens can't. On these tests it did so in one of the two captures whose read word sits after
+the text. The framing results also swing from one layer to the next (0.15 at layer 17, 0.87 at 18),
+so a second seed, tuning for this source and a set built for it would show how much of the pattern
+is stable. A first quick check, with groups worked out on all items rather than held out,
+overstated attention's write at some layers; the numbers above are the held-out ones.
+
 ## Limits
 
 - **Direct writers only.** The experts read the state after attention has added to it, so a split
@@ -473,11 +553,10 @@ next to run.
 
 ## For the node card
 
-The node card (built and held, `backend/src/services/lenses/writers.py`) measures each split along
+The node card's code (built, then kept on the git branch `node-card-writers`) measures each split along
 its mean difference in the residual stream at the lens's read site (the states the lens is fitted
 on, and the axis a mass-mean lens uses), and marks every share outside its random band. In the
 study, at least one of a branch's five shares would be marked at 487 of the 662 branches, and a
 mark holds along the discriminant at 74 of them; for attention's share at the parting layer, 197
 and 26. The card draws 100 random splits where the study drew 200, so its counts would differ a
-little. How the node card should read them is
-Andrew's call: card L33 on the design page.
+little. Andrew decided on 2026-10-20 to keep the shares off the node card for now (L33).

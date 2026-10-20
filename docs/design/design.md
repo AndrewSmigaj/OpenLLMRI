@@ -101,295 +101,117 @@ of AI scientists a start [GOAL-15].
 
 The open questions, as cards. The answered ones are in the decision log at the end.
 
-### L33. Who adds each split: show it on the node card? [Open]
+### L35. Attention in the analysis, reworked [Open]
 
-*Rewritten on 2026-10-18, after Andrew's questions about attention and about what this is for.*
+*Rewritten on 2026-10-20, after Andrew's notes on the first version.* He doubted the first proposal
+was useful and asked whether it was a reflex. He asked what attention would add to modelling how
+the model thinks, and whether its share of a split is worth knowing; how it serves the lenses, the
+internal representations they find and the expert routes; and how it helps the two aims,
+understanding the model and scaffolding AI systems. He noted ablation and similar interventions
+as known uses of attention. If attention adds little, he asked Claude to say so rather
+than invent uses. He thought an attention Sankey over the population might be best.
+Claude's answer is the section [Attention in the analysis](design.md#attention), after a second
+round of tests. In short:
+- **attention can add one thing:** what a token takes from the rest of its input, and at which
+  layers. The lenses and the expert routes both read the token itself. A scaffold (a system
+  prompt, an instruction, earlier turns) reaches the model only through attention, so for
+  scaffolding this is the central question. In sets like the tank sentences, where the meaning sits
+  in a clue word next to the read word, it adds little;
+- **its share of a split,** on its own, says which step wrote a difference, not what caused it, and
+  it changes with the direction it is measured along. It stays off the node card for now (L33);
+- **the population Sankey, tested two ways.** Grouping items by where attention reads from follows
+  the read word's place in its sentence, not its meaning. A lens on what attention writes worked in
+  one capture of four. In the framing set, whose read word sits in a question after the sentence,
+  it beats the state lens clearly at layers 6, 14, 16, 18 and 19: by 0.08 to 0.55 with two nodes
+  (at layer 18, 0.87 against 0.32), and by 0.09 to 0.35 when each lens has its best number of
+  nodes. It also carries the sentence's scale and threat scope at layer 3, where the state lens
+  shows them only weakly (0.20 and 0.24 with two nodes). In the calibration scenes, also read from
+  a question after the text, it is ahead by more than 0.01 at one layer only (layer 19, 0.44
+  against 0.39, with each lens's best number of nodes). In friend/foe and tank it shows less than
+  the state lens;
+- **so the gain is modest and specific:** mainly for scaffold studies, and for reading expert nodes
+  that their context fills. It is not a new view of everything.
 
-**Attention in this model.** Attention works here as in any transformer; only the other step is a
-mixture of experts. Each of gpt-oss-20b's 24 layers does two steps in turn and adds each step's
-output to the token's state (its vector at that layer):
-- **attention:** 64 parallel readers (heads), with one set of weights for every token, look back
-  over the text and bring what they find into this token; every second layer looks back only over
-  the last 128 tokens. It is the only step in which a token takes in anything from other tokens,
-  and it also reads the token itself;
-- **the experts:** a router picks 4 of the 32 experts for this token, and their weighted outputs
-  are added. They work on this token's state alone. In an ordinary transformer, this step is one
-  feed-forward block.
+Four parts, each on its own card.
 
-This was checked in the model's code and in what the capture stores.
+#### L35.1. A lens on what attention writes, as the attention row [Open]
 
-**What it is for.** A lens shows at which layer two groups of items come apart: "tank" in fish-tank
-sentences and in army sentences, say. The difference between the two groups' average states at
-that layer is exactly the sum of what each layer's attention step and experts step added (plus,
-when the items are different words, the words' own starting vectors). This
-measurement splits the difference into those parts, so it says how much of it the experts added
-and how much attention added. It matters because the expert views (routing, pipelines, the
-experts involved) are read as explaining a split, and they explain it most directly where the
-experts themselves add the difference. It is one of the gaps Claude named on 2026-10-06, when
-Andrew asked whether watching where groups split is enough to locate the model's decisions
-[LENS-30].
+Claude's form of the third population view Andrew asked for, beside the latent-node Sankey and the
+expert-route Sankey: a lens built on attention's write at the read token (what attention adds to
+the token at each layer) instead of on the token's state. Its Sankey becomes the attention row
+under the other two, lined up with them and lit by the same selection
+[LENS-57, LENS-55, APP-37, APP-35]. It needs no new captures, and every lens tool works on it
+unchanged: tuning, validation, lit paths, node details and reports. It can pay where a token
+reads its context, such as a question after a text or a decision under a scaffold. In the tests
+it paid in one of the two captures of that kind, and in neither of the other two.
 
-**Terms.** A **split** is a cut of items into two groups: a lens's classes, or a node's items that
-go on to the same node at the next layer, against the node's other items. Its **difference** is the
-gap between the two groups' average states. A **direction** is the line the difference is measured
-along. The study used two: the line between the two averages (the node card's), and the
-discriminant, which gives more weight to directions in which each group's items vary little. A
-share is **flagged** when it falls outside the range that random groups give: the same items
-shuffled into groups of the same sizes, 5th to 95th percentile.
+When: with the observatory, the new app's room for reading a lens across its layers (today's Layers
+screen; step 6 of the new app's plan). Or later, with the scaffold studies, which are part of slice
+8 (conditions and interventions), after the Winter Survival pilot, near the end of the roadmap.
 
-**What the study found** (`docs/research/attention_and_experts.md`, seven captures):
-- **The experts add most of the difference, even between random groups.** In six of the seven
-  captures, the experts' part varies more from item to item than attention's, so the experts add
-  most of any difference, random ones included; in friend/foe the two vary about as much, and the
-  experts add about half. A share says nothing until it is compared with random groups of the same
-  items.
-- **One result holds against random groups.** In the tank sentences, the experts add more of the
-  difference between the senses than of a random difference, along both directions, at 67 of the
-  119 cases tested (a case is one split at one layer, layers 4 to 20). "Tank" is the same word in
-  every sentence, so what differs between the senses can only come from the surrounding words and
-  the word's position in the sentence, which only attention brings in; the experts then add more
-  of the difference than random groups would give them.
-- **Elsewhere, few cases hold in both directions.** No other sentence set or agent run's classes
-  differ from random groups in both directions, and among the single words, 4 of 323 cases do. In
-  one-word prompts, the rest of the prompt is the same for every word, so attention's part comes
-  from the word itself, and attention adds about what it adds for random groups.
-- **For the node card, the result depends on the direction.** The node card is the panel that
-  describes one node of a lens; for each node split it would show five shares (the starting
-  vector's, and attention's and the experts' at the layer where the groups part and up to it). Of
-  the 662 node splits in the study, 487 would have at least one share flagged along the line
-  between the averages, and 74 along both directions; for attention's share at the parting layer
-  alone, 197 and 26. Along the discriminant alone, attention's share is flagged at 6% of node
-  splits, fewer than the 10% that chance gives. Node splits are also picked by the clustering from
-  the states themselves, and random groups are not, so the random range is not a like-for-like
-  comparison for them (a limit the study lists; how much it matters was not measured).
-
-**What it can't say.** It says which step added the difference to the token's state, not which
-caused it: the experts read what attention has already brought in. Finding which words of the text
-carry a split first needs the capture to keep more token positions (slice 2, capture and jobs).
-Finding what causes a split needs experiments that change the model's activity and see what
-follows (steering or ablation, slice 8).
-
-**Claude's recommendation: keep it off the node card for now** [LENS-48]. On 2026-10-16 Claude
-recommended flagging a share where both directions agree. On review: most node-split results change
-with the direction; along the second direction they are flagged no more often than chance; and the
-random range is not a like-for-like comparison for splits the clustering picks. So a flag on the
-card would mean little. The study and its findings stay. The node-card code, built and held, would
-go on a separate git branch, out of the main code. The question comes back with more token
-positions (slice 2) and with interventions (slice 8), which can show what causes a split.
-
-What each answer means:
-- **Not on the node card for now:** the node card stays as it is; the first part of LENS-30 stays
-  a study.
-- **Both directions:** a share is flagged only when both directions put it outside the random
-  groups' range on the same side (higher, or lower): 74 of the 662 node splits in the study. The
-  tank lens's node details would take two to three minutes to work out instead of under one
-  (Claude's estimate: the card as built took 48.5 s for the tank lens's 70 node splits, and the
-  second direction cost about 1.5 s a split in the study's code).
-- **As built:** flags along the line between the averages alone: 487 of the 662 node splits
-  flagged, 413 of them not confirmed by the second direction. The tank lens's node details take
-  under a minute.
-
-- ( ) Not on the node card for now: keep the study; the held code goes on a git branch, out of the main code (recommended)
-- ( ) Both directions: flag a share only when both directions put it outside the random range, on the same side
-- ( ) As built: flag along the line between the averages alone
+- ( ) Build it with the observatory (recommended)
+- ( ) Build it later, with the scaffold studies (slice 8)
+- ( ) Don't build it
 - ( ) Other
 
-### L34. The institute's layout [Open]
+#### L35.2. Brought by attention, on the expert node cards [Open]
 
-Andrew's answer to L30 (2026-10-18) changes the rooms; what he set is recorded under
-[The rooms](design.md#rooms) [MUD-23 to MUD-28]. In short: an AI greets users and guests. Most
-visitors come to play Winter Survival in public simulation rooms. There are four departments
-(linguistics, general mechanistic interpretability, alignment, and discordant studies), which he
-also calls labs, each with its AI scientists, simulation room and boards. There is a lounge, and a
-meeting room where different AIs discuss things. In the long run, the AI scientists design the
-institute themselves.
+For each expert node: the share of its tokens whose expert would change if that layer's attention
+to their own context were taken away, beside the share for the whole layer [LENS-56]. What it is
+for (Andrew asked the same question of this part):
+- **reading an expert node:** it tells whether the node is about the word or about its
+  surroundings. Routing is mostly decided by the token itself: its own attention changes the first
+  expert for a median of 2% to 10% of items, by capture (at most 43%, at one layer). But some
+  nodes are filled by context. In the tank sentences, 48
+  of the 54 tokens in expert 5 at layer 2 got there through their own context, 33 of them from
+  vehicle sentences; without the share, that node's card would read as being about " tank";
+- **scaffold studies:** a scaffold can change which experts a deciding token uses only through such
+  nodes, so the share shows a study where to look;
+- **how it differs from the split shares kept off the node card (L33):** it counts tokens whose
+  expert actually changes, so there is no direction to choose and no random splits to compare
+  with. The recomputed routing matches the capture for at least 98.8% of items.
 
-Claude's proposal for fitting the earlier rooms to this layout is in the same section:
-- the entrance hall replaces the hub;
-- the observatory, the lens workshop, the library and the studies room are shared by every
-  department;
-- the polysemy lab becomes a room of the linguistics department;
-- the simulator becomes the public simulation rooms, plus one for each department.
+It covers expert nodes, not the edges between them; the same count could be given for an edge's
+tokens if the nodes prove useful. It needs no new data.
 
-Four questions follow; anything else about the layout goes in this box.
-
-#### L34.1. Where the tools sit [Open]
-
-The tools for reading and making lenses are the same in every department.
-
-- ( ) Shared: the observatory, the lens workshop, the library and the studies room serve every department, and a department opens them with its own studies already loaded, as the polysemy lab does now (recommended)
-- ( ) In each department: every department has its own copy of the tools
+- ( ) Yes, with the observatory (recommended)
+- ( ) Later, with the scaffold studies (slice 8)
+- ( ) No
 - ( ) Other
 
-#### L34.2. Which department each study belongs to [Open]
+#### L35.3. Blocking attention, with the interventions [Open]
 
-Claude's proposal; a study can move later. In the institute's first vision (`LLMud/VISION.md`, now
-superseded), a Department of Discordant Research brought discord into the research on purpose, by
-inverting assumptions and setting frames against each other; Claude assumes the department of
-discordant studies has the same role. It has no study yet, so Claude proposes that the Ideas
-workspace and its idea-tracking engine live there [APP-8, ROOM-17].
+Stopping a token from reading a chosen part of its input (a scaffold, a sentence) at chosen layers,
+then reading the lenses again: Claude's form of the ablation Andrew named as a known use. The lens
+and the share above only show what attention brought in; blocking it tests whether that changes
+what the model does, and at which layers [INT-10]. It
+belongs with slice 8, conditions and interventions, which brings the ways of changing the model's
+activity during a run.
 
-| Department | Studies |
-|---|---|
-| linguistics | single words; animals; the animal ontology; the read site (where a single word is read); and the polysemy lab, with the tank lens from the lens core |
-| general mechanistic interpretability | the lens core (the instrument and its checks); the attention-and-experts study (L33); the context-shift paper |
-| alignment | objects and the harm axis; the suicide letter; friend/foe, with the people-assessment set planned after it |
-| discordant studies | the Ideas workspace |
-
-- ( ) As proposed (recommended)
-- ( ) Change some (say which in the note)
+- ( ) Yes, in slice 8 (recommended)
+- ( ) No
 - ( ) Other
 
-#### L34.3. What the meeting room adds to [Open]
+#### L35.4. What goes [Open]
 
-Andrew's answer counts an addition to the OSS model among the meeting room's topics. It could
-mean gpt-oss-20b itself, or the paradigm: the project's account of how the model works, made of
-accepted findings, where AI scientists propose findings, attack them and give evidence, several
-models vote, and a finding most of them agree on goes to Andrew [ATLAS-5]. Claude reads it as the
-paradigm. Tick both if both are meant.
+Claude withdrew the first proposal's parts on 2026-10-20 (listed under
+[Rejected and retired](design.md#retired)). It proposes not building them, nor the uses that
+proposal already advised against; the reasons are under
+[Where not to go](design.md#attention-not). This card asks whether any should come back:
+- the row of words (how much the token drew on each earlier word), and the heads' weights as a
+  view;
+- the words for the split card's analyst, the words that recur, and the words that pushed a token
+  toward an expert;
+- recording those word-by-word parts during capture, and running the word-by-word pass on the CPU
+  over more sentence sets;
+- single heads; attention traced back across layers; claims about causes read from any of these
+  views.
 
-- [ ] The paradigm: findings proposed, debated and voted on (recommended)
-- [ ] Changes to gpt-oss-20b itself, such as a steering vector or a scaffold
-- [ ] Other
+Attention's share of a split is not on this list: it stays off the node card for now, as decided
+(L33).
 
-#### L34.4. When the layout is built [Open]
-
-Two parts cost more than rooms do:
-- **the greeter:** Claude assumes it would be a Claude agent, as the AI scientists are [GOAL-7],
-  so every visitor's conversation would use the subscription;
-- **playing in public rooms** needs one Winter Survival world per room (today there is one shared
-  world, and separate copies were set aside for later), and guests who play rather than only
-  watch: today only researchers may load a scenario, and visitors only watch [MUD-14, ROOM-14].
-
-Claude proposes both for when the MUD is hosted for others, which is planned before anyone is
-invited [MUD-20], and the Winter Survival pilot [ROOM-18]. Slice 11 is the paradigm and the AI
-scientists, later in the order of work.
-
-- ( ) In stages: first the layout file, the map and every room in the MUD (description, exits, boards), with the new app's rooms; later the greeter, the AI scientists and the meetings with slice 11, and public play with hosting and the Winter Survival pilot (recommended)
-- ( ) All of it with slice 11
-- ( ) Other
-
-### L35. Attention in the analysis [Open]
-
-On 2026-10-19 Andrew set attention as more information in the analysis, with a row for its
-visualization below the Sankeys and the 3-D view, and asked whether attention can be analysed for
-each expert node and latent node [LENS-49, APP-35, LENS-50]. Claude's proposal is the section
-[Attention in the analysis](design.md#attention), in seven parts; each card below is one of them, so
-each can be approved or changed on its own. Before writing it, Claude tested it without the model,
-on the stored captures and with gpt-oss run on the CPU over the tank sentences; what the tests
-found is in each part.
-
-#### L35.1. What the row measures [Open]
-
-At each layer, attention's output at the read token is exactly a sum of one part for each earlier
-word: each head's weight on the word times what the word carries, with the 64 heads added
-together. The row shows the **amount** drawn from each word: the length of its part, as a share of
-all the parts' lengths at that layer. It doesn't show the heads' weights alone, because a weight
-says where a head looks, not what it brings back. In the tank sentences (medians over the 499
-sentences), more than half of the heads' weight goes to their sinks (weight a head gives to no
-word) at 18 of the 24 layers, and " tank" itself takes 1% to 18% of the weight but 8% to 48% of the
-amount, by layer. [Details](design.md#attention-measure).
-
-- ( ) The amount drawn from each word, the heads together (recommended)
-- ( ) The amount, with the heads' weights as a second view under Advanced
-- ( ) Other
-
-#### L35.2. Latent nodes and edges [Open]
-
-A split point is a node of a lens whose tokens go on to two nodes or more at the next layer; each
-of those edges is a branch. For each branch, compared with its node's other tokens, at every layer
-up to the split, three readings:
-- **where attention draws from:** the word itself, the word before it, the first token, or the
-  other words, tested against the branch shuffled within the node;
-- **each token's top three words,** listed for the split point's analyst to say what they share;
-- **words that recur** in many of the branch's texts, with the same shuffle test, as a check.
-
-Past the split, a route through several later nodes (a lit path) gets the same readings at each
-layer along it: its tokens against the other tokens of the node they are in there.
-
-Why all three: in the test, clue words rarely repeated from one sentence to the next, so the test
-word by word found mostly "the", while each sentence's own top three words predicted its sense
-nearly as well as all its words. Tracing attention back through the layers was tested too and set
-aside (it piles onto the first token). [Details](design.md#attention-nodes).
-
-- ( ) All three (recommended)
-- ( ) Without the analyst's lists: where attention draws from, and the words that recur
-- ( ) Other
-
-#### L35.3. Expert nodes and edges [Open]
-
-Two readings for each expert node:
-- **brought by attention:** the share of its tokens whose expert would be another if that layer's
-  attention output were replaced by its average over the lens's items, beside the same share for
-  all the layer's tokens. It needs no new data, so it works for every capture today;
-- **the words that pushed:** each word's part of that expert's router score, against the other
-  experts, tested by shuffles.
-
-An expert edge gets the same two readings for its tokens. They follow the rank the expert Sankey
-shows (the first by default; Claude's choice), and the row also says how many of each token's four
-experts its own attention changed.
-
-The test found nodes that context fills: in the tank sentences, 48 of the 54 tokens in expert 5 at
-layer 2 got there through their own context (10% of all the tokens at that layer did), 33 of
-them vehicle sentences. [Details](design.md#attention-experts).
-
-- ( ) Both (recommended)
-- ( ) Only the share brought by attention, with no word lists
-- ( ) Other
-
-#### L35.4. The row [Open]
-
-The row sits under the Sankeys and the 3-D view, lined up with their layers, and follows the
-selection: the lens's items as a whole, one item, a latent node or edge, an expert node or edge, or
-one step of a run. A word chosen in the row can colour the Sankeys and the 3-D view. The table and
-a sketch are under [The row](design.md#attention-row).
-
-- ( ) As proposed (recommended)
-- ( ) Change some (say which in the note)
-- ( ) Other
-
-#### L35.5. Where the words come from [Open]
-
-Today's captures keep only the read token's state, and the words need every earlier position's.
-Claude recommends recording attention's parts at the read token during each capture, from slice 2
-(capture and jobs) on: about 9 MB for the 499 tank sentences and 350 MB for the 479 friend/foe
-ticks. Older captures get the same parts from the CPU pass, where their prompts can be rebuilt
-exactly. Keeping every position's states instead (already an option, DATA-7) would take about
-0.7 GB and 49 GB for the same two. [Details](design.md#attention-data).
-
-- ( ) Recorded during capture from slice 2, with the CPU pass for older captures: small, and enough for every reading proposed here (recommended)
-- ( ) Every position's states, with the parts worked out afterwards on the CPU: much larger, and open to analyses not yet thought of
-- ( ) Other
-
-#### L35.6. Where not to go [Open]
-
-Claude proposes not building these (the reasons are under
-[Where not to go](design.md#attention-not)):
-- maps of the heads' weights as the main view;
-- views of single heads;
-- attention's share of a split (L33's measure) as a headline;
-- attention rolled out or traced back across layers;
-- readings of cause from any of these views;
-- word rows for single-word sets, beyond the template and the word's own earlier pieces.
-
-- ( ) Agreed (recommended)
-- ( ) Agreed, except (say which in the note)
-- ( ) Other
-
-#### L35.7. When [Open]
-
-1. **Now, without the model:** the study finished (the CPU pass on two more captures, and the
-   findings note); no product code.
-2. **With the new app's observatory room** (the room for reading a lens across its layers, today's
-   Layers view): the row, with brought by attention for every capture and the words where the CPU
-   pass has run.
-3. **Slice 2 (capture and jobs):** the parts recorded during every capture.
-4. **Later:** Watch, the app's view of an agent's run (slice 4), reads them tick by tick.
-
-[Details](design.md#attention-order).
-
-- ( ) In these steps (recommended)
-- ( ) All of it with slice 2: no row and no node readings until the capture records the parts
+- ( ) Drop them all (recommended)
+- ( ) Keep some (say which in the note)
 - ( ) Other
 
 ### L25. Anything else [Open]
@@ -596,8 +418,8 @@ app: they need no model, and Andrew is using the machine for other work [ORDER-2
   experts, and the other token positions that carry the same signal [LENS-30]. Andrew moved the
   shares ahead [ORDER-20]. Claude's study on the stored captures
   (`docs/research/attention_and_experts.md`) found that they depend on the direction a split is
-  measured along; Claude now proposes keeping them off the node card for now, for Andrew's answer
-  to L33 [LENS-48].
+  measured along, so they stay off the node card for now, as Andrew decided (L33); the code built
+  for the card is kept on a git branch [LENS-48].
   The other positions wait for the extra token positions that slice 2 records (Claude's placement)
   [DATA-7];
 - the lens's expert fingerprints [LENS-34];
@@ -626,311 +448,186 @@ involved, and its pipelines and hubs, with every number checked (see
 
 ## Attention in the analysis {#attention}
 
-*Proposed on 2026-10-19, after Andrew's message that day. Each part below has its own card in
-L35, so it can be approved or changed on its own.*
+*Reworked on 2026-10-20 after Andrew's notes, and tested again. It replaces Claude's proposal of
+2026-10-19, which Claude withdrew; its parts are listed under
+[Rejected and retired](design.md#retired). The four parts have cards in L35.*
 
-**What Andrew set and asked** (2026-10-19):
-- **attention joins the analysis as more information.** At each layer the router's top four
-  experts work together to set the token's place in the residual stream, adding their outputs to
-  it [LENS-49];
-- **a row for attention's visualization** goes below the Sankeys and the stepped 3-D trajectory
-  plot [APP-35];
-- **his question:** can attention be analysed for each expert node and each latent node? In a UMAP
-  lens, tokens part ways at a node and go on to different nodes in later layers, so what attention
-  does could be followed along those nodes and edges [LENS-50].
+**What Andrew set and asked:**
+- on 2026-10-19: attention joins the analysis as more information [LENS-49]; a row for its
+  visualization goes below the Sankeys and the 3-D view [APP-35]; and can attention be analysed for
+  each expert node and latent node, following the tokens along the nodes and edges they take
+  [LENS-50];
+- on 2026-10-20 he doubted the first proposal was useful and asked whether it was a reflex. He
+  asked what attention adds to modelling how the model thinks, and whether its share of a split is
+  worth knowing; how it serves the project's kinds of interpretability (the lenses, the internal
+  representations they find and the expert routes); and how it helps the two aims, understanding
+  the model and scaffolding AI systems. He noted ablation and similar interventions as known uses
+  of attention. He asked for the case to be argued, and for Claude to say plainly if attention
+  adds little rather than invent uses. He also asked for an attention Sankey
+  over the population, which he thought might be best, so that the population can be analysed
+  from three views: the latent nodes, the expert routes and attention [LENS-57].
 
-What attention does, in Claude's words: it is the only step that brings anything from the other
-tokens into a token's state, so it supplies the context the experts then work from (L33 has the
-fuller account).
+### What attention can add {#attention-measure}
 
-**Claude's proposal in short.** The row shows what attention brought in, not how much of a split
-it wrote. At each layer, attention's output at the read token divides exactly into one part for
-each earlier word, so the row can show which words the token drew on, and how much. For a latent
-node or an edge, it shows where the branch's tokens drew from, the words each of them drew on
-most (for an analyst to read across the branch), and any word that recurs. For an expert node, it
-shows how many of its tokens their own context sent there, and which words pushed them toward
-that expert. None of it uses attention's share of a split (how much of the gap between two groups
-attention wrote, card L33), which the study behind L33 found to be weak evidence, so L33 can be
-answered either way without changing this proposal.
+Claude's answer, from the tests under the next two headings. Attention adds less than the first
+proposal suggested, and one thing it adds matters:
+- **one kind of knowledge.** The lenses read what a token's state holds at each layer, and the
+  expert routes say which experts work on it; both look at the token itself. Attention is the only
+  step that brings anything from the rest of the input into the token. So it can add what a token
+  takes from its context, and at which layers. Where the token's own state already shows the
+  answer, it adds little;
+- **scaffolding is about context.** A scaffold (a system prompt, a persona, an instruction, a
+  description of the situation, earlier turns) changes what the model does only through what tokens
+  take from it, so only through attention. Whether a deciding token takes the scaffold in, at which
+  layers, and what it brings in, are attention's questions. Whether that changes the decision needs
+  an intervention: blocking the token from reading the scaffold and reading the lenses again
+  (L35.3), Claude's form of the ablation Andrew named;
+- **its share of a split, on its own, is of little use.** It says which step wrote a difference
+  into the state, not what caused it, and it changes with the direction it is measured along
+  (`docs/research/attention_and_experts.md`, section 6). It stays off the node card for now
+  (decided, L33) [LENS-48]; these reasons are Claude's;
+- **in sets like the tank sentences it adds little.** There the meaning sits in a clue word the set
+  put near the read word on purpose, so finding that the token reads the clue tells nothing new.
+  Sets whose read word comes after the text, such as the framing set, are where it can add more.
 
-**Tested first, without the model** (`docs/research/attention_and_experts.md`, sections 9 and 10):
-- **the router, worked out again on the CPU** from what the seven captures store, chooses the same
-  four experts as the capture for at least 98.8% of items at every layer;
-- **gpt-oss run on the CPU,** one layer at a time from the model's own files, over the 499 tank
-  sentences. At the read token its states match the captured ones (a median difference of 0.04% to
-  0.11% of the state's length by layer; at most 11% for the few sentences whose expert changed at a
-  near tie earlier on), it picks the same four experts for at least 98.4% of sentences at every
-  layer, and the parts of attention add up to its output to within a few millionths;
-- **the three words each tank sentence drew on most carry its sense** nearly as well as all its
-  words before " tank" do (within 0.02 at 11 of the 24 layers, at most 0.08 below), and better than
-  three of its words picked at random at every layer.
+### Latent nodes: a lens on what attention writes {#attention-nodes}
 
-### How attention's output divides by word {#attention-measure}
+Claude tested Andrew's attention Sankey in two forms (`docs/research/attention_and_experts.md`,
+section 11).
 
-At each layer, each of the 64 attention heads gives every earlier position a weight, takes that
-position's value, and adds the result to the token through one shared projection. gpt-oss's heads
-also each have a learned "sink": part of each head's weight can go to no position at all, so the
-weights on real positions add up to less than one. Attention's output at the token is therefore
-exactly a sum of one part (a vector) per earlier position, the token itself included, plus a fixed
-bias; each part already adds the 64 heads together.
+**First form: grouped by where attention reads from.** In the tank sentences, each item's share of
+attention taken from the word itself, the token before it, the first token and the other words (or
+from each distance back) was grouped into five groups, layer by layer. The groups follow where
+" tank" sits in its sentence, not its sense. At every layer they agree with the sense at 0.01 to
+0.08, and with the word's place in the sentence at 0.23 to 0.58 (AMI, adjusted mutual information:
+0 is chance, 1 a perfect match). The state lens's nodes agree with the sense at 0.35 to 0.50 from
+layer 4 on. A classifier trained to tell the senses apart from these shares (a probe) gets 0.23 to
+0.34 balanced accuracy (the average of its hit rates per sense); from the word's place alone it
+gets 0.24, and chance is 0.20. So where attention reads from is mostly a matter of the word's place
+in its sentence.
 
-Claude's proposal for what the row measures [LENS-51]:
-- **the amount drawn from a word:** the length of its part (its pieces' parts added together when
-  it splits into several tokens), as a share of the summed lengths of all the parts at that layer.
-  It needs no direction to measure along, so it avoids the direction problem L33 found;
-- **not the weights alone:** a weight says where a head looks, not how much it brings back. A
-  position with a large weight can bring back almost nothing, and the measure multiplies the
-  weight by what the position carries, as Kobayashi and colleagues proposed for transformers
-  (EMNLP 2020). In the tank sentences (medians over the 499 sentences): the sinks take more than
-  half of the heads' weight at 18 of the 24 layers; " tank" itself takes 1% to 18% of the weight but
-  8% to 48% of the amount; at layers 19 and 21 the sentence's first token takes 1% to 2% of the
-  weight and 23% to 28% of the amount;
-- **what the window hides:** the even layers (0, 2 and so on to 22) look back over the last 128
-  tokens only, and the odd layers over everything. In sentences that is everything, but in an
-  agent's tick, where the read word sits about 700 tokens into the prompt, the even layers can't see
-  the system prompt or the scene's start, and the row marks where their window ends;
-- **earlier words only:** a token can draw only on words before it. In the tank sentences " tank"
-  is read where it stands, so the words after it never reach it; a set whose clues come after its
-  target word needs a later read site, such as the question after the sentence in the calibration
-  set;
-- **positions, not only words:** from layer 1 on, the state at the position of "fish" has taken in
-  other words of its own (the test below shows "burning" drawing on "smoke" at layer 1), so what
-  attention draws from there is the position of "fish", not the word alone. The row names each row
-  by its word and says so; one step back, described under the next part, shows what the position
-  had taken in.
+**Second form: grouped by what attention writes.** A lens is built at each layer on attention's
+write at the read token (the layer's output, minus its input, minus the experts' write) instead of
+on the token's state. It was scored on held-out items in the same way as a lens's own validation,
+in four captures. The numbers are agreement with the class on items the lens was not fitted on
+(AMI), at as many nodes as classes; where the comparison changes when each lens gets its best
+number of nodes (2 to 10 at each layer), the table says so:
 
-### Latent nodes and edges {#attention-nodes}
+| Capture | Where the class is | State lens | Lens on attention's write |
+|---|---|---|---|
+| framing (400 sentences, fiction or fact) | in the sentence before the read word, which is in a question after it | 0.28 to 0.87 from layer 3 on | higher than the state lens at layers 0, 2, 6, 14, 16, 18, 19, 20 and 21: by 0.08 to 0.55 at 6, 14, 16, 18 and 19 (at 18, 0.87 against 0.32), by 0.04 at 21 and 0.01 at 20. At 0 and 2 it is ahead only because the state lens finds almost nothing there (0.11 and 0.04, against 0.01 and 0.00). Under 0.06 at layers 1 to 3, 5 and 7 to 9. With each lens's best number of nodes it is ahead at the same five layers, by 0.09 to 0.35 (at 18, 0.87 against 0.52), and at layer 0 (0.15 against 0.06) |
+| calibration scenes (600, aquarium or vehicle) | in the scene before the read word, which is in a question after it | 0.34 to 0.51 at layers 3 to 20 | above the chance line at 11 layers, up to 0.39; higher than the state lens only at layer 21 (0.28 against 0.09), where the state lens's two nodes collapse. With each lens's best number of nodes, it is ahead by more than 0.01 only at layer 19 (0.44 against 0.39) |
+| friend/foe, tick 1 (479 ticks) | in the scene, read at "person" | at most 0.03 | at most 0.01. With two nodes no source groups by friend or foe; with more, all three do weakly (at best 0.27 for the state, 0.21 for attention's write, 0.26 for the experts' write) |
+| tank (499 sentences, five senses) | in the sentence, around the read word | 0.26 to 0.48 from layer 3 on | 0.02 to 0.28, lower than the state lens at every layer |
 
-Claude's proposal [LENS-52], revised after the test below. A split point is a node whose tokens go
-on to two nodes or more at the next layer; each branch is one of the edges leaving it. For each
-branch, against the node's other tokens, at every layer from 0 up to the one the branch leads into
-(context can come in at layer 2 and only show as a split at layer 6):
-- **where attention draws from:** the shares from the read word itself, the token just before it,
-  the sentence's first token and the other words, tested against the branch shuffled within the
-  node 1,000 times;
-- **each token's own words:** the three words each of the branch's tokens drew on most, listed for
-  the split point's analyst [LLM-6], who says what they have in common (army words, fish words),
-  with every count checked;
-- **words that recur:** where one word appears in many of the branch's texts, its mean share in the
-  branch against the rest of the node, and beside it how much commoner the word simply is in the
-  branch's texts. The same shuffle test: each shuffle gives the largest difference any word reaches
-  at any of those layers, and a word counts when its real difference beats that largest one in 95%
-  of the shuffles;
-- **what it means:** what the branch's tokens took in, not what made the split. The clustering
-  chose the split, and the words go with it.
+In the framing set the read word is in a question after the sentence, so the sentence's own
+attributes can reach it only through attention. Each of the event's scale and the threat's scope
+has two values. With two nodes, the attention lens matches them at 0.73 and 0.70 at layer 3, where
+the state lens's two nodes reach at most 0.20 and 0.24 at any layer. The state lens shows them only
+with more nodes and later: at best 0.58 and 0.53, at layer 5, with four nodes. So in this capture
+a lens on attention's write shows when the context comes in, and at which layers, which the state
+lens can't. In the calibration scenes, whose read word is also in a question after the text, it
+does not, apart from one layer. Where the meaning is in the token's own sentence (tank), it shows
+less than the state lens does.
 
-**Past the split, along a route.** A branch's tokens can part again in later layers, going on to
-further nodes. A route through several nodes (a lit path [APP-30]) gets the same readings
-layer by layer along it: at each layer, the route's tokens against the other tokens of the node they
-are in there. Each later split along it is a split point of its own, with its own branches.
+**Claude's proposal** [LENS-55]: attention's write as another input a lens can be built on (today a
+lens is built on the token's state or on the experts' write), with its Sankey as the third
+population view Andrew asked for. It is worked out from what every capture stores, so nothing new
+is captured, and every lens tool works on it as it is: tuning, validation, the Sankey, lit paths,
+node details and reports. Read beside the state lens's nodes and the expert routes, through lit
+paths and cross-tables of nodes (how many tokens fall in each pair of nodes), it answers LENS-50
+for latent nodes: the tokens of a node or a branch, followed through the attention lens's nodes,
+show at which layers they took in different things. Its first use is a token reading its context:
+a question after a text, and a decision under a scaffold.
 
-**What the test found** (the tank lens's 70 branches, and the five senses; section 10 of the
-study's note):
-- **clue words rarely repeat, so a test word by word finds mostly small words.** The clues differ
-  from sentence to sentence (tetras, gravel, rocket, armor), and only 101 words appear before
-  " tank" in five sentences or more. The words beyond chance were mostly "the" (at 18 branches) and
-  "a"; the content words among them were few: "reef", "dive", "diver", "planted", and for the septic
-  sense "septic" and "fuel". "The" is real but says little about meaning: it stands right before
-  " tank" more often in vehicle sentences ("the lead tank") than in the others ("fish tank");
-- **each sentence's own top words carry its sense.** Predicting a sentence's sense from the three
-  words it drew on most gives a held-out balanced accuracy of 0.42 to 0.52 by layer (chance is
-  0.20), nearly as good as predicting it from all its words before " tank" (0.50; within 0.02 at 11
-  of the 24 layers, at most 0.08 below), and better than from three of its words picked at random
-  (0.30 to 0.38) at every layer. Those are the words to list for an analyst, who can see what they share when no
-  single word repeats;
-- **where attention draws from differs at 44 of the 70 branches** in the shuffle test, mostly in how
-  much comes from the other words against the token itself or the word just before it;
-- **tracing back fails.** Following the amounts back through the layers (each position's state
-  split among the positions it came from, chained from layer 0) piles the shares onto the
-  sentence's first token: by layer 20 it holds a median of 74% of the traced share over the 499
-  sentences, and from layer 7 on the traced top words predict the sense less well (0.33 to 0.46
-  against 0.42 to 0.52). The item view shows one step back exactly instead: in "A column of smoke
-  rose from the burning tank", " tank" drew most on "burning" at layer 2, and at layer 1 "burning"
-  had itself drawn most on "smoke".
+### Expert nodes: brought by attention {#attention-experts}
 
-### Expert nodes and edges {#attention-experts}
+Kept from the first proposal [LENS-56]. Andrew asked the same question of this part, so its use is
+argued below and on its card (L35.2). At each layer the router reads the token after that layer's
+attention has added to it. The router is worked out again with that layer's attention output
+replaced by its mean over the lens's items: what attention adds to every item alike stays, and what
+it adds to this item goes. An expert node's tokens whose expert would then be another are the ones
+their own context sent there; the node card shows their share beside the layer's. It needs nothing
+new: the states every capture stores, and the router's weights read from the model's files.
 
-Claude's proposal [LENS-53]. At each layer the router reads the token after that layer's attention
-has added to it. Two readings follow:
-- **brought by attention.** The router is worked out again with that layer's attention output
-  replaced by its mean over all the lens's items: what attention adds to every item alike stays,
-  and what it adds to this item in particular goes. An expert node's tokens whose expert
-  would then be another are the ones their own context sent there; the node shows their share
-  beside the layer's share. It needs nothing new: the states every capture stores, and the
-  router's weights and the norm's gain read from the model's files on the CPU;
-- **the words that pushed.** Each word's part of the expert's router score, less its average part
-  over the 32 experts, for the node's tokens against the layer's other tokens, with the same
-  shuffle test as for branches. The direction is the router's own, so no choice of direction
-  enters, unlike L33.
+What the routing study found (`docs/research/attention_and_experts.md`, section 9):
+- the item's own attention changes the first expert for 0% to 28% of items, by capture and layer,
+  in the three sentence sets: routing is mostly decided by the token itself;
+- some expert nodes are filled by context: small side branches of the expert Sankey (a median of
+  28 to 69 tokens). In the tank sentences, 48 of the 54 tokens in expert 5 at layer 2 got there
+  through their own context, 33 of them in vehicle sentences.
 
-**An expert edge** (the tokens going from one expert at a layer to another at the next) gets the
-same two readings at the next layer, for the edge's tokens against the other tokens leaving the
-first expert.
+What it is for:
+- **reading an expert node:** whether the node is about the word or about its surroundings. Without
+  the share, expert 5 at layer 2 in the tank sentences would read as being about " tank", when
+  most of its tokens were sent there by their context, mostly vehicle sentences;
+- **scaffold studies:** a context can redirect the routing at a deciding token only through such
+  nodes, so they show a study where a scaffold can move the routing;
+- **unlike the split shares kept off the node card (L33):** it counts tokens whose expert actually
+  changes, so there is no direction to choose and no random splits to compare with. The recomputed
+  routing matches the capture for at least 98.8% of items.
 
-**Which rank** (Claude's choice): the readings follow the rank the expert Sankey shows, the first
-expert by default; ranks 2 to 4, and "among the four", work the same way. Since the four experts
-work together, the row also gives, for each layer, how many of an item's four experts its own
-attention changed: a mean of 0.07 to 0.57 of the four, by layer, in the tank sentences.
-
-Both readings are worked out on the router alone. They say which tokens their context sent to an
-expert at that layer; what the model would do without that attention is a question for ablation
-(slice 8, interventions).
-
-**What the routing study found** (seven captures; `results/routing_*.json`):
-- **the share of items whose first expert their own attention changes is small at most layers:**
-  0% to 28%, by capture and layer, in the three sentence sets, up to 39% in friend/foe (layer 2),
-  and up to 43% in the single-word sets (layer 0, where attention mostly reads the word itself).
-  The mean is the baseline because removing attention altogether gives the router a state it never
-  sees, and changes the first expert for 92% to 100% of items at layer 0 in four captures;
-- **some expert nodes are filled by context.** Of the expert nodes with 20 tokens or more (tested
-  where the layer's share isn't zero), the share brought by attention differs from the layer's
-  share, beyond chance after correcting for every node tested, at 46 of the 79 tested in the tank
-  sentences, 21 of 39 in the calibration scenes, 19 of 30 in the framing set, 41 of 83 in
-  friend/foe, and 6 to 18 in the three single-word sets. Where
-  the share is below the layer's, the nodes are large (a median of 237 to 554 tokens, by capture):
-  the router sends their tokens there whatever their context. Where it is above, they are small (a
-  median of 28 to 69 tokens): side branches of the expert Sankey that context fills. In the tank
-  sentences, 48 of the 54 tokens in expert 5 at layer 2 got there through their own context, 33 of
-  the 48 in vehicle sentences (39 of the 54), and 19 of the 21 in expert 16 at layer 3, 14 of the
-  19 septic tanks; in the calibration scenes, 23 of the 35 in expert 21 at layer 4, all 35 aquarium
-  scenes;
-- **in the early layers this is where the senses reach the routing.** In the tank sentences, the
-  first expert's agreement with the sense (adjusted mutual information) at layers 1 to 3 is 0.048,
-  0.082 and 0.046 with each token's own attention, and 0.011, 0.018 and 0.001 without it; in the
-  framing set, at layer 4, 0.379 with and 0.191 without. In the tank sentences the two are within
-  0.025 of each other from layer 4 on: by then the context is already in the state the token
-  arrives with. In the framing set they still differ at some later layers (0.105 against 0.032 at
-  layer 8, 0.087 against 0.027 at layer 23).
-
-**The words that pushed** (the eight expert nodes furthest above the layer's share in the tank
-sentences): beyond chance, they were content words at four of them: "septic" for expert 0 at layer
-0 (14 of its 30 tokens septic), "reef" and "water" for expert 11 at layer 0, "reef" for expert 25 at
-layer 1 (17 of its 24 tokens aquarium), and "buried" and "steel" for expert 16 at layer 3 (16 of its
-21 tokens septic); "the" at two, and none at two. Along the router's own direction, content shows
-up more often than in the amounts.
+It covers expert nodes, not the edges between them (LENS-50 asked about edges too). The same count
+could be given for an edge's tokens, which Claude would propose only once the nodes prove useful.
+The words that pushed toward an expert (each word's part of its router score) are dropped: they
+need the word-by-word parts, and they mostly echoed the sets' planted clue words.
 
 ### The row {#attention-row}
 
-Claude's proposal [APP-36]. The row sits under the cluster Sankey, the expert Sankey and the 3-D
-view, its columns lined up with their layers, and it follows the selection, as the lit paths do
-[APP-30]:
-
-| Selected | The row shows |
-|---|---|
-| nothing | for the lens's items as a whole, which parts of the text attention draws on at each layer (the template, the sentence's words, the read word itself, the window's edge), and at each layer the share of items whose first expert their own attention changed, with how many of their four experts it changed on average |
-| one item | its words by layers: how much it drew on each word at each layer, and a mark at the layers where its own attention changed its expert; clicking a word shows what that word's position drew on one layer earlier (worked out on request for that item, since the record keeps the read token's parts only). The grid is the one the depth heatmap uses (APP-32), with another quantity: the heatmap shows where a concept forms at each word, the row what the read word drew from each word |
-| a latent node, an edge or a route | where the branch's or route's tokens drew from (the word itself, the word before it, the first token, the other words) against the node's other tokens, layer by layer; any word that recurs, beyond-chance cells marked; the analyst's note on what the tokens' own top words share |
-| an expert node or edge | brought by attention, beside the layer's share; the words that pushed toward the expert |
-| one step of a run | the same for that tick, with the window's edge and the parts of the text (system prompt, scene, the agent's earlier turns) |
-
-Two links to the other views:
-- **colour by a word:** choosing a word in the row colours the Sankeys and the 3-D view by how
-  much each item drew on it, so a branch that took in "army" lights up;
-- **exports with recipes,** as every chart has [APP-17].
-
-The same numbers go to the analysts' evidence, every number checked, and later to Watch, where the
-row shows which parts of the scene the agent's "person" token drew on, tick by tick.
-
-A sketch of the row with one vehicle sentence selected, drawn from the test's numbers (shades: how
-much " tank" drew on each word, as a share of the layer; ● the layers where the sentence's own
-attention changed its first expert):
-
-```
-┌──────────────────────────────────────────────────────────────────────────────┐
-│ cluster Sankey    L0 ─── L1 ─── L2 ─── L3 ─── … ──── L23 │ output            │
-│ expert Sankey     L0 ─── L1 ─── L2 ─── L3 ─── … ──── L23 │                   │
-│ 3-D view                                                                     │
-├──────────────────────────────────────────────────────────────────────────────┤
-│ ATTENTION · item: "A column of smoke rose from the burning tank"             │
-│                 L0  L1  L2  L3  L5  L9  L13 L14 L20 L23                      │
-│ A               ·   ·   ·   ·   ·   █   █   ░   ·   ·                        │
-│ column          ▒   ░   ·   ·   ·   ·   ·   ·   ·   ·                        │
-│ smoke           ░   ▒   ░   ▒   ▒   ·   ·   ·   ░   ░                        │
-│ rose            ·   ·   ░   ·   ·   ░   ·   ░   ▓   ▒                        │
-│ from            ▒   ░   ·   ▒   ░   ░   ░   ▒   ▒   ░                        │
-│ the             ░   ░   ▒   ·   ░   ░   ▒   ░   ·   ░                        │
-│ burning         █   ▒   █   ▒   ▓   ▒   ▒   ▓   ▒   ▒                        │
-│ tank (itself)   ░   █   ▓   █   █   ▒   ▓   █   █   █                        │
-│ first expert    ·   ·   ·   ·   ·   ●   ●   ·   ·   ●                        │
-│ █ 30% or more · ▓ 20% · ▒ 10% · ░ 5% · · under 5% · "of" not shown           │
-└──────────────────────────────────────────────────────────────────────────────┘
-```
-
-At layers 9 and 13 the sentence's first word takes a third to a half of the amount; across the 499
-sentences its median share there is 44% and 29%.
+Claude's proposal [APP-37]. When a capture has a lens on attention's write, the row under the
+cluster Sankey and the expert Sankey is that lens's Sankey, its columns lined up with theirs; it
+shares their selection, so an item, a node or a branch lights its path through all three. Brought
+by attention shows on the expert node cards. Every chart exports with its recipe [APP-17]. With no
+such lens, the row offers to build one.
 
 ### Where the numbers come from {#attention-data}
 
-The words need each earlier position's state at every layer, and today's captures keep only the
-read token's. Brought by attention needs nothing new. Three ways to get the words:
-
-| | What it keeps | Size | When |
-|---|---|---|---|
-| **parts recorded during capture** (Claude's recommendation) [DATA-14] | at the read token, for each layer and earlier position: the amount, its signed share of attention's output, the heads' mean weight and its part of each of the 32 router scores | about 9 MB for the 499 tank sentences, 95 MB for the 600 calibration scenes, 350 MB for the 479 friend/foe ticks | during the capture, on the GPU, almost free; slice 2 |
-| **every position's states** (already decided as an option) [DATA-7] | the whole residual stream at every position, the parts worked out afterwards on the CPU | about 0.7 GB, 2.5 GB (the chat template stored once; 7.8 GB without) and 49 GB for the same three | slice 2 |
-| **the CPU pass** (the study's script) | the same as the first, for a capture whose prompts can be rebuilt exactly | the same as the first | now, without the GPU: about 8 minutes for the 499 tank sentences on four cores; roughly 40 for 600 sentences in the chat template; hours for an agent run, whose prompts must first be rebuilt exactly |
-
-Claude recommends the first for every capture from slice 2 on: everything the row and the
-analysts need is fixed by the model itself (the amounts need no direction, and the pushes use the
-router's own rows), so nothing has to be kept for a lens built later. The one exception is the
-item view's step back, which needs every position's amounts for one item; it is worked out on
-request, by a short GPU job or the CPU pass for that item. The CPU pass fills in older captures;
-the states of every position stay an option for other uses, such as finding the other words that
-carry a split [LENS-30].
+Nothing new to capture. Every capture stores the token's state after each layer and the experts'
+write; attention's write is the state minus the state before the layer minus the experts' write (at
+layer 0, minus the word's own starting vector). The word-by-word parts the first proposal needed
+are dropped with it: they came from running the model on the CPU one layer at a time, or would
+have been recorded during capture.
 
 ### Where not to go {#attention-not}
 
-Claude's proposal [LENS-54], with the reasons:
-- **maps of the weights as the main view:** a weight is where a head looks, not what it brings
-  back. In the tank sentences " tank" itself gets 1% to 18% of the weight but 8% to 48% of the
-  amount; the first token gets 1% to 2% of the weight at layers 19 and 21 but about a quarter of
-  the amount; and at most layers more than half of the weight goes to the sinks, which bring back
-  nothing;
-- **single heads:** there are 1,536 of them, and the design puts experts before heads, with
-  circuits not planned [PRIN-10, PRIN-11];
-- **attention's share of a split as a headline:** the L33 study found it weak evidence;
-- **attention rolled out or traced back across layers** (each layer's weights, or amounts, chained
-  back through the stack, a common picture of "where information flowed"): chained weights carry
-  the sinks' problem through every layer, and chained amounts, tested on the tank sentences, pile
-  onto the first token and lose the sense (above). The item view shows one exact step back
-  instead;
-- **causes:** these readings show what attention brought in, never what decided a split or a
-  route. Blocking attention to chosen words and reading the lens again is the test of a cause,
-  with the interventions (slice 8);
-- **word rows for single-word sets:** the template is the same for every word, so the row shows
-  only how much the word drew on the template and on its own earlier pieces (for names that split,
-  such as " jag" and "uar"), and says so.
+Claude's proposal [LENS-54], from the tests:
+- **rows of words:** where attention reads from, word by word, mostly finds "the", follows the read
+  word's place in its sentence, or finds the clue words the set planted;
+- **the heads' weights as a view, and single heads:** a weight is where a head looks, not what it
+  brings back; there are 1,536 heads, and the design puts experts before heads [PRIN-10, PRIN-11];
+- **attention rolled out or traced back across layers:** tested, it piles onto the first token;
+- **recording word-by-word parts during capture, and the word-by-word run on the CPU over more
+  sets:** nothing kept needs them;
+- **causes from any of these readings:** blocking attention is the test of a cause (L35.3).
+
+Attention's share of a split is not on this list: it stays off the node card for now, and the
+question returns with slices 2 and 8 (L33) [LENS-48].
 
 ### When {#attention-order}
 
 Claude's proposal [ORDER-21]:
-1. **Now, without the model** (the work while the machine is shared): the study finished. The CPU
-   pass on the calibration scenes and the framing set, whose prompts can be rebuilt with the chat
-   template and the date the capture used, and the findings note. No product code changes.
-2. **With the new app's observatory room:** the row, showing brought by attention for every
-   capture and the words where the CPU pass has run; the analysts' evidence.
-3. **Slice 2, capture and jobs:** the parts recorded during capture, so every new capture has the
-   words.
-4. **Later:** Watch (slice 4) reads the same numbers tick by tick.
+1. **done now, without the model:** the tests, and the findings in the study's note;
+2. **with the observatory,** the new app's room for reading a lens across its layers (step 6 of the
+   new app's plan): attention's write as a lens input, its Sankey as the row, and brought by
+   attention on the expert node cards;
+3. **slice 8, conditions and interventions** (after the Winter Survival pilot): blocking attention
+   [INT-10], and the scaffold studies that use the attention lens first.
 
 ### How sure {#attention-sure}
 
-Claude's grading of each part: how sure it is the right thing to build, and that it will work as
-described.
+"Right to build" is how sure Claude is that the part is worth building; "works as described", that
+it will work as written.
 
 | Part | Right to build | Works as described | What it rests on | What would raise it |
 |---|---|---|---|---|
-| the measure (L35.1) | 90% | 95% | the split into parts is exact (checked to a few millionths on the tank sentences); the CPU pass matches the capture; weights and amounts measured apart | the same check on the calibration and framing sentences, whose read word sees a whole sentence and the chat template |
-| latent nodes and edges (L35.2) | 80% | 85% | the test on one lens: the top words carry the sense, and where attention draws from differs at most branches; the analyst's part rests on the split cards, which pass their tests today | the calibration and framing sets, and an analyst test with shuffled branches as decoys (the split cards' existing tests, extended) |
-| expert nodes and edges (L35.3) | 90% | 95% | the router recomputed matches the capture for at least 98.8% of items; context-filled nodes in all seven captures; content words for four of eight nodes | more lenses; the words on the calibration and framing sets |
-| the row (L35.4) | 85% | 85% | the same layer columns and selection as the Sankeys; a sketch so far | building it with the observatory room, and screenshots |
-| where the words come from (L35.5) | 85% | 85% | sizes worked out from the captures; the capture already hooks every layer; the CPU pass gives the reference to test the recording against | a test that the parts recorded during a capture equal the CPU pass's |
-| where not to go (L35.6) | 90% | not applicable | measured: the weights against the amounts, the traced shares piling onto the first token; the L33 study | none needed |
-| when (L35.7) | 85% | 90% | step 1 needs no product code; step 2 waits for the new app's plan (L31) | the answer to L31 |
+| a lens on attention's write (L35.1) | 70% | 95% | held out on four captures: useful in one (framing); in the calibration scenes, also read from a question, ahead of the state lens at one layer only; lower in friend/foe and tank. Built from stored data with the existing lens tools | a set made for it (questions about texts, scaffolds), tuning, a second random seed: the framing results swing from layer to layer (0.15 at layer 17, 0.87 at 18) |
+| brought by attention (L35.2) | 80% | 95% | the recomputed routing matches the capture for at least 98.8% of items; context-filled nodes in all seven captures; its use is in reading those nodes and in scaffold studies | more lenses, and a scaffold study |
+| blocking attention (L35.3) | 85% | 80% | a standard intervention; needs slice 8's ways of changing the model's activity | building it with slice 8 |
+| what goes (L35.4) | 90% | not applicable | the tests above | none needed |
 
-The weakest part is the analysts' reading of each branch's words: the test shows the words carry
-the sense, but not yet that an analyst names it reliably. The split cards' decoy test, with a
-branch shuffled within its node, would show it before the cards are trusted [LLM-3].
+The weakest part is the attention lens's reach: one capture of four shows what it is for, and the
+other capture of the same shape (the calibration scenes) does not. A set built for it in the
+builder (slice 3), with questions about texts and scaffolds, would show how often it pays.
 
 ## Reading over time {#time}
 
@@ -1012,7 +709,8 @@ quick-jump box reach any room at once; with the MUD open, moving in either one m
 and the app works with the MUD closed. Andrew likes moving between rooms as a way to get around
 the app [MUD-5].
 
-**The institute's layout** (Andrew's answer to L30, 2026-10-18):
+**The institute's layout** (Andrew, in his answer to L30 on 2026-10-18 and his notes on L31 and L34
+on 2026-10-20):
 - **an AI greets** users and guests when they arrive [MUD-23];
 - **public simulation rooms:** most visitors come to play Winter Survival, so the institute has
   public simulation rooms (Andrew suggested three), and every lab has its own [MUD-24];
@@ -1020,32 +718,95 @@ the app [MUD-5].
   interpretability, alignment, and discordant studies; each has its AI scientists, a description
   of the place, its simulation room, its boards and whatever else suits it [MUD-25];
 - **a lounge** to spend time in [MUD-26];
-- **a meeting room** where different AIs discuss things, among them adding something to what
-  Andrew called the OSS model (gpt-oss-20b itself, or the paradigm: L34.3), and other matters too
-  [MUD-27];
+- **a meeting room** for discussions among the AIs: mainly adding to the paradigm; also changes to
+  gpt-oss-20b itself, such as a steering vector or a scaffold; and, as a nice-to-have, work that
+  crosses departments and may call for specialists, such as planning scaffolds with people or
+  without them [MUD-27];
+- **a robot** [MUD-29], and perhaps **out-of-service stairs** [MUD-30]; what each would be is
+  asked in L38.3 and L38.4, on the plan page;
+- **characters for the non-player characters,** built in the MUD (Andrew's suggestion) [MUD-31];
+- **polishing passes:** a couple of passes over the layout before building begins, with a map of
+  the institute in the app; then iterations to improve the room descriptions [ROOM-19];
 - **in the long run,** the AI scientists design the institute themselves, around what the research
   finds the study of gpt-oss-20b needs [MUD-28].
 
-Claude's proposal for the rooms, revised for this layout; it waits for Andrew's answers to L34
-[ROOM-1]:
+**The rooms** (Claude's proposal, approved by Andrew on 2026-10-20, L34) [ROOM-1]:
 
-| Room | What you do there | Today's part it holds |
+| Room | What you do there | What it replaces today |
 |---|---|---|
-| **the entrance hall** | where everyone arrives: the greeter (built with the AI scientists, slice 11), the map of the institute with what is new in each room, the quick-jump box [ROOM-2, MUD-23] | the hub |
-| **the public simulation rooms** | visitors play Winter Survival; researchers watch, or start agent runs; Watch from slice 4 [ROOM-7, MUD-24] | the MUD's simulator |
+| **the entrance hall** | where everyone arrives: the greeter (built with the AI scientists, slice 11), the map of the institute with what is new in each room, the quick-jump box [ROOM-2, MUD-23] | the MUD's hub room |
+| **the public simulation rooms** | visitors play Winter Survival; researchers watch, or start agent runs; Watch (following an agent's run as it plays) from slice 4 [ROOM-7, MUD-24] | the MUD's simulator room |
 | **a department** (four; each is also a lab) | opens the shared rooms with its own studies loaded; its own simulation room; its boards (its studies, open questions, findings proposed, recent results); its AI scientists from slice 11 [ROOM-15, MUD-25] | the polysemy lab joins linguistics |
-| **the observatory** | read a lens across its layers: the Sankeys, 3-D, members, the output table, pipelines and hubs, fingerprints, node details, the analysis panel [ROOM-3] | Layers |
-| **the lens workshop** | make and judge lenses: the form, preview, compare, validation, tuning, axes, mass-mean lenses; start node details [ROOM-4] | Build |
-| **the library** | the sentence sets with their guides and audits, the scenario sets, captures and saved lenses; the builder for sets and scenarios from slice 3 [ROOM-5] | new |
-| **the studies room** | every study: question, sets, captures, lenses, findings, ledger, status, showcase, and the department that holds it [ROOM-8, STUDY-2] | new |
-| **the lounge** | spend time and talk, with people and with the AIs; it has no tools, so the app stays where it is [MUD-26] | new |
-| **the meeting room** | the AIs' discussions, findings proposed to the paradigm among them; their agenda and record shown in the app from slice 11 [MUD-27] | new |
+| **the observatory** | read a lens across its layers: the Sankeys, 3-D, members, the output table, pipelines and hubs, fingerprints, node details, the analysis panel [ROOM-3] | the Layers screen |
+| **the lens workshop** | make and judge lenses: the form, preview, compare, validation, tuning, axes, mass-mean lenses; start node details [ROOM-4] | the Build screen |
+| **the library** | the sentence sets with their guides and audits, the scenario sets, captures and saved lenses; the builder for sets and scenarios from slice 3 [ROOM-5] | nothing (new) |
+| **the studies room** | every study: question, sets, captures, lenses, findings, ledger, status, showcase, and the department that holds it [ROOM-8, STUDY-2] | nothing (new) |
+| **the lounge** | spend time and talk, with people and with the AIs; it has no tools, so the app stays where it is [MUD-26] | nothing (new) |
+| **the meeting room** | the AIs' discussions, findings proposed to the paradigm among them; their agenda and record shown in the app from slice 11 (the AI scientists) [MUD-27] | nothing (new) |
 
-The observatory, the lens workshop, the library and the studies room are shared by every department
-(L34.1). Which department holds each study is L34.2 [ROOM-17]; when each part is built is L34.4
-[ROOM-18]. The MUD workspace of the earlier design did two jobs, now split: designing scenarios
-moves to the library's builder, and keeping the MUD running to the simulation rooms [ROOM-1]. Later rooms: the atlas,
-ideas (in the department of discordant studies, L34.2), and researchers' rooms [ROOM-1, MUD-13].
+**Shared tools:** the observatory, the lens workshop, the library and the studies room serve every
+department, and a department opens them with its own studies already loaded, as the polysemy lab
+does now [ROOM-15]. The MUD workspace of the earlier design did two jobs, now split: designing
+scenarios moves to the library's builder, and keeping the MUD running to the simulation rooms
+[ROOM-1]. Later rooms: the atlas, ideas (in the department of discordant studies), and researchers'
+rooms [ROOM-1, MUD-13].
+
+**Which department holds each study** (a study can move later) [ROOM-17]:
+
+| Department | Studies |
+|---|---|
+| linguistics | single words; animals; the animal ontology; the read site (which token of a single word to read); and the polysemy lab, with the tank lens (the five senses of "tank") |
+| general mechanistic interpretability | the lens core (the instrument and its checks); the attention-and-experts study; the context-shift paper |
+| alignment | objects and the harm axis; the suicide letter; friend/foe, with the people-assessment set (friend/foe broadened to more ways of judging people) planned after it |
+| discordant studies | the Ideas workspace and its idea-tracking engine [APP-8]. Claude assumes the department takes the role a department of discordant research had in the institute's first vision (now archived): bringing discord into the research on purpose, by inverting assumptions and setting frames against each other |
+
+**Built in stages** [ROOM-18]:
+1. with the new app's rooms: the layout file, the map, and every room in the MUD with its
+   description, exits and boards;
+2. with slice 11 (the paradigm and the AI scientists): the greeter, the AI scientists and the
+   meetings;
+3. with hosting [MUD-20] and the Winter Survival pilot: public play, one Winter Survival world per
+   public simulation room.
+
+Claude proposes, with the new app's plan (L38), writing the non-player characters and placing them
+in their rooms in the first stage, so visitors can look at them and read about them, with their
+minds coming in the second [MUD-31].
+
+**A first map** (Claude's draft, the starting point for the polishing passes). Visitors stay on the
+ground floor; the research rooms are upstairs; the stairs to the floor above the departments are
+out of service, which would leave room for what the AI scientists later decide the institute needs
+(if that is what the stairs are for: L38.4). The stairs rise from the entrance hall.
+
+```mermaid
+flowchart BT
+  subgraph F3["Third floor · closed"]
+    future["an empty floor, kept for later"]
+  end
+  subgraph F2["Second floor · the departments"]
+    ling["Linguistics<br/>the polysemy lab · its simulation room · boards"]
+    mech["General mechanistic interpretability<br/>its simulation room · boards"]
+    align["Alignment<br/>its simulation room · boards"]
+    disc["Discordant studies<br/>Ideas · its simulation room · boards"]
+  end
+  subgraph F1["First floor · the shared research rooms"]
+    obs["Observatory"]
+    ws["Lens workshop"]
+    studies["Studies room"]
+    meet["Meeting room"]
+  end
+  subgraph G["Ground floor · open to visitors"]
+    hall["Entrance hall<br/>the greeter · the map · the quick-jump box"]
+    sim["Public simulation rooms 1, 2 and 3"]
+    lounge["Lounge"]
+    lib["Library"]
+  end
+  hall --- sim
+  hall --- lounge
+  hall --- lib
+  hall -- "stairs" --- F1
+  F1 -- "stairs" --- F2
+  F2 -. "stairs out of service" .- F3
+```
 
 **The layout is data** (Claude's proposal): the institute is built from one file listing its
 departments and rooms, as the lab presets are today (`data/labs/`). A department or a room can then
@@ -1631,9 +1392,15 @@ What the design replaced, and with what:
 - **Building the first four method changes with slice 2** (Claude's timing, 2026-10-11): replaced
   when Andrew moved them ahead, to be built while the machine is shared with other work
   [LENS-26, ORDER-20].
+- **Attention's first proposal** (Claude's, 2026-10-19): a row of the words each item drew on,
+  the words for the split card's analyst, recurring words, the words that pushed toward an
+  expert, and the word-by-word parts recorded during capture. Withdrawn by Claude on 2026-10-20,
+  after Andrew's questions and the tests, in favour of a lens on what attention writes and brought
+  by attention; L35.4 asks Andrew whether any part should come back
+  [LENS-51 to LENS-53, APP-36, DATA-14].
 - **Marking who wrote a split where both directions agree** (Claude's proposal, 2026-10-16):
-  replaced by Claude's revised proposal to keep the shares off the node card for now, for Andrew's
-  answer to L33 [LENS-47, LENS-48].
+  replaced by keeping the shares off the node card for now, as Andrew decided (L33)
+  [LENS-47, LENS-48].
 
 ## Terms {#terms}
 
@@ -1645,6 +1412,7 @@ What the design replaced, and with what:
 | **depth** | position among the layers, from L0 to L23; not time |
 | **expert** | one of the 32 sub-networks in each layer; each token is sent to 4 of them |
 | **attention** | the other step in each layer: it brings information from earlier tokens (and the token itself) into a token's state |
+| **attention's write** | what attention adds to a token's state at one layer: the layer's output minus its input minus the experts' write. The experts' write is what the four experts add |
 | **head** | one of attention's 64 parallel readers in each layer, each with its own weights over the earlier tokens |
 | **sink** | a head's place to put weight on no token at all; gpt-oss learns one for each head |
 | **expert route** | the experts a token is sent to, layer by layer: four in each layer, whose weights add up to 1. "Top-1" is the expert with the highest weight |
@@ -1754,6 +1522,14 @@ What the design replaced, and with what:
   with Claude's recommendation changed.
 - **2026-10-19:** Andrew's decisions and question on attention written in, with Claude's proposal
   for it in seven parts (L35), tested first without the model.
+- **2026-10-20:** Andrew's answers written in: who writes each split stays off the node card (L33);
+  the rooms approved, with the departments' studies, the meeting room's purposes and the stages
+  (L34); a robot, polishing passes with a map, and as ideas out-of-service stairs and characters for
+  the non-player characters (his note on L31), with Claude's first map of the institute; Winter
+  Survival after OpenLLMRI's roadmap (L36); the superseded documents archived (L32). Attention in
+  the analysis reworked after his notes and a held-out test of a lens on attention's write, with
+  four new cards (L35.1 to L35.4); his attention Sankey over the population recorded as an idea
+  [LENS-57]; Claude's first attention proposal withdrawn.
 
 ## Decision log {#decision-log}
 
@@ -1852,3 +1628,13 @@ Every decision, by date, paraphrased. Each requirement holds its own date and so
   design themselves [MUD-23 to MUD-28].
 - **2026-10-19:** attention joins the analysis as more information, with a row for its
   visualization below the Sankeys and the 3-D view [LENS-49, APP-35].
+- **2026-10-20:**
+  - who writes each split stays off the node card, its code kept on a git branch [LENS-48];
+  - the rooms as Claude proposed them, the tools shared by every department, which department
+    holds each study, and the stages they are built in [ROOM-1, ROOM-15, ROOM-17, ROOM-18]; what
+    the meeting room is for [MUD-27];
+  - a robot, and a couple of polishing passes with a map before building begins, then iterations
+    on the room descriptions [MUD-29, ROOM-19]; as ideas, perhaps out-of-service stairs, and
+    characters for the non-player characters [MUD-30, MUD-31];
+  - Winter Survival waits for OpenLLMRI's roadmap [ORDER-22]; the superseded documents are archived
+    [DOC-19].

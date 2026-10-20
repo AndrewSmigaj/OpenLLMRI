@@ -196,6 +196,22 @@ selection folds. The job took 8 minutes.
   leads by less than 0.02.
 - Twelve dimensions won at 12 layers, six at 7 and three at 5; 15 neighbours won at 20 layers.
 
+**Re-scored on five test draws (2026-10-20).** The search was repeated on four more test portions
+of 99 or 100 items, disjoint from the first and from each other (stratified, identical texts kept
+together, as the set has no families), with the same grid, folds and seed. The first draw
+reproduces the table above exactly; the tuned lens itself is unchanged (`search.json` now holds
+the five draws, `search.single.json` the earlier record).
+- On each draw the tuned settings beat the untuned lens's at 14 to 17 layers and trail at 6 to
+  10; the median difference is +0.01 to +0.02 AMI. Averaged over the five draws they are ahead at
+  18 layers and behind at 6, from −0.06 (L18) to +0.06 (L17, L22), median +0.02.
+- The first draw was a favourable one. Its peak, 0.57 at L11, averages 0.49 over the five draws;
+  each draw peaks at 0.50 to 0.57, at L10 to L13. Averaged, the tuned lens peaks at 0.51 (L12) and
+  the untuned one at 0.48 (L13).
+- A layer's test AMI moves by a median of 0.11 between draws (0.24 to 0.44 at L18), so gaps of a
+  few hundredths between the two lenses sit inside that spread.
+- Raw-space Ward at the winner's k averages more than the tuned lens at 14 layers; the logistic
+  ceiling averages 0.62 to 0.69 from L3.
+
 ### Tank calibration (`calibration-q1-k2-n15-tuned`)
 
 The test portion is two scene families per class (aquarium: aquascaping and quarantine_vet;

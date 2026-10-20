@@ -14,159 +14,138 @@ built. What the software is for, and its requirements, are in
 
 ## Where we are {#where-we-are}
 
-**Now (2026-10-16): work that needs no model** [ORDER-20]. While Andrew uses the machine for other
-work, two items move ahead: the four lens method changes, and the attention-and-experts shares (for
-each split between nodes, how much attention writes and how much the experts write). The backend
-starts without the model, so lens work runs in little memory [ARCH-13]. The four method changes are
-built. Most of the lenses they affect have been run again and the numbers they changed corrected;
-the last four re-scores stopped on 2026-10-16, when the backend was stopped for lack of memory,
-and resume when Andrew says the machine is free. The study of the shares is done
-(`docs/research/attention_and_experts.md`): they depend on the direction a split is measured
-along. On 2026-10-18 Andrew asked how attention fits an MoE model and what the shares are for; L33
-now answers both, and Claude recommends keeping the shares off the node card for now [LENS-48].
-The steps are under [Work that needs no model](plan.md#phase-model-free).
+**Now (2026-10-20): finishing the work that needs no model** [ORDER-20]. The four lens method
+changes are built, and every number they changed is corrected except for three of the four tuned
+lenses (the tank lens's is done), whose held-out test is being run again on five draws. Those runs
+go tonight, one at a time, through the
+lock that the projects sharing this computer use, and their write-ups follow. Andrew decided that
+the shares of each split written by attention and by the experts stay off the node card for now,
+and the question returns with slices 2 and 8 (L33); the code built for them is kept on a separate
+git branch [LENS-48]. The steps are under
+[Work that needs no model](plan.md#phase-model-free).
 
-**Attention in the analysis (2026-10-19).** Andrew set attention as more information in the
-analysis, with a row for its visualization below the Sankeys and the 3-D view, and asked whether
-attention can be analysed for each expert node and latent node [LENS-49, LENS-50, APP-35]. Claude's
-proposal is under [Attention in the analysis](design.md#attention), in seven parts for his answer
-(L35). It was tested first without the model: the router worked out again with and without each
-layer's attention in seven captures, and gpt-oss run on the CPU, one layer at a time, over the
-tank sentences, to split attention word by word (`docs/research/attention_and_experts.md`).
+**Attention in the analysis.** Andrew asked what attention adds, and whether the first proposal
+(L35) was useful; his own idea was an attention Sankey over the population [LENS-57]. Claude's
+answer, with tests, reworks L35 around that idea: a lens on what attention adds to the token at
+each layer, as the third view beside the latent nodes and the expert routes. Tested on four
+captures, it paid in one: the framing set, whose read word sits in a question after the sentence.
+In the calibration scenes, read the same way, it was clearly ahead of the state lens at one layer
+only, and in the other two it showed less. So the gain is modest and specific, mainly for scaffold
+studies; the reworked cards are L35.1 to L35.4 [LENS-49, LENS-50, APP-35].
 
-**Waiting for Andrew: the two documents** [DOC-3, ORDER-5]. The requirements list, both documents,
-their pages and the checks before Andrew reads are done; his review, section by section, waits for
-when he has time. The steps are under [The two documents](plan.md#phase-documents). After the
-review, the old DESIGN.md and `one-mud.md` become pointers (each keeps only a short note naming the
-documents that replaced it). Until then the old DESIGN.md governs the decisions made up to
-2026-10-11, and the decisions made since are recorded in these two documents; DESIGN.md's header
-names the placements of its own they replace (Claude's arrangement while the review waits).
+**The roadmap from here, in Andrew's order** [ORDER-1, ORDER-22]:
 
-**Beside it: the animal ontology study** [ORDER-15], done: the 524 names labelled by hand in the
-nine ways, captured again, a lens, the three measures and a findings note
-(`docs/research/animal_ontology_findings.md`). In short, descent and the ways that go with it
-lead, and every way can be read on orders the reader never saw, most of them beyond what the
-animal's group alone gives (re-scored on 2026-10-16 with the fairer decoys).
+| # | What | State |
+|---|---|---|
+| 1 | Finish the work that needs no model | attention's test done; of the four re-scores, the tank lens's is done and written up, the other three run one after another, then their write-ups |
+| 2 | The two documents | done; Andrew's review through the boxes (whether the new app waits for it: L38.1) |
+| 3 | The new app, room by room, starting with the institute's layout and its map | its revised plan waits for Andrew's yes (L38) |
+| 4 | Slice 2, capture and jobs | needs the GPU |
+| 5 | Slice 3, the builder for sentence sets and scenarios | |
+| 6 | Slice 4, agents in scenarios | |
+| 7 | Slice 5, time on sentence runs | |
+| 8 | Slice 6, the atlas's second version | |
+| 9 | Slice 7, the Winter Survival pilot | after the roadmap (L36); how much of it comes first: L37 |
+| 10 | Slices 8 to 11: interventions, layer transitions, a second model, the paradigm and the AI scientists | |
 
-**Next: the new app, room by room** ([its plan](plan.md#the-new-app), for Andrew's yes: L31), then
-slice 2 (capture and jobs). Once approved, the new app can be built without the model too
-[ARCH-13].
+A slice is one stage of the roadmap that adds a usable piece of the software. Each step is planned
+in detail here when it is reached [DOC-9]; the phases below hold the plans.
 
-**What needs the GPU** (when Andrew says the machine is free): new captures, agent runs, and slice
-2's capture work.
+**What needs the GPU** (when the machine is free): new captures, agent runs, and slice 2's
+capture work.
 
 **What needs Andrew:**
-- **L36,** whether Winter Survival comes back now, and what tonight's run does for it: a card
-  among [this document's decisions](plan.md#decisions-needed);
-- **L33,** who writes each split, rewritten with plain answers to his questions, and **L34,** the
-  institute's layout, four questions that follow from his answer to L30: cards among
-  [the design's decisions](design.md#decisions-needed);
-- **L35,** attention in the analysis, seven parts to approve or change one by one, also among the
-  design's decisions;
-- **L31,** the new app's plan, and **L32,** the superseded documents to delete, with a verdict for
-  each: cards among [this document's decisions](plan.md#decisions-needed) [WAY-11];
+- **L38,** the new app's plan, revised for his note on L31, with four short questions (when it starts,
+  the first map, the robot, the stairs), and **L37,** how far the roadmap goes before Winter
+  Survival: cards among [this document's decisions](plan.md#decisions-needed);
+- **L35,** attention in the analysis, reworked into four parts after his questions and a test:
+  among [the design's decisions](design.md#decisions-needed);
 - the two documents' review, section by section, through the boxes under each section.
 
 ## Decisions needed {#decisions-needed}
 
-### L36. Winter Survival now? [Open]
+### L38. The new app's plan, revised [Open]
 
-On 2026-10-19 Andrew asked whether building Winter Survival, and using it, has to wait until the
-research software's remaining slices are through.
+*Revised on 2026-10-20, after Andrew's note on the first version (L31).* The plan is under
+[The new app](plan.md#the-new-app). What changed:
+- **the institute's rooms as approved in L34:** the entrance hall with the greeter, public
+  simulation rooms (about three, as Andrew suggested), the four departments each with its own
+  simulation room and boards, the shared research rooms, the lounge and the meeting room
+  [ROOM-1, MUD-23 to MUD-28];
+- **the layout first:** one layout file, a map of the institute in the app drawn from it, and a
+  couple of polishing passes over the map with Andrew before building begins [ROOM-19]. The design page
+  has Claude's [first map](design.md#rooms) to start from;
+- **the robot, and perhaps out-of-service stairs,** go into the layout (what each would be: L38.3
+  and L38.4) [MUD-29, MUD-30];
+- **characters for the non-player characters** (Andrew's suggestion; the timing is Claude's): the
+  greeter and each department's AI scientists get a character written for them and are placed in
+  their rooms with the rest of the layout; their minds come with slice 11 [MUD-31, ROOM-18];
+- **iterations on the room descriptions** after the layout passes [ROOM-19].
 
-In the order of work, the world-building pilot comes seventh [ORDER-12]: after the new app (L31),
-capture and jobs, the builder, agents in scenarios, time on sentence runs and the atlas's second
-version. Each of those ends in reviews by you, and the time the reviews take sets the pace more
-than the building does.
+The rest stands: the rooms are new pages inside today's frontend, so the chart code carries over
+with its tests; every room is walked against the checklist of every current feature; the current
+app is removed afterwards, with a deletion list for Andrew's yes. The plan changes code in the
+frontend and in the MUD, so approving it is the go-ahead for those changes [WAY-1].
 
-Nothing technical holds the pilot there:
-- it needs neither the model nor the GPU, nor any of those slices. Its runs use `claude -p` on
-  your subscription, and its command checks run on the MUD's own engine;
-- its plan was approved on 2026-10-01, in six steps:
-  - M1: the store's schema and validator;
-  - M2: the zone briefs, after your review of the redesigned map (waiting since 2026-10-02);
-  - M3 and M4: the review pages and the command checks;
-  - M5: trial runs and the runner;
-  - M6: round 1;
-- the one-MUD plan moved its review pages into the app, as pages of their own, so they don't wait
-  for the rest of the new app.
-
-What does need the research software: agents playing Winter Survival while their activations are
-captured (slices 2 and 4). Playing it with friends needs its game systems built, and the pilot's
-findings shape those systems.
-
-Claude's recommendation: one main line of work at a time (Winter Survival or the research
-software), since both end in your reviews. Winter Survival becomes the main line now. The research
-software finishes what is under way (the four re-scores and their write-ups), then waits. You can
-answer its cards (L31 to L35) whenever you like.
-
-- ( ) Winter Survival now; the research software waits after its current work (recommended)
-- ( ) Winter Survival now, and the new app (L31) goes on beside it; the rest of the research software waits
-- ( ) Keep the order
-- ( ) Other
-
-#### L36.1. Tonight [Open]
-
-If Winter Survival goes first, tonight's run can start the pilot. M1 changes code (in
-`mud/tools/ontology/`). The project's rules need your go-ahead for code changes, even though the
-approved pilot plan already lists M1. Getting the map review ready changes no code: Claude checks
-the map page against the current decisions, then republishes it with one answer box per region.
-
-- ( ) Build M1 tonight (your go-ahead to change code for it), and get the map review ready (recommended)
-- ( ) No code changes; only get the map review ready
-- ( ) Other
-
-### L31. The new app's plan [Open]
-
-The plan for the new app, room by room, is under [The new app](plan.md#the-new-app). In short:
-- the shell and the hub first; then the MUD's new rooms; then the studies room, the observatory,
-  the lens workshop, the polysemy lab, the simulator and the library;
-- the MUD step changes the MUD's code: the institute gains a room for each app room, and a new
-  message lets the app move a player's character;
-- each room is walked against the checklist of every current feature, and the current app is then
-  removed with a deletion list, for your yes.
-
-Claude's main choice: the rooms are built as new pages inside today's frontend, not as a separate
-app, so the chart code carries over with its tests. Approving the plan lets this work start,
-including the MUD changes, once you have reviewed the two documents [WAY-1].
-
-Andrew's answer to L30 (2026-10-18) changes the rooms: it adds a greeter, four departments, public
-simulation rooms, a lounge and a meeting room, and Claude proposes an entrance hall in place of the
-hub. Steps 1, 2, 6 and 7 are rewritten once L34 is answered; the other steps stand.
-
-- ( ) Approve the plan (recommended)
+- ( ) Approve the plan, which lets Claude change the frontend and the MUD for it (recommended)
 - ( ) Change it (say what in the note)
 - ( ) Other
 
-### L32. Superseded documents [Open]
+#### L38.1. When it starts [Open]
 
-These documents describe designs that were replaced. Git keeps every one, so deleting them loses
-nothing, and documents show the current design only [WAY-5]. Some carry a note at the top naming
-what replaced them; three carry none. Claude's verdict on each:
-- **`LLMud/VISION.md`** (written in April; a note from 2026-10-08 points to the old DESIGN.md),
-  **`LLMud/AI_SYSTEM_DESIGN.md`, `INSTITUTION_DESIGN.md` and `WORLD_DESIGN.md`** (April; each
-  marked a frozen reference since 2026-03-31, pointing to `architecturemud.md`) and
-  **`LLMud/examplescenario.md`** (April; no note): the vision and design of the old MUD platform,
-  from before lenses. Replaced by the design's [purpose](design.md#purpose) and
-  [the MUD](design.md#mud). Not needed.
-- **`docs/architecturemud.md`** (April; a note from 2026-10-06 points to `one-mud.md`): the old
-  MUD's architecture; that MUD was deleted on 2026-10-07. Replaced by [the MUD](plan.md#the-mud)
-  and the design. Not needed; the `/thorough-review` skill only uses its name as an example.
-- **`docs/architecturescenarios.md`** (April; no note): the April scenario system. Replaced by the
-  staged engine and the scenario library's format (`data/scenarios/README.md`). Not needed.
-- **`docs/steeringandscenarios.md`** (April; no note): April's steering through the neurons that
-  separated the old clusters, and the scenario designs that became friend/foe v2. Replaced by
-  [interventions](design.md#interventions) and the builder; friend/foe v3 is drafted fresh in the
-  builder. Not needed.
-- **`docs/scratchpad/time_in_the_mri.md` and its review** (2026-10-07; notes from 2026-10-08 point
-  to the old DESIGN.md): the time proposal and its review, which Andrew ruled on. Replaced by
-  [reading over time](design.md#time). Not needed.
+The first plan started the new app after Andrew's review of the two documents. Most of the
+documents don't touch the rooms, and the rooms' parts were reviewed in L30 and L34. Starting now,
+the review goes on alongside, and anything it changes reaches the rooms as they are built.
 
-Kept, as still in use: `docs/SOFTWARE_OVERVIEW.md` (its probe-authoring rules), and, after your
-review, the old DESIGN.md and `one-mud.md` as pointers.
+- ( ) Start once the plan is approved; the review goes on alongside, and what it changes reaches the rooms as they are built (recommended)
+- ( ) Start after the review of both documents: nothing is built until it is done
+- ( ) Other
 
-- ( ) Delete them all (recommended)
-- ( ) Keep some (say which in the note)
+#### L38.2. The first map [Open]
+
+Claude's [first map](design.md#rooms) puts the visitors' rooms on the ground floor (the entrance
+hall, the three public simulation rooms, the lounge and the library), the shared research rooms and
+the meeting room on the first floor, the four departments on the second, and a closed third floor
+behind the out-of-service stairs.
+
+- ( ) Start the polishing passes from this map (recommended)
+- ( ) Start from my own sketch, and the map waits for it (describe it in the note)
+- ( ) Other
+
+#### L38.3. The robot [Open]
+
+Andrew's L30 answer has an AI greeting visitors, and his note adds a robot. As the greeter, the
+robot would welcome visitors in the entrance hall, point them to the rooms and answer questions
+about the institute; its mind comes with the AI scientists (slice 11).
+
+- ( ) The greeter is the robot: it meets visitors in the entrance hall (recommended)
+- ( ) A robot besides the greeter (say what it does in the note)
+- ( ) Other
+
+#### L38.4. The out-of-service stairs [Open]
+
+- ( ) They lead to a closed floor, kept for what the AI scientists open later when they redesign the institute [MUD-28] (recommended)
+- ( ) Atmosphere only: a closed stairwell with a sign
+- ( ) Other
+
+### L37. How far the roadmap goes before Winter Survival [Open]
+
+Andrew kept the order (L36): Winter Survival waits for OpenLLMRI's roadmap, since building it takes
+several days and he wants everything else needed done first [ORDER-22]. In the order of work,
+its pilot is slice 7 [ORDER-12, ORDER-13]:
+- before it, slices 2 to 6: capture and jobs, the builder, agents in scenarios, time on sentence
+  runs, and the atlas's second version;
+- after it, slices 8 to 11: interventions, layer transitions, a second model, and the paradigm
+  with the AI scientists.
+
+"After the roadmap" could mean after slice 6 or after slice 11.
+
+By the end of slice 6, everything agents need to play Winter Survival under the instrument is in
+place: capture of every step, agents in scenarios with Watch, and readings over time. Slices 8 to 11
+don't touch the world.
+
+- ( ) After slice 6, as the order has it (recommended)
+- ( ) After the whole roadmap, slices 8 to 11 included
 - ( ) Other
 
 ## How we work {#how-we-work}
@@ -283,8 +262,8 @@ slices whenever today's tools can carry them [ORDER-14].
 | 10d | Slice 1c, animals, objects and tuning by hand | done 2026-10-09 |
 | 10f | The two documents | drafted; Andrew's review waiting |
 | — | The animal ontology study | done 2026-10-11, beside 10f |
-| 10g | Work that needs no model: the four method changes, and attention and the experts | **now** (moved ahead by Andrew, 2026-10-16) |
-| — | The new app, room by room | next, plan below (L31) |
+| 10g | Work that needs no model: the four method changes, and attention and the experts | **now**, finishing (moved ahead by Andrew, 2026-10-16) |
+| — | The new app, room by room | next; its revised plan below (L38) |
 | 10e | Slice 2, capture and jobs | after the new app (numbered before 10f, then moved later by L21) |
 | — | Slices 3 to 11 | in order, each planned here when reached |
 
@@ -349,9 +328,9 @@ of the same items, and step 7's condition.
 | 2 | Folds (the parts of a capture held out in turn) that hold out whole domains, with each class about as common in every fold as overall [LENS-24] | done |
 | 3 | Decoys drawn within each label value, and a stricter line at half the best κ (Cohen's kappa, agreement beyond chance) a linear probe reaches [LENS-23, LENS-22] | done |
 | 4 | The tuning's test portion drawn several times (draws), and the tuned lenses re-scored [LENS-21] | done |
-| 5 | The affected lenses' validation, axes analysis and tuning run again, and every changed number corrected where it is cited | most done and corrected; four re-scores **stopped** until memory is free |
+| 5 | The affected lenses' validation, axes analysis and tuning run again, and every changed number corrected where it is cited | most done and corrected; the last four re-scores run on 2026-10-20 through the machine's shared queue, then their write-ups |
 | 6 | A study: the attention-and-experts shares, layer by layer, read against random splits of the same items (shuffled into groups of the same sizes) [LENS-30] | done |
-| 7 | If the study's checks hold: the shares in node details (shown on the node card), the split report card and the atlas [LENS-30] | built and held; Claude now recommends leaving it off the node card (L33) [LENS-48] |
+| 7 | If the study's checks hold: the shares in node details (shown on the node card), the split report card and the atlas [LENS-30] | not on the node card for now (Andrew, L33); the code is kept on the git branch `node-card-writers` [LENS-48] |
 
 **Tests:**
 - every change is tested on planted data;
@@ -373,7 +352,7 @@ of the same items, and step 7's condition.
 **Done when** the method changes are built and checked, every affected number is corrected, and the
 study's note is written. The shares go into the node card only if the study's checks pass. The
 checks of the rounding and the read tokens passed; the second direction showed that the shares
-depend on the direction measured along, which is why step 7 waits for L33.
+depend on the direction measured along, so step 7 stays off the node card for now (L33).
 
 **How sure:**
 
@@ -403,7 +382,7 @@ his own pages, first in the order of work [DOC-2, DOC-3, DOC-9].
 | 3 | The pages: one build script (index rail, requirement chips, question cards, a box to write in under every section, everything written collected at the end) and the page checks | done |
 | 4 | The checks before Andrew reads: three independent audits of the requirements and the documents against his words and the code, two readability reviews, the page checks, and a browser walk of both pages at desktop and phone width | done |
 | 5 | Andrew's review, section by section, through the boxes | waiting for Andrew |
-| 6 | After the review: the old DESIGN.md and `one-mud.md` become pointers, and CLAUDE.md points to the new documents; the superseded documents Andrew approves for deletion (L32) are deleted | waiting |
+| 6 | After the review: the old DESIGN.md and `one-mud.md` become pointers, and CLAUDE.md points to the new documents; the superseded documents archived | the archive done 2026-10-20, in `docs/archive/` (L32) [DOC-19]; the pointers after the review |
 
 The details (files, scripts, the steps' order) are Claude's, reviewed with the documents [DOC-11].
 **Done when** Andrew has reviewed both documents and his boxes are answered; from then on, the
@@ -425,56 +404,75 @@ documents are the source of truth.
 
 ### Next: the new app, room by room {#the-new-app}
 
-**Goal:** the app rebuilt as rooms, doing everything today's app does, with the studies room among
-the first; then the current app retires [APP-1, APP-4, APP-5, STUDY-2].
+*Revised on 2026-10-20 for Andrew's note on L31 and his answers to L34; for his yes: L38.*
+
+**Goal:** the app rebuilt as the institute's rooms, doing everything today's app does, with the
+institute's layout polished on a map before anything is built; then the current app retires
+[APP-1, APP-4, APP-5, ROOM-1, ROOM-19, STUDY-2].
 
 **Why:** Andrew wants more of the app visual and its screens uncrowded, and the rooms make the app
-a place to move around, with the MUD when it is open [APP-2, APP-4, MUD-4, ORDER-18].
+a place to move around, with the MUD when it is open [APP-2, APP-4, MUD-4, ORDER-18]. He wants the
+layout right before building: a couple of polishing passes over it, with a map of the institute in
+the app, then iterations on the room descriptions [ROOM-19].
 
 **How (Claude's proposal):**
-- built inside today's frontend as new pages, one per room, beside today's views until they are
-  removed; the chart code moves over with its unit tests [ARCH-10];
-- design tokens give each room its accent [ARCH-10, ROOM-11];
-- a small set of accessible controls (sliders, toggles, folding panels) built on headless
-  primitives [ARCH-11];
+- **one layout file** lists the floors, rooms, exits, departments and where each non-player
+  character stands; the MUD builds the institute from it and the app draws the map from it, so a
+  polishing pass changes one file [ROOM-16];
+- the rooms are new pages inside today's frontend, beside today's views until they are removed;
+  the chart code moves over with its unit tests [ARCH-10];
+- design tokens (one shared set of colours and sizes) give each room its accent
+  [ARCH-10, ROOM-11];
+- a small set of accessible controls (sliders, toggles, folding panels) built on unstyled standard
+  parts [ARCH-11];
 - the MUD gains a room for each app room, and the app can move the player's character
   [ARCH-12, ROOM-9];
-- the rooms themselves are Claude's proposal, revised for Andrew's layout of the institute
-  (L34) [ROOM-1 to ROOM-18, MUD-23 to MUD-28].
+- the rooms are the ones Andrew approved (L34): the entrance hall, three public simulation rooms,
+  four departments with their own simulation rooms and boards, the observatory, the lens workshop,
+  the library, the studies room, the lounge and the meeting room [ROOM-1, MUD-23 to MUD-28].
 
 | Step | What | Ends with |
 |---|---|---|
-| 1 | The shell | a page per room; design tokens; the control set; the top bar, the folding terminal, the view's state in the page address and the event stream carried over; the quick-jump box; the hub with its map |
-| 2 | The MUD's rooms | the institute's new rooms (observatory, workshop, library, studies room); the message that lets the app move a character; rooms kept in step both ways, with the MUD's integration tests |
-| 3 | The studies room | every study from `GET /api/studies`, with its question, sets, captures, lenses, findings, ledger, status and showcase [STUDY-3, STUDY-4] |
-| 4 | The observatory | everything in Layers, laid out with folding panels and the details panel [ROOM-3] |
-| 5 | The lens workshop | everything in Build [ROOM-4] |
-| 6 | The polysemy lab | the observatory preset, opened on entry, capture locked, read-only for visitors [ROOM-6] |
-| 7 | The simulator | scenario sets and their scenarios (a small list endpoint), the agent runs captured, the terminal open [ROOM-7] |
-| 8 | The library | sentence sets with their guides and audits, scenario sets, captures, saved lenses [ROOM-5] |
-| 9 | The walk | every room against the checklist in [The new app's checklist](plan.md#new-app-checklist), with screenshots at desktop and laptop sizes; then Andrew's walk |
-| 10 | The retirement | today's views and their components removed, with the deletion list and a verdict per item, for Andrew's yes [ORDER-6, WAY-11] |
+| 1 | The layout and the map | the layout file, from Claude's [first map](design.md#rooms) and the answers to L38.2 to L38.4; the map drawn from it in the app's first page; a couple of polishing passes with Andrew over the map [ROOM-16, ROOM-19] |
+| 2 | The shell | a page per room; design tokens; the control set; carried over from today's app: the top bar, the folding terminal, what is on screen kept in the page's address (so a link reopens it) and the live updates from the backend; the quick-jump box; the entrance hall with its map |
+| 3 | The MUD's rooms | the institute rebuilt from the layout file: every room with a first description, its exits and its boards, the lounge and the meeting room included, and the stairs (L38.4); the polysemy lab inside linguistics; a new message from the app that moves the player's character, so that walking in the MUD changes the app's room and choosing a room in the app moves the character; the MUD's integration tests [ROOM-9, ROOM-18] |
+| 4 | The characters | a character written for each non-player character (the greeter and the robot, L38.3; each department's AI scientists), each placed in its room as a character visitors can look at and read about; their minds come with slice 11 [MUD-31, ROOM-18] |
+| 5 | The studies room | every study from `GET /api/studies`, with its question, sets, captures, lenses, findings, ledger, status, showcase and department [STUDY-3, STUDY-4, ROOM-17] |
+| 6 | The observatory | everything in Layers, laid out with folding panels and the details panel; if Andrew approves L35.1 and L35.2, attention's write as a lens source with its Sankey as the attention row, and brought by attention on the expert node cards [ROOM-3, LENS-55, LENS-56, APP-37] |
+| 7 | The lens workshop | everything in Build [ROOM-4] |
+| 8 | The departments | the four department rooms, each opening the shared rooms with its own studies loaded and showing its boards; the polysemy lab's view becomes linguistics' [ROOM-15, ROOM-17] |
+| 9 | The simulation rooms | the three public ones and one per department: scenario sets and their scenarios (a small list endpoint), the agent runs captured, the terminal open [ROOM-7, MUD-24] |
+| 10 | The library | sentence sets with their guides and audits, scenario sets, captures, saved lenses [ROOM-5] |
+| 11 | The descriptions | passes with Andrew over every room's description and every character's, in the MUD and in the app [ROOM-19] |
+| 12 | The walk | every room against the checklist in [The new app's checklist](plan.md#new-app-checklist), with screenshots at desktop and laptop sizes; then Andrew's walk |
+| 13 | The retirement | today's views and their components removed, with the deletion list and a verdict per item, for Andrew's yes [ORDER-6, WAY-11] |
 
-**Tests:** the carried-over unit tests keep passing; new unit tests for how the quick-jump box reads
-a command and for the room pages; a browser walk per room with screenshots and no console errors;
-the MUD's integration tests for keeping rooms in step; backend tests for any new endpoint.
+**Tests:** the carried-over unit tests keep passing; a test that the layout file is whole (every
+room reachable, every exit with its way back, every study's department a room that exists); new
+unit tests for the map, for how the quick-jump box reads a command, and for the room pages; a
+browser walk per room with screenshots and no console errors; the MUD's integration tests for the
+rooms built from the file and for keeping rooms in step; backend tests for any new endpoint.
 
-**Andrew reviews:** this plan first (L31); the rooms after step 3 (the shell and the studies room),
-step 5 (observatory and workshop) and step 9 (the full walk); then the deletion list.
+**Andrew reviews:** this plan (L38); the layout on the map in step 1, as many passes as it takes;
+the shell and the studies room after step 5; the observatory and the workshop after step 7; the
+descriptions in step 11; the full walk in step 12; then the deletion list.
 
-**Done when** every checklist item works in a room, his walk passes, and the deletion list is
-approved and carried out.
+**Done when** every checklist item works in a room, the layout and the descriptions have had
+Andrew's passes, his walk passes, and the deletion list is approved and carried out.
 
 **How sure:**
 
 | Claim | Evidence | Certainty |
 |---|---|---|
-| The charts carry over unchanged | their logic is in pure modules with unit tests (`sankeyOption.ts`, `lighting.ts`, `color/`, `trajectory3d.ts`, `exportFigure.ts`) | 90% |
-| Moving rooms works both ways | the MUD's `room_entered` already moves the app; the reverse needs one new message, which the control channel's design allows | 85% |
+| The charts carry over unchanged | their logic is in modules with no side effects, with unit tests (`sankeyOption.ts`, `lighting.ts`, `color/`, `trajectory3d.ts`, `exportFigure.ts`) | 90% |
+| One layout file can drive both the MUD and the map | the lab presets already work this way (`data/labs/`, read by the MUD and the app); the institute's rooms are built in code today (`mud/game/world/institute/`), which step 3 moves to the file | 85%, 90% after step 1's file is read by both |
+| Moving rooms works both ways | the MUD's existing message when a character enters a room already moves the app; the reverse needs one new message, which the channel between the backend and the MUD allows | 85% |
 | Nothing is lost | the checklist is built from every component, then walked | 90% |
 
 **Risks:**
-- a full rebuild is large: it goes room by room, each usable, with three review points;
+- a full rebuild is large: it goes room by room, each usable, with review points along the way;
+- the polishing passes and description passes take Andrew's time; they come first and last, so
+  nothing is built twice;
 - the library needs the sentence-set endpoints, which today always fail (on the register);
 - visual quality could disappoint: design tokens, screenshots and Andrew's walks answer it.
 
@@ -491,9 +489,7 @@ Each is planned in detail here when it is reached [DOC-9].
   - the MUD's network address entered in the app [MUD-19];
   - the leftovers removed [DATA-13];
   - the other token positions that carry a split's signal, read with the extra positions (Claude's
-    placement) [LENS-30, DATA-7];
-  - attention's parts at the read token, recorded during capture, if Andrew approves L35.5
-    [DATA-14, ORDER-21].
+    placement) [LENS-30, DATA-7].
 
   The first four method changes, planned for this slice, now come earlier, in the work that needs
   no model [ORDER-20].
@@ -521,10 +517,14 @@ Each is planned in detail here when it is reached [DOC-9].
   - node dynamics from sentence runs [ATLAS-3];
   - cross-lens reports [LLM-14]; overlaps by cross-reading [ATLAS-9];
   - the published atlas [ATLAS-8], and each node's nearest published features [LENS-36].
-- **Slice 7, the world-building pilot** [ORDER-12], after slices 5 and 6. Winter Survival is a
-  different undertaking, with its own plan [MUD-6].
+- **Slice 7, the world-building pilot** [ORDER-12], after slices 5 and 6: Winter Survival waits
+  for OpenLLMRI's roadmap [ORDER-22], and whether that means slice 6 or slice 11 is L37. Winter
+  Survival is a different undertaking, with its own plan [MUD-6].
 - **Slice 8, conditions and interventions** [ORDER-13]:
-  - scaffold studies and the scaffold catalogue [INT-3, INT-8];
+  - scaffold studies and the scaffold catalogue [INT-3, INT-8], with the lens on attention's
+    write as their first view, if Andrew approves L35.1 [LENS-55];
+  - blocking attention to a chosen part of the input at chosen layers, if Andrew approves L35.3
+    [INT-10];
   - steering, ablation and expert masks [INT-1, INT-2, INT-6];
   - the steering check before a key finding [LENS-33]; branching a run [WATCH-8];
   - RARE's and SteerMoE's methods reproduced [INT-7].
@@ -875,13 +875,13 @@ Andrew's review, the old DESIGN.md and `one-mud.md` become pointers to these doc
 - **Updating them:** edit the markdown or the list, run the checks, build both pages and publish
   them to their addresses; a decision from a form answer goes into the list first, then the text
   that cites it [DOC-6].
-- **Earlier documents** that the old DESIGN.md replaced keep their pointers until Andrew decides
-  which to delete (L32) [DOC-16].
+- **Earlier documents** that the old DESIGN.md replaced, and that nothing reads, are archived in
+  `docs/archive/`, with a list of what replaced each (L32) [DOC-16, DOC-19].
 
 ## Architecture decisions {#adr}
 
 Each is a requirement in the list. The proposed ones wait for Andrew's yes, with the new app's plan
-(L31) or with these documents.
+(L38) or with these documents.
 
 | Decision | Status | Requirement |
 |---|---|---|
@@ -918,6 +918,11 @@ The plan's own decisions, by date. The design's decisions are in its
   ontology beside the documents [ORDER-15].
 - **2026-10-16:** while Andrew uses the machine for other work, the four method changes and the
   attention-and-experts shares move ahead in the order of work [ORDER-20].
+- **2026-10-20:** the order of work kept: Winter Survival waits for OpenLLMRI's roadmap
+  (L36) [ORDER-22]; the superseded documents archived (L32) [DOC-19]; the new app's plan sent back
+  for the institute's layout, polishing passes with a map, the robot, perhaps out-of-service
+  stairs, characters for the non-player characters and iterations on the descriptions (L31), and
+  revised as L38 [ROOM-19, MUD-29 to MUD-31].
 
 ## Risks {#risks}
 

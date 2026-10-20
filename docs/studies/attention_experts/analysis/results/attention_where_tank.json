@@ -1,0 +1,468 @@
+{
+ "capture": "tank",
+ "n_items": 499,
+ "k": 5,
+ "position_edges": [
+  3,
+  5,
+  8,
+  12
+ ],
+ "probe_position_only": 0.2365,
+ "profiles": {
+  "role": {
+   "bins": [
+    "self",
+    "previous",
+    "first",
+    "other"
+   ],
+   "layers": [
+    {
+     "layer": 0,
+     "ami_sense": 0.0107,
+     "ami_lens_nodes": 0.1155,
+     "ami_position": 0.2804,
+     "ami_lens_nodes_sense": 0.0928,
+     "probe_profile": 0.2651,
+     "probe_profile_and_position": 0.2905
+    },
+    {
+     "layer": 1,
+     "ami_sense": 0.0073,
+     "ami_lens_nodes": 0.1016,
+     "ami_position": 0.287,
+     "ami_lens_nodes_sense": 0.1189,
+     "probe_profile": 0.2533,
+     "probe_profile_and_position": 0.2686
+    },
+    {
+     "layer": 2,
+     "ami_sense": 0.0287,
+     "ami_lens_nodes": 0.087,
+     "ami_position": 0.3553,
+     "ami_lens_nodes_sense": 0.1795,
+     "probe_profile": 0.2548,
+     "probe_profile_and_position": 0.2944
+    },
+    {
+     "layer": 3,
+     "ami_sense": 0.0172,
+     "ami_lens_nodes": 0.0799,
+     "ami_position": 0.2819,
+     "ami_lens_nodes_sense": 0.2539,
+     "probe_profile": 0.2551,
+     "probe_profile_and_position": 0.2607
+    },
+    {
+     "layer": 4,
+     "ami_sense": 0.0241,
+     "ami_lens_nodes": 0.0431,
+     "ami_position": 0.2639,
+     "ami_lens_nodes_sense": 0.4071,
+     "probe_profile": 0.2592,
+     "probe_profile_and_position": 0.2726
+    },
+    {
+     "layer": 5,
+     "ami_sense": 0.0227,
+     "ami_lens_nodes": 0.0381,
+     "ami_position": 0.3308,
+     "ami_lens_nodes_sense": 0.4472,
+     "probe_profile": 0.2694,
+     "probe_profile_and_position": 0.2666
+    },
+    {
+     "layer": 6,
+     "ami_sense": 0.0316,
+     "ami_lens_nodes": 0.087,
+     "ami_position": 0.3868,
+     "ami_lens_nodes_sense": 0.4289,
+     "probe_profile": 0.3205,
+     "probe_profile_and_position": 0.2984
+    },
+    {
+     "layer": 7,
+     "ami_sense": 0.026,
+     "ami_lens_nodes": 0.0585,
+     "ami_position": 0.4137,
+     "ami_lens_nodes_sense": 0.4393,
+     "probe_profile": 0.3191,
+     "probe_profile_and_position": 0.2885
+    },
+    {
+     "layer": 8,
+     "ami_sense": 0.0243,
+     "ami_lens_nodes": 0.0896,
+     "ami_position": 0.3373,
+     "ami_lens_nodes_sense": 0.4718,
+     "probe_profile": 0.2746,
+     "probe_profile_and_position": 0.2746
+    },
+    {
+     "layer": 9,
+     "ami_sense": 0.0157,
+     "ami_lens_nodes": 0.0717,
+     "ami_position": 0.3368,
+     "ami_lens_nodes_sense": 0.482,
+     "probe_profile": 0.227,
+     "probe_profile_and_position": 0.2606
+    },
+    {
+     "layer": 10,
+     "ami_sense": 0.0341,
+     "ami_lens_nodes": 0.0654,
+     "ami_position": 0.3153,
+     "ami_lens_nodes_sense": 0.4505,
+     "probe_profile": 0.3349,
+     "probe_profile_and_position": 0.3365
+    },
+    {
+     "layer": 11,
+     "ami_sense": 0.0312,
+     "ami_lens_nodes": 0.0551,
+     "ami_position": 0.3566,
+     "ami_lens_nodes_sense": 0.4981,
+     "probe_profile": 0.3171,
+     "probe_profile_and_position": 0.3247
+    },
+    {
+     "layer": 12,
+     "ami_sense": 0.0549,
+     "ami_lens_nodes": 0.1002,
+     "ami_position": 0.299,
+     "ami_lens_nodes_sense": 0.471,
+     "probe_profile": 0.3071,
+     "probe_profile_and_position": 0.2806
+    },
+    {
+     "layer": 13,
+     "ami_sense": 0.0399,
+     "ami_lens_nodes": 0.0651,
+     "ami_position": 0.3732,
+     "ami_lens_nodes_sense": 0.4924,
+     "probe_profile": 0.3029,
+     "probe_profile_and_position": 0.2767
+    },
+    {
+     "layer": 14,
+     "ami_sense": 0.049,
+     "ami_lens_nodes": 0.0738,
+     "ami_position": 0.34,
+     "ami_lens_nodes_sense": 0.4723,
+     "probe_profile": 0.3048,
+     "probe_profile_and_position": 0.2423
+    },
+    {
+     "layer": 15,
+     "ami_sense": 0.0294,
+     "ami_lens_nodes": 0.0652,
+     "ami_position": 0.3562,
+     "ami_lens_nodes_sense": 0.4879,
+     "probe_profile": 0.2984,
+     "probe_profile_and_position": 0.2704
+    },
+    {
+     "layer": 16,
+     "ami_sense": 0.0678,
+     "ami_lens_nodes": 0.0973,
+     "ami_position": 0.2673,
+     "ami_lens_nodes_sense": 0.4584,
+     "probe_profile": 0.3243,
+     "probe_profile_and_position": 0.2884
+    },
+    {
+     "layer": 17,
+     "ami_sense": 0.0474,
+     "ami_lens_nodes": 0.1627,
+     "ami_position": 0.4007,
+     "ami_lens_nodes_sense": 0.4002,
+     "probe_profile": 0.327,
+     "probe_profile_and_position": 0.2825
+    },
+    {
+     "layer": 18,
+     "ami_sense": 0.0536,
+     "ami_lens_nodes": 0.1366,
+     "ami_position": 0.3004,
+     "ami_lens_nodes_sense": 0.4014,
+     "probe_profile": 0.3044,
+     "probe_profile_and_position": 0.2664
+    },
+    {
+     "layer": 19,
+     "ami_sense": 0.0449,
+     "ami_lens_nodes": 0.1608,
+     "ami_position": 0.3667,
+     "ami_lens_nodes_sense": 0.3807,
+     "probe_profile": 0.2766,
+     "probe_profile_and_position": 0.2664
+    },
+    {
+     "layer": 20,
+     "ami_sense": 0.0535,
+     "ami_lens_nodes": 0.1485,
+     "ami_position": 0.319,
+     "ami_lens_nodes_sense": 0.358,
+     "probe_profile": 0.3005,
+     "probe_profile_and_position": 0.2685
+    },
+    {
+     "layer": 21,
+     "ami_sense": 0.0659,
+     "ami_lens_nodes": 0.1709,
+     "ami_position": 0.3514,
+     "ami_lens_nodes_sense": 0.3475,
+     "probe_profile": 0.327,
+     "probe_profile_and_position": 0.3406
+    },
+    {
+     "layer": 22,
+     "ami_sense": 0.0429,
+     "ami_lens_nodes": 0.1822,
+     "ami_position": 0.3204,
+     "ami_lens_nodes_sense": 0.3459,
+     "probe_profile": 0.2646,
+     "probe_profile_and_position": 0.2744
+    },
+    {
+     "layer": 23,
+     "ami_sense": 0.0818,
+     "ami_lens_nodes": 0.194,
+     "ami_position": 0.393,
+     "ami_lens_nodes_sense": 0.3761,
+     "probe_profile": 0.3271,
+     "probe_profile_and_position": 0.3226
+    }
+   ]
+  },
+  "distance": {
+   "bins": [
+    "self",
+    "1",
+    "2-3",
+    "4-7",
+    "8+",
+    "first"
+   ],
+   "layers": [
+    {
+     "layer": 0,
+     "ami_sense": 0.0141,
+     "ami_lens_nodes": 0.0197,
+     "ami_position": 0.5821,
+     "ami_lens_nodes_sense": 0.0928,
+     "probe_profile": 0.2587,
+     "probe_profile_and_position": 0.2965
+    },
+    {
+     "layer": 1,
+     "ami_sense": 0.016,
+     "ami_lens_nodes": 0.0528,
+     "ami_position": 0.5068,
+     "ami_lens_nodes_sense": 0.1189,
+     "probe_profile": 0.2669,
+     "probe_profile_and_position": 0.2807
+    },
+    {
+     "layer": 2,
+     "ami_sense": 0.014,
+     "ami_lens_nodes": 0.0633,
+     "ami_position": 0.5512,
+     "ami_lens_nodes_sense": 0.1795,
+     "probe_profile": 0.2665,
+     "probe_profile_and_position": 0.3025
+    },
+    {
+     "layer": 3,
+     "ami_sense": 0.0214,
+     "ami_lens_nodes": 0.0652,
+     "ami_position": 0.537,
+     "ami_lens_nodes_sense": 0.2539,
+     "probe_profile": 0.2307,
+     "probe_profile_and_position": 0.2605
+    },
+    {
+     "layer": 4,
+     "ami_sense": 0.0229,
+     "ami_lens_nodes": 0.0503,
+     "ami_position": 0.382,
+     "ami_lens_nodes_sense": 0.4071,
+     "probe_profile": 0.2851,
+     "probe_profile_and_position": 0.2907
+    },
+    {
+     "layer": 5,
+     "ami_sense": 0.0179,
+     "ami_lens_nodes": 0.0408,
+     "ami_position": 0.4778,
+     "ami_lens_nodes_sense": 0.4472,
+     "probe_profile": 0.2568,
+     "probe_profile_and_position": 0.2787
+    },
+    {
+     "layer": 6,
+     "ami_sense": 0.0377,
+     "ami_lens_nodes": 0.0769,
+     "ami_position": 0.4678,
+     "ami_lens_nodes_sense": 0.4289,
+     "probe_profile": 0.3387,
+     "probe_profile_and_position": 0.3224
+    },
+    {
+     "layer": 7,
+     "ami_sense": 0.0193,
+     "ami_lens_nodes": 0.0451,
+     "ami_position": 0.5354,
+     "ami_lens_nodes_sense": 0.4393,
+     "probe_profile": 0.3009,
+     "probe_profile_and_position": 0.2945
+    },
+    {
+     "layer": 8,
+     "ami_sense": 0.0167,
+     "ami_lens_nodes": 0.0732,
+     "ami_position": 0.339,
+     "ami_lens_nodes_sense": 0.4718,
+     "probe_profile": 0.2846,
+     "probe_profile_and_position": 0.2685
+    },
+    {
+     "layer": 9,
+     "ami_sense": 0.0173,
+     "ami_lens_nodes": 0.0914,
+     "ami_position": 0.3994,
+     "ami_lens_nodes_sense": 0.482,
+     "probe_profile": 0.2628,
+     "probe_profile_and_position": 0.2625
+    },
+    {
+     "layer": 10,
+     "ami_sense": 0.0312,
+     "ami_lens_nodes": 0.0622,
+     "ami_position": 0.3816,
+     "ami_lens_nodes_sense": 0.4505,
+     "probe_profile": 0.3305,
+     "probe_profile_and_position": 0.3203
+    },
+    {
+     "layer": 11,
+     "ami_sense": 0.0271,
+     "ami_lens_nodes": 0.0624,
+     "ami_position": 0.3734,
+     "ami_lens_nodes_sense": 0.4981,
+     "probe_profile": 0.3168,
+     "probe_profile_and_position": 0.3026
+    },
+    {
+     "layer": 12,
+     "ami_sense": 0.039,
+     "ami_lens_nodes": 0.077,
+     "ami_position": 0.3865,
+     "ami_lens_nodes_sense": 0.471,
+     "probe_profile": 0.3149,
+     "probe_profile_and_position": 0.2846
+    },
+    {
+     "layer": 13,
+     "ami_sense": 0.0213,
+     "ami_lens_nodes": 0.0362,
+     "ami_position": 0.4188,
+     "ami_lens_nodes_sense": 0.4924,
+     "probe_profile": 0.2788,
+     "probe_profile_and_position": 0.2726
+    },
+    {
+     "layer": 14,
+     "ami_sense": 0.0328,
+     "ami_lens_nodes": 0.0596,
+     "ami_position": 0.4508,
+     "ami_lens_nodes_sense": 0.4723,
+     "probe_profile": 0.2984,
+     "probe_profile_and_position": 0.2845
+    },
+    {
+     "layer": 15,
+     "ami_sense": 0.0367,
+     "ami_lens_nodes": 0.0666,
+     "ami_position": 0.4483,
+     "ami_lens_nodes_sense": 0.4879,
+     "probe_profile": 0.2822,
+     "probe_profile_and_position": 0.2644
+    },
+    {
+     "layer": 16,
+     "ami_sense": 0.0556,
+     "ami_lens_nodes": 0.0847,
+     "ami_position": 0.2537,
+     "ami_lens_nodes_sense": 0.4584,
+     "probe_profile": 0.3444,
+     "probe_profile_and_position": 0.3224
+    },
+    {
+     "layer": 17,
+     "ami_sense": 0.0437,
+     "ami_lens_nodes": 0.1264,
+     "ami_position": 0.4627,
+     "ami_lens_nodes_sense": 0.4002,
+     "probe_profile": 0.3187,
+     "probe_profile_and_position": 0.3006
+    },
+    {
+     "layer": 18,
+     "ami_sense": 0.046,
+     "ami_lens_nodes": 0.1414,
+     "ami_position": 0.2536,
+     "ami_lens_nodes_sense": 0.4014,
+     "probe_profile": 0.3142,
+     "probe_profile_and_position": 0.2903
+    },
+    {
+     "layer": 19,
+     "ami_sense": 0.0289,
+     "ami_lens_nodes": 0.1446,
+     "ami_position": 0.5164,
+     "ami_lens_nodes_sense": 0.3807,
+     "probe_profile": 0.2984,
+     "probe_profile_and_position": 0.2725
+    },
+    {
+     "layer": 20,
+     "ami_sense": 0.0354,
+     "ami_lens_nodes": 0.1425,
+     "ami_position": 0.3305,
+     "ami_lens_nodes_sense": 0.358,
+     "probe_profile": 0.3062,
+     "probe_profile_and_position": 0.3486
+    },
+    {
+     "layer": 21,
+     "ami_sense": 0.0184,
+     "ami_lens_nodes": 0.1209,
+     "ami_position": 0.5227,
+     "ami_lens_nodes_sense": 0.3475,
+     "probe_profile": 0.3444,
+     "probe_profile_and_position": 0.3445
+    },
+    {
+     "layer": 22,
+     "ami_sense": 0.0543,
+     "ami_lens_nodes": 0.1724,
+     "ami_position": 0.2304,
+     "ami_lens_nodes_sense": 0.3459,
+     "probe_profile": 0.3068,
+     "probe_profile_and_position": 0.3006
+    },
+    {
+     "layer": 23,
+     "ami_sense": 0.0701,
+     "ami_lens_nodes": 0.1867,
+     "ami_position": 0.4848,
+     "ami_lens_nodes_sense": 0.3761,
+     "probe_profile": 0.3327,
+     "probe_profile_and_position": 0.3306
+    }
+   ]
+  }
+ }
+}

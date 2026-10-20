@@ -1636,23 +1636,24 @@ requirements:
   replaced_by: [LENS-48]
 - id: LENS-48
   text: >-
-    Who writes each split stays off the node card for now (Claude's revised proposal, 2026-10-18,
-    for Andrew's answer: L33): the attention-and-experts study and its findings stand; the
-    node-card code built for it goes to a branch rather than into main; the question returns with
-    the extra token positions of slice 2 and with the interventions of slice 8. Reasons: most
-    node-split readings change with the direction measured along; along the second direction they
-    are flagged no more often than chance; and random splits are not a like-for-like comparison for
-    splits the clustering picks.
-  status: proposed
-  built: no
-  dates: [2026-10-18]
-  source: Claude
+    Who writes each split stays off the node card for now: the attention-and-experts study and its
+    findings stand; the node-card code built for it is kept on a git branch
+    (`node-card-writers`), out of main; the question returns with the extra token positions of
+    slice 2 and with the interventions of slice 8. Claude's reasons: most node-split readings change
+    with the direction measured along; along the second direction they are flagged no more often
+    than chance; and random splits are not a like-for-like comparison for splits the clustering
+    picks.
+  status: decided
+  built: yes
+  dates: [2026-10-18, 2026-10-20]
+  source: Claude; approved by Andrew (L33)
   from: []
   section: design.md#lenses
 - id: LENS-49
   text: >-
-    Attention joins the analysis as more information. At each layer the router's top four experts
-    work together to set the token's place in the residual stream, adding their outputs to it.
+    Attention joins the analysis as more information. (Andrew's picture of a layer, as context: at
+    each layer the router's top four experts work together to set the token's place in the
+    residual stream, adding their outputs to it.)
   status: decided
   built: no
   dates: [2026-10-19]
@@ -1672,66 +1673,97 @@ requirements:
   section: design.md#attention
 - id: LENS-51
   text: >-
-    How attention is measured (Claude's proposal, for Andrew's answer: L35.1): at each layer,
-    attention's output at the read token is split exactly into one part per earlier position (each
-    head's weight on the position times the position's value, through the output projection; each
-    head's learned sink takes its share first, and the projection's bias stays apart). A word's
-    amount is the length of its parts, its pieces summed, as a share of all the parts at that
-    layer, over the 64 heads together. Never the weights alone; later layers are read as
-    positions, which have taken in other words, rather than as words; the 128-token window of
-    every second layer is shown.
-  status: proposed
+    How attention is measured (Claude's proposal of 2026-10-19, L35.1 in its first form): at each
+    layer, attention's output at the read token split into one part per earlier position, and a
+    word's amount as the length of its parts, as a share of all the parts at that layer.
+  status: retired
   built: no
-  dates: [2026-10-19]
+  dates: [2026-10-19, 2026-10-20]
   source: Claude
   from: []
-  section: design.md#attention
+  section: design.md#retired
+  replaced_by: [LENS-55]
 - id: LENS-52
   text: >-
-    Attention for latent nodes and edges (Claude's proposal, L35.2): at each split point, each
-    branch against the node's other items, at each layer up to the branch's own: where attention
-    draws from (the read word itself, the token before it, the first token, the other words),
-    against the branch shuffled within the node 1,000 times; the three words each item drew on
-    most, listed for the split point's analyst to describe what they share; and words that recur,
-    tested the same way, beside how much commoner each is in the branch's texts. Past the split, a
-    route through several later nodes gets the same readings at each layer along it, its tokens
-    against the other tokens of the node they are in. Read as what the tokens took in, not as what
-    made the split.
-  status: proposed
+    Attention for latent nodes and edges (Claude's proposal of 2026-10-19): for each branch of a
+    split point, where attention draws from, the three words each item drew on most for the split
+    point's analyst, and words that recur, each tested against shuffles; the same along a route.
+  status: retired
   built: no
-  dates: [2026-10-19]
+  dates: [2026-10-19, 2026-10-20]
   source: Claude
   from: []
-  section: design.md#attention
+  section: design.md#retired
+  replaced_by: [LENS-55]
 - id: LENS-53
   text: >-
-    Attention for expert nodes and edges (Claude's proposal, L35.3): the share of a node's items
-    whose expert at that rank would be another if the item's own attention at that layer were
-    replaced by the lens's average (brought by attention), beside the layer's share, worked out on
-    the CPU from what captures store; the words that pushed the items toward the expert (each
-    word's part of the expert's router score, less its mean part over the 32 experts), the node's
-    items against the layer's others, tested by shuffles. An expert edge gets the same readings for
-    its tokens, against the other tokens leaving its first expert. The readings follow the rank the
-    expert Sankey shows (the first by default), and the row also gives how many of each token's
-    four experts its own attention changed. A computation on the router alone, not an ablation.
-  status: proposed
+    Attention for expert nodes and edges (Claude's proposal of 2026-10-19): brought by attention,
+    and the words that pushed the items toward the expert (each word's part of its router score).
+  status: retired
   built: no
-  dates: [2026-10-19]
+  dates: [2026-10-19, 2026-10-20]
   source: Claude
   from: []
-  section: design.md#attention
+  section: design.md#retired
+  replaced_by: [LENS-56]
 - id: LENS-54
   text: >-
-    Not done with attention (Claude's proposal, L35.6): maps of raw weights as the main view;
-    single heads; attention's share of a split as a headline; attention rolled out or traced back
-    across layers; claims about causes from these readings (they need ablation, slice 8); words for
-    single-word sets beyond the prompt's template and the word's own earlier pieces.
+    Not done with attention (Claude's proposal, for Andrew's answer: L35.4): rows of words (how much
+    the token drew on each earlier word) and the heads' weights as a view; words for the split
+    card's analyst, recurring words and the words that pushed toward an expert; recording
+    word-by-word parts during capture, and the CPU pass on more sets; single heads; attention rolled
+    out or traced back across layers; claims about causes from any of these readings (blocking
+    attention is the test, INT-10). Attention's share of a split is not on the list: it stays off
+    the node card for now (LENS-48).
   status: proposed
   built: no
-  dates: [2026-10-19]
+  dates: [2026-10-19, 2026-10-20]
   source: Claude
   from: []
   section: design.md#attention
+- id: LENS-55
+  text: >-
+    A lens on what attention writes (Claude's form of Andrew's idea LENS-57, for his answer:
+    L35.1): attention's write at the read token (the layer's output minus its input minus the
+    experts' write; at layer 0, minus the word's starting vector) is another input a lens can be
+    built on, beside the token's state and the experts' write, and its Sankey is the third
+    population view. It is worked out from what every capture stores, and every lens tool works on
+    it: tuning, validation, the Sankey, lit paths, node details, reports. Read beside the state
+    lens's nodes and the expert routes, it shows at which layers a node's or a branch's tokens took
+    in different things from their context (LENS-50). Its first use is a token reading its
+    context: a question after a text, a decision under a scaffold. Tested on 2026-10-20 on four
+    captures, held out: in the framing set it beats the state lens clearly at five layers (by 0.08
+    to 0.55 with two nodes, 0.09 to 0.35 with each lens's best number); in the calibration scenes
+    by more than 0.01 at one layer only; in friend/foe and tank it shows less.
+  status: proposed
+  built: no
+  dates: [2026-10-20]
+  source: Claude, from Andrew's idea (LENS-57)
+  from: []
+  section: design.md#attention-nodes
+- id: LENS-56
+  text: >-
+    Brought by attention on the expert node cards (Claude's proposal, kept from the first one, for
+    Andrew's answer: L35.2): the share of an expert node's tokens whose expert would be another if
+    that layer's attention output were replaced by its mean over the lens's items, beside the
+    layer's share; worked out on the CPU from what captures store and the router's weights.
+  status: proposed
+  built: no
+  dates: [2026-10-19, 2026-10-20]
+  source: Claude
+  from: []
+  section: design.md#attention-experts
+- id: LENS-57
+  text: >-
+    An attention Sankey over the population, which Andrew thought might be the best approach: with
+    it, a lens's items can be analysed from three views, the latent nodes, the expert routes and
+    attention.
+  status: idea
+  built: no
+  dates: [2026-10-20]
+  source: note (design page, attention section)
+  from: []
+  section: design.md#attention-nodes
 # ---- TIME: reading over time ----
 - id: TIME-1
   text: >-
@@ -2294,19 +2326,30 @@ requirements:
   section: design.md#attention
 - id: APP-36
   text: >-
-    The attention row (Claude's proposal, L35.4): its columns line up with the Sankeys' layers, and
-    what it shows follows the selection: the lens's items as a whole (which parts of the text
-    attention draws on, and how often it changes the first expert and the four), one item (its
-    words by layers: the grid of the depth heatmap, APP-32, with another quantity), a latent node,
-    edge or route (LENS-52), an expert node or edge (LENS-53), or one step of a run. A word chosen
-    in the row can colour the Sankeys and the 3-D view by how much each item drew on it; every
-    view exports with its recipe.
-  status: proposed
+    The attention row as first proposed (Claude's proposal of 2026-10-19): its columns lined up with
+    the Sankeys' layers, showing the words each item drew on, the readings of latent and expert
+    nodes, and the parts of the text drawn on, following the selection.
+  status: retired
   built: no
-  dates: [2026-10-19]
+  dates: [2026-10-19, 2026-10-20]
   source: Claude
   from: []
-  section: design.md#attention
+  section: design.md#retired
+  replaced_by: [APP-37]
+- id: APP-37
+  text: >-
+    The attention row (Claude's proposal, for Andrew's answer: L35.1): when a capture has a lens on
+    attention's write (LENS-55), the third population view (LENS-57), the row under the cluster and
+    expert Sankeys is that lens's Sankey,
+    its columns lined up with theirs and lit by the same selection, so an item, a node or a branch
+    lights its path through all three; with no such lens, the row offers to build one. Every chart
+    exports with its recipe.
+  status: proposed
+  built: no
+  dates: [2026-10-20]
+  source: Claude, from Andrew's idea (LENS-57)
+  from: []
+  section: design.md#attention-row
 
 # ---- BUILD: the builders ----
 - id: BUILD-1
@@ -3104,13 +3147,15 @@ requirements:
   section: design.md#rooms
 - id: MUD-27
   text: >-
-    A meeting room where different AIs discuss things, among them adding something to what Andrew
-    called the OSS model (gpt-oss-20b itself, or the project's account of it: L34.3), and other
-    matters too.
+    A meeting room for discussions among the AIs. Its main use: growing the paradigm
+    (findings proposed, debated and voted on); it also takes up changes to gpt-oss-20b itself, such
+    as a steering vector or a scaffold. Work that crosses departments and may call for specialists,
+    such as planning scaffolds with people or without them, is a further use Andrew counts as nice
+    to have.
   status: decided
   built: no
-  dates: [2026-10-18]
-  source: L30
+  dates: [2026-10-18, 2026-10-20]
+  source: L30; L34.3
   from: []
   section: design.md#rooms
 - id: MUD-28
@@ -3121,6 +3166,33 @@ requirements:
   built: no
   dates: [2026-10-18]
   source: L30
+  from: []
+  section: design.md#rooms
+- id: MUD-29
+  text: >-
+    The institute has a robot (what it does: L38.3).
+  status: decided
+  built: no
+  dates: [2026-10-20]
+  source: L31
+  from: []
+  section: design.md#rooms
+- id: MUD-30
+  text: >-
+    Perhaps the institute has out-of-service stairs (what they would mean: L38.4).
+  status: idea
+  built: no
+  dates: [2026-10-20]
+  source: L31
+  from: []
+  section: design.md#rooms
+- id: MUD-31
+  text: >-
+    Andrew suggests characters for the institute's non-player characters, built in the MUD.
+  status: idea
+  built: no
+  dates: [2026-10-20]
+  source: L31
   from: []
   section: design.md#rooms
 
@@ -3265,18 +3337,15 @@ requirements:
   section: plan.md#phases
 - id: DATA-14
   text: >-
-    Attention's parts at the read token, recorded during capture (Claude's proposal, L35.5): for
-    each item, layer and earlier position, the amount, the signed share of attention's output, the
-    heads' mean weight and the position's part of each of the 32 router scores, with each layer's
-    sink share: about 17 KB an item for the tank sentences, 150 KB for sentences in the chat
-    template and 700 KB for a friend/foe tick. Existing captures whose prompts can be rebuilt
-    exactly get them from a pass on the CPU, one layer at a time from the model's files.
-  status: proposed
+    Attention's word-by-word parts at the read token, recorded during capture (Claude's proposal of
+    2026-10-19), with a pass on the CPU for older captures.
+  status: retired
   built: no
-  dates: [2026-10-19]
+  dates: [2026-10-19, 2026-10-20]
   source: Claude
   from: []
-  section: design.md#attention
+  section: design.md#retired
+  replaced_by: [LENS-55]
 
 # ---- ATLAS: the atlas and the paradigm ----
 - id: ATLAS-1
@@ -3475,6 +3544,19 @@ requirements:
   source: message
   from: [1296]
   section: design.md#interventions
+- id: INT-10
+  text: >-
+    Blocking attention (Claude's proposal, for Andrew's answer: L35.3): stopping a token from reading
+    a chosen part of its input (a scaffold, a sentence) at chosen layers, then reading the lenses
+    again, to test whether what attention brings in changes what the model does, and at which
+    layers it has to be read. With slice 8, conditions and interventions. (Andrew named ablation as
+    a known use of attention on 2026-10-20; this form is Claude's.)
+  status: proposed
+  built: no
+  dates: [2026-10-20]
+  source: Claude
+  from: []
+  section: design.md#attention-order
 
 # ---- STORY: user stories ----
 - id: STORY-1
@@ -3882,17 +3964,27 @@ requirements:
   section: plan.md#phase-model-free
 - id: ORDER-21
   text: >-
-    When attention's parts are built (Claude's proposal, L35.7): the study finished now, without
-    the model (the CPU pass on more captures, and the findings note); the row, with brought by
-    attention for every capture and the words where the CPU pass has run, in the new app's
-    observatory room; the parts recorded during capture with slice 2 (capture and jobs); Watch and
-    the analysts' evidence read them after that.
+    When attention's parts are built (Claude's proposal): the tests done now, without the model;
+    attention's write as a lens source, its Sankey as the attention row, and brought by attention on
+    the expert node cards with the new app's observatory (L35.1, L35.2); blocking attention,
+    and the scaffold studies that use the attention lens first, with slice 8 (L35.3).
   status: proposed
   built: no
-  dates: [2026-10-19]
+  dates: [2026-10-19, 2026-10-20]
   source: Claude
   from: []
   section: design.md#attention
+- id: ORDER-22
+  text: >-
+    Winter Survival waits for OpenLLMRI's roadmap: building it will take several days, so Andrew
+    wants everything else needed done first, and the order of work is kept (how far the roadmap
+    goes before it: L37).
+  status: decided
+  built: no
+  dates: [2026-10-20]
+  source: L36; L36.1
+  from: []
+  section: plan.md#phases
 # ---- Claude's final read of 2026-10-07, and the open question ----
 - id: DOC-17
   text: >-
@@ -3916,6 +4008,17 @@ requirements:
   source: Claude
   from: [1467]
   section: design.md#decisions-needed
+- id: DOC-19
+  text: >-
+    The superseded documents (the five April documents in `LLMud/`, `architecturemud.md`,
+    `architecturescenarios.md`, `steeringandscenarios.md`, and the time design with its review) are
+    archived in `docs/archive/`, once checked to be unused.
+  status: decided
+  built: yes
+  dates: [2026-10-20]
+  source: L32
+  from: []
+  section: plan.md#documents
 
 # ---- ROOM: the new app's rooms (Claude's proposal, for Andrew's yes: L30) ----
 - id: ROOM-1
@@ -3927,10 +4030,10 @@ requirements:
     is shared out: designing scenarios goes to the builder in the library, and keeping the MUD
     running to the simulation rooms. Later rooms: the atlas, ideas (in the department of
     discordant studies) and researchers' rooms.
-  status: proposed
+  status: decided
   built: no
-  dates: [2026-10-11, 2026-10-18]
-  source: Claude
+  dates: [2026-10-11, 2026-10-18, 2026-10-20]
+  source: Claude; approved by Andrew (L34)
   from: []
   section: design.md#rooms
 - id: ROOM-2
@@ -4078,11 +4181,11 @@ requirements:
     A department (which is also a lab) opens the shared rooms (the observatory, the lens workshop,
     the library, the studies room) with its own studies loaded, as the polysemy lab does now, and
     has its own simulation room, its boards (its studies, open questions, findings proposed, recent
-    results) and its AI scientists from slice 11 (L34.1).
-  status: proposed
+    results) and its AI scientists from slice 11.
+  status: decided
   built: no
-  dates: [2026-10-18]
-  source: Claude
+  dates: [2026-10-18, 2026-10-20]
+  source: Claude; approved by Andrew (L34, L34.1)
   from: []
   section: design.md#rooms
 - id: ROOM-16
@@ -4099,27 +4202,37 @@ requirements:
   section: design.md#rooms
 - id: ROOM-17
   text: >-
-    Which department holds each study (L34.2): linguistics the single words, animals, the animal
-    ontology, the read site and the polysemy lab; general mechanistic interpretability the lens
-    core, who writes each split and the context-shift paper; alignment objects and the harm axis,
-    the suicide letter, and friend/foe with people assessment; discordant studies the Ideas
-    workspace and its idea-tracking engine.
-  status: proposed
+    Which department holds each study: linguistics the single words, animals, the animal ontology,
+    the read site and the polysemy lab; general mechanistic interpretability the lens core, who
+    writes each split and the context-shift paper; alignment objects and the harm axis, the suicide
+    letter, and friend/foe with people assessment; discordant studies the Ideas workspace and its
+    idea-tracking engine. A study can move later.
+  status: decided
   built: no
-  dates: [2026-10-18]
-  source: Claude
+  dates: [2026-10-18, 2026-10-20]
+  source: Claude; approved by Andrew (L34.2)
   from: []
   section: design.md#rooms
 - id: ROOM-18
   text: >-
-    The layout is built in stages (L34.4): the layout file, the map and every room's place in the
-    MUD (its description, its exits, a department's board listing its studies) with the new app's
-    rooms; the greeter, the AI scientists and the meetings with slice 11; public play in Winter
-    Survival, one world per public room, with the Winter Survival pilot and hosting (MUD-20).
-  status: proposed
+    The layout is built in stages: the layout file, the map and every room's place in the MUD (its
+    description, its exits, a department's board listing its studies) with the new app's rooms; the
+    greeter, the AI scientists and the meetings with slice 11; public play in Winter Survival, one
+    world per public room, with the Winter Survival pilot and hosting (MUD-20).
+  status: decided
   built: no
-  dates: [2026-10-18]
-  source: Claude
+  dates: [2026-10-18, 2026-10-20]
+  source: Claude; approved by Andrew (L34.4)
+  from: []
+  section: design.md#rooms
+- id: ROOM-19
+  text: >-
+    A couple of polishing passes over the institute's layout before building begins, with a map of
+    the institute in the app; then iterations to improve the room descriptions.
+  status: decided
+  built: no
+  dates: [2026-10-20]
+  source: L31; L34
   from: []
   section: design.md#rooms
 

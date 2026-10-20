@@ -154,3 +154,32 @@ ledger:
       "buried" and "steel".
     status: proposed
     evidence: [docs/research/attention_and_experts.md]
+  - idea: >
+      Andrew asked for an attention Sankey over the population (2026-10-20), so that a lens's items
+      can be analysed from three views: the latent nodes, the expert routes and attention. Claude
+      tested it in two forms: items grouped by where attention reads from, or a lens on what
+      attention writes into the token at each layer.
+    experiment: >
+      Where it reads from: the tank sentences' CPU pass, each item's shares by role and by distance
+      back, grouped with Ward at five groups per layer, against the sense, the lens's nodes and the
+      read word's position; a probe for the sense (attention_where.py). What it writes: attention's
+      write at the read token (the layer's output minus its input minus the experts' write) as the
+      source of a lens, held out exactly as a lens's validation is, beside the state and the
+      experts' write, in four captures (attention_lens.py).
+    finding: >
+      Where attention reads from follows where the read word sits in its sentence, not its sense
+      (at every layer the groups agree with the sense at 0.01 to 0.08 and with the position at 0.23
+      to 0.58; a probe on them reads the sense at 0.23 to 0.34, against 0.24 from the position
+      alone). What it writes: in the framing set, whose read word is in a question after the
+      sentence, the attention lens separates fiction from fact clearly better than the state lens
+      at five layers (by 0.08 to 0.55 with two nodes, layer 18: 0.87 against 0.32; by 0.09 to 0.35
+      with each lens's best number of nodes), and with two nodes it
+      carries the sentence's scale and threat scope at layer 3 (0.73, 0.70), where the state
+      lens's two nodes reach at most 0.20 and 0.24 (its best, 0.58 and 0.53, at layer 5 with four
+      nodes). In the calibration scenes, also read from a question, it is ahead by more than 0.01
+      at one layer only (layer 19 with each lens's best number of nodes; layer 21 with two, where
+      the state lens's two nodes collapse); in tank it is lower at every layer; in friend/foe at "person"
+      no source groups by the class with two nodes. A lens on attention's write can show when a
+      token takes its context in; here it did in one of the two captures read after the text.
+    status: proposed
+    evidence: [docs/research/attention_and_experts.md]
