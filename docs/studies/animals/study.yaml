@@ -26,7 +26,9 @@ ledger:
     finding: >
       Held-out AMI 0.37 to 0.40 at L6 to L12 (k 8), weak at L0 to L2 and L18 to L22. Tuned test AMI
       peaks at 0.36 (L6), as does the untuned lens; tuning is better at 10 layers and worse at 14.
-      A logistic probe reaches 0.48 to 0.88.
+      A logistic probe reaches 0.48 to 0.88. Re-scored on five test draws of whole orders
+      (2026-10-20): averaged, tuning is behind at 13 layers and ahead at 11 (median -0.008), and
+      both lenses peak at 0.37.
     status: proposed
     evidence: [docs/research/animals.md]
   - idea: The model's animal neighbourhoods follow the taxonomy, rank by rank.

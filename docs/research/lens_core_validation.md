@@ -201,15 +201,20 @@ of 99 or 100 items, disjoint from the first and from each other (stratified, ide
 together, as the set has no families), with the same grid, folds and seed. The first draw
 reproduces the table above exactly; the tuned lens itself is unchanged (`search.json` now holds
 the five draws, `search.single.json` the earlier record).
-- On each draw the tuned settings beat the untuned lens's at 14 to 17 layers and trail at 6 to
-  10; the median difference is +0.01 to +0.02 AMI. Averaged over the five draws they are ahead at
-  18 layers and behind at 6, from −0.06 (L18) to +0.06 (L17, L22), median +0.02.
-- The first draw was a favourable one. Its peak, 0.57 at L11, averages 0.49 over the five draws;
-  each draw peaks at 0.50 to 0.57, at L10 to L13. Averaged, the tuned lens peaks at 0.51 (L12) and
-  the untuned one at 0.48 (L13).
-- A layer's test AMI moves by a median of 0.11 between draws (0.24 to 0.44 at L18), so gaps of a
-  few hundredths between the two lenses sit inside that spread.
-- Raw-space Ward at the winner's k averages more than the tuned lens at 14 layers; the logistic
+Below, the difference is the tuned lens's test AMI minus the untuned lens's on the same draw, and
+its median is taken over the 24 layers.
+- On a single draw the tuned lens is ahead at 14 to 17 layers and behind at 6 to 10, depending on
+  the draw; the median difference is +0.01 to +0.02 AMI.
+- Averaged over the five draws, the tuned lens is ahead at 18 layers and behind at 6. The
+  per-layer difference runs from −0.06 (L18) to +0.06 (L17, L22); its median is +0.02. The tuned
+  lens is ahead on every draw at 7 layers (L4, L5, L10 to L12, L21, L22) and behind on every draw
+  at none.
+- The first draw was a favourable one. Its tuned peak, 0.57 at L11, is 0.49 averaged over the five
+  draws; each draw's tuned peak is 0.50 to 0.57, at L10 to L13. The peaks of the five-draw
+  averages are 0.51 (L12) for the tuned lens and 0.48 (L13) for the untuned one.
+- A layer's test AMI itself moves between draws by a median of 0.11 (0.24 to 0.44 at L18), so a
+  single draw's score is imprecise.
+- Raw-space Ward at the winner's k averages more than the tuned lens at 15 layers; the logistic
   ceiling averages 0.62 to 0.69 from L3.
 
 ### Tank calibration (`calibration-q1-k2-n15-tuned`)
@@ -255,16 +260,45 @@ selection folds of 500 items. The job took 17 minutes.
   in line with the selection folds: the four test scenes are easy for it at L4.
 - With two families per class, which scenes are held out moves the score more than the settings
   do: the winners' AMI moves by −0.12 to +0.27 between the selection folds and the test portion.
-  One test portion is unbiased but imprecise. Repeating the split, so that every family serves in
-  a test portion once, would give the test score a spread (RECOMMENDATIONS.md).
+  One test portion is unbiased but imprecise; the re-score below repeats it.
 - The search chose k = 2 at 14 layers and 3 at 7; 4 at L11, 6 at L0 and 8 at L21.
+
+**Re-scored on five test draws (2026-10-20).** The search was repeated on four more test portions,
+each two other scene families per class (100 items), with the same grid, folds and seed. Each class
+has twelve scene families; the five draws of two families each use ten of them once, and two are
+never held out. The first draw reproduces the table above exactly; the tuned lens itself is
+unchanged. The difference is the tuned lens's test AMI minus the untuned lens's, as for the tank
+set.
+- The draws disagree with each other. On a single draw the tuned lens is ahead at 11 to 20 layers
+  and behind at 3 to 12, depending on the draw. The median difference is 0.00 on the first and
+  fourth draws, −0.01 on the fifth, +0.03 on the second and +0.14 on the third.
+- Averaged over the five draws, the tuned lens is ahead at 19 layers and behind at 5. The
+  per-layer difference runs from −0.10 (L17) to +0.29 (L21); its median is +0.05.
+- The largest gains are at L21 and L22, where the untuned lens's two nodes hardly follow the label
+  (held-out AMI 0.02 and 0.13 averaged; its validation above finds its top split there follows no
+  designed axis), and at L3 and L13 (+0.12 and +0.13). The tuned lens is ahead on every draw only
+  at L0, L21 and L22, and behind on every draw at none.
+- L4's surprise came from the first draw's scenes. Over the five draws the untuned lens scores
+  0.83, 0.44, 0.20, 0.37 and 0.53 there (averaging 0.47), and the tuned one 0.69, 0.28, 0.20, 0.28
+  and 0.69 (averaging 0.43).
+- The test score moves far more between draws than on the tank set: by a median of 0.21 for the
+  tuned lens and 0.25 for the untuned one, and by up to 0.49 and 0.63 at L4. With two families per
+  class held out, which families are held out still moves the score more than the settings do.
+- The peaks of the five-draw averages are 0.49 (L13) for the tuned lens and 0.47 (L4) for the
+  untuned one. Raw-space Ward at the winner's k averages more than the tuned lens at 4 layers; the
+  logistic ceiling averages 0.53 to 0.65 from L3.
 
 ### What the two runs show
 
-On these two captures, settings chosen per layer don't beat the default settings on held-out
-data, which matches the planning measurement that settings move held-out AMI less than k does.
-The search still gives each lens an honest held-out score, and its runners-up show how flat the
-choice is.
+On these two captures, settings and k chosen per layer gain little on held-out data over the
+untuned lens (the default settings and one k), which matches the planning measurement that
+settings move held-out AMI less than k does. Averaged over five test draws, the tuned lens is
+ahead of the untuned one by a median over the layers of 0.02 AMI on the tank set and 0.05 on
+calibration, and it is ahead on every draw at only 7 and 3 of the 24 layers. A layer's test score
+moves between draws by a median of 0.11 (tank) and 0.21 (calibration), so one draw's score is
+imprecise. The single words and the animals, re-scored the same way, gain nothing on average
+(`single_words.md`, `animals.md`). The search still gives each lens an honest held-out score, now
+with its spread over the draws, and its runners-up show how flat the choice is.
 
 ## The axes analysis (lens slice 1b, 10c.5, 2026-10-09)
 
@@ -429,6 +463,8 @@ The UMAP lens's held-out kappa at its k, per attribute:
 - Each lens's `lens.json` holds its in-sample suggestions and self-check.
 - `data/lake/session_1434a9be/lenses/tank-k5-n15-tuned/search.json` and
   `data/lake/session_29a80932/lenses/calibration-q1-k2-n15-tuned/search.json` (the tuning: the
-  split, every candidate's selection scores, the winners and runners-up, the test scores)
+  split, every candidate's selection scores, the winners and runners-up, the test scores; since
+  2026-10-20 also the five draws and their spread, with the single-draw record kept beside it as
+  `search.single.json`)
 - `data/lake/session_673360a5/lenses/framing-k4-auto-levels/validation.json` (67 s, with decoys)
   and `axes.json` (48.5 s; GET `.../axes` merges in the UMAP rows)

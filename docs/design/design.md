@@ -220,7 +220,7 @@ Always the last question: anything you want Claude to know, change or look at [D
 
 ## What's built today {#built}
 
-A short tour of what exists on 2026-10-11. Each part's section says what of it is built.
+A short tour of what exists on 2026-10-20. Each part's section says what of it is built.
 - **The MUD:** Scaffold Dynamics, running Evennia 6 in Docker, with the hub, the polysemy lab and
   the simulator. The simulator loads staged scenario sets (friend/foe v2, 250 scenarios) and
   Winter Survival; the agent plays through a control channel; visitors log in as guests and watch
@@ -229,7 +229,10 @@ A short tour of what exists on 2026-10-11. Each part's section says what of it i
   all 32 routing weights at every layer [DATA-11].
 - **Lenses:** UMAP lenses with k per layer, built and validated in the background; tuned lenses;
   lenses read on other captures; mass-mean lenses; node details, routes, the axes analysis; and an
-  LLM-written report for each, every number checked [LENS-2, LENS-3, LENS-17, LENS-43].
+  LLM-written report for each, every number checked [LENS-2, LENS-3, LENS-17, LENS-43]. Since
+  2026-10-16 they are scored with the four method changes: folds that keep each class's share,
+  decoys within each label value, a stricter line, and the tuning tested on several draws
+  [LENS-21, LENS-22, LENS-24; LENS-23 in part].
 - **The app:** two views, Layers (a lens across all 24 layers, with the cluster and expert Sankeys,
   3-D, lit paths, fingerprints, pipes and hubs, and the analysis panel) and Build (the lens form,
   preview, compare, validation, tuning, the axes analysis, mass-mean lenses), with the MUD terminal
@@ -409,6 +412,14 @@ app: they need no model, and Andrew is using the machine for other work [ORDER-2
 - each taxonomy match checked against the animal's common names [LENS-25]. Claude proposes running
   it first as a study script in the animal ontology's audit [LENS-27], then with the set audits in
   the builder [LENS-28].
+
+The first four were built on 2026-10-16, and every lens they affect was scored again by
+2026-10-20. Tested on five draws, tuning settings and k per layer gains little over the untuned
+lens: a median over the layers of 0.02 and 0.05 AMI on the tank and calibration sets, and nothing
+on the single words and the animals. The tuned lens is ahead on every draw at only 7 of 24 layers
+on the tank set and 3 on calibration (`docs/research/lens_core_validation.md`). The decoys keep
+the design's correlations that run through the label; keeping the others too waits (Claude's
+suggestion in `docs/RECOMMENDATIONS.md`).
 
 **What comes with each node and lens:**
 - the neurons behind each node, found by correlation [LENS-29];
@@ -1529,7 +1540,8 @@ What the design replaced, and with what:
   Survival after OpenLLMRI's roadmap (L36); the superseded documents archived (L32). Attention in
   the analysis reworked after his notes and a held-out test of a lens on attention's write, with
   four new cards (L35.1 to L35.4); his attention Sankey over the population recorded as an idea
-  [LENS-57]; Claude's first attention proposal withdrawn.
+  [LENS-57]; Claude's first attention proposal withdrawn. The four tuned lenses scored again on
+  five test draws, the last of the re-scoring after the method changes [LENS-21].
 
 ## Decision log {#decision-log}
 

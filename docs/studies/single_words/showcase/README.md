@@ -19,8 +19,10 @@ The runs behind the numbers are in `docs/research/single_words.md` (the single w
   families.
 - **The lens:** tuned on the category with whole families held out, k 4 to 10 per layer. Hue is
   the category and lightness the valence.
-- **Its score:** on one held-out family per category, its test AMI runs from 0.40 to 0.63
-  (peak L7). A logistic probe reaches 0.76 to 0.90 on the same families.
+- **Its score:** on one held-out family per category (the first of five test draws), its test
+  AMI across the 24 layers runs from 0.40 to 0.63 (peak L7). A logistic probe reaches 0.76 to
+  0.90 on the same families. Averaged over the five draws, which hold out every family once
+  (re-scored 2026-10-20), it runs from 0.39 to 0.62 (peak L7).
 - **Where it splits first** (cutting each layer's embedding into two):
   - concrete against abstract at L0 to L7;
   - food and animals against the rest at L8 to L17;
@@ -71,10 +73,15 @@ Single words route apart: the lens has 3 pipelines and 15 hubs (at L4 to L7). Th
 routed as one trunk.
 
 **G. Tuning on the tank set** (`tank-k5-n15-tuned`). Settings and k were searched per layer by
-held-out AMI, then scored on a test portion the search never saw.
+held-out AMI, then scored on a test portion the search never saw (the panel shows the first of
+five test draws).
 - **Against the untuned lens:** the tuned one is better at 15 layers and worse at 6 (median
   +0.02), and both peak at 0.57 (L11).
-- **On the words:** tuning gains as little (better at 10 layers, worse at 12, median −0.004).
+- **On the words:** tuning gains as little (better at 12 layers, worse at 12, median −0.004).
+- **Over five test draws** (re-scored 2026-10-20): averaged over the draws, the tank's tuned lens
+  is ahead at 18 layers (median +0.02), against 15 on the first draw alone. The first draw was a
+  favourable one: its tuned peak, 0.57 at L11, is 0.49 averaged over the five. On the words the
+  averaged tuned lens is behind at 16 layers and ahead at 8 (median −0.005).
 
 ## And the word inside a sentence
 

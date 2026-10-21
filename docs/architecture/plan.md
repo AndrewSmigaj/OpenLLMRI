@@ -14,15 +14,19 @@ built. What the software is for, and its requirements, are in
 
 ## Where we are {#where-we-are}
 
-**Now (2026-10-20): finishing the work that needs no model** [ORDER-20]. The four lens method
-changes are built, and every number they changed is corrected except for three of the four tuned
-lenses (the tank lens's is done), whose held-out test is being run again on five draws. Those runs
-go tonight, one at a time, through the
-lock that the projects sharing this computer use, and their write-ups follow. Andrew decided that
-the shares of each split written by attention and by the experts stay off the node card for now,
-and the question returns with slices 2 and 8 (L33); the code built for them is kept on a separate
-git branch [LENS-48]. The steps are under
+**Now (2026-10-20): the work that needs no model is done** [ORDER-20]. The four lens method
+changes are built (the decoys in part: they keep only the design's correlations that run through
+the label), and every number they changed is corrected, including the four tuned lenses' held-out
+tests, now run on five draws each. Averaged over the draws, tuning per layer gains little: a
+median over the layers of 0.02 and 0.05 AMI on the tank and calibration sets, and nothing on the
+single words and the animals. The steps are under
 [Work that needs no model](plan.md#phase-model-free).
+
+**Next** is the new app, whose revised plan waits for Andrew's yes (L38).
+
+**Who writes each split.** Andrew decided that the shares of each split written by attention and
+by the experts stay off the node card for now, and the question returns with slices 2 and 8
+(L33); the code built for them is kept on a separate git branch [LENS-48].
 
 **Attention in the analysis.** Andrew asked what attention adds, and whether the first proposal
 (L35) was useful; his own idea was an attention Sankey over the population [LENS-57]. Claude's
@@ -37,7 +41,7 @@ studies; the reworked cards are L35.1 to L35.4 [LENS-49, LENS-50, APP-35].
 
 | # | What | State |
 |---|---|---|
-| 1 | Finish the work that needs no model | attention's test done; of the four re-scores, the tank lens's is done and written up, the other three run one after another, then their write-ups |
+| 1 | Finish the work that needs no model | done 2026-10-20: attention's test, and the four re-scores written up |
 | 2 | The two documents | done; Andrew's review through the boxes (whether the new app waits for it: L38.1) |
 | 3 | The new app, room by room, starting with the institute's layout and its map | its revised plan waits for Andrew's yes (L38) |
 | 4 | Slice 2, capture and jobs | needs the GPU |
@@ -262,7 +266,7 @@ slices whenever today's tools can carry them [ORDER-14].
 | 10d | Slice 1c, animals, objects and tuning by hand | done 2026-10-09 |
 | 10f | The two documents | drafted; Andrew's review waiting |
 | — | The animal ontology study | done 2026-10-11, beside 10f |
-| 10g | Work that needs no model: the four method changes, and attention and the experts | **now**, finishing (moved ahead by Andrew, 2026-10-16) |
+| 10g | Work that needs no model: the four method changes, and attention and the experts | done 2026-10-20 (moved ahead by Andrew, 2026-10-16) |
 | — | The new app, room by room | next; its revised plan below (L38) |
 | 10e | Slice 2, capture and jobs | after the new app (numbered before 10f, then moved later by L21) |
 | — | Slices 3 to 11 | in order, each planned here when reached |
@@ -305,7 +309,7 @@ slices whenever today's tools can carry them [ORDER-14].
   - showcase: `docs/studies/animals/showcase/`;
   - afterwards, the read site was tested without code and kept at the last token [SET-6].
 
-### Now: work that needs no model (10g) {#phase-model-free}
+### Just done: work that needs no model (10g) {#phase-model-free}
 
 **Goal:** the four lens method changes built, and the attention-and-experts shares measured, while
 Andrew uses the machine for other work [ORDER-20, LENS-21 to LENS-24, LENS-30].
@@ -328,7 +332,7 @@ of the same items, and step 7's condition.
 | 2 | Folds (the parts of a capture held out in turn) that hold out whole domains, with each class about as common in every fold as overall [LENS-24] | done |
 | 3 | Decoys drawn within each label value, and a stricter line at half the best κ (Cohen's kappa, agreement beyond chance) a linear probe reaches [LENS-23, LENS-22] | done |
 | 4 | The tuning's test portion drawn several times (draws), and the tuned lenses re-scored [LENS-21] | done |
-| 5 | The affected lenses' validation, axes analysis and tuning run again, and every changed number corrected where it is cited | most done and corrected; the last four re-scores run on 2026-10-20 through the machine's shared queue, then their write-ups |
+| 5 | The affected lenses' validation, axes analysis and tuning run again, and every changed number corrected where it is cited | done: the last four re-scores ran on 2026-10-20 through the machine's shared queue, and are written up in the findings notes |
 | 6 | A study: the attention-and-experts shares, layer by layer, read against random splits of the same items (shuffled into groups of the same sizes) [LENS-30] | done |
 | 7 | If the study's checks hold: the shares in node details (shown on the node card), the split report card and the atlas [LENS-30] | not on the node card for now (Andrew, L33); the code is kept on the git branch `node-card-writers` [LENS-48] |
 

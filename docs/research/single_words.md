@@ -54,10 +54,25 @@ comes from the files listed at the end.
 | L22 | 15, 12-D | 10 | 0.55 | 0.65 | 0.55 | 0.63 | 0.81 |
 | L23 | 15, 12-D | 7 | 0.52 | 0.55 | 0.51 | 0.66 | 0.79 |
 
-- **Tuned against untuned:** on the test portion the tuned lens is better at 10 layers, worse at
-  12 and level at 2; the median difference is −0.004. The tuned lens peaks at 0.63 (L7), the
-  untuned one at 0.70 (L8). The winner led its best runner-up by less than 0.02 AMI at 22 of 24
-  layers. So settings matter as little here as on the tank and calibration sets.
+- **Tuned against untuned:** on the test portion the tuned lens is better at 12 layers and worse
+  at 12 (an earlier count treated differences within 0.005 as level: 10, 12 and 2); the median
+  difference, tuned minus untuned over the 24 layers, is −0.004. The tuned lens peaks at 0.63
+  (L7), the untuned one at 0.70 (L8). The winner led its best runner-up by less than 0.02 AMI at
+  22 of 24 layers. So settings matter as little here as on the tank and calibration sets.
+- **Re-scored on five test draws (2026-10-20):** the search was repeated on four more test
+  portions, each one other family per category (165 to 186 words), with the same grid, folds and
+  seed, so every family of every category serves in a test portion once. The first draw reproduces
+  the table exactly, and the tuned lens is unchanged.
+  - On a single draw the tuned lens is ahead at 9 to 12 layers and behind at 9 to 12, depending on
+    the draw; the median difference is −0.004 to +0.001.
+  - Averaged over the five draws, the tuned lens is behind the untuned one at 16 layers and ahead
+    at 8. The per-layer difference runs from −0.03 (L5) to +0.03 (L1); its median is −0.005. The
+    tuned lens is ahead on every draw only at L0, and behind on every draw only at L5.
+  - The peaks of the five-draw averages are 0.62 (L7) for the tuned lens and 0.63 (L5) for the
+    untuned one. The untuned lens's first-draw peak, 0.70 at L8, is 0.62 averaged over the five
+    draws.
+  - A layer's test AMI moves between draws by a median of 0.11. Raw-space Ward at the winner's k
+    averages more than the tuned lens at 8 layers; the logistic ceiling averages 0.77 to 0.87.
 - **The ceiling:** a logistic probe reaches 0.76 to 0.90 AMI on the same test families. The
   category is linearly there at every layer, well beyond what any grouping recovers.
 
@@ -237,7 +252,8 @@ Their reading agrees with this note's:
   125 for the other categories.
 - Abstract nouns carry derivational suffixes (27% of emotions, 22% of ideas); their trace in the
   nodes is measured above.
-- The test portion is one family per category; its scores are unbiased but rest on one draw.
+- The tuning's table rests on one test portion, one family per category. Since 2026-10-20 five
+  draws hold out every family once; the table quotes the first.
 
 ## Files
 

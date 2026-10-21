@@ -87,3 +87,18 @@ ledger:
       picked from descriptions with mean accuracy 0.88 against baselines of 0.70 to 0.85.
     status: proposed
     evidence: [docs/research/lens_core_validation.md]
+  - idea: Tuning settings and k per layer beats the untuned lens on held-out data.
+    experiment: >
+      tank-k5-n15 and calibration-q1-k2-n15 tuned (9 settings and k 2 to 10 at every layer, chosen
+      by held-out AMI on selection folds), then scored on five disjoint test draws the search never
+      saw (re-scored 2026-10-20; the first draw is the original test portion).
+    finding: >
+      Only by a little. Averaged over the five draws the tuned lens is ahead at 18 of 24 layers on
+      the tank set and 19 on calibration, by a median over the layers of 0.02 and 0.05 AMI, and
+      ahead on every draw at only 7 and 3 layers. Calibration's largest gains are at L21 and L22,
+      where the untuned lens's two nodes hardly follow the label; on three of calibration's five
+      draws the median difference is 0.00 or -0.01. A layer's test score moves between draws by a
+      median of 0.11 (tank) and 0.21 (calibration). The single words and the animals gain nothing
+      on average.
+    status: proposed
+    evidence: [docs/research/lens_core_validation.md, docs/research/single_words.md, docs/research/animals.md]

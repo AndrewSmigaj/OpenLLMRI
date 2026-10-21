@@ -827,3 +827,46 @@ study run beside it (`docs/research/animal_ontology_findings.md`).
 - **Found on the way:** the lens's space puts one-token and split names in separate clouds at L1,
   L2, L18 and L19 (the token count alone explains 93 to 98% of the distances there), which is why
   every share in the note is given as a part of what the token count and name length leave.
+
+## 2026-10-20 — Work that needs no model (10g): the method changes, attention and the re-scores
+
+**Scope**: Phase 10g, brought forward while the machine was shared (ORDER-20): the backend without
+the model (ARCH-13), the four method changes (LENS-21 to LENS-24), every affected lens scored
+again, and the attention-and-experts study; the findings notes say what changed.
+
+- **What the re-scoring changed:**
+  - **objects:** with folds that keep each class's share, a linear probe reads harmful, dual and
+    benign moderately on domains it never saw; the earlier "hardly, even linearly" came from
+    skewed folds (`docs/research/objects_harm.md`);
+  - **tuning:** tested on five test draws, tuning settings and k per layer gains little over the
+    untuned lens. The median over the layers of the five-draw average gain:
+    - tank +0.02 AMI, ahead on every draw at 7 of 24 layers;
+    - calibration +0.05, ahead on every draw at 3 (L0, L21, L22; at L21 and L22 the untuned
+      lens's two nodes hardly follow the label);
+    - single words −0.005 and animals −0.008.
+
+    On the tank set the first test draw was a favourable one: its tuned peak, 0.57 at L11, is 0.49
+    averaged over the five draws.
+- **Attention:** the shares of each split written by attention and by the experts stay off the
+  node card for now (L33; the code on the branch `node-card-writers`). A lens on what attention
+  writes paid in one capture of four (the framing set); the reworked proposal is L35.1 to L35.4.
+- **For his rulings, as cards:** L38 (the new app's plan) and L37 (how far the roadmap goes before
+  Winter Survival) on the plan page; L35.1 to L35.4 on the design page; the two documents' review.
+- **Needs his OK (settings and skills):** three files still point at folders and files now in
+  `docs/archive/`: CLAUDE.md and a hook in `.claude/settings.json` name the old `LLMud/` folder,
+  and the `/thorough-review` skill's example names `docs/architecturemud.md`.
+- **Suggestions, not built:**
+  - four folds instead of five for the objects set, since harmful objects sit in a few domains.
+    Measured before the build, with the assignment balancing training shares, the worst training
+    gap was 0.017 at four folds against 0.048 at five; the five folds in use, which balance the
+    held-out shares, have 0.04;
+  - decoys that also keep correlations that don't run through the label, such as the framing set's
+    scale with threat scope (0.92); today's decoys keep only the link to the label, so LENS-23 is
+    marked built in part;
+  - when a label has fewer families than the draws need, the later draws test families again (the
+    animals' fourth and fifth draws); the tuning view could say so beside the spread, as the record
+    does.
+- **Found on the way:** the tank re-score's note said raw-space Ward averages more than the tuned
+  lens at 14 layers; it is 15 (corrected). The single words' first count of tuned against untuned
+  treated differences within 0.005 as level (10 better, 12 worse, 2 level), unlike the other
+  notes; counted exactly it is 12 and 12 (corrected in the note, its ledger and its showcase).

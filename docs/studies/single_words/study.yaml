@@ -26,8 +26,10 @@ ledger:
       words).
     finding: >
       Test AMI 0.40 to 0.63, peaking at L7. The untuned lens (k 8 at every layer) peaks at 0.70
-      (L8), and tuning gains nothing on average (better at 10 layers, worse at 12). A logistic
-      probe reaches 0.76 to 0.90 on the same families.
+      (L8), and tuning gains nothing on average (better at 12 layers, worse at 12). A logistic
+      probe reaches 0.76 to 0.90 on the same families. Re-scored on five test draws that hold out
+      every family once (2026-10-20): averaged, tuning is behind at 16 layers and ahead at 8
+      (median -0.005); the tuned lens peaks at 0.62 (L7) and the untuned one at 0.63 (L5).
     status: proposed
     evidence: [docs/research/single_words.md]
   - idea: The levels above the category show in the lens's first split.

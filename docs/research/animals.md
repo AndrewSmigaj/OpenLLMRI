@@ -62,6 +62,25 @@ the files listed at the end, and was re-read from them at every layer it names.
 - **Tuned against untuned:** on the test portion the tuned lens is better at 10 layers and worse at
   14; the median difference is −0.003. Both peak at L6 (0.36). The winner led its runner-up by less
   than 0.02 AMI at 22 of 24 layers, so, as on the nouns, the settings matter little and k most.
+- **Re-scored on five test draws (2026-10-20):** the search was repeated on four more test portions
+  of whole orders (79 to 133 animals), with the same grid, folds and seed. The first draw
+  reproduces the table exactly, and the tuned lens is unchanged.
+  - Each draw holds out the same share of every group's orders, and several groups have too few
+    orders for five disjoint draws, so the later draws repeat orders: the fourth repeats the
+    amphibian order Gymnophiona (one animal), and the fifth repeats orders of six of the eight
+    groups (listed in `search.json`; 38 of its 103 animals were held out before, 31 of them in the
+    first draw).
+  - The difference below is the tuned lens's test AMI minus the untuned lens's on the same draw,
+    its median taken over the 24 layers. On a single draw the tuned lens is ahead at 10 to 14
+    layers and behind at 8 to 14, depending on the draw; the median difference is −0.003 to
+    +0.008.
+  - Averaged over the five draws, the tuned lens is behind the untuned one at 13 layers and ahead
+    at 11. The per-layer difference runs from −0.03 (L15) to +0.06 (L18); its median is −0.008.
+    The tuned lens is ahead on every draw at L18 to L20, where both lenses are weak (0.09 to 0.16
+    averaged), and behind on every draw at L12 and L15.
+  - The peaks of the five-draw averages are 0.37 for both, at L9 for the tuned lens and L6 for the
+    untuned one; each draw's tuned peak runs from 0.29 to 0.56, at L6 to L10. A layer's test AMI
+    moves between draws by a median of 0.18.
 - **The ceiling** (a logistic probe on the raw states, trained on the labels) reaches 0.48 to 0.88
   test AMI: the groups are far more separable than any unsupervised grouping finds them.
 

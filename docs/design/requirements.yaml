@@ -1366,7 +1366,7 @@ requirements:
     The tuning's test split is repeated over several draws, so a single small test portion isn't
     the whole honest score.
   status: decided
-  built: no
+  built: yes
   dates: [2026-10-11]
   source: L18.1
   from: [452]
@@ -1376,7 +1376,7 @@ requirements:
     A stricter line beside "beyond the decoys", such as half the kappa a linear probe reaches, since
     nearly every attribute passes the decoys.
   status: decided
-  built: no
+  built: yes
   dates: [2026-10-11]
   source: L18.2
   from: [452]
@@ -1385,7 +1385,7 @@ requirements:
   text: >-
     Decoys that keep the design's correlations, shuffled within each category.
   status: decided
-  built: no
+  built: partly
   dates: [2026-10-11]
   source: L18.3
   from: [452]
@@ -1394,7 +1394,7 @@ requirements:
   text: >-
     Folds that hold out whole domains but keep each class's share about equal in every fold.
   status: decided
-  built: no
+  built: yes
   dates: [2026-10-11]
   source: L18.4
   from: [452]
