@@ -3985,6 +3985,17 @@ requirements:
   source: L36; L36.1
   from: []
   section: plan.md#phases
+- id: ORDER-23
+  text: >-
+    The study of whether the UMAP lens beats raw-space groupings, across every capture, attribute
+    and crossed pair of attributes, is set aside until later in the order of work, its runs part done.
+    Placing it before the starter lens catalogue in slice 3 is Claude's proposal.
+  status: decided
+  built: no
+  dates: [2026-10-22]
+  source: message
+  from: []
+  section: plan.md#then
 # ---- Claude's final read of 2026-10-07, and the open question ----
 - id: DOC-17
   text: >-

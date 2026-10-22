@@ -24,6 +24,13 @@ single words and the animals. The steps are under
 
 **Next** is the new app, whose revised plan waits for Andrew's yes (L38).
 
+**Set aside for later: does the UMAP lens beat raw space?** Andrew prefers UMAP once it holds up
+as a classifier against raw-space groupings [PRIN-5]. On the label alone, validation shows it
+hasn't won so far. On 2026-10-22 a study began to ask the same of every attribute and every
+pair of attributes that cross, the combinations UMAP should keep best. Andrew set it aside until
+later in the order of work, with its runs part done [ORDER-23]. Its plan and how to resume are in
+`docs/studies/umap_vs_raw/`.
+
 **Who writes each split.** Andrew decided that the shares of each split written by attention and
 by the experts stay off the node card for now, and the question returns with slices 2 and 8
 (L33); the code built for them is kept on a separate git branch [LENS-48].
@@ -499,6 +506,8 @@ Each is planned in detail here when it is reached [DOC-9].
   no model [ORDER-20].
 - **Slice 3, the builder for sets and scenarios** [ORDER-8, BUILD-1 to BUILD-7]:
   - its audits and critic [SET-30, LLM-9];
+  - the study of whether the UMAP lens beats raw space, finished first, since the catalogue's
+    lenses rest on the answer (Claude's placement) [ORDER-23, PRIN-5];
   - then the starter lens catalogue [GOAL-15];
   - later, editing studies' designs [BUILD-4].
 - **Slice 4, agents in scenarios** [ORDER-9, ORDER-10]. Claude proposes starting with the reasoning
@@ -927,6 +936,8 @@ The plan's own decisions, by date. The design's decisions are in its
   for the institute's layout, polishing passes with a map, the robot, perhaps out-of-service
   stairs, characters for the non-player characters and iterations on the descriptions (L31), and
   revised as L38 [ROOM-19, MUD-29 to MUD-31].
+- **2026-10-22:** the study of whether the UMAP lens beats raw space set aside until later in the
+  order of work, before the starter lens catalogue (Claude's placement) [ORDER-23].
 
 ## Risks {#risks}
 

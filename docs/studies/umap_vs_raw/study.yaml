@@ -1,0 +1,40 @@
+# Whether the UMAP lens earns its place over raw space (DESIGN.md C4; PRIN-5): a method study on the
+# lenses built so far. Set aside on 2026-10-22 until later in the order of work (ORDER-23), with its runs
+# part done: the held-out groupings of framing (all 24 layers) and of the ontology capture
+# (L00 to L11) are in data/lake/_studies/umap_vs_raw/. To resume, run
+#   .venv/bin/python docs/studies/umap_vs_raw/analysis/heldout.py <capture> 4
+# for ontology, words, tank, objects and calibration (each under `mlock heavy`; finished layers are
+# skipped), then summary.py and figures.py, and write the findings note. A check on framing L20 and
+# objects L7 reproduced the lenses' stored validation exactly (every k, both raw groupings).
+id: umap_vs_raw
+title: Does the UMAP lens beat raw space?
+question: >
+  UMAP is preferred once it holds up as a classifier against raw-space groupings. Validation has
+  compared them on the label alone, where the UMAP lens hasn't won. Held out on the same folds and
+  at the same number of groups, does the UMAP lens recover the other designed attributes, and pairs
+  of attributes that cross, better than raw Ward and raw spectral groupings?
+status: proposed
+started: 2026-10-22
+sets:
+  - tank_polysemy_v3
+  - tank_q1_calibration_v1
+  - threatened_framing_v1_carrier
+  - nouns_meaning_feeling_v1
+  - animals_ontology_v1
+  - objects_harm_v1
+captures:
+  - session_1434a9be
+  - session_29a80932
+  - session_673360a5
+  - session_8f536bea
+  - session_5cd7091d
+  - session_2be574c4
+lenses:
+  - session_1434a9be/tank-k5-n15
+  - session_29a80932/calibration-q1-k2-n15
+  - session_673360a5/framing-k4-auto-levels
+  - session_8f536bea/words-k8-n15
+  - session_5cd7091d/onto-k8-n15
+  - session_2be574c4/objects-k3-n15
+findings: []
+ledger: []
