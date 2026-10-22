@@ -3987,9 +3987,10 @@ requirements:
   section: plan.md#phases
 - id: ORDER-23
   text: >-
-    The study of whether the UMAP lens beats raw-space groupings, across every capture, attribute
-    and crossed pair of attributes, is set aside until later in the order of work, its runs part done.
-    Placing it before the starter lens catalogue in slice 3 is Claude's proposal.
+    The study of whether the UMAP lens beats raw-space groupings is set aside until later in the
+    order of work; its runs are part done. Its scope (every capture, every attribute and every pair
+    of attributes that cross) was Claude's proposal, which Andrew accepted, and placing it before
+    the starter lens catalogue in slice 3 is Claude's proposal.
   status: decided
   built: no
   dates: [2026-10-22]
