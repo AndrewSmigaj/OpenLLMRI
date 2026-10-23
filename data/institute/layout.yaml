@@ -1,0 +1,232 @@
+# The institute's layout (ROOM-16): its floors, departments, rooms, exits, and where the non-player
+# characters stand. The app draws the institute's map from this file, and the MUD will build the
+# institute from it, so a polishing pass changes only this file (ROOM-19).
+#
+# Claude's first draft (2026-10-22), from the first map on the design page, the starting point for
+# Andrew's polishing passes (L38.2). The landings, where the stairs arrive on each upper floor, are
+# Claude's addition: a MUD needs a room for the stairs to arrive in.
+#
+# Positions: each room has a place on its floor's grid, `at: [column, row]`, with columns running
+# east and rows running south. Exits follow the grid: north, south, east, west and the four
+# diagonals lead to the next place in that direction, and up and down lead to another floor. Every
+# exit has its way back. `closed` lists the exits out of service, with what a player is told.
+# `opens` names the app room a room opens (none: the room is in the MUD only).
+
+version: 1
+
+floors:
+  - id: ground
+    name: Ground floor
+    note: open to visitors
+  - id: first
+    name: First floor
+    note: the shared research rooms
+  - id: second
+    name: Second floor
+    note: the departments
+  - id: third
+    name: Third floor
+    note: closed, kept for what the AI scientists open when they redesign the institute
+    closed: true
+
+departments:
+  - id: linguistics
+    name: Linguistics
+  - id: mech_interp
+    name: General mechanistic interpretability
+  - id: alignment
+    name: Alignment
+  - id: discordant
+    name: Discordant studies
+
+rooms:
+  # ---- Ground floor: open to visitors ----
+  - id: entrance_hall
+    name: Entrance hall
+    floor: ground
+    at: [1, 1]
+    opens: entrance
+    summary: >-
+      Where everyone arrives: the greeter, the map of the institute and the quick-jump box.
+    exits: {northwest: public_sim_1, north: public_sim_2, northeast: public_sim_3, west: lounge,
+            east: library, up: first_landing}
+    characters:
+      - id: greeter
+        name: The greeter
+        note: >-
+          An AI with a form, who meets visitors and points them to the rooms. Its character is
+          written with the new app; its mind comes with the AI scientists (slice 11).
+  - id: public_sim_1
+    name: Public simulation room 1
+    floor: ground
+    at: [0, 0]
+    opens: simulation
+    summary: Visitors play Winter Survival; researchers watch, or start agent runs.
+    exits: {southeast: entrance_hall}
+  - id: public_sim_2
+    name: Public simulation room 2
+    floor: ground
+    at: [1, 0]
+    opens: simulation
+    summary: Visitors play Winter Survival; researchers watch, or start agent runs.
+    exits: {south: entrance_hall}
+  - id: public_sim_3
+    name: Public simulation room 3
+    floor: ground
+    at: [2, 0]
+    opens: simulation
+    summary: Visitors play Winter Survival; researchers watch, or start agent runs.
+    exits: {southwest: entrance_hall}
+  - id: lounge
+    name: Lounge
+    floor: ground
+    at: [0, 1]
+    summary: A place to spend time and talk, with people and with the AIs. It has no tools.
+    exits: {east: entrance_hall}
+  - id: library
+    name: Library
+    floor: ground
+    at: [2, 1]
+    opens: library
+    summary: >-
+      The sentence sets with their guides and audits, the scenario sets, the captures and the saved
+      lenses; later the builder for sets and scenarios.
+    exits: {west: entrance_hall}
+
+  # ---- First floor: the shared research rooms ----
+  - id: first_landing
+    name: First-floor landing
+    floor: first
+    at: [1, 1]
+    summary: Where the stairs arrive, between the shared research rooms.
+    exits: {northwest: observatory, north: lens_workshop, northeast: studies_room, east: meeting_room,
+            down: entrance_hall, up: second_landing}
+  - id: observatory
+    name: Observatory
+    floor: first
+    at: [0, 0]
+    opens: observatory
+    summary: >-
+      Read a lens across its layers: the Sankeys, the 3-D view, members, the output table,
+      pipelines and hubs, fingerprints, node details and the analysis panel.
+    exits: {southeast: first_landing}
+  - id: lens_workshop
+    name: Lens workshop
+    floor: first
+    at: [1, 0]
+    opens: workshop
+    summary: >-
+      Make and judge lenses: the form, the preview, comparisons, validation, tuning, the axes and
+      mass-mean lenses.
+    exits: {south: first_landing}
+  - id: studies_room
+    name: Studies room
+    floor: first
+    at: [2, 0]
+    opens: studies
+    summary: >-
+      Every study: its question, sets, captures, lenses, findings, ledger, status, showcase and the
+      department that holds it.
+    exits: {southwest: first_landing}
+  - id: meeting_room
+    name: Meeting room
+    floor: first
+    at: [2, 1]
+    opens: meeting
+    summary: >-
+      Where the AIs meet, mainly to add to the paradigm; their agenda and record come with the AI
+      scientists (slice 11).
+    exits: {west: first_landing}
+
+  # ---- Second floor: the departments ----
+  - id: second_landing
+    name: Second-floor landing
+    floor: second
+    at: [2, 2]
+    summary: Where the stairs arrive, with a department on each side.
+    exits: {north: alignment, west: linguistics, east: mech_interp, south: discordant,
+            down: first_landing}
+    closed:
+      up: The stairs up are out of service.
+  - id: linguistics
+    name: Linguistics
+    floor: second
+    at: [1, 2]
+    department: linguistics
+    opens: department
+    summary: >-
+      The linguistics department and the polysemy lab: its studies, its boards and its AI
+      scientists.
+    exits: {east: second_landing, west: linguistics_sim}
+    characters:
+      - id: linguistics_scientists
+        name: The linguistics AI scientists
+        note: Written with the new app (step 4); their minds come with slice 11.
+  - id: linguistics_sim
+    name: Linguistics simulation room
+    floor: second
+    at: [0, 2]
+    department: linguistics
+    opens: simulation
+    summary: The department's own simulation room.
+    exits: {east: linguistics}
+  - id: mech_interp
+    name: General mechanistic interpretability
+    floor: second
+    at: [3, 2]
+    department: mech_interp
+    opens: department
+    summary: The department of general mechanistic interpretability, with its studies and boards.
+    exits: {west: second_landing, east: mech_interp_sim}
+    characters:
+      - id: mech_interp_scientists
+        name: The mechanistic interpretability AI scientists
+        note: Written with the new app (step 4); their minds come with slice 11.
+  - id: mech_interp_sim
+    name: Mechanistic interpretability simulation room
+    floor: second
+    at: [4, 2]
+    department: mech_interp
+    opens: simulation
+    summary: The department's own simulation room.
+    exits: {west: mech_interp}
+  - id: alignment
+    name: Alignment
+    floor: second
+    at: [2, 1]
+    department: alignment
+    opens: department
+    summary: The alignment department, with its studies and boards.
+    exits: {south: second_landing, north: alignment_sim}
+    characters:
+      - id: alignment_scientists
+        name: The alignment AI scientists
+        note: Written with the new app (step 4); their minds come with slice 11.
+  - id: alignment_sim
+    name: Alignment simulation room
+    floor: second
+    at: [2, 0]
+    department: alignment
+    opens: simulation
+    summary: The department's own simulation room.
+    exits: {south: alignment}
+  - id: discordant
+    name: Discordant studies
+    floor: second
+    at: [2, 3]
+    department: discordant
+    opens: department
+    summary: The department of discordant studies, with its studies, its boards and later Ideas.
+    exits: {north: second_landing, south: discordant_sim}
+    characters:
+      - id: discordant_scientists
+        name: The discordant studies AI scientists
+        note: Written with the new app (step 4); their minds come with slice 11.
+  - id: discordant_sim
+    name: Discordant studies simulation room
+    floor: second
+    at: [2, 4]
+    department: discordant
+    opens: simulation
+    summary: The department's own simulation room.
+    exits: {north: discordant}

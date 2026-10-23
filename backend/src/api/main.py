@@ -38,6 +38,7 @@ from api.routers import (
     commands,
     generation,
     insights,
+    institute,
     jobs,
     lenses,
     probes,
@@ -95,6 +96,7 @@ app.include_router(analysis.router, prefix="/api")
 app.include_router(commands.router, prefix="/api")
 app.include_router(atlas.router, prefix="/api")
 app.include_router(studies.router, prefix="/api")
+app.include_router(institute.router, prefix="/api")
 
 @app.get("/")
 async def root() -> Dict[str, str]:

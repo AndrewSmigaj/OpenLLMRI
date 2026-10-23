@@ -733,8 +733,9 @@ on 2026-10-20):
   gpt-oss-20b itself, such as a steering vector or a scaffold; and, as a nice-to-have, work that
   crosses departments and may call for specialists, such as planning scaffolds with people or
   without them [MUD-27];
-- **a robot** [MUD-29], and perhaps **out-of-service stairs** [MUD-30]; what each would be is
-  asked in L38.3 and L38.4, on the plan page;
+- **the greeter is an AI with a form,** not called a robot (L38.3, 2026-10-22) [MUD-29];
+- **out-of-service stairs** lead to a closed floor, kept for what the AI scientists open when they
+  redesign the institute (L38.4, 2026-10-22) [MUD-30];
 - **characters for the non-player characters,** built in the MUD (Andrew's suggestion) [MUD-31];
 - **polishing passes:** a couple of passes over the layout before building begins, with a map of
   the institute in the app; then iterations to improve the room descriptions [ROOM-19];
@@ -779,14 +780,16 @@ rooms [ROOM-1, MUD-13].
 3. with hosting [MUD-20] and the Winter Survival pilot: public play, one Winter Survival world per
    public simulation room.
 
-Claude proposes, with the new app's plan (L38), writing the non-player characters and placing them
-in their rooms in the first stage, so visitors can look at them and read about them, with their
-minds coming in the second [MUD-31].
+With the new app's plan (Claude's timing, approved by Andrew on 2026-10-22, L38), the non-player
+characters are written and placed in their rooms in the first stage, so visitors can look at them
+and read about them; their minds come in the second [MUD-31].
 
 **A first map** (Claude's draft, the starting point for the polishing passes). Visitors stay on the
 ground floor; the research rooms are upstairs; the stairs to the floor above the departments are
-out of service, which would leave room for what the AI scientists later decide the institute needs
-(if that is what the stairs are for: L38.4). The stairs rise from the entrance hall.
+out of service, leaving room for what the AI scientists later decide the institute needs (L38.4).
+The stairs rise from the entrance hall. The polishing passes start from this map (L38.2): its first
+layout file is `data/institute/layout.yaml`, drawn in the app's Institute tab, which adds a landing
+on each upper floor for the stairs to arrive in (Claude's addition) [ROOM-16, ROOM-19].
 
 ```mermaid
 flowchart BT
@@ -819,10 +822,11 @@ flowchart BT
   F2 -. "stairs out of service" .- F3
 ```
 
-**The layout is data** (Claude's proposal): the institute is built from one file listing its
-departments and rooms, as the lab presets are today (`data/labs/`). A department or a room can then
-be added, renamed or moved without changing code; the AI scientists will need this to redesign the
-institute [ROOM-16, MUD-28]. Each study names its department in its `study.yaml`.
+**The layout is data** (Claude's proposal, approved with the new app's plan, L38): the institute is
+built from one file listing its departments and rooms, as the lab presets are today
+(`data/labs/`). A department or a room can then be added, renamed or moved without changing code;
+the AI scientists will need this to redesign the institute [ROOM-16, MUD-28]. Each study names its
+department in its `study.yaml`.
 
 **How rooms work** (Claude's proposal):
 - **one room in the MUD for each:** walking there in the MUD opens it in the app, and choosing it
@@ -1542,6 +1546,10 @@ What the design replaced, and with what:
   four new cards (L35.1 to L35.4); his attention Sankey over the population recorded as an idea
   [LENS-57]; Claude's first attention proposal withdrawn. The four tuned lenses scored again on
   five test draws, the last of the re-scoring after the method changes [LENS-21].
+- **2026-10-22:** Andrew's answers to L38 and L37 written in: the new app's plan approved and
+  started; the greeter an AI with a form; the stairs to a closed floor; the polishing passes from
+  Claude's first map, whose layout file and map are built; Winter Survival after slice 6. The study
+  of whether the UMAP lens beats raw space set aside [ORDER-23].
 
 ## Decision log {#decision-log}
 
@@ -1650,3 +1658,11 @@ Every decision, by date, paraphrased. Each requirement holds its own date and so
     characters for the non-player characters [MUD-30, MUD-31];
   - Winter Survival waits for OpenLLMRI's roadmap [ORDER-22]; the superseded documents are archived
     [DOC-19].
+- **2026-10-22:**
+  - the new app's plan approved and started at once, the documents' review going on alongside
+    [ORDER-24]; the layout as data, and characters for the non-player characters with the new app
+    [ROOM-16, MUD-31];
+  - the greeter is an AI with a form, not called a robot; the out-of-service stairs lead to a closed
+    floor; the polishing passes start from Claude's first map [MUD-29, MUD-30, ROOM-19];
+  - Winter Survival after slice 6, which Andrew left to Claude [ORDER-22]; the study of whether the
+    UMAP lens beats raw space set aside until later in the order of work [ORDER-23].

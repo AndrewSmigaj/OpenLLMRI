@@ -3170,29 +3170,33 @@ requirements:
   section: design.md#rooms
 - id: MUD-29
   text: >-
-    The institute has a robot (what it does: L38.3).
+    The greeter is an AI with a form, who meets visitors in the entrance hall; it isn't called a
+    robot (L38.3).
   status: decided
-  built: no
-  dates: [2026-10-20]
-  source: L31
+  built: partly
+  dates: [2026-10-20, 2026-10-22]
+  source: L31; L38.3
   from: []
   section: design.md#rooms
 - id: MUD-30
   text: >-
-    Perhaps the institute has out-of-service stairs (what they would mean: L38.4).
-  status: idea
-  built: no
-  dates: [2026-10-20]
-  source: L31
+    The institute has out-of-service stairs, leading to a closed floor kept for what the AI
+    scientists open when they redesign the institute (L38.4).
+  status: decided
+  built: partly
+  dates: [2026-10-20, 2026-10-22]
+  source: L31; L38.4
   from: []
   section: design.md#rooms
 - id: MUD-31
   text: >-
-    Andrew suggests characters for the institute's non-player characters, built in the MUD.
-  status: idea
-  built: no
-  dates: [2026-10-20]
-  source: L31
+    Characters for the institute's non-player characters, built in the MUD (Andrew's suggestion):
+    written and placed in their rooms with the new app, their minds coming with slice 11 (the
+    timing is Claude's, approved with the new app's plan, L38).
+  status: decided
+  built: partly
+  dates: [2026-10-20, 2026-10-22]
+  source: L31; L38
   from: []
   section: design.md#rooms
 
@@ -3977,12 +3981,13 @@ requirements:
 - id: ORDER-22
   text: >-
     Winter Survival waits for OpenLLMRI's roadmap: building it will take several days, so Andrew
-    wants everything else needed done first, and the order of work is kept (how far the roadmap
-    goes before it: L37).
+    wants everything else needed done first, and the order of work is kept. Asking that the whole
+    roadmap be done, Andrew left to Claude how far it goes before Winter Survival (L37); Claude
+    keeps the order: after slice 6.
   status: decided
   built: no
-  dates: [2026-10-20]
-  source: L36; L36.1
+  dates: [2026-10-20, 2026-10-22]
+  source: L36; L36.1; L37
   from: []
   section: plan.md#phases
 - id: ORDER-23
@@ -3997,6 +4002,16 @@ requirements:
   source: message
   from: []
   section: plan.md#then
+- id: ORDER-24
+  text: >-
+    The new app starts once its plan is approved, with the review of the two documents going on
+    alongside; what the review changes reaches the rooms as they are built (L38.1).
+  status: decided
+  built: partly
+  dates: [2026-10-22]
+  source: L38.1
+  from: []
+  section: plan.md#the-new-app
 # ---- Claude's final read of 2026-10-07, and the open question ----
 - id: DOC-17
   text: >-
@@ -4206,10 +4221,10 @@ requirements:
     institute from it, as the lab presets are today, so a department or a room can be added,
     renamed or moved without changing code (what MUD-28 needs); each study names its department in
     its study.yaml.
-  status: proposed
-  built: no
-  dates: [2026-10-18]
-  source: Claude
+  status: decided
+  built: partly
+  dates: [2026-10-18, 2026-10-22]
+  source: Claude; approved with the new app's plan (L38)
   from: []
   section: design.md#rooms
 - id: ROOM-17
@@ -4240,11 +4255,12 @@ requirements:
 - id: ROOM-19
   text: >-
     A couple of polishing passes over the institute's layout before building begins, with a map of
-    the institute in the app; then iterations to improve the room descriptions.
+    the institute in the app, starting from Claude's first map (L38.2); then iterations to improve
+    the room descriptions.
   status: decided
-  built: no
-  dates: [2026-10-20]
-  source: L31; L34
+  built: partly
+  dates: [2026-10-20, 2026-10-22]
+  source: L31; L34; L38.2
   from: []
   section: design.md#rooms
 
@@ -4359,21 +4375,21 @@ requirements:
     until they are removed; the chart code (Sankey options, expert order, colour maths, lit paths, the
     3-D layout, exports) moves over with its unit tests; styles come from design tokens (CSS
     variables), one accent set per room.
-  status: proposed
+  status: decided
   built: no
-  dates: [2026-10-11]
-  source: Claude
+  dates: [2026-10-11, 2026-10-22]
+  source: Claude; approved with the new app's plan (L38)
   from: []
   section: plan.md#the-new-app
 - id: ARCH-11
   text: >-
     A small kit of accessible controls (buttons, toggles, sliders, tabs, folding panels, popovers,
-    the details panel) on headless primitives from Radix UI, styled with the design tokens, instead of
-    building keyboard and screen-reader support by hand.
-  status: proposed
+    the details panel) on headless primitives, styled with the design tokens, instead of building
+    keyboard and screen-reader support by hand; Radix UI as the primitives is Claude's choice.
+  status: decided
   built: no
-  dates: [2026-10-11]
-  source: Claude
+  dates: [2026-10-11, 2026-10-22]
+  source: Claude; approved with the new app's plan (L38)
   from: []
   section: plan.md#the-new-app
 - id: ARCH-12
@@ -4381,10 +4397,10 @@ requirements:
     Moving rooms both ways: the MUD's room_entered already moves the app; a new control-channel
     message from the app (move to a room) moves the player's character, and the institute gains a
     room for each app room.
-  status: proposed
+  status: decided
   built: no
-  dates: [2026-10-11]
-  source: Claude
+  dates: [2026-10-11, 2026-10-22]
+  source: Claude; approved with the new app's plan (L38)
   from: []
   section: plan.md#the-new-app
 - id: ARCH-13

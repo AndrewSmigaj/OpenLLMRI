@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Navigate, Route, Routes, useLocation } from 'r
 import MUDApp from './pages/MUDApp'
 import LayersWorkspace from './pages/LayersWorkspace'
 import BuildWorkspace from './pages/BuildWorkspace'
+import InstituteWorkspace from './pages/InstituteWorkspace'
 import './App.css'
 
 // Any other address opens Layers, keeping the view it names
@@ -18,6 +19,7 @@ function App() {
           <Route index element={<ToLayers />} />
           <Route path="layers" element={<LayersWorkspace />} />
           <Route path="build" element={<BuildWorkspace />} />
+          <Route path="institute" element={<InstituteWorkspace />} />
           <Route path="*" element={<ToLayers />} />
         </Route>
       </Routes>

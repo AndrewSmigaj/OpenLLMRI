@@ -14,7 +14,7 @@ built. What the software is for, and its requirements, are in
 
 ## Where we are {#where-we-are}
 
-**Now (2026-10-20): the work that needs no model is done** [ORDER-20]. The four lens method
+**Done (2026-10-20): the work that needs no model** [ORDER-20]. The four lens method
 changes are built (the decoys in part: they keep only the design's correlations that run through
 the label), and every number they changed is corrected, including the four tuned lenses' held-out
 tests, now run on five draws each. Averaged over the draws, tuning per layer gains little: a
@@ -22,7 +22,11 @@ median over the layers of 0.02 and 0.05 AMI on the tank and calibration sets, an
 single words and the animals. The steps are under
 [Work that needs no model](plan.md#phase-model-free).
 
-**Next** is the new app, whose revised plan waits for Andrew's yes (L38).
+**Now (2026-10-22): the new app, step 1.** Andrew approved its plan (L38), and it started at
+once, with his review of the two documents going on alongside [ORDER-24]. The layout file
+(`data/institute/layout.yaml`) and the map drawn from it in the app (its Institute tab) are built;
+the polishing passes over the map with Andrew come next [ROOM-16, ROOM-19]. The steps are under
+[The new app](plan.md#the-new-app).
 
 **Set aside for later: does the UMAP lens beat raw space?** Andrew prefers UMAP once it holds up
 as a classifier against raw-space groupings [PRIN-5]. On the label alone, validation shows it
@@ -50,14 +54,14 @@ studies; the reworked cards are L35.1 to L35.4 [LENS-49, LENS-50, APP-35].
 | # | What | State |
 |---|---|---|
 | 1 | Finish the work that needs no model | done 2026-10-20: attention's test, and the four re-scores written up |
-| 2 | The two documents | done; Andrew's review through the boxes (whether the new app waits for it: L38.1) |
-| 3 | The new app, room by room, starting with the institute's layout and its map | its revised plan waits for Andrew's yes (L38) |
+| 2 | The two documents | done; Andrew's review through the boxes goes on alongside the new app (L38.1) |
+| 3 | The new app, room by room, starting with the institute's layout and its map | started 2026-10-22: the layout file and its map built; the polishing passes next |
 | 4 | Slice 2, capture and jobs | needs the GPU |
 | 5 | Slice 3, the builder for sentence sets and scenarios | |
 | 6 | Slice 4, agents in scenarios | |
 | 7 | Slice 5, time on sentence runs | |
 | 8 | Slice 6, the atlas's second version | |
-| 9 | Slice 7, the Winter Survival pilot | after the roadmap (L36); how much of it comes first: L37 |
+| 9 | Slice 7, the Winter Survival pilot | after slice 6 (L37: Andrew left the choice to Claude, who kept the order; all of it gets done) [ORDER-22] |
 | 10 | Slices 8 to 11: interventions, layer transitions, a second model, the paradigm and the AI scientists | |
 
 A slice is one stage of the roadmap that adds a usable piece of the software. Each step is planned
@@ -67,98 +71,16 @@ in detail here when it is reached [DOC-9]; the phases below hold the plans.
 capture work.
 
 **What needs Andrew:**
-- **L38,** the new app's plan, revised for his note on L31, with four short questions (when it starts,
-  the first map, the robot, the stairs), and **L37,** how far the roadmap goes before Winter
-  Survival: cards among [this document's decisions](plan.md#decisions-needed);
+- the polishing passes over the institute's map: the Institute tab in the app, drawn from
+  `data/institute/layout.yaml` [ROOM-19];
 - **L35,** attention in the analysis, reworked into four parts after his questions and a test:
   among [the design's decisions](design.md#decisions-needed);
 - the two documents' review, section by section, through the boxes under each section.
 
 ## Decisions needed {#decisions-needed}
 
-### L38. The new app's plan, revised [Open]
-
-*Revised on 2026-10-20, after Andrew's note on the first version (L31).* The plan is under
-[The new app](plan.md#the-new-app). What changed:
-- **the institute's rooms as approved in L34:** the entrance hall with the greeter, public
-  simulation rooms (about three, as Andrew suggested), the four departments each with its own
-  simulation room and boards, the shared research rooms, the lounge and the meeting room
-  [ROOM-1, MUD-23 to MUD-28];
-- **the layout first:** one layout file, a map of the institute in the app drawn from it, and a
-  couple of polishing passes over the map with Andrew before building begins [ROOM-19]. The design page
-  has Claude's [first map](design.md#rooms) to start from;
-- **the robot, and perhaps out-of-service stairs,** go into the layout (what each would be: L38.3
-  and L38.4) [MUD-29, MUD-30];
-- **characters for the non-player characters** (Andrew's suggestion; the timing is Claude's): the
-  greeter and each department's AI scientists get a character written for them and are placed in
-  their rooms with the rest of the layout; their minds come with slice 11 [MUD-31, ROOM-18];
-- **iterations on the room descriptions** after the layout passes [ROOM-19].
-
-The rest stands: the rooms are new pages inside today's frontend, so the chart code carries over
-with its tests; every room is walked against the checklist of every current feature; the current
-app is removed afterwards, with a deletion list for Andrew's yes. The plan changes code in the
-frontend and in the MUD, so approving it is the go-ahead for those changes [WAY-1].
-
-- ( ) Approve the plan, which lets Claude change the frontend and the MUD for it (recommended)
-- ( ) Change it (say what in the note)
-- ( ) Other
-
-#### L38.1. When it starts [Open]
-
-The first plan started the new app after Andrew's review of the two documents. Most of the
-documents don't touch the rooms, and the rooms' parts were reviewed in L30 and L34. Starting now,
-the review goes on alongside, and anything it changes reaches the rooms as they are built.
-
-- ( ) Start once the plan is approved; the review goes on alongside, and what it changes reaches the rooms as they are built (recommended)
-- ( ) Start after the review of both documents: nothing is built until it is done
-- ( ) Other
-
-#### L38.2. The first map [Open]
-
-Claude's [first map](design.md#rooms) puts the visitors' rooms on the ground floor (the entrance
-hall, the three public simulation rooms, the lounge and the library), the shared research rooms and
-the meeting room on the first floor, the four departments on the second, and a closed third floor
-behind the out-of-service stairs.
-
-- ( ) Start the polishing passes from this map (recommended)
-- ( ) Start from my own sketch, and the map waits for it (describe it in the note)
-- ( ) Other
-
-#### L38.3. The robot [Open]
-
-Andrew's L30 answer has an AI greeting visitors, and his note adds a robot. As the greeter, the
-robot would welcome visitors in the entrance hall, point them to the rooms and answer questions
-about the institute; its mind comes with the AI scientists (slice 11).
-
-- ( ) The greeter is the robot: it meets visitors in the entrance hall (recommended)
-- ( ) A robot besides the greeter (say what it does in the note)
-- ( ) Other
-
-#### L38.4. The out-of-service stairs [Open]
-
-- ( ) They lead to a closed floor, kept for what the AI scientists open later when they redesign the institute [MUD-28] (recommended)
-- ( ) Atmosphere only: a closed stairwell with a sign
-- ( ) Other
-
-### L37. How far the roadmap goes before Winter Survival [Open]
-
-Andrew kept the order (L36): Winter Survival waits for OpenLLMRI's roadmap, since building it takes
-several days and he wants everything else needed done first [ORDER-22]. In the order of work,
-its pilot is slice 7 [ORDER-12, ORDER-13]:
-- before it, slices 2 to 6: capture and jobs, the builder, agents in scenarios, time on sentence
-  runs, and the atlas's second version;
-- after it, slices 8 to 11: interventions, layer transitions, a second model, and the paradigm
-  with the AI scientists.
-
-"After the roadmap" could mean after slice 6 or after slice 11.
-
-By the end of slice 6, everything agents need to play Winter Survival under the instrument is in
-place: capture of every step, agents in scenarios with Watch, and readings over time. Slices 8 to 11
-don't touch the world.
-
-- ( ) After slice 6, as the order has it (recommended)
-- ( ) After the whole roadmap, slices 8 to 11 included
-- ( ) Other
+None is open on this page. The design page has one: L35, attention in the analysis, in four
+parts, among [the design's decisions](design.md#decisions-needed).
 
 ## How we work {#how-we-work}
 
@@ -275,7 +197,7 @@ slices whenever today's tools can carry them [ORDER-14].
 | 10f | The two documents | drafted; Andrew's review waiting |
 | — | The animal ontology study | done 2026-10-11, beside 10f |
 | 10g | Work that needs no model: the four method changes, and attention and the experts | done 2026-10-20 (moved ahead by Andrew, 2026-10-16) |
-| — | The new app, room by room | next; its revised plan below (L38) |
+| — | The new app, room by room | started 2026-10-22 (L38); its plan below |
 | 10e | Slice 2, capture and jobs | after the new app (numbered before 10f, then moved later by L21) |
 | — | Slices 3 to 11 | in order, each planned here when reached |
 
@@ -414,9 +336,11 @@ documents are the source of truth.
 | S4 | The three measures (neighbours beyond chance, held out, each way's own share), within each token count, in raw space and the lens's space, with figures [WAY-16] | done |
 | S5 | A findings note, the study's ledger, a figure | done: `docs/research/animal_ontology_findings.md` |
 
-### Next: the new app, room by room {#the-new-app}
+### Now: the new app, room by room {#the-new-app}
 
-*Revised on 2026-10-20 for Andrew's note on L31 and his answers to L34; for his yes: L38.*
+*Revised on 2026-10-20 for Andrew's note on L31 and his answers to L34; approved by Andrew on
+2026-10-22 (L38) and started the same day, his review of the two documents going on alongside
+[ORDER-24].*
 
 **Goal:** the app rebuilt as the institute's rooms, doing everything today's app does, with the
 institute's layout polished on a map before anything is built; then the current app retires
@@ -445,10 +369,10 @@ the app, then iterations on the room descriptions [ROOM-19].
 
 | Step | What | Ends with |
 |---|---|---|
-| 1 | The layout and the map | the layout file, from Claude's [first map](design.md#rooms) and the answers to L38.2 to L38.4; the map drawn from it in the app's first page; a couple of polishing passes with Andrew over the map [ROOM-16, ROOM-19] |
+| 1 | The layout and the map | the layout file, from Claude's [first map](design.md#rooms) and the answers to L38.2 to L38.4; the map drawn from it in the app's first page; a couple of polishing passes with Andrew over the map [ROOM-16, ROOM-19]. **Built 2026-10-22, apart from the passes** (below) |
 | 2 | The shell | a page per room; design tokens; the control set; carried over from today's app: the top bar, the folding terminal, what is on screen kept in the page's address (so a link reopens it) and the live updates from the backend; the quick-jump box; the entrance hall with its map |
 | 3 | The MUD's rooms | the institute rebuilt from the layout file: every room with a first description, its exits and its boards, the lounge and the meeting room included, and the stairs (L38.4); the polysemy lab inside linguistics; a new message from the app that moves the player's character, so that walking in the MUD changes the app's room and choosing a room in the app moves the character; the MUD's integration tests [ROOM-9, ROOM-18] |
-| 4 | The characters | a character written for each non-player character (the greeter and the robot, L38.3; each department's AI scientists), each placed in its room as a character visitors can look at and read about; their minds come with slice 11 [MUD-31, ROOM-18] |
+| 4 | The characters | a character written for each non-player character (the greeter, an AI with a form, L38.3; each department's AI scientists), each placed in its room as a character visitors can look at and read about; their minds come with slice 11 [MUD-31, ROOM-18] |
 | 5 | The studies room | every study from `GET /api/studies`, with its question, sets, captures, lenses, findings, ledger, status, showcase and department [STUDY-3, STUDY-4, ROOM-17] |
 | 6 | The observatory | everything in Layers, laid out with folding panels and the details panel; if Andrew approves L35.1 and L35.2, attention's write as a lens source with its Sankey as the attention row, and brought by attention on the expert node cards [ROOM-3, LENS-55, LENS-56, APP-37] |
 | 7 | The lens workshop | everything in Build [ROOM-4] |
@@ -459,13 +383,36 @@ the app, then iterations on the room descriptions [ROOM-19].
 | 12 | The walk | every room against the checklist in [The new app's checklist](plan.md#new-app-checklist), with screenshots at desktop and laptop sizes; then Andrew's walk |
 | 13 | The retirement | today's views and their components removed, with the deletion list and a verdict per item, for Andrew's yes [ORDER-6, WAY-11] |
 
+**Step 1, as built (2026-10-22):**
+- **the layout file,** `data/institute/layout.yaml`: the floors from the bottom up (the third
+  closed), the departments, and the rooms, each with a place on its floor's grid, its exits by
+  compass direction (and up and down) following those places, any exit out of service with what a
+  player is told, the app room it opens, and the characters who stand in it. It is Claude's first
+  draft from the first map; the landings where the stairs arrive are Claude's addition, since a
+  MUD needs a room for them to arrive in [ROOM-16];
+- **the check that it is whole,** in `backend/src/services/institute.py`, with 15 tests:
+  - every id is used once, and every room is on a floor that exists, never the closed one;
+  - no two rooms share a place;
+  - every exit leads where its direction says, and has its way back;
+  - every room can be reached from the entrance;
+  - each department has its own room and a simulation room.
+
+  `GET /api/institute/layout` serves the file with anything that keeps it from being whole;
+- **the map,** the app's Institute tab: every floor in one picture, the top floor first, a box per
+  room in its department's colour or the colour of what it opens, lines for the exits, the stairs
+  marked; choosing a room shows what it is for, where its exits lead and who stands in it; it
+  exports as SVG and JSON; 7 unit tests.
+
+**Next in step 1:** the polishing passes with Andrew. Each pass changes the layout file, and the
+map redraws from it.
+
 **Tests:** the carried-over unit tests keep passing; a test that the layout file is whole (every
 room reachable, every exit with its way back, every study's department a room that exists); new
 unit tests for the map, for how the quick-jump box reads a command, and for the room pages; a
 browser walk per room with screenshots and no console errors; the MUD's integration tests for the
 rooms built from the file and for keeping rooms in step; backend tests for any new endpoint.
 
-**Andrew reviews:** this plan (L38); the layout on the map in step 1, as many passes as it takes;
+**Andrew reviews:** this plan (approved on 2026-10-22, L38); the layout on the map in step 1, as many passes as it takes;
 the shell and the studies room after step 5; the observatory and the workshop after step 7; the
 descriptions in step 11; the full walk in step 12; then the deletion list.
 
@@ -532,8 +479,8 @@ Each is planned in detail here when it is reached [DOC-9].
   - cross-lens reports [LLM-14]; overlaps by cross-reading [ATLAS-9];
   - the published atlas [ATLAS-8], and each node's nearest published features [LENS-36].
 - **Slice 7, the world-building pilot** [ORDER-12], after slices 5 and 6: Winter Survival waits
-  for OpenLLMRI's roadmap [ORDER-22], and whether that means slice 6 or slice 11 is L37. Winter
-  Survival is a different undertaking, with its own plan [MUD-6].
+  for OpenLLMRI's roadmap up to slice 6 (L37) [ORDER-22]. Winter Survival is a different
+  undertaking, with its own plan [MUD-6].
 - **Slice 8, conditions and interventions** [ORDER-13]:
   - scaffold studies and the scaffold catalogue [INT-3, INT-8], with the lens on attention's
     write as their first view, if Andrew approves L35.1 [LENS-55];
@@ -894,8 +841,8 @@ Andrew's review, the old DESIGN.md and `one-mud.md` become pointers to these doc
 
 ## Architecture decisions {#adr}
 
-Each is a requirement in the list. The proposed ones wait for Andrew's yes, with the new app's plan
-(L38) or with these documents.
+Each is a requirement in the list. The new app's were approved with its plan (L38); the proposed
+ones wait for Andrew's yes with these documents.
 
 | Decision | Status | Requirement |
 |---|---|---|
@@ -909,9 +856,9 @@ Each is a requirement in the list. The proposed ones wait for Andrew's yes, with
 | The MUD in Docker, with areas and a control channel | decided | [ARCH-7] |
 | Continuous integration for each area | decided | [ARCH-8] |
 | The two documents built by one script from markdown and the list | proposed | [ARCH-9] |
-| The new app as new pages in today's frontend, with design tokens | proposed | [ARCH-10] |
-| Accessible controls on headless primitives | proposed | [ARCH-11] |
-| Room moves both ways between the app and the MUD | proposed | [ARCH-12] |
+| The new app as new pages in today's frontend, with design tokens | decided | [ARCH-10] |
+| Accessible controls on headless primitives | decided | [ARCH-11] |
+| Room moves both ways between the app and the MUD | decided | [ARCH-12] |
 
 ## Decision log {#decision-log}
 
@@ -938,7 +885,13 @@ The plan's own decisions, by date. The design's decisions are in its
   stairs, characters for the non-player characters and iterations on the descriptions (L31), and
   revised as L38 [ROOM-19, MUD-29 to MUD-31].
 - **2026-10-22:** the study of whether the UMAP lens beats raw space set aside until later in the
-  order of work, before the starter lens catalogue (Claude's placement) [ORDER-23].
+  order of work, before the starter lens catalogue (Claude's placement) [ORDER-23]. The new app's
+  plan approved (L38). It lets Claude change the frontend and the MUD for it, and the work started
+  the same day, with the documents' review going on alongside [ORDER-24]. The polishing passes
+  start from Claude's first map. The greeter is an AI with a form, not called a robot. The
+  out-of-service stairs lead to a closed floor [ROOM-19, MUD-29, MUD-30]. Andrew asked that the
+  whole roadmap be done and left to Claude how far it goes before Winter Survival; Claude kept the
+  order: after slice 6 (L37) [ORDER-22].
 
 ## Risks {#risks}
 

@@ -68,6 +68,18 @@ def page_link(target: str, anchor: str) -> str:
 
 # ---- 1. The markdown: anchors, questions, boxes and blocks become placeholders ----
 QUESTION = re.compile(r"^(#{3,4}) (L\d+(?:\.\d+)*)\. (.+?)(?: \[Open\])?\s*$")
+
+
+def card_anchors(page: str) -> Dict[str, str]:
+    """Each card on a page, and its heading's anchor (as render_question makes it)."""
+    text = SOURCES[page].read_text(encoding="utf-8")
+    return {m.group(2): slug(m.group(2) + " " + m.group(3))
+            for line in text.splitlines() if (m := QUESTION.match(line))}
+
+
+CARDS = {page: card_anchors(page) for page in SOURCES}
+CARD_REF = re.compile(r"\bL(\d+)((?:\.\d+)*)\b")
+LAYERS = 24  # L0 to L23 also name layers, so a plain number in that range never links to a card
 HEADING = re.compile(r"^(#{1,4}) (.+?)(?: \{#([a-z0-9-]+)\})?\s*$")
 OPTION = re.compile(r"^- (\( \)|\[ \]) (.+)$")
 lines = SOURCES[PAGE].read_text(encoding="utf-8").split("\n")
@@ -257,12 +269,40 @@ body = body.replace("<p>REQUIREMENTSBLOCK</p>", requirements_html())  # after th
 pieces = re.split(r"(<pre[\s\S]*?</pre>|<code>[\s\S]*?</code>)", body)
 body = "".join(p if p.startswith(("<pre", "<code>")) else CITATION.sub(cite, p) for p in pieces)
 
+
+# A card's number in the text links to its card, on this page or the other one; never inside a
+# link, code, a heading, a form's legend or a text box.
+SKIP_OPEN = re.compile(r"^<(a|pre|code|h[1-6]|legend|textarea)\b", re.I)
+SKIP_CLOSE = re.compile(r"^</(a|pre|code|h[1-6]|legend|textarea)>", re.I)
+
+
+def card_link(m: re.Match) -> str:
+    qid = m.group(0)
+    if not m.group(2) and int(m.group(1)) < LAYERS:
+        return qid
+    for page in (PAGE, *(p for p in SOURCES if p != PAGE)):
+        if qid in CARDS[page]:
+            return f'<a class="qref" href="{page_link(page, CARDS[page][qid])}">{qid}</a>'
+    return qid
+
+
+linked: List[str] = []
+skipping = 0
+for piece in re.split(r"(<[^>]+>)", body):
+    if piece.startswith("<"):
+        if SKIP_OPEN.match(piece):
+            skipping += 1
+        elif SKIP_CLOSE.match(piece):
+            skipping = max(0, skipping - 1)
+        linked.append(piece)
+    else:
+        linked.append(piece if skipping else CARD_REF.sub(card_link, piece))
+body = "".join(linked)
+
 title_match = re.search(r"<h1>(.*?)</h1>", body)
 body = re.sub(r"<h1>.*?</h1>", "", body, count=1)
 toc = []
-for m in re.finditer(r'<h([23]) id="([a-z0-9-]+)">(.*?)</h\1>', body):
-    if m.group(1) == "3" and re.search(r"^L\d", re.sub(r"<[^>]+>", "", m.group(3))):
-        continue  # questions are listed with their section
+for m in re.finditer(r'<h([23]) id="([a-z0-9-]+)">(.*?)</h\1>', body):  # cards too, under their section
     toc.append((int(m.group(1)), m.group(2), re.sub(r"<[^>]+>", "", m.group(3))))
 toc.append((2, "everything-written", "Everything you've written"))
 toc_html = "".join(f'<li class="toc{lvl}"><a href="#{a}">{t}</a></li>' for lvl, a, t in toc)

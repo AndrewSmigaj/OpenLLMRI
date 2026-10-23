@@ -66,6 +66,7 @@ export default function TopBar({ view, update, room, mudStatus, events }: TopBar
       <nav className="flex gap-1">
         <NavLink to={`/layers${search}`} className={tab}>Layers</NavLink>
         <NavLink to={`/build${search}`} className={tab}>Build</NavLink>
+        <NavLink to={`/institute${search}`} className={tab}>Institute</NavLink>
       </nav>
       <label className="flex items-center gap-1.5 text-xs text-gray-600 min-w-0">
         Capture
