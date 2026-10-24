@@ -1,13 +1,15 @@
 """The institute's layout (DESIGN.md's rooms; ROOM-16): one file, `data/institute/layout.yaml`,
 lists the floors, departments, rooms, exits and where the non-player characters stand. The app draws
 the institute's map from it and the MUD builds the institute from it, so a polishing pass over the
-layout changes only that file.
+layout changes only that file. Drafts for a pass sit beside it in `data/institute/drafts/`, one file
+each, until Andrew picks one.
 
 A layout is whole when (`problems`):
 - ids are unique, and every room names a floor and department that exist;
 - a closed floor holds no room, and no two rooms share a place on a floor;
-- every exit leads to a room that exists, in the direction its place says (east is the next column,
-  north the row before, up and down the floor above and below), and has its way back;
+- every exit leads to a room that exists, in the direction its place says (east along the same row,
+  north up the same column, northeast along the diagonal; up and down the floor above and below)
+  with no room in between, and has its way back;
 - every room can be reached from the entrance through exits that are open;
 - every department has its own room and at least one simulation room.
 """
@@ -24,8 +26,11 @@ from api.config import PROJECT_ROOT
 
 Direction = Literal["north", "south", "east", "west", "northeast", "northwest", "southeast", "southwest",
                     "up", "down"]
-AppRoom = Literal["entrance", "simulation", "department", "observatory", "workshop", "library",
+AppRoom = Literal["entrance", "simulation", "department", "lab", "observatory", "workshop", "library",
                   "studies", "meeting"]
+# A room not built yet: "later", one the design already plans for later; "suggested", Claude's
+# suggestion, waiting for Andrew to keep it or veto it
+Stage = Literal["later", "suggested"]
 
 # The grid step each direction takes: (columns east, rows south)
 STEPS: Dict[str, Tuple[int, int]] = {
@@ -68,6 +73,7 @@ class Room(BaseModel):
     summary: str
     opens: Optional[AppRoom] = None  # the app room it opens; none: in the MUD only
     department: Optional[str] = None
+    stage: Optional[Stage] = None
     exits: Dict[Direction, str] = Field(default_factory=dict)
     closed: Dict[Direction, str] = Field(default_factory=dict)  # out of service, with what a player is told
     characters: List[Character] = Field(default_factory=list)
@@ -76,6 +82,8 @@ class Room(BaseModel):
 class Layout(BaseModel):
     model_config = ConfigDict(extra="forbid")
     version: int
+    title: str = ""
+    about: str = ""  # what the layout is built around
     floors: List[Floor]  # from the bottom up
     departments: List[Department] = Field(default_factory=list)
     rooms: List[Room]
@@ -85,9 +93,30 @@ def layout_path() -> Path:
     return PROJECT_ROOT / "data" / "institute" / "layout.yaml"
 
 
+def drafts_root() -> Path:
+    return PROJECT_ROOT / "data" / "institute" / "drafts"
+
+
+def draft_names() -> List[str]:
+    root = drafts_root()
+    return sorted(p.stem for p in root.glob("*.yaml")) if root.exists() else []
+
+
 def load_layout(path: Optional[Path] = None) -> Layout:
     text = (path or layout_path()).read_text(encoding="utf-8")
     return Layout(**(yaml.safe_load(text) or {}))
+
+
+def _along(start: Tuple[int, int], end: Tuple[int, int], step: Tuple[int, int]) -> bool:
+    """Whether `end` lies some whole number of steps from `start` in the step's direction."""
+    dx, dy = end[0] - start[0], end[1] - start[1]
+    n = max(abs(dx), abs(dy))
+    return n > 0 and (dx, dy) == (step[0] * n, step[1] * n)
+
+
+def _between(start: Tuple[int, int], end: Tuple[int, int], step: Tuple[int, int]) -> List[Tuple[int, int]]:
+    n = max(abs(end[0] - start[0]), abs(end[1] - start[1]))
+    return [(start[0] + step[0] * i, start[1] + step[1] * i) for i in range(1, n)]
 
 
 def _duplicates(ids: List[str]) -> List[str]:
@@ -131,9 +160,13 @@ def problems(layout: Layout) -> List[str]:
             if target.floor not in floors:
                 continue
             if direction in STEPS:
-                dx, dy = STEPS[direction]
-                if target.floor != room.floor or tuple(target.at) != (room.at[0] + dx, room.at[1] + dy):
-                    found.append(f"{room.id}: {target_id} isn't the next place {direction} of it")
+                if target.floor != room.floor or not _along(room.at, target.at, STEPS[direction]):
+                    found.append(f"{room.id}: {target_id} isn't {direction} of it")
+                    continue
+                between = _between(room.at, target.at, STEPS[direction])
+                blocking = [r.id for r in layout.rooms if r.floor == room.floor and tuple(r.at) in between]
+                if blocking:
+                    found.append(f"{room.id}: its {direction} exit to {target_id} passes through {', '.join(blocking)}")
             else:
                 rise = 1 if direction == "up" else -1
                 if floors[target.floor] != floors[room.floor] + rise:
@@ -168,3 +201,15 @@ def layout_report(path: Optional[Path] = None) -> Dict[str, Any]:
     except (OSError, yaml.YAMLError, ValidationError, TypeError) as error:
         return {"layout": None, "problems": [], "error": str(error)}
     return {"layout": layout.model_dump(), "problems": problems(layout), "error": None}
+
+
+def layouts() -> List[Dict[str, Any]]:
+    """The layout in use and every draft: name, title, file, and how many problems each has."""
+    found = []
+    for name, path in [("current", layout_path()), *[(n, drafts_root() / f"{n}.yaml") for n in draft_names()]]:
+        report = layout_report(path)
+        layout = report["layout"] or {}
+        found.append({"name": name, "title": layout.get("title") or name,
+                      "file": str(path.relative_to(PROJECT_ROOT)),
+                      "problems": len(report["problems"]) + (1 if report["error"] else 0)})
+    return found

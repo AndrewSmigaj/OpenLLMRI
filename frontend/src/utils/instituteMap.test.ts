@@ -1,14 +1,17 @@
 import { describe, expect, it } from 'vitest'
 import type { InstituteLayout, InstituteRoom } from '../types/institute'
-import { CELL_H, CELL_W, floorPlans, roomColour, stackFloors, wrapWords } from './instituteMap'
+import { CELL_H, CELL_W, GAP_X, floorPlans, roomCaption, roomColour, stackFloors, wrapWords } from './instituteMap'
 
 const room = (id: string, floor: string, at: [number, number], exits: InstituteRoom['exits'],
   extra: Partial<InstituteRoom> = {}): InstituteRoom => ({
-  id, name: id, floor, at, summary: '', opens: null, department: null, exits, closed: {}, characters: [], ...extra,
+  id, name: id, floor, at, summary: '', opens: null, department: null, stage: null, exits, closed: {}, characters: [],
+  ...extra,
 })
 
 const LAYOUT: InstituteLayout = {
   version: 1,
+  title: 'A small institute',
+  about: '',
   floors: [
     { id: 'ground', name: 'Ground', note: '', closed: false },
     { id: 'upper', name: 'Upper', note: '', closed: false },
@@ -72,6 +75,23 @@ describe('the institute map', () => {
       .toEqual(['Mechanistic', 'interpretability', 'simulation room'])
     expect(wrapWords('Lounge', 22)).toEqual(['Lounge'])
     expect(wrapWords('Public simulation room 1', 22)).toEqual(['Public simulation', 'room 1'])
+  })
+
+  it('names what a room opens, or that it is suggested or planned for later', () => {
+    expect(roomCaption(LAYOUT.rooms[0])).toBe('opens the entrance hall')
+    expect(roomCaption(LAYOUT.rooms[3])).toBe('in the MUD only')
+    expect(roomCaption({ ...LAYOUT.rooms[3], stage: 'suggested' })).toBe('suggested by Claude')
+    expect(roomCaption({ ...LAYOUT.rooms[0], stage: 'later' })).toBe('planned for later')
+  })
+
+  it('draws an exit that crosses empty places as one line', () => {
+    const long: InstituteLayout = { ...LAYOUT, rooms: [
+      room('hall', 'ground', [0, 0], { east: 'far' }, { opens: 'entrance' }),
+      room('far', 'ground', [3, 0], { west: 'hall' }),
+    ] }
+    const [plan] = floorPlans(long).filter(p => p.floor.id === 'ground')
+    expect(plan.edges).toHaveLength(1)
+    expect(Math.abs(plan.edges[0].x2 - plan.edges[0].x1)).toBe(3 * (CELL_W + GAP_X))
   })
 
   it('gives a department its own colour and other rooms the colour of what they open', () => {

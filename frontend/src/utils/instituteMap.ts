@@ -145,10 +145,22 @@ export function roomColour(room: InstituteRoom, layout: InstituteLayout): string
 
 // What each app room is called on the map, and what does its job until the room is built
 export const APP_ROOM_NAMES: Record<string, string> = {
-  entrance: 'the entrance hall', simulation: 'a simulation room', department: 'a department',
+  entrance: 'the entrance hall', simulation: 'a simulation room', department: 'a department', lab: 'a lab',
   observatory: 'the observatory', workshop: 'the lens workshop', library: 'the library',
   studies: 'the studies room', meeting: 'the meeting room',
 }
 export const TODAY: Record<string, string> = {
-  observatory: '/layers', workshop: '/build',
+  observatory: '/layers', workshop: '/build', lab: '/layers',
+}
+
+// How a room not built yet is drawn and named: Claude's suggestions dashed, rooms planned for later dotted
+export const STAGE_STYLE: Record<string, { stroke: string; dash: string; label: string }> = {
+  suggested: { stroke: '#d97706', dash: '6 4', label: 'suggested by Claude' },
+  later: { stroke: '#6b7280', dash: '2 3', label: 'planned for later' },
+}
+
+// What a room's box says under its name
+export function roomCaption(room: InstituteRoom): string {
+  if (room.stage) return STAGE_STYLE[room.stage].label
+  return room.opens ? `opens ${APP_ROOM_NAMES[room.opens]}` : 'in the MUD only'
 }

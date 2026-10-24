@@ -1,34 +1,37 @@
-// The institute's map (ROOM-19): every floor of data/institute/layout.yaml, the top floor first,
-// drawn as one picture for the polishing passes over the layout. Choosing a room shows what it is
-// for, where its exits lead and who stands in it. Rooms open the app's own rooms as they are built
-// (the new app's later steps); until then the observatory and the workshop lead to Layers and Build.
+// The institute's map (ROOM-19): every floor of a layout, the top floor first, drawn as one picture
+// for the polishing passes. The layout in use is data/institute/layout.yaml; a pass's drafts sit in
+// data/institute/drafts/, and a selector switches between them. Choosing a room shows what it is
+// for, where its exits lead and who stands in it; rooms Claude suggests are dashed, for Andrew to
+// keep or veto. Rooms open the app's own rooms as they are built (the new app's later steps); until
+// then the observatory, the workshop and the lab lead to Layers and Build.
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { apiClient } from '../api/client'
-import type { InstituteLayout, InstituteLayoutReport, InstituteRoom } from '../types/institute'
+import type { InstituteLayout, InstituteLayoutEntry, InstituteLayoutReport, InstituteRoom } from '../types/institute'
 import { dataJson, download } from '../utils/exportFigure'
 import {
-  APP_ROOM_NAMES, CELL_W, TODAY, floorPlans, roomColour, stackFloors, wrapWords,
+  APP_ROOM_NAMES, CELL_W, STAGE_STYLE, TODAY, floorPlans, roomCaption, roomColour, stackFloors, wrapWords,
 } from '../utils/instituteMap'
 
 const NAME_CHARS = 22 // characters per line of a room's name in its box
-const LAYOUT_FILE = 'data/institute/layout.yaml'
 
-function recipe(layout: InstituteLayout) {
-  return { what: 'the institute map', layout: LAYOUT_FILE, version: layout.version,
+function recipe(layout: InstituteLayout, file: string) {
+  return { what: 'the institute map', layout: file, title: layout.title, version: layout.version,
            exported: new Date().toISOString(), link: window.location.href }
 }
 
-function InstituteMap({ layout, selected, choose, svgRef }: {
+function InstituteMap({ layout, selected, choose, svgRef, fit }: {
   layout: InstituteLayout
   selected: string
   choose: (id: string) => void
   svgRef: React.RefObject<SVGSVGElement | null>
+  fit: boolean // scale the picture to the panel's width
 }) {
   const plans = useMemo(() => floorPlans(layout), [layout])
   const { tops, width, height } = stackFloors(plans)
   return (
-    <svg ref={svgRef} width={width} height={height} viewBox={`0 0 ${width} ${height}`}
+    <svg ref={svgRef} width={fit ? '100%' : width} height={fit ? undefined : height}
+      style={fit ? { maxWidth: width, height: 'auto' } : undefined} viewBox={`0 0 ${width} ${height}`}
       xmlns="http://www.w3.org/2000/svg" fontFamily="ui-sans-serif, system-ui, sans-serif" role="img"
       aria-label="Map of the institute, the top floor first">
       <defs>
@@ -55,20 +58,23 @@ function InstituteMap({ layout, selected, choose, svgRef }: {
             ))}
             {plan.boxes.map(box => {
               const colour = roomColour(box.room, layout)
+              const stage = box.room.stage ? STAGE_STYLE[box.room.stage] : null
               const chosen = box.room.id === selected
               const lines = wrapWords(box.room.name, NAME_CHARS)
               const stairs = plan.stairs.filter(s => s.room === box.room.id)
               return (
                 <g key={box.room.id} transform={`translate(${box.x} ${box.y})`} onClick={() => choose(box.room.id)}
                   style={{ cursor: 'pointer' }} role="button" aria-label={box.room.name}>
-                  <rect width={box.w} height={box.h} rx={8} fill="white" stroke={colour}
-                    strokeWidth={chosen ? 3.5 : 1.5} />
-                  <rect width={box.w} height={6} rx={3} fill={colour} />
+                  <rect width={box.w} height={box.h} rx={8} fill={stage ? '#fffdf7' : 'white'}
+                    stroke={stage ? stage.stroke : colour} strokeDasharray={stage?.dash}
+                    strokeWidth={chosen ? 3.5 : stage ? 2 : 1.5} />
+                  {!stage && <rect width={box.w} height={6} rx={3} fill={colour} />}
                   {lines.slice(0, 3).map((line, j) => (
                     <text key={j} x={10} y={24 + j * 15} fontSize={12.5} fontWeight={600} fill="#111827">{line}</text>
                   ))}
-                  <text x={10} y={box.h - 10} fontSize={10.5} fill="#6b7280">
-                    {box.room.opens ? `opens ${APP_ROOM_NAMES[box.room.opens]}` : 'in the MUD only'}
+                  <text x={10} y={box.h - 10} fontSize={10.5} fill={stage ? stage.stroke : '#6b7280'}
+                    fontStyle={stage ? 'italic' : undefined}>
+                    {roomCaption(box.room)}
                     {box.room.characters.length > 0 ? ' · ' : ''}
                     {box.room.characters.length > 0 && <tspan fill={colour}>● {box.room.characters.length}</tspan>}
                   </text>
@@ -91,15 +97,40 @@ function InstituteMap({ layout, selected, choose, svgRef }: {
   )
 }
 
-function RoomDetails({ layout, room }: { layout: InstituteLayout; room: InstituteRoom | null }) {
+// With no room chosen: the rooms not built yet, Claude's suggestions first, each a click away
+function NotBuilt({ layout, choose }: { layout: InstituteLayout; choose: (id: string) => void }) {
+  const groups: [string, string, InstituteRoom[]][] = [
+    ['suggested', 'Suggested by Claude (keep or veto)', layout.rooms.filter(r => r.stage === 'suggested')],
+    ['later', 'Planned for later', layout.rooms.filter(r => r.stage === 'later')],
+  ]
+  return (
+    <div className="space-y-4 text-sm">
+      <p className="text-gray-600">Choose a room to see what it is for, where its exits lead and who stands in it.</p>
+      {groups.filter(([, , rooms]) => rooms.length > 0).map(([stage, heading, rooms]) => (
+        <div key={stage}>
+          <h3 className="text-xs font-semibold uppercase tracking-wide text-gray-500">{heading}</h3>
+          <ul className="mt-1 space-y-2">
+            {rooms.map(r => (
+              <li key={r.id}>
+                <button type="button" onClick={() => choose(r.id)}
+                  className="text-left font-medium text-blue-800 hover:underline">{r.name}</button>
+                <p className="text-xs text-gray-600">{r.summary}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+function RoomDetails({ layout, room, choose }: {
+  layout: InstituteLayout
+  room: InstituteRoom | null
+  choose: (id: string) => void
+}) {
   const { search } = useLocation()
-  if (!room) {
-    return (
-      <p className="text-sm text-gray-600">
-        Choose a room to see what it is for, where its exits lead and who stands in it.
-      </p>
-    )
-  }
+  if (!room) return <NotBuilt layout={layout} choose={choose} />
   const name = (id: string) => layout.rooms.find(r => r.id === id)?.name ?? id
   const floor = layout.floors.find(f => f.id === room.floor)
   const department = layout.departments.find(d => d.id === room.department)
@@ -113,10 +144,16 @@ function RoomDetails({ layout, room }: { layout: InstituteLayout; room: Institut
         </p>
       </div>
       <p className="text-gray-800">{room.summary}</p>
-      <p className="text-gray-700">
-        {room.opens ? <>Opens {APP_ROOM_NAMES[room.opens]} in the app</> : 'In the MUD only: it opens no room in the app'}
-        {today && <> (for now: <Link className="text-blue-700 underline" to={`${today}${search}`}>{today === '/layers' ? 'Layers' : 'Build'}</Link>)</>}.
-      </p>
+      {room.stage ? (
+        <p className="italic" style={{ color: STAGE_STYLE[room.stage].stroke }}>
+          {room.stage === 'suggested' ? 'Suggested by Claude: keep it or veto it.' : 'Planned for later.'}
+        </p>
+      ) : (
+        <p className="text-gray-700">
+          {room.opens ? <>Opens {APP_ROOM_NAMES[room.opens]} in the app</> : 'In the MUD only: it opens no room in the app'}
+          {today && <> (for now: <Link className="text-blue-700 underline" to={`${today}${search}`}>{today === '/layers' ? 'Layers' : 'Build'}</Link>)</>}.
+        </p>
+      )}
       <div>
         <h3 className="text-xs font-semibold uppercase tracking-wide text-gray-500">Exits</h3>
         <ul className="mt-1 space-y-0.5">
@@ -141,26 +178,44 @@ function RoomDetails({ layout, room }: { layout: InstituteLayout; room: Institut
 }
 
 export default function InstituteWorkspace() {
+  const [entries, setEntries] = useState<InstituteLayoutEntry[]>([])
+  const [draft, setDraft] = useState('')
   const [report, setReport] = useState<InstituteLayoutReport | null>(null)
   const [failed, setFailed] = useState('')
   const [selected, setSelected] = useState('')
+  const [fit, setFit] = useState(true)
   const svgRef = useRef<SVGSVGElement | null>(null)
 
+  // The layouts to choose from; a pass's drafts first, when there are any
   useEffect(() => {
-    apiClient.getInstituteLayout().then(setReport).catch(error => setFailed(String(error)))
+    apiClient.listInstituteLayouts().then(found => {
+      setEntries(found)
+      setDraft(found.find(e => e.name !== 'current')?.name ?? 'current')
+    }).catch(error => setFailed(String(error)))
   }, [])
+
+  useEffect(() => {
+    if (!draft) return
+    let current = true
+    setSelected('')
+    apiClient.getInstituteLayout(draft)
+      .then(found => { if (current) setReport(found) })
+      .catch(error => { if (current) setFailed(String(error)) })
+    return () => { current = false }
+  }, [draft])
 
   const layout = report?.layout ?? null
   const room = layout?.rooms.find(r => r.id === selected) ?? null
+  const file = entries.find(e => e.name === draft)?.file ?? ''
 
   const exportSvg = () => {
     if (!svgRef.current || !layout) return
     const text = svgRef.current.outerHTML.replace('<defs>',
-      `<metadata>${JSON.stringify(recipe(layout)).replace(/</g, '&lt;')}</metadata><defs>`)
-    download('institute-map.svg', new Blob([text], { type: 'image/svg+xml' }))
+      `<metadata>${JSON.stringify(recipe(layout, file)).replace(/</g, '&lt;')}</metadata><defs>`)
+    download(`institute-${draft}.svg`, new Blob([text], { type: 'image/svg+xml' }))
   }
   const exportJson = () => {
-    if (layout) download('institute-layout.json', dataJson({ layout }, recipe(layout)))
+    if (layout) download(`institute-${draft}.json`, dataJson({ layout }, recipe(layout, file)))
   }
 
   return (
@@ -168,11 +223,23 @@ export default function InstituteWorkspace() {
       <div className="flex-1 min-w-0 overflow-auto p-4">
         <div className="mb-3 flex flex-wrap items-baseline gap-3">
           <h1 className="text-lg font-semibold text-gray-900">The institute</h1>
-          <span className="text-xs text-gray-500">
-            Drawn from <code>{LAYOUT_FILE}</code>; a polishing pass changes that file.
-          </span>
+          <label className="flex items-center gap-1.5 text-xs text-gray-600">
+            Layout
+            <select value={draft} onChange={e => setDraft(e.target.value)}
+              className="px-2 py-1 text-xs border border-gray-300 rounded bg-white">
+              {entries.map(e => (
+                <option key={e.name} value={e.name}>
+                  {e.name === 'current' ? `In use: ${e.title}` : e.title}{e.problems ? ` (${e.problems} problems)` : ''}
+                </option>
+              ))}
+            </select>
+          </label>
+          <span className="text-xs text-gray-500">Drawn from <code>{file}</code></span>
           {layout && (
-            <span className="ml-auto flex gap-1">
+            <span className="ml-auto flex items-center gap-1">
+              <label className="mr-2 flex items-center gap-1 text-xs text-gray-600">
+                <input type="checkbox" checked={fit} onChange={e => setFit(e.target.checked)} /> Fit to width
+              </label>
               <button type="button" onClick={exportSvg}
                 className="px-2 py-1 text-xs border border-gray-300 rounded bg-white hover:bg-gray-50">SVG</button>
               <button type="button" onClick={exportJson}
@@ -188,15 +255,17 @@ export default function InstituteWorkspace() {
             <ul className="list-disc pl-5">{report.problems.map(p => <li key={p}>{p}</li>)}</ul>
           </div>
         )}
-        {layout && <InstituteMap layout={layout} selected={selected} choose={setSelected} svgRef={svgRef} />}
+        {layout?.about && <p className="mb-3 max-w-3xl text-sm text-gray-700">{layout.about}</p>}
+        {layout && <InstituteMap layout={layout} selected={selected} choose={setSelected} svgRef={svgRef} fit={fit} />}
         {!report && !failed && <p className="text-sm text-gray-500">Loading the layout…</p>}
         <p className="mt-2 text-xs text-gray-500" style={{ maxWidth: CELL_W * 4 }}>
-          Lines are exits on a floor; ↑ and ↓ mark stairs, struck through when out of service; ● counts the
-          characters in a room. Each department&apos;s rooms share its colour.
+          Lines are exits on a floor; ↑ and ↓ mark stairs, &quot;out of service&quot; when closed; ● counts the
+          characters in a room. Each department&apos;s rooms share its colour. Dashed amber boxes are rooms
+          Claude suggests, for you to keep or veto; dotted grey boxes are rooms planned for later.
         </p>
       </div>
       <aside className="w-80 shrink-0 border-l border-gray-200 bg-white p-4 overflow-auto">
-        {layout && <RoomDetails layout={layout} room={room} />}
+        {layout && <RoomDetails layout={layout} room={room} choose={setSelected} />}
       </aside>
     </div>
   )

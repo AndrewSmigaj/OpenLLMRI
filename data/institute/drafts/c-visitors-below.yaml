@@ -1,0 +1,307 @@
+# Draft C for the second polishing pass (2026-10-24): two floors, visitors below and research
+# above. Claude's draft, for Andrew to pick from with drafts A, B and D. Rooms marked
+# `stage: suggested` are Claude's suggestions, for Andrew to keep or veto; `stage: later` marks
+# rooms the design already plans for later. The rules are those of data/institute/layout.yaml.
+
+version: 1
+title: "C · Two floors: visitors below, research above"
+about: >-
+  The ground floor is all for visitors: the entrance hall, the simulation rooms around the
+  simulator and the watch room, the lounge and the library. The stairs lead up to a landing between
+  two wings: the instruments to the west, the departments to the east, with the meeting room and
+  the paradigm hall straight ahead. The stairs further up are out of service.
+
+floors:
+  - id: ground
+    name: Ground floor
+    note: open to visitors
+  - id: first
+    name: First floor
+    note: the research
+
+departments:
+  - id: linguistics
+    name: Linguistics
+  - id: mech_interp
+    name: General mechanistic interpretability
+  - id: alignment
+    name: Alignment
+  - id: discordant
+    name: Discordant studies
+
+rooms:
+  # ---- Ground floor: open to visitors ----
+  - id: entrance_hall
+    name: Entrance hall
+    floor: ground
+    at: [2, 3]
+    opens: entrance
+    summary: Where everyone arrives, with the greeter, the map of the institute and the quick-jump box. Today's hub.
+    exits: {west: lounge, east: library, north: simulator, up: first_landing}
+    characters:
+      - id: greeter
+        name: The greeter
+        note: An AI with a form, who meets visitors and points them to the rooms. Its mind comes with the AI scientists (slice 11).
+  - id: lounge
+    name: Lounge
+    floor: ground
+    at: [1, 3]
+    summary: A place to spend time and talk, with people and with the AIs. It has no tools.
+    exits: {east: entrance_hall}
+  - id: library
+    name: Library
+    floor: ground
+    at: [3, 3]
+    opens: library
+    summary: The sentence sets with their guides and audits, the scenario sets, the captures and the saved lenses; later the builder for sets and scenarios.
+    exits: {west: entrance_hall}
+  - id: simulator
+    name: Simulator
+    floor: ground
+    at: [2, 2]
+    opens: simulation
+    summary: Today's simulator, kept. Every scenario set in the library is loaded and played from here.
+    exits: {south: entrance_hall, west: public_sim_1, east: public_sim_2, north: watch_room}
+  - id: public_sim_1
+    name: Public simulation room 1
+    floor: ground
+    at: [1, 2]
+    opens: simulation
+    summary: Visitors play Winter Survival; researchers watch, or start agent runs.
+    exits: {east: simulator, northeast: watch_room}
+  - id: public_sim_2
+    name: Public simulation room 2
+    floor: ground
+    at: [3, 2]
+    opens: simulation
+    summary: Visitors play Winter Survival; researchers watch, or start agent runs.
+    exits: {west: simulator, northwest: watch_room}
+  - id: public_sim_3
+    name: Public simulation room 3
+    floor: ground
+    at: [1, 1]
+    opens: simulation
+    summary: Visitors play Winter Survival; researchers watch, or start agent runs.
+    exits: {east: watch_room}
+  - id: watch_room
+    name: Watch room
+    floor: ground
+    at: [2, 1]
+    stage: suggested
+    summary: >-
+      Follow agent runs as they play, each run's lens readings step by step beside its game text and
+      reasoning, with an alert when a run enters a state being watched (Watch, slice 4). Visitors
+      can watch too, next to where the runs play.
+    exits: {south: simulator, west: public_sim_3, southwest: public_sim_1, southeast: public_sim_2}
+
+  # ---- First floor: the landing ----
+  - id: first_landing
+    name: First-floor landing
+    floor: first
+    at: [4, 4]
+    summary: Where the stairs arrive, between the instruments' wing and the departments' wing.
+    exits: {down: entrance_hall, west: instruments_hall, east: department_hall, north: meeting_room}
+    closed:
+      up: The stairs up are out of service; the floor above is closed.
+  - id: meeting_room
+    name: Meeting room
+    floor: first
+    at: [4, 3]
+    opens: meeting
+    summary: Where the AIs meet, mainly to add to the paradigm; their agenda and record come with the AI scientists (slice 11).
+    exits: {south: first_landing, north: paradigm_hall}
+  - id: paradigm_hall
+    name: Paradigm hall
+    floor: first
+    at: [4, 2]
+    stage: suggested
+    summary: >-
+      The paradigm itself: the accepted findings, each with its evidence, its strength and the
+      votes on it. A finding proposed in the meeting room comes here once accepted (slice 11).
+    exits: {south: meeting_room}
+
+  # ---- First floor: the instruments' wing ----
+  - id: instruments_hall
+    name: Instruments' hall
+    floor: first
+    at: [2, 4]
+    summary: The west wing's hall, with the instruments around it.
+    exits: {east: first_landing, north: observatory, northwest: lens_workshop, west: scanner,
+            southwest: calibration_lab, south: atlas, southeast: studies_room}
+  - id: observatory
+    name: Observatory
+    floor: first
+    at: [2, 3]
+    opens: observatory
+    summary: Read a lens across its layers, with the Sankeys, the 3-D view, members, the output table, pipelines and hubs, fingerprints, node details and the analysis panel.
+    exits: {south: instruments_hall}
+  - id: lens_workshop
+    name: Lens workshop
+    floor: first
+    at: [1, 3]
+    opens: workshop
+    summary: Make and judge lenses, with the form, the preview, comparisons, validation, tuning, the axes and mass-mean lenses.
+    exits: {southeast: instruments_hall}
+  - id: scanner
+    name: Scanner room
+    floor: first
+    at: [1, 4]
+    stage: suggested
+    summary: >-
+      The MRI's scanner, where captures are made: new captures of sentence sets and scenarios, the
+      queue for the GPU, and each capture's recipe (slice 2).
+    exits: {east: instruments_hall}
+  - id: calibration_lab
+    name: Calibration lab
+    floor: first
+    at: [1, 5]
+    stage: suggested
+    summary: >-
+      Where the instruments are checked before they are trusted: self-checks on planted data,
+      decoys, held-out tests, UMAP against raw space, and the analysts' tests.
+    exits: {northeast: instruments_hall}
+  - id: atlas
+    name: Atlas
+    floor: first
+    at: [2, 5]
+    stage: later
+    summary: The catalogues of the nodes, experts and routes found across every capture, each entry with its report (slice 6).
+    exits: {north: instruments_hall}
+  - id: studies_room
+    name: Studies room
+    floor: first
+    at: [3, 5]
+    opens: studies
+    summary: Every study, with its question, sets, captures, lenses, findings, ledger, status, showcase and the department that holds it.
+    exits: {northwest: instruments_hall}
+
+  # ---- First floor: the departments' wing ----
+  - id: department_hall
+    name: Department hall
+    floor: first
+    at: [6, 4]
+    summary: The east wing's hall, with the four departments around it.
+    exits: {west: first_landing, north: alignment, northeast: discordant, east: mech_interp,
+            southeast: linguistics, south: researchers_offices}
+  - id: researchers_offices
+    name: Researchers' offices
+    floor: first
+    at: [6, 5]
+    stage: later
+    summary: Rooms for the people who join the research.
+    exits: {north: department_hall}
+  - id: alignment
+    name: Alignment
+    floor: first
+    at: [6, 3]
+    department: alignment
+    opens: department
+    summary: The alignment department, with its studies and boards; the scaffold studio and the intervention lab are next door.
+    exits: {south: department_hall, north: alignment_sim, west: scaffold_studio, northwest: intervention_lab}
+    characters:
+      - id: alignment_scientists
+        name: The alignment AI scientists
+        note: Written with the new app (step 4); their minds come with slice 11.
+  - id: alignment_sim
+    name: Alignment simulation room
+    floor: first
+    at: [6, 2]
+    department: alignment
+    opens: simulation
+    summary: The department's own simulation room.
+    exits: {south: alignment}
+  - id: scaffold_studio
+    name: Scaffold studio
+    floor: first
+    at: [5, 3]
+    stage: suggested
+    summary: >-
+      Scaffold studies, the project's main aim: the scaffold catalogue, and one lens read with and
+      without a scaffold side by side, to see how the scaffold moves the model's representations and
+      its behaviour (slice 8).
+    exits: {east: alignment}
+  - id: intervention_lab
+    name: Intervention lab
+    floor: first
+    at: [5, 2]
+    stage: suggested
+    summary: >-
+      Steering, ablation and expert masks, with the baseline beside the changed run: the check that
+      a node causes what it seems to (slice 8).
+    exits: {southeast: alignment}
+  - id: discordant
+    name: Discordant studies
+    floor: first
+    at: [7, 3]
+    department: discordant
+    opens: department
+    summary: The department of discordant studies, with its studies and boards.
+    exits: {southwest: department_hall, north: discordant_sim, east: ideas_room}
+    characters:
+      - id: discordant_scientists
+        name: The discordant studies AI scientists
+        note: Written with the new app (step 4); their minds come with slice 11.
+  - id: discordant_sim
+    name: Discordant studies simulation room
+    floor: first
+    at: [7, 2]
+    department: discordant
+    opens: simulation
+    summary: The department's own simulation room.
+    exits: {south: discordant}
+  - id: ideas_room
+    name: Ideas
+    floor: first
+    at: [8, 3]
+    department: discordant
+    stage: later
+    summary: The Ideas workspace with its idea-tracking engine, in discordant studies.
+    exits: {west: discordant}
+  - id: mech_interp
+    name: General mechanistic interpretability
+    floor: first
+    at: [7, 4]
+    department: mech_interp
+    opens: department
+    summary: The department of general mechanistic interpretability, with its studies and boards.
+    exits: {west: department_hall, east: mech_interp_sim}
+    characters:
+      - id: mech_interp_scientists
+        name: The mechanistic interpretability AI scientists
+        note: Written with the new app (step 4); their minds come with slice 11.
+  - id: mech_interp_sim
+    name: Mechanistic interpretability simulation room
+    floor: first
+    at: [8, 4]
+    department: mech_interp
+    opens: simulation
+    summary: The department's own simulation room.
+    exits: {west: mech_interp}
+  - id: linguistics
+    name: Linguistics
+    floor: first
+    at: [7, 5]
+    department: linguistics
+    opens: department
+    summary: The linguistics department, with its studies, its boards and its AI scientists.
+    exits: {northwest: department_hall, east: polysemy_lab, south: linguistics_sim}
+    characters:
+      - id: linguistics_scientists
+        name: The linguistics AI scientists
+        note: Written with the new app (step 4); their minds come with slice 11.
+  - id: polysemy_lab
+    name: Polysemy lab
+    floor: first
+    at: [8, 5]
+    department: linguistics
+    opens: lab
+    summary: Today's polysemy lab, kept. The tank lens and the five senses of "tank"; entering it opens its capture and lens in the app.
+    exits: {west: linguistics}
+  - id: linguistics_sim
+    name: Linguistics simulation room
+    floor: first
+    at: [7, 6]
+    department: linguistics
+    opens: simulation
+    summary: The department's own simulation room.
+    exits: {north: linguistics}

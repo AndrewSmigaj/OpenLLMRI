@@ -13,6 +13,10 @@
 # `opens` names the app room a room opens (none: the room is in the MUD only).
 
 version: 1
+title: "The first draft (2026-10-22): three floors"
+about: >-
+  Claude's first map: the visitors' rooms on the ground floor, the shared research rooms on the
+  first, the departments on the second, and a closed third floor behind the out-of-service stairs.
 
 floors:
   - id: ground

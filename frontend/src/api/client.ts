@@ -14,7 +14,7 @@ import type {
   LayerPreview, LensAxes, LensReading, LensRoutes, LensTrajectory, PreviewBody, ReadBody, TuneBody, Validation,
 } from '../types/lens';
 import type { AnalystTests, Card, QuestionAnswer } from '../types/cards';
-import type { InstituteLayoutReport } from '../types/institute';
+import type { InstituteLayoutEntry, InstituteLayoutReport } from '../types/institute';
 
 export const API_BASE_URL = 'http://localhost:8000/api';
 
@@ -415,8 +415,13 @@ class ConceptMriApiClient {
 
   // --- The institute (data/institute/layout.yaml) ---
 
-  async getInstituteLayout(): Promise<InstituteLayoutReport> {
-    return this.request<InstituteLayoutReport>('/institute/layout');
+  async listInstituteLayouts(): Promise<InstituteLayoutEntry[]> {
+    return this.request<InstituteLayoutEntry[]>('/institute/layouts');
+  }
+
+  // The layout in use, or a draft of a polishing pass by name
+  async getInstituteLayout(draft = 'current'): Promise<InstituteLayoutReport> {
+    return this.request<InstituteLayoutReport>(`/institute/layout?draft=${encodeURIComponent(draft)}`);
   }
 
   // --- Background jobs ---
