@@ -748,7 +748,7 @@ on 2026-10-20):
 |---|---|---|
 | **the entrance hall** | where everyone arrives: the greeter (built with the AI scientists, slice 11), the map of the institute with what is new in each room, the quick-jump box [ROOM-2, MUD-23] | the MUD's hub room |
 | **the public simulation rooms** | visitors play Winter Survival; researchers watch, or start agent runs; Watch (following an agent's run as it plays) from slice 4 [ROOM-7, MUD-24] | the MUD's simulator room |
-| **a department** (four; each is also a lab) | opens the shared rooms with its own studies loaded; its own simulation room; its boards (its studies, open questions, findings proposed, recent results); its AI scientists from slice 11 [ROOM-15, MUD-25] | the polysemy lab joins linguistics |
+| **a department** (four; each is also a lab) | opens the shared rooms with its own studies loaded; its own simulation room; its boards (its studies, open questions, findings proposed, recent results); its AI scientists from slice 11 [ROOM-15, MUD-25] | the polysemy lab stays its own room, in linguistics [ROOM-21] |
 | **the observatory** | read a lens across its layers: the Sankeys, 3-D, members, the output table, pipelines and hubs, fingerprints, node details, the analysis panel [ROOM-3] | the Layers screen |
 | **the lens workshop** | make and judge lenses: the form, preview, compare, validation, tuning, axes, mass-mean lenses; start node details [ROOM-4] | the Build screen |
 | **the library** | the sentence sets with their guides and audits, the scenario sets, captures and saved lenses; the builder for sets and scenarios from slice 3 [ROOM-5] | nothing (new) |
@@ -784,12 +784,33 @@ With the new app's plan (Claude's timing, approved by Andrew on 2026-10-22, L38)
 characters are written and placed in their rooms in the first stage, so visitors can look at them
 and read about them; their minds come in the second [MUD-31].
 
-**A first map** (Claude's draft, the starting point for the polishing passes). Visitors stay on the
+**A first map** (Claude's draft, the starting point for the polishing passes; for now superseded by
+the second pass's drafts, below [ROOM-20]). Visitors stay on the
 ground floor; the research rooms are upstairs; the stairs to the floor above the departments are
 out of service, leaving room for what the AI scientists later decide the institute needs (L38.4).
 The stairs rise from the entrance hall. The polishing passes start from this map (L38.2): its first
 layout file is `data/institute/layout.yaml`, drawn in the app's Institute tab, which adds a landing
 on each upper floor for the stairs to arrive in (Claude's addition) [ROOM-16, ROOM-19].
+
+**The second polishing pass (2026-10-24).** For the time being Andrew prefers a single floor, and
+two at most [ROOM-20]. The rooms that exist today are kept, and the polysemy lab stays its own room
+[ROOM-21]. The simulation rooms and the public rooms stay near the entrance, and Claude lays out the
+rest as it thinks best [ROOM-22]. Claude drew four drafts in `data/institute/drafts/`, chosen in the
+Institute tab [ROOM-23]; which to build on, which suggested rooms to keep and whether to keep the
+out-of-service stairs are card L39 on the plan page:
+- **A, one floor around a gallery:** the deeper in, the deeper the work: the public rooms at the
+  entrance, then the instruments, the records and the paradigm, and the departments at the back;
+- **B, one floor around an atrium:** every instrument one step from an atrium behind the entrance
+  hall, and the departments behind a department hall;
+- **C, two floors, visitors below and research above:** the ground floor only for visitors; upstairs
+  an instruments' wing and a departments' wing;
+- **D, two floors, instruments below and departments above:** the instruments in the order the work
+  runs on the ground floor; upstairs the departments around the studies room.
+
+Each draft carries Claude's suggested rooms for Andrew to keep or veto: the watch room, the scanner
+room, the calibration lab, the paradigm hall, the scaffold studio and the intervention lab
+[ROOM-24]; and the rooms already planned for later: the atlas, Ideas and the researchers' offices
+[ROOM-1].
 
 ```mermaid
 flowchart BT
@@ -1550,6 +1571,9 @@ What the design replaced, and with what:
   started; the greeter an AI with a form; the stairs to a closed floor; the polishing passes from
   Claude's first map, whose layout file and map are built; Winter Survival after slice 6. The study
   of whether the UMAP lens beats raw space set aside [ORDER-23].
+- **2026-10-24:** the second polishing pass: Andrew's rules for the layout written in (one floor
+  preferred, two at most; today's rooms kept; the public rooms by the entrance), with Claude's four
+  drafts and suggested rooms.
 
 ## Decision log {#decision-log}
 
@@ -1666,3 +1690,9 @@ Every decision, by date, paraphrased. Each requirement holds its own date and so
     floor; the polishing passes start from Claude's first map [MUD-29, MUD-30, ROOM-19];
   - Winter Survival after slice 6, which Andrew left to Claude [ORDER-22]; the study of whether the
     UMAP lens beats raw space set aside until later in the order of work [ORDER-23].
+- **2026-10-24:**
+  - the institute on a single floor for the time being, two at most [ROOM-20];
+  - today's rooms kept, the polysemy lab its own room [ROOM-21];
+  - the simulation rooms and the public rooms near the entrance, the rest as Claude thinks best
+    [ROOM-22];
+  - four drafts for the second pass, with Claude's suggested rooms for Andrew to veto [ROOM-23].

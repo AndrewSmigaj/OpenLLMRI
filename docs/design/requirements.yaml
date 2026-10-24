@@ -4263,6 +4263,61 @@ requirements:
   source: L31; L34; L38.2
   from: []
   section: design.md#rooms
+- id: ROOM-20
+  text: >-
+    For the time being Andrew prefers the institute on a single floor, and two floors at most: a third
+    floor only breaks it up. Claude keeps the out-of-service stairs and the closed floor behind them
+    (MUD-30), not drawn, unless Andrew says otherwise (L39.3).
+  status: decided
+  built: no
+  dates: [2026-10-24]
+  source: message; the closed floor kept by Claude's reading of MUD-30
+  from: []
+  section: design.md#rooms
+- id: ROOM-21
+  text: >-
+    The rooms there are today are kept, not folded into others: the polysemy lab stays its own room
+    (in linguistics, as in L34). Claude reads the hub as kept in the entrance hall and keeps the simulator beside
+    the public simulation rooms.
+  status: decided
+  built: no
+  dates: [2026-10-24]
+  source: message; the hub and the simulator by Claude's reading
+  from: []
+  section: design.md#rooms
+- id: ROOM-22
+  text: >-
+    The simulation rooms and the public rooms stay near the entrance; the rest is laid out as Claude
+    thinks best.
+  status: decided
+  built: no
+  dates: [2026-10-24]
+  source: message
+  from: []
+  section: design.md#rooms
+- id: ROOM-23
+  text: >-
+    For the second polishing pass Claude draws four layouts, two on one floor and two on two floors,
+    and adds new rooms Claude suggests for the institute and its aim of modelling gpt-oss-20b, which
+    Andrew keeps or vetoes.
+  status: decided
+  built: partly
+  dates: [2026-10-24]
+  source: message
+  from: []
+  section: design.md#rooms
+- id: ROOM-24
+  text: >-
+    Claude's suggested rooms, on all four drafts: the watch room (agent runs followed live with
+    their lens readings), the scanner room (captures and the GPU queue), the calibration lab (the
+    instruments checked before they are trusted), the paradigm hall (the accepted findings), the
+    scaffold studio (scaffold studies) and the intervention lab (steering, ablation, expert masks).
+  status: proposed
+  built: no
+  dates: [2026-10-24]
+  source: Claude
+  from: []
+  section: design.md#rooms
 
 # ---- ARCH: architecture decisions (the plans Andrew approved, and Claude's new proposals) ----
 - id: ARCH-1

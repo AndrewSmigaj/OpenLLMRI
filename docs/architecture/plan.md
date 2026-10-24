@@ -22,10 +22,13 @@ median over the layers of 0.02 and 0.05 AMI on the tank and calibration sets, an
 single words and the animals. The steps are under
 [Work that needs no model](plan.md#phase-model-free).
 
-**Now (2026-10-22): the new app, step 1.** Andrew approved its plan (L38), and it started at
-once, with his review of the two documents going on alongside [ORDER-24]. The layout file
-(`data/institute/layout.yaml`) and the map drawn from it in the app (its Institute tab) are built;
-the polishing passes over the map with Andrew come next [ROOM-16, ROOM-19]. The steps are under
+**Now (2026-10-24): the new app, step 1, the second polishing pass.** Andrew approved the new
+app's plan (L38) on 2026-10-22, and it started at once, with his review of the two documents going
+on alongside [ORDER-24]. The layout file (`data/institute/layout.yaml`) and the map drawn from it in
+the app (its Institute tab) are built [ROOM-16]. After the first pass Andrew asked for one floor, or
+two at most, with today's rooms kept and the public rooms by the entrance; Claude drew four drafts
+with suggested rooms, for him to pick one and veto rooms (L39) [ROOM-19 to ROOM-23], and the
+suggested rooms [ROOM-24]. The steps are under
 [The new app](plan.md#the-new-app).
 
 **Set aside for later: does the UMAP lens beat raw space?** Andrew prefers UMAP once it holds up
@@ -55,7 +58,7 @@ studies; the reworked cards are L35.1 to L35.4 [LENS-49, LENS-50, APP-35].
 |---|---|---|
 | 1 | Finish the work that needs no model | done 2026-10-20: attention's test, and the four re-scores written up |
 | 2 | The two documents | done; Andrew's review through the boxes goes on alongside the new app (L38.1) |
-| 3 | The new app, room by room, starting with the institute's layout and its map | started 2026-10-22: the layout file and its map built; the polishing passes next |
+| 3 | The new app, room by room, starting with the institute's layout and its map | started 2026-10-22: the layout file and its map built; the second polishing pass, four drafts, waits for Andrew |
 | 4 | Slice 2, capture and jobs | needs the GPU |
 | 5 | Slice 3, the builder for sentence sets and scenarios | |
 | 6 | Slice 4, agents in scenarios | |
@@ -71,16 +74,57 @@ in detail here when it is reached [DOC-9]; the phases below hold the plans.
 capture work.
 
 **What needs Andrew:**
-- the polishing passes over the institute's map: the Institute tab in the app, drawn from
-  `data/institute/layout.yaml` [ROOM-19];
+- **L39,** the second polishing pass: one of the four drafts in the Institute tab's selector to build on,
+  and a yes or a veto for each suggested room [ROOM-23, ROOM-24];
 - **L35,** attention in the analysis, reworked into four parts after his questions and a test:
   among [the design's decisions](design.md#decisions-needed);
 - the two documents' review, section by section, through the boxes under each section.
 
 ## Decisions needed {#decisions-needed}
 
-None is open on this page. The design page has one: L35, attention in the analysis, in four
-parts, among [the design's decisions](design.md#decisions-needed).
+The design page has one more: L35, attention in the analysis, in four parts, among
+[the design's decisions](design.md#decisions-needed).
+
+### L39. The second polishing pass: which layout, which rooms [Open]
+
+Four drafts of the institute are in the app's Institute tab, under **Layout** [ROOM-23]. Pick one
+to build on; it becomes the layout file, and further passes change it. Claude's suggested rooms are
+the dashed amber boxes on every draft [ROOM-24].
+
+#### L39.1. Which draft to build on [Open]
+
+B keeps everything close: every instrument is one step from the atrium, so the institute is small
+to walk, on one floor as preferred. A's gallery is clearer to read but longer to walk; C and D use
+two floors.
+
+- ( ) B, one floor around an atrium (recommended)
+- ( ) A, one floor around a gallery
+- ( ) C, two floors: visitors below, research above
+- ( ) D, two floors: instruments below, departments above
+- ( ) Other
+
+#### L39.2. Which suggested rooms to keep [Open]
+
+Tick the rooms to keep; the rest are dropped. Each is a place for a part of the roadmap: the watch
+room for agents in scenarios (slice 4), the scanner room for capture and jobs (slice 2), the
+calibration lab for checking the instruments, the paradigm hall for the paradigm (slice 11), the
+scaffold studio and the intervention lab for slice 8.
+
+- [ ] Watch room (recommended)
+- [ ] Scanner room (recommended)
+- [ ] Calibration lab (recommended)
+- [ ] Paradigm hall (recommended)
+- [ ] Scaffold studio (recommended)
+- [ ] Intervention lab (recommended)
+
+#### L39.3. The out-of-service stairs [Open]
+
+You decided the stairs lead to a closed floor kept for the AI scientists (L38.4). On one floor the
+drafts keep them, rising from the entrance hall to a floor that isn't drawn.
+
+- ( ) Keep them, as in the drafts (recommended)
+- ( ) Drop them while the institute is on one floor
+- ( ) Other
 
 ## How we work {#how-we-work}
 
@@ -371,12 +415,12 @@ the app, then iterations on the room descriptions [ROOM-19].
 |---|---|---|
 | 1 | The layout and the map | the layout file, from Claude's [first map](design.md#rooms) and the answers to L38.2 to L38.4; the map drawn from it in the app's first page; a couple of polishing passes with Andrew over the map [ROOM-16, ROOM-19]. **Built 2026-10-22, apart from the passes** (below) |
 | 2 | The shell | a page per room; design tokens; the control set; carried over from today's app: the top bar, the folding terminal, what is on screen kept in the page's address (so a link reopens it) and the live updates from the backend; the quick-jump box; the entrance hall with its map |
-| 3 | The MUD's rooms | the institute rebuilt from the layout file: every room with a first description, its exits and its boards, the lounge and the meeting room included, and the stairs (L38.4); the polysemy lab inside linguistics; a new message from the app that moves the player's character, so that walking in the MUD changes the app's room and choosing a room in the app moves the character; the MUD's integration tests [ROOM-9, ROOM-18] |
+| 3 | The MUD's rooms | the institute rebuilt from the layout file: every room with a first description, its exits and its boards, the lounge and the meeting room included, and the stairs (L38.4); the polysemy lab kept as its own room, in linguistics [ROOM-21]; a new message from the app that moves the player's character, so that walking in the MUD changes the app's room and choosing a room in the app moves the character; the MUD's integration tests [ROOM-9, ROOM-18] |
 | 4 | The characters | a character written for each non-player character (the greeter, an AI with a form, L38.3; each department's AI scientists), each placed in its room as a character visitors can look at and read about; their minds come with slice 11 [MUD-31, ROOM-18] |
 | 5 | The studies room | every study from `GET /api/studies`, with its question, sets, captures, lenses, findings, ledger, status, showcase and department [STUDY-3, STUDY-4, ROOM-17] |
 | 6 | The observatory | everything in Layers, laid out with folding panels and the details panel; if Andrew approves L35.1 and L35.2, attention's write as a lens source with its Sankey as the attention row, and brought by attention on the expert node cards [ROOM-3, LENS-55, LENS-56, APP-37] |
 | 7 | The lens workshop | everything in Build [ROOM-4] |
-| 8 | The departments | the four department rooms, each opening the shared rooms with its own studies loaded and showing its boards; the polysemy lab's view becomes linguistics' [ROOM-15, ROOM-17] |
+| 8 | The departments | the four department rooms, each opening the shared rooms with its own studies loaded and showing its boards; the polysemy lab stays its own room inside linguistics, with its view [ROOM-15, ROOM-17, ROOM-21] |
 | 9 | The simulation rooms | the three public ones and one per department: scenario sets and their scenarios (a small list endpoint), the agent runs captured, the terminal open [ROOM-7, MUD-24] |
 | 10 | The library | sentence sets with their guides and audits, scenario sets, captures, saved lenses [ROOM-5] |
 | 11 | The descriptions | passes with Andrew over every room's description and every character's, in the MUD and in the app [ROOM-19] |
@@ -384,7 +428,8 @@ the app, then iterations on the room descriptions [ROOM-19].
 | 13 | The retirement | today's views and their components removed, with the deletion list and a verdict per item, for Andrew's yes [ORDER-6, WAY-11] |
 
 **Step 1, as built (2026-10-22):**
-- **the layout file,** `data/institute/layout.yaml`: the floors from the bottom up (the third
+- **the layout file,** `data/institute/layout.yaml` (still the first map, until Andrew picks a
+  draft): the floors from the bottom up (the third
   closed), the departments, and the rooms, each with a place on its floor's grid, its exits by
   compass direction (and up and down) following those places, any exit out of service with what a
   player is told, the app room it opens, and the characters who stand in it. It is Claude's first
@@ -403,8 +448,16 @@ the app, then iterations on the room descriptions [ROOM-19].
   marked; choosing a room shows what it is for, where its exits lead and who stands in it; it
   exports as SVG and JSON; 7 unit tests.
 
-**Next in step 1:** the polishing passes with Andrew. Each pass changes the layout file, and the
-map redraws from it.
+**The second pass (2026-10-24):** four drafts in `data/institute/drafts/`, each checked by the same
+rules: A, one floor around a gallery; B, one floor around an atrium; C, two floors with visitors
+below; D, two floors with the instruments below [ROOM-20 to ROOM-23]. Each carries Claude's
+suggested rooms, drawn dashed for Andrew to keep or veto, and the rooms already planned for later,
+drawn dotted [ROOM-24]. The rules gained: a room marked suggested or later; a lab as a kind of room;
+an exit that crosses empty places along its line, never another room. The Institute tab gained a
+selector for the drafts and the list of rooms not built yet; 18 layout tests, 9 map tests.
+
+**Next in step 1:** Andrew picks a draft and vetoes rooms; the chosen draft becomes the layout file,
+and further passes change it until he is happy with it.
 
 **Tests:** the carried-over unit tests keep passing; a test that the layout file is whole (every
 room reachable, every exit with its way back, every study's department a room that exists); new
@@ -892,6 +945,9 @@ The plan's own decisions, by date. The design's decisions are in its
   out-of-service stairs lead to a closed floor [ROOM-19, MUD-29, MUD-30]. Andrew asked that the
   whole roadmap be done and left to Claude how far it goes before Winter Survival; Claude kept the
   order: after slice 6 (L37) [ORDER-22].
+- **2026-10-24:** the second polishing pass: one floor preferred, two at most; today's rooms kept,
+  the polysemy lab its own room; the public rooms by the entrance; four drafts, with Claude's
+  suggested rooms for Andrew to veto [ROOM-20 to ROOM-24].
 
 ## Risks {#risks}
 
