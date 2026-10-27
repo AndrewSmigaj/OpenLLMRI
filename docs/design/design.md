@@ -747,19 +747,22 @@ on 2026-10-20):
 | Room | What you do there | What it replaces today |
 |---|---|---|
 | **the entrance hall** | where everyone arrives: the greeter (built with the AI scientists, slice 11), the map of the institute with what is new in each room, the quick-jump box [ROOM-2, MUD-23] | the MUD's hub room |
-| **the public simulation rooms** | visitors play Winter Survival; researchers watch, or start agent runs; Watch (following an agent's run as it plays) from slice 4 [ROOM-7, MUD-24] | the MUD's simulator room |
+| **the public simulation rooms** | visitors play Winter Survival; researchers watch, or start agent runs; Watch (following an agent's run as it plays) from slice 4 [ROOM-7, MUD-24] | the MUD's simulator room, whose jobs go to these rooms and the departments' own [ROOM-21] |
 | **a department** (four; each is also a lab) | opens the shared rooms with its own studies loaded; its own simulation room; its boards (its studies, open questions, findings proposed, recent results); its AI scientists from slice 11 [ROOM-15, MUD-25] | the polysemy lab stays its own room, in linguistics [ROOM-21] |
 | **the observatory** | read a lens across its layers: the Sankeys, 3-D, members, the output table, pipelines and hubs, fingerprints, node details, the analysis panel [ROOM-3] | the Layers screen |
 | **the lens workshop** | make and judge lenses: the form, preview, compare, validation, tuning, axes, mass-mean lenses; start node details [ROOM-4] | the Build screen |
-| **the library** | the sentence sets with their guides and audits, the scenario sets, captures and saved lenses; the builder for sets and scenarios from slice 3 [ROOM-5] | nothing (new) |
+| **the library** | the papers and articles we write, at the front where visitors can go [ROOM-5] | nothing (new) |
 | **the studies room** | every study: question, sets, captures, lenses, findings, ledger, status, showcase, and the department that holds it [ROOM-8, STUDY-2] | nothing (new) |
 | **the lounge** | spend time and talk, with people and with the AIs; it has no tools, so the app stays where it is [MUD-26] | nothing (new) |
 | **the meeting room** | the AIs' discussions, findings proposed to the paradigm among them; their agenda and record shown in the app from slice 11 (the AI scientists) [MUD-27] | nothing (new) |
+| **the scaffold studio** | scaffold studies; its tools come with slice 8 [ROOM-26] | nothing (new) |
 
-**Shared tools:** the observatory, the lens workshop, the library and the studies room serve every
-department, and a department opens them with its own studies already loaded, as the polysemy lab
-does now [ROOM-15]. The MUD workspace of the earlier design did two jobs, now split: designing
-scenarios moves to the library's builder, and keeping the MUD running to the simulation rooms
+**Shared tools:** the observatory, the lens workshop and the studies room serve every department,
+and a department opens them with its own studies already loaded, as the polysemy lab does now
+[ROOM-15]. Capturing, steering and similar tools are not rooms (there is no capture room or
+steering room): they are used inside whichever room needs them [ROOM-26]. The MUD workspace of the
+earlier design did two jobs, now split: designing scenarios moves to the builder, whose room is
+waiting for a decision when slice 3 is planned, and keeping the MUD running to the simulation rooms
 [ROOM-1]. Later rooms: the atlas, ideas (in the department of discordant studies), and researchers'
 rooms [ROOM-1, MUD-13].
 
@@ -784,68 +787,60 @@ With the new app's plan (Claude's timing, approved by Andrew on 2026-10-22, L38)
 characters are written and placed in their rooms in the first stage, so visitors can look at them
 and read about them; their minds come in the second [MUD-31].
 
-**A first map** (Claude's draft, the starting point for the polishing passes; for now superseded by
-the second pass's drafts, below [ROOM-20]). Visitors stay on the
-ground floor; the research rooms are upstairs; the stairs to the floor above the departments are
-out of service, leaving room for what the AI scientists later decide the institute needs (L38.4).
-The stairs rise from the entrance hall. The polishing passes start from this map (L38.2): its first
-layout file is `data/institute/layout.yaml`, drawn in the app's Institute tab, which adds a landing
-on each upper floor for the stairs to arrive in (Claude's addition) [ROOM-16, ROOM-19].
+**The floor plan** (approved by Andrew on 2026-10-27, after two rounds of drafts and his
+corrections) [ROOM-25]. A gap in a wall is a door; the dotted strips are corridors:
 
-**The second polishing pass (2026-10-24).** For the time being Andrew prefers a single floor, and
-two at most [ROOM-20]. The rooms that exist today are kept, and the polysemy lab stays its own room
-[ROOM-21]. The simulation rooms and the public rooms stay near the entrance, and Claude lays out the
-rest as it thinks best [ROOM-22]. Claude drew four drafts in `data/institute/drafts/`, chosen in the
-Institute tab [ROOM-23]; which to build on, which suggested rooms to keep and whether to keep the
-out-of-service stairs are card L39 on the plan page:
-- **A, one floor around a gallery:** the deeper in, the deeper the work: the public rooms at the
-  entrance, then the instruments, the records and the paradigm, and the departments at the back;
-- **B, one floor around an atrium:** every instrument one step from an atrium behind the entrance
-  hall, and the departments behind a department hall;
-- **C, two floors, visitors below and research above:** the ground floor only for visitors; upstairs
-  an instruments' wing and a departments' wing;
-- **D, two floors, instruments below and departments above:** the instruments in the order the work
-  runs on the ground floor; upstairs the departments around the studies room.
-
-Each draft carries Claude's suggested rooms for Andrew to keep or veto: the watch room, the scanner
-room, the calibration lab, the paradigm hall, the scaffold studio and the intervention lab
-[ROOM-24]; and the rooms already planned for later: the atlas, Ideas and the researchers' offices
-[ROOM-1].
-
-```mermaid
-flowchart BT
-  subgraph F3["Third floor · closed"]
-    future["an empty floor, kept for later"]
-  end
-  subgraph F2["Second floor · the departments"]
-    ling["Linguistics<br/>the polysemy lab · its simulation room · boards"]
-    mech["General mechanistic interpretability<br/>its simulation room · boards"]
-    align["Alignment<br/>its simulation room · boards"]
-    disc["Discordant studies<br/>Ideas · its simulation room · boards"]
-  end
-  subgraph F1["First floor · the shared research rooms"]
-    obs["Observatory"]
-    ws["Lens workshop"]
-    studies["Studies room"]
-    meet["Meeting room"]
-  end
-  subgraph G["Ground floor · open to visitors"]
-    hall["Entrance hall<br/>the greeter · the map · the quick-jump box"]
-    sim["Public simulation rooms 1, 2 and 3"]
-    lounge["Lounge"]
-    lib["Library"]
-  end
-  hall --- sim
-  hall --- lounge
-  hall --- lib
-  hall -- "stairs" --- F1
-  F1 -- "stairs" --- F2
-  F2 -. "stairs out of service" .- F3
+```
+┌────────────┬────────────┬───────────────────────────────┬─────────────────────────┬─────────────────────────┐
+│  Polysemy  │            │                               │                         │                         │
+│    lab     │ Ling. sim  │           Mech. sim           │       Align. sim        │      Discord. sim       │
+│            │            │                               │                         │                         │
+├────     ───┴────     ───┼────     ──────────────────────┼────     ────────────────┼────     ────────────────┤
+│                         │                               │                         │       DISCORDANT        │
+│       LINGUISTICS       │         MECH. INTERP          │        ALIGNMENT        │         STUDIES         │
+│                         │                               │                         │                         │
+├────     ────────────────┴────     ──────────────────────┴────     ────────────────┴────     ────────────────┤
+│· · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · ·│
+├────     ────────────────┬─────────────────────────┐ · · ┌─────────────────────────┬────     ────────────────┤
+│                         │                         │· · ·│                         │        Scaffold         │
+│      Meeting room       │       Observatory         · ·        Lens workshop      │         studio          │
+│                         │                         │· · ·│                         │                         │
+│                         ├─────────────────────────┤ · · ├─────────────────────────┤                         │
+│                         │                         │· · ·│                         │                         │
+│                         │         Lounge          │ · ·        Studies room       │                         │
+│                         │                         │· · ·│                         │                         │
+├─────────────────────────┴────────────┬────     ───┴─   ─┴────────────┬────────────┴─────────────────────────┤
+│                                      │                               │                                      │
+│             Public sim 1                                                                                    │
+│                                      │                               │                                      │
+├──────────────────────────────────────┤                               │                                      │
+│                                      │         ENTRANCE HALL         │                                      │
+│             Public sim 2                     greeter · stairs        │               Library                │
+│                                      │                               │                                      │
+├──────────────────────────────────────┤                               │                                      │
+│                                      │                               │                                      │
+│             Public sim 3                                             │                                      │
+│                                      │                               │                                      │
+└──────────────────────────────────────┴──────────────   ──────────────┴──────────────────────────────────────┘
 ```
 
+- **one floor,** with the out-of-service stairs rising from the entrance hall to a closed floor that
+  isn't drawn [ROOM-20, MUD-30];
+- **the visitors' rooms at the front:** the three public simulation rooms together and the same
+  size, the library with our papers, and the lounge, all opening onto the entrance hall
+  [ROOM-22, ROOM-5];
+- **the shared research rooms in the middle,** around a short central corridor; no shared room is
+  reached through another;
+- **the four departments together along the back,** on their own corridor, each with its private
+  rooms opening only from inside it; the polysemy lab stays its own room, in linguistics [ROOM-21];
+- **rooms, not tools, and no hallways turned into rooms** [ROOM-26].
+
+The earlier passes are kept in the decision log: Claude's first map on three floors (2026-10-20),
+and four drafts with suggested rooms (2026-10-24), which Andrew turned down as convoluted.
+
 **The layout is data** (Claude's proposal, approved with the new app's plan, L38): the institute is
-built from one file listing its departments and rooms, as the lab presets are today
-(`data/labs/`). A department or a room can then be added, renamed or moved without changing code;
+built from one file holding its floor plan, `data/institute/layout.yaml` (a grid, each room a
+rectangle on it, and the doors between rooms), as the lab presets are today (`data/labs/`). A department or a room can then be added, renamed or moved without changing code;
 the AI scientists will need this to redesign the institute [ROOM-16, MUD-28]. Each study names its
 department in its `study.yaml`.
 
@@ -1574,6 +1569,10 @@ What the design replaced, and with what:
 - **2026-10-24:** the second polishing pass: Andrew's rules for the layout written in (one floor
   preferred, two at most; today's rooms kept; the public rooms by the entrance), with Claude's four
   drafts and suggested rooms.
+- **2026-10-27:** the floor plan approved after Andrew's corrections: the scaffold studio kept and
+  the other suggested rooms dropped (the calibration lab folded into the lens workshop by Claude),
+  the simulator folded into the simulation rooms, the library for our papers at the front, the
+  departments together along the back.
 
 ## Decision log {#decision-log}
 
@@ -1696,3 +1695,10 @@ Every decision, by date, paraphrased. Each requirement holds its own date and so
   - the simulation rooms and the public rooms near the entrance, the rest as Claude thinks best
     [ROOM-22];
   - four drafts for the second pass, with Claude's suggested rooms for Andrew to veto [ROOM-23].
+- **2026-10-27:**
+  - the floor plan, on one floor, with the stairs kept [ROOM-25, ROOM-20];
+  - capturing and steering are tools used in the rooms, not rooms of their own; no hallways
+    turned into rooms; the scaffold studio kept [ROOM-26];
+  - the library holds the papers and articles we write [ROOM-5];
+  - the public simulation rooms together and the same size; the simulator's jobs go to the
+    simulation rooms [ROOM-22, ROOM-21].

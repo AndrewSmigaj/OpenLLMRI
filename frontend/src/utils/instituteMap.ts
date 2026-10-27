@@ -1,16 +1,13 @@
-// The institute's map, worked out from its layout (types/institute.ts): one plan per floor, the top
-// floor first, each room a box at its grid place, each exit within a floor a line between two
-// boxes, and the stairs as marks in the rooms they leave from. Pure, so it is unit-tested.
-import type { Direction, InstituteFloor, InstituteLayout, InstituteRoom } from '../types/institute'
+// The institute's floor plan, worked out from its layout (types/institute.ts): each room a rectangle
+// on the grid, walls wherever two rooms (or a room and the outside) meet, and a gap in a shared wall
+// for each door, plus the front door. Pure, so it is unit-tested.
+import type { InstituteLayout, InstituteRoom } from '../types/institute'
 
-export const CELL_W = 176
-export const CELL_H = 100
-export const GAP_X = 52
-export const GAP_Y = 44
-export const PAD = 16
-export const CLOSED_FLOOR_H = 56 // a closed floor holds no rooms: a band with its note
+export const SCALE = 22 // pixels per metre
+export const DOOR = 1.2 * SCALE // a door's width
+export const PAD = 12 // margin around the building
 
-export interface RoomBox {
+export interface RoomRect {
   room: InstituteRoom
   x: number
   y: number
@@ -18,97 +15,152 @@ export interface RoomBox {
   h: number
 }
 
-export interface MapEdge {
-  from: string
-  to: string
+export interface Wall {
   x1: number
   y1: number
   x2: number
   y2: number
 }
 
-export interface StairMark {
-  room: string
-  direction: 'up' | 'down'
-  to: InstituteRoom | null // null when the stairs are out of service
-  closed: string | null // what a player is told, when they are
-}
-
-export interface FloorPlan {
-  floor: InstituteFloor
-  boxes: RoomBox[]
-  edges: MapEdge[]
-  stairs: StairMark[]
+export interface Plan {
   width: number
   height: number
+  rooms: RoomRect[]
+  walls: Wall[] // with the doors already cut out
+  doors: { a: string; b: string; x: number; y: number }[] // the middle of each door
+  entrance: { x: number; y: number } | null
 }
 
-const VERTICAL: Direction[] = ['up', 'down']
+const offsets = (sizes: number[]) => sizes.reduce<number[]>((acc, s) => [...acc, acc[acc.length - 1] + s * SCALE], [0])
 
-export function floorPlans(layout: InstituteLayout): FloorPlan[] {
-  const byId = new Map(layout.rooms.map(room => [room.id, room]))
-  const plans = layout.floors.map(floor => {
-    const rooms = layout.rooms.filter(room => room.floor === floor.id)
-    if (rooms.length === 0) {
-      return { floor, boxes: [], edges: [], stairs: [], width: 2 * PAD + CELL_W, height: CLOSED_FLOOR_H }
-    }
-    const minCol = Math.min(...rooms.map(r => r.at[0]))
-    const minRow = Math.min(...rooms.map(r => r.at[1]))
-    const cols = Math.max(...rooms.map(r => r.at[0])) - minCol + 1
-    const rows = Math.max(...rooms.map(r => r.at[1])) - minRow + 1
-    const boxes = rooms.map(room => ({
-      room,
-      x: PAD + (room.at[0] - minCol) * (CELL_W + GAP_X),
-      y: PAD + (room.at[1] - minRow) * (CELL_H + GAP_Y),
-      w: CELL_W,
-      h: CELL_H,
-    }))
-    const boxOf = new Map(boxes.map(box => [box.room.id, box]))
-    const centre = (box: RoomBox) => [box.x + box.w / 2, box.y + box.h / 2]
-    const edges: MapEdge[] = []
-    const stairs: StairMark[] = []
-    for (const box of boxes) {
-      for (const [direction, target] of Object.entries(box.room.exits) as [Direction, string][]) {
-        if (VERTICAL.includes(direction)) {
-          stairs.push({ room: box.room.id, direction: direction as 'up' | 'down', to: byId.get(target) ?? null, closed: null })
-          continue
-        }
-        const other = boxOf.get(target)
-        if (!other || box.room.id > target) continue // each pair once
-        const [x1, y1] = centre(box)
-        const [x2, y2] = centre(other)
-        edges.push({ from: box.room.id, to: target, x1, y1, x2, y2 })
-      }
-      for (const [direction, told] of Object.entries(box.room.closed) as [Direction, string][]) {
-        if (VERTICAL.includes(direction)) {
-          stairs.push({ room: box.room.id, direction: direction as 'up' | 'down', to: null, closed: told })
-        }
-      }
-    }
-    return {
-      floor, boxes, edges, stairs,
-      width: 2 * PAD + cols * CELL_W + (cols - 1) * GAP_X,
-      height: 2 * PAD + rows * CELL_H + (rows - 1) * GAP_Y,
-    }
-  })
-  return plans.reverse() // the top floor first, as a building is drawn
+interface Segment {
+  x1: number
+  y1: number
+  x2: number
+  y2: number
+  sides: [string | null, string | null] // the rooms on either side; null is outside
 }
 
-export const FLOOR_HEADER = 30 // the floor's name above its plan
-export const FLOOR_GAP = 18
-
-// The whole map as one drawing: each floor's plan below the one above, under its name
-export function stackFloors(plans: FloorPlan[]): { tops: number[]; width: number; height: number } {
-  const tops: number[] = []
-  let y = 0
-  for (const plan of plans) {
-    tops.push(y + FLOOR_HEADER)
-    y += FLOOR_HEADER + plan.height + FLOOR_GAP
+export function floorPlan(layout: InstituteLayout): Plan {
+  const xs = offsets(layout.grid.columns).map(x => x + PAD)
+  const ys = offsets(layout.grid.rows).map(y => y + PAD)
+  const C = layout.grid.columns.length
+  const R = layout.grid.rows.length
+  const owner: (string | null)[][] = Array.from({ length: R }, () => Array<string | null>(C).fill(null))
+  for (const room of layout.rooms) {
+    const [c0, r0, c1, r1] = room.area
+    for (let r = r0; r <= r1; r++) for (let c = c0; c <= c1; c++) if (owner[r]?.[c] === null) owner[r][c] = room.id
   }
-  return { tops, width: Math.max(...plans.map(p => p.width), 0), height: Math.max(0, y - FLOOR_GAP) }
+  const at = (c: number, r: number) => (r >= 0 && r < R && c >= 0 && c < C ? owner[r][c] : null)
+
+  // Every unit of wall: between cells (or a cell and the outside) that belong to different rooms
+  const segments: Segment[] = []
+  for (let r = 0; r < R; r++) {
+    for (let c = 0; c <= C; c++) {
+      const left = at(c - 1, r)
+      const right = at(c, r)
+      if (left !== right) segments.push({ x1: xs[c], y1: ys[r], x2: xs[c], y2: ys[r + 1], sides: [left, right] })
+    }
+  }
+  for (let r = 0; r <= R; r++) {
+    for (let c = 0; c < C; c++) {
+      const above = at(c, r - 1)
+      const below = at(c, r)
+      if (above !== below) segments.push({ x1: xs[c], y1: ys[r], x2: xs[c + 1], y2: ys[r], sides: [above, below] })
+    }
+  }
+
+  // Each door goes in the middle of the wall its two rooms share
+  const cuts = new Map<Segment, { x: number; y: number }>()
+  const doors: Plan['doors'] = []
+  const between = (s: Segment, a: string | null, b: string | null) =>
+    (s.sides[0] === a && s.sides[1] === b) || (s.sides[0] === b && s.sides[1] === a)
+  const cutMiddle = (shared: Segment[]) => {
+    if (!shared.length) return null
+    const s = shared[Math.floor((shared.length - 1) / 2)]
+    const middle = { x: (s.x1 + s.x2) / 2, y: (s.y1 + s.y2) / 2 }
+    cuts.set(s, middle)
+    return middle
+  }
+  for (const [a, b] of layout.doors) {
+    const middle = cutMiddle(segments.filter(s => between(s, a, b)))
+    if (middle) doors.push({ a, b, ...middle })
+  }
+  // The front door: the middle of the entrance room's front wall
+  const entrance = cutMiddle(segments.filter(s => s.y1 === s.y2 && s.y1 === ys[R] && between(s, layout.entrance, null)))
+
+  const walls: Wall[] = []
+  for (const s of segments) {
+    const cut = cuts.get(s)
+    if (!cut) { walls.push({ x1: s.x1, y1: s.y1, x2: s.x2, y2: s.y2 }); continue }
+    if (s.x1 === s.x2) { // a vertical wall: leave a gap around the door's middle
+      walls.push({ x1: s.x1, y1: s.y1, x2: s.x1, y2: cut.y - DOOR / 2 }, { x1: s.x1, y1: cut.y + DOOR / 2, x2: s.x1, y2: s.y2 })
+    } else {
+      walls.push({ x1: s.x1, y1: s.y1, x2: cut.x - DOOR / 2, y2: s.y1 }, { x1: cut.x + DOOR / 2, y1: s.y1, x2: s.x2, y2: s.y1 })
+    }
+  }
+
+  return finish(layout, xs, ys, mergeWalls(walls), doors, entrance)
 }
 
-// A name broken into lines of at most `max` characters, at spaces (a longer word keeps its line)
+// Wall pieces that continue one another become one line, so joins draw cleanly
+export function mergeWalls(walls: Wall[]): Wall[] {
+  const merged: Wall[] = []
+  const flat = walls.filter(w => w.y1 === w.y2).map(w => ({ ...w, x1: Math.min(w.x1, w.x2), x2: Math.max(w.x1, w.x2) }))
+  const upright = walls.filter(w => w.x1 === w.x2).map(w => ({ ...w, y1: Math.min(w.y1, w.y2), y2: Math.max(w.y1, w.y2) }))
+  flat.sort((a, b) => a.y1 - b.y1 || a.x1 - b.x1)
+  for (const w of flat) {
+    const last = merged[merged.length - 1]
+    if (last && last.y1 === last.y2 && last.y1 === w.y1 && w.x1 <= last.x2) last.x2 = Math.max(last.x2, w.x2)
+    else merged.push({ ...w })
+  }
+  upright.sort((a, b) => a.x1 - b.x1 || a.y1 - b.y1)
+  for (const w of upright) {
+    const last = merged[merged.length - 1]
+    if (last && last.x1 === last.x2 && last.x1 === w.x1 && w.y1 <= last.y2) last.y2 = Math.max(last.y2, w.y2)
+    else merged.push({ ...w })
+  }
+  return merged
+}
+
+function finish(layout: InstituteLayout, xs: number[], ys: number[], walls: Wall[], doors: Plan['doors'],
+  entrance: Plan['entrance']): Plan {
+  const C = layout.grid.columns.length
+  const R = layout.grid.rows.length
+  const rooms = layout.rooms.map(room => {
+    const [c0, r0, c1, r1] = room.area
+    return { room, x: xs[c0], y: ys[r0], w: xs[c1 + 1] - xs[c0], h: ys[r1 + 1] - ys[r0] }
+  })
+  return { width: xs[C] + PAD, height: ys[R] + PAD, rooms, walls, doors, entrance }
+}
+
+// The visitors' rooms: the entrance room and every room with a door onto it, corridors aside
+export function visitorRooms(layout: InstituteLayout): Set<string> {
+  const corridors = new Set(layout.rooms.filter(r => r.corridor).map(r => r.id))
+  const found = new Set([layout.entrance])
+  for (const [a, b] of layout.doors) {
+    if (a === layout.entrance && !corridors.has(b)) found.add(b)
+    if (b === layout.entrance && !corridors.has(a)) found.add(a)
+  }
+  return found
+}
+
+// A room's fill: each department's rooms share a light tint of its colour; visitors' rooms are warm,
+// shared rooms white, corridors pale
+const DEPARTMENT_TINTS = ['#dbeafe', '#ede9fe', '#d1fae5', '#fce7f3', '#fef3c7', '#cffafe']
+export const FILLS = { visitors: '#fff7ed', shared: '#ffffff', corridor: '#f3f4f6' }
+
+export function roomFill(room: InstituteRoom, layout: InstituteLayout, visitors: Set<string>): string {
+  if (room.corridor) return FILLS.corridor
+  if (room.department) {
+    const index = layout.departments.findIndex(d => d.id === room.department)
+    return DEPARTMENT_TINTS[Math.max(0, index) % DEPARTMENT_TINTS.length]
+  }
+  return visitors.has(room.id) ? FILLS.visitors : FILLS.shared
+}
+
+// A name broken into lines of at most `max` characters, at spaces; a short last word ("room 1")
+// takes the word before it along rather than stand alone
 export function wrapWords(text: string, max: number): string[] {
   const lines: string[] = []
   for (const word of text.split(/\s+/).filter(Boolean)) {
@@ -116,34 +168,16 @@ export function wrapWords(text: string, max: number): string[] {
     if (last !== undefined && last.length + 1 + word.length <= max) lines[lines.length - 1] = `${last} ${word}`
     else lines.push(word)
   }
-  // A short last word ("room 1") takes the word before it along, rather than stand alone
-  const last = lines.length - 1
-  if (last > 0 && lines[last].length <= 2 && lines[last - 1].includes(' ')) {
-    const cut = lines[last - 1].lastIndexOf(' ')
-    lines[last] = `${lines[last - 1].slice(cut + 1)} ${lines[last]}`
-    lines[last - 1] = lines[last - 1].slice(0, cut)
+  const end = lines.length - 1
+  if (end > 0 && lines[end].length <= 2 && lines[end - 1].includes(' ')) {
+    const cut = lines[end - 1].lastIndexOf(' ')
+    lines[end] = `${lines[end - 1].slice(cut + 1)} ${lines[end]}`
+    lines[end - 1] = lines[end - 1].slice(0, cut)
   }
   return lines
 }
 
-// Each department's colour, and the rooms' colours by what they open; a department's rooms take
-// its colour, its simulation room a lighter tint of it
-const DEPARTMENT_COLOURS = ['#2563eb', '#7c3aed', '#059669', '#db2777', '#d97706', '#0891b2']
-const ROOM_COLOURS: Record<string, string> = {
-  entrance: '#b45309', simulation: '#0f766e', library: '#4338ca', observatory: '#0369a1',
-  workshop: '#6d28d9', studies: '#047857', meeting: '#c2410c',
-}
-const IN_MUD_ONLY = '#6b7280'
-
-export function roomColour(room: InstituteRoom, layout: InstituteLayout): string {
-  if (room.department) {
-    const index = layout.departments.findIndex(d => d.id === room.department)
-    return DEPARTMENT_COLOURS[Math.max(0, index) % DEPARTMENT_COLOURS.length]
-  }
-  return room.opens ? ROOM_COLOURS[room.opens] ?? IN_MUD_ONLY : IN_MUD_ONLY
-}
-
-// What each app room is called on the map, and what does its job until the room is built
+// What each app room is called, and what does its job until the room is built
 export const APP_ROOM_NAMES: Record<string, string> = {
   entrance: 'the entrance hall', simulation: 'a simulation room', department: 'a department', lab: 'a lab',
   observatory: 'the observatory', workshop: 'the lens workshop', library: 'the library',
@@ -151,16 +185,4 @@ export const APP_ROOM_NAMES: Record<string, string> = {
 }
 export const TODAY: Record<string, string> = {
   observatory: '/layers', workshop: '/build', lab: '/layers',
-}
-
-// How a room not built yet is drawn and named: Claude's suggestions dashed, rooms planned for later dotted
-export const STAGE_STYLE: Record<string, { stroke: string; dash: string; label: string }> = {
-  suggested: { stroke: '#d97706', dash: '6 4', label: 'suggested by Claude' },
-  later: { stroke: '#6b7280', dash: '2 3', label: 'planned for later' },
-}
-
-// What a room's box says under its name
-export function roomCaption(room: InstituteRoom): string {
-  if (room.stage) return STAGE_STYLE[room.stage].label
-  return room.opens ? `opens ${APP_ROOM_NAMES[room.opens]}` : 'in the MUD only'
 }

@@ -4100,12 +4100,13 @@ requirements:
   section: design.md#rooms
 - id: ROOM-5
   text: >-
-    The library is what OpenLLMRI holds: sentence sets with their guides and audits, scenario sets,
-    captures and saved lenses, and later scaffolds. The builder (slice 3) works here.
-  status: proposed
+    The library holds the papers and articles we write; a study's sets, captures and lenses are seen
+    with the study, in the studies room (Claude's reading of the same note). It sits at the front,
+    where visitors can go.
+  status: decided
   built: no
-  dates: [2026-10-11]
-  source: Claude
+  dates: [2026-10-11, 2026-10-27]
+  source: message (2026-10-27); Claude's earlier library (2026-10-11) replaced
   from: []
   section: design.md#rooms
 - id: ROOM-6
@@ -4217,13 +4218,13 @@ requirements:
   section: design.md#rooms
 - id: ROOM-16
   text: >-
-    The institute's layout is data: one file lists its departments and rooms and the MUD builds the
-    institute from it, as the lab presets are today, so a department or a room can be added,
-    renamed or moved without changing code (what MUD-28 needs); each study names its department in
-    its study.yaml.
+    The institute's layout is data: one file holds its floor plan (a grid, each room a rectangle on
+    it, and the doors between rooms that share a wall); the app draws the map from it and the MUD
+    builds the institute from it, so a room can be added, renamed or moved without changing code
+    (what MUD-28 needs); each study names its department in its study.yaml.
   status: decided
   built: partly
-  dates: [2026-10-18, 2026-10-22]
+  dates: [2026-10-18, 2026-10-22, 2026-10-27]
   source: Claude; approved with the new app's plan (L38)
   from: []
   section: design.md#rooms
@@ -4255,43 +4256,45 @@ requirements:
 - id: ROOM-19
   text: >-
     A couple of polishing passes over the institute's layout before building begins, with a map of
-    the institute in the app, starting from Claude's first map (L38.2); then iterations to improve
-    the room descriptions.
+    the institute in the app, starting from Claude's first map (L38.2) and ending with the floor plan
+    of 2026-10-27 (ROOM-25); then iterations to improve the room descriptions.
   status: decided
   built: partly
-  dates: [2026-10-20, 2026-10-22]
+  dates: [2026-10-20, 2026-10-22, 2026-10-27]
   source: L31; L34; L38.2
   from: []
   section: design.md#rooms
 - id: ROOM-20
   text: >-
     For the time being Andrew prefers the institute on a single floor, and two floors at most: a third
-    floor only breaks it up. Claude keeps the out-of-service stairs and the closed floor behind them
-    (MUD-30), not drawn, unless Andrew says otherwise (L39.3).
+    floor only breaks it up. The out-of-service stairs stay, rising from the entrance hall to the
+    closed floor (MUD-30), which isn't drawn (L39.3).
   status: decided
-  built: no
-  dates: [2026-10-24]
-  source: message; the closed floor kept by Claude's reading of MUD-30
+  built: partly
+  dates: [2026-10-24, 2026-10-27]
+  source: message; L39.3
   from: []
   section: design.md#rooms
 - id: ROOM-21
   text: >-
-    The rooms there are today are kept, not folded into others: the polysemy lab stays its own room
-    (in linguistics, as in L34). Claude reads the hub as kept in the entrance hall and keeps the simulator beside
-    the public simulation rooms.
+    Rooms that serve a purpose of their own are kept, not folded into others: the polysemy lab stays
+    its own room, in linguistics. Today's simulator room isn't kept apart, since the public simulation
+    rooms and each department's own already do its jobs (2026-10-27); the hub becomes the entrance
+    hall (Claude's reading).
   status: decided
-  built: no
-  dates: [2026-10-24]
-  source: message; the hub and the simulator by Claude's reading
+  built: partly
+  dates: [2026-10-24, 2026-10-27]
+  source: message; the hub by Claude's reading
   from: []
   section: design.md#rooms
 - id: ROOM-22
   text: >-
-    The simulation rooms and the public rooms stay near the entrance; the rest is laid out as Claude
+    The simulation rooms and the public rooms stay near the entrance: the three public simulation
+    rooms together, all the same size, and the library close by; the rest is laid out as Claude
     thinks best.
   status: decided
-  built: no
-  dates: [2026-10-24]
+  built: partly
+  dates: [2026-10-24, 2026-10-27]
   source: message
   from: []
   section: design.md#rooms
@@ -4300,22 +4303,53 @@ requirements:
     For the second polishing pass Claude draws four layouts, two on one floor and two on two floors,
     and adds new rooms Claude suggests for the institute and its aim of modelling gpt-oss-20b, which
     Andrew keeps or vetoes.
+  status: retired
+  built: partly
+  dates: [2026-10-24, 2026-10-27]
+  source: message
+  from: []
+  section: design.md#retired
+  replaced_by: [ROOM-25]
+- id: ROOM-24
+  text: >-
+    Claude's suggested rooms, on all four drafts: the watch room, the scanner room, the calibration
+    lab, the paradigm hall, the scaffold studio and the intervention lab. Andrew kept the scaffold
+    studio, turned down the scanner room and the intervention lab as rooms, was lukewarm on the
+    calibration lab and didn't rule on the rest; Claude folded the calibration lab into the lens
+    workshop and dropped the others (ROOM-26).
+  status: retired
+  built: no
+  dates: [2026-10-24, 2026-10-27]
+  source: Claude; Andrew's answer, 2026-10-27
+  from: []
+  section: design.md#retired
+  replaced_by: [ROOM-26]
+- id: ROOM-25
+  text: >-
+    The institute is one floor. The visitors' rooms are at the front: the entrance hall, the three
+    public simulation rooms together on its left, the library on its right, and the lounge just
+    behind it. The shared research rooms are in the middle, around a short central corridor. The
+    four departments are together along the back on their own corridor, each with its private rooms
+    behind it; the polysemy lab is part of linguistics. Andrew set those rules and approved the
+    drawing as a whole; the arrangement inside them is Claude's (where the lounge and each shared
+    room sit, the central corridor, the order of the departments).
   status: decided
   built: partly
-  dates: [2026-10-24]
+  dates: [2026-10-27]
   source: message
   from: []
   section: design.md#rooms
-- id: ROOM-24
+- id: ROOM-26
   text: >-
-    Claude's suggested rooms, on all four drafts: the watch room (agent runs followed live with
-    their lens readings), the scanner room (captures and the GPU queue), the calibration lab (the
-    instruments checked before they are trusted), the paradigm hall (the accepted findings), the
-    scaffold studio (scaffold studies) and the intervention lab (steering, ablation, expert masks).
-  status: proposed
-  built: no
-  dates: [2026-10-24]
-  source: Claude
+    Capturing and steering are tools used by every kind of study, so there is no capture room or
+    steering room: they are used inside whichever room needs them (Claude extends this to ablation,
+    expert masks and watching runs). Hallways are hallways, not rooms with names of their own. The
+    scaffold studio is kept as a room. The calibration lab's checks belong to the lens workshop,
+    which judges lenses (Claude's call, after Andrew was lukewarm on it).
+  status: decided
+  built: partly
+  dates: [2026-10-27]
+  source: message; the calibration lab by Claude
   from: []
   section: design.md#rooms
 

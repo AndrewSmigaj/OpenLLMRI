@@ -1,54 +1,37 @@
-"""The institute's layout (DESIGN.md's rooms; ROOM-16): one file, `data/institute/layout.yaml`,
-lists the floors, departments, rooms, exits and where the non-player characters stand. The app draws
-the institute's map from it and the MUD builds the institute from it, so a polishing pass over the
-layout changes only that file. Drafts for a pass sit beside it in `data/institute/drafts/`, one file
-each, until Andrew picks one.
+"""The institute's layout (DESIGN.md's rooms; ROOM-16): one file, `data/institute/layout.yaml`, holds
+the institute's floor plan: a grid of columns and rows, each room a rectangle of grid cells, and the
+doors between rooms that share a wall. The app draws the map from it and the MUD builds the
+institute from it, so a change to the layout changes only that file.
 
-A layout is whole when (`problems`):
-- ids are unique, and every room names a floor and department that exist;
-- a closed floor holds no room, and no two rooms share a place on a floor;
-- every exit leads to a room that exists, in the direction its place says (east along the same row,
-  north up the same column, northeast along the diagonal; up and down the floor above and below)
-  with no room in between, and has its way back;
-- every room can be reached from the entrance through exits that are open;
-- every department has its own room and at least one simulation room.
+The grid's columns and rows each have a size of their own (in metres), so a corridor can be narrow
+and a room wide. A layout is whole when (`problems`):
+- ids are unique, every department a room names exists, and every room lies on the grid;
+- the rooms fill the grid with no overlap, so the building is one rectangle;
+- every door joins two rooms that share a wall, and the entrance room is on the front (bottom) edge;
+- every room can be reached from the entrance through doors;
+- every department has its own room and a simulation room, and its other rooms open only from
+  rooms of that department.
 """
 
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Any, Dict, List, Literal, Optional, Tuple
+from typing import Any, Dict, List, Literal, Optional, Set, Tuple
 
 import yaml  # type: ignore[import-untyped]  # no PyYAML stubs (types-PyYAML) in the venv
 from pydantic import BaseModel, ConfigDict, Field, ValidationError
 
 from api.config import PROJECT_ROOT
 
-Direction = Literal["north", "south", "east", "west", "northeast", "northwest", "southeast", "southwest",
-                    "up", "down"]
 AppRoom = Literal["entrance", "simulation", "department", "lab", "observatory", "workshop", "library",
                   "studies", "meeting"]
-# A room not built yet: "later", one the design already plans for later; "suggested", Claude's
-# suggestion, waiting for Andrew to keep it or veto it
-Stage = Literal["later", "suggested"]
-
-# The grid step each direction takes: (columns east, rows south)
-STEPS: Dict[str, Tuple[int, int]] = {
-    "north": (0, -1), "south": (0, 1), "east": (1, 0), "west": (-1, 0),
-    "northeast": (1, -1), "northwest": (-1, -1), "southeast": (1, 1), "southwest": (-1, 1),
-}
-OPPOSITE: Dict[str, Direction] = {
-    "north": "south", "south": "north", "east": "west", "west": "east", "northeast": "southwest",
-    "southwest": "northeast", "northwest": "southeast", "southeast": "northwest", "up": "down", "down": "up",
-}
+Cell = Tuple[int, int]  # (column, row), rows counted from the back of the building
 
 
-class Floor(BaseModel):
+class Grid(BaseModel):
     model_config = ConfigDict(extra="forbid")
-    id: str
-    name: str
-    note: str = ""
-    closed: bool = False
+    columns: List[float]  # each column's width, in metres, from left to right
+    rows: List[float]  # each row's depth, in metres, from the back to the front
 
 
 class Department(BaseModel):
@@ -68,38 +51,33 @@ class Room(BaseModel):
     model_config = ConfigDict(extra="forbid")
     id: str
     name: str
-    floor: str
-    at: Tuple[int, int]  # [column, row] on its floor's grid
+    area: Tuple[int, int, int, int]  # first column, first row, last column, last row (inclusive)
     summary: str
     opens: Optional[AppRoom] = None  # the app room it opens; none: in the MUD only
     department: Optional[str] = None
-    stage: Optional[Stage] = None
-    exits: Dict[Direction, str] = Field(default_factory=dict)
-    closed: Dict[Direction, str] = Field(default_factory=dict)  # out of service, with what a player is told
+    corridor: bool = False  # a way through, drawn as circulation
+    notes: List[str] = Field(default_factory=list)  # what else is there, such as stairs out of service
     characters: List[Character] = Field(default_factory=list)
+
+    def cells(self) -> List[Cell]:
+        c0, r0, c1, r1 = self.area
+        return [(c, r) for r in range(r0, r1 + 1) for c in range(c0, c1 + 1)]
 
 
 class Layout(BaseModel):
     model_config = ConfigDict(extra="forbid")
     version: int
     title: str = ""
-    about: str = ""  # what the layout is built around
-    floors: List[Floor]  # from the bottom up
+    about: str = ""
+    grid: Grid
     departments: List[Department] = Field(default_factory=list)
     rooms: List[Room]
+    doors: List[Tuple[str, str]]  # each a pair of room ids
+    entrance: str  # the room the front door opens into
 
 
 def layout_path() -> Path:
     return PROJECT_ROOT / "data" / "institute" / "layout.yaml"
-
-
-def drafts_root() -> Path:
-    return PROJECT_ROOT / "data" / "institute" / "drafts"
-
-
-def draft_names() -> List[str]:
-    root = drafts_root()
-    return sorted(p.stem for p in root.glob("*.yaml")) if root.exists() else []
 
 
 def load_layout(path: Optional[Path] = None) -> Layout:
@@ -107,83 +85,78 @@ def load_layout(path: Optional[Path] = None) -> Layout:
     return Layout(**(yaml.safe_load(text) or {}))
 
 
-def _along(start: Tuple[int, int], end: Tuple[int, int], step: Tuple[int, int]) -> bool:
-    """Whether `end` lies some whole number of steps from `start` in the step's direction."""
-    dx, dy = end[0] - start[0], end[1] - start[1]
-    n = max(abs(dx), abs(dy))
-    return n > 0 and (dx, dy) == (step[0] * n, step[1] * n)
-
-
-def _between(start: Tuple[int, int], end: Tuple[int, int], step: Tuple[int, int]) -> List[Tuple[int, int]]:
-    n = max(abs(end[0] - start[0]), abs(end[1] - start[1]))
-    return [(start[0] + step[0] * i, start[1] + step[1] * i) for i in range(1, n)]
-
-
 def _duplicates(ids: List[str]) -> List[str]:
     return sorted({i for i in ids if ids.count(i) > 1})
+
+
+def owners(layout: Layout) -> Dict[Cell, str]:
+    """Which room holds each grid cell (the first room listed, where two overlap)."""
+    held: Dict[Cell, str] = {}
+    for room in layout.rooms:
+        for cell in room.cells():
+            held.setdefault(cell, room.id)
+    return held
+
+
+def share_a_wall(layout: Layout, a: str, b: str) -> bool:
+    held = owners(layout)
+    return any(held.get((c + dc, r + dr)) == b
+               for (c, r), room in held.items() if room == a
+               for dc, dr in ((1, 0), (-1, 0), (0, 1), (0, -1)))
 
 
 def problems(layout: Layout) -> List[str]:
     """Everything that keeps the layout from being whole (empty when it is)."""
     found: List[str] = []
-    floors = {f.id: i for i, f in enumerate(layout.floors)}
-    closed_floors = {f.id for f in layout.floors if f.closed}
+    columns, rows = len(layout.grid.columns), len(layout.grid.rows)
     departments = {d.id for d in layout.departments}
     rooms = {r.id: r for r in layout.rooms}
     characters = [c.id for r in layout.rooms for c in r.characters]
-    for kind, ids in (("floor", [f.id for f in layout.floors]), ("department", [d.id for d in layout.departments]),
-                      ("room", [r.id for r in layout.rooms]), ("character", characters)):
+    for kind, ids in (("department", [d.id for d in layout.departments]), ("room", [r.id for r in layout.rooms]),
+                      ("character", characters)):
         found += [f"two {kind}s share the id {i!r}" for i in _duplicates(ids)]
 
-    places: Dict[Tuple[str, int, int], str] = {}
+    seen: Dict[Cell, str] = {}
     for room in layout.rooms:
-        if room.floor not in floors:
-            found.append(f"{room.id}: no floor {room.floor!r}")
+        c0, r0, c1, r1 = room.area
+        if not (0 <= c0 <= c1 < columns and 0 <= r0 <= r1 < rows):
+            found.append(f"{room.id}: its area {list(room.area)} isn't on the {columns} by {rows} grid")
             continue
-        if room.floor in closed_floors:
-            found.append(f"{room.id}: the {room.floor} floor is closed, so it holds no room")
         if room.department is not None and room.department not in departments:
             found.append(f"{room.id}: no department {room.department!r}")
-        place = (room.floor, *room.at)
-        if place in places:
-            found.append(f"{room.id} and {places[place]} share the place {list(room.at)} on the {room.floor} floor")
-        places[place] = room.id
-        for direction in set(room.exits) & set(room.closed):
-            found.append(f"{room.id}: the {direction} exit is both open and out of service")
-        for direction, target_id in room.exits.items():
-            target = rooms.get(target_id)
-            if target is None:
-                found.append(f"{room.id}: its {direction} exit leads to no room {target_id!r}")
-                continue
-            if target.exits.get(OPPOSITE[direction]) != room.id:
-                found.append(f"{room.id}: its {direction} exit to {target_id} has no way back ({OPPOSITE[direction]})")
-            if target.floor not in floors:
-                continue
-            if direction in STEPS:
-                if target.floor != room.floor or not _along(room.at, target.at, STEPS[direction]):
-                    found.append(f"{room.id}: {target_id} isn't {direction} of it")
-                    continue
-                between = _between(room.at, target.at, STEPS[direction])
-                blocking = [r.id for r in layout.rooms if r.floor == room.floor and tuple(r.at) in between]
-                if blocking:
-                    found.append(f"{room.id}: its {direction} exit to {target_id} passes through {', '.join(blocking)}")
-            else:
-                rise = 1 if direction == "up" else -1
-                if floors[target.floor] != floors[room.floor] + rise:
-                    found.append(f"{room.id}: {target_id} isn't on the floor {direction} from it")
+        for cell in room.cells():
+            if cell in seen:
+                found.append(f"{room.id} and {seen[cell]} overlap at {list(cell)}")
+            seen.setdefault(cell, room.id)
+    empty = [list(cell) for cell in ((c, r) for r in range(rows) for c in range(columns)) if cell not in seen]
+    if empty:
+        found.append(f"no room fills {empty}: the building isn't one rectangle")
 
-    entrances = [r.id for r in layout.rooms if r.opens == "entrance"]
-    if len(entrances) != 1:
-        found.append(f"one room opens the entrance; found {len(entrances)}")
+    links: Dict[str, Set[str]] = {r: set() for r in rooms}
+    pairs = [tuple(sorted(d)) for d in layout.doors]
+    found += [f"two doors join {a} and {b}" for a, b in sorted({p for p in pairs if pairs.count(p) > 1})]
+    for a, b in layout.doors:
+        missing = [x for x in (a, b) if x not in rooms]
+        if missing:
+            found.append(f"a door leads to no room {missing[0]!r}")
+        elif a == b or not share_a_wall(layout, a, b):
+            found.append(f"the door between {a} and {b} has no wall to sit in")
+        else:
+            links[a].add(b)
+            links[b].add(a)
+
+    if layout.entrance not in rooms:
+        found.append(f"no entrance room {layout.entrance!r}")
     else:
-        reached = {entrances[0]}
-        frontier = [entrances[0]]
+        if rooms[layout.entrance].area[3] != rows - 1:
+            found.append(f"the entrance room {layout.entrance} isn't on the front edge")
+        reached, frontier = {layout.entrance}, [layout.entrance]
         while frontier:
-            for next_id in rooms[frontier.pop()].exits.values():
-                if next_id in rooms and next_id not in reached:
+            for next_id in links[frontier.pop()]:
+                if next_id not in reached:
                     reached.add(next_id)
                     frontier.append(next_id)
-        found += [f"{r.id} can't be reached from the entrance" for r in layout.rooms if r.id not in reached]
+        found += [f"{r} can't be reached from the entrance" for r in rooms if r not in reached]
 
     for department in layout.departments:
         own = [r for r in layout.rooms if r.department == department.id]
@@ -191,6 +164,11 @@ def problems(layout: Layout) -> List[str]:
             found.append(f"the {department.id} department needs one room of its own")
         if not any(r.opens == "simulation" for r in own):
             found.append(f"the {department.id} department has no simulation room")
+        for room in own:
+            if room.opens != "department":
+                outside = sorted(n for n in links[room.id] if rooms[n].department != department.id)
+                if outside:
+                    found.append(f"{room.id} belongs to {department.id} but opens onto {', '.join(outside)}")
     return found
 
 
@@ -201,15 +179,3 @@ def layout_report(path: Optional[Path] = None) -> Dict[str, Any]:
     except (OSError, yaml.YAMLError, ValidationError, TypeError) as error:
         return {"layout": None, "problems": [], "error": str(error)}
     return {"layout": layout.model_dump(), "problems": problems(layout), "error": None}
-
-
-def layouts() -> List[Dict[str, Any]]:
-    """The layout in use and every draft: name, title, file, and how many problems each has."""
-    found = []
-    for name, path in [("current", layout_path()), *[(n, drafts_root() / f"{n}.yaml") for n in draft_names()]]:
-        report = layout_report(path)
-        layout = report["layout"] or {}
-        found.append({"name": name, "title": layout.get("title") or name,
-                      "file": str(path.relative_to(PROJECT_ROOT)),
-                      "problems": len(report["problems"]) + (1 if report["error"] else 0)})
-    return found
